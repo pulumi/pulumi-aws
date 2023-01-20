@@ -44,11 +44,17 @@ class GetEventSourceResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the partner event source
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> str:
+        """
+        Name of the SaaS partner that created the event source
+        """
         return pulumi.get(self, "created_by")
 
     @property
@@ -62,6 +68,9 @@ class GetEventSourceResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the event source
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -72,6 +81,9 @@ class GetEventSourceResult:
     @property
     @pulumi.getter
     def state(self) -> str:
+        """
+        State of the event source (`ACTIVE` or `PENDING`)
+        """
         return pulumi.get(self, "state")
 
 
@@ -92,7 +104,21 @@ class AwaitableGetEventSourceResult(GetEventSourceResult):
 def get_event_source(name_prefix: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventSourceResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about an EventBridge Partner Event Source. This data source will only return one partner event source. An error will be returned if multiple sources match the same name prefix.
+
+    > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    examplepartner = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
+    ```
+
+
+    :param str name_prefix: Specifying this limits the results to only those partner event sources with names that start with the specified prefix
     """
     __args__ = dict()
     __args__['namePrefix'] = name_prefix
@@ -112,6 +138,20 @@ def get_event_source(name_prefix: Optional[str] = None,
 def get_event_source_output(name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSourceResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about an EventBridge Partner Event Source. This data source will only return one partner event source. An error will be returned if multiple sources match the same name prefix.
+
+    > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    examplepartner = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
+    ```
+
+
+    :param str name_prefix: Specifying this limits the results to only those partner event sources with names that start with the specified prefix
     """
     ...

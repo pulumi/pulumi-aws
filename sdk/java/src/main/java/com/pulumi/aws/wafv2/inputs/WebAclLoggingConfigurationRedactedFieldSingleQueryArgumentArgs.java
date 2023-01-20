@@ -14,6 +14,8 @@ public final class WebAclLoggingConfigurationRedactedFieldSingleQueryArgumentArg
     public static final WebAclLoggingConfigurationRedactedFieldSingleQueryArgumentArgs Empty = new WebAclLoggingConfigurationRedactedFieldSingleQueryArgumentArgs();
 
     /**
+     * The name of the query header to redact. This setting must be provided as lower case characters.
+     * 
      * @deprecated
      * Not supported by WAFv2 API
      * 
@@ -23,6 +25,8 @@ public final class WebAclLoggingConfigurationRedactedFieldSingleQueryArgumentArg
     private Output<String> name;
 
     /**
+     * @return The name of the query header to redact. This setting must be provided as lower case characters.
+     * 
      * @deprecated
      * Not supported by WAFv2 API
      * 
@@ -57,6 +61,8 @@ public final class WebAclLoggingConfigurationRedactedFieldSingleQueryArgumentArg
         }
 
         /**
+         * @param name The name of the query header to redact. This setting must be provided as lower case characters.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -70,6 +76,8 @@ public final class WebAclLoggingConfigurationRedactedFieldSingleQueryArgumentArg
         }
 
         /**
+         * @param name The name of the query header to redact. This setting must be provided as lower case characters.
+         * 
          * @return builder
          * 
          * @deprecated

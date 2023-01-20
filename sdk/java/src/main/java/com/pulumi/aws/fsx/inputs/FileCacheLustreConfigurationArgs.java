@@ -19,9 +19,17 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
 
     public static final FileCacheLustreConfigurationArgs Empty = new FileCacheLustreConfigurationArgs();
 
+    /**
+     * Specifies the cache deployment type. The only supported value is `CACHE_1`.
+     * 
+     */
     @Import(name="deploymentType", required=true)
     private Output<String> deploymentType;
 
+    /**
+     * @return Specifies the cache deployment type. The only supported value is `CACHE_1`.
+     * 
+     */
     public Output<String> deploymentType() {
         return this.deploymentType;
     }
@@ -33,9 +41,17 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
         return Optional.ofNullable(this.logConfigurations);
     }
 
+    /**
+     * The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+     * 
+     */
     @Import(name="metadataConfigurations", required=true)
     private Output<List<FileCacheLustreConfigurationMetadataConfigurationArgs>> metadataConfigurations;
 
+    /**
+     * @return The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+     * 
+     */
     public Output<List<FileCacheLustreConfigurationMetadataConfigurationArgs>> metadataConfigurations() {
         return this.metadataConfigurations;
     }
@@ -47,16 +63,32 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
         return Optional.ofNullable(this.mountName);
     }
 
+    /**
+     * Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+     * 
+     */
     @Import(name="perUnitStorageThroughput", required=true)
     private Output<Integer> perUnitStorageThroughput;
 
+    /**
+     * @return Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+     * 
+     */
     public Output<Integer> perUnitStorageThroughput() {
         return this.perUnitStorageThroughput;
     }
 
+    /**
+     * A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+     * 
+     */
     @Import(name="weeklyMaintenanceStartTime")
     private @Nullable Output<String> weeklyMaintenanceStartTime;
 
+    /**
+     * @return A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+     * 
+     */
     public Optional<Output<String>> weeklyMaintenanceStartTime() {
         return Optional.ofNullable(this.weeklyMaintenanceStartTime);
     }
@@ -90,11 +122,23 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
             $ = new FileCacheLustreConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param deploymentType Specifies the cache deployment type. The only supported value is `CACHE_1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deploymentType(Output<String> deploymentType) {
             $.deploymentType = deploymentType;
             return this;
         }
 
+        /**
+         * @param deploymentType Specifies the cache deployment type. The only supported value is `CACHE_1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deploymentType(String deploymentType) {
             return deploymentType(Output.of(deploymentType));
         }
@@ -112,15 +156,33 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
             return logConfigurations(List.of(logConfigurations));
         }
 
+        /**
+         * @param metadataConfigurations The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metadataConfigurations(Output<List<FileCacheLustreConfigurationMetadataConfigurationArgs>> metadataConfigurations) {
             $.metadataConfigurations = metadataConfigurations;
             return this;
         }
 
+        /**
+         * @param metadataConfigurations The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metadataConfigurations(List<FileCacheLustreConfigurationMetadataConfigurationArgs> metadataConfigurations) {
             return metadataConfigurations(Output.of(metadataConfigurations));
         }
 
+        /**
+         * @param metadataConfigurations The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metadataConfigurations(FileCacheLustreConfigurationMetadataConfigurationArgs... metadataConfigurations) {
             return metadataConfigurations(List.of(metadataConfigurations));
         }
@@ -134,20 +196,44 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
             return mountName(Output.of(mountName));
         }
 
+        /**
+         * @param perUnitStorageThroughput Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder perUnitStorageThroughput(Output<Integer> perUnitStorageThroughput) {
             $.perUnitStorageThroughput = perUnitStorageThroughput;
             return this;
         }
 
+        /**
+         * @param perUnitStorageThroughput Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder perUnitStorageThroughput(Integer perUnitStorageThroughput) {
             return perUnitStorageThroughput(Output.of(perUnitStorageThroughput));
         }
 
+        /**
+         * @param weeklyMaintenanceStartTime A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder weeklyMaintenanceStartTime(@Nullable Output<String> weeklyMaintenanceStartTime) {
             $.weeklyMaintenanceStartTime = weeklyMaintenanceStartTime;
             return this;
         }
 
+        /**
+         * @param weeklyMaintenanceStartTime A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder weeklyMaintenanceStartTime(String weeklyMaintenanceStartTime) {
             return weeklyMaintenanceStartTime(Output.of(weeklyMaintenanceStartTime));
         }

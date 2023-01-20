@@ -7,6 +7,49 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Manages Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
+ *
+ * > **NOTE:** Lake Formation introduces fine-grained access control for data in your data lake. Part of the changes include the `IAMAllowedPrincipals` principal in order to make Lake Formation backwards compatible with existing IAM and Glue permissions. For more information, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html) and [Upgrading AWS Glue Data Permissions to the AWS Lake Formation Model](https://docs.aws.amazon.com/lake-formation/latest/dg/upgrade-glue-lake-formation.html).
+ *
+ * ## Example Usage
+ * ### Data Lake Admins
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lakeformation.DataLakeSettings("example", {admins: [
+ *     aws_iam_user.test.arn,
+ *     aws_iam_role.test.arn,
+ * ]});
+ * ```
+ * ### Create Default Permissions
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lakeformation.DataLakeSettings("example", {
+ *     admins: [
+ *         aws_iam_user.test.arn,
+ *         aws_iam_role.test.arn,
+ *     ],
+ *     createDatabaseDefaultPermissions: [{
+ *         permissions: [
+ *             "SELECT",
+ *             "ALTER",
+ *             "DROP",
+ *         ],
+ *         principal: aws_iam_user.test.arn,
+ *     }],
+ *     createTableDefaultPermissions: [{
+ *         permissions: ["ALL"],
+ *         principal: aws_iam_role.test.arn,
+ *     }],
+ * });
+ * ```
+ */
 export class DataLakeSettings extends pulumi.CustomResource {
     /**
      * Get an existing DataLakeSettings resource's state with the given name, ID, and optional extra
@@ -35,10 +78,25 @@ export class DataLakeSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataLakeSettings.__pulumiType;
     }
 
+    /**
+     * Set of ARNs of AWS Lake Formation principals (IAM users or roles).
+     */
     public readonly admins!: pulumi.Output<string[]>;
+    /**
+     * Identifier for the Data Catalog. By default, the account ID.
+     */
     public readonly catalogId!: pulumi.Output<string | undefined>;
+    /**
+     * Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+     */
     public readonly createDatabaseDefaultPermissions!: pulumi.Output<outputs.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermission[]>;
+    /**
+     * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
+     */
     public readonly createTableDefaultPermissions!: pulumi.Output<outputs.lakeformation.DataLakeSettingsCreateTableDefaultPermission[]>;
+    /**
+     * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
+     */
     public readonly trustedResourceOwners!: pulumi.Output<string[]>;
 
     /**
@@ -76,10 +134,25 @@ export class DataLakeSettings extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DataLakeSettings resources.
  */
 export interface DataLakeSettingsState {
+    /**
+     * Set of ARNs of AWS Lake Formation principals (IAM users or roles).
+     */
     admins?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Identifier for the Data Catalog. By default, the account ID.
+     */
     catalogId?: pulumi.Input<string>;
+    /**
+     * Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+     */
     createDatabaseDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermission>[]>;
+    /**
+     * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
+     */
     createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateTableDefaultPermission>[]>;
+    /**
+     * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
+     */
     trustedResourceOwners?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -87,9 +160,24 @@ export interface DataLakeSettingsState {
  * The set of arguments for constructing a DataLakeSettings resource.
  */
 export interface DataLakeSettingsArgs {
+    /**
+     * Set of ARNs of AWS Lake Formation principals (IAM users or roles).
+     */
     admins?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Identifier for the Data Catalog. By default, the account ID.
+     */
     catalogId?: pulumi.Input<string>;
+    /**
+     * Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+     */
     createDatabaseDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermission>[]>;
+    /**
+     * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
+     */
     createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateTableDefaultPermission>[]>;
+    /**
+     * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
+     */
     trustedResourceOwners?: pulumi.Input<pulumi.Input<string>[]>;
 }

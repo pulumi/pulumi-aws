@@ -16,53 +16,170 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Lightsail Disk resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+ * import com.pulumi.aws.lightsail.Disk;
+ * import com.pulumi.aws.lightsail.DiskArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+ *             .state(&#34;available&#34;)
+ *             .filters(GetAvailabilityZonesFilterArgs.builder()
+ *                 .name(&#34;opt-in-status&#34;)
+ *                 .values(&#34;opt-in-not-required&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var test = new Disk(&#34;test&#34;, DiskArgs.builder()        
+ *             .sizeInGb(8)
+ *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_lightsail_disk` can be imported by using the name attribute, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:lightsail/disk:Disk test test
+ * ```
+ * 
+ */
 @ResourceType(type="aws:lightsail/disk:Disk")
 public class Disk extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the Lightsail load balancer.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the Lightsail load balancer.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The Availability Zone in which to create your disk.
+     * 
+     */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
+    /**
+     * @return The Availability Zone in which to create your disk.
+     * 
+     */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
+    /**
+     * The timestamp when the load balancer was created.
+     * 
+     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
+    /**
+     * @return The timestamp when the load balancer was created.
+     * 
+     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
+    /**
+     * The name of the Lightsail load balancer.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the Lightsail load balancer.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The instance port the load balancer will connect.
+     * 
+     */
     @Export(name="sizeInGb", refs={Integer.class}, tree="[0]")
     private Output<Integer> sizeInGb;
 
+    /**
+     * @return The instance port the load balancer will connect.
+     * 
+     */
     public Output<Integer> sizeInGb() {
         return this.sizeInGb;
     }
+    /**
+     * The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+     * 
+     */
     @Export(name="supportCode", refs={String.class}, tree="[0]")
     private Output<String> supportCode;
 
+    /**
+     * @return The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+     * 
+     */
     public Output<String> supportCode() {
         return this.supportCode;
     }
+    /**
+     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -10,6 +10,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The Batch Job Queue data source allows access to details of a specific
+// job queue within AWS Batch.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := batch.LookupJobQueue(ctx, &batch.LookupJobQueueArgs{
+//				Name: "tf-test-batch-job-queue",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupJobQueue(ctx *pulumi.Context, args *LookupJobQueueArgs, opts ...pulumi.InvokeOption) (*LookupJobQueueResult, error) {
 	var rv LookupJobQueueResult
 	err := ctx.Invoke("aws:batch/getJobQueue:getJobQueue", args, &rv, opts...)
@@ -21,23 +49,38 @@ func LookupJobQueue(ctx *pulumi.Context, args *LookupJobQueueArgs, opts ...pulum
 
 // A collection of arguments for invoking getJobQueue.
 type LookupJobQueueArgs struct {
-	Name string            `pulumi:"name"`
+	// Name of the job queue.
+	Name string `pulumi:"name"`
+	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getJobQueue.
 type LookupJobQueueResult struct {
-	Arn                      string                               `pulumi:"arn"`
+	// ARN of the job queue.
+	Arn string `pulumi:"arn"`
+	// The compute environments that are attached to the job queue and the order in
+	// which job placement is preferred. Compute environments are selected for job placement in ascending order.
+	// * `compute_environment_order.#.order` - The order of the compute environment.
+	// * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
 	ComputeEnvironmentOrders []GetJobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrders"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                  string            `pulumi:"id"`
-	Name                string            `pulumi:"name"`
-	Priority            int               `pulumi:"priority"`
-	SchedulingPolicyArn string            `pulumi:"schedulingPolicyArn"`
-	State               string            `pulumi:"state"`
-	Status              string            `pulumi:"status"`
-	StatusReason        string            `pulumi:"statusReason"`
-	Tags                map[string]string `pulumi:"tags"`
+	Id   string `pulumi:"id"`
+	Name string `pulumi:"name"`
+	// Priority of the job queue. Job queues with a higher priority are evaluated first when
+	// associated with the same compute environment.
+	Priority int `pulumi:"priority"`
+	// The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
+	SchedulingPolicyArn string `pulumi:"schedulingPolicyArn"`
+	// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
+	State string `pulumi:"state"`
+	// Current status of the job queue (for example, `CREATING` or `VALID`).
+	Status string `pulumi:"status"`
+	// Short, human-readable string to provide additional details about the current status
+	// of the job queue.
+	StatusReason string `pulumi:"statusReason"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupJobQueueOutput(ctx *pulumi.Context, args LookupJobQueueOutputArgs, opts ...pulumi.InvokeOption) LookupJobQueueResultOutput {
@@ -55,7 +98,9 @@ func LookupJobQueueOutput(ctx *pulumi.Context, args LookupJobQueueOutputArgs, op
 
 // A collection of arguments for invoking getJobQueue.
 type LookupJobQueueOutputArgs struct {
-	Name pulumi.StringInput    `pulumi:"name"`
+	// Name of the job queue.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Key-value map of resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -78,10 +123,15 @@ func (o LookupJobQueueResultOutput) ToLookupJobQueueResultOutputWithContext(ctx 
 	return o
 }
 
+// ARN of the job queue.
 func (o LookupJobQueueResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The compute environments that are attached to the job queue and the order in
+// which job placement is preferred. Compute environments are selected for job placement in ascending order.
+// * `compute_environment_order.#.order` - The order of the compute environment.
+// * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
 func (o LookupJobQueueResultOutput) ComputeEnvironmentOrders() GetJobQueueComputeEnvironmentOrderArrayOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) []GetJobQueueComputeEnvironmentOrder { return v.ComputeEnvironmentOrders }).(GetJobQueueComputeEnvironmentOrderArrayOutput)
 }
@@ -95,26 +145,34 @@ func (o LookupJobQueueResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Priority of the job queue. Job queues with a higher priority are evaluated first when
+// associated with the same compute environment.
 func (o LookupJobQueueResultOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
 func (o LookupJobQueueResultOutput) SchedulingPolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.SchedulingPolicyArn }).(pulumi.StringOutput)
 }
 
+// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
 func (o LookupJobQueueResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.State }).(pulumi.StringOutput)
 }
 
+// Current status of the job queue (for example, `CREATING` or `VALID`).
 func (o LookupJobQueueResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// Short, human-readable string to provide additional details about the current status
+// of the job queue.
 func (o LookupJobQueueResultOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.StatusReason }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags
 func (o LookupJobQueueResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -12,9 +12,15 @@ namespace Pulumi.Aws.RedShift.Inputs
 
     public sealed class ParameterGroupParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Redshift parameter.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The value of the Redshift parameter.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

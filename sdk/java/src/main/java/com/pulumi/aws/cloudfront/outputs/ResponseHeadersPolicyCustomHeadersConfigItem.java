@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class ResponseHeadersPolicyCustomHeadersConfigItem {
+    /**
+     * @return The HTTP response header name.
+     * 
+     */
     private String header;
+    /**
+     * @return Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
+     * 
+     */
     private Boolean override;
+    /**
+     * @return The value for the HTTP response header.
+     * 
+     */
     private String value;
 
     private ResponseHeadersPolicyCustomHeadersConfigItem() {}
+    /**
+     * @return The HTTP response header name.
+     * 
+     */
     public String header() {
         return this.header;
     }
+    /**
+     * @return Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
+     * 
+     */
     public Boolean override() {
         return this.override;
     }
+    /**
+     * @return The value for the HTTP response header.
+     * 
+     */
     public String value() {
         return this.value;
     }

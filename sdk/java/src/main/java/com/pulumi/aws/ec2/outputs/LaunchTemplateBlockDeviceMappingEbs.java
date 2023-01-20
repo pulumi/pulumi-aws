@@ -12,37 +12,109 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchTemplateBlockDeviceMappingEbs {
+    /**
+     * @return Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+     * 
+     */
     private @Nullable String deleteOnTermination;
+    /**
+     * @return Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
+     * on the volume (Default: `false`). Cannot be used with `snapshot_id`.
+     * 
+     */
     private @Nullable String encrypted;
+    /**
+     * @return The amount of provisioned
+     * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+     * This must be set with a `volume_type` of `&#34;io1/io2&#34;`.
+     * 
+     */
     private @Nullable Integer iops;
+    /**
+     * @return The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+     * `encrypted` must be set to `true` when this is set.
+     * 
+     */
     private @Nullable String kmsKeyId;
+    /**
+     * @return The Snapshot ID to mount.
+     * 
+     */
     private @Nullable String snapshotId;
+    /**
+     * @return The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
+     * 
+     */
     private @Nullable Integer throughput;
+    /**
+     * @return The size of the volume in gigabytes.
+     * 
+     */
     private @Nullable Integer volumeSize;
+    /**
+     * @return The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * 
+     */
     private @Nullable String volumeType;
 
     private LaunchTemplateBlockDeviceMappingEbs() {}
+    /**
+     * @return Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+     * 
+     */
     public Optional<String> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
     }
+    /**
+     * @return Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
+     * on the volume (Default: `false`). Cannot be used with `snapshot_id`.
+     * 
+     */
     public Optional<String> encrypted() {
         return Optional.ofNullable(this.encrypted);
     }
+    /**
+     * @return The amount of provisioned
+     * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+     * This must be set with a `volume_type` of `&#34;io1/io2&#34;`.
+     * 
+     */
     public Optional<Integer> iops() {
         return Optional.ofNullable(this.iops);
     }
+    /**
+     * @return The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+     * `encrypted` must be set to `true` when this is set.
+     * 
+     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
+    /**
+     * @return The Snapshot ID to mount.
+     * 
+     */
     public Optional<String> snapshotId() {
         return Optional.ofNullable(this.snapshotId);
     }
+    /**
+     * @return The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
+     * 
+     */
     public Optional<Integer> throughput() {
         return Optional.ofNullable(this.throughput);
     }
+    /**
+     * @return The size of the volume in gigabytes.
+     * 
+     */
     public Optional<Integer> volumeSize() {
         return Optional.ofNullable(this.volumeSize);
     }
+    /**
+     * @return The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * 
+     */
     public Optional<String> volumeType() {
         return Optional.ofNullable(this.volumeType);
     }

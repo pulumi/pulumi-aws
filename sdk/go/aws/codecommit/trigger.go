@@ -11,12 +11,56 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a CodeCommit Trigger Resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codecommit"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testRepository, err := codecommit.NewRepository(ctx, "testRepository", &codecommit.RepositoryArgs{
+//				RepositoryName: pulumi.String("test"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codecommit.NewTrigger(ctx, "testTrigger", &codecommit.TriggerArgs{
+//				RepositoryName: testRepository.RepositoryName,
+//				Triggers: codecommit.TriggerTriggerArray{
+//					&codecommit.TriggerTriggerArgs{
+//						Name: pulumi.String("all"),
+//						Events: pulumi.StringArray{
+//							pulumi.String("all"),
+//						},
+//						DestinationArn: pulumi.Any(aws_sns_topic.Test.Arn),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Trigger struct {
 	pulumi.CustomResourceState
 
-	ConfigurationId pulumi.StringOutput       `pulumi:"configurationId"`
-	RepositoryName  pulumi.StringOutput       `pulumi:"repositoryName"`
-	Triggers        TriggerTriggerArrayOutput `pulumi:"triggers"`
+	// System-generated unique identifier.
+	ConfigurationId pulumi.StringOutput `pulumi:"configurationId"`
+	// The name for the repository. This needs to be less than 100 characters.
+	RepositoryName pulumi.StringOutput       `pulumi:"repositoryName"`
+	Triggers       TriggerTriggerArrayOutput `pulumi:"triggers"`
 }
 
 // NewTrigger registers a new resource with the given unique name, arguments, and options.
@@ -54,15 +98,19 @@ func GetTrigger(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Trigger resources.
 type triggerState struct {
-	ConfigurationId *string          `pulumi:"configurationId"`
-	RepositoryName  *string          `pulumi:"repositoryName"`
-	Triggers        []TriggerTrigger `pulumi:"triggers"`
+	// System-generated unique identifier.
+	ConfigurationId *string `pulumi:"configurationId"`
+	// The name for the repository. This needs to be less than 100 characters.
+	RepositoryName *string          `pulumi:"repositoryName"`
+	Triggers       []TriggerTrigger `pulumi:"triggers"`
 }
 
 type TriggerState struct {
+	// System-generated unique identifier.
 	ConfigurationId pulumi.StringPtrInput
-	RepositoryName  pulumi.StringPtrInput
-	Triggers        TriggerTriggerArrayInput
+	// The name for the repository. This needs to be less than 100 characters.
+	RepositoryName pulumi.StringPtrInput
+	Triggers       TriggerTriggerArrayInput
 }
 
 func (TriggerState) ElementType() reflect.Type {
@@ -70,12 +118,14 @@ func (TriggerState) ElementType() reflect.Type {
 }
 
 type triggerArgs struct {
+	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName string           `pulumi:"repositoryName"`
 	Triggers       []TriggerTrigger `pulumi:"triggers"`
 }
 
 // The set of arguments for constructing a Trigger resource.
 type TriggerArgs struct {
+	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringInput
 	Triggers       TriggerTriggerArrayInput
 }
@@ -167,10 +217,12 @@ func (o TriggerOutput) ToTriggerOutputWithContext(ctx context.Context) TriggerOu
 	return o
 }
 
+// System-generated unique identifier.
 func (o TriggerOutput) ConfigurationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.ConfigurationId }).(pulumi.StringOutput)
 }
 
+// The name for the repository. This needs to be less than 100 characters.
 func (o TriggerOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.RepositoryName }).(pulumi.StringOutput)
 }

@@ -229,7 +229,29 @@ def get_load_balancer(name: Optional[str] = None,
                       tags: Optional[Mapping[str, str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a "classic" Elastic Load Balancer (ELB).
+    See LB Data Source if you are looking for "v2"
+    Application Load Balancer (ALB) or Network Load Balancer (NLB).
+
+    This data source can prove useful when a module accepts an LB as an input
+    variable and needs to, for example, determine the security groups associated
+    with it, etc.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    lb_name = config.get("lbName")
+    if lb_name is None:
+        lb_name = ""
+    test = aws.elb.get_load_balancer(name=lb_name)
+    ```
+
+
+    :param str name: Unique name of the load balancer.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -266,6 +288,28 @@ def get_load_balancer_output(name: Optional[pulumi.Input[str]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a "classic" Elastic Load Balancer (ELB).
+    See LB Data Source if you are looking for "v2"
+    Application Load Balancer (ALB) or Network Load Balancer (NLB).
+
+    This data source can prove useful when a module accepts an LB as an input
+    variable and needs to, for example, determine the security groups associated
+    with it, etc.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    lb_name = config.get("lbName")
+    if lb_name is None:
+        lb_name = ""
+    test = aws.elb.get_load_balancer(name=lb_name)
+    ```
+
+
+    :param str name: Unique name of the load balancer.
     """
     ...

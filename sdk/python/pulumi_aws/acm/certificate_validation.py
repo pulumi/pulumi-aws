@@ -18,6 +18,8 @@ class CertificateValidationArgs:
                  validation_record_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CertificateValidation resource.
+        :param pulumi.Input[str] certificate_arn: ARN of the certificate that is being validated.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
         if validation_record_fqdns is not None:
@@ -26,6 +28,9 @@ class CertificateValidationArgs:
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of the certificate that is being validated.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
@@ -35,6 +40,9 @@ class CertificateValidationArgs:
     @property
     @pulumi.getter(name="validationRecordFqdns")
     def validation_record_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
+        """
         return pulumi.get(self, "validation_record_fqdns")
 
     @validation_record_fqdns.setter
@@ -49,6 +57,8 @@ class _CertificateValidationState:
                  validation_record_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering CertificateValidation resources.
+        :param pulumi.Input[str] certificate_arn: ARN of the certificate that is being validated.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         """
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
@@ -58,6 +68,9 @@ class _CertificateValidationState:
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the certificate that is being validated.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
@@ -67,6 +80,9 @@ class _CertificateValidationState:
     @property
     @pulumi.getter(name="validationRecordFqdns")
     def validation_record_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
+        """
         return pulumi.get(self, "validation_record_fqdns")
 
     @validation_record_fqdns.setter
@@ -83,9 +99,58 @@ class CertificateValidation(pulumi.CustomResource):
                  validation_record_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a CertificateValidation resource with the given unique name, props, and options.
+        This resource represents a successful validation of an ACM certificate in concert
+        with other resources.
+
+        Most commonly, this resource is used together with `route53.Record` and
+        `acm.Certificate` to request a DNS validated certificate,
+        deploy the required validation records and wait for validation to complete.
+
+        > **WARNING:** This resource implements a part of the validation workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
+
+        ## Example Usage
+        ### DNS Validation with Route 53
+        ```python
+        import pulumi_aws as aws
+
+        example_certificate = aws.acm.Certificate("exampleCertificate",
+                                                  domain_name="example.com",
+                                                  validation_method="DNS")
+
+        example_zone = aws.route53.getZone(name="example.com",
+                                           private_zone=False)
+
+        cert_validation = aws.route53.Record("certValidation",
+                                             name=example_certificate.domain_validation_options[0].resource_record_name,
+                                             records=[example_certificate.domain_validation_options[0].resource_record_value],
+                                             ttl=60,
+                                             type=example_certificate.domain_validation_options[0].resource_record_type,
+                                             zone_id=example_zone.zone_id)
+
+        cert_certificate_validation = aws.acm.CertificateValidation("cert",
+                                                                      certificate_arn=example_certificate.arn,
+                                                                      validation_record_fqdns=[cert_validation.fdqn])
+
+        pulumi.export("certificate_arn", cert_certificate_validation.certificate_arn)
+        ```
+        ### Email Validation
+        ```python
+        import pulumi_aws as aws
+
+        example_certificate = aws.acm.Certificate("exampleCertificate",
+                                                  domain_name="example.com",
+                                                  validation_method="EMAIL")
+
+        example_certificate_validation = aws.acm.CertificateValidation("exampleCertificateValidation",
+                                                                       certificate_arn=example_certificate.arn)
+        ```
+
+        {{% //examples %}}
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate_arn: ARN of the certificate that is being validated.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         """
         ...
     @overload
@@ -94,7 +159,54 @@ class CertificateValidation(pulumi.CustomResource):
                  args: CertificateValidationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a CertificateValidation resource with the given unique name, props, and options.
+        This resource represents a successful validation of an ACM certificate in concert
+        with other resources.
+
+        Most commonly, this resource is used together with `route53.Record` and
+        `acm.Certificate` to request a DNS validated certificate,
+        deploy the required validation records and wait for validation to complete.
+
+        > **WARNING:** This resource implements a part of the validation workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
+
+        ## Example Usage
+        ### DNS Validation with Route 53
+        ```python
+        import pulumi_aws as aws
+
+        example_certificate = aws.acm.Certificate("exampleCertificate",
+                                                  domain_name="example.com",
+                                                  validation_method="DNS")
+
+        example_zone = aws.route53.getZone(name="example.com",
+                                           private_zone=False)
+
+        cert_validation = aws.route53.Record("certValidation",
+                                             name=example_certificate.domain_validation_options[0].resource_record_name,
+                                             records=[example_certificate.domain_validation_options[0].resource_record_value],
+                                             ttl=60,
+                                             type=example_certificate.domain_validation_options[0].resource_record_type,
+                                             zone_id=example_zone.zone_id)
+
+        cert_certificate_validation = aws.acm.CertificateValidation("cert",
+                                                                      certificate_arn=example_certificate.arn,
+                                                                      validation_record_fqdns=[cert_validation.fdqn])
+
+        pulumi.export("certificate_arn", cert_certificate_validation.certificate_arn)
+        ```
+        ### Email Validation
+        ```python
+        import pulumi_aws as aws
+
+        example_certificate = aws.acm.Certificate("exampleCertificate",
+                                                  domain_name="example.com",
+                                                  validation_method="EMAIL")
+
+        example_certificate_validation = aws.acm.CertificateValidation("exampleCertificateValidation",
+                                                                       certificate_arn=example_certificate.arn)
+        ```
+
+        {{% //examples %}}
+
         :param str resource_name: The name of the resource.
         :param CertificateValidationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,6 +256,8 @@ class CertificateValidation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate_arn: ARN of the certificate that is being validated.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -156,10 +270,16 @@ class CertificateValidation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the certificate that is being validated.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @property
     @pulumi.getter(name="validationRecordFqdns")
     def validation_record_fqdns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
+        """
         return pulumi.get(self, "validation_record_fqdns")
 

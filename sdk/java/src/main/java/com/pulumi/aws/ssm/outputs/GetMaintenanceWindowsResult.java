@@ -18,6 +18,10 @@ public final class GetMaintenanceWindowsResult {
      * 
      */
     private String id;
+    /**
+     * @return List of window IDs of the matched SSM maintenance windows.
+     * 
+     */
     private List<String> ids;
 
     private GetMaintenanceWindowsResult() {}
@@ -31,6 +35,10 @@ public final class GetMaintenanceWindowsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return List of window IDs of the matched SSM maintenance windows.
+     * 
+     */
     public List<String> ids() {
         return this.ids;
     }

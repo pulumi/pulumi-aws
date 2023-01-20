@@ -9,27 +9,112 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CostExplorer
 {
+    /// <summary>
+    /// Provides a CE Anomaly Monitor.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// There are two main types of a Cost Anomaly Monitor: `DIMENSIONAL` and `CUSTOM`.
+    /// ### Dimensional Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serviceMonitor = new Aws.CostExplorer.AnomalyMonitor("serviceMonitor", new()
+    ///     {
+    ///         MonitorDimension = "SERVICE",
+    ///         MonitorType = "DIMENSIONAL",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Custom Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.CostExplorer.AnomalyMonitor("test", new()
+    ///     {
+    ///         MonitorSpecification = @"{
+    /// 	""And"": null,
+    /// 	""CostCategories"": null,
+    /// 	""Dimensions"": null,
+    /// 	""Not"": null,
+    /// 	""Or"": null,
+    /// 	""Tags"": {
+    /// 		""Key"": ""CostCenter"",
+    /// 		""MatchOptions"": null,
+    /// 		""Values"": [
+    /// 			""10000""
+    /// 		]
+    /// 	}
+    /// }
+    /// 
+    /// ",
+    ///         MonitorType = "CUSTOM",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_ce_anomaly_monitor` can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:costexplorer/anomalyMonitor:AnomalyMonitor")]
     public partial class AnomalyMonitor : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of the anomaly monitor.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The dimensions to evaluate. Valid values: `SERVICE`.
+        /// </summary>
         [Output("monitorDimension")]
         public Output<string?> MonitorDimension { get; private set; } = null!;
 
+        /// <summary>
+        /// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
+        /// </summary>
         [Output("monitorSpecification")]
         public Output<string?> MonitorSpecification { get; private set; } = null!;
 
+        /// <summary>
+        /// The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
+        /// </summary>
         [Output("monitorType")]
         public Output<string> MonitorType { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the monitor.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -79,20 +164,36 @@ namespace Pulumi.Aws.CostExplorer
 
     public sealed class AnomalyMonitorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The dimensions to evaluate. Valid values: `SERVICE`.
+        /// </summary>
         [Input("monitorDimension")]
         public Input<string>? MonitorDimension { get; set; }
 
+        /// <summary>
+        /// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
+        /// </summary>
         [Input("monitorSpecification")]
         public Input<string>? MonitorSpecification { get; set; }
 
+        /// <summary>
+        /// The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
+        /// </summary>
         [Input("monitorType", required: true)]
         public Input<string> MonitorType { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the monitor.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -107,23 +208,42 @@ namespace Pulumi.Aws.CostExplorer
 
     public sealed class AnomalyMonitorState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the anomaly monitor.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The dimensions to evaluate. Valid values: `SERVICE`.
+        /// </summary>
         [Input("monitorDimension")]
         public Input<string>? MonitorDimension { get; set; }
 
+        /// <summary>
+        /// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
+        /// </summary>
         [Input("monitorSpecification")]
         public Input<string>? MonitorSpecification { get; set; }
 
+        /// <summary>
+        /// The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
+        /// </summary>
         [Input("monitorType")]
         public Input<string>? MonitorType { get; set; }
 
+        /// <summary>
+        /// The name of the monitor.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -132,6 +252,10 @@ namespace Pulumi.Aws.CostExplorer
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Dax.Inputs
 
     public sealed class ClusterServerSideEncryptionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to enable encryption at rest. Defaults to `false`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

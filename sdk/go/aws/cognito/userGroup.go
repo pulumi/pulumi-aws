@@ -11,14 +11,95 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Cognito User Group resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mainUserPool, err := cognito.NewUserPool(ctx, "mainUserPool", nil)
+//			if err != nil {
+//				return err
+//			}
+//			groupRole, err := iam.NewRole(ctx, "groupRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Sid": "",
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "Federated": "cognito-identity.amazonaws.com"
+//	      },
+//	      "Action": "sts:AssumeRoleWithWebIdentity",
+//	      "Condition": {
+//	        "StringEquals": {
+//	          "cognito-identity.amazonaws.com:aud": "us-east-1:12345678-dead-beef-cafe-123456790ab"
+//	        },
+//	        "ForAnyValue:StringLike": {
+//	          "cognito-identity.amazonaws.com:amr": "authenticated"
+//	        }
+//	      }
+//	    }
+//	  ]
+//	}
+//
+// `)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewUserGroup(ctx, "mainUserGroup", &cognito.UserGroupArgs{
+//				UserPoolId:  mainUserPool.ID(),
+//				Description: pulumi.String("Managed by Pulumi"),
+//				Precedence:  pulumi.Int(42),
+//				RoleArn:     groupRole.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Cognito User Groups can be imported using the `user_pool_id`/`name` attributes concatenated, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
+//
+// ```
 type UserGroup struct {
 	pulumi.CustomResourceState
 
+	// The description of the user group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	Name        pulumi.StringOutput    `pulumi:"name"`
-	Precedence  pulumi.IntPtrOutput    `pulumi:"precedence"`
-	RoleArn     pulumi.StringPtrOutput `pulumi:"roleArn"`
-	UserPoolId  pulumi.StringOutput    `pulumi:"userPoolId"`
+	// The name of the user group.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The precedence of the user group.
+	Precedence pulumi.IntPtrOutput `pulumi:"precedence"`
+	// The ARN of the IAM role to be associated with the user group.
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	// The user pool ID.
+	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
 
 // NewUserGroup registers a new resource with the given unique name, arguments, and options.
@@ -53,19 +134,29 @@ func GetUserGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserGroup resources.
 type userGroupState struct {
+	// The description of the user group.
 	Description *string `pulumi:"description"`
-	Name        *string `pulumi:"name"`
-	Precedence  *int    `pulumi:"precedence"`
-	RoleArn     *string `pulumi:"roleArn"`
-	UserPoolId  *string `pulumi:"userPoolId"`
+	// The name of the user group.
+	Name *string `pulumi:"name"`
+	// The precedence of the user group.
+	Precedence *int `pulumi:"precedence"`
+	// The ARN of the IAM role to be associated with the user group.
+	RoleArn *string `pulumi:"roleArn"`
+	// The user pool ID.
+	UserPoolId *string `pulumi:"userPoolId"`
 }
 
 type UserGroupState struct {
+	// The description of the user group.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Precedence  pulumi.IntPtrInput
-	RoleArn     pulumi.StringPtrInput
-	UserPoolId  pulumi.StringPtrInput
+	// The name of the user group.
+	Name pulumi.StringPtrInput
+	// The precedence of the user group.
+	Precedence pulumi.IntPtrInput
+	// The ARN of the IAM role to be associated with the user group.
+	RoleArn pulumi.StringPtrInput
+	// The user pool ID.
+	UserPoolId pulumi.StringPtrInput
 }
 
 func (UserGroupState) ElementType() reflect.Type {
@@ -73,20 +164,30 @@ func (UserGroupState) ElementType() reflect.Type {
 }
 
 type userGroupArgs struct {
+	// The description of the user group.
 	Description *string `pulumi:"description"`
-	Name        *string `pulumi:"name"`
-	Precedence  *int    `pulumi:"precedence"`
-	RoleArn     *string `pulumi:"roleArn"`
-	UserPoolId  string  `pulumi:"userPoolId"`
+	// The name of the user group.
+	Name *string `pulumi:"name"`
+	// The precedence of the user group.
+	Precedence *int `pulumi:"precedence"`
+	// The ARN of the IAM role to be associated with the user group.
+	RoleArn *string `pulumi:"roleArn"`
+	// The user pool ID.
+	UserPoolId string `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a UserGroup resource.
 type UserGroupArgs struct {
+	// The description of the user group.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Precedence  pulumi.IntPtrInput
-	RoleArn     pulumi.StringPtrInput
-	UserPoolId  pulumi.StringInput
+	// The name of the user group.
+	Name pulumi.StringPtrInput
+	// The precedence of the user group.
+	Precedence pulumi.IntPtrInput
+	// The ARN of the IAM role to be associated with the user group.
+	RoleArn pulumi.StringPtrInput
+	// The user pool ID.
+	UserPoolId pulumi.StringInput
 }
 
 func (UserGroupArgs) ElementType() reflect.Type {
@@ -176,22 +277,27 @@ func (o UserGroupOutput) ToUserGroupOutputWithContext(ctx context.Context) UserG
 	return o
 }
 
+// The description of the user group.
 func (o UserGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the user group.
 func (o UserGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The precedence of the user group.
 func (o UserGroupOutput) Precedence() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.IntPtrOutput { return v.Precedence }).(pulumi.IntPtrOutput)
 }
 
+// The ARN of the IAM role to be associated with the user group.
 func (o UserGroupOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The user pool ID.
 func (o UserGroupOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

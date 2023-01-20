@@ -12,6 +12,9 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class VirtualNodeSpecLoggingAccessLogGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// File object to send virtual node access logs to.
+        /// </summary>
         [Input("file")]
         public Input<Inputs.VirtualNodeSpecLoggingAccessLogFileGetArgs>? File { get; set; }
 

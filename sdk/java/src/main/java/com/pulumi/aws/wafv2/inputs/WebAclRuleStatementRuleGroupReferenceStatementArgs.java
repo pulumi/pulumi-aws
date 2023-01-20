@@ -17,14 +17,24 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
 
     public static final WebAclRuleStatementRuleGroupReferenceStatementArgs Empty = new WebAclRuleStatementRuleGroupReferenceStatementArgs();
 
+    /**
+     * The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
+     * 
+     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
 
     /**
+     * The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+     * 
      * @deprecated
      * Use rule_action_override instead
      * 
@@ -34,6 +44,8 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
     private @Nullable Output<List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs>> excludedRules;
 
     /**
+     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+     * 
      * @deprecated
      * Use rule_action_override instead
      * 
@@ -68,16 +80,30 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
             $ = new WebAclRuleStatementRuleGroupReferenceStatementArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
         /**
+         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -91,6 +117,8 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
         }
 
         /**
+         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -103,6 +131,8 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
         }
 
         /**
+         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+         * 
          * @return builder
          * 
          * @deprecated

@@ -18,6 +18,8 @@ class AuthenticationProfileArgs:
                  authentication_profile_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a AuthenticationProfile resource.
+        :param pulumi.Input[str] authentication_profile_content: The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
+        :param pulumi.Input[str] authentication_profile_name: The name of the authentication profile.
         """
         pulumi.set(__self__, "authentication_profile_content", authentication_profile_content)
         pulumi.set(__self__, "authentication_profile_name", authentication_profile_name)
@@ -25,6 +27,9 @@ class AuthenticationProfileArgs:
     @property
     @pulumi.getter(name="authenticationProfileContent")
     def authentication_profile_content(self) -> pulumi.Input[str]:
+        """
+        The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
+        """
         return pulumi.get(self, "authentication_profile_content")
 
     @authentication_profile_content.setter
@@ -34,6 +39,9 @@ class AuthenticationProfileArgs:
     @property
     @pulumi.getter(name="authenticationProfileName")
     def authentication_profile_name(self) -> pulumi.Input[str]:
+        """
+        The name of the authentication profile.
+        """
         return pulumi.get(self, "authentication_profile_name")
 
     @authentication_profile_name.setter
@@ -48,6 +56,8 @@ class _AuthenticationProfileState:
                  authentication_profile_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AuthenticationProfile resources.
+        :param pulumi.Input[str] authentication_profile_content: The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
+        :param pulumi.Input[str] authentication_profile_name: The name of the authentication profile.
         """
         if authentication_profile_content is not None:
             pulumi.set(__self__, "authentication_profile_content", authentication_profile_content)
@@ -57,6 +67,9 @@ class _AuthenticationProfileState:
     @property
     @pulumi.getter(name="authenticationProfileContent")
     def authentication_profile_content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
+        """
         return pulumi.get(self, "authentication_profile_content")
 
     @authentication_profile_content.setter
@@ -66,6 +79,9 @@ class _AuthenticationProfileState:
     @property
     @pulumi.getter(name="authenticationProfileName")
     def authentication_profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the authentication profile.
+        """
         return pulumi.get(self, "authentication_profile_name")
 
     @authentication_profile_name.setter
@@ -82,9 +98,36 @@ class AuthenticationProfile(pulumi.CustomResource):
                  authentication_profile_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a AuthenticationProfile resource with the given unique name, props, and options.
+        Creates a Redshift authentication profile
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.redshift.AuthenticationProfile("example",
+            authentication_profile_name="example",
+            authentication_profile_content=json.dumps({
+                "AllowDBUserOverride": "1",
+                "Client_ID": "ExampleClientID",
+                "App_ID": "example",
+            }))
+        ```
+
+        ## Import
+
+        Redshift Authentication Profiles support import by `authentication_profile_name`, e.g., console
+
+        ```sh
+         $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] authentication_profile_content: The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
+        :param pulumi.Input[str] authentication_profile_name: The name of the authentication profile.
         """
         ...
     @overload
@@ -93,7 +136,32 @@ class AuthenticationProfile(pulumi.CustomResource):
                  args: AuthenticationProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AuthenticationProfile resource with the given unique name, props, and options.
+        Creates a Redshift authentication profile
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.redshift.AuthenticationProfile("example",
+            authentication_profile_name="example",
+            authentication_profile_content=json.dumps({
+                "AllowDBUserOverride": "1",
+                "Client_ID": "ExampleClientID",
+                "App_ID": "example",
+            }))
+        ```
+
+        ## Import
+
+        Redshift Authentication Profiles support import by `authentication_profile_name`, e.g., console
+
+        ```sh
+         $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
+        ```
+
         :param str resource_name: The name of the resource.
         :param AuthenticationProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +213,8 @@ class AuthenticationProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] authentication_profile_content: The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
+        :param pulumi.Input[str] authentication_profile_name: The name of the authentication profile.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +227,16 @@ class AuthenticationProfile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="authenticationProfileContent")
     def authentication_profile_content(self) -> pulumi.Output[str]:
+        """
+        The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
+        """
         return pulumi.get(self, "authentication_profile_content")
 
     @property
     @pulumi.getter(name="authenticationProfileName")
     def authentication_profile_name(self) -> pulumi.Output[str]:
+        """
+        The name of the authentication profile.
+        """
         return pulumi.get(self, "authentication_profile_name")
 

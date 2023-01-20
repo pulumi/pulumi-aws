@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference {
+    /**
+     * @return Set of Managed Prefix IP ARN(s)
+     * 
+     */
     private String referenceArn;
 
     private RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference() {}
+    /**
+     * @return Set of Managed Prefix IP ARN(s)
+     * 
+     */
     public String referenceArn() {
         return this.referenceArn;
     }

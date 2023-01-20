@@ -23,6 +23,11 @@ class PipelineArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
+        :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: A stage block. Stages are documented below.
+        :param pulumi.Input[str] name: The name of the pipeline.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "artifact_stores", artifact_stores)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -35,6 +40,9 @@ class PipelineArgs:
     @property
     @pulumi.getter(name="artifactStores")
     def artifact_stores(self) -> pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]]:
+        """
+        One or more artifact_store blocks. Artifact stores are documented below.
+        """
         return pulumi.get(self, "artifact_stores")
 
     @artifact_stores.setter
@@ -44,6 +52,9 @@ class PipelineArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -53,6 +64,9 @@ class PipelineArgs:
     @property
     @pulumi.getter
     def stages(self) -> pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]]:
+        """
+        A stage block. Stages are documented below.
+        """
         return pulumi.get(self, "stages")
 
     @stages.setter
@@ -62,6 +76,9 @@ class PipelineArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the pipeline.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -71,6 +88,9 @@ class PipelineArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -90,6 +110,13 @@ class _PipelineState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Pipeline resources.
+        :param pulumi.Input[str] arn: The codepipeline ARN.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
+        :param pulumi.Input[str] name: The name of the pipeline.
+        :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: A stage block. Stages are documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -109,6 +136,9 @@ class _PipelineState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The codepipeline ARN.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -118,6 +148,9 @@ class _PipelineState:
     @property
     @pulumi.getter(name="artifactStores")
     def artifact_stores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]]]:
+        """
+        One or more artifact_store blocks. Artifact stores are documented below.
+        """
         return pulumi.get(self, "artifact_stores")
 
     @artifact_stores.setter
@@ -127,6 +160,9 @@ class _PipelineState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the pipeline.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -136,6 +172,9 @@ class _PipelineState:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -145,6 +184,9 @@ class _PipelineState:
     @property
     @pulumi.getter
     def stages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]]]:
+        """
+        A stage block. Stages are documented below.
+        """
         return pulumi.get(self, "stages")
 
     @stages.setter
@@ -154,6 +196,9 @@ class _PipelineState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -163,6 +208,9 @@ class _PipelineState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -182,9 +230,148 @@ class Pipeline(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Pipeline resource with the given unique name, props, and options.
+        Provides a CodePipeline.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.codestarconnections.Connection("example", provider_type="GitHub")
+        codepipeline_bucket = aws.s3.BucketV2("codepipelineBucket")
+        codepipeline_role = aws.iam.Role("codepipelineRole", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "codepipeline.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        }
+        \"\"\")
+        s3kmskey = aws.kms.get_alias(name="alias/myKmsKey")
+        codepipeline = aws.codepipeline.Pipeline("codepipeline",
+            role_arn=codepipeline_role.arn,
+            artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs(
+                location=codepipeline_bucket.bucket,
+                type="S3",
+                encryption_key=aws.codepipeline.PipelineArtifactStoreEncryptionKeyArgs(
+                    id=s3kmskey.arn,
+                    type="KMS",
+                ),
+            )],
+            stages=[
+                aws.codepipeline.PipelineStageArgs(
+                    name="Source",
+                    actions=[aws.codepipeline.PipelineStageActionArgs(
+                        name="Source",
+                        category="Source",
+                        owner="AWS",
+                        provider="CodeStarSourceConnection",
+                        version="1",
+                        output_artifacts=["source_output"],
+                        configuration={
+                            "ConnectionArn": example.arn,
+                            "FullRepositoryId": "my-organization/example",
+                            "BranchName": "main",
+                        },
+                    )],
+                ),
+                aws.codepipeline.PipelineStageArgs(
+                    name="Build",
+                    actions=[aws.codepipeline.PipelineStageActionArgs(
+                        name="Build",
+                        category="Build",
+                        owner="AWS",
+                        provider="CodeBuild",
+                        input_artifacts=["source_output"],
+                        output_artifacts=["build_output"],
+                        version="1",
+                        configuration={
+                            "ProjectName": "test",
+                        },
+                    )],
+                ),
+                aws.codepipeline.PipelineStageArgs(
+                    name="Deploy",
+                    actions=[aws.codepipeline.PipelineStageActionArgs(
+                        name="Deploy",
+                        category="Deploy",
+                        owner="AWS",
+                        provider="CloudFormation",
+                        input_artifacts=["build_output"],
+                        version="1",
+                        configuration={
+                            "ActionMode": "REPLACE_ON_FAILURE",
+                            "Capabilities": "CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM",
+                            "OutputFileName": "CreateStackOutput.json",
+                            "StackName": "MyStack",
+                            "TemplatePath": "build_output::sam-templated.yaml",
+                        },
+                    )],
+                ),
+            ])
+        codepipeline_bucket_acl = aws.s3.BucketAclV2("codepipelineBucketAcl",
+            bucket=codepipeline_bucket.id,
+            acl="private")
+        codepipeline_policy = aws.iam.RolePolicy("codepipelinePolicy",
+            role=codepipeline_role.id,
+            policy=pulumi.Output.all(codepipeline_bucket.arn, codepipeline_bucket.arn, example.arn).apply(lambda codepipelineBucketArn, codepipelineBucketArn1, exampleArn: f\"\"\"{{
+          "Version": "2012-10-17",
+          "Statement": [
+            {{
+              "Effect":"Allow",
+              "Action": [
+                "s3:GetObject",
+                "s3:GetObjectVersion",
+                "s3:GetBucketVersioning",
+                "s3:PutObjectAcl",
+                "s3:PutObject"
+              ],
+              "Resource": [
+                "{codepipeline_bucket_arn}",
+                "{codepipeline_bucket_arn1}/*"
+              ]
+            }},
+            {{
+              "Effect": "Allow",
+              "Action": [
+                "codestar-connections:UseConnection"
+              ],
+              "Resource": "{example_arn}"
+            }},
+            {{
+              "Effect": "Allow",
+              "Action": [
+                "codebuild:BatchGetBuilds",
+                "codebuild:StartBuild"
+              ],
+              "Resource": "*"
+            }}
+          ]
+        }}
+        \"\"\"))
+        ```
+
+        ## Import
+
+        CodePipelines can be imported using the name, e.g.,
+
+        ```sh
+         $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
+        :param pulumi.Input[str] name: The name of the pipeline.
+        :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]] stages: A stage block. Stages are documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -193,7 +380,141 @@ class Pipeline(pulumi.CustomResource):
                  args: PipelineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Pipeline resource with the given unique name, props, and options.
+        Provides a CodePipeline.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.codestarconnections.Connection("example", provider_type="GitHub")
+        codepipeline_bucket = aws.s3.BucketV2("codepipelineBucket")
+        codepipeline_role = aws.iam.Role("codepipelineRole", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "codepipeline.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        }
+        \"\"\")
+        s3kmskey = aws.kms.get_alias(name="alias/myKmsKey")
+        codepipeline = aws.codepipeline.Pipeline("codepipeline",
+            role_arn=codepipeline_role.arn,
+            artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs(
+                location=codepipeline_bucket.bucket,
+                type="S3",
+                encryption_key=aws.codepipeline.PipelineArtifactStoreEncryptionKeyArgs(
+                    id=s3kmskey.arn,
+                    type="KMS",
+                ),
+            )],
+            stages=[
+                aws.codepipeline.PipelineStageArgs(
+                    name="Source",
+                    actions=[aws.codepipeline.PipelineStageActionArgs(
+                        name="Source",
+                        category="Source",
+                        owner="AWS",
+                        provider="CodeStarSourceConnection",
+                        version="1",
+                        output_artifacts=["source_output"],
+                        configuration={
+                            "ConnectionArn": example.arn,
+                            "FullRepositoryId": "my-organization/example",
+                            "BranchName": "main",
+                        },
+                    )],
+                ),
+                aws.codepipeline.PipelineStageArgs(
+                    name="Build",
+                    actions=[aws.codepipeline.PipelineStageActionArgs(
+                        name="Build",
+                        category="Build",
+                        owner="AWS",
+                        provider="CodeBuild",
+                        input_artifacts=["source_output"],
+                        output_artifacts=["build_output"],
+                        version="1",
+                        configuration={
+                            "ProjectName": "test",
+                        },
+                    )],
+                ),
+                aws.codepipeline.PipelineStageArgs(
+                    name="Deploy",
+                    actions=[aws.codepipeline.PipelineStageActionArgs(
+                        name="Deploy",
+                        category="Deploy",
+                        owner="AWS",
+                        provider="CloudFormation",
+                        input_artifacts=["build_output"],
+                        version="1",
+                        configuration={
+                            "ActionMode": "REPLACE_ON_FAILURE",
+                            "Capabilities": "CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM",
+                            "OutputFileName": "CreateStackOutput.json",
+                            "StackName": "MyStack",
+                            "TemplatePath": "build_output::sam-templated.yaml",
+                        },
+                    )],
+                ),
+            ])
+        codepipeline_bucket_acl = aws.s3.BucketAclV2("codepipelineBucketAcl",
+            bucket=codepipeline_bucket.id,
+            acl="private")
+        codepipeline_policy = aws.iam.RolePolicy("codepipelinePolicy",
+            role=codepipeline_role.id,
+            policy=pulumi.Output.all(codepipeline_bucket.arn, codepipeline_bucket.arn, example.arn).apply(lambda codepipelineBucketArn, codepipelineBucketArn1, exampleArn: f\"\"\"{{
+          "Version": "2012-10-17",
+          "Statement": [
+            {{
+              "Effect":"Allow",
+              "Action": [
+                "s3:GetObject",
+                "s3:GetObjectVersion",
+                "s3:GetBucketVersioning",
+                "s3:PutObjectAcl",
+                "s3:PutObject"
+              ],
+              "Resource": [
+                "{codepipeline_bucket_arn}",
+                "{codepipeline_bucket_arn1}/*"
+              ]
+            }},
+            {{
+              "Effect": "Allow",
+              "Action": [
+                "codestar-connections:UseConnection"
+              ],
+              "Resource": "{example_arn}"
+            }},
+            {{
+              "Effect": "Allow",
+              "Action": [
+                "codebuild:BatchGetBuilds",
+                "codebuild:StartBuild"
+              ],
+              "Resource": "*"
+            }}
+          ]
+        }}
+        \"\"\"))
+        ```
+
+        ## Import
+
+        CodePipelines can be imported using the name, e.g.,
+
+        ```sh
+         $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+        ```
+
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -260,6 +581,13 @@ class Pipeline(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The codepipeline ARN.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
+        :param pulumi.Input[str] name: The name of the pipeline.
+        :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]] stages: A stage block. Stages are documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -277,35 +605,56 @@ class Pipeline(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The codepipeline ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="artifactStores")
     def artifact_stores(self) -> pulumi.Output[Sequence['outputs.PipelineArtifactStore']]:
+        """
+        One or more artifact_store blocks. Artifact stores are documented below.
+        """
         return pulumi.get(self, "artifact_stores")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the pipeline.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
+        """
+        A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def stages(self) -> pulumi.Output[Sequence['outputs.PipelineStage']]:
+        """
+        A stage block. Stages are documented below.
+        """
         return pulumi.get(self, "stages")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

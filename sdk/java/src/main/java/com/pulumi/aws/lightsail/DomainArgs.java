@@ -13,9 +13,17 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DomainArgs Empty = new DomainArgs();
 
+    /**
+     * The name of the Lightsail domain to manage
+     * 
+     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
+    /**
+     * @return The name of the Lightsail domain to manage
+     * 
+     */
     public Output<String> domainName() {
         return this.domainName;
     }
@@ -44,11 +52,23 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
             $ = new DomainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domainName The name of the Lightsail domain to manage
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
+        /**
+         * @param domainName The name of the Lightsail domain to manage
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }

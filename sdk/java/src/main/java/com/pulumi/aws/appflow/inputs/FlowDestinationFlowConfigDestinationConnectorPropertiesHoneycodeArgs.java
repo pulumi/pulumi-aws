@@ -16,16 +16,32 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
 
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs();
 
+    /**
+     * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * 
+     */
     @Import(name="errorHandlingConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs> errorHandlingConfig;
 
+    /**
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * 
+     */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs>> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
 
+    /**
+     * Object specified in the flow destination.
+     * 
+     */
     @Import(name="object", required=true)
     private Output<String> object;
 
+    /**
+     * @return Object specified in the flow destination.
+     * 
+     */
     public Output<String> object() {
         return this.object;
     }
@@ -55,20 +71,44 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
             $ = new FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder errorHandlingConfig(@Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs> errorHandlingConfig) {
             $.errorHandlingConfig = errorHandlingConfig;
             return this;
         }
 
+        /**
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder errorHandlingConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs errorHandlingConfig) {
             return errorHandlingConfig(Output.of(errorHandlingConfig));
         }
 
+        /**
+         * @param object Object specified in the flow destination.
+         * 
+         * @return builder
+         * 
+         */
         public Builder object(Output<String> object) {
             $.object = object;
             return this;
         }
 
+        /**
+         * @param object Object specified in the flow destination.
+         * 
+         * @return builder
+         * 
+         */
         public Builder object(String object) {
             return object(Output.of(object));
         }

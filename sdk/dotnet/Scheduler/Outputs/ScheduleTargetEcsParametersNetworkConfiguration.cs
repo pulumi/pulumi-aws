@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Scheduler.Outputs
     [OutputType]
     public sealed class ScheduleTargetEcsParametersNetworkConfiguration
     {
+        /// <summary>
+        /// Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when the `launch_type` is set to `FARGATE`. One of: `ENABLED`, `DISABLED`.
+        /// </summary>
         public readonly bool? AssignPublicIp;
+        /// <summary>
+        /// Set of 1 to 5 Security Group ID-s to be associated with the task. These security groups must all be in the same VPC.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
+        /// <summary>
+        /// Set of 1 to 16 subnets to be associated with the task. These subnets must all be in the same VPC.
+        /// </summary>
         public readonly ImmutableArray<string> Subnets;
 
         [OutputConstructor]

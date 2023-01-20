@@ -4,6 +4,45 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a DynamoDB table item resource
+ *
+ * > **Note:** This resource is not meant to be used for managing large amounts of data in your table, it is not designed to scale.
+ *   You should perform **regular backups** of all data in the table, see [AWS docs for more](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleTable = new aws.dynamodb.Table("exampleTable", {
+ *     readCapacity: 10,
+ *     writeCapacity: 10,
+ *     hashKey: "exampleHashKey",
+ *     attributes: [{
+ *         name: "exampleHashKey",
+ *         type: "S",
+ *     }],
+ * });
+ * const exampleTableItem = new aws.dynamodb.TableItem("exampleTableItem", {
+ *     tableName: exampleTable.name,
+ *     hashKey: exampleTable.hashKey,
+ *     item: `{
+ *   "exampleHashKey": {"S": "something"},
+ *   "one": {"N": "11111"},
+ *   "two": {"N": "22222"},
+ *   "three": {"N": "33333"},
+ *   "four": {"N": "44444"}
+ * }
+ * `,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * DynamoDB table items cannot be imported.
+ */
 export class TableItem extends pulumi.CustomResource {
     /**
      * Get an existing TableItem resource's state with the given name, ID, and optional extra
@@ -32,9 +71,21 @@ export class TableItem extends pulumi.CustomResource {
         return obj['__pulumiType'] === TableItem.__pulumiType;
     }
 
+    /**
+     * Hash key to use for lookups and identification of the item
+     */
     public readonly hashKey!: pulumi.Output<string>;
+    /**
+     * JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+     */
     public readonly item!: pulumi.Output<string>;
+    /**
+     * Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
+     */
     public readonly rangeKey!: pulumi.Output<string | undefined>;
+    /**
+     * Name of the table to contain the item.
+     */
     public readonly tableName!: pulumi.Output<string>;
 
     /**
@@ -79,9 +130,21 @@ export class TableItem extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TableItem resources.
  */
 export interface TableItemState {
+    /**
+     * Hash key to use for lookups and identification of the item
+     */
     hashKey?: pulumi.Input<string>;
+    /**
+     * JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+     */
     item?: pulumi.Input<string>;
+    /**
+     * Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
+     */
     rangeKey?: pulumi.Input<string>;
+    /**
+     * Name of the table to contain the item.
+     */
     tableName?: pulumi.Input<string>;
 }
 
@@ -89,8 +152,20 @@ export interface TableItemState {
  * The set of arguments for constructing a TableItem resource.
  */
 export interface TableItemArgs {
+    /**
+     * Hash key to use for lookups and identification of the item
+     */
     hashKey: pulumi.Input<string>;
+    /**
+     * JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+     */
     item: pulumi.Input<string>;
+    /**
+     * Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
+     */
     rangeKey?: pulumi.Input<string>;
+    /**
+     * Name of the table to contain the item.
+     */
     tableName: pulumi.Input<string>;
 }

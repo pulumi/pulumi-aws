@@ -12,14 +12,24 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
+        /// </summary>
         [Input("nielsenCbetSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs>? NielsenCbetSettings { get; set; }
 
+        /// <summary>
+        /// Distribution types to assign to the watermarks. Options are `PROGRAM_CONTENT` and `FINAL_DISTRIBUTOR`.
+        /// </summary>
         [Input("nielsenDistributionType")]
         public Input<string>? NielsenDistributionType { get; set; }
 
         [Input("nielsenNaesIiNwSettings")]
         private InputList<Inputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs>? _nielsenNaesIiNwSettings;
+
+        /// <summary>
+        /// Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
+        /// </summary>
         public InputList<Inputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs> NielsenNaesIiNwSettings
         {
             get => _nielsenNaesIiNwSettings ?? (_nielsenNaesIiNwSettings = new InputList<Inputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs>());

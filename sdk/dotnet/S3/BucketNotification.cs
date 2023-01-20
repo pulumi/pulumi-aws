@@ -9,21 +9,384 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
+    /// <summary>
+    /// Manages a S3 Bucket Notification Configuration. For additional information, see the [Configuring S3 Event Notifications section in the Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html).
+    /// 
+    /// &gt; **NOTE:** S3 Buckets only support a single notification configuration. Declaring multiple `aws.s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration. See the example "Trigger multiple Lambda functions" for an option.
+    /// 
+    /// ## Example Usage
+    /// ### Add notification configuration to SNS Topic
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    /// 
+    ///     var topic = new Aws.Sns.Topic("topic", new()
+    ///     {
+    ///         Policy = bucket.Arn.Apply(arn =&gt; @$"{{
+    ///     ""Version"":""2012-10-17"",
+    ///     ""Statement"":[{{
+    ///         ""Effect"": ""Allow"",
+    ///         ""Principal"": {{ ""Service"": ""s3.amazonaws.com"" }},
+    ///         ""Action"": ""SNS:Publish"",
+    ///         ""Resource"": ""arn:aws:sns:*:*:s3-event-notification-topic"",
+    ///         ""Condition"":{{
+    ///             ""ArnLike"":{{""aws:SourceArn"":""{arn}""}}
+    ///         }}
+    ///     }}]
+    /// }}
+    /// "),
+    ///     });
+    /// 
+    ///     var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Topics = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketNotificationTopicArgs
+    ///             {
+    ///                 TopicArn = topic.Arn,
+    ///                 Events = new[]
+    ///                 {
+    ///                     "s3:ObjectCreated:*",
+    ///                 },
+    ///                 FilterSuffix = ".log",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Add notification configuration to SQS Queue
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    /// 
+    ///     var queue = new Aws.Sqs.Queue("queue", new()
+    ///     {
+    ///         Policy = bucket.Arn.Apply(arn =&gt; @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": ""*"",
+    ///       ""Action"": ""sqs:SendMessage"",
+    /// 	  ""Resource"": ""arn:aws:sqs:*:*:s3-event-notification-queue"",
+    ///       ""Condition"": {{
+    ///         ""ArnEquals"": {{ ""aws:SourceArn"": ""{arn}"" }}
+    ///       }}
+    ///     }}
+    ///   ]
+    /// }}
+    /// "),
+    ///     });
+    /// 
+    ///     var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Queues = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketNotificationQueueArgs
+    ///             {
+    ///                 QueueArn = queue.Arn,
+    ///                 Events = new[]
+    ///                 {
+    ///                     "s3:ObjectCreated:*",
+    ///                 },
+    ///                 FilterSuffix = ".log",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Add notification configuration to Lambda Function
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iamForLambda = new Aws.Iam.Role("iamForLambda", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""lambda.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///     });
+    /// 
+    ///     var func = new Aws.Lambda.Function("func", new()
+    ///     {
+    ///         Code = new FileArchive("your-function.zip"),
+    ///         Role = iamForLambda.Arn,
+    ///         Handler = "exports.example",
+    ///         Runtime = "go1.x",
+    ///     });
+    /// 
+    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    /// 
+    ///     var allowBucket = new Aws.Lambda.Permission("allowBucket", new()
+    ///     {
+    ///         Action = "lambda:InvokeFunction",
+    ///         Function = func.Arn,
+    ///         Principal = "s3.amazonaws.com",
+    ///         SourceArn = bucket.Arn,
+    ///     });
+    /// 
+    ///     var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         LambdaFunctions = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketNotificationLambdaFunctionArgs
+    ///             {
+    ///                 LambdaFunctionArn = func.Arn,
+    ///                 Events = new[]
+    ///                 {
+    ///                     "s3:ObjectCreated:*",
+    ///                 },
+    ///                 FilterPrefix = "AWSLogs/",
+    ///                 FilterSuffix = ".log",
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             allowBucket,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Trigger multiple Lambda functions
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iamForLambda = new Aws.Iam.Role("iamForLambda", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""lambda.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///     });
+    /// 
+    ///     var func1 = new Aws.Lambda.Function("func1", new()
+    ///     {
+    ///         Code = new FileArchive("your-function1.zip"),
+    ///         Role = iamForLambda.Arn,
+    ///         Handler = "exports.example",
+    ///         Runtime = "go1.x",
+    ///     });
+    /// 
+    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    /// 
+    ///     var allowBucket1 = new Aws.Lambda.Permission("allowBucket1", new()
+    ///     {
+    ///         Action = "lambda:InvokeFunction",
+    ///         Function = func1.Arn,
+    ///         Principal = "s3.amazonaws.com",
+    ///         SourceArn = bucket.Arn,
+    ///     });
+    /// 
+    ///     var func2 = new Aws.Lambda.Function("func2", new()
+    ///     {
+    ///         Code = new FileArchive("your-function2.zip"),
+    ///         Role = iamForLambda.Arn,
+    ///         Handler = "exports.example",
+    ///     });
+    /// 
+    ///     var allowBucket2 = new Aws.Lambda.Permission("allowBucket2", new()
+    ///     {
+    ///         Action = "lambda:InvokeFunction",
+    ///         Function = func2.Arn,
+    ///         Principal = "s3.amazonaws.com",
+    ///         SourceArn = bucket.Arn,
+    ///     });
+    /// 
+    ///     var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         LambdaFunctions = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketNotificationLambdaFunctionArgs
+    ///             {
+    ///                 LambdaFunctionArn = func1.Arn,
+    ///                 Events = new[]
+    ///                 {
+    ///                     "s3:ObjectCreated:*",
+    ///                 },
+    ///                 FilterPrefix = "AWSLogs/",
+    ///                 FilterSuffix = ".log",
+    ///             },
+    ///             new Aws.S3.Inputs.BucketNotificationLambdaFunctionArgs
+    ///             {
+    ///                 LambdaFunctionArn = func2.Arn,
+    ///                 Events = new[]
+    ///                 {
+    ///                     "s3:ObjectCreated:*",
+    ///                 },
+    ///                 FilterPrefix = "OtherLogs/",
+    ///                 FilterSuffix = ".log",
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             allowBucket1,
+    ///             allowBucket2,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Add multiple notification configurations to SQS Queue
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    /// 
+    ///     var queue = new Aws.Sqs.Queue("queue", new()
+    ///     {
+    ///         Policy = bucket.Arn.Apply(arn =&gt; @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": ""*"",
+    ///       ""Action"": ""sqs:SendMessage"",
+    /// 	  ""Resource"": ""arn:aws:sqs:*:*:s3-event-notification-queue"",
+    ///       ""Condition"": {{
+    ///         ""ArnEquals"": {{ ""aws:SourceArn"": ""{arn}"" }}
+    ///       }}
+    ///     }}
+    ///   ]
+    /// }}
+    /// "),
+    ///     });
+    /// 
+    ///     var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Queues = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketNotificationQueueArgs
+    ///             {
+    ///                 Id = "image-upload-event",
+    ///                 QueueArn = queue.Arn,
+    ///                 Events = new[]
+    ///                 {
+    ///                     "s3:ObjectCreated:*",
+    ///                 },
+    ///                 FilterPrefix = "images/",
+    ///             },
+    ///             new Aws.S3.Inputs.BucketNotificationQueueArgs
+    ///             {
+    ///                 Id = "video-upload-event",
+    ///                 QueueArn = queue.Arn,
+    ///                 Events = new[]
+    ///                 {
+    ///                     "s3:ObjectCreated:*",
+    ///                 },
+    ///                 FilterPrefix = "videos/",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// For JSON syntax, use an array instead of defining the `queue` key twice.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// S3 bucket notification can be imported using the `bucket`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:s3/bucketNotification:BucketNotification")]
     public partial class BucketNotification : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Name of the bucket for notification configuration.
+        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to enable Amazon EventBridge notifications.
+        /// </summary>
         [Output("eventbridge")]
         public Output<bool?> Eventbridge { get; private set; } = null!;
 
+        /// <summary>
+        /// Used to configure notifications to a Lambda Function. See below.
+        /// </summary>
         [Output("lambdaFunctions")]
         public Output<ImmutableArray<Outputs.BucketNotificationLambdaFunction>> LambdaFunctions { get; private set; } = null!;
 
+        /// <summary>
+        /// Notification configuration to SQS Queue. See below.
+        /// </summary>
         [Output("queues")]
         public Output<ImmutableArray<Outputs.BucketNotificationQueue>> Queues { get; private set; } = null!;
 
+        /// <summary>
+        /// Notification configuration to SNS Topic. See below.
+        /// </summary>
         [Output("topics")]
         public Output<ImmutableArray<Outputs.BucketNotificationTopic>> Topics { get; private set; } = null!;
 
@@ -73,14 +436,24 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketNotificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the bucket for notification configuration.
+        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// Whether to enable Amazon EventBridge notifications.
+        /// </summary>
         [Input("eventbridge")]
         public Input<bool>? Eventbridge { get; set; }
 
         [Input("lambdaFunctions")]
         private InputList<Inputs.BucketNotificationLambdaFunctionArgs>? _lambdaFunctions;
+
+        /// <summary>
+        /// Used to configure notifications to a Lambda Function. See below.
+        /// </summary>
         public InputList<Inputs.BucketNotificationLambdaFunctionArgs> LambdaFunctions
         {
             get => _lambdaFunctions ?? (_lambdaFunctions = new InputList<Inputs.BucketNotificationLambdaFunctionArgs>());
@@ -89,6 +462,10 @@ namespace Pulumi.Aws.S3
 
         [Input("queues")]
         private InputList<Inputs.BucketNotificationQueueArgs>? _queues;
+
+        /// <summary>
+        /// Notification configuration to SQS Queue. See below.
+        /// </summary>
         public InputList<Inputs.BucketNotificationQueueArgs> Queues
         {
             get => _queues ?? (_queues = new InputList<Inputs.BucketNotificationQueueArgs>());
@@ -97,6 +474,10 @@ namespace Pulumi.Aws.S3
 
         [Input("topics")]
         private InputList<Inputs.BucketNotificationTopicArgs>? _topics;
+
+        /// <summary>
+        /// Notification configuration to SNS Topic. See below.
+        /// </summary>
         public InputList<Inputs.BucketNotificationTopicArgs> Topics
         {
             get => _topics ?? (_topics = new InputList<Inputs.BucketNotificationTopicArgs>());
@@ -111,14 +492,24 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketNotificationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the bucket for notification configuration.
+        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
+        /// <summary>
+        /// Whether to enable Amazon EventBridge notifications.
+        /// </summary>
         [Input("eventbridge")]
         public Input<bool>? Eventbridge { get; set; }
 
         [Input("lambdaFunctions")]
         private InputList<Inputs.BucketNotificationLambdaFunctionGetArgs>? _lambdaFunctions;
+
+        /// <summary>
+        /// Used to configure notifications to a Lambda Function. See below.
+        /// </summary>
         public InputList<Inputs.BucketNotificationLambdaFunctionGetArgs> LambdaFunctions
         {
             get => _lambdaFunctions ?? (_lambdaFunctions = new InputList<Inputs.BucketNotificationLambdaFunctionGetArgs>());
@@ -127,6 +518,10 @@ namespace Pulumi.Aws.S3
 
         [Input("queues")]
         private InputList<Inputs.BucketNotificationQueueGetArgs>? _queues;
+
+        /// <summary>
+        /// Notification configuration to SQS Queue. See below.
+        /// </summary>
         public InputList<Inputs.BucketNotificationQueueGetArgs> Queues
         {
             get => _queues ?? (_queues = new InputList<Inputs.BucketNotificationQueueGetArgs>());
@@ -135,6 +530,10 @@ namespace Pulumi.Aws.S3
 
         [Input("topics")]
         private InputList<Inputs.BucketNotificationTopicGetArgs>? _topics;
+
+        /// <summary>
+        /// Notification configuration to SNS Topic. See below.
+        /// </summary>
         public InputList<Inputs.BucketNotificationTopicGetArgs> Topics
         {
             get => _topics ?? (_topics = new InputList<Inputs.BucketNotificationTopicGetArgs>());

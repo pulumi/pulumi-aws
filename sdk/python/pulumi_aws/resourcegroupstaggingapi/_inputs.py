@@ -18,6 +18,10 @@ class GetResourcesTagFilterArgs:
     def __init__(__self__, *,
                  key: str,
                  values: Optional[Sequence[str]] = None):
+        """
+        :param str key: One part of a key-value pair that makes up a tag.
+        :param Sequence[str] values: Optional part of a key-value pair that make up a tag.
+        """
         pulumi.set(__self__, "key", key)
         if values is not None:
             pulumi.set(__self__, "values", values)
@@ -25,6 +29,9 @@ class GetResourcesTagFilterArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        One part of a key-value pair that makes up a tag.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -34,6 +41,9 @@ class GetResourcesTagFilterArgs:
     @property
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
+        """
+        Optional part of a key-value pair that make up a tag.
+        """
         return pulumi.get(self, "values")
 
     @values.setter

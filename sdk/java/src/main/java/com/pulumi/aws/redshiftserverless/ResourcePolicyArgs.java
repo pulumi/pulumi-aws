@@ -13,16 +13,32 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ResourcePolicyArgs Empty = new ResourcePolicyArgs();
 
+    /**
+     * The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
+     * 
+     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
+    /**
+     * @return The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
+     * 
+     */
     public Output<String> policy() {
         return this.policy;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+     * 
+     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+     * 
+     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
@@ -52,20 +68,44 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ResourcePolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param policy The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
+        /**
+         * @param policy The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
+        /**
+         * @param resourceArn The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
+        /**
+         * @param resourceArn The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

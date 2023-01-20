@@ -11,12 +11,53 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a CE Cost Allocation Tag.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := costexplorer.NewCostAllocationTag(ctx, "example", &costexplorer.CostAllocationTagArgs{
+//				Status: pulumi.String("Active"),
+//				TagKey: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_ce_cost_allocation_tag` can be imported using the `id`, e.g.
+//
+// ```sh
+//
+//	$ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
+//
+// ```
 type CostAllocationTag struct {
 	pulumi.CustomResourceState
 
+	// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
 	Status pulumi.StringOutput `pulumi:"status"`
+	// The key for the cost allocation tag.
 	TagKey pulumi.StringOutput `pulumi:"tagKey"`
-	Type   pulumi.StringOutput `pulumi:"type"`
+	// The type of cost allocation tag.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewCostAllocationTag registers a new resource with the given unique name, arguments, and options.
@@ -54,15 +95,21 @@ func GetCostAllocationTag(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CostAllocationTag resources.
 type costAllocationTagState struct {
+	// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
 	Status *string `pulumi:"status"`
+	// The key for the cost allocation tag.
 	TagKey *string `pulumi:"tagKey"`
-	Type   *string `pulumi:"type"`
+	// The type of cost allocation tag.
+	Type *string `pulumi:"type"`
 }
 
 type CostAllocationTagState struct {
+	// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
 	Status pulumi.StringPtrInput
+	// The key for the cost allocation tag.
 	TagKey pulumi.StringPtrInput
-	Type   pulumi.StringPtrInput
+	// The type of cost allocation tag.
+	Type pulumi.StringPtrInput
 }
 
 func (CostAllocationTagState) ElementType() reflect.Type {
@@ -70,13 +117,17 @@ func (CostAllocationTagState) ElementType() reflect.Type {
 }
 
 type costAllocationTagArgs struct {
+	// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
 	Status string `pulumi:"status"`
+	// The key for the cost allocation tag.
 	TagKey string `pulumi:"tagKey"`
 }
 
 // The set of arguments for constructing a CostAllocationTag resource.
 type CostAllocationTagArgs struct {
+	// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
 	Status pulumi.StringInput
+	// The key for the cost allocation tag.
 	TagKey pulumi.StringInput
 }
 
@@ -167,14 +218,17 @@ func (o CostAllocationTagOutput) ToCostAllocationTagOutputWithContext(ctx contex
 	return o
 }
 
+// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
 func (o CostAllocationTagOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *CostAllocationTag) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// The key for the cost allocation tag.
 func (o CostAllocationTagOutput) TagKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *CostAllocationTag) pulumi.StringOutput { return v.TagKey }).(pulumi.StringOutput)
 }
 
+// The type of cost allocation tag.
 func (o CostAllocationTagOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *CostAllocationTag) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

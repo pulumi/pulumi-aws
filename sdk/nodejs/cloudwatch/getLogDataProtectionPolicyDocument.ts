@@ -7,6 +7,62 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Generates a CloudWatch Log Group Data Protection Policy document in JSON format for use with the `aws.cloudwatch.LogDataProtectionPolicy` resource.
+ *
+ * > For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleLogDataProtectionPolicyDocument = aws.cloudwatch.getLogDataProtectionPolicyDocument({
+ *     name: "Example",
+ *     statements: [
+ *         {
+ *             sid: "Audit",
+ *             dataIdentifiers: [
+ *                 "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+ *                 "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
+ *             ],
+ *             operation: {
+ *                 audit: {
+ *                     findingsDestination: {
+ *                         cloudwatchLogs: {
+ *                             logGroup: aws_cloudwatch_log_group.audit.name,
+ *                         },
+ *                         firehose: {
+ *                             deliveryStream: aws_kinesis_firehose_delivery_stream.audit.name,
+ *                         },
+ *                         s3: {
+ *                             bucket: aws_s3_bucket.audit.bucket,
+ *                         },
+ *                     },
+ *                 },
+ *             },
+ *         },
+ *         {
+ *             sid: "Deidentify",
+ *             dataIdentifiers: [
+ *                 "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+ *                 "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
+ *             ],
+ *             operation: {
+ *                 deidentify: {
+ *                     maskConfig: {},
+ *                 },
+ *             },
+ *         },
+ *     ],
+ * });
+ * const exampleLogDataProtectionPolicy = new aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy", {
+ *     logGroupName: aws_cloudwatch_log_group.example.name,
+ *     policyDocument: exampleLogDataProtectionPolicyDocument.then(exampleLogDataProtectionPolicyDocument => exampleLogDataProtectionPolicyDocument.json),
+ * });
+ * ```
+ */
 export function getLogDataProtectionPolicyDocument(args: GetLogDataProtectionPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetLogDataProtectionPolicyDocumentResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -23,7 +79,13 @@ export function getLogDataProtectionPolicyDocument(args: GetLogDataProtectionPol
  */
 export interface GetLogDataProtectionPolicyDocumentArgs {
     description?: string;
+    /**
+     * The name of the data protection policy document.
+     */
     name: string;
+    /**
+     * Configures the data protection policy.
+     */
     statements: inputs.cloudwatch.GetLogDataProtectionPolicyDocumentStatement[];
     version?: string;
 }
@@ -37,11 +99,70 @@ export interface GetLogDataProtectionPolicyDocumentResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Standard JSON policy document rendered based on the arguments above.
+     */
     readonly json: string;
     readonly name: string;
     readonly statements: outputs.cloudwatch.GetLogDataProtectionPolicyDocumentStatement[];
     readonly version?: string;
 }
+/**
+ * Generates a CloudWatch Log Group Data Protection Policy document in JSON format for use with the `aws.cloudwatch.LogDataProtectionPolicy` resource.
+ *
+ * > For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleLogDataProtectionPolicyDocument = aws.cloudwatch.getLogDataProtectionPolicyDocument({
+ *     name: "Example",
+ *     statements: [
+ *         {
+ *             sid: "Audit",
+ *             dataIdentifiers: [
+ *                 "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+ *                 "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
+ *             ],
+ *             operation: {
+ *                 audit: {
+ *                     findingsDestination: {
+ *                         cloudwatchLogs: {
+ *                             logGroup: aws_cloudwatch_log_group.audit.name,
+ *                         },
+ *                         firehose: {
+ *                             deliveryStream: aws_kinesis_firehose_delivery_stream.audit.name,
+ *                         },
+ *                         s3: {
+ *                             bucket: aws_s3_bucket.audit.bucket,
+ *                         },
+ *                     },
+ *                 },
+ *             },
+ *         },
+ *         {
+ *             sid: "Deidentify",
+ *             dataIdentifiers: [
+ *                 "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+ *                 "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
+ *             ],
+ *             operation: {
+ *                 deidentify: {
+ *                     maskConfig: {},
+ *                 },
+ *             },
+ *         },
+ *     ],
+ * });
+ * const exampleLogDataProtectionPolicy = new aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy", {
+ *     logGroupName: aws_cloudwatch_log_group.example.name,
+ *     policyDocument: exampleLogDataProtectionPolicyDocument.then(exampleLogDataProtectionPolicyDocument => exampleLogDataProtectionPolicyDocument.json),
+ * });
+ * ```
+ */
 export function getLogDataProtectionPolicyDocumentOutput(args: GetLogDataProtectionPolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogDataProtectionPolicyDocumentResult> {
     return pulumi.output(args).apply((a: any) => getLogDataProtectionPolicyDocument(a, opts))
 }
@@ -51,7 +172,13 @@ export function getLogDataProtectionPolicyDocumentOutput(args: GetLogDataProtect
  */
 export interface GetLogDataProtectionPolicyDocumentOutputArgs {
     description?: pulumi.Input<string>;
+    /**
+     * The name of the data protection policy document.
+     */
     name: pulumi.Input<string>;
+    /**
+     * Configures the data protection policy.
+     */
     statements: pulumi.Input<pulumi.Input<inputs.cloudwatch.GetLogDataProtectionPolicyDocumentStatementArgs>[]>;
     version?: pulumi.Input<string>;
 }

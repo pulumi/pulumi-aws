@@ -14,16 +14,32 @@ public final class GetFunctionUrlPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetFunctionUrlPlainArgs Empty = new GetFunctionUrlPlainArgs();
 
+    /**
+     * he name (or ARN) of the Lambda function.
+     * 
+     */
     @Import(name="functionName", required=true)
     private String functionName;
 
+    /**
+     * @return he name (or ARN) of the Lambda function.
+     * 
+     */
     public String functionName() {
         return this.functionName;
     }
 
+    /**
+     * Alias name or `&#34;$LATEST&#34;`.
+     * 
+     */
     @Import(name="qualifier")
     private @Nullable String qualifier;
 
+    /**
+     * @return Alias name or `&#34;$LATEST&#34;`.
+     * 
+     */
     public Optional<String> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
@@ -53,11 +69,23 @@ public final class GetFunctionUrlPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetFunctionUrlPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param functionName he name (or ARN) of the Lambda function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder functionName(String functionName) {
             $.functionName = functionName;
             return this;
         }
 
+        /**
+         * @param qualifier Alias name or `&#34;$LATEST&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder qualifier(@Nullable String qualifier) {
             $.qualifier = qualifier;
             return this;

@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclLoggingConfigurationRedactedField {
     /**
+     * @return Redact all query arguments.
+     * 
      * @deprecated
      * Not supported by WAFv2 API
      * 
@@ -25,26 +27,48 @@ public final class WebAclLoggingConfigurationRedactedField {
     @Deprecated /* Not supported by WAFv2 API */
     private @Nullable WebAclLoggingConfigurationRedactedFieldAllQueryArguments allQueryArguments;
     /**
+     * @return Redact the request body, which immediately follows the request headers.
+     * 
      * @deprecated
      * Not supported by WAFv2 API
      * 
      */
     @Deprecated /* Not supported by WAFv2 API */
     private @Nullable WebAclLoggingConfigurationRedactedFieldBody body;
+    /**
+     * @return Redact the HTTP method. Must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
+     * 
+     */
     private @Nullable WebAclLoggingConfigurationRedactedFieldMethod method;
+    /**
+     * @return Redact the query string. Must be specified as an empty configuration block `{}`. This is the part of a URL that appears after a `?` character, if any.
+     * 
+     */
     private @Nullable WebAclLoggingConfigurationRedactedFieldQueryString queryString;
+    /**
+     * @return Redact a single header. See Single Header below for details.
+     * 
+     */
     private @Nullable WebAclLoggingConfigurationRedactedFieldSingleHeader singleHeader;
     /**
+     * @return Redact a single query argument. See Single Query Argument below for details.
+     * 
      * @deprecated
      * Not supported by WAFv2 API
      * 
      */
     @Deprecated /* Not supported by WAFv2 API */
     private @Nullable WebAclLoggingConfigurationRedactedFieldSingleQueryArgument singleQueryArgument;
+    /**
+     * @return Redact the request URI path. Must be specified as an empty configuration block `{}`. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+     * 
+     */
     private @Nullable WebAclLoggingConfigurationRedactedFieldUriPath uriPath;
 
     private WebAclLoggingConfigurationRedactedField() {}
     /**
+     * @return Redact all query arguments.
+     * 
      * @deprecated
      * Not supported by WAFv2 API
      * 
@@ -54,6 +78,8 @@ public final class WebAclLoggingConfigurationRedactedField {
         return Optional.ofNullable(this.allQueryArguments);
     }
     /**
+     * @return Redact the request body, which immediately follows the request headers.
+     * 
      * @deprecated
      * Not supported by WAFv2 API
      * 
@@ -62,16 +88,30 @@ public final class WebAclLoggingConfigurationRedactedField {
     public Optional<WebAclLoggingConfigurationRedactedFieldBody> body() {
         return Optional.ofNullable(this.body);
     }
+    /**
+     * @return Redact the HTTP method. Must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
+     * 
+     */
     public Optional<WebAclLoggingConfigurationRedactedFieldMethod> method() {
         return Optional.ofNullable(this.method);
     }
+    /**
+     * @return Redact the query string. Must be specified as an empty configuration block `{}`. This is the part of a URL that appears after a `?` character, if any.
+     * 
+     */
     public Optional<WebAclLoggingConfigurationRedactedFieldQueryString> queryString() {
         return Optional.ofNullable(this.queryString);
     }
+    /**
+     * @return Redact a single header. See Single Header below for details.
+     * 
+     */
     public Optional<WebAclLoggingConfigurationRedactedFieldSingleHeader> singleHeader() {
         return Optional.ofNullable(this.singleHeader);
     }
     /**
+     * @return Redact a single query argument. See Single Query Argument below for details.
+     * 
      * @deprecated
      * Not supported by WAFv2 API
      * 
@@ -80,6 +120,10 @@ public final class WebAclLoggingConfigurationRedactedField {
     public Optional<WebAclLoggingConfigurationRedactedFieldSingleQueryArgument> singleQueryArgument() {
         return Optional.ofNullable(this.singleQueryArgument);
     }
+    /**
+     * @return Redact the request URI path. Must be specified as an empty configuration block `{}`. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+     * 
+     */
     public Optional<WebAclLoggingConfigurationRedactedFieldUriPath> uriPath() {
         return Optional.ofNullable(this.uriPath);
     }

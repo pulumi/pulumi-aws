@@ -11,24 +11,78 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an Image Builder Image.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := imagebuilder.NewImage(ctx, "example", &imagebuilder.ImageArgs{
+//				DistributionConfigurationArn:   pulumi.Any(aws_imagebuilder_distribution_configuration.Example.Arn),
+//				ImageRecipeArn:                 pulumi.Any(aws_imagebuilder_image_recipe.Example.Arn),
+//				InfrastructureConfigurationArn: pulumi.Any(aws_imagebuilder_infrastructure_configuration.Example.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_imagebuilder_image` resources can be imported using the Amazon Resource Name (ARN), e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:imagebuilder/image:Image example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
+//
+// ```
 type Image struct {
 	pulumi.CustomResourceState
 
-	Arn                            pulumi.StringOutput                `pulumi:"arn"`
-	ContainerRecipeArn             pulumi.StringPtrOutput             `pulumi:"containerRecipeArn"`
-	DateCreated                    pulumi.StringOutput                `pulumi:"dateCreated"`
-	DistributionConfigurationArn   pulumi.StringPtrOutput             `pulumi:"distributionConfigurationArn"`
-	EnhancedImageMetadataEnabled   pulumi.BoolPtrOutput               `pulumi:"enhancedImageMetadataEnabled"`
-	ImageRecipeArn                 pulumi.StringPtrOutput             `pulumi:"imageRecipeArn"`
-	ImageTestsConfiguration        ImageImageTestsConfigurationOutput `pulumi:"imageTestsConfiguration"`
-	InfrastructureConfigurationArn pulumi.StringOutput                `pulumi:"infrastructureConfigurationArn"`
-	Name                           pulumi.StringOutput                `pulumi:"name"`
-	OsVersion                      pulumi.StringOutput                `pulumi:"osVersion"`
-	OutputResources                ImageOutputResourceArrayOutput     `pulumi:"outputResources"`
-	Platform                       pulumi.StringOutput                `pulumi:"platform"`
-	Tags                           pulumi.StringMapOutput             `pulumi:"tags"`
-	TagsAll                        pulumi.StringMapOutput             `pulumi:"tagsAll"`
-	Version                        pulumi.StringOutput                `pulumi:"version"`
+	// Amazon Resource Name (ARN) of the image.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Amazon Resource Name (ARN) of the container recipe.
+	ContainerRecipeArn pulumi.StringPtrOutput `pulumi:"containerRecipeArn"`
+	// Date the image was created.
+	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
+	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+	DistributionConfigurationArn pulumi.StringPtrOutput `pulumi:"distributionConfigurationArn"`
+	// Whether additional information about the image being created is collected. Defaults to `true`.
+	EnhancedImageMetadataEnabled pulumi.BoolPtrOutput `pulumi:"enhancedImageMetadataEnabled"`
+	// Amazon Resource Name (ARN) of the image recipe.
+	ImageRecipeArn pulumi.StringPtrOutput `pulumi:"imageRecipeArn"`
+	// Configuration block with image tests configuration. Detailed below.
+	ImageTestsConfiguration ImageImageTestsConfigurationOutput `pulumi:"imageTestsConfiguration"`
+	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	InfrastructureConfigurationArn pulumi.StringOutput `pulumi:"infrastructureConfigurationArn"`
+	// Name of the AMI.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Operating System version of the image.
+	OsVersion pulumi.StringOutput `pulumi:"osVersion"`
+	// List of objects with resources created by the image.
+	OutputResources ImageOutputResourceArrayOutput `pulumi:"outputResources"`
+	// Platform of the image.
+	Platform pulumi.StringOutput `pulumi:"platform"`
+	// Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Version of the image.
+	Version pulumi.StringOutput `pulumi:"version"`
 }
 
 // NewImage registers a new resource with the given unique name, arguments, and options.
@@ -63,39 +117,69 @@ func GetImage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Image resources.
 type imageState struct {
-	Arn                            *string                       `pulumi:"arn"`
-	ContainerRecipeArn             *string                       `pulumi:"containerRecipeArn"`
-	DateCreated                    *string                       `pulumi:"dateCreated"`
-	DistributionConfigurationArn   *string                       `pulumi:"distributionConfigurationArn"`
-	EnhancedImageMetadataEnabled   *bool                         `pulumi:"enhancedImageMetadataEnabled"`
-	ImageRecipeArn                 *string                       `pulumi:"imageRecipeArn"`
-	ImageTestsConfiguration        *ImageImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
-	InfrastructureConfigurationArn *string                       `pulumi:"infrastructureConfigurationArn"`
-	Name                           *string                       `pulumi:"name"`
-	OsVersion                      *string                       `pulumi:"osVersion"`
-	OutputResources                []ImageOutputResource         `pulumi:"outputResources"`
-	Platform                       *string                       `pulumi:"platform"`
-	Tags                           map[string]string             `pulumi:"tags"`
-	TagsAll                        map[string]string             `pulumi:"tagsAll"`
-	Version                        *string                       `pulumi:"version"`
+	// Amazon Resource Name (ARN) of the image.
+	Arn *string `pulumi:"arn"`
+	// Amazon Resource Name (ARN) of the container recipe.
+	ContainerRecipeArn *string `pulumi:"containerRecipeArn"`
+	// Date the image was created.
+	DateCreated *string `pulumi:"dateCreated"`
+	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+	DistributionConfigurationArn *string `pulumi:"distributionConfigurationArn"`
+	// Whether additional information about the image being created is collected. Defaults to `true`.
+	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
+	// Amazon Resource Name (ARN) of the image recipe.
+	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
+	// Configuration block with image tests configuration. Detailed below.
+	ImageTestsConfiguration *ImageImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
+	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	InfrastructureConfigurationArn *string `pulumi:"infrastructureConfigurationArn"`
+	// Name of the AMI.
+	Name *string `pulumi:"name"`
+	// Operating System version of the image.
+	OsVersion *string `pulumi:"osVersion"`
+	// List of objects with resources created by the image.
+	OutputResources []ImageOutputResource `pulumi:"outputResources"`
+	// Platform of the image.
+	Platform *string `pulumi:"platform"`
+	// Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Version of the image.
+	Version *string `pulumi:"version"`
 }
 
 type ImageState struct {
-	Arn                            pulumi.StringPtrInput
-	ContainerRecipeArn             pulumi.StringPtrInput
-	DateCreated                    pulumi.StringPtrInput
-	DistributionConfigurationArn   pulumi.StringPtrInput
-	EnhancedImageMetadataEnabled   pulumi.BoolPtrInput
-	ImageRecipeArn                 pulumi.StringPtrInput
-	ImageTestsConfiguration        ImageImageTestsConfigurationPtrInput
+	// Amazon Resource Name (ARN) of the image.
+	Arn pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the container recipe.
+	ContainerRecipeArn pulumi.StringPtrInput
+	// Date the image was created.
+	DateCreated pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+	DistributionConfigurationArn pulumi.StringPtrInput
+	// Whether additional information about the image being created is collected. Defaults to `true`.
+	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
+	// Amazon Resource Name (ARN) of the image recipe.
+	ImageRecipeArn pulumi.StringPtrInput
+	// Configuration block with image tests configuration. Detailed below.
+	ImageTestsConfiguration ImageImageTestsConfigurationPtrInput
+	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
 	InfrastructureConfigurationArn pulumi.StringPtrInput
-	Name                           pulumi.StringPtrInput
-	OsVersion                      pulumi.StringPtrInput
-	OutputResources                ImageOutputResourceArrayInput
-	Platform                       pulumi.StringPtrInput
-	Tags                           pulumi.StringMapInput
-	TagsAll                        pulumi.StringMapInput
-	Version                        pulumi.StringPtrInput
+	// Name of the AMI.
+	Name pulumi.StringPtrInput
+	// Operating System version of the image.
+	OsVersion pulumi.StringPtrInput
+	// List of objects with resources created by the image.
+	OutputResources ImageOutputResourceArrayInput
+	// Platform of the image.
+	Platform pulumi.StringPtrInput
+	// Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// Version of the image.
+	Version pulumi.StringPtrInput
 }
 
 func (ImageState) ElementType() reflect.Type {
@@ -103,24 +187,38 @@ func (ImageState) ElementType() reflect.Type {
 }
 
 type imageArgs struct {
-	ContainerRecipeArn             *string                       `pulumi:"containerRecipeArn"`
-	DistributionConfigurationArn   *string                       `pulumi:"distributionConfigurationArn"`
-	EnhancedImageMetadataEnabled   *bool                         `pulumi:"enhancedImageMetadataEnabled"`
-	ImageRecipeArn                 *string                       `pulumi:"imageRecipeArn"`
-	ImageTestsConfiguration        *ImageImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
-	InfrastructureConfigurationArn string                        `pulumi:"infrastructureConfigurationArn"`
-	Tags                           map[string]string             `pulumi:"tags"`
+	// Amazon Resource Name (ARN) of the container recipe.
+	ContainerRecipeArn *string `pulumi:"containerRecipeArn"`
+	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+	DistributionConfigurationArn *string `pulumi:"distributionConfigurationArn"`
+	// Whether additional information about the image being created is collected. Defaults to `true`.
+	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
+	// Amazon Resource Name (ARN) of the image recipe.
+	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
+	// Configuration block with image tests configuration. Detailed below.
+	ImageTestsConfiguration *ImageImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
+	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	InfrastructureConfigurationArn string `pulumi:"infrastructureConfigurationArn"`
+	// Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Image resource.
 type ImageArgs struct {
-	ContainerRecipeArn             pulumi.StringPtrInput
-	DistributionConfigurationArn   pulumi.StringPtrInput
-	EnhancedImageMetadataEnabled   pulumi.BoolPtrInput
-	ImageRecipeArn                 pulumi.StringPtrInput
-	ImageTestsConfiguration        ImageImageTestsConfigurationPtrInput
+	// Amazon Resource Name (ARN) of the container recipe.
+	ContainerRecipeArn pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+	DistributionConfigurationArn pulumi.StringPtrInput
+	// Whether additional information about the image being created is collected. Defaults to `true`.
+	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
+	// Amazon Resource Name (ARN) of the image recipe.
+	ImageRecipeArn pulumi.StringPtrInput
+	// Configuration block with image tests configuration. Detailed below.
+	ImageTestsConfiguration ImageImageTestsConfigurationPtrInput
+	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
 	InfrastructureConfigurationArn pulumi.StringInput
-	Tags                           pulumi.StringMapInput
+	// Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ImageArgs) ElementType() reflect.Type {
@@ -210,62 +308,77 @@ func (o ImageOutput) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return o
 }
 
+// Amazon Resource Name (ARN) of the image.
 func (o ImageOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Amazon Resource Name (ARN) of the container recipe.
 func (o ImageOutput) ContainerRecipeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.ContainerRecipeArn }).(pulumi.StringPtrOutput)
 }
 
+// Date the image was created.
 func (o ImageOutput) DateCreated() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.DateCreated }).(pulumi.StringOutput)
 }
 
+// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
 func (o ImageOutput) DistributionConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.DistributionConfigurationArn }).(pulumi.StringPtrOutput)
 }
 
+// Whether additional information about the image being created is collected. Defaults to `true`.
 func (o ImageOutput) EnhancedImageMetadataEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.BoolPtrOutput { return v.EnhancedImageMetadataEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Amazon Resource Name (ARN) of the image recipe.
 func (o ImageOutput) ImageRecipeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.ImageRecipeArn }).(pulumi.StringPtrOutput)
 }
 
+// Configuration block with image tests configuration. Detailed below.
 func (o ImageOutput) ImageTestsConfiguration() ImageImageTestsConfigurationOutput {
 	return o.ApplyT(func(v *Image) ImageImageTestsConfigurationOutput { return v.ImageTestsConfiguration }).(ImageImageTestsConfigurationOutput)
 }
 
+// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
 func (o ImageOutput) InfrastructureConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.InfrastructureConfigurationArn }).(pulumi.StringOutput)
 }
 
+// Name of the AMI.
 func (o ImageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Operating System version of the image.
 func (o ImageOutput) OsVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.OsVersion }).(pulumi.StringOutput)
 }
 
+// List of objects with resources created by the image.
 func (o ImageOutput) OutputResources() ImageOutputResourceArrayOutput {
 	return o.ApplyT(func(v *Image) ImageOutputResourceArrayOutput { return v.OutputResources }).(ImageOutputResourceArrayOutput)
 }
 
+// Platform of the image.
 func (o ImageOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ImageOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ImageOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// Version of the image.
 func (o ImageOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

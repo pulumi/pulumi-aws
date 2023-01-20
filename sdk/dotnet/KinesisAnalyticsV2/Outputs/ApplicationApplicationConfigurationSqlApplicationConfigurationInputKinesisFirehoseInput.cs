@@ -13,6 +13,9 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput
     {
+        /// <summary>
+        /// The ARN of the delivery stream.
+        /// </summary>
         public readonly string ResourceArn;
 
         [OutputConstructor]

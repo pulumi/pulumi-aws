@@ -23,6 +23,11 @@ class ExperienceArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Experience resource.
+        :param pulumi.Input[str] index_id: The identifier of the index for your Amazon Kendra experience.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        :param pulumi.Input['ExperienceConfigurationArgs'] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        :param pulumi.Input[str] description: A description for your Amazon Kendra experience.
+        :param pulumi.Input[str] name: A name for your Amazon Kendra experience.
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -36,6 +41,9 @@ class ExperienceArgs:
     @property
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the index for your Amazon Kendra experience.
+        """
         return pulumi.get(self, "index_id")
 
     @index_id.setter
@@ -45,6 +53,9 @@ class ExperienceArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -54,6 +65,9 @@ class ExperienceArgs:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['ExperienceConfigurationArgs']]:
+        """
+        Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -63,6 +77,9 @@ class ExperienceArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for your Amazon Kendra experience.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -72,6 +89,9 @@ class ExperienceArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for your Amazon Kendra experience.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -93,6 +113,15 @@ class _ExperienceState:
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Experience resources.
+        :param pulumi.Input[str] arn: ARN of the Experience.
+        :param pulumi.Input['ExperienceConfigurationArgs'] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        :param pulumi.Input[str] description: A description for your Amazon Kendra experience.
+        :param pulumi.Input[Sequence[pulumi.Input['ExperienceEndpointArgs']]] endpoints: Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
+        :param pulumi.Input[str] experience_id: The unique identifier of the experience.
+        :param pulumi.Input[str] index_id: The identifier of the index for your Amazon Kendra experience.
+        :param pulumi.Input[str] name: A name for your Amazon Kendra experience.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        :param pulumi.Input[str] status: The current processing status of your Amazon Kendra experience.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -116,6 +145,9 @@ class _ExperienceState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Experience.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -125,6 +157,9 @@ class _ExperienceState:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['ExperienceConfigurationArgs']]:
+        """
+        Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -134,6 +169,9 @@ class _ExperienceState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for your Amazon Kendra experience.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -143,6 +181,9 @@ class _ExperienceState:
     @property
     @pulumi.getter
     def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperienceEndpointArgs']]]]:
+        """
+        Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
+        """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
@@ -152,6 +193,9 @@ class _ExperienceState:
     @property
     @pulumi.getter(name="experienceId")
     def experience_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier of the experience.
+        """
         return pulumi.get(self, "experience_id")
 
     @experience_id.setter
@@ -161,6 +205,9 @@ class _ExperienceState:
     @property
     @pulumi.getter(name="indexId")
     def index_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the index for your Amazon Kendra experience.
+        """
         return pulumi.get(self, "index_id")
 
     @index_id.setter
@@ -170,6 +217,9 @@ class _ExperienceState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for your Amazon Kendra experience.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -179,6 +229,9 @@ class _ExperienceState:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -188,6 +241,9 @@ class _ExperienceState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current processing status of your Amazon Kendra experience.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -207,9 +263,45 @@ class Experience(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Experience resource with the given unique name, props, and options.
+        Resource for managing an AWS Kendra Experience.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.Experience("example",
+            index_id=aws_kendra_index["example"]["id"],
+            description="My Kendra Experience",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.ExperienceConfigurationArgs(
+                content_source_configuration=aws.kendra.ExperienceConfigurationContentSourceConfigurationArgs(
+                    direct_put_content=True,
+                    faq_ids=[aws_kendra_faq["example"]["faq_id"]],
+                ),
+                user_identity_configuration=aws.kendra.ExperienceConfigurationUserIdentityConfigurationArgs(
+                    identity_attribute_name="12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
+                ),
+            ))
+        ```
+
+        ## Import
+
+        Kendra Experience can be imported using the unique identifiers of the experience and index separated by a slash (`/`) e.g.,
+
+        ```sh
+         $ pulumi import aws:kendra/experience:Experience example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ExperienceConfigurationArgs']] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        :param pulumi.Input[str] description: A description for your Amazon Kendra experience.
+        :param pulumi.Input[str] index_id: The identifier of the index for your Amazon Kendra experience.
+        :param pulumi.Input[str] name: A name for your Amazon Kendra experience.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         """
         ...
     @overload
@@ -218,7 +310,38 @@ class Experience(pulumi.CustomResource):
                  args: ExperienceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Experience resource with the given unique name, props, and options.
+        Resource for managing an AWS Kendra Experience.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.Experience("example",
+            index_id=aws_kendra_index["example"]["id"],
+            description="My Kendra Experience",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.ExperienceConfigurationArgs(
+                content_source_configuration=aws.kendra.ExperienceConfigurationContentSourceConfigurationArgs(
+                    direct_put_content=True,
+                    faq_ids=[aws_kendra_faq["example"]["faq_id"]],
+                ),
+                user_identity_configuration=aws.kendra.ExperienceConfigurationUserIdentityConfigurationArgs(
+                    identity_attribute_name="12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
+                ),
+            ))
+        ```
+
+        ## Import
+
+        Kendra Experience can be imported using the unique identifiers of the experience and index separated by a slash (`/`) e.g.,
+
+        ```sh
+         $ pulumi import aws:kendra/experience:Experience example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
+        ```
+
         :param str resource_name: The name of the resource.
         :param ExperienceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -287,6 +410,15 @@ class Experience(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the Experience.
+        :param pulumi.Input[pulumi.InputType['ExperienceConfigurationArgs']] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        :param pulumi.Input[str] description: A description for your Amazon Kendra experience.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperienceEndpointArgs']]]] endpoints: Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
+        :param pulumi.Input[str] experience_id: The unique identifier of the experience.
+        :param pulumi.Input[str] index_id: The identifier of the index for your Amazon Kendra experience.
+        :param pulumi.Input[str] name: A name for your Amazon Kendra experience.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        :param pulumi.Input[str] status: The current processing status of your Amazon Kendra experience.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -306,45 +438,72 @@ class Experience(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the Experience.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output['outputs.ExperienceConfiguration']:
+        """
+        Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description for your Amazon Kendra experience.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def endpoints(self) -> pulumi.Output[Sequence['outputs.ExperienceEndpoint']]:
+        """
+        Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
+        """
         return pulumi.get(self, "endpoints")
 
     @property
     @pulumi.getter(name="experienceId")
     def experience_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the experience.
+        """
         return pulumi.get(self, "experience_id")
 
     @property
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the index for your Amazon Kendra experience.
+        """
         return pulumi.get(self, "index_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A name for your Amazon Kendra experience.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The current processing status of your Amazon Kendra experience.
+        """
         return pulumi.get(self, "status")
 

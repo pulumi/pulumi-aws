@@ -56,21 +56,33 @@ class GetFunctionResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN identifying your CloudFront Function.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def code(self) -> str:
+        """
+        Source code of the function
+        """
         return pulumi.get(self, "code")
 
     @property
     @pulumi.getter
     def comment(self) -> str:
+        """
+        Comment.
+        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter
     def etag(self) -> str:
+        """
+        ETag hash of the function
+        """
         return pulumi.get(self, "etag")
 
     @property
@@ -84,6 +96,9 @@ class GetFunctionResult:
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> str:
+        """
+        When this resource was last modified.
+        """
         return pulumi.get(self, "last_modified_time")
 
     @property
@@ -94,6 +109,9 @@ class GetFunctionResult:
     @property
     @pulumi.getter
     def runtime(self) -> str:
+        """
+        Identifier of the function's runtime.
+        """
         return pulumi.get(self, "runtime")
 
     @property
@@ -104,6 +122,9 @@ class GetFunctionResult:
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
+        """
         return pulumi.get(self, "status")
 
 
@@ -129,7 +150,22 @@ def get_function(name: Optional[str] = None,
                  stage: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a CloudFront Function.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    function_name = config.require("functionName")
+    existing = aws.cloudfront.get_function(name=function_name)
+    ```
+
+
+    :param str name: Name of the CloudFront function.
+    :param str stage: Function’s stage, either `DEVELOPMENT` or `LIVE`.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -155,6 +191,21 @@ def get_function_output(name: Optional[pulumi.Input[str]] = None,
                         stage: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a CloudFront Function.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    function_name = config.require("functionName")
+    existing = aws.cloudfront.get_function(name=function_name)
+    ```
+
+
+    :param str name: Name of the CloudFront function.
+    :param str stage: Function’s stage, either `DEVELOPMENT` or `LIVE`.
     """
     ...

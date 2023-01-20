@@ -13,11 +13,29 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolPasswordPolicy
     {
+        /// <summary>
+        /// Minimum length of the password policy that you have set.
+        /// </summary>
         public readonly int? MinimumLength;
+        /// <summary>
+        /// Whether you have required users to use at least one lowercase letter in their password.
+        /// </summary>
         public readonly bool? RequireLowercase;
+        /// <summary>
+        /// Whether you have required users to use at least one number in their password.
+        /// </summary>
         public readonly bool? RequireNumbers;
+        /// <summary>
+        /// Whether you have required users to use at least one symbol in their password.
+        /// </summary>
         public readonly bool? RequireSymbols;
+        /// <summary>
+        /// Whether you have required users to use at least one uppercase letter in their password.
+        /// </summary>
         public readonly bool? RequireUppercase;
+        /// <summary>
+        /// In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
+        /// </summary>
         public readonly int? TemporaryPasswordValidityDays;
 
         [OutputConstructor]

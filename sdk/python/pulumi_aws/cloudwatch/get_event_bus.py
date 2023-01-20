@@ -35,6 +35,9 @@ class GetEventBusResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -65,7 +68,21 @@ class AwaitableGetEventBusResult(GetEventBusResult):
 def get_event_bus(name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventBusResult:
     """
-    Use this data source to access information about an existing resource.
+    This data source can be used to fetch information about a specific
+    EventBridge event bus. Use this data source to compute the ARN of
+    an event bus, given the name of the bus.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.cloudwatch.get_event_bus(name="example-bus-name")
+    ```
+
+
+    :param str name: Friendly EventBridge event bus name.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -82,6 +99,20 @@ def get_event_bus(name: Optional[str] = None,
 def get_event_bus_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventBusResult]:
     """
-    Use this data source to access information about an existing resource.
+    This data source can be used to fetch information about a specific
+    EventBridge event bus. Use this data source to compute the ARN of
+    an event bus, given the name of the bus.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.cloudwatch.get_event_bus(name="example-bus-name")
+    ```
+
+
+    :param str name: Friendly EventBridge event bus name.
     """
     ...

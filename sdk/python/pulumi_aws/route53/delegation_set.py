@@ -17,6 +17,8 @@ class DelegationSetArgs:
                  reference_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DelegationSet resource.
+        :param pulumi.Input[str] reference_name: This is a reference name used in Caller Reference
+               (helpful for identifying single delegation set amongst others)
         """
         if reference_name is not None:
             pulumi.set(__self__, "reference_name", reference_name)
@@ -24,6 +26,10 @@ class DelegationSetArgs:
     @property
     @pulumi.getter(name="referenceName")
     def reference_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is a reference name used in Caller Reference
+        (helpful for identifying single delegation set amongst others)
+        """
         return pulumi.get(self, "reference_name")
 
     @reference_name.setter
@@ -39,6 +45,11 @@ class _DelegationSetState:
                  reference_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DelegationSet resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Delegation Set.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] name_servers: A list of authoritative name servers for the hosted zone
+               (effectively a list of NS records).
+        :param pulumi.Input[str] reference_name: This is a reference name used in Caller Reference
+               (helpful for identifying single delegation set amongst others)
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -50,6 +61,9 @@ class _DelegationSetState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Delegation Set.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -59,6 +73,10 @@ class _DelegationSetState:
     @property
     @pulumi.getter(name="nameServers")
     def name_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of authoritative name servers for the hosted zone
+        (effectively a list of NS records).
+        """
         return pulumi.get(self, "name_servers")
 
     @name_servers.setter
@@ -68,6 +86,10 @@ class _DelegationSetState:
     @property
     @pulumi.getter(name="referenceName")
     def reference_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is a reference name used in Caller Reference
+        (helpful for identifying single delegation set amongst others)
+        """
         return pulumi.get(self, "reference_name")
 
     @reference_name.setter
@@ -83,9 +105,31 @@ class DelegationSet(pulumi.CustomResource):
                  reference_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a DelegationSet resource with the given unique name, props, and options.
+        Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API-actions-by-function.html#actions-by-function-reusable-delegation-sets) resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.route53.DelegationSet("main", reference_name="DynDNS")
+        primary = aws.route53.Zone("primary", delegation_set_id=main.id)
+        secondary = aws.route53.Zone("secondary", delegation_set_id=main.id)
+        ```
+
+        ## Import
+
+        Route53 Delegation Sets can be imported using the `delegation set id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] reference_name: This is a reference name used in Caller Reference
+               (helpful for identifying single delegation set amongst others)
         """
         ...
     @overload
@@ -94,7 +138,27 @@ class DelegationSet(pulumi.CustomResource):
                  args: Optional[DelegationSetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DelegationSet resource with the given unique name, props, and options.
+        Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API-actions-by-function.html#actions-by-function-reusable-delegation-sets) resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.route53.DelegationSet("main", reference_name="DynDNS")
+        primary = aws.route53.Zone("primary", delegation_set_id=main.id)
+        secondary = aws.route53.Zone("secondary", delegation_set_id=main.id)
+        ```
+
+        ## Import
+
+        Route53 Delegation Sets can be imported using the `delegation set id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
+        ```
+
         :param str resource_name: The name of the resource.
         :param DelegationSetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,6 +207,11 @@ class DelegationSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Delegation Set.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] name_servers: A list of authoritative name servers for the hosted zone
+               (effectively a list of NS records).
+        :param pulumi.Input[str] reference_name: This is a reference name used in Caller Reference
+               (helpful for identifying single delegation set amongst others)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -156,15 +225,26 @@ class DelegationSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Delegation Set.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="nameServers")
     def name_servers(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of authoritative name servers for the hosted zone
+        (effectively a list of NS records).
+        """
         return pulumi.get(self, "name_servers")
 
     @property
     @pulumi.getter(name="referenceName")
     def reference_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        This is a reference name used in Caller Reference
+        (helpful for identifying single delegation set amongst others)
+        """
         return pulumi.get(self, "reference_name")
 

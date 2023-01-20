@@ -15,16 +15,32 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource
 
     public static final ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs Empty = new ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs();
 
+    /**
+     * DNS Name that acts as the ingress point to a portion of application.
+     * 
+     */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
+    /**
+     * @return DNS Name that acts as the ingress point to a portion of application.
+     * 
+     */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
     }
 
+    /**
+     * Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+     * 
+     */
     @Import(name="recordSetId")
     private @Nullable Output<String> recordSetId;
 
+    /**
+     * @return Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+     * 
+     */
     public Optional<Output<String>> recordSetId() {
         return Optional.ofNullable(this.recordSetId);
     }
@@ -54,20 +70,44 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource
             $ = new ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domainName DNS Name that acts as the ingress point to a portion of application.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(@Nullable Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
+        /**
+         * @param domainName DNS Name that acts as the ingress point to a portion of application.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
+        /**
+         * @param recordSetId Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recordSetId(@Nullable Output<String> recordSetId) {
             $.recordSetId = recordSetId;
             return this;
         }
 
+        /**
+         * @param recordSetId Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recordSetId(String recordSetId) {
             return recordSetId(Output.of(recordSetId));
         }

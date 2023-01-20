@@ -17,16 +17,32 @@ public final class GroupMixedInstancesPolicyLaunchTemplateArgs extends com.pulum
 
     public static final GroupMixedInstancesPolicyLaunchTemplateArgs Empty = new GroupMixedInstancesPolicyLaunchTemplateArgs();
 
+    /**
+     * Nested argument defines the Launch Template. Defined below.
+     * 
+     */
     @Import(name="launchTemplateSpecification", required=true)
     private Output<GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs> launchTemplateSpecification;
 
+    /**
+     * @return Nested argument defines the Launch Template. Defined below.
+     * 
+     */
     public Output<GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs> launchTemplateSpecification() {
         return this.launchTemplateSpecification;
     }
 
+    /**
+     * List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
+     * 
+     */
     @Import(name="overrides")
     private @Nullable Output<List<GroupMixedInstancesPolicyLaunchTemplateOverrideArgs>> overrides;
 
+    /**
+     * @return List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
+     * 
+     */
     public Optional<Output<List<GroupMixedInstancesPolicyLaunchTemplateOverrideArgs>>> overrides() {
         return Optional.ofNullable(this.overrides);
     }
@@ -56,24 +72,54 @@ public final class GroupMixedInstancesPolicyLaunchTemplateArgs extends com.pulum
             $ = new GroupMixedInstancesPolicyLaunchTemplateArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param launchTemplateSpecification Nested argument defines the Launch Template. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder launchTemplateSpecification(Output<GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs> launchTemplateSpecification) {
             $.launchTemplateSpecification = launchTemplateSpecification;
             return this;
         }
 
+        /**
+         * @param launchTemplateSpecification Nested argument defines the Launch Template. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs launchTemplateSpecification) {
             return launchTemplateSpecification(Output.of(launchTemplateSpecification));
         }
 
+        /**
+         * @param overrides List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder overrides(@Nullable Output<List<GroupMixedInstancesPolicyLaunchTemplateOverrideArgs>> overrides) {
             $.overrides = overrides;
             return this;
         }
 
+        /**
+         * @param overrides List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder overrides(List<GroupMixedInstancesPolicyLaunchTemplateOverrideArgs> overrides) {
             return overrides(Output.of(overrides));
         }
 
+        /**
+         * @param overrides List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder overrides(GroupMixedInstancesPolicyLaunchTemplateOverrideArgs... overrides) {
             return overrides(List.of(overrides));
         }

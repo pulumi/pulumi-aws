@@ -16,6 +16,9 @@ public final class VpcPeeringConnectionAccepterRequesterArgs extends com.pulumi.
     public static final VpcPeeringConnectionAccepterRequesterArgs Empty = new VpcPeeringConnectionAccepterRequesterArgs();
 
     /**
+     * Indicates whether a local ClassicLink connection can communicate
+     * with the peer VPC over the VPC Peering Connection.
+     * 
      * @deprecated
      * With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
      * 
@@ -25,6 +28,9 @@ public final class VpcPeeringConnectionAccepterRequesterArgs extends com.pulumi.
     private @Nullable Output<Boolean> allowClassicLinkToRemoteVpc;
 
     /**
+     * @return Indicates whether a local ClassicLink connection can communicate
+     * with the peer VPC over the VPC Peering Connection.
+     * 
      * @deprecated
      * With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
      * 
@@ -34,14 +40,27 @@ public final class VpcPeeringConnectionAccepterRequesterArgs extends com.pulumi.
         return Optional.ofNullable(this.allowClassicLinkToRemoteVpc);
     }
 
+    /**
+     * Indicates whether a local VPC can resolve public DNS hostnames to
+     * private IP addresses when queried from instances in a peer VPC.
+     * 
+     */
     @Import(name="allowRemoteVpcDnsResolution")
     private @Nullable Output<Boolean> allowRemoteVpcDnsResolution;
 
+    /**
+     * @return Indicates whether a local VPC can resolve public DNS hostnames to
+     * private IP addresses when queried from instances in a peer VPC.
+     * 
+     */
     public Optional<Output<Boolean>> allowRemoteVpcDnsResolution() {
         return Optional.ofNullable(this.allowRemoteVpcDnsResolution);
     }
 
     /**
+     * Indicates whether a local VPC can communicate with a ClassicLink
+     * connection in the peer VPC over the VPC Peering Connection.
+     * 
      * @deprecated
      * With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
      * 
@@ -51,6 +70,9 @@ public final class VpcPeeringConnectionAccepterRequesterArgs extends com.pulumi.
     private @Nullable Output<Boolean> allowVpcToRemoteClassicLink;
 
     /**
+     * @return Indicates whether a local VPC can communicate with a ClassicLink
+     * connection in the peer VPC over the VPC Peering Connection.
+     * 
      * @deprecated
      * With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
      * 
@@ -87,6 +109,9 @@ public final class VpcPeeringConnectionAccepterRequesterArgs extends com.pulumi.
         }
 
         /**
+         * @param allowClassicLinkToRemoteVpc Indicates whether a local ClassicLink connection can communicate
+         * with the peer VPC over the VPC Peering Connection.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -100,6 +125,9 @@ public final class VpcPeeringConnectionAccepterRequesterArgs extends com.pulumi.
         }
 
         /**
+         * @param allowClassicLinkToRemoteVpc Indicates whether a local ClassicLink connection can communicate
+         * with the peer VPC over the VPC Peering Connection.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -111,16 +139,33 @@ public final class VpcPeeringConnectionAccepterRequesterArgs extends com.pulumi.
             return allowClassicLinkToRemoteVpc(Output.of(allowClassicLinkToRemoteVpc));
         }
 
+        /**
+         * @param allowRemoteVpcDnsResolution Indicates whether a local VPC can resolve public DNS hostnames to
+         * private IP addresses when queried from instances in a peer VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowRemoteVpcDnsResolution(@Nullable Output<Boolean> allowRemoteVpcDnsResolution) {
             $.allowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
             return this;
         }
 
+        /**
+         * @param allowRemoteVpcDnsResolution Indicates whether a local VPC can resolve public DNS hostnames to
+         * private IP addresses when queried from instances in a peer VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowRemoteVpcDnsResolution(Boolean allowRemoteVpcDnsResolution) {
             return allowRemoteVpcDnsResolution(Output.of(allowRemoteVpcDnsResolution));
         }
 
         /**
+         * @param allowVpcToRemoteClassicLink Indicates whether a local VPC can communicate with a ClassicLink
+         * connection in the peer VPC over the VPC Peering Connection.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -134,6 +179,9 @@ public final class VpcPeeringConnectionAccepterRequesterArgs extends com.pulumi.
         }
 
         /**
+         * @param allowVpcToRemoteClassicLink Indicates whether a local VPC can communicate with a ClassicLink
+         * connection in the peer VPC over the VPC Peering Connection.
+         * 
          * @return builder
          * 
          * @deprecated

@@ -7,6 +7,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Data resource to get a list of Lambda Functions.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.GetFunctions(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetFunctions(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetFunctionsResult, error) {
 	var rv GetFunctionsResult
 	err := ctx.Invoke("aws:lambda/getFunctions:getFunctions", nil, &rv, opts...)
@@ -18,7 +43,9 @@ func GetFunctions(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetFunctio
 
 // A collection of values returned by getFunctions.
 type GetFunctionsResult struct {
-	FunctionArns  []string `pulumi:"functionArns"`
+	// A list of Lambda Function ARNs.
+	FunctionArns []string `pulumi:"functionArns"`
+	// A list of Lambda Function names.
 	FunctionNames []string `pulumi:"functionNames"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`

@@ -35,6 +35,9 @@ class GetLbsResult:
     @property
     @pulumi.getter
     def arns(self) -> Sequence[str]:
+        """
+        Set of Load Balancer ARNs.
+        """
         return pulumi.get(self, "arns")
 
     @property
@@ -65,7 +68,24 @@ class AwaitableGetLbsResult(GetLbsResult):
 def get_lbs(tags: Optional[Mapping[str, str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLbsResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
+    resources.
+
+    ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.lb.get_lbs(tags={
+        "elbv2.k8s.aws/cluster": "my-cluster",
+    })
+    ```
+
+
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
+           a pair on the desired Load Balancers.
     """
     __args__ = dict()
     __args__['tags'] = tags
@@ -82,6 +102,23 @@ def get_lbs(tags: Optional[Mapping[str, str]] = None,
 def get_lbs_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLbsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
+    resources.
+
+    ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.lb.get_lbs(tags={
+        "elbv2.k8s.aws/cluster": "my-cluster",
+    })
+    ```
+
+
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
+           a pair on the desired Load Balancers.
     """
     ...

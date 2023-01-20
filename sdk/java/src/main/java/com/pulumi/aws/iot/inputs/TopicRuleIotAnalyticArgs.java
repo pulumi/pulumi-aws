@@ -13,16 +13,32 @@ public final class TopicRuleIotAnalyticArgs extends com.pulumi.resources.Resourc
 
     public static final TopicRuleIotAnalyticArgs Empty = new TopicRuleIotAnalyticArgs();
 
+    /**
+     * Name of AWS IOT Analytics channel.
+     * 
+     */
     @Import(name="channelName", required=true)
     private Output<String> channelName;
 
+    /**
+     * @return Name of AWS IOT Analytics channel.
+     * 
+     */
     public Output<String> channelName() {
         return this.channelName;
     }
 
+    /**
+     * The ARN of the IAM role that grants access.
+     * 
+     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
+    /**
+     * @return The ARN of the IAM role that grants access.
+     * 
+     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -52,20 +68,44 @@ public final class TopicRuleIotAnalyticArgs extends com.pulumi.resources.Resourc
             $ = new TopicRuleIotAnalyticArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param channelName Name of AWS IOT Analytics channel.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelName(Output<String> channelName) {
             $.channelName = channelName;
             return this;
         }
 
+        /**
+         * @param channelName Name of AWS IOT Analytics channel.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelName(String channelName) {
             return channelName(Output.of(channelName));
         }
 
+        /**
+         * @param roleArn The ARN of the IAM role that grants access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
+        /**
+         * @param roleArn The ARN of the IAM role that grants access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

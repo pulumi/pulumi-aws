@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Backup.Outputs
     [OutputType]
     public sealed class FrameworkControlInputParameter
     {
+        /// <summary>
+        /// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The value of parameter, for example, hourly.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

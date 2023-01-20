@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class FleetIdentityProvider {
+    /**
+     * @return The SAML metadata document provided by the customer’s identity provider.
+     * 
+     */
     private String samlMetadata;
+    /**
+     * @return The type of identity provider.
+     * 
+     */
     private String type;
 
     private FleetIdentityProvider() {}
+    /**
+     * @return The SAML metadata document provided by the customer’s identity provider.
+     * 
+     */
     public String samlMetadata() {
         return this.samlMetadata;
     }
+    /**
+     * @return The type of identity provider.
+     * 
+     */
     public String type() {
         return this.type;
     }

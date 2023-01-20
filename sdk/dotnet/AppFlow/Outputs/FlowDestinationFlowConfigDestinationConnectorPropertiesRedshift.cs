@@ -13,9 +13,21 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift
     {
+        /// <summary>
+        /// Object key for the bucket in which Amazon AppFlow places the destination files.
+        /// </summary>
         public readonly string? BucketPrefix;
+        /// <summary>
+        /// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig? ErrorHandlingConfig;
+        /// <summary>
+        /// Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
+        /// </summary>
         public readonly string IntermediateBucketName;
+        /// <summary>
+        /// Object specified in the flow destination.
+        /// </summary>
         public readonly string Object;
 
         [OutputConstructor]

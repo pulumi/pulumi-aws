@@ -19,6 +19,10 @@ public final class GetSubnetIdsResult {
      * 
      */
     private String id;
+    /**
+     * @return Set of all the subnet ids found. This data source will fail if none are found.
+     * 
+     */
     private List<String> ids;
     private Map<String,String> tags;
     private String vpcId;
@@ -34,6 +38,10 @@ public final class GetSubnetIdsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Set of all the subnet ids found. This data source will fail if none are found.
+     * 
+     */
     public List<String> ids() {
         return this.ids;
     }

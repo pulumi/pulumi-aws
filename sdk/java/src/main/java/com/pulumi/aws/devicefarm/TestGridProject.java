@@ -16,41 +16,103 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a resource to manage AWS Device Farm Test Grid Projects.
+ * 
+ * &gt; **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
+ * 
+ * ## Import
+ * 
+ * DeviceFarm Test Grid Projects can be imported by their arn
+ * 
+ * ```sh
+ *  $ pulumi import aws:devicefarm/testGridProject:TestGridProject example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+ * ```
+ * 
+ */
 @ResourceType(type="aws:devicefarm/testGridProject:TestGridProject")
 public class TestGridProject extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name of this Test Grid Project.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name of this Test Grid Project.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Human-readable description of the project.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Human-readable description of the project.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The name of the Selenium testing project.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the Selenium testing project.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The VPC security groups and subnets that are attached to a project. See VPC Config below.
+     * 
+     */
     @Export(name="vpcConfig", refs={TestGridProjectVpcConfig.class}, tree="[0]")
     private Output</* @Nullable */ TestGridProjectVpcConfig> vpcConfig;
 
+    /**
+     * @return The VPC security groups and subnets that are attached to a project. See VPC Config below.
+     * 
+     */
     public Output<Optional<TestGridProjectVpcConfig>> vpcConfig() {
         return Codegen.optional(this.vpcConfig);
     }

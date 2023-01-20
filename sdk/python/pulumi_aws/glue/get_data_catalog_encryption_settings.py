@@ -41,6 +41,9 @@ class GetDataCatalogEncryptionSettingsResult:
     @property
     @pulumi.getter(name="dataCatalogEncryptionSettings")
     def data_catalog_encryption_settings(self) -> Sequence['outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult']:
+        """
+        The security configuration to set. see Data Catalog Encryption Settings.
+        """
         return pulumi.get(self, "data_catalog_encryption_settings")
 
     @property
@@ -66,7 +69,10 @@ class AwaitableGetDataCatalogEncryptionSettingsResult(GetDataCatalogEncryptionSe
 def get_data_catalog_encryption_settings(catalog_id: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataCatalogEncryptionSettingsResult:
     """
-    Use this data source to access information about an existing resource.
+    This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
+
+
+    :param str catalog_id: ID of the Data Catalog. This is typically the AWS account ID.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id
@@ -83,6 +89,9 @@ def get_data_catalog_encryption_settings(catalog_id: Optional[str] = None,
 def get_data_catalog_encryption_settings_output(catalog_id: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCatalogEncryptionSettingsResult]:
     """
-    Use this data source to access information about an existing resource.
+    This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
+
+
+    :param str catalog_id: ID of the Data Catalog. This is typically the AWS account ID.
     """
     ...

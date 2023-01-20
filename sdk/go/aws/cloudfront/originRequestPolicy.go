@@ -11,14 +11,81 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// The following example below creates a CloudFront origin request policy.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudfront.NewOriginRequestPolicy(ctx, "example", &cloudfront.OriginRequestPolicyArgs{
+//				Comment: pulumi.String("example comment"),
+//				CookiesConfig: &cloudfront.OriginRequestPolicyCookiesConfigArgs{
+//					CookieBehavior: pulumi.String("whitelist"),
+//					Cookies: &cloudfront.OriginRequestPolicyCookiesConfigCookiesArgs{
+//						Items: pulumi.StringArray{
+//							pulumi.String("example"),
+//						},
+//					},
+//				},
+//				HeadersConfig: &cloudfront.OriginRequestPolicyHeadersConfigArgs{
+//					HeaderBehavior: pulumi.String("whitelist"),
+//					Headers: &cloudfront.OriginRequestPolicyHeadersConfigHeadersArgs{
+//						Items: pulumi.StringArray{
+//							pulumi.String("example"),
+//						},
+//					},
+//				},
+//				QueryStringsConfig: &cloudfront.OriginRequestPolicyQueryStringsConfigArgs{
+//					QueryStringBehavior: pulumi.String("whitelist"),
+//					QueryStrings: &cloudfront.OriginRequestPolicyQueryStringsConfigQueryStringsArgs{
+//						Items: pulumi.StringArray{
+//							pulumi.String("example"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Cloudfront Origin Request Policies can be imported using the `id`, e.g.
+//
+// ```sh
+//
+//	$ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
+//
+// ```
 type OriginRequestPolicy struct {
 	pulumi.CustomResourceState
 
-	Comment            pulumi.StringPtrOutput                      `pulumi:"comment"`
-	CookiesConfig      OriginRequestPolicyCookiesConfigOutput      `pulumi:"cookiesConfig"`
-	Etag               pulumi.StringOutput                         `pulumi:"etag"`
-	HeadersConfig      OriginRequestPolicyHeadersConfigOutput      `pulumi:"headersConfig"`
-	Name               pulumi.StringOutput                         `pulumi:"name"`
+	// Comment to describe the origin request policy.
+	Comment pulumi.StringPtrOutput `pulumi:"comment"`
+	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+	CookiesConfig OriginRequestPolicyCookiesConfigOutput `pulumi:"cookiesConfig"`
+	// The current version of the origin request policy.
+	Etag pulumi.StringOutput `pulumi:"etag"`
+	// Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+	HeadersConfig OriginRequestPolicyHeadersConfigOutput `pulumi:"headersConfig"`
+	// Unique name to identify the origin request policy.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
 	QueryStringsConfig OriginRequestPolicyQueryStringsConfigOutput `pulumi:"queryStringsConfig"`
 }
 
@@ -60,20 +127,32 @@ func GetOriginRequestPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OriginRequestPolicy resources.
 type originRequestPolicyState struct {
-	Comment            *string                                `pulumi:"comment"`
-	CookiesConfig      *OriginRequestPolicyCookiesConfig      `pulumi:"cookiesConfig"`
-	Etag               *string                                `pulumi:"etag"`
-	HeadersConfig      *OriginRequestPolicyHeadersConfig      `pulumi:"headersConfig"`
-	Name               *string                                `pulumi:"name"`
+	// Comment to describe the origin request policy.
+	Comment *string `pulumi:"comment"`
+	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+	CookiesConfig *OriginRequestPolicyCookiesConfig `pulumi:"cookiesConfig"`
+	// The current version of the origin request policy.
+	Etag *string `pulumi:"etag"`
+	// Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+	HeadersConfig *OriginRequestPolicyHeadersConfig `pulumi:"headersConfig"`
+	// Unique name to identify the origin request policy.
+	Name *string `pulumi:"name"`
+	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
 	QueryStringsConfig *OriginRequestPolicyQueryStringsConfig `pulumi:"queryStringsConfig"`
 }
 
 type OriginRequestPolicyState struct {
-	Comment            pulumi.StringPtrInput
-	CookiesConfig      OriginRequestPolicyCookiesConfigPtrInput
-	Etag               pulumi.StringPtrInput
-	HeadersConfig      OriginRequestPolicyHeadersConfigPtrInput
-	Name               pulumi.StringPtrInput
+	// Comment to describe the origin request policy.
+	Comment pulumi.StringPtrInput
+	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+	CookiesConfig OriginRequestPolicyCookiesConfigPtrInput
+	// The current version of the origin request policy.
+	Etag pulumi.StringPtrInput
+	// Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+	HeadersConfig OriginRequestPolicyHeadersConfigPtrInput
+	// Unique name to identify the origin request policy.
+	Name pulumi.StringPtrInput
+	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
 	QueryStringsConfig OriginRequestPolicyQueryStringsConfigPtrInput
 }
 
@@ -82,19 +161,29 @@ func (OriginRequestPolicyState) ElementType() reflect.Type {
 }
 
 type originRequestPolicyArgs struct {
-	Comment            *string                               `pulumi:"comment"`
-	CookiesConfig      OriginRequestPolicyCookiesConfig      `pulumi:"cookiesConfig"`
-	HeadersConfig      OriginRequestPolicyHeadersConfig      `pulumi:"headersConfig"`
-	Name               *string                               `pulumi:"name"`
+	// Comment to describe the origin request policy.
+	Comment *string `pulumi:"comment"`
+	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+	CookiesConfig OriginRequestPolicyCookiesConfig `pulumi:"cookiesConfig"`
+	// Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+	HeadersConfig OriginRequestPolicyHeadersConfig `pulumi:"headersConfig"`
+	// Unique name to identify the origin request policy.
+	Name *string `pulumi:"name"`
+	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
 	QueryStringsConfig OriginRequestPolicyQueryStringsConfig `pulumi:"queryStringsConfig"`
 }
 
 // The set of arguments for constructing a OriginRequestPolicy resource.
 type OriginRequestPolicyArgs struct {
-	Comment            pulumi.StringPtrInput
-	CookiesConfig      OriginRequestPolicyCookiesConfigInput
-	HeadersConfig      OriginRequestPolicyHeadersConfigInput
-	Name               pulumi.StringPtrInput
+	// Comment to describe the origin request policy.
+	Comment pulumi.StringPtrInput
+	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+	CookiesConfig OriginRequestPolicyCookiesConfigInput
+	// Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+	HeadersConfig OriginRequestPolicyHeadersConfigInput
+	// Unique name to identify the origin request policy.
+	Name pulumi.StringPtrInput
+	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
 	QueryStringsConfig OriginRequestPolicyQueryStringsConfigInput
 }
 
@@ -185,26 +274,32 @@ func (o OriginRequestPolicyOutput) ToOriginRequestPolicyOutputWithContext(ctx co
 	return o
 }
 
+// Comment to describe the origin request policy.
 func (o OriginRequestPolicyOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginRequestPolicy) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
 func (o OriginRequestPolicyOutput) CookiesConfig() OriginRequestPolicyCookiesConfigOutput {
 	return o.ApplyT(func(v *OriginRequestPolicy) OriginRequestPolicyCookiesConfigOutput { return v.CookiesConfig }).(OriginRequestPolicyCookiesConfigOutput)
 }
 
+// The current version of the origin request policy.
 func (o OriginRequestPolicyOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginRequestPolicy) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
+// Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
 func (o OriginRequestPolicyOutput) HeadersConfig() OriginRequestPolicyHeadersConfigOutput {
 	return o.ApplyT(func(v *OriginRequestPolicy) OriginRequestPolicyHeadersConfigOutput { return v.HeadersConfig }).(OriginRequestPolicyHeadersConfigOutput)
 }
 
+// Unique name to identify the origin request policy.
 func (o OriginRequestPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginRequestPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
 func (o OriginRequestPolicyOutput) QueryStringsConfig() OriginRequestPolicyQueryStringsConfigOutput {
 	return o.ApplyT(func(v *OriginRequestPolicy) OriginRequestPolicyQueryStringsConfigOutput { return v.QueryStringsConfig }).(OriginRequestPolicyQueryStringsConfigOutput)
 }

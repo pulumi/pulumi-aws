@@ -9,27 +9,84 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LightSail
 {
+    /// <summary>
+    /// Creates a Lightsail load balancer Certificate resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testLb = new Aws.LightSail.Lb("testLb", new()
+    ///     {
+    ///         HealthCheckPath = "/",
+    ///         InstancePort = 80,
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    ///     var testLbCertificate = new Aws.LightSail.LbCertificate("testLbCertificate", new()
+    ///     {
+    ///         LbName = testLb.Id,
+    ///         DomainName = "test.com",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_lightsail_lb_certificate` can be imported by using the id attribute, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:lightsail/lbCertificate:LbCertificate")]
     public partial class LbCertificate : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the lightsail certificate.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp when the instance was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The domain name (e.g., example.com) for your SSL/TLS certificate.
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
         [Output("domainValidationRecords")]
         public Output<ImmutableArray<Outputs.LbCertificateDomainValidationRecord>> DomainValidationRecords { get; private set; } = null!;
 
+        /// <summary>
+        /// The load balancer name where you want to create the SSL/TLS certificate.
+        /// </summary>
         [Output("lbName")]
         public Output<string> LbName { get; private set; } = null!;
 
+        /// <summary>
+        /// The SSL/TLS certificate name.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
+        /// </summary>
         [Output("subjectAlternativeNames")]
         public Output<ImmutableArray<string>> SubjectAlternativeNames { get; private set; } = null!;
 
@@ -82,17 +139,30 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class LbCertificateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The domain name (e.g., example.com) for your SSL/TLS certificate.
+        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
+        /// <summary>
+        /// The load balancer name where you want to create the SSL/TLS certificate.
+        /// </summary>
         [Input("lbName", required: true)]
         public Input<string> LbName { get; set; } = null!;
 
+        /// <summary>
+        /// The SSL/TLS certificate name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("subjectAlternativeNames")]
         private InputList<string>? _subjectAlternativeNames;
+
+        /// <summary>
+        /// Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
+        /// </summary>
         public InputList<string> SubjectAlternativeNames
         {
             get => _subjectAlternativeNames ?? (_subjectAlternativeNames = new InputList<string>());
@@ -107,12 +177,21 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class LbCertificateState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the lightsail certificate.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The timestamp when the instance was created.
+        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
+        /// <summary>
+        /// The domain name (e.g., example.com) for your SSL/TLS certificate.
+        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
@@ -124,14 +203,24 @@ namespace Pulumi.Aws.LightSail
             set => _domainValidationRecords = value;
         }
 
+        /// <summary>
+        /// The load balancer name where you want to create the SSL/TLS certificate.
+        /// </summary>
         [Input("lbName")]
         public Input<string>? LbName { get; set; }
 
+        /// <summary>
+        /// The SSL/TLS certificate name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("subjectAlternativeNames")]
         private InputList<string>? _subjectAlternativeNames;
+
+        /// <summary>
+        /// Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
+        /// </summary>
         public InputList<string> SubjectAlternativeNames
         {
             get => _subjectAlternativeNames ?? (_subjectAlternativeNames = new InputList<string>());

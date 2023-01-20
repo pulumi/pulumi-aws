@@ -18,53 +18,170 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Inspector assessment template
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.inspector.AssessmentTemplate;
+ * import com.pulumi.aws.inspector.AssessmentTemplateArgs;
+ * import com.pulumi.aws.inspector.inputs.AssessmentTemplateEventSubscriptionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AssessmentTemplate(&#34;example&#34;, AssessmentTemplateArgs.builder()        
+ *             .targetArn(aws_inspector_assessment_target.example().arn())
+ *             .duration(3600)
+ *             .rulesPackageArns(            
+ *                 &#34;arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p&#34;,
+ *                 &#34;arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc&#34;,
+ *                 &#34;arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ&#34;,
+ *                 &#34;arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD&#34;)
+ *             .eventSubscriptions(AssessmentTemplateEventSubscriptionArgs.builder()
+ *                 .event(&#34;ASSESSMENT_RUN_COMPLETED&#34;)
+ *                 .topicArn(aws_sns_topic.example().arn())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_inspector_assessment_template` can be imported by using the template assessment ARN, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+ * ```
+ * 
+ */
 @ResourceType(type="aws:inspector/assessmentTemplate:AssessmentTemplate")
 public class AssessmentTemplate extends com.pulumi.resources.CustomResource {
+    /**
+     * The template assessment ARN.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The template assessment ARN.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The duration of the inspector run.
+     * 
+     */
     @Export(name="duration", refs={Integer.class}, tree="[0]")
     private Output<Integer> duration;
 
+    /**
+     * @return The duration of the inspector run.
+     * 
+     */
     public Output<Integer> duration() {
         return this.duration;
     }
+    /**
+     * A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+     * 
+     */
     @Export(name="eventSubscriptions", refs={List.class,AssessmentTemplateEventSubscription.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AssessmentTemplateEventSubscription>> eventSubscriptions;
 
+    /**
+     * @return A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+     * 
+     */
     public Output<Optional<List<AssessmentTemplateEventSubscription>>> eventSubscriptions() {
         return Codegen.optional(this.eventSubscriptions);
     }
+    /**
+     * The name of the assessment template.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the assessment template.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The rules to be used during the run.
+     * 
+     */
     @Export(name="rulesPackageArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> rulesPackageArns;
 
+    /**
+     * @return The rules to be used during the run.
+     * 
+     */
     public Output<List<String>> rulesPackageArns() {
         return this.rulesPackageArns;
     }
+    /**
+     * Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The assessment target ARN to attach the template to.
+     * 
+     */
     @Export(name="targetArn", refs={String.class}, tree="[0]")
     private Output<String> targetArn;
 
+    /**
+     * @return The assessment target ARN to attach the template to.
+     * 
+     */
     public Output<String> targetArn() {
         return this.targetArn;
     }

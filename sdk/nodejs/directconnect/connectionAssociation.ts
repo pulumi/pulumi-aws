@@ -4,6 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Associates a Direct Connect Connection with a LAG.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleConnection = new aws.directconnect.Connection("exampleConnection", {
+ *     bandwidth: "1Gbps",
+ *     location: "EqSe2-EQ",
+ * });
+ * const exampleLinkAggregationGroup = new aws.directconnect.LinkAggregationGroup("exampleLinkAggregationGroup", {
+ *     connectionsBandwidth: "1Gbps",
+ *     location: "EqSe2-EQ",
+ * });
+ * const exampleConnectionAssociation = new aws.directconnect.ConnectionAssociation("exampleConnectionAssociation", {
+ *     connectionId: exampleConnection.id,
+ *     lagId: exampleLinkAggregationGroup.id,
+ * });
+ * ```
+ */
 export class ConnectionAssociation extends pulumi.CustomResource {
     /**
      * Get an existing ConnectionAssociation resource's state with the given name, ID, and optional extra
@@ -32,7 +55,13 @@ export class ConnectionAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConnectionAssociation.__pulumiType;
     }
 
+    /**
+     * The ID of the connection.
+     */
     public readonly connectionId!: pulumi.Output<string>;
+    /**
+     * The ID of the LAG with which to associate the connection.
+     */
     public readonly lagId!: pulumi.Output<string>;
 
     /**
@@ -70,7 +99,13 @@ export class ConnectionAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ConnectionAssociation resources.
  */
 export interface ConnectionAssociationState {
+    /**
+     * The ID of the connection.
+     */
     connectionId?: pulumi.Input<string>;
+    /**
+     * The ID of the LAG with which to associate the connection.
+     */
     lagId?: pulumi.Input<string>;
 }
 
@@ -78,6 +113,12 @@ export interface ConnectionAssociationState {
  * The set of arguments for constructing a ConnectionAssociation resource.
  */
 export interface ConnectionAssociationArgs {
+    /**
+     * The ID of the connection.
+     */
     connectionId: pulumi.Input<string>;
+    /**
+     * The ID of the LAG with which to associate the connection.
+     */
     lagId: pulumi.Input<string>;
 }

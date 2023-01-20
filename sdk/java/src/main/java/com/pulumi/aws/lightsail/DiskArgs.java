@@ -17,30 +17,62 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DiskArgs Empty = new DiskArgs();
 
+    /**
+     * The Availability Zone in which to create your disk.
+     * 
+     */
     @Import(name="availabilityZone", required=true)
     private Output<String> availabilityZone;
 
+    /**
+     * @return The Availability Zone in which to create your disk.
+     * 
+     */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
 
+    /**
+     * The name of the Lightsail load balancer.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the Lightsail load balancer.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The instance port the load balancer will connect.
+     * 
+     */
     @Import(name="sizeInGb", required=true)
     private Output<Integer> sizeInGb;
 
+    /**
+     * @return The instance port the load balancer will connect.
+     * 
+     */
     public Output<Integer> sizeInGb() {
         return this.sizeInGb;
     }
 
+    /**
+     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -72,38 +104,86 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
             $ = new DiskArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param availabilityZone The Availability Zone in which to create your disk.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZone(Output<String> availabilityZone) {
             $.availabilityZone = availabilityZone;
             return this;
         }
 
+        /**
+         * @param availabilityZone The Availability Zone in which to create your disk.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZone(String availabilityZone) {
             return availabilityZone(Output.of(availabilityZone));
         }
 
+        /**
+         * @param name The name of the Lightsail load balancer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the Lightsail load balancer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param sizeInGb The instance port the load balancer will connect.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sizeInGb(Output<Integer> sizeInGb) {
             $.sizeInGb = sizeInGb;
             return this;
         }
 
+        /**
+         * @param sizeInGb The instance port the load balancer will connect.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sizeInGb(Integer sizeInGb) {
             return sizeInGb(Output.of(sizeInGb));
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

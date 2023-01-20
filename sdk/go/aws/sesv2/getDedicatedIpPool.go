@@ -10,6 +10,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sesv2.LookupDedicatedIpPool(ctx, &sesv2.LookupDedicatedIpPoolArgs{
+//				PoolName: "my-pool",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupDedicatedIpPool(ctx *pulumi.Context, args *LookupDedicatedIpPoolArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedIpPoolResult, error) {
 	var rv LookupDedicatedIpPoolResult
 	err := ctx.Invoke("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", args, &rv, opts...)
@@ -21,19 +49,25 @@ func LookupDedicatedIpPool(ctx *pulumi.Context, args *LookupDedicatedIpPoolArgs,
 
 // A collection of arguments for invoking getDedicatedIpPool.
 type LookupDedicatedIpPoolArgs struct {
-	PoolName string            `pulumi:"poolName"`
-	Tags     map[string]string `pulumi:"tags"`
+	// Name of the dedicated IP pool.
+	PoolName string `pulumi:"poolName"`
+	// A map of tags attached to the pool.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDedicatedIpPool.
 type LookupDedicatedIpPoolResult struct {
-	Arn          string                          `pulumi:"arn"`
+	// ARN of the Dedicated IP Pool.
+	Arn string `pulumi:"arn"`
+	// A list of objects describing the pool's dedicated IP's. See `dedicatedIps`.
 	DedicatedIps []GetDedicatedIpPoolDedicatedIp `pulumi:"dedicatedIps"`
 	// The provider-assigned unique ID for this managed resource.
-	Id          string            `pulumi:"id"`
-	PoolName    string            `pulumi:"poolName"`
-	ScalingMode string            `pulumi:"scalingMode"`
-	Tags        map[string]string `pulumi:"tags"`
+	Id       string `pulumi:"id"`
+	PoolName string `pulumi:"poolName"`
+	// (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
+	ScalingMode string `pulumi:"scalingMode"`
+	// A map of tags attached to the pool.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupDedicatedIpPoolOutput(ctx *pulumi.Context, args LookupDedicatedIpPoolOutputArgs, opts ...pulumi.InvokeOption) LookupDedicatedIpPoolResultOutput {
@@ -51,8 +85,10 @@ func LookupDedicatedIpPoolOutput(ctx *pulumi.Context, args LookupDedicatedIpPool
 
 // A collection of arguments for invoking getDedicatedIpPool.
 type LookupDedicatedIpPoolOutputArgs struct {
-	PoolName pulumi.StringInput    `pulumi:"poolName"`
-	Tags     pulumi.StringMapInput `pulumi:"tags"`
+	// Name of the dedicated IP pool.
+	PoolName pulumi.StringInput `pulumi:"poolName"`
+	// A map of tags attached to the pool.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupDedicatedIpPoolOutputArgs) ElementType() reflect.Type {
@@ -74,10 +110,12 @@ func (o LookupDedicatedIpPoolResultOutput) ToLookupDedicatedIpPoolResultOutputWi
 	return o
 }
 
+// ARN of the Dedicated IP Pool.
 func (o LookupDedicatedIpPoolResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedIpPoolResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A list of objects describing the pool's dedicated IP's. See `dedicatedIps`.
 func (o LookupDedicatedIpPoolResultOutput) DedicatedIps() GetDedicatedIpPoolDedicatedIpArrayOutput {
 	return o.ApplyT(func(v LookupDedicatedIpPoolResult) []GetDedicatedIpPoolDedicatedIp { return v.DedicatedIps }).(GetDedicatedIpPoolDedicatedIpArrayOutput)
 }
@@ -91,10 +129,12 @@ func (o LookupDedicatedIpPoolResultOutput) PoolName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedIpPoolResult) string { return v.PoolName }).(pulumi.StringOutput)
 }
 
+// (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
 func (o LookupDedicatedIpPoolResultOutput) ScalingMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedIpPoolResult) string { return v.ScalingMode }).(pulumi.StringOutput)
 }
 
+// A map of tags attached to the pool.
 func (o LookupDedicatedIpPoolResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDedicatedIpPoolResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

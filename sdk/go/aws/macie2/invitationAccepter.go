@@ -11,11 +11,71 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to manage an [Amazon Macie Invitation Accepter](https://docs.aws.amazon.com/macie/latest/APIReference/invitations-accept.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primaryAccount, err := macie2.NewAccount(ctx, "primaryAccount", nil, pulumi.Provider("awsalternate"))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = macie2.NewAccount(ctx, "memberAccount", nil)
+//			if err != nil {
+//				return err
+//			}
+//			primaryMember, err := macie2.NewMember(ctx, "primaryMember", &macie2.MemberArgs{
+//				AccountId:         pulumi.String("ACCOUNT ID"),
+//				Email:             pulumi.String("EMAIL"),
+//				Invite:            pulumi.Bool(true),
+//				InvitationMessage: pulumi.String("Message of the invite"),
+//			}, pulumi.Provider("awsalternate"), pulumi.DependsOn([]pulumi.Resource{
+//				primaryAccount,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = macie2.NewInvitationAccepter(ctx, "memberInvitationAccepter", &macie2.InvitationAccepterArgs{
+//				AdministratorAccountId: pulumi.String("ADMINISTRATOR ACCOUNT ID"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				primaryMember,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_macie2_invitation_accepter` can be imported using the admin account ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
+//
+// ```
 type InvitationAccepter struct {
 	pulumi.CustomResourceState
 
+	// The AWS account ID for the account that sent the invitation.
 	AdministratorAccountId pulumi.StringOutput `pulumi:"administratorAccountId"`
-	InvitationId           pulumi.StringOutput `pulumi:"invitationId"`
+	// The unique identifier for the invitation.
+	InvitationId pulumi.StringOutput `pulumi:"invitationId"`
 }
 
 // NewInvitationAccepter registers a new resource with the given unique name, arguments, and options.
@@ -50,13 +110,17 @@ func GetInvitationAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InvitationAccepter resources.
 type invitationAccepterState struct {
+	// The AWS account ID for the account that sent the invitation.
 	AdministratorAccountId *string `pulumi:"administratorAccountId"`
-	InvitationId           *string `pulumi:"invitationId"`
+	// The unique identifier for the invitation.
+	InvitationId *string `pulumi:"invitationId"`
 }
 
 type InvitationAccepterState struct {
+	// The AWS account ID for the account that sent the invitation.
 	AdministratorAccountId pulumi.StringPtrInput
-	InvitationId           pulumi.StringPtrInput
+	// The unique identifier for the invitation.
+	InvitationId pulumi.StringPtrInput
 }
 
 func (InvitationAccepterState) ElementType() reflect.Type {
@@ -64,11 +128,13 @@ func (InvitationAccepterState) ElementType() reflect.Type {
 }
 
 type invitationAccepterArgs struct {
+	// The AWS account ID for the account that sent the invitation.
 	AdministratorAccountId string `pulumi:"administratorAccountId"`
 }
 
 // The set of arguments for constructing a InvitationAccepter resource.
 type InvitationAccepterArgs struct {
+	// The AWS account ID for the account that sent the invitation.
 	AdministratorAccountId pulumi.StringInput
 }
 
@@ -159,10 +225,12 @@ func (o InvitationAccepterOutput) ToInvitationAccepterOutputWithContext(ctx cont
 	return o
 }
 
+// The AWS account ID for the account that sent the invitation.
 func (o InvitationAccepterOutput) AdministratorAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvitationAccepter) pulumi.StringOutput { return v.AdministratorAccountId }).(pulumi.StringOutput)
 }
 
+// The unique identifier for the invitation.
 func (o InvitationAccepterOutput) InvitationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvitationAccepter) pulumi.StringOutput { return v.InvitationId }).(pulumi.StringOutput)
 }

@@ -10,6 +10,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codeartifact"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := codeartifact.GetRepositoryEndpoint(ctx, &codeartifact.GetRepositoryEndpointArgs{
+//				Domain:     aws_codeartifact_domain.Test.Domain,
+//				Repository: aws_codeartifact_repository.Test.Repository,
+//				Format:     "npm",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetRepositoryEndpoint(ctx *pulumi.Context, args *GetRepositoryEndpointArgs, opts ...pulumi.InvokeOption) (*GetRepositoryEndpointResult, error) {
 	var rv GetRepositoryEndpointResult
 	err := ctx.Invoke("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", args, &rv, opts...)
@@ -21,10 +50,14 @@ func GetRepositoryEndpoint(ctx *pulumi.Context, args *GetRepositoryEndpointArgs,
 
 // A collection of arguments for invoking getRepositoryEndpoint.
 type GetRepositoryEndpointArgs struct {
-	Domain      string  `pulumi:"domain"`
+	// Name of the domain that contains the repository.
+	Domain string `pulumi:"domain"`
+	// Account number of the AWS account that owns the domain.
 	DomainOwner *string `pulumi:"domainOwner"`
-	Format      string  `pulumi:"format"`
-	Repository  string  `pulumi:"repository"`
+	// Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
+	Format string `pulumi:"format"`
+	// Name of the repository.
+	Repository string `pulumi:"repository"`
 }
 
 // A collection of values returned by getRepositoryEndpoint.
@@ -33,8 +66,9 @@ type GetRepositoryEndpointResult struct {
 	DomainOwner string `pulumi:"domainOwner"`
 	Format      string `pulumi:"format"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                 string `pulumi:"id"`
-	Repository         string `pulumi:"repository"`
+	Id         string `pulumi:"id"`
+	Repository string `pulumi:"repository"`
+	// URL of the returned endpoint.
 	RepositoryEndpoint string `pulumi:"repositoryEndpoint"`
 }
 
@@ -53,10 +87,14 @@ func GetRepositoryEndpointOutput(ctx *pulumi.Context, args GetRepositoryEndpoint
 
 // A collection of arguments for invoking getRepositoryEndpoint.
 type GetRepositoryEndpointOutputArgs struct {
-	Domain      pulumi.StringInput    `pulumi:"domain"`
+	// Name of the domain that contains the repository.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// Account number of the AWS account that owns the domain.
 	DomainOwner pulumi.StringPtrInput `pulumi:"domainOwner"`
-	Format      pulumi.StringInput    `pulumi:"format"`
-	Repository  pulumi.StringInput    `pulumi:"repository"`
+	// Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
+	Format pulumi.StringInput `pulumi:"format"`
+	// Name of the repository.
+	Repository pulumi.StringInput `pulumi:"repository"`
 }
 
 func (GetRepositoryEndpointOutputArgs) ElementType() reflect.Type {
@@ -99,6 +137,7 @@ func (o GetRepositoryEndpointResultOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryEndpointResult) string { return v.Repository }).(pulumi.StringOutput)
 }
 
+// URL of the returned endpoint.
 func (o GetRepositoryEndpointResultOutput) RepositoryEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryEndpointResult) string { return v.RepositoryEndpoint }).(pulumi.StringOutput)
 }

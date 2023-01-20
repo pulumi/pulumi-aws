@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class IntentConfirmationPromptArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
+        /// </summary>
         [Input("maxAttempts", required: true)]
         public Input<int> MaxAttempts { get; set; } = null!;
 
@@ -23,6 +26,15 @@ namespace Pulumi.Aws.Lex.Inputs
             set => _messages = value;
         }
 
+        /// <summary>
+        /// The response card. Amazon Lex will substitute session attributes and
+        /// slot values into the response card. For more information, see
+        /// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
+        /// slot values into the response card. For more information, see
+        /// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
+        /// slot values into the response card. For more information, see
+        /// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
+        /// </summary>
         [Input("responseCard")]
         public Input<string>? ResponseCard { get; set; }
 

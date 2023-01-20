@@ -35,6 +35,9 @@ class GetTopicResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the found topic, suitable for referencing in other resources that support SNS topics.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -65,7 +68,21 @@ class AwaitableGetTopicResult(GetTopicResult):
 def get_topic(name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get the ARN of a topic in AWS Simple Notification
+    Service (SNS). By using this data source, you can reference SNS topics
+    without having to hard code the ARNs as input.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.sns.get_topic(name="an_example_topic")
+    ```
+
+
+    :param str name: Friendly name of the topic to match.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -82,6 +99,20 @@ def get_topic(name: Optional[str] = None,
 def get_topic_output(name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get the ARN of a topic in AWS Simple Notification
+    Service (SNS). By using this data source, you can reference SNS topics
+    without having to hard code the ARNs as input.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.sns.get_topic(name="an_example_topic")
+    ```
+
+
+    :param str name: Friendly name of the topic to match.
     """
     ...

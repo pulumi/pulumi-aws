@@ -13,9 +13,17 @@ public final class ModelPackageGroupPolicyArgs extends com.pulumi.resources.Reso
 
     public static final ModelPackageGroupPolicyArgs Empty = new ModelPackageGroupPolicyArgs();
 
+    /**
+     * The name of the model package group.
+     * 
+     */
     @Import(name="modelPackageGroupName", required=true)
     private Output<String> modelPackageGroupName;
 
+    /**
+     * @return The name of the model package group.
+     * 
+     */
     public Output<String> modelPackageGroupName() {
         return this.modelPackageGroupName;
     }
@@ -52,11 +60,23 @@ public final class ModelPackageGroupPolicyArgs extends com.pulumi.resources.Reso
             $ = new ModelPackageGroupPolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param modelPackageGroupName The name of the model package group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder modelPackageGroupName(Output<String> modelPackageGroupName) {
             $.modelPackageGroupName = modelPackageGroupName;
             return this;
         }
 
+        /**
+         * @param modelPackageGroupName The name of the model package group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder modelPackageGroupName(String modelPackageGroupName) {
             return modelPackageGroupName(Output.of(modelPackageGroupName));
         }

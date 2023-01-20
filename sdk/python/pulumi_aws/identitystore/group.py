@@ -21,6 +21,9 @@ class GroupArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Group resource.
+        :param pulumi.Input[str] display_name: A string containing the name of the group. This value is commonly displayed when the group is referenced.
+        :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store.
+        :param pulumi.Input[str] description: A string containing the description of the group.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "identity_store_id", identity_store_id)
@@ -30,6 +33,9 @@ class GroupArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
+        """
+        A string containing the name of the group. This value is commonly displayed when the group is referenced.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -39,6 +45,9 @@ class GroupArgs:
     @property
     @pulumi.getter(name="identityStoreId")
     def identity_store_id(self) -> pulumi.Input[str]:
+        """
+        The globally unique identifier for the identity store.
+        """
         return pulumi.get(self, "identity_store_id")
 
     @identity_store_id.setter
@@ -48,6 +57,9 @@ class GroupArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string containing the description of the group.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -65,6 +77,11 @@ class _GroupState:
                  identity_store_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Group resources.
+        :param pulumi.Input[str] description: A string containing the description of the group.
+        :param pulumi.Input[str] display_name: A string containing the name of the group. This value is commonly displayed when the group is referenced.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupExternalIdArgs']]] external_ids: A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
+        :param pulumi.Input[str] group_id: The identifier of the newly created group in the identity store.
+        :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -80,6 +97,9 @@ class _GroupState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string containing the description of the group.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -89,6 +109,9 @@ class _GroupState:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string containing the name of the group. This value is commonly displayed when the group is referenced.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -98,6 +121,9 @@ class _GroupState:
     @property
     @pulumi.getter(name="externalIds")
     def external_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupExternalIdArgs']]]]:
+        """
+        A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
+        """
         return pulumi.get(self, "external_ids")
 
     @external_ids.setter
@@ -107,6 +133,9 @@ class _GroupState:
     @property
     @pulumi.getter(name="groupId")
     def group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the newly created group in the identity store.
+        """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
@@ -116,6 +145,9 @@ class _GroupState:
     @property
     @pulumi.getter(name="identityStoreId")
     def identity_store_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The globally unique identifier for the identity store.
+        """
         return pulumi.get(self, "identity_store_id")
 
     @identity_store_id.setter
@@ -133,9 +165,23 @@ class Group(pulumi.CustomResource):
                  identity_store_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Group resource with the given unique name, props, and options.
+        Resource for managing an AWS IdentityStore Group.
+
+        ## Example Usage
+
+        ## Import
+
+        An Identity Store Group can be imported using the combination `identity_store_id/group_id`. For example
+
+        ```sh
+         $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A string containing the description of the group.
+        :param pulumi.Input[str] display_name: A string containing the name of the group. This value is commonly displayed when the group is referenced.
+        :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store.
         """
         ...
     @overload
@@ -144,7 +190,18 @@ class Group(pulumi.CustomResource):
                  args: GroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Group resource with the given unique name, props, and options.
+        Resource for managing an AWS IdentityStore Group.
+
+        ## Example Usage
+
+        ## Import
+
+        An Identity Store Group can be imported using the combination `identity_store_id/group_id`. For example
+
+        ```sh
+         $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
+        ```
+
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,6 +260,11 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A string containing the description of the group.
+        :param pulumi.Input[str] display_name: A string containing the name of the group. This value is commonly displayed when the group is referenced.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExternalIdArgs']]]] external_ids: A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
+        :param pulumi.Input[str] group_id: The identifier of the newly created group in the identity store.
+        :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -218,25 +280,40 @@ class Group(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A string containing the description of the group.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
+        """
+        A string containing the name of the group. This value is commonly displayed when the group is referenced.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="externalIds")
     def external_ids(self) -> pulumi.Output[Sequence['outputs.GroupExternalId']]:
+        """
+        A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
+        """
         return pulumi.get(self, "external_ids")
 
     @property
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the newly created group in the identity store.
+        """
         return pulumi.get(self, "group_id")
 
     @property
     @pulumi.getter(name="identityStoreId")
     def identity_store_id(self) -> pulumi.Output[str]:
+        """
+        The globally unique identifier for the identity store.
+        """
         return pulumi.get(self, "identity_store_id")
 

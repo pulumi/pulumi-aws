@@ -50,6 +50,9 @@ class GetReleaseLabelsResult:
     @property
     @pulumi.getter(name="releaseLabels")
     def release_labels(self) -> Sequence[str]:
+        """
+        Returned release labels.
+        """
         return pulumi.get(self, "release_labels")
 
 
@@ -67,7 +70,22 @@ class AwaitableGetReleaseLabelsResult(GetReleaseLabelsResult):
 def get_release_labels(filters: Optional[pulumi.InputType['GetReleaseLabelsFiltersArgs']] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReleaseLabelsResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about EMR Release Labels.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.emr.get_release_labels(filters=aws.emr.GetReleaseLabelsFiltersArgs(
+        application="spark@2.1.0",
+        prefix="emr-5",
+    ))
+    ```
+
+
+    :param pulumi.InputType['GetReleaseLabelsFiltersArgs'] filters: Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -84,6 +102,21 @@ def get_release_labels(filters: Optional[pulumi.InputType['GetReleaseLabelsFilte
 def get_release_labels_output(filters: Optional[pulumi.Input[Optional[pulumi.InputType['GetReleaseLabelsFiltersArgs']]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReleaseLabelsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about EMR Release Labels.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.emr.get_release_labels(filters=aws.emr.GetReleaseLabelsFiltersArgs(
+        application="spark@2.1.0",
+        prefix="emr-5",
+    ))
+    ```
+
+
+    :param pulumi.InputType['GetReleaseLabelsFiltersArgs'] filters: Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
     """
     ...

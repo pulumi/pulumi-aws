@@ -13,9 +13,17 @@ public final class FunctionDeadLetterConfigArgs extends com.pulumi.resources.Res
 
     public static final FunctionDeadLetterConfigArgs Empty = new FunctionDeadLetterConfigArgs();
 
+    /**
+     * ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function&#39;s IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
+     * 
+     */
     @Import(name="targetArn", required=true)
     private Output<String> targetArn;
 
+    /**
+     * @return ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function&#39;s IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
+     * 
+     */
     public Output<String> targetArn() {
         return this.targetArn;
     }
@@ -44,11 +52,23 @@ public final class FunctionDeadLetterConfigArgs extends com.pulumi.resources.Res
             $ = new FunctionDeadLetterConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param targetArn ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function&#39;s IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetArn(Output<String> targetArn) {
             $.targetArn = targetArn;
             return this;
         }
 
+        /**
+         * @param targetArn ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function&#39;s IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetArn(String targetArn) {
             return targetArn(Output.of(targetArn));
         }

@@ -4,6 +4,38 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Resource for managing an AWS Transcribe VocabularyFilter.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.transcribe.VocabularyFilter("example", {
+ *     languageCode: "en-US",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value3",
+ *     },
+ *     vocabularyFilterName: "example",
+ *     words: [
+ *         "cars",
+ *         "bucket",
+ *     ],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Transcribe VocabularyFilter can be imported using the `vocabulary_filter_name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
+ * ```
+ */
 export class VocabularyFilter extends pulumi.CustomResource {
     /**
      * Get an existing VocabularyFilter resource's state with the given name, ID, and optional extra
@@ -32,13 +64,34 @@ export class VocabularyFilter extends pulumi.CustomResource {
         return obj['__pulumiType'] === VocabularyFilter.__pulumiType;
     }
 
+    /**
+     * ARN of the VocabularyFilter.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Generated download URI.
+     */
     public /*out*/ readonly downloadUri!: pulumi.Output<string>;
+    /**
+     * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+     */
     public readonly languageCode!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
+     */
     public readonly vocabularyFilterFileUri!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the VocabularyFilter.
+     */
     public readonly vocabularyFilterName!: pulumi.Output<string>;
+    /**
+     * A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+     */
     public readonly words!: pulumi.Output<string[] | undefined>;
 
     /**
@@ -88,13 +141,34 @@ export class VocabularyFilter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VocabularyFilter resources.
  */
 export interface VocabularyFilterState {
+    /**
+     * ARN of the VocabularyFilter.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Generated download URI.
+     */
     downloadUri?: pulumi.Input<string>;
+    /**
+     * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+     */
     languageCode?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
+     */
     vocabularyFilterFileUri?: pulumi.Input<string>;
+    /**
+     * The name of the VocabularyFilter.
+     */
     vocabularyFilterName?: pulumi.Input<string>;
+    /**
+     * A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+     */
     words?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -102,9 +176,24 @@ export interface VocabularyFilterState {
  * The set of arguments for constructing a VocabularyFilter resource.
  */
 export interface VocabularyFilterArgs {
+    /**
+     * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+     */
     languageCode: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
+     */
     vocabularyFilterFileUri?: pulumi.Input<string>;
+    /**
+     * The name of the VocabularyFilter.
+     */
     vocabularyFilterName: pulumi.Input<string>;
+    /**
+     * A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+     */
     words?: pulumi.Input<pulumi.Input<string>[]>;
 }

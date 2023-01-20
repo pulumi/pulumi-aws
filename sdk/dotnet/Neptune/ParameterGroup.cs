@@ -9,27 +9,84 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Neptune
 {
+    /// <summary>
+    /// Manages a Neptune Parameter Group
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Neptune.ParameterGroup("example", new()
+    ///     {
+    ///         Family = "neptune1",
+    ///         Parameters = new[]
+    ///         {
+    ///             new Aws.Neptune.Inputs.ParameterGroupParameterArgs
+    ///             {
+    ///                 Name = "neptune_query_timeout",
+    ///                 Value = "25",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Neptune Parameter Groups can be imported using the `name`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:neptune/parameterGroup:ParameterGroup")]
     public partial class ParameterGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Neptune parameter group Amazon Resource Name (ARN).
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The family of the Neptune parameter group.
+        /// </summary>
         [Output("family")]
         public Output<string> Family { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Neptune parameter.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of Neptune parameters to apply.
+        /// </summary>
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.ParameterGroupParameter>> Parameters { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -79,17 +136,30 @@ namespace Pulumi.Aws.Neptune
 
     public sealed class ParameterGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The family of the Neptune parameter group.
+        /// </summary>
         [Input("family", required: true)]
         public Input<string> Family { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the Neptune parameter.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("parameters")]
         private InputList<Inputs.ParameterGroupParameterArgs>? _parameters;
+
+        /// <summary>
+        /// A list of Neptune parameters to apply.
+        /// </summary>
         public InputList<Inputs.ParameterGroupParameterArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.ParameterGroupParameterArgs>());
@@ -98,6 +168,10 @@ namespace Pulumi.Aws.Neptune
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -112,20 +186,36 @@ namespace Pulumi.Aws.Neptune
 
     public sealed class ParameterGroupState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Neptune parameter group Amazon Resource Name (ARN).
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The family of the Neptune parameter group.
+        /// </summary>
         [Input("family")]
         public Input<string>? Family { get; set; }
 
+        /// <summary>
+        /// The name of the Neptune parameter.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("parameters")]
         private InputList<Inputs.ParameterGroupParameterGetArgs>? _parameters;
+
+        /// <summary>
+        /// A list of Neptune parameters to apply.
+        /// </summary>
         public InputList<Inputs.ParameterGroupParameterGetArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.ParameterGroupParameterGetArgs>());
@@ -134,6 +224,10 @@ namespace Pulumi.Aws.Neptune
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -142,6 +236,10 @@ namespace Pulumi.Aws.Neptune
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

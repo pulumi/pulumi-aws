@@ -18,6 +18,8 @@ class ListenerCertificateArgs:
                  listener_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a ListenerCertificate resource.
+        :param pulumi.Input[str] certificate_arn: The ARN of the certificate to attach to the listener.
+        :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the certificate.
         """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
         pulumi.set(__self__, "listener_arn", listener_arn)
@@ -25,6 +27,9 @@ class ListenerCertificateArgs:
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the certificate to attach to the listener.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
@@ -34,6 +39,9 @@ class ListenerCertificateArgs:
     @property
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the listener to which to attach the certificate.
+        """
         return pulumi.get(self, "listener_arn")
 
     @listener_arn.setter
@@ -48,6 +56,8 @@ class _ListenerCertificateState:
                  listener_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ListenerCertificate resources.
+        :param pulumi.Input[str] certificate_arn: The ARN of the certificate to attach to the listener.
+        :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the certificate.
         """
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
@@ -57,6 +67,9 @@ class _ListenerCertificateState:
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the certificate to attach to the listener.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
@@ -66,6 +79,9 @@ class _ListenerCertificateState:
     @property
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the listener to which to attach the certificate.
+        """
         return pulumi.get(self, "listener_arn")
 
     @listener_arn.setter
@@ -87,9 +103,41 @@ class ListenerCertificate(pulumi.CustomResource):
                  listener_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ListenerCertificate resource with the given unique name, props, and options.
+        Provides a Load Balancer Listener Certificate resource.
+
+        This resource is for additional certificates and does not replace the default certificate on the listener.
+
+        > **Note:** `alb.ListenerCertificate` is known as `lb.ListenerCertificate`. The functionality is identical.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_certificate = aws.acm.Certificate("exampleCertificate")
+        # ...
+        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        # ...
+        front_end_listener = aws.lb.Listener("frontEndListener")
+        # ...
+        example_listener_certificate = aws.lb.ListenerCertificate("exampleListenerCertificate",
+            listener_arn=front_end_listener.arn,
+            certificate_arn=example_certificate.arn)
+        ```
+
+        ## Import
+
+        Listener Certificates can be imported by using the listener arn and certificate arn, separated by an underscore (`_`), e.g.,
+
+        ```sh
+         $ pulumi import aws:applicationloadbalancing/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate_arn: The ARN of the certificate to attach to the listener.
+        :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the certificate.
         """
         ...
     @overload
@@ -98,7 +146,37 @@ class ListenerCertificate(pulumi.CustomResource):
                  args: ListenerCertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ListenerCertificate resource with the given unique name, props, and options.
+        Provides a Load Balancer Listener Certificate resource.
+
+        This resource is for additional certificates and does not replace the default certificate on the listener.
+
+        > **Note:** `alb.ListenerCertificate` is known as `lb.ListenerCertificate`. The functionality is identical.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_certificate = aws.acm.Certificate("exampleCertificate")
+        # ...
+        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        # ...
+        front_end_listener = aws.lb.Listener("frontEndListener")
+        # ...
+        example_listener_certificate = aws.lb.ListenerCertificate("exampleListenerCertificate",
+            listener_arn=front_end_listener.arn,
+            certificate_arn=example_certificate.arn)
+        ```
+
+        ## Import
+
+        Listener Certificates can be imported by using the listener arn and certificate arn, separated by an underscore (`_`), e.g.,
+
+        ```sh
+         $ pulumi import aws:applicationloadbalancing/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
+        ```
+
         :param str resource_name: The name of the resource.
         :param ListenerCertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,6 +229,8 @@ class ListenerCertificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate_arn: The ARN of the certificate to attach to the listener.
+        :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the certificate.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -163,10 +243,16 @@ class ListenerCertificate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the certificate to attach to the listener.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @property
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the listener to which to attach the certificate.
+        """
         return pulumi.get(self, "listener_arn")
 

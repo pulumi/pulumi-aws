@@ -7,6 +7,44 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an Amazon Connect Routing Profile resource. For more information see
+ * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.connect.RoutingProfile("example", {
+ *     defaultOutboundQueueId: "12345678-1234-1234-1234-123456789012",
+ *     description: "example description",
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     mediaConcurrencies: [{
+ *         channel: "VOICE",
+ *         concurrency: 1,
+ *     }],
+ *     queueConfigs: [{
+ *         channel: "VOICE",
+ *         delay: 2,
+ *         priority: 1,
+ *         queueId: "12345678-1234-1234-1234-123456789012",
+ *     }],
+ *     tags: {
+ *         Name: "Example Routing Profile",
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Amazon Connect Routing Profiles can be imported using the `instance_id` and `routing_profile_id` separated by a colon (`:`), e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+ * ```
+ */
 export class RoutingProfile extends pulumi.CustomResource {
     /**
      * Get an existing RoutingProfile resource's state with the given name, ID, and optional extra
@@ -35,16 +73,47 @@ export class RoutingProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === RoutingProfile.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the Routing Profile.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Specifies the default outbound queue for the Routing Profile.
+     */
     public readonly defaultOutboundQueueId!: pulumi.Output<string>;
+    /**
+     * Specifies the description of the Routing Profile.
+     */
     public readonly description!: pulumi.Output<string>;
+    /**
+     * Specifies the identifier of the hosting Amazon Connect Instance.
+     */
     public readonly instanceId!: pulumi.Output<string>;
+    /**
+     * One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
+     */
     public readonly mediaConcurrencies!: pulumi.Output<outputs.connect.RoutingProfileMediaConcurrency[]>;
+    /**
+     * Specifies the name of the Routing Profile.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
+     */
     public readonly queueConfigs!: pulumi.Output<outputs.connect.RoutingProfileQueueConfig[] | undefined>;
     public /*out*/ readonly queueConfigsAssociateds!: pulumi.Output<outputs.connect.RoutingProfileQueueConfigsAssociated[]>;
+    /**
+     * The identifier for the Routing Profile.
+     */
     public /*out*/ readonly routingProfileId!: pulumi.Output<string>;
+    /**
+     * Tags to apply to the Routing Profile. If configured with a provider
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -106,16 +175,47 @@ export class RoutingProfile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RoutingProfile resources.
  */
 export interface RoutingProfileState {
+    /**
+     * The Amazon Resource Name (ARN) of the Routing Profile.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Specifies the default outbound queue for the Routing Profile.
+     */
     defaultOutboundQueueId?: pulumi.Input<string>;
+    /**
+     * Specifies the description of the Routing Profile.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Specifies the identifier of the hosting Amazon Connect Instance.
+     */
     instanceId?: pulumi.Input<string>;
+    /**
+     * One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
+     */
     mediaConcurrencies?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileMediaConcurrency>[]>;
+    /**
+     * Specifies the name of the Routing Profile.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
+     */
     queueConfigs?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileQueueConfig>[]>;
     queueConfigsAssociateds?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileQueueConfigsAssociated>[]>;
+    /**
+     * The identifier for the Routing Profile.
+     */
     routingProfileId?: pulumi.Input<string>;
+    /**
+     * Tags to apply to the Routing Profile. If configured with a provider
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -123,11 +223,33 @@ export interface RoutingProfileState {
  * The set of arguments for constructing a RoutingProfile resource.
  */
 export interface RoutingProfileArgs {
+    /**
+     * Specifies the default outbound queue for the Routing Profile.
+     */
     defaultOutboundQueueId: pulumi.Input<string>;
+    /**
+     * Specifies the description of the Routing Profile.
+     */
     description: pulumi.Input<string>;
+    /**
+     * Specifies the identifier of the hosting Amazon Connect Instance.
+     */
     instanceId: pulumi.Input<string>;
+    /**
+     * One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
+     */
     mediaConcurrencies: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileMediaConcurrency>[]>;
+    /**
+     * Specifies the name of the Routing Profile.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
+     */
     queueConfigs?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileQueueConfig>[]>;
+    /**
+     * Tags to apply to the Routing Profile. If configured with a provider
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -13,16 +13,32 @@ public final class BucketPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BucketPolicyArgs Empty = new BucketPolicyArgs();
 
+    /**
+     * The name of the bucket to which to apply the policy.
+     * 
+     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
+    /**
+     * @return The name of the bucket to which to apply the policy.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
+    /**
+     * The text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
+     * 
+     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
+    /**
+     * @return The text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
+     * 
+     */
     public Output<String> policy() {
         return this.policy;
     }
@@ -52,20 +68,44 @@ public final class BucketPolicyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new BucketPolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucket The name of the bucket to which to apply the policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
+        /**
+         * @param bucket The name of the bucket to which to apply the policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param policy The text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
+        /**
+         * @param policy The text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }

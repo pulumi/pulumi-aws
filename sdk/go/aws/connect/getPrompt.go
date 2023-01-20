@@ -10,6 +10,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides details about a specific Amazon Connect Prompt.
+//
+// ## Example Usage
+//
+// By `name`
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.GetPrompt(ctx, &connect.GetPromptArgs{
+//				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+//				Name:       "Beep.wav",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetPrompt(ctx *pulumi.Context, args *GetPromptArgs, opts ...pulumi.InvokeOption) (*GetPromptResult, error) {
 	var rv GetPromptResult
 	err := ctx.Invoke("aws:connect/getPrompt:getPrompt", args, &rv, opts...)
@@ -21,18 +51,22 @@ func GetPrompt(ctx *pulumi.Context, args *GetPromptArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getPrompt.
 type GetPromptArgs struct {
+	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
-	Name       string `pulumi:"name"`
+	// Returns information on a specific Prompt by name
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getPrompt.
 type GetPromptResult struct {
+	// ARN of the Prompt.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	InstanceId string `pulumi:"instanceId"`
 	Name       string `pulumi:"name"`
-	PromptId   string `pulumi:"promptId"`
+	// Identifier for the prompt.
+	PromptId string `pulumi:"promptId"`
 }
 
 func GetPromptOutput(ctx *pulumi.Context, args GetPromptOutputArgs, opts ...pulumi.InvokeOption) GetPromptResultOutput {
@@ -50,8 +84,10 @@ func GetPromptOutput(ctx *pulumi.Context, args GetPromptOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getPrompt.
 type GetPromptOutputArgs struct {
+	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
-	Name       pulumi.StringInput `pulumi:"name"`
+	// Returns information on a specific Prompt by name
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetPromptOutputArgs) ElementType() reflect.Type {
@@ -73,6 +109,7 @@ func (o GetPromptResultOutput) ToGetPromptResultOutputWithContext(ctx context.Co
 	return o
 }
 
+// ARN of the Prompt.
 func (o GetPromptResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPromptResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -90,6 +127,7 @@ func (o GetPromptResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPromptResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Identifier for the prompt.
 func (o GetPromptResultOutput) PromptId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPromptResult) string { return v.PromptId }).(pulumi.StringOutput)
 }

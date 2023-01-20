@@ -7,6 +7,34 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a WAF Regional Byte Match Set Resource for use with Application Load Balancer.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const byteSet = new aws.wafregional.ByteMatchSet("byteSet", {byteMatchTuples: [{
+ *     fieldToMatch: {
+ *         data: "referer",
+ *         type: "HEADER",
+ *     },
+ *     positionalConstraint: "CONTAINS",
+ *     targetString: "badrefer1",
+ *     textTransformation: "NONE",
+ * }]});
+ * ```
+ *
+ * ## Import
+ *
+ * WAF Regional Byte Match Set can be imported using the id, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:wafregional/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * ```
+ */
 export class ByteMatchSet extends pulumi.CustomResource {
     /**
      * Get an existing ByteMatchSet resource's state with the given name, ID, and optional extra
@@ -35,7 +63,13 @@ export class ByteMatchSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === ByteMatchSet.__pulumiType;
     }
 
+    /**
+     * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
+     */
     public readonly byteMatchTuples!: pulumi.Output<outputs.wafregional.ByteMatchSetByteMatchTuple[] | undefined>;
+    /**
+     * The name or description of the ByteMatchSet.
+     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -67,7 +101,13 @@ export class ByteMatchSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ByteMatchSet resources.
  */
 export interface ByteMatchSetState {
+    /**
+     * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
+     */
     byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.ByteMatchSetByteMatchTuple>[]>;
+    /**
+     * The name or description of the ByteMatchSet.
+     */
     name?: pulumi.Input<string>;
 }
 
@@ -75,6 +115,12 @@ export interface ByteMatchSetState {
  * The set of arguments for constructing a ByteMatchSet resource.
  */
 export interface ByteMatchSetArgs {
+    /**
+     * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
+     */
     byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.ByteMatchSetByteMatchTuple>[]>;
+    /**
+     * The name or description of the ByteMatchSet.
+     */
     name?: pulumi.Input<string>;
 }

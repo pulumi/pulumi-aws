@@ -9,24 +9,120 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RolesAnywhere
 {
+    /// <summary>
+    /// Resource for managing a Roles Anywhere Trust Anchor.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("exampleCertificateAuthority", new()
+    ///     {
+    ///         PermanentDeletionTimeInDays = 7,
+    ///         Type = "ROOT",
+    ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
+    ///         {
+    ///             KeyAlgorithm = "RSA_4096",
+    ///             SigningAlgorithm = "SHA512WITHRSA",
+    ///             Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
+    ///             {
+    ///                 CommonName = "example.com",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var current = Aws.GetPartition.Invoke();
+    /// 
+    ///     var testCertificate = new Aws.Acmpca.Certificate("testCertificate", new()
+    ///     {
+    ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
+    ///         CertificateSigningRequest = exampleCertificateAuthority.CertificateSigningRequest,
+    ///         SigningAlgorithm = "SHA512WITHRSA",
+    ///         TemplateArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:acm-pca:::template/RootCACertificate/V1",
+    ///         Validity = new Aws.Acmpca.Inputs.CertificateValidityArgs
+    ///         {
+    ///             Type = "YEARS",
+    ///             Value = "1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCertificateAuthorityCertificate = new Aws.Acmpca.CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate", new()
+    ///     {
+    ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
+    ///         Certificate = aws_acmpca_certificate.Example.Certificate,
+    ///         CertificateChain = aws_acmpca_certificate.Example.Certificate_chain,
+    ///     });
+    /// 
+    ///     var testTrustAnchor = new Aws.RolesAnywhere.TrustAnchor("testTrustAnchor", new()
+    ///     {
+    ///         Source = new Aws.RolesAnywhere.Inputs.TrustAnchorSourceArgs
+    ///         {
+    ///             SourceData = new Aws.RolesAnywhere.Inputs.TrustAnchorSourceSourceDataArgs
+    ///             {
+    ///                 AcmPcaArn = exampleCertificateAuthority.Arn,
+    ///             },
+    ///             SourceType = "AWS_ACM_PCA",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleCertificateAuthorityCertificate,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_rolesanywhere_trust_anchor` can be imported using its `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:rolesanywhere/trustAnchor:TrustAnchor")]
     public partial class TrustAnchor : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Trust Anchor
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether or not the Trust Anchor should be enabled.
+        /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Trust Anchor.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The source of trust, documented below
+        /// </summary>
         [Output("source")]
         public Output<Outputs.TrustAnchorSource> Source { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -76,17 +172,30 @@ namespace Pulumi.Aws.RolesAnywhere
 
     public sealed class TrustAnchorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether or not the Trust Anchor should be enabled.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The name of the Trust Anchor.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The source of trust, documented below
+        /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.TrustAnchorSourceArgs> Source { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -101,20 +210,36 @@ namespace Pulumi.Aws.RolesAnywhere
 
     public sealed class TrustAnchorState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Trust Anchor
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Whether or not the Trust Anchor should be enabled.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The name of the Trust Anchor.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The source of trust, documented below
+        /// </summary>
         [Input("source")]
         public Input<Inputs.TrustAnchorSourceGetArgs>? Source { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -123,6 +248,10 @@ namespace Pulumi.Aws.RolesAnywhere
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

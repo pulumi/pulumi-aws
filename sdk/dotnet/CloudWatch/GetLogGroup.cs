@@ -11,9 +11,57 @@ namespace Pulumi.Aws.CloudWatch
 {
     public static class GetLogGroup
     {
+        /// <summary>
+        /// Use this data source to get information about an AWS Cloudwatch Log Group
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CloudWatch.GetLogGroup.Invoke(new()
+        ///     {
+        ///         Name = "MyImportantLogs",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetLogGroupResult> InvokeAsync(GetLogGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogGroupResult>("aws:cloudwatch/getLogGroup:getLogGroup", args ?? new GetLogGroupArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to get information about an AWS Cloudwatch Log Group
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CloudWatch.GetLogGroup.Invoke(new()
+        ///     {
+        ///         Name = "MyImportantLogs",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetLogGroupResult> Invoke(GetLogGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogGroupResult>("aws:cloudwatch/getLogGroup:getLogGroup", args ?? new GetLogGroupInvokeArgs(), options.WithDefaults());
     }
@@ -21,11 +69,18 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class GetLogGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the Cloudwatch log group
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the resource.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -40,11 +95,18 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class GetLogGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the Cloudwatch log group
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -61,15 +123,30 @@ namespace Pulumi.Aws.CloudWatch
     [OutputType]
     public sealed class GetLogGroupResult
     {
+        /// <summary>
+        /// ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+        /// </summary>
         public readonly int CreationTime;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// ARN of the KMS Key to use when encrypting log data.
+        /// </summary>
         public readonly string KmsKeyId;
         public readonly string Name;
+        /// <summary>
+        /// Number of days log events retained in the specified log group.
+        /// </summary>
         public readonly int RetentionInDays;
+        /// <summary>
+        /// Map of tags to assign to the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

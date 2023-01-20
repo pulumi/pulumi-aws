@@ -11,9 +11,59 @@ namespace Pulumi.Aws.WafV2
 {
     public static class GetRuleGroup
     {
+        /// <summary>
+        /// Retrieves the summary of a WAFv2 Rule Group.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.WafV2.GetRuleGroup.Invoke(new()
+        ///     {
+        ///         Name = "some-rule-group",
+        ///         Scope = "REGIONAL",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetRuleGroupResult> InvokeAsync(GetRuleGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuleGroupResult>("aws:wafv2/getRuleGroup:getRuleGroup", args ?? new GetRuleGroupArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves the summary of a WAFv2 Rule Group.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.WafV2.GetRuleGroup.Invoke(new()
+        ///     {
+        ///         Name = "some-rule-group",
+        ///         Scope = "REGIONAL",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetRuleGroupResult> Invoke(GetRuleGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleGroupResult>("aws:wafv2/getRuleGroup:getRuleGroup", args ?? new GetRuleGroupInvokeArgs(), options.WithDefaults());
     }
@@ -21,9 +71,15 @@ namespace Pulumi.Aws.WafV2
 
     public sealed class GetRuleGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the WAFv2 Rule Group.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        /// </summary>
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;
 
@@ -35,9 +91,15 @@ namespace Pulumi.Aws.WafV2
 
     public sealed class GetRuleGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the WAFv2 Rule Group.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
 
@@ -51,7 +113,13 @@ namespace Pulumi.Aws.WafV2
     [OutputType]
     public sealed class GetRuleGroupResult
     {
+        /// <summary>
+        /// ARN of the entity.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Description of the rule group that helps with identification.
+        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

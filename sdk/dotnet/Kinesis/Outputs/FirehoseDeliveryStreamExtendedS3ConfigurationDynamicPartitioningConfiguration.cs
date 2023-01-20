@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration
     {
+        /// <summary>
+        /// Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
+        /// </summary>
         public readonly int? RetryDuration;
 
         [OutputConstructor]

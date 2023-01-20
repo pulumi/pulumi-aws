@@ -26,6 +26,10 @@ class ClusterCacheNodeArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] availability_zone: Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
+        :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
+        """
         if address is not None:
             pulumi.set(__self__, "address", address)
         if availability_zone is not None:
@@ -49,6 +53,9 @@ class ClusterCacheNodeArgs:
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
+        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -76,6 +83,9 @@ class ClusterCacheNodeArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -90,6 +100,12 @@ class ClusterLogDeliveryConfigurationArgs:
                  destination_type: pulumi.Input[str],
                  log_format: pulumi.Input[str],
                  log_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] destination: Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+        :param pulumi.Input[str] destination_type: For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+        :param pulumi.Input[str] log_format: Valid values are `json` or `text`
+        :param pulumi.Input[str] log_type: Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+        """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "destination_type", destination_type)
         pulumi.set(__self__, "log_format", log_format)
@@ -98,6 +114,9 @@ class ClusterLogDeliveryConfigurationArgs:
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Input[str]:
+        """
+        Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -107,6 +126,9 @@ class ClusterLogDeliveryConfigurationArgs:
     @property
     @pulumi.getter(name="destinationType")
     def destination_type(self) -> pulumi.Input[str]:
+        """
+        For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+        """
         return pulumi.get(self, "destination_type")
 
     @destination_type.setter
@@ -116,6 +138,9 @@ class ClusterLogDeliveryConfigurationArgs:
     @property
     @pulumi.getter(name="logFormat")
     def log_format(self) -> pulumi.Input[str]:
+        """
+        Valid values are `json` or `text`
+        """
         return pulumi.get(self, "log_format")
 
     @log_format.setter
@@ -125,6 +150,9 @@ class ClusterLogDeliveryConfigurationArgs:
     @property
     @pulumi.getter(name="logType")
     def log_type(self) -> pulumi.Input[str]:
+        """
+        Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+        """
         return pulumi.get(self, "log_type")
 
     @log_type.setter
@@ -137,6 +165,10 @@ class GlobalReplicationGroupGlobalNodeGroupArgs:
     def __init__(__self__, *,
                  global_node_group_id: Optional[pulumi.Input[str]] = None,
                  slots: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] global_node_group_id: The ID of the global node group.
+        :param pulumi.Input[str] slots: The keyspace for this node group.
+        """
         if global_node_group_id is not None:
             pulumi.set(__self__, "global_node_group_id", global_node_group_id)
         if slots is not None:
@@ -145,6 +177,9 @@ class GlobalReplicationGroupGlobalNodeGroupArgs:
     @property
     @pulumi.getter(name="globalNodeGroupId")
     def global_node_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the global node group.
+        """
         return pulumi.get(self, "global_node_group_id")
 
     @global_node_group_id.setter
@@ -154,6 +189,9 @@ class GlobalReplicationGroupGlobalNodeGroupArgs:
     @property
     @pulumi.getter
     def slots(self) -> Optional[pulumi.Input[str]]:
+        """
+        The keyspace for this node group.
+        """
         return pulumi.get(self, "slots")
 
     @slots.setter
@@ -166,12 +204,19 @@ class ParameterGroupParameterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the ElastiCache parameter.
+        :param pulumi.Input[str] value: The value of the ElastiCache parameter.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the ElastiCache parameter.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -181,6 +226,9 @@ class ParameterGroupParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value of the ElastiCache parameter.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -193,6 +241,10 @@ class ReplicationGroupClusterModeArgs:
     def __init__(__self__, *,
                  num_node_groups: Optional[pulumi.Input[int]] = None,
                  replicas_per_node_group: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] num_node_groups: Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+        :param pulumi.Input[int] replicas_per_node_group: Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+        """
         if num_node_groups is not None:
             warnings.warn("""Use root-level num_node_groups instead""", DeprecationWarning)
             pulumi.log.warn("""num_node_groups is deprecated: Use root-level num_node_groups instead""")
@@ -207,6 +259,9 @@ class ReplicationGroupClusterModeArgs:
     @property
     @pulumi.getter(name="numNodeGroups")
     def num_node_groups(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+        """
         return pulumi.get(self, "num_node_groups")
 
     @num_node_groups.setter
@@ -216,6 +271,9 @@ class ReplicationGroupClusterModeArgs:
     @property
     @pulumi.getter(name="replicasPerNodeGroup")
     def replicas_per_node_group(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+        """
         return pulumi.get(self, "replicas_per_node_group")
 
     @replicas_per_node_group.setter
@@ -230,6 +288,12 @@ class ReplicationGroupLogDeliveryConfigurationArgs:
                  destination_type: pulumi.Input[str],
                  log_format: pulumi.Input[str],
                  log_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] destination: Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+        :param pulumi.Input[str] destination_type: For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+        :param pulumi.Input[str] log_format: Valid values are `json` or `text`
+        :param pulumi.Input[str] log_type: Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+        """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "destination_type", destination_type)
         pulumi.set(__self__, "log_format", log_format)
@@ -238,6 +302,9 @@ class ReplicationGroupLogDeliveryConfigurationArgs:
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Input[str]:
+        """
+        Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -247,6 +314,9 @@ class ReplicationGroupLogDeliveryConfigurationArgs:
     @property
     @pulumi.getter(name="destinationType")
     def destination_type(self) -> pulumi.Input[str]:
+        """
+        For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+        """
         return pulumi.get(self, "destination_type")
 
     @destination_type.setter
@@ -256,6 +326,9 @@ class ReplicationGroupLogDeliveryConfigurationArgs:
     @property
     @pulumi.getter(name="logFormat")
     def log_format(self) -> pulumi.Input[str]:
+        """
+        Valid values are `json` or `text`
+        """
         return pulumi.get(self, "log_format")
 
     @log_format.setter
@@ -265,6 +338,9 @@ class ReplicationGroupLogDeliveryConfigurationArgs:
     @property
     @pulumi.getter(name="logType")
     def log_type(self) -> pulumi.Input[str]:
+        """
+        Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+        """
         return pulumi.get(self, "log_type")
 
     @log_type.setter

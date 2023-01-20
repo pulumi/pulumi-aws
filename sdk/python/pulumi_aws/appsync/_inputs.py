@@ -45,6 +45,11 @@ class DataSourceDynamodbConfigArgs:
                  region: Optional[pulumi.Input[str]] = None,
                  use_caller_credentials: Optional[pulumi.Input[bool]] = None,
                  versioned: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] table_name: Name of the DynamoDB table.
+        :param pulumi.Input[str] region: AWS region of the DynamoDB table. Defaults to current region.
+        :param pulumi.Input[bool] use_caller_credentials: Set to `true` to use Amazon Cognito credentials with this data source.
+        """
         pulumi.set(__self__, "table_name", table_name)
         if delta_sync_config is not None:
             pulumi.set(__self__, "delta_sync_config", delta_sync_config)
@@ -58,6 +63,9 @@ class DataSourceDynamodbConfigArgs:
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
+        """
+        Name of the DynamoDB table.
+        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -76,6 +84,9 @@ class DataSourceDynamodbConfigArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS region of the DynamoDB table. Defaults to current region.
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -85,6 +96,9 @@ class DataSourceDynamodbConfigArgs:
     @property
     @pulumi.getter(name="useCallerCredentials")
     def use_caller_credentials(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to `true` to use Amazon Cognito credentials with this data source.
+        """
         return pulumi.get(self, "use_caller_credentials")
 
     @use_caller_credentials.setter
@@ -146,6 +160,10 @@ class DataSourceElasticsearchConfigArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[str],
                  region: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] endpoint: HTTP endpoint of the Elasticsearch domain.
+        :param pulumi.Input[str] region: AWS region of Elasticsearch domain. Defaults to current region.
+        """
         pulumi.set(__self__, "endpoint", endpoint)
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -153,6 +171,9 @@ class DataSourceElasticsearchConfigArgs:
     @property
     @pulumi.getter
     def endpoint(self) -> pulumi.Input[str]:
+        """
+        HTTP endpoint of the Elasticsearch domain.
+        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -162,6 +183,9 @@ class DataSourceElasticsearchConfigArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS region of Elasticsearch domain. Defaults to current region.
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -174,6 +198,10 @@ class DataSourceHttpConfigArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[str],
                  authorization_config: Optional[pulumi.Input['DataSourceHttpConfigAuthorizationConfigArgs']] = None):
+        """
+        :param pulumi.Input[str] endpoint: HTTP URL.
+        :param pulumi.Input['DataSourceHttpConfigAuthorizationConfigArgs'] authorization_config: Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+        """
         pulumi.set(__self__, "endpoint", endpoint)
         if authorization_config is not None:
             pulumi.set(__self__, "authorization_config", authorization_config)
@@ -181,6 +209,9 @@ class DataSourceHttpConfigArgs:
     @property
     @pulumi.getter
     def endpoint(self) -> pulumi.Input[str]:
+        """
+        HTTP URL.
+        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -190,6 +221,9 @@ class DataSourceHttpConfigArgs:
     @property
     @pulumi.getter(name="authorizationConfig")
     def authorization_config(self) -> Optional[pulumi.Input['DataSourceHttpConfigAuthorizationConfigArgs']]:
+        """
+        Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+        """
         return pulumi.get(self, "authorization_config")
 
     @authorization_config.setter
@@ -202,6 +236,10 @@ class DataSourceHttpConfigAuthorizationConfigArgs:
     def __init__(__self__, *,
                  authorization_type: Optional[pulumi.Input[str]] = None,
                  aws_iam_config: Optional[pulumi.Input['DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs']] = None):
+        """
+        :param pulumi.Input[str] authorization_type: Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
+        :param pulumi.Input['DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs'] aws_iam_config: Identity and Access Management (IAM) settings. See AWS IAM Config.
+        """
         if authorization_type is not None:
             pulumi.set(__self__, "authorization_type", authorization_type)
         if aws_iam_config is not None:
@@ -210,6 +248,9 @@ class DataSourceHttpConfigAuthorizationConfigArgs:
     @property
     @pulumi.getter(name="authorizationType")
     def authorization_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
+        """
         return pulumi.get(self, "authorization_type")
 
     @authorization_type.setter
@@ -219,6 +260,9 @@ class DataSourceHttpConfigAuthorizationConfigArgs:
     @property
     @pulumi.getter(name="awsIamConfig")
     def aws_iam_config(self) -> Optional[pulumi.Input['DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs']]:
+        """
+        Identity and Access Management (IAM) settings. See AWS IAM Config.
+        """
         return pulumi.get(self, "aws_iam_config")
 
     @aws_iam_config.setter
@@ -231,6 +275,10 @@ class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs:
     def __init__(__self__, *,
                  signing_region: Optional[pulumi.Input[str]] = None,
                  signing_service_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] signing_region: Signing Amazon Web Services Region for IAM authorization.
+        :param pulumi.Input[str] signing_service_name: Signing service name for IAM authorization.
+        """
         if signing_region is not None:
             pulumi.set(__self__, "signing_region", signing_region)
         if signing_service_name is not None:
@@ -239,6 +287,9 @@ class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs:
     @property
     @pulumi.getter(name="signingRegion")
     def signing_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        Signing Amazon Web Services Region for IAM authorization.
+        """
         return pulumi.get(self, "signing_region")
 
     @signing_region.setter
@@ -248,6 +299,9 @@ class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs:
     @property
     @pulumi.getter(name="signingServiceName")
     def signing_service_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Signing service name for IAM authorization.
+        """
         return pulumi.get(self, "signing_service_name")
 
     @signing_service_name.setter
@@ -259,11 +313,17 @@ class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs:
 class DataSourceLambdaConfigArgs:
     def __init__(__self__, *,
                  function_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] function_arn: ARN for the Lambda function.
+        """
         pulumi.set(__self__, "function_arn", function_arn)
 
     @property
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> pulumi.Input[str]:
+        """
+        ARN for the Lambda function.
+        """
         return pulumi.get(self, "function_arn")
 
     @function_arn.setter
@@ -276,6 +336,10 @@ class DataSourceRelationalDatabaseConfigArgs:
     def __init__(__self__, *,
                  http_endpoint_config: Optional[pulumi.Input['DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs']] = None,
                  source_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs'] http_endpoint_config: Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+        :param pulumi.Input[str] source_type: Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
+        """
         if http_endpoint_config is not None:
             pulumi.set(__self__, "http_endpoint_config", http_endpoint_config)
         if source_type is not None:
@@ -284,6 +348,9 @@ class DataSourceRelationalDatabaseConfigArgs:
     @property
     @pulumi.getter(name="httpEndpointConfig")
     def http_endpoint_config(self) -> Optional[pulumi.Input['DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs']]:
+        """
+        Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+        """
         return pulumi.get(self, "http_endpoint_config")
 
     @http_endpoint_config.setter
@@ -293,6 +360,9 @@ class DataSourceRelationalDatabaseConfigArgs:
     @property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
+        """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
@@ -308,6 +378,13 @@ class DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs:
                  database_name: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] aws_secret_store_arn: AWS secret store ARN for database credentials.
+        :param pulumi.Input[str] db_cluster_identifier: Amazon RDS cluster identifier.
+        :param pulumi.Input[str] database_name: Logical database name.
+        :param pulumi.Input[str] region: AWS Region for RDS HTTP endpoint. Defaults to current region.
+        :param pulumi.Input[str] schema: Logical schema name.
+        """
         pulumi.set(__self__, "aws_secret_store_arn", aws_secret_store_arn)
         pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
         if database_name is not None:
@@ -320,6 +397,9 @@ class DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs:
     @property
     @pulumi.getter(name="awsSecretStoreArn")
     def aws_secret_store_arn(self) -> pulumi.Input[str]:
+        """
+        AWS secret store ARN for database credentials.
+        """
         return pulumi.get(self, "aws_secret_store_arn")
 
     @aws_secret_store_arn.setter
@@ -329,6 +409,9 @@ class DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs:
     @property
     @pulumi.getter(name="dbClusterIdentifier")
     def db_cluster_identifier(self) -> pulumi.Input[str]:
+        """
+        Amazon RDS cluster identifier.
+        """
         return pulumi.get(self, "db_cluster_identifier")
 
     @db_cluster_identifier.setter
@@ -338,6 +421,9 @@ class DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logical database name.
+        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -347,6 +433,9 @@ class DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS Region for RDS HTTP endpoint. Defaults to current region.
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -356,6 +445,9 @@ class DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs:
     @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logical schema name.
+        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -368,12 +460,19 @@ class FunctionRuntimeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  runtime_version: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        :param pulumi.Input[str] runtime_version: The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "runtime_version", runtime_version)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -383,6 +482,9 @@ class FunctionRuntimeArgs:
     @property
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> pulumi.Input[str]:
+        """
+        The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+        """
         return pulumi.get(self, "runtime_version")
 
     @runtime_version.setter
@@ -396,6 +498,11 @@ class FunctionSyncConfigArgs:
                  conflict_detection: Optional[pulumi.Input[str]] = None,
                  conflict_handler: Optional[pulumi.Input[str]] = None,
                  lambda_conflict_handler_config: Optional[pulumi.Input['FunctionSyncConfigLambdaConflictHandlerConfigArgs']] = None):
+        """
+        :param pulumi.Input[str] conflict_detection: Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+        :param pulumi.Input[str] conflict_handler: Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+        :param pulumi.Input['FunctionSyncConfigLambdaConflictHandlerConfigArgs'] lambda_conflict_handler_config: Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+        """
         if conflict_detection is not None:
             pulumi.set(__self__, "conflict_detection", conflict_detection)
         if conflict_handler is not None:
@@ -406,6 +513,9 @@ class FunctionSyncConfigArgs:
     @property
     @pulumi.getter(name="conflictDetection")
     def conflict_detection(self) -> Optional[pulumi.Input[str]]:
+        """
+        Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+        """
         return pulumi.get(self, "conflict_detection")
 
     @conflict_detection.setter
@@ -415,6 +525,9 @@ class FunctionSyncConfigArgs:
     @property
     @pulumi.getter(name="conflictHandler")
     def conflict_handler(self) -> Optional[pulumi.Input[str]]:
+        """
+        Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+        """
         return pulumi.get(self, "conflict_handler")
 
     @conflict_handler.setter
@@ -424,6 +537,9 @@ class FunctionSyncConfigArgs:
     @property
     @pulumi.getter(name="lambdaConflictHandlerConfig")
     def lambda_conflict_handler_config(self) -> Optional[pulumi.Input['FunctionSyncConfigLambdaConflictHandlerConfigArgs']]:
+        """
+        Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+        """
         return pulumi.get(self, "lambda_conflict_handler_config")
 
     @lambda_conflict_handler_config.setter
@@ -435,12 +551,18 @@ class FunctionSyncConfigArgs:
 class FunctionSyncConfigLambdaConflictHandlerConfigArgs:
     def __init__(__self__, *,
                  lambda_conflict_handler_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] lambda_conflict_handler_arn: ARN for the Lambda function to use as the Conflict Handler.
+        """
         if lambda_conflict_handler_arn is not None:
             pulumi.set(__self__, "lambda_conflict_handler_arn", lambda_conflict_handler_arn)
 
     @property
     @pulumi.getter(name="lambdaConflictHandlerArn")
     def lambda_conflict_handler_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN for the Lambda function to use as the Conflict Handler.
+        """
         return pulumi.get(self, "lambda_conflict_handler_arn")
 
     @lambda_conflict_handler_arn.setter
@@ -455,6 +577,12 @@ class GraphQLApiAdditionalAuthenticationProviderArgs:
                  lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs']] = None,
                  openid_connect_config: Optional[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs']] = None,
                  user_pool_config: Optional[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs']] = None):
+        """
+        :param pulumi.Input[str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+        :param pulumi.Input['GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs'] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
+        :param pulumi.Input['GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs'] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
+        :param pulumi.Input['GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs'] user_pool_config: Amazon Cognito User Pool configuration. Defined below.
+        """
         pulumi.set(__self__, "authentication_type", authentication_type)
         if lambda_authorizer_config is not None:
             pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
@@ -466,6 +594,9 @@ class GraphQLApiAdditionalAuthenticationProviderArgs:
     @property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Input[str]:
+        """
+        Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+        """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
@@ -475,6 +606,9 @@ class GraphQLApiAdditionalAuthenticationProviderArgs:
     @property
     @pulumi.getter(name="lambdaAuthorizerConfig")
     def lambda_authorizer_config(self) -> Optional[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs']]:
+        """
+        Nested argument containing Lambda authorizer configuration. Defined below.
+        """
         return pulumi.get(self, "lambda_authorizer_config")
 
     @lambda_authorizer_config.setter
@@ -484,6 +618,9 @@ class GraphQLApiAdditionalAuthenticationProviderArgs:
     @property
     @pulumi.getter(name="openidConnectConfig")
     def openid_connect_config(self) -> Optional[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs']]:
+        """
+        Nested argument containing OpenID Connect configuration. Defined below.
+        """
         return pulumi.get(self, "openid_connect_config")
 
     @openid_connect_config.setter
@@ -493,6 +630,9 @@ class GraphQLApiAdditionalAuthenticationProviderArgs:
     @property
     @pulumi.getter(name="userPoolConfig")
     def user_pool_config(self) -> Optional[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs']]:
+        """
+        Amazon Cognito User Pool configuration. Defined below.
+        """
         return pulumi.get(self, "user_pool_config")
 
     @user_pool_config.setter
@@ -506,6 +646,11 @@ class GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs:
                  authorizer_uri: pulumi.Input[str],
                  authorizer_result_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
                  identity_validation_expression: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] authorizer_uri: ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+        :param pulumi.Input[int] authorizer_result_ttl_in_seconds: Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+        :param pulumi.Input[str] identity_validation_expression: Regular expression for validation of tokens before the Lambda function is called.
+        """
         pulumi.set(__self__, "authorizer_uri", authorizer_uri)
         if authorizer_result_ttl_in_seconds is not None:
             pulumi.set(__self__, "authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
@@ -515,6 +660,9 @@ class GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs:
     @property
     @pulumi.getter(name="authorizerUri")
     def authorizer_uri(self) -> pulumi.Input[str]:
+        """
+        ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+        """
         return pulumi.get(self, "authorizer_uri")
 
     @authorizer_uri.setter
@@ -524,6 +672,9 @@ class GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs:
     @property
     @pulumi.getter(name="authorizerResultTtlInSeconds")
     def authorizer_result_ttl_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+        """
         return pulumi.get(self, "authorizer_result_ttl_in_seconds")
 
     @authorizer_result_ttl_in_seconds.setter
@@ -533,6 +684,9 @@ class GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs:
     @property
     @pulumi.getter(name="identityValidationExpression")
     def identity_validation_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        Regular expression for validation of tokens before the Lambda function is called.
+        """
         return pulumi.get(self, "identity_validation_expression")
 
     @identity_validation_expression.setter
@@ -547,6 +701,12 @@ class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs:
                  auth_ttl: Optional[pulumi.Input[int]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  iat_ttl: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] issuer: Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
+        :param pulumi.Input[int] auth_ttl: Number of milliseconds a token is valid after being authenticated.
+        :param pulumi.Input[str] client_id: Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
+        :param pulumi.Input[int] iat_ttl: Number of milliseconds a token is valid after being issued to a user.
+        """
         pulumi.set(__self__, "issuer", issuer)
         if auth_ttl is not None:
             pulumi.set(__self__, "auth_ttl", auth_ttl)
@@ -558,6 +718,9 @@ class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs:
     @property
     @pulumi.getter
     def issuer(self) -> pulumi.Input[str]:
+        """
+        Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
+        """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
@@ -567,6 +730,9 @@ class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs:
     @property
     @pulumi.getter(name="authTtl")
     def auth_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of milliseconds a token is valid after being authenticated.
+        """
         return pulumi.get(self, "auth_ttl")
 
     @auth_ttl.setter
@@ -576,6 +742,9 @@ class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs:
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
+        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -585,6 +754,9 @@ class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs:
     @property
     @pulumi.getter(name="iatTtl")
     def iat_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of milliseconds a token is valid after being issued to a user.
+        """
         return pulumi.get(self, "iat_ttl")
 
     @iat_ttl.setter
@@ -598,6 +770,11 @@ class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs:
                  user_pool_id: pulumi.Input[str],
                  app_id_client_regex: Optional[pulumi.Input[str]] = None,
                  aws_region: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] user_pool_id: User pool ID.
+        :param pulumi.Input[str] app_id_client_regex: Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+        :param pulumi.Input[str] aws_region: AWS region in which the user pool was created.
+        """
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if app_id_client_regex is not None:
             pulumi.set(__self__, "app_id_client_regex", app_id_client_regex)
@@ -607,6 +784,9 @@ class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs:
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
+        """
+        User pool ID.
+        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -616,6 +796,9 @@ class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs:
     @property
     @pulumi.getter(name="appIdClientRegex")
     def app_id_client_regex(self) -> Optional[pulumi.Input[str]]:
+        """
+        Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+        """
         return pulumi.get(self, "app_id_client_regex")
 
     @app_id_client_regex.setter
@@ -625,6 +808,9 @@ class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs:
     @property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS region in which the user pool was created.
+        """
         return pulumi.get(self, "aws_region")
 
     @aws_region.setter
@@ -638,6 +824,11 @@ class GraphQLApiLambdaAuthorizerConfigArgs:
                  authorizer_uri: pulumi.Input[str],
                  authorizer_result_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
                  identity_validation_expression: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] authorizer_uri: ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+        :param pulumi.Input[int] authorizer_result_ttl_in_seconds: Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+        :param pulumi.Input[str] identity_validation_expression: Regular expression for validation of tokens before the Lambda function is called.
+        """
         pulumi.set(__self__, "authorizer_uri", authorizer_uri)
         if authorizer_result_ttl_in_seconds is not None:
             pulumi.set(__self__, "authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
@@ -647,6 +838,9 @@ class GraphQLApiLambdaAuthorizerConfigArgs:
     @property
     @pulumi.getter(name="authorizerUri")
     def authorizer_uri(self) -> pulumi.Input[str]:
+        """
+        ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+        """
         return pulumi.get(self, "authorizer_uri")
 
     @authorizer_uri.setter
@@ -656,6 +850,9 @@ class GraphQLApiLambdaAuthorizerConfigArgs:
     @property
     @pulumi.getter(name="authorizerResultTtlInSeconds")
     def authorizer_result_ttl_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+        """
         return pulumi.get(self, "authorizer_result_ttl_in_seconds")
 
     @authorizer_result_ttl_in_seconds.setter
@@ -665,6 +862,9 @@ class GraphQLApiLambdaAuthorizerConfigArgs:
     @property
     @pulumi.getter(name="identityValidationExpression")
     def identity_validation_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        Regular expression for validation of tokens before the Lambda function is called.
+        """
         return pulumi.get(self, "identity_validation_expression")
 
     @identity_validation_expression.setter
@@ -678,6 +878,11 @@ class GraphQLApiLogConfigArgs:
                  cloudwatch_logs_role_arn: pulumi.Input[str],
                  field_log_level: pulumi.Input[str],
                  exclude_verbose_content: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] cloudwatch_logs_role_arn: Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+        :param pulumi.Input[str] field_log_level: Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
+        :param pulumi.Input[bool] exclude_verbose_content: Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
+        """
         pulumi.set(__self__, "cloudwatch_logs_role_arn", cloudwatch_logs_role_arn)
         pulumi.set(__self__, "field_log_level", field_log_level)
         if exclude_verbose_content is not None:
@@ -686,6 +891,9 @@ class GraphQLApiLogConfigArgs:
     @property
     @pulumi.getter(name="cloudwatchLogsRoleArn")
     def cloudwatch_logs_role_arn(self) -> pulumi.Input[str]:
+        """
+        Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+        """
         return pulumi.get(self, "cloudwatch_logs_role_arn")
 
     @cloudwatch_logs_role_arn.setter
@@ -695,6 +903,9 @@ class GraphQLApiLogConfigArgs:
     @property
     @pulumi.getter(name="fieldLogLevel")
     def field_log_level(self) -> pulumi.Input[str]:
+        """
+        Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
+        """
         return pulumi.get(self, "field_log_level")
 
     @field_log_level.setter
@@ -704,6 +915,9 @@ class GraphQLApiLogConfigArgs:
     @property
     @pulumi.getter(name="excludeVerboseContent")
     def exclude_verbose_content(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
+        """
         return pulumi.get(self, "exclude_verbose_content")
 
     @exclude_verbose_content.setter
@@ -718,6 +932,12 @@ class GraphQLApiOpenidConnectConfigArgs:
                  auth_ttl: Optional[pulumi.Input[int]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  iat_ttl: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] issuer: Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
+        :param pulumi.Input[int] auth_ttl: Number of milliseconds a token is valid after being authenticated.
+        :param pulumi.Input[str] client_id: Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
+        :param pulumi.Input[int] iat_ttl: Number of milliseconds a token is valid after being issued to a user.
+        """
         pulumi.set(__self__, "issuer", issuer)
         if auth_ttl is not None:
             pulumi.set(__self__, "auth_ttl", auth_ttl)
@@ -729,6 +949,9 @@ class GraphQLApiOpenidConnectConfigArgs:
     @property
     @pulumi.getter
     def issuer(self) -> pulumi.Input[str]:
+        """
+        Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
+        """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
@@ -738,6 +961,9 @@ class GraphQLApiOpenidConnectConfigArgs:
     @property
     @pulumi.getter(name="authTtl")
     def auth_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of milliseconds a token is valid after being authenticated.
+        """
         return pulumi.get(self, "auth_ttl")
 
     @auth_ttl.setter
@@ -747,6 +973,9 @@ class GraphQLApiOpenidConnectConfigArgs:
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
+        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -756,6 +985,9 @@ class GraphQLApiOpenidConnectConfigArgs:
     @property
     @pulumi.getter(name="iatTtl")
     def iat_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of milliseconds a token is valid after being issued to a user.
+        """
         return pulumi.get(self, "iat_ttl")
 
     @iat_ttl.setter
@@ -770,6 +1002,12 @@ class GraphQLApiUserPoolConfigArgs:
                  user_pool_id: pulumi.Input[str],
                  app_id_client_regex: Optional[pulumi.Input[str]] = None,
                  aws_region: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] default_action: Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
+        :param pulumi.Input[str] user_pool_id: User pool ID.
+        :param pulumi.Input[str] app_id_client_regex: Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+        :param pulumi.Input[str] aws_region: AWS region in which the user pool was created.
+        """
         pulumi.set(__self__, "default_action", default_action)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if app_id_client_regex is not None:
@@ -780,6 +1018,9 @@ class GraphQLApiUserPoolConfigArgs:
     @property
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> pulumi.Input[str]:
+        """
+        Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
+        """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
@@ -789,6 +1030,9 @@ class GraphQLApiUserPoolConfigArgs:
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
+        """
+        User pool ID.
+        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -798,6 +1042,9 @@ class GraphQLApiUserPoolConfigArgs:
     @property
     @pulumi.getter(name="appIdClientRegex")
     def app_id_client_regex(self) -> Optional[pulumi.Input[str]]:
+        """
+        Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+        """
         return pulumi.get(self, "app_id_client_regex")
 
     @app_id_client_regex.setter
@@ -807,6 +1054,9 @@ class GraphQLApiUserPoolConfigArgs:
     @property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS region in which the user pool was created.
+        """
         return pulumi.get(self, "aws_region")
 
     @aws_region.setter
@@ -819,6 +1069,10 @@ class ResolverCachingConfigArgs:
     def __init__(__self__, *,
                  caching_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] caching_keys: The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+        :param pulumi.Input[int] ttl: The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
+        """
         if caching_keys is not None:
             pulumi.set(__self__, "caching_keys", caching_keys)
         if ttl is not None:
@@ -827,6 +1081,9 @@ class ResolverCachingConfigArgs:
     @property
     @pulumi.getter(name="cachingKeys")
     def caching_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+        """
         return pulumi.get(self, "caching_keys")
 
     @caching_keys.setter
@@ -836,6 +1093,9 @@ class ResolverCachingConfigArgs:
     @property
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
+        """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
@@ -847,12 +1107,18 @@ class ResolverCachingConfigArgs:
 class ResolverPipelineConfigArgs:
     def __init__(__self__, *,
                  functions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] functions: A list of Function objects.
+        """
         if functions is not None:
             pulumi.set(__self__, "functions", functions)
 
     @property
     @pulumi.getter
     def functions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Function objects.
+        """
         return pulumi.get(self, "functions")
 
     @functions.setter
@@ -865,12 +1131,19 @@ class ResolverRuntimeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  runtime_version: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        :param pulumi.Input[str] runtime_version: The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "runtime_version", runtime_version)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -880,6 +1153,9 @@ class ResolverRuntimeArgs:
     @property
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> pulumi.Input[str]:
+        """
+        The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+        """
         return pulumi.get(self, "runtime_version")
 
     @runtime_version.setter
@@ -893,6 +1169,11 @@ class ResolverSyncConfigArgs:
                  conflict_detection: Optional[pulumi.Input[str]] = None,
                  conflict_handler: Optional[pulumi.Input[str]] = None,
                  lambda_conflict_handler_config: Optional[pulumi.Input['ResolverSyncConfigLambdaConflictHandlerConfigArgs']] = None):
+        """
+        :param pulumi.Input[str] conflict_detection: Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+        :param pulumi.Input[str] conflict_handler: Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+        :param pulumi.Input['ResolverSyncConfigLambdaConflictHandlerConfigArgs'] lambda_conflict_handler_config: Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+        """
         if conflict_detection is not None:
             pulumi.set(__self__, "conflict_detection", conflict_detection)
         if conflict_handler is not None:
@@ -903,6 +1184,9 @@ class ResolverSyncConfigArgs:
     @property
     @pulumi.getter(name="conflictDetection")
     def conflict_detection(self) -> Optional[pulumi.Input[str]]:
+        """
+        Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+        """
         return pulumi.get(self, "conflict_detection")
 
     @conflict_detection.setter
@@ -912,6 +1196,9 @@ class ResolverSyncConfigArgs:
     @property
     @pulumi.getter(name="conflictHandler")
     def conflict_handler(self) -> Optional[pulumi.Input[str]]:
+        """
+        Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+        """
         return pulumi.get(self, "conflict_handler")
 
     @conflict_handler.setter
@@ -921,6 +1208,9 @@ class ResolverSyncConfigArgs:
     @property
     @pulumi.getter(name="lambdaConflictHandlerConfig")
     def lambda_conflict_handler_config(self) -> Optional[pulumi.Input['ResolverSyncConfigLambdaConflictHandlerConfigArgs']]:
+        """
+        Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+        """
         return pulumi.get(self, "lambda_conflict_handler_config")
 
     @lambda_conflict_handler_config.setter
@@ -932,12 +1222,18 @@ class ResolverSyncConfigArgs:
 class ResolverSyncConfigLambdaConflictHandlerConfigArgs:
     def __init__(__self__, *,
                  lambda_conflict_handler_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] lambda_conflict_handler_arn: ARN for the Lambda function to use as the Conflict Handler.
+        """
         if lambda_conflict_handler_arn is not None:
             pulumi.set(__self__, "lambda_conflict_handler_arn", lambda_conflict_handler_arn)
 
     @property
     @pulumi.getter(name="lambdaConflictHandlerArn")
     def lambda_conflict_handler_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN for the Lambda function to use as the Conflict Handler.
+        """
         return pulumi.get(self, "lambda_conflict_handler_arn")
 
     @lambda_conflict_handler_arn.setter

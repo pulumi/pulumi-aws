@@ -10,6 +10,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieve information about a connection.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkmanager.LookupConnection(ctx, &networkmanager.LookupConnectionArgs{
+//				GlobalNetworkId: _var.Global_network_id,
+//				ConnectionId:    _var.Connection_id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...pulumi.InvokeOption) (*LookupConnectionResult, error) {
 	var rv LookupConnectionResult
 	err := ctx.Invoke("aws:networkmanager/getConnection:getConnection", args, &rv, opts...)
@@ -21,24 +49,34 @@ func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...p
 
 // A collection of arguments for invoking getConnection.
 type LookupConnectionArgs struct {
-	ConnectionId    string            `pulumi:"connectionId"`
-	GlobalNetworkId string            `pulumi:"globalNetworkId"`
-	Tags            map[string]string `pulumi:"tags"`
+	// ID of the specific connection to retrieve.
+	ConnectionId string `pulumi:"connectionId"`
+	// ID of the Global Network of the connection to retrieve.
+	GlobalNetworkId string `pulumi:"globalNetworkId"`
+	// Key-value tags for the connection.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getConnection.
 type LookupConnectionResult struct {
-	Arn               string `pulumi:"arn"`
+	// ARN of the connection.
+	Arn string `pulumi:"arn"`
+	// ID of the second device in the connection.
 	ConnectedDeviceId string `pulumi:"connectedDeviceId"`
-	ConnectedLinkId   string `pulumi:"connectedLinkId"`
-	ConnectionId      string `pulumi:"connectionId"`
-	Description       string `pulumi:"description"`
-	DeviceId          string `pulumi:"deviceId"`
-	GlobalNetworkId   string `pulumi:"globalNetworkId"`
+	// ID of the link for the second device.
+	ConnectedLinkId string `pulumi:"connectedLinkId"`
+	ConnectionId    string `pulumi:"connectionId"`
+	// Description of the connection.
+	Description string `pulumi:"description"`
+	// ID of the first device in the connection.
+	DeviceId        string `pulumi:"deviceId"`
+	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string            `pulumi:"id"`
-	LinkId string            `pulumi:"linkId"`
-	Tags   map[string]string `pulumi:"tags"`
+	Id string `pulumi:"id"`
+	// ID of the link for the first device.
+	LinkId string `pulumi:"linkId"`
+	// Key-value tags for the connection.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionResultOutput {
@@ -56,9 +94,12 @@ func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs
 
 // A collection of arguments for invoking getConnection.
 type LookupConnectionOutputArgs struct {
-	ConnectionId    pulumi.StringInput    `pulumi:"connectionId"`
-	GlobalNetworkId pulumi.StringInput    `pulumi:"globalNetworkId"`
-	Tags            pulumi.StringMapInput `pulumi:"tags"`
+	// ID of the specific connection to retrieve.
+	ConnectionId pulumi.StringInput `pulumi:"connectionId"`
+	// ID of the Global Network of the connection to retrieve.
+	GlobalNetworkId pulumi.StringInput `pulumi:"globalNetworkId"`
+	// Key-value tags for the connection.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupConnectionOutputArgs) ElementType() reflect.Type {
@@ -80,14 +121,17 @@ func (o LookupConnectionResultOutput) ToLookupConnectionResultOutputWithContext(
 	return o
 }
 
+// ARN of the connection.
 func (o LookupConnectionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// ID of the second device in the connection.
 func (o LookupConnectionResultOutput) ConnectedDeviceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.ConnectedDeviceId }).(pulumi.StringOutput)
 }
 
+// ID of the link for the second device.
 func (o LookupConnectionResultOutput) ConnectedLinkId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.ConnectedLinkId }).(pulumi.StringOutput)
 }
@@ -96,10 +140,12 @@ func (o LookupConnectionResultOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
+// Description of the connection.
 func (o LookupConnectionResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// ID of the first device in the connection.
 func (o LookupConnectionResultOutput) DeviceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.DeviceId }).(pulumi.StringOutput)
 }
@@ -113,10 +159,12 @@ func (o LookupConnectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// ID of the link for the first device.
 func (o LookupConnectionResultOutput) LinkId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.LinkId }).(pulumi.StringOutput)
 }
 
+// Key-value tags for the connection.
 func (o LookupConnectionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConnectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

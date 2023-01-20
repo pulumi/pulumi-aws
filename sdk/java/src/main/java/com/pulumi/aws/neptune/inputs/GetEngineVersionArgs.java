@@ -16,30 +16,62 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetEngineVersionArgs Empty = new GetEngineVersionArgs();
 
+    /**
+     * DB engine. (Default: `neptune`)
+     * 
+     */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
+    /**
+     * @return DB engine. (Default: `neptune`)
+     * 
+     */
     public Optional<Output<String>> engine() {
         return Optional.ofNullable(this.engine);
     }
 
+    /**
+     * Name of a specific DB parameter group family. An example parameter group family is `neptune1`.
+     * 
+     */
     @Import(name="parameterGroupFamily")
     private @Nullable Output<String> parameterGroupFamily;
 
+    /**
+     * @return Name of a specific DB parameter group family. An example parameter group family is `neptune1`.
+     * 
+     */
     public Optional<Output<String>> parameterGroupFamily() {
         return Optional.ofNullable(this.parameterGroupFamily);
     }
 
+    /**
+     * Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+     * 
+     */
     @Import(name="preferredVersions")
     private @Nullable Output<List<String>> preferredVersions;
 
+    /**
+     * @return Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+     * 
+     */
     public Optional<Output<List<String>>> preferredVersions() {
         return Optional.ofNullable(this.preferredVersions);
     }
 
+    /**
+     * Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+     * 
+     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
+    /**
+     * @return Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+     * 
+     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -71,42 +103,96 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetEngineVersionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param engine DB engine. (Default: `neptune`)
+         * 
+         * @return builder
+         * 
+         */
         public Builder engine(@Nullable Output<String> engine) {
             $.engine = engine;
             return this;
         }
 
+        /**
+         * @param engine DB engine. (Default: `neptune`)
+         * 
+         * @return builder
+         * 
+         */
         public Builder engine(String engine) {
             return engine(Output.of(engine));
         }
 
+        /**
+         * @param parameterGroupFamily Name of a specific DB parameter group family. An example parameter group family is `neptune1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parameterGroupFamily(@Nullable Output<String> parameterGroupFamily) {
             $.parameterGroupFamily = parameterGroupFamily;
             return this;
         }
 
+        /**
+         * @param parameterGroupFamily Name of a specific DB parameter group family. An example parameter group family is `neptune1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parameterGroupFamily(String parameterGroupFamily) {
             return parameterGroupFamily(Output.of(parameterGroupFamily));
         }
 
+        /**
+         * @param preferredVersions Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferredVersions(@Nullable Output<List<String>> preferredVersions) {
             $.preferredVersions = preferredVersions;
             return this;
         }
 
+        /**
+         * @param preferredVersions Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferredVersions(List<String> preferredVersions) {
             return preferredVersions(Output.of(preferredVersions));
         }
 
+        /**
+         * @param preferredVersions Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferredVersions(String... preferredVersions) {
             return preferredVersions(List.of(preferredVersions));
         }
 
+        /**
+         * @param version Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
+        /**
+         * @param version Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

@@ -13,16 +13,32 @@ public final class GetGroupFilterArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final GetGroupFilterArgs Empty = new GetGroupFilterArgs();
 
+    /**
+     * Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+     * 
+     */
     @Import(name="attributePath", required=true)
     private Output<String> attributePath;
 
+    /**
+     * @return Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+     * 
+     */
     public Output<String> attributePath() {
         return this.attributePath;
     }
 
+    /**
+     * Value for an attribute.
+     * 
+     */
     @Import(name="attributeValue", required=true)
     private Output<String> attributeValue;
 
+    /**
+     * @return Value for an attribute.
+     * 
+     */
     public Output<String> attributeValue() {
         return this.attributeValue;
     }
@@ -52,20 +68,44 @@ public final class GetGroupFilterArgs extends com.pulumi.resources.ResourceArgs 
             $ = new GetGroupFilterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param attributePath Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attributePath(Output<String> attributePath) {
             $.attributePath = attributePath;
             return this;
         }
 
+        /**
+         * @param attributePath Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attributePath(String attributePath) {
             return attributePath(Output.of(attributePath));
         }
 
+        /**
+         * @param attributeValue Value for an attribute.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attributeValue(Output<String> attributeValue) {
             $.attributeValue = attributeValue;
             return this;
         }
 
+        /**
+         * @param attributeValue Value for an attribute.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attributeValue(String attributeValue) {
             return attributeValue(Output.of(attributeValue));
         }

@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class SpaceSpaceSettings
     {
+        /// <summary>
+        /// The Jupyter server's app settings. See Jupyter Server App Settings below.
+        /// </summary>
         public readonly Outputs.SpaceSpaceSettingsJupyterServerAppSettings? JupyterServerAppSettings;
+        /// <summary>
+        /// The kernel gateway app settings. See Kernel Gateway App Settings below.
+        /// </summary>
         public readonly Outputs.SpaceSpaceSettingsKernelGatewayAppSettings? KernelGatewayAppSettings;
 
         [OutputConstructor]

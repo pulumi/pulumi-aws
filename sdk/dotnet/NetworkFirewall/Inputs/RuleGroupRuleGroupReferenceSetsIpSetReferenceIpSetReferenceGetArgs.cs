@@ -12,6 +12,9 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
     public sealed class RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Set of Managed Prefix IP ARN(s)
+        /// </summary>
         [Input("referenceArn", required: true)]
         public Input<string> ReferenceArn { get; set; } = null!;
 

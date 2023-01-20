@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Ssm.Inputs
     {
         [Input("input")]
         private Input<string>? _input;
+
+        /// <summary>
+        /// The inputs for the STEP_FUNCTION task.
+        /// </summary>
         public Input<string>? Input
         {
             get => _input;
@@ -24,6 +28,9 @@ namespace Pulumi.Aws.Ssm.Inputs
             }
         }
 
+        /// <summary>
+        /// The name of the STEP_FUNCTION task.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

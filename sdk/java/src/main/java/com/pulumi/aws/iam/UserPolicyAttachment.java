@@ -13,17 +13,88 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Attaches a Managed IAM Policy to an IAM user
+ * 
+ * &gt; **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.User;
+ * import com.pulumi.aws.iam.Policy;
+ * import com.pulumi.aws.iam.PolicyArgs;
+ * import com.pulumi.aws.iam.UserPolicyAttachment;
+ * import com.pulumi.aws.iam.UserPolicyAttachmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var user = new User(&#34;user&#34;);
+ * 
+ *         var policy = new Policy(&#34;policy&#34;, PolicyArgs.builder()        
+ *             .description(&#34;A test policy&#34;)
+ *             .policy(&#34;{ ... policy JSON ... }&#34;)
+ *             .build());
+ * 
+ *         var test_attach = new UserPolicyAttachment(&#34;test-attach&#34;, UserPolicyAttachmentArgs.builder()        
+ *             .user(user.name())
+ *             .policyArn(policy.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * IAM user policy attachments can be imported using the user name and policy arn separated by `/`.
+ * 
+ * ```sh
+ *  $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+ * ```
+ * 
+ */
 @ResourceType(type="aws:iam/userPolicyAttachment:UserPolicyAttachment")
 public class UserPolicyAttachment extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the policy you want to apply
+     * 
+     */
     @Export(name="policyArn", refs={String.class}, tree="[0]")
     private Output<String> policyArn;
 
+    /**
+     * @return The ARN of the policy you want to apply
+     * 
+     */
     public Output<String> policyArn() {
         return this.policyArn;
     }
+    /**
+     * The user the policy should be applied to
+     * 
+     */
     @Export(name="user", refs={String.class}, tree="[0]")
     private Output<String> user;
 
+    /**
+     * @return The user the policy should be applied to
+     * 
+     */
     public Output<String> user() {
         return this.user;
     }

@@ -11,13 +11,55 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Service Catalog Tag Option.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := servicecatalog.NewTagOption(ctx, "example", &servicecatalog.TagOptionArgs{
+//				Key:   pulumi.String("nyckel"),
+//				Value: pulumi.String("värde"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_servicecatalog_tag_option` can be imported using the tag option ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
+//
+// ```
 type TagOption struct {
 	pulumi.CustomResourceState
 
+	// Whether tag option is active. Default is `true`.
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
-	Key    pulumi.StringOutput  `pulumi:"key"`
-	Owner  pulumi.StringOutput  `pulumi:"owner"`
-	Value  pulumi.StringOutput  `pulumi:"value"`
+	// Tag option key.
+	Key   pulumi.StringOutput `pulumi:"key"`
+	Owner pulumi.StringOutput `pulumi:"owner"`
+	// Tag option value.
+	Value pulumi.StringOutput `pulumi:"value"`
 }
 
 // NewTagOption registers a new resource with the given unique name, arguments, and options.
@@ -55,17 +97,23 @@ func GetTagOption(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TagOption resources.
 type tagOptionState struct {
-	Active *bool   `pulumi:"active"`
-	Key    *string `pulumi:"key"`
-	Owner  *string `pulumi:"owner"`
-	Value  *string `pulumi:"value"`
+	// Whether tag option is active. Default is `true`.
+	Active *bool `pulumi:"active"`
+	// Tag option key.
+	Key   *string `pulumi:"key"`
+	Owner *string `pulumi:"owner"`
+	// Tag option value.
+	Value *string `pulumi:"value"`
 }
 
 type TagOptionState struct {
+	// Whether tag option is active. Default is `true`.
 	Active pulumi.BoolPtrInput
-	Key    pulumi.StringPtrInput
-	Owner  pulumi.StringPtrInput
-	Value  pulumi.StringPtrInput
+	// Tag option key.
+	Key   pulumi.StringPtrInput
+	Owner pulumi.StringPtrInput
+	// Tag option value.
+	Value pulumi.StringPtrInput
 }
 
 func (TagOptionState) ElementType() reflect.Type {
@@ -73,16 +121,22 @@ func (TagOptionState) ElementType() reflect.Type {
 }
 
 type tagOptionArgs struct {
-	Active *bool  `pulumi:"active"`
-	Key    string `pulumi:"key"`
-	Value  string `pulumi:"value"`
+	// Whether tag option is active. Default is `true`.
+	Active *bool `pulumi:"active"`
+	// Tag option key.
+	Key string `pulumi:"key"`
+	// Tag option value.
+	Value string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a TagOption resource.
 type TagOptionArgs struct {
+	// Whether tag option is active. Default is `true`.
 	Active pulumi.BoolPtrInput
-	Key    pulumi.StringInput
-	Value  pulumi.StringInput
+	// Tag option key.
+	Key pulumi.StringInput
+	// Tag option value.
+	Value pulumi.StringInput
 }
 
 func (TagOptionArgs) ElementType() reflect.Type {
@@ -172,10 +226,12 @@ func (o TagOptionOutput) ToTagOptionOutputWithContext(ctx context.Context) TagOp
 	return o
 }
 
+// Whether tag option is active. Default is `true`.
 func (o TagOptionOutput) Active() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TagOption) pulumi.BoolPtrOutput { return v.Active }).(pulumi.BoolPtrOutput)
 }
 
+// Tag option key.
 func (o TagOptionOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOption) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -184,6 +240,7 @@ func (o TagOptionOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOption) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
+// Tag option value.
 func (o TagOptionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOption) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

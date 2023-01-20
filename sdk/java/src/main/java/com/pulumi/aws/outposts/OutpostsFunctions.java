@@ -34,123 +34,1469 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class OutpostsFunctions {
+    /**
+     * Information about a specific hardware asset in an Outpost.
+     * 
+     */
     public static Output<GetAssetResult> getAsset(GetAssetArgs args) {
         return getAsset(args, InvokeOptions.Empty);
     }
+    /**
+     * Information about a specific hardware asset in an Outpost.
+     * 
+     */
     public static CompletableFuture<GetAssetResult> getAssetPlain(GetAssetPlainArgs args) {
         return getAssetPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Information about a specific hardware asset in an Outpost.
+     * 
+     */
     public static Output<GetAssetResult> getAsset(GetAssetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:outposts/getAsset:getAsset", TypeShape.of(GetAssetResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Information about a specific hardware asset in an Outpost.
+     * 
+     */
     public static CompletableFuture<GetAssetResult> getAssetPlain(GetAssetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:outposts/getAsset:getAsset", TypeShape.of(GetAssetResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Information about hardware assets in an Outpost.
+     * 
+     * ## Example Usage
+     * ### Basic
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With Host ID Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .hostIdFilters(&#34;h-x38g5n0yd2a0ueb61&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With Status ID Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .statusIdFilters(&#34;ACTIVE&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetAssetsResult> getAssets(GetAssetsArgs args) {
         return getAssets(args, InvokeOptions.Empty);
     }
+    /**
+     * Information about hardware assets in an Outpost.
+     * 
+     * ## Example Usage
+     * ### Basic
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With Host ID Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .hostIdFilters(&#34;h-x38g5n0yd2a0ueb61&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With Status ID Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .statusIdFilters(&#34;ACTIVE&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetAssetsResult> getAssetsPlain(GetAssetsPlainArgs args) {
         return getAssetsPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Information about hardware assets in an Outpost.
+     * 
+     * ## Example Usage
+     * ### Basic
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With Host ID Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .hostIdFilters(&#34;h-x38g5n0yd2a0ueb61&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With Status ID Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .statusIdFilters(&#34;ACTIVE&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetAssetsResult> getAssets(GetAssetsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:outposts/getAssets:getAssets", TypeShape.of(GetAssetsResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Information about hardware assets in an Outpost.
+     * 
+     * ## Example Usage
+     * ### Basic
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With Host ID Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .hostIdFilters(&#34;h-x38g5n0yd2a0ueb61&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### With Status ID Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .statusIdFilters(&#34;ACTIVE&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetAssetsResult> getAssetsPlain(GetAssetsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:outposts/getAssets:getAssets", TypeShape.of(GetAssetsResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides details about an Outposts Outpost.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOutpostResult> getOutpost() {
         return getOutpost(GetOutpostArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about an Outposts Outpost.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOutpostResult> getOutpostPlain() {
         return getOutpostPlain(GetOutpostPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about an Outposts Outpost.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOutpostResult> getOutpost(GetOutpostArgs args) {
         return getOutpost(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about an Outposts Outpost.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOutpostResult> getOutpostPlain(GetOutpostPlainArgs args) {
         return getOutpostPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about an Outposts Outpost.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOutpostResult> getOutpost(GetOutpostArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:outposts/getOutpost:getOutpost", TypeShape.of(GetOutpostResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides details about an Outposts Outpost.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOutpostResult> getOutpostPlain(GetOutpostPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:outposts/getOutpost:getOutpost", TypeShape.of(GetOutpostResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Information about single Outpost Instance Type.
+     * 
+     */
     public static Output<GetOutpostInstanceTypeResult> getOutpostInstanceType(GetOutpostInstanceTypeArgs args) {
         return getOutpostInstanceType(args, InvokeOptions.Empty);
     }
+    /**
+     * Information about single Outpost Instance Type.
+     * 
+     */
     public static CompletableFuture<GetOutpostInstanceTypeResult> getOutpostInstanceTypePlain(GetOutpostInstanceTypePlainArgs args) {
         return getOutpostInstanceTypePlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Information about single Outpost Instance Type.
+     * 
+     */
     public static Output<GetOutpostInstanceTypeResult> getOutpostInstanceType(GetOutpostInstanceTypeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", TypeShape.of(GetOutpostInstanceTypeResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Information about single Outpost Instance Type.
+     * 
+     */
     public static CompletableFuture<GetOutpostInstanceTypeResult> getOutpostInstanceTypePlain(GetOutpostInstanceTypePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", TypeShape.of(GetOutpostInstanceTypeResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Information about Outposts Instance Types.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOutpostInstanceTypesResult> getOutpostInstanceTypes(GetOutpostInstanceTypesArgs args) {
         return getOutpostInstanceTypes(args, InvokeOptions.Empty);
     }
+    /**
+     * Information about Outposts Instance Types.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOutpostInstanceTypesResult> getOutpostInstanceTypesPlain(GetOutpostInstanceTypesPlainArgs args) {
         return getOutpostInstanceTypesPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Information about Outposts Instance Types.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOutpostInstanceTypesResult> getOutpostInstanceTypes(GetOutpostInstanceTypesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes", TypeShape.of(GetOutpostInstanceTypesResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Information about Outposts Instance Types.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOutpostInstanceTypesResult> getOutpostInstanceTypesPlain(GetOutpostInstanceTypesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes", TypeShape.of(GetOutpostInstanceTypesResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides details about multiple Outposts.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
+     *             .siteId(data.aws_outposts_site().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOutpostsResult> getOutposts() {
         return getOutposts(GetOutpostsArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about multiple Outposts.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
+     *             .siteId(data.aws_outposts_site().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOutpostsResult> getOutpostsPlain() {
         return getOutpostsPlain(GetOutpostsPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about multiple Outposts.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
+     *             .siteId(data.aws_outposts_site().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOutpostsResult> getOutposts(GetOutpostsArgs args) {
         return getOutposts(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about multiple Outposts.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
+     *             .siteId(data.aws_outposts_site().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOutpostsResult> getOutpostsPlain(GetOutpostsPlainArgs args) {
         return getOutpostsPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about multiple Outposts.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
+     *             .siteId(data.aws_outposts_site().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOutpostsResult> getOutposts(GetOutpostsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:outposts/getOutposts:getOutposts", TypeShape.of(GetOutpostsResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides details about multiple Outposts.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
+     *             .siteId(data.aws_outposts_site().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOutpostsResult> getOutpostsPlain(GetOutpostsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:outposts/getOutposts:getOutposts", TypeShape.of(GetOutpostsResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides details about an Outposts Site.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetSiteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getSite(GetSiteArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetSiteResult> getSite() {
         return getSite(GetSiteArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about an Outposts Site.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetSiteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getSite(GetSiteArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetSiteResult> getSitePlain() {
         return getSitePlain(GetSitePlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about an Outposts Site.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetSiteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getSite(GetSiteArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetSiteResult> getSite(GetSiteArgs args) {
         return getSite(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about an Outposts Site.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetSiteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getSite(GetSiteArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetSiteResult> getSitePlain(GetSitePlainArgs args) {
         return getSitePlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about an Outposts Site.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetSiteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getSite(GetSiteArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetSiteResult> getSite(GetSiteArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:outposts/getSite:getSite", TypeShape.of(GetSiteResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides details about an Outposts Site.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetSiteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OutpostsFunctions.getSite(GetSiteArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetSiteResult> getSitePlain(GetSitePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:outposts/getSite:getSite", TypeShape.of(GetSiteResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides details about multiple Outposts Sites.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = OutpostsFunctions.getSites();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetSitesResult> getSites() {
         return getSites(InvokeArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about multiple Outposts Sites.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = OutpostsFunctions.getSites();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetSitesResult> getSitesPlain() {
         return getSitesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about multiple Outposts Sites.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = OutpostsFunctions.getSites();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetSitesResult> getSites(InvokeArgs args) {
         return getSites(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about multiple Outposts Sites.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = OutpostsFunctions.getSites();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetSitesResult> getSitesPlain(InvokeArgs args) {
         return getSitesPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about multiple Outposts Sites.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = OutpostsFunctions.getSites();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetSitesResult> getSites(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:outposts/getSites:getSites", TypeShape.of(GetSitesResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides details about multiple Outposts Sites.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = OutpostsFunctions.getSites();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetSitesResult> getSitesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:outposts/getSites:getSites", TypeShape.of(GetSitesResult.class), args, Utilities.withVersion(options));
     }

@@ -20,9 +20,17 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         return this.groupId;
     }
 
+    /**
+     * Name of the Channel.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the Channel.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -61,11 +69,23 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
             return groupId(Output.of(groupId));
         }
 
+        /**
+         * @param name Name of the Channel.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the Channel.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

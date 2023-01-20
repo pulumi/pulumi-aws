@@ -13,16 +13,32 @@ public final class ClusterSnapshotArgs extends com.pulumi.resources.ResourceArgs
 
     public static final ClusterSnapshotArgs Empty = new ClusterSnapshotArgs();
 
+    /**
+     * The DB Cluster Identifier from which to take the snapshot.
+     * 
+     */
     @Import(name="dbClusterIdentifier", required=true)
     private Output<String> dbClusterIdentifier;
 
+    /**
+     * @return The DB Cluster Identifier from which to take the snapshot.
+     * 
+     */
     public Output<String> dbClusterIdentifier() {
         return this.dbClusterIdentifier;
     }
 
+    /**
+     * The Identifier for the snapshot.
+     * 
+     */
     @Import(name="dbClusterSnapshotIdentifier", required=true)
     private Output<String> dbClusterSnapshotIdentifier;
 
+    /**
+     * @return The Identifier for the snapshot.
+     * 
+     */
     public Output<String> dbClusterSnapshotIdentifier() {
         return this.dbClusterSnapshotIdentifier;
     }
@@ -52,20 +68,44 @@ public final class ClusterSnapshotArgs extends com.pulumi.resources.ResourceArgs
             $ = new ClusterSnapshotArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dbClusterIdentifier The DB Cluster Identifier from which to take the snapshot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbClusterIdentifier(Output<String> dbClusterIdentifier) {
             $.dbClusterIdentifier = dbClusterIdentifier;
             return this;
         }
 
+        /**
+         * @param dbClusterIdentifier The DB Cluster Identifier from which to take the snapshot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbClusterIdentifier(String dbClusterIdentifier) {
             return dbClusterIdentifier(Output.of(dbClusterIdentifier));
         }
 
+        /**
+         * @param dbClusterSnapshotIdentifier The Identifier for the snapshot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbClusterSnapshotIdentifier(Output<String> dbClusterSnapshotIdentifier) {
             $.dbClusterSnapshotIdentifier = dbClusterSnapshotIdentifier;
             return this;
         }
 
+        /**
+         * @param dbClusterSnapshotIdentifier The Identifier for the snapshot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbClusterSnapshotIdentifier(String dbClusterSnapshotIdentifier) {
             return dbClusterSnapshotIdentifier(Output.of(dbClusterSnapshotIdentifier));
         }

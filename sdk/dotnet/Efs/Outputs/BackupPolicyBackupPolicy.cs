@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Efs.Outputs
     [OutputType]
     public sealed class BackupPolicyBackupPolicy
     {
+        /// <summary>
+        /// A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
+        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

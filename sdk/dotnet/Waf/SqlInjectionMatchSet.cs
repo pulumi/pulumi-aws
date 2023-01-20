@@ -9,12 +9,56 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Waf
 {
+    /// <summary>
+    /// Provides a WAF SQL Injection Match Set Resource
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlInjectionMatchSet = new Aws.Waf.SqlInjectionMatchSet("sqlInjectionMatchSet", new()
+    ///     {
+    ///         SqlInjectionMatchTuples = new[]
+    ///         {
+    ///             new Aws.Waf.Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleArgs
+    ///             {
+    ///                 FieldToMatch = new Aws.Waf.Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs
+    ///                 {
+    ///                     Type = "QUERY_STRING",
+    ///                 },
+    ///                 TextTransformation = "URL_DECODE",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// AWS WAF SQL Injection Match Set can be imported using their ID, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet")]
     public partial class SqlInjectionMatchSet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name or description of the SQL Injection Match Set.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+        /// </summary>
         [Output("sqlInjectionMatchTuples")]
         public Output<ImmutableArray<Outputs.SqlInjectionMatchSetSqlInjectionMatchTuple>> SqlInjectionMatchTuples { get; private set; } = null!;
 
@@ -64,11 +108,18 @@ namespace Pulumi.Aws.Waf
 
     public sealed class SqlInjectionMatchSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name or description of the SQL Injection Match Set.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("sqlInjectionMatchTuples")]
         private InputList<Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleArgs>? _sqlInjectionMatchTuples;
+
+        /// <summary>
+        /// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+        /// </summary>
         public InputList<Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleArgs> SqlInjectionMatchTuples
         {
             get => _sqlInjectionMatchTuples ?? (_sqlInjectionMatchTuples = new InputList<Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleArgs>());
@@ -83,11 +134,18 @@ namespace Pulumi.Aws.Waf
 
     public sealed class SqlInjectionMatchSetState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name or description of the SQL Injection Match Set.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("sqlInjectionMatchTuples")]
         private InputList<Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleGetArgs>? _sqlInjectionMatchTuples;
+
+        /// <summary>
+        /// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+        /// </summary>
         public InputList<Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleGetArgs> SqlInjectionMatchTuples
         {
             get => _sqlInjectionMatchTuples ?? (_sqlInjectionMatchTuples = new InputList<Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleGetArgs>());

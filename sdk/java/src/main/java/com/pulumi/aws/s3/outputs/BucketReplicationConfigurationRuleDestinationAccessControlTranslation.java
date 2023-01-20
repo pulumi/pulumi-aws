@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class BucketReplicationConfigurationRuleDestinationAccessControlTranslation {
+    /**
+     * @return The override value for the owner on replicated objects. Currently only `Destination` is supported.
+     * 
+     */
     private String owner;
 
     private BucketReplicationConfigurationRuleDestinationAccessControlTranslation() {}
+    /**
+     * @return The override value for the owner on replicated objects. Currently only `Destination` is supported.
+     * 
+     */
     public String owner() {
         return this.owner;
     }

@@ -12,21 +12,45 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirewallFirewallStatus {
+    /**
+     * @return Aggregated count of all resources used by reference sets in a firewall.
+     * 
+     */
     private List<GetFirewallFirewallStatusCapacityUsageSummary> capacityUsageSummaries;
+    /**
+     * @return Summary of sync states for all availability zones in which the firewall is configured.
+     * 
+     */
     private String configurationSyncStateSummary;
     private String status;
+    /**
+     * @return Set of subnets configured for use by the firewall.
+     * 
+     */
     private List<GetFirewallFirewallStatusSyncState> syncStates;
 
     private GetFirewallFirewallStatus() {}
+    /**
+     * @return Aggregated count of all resources used by reference sets in a firewall.
+     * 
+     */
     public List<GetFirewallFirewallStatusCapacityUsageSummary> capacityUsageSummaries() {
         return this.capacityUsageSummaries;
     }
+    /**
+     * @return Summary of sync states for all availability zones in which the firewall is configured.
+     * 
+     */
     public String configurationSyncStateSummary() {
         return this.configurationSyncStateSummary;
     }
     public String status() {
         return this.status;
     }
+    /**
+     * @return Set of subnets configured for use by the firewall.
+     * 
+     */
     public List<GetFirewallFirewallStatusSyncState> syncStates() {
         return this.syncStates;
     }

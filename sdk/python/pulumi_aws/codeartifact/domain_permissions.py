@@ -20,6 +20,10 @@ class DomainPermissionsArgs:
                  policy_revision: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DomainPermissions resource.
+        :param pulumi.Input[str] domain: The name of the domain on which to set the resource policy.
+        :param pulumi.Input[str] policy_document: A JSON policy string to be set as the access control resource policy on the provided domain.
+        :param pulumi.Input[str] domain_owner: The account number of the AWS account that owns the domain.
+        :param pulumi.Input[str] policy_revision: The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "policy_document", policy_document)
@@ -31,6 +35,9 @@ class DomainPermissionsArgs:
     @property
     @pulumi.getter
     def domain(self) -> pulumi.Input[str]:
+        """
+        The name of the domain on which to set the resource policy.
+        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -40,6 +47,9 @@ class DomainPermissionsArgs:
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Input[str]:
+        """
+        A JSON policy string to be set as the access control resource policy on the provided domain.
+        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -49,6 +59,9 @@ class DomainPermissionsArgs:
     @property
     @pulumi.getter(name="domainOwner")
     def domain_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account number of the AWS account that owns the domain.
+        """
         return pulumi.get(self, "domain_owner")
 
     @domain_owner.setter
@@ -58,6 +71,9 @@ class DomainPermissionsArgs:
     @property
     @pulumi.getter(name="policyRevision")
     def policy_revision(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
+        """
         return pulumi.get(self, "policy_revision")
 
     @policy_revision.setter
@@ -75,6 +91,11 @@ class _DomainPermissionsState:
                  resource_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DomainPermissions resources.
+        :param pulumi.Input[str] domain: The name of the domain on which to set the resource policy.
+        :param pulumi.Input[str] domain_owner: The account number of the AWS account that owns the domain.
+        :param pulumi.Input[str] policy_document: A JSON policy string to be set as the access control resource policy on the provided domain.
+        :param pulumi.Input[str] policy_revision: The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
+        :param pulumi.Input[str] resource_arn: The ARN of the resource associated with the resource policy.
         """
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
@@ -90,6 +111,9 @@ class _DomainPermissionsState:
     @property
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the domain on which to set the resource policy.
+        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -99,6 +123,9 @@ class _DomainPermissionsState:
     @property
     @pulumi.getter(name="domainOwner")
     def domain_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account number of the AWS account that owns the domain.
+        """
         return pulumi.get(self, "domain_owner")
 
     @domain_owner.setter
@@ -108,6 +135,9 @@ class _DomainPermissionsState:
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON policy string to be set as the access control resource policy on the provided domain.
+        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -117,6 +147,9 @@ class _DomainPermissionsState:
     @property
     @pulumi.getter(name="policyRevision")
     def policy_revision(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
+        """
         return pulumi.get(self, "policy_revision")
 
     @policy_revision.setter
@@ -126,6 +159,9 @@ class _DomainPermissionsState:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the resource associated with the resource policy.
+        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -144,9 +180,48 @@ class DomainPermissions(pulumi.CustomResource):
                  policy_revision: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a DomainPermissions resource with the given unique name, props, and options.
+        Provides a CodeArtifact Domains Permissions Policy Resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_key = aws.kms.Key("exampleKey", description="domain key")
+        example_domain = aws.codeartifact.Domain("exampleDomain",
+            domain="example",
+            encryption_key=example_key.arn)
+        test = aws.codeartifact.DomainPermissions("test",
+            domain=example_domain.domain,
+            policy_document=example_domain.arn.apply(lambda arn: f\"\"\"{{
+            "Version": "2012-10-17",
+            "Statement": [
+                {{
+                    "Action": "codeartifact:CreateRepository",
+                    "Effect": "Allow",
+                    "Principal": "*",
+                    "Resource": "{arn}"
+                }}
+            ]
+        }}
+        \"\"\"))
+        ```
+
+        ## Import
+
+        CodeArtifact Domain Permissions Policies can be imported using the CodeArtifact Domain ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] domain: The name of the domain on which to set the resource policy.
+        :param pulumi.Input[str] domain_owner: The account number of the AWS account that owns the domain.
+        :param pulumi.Input[str] policy_document: A JSON policy string to be set as the access control resource policy on the provided domain.
+        :param pulumi.Input[str] policy_revision: The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
         """
         ...
     @overload
@@ -155,7 +230,42 @@ class DomainPermissions(pulumi.CustomResource):
                  args: DomainPermissionsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DomainPermissions resource with the given unique name, props, and options.
+        Provides a CodeArtifact Domains Permissions Policy Resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_key = aws.kms.Key("exampleKey", description="domain key")
+        example_domain = aws.codeartifact.Domain("exampleDomain",
+            domain="example",
+            encryption_key=example_key.arn)
+        test = aws.codeartifact.DomainPermissions("test",
+            domain=example_domain.domain,
+            policy_document=example_domain.arn.apply(lambda arn: f\"\"\"{{
+            "Version": "2012-10-17",
+            "Statement": [
+                {{
+                    "Action": "codeartifact:CreateRepository",
+                    "Effect": "Allow",
+                    "Principal": "*",
+                    "Resource": "{arn}"
+                }}
+            ]
+        }}
+        \"\"\"))
+        ```
+
+        ## Import
+
+        CodeArtifact Domain Permissions Policies can be imported using the CodeArtifact Domain ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
+        ```
+
         :param str resource_name: The name of the resource.
         :param DomainPermissionsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,6 +325,11 @@ class DomainPermissions(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] domain: The name of the domain on which to set the resource policy.
+        :param pulumi.Input[str] domain_owner: The account number of the AWS account that owns the domain.
+        :param pulumi.Input[str] policy_document: A JSON policy string to be set as the access control resource policy on the provided domain.
+        :param pulumi.Input[str] policy_revision: The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
+        :param pulumi.Input[str] resource_arn: The ARN of the resource associated with the resource policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -230,25 +345,40 @@ class DomainPermissions(pulumi.CustomResource):
     @property
     @pulumi.getter
     def domain(self) -> pulumi.Output[str]:
+        """
+        The name of the domain on which to set the resource policy.
+        """
         return pulumi.get(self, "domain")
 
     @property
     @pulumi.getter(name="domainOwner")
     def domain_owner(self) -> pulumi.Output[str]:
+        """
+        The account number of the AWS account that owns the domain.
+        """
         return pulumi.get(self, "domain_owner")
 
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[str]:
+        """
+        A JSON policy string to be set as the access control resource policy on the provided domain.
+        """
         return pulumi.get(self, "policy_document")
 
     @property
     @pulumi.getter(name="policyRevision")
     def policy_revision(self) -> pulumi.Output[str]:
+        """
+        The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
+        """
         return pulumi.get(self, "policy_revision")
 
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the resource associated with the resource policy.
+        """
         return pulumi.get(self, "resource_arn")
 

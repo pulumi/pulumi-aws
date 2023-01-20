@@ -13,6 +13,9 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
     [OutputType]
     public sealed class DomainClusterConfigZoneAwarenessConfig
     {
+        /// <summary>
+        /// Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
+        /// </summary>
         public readonly int? AvailabilityZoneCount;
 
         [OutputConstructor]

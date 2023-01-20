@@ -13,21 +13,53 @@ import java.util.Objects;
 
 @CustomType
 public final class GetQuickConnectQuickConnectConfig {
+    /**
+     * @return Phone configuration of the Quick Connect. This is returned only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+     * 
+     */
     private List<GetQuickConnectQuickConnectConfigPhoneConfig> phoneConfigs;
+    /**
+     * @return Queue configuration of the Quick Connect. This is returned only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+     * 
+     */
     private List<GetQuickConnectQuickConnectConfigQueueConfig> queueConfigs;
+    /**
+     * @return Configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
+     * 
+     */
     private String quickConnectType;
+    /**
+     * @return User configuration of the Quick Connect. This is returned only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+     * 
+     */
     private List<GetQuickConnectQuickConnectConfigUserConfig> userConfigs;
 
     private GetQuickConnectQuickConnectConfig() {}
+    /**
+     * @return Phone configuration of the Quick Connect. This is returned only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+     * 
+     */
     public List<GetQuickConnectQuickConnectConfigPhoneConfig> phoneConfigs() {
         return this.phoneConfigs;
     }
+    /**
+     * @return Queue configuration of the Quick Connect. This is returned only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+     * 
+     */
     public List<GetQuickConnectQuickConnectConfigQueueConfig> queueConfigs() {
         return this.queueConfigs;
     }
+    /**
+     * @return Configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
+     * 
+     */
     public String quickConnectType() {
         return this.quickConnectType;
     }
+    /**
+     * @return User configuration of the Quick Connect. This is returned only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+     * 
+     */
     public List<GetQuickConnectQuickConnectConfigUserConfig> userConfigs() {
         return this.userConfigs;
     }

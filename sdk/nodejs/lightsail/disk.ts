@@ -4,6 +4,36 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Lightsail Disk resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const available = aws.getAvailabilityZones({
+ *     state: "available",
+ *     filters: [{
+ *         name: "opt-in-status",
+ *         values: ["opt-in-not-required"],
+ *     }],
+ * });
+ * const test = new aws.lightsail.Disk("test", {
+ *     sizeInGb: 8,
+ *     availabilityZone: available.then(available => available.names?.[0]),
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_lightsail_disk` can be imported by using the name attribute, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:lightsail/disk:Disk test test
+ * ```
+ */
 export class Disk extends pulumi.CustomResource {
     /**
      * Get an existing Disk resource's state with the given name, ID, and optional extra
@@ -32,13 +62,37 @@ export class Disk extends pulumi.CustomResource {
         return obj['__pulumiType'] === Disk.__pulumiType;
     }
 
+    /**
+     * The ARN of the Lightsail load balancer.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The Availability Zone in which to create your disk.
+     */
     public readonly availabilityZone!: pulumi.Output<string>;
+    /**
+     * The timestamp when the load balancer was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The name of the Lightsail load balancer.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The instance port the load balancer will connect.
+     */
     public readonly sizeInGb!: pulumi.Output<number>;
+    /**
+     * The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+     */
     public /*out*/ readonly supportCode!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -88,13 +142,37 @@ export class Disk extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Disk resources.
  */
 export interface DiskState {
+    /**
+     * The ARN of the Lightsail load balancer.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The Availability Zone in which to create your disk.
+     */
     availabilityZone?: pulumi.Input<string>;
+    /**
+     * The timestamp when the load balancer was created.
+     */
     createdAt?: pulumi.Input<string>;
+    /**
+     * The name of the Lightsail load balancer.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The instance port the load balancer will connect.
+     */
     sizeInGb?: pulumi.Input<number>;
+    /**
+     * The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+     */
     supportCode?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -102,8 +180,20 @@ export interface DiskState {
  * The set of arguments for constructing a Disk resource.
  */
 export interface DiskArgs {
+    /**
+     * The Availability Zone in which to create your disk.
+     */
     availabilityZone: pulumi.Input<string>;
+    /**
+     * The name of the Lightsail load balancer.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The instance port the load balancer will connect.
+     */
     sizeInGb: pulumi.Input<number>;
+    /**
+     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

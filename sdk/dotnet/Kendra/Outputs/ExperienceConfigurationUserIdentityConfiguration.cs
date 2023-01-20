@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Kendra.Outputs
     [OutputType]
     public sealed class ExperienceConfigurationUserIdentityConfiguration
     {
+        /// <summary>
+        /// The AWS SSO field name that contains the identifiers of your users, such as their emails.
+        /// </summary>
         public readonly string IdentityAttributeName;
 
         [OutputConstructor]

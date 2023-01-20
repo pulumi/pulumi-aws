@@ -4,6 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Registers members (network interfaces) with the transit gateway multicast group.
+ * A member is a network interface associated with a supported EC2 instance that receives multicast traffic.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2transitgateway.MulticastGroupMember("example", {
+ *     groupIpAddress: "224.0.0.1",
+ *     networkInterfaceId: aws_network_interface.example.id,
+ *     transitGatewayMulticastDomainId: aws_ec2_transit_gateway_multicast_domain.example.id,
+ * });
+ * ```
+ */
 export class MulticastGroupMember extends pulumi.CustomResource {
     /**
      * Get an existing MulticastGroupMember resource's state with the given name, ID, and optional extra
@@ -32,8 +49,17 @@ export class MulticastGroupMember extends pulumi.CustomResource {
         return obj['__pulumiType'] === MulticastGroupMember.__pulumiType;
     }
 
+    /**
+     * The IP address assigned to the transit gateway multicast group.
+     */
     public readonly groupIpAddress!: pulumi.Output<string>;
+    /**
+     * The group members' network interface ID to register with the transit gateway multicast group.
+     */
     public readonly networkInterfaceId!: pulumi.Output<string>;
+    /**
+     * The ID of the transit gateway multicast domain.
+     */
     public readonly transitGatewayMulticastDomainId!: pulumi.Output<string>;
 
     /**
@@ -76,8 +102,17 @@ export class MulticastGroupMember extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MulticastGroupMember resources.
  */
 export interface MulticastGroupMemberState {
+    /**
+     * The IP address assigned to the transit gateway multicast group.
+     */
     groupIpAddress?: pulumi.Input<string>;
+    /**
+     * The group members' network interface ID to register with the transit gateway multicast group.
+     */
     networkInterfaceId?: pulumi.Input<string>;
+    /**
+     * The ID of the transit gateway multicast domain.
+     */
     transitGatewayMulticastDomainId?: pulumi.Input<string>;
 }
 
@@ -85,7 +120,16 @@ export interface MulticastGroupMemberState {
  * The set of arguments for constructing a MulticastGroupMember resource.
  */
 export interface MulticastGroupMemberArgs {
+    /**
+     * The IP address assigned to the transit gateway multicast group.
+     */
     groupIpAddress: pulumi.Input<string>;
+    /**
+     * The group members' network interface ID to register with the transit gateway multicast group.
+     */
     networkInterfaceId: pulumi.Input<string>;
+    /**
+     * The ID of the transit gateway multicast domain.
+     */
     transitGatewayMulticastDomainId: pulumi.Input<string>;
 }

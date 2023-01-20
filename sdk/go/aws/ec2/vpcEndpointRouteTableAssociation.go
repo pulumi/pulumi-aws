@@ -11,10 +11,50 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a VPC Endpoint Route Table Association
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewVpcEndpointRouteTableAssociation(ctx, "example", &ec2.VpcEndpointRouteTableAssociationArgs{
+//				RouteTableId:  pulumi.Any(aws_route_table.Example.Id),
+//				VpcEndpointId: pulumi.Any(aws_vpc_endpoint.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// VPC Endpoint Route Table Associations can be imported using `vpc_endpoint_id` together with `route_table_id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rtb-bbbbbbbb
+//
+// ```
 type VpcEndpointRouteTableAssociation struct {
 	pulumi.CustomResourceState
 
-	RouteTableId  pulumi.StringOutput `pulumi:"routeTableId"`
+	// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
+	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
+	// Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
 	VpcEndpointId pulumi.StringOutput `pulumi:"vpcEndpointId"`
 }
 
@@ -53,12 +93,16 @@ func GetVpcEndpointRouteTableAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcEndpointRouteTableAssociation resources.
 type vpcEndpointRouteTableAssociationState struct {
-	RouteTableId  *string `pulumi:"routeTableId"`
+	// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
+	RouteTableId *string `pulumi:"routeTableId"`
+	// Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
 	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 }
 
 type VpcEndpointRouteTableAssociationState struct {
-	RouteTableId  pulumi.StringPtrInput
+	// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
+	RouteTableId pulumi.StringPtrInput
+	// Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
 	VpcEndpointId pulumi.StringPtrInput
 }
 
@@ -67,13 +111,17 @@ func (VpcEndpointRouteTableAssociationState) ElementType() reflect.Type {
 }
 
 type vpcEndpointRouteTableAssociationArgs struct {
-	RouteTableId  string `pulumi:"routeTableId"`
+	// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
+	RouteTableId string `pulumi:"routeTableId"`
+	// Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
 	VpcEndpointId string `pulumi:"vpcEndpointId"`
 }
 
 // The set of arguments for constructing a VpcEndpointRouteTableAssociation resource.
 type VpcEndpointRouteTableAssociationArgs struct {
-	RouteTableId  pulumi.StringInput
+	// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
+	RouteTableId pulumi.StringInput
+	// Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
 	VpcEndpointId pulumi.StringInput
 }
 
@@ -164,10 +212,12 @@ func (o VpcEndpointRouteTableAssociationOutput) ToVpcEndpointRouteTableAssociati
 	return o
 }
 
+// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
 func (o VpcEndpointRouteTableAssociationOutput) RouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointRouteTableAssociation) pulumi.StringOutput { return v.RouteTableId }).(pulumi.StringOutput)
 }
 
+// Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
 func (o VpcEndpointRouteTableAssociationOutput) VpcEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointRouteTableAssociation) pulumi.StringOutput { return v.VpcEndpointId }).(pulumi.StringOutput)
 }

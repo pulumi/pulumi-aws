@@ -9,12 +9,29 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SsoAdmin
 {
+    /// <summary>
+    /// Provides a Single Sign-On (SSO) ABAC Resource: https://docs.aws.amazon.com/singlesignon/latest/userguide/abac.html
+    /// 
+    /// ## Import
+    /// 
+    /// SSO Account Assignments can be imported using the `instance_arn`
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes")]
     public partial class InstanceAccessControlAttributes : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// See AccessControlAttribute for more details.
+        /// </summary>
         [Output("attributes")]
         public Output<ImmutableArray<Outputs.InstanceAccessControlAttributesAttribute>> Attributes { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSO Instance.
+        /// </summary>
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
 
@@ -72,12 +89,19 @@ namespace Pulumi.Aws.SsoAdmin
     {
         [Input("attributes", required: true)]
         private InputList<Inputs.InstanceAccessControlAttributesAttributeArgs>? _attributes;
+
+        /// <summary>
+        /// See AccessControlAttribute for more details.
+        /// </summary>
         public InputList<Inputs.InstanceAccessControlAttributesAttributeArgs> Attributes
         {
             get => _attributes ?? (_attributes = new InputList<Inputs.InstanceAccessControlAttributesAttributeArgs>());
             set => _attributes = value;
         }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSO Instance.
+        /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
@@ -91,12 +115,19 @@ namespace Pulumi.Aws.SsoAdmin
     {
         [Input("attributes")]
         private InputList<Inputs.InstanceAccessControlAttributesAttributeGetArgs>? _attributes;
+
+        /// <summary>
+        /// See AccessControlAttribute for more details.
+        /// </summary>
         public InputList<Inputs.InstanceAccessControlAttributesAttributeGetArgs> Attributes
         {
             get => _attributes ?? (_attributes = new InputList<Inputs.InstanceAccessControlAttributesAttributeGetArgs>());
             set => _attributes = value;
         }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSO Instance.
+        /// </summary>
         [Input("instanceArn")]
         public Input<string>? InstanceArn { get; set; }
 

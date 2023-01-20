@@ -18,6 +18,8 @@ class GroupArgs:
                  path: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Group resource.
+        :param pulumi.Input[str] name: The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
+        :param pulumi.Input[str] path: Path in which to create the group.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -27,6 +29,9 @@ class GroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -36,6 +41,9 @@ class GroupArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path in which to create the group.
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -52,6 +60,10 @@ class _GroupState:
                  unique_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Group resources.
+        :param pulumi.Input[str] arn: The ARN assigned by AWS for this group.
+        :param pulumi.Input[str] name: The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
+        :param pulumi.Input[str] path: Path in which to create the group.
+        :param pulumi.Input[str] unique_id: The [unique ID][1] assigned by AWS.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -65,6 +77,9 @@ class _GroupState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN assigned by AWS for this group.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -74,6 +89,9 @@ class _GroupState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -83,6 +101,9 @@ class _GroupState:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path in which to create the group.
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -92,6 +113,9 @@ class _GroupState:
     @property
     @pulumi.getter(name="uniqueId")
     def unique_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The [unique ID][1] assigned by AWS.
+        """
         return pulumi.get(self, "unique_id")
 
     @unique_id.setter
@@ -108,9 +132,31 @@ class Group(pulumi.CustomResource):
                  path: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Group resource with the given unique name, props, and options.
+        Provides an IAM group.
+
+        > **NOTE on user management:** Using `iam.GroupMembership` or `iam.UserGroupMembership` resources in addition to manually managing user/group membership using the console may lead to configuration drift or conflicts. For this reason, it's recommended to either manage membership entirely with the provider or entirely within the AWS console.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        developers = aws.iam.Group("developers", path="/users/")
+        ```
+
+        ## Import
+
+        IAM Groups can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:iam/group:Group developers developers
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
+        :param pulumi.Input[str] path: Path in which to create the group.
         """
         ...
     @overload
@@ -119,7 +165,27 @@ class Group(pulumi.CustomResource):
                  args: Optional[GroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Group resource with the given unique name, props, and options.
+        Provides an IAM group.
+
+        > **NOTE on user management:** Using `iam.GroupMembership` or `iam.UserGroupMembership` resources in addition to manually managing user/group membership using the console may lead to configuration drift or conflicts. For this reason, it's recommended to either manage membership entirely with the provider or entirely within the AWS console.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        developers = aws.iam.Group("developers", path="/users/")
+        ```
+
+        ## Import
+
+        IAM Groups can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:iam/group:Group developers developers
+        ```
+
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,6 +237,10 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN assigned by AWS for this group.
+        :param pulumi.Input[str] name: The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
+        :param pulumi.Input[str] path: Path in which to create the group.
+        :param pulumi.Input[str] unique_id: The [unique ID][1] assigned by AWS.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -185,20 +255,32 @@ class Group(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN assigned by AWS for this group.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def path(self) -> pulumi.Output[Optional[str]]:
+        """
+        Path in which to create the group.
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter(name="uniqueId")
     def unique_id(self) -> pulumi.Output[str]:
+        """
+        The [unique ID][1] assigned by AWS.
+        """
         return pulumi.get(self, "unique_id")
 

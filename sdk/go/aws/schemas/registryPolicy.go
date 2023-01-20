@@ -11,10 +11,78 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS EventBridge Schemas Registry Policy.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/schemas"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid:    pulumi.StringRef("example"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "AWS",
+//								Identifiers: []string{
+//									"109876543210",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"schemas:*",
+//						},
+//						Resources: []string{
+//							"arn:aws:schemas:us-east-1:012345678901:registry/example",
+//							"arn:aws:schemas:us-east-1:012345678901:schema/example*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = schemas.NewRegistryPolicy(ctx, "exampleRegistryPolicy", &schemas.RegistryPolicyArgs{
+//				RegistryName: pulumi.String("example"),
+//				Policy:       *pulumi.String(examplePolicyDocument.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// EventBridge Schema Registry Policy can be imported using the `registry_name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
+//
+// ```
 type RegistryPolicy struct {
 	pulumi.CustomResourceState
 
-	Policy       pulumi.StringOutput `pulumi:"policy"`
+	// Resource Policy for EventBridge Schema Registry
+	Policy pulumi.StringOutput `pulumi:"policy"`
+	// Name of EventBridge Schema Registry
 	RegistryName pulumi.StringOutput `pulumi:"registryName"`
 }
 
@@ -53,12 +121,16 @@ func GetRegistryPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegistryPolicy resources.
 type registryPolicyState struct {
-	Policy       *string `pulumi:"policy"`
+	// Resource Policy for EventBridge Schema Registry
+	Policy *string `pulumi:"policy"`
+	// Name of EventBridge Schema Registry
 	RegistryName *string `pulumi:"registryName"`
 }
 
 type RegistryPolicyState struct {
-	Policy       pulumi.StringPtrInput
+	// Resource Policy for EventBridge Schema Registry
+	Policy pulumi.StringPtrInput
+	// Name of EventBridge Schema Registry
 	RegistryName pulumi.StringPtrInput
 }
 
@@ -67,13 +139,17 @@ func (RegistryPolicyState) ElementType() reflect.Type {
 }
 
 type registryPolicyArgs struct {
-	Policy       string `pulumi:"policy"`
+	// Resource Policy for EventBridge Schema Registry
+	Policy string `pulumi:"policy"`
+	// Name of EventBridge Schema Registry
 	RegistryName string `pulumi:"registryName"`
 }
 
 // The set of arguments for constructing a RegistryPolicy resource.
 type RegistryPolicyArgs struct {
-	Policy       pulumi.StringInput
+	// Resource Policy for EventBridge Schema Registry
+	Policy pulumi.StringInput
+	// Name of EventBridge Schema Registry
 	RegistryName pulumi.StringInput
 }
 
@@ -164,10 +240,12 @@ func (o RegistryPolicyOutput) ToRegistryPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Resource Policy for EventBridge Schema Registry
 func (o RegistryPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
+// Name of EventBridge Schema Registry
 func (o RegistryPolicyOutput) RegistryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringOutput { return v.RegistryName }).(pulumi.StringOutput)
 }

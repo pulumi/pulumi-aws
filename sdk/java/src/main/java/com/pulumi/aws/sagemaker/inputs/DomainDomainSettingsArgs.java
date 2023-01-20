@@ -16,16 +16,32 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
 
     public static final DomainDomainSettingsArgs Empty = new DomainDomainSettingsArgs();
 
+    /**
+     * The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
+     * 
+     */
     @Import(name="executionRoleIdentityConfig")
     private @Nullable Output<String> executionRoleIdentityConfig;
 
+    /**
+     * @return The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
+     * 
+     */
     public Optional<Output<String>> executionRoleIdentityConfig() {
         return Optional.ofNullable(this.executionRoleIdentityConfig);
     }
 
+    /**
+     * The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+     * 
+     */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
+    /**
+     * @return The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+     * 
+     */
     public Optional<Output<List<String>>> securityGroupIds() {
         return Optional.ofNullable(this.securityGroupIds);
     }
@@ -55,24 +71,54 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
             $ = new DomainDomainSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param executionRoleIdentityConfig The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder executionRoleIdentityConfig(@Nullable Output<String> executionRoleIdentityConfig) {
             $.executionRoleIdentityConfig = executionRoleIdentityConfig;
             return this;
         }
 
+        /**
+         * @param executionRoleIdentityConfig The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder executionRoleIdentityConfig(String executionRoleIdentityConfig) {
             return executionRoleIdentityConfig(Output.of(executionRoleIdentityConfig));
         }
 
+        /**
+         * @param securityGroupIds The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(@Nullable Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
+        /**
+         * @param securityGroupIds The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
+        /**
+         * @param securityGroupIds The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }

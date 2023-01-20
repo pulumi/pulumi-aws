@@ -11,15 +11,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Single Sign-On (SSO) Account Assignment resource
+//
+// ## Import
+//
+// SSO Account Assignments can be imported using the `principal_id`, `principal_type`, `target_id`, `target_type`, `permission_set_arn`, `instance_arn` separated by commas (`,`) e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:ssoadmin/accountAssignment:AccountAssignment example f81d4fae-7dec-11d0-a765-00a0c91e6bf6,GROUP,1234567890,AWS_ACCOUNT,arn:aws:sso:::permissionSet/ssoins-0123456789abcdef/ps-0123456789abcdef,arn:aws:sso:::instance/ssoins-0123456789abcdef
+//
+// ```
 type AccountAssignment struct {
 	pulumi.CustomResourceState
 
-	InstanceArn      pulumi.StringOutput    `pulumi:"instanceArn"`
-	PermissionSetArn pulumi.StringOutput    `pulumi:"permissionSetArn"`
-	PrincipalId      pulumi.StringOutput    `pulumi:"principalId"`
-	PrincipalType    pulumi.StringOutput    `pulumi:"principalType"`
-	TargetId         pulumi.StringOutput    `pulumi:"targetId"`
-	TargetType       pulumi.StringPtrOutput `pulumi:"targetType"`
+	// The Amazon Resource Name (ARN) of the SSO Instance.
+	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
+	// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+	PermissionSetArn pulumi.StringOutput `pulumi:"permissionSetArn"`
+	// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
+	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
+	// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
+	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
+	// An AWS account identifier, typically a 10-12 digit string.
+	TargetId pulumi.StringOutput `pulumi:"targetId"`
+	// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
+	TargetType pulumi.StringPtrOutput `pulumi:"targetType"`
 }
 
 // NewAccountAssignment registers a new resource with the given unique name, arguments, and options.
@@ -66,21 +83,33 @@ func GetAccountAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountAssignment resources.
 type accountAssignmentState struct {
-	InstanceArn      *string `pulumi:"instanceArn"`
+	// The Amazon Resource Name (ARN) of the SSO Instance.
+	InstanceArn *string `pulumi:"instanceArn"`
+	// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
 	PermissionSetArn *string `pulumi:"permissionSetArn"`
-	PrincipalId      *string `pulumi:"principalId"`
-	PrincipalType    *string `pulumi:"principalType"`
-	TargetId         *string `pulumi:"targetId"`
-	TargetType       *string `pulumi:"targetType"`
+	// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
+	PrincipalId *string `pulumi:"principalId"`
+	// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
+	PrincipalType *string `pulumi:"principalType"`
+	// An AWS account identifier, typically a 10-12 digit string.
+	TargetId *string `pulumi:"targetId"`
+	// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
+	TargetType *string `pulumi:"targetType"`
 }
 
 type AccountAssignmentState struct {
-	InstanceArn      pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the SSO Instance.
+	InstanceArn pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
 	PermissionSetArn pulumi.StringPtrInput
-	PrincipalId      pulumi.StringPtrInput
-	PrincipalType    pulumi.StringPtrInput
-	TargetId         pulumi.StringPtrInput
-	TargetType       pulumi.StringPtrInput
+	// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
+	PrincipalId pulumi.StringPtrInput
+	// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
+	PrincipalType pulumi.StringPtrInput
+	// An AWS account identifier, typically a 10-12 digit string.
+	TargetId pulumi.StringPtrInput
+	// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
+	TargetType pulumi.StringPtrInput
 }
 
 func (AccountAssignmentState) ElementType() reflect.Type {
@@ -88,22 +117,34 @@ func (AccountAssignmentState) ElementType() reflect.Type {
 }
 
 type accountAssignmentArgs struct {
-	InstanceArn      string  `pulumi:"instanceArn"`
-	PermissionSetArn string  `pulumi:"permissionSetArn"`
-	PrincipalId      string  `pulumi:"principalId"`
-	PrincipalType    string  `pulumi:"principalType"`
-	TargetId         string  `pulumi:"targetId"`
-	TargetType       *string `pulumi:"targetType"`
+	// The Amazon Resource Name (ARN) of the SSO Instance.
+	InstanceArn string `pulumi:"instanceArn"`
+	// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+	PermissionSetArn string `pulumi:"permissionSetArn"`
+	// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
+	PrincipalId string `pulumi:"principalId"`
+	// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
+	PrincipalType string `pulumi:"principalType"`
+	// An AWS account identifier, typically a 10-12 digit string.
+	TargetId string `pulumi:"targetId"`
+	// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
+	TargetType *string `pulumi:"targetType"`
 }
 
 // The set of arguments for constructing a AccountAssignment resource.
 type AccountAssignmentArgs struct {
-	InstanceArn      pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the SSO Instance.
+	InstanceArn pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
 	PermissionSetArn pulumi.StringInput
-	PrincipalId      pulumi.StringInput
-	PrincipalType    pulumi.StringInput
-	TargetId         pulumi.StringInput
-	TargetType       pulumi.StringPtrInput
+	// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
+	PrincipalId pulumi.StringInput
+	// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
+	PrincipalType pulumi.StringInput
+	// An AWS account identifier, typically a 10-12 digit string.
+	TargetId pulumi.StringInput
+	// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
+	TargetType pulumi.StringPtrInput
 }
 
 func (AccountAssignmentArgs) ElementType() reflect.Type {
@@ -193,26 +234,32 @@ func (o AccountAssignmentOutput) ToAccountAssignmentOutputWithContext(ctx contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the SSO Instance.
 func (o AccountAssignmentOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountAssignment) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
 func (o AccountAssignmentOutput) PermissionSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountAssignment) pulumi.StringOutput { return v.PermissionSetArn }).(pulumi.StringOutput)
 }
 
+// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
 func (o AccountAssignmentOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountAssignment) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
+// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
 func (o AccountAssignmentOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountAssignment) pulumi.StringOutput { return v.PrincipalType }).(pulumi.StringOutput)
 }
 
+// An AWS account identifier, typically a 10-12 digit string.
 func (o AccountAssignmentOutput) TargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountAssignment) pulumi.StringOutput { return v.TargetId }).(pulumi.StringOutput)
 }
 
+// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
 func (o AccountAssignmentOutput) TargetType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountAssignment) pulumi.StringPtrOutput { return v.TargetType }).(pulumi.StringPtrOutput)
 }

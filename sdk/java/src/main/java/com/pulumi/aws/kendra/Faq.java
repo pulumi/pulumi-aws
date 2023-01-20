@@ -16,95 +16,337 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Resource for managing an AWS Kendra FAQ.
+ * 
+ * ## Example Usage
+ * ### Basic
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kendra.Faq;
+ * import com.pulumi.aws.kendra.FaqArgs;
+ * import com.pulumi.aws.kendra.inputs.FaqS3PathArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Faq(&#34;example&#34;, FaqArgs.builder()        
+ *             .indexId(aws_kendra_index.example().id())
+ *             .roleArn(aws_iam_role.example().arn())
+ *             .s3Path(FaqS3PathArgs.builder()
+ *                 .bucket(aws_s3_bucket.example().id())
+ *                 .key(aws_s3_object.example().key())
+ *                 .build())
+ *             .tags(Map.of(&#34;Name&#34;, &#34;Example Kendra Faq&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### With File Format
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kendra.Faq;
+ * import com.pulumi.aws.kendra.FaqArgs;
+ * import com.pulumi.aws.kendra.inputs.FaqS3PathArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Faq(&#34;example&#34;, FaqArgs.builder()        
+ *             .indexId(aws_kendra_index.example().id())
+ *             .fileFormat(&#34;CSV&#34;)
+ *             .roleArn(aws_iam_role.example().arn())
+ *             .s3Path(FaqS3PathArgs.builder()
+ *                 .bucket(aws_s3_bucket.example().id())
+ *                 .key(aws_s3_object.example().key())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### With Language Code
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kendra.Faq;
+ * import com.pulumi.aws.kendra.FaqArgs;
+ * import com.pulumi.aws.kendra.inputs.FaqS3PathArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Faq(&#34;example&#34;, FaqArgs.builder()        
+ *             .indexId(aws_kendra_index.example().id())
+ *             .languageCode(&#34;en&#34;)
+ *             .roleArn(aws_iam_role.example().arn())
+ *             .s3Path(FaqS3PathArgs.builder()
+ *                 .bucket(aws_s3_bucket.example().id())
+ *                 .key(aws_s3_object.example().key())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_kendra_faq` can be imported using the unique identifiers of the FAQ and index separated by a slash (`/`), e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
+ * ```
+ * 
+ */
 @ResourceType(type="aws:kendra/faq:Faq")
 public class Faq extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the FAQ.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the FAQ.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The Unix datetime that the FAQ was created.
+     * 
+     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
+    /**
+     * @return The Unix datetime that the FAQ was created.
+     * 
+     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
+    /**
+     * The description for a FAQ.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The description for a FAQ.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * When the Status field value is `FAILED`, this contains a message that explains why.
+     * 
+     */
     @Export(name="errorMessage", refs={String.class}, tree="[0]")
     private Output<String> errorMessage;
 
+    /**
+     * @return When the Status field value is `FAILED`, this contains a message that explains why.
+     * 
+     */
     public Output<String> errorMessage() {
         return this.errorMessage;
     }
+    /**
+     * The identifier of the FAQ.
+     * 
+     */
     @Export(name="faqId", refs={String.class}, tree="[0]")
     private Output<String> faqId;
 
+    /**
+     * @return The identifier of the FAQ.
+     * 
+     */
     public Output<String> faqId() {
         return this.faqId;
     }
+    /**
+     * The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+     * 
+     */
     @Export(name="fileFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fileFormat;
 
+    /**
+     * @return The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+     * 
+     */
     public Output<Optional<String>> fileFormat() {
         return Codegen.optional(this.fileFormat);
     }
+    /**
+     * The identifier of the index for a FAQ.
+     * 
+     */
     @Export(name="indexId", refs={String.class}, tree="[0]")
     private Output<String> indexId;
 
+    /**
+     * @return The identifier of the index for a FAQ.
+     * 
+     */
     public Output<String> indexId() {
         return this.indexId;
     }
+    /**
+     * The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     * 
+     */
     @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
+    /**
+     * @return The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     * 
+     */
     public Output<String> languageCode() {
         return this.languageCode;
     }
+    /**
+     * The name that should be associated with the FAQ.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name that should be associated with the FAQ.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * 
+     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * 
+     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
+    /**
+     * The S3 location of the FAQ input data. Detailed below.
+     * 
+     */
     @Export(name="s3Path", refs={FaqS3Path.class}, tree="[0]")
     private Output<FaqS3Path> s3Path;
 
+    /**
+     * @return The S3 location of the FAQ input data. Detailed below.
+     * 
+     */
     public Output<FaqS3Path> s3Path() {
         return this.s3Path;
     }
+    /**
+     * The status of the FAQ. It is ready to use when the status is ACTIVE.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return The status of the FAQ. It is ready to use when the status is ACTIVE.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }
+    /**
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The date and time that the FAQ was last updated.
+     * 
+     */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
+    /**
+     * @return The date and time that the FAQ was last updated.
+     * 
+     */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }

@@ -12,9 +12,17 @@ public final class GetConfigurationProfilesPlainArgs extends com.pulumi.resource
 
     public static final GetConfigurationProfilesPlainArgs Empty = new GetConfigurationProfilesPlainArgs();
 
+    /**
+     * ID of the AppConfig Application.
+     * 
+     */
     @Import(name="applicationId", required=true)
     private String applicationId;
 
+    /**
+     * @return ID of the AppConfig Application.
+     * 
+     */
     public String applicationId() {
         return this.applicationId;
     }
@@ -43,6 +51,12 @@ public final class GetConfigurationProfilesPlainArgs extends com.pulumi.resource
             $ = new GetConfigurationProfilesPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param applicationId ID of the AppConfig Application.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationId(String applicationId) {
             $.applicationId = applicationId;
             return this;

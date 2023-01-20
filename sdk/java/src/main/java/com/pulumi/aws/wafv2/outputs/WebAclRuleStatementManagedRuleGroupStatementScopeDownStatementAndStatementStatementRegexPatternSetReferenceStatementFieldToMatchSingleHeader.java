@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+    /**
+     * @return Name of the query header to inspect. This setting must be provided as lower case characters.
+     * 
+     */
     private String name;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader() {}
+    /**
+     * @return Name of the query header to inspect. This setting must be provided as lower case characters.
+     * 
+     */
     public String name() {
         return this.name;
     }

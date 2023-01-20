@@ -4,6 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Use this resource to invoke a lambda function. The lambda function is invoked with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
+ *
+ * > **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `aws.lambda.Invocation` data source.
+ *
+ * ## Example Usage
+ * ### Dynamic Invocation Example Using Triggers
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as crypto from "crypto";
+ *
+ * const example = new aws.lambda.Invocation("example", {
+ *     functionName: aws_lambda_function.lambda_function_test.function_name,
+ *     triggers: {
+ *         redeployment: crypto.createHash('sha1').update(JSON.stringify([aws_lambda_function.example.environment])).digest('hex'),
+ *     },
+ *     input: JSON.stringify({
+ *         key1: "value1",
+ *         key2: "value2",
+ *     }),
+ * });
+ * ```
+ */
 export class Invocation extends pulumi.CustomResource {
     /**
      * Get an existing Invocation resource's state with the given name, ID, and optional extra
@@ -32,10 +57,25 @@ export class Invocation extends pulumi.CustomResource {
         return obj['__pulumiType'] === Invocation.__pulumiType;
     }
 
+    /**
+     * Name of the lambda function.
+     */
     public readonly functionName!: pulumi.Output<string>;
+    /**
+     * JSON payload to the lambda function.
+     */
     public readonly input!: pulumi.Output<string>;
+    /**
+     * Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+     */
     public readonly qualifier!: pulumi.Output<string | undefined>;
+    /**
+     * String result of the lambda function invocation.
+     */
     public /*out*/ readonly result!: pulumi.Output<string>;
+    /**
+     * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+     */
     public readonly triggers!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -79,10 +119,25 @@ export class Invocation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Invocation resources.
  */
 export interface InvocationState {
+    /**
+     * Name of the lambda function.
+     */
     functionName?: pulumi.Input<string>;
+    /**
+     * JSON payload to the lambda function.
+     */
     input?: pulumi.Input<string>;
+    /**
+     * Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+     */
     qualifier?: pulumi.Input<string>;
+    /**
+     * String result of the lambda function invocation.
+     */
     result?: pulumi.Input<string>;
+    /**
+     * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+     */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -90,8 +145,20 @@ export interface InvocationState {
  * The set of arguments for constructing a Invocation resource.
  */
 export interface InvocationArgs {
+    /**
+     * Name of the lambda function.
+     */
     functionName: pulumi.Input<string>;
+    /**
+     * JSON payload to the lambda function.
+     */
     input: pulumi.Input<string>;
+    /**
+     * Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+     */
     qualifier?: pulumi.Input<string>;
+    /**
+     * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+     */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

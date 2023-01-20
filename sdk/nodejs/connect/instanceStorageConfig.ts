@@ -7,6 +7,116 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an Amazon Connect Instance Storage Config resource. For more information see
+ * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
+ *
+ * ## Example Usage
+ * ### Storage Config Kinesis Firehose Config
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.connect.InstanceStorageConfig("example", {
+ *     instanceId: aws_connect_instance.example.id,
+ *     resourceType: "CONTACT_TRACE_RECORDS",
+ *     storageConfig: {
+ *         kinesisFirehoseConfig: {
+ *             firehoseArn: aws_kinesis_firehose_delivery_stream.example.arn,
+ *         },
+ *         storageType: "KINESIS_FIREHOSE",
+ *     },
+ * });
+ * ```
+ * ### Storage Config Kinesis Stream Config
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.connect.InstanceStorageConfig("example", {
+ *     instanceId: aws_connect_instance.example.id,
+ *     resourceType: "CONTACT_TRACE_RECORDS",
+ *     storageConfig: {
+ *         kinesisStreamConfig: {
+ *             streamArn: aws_kinesis_stream.example.arn,
+ *         },
+ *         storageType: "KINESIS_STREAM",
+ *     },
+ * });
+ * ```
+ * ### Storage Config Kinesis Video Stream Config
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.connect.InstanceStorageConfig("example", {
+ *     instanceId: aws_connect_instance.example.id,
+ *     resourceType: "MEDIA_STREAMS",
+ *     storageConfig: {
+ *         kinesisVideoStreamConfig: {
+ *             prefix: "example",
+ *             retentionPeriodHours: 3,
+ *             encryptionConfig: {
+ *                 encryptionType: "KMS",
+ *                 keyId: aws_kms_key.example.arn,
+ *             },
+ *         },
+ *         storageType: "KINESIS_VIDEO_STREAM",
+ *     },
+ * });
+ * ```
+ * ### Storage Config S3 Config
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.connect.InstanceStorageConfig("example", {
+ *     instanceId: aws_connect_instance.example.id,
+ *     resourceType: "CHAT_TRANSCRIPTS",
+ *     storageConfig: {
+ *         s3Config: {
+ *             bucketName: aws_s3_bucket.example.id,
+ *             bucketPrefix: "example",
+ *         },
+ *         storageType: "S3",
+ *     },
+ * });
+ * ```
+ * ### Storage Config S3 Config with Encryption Config
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.connect.InstanceStorageConfig("example", {
+ *     instanceId: aws_connect_instance.example.id,
+ *     resourceType: "CHAT_TRANSCRIPTS",
+ *     storageConfig: {
+ *         s3Config: {
+ *             bucketName: aws_s3_bucket.example.id,
+ *             bucketPrefix: "example",
+ *             encryptionConfig: {
+ *                 encryptionType: "KMS",
+ *                 keyId: aws_kms_key.example.arn,
+ *             },
+ *         },
+ *         storageType: "S3",
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Amazon Connect Instance Storage Configs can be imported using the `instance_id`, `association_id`, and `resource_type` separated by a colon (`:`), e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:connect/instanceStorageConfig:InstanceStorageConfig example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5:CHAT_TRANSCRIPTS
+ * ```
+ */
 export class InstanceStorageConfig extends pulumi.CustomResource {
     /**
      * Get an existing InstanceStorageConfig resource's state with the given name, ID, and optional extra
@@ -35,9 +145,21 @@ export class InstanceStorageConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === InstanceStorageConfig.__pulumiType;
     }
 
+    /**
+     * The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+     */
     public /*out*/ readonly associationId!: pulumi.Output<string>;
+    /**
+     * Specifies the identifier of the hosting Amazon Connect Instance.
+     */
     public readonly instanceId!: pulumi.Output<string>;
+    /**
+     * A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+     */
     public readonly resourceType!: pulumi.Output<string>;
+    /**
+     * Specifies the storage configuration options for the Connect Instance. Documented below.
+     */
     public readonly storageConfig!: pulumi.Output<outputs.connect.InstanceStorageConfigStorageConfig>;
 
     /**
@@ -82,9 +204,21 @@ export class InstanceStorageConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering InstanceStorageConfig resources.
  */
 export interface InstanceStorageConfigState {
+    /**
+     * The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+     */
     associationId?: pulumi.Input<string>;
+    /**
+     * Specifies the identifier of the hosting Amazon Connect Instance.
+     */
     instanceId?: pulumi.Input<string>;
+    /**
+     * A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+     */
     resourceType?: pulumi.Input<string>;
+    /**
+     * Specifies the storage configuration options for the Connect Instance. Documented below.
+     */
     storageConfig?: pulumi.Input<inputs.connect.InstanceStorageConfigStorageConfig>;
 }
 
@@ -92,7 +226,16 @@ export interface InstanceStorageConfigState {
  * The set of arguments for constructing a InstanceStorageConfig resource.
  */
 export interface InstanceStorageConfigArgs {
+    /**
+     * Specifies the identifier of the hosting Amazon Connect Instance.
+     */
     instanceId: pulumi.Input<string>;
+    /**
+     * A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+     */
     resourceType: pulumi.Input<string>;
+    /**
+     * Specifies the storage configuration options for the Connect Instance. Documented below.
+     */
     storageConfig: pulumi.Input<inputs.connect.InstanceStorageConfigStorageConfig>;
 }

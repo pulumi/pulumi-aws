@@ -18,6 +18,8 @@ class RedriveAllowPolicyArgs:
                  redrive_allow_policy: pulumi.Input[str]):
         """
         The set of arguments for constructing a RedriveAllowPolicy resource.
+        :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
+        :param pulumi.Input[str] redrive_allow_policy: The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
         """
         pulumi.set(__self__, "queue_url", queue_url)
         pulumi.set(__self__, "redrive_allow_policy", redrive_allow_policy)
@@ -25,6 +27,9 @@ class RedriveAllowPolicyArgs:
     @property
     @pulumi.getter(name="queueUrl")
     def queue_url(self) -> pulumi.Input[str]:
+        """
+        The URL of the SQS Queue to which to attach the policy
+        """
         return pulumi.get(self, "queue_url")
 
     @queue_url.setter
@@ -34,6 +39,9 @@ class RedriveAllowPolicyArgs:
     @property
     @pulumi.getter(name="redriveAllowPolicy")
     def redrive_allow_policy(self) -> pulumi.Input[str]:
+        """
+        The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
+        """
         return pulumi.get(self, "redrive_allow_policy")
 
     @redrive_allow_policy.setter
@@ -48,6 +56,8 @@ class _RedriveAllowPolicyState:
                  redrive_allow_policy: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RedriveAllowPolicy resources.
+        :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
+        :param pulumi.Input[str] redrive_allow_policy: The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
         """
         if queue_url is not None:
             pulumi.set(__self__, "queue_url", queue_url)
@@ -57,6 +67,9 @@ class _RedriveAllowPolicyState:
     @property
     @pulumi.getter(name="queueUrl")
     def queue_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the SQS Queue to which to attach the policy
+        """
         return pulumi.get(self, "queue_url")
 
     @queue_url.setter
@@ -66,6 +79,9 @@ class _RedriveAllowPolicyState:
     @property
     @pulumi.getter(name="redriveAllowPolicy")
     def redrive_allow_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
+        """
         return pulumi.get(self, "redrive_allow_policy")
 
     @redrive_allow_policy.setter
@@ -82,9 +98,40 @@ class RedriveAllowPolicy(pulumi.CustomResource):
                  redrive_allow_policy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a RedriveAllowPolicy resource with the given unique name, props, and options.
+        Provides a SQS Queue Redrive Allow Policy resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example_queue = aws.sqs.Queue("exampleQueue")
+        src = aws.sqs.Queue("src", redrive_policy=example_queue.arn.apply(lambda arn: json.dumps({
+            "deadLetterTargetArn": arn,
+            "maxReceiveCount": 4,
+        })))
+        example_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("exampleRedriveAllowPolicy",
+            queue_url=example_queue.id,
+            redrive_allow_policy=src.arn.apply(lambda arn: json.dumps({
+                "redrivePermission": "byQueue",
+                "sourceQueueArns": [arn],
+            })))
+        ```
+
+        ## Import
+
+        SQS Queue Redrive Allow Policies can be imported using the queue URL, e.g.,
+
+        ```sh
+         $ pulumi import aws:sqs/redriveAllowPolicy:RedriveAllowPolicy test https://queue.amazonaws.com/0123456789012/myqueue
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
+        :param pulumi.Input[str] redrive_allow_policy: The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
         """
         ...
     @overload
@@ -93,7 +140,36 @@ class RedriveAllowPolicy(pulumi.CustomResource):
                  args: RedriveAllowPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RedriveAllowPolicy resource with the given unique name, props, and options.
+        Provides a SQS Queue Redrive Allow Policy resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example_queue = aws.sqs.Queue("exampleQueue")
+        src = aws.sqs.Queue("src", redrive_policy=example_queue.arn.apply(lambda arn: json.dumps({
+            "deadLetterTargetArn": arn,
+            "maxReceiveCount": 4,
+        })))
+        example_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("exampleRedriveAllowPolicy",
+            queue_url=example_queue.id,
+            redrive_allow_policy=src.arn.apply(lambda arn: json.dumps({
+                "redrivePermission": "byQueue",
+                "sourceQueueArns": [arn],
+            })))
+        ```
+
+        ## Import
+
+        SQS Queue Redrive Allow Policies can be imported using the queue URL, e.g.,
+
+        ```sh
+         $ pulumi import aws:sqs/redriveAllowPolicy:RedriveAllowPolicy test https://queue.amazonaws.com/0123456789012/myqueue
+        ```
+
         :param str resource_name: The name of the resource.
         :param RedriveAllowPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +221,8 @@ class RedriveAllowPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
+        :param pulumi.Input[str] redrive_allow_policy: The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +235,16 @@ class RedriveAllowPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="queueUrl")
     def queue_url(self) -> pulumi.Output[str]:
+        """
+        The URL of the SQS Queue to which to attach the policy
+        """
         return pulumi.get(self, "queue_url")
 
     @property
     @pulumi.getter(name="redriveAllowPolicy")
     def redrive_allow_policy(self) -> pulumi.Output[str]:
+        """
+        The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
+        """
         return pulumi.get(self, "redrive_allow_policy")
 

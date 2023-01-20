@@ -21,6 +21,9 @@ class CodeSigningConfigArgs:
                  policies: Optional[pulumi.Input['CodeSigningConfigPoliciesArgs']] = None):
         """
         The set of arguments for constructing a CodeSigningConfig resource.
+        :param pulumi.Input['CodeSigningConfigAllowedPublishersArgs'] allowed_publishers: A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+        :param pulumi.Input[str] description: Descriptive name for this code signing configuration.
+        :param pulumi.Input['CodeSigningConfigPoliciesArgs'] policies: A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
         """
         pulumi.set(__self__, "allowed_publishers", allowed_publishers)
         if description is not None:
@@ -31,6 +34,9 @@ class CodeSigningConfigArgs:
     @property
     @pulumi.getter(name="allowedPublishers")
     def allowed_publishers(self) -> pulumi.Input['CodeSigningConfigAllowedPublishersArgs']:
+        """
+        A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+        """
         return pulumi.get(self, "allowed_publishers")
 
     @allowed_publishers.setter
@@ -40,6 +46,9 @@ class CodeSigningConfigArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Descriptive name for this code signing configuration.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -49,6 +58,9 @@ class CodeSigningConfigArgs:
     @property
     @pulumi.getter
     def policies(self) -> Optional[pulumi.Input['CodeSigningConfigPoliciesArgs']]:
+        """
+        A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+        """
         return pulumi.get(self, "policies")
 
     @policies.setter
@@ -67,6 +79,12 @@ class _CodeSigningConfigState:
                  policies: Optional[pulumi.Input['CodeSigningConfigPoliciesArgs']] = None):
         """
         Input properties used for looking up and filtering CodeSigningConfig resources.
+        :param pulumi.Input['CodeSigningConfigAllowedPublishersArgs'] allowed_publishers: A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the code signing configuration.
+        :param pulumi.Input[str] config_id: Unique identifier for the code signing configuration.
+        :param pulumi.Input[str] description: Descriptive name for this code signing configuration.
+        :param pulumi.Input[str] last_modified: The date and time that the code signing configuration was last modified.
+        :param pulumi.Input['CodeSigningConfigPoliciesArgs'] policies: A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
         """
         if allowed_publishers is not None:
             pulumi.set(__self__, "allowed_publishers", allowed_publishers)
@@ -84,6 +102,9 @@ class _CodeSigningConfigState:
     @property
     @pulumi.getter(name="allowedPublishers")
     def allowed_publishers(self) -> Optional[pulumi.Input['CodeSigningConfigAllowedPublishersArgs']]:
+        """
+        A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+        """
         return pulumi.get(self, "allowed_publishers")
 
     @allowed_publishers.setter
@@ -93,6 +114,9 @@ class _CodeSigningConfigState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the code signing configuration.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -102,6 +126,9 @@ class _CodeSigningConfigState:
     @property
     @pulumi.getter(name="configId")
     def config_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique identifier for the code signing configuration.
+        """
         return pulumi.get(self, "config_id")
 
     @config_id.setter
@@ -111,6 +138,9 @@ class _CodeSigningConfigState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Descriptive name for this code signing configuration.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -120,6 +150,9 @@ class _CodeSigningConfigState:
     @property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time that the code signing configuration was last modified.
+        """
         return pulumi.get(self, "last_modified")
 
     @last_modified.setter
@@ -129,6 +162,9 @@ class _CodeSigningConfigState:
     @property
     @pulumi.getter
     def policies(self) -> Optional[pulumi.Input['CodeSigningConfigPoliciesArgs']]:
+        """
+        A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+        """
         return pulumi.get(self, "policies")
 
     @policies.setter
@@ -146,9 +182,42 @@ class CodeSigningConfig(pulumi.CustomResource):
                  policies: Optional[pulumi.Input[pulumi.InputType['CodeSigningConfigPoliciesArgs']]] = None,
                  __props__=None):
         """
-        Create a CodeSigningConfig resource with the given unique name, props, and options.
+        Provides a Lambda Code Signing Config resource. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+
+        For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        new_csc = aws.lambda_.CodeSigningConfig("newCsc",
+            allowed_publishers=aws.lambda_.CodeSigningConfigAllowedPublishersArgs(
+                signing_profile_version_arns=[
+                    aws_signer_signing_profile["example1"]["arn"],
+                    aws_signer_signing_profile["example2"]["arn"],
+                ],
+            ),
+            policies=aws.lambda_.CodeSigningConfigPoliciesArgs(
+                untrusted_artifact_on_deployment="Warn",
+            ),
+            description="My awesome code signing config.")
+        ```
+
+        ## Import
+
+        Code Signing Configs can be imported using their ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['CodeSigningConfigAllowedPublishersArgs']] allowed_publishers: A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+        :param pulumi.Input[str] description: Descriptive name for this code signing configuration.
+        :param pulumi.Input[pulumi.InputType['CodeSigningConfigPoliciesArgs']] policies: A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
         """
         ...
     @overload
@@ -157,7 +226,37 @@ class CodeSigningConfig(pulumi.CustomResource):
                  args: CodeSigningConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a CodeSigningConfig resource with the given unique name, props, and options.
+        Provides a Lambda Code Signing Config resource. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+
+        For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        new_csc = aws.lambda_.CodeSigningConfig("newCsc",
+            allowed_publishers=aws.lambda_.CodeSigningConfigAllowedPublishersArgs(
+                signing_profile_version_arns=[
+                    aws_signer_signing_profile["example1"]["arn"],
+                    aws_signer_signing_profile["example2"]["arn"],
+                ],
+            ),
+            policies=aws.lambda_.CodeSigningConfigPoliciesArgs(
+                untrusted_artifact_on_deployment="Warn",
+            ),
+            description="My awesome code signing config.")
+        ```
+
+        ## Import
+
+        Code Signing Configs can be imported using their ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
+        ```
+
         :param str resource_name: The name of the resource.
         :param CodeSigningConfigArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,6 +315,12 @@ class CodeSigningConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['CodeSigningConfigAllowedPublishersArgs']] allowed_publishers: A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the code signing configuration.
+        :param pulumi.Input[str] config_id: Unique identifier for the code signing configuration.
+        :param pulumi.Input[str] description: Descriptive name for this code signing configuration.
+        :param pulumi.Input[str] last_modified: The date and time that the code signing configuration was last modified.
+        :param pulumi.Input[pulumi.InputType['CodeSigningConfigPoliciesArgs']] policies: A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -232,30 +337,48 @@ class CodeSigningConfig(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allowedPublishers")
     def allowed_publishers(self) -> pulumi.Output['outputs.CodeSigningConfigAllowedPublishers']:
+        """
+        A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+        """
         return pulumi.get(self, "allowed_publishers")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the code signing configuration.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="configId")
     def config_id(self) -> pulumi.Output[str]:
+        """
+        Unique identifier for the code signing configuration.
+        """
         return pulumi.get(self, "config_id")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Descriptive name for this code signing configuration.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> pulumi.Output[str]:
+        """
+        The date and time that the code signing configuration was last modified.
+        """
         return pulumi.get(self, "last_modified")
 
     @property
     @pulumi.getter
     def policies(self) -> pulumi.Output['outputs.CodeSigningConfigPolicies']:
+        """
+        A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+        """
         return pulumi.get(self, "policies")
 

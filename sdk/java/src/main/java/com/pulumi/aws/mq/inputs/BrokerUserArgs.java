@@ -17,30 +17,62 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BrokerUserArgs Empty = new BrokerUserArgs();
 
+    /**
+     * Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
+     * 
+     */
     @Import(name="consoleAccess")
     private @Nullable Output<Boolean> consoleAccess;
 
+    /**
+     * @return Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
+     * 
+     */
     public Optional<Output<Boolean>> consoleAccess() {
         return Optional.ofNullable(this.consoleAccess);
     }
 
+    /**
+     * List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
+     * 
+     */
     @Import(name="groups")
     private @Nullable Output<List<String>> groups;
 
+    /**
+     * @return List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
+     * 
+     */
     public Optional<Output<List<String>>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
+    /**
+     * Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+     * 
+     */
     @Import(name="password", required=true)
     private Output<String> password;
 
+    /**
+     * @return Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+     * 
+     */
     public Output<String> password() {
         return this.password;
     }
 
+    /**
+     * Username of the user.
+     * 
+     */
     @Import(name="username", required=true)
     private Output<String> username;
 
+    /**
+     * @return Username of the user.
+     * 
+     */
     public Output<String> username() {
         return this.username;
     }
@@ -72,42 +104,96 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
             $ = new BrokerUserArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param consoleAccess Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
+         * 
+         * @return builder
+         * 
+         */
         public Builder consoleAccess(@Nullable Output<Boolean> consoleAccess) {
             $.consoleAccess = consoleAccess;
             return this;
         }
 
+        /**
+         * @param consoleAccess Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
+         * 
+         * @return builder
+         * 
+         */
         public Builder consoleAccess(Boolean consoleAccess) {
             return consoleAccess(Output.of(consoleAccess));
         }
 
+        /**
+         * @param groups List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(@Nullable Output<List<String>> groups) {
             $.groups = groups;
             return this;
         }
 
+        /**
+         * @param groups List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(List<String> groups) {
             return groups(Output.of(groups));
         }
 
+        /**
+         * @param groups List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(String... groups) {
             return groups(List.of(groups));
         }
 
+        /**
+         * @param password Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder password(Output<String> password) {
             $.password = password;
             return this;
         }
 
+        /**
+         * @param password Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
 
+        /**
+         * @param username Username of the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder username(Output<String> username) {
             $.username = username;
             return this;
         }
 
+        /**
+         * @param username Username of the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

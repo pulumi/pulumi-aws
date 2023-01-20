@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class FeatureGroupOnlineStoreConfigGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
+        /// </summary>
         [Input("enableOnlineStore")]
         public Input<bool>? EnableOnlineStore { get; set; }
 
+        /// <summary>
+        /// Security config for at-rest encryption of your OnlineStore. See Security Config Below.
+        /// </summary>
         [Input("securityConfig")]
         public Input<Inputs.FeatureGroupOnlineStoreConfigSecurityConfigGetArgs>? SecurityConfig { get; set; }
 

@@ -7,6 +7,42 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an AppConfig Environment resource for an `aws.appconfig.Application` resource. One or more environments can be defined for an application.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleApplication = new aws.appconfig.Application("exampleApplication", {
+ *     description: "Example AppConfig Application",
+ *     tags: {
+ *         Type: "AppConfig Application",
+ *     },
+ * });
+ * const exampleEnvironment = new aws.appconfig.Environment("exampleEnvironment", {
+ *     description: "Example AppConfig Environment",
+ *     applicationId: exampleApplication.id,
+ *     monitors: [{
+ *         alarmArn: aws_cloudwatch_metric_alarm.example.arn,
+ *         alarmRoleArn: aws_iam_role.example.arn,
+ *     }],
+ *     tags: {
+ *         Type: "AppConfig Environment",
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * AppConfig Environments can be imported by using the environment ID and application ID separated by a colon (`:`), e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
+ * ```
+ */
 export class Environment extends pulumi.CustomResource {
     /**
      * Get an existing Environment resource's state with the given name, ID, and optional extra
@@ -35,14 +71,42 @@ export class Environment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Environment.__pulumiType;
     }
 
+    /**
+     * AppConfig application ID. Must be between 4 and 7 characters in length.
+     */
     public readonly applicationId!: pulumi.Output<string>;
+    /**
+     * ARN of the AppConfig Environment.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Description of the environment. Can be at most 1024 characters.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * AppConfig environment ID.
+     */
     public /*out*/ readonly environmentId!: pulumi.Output<string>;
+    /**
+     * Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
+     */
     public readonly monitors!: pulumi.Output<outputs.appconfig.EnvironmentMonitor[] | undefined>;
+    /**
+     * Name for the environment. Must be between 1 and 64 characters in length.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
+     * or `ROLLED_BACK`.
+     */
     public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -91,14 +155,42 @@ export class Environment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Environment resources.
  */
 export interface EnvironmentState {
+    /**
+     * AppConfig application ID. Must be between 4 and 7 characters in length.
+     */
     applicationId?: pulumi.Input<string>;
+    /**
+     * ARN of the AppConfig Environment.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Description of the environment. Can be at most 1024 characters.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * AppConfig environment ID.
+     */
     environmentId?: pulumi.Input<string>;
+    /**
+     * Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
+     */
     monitors?: pulumi.Input<pulumi.Input<inputs.appconfig.EnvironmentMonitor>[]>;
+    /**
+     * Name for the environment. Must be between 1 and 64 characters in length.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
+     * or `ROLLED_BACK`.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -106,9 +198,24 @@ export interface EnvironmentState {
  * The set of arguments for constructing a Environment resource.
  */
 export interface EnvironmentArgs {
+    /**
+     * AppConfig application ID. Must be between 4 and 7 characters in length.
+     */
     applicationId: pulumi.Input<string>;
+    /**
+     * Description of the environment. Can be at most 1024 characters.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
+     */
     monitors?: pulumi.Input<pulumi.Input<inputs.appconfig.EnvironmentMonitor>[]>;
+    /**
+     * Name for the environment. Must be between 1 and 64 characters in length.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

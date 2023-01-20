@@ -7,6 +7,33 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an AppStream Directory Config.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appstream.DirectoryConfig("example", {
+ *     directoryName: "NAME OF DIRECTORY",
+ *     organizationalUnitDistinguishedNames: ["DISTINGUISHED NAME"],
+ *     serviceAccountCredentials: {
+ *         accountName: "NAME OF ACCOUNT",
+ *         accountPassword: "PASSWORD OF ACCOUNT",
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_appstream_directory_config` can be imported using the id, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
+ * ```
+ */
 export class DirectoryConfig extends pulumi.CustomResource {
     /**
      * Get an existing DirectoryConfig resource's state with the given name, ID, and optional extra
@@ -35,9 +62,21 @@ export class DirectoryConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === DirectoryConfig.__pulumiType;
     }
 
+    /**
+     * Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * Fully qualified name of the directory.
+     */
     public readonly directoryName!: pulumi.Output<string>;
+    /**
+     * Distinguished names of the organizational units for computer accounts.
+     */
     public readonly organizationalUnitDistinguishedNames!: pulumi.Output<string[]>;
+    /**
+     * Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
+     */
     public readonly serviceAccountCredentials!: pulumi.Output<outputs.appstream.DirectoryConfigServiceAccountCredentials>;
 
     /**
@@ -82,9 +121,21 @@ export class DirectoryConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DirectoryConfig resources.
  */
 export interface DirectoryConfigState {
+    /**
+     * Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
+     */
     createdTime?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the directory.
+     */
     directoryName?: pulumi.Input<string>;
+    /**
+     * Distinguished names of the organizational units for computer accounts.
+     */
     organizationalUnitDistinguishedNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
+     */
     serviceAccountCredentials?: pulumi.Input<inputs.appstream.DirectoryConfigServiceAccountCredentials>;
 }
 
@@ -92,7 +143,16 @@ export interface DirectoryConfigState {
  * The set of arguments for constructing a DirectoryConfig resource.
  */
 export interface DirectoryConfigArgs {
+    /**
+     * Fully qualified name of the directory.
+     */
     directoryName: pulumi.Input<string>;
+    /**
+     * Distinguished names of the organizational units for computer accounts.
+     */
     organizationalUnitDistinguishedNames: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
+     */
     serviceAccountCredentials: pulumi.Input<inputs.appstream.DirectoryConfigServiceAccountCredentials>;
 }

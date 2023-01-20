@@ -19,59 +19,222 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an IPAM resource.
+ * 
+ * ## Example Usage
+ * 
+ * Basic usage:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.ec2.VpcIpam;
+ * import com.pulumi.aws.ec2.VpcIpamArgs;
+ * import com.pulumi.aws.ec2.inputs.VpcIpamOperatingRegionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getRegion();
+ * 
+ *         var main = new VpcIpam(&#34;main&#34;, VpcIpamArgs.builder()        
+ *             .description(&#34;My IPAM&#34;)
+ *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
+ *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                 .build())
+ *             .tags(Map.of(&#34;Test&#34;, &#34;Main&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * Shared with multiple operating_regions:
+ * 
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.VpcIpam;
+ * import com.pulumi.aws.ec2.VpcIpamArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var config = ctx.config();
+ *         final var ipamRegions = config.get(&#34;ipamRegions&#34;).orElse(        
+ *             &#34;us-east-1&#34;,
+ *             &#34;us-west-2&#34;);
+ *         var example = new VpcIpam(&#34;example&#34;, VpcIpamArgs.builder()        
+ *             .description(&#34;test4&#34;)
+ *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * IPAMs can be imported using the `ipam id`, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2/vpcIpam:VpcIpam")
 public class VpcIpam extends com.pulumi.resources.CustomResource {
+    /**
+     * Amazon Resource Name (ARN) of IPAM
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of IPAM
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+     * 
+     */
     @Export(name="cascade", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cascade;
 
+    /**
+     * @return Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+     * 
+     */
     public Output<Optional<Boolean>> cascade() {
         return Codegen.optional(this.cascade);
     }
+    /**
+     * A description for the IPAM.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return A description for the IPAM.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
+     * 
+     */
     @Export(name="operatingRegions", refs={List.class,VpcIpamOperatingRegion.class}, tree="[0,1]")
     private Output<List<VpcIpamOperatingRegion>> operatingRegions;
 
+    /**
+     * @return Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
+     * 
+     */
     public Output<List<VpcIpamOperatingRegion>> operatingRegions() {
         return this.operatingRegions;
     }
+    /**
+     * The ID of the IPAM&#39;s private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
+     * 
+     */
     @Export(name="privateDefaultScopeId", refs={String.class}, tree="[0]")
     private Output<String> privateDefaultScopeId;
 
+    /**
+     * @return The ID of the IPAM&#39;s private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
+     * 
+     */
     public Output<String> privateDefaultScopeId() {
         return this.privateDefaultScopeId;
     }
+    /**
+     * The ID of the IPAM&#39;s public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
+     * IP space. The public scope is intended for all internet-routable IP space.
+     * 
+     */
     @Export(name="publicDefaultScopeId", refs={String.class}, tree="[0]")
     private Output<String> publicDefaultScopeId;
 
+    /**
+     * @return The ID of the IPAM&#39;s public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
+     * IP space. The public scope is intended for all internet-routable IP space.
+     * 
+     */
     public Output<String> publicDefaultScopeId() {
         return this.publicDefaultScopeId;
     }
+    /**
+     * The number of scopes in the IPAM.
+     * 
+     */
     @Export(name="scopeCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> scopeCount;
 
+    /**
+     * @return The number of scopes in the IPAM.
+     * 
+     */
     public Output<Integer> scopeCount() {
         return this.scopeCount;
     }
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

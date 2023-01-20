@@ -13,9 +13,17 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs();
 
+    /**
+     * The ARN of the delivery stream.
+     * 
+     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
+    /**
+     * @return The ARN of the delivery stream.
+     * 
+     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
@@ -44,11 +52,23 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             $ = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param resourceArn The ARN of the delivery stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
+        /**
+         * @param resourceArn The ARN of the delivery stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

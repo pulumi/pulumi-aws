@@ -13,6 +13,9 @@ namespace Pulumi.Aws.S3Outposts.Outputs
     [OutputType]
     public sealed class EndpointNetworkInterface
     {
+        /// <summary>
+        /// Identifier of the Elastic Network Interface (ENI).
+        /// </summary>
         public readonly string? NetworkInterfaceId;
 
         [OutputConstructor]

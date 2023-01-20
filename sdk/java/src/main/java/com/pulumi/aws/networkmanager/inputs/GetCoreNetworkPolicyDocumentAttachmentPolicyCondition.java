@@ -14,30 +14,62 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyCondition extends
 
     public static final GetCoreNetworkPolicyDocumentAttachmentPolicyCondition Empty = new GetCoreNetworkPolicyDocumentAttachmentPolicyCondition();
 
+    /**
+     * string value
+     * 
+     */
     @Import(name="key")
     private @Nullable String key;
 
+    /**
+     * @return string value
+     * 
+     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
 
+    /**
+     * Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
+     * 
+     */
     @Import(name="operator")
     private @Nullable String operator;
 
+    /**
+     * @return Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
+     * 
+     */
     public Optional<String> operator() {
         return Optional.ofNullable(this.operator);
     }
 
+    /**
+     * Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+     * 
+     */
     @Import(name="type", required=true)
     private String type;
 
+    /**
+     * @return Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+     * 
+     */
     public String type() {
         return this.type;
     }
 
+    /**
+     * string value
+     * 
+     */
     @Import(name="value")
     private @Nullable String value;
 
+    /**
+     * @return string value
+     * 
+     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }
@@ -69,21 +101,45 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyCondition extends
             $ = new GetCoreNetworkPolicyDocumentAttachmentPolicyCondition(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param key string value
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(@Nullable String key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param operator Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder operator(@Nullable String operator) {
             $.operator = operator;
             return this;
         }
 
+        /**
+         * @param type Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param value string value
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(@Nullable String value) {
             $.value = value;
             return this;

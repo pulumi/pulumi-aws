@@ -9,24 +9,67 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iot
 {
+    /// <summary>
+    /// Creates and manages an AWS IoT Thing Type.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new Aws.Iot.ThingType("foo");
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// IOT Thing Types can be imported using the name, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:iot/thingType:ThingType example example
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:iot/thingType:ThingType")]
     public partial class ThingType : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the created AWS IoT Thing Type.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the thing type is deprecated. If true, no new things could be associated with this type.
+        /// </summary>
         [Output("deprecated")]
         public Output<bool?> Deprecated { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the thing type.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// , Configuration block that can contain the following properties of the thing type:
+        /// </summary>
         [Output("properties")]
         public Output<Outputs.ThingTypeProperties?> Properties { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -76,17 +119,30 @@ namespace Pulumi.Aws.Iot
 
     public sealed class ThingTypeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether the thing type is deprecated. If true, no new things could be associated with this type.
+        /// </summary>
         [Input("deprecated")]
         public Input<bool>? Deprecated { get; set; }
 
+        /// <summary>
+        /// The name of the thing type.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// , Configuration block that can contain the following properties of the thing type:
+        /// </summary>
         [Input("properties")]
         public Input<Inputs.ThingTypePropertiesArgs>? Properties { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -101,20 +157,36 @@ namespace Pulumi.Aws.Iot
 
     public sealed class ThingTypeState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the created AWS IoT Thing Type.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Whether the thing type is deprecated. If true, no new things could be associated with this type.
+        /// </summary>
         [Input("deprecated")]
         public Input<bool>? Deprecated { get; set; }
 
+        /// <summary>
+        /// The name of the thing type.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// , Configuration block that can contain the following properties of the thing type:
+        /// </summary>
         [Input("properties")]
         public Input<Inputs.ThingTypePropertiesGetArgs>? Properties { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -123,6 +195,10 @@ namespace Pulumi.Aws.Iot
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

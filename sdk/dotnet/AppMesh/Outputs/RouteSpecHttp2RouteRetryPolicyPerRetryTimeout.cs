@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class RouteSpecHttp2RouteRetryPolicyPerRetryTimeout
     {
+        /// <summary>
+        /// Retry unit. Valid values: `ms`, `s`.
+        /// </summary>
         public readonly string Unit;
+        /// <summary>
+        /// Retry value.
+        /// </summary>
         public readonly int Value;
 
         [OutputConstructor]

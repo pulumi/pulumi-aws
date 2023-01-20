@@ -13,9 +13,17 @@ public final class AnalyticsApplicationInputsProcessingConfigurationArgs extends
 
     public static final AnalyticsApplicationInputsProcessingConfigurationArgs Empty = new AnalyticsApplicationInputsProcessingConfigurationArgs();
 
+    /**
+     * The Lambda function configuration. See Lambda below for more details.
+     * 
+     */
     @Import(name="lambda", required=true)
     private Output<AnalyticsApplicationInputsProcessingConfigurationLambdaArgs> lambda;
 
+    /**
+     * @return The Lambda function configuration. See Lambda below for more details.
+     * 
+     */
     public Output<AnalyticsApplicationInputsProcessingConfigurationLambdaArgs> lambda() {
         return this.lambda;
     }
@@ -44,11 +52,23 @@ public final class AnalyticsApplicationInputsProcessingConfigurationArgs extends
             $ = new AnalyticsApplicationInputsProcessingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param lambda The Lambda function configuration. See Lambda below for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lambda(Output<AnalyticsApplicationInputsProcessingConfigurationLambdaArgs> lambda) {
             $.lambda = lambda;
             return this;
         }
 
+        /**
+         * @param lambda The Lambda function configuration. See Lambda below for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lambda(AnalyticsApplicationInputsProcessingConfigurationLambdaArgs lambda) {
             return lambda(Output.of(lambda));
         }

@@ -11,14 +11,80 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an ECS cluster capacity provider. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
+//
+// > **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling Group will automatically add the `AmazonECSManaged` tag to the Auto Scaling Group. This tag should be included in the `autoscaling.Group` resource configuration to prevent the provider from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling Group if `minSize` is above 0 on creation. Any EC2 Instances in the Auto Scaling Group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testGroup, err := autoscaling.NewGroup(ctx, "testGroup", &autoscaling.GroupArgs{
+//				Tags: autoscaling.GroupTagArray{
+//					&autoscaling.GroupTagArgs{
+//						Key:               pulumi.String("AmazonECSManaged"),
+//						Value:             pulumi.String("true"),
+//						PropagateAtLaunch: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecs.NewCapacityProvider(ctx, "testCapacityProvider", &ecs.CapacityProviderArgs{
+//				AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
+//					AutoScalingGroupArn:          testGroup.Arn,
+//					ManagedTerminationProtection: pulumi.String("ENABLED"),
+//					ManagedScaling: &ecs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs{
+//						MaximumScalingStepSize: pulumi.Int(1000),
+//						MinimumScalingStepSize: pulumi.Int(1),
+//						Status:                 pulumi.String("ENABLED"),
+//						TargetCapacity:         pulumi.Int(10),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// ECS Capacity Providers can be imported using the `name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
+//
+// ```
 type CapacityProvider struct {
 	pulumi.CustomResourceState
 
-	Arn                      pulumi.StringOutput                            `pulumi:"arn"`
+	// ARN that identifies the capacity provider.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderOutput `pulumi:"autoScalingGroupProvider"`
-	Name                     pulumi.StringOutput                            `pulumi:"name"`
-	Tags                     pulumi.StringMapOutput                         `pulumi:"tags"`
-	TagsAll                  pulumi.StringMapOutput                         `pulumi:"tagsAll"`
+	// Name of the capacity provider.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewCapacityProvider registers a new resource with the given unique name, arguments, and options.
@@ -53,19 +119,29 @@ func GetCapacityProvider(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CapacityProvider resources.
 type capacityProviderState struct {
-	Arn                      *string                                   `pulumi:"arn"`
+	// ARN that identifies the capacity provider.
+	Arn *string `pulumi:"arn"`
+	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
 	AutoScalingGroupProvider *CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
-	Name                     *string                                   `pulumi:"name"`
-	Tags                     map[string]string                         `pulumi:"tags"`
-	TagsAll                  map[string]string                         `pulumi:"tagsAll"`
+	// Name of the capacity provider.
+	Name *string `pulumi:"name"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type CapacityProviderState struct {
-	Arn                      pulumi.StringPtrInput
+	// ARN that identifies the capacity provider.
+	Arn pulumi.StringPtrInput
+	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderPtrInput
-	Name                     pulumi.StringPtrInput
-	Tags                     pulumi.StringMapInput
-	TagsAll                  pulumi.StringMapInput
+	// Name of the capacity provider.
+	Name pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (CapacityProviderState) ElementType() reflect.Type {
@@ -73,16 +149,22 @@ func (CapacityProviderState) ElementType() reflect.Type {
 }
 
 type capacityProviderArgs struct {
+	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
-	Name                     *string                                  `pulumi:"name"`
-	Tags                     map[string]string                        `pulumi:"tags"`
+	// Name of the capacity provider.
+	Name *string `pulumi:"name"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CapacityProvider resource.
 type CapacityProviderArgs struct {
+	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderInput
-	Name                     pulumi.StringPtrInput
-	Tags                     pulumi.StringMapInput
+	// Name of the capacity provider.
+	Name pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (CapacityProviderArgs) ElementType() reflect.Type {
@@ -172,24 +254,29 @@ func (o CapacityProviderOutput) ToCapacityProviderOutputWithContext(ctx context.
 	return o
 }
 
+// ARN that identifies the capacity provider.
 func (o CapacityProviderOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Configuration block for the provider for the ECS auto scaling group. Detailed below.
 func (o CapacityProviderOutput) AutoScalingGroupProvider() CapacityProviderAutoScalingGroupProviderOutput {
 	return o.ApplyT(func(v *CapacityProvider) CapacityProviderAutoScalingGroupProviderOutput {
 		return v.AutoScalingGroupProvider
 	}).(CapacityProviderAutoScalingGroupProviderOutput)
 }
 
+// Name of the capacity provider.
 func (o CapacityProviderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CapacityProviderOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CapacityProviderOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleFirehose {
+    /**
+     * @return The delivery stream name.
+     * 
+     */
     private String deliveryStreamName;
+    /**
+     * @return The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
+     * 
+     */
     private String roleArn;
+    /**
+     * @return A character separator that is used to separate records written to the Firehose stream. Valid values are: &#39;\n&#39; (newline), &#39;\t&#39; (tab), &#39;\r\n&#39; (Windows newline), &#39;,&#39; (comma).
+     * 
+     */
     private @Nullable String separator;
 
     private TopicRuleFirehose() {}
+    /**
+     * @return The delivery stream name.
+     * 
+     */
     public String deliveryStreamName() {
         return this.deliveryStreamName;
     }
+    /**
+     * @return The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
+     * 
+     */
     public String roleArn() {
         return this.roleArn;
     }
+    /**
+     * @return A character separator that is used to separate records written to the Firehose stream. Valid values are: &#39;\n&#39; (newline), &#39;\t&#39; (tab), &#39;\r\n&#39; (Windows newline), &#39;,&#39; (comma).
+     * 
+     */
     public Optional<String> separator() {
         return Optional.ofNullable(this.separator);
     }

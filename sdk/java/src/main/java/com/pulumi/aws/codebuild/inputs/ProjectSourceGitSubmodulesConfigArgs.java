@@ -13,9 +13,17 @@ public final class ProjectSourceGitSubmodulesConfigArgs extends com.pulumi.resou
 
     public static final ProjectSourceGitSubmodulesConfigArgs Empty = new ProjectSourceGitSubmodulesConfigArgs();
 
+    /**
+     * Whether to fetch Git submodules for the AWS CodeBuild build project.
+     * 
+     */
     @Import(name="fetchSubmodules", required=true)
     private Output<Boolean> fetchSubmodules;
 
+    /**
+     * @return Whether to fetch Git submodules for the AWS CodeBuild build project.
+     * 
+     */
     public Output<Boolean> fetchSubmodules() {
         return this.fetchSubmodules;
     }
@@ -44,11 +52,23 @@ public final class ProjectSourceGitSubmodulesConfigArgs extends com.pulumi.resou
             $ = new ProjectSourceGitSubmodulesConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param fetchSubmodules Whether to fetch Git submodules for the AWS CodeBuild build project.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fetchSubmodules(Output<Boolean> fetchSubmodules) {
             $.fetchSubmodules = fetchSubmodules;
             return this;
         }
 
+        /**
+         * @param fetchSubmodules Whether to fetch Git submodules for the AWS CodeBuild build project.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fetchSubmodules(Boolean fetchSubmodules) {
             return fetchSubmodules(Output.of(fetchSubmodules));
         }

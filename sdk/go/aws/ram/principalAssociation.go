@@ -11,10 +11,93 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Resource Access Manager (RAM) principal association. Depending if [RAM Sharing with AWS Organizations is enabled](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs), the RAM behavior with different principal types changes.
+//
+// When RAM Sharing with AWS Organizations is enabled:
+//
+// - For AWS Account ID, Organization, and Organizational Unit principals within the same AWS Organization, no resource share invitation is sent and resources become available automatically after creating the association.
+// - For AWS Account ID principals outside the AWS Organization, a resource share invitation is sent and must be accepted before resources become available. See the `ram.ResourceShareAccepter` resource to accept these invitations.
+//
+// When RAM Sharing with AWS Organizations is not enabled:
+//
+// - Organization and Organizational Unit principals cannot be used.
+// - For AWS Account ID principals, a resource share invitation is sent and must be accepted before resources become available. See the `ram.ResourceShareAccepter` resource to accept these invitations.
+//
+// ## Example Usage
+// ### AWS Account ID
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ram"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceShare, err := ram.NewResourceShare(ctx, "exampleResourceShare", &ram.ResourceShareArgs{
+//				AllowExternalPrincipals: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ram.NewPrincipalAssociation(ctx, "examplePrincipalAssociation", &ram.PrincipalAssociationArgs{
+//				Principal:        pulumi.String("111111111111"),
+//				ResourceShareArn: exampleResourceShare.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### AWS Organization
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ram"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ram.NewPrincipalAssociation(ctx, "example", &ram.PrincipalAssociationArgs{
+//				Principal:        pulumi.Any(aws_organizations_organization.Example.Arn),
+//				ResourceShareArn: pulumi.Any(aws_ram_resource_share.Example.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// RAM Principal Associations can be imported using their Resource Share ARN and the `principal` separated by a comma, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:ram/principalAssociation:PrincipalAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
+//
+// ```
 type PrincipalAssociation struct {
 	pulumi.CustomResourceState
 
-	Principal        pulumi.StringOutput `pulumi:"principal"`
+	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+	Principal pulumi.StringOutput `pulumi:"principal"`
+	// The Amazon Resource Name (ARN) of the resource share.
 	ResourceShareArn pulumi.StringOutput `pulumi:"resourceShareArn"`
 }
 
@@ -53,12 +136,16 @@ func GetPrincipalAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrincipalAssociation resources.
 type principalAssociationState struct {
-	Principal        *string `pulumi:"principal"`
+	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+	Principal *string `pulumi:"principal"`
+	// The Amazon Resource Name (ARN) of the resource share.
 	ResourceShareArn *string `pulumi:"resourceShareArn"`
 }
 
 type PrincipalAssociationState struct {
-	Principal        pulumi.StringPtrInput
+	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+	Principal pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the resource share.
 	ResourceShareArn pulumi.StringPtrInput
 }
 
@@ -67,13 +154,17 @@ func (PrincipalAssociationState) ElementType() reflect.Type {
 }
 
 type principalAssociationArgs struct {
-	Principal        string `pulumi:"principal"`
+	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+	Principal string `pulumi:"principal"`
+	// The Amazon Resource Name (ARN) of the resource share.
 	ResourceShareArn string `pulumi:"resourceShareArn"`
 }
 
 // The set of arguments for constructing a PrincipalAssociation resource.
 type PrincipalAssociationArgs struct {
-	Principal        pulumi.StringInput
+	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+	Principal pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the resource share.
 	ResourceShareArn pulumi.StringInput
 }
 
@@ -164,10 +255,12 @@ func (o PrincipalAssociationOutput) ToPrincipalAssociationOutputWithContext(ctx 
 	return o
 }
 
+// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
 func (o PrincipalAssociationOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrincipalAssociation) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the resource share.
 func (o PrincipalAssociationOutput) ResourceShareArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrincipalAssociation) pulumi.StringOutput { return v.ResourceShareArn }).(pulumi.StringOutput)
 }

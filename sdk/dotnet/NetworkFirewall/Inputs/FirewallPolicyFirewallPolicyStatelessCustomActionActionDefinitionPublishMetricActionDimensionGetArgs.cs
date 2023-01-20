@@ -12,6 +12,9 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
     public sealed class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The string value to use in the custom metric dimension.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

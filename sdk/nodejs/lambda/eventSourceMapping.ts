@@ -7,6 +7,171 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB, SQS, Amazon MQ and Managed Streaming for Apache Kafka (MSK).
+ *
+ * For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
+ * For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
+ *
+ * ## Example Usage
+ * ### DynamoDB
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     eventSourceArn: aws_dynamodb_table.example.stream_arn,
+ *     functionName: aws_lambda_function.example.arn,
+ *     startingPosition: "LATEST",
+ * });
+ * ```
+ * ### Kinesis
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     eventSourceArn: aws_kinesis_stream.example.arn,
+ *     functionName: aws_lambda_function.example.arn,
+ *     startingPosition: "LATEST",
+ * });
+ * ```
+ * ### Managed Streaming for Apache Kafka (MSK)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     eventSourceArn: aws_msk_cluster.example.arn,
+ *     functionName: aws_lambda_function.example.arn,
+ *     topics: ["Example"],
+ *     startingPosition: "TRIM_HORIZON",
+ * });
+ * ```
+ * ### Self Managed Apache Kafka
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     functionName: aws_lambda_function.example.arn,
+ *     topics: ["Example"],
+ *     startingPosition: "TRIM_HORIZON",
+ *     selfManagedEventSource: {
+ *         endpoints: {
+ *             KAFKA_BOOTSTRAP_SERVERS: "kafka1.example.com:9092,kafka2.example.com:9092",
+ *         },
+ *     },
+ *     sourceAccessConfigurations: [
+ *         {
+ *             type: "VPC_SUBNET",
+ *             uri: "subnet:subnet-example1",
+ *         },
+ *         {
+ *             type: "VPC_SUBNET",
+ *             uri: "subnet:subnet-example2",
+ *         },
+ *         {
+ *             type: "VPC_SECURITY_GROUP",
+ *             uri: "security_group:sg-example",
+ *         },
+ *     ],
+ * });
+ * ```
+ * ### SQS
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     eventSourceArn: aws_sqs_queue.sqs_queue_test.arn,
+ *     functionName: aws_lambda_function.example.arn,
+ * });
+ * ```
+ * ### SQS with event filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     eventSourceArn: aws_sqs_queue.sqs_queue_test.arn,
+ *     functionName: aws_lambda_function.example.arn,
+ *     filterCriteria: {
+ *         filters: [{
+ *             pattern: JSON.stringify({
+ *                 body: {
+ *                     Temperature: [{
+ *                         numeric: [
+ *                             ">",
+ *                             0,
+ *                             "<=",
+ *                             100,
+ *                         ],
+ *                     }],
+ *                     Location: ["New York"],
+ *                 },
+ *             }),
+ *         }],
+ *     },
+ * });
+ * ```
+ * ### Amazon MQ (ActiveMQ)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     batchSize: 10,
+ *     eventSourceArn: aws_mq_broker.example.arn,
+ *     enabled: true,
+ *     functionName: aws_lambda_function.example.arn,
+ *     queues: ["example"],
+ *     sourceAccessConfigurations: [{
+ *         type: "BASIC_AUTH",
+ *         uri: aws_secretsmanager_secret_version.example.arn,
+ *     }],
+ * });
+ * ```
+ * ### Amazon MQ (RabbitMQ)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     batchSize: 1,
+ *     eventSourceArn: aws_mq_broker.example.arn,
+ *     enabled: true,
+ *     functionName: aws_lambda_function.example.arn,
+ *     queues: ["example"],
+ *     sourceAccessConfigurations: [
+ *         {
+ *             type: "VIRTUAL_HOST",
+ *             uri: "/example",
+ *         },
+ *         {
+ *             type: "BASIC_AUTH",
+ *             uri: aws_secretsmanager_secret_version.example.arn,
+ *         },
+ *     ],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Lambda event source mappings can be imported using the `UUID` (event source mapping identifier), e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
+ * ```
+ */
 export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * Get an existing EventSourceMapping resource's state with the given name, ID, and optional extra
@@ -35,32 +200,113 @@ export class EventSourceMapping extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventSourceMapping.__pulumiType;
     }
 
+    /**
+     * Additional configuration block for Amazon Managed Kafka sources. Incompatible with "selfManagedEventSource" and "selfManagedKafkaEventSourceConfig". Detailed below.
+     */
     public readonly amazonManagedKafkaEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfig>;
+    /**
+     * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
+     */
     public readonly batchSize!: pulumi.Output<number | undefined>;
+    /**
+     * - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+     */
     public readonly bisectBatchOnFunctionError!: pulumi.Output<boolean | undefined>;
+    /**
+     * - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     */
     public readonly destinationConfig!: pulumi.Output<outputs.lambda.EventSourceMappingDestinationConfig | undefined>;
+    /**
+     * Determines if the mapping will be enabled on creation. Defaults to `true`.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+     */
     public readonly eventSourceArn!: pulumi.Output<string | undefined>;
+    /**
+     * The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
+     */
     public readonly filterCriteria!: pulumi.Output<outputs.lambda.EventSourceMappingFilterCriteria | undefined>;
+    /**
+     * The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
+     */
     public /*out*/ readonly functionArn!: pulumi.Output<string>;
+    /**
+     * The name or the ARN of the Lambda function that will be subscribing to events.
+     */
     public readonly functionName!: pulumi.Output<string>;
+    /**
+     * A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
+     */
     public readonly functionResponseTypes!: pulumi.Output<string[] | undefined>;
+    /**
+     * The date this resource was last modified.
+     */
     public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    /**
+     * The result of the last AWS Lambda invocation of your Lambda function.
+     */
     public /*out*/ readonly lastProcessingResult!: pulumi.Output<string>;
+    /**
+     * The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
+     */
     public readonly maximumBatchingWindowInSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
+     */
     public readonly maximumRecordAgeInSeconds!: pulumi.Output<number>;
+    /**
+     * - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+     */
     public readonly maximumRetryAttempts!: pulumi.Output<number>;
+    /**
+     * - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+     */
     public readonly parallelizationFactor!: pulumi.Output<number>;
+    /**
+     * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+     */
     public readonly queues!: pulumi.Output<string[] | undefined>;
+    /**
+     * - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
+     */
     public readonly selfManagedEventSource!: pulumi.Output<outputs.lambda.EventSourceMappingSelfManagedEventSource | undefined>;
+    /**
+     * Additional configuration block for Self Managed Kafka sources. Incompatible with "eventSourceArn" and "amazonManagedKafkaEventSourceConfig". Detailed below.
+     */
     public readonly selfManagedKafkaEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingSelfManagedKafkaEventSourceConfig>;
+    /**
+     * For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. Detailed below.
+     */
     public readonly sourceAccessConfigurations!: pulumi.Output<outputs.lambda.EventSourceMappingSourceAccessConfiguration[] | undefined>;
+    /**
+     * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB or MSK. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
+     */
     public readonly startingPosition!: pulumi.Output<string | undefined>;
+    /**
+     * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+     */
     public readonly startingPositionTimestamp!: pulumi.Output<string | undefined>;
+    /**
+     * The state of the event source mapping.
+     */
     public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * The reason the event source mapping is in its current state.
+     */
     public /*out*/ readonly stateTransitionReason!: pulumi.Output<string>;
+    /**
+     * The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
+     */
     public readonly topics!: pulumi.Output<string[] | undefined>;
+    /**
+     * The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
+     */
     public readonly tumblingWindowInSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * The UUID of the created event source mapping.
+     */
     public /*out*/ readonly uuid!: pulumi.Output<string>;
 
     /**
@@ -145,32 +391,113 @@ export class EventSourceMapping extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventSourceMapping resources.
  */
 export interface EventSourceMappingState {
+    /**
+     * Additional configuration block for Amazon Managed Kafka sources. Incompatible with "selfManagedEventSource" and "selfManagedKafkaEventSourceConfig". Detailed below.
+     */
     amazonManagedKafkaEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfig>;
+    /**
+     * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
+     */
     batchSize?: pulumi.Input<number>;
+    /**
+     * - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+     */
     bisectBatchOnFunctionError?: pulumi.Input<boolean>;
+    /**
+     * - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     */
     destinationConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDestinationConfig>;
+    /**
+     * Determines if the mapping will be enabled on creation. Defaults to `true`.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+     */
     eventSourceArn?: pulumi.Input<string>;
+    /**
+     * The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
+     */
     filterCriteria?: pulumi.Input<inputs.lambda.EventSourceMappingFilterCriteria>;
+    /**
+     * The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
+     */
     functionArn?: pulumi.Input<string>;
+    /**
+     * The name or the ARN of the Lambda function that will be subscribing to events.
+     */
     functionName?: pulumi.Input<string>;
+    /**
+     * A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
+     */
     functionResponseTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The date this resource was last modified.
+     */
     lastModified?: pulumi.Input<string>;
+    /**
+     * The result of the last AWS Lambda invocation of your Lambda function.
+     */
     lastProcessingResult?: pulumi.Input<string>;
+    /**
+     * The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
+     */
     maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+    /**
+     * - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
+     */
     maximumRecordAgeInSeconds?: pulumi.Input<number>;
+    /**
+     * - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+     */
     maximumRetryAttempts?: pulumi.Input<number>;
+    /**
+     * - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+     */
     parallelizationFactor?: pulumi.Input<number>;
+    /**
+     * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+     */
     queues?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
+     */
     selfManagedEventSource?: pulumi.Input<inputs.lambda.EventSourceMappingSelfManagedEventSource>;
+    /**
+     * Additional configuration block for Self Managed Kafka sources. Incompatible with "eventSourceArn" and "amazonManagedKafkaEventSourceConfig". Detailed below.
+     */
     selfManagedKafkaEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingSelfManagedKafkaEventSourceConfig>;
+    /**
+     * For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. Detailed below.
+     */
     sourceAccessConfigurations?: pulumi.Input<pulumi.Input<inputs.lambda.EventSourceMappingSourceAccessConfiguration>[]>;
+    /**
+     * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB or MSK. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
+     */
     startingPosition?: pulumi.Input<string>;
+    /**
+     * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+     */
     startingPositionTimestamp?: pulumi.Input<string>;
+    /**
+     * The state of the event source mapping.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * The reason the event source mapping is in its current state.
+     */
     stateTransitionReason?: pulumi.Input<string>;
+    /**
+     * The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
+     */
     topics?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
+     */
     tumblingWindowInSeconds?: pulumi.Input<number>;
+    /**
+     * The UUID of the created event source mapping.
+     */
     uuid?: pulumi.Input<string>;
 }
 
@@ -178,25 +505,88 @@ export interface EventSourceMappingState {
  * The set of arguments for constructing a EventSourceMapping resource.
  */
 export interface EventSourceMappingArgs {
+    /**
+     * Additional configuration block for Amazon Managed Kafka sources. Incompatible with "selfManagedEventSource" and "selfManagedKafkaEventSourceConfig". Detailed below.
+     */
     amazonManagedKafkaEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfig>;
+    /**
+     * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
+     */
     batchSize?: pulumi.Input<number>;
+    /**
+     * - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+     */
     bisectBatchOnFunctionError?: pulumi.Input<boolean>;
+    /**
+     * - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     */
     destinationConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDestinationConfig>;
+    /**
+     * Determines if the mapping will be enabled on creation. Defaults to `true`.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+     */
     eventSourceArn?: pulumi.Input<string>;
+    /**
+     * The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
+     */
     filterCriteria?: pulumi.Input<inputs.lambda.EventSourceMappingFilterCriteria>;
+    /**
+     * The name or the ARN of the Lambda function that will be subscribing to events.
+     */
     functionName: pulumi.Input<string>;
+    /**
+     * A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
+     */
     functionResponseTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
+     */
     maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+    /**
+     * - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
+     */
     maximumRecordAgeInSeconds?: pulumi.Input<number>;
+    /**
+     * - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+     */
     maximumRetryAttempts?: pulumi.Input<number>;
+    /**
+     * - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+     */
     parallelizationFactor?: pulumi.Input<number>;
+    /**
+     * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+     */
     queues?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
+     */
     selfManagedEventSource?: pulumi.Input<inputs.lambda.EventSourceMappingSelfManagedEventSource>;
+    /**
+     * Additional configuration block for Self Managed Kafka sources. Incompatible with "eventSourceArn" and "amazonManagedKafkaEventSourceConfig". Detailed below.
+     */
     selfManagedKafkaEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingSelfManagedKafkaEventSourceConfig>;
+    /**
+     * For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. Detailed below.
+     */
     sourceAccessConfigurations?: pulumi.Input<pulumi.Input<inputs.lambda.EventSourceMappingSourceAccessConfiguration>[]>;
+    /**
+     * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB or MSK. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
+     */
     startingPosition?: pulumi.Input<string>;
+    /**
+     * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+     */
     startingPositionTimestamp?: pulumi.Input<string>;
+    /**
+     * The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
+     */
     topics?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
+     */
     tumblingWindowInSeconds?: pulumi.Input<number>;
 }

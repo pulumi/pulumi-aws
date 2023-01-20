@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Dlm.Outputs
     [OutputType]
     public sealed class LifecyclePolicyPolicyDetailsAction
     {
+        /// <summary>
+        /// The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopy> CrossRegionCopies;
+        /// <summary>
+        /// A descriptive name for the action.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

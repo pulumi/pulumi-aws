@@ -4,6 +4,51 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an AWS Storage Gateway upload buffer.
+ *
+ * > **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
+ *
+ * ## Example Usage
+ * ### Cached and VTL Gateway Type
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testLocalDisk = aws.storagegateway.getLocalDisk({
+ *     diskNode: aws_volume_attachment.test.device_name,
+ *     gatewayArn: aws_storagegateway_gateway.test.arn,
+ * });
+ * const testUploadBuffer = new aws.storagegateway.UploadBuffer("testUploadBuffer", {
+ *     diskPath: testLocalDisk.then(testLocalDisk => testLocalDisk.diskPath),
+ *     gatewayArn: aws_storagegateway_gateway.test.arn,
+ * });
+ * ```
+ * ### Stored Gateway Type
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.storagegateway.getLocalDisk({
+ *     diskNode: aws_volume_attachment.test.device_name,
+ *     gatewayArn: aws_storagegateway_gateway.test.arn,
+ * });
+ * const example = new aws.storagegateway.UploadBuffer("example", {
+ *     diskId: data.aws_storagegateway_local_disk.example.id,
+ *     gatewayArn: aws_storagegateway_gateway.example.arn,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_storagegateway_upload_buffer` can be imported by using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`), e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:storagegateway/uploadBuffer:UploadBuffer example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
+ * ```
+ */
 export class UploadBuffer extends pulumi.CustomResource {
     /**
      * Get an existing UploadBuffer resource's state with the given name, ID, and optional extra
@@ -32,8 +77,17 @@ export class UploadBuffer extends pulumi.CustomResource {
         return obj['__pulumiType'] === UploadBuffer.__pulumiType;
     }
 
+    /**
+     * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+     */
     public readonly diskId!: pulumi.Output<string>;
+    /**
+     * Local disk path. For example, `/dev/nvme1n1`.
+     */
     public readonly diskPath!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the gateway.
+     */
     public readonly gatewayArn!: pulumi.Output<string>;
 
     /**
@@ -70,8 +124,17 @@ export class UploadBuffer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UploadBuffer resources.
  */
 export interface UploadBufferState {
+    /**
+     * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+     */
     diskId?: pulumi.Input<string>;
+    /**
+     * Local disk path. For example, `/dev/nvme1n1`.
+     */
     diskPath?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the gateway.
+     */
     gatewayArn?: pulumi.Input<string>;
 }
 
@@ -79,7 +142,16 @@ export interface UploadBufferState {
  * The set of arguments for constructing a UploadBuffer resource.
  */
 export interface UploadBufferArgs {
+    /**
+     * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+     */
     diskId?: pulumi.Input<string>;
+    /**
+     * Local disk path. For example, `/dev/nvme1n1`.
+     */
     diskPath?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the gateway.
+     */
     gatewayArn: pulumi.Input<string>;
 }

@@ -108,7 +108,31 @@ def get_local_gateway_route_table(filters: Optional[Sequence[pulumi.InputType['G
                                   tags: Optional[Mapping[str, str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayRouteTableResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about an EC2 Local Gateway Route Table.
+
+    This data source can prove useful when a module accepts a local gateway route table id as
+    an input variable and needs to, for example, find the associated Outpost or Local Gateway.
+
+    ## Example Usage
+
+    The following example returns a specific local gateway route table ID
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    aws_ec2_local_gateway_route_table = config.require_object("awsEc2LocalGatewayRouteTable")
+    selected = aws.ec2.get_local_gateway_route_table(local_gateway_route_table_id=aws_ec2_local_gateway_route_table)
+    ```
+
+
+    :param str local_gateway_id: ID of the specific local gateway route table to retrieve.
+    :param str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired local gateway route table
+    :param str outpost_arn: ARN of the Outpost the local gateway route table is associated with.
+    :param str state: State of the local gateway route table.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
+           a pair on the desired local gateway route table.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -139,6 +163,30 @@ def get_local_gateway_route_table_output(filters: Optional[pulumi.Input[Optional
                                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayRouteTableResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about an EC2 Local Gateway Route Table.
+
+    This data source can prove useful when a module accepts a local gateway route table id as
+    an input variable and needs to, for example, find the associated Outpost or Local Gateway.
+
+    ## Example Usage
+
+    The following example returns a specific local gateway route table ID
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    aws_ec2_local_gateway_route_table = config.require_object("awsEc2LocalGatewayRouteTable")
+    selected = aws.ec2.get_local_gateway_route_table(local_gateway_route_table_id=aws_ec2_local_gateway_route_table)
+    ```
+
+
+    :param str local_gateway_id: ID of the specific local gateway route table to retrieve.
+    :param str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired local gateway route table
+    :param str outpost_arn: ARN of the Outpost the local gateway route table is associated with.
+    :param str state: State of the local gateway route table.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
+           a pair on the desired local gateway route table.
     """
     ...

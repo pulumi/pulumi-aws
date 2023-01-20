@@ -12,15 +12,27 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class IdentityPoolRoleAttachmentRoleMappingMappingRuleGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The claim name that must be present in the token, for example, "isAdmin" or "paid".
+        /// </summary>
         [Input("claim", required: true)]
         public Input<string> Claim { get; set; } = null!;
 
+        /// <summary>
+        /// The match condition that specifies how closely the claim value in the IdP token must match Value.
+        /// </summary>
         [Input("matchType", required: true)]
         public Input<string> MatchType { get; set; } = null!;
 
+        /// <summary>
+        /// The role ARN.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// A brief string that the claim must match, for example, "paid" or "yes".
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

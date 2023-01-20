@@ -13,9 +13,17 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs exte
 
     public static final FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs();
 
+    /**
+     * Object specified in the flow destination.
+     * 
+     */
     @Import(name="object", required=true)
     private Output<String> object;
 
+    /**
+     * @return Object specified in the flow destination.
+     * 
+     */
     public Output<String> object() {
         return this.object;
     }
@@ -44,11 +52,23 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs exte
             $ = new FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param object Object specified in the flow destination.
+         * 
+         * @return builder
+         * 
+         */
         public Builder object(Output<String> object) {
             $.object = object;
             return this;
         }
 
+        /**
+         * @param object Object specified in the flow destination.
+         * 
+         * @return builder
+         * 
+         */
         public Builder object(String object) {
             return object(Output.of(object));
         }

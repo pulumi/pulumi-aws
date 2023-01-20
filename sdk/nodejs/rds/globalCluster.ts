@@ -7,6 +7,194 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an RDS Global Cluster, which is an Aurora global database spread across multiple regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
+ *
+ * More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
+ *
+ * ## Example Usage
+ * ### New MySQL Global Cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.rds.GlobalCluster("example", {
+ *     globalClusterIdentifier: "global-test",
+ *     engine: "aurora",
+ *     engineVersion: "5.6.mysql_aurora.1.22.2",
+ *     databaseName: "example_db",
+ * });
+ * const primaryCluster = new aws.rds.Cluster("primaryCluster", {
+ *     engine: example.engine,
+ *     engineVersion: example.engineVersion,
+ *     clusterIdentifier: "test-primary-cluster",
+ *     masterUsername: "username",
+ *     masterPassword: "somepass123",
+ *     databaseName: "example_db",
+ *     globalClusterIdentifier: example.id,
+ *     dbSubnetGroupName: "default",
+ * }, {
+ *     provider: aws.primary,
+ * });
+ * const primaryClusterInstance = new aws.rds.ClusterInstance("primaryClusterInstance", {
+ *     engine: example.engine,
+ *     engineVersion: example.engineVersion,
+ *     identifier: "test-primary-cluster-instance",
+ *     clusterIdentifier: primaryCluster.id,
+ *     instanceClass: "db.r4.large",
+ *     dbSubnetGroupName: "default",
+ * }, {
+ *     provider: aws.primary,
+ * });
+ * const secondaryCluster = new aws.rds.Cluster("secondaryCluster", {
+ *     engine: example.engine,
+ *     engineVersion: example.engineVersion,
+ *     clusterIdentifier: "test-secondary-cluster",
+ *     globalClusterIdentifier: example.id,
+ *     dbSubnetGroupName: "default",
+ * }, {
+ *     provider: aws.secondary,
+ *     dependsOn: [primaryClusterInstance],
+ * });
+ * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondaryClusterInstance", {
+ *     engine: example.engine,
+ *     engineVersion: example.engineVersion,
+ *     identifier: "test-secondary-cluster-instance",
+ *     clusterIdentifier: secondaryCluster.id,
+ *     instanceClass: "db.r4.large",
+ *     dbSubnetGroupName: "default",
+ * }, {
+ *     provider: aws.secondary,
+ * });
+ * ```
+ * ### New PostgreSQL Global Cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const primary = new aws.Provider("primary", {region: "us-east-2"});
+ * const secondary = new aws.Provider("secondary", {region: "us-east-1"});
+ * const example = new aws.rds.GlobalCluster("example", {
+ *     globalClusterIdentifier: "global-test",
+ *     engine: "aurora-postgresql",
+ *     engineVersion: "11.9",
+ *     databaseName: "example_db",
+ * });
+ * const primaryCluster = new aws.rds.Cluster("primaryCluster", {
+ *     engine: example.engine,
+ *     engineVersion: example.engineVersion,
+ *     clusterIdentifier: "test-primary-cluster",
+ *     masterUsername: "username",
+ *     masterPassword: "somepass123",
+ *     databaseName: "example_db",
+ *     globalClusterIdentifier: example.id,
+ *     dbSubnetGroupName: "default",
+ * }, {
+ *     provider: aws.primary,
+ * });
+ * const primaryClusterInstance = new aws.rds.ClusterInstance("primaryClusterInstance", {
+ *     engine: example.engine,
+ *     engineVersion: example.engineVersion,
+ *     identifier: "test-primary-cluster-instance",
+ *     clusterIdentifier: primaryCluster.id,
+ *     instanceClass: "db.r4.large",
+ *     dbSubnetGroupName: "default",
+ * }, {
+ *     provider: aws.primary,
+ * });
+ * const secondaryCluster = new aws.rds.Cluster("secondaryCluster", {
+ *     engine: example.engine,
+ *     engineVersion: example.engineVersion,
+ *     clusterIdentifier: "test-secondary-cluster",
+ *     globalClusterIdentifier: example.id,
+ *     skipFinalSnapshot: true,
+ *     dbSubnetGroupName: "default",
+ * }, {
+ *     provider: aws.secondary,
+ *     dependsOn: [primaryClusterInstance],
+ * });
+ * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondaryClusterInstance", {
+ *     engine: example.engine,
+ *     engineVersion: example.engineVersion,
+ *     identifier: "test-secondary-cluster-instance",
+ *     clusterIdentifier: secondaryCluster.id,
+ *     instanceClass: "db.r4.large",
+ *     dbSubnetGroupName: "default",
+ * }, {
+ *     provider: aws.secondary,
+ * });
+ * ```
+ * ### New Global Cluster From Existing DB Cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // ... other configuration ...
+ * const exampleCluster = new aws.rds.Cluster("exampleCluster", {});
+ * const exampleGlobalCluster = new aws.rds.GlobalCluster("exampleGlobalCluster", {
+ *     forceDestroy: true,
+ *     globalClusterIdentifier: "example",
+ *     sourceDbClusterIdentifier: exampleCluster.arn,
+ * });
+ * ```
+ * ### Upgrading Engine Versions
+ *
+ * When you upgrade the version of an `aws.rds.GlobalCluster`, the provider will attempt to in-place upgrade the engine versions of all associated clusters. Since the `aws.rds.Cluster` resource is being updated through the `aws.rds.GlobalCluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignoreChanges` meta argument as shown below on the `aws.rds.Cluster`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.rds.GlobalCluster("example", {
+ *     globalClusterIdentifier: "kyivkharkiv",
+ *     engine: "aurora-mysql",
+ *     engineVersion: "5.7.mysql_aurora.2.07.5",
+ * });
+ * const primaryCluster = new aws.rds.Cluster("primaryCluster", {
+ *     allowMajorVersionUpgrade: true,
+ *     applyImmediately: true,
+ *     clusterIdentifier: "odessadnipro",
+ *     databaseName: "totoro",
+ *     engine: example.engine,
+ *     engineVersion: example.engineVersion,
+ *     globalClusterIdentifier: example.id,
+ *     masterPassword: "satsukimae",
+ *     masterUsername: "maesatsuki",
+ *     skipFinalSnapshot: true,
+ * });
+ * const primaryClusterInstance = new aws.rds.ClusterInstance("primaryClusterInstance", {
+ *     applyImmediately: true,
+ *     clusterIdentifier: primaryCluster.id,
+ *     engine: primaryCluster.engine,
+ *     engineVersion: primaryCluster.engineVersion,
+ *     identifier: "donetsklviv",
+ *     instanceClass: "db.r4.large",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_rds_global_cluster` can be imported by using the RDS Global Cluster identifier, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:rds/globalCluster:GlobalCluster example example
+ * ```
+ *
+ *  Certain resource arguments, like `force_destroy`, only exist within this provider. If the argument is set in the the provider configuration on an imported resource, This provider will show a difference on the first plan after import to update the state value. This change is safe to apply immediately so the state matches the desired configuration. Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the the provider configuration or use `ignore_changes` to hide the difference, e.g. terraform resource "aws_rds_global_cluster" "example" {
+ *
+ * # ... other configuration ...
+ *
+ * # There is no API for reading source_db_cluster_identifier
+ *
+ *  lifecycle {
+ *
+ *  ignore_changes = [source_db_cluster_identifier]
+ *
+ *  } }
+ */
 export class GlobalCluster extends pulumi.CustomResource {
     /**
      * Get an existing GlobalCluster resource's state with the given name, ID, and optional extra
@@ -35,17 +223,50 @@ export class GlobalCluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === GlobalCluster.__pulumiType;
     }
 
+    /**
+     * RDS Global Cluster Amazon Resource Name (ARN)
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Name for an automatically created database on cluster creation.
+     */
     public readonly databaseName!: pulumi.Output<string | undefined>;
+    /**
+     * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+     */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
+    /**
+     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
+     */
     public readonly engine!: pulumi.Output<string>;
+    /**
+     * Engine version of the Aurora global database. The `engine`, `engineVersion`, and `instanceClass` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignoreChanges` for `engineVersion` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
+     */
     public readonly engineVersion!: pulumi.Output<string>;
     public /*out*/ readonly engineVersionActual!: pulumi.Output<string>;
+    /**
+     * Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
+     */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
+    /**
+     * Global cluster identifier.
+     */
     public readonly globalClusterIdentifier!: pulumi.Output<string>;
+    /**
+     * Set of objects containing Global Cluster members.
+     */
     public /*out*/ readonly globalClusterMembers!: pulumi.Output<outputs.rds.GlobalClusterGlobalClusterMember[]>;
+    /**
+     * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+     */
     public /*out*/ readonly globalClusterResourceId!: pulumi.Output<string>;
+    /**
+     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     */
     public readonly sourceDbClusterIdentifier!: pulumi.Output<string>;
+    /**
+     * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     */
     public readonly storageEncrypted!: pulumi.Output<boolean>;
 
     /**
@@ -100,17 +321,50 @@ export class GlobalCluster extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GlobalCluster resources.
  */
 export interface GlobalClusterState {
+    /**
+     * RDS Global Cluster Amazon Resource Name (ARN)
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Name for an automatically created database on cluster creation.
+     */
     databaseName?: pulumi.Input<string>;
+    /**
+     * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+     */
     deletionProtection?: pulumi.Input<boolean>;
+    /**
+     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
+     */
     engine?: pulumi.Input<string>;
+    /**
+     * Engine version of the Aurora global database. The `engine`, `engineVersion`, and `instanceClass` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignoreChanges` for `engineVersion` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
+     */
     engineVersion?: pulumi.Input<string>;
     engineVersionActual?: pulumi.Input<string>;
+    /**
+     * Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
+     */
     forceDestroy?: pulumi.Input<boolean>;
+    /**
+     * Global cluster identifier.
+     */
     globalClusterIdentifier?: pulumi.Input<string>;
+    /**
+     * Set of objects containing Global Cluster members.
+     */
     globalClusterMembers?: pulumi.Input<pulumi.Input<inputs.rds.GlobalClusterGlobalClusterMember>[]>;
+    /**
+     * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+     */
     globalClusterResourceId?: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     */
     sourceDbClusterIdentifier?: pulumi.Input<string>;
+    /**
+     * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     */
     storageEncrypted?: pulumi.Input<boolean>;
 }
 
@@ -118,12 +372,36 @@ export interface GlobalClusterState {
  * The set of arguments for constructing a GlobalCluster resource.
  */
 export interface GlobalClusterArgs {
+    /**
+     * Name for an automatically created database on cluster creation.
+     */
     databaseName?: pulumi.Input<string>;
+    /**
+     * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+     */
     deletionProtection?: pulumi.Input<boolean>;
+    /**
+     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
+     */
     engine?: pulumi.Input<string>;
+    /**
+     * Engine version of the Aurora global database. The `engine`, `engineVersion`, and `instanceClass` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignoreChanges` for `engineVersion` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
+     */
     engineVersion?: pulumi.Input<string>;
+    /**
+     * Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
+     */
     forceDestroy?: pulumi.Input<boolean>;
+    /**
+     * Global cluster identifier.
+     */
     globalClusterIdentifier: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     */
     sourceDbClusterIdentifier?: pulumi.Input<string>;
+    /**
+     * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     */
     storageEncrypted?: pulumi.Input<boolean>;
 }

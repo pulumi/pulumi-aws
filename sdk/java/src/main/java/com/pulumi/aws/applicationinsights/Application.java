@@ -16,65 +16,210 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a ApplicationInsights Application resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.resourcegroups.Group;
+ * import com.pulumi.aws.resourcegroups.GroupArgs;
+ * import com.pulumi.aws.resourcegroups.inputs.GroupResourceQueryArgs;
+ * import com.pulumi.aws.applicationinsights.Application;
+ * import com.pulumi.aws.applicationinsights.ApplicationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+ *             .resourceQuery(GroupResourceQueryArgs.builder()
+ *                 .query(&#34;&#34;&#34;
+ * 	{
+ * 		&#34;ResourceTypeFilters&#34;: [
+ * 		  &#34;AWS::EC2::Instance&#34;
+ * 		],
+ * 		&#34;TagFilters&#34;: [
+ * 		  {
+ * 			&#34;Key&#34;: &#34;Stage&#34;,
+ * 			&#34;Values&#34;: [
+ * 			  &#34;Test&#34;
+ * 			]
+ * 		  }
+ * 		]
+ * 	  }
+ *                 &#34;&#34;&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
+ *             .resourceGroupName(exampleGroup.name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * ApplicationInsights Applications can be imported using the `resource_group_name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:applicationinsights/application:Application some some-application
+ * ```
+ * 
+ */
 @ResourceType(type="aws:applicationinsights/application:Application")
 public class Application extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the Application.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the Application.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+     * 
+     */
     @Export(name="autoConfigEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoConfigEnabled;
 
+    /**
+     * @return Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+     * 
+     */
     public Output<Optional<Boolean>> autoConfigEnabled() {
         return Codegen.optional(this.autoConfigEnabled);
     }
+    /**
+     * Configures all of the resources in the resource group by applying the recommended configurations.
+     * 
+     */
     @Export(name="autoCreate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoCreate;
 
+    /**
+     * @return Configures all of the resources in the resource group by applying the recommended configurations.
+     * 
+     */
     public Output<Optional<Boolean>> autoCreate() {
         return Codegen.optional(this.autoCreate);
     }
+    /**
+     * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+     * 
+     */
     @Export(name="cweMonitorEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cweMonitorEnabled;
 
+    /**
+     * @return Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+     * 
+     */
     public Output<Optional<Boolean>> cweMonitorEnabled() {
         return Codegen.optional(this.cweMonitorEnabled);
     }
+    /**
+     * Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
+     * 
+     */
     @Export(name="groupingType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> groupingType;
 
+    /**
+     * @return Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
+     * 
+     */
     public Output<Optional<String>> groupingType() {
         return Codegen.optional(this.groupingType);
     }
+    /**
+     * When set to `true`, creates opsItems for any problems detected on an application.
+     * 
+     */
     @Export(name="opsCenterEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> opsCenterEnabled;
 
+    /**
+     * @return When set to `true`, creates opsItems for any problems detected on an application.
+     * 
+     */
     public Output<Optional<Boolean>> opsCenterEnabled() {
         return Codegen.optional(this.opsCenterEnabled);
     }
+    /**
+     * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+     * 
+     */
     @Export(name="opsItemSnsTopicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> opsItemSnsTopicArn;
 
+    /**
+     * @return SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+     * 
+     */
     public Output<Optional<String>> opsItemSnsTopicArn() {
         return Codegen.optional(this.opsItemSnsTopicArn);
     }
+    /**
+     * Name of the resource group.
+     * 
+     */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
+    /**
+     * @return Name of the resource group.
+     * 
+     */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

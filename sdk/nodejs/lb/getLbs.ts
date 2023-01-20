@@ -4,6 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
+ * resources.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.lb.getLbs({
+ *     tags: {
+ *         "elbv2.k8s.aws/cluster": "my-cluster",
+ *     },
+ * });
+ * ```
+ */
 export function getLbs(args?: GetLbsArgs, opts?: pulumi.InvokeOptions): Promise<GetLbsResult> {
     args = args || {};
 
@@ -17,6 +35,10 @@ export function getLbs(args?: GetLbsArgs, opts?: pulumi.InvokeOptions): Promise<
  * A collection of arguments for invoking getLbs.
  */
 export interface GetLbsArgs {
+    /**
+     * Map of tags, each pair of which must exactly match
+     * a pair on the desired Load Balancers.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -24,6 +46,9 @@ export interface GetLbsArgs {
  * A collection of values returned by getLbs.
  */
 export interface GetLbsResult {
+    /**
+     * Set of Load Balancer ARNs.
+     */
     readonly arns: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -31,6 +56,24 @@ export interface GetLbsResult {
     readonly id: string;
     readonly tags?: {[key: string]: string};
 }
+/**
+ * Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
+ * resources.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.lb.getLbs({
+ *     tags: {
+ *         "elbv2.k8s.aws/cluster": "my-cluster",
+ *     },
+ * });
+ * ```
+ */
 export function getLbsOutput(args?: GetLbsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLbsResult> {
     return pulumi.output(args).apply((a: any) => getLbs(a, opts))
 }
@@ -39,5 +82,9 @@ export function getLbsOutput(args?: GetLbsOutputArgs, opts?: pulumi.InvokeOption
  * A collection of arguments for invoking getLbs.
  */
 export interface GetLbsOutputArgs {
+    /**
+     * Map of tags, each pair of which must exactly match
+     * a pair on the desired Load Balancers.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

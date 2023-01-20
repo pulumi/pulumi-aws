@@ -4,6 +4,30 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an Amazon Connect Lambda Function Association. For more information see
+ * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html) and [Invoke AWS Lambda functions](https://docs.aws.amazon.com/connect/latest/adminguide/connect-lambda-functions.html).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.connect.LambdaFunctionAssociation("example", {
+ *     functionArn: aws_lambda_function.example.arn,
+ *     instanceId: aws_connect_instance.example.id,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_connect_lambda_function_association` can be imported using the `instance_id` and `function_arn` separated by a comma (`,`) e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
+ * ```
+ */
 export class LambdaFunctionAssociation extends pulumi.CustomResource {
     /**
      * Get an existing LambdaFunctionAssociation resource's state with the given name, ID, and optional extra
@@ -32,7 +56,13 @@ export class LambdaFunctionAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === LambdaFunctionAssociation.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     */
     public readonly functionArn!: pulumi.Output<string>;
+    /**
+     * The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+     */
     public readonly instanceId!: pulumi.Output<string>;
 
     /**
@@ -70,7 +100,13 @@ export class LambdaFunctionAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LambdaFunctionAssociation resources.
  */
 export interface LambdaFunctionAssociationState {
+    /**
+     * Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     */
     functionArn?: pulumi.Input<string>;
+    /**
+     * The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+     */
     instanceId?: pulumi.Input<string>;
 }
 
@@ -78,6 +114,12 @@ export interface LambdaFunctionAssociationState {
  * The set of arguments for constructing a LambdaFunctionAssociation resource.
  */
 export interface LambdaFunctionAssociationArgs {
+    /**
+     * Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     */
     functionArn: pulumi.Input<string>;
+    /**
+     * The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+     */
     instanceId: pulumi.Input<string>;
 }

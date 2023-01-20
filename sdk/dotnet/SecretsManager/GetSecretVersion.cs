@@ -11,9 +11,101 @@ namespace Pulumi.Aws.SecretsManager
 {
     public static class GetSecretVersion
     {
+        /// <summary>
+        /// Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Retrieve Current Secret Version
+        /// 
+        /// By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var secret_version = Aws.SecretsManager.GetSecretVersion.Invoke(new()
+        ///     {
+        ///         SecretId = data.Aws_secretsmanager_secret.Example.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Retrieve Specific Secret Version
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var by_version_stage = Aws.SecretsManager.GetSecretVersion.Invoke(new()
+        ///     {
+        ///         SecretId = data.Aws_secretsmanager_secret.Example.Id,
+        ///         VersionStage = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetSecretVersionResult> InvokeAsync(GetSecretVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretVersionResult>("aws:secretsmanager/getSecretVersion:getSecretVersion", args ?? new GetSecretVersionArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Retrieve Current Secret Version
+        /// 
+        /// By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var secret_version = Aws.SecretsManager.GetSecretVersion.Invoke(new()
+        ///     {
+        ///         SecretId = data.Aws_secretsmanager_secret.Example.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Retrieve Specific Secret Version
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var by_version_stage = Aws.SecretsManager.GetSecretVersion.Invoke(new()
+        ///     {
+        ///         SecretId = data.Aws_secretsmanager_secret.Example.Id,
+        ///         VersionStage = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetSecretVersionResult> Invoke(GetSecretVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretVersionResult>("aws:secretsmanager/getSecretVersion:getSecretVersion", args ?? new GetSecretVersionInvokeArgs(), options.WithDefaults());
     }
@@ -21,12 +113,21 @@ namespace Pulumi.Aws.SecretsManager
 
     public sealed class GetSecretVersionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+        /// </summary>
         [Input("secretId", required: true)]
         public string SecretId { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
+        /// </summary>
         [Input("versionId")]
         public string? VersionId { get; set; }
 
+        /// <summary>
+        /// Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
+        /// </summary>
         [Input("versionStage")]
         public string? VersionStage { get; set; }
 
@@ -38,12 +139,21 @@ namespace Pulumi.Aws.SecretsManager
 
     public sealed class GetSecretVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+        /// </summary>
         [Input("secretId", required: true)]
         public Input<string> SecretId { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
+        /// </summary>
         [Input("versionId")]
         public Input<string>? VersionId { get; set; }
 
+        /// <summary>
+        /// Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
+        /// </summary>
         [Input("versionStage")]
         public Input<string>? VersionStage { get; set; }
 
@@ -57,14 +167,26 @@ namespace Pulumi.Aws.SecretsManager
     [OutputType]
     public sealed class GetSecretVersionResult
     {
+        /// <summary>
+        /// ARN of the secret.
+        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Decrypted part of the protected secret information that was originally provided as a binary.
+        /// </summary>
         public readonly string SecretBinary;
         public readonly string SecretId;
+        /// <summary>
+        /// Decrypted part of the protected secret information that was originally provided as a string.
+        /// </summary>
         public readonly string SecretString;
+        /// <summary>
+        /// Unique identifier of this version of the secret.
+        /// </summary>
         public readonly string VersionId;
         public readonly string? VersionStage;
         public readonly ImmutableArray<string> VersionStages;

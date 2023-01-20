@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Kendra.Inputs
 
     public sealed class ThesaurusSourceS3PathGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the S3 bucket that contains the file.
+        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the file.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 

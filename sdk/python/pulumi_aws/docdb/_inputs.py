@@ -20,6 +20,11 @@ class ClusterParameterGroupParameterArgs:
                  name: pulumi.Input[str],
                  value: pulumi.Input[str],
                  apply_method: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the documentDB parameter.
+        :param pulumi.Input[str] value: The value of the documentDB parameter.
+        :param pulumi.Input[str] apply_method: Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if apply_method is not None:
@@ -28,6 +33,9 @@ class ClusterParameterGroupParameterArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the documentDB parameter.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -37,6 +45,9 @@ class ClusterParameterGroupParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value of the documentDB parameter.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -46,6 +57,9 @@ class ClusterParameterGroupParameterArgs:
     @property
     @pulumi.getter(name="applyMethod")
     def apply_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+        """
         return pulumi.get(self, "apply_method")
 
     @apply_method.setter
@@ -58,6 +72,10 @@ class GlobalClusterGlobalClusterMemberArgs:
     def __init__(__self__, *,
                  db_cluster_arn: Optional[pulumi.Input[str]] = None,
                  is_writer: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] db_cluster_arn: Amazon Resource Name (ARN) of member DB Cluster.
+        :param pulumi.Input[bool] is_writer: Whether the member is the primary DB Cluster.
+        """
         if db_cluster_arn is not None:
             pulumi.set(__self__, "db_cluster_arn", db_cluster_arn)
         if is_writer is not None:
@@ -66,6 +84,9 @@ class GlobalClusterGlobalClusterMemberArgs:
     @property
     @pulumi.getter(name="dbClusterArn")
     def db_cluster_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of member DB Cluster.
+        """
         return pulumi.get(self, "db_cluster_arn")
 
     @db_cluster_arn.setter
@@ -75,6 +96,9 @@ class GlobalClusterGlobalClusterMemberArgs:
     @property
     @pulumi.getter(name="isWriter")
     def is_writer(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the member is the primary DB Cluster.
+        """
         return pulumi.get(self, "is_writer")
 
     @is_writer.setter

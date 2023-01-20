@@ -4,6 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an AWS DataSync FSx Lustre Location.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.datasync.LocationFsxLustre("example", {
+ *     fsxFilesystemArn: aws_fsx_lustre_file_system.example.arn,
+ *     securityGroupArns: [aws_security_group.example.arn],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_datasync_location_fsx_lustre_file_system` can be imported by using the `DataSync-ARN#FSx-Lustre-ARN`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:datasync/locationFsxLustre:LocationFsxLustre example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
+ * ```
+ */
 export class LocationFsxLustre extends pulumi.CustomResource {
     /**
      * Get an existing LocationFsxLustre resource's state with the given name, ID, and optional extra
@@ -32,13 +55,37 @@ export class LocationFsxLustre extends pulumi.CustomResource {
         return obj['__pulumiType'] === LocationFsxLustre.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the DataSync Location.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The time that the FSx for Lustre location was created.
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+     */
     public readonly fsxFilesystemArn!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+     */
     public readonly securityGroupArns!: pulumi.Output<string[]>;
+    /**
+     * Subdirectory to perform actions as source or destination.
+     */
     public readonly subdirectory!: pulumi.Output<string>;
+    /**
+     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The URL of the FSx for Lustre location that was described.
+     */
     public /*out*/ readonly uri!: pulumi.Output<string>;
 
     /**
@@ -88,13 +135,37 @@ export class LocationFsxLustre extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LocationFsxLustre resources.
  */
 export interface LocationFsxLustreState {
+    /**
+     * Amazon Resource Name (ARN) of the DataSync Location.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The time that the FSx for Lustre location was created.
+     */
     creationTime?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+     */
     fsxFilesystemArn?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+     */
     securityGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Subdirectory to perform actions as source or destination.
+     */
     subdirectory?: pulumi.Input<string>;
+    /**
+     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The URL of the FSx for Lustre location that was described.
+     */
     uri?: pulumi.Input<string>;
 }
 
@@ -102,8 +173,20 @@ export interface LocationFsxLustreState {
  * The set of arguments for constructing a LocationFsxLustre resource.
  */
 export interface LocationFsxLustreArgs {
+    /**
+     * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+     */
     fsxFilesystemArn: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+     */
     securityGroupArns: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Subdirectory to perform actions as source or destination.
+     */
     subdirectory?: pulumi.Input<string>;
+    /**
+     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

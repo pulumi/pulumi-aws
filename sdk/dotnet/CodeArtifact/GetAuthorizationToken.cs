@@ -11,9 +11,57 @@ namespace Pulumi.Aws.CodeArtifact
 {
     public static class GetAuthorizationToken
     {
+        /// <summary>
+        /// The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.CodeArtifact.GetAuthorizationToken.Invoke(new()
+        ///     {
+        ///         Domain = aws_codeartifact_domain.Test.Domain,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetAuthorizationTokenResult> InvokeAsync(GetAuthorizationTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationTokenResult>("aws:codeartifact/getAuthorizationToken:getAuthorizationToken", args ?? new GetAuthorizationTokenArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.CodeArtifact.GetAuthorizationToken.Invoke(new()
+        ///     {
+        ///         Domain = aws_codeartifact_domain.Test.Domain,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetAuthorizationTokenResult> Invoke(GetAuthorizationTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationTokenResult>("aws:codeartifact/getAuthorizationToken:getAuthorizationToken", args ?? new GetAuthorizationTokenInvokeArgs(), options.WithDefaults());
     }
@@ -21,12 +69,21 @@ namespace Pulumi.Aws.CodeArtifact
 
     public sealed class GetAuthorizationTokenArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the domain that is in scope for the generated authorization token.
+        /// </summary>
         [Input("domain", required: true)]
         public string Domain { get; set; } = null!;
 
+        /// <summary>
+        /// Account number of the AWS account that owns the domain.
+        /// </summary>
         [Input("domainOwner")]
         public string? DomainOwner { get; set; }
 
+        /// <summary>
+        /// Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+        /// </summary>
         [Input("durationSeconds")]
         public int? DurationSeconds { get; set; }
 
@@ -38,12 +95,21 @@ namespace Pulumi.Aws.CodeArtifact
 
     public sealed class GetAuthorizationTokenInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the domain that is in scope for the generated authorization token.
+        /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
+        /// <summary>
+        /// Account number of the AWS account that owns the domain.
+        /// </summary>
         [Input("domainOwner")]
         public Input<string>? DomainOwner { get; set; }
 
+        /// <summary>
+        /// Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+        /// </summary>
         [Input("durationSeconds")]
         public Input<int>? DurationSeconds { get; set; }
 
@@ -57,10 +123,16 @@ namespace Pulumi.Aws.CodeArtifact
     [OutputType]
     public sealed class GetAuthorizationTokenResult
     {
+        /// <summary>
+        /// Temporary authorization token.
+        /// </summary>
         public readonly string AuthorizationToken;
         public readonly string Domain;
         public readonly string DomainOwner;
         public readonly int? DurationSeconds;
+        /// <summary>
+        /// Time in UTC RFC3339 format when the authorization token expires.
+        /// </summary>
         public readonly string Expiration;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

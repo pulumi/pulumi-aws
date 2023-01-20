@@ -16,6 +16,8 @@ public final class ReplicationGroupClusterModeArgs extends com.pulumi.resources.
     public static final ReplicationGroupClusterModeArgs Empty = new ReplicationGroupClusterModeArgs();
 
     /**
+     * Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+     * 
      * @deprecated
      * Use root-level num_node_groups instead
      * 
@@ -25,6 +27,8 @@ public final class ReplicationGroupClusterModeArgs extends com.pulumi.resources.
     private @Nullable Output<Integer> numNodeGroups;
 
     /**
+     * @return Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+     * 
      * @deprecated
      * Use root-level num_node_groups instead
      * 
@@ -35,6 +39,8 @@ public final class ReplicationGroupClusterModeArgs extends com.pulumi.resources.
     }
 
     /**
+     * Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+     * 
      * @deprecated
      * Use root-level replicas_per_node_group instead
      * 
@@ -44,6 +50,8 @@ public final class ReplicationGroupClusterModeArgs extends com.pulumi.resources.
     private @Nullable Output<Integer> replicasPerNodeGroup;
 
     /**
+     * @return Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+     * 
      * @deprecated
      * Use root-level replicas_per_node_group instead
      * 
@@ -79,6 +87,8 @@ public final class ReplicationGroupClusterModeArgs extends com.pulumi.resources.
         }
 
         /**
+         * @param numNodeGroups Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -92,6 +102,8 @@ public final class ReplicationGroupClusterModeArgs extends com.pulumi.resources.
         }
 
         /**
+         * @param numNodeGroups Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -104,6 +116,8 @@ public final class ReplicationGroupClusterModeArgs extends com.pulumi.resources.
         }
 
         /**
+         * @param replicasPerNodeGroup Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -117,6 +131,8 @@ public final class ReplicationGroupClusterModeArgs extends com.pulumi.resources.
         }
 
         /**
+         * @param replicasPerNodeGroup Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+         * 
          * @return builder
          * 
          * @deprecated

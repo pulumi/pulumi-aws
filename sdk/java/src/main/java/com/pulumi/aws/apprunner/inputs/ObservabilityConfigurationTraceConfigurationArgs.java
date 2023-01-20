@@ -15,9 +15,17 @@ public final class ObservabilityConfigurationTraceConfigurationArgs extends com.
 
     public static final ObservabilityConfigurationTraceConfigurationArgs Empty = new ObservabilityConfigurationTraceConfigurationArgs();
 
+    /**
+     * Implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
+     * 
+     */
     @Import(name="vendor")
     private @Nullable Output<String> vendor;
 
+    /**
+     * @return Implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
+     * 
+     */
     public Optional<Output<String>> vendor() {
         return Optional.ofNullable(this.vendor);
     }
@@ -46,11 +54,23 @@ public final class ObservabilityConfigurationTraceConfigurationArgs extends com.
             $ = new ObservabilityConfigurationTraceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param vendor Implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vendor(@Nullable Output<String> vendor) {
             $.vendor = vendor;
             return this;
         }
 
+        /**
+         * @param vendor Implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vendor(String vendor) {
             return vendor(Output.of(vendor));
         }

@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class RiskConfigurationRiskExceptionConfiguration
     {
+        /// <summary>
+        /// Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+        /// </summary>
         public readonly ImmutableArray<string> BlockedIpRangeLists;
+        /// <summary>
+        /// Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+        /// </summary>
         public readonly ImmutableArray<string> SkippedIpRangeLists;
 
         [OutputConstructor]

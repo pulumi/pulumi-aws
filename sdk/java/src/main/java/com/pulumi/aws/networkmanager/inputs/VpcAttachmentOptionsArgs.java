@@ -15,16 +15,32 @@ public final class VpcAttachmentOptionsArgs extends com.pulumi.resources.Resourc
 
     public static final VpcAttachmentOptionsArgs Empty = new VpcAttachmentOptionsArgs();
 
+    /**
+     * Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+     * 
+     */
     @Import(name="applianceModeSupport")
     private @Nullable Output<Boolean> applianceModeSupport;
 
+    /**
+     * @return Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+     * 
+     */
     public Optional<Output<Boolean>> applianceModeSupport() {
         return Optional.ofNullable(this.applianceModeSupport);
     }
 
+    /**
+     * Indicates whether IPv6 is supported.
+     * 
+     */
     @Import(name="ipv6Support")
     private @Nullable Output<Boolean> ipv6Support;
 
+    /**
+     * @return Indicates whether IPv6 is supported.
+     * 
+     */
     public Optional<Output<Boolean>> ipv6Support() {
         return Optional.ofNullable(this.ipv6Support);
     }
@@ -54,20 +70,44 @@ public final class VpcAttachmentOptionsArgs extends com.pulumi.resources.Resourc
             $ = new VpcAttachmentOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param applianceModeSupport Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applianceModeSupport(@Nullable Output<Boolean> applianceModeSupport) {
             $.applianceModeSupport = applianceModeSupport;
             return this;
         }
 
+        /**
+         * @param applianceModeSupport Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applianceModeSupport(Boolean applianceModeSupport) {
             return applianceModeSupport(Output.of(applianceModeSupport));
         }
 
+        /**
+         * @param ipv6Support Indicates whether IPv6 is supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv6Support(@Nullable Output<Boolean> ipv6Support) {
             $.ipv6Support = ipv6Support;
             return this;
         }
 
+        /**
+         * @param ipv6Support Indicates whether IPv6 is supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv6Support(Boolean ipv6Support) {
             return ipv6Support(Output.of(ipv6Support));
         }

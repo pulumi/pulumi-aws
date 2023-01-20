@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchTemplateIamInstanceProfile {
+    /**
+     * @return The Amazon Resource Name (ARN) of the instance profile.
+     * 
+     */
     private @Nullable String arn;
+    /**
+     * @return The name of the instance profile.
+     * 
+     */
     private @Nullable String name;
 
     private LaunchTemplateIamInstanceProfile() {}
+    /**
+     * @return The Amazon Resource Name (ARN) of the instance profile.
+     * 
+     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
+    /**
+     * @return The name of the instance profile.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

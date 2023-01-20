@@ -9,15 +9,132 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Cognito
 {
+    /// <summary>
+    /// Provides an AWS Cognito Identity Pool Roles Attachment.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mainIdentityPool = new Aws.Cognito.IdentityPool("mainIdentityPool", new()
+    ///     {
+    ///         IdentityPoolName = "identity pool",
+    ///         AllowUnauthenticatedIdentities = false,
+    ///         SupportedLoginProviders = 
+    ///         {
+    ///             { "graph.facebook.com", "7346241598935555" },
+    ///         },
+    ///     });
+    /// 
+    ///     var authenticatedRole = new Aws.Iam.Role("authenticatedRole", new()
+    ///     {
+    ///         AssumeRolePolicy = mainIdentityPool.Id.Apply(id =&gt; @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {{
+    ///         ""Federated"": ""cognito-identity.amazonaws.com""
+    ///       }},
+    ///       ""Action"": ""sts:AssumeRoleWithWebIdentity"",
+    ///       ""Condition"": {{
+    ///         ""StringEquals"": {{
+    ///           ""cognito-identity.amazonaws.com:aud"": ""{id}""
+    ///         }},
+    ///         ""ForAnyValue:StringLike"": {{
+    ///           ""cognito-identity.amazonaws.com:amr"": ""authenticated""
+    ///         }}
+    ///       }}
+    ///     }}
+    ///   ]
+    /// }}
+    /// "),
+    ///     });
+    /// 
+    ///     var authenticatedRolePolicy = new Aws.Iam.RolePolicy("authenticatedRolePolicy", new()
+    ///     {
+    ///         Role = authenticatedRole.Id,
+    ///         Policy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Effect"": ""Allow"",
+    ///       ""Action"": [
+    ///         ""mobileanalytics:PutEvents"",
+    ///         ""cognito-sync:*"",
+    ///         ""cognito-identity:*""
+    ///       ],
+    ///       ""Resource"": [
+    ///         ""*""
+    ///       ]
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///     });
+    /// 
+    ///     var mainIdentityPoolRoleAttachment = new Aws.Cognito.IdentityPoolRoleAttachment("mainIdentityPoolRoleAttachment", new()
+    ///     {
+    ///         IdentityPoolId = mainIdentityPool.Id,
+    ///         RoleMappings = new[]
+    ///         {
+    ///             new Aws.Cognito.Inputs.IdentityPoolRoleAttachmentRoleMappingArgs
+    ///             {
+    ///                 IdentityProvider = "graph.facebook.com",
+    ///                 AmbiguousRoleResolution = "AuthenticatedRole",
+    ///                 Type = "Rules",
+    ///                 MappingRules = new[]
+    ///                 {
+    ///                     new Aws.Cognito.Inputs.IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs
+    ///                     {
+    ///                         Claim = "isAdmin",
+    ///                         MatchType = "Equals",
+    ///                         RoleArn = authenticatedRole.Arn,
+    ///                         Value = "paid",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Roles = 
+    ///         {
+    ///             { "authenticated", authenticatedRole.Arn },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment")]
     public partial class IdentityPoolRoleAttachment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// An identity pool ID in the format `REGION_GUID`.
+        /// </summary>
         [Output("identityPoolId")]
         public Output<string> IdentityPoolId { get; private set; } = null!;
 
+        /// <summary>
+        /// A List of Role Mapping.
+        /// </summary>
         [Output("roleMappings")]
         public Output<ImmutableArray<Outputs.IdentityPoolRoleAttachmentRoleMapping>> RoleMappings { get; private set; } = null!;
 
+        /// <summary>
+        /// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+        /// </summary>
         [Output("roles")]
         public Output<ImmutableDictionary<string, string>> Roles { get; private set; } = null!;
 
@@ -67,11 +184,18 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class IdentityPoolRoleAttachmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An identity pool ID in the format `REGION_GUID`.
+        /// </summary>
         [Input("identityPoolId", required: true)]
         public Input<string> IdentityPoolId { get; set; } = null!;
 
         [Input("roleMappings")]
         private InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingArgs>? _roleMappings;
+
+        /// <summary>
+        /// A List of Role Mapping.
+        /// </summary>
         public InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingArgs> RoleMappings
         {
             get => _roleMappings ?? (_roleMappings = new InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingArgs>());
@@ -80,6 +204,10 @@ namespace Pulumi.Aws.Cognito
 
         [Input("roles", required: true)]
         private InputMap<string>? _roles;
+
+        /// <summary>
+        /// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+        /// </summary>
         public InputMap<string> Roles
         {
             get => _roles ?? (_roles = new InputMap<string>());
@@ -94,11 +222,18 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class IdentityPoolRoleAttachmentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An identity pool ID in the format `REGION_GUID`.
+        /// </summary>
         [Input("identityPoolId")]
         public Input<string>? IdentityPoolId { get; set; }
 
         [Input("roleMappings")]
         private InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingGetArgs>? _roleMappings;
+
+        /// <summary>
+        /// A List of Role Mapping.
+        /// </summary>
         public InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingGetArgs> RoleMappings
         {
             get => _roleMappings ?? (_roleMappings = new InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingGetArgs>());
@@ -107,6 +242,10 @@ namespace Pulumi.Aws.Cognito
 
         [Input("roles")]
         private InputMap<string>? _roles;
+
+        /// <summary>
+        /// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+        /// </summary>
         public InputMap<string> Roles
         {
             get => _roles ?? (_roles = new InputMap<string>());

@@ -18,6 +18,10 @@ public final class GetRepositoryEndpointResult {
      */
     private String id;
     private String repository;
+    /**
+     * @return URL of the returned endpoint.
+     * 
+     */
     private String repositoryEndpoint;
 
     private GetRepositoryEndpointResult() {}
@@ -40,6 +44,10 @@ public final class GetRepositoryEndpointResult {
     public String repository() {
         return this.repository;
     }
+    /**
+     * @return URL of the returned endpoint.
+     * 
+     */
     public String repositoryEndpoint() {
         return this.repositoryEndpoint;
     }

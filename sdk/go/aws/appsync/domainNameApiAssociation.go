@@ -11,10 +11,50 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an AppSync API Association.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appsync.NewDomainNameApiAssociation(ctx, "example", &appsync.DomainNameApiAssociationArgs{
+//				ApiId:      pulumi.Any(aws_appsync_graphql_api.Example.Id),
+//				DomainName: pulumi.Any(aws_appsync_domain_name.Example.Domain_name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_appsync_domain_name_api_association` can be imported using the AppSync domain name, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
+//
+// ```
 type DomainNameApiAssociation struct {
 	pulumi.CustomResourceState
 
-	ApiId      pulumi.StringOutput `pulumi:"apiId"`
+	// API ID.
+	ApiId pulumi.StringOutput `pulumi:"apiId"`
+	// Appsync domain name.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 }
 
@@ -53,12 +93,16 @@ func GetDomainNameApiAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainNameApiAssociation resources.
 type domainNameApiAssociationState struct {
-	ApiId      *string `pulumi:"apiId"`
+	// API ID.
+	ApiId *string `pulumi:"apiId"`
+	// Appsync domain name.
 	DomainName *string `pulumi:"domainName"`
 }
 
 type DomainNameApiAssociationState struct {
-	ApiId      pulumi.StringPtrInput
+	// API ID.
+	ApiId pulumi.StringPtrInput
+	// Appsync domain name.
 	DomainName pulumi.StringPtrInput
 }
 
@@ -67,13 +111,17 @@ func (DomainNameApiAssociationState) ElementType() reflect.Type {
 }
 
 type domainNameApiAssociationArgs struct {
-	ApiId      string `pulumi:"apiId"`
+	// API ID.
+	ApiId string `pulumi:"apiId"`
+	// Appsync domain name.
 	DomainName string `pulumi:"domainName"`
 }
 
 // The set of arguments for constructing a DomainNameApiAssociation resource.
 type DomainNameApiAssociationArgs struct {
-	ApiId      pulumi.StringInput
+	// API ID.
+	ApiId pulumi.StringInput
+	// Appsync domain name.
 	DomainName pulumi.StringInput
 }
 
@@ -164,10 +212,12 @@ func (o DomainNameApiAssociationOutput) ToDomainNameApiAssociationOutputWithCont
 	return o
 }
 
+// API ID.
 func (o DomainNameApiAssociationOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameApiAssociation) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
+// Appsync domain name.
 func (o DomainNameApiAssociationOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameApiAssociation) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }

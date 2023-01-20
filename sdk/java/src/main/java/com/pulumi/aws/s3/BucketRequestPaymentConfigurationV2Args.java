@@ -15,23 +15,47 @@ public final class BucketRequestPaymentConfigurationV2Args extends com.pulumi.re
 
     public static final BucketRequestPaymentConfigurationV2Args Empty = new BucketRequestPaymentConfigurationV2Args();
 
+    /**
+     * The name of the bucket.
+     * 
+     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
+    /**
+     * @return The name of the bucket.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
+    /**
+     * The account ID of the expected bucket owner.
+     * 
+     */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
+    /**
+     * @return The account ID of the expected bucket owner.
+     * 
+     */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
 
+    /**
+     * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+     * 
+     */
     @Import(name="payer", required=true)
     private Output<String> payer;
 
+    /**
+     * @return Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+     * 
+     */
     public Output<String> payer() {
         return this.payer;
     }
@@ -62,29 +86,65 @@ public final class BucketRequestPaymentConfigurationV2Args extends com.pulumi.re
             $ = new BucketRequestPaymentConfigurationV2Args(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucket The name of the bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
+        /**
+         * @param bucket The name of the bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
 
+        /**
+         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }
 
+        /**
+         * @param payer Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder payer(Output<String> payer) {
             $.payer = payer;
             return this;
         }
 
+        /**
+         * @param payer Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder payer(String payer) {
             return payer(Output.of(payer));
         }

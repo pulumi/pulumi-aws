@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketAclV2AccessControlPolicyOwner {
+    /**
+     * @return The display name of the owner.
+     * 
+     */
     private @Nullable String displayName;
+    /**
+     * @return The ID of the owner.
+     * 
+     */
     private String id;
 
     private BucketAclV2AccessControlPolicyOwner() {}
+    /**
+     * @return The display name of the owner.
+     * 
+     */
     public Optional<String> displayName() {
         return Optional.ofNullable(this.displayName);
     }
+    /**
+     * @return The ID of the owner.
+     * 
+     */
     public String id() {
         return this.id;
     }

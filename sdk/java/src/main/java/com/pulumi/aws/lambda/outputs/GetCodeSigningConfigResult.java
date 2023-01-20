@@ -12,28 +12,60 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCodeSigningConfigResult {
+    /**
+     * @return List of allowed publishers as signing profiles for this code signing configuration.
+     * 
+     */
     private List<GetCodeSigningConfigAllowedPublisher> allowedPublishers;
     private String arn;
+    /**
+     * @return Unique identifier for the code signing configuration.
+     * 
+     */
     private String configId;
+    /**
+     * @return Code signing configuration description.
+     * 
+     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Date and time that the code signing configuration was last modified.
+     * 
+     */
     private String lastModified;
+    /**
+     * @return List of code signing policies that control the validation failure action for signature mismatch or expiry.
+     * 
+     */
     private List<GetCodeSigningConfigPolicy> policies;
 
     private GetCodeSigningConfigResult() {}
+    /**
+     * @return List of allowed publishers as signing profiles for this code signing configuration.
+     * 
+     */
     public List<GetCodeSigningConfigAllowedPublisher> allowedPublishers() {
         return this.allowedPublishers;
     }
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Unique identifier for the code signing configuration.
+     * 
+     */
     public String configId() {
         return this.configId;
     }
+    /**
+     * @return Code signing configuration description.
+     * 
+     */
     public String description() {
         return this.description;
     }
@@ -44,9 +76,17 @@ public final class GetCodeSigningConfigResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Date and time that the code signing configuration was last modified.
+     * 
+     */
     public String lastModified() {
         return this.lastModified;
     }
+    /**
+     * @return List of code signing policies that control the validation failure action for signature mismatch or expiry.
+     * 
+     */
     public List<GetCodeSigningConfigPolicy> policies() {
         return this.policies;
     }

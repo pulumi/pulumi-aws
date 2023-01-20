@@ -18,30 +18,62 @@ public final class RuleGroupRuleActionArgs extends com.pulumi.resources.Resource
 
     public static final RuleGroupRuleActionArgs Empty = new RuleGroupRuleActionArgs();
 
+    /**
+     * Instructs AWS WAF to allow the web request. See Allow below for details.
+     * 
+     */
     @Import(name="allow")
     private @Nullable Output<RuleGroupRuleActionAllowArgs> allow;
 
+    /**
+     * @return Instructs AWS WAF to allow the web request. See Allow below for details.
+     * 
+     */
     public Optional<Output<RuleGroupRuleActionAllowArgs>> allow() {
         return Optional.ofNullable(this.allow);
     }
 
+    /**
+     * Instructs AWS WAF to block the web request. See Block below for details.
+     * 
+     */
     @Import(name="block")
     private @Nullable Output<RuleGroupRuleActionBlockArgs> block;
 
+    /**
+     * @return Instructs AWS WAF to block the web request. See Block below for details.
+     * 
+     */
     public Optional<Output<RuleGroupRuleActionBlockArgs>> block() {
         return Optional.ofNullable(this.block);
     }
 
+    /**
+     * Instructs AWS WAF to run a `CAPTCHA` check against the web request. See Captcha below for details.
+     * 
+     */
     @Import(name="captcha")
     private @Nullable Output<RuleGroupRuleActionCaptchaArgs> captcha;
 
+    /**
+     * @return Instructs AWS WAF to run a `CAPTCHA` check against the web request. See Captcha below for details.
+     * 
+     */
     public Optional<Output<RuleGroupRuleActionCaptchaArgs>> captcha() {
         return Optional.ofNullable(this.captcha);
     }
 
+    /**
+     * Instructs AWS WAF to count the web request and allow it. See Count below for details.
+     * 
+     */
     @Import(name="count")
     private @Nullable Output<RuleGroupRuleActionCountArgs> count;
 
+    /**
+     * @return Instructs AWS WAF to count the web request and allow it. See Count below for details.
+     * 
+     */
     public Optional<Output<RuleGroupRuleActionCountArgs>> count() {
         return Optional.ofNullable(this.count);
     }
@@ -73,38 +105,86 @@ public final class RuleGroupRuleActionArgs extends com.pulumi.resources.Resource
             $ = new RuleGroupRuleActionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allow Instructs AWS WAF to allow the web request. See Allow below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allow(@Nullable Output<RuleGroupRuleActionAllowArgs> allow) {
             $.allow = allow;
             return this;
         }
 
+        /**
+         * @param allow Instructs AWS WAF to allow the web request. See Allow below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allow(RuleGroupRuleActionAllowArgs allow) {
             return allow(Output.of(allow));
         }
 
+        /**
+         * @param block Instructs AWS WAF to block the web request. See Block below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder block(@Nullable Output<RuleGroupRuleActionBlockArgs> block) {
             $.block = block;
             return this;
         }
 
+        /**
+         * @param block Instructs AWS WAF to block the web request. See Block below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder block(RuleGroupRuleActionBlockArgs block) {
             return block(Output.of(block));
         }
 
+        /**
+         * @param captcha Instructs AWS WAF to run a `CAPTCHA` check against the web request. See Captcha below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder captcha(@Nullable Output<RuleGroupRuleActionCaptchaArgs> captcha) {
             $.captcha = captcha;
             return this;
         }
 
+        /**
+         * @param captcha Instructs AWS WAF to run a `CAPTCHA` check against the web request. See Captcha below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder captcha(RuleGroupRuleActionCaptchaArgs captcha) {
             return captcha(Output.of(captcha));
         }
 
+        /**
+         * @param count Instructs AWS WAF to count the web request and allow it. See Count below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder count(@Nullable Output<RuleGroupRuleActionCountArgs> count) {
             $.count = count;
             return this;
         }
 
+        /**
+         * @param count Instructs AWS WAF to count the web request and allow it. See Count below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder count(RuleGroupRuleActionCountArgs count) {
             return count(Output.of(count));
         }

@@ -13,17 +13,93 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a SQS Queue Redrive Allow Policy resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sqs.Queue;
+ * import com.pulumi.aws.sqs.QueueArgs;
+ * import com.pulumi.aws.sqs.RedriveAllowPolicy;
+ * import com.pulumi.aws.sqs.RedriveAllowPolicyArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleQueue = new Queue(&#34;exampleQueue&#34;);
+ * 
+ *         var src = new Queue(&#34;src&#34;, QueueArgs.builder()        
+ *             .redrivePolicy(exampleQueue.arn().applyValue(arn -&gt; serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;deadLetterTargetArn&#34;, arn),
+ *                     jsonProperty(&#34;maxReceiveCount&#34;, 4)
+ *                 ))))
+ *             .build());
+ * 
+ *         var exampleRedriveAllowPolicy = new RedriveAllowPolicy(&#34;exampleRedriveAllowPolicy&#34;, RedriveAllowPolicyArgs.builder()        
+ *             .queueUrl(exampleQueue.id())
+ *             .redriveAllowPolicy(src.arn().applyValue(arn -&gt; serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;redrivePermission&#34;, &#34;byQueue&#34;),
+ *                     jsonProperty(&#34;sourceQueueArns&#34;, jsonArray(arn))
+ *                 ))))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * SQS Queue Redrive Allow Policies can be imported using the queue URL, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:sqs/redriveAllowPolicy:RedriveAllowPolicy test https://queue.amazonaws.com/0123456789012/myqueue
+ * ```
+ * 
+ */
 @ResourceType(type="aws:sqs/redriveAllowPolicy:RedriveAllowPolicy")
 public class RedriveAllowPolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * The URL of the SQS Queue to which to attach the policy
+     * 
+     */
     @Export(name="queueUrl", refs={String.class}, tree="[0]")
     private Output<String> queueUrl;
 
+    /**
+     * @return The URL of the SQS Queue to which to attach the policy
+     * 
+     */
     public Output<String> queueUrl() {
         return this.queueUrl;
     }
+    /**
+     * The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
+     * 
+     */
     @Export(name="redriveAllowPolicy", refs={String.class}, tree="[0]")
     private Output<String> redriveAllowPolicy;
 
+    /**
+     * @return The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
+     * 
+     */
     public Output<String> redriveAllowPolicy() {
         return this.redriveAllowPolicy;
     }

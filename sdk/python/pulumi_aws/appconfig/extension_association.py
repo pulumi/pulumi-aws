@@ -19,6 +19,9 @@ class ExtensionAssociationArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ExtensionAssociation resource.
+        :param pulumi.Input[str] extension_arn: The ARN of the extension defined in the association.
+        :param pulumi.Input[str] resource_arn: The ARN of the application, configuration profile, or environment to associate with the extension.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The parameter names and values defined for the association.
         """
         pulumi.set(__self__, "extension_arn", extension_arn)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -28,6 +31,9 @@ class ExtensionAssociationArgs:
     @property
     @pulumi.getter(name="extensionArn")
     def extension_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the extension defined in the association.
+        """
         return pulumi.get(self, "extension_arn")
 
     @extension_arn.setter
@@ -37,6 +43,9 @@ class ExtensionAssociationArgs:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the application, configuration profile, or environment to associate with the extension.
+        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -46,6 +55,9 @@ class ExtensionAssociationArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The parameter names and values defined for the association.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -63,6 +75,11 @@ class _ExtensionAssociationState:
                  resource_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ExtensionAssociation resources.
+        :param pulumi.Input[str] arn: ARN of the AppConfig Extension Association.
+        :param pulumi.Input[str] extension_arn: The ARN of the extension defined in the association.
+        :param pulumi.Input[int] extension_version: The version number for the extension defined in the association.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The parameter names and values defined for the association.
+        :param pulumi.Input[str] resource_arn: The ARN of the application, configuration profile, or environment to associate with the extension.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -78,6 +95,9 @@ class _ExtensionAssociationState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the AppConfig Extension Association.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -87,6 +107,9 @@ class _ExtensionAssociationState:
     @property
     @pulumi.getter(name="extensionArn")
     def extension_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the extension defined in the association.
+        """
         return pulumi.get(self, "extension_arn")
 
     @extension_arn.setter
@@ -96,6 +119,9 @@ class _ExtensionAssociationState:
     @property
     @pulumi.getter(name="extensionVersion")
     def extension_version(self) -> Optional[pulumi.Input[int]]:
+        """
+        The version number for the extension defined in the association.
+        """
         return pulumi.get(self, "extension_version")
 
     @extension_version.setter
@@ -105,6 +131,9 @@ class _ExtensionAssociationState:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The parameter names and values defined for the association.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -114,6 +143,9 @@ class _ExtensionAssociationState:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the application, configuration profile, or environment to associate with the extension.
+        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -131,9 +163,55 @@ class ExtensionAssociation(pulumi.CustomResource):
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ExtensionAssociation resource with the given unique name, props, and options.
+        Associates an AppConfig Extension with a Resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_topic = aws.sns.Topic("testTopic")
+        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRole"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["appconfig.amazonaws.com"],
+            )],
+        )])
+        test_role = aws.iam.Role("testRole", assume_role_policy=test_policy_document.json)
+        test_extension = aws.appconfig.Extension("testExtension",
+            description="test description",
+            action_points=[aws.appconfig.ExtensionActionPointArgs(
+                point="ON_DEPLOYMENT_COMPLETE",
+                actions=[aws.appconfig.ExtensionActionPointActionArgs(
+                    name="test",
+                    role_arn=test_role.arn,
+                    uri=test_topic.arn,
+                )],
+            )],
+            tags={
+                "Type": "AppConfig Extension",
+            })
+        test_application = aws.appconfig.Application("testApplication")
+        test_extension_association = aws.appconfig.ExtensionAssociation("testExtensionAssociation",
+            extension_arn=test_extension.arn,
+            resource_arn=test_application.arn)
+        ```
+
+        ## Import
+
+        AppConfig Extension Associations can be imported using their extension association ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] extension_arn: The ARN of the extension defined in the association.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The parameter names and values defined for the association.
+        :param pulumi.Input[str] resource_arn: The ARN of the application, configuration profile, or environment to associate with the extension.
         """
         ...
     @overload
@@ -142,7 +220,50 @@ class ExtensionAssociation(pulumi.CustomResource):
                  args: ExtensionAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ExtensionAssociation resource with the given unique name, props, and options.
+        Associates an AppConfig Extension with a Resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_topic = aws.sns.Topic("testTopic")
+        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRole"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["appconfig.amazonaws.com"],
+            )],
+        )])
+        test_role = aws.iam.Role("testRole", assume_role_policy=test_policy_document.json)
+        test_extension = aws.appconfig.Extension("testExtension",
+            description="test description",
+            action_points=[aws.appconfig.ExtensionActionPointArgs(
+                point="ON_DEPLOYMENT_COMPLETE",
+                actions=[aws.appconfig.ExtensionActionPointActionArgs(
+                    name="test",
+                    role_arn=test_role.arn,
+                    uri=test_topic.arn,
+                )],
+            )],
+            tags={
+                "Type": "AppConfig Extension",
+            })
+        test_application = aws.appconfig.Application("testApplication")
+        test_extension_association = aws.appconfig.ExtensionAssociation("testExtensionAssociation",
+            extension_arn=test_extension.arn,
+            resource_arn=test_application.arn)
+        ```
+
+        ## Import
+
+        AppConfig Extension Associations can be imported using their extension association ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
+        ```
+
         :param str resource_name: The name of the resource.
         :param ExtensionAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,6 +322,11 @@ class ExtensionAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the AppConfig Extension Association.
+        :param pulumi.Input[str] extension_arn: The ARN of the extension defined in the association.
+        :param pulumi.Input[int] extension_version: The version number for the extension defined in the association.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The parameter names and values defined for the association.
+        :param pulumi.Input[str] resource_arn: The ARN of the application, configuration profile, or environment to associate with the extension.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -216,25 +342,40 @@ class ExtensionAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the AppConfig Extension Association.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="extensionArn")
     def extension_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the extension defined in the association.
+        """
         return pulumi.get(self, "extension_arn")
 
     @property
     @pulumi.getter(name="extensionVersion")
     def extension_version(self) -> pulumi.Output[int]:
+        """
+        The version number for the extension defined in the association.
+        """
         return pulumi.get(self, "extension_version")
 
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The parameter names and values defined for the association.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the application, configuration profile, or environment to associate with the extension.
+        """
         return pulumi.get(self, "resource_arn")
 

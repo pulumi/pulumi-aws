@@ -16,9 +16,17 @@ public final class GetImagePipelinesArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetImagePipelinesArgs Empty = new GetImagePipelinesArgs();
 
+    /**
+     * Configuration block(s) for filtering. Detailed below.
+     * 
+     */
     @Import(name="filters")
     private @Nullable Output<List<GetImagePipelinesFilterArgs>> filters;
 
+    /**
+     * @return Configuration block(s) for filtering. Detailed below.
+     * 
+     */
     public Optional<Output<List<GetImagePipelinesFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
@@ -47,15 +55,33 @@ public final class GetImagePipelinesArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetImagePipelinesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable Output<List<GetImagePipelinesFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(List<GetImagePipelinesFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
+        /**
+         * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(GetImagePipelinesFilterArgs... filters) {
             return filters(List.of(filters));
         }

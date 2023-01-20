@@ -13,23 +13,141 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Pinpoint Event Stream resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.pinpoint.App;
+ * import com.pulumi.aws.kinesis.Stream;
+ * import com.pulumi.aws.kinesis.StreamArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.pinpoint.EventStream;
+ * import com.pulumi.aws.pinpoint.EventStreamArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var app = new App(&#34;app&#34;);
+ * 
+ *         var testStream = new Stream(&#34;testStream&#34;, StreamArgs.builder()        
+ *             .shardCount(1)
+ *             .build());
+ * 
+ *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
+ *       &#34;Principal&#34;: {
+ *         &#34;Service&#34;: &#34;pinpoint.us-east-1.amazonaws.com&#34;
+ *       },
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Sid&#34;: &#34;&#34;
+ *     }
+ *   ]
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *         var stream = new EventStream(&#34;stream&#34;, EventStreamArgs.builder()        
+ *             .applicationId(app.applicationId())
+ *             .destinationStreamArn(testStream.arn())
+ *             .roleArn(testRole.arn())
+ *             .build());
+ * 
+ *         var testRolePolicy = new RolePolicy(&#34;testRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .role(testRole.id())
+ *             .policy(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: {
+ *     &#34;Action&#34;: [
+ *       &#34;kinesis:PutRecords&#34;,
+ *       &#34;kinesis:DescribeStream&#34;
+ *     ],
+ *     &#34;Effect&#34;: &#34;Allow&#34;,
+ *     &#34;Resource&#34;: [
+ *       &#34;arn:aws:kinesis:us-east-1:*:*{@literal /}*&#34;
+ *     ]
+ *   }
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Pinpoint Event Stream can be imported using the `application-id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
+ * ```
+ * 
+ */
 @ResourceType(type="aws:pinpoint/eventStream:EventStream")
 public class EventStream extends com.pulumi.resources.CustomResource {
+    /**
+     * The application ID.
+     * 
+     */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
+    /**
+     * @return The application ID.
+     * 
+     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+     * 
+     */
     @Export(name="destinationStreamArn", refs={String.class}, tree="[0]")
     private Output<String> destinationStreamArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+     * 
+     */
     public Output<String> destinationStreamArn() {
         return this.destinationStreamArn;
     }
+    /**
+     * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+     * 
+     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
+    /**
+     * @return The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+     * 
+     */
     public Output<String> roleArn() {
         return this.roleArn;
     }

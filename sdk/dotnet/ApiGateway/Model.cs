@@ -9,21 +9,75 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGateway
 {
+    /// <summary>
+    /// Provides a Model for a REST API Gateway.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new()
+    ///     {
+    ///         Description = "This is my API for demonstration purposes",
+    ///     });
+    /// 
+    ///     var myDemoModel = new Aws.ApiGateway.Model("myDemoModel", new()
+    ///     {
+    ///         RestApi = myDemoAPI.Id,
+    ///         Description = "a JSON schema",
+    ///         ContentType = "application/json",
+    ///         Schema = @"{
+    ///   ""type"": ""object""
+    /// }
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_api_gateway_model` can be imported using `REST-API-ID/NAME`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:apigateway/model:Model example 12345abcde/example
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:apigateway/model:Model")]
     public partial class Model : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Content type of the model
+        /// </summary>
         [Output("contentType")]
         public Output<string> ContentType { get; private set; } = null!;
 
+        /// <summary>
+        /// Description of the model
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the model
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the associated REST API
+        /// </summary>
         [Output("restApi")]
         public Output<string> RestApi { get; private set; } = null!;
 
+        /// <summary>
+        /// Schema of the model in a JSON form
+        /// </summary>
         [Output("schema")]
         public Output<string?> Schema { get; private set; } = null!;
 
@@ -73,18 +127,33 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class ModelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Content type of the model
+        /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
+        /// <summary>
+        /// Description of the model
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Name of the model
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// ID of the associated REST API
+        /// </summary>
         [Input("restApi", required: true)]
         public Input<string> RestApi { get; set; } = null!;
 
+        /// <summary>
+        /// Schema of the model in a JSON form
+        /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
 
@@ -96,18 +165,33 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class ModelState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Content type of the model
+        /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
+        /// <summary>
+        /// Description of the model
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Name of the model
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// ID of the associated REST API
+        /// </summary>
         [Input("restApi")]
         public Input<string>? RestApi { get; set; }
 
+        /// <summary>
+        /// Schema of the model in a JSON form
+        /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
 

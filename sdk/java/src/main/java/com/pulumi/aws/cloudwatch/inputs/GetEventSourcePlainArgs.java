@@ -14,9 +14,17 @@ public final class GetEventSourcePlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetEventSourcePlainArgs Empty = new GetEventSourcePlainArgs();
 
+    /**
+     * Specifying this limits the results to only those partner event sources with names that start with the specified prefix
+     * 
+     */
     @Import(name="namePrefix")
     private @Nullable String namePrefix;
 
+    /**
+     * @return Specifying this limits the results to only those partner event sources with names that start with the specified prefix
+     * 
+     */
     public Optional<String> namePrefix() {
         return Optional.ofNullable(this.namePrefix);
     }
@@ -45,6 +53,12 @@ public final class GetEventSourcePlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetEventSourcePlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param namePrefix Specifying this limits the results to only those partner event sources with names that start with the specified prefix
+         * 
+         * @return builder
+         * 
+         */
         public Builder namePrefix(@Nullable String namePrefix) {
             $.namePrefix = namePrefix;
             return this;

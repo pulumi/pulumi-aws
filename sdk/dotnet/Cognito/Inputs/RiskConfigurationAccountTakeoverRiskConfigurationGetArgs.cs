@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class RiskConfigurationAccountTakeoverRiskConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Account takeover risk configuration actions. See details below.
+        /// </summary>
         [Input("actions", required: true)]
         public Input<Inputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsGetArgs> Actions { get; set; } = null!;
 
+        /// <summary>
+        /// The notify configuration used to construct email notifications. See details below.
+        /// </summary>
         [Input("notifyConfiguration", required: true)]
         public Input<Inputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationGetArgs> NotifyConfiguration { get; set; } = null!;
 

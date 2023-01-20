@@ -10,17 +10,76 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an GameLift Game Session Queue resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := gamelift.NewGameSessionQueue(ctx, "test", &gamelift.GameSessionQueueArgs{
+//				Destinations: pulumi.StringArray{
+//					aws_gamelift_fleet.Us_west_2_fleet.Arn,
+//					aws_gamelift_fleet.Eu_central_1_fleet.Arn,
+//				},
+//				NotificationTarget: pulumi.Any(aws_sns_topic.Game_session_queue_notifications.Arn),
+//				PlayerLatencyPolicies: gamelift.GameSessionQueuePlayerLatencyPolicyArray{
+//					&gamelift.GameSessionQueuePlayerLatencyPolicyArgs{
+//						MaximumIndividualPlayerLatencyMilliseconds: pulumi.Int(100),
+//						PolicyDurationSeconds:                      pulumi.Int(5),
+//					},
+//					&gamelift.GameSessionQueuePlayerLatencyPolicyArgs{
+//						MaximumIndividualPlayerLatencyMilliseconds: pulumi.Int(200),
+//					},
+//				},
+//				TimeoutInSeconds: pulumi.Int(60),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// GameLift Game Session Queues can be imported by their `name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
+//
+// ```
 type GameSessionQueue struct {
 	pulumi.CustomResourceState
 
-	Arn                   pulumi.StringOutput                            `pulumi:"arn"`
-	Destinations          pulumi.StringArrayOutput                       `pulumi:"destinations"`
-	Name                  pulumi.StringOutput                            `pulumi:"name"`
-	NotificationTarget    pulumi.StringPtrOutput                         `pulumi:"notificationTarget"`
+	// Game Session Queue ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// List of fleet/alias ARNs used by session queue for placing game sessions.
+	Destinations pulumi.StringArrayOutput `pulumi:"destinations"`
+	// Name of the session queue.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// An SNS topic ARN that is set up to receive game session placement notifications.
+	NotificationTarget pulumi.StringPtrOutput `pulumi:"notificationTarget"`
+	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayOutput `pulumi:"playerLatencyPolicies"`
-	Tags                  pulumi.StringMapOutput                         `pulumi:"tags"`
-	TagsAll               pulumi.StringMapOutput                         `pulumi:"tagsAll"`
-	TimeoutInSeconds      pulumi.IntPtrOutput                            `pulumi:"timeoutInSeconds"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Maximum time a game session request can remain in the queue.
+	TimeoutInSeconds pulumi.IntPtrOutput `pulumi:"timeoutInSeconds"`
 }
 
 // NewGameSessionQueue registers a new resource with the given unique name, arguments, and options.
@@ -52,25 +111,41 @@ func GetGameSessionQueue(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GameSessionQueue resources.
 type gameSessionQueueState struct {
-	Arn                   *string                               `pulumi:"arn"`
-	Destinations          []string                              `pulumi:"destinations"`
-	Name                  *string                               `pulumi:"name"`
-	NotificationTarget    *string                               `pulumi:"notificationTarget"`
+	// Game Session Queue ARN.
+	Arn *string `pulumi:"arn"`
+	// List of fleet/alias ARNs used by session queue for placing game sessions.
+	Destinations []string `pulumi:"destinations"`
+	// Name of the session queue.
+	Name *string `pulumi:"name"`
+	// An SNS topic ARN that is set up to receive game session placement notifications.
+	NotificationTarget *string `pulumi:"notificationTarget"`
+	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies []GameSessionQueuePlayerLatencyPolicy `pulumi:"playerLatencyPolicies"`
-	Tags                  map[string]string                     `pulumi:"tags"`
-	TagsAll               map[string]string                     `pulumi:"tagsAll"`
-	TimeoutInSeconds      *int                                  `pulumi:"timeoutInSeconds"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Maximum time a game session request can remain in the queue.
+	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
 }
 
 type GameSessionQueueState struct {
-	Arn                   pulumi.StringPtrInput
-	Destinations          pulumi.StringArrayInput
-	Name                  pulumi.StringPtrInput
-	NotificationTarget    pulumi.StringPtrInput
+	// Game Session Queue ARN.
+	Arn pulumi.StringPtrInput
+	// List of fleet/alias ARNs used by session queue for placing game sessions.
+	Destinations pulumi.StringArrayInput
+	// Name of the session queue.
+	Name pulumi.StringPtrInput
+	// An SNS topic ARN that is set up to receive game session placement notifications.
+	NotificationTarget pulumi.StringPtrInput
+	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayInput
-	Tags                  pulumi.StringMapInput
-	TagsAll               pulumi.StringMapInput
-	TimeoutInSeconds      pulumi.IntPtrInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// Maximum time a game session request can remain in the queue.
+	TimeoutInSeconds pulumi.IntPtrInput
 }
 
 func (GameSessionQueueState) ElementType() reflect.Type {
@@ -78,22 +153,34 @@ func (GameSessionQueueState) ElementType() reflect.Type {
 }
 
 type gameSessionQueueArgs struct {
-	Destinations          []string                              `pulumi:"destinations"`
-	Name                  *string                               `pulumi:"name"`
-	NotificationTarget    *string                               `pulumi:"notificationTarget"`
+	// List of fleet/alias ARNs used by session queue for placing game sessions.
+	Destinations []string `pulumi:"destinations"`
+	// Name of the session queue.
+	Name *string `pulumi:"name"`
+	// An SNS topic ARN that is set up to receive game session placement notifications.
+	NotificationTarget *string `pulumi:"notificationTarget"`
+	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies []GameSessionQueuePlayerLatencyPolicy `pulumi:"playerLatencyPolicies"`
-	Tags                  map[string]string                     `pulumi:"tags"`
-	TimeoutInSeconds      *int                                  `pulumi:"timeoutInSeconds"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Maximum time a game session request can remain in the queue.
+	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
 }
 
 // The set of arguments for constructing a GameSessionQueue resource.
 type GameSessionQueueArgs struct {
-	Destinations          pulumi.StringArrayInput
-	Name                  pulumi.StringPtrInput
-	NotificationTarget    pulumi.StringPtrInput
+	// List of fleet/alias ARNs used by session queue for placing game sessions.
+	Destinations pulumi.StringArrayInput
+	// Name of the session queue.
+	Name pulumi.StringPtrInput
+	// An SNS topic ARN that is set up to receive game session placement notifications.
+	NotificationTarget pulumi.StringPtrInput
+	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayInput
-	Tags                  pulumi.StringMapInput
-	TimeoutInSeconds      pulumi.IntPtrInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Maximum time a game session request can remain in the queue.
+	TimeoutInSeconds pulumi.IntPtrInput
 }
 
 func (GameSessionQueueArgs) ElementType() reflect.Type {
@@ -183,36 +270,44 @@ func (o GameSessionQueueOutput) ToGameSessionQueueOutputWithContext(ctx context.
 	return o
 }
 
+// Game Session Queue ARN.
 func (o GameSessionQueueOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// List of fleet/alias ARNs used by session queue for placing game sessions.
 func (o GameSessionQueueOutput) Destinations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringArrayOutput { return v.Destinations }).(pulumi.StringArrayOutput)
 }
 
+// Name of the session queue.
 func (o GameSessionQueueOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// An SNS topic ARN that is set up to receive game session placement notifications.
 func (o GameSessionQueueOutput) NotificationTarget() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringPtrOutput { return v.NotificationTarget }).(pulumi.StringPtrOutput)
 }
 
+// One or more policies used to choose fleet based on player latency. See below.
 func (o GameSessionQueueOutput) PlayerLatencyPolicies() GameSessionQueuePlayerLatencyPolicyArrayOutput {
 	return o.ApplyT(func(v *GameSessionQueue) GameSessionQueuePlayerLatencyPolicyArrayOutput {
 		return v.PlayerLatencyPolicies
 	}).(GameSessionQueuePlayerLatencyPolicyArrayOutput)
 }
 
+// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o GameSessionQueueOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o GameSessionQueueOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// Maximum time a game session request can remain in the queue.
 func (o GameSessionQueueOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.IntPtrOutput { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
 }

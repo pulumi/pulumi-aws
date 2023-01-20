@@ -11,12 +11,57 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Pinpoint GCM Channel resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			app, err := pinpoint.NewApp(ctx, "app", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pinpoint.NewGcmChannel(ctx, "gcm", &pinpoint.GcmChannelArgs{
+//				ApplicationId: app.ApplicationId,
+//				ApiKey:        pulumi.String("api_key"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Pinpoint GCM Channel can be imported using the `application-id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
+//
+// ```
 type GcmChannel struct {
 	pulumi.CustomResourceState
 
-	ApiKey        pulumi.StringOutput  `pulumi:"apiKey"`
-	ApplicationId pulumi.StringOutput  `pulumi:"applicationId"`
-	Enabled       pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Platform credential API key from Google.
+	ApiKey pulumi.StringOutput `pulumi:"apiKey"`
+	// The application ID.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// Whether the channel is enabled or disabled. Defaults to `true`.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 }
 
 // NewGcmChannel registers a new resource with the given unique name, arguments, and options.
@@ -61,15 +106,21 @@ func GetGcmChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GcmChannel resources.
 type gcmChannelState struct {
-	ApiKey        *string `pulumi:"apiKey"`
+	// Platform credential API key from Google.
+	ApiKey *string `pulumi:"apiKey"`
+	// The application ID.
 	ApplicationId *string `pulumi:"applicationId"`
-	Enabled       *bool   `pulumi:"enabled"`
+	// Whether the channel is enabled or disabled. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
 }
 
 type GcmChannelState struct {
-	ApiKey        pulumi.StringPtrInput
+	// Platform credential API key from Google.
+	ApiKey pulumi.StringPtrInput
+	// The application ID.
 	ApplicationId pulumi.StringPtrInput
-	Enabled       pulumi.BoolPtrInput
+	// Whether the channel is enabled or disabled. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput
 }
 
 func (GcmChannelState) ElementType() reflect.Type {
@@ -77,16 +128,22 @@ func (GcmChannelState) ElementType() reflect.Type {
 }
 
 type gcmChannelArgs struct {
-	ApiKey        string `pulumi:"apiKey"`
+	// Platform credential API key from Google.
+	ApiKey string `pulumi:"apiKey"`
+	// The application ID.
 	ApplicationId string `pulumi:"applicationId"`
-	Enabled       *bool  `pulumi:"enabled"`
+	// Whether the channel is enabled or disabled. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
 }
 
 // The set of arguments for constructing a GcmChannel resource.
 type GcmChannelArgs struct {
-	ApiKey        pulumi.StringInput
+	// Platform credential API key from Google.
+	ApiKey pulumi.StringInput
+	// The application ID.
 	ApplicationId pulumi.StringInput
-	Enabled       pulumi.BoolPtrInput
+	// Whether the channel is enabled or disabled. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput
 }
 
 func (GcmChannelArgs) ElementType() reflect.Type {
@@ -176,14 +233,17 @@ func (o GcmChannelOutput) ToGcmChannelOutputWithContext(ctx context.Context) Gcm
 	return o
 }
 
+// Platform credential API key from Google.
 func (o GcmChannelOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *GcmChannel) pulumi.StringOutput { return v.ApiKey }).(pulumi.StringOutput)
 }
 
+// The application ID.
 func (o GcmChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GcmChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
+// Whether the channel is enabled or disabled. Defaults to `true`.
 func (o GcmChannelOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GcmChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

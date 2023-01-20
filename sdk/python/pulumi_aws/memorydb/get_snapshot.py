@@ -51,16 +51,25 @@ class GetSnapshotResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the snapshot.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="clusterConfigurations")
     def cluster_configurations(self) -> Sequence['outputs.GetSnapshotClusterConfigurationResult']:
+        """
+        The configuration of the cluster from which the snapshot was taken.
+        """
         return pulumi.get(self, "cluster_configurations")
 
     @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> str:
+        """
+        Name of the MemoryDB cluster that this snapshot was taken from.
+        """
         return pulumi.get(self, "cluster_name")
 
     @property
@@ -74,21 +83,33 @@ class GetSnapshotResult:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> str:
+        """
+        ARN of the KMS key used to encrypt the snapshot at rest.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the cluster.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def source(self) -> str:
+        """
+        Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+        """
         return pulumi.get(self, "source")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Map of tags assigned to the snapshot.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -112,7 +133,20 @@ def get_snapshot(name: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a MemoryDB Snapshot.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.memorydb.get_snapshot(name="my-snapshot")
+    ```
+
+
+    :param str name: Name of the snapshot.
+    :param Mapping[str, str] tags: Map of tags assigned to the snapshot.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -136,6 +170,19 @@ def get_snapshot_output(name: Optional[pulumi.Input[str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a MemoryDB Snapshot.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.memorydb.get_snapshot(name="my-snapshot")
+    ```
+
+
+    :param str name: Name of the snapshot.
+    :param Mapping[str, str] tags: Map of tags assigned to the snapshot.
     """
     ...

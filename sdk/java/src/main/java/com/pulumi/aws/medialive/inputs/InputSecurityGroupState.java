@@ -18,23 +18,47 @@ public final class InputSecurityGroupState extends com.pulumi.resources.Resource
 
     public static final InputSecurityGroupState Empty = new InputSecurityGroupState();
 
+    /**
+     * ARN of the InputSecurityGroup.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return ARN of the InputSecurityGroup.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * The list of inputs currently using this InputSecurityGroup.
+     * 
+     */
     @Import(name="inputs")
     private @Nullable Output<List<String>> inputs;
 
+    /**
+     * @return The list of inputs currently using this InputSecurityGroup.
+     * 
+     */
     public Optional<Output<List<String>>> inputs() {
         return Optional.ofNullable(this.inputs);
     }
 
+    /**
+     * A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -46,9 +70,17 @@ public final class InputSecurityGroupState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * Whitelist rules. See Whitelist Rules for more details.
+     * 
+     */
     @Import(name="whitelistRules")
     private @Nullable Output<List<InputSecurityGroupWhitelistRuleArgs>> whitelistRules;
 
+    /**
+     * @return Whitelist rules. See Whitelist Rules for more details.
+     * 
+     */
     public Optional<Output<List<InputSecurityGroupWhitelistRuleArgs>>> whitelistRules() {
         return Optional.ofNullable(this.whitelistRules);
     }
@@ -81,33 +113,75 @@ public final class InputSecurityGroupState extends com.pulumi.resources.Resource
             $ = new InputSecurityGroupState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn ARN of the InputSecurityGroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn ARN of the InputSecurityGroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param inputs The list of inputs currently using this InputSecurityGroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputs(@Nullable Output<List<String>> inputs) {
             $.inputs = inputs;
             return this;
         }
 
+        /**
+         * @param inputs The list of inputs currently using this InputSecurityGroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputs(List<String> inputs) {
             return inputs(Output.of(inputs));
         }
 
+        /**
+         * @param inputs The list of inputs currently using this InputSecurityGroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputs(String... inputs) {
             return inputs(List.of(inputs));
         }
 
+        /**
+         * @param tags A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -121,15 +195,33 @@ public final class InputSecurityGroupState extends com.pulumi.resources.Resource
             return tagsAll(Output.of(tagsAll));
         }
 
+        /**
+         * @param whitelistRules Whitelist rules. See Whitelist Rules for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder whitelistRules(@Nullable Output<List<InputSecurityGroupWhitelistRuleArgs>> whitelistRules) {
             $.whitelistRules = whitelistRules;
             return this;
         }
 
+        /**
+         * @param whitelistRules Whitelist rules. See Whitelist Rules for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder whitelistRules(List<InputSecurityGroupWhitelistRuleArgs> whitelistRules) {
             return whitelistRules(Output.of(whitelistRules));
         }
 
+        /**
+         * @param whitelistRules Whitelist rules. See Whitelist Rules for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder whitelistRules(InputSecurityGroupWhitelistRuleArgs... whitelistRules) {
             return whitelistRules(List.of(whitelistRules));
         }

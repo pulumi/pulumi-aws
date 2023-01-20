@@ -13,9 +13,15 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle
     {
+        /// <summary>
+        /// Output video height in pixels.
+        /// </summary>
         public readonly double Height;
         public readonly double LeftOffset;
         public readonly double TopOffset;
+        /// <summary>
+        /// Output video width in pixels.
+        /// </summary>
         public readonly double Width;
 
         [OutputConstructor]

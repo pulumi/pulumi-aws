@@ -24,6 +24,14 @@ class CustomDataIdentifierArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CustomDataIdentifier resource.
+        :param pulumi.Input[str] description: A custom description of the custom data identifier. The description can contain as many as 512 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ignore_words: An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keywords: An array that lists specific character sequences (keywords), one of which must be within proximity (`maximum_match_distance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
+        :param pulumi.Input[int] maximum_match_distance: The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
+        :param pulumi.Input[str] name: A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] regex: The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the custom data identifier.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -45,6 +53,9 @@ class CustomDataIdentifierArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom description of the custom data identifier. The description can contain as many as 512 characters.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -54,6 +65,9 @@ class CustomDataIdentifierArgs:
     @property
     @pulumi.getter(name="ignoreWords")
     def ignore_words(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
+        """
         return pulumi.get(self, "ignore_words")
 
     @ignore_words.setter
@@ -63,6 +77,9 @@ class CustomDataIdentifierArgs:
     @property
     @pulumi.getter
     def keywords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array that lists specific character sequences (keywords), one of which must be within proximity (`maximum_match_distance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
+        """
         return pulumi.get(self, "keywords")
 
     @keywords.setter
@@ -72,6 +89,9 @@ class CustomDataIdentifierArgs:
     @property
     @pulumi.getter(name="maximumMatchDistance")
     def maximum_match_distance(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
+        """
         return pulumi.get(self, "maximum_match_distance")
 
     @maximum_match_distance.setter
@@ -81,6 +101,9 @@ class CustomDataIdentifierArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -90,6 +113,9 @@ class CustomDataIdentifierArgs:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -99,6 +125,9 @@ class CustomDataIdentifierArgs:
     @property
     @pulumi.getter
     def regex(self) -> Optional[pulumi.Input[str]]:
+        """
+        The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
+        """
         return pulumi.get(self, "regex")
 
     @regex.setter
@@ -108,6 +137,9 @@ class CustomDataIdentifierArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of key-value pairs that specifies the tags to associate with the custom data identifier.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -131,6 +163,16 @@ class _CustomDataIdentifierState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering CustomDataIdentifier resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the custom data identifier.
+        :param pulumi.Input[str] created_at: The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+        :param pulumi.Input[str] description: A custom description of the custom data identifier. The description can contain as many as 512 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ignore_words: An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keywords: An array that lists specific character sequences (keywords), one of which must be within proximity (`maximum_match_distance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
+        :param pulumi.Input[int] maximum_match_distance: The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
+        :param pulumi.Input[str] name: A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] regex: The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the custom data identifier.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -158,6 +200,9 @@ class _CustomDataIdentifierState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the custom data identifier.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -167,6 +212,9 @@ class _CustomDataIdentifierState:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -176,6 +224,9 @@ class _CustomDataIdentifierState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom description of the custom data identifier. The description can contain as many as 512 characters.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -185,6 +236,9 @@ class _CustomDataIdentifierState:
     @property
     @pulumi.getter(name="ignoreWords")
     def ignore_words(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
+        """
         return pulumi.get(self, "ignore_words")
 
     @ignore_words.setter
@@ -194,6 +248,9 @@ class _CustomDataIdentifierState:
     @property
     @pulumi.getter
     def keywords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array that lists specific character sequences (keywords), one of which must be within proximity (`maximum_match_distance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
+        """
         return pulumi.get(self, "keywords")
 
     @keywords.setter
@@ -203,6 +260,9 @@ class _CustomDataIdentifierState:
     @property
     @pulumi.getter(name="maximumMatchDistance")
     def maximum_match_distance(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
+        """
         return pulumi.get(self, "maximum_match_distance")
 
     @maximum_match_distance.setter
@@ -212,6 +272,9 @@ class _CustomDataIdentifierState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -221,6 +284,9 @@ class _CustomDataIdentifierState:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -230,6 +296,9 @@ class _CustomDataIdentifierState:
     @property
     @pulumi.getter
     def regex(self) -> Optional[pulumi.Input[str]]:
+        """
+        The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
+        """
         return pulumi.get(self, "regex")
 
     @regex.setter
@@ -239,6 +308,9 @@ class _CustomDataIdentifierState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of key-value pairs that specifies the tags to associate with the custom data identifier.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -270,9 +342,42 @@ class CustomDataIdentifier(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a CustomDataIdentifier resource with the given unique name, props, and options.
+        Provides a resource to manage an [AWS Macie Custom Data Identifier](https://docs.aws.amazon.com/macie/latest/APIReference/custom-data-identifiers-id.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_account = aws.macie2.Account("exampleAccount")
+        example_custom_data_identifier = aws.macie.CustomDataIdentifier("exampleCustomDataIdentifier",
+            regex="[0-9]{3}-[0-9]{2}-[0-9]{4}",
+            description="DESCRIPTION",
+            maximum_match_distance=10,
+            keywords=["keyword"],
+            ignore_words=["ignore"],
+            opts=pulumi.ResourceOptions(depends_on=[aws_macie2_account["test"]]))
+        ```
+
+        ## Import
+
+        `aws_macie2_custom_data_identifier` can be imported using the id, e.g.,
+
+        ```sh
+         $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A custom description of the custom data identifier. The description can contain as many as 512 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ignore_words: An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keywords: An array that lists specific character sequences (keywords), one of which must be within proximity (`maximum_match_distance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
+        :param pulumi.Input[int] maximum_match_distance: The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
+        :param pulumi.Input[str] name: A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] regex: The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the custom data identifier.
         """
         ...
     @overload
@@ -281,7 +386,32 @@ class CustomDataIdentifier(pulumi.CustomResource):
                  args: Optional[CustomDataIdentifierArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a CustomDataIdentifier resource with the given unique name, props, and options.
+        Provides a resource to manage an [AWS Macie Custom Data Identifier](https://docs.aws.amazon.com/macie/latest/APIReference/custom-data-identifiers-id.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_account = aws.macie2.Account("exampleAccount")
+        example_custom_data_identifier = aws.macie.CustomDataIdentifier("exampleCustomDataIdentifier",
+            regex="[0-9]{3}-[0-9]{2}-[0-9]{4}",
+            description="DESCRIPTION",
+            maximum_match_distance=10,
+            keywords=["keyword"],
+            ignore_words=["ignore"],
+            opts=pulumi.ResourceOptions(depends_on=[aws_macie2_account["test"]]))
+        ```
+
+        ## Import
+
+        `aws_macie2_custom_data_identifier` can be imported using the id, e.g.,
+
+        ```sh
+         $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
+        ```
+
         :param str resource_name: The name of the resource.
         :param CustomDataIdentifierArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -353,6 +483,16 @@ class CustomDataIdentifier(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the custom data identifier.
+        :param pulumi.Input[str] created_at: The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+        :param pulumi.Input[str] description: A custom description of the custom data identifier. The description can contain as many as 512 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ignore_words: An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keywords: An array that lists specific character sequences (keywords), one of which must be within proximity (`maximum_match_distance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
+        :param pulumi.Input[int] maximum_match_distance: The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
+        :param pulumi.Input[str] name: A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] regex: The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the custom data identifier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -374,51 +514,81 @@ class CustomDataIdentifier(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the custom data identifier.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A custom description of the custom data identifier. The description can contain as many as 512 characters.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="ignoreWords")
     def ignore_words(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
+        """
         return pulumi.get(self, "ignore_words")
 
     @property
     @pulumi.getter
     def keywords(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        An array that lists specific character sequences (keywords), one of which must be within proximity (`maximum_match_distance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
+        """
         return pulumi.get(self, "keywords")
 
     @property
     @pulumi.getter(name="maximumMatchDistance")
     def maximum_match_distance(self) -> pulumi.Output[int]:
+        """
+        The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
+        """
         return pulumi.get(self, "maximum_match_distance")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[str]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @property
     @pulumi.getter
     def regex(self) -> pulumi.Output[Optional[str]]:
+        """
+        The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
+        """
         return pulumi.get(self, "regex")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of key-value pairs that specifies the tags to associate with the custom data identifier.
+        """
         return pulumi.get(self, "tags")
 
     @property

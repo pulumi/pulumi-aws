@@ -13,9 +13,17 @@ public final class InputMediaConnectFlowArgs extends com.pulumi.resources.Resour
 
     public static final InputMediaConnectFlowArgs Empty = new InputMediaConnectFlowArgs();
 
+    /**
+     * The ARN of the MediaConnect Flow
+     * 
+     */
     @Import(name="flowArn", required=true)
     private Output<String> flowArn;
 
+    /**
+     * @return The ARN of the MediaConnect Flow
+     * 
+     */
     public Output<String> flowArn() {
         return this.flowArn;
     }
@@ -44,11 +52,23 @@ public final class InputMediaConnectFlowArgs extends com.pulumi.resources.Resour
             $ = new InputMediaConnectFlowArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param flowArn The ARN of the MediaConnect Flow
+         * 
+         * @return builder
+         * 
+         */
         public Builder flowArn(Output<String> flowArn) {
             $.flowArn = flowArn;
             return this;
         }
 
+        /**
+         * @param flowArn The ARN of the MediaConnect Flow
+         * 
+         * @return builder
+         * 
+         */
         public Builder flowArn(String flowArn) {
             return flowArn(Output.of(flowArn));
         }

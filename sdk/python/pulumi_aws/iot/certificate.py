@@ -20,6 +20,18 @@ class CertificateArgs:
                  csr: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
+        :param pulumi.Input[bool] active: Boolean flag to indicate if the certificate should be active
+        :param pulumi.Input[str] ca_pem: The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
+        :param pulumi.Input[str] certificate_pem: The certificate to be registered. If `ca_pem` is unspecified, review
+               [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
+               If `ca_pem` is specified, review
+               [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
+               for more information on registering a certificate.
+        :param pulumi.Input[str] csr: The certificate signing request. Review
+               [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
+               for more information on generating a certificate from a certificate signing request (CSR).
+               If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
+               for more information on generating keys and a certificate.
         """
         pulumi.set(__self__, "active", active)
         if ca_pem is not None:
@@ -32,6 +44,9 @@ class CertificateArgs:
     @property
     @pulumi.getter
     def active(self) -> pulumi.Input[bool]:
+        """
+        Boolean flag to indicate if the certificate should be active
+        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -41,6 +56,9 @@ class CertificateArgs:
     @property
     @pulumi.getter(name="caPem")
     def ca_pem(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
+        """
         return pulumi.get(self, "ca_pem")
 
     @ca_pem.setter
@@ -50,6 +68,13 @@ class CertificateArgs:
     @property
     @pulumi.getter(name="certificatePem")
     def certificate_pem(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate to be registered. If `ca_pem` is unspecified, review
+        [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
+        If `ca_pem` is specified, review
+        [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
+        for more information on registering a certificate.
+        """
         return pulumi.get(self, "certificate_pem")
 
     @certificate_pem.setter
@@ -59,6 +84,13 @@ class CertificateArgs:
     @property
     @pulumi.getter
     def csr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate signing request. Review
+        [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
+        for more information on generating a certificate from a certificate signing request (CSR).
+        If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
+        for more information on generating keys and a certificate.
+        """
         return pulumi.get(self, "csr")
 
     @csr.setter
@@ -78,6 +110,21 @@ class _CertificateState:
                  public_key: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
+        :param pulumi.Input[bool] active: Boolean flag to indicate if the certificate should be active
+        :param pulumi.Input[str] arn: The ARN of the created certificate.
+        :param pulumi.Input[str] ca_pem: The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
+        :param pulumi.Input[str] certificate_pem: The certificate to be registered. If `ca_pem` is unspecified, review
+               [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
+               If `ca_pem` is specified, review
+               [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
+               for more information on registering a certificate.
+        :param pulumi.Input[str] csr: The certificate signing request. Review
+               [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
+               for more information on generating a certificate from a certificate signing request (CSR).
+               If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
+               for more information on generating keys and a certificate.
+        :param pulumi.Input[str] private_key: When neither CSR nor certificate is provided, the private key.
+        :param pulumi.Input[str] public_key: When neither CSR nor certificate is provided, the public key.
         """
         if active is not None:
             pulumi.set(__self__, "active", active)
@@ -97,6 +144,9 @@ class _CertificateState:
     @property
     @pulumi.getter
     def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag to indicate if the certificate should be active
+        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -106,6 +156,9 @@ class _CertificateState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the created certificate.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -115,6 +168,9 @@ class _CertificateState:
     @property
     @pulumi.getter(name="caPem")
     def ca_pem(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
+        """
         return pulumi.get(self, "ca_pem")
 
     @ca_pem.setter
@@ -124,6 +180,13 @@ class _CertificateState:
     @property
     @pulumi.getter(name="certificatePem")
     def certificate_pem(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate to be registered. If `ca_pem` is unspecified, review
+        [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
+        If `ca_pem` is specified, review
+        [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
+        for more information on registering a certificate.
+        """
         return pulumi.get(self, "certificate_pem")
 
     @certificate_pem.setter
@@ -133,6 +196,13 @@ class _CertificateState:
     @property
     @pulumi.getter
     def csr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate signing request. Review
+        [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
+        for more information on generating a certificate from a certificate signing request (CSR).
+        If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
+        for more information on generating keys and a certificate.
+        """
         return pulumi.get(self, "csr")
 
     @csr.setter
@@ -142,6 +212,9 @@ class _CertificateState:
     @property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        When neither CSR nor certificate is provided, the private key.
+        """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
@@ -151,6 +224,9 @@ class _CertificateState:
     @property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        When neither CSR nor certificate is provided, the public key.
+        """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
@@ -169,9 +245,52 @@ class Certificate(pulumi.CustomResource):
                  csr: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Certificate resource with the given unique name, props, and options.
+        Creates and manages an AWS IoT certificate.
+
+        ## Example Usage
+        ### With CSR
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cert = aws.iot.Certificate("cert",
+            csr=(lambda path: open(path).read())("/my/csr.pem"),
+            active=True)
+        ```
+        ### Without CSR
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cert = aws.iot.Certificate("cert", active=True)
+        ```
+        ### From existing certificate without a CA
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cert = aws.iot.Certificate("cert",
+            certificate_pem=(lambda path: open(path).read())("/my/cert.pem"),
+            active=True)
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] active: Boolean flag to indicate if the certificate should be active
+        :param pulumi.Input[str] ca_pem: The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
+        :param pulumi.Input[str] certificate_pem: The certificate to be registered. If `ca_pem` is unspecified, review
+               [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
+               If `ca_pem` is specified, review
+               [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
+               for more information on registering a certificate.
+        :param pulumi.Input[str] csr: The certificate signing request. Review
+               [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
+               for more information on generating a certificate from a certificate signing request (CSR).
+               If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
+               for more information on generating keys and a certificate.
         """
         ...
     @overload
@@ -180,7 +299,38 @@ class Certificate(pulumi.CustomResource):
                  args: CertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Certificate resource with the given unique name, props, and options.
+        Creates and manages an AWS IoT certificate.
+
+        ## Example Usage
+        ### With CSR
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cert = aws.iot.Certificate("cert",
+            csr=(lambda path: open(path).read())("/my/csr.pem"),
+            active=True)
+        ```
+        ### Without CSR
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cert = aws.iot.Certificate("cert", active=True)
+        ```
+        ### From existing certificate without a CA
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cert = aws.iot.Certificate("cert",
+            certificate_pem=(lambda path: open(path).read())("/my/cert.pem"),
+            active=True)
+        ```
+
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -244,6 +394,21 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] active: Boolean flag to indicate if the certificate should be active
+        :param pulumi.Input[str] arn: The ARN of the created certificate.
+        :param pulumi.Input[str] ca_pem: The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
+        :param pulumi.Input[str] certificate_pem: The certificate to be registered. If `ca_pem` is unspecified, review
+               [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
+               If `ca_pem` is specified, review
+               [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
+               for more information on registering a certificate.
+        :param pulumi.Input[str] csr: The certificate signing request. Review
+               [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
+               for more information on generating a certificate from a certificate signing request (CSR).
+               If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
+               for more information on generating keys and a certificate.
+        :param pulumi.Input[str] private_key: When neither CSR nor certificate is provided, the private key.
+        :param pulumi.Input[str] public_key: When neither CSR nor certificate is provided, the public key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -261,35 +426,64 @@ class Certificate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def active(self) -> pulumi.Output[bool]:
+        """
+        Boolean flag to indicate if the certificate should be active
+        """
         return pulumi.get(self, "active")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the created certificate.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="caPem")
     def ca_pem(self) -> pulumi.Output[Optional[str]]:
+        """
+        The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
+        """
         return pulumi.get(self, "ca_pem")
 
     @property
     @pulumi.getter(name="certificatePem")
     def certificate_pem(self) -> pulumi.Output[str]:
+        """
+        The certificate to be registered. If `ca_pem` is unspecified, review
+        [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
+        If `ca_pem` is specified, review
+        [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
+        for more information on registering a certificate.
+        """
         return pulumi.get(self, "certificate_pem")
 
     @property
     @pulumi.getter
     def csr(self) -> pulumi.Output[Optional[str]]:
+        """
+        The certificate signing request. Review
+        [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
+        for more information on generating a certificate from a certificate signing request (CSR).
+        If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
+        for more information on generating keys and a certificate.
+        """
         return pulumi.get(self, "csr")
 
     @property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[str]:
+        """
+        When neither CSR nor certificate is provided, the private key.
+        """
         return pulumi.get(self, "private_key")
 
     @property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Output[str]:
+        """
+        When neither CSR nor certificate is provided, the public key.
+        """
         return pulumi.get(self, "public_key")
 

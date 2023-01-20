@@ -17,44 +17,92 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
 
     public static final StorageLensConfigurationState Empty = new StorageLensConfigurationState();
 
+    /**
+     * The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+     * 
+     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
+    /**
+     * @return The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+     * 
+     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * The ID of the S3 Storage Lens configuration.
+     * 
+     */
     @Import(name="configId")
     private @Nullable Output<String> configId;
 
+    /**
+     * @return The ID of the S3 Storage Lens configuration.
+     * 
+     */
     public Optional<Output<String>> configId() {
         return Optional.ofNullable(this.configId);
     }
 
+    /**
+     * The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+     * 
+     */
     @Import(name="storageLensConfiguration")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationArgs> storageLensConfiguration;
 
+    /**
+     * @return The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+     * 
+     */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationArgs>> storageLensConfiguration() {
         return Optional.ofNullable(this.storageLensConfiguration);
     }
 
+    /**
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -88,56 +136,128 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
             $ = new StorageLensConfigurationState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accountId The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
+        /**
+         * @param accountId The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
+        /**
+         * @param arn The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param configId The ID of the S3 Storage Lens configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder configId(@Nullable Output<String> configId) {
             $.configId = configId;
             return this;
         }
 
+        /**
+         * @param configId The ID of the S3 Storage Lens configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder configId(String configId) {
             return configId(Output.of(configId));
         }
 
+        /**
+         * @param storageLensConfiguration The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageLensConfiguration(@Nullable Output<StorageLensConfigurationStorageLensConfigurationArgs> storageLensConfiguration) {
             $.storageLensConfiguration = storageLensConfiguration;
             return this;
         }
 
+        /**
+         * @param storageLensConfiguration The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageLensConfiguration(StorageLensConfigurationStorageLensConfigurationArgs storageLensConfiguration) {
             return storageLensConfiguration(Output.of(storageLensConfiguration));
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

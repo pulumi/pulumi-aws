@@ -78,31 +78,49 @@ class GetClusterResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the cluster.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="certificateAuthorities")
     def certificate_authorities(self) -> Sequence['outputs.GetClusterCertificateAuthorityResult']:
+        """
+        Nested attribute containing `certificate-authority-data` for your cluster.
+        """
         return pulumi.get(self, "certificate_authorities")
 
     @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> str:
+        """
+        The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
+        """
         return pulumi.get(self, "cluster_id")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
+        """
+        Unix epoch time stamp in seconds for when the cluster was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="enabledClusterLogTypes")
     def enabled_cluster_log_types(self) -> Sequence[str]:
+        """
+        The enabled control plane logs.
+        """
         return pulumi.get(self, "enabled_cluster_log_types")
 
     @property
     @pulumi.getter
     def endpoint(self) -> str:
+        """
+        Endpoint for your Kubernetes API server.
+        """
         return pulumi.get(self, "endpoint")
 
     @property
@@ -116,11 +134,17 @@ class GetClusterResult:
     @property
     @pulumi.getter
     def identities(self) -> Sequence['outputs.GetClusterIdentityResult']:
+        """
+        Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `eks.Cluster` resource documentation.
+        """
         return pulumi.get(self, "identities")
 
     @property
     @pulumi.getter(name="kubernetesNetworkConfigs")
     def kubernetes_network_configs(self) -> Sequence['outputs.GetClusterKubernetesNetworkConfigResult']:
+        """
+        Nested list containing Kubernetes Network Configuration.
+        """
         return pulumi.get(self, "kubernetes_network_configs")
 
     @property
@@ -131,36 +155,57 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="outpostConfigs")
     def outpost_configs(self) -> Sequence['outputs.GetClusterOutpostConfigResult']:
+        """
+        Contains Outpost Configuration.
+        """
         return pulumi.get(self, "outpost_configs")
 
     @property
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> str:
+        """
+        Platform version for the cluster.
+        """
         return pulumi.get(self, "platform_version")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Key-value map of resource tags.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def version(self) -> str:
+        """
+        Kubernetes server version for the cluster.
+        """
         return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> 'outputs.GetClusterVpcConfigResult':
+        """
+        Nested list containing VPC configuration for the cluster.
+        """
         return pulumi.get(self, "vpc_config")
 
 
@@ -193,7 +238,23 @@ def get_cluster(name: Optional[str] = None,
                 tags: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about an EKS Cluster.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.eks.get_cluster(name="example")
+    pulumi.export("endpoint", example.endpoint)
+    pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authorities[0].data)
+    pulumi.export("identity-oidc-issuer", example.identities[0].oidcs[0].issuer)
+    ```
+
+
+    :param str name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+    :param Mapping[str, str] tags: Key-value map of resource tags.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -226,6 +287,22 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about an EKS Cluster.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.eks.get_cluster(name="example")
+    pulumi.export("endpoint", example.endpoint)
+    pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authorities[0].data)
+    pulumi.export("identity-oidc-issuer", example.identities[0].oidcs[0].issuer)
+    ```
+
+
+    :param str name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+    :param Mapping[str, str] tags: Key-value map of resource tags.
     """
     ...

@@ -15,16 +15,32 @@ public final class ResourceAssociationState extends com.pulumi.resources.Resourc
 
     public static final ResourceAssociationState Empty = new ResourceAssociationState();
 
+    /**
+     * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+     * 
+     */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+     * 
+     */
     public Optional<Output<String>> resourceArn() {
         return Optional.ofNullable(this.resourceArn);
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the RAM Resource Share.
+     * 
+     */
     @Import(name="resourceShareArn")
     private @Nullable Output<String> resourceShareArn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of the RAM Resource Share.
+     * 
+     */
     public Optional<Output<String>> resourceShareArn() {
         return Optional.ofNullable(this.resourceShareArn);
     }
@@ -54,20 +70,44 @@ public final class ResourceAssociationState extends com.pulumi.resources.Resourc
             $ = new ResourceAssociationState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param resourceArn Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceArn(@Nullable Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
+        /**
+         * @param resourceArn Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }
 
+        /**
+         * @param resourceShareArn Amazon Resource Name (ARN) of the RAM Resource Share.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceShareArn(@Nullable Output<String> resourceShareArn) {
             $.resourceShareArn = resourceShareArn;
             return this;
         }
 
+        /**
+         * @param resourceShareArn Amazon Resource Name (ARN) of the RAM Resource Share.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceShareArn(String resourceShareArn) {
             return resourceShareArn(Output.of(resourceShareArn));
         }

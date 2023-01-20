@@ -9,6 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGatewayResult {
+    /**
+     * @return ASN on the Amazon side of the connection.
+     * 
+     */
     private String amazonSideAsn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -16,9 +20,17 @@ public final class GetGatewayResult {
      */
     private String id;
     private String name;
+    /**
+     * @return AWS Account ID of the gateway.
+     * 
+     */
     private String ownerAccountId;
 
     private GetGatewayResult() {}
+    /**
+     * @return ASN on the Amazon side of the connection.
+     * 
+     */
     public String amazonSideAsn() {
         return this.amazonSideAsn;
     }
@@ -32,6 +44,10 @@ public final class GetGatewayResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return AWS Account ID of the gateway.
+     * 
+     */
     public String ownerAccountId() {
         return this.ownerAccountId;
     }

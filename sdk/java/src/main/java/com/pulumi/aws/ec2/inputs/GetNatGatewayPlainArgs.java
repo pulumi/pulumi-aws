@@ -17,44 +17,94 @@ public final class GetNatGatewayPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetNatGatewayPlainArgs Empty = new GetNatGatewayPlainArgs();
 
+    /**
+     * Custom filter block as described below.
+     * 
+     */
     @Import(name="filters")
     private @Nullable List<GetNatGatewayFilter> filters;
 
+    /**
+     * @return Custom filter block as described below.
+     * 
+     */
     public Optional<List<GetNatGatewayFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
+    /**
+     * ID of the specific Nat Gateway to retrieve.
+     * 
+     */
     @Import(name="id")
     private @Nullable String id;
 
+    /**
+     * @return ID of the specific Nat Gateway to retrieve.
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * State of the NAT gateway (pending | failed | available | deleting | deleted ).
+     * 
+     */
     @Import(name="state")
     private @Nullable String state;
 
+    /**
+     * @return State of the NAT gateway (pending | failed | available | deleting | deleted ).
+     * 
+     */
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }
 
+    /**
+     * ID of subnet that the Nat Gateway resides in.
+     * 
+     */
     @Import(name="subnetId")
     private @Nullable String subnetId;
 
+    /**
+     * @return ID of subnet that the Nat Gateway resides in.
+     * 
+     */
     public Optional<String> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
 
+    /**
+     * Map of tags, each pair of which must exactly match
+     * a pair on the desired Nat Gateway.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return Map of tags, each pair of which must exactly match
+     * a pair on the desired Nat Gateway.
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * ID of the VPC that the Nat Gateway resides in.
+     * 
+     */
     @Import(name="vpcId")
     private @Nullable String vpcId;
 
+    /**
+     * @return ID of the VPC that the Nat Gateway resides in.
+     * 
+     */
     public Optional<String> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -88,35 +138,78 @@ public final class GetNatGatewayPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetNatGatewayPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filters Custom filter block as described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable List<GetNatGatewayFilter> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters Custom filter block as described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(GetNatGatewayFilter... filters) {
             return filters(List.of(filters));
         }
 
+        /**
+         * @param id ID of the specific Nat Gateway to retrieve.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param state State of the NAT gateway (pending | failed | available | deleting | deleted ).
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(@Nullable String state) {
             $.state = state;
             return this;
         }
 
+        /**
+         * @param subnetId ID of subnet that the Nat Gateway resides in.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetId(@Nullable String subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
+        /**
+         * @param tags Map of tags, each pair of which must exactly match
+         * a pair on the desired Nat Gateway.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param vpcId ID of the VPC that the Nat Gateway resides in.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcId(@Nullable String vpcId) {
             $.vpcId = vpcId;
             return this;

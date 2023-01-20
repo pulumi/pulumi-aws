@@ -16,29 +16,162 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
+ * 
+ * ## Example Usage
+ * ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.AnalyticsConfiguration;
+ * import com.pulumi.aws.s3.AnalyticsConfigurationArgs;
+ * import com.pulumi.aws.s3.inputs.AnalyticsConfigurationStorageClassAnalysisArgs;
+ * import com.pulumi.aws.s3.inputs.AnalyticsConfigurationStorageClassAnalysisDataExportArgs;
+ * import com.pulumi.aws.s3.inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs;
+ * import com.pulumi.aws.s3.inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new BucketV2(&#34;example&#34;);
+ * 
+ *         var analytics = new BucketV2(&#34;analytics&#34;);
+ * 
+ *         var example_entire_bucket = new AnalyticsConfiguration(&#34;example-entire-bucket&#34;, AnalyticsConfigurationArgs.builder()        
+ *             .bucket(example.bucket())
+ *             .storageClassAnalysis(AnalyticsConfigurationStorageClassAnalysisArgs.builder()
+ *                 .dataExport(AnalyticsConfigurationStorageClassAnalysisDataExportArgs.builder()
+ *                     .destination(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs.builder()
+ *                         .s3BucketDestination(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs.builder()
+ *                             .bucketArn(analytics.arn())
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Add analytics configuration with S3 object filter
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.AnalyticsConfiguration;
+ * import com.pulumi.aws.s3.AnalyticsConfigurationArgs;
+ * import com.pulumi.aws.s3.inputs.AnalyticsConfigurationFilterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new BucketV2(&#34;example&#34;);
+ * 
+ *         var example_filtered = new AnalyticsConfiguration(&#34;example-filtered&#34;, AnalyticsConfigurationArgs.builder()        
+ *             .bucket(example.bucket())
+ *             .filter(AnalyticsConfigurationFilterArgs.builder()
+ *                 .prefix(&#34;documents/&#34;)
+ *                 .tags(Map.ofEntries(
+ *                     Map.entry(&#34;priority&#34;, &#34;high&#34;),
+ *                     Map.entry(&#34;class&#34;, &#34;blue&#34;)
+ *                 ))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * S3 bucket analytics configurations can be imported using `bucket:analytics`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
+ * ```
+ * 
+ */
 @ResourceType(type="aws:s3/analyticsConfiguration:AnalyticsConfiguration")
 public class AnalyticsConfiguration extends com.pulumi.resources.CustomResource {
+    /**
+     * The name of the bucket this analytics configuration is associated with.
+     * 
+     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
+    /**
+     * @return The name of the bucket this analytics configuration is associated with.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
+    /**
+     * Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+     * 
+     */
     @Export(name="filter", refs={AnalyticsConfigurationFilter.class}, tree="[0]")
     private Output</* @Nullable */ AnalyticsConfigurationFilter> filter;
 
+    /**
+     * @return Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+     * 
+     */
     public Output<Optional<AnalyticsConfigurationFilter>> filter() {
         return Codegen.optional(this.filter);
     }
+    /**
+     * Unique identifier of the analytics configuration for the bucket.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Unique identifier of the analytics configuration for the bucket.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Configuration for the analytics data export (documented below).
+     * 
+     */
     @Export(name="storageClassAnalysis", refs={AnalyticsConfigurationStorageClassAnalysis.class}, tree="[0]")
     private Output</* @Nullable */ AnalyticsConfigurationStorageClassAnalysis> storageClassAnalysis;
 
+    /**
+     * @return Configuration for the analytics data export (documented below).
+     * 
+     */
     public Output<Optional<AnalyticsConfigurationStorageClassAnalysis>> storageClassAnalysis() {
         return Codegen.optional(this.storageClassAnalysis);
     }

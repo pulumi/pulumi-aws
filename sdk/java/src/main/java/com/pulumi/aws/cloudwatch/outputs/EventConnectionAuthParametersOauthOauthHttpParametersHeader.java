@@ -12,17 +12,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventConnectionAuthParametersOauthOauthHttpParametersHeader {
+    /**
+     * @return Specified whether the value is secret.
+     * 
+     */
     private @Nullable Boolean isValueSecret;
+    /**
+     * @return Header Name.
+     * 
+     */
     private @Nullable String key;
+    /**
+     * @return Header Value. Created and stored in AWS Secrets Manager.
+     * 
+     */
     private @Nullable String value;
 
     private EventConnectionAuthParametersOauthOauthHttpParametersHeader() {}
+    /**
+     * @return Specified whether the value is secret.
+     * 
+     */
     public Optional<Boolean> isValueSecret() {
         return Optional.ofNullable(this.isValueSecret);
     }
+    /**
+     * @return Header Name.
+     * 
+     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
+    /**
+     * @return Header Value. Created and stored in AWS Secrets Manager.
+     * 
+     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

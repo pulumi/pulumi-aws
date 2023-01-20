@@ -7,6 +7,60 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Resource for managing a Roles Anywhere Trust Anchor.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("exampleCertificateAuthority", {
+ *     permanentDeletionTimeInDays: 7,
+ *     type: "ROOT",
+ *     certificateAuthorityConfiguration: {
+ *         keyAlgorithm: "RSA_4096",
+ *         signingAlgorithm: "SHA512WITHRSA",
+ *         subject: {
+ *             commonName: "example.com",
+ *         },
+ *     },
+ * });
+ * const current = aws.getPartition({});
+ * const testCertificate = new aws.acmpca.Certificate("testCertificate", {
+ *     certificateAuthorityArn: exampleCertificateAuthority.arn,
+ *     certificateSigningRequest: exampleCertificateAuthority.certificateSigningRequest,
+ *     signingAlgorithm: "SHA512WITHRSA",
+ *     templateArn: current.then(current => `arn:${current.partition}:acm-pca:::template/RootCACertificate/V1`),
+ *     validity: {
+ *         type: "YEARS",
+ *         value: "1",
+ *     },
+ * });
+ * const exampleCertificateAuthorityCertificate = new aws.acmpca.CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate", {
+ *     certificateAuthorityArn: exampleCertificateAuthority.arn,
+ *     certificate: aws_acmpca_certificate.example.certificate,
+ *     certificateChain: aws_acmpca_certificate.example.certificate_chain,
+ * });
+ * const testTrustAnchor = new aws.rolesanywhere.TrustAnchor("testTrustAnchor", {source: {
+ *     sourceData: {
+ *         acmPcaArn: exampleCertificateAuthority.arn,
+ *     },
+ *     sourceType: "AWS_ACM_PCA",
+ * }}, {
+ *     dependsOn: [exampleCertificateAuthorityCertificate],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_rolesanywhere_trust_anchor` can be imported using its `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
+ * ```
+ */
 export class TrustAnchor extends pulumi.CustomResource {
     /**
      * Get an existing TrustAnchor resource's state with the given name, ID, and optional extra
@@ -35,11 +89,29 @@ export class TrustAnchor extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrustAnchor.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the Trust Anchor
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Whether or not the Trust Anchor should be enabled.
+     */
     public readonly enabled!: pulumi.Output<boolean>;
+    /**
+     * The name of the Trust Anchor.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The source of trust, documented below
+     */
     public readonly source!: pulumi.Output<outputs.rolesanywhere.TrustAnchorSource>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -82,11 +154,29 @@ export class TrustAnchor extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TrustAnchor resources.
  */
 export interface TrustAnchorState {
+    /**
+     * Amazon Resource Name (ARN) of the Trust Anchor
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Whether or not the Trust Anchor should be enabled.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the Trust Anchor.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The source of trust, documented below
+     */
     source?: pulumi.Input<inputs.rolesanywhere.TrustAnchorSource>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -94,8 +184,20 @@ export interface TrustAnchorState {
  * The set of arguments for constructing a TrustAnchor resource.
  */
 export interface TrustAnchorArgs {
+    /**
+     * Whether or not the Trust Anchor should be enabled.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the Trust Anchor.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The source of trust, documented below
+     */
     source: pulumi.Input<inputs.rolesanywhere.TrustAnchorSource>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

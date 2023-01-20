@@ -19,6 +19,9 @@ class ManagedPolicyAttachmentArgs:
                  permission_set_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a ManagedPolicyAttachment resource.
+        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        :param pulumi.Input[str] managed_policy_arn: The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+        :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         pulumi.set(__self__, "managed_policy_arn", managed_policy_arn)
@@ -27,6 +30,9 @@ class ManagedPolicyAttachmentArgs:
     @property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        """
         return pulumi.get(self, "instance_arn")
 
     @instance_arn.setter
@@ -36,6 +42,9 @@ class ManagedPolicyAttachmentArgs:
     @property
     @pulumi.getter(name="managedPolicyArn")
     def managed_policy_arn(self) -> pulumi.Input[str]:
+        """
+        The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+        """
         return pulumi.get(self, "managed_policy_arn")
 
     @managed_policy_arn.setter
@@ -45,6 +54,9 @@ class ManagedPolicyAttachmentArgs:
     @property
     @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the Permission Set.
+        """
         return pulumi.get(self, "permission_set_arn")
 
     @permission_set_arn.setter
@@ -61,6 +73,10 @@ class _ManagedPolicyAttachmentState:
                  permission_set_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ManagedPolicyAttachment resources.
+        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        :param pulumi.Input[str] managed_policy_arn: The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+        :param pulumi.Input[str] managed_policy_name: The name of the IAM Managed Policy.
+        :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
         if instance_arn is not None:
             pulumi.set(__self__, "instance_arn", instance_arn)
@@ -74,6 +90,9 @@ class _ManagedPolicyAttachmentState:
     @property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        """
         return pulumi.get(self, "instance_arn")
 
     @instance_arn.setter
@@ -83,6 +102,9 @@ class _ManagedPolicyAttachmentState:
     @property
     @pulumi.getter(name="managedPolicyArn")
     def managed_policy_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+        """
         return pulumi.get(self, "managed_policy_arn")
 
     @managed_policy_arn.setter
@@ -92,6 +114,9 @@ class _ManagedPolicyAttachmentState:
     @property
     @pulumi.getter(name="managedPolicyName")
     def managed_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the IAM Managed Policy.
+        """
         return pulumi.get(self, "managed_policy_name")
 
     @managed_policy_name.setter
@@ -101,6 +126,9 @@ class _ManagedPolicyAttachmentState:
     @property
     @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Permission Set.
+        """
         return pulumi.get(self, "permission_set_arn")
 
     @permission_set_arn.setter
@@ -118,9 +146,23 @@ class ManagedPolicyAttachment(pulumi.CustomResource):
                  permission_set_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ManagedPolicyAttachment resource with the given unique name, props, and options.
+        Provides an IAM managed policy for a Single Sign-On (SSO) Permission Set resource
+
+        > **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
+
+        ## Import
+
+        SSO Managed Policy Attachments can be imported using the `managed_policy_arn`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`) e.g.,
+
+        ```sh
+         $ pulumi import aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment example arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        :param pulumi.Input[str] managed_policy_arn: The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+        :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
         ...
     @overload
@@ -129,7 +171,18 @@ class ManagedPolicyAttachment(pulumi.CustomResource):
                  args: ManagedPolicyAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ManagedPolicyAttachment resource with the given unique name, props, and options.
+        Provides an IAM managed policy for a Single Sign-On (SSO) Permission Set resource
+
+        > **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
+
+        ## Import
+
+        SSO Managed Policy Attachments can be imported using the `managed_policy_arn`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`) e.g.,
+
+        ```sh
+         $ pulumi import aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment example arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+        ```
+
         :param str resource_name: The name of the resource.
         :param ManagedPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,6 +241,10 @@ class ManagedPolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        :param pulumi.Input[str] managed_policy_arn: The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+        :param pulumi.Input[str] managed_policy_name: The name of the IAM Managed Policy.
+        :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -202,20 +259,32 @@ class ManagedPolicyAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        """
         return pulumi.get(self, "instance_arn")
 
     @property
     @pulumi.getter(name="managedPolicyArn")
     def managed_policy_arn(self) -> pulumi.Output[str]:
+        """
+        The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+        """
         return pulumi.get(self, "managed_policy_arn")
 
     @property
     @pulumi.getter(name="managedPolicyName")
     def managed_policy_name(self) -> pulumi.Output[str]:
+        """
+        The name of the IAM Managed Policy.
+        """
         return pulumi.get(self, "managed_policy_name")
 
     @property
     @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Permission Set.
+        """
         return pulumi.get(self, "permission_set_arn")
 

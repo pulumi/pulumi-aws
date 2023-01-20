@@ -9,33 +9,92 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
+    /// <summary>
+    /// Provides a SageMaker App resource.
+    /// 
+    /// ## Example Usage
+    /// ### Basic usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Sagemaker.App("example", new()
+    ///     {
+    ///         DomainId = aws_sagemaker_domain.Example.Id,
+    ///         UserProfileName = aws_sagemaker_user_profile.Example.User_profile_name,
+    ///         AppName = "example",
+    ///         AppType = "JupyterServer",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SageMaker Apps can be imported using the `id`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:sagemaker/app:App")]
     public partial class App : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the app.
+        /// </summary>
         [Output("appName")]
         public Output<string> AppName { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+        /// </summary>
         [Output("appType")]
         public Output<string> AppType { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the app.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The domain ID.
+        /// </summary>
         [Output("domainId")]
         public Output<string> DomainId { get; private set; } = null!;
 
+        /// <summary>
+        /// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+        /// </summary>
         [Output("resourceSpec")]
         public Output<Outputs.AppResourceSpec> ResourceSpec { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the space. At least on of `user_profile_name` or `space_name` required.
+        /// </summary>
         [Output("spaceName")]
         public Output<string?> SpaceName { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// The user profile name. At least on of `user_profile_name` or `space_name` required.
+        /// </summary>
         [Output("userProfileName")]
         public Output<string?> UserProfileName { get; private set; } = null!;
 
@@ -85,29 +144,51 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class AppArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the app.
+        /// </summary>
         [Input("appName", required: true)]
         public Input<string> AppName { get; set; } = null!;
 
+        /// <summary>
+        /// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+        /// </summary>
         [Input("appType", required: true)]
         public Input<string> AppType { get; set; } = null!;
 
+        /// <summary>
+        /// The domain ID.
+        /// </summary>
         [Input("domainId", required: true)]
         public Input<string> DomainId { get; set; } = null!;
 
+        /// <summary>
+        /// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+        /// </summary>
         [Input("resourceSpec")]
         public Input<Inputs.AppResourceSpecArgs>? ResourceSpec { get; set; }
 
+        /// <summary>
+        /// The name of the space. At least on of `user_profile_name` or `space_name` required.
+        /// </summary>
         [Input("spaceName")]
         public Input<string>? SpaceName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The user profile name. At least on of `user_profile_name` or `space_name` required.
+        /// </summary>
         [Input("userProfileName")]
         public Input<string>? UserProfileName { get; set; }
 
@@ -119,26 +200,48 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class AppState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the app.
+        /// </summary>
         [Input("appName")]
         public Input<string>? AppName { get; set; }
 
+        /// <summary>
+        /// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+        /// </summary>
         [Input("appType")]
         public Input<string>? AppType { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the app.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The domain ID.
+        /// </summary>
         [Input("domainId")]
         public Input<string>? DomainId { get; set; }
 
+        /// <summary>
+        /// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+        /// </summary>
         [Input("resourceSpec")]
         public Input<Inputs.AppResourceSpecGetArgs>? ResourceSpec { get; set; }
 
+        /// <summary>
+        /// The name of the space. At least on of `user_profile_name` or `space_name` required.
+        /// </summary>
         [Input("spaceName")]
         public Input<string>? SpaceName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -147,12 +250,19 @@ namespace Pulumi.Aws.Sagemaker
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// The user profile name. At least on of `user_profile_name` or `space_name` required.
+        /// </summary>
         [Input("userProfileName")]
         public Input<string>? UserProfileName { get; set; }
 

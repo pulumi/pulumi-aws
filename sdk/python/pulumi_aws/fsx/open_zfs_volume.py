@@ -31,6 +31,18 @@ class OpenZfsVolumeArgs:
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OpenZfsVolume resource.
+        :param pulumi.Input[str] parent_volume_id: The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `fsx.OpenZfsVolume`.
+        :param pulumi.Input[bool] copy_tags_to_snapshots: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        :param pulumi.Input[str] data_compression_type: Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+        :param pulumi.Input['OpenZfsVolumeNfsExportsArgs'] nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        :param pulumi.Input['OpenZfsVolumeOriginSnapshotArgs'] origin_snapshot: The ARN of the source snapshot to create the volume from.
+        :param pulumi.Input[bool] read_only: specifies whether the volume is read-only. Default is false.
+        :param pulumi.Input[int] record_size_kib: The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        :param pulumi.Input[int] storage_capacity_quota_gib: The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+        :param pulumi.Input[int] storage_capacity_reservation_gib: The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeUserAndGroupQuotaArgs']]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
         """
         pulumi.set(__self__, "parent_volume_id", parent_volume_id)
         if copy_tags_to_snapshots is not None:
@@ -61,6 +73,9 @@ class OpenZfsVolumeArgs:
     @property
     @pulumi.getter(name="parentVolumeId")
     def parent_volume_id(self) -> pulumi.Input[str]:
+        """
+        The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `fsx.OpenZfsVolume`.
+        """
         return pulumi.get(self, "parent_volume_id")
 
     @parent_volume_id.setter
@@ -70,6 +85,9 @@ class OpenZfsVolumeArgs:
     @property
     @pulumi.getter(name="copyTagsToSnapshots")
     def copy_tags_to_snapshots(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        """
         return pulumi.get(self, "copy_tags_to_snapshots")
 
     @copy_tags_to_snapshots.setter
@@ -79,6 +97,9 @@ class OpenZfsVolumeArgs:
     @property
     @pulumi.getter(name="dataCompressionType")
     def data_compression_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        """
         return pulumi.get(self, "data_compression_type")
 
     @data_compression_type.setter
@@ -88,6 +109,9 @@ class OpenZfsVolumeArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -97,6 +121,9 @@ class OpenZfsVolumeArgs:
     @property
     @pulumi.getter(name="nfsExports")
     def nfs_exports(self) -> Optional[pulumi.Input['OpenZfsVolumeNfsExportsArgs']]:
+        """
+        NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        """
         return pulumi.get(self, "nfs_exports")
 
     @nfs_exports.setter
@@ -106,6 +133,9 @@ class OpenZfsVolumeArgs:
     @property
     @pulumi.getter(name="originSnapshot")
     def origin_snapshot(self) -> Optional[pulumi.Input['OpenZfsVolumeOriginSnapshotArgs']]:
+        """
+        The ARN of the source snapshot to create the volume from.
+        """
         return pulumi.get(self, "origin_snapshot")
 
     @origin_snapshot.setter
@@ -115,6 +145,9 @@ class OpenZfsVolumeArgs:
     @property
     @pulumi.getter(name="readOnly")
     def read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        specifies whether the volume is read-only. Default is false.
+        """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
@@ -124,6 +157,9 @@ class OpenZfsVolumeArgs:
     @property
     @pulumi.getter(name="recordSizeKib")
     def record_size_kib(self) -> Optional[pulumi.Input[int]]:
+        """
+        The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        """
         return pulumi.get(self, "record_size_kib")
 
     @record_size_kib.setter
@@ -133,6 +169,9 @@ class OpenZfsVolumeArgs:
     @property
     @pulumi.getter(name="storageCapacityQuotaGib")
     def storage_capacity_quota_gib(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+        """
         return pulumi.get(self, "storage_capacity_quota_gib")
 
     @storage_capacity_quota_gib.setter
@@ -142,6 +181,9 @@ class OpenZfsVolumeArgs:
     @property
     @pulumi.getter(name="storageCapacityReservationGib")
     def storage_capacity_reservation_gib(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+        """
         return pulumi.get(self, "storage_capacity_reservation_gib")
 
     @storage_capacity_reservation_gib.setter
@@ -151,6 +193,9 @@ class OpenZfsVolumeArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -160,6 +205,9 @@ class OpenZfsVolumeArgs:
     @property
     @pulumi.getter(name="userAndGroupQuotas")
     def user_and_group_quotas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeUserAndGroupQuotaArgs']]]]:
+        """
+        Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        """
         return pulumi.get(self, "user_and_group_quotas")
 
     @user_and_group_quotas.setter
@@ -196,6 +244,20 @@ class _OpenZfsVolumeState:
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OpenZfsVolume resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[bool] copy_tags_to_snapshots: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        :param pulumi.Input[str] data_compression_type: Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+        :param pulumi.Input['OpenZfsVolumeNfsExportsArgs'] nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        :param pulumi.Input['OpenZfsVolumeOriginSnapshotArgs'] origin_snapshot: The ARN of the source snapshot to create the volume from.
+        :param pulumi.Input[str] parent_volume_id: The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `fsx.OpenZfsVolume`.
+        :param pulumi.Input[bool] read_only: specifies whether the volume is read-only. Default is false.
+        :param pulumi.Input[int] record_size_kib: The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        :param pulumi.Input[int] storage_capacity_quota_gib: The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+        :param pulumi.Input[int] storage_capacity_reservation_gib: The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeUserAndGroupQuotaArgs']]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -231,6 +293,9 @@ class _OpenZfsVolumeState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name of the file system.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -240,6 +305,9 @@ class _OpenZfsVolumeState:
     @property
     @pulumi.getter(name="copyTagsToSnapshots")
     def copy_tags_to_snapshots(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        """
         return pulumi.get(self, "copy_tags_to_snapshots")
 
     @copy_tags_to_snapshots.setter
@@ -249,6 +317,9 @@ class _OpenZfsVolumeState:
     @property
     @pulumi.getter(name="dataCompressionType")
     def data_compression_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        """
         return pulumi.get(self, "data_compression_type")
 
     @data_compression_type.setter
@@ -258,6 +329,9 @@ class _OpenZfsVolumeState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -267,6 +341,9 @@ class _OpenZfsVolumeState:
     @property
     @pulumi.getter(name="nfsExports")
     def nfs_exports(self) -> Optional[pulumi.Input['OpenZfsVolumeNfsExportsArgs']]:
+        """
+        NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        """
         return pulumi.get(self, "nfs_exports")
 
     @nfs_exports.setter
@@ -276,6 +353,9 @@ class _OpenZfsVolumeState:
     @property
     @pulumi.getter(name="originSnapshot")
     def origin_snapshot(self) -> Optional[pulumi.Input['OpenZfsVolumeOriginSnapshotArgs']]:
+        """
+        The ARN of the source snapshot to create the volume from.
+        """
         return pulumi.get(self, "origin_snapshot")
 
     @origin_snapshot.setter
@@ -285,6 +365,9 @@ class _OpenZfsVolumeState:
     @property
     @pulumi.getter(name="parentVolumeId")
     def parent_volume_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `fsx.OpenZfsVolume`.
+        """
         return pulumi.get(self, "parent_volume_id")
 
     @parent_volume_id.setter
@@ -294,6 +377,9 @@ class _OpenZfsVolumeState:
     @property
     @pulumi.getter(name="readOnly")
     def read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        specifies whether the volume is read-only. Default is false.
+        """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
@@ -303,6 +389,9 @@ class _OpenZfsVolumeState:
     @property
     @pulumi.getter(name="recordSizeKib")
     def record_size_kib(self) -> Optional[pulumi.Input[int]]:
+        """
+        The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        """
         return pulumi.get(self, "record_size_kib")
 
     @record_size_kib.setter
@@ -312,6 +401,9 @@ class _OpenZfsVolumeState:
     @property
     @pulumi.getter(name="storageCapacityQuotaGib")
     def storage_capacity_quota_gib(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+        """
         return pulumi.get(self, "storage_capacity_quota_gib")
 
     @storage_capacity_quota_gib.setter
@@ -321,6 +413,9 @@ class _OpenZfsVolumeState:
     @property
     @pulumi.getter(name="storageCapacityReservationGib")
     def storage_capacity_reservation_gib(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+        """
         return pulumi.get(self, "storage_capacity_reservation_gib")
 
     @storage_capacity_reservation_gib.setter
@@ -330,6 +425,9 @@ class _OpenZfsVolumeState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -339,6 +437,9 @@ class _OpenZfsVolumeState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -348,6 +449,9 @@ class _OpenZfsVolumeState:
     @property
     @pulumi.getter(name="userAndGroupQuotas")
     def user_and_group_quotas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeUserAndGroupQuotaArgs']]]]:
+        """
+        Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        """
         return pulumi.get(self, "user_and_group_quotas")
 
     @user_and_group_quotas.setter
@@ -384,9 +488,40 @@ class OpenZfsVolume(pulumi.CustomResource):
                  volume_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a OpenZfsVolume resource with the given unique name, props, and options.
+        Manages an Amazon FSx for OpenZFS volume.
+        See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.fsx.OpenZfsVolume("test", parent_volume_id=aws_fsx_openzfs_file_system["test"]["root_volume_id"])
+        ```
+
+        ## Import
+
+        FSx Volumes can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] copy_tags_to_snapshots: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        :param pulumi.Input[str] data_compression_type: Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+        :param pulumi.Input[pulumi.InputType['OpenZfsVolumeNfsExportsArgs']] nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        :param pulumi.Input[pulumi.InputType['OpenZfsVolumeOriginSnapshotArgs']] origin_snapshot: The ARN of the source snapshot to create the volume from.
+        :param pulumi.Input[str] parent_volume_id: The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `fsx.OpenZfsVolume`.
+        :param pulumi.Input[bool] read_only: specifies whether the volume is read-only. Default is false.
+        :param pulumi.Input[int] record_size_kib: The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        :param pulumi.Input[int] storage_capacity_quota_gib: The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+        :param pulumi.Input[int] storage_capacity_reservation_gib: The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OpenZfsVolumeUserAndGroupQuotaArgs']]]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
         """
         ...
     @overload
@@ -395,7 +530,26 @@ class OpenZfsVolume(pulumi.CustomResource):
                  args: OpenZfsVolumeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a OpenZfsVolume resource with the given unique name, props, and options.
+        Manages an Amazon FSx for OpenZFS volume.
+        See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.fsx.OpenZfsVolume("test", parent_volume_id=aws_fsx_openzfs_file_system["test"]["root_volume_id"])
+        ```
+
+        ## Import
+
+        FSx Volumes can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
+        ```
+
         :param str resource_name: The name of the resource.
         :param OpenZfsVolumeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -482,6 +636,20 @@ class OpenZfsVolume(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[bool] copy_tags_to_snapshots: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        :param pulumi.Input[str] data_compression_type: Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+        :param pulumi.Input[pulumi.InputType['OpenZfsVolumeNfsExportsArgs']] nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        :param pulumi.Input[pulumi.InputType['OpenZfsVolumeOriginSnapshotArgs']] origin_snapshot: The ARN of the source snapshot to create the volume from.
+        :param pulumi.Input[str] parent_volume_id: The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `fsx.OpenZfsVolume`.
+        :param pulumi.Input[bool] read_only: specifies whether the volume is read-only. Default is false.
+        :param pulumi.Input[int] record_size_kib: The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        :param pulumi.Input[int] storage_capacity_quota_gib: The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+        :param pulumi.Input[int] storage_capacity_reservation_gib: The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OpenZfsVolumeUserAndGroupQuotaArgs']]]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -507,71 +675,113 @@ class OpenZfsVolume(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name of the file system.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="copyTagsToSnapshots")
     def copy_tags_to_snapshots(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        """
         return pulumi.get(self, "copy_tags_to_snapshots")
 
     @property
     @pulumi.getter(name="dataCompressionType")
     def data_compression_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        """
         return pulumi.get(self, "data_compression_type")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="nfsExports")
     def nfs_exports(self) -> pulumi.Output[Optional['outputs.OpenZfsVolumeNfsExports']]:
+        """
+        NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        """
         return pulumi.get(self, "nfs_exports")
 
     @property
     @pulumi.getter(name="originSnapshot")
     def origin_snapshot(self) -> pulumi.Output[Optional['outputs.OpenZfsVolumeOriginSnapshot']]:
+        """
+        The ARN of the source snapshot to create the volume from.
+        """
         return pulumi.get(self, "origin_snapshot")
 
     @property
     @pulumi.getter(name="parentVolumeId")
     def parent_volume_id(self) -> pulumi.Output[str]:
+        """
+        The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `fsx.OpenZfsVolume`.
+        """
         return pulumi.get(self, "parent_volume_id")
 
     @property
     @pulumi.getter(name="readOnly")
     def read_only(self) -> pulumi.Output[bool]:
+        """
+        specifies whether the volume is read-only. Default is false.
+        """
         return pulumi.get(self, "read_only")
 
     @property
     @pulumi.getter(name="recordSizeKib")
     def record_size_kib(self) -> pulumi.Output[Optional[int]]:
+        """
+        The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        """
         return pulumi.get(self, "record_size_kib")
 
     @property
     @pulumi.getter(name="storageCapacityQuotaGib")
     def storage_capacity_quota_gib(self) -> pulumi.Output[int]:
+        """
+        The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+        """
         return pulumi.get(self, "storage_capacity_quota_gib")
 
     @property
     @pulumi.getter(name="storageCapacityReservationGib")
     def storage_capacity_reservation_gib(self) -> pulumi.Output[int]:
+        """
+        The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+        """
         return pulumi.get(self, "storage_capacity_reservation_gib")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="userAndGroupQuotas")
     def user_and_group_quotas(self) -> pulumi.Output[Sequence['outputs.OpenZfsVolumeUserAndGroupQuota']]:
+        """
+        Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        """
         return pulumi.get(self, "user_and_group_quotas")
 
     @property

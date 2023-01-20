@@ -11,10 +11,14 @@ import (
 )
 
 type EventConnectionAuthParameters struct {
-	ApiKey                   *EventConnectionAuthParametersApiKey                   `pulumi:"apiKey"`
-	Basic                    *EventConnectionAuthParametersBasic                    `pulumi:"basic"`
+	// Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
+	ApiKey *EventConnectionAuthParametersApiKey `pulumi:"apiKey"`
+	// Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `apiKey` and `oauth`. Documented below.
+	Basic *EventConnectionAuthParametersBasic `pulumi:"basic"`
+	// Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
 	InvocationHttpParameters *EventConnectionAuthParametersInvocationHttpParameters `pulumi:"invocationHttpParameters"`
-	Oauth                    *EventConnectionAuthParametersOauth                    `pulumi:"oauth"`
+	// Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
+	Oauth *EventConnectionAuthParametersOauth `pulumi:"oauth"`
 }
 
 // EventConnectionAuthParametersInput is an input type that accepts EventConnectionAuthParametersArgs and EventConnectionAuthParametersOutput values.
@@ -29,10 +33,14 @@ type EventConnectionAuthParametersInput interface {
 }
 
 type EventConnectionAuthParametersArgs struct {
-	ApiKey                   EventConnectionAuthParametersApiKeyPtrInput                   `pulumi:"apiKey"`
-	Basic                    EventConnectionAuthParametersBasicPtrInput                    `pulumi:"basic"`
+	// Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
+	ApiKey EventConnectionAuthParametersApiKeyPtrInput `pulumi:"apiKey"`
+	// Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `apiKey` and `oauth`. Documented below.
+	Basic EventConnectionAuthParametersBasicPtrInput `pulumi:"basic"`
+	// Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
 	InvocationHttpParameters EventConnectionAuthParametersInvocationHttpParametersPtrInput `pulumi:"invocationHttpParameters"`
-	Oauth                    EventConnectionAuthParametersOauthPtrInput                    `pulumi:"oauth"`
+	// Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
+	Oauth EventConnectionAuthParametersOauthPtrInput `pulumi:"oauth"`
 }
 
 func (EventConnectionAuthParametersArgs) ElementType() reflect.Type {
@@ -112,20 +120,24 @@ func (o EventConnectionAuthParametersOutput) ToEventConnectionAuthParametersPtrO
 	}).(EventConnectionAuthParametersPtrOutput)
 }
 
+// Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
 func (o EventConnectionAuthParametersOutput) ApiKey() EventConnectionAuthParametersApiKeyPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParameters) *EventConnectionAuthParametersApiKey { return v.ApiKey }).(EventConnectionAuthParametersApiKeyPtrOutput)
 }
 
+// Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `apiKey` and `oauth`. Documented below.
 func (o EventConnectionAuthParametersOutput) Basic() EventConnectionAuthParametersBasicPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParameters) *EventConnectionAuthParametersBasic { return v.Basic }).(EventConnectionAuthParametersBasicPtrOutput)
 }
 
+// Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
 func (o EventConnectionAuthParametersOutput) InvocationHttpParameters() EventConnectionAuthParametersInvocationHttpParametersPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParameters) *EventConnectionAuthParametersInvocationHttpParameters {
 		return v.InvocationHttpParameters
 	}).(EventConnectionAuthParametersInvocationHttpParametersPtrOutput)
 }
 
+// Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
 func (o EventConnectionAuthParametersOutput) Oauth() EventConnectionAuthParametersOauthPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParameters) *EventConnectionAuthParametersOauth { return v.Oauth }).(EventConnectionAuthParametersOauthPtrOutput)
 }
@@ -154,6 +166,7 @@ func (o EventConnectionAuthParametersPtrOutput) Elem() EventConnectionAuthParame
 	}).(EventConnectionAuthParametersOutput)
 }
 
+// Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
 func (o EventConnectionAuthParametersPtrOutput) ApiKey() EventConnectionAuthParametersApiKeyPtrOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParameters) *EventConnectionAuthParametersApiKey {
 		if v == nil {
@@ -163,6 +176,7 @@ func (o EventConnectionAuthParametersPtrOutput) ApiKey() EventConnectionAuthPara
 	}).(EventConnectionAuthParametersApiKeyPtrOutput)
 }
 
+// Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `apiKey` and `oauth`. Documented below.
 func (o EventConnectionAuthParametersPtrOutput) Basic() EventConnectionAuthParametersBasicPtrOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParameters) *EventConnectionAuthParametersBasic {
 		if v == nil {
@@ -172,6 +186,7 @@ func (o EventConnectionAuthParametersPtrOutput) Basic() EventConnectionAuthParam
 	}).(EventConnectionAuthParametersBasicPtrOutput)
 }
 
+// Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
 func (o EventConnectionAuthParametersPtrOutput) InvocationHttpParameters() EventConnectionAuthParametersInvocationHttpParametersPtrOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParameters) *EventConnectionAuthParametersInvocationHttpParameters {
 		if v == nil {
@@ -181,6 +196,7 @@ func (o EventConnectionAuthParametersPtrOutput) InvocationHttpParameters() Event
 	}).(EventConnectionAuthParametersInvocationHttpParametersPtrOutput)
 }
 
+// Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
 func (o EventConnectionAuthParametersPtrOutput) Oauth() EventConnectionAuthParametersOauthPtrOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParameters) *EventConnectionAuthParametersOauth {
 		if v == nil {
@@ -191,7 +207,9 @@ func (o EventConnectionAuthParametersPtrOutput) Oauth() EventConnectionAuthParam
 }
 
 type EventConnectionAuthParametersApiKey struct {
-	Key   string `pulumi:"key"`
+	// Header Name.
+	Key string `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
 	Value string `pulumi:"value"`
 }
 
@@ -207,7 +225,9 @@ type EventConnectionAuthParametersApiKeyInput interface {
 }
 
 type EventConnectionAuthParametersApiKeyArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Header Name.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -288,10 +308,12 @@ func (o EventConnectionAuthParametersApiKeyOutput) ToEventConnectionAuthParamete
 	}).(EventConnectionAuthParametersApiKeyPtrOutput)
 }
 
+// Header Name.
 func (o EventConnectionAuthParametersApiKeyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersApiKey) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Header Value. Created and stored in AWS Secrets Manager.
 func (o EventConnectionAuthParametersApiKeyOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersApiKey) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -320,6 +342,7 @@ func (o EventConnectionAuthParametersApiKeyPtrOutput) Elem() EventConnectionAuth
 	}).(EventConnectionAuthParametersApiKeyOutput)
 }
 
+// Header Name.
 func (o EventConnectionAuthParametersApiKeyPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersApiKey) *string {
 		if v == nil {
@@ -329,6 +352,7 @@ func (o EventConnectionAuthParametersApiKeyPtrOutput) Key() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Header Value. Created and stored in AWS Secrets Manager.
 func (o EventConnectionAuthParametersApiKeyPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersApiKey) *string {
 		if v == nil {
@@ -339,7 +363,9 @@ func (o EventConnectionAuthParametersApiKeyPtrOutput) Value() pulumi.StringPtrOu
 }
 
 type EventConnectionAuthParametersBasic struct {
+	// A password for the authorization. Created and stored in AWS Secrets Manager.
 	Password string `pulumi:"password"`
+	// A username for the authorization.
 	Username string `pulumi:"username"`
 }
 
@@ -355,7 +381,9 @@ type EventConnectionAuthParametersBasicInput interface {
 }
 
 type EventConnectionAuthParametersBasicArgs struct {
+	// A password for the authorization. Created and stored in AWS Secrets Manager.
 	Password pulumi.StringInput `pulumi:"password"`
+	// A username for the authorization.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -436,10 +464,12 @@ func (o EventConnectionAuthParametersBasicOutput) ToEventConnectionAuthParameter
 	}).(EventConnectionAuthParametersBasicPtrOutput)
 }
 
+// A password for the authorization. Created and stored in AWS Secrets Manager.
 func (o EventConnectionAuthParametersBasicOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersBasic) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// A username for the authorization.
 func (o EventConnectionAuthParametersBasicOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersBasic) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -468,6 +498,7 @@ func (o EventConnectionAuthParametersBasicPtrOutput) Elem() EventConnectionAuthP
 	}).(EventConnectionAuthParametersBasicOutput)
 }
 
+// A password for the authorization. Created and stored in AWS Secrets Manager.
 func (o EventConnectionAuthParametersBasicPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersBasic) *string {
 		if v == nil {
@@ -477,6 +508,7 @@ func (o EventConnectionAuthParametersBasicPtrOutput) Password() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// A username for the authorization.
 func (o EventConnectionAuthParametersBasicPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersBasic) *string {
 		if v == nil {
@@ -487,8 +519,11 @@ func (o EventConnectionAuthParametersBasicPtrOutput) Username() pulumi.StringPtr
 }
 
 type EventConnectionAuthParametersInvocationHttpParameters struct {
-	Bodies       []EventConnectionAuthParametersInvocationHttpParametersBody        `pulumi:"bodies"`
-	Headers      []EventConnectionAuthParametersInvocationHttpParametersHeader      `pulumi:"headers"`
+	// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Bodies []EventConnectionAuthParametersInvocationHttpParametersBody `pulumi:"bodies"`
+	// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Headers []EventConnectionAuthParametersInvocationHttpParametersHeader `pulumi:"headers"`
+	// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 	QueryStrings []EventConnectionAuthParametersInvocationHttpParametersQueryString `pulumi:"queryStrings"`
 }
 
@@ -504,8 +539,11 @@ type EventConnectionAuthParametersInvocationHttpParametersInput interface {
 }
 
 type EventConnectionAuthParametersInvocationHttpParametersArgs struct {
-	Bodies       EventConnectionAuthParametersInvocationHttpParametersBodyArrayInput        `pulumi:"bodies"`
-	Headers      EventConnectionAuthParametersInvocationHttpParametersHeaderArrayInput      `pulumi:"headers"`
+	// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Bodies EventConnectionAuthParametersInvocationHttpParametersBodyArrayInput `pulumi:"bodies"`
+	// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Headers EventConnectionAuthParametersInvocationHttpParametersHeaderArrayInput `pulumi:"headers"`
+	// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 	QueryStrings EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayInput `pulumi:"queryStrings"`
 }
 
@@ -586,18 +624,21 @@ func (o EventConnectionAuthParametersInvocationHttpParametersOutput) ToEventConn
 	}).(EventConnectionAuthParametersInvocationHttpParametersPtrOutput)
 }
 
+// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersInvocationHttpParametersOutput) Bodies() EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParameters) []EventConnectionAuthParametersInvocationHttpParametersBody {
 		return v.Bodies
 	}).(EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput)
 }
 
+// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersInvocationHttpParametersOutput) Headers() EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParameters) []EventConnectionAuthParametersInvocationHttpParametersHeader {
 		return v.Headers
 	}).(EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput)
 }
 
+// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersInvocationHttpParametersOutput) QueryStrings() EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParameters) []EventConnectionAuthParametersInvocationHttpParametersQueryString {
 		return v.QueryStrings
@@ -628,6 +669,7 @@ func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) Elem() E
 	}).(EventConnectionAuthParametersInvocationHttpParametersOutput)
 }
 
+// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) Bodies() EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersInvocationHttpParameters) []EventConnectionAuthParametersInvocationHttpParametersBody {
 		if v == nil {
@@ -637,6 +679,7 @@ func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) Bodies()
 	}).(EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput)
 }
 
+// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) Headers() EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersInvocationHttpParameters) []EventConnectionAuthParametersInvocationHttpParametersHeader {
 		if v == nil {
@@ -646,6 +689,7 @@ func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) Headers(
 	}).(EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput)
 }
 
+// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) QueryStrings() EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersInvocationHttpParameters) []EventConnectionAuthParametersInvocationHttpParametersQueryString {
 		if v == nil {
@@ -656,9 +700,12 @@ func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) QueryStr
 }
 
 type EventConnectionAuthParametersInvocationHttpParametersBody struct {
-	IsValueSecret *bool   `pulumi:"isValueSecret"`
-	Key           *string `pulumi:"key"`
-	Value         *string `pulumi:"value"`
+	// Specified whether the value is secret.
+	IsValueSecret *bool `pulumi:"isValueSecret"`
+	// Header Name.
+	Key *string `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value *string `pulumi:"value"`
 }
 
 // EventConnectionAuthParametersInvocationHttpParametersBodyInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersBodyArgs and EventConnectionAuthParametersInvocationHttpParametersBodyOutput values.
@@ -673,9 +720,12 @@ type EventConnectionAuthParametersInvocationHttpParametersBodyInput interface {
 }
 
 type EventConnectionAuthParametersInvocationHttpParametersBodyArgs struct {
-	IsValueSecret pulumi.BoolPtrInput   `pulumi:"isValueSecret"`
-	Key           pulumi.StringPtrInput `pulumi:"key"`
-	Value         pulumi.StringPtrInput `pulumi:"value"`
+	// Specified whether the value is secret.
+	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
+	// Header Name.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (EventConnectionAuthParametersInvocationHttpParametersBodyArgs) ElementType() reflect.Type {
@@ -729,14 +779,17 @@ func (o EventConnectionAuthParametersInvocationHttpParametersBodyOutput) ToEvent
 	return o
 }
 
+// Specified whether the value is secret.
 func (o EventConnectionAuthParametersInvocationHttpParametersBodyOutput) IsValueSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersBody) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
 }
 
+// Header Name.
 func (o EventConnectionAuthParametersInvocationHttpParametersBodyOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersBody) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// Header Value. Created and stored in AWS Secrets Manager.
 func (o EventConnectionAuthParametersInvocationHttpParametersBodyOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersBody) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -762,9 +815,12 @@ func (o EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput) In
 }
 
 type EventConnectionAuthParametersInvocationHttpParametersHeader struct {
-	IsValueSecret *bool   `pulumi:"isValueSecret"`
-	Key           *string `pulumi:"key"`
-	Value         *string `pulumi:"value"`
+	// Specified whether the value is secret.
+	IsValueSecret *bool `pulumi:"isValueSecret"`
+	// Header Name.
+	Key *string `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value *string `pulumi:"value"`
 }
 
 // EventConnectionAuthParametersInvocationHttpParametersHeaderInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersHeaderArgs and EventConnectionAuthParametersInvocationHttpParametersHeaderOutput values.
@@ -779,9 +835,12 @@ type EventConnectionAuthParametersInvocationHttpParametersHeaderInput interface 
 }
 
 type EventConnectionAuthParametersInvocationHttpParametersHeaderArgs struct {
-	IsValueSecret pulumi.BoolPtrInput   `pulumi:"isValueSecret"`
-	Key           pulumi.StringPtrInput `pulumi:"key"`
-	Value         pulumi.StringPtrInput `pulumi:"value"`
+	// Specified whether the value is secret.
+	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
+	// Header Name.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (EventConnectionAuthParametersInvocationHttpParametersHeaderArgs) ElementType() reflect.Type {
@@ -835,14 +894,17 @@ func (o EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) ToEve
 	return o
 }
 
+// Specified whether the value is secret.
 func (o EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) IsValueSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersHeader) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
 }
 
+// Header Name.
 func (o EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersHeader) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// Header Value. Created and stored in AWS Secrets Manager.
 func (o EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -868,9 +930,12 @@ func (o EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput) 
 }
 
 type EventConnectionAuthParametersInvocationHttpParametersQueryString struct {
-	IsValueSecret *bool   `pulumi:"isValueSecret"`
-	Key           *string `pulumi:"key"`
-	Value         *string `pulumi:"value"`
+	// Specified whether the value is secret.
+	IsValueSecret *bool `pulumi:"isValueSecret"`
+	// Header Name.
+	Key *string `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value *string `pulumi:"value"`
 }
 
 // EventConnectionAuthParametersInvocationHttpParametersQueryStringInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs and EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput values.
@@ -885,9 +950,12 @@ type EventConnectionAuthParametersInvocationHttpParametersQueryStringInput inter
 }
 
 type EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs struct {
-	IsValueSecret pulumi.BoolPtrInput   `pulumi:"isValueSecret"`
-	Key           pulumi.StringPtrInput `pulumi:"key"`
-	Value         pulumi.StringPtrInput `pulumi:"value"`
+	// Specified whether the value is secret.
+	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
+	// Header Name.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs) ElementType() reflect.Type {
@@ -941,14 +1009,17 @@ func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) 
 	return o
 }
 
+// Specified whether the value is secret.
 func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) IsValueSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersQueryString) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
 }
 
+// Header Name.
 func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersQueryString) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// Header Value. Created and stored in AWS Secrets Manager.
 func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersQueryString) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -974,10 +1045,14 @@ func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOut
 }
 
 type EventConnectionAuthParametersOauth struct {
-	AuthorizationEndpoint string                                                `pulumi:"authorizationEndpoint"`
-	ClientParameters      *EventConnectionAuthParametersOauthClientParameters   `pulumi:"clientParameters"`
-	HttpMethod            string                                                `pulumi:"httpMethod"`
-	OauthHttpParameters   EventConnectionAuthParametersOauthOauthHttpParameters `pulumi:"oauthHttpParameters"`
+	// The URL to the authorization endpoint.
+	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
+	// Contains the client parameters for OAuth authorization. Contains the following two parameters.
+	ClientParameters *EventConnectionAuthParametersOauthClientParameters `pulumi:"clientParameters"`
+	// A password for the authorization. Created and stored in AWS Secrets Manager.
+	HttpMethod string `pulumi:"httpMethod"`
+	// OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+	OauthHttpParameters EventConnectionAuthParametersOauthOauthHttpParameters `pulumi:"oauthHttpParameters"`
 }
 
 // EventConnectionAuthParametersOauthInput is an input type that accepts EventConnectionAuthParametersOauthArgs and EventConnectionAuthParametersOauthOutput values.
@@ -992,10 +1067,14 @@ type EventConnectionAuthParametersOauthInput interface {
 }
 
 type EventConnectionAuthParametersOauthArgs struct {
-	AuthorizationEndpoint pulumi.StringInput                                         `pulumi:"authorizationEndpoint"`
-	ClientParameters      EventConnectionAuthParametersOauthClientParametersPtrInput `pulumi:"clientParameters"`
-	HttpMethod            pulumi.StringInput                                         `pulumi:"httpMethod"`
-	OauthHttpParameters   EventConnectionAuthParametersOauthOauthHttpParametersInput `pulumi:"oauthHttpParameters"`
+	// The URL to the authorization endpoint.
+	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
+	// Contains the client parameters for OAuth authorization. Contains the following two parameters.
+	ClientParameters EventConnectionAuthParametersOauthClientParametersPtrInput `pulumi:"clientParameters"`
+	// A password for the authorization. Created and stored in AWS Secrets Manager.
+	HttpMethod pulumi.StringInput `pulumi:"httpMethod"`
+	// OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+	OauthHttpParameters EventConnectionAuthParametersOauthOauthHttpParametersInput `pulumi:"oauthHttpParameters"`
 }
 
 func (EventConnectionAuthParametersOauthArgs) ElementType() reflect.Type {
@@ -1075,20 +1154,24 @@ func (o EventConnectionAuthParametersOauthOutput) ToEventConnectionAuthParameter
 	}).(EventConnectionAuthParametersOauthPtrOutput)
 }
 
+// The URL to the authorization endpoint.
 func (o EventConnectionAuthParametersOauthOutput) AuthorizationEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauth) string { return v.AuthorizationEndpoint }).(pulumi.StringOutput)
 }
 
+// Contains the client parameters for OAuth authorization. Contains the following two parameters.
 func (o EventConnectionAuthParametersOauthOutput) ClientParameters() EventConnectionAuthParametersOauthClientParametersPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauth) *EventConnectionAuthParametersOauthClientParameters {
 		return v.ClientParameters
 	}).(EventConnectionAuthParametersOauthClientParametersPtrOutput)
 }
 
+// A password for the authorization. Created and stored in AWS Secrets Manager.
 func (o EventConnectionAuthParametersOauthOutput) HttpMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauth) string { return v.HttpMethod }).(pulumi.StringOutput)
 }
 
+// OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
 func (o EventConnectionAuthParametersOauthOutput) OauthHttpParameters() EventConnectionAuthParametersOauthOauthHttpParametersOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauth) EventConnectionAuthParametersOauthOauthHttpParameters {
 		return v.OauthHttpParameters
@@ -1119,6 +1202,7 @@ func (o EventConnectionAuthParametersOauthPtrOutput) Elem() EventConnectionAuthP
 	}).(EventConnectionAuthParametersOauthOutput)
 }
 
+// The URL to the authorization endpoint.
 func (o EventConnectionAuthParametersOauthPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersOauth) *string {
 		if v == nil {
@@ -1128,6 +1212,7 @@ func (o EventConnectionAuthParametersOauthPtrOutput) AuthorizationEndpoint() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains the client parameters for OAuth authorization. Contains the following two parameters.
 func (o EventConnectionAuthParametersOauthPtrOutput) ClientParameters() EventConnectionAuthParametersOauthClientParametersPtrOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersOauth) *EventConnectionAuthParametersOauthClientParameters {
 		if v == nil {
@@ -1137,6 +1222,7 @@ func (o EventConnectionAuthParametersOauthPtrOutput) ClientParameters() EventCon
 	}).(EventConnectionAuthParametersOauthClientParametersPtrOutput)
 }
 
+// A password for the authorization. Created and stored in AWS Secrets Manager.
 func (o EventConnectionAuthParametersOauthPtrOutput) HttpMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersOauth) *string {
 		if v == nil {
@@ -1146,6 +1232,7 @@ func (o EventConnectionAuthParametersOauthPtrOutput) HttpMethod() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
 func (o EventConnectionAuthParametersOauthPtrOutput) OauthHttpParameters() EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersOauth) *EventConnectionAuthParametersOauthOauthHttpParameters {
 		if v == nil {
@@ -1156,7 +1243,9 @@ func (o EventConnectionAuthParametersOauthPtrOutput) OauthHttpParameters() Event
 }
 
 type EventConnectionAuthParametersOauthClientParameters struct {
-	ClientId     string `pulumi:"clientId"`
+	// The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+	ClientId string `pulumi:"clientId"`
+	// The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
 	ClientSecret string `pulumi:"clientSecret"`
 }
 
@@ -1172,7 +1261,9 @@ type EventConnectionAuthParametersOauthClientParametersInput interface {
 }
 
 type EventConnectionAuthParametersOauthClientParametersArgs struct {
-	ClientId     pulumi.StringInput `pulumi:"clientId"`
+	// The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
 	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
 }
 
@@ -1253,10 +1344,12 @@ func (o EventConnectionAuthParametersOauthClientParametersOutput) ToEventConnect
 	}).(EventConnectionAuthParametersOauthClientParametersPtrOutput)
 }
 
+// The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
 func (o EventConnectionAuthParametersOauthClientParametersOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthClientParameters) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
 func (o EventConnectionAuthParametersOauthClientParametersOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthClientParameters) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
@@ -1285,6 +1378,7 @@ func (o EventConnectionAuthParametersOauthClientParametersPtrOutput) Elem() Even
 	}).(EventConnectionAuthParametersOauthClientParametersOutput)
 }
 
+// The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
 func (o EventConnectionAuthParametersOauthClientParametersPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersOauthClientParameters) *string {
 		if v == nil {
@@ -1294,6 +1388,7 @@ func (o EventConnectionAuthParametersOauthClientParametersPtrOutput) ClientId() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
 func (o EventConnectionAuthParametersOauthClientParametersPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersOauthClientParameters) *string {
 		if v == nil {
@@ -1304,8 +1399,11 @@ func (o EventConnectionAuthParametersOauthClientParametersPtrOutput) ClientSecre
 }
 
 type EventConnectionAuthParametersOauthOauthHttpParameters struct {
-	Bodies       []EventConnectionAuthParametersOauthOauthHttpParametersBody        `pulumi:"bodies"`
-	Headers      []EventConnectionAuthParametersOauthOauthHttpParametersHeader      `pulumi:"headers"`
+	// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Bodies []EventConnectionAuthParametersOauthOauthHttpParametersBody `pulumi:"bodies"`
+	// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Headers []EventConnectionAuthParametersOauthOauthHttpParametersHeader `pulumi:"headers"`
+	// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 	QueryStrings []EventConnectionAuthParametersOauthOauthHttpParametersQueryString `pulumi:"queryStrings"`
 }
 
@@ -1321,8 +1419,11 @@ type EventConnectionAuthParametersOauthOauthHttpParametersInput interface {
 }
 
 type EventConnectionAuthParametersOauthOauthHttpParametersArgs struct {
-	Bodies       EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayInput        `pulumi:"bodies"`
-	Headers      EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayInput      `pulumi:"headers"`
+	// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Bodies EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayInput `pulumi:"bodies"`
+	// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Headers EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayInput `pulumi:"headers"`
+	// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 	QueryStrings EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayInput `pulumi:"queryStrings"`
 }
 
@@ -1403,18 +1504,21 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersOutput) ToEventConn
 	}).(EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput)
 }
 
+// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersOauthOauthHttpParametersOutput) Bodies() EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParameters) []EventConnectionAuthParametersOauthOauthHttpParametersBody {
 		return v.Bodies
 	}).(EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput)
 }
 
+// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersOauthOauthHttpParametersOutput) Headers() EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParameters) []EventConnectionAuthParametersOauthOauthHttpParametersHeader {
 		return v.Headers
 	}).(EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput)
 }
 
+// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersOauthOauthHttpParametersOutput) QueryStrings() EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParameters) []EventConnectionAuthParametersOauthOauthHttpParametersQueryString {
 		return v.QueryStrings
@@ -1445,6 +1549,7 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) Elem() E
 	}).(EventConnectionAuthParametersOauthOauthHttpParametersOutput)
 }
 
+// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) Bodies() EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersOauthOauthHttpParameters) []EventConnectionAuthParametersOauthOauthHttpParametersBody {
 		if v == nil {
@@ -1454,6 +1559,7 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) Bodies()
 	}).(EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput)
 }
 
+// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) Headers() EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersOauthOauthHttpParameters) []EventConnectionAuthParametersOauthOauthHttpParametersHeader {
 		if v == nil {
@@ -1463,6 +1569,7 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) Headers(
 	}).(EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput)
 }
 
+// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) QueryStrings() EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersOauthOauthHttpParameters) []EventConnectionAuthParametersOauthOauthHttpParametersQueryString {
 		if v == nil {
@@ -1473,9 +1580,12 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) QueryStr
 }
 
 type EventConnectionAuthParametersOauthOauthHttpParametersBody struct {
-	IsValueSecret *bool   `pulumi:"isValueSecret"`
-	Key           *string `pulumi:"key"`
-	Value         *string `pulumi:"value"`
+	// Specified whether the value is secret.
+	IsValueSecret *bool `pulumi:"isValueSecret"`
+	// Header Name.
+	Key *string `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value *string `pulumi:"value"`
 }
 
 // EventConnectionAuthParametersOauthOauthHttpParametersBodyInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs and EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput values.
@@ -1490,9 +1600,12 @@ type EventConnectionAuthParametersOauthOauthHttpParametersBodyInput interface {
 }
 
 type EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs struct {
-	IsValueSecret pulumi.BoolPtrInput   `pulumi:"isValueSecret"`
-	Key           pulumi.StringPtrInput `pulumi:"key"`
-	Value         pulumi.StringPtrInput `pulumi:"value"`
+	// Specified whether the value is secret.
+	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
+	// Header Name.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs) ElementType() reflect.Type {
@@ -1546,14 +1659,17 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) ToEvent
 	return o
 }
 
+// Specified whether the value is secret.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) IsValueSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersBody) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
 }
 
+// Header Name.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersBody) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// Header Value. Created and stored in AWS Secrets Manager.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersBody) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1579,9 +1695,12 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput) In
 }
 
 type EventConnectionAuthParametersOauthOauthHttpParametersHeader struct {
-	IsValueSecret *bool   `pulumi:"isValueSecret"`
-	Key           *string `pulumi:"key"`
-	Value         *string `pulumi:"value"`
+	// Specified whether the value is secret.
+	IsValueSecret *bool `pulumi:"isValueSecret"`
+	// Header Name.
+	Key *string `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value *string `pulumi:"value"`
 }
 
 // EventConnectionAuthParametersOauthOauthHttpParametersHeaderInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs and EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput values.
@@ -1596,9 +1715,12 @@ type EventConnectionAuthParametersOauthOauthHttpParametersHeaderInput interface 
 }
 
 type EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs struct {
-	IsValueSecret pulumi.BoolPtrInput   `pulumi:"isValueSecret"`
-	Key           pulumi.StringPtrInput `pulumi:"key"`
-	Value         pulumi.StringPtrInput `pulumi:"value"`
+	// Specified whether the value is secret.
+	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
+	// Header Name.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs) ElementType() reflect.Type {
@@ -1652,14 +1774,17 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) ToEve
 	return o
 }
 
+// Specified whether the value is secret.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) IsValueSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersHeader) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
 }
 
+// Header Name.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersHeader) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// Header Value. Created and stored in AWS Secrets Manager.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1685,9 +1810,12 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput) 
 }
 
 type EventConnectionAuthParametersOauthOauthHttpParametersQueryString struct {
-	IsValueSecret *bool   `pulumi:"isValueSecret"`
-	Key           *string `pulumi:"key"`
-	Value         *string `pulumi:"value"`
+	// Specified whether the value is secret.
+	IsValueSecret *bool `pulumi:"isValueSecret"`
+	// Header Name.
+	Key *string `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value *string `pulumi:"value"`
 }
 
 // EventConnectionAuthParametersOauthOauthHttpParametersQueryStringInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs and EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput values.
@@ -1702,9 +1830,12 @@ type EventConnectionAuthParametersOauthOauthHttpParametersQueryStringInput inter
 }
 
 type EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs struct {
-	IsValueSecret pulumi.BoolPtrInput   `pulumi:"isValueSecret"`
-	Key           pulumi.StringPtrInput `pulumi:"key"`
-	Value         pulumi.StringPtrInput `pulumi:"value"`
+	// Specified whether the value is secret.
+	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
+	// Header Name.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs) ElementType() reflect.Type {
@@ -1758,14 +1889,17 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) 
 	return o
 }
 
+// Specified whether the value is secret.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) IsValueSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersQueryString) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
 }
 
+// Header Name.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersQueryString) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// Header Value. Created and stored in AWS Secrets Manager.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersQueryString) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1791,8 +1925,11 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOut
 }
 
 type EventPermissionCondition struct {
-	Key   string `pulumi:"key"`
-	Type  string `pulumi:"type"`
+	// Key for the condition. Valid values: `aws:PrincipalOrgID`.
+	Key string `pulumi:"key"`
+	// Type of condition. Value values: `StringEquals`.
+	Type string `pulumi:"type"`
+	// Value for the key.
 	Value string `pulumi:"value"`
 }
 
@@ -1808,8 +1945,11 @@ type EventPermissionConditionInput interface {
 }
 
 type EventPermissionConditionArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Type  pulumi.StringInput `pulumi:"type"`
+	// Key for the condition. Valid values: `aws:PrincipalOrgID`.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Type of condition. Value values: `StringEquals`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value for the key.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1890,14 +2030,17 @@ func (o EventPermissionConditionOutput) ToEventPermissionConditionPtrOutputWithC
 	}).(EventPermissionConditionPtrOutput)
 }
 
+// Key for the condition. Valid values: `aws:PrincipalOrgID`.
 func (o EventPermissionConditionOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventPermissionCondition) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Type of condition. Value values: `StringEquals`.
 func (o EventPermissionConditionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EventPermissionCondition) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Value for the key.
 func (o EventPermissionConditionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventPermissionCondition) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1926,6 +2069,7 @@ func (o EventPermissionConditionPtrOutput) Elem() EventPermissionConditionOutput
 	}).(EventPermissionConditionOutput)
 }
 
+// Key for the condition. Valid values: `aws:PrincipalOrgID`.
 func (o EventPermissionConditionPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventPermissionCondition) *string {
 		if v == nil {
@@ -1935,6 +2079,7 @@ func (o EventPermissionConditionPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Type of condition. Value values: `StringEquals`.
 func (o EventPermissionConditionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventPermissionCondition) *string {
 		if v == nil {
@@ -1944,6 +2089,7 @@ func (o EventPermissionConditionPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Value for the key.
 func (o EventPermissionConditionPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventPermissionCondition) *string {
 		if v == nil {
@@ -1954,10 +2100,14 @@ func (o EventPermissionConditionPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type EventTargetBatchTarget struct {
-	ArraySize     *int   `pulumi:"arraySize"`
-	JobAttempts   *int   `pulumi:"jobAttempts"`
+	// The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
+	ArraySize *int `pulumi:"arraySize"`
+	// The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
+	JobAttempts *int `pulumi:"jobAttempts"`
+	// The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
 	JobDefinition string `pulumi:"jobDefinition"`
-	JobName       string `pulumi:"jobName"`
+	// The name to use for this execution of the job, if the target is an AWS Batch job.
+	JobName string `pulumi:"jobName"`
 }
 
 // EventTargetBatchTargetInput is an input type that accepts EventTargetBatchTargetArgs and EventTargetBatchTargetOutput values.
@@ -1972,10 +2122,14 @@ type EventTargetBatchTargetInput interface {
 }
 
 type EventTargetBatchTargetArgs struct {
-	ArraySize     pulumi.IntPtrInput `pulumi:"arraySize"`
-	JobAttempts   pulumi.IntPtrInput `pulumi:"jobAttempts"`
+	// The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
+	ArraySize pulumi.IntPtrInput `pulumi:"arraySize"`
+	// The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
+	JobAttempts pulumi.IntPtrInput `pulumi:"jobAttempts"`
+	// The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
 	JobDefinition pulumi.StringInput `pulumi:"jobDefinition"`
-	JobName       pulumi.StringInput `pulumi:"jobName"`
+	// The name to use for this execution of the job, if the target is an AWS Batch job.
+	JobName pulumi.StringInput `pulumi:"jobName"`
 }
 
 func (EventTargetBatchTargetArgs) ElementType() reflect.Type {
@@ -2055,18 +2209,22 @@ func (o EventTargetBatchTargetOutput) ToEventTargetBatchTargetPtrOutputWithConte
 	}).(EventTargetBatchTargetPtrOutput)
 }
 
+// The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
 func (o EventTargetBatchTargetOutput) ArraySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventTargetBatchTarget) *int { return v.ArraySize }).(pulumi.IntPtrOutput)
 }
 
+// The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
 func (o EventTargetBatchTargetOutput) JobAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventTargetBatchTarget) *int { return v.JobAttempts }).(pulumi.IntPtrOutput)
 }
 
+// The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
 func (o EventTargetBatchTargetOutput) JobDefinition() pulumi.StringOutput {
 	return o.ApplyT(func(v EventTargetBatchTarget) string { return v.JobDefinition }).(pulumi.StringOutput)
 }
 
+// The name to use for this execution of the job, if the target is an AWS Batch job.
 func (o EventTargetBatchTargetOutput) JobName() pulumi.StringOutput {
 	return o.ApplyT(func(v EventTargetBatchTarget) string { return v.JobName }).(pulumi.StringOutput)
 }
@@ -2095,6 +2253,7 @@ func (o EventTargetBatchTargetPtrOutput) Elem() EventTargetBatchTargetOutput {
 	}).(EventTargetBatchTargetOutput)
 }
 
+// The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
 func (o EventTargetBatchTargetPtrOutput) ArraySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventTargetBatchTarget) *int {
 		if v == nil {
@@ -2104,6 +2263,7 @@ func (o EventTargetBatchTargetPtrOutput) ArraySize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
 func (o EventTargetBatchTargetPtrOutput) JobAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventTargetBatchTarget) *int {
 		if v == nil {
@@ -2113,6 +2273,7 @@ func (o EventTargetBatchTargetPtrOutput) JobAttempts() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
 func (o EventTargetBatchTargetPtrOutput) JobDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetBatchTarget) *string {
 		if v == nil {
@@ -2122,6 +2283,7 @@ func (o EventTargetBatchTargetPtrOutput) JobDefinition() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name to use for this execution of the job, if the target is an AWS Batch job.
 func (o EventTargetBatchTargetPtrOutput) JobName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetBatchTarget) *string {
 		if v == nil {
@@ -2132,6 +2294,7 @@ func (o EventTargetBatchTargetPtrOutput) JobName() pulumi.StringPtrOutput {
 }
 
 type EventTargetDeadLetterConfig struct {
+	// ARN of the SQS queue specified as the target for the dead-letter queue.
 	Arn *string `pulumi:"arn"`
 }
 
@@ -2147,6 +2310,7 @@ type EventTargetDeadLetterConfigInput interface {
 }
 
 type EventTargetDeadLetterConfigArgs struct {
+	// ARN of the SQS queue specified as the target for the dead-letter queue.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 }
 
@@ -2227,6 +2391,7 @@ func (o EventTargetDeadLetterConfigOutput) ToEventTargetDeadLetterConfigPtrOutpu
 	}).(EventTargetDeadLetterConfigPtrOutput)
 }
 
+// ARN of the SQS queue specified as the target for the dead-letter queue.
 func (o EventTargetDeadLetterConfigOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetDeadLetterConfig) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -2255,6 +2420,7 @@ func (o EventTargetDeadLetterConfigPtrOutput) Elem() EventTargetDeadLetterConfig
 	}).(EventTargetDeadLetterConfigOutput)
 }
 
+// ARN of the SQS queue specified as the target for the dead-letter queue.
 func (o EventTargetDeadLetterConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetDeadLetterConfig) *string {
 		if v == nil {
@@ -2265,18 +2431,30 @@ func (o EventTargetDeadLetterConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 }
 
 type EventTargetEcsTarget struct {
+	// The capacity provider strategy to use for the task. If a `capacityProviderStrategy` specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
 	CapacityProviderStrategies []EventTargetEcsTargetCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
-	EnableEcsManagedTags       *bool                                          `pulumi:"enableEcsManagedTags"`
-	EnableExecuteCommand       *bool                                          `pulumi:"enableExecuteCommand"`
-	Group                      *string                                        `pulumi:"group"`
-	LaunchType                 *string                                        `pulumi:"launchType"`
-	NetworkConfiguration       *EventTargetEcsTargetNetworkConfiguration      `pulumi:"networkConfiguration"`
-	PlacementConstraints       []EventTargetEcsTargetPlacementConstraint      `pulumi:"placementConstraints"`
-	PlatformVersion            *string                                        `pulumi:"platformVersion"`
-	PropagateTags              *string                                        `pulumi:"propagateTags"`
-	Tags                       map[string]string                              `pulumi:"tags"`
-	TaskCount                  *int                                           `pulumi:"taskCount"`
-	TaskDefinitionArn          string                                         `pulumi:"taskDefinitionArn"`
+	// Specifies whether to enable Amazon ECS managed tags for the task.
+	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
+	// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
+	// Specifies an ECS task group for the task. The maximum length is 255 characters.
+	Group *string `pulumi:"group"`
+	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
+	LaunchType *string `pulumi:"launchType"`
+	// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launchType` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
+	NetworkConfiguration *EventTargetEcsTargetNetworkConfiguration `pulumi:"networkConfiguration"`
+	// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
+	PlacementConstraints []EventTargetEcsTargetPlacementConstraint `pulumi:"placementConstraints"`
+	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	PlatformVersion *string `pulumi:"platformVersion"`
+	// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+	PropagateTags *string `pulumi:"propagateTags"`
+	// A map of tags to assign to ecs resources.
+	Tags map[string]string `pulumi:"tags"`
+	// The number of tasks to create based on the TaskDefinition. Defaults to `1`.
+	TaskCount *int `pulumi:"taskCount"`
+	// The ARN of the task definition to use if the event target is an Amazon ECS cluster.
+	TaskDefinitionArn string `pulumi:"taskDefinitionArn"`
 }
 
 // EventTargetEcsTargetInput is an input type that accepts EventTargetEcsTargetArgs and EventTargetEcsTargetOutput values.
@@ -2291,18 +2469,30 @@ type EventTargetEcsTargetInput interface {
 }
 
 type EventTargetEcsTargetArgs struct {
+	// The capacity provider strategy to use for the task. If a `capacityProviderStrategy` specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
 	CapacityProviderStrategies EventTargetEcsTargetCapacityProviderStrategyArrayInput `pulumi:"capacityProviderStrategies"`
-	EnableEcsManagedTags       pulumi.BoolPtrInput                                    `pulumi:"enableEcsManagedTags"`
-	EnableExecuteCommand       pulumi.BoolPtrInput                                    `pulumi:"enableExecuteCommand"`
-	Group                      pulumi.StringPtrInput                                  `pulumi:"group"`
-	LaunchType                 pulumi.StringPtrInput                                  `pulumi:"launchType"`
-	NetworkConfiguration       EventTargetEcsTargetNetworkConfigurationPtrInput       `pulumi:"networkConfiguration"`
-	PlacementConstraints       EventTargetEcsTargetPlacementConstraintArrayInput      `pulumi:"placementConstraints"`
-	PlatformVersion            pulumi.StringPtrInput                                  `pulumi:"platformVersion"`
-	PropagateTags              pulumi.StringPtrInput                                  `pulumi:"propagateTags"`
-	Tags                       pulumi.StringMapInput                                  `pulumi:"tags"`
-	TaskCount                  pulumi.IntPtrInput                                     `pulumi:"taskCount"`
-	TaskDefinitionArn          pulumi.StringInput                                     `pulumi:"taskDefinitionArn"`
+	// Specifies whether to enable Amazon ECS managed tags for the task.
+	EnableEcsManagedTags pulumi.BoolPtrInput `pulumi:"enableEcsManagedTags"`
+	// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+	EnableExecuteCommand pulumi.BoolPtrInput `pulumi:"enableExecuteCommand"`
+	// Specifies an ECS task group for the task. The maximum length is 255 characters.
+	Group pulumi.StringPtrInput `pulumi:"group"`
+	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
+	LaunchType pulumi.StringPtrInput `pulumi:"launchType"`
+	// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launchType` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
+	NetworkConfiguration EventTargetEcsTargetNetworkConfigurationPtrInput `pulumi:"networkConfiguration"`
+	// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
+	PlacementConstraints EventTargetEcsTargetPlacementConstraintArrayInput `pulumi:"placementConstraints"`
+	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	PlatformVersion pulumi.StringPtrInput `pulumi:"platformVersion"`
+	// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+	PropagateTags pulumi.StringPtrInput `pulumi:"propagateTags"`
+	// A map of tags to assign to ecs resources.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The number of tasks to create based on the TaskDefinition. Defaults to `1`.
+	TaskCount pulumi.IntPtrInput `pulumi:"taskCount"`
+	// The ARN of the task definition to use if the event target is an Amazon ECS cluster.
+	TaskDefinitionArn pulumi.StringInput `pulumi:"taskDefinitionArn"`
 }
 
 func (EventTargetEcsTargetArgs) ElementType() reflect.Type {
@@ -2382,52 +2572,64 @@ func (o EventTargetEcsTargetOutput) ToEventTargetEcsTargetPtrOutputWithContext(c
 	}).(EventTargetEcsTargetPtrOutput)
 }
 
+// The capacity provider strategy to use for the task. If a `capacityProviderStrategy` specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
 func (o EventTargetEcsTargetOutput) CapacityProviderStrategies() EventTargetEcsTargetCapacityProviderStrategyArrayOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) []EventTargetEcsTargetCapacityProviderStrategy {
 		return v.CapacityProviderStrategies
 	}).(EventTargetEcsTargetCapacityProviderStrategyArrayOutput)
 }
 
+// Specifies whether to enable Amazon ECS managed tags for the task.
 func (o EventTargetEcsTargetOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *bool { return v.EnableEcsManagedTags }).(pulumi.BoolPtrOutput)
 }
 
+// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
 func (o EventTargetEcsTargetOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *bool { return v.EnableExecuteCommand }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies an ECS task group for the task. The maximum length is 255 characters.
 func (o EventTargetEcsTargetOutput) Group() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *string { return v.Group }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
 func (o EventTargetEcsTargetOutput) LaunchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *string { return v.LaunchType }).(pulumi.StringPtrOutput)
 }
 
+// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launchType` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
 func (o EventTargetEcsTargetOutput) NetworkConfiguration() EventTargetEcsTargetNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *EventTargetEcsTargetNetworkConfiguration { return v.NetworkConfiguration }).(EventTargetEcsTargetNetworkConfigurationPtrOutput)
 }
 
+// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
 func (o EventTargetEcsTargetOutput) PlacementConstraints() EventTargetEcsTargetPlacementConstraintArrayOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) []EventTargetEcsTargetPlacementConstraint { return v.PlacementConstraints }).(EventTargetEcsTargetPlacementConstraintArrayOutput)
 }
 
+// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 func (o EventTargetEcsTargetOutput) PlatformVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *string { return v.PlatformVersion }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
 func (o EventTargetEcsTargetOutput) PropagateTags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *string { return v.PropagateTags }).(pulumi.StringPtrOutput)
 }
 
+// A map of tags to assign to ecs resources.
 func (o EventTargetEcsTargetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The number of tasks to create based on the TaskDefinition. Defaults to `1`.
 func (o EventTargetEcsTargetOutput) TaskCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *int { return v.TaskCount }).(pulumi.IntPtrOutput)
 }
 
+// The ARN of the task definition to use if the event target is an Amazon ECS cluster.
 func (o EventTargetEcsTargetOutput) TaskDefinitionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) string { return v.TaskDefinitionArn }).(pulumi.StringOutput)
 }
@@ -2456,6 +2658,7 @@ func (o EventTargetEcsTargetPtrOutput) Elem() EventTargetEcsTargetOutput {
 	}).(EventTargetEcsTargetOutput)
 }
 
+// The capacity provider strategy to use for the task. If a `capacityProviderStrategy` specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
 func (o EventTargetEcsTargetPtrOutput) CapacityProviderStrategies() EventTargetEcsTargetCapacityProviderStrategyArrayOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) []EventTargetEcsTargetCapacityProviderStrategy {
 		if v == nil {
@@ -2465,6 +2668,7 @@ func (o EventTargetEcsTargetPtrOutput) CapacityProviderStrategies() EventTargetE
 	}).(EventTargetEcsTargetCapacityProviderStrategyArrayOutput)
 }
 
+// Specifies whether to enable Amazon ECS managed tags for the task.
 func (o EventTargetEcsTargetPtrOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) *bool {
 		if v == nil {
@@ -2474,6 +2678,7 @@ func (o EventTargetEcsTargetPtrOutput) EnableEcsManagedTags() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
 func (o EventTargetEcsTargetPtrOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) *bool {
 		if v == nil {
@@ -2483,6 +2688,7 @@ func (o EventTargetEcsTargetPtrOutput) EnableExecuteCommand() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies an ECS task group for the task. The maximum length is 255 characters.
 func (o EventTargetEcsTargetPtrOutput) Group() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) *string {
 		if v == nil {
@@ -2492,6 +2698,7 @@ func (o EventTargetEcsTargetPtrOutput) Group() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
 func (o EventTargetEcsTargetPtrOutput) LaunchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) *string {
 		if v == nil {
@@ -2501,6 +2708,7 @@ func (o EventTargetEcsTargetPtrOutput) LaunchType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launchType` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
 func (o EventTargetEcsTargetPtrOutput) NetworkConfiguration() EventTargetEcsTargetNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) *EventTargetEcsTargetNetworkConfiguration {
 		if v == nil {
@@ -2510,6 +2718,7 @@ func (o EventTargetEcsTargetPtrOutput) NetworkConfiguration() EventTargetEcsTarg
 	}).(EventTargetEcsTargetNetworkConfigurationPtrOutput)
 }
 
+// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
 func (o EventTargetEcsTargetPtrOutput) PlacementConstraints() EventTargetEcsTargetPlacementConstraintArrayOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) []EventTargetEcsTargetPlacementConstraint {
 		if v == nil {
@@ -2519,6 +2728,7 @@ func (o EventTargetEcsTargetPtrOutput) PlacementConstraints() EventTargetEcsTarg
 	}).(EventTargetEcsTargetPlacementConstraintArrayOutput)
 }
 
+// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 func (o EventTargetEcsTargetPtrOutput) PlatformVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) *string {
 		if v == nil {
@@ -2528,6 +2738,7 @@ func (o EventTargetEcsTargetPtrOutput) PlatformVersion() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
 func (o EventTargetEcsTargetPtrOutput) PropagateTags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) *string {
 		if v == nil {
@@ -2537,6 +2748,7 @@ func (o EventTargetEcsTargetPtrOutput) PropagateTags() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A map of tags to assign to ecs resources.
 func (o EventTargetEcsTargetPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) map[string]string {
 		if v == nil {
@@ -2546,6 +2758,7 @@ func (o EventTargetEcsTargetPtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
+// The number of tasks to create based on the TaskDefinition. Defaults to `1`.
 func (o EventTargetEcsTargetPtrOutput) TaskCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) *int {
 		if v == nil {
@@ -2555,6 +2768,7 @@ func (o EventTargetEcsTargetPtrOutput) TaskCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The ARN of the task definition to use if the event target is an Amazon ECS cluster.
 func (o EventTargetEcsTargetPtrOutput) TaskDefinitionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) *string {
 		if v == nil {
@@ -2565,9 +2779,12 @@ func (o EventTargetEcsTargetPtrOutput) TaskDefinitionArn() pulumi.StringPtrOutpu
 }
 
 type EventTargetEcsTargetCapacityProviderStrategy struct {
-	Base             *int   `pulumi:"base"`
+	// The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+	Base *int `pulumi:"base"`
+	// Short name of the capacity provider.
 	CapacityProvider string `pulumi:"capacityProvider"`
-	Weight           *int   `pulumi:"weight"`
+	// The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
+	Weight *int `pulumi:"weight"`
 }
 
 // EventTargetEcsTargetCapacityProviderStrategyInput is an input type that accepts EventTargetEcsTargetCapacityProviderStrategyArgs and EventTargetEcsTargetCapacityProviderStrategyOutput values.
@@ -2582,9 +2799,12 @@ type EventTargetEcsTargetCapacityProviderStrategyInput interface {
 }
 
 type EventTargetEcsTargetCapacityProviderStrategyArgs struct {
-	Base             pulumi.IntPtrInput `pulumi:"base"`
+	// The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+	Base pulumi.IntPtrInput `pulumi:"base"`
+	// Short name of the capacity provider.
 	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
-	Weight           pulumi.IntPtrInput `pulumi:"weight"`
+	// The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
 func (EventTargetEcsTargetCapacityProviderStrategyArgs) ElementType() reflect.Type {
@@ -2638,14 +2858,17 @@ func (o EventTargetEcsTargetCapacityProviderStrategyOutput) ToEventTargetEcsTarg
 	return o
 }
 
+// The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
 func (o EventTargetEcsTargetCapacityProviderStrategyOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTargetCapacityProviderStrategy) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
 
+// Short name of the capacity provider.
 func (o EventTargetEcsTargetCapacityProviderStrategyOutput) CapacityProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v EventTargetEcsTargetCapacityProviderStrategy) string { return v.CapacityProvider }).(pulumi.StringOutput)
 }
 
+// The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
 func (o EventTargetEcsTargetCapacityProviderStrategyOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTargetCapacityProviderStrategy) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -2671,9 +2894,12 @@ func (o EventTargetEcsTargetCapacityProviderStrategyArrayOutput) Index(i pulumi.
 }
 
 type EventTargetEcsTargetNetworkConfiguration struct {
-	AssignPublicIp *bool    `pulumi:"assignPublicIp"`
+	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
+	AssignPublicIp *bool `pulumi:"assignPublicIp"`
+	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	Subnets        []string `pulumi:"subnets"`
+	// The subnets associated with the task or service.
+	Subnets []string `pulumi:"subnets"`
 }
 
 // EventTargetEcsTargetNetworkConfigurationInput is an input type that accepts EventTargetEcsTargetNetworkConfigurationArgs and EventTargetEcsTargetNetworkConfigurationOutput values.
@@ -2688,9 +2914,12 @@ type EventTargetEcsTargetNetworkConfigurationInput interface {
 }
 
 type EventTargetEcsTargetNetworkConfigurationArgs struct {
-	AssignPublicIp pulumi.BoolPtrInput     `pulumi:"assignPublicIp"`
+	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
+	AssignPublicIp pulumi.BoolPtrInput `pulumi:"assignPublicIp"`
+	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	Subnets        pulumi.StringArrayInput `pulumi:"subnets"`
+	// The subnets associated with the task or service.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
 func (EventTargetEcsTargetNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -2770,14 +2999,17 @@ func (o EventTargetEcsTargetNetworkConfigurationOutput) ToEventTargetEcsTargetNe
 	}).(EventTargetEcsTargetNetworkConfigurationPtrOutput)
 }
 
+// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
 func (o EventTargetEcsTargetNetworkConfigurationOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTargetNetworkConfiguration) *bool { return v.AssignPublicIp }).(pulumi.BoolPtrOutput)
 }
 
+// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 func (o EventTargetEcsTargetNetworkConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventTargetEcsTargetNetworkConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// The subnets associated with the task or service.
 func (o EventTargetEcsTargetNetworkConfigurationOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventTargetEcsTargetNetworkConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -2806,6 +3038,7 @@ func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) Elem() EventTargetEcs
 	}).(EventTargetEcsTargetNetworkConfigurationOutput)
 }
 
+// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
 func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventTargetEcsTargetNetworkConfiguration) *bool {
 		if v == nil {
@@ -2815,6 +3048,7 @@ func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) AssignPublicIp() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventTargetEcsTargetNetworkConfiguration) []string {
 		if v == nil {
@@ -2824,6 +3058,7 @@ func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) SecurityGroups() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
+// The subnets associated with the task or service.
 func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventTargetEcsTargetNetworkConfiguration) []string {
 		if v == nil {
@@ -2834,8 +3069,10 @@ func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) Subnets() pulumi.Stri
 }
 
 type EventTargetEcsTargetPlacementConstraint struct {
+	// Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
 	Expression *string `pulumi:"expression"`
-	Type       string  `pulumi:"type"`
+	// Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+	Type string `pulumi:"type"`
 }
 
 // EventTargetEcsTargetPlacementConstraintInput is an input type that accepts EventTargetEcsTargetPlacementConstraintArgs and EventTargetEcsTargetPlacementConstraintOutput values.
@@ -2850,8 +3087,10 @@ type EventTargetEcsTargetPlacementConstraintInput interface {
 }
 
 type EventTargetEcsTargetPlacementConstraintArgs struct {
+	// Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	Type       pulumi.StringInput    `pulumi:"type"`
+	// Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (EventTargetEcsTargetPlacementConstraintArgs) ElementType() reflect.Type {
@@ -2905,10 +3144,12 @@ func (o EventTargetEcsTargetPlacementConstraintOutput) ToEventTargetEcsTargetPla
 	return o
 }
 
+// Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
 func (o EventTargetEcsTargetPlacementConstraintOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTargetPlacementConstraint) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
+// Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
 func (o EventTargetEcsTargetPlacementConstraintOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EventTargetEcsTargetPlacementConstraint) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2934,8 +3175,11 @@ func (o EventTargetEcsTargetPlacementConstraintArrayOutput) Index(i pulumi.IntIn
 }
 
 type EventTargetHttpTarget struct {
-	HeaderParameters      map[string]string `pulumi:"headerParameters"`
-	PathParameterValues   []string          `pulumi:"pathParameterValues"`
+	// Enables you to specify HTTP headers to add to the request.
+	HeaderParameters map[string]string `pulumi:"headerParameters"`
+	// The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
+	PathParameterValues []string `pulumi:"pathParameterValues"`
+	// Represents keys/values of query string parameters that are appended to the invoked endpoint.
 	QueryStringParameters map[string]string `pulumi:"queryStringParameters"`
 }
 
@@ -2951,9 +3195,12 @@ type EventTargetHttpTargetInput interface {
 }
 
 type EventTargetHttpTargetArgs struct {
-	HeaderParameters      pulumi.StringMapInput   `pulumi:"headerParameters"`
-	PathParameterValues   pulumi.StringArrayInput `pulumi:"pathParameterValues"`
-	QueryStringParameters pulumi.StringMapInput   `pulumi:"queryStringParameters"`
+	// Enables you to specify HTTP headers to add to the request.
+	HeaderParameters pulumi.StringMapInput `pulumi:"headerParameters"`
+	// The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
+	PathParameterValues pulumi.StringArrayInput `pulumi:"pathParameterValues"`
+	// Represents keys/values of query string parameters that are appended to the invoked endpoint.
+	QueryStringParameters pulumi.StringMapInput `pulumi:"queryStringParameters"`
 }
 
 func (EventTargetHttpTargetArgs) ElementType() reflect.Type {
@@ -3033,14 +3280,17 @@ func (o EventTargetHttpTargetOutput) ToEventTargetHttpTargetPtrOutputWithContext
 	}).(EventTargetHttpTargetPtrOutput)
 }
 
+// Enables you to specify HTTP headers to add to the request.
 func (o EventTargetHttpTargetOutput) HeaderParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v EventTargetHttpTarget) map[string]string { return v.HeaderParameters }).(pulumi.StringMapOutput)
 }
 
+// The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
 func (o EventTargetHttpTargetOutput) PathParameterValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventTargetHttpTarget) []string { return v.PathParameterValues }).(pulumi.StringArrayOutput)
 }
 
+// Represents keys/values of query string parameters that are appended to the invoked endpoint.
 func (o EventTargetHttpTargetOutput) QueryStringParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v EventTargetHttpTarget) map[string]string { return v.QueryStringParameters }).(pulumi.StringMapOutput)
 }
@@ -3069,6 +3319,7 @@ func (o EventTargetHttpTargetPtrOutput) Elem() EventTargetHttpTargetOutput {
 	}).(EventTargetHttpTargetOutput)
 }
 
+// Enables you to specify HTTP headers to add to the request.
 func (o EventTargetHttpTargetPtrOutput) HeaderParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventTargetHttpTarget) map[string]string {
 		if v == nil {
@@ -3078,6 +3329,7 @@ func (o EventTargetHttpTargetPtrOutput) HeaderParameters() pulumi.StringMapOutpu
 	}).(pulumi.StringMapOutput)
 }
 
+// The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
 func (o EventTargetHttpTargetPtrOutput) PathParameterValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventTargetHttpTarget) []string {
 		if v == nil {
@@ -3087,6 +3339,7 @@ func (o EventTargetHttpTargetPtrOutput) PathParameterValues() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
+// Represents keys/values of query string parameters that are appended to the invoked endpoint.
 func (o EventTargetHttpTargetPtrOutput) QueryStringParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventTargetHttpTarget) map[string]string {
 		if v == nil {
@@ -3097,8 +3350,13 @@ func (o EventTargetHttpTargetPtrOutput) QueryStringParameters() pulumi.StringMap
 }
 
 type EventTargetInputTransformer struct {
-	InputPaths    map[string]string `pulumi:"inputPaths"`
-	InputTemplate string            `pulumi:"inputTemplate"`
+	// Key value pairs specified in the form of JSONPath (for example, time = $.time)
+	// * You can have as many as 100 key-value pairs.
+	// * You must use JSON dot notation, not bracket notation.
+	// * The keys can't start with "AWS".
+	InputPaths map[string]string `pulumi:"inputPaths"`
+	// Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
+	InputTemplate string `pulumi:"inputTemplate"`
 }
 
 // EventTargetInputTransformerInput is an input type that accepts EventTargetInputTransformerArgs and EventTargetInputTransformerOutput values.
@@ -3113,8 +3371,13 @@ type EventTargetInputTransformerInput interface {
 }
 
 type EventTargetInputTransformerArgs struct {
-	InputPaths    pulumi.StringMapInput `pulumi:"inputPaths"`
-	InputTemplate pulumi.StringInput    `pulumi:"inputTemplate"`
+	// Key value pairs specified in the form of JSONPath (for example, time = $.time)
+	// * You can have as many as 100 key-value pairs.
+	// * You must use JSON dot notation, not bracket notation.
+	// * The keys can't start with "AWS".
+	InputPaths pulumi.StringMapInput `pulumi:"inputPaths"`
+	// Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
+	InputTemplate pulumi.StringInput `pulumi:"inputTemplate"`
 }
 
 func (EventTargetInputTransformerArgs) ElementType() reflect.Type {
@@ -3194,10 +3457,15 @@ func (o EventTargetInputTransformerOutput) ToEventTargetInputTransformerPtrOutpu
 	}).(EventTargetInputTransformerPtrOutput)
 }
 
+// Key value pairs specified in the form of JSONPath (for example, time = $.time)
+// * You can have as many as 100 key-value pairs.
+// * You must use JSON dot notation, not bracket notation.
+// * The keys can't start with "AWS".
 func (o EventTargetInputTransformerOutput) InputPaths() pulumi.StringMapOutput {
 	return o.ApplyT(func(v EventTargetInputTransformer) map[string]string { return v.InputPaths }).(pulumi.StringMapOutput)
 }
 
+// Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
 func (o EventTargetInputTransformerOutput) InputTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v EventTargetInputTransformer) string { return v.InputTemplate }).(pulumi.StringOutput)
 }
@@ -3226,6 +3494,10 @@ func (o EventTargetInputTransformerPtrOutput) Elem() EventTargetInputTransformer
 	}).(EventTargetInputTransformerOutput)
 }
 
+// Key value pairs specified in the form of JSONPath (for example, time = $.time)
+// * You can have as many as 100 key-value pairs.
+// * You must use JSON dot notation, not bracket notation.
+// * The keys can't start with "AWS".
 func (o EventTargetInputTransformerPtrOutput) InputPaths() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventTargetInputTransformer) map[string]string {
 		if v == nil {
@@ -3235,6 +3507,7 @@ func (o EventTargetInputTransformerPtrOutput) InputPaths() pulumi.StringMapOutpu
 	}).(pulumi.StringMapOutput)
 }
 
+// Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
 func (o EventTargetInputTransformerPtrOutput) InputTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetInputTransformer) *string {
 		if v == nil {
@@ -3245,6 +3518,7 @@ func (o EventTargetInputTransformerPtrOutput) InputTemplate() pulumi.StringPtrOu
 }
 
 type EventTargetKinesisTarget struct {
+	// The JSON path to be extracted from the event and used as the partition key.
 	PartitionKeyPath *string `pulumi:"partitionKeyPath"`
 }
 
@@ -3260,6 +3534,7 @@ type EventTargetKinesisTargetInput interface {
 }
 
 type EventTargetKinesisTargetArgs struct {
+	// The JSON path to be extracted from the event and used as the partition key.
 	PartitionKeyPath pulumi.StringPtrInput `pulumi:"partitionKeyPath"`
 }
 
@@ -3340,6 +3615,7 @@ func (o EventTargetKinesisTargetOutput) ToEventTargetKinesisTargetPtrOutputWithC
 	}).(EventTargetKinesisTargetPtrOutput)
 }
 
+// The JSON path to be extracted from the event and used as the partition key.
 func (o EventTargetKinesisTargetOutput) PartitionKeyPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetKinesisTarget) *string { return v.PartitionKeyPath }).(pulumi.StringPtrOutput)
 }
@@ -3368,6 +3644,7 @@ func (o EventTargetKinesisTargetPtrOutput) Elem() EventTargetKinesisTargetOutput
 	}).(EventTargetKinesisTargetOutput)
 }
 
+// The JSON path to be extracted from the event and used as the partition key.
 func (o EventTargetKinesisTargetPtrOutput) PartitionKeyPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetKinesisTarget) *string {
 		if v == nil {
@@ -3378,12 +3655,18 @@ func (o EventTargetKinesisTargetPtrOutput) PartitionKeyPath() pulumi.StringPtrOu
 }
 
 type EventTargetRedshiftTarget struct {
-	Database          string  `pulumi:"database"`
-	DbUser            *string `pulumi:"dbUser"`
+	// The name of the database.
+	Database string `pulumi:"database"`
+	// The database user name.
+	DbUser *string `pulumi:"dbUser"`
+	// The name or ARN of the secret that enables access to the database.
 	SecretsManagerArn *string `pulumi:"secretsManagerArn"`
-	Sql               *string `pulumi:"sql"`
-	StatementName     *string `pulumi:"statementName"`
-	WithEvent         *bool   `pulumi:"withEvent"`
+	// The SQL statement text to run.
+	Sql *string `pulumi:"sql"`
+	// The name of the SQL statement.
+	StatementName *string `pulumi:"statementName"`
+	// Indicates whether to send an event back to EventBridge after the SQL statement runs.
+	WithEvent *bool `pulumi:"withEvent"`
 }
 
 // EventTargetRedshiftTargetInput is an input type that accepts EventTargetRedshiftTargetArgs and EventTargetRedshiftTargetOutput values.
@@ -3398,12 +3681,18 @@ type EventTargetRedshiftTargetInput interface {
 }
 
 type EventTargetRedshiftTargetArgs struct {
-	Database          pulumi.StringInput    `pulumi:"database"`
-	DbUser            pulumi.StringPtrInput `pulumi:"dbUser"`
+	// The name of the database.
+	Database pulumi.StringInput `pulumi:"database"`
+	// The database user name.
+	DbUser pulumi.StringPtrInput `pulumi:"dbUser"`
+	// The name or ARN of the secret that enables access to the database.
 	SecretsManagerArn pulumi.StringPtrInput `pulumi:"secretsManagerArn"`
-	Sql               pulumi.StringPtrInput `pulumi:"sql"`
-	StatementName     pulumi.StringPtrInput `pulumi:"statementName"`
-	WithEvent         pulumi.BoolPtrInput   `pulumi:"withEvent"`
+	// The SQL statement text to run.
+	Sql pulumi.StringPtrInput `pulumi:"sql"`
+	// The name of the SQL statement.
+	StatementName pulumi.StringPtrInput `pulumi:"statementName"`
+	// Indicates whether to send an event back to EventBridge after the SQL statement runs.
+	WithEvent pulumi.BoolPtrInput `pulumi:"withEvent"`
 }
 
 func (EventTargetRedshiftTargetArgs) ElementType() reflect.Type {
@@ -3483,26 +3772,32 @@ func (o EventTargetRedshiftTargetOutput) ToEventTargetRedshiftTargetPtrOutputWit
 	}).(EventTargetRedshiftTargetPtrOutput)
 }
 
+// The name of the database.
 func (o EventTargetRedshiftTargetOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v EventTargetRedshiftTarget) string { return v.Database }).(pulumi.StringOutput)
 }
 
+// The database user name.
 func (o EventTargetRedshiftTargetOutput) DbUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetRedshiftTarget) *string { return v.DbUser }).(pulumi.StringPtrOutput)
 }
 
+// The name or ARN of the secret that enables access to the database.
 func (o EventTargetRedshiftTargetOutput) SecretsManagerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetRedshiftTarget) *string { return v.SecretsManagerArn }).(pulumi.StringPtrOutput)
 }
 
+// The SQL statement text to run.
 func (o EventTargetRedshiftTargetOutput) Sql() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetRedshiftTarget) *string { return v.Sql }).(pulumi.StringPtrOutput)
 }
 
+// The name of the SQL statement.
 func (o EventTargetRedshiftTargetOutput) StatementName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetRedshiftTarget) *string { return v.StatementName }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether to send an event back to EventBridge after the SQL statement runs.
 func (o EventTargetRedshiftTargetOutput) WithEvent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventTargetRedshiftTarget) *bool { return v.WithEvent }).(pulumi.BoolPtrOutput)
 }
@@ -3531,6 +3826,7 @@ func (o EventTargetRedshiftTargetPtrOutput) Elem() EventTargetRedshiftTargetOutp
 	}).(EventTargetRedshiftTargetOutput)
 }
 
+// The name of the database.
 func (o EventTargetRedshiftTargetPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetRedshiftTarget) *string {
 		if v == nil {
@@ -3540,6 +3836,7 @@ func (o EventTargetRedshiftTargetPtrOutput) Database() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The database user name.
 func (o EventTargetRedshiftTargetPtrOutput) DbUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetRedshiftTarget) *string {
 		if v == nil {
@@ -3549,6 +3846,7 @@ func (o EventTargetRedshiftTargetPtrOutput) DbUser() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name or ARN of the secret that enables access to the database.
 func (o EventTargetRedshiftTargetPtrOutput) SecretsManagerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetRedshiftTarget) *string {
 		if v == nil {
@@ -3558,6 +3856,7 @@ func (o EventTargetRedshiftTargetPtrOutput) SecretsManagerArn() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The SQL statement text to run.
 func (o EventTargetRedshiftTargetPtrOutput) Sql() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetRedshiftTarget) *string {
 		if v == nil {
@@ -3567,6 +3866,7 @@ func (o EventTargetRedshiftTargetPtrOutput) Sql() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the SQL statement.
 func (o EventTargetRedshiftTargetPtrOutput) StatementName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetRedshiftTarget) *string {
 		if v == nil {
@@ -3576,6 +3876,7 @@ func (o EventTargetRedshiftTargetPtrOutput) StatementName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether to send an event back to EventBridge after the SQL statement runs.
 func (o EventTargetRedshiftTargetPtrOutput) WithEvent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventTargetRedshiftTarget) *bool {
 		if v == nil {
@@ -3586,8 +3887,10 @@ func (o EventTargetRedshiftTargetPtrOutput) WithEvent() pulumi.BoolPtrOutput {
 }
 
 type EventTargetRetryPolicy struct {
+	// The age in seconds to continue to make retry attempts.
 	MaximumEventAgeInSeconds *int `pulumi:"maximumEventAgeInSeconds"`
-	MaximumRetryAttempts     *int `pulumi:"maximumRetryAttempts"`
+	// maximum number of retry attempts to make before the request fails
+	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
 }
 
 // EventTargetRetryPolicyInput is an input type that accepts EventTargetRetryPolicyArgs and EventTargetRetryPolicyOutput values.
@@ -3602,8 +3905,10 @@ type EventTargetRetryPolicyInput interface {
 }
 
 type EventTargetRetryPolicyArgs struct {
+	// The age in seconds to continue to make retry attempts.
 	MaximumEventAgeInSeconds pulumi.IntPtrInput `pulumi:"maximumEventAgeInSeconds"`
-	MaximumRetryAttempts     pulumi.IntPtrInput `pulumi:"maximumRetryAttempts"`
+	// maximum number of retry attempts to make before the request fails
+	MaximumRetryAttempts pulumi.IntPtrInput `pulumi:"maximumRetryAttempts"`
 }
 
 func (EventTargetRetryPolicyArgs) ElementType() reflect.Type {
@@ -3683,10 +3988,12 @@ func (o EventTargetRetryPolicyOutput) ToEventTargetRetryPolicyPtrOutputWithConte
 	}).(EventTargetRetryPolicyPtrOutput)
 }
 
+// The age in seconds to continue to make retry attempts.
 func (o EventTargetRetryPolicyOutput) MaximumEventAgeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventTargetRetryPolicy) *int { return v.MaximumEventAgeInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// maximum number of retry attempts to make before the request fails
 func (o EventTargetRetryPolicyOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventTargetRetryPolicy) *int { return v.MaximumRetryAttempts }).(pulumi.IntPtrOutput)
 }
@@ -3715,6 +4022,7 @@ func (o EventTargetRetryPolicyPtrOutput) Elem() EventTargetRetryPolicyOutput {
 	}).(EventTargetRetryPolicyOutput)
 }
 
+// The age in seconds to continue to make retry attempts.
 func (o EventTargetRetryPolicyPtrOutput) MaximumEventAgeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventTargetRetryPolicy) *int {
 		if v == nil {
@@ -3724,6 +4032,7 @@ func (o EventTargetRetryPolicyPtrOutput) MaximumEventAgeInSeconds() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// maximum number of retry attempts to make before the request fails
 func (o EventTargetRetryPolicyPtrOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventTargetRetryPolicy) *int {
 		if v == nil {
@@ -3734,7 +4043,9 @@ func (o EventTargetRetryPolicyPtrOutput) MaximumRetryAttempts() pulumi.IntPtrOut
 }
 
 type EventTargetRunCommandTarget struct {
-	Key    string   `pulumi:"key"`
+	// Can be either `tag:tag-key` or `InstanceIds`.
+	Key string `pulumi:"key"`
+	// If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
 	Values []string `pulumi:"values"`
 }
 
@@ -3750,7 +4061,9 @@ type EventTargetRunCommandTargetInput interface {
 }
 
 type EventTargetRunCommandTargetArgs struct {
-	Key    pulumi.StringInput      `pulumi:"key"`
+	// Can be either `tag:tag-key` or `InstanceIds`.
+	Key pulumi.StringInput `pulumi:"key"`
+	// If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3805,10 +4118,12 @@ func (o EventTargetRunCommandTargetOutput) ToEventTargetRunCommandTargetOutputWi
 	return o
 }
 
+// Can be either `tag:tag-key` or `InstanceIds`.
 func (o EventTargetRunCommandTargetOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventTargetRunCommandTarget) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
 func (o EventTargetRunCommandTargetOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventTargetRunCommandTarget) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3834,6 +4149,7 @@ func (o EventTargetRunCommandTargetArrayOutput) Index(i pulumi.IntInput) EventTa
 }
 
 type EventTargetSqsTarget struct {
+	// The FIFO message group ID to use as the target.
 	MessageGroupId *string `pulumi:"messageGroupId"`
 }
 
@@ -3849,6 +4165,7 @@ type EventTargetSqsTargetInput interface {
 }
 
 type EventTargetSqsTargetArgs struct {
+	// The FIFO message group ID to use as the target.
 	MessageGroupId pulumi.StringPtrInput `pulumi:"messageGroupId"`
 }
 
@@ -3929,6 +4246,7 @@ func (o EventTargetSqsTargetOutput) ToEventTargetSqsTargetPtrOutputWithContext(c
 	}).(EventTargetSqsTargetPtrOutput)
 }
 
+// The FIFO message group ID to use as the target.
 func (o EventTargetSqsTargetOutput) MessageGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetSqsTarget) *string { return v.MessageGroupId }).(pulumi.StringPtrOutput)
 }
@@ -3957,6 +4275,7 @@ func (o EventTargetSqsTargetPtrOutput) Elem() EventTargetSqsTargetOutput {
 	}).(EventTargetSqsTargetOutput)
 }
 
+// The FIFO message group ID to use as the target.
 func (o EventTargetSqsTargetPtrOutput) MessageGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetSqsTarget) *string {
 		if v == nil {
@@ -3967,12 +4286,18 @@ func (o EventTargetSqsTargetPtrOutput) MessageGroupId() pulumi.StringPtrOutput {
 }
 
 type LogMetricFilterMetricTransformation struct {
-	DefaultValue *string           `pulumi:"defaultValue"`
-	Dimensions   map[string]string `pulumi:"dimensions"`
-	Name         string            `pulumi:"name"`
-	Namespace    string            `pulumi:"namespace"`
-	Unit         *string           `pulumi:"unit"`
-	Value        string            `pulumi:"value"`
+	// The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
+	Dimensions map[string]string `pulumi:"dimensions"`
+	// The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
+	Name string `pulumi:"name"`
+	// The destination namespace of the CloudWatch metric.
+	Namespace string `pulumi:"namespace"`
+	// The unit to assign to the metric. If you omit this, the unit is set as `None`.
+	Unit *string `pulumi:"unit"`
+	// What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
+	Value string `pulumi:"value"`
 }
 
 // LogMetricFilterMetricTransformationInput is an input type that accepts LogMetricFilterMetricTransformationArgs and LogMetricFilterMetricTransformationOutput values.
@@ -3987,12 +4312,18 @@ type LogMetricFilterMetricTransformationInput interface {
 }
 
 type LogMetricFilterMetricTransformationArgs struct {
+	// The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	Dimensions   pulumi.StringMapInput `pulumi:"dimensions"`
-	Name         pulumi.StringInput    `pulumi:"name"`
-	Namespace    pulumi.StringInput    `pulumi:"namespace"`
-	Unit         pulumi.StringPtrInput `pulumi:"unit"`
-	Value        pulumi.StringInput    `pulumi:"value"`
+	// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
+	Dimensions pulumi.StringMapInput `pulumi:"dimensions"`
+	// The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
+	Name pulumi.StringInput `pulumi:"name"`
+	// The destination namespace of the CloudWatch metric.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// The unit to assign to the metric. If you omit this, the unit is set as `None`.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+	// What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (LogMetricFilterMetricTransformationArgs) ElementType() reflect.Type {
@@ -4072,26 +4403,32 @@ func (o LogMetricFilterMetricTransformationOutput) ToLogMetricFilterMetricTransf
 	}).(LogMetricFilterMetricTransformationPtrOutput)
 }
 
+// The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
 func (o LogMetricFilterMetricTransformationOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
+// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
 func (o LogMetricFilterMetricTransformationOutput) Dimensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) map[string]string { return v.Dimensions }).(pulumi.StringMapOutput)
 }
 
+// The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
 func (o LogMetricFilterMetricTransformationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The destination namespace of the CloudWatch metric.
 func (o LogMetricFilterMetricTransformationOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) string { return v.Namespace }).(pulumi.StringOutput)
 }
 
+// The unit to assign to the metric. If you omit this, the unit is set as `None`.
 func (o LogMetricFilterMetricTransformationOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
+// What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
 func (o LogMetricFilterMetricTransformationOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4120,6 +4457,7 @@ func (o LogMetricFilterMetricTransformationPtrOutput) Elem() LogMetricFilterMetr
 	}).(LogMetricFilterMetricTransformationOutput)
 }
 
+// The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
 func (o LogMetricFilterMetricTransformationPtrOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) *string {
 		if v == nil {
@@ -4129,6 +4467,7 @@ func (o LogMetricFilterMetricTransformationPtrOutput) DefaultValue() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
 func (o LogMetricFilterMetricTransformationPtrOutput) Dimensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) map[string]string {
 		if v == nil {
@@ -4138,6 +4477,7 @@ func (o LogMetricFilterMetricTransformationPtrOutput) Dimensions() pulumi.String
 	}).(pulumi.StringMapOutput)
 }
 
+// The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
 func (o LogMetricFilterMetricTransformationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) *string {
 		if v == nil {
@@ -4147,6 +4487,7 @@ func (o LogMetricFilterMetricTransformationPtrOutput) Name() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The destination namespace of the CloudWatch metric.
 func (o LogMetricFilterMetricTransformationPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) *string {
 		if v == nil {
@@ -4156,6 +4497,7 @@ func (o LogMetricFilterMetricTransformationPtrOutput) Namespace() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unit to assign to the metric. If you omit this, the unit is set as `None`.
 func (o LogMetricFilterMetricTransformationPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) *string {
 		if v == nil {
@@ -4165,6 +4507,7 @@ func (o LogMetricFilterMetricTransformationPtrOutput) Unit() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
 func (o LogMetricFilterMetricTransformationPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) *string {
 		if v == nil {
@@ -4175,12 +4518,18 @@ func (o LogMetricFilterMetricTransformationPtrOutput) Value() pulumi.StringPtrOu
 }
 
 type MetricAlarmMetricQuery struct {
-	AccountId  *string                       `pulumi:"accountId"`
-	Expression *string                       `pulumi:"expression"`
-	Id         string                        `pulumi:"id"`
-	Label      *string                       `pulumi:"label"`
-	Metric     *MetricAlarmMetricQueryMetric `pulumi:"metric"`
-	ReturnData *bool                         `pulumi:"returnData"`
+	// The ID of the account where the metrics are located, if this is a cross-account alarm.
+	AccountId *string `pulumi:"accountId"`
+	// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
+	Expression *string `pulumi:"expression"`
+	// A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
+	Id string `pulumi:"id"`
+	// A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
+	Label *string `pulumi:"label"`
+	// The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
+	Metric *MetricAlarmMetricQueryMetric `pulumi:"metric"`
+	// Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
+	ReturnData *bool `pulumi:"returnData"`
 }
 
 // MetricAlarmMetricQueryInput is an input type that accepts MetricAlarmMetricQueryArgs and MetricAlarmMetricQueryOutput values.
@@ -4195,12 +4544,18 @@ type MetricAlarmMetricQueryInput interface {
 }
 
 type MetricAlarmMetricQueryArgs struct {
-	AccountId  pulumi.StringPtrInput                `pulumi:"accountId"`
-	Expression pulumi.StringPtrInput                `pulumi:"expression"`
-	Id         pulumi.StringInput                   `pulumi:"id"`
-	Label      pulumi.StringPtrInput                `pulumi:"label"`
-	Metric     MetricAlarmMetricQueryMetricPtrInput `pulumi:"metric"`
-	ReturnData pulumi.BoolPtrInput                  `pulumi:"returnData"`
+	// The ID of the account where the metrics are located, if this is a cross-account alarm.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
+	// A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
+	Id pulumi.StringInput `pulumi:"id"`
+	// A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
+	Metric MetricAlarmMetricQueryMetricPtrInput `pulumi:"metric"`
+	// Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
+	ReturnData pulumi.BoolPtrInput `pulumi:"returnData"`
 }
 
 func (MetricAlarmMetricQueryArgs) ElementType() reflect.Type {
@@ -4254,26 +4609,32 @@ func (o MetricAlarmMetricQueryOutput) ToMetricAlarmMetricQueryOutputWithContext(
 	return o
 }
 
+// The ID of the account where the metrics are located, if this is a cross-account alarm.
 func (o MetricAlarmMetricQueryOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
+// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
 func (o MetricAlarmMetricQueryOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQuery) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
+// A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
 func (o MetricAlarmMetricQueryOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQuery) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
 func (o MetricAlarmMetricQueryOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQuery) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
+// The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
 func (o MetricAlarmMetricQueryOutput) Metric() MetricAlarmMetricQueryMetricPtrOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQuery) *MetricAlarmMetricQueryMetric { return v.Metric }).(MetricAlarmMetricQueryMetricPtrOutput)
 }
 
+// Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
 func (o MetricAlarmMetricQueryOutput) ReturnData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQuery) *bool { return v.ReturnData }).(pulumi.BoolPtrOutput)
 }
@@ -4299,12 +4660,21 @@ func (o MetricAlarmMetricQueryArrayOutput) Index(i pulumi.IntInput) MetricAlarmM
 }
 
 type MetricAlarmMetricQueryMetric struct {
+	// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Dimensions map[string]string `pulumi:"dimensions"`
-	MetricName string            `pulumi:"metricName"`
-	Namespace  *string           `pulumi:"namespace"`
-	Period     int               `pulumi:"period"`
-	Stat       string            `pulumi:"stat"`
-	Unit       *string           `pulumi:"unit"`
+	// The name for this metric.
+	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+	MetricName string `pulumi:"metricName"`
+	// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+	Namespace *string `pulumi:"namespace"`
+	// The period in seconds over which the specified `stat` is applied.
+	Period int `pulumi:"period"`
+	// The statistic to apply to this metric.
+	// See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
+	Stat string `pulumi:"stat"`
+	// The unit for this metric.
+	Unit *string `pulumi:"unit"`
 }
 
 // MetricAlarmMetricQueryMetricInput is an input type that accepts MetricAlarmMetricQueryMetricArgs and MetricAlarmMetricQueryMetricOutput values.
@@ -4319,12 +4689,21 @@ type MetricAlarmMetricQueryMetricInput interface {
 }
 
 type MetricAlarmMetricQueryMetricArgs struct {
+	// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Dimensions pulumi.StringMapInput `pulumi:"dimensions"`
-	MetricName pulumi.StringInput    `pulumi:"metricName"`
-	Namespace  pulumi.StringPtrInput `pulumi:"namespace"`
-	Period     pulumi.IntInput       `pulumi:"period"`
-	Stat       pulumi.StringInput    `pulumi:"stat"`
-	Unit       pulumi.StringPtrInput `pulumi:"unit"`
+	// The name for this metric.
+	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// The period in seconds over which the specified `stat` is applied.
+	Period pulumi.IntInput `pulumi:"period"`
+	// The statistic to apply to this metric.
+	// See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
+	Stat pulumi.StringInput `pulumi:"stat"`
+	// The unit for this metric.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
 }
 
 func (MetricAlarmMetricQueryMetricArgs) ElementType() reflect.Type {
@@ -4404,26 +4783,35 @@ func (o MetricAlarmMetricQueryMetricOutput) ToMetricAlarmMetricQueryMetricPtrOut
 	}).(MetricAlarmMetricQueryMetricPtrOutput)
 }
 
+// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 func (o MetricAlarmMetricQueryMetricOutput) Dimensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQueryMetric) map[string]string { return v.Dimensions }).(pulumi.StringMapOutput)
 }
 
+// The name for this metric.
+// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 func (o MetricAlarmMetricQueryMetricOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQueryMetric) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
+// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 func (o MetricAlarmMetricQueryMetricOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQueryMetric) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
+// The period in seconds over which the specified `stat` is applied.
 func (o MetricAlarmMetricQueryMetricOutput) Period() pulumi.IntOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQueryMetric) int { return v.Period }).(pulumi.IntOutput)
 }
 
+// The statistic to apply to this metric.
+// See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
 func (o MetricAlarmMetricQueryMetricOutput) Stat() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQueryMetric) string { return v.Stat }).(pulumi.StringOutput)
 }
 
+// The unit for this metric.
 func (o MetricAlarmMetricQueryMetricOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQueryMetric) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
@@ -4452,6 +4840,7 @@ func (o MetricAlarmMetricQueryMetricPtrOutput) Elem() MetricAlarmMetricQueryMetr
 	}).(MetricAlarmMetricQueryMetricOutput)
 }
 
+// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 func (o MetricAlarmMetricQueryMetricPtrOutput) Dimensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MetricAlarmMetricQueryMetric) map[string]string {
 		if v == nil {
@@ -4461,6 +4850,8 @@ func (o MetricAlarmMetricQueryMetricPtrOutput) Dimensions() pulumi.StringMapOutp
 	}).(pulumi.StringMapOutput)
 }
 
+// The name for this metric.
+// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 func (o MetricAlarmMetricQueryMetricPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetricAlarmMetricQueryMetric) *string {
 		if v == nil {
@@ -4470,6 +4861,8 @@ func (o MetricAlarmMetricQueryMetricPtrOutput) MetricName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 func (o MetricAlarmMetricQueryMetricPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetricAlarmMetricQueryMetric) *string {
 		if v == nil {
@@ -4479,6 +4872,7 @@ func (o MetricAlarmMetricQueryMetricPtrOutput) Namespace() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The period in seconds over which the specified `stat` is applied.
 func (o MetricAlarmMetricQueryMetricPtrOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MetricAlarmMetricQueryMetric) *int {
 		if v == nil {
@@ -4488,6 +4882,8 @@ func (o MetricAlarmMetricQueryMetricPtrOutput) Period() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The statistic to apply to this metric.
+// See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
 func (o MetricAlarmMetricQueryMetricPtrOutput) Stat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetricAlarmMetricQueryMetric) *string {
 		if v == nil {
@@ -4497,6 +4893,7 @@ func (o MetricAlarmMetricQueryMetricPtrOutput) Stat() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unit for this metric.
 func (o MetricAlarmMetricQueryMetricPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetricAlarmMetricQueryMetric) *string {
 		if v == nil {
@@ -4507,6 +4904,7 @@ func (o MetricAlarmMetricQueryMetricPtrOutput) Unit() pulumi.StringPtrOutput {
 }
 
 type MetricStreamExcludeFilter struct {
+	// Name of the metric namespace in the filter.
 	Namespace string `pulumi:"namespace"`
 }
 
@@ -4522,6 +4920,7 @@ type MetricStreamExcludeFilterInput interface {
 }
 
 type MetricStreamExcludeFilterArgs struct {
+	// Name of the metric namespace in the filter.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
 
@@ -4576,6 +4975,7 @@ func (o MetricStreamExcludeFilterOutput) ToMetricStreamExcludeFilterOutputWithCo
 	return o
 }
 
+// Name of the metric namespace in the filter.
 func (o MetricStreamExcludeFilterOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricStreamExcludeFilter) string { return v.Namespace }).(pulumi.StringOutput)
 }
@@ -4601,6 +5001,7 @@ func (o MetricStreamExcludeFilterArrayOutput) Index(i pulumi.IntInput) MetricStr
 }
 
 type MetricStreamIncludeFilter struct {
+	// Name of the metric namespace in the filter.
 	Namespace string `pulumi:"namespace"`
 }
 
@@ -4616,6 +5017,7 @@ type MetricStreamIncludeFilterInput interface {
 }
 
 type MetricStreamIncludeFilterArgs struct {
+	// Name of the metric namespace in the filter.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
 
@@ -4670,6 +5072,7 @@ func (o MetricStreamIncludeFilterOutput) ToMetricStreamIncludeFilterOutputWithCo
 	return o
 }
 
+// Name of the metric namespace in the filter.
 func (o MetricStreamIncludeFilterOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricStreamIncludeFilter) string { return v.Namespace }).(pulumi.StringOutput)
 }
@@ -4695,8 +5098,10 @@ func (o MetricStreamIncludeFilterArrayOutput) Index(i pulumi.IntInput) MetricStr
 }
 
 type MetricStreamStatisticsConfiguration struct {
-	AdditionalStatistics []string                                           `pulumi:"additionalStatistics"`
-	IncludeMetrics       []MetricStreamStatisticsConfigurationIncludeMetric `pulumi:"includeMetrics"`
+	// The additional statistics to stream for the metrics listed in `includeMetrics`.
+	AdditionalStatistics []string `pulumi:"additionalStatistics"`
+	// An array that defines the metrics that are to have additional statistics streamed. See details below.
+	IncludeMetrics []MetricStreamStatisticsConfigurationIncludeMetric `pulumi:"includeMetrics"`
 }
 
 // MetricStreamStatisticsConfigurationInput is an input type that accepts MetricStreamStatisticsConfigurationArgs and MetricStreamStatisticsConfigurationOutput values.
@@ -4711,8 +5116,10 @@ type MetricStreamStatisticsConfigurationInput interface {
 }
 
 type MetricStreamStatisticsConfigurationArgs struct {
-	AdditionalStatistics pulumi.StringArrayInput                                    `pulumi:"additionalStatistics"`
-	IncludeMetrics       MetricStreamStatisticsConfigurationIncludeMetricArrayInput `pulumi:"includeMetrics"`
+	// The additional statistics to stream for the metrics listed in `includeMetrics`.
+	AdditionalStatistics pulumi.StringArrayInput `pulumi:"additionalStatistics"`
+	// An array that defines the metrics that are to have additional statistics streamed. See details below.
+	IncludeMetrics MetricStreamStatisticsConfigurationIncludeMetricArrayInput `pulumi:"includeMetrics"`
 }
 
 func (MetricStreamStatisticsConfigurationArgs) ElementType() reflect.Type {
@@ -4766,10 +5173,12 @@ func (o MetricStreamStatisticsConfigurationOutput) ToMetricStreamStatisticsConfi
 	return o
 }
 
+// The additional statistics to stream for the metrics listed in `includeMetrics`.
 func (o MetricStreamStatisticsConfigurationOutput) AdditionalStatistics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MetricStreamStatisticsConfiguration) []string { return v.AdditionalStatistics }).(pulumi.StringArrayOutput)
 }
 
+// An array that defines the metrics that are to have additional statistics streamed. See details below.
 func (o MetricStreamStatisticsConfigurationOutput) IncludeMetrics() MetricStreamStatisticsConfigurationIncludeMetricArrayOutput {
 	return o.ApplyT(func(v MetricStreamStatisticsConfiguration) []MetricStreamStatisticsConfigurationIncludeMetric {
 		return v.IncludeMetrics
@@ -4797,8 +5206,10 @@ func (o MetricStreamStatisticsConfigurationArrayOutput) Index(i pulumi.IntInput)
 }
 
 type MetricStreamStatisticsConfigurationIncludeMetric struct {
+	// The name of the metric.
 	MetricName string `pulumi:"metricName"`
-	Namespace  string `pulumi:"namespace"`
+	// Name of the metric namespace in the filter.
+	Namespace string `pulumi:"namespace"`
 }
 
 // MetricStreamStatisticsConfigurationIncludeMetricInput is an input type that accepts MetricStreamStatisticsConfigurationIncludeMetricArgs and MetricStreamStatisticsConfigurationIncludeMetricOutput values.
@@ -4813,8 +5224,10 @@ type MetricStreamStatisticsConfigurationIncludeMetricInput interface {
 }
 
 type MetricStreamStatisticsConfigurationIncludeMetricArgs struct {
+	// The name of the metric.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
-	Namespace  pulumi.StringInput `pulumi:"namespace"`
+	// Name of the metric namespace in the filter.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
 
 func (MetricStreamStatisticsConfigurationIncludeMetricArgs) ElementType() reflect.Type {
@@ -4868,10 +5281,12 @@ func (o MetricStreamStatisticsConfigurationIncludeMetricOutput) ToMetricStreamSt
 	return o
 }
 
+// The name of the metric.
 func (o MetricStreamStatisticsConfigurationIncludeMetricOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricStreamStatisticsConfigurationIncludeMetric) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
+// Name of the metric namespace in the filter.
 func (o MetricStreamStatisticsConfigurationIncludeMetricOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricStreamStatisticsConfigurationIncludeMetric) string { return v.Namespace }).(pulumi.StringOutput)
 }
@@ -4897,9 +5312,12 @@ func (o MetricStreamStatisticsConfigurationIncludeMetricArrayOutput) Index(i pul
 }
 
 type GetLogDataProtectionPolicyDocumentStatement struct {
-	DataIdentifiers []string                                             `pulumi:"dataIdentifiers"`
-	Operation       GetLogDataProtectionPolicyDocumentStatementOperation `pulumi:"operation"`
-	Sid             *string                                              `pulumi:"sid"`
+	// Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
+	DataIdentifiers []string `pulumi:"dataIdentifiers"`
+	// Configures the data protection operation applied by this statement.
+	Operation GetLogDataProtectionPolicyDocumentStatementOperation `pulumi:"operation"`
+	// Name of this statement.
+	Sid *string `pulumi:"sid"`
 }
 
 // GetLogDataProtectionPolicyDocumentStatementInput is an input type that accepts GetLogDataProtectionPolicyDocumentStatementArgs and GetLogDataProtectionPolicyDocumentStatementOutput values.
@@ -4914,9 +5332,12 @@ type GetLogDataProtectionPolicyDocumentStatementInput interface {
 }
 
 type GetLogDataProtectionPolicyDocumentStatementArgs struct {
-	DataIdentifiers pulumi.StringArrayInput                                   `pulumi:"dataIdentifiers"`
-	Operation       GetLogDataProtectionPolicyDocumentStatementOperationInput `pulumi:"operation"`
-	Sid             pulumi.StringPtrInput                                     `pulumi:"sid"`
+	// Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
+	DataIdentifiers pulumi.StringArrayInput `pulumi:"dataIdentifiers"`
+	// Configures the data protection operation applied by this statement.
+	Operation GetLogDataProtectionPolicyDocumentStatementOperationInput `pulumi:"operation"`
+	// Name of this statement.
+	Sid pulumi.StringPtrInput `pulumi:"sid"`
 }
 
 func (GetLogDataProtectionPolicyDocumentStatementArgs) ElementType() reflect.Type {
@@ -4970,16 +5391,19 @@ func (o GetLogDataProtectionPolicyDocumentStatementOutput) ToGetLogDataProtectio
 	return o
 }
 
+// Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
 func (o GetLogDataProtectionPolicyDocumentStatementOutput) DataIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatement) []string { return v.DataIdentifiers }).(pulumi.StringArrayOutput)
 }
 
+// Configures the data protection operation applied by this statement.
 func (o GetLogDataProtectionPolicyDocumentStatementOutput) Operation() GetLogDataProtectionPolicyDocumentStatementOperationOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatement) GetLogDataProtectionPolicyDocumentStatementOperation {
 		return v.Operation
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationOutput)
 }
 
+// Name of this statement.
 func (o GetLogDataProtectionPolicyDocumentStatementOutput) Sid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatement) *string { return v.Sid }).(pulumi.StringPtrOutput)
 }
@@ -5005,7 +5429,9 @@ func (o GetLogDataProtectionPolicyDocumentStatementArrayOutput) Index(i pulumi.I
 }
 
 type GetLogDataProtectionPolicyDocumentStatementOperation struct {
-	Audit      *GetLogDataProtectionPolicyDocumentStatementOperationAudit      `pulumi:"audit"`
+	// Configures the detection of sensitive data.
+	Audit *GetLogDataProtectionPolicyDocumentStatementOperationAudit `pulumi:"audit"`
+	// Configures the masking of sensitive data.
 	Deidentify *GetLogDataProtectionPolicyDocumentStatementOperationDeidentify `pulumi:"deidentify"`
 }
 
@@ -5021,7 +5447,9 @@ type GetLogDataProtectionPolicyDocumentStatementOperationInput interface {
 }
 
 type GetLogDataProtectionPolicyDocumentStatementOperationArgs struct {
-	Audit      GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrInput      `pulumi:"audit"`
+	// Configures the detection of sensitive data.
+	Audit GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrInput `pulumi:"audit"`
+	// Configures the masking of sensitive data.
 	Deidentify GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrInput `pulumi:"deidentify"`
 }
 
@@ -5051,12 +5479,14 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationOutput) ToGetLogData
 	return o
 }
 
+// Configures the detection of sensitive data.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationOutput) Audit() GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperation) *GetLogDataProtectionPolicyDocumentStatementOperationAudit {
 		return v.Audit
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput)
 }
 
+// Configures the masking of sensitive data.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationOutput) Deidentify() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperation) *GetLogDataProtectionPolicyDocumentStatementOperationDeidentify {
 		return v.Deidentify
@@ -5064,6 +5494,7 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationOutput) Deidentify()
 }
 
 type GetLogDataProtectionPolicyDocumentStatementOperationAudit struct {
+	// Configures destinations to send audit findings to.
 	FindingsDestination GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination `pulumi:"findingsDestination"`
 }
 
@@ -5079,6 +5510,7 @@ type GetLogDataProtectionPolicyDocumentStatementOperationAuditInput interface {
 }
 
 type GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs struct {
+	// Configures destinations to send audit findings to.
 	FindingsDestination GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationInput `pulumi:"findingsDestination"`
 }
 
@@ -5159,6 +5591,7 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput) ToGetLo
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput)
 }
 
+// Configures destinations to send audit findings to.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput) FindingsDestination() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationAudit) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination {
 		return v.FindingsDestination
@@ -5189,6 +5622,7 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput) Elem
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput)
 }
 
+// Configures destinations to send audit findings to.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput) FindingsDestination() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput {
 	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationAudit) *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination {
 		if v == nil {
@@ -5199,9 +5633,12 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput) Find
 }
 
 type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination struct {
+	// Configures CloudWatch Logs as a findings destination.
 	CloudwatchLogs *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs `pulumi:"cloudwatchLogs"`
-	Firehose       *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose       `pulumi:"firehose"`
-	S3             *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3             `pulumi:"s3"`
+	// Configures Kinesis Firehose as a findings destination.
+	Firehose *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose `pulumi:"firehose"`
+	// Configures S3 as a findings destination.
+	S3 *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3 `pulumi:"s3"`
 }
 
 // GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationInput is an input type that accepts GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs and GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput values.
@@ -5216,9 +5653,12 @@ type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinatio
 }
 
 type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs struct {
+	// Configures CloudWatch Logs as a findings destination.
 	CloudwatchLogs GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrInput `pulumi:"cloudwatchLogs"`
-	Firehose       GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrInput       `pulumi:"firehose"`
-	S3             GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrInput             `pulumi:"s3"`
+	// Configures Kinesis Firehose as a findings destination.
+	Firehose GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrInput `pulumi:"firehose"`
+	// Configures S3 as a findings destination.
+	S3 GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrInput `pulumi:"s3"`
 }
 
 func (GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs) ElementType() reflect.Type {
@@ -5298,18 +5738,21 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput)
 }
 
+// Configures CloudWatch Logs as a findings destination.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput) CloudwatchLogs() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination) *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs {
 		return v.CloudwatchLogs
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput)
 }
 
+// Configures Kinesis Firehose as a findings destination.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput) Firehose() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination) *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose {
 		return v.Firehose
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput)
 }
 
+// Configures S3 as a findings destination.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput) S3() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination) *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3 {
 		return v.S3
@@ -5340,6 +5783,7 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput)
 }
 
+// Configures CloudWatch Logs as a findings destination.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput) CloudwatchLogs() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput {
 	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination) *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs {
 		if v == nil {
@@ -5349,6 +5793,7 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput)
 }
 
+// Configures Kinesis Firehose as a findings destination.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput) Firehose() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput {
 	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination) *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose {
 		if v == nil {
@@ -5358,6 +5803,7 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput)
 }
 
+// Configures S3 as a findings destination.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput) S3() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput {
 	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination) *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3 {
 		if v == nil {
@@ -5368,6 +5814,7 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 }
 
 type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs struct {
+	// Name of the CloudWatch Log Group to send findings to.
 	LogGroup string `pulumi:"logGroup"`
 }
 
@@ -5383,6 +5830,7 @@ type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinatio
 }
 
 type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs struct {
+	// Name of the CloudWatch Log Group to send findings to.
 	LogGroup pulumi.StringInput `pulumi:"logGroup"`
 }
 
@@ -5463,6 +5911,7 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput)
 }
 
+// Name of the CloudWatch Log Group to send findings to.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput) LogGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs) string {
 		return v.LogGroup
@@ -5493,6 +5942,7 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput)
 }
 
+// Name of the CloudWatch Log Group to send findings to.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs) *string {
 		if v == nil {
@@ -5503,6 +5953,7 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 }
 
 type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose struct {
+	// Name of the Kinesis Firehose Delivery Stream to send findings to.
 	DeliveryStream string `pulumi:"deliveryStream"`
 }
 
@@ -5518,6 +5969,7 @@ type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinatio
 }
 
 type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs struct {
+	// Name of the Kinesis Firehose Delivery Stream to send findings to.
 	DeliveryStream pulumi.StringInput `pulumi:"deliveryStream"`
 }
 
@@ -5598,6 +6050,7 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput)
 }
 
+// Name of the Kinesis Firehose Delivery Stream to send findings to.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput) DeliveryStream() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose) string {
 		return v.DeliveryStream
@@ -5628,6 +6081,7 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput)
 }
 
+// Name of the Kinesis Firehose Delivery Stream to send findings to.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput) DeliveryStream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose) *string {
 		if v == nil {
@@ -5638,6 +6092,7 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 }
 
 type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3 struct {
+	// Name of the S3 Bucket to send findings to.
 	Bucket string `pulumi:"bucket"`
 }
 
@@ -5653,6 +6108,7 @@ type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinatio
 }
 
 type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args struct {
+	// Name of the S3 Bucket to send findings to.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 }
 
@@ -5733,6 +6189,7 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput)
 }
 
+// Name of the S3 Bucket to send findings to.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3) string {
 		return v.Bucket
@@ -5763,6 +6220,7 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output)
 }
 
+// Name of the S3 Bucket to send findings to.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3) *string {
 		if v == nil {
@@ -5773,6 +6231,7 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 }
 
 type GetLogDataProtectionPolicyDocumentStatementOperationDeidentify struct {
+	// An empty object that configures masking.
 	MaskConfig GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig `pulumi:"maskConfig"`
 }
 
@@ -5788,6 +6247,7 @@ type GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyInput interfa
 }
 
 type GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs struct {
+	// An empty object that configures masking.
 	MaskConfig GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigInput `pulumi:"maskConfig"`
 }
 
@@ -5868,6 +6328,7 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput) To
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput)
 }
 
+// An empty object that configures masking.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput) MaskConfig() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationDeidentify) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig {
 		return v.MaskConfig
@@ -5898,6 +6359,7 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput)
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput)
 }
 
+// An empty object that configures masking.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput) MaskConfig() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput {
 	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationDeidentify) *GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig {
 		if v == nil {

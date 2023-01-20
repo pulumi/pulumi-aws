@@ -14,23 +14,47 @@ public final class GetDocumentPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetDocumentPlainArgs Empty = new GetDocumentPlainArgs();
 
+    /**
+     * Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
+     * 
+     */
     @Import(name="documentFormat")
     private @Nullable String documentFormat;
 
+    /**
+     * @return Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
+     * 
+     */
     public Optional<String> documentFormat() {
         return Optional.ofNullable(this.documentFormat);
     }
 
+    /**
+     * Document version for which you want information.
+     * 
+     */
     @Import(name="documentVersion")
     private @Nullable String documentVersion;
 
+    /**
+     * @return Document version for which you want information.
+     * 
+     */
     public Optional<String> documentVersion() {
         return Optional.ofNullable(this.documentVersion);
     }
 
+    /**
+     * Name of the Systems Manager document.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return Name of the Systems Manager document.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -61,16 +85,34 @@ public final class GetDocumentPlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetDocumentPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param documentFormat Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
+         * 
+         * @return builder
+         * 
+         */
         public Builder documentFormat(@Nullable String documentFormat) {
             $.documentFormat = documentFormat;
             return this;
         }
 
+        /**
+         * @param documentVersion Document version for which you want information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder documentVersion(@Nullable String documentVersion) {
             $.documentVersion = documentVersion;
             return this;
         }
 
+        /**
+         * @param name Name of the Systems Manager document.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;

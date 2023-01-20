@@ -13,6 +13,9 @@ namespace Pulumi.Aws.CodeDeploy.Outputs
     [OutputType]
     public sealed class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption
     {
+        /// <summary>
+        /// The method used to add instances to a replacement environment.
+        /// </summary>
         public readonly string? Action;
 
         [OutputConstructor]

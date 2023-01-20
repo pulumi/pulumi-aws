@@ -11,14 +11,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a GameLift Matchmaking Rule Set resources.
+//
+// ## Import
+//
+// # GameLift Matchmaking Rule Sets
+//
+// can be imported using the ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet example <ruleset-id>
+//
+// ```
 type MatchmakingRuleSet struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput    `pulumi:"arn"`
-	Name        pulumi.StringOutput    `pulumi:"name"`
+	// Rule Set ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Name of the matchmaking rule set.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// JSON encoded string containing rule set data.
 	RuleSetBody pulumi.StringOutput    `pulumi:"ruleSetBody"`
 	Tags        pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewMatchmakingRuleSet registers a new resource with the given unique name, arguments, and options.
@@ -53,19 +70,27 @@ func GetMatchmakingRuleSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MatchmakingRuleSet resources.
 type matchmakingRuleSetState struct {
-	Arn         *string           `pulumi:"arn"`
-	Name        *string           `pulumi:"name"`
+	// Rule Set ARN.
+	Arn *string `pulumi:"arn"`
+	// Name of the matchmaking rule set.
+	Name *string `pulumi:"name"`
+	// JSON encoded string containing rule set data.
 	RuleSetBody *string           `pulumi:"ruleSetBody"`
 	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type MatchmakingRuleSetState struct {
-	Arn         pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
+	// Rule Set ARN.
+	Arn pulumi.StringPtrInput
+	// Name of the matchmaking rule set.
+	Name pulumi.StringPtrInput
+	// JSON encoded string containing rule set data.
 	RuleSetBody pulumi.StringPtrInput
 	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (MatchmakingRuleSetState) ElementType() reflect.Type {
@@ -73,14 +98,18 @@ func (MatchmakingRuleSetState) ElementType() reflect.Type {
 }
 
 type matchmakingRuleSetArgs struct {
-	Name        *string           `pulumi:"name"`
+	// Name of the matchmaking rule set.
+	Name *string `pulumi:"name"`
+	// JSON encoded string containing rule set data.
 	RuleSetBody string            `pulumi:"ruleSetBody"`
 	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MatchmakingRuleSet resource.
 type MatchmakingRuleSetArgs struct {
-	Name        pulumi.StringPtrInput
+	// Name of the matchmaking rule set.
+	Name pulumi.StringPtrInput
+	// JSON encoded string containing rule set data.
 	RuleSetBody pulumi.StringInput
 	Tags        pulumi.StringMapInput
 }
@@ -172,14 +201,17 @@ func (o MatchmakingRuleSetOutput) ToMatchmakingRuleSetOutputWithContext(ctx cont
 	return o
 }
 
+// Rule Set ARN.
 func (o MatchmakingRuleSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MatchmakingRuleSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Name of the matchmaking rule set.
 func (o MatchmakingRuleSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MatchmakingRuleSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// JSON encoded string containing rule set data.
 func (o MatchmakingRuleSetOutput) RuleSetBody() pulumi.StringOutput {
 	return o.ApplyT(func(v *MatchmakingRuleSet) pulumi.StringOutput { return v.RuleSetBody }).(pulumi.StringOutput)
 }
@@ -188,6 +220,7 @@ func (o MatchmakingRuleSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MatchmakingRuleSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o MatchmakingRuleSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MatchmakingRuleSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

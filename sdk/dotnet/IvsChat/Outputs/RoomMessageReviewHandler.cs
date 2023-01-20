@@ -13,7 +13,15 @@ namespace Pulumi.Aws.IvsChat.Outputs
     [OutputType]
     public sealed class RoomMessageReviewHandler
     {
+        /// <summary>
+        /// The fallback behavior (whether the message
+        /// is allowed or denied) if the handler does not return a valid response,
+        /// encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
+        /// </summary>
         public readonly string? FallbackResult;
+        /// <summary>
+        /// ARN of the lambda message review handler function.
+        /// </summary>
         public readonly string? Uri;
 
         [OutputConstructor]

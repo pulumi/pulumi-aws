@@ -40,6 +40,9 @@ class GetConfigurationProfilesResult:
     @property
     @pulumi.getter(name="configurationProfileIds")
     def configuration_profile_ids(self) -> Sequence[str]:
+        """
+        Set of Configuration Profile IDs associated with the AppConfig Application.
+        """
         return pulumi.get(self, "configuration_profile_ids")
 
     @property
@@ -65,7 +68,13 @@ class AwaitableGetConfigurationProfilesResult(GetConfigurationProfilesResult):
 def get_configuration_profiles(application_id: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfilesResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides access to all Configuration Properties for an AppConfig Application. This will allow you to pass Configuration
+    Profile IDs to another resource.
+
+    ## Example Usage
+
+
+    :param str application_id: ID of the AppConfig Application.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
@@ -82,6 +91,12 @@ def get_configuration_profiles(application_id: Optional[str] = None,
 def get_configuration_profiles_output(application_id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfilesResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides access to all Configuration Properties for an AppConfig Application. This will allow you to pass Configuration
+    Profile IDs to another resource.
+
+    ## Example Usage
+
+
+    :param str application_id: ID of the AppConfig Application.
     """
     ...

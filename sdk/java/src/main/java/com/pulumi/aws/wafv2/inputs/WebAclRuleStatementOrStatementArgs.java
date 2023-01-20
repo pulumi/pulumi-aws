@@ -14,9 +14,17 @@ public final class WebAclRuleStatementOrStatementArgs extends com.pulumi.resourc
 
     public static final WebAclRuleStatementOrStatementArgs Empty = new WebAclRuleStatementOrStatementArgs();
 
+    /**
+     * Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+     * 
+     */
     @Import(name="statements", required=true)
     private Output<List<WebAclRuleStatementOrStatementStatementArgs>> statements;
 
+    /**
+     * @return Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+     * 
+     */
     public Output<List<WebAclRuleStatementOrStatementStatementArgs>> statements() {
         return this.statements;
     }
@@ -45,15 +53,33 @@ public final class WebAclRuleStatementOrStatementArgs extends com.pulumi.resourc
             $ = new WebAclRuleStatementOrStatementArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param statements Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statements(Output<List<WebAclRuleStatementOrStatementStatementArgs>> statements) {
             $.statements = statements;
             return this;
         }
 
+        /**
+         * @param statements Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statements(List<WebAclRuleStatementOrStatementStatementArgs> statements) {
             return statements(Output.of(statements));
         }
 
+        /**
+         * @param statements Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statements(WebAclRuleStatementOrStatementStatementArgs... statements) {
             return statements(List.of(statements));
         }

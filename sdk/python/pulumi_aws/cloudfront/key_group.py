@@ -19,6 +19,9 @@ class KeyGroupArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a KeyGroup resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] items: A list of the identifiers of the public keys in the key group.
+        :param pulumi.Input[str] comment: A comment to describe the key group..
+        :param pulumi.Input[str] name: A name to identify the key group.
         """
         pulumi.set(__self__, "items", items)
         if comment is not None:
@@ -29,6 +32,9 @@ class KeyGroupArgs:
     @property
     @pulumi.getter
     def items(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of the identifiers of the public keys in the key group.
+        """
         return pulumi.get(self, "items")
 
     @items.setter
@@ -38,6 +44,9 @@ class KeyGroupArgs:
     @property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        A comment to describe the key group..
+        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -47,6 +56,9 @@ class KeyGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name to identify the key group.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -63,6 +75,10 @@ class _KeyGroupState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering KeyGroup resources.
+        :param pulumi.Input[str] comment: A comment to describe the key group..
+        :param pulumi.Input[str] etag: The identifier for this version of the key group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] items: A list of the identifiers of the public keys in the key group.
+        :param pulumi.Input[str] name: A name to identify the key group.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -76,6 +92,9 @@ class _KeyGroupState:
     @property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        A comment to describe the key group..
+        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -85,6 +104,9 @@ class _KeyGroupState:
     @property
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for this version of the key group.
+        """
         return pulumi.get(self, "etag")
 
     @etag.setter
@@ -94,6 +116,9 @@ class _KeyGroupState:
     @property
     @pulumi.getter
     def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the identifiers of the public keys in the key group.
+        """
         return pulumi.get(self, "items")
 
     @items.setter
@@ -103,6 +128,9 @@ class _KeyGroupState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name to identify the key group.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -120,9 +148,35 @@ class KeyGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a KeyGroup resource with the given unique name, props, and options.
+        ## Example Usage
+
+        The following example below creates a CloudFront key group.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_public_key = aws.cloudfront.PublicKey("examplePublicKey",
+            comment="example public key",
+            encoded_key=(lambda path: open(path).read())("public_key.pem"))
+        example_key_group = aws.cloudfront.KeyGroup("exampleKeyGroup",
+            comment="example key group",
+            items=[example_public_key.id])
+        ```
+
+        ## Import
+
+        CloudFront Key Group can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] comment: A comment to describe the key group..
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] items: A list of the identifiers of the public keys in the key group.
+        :param pulumi.Input[str] name: A name to identify the key group.
         """
         ...
     @overload
@@ -131,7 +185,30 @@ class KeyGroup(pulumi.CustomResource):
                  args: KeyGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a KeyGroup resource with the given unique name, props, and options.
+        ## Example Usage
+
+        The following example below creates a CloudFront key group.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_public_key = aws.cloudfront.PublicKey("examplePublicKey",
+            comment="example public key",
+            encoded_key=(lambda path: open(path).read())("public_key.pem"))
+        example_key_group = aws.cloudfront.KeyGroup("exampleKeyGroup",
+            comment="example key group",
+            items=[example_public_key.id])
+        ```
+
+        ## Import
+
+        CloudFront Key Group can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
+        ```
+
         :param str resource_name: The name of the resource.
         :param KeyGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,6 +263,10 @@ class KeyGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] comment: A comment to describe the key group..
+        :param pulumi.Input[str] etag: The identifier for this version of the key group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] items: A list of the identifiers of the public keys in the key group.
+        :param pulumi.Input[str] name: A name to identify the key group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -200,20 +281,32 @@ class KeyGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[str]]:
+        """
+        A comment to describe the key group..
+        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
+        """
+        The identifier for this version of the key group.
+        """
         return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
     def items(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of the identifiers of the public keys in the key group.
+        """
         return pulumi.get(self, "items")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A name to identify the key group.
+        """
         return pulumi.get(self, "name")
 

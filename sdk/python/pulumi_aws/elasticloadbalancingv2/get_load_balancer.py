@@ -259,7 +259,35 @@ def get_load_balancer(arn: Optional[str] = None,
                       tags: Optional[Mapping[str, str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerResult:
     """
-    Use this data source to access information about an existing resource.
+    > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
+
+    Provides information about a Load Balancer.
+
+    This data source can prove useful when a module accepts an LB as an input
+    variable and needs to, for example, determine the security groups associated
+    with it, etc.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    lb_arn = config.get("lbArn")
+    if lb_arn is None:
+        lb_arn = ""
+    lb_name = config.get("lbName")
+    if lb_name is None:
+        lb_name = ""
+    test = aws.lb.get_load_balancer(arn=lb_arn,
+        name=lb_name)
+    ```
+
+
+    :param str arn: Full ARN of the load balancer.
+    :param str name: Unique name of the load balancer.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
     """
     pulumi.log.warn("""get_load_balancer is deprecated: aws.elasticloadbalancingv2.getLoadBalancer has been deprecated in favor of aws.lb.getLoadBalancer""")
     __args__ = dict()
@@ -302,7 +330,35 @@ def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
-    Use this data source to access information about an existing resource.
+    > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
+
+    Provides information about a Load Balancer.
+
+    This data source can prove useful when a module accepts an LB as an input
+    variable and needs to, for example, determine the security groups associated
+    with it, etc.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    lb_arn = config.get("lbArn")
+    if lb_arn is None:
+        lb_arn = ""
+    lb_name = config.get("lbName")
+    if lb_name is None:
+        lb_name = ""
+    test = aws.lb.get_load_balancer(arn=lb_arn,
+        name=lb_name)
+    ```
+
+
+    :param str arn: Full ARN of the load balancer.
+    :param str name: Unique name of the load balancer.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
     """
     pulumi.log.warn("""get_load_balancer is deprecated: aws.elasticloadbalancingv2.getLoadBalancer has been deprecated in favor of aws.lb.getLoadBalancer""")
     ...

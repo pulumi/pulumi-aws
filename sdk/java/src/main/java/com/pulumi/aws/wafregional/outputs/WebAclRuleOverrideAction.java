@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleOverrideAction {
+    /**
+     * @return Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+     * 
+     */
     private String type;
 
     private WebAclRuleOverrideAction() {}
+    /**
+     * @return Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+     * 
+     */
     public String type() {
         return this.type;
     }

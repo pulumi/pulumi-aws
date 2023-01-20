@@ -15,29 +15,108 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages a Service Catalog self-service action.
+ * 
+ * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.servicecatalog.ServiceAction;
+ * import com.pulumi.aws.servicecatalog.ServiceActionArgs;
+ * import com.pulumi.aws.servicecatalog.inputs.ServiceActionDefinitionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ServiceAction(&#34;example&#34;, ServiceActionArgs.builder()        
+ *             .definition(ServiceActionDefinitionArgs.builder()
+ *                 .name(&#34;AWS-RestartEC2Instance&#34;)
+ *                 .build())
+ *             .description(&#34;Motor generator unit&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_servicecatalog_service_action` can be imported using the service action ID, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
+ * ```
+ * 
+ */
 @ResourceType(type="aws:servicecatalog/serviceAction:ServiceAction")
 public class ServiceAction extends com.pulumi.resources.CustomResource {
+    /**
+     * Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
+     * 
+     */
     @Export(name="acceptLanguage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> acceptLanguage;
 
+    /**
+     * @return Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
+     * 
+     */
     public Output<Optional<String>> acceptLanguage() {
         return Codegen.optional(this.acceptLanguage);
     }
+    /**
+     * Self-service action definition configuration block. Detailed below.
+     * 
+     */
     @Export(name="definition", refs={ServiceActionDefinition.class}, tree="[0]")
     private Output<ServiceActionDefinition> definition;
 
+    /**
+     * @return Self-service action definition configuration block. Detailed below.
+     * 
+     */
     public Output<ServiceActionDefinition> definition() {
         return this.definition;
     }
+    /**
+     * Self-service action description.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
+    /**
+     * @return Self-service action description.
+     * 
+     */
     public Output<String> description() {
         return this.description;
     }
+    /**
+     * Self-service action name.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Self-service action name.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

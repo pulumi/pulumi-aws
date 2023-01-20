@@ -11,13 +11,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Single Sign-On (SSO) ABAC Resource: https://docs.aws.amazon.com/singlesignon/latest/userguide/abac.html
+//
+// ## Import
+//
+// SSO Account Assignments can be imported using the `instance_arn`
+//
+// ```sh
+//
+//	$ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
+//
+// ```
 type InstanceAccessControlAttributes struct {
 	pulumi.CustomResourceState
 
-	Attributes   InstanceAccessControlAttributesAttributeArrayOutput `pulumi:"attributes"`
-	InstanceArn  pulumi.StringOutput                                 `pulumi:"instanceArn"`
-	Status       pulumi.StringOutput                                 `pulumi:"status"`
-	StatusReason pulumi.StringOutput                                 `pulumi:"statusReason"`
+	// See AccessControlAttribute for more details.
+	Attributes InstanceAccessControlAttributesAttributeArrayOutput `pulumi:"attributes"`
+	// The Amazon Resource Name (ARN) of the SSO Instance.
+	InstanceArn  pulumi.StringOutput `pulumi:"instanceArn"`
+	Status       pulumi.StringOutput `pulumi:"status"`
+	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
 }
 
 // NewInstanceAccessControlAttributes registers a new resource with the given unique name, arguments, and options.
@@ -55,14 +68,18 @@ func GetInstanceAccessControlAttributes(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InstanceAccessControlAttributes resources.
 type instanceAccessControlAttributesState struct {
-	Attributes   []InstanceAccessControlAttributesAttribute `pulumi:"attributes"`
-	InstanceArn  *string                                    `pulumi:"instanceArn"`
-	Status       *string                                    `pulumi:"status"`
-	StatusReason *string                                    `pulumi:"statusReason"`
+	// See AccessControlAttribute for more details.
+	Attributes []InstanceAccessControlAttributesAttribute `pulumi:"attributes"`
+	// The Amazon Resource Name (ARN) of the SSO Instance.
+	InstanceArn  *string `pulumi:"instanceArn"`
+	Status       *string `pulumi:"status"`
+	StatusReason *string `pulumi:"statusReason"`
 }
 
 type InstanceAccessControlAttributesState struct {
-	Attributes   InstanceAccessControlAttributesAttributeArrayInput
+	// See AccessControlAttribute for more details.
+	Attributes InstanceAccessControlAttributesAttributeArrayInput
+	// The Amazon Resource Name (ARN) of the SSO Instance.
 	InstanceArn  pulumi.StringPtrInput
 	Status       pulumi.StringPtrInput
 	StatusReason pulumi.StringPtrInput
@@ -73,13 +90,17 @@ func (InstanceAccessControlAttributesState) ElementType() reflect.Type {
 }
 
 type instanceAccessControlAttributesArgs struct {
-	Attributes  []InstanceAccessControlAttributesAttribute `pulumi:"attributes"`
-	InstanceArn string                                     `pulumi:"instanceArn"`
+	// See AccessControlAttribute for more details.
+	Attributes []InstanceAccessControlAttributesAttribute `pulumi:"attributes"`
+	// The Amazon Resource Name (ARN) of the SSO Instance.
+	InstanceArn string `pulumi:"instanceArn"`
 }
 
 // The set of arguments for constructing a InstanceAccessControlAttributes resource.
 type InstanceAccessControlAttributesArgs struct {
-	Attributes  InstanceAccessControlAttributesAttributeArrayInput
+	// See AccessControlAttribute for more details.
+	Attributes InstanceAccessControlAttributesAttributeArrayInput
+	// The Amazon Resource Name (ARN) of the SSO Instance.
 	InstanceArn pulumi.StringInput
 }
 
@@ -170,12 +191,14 @@ func (o InstanceAccessControlAttributesOutput) ToInstanceAccessControlAttributes
 	return o
 }
 
+// See AccessControlAttribute for more details.
 func (o InstanceAccessControlAttributesOutput) Attributes() InstanceAccessControlAttributesAttributeArrayOutput {
 	return o.ApplyT(func(v *InstanceAccessControlAttributes) InstanceAccessControlAttributesAttributeArrayOutput {
 		return v.Attributes
 	}).(InstanceAccessControlAttributesAttributeArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the SSO Instance.
 func (o InstanceAccessControlAttributesOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceAccessControlAttributes) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }

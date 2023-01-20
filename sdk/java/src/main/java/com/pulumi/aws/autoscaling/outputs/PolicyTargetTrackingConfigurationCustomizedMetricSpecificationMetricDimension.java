@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension {
+    /**
+     * @return Name of the dimension.
+     * 
+     */
     private String name;
+    /**
+     * @return Value of the dimension.
+     * 
+     */
     private String value;
 
     private PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension() {}
+    /**
+     * @return Name of the dimension.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Value of the dimension.
+     * 
+     */
     public String value() {
         return this.value;
     }

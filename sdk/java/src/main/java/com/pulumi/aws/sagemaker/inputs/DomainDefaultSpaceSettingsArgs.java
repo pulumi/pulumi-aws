@@ -18,30 +18,62 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
 
     public static final DomainDefaultSpaceSettingsArgs Empty = new DomainDefaultSpaceSettingsArgs();
 
+    /**
+     * The execution role for the space.
+     * 
+     */
     @Import(name="executionRole", required=true)
     private Output<String> executionRole;
 
+    /**
+     * @return The execution role for the space.
+     * 
+     */
     public Output<String> executionRole() {
         return this.executionRole;
     }
 
+    /**
+     * The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+     * 
+     */
     @Import(name="jupyterServerAppSettings")
     private @Nullable Output<DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs> jupyterServerAppSettings;
 
+    /**
+     * @return The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+     * 
+     */
     public Optional<Output<DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs>> jupyterServerAppSettings() {
         return Optional.ofNullable(this.jupyterServerAppSettings);
     }
 
+    /**
+     * The kernel gateway app settings. See Kernel Gateway App Settings below.
+     * 
+     */
     @Import(name="kernelGatewayAppSettings")
     private @Nullable Output<DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs> kernelGatewayAppSettings;
 
+    /**
+     * @return The kernel gateway app settings. See Kernel Gateway App Settings below.
+     * 
+     */
     public Optional<Output<DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs>> kernelGatewayAppSettings() {
         return Optional.ofNullable(this.kernelGatewayAppSettings);
     }
 
+    /**
+     * The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+     * 
+     */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
+    /**
+     * @return The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+     * 
+     */
     public Optional<Output<List<String>>> securityGroups() {
         return Optional.ofNullable(this.securityGroups);
     }
@@ -73,42 +105,96 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
             $ = new DomainDefaultSpaceSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param executionRole The execution role for the space.
+         * 
+         * @return builder
+         * 
+         */
         public Builder executionRole(Output<String> executionRole) {
             $.executionRole = executionRole;
             return this;
         }
 
+        /**
+         * @param executionRole The execution role for the space.
+         * 
+         * @return builder
+         * 
+         */
         public Builder executionRole(String executionRole) {
             return executionRole(Output.of(executionRole));
         }
 
+        /**
+         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jupyterServerAppSettings(@Nullable Output<DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs> jupyterServerAppSettings) {
             $.jupyterServerAppSettings = jupyterServerAppSettings;
             return this;
         }
 
+        /**
+         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jupyterServerAppSettings(DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs jupyterServerAppSettings) {
             return jupyterServerAppSettings(Output.of(jupyterServerAppSettings));
         }
 
+        /**
+         * @param kernelGatewayAppSettings The kernel gateway app settings. See Kernel Gateway App Settings below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kernelGatewayAppSettings(@Nullable Output<DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs> kernelGatewayAppSettings) {
             $.kernelGatewayAppSettings = kernelGatewayAppSettings;
             return this;
         }
 
+        /**
+         * @param kernelGatewayAppSettings The kernel gateway app settings. See Kernel Gateway App Settings below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kernelGatewayAppSettings(DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs kernelGatewayAppSettings) {
             return kernelGatewayAppSettings(Output.of(kernelGatewayAppSettings));
         }
 
+        /**
+         * @param securityGroups The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroups(@Nullable Output<List<String>> securityGroups) {
             $.securityGroups = securityGroups;
             return this;
         }
 
+        /**
+         * @param securityGroups The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroups(List<String> securityGroups) {
             return securityGroups(Output.of(securityGroups));
         }
 
+        /**
+         * @param securityGroups The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }

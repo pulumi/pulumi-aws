@@ -13,9 +13,17 @@ public final class GatewayRouteSpecGrpcRouteMatchArgs extends com.pulumi.resourc
 
     public static final GatewayRouteSpecGrpcRouteMatchArgs Empty = new GatewayRouteSpecGrpcRouteMatchArgs();
 
+    /**
+     * Fully qualified domain name for the service to match from the request.
+     * 
+     */
     @Import(name="serviceName", required=true)
     private Output<String> serviceName;
 
+    /**
+     * @return Fully qualified domain name for the service to match from the request.
+     * 
+     */
     public Output<String> serviceName() {
         return this.serviceName;
     }
@@ -44,11 +52,23 @@ public final class GatewayRouteSpecGrpcRouteMatchArgs extends com.pulumi.resourc
             $ = new GatewayRouteSpecGrpcRouteMatchArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param serviceName Fully qualified domain name for the service to match from the request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceName(Output<String> serviceName) {
             $.serviceName = serviceName;
             return this;
         }
 
+        /**
+         * @param serviceName Fully qualified domain name for the service to match from the request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceName(String serviceName) {
             return serviceName(Output.of(serviceName));
         }

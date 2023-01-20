@@ -15,29 +15,106 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Resource for managing SES Identity Notification Topics
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ses.IdentityNotificationTopic;
+ * import com.pulumi.aws.ses.IdentityNotificationTopicArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new IdentityNotificationTopic(&#34;test&#34;, IdentityNotificationTopicArgs.builder()        
+ *             .topicArn(aws_sns_topic.example().arn())
+ *             .notificationType(&#34;Bounce&#34;)
+ *             .identity(aws_ses_domain_identity.example().domain())
+ *             .includeOriginalHeaders(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Identity Notification Topics can be imported using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type.
+ * 
+ * ```sh
+ *  $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test &#39;example.com|Bounce&#39;
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ses/identityNotificationTopic:IdentityNotificationTopic")
 public class IdentityNotificationTopic extends com.pulumi.resources.CustomResource {
+    /**
+     * The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+     * 
+     */
     @Export(name="identity", refs={String.class}, tree="[0]")
     private Output<String> identity;
 
+    /**
+     * @return The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+     * 
+     */
     public Output<String> identity() {
         return this.identity;
     }
+    /**
+     * Whether SES should include original email headers in SNS notifications of this type. `false` by default.
+     * 
+     */
     @Export(name="includeOriginalHeaders", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> includeOriginalHeaders;
 
+    /**
+     * @return Whether SES should include original email headers in SNS notifications of this type. `false` by default.
+     * 
+     */
     public Output<Optional<Boolean>> includeOriginalHeaders() {
         return Codegen.optional(this.includeOriginalHeaders);
     }
+    /**
+     * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
+     * 
+     */
     @Export(name="notificationType", refs={String.class}, tree="[0]")
     private Output<String> notificationType;
 
+    /**
+     * @return The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
+     * 
+     */
     public Output<String> notificationType() {
         return this.notificationType;
     }
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `&#34;&#34;` (an empty string) to disable publishing.
+     * 
+     */
     @Export(name="topicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> topicArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `&#34;&#34;` (an empty string) to disable publishing.
+     * 
+     */
     public Output<Optional<String>> topicArn() {
         return Codegen.optional(this.topicArn);
     }

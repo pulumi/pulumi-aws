@@ -39,6 +39,27 @@ class LustreFileSystemArgs:
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LustreFileSystem resource.
+        :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
+        :param pulumi.Input[str] auto_import_policy: How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
+        :param pulumi.Input[str] backup_id: The ID of the source backup to create the filesystem from.
+        :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
+        :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automatic_backup_retention_days` to be set.
+        :param pulumi.Input[str] data_compression_type: Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
+        :param pulumi.Input[str] deployment_type: The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
+        :param pulumi.Input[str] drive_cache_type: The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+        :param pulumi.Input[str] export_path: S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[str] file_system_type_version: Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
+        :param pulumi.Input[str] import_path: S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[int] imported_file_chunk_size: For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
+        :param pulumi.Input['LustreFileSystemLogConfigurationArgs'] log_configuration: The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+        :param pulumi.Input[int] per_unit_storage_throughput: Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and ` SSD` storage_type are 125, 250, 500, 1000.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
+        :param pulumi.Input[str] storage_type: The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if auto_import_policy is not None:
@@ -85,6 +106,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[str]:
+        """
+        A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -94,6 +118,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="autoImportPolicy")
     def auto_import_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
+        """
         return pulumi.get(self, "auto_import_policy")
 
     @auto_import_policy.setter
@@ -103,6 +130,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="automaticBackupRetentionDays")
     def automatic_backup_retention_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
+        """
         return pulumi.get(self, "automatic_backup_retention_days")
 
     @automatic_backup_retention_days.setter
@@ -112,6 +142,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="backupId")
     def backup_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the source backup to create the filesystem from.
+        """
         return pulumi.get(self, "backup_id")
 
     @backup_id.setter
@@ -121,6 +154,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="copyTagsToBackups")
     def copy_tags_to_backups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
+        """
         return pulumi.get(self, "copy_tags_to_backups")
 
     @copy_tags_to_backups.setter
@@ -130,6 +166,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="dailyAutomaticBackupStartTime")
     def daily_automatic_backup_start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automatic_backup_retention_days` to be set.
+        """
         return pulumi.get(self, "daily_automatic_backup_start_time")
 
     @daily_automatic_backup_start_time.setter
@@ -139,6 +178,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="dataCompressionType")
     def data_compression_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
+        """
         return pulumi.get(self, "data_compression_type")
 
     @data_compression_type.setter
@@ -148,6 +190,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
+        """
         return pulumi.get(self, "deployment_type")
 
     @deployment_type.setter
@@ -157,6 +202,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="driveCacheType")
     def drive_cache_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+        """
         return pulumi.get(self, "drive_cache_type")
 
     @drive_cache_type.setter
@@ -166,6 +214,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="exportPath")
     def export_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
+        """
         return pulumi.get(self, "export_path")
 
     @export_path.setter
@@ -175,6 +226,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="fileSystemTypeVersion")
     def file_system_type_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
+        """
         return pulumi.get(self, "file_system_type_version")
 
     @file_system_type_version.setter
@@ -184,6 +238,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="importPath")
     def import_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
+        """
         return pulumi.get(self, "import_path")
 
     @import_path.setter
@@ -193,6 +250,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="importedFileChunkSize")
     def imported_file_chunk_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
+        """
         return pulumi.get(self, "imported_file_chunk_size")
 
     @imported_file_chunk_size.setter
@@ -202,6 +262,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -211,6 +274,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional[pulumi.Input['LustreFileSystemLogConfigurationArgs']]:
+        """
+        The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+        """
         return pulumi.get(self, "log_configuration")
 
     @log_configuration.setter
@@ -220,6 +286,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="perUnitStorageThroughput")
     def per_unit_storage_throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and ` SSD` storage_type are 125, 250, 500, 1000.
+        """
         return pulumi.get(self, "per_unit_storage_throughput")
 
     @per_unit_storage_throughput.setter
@@ -229,6 +298,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -238,6 +310,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
+        """
         return pulumi.get(self, "storage_capacity")
 
     @storage_capacity.setter
@@ -247,6 +322,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+        """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
@@ -256,6 +334,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -265,6 +346,9 @@ class LustreFileSystemArgs:
     @property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
     def weekly_maintenance_start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        """
         return pulumi.get(self, "weekly_maintenance_start_time")
 
     @weekly_maintenance_start_time.setter
@@ -305,6 +389,34 @@ class _LustreFileSystemState:
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LustreFileSystem resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[str] auto_import_policy: How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
+        :param pulumi.Input[str] backup_id: The ID of the source backup to create the filesystem from.
+        :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
+        :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automatic_backup_retention_days` to be set.
+        :param pulumi.Input[str] data_compression_type: Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
+        :param pulumi.Input[str] deployment_type: The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
+        :param pulumi.Input[str] dns_name: DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
+        :param pulumi.Input[str] drive_cache_type: The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+        :param pulumi.Input[str] export_path: S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[str] file_system_type_version: Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
+        :param pulumi.Input[str] import_path: S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[int] imported_file_chunk_size: For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
+        :param pulumi.Input['LustreFileSystemLogConfigurationArgs'] log_configuration: The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+        :param pulumi.Input[str] mount_name: The value to be used when mounting the filesystem.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
+        :param pulumi.Input[str] owner_id: AWS account identifier that created the file system.
+        :param pulumi.Input[int] per_unit_storage_throughput: Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and ` SSD` storage_type are 125, 250, 500, 1000.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
+        :param pulumi.Input[str] storage_type: The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
+        :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -366,6 +478,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name of the file system.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -375,6 +490,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="autoImportPolicy")
     def auto_import_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
+        """
         return pulumi.get(self, "auto_import_policy")
 
     @auto_import_policy.setter
@@ -384,6 +502,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="automaticBackupRetentionDays")
     def automatic_backup_retention_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
+        """
         return pulumi.get(self, "automatic_backup_retention_days")
 
     @automatic_backup_retention_days.setter
@@ -393,6 +514,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="backupId")
     def backup_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the source backup to create the filesystem from.
+        """
         return pulumi.get(self, "backup_id")
 
     @backup_id.setter
@@ -402,6 +526,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="copyTagsToBackups")
     def copy_tags_to_backups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
+        """
         return pulumi.get(self, "copy_tags_to_backups")
 
     @copy_tags_to_backups.setter
@@ -411,6 +538,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="dailyAutomaticBackupStartTime")
     def daily_automatic_backup_start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automatic_backup_retention_days` to be set.
+        """
         return pulumi.get(self, "daily_automatic_backup_start_time")
 
     @daily_automatic_backup_start_time.setter
@@ -420,6 +550,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="dataCompressionType")
     def data_compression_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
+        """
         return pulumi.get(self, "data_compression_type")
 
     @data_compression_type.setter
@@ -429,6 +562,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
+        """
         return pulumi.get(self, "deployment_type")
 
     @deployment_type.setter
@@ -438,6 +574,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
+        """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
@@ -447,6 +586,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="driveCacheType")
     def drive_cache_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+        """
         return pulumi.get(self, "drive_cache_type")
 
     @drive_cache_type.setter
@@ -456,6 +598,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="exportPath")
     def export_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
+        """
         return pulumi.get(self, "export_path")
 
     @export_path.setter
@@ -465,6 +610,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="fileSystemTypeVersion")
     def file_system_type_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
+        """
         return pulumi.get(self, "file_system_type_version")
 
     @file_system_type_version.setter
@@ -474,6 +622,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="importPath")
     def import_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
+        """
         return pulumi.get(self, "import_path")
 
     @import_path.setter
@@ -483,6 +634,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="importedFileChunkSize")
     def imported_file_chunk_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
+        """
         return pulumi.get(self, "imported_file_chunk_size")
 
     @imported_file_chunk_size.setter
@@ -492,6 +646,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -501,6 +658,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional[pulumi.Input['LustreFileSystemLogConfigurationArgs']]:
+        """
+        The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+        """
         return pulumi.get(self, "log_configuration")
 
     @log_configuration.setter
@@ -510,6 +670,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="mountName")
     def mount_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value to be used when mounting the filesystem.
+        """
         return pulumi.get(self, "mount_name")
 
     @mount_name.setter
@@ -519,6 +682,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="networkInterfaceIds")
     def network_interface_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
+        """
         return pulumi.get(self, "network_interface_ids")
 
     @network_interface_ids.setter
@@ -528,6 +694,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS account identifier that created the file system.
+        """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
@@ -537,6 +706,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="perUnitStorageThroughput")
     def per_unit_storage_throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and ` SSD` storage_type are 125, 250, 500, 1000.
+        """
         return pulumi.get(self, "per_unit_storage_throughput")
 
     @per_unit_storage_throughput.setter
@@ -546,6 +718,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -555,6 +730,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
+        """
         return pulumi.get(self, "storage_capacity")
 
     @storage_capacity.setter
@@ -564,6 +742,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+        """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
@@ -573,6 +754,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[str]]:
+        """
+        A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -582,6 +766,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -591,6 +778,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -600,6 +790,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of the Virtual Private Cloud for the file system.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -609,6 +802,9 @@ class _LustreFileSystemState:
     @property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
     def weekly_maintenance_start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        """
         return pulumi.get(self, "weekly_maintenance_start_time")
 
     @weekly_maintenance_start_time.setter
@@ -644,9 +840,67 @@ class LustreFileSystem(pulumi.CustomResource):
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a LustreFileSystem resource with the given unique name, props, and options.
+        Manages a FSx Lustre File System. See the [FSx Lustre Guide](https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html) for more information.
+
+        > **NOTE:** `auto_import_policy`, `export_path`, `import_path` and `imported_file_chunk_size` are not supported with the `PERSISTENT_2` deployment type. Use `fsx.DataRepositoryAssociation` instead.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.fsx.LustreFileSystem("example",
+            import_path=f"s3://{aws_s3_bucket['example']['bucket']}",
+            storage_capacity=1200,
+            subnet_ids=[aws_subnet["example"]["id"]])
+        ```
+
+        ## Import
+
+        FSx File Systems can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:fsx/lustreFileSystem:LustreFileSystem example fs-543ab12b1ca672f33
+        ```
+
+         Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the provider configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_fsx_lustre_file_system" "example" {
+
+        # ... other configuration ...
+
+         security_group_ids = [aws_security_group.example.id]
+
+        # There is no FSx API for reading security_group_ids
+
+         lifecycle {
+
+         ignore_changes = [security_group_ids]
+
+         } }
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] auto_import_policy: How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
+        :param pulumi.Input[str] backup_id: The ID of the source backup to create the filesystem from.
+        :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
+        :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automatic_backup_retention_days` to be set.
+        :param pulumi.Input[str] data_compression_type: Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
+        :param pulumi.Input[str] deployment_type: The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
+        :param pulumi.Input[str] drive_cache_type: The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+        :param pulumi.Input[str] export_path: S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[str] file_system_type_version: Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
+        :param pulumi.Input[str] import_path: S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[int] imported_file_chunk_size: For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
+        :param pulumi.Input[pulumi.InputType['LustreFileSystemLogConfigurationArgs']] log_configuration: The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+        :param pulumi.Input[int] per_unit_storage_throughput: Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and ` SSD` storage_type are 125, 250, 500, 1000.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
+        :param pulumi.Input[str] storage_type: The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         ...
     @overload
@@ -655,7 +909,44 @@ class LustreFileSystem(pulumi.CustomResource):
                  args: LustreFileSystemArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a LustreFileSystem resource with the given unique name, props, and options.
+        Manages a FSx Lustre File System. See the [FSx Lustre Guide](https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html) for more information.
+
+        > **NOTE:** `auto_import_policy`, `export_path`, `import_path` and `imported_file_chunk_size` are not supported with the `PERSISTENT_2` deployment type. Use `fsx.DataRepositoryAssociation` instead.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.fsx.LustreFileSystem("example",
+            import_path=f"s3://{aws_s3_bucket['example']['bucket']}",
+            storage_capacity=1200,
+            subnet_ids=[aws_subnet["example"]["id"]])
+        ```
+
+        ## Import
+
+        FSx File Systems can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:fsx/lustreFileSystem:LustreFileSystem example fs-543ab12b1ca672f33
+        ```
+
+         Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the provider configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_fsx_lustre_file_system" "example" {
+
+        # ... other configuration ...
+
+         security_group_ids = [aws_security_group.example.id]
+
+        # There is no FSx API for reading security_group_ids
+
+         lifecycle {
+
+         ignore_changes = [security_group_ids]
+
+         } }
+
         :param str resource_name: The name of the resource.
         :param LustreFileSystemArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -776,6 +1067,34 @@ class LustreFileSystem(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[str] auto_import_policy: How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
+        :param pulumi.Input[str] backup_id: The ID of the source backup to create the filesystem from.
+        :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
+        :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automatic_backup_retention_days` to be set.
+        :param pulumi.Input[str] data_compression_type: Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
+        :param pulumi.Input[str] deployment_type: The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
+        :param pulumi.Input[str] dns_name: DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
+        :param pulumi.Input[str] drive_cache_type: The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+        :param pulumi.Input[str] export_path: S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[str] file_system_type_version: Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
+        :param pulumi.Input[str] import_path: S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[int] imported_file_chunk_size: For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
+        :param pulumi.Input[pulumi.InputType['LustreFileSystemLogConfigurationArgs']] log_configuration: The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+        :param pulumi.Input[str] mount_name: The value to be used when mounting the filesystem.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
+        :param pulumi.Input[str] owner_id: AWS account identifier that created the file system.
+        :param pulumi.Input[int] per_unit_storage_throughput: Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and ` SSD` storage_type are 125, 250, 500, 1000.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
+        :param pulumi.Input[str] storage_type: The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
+        :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -814,140 +1133,224 @@ class LustreFileSystem(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name of the file system.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoImportPolicy")
     def auto_import_policy(self) -> pulumi.Output[str]:
+        """
+        How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
+        """
         return pulumi.get(self, "auto_import_policy")
 
     @property
     @pulumi.getter(name="automaticBackupRetentionDays")
     def automatic_backup_retention_days(self) -> pulumi.Output[int]:
+        """
+        The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
+        """
         return pulumi.get(self, "automatic_backup_retention_days")
 
     @property
     @pulumi.getter(name="backupId")
     def backup_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the source backup to create the filesystem from.
+        """
         return pulumi.get(self, "backup_id")
 
     @property
     @pulumi.getter(name="copyTagsToBackups")
     def copy_tags_to_backups(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
+        """
         return pulumi.get(self, "copy_tags_to_backups")
 
     @property
     @pulumi.getter(name="dailyAutomaticBackupStartTime")
     def daily_automatic_backup_start_time(self) -> pulumi.Output[str]:
+        """
+        A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automatic_backup_retention_days` to be set.
+        """
         return pulumi.get(self, "daily_automatic_backup_start_time")
 
     @property
     @pulumi.getter(name="dataCompressionType")
     def data_compression_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
+        """
         return pulumi.get(self, "data_compression_type")
 
     @property
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
+        """
         return pulumi.get(self, "deployment_type")
 
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Output[str]:
+        """
+        DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
+        """
         return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="driveCacheType")
     def drive_cache_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+        """
         return pulumi.get(self, "drive_cache_type")
 
     @property
     @pulumi.getter(name="exportPath")
     def export_path(self) -> pulumi.Output[str]:
+        """
+        S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
+        """
         return pulumi.get(self, "export_path")
 
     @property
     @pulumi.getter(name="fileSystemTypeVersion")
     def file_system_type_version(self) -> pulumi.Output[str]:
+        """
+        Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
+        """
         return pulumi.get(self, "file_system_type_version")
 
     @property
     @pulumi.getter(name="importPath")
     def import_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
+        """
         return pulumi.get(self, "import_path")
 
     @property
     @pulumi.getter(name="importedFileChunkSize")
     def imported_file_chunk_size(self) -> pulumi.Output[int]:
+        """
+        For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
+        """
         return pulumi.get(self, "imported_file_chunk_size")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[str]:
+        """
+        ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> pulumi.Output['outputs.LustreFileSystemLogConfiguration']:
+        """
+        The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+        """
         return pulumi.get(self, "log_configuration")
 
     @property
     @pulumi.getter(name="mountName")
     def mount_name(self) -> pulumi.Output[str]:
+        """
+        The value to be used when mounting the filesystem.
+        """
         return pulumi.get(self, "mount_name")
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
     def network_interface_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
+        """
         return pulumi.get(self, "network_interface_ids")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[str]:
+        """
+        AWS account identifier that created the file system.
+        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter(name="perUnitStorageThroughput")
     def per_unit_storage_throughput(self) -> pulumi.Output[Optional[int]]:
+        """
+        Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and ` SSD` storage_type are 125, 250, 500, 1000.
+        """
         return pulumi.get(self, "per_unit_storage_throughput")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> pulumi.Output[Optional[int]]:
+        """
+        The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
+        """
         return pulumi.get(self, "storage_capacity")
 
     @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+        """
         return pulumi.get(self, "storage_type")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[str]:
+        """
+        A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        Identifier of the Virtual Private Cloud for the file system.
+        """
         return pulumi.get(self, "vpc_id")
 
     @property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
     def weekly_maintenance_start_time(self) -> pulumi.Output[str]:
+        """
+        The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        """
         return pulumi.get(self, "weekly_maintenance_start_time")
 

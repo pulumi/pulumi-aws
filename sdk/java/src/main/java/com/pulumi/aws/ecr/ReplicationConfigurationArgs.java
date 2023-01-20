@@ -15,9 +15,17 @@ public final class ReplicationConfigurationArgs extends com.pulumi.resources.Res
 
     public static final ReplicationConfigurationArgs Empty = new ReplicationConfigurationArgs();
 
+    /**
+     * Replication configuration for a registry. See Replication Configuration.
+     * 
+     */
     @Import(name="replicationConfiguration")
     private @Nullable Output<ReplicationConfigurationReplicationConfigurationArgs> replicationConfiguration;
 
+    /**
+     * @return Replication configuration for a registry. See Replication Configuration.
+     * 
+     */
     public Optional<Output<ReplicationConfigurationReplicationConfigurationArgs>> replicationConfiguration() {
         return Optional.ofNullable(this.replicationConfiguration);
     }
@@ -46,11 +54,23 @@ public final class ReplicationConfigurationArgs extends com.pulumi.resources.Res
             $ = new ReplicationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param replicationConfiguration Replication configuration for a registry. See Replication Configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicationConfiguration(@Nullable Output<ReplicationConfigurationReplicationConfigurationArgs> replicationConfiguration) {
             $.replicationConfiguration = replicationConfiguration;
             return this;
         }
 
+        /**
+         * @param replicationConfiguration Replication configuration for a registry. See Replication Configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs replicationConfiguration) {
             return replicationConfiguration(Output.of(replicationConfiguration));
         }

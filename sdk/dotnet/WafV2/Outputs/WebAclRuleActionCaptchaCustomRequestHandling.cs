@@ -13,6 +13,9 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleActionCaptchaCustomRequestHandling
     {
+        /// <summary>
+        /// The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader> InsertHeaders;
 
         [OutputConstructor]

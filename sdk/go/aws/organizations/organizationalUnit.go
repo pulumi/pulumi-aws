@@ -11,15 +11,58 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to create an organizational unit.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := organizations.NewOrganizationalUnit(ctx, "example", &organizations.OrganizationalUnitArgs{
+//				ParentId: pulumi.Any(aws_organizations_organization.Example.Roots[0].Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// AWS Organizations Organizational Units can be imported by using the `id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
+//
+// ```
 type OrganizationalUnit struct {
 	pulumi.CustomResourceState
 
+	// List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
 	Accounts OrganizationalUnitAccountArrayOutput `pulumi:"accounts"`
-	Arn      pulumi.StringOutput                  `pulumi:"arn"`
-	Name     pulumi.StringOutput                  `pulumi:"name"`
-	ParentId pulumi.StringOutput                  `pulumi:"parentId"`
-	Tags     pulumi.StringMapOutput               `pulumi:"tags"`
-	TagsAll  pulumi.StringMapOutput               `pulumi:"tagsAll"`
+	// ARN of the organizational unit
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name for the organizational unit
+	Name pulumi.StringOutput `pulumi:"name"`
+	// ID of the parent organizational unit, which may be the root
+	ParentId pulumi.StringOutput `pulumi:"parentId"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewOrganizationalUnit registers a new resource with the given unique name, arguments, and options.
@@ -54,21 +97,33 @@ func GetOrganizationalUnit(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationalUnit resources.
 type organizationalUnitState struct {
+	// List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
 	Accounts []OrganizationalUnitAccount `pulumi:"accounts"`
-	Arn      *string                     `pulumi:"arn"`
-	Name     *string                     `pulumi:"name"`
-	ParentId *string                     `pulumi:"parentId"`
-	Tags     map[string]string           `pulumi:"tags"`
-	TagsAll  map[string]string           `pulumi:"tagsAll"`
+	// ARN of the organizational unit
+	Arn *string `pulumi:"arn"`
+	// The name for the organizational unit
+	Name *string `pulumi:"name"`
+	// ID of the parent organizational unit, which may be the root
+	ParentId *string `pulumi:"parentId"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type OrganizationalUnitState struct {
+	// List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
 	Accounts OrganizationalUnitAccountArrayInput
-	Arn      pulumi.StringPtrInput
-	Name     pulumi.StringPtrInput
+	// ARN of the organizational unit
+	Arn pulumi.StringPtrInput
+	// The name for the organizational unit
+	Name pulumi.StringPtrInput
+	// ID of the parent organizational unit, which may be the root
 	ParentId pulumi.StringPtrInput
-	Tags     pulumi.StringMapInput
-	TagsAll  pulumi.StringMapInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (OrganizationalUnitState) ElementType() reflect.Type {
@@ -76,16 +131,22 @@ func (OrganizationalUnitState) ElementType() reflect.Type {
 }
 
 type organizationalUnitArgs struct {
-	Name     *string           `pulumi:"name"`
-	ParentId string            `pulumi:"parentId"`
-	Tags     map[string]string `pulumi:"tags"`
+	// The name for the organizational unit
+	Name *string `pulumi:"name"`
+	// ID of the parent organizational unit, which may be the root
+	ParentId string `pulumi:"parentId"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a OrganizationalUnit resource.
 type OrganizationalUnitArgs struct {
-	Name     pulumi.StringPtrInput
+	// The name for the organizational unit
+	Name pulumi.StringPtrInput
+	// ID of the parent organizational unit, which may be the root
 	ParentId pulumi.StringInput
-	Tags     pulumi.StringMapInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (OrganizationalUnitArgs) ElementType() reflect.Type {
@@ -175,26 +236,32 @@ func (o OrganizationalUnitOutput) ToOrganizationalUnitOutputWithContext(ctx cont
 	return o
 }
 
+// List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
 func (o OrganizationalUnitOutput) Accounts() OrganizationalUnitAccountArrayOutput {
 	return o.ApplyT(func(v *OrganizationalUnit) OrganizationalUnitAccountArrayOutput { return v.Accounts }).(OrganizationalUnitAccountArrayOutput)
 }
 
+// ARN of the organizational unit
 func (o OrganizationalUnitOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationalUnit) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The name for the organizational unit
 func (o OrganizationalUnitOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationalUnit) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// ID of the parent organizational unit, which may be the root
 func (o OrganizationalUnitOutput) ParentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationalUnit) pulumi.StringOutput { return v.ParentId }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o OrganizationalUnitOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OrganizationalUnit) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o OrganizationalUnitOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OrganizationalUnit) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

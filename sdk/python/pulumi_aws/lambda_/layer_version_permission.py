@@ -22,6 +22,12 @@ class LayerVersionPermissionArgs:
                  organization_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LayerVersionPermission resource.
+        :param pulumi.Input[str] action: Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+        :param pulumi.Input[str] layer_name: The name or ARN of the Lambda Layer, which you want to grant access to.
+        :param pulumi.Input[str] principal: AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+        :param pulumi.Input[str] statement_id: The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+        :param pulumi.Input[int] version_number: Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
+        :param pulumi.Input[str] organization_id: An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "layer_name", layer_name)
@@ -34,6 +40,9 @@ class LayerVersionPermissionArgs:
     @property
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
+        """
+        Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -43,6 +52,9 @@ class LayerVersionPermissionArgs:
     @property
     @pulumi.getter(name="layerName")
     def layer_name(self) -> pulumi.Input[str]:
+        """
+        The name or ARN of the Lambda Layer, which you want to grant access to.
+        """
         return pulumi.get(self, "layer_name")
 
     @layer_name.setter
@@ -52,6 +64,9 @@ class LayerVersionPermissionArgs:
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
+        """
+        AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -61,6 +76,9 @@ class LayerVersionPermissionArgs:
     @property
     @pulumi.getter(name="statementId")
     def statement_id(self) -> pulumi.Input[str]:
+        """
+        The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+        """
         return pulumi.get(self, "statement_id")
 
     @statement_id.setter
@@ -70,6 +88,9 @@ class LayerVersionPermissionArgs:
     @property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> pulumi.Input[int]:
+        """
+        Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
+        """
         return pulumi.get(self, "version_number")
 
     @version_number.setter
@@ -79,6 +100,9 @@ class LayerVersionPermissionArgs:
     @property
     @pulumi.getter(name="organizationId")
     def organization_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
+        """
         return pulumi.get(self, "organization_id")
 
     @organization_id.setter
@@ -99,6 +123,14 @@ class _LayerVersionPermissionState:
                  version_number: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering LayerVersionPermission resources.
+        :param pulumi.Input[str] action: Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+        :param pulumi.Input[str] layer_name: The name or ARN of the Lambda Layer, which you want to grant access to.
+        :param pulumi.Input[str] organization_id: An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
+        :param pulumi.Input[str] policy: Full Lambda Layer Permission policy.
+        :param pulumi.Input[str] principal: AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+        :param pulumi.Input[str] revision_id: A unique identifier for the current revision of the policy.
+        :param pulumi.Input[str] statement_id: The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+        :param pulumi.Input[int] version_number: Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -120,6 +152,9 @@ class _LayerVersionPermissionState:
     @property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -129,6 +164,9 @@ class _LayerVersionPermissionState:
     @property
     @pulumi.getter(name="layerName")
     def layer_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or ARN of the Lambda Layer, which you want to grant access to.
+        """
         return pulumi.get(self, "layer_name")
 
     @layer_name.setter
@@ -138,6 +176,9 @@ class _LayerVersionPermissionState:
     @property
     @pulumi.getter(name="organizationId")
     def organization_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
+        """
         return pulumi.get(self, "organization_id")
 
     @organization_id.setter
@@ -147,6 +188,9 @@ class _LayerVersionPermissionState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Full Lambda Layer Permission policy.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -156,6 +200,9 @@ class _LayerVersionPermissionState:
     @property
     @pulumi.getter
     def principal(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -165,6 +212,9 @@ class _LayerVersionPermissionState:
     @property
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique identifier for the current revision of the policy.
+        """
         return pulumi.get(self, "revision_id")
 
     @revision_id.setter
@@ -174,6 +224,9 @@ class _LayerVersionPermissionState:
     @property
     @pulumi.getter(name="statementId")
     def statement_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+        """
         return pulumi.get(self, "statement_id")
 
     @statement_id.setter
@@ -183,6 +236,9 @@ class _LayerVersionPermissionState:
     @property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
+        """
         return pulumi.get(self, "version_number")
 
     @version_number.setter
@@ -203,9 +259,42 @@ class LayerVersionPermission(pulumi.CustomResource):
                  version_number: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Create a LayerVersionPermission resource with the given unique name, props, and options.
+        Provides a Lambda Layer Version Permission resource. It allows you to share you own Lambda Layers to another account by account ID, to all accounts in AWS organization or even to all AWS accounts.
+
+        For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda][1]
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lambda_layer_permission = aws.lambda_.LayerVersionPermission("lambdaLayerPermission",
+            action="lambda:GetLayerVersion",
+            layer_name="arn:aws:lambda:us-west-2:123456654321:layer:test_layer1",
+            principal="111111111111",
+            statement_id="dev-account",
+            version_number=1)
+        ```
+
+        ## Import
+
+        Lambda Layer Permissions can be imported using `layer_name` and `version_number`, separated by a comma (`,`).
+
+        ```sh
+         $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
+        ```
+
+         [1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] action: Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+        :param pulumi.Input[str] layer_name: The name or ARN of the Lambda Layer, which you want to grant access to.
+        :param pulumi.Input[str] organization_id: An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
+        :param pulumi.Input[str] principal: AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+        :param pulumi.Input[str] statement_id: The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+        :param pulumi.Input[int] version_number: Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
         """
         ...
     @overload
@@ -214,7 +303,34 @@ class LayerVersionPermission(pulumi.CustomResource):
                  args: LayerVersionPermissionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a LayerVersionPermission resource with the given unique name, props, and options.
+        Provides a Lambda Layer Version Permission resource. It allows you to share you own Lambda Layers to another account by account ID, to all accounts in AWS organization or even to all AWS accounts.
+
+        For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda][1]
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lambda_layer_permission = aws.lambda_.LayerVersionPermission("lambdaLayerPermission",
+            action="lambda:GetLayerVersion",
+            layer_name="arn:aws:lambda:us-west-2:123456654321:layer:test_layer1",
+            principal="111111111111",
+            statement_id="dev-account",
+            version_number=1)
+        ```
+
+        ## Import
+
+        Lambda Layer Permissions can be imported using `layer_name` and `version_number`, separated by a comma (`,`).
+
+        ```sh
+         $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
+        ```
+
+         [1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
+
         :param str resource_name: The name of the resource.
         :param LayerVersionPermissionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -288,6 +404,14 @@ class LayerVersionPermission(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] action: Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+        :param pulumi.Input[str] layer_name: The name or ARN of the Lambda Layer, which you want to grant access to.
+        :param pulumi.Input[str] organization_id: An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
+        :param pulumi.Input[str] policy: Full Lambda Layer Permission policy.
+        :param pulumi.Input[str] principal: AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+        :param pulumi.Input[str] revision_id: A unique identifier for the current revision of the policy.
+        :param pulumi.Input[str] statement_id: The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+        :param pulumi.Input[int] version_number: Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -306,40 +430,64 @@ class LayerVersionPermission(pulumi.CustomResource):
     @property
     @pulumi.getter
     def action(self) -> pulumi.Output[str]:
+        """
+        Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter(name="layerName")
     def layer_name(self) -> pulumi.Output[str]:
+        """
+        The name or ARN of the Lambda Layer, which you want to grant access to.
+        """
         return pulumi.get(self, "layer_name")
 
     @property
     @pulumi.getter(name="organizationId")
     def organization_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
+        """
         return pulumi.get(self, "organization_id")
 
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
+        """
+        Full Lambda Layer Permission policy.
+        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Output[str]:
+        """
+        AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+        """
         return pulumi.get(self, "principal")
 
     @property
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> pulumi.Output[str]:
+        """
+        A unique identifier for the current revision of the policy.
+        """
         return pulumi.get(self, "revision_id")
 
     @property
     @pulumi.getter(name="statementId")
     def statement_id(self) -> pulumi.Output[str]:
+        """
+        The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+        """
         return pulumi.get(self, "statement_id")
 
     @property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> pulumi.Output[int]:
+        """
+        Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
+        """
         return pulumi.get(self, "version_number")
 

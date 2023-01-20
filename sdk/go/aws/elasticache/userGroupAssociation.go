@@ -11,11 +11,87 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Associate an existing ElastiCache user and an existing user group.
+//
+// > **NOTE:** The provider will detect changes in the `elasticache.UserGroup` since `elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `ignoreChanges` option as shown in the example.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := elasticache.NewUser(ctx, "default", &elasticache.UserArgs{
+//				UserId:       pulumi.String("defaultUserID"),
+//				UserName:     pulumi.String("default"),
+//				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
+//				Engine:       pulumi.String("REDIS"),
+//				Passwords: pulumi.StringArray{
+//					pulumi.String("password123456789"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserGroup, err := elasticache.NewUserGroup(ctx, "exampleUserGroup", &elasticache.UserGroupArgs{
+//				Engine:      pulumi.String("REDIS"),
+//				UserGroupId: pulumi.String("userGroupId"),
+//				UserIds: pulumi.StringArray{
+//					_default.UserId,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUser, err := elasticache.NewUser(ctx, "exampleUser", &elasticache.UserArgs{
+//				UserId:       pulumi.String("exampleUserID"),
+//				UserName:     pulumi.String("exampleuser"),
+//				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
+//				Engine:       pulumi.String("REDIS"),
+//				Passwords: pulumi.StringArray{
+//					pulumi.String("password123456789"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elasticache.NewUserGroupAssociation(ctx, "exampleUserGroupAssociation", &elasticache.UserGroupAssociationArgs{
+//				UserGroupId: exampleUserGroup.UserGroupId,
+//				UserId:      exampleUser.UserId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// ElastiCache user group associations can be imported using the `user_group_id` and `user_id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
+//
+// ```
 type UserGroupAssociation struct {
 	pulumi.CustomResourceState
 
+	// ID of the user group.
 	UserGroupId pulumi.StringOutput `pulumi:"userGroupId"`
-	UserId      pulumi.StringOutput `pulumi:"userId"`
+	// ID of the user to associated with the user group.
+	UserId pulumi.StringOutput `pulumi:"userId"`
 }
 
 // NewUserGroupAssociation registers a new resource with the given unique name, arguments, and options.
@@ -53,13 +129,17 @@ func GetUserGroupAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserGroupAssociation resources.
 type userGroupAssociationState struct {
+	// ID of the user group.
 	UserGroupId *string `pulumi:"userGroupId"`
-	UserId      *string `pulumi:"userId"`
+	// ID of the user to associated with the user group.
+	UserId *string `pulumi:"userId"`
 }
 
 type UserGroupAssociationState struct {
+	// ID of the user group.
 	UserGroupId pulumi.StringPtrInput
-	UserId      pulumi.StringPtrInput
+	// ID of the user to associated with the user group.
+	UserId pulumi.StringPtrInput
 }
 
 func (UserGroupAssociationState) ElementType() reflect.Type {
@@ -67,14 +147,18 @@ func (UserGroupAssociationState) ElementType() reflect.Type {
 }
 
 type userGroupAssociationArgs struct {
+	// ID of the user group.
 	UserGroupId string `pulumi:"userGroupId"`
-	UserId      string `pulumi:"userId"`
+	// ID of the user to associated with the user group.
+	UserId string `pulumi:"userId"`
 }
 
 // The set of arguments for constructing a UserGroupAssociation resource.
 type UserGroupAssociationArgs struct {
+	// ID of the user group.
 	UserGroupId pulumi.StringInput
-	UserId      pulumi.StringInput
+	// ID of the user to associated with the user group.
+	UserId pulumi.StringInput
 }
 
 func (UserGroupAssociationArgs) ElementType() reflect.Type {
@@ -164,10 +248,12 @@ func (o UserGroupAssociationOutput) ToUserGroupAssociationOutputWithContext(ctx 
 	return o
 }
 
+// ID of the user group.
 func (o UserGroupAssociationOutput) UserGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGroupAssociation) pulumi.StringOutput { return v.UserGroupId }).(pulumi.StringOutput)
 }
 
+// ID of the user to associated with the user group.
 func (o UserGroupAssociationOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGroupAssociation) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
 }

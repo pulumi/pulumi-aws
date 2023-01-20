@@ -17,12 +17,16 @@ class InvitationAccepterArgs:
                  graph_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a InvitationAccepter resource.
+        :param pulumi.Input[str] graph_arn: ARN of the behavior graph that the member account is accepting the invitation for.
         """
         pulumi.set(__self__, "graph_arn", graph_arn)
 
     @property
     @pulumi.getter(name="graphArn")
     def graph_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of the behavior graph that the member account is accepting the invitation for.
+        """
         return pulumi.get(self, "graph_arn")
 
     @graph_arn.setter
@@ -36,6 +40,7 @@ class _InvitationAccepterState:
                  graph_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering InvitationAccepter resources.
+        :param pulumi.Input[str] graph_arn: ARN of the behavior graph that the member account is accepting the invitation for.
         """
         if graph_arn is not None:
             pulumi.set(__self__, "graph_arn", graph_arn)
@@ -43,6 +48,9 @@ class _InvitationAccepterState:
     @property
     @pulumi.getter(name="graphArn")
     def graph_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the behavior graph that the member account is accepting the invitation for.
+        """
         return pulumi.get(self, "graph_arn")
 
     @graph_arn.setter
@@ -58,9 +66,36 @@ class InvitationAccepter(pulumi.CustomResource):
                  graph_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a InvitationAccepter resource with the given unique name, props, and options.
+        Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        primary_graph = aws.detective.Graph("primaryGraph")
+        primary_member = aws.detective.Member("primaryMember",
+            account_id="ACCOUNT ID",
+            email_address="EMAIL",
+            graph_arn=primary_graph.id,
+            message="Message of the invite")
+        member = aws.detective.InvitationAccepter("member", graph_arn=primary_graph.graph_arn,
+        opts=pulumi.ResourceOptions(provider="awsalternate",
+            depends_on=[primary_member]))
+        ```
+
+        ## Import
+
+        `aws_detective_invitation_accepter` can be imported using the graph ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] graph_arn: ARN of the behavior graph that the member account is accepting the invitation for.
         """
         ...
     @overload
@@ -69,7 +104,33 @@ class InvitationAccepter(pulumi.CustomResource):
                  args: InvitationAccepterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a InvitationAccepter resource with the given unique name, props, and options.
+        Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        primary_graph = aws.detective.Graph("primaryGraph")
+        primary_member = aws.detective.Member("primaryMember",
+            account_id="ACCOUNT ID",
+            email_address="EMAIL",
+            graph_arn=primary_graph.id,
+            message="Message of the invite")
+        member = aws.detective.InvitationAccepter("member", graph_arn=primary_graph.graph_arn,
+        opts=pulumi.ResourceOptions(provider="awsalternate",
+            depends_on=[primary_member]))
+        ```
+
+        ## Import
+
+        `aws_detective_invitation_accepter` can be imported using the graph ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
+        ```
+
         :param str resource_name: The name of the resource.
         :param InvitationAccepterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,6 +177,7 @@ class InvitationAccepter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] graph_arn: ARN of the behavior graph that the member account is accepting the invitation for.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -127,5 +189,8 @@ class InvitationAccepter(pulumi.CustomResource):
     @property
     @pulumi.getter(name="graphArn")
     def graph_arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the behavior graph that the member account is accepting the invitation for.
+        """
         return pulumi.get(self, "graph_arn")
 

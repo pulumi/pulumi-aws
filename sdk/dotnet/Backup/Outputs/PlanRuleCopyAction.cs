@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Backup.Outputs
     [OutputType]
     public sealed class PlanRuleCopyAction
     {
+        /// <summary>
+        /// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+        /// </summary>
         public readonly string DestinationVaultArn;
+        /// <summary>
+        /// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+        /// </summary>
         public readonly Outputs.PlanRuleCopyActionLifecycle? Lifecycle;
 
         [OutputConstructor]

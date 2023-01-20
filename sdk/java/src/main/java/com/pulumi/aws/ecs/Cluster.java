@@ -20,15 +20,172 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an ECS cluster.
+ * 
+ * &gt; **NOTE on Clusters and Cluster Capacity Providers:** this provider provides both a standalone `aws.ecs.ClusterCapacityProviders` resource, as well as allowing the capacity providers and default strategies to be managed in-line by the `aws.ecs.Cluster` resource. You cannot use a Cluster with in-line capacity providers in conjunction with the Capacity Providers resource, nor use more than one Capacity Providers resource with a single Cluster, as doing so will cause a conflict and will lead to mutual overwrites.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.Cluster;
+ * import com.pulumi.aws.ecs.ClusterArgs;
+ * import com.pulumi.aws.ecs.inputs.ClusterSettingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new Cluster(&#34;foo&#34;, ClusterArgs.builder()        
+ *             .settings(ClusterSettingArgs.builder()
+ *                 .name(&#34;containerInsights&#34;)
+ *                 .value(&#34;enabled&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example with Log Configuration
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.ecs.Cluster;
+ * import com.pulumi.aws.ecs.ClusterArgs;
+ * import com.pulumi.aws.ecs.inputs.ClusterConfigurationArgs;
+ * import com.pulumi.aws.ecs.inputs.ClusterConfigurationExecuteCommandConfigurationArgs;
+ * import com.pulumi.aws.ecs.inputs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .description(&#34;example&#34;)
+ *             .deletionWindowInDays(7)
+ *             .build());
+ * 
+ *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
+ * 
+ *         var test = new Cluster(&#34;test&#34;, ClusterArgs.builder()        
+ *             .configuration(ClusterConfigurationArgs.builder()
+ *                 .executeCommandConfiguration(ClusterConfigurationExecuteCommandConfigurationArgs.builder()
+ *                     .kmsKeyId(exampleKey.arn())
+ *                     .logging(&#34;OVERRIDE&#34;)
+ *                     .logConfiguration(ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs.builder()
+ *                         .cloudWatchEncryptionEnabled(true)
+ *                         .cloudWatchLogGroupName(exampleLogGroup.name())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example with Capacity Providers
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.Cluster;
+ * import com.pulumi.aws.ecs.CapacityProvider;
+ * import com.pulumi.aws.ecs.CapacityProviderArgs;
+ * import com.pulumi.aws.ecs.inputs.CapacityProviderAutoScalingGroupProviderArgs;
+ * import com.pulumi.aws.ecs.ClusterCapacityProviders;
+ * import com.pulumi.aws.ecs.ClusterCapacityProvidersArgs;
+ * import com.pulumi.aws.ecs.inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;);
+ * 
+ *         var exampleCapacityProvider = new CapacityProvider(&#34;exampleCapacityProvider&#34;, CapacityProviderArgs.builder()        
+ *             .autoScalingGroupProvider(CapacityProviderAutoScalingGroupProviderArgs.builder()
+ *                 .autoScalingGroupArn(aws_autoscaling_group.example().arn())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleClusterCapacityProviders = new ClusterCapacityProviders(&#34;exampleClusterCapacityProviders&#34;, ClusterCapacityProvidersArgs.builder()        
+ *             .clusterName(exampleCluster.name())
+ *             .capacityProviders(exampleCapacityProvider.name())
+ *             .defaultCapacityProviderStrategies(ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs.builder()
+ *                 .base(1)
+ *                 .weight(100)
+ *                 .capacityProvider(exampleCapacityProvider.name())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * ECS clusters can be imported using the `name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ecs/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN that identifies the cluster.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN that identifies the cluster.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
     /**
+     * List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+     * 
      * @deprecated
      * Use the aws_ecs_cluster_capacity_providers resource instead
      * 
@@ -37,16 +194,30 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     @Export(name="capacityProviders", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> capacityProviders;
 
+    /**
+     * @return List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+     * 
+     */
     public Output<List<String>> capacityProviders() {
         return this.capacityProviders;
     }
+    /**
+     * The execute command configuration for the cluster. Detailed below.
+     * 
+     */
     @Export(name="configuration", refs={ClusterConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ClusterConfiguration> configuration;
 
+    /**
+     * @return The execute command configuration for the cluster. Detailed below.
+     * 
+     */
     public Output<Optional<ClusterConfiguration>> configuration() {
         return Codegen.optional(this.configuration);
     }
     /**
+     * Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
+     * 
      * @deprecated
      * Use the aws_ecs_cluster_capacity_providers resource instead
      * 
@@ -55,36 +226,80 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     @Export(name="defaultCapacityProviderStrategies", refs={List.class,ClusterDefaultCapacityProviderStrategy.class}, tree="[0,1]")
     private Output<List<ClusterDefaultCapacityProviderStrategy>> defaultCapacityProviderStrategies;
 
+    /**
+     * @return Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
+     * 
+     */
     public Output<List<ClusterDefaultCapacityProviderStrategy>> defaultCapacityProviderStrategies() {
         return this.defaultCapacityProviderStrategies;
     }
+    /**
+     * Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Configures a default Service Connect namespace. Detailed below.
+     * 
+     */
     @Export(name="serviceConnectDefaults", refs={ClusterServiceConnectDefaults.class}, tree="[0]")
     private Output</* @Nullable */ ClusterServiceConnectDefaults> serviceConnectDefaults;
 
+    /**
+     * @return Configures a default Service Connect namespace. Detailed below.
+     * 
+     */
     public Output<Optional<ClusterServiceConnectDefaults>> serviceConnectDefaults() {
         return Codegen.optional(this.serviceConnectDefaults);
     }
+    /**
+     * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+     * 
+     */
     @Export(name="settings", refs={List.class,ClusterSetting.class}, tree="[0,1]")
     private Output<List<ClusterSetting>> settings;
 
+    /**
+     * @return Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+     * 
+     */
     public Output<List<ClusterSetting>> settings() {
         return this.settings;
     }
+    /**
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

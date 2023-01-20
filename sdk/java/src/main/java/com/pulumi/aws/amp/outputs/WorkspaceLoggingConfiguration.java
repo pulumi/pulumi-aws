@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class WorkspaceLoggingConfiguration {
+    /**
+     * @return The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
+     * 
+     */
     private String logGroupArn;
 
     private WorkspaceLoggingConfiguration() {}
+    /**
+     * @return The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
+     * 
+     */
     public String logGroupArn() {
         return this.logGroupArn;
     }

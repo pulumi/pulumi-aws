@@ -18,6 +18,8 @@ class AttachmentAccepterArgs:
                  attachment_type: pulumi.Input[str]):
         """
         The set of arguments for constructing a AttachmentAccepter resource.
+        :param pulumi.Input[str] attachment_id: The ID of the attachment.
+        :param pulumi.Input[str] attachment_type: The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
         """
         pulumi.set(__self__, "attachment_id", attachment_id)
         pulumi.set(__self__, "attachment_type", attachment_type)
@@ -25,6 +27,9 @@ class AttachmentAccepterArgs:
     @property
     @pulumi.getter(name="attachmentId")
     def attachment_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the attachment.
+        """
         return pulumi.get(self, "attachment_id")
 
     @attachment_id.setter
@@ -34,6 +39,9 @@ class AttachmentAccepterArgs:
     @property
     @pulumi.getter(name="attachmentType")
     def attachment_type(self) -> pulumi.Input[str]:
+        """
+        The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+        """
         return pulumi.get(self, "attachment_type")
 
     @attachment_type.setter
@@ -56,6 +64,16 @@ class _AttachmentAccepterState:
                  state: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AttachmentAccepter resources.
+        :param pulumi.Input[str] attachment_id: The ID of the attachment.
+        :param pulumi.Input[int] attachment_policy_rule_number: The policy rule number associated with the attachment.
+        :param pulumi.Input[str] attachment_type: The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+        :param pulumi.Input[str] core_network_arn: The ARN of a core network.
+        :param pulumi.Input[str] core_network_id: The id of a core network.
+        :param pulumi.Input[str] edge_location: The Region where the edge is located.
+        :param pulumi.Input[str] owner_account_id: The ID of the attachment account owner.
+        :param pulumi.Input[str] resource_arn: The attachment resource ARN.
+        :param pulumi.Input[str] segment_name: The name of the segment attachment.
+        :param pulumi.Input[str] state: The state of the attachment.
         """
         if attachment_id is not None:
             pulumi.set(__self__, "attachment_id", attachment_id)
@@ -81,6 +99,9 @@ class _AttachmentAccepterState:
     @property
     @pulumi.getter(name="attachmentId")
     def attachment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the attachment.
+        """
         return pulumi.get(self, "attachment_id")
 
     @attachment_id.setter
@@ -90,6 +111,9 @@ class _AttachmentAccepterState:
     @property
     @pulumi.getter(name="attachmentPolicyRuleNumber")
     def attachment_policy_rule_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The policy rule number associated with the attachment.
+        """
         return pulumi.get(self, "attachment_policy_rule_number")
 
     @attachment_policy_rule_number.setter
@@ -99,6 +123,9 @@ class _AttachmentAccepterState:
     @property
     @pulumi.getter(name="attachmentType")
     def attachment_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+        """
         return pulumi.get(self, "attachment_type")
 
     @attachment_type.setter
@@ -108,6 +135,9 @@ class _AttachmentAccepterState:
     @property
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of a core network.
+        """
         return pulumi.get(self, "core_network_arn")
 
     @core_network_arn.setter
@@ -117,6 +147,9 @@ class _AttachmentAccepterState:
     @property
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of a core network.
+        """
         return pulumi.get(self, "core_network_id")
 
     @core_network_id.setter
@@ -126,6 +159,9 @@ class _AttachmentAccepterState:
     @property
     @pulumi.getter(name="edgeLocation")
     def edge_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Region where the edge is located.
+        """
         return pulumi.get(self, "edge_location")
 
     @edge_location.setter
@@ -135,6 +171,9 @@ class _AttachmentAccepterState:
     @property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the attachment account owner.
+        """
         return pulumi.get(self, "owner_account_id")
 
     @owner_account_id.setter
@@ -144,6 +183,9 @@ class _AttachmentAccepterState:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The attachment resource ARN.
+        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -153,6 +195,9 @@ class _AttachmentAccepterState:
     @property
     @pulumi.getter(name="segmentName")
     def segment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the segment attachment.
+        """
         return pulumi.get(self, "segment_name")
 
     @segment_name.setter
@@ -162,6 +207,9 @@ class _AttachmentAccepterState:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of the attachment.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -178,9 +226,34 @@ class AttachmentAccepter(pulumi.CustomResource):
                  attachment_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a AttachmentAccepter resource with the given unique name, props, and options.
+        Resource for managing an AWS NetworkManager Attachment Accepter.
+
+        ## Example Usage
+        ### Example with VPC attachment
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.networkmanager.AttachmentAccepter("test",
+            attachment_id=aws_networkmanager_vpc_attachment["vpc"]["id"],
+            attachment_type=aws_networkmanager_vpc_attachment["vpc"]["attachment_type"])
+        ```
+        ### Example with site-to-site VPN attachment
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.networkmanager.AttachmentAccepter("test",
+            attachment_id=aws_networkmanager_site_to_site_vpn_attachment["vpn"]["id"],
+            attachment_type=aws_networkmanager_site_to_site_vpn_attachment["vpn"]["attachment_type"])
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] attachment_id: The ID of the attachment.
+        :param pulumi.Input[str] attachment_type: The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
         """
         ...
     @overload
@@ -189,7 +262,30 @@ class AttachmentAccepter(pulumi.CustomResource):
                  args: AttachmentAccepterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AttachmentAccepter resource with the given unique name, props, and options.
+        Resource for managing an AWS NetworkManager Attachment Accepter.
+
+        ## Example Usage
+        ### Example with VPC attachment
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.networkmanager.AttachmentAccepter("test",
+            attachment_id=aws_networkmanager_vpc_attachment["vpc"]["id"],
+            attachment_type=aws_networkmanager_vpc_attachment["vpc"]["attachment_type"])
+        ```
+        ### Example with site-to-site VPN attachment
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.networkmanager.AttachmentAccepter("test",
+            attachment_id=aws_networkmanager_site_to_site_vpn_attachment["vpn"]["id"],
+            attachment_type=aws_networkmanager_site_to_site_vpn_attachment["vpn"]["attachment_type"])
+        ```
+
         :param str resource_name: The name of the resource.
         :param AttachmentAccepterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -257,6 +353,16 @@ class AttachmentAccepter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] attachment_id: The ID of the attachment.
+        :param pulumi.Input[int] attachment_policy_rule_number: The policy rule number associated with the attachment.
+        :param pulumi.Input[str] attachment_type: The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+        :param pulumi.Input[str] core_network_arn: The ARN of a core network.
+        :param pulumi.Input[str] core_network_id: The id of a core network.
+        :param pulumi.Input[str] edge_location: The Region where the edge is located.
+        :param pulumi.Input[str] owner_account_id: The ID of the attachment account owner.
+        :param pulumi.Input[str] resource_arn: The attachment resource ARN.
+        :param pulumi.Input[str] segment_name: The name of the segment attachment.
+        :param pulumi.Input[str] state: The state of the attachment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -277,50 +383,80 @@ class AttachmentAccepter(pulumi.CustomResource):
     @property
     @pulumi.getter(name="attachmentId")
     def attachment_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the attachment.
+        """
         return pulumi.get(self, "attachment_id")
 
     @property
     @pulumi.getter(name="attachmentPolicyRuleNumber")
     def attachment_policy_rule_number(self) -> pulumi.Output[int]:
+        """
+        The policy rule number associated with the attachment.
+        """
         return pulumi.get(self, "attachment_policy_rule_number")
 
     @property
     @pulumi.getter(name="attachmentType")
     def attachment_type(self) -> pulumi.Output[str]:
+        """
+        The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+        """
         return pulumi.get(self, "attachment_type")
 
     @property
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of a core network.
+        """
         return pulumi.get(self, "core_network_arn")
 
     @property
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> pulumi.Output[str]:
+        """
+        The id of a core network.
+        """
         return pulumi.get(self, "core_network_id")
 
     @property
     @pulumi.getter(name="edgeLocation")
     def edge_location(self) -> pulumi.Output[str]:
+        """
+        The Region where the edge is located.
+        """
         return pulumi.get(self, "edge_location")
 
     @property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the attachment account owner.
+        """
         return pulumi.get(self, "owner_account_id")
 
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
+        """
+        The attachment resource ARN.
+        """
         return pulumi.get(self, "resource_arn")
 
     @property
     @pulumi.getter(name="segmentName")
     def segment_name(self) -> pulumi.Output[str]:
+        """
+        The name of the segment attachment.
+        """
         return pulumi.get(self, "segment_name")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
+        """
+        The state of the attachment.
+        """
         return pulumi.get(self, "state")
 

@@ -15,16 +15,32 @@ public final class GetVirtualClusterPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetVirtualClusterPlainArgs Empty = new GetVirtualClusterPlainArgs();
 
+    /**
+     * Key-value mapping of resource tags.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return Key-value mapping of resource tags.
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * ID of the cluster.
+     * 
+     */
     @Import(name="virtualClusterId", required=true)
     private String virtualClusterId;
 
+    /**
+     * @return ID of the cluster.
+     * 
+     */
     public String virtualClusterId() {
         return this.virtualClusterId;
     }
@@ -54,11 +70,23 @@ public final class GetVirtualClusterPlainArgs extends com.pulumi.resources.Invok
             $ = new GetVirtualClusterPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param tags Key-value mapping of resource tags.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param virtualClusterId ID of the cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualClusterId(String virtualClusterId) {
             $.virtualClusterId = virtualClusterId;
             return this;

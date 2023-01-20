@@ -14,16 +14,32 @@ public final class GetApplicationPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetApplicationPlainArgs Empty = new GetApplicationPlainArgs();
 
+    /**
+     * ARN of the application.
+     * 
+     */
     @Import(name="applicationId", required=true)
     private String applicationId;
 
+    /**
+     * @return ARN of the application.
+     * 
+     */
     public String applicationId() {
         return this.applicationId;
     }
 
+    /**
+     * Requested version of the application. By default, retrieves the latest version.
+     * 
+     */
     @Import(name="semanticVersion")
     private @Nullable String semanticVersion;
 
+    /**
+     * @return Requested version of the application. By default, retrieves the latest version.
+     * 
+     */
     public Optional<String> semanticVersion() {
         return Optional.ofNullable(this.semanticVersion);
     }
@@ -53,11 +69,23 @@ public final class GetApplicationPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetApplicationPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param applicationId ARN of the application.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationId(String applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
+        /**
+         * @param semanticVersion Requested version of the application. By default, retrieves the latest version.
+         * 
+         * @return builder
+         * 
+         */
         public Builder semanticVersion(@Nullable String semanticVersion) {
             $.semanticVersion = semanticVersion;
             return this;

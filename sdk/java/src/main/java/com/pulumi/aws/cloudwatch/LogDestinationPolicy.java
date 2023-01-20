@@ -15,23 +15,111 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a CloudWatch Logs destination policy resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.LogDestination;
+ * import com.pulumi.aws.cloudwatch.LogDestinationArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.cloudwatch.LogDestinationPolicy;
+ * import com.pulumi.aws.cloudwatch.LogDestinationPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testDestination = new LogDestination(&#34;testDestination&#34;, LogDestinationArgs.builder()        
+ *             .roleArn(aws_iam_role.iam_for_cloudwatch().arn())
+ *             .targetArn(aws_kinesis_stream.kinesis_for_cloudwatch().arn())
+ *             .build());
+ * 
+ *         final var testDestinationPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;AWS&#34;)
+ *                     .identifiers(&#34;123456789012&#34;)
+ *                     .build())
+ *                 .actions(&#34;logs:PutSubscriptionFilter&#34;)
+ *                 .resources(testDestination.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *         var testDestinationPolicyLogDestinationPolicy = new LogDestinationPolicy(&#34;testDestinationPolicyLogDestinationPolicy&#34;, LogDestinationPolicyArgs.builder()        
+ *             .destinationName(testDestination.name())
+ *             .accessPolicy(testDestinationPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(testDestinationPolicyPolicyDocument -&gt; testDestinationPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * CloudWatch Logs destination policies can be imported using the `destination_name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
+ * ```
+ * 
+ */
 @ResourceType(type="aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy")
 public class LogDestinationPolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * The policy document. This is a JSON formatted string.
+     * 
+     */
     @Export(name="accessPolicy", refs={String.class}, tree="[0]")
     private Output<String> accessPolicy;
 
+    /**
+     * @return The policy document. This is a JSON formatted string.
+     * 
+     */
     public Output<String> accessPolicy() {
         return this.accessPolicy;
     }
+    /**
+     * A name for the subscription filter
+     * 
+     */
     @Export(name="destinationName", refs={String.class}, tree="[0]")
     private Output<String> destinationName;
 
+    /**
+     * @return A name for the subscription filter
+     * 
+     */
     public Output<String> destinationName() {
         return this.destinationName;
     }
+    /**
+     * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+     * 
+     */
     @Export(name="forceUpdate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceUpdate;
 
+    /**
+     * @return Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+     * 
+     */
     public Output<Optional<Boolean>> forceUpdate() {
         return Codegen.optional(this.forceUpdate);
     }

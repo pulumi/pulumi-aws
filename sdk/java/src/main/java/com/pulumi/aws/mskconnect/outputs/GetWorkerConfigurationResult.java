@@ -10,21 +10,45 @@ import java.util.Objects;
 
 @CustomType
 public final class GetWorkerConfigurationResult {
+    /**
+     * @return the ARN of the worker configuration.
+     * 
+     */
     private String arn;
+    /**
+     * @return a summary description of the worker configuration.
+     * 
+     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return an ID of the latest successfully created revision of the worker configuration.
+     * 
+     */
     private Integer latestRevision;
     private String name;
+    /**
+     * @return contents of connect-distributed.properties file.
+     * 
+     */
     private String propertiesFileContent;
 
     private GetWorkerConfigurationResult() {}
+    /**
+     * @return the ARN of the worker configuration.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return a summary description of the worker configuration.
+     * 
+     */
     public String description() {
         return this.description;
     }
@@ -35,12 +59,20 @@ public final class GetWorkerConfigurationResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return an ID of the latest successfully created revision of the worker configuration.
+     * 
+     */
     public Integer latestRevision() {
         return this.latestRevision;
     }
     public String name() {
         return this.name;
     }
+    /**
+     * @return contents of connect-distributed.properties file.
+     * 
+     */
     public String propertiesFileContent() {
         return this.propertiesFileContent;
     }

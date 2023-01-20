@@ -7,6 +7,20 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Retrieve information about a Location Service Place Index.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.location.getPlaceIndex({
+ *     indexName: "example",
+ * });
+ * ```
+ */
 export function getPlaceIndex(args: GetPlaceIndexArgs, opts?: pulumi.InvokeOptions): Promise<GetPlaceIndexResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -20,7 +34,13 @@ export function getPlaceIndex(args: GetPlaceIndexArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getPlaceIndex.
  */
 export interface GetPlaceIndexArgs {
+    /**
+     * Name of the place index resource.
+     */
     indexName: string;
+    /**
+     * Key-value map of resource tags for the place index.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -28,19 +48,54 @@ export interface GetPlaceIndexArgs {
  * A collection of values returned by getPlaceIndex.
  */
 export interface GetPlaceIndexResult {
+    /**
+     * Timestamp for when the place index resource was created in ISO 8601 format.
+     */
     readonly createTime: string;
+    /**
+     * Data provider of geospatial data.
+     */
     readonly dataSource: string;
+    /**
+     * List of configurations that specify data storage option for requesting Places.
+     */
     readonly dataSourceConfigurations: outputs.location.GetPlaceIndexDataSourceConfiguration[];
+    /**
+     * Optional description for the place index resource.
+     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * ARN for the place index resource.
+     */
     readonly indexArn: string;
     readonly indexName: string;
+    /**
+     * Key-value map of resource tags for the place index.
+     */
     readonly tags: {[key: string]: string};
+    /**
+     * Timestamp for when the place index resource was last updated in ISO 8601 format.
+     */
     readonly updateTime: string;
 }
+/**
+ * Retrieve information about a Location Service Place Index.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.location.getPlaceIndex({
+ *     indexName: "example",
+ * });
+ * ```
+ */
 export function getPlaceIndexOutput(args: GetPlaceIndexOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlaceIndexResult> {
     return pulumi.output(args).apply((a: any) => getPlaceIndex(a, opts))
 }
@@ -49,6 +104,12 @@ export function getPlaceIndexOutput(args: GetPlaceIndexOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getPlaceIndex.
  */
 export interface GetPlaceIndexOutputArgs {
+    /**
+     * Name of the place index resource.
+     */
     indexName: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags for the place index.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -15,16 +15,32 @@ public final class GetSigningProfilePlainArgs extends com.pulumi.resources.Invok
 
     public static final GetSigningProfilePlainArgs Empty = new GetSigningProfilePlainArgs();
 
+    /**
+     * Name of the target signing profile.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return Name of the target signing profile.
+     * 
+     */
     public String name() {
         return this.name;
     }
 
+    /**
+     * List of tags associated with the signing profile.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return List of tags associated with the signing profile.
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -54,11 +70,23 @@ public final class GetSigningProfilePlainArgs extends com.pulumi.resources.Invok
             $ = new GetSigningProfilePlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the target signing profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param tags List of tags associated with the signing profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

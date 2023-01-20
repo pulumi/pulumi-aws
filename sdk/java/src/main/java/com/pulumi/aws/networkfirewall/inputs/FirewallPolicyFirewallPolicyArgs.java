@@ -20,51 +20,111 @@ public final class FirewallPolicyFirewallPolicyArgs extends com.pulumi.resources
 
     public static final FirewallPolicyFirewallPolicyArgs Empty = new FirewallPolicyFirewallPolicyArgs();
 
+    /**
+     * Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
+     * 
+     */
     @Import(name="statefulDefaultActions")
     private @Nullable Output<List<String>> statefulDefaultActions;
 
+    /**
+     * @return Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
+     * 
+     */
     public Optional<Output<List<String>>> statefulDefaultActions() {
         return Optional.ofNullable(this.statefulDefaultActions);
     }
 
+    /**
+     * A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
+     * 
+     */
     @Import(name="statefulEngineOptions")
     private @Nullable Output<FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs> statefulEngineOptions;
 
+    /**
+     * @return A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
+     * 
+     */
     public Optional<Output<FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs>> statefulEngineOptions() {
         return Optional.ofNullable(this.statefulEngineOptions);
     }
 
+    /**
+     * Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
+     * 
+     */
     @Import(name="statefulRuleGroupReferences")
     private @Nullable Output<List<FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs>> statefulRuleGroupReferences;
 
+    /**
+     * @return Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
+     * 
+     */
     public Optional<Output<List<FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs>>> statefulRuleGroupReferences() {
         return Optional.ofNullable(this.statefulRuleGroupReferences);
     }
 
+    /**
+     * Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy&#39;s `stateless_default_actions`. See Stateless Custom Action below for details.
+     * 
+     */
     @Import(name="statelessCustomActions")
     private @Nullable Output<List<FirewallPolicyFirewallPolicyStatelessCustomActionArgs>> statelessCustomActions;
 
+    /**
+     * @return Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy&#39;s `stateless_default_actions`. See Stateless Custom Action below for details.
+     * 
+     */
     public Optional<Output<List<FirewallPolicyFirewallPolicyStatelessCustomActionArgs>>> statelessCustomActions() {
         return Optional.ofNullable(this.statelessCustomActions);
     }
 
+    /**
+     * Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
+     * In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+     * 
+     */
     @Import(name="statelessDefaultActions", required=true)
     private Output<List<String>> statelessDefaultActions;
 
+    /**
+     * @return Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
+     * In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+     * 
+     */
     public Output<List<String>> statelessDefaultActions() {
         return this.statelessDefaultActions;
     }
 
+    /**
+     * Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
+     * In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+     * 
+     */
     @Import(name="statelessFragmentDefaultActions", required=true)
     private Output<List<String>> statelessFragmentDefaultActions;
 
+    /**
+     * @return Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
+     * In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+     * 
+     */
     public Output<List<String>> statelessFragmentDefaultActions() {
         return this.statelessFragmentDefaultActions;
     }
 
+    /**
+     * Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
+     * 
+     */
     @Import(name="statelessRuleGroupReferences")
     private @Nullable Output<List<FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs>> statelessRuleGroupReferences;
 
+    /**
+     * @return Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
+     * 
+     */
     public Optional<Output<List<FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs>>> statelessRuleGroupReferences() {
         return Optional.ofNullable(this.statelessRuleGroupReferences);
     }
@@ -99,89 +159,215 @@ public final class FirewallPolicyFirewallPolicyArgs extends com.pulumi.resources
             $ = new FirewallPolicyFirewallPolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param statefulDefaultActions Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statefulDefaultActions(@Nullable Output<List<String>> statefulDefaultActions) {
             $.statefulDefaultActions = statefulDefaultActions;
             return this;
         }
 
+        /**
+         * @param statefulDefaultActions Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statefulDefaultActions(List<String> statefulDefaultActions) {
             return statefulDefaultActions(Output.of(statefulDefaultActions));
         }
 
+        /**
+         * @param statefulDefaultActions Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statefulDefaultActions(String... statefulDefaultActions) {
             return statefulDefaultActions(List.of(statefulDefaultActions));
         }
 
+        /**
+         * @param statefulEngineOptions A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statefulEngineOptions(@Nullable Output<FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs> statefulEngineOptions) {
             $.statefulEngineOptions = statefulEngineOptions;
             return this;
         }
 
+        /**
+         * @param statefulEngineOptions A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statefulEngineOptions(FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs statefulEngineOptions) {
             return statefulEngineOptions(Output.of(statefulEngineOptions));
         }
 
+        /**
+         * @param statefulRuleGroupReferences Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statefulRuleGroupReferences(@Nullable Output<List<FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs>> statefulRuleGroupReferences) {
             $.statefulRuleGroupReferences = statefulRuleGroupReferences;
             return this;
         }
 
+        /**
+         * @param statefulRuleGroupReferences Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statefulRuleGroupReferences(List<FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs> statefulRuleGroupReferences) {
             return statefulRuleGroupReferences(Output.of(statefulRuleGroupReferences));
         }
 
+        /**
+         * @param statefulRuleGroupReferences Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statefulRuleGroupReferences(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs... statefulRuleGroupReferences) {
             return statefulRuleGroupReferences(List.of(statefulRuleGroupReferences));
         }
 
+        /**
+         * @param statelessCustomActions Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy&#39;s `stateless_default_actions`. See Stateless Custom Action below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statelessCustomActions(@Nullable Output<List<FirewallPolicyFirewallPolicyStatelessCustomActionArgs>> statelessCustomActions) {
             $.statelessCustomActions = statelessCustomActions;
             return this;
         }
 
+        /**
+         * @param statelessCustomActions Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy&#39;s `stateless_default_actions`. See Stateless Custom Action below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statelessCustomActions(List<FirewallPolicyFirewallPolicyStatelessCustomActionArgs> statelessCustomActions) {
             return statelessCustomActions(Output.of(statelessCustomActions));
         }
 
+        /**
+         * @param statelessCustomActions Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy&#39;s `stateless_default_actions`. See Stateless Custom Action below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statelessCustomActions(FirewallPolicyFirewallPolicyStatelessCustomActionArgs... statelessCustomActions) {
             return statelessCustomActions(List.of(statelessCustomActions));
         }
 
+        /**
+         * @param statelessDefaultActions Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
+         * In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statelessDefaultActions(Output<List<String>> statelessDefaultActions) {
             $.statelessDefaultActions = statelessDefaultActions;
             return this;
         }
 
+        /**
+         * @param statelessDefaultActions Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
+         * In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statelessDefaultActions(List<String> statelessDefaultActions) {
             return statelessDefaultActions(Output.of(statelessDefaultActions));
         }
 
+        /**
+         * @param statelessDefaultActions Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
+         * In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statelessDefaultActions(String... statelessDefaultActions) {
             return statelessDefaultActions(List.of(statelessDefaultActions));
         }
 
+        /**
+         * @param statelessFragmentDefaultActions Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
+         * In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statelessFragmentDefaultActions(Output<List<String>> statelessFragmentDefaultActions) {
             $.statelessFragmentDefaultActions = statelessFragmentDefaultActions;
             return this;
         }
 
+        /**
+         * @param statelessFragmentDefaultActions Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
+         * In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statelessFragmentDefaultActions(List<String> statelessFragmentDefaultActions) {
             return statelessFragmentDefaultActions(Output.of(statelessFragmentDefaultActions));
         }
 
+        /**
+         * @param statelessFragmentDefaultActions Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
+         * In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statelessFragmentDefaultActions(String... statelessFragmentDefaultActions) {
             return statelessFragmentDefaultActions(List.of(statelessFragmentDefaultActions));
         }
 
+        /**
+         * @param statelessRuleGroupReferences Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statelessRuleGroupReferences(@Nullable Output<List<FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs>> statelessRuleGroupReferences) {
             $.statelessRuleGroupReferences = statelessRuleGroupReferences;
             return this;
         }
 
+        /**
+         * @param statelessRuleGroupReferences Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statelessRuleGroupReferences(List<FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs> statelessRuleGroupReferences) {
             return statelessRuleGroupReferences(Output.of(statelessRuleGroupReferences));
         }
 
+        /**
+         * @param statelessRuleGroupReferences Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statelessRuleGroupReferences(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs... statelessRuleGroupReferences) {
             return statelessRuleGroupReferences(List.of(statelessRuleGroupReferences));
         }

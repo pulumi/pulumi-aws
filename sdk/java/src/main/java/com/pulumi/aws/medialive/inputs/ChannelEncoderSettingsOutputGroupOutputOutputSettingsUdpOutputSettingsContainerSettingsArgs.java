@@ -15,9 +15,17 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
 
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs();
 
+    /**
+     * M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+     * 
+     */
     @Import(name="m2tsSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs> m2tsSettings;
 
+    /**
+     * @return M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs>> m2tsSettings() {
         return Optional.ofNullable(this.m2tsSettings);
     }
@@ -46,11 +54,23 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
             $ = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param m2tsSettings M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder m2tsSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs> m2tsSettings) {
             $.m2tsSettings = m2tsSettings;
             return this;
         }
 
+        /**
+         * @param m2tsSettings M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder m2tsSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs m2tsSettings) {
             return m2tsSettings(Output.of(m2tsSettings));
         }

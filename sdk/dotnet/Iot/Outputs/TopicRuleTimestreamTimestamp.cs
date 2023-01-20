@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class TopicRuleTimestreamTimestamp
     {
+        /// <summary>
+        /// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+        /// </summary>
         public readonly string Unit;
+        /// <summary>
+        /// The value of the HTTP header.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GatewayRouteSpecHttpRouteActionTarget
     {
+        /// <summary>
+        /// Virtual service gateway route target.
+        /// </summary>
         public readonly Outputs.GatewayRouteSpecHttpRouteActionTargetVirtualService VirtualService;
 
         [OutputConstructor]

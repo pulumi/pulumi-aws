@@ -14,23 +14,99 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an S3 bucket accelerate configuration resource. See the [Requirements for using Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html#transfer-acceleration-requirements) for more details.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketAccelerateConfigurationV2;
+ * import com.pulumi.aws.s3.BucketAccelerateConfigurationV2Args;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var mybucket = new BucketV2(&#34;mybucket&#34;);
+ * 
+ *         var example = new BucketAccelerateConfigurationV2(&#34;example&#34;, BucketAccelerateConfigurationV2Args.builder()        
+ *             .bucket(mybucket.bucket())
+ *             .status(&#34;Enabled&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * S3 bucket accelerate configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name
+ * ```
+ * 
+ *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
+ * ```
+ * 
+ */
 @ResourceType(type="aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2")
 public class BucketAccelerateConfigurationV2 extends com.pulumi.resources.CustomResource {
+    /**
+     * The name of the bucket.
+     * 
+     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
+    /**
+     * @return The name of the bucket.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
+    /**
+     * The account ID of the expected bucket owner.
+     * 
+     */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
+    /**
+     * @return The account ID of the expected bucket owner.
+     * 
+     */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
+    /**
+     * The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }

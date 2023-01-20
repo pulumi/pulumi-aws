@@ -4,6 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to get information about a Kinesis Firehose Delivery Stream for use in other resources.
+ *
+ * For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const stream = aws.kinesis.getFirehoseDeliveryStream({
+ *     name: "stream-name",
+ * });
+ * ```
+ */
 export function getFirehoseDeliveryStream(args: GetFirehoseDeliveryStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetFirehoseDeliveryStreamResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -16,6 +32,9 @@ export function getFirehoseDeliveryStream(args: GetFirehoseDeliveryStreamArgs, o
  * A collection of arguments for invoking getFirehoseDeliveryStream.
  */
 export interface GetFirehoseDeliveryStreamArgs {
+    /**
+     * Name of the Kinesis Stream.
+     */
     name: string;
 }
 
@@ -23,6 +42,9 @@ export interface GetFirehoseDeliveryStreamArgs {
  * A collection of values returned by getFirehoseDeliveryStream.
  */
 export interface GetFirehoseDeliveryStreamResult {
+    /**
+     * ARN of the Kinesis Stream (same as id).
+     */
     readonly arn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -30,6 +52,22 @@ export interface GetFirehoseDeliveryStreamResult {
     readonly id: string;
     readonly name: string;
 }
+/**
+ * Use this data source to get information about a Kinesis Firehose Delivery Stream for use in other resources.
+ *
+ * For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const stream = aws.kinesis.getFirehoseDeliveryStream({
+ *     name: "stream-name",
+ * });
+ * ```
+ */
 export function getFirehoseDeliveryStreamOutput(args: GetFirehoseDeliveryStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirehoseDeliveryStreamResult> {
     return pulumi.output(args).apply((a: any) => getFirehoseDeliveryStream(a, opts))
 }
@@ -38,5 +76,8 @@ export function getFirehoseDeliveryStreamOutput(args: GetFirehoseDeliveryStreamO
  * A collection of arguments for invoking getFirehoseDeliveryStream.
  */
 export interface GetFirehoseDeliveryStreamOutputArgs {
+    /**
+     * Name of the Kinesis Stream.
+     */
     name: pulumi.Input<string>;
 }

@@ -9,12 +9,83 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ElastiCache
 {
+    /// <summary>
+    /// Associate an existing ElastiCache user and an existing user group.
+    /// 
+    /// &gt; **NOTE:** The provider will detect changes in the `aws.elasticache.UserGroup` since `aws.elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `ignore_changes` option as shown in the example.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = new Aws.ElastiCache.User("default", new()
+    ///     {
+    ///         UserId = "defaultUserID",
+    ///         UserName = "default",
+    ///         AccessString = "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
+    ///         Engine = "REDIS",
+    ///         Passwords = new[]
+    ///         {
+    ///             "password123456789",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleUserGroup = new Aws.ElastiCache.UserGroup("exampleUserGroup", new()
+    ///     {
+    ///         Engine = "REDIS",
+    ///         UserGroupId = "userGroupId",
+    ///         UserIds = new[]
+    ///         {
+    ///             @default.UserId,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleUser = new Aws.ElastiCache.User("exampleUser", new()
+    ///     {
+    ///         UserId = "exampleUserID",
+    ///         UserName = "exampleuser",
+    ///         AccessString = "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
+    ///         Engine = "REDIS",
+    ///         Passwords = new[]
+    ///         {
+    ///             "password123456789",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleUserGroupAssociation = new Aws.ElastiCache.UserGroupAssociation("exampleUserGroupAssociation", new()
+    ///     {
+    ///         UserGroupId = exampleUserGroup.UserGroupId,
+    ///         UserId = exampleUser.UserId,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ElastiCache user group associations can be imported using the `user_group_id` and `user_id`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:elasticache/userGroupAssociation:UserGroupAssociation")]
     public partial class UserGroupAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ID of the user group.
+        /// </summary>
         [Output("userGroupId")]
         public Output<string> UserGroupId { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the user to associated with the user group.
+        /// </summary>
         [Output("userId")]
         public Output<string> UserId { get; private set; } = null!;
 
@@ -64,9 +135,15 @@ namespace Pulumi.Aws.ElastiCache
 
     public sealed class UserGroupAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ID of the user group.
+        /// </summary>
         [Input("userGroupId", required: true)]
         public Input<string> UserGroupId { get; set; } = null!;
 
+        /// <summary>
+        /// ID of the user to associated with the user group.
+        /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
 
@@ -78,9 +155,15 @@ namespace Pulumi.Aws.ElastiCache
 
     public sealed class UserGroupAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ID of the user group.
+        /// </summary>
         [Input("userGroupId")]
         public Input<string>? UserGroupId { get; set; }
 
+        /// <summary>
+        /// ID of the user to associated with the user group.
+        /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }
 

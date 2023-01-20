@@ -4,6 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a resource to associate/disassociate an AWS Firewall Manager administrator account. This operation must be performed in the `us-east-1` region.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.fms.AdminAccount("example", {});
+ * ```
+ *
+ * ## Import
+ *
+ * Firewall Manager administrator account association can be imported using the account ID, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
+ * ```
+ */
 export class AdminAccount extends pulumi.CustomResource {
     /**
      * Get an existing AdminAccount resource's state with the given name, ID, and optional extra
@@ -32,6 +52,9 @@ export class AdminAccount extends pulumi.CustomResource {
         return obj['__pulumiType'] === AdminAccount.__pulumiType;
     }
 
+    /**
+     * The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
+     */
     public readonly accountId!: pulumi.Output<string>;
 
     /**
@@ -61,6 +84,9 @@ export class AdminAccount extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AdminAccount resources.
  */
 export interface AdminAccountState {
+    /**
+     * The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
+     */
     accountId?: pulumi.Input<string>;
 }
 
@@ -68,5 +94,8 @@ export interface AdminAccountState {
  * The set of arguments for constructing a AdminAccount resource.
  */
 export interface AdminAccountArgs {
+    /**
+     * The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
+     */
     accountId?: pulumi.Input<string>;
 }

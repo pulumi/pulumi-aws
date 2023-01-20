@@ -16,30 +16,62 @@ public final class DedicatedIpPoolState extends com.pulumi.resources.ResourceArg
 
     public static final DedicatedIpPoolState Empty = new DedicatedIpPoolState();
 
+    /**
+     * ARN of the Dedicated IP Pool.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return ARN of the Dedicated IP Pool.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * Name of the dedicated IP pool.
+     * 
+     */
     @Import(name="poolName")
     private @Nullable Output<String> poolName;
 
+    /**
+     * @return Name of the dedicated IP pool.
+     * 
+     */
     public Optional<Output<String>> poolName() {
         return Optional.ofNullable(this.poolName);
     }
 
+    /**
+     * IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+     * 
+     */
     @Import(name="scalingMode")
     private @Nullable Output<String> scalingMode;
 
+    /**
+     * @return IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+     * 
+     */
     public Optional<Output<String>> scalingMode() {
         return Optional.ofNullable(this.scalingMode);
     }
 
+    /**
+     * A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -79,38 +111,86 @@ public final class DedicatedIpPoolState extends com.pulumi.resources.ResourceArg
             $ = new DedicatedIpPoolState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn ARN of the Dedicated IP Pool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn ARN of the Dedicated IP Pool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param poolName Name of the dedicated IP pool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder poolName(@Nullable Output<String> poolName) {
             $.poolName = poolName;
             return this;
         }
 
+        /**
+         * @param poolName Name of the dedicated IP pool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder poolName(String poolName) {
             return poolName(Output.of(poolName));
         }
 
+        /**
+         * @param scalingMode IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scalingMode(@Nullable Output<String> scalingMode) {
             $.scalingMode = scalingMode;
             return this;
         }
 
+        /**
+         * @param scalingMode IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scalingMode(String scalingMode) {
             return scalingMode(Output.of(scalingMode));
         }
 
+        /**
+         * @param tags A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

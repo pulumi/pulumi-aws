@@ -7,6 +7,286 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Resource for managing an AWS Kendra Data Source.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.DataSource("example", {
+ *     indexId: aws_kendra_index.example.id,
+ *     description: "example",
+ *     languageCode: "en",
+ *     type: "CUSTOM",
+ *     tags: {
+ *         hello: "world",
+ *     },
+ * });
+ * ```
+ * ### S3 Connector
+ * ### With Schedule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.DataSource("example", {
+ *     indexId: aws_kendra_index.example.id,
+ *     type: "S3",
+ *     roleArn: aws_iam_role.example.arn,
+ *     schedule: "cron(9 10 1 * ? *)",
+ *     configuration: {
+ *         s3Configuration: {
+ *             bucketName: aws_s3_bucket.example.id,
+ *         },
+ *     },
+ * });
+ * ```
+ * ### With Access Control List
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.DataSource("example", {
+ *     indexId: aws_kendra_index.example.id,
+ *     type: "S3",
+ *     roleArn: aws_iam_role.example.arn,
+ *     configuration: {
+ *         s3Configuration: {
+ *             accessControlListConfiguration: {
+ *                 keyPath: `s3://${aws_s3_bucket.example.id}/path-1`,
+ *             },
+ *             bucketName: aws_s3_bucket.example.id,
+ *         },
+ *     },
+ * });
+ * ```
+ * ### Web Crawler Connector
+ * ### With Seed URLs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.DataSource("example", {
+ *     indexId: aws_kendra_index.example.id,
+ *     type: "WEBCRAWLER",
+ *     roleArn: aws_iam_role.example.arn,
+ *     configuration: {
+ *         webCrawlerConfiguration: {
+ *             urls: {
+ *                 seedUrlConfiguration: {
+ *                     seedUrls: ["REPLACE_WITH_YOUR_URL"],
+ *                 },
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ * ### With Site Maps
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.DataSource("example", {
+ *     indexId: aws_kendra_index.example.id,
+ *     type: "WEBCRAWLER",
+ *     roleArn: aws_iam_role.example.arn,
+ *     configuration: {
+ *         webCrawlerConfiguration: {
+ *             urls: {
+ *                 siteMapsConfiguration: {
+ *                     siteMaps: ["REPLACE_WITH_YOUR_URL"],
+ *                 },
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ * ### With Web Crawler Mode
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.DataSource("example", {
+ *     indexId: aws_kendra_index.example.id,
+ *     type: "WEBCRAWLER",
+ *     roleArn: aws_iam_role.example.arn,
+ *     configuration: {
+ *         webCrawlerConfiguration: {
+ *             urls: {
+ *                 seedUrlConfiguration: {
+ *                     webCrawlerMode: "SUBDOMAINS",
+ *                     seedUrls: ["REPLACE_WITH_YOUR_URL"],
+ *                 },
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ * ### With Authentication Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.DataSource("example", {
+ *     indexId: aws_kendra_index.example.id,
+ *     type: "WEBCRAWLER",
+ *     roleArn: aws_iam_role.example.arn,
+ *     configuration: {
+ *         webCrawlerConfiguration: {
+ *             authenticationConfiguration: {
+ *                 basicAuthentications: [{
+ *                     credentials: aws_secretsmanager_secret.example.arn,
+ *                     host: "a.example.com",
+ *                     port: 443,
+ *                 }],
+ *             },
+ *             urls: {
+ *                 seedUrlConfiguration: {
+ *                     seedUrls: ["REPLACE_WITH_YOUR_URL"],
+ *                 },
+ *             },
+ *         },
+ *     },
+ * }, {
+ *     dependsOn: [aws_secretsmanager_secret_version.example],
+ * });
+ * ```
+ * ### With Crawl Depth
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.DataSource("example", {
+ *     indexId: aws_kendra_index.example.id,
+ *     type: "WEBCRAWLER",
+ *     roleArn: aws_iam_role.example.arn,
+ *     configuration: {
+ *         webCrawlerConfiguration: {
+ *             crawlDepth: 3,
+ *             urls: {
+ *                 seedUrlConfiguration: {
+ *                     seedUrls: ["REPLACE_WITH_YOUR_URL"],
+ *                 },
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ * ### With Max Links Per Page
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.DataSource("example", {
+ *     indexId: aws_kendra_index.example.id,
+ *     type: "WEBCRAWLER",
+ *     roleArn: aws_iam_role.example.arn,
+ *     configuration: {
+ *         webCrawlerConfiguration: {
+ *             maxLinksPerPage: 100,
+ *             urls: {
+ *                 seedUrlConfiguration: {
+ *                     seedUrls: ["REPLACE_WITH_YOUR_URL"],
+ *                 },
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ * ### With Max Urls Per Minute Crawl Rate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.DataSource("example", {
+ *     indexId: aws_kendra_index.example.id,
+ *     type: "WEBCRAWLER",
+ *     roleArn: aws_iam_role.example.arn,
+ *     configuration: {
+ *         webCrawlerConfiguration: {
+ *             maxUrlsPerMinuteCrawlRate: 300,
+ *             urls: {
+ *                 seedUrlConfiguration: {
+ *                     seedUrls: ["REPLACE_WITH_YOUR_URL"],
+ *                 },
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ * ### With Proxy Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.DataSource("example", {
+ *     indexId: aws_kendra_index.example.id,
+ *     type: "WEBCRAWLER",
+ *     roleArn: aws_iam_role.example.arn,
+ *     configuration: {
+ *         webCrawlerConfiguration: {
+ *             proxyConfiguration: {
+ *                 credentials: aws_secretsmanager_secret.example.arn,
+ *                 host: "a.example.com",
+ *                 port: 443,
+ *             },
+ *             urls: {
+ *                 seedUrlConfiguration: {
+ *                     seedUrls: ["REPLACE_WITH_YOUR_URL"],
+ *                 },
+ *             },
+ *         },
+ *     },
+ * }, {
+ *     dependsOn: [aws_secretsmanager_secret_version.example],
+ * });
+ * ```
+ * ### With URL Exclusion and Inclusion Patterns
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.DataSource("example", {
+ *     indexId: aws_kendra_index.example.id,
+ *     type: "WEBCRAWLER",
+ *     roleArn: aws_iam_role.example.arn,
+ *     configuration: {
+ *         webCrawlerConfiguration: {
+ *             urlExclusionPatterns: ["example"],
+ *             urlInclusionPatterns: ["hello"],
+ *             urls: {
+ *                 seedUrlConfiguration: {
+ *                     seedUrls: ["REPLACE_WITH_YOUR_URL"],
+ *                 },
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Kendra Data Source can be imported using the unique identifiers of the data_source and index separated by a slash (`/`) e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:kendra/dataSource:DataSource example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
+ * ```
+ */
 export class DataSource extends pulumi.CustomResource {
     /**
      * Get an existing DataSource resource's state with the given name, ID, and optional extra
@@ -35,22 +315,73 @@ export class DataSource extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataSource.__pulumiType;
     }
 
+    /**
+     * ARN of the Data Source.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+     */
     public readonly configuration!: pulumi.Output<outputs.kendra.DataSourceConfiguration | undefined>;
+    /**
+     * The Unix timestamp of when the Data Source was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+     */
     public readonly customDocumentEnrichmentConfiguration!: pulumi.Output<outputs.kendra.DataSourceCustomDocumentEnrichmentConfiguration | undefined>;
+    /**
+     * The unique identifiers of the Data Source.
+     */
     public /*out*/ readonly dataSourceId!: pulumi.Output<string>;
+    /**
+     * A description for the Data Source connector.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+     */
     public /*out*/ readonly errorMessage!: pulumi.Output<string>;
+    /**
+     * The identifier of the index for your Amazon Kendra data_source.
+     */
     public readonly indexId!: pulumi.Output<string>;
+    /**
+     * The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     */
     public readonly languageCode!: pulumi.Output<string>;
+    /**
+     * A name for your Data Source connector.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
+     */
     public readonly roleArn!: pulumi.Output<string | undefined>;
+    /**
+     * Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
+     */
     public readonly schedule!: pulumi.Output<string | undefined>;
+    /**
+     * The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that the Data Source failed.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+     */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * The Unix timestamp of when the Data Source was last updated.
+     */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
@@ -118,22 +449,73 @@ export class DataSource extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DataSource resources.
  */
 export interface DataSourceState {
+    /**
+     * ARN of the Data Source.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+     */
     configuration?: pulumi.Input<inputs.kendra.DataSourceConfiguration>;
+    /**
+     * The Unix timestamp of when the Data Source was created.
+     */
     createdAt?: pulumi.Input<string>;
+    /**
+     * A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+     */
     customDocumentEnrichmentConfiguration?: pulumi.Input<inputs.kendra.DataSourceCustomDocumentEnrichmentConfiguration>;
+    /**
+     * The unique identifiers of the Data Source.
+     */
     dataSourceId?: pulumi.Input<string>;
+    /**
+     * A description for the Data Source connector.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+     */
     errorMessage?: pulumi.Input<string>;
+    /**
+     * The identifier of the index for your Amazon Kendra data_source.
+     */
     indexId?: pulumi.Input<string>;
+    /**
+     * The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     */
     languageCode?: pulumi.Input<string>;
+    /**
+     * A name for your Data Source connector.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
+     */
     schedule?: pulumi.Input<string>;
+    /**
+     * The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that the Data Source failed.
+     */
     status?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+     */
     type?: pulumi.Input<string>;
+    /**
+     * The Unix timestamp of when the Data Source was last updated.
+     */
     updatedAt?: pulumi.Input<string>;
 }
 
@@ -141,14 +523,44 @@ export interface DataSourceState {
  * The set of arguments for constructing a DataSource resource.
  */
 export interface DataSourceArgs {
+    /**
+     * A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+     */
     configuration?: pulumi.Input<inputs.kendra.DataSourceConfiguration>;
+    /**
+     * A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+     */
     customDocumentEnrichmentConfiguration?: pulumi.Input<inputs.kendra.DataSourceCustomDocumentEnrichmentConfiguration>;
+    /**
+     * A description for the Data Source connector.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The identifier of the index for your Amazon Kendra data_source.
+     */
     indexId: pulumi.Input<string>;
+    /**
+     * The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     */
     languageCode?: pulumi.Input<string>;
+    /**
+     * A name for your Data Source connector.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
+     */
     schedule?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+     */
     type: pulumi.Input<string>;
 }

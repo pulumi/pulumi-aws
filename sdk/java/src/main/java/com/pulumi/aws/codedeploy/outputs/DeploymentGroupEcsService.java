@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class DeploymentGroupEcsService {
+    /**
+     * @return The name of the ECS cluster.
+     * 
+     */
     private String clusterName;
+    /**
+     * @return The name of the ECS service.
+     * 
+     */
     private String serviceName;
 
     private DeploymentGroupEcsService() {}
+    /**
+     * @return The name of the ECS cluster.
+     * 
+     */
     public String clusterName() {
         return this.clusterName;
     }
+    /**
+     * @return The name of the ECS service.
+     * 
+     */
     public String serviceName() {
         return this.serviceName;
     }

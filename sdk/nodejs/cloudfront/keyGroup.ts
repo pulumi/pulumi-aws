@@ -4,6 +4,34 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Example Usage
+ *
+ * The following example below creates a CloudFront key group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ *
+ * const examplePublicKey = new aws.cloudfront.PublicKey("examplePublicKey", {
+ *     comment: "example public key",
+ *     encodedKey: fs.readFileSync("public_key.pem"),
+ * });
+ * const exampleKeyGroup = new aws.cloudfront.KeyGroup("exampleKeyGroup", {
+ *     comment: "example key group",
+ *     items: [examplePublicKey.id],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * CloudFront Key Group can be imported using the `id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
+ * ```
+ */
 export class KeyGroup extends pulumi.CustomResource {
     /**
      * Get an existing KeyGroup resource's state with the given name, ID, and optional extra
@@ -32,9 +60,21 @@ export class KeyGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === KeyGroup.__pulumiType;
     }
 
+    /**
+     * A comment to describe the key group..
+     */
     public readonly comment!: pulumi.Output<string | undefined>;
+    /**
+     * The identifier for this version of the key group.
+     */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * A list of the identifiers of the public keys in the key group.
+     */
     public readonly items!: pulumi.Output<string[]>;
+    /**
+     * A name to identify the key group.
+     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -73,9 +113,21 @@ export class KeyGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering KeyGroup resources.
  */
 export interface KeyGroupState {
+    /**
+     * A comment to describe the key group..
+     */
     comment?: pulumi.Input<string>;
+    /**
+     * The identifier for this version of the key group.
+     */
     etag?: pulumi.Input<string>;
+    /**
+     * A list of the identifiers of the public keys in the key group.
+     */
     items?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A name to identify the key group.
+     */
     name?: pulumi.Input<string>;
 }
 
@@ -83,7 +135,16 @@ export interface KeyGroupState {
  * The set of arguments for constructing a KeyGroup resource.
  */
 export interface KeyGroupArgs {
+    /**
+     * A comment to describe the key group..
+     */
     comment?: pulumi.Input<string>;
+    /**
+     * A list of the identifiers of the public keys in the key group.
+     */
     items: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A name to identify the key group.
+     */
     name?: pulumi.Input<string>;
 }

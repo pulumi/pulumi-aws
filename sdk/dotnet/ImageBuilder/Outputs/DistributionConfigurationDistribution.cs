@@ -13,11 +13,29 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class DistributionConfigurationDistribution
     {
+        /// <summary>
+        /// Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+        /// </summary>
         public readonly Outputs.DistributionConfigurationDistributionAmiDistributionConfiguration? AmiDistributionConfiguration;
+        /// <summary>
+        /// Configuration block with container distribution settings. Detailed below.
+        /// </summary>
         public readonly Outputs.DistributionConfigurationDistributionContainerDistributionConfiguration? ContainerDistributionConfiguration;
+        /// <summary>
+        /// Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DistributionConfigurationDistributionFastLaunchConfiguration> FastLaunchConfigurations;
+        /// <summary>
+        /// Set of launch template configuration settings that apply to image distribution. Detailed below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DistributionConfigurationDistributionLaunchTemplateConfiguration> LaunchTemplateConfigurations;
+        /// <summary>
+        /// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+        /// </summary>
         public readonly ImmutableArray<string> LicenseConfigurationArns;
+        /// <summary>
+        /// AWS Region for the distribution.
+        /// </summary>
         public readonly string Region;
 
         [OutputConstructor]

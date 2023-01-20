@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository {
+    /**
+     * @return The URL of the Git repository.
+     * 
+     */
     private String repositoryUrl;
 
     private DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository() {}
+    /**
+     * @return The URL of the Git repository.
+     * 
+     */
     public String repositoryUrl() {
         return this.repositoryUrl;
     }

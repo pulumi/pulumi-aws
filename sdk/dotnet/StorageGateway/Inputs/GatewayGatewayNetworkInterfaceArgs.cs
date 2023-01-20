@@ -12,6 +12,9 @@ namespace Pulumi.Aws.StorageGateway.Inputs
 
     public sealed class GatewayGatewayNetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Internet Protocol version 4 (IPv4) address of the interface.
+        /// </summary>
         [Input("ipv4Address")]
         public Input<string>? Ipv4Address { get; set; }
 

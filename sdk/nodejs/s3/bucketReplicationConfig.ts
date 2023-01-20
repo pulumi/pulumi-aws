@@ -7,6 +7,186 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an independent configuration resource for S3 bucket [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html).
+ *
+ * > **NOTE:** S3 Buckets only support a single replication configuration. Declaring multiple `aws.s3.BucketReplicationConfig` resources to the same S3 Bucket will cause a perpetual difference in configuration.
+ *
+ * ## Example Usage
+ * ### Using replication configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const central = new aws.Provider("central", {region: "eu-central-1"});
+ * const replicationRole = new aws.iam.Role("replicationRole", {assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "s3.amazonaws.com"
+ *       },
+ *       "Effect": "Allow",
+ *       "Sid": ""
+ *     }
+ *   ]
+ * }
+ * `});
+ * const destinationBucketV2 = new aws.s3.BucketV2("destinationBucketV2", {});
+ * const sourceBucketV2 = new aws.s3.BucketV2("sourceBucketV2", {}, {
+ *     provider: aws.central,
+ * });
+ * const replicationPolicy = new aws.iam.Policy("replicationPolicy", {policy: pulumi.interpolate`{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": [
+ *         "s3:GetReplicationConfiguration",
+ *         "s3:ListBucket"
+ *       ],
+ *       "Effect": "Allow",
+ *       "Resource": [
+ *         "${sourceBucketV2.arn}"
+ *       ]
+ *     },
+ *     {
+ *       "Action": [
+ *         "s3:GetObjectVersionForReplication",
+ *         "s3:GetObjectVersionAcl",
+ *          "s3:GetObjectVersionTagging"
+ *       ],
+ *       "Effect": "Allow",
+ *       "Resource": [
+ *         "${sourceBucketV2.arn}/*"
+ *       ]
+ *     },
+ *     {
+ *       "Action": [
+ *         "s3:ReplicateObject",
+ *         "s3:ReplicateDelete",
+ *         "s3:ReplicateTags"
+ *       ],
+ *       "Effect": "Allow",
+ *       "Resource": "${destinationBucketV2.arn}/*"
+ *     }
+ *   ]
+ * }
+ * `});
+ * const replicationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("replicationRolePolicyAttachment", {
+ *     role: replicationRole.name,
+ *     policyArn: replicationPolicy.arn,
+ * });
+ * const destinationBucketVersioningV2 = new aws.s3.BucketVersioningV2("destinationBucketVersioningV2", {
+ *     bucket: destinationBucketV2.id,
+ *     versioningConfiguration: {
+ *         status: "Enabled",
+ *     },
+ * });
+ * const sourceBucketAcl = new aws.s3.BucketAclV2("sourceBucketAcl", {
+ *     bucket: sourceBucketV2.id,
+ *     acl: "private",
+ * }, {
+ *     provider: aws.central,
+ * });
+ * const sourceBucketVersioningV2 = new aws.s3.BucketVersioningV2("sourceBucketVersioningV2", {
+ *     bucket: sourceBucketV2.id,
+ *     versioningConfiguration: {
+ *         status: "Enabled",
+ *     },
+ * }, {
+ *     provider: aws.central,
+ * });
+ * const replicationBucketReplicationConfig = new aws.s3.BucketReplicationConfig("replicationBucketReplicationConfig", {
+ *     role: replicationRole.arn,
+ *     bucket: sourceBucketV2.id,
+ *     rules: [{
+ *         id: "foobar",
+ *         filter: {
+ *             prefix: "foo",
+ *         },
+ *         status: "Enabled",
+ *         destination: {
+ *             bucket: destinationBucketV2.arn,
+ *             storageClass: "STANDARD",
+ *         },
+ *     }],
+ * }, {
+ *     provider: aws.central,
+ *     dependsOn: [sourceBucketVersioningV2],
+ * });
+ * ```
+ * ### Bi-Directional Replication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // ... other configuration ...
+ * const eastBucketV2 = new aws.s3.BucketV2("eastBucketV2", {});
+ * const eastBucketVersioningV2 = new aws.s3.BucketVersioningV2("eastBucketVersioningV2", {
+ *     bucket: eastBucketV2.id,
+ *     versioningConfiguration: {
+ *         status: "Enabled",
+ *     },
+ * });
+ * const westBucketV2 = new aws.s3.BucketV2("westBucketV2", {}, {
+ *     provider: aws.west,
+ * });
+ * const westBucketVersioningV2 = new aws.s3.BucketVersioningV2("westBucketVersioningV2", {
+ *     bucket: westBucketV2.id,
+ *     versioningConfiguration: {
+ *         status: "Enabled",
+ *     },
+ * }, {
+ *     provider: aws.west,
+ * });
+ * const eastToWest = new aws.s3.BucketReplicationConfig("eastToWest", {
+ *     role: aws_iam_role.east_replication.arn,
+ *     bucket: eastBucketV2.id,
+ *     rules: [{
+ *         id: "foobar",
+ *         filter: {
+ *             prefix: "foo",
+ *         },
+ *         status: "Enabled",
+ *         destination: {
+ *             bucket: westBucketV2.arn,
+ *             storageClass: "STANDARD",
+ *         },
+ *     }],
+ * }, {
+ *     dependsOn: [eastBucketVersioningV2],
+ * });
+ * const westToEast = new aws.s3.BucketReplicationConfig("westToEast", {
+ *     role: aws_iam_role.west_replication.arn,
+ *     bucket: westBucketV2.id,
+ *     rules: [{
+ *         id: "foobar",
+ *         filter: {
+ *             prefix: "foo",
+ *         },
+ *         status: "Enabled",
+ *         destination: {
+ *             bucket: eastBucketV2.arn,
+ *             storageClass: "STANDARD",
+ *         },
+ *     }],
+ * }, {
+ *     provider: aws.west,
+ *     dependsOn: [westBucketVersioningV2],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * S3 bucket replication configuration can be imported using the `bucket`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
+ * ```
+ */
 export class BucketReplicationConfig extends pulumi.CustomResource {
     /**
      * Get an existing BucketReplicationConfig resource's state with the given name, ID, and optional extra
@@ -35,9 +215,22 @@ export class BucketReplicationConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === BucketReplicationConfig.__pulumiType;
     }
 
+    /**
+     * The name of the source S3 bucket you want Amazon S3 to monitor.
+     */
     public readonly bucket!: pulumi.Output<string>;
+    /**
+     * The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+     */
     public readonly role!: pulumi.Output<string>;
+    /**
+     * List of configuration blocks describing the rules managing the replication documented below.
+     */
     public readonly rules!: pulumi.Output<outputs.s3.BucketReplicationConfigRule[]>;
+    /**
+     * A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
+     * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
+     */
     public readonly token!: pulumi.Output<string | undefined>;
 
     /**
@@ -84,9 +277,22 @@ export class BucketReplicationConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BucketReplicationConfig resources.
  */
 export interface BucketReplicationConfigState {
+    /**
+     * The name of the source S3 bucket you want Amazon S3 to monitor.
+     */
     bucket?: pulumi.Input<string>;
+    /**
+     * The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+     */
     role?: pulumi.Input<string>;
+    /**
+     * List of configuration blocks describing the rules managing the replication documented below.
+     */
     rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketReplicationConfigRule>[]>;
+    /**
+     * A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
+     * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
+     */
     token?: pulumi.Input<string>;
 }
 
@@ -94,8 +300,21 @@ export interface BucketReplicationConfigState {
  * The set of arguments for constructing a BucketReplicationConfig resource.
  */
 export interface BucketReplicationConfigArgs {
+    /**
+     * The name of the source S3 bucket you want Amazon S3 to monitor.
+     */
     bucket: pulumi.Input<string>;
+    /**
+     * The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+     */
     role: pulumi.Input<string>;
+    /**
+     * List of configuration blocks describing the rules managing the replication documented below.
+     */
     rules: pulumi.Input<pulumi.Input<inputs.s3.BucketReplicationConfigRule>[]>;
+    /**
+     * A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
+     * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
+     */
     token?: pulumi.Input<string>;
 }

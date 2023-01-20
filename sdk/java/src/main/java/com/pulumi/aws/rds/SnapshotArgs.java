@@ -16,23 +16,47 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SnapshotArgs Empty = new SnapshotArgs();
 
+    /**
+     * The DB Instance Identifier from which to take the snapshot.
+     * 
+     */
     @Import(name="dbInstanceIdentifier", required=true)
     private Output<String> dbInstanceIdentifier;
 
+    /**
+     * @return The DB Instance Identifier from which to take the snapshot.
+     * 
+     */
     public Output<String> dbInstanceIdentifier() {
         return this.dbInstanceIdentifier;
     }
 
+    /**
+     * The Identifier for the snapshot.
+     * 
+     */
     @Import(name="dbSnapshotIdentifier", required=true)
     private Output<String> dbSnapshotIdentifier;
 
+    /**
+     * @return The Identifier for the snapshot.
+     * 
+     */
     public Output<String> dbSnapshotIdentifier() {
         return this.dbSnapshotIdentifier;
     }
 
+    /**
+     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -63,29 +87,65 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SnapshotArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dbInstanceIdentifier The DB Instance Identifier from which to take the snapshot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbInstanceIdentifier(Output<String> dbInstanceIdentifier) {
             $.dbInstanceIdentifier = dbInstanceIdentifier;
             return this;
         }
 
+        /**
+         * @param dbInstanceIdentifier The DB Instance Identifier from which to take the snapshot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbInstanceIdentifier(String dbInstanceIdentifier) {
             return dbInstanceIdentifier(Output.of(dbInstanceIdentifier));
         }
 
+        /**
+         * @param dbSnapshotIdentifier The Identifier for the snapshot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbSnapshotIdentifier(Output<String> dbSnapshotIdentifier) {
             $.dbSnapshotIdentifier = dbSnapshotIdentifier;
             return this;
         }
 
+        /**
+         * @param dbSnapshotIdentifier The Identifier for the snapshot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbSnapshotIdentifier(String dbSnapshotIdentifier) {
             return dbSnapshotIdentifier(Output.of(dbSnapshotIdentifier));
         }
 
+        /**
+         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

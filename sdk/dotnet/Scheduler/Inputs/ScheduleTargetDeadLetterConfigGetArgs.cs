@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Scheduler.Inputs
 
     public sealed class ScheduleTargetDeadLetterConfigGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the SQS queue specified as the destination for the dead-letter queue.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

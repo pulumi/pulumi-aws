@@ -9,24 +9,76 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Dms
 {
+    /// <summary>
+    /// Provides a DMS (Data Migration Service) certificate resource. DMS certificates can be created, deleted, and imported.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create a new certificate
+    ///     var test = new Aws.Dms.Certificate("test", new()
+    ///     {
+    ///         CertificateId = "test-dms-certificate-tf",
+    ///         CertificatePem = "...",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "test" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Certificates can be imported using the `certificate_id`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:dms/certificate:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the certificate.
+        /// </summary>
         [Output("certificateArn")]
         public Output<string> CertificateArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The certificate identifier.
+        /// </summary>
         [Output("certificateId")]
         public Output<string> CertificateId { get; private set; } = null!;
 
+        /// <summary>
+        /// The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+        /// </summary>
         [Output("certificatePem")]
         public Output<string?> CertificatePem { get; private set; } = null!;
 
+        /// <summary>
+        /// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
+        /// </summary>
         [Output("certificateWallet")]
         public Output<string?> CertificateWallet { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -81,11 +133,18 @@ namespace Pulumi.Aws.Dms
 
     public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The certificate identifier.
+        /// </summary>
         [Input("certificateId", required: true)]
         public Input<string> CertificateId { get; set; } = null!;
 
         [Input("certificatePem")]
         private Input<string>? _certificatePem;
+
+        /// <summary>
+        /// The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+        /// </summary>
         public Input<string>? CertificatePem
         {
             get => _certificatePem;
@@ -98,6 +157,10 @@ namespace Pulumi.Aws.Dms
 
         [Input("certificateWallet")]
         private Input<string>? _certificateWallet;
+
+        /// <summary>
+        /// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
+        /// </summary>
         public Input<string>? CertificateWallet
         {
             get => _certificateWallet;
@@ -110,6 +173,10 @@ namespace Pulumi.Aws.Dms
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -124,14 +191,24 @@ namespace Pulumi.Aws.Dms
 
     public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the certificate.
+        /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
+        /// <summary>
+        /// The certificate identifier.
+        /// </summary>
         [Input("certificateId")]
         public Input<string>? CertificateId { get; set; }
 
         [Input("certificatePem")]
         private Input<string>? _certificatePem;
+
+        /// <summary>
+        /// The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+        /// </summary>
         public Input<string>? CertificatePem
         {
             get => _certificatePem;
@@ -144,6 +221,10 @@ namespace Pulumi.Aws.Dms
 
         [Input("certificateWallet")]
         private Input<string>? _certificateWallet;
+
+        /// <summary>
+        /// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
+        /// </summary>
         public Input<string>? CertificateWallet
         {
             get => _certificateWallet;
@@ -156,6 +237,10 @@ namespace Pulumi.Aws.Dms
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -164,6 +249,10 @@ namespace Pulumi.Aws.Dms
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

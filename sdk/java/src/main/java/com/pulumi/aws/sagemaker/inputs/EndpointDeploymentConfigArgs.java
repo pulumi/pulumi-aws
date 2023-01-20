@@ -16,16 +16,32 @@ public final class EndpointDeploymentConfigArgs extends com.pulumi.resources.Res
 
     public static final EndpointDeploymentConfigArgs Empty = new EndpointDeploymentConfigArgs();
 
+    /**
+     * Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
+     * 
+     */
     @Import(name="autoRollbackConfiguration")
     private @Nullable Output<EndpointDeploymentConfigAutoRollbackConfigurationArgs> autoRollbackConfiguration;
 
+    /**
+     * @return Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
+     * 
+     */
     public Optional<Output<EndpointDeploymentConfigAutoRollbackConfigurationArgs>> autoRollbackConfiguration() {
         return Optional.ofNullable(this.autoRollbackConfiguration);
     }
 
+    /**
+     * Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+     * 
+     */
     @Import(name="blueGreenUpdatePolicy", required=true)
     private Output<EndpointDeploymentConfigBlueGreenUpdatePolicyArgs> blueGreenUpdatePolicy;
 
+    /**
+     * @return Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+     * 
+     */
     public Output<EndpointDeploymentConfigBlueGreenUpdatePolicyArgs> blueGreenUpdatePolicy() {
         return this.blueGreenUpdatePolicy;
     }
@@ -55,20 +71,44 @@ public final class EndpointDeploymentConfigArgs extends com.pulumi.resources.Res
             $ = new EndpointDeploymentConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param autoRollbackConfiguration Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoRollbackConfiguration(@Nullable Output<EndpointDeploymentConfigAutoRollbackConfigurationArgs> autoRollbackConfiguration) {
             $.autoRollbackConfiguration = autoRollbackConfiguration;
             return this;
         }
 
+        /**
+         * @param autoRollbackConfiguration Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoRollbackConfiguration(EndpointDeploymentConfigAutoRollbackConfigurationArgs autoRollbackConfiguration) {
             return autoRollbackConfiguration(Output.of(autoRollbackConfiguration));
         }
 
+        /**
+         * @param blueGreenUpdatePolicy Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blueGreenUpdatePolicy(Output<EndpointDeploymentConfigBlueGreenUpdatePolicyArgs> blueGreenUpdatePolicy) {
             $.blueGreenUpdatePolicy = blueGreenUpdatePolicy;
             return this;
         }
 
+        /**
+         * @param blueGreenUpdatePolicy Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blueGreenUpdatePolicy(EndpointDeploymentConfigBlueGreenUpdatePolicyArgs blueGreenUpdatePolicy) {
             return blueGreenUpdatePolicy(Output.of(blueGreenUpdatePolicy));
         }

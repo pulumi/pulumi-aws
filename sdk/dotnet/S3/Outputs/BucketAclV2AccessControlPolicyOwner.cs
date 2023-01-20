@@ -13,7 +13,13 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketAclV2AccessControlPolicyOwner
     {
+        /// <summary>
+        /// The display name of the owner.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// The ID of the owner.
+        /// </summary>
         public readonly string Id;
 
         [OutputConstructor]

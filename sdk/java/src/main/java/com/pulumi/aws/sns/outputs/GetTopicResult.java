@@ -9,6 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTopicResult {
+    /**
+     * @return ARN of the found topic, suitable for referencing in other resources that support SNS topics.
+     * 
+     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -18,6 +22,10 @@ public final class GetTopicResult {
     private String name;
 
     private GetTopicResult() {}
+    /**
+     * @return ARN of the found topic, suitable for referencing in other resources that support SNS topics.
+     * 
+     */
     public String arn() {
         return this.arn;
     }

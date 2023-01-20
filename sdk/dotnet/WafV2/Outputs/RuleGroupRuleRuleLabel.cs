@@ -13,6 +13,9 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class RuleGroupRuleRuleLabel
     {
+        /// <summary>
+        /// The label string.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

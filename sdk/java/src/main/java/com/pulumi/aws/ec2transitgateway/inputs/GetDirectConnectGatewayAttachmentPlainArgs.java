@@ -17,30 +17,62 @@ public final class GetDirectConnectGatewayAttachmentPlainArgs extends com.pulumi
 
     public static final GetDirectConnectGatewayAttachmentPlainArgs Empty = new GetDirectConnectGatewayAttachmentPlainArgs();
 
+    /**
+     * Identifier of the Direct Connect Gateway.
+     * 
+     */
     @Import(name="dxGatewayId")
     private @Nullable String dxGatewayId;
 
+    /**
+     * @return Identifier of the Direct Connect Gateway.
+     * 
+     */
     public Optional<String> dxGatewayId() {
         return Optional.ofNullable(this.dxGatewayId);
     }
 
+    /**
+     * Configuration block(s) for filtering. Detailed below.
+     * 
+     */
     @Import(name="filters")
     private @Nullable List<GetDirectConnectGatewayAttachmentFilter> filters;
 
+    /**
+     * @return Configuration block(s) for filtering. Detailed below.
+     * 
+     */
     public Optional<List<GetDirectConnectGatewayAttachmentFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
+    /**
+     * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Identifier of the EC2 Transit Gateway.
+     * 
+     */
     @Import(name="transitGatewayId")
     private @Nullable String transitGatewayId;
 
+    /**
+     * @return Identifier of the EC2 Transit Gateway.
+     * 
+     */
     public Optional<String> transitGatewayId() {
         return Optional.ofNullable(this.transitGatewayId);
     }
@@ -72,25 +104,55 @@ public final class GetDirectConnectGatewayAttachmentPlainArgs extends com.pulumi
             $ = new GetDirectConnectGatewayAttachmentPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dxGatewayId Identifier of the Direct Connect Gateway.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dxGatewayId(@Nullable String dxGatewayId) {
             $.dxGatewayId = dxGatewayId;
             return this;
         }
 
+        /**
+         * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable List<GetDirectConnectGatewayAttachmentFilter> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(GetDirectConnectGatewayAttachmentFilter... filters) {
             return filters(List.of(filters));
         }
 
+        /**
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param transitGatewayId Identifier of the EC2 Transit Gateway.
+         * 
+         * @return builder
+         * 
+         */
         public Builder transitGatewayId(@Nullable String transitGatewayId) {
             $.transitGatewayId = transitGatewayId;
             return this;

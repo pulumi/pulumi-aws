@@ -20,6 +20,8 @@ class ReplicationConfigurationArgs:
                  source_file_system_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a ReplicationConfiguration resource.
+        :param pulumi.Input['ReplicationConfigurationDestinationArgs'] destination: A destination configuration block (documented below).
+        :param pulumi.Input[str] source_file_system_id: The ID of the file system that is to be replicated.
         """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "source_file_system_id", source_file_system_id)
@@ -27,6 +29,9 @@ class ReplicationConfigurationArgs:
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Input['ReplicationConfigurationDestinationArgs']:
+        """
+        A destination configuration block (documented below).
+        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -36,6 +41,9 @@ class ReplicationConfigurationArgs:
     @property
     @pulumi.getter(name="sourceFileSystemId")
     def source_file_system_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the file system that is to be replicated.
+        """
         return pulumi.get(self, "source_file_system_id")
 
     @source_file_system_id.setter
@@ -54,6 +62,14 @@ class _ReplicationConfigurationState:
                  source_file_system_region: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ReplicationConfiguration resources.
+        :param pulumi.Input[str] creation_time: When the replication configuration was created.
+        :param pulumi.Input['ReplicationConfigurationDestinationArgs'] destination: A destination configuration block (documented below).
+        :param pulumi.Input[str] original_source_file_system_arn: The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
+        :param pulumi.Input[str] source_file_system_arn: The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+        :param pulumi.Input[str] source_file_system_id: The ID of the file system that is to be replicated.
+        :param pulumi.Input[str] source_file_system_region: The AWS Region in which the source Amazon EFS file system is located.
+               * `destination[0].file_system_id` - The fs ID of the replica.
+               * `destination[0].status` - The status of the replication.
         """
         if creation_time is not None:
             pulumi.set(__self__, "creation_time", creation_time)
@@ -71,6 +87,9 @@ class _ReplicationConfigurationState:
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        When the replication configuration was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @creation_time.setter
@@ -80,6 +99,9 @@ class _ReplicationConfigurationState:
     @property
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input['ReplicationConfigurationDestinationArgs']]:
+        """
+        A destination configuration block (documented below).
+        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -89,6 +111,9 @@ class _ReplicationConfigurationState:
     @property
     @pulumi.getter(name="originalSourceFileSystemArn")
     def original_source_file_system_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
+        """
         return pulumi.get(self, "original_source_file_system_arn")
 
     @original_source_file_system_arn.setter
@@ -98,6 +123,9 @@ class _ReplicationConfigurationState:
     @property
     @pulumi.getter(name="sourceFileSystemArn")
     def source_file_system_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+        """
         return pulumi.get(self, "source_file_system_arn")
 
     @source_file_system_arn.setter
@@ -107,6 +135,9 @@ class _ReplicationConfigurationState:
     @property
     @pulumi.getter(name="sourceFileSystemId")
     def source_file_system_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the file system that is to be replicated.
+        """
         return pulumi.get(self, "source_file_system_id")
 
     @source_file_system_id.setter
@@ -116,6 +147,11 @@ class _ReplicationConfigurationState:
     @property
     @pulumi.getter(name="sourceFileSystemRegion")
     def source_file_system_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Region in which the source Amazon EFS file system is located.
+        * `destination[0].file_system_id` - The fs ID of the replica.
+        * `destination[0].status` - The status of the replication.
+        """
         return pulumi.get(self, "source_file_system_region")
 
     @source_file_system_region.setter
@@ -132,9 +168,53 @@ class ReplicationConfiguration(pulumi.CustomResource):
                  source_file_system_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ReplicationConfiguration resource with the given unique name, props, and options.
+        Creates a replica of an existing EFS file system in the same or another region. Creating this resource causes the source EFS file system to be replicated to a new read-only destination EFS file system. Deleting this resource will cause the replication from source to destination to stop and the destination file system will no longer be read only.
+
+        > **NOTE:** Deleting this resource does **not** delete the destination file system that was created.
+
+        ## Example Usage
+
+        Will create a replica using regional storage in us-west-2 that will be encrypted by the default EFS KMS key `/aws/elasticfilesystem`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_file_system = aws.efs.FileSystem("exampleFileSystem")
+        example_replication_configuration = aws.efs.ReplicationConfiguration("exampleReplicationConfiguration",
+            source_file_system_id=example_file_system.id,
+            destination=aws.efs.ReplicationConfigurationDestinationArgs(
+                region="us-west-2",
+            ))
+        ```
+
+        Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_file_system = aws.efs.FileSystem("exampleFileSystem")
+        example_replication_configuration = aws.efs.ReplicationConfiguration("exampleReplicationConfiguration",
+            source_file_system_id=example_file_system.id,
+            destination=aws.efs.ReplicationConfigurationDestinationArgs(
+                availability_zone_name="us-west-2b",
+                kms_key_id="1234abcd-12ab-34cd-56ef-1234567890ab",
+            ))
+        ```
+
+        ## Import
+
+        EFS Replication Configurations can be imported using the file system ID of either the source or destination file system. When importing, the `availability_zone_name` and `kms_key_id` attributes must **not** be set in the configuration. The AWS API does not return these values when querying the replication configuration and their presence will therefore show as a diff in a subsequent plan.
+
+        ```sh
+         $ pulumi import aws:efs/replicationConfiguration:ReplicationConfiguration example fs-id
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ReplicationConfigurationDestinationArgs']] destination: A destination configuration block (documented below).
+        :param pulumi.Input[str] source_file_system_id: The ID of the file system that is to be replicated.
         """
         ...
     @overload
@@ -143,7 +223,49 @@ class ReplicationConfiguration(pulumi.CustomResource):
                  args: ReplicationConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ReplicationConfiguration resource with the given unique name, props, and options.
+        Creates a replica of an existing EFS file system in the same or another region. Creating this resource causes the source EFS file system to be replicated to a new read-only destination EFS file system. Deleting this resource will cause the replication from source to destination to stop and the destination file system will no longer be read only.
+
+        > **NOTE:** Deleting this resource does **not** delete the destination file system that was created.
+
+        ## Example Usage
+
+        Will create a replica using regional storage in us-west-2 that will be encrypted by the default EFS KMS key `/aws/elasticfilesystem`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_file_system = aws.efs.FileSystem("exampleFileSystem")
+        example_replication_configuration = aws.efs.ReplicationConfiguration("exampleReplicationConfiguration",
+            source_file_system_id=example_file_system.id,
+            destination=aws.efs.ReplicationConfigurationDestinationArgs(
+                region="us-west-2",
+            ))
+        ```
+
+        Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_file_system = aws.efs.FileSystem("exampleFileSystem")
+        example_replication_configuration = aws.efs.ReplicationConfiguration("exampleReplicationConfiguration",
+            source_file_system_id=example_file_system.id,
+            destination=aws.efs.ReplicationConfigurationDestinationArgs(
+                availability_zone_name="us-west-2b",
+                kms_key_id="1234abcd-12ab-34cd-56ef-1234567890ab",
+            ))
+        ```
+
+        ## Import
+
+        EFS Replication Configurations can be imported using the file system ID of either the source or destination file system. When importing, the `availability_zone_name` and `kms_key_id` attributes must **not** be set in the configuration. The AWS API does not return these values when querying the replication configuration and their presence will therefore show as a diff in a subsequent plan.
+
+        ```sh
+         $ pulumi import aws:efs/replicationConfiguration:ReplicationConfiguration example fs-id
+        ```
+
         :param str resource_name: The name of the resource.
         :param ReplicationConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,6 +325,14 @@ class ReplicationConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] creation_time: When the replication configuration was created.
+        :param pulumi.Input[pulumi.InputType['ReplicationConfigurationDestinationArgs']] destination: A destination configuration block (documented below).
+        :param pulumi.Input[str] original_source_file_system_arn: The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
+        :param pulumi.Input[str] source_file_system_arn: The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+        :param pulumi.Input[str] source_file_system_id: The ID of the file system that is to be replicated.
+        :param pulumi.Input[str] source_file_system_region: The AWS Region in which the source Amazon EFS file system is located.
+               * `destination[0].file_system_id` - The fs ID of the replica.
+               * `destination[0].status` - The status of the replication.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -219,30 +349,50 @@ class ReplicationConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
+        """
+        When the replication configuration was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Output['outputs.ReplicationConfigurationDestination']:
+        """
+        A destination configuration block (documented below).
+        """
         return pulumi.get(self, "destination")
 
     @property
     @pulumi.getter(name="originalSourceFileSystemArn")
     def original_source_file_system_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
+        """
         return pulumi.get(self, "original_source_file_system_arn")
 
     @property
     @pulumi.getter(name="sourceFileSystemArn")
     def source_file_system_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+        """
         return pulumi.get(self, "source_file_system_arn")
 
     @property
     @pulumi.getter(name="sourceFileSystemId")
     def source_file_system_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the file system that is to be replicated.
+        """
         return pulumi.get(self, "source_file_system_id")
 
     @property
     @pulumi.getter(name="sourceFileSystemRegion")
     def source_file_system_region(self) -> pulumi.Output[str]:
+        """
+        The AWS Region in which the source Amazon EFS file system is located.
+        * `destination[0].file_system_id` - The fs ID of the replica.
+        * `destination[0].status` - The status of the replication.
+        """
         return pulumi.get(self, "source_file_system_region")
 

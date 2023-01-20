@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class VirtualRouterSpecListener {
+    /**
+     * @return Port mapping information for the listener.
+     * 
+     */
     private VirtualRouterSpecListenerPortMapping portMapping;
 
     private VirtualRouterSpecListener() {}
+    /**
+     * @return Port mapping information for the listener.
+     * 
+     */
     public VirtualRouterSpecListenerPortMapping portMapping() {
         return this.portMapping;
     }

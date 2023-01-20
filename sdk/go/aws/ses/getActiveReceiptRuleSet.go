@@ -7,6 +7,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieve the active SES receipt rule set
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.LookupActiveReceiptRuleSet(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupActiveReceiptRuleSet(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupActiveReceiptRuleSetResult, error) {
 	var rv LookupActiveReceiptRuleSetResult
 	err := ctx.Invoke("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", nil, &rv, opts...)
@@ -18,8 +43,10 @@ func LookupActiveReceiptRuleSet(ctx *pulumi.Context, opts ...pulumi.InvokeOption
 
 // A collection of values returned by getActiveReceiptRuleSet.
 type LookupActiveReceiptRuleSetResult struct {
+	// SES receipt rule set ARN.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id          string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Name of the rule set
 	RuleSetName string `pulumi:"ruleSetName"`
 }

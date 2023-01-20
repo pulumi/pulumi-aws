@@ -29,6 +29,17 @@ class FunctionArgs:
                  sync_config: Optional[pulumi.Input['FunctionSyncConfigArgs']] = None):
         """
         The set of arguments for constructing a Function resource.
+        :param pulumi.Input[str] api_id: ID of the associated AppSync API.
+        :param pulumi.Input[str] data_source: Function data source name.
+        :param pulumi.Input[str] code: The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        :param pulumi.Input[str] description: Function description.
+        :param pulumi.Input[str] function_version: Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
+        :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        :param pulumi.Input[str] name: Function name. The function name does not have to be unique.
+        :param pulumi.Input[str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+        :param pulumi.Input[str] response_mapping_template: Function response mapping template.
+        :param pulumi.Input['FunctionRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        :param pulumi.Input['FunctionSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "data_source", data_source)
@@ -54,6 +65,9 @@ class FunctionArgs:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
+        """
+        ID of the associated AppSync API.
+        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -63,6 +77,9 @@ class FunctionArgs:
     @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
+        """
+        Function data source name.
+        """
         return pulumi.get(self, "data_source")
 
     @data_source.setter
@@ -72,6 +89,9 @@ class FunctionArgs:
     @property
     @pulumi.getter
     def code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        """
         return pulumi.get(self, "code")
 
     @code.setter
@@ -81,6 +101,9 @@ class FunctionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Function description.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -90,6 +113,9 @@ class FunctionArgs:
     @property
     @pulumi.getter(name="functionVersion")
     def function_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
+        """
         return pulumi.get(self, "function_version")
 
     @function_version.setter
@@ -99,6 +125,9 @@ class FunctionArgs:
     @property
     @pulumi.getter(name="maxBatchSize")
     def max_batch_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        """
         return pulumi.get(self, "max_batch_size")
 
     @max_batch_size.setter
@@ -108,6 +137,9 @@ class FunctionArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Function name. The function name does not have to be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -117,6 +149,9 @@ class FunctionArgs:
     @property
     @pulumi.getter(name="requestMappingTemplate")
     def request_mapping_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+        """
         return pulumi.get(self, "request_mapping_template")
 
     @request_mapping_template.setter
@@ -126,6 +161,9 @@ class FunctionArgs:
     @property
     @pulumi.getter(name="responseMappingTemplate")
     def response_mapping_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        Function response mapping template.
+        """
         return pulumi.get(self, "response_mapping_template")
 
     @response_mapping_template.setter
@@ -135,6 +173,9 @@ class FunctionArgs:
     @property
     @pulumi.getter
     def runtime(self) -> Optional[pulumi.Input['FunctionRuntimeArgs']]:
+        """
+        Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        """
         return pulumi.get(self, "runtime")
 
     @runtime.setter
@@ -144,6 +185,9 @@ class FunctionArgs:
     @property
     @pulumi.getter(name="syncConfig")
     def sync_config(self) -> Optional[pulumi.Input['FunctionSyncConfigArgs']]:
+        """
+        Describes a Sync configuration for a resolver. See Sync Config.
+        """
         return pulumi.get(self, "sync_config")
 
     @sync_config.setter
@@ -169,6 +213,19 @@ class _FunctionState:
                  sync_config: Optional[pulumi.Input['FunctionSyncConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Function resources.
+        :param pulumi.Input[str] api_id: ID of the associated AppSync API.
+        :param pulumi.Input[str] arn: ARN of the Function object.
+        :param pulumi.Input[str] code: The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        :param pulumi.Input[str] data_source: Function data source name.
+        :param pulumi.Input[str] description: Function description.
+        :param pulumi.Input[str] function_id: Unique ID representing the Function object.
+        :param pulumi.Input[str] function_version: Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
+        :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        :param pulumi.Input[str] name: Function name. The function name does not have to be unique.
+        :param pulumi.Input[str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+        :param pulumi.Input[str] response_mapping_template: Function response mapping template.
+        :param pulumi.Input['FunctionRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        :param pulumi.Input['FunctionSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -200,6 +257,9 @@ class _FunctionState:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the associated AppSync API.
+        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -209,6 +269,9 @@ class _FunctionState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Function object.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -218,6 +281,9 @@ class _FunctionState:
     @property
     @pulumi.getter
     def code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        """
         return pulumi.get(self, "code")
 
     @code.setter
@@ -227,6 +293,9 @@ class _FunctionState:
     @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        Function data source name.
+        """
         return pulumi.get(self, "data_source")
 
     @data_source.setter
@@ -236,6 +305,9 @@ class _FunctionState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Function description.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -245,6 +317,9 @@ class _FunctionState:
     @property
     @pulumi.getter(name="functionId")
     def function_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique ID representing the Function object.
+        """
         return pulumi.get(self, "function_id")
 
     @function_id.setter
@@ -254,6 +329,9 @@ class _FunctionState:
     @property
     @pulumi.getter(name="functionVersion")
     def function_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
+        """
         return pulumi.get(self, "function_version")
 
     @function_version.setter
@@ -263,6 +341,9 @@ class _FunctionState:
     @property
     @pulumi.getter(name="maxBatchSize")
     def max_batch_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        """
         return pulumi.get(self, "max_batch_size")
 
     @max_batch_size.setter
@@ -272,6 +353,9 @@ class _FunctionState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Function name. The function name does not have to be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -281,6 +365,9 @@ class _FunctionState:
     @property
     @pulumi.getter(name="requestMappingTemplate")
     def request_mapping_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+        """
         return pulumi.get(self, "request_mapping_template")
 
     @request_mapping_template.setter
@@ -290,6 +377,9 @@ class _FunctionState:
     @property
     @pulumi.getter(name="responseMappingTemplate")
     def response_mapping_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        Function response mapping template.
+        """
         return pulumi.get(self, "response_mapping_template")
 
     @response_mapping_template.setter
@@ -299,6 +389,9 @@ class _FunctionState:
     @property
     @pulumi.getter
     def runtime(self) -> Optional[pulumi.Input['FunctionRuntimeArgs']]:
+        """
+        Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        """
         return pulumi.get(self, "runtime")
 
     @runtime.setter
@@ -308,6 +401,9 @@ class _FunctionState:
     @property
     @pulumi.getter(name="syncConfig")
     def sync_config(self) -> Optional[pulumi.Input['FunctionSyncConfigArgs']]:
+        """
+        Describes a Sync configuration for a resolver. See Sync Config.
+        """
         return pulumi.get(self, "sync_config")
 
     @sync_config.setter
@@ -333,9 +429,99 @@ class Function(pulumi.CustomResource):
                  sync_config: Optional[pulumi.Input[pulumi.InputType['FunctionSyncConfigArgs']]] = None,
                  __props__=None):
         """
-        Create a Function resource with the given unique name, props, and options.
+        Provides an AppSync Function.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi",
+            authentication_type="API_KEY",
+            schema=\"\"\"type Mutation {
+          putPost(id: ID!, title: String!): Post
+        }
+
+        type Post {
+          id: ID!
+          title: String!
+        }
+
+        type Query {
+          singlePost(id: ID!): Post
+        }
+
+        schema {
+          query: Query
+          mutation: Mutation
+        }
+        \"\"\")
+        example_data_source = aws.appsync.DataSource("exampleDataSource",
+            api_id=example_graph_ql_api.id,
+            name="example",
+            type="HTTP",
+            http_config=aws.appsync.DataSourceHttpConfigArgs(
+                endpoint="http://example.com",
+            ))
+        example_function = aws.appsync.Function("exampleFunction",
+            api_id=example_graph_ql_api.id,
+            data_source=example_data_source.name,
+            name="example",
+            request_mapping_template=\"\"\"{
+            "version": "2018-05-29",
+            "method": "GET",
+            "resourcePath": "/",
+            "params":{
+                "headers": $utils.http.copyheaders($ctx.request.headers)
+            }
+        }
+        \"\"\",
+            response_mapping_template=\"\"\"#if($ctx.result.statusCode == 200)
+            $ctx.result.body
+        #else
+            $utils.appendError($ctx.result.body, $ctx.result.statusCode)
+        #end
+        \"\"\")
+        ```
+        ### With Code
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.Function("example",
+            api_id=aws_appsync_graphql_api["example"]["id"],
+            data_source=aws_appsync_datasource["example"]["name"],
+            name="example",
+            code=(lambda path: open(path).read())("some-code-dir"),
+            runtime=aws.appsync.FunctionRuntimeArgs(
+                name="APPSYNC_JS",
+                runtime_version="1.0.0",
+            ))
+        ```
+
+        ## Import
+
+        `aws_appsync_function` can be imported using the AppSync API ID and Function ID separated by `-`, e.g.,
+
+        ```sh
+         $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_id: ID of the associated AppSync API.
+        :param pulumi.Input[str] code: The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        :param pulumi.Input[str] data_source: Function data source name.
+        :param pulumi.Input[str] description: Function description.
+        :param pulumi.Input[str] function_version: Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
+        :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        :param pulumi.Input[str] name: Function name. The function name does not have to be unique.
+        :param pulumi.Input[str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+        :param pulumi.Input[str] response_mapping_template: Function response mapping template.
+        :param pulumi.Input[pulumi.InputType['FunctionRuntimeArgs']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        :param pulumi.Input[pulumi.InputType['FunctionSyncConfigArgs']] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         """
         ...
     @overload
@@ -344,7 +530,86 @@ class Function(pulumi.CustomResource):
                  args: FunctionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Function resource with the given unique name, props, and options.
+        Provides an AppSync Function.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi",
+            authentication_type="API_KEY",
+            schema=\"\"\"type Mutation {
+          putPost(id: ID!, title: String!): Post
+        }
+
+        type Post {
+          id: ID!
+          title: String!
+        }
+
+        type Query {
+          singlePost(id: ID!): Post
+        }
+
+        schema {
+          query: Query
+          mutation: Mutation
+        }
+        \"\"\")
+        example_data_source = aws.appsync.DataSource("exampleDataSource",
+            api_id=example_graph_ql_api.id,
+            name="example",
+            type="HTTP",
+            http_config=aws.appsync.DataSourceHttpConfigArgs(
+                endpoint="http://example.com",
+            ))
+        example_function = aws.appsync.Function("exampleFunction",
+            api_id=example_graph_ql_api.id,
+            data_source=example_data_source.name,
+            name="example",
+            request_mapping_template=\"\"\"{
+            "version": "2018-05-29",
+            "method": "GET",
+            "resourcePath": "/",
+            "params":{
+                "headers": $utils.http.copyheaders($ctx.request.headers)
+            }
+        }
+        \"\"\",
+            response_mapping_template=\"\"\"#if($ctx.result.statusCode == 200)
+            $ctx.result.body
+        #else
+            $utils.appendError($ctx.result.body, $ctx.result.statusCode)
+        #end
+        \"\"\")
+        ```
+        ### With Code
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.Function("example",
+            api_id=aws_appsync_graphql_api["example"]["id"],
+            data_source=aws_appsync_datasource["example"]["name"],
+            name="example",
+            code=(lambda path: open(path).read())("some-code-dir"),
+            runtime=aws.appsync.FunctionRuntimeArgs(
+                name="APPSYNC_JS",
+                runtime_version="1.0.0",
+            ))
+        ```
+
+        ## Import
+
+        `aws_appsync_function` can be imported using the AppSync API ID and Function ID separated by `-`, e.g.,
+
+        ```sh
+         $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
+        ```
+
         :param str resource_name: The name of the resource.
         :param FunctionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -427,6 +692,19 @@ class Function(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_id: ID of the associated AppSync API.
+        :param pulumi.Input[str] arn: ARN of the Function object.
+        :param pulumi.Input[str] code: The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        :param pulumi.Input[str] data_source: Function data source name.
+        :param pulumi.Input[str] description: Function description.
+        :param pulumi.Input[str] function_id: Unique ID representing the Function object.
+        :param pulumi.Input[str] function_version: Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
+        :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        :param pulumi.Input[str] name: Function name. The function name does not have to be unique.
+        :param pulumi.Input[str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+        :param pulumi.Input[str] response_mapping_template: Function response mapping template.
+        :param pulumi.Input[pulumi.InputType['FunctionRuntimeArgs']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        :param pulumi.Input[pulumi.InputType['FunctionSyncConfigArgs']] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -450,65 +728,104 @@ class Function(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
+        """
+        ID of the associated AppSync API.
+        """
         return pulumi.get(self, "api_id")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the Function object.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def code(self) -> pulumi.Output[Optional[str]]:
+        """
+        The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        """
         return pulumi.get(self, "code")
 
     @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Output[str]:
+        """
+        Function data source name.
+        """
         return pulumi.get(self, "data_source")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Function description.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="functionId")
     def function_id(self) -> pulumi.Output[str]:
+        """
+        Unique ID representing the Function object.
+        """
         return pulumi.get(self, "function_id")
 
     @property
     @pulumi.getter(name="functionVersion")
     def function_version(self) -> pulumi.Output[str]:
+        """
+        Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
+        """
         return pulumi.get(self, "function_version")
 
     @property
     @pulumi.getter(name="maxBatchSize")
     def max_batch_size(self) -> pulumi.Output[Optional[int]]:
+        """
+        Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        """
         return pulumi.get(self, "max_batch_size")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Function name. The function name does not have to be unique.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="requestMappingTemplate")
     def request_mapping_template(self) -> pulumi.Output[Optional[str]]:
+        """
+        Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+        """
         return pulumi.get(self, "request_mapping_template")
 
     @property
     @pulumi.getter(name="responseMappingTemplate")
     def response_mapping_template(self) -> pulumi.Output[Optional[str]]:
+        """
+        Function response mapping template.
+        """
         return pulumi.get(self, "response_mapping_template")
 
     @property
     @pulumi.getter
     def runtime(self) -> pulumi.Output[Optional['outputs.FunctionRuntime']]:
+        """
+        Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        """
         return pulumi.get(self, "runtime")
 
     @property
     @pulumi.getter(name="syncConfig")
     def sync_config(self) -> pulumi.Output[Optional['outputs.FunctionSyncConfig']]:
+        """
+        Describes a Sync configuration for a resolver. See Sync Config.
+        """
         return pulumi.get(self, "sync_config")
 

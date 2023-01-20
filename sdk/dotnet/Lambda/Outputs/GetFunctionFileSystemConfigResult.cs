@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class GetFunctionFileSystemConfigResult
     {
+        /// <summary>
+        /// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
+        /// </summary>
         public readonly string Arn;
         public readonly string LocalMountPath;
 

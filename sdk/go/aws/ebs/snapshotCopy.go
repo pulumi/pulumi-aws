@@ -11,26 +11,91 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a Snapshot of a snapshot.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
+//				AvailabilityZone: pulumi.String("us-west-2a"),
+//				Size:             pulumi.Int(40),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("HelloWorld"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSnapshot, err := ebs.NewSnapshot(ctx, "exampleSnapshot", &ebs.SnapshotArgs{
+//				VolumeId: example.ID(),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("HelloWorld_snap"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ebs.NewSnapshotCopy(ctx, "exampleCopy", &ebs.SnapshotCopyArgs{
+//				SourceSnapshotId: exampleSnapshot.ID(),
+//				SourceRegion:     pulumi.String("us-west-2"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("HelloWorld_copy_snap"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type SnapshotCopy struct {
 	pulumi.CustomResourceState
 
-	Arn                  pulumi.StringOutput    `pulumi:"arn"`
-	DataEncryptionKeyId  pulumi.StringOutput    `pulumi:"dataEncryptionKeyId"`
-	Description          pulumi.StringPtrOutput `pulumi:"description"`
-	Encrypted            pulumi.BoolPtrOutput   `pulumi:"encrypted"`
-	KmsKeyId             pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	OutpostArn           pulumi.StringOutput    `pulumi:"outpostArn"`
-	OwnerAlias           pulumi.StringOutput    `pulumi:"ownerAlias"`
-	OwnerId              pulumi.StringOutput    `pulumi:"ownerId"`
-	PermanentRestore     pulumi.BoolPtrOutput   `pulumi:"permanentRestore"`
-	SourceRegion         pulumi.StringOutput    `pulumi:"sourceRegion"`
-	SourceSnapshotId     pulumi.StringOutput    `pulumi:"sourceSnapshotId"`
-	StorageTier          pulumi.StringOutput    `pulumi:"storageTier"`
-	Tags                 pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll              pulumi.StringMapOutput `pulumi:"tagsAll"`
-	TemporaryRestoreDays pulumi.IntPtrOutput    `pulumi:"temporaryRestoreDays"`
-	VolumeId             pulumi.StringOutput    `pulumi:"volumeId"`
-	VolumeSize           pulumi.IntOutput       `pulumi:"volumeSize"`
+	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The data encryption key identifier for the snapshot.
+	DataEncryptionKeyId pulumi.StringOutput `pulumi:"dataEncryptionKeyId"`
+	// A description of what the snapshot is.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Whether the snapshot is encrypted.
+	Encrypted pulumi.BoolPtrOutput `pulumi:"encrypted"`
+	// The ARN for the KMS encryption key.
+	KmsKeyId   pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	OutpostArn pulumi.StringOutput    `pulumi:"outpostArn"`
+	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
+	OwnerAlias pulumi.StringOutput `pulumi:"ownerAlias"`
+	// The AWS account ID of the snapshot owner.
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// Indicates whether to permanently restore an archived snapshot.
+	PermanentRestore pulumi.BoolPtrOutput `pulumi:"permanentRestore"`
+	// The region of the source snapshot.
+	SourceRegion pulumi.StringOutput `pulumi:"sourceRegion"`
+	// The ARN for the snapshot to be copied.
+	SourceSnapshotId pulumi.StringOutput `pulumi:"sourceSnapshotId"`
+	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+	StorageTier pulumi.StringOutput `pulumi:"storageTier"`
+	// A map of tags for the snapshot.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+	TemporaryRestoreDays pulumi.IntPtrOutput `pulumi:"temporaryRestoreDays"`
+	VolumeId             pulumi.StringOutput `pulumi:"volumeId"`
+	// The size of the drive in GiBs.
+	VolumeSize pulumi.IntOutput `pulumi:"volumeSize"`
 }
 
 // NewSnapshotCopy registers a new resource with the given unique name, arguments, and options.
@@ -68,43 +133,73 @@ func GetSnapshotCopy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SnapshotCopy resources.
 type snapshotCopyState struct {
-	Arn                  *string           `pulumi:"arn"`
-	DataEncryptionKeyId  *string           `pulumi:"dataEncryptionKeyId"`
-	Description          *string           `pulumi:"description"`
-	Encrypted            *bool             `pulumi:"encrypted"`
-	KmsKeyId             *string           `pulumi:"kmsKeyId"`
-	OutpostArn           *string           `pulumi:"outpostArn"`
-	OwnerAlias           *string           `pulumi:"ownerAlias"`
-	OwnerId              *string           `pulumi:"ownerId"`
-	PermanentRestore     *bool             `pulumi:"permanentRestore"`
-	SourceRegion         *string           `pulumi:"sourceRegion"`
-	SourceSnapshotId     *string           `pulumi:"sourceSnapshotId"`
-	StorageTier          *string           `pulumi:"storageTier"`
-	Tags                 map[string]string `pulumi:"tags"`
-	TagsAll              map[string]string `pulumi:"tagsAll"`
-	TemporaryRestoreDays *int              `pulumi:"temporaryRestoreDays"`
-	VolumeId             *string           `pulumi:"volumeId"`
-	VolumeSize           *int              `pulumi:"volumeSize"`
+	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	Arn *string `pulumi:"arn"`
+	// The data encryption key identifier for the snapshot.
+	DataEncryptionKeyId *string `pulumi:"dataEncryptionKeyId"`
+	// A description of what the snapshot is.
+	Description *string `pulumi:"description"`
+	// Whether the snapshot is encrypted.
+	Encrypted *bool `pulumi:"encrypted"`
+	// The ARN for the KMS encryption key.
+	KmsKeyId   *string `pulumi:"kmsKeyId"`
+	OutpostArn *string `pulumi:"outpostArn"`
+	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
+	OwnerAlias *string `pulumi:"ownerAlias"`
+	// The AWS account ID of the snapshot owner.
+	OwnerId *string `pulumi:"ownerId"`
+	// Indicates whether to permanently restore an archived snapshot.
+	PermanentRestore *bool `pulumi:"permanentRestore"`
+	// The region of the source snapshot.
+	SourceRegion *string `pulumi:"sourceRegion"`
+	// The ARN for the snapshot to be copied.
+	SourceSnapshotId *string `pulumi:"sourceSnapshotId"`
+	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+	StorageTier *string `pulumi:"storageTier"`
+	// A map of tags for the snapshot.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+	TemporaryRestoreDays *int    `pulumi:"temporaryRestoreDays"`
+	VolumeId             *string `pulumi:"volumeId"`
+	// The size of the drive in GiBs.
+	VolumeSize *int `pulumi:"volumeSize"`
 }
 
 type SnapshotCopyState struct {
-	Arn                  pulumi.StringPtrInput
-	DataEncryptionKeyId  pulumi.StringPtrInput
-	Description          pulumi.StringPtrInput
-	Encrypted            pulumi.BoolPtrInput
-	KmsKeyId             pulumi.StringPtrInput
-	OutpostArn           pulumi.StringPtrInput
-	OwnerAlias           pulumi.StringPtrInput
-	OwnerId              pulumi.StringPtrInput
-	PermanentRestore     pulumi.BoolPtrInput
-	SourceRegion         pulumi.StringPtrInput
-	SourceSnapshotId     pulumi.StringPtrInput
-	StorageTier          pulumi.StringPtrInput
-	Tags                 pulumi.StringMapInput
-	TagsAll              pulumi.StringMapInput
+	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	Arn pulumi.StringPtrInput
+	// The data encryption key identifier for the snapshot.
+	DataEncryptionKeyId pulumi.StringPtrInput
+	// A description of what the snapshot is.
+	Description pulumi.StringPtrInput
+	// Whether the snapshot is encrypted.
+	Encrypted pulumi.BoolPtrInput
+	// The ARN for the KMS encryption key.
+	KmsKeyId   pulumi.StringPtrInput
+	OutpostArn pulumi.StringPtrInput
+	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
+	OwnerAlias pulumi.StringPtrInput
+	// The AWS account ID of the snapshot owner.
+	OwnerId pulumi.StringPtrInput
+	// Indicates whether to permanently restore an archived snapshot.
+	PermanentRestore pulumi.BoolPtrInput
+	// The region of the source snapshot.
+	SourceRegion pulumi.StringPtrInput
+	// The ARN for the snapshot to be copied.
+	SourceSnapshotId pulumi.StringPtrInput
+	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+	StorageTier pulumi.StringPtrInput
+	// A map of tags for the snapshot.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
 	TemporaryRestoreDays pulumi.IntPtrInput
 	VolumeId             pulumi.StringPtrInput
-	VolumeSize           pulumi.IntPtrInput
+	// The size of the drive in GiBs.
+	VolumeSize pulumi.IntPtrInput
 }
 
 func (SnapshotCopyState) ElementType() reflect.Type {
@@ -112,27 +207,45 @@ func (SnapshotCopyState) ElementType() reflect.Type {
 }
 
 type snapshotCopyArgs struct {
-	Description          *string           `pulumi:"description"`
-	Encrypted            *bool             `pulumi:"encrypted"`
-	KmsKeyId             *string           `pulumi:"kmsKeyId"`
-	PermanentRestore     *bool             `pulumi:"permanentRestore"`
-	SourceRegion         string            `pulumi:"sourceRegion"`
-	SourceSnapshotId     string            `pulumi:"sourceSnapshotId"`
-	StorageTier          *string           `pulumi:"storageTier"`
-	Tags                 map[string]string `pulumi:"tags"`
-	TemporaryRestoreDays *int              `pulumi:"temporaryRestoreDays"`
+	// A description of what the snapshot is.
+	Description *string `pulumi:"description"`
+	// Whether the snapshot is encrypted.
+	Encrypted *bool `pulumi:"encrypted"`
+	// The ARN for the KMS encryption key.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Indicates whether to permanently restore an archived snapshot.
+	PermanentRestore *bool `pulumi:"permanentRestore"`
+	// The region of the source snapshot.
+	SourceRegion string `pulumi:"sourceRegion"`
+	// The ARN for the snapshot to be copied.
+	SourceSnapshotId string `pulumi:"sourceSnapshotId"`
+	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+	StorageTier *string `pulumi:"storageTier"`
+	// A map of tags for the snapshot.
+	Tags map[string]string `pulumi:"tags"`
+	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+	TemporaryRestoreDays *int `pulumi:"temporaryRestoreDays"`
 }
 
 // The set of arguments for constructing a SnapshotCopy resource.
 type SnapshotCopyArgs struct {
-	Description          pulumi.StringPtrInput
-	Encrypted            pulumi.BoolPtrInput
-	KmsKeyId             pulumi.StringPtrInput
-	PermanentRestore     pulumi.BoolPtrInput
-	SourceRegion         pulumi.StringInput
-	SourceSnapshotId     pulumi.StringInput
-	StorageTier          pulumi.StringPtrInput
-	Tags                 pulumi.StringMapInput
+	// A description of what the snapshot is.
+	Description pulumi.StringPtrInput
+	// Whether the snapshot is encrypted.
+	Encrypted pulumi.BoolPtrInput
+	// The ARN for the KMS encryption key.
+	KmsKeyId pulumi.StringPtrInput
+	// Indicates whether to permanently restore an archived snapshot.
+	PermanentRestore pulumi.BoolPtrInput
+	// The region of the source snapshot.
+	SourceRegion pulumi.StringInput
+	// The ARN for the snapshot to be copied.
+	SourceSnapshotId pulumi.StringInput
+	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+	StorageTier pulumi.StringPtrInput
+	// A map of tags for the snapshot.
+	Tags pulumi.StringMapInput
+	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
 	TemporaryRestoreDays pulumi.IntPtrInput
 }
 
@@ -223,22 +336,27 @@ func (o SnapshotCopyOutput) ToSnapshotCopyOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Amazon Resource Name (ARN) of the EBS Snapshot.
 func (o SnapshotCopyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The data encryption key identifier for the snapshot.
 func (o SnapshotCopyOutput) DataEncryptionKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.DataEncryptionKeyId }).(pulumi.StringOutput)
 }
 
+// A description of what the snapshot is.
 func (o SnapshotCopyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Whether the snapshot is encrypted.
 func (o SnapshotCopyOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.BoolPtrOutput { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
+// The ARN for the KMS encryption key.
 func (o SnapshotCopyOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -247,38 +365,47 @@ func (o SnapshotCopyOutput) OutpostArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.OutpostArn }).(pulumi.StringOutput)
 }
 
+// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 func (o SnapshotCopyOutput) OwnerAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.OwnerAlias }).(pulumi.StringOutput)
 }
 
+// The AWS account ID of the snapshot owner.
 func (o SnapshotCopyOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
+// Indicates whether to permanently restore an archived snapshot.
 func (o SnapshotCopyOutput) PermanentRestore() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.BoolPtrOutput { return v.PermanentRestore }).(pulumi.BoolPtrOutput)
 }
 
+// The region of the source snapshot.
 func (o SnapshotCopyOutput) SourceRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.SourceRegion }).(pulumi.StringOutput)
 }
 
+// The ARN for the snapshot to be copied.
 func (o SnapshotCopyOutput) SourceSnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.SourceSnapshotId }).(pulumi.StringOutput)
 }
 
+// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
 func (o SnapshotCopyOutput) StorageTier() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.StorageTier }).(pulumi.StringOutput)
 }
 
+// A map of tags for the snapshot.
 func (o SnapshotCopyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SnapshotCopyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
 func (o SnapshotCopyOutput) TemporaryRestoreDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.IntPtrOutput { return v.TemporaryRestoreDays }).(pulumi.IntPtrOutput)
 }
@@ -287,6 +414,7 @@ func (o SnapshotCopyOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.VolumeId }).(pulumi.StringOutput)
 }
 
+// The size of the drive in GiBs.
 func (o SnapshotCopyOutput) VolumeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.IntOutput { return v.VolumeSize }).(pulumi.IntOutput)
 }

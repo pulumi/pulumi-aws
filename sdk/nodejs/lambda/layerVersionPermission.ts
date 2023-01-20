@@ -4,6 +4,36 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Lambda Layer Version Permission resource. It allows you to share you own Lambda Layers to another account by account ID, to all accounts in AWS organization or even to all AWS accounts.
+ *
+ * For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda][1]
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const lambdaLayerPermission = new aws.lambda.LayerVersionPermission("lambdaLayerPermission", {
+ *     action: "lambda:GetLayerVersion",
+ *     layerName: "arn:aws:lambda:us-west-2:123456654321:layer:test_layer1",
+ *     principal: "111111111111",
+ *     statementId: "dev-account",
+ *     versionNumber: 1,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Lambda Layer Permissions can be imported using `layer_name` and `version_number`, separated by a comma (`,`).
+ *
+ * ```sh
+ *  $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
+ * ```
+ *
+ *  [1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
+ */
 export class LayerVersionPermission extends pulumi.CustomResource {
     /**
      * Get an existing LayerVersionPermission resource's state with the given name, ID, and optional extra
@@ -32,13 +62,37 @@ export class LayerVersionPermission extends pulumi.CustomResource {
         return obj['__pulumiType'] === LayerVersionPermission.__pulumiType;
     }
 
+    /**
+     * Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+     */
     public readonly action!: pulumi.Output<string>;
+    /**
+     * The name or ARN of the Lambda Layer, which you want to grant access to.
+     */
     public readonly layerName!: pulumi.Output<string>;
+    /**
+     * An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organizationId` provided.
+     */
     public readonly organizationId!: pulumi.Output<string | undefined>;
+    /**
+     * Full Lambda Layer Permission policy.
+     */
     public /*out*/ readonly policy!: pulumi.Output<string>;
+    /**
+     * AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+     */
     public readonly principal!: pulumi.Output<string>;
+    /**
+     * A unique identifier for the current revision of the policy.
+     */
     public /*out*/ readonly revisionId!: pulumi.Output<string>;
+    /**
+     * The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+     */
     public readonly statementId!: pulumi.Output<string>;
+    /**
+     * Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
+     */
     public readonly versionNumber!: pulumi.Output<number>;
 
     /**
@@ -97,13 +151,37 @@ export class LayerVersionPermission extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LayerVersionPermission resources.
  */
 export interface LayerVersionPermissionState {
+    /**
+     * Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+     */
     action?: pulumi.Input<string>;
+    /**
+     * The name or ARN of the Lambda Layer, which you want to grant access to.
+     */
     layerName?: pulumi.Input<string>;
+    /**
+     * An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organizationId` provided.
+     */
     organizationId?: pulumi.Input<string>;
+    /**
+     * Full Lambda Layer Permission policy.
+     */
     policy?: pulumi.Input<string>;
+    /**
+     * AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+     */
     principal?: pulumi.Input<string>;
+    /**
+     * A unique identifier for the current revision of the policy.
+     */
     revisionId?: pulumi.Input<string>;
+    /**
+     * The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+     */
     statementId?: pulumi.Input<string>;
+    /**
+     * Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
+     */
     versionNumber?: pulumi.Input<number>;
 }
 
@@ -111,10 +189,28 @@ export interface LayerVersionPermissionState {
  * The set of arguments for constructing a LayerVersionPermission resource.
  */
 export interface LayerVersionPermissionArgs {
+    /**
+     * Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+     */
     action: pulumi.Input<string>;
+    /**
+     * The name or ARN of the Lambda Layer, which you want to grant access to.
+     */
     layerName: pulumi.Input<string>;
+    /**
+     * An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organizationId` provided.
+     */
     organizationId?: pulumi.Input<string>;
+    /**
+     * AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+     */
     principal: pulumi.Input<string>;
+    /**
+     * The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+     */
     statementId: pulumi.Input<string>;
+    /**
+     * Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
+     */
     versionNumber: pulumi.Input<number>;
 }

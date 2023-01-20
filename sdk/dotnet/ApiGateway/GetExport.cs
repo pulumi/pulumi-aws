@@ -11,9 +11,57 @@ namespace Pulumi.Aws.ApiGateway
 {
     public static class GetExport
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ApiGateway.GetExport.Invoke(new()
+        ///     {
+        ///         RestApiId = aws_api_gateway_stage.Example.Rest_api_id,
+        ///         StageName = aws_api_gateway_stage.Example.Stage_name,
+        ///         ExportType = "oas30",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("aws:apigateway/getExport:getExport", args ?? new GetExportArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ApiGateway.GetExport.Invoke(new()
+        ///     {
+        ///         RestApiId = aws_api_gateway_stage.Example.Rest_api_id,
+        ///         StageName = aws_api_gateway_stage.Example.Stage_name,
+        ///         ExportType = "oas30",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportResult>("aws:apigateway/getExport:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
     }
@@ -21,23 +69,39 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class GetExportArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+        /// </summary>
         [Input("accepts")]
         public string? Accepts { get; set; }
 
+        /// <summary>
+        /// Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
+        /// </summary>
         [Input("exportType", required: true)]
         public string ExportType { get; set; } = null!;
 
         [Input("parameters")]
         private Dictionary<string, string>? _parameters;
+
+        /// <summary>
+        /// Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
+        /// </summary>
         public Dictionary<string, string> Parameters
         {
             get => _parameters ?? (_parameters = new Dictionary<string, string>());
             set => _parameters = value;
         }
 
+        /// <summary>
+        /// Identifier of the associated REST API.
+        /// </summary>
         [Input("restApiId", required: true)]
         public string RestApiId { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the Stage that will be exported.
+        /// </summary>
         [Input("stageName", required: true)]
         public string StageName { get; set; } = null!;
 
@@ -49,23 +113,39 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class GetExportInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+        /// </summary>
         [Input("accepts")]
         public Input<string>? Accepts { get; set; }
 
+        /// <summary>
+        /// Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
+        /// </summary>
         [Input("exportType", required: true)]
         public Input<string> ExportType { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<string>? _parameters;
+
+        /// <summary>
+        /// Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
+        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
+        /// <summary>
+        /// Identifier of the associated REST API.
+        /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the Stage that will be exported.
+        /// </summary>
         [Input("stageName", required: true)]
         public Input<string> StageName { get; set; } = null!;
 
@@ -80,8 +160,17 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetExportResult
     {
         public readonly string? Accepts;
+        /// <summary>
+        /// API Spec.
+        /// </summary>
         public readonly string Body;
+        /// <summary>
+        /// Content-disposition header value in the HTTP response.
+        /// </summary>
         public readonly string ContentDisposition;
+        /// <summary>
+        /// Content-type header value in the HTTP response.
+        /// </summary>
         public readonly string ContentType;
         public readonly string ExportType;
         /// <summary>

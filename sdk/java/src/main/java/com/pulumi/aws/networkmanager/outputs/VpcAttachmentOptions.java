@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VpcAttachmentOptions {
+    /**
+     * @return Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+     * 
+     */
     private @Nullable Boolean applianceModeSupport;
+    /**
+     * @return Indicates whether IPv6 is supported.
+     * 
+     */
     private @Nullable Boolean ipv6Support;
 
     private VpcAttachmentOptions() {}
+    /**
+     * @return Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+     * 
+     */
     public Optional<Boolean> applianceModeSupport() {
         return Optional.ofNullable(this.applianceModeSupport);
     }
+    /**
+     * @return Indicates whether IPv6 is supported.
+     * 
+     */
     public Optional<Boolean> ipv6Support() {
         return Optional.ofNullable(this.ipv6Support);
     }

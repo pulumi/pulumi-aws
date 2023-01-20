@@ -11,21 +11,79 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages the accepter's side of an EC2 Transit Gateway VPC Attachment.
+//
+// When a cross-account (requester's AWS account differs from the accepter's AWS account) EC2 Transit Gateway VPC Attachment
+// is created, an EC2 Transit Gateway VPC Attachment resource is automatically created in the accepter's account.
+// The requester can use the `ec2transitgateway.VpcAttachment` resource to manage its side of the connection
+// and the accepter can use the `ec2transitgateway.VpcAttachmentAccepter` resource to "adopt" its side of the
+// connection into management.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2transitgateway.NewVpcAttachmentAccepter(ctx, "example", &ec2transitgateway.VpcAttachmentAccepterArgs{
+//				TransitGatewayAttachmentId: pulumi.Any(aws_ec2_transit_gateway_vpc_attachment.Example.Id),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Example cross-account attachment"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_ec2_transit_gateway_vpc_attachment_accepter` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
+//
+// ```
 type VpcAttachmentAccepter struct {
 	pulumi.CustomResourceState
 
-	ApplianceModeSupport                       pulumi.StringOutput      `pulumi:"applianceModeSupport"`
-	DnsSupport                                 pulumi.StringOutput      `pulumi:"dnsSupport"`
-	Ipv6Support                                pulumi.StringOutput      `pulumi:"ipv6Support"`
-	SubnetIds                                  pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	Tags                                       pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll                                    pulumi.StringMapOutput   `pulumi:"tagsAll"`
-	TransitGatewayAttachmentId                 pulumi.StringOutput      `pulumi:"transitGatewayAttachmentId"`
-	TransitGatewayDefaultRouteTableAssociation pulumi.BoolPtrOutput     `pulumi:"transitGatewayDefaultRouteTableAssociation"`
-	TransitGatewayDefaultRouteTablePropagation pulumi.BoolPtrOutput     `pulumi:"transitGatewayDefaultRouteTablePropagation"`
-	TransitGatewayId                           pulumi.StringOutput      `pulumi:"transitGatewayId"`
-	VpcId                                      pulumi.StringOutput      `pulumi:"vpcId"`
-	VpcOwnerId                                 pulumi.StringOutput      `pulumi:"vpcOwnerId"`
+	// Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
+	ApplianceModeSupport pulumi.StringOutput `pulumi:"applianceModeSupport"`
+	// Whether DNS support is enabled. Valid values: `disable`, `enable`.
+	DnsSupport pulumi.StringOutput `pulumi:"dnsSupport"`
+	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
+	Ipv6Support pulumi.StringOutput `pulumi:"ipv6Support"`
+	// Identifiers of EC2 Subnets.
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The ID of the EC2 Transit Gateway Attachment to manage.
+	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
+	// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
+	TransitGatewayDefaultRouteTableAssociation pulumi.BoolPtrOutput `pulumi:"transitGatewayDefaultRouteTableAssociation"`
+	// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
+	TransitGatewayDefaultRouteTablePropagation pulumi.BoolPtrOutput `pulumi:"transitGatewayDefaultRouteTablePropagation"`
+	// Identifier of EC2 Transit Gateway.
+	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
+	// Identifier of EC2 VPC.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	// Identifier of the AWS account that owns the EC2 VPC.
+	VpcOwnerId pulumi.StringOutput `pulumi:"vpcOwnerId"`
 }
 
 // NewVpcAttachmentAccepter registers a new resource with the given unique name, arguments, and options.
@@ -60,33 +118,57 @@ func GetVpcAttachmentAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcAttachmentAccepter resources.
 type vpcAttachmentAccepterState struct {
-	ApplianceModeSupport                       *string           `pulumi:"applianceModeSupport"`
-	DnsSupport                                 *string           `pulumi:"dnsSupport"`
-	Ipv6Support                                *string           `pulumi:"ipv6Support"`
-	SubnetIds                                  []string          `pulumi:"subnetIds"`
-	Tags                                       map[string]string `pulumi:"tags"`
-	TagsAll                                    map[string]string `pulumi:"tagsAll"`
-	TransitGatewayAttachmentId                 *string           `pulumi:"transitGatewayAttachmentId"`
-	TransitGatewayDefaultRouteTableAssociation *bool             `pulumi:"transitGatewayDefaultRouteTableAssociation"`
-	TransitGatewayDefaultRouteTablePropagation *bool             `pulumi:"transitGatewayDefaultRouteTablePropagation"`
-	TransitGatewayId                           *string           `pulumi:"transitGatewayId"`
-	VpcId                                      *string           `pulumi:"vpcId"`
-	VpcOwnerId                                 *string           `pulumi:"vpcOwnerId"`
+	// Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
+	ApplianceModeSupport *string `pulumi:"applianceModeSupport"`
+	// Whether DNS support is enabled. Valid values: `disable`, `enable`.
+	DnsSupport *string `pulumi:"dnsSupport"`
+	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
+	Ipv6Support *string `pulumi:"ipv6Support"`
+	// Identifiers of EC2 Subnets.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The ID of the EC2 Transit Gateway Attachment to manage.
+	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
+	// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
+	TransitGatewayDefaultRouteTableAssociation *bool `pulumi:"transitGatewayDefaultRouteTableAssociation"`
+	// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
+	TransitGatewayDefaultRouteTablePropagation *bool `pulumi:"transitGatewayDefaultRouteTablePropagation"`
+	// Identifier of EC2 Transit Gateway.
+	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	// Identifier of EC2 VPC.
+	VpcId *string `pulumi:"vpcId"`
+	// Identifier of the AWS account that owns the EC2 VPC.
+	VpcOwnerId *string `pulumi:"vpcOwnerId"`
 }
 
 type VpcAttachmentAccepterState struct {
-	ApplianceModeSupport                       pulumi.StringPtrInput
-	DnsSupport                                 pulumi.StringPtrInput
-	Ipv6Support                                pulumi.StringPtrInput
-	SubnetIds                                  pulumi.StringArrayInput
-	Tags                                       pulumi.StringMapInput
-	TagsAll                                    pulumi.StringMapInput
-	TransitGatewayAttachmentId                 pulumi.StringPtrInput
+	// Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
+	ApplianceModeSupport pulumi.StringPtrInput
+	// Whether DNS support is enabled. Valid values: `disable`, `enable`.
+	DnsSupport pulumi.StringPtrInput
+	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
+	Ipv6Support pulumi.StringPtrInput
+	// Identifiers of EC2 Subnets.
+	SubnetIds pulumi.StringArrayInput
+	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// The ID of the EC2 Transit Gateway Attachment to manage.
+	TransitGatewayAttachmentId pulumi.StringPtrInput
+	// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
 	TransitGatewayDefaultRouteTableAssociation pulumi.BoolPtrInput
+	// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
 	TransitGatewayDefaultRouteTablePropagation pulumi.BoolPtrInput
-	TransitGatewayId                           pulumi.StringPtrInput
-	VpcId                                      pulumi.StringPtrInput
-	VpcOwnerId                                 pulumi.StringPtrInput
+	// Identifier of EC2 Transit Gateway.
+	TransitGatewayId pulumi.StringPtrInput
+	// Identifier of EC2 VPC.
+	VpcId pulumi.StringPtrInput
+	// Identifier of the AWS account that owns the EC2 VPC.
+	VpcOwnerId pulumi.StringPtrInput
 }
 
 func (VpcAttachmentAccepterState) ElementType() reflect.Type {
@@ -94,17 +176,25 @@ func (VpcAttachmentAccepterState) ElementType() reflect.Type {
 }
 
 type vpcAttachmentAccepterArgs struct {
-	Tags                                       map[string]string `pulumi:"tags"`
-	TransitGatewayAttachmentId                 string            `pulumi:"transitGatewayAttachmentId"`
-	TransitGatewayDefaultRouteTableAssociation *bool             `pulumi:"transitGatewayDefaultRouteTableAssociation"`
-	TransitGatewayDefaultRouteTablePropagation *bool             `pulumi:"transitGatewayDefaultRouteTablePropagation"`
+	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// The ID of the EC2 Transit Gateway Attachment to manage.
+	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
+	// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
+	TransitGatewayDefaultRouteTableAssociation *bool `pulumi:"transitGatewayDefaultRouteTableAssociation"`
+	// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
+	TransitGatewayDefaultRouteTablePropagation *bool `pulumi:"transitGatewayDefaultRouteTablePropagation"`
 }
 
 // The set of arguments for constructing a VpcAttachmentAccepter resource.
 type VpcAttachmentAccepterArgs struct {
-	Tags                                       pulumi.StringMapInput
-	TransitGatewayAttachmentId                 pulumi.StringInput
+	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// The ID of the EC2 Transit Gateway Attachment to manage.
+	TransitGatewayAttachmentId pulumi.StringInput
+	// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
 	TransitGatewayDefaultRouteTableAssociation pulumi.BoolPtrInput
+	// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
 	TransitGatewayDefaultRouteTablePropagation pulumi.BoolPtrInput
 }
 
@@ -195,54 +285,66 @@ func (o VpcAttachmentAccepterOutput) ToVpcAttachmentAccepterOutputWithContext(ct
 	return o
 }
 
+// Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
 func (o VpcAttachmentAccepterOutput) ApplianceModeSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.ApplianceModeSupport }).(pulumi.StringOutput)
 }
 
+// Whether DNS support is enabled. Valid values: `disable`, `enable`.
 func (o VpcAttachmentAccepterOutput) DnsSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.DnsSupport }).(pulumi.StringOutput)
 }
 
+// Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
 func (o VpcAttachmentAccepterOutput) Ipv6Support() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.Ipv6Support }).(pulumi.StringOutput)
 }
 
+// Identifiers of EC2 Subnets.
 func (o VpcAttachmentAccepterOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcAttachmentAccepterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcAttachmentAccepterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// The ID of the EC2 Transit Gateway Attachment to manage.
 func (o VpcAttachmentAccepterOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
 }
 
+// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
 func (o VpcAttachmentAccepterOutput) TransitGatewayDefaultRouteTableAssociation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.BoolPtrOutput {
 		return v.TransitGatewayDefaultRouteTableAssociation
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
 func (o VpcAttachmentAccepterOutput) TransitGatewayDefaultRouteTablePropagation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.BoolPtrOutput {
 		return v.TransitGatewayDefaultRouteTablePropagation
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Identifier of EC2 Transit Gateway.
 func (o VpcAttachmentAccepterOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
 }
 
+// Identifier of EC2 VPC.
 func (o VpcAttachmentAccepterOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
+// Identifier of the AWS account that owns the EC2 VPC.
 func (o VpcAttachmentAccepterOutput) VpcOwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.VpcOwnerId }).(pulumi.StringOutput)
 }

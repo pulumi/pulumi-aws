@@ -13,8 +13,17 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class GetDomainLogPublishingOptionResult
     {
+        /// <summary>
+        /// CloudWatch Log Group where the logs are published.
+        /// </summary>
         public readonly string CloudwatchLogGroupArn;
+        /// <summary>
+        /// Whether node to node encryption is enabled.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// Type of OpenSearch log being published.
+        /// </summary>
         public readonly string LogType;
 
         [OutputConstructor]

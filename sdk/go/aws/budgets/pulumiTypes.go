@@ -11,7 +11,9 @@ import (
 )
 
 type BudgetActionActionThreshold struct {
-	ActionThresholdType  string  `pulumi:"actionThresholdType"`
+	// The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
+	ActionThresholdType string `pulumi:"actionThresholdType"`
+	// The threshold of a notification.
 	ActionThresholdValue float64 `pulumi:"actionThresholdValue"`
 }
 
@@ -27,7 +29,9 @@ type BudgetActionActionThresholdInput interface {
 }
 
 type BudgetActionActionThresholdArgs struct {
-	ActionThresholdType  pulumi.StringInput  `pulumi:"actionThresholdType"`
+	// The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
+	ActionThresholdType pulumi.StringInput `pulumi:"actionThresholdType"`
+	// The threshold of a notification.
 	ActionThresholdValue pulumi.Float64Input `pulumi:"actionThresholdValue"`
 }
 
@@ -108,10 +112,12 @@ func (o BudgetActionActionThresholdOutput) ToBudgetActionActionThresholdPtrOutpu
 	}).(BudgetActionActionThresholdPtrOutput)
 }
 
+// The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
 func (o BudgetActionActionThresholdOutput) ActionThresholdType() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetActionActionThreshold) string { return v.ActionThresholdType }).(pulumi.StringOutput)
 }
 
+// The threshold of a notification.
 func (o BudgetActionActionThresholdOutput) ActionThresholdValue() pulumi.Float64Output {
 	return o.ApplyT(func(v BudgetActionActionThreshold) float64 { return v.ActionThresholdValue }).(pulumi.Float64Output)
 }
@@ -140,6 +146,7 @@ func (o BudgetActionActionThresholdPtrOutput) Elem() BudgetActionActionThreshold
 	}).(BudgetActionActionThresholdOutput)
 }
 
+// The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
 func (o BudgetActionActionThresholdPtrOutput) ActionThresholdType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetActionActionThreshold) *string {
 		if v == nil {
@@ -149,6 +156,7 @@ func (o BudgetActionActionThresholdPtrOutput) ActionThresholdType() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The threshold of a notification.
 func (o BudgetActionActionThresholdPtrOutput) ActionThresholdValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *BudgetActionActionThreshold) *float64 {
 		if v == nil {
@@ -159,8 +167,11 @@ func (o BudgetActionActionThresholdPtrOutput) ActionThresholdValue() pulumi.Floa
 }
 
 type BudgetActionDefinition struct {
+	// The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
 	IamActionDefinition *BudgetActionDefinitionIamActionDefinition `pulumi:"iamActionDefinition"`
+	// The service control policies (SCPs) action definition details. See SCP Action Definition.
 	ScpActionDefinition *BudgetActionDefinitionScpActionDefinition `pulumi:"scpActionDefinition"`
+	// The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
 	SsmActionDefinition *BudgetActionDefinitionSsmActionDefinition `pulumi:"ssmActionDefinition"`
 }
 
@@ -176,8 +187,11 @@ type BudgetActionDefinitionInput interface {
 }
 
 type BudgetActionDefinitionArgs struct {
+	// The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
 	IamActionDefinition BudgetActionDefinitionIamActionDefinitionPtrInput `pulumi:"iamActionDefinition"`
+	// The service control policies (SCPs) action definition details. See SCP Action Definition.
 	ScpActionDefinition BudgetActionDefinitionScpActionDefinitionPtrInput `pulumi:"scpActionDefinition"`
+	// The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
 	SsmActionDefinition BudgetActionDefinitionSsmActionDefinitionPtrInput `pulumi:"ssmActionDefinition"`
 }
 
@@ -258,18 +272,21 @@ func (o BudgetActionDefinitionOutput) ToBudgetActionDefinitionPtrOutputWithConte
 	}).(BudgetActionDefinitionPtrOutput)
 }
 
+// The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
 func (o BudgetActionDefinitionOutput) IamActionDefinition() BudgetActionDefinitionIamActionDefinitionPtrOutput {
 	return o.ApplyT(func(v BudgetActionDefinition) *BudgetActionDefinitionIamActionDefinition {
 		return v.IamActionDefinition
 	}).(BudgetActionDefinitionIamActionDefinitionPtrOutput)
 }
 
+// The service control policies (SCPs) action definition details. See SCP Action Definition.
 func (o BudgetActionDefinitionOutput) ScpActionDefinition() BudgetActionDefinitionScpActionDefinitionPtrOutput {
 	return o.ApplyT(func(v BudgetActionDefinition) *BudgetActionDefinitionScpActionDefinition {
 		return v.ScpActionDefinition
 	}).(BudgetActionDefinitionScpActionDefinitionPtrOutput)
 }
 
+// The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
 func (o BudgetActionDefinitionOutput) SsmActionDefinition() BudgetActionDefinitionSsmActionDefinitionPtrOutput {
 	return o.ApplyT(func(v BudgetActionDefinition) *BudgetActionDefinitionSsmActionDefinition {
 		return v.SsmActionDefinition
@@ -300,6 +317,7 @@ func (o BudgetActionDefinitionPtrOutput) Elem() BudgetActionDefinitionOutput {
 	}).(BudgetActionDefinitionOutput)
 }
 
+// The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
 func (o BudgetActionDefinitionPtrOutput) IamActionDefinition() BudgetActionDefinitionIamActionDefinitionPtrOutput {
 	return o.ApplyT(func(v *BudgetActionDefinition) *BudgetActionDefinitionIamActionDefinition {
 		if v == nil {
@@ -309,6 +327,7 @@ func (o BudgetActionDefinitionPtrOutput) IamActionDefinition() BudgetActionDefin
 	}).(BudgetActionDefinitionIamActionDefinitionPtrOutput)
 }
 
+// The service control policies (SCPs) action definition details. See SCP Action Definition.
 func (o BudgetActionDefinitionPtrOutput) ScpActionDefinition() BudgetActionDefinitionScpActionDefinitionPtrOutput {
 	return o.ApplyT(func(v *BudgetActionDefinition) *BudgetActionDefinitionScpActionDefinition {
 		if v == nil {
@@ -318,6 +337,7 @@ func (o BudgetActionDefinitionPtrOutput) ScpActionDefinition() BudgetActionDefin
 	}).(BudgetActionDefinitionScpActionDefinitionPtrOutput)
 }
 
+// The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
 func (o BudgetActionDefinitionPtrOutput) SsmActionDefinition() BudgetActionDefinitionSsmActionDefinitionPtrOutput {
 	return o.ApplyT(func(v *BudgetActionDefinition) *BudgetActionDefinitionSsmActionDefinition {
 		if v == nil {
@@ -328,10 +348,14 @@ func (o BudgetActionDefinitionPtrOutput) SsmActionDefinition() BudgetActionDefin
 }
 
 type BudgetActionDefinitionIamActionDefinition struct {
-	Groups    []string `pulumi:"groups"`
-	PolicyArn string   `pulumi:"policyArn"`
-	Roles     []string `pulumi:"roles"`
-	Users     []string `pulumi:"users"`
+	// A list of groups to be attached. There must be at least one group.
+	Groups []string `pulumi:"groups"`
+	// The Amazon Resource Name (ARN) of the policy to be attached.
+	PolicyArn string `pulumi:"policyArn"`
+	// A list of roles to be attached. There must be at least one role.
+	Roles []string `pulumi:"roles"`
+	// A list of users to be attached. There must be at least one user.
+	Users []string `pulumi:"users"`
 }
 
 // BudgetActionDefinitionIamActionDefinitionInput is an input type that accepts BudgetActionDefinitionIamActionDefinitionArgs and BudgetActionDefinitionIamActionDefinitionOutput values.
@@ -346,10 +370,14 @@ type BudgetActionDefinitionIamActionDefinitionInput interface {
 }
 
 type BudgetActionDefinitionIamActionDefinitionArgs struct {
-	Groups    pulumi.StringArrayInput `pulumi:"groups"`
-	PolicyArn pulumi.StringInput      `pulumi:"policyArn"`
-	Roles     pulumi.StringArrayInput `pulumi:"roles"`
-	Users     pulumi.StringArrayInput `pulumi:"users"`
+	// A list of groups to be attached. There must be at least one group.
+	Groups pulumi.StringArrayInput `pulumi:"groups"`
+	// The Amazon Resource Name (ARN) of the policy to be attached.
+	PolicyArn pulumi.StringInput `pulumi:"policyArn"`
+	// A list of roles to be attached. There must be at least one role.
+	Roles pulumi.StringArrayInput `pulumi:"roles"`
+	// A list of users to be attached. There must be at least one user.
+	Users pulumi.StringArrayInput `pulumi:"users"`
 }
 
 func (BudgetActionDefinitionIamActionDefinitionArgs) ElementType() reflect.Type {
@@ -429,18 +457,22 @@ func (o BudgetActionDefinitionIamActionDefinitionOutput) ToBudgetActionDefinitio
 	}).(BudgetActionDefinitionIamActionDefinitionPtrOutput)
 }
 
+// A list of groups to be attached. There must be at least one group.
 func (o BudgetActionDefinitionIamActionDefinitionOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetActionDefinitionIamActionDefinition) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the policy to be attached.
 func (o BudgetActionDefinitionIamActionDefinitionOutput) PolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetActionDefinitionIamActionDefinition) string { return v.PolicyArn }).(pulumi.StringOutput)
 }
 
+// A list of roles to be attached. There must be at least one role.
 func (o BudgetActionDefinitionIamActionDefinitionOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetActionDefinitionIamActionDefinition) []string { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
+// A list of users to be attached. There must be at least one user.
 func (o BudgetActionDefinitionIamActionDefinitionOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetActionDefinitionIamActionDefinition) []string { return v.Users }).(pulumi.StringArrayOutput)
 }
@@ -469,6 +501,7 @@ func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) Elem() BudgetActionD
 	}).(BudgetActionDefinitionIamActionDefinitionOutput)
 }
 
+// A list of groups to be attached. There must be at least one group.
 func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionIamActionDefinition) []string {
 		if v == nil {
@@ -478,6 +511,7 @@ func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) Groups() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the policy to be attached.
 func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) PolicyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionIamActionDefinition) *string {
 		if v == nil {
@@ -487,6 +521,7 @@ func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) PolicyArn() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of roles to be attached. There must be at least one role.
 func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionIamActionDefinition) []string {
 		if v == nil {
@@ -496,6 +531,7 @@ func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) Roles() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of users to be attached. There must be at least one user.
 func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionIamActionDefinition) []string {
 		if v == nil {
@@ -506,7 +542,9 @@ func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) Users() pulumi.Strin
 }
 
 type BudgetActionDefinitionScpActionDefinition struct {
-	PolicyId  string   `pulumi:"policyId"`
+	// The policy ID attached.
+	PolicyId string `pulumi:"policyId"`
+	// A list of target IDs.
 	TargetIds []string `pulumi:"targetIds"`
 }
 
@@ -522,7 +560,9 @@ type BudgetActionDefinitionScpActionDefinitionInput interface {
 }
 
 type BudgetActionDefinitionScpActionDefinitionArgs struct {
-	PolicyId  pulumi.StringInput      `pulumi:"policyId"`
+	// The policy ID attached.
+	PolicyId pulumi.StringInput `pulumi:"policyId"`
+	// A list of target IDs.
 	TargetIds pulumi.StringArrayInput `pulumi:"targetIds"`
 }
 
@@ -603,10 +643,12 @@ func (o BudgetActionDefinitionScpActionDefinitionOutput) ToBudgetActionDefinitio
 	}).(BudgetActionDefinitionScpActionDefinitionPtrOutput)
 }
 
+// The policy ID attached.
 func (o BudgetActionDefinitionScpActionDefinitionOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetActionDefinitionScpActionDefinition) string { return v.PolicyId }).(pulumi.StringOutput)
 }
 
+// A list of target IDs.
 func (o BudgetActionDefinitionScpActionDefinitionOutput) TargetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetActionDefinitionScpActionDefinition) []string { return v.TargetIds }).(pulumi.StringArrayOutput)
 }
@@ -635,6 +677,7 @@ func (o BudgetActionDefinitionScpActionDefinitionPtrOutput) Elem() BudgetActionD
 	}).(BudgetActionDefinitionScpActionDefinitionOutput)
 }
 
+// The policy ID attached.
 func (o BudgetActionDefinitionScpActionDefinitionPtrOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionScpActionDefinition) *string {
 		if v == nil {
@@ -644,6 +687,7 @@ func (o BudgetActionDefinitionScpActionDefinitionPtrOutput) PolicyId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of target IDs.
 func (o BudgetActionDefinitionScpActionDefinitionPtrOutput) TargetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionScpActionDefinition) []string {
 		if v == nil {
@@ -654,9 +698,12 @@ func (o BudgetActionDefinitionScpActionDefinitionPtrOutput) TargetIds() pulumi.S
 }
 
 type BudgetActionDefinitionSsmActionDefinition struct {
-	ActionSubType string   `pulumi:"actionSubType"`
-	InstanceIds   []string `pulumi:"instanceIds"`
-	Region        string   `pulumi:"region"`
+	// The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+	ActionSubType string `pulumi:"actionSubType"`
+	// The EC2 and RDS instance IDs.
+	InstanceIds []string `pulumi:"instanceIds"`
+	// The Region to run the SSM document.
+	Region string `pulumi:"region"`
 }
 
 // BudgetActionDefinitionSsmActionDefinitionInput is an input type that accepts BudgetActionDefinitionSsmActionDefinitionArgs and BudgetActionDefinitionSsmActionDefinitionOutput values.
@@ -671,9 +718,12 @@ type BudgetActionDefinitionSsmActionDefinitionInput interface {
 }
 
 type BudgetActionDefinitionSsmActionDefinitionArgs struct {
-	ActionSubType pulumi.StringInput      `pulumi:"actionSubType"`
-	InstanceIds   pulumi.StringArrayInput `pulumi:"instanceIds"`
-	Region        pulumi.StringInput      `pulumi:"region"`
+	// The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+	ActionSubType pulumi.StringInput `pulumi:"actionSubType"`
+	// The EC2 and RDS instance IDs.
+	InstanceIds pulumi.StringArrayInput `pulumi:"instanceIds"`
+	// The Region to run the SSM document.
+	Region pulumi.StringInput `pulumi:"region"`
 }
 
 func (BudgetActionDefinitionSsmActionDefinitionArgs) ElementType() reflect.Type {
@@ -753,14 +803,17 @@ func (o BudgetActionDefinitionSsmActionDefinitionOutput) ToBudgetActionDefinitio
 	}).(BudgetActionDefinitionSsmActionDefinitionPtrOutput)
 }
 
+// The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
 func (o BudgetActionDefinitionSsmActionDefinitionOutput) ActionSubType() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetActionDefinitionSsmActionDefinition) string { return v.ActionSubType }).(pulumi.StringOutput)
 }
 
+// The EC2 and RDS instance IDs.
 func (o BudgetActionDefinitionSsmActionDefinitionOutput) InstanceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetActionDefinitionSsmActionDefinition) []string { return v.InstanceIds }).(pulumi.StringArrayOutput)
 }
 
+// The Region to run the SSM document.
 func (o BudgetActionDefinitionSsmActionDefinitionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetActionDefinitionSsmActionDefinition) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -789,6 +842,7 @@ func (o BudgetActionDefinitionSsmActionDefinitionPtrOutput) Elem() BudgetActionD
 	}).(BudgetActionDefinitionSsmActionDefinitionOutput)
 }
 
+// The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
 func (o BudgetActionDefinitionSsmActionDefinitionPtrOutput) ActionSubType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionSsmActionDefinition) *string {
 		if v == nil {
@@ -798,6 +852,7 @@ func (o BudgetActionDefinitionSsmActionDefinitionPtrOutput) ActionSubType() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The EC2 and RDS instance IDs.
 func (o BudgetActionDefinitionSsmActionDefinitionPtrOutput) InstanceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionSsmActionDefinition) []string {
 		if v == nil {
@@ -807,6 +862,7 @@ func (o BudgetActionDefinitionSsmActionDefinitionPtrOutput) InstanceIds() pulumi
 	}).(pulumi.StringArrayOutput)
 }
 
+// The Region to run the SSM document.
 func (o BudgetActionDefinitionSsmActionDefinitionPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionSsmActionDefinition) *string {
 		if v == nil {
@@ -817,7 +873,9 @@ func (o BudgetActionDefinitionSsmActionDefinitionPtrOutput) Region() pulumi.Stri
 }
 
 type BudgetActionSubscriber struct {
-	Address          string `pulumi:"address"`
+	// The address that AWS sends budget notifications to, either an SNS topic or an email.
+	Address string `pulumi:"address"`
+	// The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
 	SubscriptionType string `pulumi:"subscriptionType"`
 }
 
@@ -833,7 +891,9 @@ type BudgetActionSubscriberInput interface {
 }
 
 type BudgetActionSubscriberArgs struct {
-	Address          pulumi.StringInput `pulumi:"address"`
+	// The address that AWS sends budget notifications to, either an SNS topic or an email.
+	Address pulumi.StringInput `pulumi:"address"`
+	// The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
 	SubscriptionType pulumi.StringInput `pulumi:"subscriptionType"`
 }
 
@@ -888,10 +948,12 @@ func (o BudgetActionSubscriberOutput) ToBudgetActionSubscriberOutputWithContext(
 	return o
 }
 
+// The address that AWS sends budget notifications to, either an SNS topic or an email.
 func (o BudgetActionSubscriberOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetActionSubscriber) string { return v.Address }).(pulumi.StringOutput)
 }
 
+// The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
 func (o BudgetActionSubscriberOutput) SubscriptionType() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetActionSubscriber) string { return v.SubscriptionType }).(pulumi.StringOutput)
 }
@@ -1228,6 +1290,7 @@ func (o BudgetAutoAdjustDataHistoricalOptionsPtrOutput) LookbackAvailablePeriods
 }
 
 type BudgetCostFilter struct {
+	// The name of a budget. Unique within accounts.
 	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
@@ -1244,6 +1307,7 @@ type BudgetCostFilterInput interface {
 }
 
 type BudgetCostFilterArgs struct {
+	// The name of a budget. Unique within accounts.
 	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
@@ -1299,6 +1363,7 @@ func (o BudgetCostFilterOutput) ToBudgetCostFilterOutputWithContext(ctx context.
 	return o
 }
 
+// The name of a budget. Unique within accounts.
 func (o BudgetCostFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetCostFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1328,17 +1393,28 @@ func (o BudgetCostFilterArrayOutput) Index(i pulumi.IntInput) BudgetCostFilterOu
 }
 
 type BudgetCostTypes struct {
-	IncludeCredit            *bool `pulumi:"includeCredit"`
-	IncludeDiscount          *bool `pulumi:"includeDiscount"`
+	// A boolean value whether to include credits in the cost budget. Defaults to `true`
+	IncludeCredit *bool `pulumi:"includeCredit"`
+	// Whether a budget includes discounts. Defaults to `true`
+	IncludeDiscount *bool `pulumi:"includeDiscount"`
+	// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
 	IncludeOtherSubscription *bool `pulumi:"includeOtherSubscription"`
-	IncludeRecurring         *bool `pulumi:"includeRecurring"`
-	IncludeRefund            *bool `pulumi:"includeRefund"`
-	IncludeSubscription      *bool `pulumi:"includeSubscription"`
-	IncludeSupport           *bool `pulumi:"includeSupport"`
-	IncludeTax               *bool `pulumi:"includeTax"`
-	IncludeUpfront           *bool `pulumi:"includeUpfront"`
-	UseAmortized             *bool `pulumi:"useAmortized"`
-	UseBlended               *bool `pulumi:"useBlended"`
+	// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
+	IncludeRecurring *bool `pulumi:"includeRecurring"`
+	// A boolean value whether to include refunds in the cost budget. Defaults to `true`
+	IncludeRefund *bool `pulumi:"includeRefund"`
+	// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
+	IncludeSubscription *bool `pulumi:"includeSubscription"`
+	// A boolean value whether to include support costs in the cost budget. Defaults to `true`
+	IncludeSupport *bool `pulumi:"includeSupport"`
+	// A boolean value whether to include tax in the cost budget. Defaults to `true`
+	IncludeTax *bool `pulumi:"includeTax"`
+	// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
+	IncludeUpfront *bool `pulumi:"includeUpfront"`
+	// Whether a budget uses the amortized rate. Defaults to `false`
+	UseAmortized *bool `pulumi:"useAmortized"`
+	// A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+	UseBlended *bool `pulumi:"useBlended"`
 }
 
 // BudgetCostTypesInput is an input type that accepts BudgetCostTypesArgs and BudgetCostTypesOutput values.
@@ -1353,17 +1429,28 @@ type BudgetCostTypesInput interface {
 }
 
 type BudgetCostTypesArgs struct {
-	IncludeCredit            pulumi.BoolPtrInput `pulumi:"includeCredit"`
-	IncludeDiscount          pulumi.BoolPtrInput `pulumi:"includeDiscount"`
+	// A boolean value whether to include credits in the cost budget. Defaults to `true`
+	IncludeCredit pulumi.BoolPtrInput `pulumi:"includeCredit"`
+	// Whether a budget includes discounts. Defaults to `true`
+	IncludeDiscount pulumi.BoolPtrInput `pulumi:"includeDiscount"`
+	// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
 	IncludeOtherSubscription pulumi.BoolPtrInput `pulumi:"includeOtherSubscription"`
-	IncludeRecurring         pulumi.BoolPtrInput `pulumi:"includeRecurring"`
-	IncludeRefund            pulumi.BoolPtrInput `pulumi:"includeRefund"`
-	IncludeSubscription      pulumi.BoolPtrInput `pulumi:"includeSubscription"`
-	IncludeSupport           pulumi.BoolPtrInput `pulumi:"includeSupport"`
-	IncludeTax               pulumi.BoolPtrInput `pulumi:"includeTax"`
-	IncludeUpfront           pulumi.BoolPtrInput `pulumi:"includeUpfront"`
-	UseAmortized             pulumi.BoolPtrInput `pulumi:"useAmortized"`
-	UseBlended               pulumi.BoolPtrInput `pulumi:"useBlended"`
+	// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
+	IncludeRecurring pulumi.BoolPtrInput `pulumi:"includeRecurring"`
+	// A boolean value whether to include refunds in the cost budget. Defaults to `true`
+	IncludeRefund pulumi.BoolPtrInput `pulumi:"includeRefund"`
+	// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
+	IncludeSubscription pulumi.BoolPtrInput `pulumi:"includeSubscription"`
+	// A boolean value whether to include support costs in the cost budget. Defaults to `true`
+	IncludeSupport pulumi.BoolPtrInput `pulumi:"includeSupport"`
+	// A boolean value whether to include tax in the cost budget. Defaults to `true`
+	IncludeTax pulumi.BoolPtrInput `pulumi:"includeTax"`
+	// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
+	IncludeUpfront pulumi.BoolPtrInput `pulumi:"includeUpfront"`
+	// Whether a budget uses the amortized rate. Defaults to `false`
+	UseAmortized pulumi.BoolPtrInput `pulumi:"useAmortized"`
+	// A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+	UseBlended pulumi.BoolPtrInput `pulumi:"useBlended"`
 }
 
 func (BudgetCostTypesArgs) ElementType() reflect.Type {
@@ -1443,46 +1530,57 @@ func (o BudgetCostTypesOutput) ToBudgetCostTypesPtrOutputWithContext(ctx context
 	}).(BudgetCostTypesPtrOutput)
 }
 
+// A boolean value whether to include credits in the cost budget. Defaults to `true`
 func (o BudgetCostTypesOutput) IncludeCredit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeCredit }).(pulumi.BoolPtrOutput)
 }
 
+// Whether a budget includes discounts. Defaults to `true`
 func (o BudgetCostTypesOutput) IncludeDiscount() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeDiscount }).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
 func (o BudgetCostTypesOutput) IncludeOtherSubscription() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeOtherSubscription }).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
 func (o BudgetCostTypesOutput) IncludeRecurring() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeRecurring }).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value whether to include refunds in the cost budget. Defaults to `true`
 func (o BudgetCostTypesOutput) IncludeRefund() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeRefund }).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
 func (o BudgetCostTypesOutput) IncludeSubscription() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeSubscription }).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value whether to include support costs in the cost budget. Defaults to `true`
 func (o BudgetCostTypesOutput) IncludeSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeSupport }).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value whether to include tax in the cost budget. Defaults to `true`
 func (o BudgetCostTypesOutput) IncludeTax() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeTax }).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
 func (o BudgetCostTypesOutput) IncludeUpfront() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeUpfront }).(pulumi.BoolPtrOutput)
 }
 
+// Whether a budget uses the amortized rate. Defaults to `false`
 func (o BudgetCostTypesOutput) UseAmortized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.UseAmortized }).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value whether to use blended costs in the cost budget. Defaults to `false`
 func (o BudgetCostTypesOutput) UseBlended() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.UseBlended }).(pulumi.BoolPtrOutput)
 }
@@ -1511,6 +1609,7 @@ func (o BudgetCostTypesPtrOutput) Elem() BudgetCostTypesOutput {
 	}).(BudgetCostTypesOutput)
 }
 
+// A boolean value whether to include credits in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeCredit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1520,6 +1619,7 @@ func (o BudgetCostTypesPtrOutput) IncludeCredit() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether a budget includes discounts. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeDiscount() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1529,6 +1629,7 @@ func (o BudgetCostTypesPtrOutput) IncludeDiscount() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeOtherSubscription() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1538,6 +1639,7 @@ func (o BudgetCostTypesPtrOutput) IncludeOtherSubscription() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeRecurring() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1547,6 +1649,7 @@ func (o BudgetCostTypesPtrOutput) IncludeRecurring() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value whether to include refunds in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeRefund() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1556,6 +1659,7 @@ func (o BudgetCostTypesPtrOutput) IncludeRefund() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeSubscription() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1565,6 +1669,7 @@ func (o BudgetCostTypesPtrOutput) IncludeSubscription() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value whether to include support costs in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1574,6 +1679,7 @@ func (o BudgetCostTypesPtrOutput) IncludeSupport() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value whether to include tax in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeTax() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1583,6 +1689,7 @@ func (o BudgetCostTypesPtrOutput) IncludeTax() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeUpfront() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1592,6 +1699,7 @@ func (o BudgetCostTypesPtrOutput) IncludeUpfront() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether a budget uses the amortized rate. Defaults to `false`
 func (o BudgetCostTypesPtrOutput) UseAmortized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1601,6 +1709,7 @@ func (o BudgetCostTypesPtrOutput) UseAmortized() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value whether to use blended costs in the cost budget. Defaults to `false`
 func (o BudgetCostTypesPtrOutput) UseBlended() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1611,12 +1720,18 @@ func (o BudgetCostTypesPtrOutput) UseBlended() pulumi.BoolPtrOutput {
 }
 
 type BudgetNotification struct {
-	ComparisonOperator       string   `pulumi:"comparisonOperator"`
-	NotificationType         string   `pulumi:"notificationType"`
+	// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+	ComparisonOperator string `pulumi:"comparisonOperator"`
+	// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+	NotificationType string `pulumi:"notificationType"`
+	// (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
 	SubscriberEmailAddresses []string `pulumi:"subscriberEmailAddresses"`
-	SubscriberSnsTopicArns   []string `pulumi:"subscriberSnsTopicArns"`
-	Threshold                float64  `pulumi:"threshold"`
-	ThresholdType            string   `pulumi:"thresholdType"`
+	// (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
+	SubscriberSnsTopicArns []string `pulumi:"subscriberSnsTopicArns"`
+	// (Required) Threshold when the notification should be sent.
+	Threshold float64 `pulumi:"threshold"`
+	// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+	ThresholdType string `pulumi:"thresholdType"`
 }
 
 // BudgetNotificationInput is an input type that accepts BudgetNotificationArgs and BudgetNotificationOutput values.
@@ -1631,12 +1746,18 @@ type BudgetNotificationInput interface {
 }
 
 type BudgetNotificationArgs struct {
-	ComparisonOperator       pulumi.StringInput      `pulumi:"comparisonOperator"`
-	NotificationType         pulumi.StringInput      `pulumi:"notificationType"`
+	// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+	ComparisonOperator pulumi.StringInput `pulumi:"comparisonOperator"`
+	// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+	NotificationType pulumi.StringInput `pulumi:"notificationType"`
+	// (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
 	SubscriberEmailAddresses pulumi.StringArrayInput `pulumi:"subscriberEmailAddresses"`
-	SubscriberSnsTopicArns   pulumi.StringArrayInput `pulumi:"subscriberSnsTopicArns"`
-	Threshold                pulumi.Float64Input     `pulumi:"threshold"`
-	ThresholdType            pulumi.StringInput      `pulumi:"thresholdType"`
+	// (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
+	SubscriberSnsTopicArns pulumi.StringArrayInput `pulumi:"subscriberSnsTopicArns"`
+	// (Required) Threshold when the notification should be sent.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+	ThresholdType pulumi.StringInput `pulumi:"thresholdType"`
 }
 
 func (BudgetNotificationArgs) ElementType() reflect.Type {
@@ -1690,26 +1811,32 @@ func (o BudgetNotificationOutput) ToBudgetNotificationOutputWithContext(ctx cont
 	return o
 }
 
+// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
 func (o BudgetNotificationOutput) ComparisonOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetNotification) string { return v.ComparisonOperator }).(pulumi.StringOutput)
 }
 
+// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
 func (o BudgetNotificationOutput) NotificationType() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetNotification) string { return v.NotificationType }).(pulumi.StringOutput)
 }
 
+// (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
 func (o BudgetNotificationOutput) SubscriberEmailAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetNotification) []string { return v.SubscriberEmailAddresses }).(pulumi.StringArrayOutput)
 }
 
+// (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
 func (o BudgetNotificationOutput) SubscriberSnsTopicArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetNotification) []string { return v.SubscriberSnsTopicArns }).(pulumi.StringArrayOutput)
 }
 
+// (Required) Threshold when the notification should be sent.
 func (o BudgetNotificationOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v BudgetNotification) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
+// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
 func (o BudgetNotificationOutput) ThresholdType() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetNotification) string { return v.ThresholdType }).(pulumi.StringOutput)
 }
@@ -1735,9 +1862,12 @@ func (o BudgetNotificationArrayOutput) Index(i pulumi.IntInput) BudgetNotificati
 }
 
 type BudgetPlannedLimit struct {
-	Amount    string `pulumi:"amount"`
+	// (Required) The amount of cost or usage being measured for a budget.
+	Amount string `pulumi:"amount"`
+	// (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 	StartTime string `pulumi:"startTime"`
-	Unit      string `pulumi:"unit"`
+	// (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+	Unit string `pulumi:"unit"`
 }
 
 // BudgetPlannedLimitInput is an input type that accepts BudgetPlannedLimitArgs and BudgetPlannedLimitOutput values.
@@ -1752,9 +1882,12 @@ type BudgetPlannedLimitInput interface {
 }
 
 type BudgetPlannedLimitArgs struct {
-	Amount    pulumi.StringInput `pulumi:"amount"`
+	// (Required) The amount of cost or usage being measured for a budget.
+	Amount pulumi.StringInput `pulumi:"amount"`
+	// (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 	StartTime pulumi.StringInput `pulumi:"startTime"`
-	Unit      pulumi.StringInput `pulumi:"unit"`
+	// (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+	Unit pulumi.StringInput `pulumi:"unit"`
 }
 
 func (BudgetPlannedLimitArgs) ElementType() reflect.Type {
@@ -1808,14 +1941,17 @@ func (o BudgetPlannedLimitOutput) ToBudgetPlannedLimitOutputWithContext(ctx cont
 	return o
 }
 
+// (Required) The amount of cost or usage being measured for a budget.
 func (o BudgetPlannedLimitOutput) Amount() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetPlannedLimit) string { return v.Amount }).(pulumi.StringOutput)
 }
 
+// (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 func (o BudgetPlannedLimitOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetPlannedLimit) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
+// (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
 func (o BudgetPlannedLimitOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetPlannedLimit) string { return v.Unit }).(pulumi.StringOutput)
 }

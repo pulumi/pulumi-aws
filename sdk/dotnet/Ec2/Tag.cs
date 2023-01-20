@@ -9,15 +9,72 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
+    /// <summary>
+    /// Manages an individual EC2 resource tag. This resource should only be used in cases where EC2 resources are created outside the provider (e.g. AMIs), being shared via Resource Access Manager (RAM), or implicitly created by other means (e.g. Transit Gateway VPN Attachments).
+    /// 
+    /// &gt; **NOTE:** This tagging resource should not be combined with the providers resource for managing the parent resource. For example, using `aws.ec2.Vpc` and `aws.ec2.Tag` to manage tags of the same VPC will cause a perpetual difference where the `aws.ec2.Vpc` resource will try to remove the tag being added by the `aws.ec2.Tag` resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway");
+    /// 
+    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new()
+    ///     {
+    ///         BgpAsn = "65000",
+    ///         IpAddress = "172.0.0.1",
+    ///         Type = "ipsec.1",
+    ///     });
+    /// 
+    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new()
+    ///     {
+    ///         CustomerGatewayId = exampleCustomerGateway.Id,
+    ///         TransitGatewayId = exampleTransitGateway.Id,
+    ///         Type = exampleCustomerGateway.Type,
+    ///     });
+    /// 
+    ///     var exampleTag = new Aws.Ec2.Tag("exampleTag", new()
+    ///     {
+    ///         ResourceId = exampleVpnConnection.TransitGatewayAttachmentId,
+    ///         Key = "Name",
+    ///         Value = "Hello World",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_ec2_tag` can be imported by using the EC2 resource identifier and key, separated by a comma (`,`), e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:ec2/tag:Tag")]
     public partial class Tag : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The tag name.
+        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the EC2 resource to manage the tag for.
+        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The value of the tag.
+        /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
@@ -67,12 +124,21 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class TagArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The tag name.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the EC2 resource to manage the tag for.
+        /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
+        /// <summary>
+        /// The value of the tag.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -84,12 +150,21 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class TagState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The tag name.
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// The ID of the EC2 resource to manage the tag for.
+        /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
+        /// <summary>
+        /// The value of the tag.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

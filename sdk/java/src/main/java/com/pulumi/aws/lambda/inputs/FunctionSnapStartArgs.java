@@ -15,9 +15,17 @@ public final class FunctionSnapStartArgs extends com.pulumi.resources.ResourceAr
 
     public static final FunctionSnapStartArgs Empty = new FunctionSnapStartArgs();
 
+    /**
+     * Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+     * 
+     */
     @Import(name="applyOn", required=true)
     private Output<String> applyOn;
 
+    /**
+     * @return Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+     * 
+     */
     public Output<String> applyOn() {
         return this.applyOn;
     }
@@ -54,11 +62,23 @@ public final class FunctionSnapStartArgs extends com.pulumi.resources.ResourceAr
             $ = new FunctionSnapStartArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param applyOn Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applyOn(Output<String> applyOn) {
             $.applyOn = applyOn;
             return this;
         }
 
+        /**
+         * @param applyOn Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applyOn(String applyOn) {
             return applyOn(Output.of(applyOn));
         }

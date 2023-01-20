@@ -13,7 +13,13 @@ namespace Pulumi.Aws.GameLift.Outputs
     [OutputType]
     public sealed class MatchmakingConfigurationGameProperty
     {
+        /// <summary>
+        /// A game property key
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// A game property value.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

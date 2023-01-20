@@ -9,42 +9,317 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WafV2
 {
+    /// <summary>
+    /// Creates a WAFv2 Web ACL resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// This resource is based on `aws.wafv2.RuleGroup`, check the documentation of the `aws.wafv2.RuleGroup` resource to see examples of the various available statements.
+    /// ### Rate Based
+    /// Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.WafV2.WebAcl("example", new()
+    ///     {
+    ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Allow = null,
+    ///         },
+    ///         Description = "Example of a Cloudfront rate based statement.",
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafV2.Inputs.WebAclRuleArgs
+    ///             {
+    ///                 Action = new Aws.WafV2.Inputs.WebAclRuleActionArgs
+    ///                 {
+    ///                     Block = null,
+    ///                 },
+    ///                 Name = "rule-1",
+    ///                 Priority = 1,
+    ///                 Statement = new Aws.WafV2.Inputs.WebAclRuleStatementArgs
+    ///                 {
+    ///                     RateBasedStatement = new Aws.WafV2.Inputs.WebAclRuleStatementRateBasedStatementArgs
+    ///                     {
+    ///                         AggregateKeyType = "IP",
+    ///                         Limit = 10000,
+    ///                         ScopeDownStatement = new Aws.WafV2.Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementArgs
+    ///                         {
+    ///                             GeoMatchStatement = new Aws.WafV2.Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs
+    ///                             {
+    ///                                 CountryCodes = new[]
+    ///                                 {
+    ///                                     "US",
+    ///                                     "NL",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.WebAclRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Scope = "CLOUDFRONT",
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///             { "Tag2", "Value2" },
+    ///         },
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Rule Group Reference
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.WafV2.RuleGroup("example", new()
+    ///     {
+    ///         Capacity = 10,
+    ///         Scope = "REGIONAL",
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
+    ///             {
+    ///                 Name = "rule-1",
+    ///                 Priority = 1,
+    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
+    ///                 {
+    ///                     Count = null,
+    ///                 },
+    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
+    ///                 {
+    ///                     GeoMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementGeoMatchStatementArgs
+    ///                     {
+    ///                         CountryCodes = new[]
+    ///                         {
+    ///                             "NL",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
+    ///             },
+    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
+    ///             {
+    ///                 Name = "rule-to-exclude-a",
+    ///                 Priority = 10,
+    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
+    ///                 {
+    ///                     Allow = null,
+    ///                 },
+    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
+    ///                 {
+    ///                     GeoMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementGeoMatchStatementArgs
+    ///                     {
+    ///                         CountryCodes = new[]
+    ///                         {
+    ///                             "US",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
+    ///             },
+    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
+    ///             {
+    ///                 Name = "rule-to-exclude-b",
+    ///                 Priority = 15,
+    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
+    ///                 {
+    ///                     Allow = null,
+    ///                 },
+    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
+    ///                 {
+    ///                     GeoMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementGeoMatchStatementArgs
+    ///                     {
+    ///                         CountryCodes = new[]
+    ///                         {
+    ///                             "GB",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    ///     var test = new Aws.WafV2.WebAcl("test", new()
+    ///     {
+    ///         Scope = "REGIONAL",
+    ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Block = null,
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafV2.Inputs.WebAclRuleArgs
+    ///             {
+    ///                 Name = "rule-1",
+    ///                 Priority = 1,
+    ///                 OverrideAction = new Aws.WafV2.Inputs.WebAclRuleOverrideActionArgs
+    ///                 {
+    ///                     Count = null,
+    ///                 },
+    ///                 Statement = new Aws.WafV2.Inputs.WebAclRuleStatementArgs
+    ///                 {
+    ///                     RuleGroupReferenceStatement = new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementArgs
+    ///                     {
+    ///                         Arn = example.Arn,
+    ///                         ExcludedRules = new[]
+    ///                         {
+    ///                             new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs
+    ///                             {
+    ///                                 Name = "rule-to-exclude-b",
+    ///                             },
+    ///                             new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs
+    ///                             {
+    ///                                 Name = "rule-to-exclude-a",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.WebAclRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///             { "Tag2", "Value2" },
+    ///         },
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// WAFv2 Web ACLs can be imported using `ID/Name/Scope` e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:wafv2/webAcl:WebAcl example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:wafv2/webAcl:WebAcl")]
     public partial class WebAcl : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Web ACL capacity units (WCUs) currently being used by this web ACL.
+        /// </summary>
         [Output("capacity")]
         public Output<int> Capacity { get; private set; } = null!;
 
+        /// <summary>
+        /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        /// </summary>
         [Output("customResponseBodies")]
         public Output<ImmutableArray<Outputs.WebAclCustomResponseBody>> CustomResponseBodies { get; private set; } = null!;
 
+        /// <summary>
+        /// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+        /// </summary>
         [Output("defaultAction")]
         public Output<Outputs.WebAclDefaultAction> DefaultAction { get; private set; } = null!;
 
+        /// <summary>
+        /// Friendly description of the WebACL.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("lockToken")]
         public Output<string> LockToken { get; private set; } = null!;
 
+        /// <summary>
+        /// Friendly name of the WebACL.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.WebAclRule>> Rules { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        /// </summary>
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        /// </summary>
         [Output("visibilityConfig")]
         public Output<Outputs.WebAclVisibilityConfig> VisibilityConfig { get; private set; } = null!;
 
@@ -96,40 +371,67 @@ namespace Pulumi.Aws.WafV2
     {
         [Input("customResponseBodies")]
         private InputList<Inputs.WebAclCustomResponseBodyArgs>? _customResponseBodies;
+
+        /// <summary>
+        /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        /// </summary>
         public InputList<Inputs.WebAclCustomResponseBodyArgs> CustomResponseBodies
         {
             get => _customResponseBodies ?? (_customResponseBodies = new InputList<Inputs.WebAclCustomResponseBodyArgs>());
             set => _customResponseBodies = value;
         }
 
+        /// <summary>
+        /// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+        /// </summary>
         [Input("defaultAction", required: true)]
         public Input<Inputs.WebAclDefaultActionArgs> DefaultAction { get; set; } = null!;
 
+        /// <summary>
+        /// Friendly description of the WebACL.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Friendly name of the WebACL.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.WebAclRuleArgs>? _rules;
+
+        /// <summary>
+        /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        /// </summary>
         public InputList<Inputs.WebAclRuleArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.WebAclRuleArgs>());
             set => _rules = value;
         }
 
+        /// <summary>
+        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        /// </summary>
         [Input("visibilityConfig", required: true)]
         public Input<Inputs.WebAclVisibilityConfigArgs> VisibilityConfig { get; set; } = null!;
 
@@ -141,45 +443,75 @@ namespace Pulumi.Aws.WafV2
 
     public sealed class WebAclState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Web ACL capacity units (WCUs) currently being used by this web ACL.
+        /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
 
         [Input("customResponseBodies")]
         private InputList<Inputs.WebAclCustomResponseBodyGetArgs>? _customResponseBodies;
+
+        /// <summary>
+        /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        /// </summary>
         public InputList<Inputs.WebAclCustomResponseBodyGetArgs> CustomResponseBodies
         {
             get => _customResponseBodies ?? (_customResponseBodies = new InputList<Inputs.WebAclCustomResponseBodyGetArgs>());
             set => _customResponseBodies = value;
         }
 
+        /// <summary>
+        /// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+        /// </summary>
         [Input("defaultAction")]
         public Input<Inputs.WebAclDefaultActionGetArgs>? DefaultAction { get; set; }
 
+        /// <summary>
+        /// Friendly description of the WebACL.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("lockToken")]
         public Input<string>? LockToken { get; set; }
 
+        /// <summary>
+        /// Friendly name of the WebACL.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.WebAclRuleGetArgs>? _rules;
+
+        /// <summary>
+        /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        /// </summary>
         public InputList<Inputs.WebAclRuleGetArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.WebAclRuleGetArgs>());
             set => _rules = value;
         }
 
+        /// <summary>
+        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -188,12 +520,19 @@ namespace Pulumi.Aws.WafV2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        /// </summary>
         [Input("visibilityConfig")]
         public Input<Inputs.WebAclVisibilityConfigGetArgs>? VisibilityConfig { get; set; }
 

@@ -19,12 +19,19 @@ class TrustAnchorSourceArgs:
     def __init__(__self__, *,
                  source_data: pulumi.Input['TrustAnchorSourceSourceDataArgs'],
                  source_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input['TrustAnchorSourceSourceDataArgs'] source_data: The data denoting the source of trust, documented below
+        :param pulumi.Input[str] source_type: The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
+        """
         pulumi.set(__self__, "source_data", source_data)
         pulumi.set(__self__, "source_type", source_type)
 
     @property
     @pulumi.getter(name="sourceData")
     def source_data(self) -> pulumi.Input['TrustAnchorSourceSourceDataArgs']:
+        """
+        The data denoting the source of trust, documented below
+        """
         return pulumi.get(self, "source_data")
 
     @source_data.setter
@@ -34,6 +41,9 @@ class TrustAnchorSourceArgs:
     @property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> pulumi.Input[str]:
+        """
+        The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
+        """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
@@ -46,6 +56,9 @@ class TrustAnchorSourceSourceDataArgs:
     def __init__(__self__, *,
                  acm_pca_arn: Optional[pulumi.Input[str]] = None,
                  x509_certificate_data: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] acm_pca_arn: The ARN of an ACM Private Certificate Authority.
+        """
         if acm_pca_arn is not None:
             pulumi.set(__self__, "acm_pca_arn", acm_pca_arn)
         if x509_certificate_data is not None:
@@ -54,6 +67,9 @@ class TrustAnchorSourceSourceDataArgs:
     @property
     @pulumi.getter(name="acmPcaArn")
     def acm_pca_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of an ACM Private Certificate Authority.
+        """
         return pulumi.get(self, "acm_pca_arn")
 
     @acm_pca_arn.setter

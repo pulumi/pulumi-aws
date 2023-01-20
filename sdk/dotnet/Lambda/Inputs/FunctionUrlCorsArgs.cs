@@ -12,11 +12,18 @@ namespace Pulumi.Aws.Lambda.Inputs
 
     public sealed class FunctionUrlCorsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+        /// </summary>
         [Input("allowCredentials")]
         public Input<bool>? AllowCredentials { get; set; }
 
         [Input("allowHeaders")]
         private InputList<string>? _allowHeaders;
+
+        /// <summary>
+        /// The HTTP headers that origins can include in requests to the function URL. For example: `["date", "keep-alive", "x-custom-header"]`.
+        /// </summary>
         public InputList<string> AllowHeaders
         {
             get => _allowHeaders ?? (_allowHeaders = new InputList<string>());
@@ -25,6 +32,10 @@ namespace Pulumi.Aws.Lambda.Inputs
 
         [Input("allowMethods")]
         private InputList<string>? _allowMethods;
+
+        /// <summary>
+        /// The HTTP methods that are allowed when calling the function URL. For example: `["GET", "POST", "DELETE"]`, or the wildcard character (`["*"]`).
+        /// </summary>
         public InputList<string> AllowMethods
         {
             get => _allowMethods ?? (_allowMethods = new InputList<string>());
@@ -33,6 +44,10 @@ namespace Pulumi.Aws.Lambda.Inputs
 
         [Input("allowOrigins")]
         private InputList<string>? _allowOrigins;
+
+        /// <summary>
+        /// The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`"*"`)), separated by a comma. For example: `["https://www.example.com", "http://localhost:60905"]`.
+        /// </summary>
         public InputList<string> AllowOrigins
         {
             get => _allowOrigins ?? (_allowOrigins = new InputList<string>());
@@ -41,12 +56,19 @@ namespace Pulumi.Aws.Lambda.Inputs
 
         [Input("exposeHeaders")]
         private InputList<string>? _exposeHeaders;
+
+        /// <summary>
+        /// The HTTP headers in your function response that you want to expose to origins that call the function URL.
+        /// </summary>
         public InputList<string> ExposeHeaders
         {
             get => _exposeHeaders ?? (_exposeHeaders = new InputList<string>());
             set => _exposeHeaders = value;
         }
 
+        /// <summary>
+        /// The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn't cache results. The maximum value is `86400`.
+        /// </summary>
         [Input("maxAge")]
         public Input<int>? MaxAge { get; set; }
 

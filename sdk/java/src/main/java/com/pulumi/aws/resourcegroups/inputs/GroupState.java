@@ -19,51 +19,107 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
     public static final GroupState Empty = new GroupState();
 
+    /**
+     * The ARN assigned by AWS for this resource group.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return The ARN assigned by AWS for this resource group.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+     * 
+     */
     @Import(name="configurations")
     private @Nullable Output<List<GroupConfigurationArgs>> configurations;
 
+    /**
+     * @return A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+     * 
+     */
     public Optional<Output<List<GroupConfigurationArgs>>> configurations() {
         return Optional.ofNullable(this.configurations);
     }
 
+    /**
+     * A description of the resource group.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return A description of the resource group.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * The resource group&#39;s name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The resource group&#39;s name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * A `resource_query` block. Resource queries are documented below.
+     * 
+     */
     @Import(name="resourceQuery")
     private @Nullable Output<GroupResourceQueryArgs> resourceQuery;
 
+    /**
+     * @return A `resource_query` block. Resource queries are documented below.
+     * 
+     */
     public Optional<Output<GroupResourceQueryArgs>> resourceQuery() {
         return Optional.ofNullable(this.resourceQuery);
     }
 
+    /**
+     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -98,69 +154,159 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
             $ = new GroupState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn The ARN assigned by AWS for this resource group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn The ARN assigned by AWS for this resource group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param configurations A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder configurations(@Nullable Output<List<GroupConfigurationArgs>> configurations) {
             $.configurations = configurations;
             return this;
         }
 
+        /**
+         * @param configurations A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder configurations(List<GroupConfigurationArgs> configurations) {
             return configurations(Output.of(configurations));
         }
 
+        /**
+         * @param configurations A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder configurations(GroupConfigurationArgs... configurations) {
             return configurations(List.of(configurations));
         }
 
+        /**
+         * @param description A description of the resource group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description A description of the resource group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param name The resource group&#39;s name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The resource group&#39;s name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param resourceQuery A `resource_query` block. Resource queries are documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceQuery(@Nullable Output<GroupResourceQueryArgs> resourceQuery) {
             $.resourceQuery = resourceQuery;
             return this;
         }
 
+        /**
+         * @param resourceQuery A `resource_query` block. Resource queries are documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceQuery(GroupResourceQueryArgs resourceQuery) {
             return resourceQuery(Output.of(resourceQuery));
         }
 
+        /**
+         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

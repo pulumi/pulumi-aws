@@ -11,9 +11,99 @@ namespace Pulumi.Aws.Connect
 {
     public static class GetSecurityProfile
     {
+        /// <summary>
+        /// Provides details about a specific Amazon Connect Security Profile.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// By `name`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Connect.GetSecurityProfile.Invoke(new()
+        ///     {
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// By `security_profile_id`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Connect.GetSecurityProfile.Invoke(new()
+        ///     {
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         SecurityProfileId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetSecurityProfileResult> InvokeAsync(GetSecurityProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityProfileResult>("aws:connect/getSecurityProfile:getSecurityProfile", args ?? new GetSecurityProfileArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides details about a specific Amazon Connect Security Profile.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// By `name`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Connect.GetSecurityProfile.Invoke(new()
+        ///     {
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// By `security_profile_id`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Connect.GetSecurityProfile.Invoke(new()
+        ///     {
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         SecurityProfileId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetSecurityProfileResult> Invoke(GetSecurityProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityProfileResult>("aws:connect/getSecurityProfile:getSecurityProfile", args ?? new GetSecurityProfileInvokeArgs(), options.WithDefaults());
     }
@@ -21,17 +111,30 @@ namespace Pulumi.Aws.Connect
 
     public sealed class GetSecurityProfileArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Reference to the hosting Amazon Connect Instance
+        /// </summary>
         [Input("instanceId", required: true)]
         public string InstanceId { get; set; } = null!;
 
+        /// <summary>
+        /// Returns information on a specific Security Profile by name
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Returns information on a specific Security Profile by Security Profile id
+        /// </summary>
         [Input("securityProfileId")]
         public string? SecurityProfileId { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the Security Profile.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -46,17 +149,30 @@ namespace Pulumi.Aws.Connect
 
     public sealed class GetSecurityProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Reference to the hosting Amazon Connect Instance
+        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
+        /// <summary>
+        /// Returns information on a specific Security Profile by name
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Returns information on a specific Security Profile by Security Profile id
+        /// </summary>
         [Input("securityProfileId")]
         public Input<string>? SecurityProfileId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the Security Profile.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -73,7 +189,13 @@ namespace Pulumi.Aws.Connect
     [OutputType]
     public sealed class GetSecurityProfileResult
     {
+        /// <summary>
+        /// ARN of the Security Profile.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Description of the Security Profile.
+        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -81,9 +203,18 @@ namespace Pulumi.Aws.Connect
         public readonly string Id;
         public readonly string InstanceId;
         public readonly string Name;
+        /// <summary>
+        /// The organization resource identifier for the security profile.
+        /// </summary>
         public readonly string OrganizationResourceId;
+        /// <summary>
+        /// List of permissions assigned to the security profile.
+        /// </summary>
         public readonly ImmutableArray<string> Permissions;
         public readonly string SecurityProfileId;
+        /// <summary>
+        /// Map of tags to assign to the Security Profile.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

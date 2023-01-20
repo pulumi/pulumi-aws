@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := acmpca.LookupCertificateAuthority(ctx, &acmpca.LookupCertificateAuthorityArgs{
+//				Arn: "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupCertificateAuthority(ctx *pulumi.Context, args *LookupCertificateAuthorityArgs, opts ...pulumi.InvokeOption) (*LookupCertificateAuthorityResult, error) {
 	var rv LookupCertificateAuthorityResult
 	err := ctx.Invoke("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args, &rv, opts...)
@@ -21,26 +48,47 @@ func LookupCertificateAuthority(ctx *pulumi.Context, args *LookupCertificateAuth
 
 // A collection of arguments for invoking getCertificateAuthority.
 type LookupCertificateAuthorityArgs struct {
-	Arn  string            `pulumi:"arn"`
+	// ARN of the certificate authority.
+	Arn string `pulumi:"arn"`
+	// Key-value map of user-defined tags that are attached to the certificate authority.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCertificateAuthority.
 type LookupCertificateAuthorityResult struct {
-	Arn                       string `pulumi:"arn"`
-	Certificate               string `pulumi:"certificate"`
-	CertificateChain          string `pulumi:"certificateChain"`
+	Arn string `pulumi:"arn"`
+	// Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
+	Certificate string `pulumi:"certificate"`
+	// Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
+	CertificateChain string `pulumi:"certificateChain"`
+	// The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
 	CertificateSigningRequest string `pulumi:"certificateSigningRequest"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                       string                                           `pulumi:"id"`
-	NotAfter                 string                                           `pulumi:"notAfter"`
-	NotBefore                string                                           `pulumi:"notBefore"`
+	Id string `pulumi:"id"`
+	// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
+	NotAfter string `pulumi:"notAfter"`
+	// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
+	NotBefore string `pulumi:"notBefore"`
+	// Nested attribute containing revocation configuration.
+	// * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
+	// * `revocation_configuration.0.crl_configuration.0.custom_cname` - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
+	// * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+	// * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
+	// * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
+	// * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
+	// * `revocation_configuration.0.ocsp_configuration.0.enabled` - Boolean value that specifies whether a custom OCSP responder is enabled.
+	// * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
 	RevocationConfigurations []GetCertificateAuthorityRevocationConfiguration `pulumi:"revocationConfigurations"`
-	Serial                   string                                           `pulumi:"serial"`
-	Status                   string                                           `pulumi:"status"`
-	Tags                     map[string]string                                `pulumi:"tags"`
-	Type                     string                                           `pulumi:"type"`
-	UsageMode                string                                           `pulumi:"usageMode"`
+	// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
+	Serial string `pulumi:"serial"`
+	// Status of the certificate authority.
+	Status string `pulumi:"status"`
+	// Key-value map of user-defined tags that are attached to the certificate authority.
+	Tags map[string]string `pulumi:"tags"`
+	// Type of the certificate authority.
+	Type string `pulumi:"type"`
+	// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
+	UsageMode string `pulumi:"usageMode"`
 }
 
 func LookupCertificateAuthorityOutput(ctx *pulumi.Context, args LookupCertificateAuthorityOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateAuthorityResultOutput {
@@ -58,7 +106,9 @@ func LookupCertificateAuthorityOutput(ctx *pulumi.Context, args LookupCertificat
 
 // A collection of arguments for invoking getCertificateAuthority.
 type LookupCertificateAuthorityOutputArgs struct {
-	Arn  pulumi.StringInput    `pulumi:"arn"`
+	// ARN of the certificate authority.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Key-value map of user-defined tags that are attached to the certificate authority.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -85,14 +135,17 @@ func (o LookupCertificateAuthorityResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
 func (o LookupCertificateAuthorityResultOutput) Certificate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Certificate }).(pulumi.StringOutput)
 }
 
+// Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
 func (o LookupCertificateAuthorityResultOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.CertificateChain }).(pulumi.StringOutput)
 }
 
+// The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
 func (o LookupCertificateAuthorityResultOutput) CertificateSigningRequest() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.CertificateSigningRequest }).(pulumi.StringOutput)
 }
@@ -102,36 +155,52 @@ func (o LookupCertificateAuthorityResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
 func (o LookupCertificateAuthorityResultOutput) NotAfter() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.NotAfter }).(pulumi.StringOutput)
 }
 
+// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
 func (o LookupCertificateAuthorityResultOutput) NotBefore() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.NotBefore }).(pulumi.StringOutput)
 }
 
+// Nested attribute containing revocation configuration.
+// * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
+// * `revocation_configuration.0.crl_configuration.0.custom_cname` - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
+// * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+// * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
+// * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
+// * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
+// * `revocation_configuration.0.ocsp_configuration.0.enabled` - Boolean value that specifies whether a custom OCSP responder is enabled.
+// * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
 func (o LookupCertificateAuthorityResultOutput) RevocationConfigurations() GetCertificateAuthorityRevocationConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) []GetCertificateAuthorityRevocationConfiguration {
 		return v.RevocationConfigurations
 	}).(GetCertificateAuthorityRevocationConfigurationArrayOutput)
 }
 
+// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
 func (o LookupCertificateAuthorityResultOutput) Serial() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Serial }).(pulumi.StringOutput)
 }
 
+// Status of the certificate authority.
 func (o LookupCertificateAuthorityResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// Key-value map of user-defined tags that are attached to the certificate authority.
 func (o LookupCertificateAuthorityResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Type of the certificate authority.
 func (o LookupCertificateAuthorityResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
 func (o LookupCertificateAuthorityResultOutput) UsageMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.UsageMode }).(pulumi.StringOutput)
 }

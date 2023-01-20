@@ -16,16 +16,32 @@ public final class BucketServerSideEncryptionConfigurationV2RuleArgs extends com
 
     public static final BucketServerSideEncryptionConfigurationV2RuleArgs Empty = new BucketServerSideEncryptionConfigurationV2RuleArgs();
 
+    /**
+     * A single object for setting server-side encryption by default documented below
+     * 
+     */
     @Import(name="applyServerSideEncryptionByDefault")
     private @Nullable Output<BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs> applyServerSideEncryptionByDefault;
 
+    /**
+     * @return A single object for setting server-side encryption by default documented below
+     * 
+     */
     public Optional<Output<BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs>> applyServerSideEncryptionByDefault() {
         return Optional.ofNullable(this.applyServerSideEncryptionByDefault);
     }
 
+    /**
+     * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+     * 
+     */
     @Import(name="bucketKeyEnabled")
     private @Nullable Output<Boolean> bucketKeyEnabled;
 
+    /**
+     * @return Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+     * 
+     */
     public Optional<Output<Boolean>> bucketKeyEnabled() {
         return Optional.ofNullable(this.bucketKeyEnabled);
     }
@@ -55,20 +71,44 @@ public final class BucketServerSideEncryptionConfigurationV2RuleArgs extends com
             $ = new BucketServerSideEncryptionConfigurationV2RuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param applyServerSideEncryptionByDefault A single object for setting server-side encryption by default documented below
+         * 
+         * @return builder
+         * 
+         */
         public Builder applyServerSideEncryptionByDefault(@Nullable Output<BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs> applyServerSideEncryptionByDefault) {
             $.applyServerSideEncryptionByDefault = applyServerSideEncryptionByDefault;
             return this;
         }
 
+        /**
+         * @param applyServerSideEncryptionByDefault A single object for setting server-side encryption by default documented below
+         * 
+         * @return builder
+         * 
+         */
         public Builder applyServerSideEncryptionByDefault(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs applyServerSideEncryptionByDefault) {
             return applyServerSideEncryptionByDefault(Output.of(applyServerSideEncryptionByDefault));
         }
 
+        /**
+         * @param bucketKeyEnabled Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketKeyEnabled(@Nullable Output<Boolean> bucketKeyEnabled) {
             $.bucketKeyEnabled = bucketKeyEnabled;
             return this;
         }
 
+        /**
+         * @param bucketKeyEnabled Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketKeyEnabled(Boolean bucketKeyEnabled) {
             return bucketKeyEnabled(Output.of(bucketKeyEnabled));
         }

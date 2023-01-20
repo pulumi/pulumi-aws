@@ -70,6 +70,10 @@ class DataRepositoryAssociationS3(dict):
     def __init__(__self__, *,
                  auto_export_policy: Optional['outputs.DataRepositoryAssociationS3AutoExportPolicy'] = None,
                  auto_import_policy: Optional['outputs.DataRepositoryAssociationS3AutoImportPolicy'] = None):
+        """
+        :param 'DataRepositoryAssociationS3AutoExportPolicyArgs' auto_export_policy: Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+        :param 'DataRepositoryAssociationS3AutoImportPolicyArgs' auto_import_policy: Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+        """
         if auto_export_policy is not None:
             pulumi.set(__self__, "auto_export_policy", auto_export_policy)
         if auto_import_policy is not None:
@@ -78,11 +82,17 @@ class DataRepositoryAssociationS3(dict):
     @property
     @pulumi.getter(name="autoExportPolicy")
     def auto_export_policy(self) -> Optional['outputs.DataRepositoryAssociationS3AutoExportPolicy']:
+        """
+        Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+        """
         return pulumi.get(self, "auto_export_policy")
 
     @property
     @pulumi.getter(name="autoImportPolicy")
     def auto_import_policy(self) -> Optional['outputs.DataRepositoryAssociationS3AutoImportPolicy']:
+        """
+        Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+        """
         return pulumi.get(self, "auto_import_policy")
 
 
@@ -90,12 +100,18 @@ class DataRepositoryAssociationS3(dict):
 class DataRepositoryAssociationS3AutoExportPolicy(dict):
     def __init__(__self__, *,
                  events: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] events: A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+        """
         if events is not None:
             pulumi.set(__self__, "events", events)
 
     @property
     @pulumi.getter
     def events(self) -> Optional[Sequence[str]]:
+        """
+        A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+        """
         return pulumi.get(self, "events")
 
 
@@ -103,12 +119,18 @@ class DataRepositoryAssociationS3AutoExportPolicy(dict):
 class DataRepositoryAssociationS3AutoImportPolicy(dict):
     def __init__(__self__, *,
                  events: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] events: A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+        """
         if events is not None:
             pulumi.set(__self__, "events", events)
 
     @property
     @pulumi.getter
     def events(self) -> Optional[Sequence[str]]:
+        """
+        A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+        """
         return pulumi.get(self, "events")
 
 
@@ -159,6 +181,14 @@ class FileCacheDataRepositoryAssociation(dict):
                  nfs: Optional[Sequence['outputs.FileCacheDataRepositoryAssociationNf']] = None,
                  resource_arn: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
+        """
+        :param str data_repository_path: The path to the S3 or NFS data repository that links to the cache.
+        :param str file_cache_path: A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
+        :param Sequence[str] data_repository_subdirectories: A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+        :param str file_cache_id: The system-generated, unique ID of the cache.
+        :param Sequence['FileCacheDataRepositoryAssociationNfArgs'] nfs: (Optional) See the `nfs` configuration block.
+        :param Mapping[str, str] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         pulumi.set(__self__, "data_repository_path", data_repository_path)
         pulumi.set(__self__, "file_cache_path", file_cache_path)
         if association_id is not None:
@@ -183,11 +213,17 @@ class FileCacheDataRepositoryAssociation(dict):
     @property
     @pulumi.getter(name="dataRepositoryPath")
     def data_repository_path(self) -> str:
+        """
+        The path to the S3 or NFS data repository that links to the cache.
+        """
         return pulumi.get(self, "data_repository_path")
 
     @property
     @pulumi.getter(name="fileCachePath")
     def file_cache_path(self) -> str:
+        """
+        A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
+        """
         return pulumi.get(self, "file_cache_path")
 
     @property
@@ -198,11 +234,17 @@ class FileCacheDataRepositoryAssociation(dict):
     @property
     @pulumi.getter(name="dataRepositorySubdirectories")
     def data_repository_subdirectories(self) -> Optional[Sequence[str]]:
+        """
+        A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+        """
         return pulumi.get(self, "data_repository_subdirectories")
 
     @property
     @pulumi.getter(name="fileCacheId")
     def file_cache_id(self) -> Optional[str]:
+        """
+        The system-generated, unique ID of the cache.
+        """
         return pulumi.get(self, "file_cache_id")
 
     @property
@@ -223,6 +265,9 @@ class FileCacheDataRepositoryAssociation(dict):
     @property
     @pulumi.getter
     def nfs(self) -> Optional[Sequence['outputs.FileCacheDataRepositoryAssociationNf']]:
+        """
+        (Optional) See the `nfs` configuration block.
+        """
         return pulumi.get(self, "nfs")
 
     @property
@@ -233,6 +278,9 @@ class FileCacheDataRepositoryAssociation(dict):
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -258,6 +306,10 @@ class FileCacheDataRepositoryAssociationNf(dict):
     def __init__(__self__, *,
                  version: str,
                  dns_ips: Optional[Sequence[str]] = None):
+        """
+        :param str version: The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+        :param Sequence[str] dns_ips: A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+        """
         pulumi.set(__self__, "version", version)
         if dns_ips is not None:
             pulumi.set(__self__, "dns_ips", dns_ips)
@@ -265,11 +317,17 @@ class FileCacheDataRepositoryAssociationNf(dict):
     @property
     @pulumi.getter
     def version(self) -> str:
+        """
+        The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+        """
         return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="dnsIps")
     def dns_ips(self) -> Optional[Sequence[str]]:
+        """
+        A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+        """
         return pulumi.get(self, "dns_ips")
 
 
@@ -309,6 +367,12 @@ class FileCacheLustreConfiguration(dict):
                  log_configurations: Optional[Sequence['outputs.FileCacheLustreConfigurationLogConfiguration']] = None,
                  mount_name: Optional[str] = None,
                  weekly_maintenance_start_time: Optional[str] = None):
+        """
+        :param str deployment_type: Specifies the cache deployment type. The only supported value is `CACHE_1`.
+        :param Sequence['FileCacheLustreConfigurationMetadataConfigurationArgs'] metadata_configurations: The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+        :param int per_unit_storage_throughput: Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+        :param str weekly_maintenance_start_time: A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+        """
         pulumi.set(__self__, "deployment_type", deployment_type)
         pulumi.set(__self__, "metadata_configurations", metadata_configurations)
         pulumi.set(__self__, "per_unit_storage_throughput", per_unit_storage_throughput)
@@ -322,16 +386,25 @@ class FileCacheLustreConfiguration(dict):
     @property
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> str:
+        """
+        Specifies the cache deployment type. The only supported value is `CACHE_1`.
+        """
         return pulumi.get(self, "deployment_type")
 
     @property
     @pulumi.getter(name="metadataConfigurations")
     def metadata_configurations(self) -> Sequence['outputs.FileCacheLustreConfigurationMetadataConfiguration']:
+        """
+        The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+        """
         return pulumi.get(self, "metadata_configurations")
 
     @property
     @pulumi.getter(name="perUnitStorageThroughput")
     def per_unit_storage_throughput(self) -> int:
+        """
+        Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+        """
         return pulumi.get(self, "per_unit_storage_throughput")
 
     @property
@@ -347,6 +420,9 @@ class FileCacheLustreConfiguration(dict):
     @property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
     def weekly_maintenance_start_time(self) -> Optional[str]:
+        """
+        A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+        """
         return pulumi.get(self, "weekly_maintenance_start_time")
 
 
@@ -392,11 +468,17 @@ class FileCacheLustreConfigurationMetadataConfiguration(dict):
 
     def __init__(__self__, *,
                  storage_capacity: int):
+        """
+        :param int storage_capacity: The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+        """
         pulumi.set(__self__, "storage_capacity", storage_capacity)
 
     @property
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> int:
+        """
+        The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+        """
         return pulumi.get(self, "storage_capacity")
 
 
@@ -405,6 +487,10 @@ class LustreFileSystemLogConfiguration(dict):
     def __init__(__self__, *,
                  destination: Optional[str] = None,
                  level: Optional[str] = None):
+        """
+        :param str destination: The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+        :param str level: Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+        """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
         if level is not None:
@@ -413,11 +499,17 @@ class LustreFileSystemLogConfiguration(dict):
     @property
     @pulumi.getter
     def destination(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+        """
         return pulumi.get(self, "destination")
 
     @property
     @pulumi.getter
     def level(self) -> Optional[str]:
+        """
+        Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+        """
         return pulumi.get(self, "level")
 
 
@@ -426,6 +518,10 @@ class OntapFileSystemDiskIopsConfiguration(dict):
     def __init__(__self__, *,
                  iops: Optional[int] = None,
                  mode: Optional[str] = None):
+        """
+        :param int iops: The total number of SSD IOPS provisioned for the file system.
+        :param str mode: Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
         if mode is not None:
@@ -434,11 +530,17 @@ class OntapFileSystemDiskIopsConfiguration(dict):
     @property
     @pulumi.getter
     def iops(self) -> Optional[int]:
+        """
+        The total number of SSD IOPS provisioned for the file system.
+        """
         return pulumi.get(self, "iops")
 
     @property
     @pulumi.getter
     def mode(self) -> Optional[str]:
+        """
+        Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
         return pulumi.get(self, "mode")
 
 
@@ -447,6 +549,10 @@ class OntapFileSystemEndpoint(dict):
     def __init__(__self__, *,
                  interclusters: Optional[Sequence['outputs.OntapFileSystemEndpointIntercluster']] = None,
                  managements: Optional[Sequence['outputs.OntapFileSystemEndpointManagement']] = None):
+        """
+        :param Sequence['OntapFileSystemEndpointInterclusterArgs'] interclusters: An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+        :param Sequence['OntapFileSystemEndpointManagementArgs'] managements: An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        """
         if interclusters is not None:
             pulumi.set(__self__, "interclusters", interclusters)
         if managements is not None:
@@ -455,11 +561,17 @@ class OntapFileSystemEndpoint(dict):
     @property
     @pulumi.getter
     def interclusters(self) -> Optional[Sequence['outputs.OntapFileSystemEndpointIntercluster']]:
+        """
+        An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+        """
         return pulumi.get(self, "interclusters")
 
     @property
     @pulumi.getter
     def managements(self) -> Optional[Sequence['outputs.OntapFileSystemEndpointManagement']]:
+        """
+        An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        """
         return pulumi.get(self, "managements")
 
 
@@ -487,6 +599,10 @@ class OntapFileSystemEndpointIntercluster(dict):
     def __init__(__self__, *,
                  dns_name: Optional[str] = None,
                  ip_addresses: Optional[Sequence[str]] = None):
+        """
+        :param str dns_name: The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+        :param Sequence[str] ip_addresses: IP addresses of the file system endpoint.
+        """
         if dns_name is not None:
             pulumi.set(__self__, "dns_name", dns_name)
         if ip_addresses is not None:
@@ -495,11 +611,17 @@ class OntapFileSystemEndpointIntercluster(dict):
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[str]:
+        """
+        The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+        """
         return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        IP addresses of the file system endpoint.
+        """
         return pulumi.get(self, "ip_addresses")
 
 
@@ -527,6 +649,10 @@ class OntapFileSystemEndpointManagement(dict):
     def __init__(__self__, *,
                  dns_name: Optional[str] = None,
                  ip_addresses: Optional[Sequence[str]] = None):
+        """
+        :param str dns_name: The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+        :param Sequence[str] ip_addresses: IP addresses of the file system endpoint.
+        """
         if dns_name is not None:
             pulumi.set(__self__, "dns_name", dns_name)
         if ip_addresses is not None:
@@ -535,11 +661,17 @@ class OntapFileSystemEndpointManagement(dict):
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[str]:
+        """
+        The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+        """
         return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        IP addresses of the file system endpoint.
+        """
         return pulumi.get(self, "ip_addresses")
 
 
@@ -567,6 +699,9 @@ class OntapStorageVirtualMachineActiveDirectoryConfiguration(dict):
     def __init__(__self__, *,
                  netbios_name: Optional[str] = None,
                  self_managed_active_directory_configuration: Optional['outputs.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration'] = None):
+        """
+        :param str netbios_name: The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
+        """
         if netbios_name is not None:
             pulumi.set(__self__, "netbios_name", netbios_name)
         if self_managed_active_directory_configuration is not None:
@@ -575,6 +710,9 @@ class OntapStorageVirtualMachineActiveDirectoryConfiguration(dict):
     @property
     @pulumi.getter(name="netbiosName")
     def netbios_name(self) -> Optional[str]:
+        """
+        The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
+        """
         return pulumi.get(self, "netbios_name")
 
     @property
@@ -615,6 +753,14 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
                  username: str,
                  file_system_administrators_group: Optional[str] = None,
                  organizational_unit_distinguished_name: Optional[str] = None):
+        """
+        :param Sequence[str] dns_ips: A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+        :param str domain_name: The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+        :param str password: The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        :param str username: The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        :param str file_system_administrators_group: The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+        :param str organizational_unit_distinguished_name: The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+        """
         pulumi.set(__self__, "dns_ips", dns_ips)
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "password", password)
@@ -627,31 +773,49 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
     @property
     @pulumi.getter(name="dnsIps")
     def dns_ips(self) -> Sequence[str]:
+        """
+        A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+        """
         return pulumi.get(self, "dns_ips")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> str:
+        """
+        The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter
     def password(self) -> str:
+        """
+        The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter
     def username(self) -> str:
+        """
+        The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        """
         return pulumi.get(self, "username")
 
     @property
     @pulumi.getter(name="fileSystemAdministratorsGroup")
     def file_system_administrators_group(self) -> Optional[str]:
+        """
+        The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+        """
         return pulumi.get(self, "file_system_administrators_group")
 
     @property
     @pulumi.getter(name="organizationalUnitDistinguishedName")
     def organizational_unit_distinguished_name(self) -> Optional[str]:
+        """
+        The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+        """
         return pulumi.get(self, "organizational_unit_distinguished_name")
 
 
@@ -662,6 +826,12 @@ class OntapStorageVirtualMachineEndpoint(dict):
                  managements: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointManagement']] = None,
                  nfs: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointNf']] = None,
                  smbs: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointSmb']] = None):
+        """
+        :param Sequence['OntapStorageVirtualMachineEndpointIscseArgs'] iscses: An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+        :param Sequence['OntapStorageVirtualMachineEndpointManagementArgs'] managements: An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        :param Sequence['OntapStorageVirtualMachineEndpointNfArgs'] nfs: An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+        :param Sequence['OntapStorageVirtualMachineEndpointSmbArgs'] smbs: An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+        """
         if iscses is not None:
             pulumi.set(__self__, "iscses", iscses)
         if managements is not None:
@@ -674,21 +844,33 @@ class OntapStorageVirtualMachineEndpoint(dict):
     @property
     @pulumi.getter
     def iscses(self) -> Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointIscse']]:
+        """
+        An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+        """
         return pulumi.get(self, "iscses")
 
     @property
     @pulumi.getter
     def managements(self) -> Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointManagement']]:
+        """
+        An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        """
         return pulumi.get(self, "managements")
 
     @property
     @pulumi.getter
     def nfs(self) -> Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointNf']]:
+        """
+        An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+        """
         return pulumi.get(self, "nfs")
 
     @property
     @pulumi.getter
     def smbs(self) -> Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointSmb']]:
+        """
+        An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+        """
         return pulumi.get(self, "smbs")
 
 
@@ -716,6 +898,10 @@ class OntapStorageVirtualMachineEndpointIscse(dict):
     def __init__(__self__, *,
                  dns_name: Optional[str] = None,
                  ip_addresses: Optional[Sequence[str]] = None):
+        """
+        :param str dns_name: The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        :param Sequence[str] ip_addresses: IP addresses of the storage virtual machine endpoint.
+        """
         if dns_name is not None:
             pulumi.set(__self__, "dns_name", dns_name)
         if ip_addresses is not None:
@@ -724,11 +910,17 @@ class OntapStorageVirtualMachineEndpointIscse(dict):
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[str]:
+        """
+        The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        """
         return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        IP addresses of the storage virtual machine endpoint.
+        """
         return pulumi.get(self, "ip_addresses")
 
 
@@ -756,6 +948,10 @@ class OntapStorageVirtualMachineEndpointManagement(dict):
     def __init__(__self__, *,
                  dns_name: Optional[str] = None,
                  ip_addresses: Optional[Sequence[str]] = None):
+        """
+        :param str dns_name: The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        :param Sequence[str] ip_addresses: IP addresses of the storage virtual machine endpoint.
+        """
         if dns_name is not None:
             pulumi.set(__self__, "dns_name", dns_name)
         if ip_addresses is not None:
@@ -764,11 +960,17 @@ class OntapStorageVirtualMachineEndpointManagement(dict):
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[str]:
+        """
+        The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        """
         return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        IP addresses of the storage virtual machine endpoint.
+        """
         return pulumi.get(self, "ip_addresses")
 
 
@@ -796,6 +998,10 @@ class OntapStorageVirtualMachineEndpointNf(dict):
     def __init__(__self__, *,
                  dns_name: Optional[str] = None,
                  ip_addresses: Optional[Sequence[str]] = None):
+        """
+        :param str dns_name: The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        :param Sequence[str] ip_addresses: IP addresses of the storage virtual machine endpoint.
+        """
         if dns_name is not None:
             pulumi.set(__self__, "dns_name", dns_name)
         if ip_addresses is not None:
@@ -804,11 +1010,17 @@ class OntapStorageVirtualMachineEndpointNf(dict):
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[str]:
+        """
+        The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        """
         return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        IP addresses of the storage virtual machine endpoint.
+        """
         return pulumi.get(self, "ip_addresses")
 
 
@@ -836,6 +1048,10 @@ class OntapStorageVirtualMachineEndpointSmb(dict):
     def __init__(__self__, *,
                  dns_name: Optional[str] = None,
                  ip_addresses: Optional[Sequence[str]] = None):
+        """
+        :param str dns_name: The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        :param Sequence[str] ip_addresses: IP addresses of the storage virtual machine endpoint.
+        """
         if dns_name is not None:
             pulumi.set(__self__, "dns_name", dns_name)
         if ip_addresses is not None:
@@ -844,11 +1060,17 @@ class OntapStorageVirtualMachineEndpointSmb(dict):
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[str]:
+        """
+        The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        """
         return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        IP addresses of the storage virtual machine endpoint.
+        """
         return pulumi.get(self, "ip_addresses")
 
 
@@ -874,6 +1096,9 @@ class OntapVolumeTieringPolicy(dict):
     def __init__(__self__, *,
                  cooling_period: Optional[int] = None,
                  name: Optional[str] = None):
+        """
+        :param str name: Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+        """
         if cooling_period is not None:
             pulumi.set(__self__, "cooling_period", cooling_period)
         if name is not None:
@@ -887,6 +1112,9 @@ class OntapVolumeTieringPolicy(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+        """
         return pulumi.get(self, "name")
 
 
@@ -895,6 +1123,10 @@ class OpenZfsFileSystemDiskIopsConfiguration(dict):
     def __init__(__self__, *,
                  iops: Optional[int] = None,
                  mode: Optional[str] = None):
+        """
+        :param int iops: The total number of SSD IOPS provisioned for the file system.
+        :param str mode: Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
         if mode is not None:
@@ -903,11 +1135,17 @@ class OpenZfsFileSystemDiskIopsConfiguration(dict):
     @property
     @pulumi.getter
     def iops(self) -> Optional[int]:
+        """
+        The total number of SSD IOPS provisioned for the file system.
+        """
         return pulumi.get(self, "iops")
 
     @property
     @pulumi.getter
     def mode(self) -> Optional[str]:
+        """
+        Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
         return pulumi.get(self, "mode")
 
 
@@ -947,6 +1185,14 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
                  read_only: Optional[bool] = None,
                  record_size_kib: Optional[int] = None,
                  user_and_group_quotas: Optional[Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota']] = None):
+        """
+        :param bool copy_tags_to_snapshots: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        :param str data_compression_type: Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        :param 'OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs' nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        :param bool read_only: specifies whether the volume is read-only. Default is false.
+        :param int record_size_kib: Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        :param Sequence['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs'] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        """
         if copy_tags_to_snapshots is not None:
             pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
         if data_compression_type is not None:
@@ -963,31 +1209,49 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
     @property
     @pulumi.getter(name="copyTagsToSnapshots")
     def copy_tags_to_snapshots(self) -> Optional[bool]:
+        """
+        A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        """
         return pulumi.get(self, "copy_tags_to_snapshots")
 
     @property
     @pulumi.getter(name="dataCompressionType")
     def data_compression_type(self) -> Optional[str]:
+        """
+        Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        """
         return pulumi.get(self, "data_compression_type")
 
     @property
     @pulumi.getter(name="nfsExports")
     def nfs_exports(self) -> Optional['outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExports']:
+        """
+        NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        """
         return pulumi.get(self, "nfs_exports")
 
     @property
     @pulumi.getter(name="readOnly")
     def read_only(self) -> Optional[bool]:
+        """
+        specifies whether the volume is read-only. Default is false.
+        """
         return pulumi.get(self, "read_only")
 
     @property
     @pulumi.getter(name="recordSizeKib")
     def record_size_kib(self) -> Optional[int]:
+        """
+        Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        """
         return pulumi.get(self, "record_size_kib")
 
     @property
     @pulumi.getter(name="userAndGroupQuotas")
     def user_and_group_quotas(self) -> Optional[Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota']]:
+        """
+        Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        """
         return pulumi.get(self, "user_and_group_quotas")
 
 
@@ -1012,11 +1276,17 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExports(dict):
 
     def __init__(__self__, *,
                  client_configurations: Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration']):
+        """
+        :param Sequence['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs'] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        """
         pulumi.set(__self__, "client_configurations", client_configurations)
 
     @property
     @pulumi.getter(name="clientConfigurations")
     def client_configurations(self) -> Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration']:
+        """
+        A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        """
         return pulumi.get(self, "client_configurations")
 
 
@@ -1025,17 +1295,27 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration(dict
     def __init__(__self__, *,
                  clients: str,
                  options: Sequence[str]):
+        """
+        :param str clients: A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        :param Sequence[str] options: The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        """
         pulumi.set(__self__, "clients", clients)
         pulumi.set(__self__, "options", options)
 
     @property
     @pulumi.getter
     def clients(self) -> str:
+        """
+        A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        """
         return pulumi.get(self, "clients")
 
     @property
     @pulumi.getter
     def options(self) -> Sequence[str]:
+        """
+        The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        """
         return pulumi.get(self, "options")
 
 
@@ -1062,6 +1342,11 @@ class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota(dict):
                  id: int,
                  storage_capacity_quota_gib: int,
                  type: str):
+        """
+        :param int id: The ID of the user or group. Valid values between `0` and `2147483647`
+        :param int storage_capacity_quota_gib: The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        :param str type: A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "storage_capacity_quota_gib", storage_capacity_quota_gib)
         pulumi.set(__self__, "type", type)
@@ -1069,16 +1354,25 @@ class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota(dict):
     @property
     @pulumi.getter
     def id(self) -> int:
+        """
+        The ID of the user or group. Valid values between `0` and `2147483647`
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="storageCapacityQuotaGib")
     def storage_capacity_quota_gib(self) -> int:
+        """
+        The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        """
         return pulumi.get(self, "storage_capacity_quota_gib")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+        """
         return pulumi.get(self, "type")
 
 
@@ -1103,11 +1397,17 @@ class OpenZfsVolumeNfsExports(dict):
 
     def __init__(__self__, *,
                  client_configurations: Sequence['outputs.OpenZfsVolumeNfsExportsClientConfiguration']):
+        """
+        :param Sequence['OpenZfsVolumeNfsExportsClientConfigurationArgs'] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        """
         pulumi.set(__self__, "client_configurations", client_configurations)
 
     @property
     @pulumi.getter(name="clientConfigurations")
     def client_configurations(self) -> Sequence['outputs.OpenZfsVolumeNfsExportsClientConfiguration']:
+        """
+        A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        """
         return pulumi.get(self, "client_configurations")
 
 
@@ -1116,17 +1416,27 @@ class OpenZfsVolumeNfsExportsClientConfiguration(dict):
     def __init__(__self__, *,
                  clients: str,
                  options: Sequence[str]):
+        """
+        :param str clients: A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        :param Sequence[str] options: The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        """
         pulumi.set(__self__, "clients", clients)
         pulumi.set(__self__, "options", options)
 
     @property
     @pulumi.getter
     def clients(self) -> str:
+        """
+        A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        """
         return pulumi.get(self, "clients")
 
     @property
     @pulumi.getter
     def options(self) -> Sequence[str]:
+        """
+        The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        """
         return pulumi.get(self, "options")
 
 
@@ -1191,6 +1501,10 @@ class OpenZfsVolumeUserAndGroupQuota(dict):
                  id: int,
                  storage_capacity_quota_gib: int,
                  type: str):
+        """
+        :param int id: The ID of the user or group. Valid values between `0` and `2147483647`
+        :param int storage_capacity_quota_gib: The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "storage_capacity_quota_gib", storage_capacity_quota_gib)
         pulumi.set(__self__, "type", type)
@@ -1198,11 +1512,17 @@ class OpenZfsVolumeUserAndGroupQuota(dict):
     @property
     @pulumi.getter
     def id(self) -> int:
+        """
+        The ID of the user or group. Valid values between `0` and `2147483647`
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="storageCapacityQuotaGib")
     def storage_capacity_quota_gib(self) -> int:
+        """
+        The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        """
         return pulumi.get(self, "storage_capacity_quota_gib")
 
     @property
@@ -1238,6 +1558,11 @@ class WindowsFileSystemAuditLogConfiguration(dict):
                  audit_log_destination: Optional[str] = None,
                  file_access_audit_log_level: Optional[str] = None,
                  file_share_access_audit_log_level: Optional[str] = None):
+        """
+        :param str audit_log_destination: The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `file_access_audit_log_level` and `file_share_access_audit_log_level` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `audit_log_destionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+        :param str file_access_audit_log_level: Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+        :param str file_share_access_audit_log_level: Sets which attempt type is logged by Amazon FSx for file share accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+        """
         if audit_log_destination is not None:
             pulumi.set(__self__, "audit_log_destination", audit_log_destination)
         if file_access_audit_log_level is not None:
@@ -1248,16 +1573,25 @@ class WindowsFileSystemAuditLogConfiguration(dict):
     @property
     @pulumi.getter(name="auditLogDestination")
     def audit_log_destination(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `file_access_audit_log_level` and `file_share_access_audit_log_level` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `audit_log_destionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+        """
         return pulumi.get(self, "audit_log_destination")
 
     @property
     @pulumi.getter(name="fileAccessAuditLogLevel")
     def file_access_audit_log_level(self) -> Optional[str]:
+        """
+        Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+        """
         return pulumi.get(self, "file_access_audit_log_level")
 
     @property
     @pulumi.getter(name="fileShareAccessAuditLogLevel")
     def file_share_access_audit_log_level(self) -> Optional[str]:
+        """
+        Sets which attempt type is logged by Amazon FSx for file share accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+        """
         return pulumi.get(self, "file_share_access_audit_log_level")
 
 
@@ -1293,6 +1627,14 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
                  username: str,
                  file_system_administrators_group: Optional[str] = None,
                  organizational_unit_distinguished_name: Optional[str] = None):
+        """
+        :param Sequence[str] dns_ips: A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+        :param str domain_name: The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+        :param str password: The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        :param str username: The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        :param str file_system_administrators_group: The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+        :param str organizational_unit_distinguished_name: The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+        """
         pulumi.set(__self__, "dns_ips", dns_ips)
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "password", password)
@@ -1305,31 +1647,49 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
     @property
     @pulumi.getter(name="dnsIps")
     def dns_ips(self) -> Sequence[str]:
+        """
+        A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+        """
         return pulumi.get(self, "dns_ips")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> str:
+        """
+        The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter
     def password(self) -> str:
+        """
+        The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter
     def username(self) -> str:
+        """
+        The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        """
         return pulumi.get(self, "username")
 
     @property
     @pulumi.getter(name="fileSystemAdministratorsGroup")
     def file_system_administrators_group(self) -> Optional[str]:
+        """
+        The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+        """
         return pulumi.get(self, "file_system_administrators_group")
 
     @property
     @pulumi.getter(name="organizationalUnitDistinguishedName")
     def organizational_unit_distinguished_name(self) -> Optional[str]:
+        """
+        The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+        """
         return pulumi.get(self, "organizational_unit_distinguished_name")
 
 
@@ -1338,12 +1698,18 @@ class GetOpenZfsSnapshotFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
+        """
+        :param str name: Name of the snapshot.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the snapshot.
+        """
         return pulumi.get(self, "name")
 
     @property

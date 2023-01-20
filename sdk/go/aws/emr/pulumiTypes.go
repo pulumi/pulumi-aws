@@ -11,6 +11,7 @@ import (
 )
 
 type ClusterAutoTerminationPolicy struct {
+	// Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
 	IdleTimeout *int `pulumi:"idleTimeout"`
 }
 
@@ -26,6 +27,7 @@ type ClusterAutoTerminationPolicyInput interface {
 }
 
 type ClusterAutoTerminationPolicyArgs struct {
+	// Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
 	IdleTimeout pulumi.IntPtrInput `pulumi:"idleTimeout"`
 }
 
@@ -106,6 +108,7 @@ func (o ClusterAutoTerminationPolicyOutput) ToClusterAutoTerminationPolicyPtrOut
 	}).(ClusterAutoTerminationPolicyPtrOutput)
 }
 
+// Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
 func (o ClusterAutoTerminationPolicyOutput) IdleTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterAutoTerminationPolicy) *int { return v.IdleTimeout }).(pulumi.IntPtrOutput)
 }
@@ -134,6 +137,7 @@ func (o ClusterAutoTerminationPolicyPtrOutput) Elem() ClusterAutoTerminationPoli
 	}).(ClusterAutoTerminationPolicyOutput)
 }
 
+// Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
 func (o ClusterAutoTerminationPolicyPtrOutput) IdleTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterAutoTerminationPolicy) *int {
 		if v == nil {
@@ -144,9 +148,12 @@ func (o ClusterAutoTerminationPolicyPtrOutput) IdleTimeout() pulumi.IntPtrOutput
 }
 
 type ClusterBootstrapAction struct {
+	// List of command line arguments to pass to the bootstrap action script.
 	Args []string `pulumi:"args"`
-	Name string   `pulumi:"name"`
-	Path string   `pulumi:"path"`
+	// Name of the bootstrap action.
+	Name string `pulumi:"name"`
+	// Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
+	Path string `pulumi:"path"`
 }
 
 // ClusterBootstrapActionInput is an input type that accepts ClusterBootstrapActionArgs and ClusterBootstrapActionOutput values.
@@ -161,9 +168,12 @@ type ClusterBootstrapActionInput interface {
 }
 
 type ClusterBootstrapActionArgs struct {
+	// List of command line arguments to pass to the bootstrap action script.
 	Args pulumi.StringArrayInput `pulumi:"args"`
-	Name pulumi.StringInput      `pulumi:"name"`
-	Path pulumi.StringInput      `pulumi:"path"`
+	// Name of the bootstrap action.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
+	Path pulumi.StringInput `pulumi:"path"`
 }
 
 func (ClusterBootstrapActionArgs) ElementType() reflect.Type {
@@ -217,14 +227,17 @@ func (o ClusterBootstrapActionOutput) ToClusterBootstrapActionOutputWithContext(
 	return o
 }
 
+// List of command line arguments to pass to the bootstrap action script.
 func (o ClusterBootstrapActionOutput) Args() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterBootstrapAction) []string { return v.Args }).(pulumi.StringArrayOutput)
 }
 
+// Name of the bootstrap action.
 func (o ClusterBootstrapActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterBootstrapAction) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
 func (o ClusterBootstrapActionOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterBootstrapAction) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -250,14 +263,20 @@ func (o ClusterBootstrapActionArrayOutput) Index(i pulumi.IntInput) ClusterBoots
 }
 
 type ClusterCoreInstanceFleet struct {
-	Id                          *string                                       `pulumi:"id"`
-	InstanceTypeConfigs         []ClusterCoreInstanceFleetInstanceTypeConfig  `pulumi:"instanceTypeConfigs"`
-	LaunchSpecifications        *ClusterCoreInstanceFleetLaunchSpecifications `pulumi:"launchSpecifications"`
-	Name                        *string                                       `pulumi:"name"`
-	ProvisionedOnDemandCapacity *int                                          `pulumi:"provisionedOnDemandCapacity"`
-	ProvisionedSpotCapacity     *int                                          `pulumi:"provisionedSpotCapacity"`
-	TargetOnDemandCapacity      *int                                          `pulumi:"targetOnDemandCapacity"`
-	TargetSpotCapacity          *int                                          `pulumi:"targetSpotCapacity"`
+	// ID of the cluster.
+	Id *string `pulumi:"id"`
+	// Configuration block for instance fleet.
+	InstanceTypeConfigs []ClusterCoreInstanceFleetInstanceTypeConfig `pulumi:"instanceTypeConfigs"`
+	// Configuration block for launch specification.
+	LaunchSpecifications *ClusterCoreInstanceFleetLaunchSpecifications `pulumi:"launchSpecifications"`
+	// Friendly name given to the instance fleet.
+	Name                        *string `pulumi:"name"`
+	ProvisionedOnDemandCapacity *int    `pulumi:"provisionedOnDemandCapacity"`
+	ProvisionedSpotCapacity     *int    `pulumi:"provisionedSpotCapacity"`
+	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+	TargetOnDemandCapacity *int `pulumi:"targetOnDemandCapacity"`
+	// Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+	TargetSpotCapacity *int `pulumi:"targetSpotCapacity"`
 }
 
 // ClusterCoreInstanceFleetInput is an input type that accepts ClusterCoreInstanceFleetArgs and ClusterCoreInstanceFleetOutput values.
@@ -272,14 +291,20 @@ type ClusterCoreInstanceFleetInput interface {
 }
 
 type ClusterCoreInstanceFleetArgs struct {
-	Id                          pulumi.StringPtrInput                                `pulumi:"id"`
-	InstanceTypeConfigs         ClusterCoreInstanceFleetInstanceTypeConfigArrayInput `pulumi:"instanceTypeConfigs"`
-	LaunchSpecifications        ClusterCoreInstanceFleetLaunchSpecificationsPtrInput `pulumi:"launchSpecifications"`
-	Name                        pulumi.StringPtrInput                                `pulumi:"name"`
-	ProvisionedOnDemandCapacity pulumi.IntPtrInput                                   `pulumi:"provisionedOnDemandCapacity"`
-	ProvisionedSpotCapacity     pulumi.IntPtrInput                                   `pulumi:"provisionedSpotCapacity"`
-	TargetOnDemandCapacity      pulumi.IntPtrInput                                   `pulumi:"targetOnDemandCapacity"`
-	TargetSpotCapacity          pulumi.IntPtrInput                                   `pulumi:"targetSpotCapacity"`
+	// ID of the cluster.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Configuration block for instance fleet.
+	InstanceTypeConfigs ClusterCoreInstanceFleetInstanceTypeConfigArrayInput `pulumi:"instanceTypeConfigs"`
+	// Configuration block for launch specification.
+	LaunchSpecifications ClusterCoreInstanceFleetLaunchSpecificationsPtrInput `pulumi:"launchSpecifications"`
+	// Friendly name given to the instance fleet.
+	Name                        pulumi.StringPtrInput `pulumi:"name"`
+	ProvisionedOnDemandCapacity pulumi.IntPtrInput    `pulumi:"provisionedOnDemandCapacity"`
+	ProvisionedSpotCapacity     pulumi.IntPtrInput    `pulumi:"provisionedSpotCapacity"`
+	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+	TargetOnDemandCapacity pulumi.IntPtrInput `pulumi:"targetOnDemandCapacity"`
+	// Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+	TargetSpotCapacity pulumi.IntPtrInput `pulumi:"targetSpotCapacity"`
 }
 
 func (ClusterCoreInstanceFleetArgs) ElementType() reflect.Type {
@@ -359,22 +384,26 @@ func (o ClusterCoreInstanceFleetOutput) ToClusterCoreInstanceFleetPtrOutputWithC
 	}).(ClusterCoreInstanceFleetPtrOutput)
 }
 
+// ID of the cluster.
 func (o ClusterCoreInstanceFleetOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleet) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Configuration block for instance fleet.
 func (o ClusterCoreInstanceFleetOutput) InstanceTypeConfigs() ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleet) []ClusterCoreInstanceFleetInstanceTypeConfig {
 		return v.InstanceTypeConfigs
 	}).(ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput)
 }
 
+// Configuration block for launch specification.
 func (o ClusterCoreInstanceFleetOutput) LaunchSpecifications() ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleet) *ClusterCoreInstanceFleetLaunchSpecifications {
 		return v.LaunchSpecifications
 	}).(ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput)
 }
 
+// Friendly name given to the instance fleet.
 func (o ClusterCoreInstanceFleetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleet) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -387,10 +416,12 @@ func (o ClusterCoreInstanceFleetOutput) ProvisionedSpotCapacity() pulumi.IntPtrO
 	return o.ApplyT(func(v ClusterCoreInstanceFleet) *int { return v.ProvisionedSpotCapacity }).(pulumi.IntPtrOutput)
 }
 
+// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
 func (o ClusterCoreInstanceFleetOutput) TargetOnDemandCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleet) *int { return v.TargetOnDemandCapacity }).(pulumi.IntPtrOutput)
 }
 
+// Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
 func (o ClusterCoreInstanceFleetOutput) TargetSpotCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleet) *int { return v.TargetSpotCapacity }).(pulumi.IntPtrOutput)
 }
@@ -419,6 +450,7 @@ func (o ClusterCoreInstanceFleetPtrOutput) Elem() ClusterCoreInstanceFleetOutput
 	}).(ClusterCoreInstanceFleetOutput)
 }
 
+// ID of the cluster.
 func (o ClusterCoreInstanceFleetPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceFleet) *string {
 		if v == nil {
@@ -428,6 +460,7 @@ func (o ClusterCoreInstanceFleetPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration block for instance fleet.
 func (o ClusterCoreInstanceFleetPtrOutput) InstanceTypeConfigs() ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceFleet) []ClusterCoreInstanceFleetInstanceTypeConfig {
 		if v == nil {
@@ -437,6 +470,7 @@ func (o ClusterCoreInstanceFleetPtrOutput) InstanceTypeConfigs() ClusterCoreInst
 	}).(ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput)
 }
 
+// Configuration block for launch specification.
 func (o ClusterCoreInstanceFleetPtrOutput) LaunchSpecifications() ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceFleet) *ClusterCoreInstanceFleetLaunchSpecifications {
 		if v == nil {
@@ -446,6 +480,7 @@ func (o ClusterCoreInstanceFleetPtrOutput) LaunchSpecifications() ClusterCoreIns
 	}).(ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput)
 }
 
+// Friendly name given to the instance fleet.
 func (o ClusterCoreInstanceFleetPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceFleet) *string {
 		if v == nil {
@@ -473,6 +508,7 @@ func (o ClusterCoreInstanceFleetPtrOutput) ProvisionedSpotCapacity() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
 func (o ClusterCoreInstanceFleetPtrOutput) TargetOnDemandCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceFleet) *int {
 		if v == nil {
@@ -482,6 +518,7 @@ func (o ClusterCoreInstanceFleetPtrOutput) TargetOnDemandCapacity() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
 func (o ClusterCoreInstanceFleetPtrOutput) TargetSpotCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceFleet) *int {
 		if v == nil {
@@ -492,12 +529,18 @@ func (o ClusterCoreInstanceFleetPtrOutput) TargetSpotCapacity() pulumi.IntPtrOut
 }
 
 type ClusterCoreInstanceFleetInstanceTypeConfig struct {
-	BidPrice                            *string                                                   `pulumi:"bidPrice"`
-	BidPriceAsPercentageOfOnDemandPrice *float64                                                  `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
-	Configurations                      []ClusterCoreInstanceFleetInstanceTypeConfigConfiguration `pulumi:"configurations"`
-	EbsConfigs                          []ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig     `pulumi:"ebsConfigs"`
-	InstanceType                        string                                                    `pulumi:"instanceType"`
-	WeightedCapacity                    *int                                                      `pulumi:"weightedCapacity"`
+	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPrice *string `pulumi:"bidPrice"`
+	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPriceAsPercentageOfOnDemandPrice *float64 `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
+	// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+	Configurations []ClusterCoreInstanceFleetInstanceTypeConfigConfiguration `pulumi:"configurations"`
+	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+	EbsConfigs []ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig `pulumi:"ebsConfigs"`
+	// EC2 instance type, such as m4.xlarge.
+	InstanceType string `pulumi:"instanceType"`
+	// Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+	WeightedCapacity *int `pulumi:"weightedCapacity"`
 }
 
 // ClusterCoreInstanceFleetInstanceTypeConfigInput is an input type that accepts ClusterCoreInstanceFleetInstanceTypeConfigArgs and ClusterCoreInstanceFleetInstanceTypeConfigOutput values.
@@ -512,12 +555,18 @@ type ClusterCoreInstanceFleetInstanceTypeConfigInput interface {
 }
 
 type ClusterCoreInstanceFleetInstanceTypeConfigArgs struct {
-	BidPrice                            pulumi.StringPtrInput                                             `pulumi:"bidPrice"`
-	BidPriceAsPercentageOfOnDemandPrice pulumi.Float64PtrInput                                            `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
-	Configurations                      ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayInput `pulumi:"configurations"`
-	EbsConfigs                          ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayInput     `pulumi:"ebsConfigs"`
-	InstanceType                        pulumi.StringInput                                                `pulumi:"instanceType"`
-	WeightedCapacity                    pulumi.IntPtrInput                                                `pulumi:"weightedCapacity"`
+	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
+	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPriceAsPercentageOfOnDemandPrice pulumi.Float64PtrInput `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
+	// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+	Configurations ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayInput `pulumi:"configurations"`
+	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+	EbsConfigs ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayInput `pulumi:"ebsConfigs"`
+	// EC2 instance type, such as m4.xlarge.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+	WeightedCapacity pulumi.IntPtrInput `pulumi:"weightedCapacity"`
 }
 
 func (ClusterCoreInstanceFleetInstanceTypeConfigArgs) ElementType() reflect.Type {
@@ -571,32 +620,38 @@ func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) ToClusterCoreInstanceF
 	return o
 }
 
+// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) BidPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfig) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
 }
 
+// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) BidPriceAsPercentageOfOnDemandPrice() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfig) *float64 {
 		return v.BidPriceAsPercentageOfOnDemandPrice
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
 func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) Configurations() ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfig) []ClusterCoreInstanceFleetInstanceTypeConfigConfiguration {
 		return v.Configurations
 	}).(ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput)
 }
 
+// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) EbsConfigs() ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfig) []ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig {
 		return v.EbsConfigs
 	}).(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput)
 }
 
+// EC2 instance type, such as m4.xlarge.
 func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfig) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
+// Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
 func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) WeightedCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfig) *int { return v.WeightedCapacity }).(pulumi.IntPtrOutput)
 }
@@ -622,8 +677,10 @@ func (o ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput) Index(i pulumi.In
 }
 
 type ClusterCoreInstanceFleetInstanceTypeConfigConfiguration struct {
-	Classification *string                `pulumi:"classification"`
-	Properties     map[string]interface{} `pulumi:"properties"`
+	// Classification within a configuration.
+	Classification *string `pulumi:"classification"`
+	// Map of properties specified within a configuration classification.
+	Properties map[string]interface{} `pulumi:"properties"`
 }
 
 // ClusterCoreInstanceFleetInstanceTypeConfigConfigurationInput is an input type that accepts ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs and ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput values.
@@ -638,8 +695,10 @@ type ClusterCoreInstanceFleetInstanceTypeConfigConfigurationInput interface {
 }
 
 type ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs struct {
+	// Classification within a configuration.
 	Classification pulumi.StringPtrInput `pulumi:"classification"`
-	Properties     pulumi.MapInput       `pulumi:"properties"`
+	// Map of properties specified within a configuration classification.
+	Properties pulumi.MapInput `pulumi:"properties"`
 }
 
 func (ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs) ElementType() reflect.Type {
@@ -693,10 +752,12 @@ func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput) ToCluster
 	return o
 }
 
+// Classification within a configuration.
 func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput) Classification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfigConfiguration) *string { return v.Classification }).(pulumi.StringPtrOutput)
 }
 
+// Map of properties specified within a configuration classification.
 func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput) Properties() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfigConfiguration) map[string]interface{} {
 		return v.Properties
@@ -724,10 +785,14 @@ func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput) Inde
 }
 
 type ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig struct {
-	Iops               *int   `pulumi:"iops"`
-	Size               int    `pulumi:"size"`
-	Type               string `pulumi:"type"`
-	VolumesPerInstance *int   `pulumi:"volumesPerInstance"`
+	// Number of I/O operations per second (IOPS) that the volume supports.
+	Iops *int `pulumi:"iops"`
+	// Volume size, in gibibytes (GiB).
+	Size int `pulumi:"size"`
+	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	Type string `pulumi:"type"`
+	// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
+	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
 }
 
 // ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigInput is an input type that accepts ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs and ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput values.
@@ -742,9 +807,13 @@ type ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigInput interface {
 }
 
 type ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs struct {
-	Iops               pulumi.IntPtrInput `pulumi:"iops"`
-	Size               pulumi.IntInput    `pulumi:"size"`
-	Type               pulumi.StringInput `pulumi:"type"`
+	// Number of I/O operations per second (IOPS) that the volume supports.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// Volume size, in gibibytes (GiB).
+	Size pulumi.IntInput `pulumi:"size"`
+	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	Type pulumi.StringInput `pulumi:"type"`
+	// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
 	VolumesPerInstance pulumi.IntPtrInput `pulumi:"volumesPerInstance"`
 }
 
@@ -799,18 +868,22 @@ func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput) ToClusterCore
 	return o
 }
 
+// Number of I/O operations per second (IOPS) that the volume supports.
 func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// Volume size, in gibibytes (GiB).
 func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig) int { return v.Size }).(pulumi.IntOutput)
 }
 
+// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
 func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput) VolumesPerInstance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig) *int { return v.VolumesPerInstance }).(pulumi.IntPtrOutput)
 }
@@ -836,8 +909,10 @@ func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput) Index(i 
 }
 
 type ClusterCoreInstanceFleetLaunchSpecifications struct {
+	// Configuration block for on demand instances launch specifications.
 	OnDemandSpecifications []ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification `pulumi:"onDemandSpecifications"`
-	SpotSpecifications     []ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification     `pulumi:"spotSpecifications"`
+	// Configuration block for spot instances launch specifications.
+	SpotSpecifications []ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification `pulumi:"spotSpecifications"`
 }
 
 // ClusterCoreInstanceFleetLaunchSpecificationsInput is an input type that accepts ClusterCoreInstanceFleetLaunchSpecificationsArgs and ClusterCoreInstanceFleetLaunchSpecificationsOutput values.
@@ -852,8 +927,10 @@ type ClusterCoreInstanceFleetLaunchSpecificationsInput interface {
 }
 
 type ClusterCoreInstanceFleetLaunchSpecificationsArgs struct {
+	// Configuration block for on demand instances launch specifications.
 	OnDemandSpecifications ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput `pulumi:"onDemandSpecifications"`
-	SpotSpecifications     ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput     `pulumi:"spotSpecifications"`
+	// Configuration block for spot instances launch specifications.
+	SpotSpecifications ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput `pulumi:"spotSpecifications"`
 }
 
 func (ClusterCoreInstanceFleetLaunchSpecificationsArgs) ElementType() reflect.Type {
@@ -933,12 +1010,14 @@ func (o ClusterCoreInstanceFleetLaunchSpecificationsOutput) ToClusterCoreInstanc
 	}).(ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput)
 }
 
+// Configuration block for on demand instances launch specifications.
 func (o ClusterCoreInstanceFleetLaunchSpecificationsOutput) OnDemandSpecifications() ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetLaunchSpecifications) []ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification {
 		return v.OnDemandSpecifications
 	}).(ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput)
 }
 
+// Configuration block for spot instances launch specifications.
 func (o ClusterCoreInstanceFleetLaunchSpecificationsOutput) SpotSpecifications() ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetLaunchSpecifications) []ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification {
 		return v.SpotSpecifications
@@ -969,6 +1048,7 @@ func (o ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput) Elem() ClusterCor
 	}).(ClusterCoreInstanceFleetLaunchSpecificationsOutput)
 }
 
+// Configuration block for on demand instances launch specifications.
 func (o ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput) OnDemandSpecifications() ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceFleetLaunchSpecifications) []ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification {
 		if v == nil {
@@ -978,6 +1058,7 @@ func (o ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput) OnDemandSpecifica
 	}).(ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput)
 }
 
+// Configuration block for spot instances launch specifications.
 func (o ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput) SpotSpecifications() ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceFleetLaunchSpecifications) []ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification {
 		if v == nil {
@@ -988,6 +1069,7 @@ func (o ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput) SpotSpecification
 }
 
 type ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification struct {
+	// Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
 	AllocationStrategy string `pulumi:"allocationStrategy"`
 }
 
@@ -1003,6 +1085,7 @@ type ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationInput inte
 }
 
 type ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs struct {
+	// Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
 	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
 }
 
@@ -1057,6 +1140,7 @@ func (o ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput)
 	return o
 }
 
+// Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
 func (o ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification) string {
 		return v.AllocationStrategy
@@ -1084,10 +1168,14 @@ func (o ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOu
 }
 
 type ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification struct {
-	AllocationStrategy     string `pulumi:"allocationStrategy"`
-	BlockDurationMinutes   *int   `pulumi:"blockDurationMinutes"`
-	TimeoutAction          string `pulumi:"timeoutAction"`
-	TimeoutDurationMinutes int    `pulumi:"timeoutDurationMinutes"`
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy string `pulumi:"allocationStrategy"`
+	// Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
+	// Action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+	TimeoutAction string `pulumi:"timeoutAction"`
+	// Spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+	TimeoutDurationMinutes int `pulumi:"timeoutDurationMinutes"`
 }
 
 // ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationInput is an input type that accepts ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs and ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput values.
@@ -1102,10 +1190,14 @@ type ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationInput interfac
 }
 
 type ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs struct {
-	AllocationStrategy     pulumi.StringInput `pulumi:"allocationStrategy"`
-	BlockDurationMinutes   pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
-	TimeoutAction          pulumi.StringInput `pulumi:"timeoutAction"`
-	TimeoutDurationMinutes pulumi.IntInput    `pulumi:"timeoutDurationMinutes"`
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
+	// Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+	BlockDurationMinutes pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
+	// Action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+	TimeoutAction pulumi.StringInput `pulumi:"timeoutAction"`
+	// Spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+	TimeoutDurationMinutes pulumi.IntInput `pulumi:"timeoutDurationMinutes"`
 }
 
 func (ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs) ElementType() reflect.Type {
@@ -1159,22 +1251,26 @@ func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput) ToC
 	return o
 }
 
+// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
 func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification) string {
 		return v.AllocationStrategy
 	}).(pulumi.StringOutput)
 }
 
+// Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
 func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification) *int {
 		return v.BlockDurationMinutes
 	}).(pulumi.IntPtrOutput)
 }
 
+// Action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
 func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput) TimeoutAction() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification) string { return v.TimeoutAction }).(pulumi.StringOutput)
 }
 
+// Spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
 func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput) TimeoutDurationMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification) int {
 		return v.TimeoutDurationMinutes
@@ -1202,13 +1298,20 @@ func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput
 }
 
 type ClusterCoreInstanceGroup struct {
-	AutoscalingPolicy *string                             `pulumi:"autoscalingPolicy"`
-	BidPrice          *string                             `pulumi:"bidPrice"`
-	EbsConfigs        []ClusterCoreInstanceGroupEbsConfig `pulumi:"ebsConfigs"`
-	Id                *string                             `pulumi:"id"`
-	InstanceCount     *int                                `pulumi:"instanceCount"`
-	InstanceType      string                              `pulumi:"instanceType"`
-	Name              *string                             `pulumi:"name"`
+	// String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
+	AutoscalingPolicy *string `pulumi:"autoscalingPolicy"`
+	// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+	BidPrice *string `pulumi:"bidPrice"`
+	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+	EbsConfigs []ClusterCoreInstanceGroupEbsConfig `pulumi:"ebsConfigs"`
+	// ID of the cluster.
+	Id *string `pulumi:"id"`
+	// Target number of instances for the instance group. Must be at least 1. Defaults to 1.
+	InstanceCount *int `pulumi:"instanceCount"`
+	// EC2 instance type for all instances in the instance group.
+	InstanceType string `pulumi:"instanceType"`
+	// Friendly name given to the instance group.
+	Name *string `pulumi:"name"`
 }
 
 // ClusterCoreInstanceGroupInput is an input type that accepts ClusterCoreInstanceGroupArgs and ClusterCoreInstanceGroupOutput values.
@@ -1223,13 +1326,20 @@ type ClusterCoreInstanceGroupInput interface {
 }
 
 type ClusterCoreInstanceGroupArgs struct {
-	AutoscalingPolicy pulumi.StringPtrInput                       `pulumi:"autoscalingPolicy"`
-	BidPrice          pulumi.StringPtrInput                       `pulumi:"bidPrice"`
-	EbsConfigs        ClusterCoreInstanceGroupEbsConfigArrayInput `pulumi:"ebsConfigs"`
-	Id                pulumi.StringPtrInput                       `pulumi:"id"`
-	InstanceCount     pulumi.IntPtrInput                          `pulumi:"instanceCount"`
-	InstanceType      pulumi.StringInput                          `pulumi:"instanceType"`
-	Name              pulumi.StringPtrInput                       `pulumi:"name"`
+	// String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
+	AutoscalingPolicy pulumi.StringPtrInput `pulumi:"autoscalingPolicy"`
+	// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
+	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+	EbsConfigs ClusterCoreInstanceGroupEbsConfigArrayInput `pulumi:"ebsConfigs"`
+	// ID of the cluster.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Target number of instances for the instance group. Must be at least 1. Defaults to 1.
+	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
+	// EC2 instance type for all instances in the instance group.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// Friendly name given to the instance group.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (ClusterCoreInstanceGroupArgs) ElementType() reflect.Type {
@@ -1309,30 +1419,37 @@ func (o ClusterCoreInstanceGroupOutput) ToClusterCoreInstanceGroupPtrOutputWithC
 	}).(ClusterCoreInstanceGroupPtrOutput)
 }
 
+// String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
 func (o ClusterCoreInstanceGroupOutput) AutoscalingPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) *string { return v.AutoscalingPolicy }).(pulumi.StringPtrOutput)
 }
 
+// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
 func (o ClusterCoreInstanceGroupOutput) BidPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
 }
 
+// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 func (o ClusterCoreInstanceGroupOutput) EbsConfigs() ClusterCoreInstanceGroupEbsConfigArrayOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) []ClusterCoreInstanceGroupEbsConfig { return v.EbsConfigs }).(ClusterCoreInstanceGroupEbsConfigArrayOutput)
 }
 
+// ID of the cluster.
 func (o ClusterCoreInstanceGroupOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Target number of instances for the instance group. Must be at least 1. Defaults to 1.
 func (o ClusterCoreInstanceGroupOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
+// EC2 instance type for all instances in the instance group.
 func (o ClusterCoreInstanceGroupOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
+// Friendly name given to the instance group.
 func (o ClusterCoreInstanceGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1361,6 +1478,7 @@ func (o ClusterCoreInstanceGroupPtrOutput) Elem() ClusterCoreInstanceGroupOutput
 	}).(ClusterCoreInstanceGroupOutput)
 }
 
+// String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
 func (o ClusterCoreInstanceGroupPtrOutput) AutoscalingPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceGroup) *string {
 		if v == nil {
@@ -1370,6 +1488,7 @@ func (o ClusterCoreInstanceGroupPtrOutput) AutoscalingPolicy() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
 func (o ClusterCoreInstanceGroupPtrOutput) BidPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceGroup) *string {
 		if v == nil {
@@ -1379,6 +1498,7 @@ func (o ClusterCoreInstanceGroupPtrOutput) BidPrice() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 func (o ClusterCoreInstanceGroupPtrOutput) EbsConfigs() ClusterCoreInstanceGroupEbsConfigArrayOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceGroup) []ClusterCoreInstanceGroupEbsConfig {
 		if v == nil {
@@ -1388,6 +1508,7 @@ func (o ClusterCoreInstanceGroupPtrOutput) EbsConfigs() ClusterCoreInstanceGroup
 	}).(ClusterCoreInstanceGroupEbsConfigArrayOutput)
 }
 
+// ID of the cluster.
 func (o ClusterCoreInstanceGroupPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceGroup) *string {
 		if v == nil {
@@ -1397,6 +1518,7 @@ func (o ClusterCoreInstanceGroupPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Target number of instances for the instance group. Must be at least 1. Defaults to 1.
 func (o ClusterCoreInstanceGroupPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceGroup) *int {
 		if v == nil {
@@ -1406,6 +1528,7 @@ func (o ClusterCoreInstanceGroupPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// EC2 instance type for all instances in the instance group.
 func (o ClusterCoreInstanceGroupPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceGroup) *string {
 		if v == nil {
@@ -1415,6 +1538,7 @@ func (o ClusterCoreInstanceGroupPtrOutput) InstanceType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Friendly name given to the instance group.
 func (o ClusterCoreInstanceGroupPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceGroup) *string {
 		if v == nil {
@@ -1425,11 +1549,16 @@ func (o ClusterCoreInstanceGroupPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type ClusterCoreInstanceGroupEbsConfig struct {
-	Iops               *int   `pulumi:"iops"`
-	Size               int    `pulumi:"size"`
-	Throughput         *int   `pulumi:"throughput"`
-	Type               string `pulumi:"type"`
-	VolumesPerInstance *int   `pulumi:"volumesPerInstance"`
+	// Number of I/O operations per second (IOPS) that the volume supports.
+	Iops *int `pulumi:"iops"`
+	// Volume size, in gibibytes (GiB).
+	Size int `pulumi:"size"`
+	// The throughput, in mebibyte per second (MiB/s).
+	Throughput *int `pulumi:"throughput"`
+	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	Type string `pulumi:"type"`
+	// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
+	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
 }
 
 // ClusterCoreInstanceGroupEbsConfigInput is an input type that accepts ClusterCoreInstanceGroupEbsConfigArgs and ClusterCoreInstanceGroupEbsConfigOutput values.
@@ -1444,10 +1573,15 @@ type ClusterCoreInstanceGroupEbsConfigInput interface {
 }
 
 type ClusterCoreInstanceGroupEbsConfigArgs struct {
-	Iops               pulumi.IntPtrInput `pulumi:"iops"`
-	Size               pulumi.IntInput    `pulumi:"size"`
-	Throughput         pulumi.IntPtrInput `pulumi:"throughput"`
-	Type               pulumi.StringInput `pulumi:"type"`
+	// Number of I/O operations per second (IOPS) that the volume supports.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// Volume size, in gibibytes (GiB).
+	Size pulumi.IntInput `pulumi:"size"`
+	// The throughput, in mebibyte per second (MiB/s).
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	Type pulumi.StringInput `pulumi:"type"`
+	// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
 	VolumesPerInstance pulumi.IntPtrInput `pulumi:"volumesPerInstance"`
 }
 
@@ -1502,22 +1636,27 @@ func (o ClusterCoreInstanceGroupEbsConfigOutput) ToClusterCoreInstanceGroupEbsCo
 	return o
 }
 
+// Number of I/O operations per second (IOPS) that the volume supports.
 func (o ClusterCoreInstanceGroupEbsConfigOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroupEbsConfig) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// Volume size, in gibibytes (GiB).
 func (o ClusterCoreInstanceGroupEbsConfigOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroupEbsConfig) int { return v.Size }).(pulumi.IntOutput)
 }
 
+// The throughput, in mebibyte per second (MiB/s).
 func (o ClusterCoreInstanceGroupEbsConfigOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroupEbsConfig) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
+// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 func (o ClusterCoreInstanceGroupEbsConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroupEbsConfig) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
 func (o ClusterCoreInstanceGroupEbsConfigOutput) VolumesPerInstance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroupEbsConfig) *int { return v.VolumesPerInstance }).(pulumi.IntPtrOutput)
 }
@@ -1543,15 +1682,24 @@ func (o ClusterCoreInstanceGroupEbsConfigArrayOutput) Index(i pulumi.IntInput) C
 }
 
 type ClusterEc2Attributes struct {
-	AdditionalMasterSecurityGroups *string  `pulumi:"additionalMasterSecurityGroups"`
-	AdditionalSlaveSecurityGroups  *string  `pulumi:"additionalSlaveSecurityGroups"`
-	EmrManagedMasterSecurityGroup  *string  `pulumi:"emrManagedMasterSecurityGroup"`
-	EmrManagedSlaveSecurityGroup   *string  `pulumi:"emrManagedSlaveSecurityGroup"`
-	InstanceProfile                string   `pulumi:"instanceProfile"`
-	KeyName                        *string  `pulumi:"keyName"`
-	ServiceAccessSecurityGroup     *string  `pulumi:"serviceAccessSecurityGroup"`
-	SubnetId                       *string  `pulumi:"subnetId"`
-	SubnetIds                      []string `pulumi:"subnetIds"`
+	// String containing a comma separated list of additional Amazon EC2 security group IDs for the master node.
+	AdditionalMasterSecurityGroups *string `pulumi:"additionalMasterSecurityGroups"`
+	// String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string.
+	AdditionalSlaveSecurityGroups *string `pulumi:"additionalSlaveSecurityGroups"`
+	// Identifier of the Amazon EC2 EMR-Managed security group for the master node.
+	EmrManagedMasterSecurityGroup *string `pulumi:"emrManagedMasterSecurityGroup"`
+	// Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes.
+	EmrManagedSlaveSecurityGroup *string `pulumi:"emrManagedSlaveSecurityGroup"`
+	// Instance Profile for EC2 instances of the cluster assume this role.
+	InstanceProfile string `pulumi:"instanceProfile"`
+	// Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
+	KeyName *string `pulumi:"keyName"`
+	// Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet.
+	ServiceAccessSecurityGroup *string `pulumi:"serviceAccessSecurityGroup"`
+	// VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
+	SubnetId *string `pulumi:"subnetId"`
+	// List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
+	SubnetIds []string `pulumi:"subnetIds"`
 }
 
 // ClusterEc2AttributesInput is an input type that accepts ClusterEc2AttributesArgs and ClusterEc2AttributesOutput values.
@@ -1566,15 +1714,24 @@ type ClusterEc2AttributesInput interface {
 }
 
 type ClusterEc2AttributesArgs struct {
-	AdditionalMasterSecurityGroups pulumi.StringPtrInput   `pulumi:"additionalMasterSecurityGroups"`
-	AdditionalSlaveSecurityGroups  pulumi.StringPtrInput   `pulumi:"additionalSlaveSecurityGroups"`
-	EmrManagedMasterSecurityGroup  pulumi.StringPtrInput   `pulumi:"emrManagedMasterSecurityGroup"`
-	EmrManagedSlaveSecurityGroup   pulumi.StringPtrInput   `pulumi:"emrManagedSlaveSecurityGroup"`
-	InstanceProfile                pulumi.StringInput      `pulumi:"instanceProfile"`
-	KeyName                        pulumi.StringPtrInput   `pulumi:"keyName"`
-	ServiceAccessSecurityGroup     pulumi.StringPtrInput   `pulumi:"serviceAccessSecurityGroup"`
-	SubnetId                       pulumi.StringPtrInput   `pulumi:"subnetId"`
-	SubnetIds                      pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// String containing a comma separated list of additional Amazon EC2 security group IDs for the master node.
+	AdditionalMasterSecurityGroups pulumi.StringPtrInput `pulumi:"additionalMasterSecurityGroups"`
+	// String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string.
+	AdditionalSlaveSecurityGroups pulumi.StringPtrInput `pulumi:"additionalSlaveSecurityGroups"`
+	// Identifier of the Amazon EC2 EMR-Managed security group for the master node.
+	EmrManagedMasterSecurityGroup pulumi.StringPtrInput `pulumi:"emrManagedMasterSecurityGroup"`
+	// Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes.
+	EmrManagedSlaveSecurityGroup pulumi.StringPtrInput `pulumi:"emrManagedSlaveSecurityGroup"`
+	// Instance Profile for EC2 instances of the cluster assume this role.
+	InstanceProfile pulumi.StringInput `pulumi:"instanceProfile"`
+	// Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
+	// Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet.
+	ServiceAccessSecurityGroup pulumi.StringPtrInput `pulumi:"serviceAccessSecurityGroup"`
+	// VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (ClusterEc2AttributesArgs) ElementType() reflect.Type {
@@ -1654,38 +1811,47 @@ func (o ClusterEc2AttributesOutput) ToClusterEc2AttributesPtrOutputWithContext(c
 	}).(ClusterEc2AttributesPtrOutput)
 }
 
+// String containing a comma separated list of additional Amazon EC2 security group IDs for the master node.
 func (o ClusterEc2AttributesOutput) AdditionalMasterSecurityGroups() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.AdditionalMasterSecurityGroups }).(pulumi.StringPtrOutput)
 }
 
+// String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string.
 func (o ClusterEc2AttributesOutput) AdditionalSlaveSecurityGroups() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.AdditionalSlaveSecurityGroups }).(pulumi.StringPtrOutput)
 }
 
+// Identifier of the Amazon EC2 EMR-Managed security group for the master node.
 func (o ClusterEc2AttributesOutput) EmrManagedMasterSecurityGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.EmrManagedMasterSecurityGroup }).(pulumi.StringPtrOutput)
 }
 
+// Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes.
 func (o ClusterEc2AttributesOutput) EmrManagedSlaveSecurityGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.EmrManagedSlaveSecurityGroup }).(pulumi.StringPtrOutput)
 }
 
+// Instance Profile for EC2 instances of the cluster assume this role.
 func (o ClusterEc2AttributesOutput) InstanceProfile() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterEc2Attributes) string { return v.InstanceProfile }).(pulumi.StringOutput)
 }
 
+// Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
 func (o ClusterEc2AttributesOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
+// Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet.
 func (o ClusterEc2AttributesOutput) ServiceAccessSecurityGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.ServiceAccessSecurityGroup }).(pulumi.StringPtrOutput)
 }
 
+// VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
 func (o ClusterEc2AttributesOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
+// List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
 func (o ClusterEc2AttributesOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterEc2Attributes) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -1714,6 +1880,7 @@ func (o ClusterEc2AttributesPtrOutput) Elem() ClusterEc2AttributesOutput {
 	}).(ClusterEc2AttributesOutput)
 }
 
+// String containing a comma separated list of additional Amazon EC2 security group IDs for the master node.
 func (o ClusterEc2AttributesPtrOutput) AdditionalMasterSecurityGroups() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEc2Attributes) *string {
 		if v == nil {
@@ -1723,6 +1890,7 @@ func (o ClusterEc2AttributesPtrOutput) AdditionalMasterSecurityGroups() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string.
 func (o ClusterEc2AttributesPtrOutput) AdditionalSlaveSecurityGroups() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEc2Attributes) *string {
 		if v == nil {
@@ -1732,6 +1900,7 @@ func (o ClusterEc2AttributesPtrOutput) AdditionalSlaveSecurityGroups() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// Identifier of the Amazon EC2 EMR-Managed security group for the master node.
 func (o ClusterEc2AttributesPtrOutput) EmrManagedMasterSecurityGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEc2Attributes) *string {
 		if v == nil {
@@ -1741,6 +1910,7 @@ func (o ClusterEc2AttributesPtrOutput) EmrManagedMasterSecurityGroup() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes.
 func (o ClusterEc2AttributesPtrOutput) EmrManagedSlaveSecurityGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEc2Attributes) *string {
 		if v == nil {
@@ -1750,6 +1920,7 @@ func (o ClusterEc2AttributesPtrOutput) EmrManagedSlaveSecurityGroup() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// Instance Profile for EC2 instances of the cluster assume this role.
 func (o ClusterEc2AttributesPtrOutput) InstanceProfile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEc2Attributes) *string {
 		if v == nil {
@@ -1759,6 +1930,7 @@ func (o ClusterEc2AttributesPtrOutput) InstanceProfile() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
 func (o ClusterEc2AttributesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEc2Attributes) *string {
 		if v == nil {
@@ -1768,6 +1940,7 @@ func (o ClusterEc2AttributesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet.
 func (o ClusterEc2AttributesPtrOutput) ServiceAccessSecurityGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEc2Attributes) *string {
 		if v == nil {
@@ -1777,6 +1950,7 @@ func (o ClusterEc2AttributesPtrOutput) ServiceAccessSecurityGroup() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
 func (o ClusterEc2AttributesPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEc2Attributes) *string {
 		if v == nil {
@@ -1786,6 +1960,7 @@ func (o ClusterEc2AttributesPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
 func (o ClusterEc2AttributesPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterEc2Attributes) []string {
 		if v == nil {
@@ -1796,11 +1971,16 @@ func (o ClusterEc2AttributesPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 type ClusterKerberosAttributes struct {
-	AdDomainJoinPassword             *string `pulumi:"adDomainJoinPassword"`
-	AdDomainJoinUser                 *string `pulumi:"adDomainJoinUser"`
+	// Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
+	AdDomainJoinPassword *string `pulumi:"adDomainJoinPassword"`
+	// Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
+	AdDomainJoinUser *string `pulumi:"adDomainJoinUser"`
+	// Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
 	CrossRealmTrustPrincipalPassword *string `pulumi:"crossRealmTrustPrincipalPassword"`
-	KdcAdminPassword                 string  `pulumi:"kdcAdminPassword"`
-	Realm                            string  `pulumi:"realm"`
+	// Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
+	KdcAdminPassword string `pulumi:"kdcAdminPassword"`
+	// Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
+	Realm string `pulumi:"realm"`
 }
 
 // ClusterKerberosAttributesInput is an input type that accepts ClusterKerberosAttributesArgs and ClusterKerberosAttributesOutput values.
@@ -1815,11 +1995,16 @@ type ClusterKerberosAttributesInput interface {
 }
 
 type ClusterKerberosAttributesArgs struct {
-	AdDomainJoinPassword             pulumi.StringPtrInput `pulumi:"adDomainJoinPassword"`
-	AdDomainJoinUser                 pulumi.StringPtrInput `pulumi:"adDomainJoinUser"`
+	// Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
+	AdDomainJoinPassword pulumi.StringPtrInput `pulumi:"adDomainJoinPassword"`
+	// Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
+	AdDomainJoinUser pulumi.StringPtrInput `pulumi:"adDomainJoinUser"`
+	// Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
 	CrossRealmTrustPrincipalPassword pulumi.StringPtrInput `pulumi:"crossRealmTrustPrincipalPassword"`
-	KdcAdminPassword                 pulumi.StringInput    `pulumi:"kdcAdminPassword"`
-	Realm                            pulumi.StringInput    `pulumi:"realm"`
+	// Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
+	KdcAdminPassword pulumi.StringInput `pulumi:"kdcAdminPassword"`
+	// Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
+	Realm pulumi.StringInput `pulumi:"realm"`
 }
 
 func (ClusterKerberosAttributesArgs) ElementType() reflect.Type {
@@ -1899,22 +2084,27 @@ func (o ClusterKerberosAttributesOutput) ToClusterKerberosAttributesPtrOutputWit
 	}).(ClusterKerberosAttributesPtrOutput)
 }
 
+// Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
 func (o ClusterKerberosAttributesOutput) AdDomainJoinPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterKerberosAttributes) *string { return v.AdDomainJoinPassword }).(pulumi.StringPtrOutput)
 }
 
+// Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
 func (o ClusterKerberosAttributesOutput) AdDomainJoinUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterKerberosAttributes) *string { return v.AdDomainJoinUser }).(pulumi.StringPtrOutput)
 }
 
+// Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
 func (o ClusterKerberosAttributesOutput) CrossRealmTrustPrincipalPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterKerberosAttributes) *string { return v.CrossRealmTrustPrincipalPassword }).(pulumi.StringPtrOutput)
 }
 
+// Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
 func (o ClusterKerberosAttributesOutput) KdcAdminPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterKerberosAttributes) string { return v.KdcAdminPassword }).(pulumi.StringOutput)
 }
 
+// Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
 func (o ClusterKerberosAttributesOutput) Realm() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterKerberosAttributes) string { return v.Realm }).(pulumi.StringOutput)
 }
@@ -1943,6 +2133,7 @@ func (o ClusterKerberosAttributesPtrOutput) Elem() ClusterKerberosAttributesOutp
 	}).(ClusterKerberosAttributesOutput)
 }
 
+// Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
 func (o ClusterKerberosAttributesPtrOutput) AdDomainJoinPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterKerberosAttributes) *string {
 		if v == nil {
@@ -1952,6 +2143,7 @@ func (o ClusterKerberosAttributesPtrOutput) AdDomainJoinPassword() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
 func (o ClusterKerberosAttributesPtrOutput) AdDomainJoinUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterKerberosAttributes) *string {
 		if v == nil {
@@ -1961,6 +2153,7 @@ func (o ClusterKerberosAttributesPtrOutput) AdDomainJoinUser() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
 func (o ClusterKerberosAttributesPtrOutput) CrossRealmTrustPrincipalPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterKerberosAttributes) *string {
 		if v == nil {
@@ -1970,6 +2163,7 @@ func (o ClusterKerberosAttributesPtrOutput) CrossRealmTrustPrincipalPassword() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
 func (o ClusterKerberosAttributesPtrOutput) KdcAdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterKerberosAttributes) *string {
 		if v == nil {
@@ -1979,6 +2173,7 @@ func (o ClusterKerberosAttributesPtrOutput) KdcAdminPassword() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
 func (o ClusterKerberosAttributesPtrOutput) Realm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterKerberosAttributes) *string {
 		if v == nil {
@@ -1989,14 +2184,20 @@ func (o ClusterKerberosAttributesPtrOutput) Realm() pulumi.StringPtrOutput {
 }
 
 type ClusterMasterInstanceFleet struct {
-	Id                          *string                                         `pulumi:"id"`
-	InstanceTypeConfigs         []ClusterMasterInstanceFleetInstanceTypeConfig  `pulumi:"instanceTypeConfigs"`
-	LaunchSpecifications        *ClusterMasterInstanceFleetLaunchSpecifications `pulumi:"launchSpecifications"`
-	Name                        *string                                         `pulumi:"name"`
-	ProvisionedOnDemandCapacity *int                                            `pulumi:"provisionedOnDemandCapacity"`
-	ProvisionedSpotCapacity     *int                                            `pulumi:"provisionedSpotCapacity"`
-	TargetOnDemandCapacity      *int                                            `pulumi:"targetOnDemandCapacity"`
-	TargetSpotCapacity          *int                                            `pulumi:"targetSpotCapacity"`
+	// ID of the cluster.
+	Id *string `pulumi:"id"`
+	// Configuration block for instance fleet.
+	InstanceTypeConfigs []ClusterMasterInstanceFleetInstanceTypeConfig `pulumi:"instanceTypeConfigs"`
+	// Configuration block for launch specification.
+	LaunchSpecifications *ClusterMasterInstanceFleetLaunchSpecifications `pulumi:"launchSpecifications"`
+	// Friendly name given to the instance fleet.
+	Name                        *string `pulumi:"name"`
+	ProvisionedOnDemandCapacity *int    `pulumi:"provisionedOnDemandCapacity"`
+	ProvisionedSpotCapacity     *int    `pulumi:"provisionedSpotCapacity"`
+	// Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+	TargetOnDemandCapacity *int `pulumi:"targetOnDemandCapacity"`
+	// Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+	TargetSpotCapacity *int `pulumi:"targetSpotCapacity"`
 }
 
 // ClusterMasterInstanceFleetInput is an input type that accepts ClusterMasterInstanceFleetArgs and ClusterMasterInstanceFleetOutput values.
@@ -2011,14 +2212,20 @@ type ClusterMasterInstanceFleetInput interface {
 }
 
 type ClusterMasterInstanceFleetArgs struct {
-	Id                          pulumi.StringPtrInput                                  `pulumi:"id"`
-	InstanceTypeConfigs         ClusterMasterInstanceFleetInstanceTypeConfigArrayInput `pulumi:"instanceTypeConfigs"`
-	LaunchSpecifications        ClusterMasterInstanceFleetLaunchSpecificationsPtrInput `pulumi:"launchSpecifications"`
-	Name                        pulumi.StringPtrInput                                  `pulumi:"name"`
-	ProvisionedOnDemandCapacity pulumi.IntPtrInput                                     `pulumi:"provisionedOnDemandCapacity"`
-	ProvisionedSpotCapacity     pulumi.IntPtrInput                                     `pulumi:"provisionedSpotCapacity"`
-	TargetOnDemandCapacity      pulumi.IntPtrInput                                     `pulumi:"targetOnDemandCapacity"`
-	TargetSpotCapacity          pulumi.IntPtrInput                                     `pulumi:"targetSpotCapacity"`
+	// ID of the cluster.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Configuration block for instance fleet.
+	InstanceTypeConfigs ClusterMasterInstanceFleetInstanceTypeConfigArrayInput `pulumi:"instanceTypeConfigs"`
+	// Configuration block for launch specification.
+	LaunchSpecifications ClusterMasterInstanceFleetLaunchSpecificationsPtrInput `pulumi:"launchSpecifications"`
+	// Friendly name given to the instance fleet.
+	Name                        pulumi.StringPtrInput `pulumi:"name"`
+	ProvisionedOnDemandCapacity pulumi.IntPtrInput    `pulumi:"provisionedOnDemandCapacity"`
+	ProvisionedSpotCapacity     pulumi.IntPtrInput    `pulumi:"provisionedSpotCapacity"`
+	// Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+	TargetOnDemandCapacity pulumi.IntPtrInput `pulumi:"targetOnDemandCapacity"`
+	// Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+	TargetSpotCapacity pulumi.IntPtrInput `pulumi:"targetSpotCapacity"`
 }
 
 func (ClusterMasterInstanceFleetArgs) ElementType() reflect.Type {
@@ -2098,22 +2305,26 @@ func (o ClusterMasterInstanceFleetOutput) ToClusterMasterInstanceFleetPtrOutputW
 	}).(ClusterMasterInstanceFleetPtrOutput)
 }
 
+// ID of the cluster.
 func (o ClusterMasterInstanceFleetOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleet) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Configuration block for instance fleet.
 func (o ClusterMasterInstanceFleetOutput) InstanceTypeConfigs() ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleet) []ClusterMasterInstanceFleetInstanceTypeConfig {
 		return v.InstanceTypeConfigs
 	}).(ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput)
 }
 
+// Configuration block for launch specification.
 func (o ClusterMasterInstanceFleetOutput) LaunchSpecifications() ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleet) *ClusterMasterInstanceFleetLaunchSpecifications {
 		return v.LaunchSpecifications
 	}).(ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput)
 }
 
+// Friendly name given to the instance fleet.
 func (o ClusterMasterInstanceFleetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleet) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2126,10 +2337,12 @@ func (o ClusterMasterInstanceFleetOutput) ProvisionedSpotCapacity() pulumi.IntPt
 	return o.ApplyT(func(v ClusterMasterInstanceFleet) *int { return v.ProvisionedSpotCapacity }).(pulumi.IntPtrOutput)
 }
 
+// Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
 func (o ClusterMasterInstanceFleetOutput) TargetOnDemandCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleet) *int { return v.TargetOnDemandCapacity }).(pulumi.IntPtrOutput)
 }
 
+// Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
 func (o ClusterMasterInstanceFleetOutput) TargetSpotCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleet) *int { return v.TargetSpotCapacity }).(pulumi.IntPtrOutput)
 }
@@ -2158,6 +2371,7 @@ func (o ClusterMasterInstanceFleetPtrOutput) Elem() ClusterMasterInstanceFleetOu
 	}).(ClusterMasterInstanceFleetOutput)
 }
 
+// ID of the cluster.
 func (o ClusterMasterInstanceFleetPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceFleet) *string {
 		if v == nil {
@@ -2167,6 +2381,7 @@ func (o ClusterMasterInstanceFleetPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration block for instance fleet.
 func (o ClusterMasterInstanceFleetPtrOutput) InstanceTypeConfigs() ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceFleet) []ClusterMasterInstanceFleetInstanceTypeConfig {
 		if v == nil {
@@ -2176,6 +2391,7 @@ func (o ClusterMasterInstanceFleetPtrOutput) InstanceTypeConfigs() ClusterMaster
 	}).(ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput)
 }
 
+// Configuration block for launch specification.
 func (o ClusterMasterInstanceFleetPtrOutput) LaunchSpecifications() ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceFleet) *ClusterMasterInstanceFleetLaunchSpecifications {
 		if v == nil {
@@ -2185,6 +2401,7 @@ func (o ClusterMasterInstanceFleetPtrOutput) LaunchSpecifications() ClusterMaste
 	}).(ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput)
 }
 
+// Friendly name given to the instance fleet.
 func (o ClusterMasterInstanceFleetPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceFleet) *string {
 		if v == nil {
@@ -2212,6 +2429,7 @@ func (o ClusterMasterInstanceFleetPtrOutput) ProvisionedSpotCapacity() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
 func (o ClusterMasterInstanceFleetPtrOutput) TargetOnDemandCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceFleet) *int {
 		if v == nil {
@@ -2221,6 +2439,7 @@ func (o ClusterMasterInstanceFleetPtrOutput) TargetOnDemandCapacity() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
+// Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
 func (o ClusterMasterInstanceFleetPtrOutput) TargetSpotCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceFleet) *int {
 		if v == nil {
@@ -2231,12 +2450,18 @@ func (o ClusterMasterInstanceFleetPtrOutput) TargetSpotCapacity() pulumi.IntPtrO
 }
 
 type ClusterMasterInstanceFleetInstanceTypeConfig struct {
-	BidPrice                            *string                                                     `pulumi:"bidPrice"`
-	BidPriceAsPercentageOfOnDemandPrice *float64                                                    `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
-	Configurations                      []ClusterMasterInstanceFleetInstanceTypeConfigConfiguration `pulumi:"configurations"`
-	EbsConfigs                          []ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig     `pulumi:"ebsConfigs"`
-	InstanceType                        string                                                      `pulumi:"instanceType"`
-	WeightedCapacity                    *int                                                        `pulumi:"weightedCapacity"`
+	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPrice *string `pulumi:"bidPrice"`
+	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPriceAsPercentageOfOnDemandPrice *float64 `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
+	// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+	Configurations []ClusterMasterInstanceFleetInstanceTypeConfigConfiguration `pulumi:"configurations"`
+	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+	EbsConfigs []ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig `pulumi:"ebsConfigs"`
+	// EC2 instance type, such as m4.xlarge.
+	InstanceType string `pulumi:"instanceType"`
+	// Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+	WeightedCapacity *int `pulumi:"weightedCapacity"`
 }
 
 // ClusterMasterInstanceFleetInstanceTypeConfigInput is an input type that accepts ClusterMasterInstanceFleetInstanceTypeConfigArgs and ClusterMasterInstanceFleetInstanceTypeConfigOutput values.
@@ -2251,12 +2476,18 @@ type ClusterMasterInstanceFleetInstanceTypeConfigInput interface {
 }
 
 type ClusterMasterInstanceFleetInstanceTypeConfigArgs struct {
-	BidPrice                            pulumi.StringPtrInput                                               `pulumi:"bidPrice"`
-	BidPriceAsPercentageOfOnDemandPrice pulumi.Float64PtrInput                                              `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
-	Configurations                      ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayInput `pulumi:"configurations"`
-	EbsConfigs                          ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayInput     `pulumi:"ebsConfigs"`
-	InstanceType                        pulumi.StringInput                                                  `pulumi:"instanceType"`
-	WeightedCapacity                    pulumi.IntPtrInput                                                  `pulumi:"weightedCapacity"`
+	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
+	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPriceAsPercentageOfOnDemandPrice pulumi.Float64PtrInput `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
+	// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+	Configurations ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayInput `pulumi:"configurations"`
+	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+	EbsConfigs ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayInput `pulumi:"ebsConfigs"`
+	// EC2 instance type, such as m4.xlarge.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+	WeightedCapacity pulumi.IntPtrInput `pulumi:"weightedCapacity"`
 }
 
 func (ClusterMasterInstanceFleetInstanceTypeConfigArgs) ElementType() reflect.Type {
@@ -2310,32 +2541,38 @@ func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) ToClusterMasterInsta
 	return o
 }
 
+// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) BidPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfig) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
 }
 
+// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) BidPriceAsPercentageOfOnDemandPrice() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfig) *float64 {
 		return v.BidPriceAsPercentageOfOnDemandPrice
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
 func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) Configurations() ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfig) []ClusterMasterInstanceFleetInstanceTypeConfigConfiguration {
 		return v.Configurations
 	}).(ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput)
 }
 
+// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) EbsConfigs() ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfig) []ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig {
 		return v.EbsConfigs
 	}).(ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput)
 }
 
+// EC2 instance type, such as m4.xlarge.
 func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfig) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
+// Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
 func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) WeightedCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfig) *int { return v.WeightedCapacity }).(pulumi.IntPtrOutput)
 }
@@ -2361,8 +2598,10 @@ func (o ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput) Index(i pulumi.
 }
 
 type ClusterMasterInstanceFleetInstanceTypeConfigConfiguration struct {
-	Classification *string                `pulumi:"classification"`
-	Properties     map[string]interface{} `pulumi:"properties"`
+	// Classification within a configuration.
+	Classification *string `pulumi:"classification"`
+	// Map of properties specified within a configuration classification.
+	Properties map[string]interface{} `pulumi:"properties"`
 }
 
 // ClusterMasterInstanceFleetInstanceTypeConfigConfigurationInput is an input type that accepts ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs and ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput values.
@@ -2377,8 +2616,10 @@ type ClusterMasterInstanceFleetInstanceTypeConfigConfigurationInput interface {
 }
 
 type ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs struct {
+	// Classification within a configuration.
 	Classification pulumi.StringPtrInput `pulumi:"classification"`
-	Properties     pulumi.MapInput       `pulumi:"properties"`
+	// Map of properties specified within a configuration classification.
+	Properties pulumi.MapInput `pulumi:"properties"`
 }
 
 func (ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs) ElementType() reflect.Type {
@@ -2432,10 +2673,12 @@ func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput) ToClust
 	return o
 }
 
+// Classification within a configuration.
 func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput) Classification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfigConfiguration) *string { return v.Classification }).(pulumi.StringPtrOutput)
 }
 
+// Map of properties specified within a configuration classification.
 func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput) Properties() pulumi.MapOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfigConfiguration) map[string]interface{} {
 		return v.Properties
@@ -2463,10 +2706,14 @@ func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput) In
 }
 
 type ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig struct {
-	Iops               *int   `pulumi:"iops"`
-	Size               int    `pulumi:"size"`
-	Type               string `pulumi:"type"`
-	VolumesPerInstance *int   `pulumi:"volumesPerInstance"`
+	// Number of I/O operations per second (IOPS) that the volume supports.
+	Iops *int `pulumi:"iops"`
+	// Volume size, in gibibytes (GiB).
+	Size int `pulumi:"size"`
+	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	Type string `pulumi:"type"`
+	// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
+	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
 }
 
 // ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigInput is an input type that accepts ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs and ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput values.
@@ -2481,9 +2728,13 @@ type ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigInput interface {
 }
 
 type ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs struct {
-	Iops               pulumi.IntPtrInput `pulumi:"iops"`
-	Size               pulumi.IntInput    `pulumi:"size"`
-	Type               pulumi.StringInput `pulumi:"type"`
+	// Number of I/O operations per second (IOPS) that the volume supports.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// Volume size, in gibibytes (GiB).
+	Size pulumi.IntInput `pulumi:"size"`
+	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	Type pulumi.StringInput `pulumi:"type"`
+	// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
 	VolumesPerInstance pulumi.IntPtrInput `pulumi:"volumesPerInstance"`
 }
 
@@ -2538,18 +2789,22 @@ func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput) ToClusterMa
 	return o
 }
 
+// Number of I/O operations per second (IOPS) that the volume supports.
 func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// Volume size, in gibibytes (GiB).
 func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig) int { return v.Size }).(pulumi.IntOutput)
 }
 
+// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
 func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput) VolumesPerInstance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig) *int { return v.VolumesPerInstance }).(pulumi.IntPtrOutput)
 }
@@ -2575,8 +2830,10 @@ func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput) Index(
 }
 
 type ClusterMasterInstanceFleetLaunchSpecifications struct {
+	// Configuration block for on demand instances launch specifications.
 	OnDemandSpecifications []ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification `pulumi:"onDemandSpecifications"`
-	SpotSpecifications     []ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification     `pulumi:"spotSpecifications"`
+	// Configuration block for spot instances launch specifications.
+	SpotSpecifications []ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification `pulumi:"spotSpecifications"`
 }
 
 // ClusterMasterInstanceFleetLaunchSpecificationsInput is an input type that accepts ClusterMasterInstanceFleetLaunchSpecificationsArgs and ClusterMasterInstanceFleetLaunchSpecificationsOutput values.
@@ -2591,8 +2848,10 @@ type ClusterMasterInstanceFleetLaunchSpecificationsInput interface {
 }
 
 type ClusterMasterInstanceFleetLaunchSpecificationsArgs struct {
+	// Configuration block for on demand instances launch specifications.
 	OnDemandSpecifications ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput `pulumi:"onDemandSpecifications"`
-	SpotSpecifications     ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput     `pulumi:"spotSpecifications"`
+	// Configuration block for spot instances launch specifications.
+	SpotSpecifications ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput `pulumi:"spotSpecifications"`
 }
 
 func (ClusterMasterInstanceFleetLaunchSpecificationsArgs) ElementType() reflect.Type {
@@ -2672,12 +2931,14 @@ func (o ClusterMasterInstanceFleetLaunchSpecificationsOutput) ToClusterMasterIns
 	}).(ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput)
 }
 
+// Configuration block for on demand instances launch specifications.
 func (o ClusterMasterInstanceFleetLaunchSpecificationsOutput) OnDemandSpecifications() ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetLaunchSpecifications) []ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification {
 		return v.OnDemandSpecifications
 	}).(ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput)
 }
 
+// Configuration block for spot instances launch specifications.
 func (o ClusterMasterInstanceFleetLaunchSpecificationsOutput) SpotSpecifications() ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetLaunchSpecifications) []ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification {
 		return v.SpotSpecifications
@@ -2708,6 +2969,7 @@ func (o ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput) Elem() ClusterM
 	}).(ClusterMasterInstanceFleetLaunchSpecificationsOutput)
 }
 
+// Configuration block for on demand instances launch specifications.
 func (o ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput) OnDemandSpecifications() ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceFleetLaunchSpecifications) []ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification {
 		if v == nil {
@@ -2717,6 +2979,7 @@ func (o ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput) OnDemandSpecifi
 	}).(ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput)
 }
 
+// Configuration block for spot instances launch specifications.
 func (o ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput) SpotSpecifications() ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceFleetLaunchSpecifications) []ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification {
 		if v == nil {
@@ -2727,6 +2990,7 @@ func (o ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput) SpotSpecificati
 }
 
 type ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification struct {
+	// Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
 	AllocationStrategy string `pulumi:"allocationStrategy"`
 }
 
@@ -2742,6 +3006,7 @@ type ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationInput in
 }
 
 type ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs struct {
+	// Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
 	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
 }
 
@@ -2796,6 +3061,7 @@ func (o ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutpu
 	return o
 }
 
+// Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
 func (o ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification) string {
 		return v.AllocationStrategy
@@ -2823,10 +3089,14 @@ func (o ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArray
 }
 
 type ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification struct {
-	AllocationStrategy     string `pulumi:"allocationStrategy"`
-	BlockDurationMinutes   *int   `pulumi:"blockDurationMinutes"`
-	TimeoutAction          string `pulumi:"timeoutAction"`
-	TimeoutDurationMinutes int    `pulumi:"timeoutDurationMinutes"`
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy string `pulumi:"allocationStrategy"`
+	// Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
+	// Action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+	TimeoutAction string `pulumi:"timeoutAction"`
+	// Spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+	TimeoutDurationMinutes int `pulumi:"timeoutDurationMinutes"`
 }
 
 // ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationInput is an input type that accepts ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs and ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput values.
@@ -2841,10 +3111,14 @@ type ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationInput interf
 }
 
 type ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs struct {
-	AllocationStrategy     pulumi.StringInput `pulumi:"allocationStrategy"`
-	BlockDurationMinutes   pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
-	TimeoutAction          pulumi.StringInput `pulumi:"timeoutAction"`
-	TimeoutDurationMinutes pulumi.IntInput    `pulumi:"timeoutDurationMinutes"`
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
+	// Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+	BlockDurationMinutes pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
+	// Action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+	TimeoutAction pulumi.StringInput `pulumi:"timeoutAction"`
+	// Spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+	TimeoutDurationMinutes pulumi.IntInput `pulumi:"timeoutDurationMinutes"`
 }
 
 func (ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs) ElementType() reflect.Type {
@@ -2898,22 +3172,26 @@ func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) T
 	return o
 }
 
+// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
 func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification) string {
 		return v.AllocationStrategy
 	}).(pulumi.StringOutput)
 }
 
+// Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
 func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification) *int {
 		return v.BlockDurationMinutes
 	}).(pulumi.IntPtrOutput)
 }
 
+// Action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
 func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) TimeoutAction() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification) string { return v.TimeoutAction }).(pulumi.StringOutput)
 }
 
+// Spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
 func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) TimeoutDurationMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification) int {
 		return v.TimeoutDurationMinutes
@@ -2941,12 +3219,18 @@ func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutp
 }
 
 type ClusterMasterInstanceGroup struct {
-	BidPrice      *string                               `pulumi:"bidPrice"`
-	EbsConfigs    []ClusterMasterInstanceGroupEbsConfig `pulumi:"ebsConfigs"`
-	Id            *string                               `pulumi:"id"`
-	InstanceCount *int                                  `pulumi:"instanceCount"`
-	InstanceType  string                                `pulumi:"instanceType"`
-	Name          *string                               `pulumi:"name"`
+	// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+	BidPrice *string `pulumi:"bidPrice"`
+	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+	EbsConfigs []ClusterMasterInstanceGroupEbsConfig `pulumi:"ebsConfigs"`
+	// ID of the cluster.
+	Id *string `pulumi:"id"`
+	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+	InstanceCount *int `pulumi:"instanceCount"`
+	// EC2 instance type for all instances in the instance group.
+	InstanceType string `pulumi:"instanceType"`
+	// Friendly name given to the instance group.
+	Name *string `pulumi:"name"`
 }
 
 // ClusterMasterInstanceGroupInput is an input type that accepts ClusterMasterInstanceGroupArgs and ClusterMasterInstanceGroupOutput values.
@@ -2961,12 +3245,18 @@ type ClusterMasterInstanceGroupInput interface {
 }
 
 type ClusterMasterInstanceGroupArgs struct {
-	BidPrice      pulumi.StringPtrInput                         `pulumi:"bidPrice"`
-	EbsConfigs    ClusterMasterInstanceGroupEbsConfigArrayInput `pulumi:"ebsConfigs"`
-	Id            pulumi.StringPtrInput                         `pulumi:"id"`
-	InstanceCount pulumi.IntPtrInput                            `pulumi:"instanceCount"`
-	InstanceType  pulumi.StringInput                            `pulumi:"instanceType"`
-	Name          pulumi.StringPtrInput                         `pulumi:"name"`
+	// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
+	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+	EbsConfigs ClusterMasterInstanceGroupEbsConfigArrayInput `pulumi:"ebsConfigs"`
+	// ID of the cluster.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
+	// EC2 instance type for all instances in the instance group.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// Friendly name given to the instance group.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (ClusterMasterInstanceGroupArgs) ElementType() reflect.Type {
@@ -3046,26 +3336,32 @@ func (o ClusterMasterInstanceGroupOutput) ToClusterMasterInstanceGroupPtrOutputW
 	}).(ClusterMasterInstanceGroupPtrOutput)
 }
 
+// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
 func (o ClusterMasterInstanceGroupOutput) BidPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroup) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
 }
 
+// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 func (o ClusterMasterInstanceGroupOutput) EbsConfigs() ClusterMasterInstanceGroupEbsConfigArrayOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroup) []ClusterMasterInstanceGroupEbsConfig { return v.EbsConfigs }).(ClusterMasterInstanceGroupEbsConfigArrayOutput)
 }
 
+// ID of the cluster.
 func (o ClusterMasterInstanceGroupOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 func (o ClusterMasterInstanceGroupOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroup) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
+// EC2 instance type for all instances in the instance group.
 func (o ClusterMasterInstanceGroupOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroup) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
+// Friendly name given to the instance group.
 func (o ClusterMasterInstanceGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -3094,6 +3390,7 @@ func (o ClusterMasterInstanceGroupPtrOutput) Elem() ClusterMasterInstanceGroupOu
 	}).(ClusterMasterInstanceGroupOutput)
 }
 
+// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
 func (o ClusterMasterInstanceGroupPtrOutput) BidPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceGroup) *string {
 		if v == nil {
@@ -3103,6 +3400,7 @@ func (o ClusterMasterInstanceGroupPtrOutput) BidPrice() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 func (o ClusterMasterInstanceGroupPtrOutput) EbsConfigs() ClusterMasterInstanceGroupEbsConfigArrayOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceGroup) []ClusterMasterInstanceGroupEbsConfig {
 		if v == nil {
@@ -3112,6 +3410,7 @@ func (o ClusterMasterInstanceGroupPtrOutput) EbsConfigs() ClusterMasterInstanceG
 	}).(ClusterMasterInstanceGroupEbsConfigArrayOutput)
 }
 
+// ID of the cluster.
 func (o ClusterMasterInstanceGroupPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceGroup) *string {
 		if v == nil {
@@ -3121,6 +3420,7 @@ func (o ClusterMasterInstanceGroupPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 func (o ClusterMasterInstanceGroupPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceGroup) *int {
 		if v == nil {
@@ -3130,6 +3430,7 @@ func (o ClusterMasterInstanceGroupPtrOutput) InstanceCount() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
+// EC2 instance type for all instances in the instance group.
 func (o ClusterMasterInstanceGroupPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceGroup) *string {
 		if v == nil {
@@ -3139,6 +3440,7 @@ func (o ClusterMasterInstanceGroupPtrOutput) InstanceType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Friendly name given to the instance group.
 func (o ClusterMasterInstanceGroupPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceGroup) *string {
 		if v == nil {
@@ -3149,11 +3451,16 @@ func (o ClusterMasterInstanceGroupPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type ClusterMasterInstanceGroupEbsConfig struct {
-	Iops               *int   `pulumi:"iops"`
-	Size               int    `pulumi:"size"`
-	Throughput         *int   `pulumi:"throughput"`
-	Type               string `pulumi:"type"`
-	VolumesPerInstance *int   `pulumi:"volumesPerInstance"`
+	// Number of I/O operations per second (IOPS) that the volume supports.
+	Iops *int `pulumi:"iops"`
+	// Volume size, in gibibytes (GiB).
+	Size int `pulumi:"size"`
+	// The throughput, in mebibyte per second (MiB/s).
+	Throughput *int `pulumi:"throughput"`
+	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	Type string `pulumi:"type"`
+	// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
+	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
 }
 
 // ClusterMasterInstanceGroupEbsConfigInput is an input type that accepts ClusterMasterInstanceGroupEbsConfigArgs and ClusterMasterInstanceGroupEbsConfigOutput values.
@@ -3168,10 +3475,15 @@ type ClusterMasterInstanceGroupEbsConfigInput interface {
 }
 
 type ClusterMasterInstanceGroupEbsConfigArgs struct {
-	Iops               pulumi.IntPtrInput `pulumi:"iops"`
-	Size               pulumi.IntInput    `pulumi:"size"`
-	Throughput         pulumi.IntPtrInput `pulumi:"throughput"`
-	Type               pulumi.StringInput `pulumi:"type"`
+	// Number of I/O operations per second (IOPS) that the volume supports.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// Volume size, in gibibytes (GiB).
+	Size pulumi.IntInput `pulumi:"size"`
+	// The throughput, in mebibyte per second (MiB/s).
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	Type pulumi.StringInput `pulumi:"type"`
+	// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
 	VolumesPerInstance pulumi.IntPtrInput `pulumi:"volumesPerInstance"`
 }
 
@@ -3226,22 +3538,27 @@ func (o ClusterMasterInstanceGroupEbsConfigOutput) ToClusterMasterInstanceGroupE
 	return o
 }
 
+// Number of I/O operations per second (IOPS) that the volume supports.
 func (o ClusterMasterInstanceGroupEbsConfigOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroupEbsConfig) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// Volume size, in gibibytes (GiB).
 func (o ClusterMasterInstanceGroupEbsConfigOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroupEbsConfig) int { return v.Size }).(pulumi.IntOutput)
 }
 
+// The throughput, in mebibyte per second (MiB/s).
 func (o ClusterMasterInstanceGroupEbsConfigOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroupEbsConfig) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
+// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 func (o ClusterMasterInstanceGroupEbsConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroupEbsConfig) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
 func (o ClusterMasterInstanceGroupEbsConfigOutput) VolumesPerInstance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroupEbsConfig) *int { return v.VolumesPerInstance }).(pulumi.IntPtrOutput)
 }
@@ -3267,9 +3584,12 @@ func (o ClusterMasterInstanceGroupEbsConfigArrayOutput) Index(i pulumi.IntInput)
 }
 
 type ClusterStep struct {
-	ActionOnFailure string                   `pulumi:"actionOnFailure"`
-	HadoopJarStep   ClusterStepHadoopJarStep `pulumi:"hadoopJarStep"`
-	Name            string                   `pulumi:"name"`
+	// Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
+	ActionOnFailure string `pulumi:"actionOnFailure"`
+	// JAR file used for the step. See below.
+	HadoopJarStep ClusterStepHadoopJarStep `pulumi:"hadoopJarStep"`
+	// Name of the step.
+	Name string `pulumi:"name"`
 }
 
 // ClusterStepInput is an input type that accepts ClusterStepArgs and ClusterStepOutput values.
@@ -3284,9 +3604,12 @@ type ClusterStepInput interface {
 }
 
 type ClusterStepArgs struct {
-	ActionOnFailure pulumi.StringInput            `pulumi:"actionOnFailure"`
-	HadoopJarStep   ClusterStepHadoopJarStepInput `pulumi:"hadoopJarStep"`
-	Name            pulumi.StringInput            `pulumi:"name"`
+	// Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
+	ActionOnFailure pulumi.StringInput `pulumi:"actionOnFailure"`
+	// JAR file used for the step. See below.
+	HadoopJarStep ClusterStepHadoopJarStepInput `pulumi:"hadoopJarStep"`
+	// Name of the step.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (ClusterStepArgs) ElementType() reflect.Type {
@@ -3340,14 +3663,17 @@ func (o ClusterStepOutput) ToClusterStepOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
 func (o ClusterStepOutput) ActionOnFailure() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterStep) string { return v.ActionOnFailure }).(pulumi.StringOutput)
 }
 
+// JAR file used for the step. See below.
 func (o ClusterStepOutput) HadoopJarStep() ClusterStepHadoopJarStepOutput {
 	return o.ApplyT(func(v ClusterStep) ClusterStepHadoopJarStep { return v.HadoopJarStep }).(ClusterStepHadoopJarStepOutput)
 }
 
+// Name of the step.
 func (o ClusterStepOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterStep) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3373,9 +3699,13 @@ func (o ClusterStepArrayOutput) Index(i pulumi.IntInput) ClusterStepOutput {
 }
 
 type ClusterStepHadoopJarStep struct {
-	Args       []string          `pulumi:"args"`
-	Jar        string            `pulumi:"jar"`
-	MainClass  *string           `pulumi:"mainClass"`
+	// List of command line arguments passed to the JAR file's main function when executed.
+	Args []string `pulumi:"args"`
+	// Path to a JAR file run during the step.
+	Jar string `pulumi:"jar"`
+	// Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+	MainClass *string `pulumi:"mainClass"`
+	// Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
 	Properties map[string]string `pulumi:"properties"`
 }
 
@@ -3391,10 +3721,14 @@ type ClusterStepHadoopJarStepInput interface {
 }
 
 type ClusterStepHadoopJarStepArgs struct {
-	Args       pulumi.StringArrayInput `pulumi:"args"`
-	Jar        pulumi.StringInput      `pulumi:"jar"`
-	MainClass  pulumi.StringPtrInput   `pulumi:"mainClass"`
-	Properties pulumi.StringMapInput   `pulumi:"properties"`
+	// List of command line arguments passed to the JAR file's main function when executed.
+	Args pulumi.StringArrayInput `pulumi:"args"`
+	// Path to a JAR file run during the step.
+	Jar pulumi.StringInput `pulumi:"jar"`
+	// Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+	MainClass pulumi.StringPtrInput `pulumi:"mainClass"`
+	// Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
 }
 
 func (ClusterStepHadoopJarStepArgs) ElementType() reflect.Type {
@@ -3423,29 +3757,39 @@ func (o ClusterStepHadoopJarStepOutput) ToClusterStepHadoopJarStepOutputWithCont
 	return o
 }
 
+// List of command line arguments passed to the JAR file's main function when executed.
 func (o ClusterStepHadoopJarStepOutput) Args() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterStepHadoopJarStep) []string { return v.Args }).(pulumi.StringArrayOutput)
 }
 
+// Path to a JAR file run during the step.
 func (o ClusterStepHadoopJarStepOutput) Jar() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterStepHadoopJarStep) string { return v.Jar }).(pulumi.StringOutput)
 }
 
+// Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
 func (o ClusterStepHadoopJarStepOutput) MainClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterStepHadoopJarStep) *string { return v.MainClass }).(pulumi.StringPtrOutput)
 }
 
+// Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
 func (o ClusterStepHadoopJarStepOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ClusterStepHadoopJarStep) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
 type InstanceFleetInstanceTypeConfig struct {
-	BidPrice                            *string                                        `pulumi:"bidPrice"`
-	BidPriceAsPercentageOfOnDemandPrice *float64                                       `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
-	Configurations                      []InstanceFleetInstanceTypeConfigConfiguration `pulumi:"configurations"`
-	EbsConfigs                          []InstanceFleetInstanceTypeConfigEbsConfig     `pulumi:"ebsConfigs"`
-	InstanceType                        string                                         `pulumi:"instanceType"`
-	WeightedCapacity                    *int                                           `pulumi:"weightedCapacity"`
+	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPrice *string `pulumi:"bidPrice"`
+	// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPriceAsPercentageOfOnDemandPrice *float64 `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
+	// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+	Configurations []InstanceFleetInstanceTypeConfigConfiguration `pulumi:"configurations"`
+	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+	EbsConfigs []InstanceFleetInstanceTypeConfigEbsConfig `pulumi:"ebsConfigs"`
+	// An EC2 instance type, such as m4.xlarge.
+	InstanceType string `pulumi:"instanceType"`
+	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+	WeightedCapacity *int `pulumi:"weightedCapacity"`
 }
 
 // InstanceFleetInstanceTypeConfigInput is an input type that accepts InstanceFleetInstanceTypeConfigArgs and InstanceFleetInstanceTypeConfigOutput values.
@@ -3460,12 +3804,18 @@ type InstanceFleetInstanceTypeConfigInput interface {
 }
 
 type InstanceFleetInstanceTypeConfigArgs struct {
-	BidPrice                            pulumi.StringPtrInput                                  `pulumi:"bidPrice"`
-	BidPriceAsPercentageOfOnDemandPrice pulumi.Float64PtrInput                                 `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
-	Configurations                      InstanceFleetInstanceTypeConfigConfigurationArrayInput `pulumi:"configurations"`
-	EbsConfigs                          InstanceFleetInstanceTypeConfigEbsConfigArrayInput     `pulumi:"ebsConfigs"`
-	InstanceType                        pulumi.StringInput                                     `pulumi:"instanceType"`
-	WeightedCapacity                    pulumi.IntPtrInput                                     `pulumi:"weightedCapacity"`
+	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
+	// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPriceAsPercentageOfOnDemandPrice pulumi.Float64PtrInput `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
+	// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+	Configurations InstanceFleetInstanceTypeConfigConfigurationArrayInput `pulumi:"configurations"`
+	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+	EbsConfigs InstanceFleetInstanceTypeConfigEbsConfigArrayInput `pulumi:"ebsConfigs"`
+	// An EC2 instance type, such as m4.xlarge.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+	WeightedCapacity pulumi.IntPtrInput `pulumi:"weightedCapacity"`
 }
 
 func (InstanceFleetInstanceTypeConfigArgs) ElementType() reflect.Type {
@@ -3519,30 +3869,36 @@ func (o InstanceFleetInstanceTypeConfigOutput) ToInstanceFleetInstanceTypeConfig
 	return o
 }
 
+// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 func (o InstanceFleetInstanceTypeConfigOutput) BidPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceFleetInstanceTypeConfig) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
 }
 
+// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 func (o InstanceFleetInstanceTypeConfigOutput) BidPriceAsPercentageOfOnDemandPrice() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InstanceFleetInstanceTypeConfig) *float64 { return v.BidPriceAsPercentageOfOnDemandPrice }).(pulumi.Float64PtrOutput)
 }
 
+// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
 func (o InstanceFleetInstanceTypeConfigOutput) Configurations() InstanceFleetInstanceTypeConfigConfigurationArrayOutput {
 	return o.ApplyT(func(v InstanceFleetInstanceTypeConfig) []InstanceFleetInstanceTypeConfigConfiguration {
 		return v.Configurations
 	}).(InstanceFleetInstanceTypeConfigConfigurationArrayOutput)
 }
 
+// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 func (o InstanceFleetInstanceTypeConfigOutput) EbsConfigs() InstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
 	return o.ApplyT(func(v InstanceFleetInstanceTypeConfig) []InstanceFleetInstanceTypeConfigEbsConfig {
 		return v.EbsConfigs
 	}).(InstanceFleetInstanceTypeConfigEbsConfigArrayOutput)
 }
 
+// An EC2 instance type, such as m4.xlarge.
 func (o InstanceFleetInstanceTypeConfigOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceFleetInstanceTypeConfig) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
+// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
 func (o InstanceFleetInstanceTypeConfigOutput) WeightedCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceFleetInstanceTypeConfig) *int { return v.WeightedCapacity }).(pulumi.IntPtrOutput)
 }
@@ -3568,8 +3924,10 @@ func (o InstanceFleetInstanceTypeConfigArrayOutput) Index(i pulumi.IntInput) Ins
 }
 
 type InstanceFleetInstanceTypeConfigConfiguration struct {
-	Classification *string                `pulumi:"classification"`
-	Properties     map[string]interface{} `pulumi:"properties"`
+	// The classification within a configuration.
+	Classification *string `pulumi:"classification"`
+	// A map of properties specified within a configuration classification
+	Properties map[string]interface{} `pulumi:"properties"`
 }
 
 // InstanceFleetInstanceTypeConfigConfigurationInput is an input type that accepts InstanceFleetInstanceTypeConfigConfigurationArgs and InstanceFleetInstanceTypeConfigConfigurationOutput values.
@@ -3584,8 +3942,10 @@ type InstanceFleetInstanceTypeConfigConfigurationInput interface {
 }
 
 type InstanceFleetInstanceTypeConfigConfigurationArgs struct {
+	// The classification within a configuration.
 	Classification pulumi.StringPtrInput `pulumi:"classification"`
-	Properties     pulumi.MapInput       `pulumi:"properties"`
+	// A map of properties specified within a configuration classification
+	Properties pulumi.MapInput `pulumi:"properties"`
 }
 
 func (InstanceFleetInstanceTypeConfigConfigurationArgs) ElementType() reflect.Type {
@@ -3639,10 +3999,12 @@ func (o InstanceFleetInstanceTypeConfigConfigurationOutput) ToInstanceFleetInsta
 	return o
 }
 
+// The classification within a configuration.
 func (o InstanceFleetInstanceTypeConfigConfigurationOutput) Classification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceFleetInstanceTypeConfigConfiguration) *string { return v.Classification }).(pulumi.StringPtrOutput)
 }
 
+// A map of properties specified within a configuration classification
 func (o InstanceFleetInstanceTypeConfigConfigurationOutput) Properties() pulumi.MapOutput {
 	return o.ApplyT(func(v InstanceFleetInstanceTypeConfigConfiguration) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
 }
@@ -3668,10 +4030,14 @@ func (o InstanceFleetInstanceTypeConfigConfigurationArrayOutput) Index(i pulumi.
 }
 
 type InstanceFleetInstanceTypeConfigEbsConfig struct {
-	Iops               *int   `pulumi:"iops"`
-	Size               int    `pulumi:"size"`
-	Type               string `pulumi:"type"`
-	VolumesPerInstance *int   `pulumi:"volumesPerInstance"`
+	// The number of I/O operations per second (IOPS) that the volume supports
+	Iops *int `pulumi:"iops"`
+	// The volume size, in gibibytes (GiB).
+	Size int `pulumi:"size"`
+	// The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	Type string `pulumi:"type"`
+	// The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
 }
 
 // InstanceFleetInstanceTypeConfigEbsConfigInput is an input type that accepts InstanceFleetInstanceTypeConfigEbsConfigArgs and InstanceFleetInstanceTypeConfigEbsConfigOutput values.
@@ -3686,9 +4052,13 @@ type InstanceFleetInstanceTypeConfigEbsConfigInput interface {
 }
 
 type InstanceFleetInstanceTypeConfigEbsConfigArgs struct {
-	Iops               pulumi.IntPtrInput `pulumi:"iops"`
-	Size               pulumi.IntInput    `pulumi:"size"`
-	Type               pulumi.StringInput `pulumi:"type"`
+	// The number of I/O operations per second (IOPS) that the volume supports
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The volume size, in gibibytes (GiB).
+	Size pulumi.IntInput `pulumi:"size"`
+	// The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	Type pulumi.StringInput `pulumi:"type"`
+	// The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
 	VolumesPerInstance pulumi.IntPtrInput `pulumi:"volumesPerInstance"`
 }
 
@@ -3743,18 +4113,22 @@ func (o InstanceFleetInstanceTypeConfigEbsConfigOutput) ToInstanceFleetInstanceT
 	return o
 }
 
+// The number of I/O operations per second (IOPS) that the volume supports
 func (o InstanceFleetInstanceTypeConfigEbsConfigOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceFleetInstanceTypeConfigEbsConfig) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// The volume size, in gibibytes (GiB).
 func (o InstanceFleetInstanceTypeConfigEbsConfigOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v InstanceFleetInstanceTypeConfigEbsConfig) int { return v.Size }).(pulumi.IntOutput)
 }
 
+// The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 func (o InstanceFleetInstanceTypeConfigEbsConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceFleetInstanceTypeConfigEbsConfig) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
 func (o InstanceFleetInstanceTypeConfigEbsConfigOutput) VolumesPerInstance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceFleetInstanceTypeConfigEbsConfig) *int { return v.VolumesPerInstance }).(pulumi.IntPtrOutput)
 }
@@ -3780,8 +4154,10 @@ func (o InstanceFleetInstanceTypeConfigEbsConfigArrayOutput) Index(i pulumi.IntI
 }
 
 type InstanceFleetLaunchSpecifications struct {
+	// Configuration block for on demand instances launch specifications
 	OnDemandSpecifications []InstanceFleetLaunchSpecificationsOnDemandSpecification `pulumi:"onDemandSpecifications"`
-	SpotSpecifications     []InstanceFleetLaunchSpecificationsSpotSpecification     `pulumi:"spotSpecifications"`
+	// Configuration block for spot instances launch specifications
+	SpotSpecifications []InstanceFleetLaunchSpecificationsSpotSpecification `pulumi:"spotSpecifications"`
 }
 
 // InstanceFleetLaunchSpecificationsInput is an input type that accepts InstanceFleetLaunchSpecificationsArgs and InstanceFleetLaunchSpecificationsOutput values.
@@ -3796,8 +4172,10 @@ type InstanceFleetLaunchSpecificationsInput interface {
 }
 
 type InstanceFleetLaunchSpecificationsArgs struct {
+	// Configuration block for on demand instances launch specifications
 	OnDemandSpecifications InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput `pulumi:"onDemandSpecifications"`
-	SpotSpecifications     InstanceFleetLaunchSpecificationsSpotSpecificationArrayInput     `pulumi:"spotSpecifications"`
+	// Configuration block for spot instances launch specifications
+	SpotSpecifications InstanceFleetLaunchSpecificationsSpotSpecificationArrayInput `pulumi:"spotSpecifications"`
 }
 
 func (InstanceFleetLaunchSpecificationsArgs) ElementType() reflect.Type {
@@ -3877,12 +4255,14 @@ func (o InstanceFleetLaunchSpecificationsOutput) ToInstanceFleetLaunchSpecificat
 	}).(InstanceFleetLaunchSpecificationsPtrOutput)
 }
 
+// Configuration block for on demand instances launch specifications
 func (o InstanceFleetLaunchSpecificationsOutput) OnDemandSpecifications() InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
 	return o.ApplyT(func(v InstanceFleetLaunchSpecifications) []InstanceFleetLaunchSpecificationsOnDemandSpecification {
 		return v.OnDemandSpecifications
 	}).(InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput)
 }
 
+// Configuration block for spot instances launch specifications
 func (o InstanceFleetLaunchSpecificationsOutput) SpotSpecifications() InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
 	return o.ApplyT(func(v InstanceFleetLaunchSpecifications) []InstanceFleetLaunchSpecificationsSpotSpecification {
 		return v.SpotSpecifications
@@ -3913,6 +4293,7 @@ func (o InstanceFleetLaunchSpecificationsPtrOutput) Elem() InstanceFleetLaunchSp
 	}).(InstanceFleetLaunchSpecificationsOutput)
 }
 
+// Configuration block for on demand instances launch specifications
 func (o InstanceFleetLaunchSpecificationsPtrOutput) OnDemandSpecifications() InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
 	return o.ApplyT(func(v *InstanceFleetLaunchSpecifications) []InstanceFleetLaunchSpecificationsOnDemandSpecification {
 		if v == nil {
@@ -3922,6 +4303,7 @@ func (o InstanceFleetLaunchSpecificationsPtrOutput) OnDemandSpecifications() Ins
 	}).(InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput)
 }
 
+// Configuration block for spot instances launch specifications
 func (o InstanceFleetLaunchSpecificationsPtrOutput) SpotSpecifications() InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
 	return o.ApplyT(func(v *InstanceFleetLaunchSpecifications) []InstanceFleetLaunchSpecificationsSpotSpecification {
 		if v == nil {
@@ -3932,6 +4314,7 @@ func (o InstanceFleetLaunchSpecificationsPtrOutput) SpotSpecifications() Instanc
 }
 
 type InstanceFleetLaunchSpecificationsOnDemandSpecification struct {
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
 	AllocationStrategy string `pulumi:"allocationStrategy"`
 }
 
@@ -3947,6 +4330,7 @@ type InstanceFleetLaunchSpecificationsOnDemandSpecificationInput interface {
 }
 
 type InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs struct {
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
 	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
 }
 
@@ -4001,6 +4385,7 @@ func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ToInstance
 	return o
 }
 
+// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
 func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceFleetLaunchSpecificationsOnDemandSpecification) string { return v.AllocationStrategy }).(pulumi.StringOutput)
 }
@@ -4026,10 +4411,14 @@ func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) Index
 }
 
 type InstanceFleetLaunchSpecificationsSpotSpecification struct {
-	AllocationStrategy     string `pulumi:"allocationStrategy"`
-	BlockDurationMinutes   *int   `pulumi:"blockDurationMinutes"`
-	TimeoutAction          string `pulumi:"timeoutAction"`
-	TimeoutDurationMinutes int    `pulumi:"timeoutDurationMinutes"`
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy string `pulumi:"allocationStrategy"`
+	// The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
+	// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+	TimeoutAction string `pulumi:"timeoutAction"`
+	// The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+	TimeoutDurationMinutes int `pulumi:"timeoutDurationMinutes"`
 }
 
 // InstanceFleetLaunchSpecificationsSpotSpecificationInput is an input type that accepts InstanceFleetLaunchSpecificationsSpotSpecificationArgs and InstanceFleetLaunchSpecificationsSpotSpecificationOutput values.
@@ -4044,10 +4433,14 @@ type InstanceFleetLaunchSpecificationsSpotSpecificationInput interface {
 }
 
 type InstanceFleetLaunchSpecificationsSpotSpecificationArgs struct {
-	AllocationStrategy     pulumi.StringInput `pulumi:"allocationStrategy"`
-	BlockDurationMinutes   pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
-	TimeoutAction          pulumi.StringInput `pulumi:"timeoutAction"`
-	TimeoutDurationMinutes pulumi.IntInput    `pulumi:"timeoutDurationMinutes"`
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
+	// The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+	BlockDurationMinutes pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
+	// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+	TimeoutAction pulumi.StringInput `pulumi:"timeoutAction"`
+	// The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+	TimeoutDurationMinutes pulumi.IntInput `pulumi:"timeoutDurationMinutes"`
 }
 
 func (InstanceFleetLaunchSpecificationsSpotSpecificationArgs) ElementType() reflect.Type {
@@ -4101,18 +4494,22 @@ func (o InstanceFleetLaunchSpecificationsSpotSpecificationOutput) ToInstanceFlee
 	return o
 }
 
+// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
 func (o InstanceFleetLaunchSpecificationsSpotSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceFleetLaunchSpecificationsSpotSpecification) string { return v.AllocationStrategy }).(pulumi.StringOutput)
 }
 
+// The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
 func (o InstanceFleetLaunchSpecificationsSpotSpecificationOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceFleetLaunchSpecificationsSpotSpecification) *int { return v.BlockDurationMinutes }).(pulumi.IntPtrOutput)
 }
 
+// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
 func (o InstanceFleetLaunchSpecificationsSpotSpecificationOutput) TimeoutAction() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceFleetLaunchSpecificationsSpotSpecification) string { return v.TimeoutAction }).(pulumi.StringOutput)
 }
 
+// The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
 func (o InstanceFleetLaunchSpecificationsSpotSpecificationOutput) TimeoutDurationMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v InstanceFleetLaunchSpecificationsSpotSpecification) int { return v.TimeoutDurationMinutes }).(pulumi.IntOutput)
 }
@@ -4138,10 +4535,14 @@ func (o InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) Index(i p
 }
 
 type InstanceGroupEbsConfig struct {
-	Iops               *int   `pulumi:"iops"`
-	Size               int    `pulumi:"size"`
-	Type               string `pulumi:"type"`
-	VolumesPerInstance *int   `pulumi:"volumesPerInstance"`
+	// The number of I/O operations per second (IOPS) that the volume supports.
+	Iops *int `pulumi:"iops"`
+	// The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+	Size int `pulumi:"size"`
+	// The volume type. Valid options are 'gp2', 'io1' and 'standard'.
+	Type string `pulumi:"type"`
+	// The number of EBS Volumes to attach per instance.
+	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
 }
 
 // InstanceGroupEbsConfigInput is an input type that accepts InstanceGroupEbsConfigArgs and InstanceGroupEbsConfigOutput values.
@@ -4156,9 +4557,13 @@ type InstanceGroupEbsConfigInput interface {
 }
 
 type InstanceGroupEbsConfigArgs struct {
-	Iops               pulumi.IntPtrInput `pulumi:"iops"`
-	Size               pulumi.IntInput    `pulumi:"size"`
-	Type               pulumi.StringInput `pulumi:"type"`
+	// The number of I/O operations per second (IOPS) that the volume supports.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+	Size pulumi.IntInput `pulumi:"size"`
+	// The volume type. Valid options are 'gp2', 'io1' and 'standard'.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The number of EBS Volumes to attach per instance.
 	VolumesPerInstance pulumi.IntPtrInput `pulumi:"volumesPerInstance"`
 }
 
@@ -4213,18 +4618,22 @@ func (o InstanceGroupEbsConfigOutput) ToInstanceGroupEbsConfigOutputWithContext(
 	return o
 }
 
+// The number of I/O operations per second (IOPS) that the volume supports.
 func (o InstanceGroupEbsConfigOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceGroupEbsConfig) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
 func (o InstanceGroupEbsConfigOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v InstanceGroupEbsConfig) int { return v.Size }).(pulumi.IntOutput)
 }
 
+// The volume type. Valid options are 'gp2', 'io1' and 'standard'.
 func (o InstanceGroupEbsConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceGroupEbsConfig) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The number of EBS Volumes to attach per instance.
 func (o InstanceGroupEbsConfigOutput) VolumesPerInstance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceGroupEbsConfig) *int { return v.VolumesPerInstance }).(pulumi.IntPtrOutput)
 }
@@ -4250,11 +4659,16 @@ func (o InstanceGroupEbsConfigArrayOutput) Index(i pulumi.IntInput) InstanceGrou
 }
 
 type ManagedScalingPolicyComputeLimit struct {
-	MaximumCapacityUnits         int    `pulumi:"maximumCapacityUnits"`
-	MaximumCoreCapacityUnits     *int   `pulumi:"maximumCoreCapacityUnits"`
-	MaximumOndemandCapacityUnits *int   `pulumi:"maximumOndemandCapacityUnits"`
-	MinimumCapacityUnits         int    `pulumi:"minimumCapacityUnits"`
-	UnitType                     string `pulumi:"unitType"`
+	// The upper boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+	MaximumCapacityUnits int `pulumi:"maximumCapacityUnits"`
+	// The upper boundary of EC2 units for core node type in a cluster. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
+	MaximumCoreCapacityUnits *int `pulumi:"maximumCoreCapacityUnits"`
+	// The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot instances.
+	MaximumOndemandCapacityUnits *int `pulumi:"maximumOndemandCapacityUnits"`
+	// The lower boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+	MinimumCapacityUnits int `pulumi:"minimumCapacityUnits"`
+	// The unit type used for specifying a managed scaling policy. Valid Values: `InstanceFleetUnits` | `Instances` | `VCPU`
+	UnitType string `pulumi:"unitType"`
 }
 
 // ManagedScalingPolicyComputeLimitInput is an input type that accepts ManagedScalingPolicyComputeLimitArgs and ManagedScalingPolicyComputeLimitOutput values.
@@ -4269,11 +4683,16 @@ type ManagedScalingPolicyComputeLimitInput interface {
 }
 
 type ManagedScalingPolicyComputeLimitArgs struct {
-	MaximumCapacityUnits         pulumi.IntInput    `pulumi:"maximumCapacityUnits"`
-	MaximumCoreCapacityUnits     pulumi.IntPtrInput `pulumi:"maximumCoreCapacityUnits"`
+	// The upper boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+	MaximumCapacityUnits pulumi.IntInput `pulumi:"maximumCapacityUnits"`
+	// The upper boundary of EC2 units for core node type in a cluster. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
+	MaximumCoreCapacityUnits pulumi.IntPtrInput `pulumi:"maximumCoreCapacityUnits"`
+	// The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot instances.
 	MaximumOndemandCapacityUnits pulumi.IntPtrInput `pulumi:"maximumOndemandCapacityUnits"`
-	MinimumCapacityUnits         pulumi.IntInput    `pulumi:"minimumCapacityUnits"`
-	UnitType                     pulumi.StringInput `pulumi:"unitType"`
+	// The lower boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+	MinimumCapacityUnits pulumi.IntInput `pulumi:"minimumCapacityUnits"`
+	// The unit type used for specifying a managed scaling policy. Valid Values: `InstanceFleetUnits` | `Instances` | `VCPU`
+	UnitType pulumi.StringInput `pulumi:"unitType"`
 }
 
 func (ManagedScalingPolicyComputeLimitArgs) ElementType() reflect.Type {
@@ -4327,22 +4746,27 @@ func (o ManagedScalingPolicyComputeLimitOutput) ToManagedScalingPolicyComputeLim
 	return o
 }
 
+// The upper boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
 func (o ManagedScalingPolicyComputeLimitOutput) MaximumCapacityUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v ManagedScalingPolicyComputeLimit) int { return v.MaximumCapacityUnits }).(pulumi.IntOutput)
 }
 
+// The upper boundary of EC2 units for core node type in a cluster. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
 func (o ManagedScalingPolicyComputeLimitOutput) MaximumCoreCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedScalingPolicyComputeLimit) *int { return v.MaximumCoreCapacityUnits }).(pulumi.IntPtrOutput)
 }
 
+// The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot instances.
 func (o ManagedScalingPolicyComputeLimitOutput) MaximumOndemandCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedScalingPolicyComputeLimit) *int { return v.MaximumOndemandCapacityUnits }).(pulumi.IntPtrOutput)
 }
 
+// The lower boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
 func (o ManagedScalingPolicyComputeLimitOutput) MinimumCapacityUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v ManagedScalingPolicyComputeLimit) int { return v.MinimumCapacityUnits }).(pulumi.IntOutput)
 }
 
+// The unit type used for specifying a managed scaling policy. Valid Values: `InstanceFleetUnits` | `Instances` | `VCPU`
 func (o ManagedScalingPolicyComputeLimitOutput) UnitType() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedScalingPolicyComputeLimit) string { return v.UnitType }).(pulumi.StringOutput)
 }
@@ -4368,8 +4792,10 @@ func (o ManagedScalingPolicyComputeLimitArrayOutput) Index(i pulumi.IntInput) Ma
 }
 
 type GetReleaseLabelsFilters struct {
+	// Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
 	Application *string `pulumi:"application"`
-	Prefix      *string `pulumi:"prefix"`
+	// Optional release label version prefix filter. For example, `emr-5`.
+	Prefix *string `pulumi:"prefix"`
 }
 
 // GetReleaseLabelsFiltersInput is an input type that accepts GetReleaseLabelsFiltersArgs and GetReleaseLabelsFiltersOutput values.
@@ -4384,8 +4810,10 @@ type GetReleaseLabelsFiltersInput interface {
 }
 
 type GetReleaseLabelsFiltersArgs struct {
+	// Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
 	Application pulumi.StringPtrInput `pulumi:"application"`
-	Prefix      pulumi.StringPtrInput `pulumi:"prefix"`
+	// Optional release label version prefix filter. For example, `emr-5`.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
 func (GetReleaseLabelsFiltersArgs) ElementType() reflect.Type {
@@ -4465,10 +4893,12 @@ func (o GetReleaseLabelsFiltersOutput) ToGetReleaseLabelsFiltersPtrOutputWithCon
 	}).(GetReleaseLabelsFiltersPtrOutput)
 }
 
+// Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
 func (o GetReleaseLabelsFiltersOutput) Application() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetReleaseLabelsFilters) *string { return v.Application }).(pulumi.StringPtrOutput)
 }
 
+// Optional release label version prefix filter. For example, `emr-5`.
 func (o GetReleaseLabelsFiltersOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetReleaseLabelsFilters) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -4497,6 +4927,7 @@ func (o GetReleaseLabelsFiltersPtrOutput) Elem() GetReleaseLabelsFiltersOutput {
 	}).(GetReleaseLabelsFiltersOutput)
 }
 
+// Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
 func (o GetReleaseLabelsFiltersPtrOutput) Application() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetReleaseLabelsFilters) *string {
 		if v == nil {
@@ -4506,6 +4937,7 @@ func (o GetReleaseLabelsFiltersPtrOutput) Application() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Optional release label version prefix filter. For example, `emr-5`.
 func (o GetReleaseLabelsFiltersPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetReleaseLabelsFilters) *string {
 		if v == nil {

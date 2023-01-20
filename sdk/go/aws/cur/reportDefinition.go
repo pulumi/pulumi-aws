@@ -11,21 +11,86 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages Cost and Usage Report Definitions.
+//
+// > *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
+//
+// > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cur"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cur.NewReportDefinition(ctx, "exampleCurReportDefinition", &cur.ReportDefinitionArgs{
+//				AdditionalArtifacts: pulumi.StringArray{
+//					pulumi.String("REDSHIFT"),
+//					pulumi.String("QUICKSIGHT"),
+//				},
+//				AdditionalSchemaElements: pulumi.StringArray{
+//					pulumi.String("RESOURCES"),
+//				},
+//				Compression: pulumi.String("GZIP"),
+//				Format:      pulumi.String("textORcsv"),
+//				ReportName:  pulumi.String("example-cur-report-definition"),
+//				S3Bucket:    pulumi.String("example-bucket-name"),
+//				S3Region:    pulumi.String("us-east-1"),
+//				TimeUnit:    pulumi.String("HOURLY"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Report Definitions can be imported using the `report_name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
+//
+// ```
 type ReportDefinition struct {
 	pulumi.CustomResourceState
 
-	AdditionalArtifacts      pulumi.StringArrayOutput `pulumi:"additionalArtifacts"`
+	// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
+	AdditionalArtifacts pulumi.StringArrayOutput `pulumi:"additionalArtifacts"`
+	// A list of schema elements. Valid values are: `RESOURCES`.
 	AdditionalSchemaElements pulumi.StringArrayOutput `pulumi:"additionalSchemaElements"`
-	Arn                      pulumi.StringOutput      `pulumi:"arn"`
-	Compression              pulumi.StringOutput      `pulumi:"compression"`
-	Format                   pulumi.StringOutput      `pulumi:"format"`
-	RefreshClosedReports     pulumi.BoolPtrOutput     `pulumi:"refreshClosedReports"`
-	ReportName               pulumi.StringOutput      `pulumi:"reportName"`
-	ReportVersioning         pulumi.StringPtrOutput   `pulumi:"reportVersioning"`
-	S3Bucket                 pulumi.StringOutput      `pulumi:"s3Bucket"`
-	S3Prefix                 pulumi.StringPtrOutput   `pulumi:"s3Prefix"`
-	S3Region                 pulumi.StringOutput      `pulumi:"s3Region"`
-	TimeUnit                 pulumi.StringOutput      `pulumi:"timeUnit"`
+	// The Amazon Resource Name (ARN) specifying the cur report.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
+	Compression pulumi.StringOutput `pulumi:"compression"`
+	// Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
+	Format pulumi.StringOutput `pulumi:"format"`
+	// Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
+	RefreshClosedReports pulumi.BoolPtrOutput `pulumi:"refreshClosedReports"`
+	// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
+	ReportName pulumi.StringOutput `pulumi:"reportName"`
+	// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
+	ReportVersioning pulumi.StringPtrOutput `pulumi:"reportVersioning"`
+	// Name of the existing S3 bucket to hold generated reports.
+	S3Bucket pulumi.StringOutput `pulumi:"s3Bucket"`
+	// Report path prefix. Limited to 256 characters.
+	S3Prefix pulumi.StringPtrOutput `pulumi:"s3Prefix"`
+	// Region of the existing S3 bucket to hold generated reports.
+	S3Region pulumi.StringOutput `pulumi:"s3Region"`
+	// The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+	TimeUnit pulumi.StringOutput `pulumi:"timeUnit"`
 }
 
 // NewReportDefinition registers a new resource with the given unique name, arguments, and options.
@@ -78,33 +143,57 @@ func GetReportDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReportDefinition resources.
 type reportDefinitionState struct {
-	AdditionalArtifacts      []string `pulumi:"additionalArtifacts"`
+	// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
+	AdditionalArtifacts []string `pulumi:"additionalArtifacts"`
+	// A list of schema elements. Valid values are: `RESOURCES`.
 	AdditionalSchemaElements []string `pulumi:"additionalSchemaElements"`
-	Arn                      *string  `pulumi:"arn"`
-	Compression              *string  `pulumi:"compression"`
-	Format                   *string  `pulumi:"format"`
-	RefreshClosedReports     *bool    `pulumi:"refreshClosedReports"`
-	ReportName               *string  `pulumi:"reportName"`
-	ReportVersioning         *string  `pulumi:"reportVersioning"`
-	S3Bucket                 *string  `pulumi:"s3Bucket"`
-	S3Prefix                 *string  `pulumi:"s3Prefix"`
-	S3Region                 *string  `pulumi:"s3Region"`
-	TimeUnit                 *string  `pulumi:"timeUnit"`
+	// The Amazon Resource Name (ARN) specifying the cur report.
+	Arn *string `pulumi:"arn"`
+	// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
+	Compression *string `pulumi:"compression"`
+	// Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
+	Format *string `pulumi:"format"`
+	// Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
+	RefreshClosedReports *bool `pulumi:"refreshClosedReports"`
+	// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
+	ReportName *string `pulumi:"reportName"`
+	// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
+	ReportVersioning *string `pulumi:"reportVersioning"`
+	// Name of the existing S3 bucket to hold generated reports.
+	S3Bucket *string `pulumi:"s3Bucket"`
+	// Report path prefix. Limited to 256 characters.
+	S3Prefix *string `pulumi:"s3Prefix"`
+	// Region of the existing S3 bucket to hold generated reports.
+	S3Region *string `pulumi:"s3Region"`
+	// The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+	TimeUnit *string `pulumi:"timeUnit"`
 }
 
 type ReportDefinitionState struct {
-	AdditionalArtifacts      pulumi.StringArrayInput
+	// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
+	AdditionalArtifacts pulumi.StringArrayInput
+	// A list of schema elements. Valid values are: `RESOURCES`.
 	AdditionalSchemaElements pulumi.StringArrayInput
-	Arn                      pulumi.StringPtrInput
-	Compression              pulumi.StringPtrInput
-	Format                   pulumi.StringPtrInput
-	RefreshClosedReports     pulumi.BoolPtrInput
-	ReportName               pulumi.StringPtrInput
-	ReportVersioning         pulumi.StringPtrInput
-	S3Bucket                 pulumi.StringPtrInput
-	S3Prefix                 pulumi.StringPtrInput
-	S3Region                 pulumi.StringPtrInput
-	TimeUnit                 pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) specifying the cur report.
+	Arn pulumi.StringPtrInput
+	// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
+	Compression pulumi.StringPtrInput
+	// Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
+	Format pulumi.StringPtrInput
+	// Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
+	RefreshClosedReports pulumi.BoolPtrInput
+	// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
+	ReportName pulumi.StringPtrInput
+	// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
+	ReportVersioning pulumi.StringPtrInput
+	// Name of the existing S3 bucket to hold generated reports.
+	S3Bucket pulumi.StringPtrInput
+	// Report path prefix. Limited to 256 characters.
+	S3Prefix pulumi.StringPtrInput
+	// Region of the existing S3 bucket to hold generated reports.
+	S3Region pulumi.StringPtrInput
+	// The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+	TimeUnit pulumi.StringPtrInput
 }
 
 func (ReportDefinitionState) ElementType() reflect.Type {
@@ -112,32 +201,54 @@ func (ReportDefinitionState) ElementType() reflect.Type {
 }
 
 type reportDefinitionArgs struct {
-	AdditionalArtifacts      []string `pulumi:"additionalArtifacts"`
+	// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
+	AdditionalArtifacts []string `pulumi:"additionalArtifacts"`
+	// A list of schema elements. Valid values are: `RESOURCES`.
 	AdditionalSchemaElements []string `pulumi:"additionalSchemaElements"`
-	Compression              string   `pulumi:"compression"`
-	Format                   string   `pulumi:"format"`
-	RefreshClosedReports     *bool    `pulumi:"refreshClosedReports"`
-	ReportName               string   `pulumi:"reportName"`
-	ReportVersioning         *string  `pulumi:"reportVersioning"`
-	S3Bucket                 string   `pulumi:"s3Bucket"`
-	S3Prefix                 *string  `pulumi:"s3Prefix"`
-	S3Region                 string   `pulumi:"s3Region"`
-	TimeUnit                 string   `pulumi:"timeUnit"`
+	// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
+	Compression string `pulumi:"compression"`
+	// Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
+	Format string `pulumi:"format"`
+	// Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
+	RefreshClosedReports *bool `pulumi:"refreshClosedReports"`
+	// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
+	ReportName string `pulumi:"reportName"`
+	// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
+	ReportVersioning *string `pulumi:"reportVersioning"`
+	// Name of the existing S3 bucket to hold generated reports.
+	S3Bucket string `pulumi:"s3Bucket"`
+	// Report path prefix. Limited to 256 characters.
+	S3Prefix *string `pulumi:"s3Prefix"`
+	// Region of the existing S3 bucket to hold generated reports.
+	S3Region string `pulumi:"s3Region"`
+	// The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+	TimeUnit string `pulumi:"timeUnit"`
 }
 
 // The set of arguments for constructing a ReportDefinition resource.
 type ReportDefinitionArgs struct {
-	AdditionalArtifacts      pulumi.StringArrayInput
+	// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
+	AdditionalArtifacts pulumi.StringArrayInput
+	// A list of schema elements. Valid values are: `RESOURCES`.
 	AdditionalSchemaElements pulumi.StringArrayInput
-	Compression              pulumi.StringInput
-	Format                   pulumi.StringInput
-	RefreshClosedReports     pulumi.BoolPtrInput
-	ReportName               pulumi.StringInput
-	ReportVersioning         pulumi.StringPtrInput
-	S3Bucket                 pulumi.StringInput
-	S3Prefix                 pulumi.StringPtrInput
-	S3Region                 pulumi.StringInput
-	TimeUnit                 pulumi.StringInput
+	// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
+	Compression pulumi.StringInput
+	// Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
+	Format pulumi.StringInput
+	// Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
+	RefreshClosedReports pulumi.BoolPtrInput
+	// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
+	ReportName pulumi.StringInput
+	// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
+	ReportVersioning pulumi.StringPtrInput
+	// Name of the existing S3 bucket to hold generated reports.
+	S3Bucket pulumi.StringInput
+	// Report path prefix. Limited to 256 characters.
+	S3Prefix pulumi.StringPtrInput
+	// Region of the existing S3 bucket to hold generated reports.
+	S3Region pulumi.StringInput
+	// The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+	TimeUnit pulumi.StringInput
 }
 
 func (ReportDefinitionArgs) ElementType() reflect.Type {
@@ -227,50 +338,62 @@ func (o ReportDefinitionOutput) ToReportDefinitionOutputWithContext(ctx context.
 	return o
 }
 
+// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
 func (o ReportDefinitionOutput) AdditionalArtifacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringArrayOutput { return v.AdditionalArtifacts }).(pulumi.StringArrayOutput)
 }
 
+// A list of schema elements. Valid values are: `RESOURCES`.
 func (o ReportDefinitionOutput) AdditionalSchemaElements() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringArrayOutput { return v.AdditionalSchemaElements }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) specifying the cur report.
 func (o ReportDefinitionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
 func (o ReportDefinitionOutput) Compression() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringOutput { return v.Compression }).(pulumi.StringOutput)
 }
 
+// Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
 func (o ReportDefinitionOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringOutput { return v.Format }).(pulumi.StringOutput)
 }
 
+// Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
 func (o ReportDefinitionOutput) RefreshClosedReports() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.BoolPtrOutput { return v.RefreshClosedReports }).(pulumi.BoolPtrOutput)
 }
 
+// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
 func (o ReportDefinitionOutput) ReportName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringOutput { return v.ReportName }).(pulumi.StringOutput)
 }
 
+// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
 func (o ReportDefinitionOutput) ReportVersioning() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringPtrOutput { return v.ReportVersioning }).(pulumi.StringPtrOutput)
 }
 
+// Name of the existing S3 bucket to hold generated reports.
 func (o ReportDefinitionOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringOutput { return v.S3Bucket }).(pulumi.StringOutput)
 }
 
+// Report path prefix. Limited to 256 characters.
 func (o ReportDefinitionOutput) S3Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringPtrOutput { return v.S3Prefix }).(pulumi.StringPtrOutput)
 }
 
+// Region of the existing S3 bucket to hold generated reports.
 func (o ReportDefinitionOutput) S3Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringOutput { return v.S3Region }).(pulumi.StringOutput)
 }
 
+// The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
 func (o ReportDefinitionOutput) TimeUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringOutput { return v.TimeUnit }).(pulumi.StringOutput)
 }

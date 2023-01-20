@@ -11,9 +11,57 @@ namespace Pulumi.Aws.Ses
 {
     public static class GetDomainIdentity
     {
+        /// <summary>
+        /// Retrieve the SES domain identity
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ses.GetDomainIdentity.Invoke(new()
+        ///     {
+        ///         Domain = "example.com",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetDomainIdentityResult> InvokeAsync(GetDomainIdentityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainIdentityResult>("aws:ses/getDomainIdentity:getDomainIdentity", args ?? new GetDomainIdentityArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieve the SES domain identity
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ses.GetDomainIdentity.Invoke(new()
+        ///     {
+        ///         Domain = "example.com",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetDomainIdentityResult> Invoke(GetDomainIdentityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainIdentityResult>("aws:ses/getDomainIdentity:getDomainIdentity", args ?? new GetDomainIdentityInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +69,9 @@ namespace Pulumi.Aws.Ses
 
     public sealed class GetDomainIdentityArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the domain
+        /// </summary>
         [Input("domain", required: true)]
         public string Domain { get; set; } = null!;
 
@@ -32,6 +83,9 @@ namespace Pulumi.Aws.Ses
 
     public sealed class GetDomainIdentityInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the domain
+        /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
@@ -45,12 +99,21 @@ namespace Pulumi.Aws.Ses
     [OutputType]
     public sealed class GetDomainIdentityResult
     {
+        /// <summary>
+        /// ARN of the domain identity.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Name of the domain
+        /// </summary>
         public readonly string Domain;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
+        /// </summary>
         public readonly string VerificationToken;
 
         [OutputConstructor]

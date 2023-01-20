@@ -11,12 +11,84 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a CloudWatch Logs destination policy resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testDestination, err := cloudwatch.NewLogDestination(ctx, "testDestination", &cloudwatch.LogDestinationArgs{
+//				RoleArn:   pulumi.Any(aws_iam_role.Iam_for_cloudwatch.Arn),
+//				TargetArn: pulumi.Any(aws_kinesis_stream.Kinesis_for_cloudwatch.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testDestinationPolicyPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("AWS"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("123456789012"),
+//								},
+//							},
+//						},
+//						Actions: pulumi.StringArray{
+//							pulumi.String("logs:PutSubscriptionFilter"),
+//						},
+//						Resources: pulumi.StringArray{
+//							testDestination.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = cloudwatch.NewLogDestinationPolicy(ctx, "testDestinationPolicyLogDestinationPolicy", &cloudwatch.LogDestinationPolicyArgs{
+//				DestinationName: testDestination.Name,
+//				AccessPolicy: testDestinationPolicyPolicyDocument.ApplyT(func(testDestinationPolicyPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &testDestinationPolicyPolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// CloudWatch Logs destination policies can be imported using the `destination_name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
+//
+// ```
 type LogDestinationPolicy struct {
 	pulumi.CustomResourceState
 
-	AccessPolicy    pulumi.StringOutput  `pulumi:"accessPolicy"`
-	DestinationName pulumi.StringOutput  `pulumi:"destinationName"`
-	ForceUpdate     pulumi.BoolPtrOutput `pulumi:"forceUpdate"`
+	// The policy document. This is a JSON formatted string.
+	AccessPolicy pulumi.StringOutput `pulumi:"accessPolicy"`
+	// A name for the subscription filter
+	DestinationName pulumi.StringOutput `pulumi:"destinationName"`
+	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+	ForceUpdate pulumi.BoolPtrOutput `pulumi:"forceUpdate"`
 }
 
 // NewLogDestinationPolicy registers a new resource with the given unique name, arguments, and options.
@@ -54,15 +126,21 @@ func GetLogDestinationPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogDestinationPolicy resources.
 type logDestinationPolicyState struct {
-	AccessPolicy    *string `pulumi:"accessPolicy"`
+	// The policy document. This is a JSON formatted string.
+	AccessPolicy *string `pulumi:"accessPolicy"`
+	// A name for the subscription filter
 	DestinationName *string `pulumi:"destinationName"`
-	ForceUpdate     *bool   `pulumi:"forceUpdate"`
+	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+	ForceUpdate *bool `pulumi:"forceUpdate"`
 }
 
 type LogDestinationPolicyState struct {
-	AccessPolicy    pulumi.StringPtrInput
+	// The policy document. This is a JSON formatted string.
+	AccessPolicy pulumi.StringPtrInput
+	// A name for the subscription filter
 	DestinationName pulumi.StringPtrInput
-	ForceUpdate     pulumi.BoolPtrInput
+	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+	ForceUpdate pulumi.BoolPtrInput
 }
 
 func (LogDestinationPolicyState) ElementType() reflect.Type {
@@ -70,16 +148,22 @@ func (LogDestinationPolicyState) ElementType() reflect.Type {
 }
 
 type logDestinationPolicyArgs struct {
-	AccessPolicy    string `pulumi:"accessPolicy"`
+	// The policy document. This is a JSON formatted string.
+	AccessPolicy string `pulumi:"accessPolicy"`
+	// A name for the subscription filter
 	DestinationName string `pulumi:"destinationName"`
-	ForceUpdate     *bool  `pulumi:"forceUpdate"`
+	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+	ForceUpdate *bool `pulumi:"forceUpdate"`
 }
 
 // The set of arguments for constructing a LogDestinationPolicy resource.
 type LogDestinationPolicyArgs struct {
-	AccessPolicy    pulumi.StringInput
+	// The policy document. This is a JSON formatted string.
+	AccessPolicy pulumi.StringInput
+	// A name for the subscription filter
 	DestinationName pulumi.StringInput
-	ForceUpdate     pulumi.BoolPtrInput
+	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+	ForceUpdate pulumi.BoolPtrInput
 }
 
 func (LogDestinationPolicyArgs) ElementType() reflect.Type {
@@ -169,14 +253,17 @@ func (o LogDestinationPolicyOutput) ToLogDestinationPolicyOutputWithContext(ctx 
 	return o
 }
 
+// The policy document. This is a JSON formatted string.
 func (o LogDestinationPolicyOutput) AccessPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDestinationPolicy) pulumi.StringOutput { return v.AccessPolicy }).(pulumi.StringOutput)
 }
 
+// A name for the subscription filter
 func (o LogDestinationPolicyOutput) DestinationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDestinationPolicy) pulumi.StringOutput { return v.DestinationName }).(pulumi.StringOutput)
 }
 
+// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
 func (o LogDestinationPolicyOutput) ForceUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogDestinationPolicy) pulumi.BoolPtrOutput { return v.ForceUpdate }).(pulumi.BoolPtrOutput)
 }

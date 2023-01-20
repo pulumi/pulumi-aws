@@ -9,9 +9,48 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Macie2
 {
+    /// <summary>
+    /// Provides a resource to manage an [Amazon Macie Organization Admin Account](https://docs.aws.amazon.com/macie/latest/APIReference/admin.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleAccount = new Aws.Macie2.Account("exampleAccount");
+    /// 
+    ///     var exampleOrganizationAdminAccount = new Aws.Macie2.OrganizationAdminAccount("exampleOrganizationAdminAccount", new()
+    ///     {
+    ///         AdminAccountId = "ID OF THE ADMIN ACCOUNT",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAccount,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_macie2_organization_admin_account` can be imported using the id, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:macie2/organizationAdminAccount:OrganizationAdminAccount")]
     public partial class OrganizationAdminAccount : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+        /// </summary>
         [Output("adminAccountId")]
         public Output<string> AdminAccountId { get; private set; } = null!;
 
@@ -61,6 +100,9 @@ namespace Pulumi.Aws.Macie2
 
     public sealed class OrganizationAdminAccountArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+        /// </summary>
         [Input("adminAccountId", required: true)]
         public Input<string> AdminAccountId { get; set; } = null!;
 
@@ -72,6 +114,9 @@ namespace Pulumi.Aws.Macie2
 
     public sealed class OrganizationAdminAccountState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+        /// </summary>
         [Input("adminAccountId")]
         public Input<string>? AdminAccountId { get; set; }
 

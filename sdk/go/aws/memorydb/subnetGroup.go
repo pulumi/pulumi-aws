@@ -11,17 +11,81 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a MemoryDB Subnet Group.
+//
+// More information about subnet groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/subnetgroups.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := ec2.NewSubnet(ctx, "exampleSubnet", &ec2.SubnetArgs{
+//				VpcId:            exampleVpc.ID(),
+//				CidrBlock:        pulumi.String("10.0.0.0/24"),
+//				AvailabilityZone: pulumi.String("us-west-2a"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = memorydb.NewSubnetGroup(ctx, "exampleSubnetGroup", &memorydb.SubnetGroupArgs{
+//				SubnetIds: pulumi.StringArray{
+//					exampleSubnet.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Use the `name` to import a subnet group. For example
+//
+// ```sh
+//
+//	$ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
+//
+// ```
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput      `pulumi:"arn"`
-	Description pulumi.StringPtrOutput   `pulumi:"description"`
-	Name        pulumi.StringOutput      `pulumi:"name"`
-	NamePrefix  pulumi.StringOutput      `pulumi:"namePrefix"`
-	SubnetIds   pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	Tags        pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll     pulumi.StringMapOutput   `pulumi:"tagsAll"`
-	VpcId       pulumi.StringOutput      `pulumi:"vpcId"`
+	// The ARN of the subnet group.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Description for the subnet group.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The VPC in which the subnet group exists.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -56,25 +120,41 @@ func GetSubnetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SubnetGroup resources.
 type subnetGroupState struct {
-	Arn         *string           `pulumi:"arn"`
-	Description *string           `pulumi:"description"`
-	Name        *string           `pulumi:"name"`
-	NamePrefix  *string           `pulumi:"namePrefix"`
-	SubnetIds   []string          `pulumi:"subnetIds"`
-	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
-	VpcId       *string           `pulumi:"vpcId"`
+	// The ARN of the subnet group.
+	Arn *string `pulumi:"arn"`
+	// Description for the subnet group.
+	Description *string `pulumi:"description"`
+	// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name *string `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix *string `pulumi:"namePrefix"`
+	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The VPC in which the subnet group exists.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 type SubnetGroupState struct {
-	Arn         pulumi.StringPtrInput
+	// The ARN of the subnet group.
+	Arn pulumi.StringPtrInput
+	// Description for the subnet group.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	NamePrefix  pulumi.StringPtrInput
-	SubnetIds   pulumi.StringArrayInput
-	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
-	VpcId       pulumi.StringPtrInput
+	// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringPtrInput
+	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+	SubnetIds pulumi.StringArrayInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// The VPC in which the subnet group exists.
+	VpcId pulumi.StringPtrInput
 }
 
 func (SubnetGroupState) ElementType() reflect.Type {
@@ -82,20 +162,30 @@ func (SubnetGroupState) ElementType() reflect.Type {
 }
 
 type subnetGroupArgs struct {
-	Description *string           `pulumi:"description"`
-	Name        *string           `pulumi:"name"`
-	NamePrefix  *string           `pulumi:"namePrefix"`
-	SubnetIds   []string          `pulumi:"subnetIds"`
-	Tags        map[string]string `pulumi:"tags"`
+	// Description for the subnet group.
+	Description *string `pulumi:"description"`
+	// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name *string `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix *string `pulumi:"namePrefix"`
+	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SubnetGroup resource.
 type SubnetGroupArgs struct {
+	// Description for the subnet group.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	NamePrefix  pulumi.StringPtrInput
-	SubnetIds   pulumi.StringArrayInput
-	Tags        pulumi.StringMapInput
+	// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringPtrInput
+	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+	SubnetIds pulumi.StringArrayInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (SubnetGroupArgs) ElementType() reflect.Type {
@@ -185,34 +275,42 @@ func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) S
 	return o
 }
 
+// The ARN of the subnet group.
 func (o SubnetGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Description for the subnet group.
 func (o SubnetGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o SubnetGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o SubnetGroupOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
+// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
 func (o SubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SubnetGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SubnetGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// The VPC in which the subnet group exists.
 func (o SubnetGroupOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

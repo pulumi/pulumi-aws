@@ -57,6 +57,13 @@ class DirectorySelfServicePermissions(dict):
                  rebuild_workspace: Optional[bool] = None,
                  restart_workspace: Optional[bool] = None,
                  switch_running_mode: Optional[bool] = None):
+        """
+        :param bool change_compute_type: Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
+        :param bool increase_volume_size: Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
+        :param bool rebuild_workspace: Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
+        :param bool restart_workspace: Whether WorkSpaces directory users can restart their workspace. Default `true`.
+        :param bool switch_running_mode: Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
+        """
         if change_compute_type is not None:
             pulumi.set(__self__, "change_compute_type", change_compute_type)
         if increase_volume_size is not None:
@@ -71,26 +78,41 @@ class DirectorySelfServicePermissions(dict):
     @property
     @pulumi.getter(name="changeComputeType")
     def change_compute_type(self) -> Optional[bool]:
+        """
+        Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
+        """
         return pulumi.get(self, "change_compute_type")
 
     @property
     @pulumi.getter(name="increaseVolumeSize")
     def increase_volume_size(self) -> Optional[bool]:
+        """
+        Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
+        """
         return pulumi.get(self, "increase_volume_size")
 
     @property
     @pulumi.getter(name="rebuildWorkspace")
     def rebuild_workspace(self) -> Optional[bool]:
+        """
+        Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
+        """
         return pulumi.get(self, "rebuild_workspace")
 
     @property
     @pulumi.getter(name="restartWorkspace")
     def restart_workspace(self) -> Optional[bool]:
+        """
+        Whether WorkSpaces directory users can restart their workspace. Default `true`.
+        """
         return pulumi.get(self, "restart_workspace")
 
     @property
     @pulumi.getter(name="switchRunningMode")
     def switch_running_mode(self) -> Optional[bool]:
+        """
+        Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
+        """
         return pulumi.get(self, "switch_running_mode")
 
 
@@ -136,6 +158,16 @@ class DirectoryWorkspaceAccessProperties(dict):
                  device_type_web: Optional[str] = None,
                  device_type_windows: Optional[str] = None,
                  device_type_zeroclient: Optional[str] = None):
+        """
+        :param str device_type_android: Indicates whether users can use Android devices to access their WorkSpaces.
+        :param str device_type_chromeos: Indicates whether users can use Chromebooks to access their WorkSpaces.
+        :param str device_type_ios: Indicates whether users can use iOS devices to access their WorkSpaces.
+        :param str device_type_linux: Indicates whether users can use Linux clients to access their WorkSpaces.
+        :param str device_type_osx: Indicates whether users can use macOS clients to access their WorkSpaces.
+        :param str device_type_web: Indicates whether users can access their WorkSpaces through a web browser.
+        :param str device_type_windows: Indicates whether users can use Windows clients to access their WorkSpaces.
+        :param str device_type_zeroclient: Indicates whether users can use zero client devices to access their WorkSpaces.
+        """
         if device_type_android is not None:
             pulumi.set(__self__, "device_type_android", device_type_android)
         if device_type_chromeos is not None:
@@ -156,41 +188,65 @@ class DirectoryWorkspaceAccessProperties(dict):
     @property
     @pulumi.getter(name="deviceTypeAndroid")
     def device_type_android(self) -> Optional[str]:
+        """
+        Indicates whether users can use Android devices to access their WorkSpaces.
+        """
         return pulumi.get(self, "device_type_android")
 
     @property
     @pulumi.getter(name="deviceTypeChromeos")
     def device_type_chromeos(self) -> Optional[str]:
+        """
+        Indicates whether users can use Chromebooks to access their WorkSpaces.
+        """
         return pulumi.get(self, "device_type_chromeos")
 
     @property
     @pulumi.getter(name="deviceTypeIos")
     def device_type_ios(self) -> Optional[str]:
+        """
+        Indicates whether users can use iOS devices to access their WorkSpaces.
+        """
         return pulumi.get(self, "device_type_ios")
 
     @property
     @pulumi.getter(name="deviceTypeLinux")
     def device_type_linux(self) -> Optional[str]:
+        """
+        Indicates whether users can use Linux clients to access their WorkSpaces.
+        """
         return pulumi.get(self, "device_type_linux")
 
     @property
     @pulumi.getter(name="deviceTypeOsx")
     def device_type_osx(self) -> Optional[str]:
+        """
+        Indicates whether users can use macOS clients to access their WorkSpaces.
+        """
         return pulumi.get(self, "device_type_osx")
 
     @property
     @pulumi.getter(name="deviceTypeWeb")
     def device_type_web(self) -> Optional[str]:
+        """
+        Indicates whether users can access their WorkSpaces through a web browser.
+        """
         return pulumi.get(self, "device_type_web")
 
     @property
     @pulumi.getter(name="deviceTypeWindows")
     def device_type_windows(self) -> Optional[str]:
+        """
+        Indicates whether users can use Windows clients to access their WorkSpaces.
+        """
         return pulumi.get(self, "device_type_windows")
 
     @property
     @pulumi.getter(name="deviceTypeZeroclient")
     def device_type_zeroclient(self) -> Optional[str]:
+        """
+        Indicates whether users can use zero client devices to access their WorkSpaces.
+        """
         return pulumi.get(self, "device_type_zeroclient")
 
 
@@ -227,6 +283,13 @@ class DirectoryWorkspaceCreationProperties(dict):
                  enable_internet_access: Optional[bool] = None,
                  enable_maintenance_mode: Optional[bool] = None,
                  user_enabled_as_local_administrator: Optional[bool] = None):
+        """
+        :param str custom_security_group_id: The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+        :param str default_ou: The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=<value>,DC=<value>,...,DC=<value>"` pattern.
+        :param bool enable_internet_access: Indicates whether internet access is enabled for your WorkSpaces.
+        :param bool enable_maintenance_mode: Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
+        :param bool user_enabled_as_local_administrator: Indicates whether users are local administrators of their WorkSpaces.
+        """
         if custom_security_group_id is not None:
             pulumi.set(__self__, "custom_security_group_id", custom_security_group_id)
         if default_ou is not None:
@@ -241,26 +304,41 @@ class DirectoryWorkspaceCreationProperties(dict):
     @property
     @pulumi.getter(name="customSecurityGroupId")
     def custom_security_group_id(self) -> Optional[str]:
+        """
+        The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+        """
         return pulumi.get(self, "custom_security_group_id")
 
     @property
     @pulumi.getter(name="defaultOu")
     def default_ou(self) -> Optional[str]:
+        """
+        The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=<value>,DC=<value>,...,DC=<value>"` pattern.
+        """
         return pulumi.get(self, "default_ou")
 
     @property
     @pulumi.getter(name="enableInternetAccess")
     def enable_internet_access(self) -> Optional[bool]:
+        """
+        Indicates whether internet access is enabled for your WorkSpaces.
+        """
         return pulumi.get(self, "enable_internet_access")
 
     @property
     @pulumi.getter(name="enableMaintenanceMode")
     def enable_maintenance_mode(self) -> Optional[bool]:
+        """
+        Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
+        """
         return pulumi.get(self, "enable_maintenance_mode")
 
     @property
     @pulumi.getter(name="userEnabledAsLocalAdministrator")
     def user_enabled_as_local_administrator(self) -> Optional[bool]:
+        """
+        Indicates whether users are local administrators of their WorkSpaces.
+        """
         return pulumi.get(self, "user_enabled_as_local_administrator")
 
 
@@ -269,6 +347,10 @@ class IpGroupRule(dict):
     def __init__(__self__, *,
                  source: str,
                  description: Optional[str] = None):
+        """
+        :param str source: The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
+        :param str description: The description of the IP group.
+        """
         pulumi.set(__self__, "source", source)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -276,11 +358,17 @@ class IpGroupRule(dict):
     @property
     @pulumi.getter
     def source(self) -> str:
+        """
+        The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
+        """
         return pulumi.get(self, "source")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the IP group.
+        """
         return pulumi.get(self, "description")
 
 
@@ -317,6 +405,13 @@ class WorkspaceWorkspaceProperties(dict):
                  running_mode: Optional[str] = None,
                  running_mode_auto_stop_timeout_in_minutes: Optional[int] = None,
                  user_volume_size_gib: Optional[int] = None):
+        """
+        :param str compute_type_name: The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
+        :param int root_volume_size_gib: The size of the root volume.
+        :param str running_mode: The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+        :param int running_mode_auto_stop_timeout_in_minutes: The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+        :param int user_volume_size_gib: The size of the user storage.
+        """
         if compute_type_name is not None:
             pulumi.set(__self__, "compute_type_name", compute_type_name)
         if root_volume_size_gib is not None:
@@ -331,26 +426,41 @@ class WorkspaceWorkspaceProperties(dict):
     @property
     @pulumi.getter(name="computeTypeName")
     def compute_type_name(self) -> Optional[str]:
+        """
+        The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
+        """
         return pulumi.get(self, "compute_type_name")
 
     @property
     @pulumi.getter(name="rootVolumeSizeGib")
     def root_volume_size_gib(self) -> Optional[int]:
+        """
+        The size of the root volume.
+        """
         return pulumi.get(self, "root_volume_size_gib")
 
     @property
     @pulumi.getter(name="runningMode")
     def running_mode(self) -> Optional[str]:
+        """
+        The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+        """
         return pulumi.get(self, "running_mode")
 
     @property
     @pulumi.getter(name="runningModeAutoStopTimeoutInMinutes")
     def running_mode_auto_stop_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+        """
         return pulumi.get(self, "running_mode_auto_stop_timeout_in_minutes")
 
     @property
     @pulumi.getter(name="userVolumeSizeGib")
     def user_volume_size_gib(self) -> Optional[int]:
+        """
+        The size of the user storage.
+        """
         return pulumi.get(self, "user_volume_size_gib")
 
 
@@ -358,11 +468,17 @@ class WorkspaceWorkspaceProperties(dict):
 class GetBundleComputeTypeResult(dict):
     def __init__(__self__, *,
                  name: str):
+        """
+        :param str name: Name of the bundle. You cannot combine this parameter with `bundle_id`.
+        """
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the bundle. You cannot combine this parameter with `bundle_id`.
+        """
         return pulumi.get(self, "name")
 
 
@@ -370,11 +486,17 @@ class GetBundleComputeTypeResult(dict):
 class GetBundleRootStorageResult(dict):
     def __init__(__self__, *,
                  capacity: str):
+        """
+        :param str capacity: Size of the user storage.
+        """
         pulumi.set(__self__, "capacity", capacity)
 
     @property
     @pulumi.getter
     def capacity(self) -> str:
+        """
+        Size of the user storage.
+        """
         return pulumi.get(self, "capacity")
 
 
@@ -382,11 +504,17 @@ class GetBundleRootStorageResult(dict):
 class GetBundleUserStorageResult(dict):
     def __init__(__self__, *,
                  capacity: str):
+        """
+        :param str capacity: Size of the user storage.
+        """
         pulumi.set(__self__, "capacity", capacity)
 
     @property
     @pulumi.getter
     def capacity(self) -> str:
+        """
+        Size of the user storage.
+        """
         return pulumi.get(self, "capacity")
 
 
@@ -398,6 +526,13 @@ class GetDirectorySelfServicePermissionResult(dict):
                  rebuild_workspace: bool,
                  restart_workspace: bool,
                  switch_running_mode: bool):
+        """
+        :param bool change_compute_type: Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
+        :param bool increase_volume_size: Whether WorkSpaces directory users can increase the volume size of the drives on their workspace.
+        :param bool rebuild_workspace: Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state.
+        :param bool restart_workspace: Whether WorkSpaces directory users can restart their workspace.
+        :param bool switch_running_mode: Whether WorkSpaces directory users can switch the running mode of their workspace.
+        """
         pulumi.set(__self__, "change_compute_type", change_compute_type)
         pulumi.set(__self__, "increase_volume_size", increase_volume_size)
         pulumi.set(__self__, "rebuild_workspace", rebuild_workspace)
@@ -407,26 +542,41 @@ class GetDirectorySelfServicePermissionResult(dict):
     @property
     @pulumi.getter(name="changeComputeType")
     def change_compute_type(self) -> bool:
+        """
+        Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
+        """
         return pulumi.get(self, "change_compute_type")
 
     @property
     @pulumi.getter(name="increaseVolumeSize")
     def increase_volume_size(self) -> bool:
+        """
+        Whether WorkSpaces directory users can increase the volume size of the drives on their workspace.
+        """
         return pulumi.get(self, "increase_volume_size")
 
     @property
     @pulumi.getter(name="rebuildWorkspace")
     def rebuild_workspace(self) -> bool:
+        """
+        Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state.
+        """
         return pulumi.get(self, "rebuild_workspace")
 
     @property
     @pulumi.getter(name="restartWorkspace")
     def restart_workspace(self) -> bool:
+        """
+        Whether WorkSpaces directory users can restart their workspace.
+        """
         return pulumi.get(self, "restart_workspace")
 
     @property
     @pulumi.getter(name="switchRunningMode")
     def switch_running_mode(self) -> bool:
+        """
+        Whether WorkSpaces directory users can switch the running mode of their workspace.
+        """
         return pulumi.get(self, "switch_running_mode")
 
 
@@ -441,6 +591,16 @@ class GetDirectoryWorkspaceAccessPropertyResult(dict):
                  device_type_web: str,
                  device_type_windows: str,
                  device_type_zeroclient: str):
+        """
+        :param str device_type_android: (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
+        :param str device_type_chromeos: (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
+        :param str device_type_ios: (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
+        :param str device_type_linux: (Optional) Indicates whether users can use Linux clients to access their WorkSpaces.
+        :param str device_type_osx: (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
+        :param str device_type_web: (Optional) Indicates whether users can access their WorkSpaces through a web browser.
+        :param str device_type_windows: (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
+        :param str device_type_zeroclient: (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
+        """
         pulumi.set(__self__, "device_type_android", device_type_android)
         pulumi.set(__self__, "device_type_chromeos", device_type_chromeos)
         pulumi.set(__self__, "device_type_ios", device_type_ios)
@@ -453,41 +613,65 @@ class GetDirectoryWorkspaceAccessPropertyResult(dict):
     @property
     @pulumi.getter(name="deviceTypeAndroid")
     def device_type_android(self) -> str:
+        """
+        (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
+        """
         return pulumi.get(self, "device_type_android")
 
     @property
     @pulumi.getter(name="deviceTypeChromeos")
     def device_type_chromeos(self) -> str:
+        """
+        (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
+        """
         return pulumi.get(self, "device_type_chromeos")
 
     @property
     @pulumi.getter(name="deviceTypeIos")
     def device_type_ios(self) -> str:
+        """
+        (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
+        """
         return pulumi.get(self, "device_type_ios")
 
     @property
     @pulumi.getter(name="deviceTypeLinux")
     def device_type_linux(self) -> str:
+        """
+        (Optional) Indicates whether users can use Linux clients to access their WorkSpaces.
+        """
         return pulumi.get(self, "device_type_linux")
 
     @property
     @pulumi.getter(name="deviceTypeOsx")
     def device_type_osx(self) -> str:
+        """
+        (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
+        """
         return pulumi.get(self, "device_type_osx")
 
     @property
     @pulumi.getter(name="deviceTypeWeb")
     def device_type_web(self) -> str:
+        """
+        (Optional) Indicates whether users can access their WorkSpaces through a web browser.
+        """
         return pulumi.get(self, "device_type_web")
 
     @property
     @pulumi.getter(name="deviceTypeWindows")
     def device_type_windows(self) -> str:
+        """
+        (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
+        """
         return pulumi.get(self, "device_type_windows")
 
     @property
     @pulumi.getter(name="deviceTypeZeroclient")
     def device_type_zeroclient(self) -> str:
+        """
+        (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
+        """
         return pulumi.get(self, "device_type_zeroclient")
 
 
@@ -499,6 +683,13 @@ class GetDirectoryWorkspaceCreationPropertyResult(dict):
                  enable_internet_access: bool,
                  enable_maintenance_mode: bool,
                  user_enabled_as_local_administrator: bool):
+        """
+        :param str custom_security_group_id: The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+        :param str default_ou: The default organizational unit (OU) for your WorkSpace directories.
+        :param bool enable_internet_access: Indicates whether internet access is enabled for your WorkSpaces.
+        :param bool enable_maintenance_mode: Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
+        :param bool user_enabled_as_local_administrator: Indicates whether users are local administrators of their WorkSpaces.
+        """
         pulumi.set(__self__, "custom_security_group_id", custom_security_group_id)
         pulumi.set(__self__, "default_ou", default_ou)
         pulumi.set(__self__, "enable_internet_access", enable_internet_access)
@@ -508,26 +699,41 @@ class GetDirectoryWorkspaceCreationPropertyResult(dict):
     @property
     @pulumi.getter(name="customSecurityGroupId")
     def custom_security_group_id(self) -> str:
+        """
+        The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+        """
         return pulumi.get(self, "custom_security_group_id")
 
     @property
     @pulumi.getter(name="defaultOu")
     def default_ou(self) -> str:
+        """
+        The default organizational unit (OU) for your WorkSpace directories.
+        """
         return pulumi.get(self, "default_ou")
 
     @property
     @pulumi.getter(name="enableInternetAccess")
     def enable_internet_access(self) -> bool:
+        """
+        Indicates whether internet access is enabled for your WorkSpaces.
+        """
         return pulumi.get(self, "enable_internet_access")
 
     @property
     @pulumi.getter(name="enableMaintenanceMode")
     def enable_maintenance_mode(self) -> bool:
+        """
+        Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
+        """
         return pulumi.get(self, "enable_maintenance_mode")
 
     @property
     @pulumi.getter(name="userEnabledAsLocalAdministrator")
     def user_enabled_as_local_administrator(self) -> bool:
+        """
+        Indicates whether users are local administrators of their WorkSpaces.
+        """
         return pulumi.get(self, "user_enabled_as_local_administrator")
 
 
@@ -539,6 +745,13 @@ class GetWorkspaceWorkspacePropertyResult(dict):
                  running_mode: str,
                  running_mode_auto_stop_timeout_in_minutes: int,
                  user_volume_size_gib: int):
+        """
+        :param str compute_type_name: Compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
+        :param int root_volume_size_gib: Size of the root volume.
+        :param str running_mode: Running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+        :param int running_mode_auto_stop_timeout_in_minutes: Time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+        :param int user_volume_size_gib: Size of the user storage.
+        """
         pulumi.set(__self__, "compute_type_name", compute_type_name)
         pulumi.set(__self__, "root_volume_size_gib", root_volume_size_gib)
         pulumi.set(__self__, "running_mode", running_mode)
@@ -548,26 +761,41 @@ class GetWorkspaceWorkspacePropertyResult(dict):
     @property
     @pulumi.getter(name="computeTypeName")
     def compute_type_name(self) -> str:
+        """
+        Compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
+        """
         return pulumi.get(self, "compute_type_name")
 
     @property
     @pulumi.getter(name="rootVolumeSizeGib")
     def root_volume_size_gib(self) -> int:
+        """
+        Size of the root volume.
+        """
         return pulumi.get(self, "root_volume_size_gib")
 
     @property
     @pulumi.getter(name="runningMode")
     def running_mode(self) -> str:
+        """
+        Running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+        """
         return pulumi.get(self, "running_mode")
 
     @property
     @pulumi.getter(name="runningModeAutoStopTimeoutInMinutes")
     def running_mode_auto_stop_timeout_in_minutes(self) -> int:
+        """
+        Time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+        """
         return pulumi.get(self, "running_mode_auto_stop_timeout_in_minutes")
 
     @property
     @pulumi.getter(name="userVolumeSizeGib")
     def user_volume_size_gib(self) -> int:
+        """
+        Size of the user storage.
+        """
         return pulumi.get(self, "user_volume_size_gib")
 
 

@@ -9,12 +9,116 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Cfg
 {
+    /// <summary>
+    /// Manages status (recording / stopped) of an AWS Config Configuration Recorder.
+    /// 
+    /// &gt; **Note:** Starting Configuration Recorder requires a Delivery Channel to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bucketV2 = new Aws.S3.BucketV2("bucketV2");
+    /// 
+    ///     var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("fooDeliveryChannel", new()
+    ///     {
+    ///         S3BucketName = bucketV2.Bucket,
+    ///     });
+    /// 
+    ///     var fooRecorderStatus = new Aws.Cfg.RecorderStatus("fooRecorderStatus", new()
+    ///     {
+    ///         IsEnabled = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             fooDeliveryChannel,
+    ///         },
+    ///     });
+    /// 
+    ///     var role = new Aws.Iam.Role("role", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""config.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///     });
+    /// 
+    ///     var rolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("rolePolicyAttachment", new()
+    ///     {
+    ///         Role = role.Name,
+    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRole",
+    ///     });
+    /// 
+    ///     var fooRecorder = new Aws.Cfg.Recorder("fooRecorder", new()
+    ///     {
+    ///         RoleArn = role.Arn,
+    ///     });
+    /// 
+    ///     var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new()
+    ///     {
+    ///         Role = role.Id,
+    ///         Policy = Output.Tuple(bucketV2.Arn, bucketV2.Arn).Apply(values =&gt;
+    ///         {
+    ///             var bucketV2Arn = values.Item1;
+    ///             var bucketV2Arn1 = values.Item2;
+    ///             return @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Action"": [
+    ///         ""s3:*""
+    ///       ],
+    ///       ""Effect"": ""Allow"",
+    ///       ""Resource"": [
+    ///         ""{bucketV2Arn}"",
+    ///         ""{bucketV2Arn1}/*""
+    ///       ]
+    ///     }}
+    ///   ]
+    /// }}
+    /// ";
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Configuration Recorder Status can be imported using the name of the Configuration Recorder, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:cfg/recorderStatus:RecorderStatus")]
     public partial class RecorderStatus : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Whether the configuration recorder should be enabled or disabled.
+        /// </summary>
         [Output("isEnabled")]
         public Output<bool> IsEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the recorder
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -64,9 +168,15 @@ namespace Pulumi.Aws.Cfg
 
     public sealed class RecorderStatusArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether the configuration recorder should be enabled or disabled.
+        /// </summary>
         [Input("isEnabled", required: true)]
         public Input<bool> IsEnabled { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the recorder
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -78,9 +188,15 @@ namespace Pulumi.Aws.Cfg
 
     public sealed class RecorderStatusState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether the configuration recorder should be enabled or disabled.
+        /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
+        /// <summary>
+        /// The name of the recorder
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

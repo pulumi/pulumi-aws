@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
+    /**
+     * @return One or more ACM ARNs.
+     * 
+     */
     private List<String> certificateAuthorityArns;
 
     private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm() {}
+    /**
+     * @return One or more ACM ARNs.
+     * 
+     */
     public List<String> certificateAuthorityArns() {
         return this.certificateAuthorityArns;
     }

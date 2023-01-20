@@ -11,16 +11,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Glue Partition Resource.
+//
+// ## Import
+//
+// Glue Partitions can be imported with their catalog ID (usually AWS account ID), database name, table name and partition values e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:glue/partition:Partition part 123456789012:MyDatabase:MyTable:val1#val2
+//
+// ```
 type Partition struct {
 	pulumi.CustomResourceState
 
-	CatalogId         pulumi.StringOutput                 `pulumi:"catalogId"`
-	CreationTime      pulumi.StringOutput                 `pulumi:"creationTime"`
-	DatabaseName      pulumi.StringOutput                 `pulumi:"databaseName"`
-	LastAccessedTime  pulumi.StringOutput                 `pulumi:"lastAccessedTime"`
-	LastAnalyzedTime  pulumi.StringOutput                 `pulumi:"lastAnalyzedTime"`
-	Parameters        pulumi.StringMapOutput              `pulumi:"parameters"`
-	PartitionValues   pulumi.StringArrayOutput            `pulumi:"partitionValues"`
+	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
+	// The time at which the partition was created.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// The last time at which the partition was accessed.
+	LastAccessedTime pulumi.StringOutput `pulumi:"lastAccessedTime"`
+	// The last time at which column statistics were computed for this partition.
+	LastAnalyzedTime pulumi.StringOutput `pulumi:"lastAnalyzedTime"`
+	// Properties associated with this table, as a list of key-value pairs.
+	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+	// The values that define the partition.
+	PartitionValues pulumi.StringArrayOutput `pulumi:"partitionValues"`
+	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
 	StorageDescriptor PartitionStorageDescriptorPtrOutput `pulumi:"storageDescriptor"`
 	TableName         pulumi.StringOutput                 `pulumi:"tableName"`
 }
@@ -63,25 +82,41 @@ func GetPartition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Partition resources.
 type partitionState struct {
-	CatalogId         *string                     `pulumi:"catalogId"`
-	CreationTime      *string                     `pulumi:"creationTime"`
-	DatabaseName      *string                     `pulumi:"databaseName"`
-	LastAccessedTime  *string                     `pulumi:"lastAccessedTime"`
-	LastAnalyzedTime  *string                     `pulumi:"lastAnalyzedTime"`
-	Parameters        map[string]string           `pulumi:"parameters"`
-	PartitionValues   []string                    `pulumi:"partitionValues"`
+	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+	CatalogId *string `pulumi:"catalogId"`
+	// The time at which the partition was created.
+	CreationTime *string `pulumi:"creationTime"`
+	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	DatabaseName *string `pulumi:"databaseName"`
+	// The last time at which the partition was accessed.
+	LastAccessedTime *string `pulumi:"lastAccessedTime"`
+	// The last time at which column statistics were computed for this partition.
+	LastAnalyzedTime *string `pulumi:"lastAnalyzedTime"`
+	// Properties associated with this table, as a list of key-value pairs.
+	Parameters map[string]string `pulumi:"parameters"`
+	// The values that define the partition.
+	PartitionValues []string `pulumi:"partitionValues"`
+	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
 	StorageDescriptor *PartitionStorageDescriptor `pulumi:"storageDescriptor"`
 	TableName         *string                     `pulumi:"tableName"`
 }
 
 type PartitionState struct {
-	CatalogId         pulumi.StringPtrInput
-	CreationTime      pulumi.StringPtrInput
-	DatabaseName      pulumi.StringPtrInput
-	LastAccessedTime  pulumi.StringPtrInput
-	LastAnalyzedTime  pulumi.StringPtrInput
-	Parameters        pulumi.StringMapInput
-	PartitionValues   pulumi.StringArrayInput
+	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+	CatalogId pulumi.StringPtrInput
+	// The time at which the partition was created.
+	CreationTime pulumi.StringPtrInput
+	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	DatabaseName pulumi.StringPtrInput
+	// The last time at which the partition was accessed.
+	LastAccessedTime pulumi.StringPtrInput
+	// The last time at which column statistics were computed for this partition.
+	LastAnalyzedTime pulumi.StringPtrInput
+	// Properties associated with this table, as a list of key-value pairs.
+	Parameters pulumi.StringMapInput
+	// The values that define the partition.
+	PartitionValues pulumi.StringArrayInput
+	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
 	StorageDescriptor PartitionStorageDescriptorPtrInput
 	TableName         pulumi.StringPtrInput
 }
@@ -91,20 +126,30 @@ func (PartitionState) ElementType() reflect.Type {
 }
 
 type partitionArgs struct {
-	CatalogId         *string                     `pulumi:"catalogId"`
-	DatabaseName      string                      `pulumi:"databaseName"`
-	Parameters        map[string]string           `pulumi:"parameters"`
-	PartitionValues   []string                    `pulumi:"partitionValues"`
+	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+	CatalogId *string `pulumi:"catalogId"`
+	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	DatabaseName string `pulumi:"databaseName"`
+	// Properties associated with this table, as a list of key-value pairs.
+	Parameters map[string]string `pulumi:"parameters"`
+	// The values that define the partition.
+	PartitionValues []string `pulumi:"partitionValues"`
+	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
 	StorageDescriptor *PartitionStorageDescriptor `pulumi:"storageDescriptor"`
 	TableName         string                      `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a Partition resource.
 type PartitionArgs struct {
-	CatalogId         pulumi.StringPtrInput
-	DatabaseName      pulumi.StringInput
-	Parameters        pulumi.StringMapInput
-	PartitionValues   pulumi.StringArrayInput
+	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+	CatalogId pulumi.StringPtrInput
+	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	DatabaseName pulumi.StringInput
+	// Properties associated with this table, as a list of key-value pairs.
+	Parameters pulumi.StringMapInput
+	// The values that define the partition.
+	PartitionValues pulumi.StringArrayInput
+	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
 	StorageDescriptor PartitionStorageDescriptorPtrInput
 	TableName         pulumi.StringInput
 }
@@ -196,34 +241,42 @@ func (o PartitionOutput) ToPartitionOutputWithContext(ctx context.Context) Parti
 	return o
 }
 
+// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 func (o PartitionOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partition) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
 
+// The time at which the partition was created.
 func (o PartitionOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partition) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 func (o PartitionOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partition) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// The last time at which the partition was accessed.
 func (o PartitionOutput) LastAccessedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partition) pulumi.StringOutput { return v.LastAccessedTime }).(pulumi.StringOutput)
 }
 
+// The last time at which column statistics were computed for this partition.
 func (o PartitionOutput) LastAnalyzedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partition) pulumi.StringOutput { return v.LastAnalyzedTime }).(pulumi.StringOutput)
 }
 
+// Properties associated with this table, as a list of key-value pairs.
 func (o PartitionOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Partition) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
+// The values that define the partition.
 func (o PartitionOutput) PartitionValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Partition) pulumi.StringArrayOutput { return v.PartitionValues }).(pulumi.StringArrayOutput)
 }
 
+// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
 func (o PartitionOutput) StorageDescriptor() PartitionStorageDescriptorPtrOutput {
 	return o.ApplyT(func(v *Partition) PartitionStorageDescriptorPtrOutput { return v.StorageDescriptor }).(PartitionStorageDescriptorPtrOutput)
 }

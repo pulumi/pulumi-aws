@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Route53RecoveryReadiness.Inputs
 
     public sealed class ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// NLB resource ARN.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

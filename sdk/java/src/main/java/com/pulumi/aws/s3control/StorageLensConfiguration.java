@@ -16,41 +16,177 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a resource to manage an S3 Storage Lens configuration.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.s3control.StorageLensConfiguration;
+ * import com.pulumi.aws.s3control.StorageLensConfigurationArgs;
+ * import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationArgs;
+ * import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelArgs;
+ * import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs;
+ * import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs;
+ * import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs;
+ * import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationDataExportArgs;
+ * import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs;
+ * import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs;
+ * import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs;
+ * import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationExcludeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity();
+ * 
+ *         var example = new StorageLensConfiguration(&#34;example&#34;, StorageLensConfigurationArgs.builder()        
+ *             .configId(&#34;example-1&#34;)
+ *             .storageLensConfiguration(StorageLensConfigurationStorageLensConfigurationArgs.builder()
+ *                 .enabled(true)
+ *                 .accountLevel(StorageLensConfigurationStorageLensConfigurationAccountLevelArgs.builder()
+ *                     .activityMetrics(StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs.builder()
+ *                         .enabled(true)
+ *                         .build())
+ *                     .bucketLevel(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs.builder()
+ *                         .activityMetrics(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs.builder()
+ *                             .enabled(true)
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .dataExport(StorageLensConfigurationStorageLensConfigurationDataExportArgs.builder()
+ *                     .cloudWatchMetrics(StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs.builder()
+ *                         .enabled(true)
+ *                         .build())
+ *                     .s3BucketDestination(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.builder()
+ *                         .accountId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *                         .arn(aws_s3_bucket.target().arn())
+ *                         .format(&#34;CSV&#34;)
+ *                         .outputSchemaVersion(&#34;V_1&#34;)
+ *                         .encryption(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs.builder()
+ *                             .sseS3s()
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .exclude(StorageLensConfigurationStorageLensConfigurationExcludeArgs.builder()
+ *                     .buckets(                    
+ *                         aws_s3_bucket.b1().arn(),
+ *                         aws_s3_bucket.b2().arn())
+ *                     .regions(&#34;us-east-2&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * S3 Storage Lens configurations can be imported using the `account_id` and `config_id`, separated by a colon (`:`), e.g.
+ * 
+ * ```sh
+ *  $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
+ * ```
+ * 
+ */
 @ResourceType(type="aws:s3control/storageLensConfiguration:StorageLensConfiguration")
 public class StorageLensConfiguration extends com.pulumi.resources.CustomResource {
+    /**
+     * The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+     * 
+     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
+    /**
+     * @return The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+     * 
+     */
     public Output<String> accountId() {
         return this.accountId;
     }
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The ID of the S3 Storage Lens configuration.
+     * 
+     */
     @Export(name="configId", refs={String.class}, tree="[0]")
     private Output<String> configId;
 
+    /**
+     * @return The ID of the S3 Storage Lens configuration.
+     * 
+     */
     public Output<String> configId() {
         return this.configId;
     }
+    /**
+     * The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+     * 
+     */
     @Export(name="storageLensConfiguration", refs={StorageLensConfigurationStorageLensConfiguration.class}, tree="[0]")
     private Output<StorageLensConfigurationStorageLensConfiguration> storageLensConfiguration;
 
+    /**
+     * @return The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+     * 
+     */
     public Output<StorageLensConfigurationStorageLensConfiguration> storageLensConfiguration() {
         return this.storageLensConfiguration;
     }
+    /**
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

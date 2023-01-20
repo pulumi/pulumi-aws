@@ -17,21 +17,49 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatement {
     /**
+     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
+     * 
      * @deprecated
      * Use rule_action_override instead
      * 
      */
     @Deprecated /* Use rule_action_override instead */
     private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementExcludedRule> excludedRules;
+    /**
+     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+     * 
+     */
     private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> managedRuleGroupConfigs;
+    /**
+     * @return Name of the managed rule group.
+     * 
+     */
     private String name;
+    /**
+     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+     * 
+     */
     private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> ruleActionOverrides;
+    /**
+     * @return Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+     * 
+     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement scopeDownStatement;
+    /**
+     * @return Name of the managed rule group vendor.
+     * 
+     */
     private String vendorName;
+    /**
+     * @return Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
+     * 
+     */
     private @Nullable String version;
 
     private WebAclRuleStatementManagedRuleGroupStatement() {}
     /**
+     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
+     * 
      * @deprecated
      * Use rule_action_override instead
      * 
@@ -40,21 +68,45 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
     public List<WebAclRuleStatementManagedRuleGroupStatementExcludedRule> excludedRules() {
         return this.excludedRules == null ? List.of() : this.excludedRules;
     }
+    /**
+     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+     * 
+     */
     public List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> managedRuleGroupConfigs() {
         return this.managedRuleGroupConfigs == null ? List.of() : this.managedRuleGroupConfigs;
     }
+    /**
+     * @return Name of the managed rule group.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+     * 
+     */
     public List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> ruleActionOverrides() {
         return this.ruleActionOverrides == null ? List.of() : this.ruleActionOverrides;
     }
+    /**
+     * @return Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+     * 
+     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement> scopeDownStatement() {
         return Optional.ofNullable(this.scopeDownStatement);
     }
+    /**
+     * @return Name of the managed rule group vendor.
+     * 
+     */
     public String vendorName() {
         return this.vendorName;
     }
+    /**
+     * @return Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
+     * 
+     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }

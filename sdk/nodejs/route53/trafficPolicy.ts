@@ -4,6 +4,41 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a Route53 Traffic Policy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.route53.TrafficPolicy("example", {
+ *     comment: "example comment",
+ *     document: `{
+ *   "AWSPolicyFormatVersion": "2015-10-01",
+ *   "RecordType": "A",
+ *   "Endpoints": {
+ *     "endpoint-start-NkPh": {
+ *       "Type": "value",
+ *       "Value": "10.0.0.2"
+ *     }
+ *   },
+ *   "StartEndpoint": "endpoint-start-NkPh"
+ * }
+ *
+ * `,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Route53 Traffic Policy can be imported using the `id` and `version`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:route53/trafficPolicy:TrafficPolicy example 01a52019-d16f-422a-ae72-c306d2b6df7e/1
+ * ```
+ */
 export class TrafficPolicy extends pulumi.CustomResource {
     /**
      * Get an existing TrafficPolicy resource's state with the given name, ID, and optional extra
@@ -32,10 +67,25 @@ export class TrafficPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrafficPolicy.__pulumiType;
     }
 
+    /**
+     * Comment for the traffic policy.
+     */
     public readonly comment!: pulumi.Output<string | undefined>;
+    /**
+     * Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+     */
     public readonly document!: pulumi.Output<string>;
+    /**
+     * Name of the traffic policy.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
+     */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
+     */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
@@ -76,10 +126,25 @@ export class TrafficPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TrafficPolicy resources.
  */
 export interface TrafficPolicyState {
+    /**
+     * Comment for the traffic policy.
+     */
     comment?: pulumi.Input<string>;
+    /**
+     * Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+     */
     document?: pulumi.Input<string>;
+    /**
+     * Name of the traffic policy.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
+     */
     type?: pulumi.Input<string>;
+    /**
+     * Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
+     */
     version?: pulumi.Input<number>;
 }
 
@@ -87,7 +152,16 @@ export interface TrafficPolicyState {
  * The set of arguments for constructing a TrafficPolicy resource.
  */
 export interface TrafficPolicyArgs {
+    /**
+     * Comment for the traffic policy.
+     */
     comment?: pulumi.Input<string>;
+    /**
+     * Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+     */
     document: pulumi.Input<string>;
+    /**
+     * Name of the traffic policy.
+     */
     name?: pulumi.Input<string>;
 }

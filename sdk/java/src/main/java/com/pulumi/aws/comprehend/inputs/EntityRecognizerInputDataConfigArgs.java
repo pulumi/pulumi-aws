@@ -21,44 +21,114 @@ public final class EntityRecognizerInputDataConfigArgs extends com.pulumi.resour
 
     public static final EntityRecognizerInputDataConfigArgs Empty = new EntityRecognizerInputDataConfigArgs();
 
+    /**
+     * Specifies location of the document annotation data.
+     * See the `annotations` Configuration Block section below.
+     * One of `annotations` or `entity_list` is required.
+     * 
+     */
     @Import(name="annotations")
     private @Nullable Output<EntityRecognizerInputDataConfigAnnotationsArgs> annotations;
 
+    /**
+     * @return Specifies location of the document annotation data.
+     * See the `annotations` Configuration Block section below.
+     * One of `annotations` or `entity_list` is required.
+     * 
+     */
     public Optional<Output<EntityRecognizerInputDataConfigAnnotationsArgs>> annotations() {
         return Optional.ofNullable(this.annotations);
     }
 
+    /**
+     * List of training datasets produced by Amazon SageMaker Ground Truth.
+     * Used if `data_format` is `AUGMENTED_MANIFEST`.
+     * See the `augmented_manifests` Configuration Block section below.
+     * 
+     */
     @Import(name="augmentedManifests")
     private @Nullable Output<List<EntityRecognizerInputDataConfigAugmentedManifestArgs>> augmentedManifests;
 
+    /**
+     * @return List of training datasets produced by Amazon SageMaker Ground Truth.
+     * Used if `data_format` is `AUGMENTED_MANIFEST`.
+     * See the `augmented_manifests` Configuration Block section below.
+     * 
+     */
     public Optional<Output<List<EntityRecognizerInputDataConfigAugmentedManifestArgs>>> augmentedManifests() {
         return Optional.ofNullable(this.augmentedManifests);
     }
 
+    /**
+     * The format for the training data.
+     * One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
+     * 
+     */
     @Import(name="dataFormat")
     private @Nullable Output<String> dataFormat;
 
+    /**
+     * @return The format for the training data.
+     * One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
+     * 
+     */
     public Optional<Output<String>> dataFormat() {
         return Optional.ofNullable(this.dataFormat);
     }
 
+    /**
+     * Specifies a collection of training documents.
+     * Used if `data_format` is `COMPREHEND_CSV`.
+     * See the `documents` Configuration Block section below.
+     * 
+     */
     @Import(name="documents")
     private @Nullable Output<EntityRecognizerInputDataConfigDocumentsArgs> documents;
 
+    /**
+     * @return Specifies a collection of training documents.
+     * Used if `data_format` is `COMPREHEND_CSV`.
+     * See the `documents` Configuration Block section below.
+     * 
+     */
     public Optional<Output<EntityRecognizerInputDataConfigDocumentsArgs>> documents() {
         return Optional.ofNullable(this.documents);
     }
 
+    /**
+     * Specifies location of the entity list data.
+     * See the `entity_list` Configuration Block section below.
+     * One of `entity_list` or `annotations` is required.
+     * 
+     */
     @Import(name="entityList")
     private @Nullable Output<EntityRecognizerInputDataConfigEntityListArgs> entityList;
 
+    /**
+     * @return Specifies location of the entity list data.
+     * See the `entity_list` Configuration Block section below.
+     * One of `entity_list` or `annotations` is required.
+     * 
+     */
     public Optional<Output<EntityRecognizerInputDataConfigEntityListArgs>> entityList() {
         return Optional.ofNullable(this.entityList);
     }
 
+    /**
+     * Set of entity types to be recognized.
+     * Has a maximum of 25 items.
+     * See the `entity_types` Configuration Block section below.
+     * 
+     */
     @Import(name="entityTypes", required=true)
     private Output<List<EntityRecognizerInputDataConfigEntityTypeArgs>> entityTypes;
 
+    /**
+     * @return Set of entity types to be recognized.
+     * Has a maximum of 25 items.
+     * See the `entity_types` Configuration Block section below.
+     * 
+     */
     public Output<List<EntityRecognizerInputDataConfigEntityTypeArgs>> entityTypes() {
         return this.entityTypes;
     }
@@ -92,64 +162,174 @@ public final class EntityRecognizerInputDataConfigArgs extends com.pulumi.resour
             $ = new EntityRecognizerInputDataConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param annotations Specifies location of the document annotation data.
+         * See the `annotations` Configuration Block section below.
+         * One of `annotations` or `entity_list` is required.
+         * 
+         * @return builder
+         * 
+         */
         public Builder annotations(@Nullable Output<EntityRecognizerInputDataConfigAnnotationsArgs> annotations) {
             $.annotations = annotations;
             return this;
         }
 
+        /**
+         * @param annotations Specifies location of the document annotation data.
+         * See the `annotations` Configuration Block section below.
+         * One of `annotations` or `entity_list` is required.
+         * 
+         * @return builder
+         * 
+         */
         public Builder annotations(EntityRecognizerInputDataConfigAnnotationsArgs annotations) {
             return annotations(Output.of(annotations));
         }
 
+        /**
+         * @param augmentedManifests List of training datasets produced by Amazon SageMaker Ground Truth.
+         * Used if `data_format` is `AUGMENTED_MANIFEST`.
+         * See the `augmented_manifests` Configuration Block section below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder augmentedManifests(@Nullable Output<List<EntityRecognizerInputDataConfigAugmentedManifestArgs>> augmentedManifests) {
             $.augmentedManifests = augmentedManifests;
             return this;
         }
 
+        /**
+         * @param augmentedManifests List of training datasets produced by Amazon SageMaker Ground Truth.
+         * Used if `data_format` is `AUGMENTED_MANIFEST`.
+         * See the `augmented_manifests` Configuration Block section below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder augmentedManifests(List<EntityRecognizerInputDataConfigAugmentedManifestArgs> augmentedManifests) {
             return augmentedManifests(Output.of(augmentedManifests));
         }
 
+        /**
+         * @param augmentedManifests List of training datasets produced by Amazon SageMaker Ground Truth.
+         * Used if `data_format` is `AUGMENTED_MANIFEST`.
+         * See the `augmented_manifests` Configuration Block section below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder augmentedManifests(EntityRecognizerInputDataConfigAugmentedManifestArgs... augmentedManifests) {
             return augmentedManifests(List.of(augmentedManifests));
         }
 
+        /**
+         * @param dataFormat The format for the training data.
+         * One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataFormat(@Nullable Output<String> dataFormat) {
             $.dataFormat = dataFormat;
             return this;
         }
 
+        /**
+         * @param dataFormat The format for the training data.
+         * One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataFormat(String dataFormat) {
             return dataFormat(Output.of(dataFormat));
         }
 
+        /**
+         * @param documents Specifies a collection of training documents.
+         * Used if `data_format` is `COMPREHEND_CSV`.
+         * See the `documents` Configuration Block section below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder documents(@Nullable Output<EntityRecognizerInputDataConfigDocumentsArgs> documents) {
             $.documents = documents;
             return this;
         }
 
+        /**
+         * @param documents Specifies a collection of training documents.
+         * Used if `data_format` is `COMPREHEND_CSV`.
+         * See the `documents` Configuration Block section below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder documents(EntityRecognizerInputDataConfigDocumentsArgs documents) {
             return documents(Output.of(documents));
         }
 
+        /**
+         * @param entityList Specifies location of the entity list data.
+         * See the `entity_list` Configuration Block section below.
+         * One of `entity_list` or `annotations` is required.
+         * 
+         * @return builder
+         * 
+         */
         public Builder entityList(@Nullable Output<EntityRecognizerInputDataConfigEntityListArgs> entityList) {
             $.entityList = entityList;
             return this;
         }
 
+        /**
+         * @param entityList Specifies location of the entity list data.
+         * See the `entity_list` Configuration Block section below.
+         * One of `entity_list` or `annotations` is required.
+         * 
+         * @return builder
+         * 
+         */
         public Builder entityList(EntityRecognizerInputDataConfigEntityListArgs entityList) {
             return entityList(Output.of(entityList));
         }
 
+        /**
+         * @param entityTypes Set of entity types to be recognized.
+         * Has a maximum of 25 items.
+         * See the `entity_types` Configuration Block section below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder entityTypes(Output<List<EntityRecognizerInputDataConfigEntityTypeArgs>> entityTypes) {
             $.entityTypes = entityTypes;
             return this;
         }
 
+        /**
+         * @param entityTypes Set of entity types to be recognized.
+         * Has a maximum of 25 items.
+         * See the `entity_types` Configuration Block section below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder entityTypes(List<EntityRecognizerInputDataConfigEntityTypeArgs> entityTypes) {
             return entityTypes(Output.of(entityTypes));
         }
 
+        /**
+         * @param entityTypes Set of entity types to be recognized.
+         * Has a maximum of 25 items.
+         * See the `entity_types` Configuration Block section below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder entityTypes(EntityRecognizerInputDataConfigEntityTypeArgs... entityTypes) {
             return entityTypes(List.of(entityTypes));
         }

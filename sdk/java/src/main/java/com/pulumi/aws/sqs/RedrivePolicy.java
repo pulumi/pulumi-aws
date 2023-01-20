@@ -13,17 +13,98 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Allows you to set a redrive policy of an SQS Queue
+ * while referencing ARN of the dead letter queue inside the redrive policy.
+ * 
+ * This is useful when you want to set a dedicated
+ * dead letter queue for a standard or FIFO queue, but need
+ * the dead letter queue to exist before setting the redrive policy.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sqs.Queue;
+ * import com.pulumi.aws.sqs.QueueArgs;
+ * import com.pulumi.aws.sqs.RedrivePolicy;
+ * import com.pulumi.aws.sqs.RedrivePolicyArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var queue = new Queue(&#34;queue&#34;);
+ * 
+ *         var ddl = new Queue(&#34;ddl&#34;, QueueArgs.builder()        
+ *             .redriveAllowPolicy(queue.arn().applyValue(arn -&gt; serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;redrivePermission&#34;, &#34;byQueue&#34;),
+ *                     jsonProperty(&#34;sourceQueueArns&#34;, jsonArray(arn))
+ *                 ))))
+ *             .build());
+ * 
+ *         var redrivePolicy = new RedrivePolicy(&#34;redrivePolicy&#34;, RedrivePolicyArgs.builder()        
+ *             .queueUrl(queue.id())
+ *             .redrivePolicy(ddl.arn().applyValue(arn -&gt; serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;deadLetterTargetArn&#34;, arn),
+ *                     jsonProperty(&#34;maxReceiveCount&#34;, 4)
+ *                 ))))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * SQS Queue Redrive Policies can be imported using the queue URL, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+ * ```
+ * 
+ */
 @ResourceType(type="aws:sqs/redrivePolicy:RedrivePolicy")
 public class RedrivePolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * The URL of the SQS Queue to which to attach the policy
+     * 
+     */
     @Export(name="queueUrl", refs={String.class}, tree="[0]")
     private Output<String> queueUrl;
 
+    /**
+     * @return The URL of the SQS Queue to which to attach the policy
+     * 
+     */
     public Output<String> queueUrl() {
         return this.queueUrl;
     }
+    /**
+     * The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
+     * 
+     */
     @Export(name="redrivePolicy", refs={String.class}, tree="[0]")
     private Output<String> redrivePolicy;
 
+    /**
+     * @return The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
+     * 
+     */
     public Output<String> redrivePolicy() {
         return this.redrivePolicy;
     }

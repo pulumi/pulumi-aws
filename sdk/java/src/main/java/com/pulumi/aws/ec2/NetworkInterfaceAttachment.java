@@ -14,35 +14,119 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Attach an Elastic network interface (ENI) resource with EC2 instance.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.NetworkInterfaceAttachment;
+ * import com.pulumi.aws.ec2.NetworkInterfaceAttachmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new NetworkInterfaceAttachment(&#34;test&#34;, NetworkInterfaceAttachmentArgs.builder()        
+ *             .instanceId(aws_instance.test().id())
+ *             .networkInterfaceId(aws_network_interface.test().id())
+ *             .deviceIndex(0)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Elastic network interface (ENI) Attachments can be imported using its Attachment ID e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment")
 public class NetworkInterfaceAttachment extends com.pulumi.resources.CustomResource {
+    /**
+     * The ENI Attachment ID.
+     * 
+     */
     @Export(name="attachmentId", refs={String.class}, tree="[0]")
     private Output<String> attachmentId;
 
+    /**
+     * @return The ENI Attachment ID.
+     * 
+     */
     public Output<String> attachmentId() {
         return this.attachmentId;
     }
+    /**
+     * Network interface index (int).
+     * 
+     */
     @Export(name="deviceIndex", refs={Integer.class}, tree="[0]")
     private Output<Integer> deviceIndex;
 
+    /**
+     * @return Network interface index (int).
+     * 
+     */
     public Output<Integer> deviceIndex() {
         return this.deviceIndex;
     }
+    /**
+     * Instance ID to attach.
+     * 
+     */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
+    /**
+     * @return Instance ID to attach.
+     * 
+     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
+    /**
+     * ENI ID to attach.
+     * 
+     */
     @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
+    /**
+     * @return ENI ID to attach.
+     * 
+     */
     public Output<String> networkInterfaceId() {
         return this.networkInterfaceId;
     }
+    /**
+     * The status of the Network Interface Attachment.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return The status of the Network Interface Attachment.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }

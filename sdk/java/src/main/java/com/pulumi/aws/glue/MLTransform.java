@@ -21,101 +21,356 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Glue ML Transform resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glue.CatalogDatabase;
+ * import com.pulumi.aws.glue.CatalogDatabaseArgs;
+ * import com.pulumi.aws.glue.CatalogTable;
+ * import com.pulumi.aws.glue.CatalogTableArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorSerDeInfoArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorSkewedInfoArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTablePartitionKeyArgs;
+ * import com.pulumi.aws.glue.MLTransform;
+ * import com.pulumi.aws.glue.MLTransformArgs;
+ * import com.pulumi.aws.glue.inputs.MLTransformInputRecordTableArgs;
+ * import com.pulumi.aws.glue.inputs.MLTransformParametersArgs;
+ * import com.pulumi.aws.glue.inputs.MLTransformParametersFindMatchesParametersArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testCatalogDatabase = new CatalogDatabase(&#34;testCatalogDatabase&#34;, CatalogDatabaseArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
+ * 
+ *         var testCatalogTable = new CatalogTable(&#34;testCatalogTable&#34;, CatalogTableArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .databaseName(testCatalogDatabase.name())
+ *             .owner(&#34;my_owner&#34;)
+ *             .retention(1)
+ *             .tableType(&#34;VIRTUAL_VIEW&#34;)
+ *             .viewExpandedText(&#34;view_expanded_text_1&#34;)
+ *             .viewOriginalText(&#34;view_original_text_1&#34;)
+ *             .storageDescriptor(CatalogTableStorageDescriptorArgs.builder()
+ *                 .bucketColumns(&#34;bucket_column_1&#34;)
+ *                 .compressed(false)
+ *                 .inputFormat(&#34;SequenceFileInputFormat&#34;)
+ *                 .location(&#34;my_location&#34;)
+ *                 .numberOfBuckets(1)
+ *                 .outputFormat(&#34;SequenceFileInputFormat&#34;)
+ *                 .storedAsSubDirectories(false)
+ *                 .parameters(Map.of(&#34;param1&#34;, &#34;param1_val&#34;))
+ *                 .columns(                
+ *                     CatalogTableStorageDescriptorColumnArgs.builder()
+ *                         .name(&#34;my_column_1&#34;)
+ *                         .type(&#34;int&#34;)
+ *                         .comment(&#34;my_column1_comment&#34;)
+ *                         .build(),
+ *                     CatalogTableStorageDescriptorColumnArgs.builder()
+ *                         .name(&#34;my_column_2&#34;)
+ *                         .type(&#34;string&#34;)
+ *                         .comment(&#34;my_column2_comment&#34;)
+ *                         .build())
+ *                 .serDeInfo(CatalogTableStorageDescriptorSerDeInfoArgs.builder()
+ *                     .name(&#34;ser_de_name&#34;)
+ *                     .parameters(Map.of(&#34;param1&#34;, &#34;param_val_1&#34;))
+ *                     .serializationLibrary(&#34;org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe&#34;)
+ *                     .build())
+ *                 .sortColumns(CatalogTableStorageDescriptorSortColumnArgs.builder()
+ *                     .column(&#34;my_column_1&#34;)
+ *                     .sortOrder(1)
+ *                     .build())
+ *                 .skewedInfo(CatalogTableStorageDescriptorSkewedInfoArgs.builder()
+ *                     .skewedColumnNames(&#34;my_column_1&#34;)
+ *                     .skewedColumnValueLocationMaps(Map.of(&#34;my_column_1&#34;, &#34;my_column_1_val_loc_map&#34;))
+ *                     .skewedColumnValues(&#34;skewed_val_1&#34;)
+ *                     .build())
+ *                 .build())
+ *             .partitionKeys(            
+ *                 CatalogTablePartitionKeyArgs.builder()
+ *                     .name(&#34;my_column_1&#34;)
+ *                     .type(&#34;int&#34;)
+ *                     .comment(&#34;my_column_1_comment&#34;)
+ *                     .build(),
+ *                 CatalogTablePartitionKeyArgs.builder()
+ *                     .name(&#34;my_column_2&#34;)
+ *                     .type(&#34;string&#34;)
+ *                     .comment(&#34;my_column_2_comment&#34;)
+ *                     .build())
+ *             .parameters(Map.of(&#34;param1&#34;, &#34;param1_val&#34;))
+ *             .build());
+ * 
+ *         var testMLTransform = new MLTransform(&#34;testMLTransform&#34;, MLTransformArgs.builder()        
+ *             .roleArn(aws_iam_role.test().arn())
+ *             .inputRecordTables(MLTransformInputRecordTableArgs.builder()
+ *                 .databaseName(testCatalogTable.databaseName())
+ *                 .tableName(testCatalogTable.name())
+ *                 .build())
+ *             .parameters(MLTransformParametersArgs.builder()
+ *                 .transformType(&#34;FIND_MATCHES&#34;)
+ *                 .findMatchesParameters(MLTransformParametersFindMatchesParametersArgs.builder()
+ *                     .primaryKeyColumnName(&#34;my_column_1&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(aws_iam_role_policy_attachment.test())
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Glue ML Transforms can be imported using `id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
+ * ```
+ * 
+ */
 @ResourceType(type="aws:glue/mLTransform:MLTransform")
 public class MLTransform extends com.pulumi.resources.CustomResource {
+    /**
+     * Amazon Resource Name (ARN) of Glue ML Transform.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of Glue ML Transform.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Description of the ML Transform.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description of the ML Transform.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+     * 
+     */
     @Export(name="glueVersion", refs={String.class}, tree="[0]")
     private Output<String> glueVersion;
 
+    /**
+     * @return The version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+     * 
+     */
     public Output<String> glueVersion() {
         return this.glueVersion;
     }
+    /**
+     * A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+     * 
+     */
     @Export(name="inputRecordTables", refs={List.class,MLTransformInputRecordTable.class}, tree="[0,1]")
     private Output<List<MLTransformInputRecordTable>> inputRecordTables;
 
+    /**
+     * @return A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+     * 
+     */
     public Output<List<MLTransformInputRecordTable>> inputRecordTables() {
         return this.inputRecordTables;
     }
+    /**
+     * The number of labels available for this transform.
+     * 
+     */
     @Export(name="labelCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> labelCount;
 
+    /**
+     * @return The number of labels available for this transform.
+     * 
+     */
     public Output<Integer> labelCount() {
         return this.labelCount;
     }
+    /**
+     * The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
+     * 
+     */
     @Export(name="maxCapacity", refs={Double.class}, tree="[0]")
     private Output<Double> maxCapacity;
 
+    /**
+     * @return The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
+     * 
+     */
     public Output<Double> maxCapacity() {
         return this.maxCapacity;
     }
+    /**
+     * The maximum number of times to retry this ML Transform if it fails.
+     * 
+     */
     @Export(name="maxRetries", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxRetries;
 
+    /**
+     * @return The maximum number of times to retry this ML Transform if it fails.
+     * 
+     */
     public Output<Optional<Integer>> maxRetries() {
         return Codegen.optional(this.maxRetries);
     }
+    /**
+     * The name you assign to this ML Transform. It must be unique in your account.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name you assign to this ML Transform. It must be unique in your account.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
+     * 
+     */
     @Export(name="numberOfWorkers", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> numberOfWorkers;
 
+    /**
+     * @return The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
+     * 
+     */
     public Output<Optional<Integer>> numberOfWorkers() {
         return Codegen.optional(this.numberOfWorkers);
     }
+    /**
+     * The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+     * 
+     */
     @Export(name="parameters", refs={MLTransformParameters.class}, tree="[0]")
     private Output<MLTransformParameters> parameters;
 
+    /**
+     * @return The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+     * 
+     */
     public Output<MLTransformParameters> parameters() {
         return this.parameters;
     }
+    /**
+     * The ARN of the IAM role associated with this ML Transform.
+     * 
+     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
+    /**
+     * @return The ARN of the IAM role associated with this ML Transform.
+     * 
+     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
+    /**
+     * The object that represents the schema that this transform accepts. see Schema.
+     * 
+     */
     @Export(name="schemas", refs={List.class,MLTransformSchema.class}, tree="[0,1]")
     private Output<List<MLTransformSchema>> schemas;
 
+    /**
+     * @return The object that represents the schema that this transform accepts. see Schema.
+     * 
+     */
     public Output<List<MLTransformSchema>> schemas() {
         return this.schemas;
     }
+    /**
+     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
+     * 
+     */
     @Export(name="timeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeout;
 
+    /**
+     * @return The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
+     * 
+     */
     public Output<Optional<Integer>> timeout() {
         return Codegen.optional(this.timeout);
     }
+    /**
+     * The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
+     * 
+     */
     @Export(name="workerType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workerType;
 
+    /**
+     * @return The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
+     * 
+     */
     public Output<Optional<String>> workerType() {
         return Codegen.optional(this.workerType);
     }

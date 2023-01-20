@@ -47,6 +47,9 @@ class GetImageResult:
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        The description of the image.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -65,6 +68,9 @@ class GetImageResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the image.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -75,11 +81,17 @@ class GetImageResult:
     @property
     @pulumi.getter(name="requiredTenancy")
     def required_tenancy(self) -> str:
+        """
+        Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
+        """
         return pulumi.get(self, "required_tenancy")
 
     @property
     @pulumi.getter
     def state(self) -> str:
+        """
+        The status of the image.
+        """
         return pulumi.get(self, "state")
 
 
@@ -101,7 +113,19 @@ class AwaitableGetImageResult(GetImageResult):
 def get_image(image_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about a Workspaces image.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.workspaces.get_image(image_id="wsi-ten5h0y19")
+    ```
+
+
+    :param str image_id: ID of the image.
     """
     __args__ = dict()
     __args__['imageId'] = image_id
@@ -122,6 +146,18 @@ def get_image(image_id: Optional[str] = None,
 def get_image_output(image_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about a Workspaces image.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.workspaces.get_image(image_id="wsi-ten5h0y19")
+    ```
+
+
+    :param str image_id: ID of the image.
     """
     ...

@@ -13,16 +13,32 @@ public final class ThesaurusSourceS3PathArgs extends com.pulumi.resources.Resour
 
     public static final ThesaurusSourceS3PathArgs Empty = new ThesaurusSourceS3PathArgs();
 
+    /**
+     * The name of the S3 bucket that contains the file.
+     * 
+     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
+    /**
+     * @return The name of the S3 bucket that contains the file.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
+    /**
+     * The name of the file.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return The name of the file.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
@@ -52,20 +68,44 @@ public final class ThesaurusSourceS3PathArgs extends com.pulumi.resources.Resour
             $ = new ThesaurusSourceS3PathArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucket The name of the S3 bucket that contains the file.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
+        /**
+         * @param bucket The name of the S3 bucket that contains the file.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param key The name of the file.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key The name of the file.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

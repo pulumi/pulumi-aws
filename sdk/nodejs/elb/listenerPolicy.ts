@@ -4,6 +4,89 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Attaches a load balancer policy to an ELB Listener.
+ *
+ * ## Example Usage
+ * ### Custom Policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const wu_tang = new aws.elb.LoadBalancer("wu-tang", {
+ *     availabilityZones: ["us-east-1a"],
+ *     listeners: [{
+ *         instancePort: 443,
+ *         instanceProtocol: "http",
+ *         lbPort: 443,
+ *         lbProtocol: "https",
+ *         sslCertificateId: "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
+ *     }],
+ *     tags: {
+ *         Name: "wu-tang",
+ *     },
+ * });
+ * const wu_tang_ssl = new aws.elb.LoadBalancerPolicy("wu-tang-ssl", {
+ *     loadBalancerName: wu_tang.name,
+ *     policyName: "wu-tang-ssl",
+ *     policyTypeName: "SSLNegotiationPolicyType",
+ *     policyAttributes: [
+ *         {
+ *             name: "ECDHE-ECDSA-AES128-GCM-SHA256",
+ *             value: "true",
+ *         },
+ *         {
+ *             name: "Protocol-TLSv1.2",
+ *             value: "true",
+ *         },
+ *     ],
+ * });
+ * const wu_tang_listener_policies_443 = new aws.elb.ListenerPolicy("wu-tang-listener-policies-443", {
+ *     loadBalancerName: wu_tang.name,
+ *     loadBalancerPort: 443,
+ *     policyNames: [wu_tang_ssl.policyName],
+ * });
+ * ```
+ *
+ * This example shows how to customize the TLS settings of an HTTPS listener.
+ * ### AWS Predefined Security Policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const wu_tang = new aws.elb.LoadBalancer("wu-tang", {
+ *     availabilityZones: ["us-east-1a"],
+ *     listeners: [{
+ *         instancePort: 443,
+ *         instanceProtocol: "http",
+ *         lbPort: 443,
+ *         lbProtocol: "https",
+ *         sslCertificateId: "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
+ *     }],
+ *     tags: {
+ *         Name: "wu-tang",
+ *     },
+ * });
+ * const wu_tang_ssl_tls_1_1 = new aws.elb.LoadBalancerPolicy("wu-tang-ssl-tls-1-1", {
+ *     loadBalancerName: wu_tang.name,
+ *     policyName: "wu-tang-ssl",
+ *     policyTypeName: "SSLNegotiationPolicyType",
+ *     policyAttributes: [{
+ *         name: "Reference-Security-Policy",
+ *         value: "ELBSecurityPolicy-TLS-1-1-2017-01",
+ *     }],
+ * });
+ * const wu_tang_listener_policies_443 = new aws.elb.ListenerPolicy("wu-tang-listener-policies-443", {
+ *     loadBalancerName: wu_tang.name,
+ *     loadBalancerPort: 443,
+ *     policyNames: [wu_tang_ssl_tls_1_1.policyName],
+ * });
+ * ```
+ *
+ * This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
+ */
 export class ListenerPolicy extends pulumi.CustomResource {
     /**
      * Get an existing ListenerPolicy resource's state with the given name, ID, and optional extra
@@ -32,8 +115,17 @@ export class ListenerPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ListenerPolicy.__pulumiType;
     }
 
+    /**
+     * The load balancer to attach the policy to.
+     */
     public readonly loadBalancerName!: pulumi.Output<string>;
+    /**
+     * The load balancer listener port to apply the policy to.
+     */
     public readonly loadBalancerPort!: pulumi.Output<number>;
+    /**
+     * List of Policy Names to apply to the backend server.
+     */
     public readonly policyNames!: pulumi.Output<string[] | undefined>;
 
     /**
@@ -75,8 +167,17 @@ export class ListenerPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ListenerPolicy resources.
  */
 export interface ListenerPolicyState {
+    /**
+     * The load balancer to attach the policy to.
+     */
     loadBalancerName?: pulumi.Input<string>;
+    /**
+     * The load balancer listener port to apply the policy to.
+     */
     loadBalancerPort?: pulumi.Input<number>;
+    /**
+     * List of Policy Names to apply to the backend server.
+     */
     policyNames?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -84,7 +185,16 @@ export interface ListenerPolicyState {
  * The set of arguments for constructing a ListenerPolicy resource.
  */
 export interface ListenerPolicyArgs {
+    /**
+     * The load balancer to attach the policy to.
+     */
     loadBalancerName: pulumi.Input<string>;
+    /**
+     * The load balancer listener port to apply the policy to.
+     */
     loadBalancerPort: pulumi.Input<number>;
+    /**
+     * List of Policy Names to apply to the backend server.
+     */
     policyNames?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -23,6 +23,10 @@ public final class GetCoreNetworkPolicyDocumentResult {
      * 
      */
     private String id;
+    /**
+     * @return Standard JSON policy document rendered based on the arguments above.
+     * 
+     */
     private String json;
     private @Nullable List<GetCoreNetworkPolicyDocumentSegmentAction> segmentActions;
     private List<GetCoreNetworkPolicyDocumentSegment> segments;
@@ -42,6 +46,10 @@ public final class GetCoreNetworkPolicyDocumentResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Standard JSON policy document rendered based on the arguments above.
+     * 
+     */
     public String json() {
         return this.json;
     }

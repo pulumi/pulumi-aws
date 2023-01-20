@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TableComment {
+    /**
+     * @return A description of the table.
+     * 
+     */
     private @Nullable String message;
 
     private TableComment() {}
+    /**
+     * @return A description of the table.
+     * 
+     */
     public Optional<String> message() {
         return Optional.ofNullable(this.message);
     }

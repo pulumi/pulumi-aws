@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PlanRuleCopyAction {
+    /**
+     * @return An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+     * 
+     */
     private String destinationVaultArn;
+    /**
+     * @return The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+     * 
+     */
     private @Nullable PlanRuleCopyActionLifecycle lifecycle;
 
     private PlanRuleCopyAction() {}
+    /**
+     * @return An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+     * 
+     */
     public String destinationVaultArn() {
         return this.destinationVaultArn;
     }
+    /**
+     * @return The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+     * 
+     */
     public Optional<PlanRuleCopyActionLifecycle> lifecycle() {
         return Optional.ofNullable(this.lifecycle);
     }

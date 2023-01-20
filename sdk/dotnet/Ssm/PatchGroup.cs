@@ -9,12 +9,47 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ssm
 {
+    /// <summary>
+    /// Provides an SSM Patch Group resource
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var production = new Aws.Ssm.PatchBaseline("production", new()
+    ///     {
+    ///         ApprovedPatches = new[]
+    ///         {
+    ///             "KB123456",
+    ///         },
+    ///     });
+    /// 
+    ///     var patchgroup = new Aws.Ssm.PatchGroup("patchgroup", new()
+    ///     {
+    ///         BaselineId = production.Id,
+    ///         PatchGroupName = "patch-group-name",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:ssm/patchGroup:PatchGroup")]
     public partial class PatchGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the patch baseline to register the patch group with.
+        /// </summary>
         [Output("baselineId")]
         public Output<string> BaselineId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the patch group that should be registered with the patch baseline.
+        /// </summary>
         [Output("patchGroup")]
         public Output<string> PatchGroupName { get; private set; } = null!;
 
@@ -64,9 +99,15 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class PatchGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the patch baseline to register the patch group with.
+        /// </summary>
         [Input("baselineId", required: true)]
         public Input<string> BaselineId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the patch group that should be registered with the patch baseline.
+        /// </summary>
         [Input("patchGroup", required: true)]
         public Input<string> PatchGroupName { get; set; } = null!;
 
@@ -78,9 +119,15 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class PatchGroupState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the patch baseline to register the patch group with.
+        /// </summary>
         [Input("baselineId")]
         public Input<string>? BaselineId { get; set; }
 
+        /// <summary>
+        /// The name of the patch group that should be registered with the patch baseline.
+        /// </summary>
         [Input("patchGroup")]
         public Input<string>? PatchGroupName { get; set; }
 

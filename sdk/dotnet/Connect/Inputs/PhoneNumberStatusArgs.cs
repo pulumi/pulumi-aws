@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Connect.Inputs
 
     public sealed class PhoneNumberStatusArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The status message.
+        /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }
 
+        /// <summary>
+        /// The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

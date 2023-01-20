@@ -4,6 +4,30 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Network Insights Path resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.ec2.NetworkInsightsPath("test", {
+ *     source: aws_network_interface.source.id,
+ *     destination: aws_network_interface.destination.id,
+ *     protocol: "tcp",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Network Insights Paths can be imported using the `id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
+ * ```
+ */
 export class NetworkInsightsPath extends pulumi.CustomResource {
     /**
      * Get an existing NetworkInsightsPath resource's state with the given name, ID, and optional extra
@@ -32,14 +56,41 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkInsightsPath.__pulumiType;
     }
 
+    /**
+     * ARN of the Network Insights Path.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     */
     public readonly destination!: pulumi.Output<string>;
+    /**
+     * IP address of the destination resource.
+     */
     public readonly destinationIp!: pulumi.Output<string | undefined>;
+    /**
+     * Destination port to analyze access to.
+     */
     public readonly destinationPort!: pulumi.Output<number | undefined>;
+    /**
+     * Protocol to use for analysis. Valid options are `tcp` or `udp`.
+     */
     public readonly protocol!: pulumi.Output<string>;
+    /**
+     * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     */
     public readonly source!: pulumi.Output<string>;
+    /**
+     * IP address of the source resource.
+     */
     public readonly sourceIp!: pulumi.Output<string | undefined>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -94,14 +145,41 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NetworkInsightsPath resources.
  */
 export interface NetworkInsightsPathState {
+    /**
+     * ARN of the Network Insights Path.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     */
     destination?: pulumi.Input<string>;
+    /**
+     * IP address of the destination resource.
+     */
     destinationIp?: pulumi.Input<string>;
+    /**
+     * Destination port to analyze access to.
+     */
     destinationPort?: pulumi.Input<number>;
+    /**
+     * Protocol to use for analysis. Valid options are `tcp` or `udp`.
+     */
     protocol?: pulumi.Input<string>;
+    /**
+     * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     */
     source?: pulumi.Input<string>;
+    /**
+     * IP address of the source resource.
+     */
     sourceIp?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -109,11 +187,32 @@ export interface NetworkInsightsPathState {
  * The set of arguments for constructing a NetworkInsightsPath resource.
  */
 export interface NetworkInsightsPathArgs {
+    /**
+     * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     */
     destination: pulumi.Input<string>;
+    /**
+     * IP address of the destination resource.
+     */
     destinationIp?: pulumi.Input<string>;
+    /**
+     * Destination port to analyze access to.
+     */
     destinationPort?: pulumi.Input<number>;
+    /**
+     * Protocol to use for analysis. Valid options are `tcp` or `udp`.
+     */
     protocol: pulumi.Input<string>;
+    /**
+     * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+     */
     source: pulumi.Input<string>;
+    /**
+     * IP address of the source resource.
+     */
     sourceIp?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

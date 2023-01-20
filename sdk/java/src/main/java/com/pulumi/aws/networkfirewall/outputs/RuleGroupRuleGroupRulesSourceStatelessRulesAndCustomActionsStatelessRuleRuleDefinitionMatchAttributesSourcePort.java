@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort {
+    /**
+     * @return The lower limit of the port range. This must be less than or equal to the `to_port`.
+     * 
+     */
     private Integer fromPort;
+    /**
+     * @return The upper limit of the port range. This must be greater than or equal to the `from_port`.
+     * 
+     */
     private @Nullable Integer toPort;
 
     private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort() {}
+    /**
+     * @return The lower limit of the port range. This must be less than or equal to the `to_port`.
+     * 
+     */
     public Integer fromPort() {
         return this.fromPort;
     }
+    /**
+     * @return The upper limit of the port range. This must be greater than or equal to the `from_port`.
+     * 
+     */
     public Optional<Integer> toPort() {
         return Optional.ofNullable(this.toPort);
     }

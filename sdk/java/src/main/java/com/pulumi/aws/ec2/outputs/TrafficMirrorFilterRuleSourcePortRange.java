@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TrafficMirrorFilterRuleSourcePortRange {
+    /**
+     * @return Starting port of the range
+     * 
+     */
     private @Nullable Integer fromPort;
+    /**
+     * @return Ending port of the range
+     * 
+     */
     private @Nullable Integer toPort;
 
     private TrafficMirrorFilterRuleSourcePortRange() {}
+    /**
+     * @return Starting port of the range
+     * 
+     */
     public Optional<Integer> fromPort() {
         return Optional.ofNullable(this.fromPort);
     }
+    /**
+     * @return Ending port of the range
+     * 
+     */
     public Optional<Integer> toPort() {
         return Optional.ofNullable(this.toPort);
     }

@@ -14,29 +14,142 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an IAM Signing Certificate resource to upload Signing Certificates.
+ * 
+ * ## Example Usage
+ * 
+ * **Using certs on file:**
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.SigningCertificate;
+ * import com.pulumi.aws.iam.SigningCertificateArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testCert = new SigningCertificate(&#34;testCert&#34;, SigningCertificateArgs.builder()        
+ *             .username(&#34;some_test_cert&#34;)
+ *             .certificateBody(Files.readString(Paths.get(&#34;self-ca-cert.pem&#34;)))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * **Example with cert in-line:**
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.SigningCertificate;
+ * import com.pulumi.aws.iam.SigningCertificateArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testCertAlt = new SigningCertificate(&#34;testCertAlt&#34;, SigningCertificateArgs.builder()        
+ *             .certificateBody(&#34;&#34;&#34;
+ * -----BEGIN CERTIFICATE-----
+ * [......] # cert contents
+ * -----END CERTIFICATE-----
+ * 
+ *             &#34;&#34;&#34;)
+ *             .username(&#34;some_test_cert&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * IAM Signing Certificates can be imported using the `id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
+ * ```
+ * 
+ */
 @ResourceType(type="aws:iam/signingCertificate:SigningCertificate")
 public class SigningCertificate extends com.pulumi.resources.CustomResource {
+    /**
+     * The contents of the signing certificate in PEM-encoded format.
+     * 
+     */
     @Export(name="certificateBody", refs={String.class}, tree="[0]")
     private Output<String> certificateBody;
 
+    /**
+     * @return The contents of the signing certificate in PEM-encoded format.
+     * 
+     */
     public Output<String> certificateBody() {
         return this.certificateBody;
     }
+    /**
+     * The ID for the signing certificate.
+     * 
+     */
     @Export(name="certificateId", refs={String.class}, tree="[0]")
     private Output<String> certificateId;
 
+    /**
+     * @return The ID for the signing certificate.
+     * 
+     */
     public Output<String> certificateId() {
         return this.certificateId;
     }
+    /**
+     * The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
+    /**
+     * @return The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
+     * 
+     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
+    /**
+     * The name of the user the signing certificate is for.
+     * 
+     */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
+    /**
+     * @return The name of the user the signing certificate is for.
+     * 
+     */
     public Output<String> userName() {
         return this.userName;
     }

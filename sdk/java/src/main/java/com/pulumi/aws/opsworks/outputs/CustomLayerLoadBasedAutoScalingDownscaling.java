@@ -14,33 +14,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CustomLayerLoadBasedAutoScalingDownscaling {
+    /**
+     * @return Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+     * 
+     */
     private @Nullable List<String> alarms;
+    /**
+     * @return The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+     * 
+     */
     private @Nullable Double cpuThreshold;
+    /**
+     * @return The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+     * 
+     */
     private @Nullable Integer ignoreMetricsTime;
+    /**
+     * @return The number of instances to add or remove when the load exceeds a threshold.
+     * 
+     */
     private @Nullable Integer instanceCount;
+    /**
+     * @return The load threshold. A value of -1 disables the threshold.
+     * 
+     */
     private @Nullable Double loadThreshold;
+    /**
+     * @return The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+     * 
+     */
     private @Nullable Double memoryThreshold;
+    /**
+     * @return The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+     * 
+     */
     private @Nullable Integer thresholdsWaitTime;
 
     private CustomLayerLoadBasedAutoScalingDownscaling() {}
+    /**
+     * @return Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+     * 
+     */
     public List<String> alarms() {
         return this.alarms == null ? List.of() : this.alarms;
     }
+    /**
+     * @return The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+     * 
+     */
     public Optional<Double> cpuThreshold() {
         return Optional.ofNullable(this.cpuThreshold);
     }
+    /**
+     * @return The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+     * 
+     */
     public Optional<Integer> ignoreMetricsTime() {
         return Optional.ofNullable(this.ignoreMetricsTime);
     }
+    /**
+     * @return The number of instances to add or remove when the load exceeds a threshold.
+     * 
+     */
     public Optional<Integer> instanceCount() {
         return Optional.ofNullable(this.instanceCount);
     }
+    /**
+     * @return The load threshold. A value of -1 disables the threshold.
+     * 
+     */
     public Optional<Double> loadThreshold() {
         return Optional.ofNullable(this.loadThreshold);
     }
+    /**
+     * @return The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+     * 
+     */
     public Optional<Double> memoryThreshold() {
         return Optional.ofNullable(this.memoryThreshold);
     }
+    /**
+     * @return The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+     * 
+     */
     public Optional<Integer> thresholdsWaitTime() {
         return Optional.ofNullable(this.thresholdsWaitTime);
     }

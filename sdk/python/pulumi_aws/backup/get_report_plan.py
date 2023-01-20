@@ -54,21 +54,33 @@ class GetReportPlanResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the backup report plan.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> str:
+        """
+        Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="deploymentStatus")
     def deployment_status(self) -> str:
+        """
+        Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+        """
         return pulumi.get(self, "deployment_status")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the report plan.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -87,16 +99,25 @@ class GetReportPlanResult:
     @property
     @pulumi.getter(name="reportDeliveryChannels")
     def report_delivery_channels(self) -> Sequence['outputs.GetReportPlanReportDeliveryChannelResult']:
+        """
+        An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        """
         return pulumi.get(self, "report_delivery_channels")
 
     @property
     @pulumi.getter(name="reportSettings")
     def report_settings(self) -> Sequence['outputs.GetReportPlanReportSettingResult']:
+        """
+        An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        """
         return pulumi.get(self, "report_settings")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Metadata that you can assign to help organize the report plans you create.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -121,7 +142,20 @@ def get_report_plan(name: Optional[str] = None,
                     tags: Optional[Mapping[str, str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportPlanResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information on an existing backup report plan.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.backup.get_report_plan(name="my_example_backup_report_plan_name")
+    ```
+
+
+    :param str name: Backup report plan name.
+    :param Mapping[str, str] tags: Metadata that you can assign to help organize the report plans you create.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -146,6 +180,19 @@ def get_report_plan_output(name: Optional[pulumi.Input[str]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportPlanResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information on an existing backup report plan.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.backup.get_report_plan(name="my_example_backup_report_plan_name")
+    ```
+
+
+    :param str name: Backup report plan name.
+    :param Mapping[str, str] tags: Metadata that you can assign to help organize the report plans you create.
     """
     ...

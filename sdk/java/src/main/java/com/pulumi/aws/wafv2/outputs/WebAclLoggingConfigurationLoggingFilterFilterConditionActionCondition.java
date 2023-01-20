@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition {
+    /**
+     * @return The action setting that a log record must contain in order to meet the condition. Valid values: `ALLOW`, `BLOCK`, `COUNT`.
+     * 
+     */
     private String action;
 
     private WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition() {}
+    /**
+     * @return The action setting that a log record must contain in order to meet the condition. Valid values: `ALLOW`, `BLOCK`, `COUNT`.
+     * 
+     */
     public String action() {
         return this.action;
     }

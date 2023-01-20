@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetImagePipelinesResult {
+    /**
+     * @return Set of ARNs of the matched Image Builder Image Pipelines.
+     * 
+     */
     private List<String> arns;
     private @Nullable List<GetImagePipelinesFilter> filters;
     /**
@@ -19,9 +23,17 @@ public final class GetImagePipelinesResult {
      * 
      */
     private String id;
+    /**
+     * @return Set of names of the matched Image Builder Image Pipelines.
+     * 
+     */
     private List<String> names;
 
     private GetImagePipelinesResult() {}
+    /**
+     * @return Set of ARNs of the matched Image Builder Image Pipelines.
+     * 
+     */
     public List<String> arns() {
         return this.arns;
     }
@@ -35,6 +47,10 @@ public final class GetImagePipelinesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Set of names of the matched Image Builder Image Pipelines.
+     * 
+     */
     public List<String> names() {
         return this.names;
     }

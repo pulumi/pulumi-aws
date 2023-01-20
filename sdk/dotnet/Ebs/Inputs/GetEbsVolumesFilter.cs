@@ -12,11 +12,21 @@ namespace Pulumi.Aws.Ebs.Inputs
 
     public sealed class GetEbsVolumesFilterArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the field to filter by, as defined by
+        /// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
+        /// For example, if matching against the `size` filter, use:
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private List<string>? _values;
+
+        /// <summary>
+        /// Set of values that are accepted for the given field.
+        /// EBS Volume IDs will be selected if any one of the given values match.
+        /// </summary>
         public List<string> Values
         {
             get => _values ?? (_values = new List<string>());

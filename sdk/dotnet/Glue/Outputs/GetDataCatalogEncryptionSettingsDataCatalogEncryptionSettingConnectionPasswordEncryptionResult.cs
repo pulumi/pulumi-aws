@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionResult
     {
+        /// <summary>
+        /// KMS key ARN that is used to encrypt the connection password.
+        /// </summary>
         public readonly string AwsKmsKeyId;
+        /// <summary>
+        /// When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
+        /// </summary>
         public readonly bool ReturnConnectionPasswordEncrypted;
 
         [OutputConstructor]

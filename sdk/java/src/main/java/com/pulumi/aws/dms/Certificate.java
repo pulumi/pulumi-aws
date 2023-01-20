@@ -16,41 +16,133 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a DMS (Data Migration Service) certificate resource. DMS certificates can be created, deleted, and imported.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.dms.Certificate;
+ * import com.pulumi.aws.dms.CertificateArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Certificate(&#34;test&#34;, CertificateArgs.builder()        
+ *             .certificateId(&#34;test-dms-certificate-tf&#34;)
+ *             .certificatePem(&#34;...&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Certificates can be imported using the `certificate_id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
+ * ```
+ * 
+ */
 @ResourceType(type="aws:dms/certificate:Certificate")
 public class Certificate extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name (ARN) for the certificate.
+     * 
+     */
     @Export(name="certificateArn", refs={String.class}, tree="[0]")
     private Output<String> certificateArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) for the certificate.
+     * 
+     */
     public Output<String> certificateArn() {
         return this.certificateArn;
     }
+    /**
+     * The certificate identifier.
+     * 
+     */
     @Export(name="certificateId", refs={String.class}, tree="[0]")
     private Output<String> certificateId;
 
+    /**
+     * @return The certificate identifier.
+     * 
+     */
     public Output<String> certificateId() {
         return this.certificateId;
     }
+    /**
+     * The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+     * 
+     */
     @Export(name="certificatePem", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificatePem;
 
+    /**
+     * @return The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+     * 
+     */
     public Output<Optional<String>> certificatePem() {
         return Codegen.optional(this.certificatePem);
     }
+    /**
+     * The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
+     * 
+     */
     @Export(name="certificateWallet", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateWallet;
 
+    /**
+     * @return The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
+     * 
+     */
     public Output<Optional<String>> certificateWallet() {
         return Codegen.optional(this.certificateWallet);
     }
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

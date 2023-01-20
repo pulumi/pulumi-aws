@@ -16,23 +16,47 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
 
     public static final FlowSourceFlowConfigSourceConnectorPropertiesS3Args Empty = new FlowSourceFlowConfigSourceConnectorPropertiesS3Args();
 
+    /**
+     * Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+     * 
+     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
+    /**
+     * @return Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+     * 
+     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
 
+    /**
+     * Object key for the bucket in which Amazon AppFlow places the destination files.
+     * 
+     */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
+    /**
+     * @return Object key for the bucket in which Amazon AppFlow places the destination files.
+     * 
+     */
     public Optional<Output<String>> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
 
+    /**
+     * When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+     * 
+     */
     @Import(name="s3InputFormatConfig")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs> s3InputFormatConfig;
 
+    /**
+     * @return When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+     * 
+     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs>> s3InputFormatConfig() {
         return Optional.ofNullable(this.s3InputFormatConfig);
     }
@@ -63,29 +87,65 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
             $ = new FlowSourceFlowConfigSourceConnectorPropertiesS3Args(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucketName Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
+        /**
+         * @param bucketName Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
+        /**
+         * @param bucketPrefix Object key for the bucket in which Amazon AppFlow places the destination files.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketPrefix(@Nullable Output<String> bucketPrefix) {
             $.bucketPrefix = bucketPrefix;
             return this;
         }
 
+        /**
+         * @param bucketPrefix Object key for the bucket in which Amazon AppFlow places the destination files.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketPrefix(String bucketPrefix) {
             return bucketPrefix(Output.of(bucketPrefix));
         }
 
+        /**
+         * @param s3InputFormatConfig When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3InputFormatConfig(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs> s3InputFormatConfig) {
             $.s3InputFormatConfig = s3InputFormatConfig;
             return this;
         }
 
+        /**
+         * @param s3InputFormatConfig When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3InputFormatConfig(FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs s3InputFormatConfig) {
             return s3InputFormatConfig(Output.of(s3InputFormatConfig));
         }

@@ -4,6 +4,39 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Creates a new Amazon Redshift Serverless Resource Policy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.redshiftserverless.ResourcePolicy("example", {
+ *     resourceArn: aws_redshiftserverless_snapshot.example.arn,
+ *     policy: JSON.stringify({
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Effect: "Allow",
+ *             Principal: {
+ *                 AWS: ["12345678901"],
+ *             },
+ *             Action: ["redshift-serverless:RestoreFromSnapshot"],
+ *             Sid: "",
+ *         }],
+ *     }),
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Redshift Serverless Resource Policies can be imported using the `resource_arn`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
+ * ```
+ */
 export class ResourcePolicy extends pulumi.CustomResource {
     /**
      * Get an existing ResourcePolicy resource's state with the given name, ID, and optional extra
@@ -32,7 +65,13 @@ export class ResourcePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourcePolicy.__pulumiType;
     }
 
+    /**
+     * The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
+     */
     public readonly policy!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+     */
     public readonly resourceArn!: pulumi.Output<string>;
 
     /**
@@ -70,7 +109,13 @@ export class ResourcePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResourcePolicy resources.
  */
 export interface ResourcePolicyState {
+    /**
+     * The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
+     */
     policy?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+     */
     resourceArn?: pulumi.Input<string>;
 }
 
@@ -78,6 +123,12 @@ export interface ResourcePolicyState {
  * The set of arguments for constructing a ResourcePolicy resource.
  */
 export interface ResourcePolicyArgs {
+    /**
+     * The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
+     */
     policy: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+     */
     resourceArn: pulumi.Input<string>;
 }

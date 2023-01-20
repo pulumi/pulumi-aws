@@ -15,35 +15,125 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Security Hub member resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.securityhub.Account;
+ * import com.pulumi.aws.securityhub.Member;
+ * import com.pulumi.aws.securityhub.MemberArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
+ * 
+ *         var exampleMember = new Member(&#34;exampleMember&#34;, MemberArgs.builder()        
+ *             .accountId(&#34;123456789012&#34;)
+ *             .email(&#34;example@example.com&#34;)
+ *             .invite(true)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAccount)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Security Hub members can be imported using their account ID, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:securityhub/member:Member example 123456789012
+ * ```
+ * 
+ */
 @ResourceType(type="aws:securityhub/member:Member")
 public class Member extends com.pulumi.resources.CustomResource {
+    /**
+     * The ID of the member AWS account.
+     * 
+     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
+    /**
+     * @return The ID of the member AWS account.
+     * 
+     */
     public Output<String> accountId() {
         return this.accountId;
     }
+    /**
+     * The email of the member AWS account.
+     * 
+     */
     @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
+    /**
+     * @return The email of the member AWS account.
+     * 
+     */
     public Output<String> email() {
         return this.email;
     }
+    /**
+     * Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
+     * 
+     */
     @Export(name="invite", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> invite;
 
+    /**
+     * @return Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
+     * 
+     */
     public Output<Optional<Boolean>> invite() {
         return Codegen.optional(this.invite);
     }
+    /**
+     * The ID of the master Security Hub AWS account.
+     * 
+     */
     @Export(name="masterId", refs={String.class}, tree="[0]")
     private Output<String> masterId;
 
+    /**
+     * @return The ID of the master Security Hub AWS account.
+     * 
+     */
     public Output<String> masterId() {
         return this.masterId;
     }
+    /**
+     * The status of the member account relationship.
+     * 
+     */
     @Export(name="memberStatus", refs={String.class}, tree="[0]")
     private Output<String> memberStatus;
 
+    /**
+     * @return The status of the member account relationship.
+     * 
+     */
     public Output<String> memberStatus() {
         return this.memberStatus;
     }

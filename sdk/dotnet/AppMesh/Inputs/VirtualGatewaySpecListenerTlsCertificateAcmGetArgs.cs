@@ -12,6 +12,9 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class VirtualGatewaySpecListenerTlsCertificateAcmGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN for the certificate.
+        /// </summary>
         [Input("certificateArn", required: true)]
         public Input<string> CertificateArn { get; set; } = null!;
 

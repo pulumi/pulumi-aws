@@ -9,24 +9,53 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGateway
 {
+    /// <summary>
+    /// Provides an API Gateway VPC Link.
+    /// 
+    /// &gt; **Note:** Amazon API Gateway Version 1 VPC Links enable private integrations that connect REST APIs to private resources in a VPC.
+    /// To enable private integration for HTTP APIs, use the Amazon API Gateway Version 2 VPC Link resource.
+    /// 
+    /// ## Import
+    /// 
+    /// API Gateway VPC Link can be imported using the `id`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:apigateway/vpcLink:VpcLink")]
     public partial class VpcLink : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Description of the VPC link.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Name used to label and identify the VPC link.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+        /// </summary>
         [Output("targetArn")]
         public Output<string> TargetArn { get; private set; } = null!;
 
@@ -76,20 +105,33 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class VpcLinkArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Description of the VPC link.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Name used to label and identify the VPC link.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+        /// </summary>
         [Input("targetArn", required: true)]
         public Input<string> TargetArn { get; set; } = null!;
 
@@ -104,14 +146,24 @@ namespace Pulumi.Aws.ApiGateway
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Description of the VPC link.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Name used to label and identify the VPC link.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -120,12 +172,19 @@ namespace Pulumi.Aws.ApiGateway
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+        /// </summary>
         [Input("targetArn")]
         public Input<string>? TargetArn { get; set; }
 

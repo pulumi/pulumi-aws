@@ -13,7 +13,13 @@ namespace Pulumi.Aws.WafRegional.Outputs
     [OutputType]
     public sealed class IpSetIpSetDescriptor
     {
+        /// <summary>
+        /// The string like IPV4 or IPV6.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The CIDR notation.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

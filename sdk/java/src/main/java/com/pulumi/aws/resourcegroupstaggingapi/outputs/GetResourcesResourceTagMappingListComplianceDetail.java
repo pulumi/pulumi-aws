@@ -11,11 +11,23 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResourcesResourceTagMappingListComplianceDetail {
+    /**
+     * @return Whether the resource is compliant.
+     * * ` keys_with_noncompliant_values  ` - Set of tag keys with non-compliant tag values.
+     * * ` non_compliant_keys  ` - Set of non-compliant tag keys.
+     * 
+     */
     private Boolean complianceStatus;
     private List<String> keysWithNoncompliantValues;
     private List<String> nonCompliantKeys;
 
     private GetResourcesResourceTagMappingListComplianceDetail() {}
+    /**
+     * @return Whether the resource is compliant.
+     * * ` keys_with_noncompliant_values  ` - Set of tag keys with non-compliant tag values.
+     * * ` non_compliant_keys  ` - Set of non-compliant tag keys.
+     * 
+     */
     public Boolean complianceStatus() {
         return this.complianceStatus;
     }

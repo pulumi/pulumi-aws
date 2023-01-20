@@ -12,9 +12,17 @@ public final class GetArnPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetArnPlainArgs Empty = new GetArnPlainArgs();
 
+    /**
+     * ARN to parse.
+     * 
+     */
     @Import(name="arn", required=true)
     private String arn;
 
+    /**
+     * @return ARN to parse.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
@@ -43,6 +51,12 @@ public final class GetArnPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetArnPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn ARN to parse.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             $.arn = arn;
             return this;

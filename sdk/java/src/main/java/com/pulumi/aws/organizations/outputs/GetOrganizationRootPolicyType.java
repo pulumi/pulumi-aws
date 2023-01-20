@@ -9,10 +9,18 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOrganizationRootPolicyType {
+    /**
+     * @return The status of the policy type as it relates to the associated root
+     * 
+     */
     private String status;
     private String type;
 
     private GetOrganizationRootPolicyType() {}
+    /**
+     * @return The status of the policy type as it relates to the associated root
+     * 
+     */
     public String status() {
         return this.status;
     }

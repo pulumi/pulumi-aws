@@ -11,13 +11,56 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Service Catalog Principal Portfolio Association.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := servicecatalog.NewPrincipalPortfolioAssociation(ctx, "example", &servicecatalog.PrincipalPortfolioAssociationArgs{
+//				PortfolioId:  pulumi.String("port-68656c6c6f"),
+//				PrincipalArn: pulumi.String("arn:aws:iam::123456789012:user/Eleanor"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_servicecatalog_principal_portfolio_association` can be imported using the accept language, principal ARN, and portfolio ID, separated by a comma, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f
+//
+// ```
 type PrincipalPortfolioAssociation struct {
 	pulumi.CustomResourceState
 
+	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
-	PortfolioId    pulumi.StringOutput    `pulumi:"portfolioId"`
-	PrincipalArn   pulumi.StringOutput    `pulumi:"principalArn"`
-	PrincipalType  pulumi.StringPtrOutput `pulumi:"principalType"`
+	// Portfolio identifier.
+	PortfolioId pulumi.StringOutput `pulumi:"portfolioId"`
+	// Principal ARN.
+	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
+	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+	PrincipalType pulumi.StringPtrOutput `pulumi:"principalType"`
 }
 
 // NewPrincipalPortfolioAssociation registers a new resource with the given unique name, arguments, and options.
@@ -55,17 +98,25 @@ func GetPrincipalPortfolioAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrincipalPortfolioAssociation resources.
 type principalPortfolioAssociationState struct {
+	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	PortfolioId    *string `pulumi:"portfolioId"`
-	PrincipalArn   *string `pulumi:"principalArn"`
-	PrincipalType  *string `pulumi:"principalType"`
+	// Portfolio identifier.
+	PortfolioId *string `pulumi:"portfolioId"`
+	// Principal ARN.
+	PrincipalArn *string `pulumi:"principalArn"`
+	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+	PrincipalType *string `pulumi:"principalType"`
 }
 
 type PrincipalPortfolioAssociationState struct {
+	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrInput
-	PortfolioId    pulumi.StringPtrInput
-	PrincipalArn   pulumi.StringPtrInput
-	PrincipalType  pulumi.StringPtrInput
+	// Portfolio identifier.
+	PortfolioId pulumi.StringPtrInput
+	// Principal ARN.
+	PrincipalArn pulumi.StringPtrInput
+	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+	PrincipalType pulumi.StringPtrInput
 }
 
 func (PrincipalPortfolioAssociationState) ElementType() reflect.Type {
@@ -73,18 +124,26 @@ func (PrincipalPortfolioAssociationState) ElementType() reflect.Type {
 }
 
 type principalPortfolioAssociationArgs struct {
+	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	PortfolioId    string  `pulumi:"portfolioId"`
-	PrincipalArn   string  `pulumi:"principalArn"`
-	PrincipalType  *string `pulumi:"principalType"`
+	// Portfolio identifier.
+	PortfolioId string `pulumi:"portfolioId"`
+	// Principal ARN.
+	PrincipalArn string `pulumi:"principalArn"`
+	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+	PrincipalType *string `pulumi:"principalType"`
 }
 
 // The set of arguments for constructing a PrincipalPortfolioAssociation resource.
 type PrincipalPortfolioAssociationArgs struct {
+	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrInput
-	PortfolioId    pulumi.StringInput
-	PrincipalArn   pulumi.StringInput
-	PrincipalType  pulumi.StringPtrInput
+	// Portfolio identifier.
+	PortfolioId pulumi.StringInput
+	// Principal ARN.
+	PrincipalArn pulumi.StringInput
+	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+	PrincipalType pulumi.StringPtrInput
 }
 
 func (PrincipalPortfolioAssociationArgs) ElementType() reflect.Type {
@@ -174,18 +233,22 @@ func (o PrincipalPortfolioAssociationOutput) ToPrincipalPortfolioAssociationOutp
 	return o
 }
 
+// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 func (o PrincipalPortfolioAssociationOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPortfolioAssociation) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
 }
 
+// Portfolio identifier.
 func (o PrincipalPortfolioAssociationOutput) PortfolioId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrincipalPortfolioAssociation) pulumi.StringOutput { return v.PortfolioId }).(pulumi.StringOutput)
 }
 
+// Principal ARN.
 func (o PrincipalPortfolioAssociationOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrincipalPortfolioAssociation) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
 }
 
+// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
 func (o PrincipalPortfolioAssociationOutput) PrincipalType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPortfolioAssociation) pulumi.StringPtrOutput { return v.PrincipalType }).(pulumi.StringPtrOutput)
 }

@@ -13,16 +13,32 @@ public final class ExperimentTemplateActionTargetArgs extends com.pulumi.resourc
 
     public static final ExperimentTemplateActionTargetArgs Empty = new ExperimentTemplateActionTargetArgs();
 
+    /**
+     * Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances).
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances).
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * Target name, referencing a corresponding target.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return Target name, referencing a corresponding target.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -52,20 +68,44 @@ public final class ExperimentTemplateActionTargetArgs extends com.pulumi.resourc
             $ = new ExperimentTemplateActionTargetArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param key Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances).
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances).
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param value Target name, referencing a corresponding target.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Target name, referencing a corresponding target.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

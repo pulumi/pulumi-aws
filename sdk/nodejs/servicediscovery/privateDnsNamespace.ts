@@ -4,6 +4,30 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Service Discovery Private DNS Namespace resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
+ * const examplePrivateDnsNamespace = new aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", {
+ *     description: "example",
+ *     vpc: exampleVpc.id,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Service Discovery Private DNS Namespace can be imported using the namespace ID and VPC ID, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
+ * ```
+ */
 export class PrivateDnsNamespace extends pulumi.CustomResource {
     /**
      * Get an existing PrivateDnsNamespace resource's state with the given name, ID, and optional extra
@@ -32,12 +56,33 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrivateDnsNamespace.__pulumiType;
     }
 
+    /**
+     * The ARN that Amazon Route 53 assigns to the namespace when you create it.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The description that you specify for the namespace when you create it.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
+     */
     public /*out*/ readonly hostedZone!: pulumi.Output<string>;
+    /**
+     * The name of the namespace.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The ID of VPC that you want to associate the namespace with.
+     */
     public readonly vpc!: pulumi.Output<string>;
 
     /**
@@ -82,12 +127,33 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PrivateDnsNamespace resources.
  */
 export interface PrivateDnsNamespaceState {
+    /**
+     * The ARN that Amazon Route 53 assigns to the namespace when you create it.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The description that you specify for the namespace when you create it.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
+     */
     hostedZone?: pulumi.Input<string>;
+    /**
+     * The name of the namespace.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ID of VPC that you want to associate the namespace with.
+     */
     vpc?: pulumi.Input<string>;
 }
 
@@ -95,8 +161,20 @@ export interface PrivateDnsNamespaceState {
  * The set of arguments for constructing a PrivateDnsNamespace resource.
  */
 export interface PrivateDnsNamespaceArgs {
+    /**
+     * The description that you specify for the namespace when you create it.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the namespace.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ID of VPC that you want to associate the namespace with.
+     */
     vpc: pulumi.Input<string>;
 }

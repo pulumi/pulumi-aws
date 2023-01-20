@@ -14,21 +14,213 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class GuarddutyFunctions {
+    /**
+     * Retrieve information about a GuardDuty detector.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
+     * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GuarddutyFunctions.getDetector();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetDetectorResult> getDetector() {
         return getDetector(GetDetectorArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Retrieve information about a GuardDuty detector.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
+     * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GuarddutyFunctions.getDetector();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetDetectorResult> getDetectorPlain() {
         return getDetectorPlain(GetDetectorPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Retrieve information about a GuardDuty detector.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
+     * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GuarddutyFunctions.getDetector();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetDetectorResult> getDetector(GetDetectorArgs args) {
         return getDetector(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieve information about a GuardDuty detector.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
+     * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GuarddutyFunctions.getDetector();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetDetectorResult> getDetectorPlain(GetDetectorPlainArgs args) {
         return getDetectorPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieve information about a GuardDuty detector.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
+     * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GuarddutyFunctions.getDetector();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetDetectorResult> getDetector(GetDetectorArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:guardduty/getDetector:getDetector", TypeShape.of(GetDetectorResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieve information about a GuardDuty detector.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
+     * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GuarddutyFunctions.getDetector();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetDetectorResult> getDetectorPlain(GetDetectorPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:guardduty/getDetector:getDetector", TypeShape.of(GetDetectorResult.class), args, Utilities.withVersion(options));
     }

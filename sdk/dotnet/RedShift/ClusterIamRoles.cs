@@ -9,15 +9,58 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedShift
 {
+    /// <summary>
+    /// Provides a Redshift Cluster IAM Roles resource.
+    /// 
+    /// &gt; **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `default_iam_role_arn` argument and the `aws.redshift.Cluster` resource's `default_iam_role_arn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.RedShift.ClusterIamRoles("example", new()
+    ///     {
+    ///         ClusterIdentifier = aws_redshift_cluster.Example.Cluster_identifier,
+    ///         IamRoleArns = new[]
+    ///         {
+    ///             aws_iam_role.Example.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Redshift Cluster IAM Roless can be imported using the `cluster_identifier`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:redshift/clusterIamRoles:ClusterIamRoles")]
     public partial class ClusterIamRoles : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the Redshift Cluster IAM Roles.
+        /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        /// </summary>
         [Output("defaultIamRoleArn")]
         public Output<string> DefaultIamRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+        /// </summary>
         [Output("iamRoleArns")]
         public Output<ImmutableArray<string>> IamRoleArns { get; private set; } = null!;
 
@@ -67,14 +110,24 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class ClusterIamRolesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Redshift Cluster IAM Roles.
+        /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        /// </summary>
         [Input("defaultIamRoleArn")]
         public Input<string>? DefaultIamRoleArn { get; set; }
 
         [Input("iamRoleArns")]
         private InputList<string>? _iamRoleArns;
+
+        /// <summary>
+        /// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+        /// </summary>
         public InputList<string> IamRoleArns
         {
             get => _iamRoleArns ?? (_iamRoleArns = new InputList<string>());
@@ -89,14 +142,24 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class ClusterIamRolesState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Redshift Cluster IAM Roles.
+        /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        /// </summary>
         [Input("defaultIamRoleArn")]
         public Input<string>? DefaultIamRoleArn { get; set; }
 
         [Input("iamRoleArns")]
         private InputList<string>? _iamRoleArns;
+
+        /// <summary>
+        /// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+        /// </summary>
         public InputList<string> IamRoleArns
         {
             get => _iamRoleArns ?? (_iamRoleArns = new InputList<string>());

@@ -11,10 +11,103 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
+//
+// ## Example Usage
+// ### Organization Account
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := organizations.NewPolicyAttachment(ctx, "account", &organizations.PolicyAttachmentArgs{
+//				PolicyId: pulumi.Any(aws_organizations_policy.Example.Id),
+//				TargetId: pulumi.String("123456789012"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Organization Root
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := organizations.NewPolicyAttachment(ctx, "root", &organizations.PolicyAttachmentArgs{
+//				PolicyId: pulumi.Any(aws_organizations_policy.Example.Id),
+//				TargetId: pulumi.Any(aws_organizations_organization.Example.Roots[0].Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Organization Unit
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := organizations.NewPolicyAttachment(ctx, "unit", &organizations.PolicyAttachmentArgs{
+//				PolicyId: pulumi.Any(aws_organizations_policy.Example.Id),
+//				TargetId: pulumi.Any(aws_organizations_organizational_unit.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_organizations_policy_attachment` can be imported by using the target ID and policy ID, e.g., with an account target
+//
+// ```sh
+//
+//	$ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
+//
+// ```
 type PolicyAttachment struct {
 	pulumi.CustomResourceState
 
+	// The unique identifier (ID) of the policy that you want to attach to the target.
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
+	// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
 	TargetId pulumi.StringOutput `pulumi:"targetId"`
 }
 
@@ -53,12 +146,16 @@ func GetPolicyAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyAttachment resources.
 type policyAttachmentState struct {
+	// The unique identifier (ID) of the policy that you want to attach to the target.
 	PolicyId *string `pulumi:"policyId"`
+	// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
 	TargetId *string `pulumi:"targetId"`
 }
 
 type PolicyAttachmentState struct {
+	// The unique identifier (ID) of the policy that you want to attach to the target.
 	PolicyId pulumi.StringPtrInput
+	// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
 	TargetId pulumi.StringPtrInput
 }
 
@@ -67,13 +164,17 @@ func (PolicyAttachmentState) ElementType() reflect.Type {
 }
 
 type policyAttachmentArgs struct {
+	// The unique identifier (ID) of the policy that you want to attach to the target.
 	PolicyId string `pulumi:"policyId"`
+	// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
 	TargetId string `pulumi:"targetId"`
 }
 
 // The set of arguments for constructing a PolicyAttachment resource.
 type PolicyAttachmentArgs struct {
+	// The unique identifier (ID) of the policy that you want to attach to the target.
 	PolicyId pulumi.StringInput
+	// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
 	TargetId pulumi.StringInput
 }
 
@@ -164,10 +265,12 @@ func (o PolicyAttachmentOutput) ToPolicyAttachmentOutputWithContext(ctx context.
 	return o
 }
 
+// The unique identifier (ID) of the policy that you want to attach to the target.
 func (o PolicyAttachmentOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyAttachment) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
+// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
 func (o PolicyAttachmentOutput) TargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyAttachment) pulumi.StringOutput { return v.TargetId }).(pulumi.StringOutput)
 }

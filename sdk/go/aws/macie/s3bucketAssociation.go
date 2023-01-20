@@ -11,13 +11,52 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **NOTE:** This resource interacts with [Amazon Macie Classic](https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html). Macie Classic cannot be activated in new accounts. See the [FAQ](https://aws.amazon.com/macie/classic-faqs/) for more details.
+//
+// Associates an S3 resource with Amazon Macie for monitoring and data classification.
+//
+// > **NOTE:** Before using Amazon Macie for the first time it must be enabled manually. Instructions are [here](https://docs.aws.amazon.com/macie/latest/userguide/macie-setting-up.html#macie-setting-up-enable).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := macie.NewS3BucketAssociation(ctx, "example", &macie.S3BucketAssociationArgs{
+//				BucketName: pulumi.String("tf-macie-example"),
+//				ClassificationType: &macie.S3BucketAssociationClassificationTypeArgs{
+//					OneTime: pulumi.String("FULL"),
+//				},
+//				Prefix: pulumi.String("data"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type S3BucketAssociation struct {
 	pulumi.CustomResourceState
 
-	BucketName         pulumi.StringOutput                         `pulumi:"bucketName"`
+	// The name of the S3 bucket that you want to associate with Amazon Macie.
+	BucketName pulumi.StringOutput `pulumi:"bucketName"`
+	// The configuration of how Amazon Macie classifies the S3 objects.
 	ClassificationType S3BucketAssociationClassificationTypeOutput `pulumi:"classificationType"`
-	MemberAccountId    pulumi.StringPtrOutput                      `pulumi:"memberAccountId"`
-	Prefix             pulumi.StringPtrOutput                      `pulumi:"prefix"`
+	// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
+	MemberAccountId pulumi.StringPtrOutput `pulumi:"memberAccountId"`
+	// Object key prefix identifying one or more S3 objects to which the association applies.
+	Prefix pulumi.StringPtrOutput `pulumi:"prefix"`
 }
 
 // NewS3BucketAssociation registers a new resource with the given unique name, arguments, and options.
@@ -52,17 +91,25 @@ func GetS3BucketAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering S3BucketAssociation resources.
 type s3bucketAssociationState struct {
-	BucketName         *string                                `pulumi:"bucketName"`
+	// The name of the S3 bucket that you want to associate with Amazon Macie.
+	BucketName *string `pulumi:"bucketName"`
+	// The configuration of how Amazon Macie classifies the S3 objects.
 	ClassificationType *S3BucketAssociationClassificationType `pulumi:"classificationType"`
-	MemberAccountId    *string                                `pulumi:"memberAccountId"`
-	Prefix             *string                                `pulumi:"prefix"`
+	// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
+	MemberAccountId *string `pulumi:"memberAccountId"`
+	// Object key prefix identifying one or more S3 objects to which the association applies.
+	Prefix *string `pulumi:"prefix"`
 }
 
 type S3BucketAssociationState struct {
-	BucketName         pulumi.StringPtrInput
+	// The name of the S3 bucket that you want to associate with Amazon Macie.
+	BucketName pulumi.StringPtrInput
+	// The configuration of how Amazon Macie classifies the S3 objects.
 	ClassificationType S3BucketAssociationClassificationTypePtrInput
-	MemberAccountId    pulumi.StringPtrInput
-	Prefix             pulumi.StringPtrInput
+	// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
+	MemberAccountId pulumi.StringPtrInput
+	// Object key prefix identifying one or more S3 objects to which the association applies.
+	Prefix pulumi.StringPtrInput
 }
 
 func (S3BucketAssociationState) ElementType() reflect.Type {
@@ -70,18 +117,26 @@ func (S3BucketAssociationState) ElementType() reflect.Type {
 }
 
 type s3bucketAssociationArgs struct {
-	BucketName         string                                 `pulumi:"bucketName"`
+	// The name of the S3 bucket that you want to associate with Amazon Macie.
+	BucketName string `pulumi:"bucketName"`
+	// The configuration of how Amazon Macie classifies the S3 objects.
 	ClassificationType *S3BucketAssociationClassificationType `pulumi:"classificationType"`
-	MemberAccountId    *string                                `pulumi:"memberAccountId"`
-	Prefix             *string                                `pulumi:"prefix"`
+	// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
+	MemberAccountId *string `pulumi:"memberAccountId"`
+	// Object key prefix identifying one or more S3 objects to which the association applies.
+	Prefix *string `pulumi:"prefix"`
 }
 
 // The set of arguments for constructing a S3BucketAssociation resource.
 type S3BucketAssociationArgs struct {
-	BucketName         pulumi.StringInput
+	// The name of the S3 bucket that you want to associate with Amazon Macie.
+	BucketName pulumi.StringInput
+	// The configuration of how Amazon Macie classifies the S3 objects.
 	ClassificationType S3BucketAssociationClassificationTypePtrInput
-	MemberAccountId    pulumi.StringPtrInput
-	Prefix             pulumi.StringPtrInput
+	// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
+	MemberAccountId pulumi.StringPtrInput
+	// Object key prefix identifying one or more S3 objects to which the association applies.
+	Prefix pulumi.StringPtrInput
 }
 
 func (S3BucketAssociationArgs) ElementType() reflect.Type {
@@ -171,18 +226,22 @@ func (o S3BucketAssociationOutput) ToS3BucketAssociationOutputWithContext(ctx co
 	return o
 }
 
+// The name of the S3 bucket that you want to associate with Amazon Macie.
 func (o S3BucketAssociationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3BucketAssociation) pulumi.StringOutput { return v.BucketName }).(pulumi.StringOutput)
 }
 
+// The configuration of how Amazon Macie classifies the S3 objects.
 func (o S3BucketAssociationOutput) ClassificationType() S3BucketAssociationClassificationTypeOutput {
 	return o.ApplyT(func(v *S3BucketAssociation) S3BucketAssociationClassificationTypeOutput { return v.ClassificationType }).(S3BucketAssociationClassificationTypeOutput)
 }
 
+// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
 func (o S3BucketAssociationOutput) MemberAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *S3BucketAssociation) pulumi.StringPtrOutput { return v.MemberAccountId }).(pulumi.StringPtrOutput)
 }
 
+// Object key prefix identifying one or more S3 objects to which the association applies.
 func (o S3BucketAssociationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *S3BucketAssociation) pulumi.StringPtrOutput { return v.Prefix }).(pulumi.StringPtrOutput)
 }

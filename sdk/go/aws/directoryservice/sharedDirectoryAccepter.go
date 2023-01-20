@@ -11,13 +11,67 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Accepts a shared directory in a consumer account.
+//
+// > **NOTE:** Destroying this resource removes the shared directory from the consumer account only.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleSharedDirectory, err := directoryservice.NewSharedDirectory(ctx, "exampleSharedDirectory", &directoryservice.SharedDirectoryArgs{
+//				DirectoryId: pulumi.Any(aws_directory_service_directory.Example.Id),
+//				Notes:       pulumi.String("example"),
+//				Target: &directoryservice.SharedDirectoryTargetArgs{
+//					Id: pulumi.Any(data.Aws_caller_identity.Receiver.Account_id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = directoryservice.NewSharedDirectoryAccepter(ctx, "exampleSharedDirectoryAccepter", &directoryservice.SharedDirectoryAccepterArgs{
+//				SharedDirectoryId: exampleSharedDirectory.SharedDirectoryId,
+//			}, pulumi.Provider("awsalternate"))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Directory Service Shared Directories can be imported using the shared directory ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
+//
+// ```
 type SharedDirectoryAccepter struct {
 	pulumi.CustomResourceState
 
-	Method            pulumi.StringOutput `pulumi:"method"`
-	Notes             pulumi.StringOutput `pulumi:"notes"`
-	OwnerAccountId    pulumi.StringOutput `pulumi:"ownerAccountId"`
-	OwnerDirectoryId  pulumi.StringOutput `pulumi:"ownerDirectoryId"`
+	// Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
+	Method pulumi.StringOutput `pulumi:"method"`
+	// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
+	Notes pulumi.StringOutput `pulumi:"notes"`
+	// Account identifier of the directory owner.
+	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	// Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
+	OwnerDirectoryId pulumi.StringOutput `pulumi:"ownerDirectoryId"`
+	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId pulumi.StringOutput `pulumi:"sharedDirectoryId"`
 }
 
@@ -53,18 +107,28 @@ func GetSharedDirectoryAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SharedDirectoryAccepter resources.
 type sharedDirectoryAccepterState struct {
-	Method            *string `pulumi:"method"`
-	Notes             *string `pulumi:"notes"`
-	OwnerAccountId    *string `pulumi:"ownerAccountId"`
-	OwnerDirectoryId  *string `pulumi:"ownerDirectoryId"`
+	// Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
+	Method *string `pulumi:"method"`
+	// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
+	Notes *string `pulumi:"notes"`
+	// Account identifier of the directory owner.
+	OwnerAccountId *string `pulumi:"ownerAccountId"`
+	// Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
+	OwnerDirectoryId *string `pulumi:"ownerDirectoryId"`
+	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId *string `pulumi:"sharedDirectoryId"`
 }
 
 type SharedDirectoryAccepterState struct {
-	Method            pulumi.StringPtrInput
-	Notes             pulumi.StringPtrInput
-	OwnerAccountId    pulumi.StringPtrInput
-	OwnerDirectoryId  pulumi.StringPtrInput
+	// Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
+	Method pulumi.StringPtrInput
+	// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
+	Notes pulumi.StringPtrInput
+	// Account identifier of the directory owner.
+	OwnerAccountId pulumi.StringPtrInput
+	// Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
+	OwnerDirectoryId pulumi.StringPtrInput
+	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId pulumi.StringPtrInput
 }
 
@@ -73,11 +137,13 @@ func (SharedDirectoryAccepterState) ElementType() reflect.Type {
 }
 
 type sharedDirectoryAccepterArgs struct {
+	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId string `pulumi:"sharedDirectoryId"`
 }
 
 // The set of arguments for constructing a SharedDirectoryAccepter resource.
 type SharedDirectoryAccepterArgs struct {
+	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId pulumi.StringInput
 }
 
@@ -168,22 +234,27 @@ func (o SharedDirectoryAccepterOutput) ToSharedDirectoryAccepterOutputWithContex
 	return o
 }
 
+// Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
 func (o SharedDirectoryAccepterOutput) Method() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringOutput { return v.Method }).(pulumi.StringOutput)
 }
 
+// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
 func (o SharedDirectoryAccepterOutput) Notes() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringOutput { return v.Notes }).(pulumi.StringOutput)
 }
 
+// Account identifier of the directory owner.
 func (o SharedDirectoryAccepterOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
+// Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
 func (o SharedDirectoryAccepterOutput) OwnerDirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringOutput { return v.OwnerDirectoryId }).(pulumi.StringOutput)
 }
 
+// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 func (o SharedDirectoryAccepterOutput) SharedDirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringOutput { return v.SharedDirectoryId }).(pulumi.StringOutput)
 }

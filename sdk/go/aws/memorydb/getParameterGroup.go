@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides information about a MemoryDB Parameter Group.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := memorydb.LookupParameterGroup(ctx, &memorydb.LookupParameterGroupArgs{
+//				Name: "my-parameter-group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupParameterGroup(ctx *pulumi.Context, args *LookupParameterGroupArgs, opts ...pulumi.InvokeOption) (*LookupParameterGroupResult, error) {
 	var rv LookupParameterGroupResult
 	err := ctx.Invoke("aws:memorydb/getParameterGroup:getParameterGroup", args, &rv, opts...)
@@ -21,20 +48,28 @@ func LookupParameterGroup(ctx *pulumi.Context, args *LookupParameterGroupArgs, o
 
 // A collection of arguments for invoking getParameterGroup.
 type LookupParameterGroupArgs struct {
-	Name string            `pulumi:"name"`
+	// Name of the parameter group.
+	Name string `pulumi:"name"`
+	// Map of tags assigned to the parameter group.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getParameterGroup.
 type LookupParameterGroupResult struct {
-	Arn         string `pulumi:"arn"`
+	// ARN of the parameter group.
+	Arn string `pulumi:"arn"`
+	// Description of the parameter group.
 	Description string `pulumi:"description"`
-	Family      string `pulumi:"family"`
+	// Engine version that the parameter group can be used with.
+	Family string `pulumi:"family"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string                       `pulumi:"id"`
-	Name       string                       `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// Name of the parameter.
+	Name string `pulumi:"name"`
+	// Set of user-defined MemoryDB parameters applied by the parameter group.
 	Parameters []GetParameterGroupParameter `pulumi:"parameters"`
-	Tags       map[string]string            `pulumi:"tags"`
+	// Map of tags assigned to the parameter group.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupParameterGroupOutput(ctx *pulumi.Context, args LookupParameterGroupOutputArgs, opts ...pulumi.InvokeOption) LookupParameterGroupResultOutput {
@@ -52,7 +87,9 @@ func LookupParameterGroupOutput(ctx *pulumi.Context, args LookupParameterGroupOu
 
 // A collection of arguments for invoking getParameterGroup.
 type LookupParameterGroupOutputArgs struct {
-	Name pulumi.StringInput    `pulumi:"name"`
+	// Name of the parameter group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Map of tags assigned to the parameter group.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -75,14 +112,17 @@ func (o LookupParameterGroupResultOutput) ToLookupParameterGroupResultOutputWith
 	return o
 }
 
+// ARN of the parameter group.
 func (o LookupParameterGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Description of the parameter group.
 func (o LookupParameterGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// Engine version that the parameter group can be used with.
 func (o LookupParameterGroupResultOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterGroupResult) string { return v.Family }).(pulumi.StringOutput)
 }
@@ -92,14 +132,17 @@ func (o LookupParameterGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterGroupResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the parameter.
 func (o LookupParameterGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterGroupResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Set of user-defined MemoryDB parameters applied by the parameter group.
 func (o LookupParameterGroupResultOutput) Parameters() GetParameterGroupParameterArrayOutput {
 	return o.ApplyT(func(v LookupParameterGroupResult) []GetParameterGroupParameter { return v.Parameters }).(GetParameterGroupParameterArrayOutput)
 }
 
+// Map of tags assigned to the parameter group.
 func (o LookupParameterGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupParameterGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

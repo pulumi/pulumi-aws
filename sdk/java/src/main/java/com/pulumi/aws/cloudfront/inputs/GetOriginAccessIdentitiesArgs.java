@@ -16,9 +16,17 @@ public final class GetOriginAccessIdentitiesArgs extends com.pulumi.resources.In
 
     public static final GetOriginAccessIdentitiesArgs Empty = new GetOriginAccessIdentitiesArgs();
 
+    /**
+     * Filter origin access identities by comment.
+     * 
+     */
     @Import(name="comments")
     private @Nullable Output<List<String>> comments;
 
+    /**
+     * @return Filter origin access identities by comment.
+     * 
+     */
     public Optional<Output<List<String>>> comments() {
         return Optional.ofNullable(this.comments);
     }
@@ -47,15 +55,33 @@ public final class GetOriginAccessIdentitiesArgs extends com.pulumi.resources.In
             $ = new GetOriginAccessIdentitiesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param comments Filter origin access identities by comment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder comments(@Nullable Output<List<String>> comments) {
             $.comments = comments;
             return this;
         }
 
+        /**
+         * @param comments Filter origin access identities by comment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder comments(List<String> comments) {
             return comments(Output.of(comments));
         }
 
+        /**
+         * @param comments Filter origin access identities by comment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder comments(String... comments) {
             return comments(List.of(comments));
         }

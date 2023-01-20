@@ -15,16 +15,32 @@ public final class GetDirectoryPlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetDirectoryPlainArgs Empty = new GetDirectoryPlainArgs();
 
+    /**
+     * ID of the directory.
+     * 
+     */
     @Import(name="directoryId", required=true)
     private String directoryId;
 
+    /**
+     * @return ID of the directory.
+     * 
+     */
     public String directoryId() {
         return this.directoryId;
     }
 
+    /**
+     * A map of tags assigned to the directory/connector.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return A map of tags assigned to the directory/connector.
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -54,11 +70,23 @@ public final class GetDirectoryPlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetDirectoryPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param directoryId ID of the directory.
+         * 
+         * @return builder
+         * 
+         */
         public Builder directoryId(String directoryId) {
             $.directoryId = directoryId;
             return this;
         }
 
+        /**
+         * @param tags A map of tags assigned to the directory/connector.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

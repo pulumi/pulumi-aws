@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification {
+    /**
+     * @return The ID of the launch template. Conflicts with `name`.
+     * 
+     */
     private @Nullable String id;
+    /**
+     * @return The name of the launch template. Conflicts with `id`.
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @return Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launch_template resource&#39;s attribute, e.g., `&#34;${aws_launch_template.foo.latest_version}&#34;`. It will use the default version if omitted.
+     * 
+     */
     private @Nullable String version;
 
     private SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification() {}
+    /**
+     * @return The ID of the launch template. Conflicts with `name`.
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
+    /**
+     * @return The name of the launch template. Conflicts with `id`.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launch_template resource&#39;s attribute, e.g., `&#34;${aws_launch_template.foo.latest_version}&#34;`. It will use the default version if omitted.
+     * 
+     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }

@@ -14,9 +14,17 @@ public final class WebAclRuleStatementNotStatementStatementAndStatementStatement
 
     public static final WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementArgs Empty = new WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementArgs();
 
+    /**
+     * Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+     * 
+     */
     @Import(name="statements", required=true)
     private Output<List<WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementArgs>> statements;
 
+    /**
+     * @return Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+     * 
+     */
     public Output<List<WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementArgs>> statements() {
         return this.statements;
     }
@@ -45,15 +53,33 @@ public final class WebAclRuleStatementNotStatementStatementAndStatementStatement
             $ = new WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param statements Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statements(Output<List<WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementArgs>> statements) {
             $.statements = statements;
             return this;
         }
 
+        /**
+         * @param statements Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statements(List<WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementArgs> statements) {
             return statements(Output.of(statements));
         }
 
+        /**
+         * @param statements Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statements(WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementArgs... statements) {
             return statements(List.of(statements));
         }

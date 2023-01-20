@@ -16,44 +16,92 @@ public final class LayerVersionPermissionArgs extends com.pulumi.resources.Resou
 
     public static final LayerVersionPermissionArgs Empty = new LayerVersionPermissionArgs();
 
+    /**
+     * Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+     * 
+     */
     @Import(name="action", required=true)
     private Output<String> action;
 
+    /**
+     * @return Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+     * 
+     */
     public Output<String> action() {
         return this.action;
     }
 
+    /**
+     * The name or ARN of the Lambda Layer, which you want to grant access to.
+     * 
+     */
     @Import(name="layerName", required=true)
     private Output<String> layerName;
 
+    /**
+     * @return The name or ARN of the Lambda Layer, which you want to grant access to.
+     * 
+     */
     public Output<String> layerName() {
         return this.layerName;
     }
 
+    /**
+     * An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
+     * 
+     */
     @Import(name="organizationId")
     private @Nullable Output<String> organizationId;
 
+    /**
+     * @return An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
+     * 
+     */
     public Optional<Output<String>> organizationId() {
         return Optional.ofNullable(this.organizationId);
     }
 
+    /**
+     * AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+     * 
+     */
     @Import(name="principal", required=true)
     private Output<String> principal;
 
+    /**
+     * @return AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+     * 
+     */
     public Output<String> principal() {
         return this.principal;
     }
 
+    /**
+     * The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+     * 
+     */
     @Import(name="statementId", required=true)
     private Output<String> statementId;
 
+    /**
+     * @return The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+     * 
+     */
     public Output<String> statementId() {
         return this.statementId;
     }
 
+    /**
+     * Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
+     * 
+     */
     @Import(name="versionNumber", required=true)
     private Output<Integer> versionNumber;
 
+    /**
+     * @return Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
+     * 
+     */
     public Output<Integer> versionNumber() {
         return this.versionNumber;
     }
@@ -87,56 +135,128 @@ public final class LayerVersionPermissionArgs extends com.pulumi.resources.Resou
             $ = new LayerVersionPermissionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param action Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(Output<String> action) {
             $.action = action;
             return this;
         }
 
+        /**
+         * @param action Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(String action) {
             return action(Output.of(action));
         }
 
+        /**
+         * @param layerName The name or ARN of the Lambda Layer, which you want to grant access to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder layerName(Output<String> layerName) {
             $.layerName = layerName;
             return this;
         }
 
+        /**
+         * @param layerName The name or ARN of the Lambda Layer, which you want to grant access to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder layerName(String layerName) {
             return layerName(Output.of(layerName));
         }
 
+        /**
+         * @param organizationId An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder organizationId(@Nullable Output<String> organizationId) {
             $.organizationId = organizationId;
             return this;
         }
 
+        /**
+         * @param organizationId An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder organizationId(String organizationId) {
             return organizationId(Output.of(organizationId));
         }
 
+        /**
+         * @param principal AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principal(Output<String> principal) {
             $.principal = principal;
             return this;
         }
 
+        /**
+         * @param principal AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principal(String principal) {
             return principal(Output.of(principal));
         }
 
+        /**
+         * @param statementId The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statementId(Output<String> statementId) {
             $.statementId = statementId;
             return this;
         }
 
+        /**
+         * @param statementId The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statementId(String statementId) {
             return statementId(Output.of(statementId));
         }
 
+        /**
+         * @param versionNumber Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder versionNumber(Output<Integer> versionNumber) {
             $.versionNumber = versionNumber;
             return this;
         }
 
+        /**
+         * @param versionNumber Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder versionNumber(Integer versionNumber) {
             return versionNumber(Output.of(versionNumber));
         }

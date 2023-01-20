@@ -14,27 +14,55 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataLakeSettingsResult {
+    /**
+     * @return List of ARNs of AWS Lake Formation principals (IAM users or roles).
+     * 
+     */
     private List<String> admins;
     private @Nullable String catalogId;
+    /**
+     * @return Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+     * 
+     */
     private List<GetDataLakeSettingsCreateDatabaseDefaultPermission> createDatabaseDefaultPermissions;
+    /**
+     * @return Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
+     * 
+     */
     private List<GetDataLakeSettingsCreateTableDefaultPermission> createTableDefaultPermissions;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
+     * 
+     */
     private List<String> trustedResourceOwners;
 
     private GetDataLakeSettingsResult() {}
+    /**
+     * @return List of ARNs of AWS Lake Formation principals (IAM users or roles).
+     * 
+     */
     public List<String> admins() {
         return this.admins;
     }
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
+    /**
+     * @return Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+     * 
+     */
     public List<GetDataLakeSettingsCreateDatabaseDefaultPermission> createDatabaseDefaultPermissions() {
         return this.createDatabaseDefaultPermissions;
     }
+    /**
+     * @return Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
+     * 
+     */
     public List<GetDataLakeSettingsCreateTableDefaultPermission> createTableDefaultPermissions() {
         return this.createTableDefaultPermissions;
     }
@@ -45,6 +73,10 @@ public final class GetDataLakeSettingsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
+     * 
+     */
     public List<String> trustedResourceOwners() {
         return this.trustedResourceOwners;
     }

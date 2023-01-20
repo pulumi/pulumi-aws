@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class RegexPatternSetRegularExpression {
+    /**
+     * @return The string representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
+     * 
+     */
     private String regexString;
 
     private RegexPatternSetRegularExpression() {}
+    /**
+     * @return The string representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
+     * 
+     */
     public String regexString() {
         return this.regexString;
     }

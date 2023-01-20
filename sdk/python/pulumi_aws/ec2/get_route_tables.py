@@ -56,6 +56,9 @@ class GetRouteTablesResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
+        """
+        List of all the route table ids found.
+        """
         return pulumi.get(self, "ids")
 
     @property
@@ -87,7 +90,13 @@ def get_route_tables(filters: Optional[Sequence[pulumi.InputType['GetRouteTables
                      vpc_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTablesResult:
     """
-    Use this data source to access information about an existing resource.
+    This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+
+
+    :param Sequence[pulumi.InputType['GetRouteTablesFilterArgs']] filters: Custom filter block as described below.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
+           a pair on the desired route tables.
+    :param str vpc_id: VPC ID that you want to filter from.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -110,6 +119,12 @@ def get_route_tables_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
                             vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTablesResult]:
     """
-    Use this data source to access information about an existing resource.
+    This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+
+
+    :param Sequence[pulumi.InputType['GetRouteTablesFilterArgs']] filters: Custom filter block as described below.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
+           a pair on the desired route tables.
+    :param str vpc_id: VPC ID that you want to filter from.
     """
     ...

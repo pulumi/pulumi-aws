@@ -18,11 +18,17 @@ __all__ = [
 class MapConfigurationArgs:
     def __init__(__self__, *,
                  style: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] style: Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
+        """
         pulumi.set(__self__, "style", style)
 
     @property
     @pulumi.getter
     def style(self) -> pulumi.Input[str]:
+        """
+        Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
+        """
         return pulumi.get(self, "style")
 
     @style.setter
@@ -34,12 +40,18 @@ class MapConfigurationArgs:
 class PlaceIndexDataSourceConfigurationArgs:
     def __init__(__self__, *,
                  intended_use: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] intended_use: Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+        """
         if intended_use is not None:
             pulumi.set(__self__, "intended_use", intended_use)
 
     @property
     @pulumi.getter(name="intendedUse")
     def intended_use(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+        """
         return pulumi.get(self, "intended_use")
 
     @intended_use.setter

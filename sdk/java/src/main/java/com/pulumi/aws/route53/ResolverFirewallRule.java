@@ -15,59 +15,193 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Route 53 Resolver DNS Firewall rule resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.route53.ResolverFirewallDomainList;
+ * import com.pulumi.aws.route53.ResolverFirewallDomainListArgs;
+ * import com.pulumi.aws.route53.ResolverFirewallRuleGroup;
+ * import com.pulumi.aws.route53.ResolverFirewallRuleGroupArgs;
+ * import com.pulumi.aws.route53.ResolverFirewallRule;
+ * import com.pulumi.aws.route53.ResolverFirewallRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResolverFirewallDomainList = new ResolverFirewallDomainList(&#34;exampleResolverFirewallDomainList&#34;, ResolverFirewallDomainListArgs.builder()        
+ *             .domains(&#34;example.com&#34;)
+ *             .tags()
+ *             .build());
+ * 
+ *         var exampleResolverFirewallRuleGroup = new ResolverFirewallRuleGroup(&#34;exampleResolverFirewallRuleGroup&#34;, ResolverFirewallRuleGroupArgs.builder()        
+ *             .tags()
+ *             .build());
+ * 
+ *         var exampleResolverFirewallRule = new ResolverFirewallRule(&#34;exampleResolverFirewallRule&#34;, ResolverFirewallRuleArgs.builder()        
+ *             .action(&#34;BLOCK&#34;)
+ *             .blockOverrideDnsType(&#34;CNAME&#34;)
+ *             .blockOverrideDomain(&#34;example.com&#34;)
+ *             .blockOverrideTtl(1)
+ *             .blockResponse(&#34;OVERRIDE&#34;)
+ *             .firewallDomainListId(exampleResolverFirewallDomainList.id())
+ *             .firewallRuleGroupId(exampleResolverFirewallRuleGroup.id())
+ *             .priority(100)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ *  Route 53 Resolver DNS Firewall rules can be imported using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by &#39;:&#39;, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
+ * ```
+ * 
+ */
 @ResourceType(type="aws:route53/resolverFirewallRule:ResolverFirewallRule")
 public class ResolverFirewallRule extends com.pulumi.resources.CustomResource {
+    /**
+     * The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
+     * 
+     */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
+    /**
+     * @return The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
+     * 
+     */
     public Output<String> action() {
         return this.action;
     }
+    /**
+     * The DNS record&#39;s type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
+     * 
+     */
     @Export(name="blockOverrideDnsType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> blockOverrideDnsType;
 
+    /**
+     * @return The DNS record&#39;s type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
+     * 
+     */
     public Output<Optional<String>> blockOverrideDnsType() {
         return Codegen.optional(this.blockOverrideDnsType);
     }
+    /**
+     * The custom DNS record to send back in response to the query.
+     * 
+     */
     @Export(name="blockOverrideDomain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> blockOverrideDomain;
 
+    /**
+     * @return The custom DNS record to send back in response to the query.
+     * 
+     */
     public Output<Optional<String>> blockOverrideDomain() {
         return Codegen.optional(this.blockOverrideDomain);
     }
+    /**
+     * The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
+     * 
+     */
     @Export(name="blockOverrideTtl", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> blockOverrideTtl;
 
+    /**
+     * @return The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
+     * 
+     */
     public Output<Optional<Integer>> blockOverrideTtl() {
         return Codegen.optional(this.blockOverrideTtl);
     }
+    /**
+     * The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
+     * 
+     */
     @Export(name="blockResponse", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> blockResponse;
 
+    /**
+     * @return The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
+     * 
+     */
     public Output<Optional<String>> blockResponse() {
         return Codegen.optional(this.blockResponse);
     }
+    /**
+     * The ID of the domain list that you want to use in the rule.
+     * 
+     */
     @Export(name="firewallDomainListId", refs={String.class}, tree="[0]")
     private Output<String> firewallDomainListId;
 
+    /**
+     * @return The ID of the domain list that you want to use in the rule.
+     * 
+     */
     public Output<String> firewallDomainListId() {
         return this.firewallDomainListId;
     }
+    /**
+     * The unique identifier of the firewall rule group where you want to create the rule.
+     * 
+     */
     @Export(name="firewallRuleGroupId", refs={String.class}, tree="[0]")
     private Output<String> firewallRuleGroupId;
 
+    /**
+     * @return The unique identifier of the firewall rule group where you want to create the rule.
+     * 
+     */
     public Output<String> firewallRuleGroupId() {
         return this.firewallRuleGroupId;
     }
+    /**
+     * A name that lets you identify the rule, to manage and use it.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return A name that lets you identify the rule, to manage and use it.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
+     * 
+     */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
+    /**
+     * @return The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
+     * 
+     */
     public Output<Integer> priority() {
         return this.priority;
     }

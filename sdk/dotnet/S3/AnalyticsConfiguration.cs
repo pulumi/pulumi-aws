@@ -9,18 +9,103 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
+    /// <summary>
+    /// Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
+    /// 
+    /// ## Example Usage
+    /// ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.S3.BucketV2("example");
+    /// 
+    ///     var analytics = new Aws.S3.BucketV2("analytics");
+    /// 
+    ///     var example_entire_bucket = new Aws.S3.AnalyticsConfiguration("example-entire-bucket", new()
+    ///     {
+    ///         Bucket = example.Bucket,
+    ///         StorageClassAnalysis = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisArgs
+    ///         {
+    ///             DataExport = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportArgs
+    ///             {
+    ///                 Destination = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs
+    ///                 {
+    ///                     S3BucketDestination = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs
+    ///                     {
+    ///                         BucketArn = analytics.Arn,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Add analytics configuration with S3 object filter
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.S3.BucketV2("example");
+    /// 
+    ///     var example_filtered = new Aws.S3.AnalyticsConfiguration("example-filtered", new()
+    ///     {
+    ///         Bucket = example.Bucket,
+    ///         Filter = new Aws.S3.Inputs.AnalyticsConfigurationFilterArgs
+    ///         {
+    ///             Prefix = "documents/",
+    ///             Tags = 
+    ///             {
+    ///                 { "priority", "high" },
+    ///                 { "class", "blue" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// S3 bucket analytics configurations can be imported using `bucket:analytics`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:s3/analyticsConfiguration:AnalyticsConfiguration")]
     public partial class AnalyticsConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the bucket this analytics configuration is associated with.
+        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
+        /// <summary>
+        /// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        /// </summary>
         [Output("filter")]
         public Output<Outputs.AnalyticsConfigurationFilter?> Filter { get; private set; } = null!;
 
+        /// <summary>
+        /// Unique identifier of the analytics configuration for the bucket.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration for the analytics data export (documented below).
+        /// </summary>
         [Output("storageClassAnalysis")]
         public Output<Outputs.AnalyticsConfigurationStorageClassAnalysis?> StorageClassAnalysis { get; private set; } = null!;
 
@@ -70,15 +155,27 @@ namespace Pulumi.Aws.S3
 
     public sealed class AnalyticsConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the bucket this analytics configuration is associated with.
+        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        /// </summary>
         [Input("filter")]
         public Input<Inputs.AnalyticsConfigurationFilterArgs>? Filter { get; set; }
 
+        /// <summary>
+        /// Unique identifier of the analytics configuration for the bucket.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Configuration for the analytics data export (documented below).
+        /// </summary>
         [Input("storageClassAnalysis")]
         public Input<Inputs.AnalyticsConfigurationStorageClassAnalysisArgs>? StorageClassAnalysis { get; set; }
 
@@ -90,15 +187,27 @@ namespace Pulumi.Aws.S3
 
     public sealed class AnalyticsConfigurationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the bucket this analytics configuration is associated with.
+        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
+        /// <summary>
+        /// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        /// </summary>
         [Input("filter")]
         public Input<Inputs.AnalyticsConfigurationFilterGetArgs>? Filter { get; set; }
 
+        /// <summary>
+        /// Unique identifier of the analytics configuration for the bucket.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Configuration for the analytics data export (documented below).
+        /// </summary>
         [Input("storageClassAnalysis")]
         public Input<Inputs.AnalyticsConfigurationStorageClassAnalysisGetArgs>? StorageClassAnalysis { get; set; }
 

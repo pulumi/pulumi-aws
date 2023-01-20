@@ -12,14 +12,27 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VpcPeeringConnectionAccepter {
     /**
+     * @return Allow a local linked EC2-Classic instance to communicate
+     * with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
+     * to the remote VPC.
+     * 
      * @deprecated
      * With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
      * 
      */
     @Deprecated /* With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version. */
     private @Nullable Boolean allowClassicLinkToRemoteVpc;
+    /**
+     * @return Allow a local VPC to resolve public DNS hostnames to
+     * private IP addresses when queried from instances in the peer VPC.
+     * 
+     */
     private @Nullable Boolean allowRemoteVpcDnsResolution;
     /**
+     * @return Allow a local VPC to communicate with a linked EC2-Classic
+     * instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
+     * connection.
+     * 
      * @deprecated
      * With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
      * 
@@ -29,6 +42,10 @@ public final class VpcPeeringConnectionAccepter {
 
     private VpcPeeringConnectionAccepter() {}
     /**
+     * @return Allow a local linked EC2-Classic instance to communicate
+     * with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
+     * to the remote VPC.
+     * 
      * @deprecated
      * With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
      * 
@@ -37,10 +54,19 @@ public final class VpcPeeringConnectionAccepter {
     public Optional<Boolean> allowClassicLinkToRemoteVpc() {
         return Optional.ofNullable(this.allowClassicLinkToRemoteVpc);
     }
+    /**
+     * @return Allow a local VPC to resolve public DNS hostnames to
+     * private IP addresses when queried from instances in the peer VPC.
+     * 
+     */
     public Optional<Boolean> allowRemoteVpcDnsResolution() {
         return Optional.ofNullable(this.allowRemoteVpcDnsResolution);
     }
     /**
+     * @return Allow a local VPC to communicate with a linked EC2-Classic
+     * instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
+     * connection.
+     * 
      * @deprecated
      * With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
      * 

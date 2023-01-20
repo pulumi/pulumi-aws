@@ -15,35 +15,162 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages RDS Aurora Cluster Database Activity Streams.
+ * 
+ * Database Activity Streams have some limits and requirements, refer to the [Monitoring Amazon Aurora using Database Activity Streams](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html) documentation for detailed limitations and requirements.
+ * 
+ * &gt; **Note:** This resource always calls the RDS [`StartActivityStream`][2] API with the `ApplyImmediately` parameter set to `true`. This is because the provider needs the activity stream to be started in order for it to get the associated attributes.
+ * 
+ * &gt; **Note:** This resource depends on having at least one `aws.rds.ClusterInstance` created. To avoid race conditions when all resources are being created together, add an explicit resource reference using the resource `depends_on` meta-argument.
+ * 
+ * &gt; **Note:** This resource is available in all regions except the following: `cn-north-1`, `cn-northwest-1`, `us-gov-east-1`, `us-gov-west-1`
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.Cluster;
+ * import com.pulumi.aws.rds.ClusterArgs;
+ * import com.pulumi.aws.rds.ClusterInstance;
+ * import com.pulumi.aws.rds.ClusterInstanceArgs;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.rds.ClusterActivityStream;
+ * import com.pulumi.aws.rds.ClusterActivityStreamArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var defaultCluster = new Cluster(&#34;defaultCluster&#34;, ClusterArgs.builder()        
+ *             .clusterIdentifier(&#34;aurora-cluster-demo&#34;)
+ *             .availabilityZones(            
+ *                 &#34;us-west-2a&#34;,
+ *                 &#34;us-west-2b&#34;,
+ *                 &#34;us-west-2c&#34;)
+ *             .databaseName(&#34;mydb&#34;)
+ *             .masterUsername(&#34;foo&#34;)
+ *             .masterPassword(&#34;mustbeeightcharaters&#34;)
+ *             .engine(&#34;aurora-postgresql&#34;)
+ *             .engineVersion(&#34;13.4&#34;)
+ *             .build());
+ * 
+ *         var defaultClusterInstance = new ClusterInstance(&#34;defaultClusterInstance&#34;, ClusterInstanceArgs.builder()        
+ *             .identifier(&#34;aurora-instance-demo&#34;)
+ *             .clusterIdentifier(defaultCluster.clusterIdentifier())
+ *             .engine(defaultCluster.engine())
+ *             .instanceClass(&#34;db.r6g.large&#34;)
+ *             .build());
+ * 
+ *         var defaultKey = new Key(&#34;defaultKey&#34;, KeyArgs.builder()        
+ *             .description(&#34;AWS KMS Key to encrypt Database Activity Stream&#34;)
+ *             .build());
+ * 
+ *         var defaultClusterActivityStream = new ClusterActivityStream(&#34;defaultClusterActivityStream&#34;, ClusterActivityStreamArgs.builder()        
+ *             .resourceArn(defaultCluster.arn())
+ *             .mode(&#34;async&#34;)
+ *             .kmsKeyId(defaultKey.keyId())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(defaultClusterInstance)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * RDS Aurora Cluster Database Activity Streams can be imported using the `resource_arn`, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
+ * ```
+ * 
+ *  [1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html [2]https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html [3]https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html
+ * 
+ */
 @ResourceType(type="aws:rds/clusterActivityStream:ClusterActivityStream")
 public class ClusterActivityStream extends com.pulumi.resources.CustomResource {
+    /**
+     * Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+     * 
+     */
     @Export(name="engineNativeAuditFieldsIncluded", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> engineNativeAuditFieldsIncluded;
 
+    /**
+     * @return Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+     * 
+     */
     public Output<Optional<Boolean>> engineNativeAuditFieldsIncluded() {
         return Codegen.optional(this.engineNativeAuditFieldsIncluded);
     }
+    /**
+     * The name of the Amazon Kinesis data stream to be used for the database activity stream.
+     * 
+     */
     @Export(name="kinesisStreamName", refs={String.class}, tree="[0]")
     private Output<String> kinesisStreamName;
 
+    /**
+     * @return The name of the Amazon Kinesis data stream to be used for the database activity stream.
+     * 
+     */
     public Output<String> kinesisStreamName() {
         return this.kinesisStreamName;
     }
+    /**
+     * The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+     * 
+     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
+    /**
+     * @return The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+     * 
+     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
+    /**
+     * Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
+     * 
+     */
     @Export(name="mode", refs={String.class}, tree="[0]")
     private Output<String> mode;
 
+    /**
+     * @return Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
+     * 
+     */
     public Output<String> mode() {
         return this.mode;
     }
+    /**
+     * The Amazon Resource Name (ARN) of the DB cluster.
+     * 
+     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the DB cluster.
+     * 
+     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }

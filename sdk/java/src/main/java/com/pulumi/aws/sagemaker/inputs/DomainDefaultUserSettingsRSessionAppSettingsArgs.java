@@ -17,16 +17,32 @@ public final class DomainDefaultUserSettingsRSessionAppSettingsArgs extends com.
 
     public static final DomainDefaultUserSettingsRSessionAppSettingsArgs Empty = new DomainDefaultUserSettingsRSessionAppSettingsArgs();
 
+    /**
+     * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+     * 
+     */
     @Import(name="customImages")
     private @Nullable Output<List<DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs>> customImages;
 
+    /**
+     * @return A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+     * 
+     */
     public Optional<Output<List<DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs>>> customImages() {
         return Optional.ofNullable(this.customImages);
     }
 
+    /**
+     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * 
+     */
     @Import(name="defaultResourceSpec")
     private @Nullable Output<DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
+    /**
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * 
+     */
     public Optional<Output<DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
         return Optional.ofNullable(this.defaultResourceSpec);
     }
@@ -56,24 +72,54 @@ public final class DomainDefaultUserSettingsRSessionAppSettingsArgs extends com.
             $ = new DomainDefaultUserSettingsRSessionAppSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param customImages A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customImages(@Nullable Output<List<DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs>> customImages) {
             $.customImages = customImages;
             return this;
         }
 
+        /**
+         * @param customImages A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customImages(List<DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs> customImages) {
             return customImages(Output.of(customImages));
         }
 
+        /**
+         * @param customImages A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customImages(DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs... customImages) {
             return customImages(List.of(customImages));
         }
 
+        /**
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultResourceSpec(@Nullable Output<DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs> defaultResourceSpec) {
             $.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
 
+        /**
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultResourceSpec(DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs defaultResourceSpec) {
             return defaultResourceSpec(Output.of(defaultResourceSpec));
         }

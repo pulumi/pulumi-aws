@@ -11,11 +11,58 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Elastic File System (EFS) Backup Policy resource.
+// Backup policies turn automatic backups on or off for an existing file system.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fs, err := efs.NewFileSystem(ctx, "fs", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = efs.NewBackupPolicy(ctx, "policy", &efs.BackupPolicyArgs{
+//				FileSystemId: fs.ID(),
+//				BackupPolicy: &efs.BackupPolicyBackupPolicyArgs{
+//					Status: pulumi.String("ENABLED"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// The EFS backup policies can be imported using the `id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
+//
+// ```
 type BackupPolicy struct {
 	pulumi.CustomResourceState
 
+	// A backupPolicy object (documented below).
 	BackupPolicy BackupPolicyBackupPolicyOutput `pulumi:"backupPolicy"`
-	FileSystemId pulumi.StringOutput            `pulumi:"fileSystemId"`
+	// The ID of the EFS file system.
+	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
 }
 
 // NewBackupPolicy registers a new resource with the given unique name, arguments, and options.
@@ -53,12 +100,16 @@ func GetBackupPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupPolicy resources.
 type backupPolicyState struct {
+	// A backupPolicy object (documented below).
 	BackupPolicy *BackupPolicyBackupPolicy `pulumi:"backupPolicy"`
-	FileSystemId *string                   `pulumi:"fileSystemId"`
+	// The ID of the EFS file system.
+	FileSystemId *string `pulumi:"fileSystemId"`
 }
 
 type BackupPolicyState struct {
+	// A backupPolicy object (documented below).
 	BackupPolicy BackupPolicyBackupPolicyPtrInput
+	// The ID of the EFS file system.
 	FileSystemId pulumi.StringPtrInput
 }
 
@@ -67,13 +118,17 @@ func (BackupPolicyState) ElementType() reflect.Type {
 }
 
 type backupPolicyArgs struct {
+	// A backupPolicy object (documented below).
 	BackupPolicy BackupPolicyBackupPolicy `pulumi:"backupPolicy"`
-	FileSystemId string                   `pulumi:"fileSystemId"`
+	// The ID of the EFS file system.
+	FileSystemId string `pulumi:"fileSystemId"`
 }
 
 // The set of arguments for constructing a BackupPolicy resource.
 type BackupPolicyArgs struct {
+	// A backupPolicy object (documented below).
 	BackupPolicy BackupPolicyBackupPolicyInput
+	// The ID of the EFS file system.
 	FileSystemId pulumi.StringInput
 }
 
@@ -164,10 +219,12 @@ func (o BackupPolicyOutput) ToBackupPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
+// A backupPolicy object (documented below).
 func (o BackupPolicyOutput) BackupPolicy() BackupPolicyBackupPolicyOutput {
 	return o.ApplyT(func(v *BackupPolicy) BackupPolicyBackupPolicyOutput { return v.BackupPolicy }).(BackupPolicyBackupPolicyOutput)
 }
 
+// The ID of the EFS file system.
 func (o BackupPolicyOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
 }

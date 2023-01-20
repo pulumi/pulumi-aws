@@ -17,23 +17,47 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
 
     public static final UserAuthenticationModeArgs Empty = new UserAuthenticationModeArgs();
 
+    /**
+     * The number of passwords belonging to the user.
+     * 
+     */
     @Import(name="passwordCount")
     private @Nullable Output<Integer> passwordCount;
 
+    /**
+     * @return The number of passwords belonging to the user.
+     * 
+     */
     public Optional<Output<Integer>> passwordCount() {
         return Optional.ofNullable(this.passwordCount);
     }
 
+    /**
+     * The set of passwords used for authentication. You can create up to two passwords for each user.
+     * 
+     */
     @Import(name="passwords", required=true)
     private Output<List<String>> passwords;
 
+    /**
+     * @return The set of passwords used for authentication. You can create up to two passwords for each user.
+     * 
+     */
     public Output<List<String>> passwords() {
         return this.passwords;
     }
 
+    /**
+     * Indicates whether the user requires a password to authenticate. Must be set to `password`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Indicates whether the user requires a password to authenticate. Must be set to `password`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -64,33 +88,75 @@ public final class UserAuthenticationModeArgs extends com.pulumi.resources.Resou
             $ = new UserAuthenticationModeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param passwordCount The number of passwords belonging to the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder passwordCount(@Nullable Output<Integer> passwordCount) {
             $.passwordCount = passwordCount;
             return this;
         }
 
+        /**
+         * @param passwordCount The number of passwords belonging to the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder passwordCount(Integer passwordCount) {
             return passwordCount(Output.of(passwordCount));
         }
 
+        /**
+         * @param passwords The set of passwords used for authentication. You can create up to two passwords for each user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder passwords(Output<List<String>> passwords) {
             $.passwords = passwords;
             return this;
         }
 
+        /**
+         * @param passwords The set of passwords used for authentication. You can create up to two passwords for each user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder passwords(List<String> passwords) {
             return passwords(Output.of(passwords));
         }
 
+        /**
+         * @param passwords The set of passwords used for authentication. You can create up to two passwords for each user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder passwords(String... passwords) {
             return passwords(List.of(passwords));
         }
 
+        /**
+         * @param type Indicates whether the user requires a password to authenticate. Must be set to `password`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Indicates whether the user requires a password to authenticate. Must be set to `password`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

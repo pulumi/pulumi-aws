@@ -16,16 +16,32 @@ public final class LbHttpsRedirectionPolicyState extends com.pulumi.resources.Re
 
     public static final LbHttpsRedirectionPolicyState Empty = new LbHttpsRedirectionPolicyState();
 
+    /**
+     * The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
+    /**
+     * The name of the load balancer to which you want to enable http to https redirection.
+     * 
+     */
     @Import(name="lbName")
     private @Nullable Output<String> lbName;
 
+    /**
+     * @return The name of the load balancer to which you want to enable http to https redirection.
+     * 
+     */
     public Optional<Output<String>> lbName() {
         return Optional.ofNullable(this.lbName);
     }
@@ -55,20 +71,44 @@ public final class LbHttpsRedirectionPolicyState extends com.pulumi.resources.Re
             $ = new LbHttpsRedirectionPolicyState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param enabled The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
+        /**
+         * @param lbName The name of the load balancer to which you want to enable http to https redirection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lbName(@Nullable Output<String> lbName) {
             $.lbName = lbName;
             return this;
         }
 
+        /**
+         * @param lbName The name of the load balancer to which you want to enable http to https redirection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lbName(String lbName) {
             return lbName(Output.of(lbName));
         }

@@ -4,6 +4,32 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a Service Catalog Tag Option Resource Association.
+ *
+ * > **Tip:** A "resource" is either a Service Catalog portfolio or product.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.servicecatalog.TagOptionResourceAssociation("example", {
+ *     resourceId: "prod-dnigbtea24ste",
+ *     tagOptionId: "tag-pjtvyakdlyo3m",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_servicecatalog_tag_option_resource_association` can be imported using the tag option ID and resource ID, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
+ * ```
+ */
 export class TagOptionResourceAssociation extends pulumi.CustomResource {
     /**
      * Get an existing TagOptionResourceAssociation resource's state with the given name, ID, and optional extra
@@ -32,11 +58,29 @@ export class TagOptionResourceAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === TagOptionResourceAssociation.__pulumiType;
     }
 
+    /**
+     * ARN of the resource.
+     */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    /**
+     * Creation time of the resource.
+     */
     public /*out*/ readonly resourceCreatedTime!: pulumi.Output<string>;
+    /**
+     * Description of the resource.
+     */
     public /*out*/ readonly resourceDescription!: pulumi.Output<string>;
+    /**
+     * Resource identifier.
+     */
     public readonly resourceId!: pulumi.Output<string>;
+    /**
+     * Description of the resource.
+     */
     public /*out*/ readonly resourceName!: pulumi.Output<string>;
+    /**
+     * Tag Option identifier.
+     */
     public readonly tagOptionId!: pulumi.Output<string>;
 
     /**
@@ -82,11 +126,29 @@ export class TagOptionResourceAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TagOptionResourceAssociation resources.
  */
 export interface TagOptionResourceAssociationState {
+    /**
+     * ARN of the resource.
+     */
     resourceArn?: pulumi.Input<string>;
+    /**
+     * Creation time of the resource.
+     */
     resourceCreatedTime?: pulumi.Input<string>;
+    /**
+     * Description of the resource.
+     */
     resourceDescription?: pulumi.Input<string>;
+    /**
+     * Resource identifier.
+     */
     resourceId?: pulumi.Input<string>;
+    /**
+     * Description of the resource.
+     */
     resourceName?: pulumi.Input<string>;
+    /**
+     * Tag Option identifier.
+     */
     tagOptionId?: pulumi.Input<string>;
 }
 
@@ -94,6 +156,12 @@ export interface TagOptionResourceAssociationState {
  * The set of arguments for constructing a TagOptionResourceAssociation resource.
  */
 export interface TagOptionResourceAssociationArgs {
+    /**
+     * Resource identifier.
+     */
     resourceId: pulumi.Input<string>;
+    /**
+     * Tag Option identifier.
+     */
     tagOptionId: pulumi.Input<string>;
 }

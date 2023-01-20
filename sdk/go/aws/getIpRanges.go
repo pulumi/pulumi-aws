@@ -10,6 +10,58 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			europeanEc2, err := aws.GetIpRanges(ctx, &aws.GetIpRangesArgs{
+//				Regions: []string{
+//					"eu-west-1",
+//					"eu-central-1",
+//				},
+//				Services: []string{
+//					"ec2",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewSecurityGroup(ctx, "fromEurope", &ec2.SecurityGroupArgs{
+//				Ingress: ec2.SecurityGroupIngressArray{
+//					&ec2.SecurityGroupIngressArgs{
+//						FromPort:       pulumi.Int(443),
+//						ToPort:         pulumi.Int(443),
+//						Protocol:       pulumi.String("tcp"),
+//						CidrBlocks:     interface{}(europeanEc2.CidrBlocks),
+//						Ipv6CidrBlocks: interface{}(europeanEc2.Ipv6CidrBlocks),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"CreateDate": *pulumi.String(europeanEc2.CreateDate),
+//					"SyncToken":  *pulumi.Int(europeanEc2.SyncToken),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetIpRanges(ctx *pulumi.Context, args *GetIpRangesArgs, opts ...pulumi.InvokeOption) (*GetIpRangesResult, error) {
 	var rv GetIpRangesResult
 	err := ctx.Invoke("aws:index/getIpRanges:getIpRanges", args, &rv, opts...)
@@ -21,22 +73,36 @@ func GetIpRanges(ctx *pulumi.Context, args *GetIpRangesArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getIpRanges.
 type GetIpRangesArgs struct {
-	Regions  []string `pulumi:"regions"`
+	// Filter IP ranges by regions (or include all regions, if
+	// omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
+	// (e.g., `eu-central-1`)
+	Regions []string `pulumi:"regions"`
+	// Filter IP ranges by services. Valid items are `amazon`
+	// (for amazon.com), `amazonConnect`, `apiGateway`, `cloud9`, `cloudfront`,
+	// `codebuild`, `dynamodb`, `ec2`, `ec2InstanceConnect`, `globalaccelerator`,
+	// `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
+	// [`service` attribute][2] documentation for other possible values.
 	Services []string `pulumi:"services"`
-	Url      *string  `pulumi:"url"`
+	// Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
+	Url *string `pulumi:"url"`
 }
 
 // A collection of values returned by getIpRanges.
 type GetIpRangesResult struct {
+	// Lexically ordered list of CIDR blocks.
 	CidrBlocks []string `pulumi:"cidrBlocks"`
-	CreateDate string   `pulumi:"createDate"`
+	// Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
+	CreateDate string `pulumi:"createDate"`
 	// The provider-assigned unique ID for this managed resource.
-	Id             string   `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Lexically ordered list of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	Regions        []string `pulumi:"regions"`
 	Services       []string `pulumi:"services"`
-	SyncToken      int      `pulumi:"syncToken"`
-	Url            *string  `pulumi:"url"`
+	// Publication time of the IP ranges, in Unix epoch time format
+	// (e.g., `1470267965`).
+	SyncToken int     `pulumi:"syncToken"`
+	Url       *string `pulumi:"url"`
 }
 
 func GetIpRangesOutput(ctx *pulumi.Context, args GetIpRangesOutputArgs, opts ...pulumi.InvokeOption) GetIpRangesResultOutput {
@@ -54,9 +120,18 @@ func GetIpRangesOutput(ctx *pulumi.Context, args GetIpRangesOutputArgs, opts ...
 
 // A collection of arguments for invoking getIpRanges.
 type GetIpRangesOutputArgs struct {
-	Regions  pulumi.StringArrayInput `pulumi:"regions"`
+	// Filter IP ranges by regions (or include all regions, if
+	// omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
+	// (e.g., `eu-central-1`)
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
+	// Filter IP ranges by services. Valid items are `amazon`
+	// (for amazon.com), `amazonConnect`, `apiGateway`, `cloud9`, `cloudfront`,
+	// `codebuild`, `dynamodb`, `ec2`, `ec2InstanceConnect`, `globalaccelerator`,
+	// `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
+	// [`service` attribute][2] documentation for other possible values.
 	Services pulumi.StringArrayInput `pulumi:"services"`
-	Url      pulumi.StringPtrInput   `pulumi:"url"`
+	// Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
+	Url pulumi.StringPtrInput `pulumi:"url"`
 }
 
 func (GetIpRangesOutputArgs) ElementType() reflect.Type {
@@ -78,10 +153,12 @@ func (o GetIpRangesResultOutput) ToGetIpRangesResultOutputWithContext(ctx contex
 	return o
 }
 
+// Lexically ordered list of CIDR blocks.
 func (o GetIpRangesResultOutput) CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpRangesResult) []string { return v.CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
+// Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
 func (o GetIpRangesResultOutput) CreateDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIpRangesResult) string { return v.CreateDate }).(pulumi.StringOutput)
 }
@@ -91,6 +168,7 @@ func (o GetIpRangesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIpRangesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Lexically ordered list of IPv6 CIDR blocks.
 func (o GetIpRangesResultOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpRangesResult) []string { return v.Ipv6CidrBlocks }).(pulumi.StringArrayOutput)
 }
@@ -103,6 +181,8 @@ func (o GetIpRangesResultOutput) Services() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpRangesResult) []string { return v.Services }).(pulumi.StringArrayOutput)
 }
 
+// Publication time of the IP ranges, in Unix epoch time format
+// (e.g., `1470267965`).
 func (o GetIpRangesResultOutput) SyncToken() pulumi.IntOutput {
 	return o.ApplyT(func(v GetIpRangesResult) int { return v.SyncToken }).(pulumi.IntOutput)
 }

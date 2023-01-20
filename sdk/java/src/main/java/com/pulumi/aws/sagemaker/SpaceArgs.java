@@ -17,30 +17,62 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SpaceArgs Empty = new SpaceArgs();
 
+    /**
+     * The ID of the associated Domain.
+     * 
+     */
     @Import(name="domainId", required=true)
     private Output<String> domainId;
 
+    /**
+     * @return The ID of the associated Domain.
+     * 
+     */
     public Output<String> domainId() {
         return this.domainId;
     }
 
+    /**
+     * The name of the space.
+     * 
+     */
     @Import(name="spaceName", required=true)
     private Output<String> spaceName;
 
+    /**
+     * @return The name of the space.
+     * 
+     */
     public Output<String> spaceName() {
         return this.spaceName;
     }
 
+    /**
+     * A collection of space settings. See Space Settings below.
+     * 
+     */
     @Import(name="spaceSettings")
     private @Nullable Output<SpaceSpaceSettingsArgs> spaceSettings;
 
+    /**
+     * @return A collection of space settings. See Space Settings below.
+     * 
+     */
     public Optional<Output<SpaceSpaceSettingsArgs>> spaceSettings() {
         return Optional.ofNullable(this.spaceSettings);
     }
 
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -72,38 +104,86 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SpaceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domainId The ID of the associated Domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainId(Output<String> domainId) {
             $.domainId = domainId;
             return this;
         }
 
+        /**
+         * @param domainId The ID of the associated Domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainId(String domainId) {
             return domainId(Output.of(domainId));
         }
 
+        /**
+         * @param spaceName The name of the space.
+         * 
+         * @return builder
+         * 
+         */
         public Builder spaceName(Output<String> spaceName) {
             $.spaceName = spaceName;
             return this;
         }
 
+        /**
+         * @param spaceName The name of the space.
+         * 
+         * @return builder
+         * 
+         */
         public Builder spaceName(String spaceName) {
             return spaceName(Output.of(spaceName));
         }
 
+        /**
+         * @param spaceSettings A collection of space settings. See Space Settings below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder spaceSettings(@Nullable Output<SpaceSpaceSettingsArgs> spaceSettings) {
             $.spaceSettings = spaceSettings;
             return this;
         }
 
+        /**
+         * @param spaceSettings A collection of space settings. See Space Settings below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder spaceSettings(SpaceSpaceSettingsArgs spaceSettings) {
             return spaceSettings(Output.of(spaceSettings));
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

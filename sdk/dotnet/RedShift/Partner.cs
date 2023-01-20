@@ -9,24 +9,73 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedShift
 {
+    /// <summary>
+    /// Creates a new Amazon Redshift Partner Integration.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.RedShift.Partner("example", new()
+    ///     {
+    ///         ClusterIdentifier = aws_redshift_cluster.Example.Id,
+    ///         AccountId = "1234567910",
+    ///         DatabaseName = aws_redshift_cluster.Example.Database_name,
+    ///         PartnerName = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Redshift usage limits can be imported using the `id`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:redshift/partner:Partner")]
     public partial class Partner : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Web Services account ID that owns the cluster.
+        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// The cluster identifier of the cluster that receives data from the partner.
+        /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the database that receives data from the partner.
+        /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the partner that is authorized to send data.
+        /// </summary>
         [Output("partnerName")]
         public Output<string> PartnerName { get; private set; } = null!;
 
+        /// <summary>
+        /// (Optional) The partner integration status.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// (Optional) The status message provided by the partner.
+        /// </summary>
         [Output("statusMessage")]
         public Output<string> StatusMessage { get; private set; } = null!;
 
@@ -76,15 +125,27 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class PartnerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Web Services account ID that owns the cluster.
+        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The cluster identifier of the cluster that receives data from the partner.
+        /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the database that receives data from the partner.
+        /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the partner that is authorized to send data.
+        /// </summary>
         [Input("partnerName", required: true)]
         public Input<string> PartnerName { get; set; } = null!;
 
@@ -96,21 +157,39 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class PartnerState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Web Services account ID that owns the cluster.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
+        /// <summary>
+        /// The cluster identifier of the cluster that receives data from the partner.
+        /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
+        /// <summary>
+        /// The name of the database that receives data from the partner.
+        /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
+        /// <summary>
+        /// The name of the partner that is authorized to send data.
+        /// </summary>
         [Input("partnerName")]
         public Input<string>? PartnerName { get; set; }
 
+        /// <summary>
+        /// (Optional) The partner integration status.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        /// <summary>
+        /// (Optional) The status message provided by the partner.
+        /// </summary>
         [Input("statusMessage")]
         public Input<string>? StatusMessage { get; set; }
 

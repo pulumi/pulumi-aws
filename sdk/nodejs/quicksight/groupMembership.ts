@@ -4,6 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Resource for managing QuickSight Group Membership
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.quicksight.GroupMembership("example", {
+ *     groupName: "all-access-users",
+ *     memberName: "john_smith",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * QuickSight Group membership can be imported using the AWS account ID, namespace, group name and member name separated by `/`.
+ *
+ * ```sh
+ *  $ pulumi import aws:quicksight/groupMembership:GroupMembership example 123456789123/default/all-access-users/john_smith
+ * ```
+ */
 export class GroupMembership extends pulumi.CustomResource {
     /**
      * Get an existing GroupMembership resource's state with the given name, ID, and optional extra
@@ -33,9 +56,21 @@ export class GroupMembership extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+     */
     public readonly awsAccountId!: pulumi.Output<string>;
+    /**
+     * The name of the group in which the member will be added.
+     */
     public readonly groupName!: pulumi.Output<string>;
+    /**
+     * The name of the member to add to the group.
+     */
     public readonly memberName!: pulumi.Output<string>;
+    /**
+     * The namespace. Defaults to `default`. Currently only `default` is supported.
+     */
     public readonly namespace!: pulumi.Output<string | undefined>;
 
     /**
@@ -80,9 +115,21 @@ export class GroupMembership extends pulumi.CustomResource {
  */
 export interface GroupMembershipState {
     arn?: pulumi.Input<string>;
+    /**
+     * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+     */
     awsAccountId?: pulumi.Input<string>;
+    /**
+     * The name of the group in which the member will be added.
+     */
     groupName?: pulumi.Input<string>;
+    /**
+     * The name of the member to add to the group.
+     */
     memberName?: pulumi.Input<string>;
+    /**
+     * The namespace. Defaults to `default`. Currently only `default` is supported.
+     */
     namespace?: pulumi.Input<string>;
 }
 
@@ -90,8 +137,20 @@ export interface GroupMembershipState {
  * The set of arguments for constructing a GroupMembership resource.
  */
 export interface GroupMembershipArgs {
+    /**
+     * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+     */
     awsAccountId?: pulumi.Input<string>;
+    /**
+     * The name of the group in which the member will be added.
+     */
     groupName: pulumi.Input<string>;
+    /**
+     * The name of the member to add to the group.
+     */
     memberName: pulumi.Input<string>;
+    /**
+     * The namespace. Defaults to `default`. Currently only `default` is supported.
+     */
     namespace?: pulumi.Input<string>;
 }

@@ -18,16 +18,32 @@ public final class InputSecurityGroupArgs extends com.pulumi.resources.ResourceA
 
     public static final InputSecurityGroupArgs Empty = new InputSecurityGroupArgs();
 
+    /**
+     * A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Whitelist rules. See Whitelist Rules for more details.
+     * 
+     */
     @Import(name="whitelistRules", required=true)
     private Output<List<InputSecurityGroupWhitelistRuleArgs>> whitelistRules;
 
+    /**
+     * @return Whitelist rules. See Whitelist Rules for more details.
+     * 
+     */
     public Output<List<InputSecurityGroupWhitelistRuleArgs>> whitelistRules() {
         return this.whitelistRules;
     }
@@ -57,24 +73,54 @@ public final class InputSecurityGroupArgs extends com.pulumi.resources.ResourceA
             $ = new InputSecurityGroupArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param tags A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param whitelistRules Whitelist rules. See Whitelist Rules for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder whitelistRules(Output<List<InputSecurityGroupWhitelistRuleArgs>> whitelistRules) {
             $.whitelistRules = whitelistRules;
             return this;
         }
 
+        /**
+         * @param whitelistRules Whitelist rules. See Whitelist Rules for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder whitelistRules(List<InputSecurityGroupWhitelistRuleArgs> whitelistRules) {
             return whitelistRules(Output.of(whitelistRules));
         }
 
+        /**
+         * @param whitelistRules Whitelist rules. See Whitelist Rules for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder whitelistRules(InputSecurityGroupWhitelistRuleArgs... whitelistRules) {
             return whitelistRules(List.of(whitelistRules));
         }

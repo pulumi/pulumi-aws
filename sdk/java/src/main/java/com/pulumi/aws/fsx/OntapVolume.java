@@ -18,77 +18,259 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages a FSx ONTAP Volume.
+ * See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html) for more information.
+ * 
+ * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.fsx.OntapVolume;
+ * import com.pulumi.aws.fsx.OntapVolumeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new OntapVolume(&#34;test&#34;, OntapVolumeArgs.builder()        
+ *             .junctionPath(&#34;/test&#34;)
+ *             .sizeInMegabytes(1024)
+ *             .storageEfficiencyEnabled(true)
+ *             .storageVirtualMachineId(aws_fsx_ontap_storage_virtual_machine.test().id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Using Tiering Policy
+ * 
+ * Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.fsx.OntapVolume;
+ * import com.pulumi.aws.fsx.OntapVolumeArgs;
+ * import com.pulumi.aws.fsx.inputs.OntapVolumeTieringPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new OntapVolume(&#34;test&#34;, OntapVolumeArgs.builder()        
+ *             .junctionPath(&#34;/test&#34;)
+ *             .sizeInMegabytes(1024)
+ *             .storageEfficiencyEnabled(true)
+ *             .storageVirtualMachineId(aws_fsx_ontap_storage_virtual_machine.test().id())
+ *             .tieringPolicy(OntapVolumeTieringPolicyArgs.builder()
+ *                 .name(&#34;AUTO&#34;)
+ *                 .coolingPeriod(31)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * FSx ONTAP volume can be imported using the `id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
+ * ```
+ * 
+ */
 @ResourceType(type="aws:fsx/ontapVolume:OntapVolume")
 public class OntapVolume extends com.pulumi.resources.CustomResource {
+    /**
+     * Amazon Resource Name of the volune.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return Amazon Resource Name of the volune.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Describes the file system for the volume, e.g. `fs-12345679`
+     * 
+     */
     @Export(name="fileSystemId", refs={String.class}, tree="[0]")
     private Output<String> fileSystemId;
 
+    /**
+     * @return Describes the file system for the volume, e.g. `fs-12345679`
+     * 
+     */
     public Output<String> fileSystemId() {
         return this.fileSystemId;
     }
+    /**
+     * Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
+     * 
+     */
     @Export(name="flexcacheEndpointType", refs={String.class}, tree="[0]")
     private Output<String> flexcacheEndpointType;
 
+    /**
+     * @return Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
+     * 
+     */
     public Output<String> flexcacheEndpointType() {
         return this.flexcacheEndpointType;
     }
+    /**
+     * Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+     * 
+     */
     @Export(name="junctionPath", refs={String.class}, tree="[0]")
     private Output<String> junctionPath;
 
+    /**
+     * @return Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+     * 
+     */
     public Output<String> junctionPath() {
         return this.junctionPath;
     }
+    /**
+     * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+     * 
+     */
     @Export(name="ontapVolumeType", refs={String.class}, tree="[0]")
     private Output<String> ontapVolumeType;
 
+    /**
+     * @return Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+     * 
+     */
     public Output<String> ontapVolumeType() {
         return this.ontapVolumeType;
     }
+    /**
+     * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+     * 
+     */
     @Export(name="securityStyle", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> securityStyle;
 
+    /**
+     * @return Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+     * 
+     */
     public Output<Optional<String>> securityStyle() {
         return Codegen.optional(this.securityStyle);
     }
+    /**
+     * Specifies the size of the volume, in megabytes (MB), that you are creating.
+     * 
+     */
     @Export(name="sizeInMegabytes", refs={Integer.class}, tree="[0]")
     private Output<Integer> sizeInMegabytes;
 
+    /**
+     * @return Specifies the size of the volume, in megabytes (MB), that you are creating.
+     * 
+     */
     public Output<Integer> sizeInMegabytes() {
         return this.sizeInMegabytes;
     }
+    /**
+     * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+     * 
+     */
     @Export(name="storageEfficiencyEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> storageEfficiencyEnabled;
 
+    /**
+     * @return Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+     * 
+     */
     public Output<Boolean> storageEfficiencyEnabled() {
         return this.storageEfficiencyEnabled;
     }
+    /**
+     * Specifies the storage virtual machine in which to create the volume.
+     * 
+     */
     @Export(name="storageVirtualMachineId", refs={String.class}, tree="[0]")
     private Output<String> storageVirtualMachineId;
 
+    /**
+     * @return Specifies the storage virtual machine in which to create the volume.
+     * 
+     */
     public Output<String> storageVirtualMachineId() {
         return this.storageVirtualMachineId;
     }
+    /**
+     * A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -98,15 +280,31 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
     public Output<Optional<OntapVolumeTieringPolicy>> tieringPolicy() {
         return Codegen.optional(this.tieringPolicy);
     }
+    /**
+     * The Volume&#39;s UUID (universally unique identifier).
+     * 
+     */
     @Export(name="uuid", refs={String.class}, tree="[0]")
     private Output<String> uuid;
 
+    /**
+     * @return The Volume&#39;s UUID (universally unique identifier).
+     * 
+     */
     public Output<String> uuid() {
         return this.uuid;
     }
+    /**
+     * The type of volume, currently the only valid value is `ONTAP`.
+     * 
+     */
     @Export(name="volumeType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> volumeType;
 
+    /**
+     * @return The type of volume, currently the only valid value is `ONTAP`.
+     * 
+     */
     public Output<Optional<String>> volumeType() {
         return Codegen.optional(this.volumeType);
     }

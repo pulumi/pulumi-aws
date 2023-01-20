@@ -14,9 +14,17 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
 
     public static final PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs Empty = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs();
 
+    /**
+     * List of up to 10 structures that defines custom capacity metric in predictive scaling policy
+     * 
+     */
     @Import(name="metricDataQueries", required=true)
     private Output<List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs>> metricDataQueries;
 
+    /**
+     * @return List of up to 10 structures that defines custom capacity metric in predictive scaling policy
+     * 
+     */
     public Output<List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs>> metricDataQueries() {
         return this.metricDataQueries;
     }
@@ -45,15 +53,33 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
             $ = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param metricDataQueries List of up to 10 structures that defines custom capacity metric in predictive scaling policy
+         * 
+         * @return builder
+         * 
+         */
         public Builder metricDataQueries(Output<List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs>> metricDataQueries) {
             $.metricDataQueries = metricDataQueries;
             return this;
         }
 
+        /**
+         * @param metricDataQueries List of up to 10 structures that defines custom capacity metric in predictive scaling policy
+         * 
+         * @return builder
+         * 
+         */
         public Builder metricDataQueries(List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs> metricDataQueries) {
             return metricDataQueries(Output.of(metricDataQueries));
         }
 
+        /**
+         * @param metricDataQueries List of up to 10 structures that defines custom capacity metric in predictive scaling policy
+         * 
+         * @return builder
+         * 
+         */
         public Builder metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs... metricDataQueries) {
             return metricDataQueries(List.of(metricDataQueries));
         }

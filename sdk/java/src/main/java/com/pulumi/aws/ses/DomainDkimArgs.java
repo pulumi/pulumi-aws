@@ -13,9 +13,17 @@ public final class DomainDkimArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DomainDkimArgs Empty = new DomainDkimArgs();
 
+    /**
+     * Verified domain name to generate DKIM tokens for.
+     * 
+     */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
+    /**
+     * @return Verified domain name to generate DKIM tokens for.
+     * 
+     */
     public Output<String> domain() {
         return this.domain;
     }
@@ -44,11 +52,23 @@ public final class DomainDkimArgs extends com.pulumi.resources.ResourceArgs {
             $ = new DomainDkimArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domain Verified domain name to generate DKIM tokens for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domain(Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
+        /**
+         * @param domain Verified domain name to generate DKIM tokens for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }

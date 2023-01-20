@@ -15,16 +15,32 @@ public final class WebhookAuthenticationConfigurationArgs extends com.pulumi.res
 
     public static final WebhookAuthenticationConfigurationArgs Empty = new WebhookAuthenticationConfigurationArgs();
 
+    /**
+     * A valid CIDR block for `IP` filtering. Required for `IP`.
+     * 
+     */
     @Import(name="allowedIpRange")
     private @Nullable Output<String> allowedIpRange;
 
+    /**
+     * @return A valid CIDR block for `IP` filtering. Required for `IP`.
+     * 
+     */
     public Optional<Output<String>> allowedIpRange() {
         return Optional.ofNullable(this.allowedIpRange);
     }
 
+    /**
+     * The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`&#39;s `configuration` block. Required for `GITHUB_HMAC`.
+     * 
+     */
     @Import(name="secretToken")
     private @Nullable Output<String> secretToken;
 
+    /**
+     * @return The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`&#39;s `configuration` block. Required for `GITHUB_HMAC`.
+     * 
+     */
     public Optional<Output<String>> secretToken() {
         return Optional.ofNullable(this.secretToken);
     }
@@ -54,20 +70,44 @@ public final class WebhookAuthenticationConfigurationArgs extends com.pulumi.res
             $ = new WebhookAuthenticationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allowedIpRange A valid CIDR block for `IP` filtering. Required for `IP`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedIpRange(@Nullable Output<String> allowedIpRange) {
             $.allowedIpRange = allowedIpRange;
             return this;
         }
 
+        /**
+         * @param allowedIpRange A valid CIDR block for `IP` filtering. Required for `IP`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedIpRange(String allowedIpRange) {
             return allowedIpRange(Output.of(allowedIpRange));
         }
 
+        /**
+         * @param secretToken The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`&#39;s `configuration` block. Required for `GITHUB_HMAC`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretToken(@Nullable Output<String> secretToken) {
             $.secretToken = secretToken;
             return this;
         }
 
+        /**
+         * @param secretToken The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`&#39;s `configuration` block. Required for `GITHUB_HMAC`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretToken(String secretToken) {
             return secretToken(Output.of(secretToken));
         }

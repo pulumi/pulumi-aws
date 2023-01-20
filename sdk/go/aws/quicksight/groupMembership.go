@@ -11,14 +11,56 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing QuickSight Group Membership
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := quicksight.NewGroupMembership(ctx, "example", &quicksight.GroupMembershipArgs{
+//				GroupName:  pulumi.String("all-access-users"),
+//				MemberName: pulumi.String("john_smith"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// QuickSight Group membership can be imported using the AWS account ID, namespace, group name and member name separated by `/`.
+//
+// ```sh
+//
+//	$ pulumi import aws:quicksight/groupMembership:GroupMembership example 123456789123/default/all-access-users/john_smith
+//
+// ```
 type GroupMembership struct {
 	pulumi.CustomResourceState
 
-	Arn          pulumi.StringOutput    `pulumi:"arn"`
-	AwsAccountId pulumi.StringOutput    `pulumi:"awsAccountId"`
-	GroupName    pulumi.StringOutput    `pulumi:"groupName"`
-	MemberName   pulumi.StringOutput    `pulumi:"memberName"`
-	Namespace    pulumi.StringPtrOutput `pulumi:"namespace"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	// The name of the group in which the member will be added.
+	GroupName pulumi.StringOutput `pulumi:"groupName"`
+	// The name of the member to add to the group.
+	MemberName pulumi.StringOutput `pulumi:"memberName"`
+	// The namespace. Defaults to `default`. Currently only `default` is supported.
+	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
 }
 
 // NewGroupMembership registers a new resource with the given unique name, arguments, and options.
@@ -56,19 +98,27 @@ func GetGroupMembership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GroupMembership resources.
 type groupMembershipState struct {
-	Arn          *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	GroupName    *string `pulumi:"groupName"`
-	MemberName   *string `pulumi:"memberName"`
-	Namespace    *string `pulumi:"namespace"`
+	// The name of the group in which the member will be added.
+	GroupName *string `pulumi:"groupName"`
+	// The name of the member to add to the group.
+	MemberName *string `pulumi:"memberName"`
+	// The namespace. Defaults to `default`. Currently only `default` is supported.
+	Namespace *string `pulumi:"namespace"`
 }
 
 type GroupMembershipState struct {
-	Arn          pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId pulumi.StringPtrInput
-	GroupName    pulumi.StringPtrInput
-	MemberName   pulumi.StringPtrInput
-	Namespace    pulumi.StringPtrInput
+	// The name of the group in which the member will be added.
+	GroupName pulumi.StringPtrInput
+	// The name of the member to add to the group.
+	MemberName pulumi.StringPtrInput
+	// The namespace. Defaults to `default`. Currently only `default` is supported.
+	Namespace pulumi.StringPtrInput
 }
 
 func (GroupMembershipState) ElementType() reflect.Type {
@@ -76,18 +126,26 @@ func (GroupMembershipState) ElementType() reflect.Type {
 }
 
 type groupMembershipArgs struct {
+	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	GroupName    string  `pulumi:"groupName"`
-	MemberName   string  `pulumi:"memberName"`
-	Namespace    *string `pulumi:"namespace"`
+	// The name of the group in which the member will be added.
+	GroupName string `pulumi:"groupName"`
+	// The name of the member to add to the group.
+	MemberName string `pulumi:"memberName"`
+	// The namespace. Defaults to `default`. Currently only `default` is supported.
+	Namespace *string `pulumi:"namespace"`
 }
 
 // The set of arguments for constructing a GroupMembership resource.
 type GroupMembershipArgs struct {
+	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId pulumi.StringPtrInput
-	GroupName    pulumi.StringInput
-	MemberName   pulumi.StringInput
-	Namespace    pulumi.StringPtrInput
+	// The name of the group in which the member will be added.
+	GroupName pulumi.StringInput
+	// The name of the member to add to the group.
+	MemberName pulumi.StringInput
+	// The namespace. Defaults to `default`. Currently only `default` is supported.
+	Namespace pulumi.StringPtrInput
 }
 
 func (GroupMembershipArgs) ElementType() reflect.Type {
@@ -181,18 +239,22 @@ func (o GroupMembershipOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 func (o GroupMembershipOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
+// The name of the group in which the member will be added.
 func (o GroupMembershipOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
 }
 
+// The name of the member to add to the group.
 func (o GroupMembershipOutput) MemberName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.MemberName }).(pulumi.StringOutput)
 }
 
+// The namespace. Defaults to `default`. Currently only `default` is supported.
 func (o GroupMembershipOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
 }

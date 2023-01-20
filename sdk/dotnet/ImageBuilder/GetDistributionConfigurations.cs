@@ -11,9 +11,77 @@ namespace Pulumi.Aws.ImageBuilder
 {
     public static class GetDistributionConfigurations
     {
+        /// <summary>
+        /// Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ImageBuilder.GetDistributionConfigurations.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.ImageBuilder.Inputs.GetDistributionConfigurationsFilterInputArgs
+        ///             {
+        ///                 Name = "name",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "example",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetDistributionConfigurationsResult> InvokeAsync(GetDistributionConfigurationsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDistributionConfigurationsResult>("aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations", args ?? new GetDistributionConfigurationsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ImageBuilder.GetDistributionConfigurations.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.ImageBuilder.Inputs.GetDistributionConfigurationsFilterInputArgs
+        ///             {
+        ///                 Name = "name",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "example",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetDistributionConfigurationsResult> Invoke(GetDistributionConfigurationsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDistributionConfigurationsResult>("aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations", args ?? new GetDistributionConfigurationsInvokeArgs(), options.WithDefaults());
     }
@@ -23,6 +91,10 @@ namespace Pulumi.Aws.ImageBuilder
     {
         [Input("filters")]
         private List<Inputs.GetDistributionConfigurationsFilterArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
         public List<Inputs.GetDistributionConfigurationsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetDistributionConfigurationsFilterArgs>());
@@ -39,6 +111,10 @@ namespace Pulumi.Aws.ImageBuilder
     {
         [Input("filters")]
         private InputList<Inputs.GetDistributionConfigurationsFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
         public InputList<Inputs.GetDistributionConfigurationsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetDistributionConfigurationsFilterInputArgs>());
@@ -55,12 +131,18 @@ namespace Pulumi.Aws.ImageBuilder
     [OutputType]
     public sealed class GetDistributionConfigurationsResult
     {
+        /// <summary>
+        /// Set of ARNs of the matched Image Builder Distribution Configurations.
+        /// </summary>
         public readonly ImmutableArray<string> Arns;
         public readonly ImmutableArray<Outputs.GetDistributionConfigurationsFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Set of names of the matched Image Builder Distribution Configurations.
+        /// </summary>
         public readonly ImmutableArray<string> Names;
 
         [OutputConstructor]

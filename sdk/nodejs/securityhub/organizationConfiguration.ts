@@ -4,6 +4,37 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages the Security Hub Organization Configuration.
+ *
+ * > **NOTE:** This resource requires an `aws.securityhub.OrganizationAdminAccount` to be configured (not necessarily with this provider). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation
+ *
+ * > **NOTE:** This is an advanced resource. This provider will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the configuration.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {
+ *     awsServiceAccessPrincipals: ["securityhub.amazonaws.com"],
+ *     featureSet: "ALL",
+ * });
+ * const exampleOrganizationAdminAccount = new aws.securityhub.OrganizationAdminAccount("exampleOrganizationAdminAccount", {adminAccountId: "123456789012"}, {
+ *     dependsOn: [exampleOrganization],
+ * });
+ * const exampleOrganizationConfiguration = new aws.securityhub.OrganizationConfiguration("exampleOrganizationConfiguration", {autoEnable: true});
+ * ```
+ *
+ * ## Import
+ *
+ * An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
+ * ```
+ */
 export class OrganizationConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationConfiguration resource's state with the given name, ID, and optional extra
@@ -32,6 +63,9 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationConfiguration.__pulumiType;
     }
 
+    /**
+     * Whether to automatically enable Security Hub for new accounts in the organization.
+     */
     public readonly autoEnable!: pulumi.Output<boolean>;
 
     /**
@@ -64,6 +98,9 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrganizationConfiguration resources.
  */
 export interface OrganizationConfigurationState {
+    /**
+     * Whether to automatically enable Security Hub for new accounts in the organization.
+     */
     autoEnable?: pulumi.Input<boolean>;
 }
 
@@ -71,5 +108,8 @@ export interface OrganizationConfigurationState {
  * The set of arguments for constructing a OrganizationConfiguration resource.
  */
 export interface OrganizationConfigurationArgs {
+    /**
+     * Whether to automatically enable Security Hub for new accounts in the organization.
+     */
     autoEnable: pulumi.Input<boolean>;
 }

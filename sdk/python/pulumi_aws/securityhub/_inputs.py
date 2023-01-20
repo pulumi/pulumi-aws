@@ -203,6 +203,96 @@ class InsightFiltersArgs:
                  user_defined_values: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersUserDefinedValueArgs']]]] = None,
                  verification_states: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersVerificationStateArgs']]]] = None,
                  workflow_statuses: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersWorkflowStatusArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountIdArgs']]] aws_account_ids: AWS account ID that a finding is generated in. See String_Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersCompanyNameArgs']]] company_names: The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceStatusArgs']]] compliance_statuses: Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersConfidenceArgs']]] confidences: A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersCreatedAtArgs']]] created_ats: An ISO8601-formatted timestamp that indicates when the security-findings provider captured the potential security issue that a finding captured. See Date Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersCriticalityArgs']]] criticalities: The level of importance assigned to the resources associated with the finding. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersDescriptionArgs']]] descriptions: A finding's description. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsConfidenceArgs']]] finding_provider_fields_confidences: The finding provider value for the finding confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsCriticalityArgs']]] finding_provider_fields_criticalities: The finding provider value for the level of importance assigned to the resources associated with the findings. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs']]] finding_provider_fields_related_findings_ids: The finding identifier of a related finding that is identified by the finding provider. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs']]] finding_provider_fields_related_findings_product_arns: The ARN of the solution that generated a related finding that is identified by the finding provider. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityLabelArgs']]] finding_provider_fields_severity_labels: The finding provider value for the severity label. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityOriginalArgs']]] finding_provider_fields_severity_originals: The finding provider's original value for the severity. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsTypeArgs']]] finding_provider_fields_types: One or more finding types that the finding provider assigned to the finding. Uses the format of `namespace/category/classifier` that classify a finding. Valid namespace values include: `Software and Configuration Checks`, `TTPs`, `Effects`, `Unusual Behaviors`, and `Sensitive Data Identifications`. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersFirstObservedAtArgs']]] first_observed_ats: An ISO8601-formatted timestamp that indicates when the security-findings provider first observed the potential security issue that a finding captured. See Date Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersGeneratorIdArgs']]] generator_ids: The identifier for the solution-specific component (a discrete unit of logic) that generated a finding. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersIdArgs']]] ids: The security findings provider-specific identifier for a finding. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersKeywordArgs']]] keywords: A keyword for a finding. See Keyword Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersLastObservedAtArgs']]] last_observed_ats: An ISO8601-formatted timestamp that indicates when the security-findings provider most recently observed the potential security issue that a finding captured. See Date Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareNameArgs']]] malware_names: The name of the malware that was observed. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwarePathArgs']]] malware_paths: The filesystem path of the malware that was observed. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareStateArgs']]] malware_states: The state of the malware that was observed. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareTypeArgs']]] malware_types: The type of the malware that was observed. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationDomainArgs']]] network_destination_domains: The destination domain of network-related information about a finding. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv4Args']]] network_destination_ipv4s: The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv6Args']]] network_destination_ipv6s: The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationPortArgs']]] network_destination_ports: The destination port of network-related information about a finding. See Number Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDirectionArgs']]] network_directions: Indicates the direction of network traffic associated with a finding. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkProtocolArgs']]] network_protocols: The protocol of network-related information about a finding. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceDomainArgs']]] network_source_domains: The source domain of network-related information about a finding. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv4Args']]] network_source_ipv4s: The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv6Args']]] network_source_ipv6s: The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceMacArgs']]] network_source_macs: The source media access control (MAC) address of network-related information about a finding. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourcePortArgs']]] network_source_ports: The source port of network-related information about a finding. See Number Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteTextArgs']]] note_texts: The text of a note. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteUpdatedAtArgs']]] note_updated_ats: The timestamp of when the note was updated. See Date Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteUpdatedByArgs']]] note_updated_bies: The principal that created a note. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessLaunchedAtArgs']]] process_launched_ats: The date/time that the process was launched. See Date Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessNameArgs']]] process_names: The name of the process. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessParentPidArgs']]] process_parent_pids: The parent process ID. See Number Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessPathArgs']]] process_paths: The path to the process executable. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessPidArgs']]] process_pids: The process ID. See Number Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessTerminatedAtArgs']]] process_terminated_ats: The date/time that the process was terminated. See Date Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductArnArgs']]] product_arns: The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductFieldArgs']]] product_fields: A data type where security-findings providers can include additional solution-specific details that aren't part of the defined `AwsSecurityFinding` format. See Map Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductNameArgs']]] product_names: The name of the solution (product) that generates findings. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersRecommendationTextArgs']]] recommendation_texts: The recommendation of what to do about the issue described in a finding. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersRecordStateArgs']]] record_states: The updated record state for the finding. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersRelatedFindingsIdArgs']]] related_findings_ids: The solution-generated identifier for a related finding. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersRelatedFindingsProductArnArgs']]] related_findings_product_arns: The ARN of the solution that generated a related finding. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs']]] resource_aws_ec2_instance_iam_instance_profile_arns: The IAM profile ARN of the instance. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceImageIdArgs']]] resource_aws_ec2_instance_image_ids: The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs']]] resource_aws_ec2_instance_ipv4_addresses: The IPv4 addresses associated with the instance. See Ip Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs']]] resource_aws_ec2_instance_ipv6_addresses: The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceKeyNameArgs']]] resource_aws_ec2_instance_key_names: The key name associated with the instance. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs']]] resource_aws_ec2_instance_launched_ats: The date and time the instance was launched. See Date Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceSubnetIdArgs']]] resource_aws_ec2_instance_subnet_ids: The identifier of the subnet that the instance was launched in. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceTypeArgs']]] resource_aws_ec2_instance_types: The instance type of the instance. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceVpcIdArgs']]] resource_aws_ec2_instance_vpc_ids: The identifier of the VPC that the instance was launched in. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs']]] resource_aws_iam_access_key_created_ats: The creation date/time of the IAM access key related to a finding. See Date Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyStatusArgs']]] resource_aws_iam_access_key_statuses: The status of the IAM access key related to a finding. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyUserNameArgs']]] resource_aws_iam_access_key_user_names: The user associated with the IAM access key related to a finding. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerIdArgs']]] resource_aws_s3_bucket_owner_ids: The canonical user ID of the owner of the S3 bucket. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerNameArgs']]] resource_aws_s3_bucket_owner_names: The display name of the owner of the S3 bucket. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerImageIdArgs']]] resource_container_image_ids: The identifier of the image related to a finding. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerImageNameArgs']]] resource_container_image_names: The name of the image related to a finding. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerLaunchedAtArgs']]] resource_container_launched_ats: The date/time that the container was started. See Date Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerNameArgs']]] resource_container_names: The name of the container related to a finding. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceDetailsOtherArgs']]] resource_details_others: The details of a resource that doesn't have a specific subfield for the resource type defined. See Map Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceIdArgs']]] resource_ids: The canonical identifier for the given resource type. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourcePartitionArgs']]] resource_partitions: The canonical AWS partition name that the Region is assigned to. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceRegionArgs']]] resource_regions: The canonical AWS external Region name where this resource is located. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceTagArgs']]] resource_tags: A list of AWS tags associated with a resource at the time the finding was processed. See Map Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceTypeArgs']]] resource_types: Specifies the type of the resource that details are provided for. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersSeverityLabelArgs']]] severity_labels: The label of a finding's severity. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersSourceUrlArgs']]] source_urls: A URL that links to a page about the current finding in the security-findings provider's solution. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorCategoryArgs']]] threat_intel_indicator_categories: The category of a threat intelligence indicator. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtArgs']]] threat_intel_indicator_last_observed_ats: The date/time of the last observation of a threat intelligence indicator. See Date Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceUrlArgs']]] threat_intel_indicator_source_urls: The URL for more details from the source of the threat intelligence. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceArgs']]] threat_intel_indicator_sources: The source of the threat intelligence. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorTypeArgs']]] threat_intel_indicator_types: The type of a threat intelligence indicator. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorValueArgs']]] threat_intel_indicator_values: The value of a threat intelligence indicator. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersTitleArgs']]] titles: A finding's title. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersTypeArgs']]] types: A finding type in the format of `namespace/category/classifier` that classifies a finding. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersUpdatedAtArgs']]] updated_ats: An ISO8601-formatted timestamp that indicates when the security-findings provider last updated the finding record. See Date Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersUserDefinedValueArgs']]] user_defined_values: A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding. See Map Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersVerificationStateArgs']]] verification_states: The veracity of a finding. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersWorkflowStatusArgs']]] workflow_statuses: The status of the investigation into a finding. See Workflow Status Filter below for more details.
+        """
         if aws_account_ids is not None:
             pulumi.set(__self__, "aws_account_ids", aws_account_ids)
         if company_names is not None:
@@ -383,6 +473,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="awsAccountIds")
     def aws_account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountIdArgs']]]]:
+        """
+        AWS account ID that a finding is generated in. See String_Filter below for more details.
+        """
         return pulumi.get(self, "aws_account_ids")
 
     @aws_account_ids.setter
@@ -392,6 +485,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="companyNames")
     def company_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCompanyNameArgs']]]]:
+        """
+        The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
+        """
         return pulumi.get(self, "company_names")
 
     @company_names.setter
@@ -401,6 +497,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="complianceStatuses")
     def compliance_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceStatusArgs']]]]:
+        """
+        Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
+        """
         return pulumi.get(self, "compliance_statuses")
 
     @compliance_statuses.setter
@@ -410,6 +509,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter
     def confidences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersConfidenceArgs']]]]:
+        """
+        A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
+        """
         return pulumi.get(self, "confidences")
 
     @confidences.setter
@@ -419,6 +521,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="createdAts")
     def created_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCreatedAtArgs']]]]:
+        """
+        An ISO8601-formatted timestamp that indicates when the security-findings provider captured the potential security issue that a finding captured. See Date Filter below for more details.
+        """
         return pulumi.get(self, "created_ats")
 
     @created_ats.setter
@@ -428,6 +533,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter
     def criticalities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCriticalityArgs']]]]:
+        """
+        The level of importance assigned to the resources associated with the finding. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
+        """
         return pulumi.get(self, "criticalities")
 
     @criticalities.setter
@@ -437,6 +545,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter
     def descriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersDescriptionArgs']]]]:
+        """
+        A finding's description. See String Filter below for more details.
+        """
         return pulumi.get(self, "descriptions")
 
     @descriptions.setter
@@ -446,6 +557,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="findingProviderFieldsConfidences")
     def finding_provider_fields_confidences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsConfidenceArgs']]]]:
+        """
+        The finding provider value for the finding confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
+        """
         return pulumi.get(self, "finding_provider_fields_confidences")
 
     @finding_provider_fields_confidences.setter
@@ -455,6 +569,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="findingProviderFieldsCriticalities")
     def finding_provider_fields_criticalities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsCriticalityArgs']]]]:
+        """
+        The finding provider value for the level of importance assigned to the resources associated with the findings. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
+        """
         return pulumi.get(self, "finding_provider_fields_criticalities")
 
     @finding_provider_fields_criticalities.setter
@@ -464,6 +581,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="findingProviderFieldsRelatedFindingsIds")
     def finding_provider_fields_related_findings_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs']]]]:
+        """
+        The finding identifier of a related finding that is identified by the finding provider. See String Filter below for more details.
+        """
         return pulumi.get(self, "finding_provider_fields_related_findings_ids")
 
     @finding_provider_fields_related_findings_ids.setter
@@ -473,6 +593,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="findingProviderFieldsRelatedFindingsProductArns")
     def finding_provider_fields_related_findings_product_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs']]]]:
+        """
+        The ARN of the solution that generated a related finding that is identified by the finding provider. See String Filter below for more details.
+        """
         return pulumi.get(self, "finding_provider_fields_related_findings_product_arns")
 
     @finding_provider_fields_related_findings_product_arns.setter
@@ -482,6 +605,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="findingProviderFieldsSeverityLabels")
     def finding_provider_fields_severity_labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityLabelArgs']]]]:
+        """
+        The finding provider value for the severity label. See String Filter below for more details.
+        """
         return pulumi.get(self, "finding_provider_fields_severity_labels")
 
     @finding_provider_fields_severity_labels.setter
@@ -491,6 +617,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="findingProviderFieldsSeverityOriginals")
     def finding_provider_fields_severity_originals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityOriginalArgs']]]]:
+        """
+        The finding provider's original value for the severity. See String Filter below for more details.
+        """
         return pulumi.get(self, "finding_provider_fields_severity_originals")
 
     @finding_provider_fields_severity_originals.setter
@@ -500,6 +629,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="findingProviderFieldsTypes")
     def finding_provider_fields_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsTypeArgs']]]]:
+        """
+        One or more finding types that the finding provider assigned to the finding. Uses the format of `namespace/category/classifier` that classify a finding. Valid namespace values include: `Software and Configuration Checks`, `TTPs`, `Effects`, `Unusual Behaviors`, and `Sensitive Data Identifications`. See String Filter below for more details.
+        """
         return pulumi.get(self, "finding_provider_fields_types")
 
     @finding_provider_fields_types.setter
@@ -509,6 +641,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="firstObservedAts")
     def first_observed_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFirstObservedAtArgs']]]]:
+        """
+        An ISO8601-formatted timestamp that indicates when the security-findings provider first observed the potential security issue that a finding captured. See Date Filter below for more details.
+        """
         return pulumi.get(self, "first_observed_ats")
 
     @first_observed_ats.setter
@@ -518,6 +653,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="generatorIds")
     def generator_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersGeneratorIdArgs']]]]:
+        """
+        The identifier for the solution-specific component (a discrete unit of logic) that generated a finding. See String Filter below for more details.
+        """
         return pulumi.get(self, "generator_ids")
 
     @generator_ids.setter
@@ -527,6 +665,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersIdArgs']]]]:
+        """
+        The security findings provider-specific identifier for a finding. See String Filter below for more details.
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -536,6 +677,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter
     def keywords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersKeywordArgs']]]]:
+        """
+        A keyword for a finding. See Keyword Filter below for more details.
+        """
         return pulumi.get(self, "keywords")
 
     @keywords.setter
@@ -545,6 +689,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="lastObservedAts")
     def last_observed_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersLastObservedAtArgs']]]]:
+        """
+        An ISO8601-formatted timestamp that indicates when the security-findings provider most recently observed the potential security issue that a finding captured. See Date Filter below for more details.
+        """
         return pulumi.get(self, "last_observed_ats")
 
     @last_observed_ats.setter
@@ -554,6 +701,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="malwareNames")
     def malware_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareNameArgs']]]]:
+        """
+        The name of the malware that was observed. See String Filter below for more details.
+        """
         return pulumi.get(self, "malware_names")
 
     @malware_names.setter
@@ -563,6 +713,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="malwarePaths")
     def malware_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwarePathArgs']]]]:
+        """
+        The filesystem path of the malware that was observed. See String Filter below for more details.
+        """
         return pulumi.get(self, "malware_paths")
 
     @malware_paths.setter
@@ -572,6 +725,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="malwareStates")
     def malware_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareStateArgs']]]]:
+        """
+        The state of the malware that was observed. See String Filter below for more details.
+        """
         return pulumi.get(self, "malware_states")
 
     @malware_states.setter
@@ -581,6 +737,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="malwareTypes")
     def malware_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareTypeArgs']]]]:
+        """
+        The type of the malware that was observed. See String Filter below for more details.
+        """
         return pulumi.get(self, "malware_types")
 
     @malware_types.setter
@@ -590,6 +749,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="networkDestinationDomains")
     def network_destination_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationDomainArgs']]]]:
+        """
+        The destination domain of network-related information about a finding. See String Filter below for more details.
+        """
         return pulumi.get(self, "network_destination_domains")
 
     @network_destination_domains.setter
@@ -599,6 +761,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="networkDestinationIpv4s")
     def network_destination_ipv4s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv4Args']]]]:
+        """
+        The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+        """
         return pulumi.get(self, "network_destination_ipv4s")
 
     @network_destination_ipv4s.setter
@@ -608,6 +773,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="networkDestinationIpv6s")
     def network_destination_ipv6s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv6Args']]]]:
+        """
+        The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+        """
         return pulumi.get(self, "network_destination_ipv6s")
 
     @network_destination_ipv6s.setter
@@ -617,6 +785,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="networkDestinationPorts")
     def network_destination_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationPortArgs']]]]:
+        """
+        The destination port of network-related information about a finding. See Number Filter below for more details.
+        """
         return pulumi.get(self, "network_destination_ports")
 
     @network_destination_ports.setter
@@ -626,6 +797,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="networkDirections")
     def network_directions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDirectionArgs']]]]:
+        """
+        Indicates the direction of network traffic associated with a finding. See String Filter below for more details.
+        """
         return pulumi.get(self, "network_directions")
 
     @network_directions.setter
@@ -635,6 +809,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="networkProtocols")
     def network_protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkProtocolArgs']]]]:
+        """
+        The protocol of network-related information about a finding. See String Filter below for more details.
+        """
         return pulumi.get(self, "network_protocols")
 
     @network_protocols.setter
@@ -644,6 +821,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="networkSourceDomains")
     def network_source_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceDomainArgs']]]]:
+        """
+        The source domain of network-related information about a finding. See String Filter below for more details.
+        """
         return pulumi.get(self, "network_source_domains")
 
     @network_source_domains.setter
@@ -653,6 +833,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="networkSourceIpv4s")
     def network_source_ipv4s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv4Args']]]]:
+        """
+        The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+        """
         return pulumi.get(self, "network_source_ipv4s")
 
     @network_source_ipv4s.setter
@@ -662,6 +845,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="networkSourceIpv6s")
     def network_source_ipv6s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv6Args']]]]:
+        """
+        The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+        """
         return pulumi.get(self, "network_source_ipv6s")
 
     @network_source_ipv6s.setter
@@ -671,6 +857,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="networkSourceMacs")
     def network_source_macs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceMacArgs']]]]:
+        """
+        The source media access control (MAC) address of network-related information about a finding. See String Filter below for more details.
+        """
         return pulumi.get(self, "network_source_macs")
 
     @network_source_macs.setter
@@ -680,6 +869,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="networkSourcePorts")
     def network_source_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourcePortArgs']]]]:
+        """
+        The source port of network-related information about a finding. See Number Filter below for more details.
+        """
         return pulumi.get(self, "network_source_ports")
 
     @network_source_ports.setter
@@ -689,6 +881,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="noteTexts")
     def note_texts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteTextArgs']]]]:
+        """
+        The text of a note. See String Filter below for more details.
+        """
         return pulumi.get(self, "note_texts")
 
     @note_texts.setter
@@ -698,6 +893,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="noteUpdatedAts")
     def note_updated_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteUpdatedAtArgs']]]]:
+        """
+        The timestamp of when the note was updated. See Date Filter below for more details.
+        """
         return pulumi.get(self, "note_updated_ats")
 
     @note_updated_ats.setter
@@ -707,6 +905,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="noteUpdatedBies")
     def note_updated_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteUpdatedByArgs']]]]:
+        """
+        The principal that created a note. See String Filter below for more details.
+        """
         return pulumi.get(self, "note_updated_bies")
 
     @note_updated_bies.setter
@@ -716,6 +917,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="processLaunchedAts")
     def process_launched_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessLaunchedAtArgs']]]]:
+        """
+        The date/time that the process was launched. See Date Filter below for more details.
+        """
         return pulumi.get(self, "process_launched_ats")
 
     @process_launched_ats.setter
@@ -725,6 +929,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="processNames")
     def process_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessNameArgs']]]]:
+        """
+        The name of the process. See String Filter below for more details.
+        """
         return pulumi.get(self, "process_names")
 
     @process_names.setter
@@ -734,6 +941,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="processParentPids")
     def process_parent_pids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessParentPidArgs']]]]:
+        """
+        The parent process ID. See Number Filter below for more details.
+        """
         return pulumi.get(self, "process_parent_pids")
 
     @process_parent_pids.setter
@@ -743,6 +953,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="processPaths")
     def process_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessPathArgs']]]]:
+        """
+        The path to the process executable. See String Filter below for more details.
+        """
         return pulumi.get(self, "process_paths")
 
     @process_paths.setter
@@ -752,6 +965,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="processPids")
     def process_pids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessPidArgs']]]]:
+        """
+        The process ID. See Number Filter below for more details.
+        """
         return pulumi.get(self, "process_pids")
 
     @process_pids.setter
@@ -761,6 +977,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="processTerminatedAts")
     def process_terminated_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessTerminatedAtArgs']]]]:
+        """
+        The date/time that the process was terminated. See Date Filter below for more details.
+        """
         return pulumi.get(self, "process_terminated_ats")
 
     @process_terminated_ats.setter
@@ -770,6 +989,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="productArns")
     def product_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductArnArgs']]]]:
+        """
+        The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub. See String Filter below for more details.
+        """
         return pulumi.get(self, "product_arns")
 
     @product_arns.setter
@@ -779,6 +1001,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="productFields")
     def product_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductFieldArgs']]]]:
+        """
+        A data type where security-findings providers can include additional solution-specific details that aren't part of the defined `AwsSecurityFinding` format. See Map Filter below for more details.
+        """
         return pulumi.get(self, "product_fields")
 
     @product_fields.setter
@@ -788,6 +1013,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="productNames")
     def product_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductNameArgs']]]]:
+        """
+        The name of the solution (product) that generates findings. See String Filter below for more details.
+        """
         return pulumi.get(self, "product_names")
 
     @product_names.setter
@@ -797,6 +1025,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="recommendationTexts")
     def recommendation_texts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRecommendationTextArgs']]]]:
+        """
+        The recommendation of what to do about the issue described in a finding. See String Filter below for more details.
+        """
         return pulumi.get(self, "recommendation_texts")
 
     @recommendation_texts.setter
@@ -806,6 +1037,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="recordStates")
     def record_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRecordStateArgs']]]]:
+        """
+        The updated record state for the finding. See String Filter below for more details.
+        """
         return pulumi.get(self, "record_states")
 
     @record_states.setter
@@ -815,6 +1049,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="relatedFindingsIds")
     def related_findings_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRelatedFindingsIdArgs']]]]:
+        """
+        The solution-generated identifier for a related finding. See String Filter below for more details.
+        """
         return pulumi.get(self, "related_findings_ids")
 
     @related_findings_ids.setter
@@ -824,6 +1061,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="relatedFindingsProductArns")
     def related_findings_product_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRelatedFindingsProductArnArgs']]]]:
+        """
+        The ARN of the solution that generated a related finding. See String Filter below for more details.
+        """
         return pulumi.get(self, "related_findings_product_arns")
 
     @related_findings_product_arns.setter
@@ -833,6 +1073,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceAwsEc2InstanceIamInstanceProfileArns")
     def resource_aws_ec2_instance_iam_instance_profile_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs']]]]:
+        """
+        The IAM profile ARN of the instance. See String Filter below for more details.
+        """
         return pulumi.get(self, "resource_aws_ec2_instance_iam_instance_profile_arns")
 
     @resource_aws_ec2_instance_iam_instance_profile_arns.setter
@@ -842,6 +1085,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceAwsEc2InstanceImageIds")
     def resource_aws_ec2_instance_image_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceImageIdArgs']]]]:
+        """
+        The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+        """
         return pulumi.get(self, "resource_aws_ec2_instance_image_ids")
 
     @resource_aws_ec2_instance_image_ids.setter
@@ -851,6 +1097,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceAwsEc2InstanceIpv4Addresses")
     def resource_aws_ec2_instance_ipv4_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs']]]]:
+        """
+        The IPv4 addresses associated with the instance. See Ip Filter below for more details.
+        """
         return pulumi.get(self, "resource_aws_ec2_instance_ipv4_addresses")
 
     @resource_aws_ec2_instance_ipv4_addresses.setter
@@ -860,6 +1109,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceAwsEc2InstanceIpv6Addresses")
     def resource_aws_ec2_instance_ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs']]]]:
+        """
+        The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+        """
         return pulumi.get(self, "resource_aws_ec2_instance_ipv6_addresses")
 
     @resource_aws_ec2_instance_ipv6_addresses.setter
@@ -869,6 +1121,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceAwsEc2InstanceKeyNames")
     def resource_aws_ec2_instance_key_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceKeyNameArgs']]]]:
+        """
+        The key name associated with the instance. See String Filter below for more details.
+        """
         return pulumi.get(self, "resource_aws_ec2_instance_key_names")
 
     @resource_aws_ec2_instance_key_names.setter
@@ -878,6 +1133,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceAwsEc2InstanceLaunchedAts")
     def resource_aws_ec2_instance_launched_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs']]]]:
+        """
+        The date and time the instance was launched. See Date Filter below for more details.
+        """
         return pulumi.get(self, "resource_aws_ec2_instance_launched_ats")
 
     @resource_aws_ec2_instance_launched_ats.setter
@@ -887,6 +1145,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceAwsEc2InstanceSubnetIds")
     def resource_aws_ec2_instance_subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceSubnetIdArgs']]]]:
+        """
+        The identifier of the subnet that the instance was launched in. See String Filter below for more details.
+        """
         return pulumi.get(self, "resource_aws_ec2_instance_subnet_ids")
 
     @resource_aws_ec2_instance_subnet_ids.setter
@@ -896,6 +1157,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceAwsEc2InstanceTypes")
     def resource_aws_ec2_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceTypeArgs']]]]:
+        """
+        The instance type of the instance. See String Filter below for more details.
+        """
         return pulumi.get(self, "resource_aws_ec2_instance_types")
 
     @resource_aws_ec2_instance_types.setter
@@ -905,6 +1169,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceAwsEc2InstanceVpcIds")
     def resource_aws_ec2_instance_vpc_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceVpcIdArgs']]]]:
+        """
+        The identifier of the VPC that the instance was launched in. See String Filter below for more details.
+        """
         return pulumi.get(self, "resource_aws_ec2_instance_vpc_ids")
 
     @resource_aws_ec2_instance_vpc_ids.setter
@@ -914,6 +1181,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceAwsIamAccessKeyCreatedAts")
     def resource_aws_iam_access_key_created_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs']]]]:
+        """
+        The creation date/time of the IAM access key related to a finding. See Date Filter below for more details.
+        """
         return pulumi.get(self, "resource_aws_iam_access_key_created_ats")
 
     @resource_aws_iam_access_key_created_ats.setter
@@ -923,6 +1193,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceAwsIamAccessKeyStatuses")
     def resource_aws_iam_access_key_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyStatusArgs']]]]:
+        """
+        The status of the IAM access key related to a finding. See String Filter below for more details.
+        """
         return pulumi.get(self, "resource_aws_iam_access_key_statuses")
 
     @resource_aws_iam_access_key_statuses.setter
@@ -932,6 +1205,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceAwsIamAccessKeyUserNames")
     def resource_aws_iam_access_key_user_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyUserNameArgs']]]]:
+        """
+        The user associated with the IAM access key related to a finding. See String Filter below for more details.
+        """
         return pulumi.get(self, "resource_aws_iam_access_key_user_names")
 
     @resource_aws_iam_access_key_user_names.setter
@@ -941,6 +1217,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceAwsS3BucketOwnerIds")
     def resource_aws_s3_bucket_owner_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerIdArgs']]]]:
+        """
+        The canonical user ID of the owner of the S3 bucket. See String Filter below for more details.
+        """
         return pulumi.get(self, "resource_aws_s3_bucket_owner_ids")
 
     @resource_aws_s3_bucket_owner_ids.setter
@@ -950,6 +1229,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceAwsS3BucketOwnerNames")
     def resource_aws_s3_bucket_owner_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerNameArgs']]]]:
+        """
+        The display name of the owner of the S3 bucket. See String Filter below for more details.
+        """
         return pulumi.get(self, "resource_aws_s3_bucket_owner_names")
 
     @resource_aws_s3_bucket_owner_names.setter
@@ -959,6 +1241,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceContainerImageIds")
     def resource_container_image_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerImageIdArgs']]]]:
+        """
+        The identifier of the image related to a finding. See String Filter below for more details.
+        """
         return pulumi.get(self, "resource_container_image_ids")
 
     @resource_container_image_ids.setter
@@ -968,6 +1253,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceContainerImageNames")
     def resource_container_image_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerImageNameArgs']]]]:
+        """
+        The name of the image related to a finding. See String Filter below for more details.
+        """
         return pulumi.get(self, "resource_container_image_names")
 
     @resource_container_image_names.setter
@@ -977,6 +1265,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceContainerLaunchedAts")
     def resource_container_launched_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerLaunchedAtArgs']]]]:
+        """
+        The date/time that the container was started. See Date Filter below for more details.
+        """
         return pulumi.get(self, "resource_container_launched_ats")
 
     @resource_container_launched_ats.setter
@@ -986,6 +1277,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceContainerNames")
     def resource_container_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerNameArgs']]]]:
+        """
+        The name of the container related to a finding. See String Filter below for more details.
+        """
         return pulumi.get(self, "resource_container_names")
 
     @resource_container_names.setter
@@ -995,6 +1289,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceDetailsOthers")
     def resource_details_others(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceDetailsOtherArgs']]]]:
+        """
+        The details of a resource that doesn't have a specific subfield for the resource type defined. See Map Filter below for more details.
+        """
         return pulumi.get(self, "resource_details_others")
 
     @resource_details_others.setter
@@ -1004,6 +1301,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceIds")
     def resource_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceIdArgs']]]]:
+        """
+        The canonical identifier for the given resource type. See String Filter below for more details.
+        """
         return pulumi.get(self, "resource_ids")
 
     @resource_ids.setter
@@ -1013,6 +1313,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourcePartitions")
     def resource_partitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourcePartitionArgs']]]]:
+        """
+        The canonical AWS partition name that the Region is assigned to. See String Filter below for more details.
+        """
         return pulumi.get(self, "resource_partitions")
 
     @resource_partitions.setter
@@ -1022,6 +1325,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceRegions")
     def resource_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceRegionArgs']]]]:
+        """
+        The canonical AWS external Region name where this resource is located. See String Filter below for more details.
+        """
         return pulumi.get(self, "resource_regions")
 
     @resource_regions.setter
@@ -1031,6 +1337,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceTagArgs']]]]:
+        """
+        A list of AWS tags associated with a resource at the time the finding was processed. See Map Filter below for more details.
+        """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
@@ -1040,6 +1349,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceTypeArgs']]]]:
+        """
+        Specifies the type of the resource that details are provided for. See String Filter below for more details.
+        """
         return pulumi.get(self, "resource_types")
 
     @resource_types.setter
@@ -1049,6 +1361,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="severityLabels")
     def severity_labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersSeverityLabelArgs']]]]:
+        """
+        The label of a finding's severity. See String Filter below for more details.
+        """
         return pulumi.get(self, "severity_labels")
 
     @severity_labels.setter
@@ -1058,6 +1373,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="sourceUrls")
     def source_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersSourceUrlArgs']]]]:
+        """
+        A URL that links to a page about the current finding in the security-findings provider's solution. See String Filter below for more details.
+        """
         return pulumi.get(self, "source_urls")
 
     @source_urls.setter
@@ -1067,6 +1385,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="threatIntelIndicatorCategories")
     def threat_intel_indicator_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorCategoryArgs']]]]:
+        """
+        The category of a threat intelligence indicator. See String Filter below for more details.
+        """
         return pulumi.get(self, "threat_intel_indicator_categories")
 
     @threat_intel_indicator_categories.setter
@@ -1076,6 +1397,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="threatIntelIndicatorLastObservedAts")
     def threat_intel_indicator_last_observed_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtArgs']]]]:
+        """
+        The date/time of the last observation of a threat intelligence indicator. See Date Filter below for more details.
+        """
         return pulumi.get(self, "threat_intel_indicator_last_observed_ats")
 
     @threat_intel_indicator_last_observed_ats.setter
@@ -1085,6 +1409,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="threatIntelIndicatorSourceUrls")
     def threat_intel_indicator_source_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceUrlArgs']]]]:
+        """
+        The URL for more details from the source of the threat intelligence. See String Filter below for more details.
+        """
         return pulumi.get(self, "threat_intel_indicator_source_urls")
 
     @threat_intel_indicator_source_urls.setter
@@ -1094,6 +1421,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="threatIntelIndicatorSources")
     def threat_intel_indicator_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceArgs']]]]:
+        """
+        The source of the threat intelligence. See String Filter below for more details.
+        """
         return pulumi.get(self, "threat_intel_indicator_sources")
 
     @threat_intel_indicator_sources.setter
@@ -1103,6 +1433,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="threatIntelIndicatorTypes")
     def threat_intel_indicator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorTypeArgs']]]]:
+        """
+        The type of a threat intelligence indicator. See String Filter below for more details.
+        """
         return pulumi.get(self, "threat_intel_indicator_types")
 
     @threat_intel_indicator_types.setter
@@ -1112,6 +1445,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="threatIntelIndicatorValues")
     def threat_intel_indicator_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorValueArgs']]]]:
+        """
+        The value of a threat intelligence indicator. See String Filter below for more details.
+        """
         return pulumi.get(self, "threat_intel_indicator_values")
 
     @threat_intel_indicator_values.setter
@@ -1121,6 +1457,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter
     def titles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersTitleArgs']]]]:
+        """
+        A finding's title. See String Filter below for more details.
+        """
         return pulumi.get(self, "titles")
 
     @titles.setter
@@ -1130,6 +1469,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter
     def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersTypeArgs']]]]:
+        """
+        A finding type in the format of `namespace/category/classifier` that classifies a finding. See String Filter below for more details.
+        """
         return pulumi.get(self, "types")
 
     @types.setter
@@ -1139,6 +1481,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="updatedAts")
     def updated_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersUpdatedAtArgs']]]]:
+        """
+        An ISO8601-formatted timestamp that indicates when the security-findings provider last updated the finding record. See Date Filter below for more details.
+        """
         return pulumi.get(self, "updated_ats")
 
     @updated_ats.setter
@@ -1148,6 +1493,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="userDefinedValues")
     def user_defined_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersUserDefinedValueArgs']]]]:
+        """
+        A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding. See Map Filter below for more details.
+        """
         return pulumi.get(self, "user_defined_values")
 
     @user_defined_values.setter
@@ -1157,6 +1505,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="verificationStates")
     def verification_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersVerificationStateArgs']]]]:
+        """
+        The veracity of a finding. See String Filter below for more details.
+        """
         return pulumi.get(self, "verification_states")
 
     @verification_states.setter
@@ -1166,6 +1517,9 @@ class InsightFiltersArgs:
     @property
     @pulumi.getter(name="workflowStatuses")
     def workflow_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersWorkflowStatusArgs']]]]:
+        """
+        The status of the investigation into a finding. See Workflow Status Filter below for more details.
+        """
         return pulumi.get(self, "workflow_statuses")
 
     @workflow_statuses.setter
@@ -1178,12 +1532,19 @@ class InsightFiltersAwsAccountIdArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1193,6 +1554,9 @@ class InsightFiltersAwsAccountIdArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1205,12 +1569,19 @@ class InsightFiltersCompanyNameArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1220,6 +1591,9 @@ class InsightFiltersCompanyNameArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1232,12 +1606,19 @@ class InsightFiltersComplianceStatusArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1247,6 +1628,9 @@ class InsightFiltersComplianceStatusArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1260,6 +1644,11 @@ class InsightFiltersConfidenceArgs:
                  eq: Optional[pulumi.Input[str]] = None,
                  gte: Optional[pulumi.Input[str]] = None,
                  lte: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param pulumi.Input[str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param pulumi.Input[str] lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gte is not None:
@@ -1270,6 +1659,9 @@ class InsightFiltersConfidenceArgs:
     @property
     @pulumi.getter
     def eq(self) -> Optional[pulumi.Input[str]]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "eq")
 
     @eq.setter
@@ -1279,6 +1671,9 @@ class InsightFiltersConfidenceArgs:
     @property
     @pulumi.getter
     def gte(self) -> Optional[pulumi.Input[str]]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "gte")
 
     @gte.setter
@@ -1288,6 +1683,9 @@ class InsightFiltersConfidenceArgs:
     @property
     @pulumi.getter
     def lte(self) -> Optional[pulumi.Input[str]]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "lte")
 
     @lte.setter
@@ -1301,6 +1699,11 @@ class InsightFiltersCreatedAtArgs:
                  date_range: Optional[pulumi.Input['InsightFiltersCreatedAtDateRangeArgs']] = None,
                  end: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['InsightFiltersCreatedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -1311,6 +1714,9 @@ class InsightFiltersCreatedAtArgs:
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional[pulumi.Input['InsightFiltersCreatedAtDateRangeArgs']]:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
@@ -1320,6 +1726,9 @@ class InsightFiltersCreatedAtArgs:
     @property
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[str]]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @end.setter
@@ -1329,6 +1738,9 @@ class InsightFiltersCreatedAtArgs:
     @property
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input[str]]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
     @start.setter
@@ -1341,12 +1753,19 @@ class InsightFiltersCreatedAtDateRangeArgs:
     def __init__(__self__, *,
                  unit: pulumi.Input[str],
                  value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
+        :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Input[str]:
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -1356,6 +1775,9 @@ class InsightFiltersCreatedAtDateRangeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[int]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1369,6 +1791,11 @@ class InsightFiltersCriticalityArgs:
                  eq: Optional[pulumi.Input[str]] = None,
                  gte: Optional[pulumi.Input[str]] = None,
                  lte: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param pulumi.Input[str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param pulumi.Input[str] lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gte is not None:
@@ -1379,6 +1806,9 @@ class InsightFiltersCriticalityArgs:
     @property
     @pulumi.getter
     def eq(self) -> Optional[pulumi.Input[str]]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "eq")
 
     @eq.setter
@@ -1388,6 +1818,9 @@ class InsightFiltersCriticalityArgs:
     @property
     @pulumi.getter
     def gte(self) -> Optional[pulumi.Input[str]]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "gte")
 
     @gte.setter
@@ -1397,6 +1830,9 @@ class InsightFiltersCriticalityArgs:
     @property
     @pulumi.getter
     def lte(self) -> Optional[pulumi.Input[str]]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "lte")
 
     @lte.setter
@@ -1409,12 +1845,19 @@ class InsightFiltersDescriptionArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1424,6 +1867,9 @@ class InsightFiltersDescriptionArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1437,6 +1883,11 @@ class InsightFiltersFindingProviderFieldsConfidenceArgs:
                  eq: Optional[pulumi.Input[str]] = None,
                  gte: Optional[pulumi.Input[str]] = None,
                  lte: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param pulumi.Input[str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param pulumi.Input[str] lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gte is not None:
@@ -1447,6 +1898,9 @@ class InsightFiltersFindingProviderFieldsConfidenceArgs:
     @property
     @pulumi.getter
     def eq(self) -> Optional[pulumi.Input[str]]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "eq")
 
     @eq.setter
@@ -1456,6 +1910,9 @@ class InsightFiltersFindingProviderFieldsConfidenceArgs:
     @property
     @pulumi.getter
     def gte(self) -> Optional[pulumi.Input[str]]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "gte")
 
     @gte.setter
@@ -1465,6 +1922,9 @@ class InsightFiltersFindingProviderFieldsConfidenceArgs:
     @property
     @pulumi.getter
     def lte(self) -> Optional[pulumi.Input[str]]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "lte")
 
     @lte.setter
@@ -1478,6 +1938,11 @@ class InsightFiltersFindingProviderFieldsCriticalityArgs:
                  eq: Optional[pulumi.Input[str]] = None,
                  gte: Optional[pulumi.Input[str]] = None,
                  lte: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param pulumi.Input[str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param pulumi.Input[str] lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gte is not None:
@@ -1488,6 +1953,9 @@ class InsightFiltersFindingProviderFieldsCriticalityArgs:
     @property
     @pulumi.getter
     def eq(self) -> Optional[pulumi.Input[str]]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "eq")
 
     @eq.setter
@@ -1497,6 +1965,9 @@ class InsightFiltersFindingProviderFieldsCriticalityArgs:
     @property
     @pulumi.getter
     def gte(self) -> Optional[pulumi.Input[str]]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "gte")
 
     @gte.setter
@@ -1506,6 +1977,9 @@ class InsightFiltersFindingProviderFieldsCriticalityArgs:
     @property
     @pulumi.getter
     def lte(self) -> Optional[pulumi.Input[str]]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "lte")
 
     @lte.setter
@@ -1518,12 +1992,19 @@ class InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1533,6 +2014,9 @@ class InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1545,12 +2029,19 @@ class InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1560,6 +2051,9 @@ class InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1572,12 +2066,19 @@ class InsightFiltersFindingProviderFieldsSeverityLabelArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1587,6 +2088,9 @@ class InsightFiltersFindingProviderFieldsSeverityLabelArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1599,12 +2103,19 @@ class InsightFiltersFindingProviderFieldsSeverityOriginalArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1614,6 +2125,9 @@ class InsightFiltersFindingProviderFieldsSeverityOriginalArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1626,12 +2140,19 @@ class InsightFiltersFindingProviderFieldsTypeArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1641,6 +2162,9 @@ class InsightFiltersFindingProviderFieldsTypeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1654,6 +2178,11 @@ class InsightFiltersFirstObservedAtArgs:
                  date_range: Optional[pulumi.Input['InsightFiltersFirstObservedAtDateRangeArgs']] = None,
                  end: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['InsightFiltersFirstObservedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -1664,6 +2193,9 @@ class InsightFiltersFirstObservedAtArgs:
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional[pulumi.Input['InsightFiltersFirstObservedAtDateRangeArgs']]:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
@@ -1673,6 +2205,9 @@ class InsightFiltersFirstObservedAtArgs:
     @property
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[str]]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @end.setter
@@ -1682,6 +2217,9 @@ class InsightFiltersFirstObservedAtArgs:
     @property
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input[str]]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
     @start.setter
@@ -1694,12 +2232,19 @@ class InsightFiltersFirstObservedAtDateRangeArgs:
     def __init__(__self__, *,
                  unit: pulumi.Input[str],
                  value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
+        :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Input[str]:
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -1709,6 +2254,9 @@ class InsightFiltersFirstObservedAtDateRangeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[int]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1721,12 +2269,19 @@ class InsightFiltersGeneratorIdArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1736,6 +2291,9 @@ class InsightFiltersGeneratorIdArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1748,12 +2306,19 @@ class InsightFiltersIdArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1763,6 +2328,9 @@ class InsightFiltersIdArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1774,11 +2342,17 @@ class InsightFiltersIdArgs:
 class InsightFiltersKeywordArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] value: A value for the keyword.
+        """
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A value for the keyword.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1792,6 +2366,11 @@ class InsightFiltersLastObservedAtArgs:
                  date_range: Optional[pulumi.Input['InsightFiltersLastObservedAtDateRangeArgs']] = None,
                  end: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['InsightFiltersLastObservedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -1802,6 +2381,9 @@ class InsightFiltersLastObservedAtArgs:
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional[pulumi.Input['InsightFiltersLastObservedAtDateRangeArgs']]:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
@@ -1811,6 +2393,9 @@ class InsightFiltersLastObservedAtArgs:
     @property
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[str]]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @end.setter
@@ -1820,6 +2405,9 @@ class InsightFiltersLastObservedAtArgs:
     @property
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input[str]]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
     @start.setter
@@ -1832,12 +2420,19 @@ class InsightFiltersLastObservedAtDateRangeArgs:
     def __init__(__self__, *,
                  unit: pulumi.Input[str],
                  value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
+        :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Input[str]:
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -1847,6 +2442,9 @@ class InsightFiltersLastObservedAtDateRangeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[int]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1859,12 +2457,19 @@ class InsightFiltersMalwareNameArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1874,6 +2479,9 @@ class InsightFiltersMalwareNameArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1886,12 +2494,19 @@ class InsightFiltersMalwarePathArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1901,6 +2516,9 @@ class InsightFiltersMalwarePathArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1913,12 +2531,19 @@ class InsightFiltersMalwareStateArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1928,6 +2553,9 @@ class InsightFiltersMalwareStateArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1940,12 +2568,19 @@ class InsightFiltersMalwareTypeArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1955,6 +2590,9 @@ class InsightFiltersMalwareTypeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1967,12 +2605,19 @@ class InsightFiltersNetworkDestinationDomainArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1982,6 +2627,9 @@ class InsightFiltersNetworkDestinationDomainArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1993,11 +2641,17 @@ class InsightFiltersNetworkDestinationDomainArgs:
 class InsightFiltersNetworkDestinationIpv4Args:
     def __init__(__self__, *,
                  cidr: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] cidr: A finding's CIDR value.
+        """
         pulumi.set(__self__, "cidr", cidr)
 
     @property
     @pulumi.getter
     def cidr(self) -> pulumi.Input[str]:
+        """
+        A finding's CIDR value.
+        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -2009,11 +2663,17 @@ class InsightFiltersNetworkDestinationIpv4Args:
 class InsightFiltersNetworkDestinationIpv6Args:
     def __init__(__self__, *,
                  cidr: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] cidr: A finding's CIDR value.
+        """
         pulumi.set(__self__, "cidr", cidr)
 
     @property
     @pulumi.getter
     def cidr(self) -> pulumi.Input[str]:
+        """
+        A finding's CIDR value.
+        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -2027,6 +2687,11 @@ class InsightFiltersNetworkDestinationPortArgs:
                  eq: Optional[pulumi.Input[str]] = None,
                  gte: Optional[pulumi.Input[str]] = None,
                  lte: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param pulumi.Input[str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param pulumi.Input[str] lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gte is not None:
@@ -2037,6 +2702,9 @@ class InsightFiltersNetworkDestinationPortArgs:
     @property
     @pulumi.getter
     def eq(self) -> Optional[pulumi.Input[str]]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "eq")
 
     @eq.setter
@@ -2046,6 +2714,9 @@ class InsightFiltersNetworkDestinationPortArgs:
     @property
     @pulumi.getter
     def gte(self) -> Optional[pulumi.Input[str]]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "gte")
 
     @gte.setter
@@ -2055,6 +2726,9 @@ class InsightFiltersNetworkDestinationPortArgs:
     @property
     @pulumi.getter
     def lte(self) -> Optional[pulumi.Input[str]]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "lte")
 
     @lte.setter
@@ -2067,12 +2741,19 @@ class InsightFiltersNetworkDirectionArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2082,6 +2763,9 @@ class InsightFiltersNetworkDirectionArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2094,12 +2778,19 @@ class InsightFiltersNetworkProtocolArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2109,6 +2800,9 @@ class InsightFiltersNetworkProtocolArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2121,12 +2815,19 @@ class InsightFiltersNetworkSourceDomainArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2136,6 +2837,9 @@ class InsightFiltersNetworkSourceDomainArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2147,11 +2851,17 @@ class InsightFiltersNetworkSourceDomainArgs:
 class InsightFiltersNetworkSourceIpv4Args:
     def __init__(__self__, *,
                  cidr: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] cidr: A finding's CIDR value.
+        """
         pulumi.set(__self__, "cidr", cidr)
 
     @property
     @pulumi.getter
     def cidr(self) -> pulumi.Input[str]:
+        """
+        A finding's CIDR value.
+        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -2163,11 +2873,17 @@ class InsightFiltersNetworkSourceIpv4Args:
 class InsightFiltersNetworkSourceIpv6Args:
     def __init__(__self__, *,
                  cidr: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] cidr: A finding's CIDR value.
+        """
         pulumi.set(__self__, "cidr", cidr)
 
     @property
     @pulumi.getter
     def cidr(self) -> pulumi.Input[str]:
+        """
+        A finding's CIDR value.
+        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -2180,12 +2896,19 @@ class InsightFiltersNetworkSourceMacArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2195,6 +2918,9 @@ class InsightFiltersNetworkSourceMacArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2208,6 +2934,11 @@ class InsightFiltersNetworkSourcePortArgs:
                  eq: Optional[pulumi.Input[str]] = None,
                  gte: Optional[pulumi.Input[str]] = None,
                  lte: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param pulumi.Input[str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param pulumi.Input[str] lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gte is not None:
@@ -2218,6 +2949,9 @@ class InsightFiltersNetworkSourcePortArgs:
     @property
     @pulumi.getter
     def eq(self) -> Optional[pulumi.Input[str]]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "eq")
 
     @eq.setter
@@ -2227,6 +2961,9 @@ class InsightFiltersNetworkSourcePortArgs:
     @property
     @pulumi.getter
     def gte(self) -> Optional[pulumi.Input[str]]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "gte")
 
     @gte.setter
@@ -2236,6 +2973,9 @@ class InsightFiltersNetworkSourcePortArgs:
     @property
     @pulumi.getter
     def lte(self) -> Optional[pulumi.Input[str]]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "lte")
 
     @lte.setter
@@ -2248,12 +2988,19 @@ class InsightFiltersNoteTextArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2263,6 +3010,9 @@ class InsightFiltersNoteTextArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2276,6 +3026,11 @@ class InsightFiltersNoteUpdatedAtArgs:
                  date_range: Optional[pulumi.Input['InsightFiltersNoteUpdatedAtDateRangeArgs']] = None,
                  end: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['InsightFiltersNoteUpdatedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -2286,6 +3041,9 @@ class InsightFiltersNoteUpdatedAtArgs:
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional[pulumi.Input['InsightFiltersNoteUpdatedAtDateRangeArgs']]:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
@@ -2295,6 +3053,9 @@ class InsightFiltersNoteUpdatedAtArgs:
     @property
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[str]]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @end.setter
@@ -2304,6 +3065,9 @@ class InsightFiltersNoteUpdatedAtArgs:
     @property
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input[str]]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
     @start.setter
@@ -2316,12 +3080,19 @@ class InsightFiltersNoteUpdatedAtDateRangeArgs:
     def __init__(__self__, *,
                  unit: pulumi.Input[str],
                  value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
+        :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Input[str]:
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -2331,6 +3102,9 @@ class InsightFiltersNoteUpdatedAtDateRangeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[int]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2343,12 +3117,19 @@ class InsightFiltersNoteUpdatedByArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2358,6 +3139,9 @@ class InsightFiltersNoteUpdatedByArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2371,6 +3155,11 @@ class InsightFiltersProcessLaunchedAtArgs:
                  date_range: Optional[pulumi.Input['InsightFiltersProcessLaunchedAtDateRangeArgs']] = None,
                  end: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['InsightFiltersProcessLaunchedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -2381,6 +3170,9 @@ class InsightFiltersProcessLaunchedAtArgs:
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional[pulumi.Input['InsightFiltersProcessLaunchedAtDateRangeArgs']]:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
@@ -2390,6 +3182,9 @@ class InsightFiltersProcessLaunchedAtArgs:
     @property
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[str]]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @end.setter
@@ -2399,6 +3194,9 @@ class InsightFiltersProcessLaunchedAtArgs:
     @property
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input[str]]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
     @start.setter
@@ -2411,12 +3209,19 @@ class InsightFiltersProcessLaunchedAtDateRangeArgs:
     def __init__(__self__, *,
                  unit: pulumi.Input[str],
                  value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
+        :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Input[str]:
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -2426,6 +3231,9 @@ class InsightFiltersProcessLaunchedAtDateRangeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[int]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2438,12 +3246,19 @@ class InsightFiltersProcessNameArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2453,6 +3268,9 @@ class InsightFiltersProcessNameArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2466,6 +3284,11 @@ class InsightFiltersProcessParentPidArgs:
                  eq: Optional[pulumi.Input[str]] = None,
                  gte: Optional[pulumi.Input[str]] = None,
                  lte: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param pulumi.Input[str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param pulumi.Input[str] lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gte is not None:
@@ -2476,6 +3299,9 @@ class InsightFiltersProcessParentPidArgs:
     @property
     @pulumi.getter
     def eq(self) -> Optional[pulumi.Input[str]]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "eq")
 
     @eq.setter
@@ -2485,6 +3311,9 @@ class InsightFiltersProcessParentPidArgs:
     @property
     @pulumi.getter
     def gte(self) -> Optional[pulumi.Input[str]]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "gte")
 
     @gte.setter
@@ -2494,6 +3323,9 @@ class InsightFiltersProcessParentPidArgs:
     @property
     @pulumi.getter
     def lte(self) -> Optional[pulumi.Input[str]]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "lte")
 
     @lte.setter
@@ -2506,12 +3338,19 @@ class InsightFiltersProcessPathArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2521,6 +3360,9 @@ class InsightFiltersProcessPathArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2534,6 +3376,11 @@ class InsightFiltersProcessPidArgs:
                  eq: Optional[pulumi.Input[str]] = None,
                  gte: Optional[pulumi.Input[str]] = None,
                  lte: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        :param pulumi.Input[str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        :param pulumi.Input[str] lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gte is not None:
@@ -2544,6 +3391,9 @@ class InsightFiltersProcessPidArgs:
     @property
     @pulumi.getter
     def eq(self) -> Optional[pulumi.Input[str]]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "eq")
 
     @eq.setter
@@ -2553,6 +3403,9 @@ class InsightFiltersProcessPidArgs:
     @property
     @pulumi.getter
     def gte(self) -> Optional[pulumi.Input[str]]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "gte")
 
     @gte.setter
@@ -2562,6 +3415,9 @@ class InsightFiltersProcessPidArgs:
     @property
     @pulumi.getter
     def lte(self) -> Optional[pulumi.Input[str]]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        """
         return pulumi.get(self, "lte")
 
     @lte.setter
@@ -2575,6 +3431,11 @@ class InsightFiltersProcessTerminatedAtArgs:
                  date_range: Optional[pulumi.Input['InsightFiltersProcessTerminatedAtDateRangeArgs']] = None,
                  end: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['InsightFiltersProcessTerminatedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -2585,6 +3446,9 @@ class InsightFiltersProcessTerminatedAtArgs:
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional[pulumi.Input['InsightFiltersProcessTerminatedAtDateRangeArgs']]:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
@@ -2594,6 +3458,9 @@ class InsightFiltersProcessTerminatedAtArgs:
     @property
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[str]]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @end.setter
@@ -2603,6 +3470,9 @@ class InsightFiltersProcessTerminatedAtArgs:
     @property
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input[str]]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
     @start.setter
@@ -2615,12 +3485,19 @@ class InsightFiltersProcessTerminatedAtDateRangeArgs:
     def __init__(__self__, *,
                  unit: pulumi.Input[str],
                  value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
+        :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Input[str]:
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -2630,6 +3507,9 @@ class InsightFiltersProcessTerminatedAtDateRangeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[int]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2642,12 +3522,19 @@ class InsightFiltersProductArnArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2657,6 +3544,9 @@ class InsightFiltersProductArnArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2670,6 +3560,11 @@ class InsightFiltersProductFieldArgs:
                  comparison: pulumi.Input[str],
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] key: The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -2677,6 +3572,9 @@ class InsightFiltersProductFieldArgs:
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2686,6 +3584,9 @@ class InsightFiltersProductFieldArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2695,6 +3596,9 @@ class InsightFiltersProductFieldArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2707,12 +3611,19 @@ class InsightFiltersProductNameArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2722,6 +3633,9 @@ class InsightFiltersProductNameArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2734,12 +3648,19 @@ class InsightFiltersRecommendationTextArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2749,6 +3670,9 @@ class InsightFiltersRecommendationTextArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2761,12 +3685,19 @@ class InsightFiltersRecordStateArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2776,6 +3707,9 @@ class InsightFiltersRecordStateArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2788,12 +3722,19 @@ class InsightFiltersRelatedFindingsIdArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2803,6 +3744,9 @@ class InsightFiltersRelatedFindingsIdArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2815,12 +3759,19 @@ class InsightFiltersRelatedFindingsProductArnArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2830,6 +3781,9 @@ class InsightFiltersRelatedFindingsProductArnArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2842,12 +3796,19 @@ class InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2857,6 +3818,9 @@ class InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2869,12 +3833,19 @@ class InsightFiltersResourceAwsEc2InstanceImageIdArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2884,6 +3855,9 @@ class InsightFiltersResourceAwsEc2InstanceImageIdArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2895,11 +3869,17 @@ class InsightFiltersResourceAwsEc2InstanceImageIdArgs:
 class InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs:
     def __init__(__self__, *,
                  cidr: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] cidr: A finding's CIDR value.
+        """
         pulumi.set(__self__, "cidr", cidr)
 
     @property
     @pulumi.getter
     def cidr(self) -> pulumi.Input[str]:
+        """
+        A finding's CIDR value.
+        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -2911,11 +3891,17 @@ class InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs:
 class InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs:
     def __init__(__self__, *,
                  cidr: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] cidr: A finding's CIDR value.
+        """
         pulumi.set(__self__, "cidr", cidr)
 
     @property
     @pulumi.getter
     def cidr(self) -> pulumi.Input[str]:
+        """
+        A finding's CIDR value.
+        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -2928,12 +3914,19 @@ class InsightFiltersResourceAwsEc2InstanceKeyNameArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2943,6 +3936,9 @@ class InsightFiltersResourceAwsEc2InstanceKeyNameArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2956,6 +3952,11 @@ class InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs:
                  date_range: Optional[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs']] = None,
                  end: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -2966,6 +3967,9 @@ class InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs:
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs']]:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
@@ -2975,6 +3979,9 @@ class InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs:
     @property
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[str]]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @end.setter
@@ -2984,6 +3991,9 @@ class InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs:
     @property
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input[str]]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
     @start.setter
@@ -2996,12 +4006,19 @@ class InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs:
     def __init__(__self__, *,
                  unit: pulumi.Input[str],
                  value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
+        :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Input[str]:
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -3011,6 +4028,9 @@ class InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[int]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3023,12 +4043,19 @@ class InsightFiltersResourceAwsEc2InstanceSubnetIdArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3038,6 +4065,9 @@ class InsightFiltersResourceAwsEc2InstanceSubnetIdArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3050,12 +4080,19 @@ class InsightFiltersResourceAwsEc2InstanceTypeArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3065,6 +4102,9 @@ class InsightFiltersResourceAwsEc2InstanceTypeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3077,12 +4117,19 @@ class InsightFiltersResourceAwsEc2InstanceVpcIdArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3092,6 +4139,9 @@ class InsightFiltersResourceAwsEc2InstanceVpcIdArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3105,6 +4155,11 @@ class InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs:
                  date_range: Optional[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs']] = None,
                  end: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -3115,6 +4170,9 @@ class InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs:
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs']]:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
@@ -3124,6 +4182,9 @@ class InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs:
     @property
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[str]]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @end.setter
@@ -3133,6 +4194,9 @@ class InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs:
     @property
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input[str]]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
     @start.setter
@@ -3145,12 +4209,19 @@ class InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs:
     def __init__(__self__, *,
                  unit: pulumi.Input[str],
                  value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
+        :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Input[str]:
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -3160,6 +4231,9 @@ class InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[int]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3172,12 +4246,19 @@ class InsightFiltersResourceAwsIamAccessKeyStatusArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3187,6 +4268,9 @@ class InsightFiltersResourceAwsIamAccessKeyStatusArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3199,12 +4283,19 @@ class InsightFiltersResourceAwsIamAccessKeyUserNameArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3214,6 +4305,9 @@ class InsightFiltersResourceAwsIamAccessKeyUserNameArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3226,12 +4320,19 @@ class InsightFiltersResourceAwsS3BucketOwnerIdArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3241,6 +4342,9 @@ class InsightFiltersResourceAwsS3BucketOwnerIdArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3253,12 +4357,19 @@ class InsightFiltersResourceAwsS3BucketOwnerNameArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3268,6 +4379,9 @@ class InsightFiltersResourceAwsS3BucketOwnerNameArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3280,12 +4394,19 @@ class InsightFiltersResourceContainerImageIdArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3295,6 +4416,9 @@ class InsightFiltersResourceContainerImageIdArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3307,12 +4431,19 @@ class InsightFiltersResourceContainerImageNameArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3322,6 +4453,9 @@ class InsightFiltersResourceContainerImageNameArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3335,6 +4469,11 @@ class InsightFiltersResourceContainerLaunchedAtArgs:
                  date_range: Optional[pulumi.Input['InsightFiltersResourceContainerLaunchedAtDateRangeArgs']] = None,
                  end: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['InsightFiltersResourceContainerLaunchedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -3345,6 +4484,9 @@ class InsightFiltersResourceContainerLaunchedAtArgs:
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional[pulumi.Input['InsightFiltersResourceContainerLaunchedAtDateRangeArgs']]:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
@@ -3354,6 +4496,9 @@ class InsightFiltersResourceContainerLaunchedAtArgs:
     @property
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[str]]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @end.setter
@@ -3363,6 +4508,9 @@ class InsightFiltersResourceContainerLaunchedAtArgs:
     @property
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input[str]]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
     @start.setter
@@ -3375,12 +4523,19 @@ class InsightFiltersResourceContainerLaunchedAtDateRangeArgs:
     def __init__(__self__, *,
                  unit: pulumi.Input[str],
                  value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
+        :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Input[str]:
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -3390,6 +4545,9 @@ class InsightFiltersResourceContainerLaunchedAtDateRangeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[int]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3402,12 +4560,19 @@ class InsightFiltersResourceContainerNameArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3417,6 +4582,9 @@ class InsightFiltersResourceContainerNameArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3430,6 +4598,11 @@ class InsightFiltersResourceDetailsOtherArgs:
                  comparison: pulumi.Input[str],
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] key: The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -3437,6 +4610,9 @@ class InsightFiltersResourceDetailsOtherArgs:
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3446,6 +4622,9 @@ class InsightFiltersResourceDetailsOtherArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -3455,6 +4634,9 @@ class InsightFiltersResourceDetailsOtherArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3467,12 +4649,19 @@ class InsightFiltersResourceIdArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3482,6 +4671,9 @@ class InsightFiltersResourceIdArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3494,12 +4686,19 @@ class InsightFiltersResourcePartitionArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3509,6 +4708,9 @@ class InsightFiltersResourcePartitionArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3521,12 +4723,19 @@ class InsightFiltersResourceRegionArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3536,6 +4745,9 @@ class InsightFiltersResourceRegionArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3549,6 +4761,11 @@ class InsightFiltersResourceTagArgs:
                  comparison: pulumi.Input[str],
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] key: The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -3556,6 +4773,9 @@ class InsightFiltersResourceTagArgs:
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3565,6 +4785,9 @@ class InsightFiltersResourceTagArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -3574,6 +4797,9 @@ class InsightFiltersResourceTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3586,12 +4812,19 @@ class InsightFiltersResourceTypeArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3601,6 +4834,9 @@ class InsightFiltersResourceTypeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3613,12 +4849,19 @@ class InsightFiltersSeverityLabelArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3628,6 +4871,9 @@ class InsightFiltersSeverityLabelArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3640,12 +4886,19 @@ class InsightFiltersSourceUrlArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3655,6 +4908,9 @@ class InsightFiltersSourceUrlArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3667,12 +4923,19 @@ class InsightFiltersThreatIntelIndicatorCategoryArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3682,6 +4945,9 @@ class InsightFiltersThreatIntelIndicatorCategoryArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3695,6 +4961,11 @@ class InsightFiltersThreatIntelIndicatorLastObservedAtArgs:
                  date_range: Optional[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs']] = None,
                  end: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -3705,6 +4976,9 @@ class InsightFiltersThreatIntelIndicatorLastObservedAtArgs:
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs']]:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
@@ -3714,6 +4988,9 @@ class InsightFiltersThreatIntelIndicatorLastObservedAtArgs:
     @property
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[str]]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @end.setter
@@ -3723,6 +5000,9 @@ class InsightFiltersThreatIntelIndicatorLastObservedAtArgs:
     @property
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input[str]]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
     @start.setter
@@ -3735,12 +5015,19 @@ class InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs:
     def __init__(__self__, *,
                  unit: pulumi.Input[str],
                  value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
+        :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Input[str]:
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -3750,6 +5037,9 @@ class InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[int]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3762,12 +5052,19 @@ class InsightFiltersThreatIntelIndicatorSourceArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3777,6 +5074,9 @@ class InsightFiltersThreatIntelIndicatorSourceArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3789,12 +5089,19 @@ class InsightFiltersThreatIntelIndicatorSourceUrlArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3804,6 +5111,9 @@ class InsightFiltersThreatIntelIndicatorSourceUrlArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3816,12 +5126,19 @@ class InsightFiltersThreatIntelIndicatorTypeArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3831,6 +5148,9 @@ class InsightFiltersThreatIntelIndicatorTypeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3843,12 +5163,19 @@ class InsightFiltersThreatIntelIndicatorValueArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3858,6 +5185,9 @@ class InsightFiltersThreatIntelIndicatorValueArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3870,12 +5200,19 @@ class InsightFiltersTitleArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3885,6 +5222,9 @@ class InsightFiltersTitleArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3897,12 +5237,19 @@ class InsightFiltersTypeArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3912,6 +5259,9 @@ class InsightFiltersTypeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3925,6 +5275,11 @@ class InsightFiltersUpdatedAtArgs:
                  date_range: Optional[pulumi.Input['InsightFiltersUpdatedAtDateRangeArgs']] = None,
                  end: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['InsightFiltersUpdatedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
+        :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
         if end is not None:
@@ -3935,6 +5290,9 @@ class InsightFiltersUpdatedAtArgs:
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional[pulumi.Input['InsightFiltersUpdatedAtDateRangeArgs']]:
+        """
+        A configuration block of the date range for the date filter. See date_range below for more details.
+        """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
@@ -3944,6 +5302,9 @@ class InsightFiltersUpdatedAtArgs:
     @property
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[str]]:
+        """
+        An end date for the date filter. Required with `start` if `date_range` is not specified.
+        """
         return pulumi.get(self, "end")
 
     @end.setter
@@ -3953,6 +5314,9 @@ class InsightFiltersUpdatedAtArgs:
     @property
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input[str]]:
+        """
+        A start date for the date filter. Required with `end` if `date_range` is not specified.
+        """
         return pulumi.get(self, "start")
 
     @start.setter
@@ -3965,12 +5329,19 @@ class InsightFiltersUpdatedAtDateRangeArgs:
     def __init__(__self__, *,
                  unit: pulumi.Input[str],
                  value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
+        :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Input[str]:
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -3980,6 +5351,9 @@ class InsightFiltersUpdatedAtDateRangeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[int]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3993,6 +5367,11 @@ class InsightFiltersUserDefinedValueArgs:
                  comparison: pulumi.Input[str],
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] key: The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -4000,6 +5379,9 @@ class InsightFiltersUserDefinedValueArgs:
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -4009,6 +5391,9 @@ class InsightFiltersUserDefinedValueArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -4018,6 +5403,9 @@ class InsightFiltersUserDefinedValueArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -4030,12 +5418,19 @@ class InsightFiltersVerificationStateArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -4045,6 +5440,9 @@ class InsightFiltersVerificationStateArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -4057,12 +5455,19 @@ class InsightFiltersWorkflowStatusArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
+        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -4072,6 +5477,9 @@ class InsightFiltersWorkflowStatusArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
         return pulumi.get(self, "value")
 
     @value.setter

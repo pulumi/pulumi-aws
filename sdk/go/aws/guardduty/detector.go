@@ -10,16 +10,79 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to manage a GuardDuty detector.
+//
+// > **NOTE:** Deleting this resource is equivalent to "disabling" GuardDuty for an AWS region, which removes all existing findings. You can set the `enable` attribute to `false` to instead "suspend" monitoring and feedback reporting while keeping existing data. See the [Suspending or Disabling Amazon GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_suspend-disable.html) for more information.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := guardduty.NewDetector(ctx, "myDetector", &guardduty.DetectorArgs{
+//				Datasources: &guardduty.DetectorDatasourcesArgs{
+//					Kubernetes: &guardduty.DetectorDatasourcesKubernetesArgs{
+//						AuditLogs: &guardduty.DetectorDatasourcesKubernetesAuditLogsArgs{
+//							Enable: pulumi.Bool(false),
+//						},
+//					},
+//					MalwareProtection: &guardduty.DetectorDatasourcesMalwareProtectionArgs{
+//						ScanEc2InstanceWithFindings: &guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs{
+//							EbsVolumes: &guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs{
+//								Enable: pulumi.Bool(true),
+//							},
+//						},
+//					},
+//					S3Logs: &guardduty.DetectorDatasourcesS3LogsArgs{
+//						Enable: pulumi.Bool(true),
+//					},
+//				},
+//				Enable: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// GuardDuty detectors can be imported using the detector ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617
+//
+// ```
 type Detector struct {
 	pulumi.CustomResourceState
 
-	AccountId                  pulumi.StringOutput       `pulumi:"accountId"`
-	Arn                        pulumi.StringOutput       `pulumi:"arn"`
-	Datasources                DetectorDatasourcesOutput `pulumi:"datasources"`
-	Enable                     pulumi.BoolPtrOutput      `pulumi:"enable"`
-	FindingPublishingFrequency pulumi.StringOutput       `pulumi:"findingPublishingFrequency"`
-	Tags                       pulumi.StringMapOutput    `pulumi:"tags"`
-	TagsAll                    pulumi.StringMapOutput    `pulumi:"tagsAll"`
+	// The AWS account ID of the GuardDuty detector
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// Amazon Resource Name (ARN) of the GuardDuty detector
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+	Datasources DetectorDatasourcesOutput `pulumi:"datasources"`
+	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+	Enable pulumi.BoolPtrOutput `pulumi:"enable"`
+	// Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
+	FindingPublishingFrequency pulumi.StringOutput `pulumi:"findingPublishingFrequency"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewDetector registers a new resource with the given unique name, arguments, and options.
@@ -51,23 +114,37 @@ func GetDetector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Detector resources.
 type detectorState struct {
-	AccountId                  *string              `pulumi:"accountId"`
-	Arn                        *string              `pulumi:"arn"`
-	Datasources                *DetectorDatasources `pulumi:"datasources"`
-	Enable                     *bool                `pulumi:"enable"`
-	FindingPublishingFrequency *string              `pulumi:"findingPublishingFrequency"`
-	Tags                       map[string]string    `pulumi:"tags"`
-	TagsAll                    map[string]string    `pulumi:"tagsAll"`
+	// The AWS account ID of the GuardDuty detector
+	AccountId *string `pulumi:"accountId"`
+	// Amazon Resource Name (ARN) of the GuardDuty detector
+	Arn *string `pulumi:"arn"`
+	// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+	Datasources *DetectorDatasources `pulumi:"datasources"`
+	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+	Enable *bool `pulumi:"enable"`
+	// Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
+	FindingPublishingFrequency *string `pulumi:"findingPublishingFrequency"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type DetectorState struct {
-	AccountId                  pulumi.StringPtrInput
-	Arn                        pulumi.StringPtrInput
-	Datasources                DetectorDatasourcesPtrInput
-	Enable                     pulumi.BoolPtrInput
+	// The AWS account ID of the GuardDuty detector
+	AccountId pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the GuardDuty detector
+	Arn pulumi.StringPtrInput
+	// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+	Datasources DetectorDatasourcesPtrInput
+	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+	Enable pulumi.BoolPtrInput
+	// Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
 	FindingPublishingFrequency pulumi.StringPtrInput
-	Tags                       pulumi.StringMapInput
-	TagsAll                    pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (DetectorState) ElementType() reflect.Type {
@@ -75,18 +152,26 @@ func (DetectorState) ElementType() reflect.Type {
 }
 
 type detectorArgs struct {
-	Datasources                *DetectorDatasources `pulumi:"datasources"`
-	Enable                     *bool                `pulumi:"enable"`
-	FindingPublishingFrequency *string              `pulumi:"findingPublishingFrequency"`
-	Tags                       map[string]string    `pulumi:"tags"`
+	// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+	Datasources *DetectorDatasources `pulumi:"datasources"`
+	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+	Enable *bool `pulumi:"enable"`
+	// Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
+	FindingPublishingFrequency *string `pulumi:"findingPublishingFrequency"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Detector resource.
 type DetectorArgs struct {
-	Datasources                DetectorDatasourcesPtrInput
-	Enable                     pulumi.BoolPtrInput
+	// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+	Datasources DetectorDatasourcesPtrInput
+	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+	Enable pulumi.BoolPtrInput
+	// Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
 	FindingPublishingFrequency pulumi.StringPtrInput
-	Tags                       pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (DetectorArgs) ElementType() reflect.Type {
@@ -176,30 +261,37 @@ func (o DetectorOutput) ToDetectorOutputWithContext(ctx context.Context) Detecto
 	return o
 }
 
+// The AWS account ID of the GuardDuty detector
 func (o DetectorOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Detector) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
+// Amazon Resource Name (ARN) of the GuardDuty detector
 func (o DetectorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Detector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
 func (o DetectorOutput) Datasources() DetectorDatasourcesOutput {
 	return o.ApplyT(func(v *Detector) DetectorDatasourcesOutput { return v.Datasources }).(DetectorDatasourcesOutput)
 }
 
+// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
 func (o DetectorOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Detector) pulumi.BoolPtrOutput { return v.Enable }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
 func (o DetectorOutput) FindingPublishingFrequency() pulumi.StringOutput {
 	return o.ApplyT(func(v *Detector) pulumi.StringOutput { return v.FindingPublishingFrequency }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DetectorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Detector) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DetectorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Detector) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

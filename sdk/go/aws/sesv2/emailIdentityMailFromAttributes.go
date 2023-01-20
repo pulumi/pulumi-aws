@@ -11,12 +11,65 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleEmailIdentity, err := sesv2.NewEmailIdentity(ctx, "exampleEmailIdentity", &sesv2.EmailIdentityArgs{
+//				EmailIdentity: pulumi.String("example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sesv2.NewEmailIdentityMailFromAttributes(ctx, "exampleEmailIdentityMailFromAttributes", &sesv2.EmailIdentityMailFromAttributesArgs{
+//				EmailIdentity:       exampleEmailIdentity.EmailIdentity,
+//				BehaviorOnMxFailure: pulumi.String("REJECT_MESSAGE"),
+//				MailFromDomain: exampleEmailIdentity.EmailIdentity.ApplyT(func(emailIdentity string) (string, error) {
+//					return fmt.Sprintf("subdomain.%v", emailIdentity), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// SESv2 (Simple Email V2) Email Identity Mail From Attributes can be imported using the `email_identity`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes example example.com
+//
+// ```
 type EmailIdentityMailFromAttributes struct {
 	pulumi.CustomResourceState
 
+	// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
 	BehaviorOnMxFailure pulumi.StringPtrOutput `pulumi:"behaviorOnMxFailure"`
-	EmailIdentity       pulumi.StringOutput    `pulumi:"emailIdentity"`
-	MailFromDomain      pulumi.StringPtrOutput `pulumi:"mailFromDomain"`
+	// The verified email identity.
+	EmailIdentity pulumi.StringOutput `pulumi:"emailIdentity"`
+	// The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
+	MailFromDomain pulumi.StringPtrOutput `pulumi:"mailFromDomain"`
 }
 
 // NewEmailIdentityMailFromAttributes registers a new resource with the given unique name, arguments, and options.
@@ -51,15 +104,21 @@ func GetEmailIdentityMailFromAttributes(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmailIdentityMailFromAttributes resources.
 type emailIdentityMailFromAttributesState struct {
+	// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
 	BehaviorOnMxFailure *string `pulumi:"behaviorOnMxFailure"`
-	EmailIdentity       *string `pulumi:"emailIdentity"`
-	MailFromDomain      *string `pulumi:"mailFromDomain"`
+	// The verified email identity.
+	EmailIdentity *string `pulumi:"emailIdentity"`
+	// The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
+	MailFromDomain *string `pulumi:"mailFromDomain"`
 }
 
 type EmailIdentityMailFromAttributesState struct {
+	// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
 	BehaviorOnMxFailure pulumi.StringPtrInput
-	EmailIdentity       pulumi.StringPtrInput
-	MailFromDomain      pulumi.StringPtrInput
+	// The verified email identity.
+	EmailIdentity pulumi.StringPtrInput
+	// The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
+	MailFromDomain pulumi.StringPtrInput
 }
 
 func (EmailIdentityMailFromAttributesState) ElementType() reflect.Type {
@@ -67,16 +126,22 @@ func (EmailIdentityMailFromAttributesState) ElementType() reflect.Type {
 }
 
 type emailIdentityMailFromAttributesArgs struct {
+	// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
 	BehaviorOnMxFailure *string `pulumi:"behaviorOnMxFailure"`
-	EmailIdentity       string  `pulumi:"emailIdentity"`
-	MailFromDomain      *string `pulumi:"mailFromDomain"`
+	// The verified email identity.
+	EmailIdentity string `pulumi:"emailIdentity"`
+	// The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
+	MailFromDomain *string `pulumi:"mailFromDomain"`
 }
 
 // The set of arguments for constructing a EmailIdentityMailFromAttributes resource.
 type EmailIdentityMailFromAttributesArgs struct {
+	// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
 	BehaviorOnMxFailure pulumi.StringPtrInput
-	EmailIdentity       pulumi.StringInput
-	MailFromDomain      pulumi.StringPtrInput
+	// The verified email identity.
+	EmailIdentity pulumi.StringInput
+	// The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
+	MailFromDomain pulumi.StringPtrInput
 }
 
 func (EmailIdentityMailFromAttributesArgs) ElementType() reflect.Type {
@@ -166,14 +231,17 @@ func (o EmailIdentityMailFromAttributesOutput) ToEmailIdentityMailFromAttributes
 	return o
 }
 
+// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
 func (o EmailIdentityMailFromAttributesOutput) BehaviorOnMxFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EmailIdentityMailFromAttributes) pulumi.StringPtrOutput { return v.BehaviorOnMxFailure }).(pulumi.StringPtrOutput)
 }
 
+// The verified email identity.
 func (o EmailIdentityMailFromAttributesOutput) EmailIdentity() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentityMailFromAttributes) pulumi.StringOutput { return v.EmailIdentity }).(pulumi.StringOutput)
 }
 
+// The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
 func (o EmailIdentityMailFromAttributesOutput) MailFromDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EmailIdentityMailFromAttributes) pulumi.StringPtrOutput { return v.MailFromDomain }).(pulumi.StringPtrOutput)
 }

@@ -14,7 +14,15 @@ import java.util.Objects;
 @CustomType
 public final class GetCostCategoryResult {
     private String costCategoryArn;
+    /**
+     * @return Effective end data of your Cost Category.
+     * 
+     */
     private String effectiveEnd;
+    /**
+     * @return Effective state data of your Cost Category.
+     * 
+     */
     private String effectiveStart;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -22,18 +30,42 @@ public final class GetCostCategoryResult {
      */
     private String id;
     private String name;
+    /**
+     * @return Rule schema version in this particular Cost Category.
+     * 
+     */
     private String ruleVersion;
+    /**
+     * @return Configuration block for the `Expression` object used to categorize costs. See below.
+     * 
+     */
     private List<GetCostCategoryRule> rules;
+    /**
+     * @return Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
+     * 
+     */
     private List<GetCostCategorySplitChargeRule> splitChargeRules;
+    /**
+     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * 
+     */
     private Map<String,String> tags;
 
     private GetCostCategoryResult() {}
     public String costCategoryArn() {
         return this.costCategoryArn;
     }
+    /**
+     * @return Effective end data of your Cost Category.
+     * 
+     */
     public String effectiveEnd() {
         return this.effectiveEnd;
     }
+    /**
+     * @return Effective state data of your Cost Category.
+     * 
+     */
     public String effectiveStart() {
         return this.effectiveStart;
     }
@@ -47,15 +79,31 @@ public final class GetCostCategoryResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Rule schema version in this particular Cost Category.
+     * 
+     */
     public String ruleVersion() {
         return this.ruleVersion;
     }
+    /**
+     * @return Configuration block for the `Expression` object used to categorize costs. See below.
+     * 
+     */
     public List<GetCostCategoryRule> rules() {
         return this.rules;
     }
+    /**
+     * @return Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
+     * 
+     */
     public List<GetCostCategorySplitChargeRule> splitChargeRules() {
         return this.splitChargeRules;
     }
+    /**
+     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }

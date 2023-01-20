@@ -11,9 +11,15 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetRouteTables
     {
+        /// <summary>
+        /// This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+        /// </summary>
         public static Task<GetRouteTablesResult> InvokeAsync(GetRouteTablesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteTablesResult>("aws:ec2/getRouteTables:getRouteTables", args ?? new GetRouteTablesArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+        /// </summary>
         public static Output<GetRouteTablesResult> Invoke(GetRouteTablesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteTablesResult>("aws:ec2/getRouteTables:getRouteTables", args ?? new GetRouteTablesInvokeArgs(), options.WithDefaults());
     }
@@ -23,6 +29,10 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetRouteTablesFilterArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
         public List<Inputs.GetRouteTablesFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetRouteTablesFilterArgs>());
@@ -31,12 +41,20 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags, each pair of which must exactly match
+        /// a pair on the desired route tables.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// VPC ID that you want to filter from.
+        /// </summary>
         [Input("vpcId")]
         public string? VpcId { get; set; }
 
@@ -50,6 +68,10 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetRouteTablesFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
         public InputList<Inputs.GetRouteTablesFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetRouteTablesFilterInputArgs>());
@@ -58,12 +80,20 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags, each pair of which must exactly match
+        /// a pair on the desired route tables.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// VPC ID that you want to filter from.
+        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 
@@ -82,6 +112,9 @@ namespace Pulumi.Aws.Ec2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// List of all the route table ids found.
+        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string? VpcId;

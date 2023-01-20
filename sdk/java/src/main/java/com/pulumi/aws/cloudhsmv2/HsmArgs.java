@@ -15,30 +15,62 @@ public final class HsmArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final HsmArgs Empty = new HsmArgs();
 
+    /**
+     * The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+     * 
+     */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
+    /**
+     * @return The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+     * 
+     */
     public Optional<Output<String>> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
 
+    /**
+     * The ID of Cloud HSM v2 cluster to which HSM will be added.
+     * 
+     */
     @Import(name="clusterId", required=true)
     private Output<String> clusterId;
 
+    /**
+     * @return The ID of Cloud HSM v2 cluster to which HSM will be added.
+     * 
+     */
     public Output<String> clusterId() {
         return this.clusterId;
     }
 
+    /**
+     * The IP address of HSM module. Must be within the CIDR of selected subnet.
+     * 
+     */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
+    /**
+     * @return The IP address of HSM module. Must be within the CIDR of selected subnet.
+     * 
+     */
     public Optional<Output<String>> ipAddress() {
         return Optional.ofNullable(this.ipAddress);
     }
 
+    /**
+     * The ID of subnet in which HSM module will be located.
+     * 
+     */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
+    /**
+     * @return The ID of subnet in which HSM module will be located.
+     * 
+     */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
@@ -70,38 +102,86 @@ public final class HsmArgs extends com.pulumi.resources.ResourceArgs {
             $ = new HsmArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param availabilityZone The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZone(@Nullable Output<String> availabilityZone) {
             $.availabilityZone = availabilityZone;
             return this;
         }
 
+        /**
+         * @param availabilityZone The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZone(String availabilityZone) {
             return availabilityZone(Output.of(availabilityZone));
         }
 
+        /**
+         * @param clusterId The ID of Cloud HSM v2 cluster to which HSM will be added.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterId(Output<String> clusterId) {
             $.clusterId = clusterId;
             return this;
         }
 
+        /**
+         * @param clusterId The ID of Cloud HSM v2 cluster to which HSM will be added.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterId(String clusterId) {
             return clusterId(Output.of(clusterId));
         }
 
+        /**
+         * @param ipAddress The IP address of HSM module. Must be within the CIDR of selected subnet.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddress(@Nullable Output<String> ipAddress) {
             $.ipAddress = ipAddress;
             return this;
         }
 
+        /**
+         * @param ipAddress The IP address of HSM module. Must be within the CIDR of selected subnet.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddress(String ipAddress) {
             return ipAddress(Output.of(ipAddress));
         }
 
+        /**
+         * @param subnetId The ID of subnet in which HSM module will be located.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
+        /**
+         * @param subnetId The ID of subnet in which HSM module will be located.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

@@ -13,23 +13,47 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TagArgs Empty = new TagArgs();
 
+    /**
+     * Tag name.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return Tag name.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the DynamoDB resource to tag.
+     * 
+     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of the DynamoDB resource to tag.
+     * 
+     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
 
+    /**
+     * Tag value.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return Tag value.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -60,29 +84,65 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TagArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param key Tag name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key Tag name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param resourceArn Amazon Resource Name (ARN) of the DynamoDB resource to tag.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
+        /**
+         * @param resourceArn Amazon Resource Name (ARN) of the DynamoDB resource to tag.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }
 
+        /**
+         * @param value Tag value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Tag value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

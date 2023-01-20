@@ -4,6 +4,37 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an API Gateway Usage Plan Key.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.apigateway.RestApi("test", {});
+ * // ...
+ * const myusageplan = new aws.apigateway.UsagePlan("myusageplan", {apiStages: [{
+ *     apiId: test.id,
+ *     stage: aws_api_gateway_deployment.foo.stage_name,
+ * }]});
+ * const mykey = new aws.apigateway.ApiKey("mykey", {});
+ * const main = new aws.apigateway.UsagePlanKey("main", {
+ *     keyId: mykey.id,
+ *     keyType: "API_KEY",
+ *     usagePlanId: myusageplan.id,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * AWS API Gateway Usage Plan Key can be imported using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
+ * ```
+ */
 export class UsagePlanKey extends pulumi.CustomResource {
     /**
      * Get an existing UsagePlanKey resource's state with the given name, ID, and optional extra
@@ -32,10 +63,25 @@ export class UsagePlanKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === UsagePlanKey.__pulumiType;
     }
 
+    /**
+     * Identifier of the API key resource.
+     */
     public readonly keyId!: pulumi.Output<string>;
+    /**
+     * Type of the API key resource. Currently, the valid key type is API_KEY.
+     */
     public readonly keyType!: pulumi.Output<string>;
+    /**
+     * Name of a usage plan key.
+     */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Id of the usage plan resource representing to associate the key to.
+     */
     public readonly usagePlanId!: pulumi.Output<string>;
+    /**
+     * Value of a usage plan key.
+     */
     public /*out*/ readonly value!: pulumi.Output<string>;
 
     /**
@@ -82,10 +128,25 @@ export class UsagePlanKey extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UsagePlanKey resources.
  */
 export interface UsagePlanKeyState {
+    /**
+     * Identifier of the API key resource.
+     */
     keyId?: pulumi.Input<string>;
+    /**
+     * Type of the API key resource. Currently, the valid key type is API_KEY.
+     */
     keyType?: pulumi.Input<string>;
+    /**
+     * Name of a usage plan key.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Id of the usage plan resource representing to associate the key to.
+     */
     usagePlanId?: pulumi.Input<string>;
+    /**
+     * Value of a usage plan key.
+     */
     value?: pulumi.Input<string>;
 }
 
@@ -93,7 +154,16 @@ export interface UsagePlanKeyState {
  * The set of arguments for constructing a UsagePlanKey resource.
  */
 export interface UsagePlanKeyArgs {
+    /**
+     * Identifier of the API key resource.
+     */
     keyId: pulumi.Input<string>;
+    /**
+     * Type of the API key resource. Currently, the valid key type is API_KEY.
+     */
     keyType: pulumi.Input<string>;
+    /**
+     * Id of the usage plan resource representing to associate the key to.
+     */
     usagePlanId: pulumi.Input<string>;
 }

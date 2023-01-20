@@ -21,6 +21,9 @@ class BucketServerSideEncryptionConfigurationV2Args:
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BucketServerSideEncryptionConfigurationV2 resource.
+        :param pulumi.Input[str] bucket: The name of the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationV2RuleArgs']]] rules: Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "rules", rules)
@@ -30,6 +33,9 @@ class BucketServerSideEncryptionConfigurationV2Args:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
+        """
+        The name of the bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -39,6 +45,9 @@ class BucketServerSideEncryptionConfigurationV2Args:
     @property
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationV2RuleArgs']]]:
+        """
+        Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -48,6 +57,9 @@ class BucketServerSideEncryptionConfigurationV2Args:
     @property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account ID of the expected bucket owner.
+        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -63,6 +75,9 @@ class _BucketServerSideEncryptionConfigurationV2State:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationV2RuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering BucketServerSideEncryptionConfigurationV2 resources.
+        :param pulumi.Input[str] bucket: The name of the bucket.
+        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationV2RuleArgs']]] rules: Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -74,6 +89,9 @@ class _BucketServerSideEncryptionConfigurationV2State:
     @property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -83,6 +101,9 @@ class _BucketServerSideEncryptionConfigurationV2State:
     @property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account ID of the expected bucket owner.
+        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -92,6 +113,9 @@ class _BucketServerSideEncryptionConfigurationV2State:
     @property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationV2RuleArgs']]]]:
+        """
+        Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -109,9 +133,47 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketServerSideEncryptionConfigurationV2RuleArgs']]]]] = None,
                  __props__=None):
         """
-        Create a BucketServerSideEncryptionConfigurationV2 resource with the given unique name, props, and options.
+        Provides a S3 bucket server-side encryption configuration resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        mykey = aws.kms.Key("mykey",
+            description="This key is used to encrypt bucket objects",
+            deletion_window_in_days=10)
+        mybucket = aws.s3.BucketV2("mybucket")
+        example = aws.s3.BucketServerSideEncryptionConfigurationV2("example",
+            bucket=mybucket.bucket,
+            rules=[aws.s3.BucketServerSideEncryptionConfigurationV2RuleArgs(
+                apply_server_side_encryption_by_default=aws.s3.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs(
+                    kms_master_key_id=mykey.arn,
+                    sse_algorithm="aws:kms",
+                ),
+            )])
+        ```
+
+        ## Import
+
+        S3 bucket server-side encryption configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 server-side encryption configuration resource should be imported using the `bucket` e.g.,
+
+        ```sh
+         $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name
+        ```
+
+         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket server-side encryption configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+
+        ```sh
+         $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name,123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bucket: The name of the bucket.
+        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketServerSideEncryptionConfigurationV2RuleArgs']]]] rules: Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
         """
         ...
     @overload
@@ -120,7 +182,42 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
                  args: BucketServerSideEncryptionConfigurationV2Args,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a BucketServerSideEncryptionConfigurationV2 resource with the given unique name, props, and options.
+        Provides a S3 bucket server-side encryption configuration resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        mykey = aws.kms.Key("mykey",
+            description="This key is used to encrypt bucket objects",
+            deletion_window_in_days=10)
+        mybucket = aws.s3.BucketV2("mybucket")
+        example = aws.s3.BucketServerSideEncryptionConfigurationV2("example",
+            bucket=mybucket.bucket,
+            rules=[aws.s3.BucketServerSideEncryptionConfigurationV2RuleArgs(
+                apply_server_side_encryption_by_default=aws.s3.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs(
+                    kms_master_key_id=mykey.arn,
+                    sse_algorithm="aws:kms",
+                ),
+            )])
+        ```
+
+        ## Import
+
+        S3 bucket server-side encryption configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 server-side encryption configuration resource should be imported using the `bucket` e.g.,
+
+        ```sh
+         $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name
+        ```
+
+         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket server-side encryption configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+
+        ```sh
+         $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name,123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param BucketServerSideEncryptionConfigurationV2Args args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,6 +272,9 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bucket: The name of the bucket.
+        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketServerSideEncryptionConfigurationV2RuleArgs']]]] rules: Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -188,15 +288,24 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
+        """
+        The name of the bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[str]]:
+        """
+        The account ID of the expected bucket owner.
+        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @property
     @pulumi.getter
     def rules(self) -> pulumi.Output[Sequence['outputs.BucketServerSideEncryptionConfigurationV2Rule']]:
+        """
+        Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+        """
         return pulumi.get(self, "rules")
 

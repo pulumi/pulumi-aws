@@ -17,29 +17,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConfigurationSetEventDestinationEventDestination {
+    /**
+     * @return An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below
+     * 
+     */
     private @Nullable ConfigurationSetEventDestinationEventDestinationCloudWatchDestination cloudWatchDestination;
+    /**
+     * @return When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
+     * 
+     */
     private @Nullable Boolean enabled;
+    /**
+     * @return An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.
+     * 
+     */
     private @Nullable ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination kinesisFirehoseDestination;
+    /**
+     * @return An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+     * 
+     */
     private List<String> matchingEventTypes;
+    /**
+     * @return An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.
+     * 
+     */
     private @Nullable ConfigurationSetEventDestinationEventDestinationPinpointDestination pinpointDestination;
+    /**
+     * @return An object that defines an Amazon SNS destination for email events. See sns_destination below.
+     * 
+     */
     private @Nullable ConfigurationSetEventDestinationEventDestinationSnsDestination snsDestination;
 
     private ConfigurationSetEventDestinationEventDestination() {}
+    /**
+     * @return An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below
+     * 
+     */
     public Optional<ConfigurationSetEventDestinationEventDestinationCloudWatchDestination> cloudWatchDestination() {
         return Optional.ofNullable(this.cloudWatchDestination);
     }
+    /**
+     * @return When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
+     * 
+     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
+    /**
+     * @return An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.
+     * 
+     */
     public Optional<ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination> kinesisFirehoseDestination() {
         return Optional.ofNullable(this.kinesisFirehoseDestination);
     }
+    /**
+     * @return An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+     * 
+     */
     public List<String> matchingEventTypes() {
         return this.matchingEventTypes;
     }
+    /**
+     * @return An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.
+     * 
+     */
     public Optional<ConfigurationSetEventDestinationEventDestinationPinpointDestination> pinpointDestination() {
         return Optional.ofNullable(this.pinpointDestination);
     }
+    /**
+     * @return An object that defines an Amazon SNS destination for email events. See sns_destination below.
+     * 
+     */
     public Optional<ConfigurationSetEventDestinationEventDestinationSnsDestination> snsDestination() {
         return Optional.ofNullable(this.snsDestination);
     }

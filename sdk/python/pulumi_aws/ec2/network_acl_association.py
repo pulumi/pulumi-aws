@@ -18,6 +18,8 @@ class NetworkAclAssociationArgs:
                  subnet_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a NetworkAclAssociation resource.
+        :param pulumi.Input[str] network_acl_id: The ID of the network ACL.
+        :param pulumi.Input[str] subnet_id: The ID of the associated Subnet.
         """
         pulumi.set(__self__, "network_acl_id", network_acl_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -25,6 +27,9 @@ class NetworkAclAssociationArgs:
     @property
     @pulumi.getter(name="networkAclId")
     def network_acl_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the network ACL.
+        """
         return pulumi.get(self, "network_acl_id")
 
     @network_acl_id.setter
@@ -34,6 +39,9 @@ class NetworkAclAssociationArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the associated Subnet.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -48,6 +56,8 @@ class _NetworkAclAssociationState:
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NetworkAclAssociation resources.
+        :param pulumi.Input[str] network_acl_id: The ID of the network ACL.
+        :param pulumi.Input[str] subnet_id: The ID of the associated Subnet.
         """
         if network_acl_id is not None:
             pulumi.set(__self__, "network_acl_id", network_acl_id)
@@ -57,6 +67,9 @@ class _NetworkAclAssociationState:
     @property
     @pulumi.getter(name="networkAclId")
     def network_acl_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the network ACL.
+        """
         return pulumi.get(self, "network_acl_id")
 
     @network_acl_id.setter
@@ -66,6 +79,9 @@ class _NetworkAclAssociationState:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the associated Subnet.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -82,9 +98,27 @@ class NetworkAclAssociation(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a NetworkAclAssociation resource with the given unique name, props, and options.
+        Provides an network ACL association resource which allows you to associate your network ACL with any subnet(s).
+
+        > **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association resource
+        and a network ACL resource with a `subnet_ids` attribute. Do not use the same subnet ID in both a network ACL
+        resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ec2.NetworkAclAssociation("main",
+            network_acl_id=aws_network_acl["main"]["id"],
+            subnet_id=aws_subnet["main"]["id"])
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] network_acl_id: The ID of the network ACL.
+        :param pulumi.Input[str] subnet_id: The ID of the associated Subnet.
         """
         ...
     @overload
@@ -93,7 +127,23 @@ class NetworkAclAssociation(pulumi.CustomResource):
                  args: NetworkAclAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a NetworkAclAssociation resource with the given unique name, props, and options.
+        Provides an network ACL association resource which allows you to associate your network ACL with any subnet(s).
+
+        > **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association resource
+        and a network ACL resource with a `subnet_ids` attribute. Do not use the same subnet ID in both a network ACL
+        resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ec2.NetworkAclAssociation("main",
+            network_acl_id=aws_network_acl["main"]["id"],
+            subnet_id=aws_subnet["main"]["id"])
+        ```
+
         :param str resource_name: The name of the resource.
         :param NetworkAclAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +195,8 @@ class NetworkAclAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] network_acl_id: The ID of the network ACL.
+        :param pulumi.Input[str] subnet_id: The ID of the associated Subnet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +209,16 @@ class NetworkAclAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="networkAclId")
     def network_acl_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the network ACL.
+        """
         return pulumi.get(self, "network_acl_id")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the associated Subnet.
+        """
         return pulumi.get(self, "subnet_id")
 

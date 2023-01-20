@@ -13,9 +13,17 @@ public final class DetectorDatasourcesS3LogsArgs extends com.pulumi.resources.Re
 
     public static final DetectorDatasourcesS3LogsArgs Empty = new DetectorDatasourcesS3LogsArgs();
 
+    /**
+     * Enable monitoring and feedback reporting. Setting to `false` is equivalent to &#34;suspending&#34; GuardDuty. Defaults to `true`.
+     * 
+     */
     @Import(name="enable", required=true)
     private Output<Boolean> enable;
 
+    /**
+     * @return Enable monitoring and feedback reporting. Setting to `false` is equivalent to &#34;suspending&#34; GuardDuty. Defaults to `true`.
+     * 
+     */
     public Output<Boolean> enable() {
         return this.enable;
     }
@@ -44,11 +52,23 @@ public final class DetectorDatasourcesS3LogsArgs extends com.pulumi.resources.Re
             $ = new DetectorDatasourcesS3LogsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param enable Enable monitoring and feedback reporting. Setting to `false` is equivalent to &#34;suspending&#34; GuardDuty. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enable(Output<Boolean> enable) {
             $.enable = enable;
             return this;
         }
 
+        /**
+         * @param enable Enable monitoring and feedback reporting. Setting to `false` is equivalent to &#34;suspending&#34; GuardDuty. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enable(Boolean enable) {
             return enable(Output.of(enable));
         }

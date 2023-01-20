@@ -19,6 +19,9 @@ class WebhookArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Webhook resource.
+        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
+        :param pulumi.Input[str] branch_name: Name for a branch that is part of the Amplify app.
+        :param pulumi.Input[str] description: Description for a webhook.
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "branch_name", branch_name)
@@ -28,6 +31,9 @@ class WebhookArgs:
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Input[str]:
+        """
+        Unique ID for an Amplify app.
+        """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
@@ -37,6 +43,9 @@ class WebhookArgs:
     @property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> pulumi.Input[str]:
+        """
+        Name for a branch that is part of the Amplify app.
+        """
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
@@ -46,6 +55,9 @@ class WebhookArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description for a webhook.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -63,6 +75,11 @@ class _WebhookState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Webhook resources.
+        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
+        :param pulumi.Input[str] arn: ARN for the webhook.
+        :param pulumi.Input[str] branch_name: Name for a branch that is part of the Amplify app.
+        :param pulumi.Input[str] description: Description for a webhook.
+        :param pulumi.Input[str] url: URL of the webhook.
         """
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -78,6 +95,9 @@ class _WebhookState:
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique ID for an Amplify app.
+        """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
@@ -87,6 +107,9 @@ class _WebhookState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN for the webhook.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -96,6 +119,9 @@ class _WebhookState:
     @property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for a branch that is part of the Amplify app.
+        """
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
@@ -105,6 +131,9 @@ class _WebhookState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description for a webhook.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -114,6 +143,9 @@ class _WebhookState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL of the webhook.
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -131,9 +163,37 @@ class Webhook(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Webhook resource with the given unique name, props, and options.
+        Provides an Amplify Webhook resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amplify.App("example")
+        master_branch = aws.amplify.Branch("masterBranch",
+            app_id=example.id,
+            branch_name="master")
+        master_webhook = aws.amplify.Webhook("masterWebhook",
+            app_id=example.id,
+            branch_name=master_branch.branch_name,
+            description="triggermaster")
+        ```
+
+        ## Import
+
+        Amplify webhook can be imported using a webhook ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
+        :param pulumi.Input[str] branch_name: Name for a branch that is part of the Amplify app.
+        :param pulumi.Input[str] description: Description for a webhook.
         """
         ...
     @overload
@@ -142,7 +202,32 @@ class Webhook(pulumi.CustomResource):
                  args: WebhookArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Webhook resource with the given unique name, props, and options.
+        Provides an Amplify Webhook resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amplify.App("example")
+        master_branch = aws.amplify.Branch("masterBranch",
+            app_id=example.id,
+            branch_name="master")
+        master_webhook = aws.amplify.Webhook("masterWebhook",
+            app_id=example.id,
+            branch_name=master_branch.branch_name,
+            description="triggermaster")
+        ```
+
+        ## Import
+
+        Amplify webhook can be imported using a webhook ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
+        ```
+
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,6 +286,11 @@ class Webhook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
+        :param pulumi.Input[str] arn: ARN for the webhook.
+        :param pulumi.Input[str] branch_name: Name for a branch that is part of the Amplify app.
+        :param pulumi.Input[str] description: Description for a webhook.
+        :param pulumi.Input[str] url: URL of the webhook.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -216,25 +306,40 @@ class Webhook(pulumi.CustomResource):
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[str]:
+        """
+        Unique ID for an Amplify app.
+        """
         return pulumi.get(self, "app_id")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN for the webhook.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> pulumi.Output[str]:
+        """
+        Name for a branch that is part of the Amplify app.
+        """
         return pulumi.get(self, "branch_name")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Description for a webhook.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
+        """
+        URL of the webhook.
+        """
         return pulumi.get(self, "url")
 

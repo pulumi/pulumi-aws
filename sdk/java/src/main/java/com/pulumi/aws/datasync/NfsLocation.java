@@ -17,47 +17,152 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages an NFS Location within AWS DataSync.
+ * 
+ * &gt; **NOTE:** The DataSync Agents must be available before creating this resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.datasync.NfsLocation;
+ * import com.pulumi.aws.datasync.NfsLocationArgs;
+ * import com.pulumi.aws.datasync.inputs.NfsLocationOnPremConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new NfsLocation(&#34;example&#34;, NfsLocationArgs.builder()        
+ *             .serverHostname(&#34;nfs.example.com&#34;)
+ *             .subdirectory(&#34;/exported/path&#34;)
+ *             .onPremConfig(NfsLocationOnPremConfigArgs.builder()
+ *                 .agentArns(aws_datasync_agent.example().arn())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_datasync_location_nfs` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+ * ```
+ * 
+ */
 @ResourceType(type="aws:datasync/nfsLocation:NfsLocation")
 public class NfsLocation extends com.pulumi.resources.CustomResource {
+    /**
+     * Amazon Resource Name (ARN) of the DataSync Location.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of the DataSync Location.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Configuration block containing mount options used by DataSync to access the NFS Server.
+     * 
+     */
     @Export(name="mountOptions", refs={NfsLocationMountOptions.class}, tree="[0]")
     private Output</* @Nullable */ NfsLocationMountOptions> mountOptions;
 
+    /**
+     * @return Configuration block containing mount options used by DataSync to access the NFS Server.
+     * 
+     */
     public Output<Optional<NfsLocationMountOptions>> mountOptions() {
         return Codegen.optional(this.mountOptions);
     }
+    /**
+     * Configuration block containing information for connecting to the NFS File System.
+     * 
+     */
     @Export(name="onPremConfig", refs={NfsLocationOnPremConfig.class}, tree="[0]")
     private Output<NfsLocationOnPremConfig> onPremConfig;
 
+    /**
+     * @return Configuration block containing information for connecting to the NFS File System.
+     * 
+     */
     public Output<NfsLocationOnPremConfig> onPremConfig() {
         return this.onPremConfig;
     }
+    /**
+     * Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
+     * 
+     */
     @Export(name="serverHostname", refs={String.class}, tree="[0]")
     private Output<String> serverHostname;
 
+    /**
+     * @return Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
+     * 
+     */
     public Output<String> serverHostname() {
         return this.serverHostname;
     }
+    /**
+     * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
+     * 
+     */
     @Export(name="subdirectory", refs={String.class}, tree="[0]")
     private Output<String> subdirectory;
 
+    /**
+     * @return Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
+     * 
+     */
     public Output<String> subdirectory() {
         return this.subdirectory;
     }
+    /**
+     * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

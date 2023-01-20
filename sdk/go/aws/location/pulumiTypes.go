@@ -11,6 +11,7 @@ import (
 )
 
 type MapConfiguration struct {
+	// Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
 	Style string `pulumi:"style"`
 }
 
@@ -26,6 +27,7 @@ type MapConfigurationInput interface {
 }
 
 type MapConfigurationArgs struct {
+	// Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
 	Style pulumi.StringInput `pulumi:"style"`
 }
 
@@ -106,6 +108,7 @@ func (o MapConfigurationOutput) ToMapConfigurationPtrOutputWithContext(ctx conte
 	}).(MapConfigurationPtrOutput)
 }
 
+// Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
 func (o MapConfigurationOutput) Style() pulumi.StringOutput {
 	return o.ApplyT(func(v MapConfiguration) string { return v.Style }).(pulumi.StringOutput)
 }
@@ -134,6 +137,7 @@ func (o MapConfigurationPtrOutput) Elem() MapConfigurationOutput {
 	}).(MapConfigurationOutput)
 }
 
+// Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
 func (o MapConfigurationPtrOutput) Style() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MapConfiguration) *string {
 		if v == nil {
@@ -144,6 +148,7 @@ func (o MapConfigurationPtrOutput) Style() pulumi.StringPtrOutput {
 }
 
 type PlaceIndexDataSourceConfiguration struct {
+	// Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
 	IntendedUse *string `pulumi:"intendedUse"`
 }
 
@@ -159,6 +164,7 @@ type PlaceIndexDataSourceConfigurationInput interface {
 }
 
 type PlaceIndexDataSourceConfigurationArgs struct {
+	// Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
 	IntendedUse pulumi.StringPtrInput `pulumi:"intendedUse"`
 }
 
@@ -239,6 +245,7 @@ func (o PlaceIndexDataSourceConfigurationOutput) ToPlaceIndexDataSourceConfigura
 	}).(PlaceIndexDataSourceConfigurationPtrOutput)
 }
 
+// Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
 func (o PlaceIndexDataSourceConfigurationOutput) IntendedUse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlaceIndexDataSourceConfiguration) *string { return v.IntendedUse }).(pulumi.StringPtrOutput)
 }
@@ -267,6 +274,7 @@ func (o PlaceIndexDataSourceConfigurationPtrOutput) Elem() PlaceIndexDataSourceC
 	}).(PlaceIndexDataSourceConfigurationOutput)
 }
 
+// Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
 func (o PlaceIndexDataSourceConfigurationPtrOutput) IntendedUse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlaceIndexDataSourceConfiguration) *string {
 		if v == nil {
@@ -277,6 +285,7 @@ func (o PlaceIndexDataSourceConfigurationPtrOutput) IntendedUse() pulumi.StringP
 }
 
 type GetMapConfiguration struct {
+	// The map style selected from an available data provider.
 	Style string `pulumi:"style"`
 }
 
@@ -292,6 +301,7 @@ type GetMapConfigurationInput interface {
 }
 
 type GetMapConfigurationArgs struct {
+	// The map style selected from an available data provider.
 	Style pulumi.StringInput `pulumi:"style"`
 }
 
@@ -346,6 +356,7 @@ func (o GetMapConfigurationOutput) ToGetMapConfigurationOutputWithContext(ctx co
 	return o
 }
 
+// The map style selected from an available data provider.
 func (o GetMapConfigurationOutput) Style() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMapConfiguration) string { return v.Style }).(pulumi.StringOutput)
 }

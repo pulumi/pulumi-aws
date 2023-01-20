@@ -4,6 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Creates a new Amazon Redshift Serverless Namespace.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.redshiftserverless.Namespace("example", {namespaceName: "concurrency-scaling"});
+ * ```
+ *
+ * ## Import
+ *
+ * Redshift Serverless Namespaces can be imported using the `namespace_name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:redshiftserverless/namespace:Namespace example example
+ * ```
+ */
 export class Namespace extends pulumi.CustomResource {
     /**
      * Get an existing Namespace resource's state with the given name, ID, and optional extra
@@ -32,17 +52,53 @@ export class Namespace extends pulumi.CustomResource {
         return obj['__pulumiType'] === Namespace.__pulumiType;
     }
 
+    /**
+     * The password of the administrator for the first database created in the namespace.
+     */
     public readonly adminUserPassword!: pulumi.Output<string | undefined>;
+    /**
+     * The username of the administrator for the first database created in the namespace.
+     */
     public readonly adminUsername!: pulumi.Output<string>;
+    /**
+     * Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name of the first database created in the namespace.
+     */
     public readonly dbName!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+     */
     public readonly defaultIamRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * A list of IAM roles to associate with the namespace.
+     */
     public readonly iamRoles!: pulumi.Output<string[]>;
+    /**
+     * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+     */
     public readonly kmsKeyId!: pulumi.Output<string>;
+    /**
+     * The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
+     */
     public readonly logExports!: pulumi.Output<string[] | undefined>;
+    /**
+     * The Redshift Namespace ID.
+     */
     public /*out*/ readonly namespaceId!: pulumi.Output<string>;
+    /**
+     * The name of the namespace.
+     */
     public readonly namespaceName!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -99,17 +155,53 @@ export class Namespace extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Namespace resources.
  */
 export interface NamespaceState {
+    /**
+     * The password of the administrator for the first database created in the namespace.
+     */
     adminUserPassword?: pulumi.Input<string>;
+    /**
+     * The username of the administrator for the first database created in the namespace.
+     */
     adminUsername?: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The name of the first database created in the namespace.
+     */
     dbName?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+     */
     defaultIamRoleArn?: pulumi.Input<string>;
+    /**
+     * A list of IAM roles to associate with the namespace.
+     */
     iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+     */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
+     */
     logExports?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Redshift Namespace ID.
+     */
     namespaceId?: pulumi.Input<string>;
+    /**
+     * The name of the namespace.
+     */
     namespaceName?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -117,13 +209,40 @@ export interface NamespaceState {
  * The set of arguments for constructing a Namespace resource.
  */
 export interface NamespaceArgs {
+    /**
+     * The password of the administrator for the first database created in the namespace.
+     */
     adminUserPassword?: pulumi.Input<string>;
+    /**
+     * The username of the administrator for the first database created in the namespace.
+     */
     adminUsername?: pulumi.Input<string>;
+    /**
+     * The name of the first database created in the namespace.
+     */
     dbName?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+     */
     defaultIamRoleArn?: pulumi.Input<string>;
+    /**
+     * A list of IAM roles to associate with the namespace.
+     */
     iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+     */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
+     */
     logExports?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the namespace.
+     */
     namespaceName: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -15,23 +15,47 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GroupArgs Empty = new GroupArgs();
 
+    /**
+     * A string containing the description of the group.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return A string containing the description of the group.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * A string containing the name of the group. This value is commonly displayed when the group is referenced.
+     * 
+     */
     @Import(name="displayName", required=true)
     private Output<String> displayName;
 
+    /**
+     * @return A string containing the name of the group. This value is commonly displayed when the group is referenced.
+     * 
+     */
     public Output<String> displayName() {
         return this.displayName;
     }
 
+    /**
+     * The globally unique identifier for the identity store.
+     * 
+     */
     @Import(name="identityStoreId", required=true)
     private Output<String> identityStoreId;
 
+    /**
+     * @return The globally unique identifier for the identity store.
+     * 
+     */
     public Output<String> identityStoreId() {
         return this.identityStoreId;
     }
@@ -62,29 +86,65 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
             $ = new GroupArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param description A string containing the description of the group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description A string containing the description of the group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param displayName A string containing the name of the group. This value is commonly displayed when the group is referenced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
 
+        /**
+         * @param displayName A string containing the name of the group. This value is commonly displayed when the group is referenced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }
 
+        /**
+         * @param identityStoreId The globally unique identifier for the identity store.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityStoreId(Output<String> identityStoreId) {
             $.identityStoreId = identityStoreId;
             return this;
         }
 
+        /**
+         * @param identityStoreId The globally unique identifier for the identity store.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityStoreId(String identityStoreId) {
             return identityStoreId(Output.of(identityStoreId));
         }

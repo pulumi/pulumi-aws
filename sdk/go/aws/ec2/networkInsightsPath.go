@@ -11,18 +11,66 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Network Insights Path resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewNetworkInsightsPath(ctx, "test", &ec2.NetworkInsightsPathArgs{
+//				Source:      pulumi.Any(aws_network_interface.Source.Id),
+//				Destination: pulumi.Any(aws_network_interface.Destination.Id),
+//				Protocol:    pulumi.String("tcp"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Network Insights Paths can be imported using the `id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
+//
+// ```
 type NetworkInsightsPath struct {
 	pulumi.CustomResourceState
 
-	Arn             pulumi.StringOutput    `pulumi:"arn"`
-	Destination     pulumi.StringOutput    `pulumi:"destination"`
-	DestinationIp   pulumi.StringPtrOutput `pulumi:"destinationIp"`
-	DestinationPort pulumi.IntPtrOutput    `pulumi:"destinationPort"`
-	Protocol        pulumi.StringOutput    `pulumi:"protocol"`
-	Source          pulumi.StringOutput    `pulumi:"source"`
-	SourceIp        pulumi.StringPtrOutput `pulumi:"sourceIp"`
-	Tags            pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll         pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// ARN of the Network Insights Path.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+	Destination pulumi.StringOutput `pulumi:"destination"`
+	// IP address of the destination resource.
+	DestinationIp pulumi.StringPtrOutput `pulumi:"destinationIp"`
+	// Destination port to analyze access to.
+	DestinationPort pulumi.IntPtrOutput `pulumi:"destinationPort"`
+	// Protocol to use for analysis. Valid options are `tcp` or `udp`.
+	Protocol pulumi.StringOutput `pulumi:"protocol"`
+	// ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+	Source pulumi.StringOutput `pulumi:"source"`
+	// IP address of the source resource.
+	SourceIp pulumi.StringPtrOutput `pulumi:"sourceIp"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewNetworkInsightsPath registers a new resource with the given unique name, arguments, and options.
@@ -63,27 +111,45 @@ func GetNetworkInsightsPath(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkInsightsPath resources.
 type networkInsightsPathState struct {
-	Arn             *string           `pulumi:"arn"`
-	Destination     *string           `pulumi:"destination"`
-	DestinationIp   *string           `pulumi:"destinationIp"`
-	DestinationPort *int              `pulumi:"destinationPort"`
-	Protocol        *string           `pulumi:"protocol"`
-	Source          *string           `pulumi:"source"`
-	SourceIp        *string           `pulumi:"sourceIp"`
-	Tags            map[string]string `pulumi:"tags"`
-	TagsAll         map[string]string `pulumi:"tagsAll"`
+	// ARN of the Network Insights Path.
+	Arn *string `pulumi:"arn"`
+	// ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+	Destination *string `pulumi:"destination"`
+	// IP address of the destination resource.
+	DestinationIp *string `pulumi:"destinationIp"`
+	// Destination port to analyze access to.
+	DestinationPort *int `pulumi:"destinationPort"`
+	// Protocol to use for analysis. Valid options are `tcp` or `udp`.
+	Protocol *string `pulumi:"protocol"`
+	// ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+	Source *string `pulumi:"source"`
+	// IP address of the source resource.
+	SourceIp *string `pulumi:"sourceIp"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type NetworkInsightsPathState struct {
-	Arn             pulumi.StringPtrInput
-	Destination     pulumi.StringPtrInput
-	DestinationIp   pulumi.StringPtrInput
+	// ARN of the Network Insights Path.
+	Arn pulumi.StringPtrInput
+	// ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+	Destination pulumi.StringPtrInput
+	// IP address of the destination resource.
+	DestinationIp pulumi.StringPtrInput
+	// Destination port to analyze access to.
 	DestinationPort pulumi.IntPtrInput
-	Protocol        pulumi.StringPtrInput
-	Source          pulumi.StringPtrInput
-	SourceIp        pulumi.StringPtrInput
-	Tags            pulumi.StringMapInput
-	TagsAll         pulumi.StringMapInput
+	// Protocol to use for analysis. Valid options are `tcp` or `udp`.
+	Protocol pulumi.StringPtrInput
+	// ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+	Source pulumi.StringPtrInput
+	// IP address of the source resource.
+	SourceIp pulumi.StringPtrInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (NetworkInsightsPathState) ElementType() reflect.Type {
@@ -91,24 +157,38 @@ func (NetworkInsightsPathState) ElementType() reflect.Type {
 }
 
 type networkInsightsPathArgs struct {
-	Destination     string            `pulumi:"destination"`
-	DestinationIp   *string           `pulumi:"destinationIp"`
-	DestinationPort *int              `pulumi:"destinationPort"`
-	Protocol        string            `pulumi:"protocol"`
-	Source          string            `pulumi:"source"`
-	SourceIp        *string           `pulumi:"sourceIp"`
-	Tags            map[string]string `pulumi:"tags"`
+	// ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+	Destination string `pulumi:"destination"`
+	// IP address of the destination resource.
+	DestinationIp *string `pulumi:"destinationIp"`
+	// Destination port to analyze access to.
+	DestinationPort *int `pulumi:"destinationPort"`
+	// Protocol to use for analysis. Valid options are `tcp` or `udp`.
+	Protocol string `pulumi:"protocol"`
+	// ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+	Source string `pulumi:"source"`
+	// IP address of the source resource.
+	SourceIp *string `pulumi:"sourceIp"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkInsightsPath resource.
 type NetworkInsightsPathArgs struct {
-	Destination     pulumi.StringInput
-	DestinationIp   pulumi.StringPtrInput
+	// ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+	Destination pulumi.StringInput
+	// IP address of the destination resource.
+	DestinationIp pulumi.StringPtrInput
+	// Destination port to analyze access to.
 	DestinationPort pulumi.IntPtrInput
-	Protocol        pulumi.StringInput
-	Source          pulumi.StringInput
-	SourceIp        pulumi.StringPtrInput
-	Tags            pulumi.StringMapInput
+	// Protocol to use for analysis. Valid options are `tcp` or `udp`.
+	Protocol pulumi.StringInput
+	// ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+	Source pulumi.StringInput
+	// IP address of the source resource.
+	SourceIp pulumi.StringPtrInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (NetworkInsightsPathArgs) ElementType() reflect.Type {
@@ -198,38 +278,47 @@ func (o NetworkInsightsPathOutput) ToNetworkInsightsPathOutputWithContext(ctx co
 	return o
 }
 
+// ARN of the Network Insights Path.
 func (o NetworkInsightsPathOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
 func (o NetworkInsightsPathOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.Destination }).(pulumi.StringOutput)
 }
 
+// IP address of the destination resource.
 func (o NetworkInsightsPathOutput) DestinationIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringPtrOutput { return v.DestinationIp }).(pulumi.StringPtrOutput)
 }
 
+// Destination port to analyze access to.
 func (o NetworkInsightsPathOutput) DestinationPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.IntPtrOutput { return v.DestinationPort }).(pulumi.IntPtrOutput)
 }
 
+// Protocol to use for analysis. Valid options are `tcp` or `udp`.
 func (o NetworkInsightsPathOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }
 
+// ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
 func (o NetworkInsightsPathOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
 }
 
+// IP address of the source resource.
 func (o NetworkInsightsPathOutput) SourceIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringPtrOutput { return v.SourceIp }).(pulumi.StringPtrOutput)
 }
 
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NetworkInsightsPathOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o NetworkInsightsPathOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

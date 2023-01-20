@@ -17,12 +17,16 @@ class ResourceGroupArgs:
                  tags: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         """
         The set of arguments for constructing a ResourceGroup resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
         """
         pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -37,6 +41,8 @@ class _ResourceGroupState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ResourceGroup resources.
+        :param pulumi.Input[str] arn: The resource group ARN.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -46,6 +52,9 @@ class _ResourceGroupState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource group ARN.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -55,6 +64,9 @@ class _ResourceGroupState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -70,9 +82,23 @@ class ResourceGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a ResourceGroup resource with the given unique name, props, and options.
+        Provides an Amazon Inspector resource group resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.inspector.ResourceGroup("example", tags={
+            "Env": "bar",
+            "Name": "foo",
+        })
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
         """
         ...
     @overload
@@ -81,7 +107,20 @@ class ResourceGroup(pulumi.CustomResource):
                  args: ResourceGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ResourceGroup resource with the given unique name, props, and options.
+        Provides an Amazon Inspector resource group resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.inspector.ResourceGroup("example", tags={
+            "Env": "bar",
+            "Name": "foo",
+        })
+        ```
+
         :param str resource_name: The name of the resource.
         :param ResourceGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,6 +169,8 @@ class ResourceGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The resource group ARN.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -142,10 +183,16 @@ class ResourceGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The resource group ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
+        """
         return pulumi.get(self, "tags")
 

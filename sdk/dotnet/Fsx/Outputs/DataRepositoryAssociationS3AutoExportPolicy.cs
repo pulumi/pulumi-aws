@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class DataRepositoryAssociationS3AutoExportPolicy
     {
+        /// <summary>
+        /// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+        /// </summary>
         public readonly ImmutableArray<string> Events;
 
         [OutputConstructor]

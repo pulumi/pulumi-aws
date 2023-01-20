@@ -13,9 +13,17 @@ public final class GetReplicationGroupArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetReplicationGroupArgs Empty = new GetReplicationGroupArgs();
 
+    /**
+     * Identifier for the replication group.
+     * 
+     */
     @Import(name="replicationGroupId", required=true)
     private Output<String> replicationGroupId;
 
+    /**
+     * @return Identifier for the replication group.
+     * 
+     */
     public Output<String> replicationGroupId() {
         return this.replicationGroupId;
     }
@@ -44,11 +52,23 @@ public final class GetReplicationGroupArgs extends com.pulumi.resources.InvokeAr
             $ = new GetReplicationGroupArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param replicationGroupId Identifier for the replication group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicationGroupId(Output<String> replicationGroupId) {
             $.replicationGroupId = replicationGroupId;
             return this;
         }
 
+        /**
+         * @param replicationGroupId Identifier for the replication group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicationGroupId(String replicationGroupId) {
             return replicationGroupId(Output.of(replicationGroupId));
         }

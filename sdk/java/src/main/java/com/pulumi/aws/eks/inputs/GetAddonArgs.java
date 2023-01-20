@@ -16,16 +16,34 @@ public final class GetAddonArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAddonArgs Empty = new GetAddonArgs();
 
+    /**
+     * Name of the EKS add-on. The name must match one of
+     * the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+     * 
+     */
     @Import(name="addonName", required=true)
     private Output<String> addonName;
 
+    /**
+     * @return Name of the EKS add-on. The name must match one of
+     * the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+     * 
+     */
     public Output<String> addonName() {
         return this.addonName;
     }
 
+    /**
+     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * 
+     */
     @Import(name="clusterName", required=true)
     private Output<String> clusterName;
 
+    /**
+     * @return Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * 
+     */
     public Output<String> clusterName() {
         return this.clusterName;
     }
@@ -63,20 +81,46 @@ public final class GetAddonArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetAddonArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param addonName Name of the EKS add-on. The name must match one of
+         * the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder addonName(Output<String> addonName) {
             $.addonName = addonName;
             return this;
         }
 
+        /**
+         * @param addonName Name of the EKS add-on. The name must match one of
+         * the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder addonName(String addonName) {
             return addonName(Output.of(addonName));
         }
 
+        /**
+         * @param clusterName Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterName(Output<String> clusterName) {
             $.clusterName = clusterName;
             return this;
         }
 
+        /**
+         * @param clusterName Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
         }

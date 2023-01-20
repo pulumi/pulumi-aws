@@ -15,6 +15,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("groupId", required: true)]
         public Input<string> GroupId { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the Channel.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

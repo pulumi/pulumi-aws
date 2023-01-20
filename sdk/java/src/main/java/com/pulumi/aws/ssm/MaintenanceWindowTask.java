@@ -18,89 +18,371 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an SSM Maintenance Window Task resource
+ * 
+ * ## Example Usage
+ * ### Automation Tasks
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssm.MaintenanceWindowTask;
+ * import com.pulumi.aws.ssm.MaintenanceWindowTaskArgs;
+ * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTargetArgs;
+ * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersArgs;
+ * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new MaintenanceWindowTask(&#34;example&#34;, MaintenanceWindowTaskArgs.builder()        
+ *             .maxConcurrency(2)
+ *             .maxErrors(1)
+ *             .priority(1)
+ *             .taskArn(&#34;AWS-RestartEC2Instance&#34;)
+ *             .taskType(&#34;AUTOMATION&#34;)
+ *             .windowId(aws_ssm_maintenance_window.example().id())
+ *             .targets(MaintenanceWindowTaskTargetArgs.builder()
+ *                 .key(&#34;InstanceIds&#34;)
+ *                 .values(aws_instance.example().id())
+ *                 .build())
+ *             .taskInvocationParameters(MaintenanceWindowTaskTaskInvocationParametersArgs.builder()
+ *                 .automationParameters(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs.builder()
+ *                     .documentVersion(&#34;$LATEST&#34;)
+ *                     .parameters(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs.builder()
+ *                         .name(&#34;InstanceId&#34;)
+ *                         .values(aws_instance.example().id())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Run Command Tasks
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssm.MaintenanceWindowTask;
+ * import com.pulumi.aws.ssm.MaintenanceWindowTaskArgs;
+ * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTargetArgs;
+ * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersArgs;
+ * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs;
+ * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new MaintenanceWindowTask(&#34;example&#34;, MaintenanceWindowTaskArgs.builder()        
+ *             .maxConcurrency(2)
+ *             .maxErrors(1)
+ *             .priority(1)
+ *             .taskArn(&#34;AWS-RunShellScript&#34;)
+ *             .taskType(&#34;RUN_COMMAND&#34;)
+ *             .windowId(aws_ssm_maintenance_window.example().id())
+ *             .targets(MaintenanceWindowTaskTargetArgs.builder()
+ *                 .key(&#34;InstanceIds&#34;)
+ *                 .values(aws_instance.example().id())
+ *                 .build())
+ *             .taskInvocationParameters(MaintenanceWindowTaskTaskInvocationParametersArgs.builder()
+ *                 .runCommandParameters(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.builder()
+ *                     .outputS3Bucket(aws_s3_bucket.example().bucket())
+ *                     .outputS3KeyPrefix(&#34;output&#34;)
+ *                     .serviceRoleArn(aws_iam_role.example().arn())
+ *                     .timeoutSeconds(600)
+ *                     .notificationConfig(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs.builder()
+ *                         .notificationArn(aws_sns_topic.example().arn())
+ *                         .notificationEvents(&#34;All&#34;)
+ *                         .notificationType(&#34;Command&#34;)
+ *                         .build())
+ *                     .parameters(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs.builder()
+ *                         .name(&#34;commands&#34;)
+ *                         .values(&#34;date&#34;)
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Step Function Tasks
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssm.MaintenanceWindowTask;
+ * import com.pulumi.aws.ssm.MaintenanceWindowTaskArgs;
+ * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTargetArgs;
+ * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersArgs;
+ * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new MaintenanceWindowTask(&#34;example&#34;, MaintenanceWindowTaskArgs.builder()        
+ *             .maxConcurrency(2)
+ *             .maxErrors(1)
+ *             .priority(1)
+ *             .taskArn(aws_sfn_activity.example().id())
+ *             .taskType(&#34;STEP_FUNCTIONS&#34;)
+ *             .windowId(aws_ssm_maintenance_window.example().id())
+ *             .targets(MaintenanceWindowTaskTargetArgs.builder()
+ *                 .key(&#34;InstanceIds&#34;)
+ *                 .values(aws_instance.example().id())
+ *                 .build())
+ *             .taskInvocationParameters(MaintenanceWindowTaskTaskInvocationParametersArgs.builder()
+ *                 .stepFunctionsParameters(MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs.builder()
+ *                     .input(&#34;{\&#34;key1\&#34;:\&#34;value1\&#34;}&#34;)
+ *                     .name(&#34;example&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * AWS Maintenance Window Task can be imported using the `window_id` and `window_task_id` separated by `/`.
+ * 
+ * ```sh
+ *  $ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask task &lt;window_id&gt;/&lt;window_task_id&gt;
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ssm/maintenanceWindowTask:MaintenanceWindowTask")
 public class MaintenanceWindowTask extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the maintenance window task.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the maintenance window task.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+     * 
+     */
     @Export(name="cutoffBehavior", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cutoffBehavior;
 
+    /**
+     * @return Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+     * 
+     */
     public Output<Optional<String>> cutoffBehavior() {
         return Codegen.optional(this.cutoffBehavior);
     }
+    /**
+     * The description of the maintenance window task.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The description of the maintenance window task.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The maximum number of targets this task can be run for in parallel.
+     * 
+     */
     @Export(name="maxConcurrency", refs={String.class}, tree="[0]")
     private Output<String> maxConcurrency;
 
+    /**
+     * @return The maximum number of targets this task can be run for in parallel.
+     * 
+     */
     public Output<String> maxConcurrency() {
         return this.maxConcurrency;
     }
+    /**
+     * The maximum number of errors allowed before this task stops being scheduled.
+     * 
+     */
     @Export(name="maxErrors", refs={String.class}, tree="[0]")
     private Output<String> maxErrors;
 
+    /**
+     * @return The maximum number of errors allowed before this task stops being scheduled.
+     * 
+     */
     public Output<String> maxErrors() {
         return this.maxErrors;
     }
+    /**
+     * The name of the maintenance window task.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the maintenance window task.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+     * 
+     */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> priority;
 
+    /**
+     * @return The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+     * 
+     */
     public Output<Optional<Integer>> priority() {
         return Codegen.optional(this.priority);
     }
+    /**
+     * The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account&#39;s service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
+     * 
+     */
     @Export(name="serviceRoleArn", refs={String.class}, tree="[0]")
     private Output<String> serviceRoleArn;
 
+    /**
+     * @return The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account&#39;s service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
+     * 
+     */
     public Output<String> serviceRoleArn() {
         return this.serviceRoleArn;
     }
+    /**
+     * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+     * 
+     */
     @Export(name="targets", refs={List.class,MaintenanceWindowTaskTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MaintenanceWindowTaskTarget>> targets;
 
+    /**
+     * @return The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+     * 
+     */
     public Output<Optional<List<MaintenanceWindowTaskTarget>>> targets() {
         return Codegen.optional(this.targets);
     }
+    /**
+     * The ARN of the task to execute.
+     * 
+     */
     @Export(name="taskArn", refs={String.class}, tree="[0]")
     private Output<String> taskArn;
 
+    /**
+     * @return The ARN of the task to execute.
+     * 
+     */
     public Output<String> taskArn() {
         return this.taskArn;
     }
+    /**
+     * Configuration block with parameters for task execution.
+     * 
+     */
     @Export(name="taskInvocationParameters", refs={MaintenanceWindowTaskTaskInvocationParameters.class}, tree="[0]")
     private Output</* @Nullable */ MaintenanceWindowTaskTaskInvocationParameters> taskInvocationParameters;
 
+    /**
+     * @return Configuration block with parameters for task execution.
+     * 
+     */
     public Output<Optional<MaintenanceWindowTaskTaskInvocationParameters>> taskInvocationParameters() {
         return Codegen.optional(this.taskInvocationParameters);
     }
+    /**
+     * The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
+     * 
+     */
     @Export(name="taskType", refs={String.class}, tree="[0]")
     private Output<String> taskType;
 
+    /**
+     * @return The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
+     * 
+     */
     public Output<String> taskType() {
         return this.taskType;
     }
+    /**
+     * The Id of the maintenance window to register the task with.
+     * 
+     */
     @Export(name="windowId", refs={String.class}, tree="[0]")
     private Output<String> windowId;
 
+    /**
+     * @return The Id of the maintenance window to register the task with.
+     * 
+     */
     public Output<String> windowId() {
         return this.windowId;
     }
+    /**
+     * The ID of the maintenance window task.
+     * 
+     */
     @Export(name="windowTaskId", refs={String.class}, tree="[0]")
     private Output<String> windowTaskId;
 
+    /**
+     * @return The ID of the maintenance window task.
+     * 
+     */
     public Output<String> windowTaskId() {
         return this.windowTaskId;
     }

@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer {
+    /**
+     * @return Nested argument that specifies the native Hive / HCatalog JsonSerDe. More details below.
+     * 
+     */
     private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe hiveJsonSerDe;
+    /**
+     * @return Nested argument that specifies the OpenX SerDe. More details below.
+     * 
+     */
     private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe openXJsonSerDe;
 
     private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer() {}
+    /**
+     * @return Nested argument that specifies the native Hive / HCatalog JsonSerDe. More details below.
+     * 
+     */
     public Optional<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe> hiveJsonSerDe() {
         return Optional.ofNullable(this.hiveJsonSerDe);
     }
+    /**
+     * @return Nested argument that specifies the OpenX SerDe. More details below.
+     * 
+     */
     public Optional<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe> openXJsonSerDe() {
         return Optional.ofNullable(this.openXJsonSerDe);
     }

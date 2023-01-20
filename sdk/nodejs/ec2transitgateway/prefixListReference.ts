@@ -4,6 +4,43 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an EC2 Transit Gateway Prefix List Reference.
+ *
+ * ## Example Usage
+ * ### Attachment Routing
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2transitgateway.PrefixListReference("example", {
+ *     prefixListId: aws_ec2_managed_prefix_list.example.id,
+ *     transitGatewayAttachmentId: aws_ec2_transit_gateway_vpc_attachment.example.id,
+ *     transitGatewayRouteTableId: aws_ec2_transit_gateway.example.association_default_route_table_id,
+ * });
+ * ```
+ * ### Blackhole Routing
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2transitgateway.PrefixListReference("example", {
+ *     blackhole: true,
+ *     prefixListId: aws_ec2_managed_prefix_list.example.id,
+ *     transitGatewayRouteTableId: aws_ec2_transit_gateway.example.association_default_route_table_id,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_ec2_transit_gateway_prefix_list_reference` can be imported by using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`), e.g., console
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
+ * ```
+ */
 export class PrefixListReference extends pulumi.CustomResource {
     /**
      * Get an existing PrefixListReference resource's state with the given name, ID, and optional extra
@@ -32,10 +69,22 @@ export class PrefixListReference extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrefixListReference.__pulumiType;
     }
 
+    /**
+     * Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
+     */
     public readonly blackhole!: pulumi.Output<boolean | undefined>;
+    /**
+     * Identifier of EC2 Prefix List.
+     */
     public readonly prefixListId!: pulumi.Output<string>;
     public /*out*/ readonly prefixListOwnerId!: pulumi.Output<string>;
+    /**
+     * Identifier of EC2 Transit Gateway Attachment.
+     */
     public readonly transitGatewayAttachmentId!: pulumi.Output<string | undefined>;
+    /**
+     * Identifier of EC2 Transit Gateway Route Table.
+     */
     public readonly transitGatewayRouteTableId!: pulumi.Output<string>;
 
     /**
@@ -79,10 +128,22 @@ export class PrefixListReference extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PrefixListReference resources.
  */
 export interface PrefixListReferenceState {
+    /**
+     * Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
+     */
     blackhole?: pulumi.Input<boolean>;
+    /**
+     * Identifier of EC2 Prefix List.
+     */
     prefixListId?: pulumi.Input<string>;
     prefixListOwnerId?: pulumi.Input<string>;
+    /**
+     * Identifier of EC2 Transit Gateway Attachment.
+     */
     transitGatewayAttachmentId?: pulumi.Input<string>;
+    /**
+     * Identifier of EC2 Transit Gateway Route Table.
+     */
     transitGatewayRouteTableId?: pulumi.Input<string>;
 }
 
@@ -90,8 +151,20 @@ export interface PrefixListReferenceState {
  * The set of arguments for constructing a PrefixListReference resource.
  */
 export interface PrefixListReferenceArgs {
+    /**
+     * Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
+     */
     blackhole?: pulumi.Input<boolean>;
+    /**
+     * Identifier of EC2 Prefix List.
+     */
     prefixListId: pulumi.Input<string>;
+    /**
+     * Identifier of EC2 Transit Gateway Attachment.
+     */
     transitGatewayAttachmentId?: pulumi.Input<string>;
+    /**
+     * Identifier of EC2 Transit Gateway Route Table.
+     */
     transitGatewayRouteTableId: pulumi.Input<string>;
 }

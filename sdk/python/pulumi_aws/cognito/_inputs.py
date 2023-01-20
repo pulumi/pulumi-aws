@@ -55,6 +55,11 @@ class IdentityPoolCognitoIdentityProviderArgs:
                  client_id: Optional[pulumi.Input[str]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
                  server_side_token_check: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] client_id: The client ID for the Amazon Cognito Identity User Pool.
+        :param pulumi.Input[str] provider_name: The provider name for an Amazon Cognito Identity User Pool.
+        :param pulumi.Input[bool] server_side_token_check: Whether server-side token validation is enabled for the identity provider’s token or not.
+        """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
         if provider_name is not None:
@@ -65,6 +70,9 @@ class IdentityPoolCognitoIdentityProviderArgs:
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client ID for the Amazon Cognito Identity User Pool.
+        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -74,6 +82,9 @@ class IdentityPoolCognitoIdentityProviderArgs:
     @property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The provider name for an Amazon Cognito Identity User Pool.
+        """
         return pulumi.get(self, "provider_name")
 
     @provider_name.setter
@@ -83,6 +94,9 @@ class IdentityPoolCognitoIdentityProviderArgs:
     @property
     @pulumi.getter(name="serverSideTokenCheck")
     def server_side_token_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether server-side token validation is enabled for the identity provider’s token or not.
+        """
         return pulumi.get(self, "server_side_token_check")
 
     @server_side_token_check.setter
@@ -97,6 +111,12 @@ class IdentityPoolRoleAttachmentRoleMappingArgs:
                  type: pulumi.Input[str],
                  ambiguous_role_resolution: Optional[pulumi.Input[str]] = None,
                  mapping_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs']]]] = None):
+        """
+        :param pulumi.Input[str] identity_provider: A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognito_identity_providers` set on `cognito.IdentityPool` resource or a `cognito.IdentityProvider` resource.
+        :param pulumi.Input[str] type: The role mapping type.
+        :param pulumi.Input[str] ambiguous_role_resolution: Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
+        :param pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs']]] mapping_rules: The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
+        """
         pulumi.set(__self__, "identity_provider", identity_provider)
         pulumi.set(__self__, "type", type)
         if ambiguous_role_resolution is not None:
@@ -107,6 +127,9 @@ class IdentityPoolRoleAttachmentRoleMappingArgs:
     @property
     @pulumi.getter(name="identityProvider")
     def identity_provider(self) -> pulumi.Input[str]:
+        """
+        A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognito_identity_providers` set on `cognito.IdentityPool` resource or a `cognito.IdentityProvider` resource.
+        """
         return pulumi.get(self, "identity_provider")
 
     @identity_provider.setter
@@ -116,6 +139,9 @@ class IdentityPoolRoleAttachmentRoleMappingArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The role mapping type.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -125,6 +151,9 @@ class IdentityPoolRoleAttachmentRoleMappingArgs:
     @property
     @pulumi.getter(name="ambiguousRoleResolution")
     def ambiguous_role_resolution(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
+        """
         return pulumi.get(self, "ambiguous_role_resolution")
 
     @ambiguous_role_resolution.setter
@@ -134,6 +163,9 @@ class IdentityPoolRoleAttachmentRoleMappingArgs:
     @property
     @pulumi.getter(name="mappingRules")
     def mapping_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs']]]]:
+        """
+        The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
+        """
         return pulumi.get(self, "mapping_rules")
 
     @mapping_rules.setter
@@ -148,6 +180,12 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs:
                  match_type: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] claim: The claim name that must be present in the token, for example, "isAdmin" or "paid".
+        :param pulumi.Input[str] match_type: The match condition that specifies how closely the claim value in the IdP token must match Value.
+        :param pulumi.Input[str] role_arn: The role ARN.
+        :param pulumi.Input[str] value: A brief string that the claim must match, for example, "paid" or "yes".
+        """
         pulumi.set(__self__, "claim", claim)
         pulumi.set(__self__, "match_type", match_type)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -156,6 +194,9 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs:
     @property
     @pulumi.getter
     def claim(self) -> pulumi.Input[str]:
+        """
+        The claim name that must be present in the token, for example, "isAdmin" or "paid".
+        """
         return pulumi.get(self, "claim")
 
     @claim.setter
@@ -165,6 +206,9 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs:
     @property
     @pulumi.getter(name="matchType")
     def match_type(self) -> pulumi.Input[str]:
+        """
+        The match condition that specifies how closely the claim value in the IdP token must match Value.
+        """
         return pulumi.get(self, "match_type")
 
     @match_type.setter
@@ -174,6 +218,9 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        The role ARN.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -183,6 +230,9 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A brief string that the claim must match, for example, "paid" or "yes".
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -195,12 +245,19 @@ class ResourceServerScopeArgs:
     def __init__(__self__, *,
                  scope_description: pulumi.Input[str],
                  scope_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] scope_description: The scope description.
+        :param pulumi.Input[str] scope_name: The scope name.
+        """
         pulumi.set(__self__, "scope_description", scope_description)
         pulumi.set(__self__, "scope_name", scope_name)
 
     @property
     @pulumi.getter(name="scopeDescription")
     def scope_description(self) -> pulumi.Input[str]:
+        """
+        The scope description.
+        """
         return pulumi.get(self, "scope_description")
 
     @scope_description.setter
@@ -210,6 +267,9 @@ class ResourceServerScopeArgs:
     @property
     @pulumi.getter(name="scopeName")
     def scope_name(self) -> pulumi.Input[str]:
+        """
+        The scope name.
+        """
         return pulumi.get(self, "scope_name")
 
     @scope_name.setter
@@ -222,12 +282,19 @@ class RiskConfigurationAccountTakeoverRiskConfigurationArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs'],
                  notify_configuration: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs']):
+        """
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs'] actions: Account takeover risk configuration actions. See details below.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs'] notify_configuration: The notify configuration used to construct email notifications. See details below.
+        """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "notify_configuration", notify_configuration)
 
     @property
     @pulumi.getter
     def actions(self) -> pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs']:
+        """
+        Account takeover risk configuration actions. See details below.
+        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -237,6 +304,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationArgs:
     @property
     @pulumi.getter(name="notifyConfiguration")
     def notify_configuration(self) -> pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs']:
+        """
+        The notify configuration used to construct email notifications. See details below.
+        """
         return pulumi.get(self, "notify_configuration")
 
     @notify_configuration.setter
@@ -250,6 +320,11 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs:
                  high_action: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs']] = None,
                  low_action: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs']] = None,
                  medium_action: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs']] = None):
+        """
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs'] high_action: Action to take for a high risk. See action block below.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs'] low_action: Action to take for a low risk. See action block below.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs'] medium_action: Action to take for a medium risk. See action block below.
+        """
         if high_action is not None:
             pulumi.set(__self__, "high_action", high_action)
         if low_action is not None:
@@ -260,6 +335,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs:
     @property
     @pulumi.getter(name="highAction")
     def high_action(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs']]:
+        """
+        Action to take for a high risk. See action block below.
+        """
         return pulumi.get(self, "high_action")
 
     @high_action.setter
@@ -269,6 +347,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs:
     @property
     @pulumi.getter(name="lowAction")
     def low_action(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs']]:
+        """
+        Action to take for a low risk. See action block below.
+        """
         return pulumi.get(self, "low_action")
 
     @low_action.setter
@@ -278,6 +359,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs:
     @property
     @pulumi.getter(name="mediumAction")
     def medium_action(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs']]:
+        """
+        Action to take for a medium risk. See action block below.
+        """
         return pulumi.get(self, "medium_action")
 
     @medium_action.setter
@@ -290,12 +374,18 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs:
     def __init__(__self__, *,
                  event_action: pulumi.Input[str],
                  notify: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[str] event_action: The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
+        """
         pulumi.set(__self__, "event_action", event_action)
         pulumi.set(__self__, "notify", notify)
 
     @property
     @pulumi.getter(name="eventAction")
     def event_action(self) -> pulumi.Input[str]:
+        """
+        The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
+        """
         return pulumi.get(self, "event_action")
 
     @event_action.setter
@@ -317,12 +407,18 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs:
     def __init__(__self__, *,
                  event_action: pulumi.Input[str],
                  notify: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[str] event_action: The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
+        """
         pulumi.set(__self__, "event_action", event_action)
         pulumi.set(__self__, "notify", notify)
 
     @property
     @pulumi.getter(name="eventAction")
     def event_action(self) -> pulumi.Input[str]:
+        """
+        The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
+        """
         return pulumi.get(self, "event_action")
 
     @event_action.setter
@@ -344,12 +440,18 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs:
     def __init__(__self__, *,
                  event_action: pulumi.Input[str],
                  notify: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[str] event_action: The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
+        """
         pulumi.set(__self__, "event_action", event_action)
         pulumi.set(__self__, "notify", notify)
 
     @property
     @pulumi.getter(name="eventAction")
     def event_action(self) -> pulumi.Input[str]:
+        """
+        The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
+        """
         return pulumi.get(self, "event_action")
 
     @event_action.setter
@@ -375,6 +477,14 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs:
                  mfa_email: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs']] = None,
                  no_action_email: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs']] = None,
                  reply_to: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] source_arn: The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs'] block_email: Email template used when a detected risk event is blocked. See notify email type below.
+        :param pulumi.Input[str] from_: The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs'] mfa_email: The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs'] no_action_email: The email template used when a detected risk event is allowed. See notify email type below.
+        :param pulumi.Input[str] reply_to: The destination to which the receiver of an email should reply to.
+        """
         pulumi.set(__self__, "source_arn", source_arn)
         if block_email is not None:
             pulumi.set(__self__, "block_email", block_email)
@@ -390,6 +500,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs:
     @property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+        """
         return pulumi.get(self, "source_arn")
 
     @source_arn.setter
@@ -399,6 +512,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs:
     @property
     @pulumi.getter(name="blockEmail")
     def block_email(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs']]:
+        """
+        Email template used when a detected risk event is blocked. See notify email type below.
+        """
         return pulumi.get(self, "block_email")
 
     @block_email.setter
@@ -408,6 +524,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs:
     @property
     @pulumi.getter(name="from")
     def from_(self) -> Optional[pulumi.Input[str]]:
+        """
+        The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
+        """
         return pulumi.get(self, "from_")
 
     @from_.setter
@@ -417,6 +536,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs:
     @property
     @pulumi.getter(name="mfaEmail")
     def mfa_email(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs']]:
+        """
+        The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
+        """
         return pulumi.get(self, "mfa_email")
 
     @mfa_email.setter
@@ -426,6 +548,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs:
     @property
     @pulumi.getter(name="noActionEmail")
     def no_action_email(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs']]:
+        """
+        The email template used when a detected risk event is allowed. See notify email type below.
+        """
         return pulumi.get(self, "no_action_email")
 
     @no_action_email.setter
@@ -435,6 +560,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs:
     @property
     @pulumi.getter(name="replyTo")
     def reply_to(self) -> Optional[pulumi.Input[str]]:
+        """
+        The destination to which the receiver of an email should reply to.
+        """
         return pulumi.get(self, "reply_to")
 
     @reply_to.setter
@@ -448,6 +576,11 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
                  html_body: pulumi.Input[str],
                  subject: pulumi.Input[str],
                  text_body: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] html_body: The email HTML body.
+        :param pulumi.Input[str] subject: The email subject.
+        :param pulumi.Input[str] text_body: The email text body.
+        """
         pulumi.set(__self__, "html_body", html_body)
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "text_body", text_body)
@@ -455,6 +588,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
     @property
     @pulumi.getter(name="htmlBody")
     def html_body(self) -> pulumi.Input[str]:
+        """
+        The email HTML body.
+        """
         return pulumi.get(self, "html_body")
 
     @html_body.setter
@@ -464,6 +600,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
     @property
     @pulumi.getter
     def subject(self) -> pulumi.Input[str]:
+        """
+        The email subject.
+        """
         return pulumi.get(self, "subject")
 
     @subject.setter
@@ -473,6 +612,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
     @property
     @pulumi.getter(name="textBody")
     def text_body(self) -> pulumi.Input[str]:
+        """
+        The email text body.
+        """
         return pulumi.get(self, "text_body")
 
     @text_body.setter
@@ -486,6 +628,11 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
                  html_body: pulumi.Input[str],
                  subject: pulumi.Input[str],
                  text_body: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] html_body: The email HTML body.
+        :param pulumi.Input[str] subject: The email subject.
+        :param pulumi.Input[str] text_body: The email text body.
+        """
         pulumi.set(__self__, "html_body", html_body)
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "text_body", text_body)
@@ -493,6 +640,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
     @property
     @pulumi.getter(name="htmlBody")
     def html_body(self) -> pulumi.Input[str]:
+        """
+        The email HTML body.
+        """
         return pulumi.get(self, "html_body")
 
     @html_body.setter
@@ -502,6 +652,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
     @property
     @pulumi.getter
     def subject(self) -> pulumi.Input[str]:
+        """
+        The email subject.
+        """
         return pulumi.get(self, "subject")
 
     @subject.setter
@@ -511,6 +664,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
     @property
     @pulumi.getter(name="textBody")
     def text_body(self) -> pulumi.Input[str]:
+        """
+        The email text body.
+        """
         return pulumi.get(self, "text_body")
 
     @text_body.setter
@@ -524,6 +680,11 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
                  html_body: pulumi.Input[str],
                  subject: pulumi.Input[str],
                  text_body: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] html_body: The email HTML body.
+        :param pulumi.Input[str] subject: The email subject.
+        :param pulumi.Input[str] text_body: The email text body.
+        """
         pulumi.set(__self__, "html_body", html_body)
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "text_body", text_body)
@@ -531,6 +692,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
     @property
     @pulumi.getter(name="htmlBody")
     def html_body(self) -> pulumi.Input[str]:
+        """
+        The email HTML body.
+        """
         return pulumi.get(self, "html_body")
 
     @html_body.setter
@@ -540,6 +704,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
     @property
     @pulumi.getter
     def subject(self) -> pulumi.Input[str]:
+        """
+        The email subject.
+        """
         return pulumi.get(self, "subject")
 
     @subject.setter
@@ -549,6 +716,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
     @property
     @pulumi.getter(name="textBody")
     def text_body(self) -> pulumi.Input[str]:
+        """
+        The email text body.
+        """
         return pulumi.get(self, "text_body")
 
     @text_body.setter
@@ -561,6 +731,10 @@ class RiskConfigurationCompromisedCredentialsRiskConfigurationArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs'],
                  event_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs'] actions: The compromised credentials risk configuration actions. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_filters: Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
+        """
         pulumi.set(__self__, "actions", actions)
         if event_filters is not None:
             pulumi.set(__self__, "event_filters", event_filters)
@@ -568,6 +742,9 @@ class RiskConfigurationCompromisedCredentialsRiskConfigurationArgs:
     @property
     @pulumi.getter
     def actions(self) -> pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs']:
+        """
+        The compromised credentials risk configuration actions. See details below.
+        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -577,6 +754,9 @@ class RiskConfigurationCompromisedCredentialsRiskConfigurationArgs:
     @property
     @pulumi.getter(name="eventFilters")
     def event_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
+        """
         return pulumi.get(self, "event_filters")
 
     @event_filters.setter
@@ -588,11 +768,17 @@ class RiskConfigurationCompromisedCredentialsRiskConfigurationArgs:
 class RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs:
     def __init__(__self__, *,
                  event_action: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] event_action: The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        """
         pulumi.set(__self__, "event_action", event_action)
 
     @property
     @pulumi.getter(name="eventAction")
     def event_action(self) -> pulumi.Input[str]:
+        """
+        The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        """
         return pulumi.get(self, "event_action")
 
     @event_action.setter
@@ -605,6 +791,10 @@ class RiskConfigurationRiskExceptionConfigurationArgs:
     def __init__(__self__, *,
                  blocked_ip_range_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skipped_ip_range_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_ip_range_lists: Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] skipped_ip_range_lists: Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+        """
         if blocked_ip_range_lists is not None:
             pulumi.set(__self__, "blocked_ip_range_lists", blocked_ip_range_lists)
         if skipped_ip_range_lists is not None:
@@ -613,6 +803,9 @@ class RiskConfigurationRiskExceptionConfigurationArgs:
     @property
     @pulumi.getter(name="blockedIpRangeLists")
     def blocked_ip_range_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+        """
         return pulumi.get(self, "blocked_ip_range_lists")
 
     @blocked_ip_range_lists.setter
@@ -622,6 +815,9 @@ class RiskConfigurationRiskExceptionConfigurationArgs:
     @property
     @pulumi.getter(name="skippedIpRangeLists")
     def skipped_ip_range_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+        """
         return pulumi.get(self, "skipped_ip_range_lists")
 
     @skipped_ip_range_lists.setter
@@ -633,11 +829,17 @@ class RiskConfigurationRiskExceptionConfigurationArgs:
 class UserPoolAccountRecoverySettingArgs:
     def __init__(__self__, *,
                  recovery_mechanisms: pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]] recovery_mechanisms: List of Account Recovery Options of the following structure:
+        """
         pulumi.set(__self__, "recovery_mechanisms", recovery_mechanisms)
 
     @property
     @pulumi.getter(name="recoveryMechanisms")
     def recovery_mechanisms(self) -> pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]]:
+        """
+        List of Account Recovery Options of the following structure:
+        """
         return pulumi.get(self, "recovery_mechanisms")
 
     @recovery_mechanisms.setter
@@ -650,12 +852,19 @@ class UserPoolAccountRecoverySettingRecoveryMechanismArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  priority: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] name: Name of the user pool.
+        :param pulumi.Input[int] priority: Positive integer specifying priority of a method with 1 being the highest priority.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        Name of the user pool.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -665,6 +874,9 @@ class UserPoolAccountRecoverySettingRecoveryMechanismArgs:
     @property
     @pulumi.getter
     def priority(self) -> pulumi.Input[int]:
+        """
+        Positive integer specifying priority of a method with 1 being the highest priority.
+        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -677,6 +889,10 @@ class UserPoolAdminCreateUserConfigArgs:
     def __init__(__self__, *,
                  allow_admin_create_user_only: Optional[pulumi.Input[bool]] = None,
                  invite_message_template: Optional[pulumi.Input['UserPoolAdminCreateUserConfigInviteMessageTemplateArgs']] = None):
+        """
+        :param pulumi.Input[bool] allow_admin_create_user_only: Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
+        :param pulumi.Input['UserPoolAdminCreateUserConfigInviteMessageTemplateArgs'] invite_message_template: Invite message template structure. Detailed below.
+        """
         if allow_admin_create_user_only is not None:
             pulumi.set(__self__, "allow_admin_create_user_only", allow_admin_create_user_only)
         if invite_message_template is not None:
@@ -685,6 +901,9 @@ class UserPoolAdminCreateUserConfigArgs:
     @property
     @pulumi.getter(name="allowAdminCreateUserOnly")
     def allow_admin_create_user_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
+        """
         return pulumi.get(self, "allow_admin_create_user_only")
 
     @allow_admin_create_user_only.setter
@@ -694,6 +913,9 @@ class UserPoolAdminCreateUserConfigArgs:
     @property
     @pulumi.getter(name="inviteMessageTemplate")
     def invite_message_template(self) -> Optional[pulumi.Input['UserPoolAdminCreateUserConfigInviteMessageTemplateArgs']]:
+        """
+        Invite message template structure. Detailed below.
+        """
         return pulumi.get(self, "invite_message_template")
 
     @invite_message_template.setter
@@ -707,6 +929,11 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs:
                  email_message: Optional[pulumi.Input[str]] = None,
                  email_subject: Optional[pulumi.Input[str]] = None,
                  sms_message: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] email_message: Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
+        :param pulumi.Input[str] email_subject: Subject line for email messages.
+        :param pulumi.Input[str] sms_message: Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
+        """
         if email_message is not None:
             pulumi.set(__self__, "email_message", email_message)
         if email_subject is not None:
@@ -717,6 +944,9 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs:
     @property
     @pulumi.getter(name="emailMessage")
     def email_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
+        """
         return pulumi.get(self, "email_message")
 
     @email_message.setter
@@ -726,6 +956,9 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs:
     @property
     @pulumi.getter(name="emailSubject")
     def email_subject(self) -> Optional[pulumi.Input[str]]:
+        """
+        Subject line for email messages.
+        """
         return pulumi.get(self, "email_subject")
 
     @email_subject.setter
@@ -735,6 +968,9 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs:
     @property
     @pulumi.getter(name="smsMessage")
     def sms_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
+        """
         return pulumi.get(self, "sms_message")
 
     @sms_message.setter
@@ -750,6 +986,13 @@ class UserPoolClientAnalyticsConfigurationArgs:
                  external_id: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  user_data_shared: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] application_arn: Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+        :param pulumi.Input[str] application_id: Application ID for an Amazon Pinpoint application.
+        :param pulumi.Input[str] external_id: ID for the Analytics Configuration. Conflicts with `application_arn`.
+        :param pulumi.Input[str] role_arn: ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
+        :param pulumi.Input[bool] user_data_shared: If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+        """
         if application_arn is not None:
             pulumi.set(__self__, "application_arn", application_arn)
         if application_id is not None:
@@ -764,6 +1007,9 @@ class UserPoolClientAnalyticsConfigurationArgs:
     @property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+        """
         return pulumi.get(self, "application_arn")
 
     @application_arn.setter
@@ -773,6 +1019,9 @@ class UserPoolClientAnalyticsConfigurationArgs:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application ID for an Amazon Pinpoint application.
+        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -782,6 +1031,9 @@ class UserPoolClientAnalyticsConfigurationArgs:
     @property
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID for the Analytics Configuration. Conflicts with `application_arn`.
+        """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
@@ -791,6 +1043,9 @@ class UserPoolClientAnalyticsConfigurationArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -800,6 +1055,9 @@ class UserPoolClientAnalyticsConfigurationArgs:
     @property
     @pulumi.getter(name="userDataShared")
     def user_data_shared(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+        """
         return pulumi.get(self, "user_data_shared")
 
     @user_data_shared.setter
@@ -813,6 +1071,11 @@ class UserPoolClientTokenValidityUnitsArgs:
                  access_token: Optional[pulumi.Input[str]] = None,
                  id_token: Optional[pulumi.Input[str]] = None,
                  refresh_token: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] access_token: Time unit in for the value in `access_token_validity`, defaults to `hours`.
+        :param pulumi.Input[str] id_token: Time unit in for the value in `id_token_validity`, defaults to `hours`.
+        :param pulumi.Input[str] refresh_token: Time unit in for the value in `refresh_token_validity`, defaults to `days`.
+        """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
         if id_token is not None:
@@ -823,6 +1086,9 @@ class UserPoolClientTokenValidityUnitsArgs:
     @property
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time unit in for the value in `access_token_validity`, defaults to `hours`.
+        """
         return pulumi.get(self, "access_token")
 
     @access_token.setter
@@ -832,6 +1098,9 @@ class UserPoolClientTokenValidityUnitsArgs:
     @property
     @pulumi.getter(name="idToken")
     def id_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time unit in for the value in `id_token_validity`, defaults to `hours`.
+        """
         return pulumi.get(self, "id_token")
 
     @id_token.setter
@@ -841,6 +1110,9 @@ class UserPoolClientTokenValidityUnitsArgs:
     @property
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time unit in for the value in `refresh_token_validity`, defaults to `days`.
+        """
         return pulumi.get(self, "refresh_token")
 
     @refresh_token.setter
@@ -853,6 +1125,10 @@ class UserPoolDeviceConfigurationArgs:
     def __init__(__self__, *,
                  challenge_required_on_new_device: Optional[pulumi.Input[bool]] = None,
                  device_only_remembered_on_user_prompt: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] challenge_required_on_new_device: Whether a challenge is required on a new device. Only applicable to a new device.
+        :param pulumi.Input[bool] device_only_remembered_on_user_prompt: Whether a device is only remembered on user prompt. `false` equates to "Always" remember, `true` is "User Opt In," and not using a `device_configuration` block is "No."
+        """
         if challenge_required_on_new_device is not None:
             pulumi.set(__self__, "challenge_required_on_new_device", challenge_required_on_new_device)
         if device_only_remembered_on_user_prompt is not None:
@@ -861,6 +1137,9 @@ class UserPoolDeviceConfigurationArgs:
     @property
     @pulumi.getter(name="challengeRequiredOnNewDevice")
     def challenge_required_on_new_device(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether a challenge is required on a new device. Only applicable to a new device.
+        """
         return pulumi.get(self, "challenge_required_on_new_device")
 
     @challenge_required_on_new_device.setter
@@ -870,6 +1149,9 @@ class UserPoolDeviceConfigurationArgs:
     @property
     @pulumi.getter(name="deviceOnlyRememberedOnUserPrompt")
     def device_only_remembered_on_user_prompt(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether a device is only remembered on user prompt. `false` equates to "Always" remember, `true` is "User Opt In," and not using a `device_configuration` block is "No."
+        """
         return pulumi.get(self, "device_only_remembered_on_user_prompt")
 
     @device_only_remembered_on_user_prompt.setter
@@ -885,6 +1167,13 @@ class UserPoolEmailConfigurationArgs:
                  from_email_address: Optional[pulumi.Input[str]] = None,
                  reply_to_email_address: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] configuration_set: Email configuration set name from SES.
+        :param pulumi.Input[str] email_sending_account: Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+        :param pulumi.Input[str] from_email_address: Sender’s email address or sender’s display name with their email address (e.g., `john@example.com`, `John Smith <john@example.com>` or `\\"John Smith Ph.D.\\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
+        :param pulumi.Input[str] reply_to_email_address: REPLY-TO email address.
+        :param pulumi.Input[str] source_arn: ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
+        """
         if configuration_set is not None:
             pulumi.set(__self__, "configuration_set", configuration_set)
         if email_sending_account is not None:
@@ -899,6 +1188,9 @@ class UserPoolEmailConfigurationArgs:
     @property
     @pulumi.getter(name="configurationSet")
     def configuration_set(self) -> Optional[pulumi.Input[str]]:
+        """
+        Email configuration set name from SES.
+        """
         return pulumi.get(self, "configuration_set")
 
     @configuration_set.setter
@@ -908,6 +1200,9 @@ class UserPoolEmailConfigurationArgs:
     @property
     @pulumi.getter(name="emailSendingAccount")
     def email_sending_account(self) -> Optional[pulumi.Input[str]]:
+        """
+        Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+        """
         return pulumi.get(self, "email_sending_account")
 
     @email_sending_account.setter
@@ -917,6 +1212,9 @@ class UserPoolEmailConfigurationArgs:
     @property
     @pulumi.getter(name="fromEmailAddress")
     def from_email_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sender’s email address or sender’s display name with their email address (e.g., `john@example.com`, `John Smith <john@example.com>` or `\\"John Smith Ph.D.\\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
+        """
         return pulumi.get(self, "from_email_address")
 
     @from_email_address.setter
@@ -926,6 +1224,9 @@ class UserPoolEmailConfigurationArgs:
     @property
     @pulumi.getter(name="replyToEmailAddress")
     def reply_to_email_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        REPLY-TO email address.
+        """
         return pulumi.get(self, "reply_to_email_address")
 
     @reply_to_email_address.setter
@@ -935,6 +1236,9 @@ class UserPoolEmailConfigurationArgs:
     @property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
+        """
         return pulumi.get(self, "source_arn")
 
     @source_arn.setter
@@ -958,6 +1262,21 @@ class UserPoolLambdaConfigArgs:
                  pre_token_generation: Optional[pulumi.Input[str]] = None,
                  user_migration: Optional[pulumi.Input[str]] = None,
                  verify_auth_challenge_response: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create_auth_challenge: ARN of the lambda creating an authentication challenge.
+        :param pulumi.Input['UserPoolLambdaConfigCustomEmailSenderArgs'] custom_email_sender: A custom email sender AWS Lambda trigger. See custom_email_sender Below.
+        :param pulumi.Input[str] custom_message: Custom Message AWS Lambda trigger.
+        :param pulumi.Input['UserPoolLambdaConfigCustomSmsSenderArgs'] custom_sms_sender: A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
+        :param pulumi.Input[str] define_auth_challenge: Defines the authentication challenge.
+        :param pulumi.Input[str] kms_key_id: The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+        :param pulumi.Input[str] post_authentication: Post-authentication AWS Lambda trigger.
+        :param pulumi.Input[str] post_confirmation: Post-confirmation AWS Lambda trigger.
+        :param pulumi.Input[str] pre_authentication: Pre-authentication AWS Lambda trigger.
+        :param pulumi.Input[str] pre_sign_up: Pre-registration AWS Lambda trigger.
+        :param pulumi.Input[str] pre_token_generation: Allow to customize identity token claims before token generation.
+        :param pulumi.Input[str] user_migration: User migration Lambda config type.
+        :param pulumi.Input[str] verify_auth_challenge_response: Verifies the authentication challenge response.
+        """
         if create_auth_challenge is not None:
             pulumi.set(__self__, "create_auth_challenge", create_auth_challenge)
         if custom_email_sender is not None:
@@ -988,6 +1307,9 @@ class UserPoolLambdaConfigArgs:
     @property
     @pulumi.getter(name="createAuthChallenge")
     def create_auth_challenge(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the lambda creating an authentication challenge.
+        """
         return pulumi.get(self, "create_auth_challenge")
 
     @create_auth_challenge.setter
@@ -997,6 +1319,9 @@ class UserPoolLambdaConfigArgs:
     @property
     @pulumi.getter(name="customEmailSender")
     def custom_email_sender(self) -> Optional[pulumi.Input['UserPoolLambdaConfigCustomEmailSenderArgs']]:
+        """
+        A custom email sender AWS Lambda trigger. See custom_email_sender Below.
+        """
         return pulumi.get(self, "custom_email_sender")
 
     @custom_email_sender.setter
@@ -1006,6 +1331,9 @@ class UserPoolLambdaConfigArgs:
     @property
     @pulumi.getter(name="customMessage")
     def custom_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom Message AWS Lambda trigger.
+        """
         return pulumi.get(self, "custom_message")
 
     @custom_message.setter
@@ -1015,6 +1343,9 @@ class UserPoolLambdaConfigArgs:
     @property
     @pulumi.getter(name="customSmsSender")
     def custom_sms_sender(self) -> Optional[pulumi.Input['UserPoolLambdaConfigCustomSmsSenderArgs']]:
+        """
+        A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
+        """
         return pulumi.get(self, "custom_sms_sender")
 
     @custom_sms_sender.setter
@@ -1024,6 +1355,9 @@ class UserPoolLambdaConfigArgs:
     @property
     @pulumi.getter(name="defineAuthChallenge")
     def define_auth_challenge(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defines the authentication challenge.
+        """
         return pulumi.get(self, "define_auth_challenge")
 
     @define_auth_challenge.setter
@@ -1033,6 +1367,9 @@ class UserPoolLambdaConfigArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -1042,6 +1379,9 @@ class UserPoolLambdaConfigArgs:
     @property
     @pulumi.getter(name="postAuthentication")
     def post_authentication(self) -> Optional[pulumi.Input[str]]:
+        """
+        Post-authentication AWS Lambda trigger.
+        """
         return pulumi.get(self, "post_authentication")
 
     @post_authentication.setter
@@ -1051,6 +1391,9 @@ class UserPoolLambdaConfigArgs:
     @property
     @pulumi.getter(name="postConfirmation")
     def post_confirmation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Post-confirmation AWS Lambda trigger.
+        """
         return pulumi.get(self, "post_confirmation")
 
     @post_confirmation.setter
@@ -1060,6 +1403,9 @@ class UserPoolLambdaConfigArgs:
     @property
     @pulumi.getter(name="preAuthentication")
     def pre_authentication(self) -> Optional[pulumi.Input[str]]:
+        """
+        Pre-authentication AWS Lambda trigger.
+        """
         return pulumi.get(self, "pre_authentication")
 
     @pre_authentication.setter
@@ -1069,6 +1415,9 @@ class UserPoolLambdaConfigArgs:
     @property
     @pulumi.getter(name="preSignUp")
     def pre_sign_up(self) -> Optional[pulumi.Input[str]]:
+        """
+        Pre-registration AWS Lambda trigger.
+        """
         return pulumi.get(self, "pre_sign_up")
 
     @pre_sign_up.setter
@@ -1078,6 +1427,9 @@ class UserPoolLambdaConfigArgs:
     @property
     @pulumi.getter(name="preTokenGeneration")
     def pre_token_generation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Allow to customize identity token claims before token generation.
+        """
         return pulumi.get(self, "pre_token_generation")
 
     @pre_token_generation.setter
@@ -1087,6 +1439,9 @@ class UserPoolLambdaConfigArgs:
     @property
     @pulumi.getter(name="userMigration")
     def user_migration(self) -> Optional[pulumi.Input[str]]:
+        """
+        User migration Lambda config type.
+        """
         return pulumi.get(self, "user_migration")
 
     @user_migration.setter
@@ -1096,6 +1451,9 @@ class UserPoolLambdaConfigArgs:
     @property
     @pulumi.getter(name="verifyAuthChallengeResponse")
     def verify_auth_challenge_response(self) -> Optional[pulumi.Input[str]]:
+        """
+        Verifies the authentication challenge response.
+        """
         return pulumi.get(self, "verify_auth_challenge_response")
 
     @verify_auth_challenge_response.setter
@@ -1108,12 +1466,19 @@ class UserPoolLambdaConfigCustomEmailSenderArgs:
     def __init__(__self__, *,
                  lambda_arn: pulumi.Input[str],
                  lambda_version: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] lambda_arn: The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+        :param pulumi.Input[str] lambda_version: The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
+        """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         pulumi.set(__self__, "lambda_version", lambda_version)
 
     @property
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> pulumi.Input[str]:
+        """
+        The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+        """
         return pulumi.get(self, "lambda_arn")
 
     @lambda_arn.setter
@@ -1123,6 +1488,9 @@ class UserPoolLambdaConfigCustomEmailSenderArgs:
     @property
     @pulumi.getter(name="lambdaVersion")
     def lambda_version(self) -> pulumi.Input[str]:
+        """
+        The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
+        """
         return pulumi.get(self, "lambda_version")
 
     @lambda_version.setter
@@ -1135,12 +1503,19 @@ class UserPoolLambdaConfigCustomSmsSenderArgs:
     def __init__(__self__, *,
                  lambda_arn: pulumi.Input[str],
                  lambda_version: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] lambda_arn: The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+        :param pulumi.Input[str] lambda_version: The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+        """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         pulumi.set(__self__, "lambda_version", lambda_version)
 
     @property
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> pulumi.Input[str]:
+        """
+        The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+        """
         return pulumi.get(self, "lambda_arn")
 
     @lambda_arn.setter
@@ -1150,6 +1525,9 @@ class UserPoolLambdaConfigCustomSmsSenderArgs:
     @property
     @pulumi.getter(name="lambdaVersion")
     def lambda_version(self) -> pulumi.Input[str]:
+        """
+        The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+        """
         return pulumi.get(self, "lambda_version")
 
     @lambda_version.setter
@@ -1166,6 +1544,14 @@ class UserPoolPasswordPolicyArgs:
                  require_symbols: Optional[pulumi.Input[bool]] = None,
                  require_uppercase: Optional[pulumi.Input[bool]] = None,
                  temporary_password_validity_days: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] minimum_length: Minimum length of the password policy that you have set.
+        :param pulumi.Input[bool] require_lowercase: Whether you have required users to use at least one lowercase letter in their password.
+        :param pulumi.Input[bool] require_numbers: Whether you have required users to use at least one number in their password.
+        :param pulumi.Input[bool] require_symbols: Whether you have required users to use at least one symbol in their password.
+        :param pulumi.Input[bool] require_uppercase: Whether you have required users to use at least one uppercase letter in their password.
+        :param pulumi.Input[int] temporary_password_validity_days: In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
+        """
         if minimum_length is not None:
             pulumi.set(__self__, "minimum_length", minimum_length)
         if require_lowercase is not None:
@@ -1182,6 +1568,9 @@ class UserPoolPasswordPolicyArgs:
     @property
     @pulumi.getter(name="minimumLength")
     def minimum_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum length of the password policy that you have set.
+        """
         return pulumi.get(self, "minimum_length")
 
     @minimum_length.setter
@@ -1191,6 +1580,9 @@ class UserPoolPasswordPolicyArgs:
     @property
     @pulumi.getter(name="requireLowercase")
     def require_lowercase(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether you have required users to use at least one lowercase letter in their password.
+        """
         return pulumi.get(self, "require_lowercase")
 
     @require_lowercase.setter
@@ -1200,6 +1592,9 @@ class UserPoolPasswordPolicyArgs:
     @property
     @pulumi.getter(name="requireNumbers")
     def require_numbers(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether you have required users to use at least one number in their password.
+        """
         return pulumi.get(self, "require_numbers")
 
     @require_numbers.setter
@@ -1209,6 +1604,9 @@ class UserPoolPasswordPolicyArgs:
     @property
     @pulumi.getter(name="requireSymbols")
     def require_symbols(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether you have required users to use at least one symbol in their password.
+        """
         return pulumi.get(self, "require_symbols")
 
     @require_symbols.setter
@@ -1218,6 +1616,9 @@ class UserPoolPasswordPolicyArgs:
     @property
     @pulumi.getter(name="requireUppercase")
     def require_uppercase(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether you have required users to use at least one uppercase letter in their password.
+        """
         return pulumi.get(self, "require_uppercase")
 
     @require_uppercase.setter
@@ -1227,6 +1628,9 @@ class UserPoolPasswordPolicyArgs:
     @property
     @pulumi.getter(name="temporaryPasswordValidityDays")
     def temporary_password_validity_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
+        """
         return pulumi.get(self, "temporary_password_validity_days")
 
     @temporary_password_validity_days.setter
@@ -1244,6 +1648,15 @@ class UserPoolSchemaArgs:
                  number_attribute_constraints: Optional[pulumi.Input['UserPoolSchemaNumberAttributeConstraintsArgs']] = None,
                  required: Optional[pulumi.Input[bool]] = None,
                  string_attribute_constraints: Optional[pulumi.Input['UserPoolSchemaStringAttributeConstraintsArgs']] = None):
+        """
+        :param pulumi.Input[str] attribute_data_type: Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
+        :param pulumi.Input[str] name: Name of the attribute.
+        :param pulumi.Input[bool] developer_only_attribute: Whether the attribute type is developer only.
+        :param pulumi.Input[bool] mutable: Whether the attribute can be changed once it has been created.
+        :param pulumi.Input['UserPoolSchemaNumberAttributeConstraintsArgs'] number_attribute_constraints: Configuration block for the constraints for an attribute of the number type. Detailed below.
+        :param pulumi.Input[bool] required: Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+        :param pulumi.Input['UserPoolSchemaStringAttributeConstraintsArgs'] string_attribute_constraints: Constraints for an attribute of the string type. Detailed below.
+        """
         pulumi.set(__self__, "attribute_data_type", attribute_data_type)
         pulumi.set(__self__, "name", name)
         if developer_only_attribute is not None:
@@ -1260,6 +1673,9 @@ class UserPoolSchemaArgs:
     @property
     @pulumi.getter(name="attributeDataType")
     def attribute_data_type(self) -> pulumi.Input[str]:
+        """
+        Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
+        """
         return pulumi.get(self, "attribute_data_type")
 
     @attribute_data_type.setter
@@ -1269,6 +1685,9 @@ class UserPoolSchemaArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        Name of the attribute.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1278,6 +1697,9 @@ class UserPoolSchemaArgs:
     @property
     @pulumi.getter(name="developerOnlyAttribute")
     def developer_only_attribute(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the attribute type is developer only.
+        """
         return pulumi.get(self, "developer_only_attribute")
 
     @developer_only_attribute.setter
@@ -1287,6 +1709,9 @@ class UserPoolSchemaArgs:
     @property
     @pulumi.getter
     def mutable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the attribute can be changed once it has been created.
+        """
         return pulumi.get(self, "mutable")
 
     @mutable.setter
@@ -1296,6 +1721,9 @@ class UserPoolSchemaArgs:
     @property
     @pulumi.getter(name="numberAttributeConstraints")
     def number_attribute_constraints(self) -> Optional[pulumi.Input['UserPoolSchemaNumberAttributeConstraintsArgs']]:
+        """
+        Configuration block for the constraints for an attribute of the number type. Detailed below.
+        """
         return pulumi.get(self, "number_attribute_constraints")
 
     @number_attribute_constraints.setter
@@ -1305,6 +1733,9 @@ class UserPoolSchemaArgs:
     @property
     @pulumi.getter
     def required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+        """
         return pulumi.get(self, "required")
 
     @required.setter
@@ -1314,6 +1745,9 @@ class UserPoolSchemaArgs:
     @property
     @pulumi.getter(name="stringAttributeConstraints")
     def string_attribute_constraints(self) -> Optional[pulumi.Input['UserPoolSchemaStringAttributeConstraintsArgs']]:
+        """
+        Constraints for an attribute of the string type. Detailed below.
+        """
         return pulumi.get(self, "string_attribute_constraints")
 
     @string_attribute_constraints.setter
@@ -1326,6 +1760,10 @@ class UserPoolSchemaNumberAttributeConstraintsArgs:
     def __init__(__self__, *,
                  max_value: Optional[pulumi.Input[str]] = None,
                  min_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] max_value: Maximum value of an attribute that is of the number data type.
+        :param pulumi.Input[str] min_value: Minimum value of an attribute that is of the number data type.
+        """
         if max_value is not None:
             pulumi.set(__self__, "max_value", max_value)
         if min_value is not None:
@@ -1334,6 +1772,9 @@ class UserPoolSchemaNumberAttributeConstraintsArgs:
     @property
     @pulumi.getter(name="maxValue")
     def max_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Maximum value of an attribute that is of the number data type.
+        """
         return pulumi.get(self, "max_value")
 
     @max_value.setter
@@ -1343,6 +1784,9 @@ class UserPoolSchemaNumberAttributeConstraintsArgs:
     @property
     @pulumi.getter(name="minValue")
     def min_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Minimum value of an attribute that is of the number data type.
+        """
         return pulumi.get(self, "min_value")
 
     @min_value.setter
@@ -1355,6 +1799,10 @@ class UserPoolSchemaStringAttributeConstraintsArgs:
     def __init__(__self__, *,
                  max_length: Optional[pulumi.Input[str]] = None,
                  min_length: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] max_length: Maximum length of an attribute value of the string type.
+        :param pulumi.Input[str] min_length: Minimum length of an attribute value of the string type.
+        """
         if max_length is not None:
             pulumi.set(__self__, "max_length", max_length)
         if min_length is not None:
@@ -1363,6 +1811,9 @@ class UserPoolSchemaStringAttributeConstraintsArgs:
     @property
     @pulumi.getter(name="maxLength")
     def max_length(self) -> Optional[pulumi.Input[str]]:
+        """
+        Maximum length of an attribute value of the string type.
+        """
         return pulumi.get(self, "max_length")
 
     @max_length.setter
@@ -1372,6 +1823,9 @@ class UserPoolSchemaStringAttributeConstraintsArgs:
     @property
     @pulumi.getter(name="minLength")
     def min_length(self) -> Optional[pulumi.Input[str]]:
+        """
+        Minimum length of an attribute value of the string type.
+        """
         return pulumi.get(self, "min_length")
 
     @min_length.setter
@@ -1385,6 +1839,11 @@ class UserPoolSmsConfigurationArgs:
                  external_id: pulumi.Input[str],
                  sns_caller_arn: pulumi.Input[str],
                  sns_region: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] external_id: External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+        :param pulumi.Input[str] sns_caller_arn: ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
+        :param pulumi.Input[str] sns_region: The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
+        """
         pulumi.set(__self__, "external_id", external_id)
         pulumi.set(__self__, "sns_caller_arn", sns_caller_arn)
         if sns_region is not None:
@@ -1393,6 +1852,9 @@ class UserPoolSmsConfigurationArgs:
     @property
     @pulumi.getter(name="externalId")
     def external_id(self) -> pulumi.Input[str]:
+        """
+        External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+        """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
@@ -1402,6 +1864,9 @@ class UserPoolSmsConfigurationArgs:
     @property
     @pulumi.getter(name="snsCallerArn")
     def sns_caller_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
+        """
         return pulumi.get(self, "sns_caller_arn")
 
     @sns_caller_arn.setter
@@ -1411,6 +1876,9 @@ class UserPoolSmsConfigurationArgs:
     @property
     @pulumi.getter(name="snsRegion")
     def sns_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
+        """
         return pulumi.get(self, "sns_region")
 
     @sns_region.setter
@@ -1422,11 +1890,17 @@ class UserPoolSmsConfigurationArgs:
 class UserPoolSoftwareTokenMfaConfigurationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] enabled: Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
+        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
+        """
+        Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -1438,11 +1912,17 @@ class UserPoolSoftwareTokenMfaConfigurationArgs:
 class UserPoolUserAttributeUpdateSettingsArgs:
     def __init__(__self__, *,
                  attributes_require_verification_before_updates: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] attributes_require_verification_before_updates: A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `auto_verified_attributes`. Valid values: `email`, `phone_number`.
+        """
         pulumi.set(__self__, "attributes_require_verification_before_updates", attributes_require_verification_before_updates)
 
     @property
     @pulumi.getter(name="attributesRequireVerificationBeforeUpdates")
     def attributes_require_verification_before_updates(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `auto_verified_attributes`. Valid values: `email`, `phone_number`.
+        """
         return pulumi.get(self, "attributes_require_verification_before_updates")
 
     @attributes_require_verification_before_updates.setter
@@ -1454,11 +1934,17 @@ class UserPoolUserAttributeUpdateSettingsArgs:
 class UserPoolUserPoolAddOnsArgs:
     def __init__(__self__, *,
                  advanced_security_mode: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] advanced_security_mode: Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+        """
         pulumi.set(__self__, "advanced_security_mode", advanced_security_mode)
 
     @property
     @pulumi.getter(name="advancedSecurityMode")
     def advanced_security_mode(self) -> pulumi.Input[str]:
+        """
+        Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+        """
         return pulumi.get(self, "advanced_security_mode")
 
     @advanced_security_mode.setter
@@ -1470,11 +1956,17 @@ class UserPoolUserPoolAddOnsArgs:
 class UserPoolUsernameConfigurationArgs:
     def __init__(__self__, *,
                  case_sensitive: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] case_sensitive: Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+        """
         pulumi.set(__self__, "case_sensitive", case_sensitive)
 
     @property
     @pulumi.getter(name="caseSensitive")
     def case_sensitive(self) -> pulumi.Input[bool]:
+        """
+        Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+        """
         return pulumi.get(self, "case_sensitive")
 
     @case_sensitive.setter
@@ -1491,6 +1983,14 @@ class UserPoolVerificationMessageTemplateArgs:
                  email_subject: Optional[pulumi.Input[str]] = None,
                  email_subject_by_link: Optional[pulumi.Input[str]] = None,
                  sms_message: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] default_email_option: Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
+        :param pulumi.Input[str] email_message: Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+        :param pulumi.Input[str] email_message_by_link: Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
+        :param pulumi.Input[str] email_subject: Subject line for the email message template. Conflicts with `email_verification_subject` argument.
+        :param pulumi.Input[str] email_subject_by_link: Subject line for the email message template for sending a confirmation link to the user.
+        :param pulumi.Input[str] sms_message: SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+        """
         if default_email_option is not None:
             pulumi.set(__self__, "default_email_option", default_email_option)
         if email_message is not None:
@@ -1507,6 +2007,9 @@ class UserPoolVerificationMessageTemplateArgs:
     @property
     @pulumi.getter(name="defaultEmailOption")
     def default_email_option(self) -> Optional[pulumi.Input[str]]:
+        """
+        Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
+        """
         return pulumi.get(self, "default_email_option")
 
     @default_email_option.setter
@@ -1516,6 +2019,9 @@ class UserPoolVerificationMessageTemplateArgs:
     @property
     @pulumi.getter(name="emailMessage")
     def email_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+        """
         return pulumi.get(self, "email_message")
 
     @email_message.setter
@@ -1525,6 +2031,9 @@ class UserPoolVerificationMessageTemplateArgs:
     @property
     @pulumi.getter(name="emailMessageByLink")
     def email_message_by_link(self) -> Optional[pulumi.Input[str]]:
+        """
+        Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
+        """
         return pulumi.get(self, "email_message_by_link")
 
     @email_message_by_link.setter
@@ -1534,6 +2043,9 @@ class UserPoolVerificationMessageTemplateArgs:
     @property
     @pulumi.getter(name="emailSubject")
     def email_subject(self) -> Optional[pulumi.Input[str]]:
+        """
+        Subject line for the email message template. Conflicts with `email_verification_subject` argument.
+        """
         return pulumi.get(self, "email_subject")
 
     @email_subject.setter
@@ -1543,6 +2055,9 @@ class UserPoolVerificationMessageTemplateArgs:
     @property
     @pulumi.getter(name="emailSubjectByLink")
     def email_subject_by_link(self) -> Optional[pulumi.Input[str]]:
+        """
+        Subject line for the email message template for sending a confirmation link to the user.
+        """
         return pulumi.get(self, "email_subject_by_link")
 
     @email_subject_by_link.setter
@@ -1552,6 +2067,9 @@ class UserPoolVerificationMessageTemplateArgs:
     @property
     @pulumi.getter(name="smsMessage")
     def sms_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+        """
         return pulumi.get(self, "sms_message")
 
     @sms_message.setter

@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Get tags attached to the specified AWS Organizations resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const account = aws.organizations.getResourceTags({
+ *     resourceId: "123456123846",
+ * });
+ * ```
+ */
 export function getResourceTags(args: GetResourceTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceTagsResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,7 +31,13 @@ export function getResourceTags(args: GetResourceTagsArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getResourceTags.
  */
 export interface GetResourceTagsArgs {
+    /**
+     * ID of the resource with the tags to list. See details below.
+     */
     resourceId: string;
+    /**
+     * Map of key=value pairs for each tag set on the resource.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -30,8 +50,25 @@ export interface GetResourceTagsResult {
      */
     readonly id: string;
     readonly resourceId: string;
+    /**
+     * Map of key=value pairs for each tag set on the resource.
+     */
     readonly tags: {[key: string]: string};
 }
+/**
+ * Get tags attached to the specified AWS Organizations resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const account = aws.organizations.getResourceTags({
+ *     resourceId: "123456123846",
+ * });
+ * ```
+ */
 export function getResourceTagsOutput(args: GetResourceTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceTagsResult> {
     return pulumi.output(args).apply((a: any) => getResourceTags(a, opts))
 }
@@ -40,6 +77,12 @@ export function getResourceTagsOutput(args: GetResourceTagsOutputArgs, opts?: pu
  * A collection of arguments for invoking getResourceTags.
  */
 export interface GetResourceTagsOutputArgs {
+    /**
+     * ID of the resource with the tags to list. See details below.
+     */
     resourceId: pulumi.Input<string>;
+    /**
+     * Map of key=value pairs for each tag set on the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

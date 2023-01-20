@@ -13,10 +13,25 @@ namespace Pulumi.Aws.Dms.Outputs
     [OutputType]
     public sealed class EndpointRedshiftSettings
     {
+        /// <summary>
+        /// Custom S3 Bucket Object prefix for intermediate storage.
+        /// </summary>
         public readonly string? BucketFolder;
+        /// <summary>
+        /// Custom S3 Bucket name for intermediate storage.
+        /// </summary>
         public readonly string? BucketName;
+        /// <summary>
+        /// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+        /// </summary>
         public readonly string? EncryptionMode;
+        /// <summary>
+        /// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+        /// </summary>
         public readonly string? ServerSideEncryptionKmsKeyId;
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
+        /// </summary>
         public readonly string? ServiceAccessRoleArn;
 
         [OutputConstructor]

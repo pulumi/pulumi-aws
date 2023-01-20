@@ -11,9 +11,59 @@ namespace Pulumi.Aws.Amp
 {
     public static class GetWorkspace
     {
+        /// <summary>
+        /// Provides an Amazon Managed Prometheus workspace data source.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Amp.GetWorkspace.Invoke(new()
+        ///     {
+        ///         WorkspaceId = "ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("aws:amp/getWorkspace:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides an Amazon Managed Prometheus workspace data source.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Amp.GetWorkspace.Invoke(new()
+        ///     {
+        ///         WorkspaceId = "ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("aws:amp/getWorkspace:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
     }
@@ -23,12 +73,19 @@ namespace Pulumi.Aws.Amp
     {
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Tags assigned to the resource.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Prometheus workspace ID.
+        /// </summary>
         [Input("workspaceId", required: true)]
         public string WorkspaceId { get; set; } = null!;
 
@@ -42,12 +99,19 @@ namespace Pulumi.Aws.Amp
     {
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tags assigned to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Prometheus workspace ID.
+        /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
 
@@ -61,15 +125,33 @@ namespace Pulumi.Aws.Amp
     [OutputType]
     public sealed class GetWorkspaceResult
     {
+        /// <summary>
+        /// Prometheus workspace alias.
+        /// </summary>
         public readonly string Alias;
+        /// <summary>
+        /// ARN of the Prometheus workspace.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Creation date of the Prometheus workspace.
+        /// </summary>
         public readonly string CreatedDate;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Endpoint of the Prometheus workspace.
+        /// </summary>
         public readonly string PrometheusEndpoint;
+        /// <summary>
+        /// Status of the Prometheus workspace.
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// Tags assigned to the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string WorkspaceId;
 

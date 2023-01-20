@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to get an Identity Store Group.
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	var rv LookupGroupResult
 	err := ctx.Invoke("aws:identitystore/getGroup:getGroup", args, &rv, opts...)
@@ -21,19 +22,27 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupArgs struct {
+	// A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
 	AlternateIdentifier *GetGroupAlternateIdentifier `pulumi:"alternateIdentifier"`
+	// Configuration block for filtering by a unique attribute of the group. Detailed below.
+	//
 	// Deprecated: Use the alternate_identifier attribute instead.
-	Filter          *GetGroupFilter `pulumi:"filter"`
-	GroupId         *string         `pulumi:"groupId"`
-	IdentityStoreId string          `pulumi:"identityStoreId"`
+	Filter *GetGroupFilter `pulumi:"filter"`
+	// The identifier for a group in the Identity Store.
+	GroupId *string `pulumi:"groupId"`
+	// Identity Store ID associated with the Single Sign-On Instance.
+	IdentityStoreId string `pulumi:"identityStoreId"`
 }
 
 // A collection of values returned by getGroup.
 type LookupGroupResult struct {
 	AlternateIdentifier *GetGroupAlternateIdentifier `pulumi:"alternateIdentifier"`
-	Description         string                       `pulumi:"description"`
-	DisplayName         string                       `pulumi:"displayName"`
-	ExternalIds         []GetGroupExternalId         `pulumi:"externalIds"`
+	// Description of the specified group.
+	Description string `pulumi:"description"`
+	// Group's display name value.
+	DisplayName string `pulumi:"displayName"`
+	// List of identifiers issued to this resource by an external identity provider.
+	ExternalIds []GetGroupExternalId `pulumi:"externalIds"`
 	// Deprecated: Use the alternate_identifier attribute instead.
 	Filter  *GetGroupFilter `pulumi:"filter"`
 	GroupId string          `pulumi:"groupId"`
@@ -57,11 +66,16 @@ func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupOutputArgs struct {
+	// A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
 	AlternateIdentifier GetGroupAlternateIdentifierPtrInput `pulumi:"alternateIdentifier"`
+	// Configuration block for filtering by a unique attribute of the group. Detailed below.
+	//
 	// Deprecated: Use the alternate_identifier attribute instead.
-	Filter          GetGroupFilterPtrInput `pulumi:"filter"`
-	GroupId         pulumi.StringPtrInput  `pulumi:"groupId"`
-	IdentityStoreId pulumi.StringInput     `pulumi:"identityStoreId"`
+	Filter GetGroupFilterPtrInput `pulumi:"filter"`
+	// The identifier for a group in the Identity Store.
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
+	// Identity Store ID associated with the Single Sign-On Instance.
+	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
 }
 
 func (LookupGroupOutputArgs) ElementType() reflect.Type {
@@ -87,14 +101,17 @@ func (o LookupGroupResultOutput) AlternateIdentifier() GetGroupAlternateIdentifi
 	return o.ApplyT(func(v LookupGroupResult) *GetGroupAlternateIdentifier { return v.AlternateIdentifier }).(GetGroupAlternateIdentifierPtrOutput)
 }
 
+// Description of the specified group.
 func (o LookupGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// Group's display name value.
 func (o LookupGroupResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// List of identifiers issued to this resource by an external identity provider.
 func (o LookupGroupResultOutput) ExternalIds() GetGroupExternalIdArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []GetGroupExternalId { return v.ExternalIds }).(GetGroupExternalIdArrayOutput)
 }

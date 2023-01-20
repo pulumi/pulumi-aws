@@ -11,7 +11,9 @@ import (
 )
 
 type TableMagneticStoreWriteProperties struct {
-	EnableMagneticStoreWrites         *bool                                                               `pulumi:"enableMagneticStoreWrites"`
+	// A flag to enable magnetic store writes.
+	EnableMagneticStoreWrites *bool `pulumi:"enableMagneticStoreWrites"`
+	// The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
 	MagneticStoreRejectedDataLocation *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation `pulumi:"magneticStoreRejectedDataLocation"`
 }
 
@@ -27,7 +29,9 @@ type TableMagneticStoreWritePropertiesInput interface {
 }
 
 type TableMagneticStoreWritePropertiesArgs struct {
-	EnableMagneticStoreWrites         pulumi.BoolPtrInput                                                        `pulumi:"enableMagneticStoreWrites"`
+	// A flag to enable magnetic store writes.
+	EnableMagneticStoreWrites pulumi.BoolPtrInput `pulumi:"enableMagneticStoreWrites"`
+	// The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
 	MagneticStoreRejectedDataLocation TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrInput `pulumi:"magneticStoreRejectedDataLocation"`
 }
 
@@ -108,10 +112,12 @@ func (o TableMagneticStoreWritePropertiesOutput) ToTableMagneticStoreWriteProper
 	}).(TableMagneticStoreWritePropertiesPtrOutput)
 }
 
+// A flag to enable magnetic store writes.
 func (o TableMagneticStoreWritePropertiesOutput) EnableMagneticStoreWrites() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableMagneticStoreWriteProperties) *bool { return v.EnableMagneticStoreWrites }).(pulumi.BoolPtrOutput)
 }
 
+// The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
 func (o TableMagneticStoreWritePropertiesOutput) MagneticStoreRejectedDataLocation() TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput {
 	return o.ApplyT(func(v TableMagneticStoreWriteProperties) *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation {
 		return v.MagneticStoreRejectedDataLocation
@@ -142,6 +148,7 @@ func (o TableMagneticStoreWritePropertiesPtrOutput) Elem() TableMagneticStoreWri
 	}).(TableMagneticStoreWritePropertiesOutput)
 }
 
+// A flag to enable magnetic store writes.
 func (o TableMagneticStoreWritePropertiesPtrOutput) EnableMagneticStoreWrites() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableMagneticStoreWriteProperties) *bool {
 		if v == nil {
@@ -151,6 +158,7 @@ func (o TableMagneticStoreWritePropertiesPtrOutput) EnableMagneticStoreWrites() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
 func (o TableMagneticStoreWritePropertiesPtrOutput) MagneticStoreRejectedDataLocation() TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput {
 	return o.ApplyT(func(v *TableMagneticStoreWriteProperties) *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation {
 		if v == nil {
@@ -161,6 +169,7 @@ func (o TableMagneticStoreWritePropertiesPtrOutput) MagneticStoreRejectedDataLoc
 }
 
 type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation struct {
+	// Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
 	S3Configuration *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration `pulumi:"s3Configuration"`
 }
 
@@ -176,6 +185,7 @@ type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationInput int
 }
 
 type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs struct {
+	// Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
 	S3Configuration TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrInput `pulumi:"s3Configuration"`
 }
 
@@ -256,6 +266,7 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput
 	}).(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput)
 }
 
+// Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput) S3Configuration() TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation) *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration {
 		return v.S3Configuration
@@ -286,6 +297,7 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOut
 	}).(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput)
 }
 
+// Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput) S3Configuration() TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation) *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration {
 		if v == nil {
@@ -296,10 +308,14 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOut
 }
 
 type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration struct {
-	BucketName       *string `pulumi:"bucketName"`
+	// Bucket name of the customer S3 bucket.
+	BucketName *string `pulumi:"bucketName"`
+	// Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
 	EncryptionOption *string `pulumi:"encryptionOption"`
-	KmsKeyId         *string `pulumi:"kmsKeyId"`
-	ObjectKeyPrefix  *string `pulumi:"objectKeyPrefix"`
+	// KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Object key prefix for the customer S3 location.
+	ObjectKeyPrefix *string `pulumi:"objectKeyPrefix"`
 }
 
 // TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationInput is an input type that accepts TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs and TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutput values.
@@ -314,10 +330,14 @@ type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configu
 }
 
 type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs struct {
-	BucketName       pulumi.StringPtrInput `pulumi:"bucketName"`
+	// Bucket name of the customer S3 bucket.
+	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
+	// Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
 	EncryptionOption pulumi.StringPtrInput `pulumi:"encryptionOption"`
-	KmsKeyId         pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	ObjectKeyPrefix  pulumi.StringPtrInput `pulumi:"objectKeyPrefix"`
+	// KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// Object key prefix for the customer S3 location.
+	ObjectKeyPrefix pulumi.StringPtrInput `pulumi:"objectKeyPrefix"`
 }
 
 func (TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs) ElementType() reflect.Type {
@@ -397,24 +417,28 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Conf
 	}).(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput)
 }
 
+// Bucket name of the customer S3 bucket.
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration) *string {
 		return v.BucketName
 	}).(pulumi.StringPtrOutput)
 }
 
+// Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutput) EncryptionOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration) *string {
 		return v.EncryptionOption
 	}).(pulumi.StringPtrOutput)
 }
 
+// KMS key arn for the customer s3 location when encrypting with a KMS managed key.
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration) *string {
 		return v.KmsKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
+// Object key prefix for the customer S3 location.
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutput) ObjectKeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration) *string {
 		return v.ObjectKeyPrefix
@@ -445,6 +469,7 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Conf
 	}).(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutput)
 }
 
+// Bucket name of the customer S3 bucket.
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration) *string {
 		if v == nil {
@@ -454,6 +479,7 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Conf
 	}).(pulumi.StringPtrOutput)
 }
 
+// Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput) EncryptionOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration) *string {
 		if v == nil {
@@ -463,6 +489,7 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Conf
 	}).(pulumi.StringPtrOutput)
 }
 
+// KMS key arn for the customer s3 location when encrypting with a KMS managed key.
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration) *string {
 		if v == nil {
@@ -472,6 +499,7 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Conf
 	}).(pulumi.StringPtrOutput)
 }
 
+// Object key prefix for the customer S3 location.
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput) ObjectKeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration) *string {
 		if v == nil {
@@ -482,8 +510,10 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Conf
 }
 
 type TableRetentionProperties struct {
+	// The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
 	MagneticStoreRetentionPeriodInDays int `pulumi:"magneticStoreRetentionPeriodInDays"`
-	MemoryStoreRetentionPeriodInHours  int `pulumi:"memoryStoreRetentionPeriodInHours"`
+	// The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
+	MemoryStoreRetentionPeriodInHours int `pulumi:"memoryStoreRetentionPeriodInHours"`
 }
 
 // TableRetentionPropertiesInput is an input type that accepts TableRetentionPropertiesArgs and TableRetentionPropertiesOutput values.
@@ -498,8 +528,10 @@ type TableRetentionPropertiesInput interface {
 }
 
 type TableRetentionPropertiesArgs struct {
+	// The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
 	MagneticStoreRetentionPeriodInDays pulumi.IntInput `pulumi:"magneticStoreRetentionPeriodInDays"`
-	MemoryStoreRetentionPeriodInHours  pulumi.IntInput `pulumi:"memoryStoreRetentionPeriodInHours"`
+	// The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
+	MemoryStoreRetentionPeriodInHours pulumi.IntInput `pulumi:"memoryStoreRetentionPeriodInHours"`
 }
 
 func (TableRetentionPropertiesArgs) ElementType() reflect.Type {
@@ -579,10 +611,12 @@ func (o TableRetentionPropertiesOutput) ToTableRetentionPropertiesPtrOutputWithC
 	}).(TableRetentionPropertiesPtrOutput)
 }
 
+// The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
 func (o TableRetentionPropertiesOutput) MagneticStoreRetentionPeriodInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v TableRetentionProperties) int { return v.MagneticStoreRetentionPeriodInDays }).(pulumi.IntOutput)
 }
 
+// The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
 func (o TableRetentionPropertiesOutput) MemoryStoreRetentionPeriodInHours() pulumi.IntOutput {
 	return o.ApplyT(func(v TableRetentionProperties) int { return v.MemoryStoreRetentionPeriodInHours }).(pulumi.IntOutput)
 }
@@ -611,6 +645,7 @@ func (o TableRetentionPropertiesPtrOutput) Elem() TableRetentionPropertiesOutput
 	}).(TableRetentionPropertiesOutput)
 }
 
+// The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
 func (o TableRetentionPropertiesPtrOutput) MagneticStoreRetentionPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableRetentionProperties) *int {
 		if v == nil {
@@ -620,6 +655,7 @@ func (o TableRetentionPropertiesPtrOutput) MagneticStoreRetentionPeriodInDays() 
 	}).(pulumi.IntPtrOutput)
 }
 
+// The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
 func (o TableRetentionPropertiesPtrOutput) MemoryStoreRetentionPeriodInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableRetentionProperties) *int {
 		if v == nil {

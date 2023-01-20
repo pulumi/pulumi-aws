@@ -7,6 +7,21 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides details about a specific Amazon Kendra Experience.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.kendra.getExperience({
+ *     experienceId: "87654321-1234-4321-4321-321987654321",
+ *     indexId: "12345678-1234-1234-1234-123456789123",
+ * });
+ * ```
+ */
 export function getExperience(args: GetExperienceArgs, opts?: pulumi.InvokeOptions): Promise<GetExperienceResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -20,7 +35,13 @@ export function getExperience(args: GetExperienceArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getExperience.
  */
 export interface GetExperienceArgs {
+    /**
+     * Identifier of the Experience.
+     */
     experienceId: string;
+    /**
+     * Identifier of the index that contains the Experience.
+     */
     indexId: string;
 }
 
@@ -28,11 +49,29 @@ export interface GetExperienceArgs {
  * A collection of values returned by getExperience.
  */
 export interface GetExperienceResult {
+    /**
+     * ARN of the Experience.
+     */
     readonly arn: string;
+    /**
+     * Block that specifies the configuration information for your Amazon Kendra Experience. This includes `contentSourceConfiguration`, which specifies the data source IDs and/or FAQ IDs, and `userIdentityConfiguration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
+     */
     readonly configurations: outputs.kendra.GetExperienceConfiguration[];
+    /**
+     * Unix datetime that the Experience was created.
+     */
     readonly createdAt: string;
+    /**
+     * Description of the Experience.
+     */
     readonly description: string;
+    /**
+     * Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS. Documented below.
+     */
     readonly endpoints: outputs.kendra.GetExperienceEndpoint[];
+    /**
+     * Reason your Amazon Kendra Experience could not properly process.
+     */
     readonly errorMessage: string;
     readonly experienceId: string;
     /**
@@ -40,11 +79,38 @@ export interface GetExperienceResult {
      */
     readonly id: string;
     readonly indexId: string;
+    /**
+     * Name of the Experience.
+     */
     readonly name: string;
+    /**
+     * Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
+     */
     readonly roleArn: string;
+    /**
+     * Current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that this failed.
+     */
     readonly status: string;
+    /**
+     * Date and time that the Experience was last updated.
+     */
     readonly updatedAt: string;
 }
+/**
+ * Provides details about a specific Amazon Kendra Experience.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.kendra.getExperience({
+ *     experienceId: "87654321-1234-4321-4321-321987654321",
+ *     indexId: "12345678-1234-1234-1234-123456789123",
+ * });
+ * ```
+ */
 export function getExperienceOutput(args: GetExperienceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperienceResult> {
     return pulumi.output(args).apply((a: any) => getExperience(a, opts))
 }
@@ -53,6 +119,12 @@ export function getExperienceOutput(args: GetExperienceOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getExperience.
  */
 export interface GetExperienceOutputArgs {
+    /**
+     * Identifier of the Experience.
+     */
     experienceId: pulumi.Input<string>;
+    /**
+     * Identifier of the index that contains the Experience.
+     */
     indexId: pulumi.Input<string>;
 }

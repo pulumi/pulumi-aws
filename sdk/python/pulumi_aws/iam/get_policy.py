@@ -53,11 +53,17 @@ class GetPolicyResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the policy.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the policy.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -76,6 +82,9 @@ class GetPolicyResult:
     @property
     @pulumi.getter
     def path(self) -> str:
+        """
+        Path to the policy.
+        """
         return pulumi.get(self, "path")
 
     @property
@@ -86,16 +95,25 @@ class GetPolicyResult:
     @property
     @pulumi.getter
     def policy(self) -> str:
+        """
+        Policy document of the policy.
+        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="policyId")
     def policy_id(self) -> str:
+        """
+        Policy's ID.
+        """
         return pulumi.get(self, "policy_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Key-value mapping of tags for the IAM Policy.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -122,7 +140,36 @@ def get_policy(arn: Optional[str] = None,
                tags: Optional[Mapping[str, str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    This data source can be used to fetch information about a specific
+    IAM policy.
+
+    ## Example Usage
+    ### By ARN
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.iam.get_policy(arn="arn:aws:iam::123456789012:policy/UsersManageOwnCredentials")
+    ```
+    ### By Name
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.iam.get_policy(name="test_policy")
+    ```
+
+
+    :param str arn: ARN of the IAM policy.
+           Conflicts with `name` and `path_prefix`.
+    :param str name: Name of the IAM policy.
+           Conflicts with `arn`.
+    :param str path_prefix: Prefix of the path to the IAM policy.
+           Defaults to a slash (`/`).
+           Conflicts with `arn`.
+    :param Mapping[str, str] tags: Key-value mapping of tags for the IAM Policy.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -151,6 +198,35 @@ def get_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
     """
-    Use this data source to access information about an existing resource.
+    This data source can be used to fetch information about a specific
+    IAM policy.
+
+    ## Example Usage
+    ### By ARN
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.iam.get_policy(arn="arn:aws:iam::123456789012:policy/UsersManageOwnCredentials")
+    ```
+    ### By Name
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.iam.get_policy(name="test_policy")
+    ```
+
+
+    :param str arn: ARN of the IAM policy.
+           Conflicts with `name` and `path_prefix`.
+    :param str name: Name of the IAM policy.
+           Conflicts with `arn`.
+    :param str path_prefix: Prefix of the path to the IAM policy.
+           Defaults to a slash (`/`).
+           Conflicts with `arn`.
+    :param Mapping[str, str] tags: Key-value mapping of tags for the IAM Policy.
     """
     ...

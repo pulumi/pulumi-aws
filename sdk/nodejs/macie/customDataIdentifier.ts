@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a resource to manage an [AWS Macie Custom Data Identifier](https://docs.aws.amazon.com/macie/latest/APIReference/custom-data-identifiers-id.html).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleAccount = new aws.macie2.Account("exampleAccount", {});
+ * const exampleCustomDataIdentifier = new aws.macie.CustomDataIdentifier("exampleCustomDataIdentifier", {
+ *     regex: "[0-9]{3}-[0-9]{2}-[0-9]{4}",
+ *     description: "DESCRIPTION",
+ *     maximumMatchDistance: 10,
+ *     keywords: ["keyword"],
+ *     ignoreWords: ["ignore"],
+ * }, {
+ *     dependsOn: [aws_macie2_account.test],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_macie2_custom_data_identifier` can be imported using the id, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
+ * ```
+ */
 export class CustomDataIdentifier extends pulumi.CustomResource {
     /**
      * Get an existing CustomDataIdentifier resource's state with the given name, ID, and optional extra
@@ -32,15 +61,45 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomDataIdentifier.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the custom data identifier.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * A custom description of the custom data identifier. The description can contain as many as 512 characters.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
+     */
     public readonly ignoreWords!: pulumi.Output<string[] | undefined>;
+    /**
+     * An array that lists specific character sequences (keywords), one of which must be within proximity (`maximumMatchDistance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
+     */
     public readonly keywords!: pulumi.Output<string[] | undefined>;
+    /**
+     * The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
+     */
     public readonly maximumMatchDistance!: pulumi.Output<number>;
+    /**
+     * A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     public readonly namePrefix!: pulumi.Output<string>;
+    /**
+     * The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
+     */
     public readonly regex!: pulumi.Output<string | undefined>;
+    /**
+     * A map of key-value pairs that specifies the tags to associate with the custom data identifier.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -91,15 +150,45 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CustomDataIdentifier resources.
  */
 export interface CustomDataIdentifierState {
+    /**
+     * The Amazon Resource Name (ARN) of the custom data identifier.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+     */
     createdAt?: pulumi.Input<string>;
+    /**
+     * A custom description of the custom data identifier. The description can contain as many as 512 characters.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
+     */
     ignoreWords?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * An array that lists specific character sequences (keywords), one of which must be within proximity (`maximumMatchDistance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
+     */
     keywords?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
+     */
     maximumMatchDistance?: pulumi.Input<number>;
+    /**
+     * A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
+     */
     regex?: pulumi.Input<string>;
+    /**
+     * A map of key-value pairs that specifies the tags to associate with the custom data identifier.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -108,12 +197,36 @@ export interface CustomDataIdentifierState {
  * The set of arguments for constructing a CustomDataIdentifier resource.
  */
 export interface CustomDataIdentifierArgs {
+    /**
+     * A custom description of the custom data identifier. The description can contain as many as 512 characters.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
+     */
     ignoreWords?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * An array that lists specific character sequences (keywords), one of which must be within proximity (`maximumMatchDistance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
+     */
     keywords?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
+     */
     maximumMatchDistance?: pulumi.Input<number>;
+    /**
+     * A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
+     */
     regex?: pulumi.Input<string>;
+    /**
+     * A map of key-value pairs that specifies the tags to associate with the custom data identifier.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -13,9 +13,17 @@ public final class ResourceShareAccepterArgs extends com.pulumi.resources.Resour
 
     public static final ResourceShareAccepterArgs Empty = new ResourceShareAccepterArgs();
 
+    /**
+     * The ARN of the resource share.
+     * 
+     */
     @Import(name="shareArn", required=true)
     private Output<String> shareArn;
 
+    /**
+     * @return The ARN of the resource share.
+     * 
+     */
     public Output<String> shareArn() {
         return this.shareArn;
     }
@@ -44,11 +52,23 @@ public final class ResourceShareAccepterArgs extends com.pulumi.resources.Resour
             $ = new ResourceShareAccepterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param shareArn The ARN of the resource share.
+         * 
+         * @return builder
+         * 
+         */
         public Builder shareArn(Output<String> shareArn) {
             $.shareArn = shareArn;
             return this;
         }
 
+        /**
+         * @param shareArn The ARN of the resource share.
+         * 
+         * @return builder
+         * 
+         */
         public Builder shareArn(String shareArn) {
             return shareArn(Output.of(shareArn));
         }

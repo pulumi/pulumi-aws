@@ -11,21 +11,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination {
+    /**
+     * @return The account ID that owns the destination bucket.
+     * 
+     */
     private @Nullable String bucketAccountId;
+    /**
+     * @return The ARN of the destination bucket.
+     * 
+     */
     private String bucketArn;
+    /**
+     * @return The output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
+     * 
+     */
     private @Nullable String format;
+    /**
+     * @return Object prefix for filtering.
+     * 
+     */
     private @Nullable String prefix;
 
     private AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination() {}
+    /**
+     * @return The account ID that owns the destination bucket.
+     * 
+     */
     public Optional<String> bucketAccountId() {
         return Optional.ofNullable(this.bucketAccountId);
     }
+    /**
+     * @return The ARN of the destination bucket.
+     * 
+     */
     public String bucketArn() {
         return this.bucketArn;
     }
+    /**
+     * @return The output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
+     * 
+     */
     public Optional<String> format() {
         return Optional.ofNullable(this.format);
     }
+    /**
+     * @return Object prefix for filtering.
+     * 
+     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

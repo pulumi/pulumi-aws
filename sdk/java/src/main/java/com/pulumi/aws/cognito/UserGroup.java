@@ -15,35 +15,151 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Cognito User Group resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.cognito.UserGroup;
+ * import com.pulumi.aws.cognito.UserGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var mainUserPool = new UserPool(&#34;mainUserPool&#34;);
+ * 
+ *         var groupRole = new Role(&#34;groupRole&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Sid&#34;: &#34;&#34;,
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Principal&#34;: {
+ *         &#34;Federated&#34;: &#34;cognito-identity.amazonaws.com&#34;
+ *       },
+ *       &#34;Action&#34;: &#34;sts:AssumeRoleWithWebIdentity&#34;,
+ *       &#34;Condition&#34;: {
+ *         &#34;StringEquals&#34;: {
+ *           &#34;cognito-identity.amazonaws.com:aud&#34;: &#34;us-east-1:12345678-dead-beef-cafe-123456790ab&#34;
+ *         },
+ *         &#34;ForAnyValue:StringLike&#34;: {
+ *           &#34;cognito-identity.amazonaws.com:amr&#34;: &#34;authenticated&#34;
+ *         }
+ *       }
+ *     }
+ *   ]
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *         var mainUserGroup = new UserGroup(&#34;mainUserGroup&#34;, UserGroupArgs.builder()        
+ *             .userPoolId(mainUserPool.id())
+ *             .description(&#34;Managed by Pulumi&#34;)
+ *             .precedence(42)
+ *             .roleArn(groupRole.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Cognito User Groups can be imported using the `user_pool_id`/`name` attributes concatenated, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
+ * ```
+ * 
+ */
 @ResourceType(type="aws:cognito/userGroup:UserGroup")
 public class UserGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * The description of the user group.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The description of the user group.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The name of the user group.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the user group.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The precedence of the user group.
+     * 
+     */
     @Export(name="precedence", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> precedence;
 
+    /**
+     * @return The precedence of the user group.
+     * 
+     */
     public Output<Optional<Integer>> precedence() {
         return Codegen.optional(this.precedence);
     }
+    /**
+     * The ARN of the IAM role to be associated with the user group.
+     * 
+     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
+    /**
+     * @return The ARN of the IAM role to be associated with the user group.
+     * 
+     */
     public Output<Optional<String>> roleArn() {
         return Codegen.optional(this.roleArn);
     }
+    /**
+     * The user pool ID.
+     * 
+     */
     @Export(name="userPoolId", refs={String.class}, tree="[0]")
     private Output<String> userPoolId;
 
+    /**
+     * @return The user pool ID.
+     * 
+     */
     public Output<String> userPoolId() {
         return this.userPoolId;
     }

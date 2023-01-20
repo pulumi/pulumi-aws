@@ -21,6 +21,11 @@ class DomainEntryArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DomainEntry resource.
+        :param pulumi.Input[str] domain_name: The name of the Lightsail domain in which to create the entry
+        :param pulumi.Input[str] target: Target of the domain entry
+        :param pulumi.Input[str] type: Type of record
+        :param pulumi.Input[bool] is_alias: If the entry should be an alias Defaults to `false`
+        :param pulumi.Input[str] name: Name of the entry record
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "target", target)
@@ -33,6 +38,9 @@ class DomainEntryArgs:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Lightsail domain in which to create the entry
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -42,6 +50,9 @@ class DomainEntryArgs:
     @property
     @pulumi.getter
     def target(self) -> pulumi.Input[str]:
+        """
+        Target of the domain entry
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -51,6 +62,9 @@ class DomainEntryArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        Type of record
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -60,6 +74,9 @@ class DomainEntryArgs:
     @property
     @pulumi.getter(name="isAlias")
     def is_alias(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the entry should be an alias Defaults to `false`
+        """
         return pulumi.get(self, "is_alias")
 
     @is_alias.setter
@@ -69,6 +86,9 @@ class DomainEntryArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the entry record
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -86,6 +106,11 @@ class _DomainEntryState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DomainEntry resources.
+        :param pulumi.Input[str] domain_name: The name of the Lightsail domain in which to create the entry
+        :param pulumi.Input[bool] is_alias: If the entry should be an alias Defaults to `false`
+        :param pulumi.Input[str] name: Name of the entry record
+        :param pulumi.Input[str] target: Target of the domain entry
+        :param pulumi.Input[str] type: Type of record
         """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
@@ -101,6 +126,9 @@ class _DomainEntryState:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Lightsail domain in which to create the entry
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -110,6 +138,9 @@ class _DomainEntryState:
     @property
     @pulumi.getter(name="isAlias")
     def is_alias(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the entry should be an alias Defaults to `false`
+        """
         return pulumi.get(self, "is_alias")
 
     @is_alias.setter
@@ -119,6 +150,9 @@ class _DomainEntryState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the entry record
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -128,6 +162,9 @@ class _DomainEntryState:
     @property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[str]]:
+        """
+        Target of the domain entry
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -137,6 +174,9 @@ class _DomainEntryState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of record
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -156,9 +196,36 @@ class DomainEntry(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a DomainEntry resource with the given unique name, props, and options.
+        Creates a domain entry resource
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_domain = aws.lightsail.Domain("testDomain", domain_name="mydomain.com")
+        test_domain_entry = aws.lightsail.DomainEntry("testDomainEntry",
+            domain_name=aws_lightsail_domain["domain_test"]["domain_name"],
+            type="A",
+            target="127.0.0.1")
+        ```
+
+        ## Import
+
+        `aws_lightsail_domain_entry` can be imported by using the id attribute, e.g.,
+
+        ```sh
+         $ pulumi import aws:lightsail/domainEntry:DomainEntry example www_mydomain.com_A_127.0.0.1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] domain_name: The name of the Lightsail domain in which to create the entry
+        :param pulumi.Input[bool] is_alias: If the entry should be an alias Defaults to `false`
+        :param pulumi.Input[str] name: Name of the entry record
+        :param pulumi.Input[str] target: Target of the domain entry
+        :param pulumi.Input[str] type: Type of record
         """
         ...
     @overload
@@ -167,7 +234,29 @@ class DomainEntry(pulumi.CustomResource):
                  args: DomainEntryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DomainEntry resource with the given unique name, props, and options.
+        Creates a domain entry resource
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_domain = aws.lightsail.Domain("testDomain", domain_name="mydomain.com")
+        test_domain_entry = aws.lightsail.DomainEntry("testDomainEntry",
+            domain_name=aws_lightsail_domain["domain_test"]["domain_name"],
+            type="A",
+            target="127.0.0.1")
+        ```
+
+        ## Import
+
+        `aws_lightsail_domain_entry` can be imported by using the id attribute, e.g.,
+
+        ```sh
+         $ pulumi import aws:lightsail/domainEntry:DomainEntry example www_mydomain.com_A_127.0.0.1
+        ```
+
         :param str resource_name: The name of the resource.
         :param DomainEntryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,6 +319,11 @@ class DomainEntry(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] domain_name: The name of the Lightsail domain in which to create the entry
+        :param pulumi.Input[bool] is_alias: If the entry should be an alias Defaults to `false`
+        :param pulumi.Input[str] name: Name of the entry record
+        :param pulumi.Input[str] target: Target of the domain entry
+        :param pulumi.Input[str] type: Type of record
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -245,25 +339,40 @@ class DomainEntry(pulumi.CustomResource):
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Lightsail domain in which to create the entry
+        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="isAlias")
     def is_alias(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If the entry should be an alias Defaults to `false`
+        """
         return pulumi.get(self, "is_alias")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Name of the entry record
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def target(self) -> pulumi.Output[str]:
+        """
+        Target of the domain entry
+        """
         return pulumi.get(self, "target")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        Type of record
+        """
         return pulumi.get(self, "type")
 

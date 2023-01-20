@@ -9,21 +9,116 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
+    /// <summary>
+    /// Provides an [S3 Intelligent-Tiering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html) configuration resource.
+    /// 
+    /// ## Example Usage
+    /// ### Add intelligent tiering configuration for entire S3 bucket
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.S3.BucketV2("example");
+    /// 
+    ///     var example_entire_bucket = new Aws.S3.BucketIntelligentTieringConfiguration("example-entire-bucket", new()
+    ///     {
+    ///         Bucket = example.Bucket,
+    ///         Tierings = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketIntelligentTieringConfigurationTieringArgs
+    ///             {
+    ///                 AccessTier = "DEEP_ARCHIVE_ACCESS",
+    ///                 Days = 180,
+    ///             },
+    ///             new Aws.S3.Inputs.BucketIntelligentTieringConfigurationTieringArgs
+    ///             {
+    ///                 AccessTier = "ARCHIVE_ACCESS",
+    ///                 Days = 125,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Add intelligent tiering configuration with S3 object filter
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.S3.BucketV2("example");
+    /// 
+    ///     var example_filtered = new Aws.S3.BucketIntelligentTieringConfiguration("example-filtered", new()
+    ///     {
+    ///         Bucket = example.Bucket,
+    ///         Status = "Disabled",
+    ///         Filter = new Aws.S3.Inputs.BucketIntelligentTieringConfigurationFilterArgs
+    ///         {
+    ///             Prefix = "documents/",
+    ///             Tags = 
+    ///             {
+    ///                 { "priority", "high" },
+    ///                 { "class", "blue" },
+    ///             },
+    ///         },
+    ///         Tierings = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketIntelligentTieringConfigurationTieringArgs
+    ///             {
+    ///                 AccessTier = "ARCHIVE_ACCESS",
+    ///                 Days = 125,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// S3 bucket intelligent tiering configurations can be imported using `bucket:name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration")]
     public partial class BucketIntelligentTieringConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the bucket this intelligent tiering configuration is associated with.
+        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
+        /// <summary>
+        /// A bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+        /// </summary>
         [Output("filter")]
         public Output<Outputs.BucketIntelligentTieringConfigurationFilter?> Filter { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+        /// </summary>
         [Output("tierings")]
         public Output<ImmutableArray<Outputs.BucketIntelligentTieringConfigurationTiering>> Tierings { get; private set; } = null!;
 
@@ -73,20 +168,36 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketIntelligentTieringConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the bucket this intelligent tiering configuration is associated with.
+        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// A bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+        /// </summary>
         [Input("filter")]
         public Input<Inputs.BucketIntelligentTieringConfigurationFilterArgs>? Filter { get; set; }
 
+        /// <summary>
+        /// The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tierings", required: true)]
         private InputList<Inputs.BucketIntelligentTieringConfigurationTieringArgs>? _tierings;
+
+        /// <summary>
+        /// The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+        /// </summary>
         public InputList<Inputs.BucketIntelligentTieringConfigurationTieringArgs> Tierings
         {
             get => _tierings ?? (_tierings = new InputList<Inputs.BucketIntelligentTieringConfigurationTieringArgs>());
@@ -101,20 +212,36 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketIntelligentTieringConfigurationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the bucket this intelligent tiering configuration is associated with.
+        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
+        /// <summary>
+        /// A bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+        /// </summary>
         [Input("filter")]
         public Input<Inputs.BucketIntelligentTieringConfigurationFilterGetArgs>? Filter { get; set; }
 
+        /// <summary>
+        /// The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tierings")]
         private InputList<Inputs.BucketIntelligentTieringConfigurationTieringGetArgs>? _tierings;
+
+        /// <summary>
+        /// The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+        /// </summary>
         public InputList<Inputs.BucketIntelligentTieringConfigurationTieringGetArgs> Tierings
         {
             get => _tierings ?? (_tierings = new InputList<Inputs.BucketIntelligentTieringConfigurationTieringGetArgs>());

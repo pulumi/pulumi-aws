@@ -16,23 +16,47 @@ public final class GetFaqArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetFaqArgs Empty = new GetFaqArgs();
 
+    /**
+     * Identifier of the FAQ.
+     * 
+     */
     @Import(name="faqId", required=true)
     private Output<String> faqId;
 
+    /**
+     * @return Identifier of the FAQ.
+     * 
+     */
     public Output<String> faqId() {
         return this.faqId;
     }
 
+    /**
+     * Identifier of the index that contains the FAQ.
+     * 
+     */
     @Import(name="indexId", required=true)
     private Output<String> indexId;
 
+    /**
+     * @return Identifier of the index that contains the FAQ.
+     * 
+     */
     public Output<String> indexId() {
         return this.indexId;
     }
 
+    /**
+     * Metadata that helps organize the FAQs you create.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Metadata that helps organize the FAQs you create.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -63,29 +87,65 @@ public final class GetFaqArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetFaqArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param faqId Identifier of the FAQ.
+         * 
+         * @return builder
+         * 
+         */
         public Builder faqId(Output<String> faqId) {
             $.faqId = faqId;
             return this;
         }
 
+        /**
+         * @param faqId Identifier of the FAQ.
+         * 
+         * @return builder
+         * 
+         */
         public Builder faqId(String faqId) {
             return faqId(Output.of(faqId));
         }
 
+        /**
+         * @param indexId Identifier of the index that contains the FAQ.
+         * 
+         * @return builder
+         * 
+         */
         public Builder indexId(Output<String> indexId) {
             $.indexId = indexId;
             return this;
         }
 
+        /**
+         * @param indexId Identifier of the index that contains the FAQ.
+         * 
+         * @return builder
+         * 
+         */
         public Builder indexId(String indexId) {
             return indexId(Output.of(indexId));
         }
 
+        /**
+         * @param tags Metadata that helps organize the FAQs you create.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Metadata that helps organize the FAQs you create.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

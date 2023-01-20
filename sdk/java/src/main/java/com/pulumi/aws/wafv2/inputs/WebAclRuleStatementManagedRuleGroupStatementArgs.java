@@ -21,6 +21,8 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
     public static final WebAclRuleStatementManagedRuleGroupStatementArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementArgs();
 
     /**
+     * The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
+     * 
      * @deprecated
      * Use rule_action_override instead
      * 
@@ -30,6 +32,8 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
     private @Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs>> excludedRules;
 
     /**
+     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
+     * 
      * @deprecated
      * Use rule_action_override instead
      * 
@@ -39,44 +43,92 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
         return Optional.ofNullable(this.excludedRules);
     }
 
+    /**
+     * Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+     * 
+     */
     @Import(name="managedRuleGroupConfigs")
     private @Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>> managedRuleGroupConfigs;
 
+    /**
+     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+     * 
+     */
     public Optional<Output<List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>>> managedRuleGroupConfigs() {
         return Optional.ofNullable(this.managedRuleGroupConfigs);
     }
 
+    /**
+     * Name of the managed rule group.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the managed rule group.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+     * 
+     */
     @Import(name="ruleActionOverrides")
     private @Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs>> ruleActionOverrides;
 
+    /**
+     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+     * 
+     */
     public Optional<Output<List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs>>> ruleActionOverrides() {
         return Optional.ofNullable(this.ruleActionOverrides);
     }
 
+    /**
+     * Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+     * 
+     */
     @Import(name="scopeDownStatement")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs> scopeDownStatement;
 
+    /**
+     * @return Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+     * 
+     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs>> scopeDownStatement() {
         return Optional.ofNullable(this.scopeDownStatement);
     }
 
+    /**
+     * Name of the managed rule group vendor.
+     * 
+     */
     @Import(name="vendorName", required=true)
     private Output<String> vendorName;
 
+    /**
+     * @return Name of the managed rule group vendor.
+     * 
+     */
     public Output<String> vendorName() {
         return this.vendorName;
     }
 
+    /**
+     * Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
+     * 
+     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
+    /**
+     * @return Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
+     * 
+     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -112,6 +164,8 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
         }
 
         /**
+         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
+         * 
          * @return builder
          * 
          * @deprecated
@@ -125,6 +179,8 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
         }
 
         /**
+         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
+         * 
          * @return builder
          * 
          * @deprecated
@@ -137,6 +193,8 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
         }
 
         /**
+         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
+         * 
          * @return builder
          * 
          * @deprecated
@@ -148,64 +206,148 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
             return excludedRules(List.of(excludedRules));
         }
 
+        /**
+         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+         * 
+         * @return builder
+         * 
+         */
         public Builder managedRuleGroupConfigs(@Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>> managedRuleGroupConfigs) {
             $.managedRuleGroupConfigs = managedRuleGroupConfigs;
             return this;
         }
 
+        /**
+         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+         * 
+         * @return builder
+         * 
+         */
         public Builder managedRuleGroupConfigs(List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs> managedRuleGroupConfigs) {
             return managedRuleGroupConfigs(Output.of(managedRuleGroupConfigs));
         }
 
+        /**
+         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+         * 
+         * @return builder
+         * 
+         */
         public Builder managedRuleGroupConfigs(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs... managedRuleGroupConfigs) {
             return managedRuleGroupConfigs(List.of(managedRuleGroupConfigs));
         }
 
+        /**
+         * @param name Name of the managed rule group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the managed rule group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ruleActionOverrides(@Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs>> ruleActionOverrides) {
             $.ruleActionOverrides = ruleActionOverrides;
             return this;
         }
 
+        /**
+         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ruleActionOverrides(List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs> ruleActionOverrides) {
             return ruleActionOverrides(Output.of(ruleActionOverrides));
         }
 
+        /**
+         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ruleActionOverrides(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs... ruleActionOverrides) {
             return ruleActionOverrides(List.of(ruleActionOverrides));
         }
 
+        /**
+         * @param scopeDownStatement Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scopeDownStatement(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs> scopeDownStatement) {
             $.scopeDownStatement = scopeDownStatement;
             return this;
         }
 
+        /**
+         * @param scopeDownStatement Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scopeDownStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs scopeDownStatement) {
             return scopeDownStatement(Output.of(scopeDownStatement));
         }
 
+        /**
+         * @param vendorName Name of the managed rule group vendor.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vendorName(Output<String> vendorName) {
             $.vendorName = vendorName;
             return this;
         }
 
+        /**
+         * @param vendorName Name of the managed rule group vendor.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vendorName(String vendorName) {
             return vendorName(Output.of(vendorName));
         }
 
+        /**
+         * @param version Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
+        /**
+         * @param version Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

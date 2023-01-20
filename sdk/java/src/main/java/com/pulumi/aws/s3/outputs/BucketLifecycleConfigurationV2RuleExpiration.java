@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketLifecycleConfigurationV2RuleExpiration {
+    /**
+     * @return The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * 
+     */
     private @Nullable String date;
+    /**
+     * @return The lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
+     * 
+     */
     private @Nullable Integer days;
+    /**
+     * @return Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
+     * 
+     */
     private @Nullable Boolean expiredObjectDeleteMarker;
 
     private BucketLifecycleConfigurationV2RuleExpiration() {}
+    /**
+     * @return The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * 
+     */
     public Optional<String> date() {
         return Optional.ofNullable(this.date);
     }
+    /**
+     * @return The lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
+     * 
+     */
     public Optional<Integer> days() {
         return Optional.ofNullable(this.days);
     }
+    /**
+     * @return Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
+     * 
+     */
     public Optional<Boolean> expiredObjectDeleteMarker() {
         return Optional.ofNullable(this.expiredObjectDeleteMarker);
     }

@@ -17,24 +17,56 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionCodecSettings {
+    /**
+     * @return Aac Settings. See AAC Settings for more details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings aacSettings;
+    /**
+     * @return Ac3 Settings. See AC3 Settings for more details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings ac3Settings;
+    /**
+     * @return Eac3 Atmos Settings. See EAC3 Atmos Settings
+     * 
+     */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings eac3AtmosSettings;
+    /**
+     * @return Eac3 Settings. See EAC3 Settings
+     * 
+     */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings eac3Settings;
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings mp2Settings;
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings passThroughSettings;
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings wavSettings;
 
     private ChannelEncoderSettingsAudioDescriptionCodecSettings() {}
+    /**
+     * @return Aac Settings. See AAC Settings for more details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings> aacSettings() {
         return Optional.ofNullable(this.aacSettings);
     }
+    /**
+     * @return Ac3 Settings. See AC3 Settings for more details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings> ac3Settings() {
         return Optional.ofNullable(this.ac3Settings);
     }
+    /**
+     * @return Eac3 Atmos Settings. See EAC3 Atmos Settings
+     * 
+     */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings> eac3AtmosSettings() {
         return Optional.ofNullable(this.eac3AtmosSettings);
     }
+    /**
+     * @return Eac3 Settings. See EAC3 Settings
+     * 
+     */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings> eac3Settings() {
         return Optional.ofNullable(this.eac3Settings);
     }

@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Fsx.Inputs
 
     public sealed class FileCacheLustreConfigurationMetadataConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+        /// </summary>
         [Input("storageCapacity", required: true)]
         public Input<int> StorageCapacity { get; set; } = null!;
 

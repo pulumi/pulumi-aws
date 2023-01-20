@@ -9,12 +9,74 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Inspector2
 {
+    /// <summary>
+    /// Resource for enabling AWS Inspector V2 resource scans.
+    /// 
+    /// &gt; **NOTE:** Due to testing limitations, we provide this resource as best effort. If you use it or have the ability to test it, and notice problems, please consider reaching out to us on GitHub.
+    /// 
+    /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Inspector2.Enabler("example", new()
+    ///     {
+    ///         AccountIds = new[]
+    ///         {
+    ///             "012345678901",
+    ///         },
+    ///         ResourceTypes = new[]
+    ///         {
+    ///             "EC2",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### For the Calling Account
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var test = new Aws.Inspector2.Enabler("test", new()
+    ///     {
+    ///         AccountIds = new[]
+    ///         {
+    ///             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///         },
+    ///         ResourceTypes = new[]
+    ///         {
+    ///             "ECR",
+    ///             "EC2",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:inspector2/enabler:Enabler")]
     public partial class Enabler : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Set of account IDs.
+        /// </summary>
         [Output("accountIds")]
         public Output<ImmutableArray<string>> AccountIds { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+        /// </summary>
         [Output("resourceTypes")]
         public Output<ImmutableArray<string>> ResourceTypes { get; private set; } = null!;
 
@@ -66,6 +128,10 @@ namespace Pulumi.Aws.Inspector2
     {
         [Input("accountIds", required: true)]
         private InputList<string>? _accountIds;
+
+        /// <summary>
+        /// Set of account IDs.
+        /// </summary>
         public InputList<string> AccountIds
         {
             get => _accountIds ?? (_accountIds = new InputList<string>());
@@ -74,6 +140,10 @@ namespace Pulumi.Aws.Inspector2
 
         [Input("resourceTypes", required: true)]
         private InputList<string>? _resourceTypes;
+
+        /// <summary>
+        /// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+        /// </summary>
         public InputList<string> ResourceTypes
         {
             get => _resourceTypes ?? (_resourceTypes = new InputList<string>());
@@ -90,6 +160,10 @@ namespace Pulumi.Aws.Inspector2
     {
         [Input("accountIds")]
         private InputList<string>? _accountIds;
+
+        /// <summary>
+        /// Set of account IDs.
+        /// </summary>
         public InputList<string> AccountIds
         {
             get => _accountIds ?? (_accountIds = new InputList<string>());
@@ -98,6 +172,10 @@ namespace Pulumi.Aws.Inspector2
 
         [Input("resourceTypes")]
         private InputList<string>? _resourceTypes;
+
+        /// <summary>
+        /// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+        /// </summary>
         public InputList<string> ResourceTypes
         {
             get => _resourceTypes ?? (_resourceTypes = new InputList<string>());

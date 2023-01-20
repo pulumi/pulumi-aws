@@ -4,6 +4,40 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a resource to manage an API Gateway Documentation Version.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {});
+ * const exampleDocumentationPart = new aws.apigateway.DocumentationPart("exampleDocumentationPart", {
+ *     location: {
+ *         type: "API",
+ *     },
+ *     properties: "{\"description\":\"Example\"}",
+ *     restApiId: exampleRestApi.id,
+ * });
+ * const exampleDocumentationVersion = new aws.apigateway.DocumentationVersion("exampleDocumentationVersion", {
+ *     version: "example_version",
+ *     restApiId: exampleRestApi.id,
+ *     description: "Example description",
+ * }, {
+ *     dependsOn: [exampleDocumentationPart],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * API Gateway documentation versions can be imported using `REST-API-ID/VERSION`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
+ * ```
+ */
 export class DocumentationVersion extends pulumi.CustomResource {
     /**
      * Get an existing DocumentationVersion resource's state with the given name, ID, and optional extra
@@ -32,8 +66,17 @@ export class DocumentationVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === DocumentationVersion.__pulumiType;
     }
 
+    /**
+     * Description of the API documentation version.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * ID of the associated Rest API
+     */
     public readonly restApiId!: pulumi.Output<string>;
+    /**
+     * Version identifier of the API documentation snapshot.
+     */
     public readonly version!: pulumi.Output<string>;
 
     /**
@@ -73,8 +116,17 @@ export class DocumentationVersion extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DocumentationVersion resources.
  */
 export interface DocumentationVersionState {
+    /**
+     * Description of the API documentation version.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * ID of the associated Rest API
+     */
     restApiId?: pulumi.Input<string>;
+    /**
+     * Version identifier of the API documentation snapshot.
+     */
     version?: pulumi.Input<string>;
 }
 
@@ -82,7 +134,16 @@ export interface DocumentationVersionState {
  * The set of arguments for constructing a DocumentationVersion resource.
  */
 export interface DocumentationVersionArgs {
+    /**
+     * Description of the API documentation version.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * ID of the associated Rest API
+     */
     restApiId: pulumi.Input<string>;
+    /**
+     * Version identifier of the API documentation snapshot.
+     */
     version: pulumi.Input<string>;
 }

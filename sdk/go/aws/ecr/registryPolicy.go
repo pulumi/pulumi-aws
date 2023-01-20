@@ -11,10 +11,87 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Elastic Container Registry Policy.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Sid":    "testpolicy",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentPartition.Partition, currentCallerIdentity.AccountId),
+//						},
+//						"Action": []string{
+//							"ecr:ReplicateImage",
+//						},
+//						"Resource": []string{
+//							fmt.Sprintf("arn:%v:ecr:%v:%v:repository/*", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = ecr.NewRegistryPolicy(ctx, "example", &ecr.RegistryPolicyArgs{
+//				Policy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// ECR Registry Policy can be imported using the registry id, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
+//
+// ```
 type RegistryPolicy struct {
 	pulumi.CustomResourceState
 
-	Policy     pulumi.StringOutput `pulumi:"policy"`
+	// The policy document. This is a JSON formatted string.
+	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The registry ID where the registry was created.
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
 }
 
@@ -50,12 +127,16 @@ func GetRegistryPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegistryPolicy resources.
 type registryPolicyState struct {
-	Policy     *string `pulumi:"policy"`
+	// The policy document. This is a JSON formatted string.
+	Policy *string `pulumi:"policy"`
+	// The registry ID where the registry was created.
 	RegistryId *string `pulumi:"registryId"`
 }
 
 type RegistryPolicyState struct {
-	Policy     pulumi.StringPtrInput
+	// The policy document. This is a JSON formatted string.
+	Policy pulumi.StringPtrInput
+	// The registry ID where the registry was created.
 	RegistryId pulumi.StringPtrInput
 }
 
@@ -64,11 +145,13 @@ func (RegistryPolicyState) ElementType() reflect.Type {
 }
 
 type registryPolicyArgs struct {
+	// The policy document. This is a JSON formatted string.
 	Policy string `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a RegistryPolicy resource.
 type RegistryPolicyArgs struct {
+	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringInput
 }
 
@@ -159,10 +242,12 @@ func (o RegistryPolicyOutput) ToRegistryPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The policy document. This is a JSON formatted string.
 func (o RegistryPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
+// The registry ID where the registry was created.
 func (o RegistryPolicyOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
 }

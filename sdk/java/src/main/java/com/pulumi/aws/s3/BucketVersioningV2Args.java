@@ -16,30 +16,62 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
 
     public static final BucketVersioningV2Args Empty = new BucketVersioningV2Args();
 
+    /**
+     * The name of the S3 bucket.
+     * 
+     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
+    /**
+     * @return The name of the S3 bucket.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
+    /**
+     * The account ID of the expected bucket owner.
+     * 
+     */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
+    /**
+     * @return The account ID of the expected bucket owner.
+     * 
+     */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
 
+    /**
+     * The concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
+     * 
+     */
     @Import(name="mfa")
     private @Nullable Output<String> mfa;
 
+    /**
+     * @return The concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
+     * 
+     */
     public Optional<Output<String>> mfa() {
         return Optional.ofNullable(this.mfa);
     }
 
+    /**
+     * Configuration block for the versioning parameters detailed below.
+     * 
+     */
     @Import(name="versioningConfiguration", required=true)
     private Output<BucketVersioningV2VersioningConfigurationArgs> versioningConfiguration;
 
+    /**
+     * @return Configuration block for the versioning parameters detailed below.
+     * 
+     */
     public Output<BucketVersioningV2VersioningConfigurationArgs> versioningConfiguration() {
         return this.versioningConfiguration;
     }
@@ -71,38 +103,86 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
             $ = new BucketVersioningV2Args(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucket The name of the S3 bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
+        /**
+         * @param bucket The name of the S3 bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
 
+        /**
+         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }
 
+        /**
+         * @param mfa The concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mfa(@Nullable Output<String> mfa) {
             $.mfa = mfa;
             return this;
         }
 
+        /**
+         * @param mfa The concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mfa(String mfa) {
             return mfa(Output.of(mfa));
         }
 
+        /**
+         * @param versioningConfiguration Configuration block for the versioning parameters detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder versioningConfiguration(Output<BucketVersioningV2VersioningConfigurationArgs> versioningConfiguration) {
             $.versioningConfiguration = versioningConfiguration;
             return this;
         }
 
+        /**
+         * @param versioningConfiguration Configuration block for the versioning parameters detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs versioningConfiguration) {
             return versioningConfiguration(Output.of(versioningConfiguration));
         }

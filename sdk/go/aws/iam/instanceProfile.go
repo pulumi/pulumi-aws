@@ -10,18 +10,88 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an IAM instance profile.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+//				Path: pulumi.String("/"),
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	    "Version": "2012-10-17",
+//	    "Statement": [
+//	        {
+//	            "Action": "sts:AssumeRole",
+//	            "Principal": {
+//	               "Service": "ec2.amazonaws.com"
+//	            },
+//	            "Effect": "Allow",
+//	            "Sid": ""
+//	        }
+//	    ]
+//	}
+//
+// `)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewInstanceProfile(ctx, "testProfile", &iam.InstanceProfileArgs{
+//				Role: role.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Instance Profiles can be imported using the `name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
+//
+// ```
 type InstanceProfile struct {
 	pulumi.CustomResourceState
 
-	Arn        pulumi.StringOutput    `pulumi:"arn"`
-	CreateDate pulumi.StringOutput    `pulumi:"createDate"`
-	Name       pulumi.StringOutput    `pulumi:"name"`
+	// ARN assigned by AWS to the instance profile.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Creation timestamp of the instance profile.
+	CreateDate pulumi.StringOutput `pulumi:"createDate"`
+	// Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
-	Path       pulumi.StringPtrOutput `pulumi:"path"`
-	Role       pulumi.StringPtrOutput `pulumi:"role"`
-	Tags       pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll    pulumi.StringMapOutput `pulumi:"tagsAll"`
-	UniqueId   pulumi.StringOutput    `pulumi:"uniqueId"`
+	// Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
+	Path pulumi.StringPtrOutput `pulumi:"path"`
+	// Name of the role to add to the profile.
+	Role pulumi.StringPtrOutput `pulumi:"role"`
+	// Map of resource tags for the IAM Instance Profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// [Unique ID][1] assigned by AWS.
+	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 }
 
 // NewInstanceProfile registers a new resource with the given unique name, arguments, and options.
@@ -53,27 +123,45 @@ func GetInstanceProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InstanceProfile resources.
 type instanceProfileState struct {
-	Arn        *string           `pulumi:"arn"`
-	CreateDate *string           `pulumi:"createDate"`
-	Name       *string           `pulumi:"name"`
-	NamePrefix *string           `pulumi:"namePrefix"`
-	Path       *string           `pulumi:"path"`
-	Role       interface{}       `pulumi:"role"`
-	Tags       map[string]string `pulumi:"tags"`
-	TagsAll    map[string]string `pulumi:"tagsAll"`
-	UniqueId   *string           `pulumi:"uniqueId"`
+	// ARN assigned by AWS to the instance profile.
+	Arn *string `pulumi:"arn"`
+	// Creation timestamp of the instance profile.
+	CreateDate *string `pulumi:"createDate"`
+	// Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
+	Name *string `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix *string `pulumi:"namePrefix"`
+	// Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
+	Path *string `pulumi:"path"`
+	// Name of the role to add to the profile.
+	Role interface{} `pulumi:"role"`
+	// Map of resource tags for the IAM Instance Profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// [Unique ID][1] assigned by AWS.
+	UniqueId *string `pulumi:"uniqueId"`
 }
 
 type InstanceProfileState struct {
-	Arn        pulumi.StringPtrInput
+	// ARN assigned by AWS to the instance profile.
+	Arn pulumi.StringPtrInput
+	// Creation timestamp of the instance profile.
 	CreateDate pulumi.StringPtrInput
-	Name       pulumi.StringPtrInput
+	// Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
+	Name pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	Path       pulumi.StringPtrInput
-	Role       pulumi.Input
-	Tags       pulumi.StringMapInput
-	TagsAll    pulumi.StringMapInput
-	UniqueId   pulumi.StringPtrInput
+	// Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
+	Path pulumi.StringPtrInput
+	// Name of the role to add to the profile.
+	Role pulumi.Input
+	// Map of resource tags for the IAM Instance Profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// [Unique ID][1] assigned by AWS.
+	UniqueId pulumi.StringPtrInput
 }
 
 func (InstanceProfileState) ElementType() reflect.Type {
@@ -81,20 +169,30 @@ func (InstanceProfileState) ElementType() reflect.Type {
 }
 
 type instanceProfileArgs struct {
-	Name       *string           `pulumi:"name"`
-	NamePrefix *string           `pulumi:"namePrefix"`
-	Path       *string           `pulumi:"path"`
-	Role       interface{}       `pulumi:"role"`
-	Tags       map[string]string `pulumi:"tags"`
+	// Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
+	Name *string `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix *string `pulumi:"namePrefix"`
+	// Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
+	Path *string `pulumi:"path"`
+	// Name of the role to add to the profile.
+	Role interface{} `pulumi:"role"`
+	// Map of resource tags for the IAM Instance Profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a InstanceProfile resource.
 type InstanceProfileArgs struct {
-	Name       pulumi.StringPtrInput
+	// Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
+	Name pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	Path       pulumi.StringPtrInput
-	Role       pulumi.Input
-	Tags       pulumi.StringMapInput
+	// Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
+	Path pulumi.StringPtrInput
+	// Name of the role to add to the profile.
+	Role pulumi.Input
+	// Map of resource tags for the IAM Instance Profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (InstanceProfileArgs) ElementType() reflect.Type {
@@ -184,38 +282,47 @@ func (o InstanceProfileOutput) ToInstanceProfileOutputWithContext(ctx context.Co
 	return o
 }
 
+// ARN assigned by AWS to the instance profile.
 func (o InstanceProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Creation timestamp of the instance profile.
 func (o InstanceProfileOutput) CreateDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.CreateDate }).(pulumi.StringOutput)
 }
 
+// Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
 func (o InstanceProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o InstanceProfileOutput) NamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
+// Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
 func (o InstanceProfileOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// Name of the role to add to the profile.
 func (o InstanceProfileOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
 }
 
+// Map of resource tags for the IAM Instance Profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o InstanceProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o InstanceProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// [Unique ID][1] assigned by AWS.
 func (o InstanceProfileOutput) UniqueId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.UniqueId }).(pulumi.StringOutput)
 }

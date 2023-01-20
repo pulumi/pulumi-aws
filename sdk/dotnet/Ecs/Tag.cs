@@ -9,15 +9,65 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ecs
 {
+    /// <summary>
+    /// Manages an individual ECS resource tag. This resource should only be used in cases where ECS resources are created outside the provider (e.g., ECS Clusters implicitly created by Batch Compute Environments).
+    /// 
+    /// &gt; **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `aws.ecs.Cluster` and `aws.ecs.Tag` to manage tags of the same ECS Cluster will cause a perpetual difference where the `aws.ecs.Cluster` resource will try to remove the tag being added by the `aws.ecs.Tag` resource.
+    /// 
+    /// &gt; **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("exampleComputeEnvironment", new()
+    ///     {
+    ///         ComputeEnvironmentName = "example",
+    ///         ServiceRole = aws_iam_role.Example.Arn,
+    ///         Type = "UNMANAGED",
+    ///     });
+    /// 
+    ///     var exampleTag = new Aws.Ecs.Tag("exampleTag", new()
+    ///     {
+    ///         ResourceArn = exampleComputeEnvironment.EcsClusterArn,
+    ///         Key = "Name",
+    ///         Value = "Hello World",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_ecs_tag` can be imported by using the ECS resource identifier and key, separated by a comma (`,`), e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ecs/tag:Tag example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:ecs/tag:Tag")]
     public partial class Tag : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Tag name.
+        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the ECS resource to tag.
+        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Tag value.
+        /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
@@ -67,12 +117,21 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class TagArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Tag name.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the ECS resource to tag.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// Tag value.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -84,12 +143,21 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class TagState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Tag name.
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the ECS resource to tag.
+        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
+        /// <summary>
+        /// Tag value.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

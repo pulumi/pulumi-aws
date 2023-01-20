@@ -14,6 +14,9 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class GetLaunchTemplateIamInstanceProfileResult
     {
         public readonly string Arn;
+        /// <summary>
+        /// Name of the launch template.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

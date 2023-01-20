@@ -56,16 +56,25 @@ class GetConnectionResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the connection.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsDevice")
     def aws_device(self) -> str:
+        """
+        Direct Connect endpoint on which the physical connection terminates.
+        """
         return pulumi.get(self, "aws_device")
 
     @property
     @pulumi.getter
     def bandwidth(self) -> str:
+        """
+        Bandwidth of the connection.
+        """
         return pulumi.get(self, "bandwidth")
 
     @property
@@ -79,6 +88,9 @@ class GetConnectionResult:
     @property
     @pulumi.getter
     def location(self) -> str:
+        """
+        AWS Direct Connect location where the connection is located.
+        """
         return pulumi.get(self, "location")
 
     @property
@@ -89,21 +101,33 @@ class GetConnectionResult:
     @property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> str:
+        """
+        ID of the AWS account that owns the connection.
+        """
         return pulumi.get(self, "owner_account_id")
 
     @property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> str:
+        """
+        Name of the service provider associated with the connection.
+        """
         return pulumi.get(self, "provider_name")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Map of tags for the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vlanId")
     def vlan_id(self) -> str:
+        """
+        The VLAN ID.
+        """
         return pulumi.get(self, "vlan_id")
 
 
@@ -129,7 +153,20 @@ def get_connection(name: Optional[str] = None,
                    tags: Optional[Mapping[str, str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about a Direct Connect Connection.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.directconnect.get_connection(name="tf-dx-connection")
+    ```
+
+
+    :param str name: Name of the connection to retrieve.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -155,6 +192,19 @@ def get_connection_output(name: Optional[pulumi.Input[str]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about a Direct Connect Connection.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.directconnect.get_connection(name="tf-dx-connection")
+    ```
+
+
+    :param str name: Name of the connection to retrieve.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     ...

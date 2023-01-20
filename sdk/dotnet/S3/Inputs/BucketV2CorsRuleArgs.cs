@@ -14,6 +14,10 @@ namespace Pulumi.Aws.S3.Inputs
     {
         [Input("allowedHeaders")]
         private InputList<string>? _allowedHeaders;
+
+        /// <summary>
+        /// List of headers allowed.
+        /// </summary>
         public InputList<string> AllowedHeaders
         {
             get => _allowedHeaders ?? (_allowedHeaders = new InputList<string>());
@@ -22,6 +26,10 @@ namespace Pulumi.Aws.S3.Inputs
 
         [Input("allowedMethods", required: true)]
         private InputList<string>? _allowedMethods;
+
+        /// <summary>
+        /// One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+        /// </summary>
         public InputList<string> AllowedMethods
         {
             get => _allowedMethods ?? (_allowedMethods = new InputList<string>());
@@ -30,6 +38,10 @@ namespace Pulumi.Aws.S3.Inputs
 
         [Input("allowedOrigins", required: true)]
         private InputList<string>? _allowedOrigins;
+
+        /// <summary>
+        /// One or more origins you want customers to be able to access the bucket from.
+        /// </summary>
         public InputList<string> AllowedOrigins
         {
             get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
@@ -38,12 +50,19 @@ namespace Pulumi.Aws.S3.Inputs
 
         [Input("exposeHeaders")]
         private InputList<string>? _exposeHeaders;
+
+        /// <summary>
+        /// One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
+        /// </summary>
         public InputList<string> ExposeHeaders
         {
             get => _exposeHeaders ?? (_exposeHeaders = new InputList<string>());
             set => _exposeHeaders = value;
         }
 
+        /// <summary>
+        /// Specifies time in seconds that browser can cache the response for a preflight request.
+        /// </summary>
         [Input("maxAgeSeconds")]
         public Input<int>? MaxAgeSeconds { get; set; }
 

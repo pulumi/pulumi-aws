@@ -50,6 +50,9 @@ class GetVpcAttachmentsResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
+        """
+        A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.VpcAttachment][2] data source, searching by identifier.
+        """
         return pulumi.get(self, "ids")
 
 
@@ -67,7 +70,12 @@ class AwaitableGetVpcAttachmentsResult(GetVpcAttachmentsResult):
 def get_vpc_attachments(filters: Optional[Sequence[pulumi.InputType['GetVpcAttachmentsFilterArgs']]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcAttachmentsResult:
     """
-    Use this data source to access information about an existing resource.
+    Get information on EC2 Transit Gateway VPC Attachments.
+
+    ## Example Usage
+
+
+    :param Sequence[pulumi.InputType['GetVpcAttachmentsFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -84,6 +92,11 @@ def get_vpc_attachments(filters: Optional[Sequence[pulumi.InputType['GetVpcAttac
 def get_vpc_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcAttachmentsFilterArgs']]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcAttachmentsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get information on EC2 Transit Gateway VPC Attachments.
+
+    ## Example Usage
+
+
+    :param Sequence[pulumi.InputType['GetVpcAttachmentsFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     """
     ...

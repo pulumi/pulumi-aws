@@ -13,7 +13,13 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketV2ReplicationConfigurationRuleDestinationReplicationTime
     {
+        /// <summary>
+        /// Threshold within which objects are to be replicated. The only valid value is `15`.
+        /// </summary>
         public readonly int? Minutes;
+        /// <summary>
+        /// The status of RTC. Either `Enabled` or `Disabled`.
+        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

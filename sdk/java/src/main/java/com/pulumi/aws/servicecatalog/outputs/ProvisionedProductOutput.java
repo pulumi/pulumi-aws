@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProvisionedProductOutput {
+    /**
+     * @return The description of the output.
+     * 
+     */
     private @Nullable String description;
+    /**
+     * @return Parameter key.
+     * 
+     */
     private @Nullable String key;
+    /**
+     * @return Parameter value.
+     * 
+     */
     private @Nullable String value;
 
     private ProvisionedProductOutput() {}
+    /**
+     * @return The description of the output.
+     * 
+     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
+    /**
+     * @return Parameter key.
+     * 
+     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
+    /**
+     * @return Parameter value.
+     * 
+     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

@@ -12,14 +12,30 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation {
+    /**
+     * @return ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
+     * 
+     */
     private @Nullable String asn;
+    /**
+     * @return The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
+     * 
+     */
     private @Nullable List<String> insideCidrBlocks;
     private String location;
 
     private GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation() {}
+    /**
+     * @return ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
+     * 
+     */
     public Optional<String> asn() {
         return Optional.ofNullable(this.asn);
     }
+    /**
+     * @return The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
+     * 
+     */
     public List<String> insideCidrBlocks() {
         return this.insideCidrBlocks == null ? List.of() : this.insideCidrBlocks;
     }

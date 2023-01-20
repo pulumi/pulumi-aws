@@ -17,12 +17,16 @@ class ProductSubscriptionArgs:
                  product_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a ProductSubscription resource.
+        :param pulumi.Input[str] product_arn: The ARN of the product that generates findings that you want to import into Security Hub - see below.
         """
         pulumi.set(__self__, "product_arn", product_arn)
 
     @property
     @pulumi.getter(name="productArn")
     def product_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the product that generates findings that you want to import into Security Hub - see below.
+        """
         return pulumi.get(self, "product_arn")
 
     @product_arn.setter
@@ -37,6 +41,8 @@ class _ProductSubscriptionState:
                  product_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ProductSubscription resources.
+        :param pulumi.Input[str] arn: The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
+        :param pulumi.Input[str] product_arn: The ARN of the product that generates findings that you want to import into Security Hub - see below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -46,6 +52,9 @@ class _ProductSubscriptionState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -55,6 +64,9 @@ class _ProductSubscriptionState:
     @property
     @pulumi.getter(name="productArn")
     def product_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the product that generates findings that you want to import into Security Hub - see below.
+        """
         return pulumi.get(self, "product_arn")
 
     @product_arn.setter
@@ -70,9 +82,31 @@ class ProductSubscription(pulumi.CustomResource):
                  product_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ProductSubscription resource with the given unique name, props, and options.
+        Subscribes to a Security Hub product.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_account = aws.securityhub.Account("exampleAccount")
+        current = aws.get_region()
+        example_product_subscription = aws.securityhub.ProductSubscription("exampleProductSubscription", product_arn=f"arn:aws:securityhub:{current.name}:733251395267:product/alertlogic/althreatmanagement",
+        opts=pulumi.ResourceOptions(depends_on=[example_account]))
+        ```
+
+        ## Import
+
+        Security Hub product subscriptions can be imported in the form `product_arn,arn`, e.g.,
+
+        ```sh
+         $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] product_arn: The ARN of the product that generates findings that you want to import into Security Hub - see below.
         """
         ...
     @overload
@@ -81,7 +115,28 @@ class ProductSubscription(pulumi.CustomResource):
                  args: ProductSubscriptionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ProductSubscription resource with the given unique name, props, and options.
+        Subscribes to a Security Hub product.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_account = aws.securityhub.Account("exampleAccount")
+        current = aws.get_region()
+        example_product_subscription = aws.securityhub.ProductSubscription("exampleProductSubscription", product_arn=f"arn:aws:securityhub:{current.name}:733251395267:product/alertlogic/althreatmanagement",
+        opts=pulumi.ResourceOptions(depends_on=[example_account]))
+        ```
+
+        ## Import
+
+        Security Hub product subscriptions can be imported in the form `product_arn,arn`, e.g.,
+
+        ```sh
+         $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
+        ```
+
         :param str resource_name: The name of the resource.
         :param ProductSubscriptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,6 +185,8 @@ class ProductSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
+        :param pulumi.Input[str] product_arn: The ARN of the product that generates findings that you want to import into Security Hub - see below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -142,10 +199,16 @@ class ProductSubscription(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="productArn")
     def product_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the product that generates findings that you want to import into Security Hub - see below.
+        """
         return pulumi.get(self, "product_arn")
 

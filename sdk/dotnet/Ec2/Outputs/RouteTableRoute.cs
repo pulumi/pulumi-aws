@@ -13,19 +13,61 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class RouteTableRoute
     {
+        /// <summary>
+        /// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
+        /// </summary>
         public readonly string? CarrierGatewayId;
+        /// <summary>
+        /// The CIDR block of the route.
+        /// </summary>
         public readonly string? CidrBlock;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a core network.
+        /// </summary>
         public readonly string? CoreNetworkArn;
+        /// <summary>
+        /// The ID of a managed prefix list destination of the route.
+        /// </summary>
         public readonly string? DestinationPrefixListId;
+        /// <summary>
+        /// Identifier of a VPC Egress Only Internet Gateway.
+        /// </summary>
         public readonly string? EgressOnlyGatewayId;
+        /// <summary>
+        /// Identifier of a VPC internet gateway or a virtual private gateway.
+        /// </summary>
         public readonly string? GatewayId;
+        /// <summary>
+        /// Identifier of an EC2 instance.
+        /// </summary>
         public readonly string? InstanceId;
+        /// <summary>
+        /// The Ipv6 CIDR block of the route.
+        /// </summary>
         public readonly string? Ipv6CidrBlock;
+        /// <summary>
+        /// Identifier of a Outpost local gateway.
+        /// </summary>
         public readonly string? LocalGatewayId;
+        /// <summary>
+        /// Identifier of a VPC NAT gateway.
+        /// </summary>
         public readonly string? NatGatewayId;
+        /// <summary>
+        /// Identifier of an EC2 network interface.
+        /// </summary>
         public readonly string? NetworkInterfaceId;
+        /// <summary>
+        /// Identifier of an EC2 Transit Gateway.
+        /// </summary>
         public readonly string? TransitGatewayId;
+        /// <summary>
+        /// Identifier of a VPC Endpoint.
+        /// </summary>
         public readonly string? VpcEndpointId;
+        /// <summary>
+        /// Identifier of a VPC peering connection.
+        /// </summary>
         public readonly string? VpcPeeringConnectionId;
 
         [OutputConstructor]

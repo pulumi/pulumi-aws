@@ -15,17 +15,100 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages SAML authentication options for an AWS Elasticsearch Domain.
+ * 
+ * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticsearch.Domain;
+ * import com.pulumi.aws.elasticsearch.DomainArgs;
+ * import com.pulumi.aws.elasticsearch.inputs.DomainClusterConfigArgs;
+ * import com.pulumi.aws.elasticsearch.inputs.DomainSnapshotOptionsArgs;
+ * import com.pulumi.aws.elasticsearch.DomainSamlOptions;
+ * import com.pulumi.aws.elasticsearch.DomainSamlOptionsArgs;
+ * import com.pulumi.aws.elasticsearch.inputs.DomainSamlOptionsSamlOptionsArgs;
+ * import com.pulumi.aws.elasticsearch.inputs.DomainSamlOptionsSamlOptionsIdpArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
+ *             .elasticsearchVersion(&#34;1.5&#34;)
+ *             .clusterConfig(DomainClusterConfigArgs.builder()
+ *                 .instanceType(&#34;r4.large.elasticsearch&#34;)
+ *                 .build())
+ *             .snapshotOptions(DomainSnapshotOptionsArgs.builder()
+ *                 .automatedSnapshotStartHour(23)
+ *                 .build())
+ *             .tags(Map.of(&#34;Domain&#34;, &#34;TestDomain&#34;))
+ *             .build());
+ * 
+ *         var exampleDomainSamlOptions = new DomainSamlOptions(&#34;exampleDomainSamlOptions&#34;, DomainSamlOptionsArgs.builder()        
+ *             .domainName(exampleDomain.domainName())
+ *             .samlOptions(DomainSamlOptionsSamlOptionsArgs.builder()
+ *                 .enabled(true)
+ *                 .idp(DomainSamlOptionsSamlOptionsIdpArgs.builder()
+ *                     .entityId(&#34;https://example.com&#34;)
+ *                     .metadataContent(Files.readString(Paths.get(&#34;./saml-metadata.xml&#34;)))
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Elasticsearch domains can be imported using the `domain_name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:elasticsearch/domainSamlOptions:DomainSamlOptions example domain_name
+ * ```
+ * 
+ */
 @ResourceType(type="aws:elasticsearch/domainSamlOptions:DomainSamlOptions")
 public class DomainSamlOptions extends com.pulumi.resources.CustomResource {
+    /**
+     * Name of the domain.
+     * 
+     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
+    /**
+     * @return Name of the domain.
+     * 
+     */
     public Output<String> domainName() {
         return this.domainName;
     }
+    /**
+     * The SAML authentication options for an AWS Elasticsearch Domain.
+     * 
+     */
     @Export(name="samlOptions", refs={DomainSamlOptionsSamlOptions.class}, tree="[0]")
     private Output</* @Nullable */ DomainSamlOptionsSamlOptions> samlOptions;
 
+    /**
+     * @return The SAML authentication options for an AWS Elasticsearch Domain.
+     * 
+     */
     public Output<Optional<DomainSamlOptionsSamlOptions>> samlOptions() {
         return Codegen.optional(this.samlOptions);
     }

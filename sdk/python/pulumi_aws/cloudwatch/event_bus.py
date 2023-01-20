@@ -19,6 +19,9 @@ class EventBusArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EventBus resource.
+        :param pulumi.Input[str] event_source_name: The partner event source that the new event bus will be matched with. Must match `name`.
+        :param pulumi.Input[str] name: The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if event_source_name is not None:
             pulumi.set(__self__, "event_source_name", event_source_name)
@@ -30,6 +33,9 @@ class EventBusArgs:
     @property
     @pulumi.getter(name="eventSourceName")
     def event_source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The partner event source that the new event bus will be matched with. Must match `name`.
+        """
         return pulumi.get(self, "event_source_name")
 
     @event_source_name.setter
@@ -39,6 +45,9 @@ class EventBusArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -48,6 +57,9 @@ class EventBusArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -65,6 +77,11 @@ class _EventBusState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering EventBus resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the event bus.
+        :param pulumi.Input[str] event_source_name: The partner event source that the new event bus will be matched with. Must match `name`.
+        :param pulumi.Input[str] name: The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -80,6 +97,9 @@ class _EventBusState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the event bus.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -89,6 +109,9 @@ class _EventBusState:
     @property
     @pulumi.getter(name="eventSourceName")
     def event_source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The partner event source that the new event bus will be matched with. Must match `name`.
+        """
         return pulumi.get(self, "event_source_name")
 
     @event_source_name.setter
@@ -98,6 +121,9 @@ class _EventBusState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -107,6 +133,9 @@ class _EventBusState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -116,6 +145,9 @@ class _EventBusState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -133,9 +165,40 @@ class EventBus(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a EventBus resource with the given unique name, props, and options.
+        Provides an EventBridge event bus resource.
+
+        > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        messenger = aws.cloudwatch.EventBus("messenger")
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        examplepartner_event_source = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
+        examplepartner_event_bus = aws.cloudwatch.EventBus("examplepartnerEventBus", event_source_name=examplepartner_event_source.name)
+        ```
+
+        ## Import
+
+        EventBridge event buses can be imported using the `name` (which can also be a partner event source name), e.g., console
+
+        ```sh
+         $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] event_source_name: The partner event source that the new event bus will be matched with. Must match `name`.
+        :param pulumi.Input[str] name: The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -144,7 +207,35 @@ class EventBus(pulumi.CustomResource):
                  args: Optional[EventBusArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a EventBus resource with the given unique name, props, and options.
+        Provides an EventBridge event bus resource.
+
+        > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        messenger = aws.cloudwatch.EventBus("messenger")
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        examplepartner_event_source = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
+        examplepartner_event_bus = aws.cloudwatch.EventBus("examplepartnerEventBus", event_source_name=examplepartner_event_source.name)
+        ```
+
+        ## Import
+
+        EventBridge event buses can be imported using the `name` (which can also be a partner event source name), e.g., console
+
+        ```sh
+         $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
+        ```
+
         :param str resource_name: The name of the resource.
         :param EventBusArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,6 +290,11 @@ class EventBus(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the event bus.
+        :param pulumi.Input[str] event_source_name: The partner event source that the new event bus will be matched with. Must match `name`.
+        :param pulumi.Input[str] name: The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -214,25 +310,40 @@ class EventBus(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the event bus.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="eventSourceName")
     def event_source_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The partner event source that the new event bus will be matched with. Must match `name`.
+        """
         return pulumi.get(self, "event_source_name")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

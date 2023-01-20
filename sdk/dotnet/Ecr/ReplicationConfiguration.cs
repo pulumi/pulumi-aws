@@ -9,12 +9,152 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ecr
 {
+    /// <summary>
+    /// Provides an Elastic Container Registry Replication Configuration.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var exampleRegions = Aws.GetRegions.Invoke();
+    /// 
+    ///     var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("exampleReplicationConfiguration", new()
+    ///     {
+    ///         ReplicationConfigurationDetails = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
+    ///         {
+    ///             Rules = new[]
+    ///             {
+    ///                 new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs
+    ///                 {
+    ///                     Destinations = new[]
+    ///                     {
+    ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
+    ///                         {
+    ///                             Region = exampleRegions.Apply(getRegionsResult =&gt; getRegionsResult.Names[0]),
+    ///                             RegistryId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Multiple Region Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var exampleRegions = Aws.GetRegions.Invoke();
+    /// 
+    ///     var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("exampleReplicationConfiguration", new()
+    ///     {
+    ///         ReplicationConfigurationDetails = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
+    ///         {
+    ///             Rules = new[]
+    ///             {
+    ///                 new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs
+    ///                 {
+    ///                     Destinations = new[]
+    ///                     {
+    ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
+    ///                         {
+    ///                             Region = exampleRegions.Apply(getRegionsResult =&gt; getRegionsResult.Names[0]),
+    ///                             RegistryId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
+    ///                         {
+    ///                             Region = exampleRegions.Apply(getRegionsResult =&gt; getRegionsResult.Names[1]),
+    ///                             RegistryId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Repository Filter Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var exampleRegions = Aws.GetRegions.Invoke();
+    /// 
+    ///     var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("exampleReplicationConfiguration", new()
+    ///     {
+    ///         ReplicationConfigurationDetails = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
+    ///         {
+    ///             Rules = new[]
+    ///             {
+    ///                 new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs
+    ///                 {
+    ///                     Destinations = new[]
+    ///                     {
+    ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
+    ///                         {
+    ///                             Region = exampleRegions.Apply(getRegionsResult =&gt; getRegionsResult.Names[0]),
+    ///                             RegistryId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                     },
+    ///                     RepositoryFilters = new[]
+    ///                     {
+    ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs
+    ///                         {
+    ///                             Filter = "prod-microservice",
+    ///                             FilterType = "PREFIX_MATCH",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ECR Replication Configuration can be imported using the `registry_id`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:ecr/replicationConfiguration:ReplicationConfiguration")]
     public partial class ReplicationConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The account ID of the destination registry to replicate to.
+        /// </summary>
         [Output("registryId")]
         public Output<string> RegistryId { get; private set; } = null!;
 
+        /// <summary>
+        /// Replication configuration for a registry. See Replication Configuration.
+        /// </summary>
         [Output("replicationConfiguration")]
         public Output<Outputs.ReplicationConfigurationReplicationConfiguration?> ReplicationConfigurationDetails { get; private set; } = null!;
 
@@ -64,6 +204,9 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class ReplicationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Replication configuration for a registry. See Replication Configuration.
+        /// </summary>
         [Input("replicationConfiguration")]
         public Input<Inputs.ReplicationConfigurationReplicationConfigurationArgs>? ReplicationConfigurationDetails { get; set; }
 
@@ -75,9 +218,15 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class ReplicationConfigurationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The account ID of the destination registry to replicate to.
+        /// </summary>
         [Input("registryId")]
         public Input<string>? RegistryId { get; set; }
 
+        /// <summary>
+        /// Replication configuration for a registry. See Replication Configuration.
+        /// </summary>
         [Input("replicationConfiguration")]
         public Input<Inputs.ReplicationConfigurationReplicationConfigurationGetArgs>? ReplicationConfigurationDetails { get; set; }
 

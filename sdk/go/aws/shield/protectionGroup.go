@@ -11,17 +11,155 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a grouping of protected resources so they can be handled as a collective.
+// This resource grouping improves the accuracy of detection and reduces false positives. For more information see
+// [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html)
+//
+// ## Example Usage
+// ### Create protection group for all resources
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/shield"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := shield.NewProtectionGroup(ctx, "example", &shield.ProtectionGroupArgs{
+//				Aggregation:       pulumi.String("MAX"),
+//				Pattern:           pulumi.String("ALL"),
+//				ProtectionGroupId: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Create protection group for arbitrary number of resources
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/shield"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleEip, err := ec2.NewEip(ctx, "exampleEip", &ec2.EipArgs{
+//				Vpc: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleProtection, err := shield.NewProtection(ctx, "exampleProtection", &shield.ProtectionArgs{
+//				ResourceArn: exampleEip.ID().ApplyT(func(id string) (string, error) {
+//					return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", currentRegion.Name, currentCallerIdentity.AccountId, id), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = shield.NewProtectionGroup(ctx, "exampleProtectionGroup", &shield.ProtectionGroupArgs{
+//				ProtectionGroupId: pulumi.String("example"),
+//				Aggregation:       pulumi.String("MEAN"),
+//				Pattern:           pulumi.String("ARBITRARY"),
+//				Members: pulumi.StringArray{
+//					exampleEip.ID().ApplyT(func(id string) (string, error) {
+//						return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", currentRegion.Name, currentCallerIdentity.AccountId, id), nil
+//					}).(pulumi.StringOutput),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleProtection,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Create protection group for a type of resource
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/shield"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := shield.NewProtectionGroup(ctx, "example", &shield.ProtectionGroupArgs{
+//				Aggregation:       pulumi.String("SUM"),
+//				Pattern:           pulumi.String("BY_RESOURCE_TYPE"),
+//				ProtectionGroupId: pulumi.String("example"),
+//				ResourceType:      pulumi.String("ELASTIC_IP_ALLOCATION"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Shield protection group resources can be imported by specifying their protection group id.
+//
+// ```sh
+//
+//	$ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
+//
+// ```
 type ProtectionGroup struct {
 	pulumi.CustomResourceState
 
-	Aggregation        pulumi.StringOutput      `pulumi:"aggregation"`
-	Members            pulumi.StringArrayOutput `pulumi:"members"`
-	Pattern            pulumi.StringOutput      `pulumi:"pattern"`
-	ProtectionGroupArn pulumi.StringOutput      `pulumi:"protectionGroupArn"`
-	ProtectionGroupId  pulumi.StringOutput      `pulumi:"protectionGroupId"`
-	ResourceType       pulumi.StringPtrOutput   `pulumi:"resourceType"`
-	Tags               pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll            pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
+	Aggregation pulumi.StringOutput `pulumi:"aggregation"`
+	// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+	Members pulumi.StringArrayOutput `pulumi:"members"`
+	// The criteria to use to choose the protected resources for inclusion in the group.
+	Pattern pulumi.StringOutput `pulumi:"pattern"`
+	// The ARN (Amazon Resource Name) of the protection group.
+	ProtectionGroupArn pulumi.StringOutput `pulumi:"protectionGroupArn"`
+	// The name of the protection group.
+	ProtectionGroupId pulumi.StringOutput `pulumi:"protectionGroupId"`
+	// The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
+	ResourceType pulumi.StringPtrOutput `pulumi:"resourceType"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewProtectionGroup registers a new resource with the given unique name, arguments, and options.
@@ -62,25 +200,41 @@ func GetProtectionGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProtectionGroup resources.
 type protectionGroupState struct {
-	Aggregation        *string           `pulumi:"aggregation"`
-	Members            []string          `pulumi:"members"`
-	Pattern            *string           `pulumi:"pattern"`
-	ProtectionGroupArn *string           `pulumi:"protectionGroupArn"`
-	ProtectionGroupId  *string           `pulumi:"protectionGroupId"`
-	ResourceType       *string           `pulumi:"resourceType"`
-	Tags               map[string]string `pulumi:"tags"`
-	TagsAll            map[string]string `pulumi:"tagsAll"`
+	// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
+	Aggregation *string `pulumi:"aggregation"`
+	// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+	Members []string `pulumi:"members"`
+	// The criteria to use to choose the protected resources for inclusion in the group.
+	Pattern *string `pulumi:"pattern"`
+	// The ARN (Amazon Resource Name) of the protection group.
+	ProtectionGroupArn *string `pulumi:"protectionGroupArn"`
+	// The name of the protection group.
+	ProtectionGroupId *string `pulumi:"protectionGroupId"`
+	// The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
+	ResourceType *string `pulumi:"resourceType"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ProtectionGroupState struct {
-	Aggregation        pulumi.StringPtrInput
-	Members            pulumi.StringArrayInput
-	Pattern            pulumi.StringPtrInput
+	// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
+	Aggregation pulumi.StringPtrInput
+	// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+	Members pulumi.StringArrayInput
+	// The criteria to use to choose the protected resources for inclusion in the group.
+	Pattern pulumi.StringPtrInput
+	// The ARN (Amazon Resource Name) of the protection group.
 	ProtectionGroupArn pulumi.StringPtrInput
-	ProtectionGroupId  pulumi.StringPtrInput
-	ResourceType       pulumi.StringPtrInput
-	Tags               pulumi.StringMapInput
-	TagsAll            pulumi.StringMapInput
+	// The name of the protection group.
+	ProtectionGroupId pulumi.StringPtrInput
+	// The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
+	ResourceType pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (ProtectionGroupState) ElementType() reflect.Type {
@@ -88,22 +242,34 @@ func (ProtectionGroupState) ElementType() reflect.Type {
 }
 
 type protectionGroupArgs struct {
-	Aggregation       string            `pulumi:"aggregation"`
-	Members           []string          `pulumi:"members"`
-	Pattern           string            `pulumi:"pattern"`
-	ProtectionGroupId string            `pulumi:"protectionGroupId"`
-	ResourceType      *string           `pulumi:"resourceType"`
-	Tags              map[string]string `pulumi:"tags"`
+	// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
+	Aggregation string `pulumi:"aggregation"`
+	// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+	Members []string `pulumi:"members"`
+	// The criteria to use to choose the protected resources for inclusion in the group.
+	Pattern string `pulumi:"pattern"`
+	// The name of the protection group.
+	ProtectionGroupId string `pulumi:"protectionGroupId"`
+	// The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
+	ResourceType *string `pulumi:"resourceType"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ProtectionGroup resource.
 type ProtectionGroupArgs struct {
-	Aggregation       pulumi.StringInput
-	Members           pulumi.StringArrayInput
-	Pattern           pulumi.StringInput
+	// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
+	Aggregation pulumi.StringInput
+	// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+	Members pulumi.StringArrayInput
+	// The criteria to use to choose the protected resources for inclusion in the group.
+	Pattern pulumi.StringInput
+	// The name of the protection group.
 	ProtectionGroupId pulumi.StringInput
-	ResourceType      pulumi.StringPtrInput
-	Tags              pulumi.StringMapInput
+	// The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
+	ResourceType pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ProtectionGroupArgs) ElementType() reflect.Type {
@@ -193,34 +359,42 @@ func (o ProtectionGroupOutput) ToProtectionGroupOutputWithContext(ctx context.Co
 	return o
 }
 
+// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
 func (o ProtectionGroupOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionGroup) pulumi.StringOutput { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
 func (o ProtectionGroupOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ProtectionGroup) pulumi.StringArrayOutput { return v.Members }).(pulumi.StringArrayOutput)
 }
 
+// The criteria to use to choose the protected resources for inclusion in the group.
 func (o ProtectionGroupOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionGroup) pulumi.StringOutput { return v.Pattern }).(pulumi.StringOutput)
 }
 
+// The ARN (Amazon Resource Name) of the protection group.
 func (o ProtectionGroupOutput) ProtectionGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionGroup) pulumi.StringOutput { return v.ProtectionGroupArn }).(pulumi.StringOutput)
 }
 
+// The name of the protection group.
 func (o ProtectionGroupOutput) ProtectionGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionGroup) pulumi.StringOutput { return v.ProtectionGroupId }).(pulumi.StringOutput)
 }
 
+// The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
 func (o ProtectionGroupOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionGroup) pulumi.StringPtrOutput { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProtectionGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProtectionGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ProtectionGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProtectionGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

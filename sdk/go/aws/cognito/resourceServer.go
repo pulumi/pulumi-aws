@@ -11,14 +11,97 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Cognito Resource Server.
+//
+// ## Example Usage
+// ### Create a basic resource server
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			pool, err := cognito.NewUserPool(ctx, "pool", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewResourceServer(ctx, "resource", &cognito.ResourceServerArgs{
+//				Identifier: pulumi.String("https://example.com"),
+//				UserPoolId: pool.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Create a resource server with sample-scope
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			pool, err := cognito.NewUserPool(ctx, "pool", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewResourceServer(ctx, "resource", &cognito.ResourceServerArgs{
+//				Identifier: pulumi.String("https://example.com"),
+//				Scopes: cognito.ResourceServerScopeArray{
+//					&cognito.ResourceServerScopeArgs{
+//						ScopeName:        pulumi.String("sample-scope"),
+//						ScopeDescription: pulumi.String("a Sample Scope Description"),
+//					},
+//				},
+//				UserPoolId: pool.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_cognito_resource_server` can be imported using their User Pool ID and Identifier, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:cognito/resourceServer:ResourceServer example us-west-2_abc123:https://example.com
+//
+// ```
 type ResourceServer struct {
 	pulumi.CustomResourceState
 
-	Identifier       pulumi.StringOutput            `pulumi:"identifier"`
-	Name             pulumi.StringOutput            `pulumi:"name"`
-	ScopeIdentifiers pulumi.StringArrayOutput       `pulumi:"scopeIdentifiers"`
-	Scopes           ResourceServerScopeArrayOutput `pulumi:"scopes"`
-	UserPoolId       pulumi.StringOutput            `pulumi:"userPoolId"`
+	// An identifier for the resource server.
+	Identifier pulumi.StringOutput `pulumi:"identifier"`
+	// A name for the resource server.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A list of all scopes configured for this resource server in the format identifier/scope_name.
+	ScopeIdentifiers pulumi.StringArrayOutput `pulumi:"scopeIdentifiers"`
+	// A list of Authorization Scope.
+	Scopes     ResourceServerScopeArrayOutput `pulumi:"scopes"`
+	UserPoolId pulumi.StringOutput            `pulumi:"userPoolId"`
 }
 
 // NewResourceServer registers a new resource with the given unique name, arguments, and options.
@@ -56,19 +139,27 @@ func GetResourceServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceServer resources.
 type resourceServerState struct {
-	Identifier       *string               `pulumi:"identifier"`
-	Name             *string               `pulumi:"name"`
-	ScopeIdentifiers []string              `pulumi:"scopeIdentifiers"`
-	Scopes           []ResourceServerScope `pulumi:"scopes"`
-	UserPoolId       *string               `pulumi:"userPoolId"`
+	// An identifier for the resource server.
+	Identifier *string `pulumi:"identifier"`
+	// A name for the resource server.
+	Name *string `pulumi:"name"`
+	// A list of all scopes configured for this resource server in the format identifier/scope_name.
+	ScopeIdentifiers []string `pulumi:"scopeIdentifiers"`
+	// A list of Authorization Scope.
+	Scopes     []ResourceServerScope `pulumi:"scopes"`
+	UserPoolId *string               `pulumi:"userPoolId"`
 }
 
 type ResourceServerState struct {
-	Identifier       pulumi.StringPtrInput
-	Name             pulumi.StringPtrInput
+	// An identifier for the resource server.
+	Identifier pulumi.StringPtrInput
+	// A name for the resource server.
+	Name pulumi.StringPtrInput
+	// A list of all scopes configured for this resource server in the format identifier/scope_name.
 	ScopeIdentifiers pulumi.StringArrayInput
-	Scopes           ResourceServerScopeArrayInput
-	UserPoolId       pulumi.StringPtrInput
+	// A list of Authorization Scope.
+	Scopes     ResourceServerScopeArrayInput
+	UserPoolId pulumi.StringPtrInput
 }
 
 func (ResourceServerState) ElementType() reflect.Type {
@@ -76,16 +167,22 @@ func (ResourceServerState) ElementType() reflect.Type {
 }
 
 type resourceServerArgs struct {
-	Identifier string                `pulumi:"identifier"`
-	Name       *string               `pulumi:"name"`
+	// An identifier for the resource server.
+	Identifier string `pulumi:"identifier"`
+	// A name for the resource server.
+	Name *string `pulumi:"name"`
+	// A list of Authorization Scope.
 	Scopes     []ResourceServerScope `pulumi:"scopes"`
 	UserPoolId string                `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a ResourceServer resource.
 type ResourceServerArgs struct {
+	// An identifier for the resource server.
 	Identifier pulumi.StringInput
-	Name       pulumi.StringPtrInput
+	// A name for the resource server.
+	Name pulumi.StringPtrInput
+	// A list of Authorization Scope.
 	Scopes     ResourceServerScopeArrayInput
 	UserPoolId pulumi.StringInput
 }
@@ -177,18 +274,22 @@ func (o ResourceServerOutput) ToResourceServerOutputWithContext(ctx context.Cont
 	return o
 }
 
+// An identifier for the resource server.
 func (o ResourceServerOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceServer) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
 }
 
+// A name for the resource server.
 func (o ResourceServerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A list of all scopes configured for this resource server in the format identifier/scope_name.
 func (o ResourceServerOutput) ScopeIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceServer) pulumi.StringArrayOutput { return v.ScopeIdentifiers }).(pulumi.StringArrayOutput)
 }
 
+// A list of Authorization Scope.
 func (o ResourceServerOutput) Scopes() ResourceServerScopeArrayOutput {
 	return o.ApplyT(func(v *ResourceServer) ResourceServerScopeArrayOutput { return v.Scopes }).(ResourceServerScopeArrayOutput)
 }

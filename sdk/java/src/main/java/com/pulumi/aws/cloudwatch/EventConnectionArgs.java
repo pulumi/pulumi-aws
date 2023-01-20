@@ -16,30 +16,62 @@ public final class EventConnectionArgs extends com.pulumi.resources.ResourceArgs
 
     public static final EventConnectionArgs Empty = new EventConnectionArgs();
 
+    /**
+     * Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+     * 
+     */
     @Import(name="authParameters", required=true)
     private Output<EventConnectionAuthParametersArgs> authParameters;
 
+    /**
+     * @return Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+     * 
+     */
     public Output<EventConnectionAuthParametersArgs> authParameters() {
         return this.authParameters;
     }
 
+    /**
+     * Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+     * 
+     */
     @Import(name="authorizationType", required=true)
     private Output<String> authorizationType;
 
+    /**
+     * @return Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+     * 
+     */
     public Output<String> authorizationType() {
         return this.authorizationType;
     }
 
+    /**
+     * Enter a description for the connection. Maximum of 512 characters.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Enter a description for the connection. Maximum of 512 characters.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -71,38 +103,86 @@ public final class EventConnectionArgs extends com.pulumi.resources.ResourceArgs
             $ = new EventConnectionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param authParameters Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authParameters(Output<EventConnectionAuthParametersArgs> authParameters) {
             $.authParameters = authParameters;
             return this;
         }
 
+        /**
+         * @param authParameters Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authParameters(EventConnectionAuthParametersArgs authParameters) {
             return authParameters(Output.of(authParameters));
         }
 
+        /**
+         * @param authorizationType Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authorizationType(Output<String> authorizationType) {
             $.authorizationType = authorizationType;
             return this;
         }
 
+        /**
+         * @param authorizationType Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authorizationType(String authorizationType) {
             return authorizationType(Output.of(authorizationType));
         }
 
+        /**
+         * @param description Enter a description for the connection. Maximum of 512 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Enter a description for the connection. Maximum of 512 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param name The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

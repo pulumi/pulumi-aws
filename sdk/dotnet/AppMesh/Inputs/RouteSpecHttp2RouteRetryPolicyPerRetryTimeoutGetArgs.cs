@@ -12,9 +12,15 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Retry unit. Valid values: `ms`, `s`.
+        /// </summary>
         [Input("unit", required: true)]
         public Input<string> Unit { get; set; } = null!;
 
+        /// <summary>
+        /// Retry value.
+        /// </summary>
         [Input("value", required: true)]
         public Input<int> Value { get; set; } = null!;
 

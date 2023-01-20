@@ -37,6 +37,9 @@ class GetPartitionResult:
     @property
     @pulumi.getter(name="dnsSuffix")
     def dns_suffix(self) -> str:
+        """
+        Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
+        """
         return pulumi.get(self, "dns_suffix")
 
     @property
@@ -50,11 +53,17 @@ class GetPartitionResult:
     @property
     @pulumi.getter
     def partition(self) -> str:
+        """
+        Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+        """
         return pulumi.get(self, "partition")
 
     @property
     @pulumi.getter(name="reverseDnsPrefix")
     def reverse_dns_prefix(self) -> str:
+        """
+        Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
+        """
         return pulumi.get(self, "reverse_dns_prefix")
 
 
@@ -72,7 +81,22 @@ class AwaitableGetPartitionResult(GetPartitionResult):
 
 def get_partition(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartitionResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to lookup information about the current AWS partition in
+    which the provider is working.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.get_partition()
+    s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        actions=["s3:ListBucket"],
+        resources=[f"arn:{current.partition}:s3:::my-bucket"],
+        sid="1",
+    )])
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

@@ -15,35 +15,129 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a snapshot copy grant that allows AWS Redshift to encrypt copied snapshots with a customer master key from AWS KMS in a destination region.
+ * 
+ * Note that the grant must exist in the destination region, and not in the region of the cluster.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.redshift.SnapshotCopyGrant;
+ * import com.pulumi.aws.redshift.SnapshotCopyGrantArgs;
+ * import com.pulumi.aws.redshift.Cluster;
+ * import com.pulumi.aws.redshift.ClusterArgs;
+ * import com.pulumi.aws.redshift.inputs.ClusterSnapshotCopyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testSnapshotCopyGrant = new SnapshotCopyGrant(&#34;testSnapshotCopyGrant&#34;, SnapshotCopyGrantArgs.builder()        
+ *             .snapshotCopyGrantName(&#34;my-grant&#34;)
+ *             .build());
+ * 
+ *         var testCluster = new Cluster(&#34;testCluster&#34;, ClusterArgs.builder()        
+ *             .snapshotCopy(ClusterSnapshotCopyArgs.builder()
+ *                 .destinationRegion(&#34;us-east-2&#34;)
+ *                 .grantName(testSnapshotCopyGrant.snapshotCopyGrantName())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Redshift Snapshot Copy Grants support import by name, e.g., console
+ * 
+ * ```sh
+ *  $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
+ * ```
+ * 
+ */
 @ResourceType(type="aws:redshift/snapshotCopyGrant:SnapshotCopyGrant")
 public class SnapshotCopyGrant extends com.pulumi.resources.CustomResource {
+    /**
+     * Amazon Resource Name (ARN) of snapshot copy grant
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of snapshot copy grant
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+     * 
+     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
+    /**
+     * @return The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+     * 
+     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
+    /**
+     * A friendly name for identifying the grant.
+     * 
+     */
     @Export(name="snapshotCopyGrantName", refs={String.class}, tree="[0]")
     private Output<String> snapshotCopyGrantName;
 
+    /**
+     * @return A friendly name for identifying the grant.
+     * 
+     */
     public Output<String> snapshotCopyGrantName() {
         return this.snapshotCopyGrantName;
     }
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

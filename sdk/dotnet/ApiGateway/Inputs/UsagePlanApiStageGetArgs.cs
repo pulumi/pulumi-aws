@@ -12,14 +12,24 @@ namespace Pulumi.Aws.ApiGateway.Inputs
 
     public sealed class UsagePlanApiStageGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// API Id of the associated API stage in a usage plan.
+        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
+        /// <summary>
+        /// API stage name of the associated API stage in a usage plan.
+        /// </summary>
         [Input("stage", required: true)]
         public Input<string> Stage { get; set; } = null!;
 
         [Input("throttles")]
         private InputList<Inputs.UsagePlanApiStageThrottleGetArgs>? _throttles;
+
+        /// <summary>
+        /// The throttling limits of the usage plan.
+        /// </summary>
         public InputList<Inputs.UsagePlanApiStageThrottleGetArgs> Throttles
         {
             get => _throttles ?? (_throttles = new InputList<Inputs.UsagePlanApiStageThrottleGetArgs>());

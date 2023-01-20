@@ -31,6 +31,20 @@ class DatabaseArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Database resource.
+        :param pulumi.Input[str] blueprint_id: The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
+        :param pulumi.Input[str] bundle_id: The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
+        :param pulumi.Input[str] master_database_name: The name of the master database created when the Lightsail database resource is created.
+        :param pulumi.Input[str] master_password: The password for the master user of your new database. The password can include any printable ASCII character except "/", \"\"\", or "@".
+        :param pulumi.Input[str] master_username: The master user name for your new database.
+        :param pulumi.Input[bool] apply_immediately: When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
+        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
+        :param pulumi.Input[bool] backup_retention_enabled: When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
+        :param pulumi.Input[str] final_snapshot_name: The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
+        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
+        :param pulumi.Input[bool] publicly_accessible: Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+        :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
         """
         pulumi.set(__self__, "blueprint_id", blueprint_id)
         pulumi.set(__self__, "bundle_id", bundle_id)
@@ -60,6 +74,9 @@ class DatabaseArgs:
     @property
     @pulumi.getter(name="blueprintId")
     def blueprint_id(self) -> pulumi.Input[str]:
+        """
+        The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
+        """
         return pulumi.get(self, "blueprint_id")
 
     @blueprint_id.setter
@@ -69,6 +86,9 @@ class DatabaseArgs:
     @property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> pulumi.Input[str]:
+        """
+        The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
+        """
         return pulumi.get(self, "bundle_id")
 
     @bundle_id.setter
@@ -78,6 +98,9 @@ class DatabaseArgs:
     @property
     @pulumi.getter(name="masterDatabaseName")
     def master_database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the master database created when the Lightsail database resource is created.
+        """
         return pulumi.get(self, "master_database_name")
 
     @master_database_name.setter
@@ -87,6 +110,9 @@ class DatabaseArgs:
     @property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> pulumi.Input[str]:
+        """
+        The password for the master user of your new database. The password can include any printable ASCII character except "/", \"\"\", or "@".
+        """
         return pulumi.get(self, "master_password")
 
     @master_password.setter
@@ -96,6 +122,9 @@ class DatabaseArgs:
     @property
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> pulumi.Input[str]:
+        """
+        The master user name for your new database.
+        """
         return pulumi.get(self, "master_username")
 
     @master_username.setter
@@ -114,6 +143,9 @@ class DatabaseArgs:
     @property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
+        """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
@@ -123,6 +155,9 @@ class DatabaseArgs:
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
+        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -132,6 +167,9 @@ class DatabaseArgs:
     @property
     @pulumi.getter(name="backupRetentionEnabled")
     def backup_retention_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
+        """
         return pulumi.get(self, "backup_retention_enabled")
 
     @backup_retention_enabled.setter
@@ -141,6 +179,9 @@ class DatabaseArgs:
     @property
     @pulumi.getter(name="finalSnapshotName")
     def final_snapshot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
+        """
         return pulumi.get(self, "final_snapshot_name")
 
     @final_snapshot_name.setter
@@ -150,6 +191,9 @@ class DatabaseArgs:
     @property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
+        """
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
@@ -159,6 +203,9 @@ class DatabaseArgs:
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -168,6 +215,9 @@ class DatabaseArgs:
     @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+        """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
@@ -177,6 +227,9 @@ class DatabaseArgs:
     @property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
+        """
         return pulumi.get(self, "skip_final_snapshot")
 
     @skip_final_snapshot.setter
@@ -186,6 +239,9 @@ class DatabaseArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -226,6 +282,33 @@ class _DatabaseState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Database resources.
+        :param pulumi.Input[bool] apply_immediately: When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
+        :param pulumi.Input[str] arn: The ARN of the Lightsail instance (matches `id`).
+        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
+        :param pulumi.Input[bool] backup_retention_enabled: When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
+        :param pulumi.Input[str] blueprint_id: The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
+        :param pulumi.Input[str] bundle_id: The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
+        :param pulumi.Input[str] ca_certificate_identifier: The certificate associated with the database.
+        :param pulumi.Input[int] cpu_count: The number of vCPUs for the database.
+        :param pulumi.Input[str] created_at: The timestamp when the instance was created.
+        :param pulumi.Input[float] disk_size: The size of the disk for the database.
+        :param pulumi.Input[str] engine: The database software (for example, MySQL).
+        :param pulumi.Input[str] engine_version: The database engine version (for example, 5.7.23).
+        :param pulumi.Input[str] final_snapshot_name: The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
+        :param pulumi.Input[str] master_database_name: The name of the master database created when the Lightsail database resource is created.
+        :param pulumi.Input[str] master_endpoint_address: The master endpoint fqdn for the database.
+        :param pulumi.Input[int] master_endpoint_port: The master endpoint network port for the database.
+        :param pulumi.Input[str] master_password: The password for the master user of your new database. The password can include any printable ASCII character except "/", \"\"\", or "@".
+        :param pulumi.Input[str] master_username: The master user name for your new database.
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
+        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
+        :param pulumi.Input[bool] publicly_accessible: Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+        :param pulumi.Input[float] ram_size: The amount of RAM in GB for the database.
+        :param pulumi.Input[str] secondary_availability_zone: Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
+        :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
+        :param pulumi.Input[str] support_code: The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if apply_immediately is not None:
             pulumi.set(__self__, "apply_immediately", apply_immediately)
@@ -287,6 +370,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
+        """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
@@ -296,6 +382,9 @@ class _DatabaseState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Lightsail instance (matches `id`).
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -305,6 +394,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
+        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -314,6 +406,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="backupRetentionEnabled")
     def backup_retention_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
+        """
         return pulumi.get(self, "backup_retention_enabled")
 
     @backup_retention_enabled.setter
@@ -323,6 +418,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="blueprintId")
     def blueprint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
+        """
         return pulumi.get(self, "blueprint_id")
 
     @blueprint_id.setter
@@ -332,6 +430,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
+        """
         return pulumi.get(self, "bundle_id")
 
     @bundle_id.setter
@@ -341,6 +442,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="caCertificateIdentifier")
     def ca_certificate_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate associated with the database.
+        """
         return pulumi.get(self, "ca_certificate_identifier")
 
     @ca_certificate_identifier.setter
@@ -350,6 +454,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="cpuCount")
     def cpu_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of vCPUs for the database.
+        """
         return pulumi.get(self, "cpu_count")
 
     @cpu_count.setter
@@ -359,6 +466,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp when the instance was created.
+        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -368,6 +478,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="diskSize")
     def disk_size(self) -> Optional[pulumi.Input[float]]:
+        """
+        The size of the disk for the database.
+        """
         return pulumi.get(self, "disk_size")
 
     @disk_size.setter
@@ -377,6 +490,9 @@ class _DatabaseState:
     @property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
+        """
+        The database software (for example, MySQL).
+        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -386,6 +502,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The database engine version (for example, 5.7.23).
+        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -395,6 +514,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="finalSnapshotName")
     def final_snapshot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
+        """
         return pulumi.get(self, "final_snapshot_name")
 
     @final_snapshot_name.setter
@@ -404,6 +526,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="masterDatabaseName")
     def master_database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the master database created when the Lightsail database resource is created.
+        """
         return pulumi.get(self, "master_database_name")
 
     @master_database_name.setter
@@ -413,6 +538,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="masterEndpointAddress")
     def master_endpoint_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The master endpoint fqdn for the database.
+        """
         return pulumi.get(self, "master_endpoint_address")
 
     @master_endpoint_address.setter
@@ -422,6 +550,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="masterEndpointPort")
     def master_endpoint_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The master endpoint network port for the database.
+        """
         return pulumi.get(self, "master_endpoint_port")
 
     @master_endpoint_port.setter
@@ -431,6 +562,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password for the master user of your new database. The password can include any printable ASCII character except "/", \"\"\", or "@".
+        """
         return pulumi.get(self, "master_password")
 
     @master_password.setter
@@ -440,6 +574,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The master user name for your new database.
+        """
         return pulumi.get(self, "master_username")
 
     @master_username.setter
@@ -449,6 +586,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
+        """
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
@@ -458,6 +598,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -467,6 +610,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+        """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
@@ -476,6 +622,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="ramSize")
     def ram_size(self) -> Optional[pulumi.Input[float]]:
+        """
+        The amount of RAM in GB for the database.
+        """
         return pulumi.get(self, "ram_size")
 
     @ram_size.setter
@@ -494,6 +643,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="secondaryAvailabilityZone")
     def secondary_availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
+        """
         return pulumi.get(self, "secondary_availability_zone")
 
     @secondary_availability_zone.setter
@@ -503,6 +655,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
+        """
         return pulumi.get(self, "skip_final_snapshot")
 
     @skip_final_snapshot.setter
@@ -512,6 +667,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="supportCode")
     def support_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        """
         return pulumi.get(self, "support_code")
 
     @support_code.setter
@@ -521,6 +679,9 @@ class _DatabaseState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -530,6 +691,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -559,9 +723,84 @@ class Database(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Database resource with the given unique name, props, and options.
+        Provides a Lightsail Database. Amazon Lightsail is a service to provide easy virtual private servers
+        with custom software already setup. See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail)
+        for more information.
+
+        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones"](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for more details
+
+        ## Example Usage
+        ## Blueprint Ids
+
+        A list of all available Lightsail Blueprints for Relational Databases the [aws lightsail get-relational-database-blueprints](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-relational-database-blueprints.html) aws cli command.
+
+        ### Examples
+
+        - `mysql_8_0`
+        - `postgres_12`
+
+        ### Prefix
+
+        A Blueprint ID starts with a prefix of the engine type.
+
+        ### Suffix
+
+        A Blueprint ID has a sufix of the engine version.
+
+        ## Bundles
+
+        A list of all available Lightsail Bundles for Relational Databases the [aws lightsail get-relational-database-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-relational-database-bundles.html) aws cli command.
+
+        ### Examples
+
+        - `small_1_0`
+        - `small_ha_1_0`
+        - `large_1_0`
+        - `large_ha_1_0`
+
+        ### Prefix
+
+        A Bundle ID starts with one of the below size prefixes:
+
+        - `micro_`
+        - `small_`
+        - `medium_`
+        - `large_`
+
+        ### Infixes (Optional for HA Database)
+
+        A Bundle Id can have the following infix added in order to use the HA option of the selected bundle.
+
+        - `ha_`
+
+        ### Suffix
+
+        A Bundle ID ends with one of the following suffix: `1_0`
+
+        ## Import
+
+        Lightsail Databases can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import aws:lightsail/database:Database foo 'bar'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] apply_immediately: When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
+        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
+        :param pulumi.Input[bool] backup_retention_enabled: When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
+        :param pulumi.Input[str] blueprint_id: The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
+        :param pulumi.Input[str] bundle_id: The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
+        :param pulumi.Input[str] final_snapshot_name: The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
+        :param pulumi.Input[str] master_database_name: The name of the master database created when the Lightsail database resource is created.
+        :param pulumi.Input[str] master_password: The password for the master user of your new database. The password can include any printable ASCII character except "/", \"\"\", or "@".
+        :param pulumi.Input[str] master_username: The master user name for your new database.
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
+        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
+        :param pulumi.Input[bool] publicly_accessible: Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+        :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
         """
         ...
     @overload
@@ -570,7 +809,68 @@ class Database(pulumi.CustomResource):
                  args: DatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Database resource with the given unique name, props, and options.
+        Provides a Lightsail Database. Amazon Lightsail is a service to provide easy virtual private servers
+        with custom software already setup. See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail)
+        for more information.
+
+        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones"](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for more details
+
+        ## Example Usage
+        ## Blueprint Ids
+
+        A list of all available Lightsail Blueprints for Relational Databases the [aws lightsail get-relational-database-blueprints](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-relational-database-blueprints.html) aws cli command.
+
+        ### Examples
+
+        - `mysql_8_0`
+        - `postgres_12`
+
+        ### Prefix
+
+        A Blueprint ID starts with a prefix of the engine type.
+
+        ### Suffix
+
+        A Blueprint ID has a sufix of the engine version.
+
+        ## Bundles
+
+        A list of all available Lightsail Bundles for Relational Databases the [aws lightsail get-relational-database-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-relational-database-bundles.html) aws cli command.
+
+        ### Examples
+
+        - `small_1_0`
+        - `small_ha_1_0`
+        - `large_1_0`
+        - `large_ha_1_0`
+
+        ### Prefix
+
+        A Bundle ID starts with one of the below size prefixes:
+
+        - `micro_`
+        - `small_`
+        - `medium_`
+        - `large_`
+
+        ### Infixes (Optional for HA Database)
+
+        A Bundle Id can have the following infix added in order to use the HA option of the selected bundle.
+
+        - `ha_`
+
+        ### Suffix
+
+        A Bundle ID ends with one of the following suffix: `1_0`
+
+        ## Import
+
+        Lightsail Databases can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import aws:lightsail/database:Database foo 'bar'
+        ```
+
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -697,6 +997,33 @@ class Database(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] apply_immediately: When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
+        :param pulumi.Input[str] arn: The ARN of the Lightsail instance (matches `id`).
+        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
+        :param pulumi.Input[bool] backup_retention_enabled: When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
+        :param pulumi.Input[str] blueprint_id: The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
+        :param pulumi.Input[str] bundle_id: The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
+        :param pulumi.Input[str] ca_certificate_identifier: The certificate associated with the database.
+        :param pulumi.Input[int] cpu_count: The number of vCPUs for the database.
+        :param pulumi.Input[str] created_at: The timestamp when the instance was created.
+        :param pulumi.Input[float] disk_size: The size of the disk for the database.
+        :param pulumi.Input[str] engine: The database software (for example, MySQL).
+        :param pulumi.Input[str] engine_version: The database engine version (for example, 5.7.23).
+        :param pulumi.Input[str] final_snapshot_name: The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
+        :param pulumi.Input[str] master_database_name: The name of the master database created when the Lightsail database resource is created.
+        :param pulumi.Input[str] master_endpoint_address: The master endpoint fqdn for the database.
+        :param pulumi.Input[int] master_endpoint_port: The master endpoint network port for the database.
+        :param pulumi.Input[str] master_password: The password for the master user of your new database. The password can include any printable ASCII character except "/", \"\"\", or "@".
+        :param pulumi.Input[str] master_username: The master user name for your new database.
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
+        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
+        :param pulumi.Input[bool] publicly_accessible: Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+        :param pulumi.Input[float] ram_size: The amount of RAM in GB for the database.
+        :param pulumi.Input[str] secondary_availability_zone: Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
+        :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
+        :param pulumi.Input[str] support_code: The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -735,111 +1062,177 @@ class Database(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> pulumi.Output[bool]:
+        """
+        When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
+        """
         return pulumi.get(self, "apply_immediately")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the Lightsail instance (matches `id`).
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[str]:
+        """
+        The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
+        """
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="backupRetentionEnabled")
     def backup_retention_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
+        """
         return pulumi.get(self, "backup_retention_enabled")
 
     @property
     @pulumi.getter(name="blueprintId")
     def blueprint_id(self) -> pulumi.Output[str]:
+        """
+        The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
+        """
         return pulumi.get(self, "blueprint_id")
 
     @property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> pulumi.Output[str]:
+        """
+        The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
+        """
         return pulumi.get(self, "bundle_id")
 
     @property
     @pulumi.getter(name="caCertificateIdentifier")
     def ca_certificate_identifier(self) -> pulumi.Output[str]:
+        """
+        The certificate associated with the database.
+        """
         return pulumi.get(self, "ca_certificate_identifier")
 
     @property
     @pulumi.getter(name="cpuCount")
     def cpu_count(self) -> pulumi.Output[int]:
+        """
+        The number of vCPUs for the database.
+        """
         return pulumi.get(self, "cpu_count")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The timestamp when the instance was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="diskSize")
     def disk_size(self) -> pulumi.Output[float]:
+        """
+        The size of the disk for the database.
+        """
         return pulumi.get(self, "disk_size")
 
     @property
     @pulumi.getter
     def engine(self) -> pulumi.Output[str]:
+        """
+        The database software (for example, MySQL).
+        """
         return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[str]:
+        """
+        The database engine version (for example, 5.7.23).
+        """
         return pulumi.get(self, "engine_version")
 
     @property
     @pulumi.getter(name="finalSnapshotName")
     def final_snapshot_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
+        """
         return pulumi.get(self, "final_snapshot_name")
 
     @property
     @pulumi.getter(name="masterDatabaseName")
     def master_database_name(self) -> pulumi.Output[str]:
+        """
+        The name of the master database created when the Lightsail database resource is created.
+        """
         return pulumi.get(self, "master_database_name")
 
     @property
     @pulumi.getter(name="masterEndpointAddress")
     def master_endpoint_address(self) -> pulumi.Output[str]:
+        """
+        The master endpoint fqdn for the database.
+        """
         return pulumi.get(self, "master_endpoint_address")
 
     @property
     @pulumi.getter(name="masterEndpointPort")
     def master_endpoint_port(self) -> pulumi.Output[int]:
+        """
+        The master endpoint network port for the database.
+        """
         return pulumi.get(self, "master_endpoint_port")
 
     @property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> pulumi.Output[str]:
+        """
+        The password for the master user of your new database. The password can include any printable ASCII character except "/", \"\"\", or "@".
+        """
         return pulumi.get(self, "master_password")
 
     @property
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> pulumi.Output[str]:
+        """
+        The master user name for your new database.
+        """
         return pulumi.get(self, "master_username")
 
     @property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> pulumi.Output[str]:
+        """
+        The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
+        """
         return pulumi.get(self, "preferred_backup_window")
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> pulumi.Output[str]:
+        """
+        The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+        """
         return pulumi.get(self, "publicly_accessible")
 
     @property
     @pulumi.getter(name="ramSize")
     def ram_size(self) -> pulumi.Output[float]:
+        """
+        The amount of RAM in GB for the database.
+        """
         return pulumi.get(self, "ram_size")
 
     @property
@@ -850,25 +1243,40 @@ class Database(pulumi.CustomResource):
     @property
     @pulumi.getter(name="secondaryAvailabilityZone")
     def secondary_availability_zone(self) -> pulumi.Output[str]:
+        """
+        Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
+        """
         return pulumi.get(self, "secondary_availability_zone")
 
     @property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
+        """
         return pulumi.get(self, "skip_final_snapshot")
 
     @property
     @pulumi.getter(name="supportCode")
     def support_code(self) -> pulumi.Output[str]:
+        """
+        The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        """
         return pulumi.get(self, "support_code")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

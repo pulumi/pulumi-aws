@@ -13,16 +13,32 @@ public final class SnapshotCreateVolumePermissionArgs extends com.pulumi.resourc
 
     public static final SnapshotCreateVolumePermissionArgs Empty = new SnapshotCreateVolumePermissionArgs();
 
+    /**
+     * An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot&#39;s owner
+     * 
+     */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
+    /**
+     * @return An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot&#39;s owner
+     * 
+     */
     public Output<String> accountId() {
         return this.accountId;
     }
 
+    /**
+     * A snapshot ID
+     * 
+     */
     @Import(name="snapshotId", required=true)
     private Output<String> snapshotId;
 
+    /**
+     * @return A snapshot ID
+     * 
+     */
     public Output<String> snapshotId() {
         return this.snapshotId;
     }
@@ -52,20 +68,44 @@ public final class SnapshotCreateVolumePermissionArgs extends com.pulumi.resourc
             $ = new SnapshotCreateVolumePermissionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accountId An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot&#39;s owner
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
+        /**
+         * @param accountId An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot&#39;s owner
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
+        /**
+         * @param snapshotId A snapshot ID
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshotId(Output<String> snapshotId) {
             $.snapshotId = snapshotId;
             return this;
         }
 
+        /**
+         * @param snapshotId A snapshot ID
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshotId(String snapshotId) {
             return snapshotId(Output.of(snapshotId));
         }

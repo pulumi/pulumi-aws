@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class FleetOnDemandOptionsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
+        /// </summary>
         [Input("allocationStrategy")]
         public Input<string>? AllocationStrategy { get; set; }
 

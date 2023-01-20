@@ -13,17 +13,78 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Manages an EC2 Availability Zone Group, such as updating its opt-in status.
+ * 
+ * &gt; **NOTE:** This is an advanced resource. The provider will automatically assume management of the EC2 Availability Zone Group without import and perform no actions on removal from configuration.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.AvailabilityZoneGroup;
+ * import com.pulumi.aws.ec2.AvailabilityZoneGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AvailabilityZoneGroup(&#34;example&#34;, AvailabilityZoneGroupArgs.builder()        
+ *             .groupName(&#34;us-west-2-lax-1&#34;)
+ *             .optInStatus(&#34;opted-in&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * EC2 Availability Zone Groups can be imported using the group name, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup")
 public class AvailabilityZoneGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * Name of the Availability Zone Group.
+     * 
+     */
     @Export(name="groupName", refs={String.class}, tree="[0]")
     private Output<String> groupName;
 
+    /**
+     * @return Name of the Availability Zone Group.
+     * 
+     */
     public Output<String> groupName() {
         return this.groupName;
     }
+    /**
+     * Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
+     * 
+     */
     @Export(name="optInStatus", refs={String.class}, tree="[0]")
     private Output<String> optInStatus;
 
+    /**
+     * @return Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
+     * 
+     */
     public Output<String> optInStatus() {
         return this.optInStatus;
     }

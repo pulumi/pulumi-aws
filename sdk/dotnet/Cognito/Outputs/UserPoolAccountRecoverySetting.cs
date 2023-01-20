@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolAccountRecoverySetting
     {
+        /// <summary>
+        /// List of Account Recovery Options of the following structure:
+        /// </summary>
         public readonly ImmutableArray<Outputs.UserPoolAccountRecoverySettingRecoveryMechanism> RecoveryMechanisms;
 
         [OutputConstructor]

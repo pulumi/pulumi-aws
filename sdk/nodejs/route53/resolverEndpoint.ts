@@ -7,6 +7,44 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Route 53 Resolver endpoint resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const foo = new aws.route53.ResolverEndpoint("foo", {
+ *     direction: "INBOUND",
+ *     securityGroupIds: [
+ *         aws_security_group.sg1.id,
+ *         aws_security_group.sg2.id,
+ *     ],
+ *     ipAddresses: [
+ *         {
+ *             subnetId: aws_subnet.sn1.id,
+ *         },
+ *         {
+ *             subnetId: aws_subnet.sn2.id,
+ *             ip: "10.0.64.4",
+ *         },
+ *     ],
+ *     tags: {
+ *         Environment: "Prod",
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ *  Route 53 Resolver endpoints can be imported using the Route 53 Resolver endpoint ID, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
+ * ```
+ */
 export class ResolverEndpoint extends pulumi.CustomResource {
     /**
      * Get an existing ResolverEndpoint resource's state with the given name, ID, and optional extra
@@ -35,13 +73,40 @@ export class ResolverEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResolverEndpoint.__pulumiType;
     }
 
+    /**
+     * The ARN of the Route 53 Resolver endpoint.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The direction of DNS queries to or from the Route 53 Resolver endpoint.
+     * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
+     * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+     */
     public readonly direction!: pulumi.Output<string>;
+    /**
+     * The ID of the VPC that you want to create the resolver endpoint in.
+     */
     public /*out*/ readonly hostVpcId!: pulumi.Output<string>;
+    /**
+     * The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+     * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
+     */
     public readonly ipAddresses!: pulumi.Output<outputs.route53.ResolverEndpointIpAddress[]>;
+    /**
+     * The friendly name of the Route 53 Resolver endpoint.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ID of one or more security groups that you want to use to control access to this VPC.
+     */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -94,13 +159,40 @@ export class ResolverEndpoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResolverEndpoint resources.
  */
 export interface ResolverEndpointState {
+    /**
+     * The ARN of the Route 53 Resolver endpoint.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The direction of DNS queries to or from the Route 53 Resolver endpoint.
+     * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
+     * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+     */
     direction?: pulumi.Input<string>;
+    /**
+     * The ID of the VPC that you want to create the resolver endpoint in.
+     */
     hostVpcId?: pulumi.Input<string>;
+    /**
+     * The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+     * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
+     */
     ipAddresses?: pulumi.Input<pulumi.Input<inputs.route53.ResolverEndpointIpAddress>[]>;
+    /**
+     * The friendly name of the Route 53 Resolver endpoint.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of one or more security groups that you want to use to control access to this VPC.
+     */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -108,9 +200,27 @@ export interface ResolverEndpointState {
  * The set of arguments for constructing a ResolverEndpoint resource.
  */
 export interface ResolverEndpointArgs {
+    /**
+     * The direction of DNS queries to or from the Route 53 Resolver endpoint.
+     * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
+     * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+     */
     direction: pulumi.Input<string>;
+    /**
+     * The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+     * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
+     */
     ipAddresses: pulumi.Input<pulumi.Input<inputs.route53.ResolverEndpointIpAddress>[]>;
+    /**
+     * The friendly name of the Route 53 Resolver endpoint.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of one or more security groups that you want to use to control access to this VPC.
+     */
     securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications
     {
+        /// <summary>
+        /// Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
+        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

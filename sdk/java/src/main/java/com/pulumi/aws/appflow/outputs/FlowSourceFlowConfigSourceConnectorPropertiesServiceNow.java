@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesServiceNow {
+    /**
+     * @return Object specified in the flow destination.
+     * 
+     */
     private String object;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesServiceNow() {}
+    /**
+     * @return Object specified in the flow destination.
+     * 
+     */
     public String object() {
         return this.object;
     }

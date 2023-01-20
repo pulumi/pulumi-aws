@@ -11,10 +11,55 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS Inspector V2 Delegated Admin Account.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = inspector2.NewDelegatedAdminAccount(ctx, "example", &inspector2.DelegatedAdminAccountArgs{
+//				AccountId: *pulumi.String(current.AccountId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Inspector V2 Delegated Admin Account can be imported using the `account_id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
+//
+// ```
 type DelegatedAdminAccount struct {
 	pulumi.CustomResourceState
 
-	AccountId          pulumi.StringOutput `pulumi:"accountId"`
+	// Account to enable as delegated admin account.
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// Status of this delegated admin account.
 	RelationshipStatus pulumi.StringOutput `pulumi:"relationshipStatus"`
 }
 
@@ -50,12 +95,16 @@ func GetDelegatedAdminAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DelegatedAdminAccount resources.
 type delegatedAdminAccountState struct {
-	AccountId          *string `pulumi:"accountId"`
+	// Account to enable as delegated admin account.
+	AccountId *string `pulumi:"accountId"`
+	// Status of this delegated admin account.
 	RelationshipStatus *string `pulumi:"relationshipStatus"`
 }
 
 type DelegatedAdminAccountState struct {
-	AccountId          pulumi.StringPtrInput
+	// Account to enable as delegated admin account.
+	AccountId pulumi.StringPtrInput
+	// Status of this delegated admin account.
 	RelationshipStatus pulumi.StringPtrInput
 }
 
@@ -64,11 +113,13 @@ func (DelegatedAdminAccountState) ElementType() reflect.Type {
 }
 
 type delegatedAdminAccountArgs struct {
+	// Account to enable as delegated admin account.
 	AccountId string `pulumi:"accountId"`
 }
 
 // The set of arguments for constructing a DelegatedAdminAccount resource.
 type DelegatedAdminAccountArgs struct {
+	// Account to enable as delegated admin account.
 	AccountId pulumi.StringInput
 }
 
@@ -159,10 +210,12 @@ func (o DelegatedAdminAccountOutput) ToDelegatedAdminAccountOutputWithContext(ct
 	return o
 }
 
+// Account to enable as delegated admin account.
 func (o DelegatedAdminAccountOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdminAccount) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
+// Status of this delegated admin account.
 func (o DelegatedAdminAccountOutput) RelationshipStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdminAccount) pulumi.StringOutput { return v.RelationshipStatus }).(pulumi.StringOutput)
 }

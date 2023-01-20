@@ -4,6 +4,18 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Retrieve information about a GuardDuty detector.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.guardduty.getDetector({});
+ * ```
+ */
 export function getDetector(args?: GetDetectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDetectorResult> {
     args = args || {};
 
@@ -17,6 +29,9 @@ export function getDetector(args?: GetDetectorArgs, opts?: pulumi.InvokeOptions)
  * A collection of arguments for invoking getDetector.
  */
 export interface GetDetectorArgs {
+    /**
+     * ID of the detector.
+     */
     id?: string;
 }
 
@@ -24,11 +39,32 @@ export interface GetDetectorArgs {
  * A collection of values returned by getDetector.
  */
 export interface GetDetectorResult {
+    /**
+     * The frequency of notifications sent about subsequent finding occurrences.
+     */
     readonly findingPublishingFrequency: string;
     readonly id: string;
+    /**
+     * Service-linked role that grants GuardDuty access to the resources in the AWS account.
+     */
     readonly serviceRoleArn: string;
+    /**
+     * Current status of the detector.
+     */
     readonly status: string;
 }
+/**
+ * Retrieve information about a GuardDuty detector.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.guardduty.getDetector({});
+ * ```
+ */
 export function getDetectorOutput(args?: GetDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDetectorResult> {
     return pulumi.output(args).apply((a: any) => getDetector(a, opts))
 }
@@ -37,5 +73,8 @@ export function getDetectorOutput(args?: GetDetectorOutputArgs, opts?: pulumi.In
  * A collection of arguments for invoking getDetector.
  */
 export interface GetDetectorOutputArgs {
+    /**
+     * ID of the detector.
+     */
     id?: pulumi.Input<string>;
 }

@@ -6,6 +6,38 @@ import * as utilities from "../utilities";
 
 import {PolicyDocument} from "./index";
 
+/**
+ * Provides an IAM policy attached to a user.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const lbUser = new aws.iam.User("lbUser", {path: "/system/"});
+ * const lbRo = new aws.iam.UserPolicy("lbRo", {
+ *     user: lbUser.name,
+ *     policy: JSON.stringify({
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: ["ec2:Describe*"],
+ *             Effect: "Allow",
+ *             Resource: "*",
+ *         }],
+ *     }),
+ * });
+ * const lbAccessKey = new aws.iam.AccessKey("lbAccessKey", {user: lbUser.name});
+ * ```
+ *
+ * ## Import
+ *
+ * IAM User Policies can be imported using the `user_name:user_policy_name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
+ * ```
+ */
 export class UserPolicy extends pulumi.CustomResource {
     /**
      * Get an existing UserPolicy resource's state with the given name, ID, and optional extra
@@ -34,9 +66,21 @@ export class UserPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserPolicy.__pulumiType;
     }
 
+    /**
+     * The name of the policy. If omitted, the provider will assign a random, unique name.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     public readonly policy!: pulumi.Output<string>;
+    /**
+     * IAM user to which to attach this policy.
+     */
     public readonly user!: pulumi.Output<string>;
 
     /**
@@ -78,9 +122,21 @@ export class UserPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserPolicy resources.
  */
 export interface UserPolicyState {
+    /**
+     * The name of the policy. If omitted, the provider will assign a random, unique name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     policy?: pulumi.Input<string | PolicyDocument>;
+    /**
+     * IAM user to which to attach this policy.
+     */
     user?: pulumi.Input<string>;
 }
 
@@ -88,8 +144,20 @@ export interface UserPolicyState {
  * The set of arguments for constructing a UserPolicy resource.
  */
 export interface UserPolicyArgs {
+    /**
+     * The name of the policy. If omitted, the provider will assign a random, unique name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     policy: pulumi.Input<string | PolicyDocument>;
+    /**
+     * IAM user to which to attach this policy.
+     */
     user: pulumi.Input<string>;
 }

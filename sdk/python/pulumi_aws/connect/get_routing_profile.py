@@ -57,16 +57,25 @@ class GetRoutingProfileResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the Routing Profile.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="defaultOutboundQueueId")
     def default_outbound_queue_id(self) -> str:
+        """
+        Specifies the default outbound queue for the Routing Profile.
+        """
         return pulumi.get(self, "default_outbound_queue_id")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the Routing Profile.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -85,6 +94,9 @@ class GetRoutingProfileResult:
     @property
     @pulumi.getter(name="mediaConcurrencies")
     def media_concurrencies(self) -> Sequence['outputs.GetRoutingProfileMediaConcurrencyResult']:
+        """
+        One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
+        """
         return pulumi.get(self, "media_concurrencies")
 
     @property
@@ -95,6 +107,9 @@ class GetRoutingProfileResult:
     @property
     @pulumi.getter(name="queueConfigs")
     def queue_configs(self) -> Sequence['outputs.GetRoutingProfileQueueConfigResult']:
+        """
+        One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
+        """
         return pulumi.get(self, "queue_configs")
 
     @property
@@ -105,6 +120,9 @@ class GetRoutingProfileResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Map of tags to assign to the Routing Profile.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -132,7 +150,35 @@ def get_routing_profile(instance_id: Optional[str] = None,
                         tags: Optional[Mapping[str, str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoutingProfileResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about a specific Amazon Connect Routing Profile.
+
+    ## Example Usage
+
+    By `name`
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.connect.get_routing_profile(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        name="Example")
+    ```
+
+    By `routing_profile_id`
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.connect.get_routing_profile(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        routing_profile_id="cccccccc-bbbb-cccc-dddd-111111111111")
+    ```
+
+
+    :param str instance_id: Reference to the hosting Amazon Connect Instance
+    :param str name: Returns information on a specific Routing Profile by name
+    :param str routing_profile_id: Returns information on a specific Routing Profile by Routing Profile id
+    :param Mapping[str, str] tags: Map of tags to assign to the Routing Profile.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
@@ -162,6 +208,34 @@ def get_routing_profile_output(instance_id: Optional[pulumi.Input[str]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoutingProfileResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about a specific Amazon Connect Routing Profile.
+
+    ## Example Usage
+
+    By `name`
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.connect.get_routing_profile(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        name="Example")
+    ```
+
+    By `routing_profile_id`
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.connect.get_routing_profile(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        routing_profile_id="cccccccc-bbbb-cccc-dddd-111111111111")
+    ```
+
+
+    :param str instance_id: Reference to the hosting Amazon Connect Instance
+    :param str name: Returns information on a specific Routing Profile by name
+    :param str routing_profile_id: Returns information on a specific Routing Profile by Routing Profile id
+    :param Mapping[str, str] tags: Map of tags to assign to the Routing Profile.
     """
     ...

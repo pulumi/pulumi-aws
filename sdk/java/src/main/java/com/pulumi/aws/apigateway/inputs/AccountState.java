@@ -17,16 +17,32 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
 
     public static final AccountState Empty = new AccountState();
 
+    /**
+     * ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+     * 
+     */
     @Import(name="cloudwatchRoleArn")
     private @Nullable Output<String> cloudwatchRoleArn;
 
+    /**
+     * @return ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+     * 
+     */
     public Optional<Output<String>> cloudwatchRoleArn() {
         return Optional.ofNullable(this.cloudwatchRoleArn);
     }
 
+    /**
+     * Account-Level throttle settings. See exported fields below.
+     * 
+     */
     @Import(name="throttleSettings")
     private @Nullable Output<List<AccountThrottleSettingArgs>> throttleSettings;
 
+    /**
+     * @return Account-Level throttle settings. See exported fields below.
+     * 
+     */
     public Optional<Output<List<AccountThrottleSettingArgs>>> throttleSettings() {
         return Optional.ofNullable(this.throttleSettings);
     }
@@ -56,24 +72,54 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
             $ = new AccountState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cloudwatchRoleArn ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudwatchRoleArn(@Nullable Output<String> cloudwatchRoleArn) {
             $.cloudwatchRoleArn = cloudwatchRoleArn;
             return this;
         }
 
+        /**
+         * @param cloudwatchRoleArn ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudwatchRoleArn(String cloudwatchRoleArn) {
             return cloudwatchRoleArn(Output.of(cloudwatchRoleArn));
         }
 
+        /**
+         * @param throttleSettings Account-Level throttle settings. See exported fields below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder throttleSettings(@Nullable Output<List<AccountThrottleSettingArgs>> throttleSettings) {
             $.throttleSettings = throttleSettings;
             return this;
         }
 
+        /**
+         * @param throttleSettings Account-Level throttle settings. See exported fields below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder throttleSettings(List<AccountThrottleSettingArgs> throttleSettings) {
             return throttleSettings(Output.of(throttleSettings));
         }
 
+        /**
+         * @param throttleSettings Account-Level throttle settings. See exported fields below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder throttleSettings(AccountThrottleSettingArgs... throttleSettings) {
             return throttleSettings(List.of(throttleSettings));
         }

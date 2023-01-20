@@ -26,75 +26,1225 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class RedshiftFunctions {
+    /**
+     * Provides details about a specific redshift cluster.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetClusterArgs;
+     * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+     * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getCluster(GetClusterArgs.builder()
+     *             .clusterIdentifier(&#34;example-cluster&#34;)
+     *             .build());
+     * 
+     *         var exampleStream = new FirehoseDeliveryStream(&#34;exampleStream&#34;, FirehoseDeliveryStreamArgs.builder()        
+     *             .destination(&#34;redshift&#34;)
+     *             .s3Configuration(FirehoseDeliveryStreamS3ConfigurationArgs.builder()
+     *                 .roleArn(aws_iam_role.firehose_role().arn())
+     *                 .bucketArn(aws_s3_bucket.bucket().arn())
+     *                 .bufferSize(10)
+     *                 .bufferInterval(400)
+     *                 .compressionFormat(&#34;GZIP&#34;)
+     *                 .build())
+     *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
+     *                 .roleArn(aws_iam_role.firehose_role().arn())
+     *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()),example.applyValue(getClusterResult -&gt; getClusterResult.databaseName())))
+     *                 .username(&#34;exampleuser&#34;)
+     *                 .password(&#34;Exampl3Pass&#34;)
+     *                 .dataTableName(&#34;example-table&#34;)
+     *                 .copyOptions(&#34;delimiter &#39;|&#39;&#34;)
+     *                 .dataTableColumns(&#34;example-col&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
         return getCluster(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about a specific redshift cluster.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetClusterArgs;
+     * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+     * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getCluster(GetClusterArgs.builder()
+     *             .clusterIdentifier(&#34;example-cluster&#34;)
+     *             .build());
+     * 
+     *         var exampleStream = new FirehoseDeliveryStream(&#34;exampleStream&#34;, FirehoseDeliveryStreamArgs.builder()        
+     *             .destination(&#34;redshift&#34;)
+     *             .s3Configuration(FirehoseDeliveryStreamS3ConfigurationArgs.builder()
+     *                 .roleArn(aws_iam_role.firehose_role().arn())
+     *                 .bucketArn(aws_s3_bucket.bucket().arn())
+     *                 .bufferSize(10)
+     *                 .bufferInterval(400)
+     *                 .compressionFormat(&#34;GZIP&#34;)
+     *                 .build())
+     *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
+     *                 .roleArn(aws_iam_role.firehose_role().arn())
+     *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()),example.applyValue(getClusterResult -&gt; getClusterResult.databaseName())))
+     *                 .username(&#34;exampleuser&#34;)
+     *                 .password(&#34;Exampl3Pass&#34;)
+     *                 .dataTableName(&#34;example-table&#34;)
+     *                 .copyOptions(&#34;delimiter &#39;|&#39;&#34;)
+     *                 .dataTableColumns(&#34;example-col&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
         return getClusterPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about a specific redshift cluster.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetClusterArgs;
+     * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+     * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getCluster(GetClusterArgs.builder()
+     *             .clusterIdentifier(&#34;example-cluster&#34;)
+     *             .build());
+     * 
+     *         var exampleStream = new FirehoseDeliveryStream(&#34;exampleStream&#34;, FirehoseDeliveryStreamArgs.builder()        
+     *             .destination(&#34;redshift&#34;)
+     *             .s3Configuration(FirehoseDeliveryStreamS3ConfigurationArgs.builder()
+     *                 .roleArn(aws_iam_role.firehose_role().arn())
+     *                 .bucketArn(aws_s3_bucket.bucket().arn())
+     *                 .bufferSize(10)
+     *                 .bufferInterval(400)
+     *                 .compressionFormat(&#34;GZIP&#34;)
+     *                 .build())
+     *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
+     *                 .roleArn(aws_iam_role.firehose_role().arn())
+     *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()),example.applyValue(getClusterResult -&gt; getClusterResult.databaseName())))
+     *                 .username(&#34;exampleuser&#34;)
+     *                 .password(&#34;Exampl3Pass&#34;)
+     *                 .dataTableName(&#34;example-table&#34;)
+     *                 .copyOptions(&#34;delimiter &#39;|&#39;&#34;)
+     *                 .dataTableColumns(&#34;example-col&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:redshift/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides details about a specific redshift cluster.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetClusterArgs;
+     * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+     * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getCluster(GetClusterArgs.builder()
+     *             .clusterIdentifier(&#34;example-cluster&#34;)
+     *             .build());
+     * 
+     *         var exampleStream = new FirehoseDeliveryStream(&#34;exampleStream&#34;, FirehoseDeliveryStreamArgs.builder()        
+     *             .destination(&#34;redshift&#34;)
+     *             .s3Configuration(FirehoseDeliveryStreamS3ConfigurationArgs.builder()
+     *                 .roleArn(aws_iam_role.firehose_role().arn())
+     *                 .bucketArn(aws_s3_bucket.bucket().arn())
+     *                 .bufferSize(10)
+     *                 .bufferInterval(400)
+     *                 .compressionFormat(&#34;GZIP&#34;)
+     *                 .build())
+     *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
+     *                 .roleArn(aws_iam_role.firehose_role().arn())
+     *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()),example.applyValue(getClusterResult -&gt; getClusterResult.databaseName())))
+     *                 .username(&#34;exampleuser&#34;)
+     *                 .password(&#34;Exampl3Pass&#34;)
+     *                 .dataTableName(&#34;example-table&#34;)
+     *                 .copyOptions(&#34;delimiter &#39;|&#39;&#34;)
+     *                 .dataTableColumns(&#34;example-col&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:redshift/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides redshift cluster temporary credentials.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetClusterCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
+     *             .clusterIdentifier(aws_redshift_cluster.example().cluster_identifier())
+     *             .dbUser(aws_redshift_cluster.example().master_username())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetClusterCredentialsResult> getClusterCredentials(GetClusterCredentialsArgs args) {
         return getClusterCredentials(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides redshift cluster temporary credentials.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetClusterCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
+     *             .clusterIdentifier(aws_redshift_cluster.example().cluster_identifier())
+     *             .dbUser(aws_redshift_cluster.example().master_username())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetClusterCredentialsResult> getClusterCredentialsPlain(GetClusterCredentialsPlainArgs args) {
         return getClusterCredentialsPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides redshift cluster temporary credentials.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetClusterCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
+     *             .clusterIdentifier(aws_redshift_cluster.example().cluster_identifier())
+     *             .dbUser(aws_redshift_cluster.example().master_username())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetClusterCredentialsResult> getClusterCredentials(GetClusterCredentialsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:redshift/getClusterCredentials:getClusterCredentials", TypeShape.of(GetClusterCredentialsResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides redshift cluster temporary credentials.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetClusterCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
+     *             .clusterIdentifier(aws_redshift_cluster.example().cluster_identifier())
+     *             .dbUser(aws_redshift_cluster.example().master_username())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetClusterCredentialsResult> getClusterCredentialsPlain(GetClusterCredentialsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:redshift/getClusterCredentials:getClusterCredentials", TypeShape.of(GetClusterCredentialsResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Information about Redshift Orderable Clusters and valid parameter combinations.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
+     *             .clusterType(&#34;multi-node&#34;)
+     *             .preferredNodeTypes(            
+     *                 &#34;dc2.large&#34;,
+     *                 &#34;ds2.xlarge&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOrderableClusterResult> getOrderableCluster() {
         return getOrderableCluster(GetOrderableClusterArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Information about Redshift Orderable Clusters and valid parameter combinations.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
+     *             .clusterType(&#34;multi-node&#34;)
+     *             .preferredNodeTypes(            
+     *                 &#34;dc2.large&#34;,
+     *                 &#34;ds2.xlarge&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOrderableClusterResult> getOrderableClusterPlain() {
         return getOrderableClusterPlain(GetOrderableClusterPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Information about Redshift Orderable Clusters and valid parameter combinations.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
+     *             .clusterType(&#34;multi-node&#34;)
+     *             .preferredNodeTypes(            
+     *                 &#34;dc2.large&#34;,
+     *                 &#34;ds2.xlarge&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOrderableClusterResult> getOrderableCluster(GetOrderableClusterArgs args) {
         return getOrderableCluster(args, InvokeOptions.Empty);
     }
+    /**
+     * Information about Redshift Orderable Clusters and valid parameter combinations.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
+     *             .clusterType(&#34;multi-node&#34;)
+     *             .preferredNodeTypes(            
+     *                 &#34;dc2.large&#34;,
+     *                 &#34;ds2.xlarge&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOrderableClusterResult> getOrderableClusterPlain(GetOrderableClusterPlainArgs args) {
         return getOrderableClusterPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Information about Redshift Orderable Clusters and valid parameter combinations.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
+     *             .clusterType(&#34;multi-node&#34;)
+     *             .preferredNodeTypes(            
+     *                 &#34;dc2.large&#34;,
+     *                 &#34;ds2.xlarge&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOrderableClusterResult> getOrderableCluster(GetOrderableClusterArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:redshift/getOrderableCluster:getOrderableCluster", TypeShape.of(GetOrderableClusterResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Information about Redshift Orderable Clusters and valid parameter combinations.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
+     *             .clusterType(&#34;multi-node&#34;)
+     *             .preferredNodeTypes(            
+     *                 &#34;dc2.large&#34;,
+     *                 &#34;ds2.xlarge&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOrderableClusterResult> getOrderableClusterPlain(GetOrderableClusterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:redshift/getOrderableCluster:getOrderableCluster", TypeShape.of(GetOrderableClusterResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+     * in a given region for the purpose of allowing Redshift to store audit data in S3.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = RedshiftFunctions.getServiceAccount();
+     * 
+     *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .forceDestroy(true)
+     *             .build());
+     * 
+     *         var allowAuditLogging = new BucketPolicy(&#34;allowAuditLogging&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(bucket.id())
+     *             .policy(&#34;&#34;&#34;
+     * {
+     * 	&#34;Version&#34;: &#34;2008-10-17&#34;,
+     * 	&#34;Statement&#34;: [
+     * 		{
+     *             &#34;Sid&#34;: &#34;Put bucket policy needed for audit logging&#34;,
+     *             &#34;Effect&#34;: &#34;Allow&#34;,
+     *             &#34;Principal&#34;: {
+     * 		        &#34;AWS&#34;: &#34;%s&#34;
+     *             },
+     *             &#34;Action&#34;: &#34;s3:PutObject&#34;,
+     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket/*&#34;
+     *         },
+     *         {
+     *             &#34;Sid&#34;: &#34;Get bucket policy needed for audit logging &#34;,
+     *             &#34;Effect&#34;: &#34;Allow&#34;,
+     *             &#34;Principal&#34;: {
+     * 		        &#34;AWS&#34;: &#34;%s&#34;
+     *             },
+     *             &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
+     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket&#34;
+     *         }
+     * 	]
+     * }
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetServiceAccountResult> getServiceAccount() {
         return getServiceAccount(GetServiceAccountArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+     * in a given region for the purpose of allowing Redshift to store audit data in S3.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = RedshiftFunctions.getServiceAccount();
+     * 
+     *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .forceDestroy(true)
+     *             .build());
+     * 
+     *         var allowAuditLogging = new BucketPolicy(&#34;allowAuditLogging&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(bucket.id())
+     *             .policy(&#34;&#34;&#34;
+     * {
+     * 	&#34;Version&#34;: &#34;2008-10-17&#34;,
+     * 	&#34;Statement&#34;: [
+     * 		{
+     *             &#34;Sid&#34;: &#34;Put bucket policy needed for audit logging&#34;,
+     *             &#34;Effect&#34;: &#34;Allow&#34;,
+     *             &#34;Principal&#34;: {
+     * 		        &#34;AWS&#34;: &#34;%s&#34;
+     *             },
+     *             &#34;Action&#34;: &#34;s3:PutObject&#34;,
+     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket/*&#34;
+     *         },
+     *         {
+     *             &#34;Sid&#34;: &#34;Get bucket policy needed for audit logging &#34;,
+     *             &#34;Effect&#34;: &#34;Allow&#34;,
+     *             &#34;Principal&#34;: {
+     * 		        &#34;AWS&#34;: &#34;%s&#34;
+     *             },
+     *             &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
+     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket&#34;
+     *         }
+     * 	]
+     * }
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain() {
         return getServiceAccountPlain(GetServiceAccountPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+     * in a given region for the purpose of allowing Redshift to store audit data in S3.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = RedshiftFunctions.getServiceAccount();
+     * 
+     *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .forceDestroy(true)
+     *             .build());
+     * 
+     *         var allowAuditLogging = new BucketPolicy(&#34;allowAuditLogging&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(bucket.id())
+     *             .policy(&#34;&#34;&#34;
+     * {
+     * 	&#34;Version&#34;: &#34;2008-10-17&#34;,
+     * 	&#34;Statement&#34;: [
+     * 		{
+     *             &#34;Sid&#34;: &#34;Put bucket policy needed for audit logging&#34;,
+     *             &#34;Effect&#34;: &#34;Allow&#34;,
+     *             &#34;Principal&#34;: {
+     * 		        &#34;AWS&#34;: &#34;%s&#34;
+     *             },
+     *             &#34;Action&#34;: &#34;s3:PutObject&#34;,
+     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket/*&#34;
+     *         },
+     *         {
+     *             &#34;Sid&#34;: &#34;Get bucket policy needed for audit logging &#34;,
+     *             &#34;Effect&#34;: &#34;Allow&#34;,
+     *             &#34;Principal&#34;: {
+     * 		        &#34;AWS&#34;: &#34;%s&#34;
+     *             },
+     *             &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
+     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket&#34;
+     *         }
+     * 	]
+     * }
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args) {
         return getServiceAccount(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+     * in a given region for the purpose of allowing Redshift to store audit data in S3.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = RedshiftFunctions.getServiceAccount();
+     * 
+     *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .forceDestroy(true)
+     *             .build());
+     * 
+     *         var allowAuditLogging = new BucketPolicy(&#34;allowAuditLogging&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(bucket.id())
+     *             .policy(&#34;&#34;&#34;
+     * {
+     * 	&#34;Version&#34;: &#34;2008-10-17&#34;,
+     * 	&#34;Statement&#34;: [
+     * 		{
+     *             &#34;Sid&#34;: &#34;Put bucket policy needed for audit logging&#34;,
+     *             &#34;Effect&#34;: &#34;Allow&#34;,
+     *             &#34;Principal&#34;: {
+     * 		        &#34;AWS&#34;: &#34;%s&#34;
+     *             },
+     *             &#34;Action&#34;: &#34;s3:PutObject&#34;,
+     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket/*&#34;
+     *         },
+     *         {
+     *             &#34;Sid&#34;: &#34;Get bucket policy needed for audit logging &#34;,
+     *             &#34;Effect&#34;: &#34;Allow&#34;,
+     *             &#34;Principal&#34;: {
+     * 		        &#34;AWS&#34;: &#34;%s&#34;
+     *             },
+     *             &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
+     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket&#34;
+     *         }
+     * 	]
+     * }
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args) {
         return getServiceAccountPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+     * in a given region for the purpose of allowing Redshift to store audit data in S3.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = RedshiftFunctions.getServiceAccount();
+     * 
+     *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .forceDestroy(true)
+     *             .build());
+     * 
+     *         var allowAuditLogging = new BucketPolicy(&#34;allowAuditLogging&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(bucket.id())
+     *             .policy(&#34;&#34;&#34;
+     * {
+     * 	&#34;Version&#34;: &#34;2008-10-17&#34;,
+     * 	&#34;Statement&#34;: [
+     * 		{
+     *             &#34;Sid&#34;: &#34;Put bucket policy needed for audit logging&#34;,
+     *             &#34;Effect&#34;: &#34;Allow&#34;,
+     *             &#34;Principal&#34;: {
+     * 		        &#34;AWS&#34;: &#34;%s&#34;
+     *             },
+     *             &#34;Action&#34;: &#34;s3:PutObject&#34;,
+     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket/*&#34;
+     *         },
+     *         {
+     *             &#34;Sid&#34;: &#34;Get bucket policy needed for audit logging &#34;,
+     *             &#34;Effect&#34;: &#34;Allow&#34;,
+     *             &#34;Principal&#34;: {
+     * 		        &#34;AWS&#34;: &#34;%s&#34;
+     *             },
+     *             &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
+     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket&#34;
+     *         }
+     * 	]
+     * }
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:redshift/getServiceAccount:getServiceAccount", TypeShape.of(GetServiceAccountResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+     * in a given region for the purpose of allowing Redshift to store audit data in S3.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = RedshiftFunctions.getServiceAccount();
+     * 
+     *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+     *             .forceDestroy(true)
+     *             .build());
+     * 
+     *         var allowAuditLogging = new BucketPolicy(&#34;allowAuditLogging&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(bucket.id())
+     *             .policy(&#34;&#34;&#34;
+     * {
+     * 	&#34;Version&#34;: &#34;2008-10-17&#34;,
+     * 	&#34;Statement&#34;: [
+     * 		{
+     *             &#34;Sid&#34;: &#34;Put bucket policy needed for audit logging&#34;,
+     *             &#34;Effect&#34;: &#34;Allow&#34;,
+     *             &#34;Principal&#34;: {
+     * 		        &#34;AWS&#34;: &#34;%s&#34;
+     *             },
+     *             &#34;Action&#34;: &#34;s3:PutObject&#34;,
+     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket/*&#34;
+     *         },
+     *         {
+     *             &#34;Sid&#34;: &#34;Get bucket policy needed for audit logging &#34;,
+     *             &#34;Effect&#34;: &#34;Allow&#34;,
+     *             &#34;Principal&#34;: {
+     * 		        &#34;AWS&#34;: &#34;%s&#34;
+     *             },
+     *             &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
+     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket&#34;
+     *         }
+     * 	]
+     * }
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:redshift/getServiceAccount:getServiceAccount", TypeShape.of(GetServiceAccountResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides details about a specific redshift subnet group.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
+     *             .name(aws_redshift_subnet_group.example().name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetSubnetGroupResult> getSubnetGroup(GetSubnetGroupArgs args) {
         return getSubnetGroup(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about a specific redshift subnet group.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
+     *             .name(aws_redshift_subnet_group.example().name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetSubnetGroupResult> getSubnetGroupPlain(GetSubnetGroupPlainArgs args) {
         return getSubnetGroupPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides details about a specific redshift subnet group.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
+     *             .name(aws_redshift_subnet_group.example().name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetSubnetGroupResult> getSubnetGroup(GetSubnetGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:redshift/getSubnetGroup:getSubnetGroup", TypeShape.of(GetSubnetGroupResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides details about a specific redshift subnet group.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
+     *             .name(aws_redshift_subnet_group.example().name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetSubnetGroupResult> getSubnetGroupPlain(GetSubnetGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:redshift/getSubnetGroup:getSubnetGroup", TypeShape.of(GetSubnetGroupResult.class), args, Utilities.withVersion(options));
     }

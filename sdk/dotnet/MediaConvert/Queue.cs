@@ -9,30 +9,79 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.MediaConvert
 {
+    /// <summary>
+    /// Provides an AWS Elemental MediaConvert Queue.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.MediaConvert.Queue("test");
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Media Convert Queue can be imported via the queue name, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:mediaconvert/queue:Queue")]
     public partial class Queue : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Arn of the queue
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the queue
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// A unique identifier describing the queue
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+        /// </summary>
         [Output("pricingPlan")]
         public Output<string?> PricingPlan { get; private set; } = null!;
 
+        /// <summary>
+        /// A detail pricing plan of the  reserved queue. See below.
+        /// </summary>
         [Output("reservationPlanSettings")]
         public Output<Outputs.QueueReservationPlanSettings> ReservationPlanSettings { get; private set; } = null!;
 
+        /// <summary>
+        /// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -82,23 +131,42 @@ namespace Pulumi.Aws.MediaConvert
 
     public sealed class QueueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description of the queue
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A unique identifier describing the queue
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+        /// </summary>
         [Input("pricingPlan")]
         public Input<string>? PricingPlan { get; set; }
 
+        /// <summary>
+        /// A detail pricing plan of the  reserved queue. See below.
+        /// </summary>
         [Input("reservationPlanSettings")]
         public Input<Inputs.QueueReservationPlanSettingsArgs>? ReservationPlanSettings { get; set; }
 
+        /// <summary>
+        /// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -113,26 +181,48 @@ namespace Pulumi.Aws.MediaConvert
 
     public sealed class QueueState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Arn of the queue
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// A description of the queue
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A unique identifier describing the queue
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+        /// </summary>
         [Input("pricingPlan")]
         public Input<string>? PricingPlan { get; set; }
 
+        /// <summary>
+        /// A detail pricing plan of the  reserved queue. See below.
+        /// </summary>
         [Input("reservationPlanSettings")]
         public Input<Inputs.QueueReservationPlanSettingsGetArgs>? ReservationPlanSettings { get; set; }
 
+        /// <summary>
+        /// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -141,6 +231,10 @@ namespace Pulumi.Aws.MediaConvert
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

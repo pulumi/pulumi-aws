@@ -18,16 +18,34 @@ public final class GetVpcsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetVpcsArgs Empty = new GetVpcsArgs();
 
+    /**
+     * Custom filter block as described below.
+     * 
+     */
     @Import(name="filters")
     private @Nullable Output<List<GetVpcsFilterArgs>> filters;
 
+    /**
+     * @return Custom filter block as described below.
+     * 
+     */
     public Optional<Output<List<GetVpcsFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
+    /**
+     * Map of tags, each pair of which must exactly match
+     * a pair on the desired vpcs.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Map of tags, each pair of which must exactly match
+     * a pair on the desired vpcs.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -57,24 +75,56 @@ public final class GetVpcsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetVpcsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filters Custom filter block as described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable Output<List<GetVpcsFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters Custom filter block as described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(List<GetVpcsFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
+        /**
+         * @param filters Custom filter block as described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(GetVpcsFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
+        /**
+         * @param tags Map of tags, each pair of which must exactly match
+         * a pair on the desired vpcs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Map of tags, each pair of which must exactly match
+         * a pair on the desired vpcs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

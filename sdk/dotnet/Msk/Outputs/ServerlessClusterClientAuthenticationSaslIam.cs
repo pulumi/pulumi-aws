@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class ServerlessClusterClientAuthenticationSaslIam
     {
+        /// <summary>
+        /// Whether SASL/IAM authentication is enabled or not.
+        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

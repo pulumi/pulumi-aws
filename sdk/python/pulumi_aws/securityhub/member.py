@@ -19,6 +19,9 @@ class MemberArgs:
                  invite: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Member resource.
+        :param pulumi.Input[str] account_id: The ID of the member AWS account.
+        :param pulumi.Input[str] email: The email of the member AWS account.
+        :param pulumi.Input[bool] invite: Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "email", email)
@@ -28,6 +31,9 @@ class MemberArgs:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the member AWS account.
+        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -37,6 +43,9 @@ class MemberArgs:
     @property
     @pulumi.getter
     def email(self) -> pulumi.Input[str]:
+        """
+        The email of the member AWS account.
+        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -46,6 +55,9 @@ class MemberArgs:
     @property
     @pulumi.getter
     def invite(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
+        """
         return pulumi.get(self, "invite")
 
     @invite.setter
@@ -63,6 +75,11 @@ class _MemberState:
                  member_status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Member resources.
+        :param pulumi.Input[str] account_id: The ID of the member AWS account.
+        :param pulumi.Input[str] email: The email of the member AWS account.
+        :param pulumi.Input[bool] invite: Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
+        :param pulumi.Input[str] master_id: The ID of the master Security Hub AWS account.
+        :param pulumi.Input[str] member_status: The status of the member account relationship.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -78,6 +95,9 @@ class _MemberState:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the member AWS account.
+        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -87,6 +107,9 @@ class _MemberState:
     @property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[str]]:
+        """
+        The email of the member AWS account.
+        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -96,6 +119,9 @@ class _MemberState:
     @property
     @pulumi.getter
     def invite(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
+        """
         return pulumi.get(self, "invite")
 
     @invite.setter
@@ -105,6 +131,9 @@ class _MemberState:
     @property
     @pulumi.getter(name="masterId")
     def master_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the master Security Hub AWS account.
+        """
         return pulumi.get(self, "master_id")
 
     @master_id.setter
@@ -114,6 +143,9 @@ class _MemberState:
     @property
     @pulumi.getter(name="memberStatus")
     def member_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the member account relationship.
+        """
         return pulumi.get(self, "member_status")
 
     @member_status.setter
@@ -131,9 +163,35 @@ class Member(pulumi.CustomResource):
                  invite: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a Member resource with the given unique name, props, and options.
+        Provides a Security Hub member resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_account = aws.securityhub.Account("exampleAccount")
+        example_member = aws.securityhub.Member("exampleMember",
+            account_id="123456789012",
+            email="example@example.com",
+            invite=True,
+            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+        ```
+
+        ## Import
+
+        Security Hub members can be imported using their account ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:securityhub/member:Member example 123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_id: The ID of the member AWS account.
+        :param pulumi.Input[str] email: The email of the member AWS account.
+        :param pulumi.Input[bool] invite: Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
         """
         ...
     @overload
@@ -142,7 +200,30 @@ class Member(pulumi.CustomResource):
                  args: MemberArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Member resource with the given unique name, props, and options.
+        Provides a Security Hub member resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_account = aws.securityhub.Account("exampleAccount")
+        example_member = aws.securityhub.Member("exampleMember",
+            account_id="123456789012",
+            email="example@example.com",
+            invite=True,
+            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+        ```
+
+        ## Import
+
+        Security Hub members can be imported using their account ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:securityhub/member:Member example 123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param MemberArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,6 +282,11 @@ class Member(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_id: The ID of the member AWS account.
+        :param pulumi.Input[str] email: The email of the member AWS account.
+        :param pulumi.Input[bool] invite: Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
+        :param pulumi.Input[str] master_id: The ID of the master Security Hub AWS account.
+        :param pulumi.Input[str] member_status: The status of the member account relationship.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -216,25 +302,40 @@ class Member(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the member AWS account.
+        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
     def email(self) -> pulumi.Output[str]:
+        """
+        The email of the member AWS account.
+        """
         return pulumi.get(self, "email")
 
     @property
     @pulumi.getter
     def invite(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
+        """
         return pulumi.get(self, "invite")
 
     @property
     @pulumi.getter(name="masterId")
     def master_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the master Security Hub AWS account.
+        """
         return pulumi.get(self, "master_id")
 
     @property
     @pulumi.getter(name="memberStatus")
     def member_status(self) -> pulumi.Output[str]:
+        """
+        The status of the member account relationship.
+        """
         return pulumi.get(self, "member_status")
 

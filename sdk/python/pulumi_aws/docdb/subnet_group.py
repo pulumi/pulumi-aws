@@ -21,6 +21,11 @@ class SubnetGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SubnetGroup resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of VPC subnet IDs.
+        :param pulumi.Input[str] description: The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] name: The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if description is None:
@@ -37,6 +42,9 @@ class SubnetGroupArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of VPC subnet IDs.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -46,6 +54,9 @@ class SubnetGroupArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -55,6 +66,9 @@ class SubnetGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -64,6 +78,9 @@ class SubnetGroupArgs:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -73,6 +90,9 @@ class SubnetGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -92,6 +112,13 @@ class _SubnetGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering SubnetGroup resources.
+        :param pulumi.Input[str] arn: The ARN of the docDB subnet group.
+        :param pulumi.Input[str] description: The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] name: The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of VPC subnet IDs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -113,6 +140,9 @@ class _SubnetGroupState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the docDB subnet group.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -122,6 +152,9 @@ class _SubnetGroupState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -131,6 +164,9 @@ class _SubnetGroupState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -140,6 +176,9 @@ class _SubnetGroupState:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -149,6 +188,9 @@ class _SubnetGroupState:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of VPC subnet IDs.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -158,6 +200,9 @@ class _SubnetGroupState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -167,6 +212,9 @@ class _SubnetGroupState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -186,9 +234,39 @@ class SubnetGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a SubnetGroup resource with the given unique name, props, and options.
+        Provides an DocumentDB subnet group resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.docdb.SubnetGroup("default",
+            subnet_ids=[
+                aws_subnet["frontend"]["id"],
+                aws_subnet["backend"]["id"],
+            ],
+            tags={
+                "Name": "My docdb subnet group",
+            })
+        ```
+
+        ## Import
+
+        DocumentDB Subnet groups can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] name: The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of VPC subnet IDs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -197,7 +275,32 @@ class SubnetGroup(pulumi.CustomResource):
                  args: SubnetGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SubnetGroup resource with the given unique name, props, and options.
+        Provides an DocumentDB subnet group resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.docdb.SubnetGroup("default",
+            subnet_ids=[
+                aws_subnet["frontend"]["id"],
+                aws_subnet["backend"]["id"],
+            ],
+            tags={
+                "Name": "My docdb subnet group",
+            })
+        ```
+
+        ## Import
+
+        DocumentDB Subnet groups can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
+        ```
+
         :param str resource_name: The name of the resource.
         :param SubnetGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -262,6 +365,13 @@ class SubnetGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the docDB subnet group.
+        :param pulumi.Input[str] description: The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] name: The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of VPC subnet IDs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -279,35 +389,56 @@ class SubnetGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the docDB subnet group.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[str]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of VPC subnet IDs.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

@@ -9,33 +9,156 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rds
 {
+    /// <summary>
+    /// Manages an RDS Aurora Cluster Endpoint.
+    /// You can refer to the [User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = new Aws.Rds.Cluster("default", new()
+    ///     {
+    ///         ClusterIdentifier = "aurora-cluster-demo",
+    ///         AvailabilityZones = new[]
+    ///         {
+    ///             "us-west-2a",
+    ///             "us-west-2b",
+    ///             "us-west-2c",
+    ///         },
+    ///         DatabaseName = "mydb",
+    ///         MasterUsername = "foo",
+    ///         MasterPassword = "bar",
+    ///         BackupRetentionPeriod = 5,
+    ///         PreferredBackupWindow = "07:00-09:00",
+    ///     });
+    /// 
+    ///     var test1 = new Aws.Rds.ClusterInstance("test1", new()
+    ///     {
+    ///         ApplyImmediately = true,
+    ///         ClusterIdentifier = @default.Id,
+    ///         Identifier = "test1",
+    ///         InstanceClass = "db.t2.small",
+    ///         Engine = @default.Engine,
+    ///         EngineVersion = @default.EngineVersion,
+    ///     });
+    /// 
+    ///     var test2 = new Aws.Rds.ClusterInstance("test2", new()
+    ///     {
+    ///         ApplyImmediately = true,
+    ///         ClusterIdentifier = @default.Id,
+    ///         Identifier = "test2",
+    ///         InstanceClass = "db.t2.small",
+    ///         Engine = @default.Engine,
+    ///         EngineVersion = @default.EngineVersion,
+    ///     });
+    /// 
+    ///     var test3 = new Aws.Rds.ClusterInstance("test3", new()
+    ///     {
+    ///         ApplyImmediately = true,
+    ///         ClusterIdentifier = @default.Id,
+    ///         Identifier = "test3",
+    ///         InstanceClass = "db.t2.small",
+    ///         Engine = @default.Engine,
+    ///         EngineVersion = @default.EngineVersion,
+    ///     });
+    /// 
+    ///     var eligible = new Aws.Rds.ClusterEndpoint("eligible", new()
+    ///     {
+    ///         ClusterIdentifier = @default.Id,
+    ///         ClusterEndpointIdentifier = "reader",
+    ///         CustomEndpointType = "READER",
+    ///         ExcludedMembers = new[]
+    ///         {
+    ///             test1.Id,
+    ///             test2.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var @static = new Aws.Rds.ClusterEndpoint("static", new()
+    ///     {
+    ///         ClusterIdentifier = @default.Id,
+    ///         ClusterEndpointIdentifier = "static",
+    ///         CustomEndpointType = "READER",
+    ///         StaticMembers = new[]
+    ///         {
+    ///             test1.Id,
+    ///             test3.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// RDS Clusters Endpoint can be imported using the `cluster_endpoint_identifier`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
+    /// ```
+    /// 
+    ///  [1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster
+    /// </summary>
     [AwsResourceType("aws:rds/clusterEndpoint:ClusterEndpoint")]
     public partial class ClusterEndpoint : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of cluster
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+        /// </summary>
         [Output("clusterEndpointIdentifier")]
         public Output<string> ClusterEndpointIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The cluster identifier.
+        /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the endpoint. One of: READER , ANY .
+        /// </summary>
         [Output("customEndpointType")]
         public Output<string> CustomEndpointType { get; private set; } = null!;
 
+        /// <summary>
+        /// A custom endpoint for the Aurora cluster
+        /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+        /// </summary>
         [Output("excludedMembers")]
         public Output<ImmutableArray<string>> ExcludedMembers { get; private set; } = null!;
 
+        /// <summary>
+        /// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+        /// </summary>
         [Output("staticMembers")]
         public Output<ImmutableArray<string>> StaticMembers { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -85,17 +208,30 @@ namespace Pulumi.Aws.Rds
 
     public sealed class ClusterEndpointArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+        /// </summary>
         [Input("clusterEndpointIdentifier", required: true)]
         public Input<string> ClusterEndpointIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The cluster identifier.
+        /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The type of the endpoint. One of: READER , ANY .
+        /// </summary>
         [Input("customEndpointType", required: true)]
         public Input<string> CustomEndpointType { get; set; } = null!;
 
         [Input("excludedMembers")]
         private InputList<string>? _excludedMembers;
+
+        /// <summary>
+        /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+        /// </summary>
         public InputList<string> ExcludedMembers
         {
             get => _excludedMembers ?? (_excludedMembers = new InputList<string>());
@@ -104,6 +240,10 @@ namespace Pulumi.Aws.Rds
 
         [Input("staticMembers")]
         private InputList<string>? _staticMembers;
+
+        /// <summary>
+        /// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+        /// </summary>
         public InputList<string> StaticMembers
         {
             get => _staticMembers ?? (_staticMembers = new InputList<string>());
@@ -112,6 +252,10 @@ namespace Pulumi.Aws.Rds
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -126,23 +270,42 @@ namespace Pulumi.Aws.Rds
 
     public sealed class ClusterEndpointState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of cluster
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+        /// </summary>
         [Input("clusterEndpointIdentifier")]
         public Input<string>? ClusterEndpointIdentifier { get; set; }
 
+        /// <summary>
+        /// The cluster identifier.
+        /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
+        /// <summary>
+        /// The type of the endpoint. One of: READER , ANY .
+        /// </summary>
         [Input("customEndpointType")]
         public Input<string>? CustomEndpointType { get; set; }
 
+        /// <summary>
+        /// A custom endpoint for the Aurora cluster
+        /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
         [Input("excludedMembers")]
         private InputList<string>? _excludedMembers;
+
+        /// <summary>
+        /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+        /// </summary>
         public InputList<string> ExcludedMembers
         {
             get => _excludedMembers ?? (_excludedMembers = new InputList<string>());
@@ -151,6 +314,10 @@ namespace Pulumi.Aws.Rds
 
         [Input("staticMembers")]
         private InputList<string>? _staticMembers;
+
+        /// <summary>
+        /// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+        /// </summary>
         public InputList<string> StaticMembers
         {
             get => _staticMembers ?? (_staticMembers = new InputList<string>());
@@ -159,6 +326,10 @@ namespace Pulumi.Aws.Rds
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -167,6 +338,10 @@ namespace Pulumi.Aws.Rds
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

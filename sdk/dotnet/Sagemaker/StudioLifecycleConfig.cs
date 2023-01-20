@@ -9,24 +9,55 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
+    /// <summary>
+    /// Provides a SageMaker Studio Lifecycle Config resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// SageMaker Studio Lifecycle Configs can be imported using the `studio_lifecycle_config_name`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig")]
     public partial class StudioLifecycleConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        /// </summary>
         [Output("studioLifecycleConfigAppType")]
         public Output<string> StudioLifecycleConfigAppType { get; private set; } = null!;
 
+        /// <summary>
+        /// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
+        /// </summary>
         [Output("studioLifecycleConfigContent")]
         public Output<string> StudioLifecycleConfigContent { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Studio Lifecycle Configuration to create.
+        /// </summary>
         [Output("studioLifecycleConfigName")]
         public Output<string> StudioLifecycleConfigName { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -76,17 +107,30 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class StudioLifecycleConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        /// </summary>
         [Input("studioLifecycleConfigAppType", required: true)]
         public Input<string> StudioLifecycleConfigAppType { get; set; } = null!;
 
+        /// <summary>
+        /// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
+        /// </summary>
         [Input("studioLifecycleConfigContent", required: true)]
         public Input<string> StudioLifecycleConfigContent { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the Studio Lifecycle Configuration to create.
+        /// </summary>
         [Input("studioLifecycleConfigName", required: true)]
         public Input<string> StudioLifecycleConfigName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -101,20 +145,36 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class StudioLifecycleConfigState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        /// </summary>
         [Input("studioLifecycleConfigAppType")]
         public Input<string>? StudioLifecycleConfigAppType { get; set; }
 
+        /// <summary>
+        /// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
+        /// </summary>
         [Input("studioLifecycleConfigContent")]
         public Input<string>? StudioLifecycleConfigContent { get; set; }
 
+        /// <summary>
+        /// The name of the Studio Lifecycle Configuration to create.
+        /// </summary>
         [Input("studioLifecycleConfigName")]
         public Input<string>? StudioLifecycleConfigName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -123,6 +183,10 @@ namespace Pulumi.Aws.Sagemaker
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

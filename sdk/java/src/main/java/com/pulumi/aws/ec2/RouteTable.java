@@ -17,47 +17,209 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a resource to create a VPC routing table.
+ * 
+ * &gt; **NOTE on Route Tables and Routes:** This provider currently
+ * provides both a standalone Route resource and a Route Table resource with routes
+ * defined in-line. At this time you cannot use a Route Table with in-line routes
+ * in conjunction with any Route resources. Doing so will cause
+ * a conflict of rule settings and will overwrite rules.
+ * 
+ * &gt; **NOTE on `gateway_id` and `nat_gateway_id`:** The AWS API is very forgiving with these two
+ * attributes and the `aws.ec2.RouteTable` resource can be created with a NAT ID specified as a Gateway ID attribute.
+ * This _will_ lead to a permanent diff between your configuration and statefile, as the API returns the correct
+ * parameters in the returned route table. If you&#39;re experiencing constant diffs in your `aws.ec2.RouteTable` resources,
+ * the first thing to check is whether or not you&#39;re specifying a NAT ID instead of a Gateway ID, or vice-versa.
+ * 
+ * &gt; **NOTE on `propagating_vgws` and the `aws.ec2.VpnGatewayRoutePropagation` resource:**
+ * If the `propagating_vgws` argument is present, it&#39;s not supported to _also_
+ * define route propagations using `aws.ec2.VpnGatewayRoutePropagation`, since
+ * this resource will delete any propagating gateways not explicitly listed in
+ * `propagating_vgws`. Omit this argument when defining route propagation using
+ * the separate resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.RouteTable;
+ * import com.pulumi.aws.ec2.RouteTableArgs;
+ * import com.pulumi.aws.ec2.inputs.RouteTableRouteArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new RouteTable(&#34;example&#34;, RouteTableArgs.builder()        
+ *             .vpcId(aws_vpc.example().id())
+ *             .routes(            
+ *                 RouteTableRouteArgs.builder()
+ *                     .cidrBlock(&#34;10.0.1.0/24&#34;)
+ *                     .gatewayId(aws_internet_gateway.example().id())
+ *                     .build(),
+ *                 RouteTableRouteArgs.builder()
+ *                     .ipv6CidrBlock(&#34;::/0&#34;)
+ *                     .egressOnlyGatewayId(aws_egress_only_internet_gateway.example().id())
+ *                     .build())
+ *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * To subsequently remove all managed routes:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.RouteTable;
+ * import com.pulumi.aws.ec2.RouteTableArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new RouteTable(&#34;example&#34;, RouteTableArgs.builder()        
+ *             .vpcId(aws_vpc.example().id())
+ *             .routes()
+ *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Route Tables can be imported using the route table `id`. For example, to import route table `rtb-4e616f6d69`, use this command
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2/routeTable:RouteTable")
 public class RouteTable extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the route table.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the route table.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The ID of the AWS account that owns the route table.
+     * 
+     */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
+    /**
+     * @return The ID of the AWS account that owns the route table.
+     * 
+     */
     public Output<String> ownerId() {
         return this.ownerId;
     }
+    /**
+     * A list of virtual gateways for propagation.
+     * 
+     */
     @Export(name="propagatingVgws", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> propagatingVgws;
 
+    /**
+     * @return A list of virtual gateways for propagation.
+     * 
+     */
     public Output<List<String>> propagatingVgws() {
         return this.propagatingVgws;
     }
+    /**
+     * A list of route objects. Their keys are documented below.
+     * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+     * 
+     */
     @Export(name="routes", refs={List.class,RouteTableRoute.class}, tree="[0,1]")
     private Output<List<RouteTableRoute>> routes;
 
+    /**
+     * @return A list of route objects. Their keys are documented below.
+     * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+     * 
+     */
     public Output<List<RouteTableRoute>> routes() {
         return this.routes;
     }
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The VPC ID.
+     * 
+     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
+    /**
+     * @return The VPC ID.
+     * 
+     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

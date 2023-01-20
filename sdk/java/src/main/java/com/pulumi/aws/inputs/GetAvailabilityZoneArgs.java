@@ -18,37 +18,77 @@ public final class GetAvailabilityZoneArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetAvailabilityZoneArgs Empty = new GetAvailabilityZoneArgs();
 
+    /**
+     * Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
+     * 
+     */
     @Import(name="allAvailabilityZones")
     private @Nullable Output<Boolean> allAvailabilityZones;
 
+    /**
+     * @return Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
+     * 
+     */
     public Optional<Output<Boolean>> allAvailabilityZones() {
         return Optional.ofNullable(this.allAvailabilityZones);
     }
 
+    /**
+     * Configuration block(s) for filtering. Detailed below.
+     * 
+     */
     @Import(name="filters")
     private @Nullable Output<List<GetAvailabilityZoneFilterArgs>> filters;
 
+    /**
+     * @return Configuration block(s) for filtering. Detailed below.
+     * 
+     */
     public Optional<Output<List<GetAvailabilityZoneFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
+    /**
+     * Full name of the availability zone to select.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Full name of the availability zone to select.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Specific availability zone state to require. May be any of `&#34;available&#34;`, `&#34;information&#34;` or `&#34;impaired&#34;`.
+     * 
+     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
+    /**
+     * @return Specific availability zone state to require. May be any of `&#34;available&#34;`, `&#34;information&#34;` or `&#34;impaired&#34;`.
+     * 
+     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
+    /**
+     * Zone ID of the availability zone to select.
+     * 
+     */
     @Import(name="zoneId")
     private @Nullable Output<String> zoneId;
 
+    /**
+     * @return Zone ID of the availability zone to select.
+     * 
+     */
     public Optional<Output<String>> zoneId() {
         return Optional.ofNullable(this.zoneId);
     }
@@ -81,51 +121,117 @@ public final class GetAvailabilityZoneArgs extends com.pulumi.resources.InvokeAr
             $ = new GetAvailabilityZoneArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allAvailabilityZones Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allAvailabilityZones(@Nullable Output<Boolean> allAvailabilityZones) {
             $.allAvailabilityZones = allAvailabilityZones;
             return this;
         }
 
+        /**
+         * @param allAvailabilityZones Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allAvailabilityZones(Boolean allAvailabilityZones) {
             return allAvailabilityZones(Output.of(allAvailabilityZones));
         }
 
+        /**
+         * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable Output<List<GetAvailabilityZoneFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(List<GetAvailabilityZoneFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
+        /**
+         * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(GetAvailabilityZoneFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
+        /**
+         * @param name Full name of the availability zone to select.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Full name of the availability zone to select.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param state Specific availability zone state to require. May be any of `&#34;available&#34;`, `&#34;information&#34;` or `&#34;impaired&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
+        /**
+         * @param state Specific availability zone state to require. May be any of `&#34;available&#34;`, `&#34;information&#34;` or `&#34;impaired&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
+        /**
+         * @param zoneId Zone ID of the availability zone to select.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zoneId(@Nullable Output<String> zoneId) {
             $.zoneId = zoneId;
             return this;
         }
 
+        /**
+         * @param zoneId Zone ID of the availability zone to select.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zoneId(String zoneId) {
             return zoneId(Output.of(zoneId));
         }

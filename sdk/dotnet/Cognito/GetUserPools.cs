@@ -11,9 +11,81 @@ namespace Pulumi.Aws.Cognito
 {
     public static class GetUserPools
     {
+        /// <summary>
+        /// Use this data source to get a list of cognito user pools.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var selectedRestApi = Aws.ApiGateway.GetRestApi.Invoke(new()
+        ///     {
+        ///         Name = @var.Api_gateway_name,
+        ///     });
+        /// 
+        ///     var selectedUserPools = Aws.Cognito.GetUserPools.Invoke(new()
+        ///     {
+        ///         Name = @var.Cognito_user_pool_name,
+        ///     });
+        /// 
+        ///     var cognito = new Aws.ApiGateway.Authorizer("cognito", new()
+        ///     {
+        ///         Type = "COGNITO_USER_POOLS",
+        ///         RestApi = selectedRestApi.Apply(getRestApiResult =&gt; getRestApiResult.Id),
+        ///         ProviderArns = selectedUserPools.Apply(getUserPoolsResult =&gt; getUserPoolsResult.Arns),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetUserPoolsResult> InvokeAsync(GetUserPoolsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolsResult>("aws:cognito/getUserPools:getUserPools", args ?? new GetUserPoolsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to get a list of cognito user pools.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var selectedRestApi = Aws.ApiGateway.GetRestApi.Invoke(new()
+        ///     {
+        ///         Name = @var.Api_gateway_name,
+        ///     });
+        /// 
+        ///     var selectedUserPools = Aws.Cognito.GetUserPools.Invoke(new()
+        ///     {
+        ///         Name = @var.Cognito_user_pool_name,
+        ///     });
+        /// 
+        ///     var cognito = new Aws.ApiGateway.Authorizer("cognito", new()
+        ///     {
+        ///         Type = "COGNITO_USER_POOLS",
+        ///         RestApi = selectedRestApi.Apply(getRestApiResult =&gt; getRestApiResult.Id),
+        ///         ProviderArns = selectedUserPools.Apply(getUserPoolsResult =&gt; getUserPoolsResult.Arns),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetUserPoolsResult> Invoke(GetUserPoolsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolsResult>("aws:cognito/getUserPools:getUserPools", args ?? new GetUserPoolsInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +93,9 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetUserPoolsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -32,6 +107,9 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetUserPoolsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -45,11 +123,17 @@ namespace Pulumi.Aws.Cognito
     [OutputType]
     public sealed class GetUserPoolsResult
     {
+        /// <summary>
+        /// Set of cognito user pool Amazon Resource Names (ARNs).
+        /// </summary>
         public readonly ImmutableArray<string> Arns;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Set of cognito user pool ids.
+        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Name;
 

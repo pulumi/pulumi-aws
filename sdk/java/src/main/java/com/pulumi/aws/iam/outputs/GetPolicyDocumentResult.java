@@ -18,6 +18,10 @@ public final class GetPolicyDocumentResult {
      * 
      */
     private String id;
+    /**
+     * @return Standard JSON policy document rendered based on the arguments above.
+     * 
+     */
     private String json;
     /**
      * @deprecated
@@ -47,6 +51,10 @@ public final class GetPolicyDocumentResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Standard JSON policy document rendered based on the arguments above.
+     * 
+     */
     public String json() {
         return this.json;
     }

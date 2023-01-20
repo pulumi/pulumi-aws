@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSourceParametersJira {
+    /**
+     * @return The base URL of the Jira instance&#39;s site to which to connect.
+     * 
+     */
     private String siteBaseUrl;
 
     private DataSourceParametersJira() {}
+    /**
+     * @return The base URL of the Jira instance&#39;s site to which to connect.
+     * 
+     */
     public String siteBaseUrl() {
         return this.siteBaseUrl;
     }

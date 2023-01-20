@@ -15,9 +15,17 @@ public final class GetReleaseLabelsArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetReleaseLabelsArgs Empty = new GetReleaseLabelsArgs();
 
+    /**
+     * Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
+     * 
+     */
     @Import(name="filters")
     private @Nullable Output<GetReleaseLabelsFiltersArgs> filters;
 
+    /**
+     * @return Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
+     * 
+     */
     public Optional<Output<GetReleaseLabelsFiltersArgs>> filters() {
         return Optional.ofNullable(this.filters);
     }
@@ -46,11 +54,23 @@ public final class GetReleaseLabelsArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetReleaseLabelsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filters Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable Output<GetReleaseLabelsFiltersArgs> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(GetReleaseLabelsFiltersArgs filters) {
             return filters(Output.of(filters));
         }

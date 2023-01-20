@@ -9,21 +9,46 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.GameLift
 {
+    /// <summary>
+    /// Provides a GameLift Matchmaking Rule Set resources.
+    /// 
+    /// ## Import
+    /// 
+    /// GameLift Matchmaking Rule Sets
+    /// 
+    /// can be imported using the ID, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet example &lt;ruleset-id&gt;
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet")]
     public partial class MatchmakingRuleSet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Rule Set ARN.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the matchmaking rule set.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// JSON encoded string containing rule set data.
+        /// </summary>
         [Output("ruleSetBody")]
         public Output<string> RuleSetBody { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -73,9 +98,15 @@ namespace Pulumi.Aws.GameLift
 
     public sealed class MatchmakingRuleSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the matchmaking rule set.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// JSON encoded string containing rule set data.
+        /// </summary>
         [Input("ruleSetBody", required: true)]
         public Input<string> RuleSetBody { get; set; } = null!;
 
@@ -95,12 +126,21 @@ namespace Pulumi.Aws.GameLift
 
     public sealed class MatchmakingRuleSetState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Rule Set ARN.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Name of the matchmaking rule set.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// JSON encoded string containing rule set data.
+        /// </summary>
         [Input("ruleSetBody")]
         public Input<string>? RuleSetBody { get; set; }
 
@@ -114,6 +154,10 @@ namespace Pulumi.Aws.GameLift
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

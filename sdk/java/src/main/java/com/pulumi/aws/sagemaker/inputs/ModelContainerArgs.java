@@ -17,44 +17,94 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ModelContainerArgs Empty = new ModelContainerArgs();
 
+    /**
+     * The DNS host name for the container.
+     * 
+     */
     @Import(name="containerHostname")
     private @Nullable Output<String> containerHostname;
 
+    /**
+     * @return The DNS host name for the container.
+     * 
+     */
     public Optional<Output<String>> containerHostname() {
         return Optional.ofNullable(this.containerHostname);
     }
 
+    /**
+     * Environment variables for the Docker container.
+     * A list of key value pairs.
+     * 
+     */
     @Import(name="environment")
     private @Nullable Output<Map<String,String>> environment;
 
+    /**
+     * @return Environment variables for the Docker container.
+     * A list of key value pairs.
+     * 
+     */
     public Optional<Output<Map<String,String>>> environment() {
         return Optional.ofNullable(this.environment);
     }
 
+    /**
+     * The registry path where the inference code image is stored in Amazon ECR.
+     * 
+     */
     @Import(name="image", required=true)
     private Output<String> image;
 
+    /**
+     * @return The registry path where the inference code image is stored in Amazon ECR.
+     * 
+     */
     public Output<String> image() {
         return this.image;
     }
 
+    /**
+     * Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+     * 
+     */
     @Import(name="imageConfig")
     private @Nullable Output<ModelContainerImageConfigArgs> imageConfig;
 
+    /**
+     * @return Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+     * 
+     */
     public Optional<Output<ModelContainerImageConfigArgs>> imageConfig() {
         return Optional.ofNullable(this.imageConfig);
     }
 
+    /**
+     * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+     * 
+     */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
+    /**
+     * @return The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+     * 
+     */
     public Optional<Output<String>> mode() {
         return Optional.ofNullable(this.mode);
     }
 
+    /**
+     * The URL for the S3 location where model artifacts are stored.
+     * 
+     */
     @Import(name="modelDataUrl")
     private @Nullable Output<String> modelDataUrl;
 
+    /**
+     * @return The URL for the S3 location where model artifacts are stored.
+     * 
+     */
     public Optional<Output<String>> modelDataUrl() {
         return Optional.ofNullable(this.modelDataUrl);
     }
@@ -88,56 +138,130 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ModelContainerArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param containerHostname The DNS host name for the container.
+         * 
+         * @return builder
+         * 
+         */
         public Builder containerHostname(@Nullable Output<String> containerHostname) {
             $.containerHostname = containerHostname;
             return this;
         }
 
+        /**
+         * @param containerHostname The DNS host name for the container.
+         * 
+         * @return builder
+         * 
+         */
         public Builder containerHostname(String containerHostname) {
             return containerHostname(Output.of(containerHostname));
         }
 
+        /**
+         * @param environment Environment variables for the Docker container.
+         * A list of key value pairs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder environment(@Nullable Output<Map<String,String>> environment) {
             $.environment = environment;
             return this;
         }
 
+        /**
+         * @param environment Environment variables for the Docker container.
+         * A list of key value pairs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder environment(Map<String,String> environment) {
             return environment(Output.of(environment));
         }
 
+        /**
+         * @param image The registry path where the inference code image is stored in Amazon ECR.
+         * 
+         * @return builder
+         * 
+         */
         public Builder image(Output<String> image) {
             $.image = image;
             return this;
         }
 
+        /**
+         * @param image The registry path where the inference code image is stored in Amazon ECR.
+         * 
+         * @return builder
+         * 
+         */
         public Builder image(String image) {
             return image(Output.of(image));
         }
 
+        /**
+         * @param imageConfig Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+         * 
+         * @return builder
+         * 
+         */
         public Builder imageConfig(@Nullable Output<ModelContainerImageConfigArgs> imageConfig) {
             $.imageConfig = imageConfig;
             return this;
         }
 
+        /**
+         * @param imageConfig Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+         * 
+         * @return builder
+         * 
+         */
         public Builder imageConfig(ModelContainerImageConfigArgs imageConfig) {
             return imageConfig(Output.of(imageConfig));
         }
 
+        /**
+         * @param mode The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mode(@Nullable Output<String> mode) {
             $.mode = mode;
             return this;
         }
 
+        /**
+         * @param mode The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
         }
 
+        /**
+         * @param modelDataUrl The URL for the S3 location where model artifacts are stored.
+         * 
+         * @return builder
+         * 
+         */
         public Builder modelDataUrl(@Nullable Output<String> modelDataUrl) {
             $.modelDataUrl = modelDataUrl;
             return this;
         }
 
+        /**
+         * @param modelDataUrl The URL for the S3 location where model artifacts are stored.
+         * 
+         * @return builder
+         * 
+         */
         public Builder modelDataUrl(String modelDataUrl) {
             return modelDataUrl(Output.of(modelDataUrl));
         }

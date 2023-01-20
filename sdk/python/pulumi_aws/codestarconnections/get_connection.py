@@ -52,11 +52,17 @@ class GetConnectionResult:
     @property
     @pulumi.getter(name="connectionStatus")
     def connection_status(self) -> str:
+        """
+        CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+        """
         return pulumi.get(self, "connection_status")
 
     @property
     @pulumi.getter(name="hostArn")
     def host_arn(self) -> str:
+        """
+        ARN of the host associated with the connection.
+        """
         return pulumi.get(self, "host_arn")
 
     @property
@@ -70,16 +76,25 @@ class GetConnectionResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the CodeStar Connection. The name is unique in the calling AWS account.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> str:
+        """
+        Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an codestarconnections.Host resource and use `host_arn` instead.
+        """
         return pulumi.get(self, "provider_type")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Map of key-value resource tags to associate with the resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -103,7 +118,30 @@ def get_connection(arn: Optional[str] = None,
                    tags: Optional[Mapping[str, str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about CodeStar Connection.
+
+    ## Example Usage
+    ### By ARN
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.codestarconnections.get_connection(arn=aws_codestarconnections_connection["example"]["arn"])
+    ```
+    ### By Name
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.codestarconnections.get_connection(name=aws_codestarconnections_connection["example"]["name"])
+    ```
+
+
+    :param str arn: CodeStar Connection ARN.
+    :param str name: CodeStar Connection name.
+    :param Mapping[str, str] tags: Map of key-value resource tags to associate with the resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -128,6 +166,29 @@ def get_connection_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about CodeStar Connection.
+
+    ## Example Usage
+    ### By ARN
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.codestarconnections.get_connection(arn=aws_codestarconnections_connection["example"]["arn"])
+    ```
+    ### By Name
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.codestarconnections.get_connection(name=aws_codestarconnections_connection["example"]["name"])
+    ```
+
+
+    :param str arn: CodeStar Connection ARN.
+    :param str name: CodeStar Connection name.
+    :param Mapping[str, str] tags: Map of key-value resource tags to associate with the resource.
     """
     ...

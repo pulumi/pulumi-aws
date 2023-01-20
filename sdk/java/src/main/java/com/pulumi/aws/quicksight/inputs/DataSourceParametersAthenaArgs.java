@@ -15,9 +15,17 @@ public final class DataSourceParametersAthenaArgs extends com.pulumi.resources.R
 
     public static final DataSourceParametersAthenaArgs Empty = new DataSourceParametersAthenaArgs();
 
+    /**
+     * The work-group to which to connect.
+     * 
+     */
     @Import(name="workGroup")
     private @Nullable Output<String> workGroup;
 
+    /**
+     * @return The work-group to which to connect.
+     * 
+     */
     public Optional<Output<String>> workGroup() {
         return Optional.ofNullable(this.workGroup);
     }
@@ -46,11 +54,23 @@ public final class DataSourceParametersAthenaArgs extends com.pulumi.resources.R
             $ = new DataSourceParametersAthenaArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param workGroup The work-group to which to connect.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workGroup(@Nullable Output<String> workGroup) {
             $.workGroup = workGroup;
             return this;
         }
 
+        /**
+         * @param workGroup The work-group to which to connect.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workGroup(String workGroup) {
             return workGroup(Output.of(workGroup));
         }

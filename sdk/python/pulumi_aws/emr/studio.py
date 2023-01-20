@@ -29,6 +29,19 @@ class StudioArgs:
                  user_role: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Studio resource.
+        :param pulumi.Input[str] auth_mode: Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
+        :param pulumi.Input[str] default_s3_location: The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
+        :param pulumi.Input[str] engine_security_group_id: The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
+        :param pulumi.Input[str] service_role: The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
+        :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+        :param pulumi.Input[str] workspace_security_group_id: The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
+        :param pulumi.Input[str] description: A detailed description of the Amazon EMR Studio.
+        :param pulumi.Input[str] idp_auth_url: The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
+        :param pulumi.Input[str] idp_relay_state_parameter_name: The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.
+        :param pulumi.Input[str] name: A descriptive name for the Amazon EMR Studio.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] user_role: The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
         """
         pulumi.set(__self__, "auth_mode", auth_mode)
         pulumi.set(__self__, "default_s3_location", default_s3_location)
@@ -53,6 +66,9 @@ class StudioArgs:
     @property
     @pulumi.getter(name="authMode")
     def auth_mode(self) -> pulumi.Input[str]:
+        """
+        Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
+        """
         return pulumi.get(self, "auth_mode")
 
     @auth_mode.setter
@@ -62,6 +78,9 @@ class StudioArgs:
     @property
     @pulumi.getter(name="defaultS3Location")
     def default_s3_location(self) -> pulumi.Input[str]:
+        """
+        The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
+        """
         return pulumi.get(self, "default_s3_location")
 
     @default_s3_location.setter
@@ -71,6 +90,9 @@ class StudioArgs:
     @property
     @pulumi.getter(name="engineSecurityGroupId")
     def engine_security_group_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
+        """
         return pulumi.get(self, "engine_security_group_id")
 
     @engine_security_group_id.setter
@@ -80,6 +102,9 @@ class StudioArgs:
     @property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Input[str]:
+        """
+        The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
+        """
         return pulumi.get(self, "service_role")
 
     @service_role.setter
@@ -89,6 +114,9 @@ class StudioArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -98,6 +126,9 @@ class StudioArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -107,6 +138,9 @@ class StudioArgs:
     @property
     @pulumi.getter(name="workspaceSecurityGroupId")
     def workspace_security_group_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
+        """
         return pulumi.get(self, "workspace_security_group_id")
 
     @workspace_security_group_id.setter
@@ -116,6 +150,9 @@ class StudioArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A detailed description of the Amazon EMR Studio.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -125,6 +162,9 @@ class StudioArgs:
     @property
     @pulumi.getter(name="idpAuthUrl")
     def idp_auth_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
+        """
         return pulumi.get(self, "idp_auth_url")
 
     @idp_auth_url.setter
@@ -134,6 +174,9 @@ class StudioArgs:
     @property
     @pulumi.getter(name="idpRelayStateParameterName")
     def idp_relay_state_parameter_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.
+        """
         return pulumi.get(self, "idp_relay_state_parameter_name")
 
     @idp_relay_state_parameter_name.setter
@@ -143,6 +186,9 @@ class StudioArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A descriptive name for the Amazon EMR Studio.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -152,6 +198,9 @@ class StudioArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -161,6 +210,9 @@ class StudioArgs:
     @property
     @pulumi.getter(name="userRole")
     def user_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+        """
         return pulumi.get(self, "user_role")
 
     @user_role.setter
@@ -189,6 +241,21 @@ class _StudioState:
                  workspace_security_group_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Studio resources.
+        :param pulumi.Input[str] arn: ARN of the studio.
+        :param pulumi.Input[str] auth_mode: Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
+        :param pulumi.Input[str] default_s3_location: The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
+        :param pulumi.Input[str] description: A detailed description of the Amazon EMR Studio.
+        :param pulumi.Input[str] engine_security_group_id: The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
+        :param pulumi.Input[str] idp_auth_url: The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
+        :param pulumi.Input[str] idp_relay_state_parameter_name: The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.
+        :param pulumi.Input[str] name: A descriptive name for the Amazon EMR Studio.
+        :param pulumi.Input[str] service_role: The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] url: The unique access URL of the Amazon EMR Studio.
+        :param pulumi.Input[str] user_role: The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+        :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+        :param pulumi.Input[str] workspace_security_group_id: The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -226,6 +293,9 @@ class _StudioState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the studio.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -235,6 +305,9 @@ class _StudioState:
     @property
     @pulumi.getter(name="authMode")
     def auth_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
+        """
         return pulumi.get(self, "auth_mode")
 
     @auth_mode.setter
@@ -244,6 +317,9 @@ class _StudioState:
     @property
     @pulumi.getter(name="defaultS3Location")
     def default_s3_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
+        """
         return pulumi.get(self, "default_s3_location")
 
     @default_s3_location.setter
@@ -253,6 +329,9 @@ class _StudioState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A detailed description of the Amazon EMR Studio.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -262,6 +341,9 @@ class _StudioState:
     @property
     @pulumi.getter(name="engineSecurityGroupId")
     def engine_security_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
+        """
         return pulumi.get(self, "engine_security_group_id")
 
     @engine_security_group_id.setter
@@ -271,6 +353,9 @@ class _StudioState:
     @property
     @pulumi.getter(name="idpAuthUrl")
     def idp_auth_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
+        """
         return pulumi.get(self, "idp_auth_url")
 
     @idp_auth_url.setter
@@ -280,6 +365,9 @@ class _StudioState:
     @property
     @pulumi.getter(name="idpRelayStateParameterName")
     def idp_relay_state_parameter_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.
+        """
         return pulumi.get(self, "idp_relay_state_parameter_name")
 
     @idp_relay_state_parameter_name.setter
@@ -289,6 +377,9 @@ class _StudioState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A descriptive name for the Amazon EMR Studio.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -298,6 +389,9 @@ class _StudioState:
     @property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
+        """
         return pulumi.get(self, "service_role")
 
     @service_role.setter
@@ -307,6 +401,9 @@ class _StudioState:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -316,6 +413,9 @@ class _StudioState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -334,6 +434,9 @@ class _StudioState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique access URL of the Amazon EMR Studio.
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -343,6 +446,9 @@ class _StudioState:
     @property
     @pulumi.getter(name="userRole")
     def user_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+        """
         return pulumi.get(self, "user_role")
 
     @user_role.setter
@@ -352,6 +458,9 @@ class _StudioState:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -361,6 +470,9 @@ class _StudioState:
     @property
     @pulumi.getter(name="workspaceSecurityGroupId")
     def workspace_security_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
+        """
         return pulumi.get(self, "workspace_security_group_id")
 
     @workspace_security_group_id.setter
@@ -388,9 +500,48 @@ class Studio(pulumi.CustomResource):
                  workspace_security_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Studio resource with the given unique name, props, and options.
+        Provides an Elastic MapReduce Studio.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.emr.Studio("example",
+            auth_mode="SSO",
+            default_s3_location=f"s3://{aws_s3_bucket['test']['bucket']}/test",
+            engine_security_group_id=aws_security_group["test"]["id"],
+            service_role=aws_iam_role["test"]["arn"],
+            subnet_ids=[aws_subnet["test"]["id"]],
+            user_role=aws_iam_role["test"]["arn"],
+            vpc_id=aws_vpc["test"]["id"],
+            workspace_security_group_id=aws_security_group["test"]["id"])
+        ```
+
+        ## Import
+
+        EMR studios can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] auth_mode: Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
+        :param pulumi.Input[str] default_s3_location: The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
+        :param pulumi.Input[str] description: A detailed description of the Amazon EMR Studio.
+        :param pulumi.Input[str] engine_security_group_id: The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
+        :param pulumi.Input[str] idp_auth_url: The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
+        :param pulumi.Input[str] idp_relay_state_parameter_name: The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.
+        :param pulumi.Input[str] name: A descriptive name for the Amazon EMR Studio.
+        :param pulumi.Input[str] service_role: The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] user_role: The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+        :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+        :param pulumi.Input[str] workspace_security_group_id: The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
         """
         ...
     @overload
@@ -399,7 +550,33 @@ class Studio(pulumi.CustomResource):
                  args: StudioArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Studio resource with the given unique name, props, and options.
+        Provides an Elastic MapReduce Studio.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.emr.Studio("example",
+            auth_mode="SSO",
+            default_s3_location=f"s3://{aws_s3_bucket['test']['bucket']}/test",
+            engine_security_group_id=aws_security_group["test"]["id"],
+            service_role=aws_iam_role["test"]["arn"],
+            subnet_ids=[aws_subnet["test"]["id"]],
+            user_role=aws_iam_role["test"]["arn"],
+            vpc_id=aws_vpc["test"]["id"],
+            workspace_security_group_id=aws_security_group["test"]["id"])
+        ```
+
+        ## Import
+
+        EMR studios can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
+        ```
+
         :param str resource_name: The name of the resource.
         :param StudioArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -500,6 +677,21 @@ class Studio(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the studio.
+        :param pulumi.Input[str] auth_mode: Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
+        :param pulumi.Input[str] default_s3_location: The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
+        :param pulumi.Input[str] description: A detailed description of the Amazon EMR Studio.
+        :param pulumi.Input[str] engine_security_group_id: The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
+        :param pulumi.Input[str] idp_auth_url: The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
+        :param pulumi.Input[str] idp_relay_state_parameter_name: The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.
+        :param pulumi.Input[str] name: A descriptive name for the Amazon EMR Studio.
+        :param pulumi.Input[str] service_role: The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] url: The unique access URL of the Amazon EMR Studio.
+        :param pulumi.Input[str] user_role: The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+        :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+        :param pulumi.Input[str] workspace_security_group_id: The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -526,56 +718,89 @@ class Studio(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the studio.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authMode")
     def auth_mode(self) -> pulumi.Output[str]:
+        """
+        Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
+        """
         return pulumi.get(self, "auth_mode")
 
     @property
     @pulumi.getter(name="defaultS3Location")
     def default_s3_location(self) -> pulumi.Output[str]:
+        """
+        The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
+        """
         return pulumi.get(self, "default_s3_location")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A detailed description of the Amazon EMR Studio.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="engineSecurityGroupId")
     def engine_security_group_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
+        """
         return pulumi.get(self, "engine_security_group_id")
 
     @property
     @pulumi.getter(name="idpAuthUrl")
     def idp_auth_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
+        """
         return pulumi.get(self, "idp_auth_url")
 
     @property
     @pulumi.getter(name="idpRelayStateParameterName")
     def idp_relay_state_parameter_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.
+        """
         return pulumi.get(self, "idp_relay_state_parameter_name")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A descriptive name for the Amazon EMR Studio.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Output[str]:
+        """
+        The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
+        """
         return pulumi.get(self, "service_role")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -586,20 +811,32 @@ class Studio(pulumi.CustomResource):
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
+        """
+        The unique access URL of the Amazon EMR Studio.
+        """
         return pulumi.get(self, "url")
 
     @property
     @pulumi.getter(name="userRole")
     def user_role(self) -> pulumi.Output[Optional[str]]:
+        """
+        The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+        """
         return pulumi.get(self, "user_role")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+        """
         return pulumi.get(self, "vpc_id")
 
     @property
     @pulumi.getter(name="workspaceSecurityGroupId")
     def workspace_security_group_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
+        """
         return pulumi.get(self, "workspace_security_group_id")
 

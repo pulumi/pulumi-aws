@@ -9,7 +9,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectorResult {
+    /**
+     * @return ARN of the connector.
+     * 
+     */
     private String arn;
+    /**
+     * @return Summary description of the connector.
+     * 
+     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -17,12 +25,24 @@ public final class GetConnectorResult {
      */
     private String id;
     private String name;
+    /**
+     * @return Current version of the connector.
+     * 
+     */
     private String version;
 
     private GetConnectorResult() {}
+    /**
+     * @return ARN of the connector.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Summary description of the connector.
+     * 
+     */
     public String description() {
         return this.description;
     }
@@ -36,6 +56,10 @@ public final class GetConnectorResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Current version of the connector.
+     * 
+     */
     public String version() {
         return this.version;
     }

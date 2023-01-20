@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class CatalogDatabaseCreateTableDefaultPermission
     {
+        /// <summary>
+        /// The permissions that are granted to the principal.
+        /// </summary>
         public readonly ImmutableArray<string> Permissions;
+        /// <summary>
+        /// The principal who is granted permissions.. See `principal` below.
+        /// </summary>
         public readonly Outputs.CatalogDatabaseCreateTableDefaultPermissionPrincipal? Principal;
 
         [OutputConstructor]

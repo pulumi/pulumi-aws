@@ -11,18 +11,74 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Amazon Connect Security Profile resource. For more information see
+// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewSecurityProfile(ctx, "example", &connect.SecurityProfileArgs{
+//				Description: pulumi.String("example description"),
+//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Permissions: pulumi.StringArray{
+//					pulumi.String("BasicAgentAccess"),
+//					pulumi.String("OutboundCallAccess"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Example Security Profile"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Amazon Connect Security Profiles can be imported using the `instance_id` and `security_profile_id` separated by a colon (`:`), e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:connect/securityProfile:SecurityProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+//
+// ```
 type SecurityProfile struct {
 	pulumi.CustomResourceState
 
-	Arn                    pulumi.StringOutput      `pulumi:"arn"`
-	Description            pulumi.StringPtrOutput   `pulumi:"description"`
-	InstanceId             pulumi.StringOutput      `pulumi:"instanceId"`
-	Name                   pulumi.StringOutput      `pulumi:"name"`
-	OrganizationResourceId pulumi.StringOutput      `pulumi:"organizationResourceId"`
-	Permissions            pulumi.StringArrayOutput `pulumi:"permissions"`
-	SecurityProfileId      pulumi.StringOutput      `pulumi:"securityProfileId"`
-	Tags                   pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll                pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	// The Amazon Resource Name (ARN) of the Security Profile.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Specifies the description of the Security Profile.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Specifies the identifier of the hosting Amazon Connect Instance.
+	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
+	// Specifies the name of the Security Profile.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The organization resource identifier for the security profile.
+	OrganizationResourceId pulumi.StringOutput `pulumi:"organizationResourceId"`
+	// Specifies a list of permissions assigned to the security profile.
+	Permissions pulumi.StringArrayOutput `pulumi:"permissions"`
+	// The identifier for the Security Profile.
+	SecurityProfileId pulumi.StringOutput `pulumi:"securityProfileId"`
+	// Tags to apply to the Security Profile. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewSecurityProfile registers a new resource with the given unique name, arguments, and options.
@@ -57,27 +113,47 @@ func GetSecurityProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityProfile resources.
 type securityProfileState struct {
-	Arn                    *string           `pulumi:"arn"`
-	Description            *string           `pulumi:"description"`
-	InstanceId             *string           `pulumi:"instanceId"`
-	Name                   *string           `pulumi:"name"`
-	OrganizationResourceId *string           `pulumi:"organizationResourceId"`
-	Permissions            []string          `pulumi:"permissions"`
-	SecurityProfileId      *string           `pulumi:"securityProfileId"`
-	Tags                   map[string]string `pulumi:"tags"`
-	TagsAll                map[string]string `pulumi:"tagsAll"`
+	// The Amazon Resource Name (ARN) of the Security Profile.
+	Arn *string `pulumi:"arn"`
+	// Specifies the description of the Security Profile.
+	Description *string `pulumi:"description"`
+	// Specifies the identifier of the hosting Amazon Connect Instance.
+	InstanceId *string `pulumi:"instanceId"`
+	// Specifies the name of the Security Profile.
+	Name *string `pulumi:"name"`
+	// The organization resource identifier for the security profile.
+	OrganizationResourceId *string `pulumi:"organizationResourceId"`
+	// Specifies a list of permissions assigned to the security profile.
+	Permissions []string `pulumi:"permissions"`
+	// The identifier for the Security Profile.
+	SecurityProfileId *string `pulumi:"securityProfileId"`
+	// Tags to apply to the Security Profile. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type SecurityProfileState struct {
-	Arn                    pulumi.StringPtrInput
-	Description            pulumi.StringPtrInput
-	InstanceId             pulumi.StringPtrInput
-	Name                   pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the Security Profile.
+	Arn pulumi.StringPtrInput
+	// Specifies the description of the Security Profile.
+	Description pulumi.StringPtrInput
+	// Specifies the identifier of the hosting Amazon Connect Instance.
+	InstanceId pulumi.StringPtrInput
+	// Specifies the name of the Security Profile.
+	Name pulumi.StringPtrInput
+	// The organization resource identifier for the security profile.
 	OrganizationResourceId pulumi.StringPtrInput
-	Permissions            pulumi.StringArrayInput
-	SecurityProfileId      pulumi.StringPtrInput
-	Tags                   pulumi.StringMapInput
-	TagsAll                pulumi.StringMapInput
+	// Specifies a list of permissions assigned to the security profile.
+	Permissions pulumi.StringArrayInput
+	// The identifier for the Security Profile.
+	SecurityProfileId pulumi.StringPtrInput
+	// Tags to apply to the Security Profile. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (SecurityProfileState) ElementType() reflect.Type {
@@ -85,20 +161,32 @@ func (SecurityProfileState) ElementType() reflect.Type {
 }
 
 type securityProfileArgs struct {
-	Description *string           `pulumi:"description"`
-	InstanceId  string            `pulumi:"instanceId"`
-	Name        *string           `pulumi:"name"`
-	Permissions []string          `pulumi:"permissions"`
-	Tags        map[string]string `pulumi:"tags"`
+	// Specifies the description of the Security Profile.
+	Description *string `pulumi:"description"`
+	// Specifies the identifier of the hosting Amazon Connect Instance.
+	InstanceId string `pulumi:"instanceId"`
+	// Specifies the name of the Security Profile.
+	Name *string `pulumi:"name"`
+	// Specifies a list of permissions assigned to the security profile.
+	Permissions []string `pulumi:"permissions"`
+	// Tags to apply to the Security Profile. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SecurityProfile resource.
 type SecurityProfileArgs struct {
+	// Specifies the description of the Security Profile.
 	Description pulumi.StringPtrInput
-	InstanceId  pulumi.StringInput
-	Name        pulumi.StringPtrInput
+	// Specifies the identifier of the hosting Amazon Connect Instance.
+	InstanceId pulumi.StringInput
+	// Specifies the name of the Security Profile.
+	Name pulumi.StringPtrInput
+	// Specifies a list of permissions assigned to the security profile.
 	Permissions pulumi.StringArrayInput
-	Tags        pulumi.StringMapInput
+	// Tags to apply to the Security Profile. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (SecurityProfileArgs) ElementType() reflect.Type {
@@ -188,38 +276,48 @@ func (o SecurityProfileOutput) ToSecurityProfileOutputWithContext(ctx context.Co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the Security Profile.
 func (o SecurityProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Specifies the description of the Security Profile.
 func (o SecurityProfileOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the identifier of the hosting Amazon Connect Instance.
 func (o SecurityProfileOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
+// Specifies the name of the Security Profile.
 func (o SecurityProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The organization resource identifier for the security profile.
 func (o SecurityProfileOutput) OrganizationResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringOutput { return v.OrganizationResourceId }).(pulumi.StringOutput)
 }
 
+// Specifies a list of permissions assigned to the security profile.
 func (o SecurityProfileOutput) Permissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringArrayOutput { return v.Permissions }).(pulumi.StringArrayOutput)
 }
 
+// The identifier for the Security Profile.
 func (o SecurityProfileOutput) SecurityProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringOutput { return v.SecurityProfileId }).(pulumi.StringOutput)
 }
 
+// Tags to apply to the Security Profile. If configured with a provider
+// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SecurityProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SecurityProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

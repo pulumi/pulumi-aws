@@ -12,14 +12,25 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VpcPeeringConnectionAccepterAccepter {
     /**
+     * @return Indicates whether a local ClassicLink connection can communicate
+     * with the peer VPC over the VPC Peering Connection.
+     * 
      * @deprecated
      * With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
      * 
      */
     @Deprecated /* With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version. */
     private @Nullable Boolean allowClassicLinkToRemoteVpc;
+    /**
+     * @return Indicates whether a local VPC can resolve public DNS hostnames to
+     * private IP addresses when queried from instances in a peer VPC.
+     * 
+     */
     private @Nullable Boolean allowRemoteVpcDnsResolution;
     /**
+     * @return Indicates whether a local VPC can communicate with a ClassicLink
+     * connection in the peer VPC over the VPC Peering Connection.
+     * 
      * @deprecated
      * With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
      * 
@@ -29,6 +40,9 @@ public final class VpcPeeringConnectionAccepterAccepter {
 
     private VpcPeeringConnectionAccepterAccepter() {}
     /**
+     * @return Indicates whether a local ClassicLink connection can communicate
+     * with the peer VPC over the VPC Peering Connection.
+     * 
      * @deprecated
      * With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
      * 
@@ -37,10 +51,18 @@ public final class VpcPeeringConnectionAccepterAccepter {
     public Optional<Boolean> allowClassicLinkToRemoteVpc() {
         return Optional.ofNullable(this.allowClassicLinkToRemoteVpc);
     }
+    /**
+     * @return Indicates whether a local VPC can resolve public DNS hostnames to
+     * private IP addresses when queried from instances in a peer VPC.
+     * 
+     */
     public Optional<Boolean> allowRemoteVpcDnsResolution() {
         return Optional.ofNullable(this.allowRemoteVpcDnsResolution);
     }
     /**
+     * @return Indicates whether a local VPC can communicate with a ClassicLink
+     * connection in the peer VPC over the VPC Peering Connection.
+     * 
      * @deprecated
      * With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
      * 

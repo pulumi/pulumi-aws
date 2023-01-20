@@ -15,16 +15,32 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
 
     public static final EmailIdentityState Empty = new EmailIdentityState();
 
+    /**
+     * The ARN of the email identity.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return The ARN of the email identity.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * The email address to assign to SES.
+     * 
+     */
     @Import(name="email")
     private @Nullable Output<String> email;
 
+    /**
+     * @return The email address to assign to SES.
+     * 
+     */
     public Optional<Output<String>> email() {
         return Optional.ofNullable(this.email);
     }
@@ -54,20 +70,44 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
             $ = new EmailIdentityState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn The ARN of the email identity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn The ARN of the email identity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param email The email address to assign to SES.
+         * 
+         * @return builder
+         * 
+         */
         public Builder email(@Nullable Output<String> email) {
             $.email = email;
             return this;
         }
 
+        /**
+         * @param email The email address to assign to SES.
+         * 
+         * @return builder
+         * 
+         */
         public Builder email(String email) {
             return email(Output.of(email));
         }

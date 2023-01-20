@@ -13,9 +13,17 @@ public final class ImageRecipeSystemsManagerAgentArgs extends com.pulumi.resourc
 
     public static final ImageRecipeSystemsManagerAgentArgs Empty = new ImageRecipeSystemsManagerAgentArgs();
 
+    /**
+     * Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+     * 
+     */
     @Import(name="uninstallAfterBuild", required=true)
     private Output<Boolean> uninstallAfterBuild;
 
+    /**
+     * @return Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+     * 
+     */
     public Output<Boolean> uninstallAfterBuild() {
         return this.uninstallAfterBuild;
     }
@@ -44,11 +52,23 @@ public final class ImageRecipeSystemsManagerAgentArgs extends com.pulumi.resourc
             $ = new ImageRecipeSystemsManagerAgentArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param uninstallAfterBuild Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder uninstallAfterBuild(Output<Boolean> uninstallAfterBuild) {
             $.uninstallAfterBuild = uninstallAfterBuild;
             return this;
         }
 
+        /**
+         * @param uninstallAfterBuild Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder uninstallAfterBuild(Boolean uninstallAfterBuild) {
             return uninstallAfterBuild(Output.of(uninstallAfterBuild));
         }

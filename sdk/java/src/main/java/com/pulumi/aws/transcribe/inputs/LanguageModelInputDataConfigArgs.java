@@ -15,23 +15,47 @@ public final class LanguageModelInputDataConfigArgs extends com.pulumi.resources
 
     public static final LanguageModelInputDataConfigArgs Empty = new LanguageModelInputDataConfigArgs();
 
+    /**
+     * IAM role with access to S3 bucket.
+     * 
+     */
     @Import(name="dataAccessRoleArn", required=true)
     private Output<String> dataAccessRoleArn;
 
+    /**
+     * @return IAM role with access to S3 bucket.
+     * 
+     */
     public Output<String> dataAccessRoleArn() {
         return this.dataAccessRoleArn;
     }
 
+    /**
+     * S3 URI where training data is located.
+     * 
+     */
     @Import(name="s3Uri", required=true)
     private Output<String> s3Uri;
 
+    /**
+     * @return S3 URI where training data is located.
+     * 
+     */
     public Output<String> s3Uri() {
         return this.s3Uri;
     }
 
+    /**
+     * S3 URI where tuning data is located.
+     * 
+     */
     @Import(name="tuningDataS3Uri")
     private @Nullable Output<String> tuningDataS3Uri;
 
+    /**
+     * @return S3 URI where tuning data is located.
+     * 
+     */
     public Optional<Output<String>> tuningDataS3Uri() {
         return Optional.ofNullable(this.tuningDataS3Uri);
     }
@@ -62,29 +86,65 @@ public final class LanguageModelInputDataConfigArgs extends com.pulumi.resources
             $ = new LanguageModelInputDataConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dataAccessRoleArn IAM role with access to S3 bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataAccessRoleArn(Output<String> dataAccessRoleArn) {
             $.dataAccessRoleArn = dataAccessRoleArn;
             return this;
         }
 
+        /**
+         * @param dataAccessRoleArn IAM role with access to S3 bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataAccessRoleArn(String dataAccessRoleArn) {
             return dataAccessRoleArn(Output.of(dataAccessRoleArn));
         }
 
+        /**
+         * @param s3Uri S3 URI where training data is located.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3Uri(Output<String> s3Uri) {
             $.s3Uri = s3Uri;
             return this;
         }
 
+        /**
+         * @param s3Uri S3 URI where training data is located.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3Uri(String s3Uri) {
             return s3Uri(Output.of(s3Uri));
         }
 
+        /**
+         * @param tuningDataS3Uri S3 URI where tuning data is located.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tuningDataS3Uri(@Nullable Output<String> tuningDataS3Uri) {
             $.tuningDataS3Uri = tuningDataS3Uri;
             return this;
         }
 
+        /**
+         * @param tuningDataS3Uri S3 URI where tuning data is located.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tuningDataS3Uri(String tuningDataS3Uri) {
             return tuningDataS3Uri(Output.of(tuningDataS3Uri));
         }

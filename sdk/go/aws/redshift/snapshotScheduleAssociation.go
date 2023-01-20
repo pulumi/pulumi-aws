@@ -11,10 +11,68 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			defaultCluster, err := redshift.NewCluster(ctx, "defaultCluster", &redshift.ClusterArgs{
+//				ClusterIdentifier: pulumi.String("tf-redshift-cluster"),
+//				DatabaseName:      pulumi.String("mydb"),
+//				MasterUsername:    pulumi.String("foo"),
+//				MasterPassword:    pulumi.String("Mustbe8characters"),
+//				NodeType:          pulumi.String("dc1.large"),
+//				ClusterType:       pulumi.String("single-node"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			defaultSnapshotSchedule, err := redshift.NewSnapshotSchedule(ctx, "defaultSnapshotSchedule", &redshift.SnapshotScheduleArgs{
+//				Identifier: pulumi.String("tf-redshift-snapshot-schedule"),
+//				Definitions: pulumi.StringArray{
+//					pulumi.String("rate(12 hours)"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = redshift.NewSnapshotScheduleAssociation(ctx, "defaultSnapshotScheduleAssociation", &redshift.SnapshotScheduleAssociationArgs{
+//				ClusterIdentifier:  defaultCluster.ID(),
+//				ScheduleIdentifier: defaultSnapshotSchedule.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Redshift Snapshot Schedule Association can be imported using the `<cluster-identifier>/<schedule-identifier>`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
+//
+// ```
 type SnapshotScheduleAssociation struct {
 	pulumi.CustomResourceState
 
-	ClusterIdentifier  pulumi.StringOutput `pulumi:"clusterIdentifier"`
+	// The cluster identifier.
+	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
+	// The snapshot schedule identifier.
 	ScheduleIdentifier pulumi.StringOutput `pulumi:"scheduleIdentifier"`
 }
 
@@ -53,12 +111,16 @@ func GetSnapshotScheduleAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SnapshotScheduleAssociation resources.
 type snapshotScheduleAssociationState struct {
-	ClusterIdentifier  *string `pulumi:"clusterIdentifier"`
+	// The cluster identifier.
+	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
+	// The snapshot schedule identifier.
 	ScheduleIdentifier *string `pulumi:"scheduleIdentifier"`
 }
 
 type SnapshotScheduleAssociationState struct {
-	ClusterIdentifier  pulumi.StringPtrInput
+	// The cluster identifier.
+	ClusterIdentifier pulumi.StringPtrInput
+	// The snapshot schedule identifier.
 	ScheduleIdentifier pulumi.StringPtrInput
 }
 
@@ -67,13 +129,17 @@ func (SnapshotScheduleAssociationState) ElementType() reflect.Type {
 }
 
 type snapshotScheduleAssociationArgs struct {
-	ClusterIdentifier  string `pulumi:"clusterIdentifier"`
+	// The cluster identifier.
+	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+	// The snapshot schedule identifier.
 	ScheduleIdentifier string `pulumi:"scheduleIdentifier"`
 }
 
 // The set of arguments for constructing a SnapshotScheduleAssociation resource.
 type SnapshotScheduleAssociationArgs struct {
-	ClusterIdentifier  pulumi.StringInput
+	// The cluster identifier.
+	ClusterIdentifier pulumi.StringInput
+	// The snapshot schedule identifier.
 	ScheduleIdentifier pulumi.StringInput
 }
 
@@ -164,10 +230,12 @@ func (o SnapshotScheduleAssociationOutput) ToSnapshotScheduleAssociationOutputWi
 	return o
 }
 
+// The cluster identifier.
 func (o SnapshotScheduleAssociationOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotScheduleAssociation) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
+// The snapshot schedule identifier.
 func (o SnapshotScheduleAssociationOutput) ScheduleIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotScheduleAssociation) pulumi.StringOutput { return v.ScheduleIdentifier }).(pulumi.StringOutput)
 }

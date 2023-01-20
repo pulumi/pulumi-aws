@@ -16,23 +16,47 @@ public final class FunctionImageConfigArgs extends com.pulumi.resources.Resource
 
     public static final FunctionImageConfigArgs Empty = new FunctionImageConfigArgs();
 
+    /**
+     * Parameters that you want to pass in with `entry_point`.
+     * 
+     */
     @Import(name="commands")
     private @Nullable Output<List<String>> commands;
 
+    /**
+     * @return Parameters that you want to pass in with `entry_point`.
+     * 
+     */
     public Optional<Output<List<String>>> commands() {
         return Optional.ofNullable(this.commands);
     }
 
+    /**
+     * Entry point to your application, which is typically the location of the runtime executable.
+     * 
+     */
     @Import(name="entryPoints")
     private @Nullable Output<List<String>> entryPoints;
 
+    /**
+     * @return Entry point to your application, which is typically the location of the runtime executable.
+     * 
+     */
     public Optional<Output<List<String>>> entryPoints() {
         return Optional.ofNullable(this.entryPoints);
     }
 
+    /**
+     * Working directory.
+     * 
+     */
     @Import(name="workingDirectory")
     private @Nullable Output<String> workingDirectory;
 
+    /**
+     * @return Working directory.
+     * 
+     */
     public Optional<Output<String>> workingDirectory() {
         return Optional.ofNullable(this.workingDirectory);
     }
@@ -63,37 +87,85 @@ public final class FunctionImageConfigArgs extends com.pulumi.resources.Resource
             $ = new FunctionImageConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param commands Parameters that you want to pass in with `entry_point`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder commands(@Nullable Output<List<String>> commands) {
             $.commands = commands;
             return this;
         }
 
+        /**
+         * @param commands Parameters that you want to pass in with `entry_point`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder commands(List<String> commands) {
             return commands(Output.of(commands));
         }
 
+        /**
+         * @param commands Parameters that you want to pass in with `entry_point`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder commands(String... commands) {
             return commands(List.of(commands));
         }
 
+        /**
+         * @param entryPoints Entry point to your application, which is typically the location of the runtime executable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder entryPoints(@Nullable Output<List<String>> entryPoints) {
             $.entryPoints = entryPoints;
             return this;
         }
 
+        /**
+         * @param entryPoints Entry point to your application, which is typically the location of the runtime executable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder entryPoints(List<String> entryPoints) {
             return entryPoints(Output.of(entryPoints));
         }
 
+        /**
+         * @param entryPoints Entry point to your application, which is typically the location of the runtime executable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder entryPoints(String... entryPoints) {
             return entryPoints(List.of(entryPoints));
         }
 
+        /**
+         * @param workingDirectory Working directory.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workingDirectory(@Nullable Output<String> workingDirectory) {
             $.workingDirectory = workingDirectory;
             return this;
         }
 
+        /**
+         * @param workingDirectory Working directory.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workingDirectory(String workingDirectory) {
             return workingDirectory(Output.of(workingDirectory));
         }

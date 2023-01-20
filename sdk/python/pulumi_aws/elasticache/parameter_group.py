@@ -23,6 +23,11 @@ class ParameterGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ParameterGroup resource.
+        :param pulumi.Input[str] family: The family of the ElastiCache parameter group.
+        :param pulumi.Input[str] description: The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] name: The name of the ElastiCache parameter.
+        :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: A list of ElastiCache parameters to apply.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         pulumi.set(__self__, "family", family)
         if description is None:
@@ -39,6 +44,9 @@ class ParameterGroupArgs:
     @property
     @pulumi.getter
     def family(self) -> pulumi.Input[str]:
+        """
+        The family of the ElastiCache parameter group.
+        """
         return pulumi.get(self, "family")
 
     @family.setter
@@ -48,6 +56,9 @@ class ParameterGroupArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -57,6 +68,9 @@ class ParameterGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the ElastiCache parameter.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -66,6 +80,9 @@ class ParameterGroupArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]]:
+        """
+        A list of ElastiCache parameters to apply.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -75,6 +92,9 @@ class ParameterGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -94,6 +114,13 @@ class _ParameterGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ParameterGroup resources.
+        :param pulumi.Input[str] arn: The AWS ARN associated with the parameter group.
+        :param pulumi.Input[str] description: The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] family: The family of the ElastiCache parameter group.
+        :param pulumi.Input[str] name: The name of the ElastiCache parameter.
+        :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: A list of ElastiCache parameters to apply.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -115,6 +142,9 @@ class _ParameterGroupState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS ARN associated with the parameter group.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -124,6 +154,9 @@ class _ParameterGroupState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -133,6 +166,9 @@ class _ParameterGroupState:
     @property
     @pulumi.getter
     def family(self) -> Optional[pulumi.Input[str]]:
+        """
+        The family of the ElastiCache parameter group.
+        """
         return pulumi.get(self, "family")
 
     @family.setter
@@ -142,6 +178,9 @@ class _ParameterGroupState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the ElastiCache parameter.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -151,6 +190,9 @@ class _ParameterGroupState:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]]:
+        """
+        A list of ElastiCache parameters to apply.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -160,6 +202,9 @@ class _ParameterGroupState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -169,6 +214,9 @@ class _ParameterGroupState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -188,9 +236,45 @@ class ParameterGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a ParameterGroup resource with the given unique name, props, and options.
+        Provides an ElastiCache parameter group resource.
+
+        > **NOTE:** Attempting to remove the `reserved-memory` parameter when `family` is set to `redis2.6` or `redis2.8` may show a perpetual difference in this provider due to an ElastiCache API limitation. Leave that parameter configured with any value to workaround the issue.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.elasticache.ParameterGroup("default",
+            family="redis2.8",
+            parameters=[
+                aws.elasticache.ParameterGroupParameterArgs(
+                    name="activerehashing",
+                    value="yes",
+                ),
+                aws.elasticache.ParameterGroupParameterArgs(
+                    name="min-slaves-to-write",
+                    value="2",
+                ),
+            ])
+        ```
+
+        ## Import
+
+        ElastiCache Parameter Groups can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] family: The family of the ElastiCache parameter group.
+        :param pulumi.Input[str] name: The name of the ElastiCache parameter.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: A list of ElastiCache parameters to apply.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         ...
     @overload
@@ -199,7 +283,38 @@ class ParameterGroup(pulumi.CustomResource):
                  args: ParameterGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ParameterGroup resource with the given unique name, props, and options.
+        Provides an ElastiCache parameter group resource.
+
+        > **NOTE:** Attempting to remove the `reserved-memory` parameter when `family` is set to `redis2.6` or `redis2.8` may show a perpetual difference in this provider due to an ElastiCache API limitation. Leave that parameter configured with any value to workaround the issue.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.elasticache.ParameterGroup("default",
+            family="redis2.8",
+            parameters=[
+                aws.elasticache.ParameterGroupParameterArgs(
+                    name="activerehashing",
+                    value="yes",
+                ),
+                aws.elasticache.ParameterGroupParameterArgs(
+                    name="min-slaves-to-write",
+                    value="2",
+                ),
+            ])
+        ```
+
+        ## Import
+
+        ElastiCache Parameter Groups can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
+        ```
+
         :param str resource_name: The name of the resource.
         :param ParameterGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -264,6 +379,13 @@ class ParameterGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The AWS ARN associated with the parameter group.
+        :param pulumi.Input[str] description: The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] family: The family of the ElastiCache parameter group.
+        :param pulumi.Input[str] name: The name of the ElastiCache parameter.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: A list of ElastiCache parameters to apply.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -281,35 +403,56 @@ class ParameterGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The AWS ARN associated with the parameter group.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def family(self) -> pulumi.Output[str]:
+        """
+        The family of the ElastiCache parameter group.
+        """
         return pulumi.get(self, "family")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the ElastiCache parameter.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Sequence['outputs.ParameterGroupParameter']]]:
+        """
+        A list of ElastiCache parameters to apply.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

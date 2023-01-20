@@ -9,30 +9,100 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.GameLift
 {
+    /// <summary>
+    /// Provides an GameLift Game Session Queue resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.GameLift.GameSessionQueue("test", new()
+    ///     {
+    ///         Destinations = new[]
+    ///         {
+    ///             aws_gamelift_fleet.Us_west_2_fleet.Arn,
+    ///             aws_gamelift_fleet.Eu_central_1_fleet.Arn,
+    ///         },
+    ///         NotificationTarget = aws_sns_topic.Game_session_queue_notifications.Arn,
+    ///         PlayerLatencyPolicies = new[]
+    ///         {
+    ///             new Aws.GameLift.Inputs.GameSessionQueuePlayerLatencyPolicyArgs
+    ///             {
+    ///                 MaximumIndividualPlayerLatencyMilliseconds = 100,
+    ///                 PolicyDurationSeconds = 5,
+    ///             },
+    ///             new Aws.GameLift.Inputs.GameSessionQueuePlayerLatencyPolicyArgs
+    ///             {
+    ///                 MaximumIndividualPlayerLatencyMilliseconds = 200,
+    ///             },
+    ///         },
+    ///         TimeoutInSeconds = 60,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// GameLift Game Session Queues can be imported by their `name`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:gamelift/gameSessionQueue:GameSessionQueue")]
     public partial class GameSessionQueue : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Game Session Queue ARN.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// List of fleet/alias ARNs used by session queue for placing game sessions.
+        /// </summary>
         [Output("destinations")]
         public Output<ImmutableArray<string>> Destinations { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the session queue.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// An SNS topic ARN that is set up to receive game session placement notifications.
+        /// </summary>
         [Output("notificationTarget")]
         public Output<string?> NotificationTarget { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more policies used to choose fleet based on player latency. See below.
+        /// </summary>
         [Output("playerLatencyPolicies")]
         public Output<ImmutableArray<Outputs.GameSessionQueuePlayerLatencyPolicy>> PlayerLatencyPolicies { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// Maximum time a game session request can remain in the queue.
+        /// </summary>
         [Output("timeoutInSeconds")]
         public Output<int?> TimeoutInSeconds { get; private set; } = null!;
 
@@ -84,20 +154,34 @@ namespace Pulumi.Aws.GameLift
     {
         [Input("destinations")]
         private InputList<string>? _destinations;
+
+        /// <summary>
+        /// List of fleet/alias ARNs used by session queue for placing game sessions.
+        /// </summary>
         public InputList<string> Destinations
         {
             get => _destinations ?? (_destinations = new InputList<string>());
             set => _destinations = value;
         }
 
+        /// <summary>
+        /// Name of the session queue.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// An SNS topic ARN that is set up to receive game session placement notifications.
+        /// </summary>
         [Input("notificationTarget")]
         public Input<string>? NotificationTarget { get; set; }
 
         [Input("playerLatencyPolicies")]
         private InputList<Inputs.GameSessionQueuePlayerLatencyPolicyArgs>? _playerLatencyPolicies;
+
+        /// <summary>
+        /// One or more policies used to choose fleet based on player latency. See below.
+        /// </summary>
         public InputList<Inputs.GameSessionQueuePlayerLatencyPolicyArgs> PlayerLatencyPolicies
         {
             get => _playerLatencyPolicies ?? (_playerLatencyPolicies = new InputList<Inputs.GameSessionQueuePlayerLatencyPolicyArgs>());
@@ -106,12 +190,19 @@ namespace Pulumi.Aws.GameLift
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Maximum time a game session request can remain in the queue.
+        /// </summary>
         [Input("timeoutInSeconds")]
         public Input<int>? TimeoutInSeconds { get; set; }
 
@@ -123,25 +214,42 @@ namespace Pulumi.Aws.GameLift
 
     public sealed class GameSessionQueueState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Game Session Queue ARN.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("destinations")]
         private InputList<string>? _destinations;
+
+        /// <summary>
+        /// List of fleet/alias ARNs used by session queue for placing game sessions.
+        /// </summary>
         public InputList<string> Destinations
         {
             get => _destinations ?? (_destinations = new InputList<string>());
             set => _destinations = value;
         }
 
+        /// <summary>
+        /// Name of the session queue.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// An SNS topic ARN that is set up to receive game session placement notifications.
+        /// </summary>
         [Input("notificationTarget")]
         public Input<string>? NotificationTarget { get; set; }
 
         [Input("playerLatencyPolicies")]
         private InputList<Inputs.GameSessionQueuePlayerLatencyPolicyGetArgs>? _playerLatencyPolicies;
+
+        /// <summary>
+        /// One or more policies used to choose fleet based on player latency. See below.
+        /// </summary>
         public InputList<Inputs.GameSessionQueuePlayerLatencyPolicyGetArgs> PlayerLatencyPolicies
         {
             get => _playerLatencyPolicies ?? (_playerLatencyPolicies = new InputList<Inputs.GameSessionQueuePlayerLatencyPolicyGetArgs>());
@@ -150,6 +258,10 @@ namespace Pulumi.Aws.GameLift
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -158,12 +270,19 @@ namespace Pulumi.Aws.GameLift
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// Maximum time a game session request can remain in the queue.
+        /// </summary>
         [Input("timeoutInSeconds")]
         public Input<int>? TimeoutInSeconds { get; set; }
 

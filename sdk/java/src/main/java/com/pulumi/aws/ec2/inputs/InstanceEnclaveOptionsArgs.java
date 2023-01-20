@@ -15,9 +15,17 @@ public final class InstanceEnclaveOptionsArgs extends com.pulumi.resources.Resou
 
     public static final InstanceEnclaveOptionsArgs Empty = new InstanceEnclaveOptionsArgs();
 
+    /**
+     * Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -46,11 +54,23 @@ public final class InstanceEnclaveOptionsArgs extends com.pulumi.resources.Resou
             $ = new InstanceEnclaveOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param enabled Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

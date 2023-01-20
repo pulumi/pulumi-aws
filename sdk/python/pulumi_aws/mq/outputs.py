@@ -34,6 +34,10 @@ class BrokerConfiguration(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  revision: Optional[int] = None):
+        """
+        :param str id: The Configuration ID.
+        :param int revision: Revision of the Configuration.
+        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if revision is not None:
@@ -42,11 +46,17 @@ class BrokerConfiguration(dict):
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The Configuration ID.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def revision(self) -> Optional[int]:
+        """
+        Revision of the Configuration.
+        """
         return pulumi.get(self, "revision")
 
 
@@ -74,6 +84,10 @@ class BrokerEncryptionOptions(dict):
     def __init__(__self__, *,
                  kms_key_id: Optional[str] = None,
                  use_aws_owned_key: Optional[bool] = None):
+        """
+        :param str kms_key_id: Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
+        :param bool use_aws_owned_key: Whether to enable an AWS-owned KMS CMK that is not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` will create an AWS-managed CMK aliased to `aws/mq` in your account.
+        """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if use_aws_owned_key is not None:
@@ -82,11 +96,17 @@ class BrokerEncryptionOptions(dict):
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
+        """
+        Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="useAwsOwnedKey")
     def use_aws_owned_key(self) -> Optional[bool]:
+        """
+        Whether to enable an AWS-owned KMS CMK that is not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` will create an AWS-managed CMK aliased to `aws/mq` in your account.
+        """
         return pulumi.get(self, "use_aws_owned_key")
 
 
@@ -187,6 +207,19 @@ class BrokerLdapServerMetadata(dict):
                  user_role_name: Optional[str] = None,
                  user_search_matching: Optional[str] = None,
                  user_search_subtree: Optional[bool] = None):
+        """
+        :param Sequence[str] hosts: List of a fully qualified domain name of the LDAP server and an optional failover server.
+        :param str role_base: Fully qualified name of the directory to search for a user’s groups.
+        :param str role_name: Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+        :param str role_search_matching: Search criteria for groups.
+        :param bool role_search_subtree: Whether the directory search scope is the entire sub-tree.
+        :param str service_account_password: Service account password.
+        :param str service_account_username: Service account username.
+        :param str user_base: Fully qualified name of the directory where you want to search for users.
+        :param str user_role_name: Specifies the name of the LDAP attribute for the user group membership.
+        :param str user_search_matching: Search criteria for users.
+        :param bool user_search_subtree: Whether the directory search scope is the entire sub-tree.
+        """
         if hosts is not None:
             pulumi.set(__self__, "hosts", hosts)
         if role_base is not None:
@@ -213,56 +246,89 @@ class BrokerLdapServerMetadata(dict):
     @property
     @pulumi.getter
     def hosts(self) -> Optional[Sequence[str]]:
+        """
+        List of a fully qualified domain name of the LDAP server and an optional failover server.
+        """
         return pulumi.get(self, "hosts")
 
     @property
     @pulumi.getter(name="roleBase")
     def role_base(self) -> Optional[str]:
+        """
+        Fully qualified name of the directory to search for a user’s groups.
+        """
         return pulumi.get(self, "role_base")
 
     @property
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[str]:
+        """
+        Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+        """
         return pulumi.get(self, "role_name")
 
     @property
     @pulumi.getter(name="roleSearchMatching")
     def role_search_matching(self) -> Optional[str]:
+        """
+        Search criteria for groups.
+        """
         return pulumi.get(self, "role_search_matching")
 
     @property
     @pulumi.getter(name="roleSearchSubtree")
     def role_search_subtree(self) -> Optional[bool]:
+        """
+        Whether the directory search scope is the entire sub-tree.
+        """
         return pulumi.get(self, "role_search_subtree")
 
     @property
     @pulumi.getter(name="serviceAccountPassword")
     def service_account_password(self) -> Optional[str]:
+        """
+        Service account password.
+        """
         return pulumi.get(self, "service_account_password")
 
     @property
     @pulumi.getter(name="serviceAccountUsername")
     def service_account_username(self) -> Optional[str]:
+        """
+        Service account username.
+        """
         return pulumi.get(self, "service_account_username")
 
     @property
     @pulumi.getter(name="userBase")
     def user_base(self) -> Optional[str]:
+        """
+        Fully qualified name of the directory where you want to search for users.
+        """
         return pulumi.get(self, "user_base")
 
     @property
     @pulumi.getter(name="userRoleName")
     def user_role_name(self) -> Optional[str]:
+        """
+        Specifies the name of the LDAP attribute for the user group membership.
+        """
         return pulumi.get(self, "user_role_name")
 
     @property
     @pulumi.getter(name="userSearchMatching")
     def user_search_matching(self) -> Optional[str]:
+        """
+        Search criteria for users.
+        """
         return pulumi.get(self, "user_search_matching")
 
     @property
     @pulumi.getter(name="userSearchSubtree")
     def user_search_subtree(self) -> Optional[bool]:
+        """
+        Whether the directory search scope is the entire sub-tree.
+        """
         return pulumi.get(self, "user_search_subtree")
 
 
@@ -271,6 +337,10 @@ class BrokerLogs(dict):
     def __init__(__self__, *,
                  audit: Optional[bool] = None,
                  general: Optional[bool] = None):
+        """
+        :param bool audit: Enables audit logging. Auditing is only possible for `engine_type` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+        :param bool general: Enables general logging via CloudWatch. Defaults to `false`.
+        """
         if audit is not None:
             pulumi.set(__self__, "audit", audit)
         if general is not None:
@@ -279,11 +349,17 @@ class BrokerLogs(dict):
     @property
     @pulumi.getter
     def audit(self) -> Optional[bool]:
+        """
+        Enables audit logging. Auditing is only possible for `engine_type` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+        """
         return pulumi.get(self, "audit")
 
     @property
     @pulumi.getter
     def general(self) -> Optional[bool]:
+        """
+        Enables general logging via CloudWatch. Defaults to `false`.
+        """
         return pulumi.get(self, "general")
 
 
@@ -314,6 +390,11 @@ class BrokerMaintenanceWindowStartTime(dict):
                  day_of_week: str,
                  time_of_day: str,
                  time_zone: str):
+        """
+        :param str day_of_week: Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
+        :param str time_of_day: Time, in 24-hour format, e.g., `02:00`.
+        :param str time_zone: Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
+        """
         pulumi.set(__self__, "day_of_week", day_of_week)
         pulumi.set(__self__, "time_of_day", time_of_day)
         pulumi.set(__self__, "time_zone", time_zone)
@@ -321,16 +402,25 @@ class BrokerMaintenanceWindowStartTime(dict):
     @property
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> str:
+        """
+        Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
+        """
         return pulumi.get(self, "day_of_week")
 
     @property
     @pulumi.getter(name="timeOfDay")
     def time_of_day(self) -> str:
+        """
+        Time, in 24-hour format, e.g., `02:00`.
+        """
         return pulumi.get(self, "time_of_day")
 
     @property
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> str:
+        """
+        Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
+        """
         return pulumi.get(self, "time_zone")
 
 
@@ -358,6 +448,12 @@ class BrokerUser(dict):
                  username: str,
                  console_access: Optional[bool] = None,
                  groups: Optional[Sequence[str]] = None):
+        """
+        :param str password: Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+        :param str username: Username of the user.
+        :param bool console_access: Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
+        :param Sequence[str] groups: List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
+        """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
         if console_access is not None:
@@ -368,21 +464,33 @@ class BrokerUser(dict):
     @property
     @pulumi.getter
     def password(self) -> str:
+        """
+        Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter
     def username(self) -> str:
+        """
+        Username of the user.
+        """
         return pulumi.get(self, "username")
 
     @property
     @pulumi.getter(name="consoleAccess")
     def console_access(self) -> Optional[bool]:
+        """
+        Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
+        """
         return pulumi.get(self, "console_access")
 
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence[str]]:
+        """
+        List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
+        """
         return pulumi.get(self, "groups")
 
 
@@ -612,6 +720,14 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
                  storage_type: str,
                  supported_deployment_modes: Sequence[str],
                  supported_engine_versions: Sequence[str]):
+        """
+        :param Sequence['GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs'] availability_zones: List of available AZs. See Availability Zones. below
+        :param str engine_type: Filter response by engine type.
+        :param str host_instance_type: Filter response by host instance type.
+        :param str storage_type: Filter response by storage type.
+        :param Sequence[str] supported_deployment_modes: The list of supported deployment modes.
+        :param Sequence[str] supported_engine_versions: The list of supported engine versions.
+        """
         pulumi.set(__self__, "availability_zones", availability_zones)
         pulumi.set(__self__, "engine_type", engine_type)
         pulumi.set(__self__, "host_instance_type", host_instance_type)
@@ -622,31 +738,49 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
     @property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence['outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult']:
+        """
+        List of available AZs. See Availability Zones. below
+        """
         return pulumi.get(self, "availability_zones")
 
     @property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> str:
+        """
+        Filter response by engine type.
+        """
         return pulumi.get(self, "engine_type")
 
     @property
     @pulumi.getter(name="hostInstanceType")
     def host_instance_type(self) -> str:
+        """
+        Filter response by host instance type.
+        """
         return pulumi.get(self, "host_instance_type")
 
     @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> str:
+        """
+        Filter response by storage type.
+        """
         return pulumi.get(self, "storage_type")
 
     @property
     @pulumi.getter(name="supportedDeploymentModes")
     def supported_deployment_modes(self) -> Sequence[str]:
+        """
+        The list of supported deployment modes.
+        """
         return pulumi.get(self, "supported_deployment_modes")
 
     @property
     @pulumi.getter(name="supportedEngineVersions")
     def supported_engine_versions(self) -> Sequence[str]:
+        """
+        The list of supported engine versions.
+        """
         return pulumi.get(self, "supported_engine_versions")
 
 
@@ -654,11 +788,17 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
 class GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult(dict):
     def __init__(__self__, *,
                  name: str):
+        """
+        :param str name: Name of the Availability Zone.
+        """
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the Availability Zone.
+        """
         return pulumi.get(self, "name")
 
 

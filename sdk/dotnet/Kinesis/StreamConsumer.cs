@@ -9,18 +9,69 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Kinesis
 {
+    /// <summary>
+    /// Provides a resource to manage a Kinesis Stream Consumer.
+    /// 
+    /// &gt; **Note:** You can register up to 20 consumers per stream. A given consumer can only be registered with one stream at a time.
+    /// 
+    /// For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleStream = new Aws.Kinesis.Stream("exampleStream", new()
+    ///     {
+    ///         ShardCount = 1,
+    ///     });
+    /// 
+    ///     var exampleStreamConsumer = new Aws.Kinesis.StreamConsumer("exampleStreamConsumer", new()
+    ///     {
+    ///         StreamArn = exampleStream.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Kinesis Stream Consumers can be imported using the Amazon Resource Name (ARN) e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
+    /// ```
+    /// 
+    ///  [1]https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html
+    /// </summary>
     [AwsResourceType("aws:kinesis/streamConsumer:StreamConsumer")]
     public partial class StreamConsumer : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the stream consumer.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
+        /// </summary>
         [Output("creationTimestamp")]
         public Output<string> CreationTimestamp { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the stream consumer.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        /// </summary>
         [Output("streamArn")]
         public Output<string> StreamArn { get; private set; } = null!;
 
@@ -70,9 +121,15 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class StreamConsumerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the stream consumer.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        /// </summary>
         [Input("streamArn", required: true)]
         public Input<string> StreamArn { get; set; } = null!;
 
@@ -84,15 +141,27 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class StreamConsumerState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the stream consumer.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
+        /// </summary>
         [Input("creationTimestamp")]
         public Input<string>? CreationTimestamp { get; set; }
 
+        /// <summary>
+        /// Name of the stream consumer.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        /// </summary>
         [Input("streamArn")]
         public Input<string>? StreamArn { get; set; }
 

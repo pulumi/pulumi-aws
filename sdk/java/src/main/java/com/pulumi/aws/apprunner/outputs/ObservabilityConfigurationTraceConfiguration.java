@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityConfigurationTraceConfiguration {
+    /**
+     * @return Implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
+     * 
+     */
     private @Nullable String vendor;
 
     private ObservabilityConfigurationTraceConfiguration() {}
+    /**
+     * @return Implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
+     * 
+     */
     public Optional<String> vendor() {
         return Optional.ofNullable(this.vendor);
     }

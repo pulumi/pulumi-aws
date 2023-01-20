@@ -9,21 +9,83 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DirectoryService
 {
+    /// <summary>
+    /// Manages a directory in your account (directory owner) shared with another account (directory consumer).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleDirectory = new Aws.DirectoryService.Directory("exampleDirectory", new()
+    ///     {
+    ///         Name = "tf-example",
+    ///         Password = "SuperSecretPassw0rd",
+    ///         Type = "MicrosoftAD",
+    ///         Edition = "Standard",
+    ///         VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
+    ///         {
+    ///             VpcId = aws_vpc.Example.Id,
+    ///             SubnetIds = aws_subnet.Example.Select(__item =&gt; __item.Id).ToList(),
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSharedDirectory = new Aws.DirectoryService.SharedDirectory("exampleSharedDirectory", new()
+    ///     {
+    ///         DirectoryId = exampleDirectory.Id,
+    ///         Notes = "You wanna have a catch?",
+    ///         Target = new Aws.DirectoryService.Inputs.SharedDirectoryTargetArgs
+    ///         {
+    ///             Id = data.Aws_caller_identity.Receiver.Account_id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Directory Service Shared Directories can be imported using the owner directory ID/shared directory ID, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:directoryservice/sharedDirectory:SharedDirectory")]
     public partial class SharedDirectory : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
+        /// </summary>
         [Output("directoryId")]
         public Output<string> DirectoryId { get; private set; } = null!;
 
+        /// <summary>
+        /// Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
+        /// </summary>
         [Output("method")]
         public Output<string?> Method { get; private set; } = null!;
 
+        /// <summary>
+        /// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
+        /// </summary>
         [Output("notes")]
         public Output<string?> Notes { get; private set; } = null!;
 
+        /// <summary>
+        /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
+        /// </summary>
         [Output("sharedDirectoryId")]
         public Output<string> SharedDirectoryId { get; private set; } = null!;
 
+        /// <summary>
+        /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+        /// </summary>
         [Output("target")]
         public Output<Outputs.SharedDirectoryTarget> Target { get; private set; } = null!;
 
@@ -77,14 +139,24 @@ namespace Pulumi.Aws.DirectoryService
 
     public sealed class SharedDirectoryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
+        /// </summary>
         [Input("directoryId", required: true)]
         public Input<string> DirectoryId { get; set; } = null!;
 
+        /// <summary>
+        /// Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
+        /// </summary>
         [Input("method")]
         public Input<string>? Method { get; set; }
 
         [Input("notes")]
         private Input<string>? _notes;
+
+        /// <summary>
+        /// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
+        /// </summary>
         public Input<string>? Notes
         {
             get => _notes;
@@ -95,6 +167,9 @@ namespace Pulumi.Aws.DirectoryService
             }
         }
 
+        /// <summary>
+        /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+        /// </summary>
         [Input("target", required: true)]
         public Input<Inputs.SharedDirectoryTargetArgs> Target { get; set; } = null!;
 
@@ -106,14 +181,24 @@ namespace Pulumi.Aws.DirectoryService
 
     public sealed class SharedDirectoryState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
+        /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
 
+        /// <summary>
+        /// Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
+        /// </summary>
         [Input("method")]
         public Input<string>? Method { get; set; }
 
         [Input("notes")]
         private Input<string>? _notes;
+
+        /// <summary>
+        /// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
+        /// </summary>
         public Input<string>? Notes
         {
             get => _notes;
@@ -124,9 +209,15 @@ namespace Pulumi.Aws.DirectoryService
             }
         }
 
+        /// <summary>
+        /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
+        /// </summary>
         [Input("sharedDirectoryId")]
         public Input<string>? SharedDirectoryId { get; set; }
 
+        /// <summary>
+        /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+        /// </summary>
         [Input("target")]
         public Input<Inputs.SharedDirectoryTargetGetArgs>? Target { get; set; }
 

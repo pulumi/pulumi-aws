@@ -23,6 +23,13 @@ class ConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Configuration resource.
+        :param pulumi.Input[str] data: Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+        :param pulumi.Input[str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
+        :param pulumi.Input[str] engine_version: Version of the broker engine.
+        :param pulumi.Input[str] authentication_strategy: Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
+        :param pulumi.Input[str] description: Description of the configuration.
+        :param pulumi.Input[str] name: Name of the configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "data", data)
         pulumi.set(__self__, "engine_type", engine_type)
@@ -39,6 +46,9 @@ class ConfigurationArgs:
     @property
     @pulumi.getter
     def data(self) -> pulumi.Input[str]:
+        """
+        Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+        """
         return pulumi.get(self, "data")
 
     @data.setter
@@ -48,6 +58,9 @@ class ConfigurationArgs:
     @property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> pulumi.Input[str]:
+        """
+        Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
+        """
         return pulumi.get(self, "engine_type")
 
     @engine_type.setter
@@ -57,6 +70,9 @@ class ConfigurationArgs:
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Input[str]:
+        """
+        Version of the broker engine.
+        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -66,6 +82,9 @@ class ConfigurationArgs:
     @property
     @pulumi.getter(name="authenticationStrategy")
     def authentication_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
+        """
         return pulumi.get(self, "authentication_strategy")
 
     @authentication_strategy.setter
@@ -75,6 +94,9 @@ class ConfigurationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the configuration.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -84,6 +106,9 @@ class ConfigurationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the configuration.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -93,6 +118,9 @@ class ConfigurationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -115,6 +143,16 @@ class _ConfigurationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Configuration resources.
+        :param pulumi.Input[str] arn: ARN of the configuration.
+        :param pulumi.Input[str] authentication_strategy: Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
+        :param pulumi.Input[str] data: Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+        :param pulumi.Input[str] description: Description of the configuration.
+        :param pulumi.Input[str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
+        :param pulumi.Input[str] engine_version: Version of the broker engine.
+        :param pulumi.Input[int] latest_revision: Latest revision of the configuration.
+        :param pulumi.Input[str] name: Name of the configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -140,6 +178,9 @@ class _ConfigurationState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the configuration.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -149,6 +190,9 @@ class _ConfigurationState:
     @property
     @pulumi.getter(name="authenticationStrategy")
     def authentication_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
+        """
         return pulumi.get(self, "authentication_strategy")
 
     @authentication_strategy.setter
@@ -158,6 +202,9 @@ class _ConfigurationState:
     @property
     @pulumi.getter
     def data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+        """
         return pulumi.get(self, "data")
 
     @data.setter
@@ -167,6 +214,9 @@ class _ConfigurationState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the configuration.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -176,6 +226,9 @@ class _ConfigurationState:
     @property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
+        """
         return pulumi.get(self, "engine_type")
 
     @engine_type.setter
@@ -185,6 +238,9 @@ class _ConfigurationState:
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the broker engine.
+        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -194,6 +250,9 @@ class _ConfigurationState:
     @property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> Optional[pulumi.Input[int]]:
+        """
+        Latest revision of the configuration.
+        """
         return pulumi.get(self, "latest_revision")
 
     @latest_revision.setter
@@ -203,6 +262,9 @@ class _ConfigurationState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the configuration.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -212,6 +274,9 @@ class _ConfigurationState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -221,6 +286,9 @@ class _ConfigurationState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -242,9 +310,49 @@ class Configuration(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Configuration resource with the given unique name, props, and options.
+        Provides an MQ Configuration Resource.
+
+        For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.mq.Configuration("example",
+            data=\"\"\"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+        <broker xmlns="http://activemq.apache.org/schema/core">
+          <plugins>
+            <forcePersistencyModeBrokerPlugin persistenceFlag="true"/>
+            <statisticsBrokerPlugin/>
+            <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
+          </plugins>
+        </broker>
+
+        \"\"\",
+            description="Example Configuration",
+            engine_type="ActiveMQ",
+            engine_version="5.15.0")
+        ```
+
+        ## Import
+
+        MQ Configurations can be imported using the configuration ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] authentication_strategy: Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
+        :param pulumi.Input[str] data: Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+        :param pulumi.Input[str] description: Description of the configuration.
+        :param pulumi.Input[str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
+        :param pulumi.Input[str] engine_version: Version of the broker engine.
+        :param pulumi.Input[str] name: Name of the configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -253,7 +361,40 @@ class Configuration(pulumi.CustomResource):
                  args: ConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Configuration resource with the given unique name, props, and options.
+        Provides an MQ Configuration Resource.
+
+        For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.mq.Configuration("example",
+            data=\"\"\"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+        <broker xmlns="http://activemq.apache.org/schema/core">
+          <plugins>
+            <forcePersistencyModeBrokerPlugin persistenceFlag="true"/>
+            <statisticsBrokerPlugin/>
+            <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
+          </plugins>
+        </broker>
+
+        \"\"\",
+            description="Example Configuration",
+            engine_type="ActiveMQ",
+            engine_version="5.15.0")
+        ```
+
+        ## Import
+
+        MQ Configurations can be imported using the configuration ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
+        ```
+
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -328,6 +469,16 @@ class Configuration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the configuration.
+        :param pulumi.Input[str] authentication_strategy: Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
+        :param pulumi.Input[str] data: Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+        :param pulumi.Input[str] description: Description of the configuration.
+        :param pulumi.Input[str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
+        :param pulumi.Input[str] engine_version: Version of the broker engine.
+        :param pulumi.Input[int] latest_revision: Latest revision of the configuration.
+        :param pulumi.Input[str] name: Name of the configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -348,50 +499,80 @@ class Configuration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the configuration.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authenticationStrategy")
     def authentication_strategy(self) -> pulumi.Output[str]:
+        """
+        Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
+        """
         return pulumi.get(self, "authentication_strategy")
 
     @property
     @pulumi.getter
     def data(self) -> pulumi.Output[str]:
+        """
+        Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+        """
         return pulumi.get(self, "data")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Description of the configuration.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> pulumi.Output[str]:
+        """
+        Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
+        """
         return pulumi.get(self, "engine_type")
 
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[str]:
+        """
+        Version of the broker engine.
+        """
         return pulumi.get(self, "engine_version")
 
     @property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> pulumi.Output[int]:
+        """
+        Latest revision of the configuration.
+        """
         return pulumi.get(self, "latest_revision")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Name of the configuration.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

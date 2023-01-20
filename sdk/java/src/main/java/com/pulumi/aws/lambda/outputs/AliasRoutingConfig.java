@@ -12,9 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AliasRoutingConfig {
+    /**
+     * @return A map that defines the proportion of events that should be sent to different versions of a lambda function.
+     * 
+     */
     private @Nullable Map<String,Double> additionalVersionWeights;
 
     private AliasRoutingConfig() {}
+    /**
+     * @return A map that defines the proportion of events that should be sent to different versions of a lambda function.
+     * 
+     */
     public Map<String,Double> additionalVersionWeights() {
         return this.additionalVersionWeights == null ? Map.of() : this.additionalVersionWeights;
     }

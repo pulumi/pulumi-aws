@@ -11,11 +11,66 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an AWS Backup Region Settings resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := backup.NewRegionSettings(ctx, "test", &backup.RegionSettingsArgs{
+//				ResourceTypeManagementPreference: pulumi.BoolMap{
+//					"DynamoDB": pulumi.Bool(true),
+//					"EFS":      pulumi.Bool(true),
+//				},
+//				ResourceTypeOptInPreference: pulumi.BoolMap{
+//					"Aurora":          pulumi.Bool(true),
+//					"DocumentDB":      pulumi.Bool(true),
+//					"DynamoDB":        pulumi.Bool(true),
+//					"EBS":             pulumi.Bool(true),
+//					"EC2":             pulumi.Bool(true),
+//					"EFS":             pulumi.Bool(true),
+//					"FSx":             pulumi.Bool(true),
+//					"Neptune":         pulumi.Bool(true),
+//					"RDS":             pulumi.Bool(true),
+//					"Storage Gateway": pulumi.Bool(true),
+//					"VirtualMachine":  pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Backup Region Settings can be imported using the `region`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
+//
+// ```
 type RegionSettings struct {
 	pulumi.CustomResourceState
 
+	// A map of services along with the management preferences for the Region.
 	ResourceTypeManagementPreference pulumi.BoolMapOutput `pulumi:"resourceTypeManagementPreference"`
-	ResourceTypeOptInPreference      pulumi.BoolMapOutput `pulumi:"resourceTypeOptInPreference"`
+	// A map of services along with the opt-in preferences for the Region.
+	ResourceTypeOptInPreference pulumi.BoolMapOutput `pulumi:"resourceTypeOptInPreference"`
 }
 
 // NewRegionSettings registers a new resource with the given unique name, arguments, and options.
@@ -50,13 +105,17 @@ func GetRegionSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegionSettings resources.
 type regionSettingsState struct {
+	// A map of services along with the management preferences for the Region.
 	ResourceTypeManagementPreference map[string]bool `pulumi:"resourceTypeManagementPreference"`
-	ResourceTypeOptInPreference      map[string]bool `pulumi:"resourceTypeOptInPreference"`
+	// A map of services along with the opt-in preferences for the Region.
+	ResourceTypeOptInPreference map[string]bool `pulumi:"resourceTypeOptInPreference"`
 }
 
 type RegionSettingsState struct {
+	// A map of services along with the management preferences for the Region.
 	ResourceTypeManagementPreference pulumi.BoolMapInput
-	ResourceTypeOptInPreference      pulumi.BoolMapInput
+	// A map of services along with the opt-in preferences for the Region.
+	ResourceTypeOptInPreference pulumi.BoolMapInput
 }
 
 func (RegionSettingsState) ElementType() reflect.Type {
@@ -64,14 +123,18 @@ func (RegionSettingsState) ElementType() reflect.Type {
 }
 
 type regionSettingsArgs struct {
+	// A map of services along with the management preferences for the Region.
 	ResourceTypeManagementPreference map[string]bool `pulumi:"resourceTypeManagementPreference"`
-	ResourceTypeOptInPreference      map[string]bool `pulumi:"resourceTypeOptInPreference"`
+	// A map of services along with the opt-in preferences for the Region.
+	ResourceTypeOptInPreference map[string]bool `pulumi:"resourceTypeOptInPreference"`
 }
 
 // The set of arguments for constructing a RegionSettings resource.
 type RegionSettingsArgs struct {
+	// A map of services along with the management preferences for the Region.
 	ResourceTypeManagementPreference pulumi.BoolMapInput
-	ResourceTypeOptInPreference      pulumi.BoolMapInput
+	// A map of services along with the opt-in preferences for the Region.
+	ResourceTypeOptInPreference pulumi.BoolMapInput
 }
 
 func (RegionSettingsArgs) ElementType() reflect.Type {
@@ -161,10 +224,12 @@ func (o RegionSettingsOutput) ToRegionSettingsOutputWithContext(ctx context.Cont
 	return o
 }
 
+// A map of services along with the management preferences for the Region.
 func (o RegionSettingsOutput) ResourceTypeManagementPreference() pulumi.BoolMapOutput {
 	return o.ApplyT(func(v *RegionSettings) pulumi.BoolMapOutput { return v.ResourceTypeManagementPreference }).(pulumi.BoolMapOutput)
 }
 
+// A map of services along with the opt-in preferences for the Region.
 func (o RegionSettingsOutput) ResourceTypeOptInPreference() pulumi.BoolMapOutput {
 	return o.ApplyT(func(v *RegionSettings) pulumi.BoolMapOutput { return v.ResourceTypeOptInPreference }).(pulumi.BoolMapOutput)
 }

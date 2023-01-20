@@ -45,11 +45,17 @@ class GetGroupResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        User ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="groupId")
     def group_id(self) -> str:
+        """
+        Stable and unique string identifying the group.
+        """
         return pulumi.get(self, "group_id")
 
     @property
@@ -68,11 +74,17 @@ class GetGroupResult:
     @property
     @pulumi.getter
     def path(self) -> str:
+        """
+        Path to the IAM user.
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter
     def users(self) -> Sequence['outputs.GetGroupUserResult']:
+        """
+        List of objects containing group member information. See below.
+        """
         return pulumi.get(self, "users")
 
 
@@ -93,7 +105,21 @@ class AwaitableGetGroupResult(GetGroupResult):
 def get_group(group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    This data source can be used to fetch information about a specific
+    IAM group. By using this data source, you can reference IAM group
+    properties without having to hard code ARNs as input.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.iam.get_group(group_name="an_example_group_name")
+    ```
+
+
+    :param str group_name: Friendly IAM group name to match.
     """
     __args__ = dict()
     __args__['groupName'] = group_name
@@ -113,6 +139,20 @@ def get_group(group_name: Optional[str] = None,
 def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
-    Use this data source to access information about an existing resource.
+    This data source can be used to fetch information about a specific
+    IAM group. By using this data source, you can reference IAM group
+    properties without having to hard code ARNs as input.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.iam.get_group(group_name="an_example_group_name")
+    ```
+
+
+    :param str group_name: Friendly IAM group name to match.
     """
     ...

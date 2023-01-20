@@ -15,17 +15,89 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Load Balancer Listener Certificate resource.
+ * 
+ * This resource is for additional certificates and does not replace the default certificate on the listener.
+ * 
+ * &gt; **Note:** `aws.alb.ListenerCertificate` is known as `aws.lb.ListenerCertificate`. The functionality is identical.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.acm.Certificate;
+ * import com.pulumi.aws.lb.LoadBalancer;
+ * import com.pulumi.aws.lb.Listener;
+ * import com.pulumi.aws.lb.ListenerCertificate;
+ * import com.pulumi.aws.lb.ListenerCertificateArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;);
+ * 
+ *         var frontEndLoadBalancer = new LoadBalancer(&#34;frontEndLoadBalancer&#34;);
+ * 
+ *         var frontEndListener = new Listener(&#34;frontEndListener&#34;);
+ * 
+ *         var exampleListenerCertificate = new ListenerCertificate(&#34;exampleListenerCertificate&#34;, ListenerCertificateArgs.builder()        
+ *             .listenerArn(frontEndListener.arn())
+ *             .certificateArn(exampleCertificate.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Listener Certificates can be imported by using the listener arn and certificate arn, separated by an underscore (`_`), e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:alb/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
+ * ```
+ * 
+ */
 @ResourceType(type="aws:alb/listenerCertificate:ListenerCertificate")
 public class ListenerCertificate extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the certificate to attach to the listener.
+     * 
+     */
     @Export(name="certificateArn", refs={String.class}, tree="[0]")
     private Output<String> certificateArn;
 
+    /**
+     * @return The ARN of the certificate to attach to the listener.
+     * 
+     */
     public Output<String> certificateArn() {
         return this.certificateArn;
     }
+    /**
+     * The ARN of the listener to which to attach the certificate.
+     * 
+     */
     @Export(name="listenerArn", refs={String.class}, tree="[0]")
     private Output<String> listenerArn;
 
+    /**
+     * @return The ARN of the listener to which to attach the certificate.
+     * 
+     */
     public Output<String> listenerArn() {
         return this.listenerArn;
     }

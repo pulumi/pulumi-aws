@@ -11,24 +11,76 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an Amazon FSx for OpenZFS volume.
+// See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := fsx.NewOpenZfsVolume(ctx, "test", &fsx.OpenZfsVolumeArgs{
+//				ParentVolumeId: pulumi.Any(aws_fsx_openzfs_file_system.Test.Root_volume_id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// FSx Volumes can be imported using the `id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
+//
+// ```
 type OpenZfsVolume struct {
 	pulumi.CustomResourceState
 
-	Arn                           pulumi.StringOutput                       `pulumi:"arn"`
-	CopyTagsToSnapshots           pulumi.BoolPtrOutput                      `pulumi:"copyTagsToSnapshots"`
-	DataCompressionType           pulumi.StringPtrOutput                    `pulumi:"dataCompressionType"`
-	Name                          pulumi.StringOutput                       `pulumi:"name"`
-	NfsExports                    OpenZfsVolumeNfsExportsPtrOutput          `pulumi:"nfsExports"`
-	OriginSnapshot                OpenZfsVolumeOriginSnapshotPtrOutput      `pulumi:"originSnapshot"`
-	ParentVolumeId                pulumi.StringOutput                       `pulumi:"parentVolumeId"`
-	ReadOnly                      pulumi.BoolOutput                         `pulumi:"readOnly"`
-	RecordSizeKib                 pulumi.IntPtrOutput                       `pulumi:"recordSizeKib"`
-	StorageCapacityQuotaGib       pulumi.IntOutput                          `pulumi:"storageCapacityQuotaGib"`
-	StorageCapacityReservationGib pulumi.IntOutput                          `pulumi:"storageCapacityReservationGib"`
-	Tags                          pulumi.StringMapOutput                    `pulumi:"tags"`
-	TagsAll                       pulumi.StringMapOutput                    `pulumi:"tagsAll"`
-	UserAndGroupQuotas            OpenZfsVolumeUserAndGroupQuotaArrayOutput `pulumi:"userAndGroupQuotas"`
-	VolumeType                    pulumi.StringPtrOutput                    `pulumi:"volumeType"`
+	// Amazon Resource Name of the file system.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+	CopyTagsToSnapshots pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshots"`
+	// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+	DataCompressionType pulumi.StringPtrOutput `pulumi:"dataCompressionType"`
+	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+	NfsExports OpenZfsVolumeNfsExportsPtrOutput `pulumi:"nfsExports"`
+	// The ARN of the source snapshot to create the volume from.
+	OriginSnapshot OpenZfsVolumeOriginSnapshotPtrOutput `pulumi:"originSnapshot"`
+	// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `fsx.OpenZfsVolume`.
+	ParentVolumeId pulumi.StringOutput `pulumi:"parentVolumeId"`
+	// specifies whether the volume is read-only. Default is false.
+	ReadOnly pulumi.BoolOutput `pulumi:"readOnly"`
+	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+	RecordSizeKib pulumi.IntPtrOutput `pulumi:"recordSizeKib"`
+	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+	StorageCapacityQuotaGib pulumi.IntOutput `pulumi:"storageCapacityQuotaGib"`
+	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+	StorageCapacityReservationGib pulumi.IntOutput `pulumi:"storageCapacityReservationGib"`
+	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	UserAndGroupQuotas OpenZfsVolumeUserAndGroupQuotaArrayOutput `pulumi:"userAndGroupQuotas"`
+	VolumeType         pulumi.StringPtrOutput                    `pulumi:"volumeType"`
 }
 
 // NewOpenZfsVolume registers a new resource with the given unique name, arguments, and options.
@@ -63,39 +115,67 @@ func GetOpenZfsVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OpenZfsVolume resources.
 type openZfsVolumeState struct {
-	Arn                           *string                          `pulumi:"arn"`
-	CopyTagsToSnapshots           *bool                            `pulumi:"copyTagsToSnapshots"`
-	DataCompressionType           *string                          `pulumi:"dataCompressionType"`
-	Name                          *string                          `pulumi:"name"`
-	NfsExports                    *OpenZfsVolumeNfsExports         `pulumi:"nfsExports"`
-	OriginSnapshot                *OpenZfsVolumeOriginSnapshot     `pulumi:"originSnapshot"`
-	ParentVolumeId                *string                          `pulumi:"parentVolumeId"`
-	ReadOnly                      *bool                            `pulumi:"readOnly"`
-	RecordSizeKib                 *int                             `pulumi:"recordSizeKib"`
-	StorageCapacityQuotaGib       *int                             `pulumi:"storageCapacityQuotaGib"`
-	StorageCapacityReservationGib *int                             `pulumi:"storageCapacityReservationGib"`
-	Tags                          map[string]string                `pulumi:"tags"`
-	TagsAll                       map[string]string                `pulumi:"tagsAll"`
-	UserAndGroupQuotas            []OpenZfsVolumeUserAndGroupQuota `pulumi:"userAndGroupQuotas"`
-	VolumeType                    *string                          `pulumi:"volumeType"`
+	// Amazon Resource Name of the file system.
+	Arn *string `pulumi:"arn"`
+	// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+	CopyTagsToSnapshots *bool `pulumi:"copyTagsToSnapshots"`
+	// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+	DataCompressionType *string `pulumi:"dataCompressionType"`
+	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+	Name *string `pulumi:"name"`
+	// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+	NfsExports *OpenZfsVolumeNfsExports `pulumi:"nfsExports"`
+	// The ARN of the source snapshot to create the volume from.
+	OriginSnapshot *OpenZfsVolumeOriginSnapshot `pulumi:"originSnapshot"`
+	// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `fsx.OpenZfsVolume`.
+	ParentVolumeId *string `pulumi:"parentVolumeId"`
+	// specifies whether the volume is read-only. Default is false.
+	ReadOnly *bool `pulumi:"readOnly"`
+	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+	RecordSizeKib *int `pulumi:"recordSizeKib"`
+	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+	StorageCapacityQuotaGib *int `pulumi:"storageCapacityQuotaGib"`
+	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+	StorageCapacityReservationGib *int `pulumi:"storageCapacityReservationGib"`
+	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	UserAndGroupQuotas []OpenZfsVolumeUserAndGroupQuota `pulumi:"userAndGroupQuotas"`
+	VolumeType         *string                          `pulumi:"volumeType"`
 }
 
 type OpenZfsVolumeState struct {
-	Arn                           pulumi.StringPtrInput
-	CopyTagsToSnapshots           pulumi.BoolPtrInput
-	DataCompressionType           pulumi.StringPtrInput
-	Name                          pulumi.StringPtrInput
-	NfsExports                    OpenZfsVolumeNfsExportsPtrInput
-	OriginSnapshot                OpenZfsVolumeOriginSnapshotPtrInput
-	ParentVolumeId                pulumi.StringPtrInput
-	ReadOnly                      pulumi.BoolPtrInput
-	RecordSizeKib                 pulumi.IntPtrInput
-	StorageCapacityQuotaGib       pulumi.IntPtrInput
+	// Amazon Resource Name of the file system.
+	Arn pulumi.StringPtrInput
+	// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+	CopyTagsToSnapshots pulumi.BoolPtrInput
+	// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+	DataCompressionType pulumi.StringPtrInput
+	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+	Name pulumi.StringPtrInput
+	// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+	NfsExports OpenZfsVolumeNfsExportsPtrInput
+	// The ARN of the source snapshot to create the volume from.
+	OriginSnapshot OpenZfsVolumeOriginSnapshotPtrInput
+	// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `fsx.OpenZfsVolume`.
+	ParentVolumeId pulumi.StringPtrInput
+	// specifies whether the volume is read-only. Default is false.
+	ReadOnly pulumi.BoolPtrInput
+	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+	RecordSizeKib pulumi.IntPtrInput
+	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+	StorageCapacityQuotaGib pulumi.IntPtrInput
+	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib pulumi.IntPtrInput
-	Tags                          pulumi.StringMapInput
-	TagsAll                       pulumi.StringMapInput
-	UserAndGroupQuotas            OpenZfsVolumeUserAndGroupQuotaArrayInput
-	VolumeType                    pulumi.StringPtrInput
+	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	UserAndGroupQuotas OpenZfsVolumeUserAndGroupQuotaArrayInput
+	VolumeType         pulumi.StringPtrInput
 }
 
 func (OpenZfsVolumeState) ElementType() reflect.Type {
@@ -103,36 +183,60 @@ func (OpenZfsVolumeState) ElementType() reflect.Type {
 }
 
 type openZfsVolumeArgs struct {
-	CopyTagsToSnapshots           *bool                            `pulumi:"copyTagsToSnapshots"`
-	DataCompressionType           *string                          `pulumi:"dataCompressionType"`
-	Name                          *string                          `pulumi:"name"`
-	NfsExports                    *OpenZfsVolumeNfsExports         `pulumi:"nfsExports"`
-	OriginSnapshot                *OpenZfsVolumeOriginSnapshot     `pulumi:"originSnapshot"`
-	ParentVolumeId                string                           `pulumi:"parentVolumeId"`
-	ReadOnly                      *bool                            `pulumi:"readOnly"`
-	RecordSizeKib                 *int                             `pulumi:"recordSizeKib"`
-	StorageCapacityQuotaGib       *int                             `pulumi:"storageCapacityQuotaGib"`
-	StorageCapacityReservationGib *int                             `pulumi:"storageCapacityReservationGib"`
-	Tags                          map[string]string                `pulumi:"tags"`
-	UserAndGroupQuotas            []OpenZfsVolumeUserAndGroupQuota `pulumi:"userAndGroupQuotas"`
-	VolumeType                    *string                          `pulumi:"volumeType"`
+	// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+	CopyTagsToSnapshots *bool `pulumi:"copyTagsToSnapshots"`
+	// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+	DataCompressionType *string `pulumi:"dataCompressionType"`
+	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+	Name *string `pulumi:"name"`
+	// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+	NfsExports *OpenZfsVolumeNfsExports `pulumi:"nfsExports"`
+	// The ARN of the source snapshot to create the volume from.
+	OriginSnapshot *OpenZfsVolumeOriginSnapshot `pulumi:"originSnapshot"`
+	// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `fsx.OpenZfsVolume`.
+	ParentVolumeId string `pulumi:"parentVolumeId"`
+	// specifies whether the volume is read-only. Default is false.
+	ReadOnly *bool `pulumi:"readOnly"`
+	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+	RecordSizeKib *int `pulumi:"recordSizeKib"`
+	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+	StorageCapacityQuotaGib *int `pulumi:"storageCapacityQuotaGib"`
+	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+	StorageCapacityReservationGib *int `pulumi:"storageCapacityReservationGib"`
+	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	UserAndGroupQuotas []OpenZfsVolumeUserAndGroupQuota `pulumi:"userAndGroupQuotas"`
+	VolumeType         *string                          `pulumi:"volumeType"`
 }
 
 // The set of arguments for constructing a OpenZfsVolume resource.
 type OpenZfsVolumeArgs struct {
-	CopyTagsToSnapshots           pulumi.BoolPtrInput
-	DataCompressionType           pulumi.StringPtrInput
-	Name                          pulumi.StringPtrInput
-	NfsExports                    OpenZfsVolumeNfsExportsPtrInput
-	OriginSnapshot                OpenZfsVolumeOriginSnapshotPtrInput
-	ParentVolumeId                pulumi.StringInput
-	ReadOnly                      pulumi.BoolPtrInput
-	RecordSizeKib                 pulumi.IntPtrInput
-	StorageCapacityQuotaGib       pulumi.IntPtrInput
+	// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+	CopyTagsToSnapshots pulumi.BoolPtrInput
+	// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+	DataCompressionType pulumi.StringPtrInput
+	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+	Name pulumi.StringPtrInput
+	// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+	NfsExports OpenZfsVolumeNfsExportsPtrInput
+	// The ARN of the source snapshot to create the volume from.
+	OriginSnapshot OpenZfsVolumeOriginSnapshotPtrInput
+	// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `fsx.OpenZfsVolume`.
+	ParentVolumeId pulumi.StringInput
+	// specifies whether the volume is read-only. Default is false.
+	ReadOnly pulumi.BoolPtrInput
+	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+	RecordSizeKib pulumi.IntPtrInput
+	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+	StorageCapacityQuotaGib pulumi.IntPtrInput
+	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib pulumi.IntPtrInput
-	Tags                          pulumi.StringMapInput
-	UserAndGroupQuotas            OpenZfsVolumeUserAndGroupQuotaArrayInput
-	VolumeType                    pulumi.StringPtrInput
+	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	UserAndGroupQuotas OpenZfsVolumeUserAndGroupQuotaArrayInput
+	VolumeType         pulumi.StringPtrInput
 }
 
 func (OpenZfsVolumeArgs) ElementType() reflect.Type {
@@ -222,58 +326,72 @@ func (o OpenZfsVolumeOutput) ToOpenZfsVolumeOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Amazon Resource Name of the file system.
 func (o OpenZfsVolumeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
 func (o OpenZfsVolumeOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.BoolPtrOutput { return v.CopyTagsToSnapshots }).(pulumi.BoolPtrOutput)
 }
 
+// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 func (o OpenZfsVolumeOutput) DataCompressionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringPtrOutput { return v.DataCompressionType }).(pulumi.StringPtrOutput)
 }
 
+// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
 func (o OpenZfsVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
 func (o OpenZfsVolumeOutput) NfsExports() OpenZfsVolumeNfsExportsPtrOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) OpenZfsVolumeNfsExportsPtrOutput { return v.NfsExports }).(OpenZfsVolumeNfsExportsPtrOutput)
 }
 
+// The ARN of the source snapshot to create the volume from.
 func (o OpenZfsVolumeOutput) OriginSnapshot() OpenZfsVolumeOriginSnapshotPtrOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) OpenZfsVolumeOriginSnapshotPtrOutput { return v.OriginSnapshot }).(OpenZfsVolumeOriginSnapshotPtrOutput)
 }
 
+// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `fsx.OpenZfsVolume`.
 func (o OpenZfsVolumeOutput) ParentVolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringOutput { return v.ParentVolumeId }).(pulumi.StringOutput)
 }
 
+// specifies whether the volume is read-only. Default is false.
 func (o OpenZfsVolumeOutput) ReadOnly() pulumi.BoolOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.BoolOutput { return v.ReadOnly }).(pulumi.BoolOutput)
 }
 
+// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 func (o OpenZfsVolumeOutput) RecordSizeKib() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.IntPtrOutput { return v.RecordSizeKib }).(pulumi.IntPtrOutput)
 }
 
+// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
 func (o OpenZfsVolumeOutput) StorageCapacityQuotaGib() pulumi.IntOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.IntOutput { return v.StorageCapacityQuotaGib }).(pulumi.IntOutput)
 }
 
+// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 func (o OpenZfsVolumeOutput) StorageCapacityReservationGib() pulumi.IntOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.IntOutput { return v.StorageCapacityReservationGib }).(pulumi.IntOutput)
 }
 
+// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o OpenZfsVolumeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o OpenZfsVolumeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 func (o OpenZfsVolumeOutput) UserAndGroupQuotas() OpenZfsVolumeUserAndGroupQuotaArrayOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) OpenZfsVolumeUserAndGroupQuotaArrayOutput { return v.UserAndGroupQuotas }).(OpenZfsVolumeUserAndGroupQuotaArrayOutput)
 }

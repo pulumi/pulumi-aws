@@ -9,15 +9,83 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LightSail
 {
+    /// <summary>
+    /// Attaches a Lightsail disk to a Lightsail Instance
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
+    ///     {
+    ///         State = "available",
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
+    ///             {
+    ///                 Name = "opt-in-status",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "opt-in-not-required",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var testDisk = new Aws.LightSail.Disk("testDisk", new()
+    ///     {
+    ///         SizeInGb = 8,
+    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
+    ///     });
+    /// 
+    ///     var testInstance = new Aws.LightSail.Instance("testInstance", new()
+    ///     {
+    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
+    ///         BlueprintId = "amazon_linux",
+    ///         BundleId = "nano_1_0",
+    ///     });
+    /// 
+    ///     var testDisk_attachment = new Aws.LightSail.Disk_attachment("testDisk_attachment", new()
+    ///     {
+    ///         DiskName = testDisk.Name,
+    ///         InstanceName = testInstance.Name,
+    ///         DiskPath = "/dev/xvdf",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_lightsail_disk` can be imported by using the id attribute, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:lightsail/disk_attachment:Disk_attachment")]
     public partial class Disk_attachment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the Lightsail Disk.
+        /// </summary>
         [Output("diskName")]
         public Output<string> DiskName { get; private set; } = null!;
 
+        /// <summary>
+        /// The disk path to expose to the instance.
+        /// </summary>
         [Output("diskPath")]
         public Output<string> DiskPath { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Lightsail Instance to attach to.
+        /// </summary>
         [Output("instanceName")]
         public Output<string> InstanceName { get; private set; } = null!;
 
@@ -67,12 +135,21 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class Disk_attachmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Lightsail Disk.
+        /// </summary>
         [Input("diskName", required: true)]
         public Input<string> DiskName { get; set; } = null!;
 
+        /// <summary>
+        /// The disk path to expose to the instance.
+        /// </summary>
         [Input("diskPath", required: true)]
         public Input<string> DiskPath { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the Lightsail Instance to attach to.
+        /// </summary>
         [Input("instanceName", required: true)]
         public Input<string> InstanceName { get; set; } = null!;
 
@@ -84,12 +161,21 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class Disk_attachmentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Lightsail Disk.
+        /// </summary>
         [Input("diskName")]
         public Input<string>? DiskName { get; set; }
 
+        /// <summary>
+        /// The disk path to expose to the instance.
+        /// </summary>
         [Input("diskPath")]
         public Input<string>? DiskPath { get; set; }
 
+        /// <summary>
+        /// The name of the Lightsail Instance to attach to.
+        /// </summary>
         [Input("instanceName")]
         public Input<string>? InstanceName { get; set; }
 

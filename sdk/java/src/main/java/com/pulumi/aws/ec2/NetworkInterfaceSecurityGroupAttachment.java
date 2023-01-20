@@ -13,17 +13,161 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * This resource attaches a security group to an Elastic Network Interface (ENI).
+ * It can be used to attach a security group to any existing ENI, be it a
+ * secondary ENI or one attached as the primary interface on an instance.
+ * 
+ * &gt; **NOTE on instances, interfaces, and security groups:** This provider currently
+ * provides the capability to assign security groups via the [`aws.ec2.Instance`][1]
+ * and the [`aws.ec2.NetworkInterface`][2] resources. Using this resource in
+ * conjunction with security groups provided in-line in those resources will cause
+ * conflicts, and will lead to spurious diffs and undefined behavior - please use
+ * one or the other.
+ * 
+ * ## Example Usage
+ * 
+ * The following provides a very basic example of setting up an instance (provided
+ * by `instance`) in the default security group, creating a security group
+ * (provided by `sg`) and then attaching the security group to the instance&#39;s
+ * primary network interface via the `aws.ec2.NetworkInterfaceSecurityGroupAttachment` resource,
+ * named `sg_attachment`:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+ * import com.pulumi.aws.ec2.Instance;
+ * import com.pulumi.aws.ec2.InstanceArgs;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import com.pulumi.aws.ec2.NetworkInterfaceSecurityGroupAttachment;
+ * import com.pulumi.aws.ec2.NetworkInterfaceSecurityGroupAttachmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var ami = Ec2Functions.getAmi(GetAmiArgs.builder()
+ *             .mostRecent(true)
+ *             .filters(GetAmiFilterArgs.builder()
+ *                 .name(&#34;name&#34;)
+ *                 .values(&#34;amzn-ami-hvm-*&#34;)
+ *                 .build())
+ *             .owners(&#34;amazon&#34;)
+ *             .build());
+ * 
+ *         var instance = new Instance(&#34;instance&#34;, InstanceArgs.builder()        
+ *             .instanceType(&#34;t2.micro&#34;)
+ *             .ami(ami.applyValue(getAmiResult -&gt; getAmiResult.id()))
+ *             .tags(Map.of(&#34;type&#34;, &#34;test-instance&#34;))
+ *             .build());
+ * 
+ *         var sg = new SecurityGroup(&#34;sg&#34;, SecurityGroupArgs.builder()        
+ *             .tags(Map.of(&#34;type&#34;, &#34;test-security-group&#34;))
+ *             .build());
+ * 
+ *         var sgAttachment = new NetworkInterfaceSecurityGroupAttachment(&#34;sgAttachment&#34;, NetworkInterfaceSecurityGroupAttachmentArgs.builder()        
+ *             .securityGroupId(sg.id())
+ *             .networkInterfaceId(instance.primaryNetworkInterfaceId())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * In this example, `instance` is provided by the `aws.ec2.Instance` data source,
+ * fetching an external instance, possibly not managed by this provider.
+ * `sg_attachment` then attaches to the output instance&#39;s `network_interface_id`:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import com.pulumi.aws.ec2.NetworkInterfaceSecurityGroupAttachment;
+ * import com.pulumi.aws.ec2.NetworkInterfaceSecurityGroupAttachmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var instance = Ec2Functions.getInstance(GetInstanceArgs.builder()
+ *             .instanceId(&#34;i-1234567890abcdef0&#34;)
+ *             .build());
+ * 
+ *         var sg = new SecurityGroup(&#34;sg&#34;, SecurityGroupArgs.builder()        
+ *             .tags(Map.of(&#34;type&#34;, &#34;test-security-group&#34;))
+ *             .build());
+ * 
+ *         var sgAttachment = new NetworkInterfaceSecurityGroupAttachment(&#34;sgAttachment&#34;, NetworkInterfaceSecurityGroupAttachmentArgs.builder()        
+ *             .securityGroupId(sg.id())
+ *             .networkInterfaceId(instance.applyValue(getInstanceResult -&gt; getInstanceResult.networkInterfaceId()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Network Interface Security Group attachments can be imported using the associated network interface ID and security group ID, separated by an underscore (`_`). For example
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment sg_attachment eni-1234567890abcdef0_sg-1234567890abcdef0
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment")
 public class NetworkInterfaceSecurityGroupAttachment extends com.pulumi.resources.CustomResource {
+    /**
+     * The ID of the network interface to attach to.
+     * 
+     */
     @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
+    /**
+     * @return The ID of the network interface to attach to.
+     * 
+     */
     public Output<String> networkInterfaceId() {
         return this.networkInterfaceId;
     }
+    /**
+     * The ID of the security group.
+     * 
+     */
     @Export(name="securityGroupId", refs={String.class}, tree="[0]")
     private Output<String> securityGroupId;
 
+    /**
+     * @return The ID of the security group.
+     * 
+     */
     public Output<String> securityGroupId() {
         return this.securityGroupId;
     }

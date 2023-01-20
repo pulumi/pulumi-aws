@@ -25,6 +25,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
         public readonly string? PmtPid;
         public readonly int? ProgramNum;
         public readonly string? Scte35Behavior;
+        /// <summary>
+        /// PID from which to read SCTE-35 messages.
+        /// </summary>
         public readonly string? Scte35Pid;
         public readonly string? TimedMetadataBehavior;
         public readonly string? TimedMetadataPid;

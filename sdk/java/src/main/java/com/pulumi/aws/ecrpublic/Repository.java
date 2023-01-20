@@ -17,17 +17,96 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Public Elastic Container Registry Repository.
+ * 
+ * &gt; **NOTE:** This resource can only be used with `us-east-1` region.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.Provider;
+ * import com.pulumi.aws.ProviderArgs;
+ * import com.pulumi.aws.ecrpublic.Repository;
+ * import com.pulumi.aws.ecrpublic.RepositoryArgs;
+ * import com.pulumi.aws.ecrpublic.inputs.RepositoryCatalogDataArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var usEast1 = new Provider(&#34;usEast1&#34;, ProviderArgs.builder()        
+ *             .region(&#34;us-east-1&#34;)
+ *             .build());
+ * 
+ *         var foo = new Repository(&#34;foo&#34;, RepositoryArgs.builder()        
+ *             .repositoryName(&#34;bar&#34;)
+ *             .catalogData(RepositoryCatalogDataArgs.builder()
+ *                 .aboutText(&#34;About Text&#34;)
+ *                 .architectures(&#34;ARM&#34;)
+ *                 .description(&#34;Description&#34;)
+ *                 .logoImageBlob(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(image.png()))))
+ *                 .operatingSystems(&#34;Linux&#34;)
+ *                 .usageText(&#34;Usage Text&#34;)
+ *                 .build())
+ *             .tags(Map.of(&#34;env&#34;, &#34;production&#34;))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .provider(aws.us_east_1())
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * ECR Public Repositories can be imported using the `repository_name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ecrpublic/repository:Repository example example
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ecrpublic/repository:Repository")
 public class Repository extends com.pulumi.resources.CustomResource {
+    /**
+     * Full ARN of the repository.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return Full ARN of the repository.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Catalog data configuration for the repository. See below for schema.
+     * 
+     */
     @Export(name="catalogData", refs={RepositoryCatalogData.class}, tree="[0]")
     private Output</* @Nullable */ RepositoryCatalogData> catalogData;
 
+    /**
+     * @return Catalog data configuration for the repository. See below for schema.
+     * 
+     */
     public Output<Optional<RepositoryCatalogData>> catalogData() {
         return Codegen.optional(this.catalogData);
     }
@@ -37,33 +116,73 @@ public class Repository extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> forceDestroy() {
         return Codegen.optional(this.forceDestroy);
     }
+    /**
+     * The registry ID where the repository was created.
+     * 
+     */
     @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
+    /**
+     * @return The registry ID where the repository was created.
+     * 
+     */
     public Output<String> registryId() {
         return this.registryId;
     }
+    /**
+     * Name of the repository.
+     * 
+     */
     @Export(name="repositoryName", refs={String.class}, tree="[0]")
     private Output<String> repositoryName;
 
+    /**
+     * @return Name of the repository.
+     * 
+     */
     public Output<String> repositoryName() {
         return this.repositoryName;
     }
+    /**
+     * The URI of the repository.
+     * 
+     */
     @Export(name="repositoryUri", refs={String.class}, tree="[0]")
     private Output<String> repositoryUri;
 
+    /**
+     * @return The URI of the repository.
+     * 
+     */
     public Output<String> repositoryUri() {
         return this.repositoryUri;
     }
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

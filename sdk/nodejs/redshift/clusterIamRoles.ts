@@ -4,6 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Redshift Cluster IAM Roles resource.
+ *
+ * > **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `defaultIamRoleArn` argument and the `aws.redshift.Cluster` resource's `defaultIamRoleArn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.redshift.ClusterIamRoles("example", {
+ *     clusterIdentifier: aws_redshift_cluster.example.cluster_identifier,
+ *     iamRoleArns: [aws_iam_role.example.arn],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Redshift Cluster IAM Roless can be imported using the `cluster_identifier`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
+ * ```
+ */
 export class ClusterIamRoles extends pulumi.CustomResource {
     /**
      * Get an existing ClusterIamRoles resource's state with the given name, ID, and optional extra
@@ -32,8 +57,17 @@ export class ClusterIamRoles extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClusterIamRoles.__pulumiType;
     }
 
+    /**
+     * The name of the Redshift Cluster IAM Roles.
+     */
     public readonly clusterIdentifier!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     */
     public readonly defaultIamRoleArn!: pulumi.Output<string>;
+    /**
+     * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+     */
     public readonly iamRoleArns!: pulumi.Output<string[]>;
 
     /**
@@ -70,8 +104,17 @@ export class ClusterIamRoles extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ClusterIamRoles resources.
  */
 export interface ClusterIamRolesState {
+    /**
+     * The name of the Redshift Cluster IAM Roles.
+     */
     clusterIdentifier?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     */
     defaultIamRoleArn?: pulumi.Input<string>;
+    /**
+     * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+     */
     iamRoleArns?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -79,7 +122,16 @@ export interface ClusterIamRolesState {
  * The set of arguments for constructing a ClusterIamRoles resource.
  */
 export interface ClusterIamRolesArgs {
+    /**
+     * The name of the Redshift Cluster IAM Roles.
+     */
     clusterIdentifier: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     */
     defaultIamRoleArn?: pulumi.Input<string>;
+    /**
+     * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+     */
     iamRoleArns?: pulumi.Input<pulumi.Input<string>[]>;
 }

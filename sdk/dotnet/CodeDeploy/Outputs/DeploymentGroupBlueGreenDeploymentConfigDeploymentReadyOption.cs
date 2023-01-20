@@ -13,7 +13,13 @@ namespace Pulumi.Aws.CodeDeploy.Outputs
     [OutputType]
     public sealed class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption
     {
+        /// <summary>
+        /// When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+        /// </summary>
         public readonly string? ActionOnTimeout;
+        /// <summary>
+        /// The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
+        /// </summary>
         public readonly int? WaitTimeInMinutes;
 
         [OutputConstructor]

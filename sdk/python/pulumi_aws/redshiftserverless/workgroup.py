@@ -27,6 +27,15 @@ class WorkgroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Workgroup resource.
+        :param pulumi.Input[str] namespace_name: The name of the namespace.
+        :param pulumi.Input[str] workgroup_name: The name of the workgroup.
+        :param pulumi.Input[int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+        :param pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+        :param pulumi.Input[bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "workgroup_name", workgroup_name)
@@ -48,6 +57,9 @@ class WorkgroupArgs:
     @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> pulumi.Input[str]:
+        """
+        The name of the namespace.
+        """
         return pulumi.get(self, "namespace_name")
 
     @namespace_name.setter
@@ -57,6 +69,9 @@ class WorkgroupArgs:
     @property
     @pulumi.getter(name="workgroupName")
     def workgroup_name(self) -> pulumi.Input[str]:
+        """
+        The name of the workgroup.
+        """
         return pulumi.get(self, "workgroup_name")
 
     @workgroup_name.setter
@@ -66,6 +81,9 @@ class WorkgroupArgs:
     @property
     @pulumi.getter(name="baseCapacity")
     def base_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+        """
         return pulumi.get(self, "base_capacity")
 
     @base_capacity.setter
@@ -75,6 +93,9 @@ class WorkgroupArgs:
     @property
     @pulumi.getter(name="configParameters")
     def config_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]]]:
+        """
+        An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+        """
         return pulumi.get(self, "config_parameters")
 
     @config_parameters.setter
@@ -84,6 +105,9 @@ class WorkgroupArgs:
     @property
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        """
         return pulumi.get(self, "enhanced_vpc_routing")
 
     @enhanced_vpc_routing.setter
@@ -93,6 +117,9 @@ class WorkgroupArgs:
     @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that specifies whether the workgroup can be accessed from a public network.
+        """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
@@ -102,6 +129,9 @@ class WorkgroupArgs:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of security group IDs to associate with the workgroup.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -111,6 +141,9 @@ class WorkgroupArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of VPC subnet IDs to associate with the workgroup.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -120,6 +153,9 @@ class WorkgroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -145,6 +181,19 @@ class _WorkgroupState:
                  workgroup_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Workgroup resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+        :param pulumi.Input[int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+        :param pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkgroupEndpointArgs']]] endpoints: The endpoint that is created from the workgroup. See `Endpoint` below.
+        :param pulumi.Input[bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        :param pulumi.Input[str] namespace_name: The name of the namespace.
+        :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] workgroup_id: The Redshift Workgroup ID.
+        :param pulumi.Input[str] workgroup_name: The name of the workgroup.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -176,6 +225,9 @@ class _WorkgroupState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -185,6 +237,9 @@ class _WorkgroupState:
     @property
     @pulumi.getter(name="baseCapacity")
     def base_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+        """
         return pulumi.get(self, "base_capacity")
 
     @base_capacity.setter
@@ -194,6 +249,9 @@ class _WorkgroupState:
     @property
     @pulumi.getter(name="configParameters")
     def config_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]]]:
+        """
+        An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+        """
         return pulumi.get(self, "config_parameters")
 
     @config_parameters.setter
@@ -203,6 +261,9 @@ class _WorkgroupState:
     @property
     @pulumi.getter
     def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupEndpointArgs']]]]:
+        """
+        The endpoint that is created from the workgroup. See `Endpoint` below.
+        """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
@@ -212,6 +273,9 @@ class _WorkgroupState:
     @property
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        """
         return pulumi.get(self, "enhanced_vpc_routing")
 
     @enhanced_vpc_routing.setter
@@ -221,6 +285,9 @@ class _WorkgroupState:
     @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the namespace.
+        """
         return pulumi.get(self, "namespace_name")
 
     @namespace_name.setter
@@ -230,6 +297,9 @@ class _WorkgroupState:
     @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that specifies whether the workgroup can be accessed from a public network.
+        """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
@@ -239,6 +309,9 @@ class _WorkgroupState:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of security group IDs to associate with the workgroup.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -248,6 +321,9 @@ class _WorkgroupState:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of VPC subnet IDs to associate with the workgroup.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -257,6 +333,9 @@ class _WorkgroupState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -266,6 +345,9 @@ class _WorkgroupState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -275,6 +357,9 @@ class _WorkgroupState:
     @property
     @pulumi.getter(name="workgroupId")
     def workgroup_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Redshift Workgroup ID.
+        """
         return pulumi.get(self, "workgroup_id")
 
     @workgroup_id.setter
@@ -284,6 +369,9 @@ class _WorkgroupState:
     @property
     @pulumi.getter(name="workgroupName")
     def workgroup_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the workgroup.
+        """
         return pulumi.get(self, "workgroup_name")
 
     @workgroup_name.setter
@@ -307,9 +395,38 @@ class Workgroup(pulumi.CustomResource):
                  workgroup_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Workgroup resource with the given unique name, props, and options.
+        Creates a new Amazon Redshift Serverless Workgroup.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.redshiftserverless.Workgroup("example",
+            namespace_name="concurrency-scaling",
+            workgroup_name="concurrency-scaling")
+        ```
+
+        ## Import
+
+        Redshift Serverless Workgroups can be imported using the `workgroup_name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+        :param pulumi.Input[bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        :param pulumi.Input[str] namespace_name: The name of the namespace.
+        :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] workgroup_name: The name of the workgroup.
         """
         ...
     @overload
@@ -318,7 +435,27 @@ class Workgroup(pulumi.CustomResource):
                  args: WorkgroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Workgroup resource with the given unique name, props, and options.
+        Creates a new Amazon Redshift Serverless Workgroup.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.redshiftserverless.Workgroup("example",
+            namespace_name="concurrency-scaling",
+            workgroup_name="concurrency-scaling")
+        ```
+
+        ## Import
+
+        Redshift Serverless Workgroups can be imported using the `workgroup_name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param WorkgroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -399,6 +536,19 @@ class Workgroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+        :param pulumi.Input[int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupEndpointArgs']]]] endpoints: The endpoint that is created from the workgroup. See `Endpoint` below.
+        :param pulumi.Input[bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        :param pulumi.Input[str] namespace_name: The name of the namespace.
+        :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] workgroup_id: The Redshift Workgroup ID.
+        :param pulumi.Input[str] workgroup_name: The name of the workgroup.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -422,65 +572,104 @@ class Workgroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="baseCapacity")
     def base_capacity(self) -> pulumi.Output[int]:
+        """
+        The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+        """
         return pulumi.get(self, "base_capacity")
 
     @property
     @pulumi.getter(name="configParameters")
     def config_parameters(self) -> pulumi.Output[Sequence['outputs.WorkgroupConfigParameter']]:
+        """
+        An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+        """
         return pulumi.get(self, "config_parameters")
 
     @property
     @pulumi.getter
     def endpoints(self) -> pulumi.Output[Sequence['outputs.WorkgroupEndpoint']]:
+        """
+        The endpoint that is created from the workgroup. See `Endpoint` below.
+        """
         return pulumi.get(self, "endpoints")
 
     @property
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> pulumi.Output[Optional[bool]]:
+        """
+        The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        """
         return pulumi.get(self, "enhanced_vpc_routing")
 
     @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> pulumi.Output[str]:
+        """
+        The name of the namespace.
+        """
         return pulumi.get(self, "namespace_name")
 
     @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A value that specifies whether the workgroup can be accessed from a public network.
+        """
         return pulumi.get(self, "publicly_accessible")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        An array of security group IDs to associate with the workgroup.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        An array of VPC subnet IDs to associate with the workgroup.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="workgroupId")
     def workgroup_id(self) -> pulumi.Output[str]:
+        """
+        The Redshift Workgroup ID.
+        """
         return pulumi.get(self, "workgroup_id")
 
     @property
     @pulumi.getter(name="workgroupName")
     def workgroup_name(self) -> pulumi.Output[str]:
+        """
+        The name of the workgroup.
+        """
         return pulumi.get(self, "workgroup_name")
 

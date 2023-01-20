@@ -9,18 +9,62 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Pinpoint
 {
+    /// <summary>
+    /// Provides a Pinpoint Baidu Channel resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var app = new Aws.Pinpoint.App("app");
+    /// 
+    ///     var channel = new Aws.Pinpoint.BaiduChannel("channel", new()
+    ///     {
+    ///         ApplicationId = app.ApplicationId,
+    ///         ApiKey = "",
+    ///         SecretKey = "",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Pinpoint Baidu Channel can be imported using the `application-id`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:pinpoint/baiduChannel:BaiduChannel")]
     public partial class BaiduChannel : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Platform credential API key from Baidu.
+        /// </summary>
         [Output("apiKey")]
         public Output<string> ApiKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The application ID.
+        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether to enable the channel. Defaults to `true`.
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Platform credential Secret key from Baidu.
+        /// </summary>
         [Output("secretKey")]
         public Output<string> SecretKey { get; private set; } = null!;
 
@@ -77,6 +121,10 @@ namespace Pulumi.Aws.Pinpoint
     {
         [Input("apiKey", required: true)]
         private Input<string>? _apiKey;
+
+        /// <summary>
+        /// Platform credential API key from Baidu.
+        /// </summary>
         public Input<string>? ApiKey
         {
             get => _apiKey;
@@ -87,14 +135,24 @@ namespace Pulumi.Aws.Pinpoint
             }
         }
 
+        /// <summary>
+        /// The application ID.
+        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether to enable the channel. Defaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("secretKey", required: true)]
         private Input<string>? _secretKey;
+
+        /// <summary>
+        /// Platform credential Secret key from Baidu.
+        /// </summary>
         public Input<string>? SecretKey
         {
             get => _secretKey;
@@ -115,6 +173,10 @@ namespace Pulumi.Aws.Pinpoint
     {
         [Input("apiKey")]
         private Input<string>? _apiKey;
+
+        /// <summary>
+        /// Platform credential API key from Baidu.
+        /// </summary>
         public Input<string>? ApiKey
         {
             get => _apiKey;
@@ -125,14 +187,24 @@ namespace Pulumi.Aws.Pinpoint
             }
         }
 
+        /// <summary>
+        /// The application ID.
+        /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
+        /// <summary>
+        /// Specifies whether to enable the channel. Defaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("secretKey")]
         private Input<string>? _secretKey;
+
+        /// <summary>
+        /// Platform credential Secret key from Baidu.
+        /// </summary>
         public Input<string>? SecretKey
         {
             get => _secretKey;

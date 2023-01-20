@@ -13,17 +13,76 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Route 53 Resolver query logging configuration association resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.route53.ResolverQueryLogConfigAssociation;
+ * import com.pulumi.aws.route53.ResolverQueryLogConfigAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResolverQueryLogConfigAssociation(&#34;example&#34;, ResolverQueryLogConfigAssociationArgs.builder()        
+ *             .resolverQueryLogConfigId(aws_route53_resolver_query_log_config.example().id())
+ *             .resourceId(aws_vpc.example().id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ *  Route 53 Resolver query logging configuration associations can be imported using the Route 53 Resolver query logging configuration association ID, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
+ * ```
+ * 
+ */
 @ResourceType(type="aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation")
 public class ResolverQueryLogConfigAssociation extends com.pulumi.resources.CustomResource {
+    /**
+     * The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
+     * 
+     */
     @Export(name="resolverQueryLogConfigId", refs={String.class}, tree="[0]")
     private Output<String> resolverQueryLogConfigId;
 
+    /**
+     * @return The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
+     * 
+     */
     public Output<String> resolverQueryLogConfigId() {
         return this.resolverQueryLogConfigId;
     }
+    /**
+     * The ID of a VPC that you want this query logging configuration to log queries for.
+     * 
+     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
+    /**
+     * @return The ID of a VPC that you want this query logging configuration to log queries for.
+     * 
+     */
     public Output<String> resourceId() {
         return this.resourceId;
     }

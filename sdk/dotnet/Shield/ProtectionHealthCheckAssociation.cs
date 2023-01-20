@@ -9,12 +9,92 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Shield
 {
+    /// <summary>
+    /// Creates an association between a Route53 Health Check and a Shield Advanced protected resource.
+    /// This association uses the health of your applications to improve responsiveness and accuracy in attack detection and mitigation.
+    /// 
+    /// Blog post: [AWS Shield Advanced now supports Health Based Detection](https://aws.amazon.com/about-aws/whats-new/2020/02/aws-shield-advanced-now-supports-health-based-detection/)
+    /// 
+    /// ## Example Usage
+    /// ### Create an association between a protected EIP and a Route53 Health Check
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var currentRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var currentPartition = Aws.GetPartition.Invoke();
+    /// 
+    ///     var exampleEip = new Aws.Ec2.Eip("exampleEip", new()
+    ///     {
+    ///         Vpc = true,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleProtection = new Aws.Shield.Protection("exampleProtection", new()
+    ///     {
+    ///         ResourceArn = Output.Tuple(currentPartition.Apply(getPartitionResult =&gt; getPartitionResult), currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), exampleEip.Id).Apply(values =&gt;
+    ///         {
+    ///             var currentPartition = values.Item1;
+    ///             var currentRegion = values.Item2;
+    ///             var currentCallerIdentity = values.Item3;
+    ///             var id = values.Item4;
+    ///             return $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:ec2:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleHealthCheck = new Aws.Route53.HealthCheck("exampleHealthCheck", new()
+    ///     {
+    ///         IpAddress = exampleEip.PublicIp,
+    ///         Port = 80,
+    ///         Type = "HTTP",
+    ///         ResourcePath = "/ready",
+    ///         FailureThreshold = 3,
+    ///         RequestInterval = 30,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "tf-example-health-check" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleProtectionHealthCheckAssociation = new Aws.Shield.ProtectionHealthCheckAssociation("exampleProtectionHealthCheckAssociation", new()
+    ///     {
+    ///         HealthCheckArn = exampleHealthCheck.Arn,
+    ///         ShieldProtectionId = exampleProtection.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Shield protection health check association resources can be imported by specifying the `shield_protection_id` and `health_check_arn` e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation")]
     public partial class ProtectionHealthCheckAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+        /// </summary>
         [Output("healthCheckArn")]
         public Output<string> HealthCheckArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the protected resource.
+        /// </summary>
         [Output("shieldProtectionId")]
         public Output<string> ShieldProtectionId { get; private set; } = null!;
 
@@ -64,9 +144,15 @@ namespace Pulumi.Aws.Shield
 
     public sealed class ProtectionHealthCheckAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+        /// </summary>
         [Input("healthCheckArn", required: true)]
         public Input<string> HealthCheckArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the protected resource.
+        /// </summary>
         [Input("shieldProtectionId", required: true)]
         public Input<string> ShieldProtectionId { get; set; } = null!;
 
@@ -78,9 +164,15 @@ namespace Pulumi.Aws.Shield
 
     public sealed class ProtectionHealthCheckAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+        /// </summary>
         [Input("healthCheckArn")]
         public Input<string>? HealthCheckArn { get; set; }
 
+        /// <summary>
+        /// The ID of the protected resource.
+        /// </summary>
         [Input("shieldProtectionId")]
         public Input<string>? ShieldProtectionId { get; set; }
 

@@ -19,51 +19,109 @@ public final class RoutingProfileArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final RoutingProfileArgs Empty = new RoutingProfileArgs();
 
+    /**
+     * Specifies the default outbound queue for the Routing Profile.
+     * 
+     */
     @Import(name="defaultOutboundQueueId", required=true)
     private Output<String> defaultOutboundQueueId;
 
+    /**
+     * @return Specifies the default outbound queue for the Routing Profile.
+     * 
+     */
     public Output<String> defaultOutboundQueueId() {
         return this.defaultOutboundQueueId;
     }
 
+    /**
+     * Specifies the description of the Routing Profile.
+     * 
+     */
     @Import(name="description", required=true)
     private Output<String> description;
 
+    /**
+     * @return Specifies the description of the Routing Profile.
+     * 
+     */
     public Output<String> description() {
         return this.description;
     }
 
+    /**
+     * Specifies the identifier of the hosting Amazon Connect Instance.
+     * 
+     */
     @Import(name="instanceId", required=true)
     private Output<String> instanceId;
 
+    /**
+     * @return Specifies the identifier of the hosting Amazon Connect Instance.
+     * 
+     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
 
+    /**
+     * One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
+     * 
+     */
     @Import(name="mediaConcurrencies", required=true)
     private Output<List<RoutingProfileMediaConcurrencyArgs>> mediaConcurrencies;
 
+    /**
+     * @return One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
+     * 
+     */
     public Output<List<RoutingProfileMediaConcurrencyArgs>> mediaConcurrencies() {
         return this.mediaConcurrencies;
     }
 
+    /**
+     * Specifies the name of the Routing Profile.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Specifies the name of the Routing Profile.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
+     * 
+     */
     @Import(name="queueConfigs")
     private @Nullable Output<List<RoutingProfileQueueConfigArgs>> queueConfigs;
 
+    /**
+     * @return One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
+     * 
+     */
     public Optional<Output<List<RoutingProfileQueueConfigArgs>>> queueConfigs() {
         return Optional.ofNullable(this.queueConfigs);
     }
 
+    /**
+     * Tags to apply to the Routing Profile. If configured with a provider
+     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Tags to apply to the Routing Profile. If configured with a provider
+     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -98,73 +156,171 @@ public final class RoutingProfileArgs extends com.pulumi.resources.ResourceArgs 
             $ = new RoutingProfileArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param defaultOutboundQueueId Specifies the default outbound queue for the Routing Profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultOutboundQueueId(Output<String> defaultOutboundQueueId) {
             $.defaultOutboundQueueId = defaultOutboundQueueId;
             return this;
         }
 
+        /**
+         * @param defaultOutboundQueueId Specifies the default outbound queue for the Routing Profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultOutboundQueueId(String defaultOutboundQueueId) {
             return defaultOutboundQueueId(Output.of(defaultOutboundQueueId));
         }
 
+        /**
+         * @param description Specifies the description of the Routing Profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Specifies the description of the Routing Profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param instanceId Specifies the identifier of the hosting Amazon Connect Instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceId(Output<String> instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
+        /**
+         * @param instanceId Specifies the identifier of the hosting Amazon Connect Instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
         }
 
+        /**
+         * @param mediaConcurrencies One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mediaConcurrencies(Output<List<RoutingProfileMediaConcurrencyArgs>> mediaConcurrencies) {
             $.mediaConcurrencies = mediaConcurrencies;
             return this;
         }
 
+        /**
+         * @param mediaConcurrencies One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mediaConcurrencies(List<RoutingProfileMediaConcurrencyArgs> mediaConcurrencies) {
             return mediaConcurrencies(Output.of(mediaConcurrencies));
         }
 
+        /**
+         * @param mediaConcurrencies One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mediaConcurrencies(RoutingProfileMediaConcurrencyArgs... mediaConcurrencies) {
             return mediaConcurrencies(List.of(mediaConcurrencies));
         }
 
+        /**
+         * @param name Specifies the name of the Routing Profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Specifies the name of the Routing Profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param queueConfigs One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queueConfigs(@Nullable Output<List<RoutingProfileQueueConfigArgs>> queueConfigs) {
             $.queueConfigs = queueConfigs;
             return this;
         }
 
+        /**
+         * @param queueConfigs One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queueConfigs(List<RoutingProfileQueueConfigArgs> queueConfigs) {
             return queueConfigs(Output.of(queueConfigs));
         }
 
+        /**
+         * @param queueConfigs One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queueConfigs(RoutingProfileQueueConfigArgs... queueConfigs) {
             return queueConfigs(List.of(queueConfigs));
         }
 
+        /**
+         * @param tags Tags to apply to the Routing Profile. If configured with a provider
+         * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Tags to apply to the Routing Profile. If configured with a provider
+         * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

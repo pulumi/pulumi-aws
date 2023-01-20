@@ -30,7 +30,15 @@ public final class GetPermissionsResult {
     private String id;
     private GetPermissionsLfTag lfTag;
     private GetPermissionsLfTagPolicy lfTagPolicy;
+    /**
+     * @return List of permissions granted to the principal. For details on permissions, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+     * 
+     */
     private List<String> permissions;
+    /**
+     * @return Subset of `permissions` which the principal can pass.
+     * 
+     */
     private List<String> permissionsWithGrantOptions;
     private String principal;
     private GetPermissionsTable table;
@@ -62,9 +70,17 @@ public final class GetPermissionsResult {
     public GetPermissionsLfTagPolicy lfTagPolicy() {
         return this.lfTagPolicy;
     }
+    /**
+     * @return List of permissions granted to the principal. For details on permissions, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+     * 
+     */
     public List<String> permissions() {
         return this.permissions;
     }
+    /**
+     * @return Subset of `permissions` which the principal can pass.
+     * 
+     */
     public List<String> permissionsWithGrantOptions() {
         return this.permissionsWithGrantOptions;
     }

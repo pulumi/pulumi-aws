@@ -10,6 +10,41 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := imagebuilder.GetComponents(ctx, &imagebuilder.GetComponentsArgs{
+//				Filters: []imagebuilder.GetComponentsFilter{
+//					{
+//						Name: "platform",
+//						Values: []string{
+//							"Linux",
+//						},
+//					},
+//				},
+//				Owner: pulumi.StringRef("Self"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetComponents(ctx *pulumi.Context, args *GetComponentsArgs, opts ...pulumi.InvokeOption) (*GetComponentsResult, error) {
 	var rv GetComponentsResult
 	err := ctx.Invoke("aws:imagebuilder/getComponents:getComponents", args, &rv, opts...)
@@ -21,16 +56,20 @@ func GetComponents(ctx *pulumi.Context, args *GetComponentsArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getComponents.
 type GetComponentsArgs struct {
+	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetComponentsFilter `pulumi:"filters"`
-	Owner   *string               `pulumi:"owner"`
+	// Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+	Owner *string `pulumi:"owner"`
 }
 
 // A collection of values returned by getComponents.
 type GetComponentsResult struct {
+	// Set of ARNs of the matched Image Builder Components.
 	Arns    []string              `pulumi:"arns"`
 	Filters []GetComponentsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id    string   `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Set of names of the matched Image Builder Components.
 	Names []string `pulumi:"names"`
 	Owner *string  `pulumi:"owner"`
 }
@@ -50,8 +89,10 @@ func GetComponentsOutput(ctx *pulumi.Context, args GetComponentsOutputArgs, opts
 
 // A collection of arguments for invoking getComponents.
 type GetComponentsOutputArgs struct {
+	// Configuration block(s) for filtering. Detailed below.
 	Filters GetComponentsFilterArrayInput `pulumi:"filters"`
-	Owner   pulumi.StringPtrInput         `pulumi:"owner"`
+	// Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+	Owner pulumi.StringPtrInput `pulumi:"owner"`
 }
 
 func (GetComponentsOutputArgs) ElementType() reflect.Type {
@@ -73,6 +114,7 @@ func (o GetComponentsResultOutput) ToGetComponentsResultOutputWithContext(ctx co
 	return o
 }
 
+// Set of ARNs of the matched Image Builder Components.
 func (o GetComponentsResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetComponentsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }
@@ -86,6 +128,7 @@ func (o GetComponentsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetComponentsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Set of names of the matched Image Builder Components.
 func (o GetComponentsResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetComponentsResult) []string { return v.Names }).(pulumi.StringArrayOutput)
 }

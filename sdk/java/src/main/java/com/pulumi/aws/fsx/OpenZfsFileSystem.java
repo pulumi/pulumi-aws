@@ -20,143 +20,387 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages an Amazon FSx for OpenZFS file system.
+ * See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.fsx.OpenZfsFileSystem;
+ * import com.pulumi.aws.fsx.OpenZfsFileSystemArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new OpenZfsFileSystem(&#34;test&#34;, OpenZfsFileSystemArgs.builder()        
+ *             .storageCapacity(64)
+ *             .subnetIds(aws_subnet.test1().id())
+ *             .deploymentType(&#34;SINGLE_AZ_1&#34;)
+ *             .throughputCapacity(64)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * FSx File Systems can be imported using the `id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:fsx/openZfsFileSystem:OpenZfsFileSystem example fs-543ab12b1ca672f33
+ * ```
+ * 
+ *  Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the provider configuration or use `ignore_changes` to hide the difference, e.g., terraform resource &#34;aws_fsx_openzfs_file_system&#34; &#34;example&#34; {
+ * 
+ * # ... other configuration ...
+ * 
+ *  security_group_ids = [aws_security_group.example.id]
+ * 
+ * # There is no FSx API for reading security_group_ids
+ * 
+ *  lifecycle {
+ * 
+ *  ignore_changes = [security_group_ids]
+ * 
+ *  } }
+ * 
+ */
 @ResourceType(type="aws:fsx/openZfsFileSystem:OpenZfsFileSystem")
 public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
+    /**
+     * Amazon Resource Name of the file system.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return Amazon Resource Name of the file system.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+     * 
+     */
     @Export(name="automaticBackupRetentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> automaticBackupRetentionDays;
 
+    /**
+     * @return The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+     * 
+     */
     public Output<Optional<Integer>> automaticBackupRetentionDays() {
         return Codegen.optional(this.automaticBackupRetentionDays);
     }
+    /**
+     * The ID of the source backup to create the filesystem from.
+     * 
+     */
     @Export(name="backupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> backupId;
 
+    /**
+     * @return The ID of the source backup to create the filesystem from.
+     * 
+     */
     public Output<Optional<String>> backupId() {
         return Codegen.optional(this.backupId);
     }
+    /**
+     * A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
+     * 
+     */
     @Export(name="copyTagsToBackups", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyTagsToBackups;
 
+    /**
+     * @return A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
+     * 
+     */
     public Output<Optional<Boolean>> copyTagsToBackups() {
         return Codegen.optional(this.copyTagsToBackups);
     }
+    /**
+     * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+     * 
+     */
     @Export(name="copyTagsToVolumes", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyTagsToVolumes;
 
+    /**
+     * @return A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+     * 
+     */
     public Output<Optional<Boolean>> copyTagsToVolumes() {
         return Codegen.optional(this.copyTagsToVolumes);
     }
+    /**
+     * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
+     * 
+     */
     @Export(name="dailyAutomaticBackupStartTime", refs={String.class}, tree="[0]")
     private Output<String> dailyAutomaticBackupStartTime;
 
+    /**
+     * @return A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
+     * 
+     */
     public Output<String> dailyAutomaticBackupStartTime() {
         return this.dailyAutomaticBackupStartTime;
     }
+    /**
+     * The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+     * 
+     */
     @Export(name="deploymentType", refs={String.class}, tree="[0]")
     private Output<String> deploymentType;
 
+    /**
+     * @return The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+     * 
+     */
     public Output<String> deploymentType() {
         return this.deploymentType;
     }
+    /**
+     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
+     * 
+     */
     @Export(name="diskIopsConfiguration", refs={OpenZfsFileSystemDiskIopsConfiguration.class}, tree="[0]")
     private Output<OpenZfsFileSystemDiskIopsConfiguration> diskIopsConfiguration;
 
+    /**
+     * @return The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
+     * 
+     */
     public Output<OpenZfsFileSystemDiskIopsConfiguration> diskIopsConfiguration() {
         return this.diskIopsConfiguration;
     }
+    /**
+     * DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
+     * 
+     */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
     private Output<String> dnsName;
 
+    /**
+     * @return DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
+     * 
+     */
     public Output<String> dnsName() {
         return this.dnsName;
     }
+    /**
+     * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
+     * 
+     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
+    /**
+     * @return ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
+     * 
+     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
+    /**
+     * Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
+     * 
+     */
     @Export(name="networkInterfaceIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> networkInterfaceIds;
 
+    /**
+     * @return Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
+     * 
+     */
     public Output<List<String>> networkInterfaceIds() {
         return this.networkInterfaceIds;
     }
+    /**
+     * AWS account identifier that created the file system.
+     * 
+     */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
+    /**
+     * @return AWS account identifier that created the file system.
+     * 
+     */
     public Output<String> ownerId() {
         return this.ownerId;
     }
+    /**
+     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration Below.
+     * 
+     */
     @Export(name="rootVolumeConfiguration", refs={OpenZfsFileSystemRootVolumeConfiguration.class}, tree="[0]")
     private Output<OpenZfsFileSystemRootVolumeConfiguration> rootVolumeConfiguration;
 
+    /**
+     * @return The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration Below.
+     * 
+     */
     public Output<OpenZfsFileSystemRootVolumeConfiguration> rootVolumeConfiguration() {
         return this.rootVolumeConfiguration;
     }
+    /**
+     * Identifier of the root volume, e.g., `fsvol-12345678`
+     * 
+     */
     @Export(name="rootVolumeId", refs={String.class}, tree="[0]")
     private Output<String> rootVolumeId;
 
+    /**
+     * @return Identifier of the root volume, e.g., `fsvol-12345678`
+     * 
+     */
     public Output<String> rootVolumeId() {
         return this.rootVolumeId;
     }
+    /**
+     * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * 
+     */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityGroupIds;
 
+    /**
+     * @return A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * 
+     */
     public Output<Optional<List<String>>> securityGroupIds() {
         return Codegen.optional(this.securityGroupIds);
     }
+    /**
+     * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+     * 
+     */
     @Export(name="storageCapacity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> storageCapacity;
 
+    /**
+     * @return The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+     * 
+     */
     public Output<Optional<Integer>> storageCapacity() {
         return Codegen.optional(this.storageCapacity);
     }
+    /**
+     * The filesystem storage type. Only `SSD` is supported.
+     * 
+     */
     @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageType;
 
+    /**
+     * @return The filesystem storage type. Only `SSD` is supported.
+     * 
+     */
     public Output<Optional<String>> storageType() {
         return Codegen.optional(this.storageType);
     }
+    /**
+     * A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
+     * 
+     */
     @Export(name="subnetIds", refs={String.class}, tree="[0]")
     private Output<String> subnetIds;
 
+    /**
+     * @return A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
+     * 
+     */
     public Output<String> subnetIds() {
         return this.subnetIds;
     }
+    /**
+     * A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
+     * 
+     */
     @Export(name="throughputCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> throughputCapacity;
 
+    /**
+     * @return Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
+     * 
+     */
     public Output<Integer> throughputCapacity() {
         return this.throughputCapacity;
     }
+    /**
+     * Identifier of the Virtual Private Cloud for the file system.
+     * 
+     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
+    /**
+     * @return Identifier of the Virtual Private Cloud for the file system.
+     * 
+     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
+    /**
+     * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * 
+     */
     @Export(name="weeklyMaintenanceStartTime", refs={String.class}, tree="[0]")
     private Output<String> weeklyMaintenanceStartTime;
 
+    /**
+     * @return The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * 
+     */
     public Output<String> weeklyMaintenanceStartTime() {
         return this.weeklyMaintenanceStartTime;
     }

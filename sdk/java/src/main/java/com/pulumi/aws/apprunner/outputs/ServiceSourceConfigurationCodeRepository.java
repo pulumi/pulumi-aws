@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceSourceConfigurationCodeRepository {
+    /**
+     * @return Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+     * 
+     */
     private @Nullable ServiceSourceConfigurationCodeRepositoryCodeConfiguration codeConfiguration;
+    /**
+     * @return Location of the repository that contains the source code.
+     * 
+     */
     private String repositoryUrl;
+    /**
+     * @return Version that should be used within the source code repository. See Source Code Version below for more details.
+     * 
+     */
     private ServiceSourceConfigurationCodeRepositorySourceCodeVersion sourceCodeVersion;
 
     private ServiceSourceConfigurationCodeRepository() {}
+    /**
+     * @return Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+     * 
+     */
     public Optional<ServiceSourceConfigurationCodeRepositoryCodeConfiguration> codeConfiguration() {
         return Optional.ofNullable(this.codeConfiguration);
     }
+    /**
+     * @return Location of the repository that contains the source code.
+     * 
+     */
     public String repositoryUrl() {
         return this.repositoryUrl;
     }
+    /**
+     * @return Version that should be used within the source code repository. See Source Code Version below for more details.
+     * 
+     */
     public ServiceSourceConfigurationCodeRepositorySourceCodeVersion sourceCodeVersion() {
         return this.sourceCodeVersion;
     }

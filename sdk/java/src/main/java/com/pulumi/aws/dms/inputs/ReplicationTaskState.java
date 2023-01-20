@@ -17,100 +17,212 @@ public final class ReplicationTaskState extends com.pulumi.resources.ResourceArg
 
     public static final ReplicationTaskState Empty = new ReplicationTaskState();
 
+    /**
+     * Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+     * 
+     */
     @Import(name="cdcStartPosition")
     private @Nullable Output<String> cdcStartPosition;
 
+    /**
+     * @return Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+     * 
+     */
     public Optional<Output<String>> cdcStartPosition() {
         return Optional.ofNullable(this.cdcStartPosition);
     }
 
+    /**
+     * The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+     * 
+     */
     @Import(name="cdcStartTime")
     private @Nullable Output<String> cdcStartTime;
 
+    /**
+     * @return The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+     * 
+     */
     public Optional<Output<String>> cdcStartTime() {
         return Optional.ofNullable(this.cdcStartTime);
     }
 
+    /**
+     * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
+     * 
+     */
     @Import(name="migrationType")
     private @Nullable Output<String> migrationType;
 
+    /**
+     * @return The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
+     * 
+     */
     public Optional<Output<String>> migrationType() {
         return Optional.ofNullable(this.migrationType);
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the replication instance.
+     * 
+     */
     @Import(name="replicationInstanceArn")
     private @Nullable Output<String> replicationInstanceArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the replication instance.
+     * 
+     */
     public Optional<Output<String>> replicationInstanceArn() {
         return Optional.ofNullable(this.replicationInstanceArn);
     }
 
+    /**
+     * The Amazon Resource Name (ARN) for the replication task.
+     * 
+     */
     @Import(name="replicationTaskArn")
     private @Nullable Output<String> replicationTaskArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) for the replication task.
+     * 
+     */
     public Optional<Output<String>> replicationTaskArn() {
         return Optional.ofNullable(this.replicationTaskArn);
     }
 
+    /**
+     * The replication task identifier.
+     * 
+     */
     @Import(name="replicationTaskId")
     private @Nullable Output<String> replicationTaskId;
 
+    /**
+     * @return The replication task identifier.
+     * 
+     */
     public Optional<Output<String>> replicationTaskId() {
         return Optional.ofNullable(this.replicationTaskId);
     }
 
+    /**
+     * An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
+     * 
+     */
     @Import(name="replicationTaskSettings")
     private @Nullable Output<String> replicationTaskSettings;
 
+    /**
+     * @return An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
+     * 
+     */
     public Optional<Output<String>> replicationTaskSettings() {
         return Optional.ofNullable(this.replicationTaskSettings);
     }
 
+    /**
+     * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+     * 
+     */
     @Import(name="sourceEndpointArn")
     private @Nullable Output<String> sourceEndpointArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+     * 
+     */
     public Optional<Output<String>> sourceEndpointArn() {
         return Optional.ofNullable(this.sourceEndpointArn);
     }
 
+    /**
+     * Whether to run or stop the replication task.
+     * 
+     */
     @Import(name="startReplicationTask")
     private @Nullable Output<Boolean> startReplicationTask;
 
+    /**
+     * @return Whether to run or stop the replication task.
+     * 
+     */
     public Optional<Output<Boolean>> startReplicationTask() {
         return Optional.ofNullable(this.startReplicationTask);
     }
 
+    /**
+     * Replication Task status.
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return Replication Task status.
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
+    /**
+     * An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
+     * 
+     */
     @Import(name="tableMappings")
     private @Nullable Output<String> tableMappings;
 
+    /**
+     * @return An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
+     * 
+     */
     public Optional<Output<String>> tableMappings() {
         return Optional.ofNullable(this.tableMappings);
     }
 
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+     * 
+     */
     @Import(name="targetEndpointArn")
     private @Nullable Output<String> targetEndpointArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+     * 
+     */
     public Optional<Output<String>> targetEndpointArn() {
         return Optional.ofNullable(this.targetEndpointArn);
     }
@@ -152,128 +264,296 @@ public final class ReplicationTaskState extends com.pulumi.resources.ResourceArg
             $ = new ReplicationTaskState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cdcStartPosition Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+         * 
+         * @return builder
+         * 
+         */
         public Builder cdcStartPosition(@Nullable Output<String> cdcStartPosition) {
             $.cdcStartPosition = cdcStartPosition;
             return this;
         }
 
+        /**
+         * @param cdcStartPosition Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+         * 
+         * @return builder
+         * 
+         */
         public Builder cdcStartPosition(String cdcStartPosition) {
             return cdcStartPosition(Output.of(cdcStartPosition));
         }
 
+        /**
+         * @param cdcStartTime The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cdcStartTime(@Nullable Output<String> cdcStartTime) {
             $.cdcStartTime = cdcStartTime;
             return this;
         }
 
+        /**
+         * @param cdcStartTime The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cdcStartTime(String cdcStartTime) {
             return cdcStartTime(Output.of(cdcStartTime));
         }
 
+        /**
+         * @param migrationType The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder migrationType(@Nullable Output<String> migrationType) {
             $.migrationType = migrationType;
             return this;
         }
 
+        /**
+         * @param migrationType The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder migrationType(String migrationType) {
             return migrationType(Output.of(migrationType));
         }
 
+        /**
+         * @param replicationInstanceArn The Amazon Resource Name (ARN) of the replication instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicationInstanceArn(@Nullable Output<String> replicationInstanceArn) {
             $.replicationInstanceArn = replicationInstanceArn;
             return this;
         }
 
+        /**
+         * @param replicationInstanceArn The Amazon Resource Name (ARN) of the replication instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicationInstanceArn(String replicationInstanceArn) {
             return replicationInstanceArn(Output.of(replicationInstanceArn));
         }
 
+        /**
+         * @param replicationTaskArn The Amazon Resource Name (ARN) for the replication task.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicationTaskArn(@Nullable Output<String> replicationTaskArn) {
             $.replicationTaskArn = replicationTaskArn;
             return this;
         }
 
+        /**
+         * @param replicationTaskArn The Amazon Resource Name (ARN) for the replication task.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicationTaskArn(String replicationTaskArn) {
             return replicationTaskArn(Output.of(replicationTaskArn));
         }
 
+        /**
+         * @param replicationTaskId The replication task identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicationTaskId(@Nullable Output<String> replicationTaskId) {
             $.replicationTaskId = replicationTaskId;
             return this;
         }
 
+        /**
+         * @param replicationTaskId The replication task identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicationTaskId(String replicationTaskId) {
             return replicationTaskId(Output.of(replicationTaskId));
         }
 
+        /**
+         * @param replicationTaskSettings An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicationTaskSettings(@Nullable Output<String> replicationTaskSettings) {
             $.replicationTaskSettings = replicationTaskSettings;
             return this;
         }
 
+        /**
+         * @param replicationTaskSettings An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicationTaskSettings(String replicationTaskSettings) {
             return replicationTaskSettings(Output.of(replicationTaskSettings));
         }
 
+        /**
+         * @param sourceEndpointArn The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceEndpointArn(@Nullable Output<String> sourceEndpointArn) {
             $.sourceEndpointArn = sourceEndpointArn;
             return this;
         }
 
+        /**
+         * @param sourceEndpointArn The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceEndpointArn(String sourceEndpointArn) {
             return sourceEndpointArn(Output.of(sourceEndpointArn));
         }
 
+        /**
+         * @param startReplicationTask Whether to run or stop the replication task.
+         * 
+         * @return builder
+         * 
+         */
         public Builder startReplicationTask(@Nullable Output<Boolean> startReplicationTask) {
             $.startReplicationTask = startReplicationTask;
             return this;
         }
 
+        /**
+         * @param startReplicationTask Whether to run or stop the replication task.
+         * 
+         * @return builder
+         * 
+         */
         public Builder startReplicationTask(Boolean startReplicationTask) {
             return startReplicationTask(Output.of(startReplicationTask));
         }
 
+        /**
+         * @param status Replication Task status.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status Replication Task status.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
+        /**
+         * @param tableMappings An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
+         * 
+         * @return builder
+         * 
+         */
         public Builder tableMappings(@Nullable Output<String> tableMappings) {
             $.tableMappings = tableMappings;
             return this;
         }
 
+        /**
+         * @param tableMappings An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
+         * 
+         * @return builder
+         * 
+         */
         public Builder tableMappings(String tableMappings) {
             return tableMappings(Output.of(tableMappings));
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
+        /**
+         * @param targetEndpointArn The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetEndpointArn(@Nullable Output<String> targetEndpointArn) {
             $.targetEndpointArn = targetEndpointArn;
             return this;
         }
 
+        /**
+         * @param targetEndpointArn The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetEndpointArn(String targetEndpointArn) {
             return targetEndpointArn(Output.of(targetEndpointArn));
         }

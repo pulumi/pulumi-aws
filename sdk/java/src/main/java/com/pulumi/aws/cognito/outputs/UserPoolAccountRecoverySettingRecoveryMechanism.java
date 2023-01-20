@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class UserPoolAccountRecoverySettingRecoveryMechanism {
+    /**
+     * @return Name of the user pool.
+     * 
+     */
     private String name;
+    /**
+     * @return Positive integer specifying priority of a method with 1 being the highest priority.
+     * 
+     */
     private Integer priority;
 
     private UserPoolAccountRecoverySettingRecoveryMechanism() {}
+    /**
+     * @return Name of the user pool.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Positive integer specifying priority of a method with 1 being the highest priority.
+     * 
+     */
     public Integer priority() {
         return this.priority;
     }

@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Efs.Outputs
     [OutputType]
     public sealed class GetAccessPointPosixUserResult
     {
+        /// <summary>
+        /// Group ID
+        /// </summary>
         public readonly int Gid;
+        /// <summary>
+        /// Secondary group IDs
+        /// </summary>
         public readonly ImmutableArray<int> SecondaryGids;
+        /// <summary>
+        /// User Id
+        /// </summary>
         public readonly int Uid;
 
         [OutputConstructor]

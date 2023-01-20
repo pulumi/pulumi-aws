@@ -56,7 +56,19 @@ class AwaitableGetIpsetResult(GetIpsetResult):
 def get_ipset(name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpsetResult:
     """
-    Use this data source to access information about an existing resource.
+    `waf.IpSet` Retrieves a WAF IP Set Resource Id.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.waf.get_ipset(name="tfWAFIPSet")
+    ```
+
+
+    :param str name: Name of the WAF IP set.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -72,6 +84,18 @@ def get_ipset(name: Optional[str] = None,
 def get_ipset_output(name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpsetResult]:
     """
-    Use this data source to access information about an existing resource.
+    `waf.IpSet` Retrieves a WAF IP Set Resource Id.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.waf.get_ipset(name="tfWAFIPSet")
+    ```
+
+
+    :param str name: Name of the WAF IP set.
     """
     ...

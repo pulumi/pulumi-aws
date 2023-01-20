@@ -13,6 +13,9 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementAndStatementStatementOrStatement
     {
+        /// <summary>
+        /// Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatement> Statements;
 
         [OutputConstructor]

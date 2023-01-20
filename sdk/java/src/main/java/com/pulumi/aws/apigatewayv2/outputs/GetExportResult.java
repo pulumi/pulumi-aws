@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetExportResult {
     private String apiId;
+    /**
+     * @return ID of the API.
+     * 
+     */
     private String body;
     private @Nullable String exportVersion;
     /**
@@ -29,6 +33,10 @@ public final class GetExportResult {
     public String apiId() {
         return this.apiId;
     }
+    /**
+     * @return ID of the API.
+     * 
+     */
     public String body() {
         return this.body;
     }

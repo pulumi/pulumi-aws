@@ -18,16 +18,32 @@ public final class GetSecurityGroupsArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetSecurityGroupsArgs Empty = new GetSecurityGroupsArgs();
 
+    /**
+     * One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+     * 
+     */
     @Import(name="filters")
     private @Nullable Output<List<GetSecurityGroupsFilterArgs>> filters;
 
+    /**
+     * @return One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+     * 
+     */
     public Optional<Output<List<GetSecurityGroupsFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
+    /**
+     * Map of tags, each pair of which must exactly match for desired security groups.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Map of tags, each pair of which must exactly match for desired security groups.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -57,24 +73,54 @@ public final class GetSecurityGroupsArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetSecurityGroupsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filters One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable Output<List<GetSecurityGroupsFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(List<GetSecurityGroupsFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
+        /**
+         * @param filters One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(GetSecurityGroupsFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
+        /**
+         * @param tags Map of tags, each pair of which must exactly match for desired security groups.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Map of tags, each pair of which must exactly match for desired security groups.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -16,47 +16,151 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a SageMaker Project resource.
+ * 
+ *  &gt; Note: If you are trying to use SageMaker projects with SageMaker studio you will need to add a tag with the key `sagemaker:studio-visibility` with value `true`. For more on requirements to use projects and permission needed see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-projects-templates-custom.html).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sagemaker.Project;
+ * import com.pulumi.aws.sagemaker.ProjectArgs;
+ * import com.pulumi.aws.sagemaker.inputs.ProjectServiceCatalogProvisioningDetailsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
+ *             .projectName(&#34;example&#34;)
+ *             .serviceCatalogProvisioningDetails(ProjectServiceCatalogProvisioningDetailsArgs.builder()
+ *                 .productId(aws_servicecatalog_product.example().id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * SageMaker Projects can be imported using the `project_name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:sagemaker/project:Project example example
+ * ```
+ * 
+ */
 @ResourceType(type="aws:sagemaker/project:Project")
 public class Project extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name (ARN) assigned by AWS to this Project.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) assigned by AWS to this Project.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * A description for the project.
+     * 
+     */
     @Export(name="projectDescription", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> projectDescription;
 
+    /**
+     * @return A description for the project.
+     * 
+     */
     public Output<Optional<String>> projectDescription() {
         return Codegen.optional(this.projectDescription);
     }
+    /**
+     * The ID of the project.
+     * 
+     */
     @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
+    /**
+     * @return The ID of the project.
+     * 
+     */
     public Output<String> projectId() {
         return this.projectId;
     }
+    /**
+     * The name of the Project.
+     * 
+     */
     @Export(name="projectName", refs={String.class}, tree="[0]")
     private Output<String> projectName;
 
+    /**
+     * @return The name of the Project.
+     * 
+     */
     public Output<String> projectName() {
         return this.projectName;
     }
+    /**
+     * The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
+     * 
+     */
     @Export(name="serviceCatalogProvisioningDetails", refs={ProjectServiceCatalogProvisioningDetails.class}, tree="[0]")
     private Output<ProjectServiceCatalogProvisioningDetails> serviceCatalogProvisioningDetails;
 
+    /**
+     * @return The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
+     * 
+     */
     public Output<ProjectServiceCatalogProvisioningDetails> serviceCatalogProvisioningDetails() {
         return this.serviceCatalogProvisioningDetails;
     }
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -13,16 +13,32 @@ public final class ListenerCertificateArgs extends com.pulumi.resources.Resource
 
     public static final ListenerCertificateArgs Empty = new ListenerCertificateArgs();
 
+    /**
+     * The ARN of the certificate to attach to the listener.
+     * 
+     */
     @Import(name="certificateArn", required=true)
     private Output<String> certificateArn;
 
+    /**
+     * @return The ARN of the certificate to attach to the listener.
+     * 
+     */
     public Output<String> certificateArn() {
         return this.certificateArn;
     }
 
+    /**
+     * The ARN of the listener to which to attach the certificate.
+     * 
+     */
     @Import(name="listenerArn", required=true)
     private Output<String> listenerArn;
 
+    /**
+     * @return The ARN of the listener to which to attach the certificate.
+     * 
+     */
     public Output<String> listenerArn() {
         return this.listenerArn;
     }
@@ -52,20 +68,44 @@ public final class ListenerCertificateArgs extends com.pulumi.resources.Resource
             $ = new ListenerCertificateArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param certificateArn The ARN of the certificate to attach to the listener.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateArn(Output<String> certificateArn) {
             $.certificateArn = certificateArn;
             return this;
         }
 
+        /**
+         * @param certificateArn The ARN of the certificate to attach to the listener.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateArn(String certificateArn) {
             return certificateArn(Output.of(certificateArn));
         }
 
+        /**
+         * @param listenerArn The ARN of the listener to which to attach the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder listenerArn(Output<String> listenerArn) {
             $.listenerArn = listenerArn;
             return this;
         }
 
+        /**
+         * @param listenerArn The ARN of the listener to which to attach the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder listenerArn(String listenerArn) {
             return listenerArn(Output.of(listenerArn));
         }

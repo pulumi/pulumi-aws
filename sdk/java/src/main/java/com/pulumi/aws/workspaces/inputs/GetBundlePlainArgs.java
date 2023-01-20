@@ -14,23 +14,47 @@ public final class GetBundlePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetBundlePlainArgs Empty = new GetBundlePlainArgs();
 
+    /**
+     * ID of the bundle.
+     * 
+     */
     @Import(name="bundleId")
     private @Nullable String bundleId;
 
+    /**
+     * @return ID of the bundle.
+     * 
+     */
     public Optional<String> bundleId() {
         return Optional.ofNullable(this.bundleId);
     }
 
+    /**
+     * Name of the bundle. You cannot combine this parameter with `bundle_id`.
+     * 
+     */
     @Import(name="name")
     private @Nullable String name;
 
+    /**
+     * @return Name of the bundle. You cannot combine this parameter with `bundle_id`.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+     * 
+     */
     @Import(name="owner")
     private @Nullable String owner;
 
+    /**
+     * @return Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+     * 
+     */
     public Optional<String> owner() {
         return Optional.ofNullable(this.owner);
     }
@@ -61,16 +85,34 @@ public final class GetBundlePlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetBundlePlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bundleId ID of the bundle.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bundleId(@Nullable String bundleId) {
             $.bundleId = bundleId;
             return this;
         }
 
+        /**
+         * @param name Name of the bundle. You cannot combine this parameter with `bundle_id`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param owner Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder owner(@Nullable String owner) {
             $.owner = owner;
             return this;

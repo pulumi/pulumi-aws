@@ -13,6 +13,9 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     [OutputType]
     public sealed class InsightFiltersKeyword
     {
+        /// <summary>
+        /// A value for the keyword.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

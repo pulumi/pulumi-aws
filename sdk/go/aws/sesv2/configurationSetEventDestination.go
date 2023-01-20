@@ -11,12 +11,199 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination.
+//
+// ## Example Usage
+// ### Cloud Watch Destination
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleConfigurationSet, err := sesv2.NewConfigurationSet(ctx, "exampleConfigurationSet", &sesv2.ConfigurationSetArgs{
+//				ConfigurationSetName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sesv2.NewConfigurationSetEventDestination(ctx, "exampleConfigurationSetEventDestination", &sesv2.ConfigurationSetEventDestinationArgs{
+//				ConfigurationSetName: exampleConfigurationSet.ConfigurationSetName,
+//				EventDestinationName: pulumi.String("example"),
+//				EventDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationArgs{
+//					CloudWatchDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs{
+//						DimensionConfigurations: sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArray{
+//							&sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs{
+//								DefaultDimensionValue: pulumi.String("example"),
+//								DimensionName:         pulumi.String("example"),
+//								DimensionValueSource:  pulumi.String("MESSAGE_TAG"),
+//							},
+//						},
+//					},
+//					Enabled: pulumi.Bool(true),
+//					MatchingEventTypes: pulumi.StringArray{
+//						pulumi.String("SEND"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Kinesis Firehose Destination
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleConfigurationSet, err := sesv2.NewConfigurationSet(ctx, "exampleConfigurationSet", &sesv2.ConfigurationSetArgs{
+//				ConfigurationSetName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sesv2.NewConfigurationSetEventDestination(ctx, "exampleConfigurationSetEventDestination", &sesv2.ConfigurationSetEventDestinationArgs{
+//				ConfigurationSetName: exampleConfigurationSet.ConfigurationSetName,
+//				EventDestinationName: pulumi.String("example"),
+//				EventDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationArgs{
+//					KinesisFirehoseDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs{
+//						DeliveryStreamArn: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
+//						IamRoleArn:        pulumi.Any(aws_iam_role.Example.Arn),
+//					},
+//					Enabled: pulumi.Bool(true),
+//					MatchingEventTypes: pulumi.StringArray{
+//						pulumi.String("SEND"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Pinpoint Destination
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleConfigurationSet, err := sesv2.NewConfigurationSet(ctx, "exampleConfigurationSet", &sesv2.ConfigurationSetArgs{
+//				ConfigurationSetName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sesv2.NewConfigurationSetEventDestination(ctx, "exampleConfigurationSetEventDestination", &sesv2.ConfigurationSetEventDestinationArgs{
+//				ConfigurationSetName: exampleConfigurationSet.ConfigurationSetName,
+//				EventDestinationName: pulumi.String("example"),
+//				EventDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationArgs{
+//					PinpointDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs{
+//						ApplicationArn: pulumi.Any(aws_pinpoint_app.Example.Arn),
+//					},
+//					Enabled: pulumi.Bool(true),
+//					MatchingEventTypes: pulumi.StringArray{
+//						pulumi.String("SEND"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### SNS Destination
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleConfigurationSet, err := sesv2.NewConfigurationSet(ctx, "exampleConfigurationSet", &sesv2.ConfigurationSetArgs{
+//				ConfigurationSetName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sesv2.NewConfigurationSetEventDestination(ctx, "exampleConfigurationSetEventDestination", &sesv2.ConfigurationSetEventDestinationArgs{
+//				ConfigurationSetName: exampleConfigurationSet.ConfigurationSetName,
+//				EventDestinationName: pulumi.String("example"),
+//				EventDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationArgs{
+//					SnsDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs{
+//						TopicArn: pulumi.Any(aws_sns_topic.Example.Arn),
+//					},
+//					Enabled: pulumi.Bool(true),
+//					MatchingEventTypes: pulumi.StringArray{
+//						pulumi.String("SEND"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// SESv2 (Simple Email V2) Configuration Set Event Destination can be imported using the `id` (`configuration_set_name|event_destination_name`), e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
+//
+// ```
 type ConfigurationSetEventDestination struct {
 	pulumi.CustomResourceState
 
-	ConfigurationSetName pulumi.StringOutput                                    `pulumi:"configurationSetName"`
-	EventDestination     ConfigurationSetEventDestinationEventDestinationOutput `pulumi:"eventDestination"`
-	EventDestinationName pulumi.StringOutput                                    `pulumi:"eventDestinationName"`
+	// The name of the configuration set.
+	ConfigurationSetName pulumi.StringOutput `pulumi:"configurationSetName"`
+	// A name that identifies the event destination within the configuration set.
+	EventDestination ConfigurationSetEventDestinationEventDestinationOutput `pulumi:"eventDestination"`
+	// An object that defines the event destination. See eventDestination below.
+	EventDestinationName pulumi.StringOutput `pulumi:"eventDestinationName"`
 }
 
 // NewConfigurationSetEventDestination registers a new resource with the given unique name, arguments, and options.
@@ -57,14 +244,20 @@ func GetConfigurationSetEventDestination(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationSetEventDestination resources.
 type configurationSetEventDestinationState struct {
-	ConfigurationSetName *string                                           `pulumi:"configurationSetName"`
-	EventDestination     *ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
-	EventDestinationName *string                                           `pulumi:"eventDestinationName"`
+	// The name of the configuration set.
+	ConfigurationSetName *string `pulumi:"configurationSetName"`
+	// A name that identifies the event destination within the configuration set.
+	EventDestination *ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
+	// An object that defines the event destination. See eventDestination below.
+	EventDestinationName *string `pulumi:"eventDestinationName"`
 }
 
 type ConfigurationSetEventDestinationState struct {
+	// The name of the configuration set.
 	ConfigurationSetName pulumi.StringPtrInput
-	EventDestination     ConfigurationSetEventDestinationEventDestinationPtrInput
+	// A name that identifies the event destination within the configuration set.
+	EventDestination ConfigurationSetEventDestinationEventDestinationPtrInput
+	// An object that defines the event destination. See eventDestination below.
 	EventDestinationName pulumi.StringPtrInput
 }
 
@@ -73,15 +266,21 @@ func (ConfigurationSetEventDestinationState) ElementType() reflect.Type {
 }
 
 type configurationSetEventDestinationArgs struct {
-	ConfigurationSetName string                                           `pulumi:"configurationSetName"`
-	EventDestination     ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
-	EventDestinationName string                                           `pulumi:"eventDestinationName"`
+	// The name of the configuration set.
+	ConfigurationSetName string `pulumi:"configurationSetName"`
+	// A name that identifies the event destination within the configuration set.
+	EventDestination ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
+	// An object that defines the event destination. See eventDestination below.
+	EventDestinationName string `pulumi:"eventDestinationName"`
 }
 
 // The set of arguments for constructing a ConfigurationSetEventDestination resource.
 type ConfigurationSetEventDestinationArgs struct {
+	// The name of the configuration set.
 	ConfigurationSetName pulumi.StringInput
-	EventDestination     ConfigurationSetEventDestinationEventDestinationInput
+	// A name that identifies the event destination within the configuration set.
+	EventDestination ConfigurationSetEventDestinationEventDestinationInput
+	// An object that defines the event destination. See eventDestination below.
 	EventDestinationName pulumi.StringInput
 }
 
@@ -172,16 +371,19 @@ func (o ConfigurationSetEventDestinationOutput) ToConfigurationSetEventDestinati
 	return o
 }
 
+// The name of the configuration set.
 func (o ConfigurationSetEventDestinationOutput) ConfigurationSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestination) pulumi.StringOutput { return v.ConfigurationSetName }).(pulumi.StringOutput)
 }
 
+// A name that identifies the event destination within the configuration set.
 func (o ConfigurationSetEventDestinationOutput) EventDestination() ConfigurationSetEventDestinationEventDestinationOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestination) ConfigurationSetEventDestinationEventDestinationOutput {
 		return v.EventDestination
 	}).(ConfigurationSetEventDestinationEventDestinationOutput)
 }
 
+// An object that defines the event destination. See eventDestination below.
 func (o ConfigurationSetEventDestinationOutput) EventDestinationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestination) pulumi.StringOutput { return v.EventDestinationName }).(pulumi.StringOutput)
 }

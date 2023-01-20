@@ -51,16 +51,25 @@ class GetBundleResult:
     @property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> Optional[str]:
+        """
+        The ID of the bundle.
+        """
         return pulumi.get(self, "bundle_id")
 
     @property
     @pulumi.getter(name="computeTypes")
     def compute_types(self) -> Sequence['outputs.GetBundleComputeTypeResult']:
+        """
+        The compute type. See supported fields below.
+        """
         return pulumi.get(self, "compute_types")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        The description of the bundle.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -74,21 +83,33 @@ class GetBundleResult:
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        Name of the compute type.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def owner(self) -> Optional[str]:
+        """
+        The owner of the bundle.
+        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter(name="rootStorages")
     def root_storages(self) -> Sequence['outputs.GetBundleRootStorageResult']:
+        """
+        The root volume. See supported fields below.
+        """
         return pulumi.get(self, "root_storages")
 
     @property
     @pulumi.getter(name="userStorages")
     def user_storages(self) -> Sequence['outputs.GetBundleUserStorageResult']:
+        """
+        The user storage. See supported fields below.
+        """
         return pulumi.get(self, "user_storages")
 
 
@@ -113,7 +134,31 @@ def get_bundle(bundle_id: Optional[str] = None,
                owner: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBundleResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about an AWS WorkSpaces bundle.
+
+    ## Example Usage
+    ### By ID
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.workspaces.get_bundle(bundle_id="wsb-b0s22j3d7")
+    ```
+    ### By Owner & Name
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.workspaces.get_bundle(name="Value with Windows 10 and Office 2016",
+        owner="AMAZON")
+    ```
+
+
+    :param str bundle_id: ID of the bundle.
+    :param str name: Name of the bundle. You cannot combine this parameter with `bundle_id`.
+    :param str owner: Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
     """
     __args__ = dict()
     __args__['bundleId'] = bundle_id
@@ -139,6 +184,30 @@ def get_bundle_output(bundle_id: Optional[pulumi.Input[Optional[str]]] = None,
                       owner: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBundleResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about an AWS WorkSpaces bundle.
+
+    ## Example Usage
+    ### By ID
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.workspaces.get_bundle(bundle_id="wsb-b0s22j3d7")
+    ```
+    ### By Owner & Name
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.workspaces.get_bundle(name="Value with Windows 10 and Office 2016",
+        owner="AMAZON")
+    ```
+
+
+    :param str bundle_id: ID of the bundle.
+    :param str name: Name of the bundle. You cannot combine this parameter with `bundle_id`.
+    :param str owner: Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
     """
     ...

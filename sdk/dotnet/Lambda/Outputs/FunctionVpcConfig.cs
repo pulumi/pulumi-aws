@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class FunctionVpcConfig
     {
+        /// <summary>
+        /// List of security group IDs associated with the Lambda function.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// List of subnet IDs associated with the Lambda function.
+        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         public readonly string? VpcId;
 

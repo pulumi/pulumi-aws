@@ -14,21 +14,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OntapStorageVirtualMachineEndpoint {
+    /**
+     * @return An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+     * 
+     */
     private @Nullable List<OntapStorageVirtualMachineEndpointIscse> iscses;
+    /**
+     * @return An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+     * 
+     */
     private @Nullable List<OntapStorageVirtualMachineEndpointManagement> managements;
+    /**
+     * @return An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+     * 
+     */
     private @Nullable List<OntapStorageVirtualMachineEndpointNf> nfs;
+    /**
+     * @return An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+     * 
+     */
     private @Nullable List<OntapStorageVirtualMachineEndpointSmb> smbs;
 
     private OntapStorageVirtualMachineEndpoint() {}
+    /**
+     * @return An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+     * 
+     */
     public List<OntapStorageVirtualMachineEndpointIscse> iscses() {
         return this.iscses == null ? List.of() : this.iscses;
     }
+    /**
+     * @return An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+     * 
+     */
     public List<OntapStorageVirtualMachineEndpointManagement> managements() {
         return this.managements == null ? List.of() : this.managements;
     }
+    /**
+     * @return An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+     * 
+     */
     public List<OntapStorageVirtualMachineEndpointNf> nfs() {
         return this.nfs == null ? List.of() : this.nfs;
     }
+    /**
+     * @return An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+     * 
+     */
     public List<OntapStorageVirtualMachineEndpointSmb> smbs() {
         return this.smbs == null ? List.of() : this.smbs;
     }

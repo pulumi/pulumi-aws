@@ -16,16 +16,32 @@ public final class GetInstanceTypeOfferingsPlainArgs extends com.pulumi.resource
 
     public static final GetInstanceTypeOfferingsPlainArgs Empty = new GetInstanceTypeOfferingsPlainArgs();
 
+    /**
+     * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
+     * 
+     */
     @Import(name="filters")
     private @Nullable List<GetInstanceTypeOfferingsFilter> filters;
 
+    /**
+     * @return One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
+     * 
+     */
     public Optional<List<GetInstanceTypeOfferingsFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
+    /**
+     * Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
+     * 
+     */
     @Import(name="locationType")
     private @Nullable String locationType;
 
+    /**
+     * @return Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
+     * 
+     */
     public Optional<String> locationType() {
         return Optional.ofNullable(this.locationType);
     }
@@ -55,15 +71,33 @@ public final class GetInstanceTypeOfferingsPlainArgs extends com.pulumi.resource
             $ = new GetInstanceTypeOfferingsPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filters One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable List<GetInstanceTypeOfferingsFilter> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(GetInstanceTypeOfferingsFilter... filters) {
             return filters(List.of(filters));
         }
 
+        /**
+         * @param locationType Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationType(@Nullable String locationType) {
             $.locationType = locationType;
             return this;

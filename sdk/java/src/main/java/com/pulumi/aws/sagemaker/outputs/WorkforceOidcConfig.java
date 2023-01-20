@@ -9,37 +9,101 @@ import java.util.Objects;
 
 @CustomType
 public final class WorkforceOidcConfig {
+    /**
+     * @return The OIDC IdP authorization endpoint used to configure your private workforce.
+     * 
+     */
     private String authorizationEndpoint;
+    /**
+     * @return The OIDC IdP client ID used to configure your private workforce.
+     * 
+     */
     private String clientId;
+    /**
+     * @return The OIDC IdP client secret used to configure your private workforce.
+     * 
+     */
     private String clientSecret;
+    /**
+     * @return The OIDC IdP issuer used to configure your private workforce.
+     * 
+     */
     private String issuer;
+    /**
+     * @return The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
+     * 
+     */
     private String jwksUri;
+    /**
+     * @return The OIDC IdP logout endpoint used to configure your private workforce.
+     * 
+     */
     private String logoutEndpoint;
+    /**
+     * @return The OIDC IdP token endpoint used to configure your private workforce.
+     * 
+     */
     private String tokenEndpoint;
+    /**
+     * @return The OIDC IdP user information endpoint used to configure your private workforce.
+     * 
+     */
     private String userInfoEndpoint;
 
     private WorkforceOidcConfig() {}
+    /**
+     * @return The OIDC IdP authorization endpoint used to configure your private workforce.
+     * 
+     */
     public String authorizationEndpoint() {
         return this.authorizationEndpoint;
     }
+    /**
+     * @return The OIDC IdP client ID used to configure your private workforce.
+     * 
+     */
     public String clientId() {
         return this.clientId;
     }
+    /**
+     * @return The OIDC IdP client secret used to configure your private workforce.
+     * 
+     */
     public String clientSecret() {
         return this.clientSecret;
     }
+    /**
+     * @return The OIDC IdP issuer used to configure your private workforce.
+     * 
+     */
     public String issuer() {
         return this.issuer;
     }
+    /**
+     * @return The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
+     * 
+     */
     public String jwksUri() {
         return this.jwksUri;
     }
+    /**
+     * @return The OIDC IdP logout endpoint used to configure your private workforce.
+     * 
+     */
     public String logoutEndpoint() {
         return this.logoutEndpoint;
     }
+    /**
+     * @return The OIDC IdP token endpoint used to configure your private workforce.
+     * 
+     */
     public String tokenEndpoint() {
         return this.tokenEndpoint;
     }
+    /**
+     * @return The OIDC IdP user information endpoint used to configure your private workforce.
+     * 
+     */
     public String userInfoEndpoint() {
         return this.userInfoEndpoint;
     }

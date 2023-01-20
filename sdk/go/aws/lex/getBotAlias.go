@@ -10,6 +10,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides details about a specific Amazon Lex Bot Alias.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lex"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lex.LookupBotAlias(ctx, &lex.LookupBotAliasArgs{
+//				BotName: "OrderFlowers",
+//				Name:    "OrderFlowersProd",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupBotAlias(ctx *pulumi.Context, args *LookupBotAliasArgs, opts ...pulumi.InvokeOption) (*LookupBotAliasResult, error) {
 	var rv LookupBotAliasResult
 	err := ctx.Invoke("aws:lex/getBotAlias:getBotAlias", args, &rv, opts...)
@@ -21,22 +49,32 @@ func LookupBotAlias(ctx *pulumi.Context, args *LookupBotAliasArgs, opts ...pulum
 
 // A collection of arguments for invoking getBotAlias.
 type LookupBotAliasArgs struct {
+	// Name of the bot.
 	BotName string `pulumi:"botName"`
-	Name    string `pulumi:"name"`
+	// Name of the bot alias. The name is case sensitive.
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getBotAlias.
 type LookupBotAliasResult struct {
-	Arn         string `pulumi:"arn"`
-	BotName     string `pulumi:"botName"`
-	BotVersion  string `pulumi:"botVersion"`
-	Checksum    string `pulumi:"checksum"`
+	// ARN of the bot alias.
+	Arn string `pulumi:"arn"`
+	// Name of the bot.
+	BotName string `pulumi:"botName"`
+	// Version of the bot that the alias points to.
+	BotVersion string `pulumi:"botVersion"`
+	// Checksum of the bot alias.
+	Checksum string `pulumi:"checksum"`
+	// Date that the bot alias was created.
 	CreatedDate string `pulumi:"createdDate"`
+	// Description of the alias.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
-	Name            string `pulumi:"name"`
+	// Name of the alias. The name is not case sensitive.
+	Name string `pulumi:"name"`
 }
 
 func LookupBotAliasOutput(ctx *pulumi.Context, args LookupBotAliasOutputArgs, opts ...pulumi.InvokeOption) LookupBotAliasResultOutput {
@@ -54,8 +92,10 @@ func LookupBotAliasOutput(ctx *pulumi.Context, args LookupBotAliasOutputArgs, op
 
 // A collection of arguments for invoking getBotAlias.
 type LookupBotAliasOutputArgs struct {
+	// Name of the bot.
 	BotName pulumi.StringInput `pulumi:"botName"`
-	Name    pulumi.StringInput `pulumi:"name"`
+	// Name of the bot alias. The name is case sensitive.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupBotAliasOutputArgs) ElementType() reflect.Type {
@@ -77,26 +117,32 @@ func (o LookupBotAliasResultOutput) ToLookupBotAliasResultOutputWithContext(ctx 
 	return o
 }
 
+// ARN of the bot alias.
 func (o LookupBotAliasResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBotAliasResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Name of the bot.
 func (o LookupBotAliasResultOutput) BotName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBotAliasResult) string { return v.BotName }).(pulumi.StringOutput)
 }
 
+// Version of the bot that the alias points to.
 func (o LookupBotAliasResultOutput) BotVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBotAliasResult) string { return v.BotVersion }).(pulumi.StringOutput)
 }
 
+// Checksum of the bot alias.
 func (o LookupBotAliasResultOutput) Checksum() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBotAliasResult) string { return v.Checksum }).(pulumi.StringOutput)
 }
 
+// Date that the bot alias was created.
 func (o LookupBotAliasResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBotAliasResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
+// Description of the alias.
 func (o LookupBotAliasResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBotAliasResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -106,10 +152,12 @@ func (o LookupBotAliasResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBotAliasResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
 func (o LookupBotAliasResultOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBotAliasResult) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
 }
 
+// Name of the alias. The name is not case sensitive.
 func (o LookupBotAliasResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBotAliasResult) string { return v.Name }).(pulumi.StringOutput)
 }

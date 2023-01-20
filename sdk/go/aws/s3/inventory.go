@@ -11,17 +11,128 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
+//
+// ## Example Usage
+// ### Add inventory configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testBucketV2, err := s3.NewBucketV2(ctx, "testBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			inventory, err := s3.NewBucketV2(ctx, "inventory", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewInventory(ctx, "testInventory", &s3.InventoryArgs{
+//				Bucket:                 testBucketV2.ID(),
+//				IncludedObjectVersions: pulumi.String("All"),
+//				Schedule: &s3.InventoryScheduleArgs{
+//					Frequency: pulumi.String("Daily"),
+//				},
+//				Destination: &s3.InventoryDestinationArgs{
+//					Bucket: &s3.InventoryDestinationBucketArgs{
+//						Format:    pulumi.String("ORC"),
+//						BucketArn: inventory.Arn,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Add inventory configuration with S3 object prefix
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := s3.NewBucketV2(ctx, "test", nil)
+//			if err != nil {
+//				return err
+//			}
+//			inventory, err := s3.NewBucketV2(ctx, "inventory", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewInventory(ctx, "test-prefix", &s3.InventoryArgs{
+//				Bucket:                 test.ID(),
+//				IncludedObjectVersions: pulumi.String("All"),
+//				Schedule: &s3.InventoryScheduleArgs{
+//					Frequency: pulumi.String("Daily"),
+//				},
+//				Filter: &s3.InventoryFilterArgs{
+//					Prefix: pulumi.String("documents/"),
+//				},
+//				Destination: &s3.InventoryDestinationArgs{
+//					Bucket: &s3.InventoryDestinationBucketArgs{
+//						Format:    pulumi.String("ORC"),
+//						BucketArn: inventory.Arn,
+//						Prefix:    pulumi.String("inventory"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// S3 bucket inventory configurations can be imported using `bucket:inventory`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
+//
+// ```
 type Inventory struct {
 	pulumi.CustomResourceState
 
-	Bucket                 pulumi.StringOutput        `pulumi:"bucket"`
-	Destination            InventoryDestinationOutput `pulumi:"destination"`
-	Enabled                pulumi.BoolPtrOutput       `pulumi:"enabled"`
-	Filter                 InventoryFilterPtrOutput   `pulumi:"filter"`
-	IncludedObjectVersions pulumi.StringOutput        `pulumi:"includedObjectVersions"`
-	Name                   pulumi.StringOutput        `pulumi:"name"`
-	OptionalFields         pulumi.StringArrayOutput   `pulumi:"optionalFields"`
-	Schedule               InventoryScheduleOutput    `pulumi:"schedule"`
+	// The name of the source bucket that inventory lists the objects for.
+	Bucket pulumi.StringOutput `pulumi:"bucket"`
+	// Contains information about where to publish the inventory results (documented below).
+	Destination InventoryDestinationOutput `pulumi:"destination"`
+	// Specifies whether the inventory is enabled or disabled.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+	Filter InventoryFilterPtrOutput `pulumi:"filter"`
+	// Object versions to include in the inventory list. Valid values: `All`, `Current`.
+	IncludedObjectVersions pulumi.StringOutput `pulumi:"includedObjectVersions"`
+	// Unique identifier of the inventory configuration for the bucket.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
+	OptionalFields pulumi.StringArrayOutput `pulumi:"optionalFields"`
+	// Specifies the schedule for generating inventory results (documented below).
+	Schedule InventoryScheduleOutput `pulumi:"schedule"`
 }
 
 // NewInventory registers a new resource with the given unique name, arguments, and options.
@@ -65,25 +176,41 @@ func GetInventory(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Inventory resources.
 type inventoryState struct {
-	Bucket                 *string               `pulumi:"bucket"`
-	Destination            *InventoryDestination `pulumi:"destination"`
-	Enabled                *bool                 `pulumi:"enabled"`
-	Filter                 *InventoryFilter      `pulumi:"filter"`
-	IncludedObjectVersions *string               `pulumi:"includedObjectVersions"`
-	Name                   *string               `pulumi:"name"`
-	OptionalFields         []string              `pulumi:"optionalFields"`
-	Schedule               *InventorySchedule    `pulumi:"schedule"`
+	// The name of the source bucket that inventory lists the objects for.
+	Bucket *string `pulumi:"bucket"`
+	// Contains information about where to publish the inventory results (documented below).
+	Destination *InventoryDestination `pulumi:"destination"`
+	// Specifies whether the inventory is enabled or disabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+	Filter *InventoryFilter `pulumi:"filter"`
+	// Object versions to include in the inventory list. Valid values: `All`, `Current`.
+	IncludedObjectVersions *string `pulumi:"includedObjectVersions"`
+	// Unique identifier of the inventory configuration for the bucket.
+	Name *string `pulumi:"name"`
+	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
+	OptionalFields []string `pulumi:"optionalFields"`
+	// Specifies the schedule for generating inventory results (documented below).
+	Schedule *InventorySchedule `pulumi:"schedule"`
 }
 
 type InventoryState struct {
-	Bucket                 pulumi.StringPtrInput
-	Destination            InventoryDestinationPtrInput
-	Enabled                pulumi.BoolPtrInput
-	Filter                 InventoryFilterPtrInput
+	// The name of the source bucket that inventory lists the objects for.
+	Bucket pulumi.StringPtrInput
+	// Contains information about where to publish the inventory results (documented below).
+	Destination InventoryDestinationPtrInput
+	// Specifies whether the inventory is enabled or disabled.
+	Enabled pulumi.BoolPtrInput
+	// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+	Filter InventoryFilterPtrInput
+	// Object versions to include in the inventory list. Valid values: `All`, `Current`.
 	IncludedObjectVersions pulumi.StringPtrInput
-	Name                   pulumi.StringPtrInput
-	OptionalFields         pulumi.StringArrayInput
-	Schedule               InventorySchedulePtrInput
+	// Unique identifier of the inventory configuration for the bucket.
+	Name pulumi.StringPtrInput
+	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
+	OptionalFields pulumi.StringArrayInput
+	// Specifies the schedule for generating inventory results (documented below).
+	Schedule InventorySchedulePtrInput
 }
 
 func (InventoryState) ElementType() reflect.Type {
@@ -91,26 +218,42 @@ func (InventoryState) ElementType() reflect.Type {
 }
 
 type inventoryArgs struct {
-	Bucket                 string               `pulumi:"bucket"`
-	Destination            InventoryDestination `pulumi:"destination"`
-	Enabled                *bool                `pulumi:"enabled"`
-	Filter                 *InventoryFilter     `pulumi:"filter"`
-	IncludedObjectVersions string               `pulumi:"includedObjectVersions"`
-	Name                   *string              `pulumi:"name"`
-	OptionalFields         []string             `pulumi:"optionalFields"`
-	Schedule               InventorySchedule    `pulumi:"schedule"`
+	// The name of the source bucket that inventory lists the objects for.
+	Bucket string `pulumi:"bucket"`
+	// Contains information about where to publish the inventory results (documented below).
+	Destination InventoryDestination `pulumi:"destination"`
+	// Specifies whether the inventory is enabled or disabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+	Filter *InventoryFilter `pulumi:"filter"`
+	// Object versions to include in the inventory list. Valid values: `All`, `Current`.
+	IncludedObjectVersions string `pulumi:"includedObjectVersions"`
+	// Unique identifier of the inventory configuration for the bucket.
+	Name *string `pulumi:"name"`
+	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
+	OptionalFields []string `pulumi:"optionalFields"`
+	// Specifies the schedule for generating inventory results (documented below).
+	Schedule InventorySchedule `pulumi:"schedule"`
 }
 
 // The set of arguments for constructing a Inventory resource.
 type InventoryArgs struct {
-	Bucket                 pulumi.StringInput
-	Destination            InventoryDestinationInput
-	Enabled                pulumi.BoolPtrInput
-	Filter                 InventoryFilterPtrInput
+	// The name of the source bucket that inventory lists the objects for.
+	Bucket pulumi.StringInput
+	// Contains information about where to publish the inventory results (documented below).
+	Destination InventoryDestinationInput
+	// Specifies whether the inventory is enabled or disabled.
+	Enabled pulumi.BoolPtrInput
+	// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+	Filter InventoryFilterPtrInput
+	// Object versions to include in the inventory list. Valid values: `All`, `Current`.
 	IncludedObjectVersions pulumi.StringInput
-	Name                   pulumi.StringPtrInput
-	OptionalFields         pulumi.StringArrayInput
-	Schedule               InventoryScheduleInput
+	// Unique identifier of the inventory configuration for the bucket.
+	Name pulumi.StringPtrInput
+	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
+	OptionalFields pulumi.StringArrayInput
+	// Specifies the schedule for generating inventory results (documented below).
+	Schedule InventoryScheduleInput
 }
 
 func (InventoryArgs) ElementType() reflect.Type {
@@ -200,34 +343,42 @@ func (o InventoryOutput) ToInventoryOutputWithContext(ctx context.Context) Inven
 	return o
 }
 
+// The name of the source bucket that inventory lists the objects for.
 func (o InventoryOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *Inventory) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// Contains information about where to publish the inventory results (documented below).
 func (o InventoryOutput) Destination() InventoryDestinationOutput {
 	return o.ApplyT(func(v *Inventory) InventoryDestinationOutput { return v.Destination }).(InventoryDestinationOutput)
 }
 
+// Specifies whether the inventory is enabled or disabled.
 func (o InventoryOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Inventory) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
 func (o InventoryOutput) Filter() InventoryFilterPtrOutput {
 	return o.ApplyT(func(v *Inventory) InventoryFilterPtrOutput { return v.Filter }).(InventoryFilterPtrOutput)
 }
 
+// Object versions to include in the inventory list. Valid values: `All`, `Current`.
 func (o InventoryOutput) IncludedObjectVersions() pulumi.StringOutput {
 	return o.ApplyT(func(v *Inventory) pulumi.StringOutput { return v.IncludedObjectVersions }).(pulumi.StringOutput)
 }
 
+// Unique identifier of the inventory configuration for the bucket.
 func (o InventoryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Inventory) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
 func (o InventoryOutput) OptionalFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Inventory) pulumi.StringArrayOutput { return v.OptionalFields }).(pulumi.StringArrayOutput)
 }
 
+// Specifies the schedule for generating inventory results (documented below).
 func (o InventoryOutput) Schedule() InventoryScheduleOutput {
 	return o.ApplyT(func(v *Inventory) InventoryScheduleOutput { return v.Schedule }).(InventoryScheduleOutput)
 }

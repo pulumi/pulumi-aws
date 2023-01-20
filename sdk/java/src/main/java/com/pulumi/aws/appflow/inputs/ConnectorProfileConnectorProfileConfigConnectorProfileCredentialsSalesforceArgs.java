@@ -16,30 +16,62 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs();
 
+    /**
+     * The access token used to access the connector on your behalf.
+     * 
+     */
     @Import(name="accessToken")
     private @Nullable Output<String> accessToken;
 
+    /**
+     * @return The access token used to access the connector on your behalf.
+     * 
+     */
     public Optional<Output<String>> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
 
+    /**
+     * The secret manager ARN, which contains the client ID and client secret of the connected app.
+     * 
+     */
     @Import(name="clientCredentialsArn")
     private @Nullable Output<String> clientCredentialsArn;
 
+    /**
+     * @return The secret manager ARN, which contains the client ID and client secret of the connected app.
+     * 
+     */
     public Optional<Output<String>> clientCredentialsArn() {
         return Optional.ofNullable(this.clientCredentialsArn);
     }
 
+    /**
+     * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+     * 
+     */
     @Import(name="oauthRequest")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs> oauthRequest;
 
+    /**
+     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+     * 
+     */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs>> oauthRequest() {
         return Optional.ofNullable(this.oauthRequest);
     }
 
+    /**
+     * The refresh token used to refresh an expired access token.
+     * 
+     */
     @Import(name="refreshToken")
     private @Nullable Output<String> refreshToken;
 
+    /**
+     * @return The refresh token used to refresh an expired access token.
+     * 
+     */
     public Optional<Output<String>> refreshToken() {
         return Optional.ofNullable(this.refreshToken);
     }
@@ -71,38 +103,86 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accessToken The access token used to access the connector on your behalf.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessToken(@Nullable Output<String> accessToken) {
             $.accessToken = accessToken;
             return this;
         }
 
+        /**
+         * @param accessToken The access token used to access the connector on your behalf.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessToken(String accessToken) {
             return accessToken(Output.of(accessToken));
         }
 
+        /**
+         * @param clientCredentialsArn The secret manager ARN, which contains the client ID and client secret of the connected app.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientCredentialsArn(@Nullable Output<String> clientCredentialsArn) {
             $.clientCredentialsArn = clientCredentialsArn;
             return this;
         }
 
+        /**
+         * @param clientCredentialsArn The secret manager ARN, which contains the client ID and client secret of the connected app.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientCredentialsArn(String clientCredentialsArn) {
             return clientCredentialsArn(Output.of(clientCredentialsArn));
         }
 
+        /**
+         * @param oauthRequest Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthRequest(@Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs> oauthRequest) {
             $.oauthRequest = oauthRequest;
             return this;
         }
 
+        /**
+         * @param oauthRequest Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthRequest(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs oauthRequest) {
             return oauthRequest(Output.of(oauthRequest));
         }
 
+        /**
+         * @param refreshToken The refresh token used to refresh an expired access token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder refreshToken(@Nullable Output<String> refreshToken) {
             $.refreshToken = refreshToken;
             return this;
         }
 
+        /**
+         * @param refreshToken The refresh token used to refresh an expired access token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder refreshToken(String refreshToken) {
             return refreshToken(Output.of(refreshToken));
         }

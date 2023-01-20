@@ -20,6 +20,13 @@ namespace Pulumi.Aws.Lex.Inputs
             set => _messages = value;
         }
 
+        /// <summary>
+        /// The response card. Amazon Lex will substitute session attributes and
+        /// slot values into the response card. For more information, see
+        /// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+        /// slot values into the response card. For more information, see
+        /// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+        /// </summary>
         [Input("responseCard")]
         public Input<string>? ResponseCard { get; set; }
 

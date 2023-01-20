@@ -13,9 +13,17 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs exte
 
     public static final FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs();
 
+    /**
+     * Object specified in the flow destination.
+     * 
+     */
     @Import(name="object", required=true)
     private Output<String> object;
 
+    /**
+     * @return Object specified in the flow destination.
+     * 
+     */
     public Output<String> object() {
         return this.object;
     }
@@ -44,11 +52,23 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs exte
             $ = new FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param object Object specified in the flow destination.
+         * 
+         * @return builder
+         * 
+         */
         public Builder object(Output<String> object) {
             $.object = object;
             return this;
         }
 
+        /**
+         * @param object Object specified in the flow destination.
+         * 
+         * @return builder
+         * 
+         */
         public Builder object(String object) {
             return object(Output.of(object));
         }

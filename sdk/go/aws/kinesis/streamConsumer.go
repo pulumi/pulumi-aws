@@ -11,13 +11,66 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to manage a Kinesis Stream Consumer.
+//
+// > **Note:** You can register up to 20 consumers per stream. A given consumer can only be registered with one stream at a time.
+//
+// For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleStream, err := kinesis.NewStream(ctx, "exampleStream", &kinesis.StreamArgs{
+//				ShardCount: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kinesis.NewStreamConsumer(ctx, "exampleStreamConsumer", &kinesis.StreamConsumerArgs{
+//				StreamArn: exampleStream.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Kinesis Stream Consumers can be imported using the Amazon Resource Name (ARN) e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
+//
+// ```
+//
+//	[1]https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html
 type StreamConsumer struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput `pulumi:"arn"`
+	// Amazon Resource Name (ARN) of the stream consumer.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
 	CreationTimestamp pulumi.StringOutput `pulumi:"creationTimestamp"`
-	Name              pulumi.StringOutput `pulumi:"name"`
-	StreamArn         pulumi.StringOutput `pulumi:"streamArn"`
+	// Name of the stream consumer.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+	StreamArn pulumi.StringOutput `pulumi:"streamArn"`
 }
 
 // NewStreamConsumer registers a new resource with the given unique name, arguments, and options.
@@ -52,17 +105,25 @@ func GetStreamConsumer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StreamConsumer resources.
 type streamConsumerState struct {
-	Arn               *string `pulumi:"arn"`
+	// Amazon Resource Name (ARN) of the stream consumer.
+	Arn *string `pulumi:"arn"`
+	// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
 	CreationTimestamp *string `pulumi:"creationTimestamp"`
-	Name              *string `pulumi:"name"`
-	StreamArn         *string `pulumi:"streamArn"`
+	// Name of the stream consumer.
+	Name *string `pulumi:"name"`
+	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+	StreamArn *string `pulumi:"streamArn"`
 }
 
 type StreamConsumerState struct {
-	Arn               pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the stream consumer.
+	Arn pulumi.StringPtrInput
+	// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
 	CreationTimestamp pulumi.StringPtrInput
-	Name              pulumi.StringPtrInput
-	StreamArn         pulumi.StringPtrInput
+	// Name of the stream consumer.
+	Name pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+	StreamArn pulumi.StringPtrInput
 }
 
 func (StreamConsumerState) ElementType() reflect.Type {
@@ -70,13 +131,17 @@ func (StreamConsumerState) ElementType() reflect.Type {
 }
 
 type streamConsumerArgs struct {
-	Name      *string `pulumi:"name"`
-	StreamArn string  `pulumi:"streamArn"`
+	// Name of the stream consumer.
+	Name *string `pulumi:"name"`
+	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+	StreamArn string `pulumi:"streamArn"`
 }
 
 // The set of arguments for constructing a StreamConsumer resource.
 type StreamConsumerArgs struct {
-	Name      pulumi.StringPtrInput
+	// Name of the stream consumer.
+	Name pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
 	StreamArn pulumi.StringInput
 }
 
@@ -167,18 +232,22 @@ func (o StreamConsumerOutput) ToStreamConsumerOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Amazon Resource Name (ARN) of the stream consumer.
 func (o StreamConsumerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
 func (o StreamConsumerOutput) CreationTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.CreationTimestamp }).(pulumi.StringOutput)
 }
 
+// Name of the stream consumer.
 func (o StreamConsumerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
 func (o StreamConsumerOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.StreamArn }).(pulumi.StringOutput)
 }

@@ -18,6 +18,8 @@ class ServiceSettingArgs:
                  setting_value: pulumi.Input[str]):
         """
         The set of arguments for constructing a ServiceSetting resource.
+        :param pulumi.Input[str] setting_id: ID of the service setting.
+        :param pulumi.Input[str] setting_value: Value of the service setting.
         """
         pulumi.set(__self__, "setting_id", setting_id)
         pulumi.set(__self__, "setting_value", setting_value)
@@ -25,6 +27,9 @@ class ServiceSettingArgs:
     @property
     @pulumi.getter(name="settingId")
     def setting_id(self) -> pulumi.Input[str]:
+        """
+        ID of the service setting.
+        """
         return pulumi.get(self, "setting_id")
 
     @setting_id.setter
@@ -34,6 +39,9 @@ class ServiceSettingArgs:
     @property
     @pulumi.getter(name="settingValue")
     def setting_value(self) -> pulumi.Input[str]:
+        """
+        Value of the service setting.
+        """
         return pulumi.get(self, "setting_value")
 
     @setting_value.setter
@@ -50,6 +58,10 @@ class _ServiceSettingState:
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceSetting resources.
+        :param pulumi.Input[str] arn: ARN of the service setting.
+        :param pulumi.Input[str] setting_id: ID of the service setting.
+        :param pulumi.Input[str] setting_value: Value of the service setting.
+        :param pulumi.Input[str] status: Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -63,6 +75,9 @@ class _ServiceSettingState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the service setting.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -72,6 +87,9 @@ class _ServiceSettingState:
     @property
     @pulumi.getter(name="settingId")
     def setting_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the service setting.
+        """
         return pulumi.get(self, "setting_id")
 
     @setting_id.setter
@@ -81,6 +99,9 @@ class _ServiceSettingState:
     @property
     @pulumi.getter(name="settingValue")
     def setting_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value of the service setting.
+        """
         return pulumi.get(self, "setting_value")
 
     @setting_value.setter
@@ -90,6 +111,9 @@ class _ServiceSettingState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -106,9 +130,31 @@ class ServiceSetting(pulumi.CustomResource):
                  setting_value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ServiceSetting resource with the given unique name, props, and options.
+        This setting defines how a user interacts with or uses a service or a feature of a service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_setting = aws.ssm.ServiceSetting("testSetting",
+            setting_id="arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled",
+            setting_value="true")
+        ```
+
+        ## Import
+
+        AWS SSM Service Setting can be imported using the `setting_id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ssm/serviceSetting:ServiceSetting example arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] setting_id: ID of the service setting.
+        :param pulumi.Input[str] setting_value: Value of the service setting.
         """
         ...
     @overload
@@ -117,7 +163,27 @@ class ServiceSetting(pulumi.CustomResource):
                  args: ServiceSettingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ServiceSetting resource with the given unique name, props, and options.
+        This setting defines how a user interacts with or uses a service or a feature of a service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_setting = aws.ssm.ServiceSetting("testSetting",
+            setting_id="arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled",
+            setting_value="true")
+        ```
+
+        ## Import
+
+        AWS SSM Service Setting can be imported using the `setting_id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ssm/serviceSetting:ServiceSetting example arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
+        ```
+
         :param str resource_name: The name of the resource.
         :param ServiceSettingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,6 +239,10 @@ class ServiceSetting(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the service setting.
+        :param pulumi.Input[str] setting_id: ID of the service setting.
+        :param pulumi.Input[str] setting_value: Value of the service setting.
+        :param pulumi.Input[str] status: Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -187,20 +257,32 @@ class ServiceSetting(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the service setting.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="settingId")
     def setting_id(self) -> pulumi.Output[str]:
+        """
+        ID of the service setting.
+        """
         return pulumi.get(self, "setting_id")
 
     @property
     @pulumi.getter(name="settingValue")
     def setting_value(self) -> pulumi.Output[str]:
+        """
+        Value of the service setting.
+        """
         return pulumi.get(self, "setting_value")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
+        """
         return pulumi.get(self, "status")
 

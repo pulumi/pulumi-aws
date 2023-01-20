@@ -11,10 +11,87 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for registering an AWS Systems Manager Default Patch Baseline.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplePatchBaseline, err := ssm.NewPatchBaseline(ctx, "examplePatchBaseline", &ssm.PatchBaselineArgs{
+//				ApprovedPatches: pulumi.StringArray{
+//					pulumi.String("KB123456"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssm.NewDefaultPatchBaseline(ctx, "exampleDefaultPatchBaseline", &ssm.DefaultPatchBaselineArgs{
+//				BaselineId:      examplePatchBaseline.ID(),
+//				OperatingSystem: examplePatchBaseline.OperatingSystem,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// The Systems Manager Default Patch Baseline can be imported using the patch baseline ID, patch baseline ARN, or the operating system value, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
+//
+// ```
+//
+// ```sh
+//
+//	$ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
+//
+// ```
+//
+// ```sh
+//
+//	$ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
+//
+// ```
 type DefaultPatchBaseline struct {
 	pulumi.CustomResourceState
 
-	BaselineId      pulumi.StringOutput `pulumi:"baselineId"`
+	// ID of the patch baseline.
+	// Can be an ID or an ARN.
+	// When specifying an AWS-provided patch baseline, must be the ARN.
+	BaselineId pulumi.StringOutput `pulumi:"baselineId"`
+	// The operating system the patch baseline applies to.
+	// Valid values are
+	// `AMAZON_LINUX`,
+	// `AMAZON_LINUX_2`,
+	// `AMAZON_LINUX_2022`,
+	// `CENTOS`,
+	// `DEBIAN`,
+	// `MACOS`,
+	// `ORACLE_LINUX`,
+	// `RASPBIAN`,
+	// `REDHAT_ENTERPRISE_LINUX`,
+	// `ROCKY_LINUX`,
+	// `SUSE`,
+	// `UBUNTU`, and
+	// `WINDOWS`.
 	OperatingSystem pulumi.StringOutput `pulumi:"operatingSystem"`
 }
 
@@ -53,12 +130,48 @@ func GetDefaultPatchBaseline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DefaultPatchBaseline resources.
 type defaultPatchBaselineState struct {
-	BaselineId      *string `pulumi:"baselineId"`
+	// ID of the patch baseline.
+	// Can be an ID or an ARN.
+	// When specifying an AWS-provided patch baseline, must be the ARN.
+	BaselineId *string `pulumi:"baselineId"`
+	// The operating system the patch baseline applies to.
+	// Valid values are
+	// `AMAZON_LINUX`,
+	// `AMAZON_LINUX_2`,
+	// `AMAZON_LINUX_2022`,
+	// `CENTOS`,
+	// `DEBIAN`,
+	// `MACOS`,
+	// `ORACLE_LINUX`,
+	// `RASPBIAN`,
+	// `REDHAT_ENTERPRISE_LINUX`,
+	// `ROCKY_LINUX`,
+	// `SUSE`,
+	// `UBUNTU`, and
+	// `WINDOWS`.
 	OperatingSystem *string `pulumi:"operatingSystem"`
 }
 
 type DefaultPatchBaselineState struct {
-	BaselineId      pulumi.StringPtrInput
+	// ID of the patch baseline.
+	// Can be an ID or an ARN.
+	// When specifying an AWS-provided patch baseline, must be the ARN.
+	BaselineId pulumi.StringPtrInput
+	// The operating system the patch baseline applies to.
+	// Valid values are
+	// `AMAZON_LINUX`,
+	// `AMAZON_LINUX_2`,
+	// `AMAZON_LINUX_2022`,
+	// `CENTOS`,
+	// `DEBIAN`,
+	// `MACOS`,
+	// `ORACLE_LINUX`,
+	// `RASPBIAN`,
+	// `REDHAT_ENTERPRISE_LINUX`,
+	// `ROCKY_LINUX`,
+	// `SUSE`,
+	// `UBUNTU`, and
+	// `WINDOWS`.
 	OperatingSystem pulumi.StringPtrInput
 }
 
@@ -67,13 +180,49 @@ func (DefaultPatchBaselineState) ElementType() reflect.Type {
 }
 
 type defaultPatchBaselineArgs struct {
-	BaselineId      string `pulumi:"baselineId"`
+	// ID of the patch baseline.
+	// Can be an ID or an ARN.
+	// When specifying an AWS-provided patch baseline, must be the ARN.
+	BaselineId string `pulumi:"baselineId"`
+	// The operating system the patch baseline applies to.
+	// Valid values are
+	// `AMAZON_LINUX`,
+	// `AMAZON_LINUX_2`,
+	// `AMAZON_LINUX_2022`,
+	// `CENTOS`,
+	// `DEBIAN`,
+	// `MACOS`,
+	// `ORACLE_LINUX`,
+	// `RASPBIAN`,
+	// `REDHAT_ENTERPRISE_LINUX`,
+	// `ROCKY_LINUX`,
+	// `SUSE`,
+	// `UBUNTU`, and
+	// `WINDOWS`.
 	OperatingSystem string `pulumi:"operatingSystem"`
 }
 
 // The set of arguments for constructing a DefaultPatchBaseline resource.
 type DefaultPatchBaselineArgs struct {
-	BaselineId      pulumi.StringInput
+	// ID of the patch baseline.
+	// Can be an ID or an ARN.
+	// When specifying an AWS-provided patch baseline, must be the ARN.
+	BaselineId pulumi.StringInput
+	// The operating system the patch baseline applies to.
+	// Valid values are
+	// `AMAZON_LINUX`,
+	// `AMAZON_LINUX_2`,
+	// `AMAZON_LINUX_2022`,
+	// `CENTOS`,
+	// `DEBIAN`,
+	// `MACOS`,
+	// `ORACLE_LINUX`,
+	// `RASPBIAN`,
+	// `REDHAT_ENTERPRISE_LINUX`,
+	// `ROCKY_LINUX`,
+	// `SUSE`,
+	// `UBUNTU`, and
+	// `WINDOWS`.
 	OperatingSystem pulumi.StringInput
 }
 
@@ -164,10 +313,28 @@ func (o DefaultPatchBaselineOutput) ToDefaultPatchBaselineOutputWithContext(ctx 
 	return o
 }
 
+// ID of the patch baseline.
+// Can be an ID or an ARN.
+// When specifying an AWS-provided patch baseline, must be the ARN.
 func (o DefaultPatchBaselineOutput) BaselineId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultPatchBaseline) pulumi.StringOutput { return v.BaselineId }).(pulumi.StringOutput)
 }
 
+// The operating system the patch baseline applies to.
+// Valid values are
+// `AMAZON_LINUX`,
+// `AMAZON_LINUX_2`,
+// `AMAZON_LINUX_2022`,
+// `CENTOS`,
+// `DEBIAN`,
+// `MACOS`,
+// `ORACLE_LINUX`,
+// `RASPBIAN`,
+// `REDHAT_ENTERPRISE_LINUX`,
+// `ROCKY_LINUX`,
+// `SUSE`,
+// `UBUNTU`, and
+// `WINDOWS`.
 func (o DefaultPatchBaselineOutput) OperatingSystem() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultPatchBaseline) pulumi.StringOutput { return v.OperatingSystem }).(pulumi.StringOutput)
 }

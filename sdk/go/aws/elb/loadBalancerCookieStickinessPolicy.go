@@ -11,13 +11,66 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a load balancer cookie stickiness policy, which allows an ELB to control the sticky session lifetime of the browser.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			lb, err := elb.NewLoadBalancer(ctx, "lb", &elb.LoadBalancerArgs{
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-east-1a"),
+//				},
+//				Listeners: elb.LoadBalancerListenerArray{
+//					&elb.LoadBalancerListenerArgs{
+//						InstancePort:     pulumi.Int(8000),
+//						InstanceProtocol: pulumi.String("http"),
+//						LbPort:           pulumi.Int(80),
+//						LbProtocol:       pulumi.String("http"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elb.NewLoadBalancerCookieStickinessPolicy(ctx, "foo", &elb.LoadBalancerCookieStickinessPolicyArgs{
+//				LoadBalancer:           lb.ID(),
+//				LbPort:                 pulumi.Int(80),
+//				CookieExpirationPeriod: pulumi.Int(600),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type LoadBalancerCookieStickinessPolicy struct {
 	pulumi.CustomResourceState
 
+	// The time period after which
+	// the session cookie should be considered stale, expressed in seconds.
 	CookieExpirationPeriod pulumi.IntPtrOutput `pulumi:"cookieExpirationPeriod"`
-	LbPort                 pulumi.IntOutput    `pulumi:"lbPort"`
-	LoadBalancer           pulumi.StringOutput `pulumi:"loadBalancer"`
-	Name                   pulumi.StringOutput `pulumi:"name"`
+	// The load balancer port to which the policy
+	// should be applied. This must be an active listener on the load
+	// balancer.
+	LbPort pulumi.IntOutput `pulumi:"lbPort"`
+	// The load balancer to which the policy
+	// should be attached.
+	LoadBalancer pulumi.StringOutput `pulumi:"loadBalancer"`
+	// The name of the stickiness policy.
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewLoadBalancerCookieStickinessPolicy registers a new resource with the given unique name, arguments, and options.
@@ -61,17 +114,33 @@ func GetLoadBalancerCookieStickinessPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LoadBalancerCookieStickinessPolicy resources.
 type loadBalancerCookieStickinessPolicyState struct {
-	CookieExpirationPeriod *int    `pulumi:"cookieExpirationPeriod"`
-	LbPort                 *int    `pulumi:"lbPort"`
-	LoadBalancer           *string `pulumi:"loadBalancer"`
-	Name                   *string `pulumi:"name"`
+	// The time period after which
+	// the session cookie should be considered stale, expressed in seconds.
+	CookieExpirationPeriod *int `pulumi:"cookieExpirationPeriod"`
+	// The load balancer port to which the policy
+	// should be applied. This must be an active listener on the load
+	// balancer.
+	LbPort *int `pulumi:"lbPort"`
+	// The load balancer to which the policy
+	// should be attached.
+	LoadBalancer *string `pulumi:"loadBalancer"`
+	// The name of the stickiness policy.
+	Name *string `pulumi:"name"`
 }
 
 type LoadBalancerCookieStickinessPolicyState struct {
+	// The time period after which
+	// the session cookie should be considered stale, expressed in seconds.
 	CookieExpirationPeriod pulumi.IntPtrInput
-	LbPort                 pulumi.IntPtrInput
-	LoadBalancer           pulumi.StringPtrInput
-	Name                   pulumi.StringPtrInput
+	// The load balancer port to which the policy
+	// should be applied. This must be an active listener on the load
+	// balancer.
+	LbPort pulumi.IntPtrInput
+	// The load balancer to which the policy
+	// should be attached.
+	LoadBalancer pulumi.StringPtrInput
+	// The name of the stickiness policy.
+	Name pulumi.StringPtrInput
 }
 
 func (LoadBalancerCookieStickinessPolicyState) ElementType() reflect.Type {
@@ -79,18 +148,34 @@ func (LoadBalancerCookieStickinessPolicyState) ElementType() reflect.Type {
 }
 
 type loadBalancerCookieStickinessPolicyArgs struct {
-	CookieExpirationPeriod *int    `pulumi:"cookieExpirationPeriod"`
-	LbPort                 int     `pulumi:"lbPort"`
-	LoadBalancer           string  `pulumi:"loadBalancer"`
-	Name                   *string `pulumi:"name"`
+	// The time period after which
+	// the session cookie should be considered stale, expressed in seconds.
+	CookieExpirationPeriod *int `pulumi:"cookieExpirationPeriod"`
+	// The load balancer port to which the policy
+	// should be applied. This must be an active listener on the load
+	// balancer.
+	LbPort int `pulumi:"lbPort"`
+	// The load balancer to which the policy
+	// should be attached.
+	LoadBalancer string `pulumi:"loadBalancer"`
+	// The name of the stickiness policy.
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a LoadBalancerCookieStickinessPolicy resource.
 type LoadBalancerCookieStickinessPolicyArgs struct {
+	// The time period after which
+	// the session cookie should be considered stale, expressed in seconds.
 	CookieExpirationPeriod pulumi.IntPtrInput
-	LbPort                 pulumi.IntInput
-	LoadBalancer           pulumi.StringInput
-	Name                   pulumi.StringPtrInput
+	// The load balancer port to which the policy
+	// should be applied. This must be an active listener on the load
+	// balancer.
+	LbPort pulumi.IntInput
+	// The load balancer to which the policy
+	// should be attached.
+	LoadBalancer pulumi.StringInput
+	// The name of the stickiness policy.
+	Name pulumi.StringPtrInput
 }
 
 func (LoadBalancerCookieStickinessPolicyArgs) ElementType() reflect.Type {
@@ -180,18 +265,26 @@ func (o LoadBalancerCookieStickinessPolicyOutput) ToLoadBalancerCookieStickiness
 	return o
 }
 
+// The time period after which
+// the session cookie should be considered stale, expressed in seconds.
 func (o LoadBalancerCookieStickinessPolicyOutput) CookieExpirationPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerCookieStickinessPolicy) pulumi.IntPtrOutput { return v.CookieExpirationPeriod }).(pulumi.IntPtrOutput)
 }
 
+// The load balancer port to which the policy
+// should be applied. This must be an active listener on the load
+// balancer.
 func (o LoadBalancerCookieStickinessPolicyOutput) LbPort() pulumi.IntOutput {
 	return o.ApplyT(func(v *LoadBalancerCookieStickinessPolicy) pulumi.IntOutput { return v.LbPort }).(pulumi.IntOutput)
 }
 
+// The load balancer to which the policy
+// should be attached.
 func (o LoadBalancerCookieStickinessPolicyOutput) LoadBalancer() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancerCookieStickinessPolicy) pulumi.StringOutput { return v.LoadBalancer }).(pulumi.StringOutput)
 }
 
+// The name of the stickiness policy.
 func (o LoadBalancerCookieStickinessPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancerCookieStickinessPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

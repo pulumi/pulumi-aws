@@ -19,12 +19,19 @@ class FleetIdentityProviderArgs:
     def __init__(__self__, *,
                  saml_metadata: pulumi.Input[str],
                  type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] saml_metadata: The SAML metadata document provided by the customer’s identity provider.
+        :param pulumi.Input[str] type: The type of identity provider.
+        """
         pulumi.set(__self__, "saml_metadata", saml_metadata)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="samlMetadata")
     def saml_metadata(self) -> pulumi.Input[str]:
+        """
+        The SAML metadata document provided by the customer’s identity provider.
+        """
         return pulumi.get(self, "saml_metadata")
 
     @saml_metadata.setter
@@ -34,6 +41,9 @@ class FleetIdentityProviderArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The type of identity provider.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -47,6 +57,11 @@ class FleetNetworkArgs:
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security group IDs associated with access to the provided subnets.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
+        :param pulumi.Input[str] vpc_id: The VPC ID with connectivity to associated websites.
+        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -54,6 +69,9 @@ class FleetNetworkArgs:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of security group IDs associated with access to the provided subnets.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -63,6 +81,9 @@ class FleetNetworkArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -72,6 +93,9 @@ class FleetNetworkArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The VPC ID with connectivity to associated websites.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter

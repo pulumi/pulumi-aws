@@ -18,6 +18,24 @@ class DefaultPatchBaselineArgs:
                  operating_system: pulumi.Input[str]):
         """
         The set of arguments for constructing a DefaultPatchBaseline resource.
+        :param pulumi.Input[str] baseline_id: ID of the patch baseline.
+               Can be an ID or an ARN.
+               When specifying an AWS-provided patch baseline, must be the ARN.
+        :param pulumi.Input[str] operating_system: The operating system the patch baseline applies to.
+               Valid values are
+               `AMAZON_LINUX`,
+               `AMAZON_LINUX_2`,
+               `AMAZON_LINUX_2022`,
+               `CENTOS`,
+               `DEBIAN`,
+               `MACOS`,
+               `ORACLE_LINUX`,
+               `RASPBIAN`,
+               `REDHAT_ENTERPRISE_LINUX`,
+               `ROCKY_LINUX`,
+               `SUSE`,
+               `UBUNTU`, and
+               `WINDOWS`.
         """
         pulumi.set(__self__, "baseline_id", baseline_id)
         pulumi.set(__self__, "operating_system", operating_system)
@@ -25,6 +43,11 @@ class DefaultPatchBaselineArgs:
     @property
     @pulumi.getter(name="baselineId")
     def baseline_id(self) -> pulumi.Input[str]:
+        """
+        ID of the patch baseline.
+        Can be an ID or an ARN.
+        When specifying an AWS-provided patch baseline, must be the ARN.
+        """
         return pulumi.get(self, "baseline_id")
 
     @baseline_id.setter
@@ -34,6 +57,23 @@ class DefaultPatchBaselineArgs:
     @property
     @pulumi.getter(name="operatingSystem")
     def operating_system(self) -> pulumi.Input[str]:
+        """
+        The operating system the patch baseline applies to.
+        Valid values are
+        `AMAZON_LINUX`,
+        `AMAZON_LINUX_2`,
+        `AMAZON_LINUX_2022`,
+        `CENTOS`,
+        `DEBIAN`,
+        `MACOS`,
+        `ORACLE_LINUX`,
+        `RASPBIAN`,
+        `REDHAT_ENTERPRISE_LINUX`,
+        `ROCKY_LINUX`,
+        `SUSE`,
+        `UBUNTU`, and
+        `WINDOWS`.
+        """
         return pulumi.get(self, "operating_system")
 
     @operating_system.setter
@@ -48,6 +88,24 @@ class _DefaultPatchBaselineState:
                  operating_system: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DefaultPatchBaseline resources.
+        :param pulumi.Input[str] baseline_id: ID of the patch baseline.
+               Can be an ID or an ARN.
+               When specifying an AWS-provided patch baseline, must be the ARN.
+        :param pulumi.Input[str] operating_system: The operating system the patch baseline applies to.
+               Valid values are
+               `AMAZON_LINUX`,
+               `AMAZON_LINUX_2`,
+               `AMAZON_LINUX_2022`,
+               `CENTOS`,
+               `DEBIAN`,
+               `MACOS`,
+               `ORACLE_LINUX`,
+               `RASPBIAN`,
+               `REDHAT_ENTERPRISE_LINUX`,
+               `ROCKY_LINUX`,
+               `SUSE`,
+               `UBUNTU`, and
+               `WINDOWS`.
         """
         if baseline_id is not None:
             pulumi.set(__self__, "baseline_id", baseline_id)
@@ -57,6 +115,11 @@ class _DefaultPatchBaselineState:
     @property
     @pulumi.getter(name="baselineId")
     def baseline_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the patch baseline.
+        Can be an ID or an ARN.
+        When specifying an AWS-provided patch baseline, must be the ARN.
+        """
         return pulumi.get(self, "baseline_id")
 
     @baseline_id.setter
@@ -66,6 +129,23 @@ class _DefaultPatchBaselineState:
     @property
     @pulumi.getter(name="operatingSystem")
     def operating_system(self) -> Optional[pulumi.Input[str]]:
+        """
+        The operating system the patch baseline applies to.
+        Valid values are
+        `AMAZON_LINUX`,
+        `AMAZON_LINUX_2`,
+        `AMAZON_LINUX_2022`,
+        `CENTOS`,
+        `DEBIAN`,
+        `MACOS`,
+        `ORACLE_LINUX`,
+        `RASPBIAN`,
+        `REDHAT_ENTERPRISE_LINUX`,
+        `ROCKY_LINUX`,
+        `SUSE`,
+        `UBUNTU`, and
+        `WINDOWS`.
+        """
         return pulumi.get(self, "operating_system")
 
     @operating_system.setter
@@ -82,9 +162,57 @@ class DefaultPatchBaseline(pulumi.CustomResource):
                  operating_system: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a DefaultPatchBaseline resource with the given unique name, props, and options.
+        Resource for registering an AWS Systems Manager Default Patch Baseline.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_patch_baseline = aws.ssm.PatchBaseline("examplePatchBaseline", approved_patches=["KB123456"])
+        example_default_patch_baseline = aws.ssm.DefaultPatchBaseline("exampleDefaultPatchBaseline",
+            baseline_id=example_patch_baseline.id,
+            operating_system=example_patch_baseline.operating_system)
+        ```
+
+        ## Import
+
+        The Systems Manager Default Patch Baseline can be imported using the patch baseline ID, patch baseline ARN, or the operating system value, e.g.,
+
+        ```sh
+         $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
+        ```
+
+        ```sh
+         $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
+        ```
+
+        ```sh
+         $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] baseline_id: ID of the patch baseline.
+               Can be an ID or an ARN.
+               When specifying an AWS-provided patch baseline, must be the ARN.
+        :param pulumi.Input[str] operating_system: The operating system the patch baseline applies to.
+               Valid values are
+               `AMAZON_LINUX`,
+               `AMAZON_LINUX_2`,
+               `AMAZON_LINUX_2022`,
+               `CENTOS`,
+               `DEBIAN`,
+               `MACOS`,
+               `ORACLE_LINUX`,
+               `RASPBIAN`,
+               `REDHAT_ENTERPRISE_LINUX`,
+               `ROCKY_LINUX`,
+               `SUSE`,
+               `UBUNTU`, and
+               `WINDOWS`.
         """
         ...
     @overload
@@ -93,7 +221,37 @@ class DefaultPatchBaseline(pulumi.CustomResource):
                  args: DefaultPatchBaselineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DefaultPatchBaseline resource with the given unique name, props, and options.
+        Resource for registering an AWS Systems Manager Default Patch Baseline.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_patch_baseline = aws.ssm.PatchBaseline("examplePatchBaseline", approved_patches=["KB123456"])
+        example_default_patch_baseline = aws.ssm.DefaultPatchBaseline("exampleDefaultPatchBaseline",
+            baseline_id=example_patch_baseline.id,
+            operating_system=example_patch_baseline.operating_system)
+        ```
+
+        ## Import
+
+        The Systems Manager Default Patch Baseline can be imported using the patch baseline ID, patch baseline ARN, or the operating system value, e.g.,
+
+        ```sh
+         $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
+        ```
+
+        ```sh
+         $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
+        ```
+
+        ```sh
+         $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
+        ```
+
         :param str resource_name: The name of the resource.
         :param DefaultPatchBaselineArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +303,24 @@ class DefaultPatchBaseline(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] baseline_id: ID of the patch baseline.
+               Can be an ID or an ARN.
+               When specifying an AWS-provided patch baseline, must be the ARN.
+        :param pulumi.Input[str] operating_system: The operating system the patch baseline applies to.
+               Valid values are
+               `AMAZON_LINUX`,
+               `AMAZON_LINUX_2`,
+               `AMAZON_LINUX_2022`,
+               `CENTOS`,
+               `DEBIAN`,
+               `MACOS`,
+               `ORACLE_LINUX`,
+               `RASPBIAN`,
+               `REDHAT_ENTERPRISE_LINUX`,
+               `ROCKY_LINUX`,
+               `SUSE`,
+               `UBUNTU`, and
+               `WINDOWS`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +333,32 @@ class DefaultPatchBaseline(pulumi.CustomResource):
     @property
     @pulumi.getter(name="baselineId")
     def baseline_id(self) -> pulumi.Output[str]:
+        """
+        ID of the patch baseline.
+        Can be an ID or an ARN.
+        When specifying an AWS-provided patch baseline, must be the ARN.
+        """
         return pulumi.get(self, "baseline_id")
 
     @property
     @pulumi.getter(name="operatingSystem")
     def operating_system(self) -> pulumi.Output[str]:
+        """
+        The operating system the patch baseline applies to.
+        Valid values are
+        `AMAZON_LINUX`,
+        `AMAZON_LINUX_2`,
+        `AMAZON_LINUX_2022`,
+        `CENTOS`,
+        `DEBIAN`,
+        `MACOS`,
+        `ORACLE_LINUX`,
+        `RASPBIAN`,
+        `REDHAT_ENTERPRISE_LINUX`,
+        `ROCKY_LINUX`,
+        `SUSE`,
+        `UBUNTU`, and
+        `WINDOWS`.
+        """
         return pulumi.get(self, "operating_system")
 

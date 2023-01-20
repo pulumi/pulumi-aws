@@ -17,37 +17,77 @@ public final class ResolverFirewallDomainListState extends com.pulumi.resources.
 
     public static final ResolverFirewallDomainListState Empty = new ResolverFirewallDomainListState();
 
+    /**
+     * The ARN (Amazon Resource Name) of the domain list.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return The ARN (Amazon Resource Name) of the domain list.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * A array of domains for the firewall domain list.
+     * 
+     */
     @Import(name="domains")
     private @Nullable Output<List<String>> domains;
 
+    /**
+     * @return A array of domains for the firewall domain list.
+     * 
+     */
     public Optional<Output<List<String>>> domains() {
         return Optional.ofNullable(this.domains);
     }
 
+    /**
+     * A name that lets you identify the domain list, to manage and use it.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return A name that lets you identify the domain list, to manage and use it.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -80,51 +120,117 @@ public final class ResolverFirewallDomainListState extends com.pulumi.resources.
             $ = new ResolverFirewallDomainListState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn The ARN (Amazon Resource Name) of the domain list.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn The ARN (Amazon Resource Name) of the domain list.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param domains A array of domains for the firewall domain list.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domains(@Nullable Output<List<String>> domains) {
             $.domains = domains;
             return this;
         }
 
+        /**
+         * @param domains A array of domains for the firewall domain list.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domains(List<String> domains) {
             return domains(Output.of(domains));
         }
 
+        /**
+         * @param domains A array of domains for the firewall domain list.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domains(String... domains) {
             return domains(List.of(domains));
         }
 
+        /**
+         * @param name A name that lets you identify the domain list, to manage and use it.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name A name that lets you identify the domain list, to manage and use it.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

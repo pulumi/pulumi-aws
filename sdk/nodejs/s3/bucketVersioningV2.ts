@@ -7,6 +7,92 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a resource for controlling versioning on an S3 bucket.
+ * Deleting this resource will either suspend versioning on the associated S3 bucket or
+ * simply remove the resource from state if the associated S3 bucket is unversioned.
+ *
+ * For more information, see [How S3 versioning works](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html).
+ *
+ * > **NOTE:** If you are enabling versioning on the bucket for the first time, AWS recommends that you wait for 15 minutes after enabling versioning before issuing write operations (PUT or DELETE) on objects in the bucket.
+ *
+ * ## Example Usage
+ * ### With Versioning Enabled
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ *     bucket: exampleBucketV2.id,
+ *     acl: "private",
+ * });
+ * const versioningExample = new aws.s3.BucketVersioningV2("versioningExample", {
+ *     bucket: exampleBucketV2.id,
+ *     versioningConfiguration: {
+ *         status: "Enabled",
+ *     },
+ * });
+ * ```
+ * ### With Versioning Disabled
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ *     bucket: exampleBucketV2.id,
+ *     acl: "private",
+ * });
+ * const versioningExample = new aws.s3.BucketVersioningV2("versioningExample", {
+ *     bucket: exampleBucketV2.id,
+ *     versioningConfiguration: {
+ *         status: "Disabled",
+ *     },
+ * });
+ * ```
+ * ### Object Dependency On Versioning
+ *
+ * When you create an object whose `versionId` you need and an `aws.s3.BucketVersioningV2` resource in the same configuration, you are more likely to have success by ensuring the `s3Object` depends either implicitly (see below) or explicitly (i.e., using `dependsOn = [aws_s3_bucket_versioning.example]`) on the `aws.s3.BucketVersioningV2` resource.
+ *
+ * > **NOTE:** For critical and/or production S3 objects, do not create a bucket, enable versioning, and create an object in the bucket within the same configuration. Doing so will not allow the AWS-recommended 15 minutes between enabling versioning and writing to the bucket.
+ *
+ * This example shows the `aws_s3_object.example` depending implicitly on the versioning resource through the reference to `aws_s3_bucket_versioning.example.bucket` to define `bucket`:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
+ * const exampleBucketVersioningV2 = new aws.s3.BucketVersioningV2("exampleBucketVersioningV2", {
+ *     bucket: exampleBucketV2.id,
+ *     versioningConfiguration: {
+ *         status: "Enabled",
+ *     },
+ * });
+ * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
+ *     bucket: exampleBucketVersioningV2.bucket,
+ *     key: "droeloe",
+ *     source: new pulumi.asset.FileAsset("example.txt"),
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * S3 bucket versioning can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name
+ * ```
+ *
+ *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
+ * ```
+ */
 export class BucketVersioningV2 extends pulumi.CustomResource {
     /**
      * Get an existing BucketVersioningV2 resource's state with the given name, ID, and optional extra
@@ -35,9 +121,21 @@ export class BucketVersioningV2 extends pulumi.CustomResource {
         return obj['__pulumiType'] === BucketVersioningV2.__pulumiType;
     }
 
+    /**
+     * The name of the S3 bucket.
+     */
     public readonly bucket!: pulumi.Output<string>;
+    /**
+     * The account ID of the expected bucket owner.
+     */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
+    /**
+     * The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+     */
     public readonly mfa!: pulumi.Output<string | undefined>;
+    /**
+     * Configuration block for the versioning parameters detailed below.
+     */
     public readonly versioningConfiguration!: pulumi.Output<outputs.s3.BucketVersioningV2VersioningConfiguration>;
 
     /**
@@ -79,9 +177,21 @@ export class BucketVersioningV2 extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BucketVersioningV2 resources.
  */
 export interface BucketVersioningV2State {
+    /**
+     * The name of the S3 bucket.
+     */
     bucket?: pulumi.Input<string>;
+    /**
+     * The account ID of the expected bucket owner.
+     */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+     */
     mfa?: pulumi.Input<string>;
+    /**
+     * Configuration block for the versioning parameters detailed below.
+     */
     versioningConfiguration?: pulumi.Input<inputs.s3.BucketVersioningV2VersioningConfiguration>;
 }
 
@@ -89,8 +199,20 @@ export interface BucketVersioningV2State {
  * The set of arguments for constructing a BucketVersioningV2 resource.
  */
 export interface BucketVersioningV2Args {
+    /**
+     * The name of the S3 bucket.
+     */
     bucket: pulumi.Input<string>;
+    /**
+     * The account ID of the expected bucket owner.
+     */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+     */
     mfa?: pulumi.Input<string>;
+    /**
+     * Configuration block for the versioning parameters detailed below.
+     */
     versioningConfiguration: pulumi.Input<inputs.s3.BucketVersioningV2VersioningConfiguration>;
 }

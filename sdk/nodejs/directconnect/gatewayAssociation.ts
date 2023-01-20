@@ -4,6 +4,72 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Associates a Direct Connect Gateway with a VGW or transit gateway.
+ *
+ * To create a cross-account association, create an `aws.directconnect.GatewayAssociationProposal` resource
+ * in the AWS account that owns the VGW or transit gateway and then accept the proposal in the AWS account that owns the Direct Connect Gateway
+ * by creating an `aws.directconnect.GatewayAssociation` resource with the `proposalId` and `associatedGatewayOwnerAccountId` attributes set.
+ *
+ * ## Example Usage
+ * ### VPN Gateway Association
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleGateway = new aws.directconnect.Gateway("exampleGateway", {amazonSideAsn: "64512"});
+ * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.255.255.0/28"});
+ * const exampleVpnGateway = new aws.ec2.VpnGateway("exampleVpnGateway", {vpcId: exampleVpc.id});
+ * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("exampleGatewayAssociation", {
+ *     dxGatewayId: exampleGateway.id,
+ *     associatedGatewayId: exampleVpnGateway.id,
+ * });
+ * ```
+ * ### Transit Gateway Association
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleGateway = new aws.directconnect.Gateway("exampleGateway", {amazonSideAsn: "64512"});
+ * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {});
+ * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("exampleGatewayAssociation", {
+ *     dxGatewayId: exampleGateway.id,
+ *     associatedGatewayId: exampleTransitGateway.id,
+ *     allowedPrefixes: [
+ *         "10.255.255.0/30",
+ *         "10.255.255.8/30",
+ *     ],
+ * });
+ * ```
+ * ### Allowed Prefixes
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleGateway = new aws.directconnect.Gateway("exampleGateway", {amazonSideAsn: "64512"});
+ * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.255.255.0/28"});
+ * const exampleVpnGateway = new aws.ec2.VpnGateway("exampleVpnGateway", {vpcId: exampleVpc.id});
+ * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("exampleGatewayAssociation", {
+ *     dxGatewayId: exampleGateway.id,
+ *     associatedGatewayId: exampleVpnGateway.id,
+ *     allowedPrefixes: [
+ *         "210.52.109.0/24",
+ *         "175.45.176.0/22",
+ *     ],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Direct Connect gateway associations can be imported using `dx_gateway_id` together with `associated_gateway_id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
+ * ```
+ */
 export class GatewayAssociation extends pulumi.CustomResource {
     /**
      * Get an existing GatewayAssociation resource's state with the given name, ID, and optional extra
@@ -32,13 +98,40 @@ export class GatewayAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === GatewayAssociation.__pulumiType;
     }
 
+    /**
+     * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+     */
     public readonly allowedPrefixes!: pulumi.Output<string[]>;
+    /**
+     * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
+     * Used for single account Direct Connect gateway associations.
+     */
     public readonly associatedGatewayId!: pulumi.Output<string>;
+    /**
+     * The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
+     * Used for cross-account Direct Connect gateway associations.
+     */
     public readonly associatedGatewayOwnerAccountId!: pulumi.Output<string>;
+    /**
+     * The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
+     */
     public /*out*/ readonly associatedGatewayType!: pulumi.Output<string>;
+    /**
+     * The ID of the Direct Connect gateway association.
+     */
     public /*out*/ readonly dxGatewayAssociationId!: pulumi.Output<string>;
+    /**
+     * The ID of the Direct Connect gateway.
+     */
     public readonly dxGatewayId!: pulumi.Output<string>;
+    /**
+     * The ID of the AWS account that owns the Direct Connect gateway.
+     */
     public /*out*/ readonly dxGatewayOwnerAccountId!: pulumi.Output<string>;
+    /**
+     * The ID of the Direct Connect gateway association proposal.
+     * Used for cross-account Direct Connect gateway associations.
+     */
     public readonly proposalId!: pulumi.Output<string | undefined>;
     /**
      * @deprecated use 'associated_gateway_id' argument instead
@@ -91,13 +184,40 @@ export class GatewayAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GatewayAssociation resources.
  */
 export interface GatewayAssociationState {
+    /**
+     * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+     */
     allowedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
+     * Used for single account Direct Connect gateway associations.
+     */
     associatedGatewayId?: pulumi.Input<string>;
+    /**
+     * The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
+     * Used for cross-account Direct Connect gateway associations.
+     */
     associatedGatewayOwnerAccountId?: pulumi.Input<string>;
+    /**
+     * The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
+     */
     associatedGatewayType?: pulumi.Input<string>;
+    /**
+     * The ID of the Direct Connect gateway association.
+     */
     dxGatewayAssociationId?: pulumi.Input<string>;
+    /**
+     * The ID of the Direct Connect gateway.
+     */
     dxGatewayId?: pulumi.Input<string>;
+    /**
+     * The ID of the AWS account that owns the Direct Connect gateway.
+     */
     dxGatewayOwnerAccountId?: pulumi.Input<string>;
+    /**
+     * The ID of the Direct Connect gateway association proposal.
+     * Used for cross-account Direct Connect gateway associations.
+     */
     proposalId?: pulumi.Input<string>;
     /**
      * @deprecated use 'associated_gateway_id' argument instead
@@ -109,10 +229,28 @@ export interface GatewayAssociationState {
  * The set of arguments for constructing a GatewayAssociation resource.
  */
 export interface GatewayAssociationArgs {
+    /**
+     * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+     */
     allowedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
+     * Used for single account Direct Connect gateway associations.
+     */
     associatedGatewayId?: pulumi.Input<string>;
+    /**
+     * The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
+     * Used for cross-account Direct Connect gateway associations.
+     */
     associatedGatewayOwnerAccountId?: pulumi.Input<string>;
+    /**
+     * The ID of the Direct Connect gateway.
+     */
     dxGatewayId: pulumi.Input<string>;
+    /**
+     * The ID of the Direct Connect gateway association proposal.
+     * Used for cross-account Direct Connect gateway associations.
+     */
     proposalId?: pulumi.Input<string>;
     /**
      * @deprecated use 'associated_gateway_id' argument instead

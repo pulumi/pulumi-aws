@@ -13,37 +13,101 @@ import java.util.Objects;
 
 @CustomType
 public final class GetProxyResult {
+    /**
+     * @return ARN of the DB Proxy.
+     * 
+     */
     private String arn;
+    /**
+     * @return Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+     * 
+     */
     private List<GetProxyAuth> auths;
+    /**
+     * @return Whether the proxy includes detailed information about SQL statements in its logs.
+     * 
+     */
     private Boolean debugLogging;
+    /**
+     * @return Endpoint that you can use to connect to the DB proxy.
+     * 
+     */
     private String endpoint;
+    /**
+     * @return Kinds of databases that the proxy can connect to.
+     * 
+     */
     private String engineFamily;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
+     * 
+     */
     private Integer idleClientTimeout;
     private String name;
+    /**
+     * @return Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+     * 
+     */
     private Boolean requireTls;
+    /**
+     * @return ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
+     * 
+     */
     private String roleArn;
+    /**
+     * @return Provides the VPC ID of the DB proxy.
+     * 
+     */
     private String vpcId;
+    /**
+     * @return Provides a list of VPC security groups that the proxy belongs to.
+     * 
+     */
     private List<String> vpcSecurityGroupIds;
+    /**
+     * @return EC2 subnet IDs for the proxy.
+     * 
+     */
     private List<String> vpcSubnetIds;
 
     private GetProxyResult() {}
+    /**
+     * @return ARN of the DB Proxy.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+     * 
+     */
     public List<GetProxyAuth> auths() {
         return this.auths;
     }
+    /**
+     * @return Whether the proxy includes detailed information about SQL statements in its logs.
+     * 
+     */
     public Boolean debugLogging() {
         return this.debugLogging;
     }
+    /**
+     * @return Endpoint that you can use to connect to the DB proxy.
+     * 
+     */
     public String endpoint() {
         return this.endpoint;
     }
+    /**
+     * @return Kinds of databases that the proxy can connect to.
+     * 
+     */
     public String engineFamily() {
         return this.engineFamily;
     }
@@ -54,24 +118,48 @@ public final class GetProxyResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
+     * 
+     */
     public Integer idleClientTimeout() {
         return this.idleClientTimeout;
     }
     public String name() {
         return this.name;
     }
+    /**
+     * @return Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+     * 
+     */
     public Boolean requireTls() {
         return this.requireTls;
     }
+    /**
+     * @return ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
+     * 
+     */
     public String roleArn() {
         return this.roleArn;
     }
+    /**
+     * @return Provides the VPC ID of the DB proxy.
+     * 
+     */
     public String vpcId() {
         return this.vpcId;
     }
+    /**
+     * @return Provides a list of VPC security groups that the proxy belongs to.
+     * 
+     */
     public List<String> vpcSecurityGroupIds() {
         return this.vpcSecurityGroupIds;
     }
+    /**
+     * @return EC2 subnet IDs for the proxy.
+     * 
+     */
     public List<String> vpcSubnetIds() {
         return this.vpcSubnetIds;
     }

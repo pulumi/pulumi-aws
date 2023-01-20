@@ -9,12 +9,46 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DynamoDB
 {
+    /// <summary>
+    /// Provides a DynamoDB contributor insights resource
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.DynamoDB.ContributorInsights("test", new()
+    ///     {
+    ///         TableName = "ExampleTableName",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_dynamodb_contributor_insights` can be imported using the format `name:table_name/index:index_name`, followed by the account number, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:dynamodb/contributorInsights:ContributorInsights test name:ExampleTableName/index:ExampleIndexName/123456789012
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:dynamodb/contributorInsights:ContributorInsights")]
     public partial class ContributorInsights : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The global secondary index name
+        /// </summary>
         [Output("indexName")]
         public Output<string?> IndexName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the table to enable contributor insights
+        /// </summary>
         [Output("tableName")]
         public Output<string> TableName { get; private set; } = null!;
 
@@ -64,9 +98,15 @@ namespace Pulumi.Aws.DynamoDB
 
     public sealed class ContributorInsightsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The global secondary index name
+        /// </summary>
         [Input("indexName")]
         public Input<string>? IndexName { get; set; }
 
+        /// <summary>
+        /// The name of the table to enable contributor insights
+        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 
@@ -78,9 +118,15 @@ namespace Pulumi.Aws.DynamoDB
 
     public sealed class ContributorInsightsState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The global secondary index name
+        /// </summary>
         [Input("indexName")]
         public Input<string>? IndexName { get; set; }
 
+        /// <summary>
+        /// The name of the table to enable contributor insights
+        /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }
 

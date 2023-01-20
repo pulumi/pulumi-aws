@@ -11,14 +11,56 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Glue Registry resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewRegistry(ctx, "example", &glue.RegistryArgs{
+//				RegistryName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Glue Registries can be imported using `arn`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:glue/registry:Registry example arn:aws:glue:us-west-2:123456789012:registry/example
+//
+// ```
 type Registry struct {
 	pulumi.CustomResourceState
 
-	Arn          pulumi.StringOutput    `pulumi:"arn"`
-	Description  pulumi.StringPtrOutput `pulumi:"description"`
-	RegistryName pulumi.StringOutput    `pulumi:"registryName"`
-	Tags         pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll      pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Amazon Resource Name (ARN) of Glue Registry.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A description of the registry.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The Name of the registry.
+	RegistryName pulumi.StringOutput `pulumi:"registryName"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewRegistry registers a new resource with the given unique name, arguments, and options.
@@ -53,19 +95,29 @@ func GetRegistry(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Registry resources.
 type registryState struct {
-	Arn          *string           `pulumi:"arn"`
-	Description  *string           `pulumi:"description"`
-	RegistryName *string           `pulumi:"registryName"`
-	Tags         map[string]string `pulumi:"tags"`
-	TagsAll      map[string]string `pulumi:"tagsAll"`
+	// Amazon Resource Name (ARN) of Glue Registry.
+	Arn *string `pulumi:"arn"`
+	// A description of the registry.
+	Description *string `pulumi:"description"`
+	// The Name of the registry.
+	RegistryName *string `pulumi:"registryName"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type RegistryState struct {
-	Arn          pulumi.StringPtrInput
-	Description  pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of Glue Registry.
+	Arn pulumi.StringPtrInput
+	// A description of the registry.
+	Description pulumi.StringPtrInput
+	// The Name of the registry.
 	RegistryName pulumi.StringPtrInput
-	Tags         pulumi.StringMapInput
-	TagsAll      pulumi.StringMapInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (RegistryState) ElementType() reflect.Type {
@@ -73,16 +125,22 @@ func (RegistryState) ElementType() reflect.Type {
 }
 
 type registryArgs struct {
-	Description  *string           `pulumi:"description"`
-	RegistryName string            `pulumi:"registryName"`
-	Tags         map[string]string `pulumi:"tags"`
+	// A description of the registry.
+	Description *string `pulumi:"description"`
+	// The Name of the registry.
+	RegistryName string `pulumi:"registryName"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Registry resource.
 type RegistryArgs struct {
-	Description  pulumi.StringPtrInput
+	// A description of the registry.
+	Description pulumi.StringPtrInput
+	// The Name of the registry.
 	RegistryName pulumi.StringInput
-	Tags         pulumi.StringMapInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (RegistryArgs) ElementType() reflect.Type {
@@ -172,22 +230,27 @@ func (o RegistryOutput) ToRegistryOutputWithContext(ctx context.Context) Registr
 	return o
 }
 
+// Amazon Resource Name (ARN) of Glue Registry.
 func (o RegistryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A description of the registry.
 func (o RegistryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Name of the registry.
 func (o RegistryOutput) RegistryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.RegistryName }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RegistryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RegistryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

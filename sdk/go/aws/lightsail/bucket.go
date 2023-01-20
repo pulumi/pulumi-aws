@@ -11,19 +11,65 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a lightsail bucket.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lightsail.NewBucket(ctx, "test", &lightsail.BucketArgs{
+//				BundleId: pulumi.String("small_1_0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_lightsail_bucket` can be imported by using the `name` attribute, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:lightsail/bucket:Bucket test example-bucket
+//
+// ```
 type Bucket struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput    `pulumi:"arn"`
-	AvailabilityZone pulumi.StringOutput    `pulumi:"availabilityZone"`
-	BundleId         pulumi.StringOutput    `pulumi:"bundleId"`
-	CreatedAt        pulumi.StringOutput    `pulumi:"createdAt"`
-	Name             pulumi.StringOutput    `pulumi:"name"`
-	Region           pulumi.StringOutput    `pulumi:"region"`
-	SupportCode      pulumi.StringOutput    `pulumi:"supportCode"`
-	Tags             pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll          pulumi.StringMapOutput `pulumi:"tagsAll"`
-	Url              pulumi.StringOutput    `pulumi:"url"`
+	// The ARN of the lightsail bucket.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
+	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	// The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+	BundleId pulumi.StringOutput `pulumi:"bundleId"`
+	// The timestamp when the bucket was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The name for the bucket.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The Amazon Web Services Region name.
+	Region pulumi.StringOutput `pulumi:"region"`
+	// The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Url     pulumi.StringOutput    `pulumi:"url"`
 }
 
 // NewBucket registers a new resource with the given unique name, arguments, and options.
@@ -58,29 +104,47 @@ func GetBucket(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Bucket resources.
 type bucketState struct {
-	Arn              *string           `pulumi:"arn"`
-	AvailabilityZone *string           `pulumi:"availabilityZone"`
-	BundleId         *string           `pulumi:"bundleId"`
-	CreatedAt        *string           `pulumi:"createdAt"`
-	Name             *string           `pulumi:"name"`
-	Region           *string           `pulumi:"region"`
-	SupportCode      *string           `pulumi:"supportCode"`
-	Tags             map[string]string `pulumi:"tags"`
-	TagsAll          map[string]string `pulumi:"tagsAll"`
-	Url              *string           `pulumi:"url"`
+	// The ARN of the lightsail bucket.
+	Arn *string `pulumi:"arn"`
+	// The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+	BundleId *string `pulumi:"bundleId"`
+	// The timestamp when the bucket was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The name for the bucket.
+	Name *string `pulumi:"name"`
+	// The Amazon Web Services Region name.
+	Region *string `pulumi:"region"`
+	// The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+	SupportCode *string `pulumi:"supportCode"`
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	Url     *string           `pulumi:"url"`
 }
 
 type BucketState struct {
-	Arn              pulumi.StringPtrInput
+	// The ARN of the lightsail bucket.
+	Arn pulumi.StringPtrInput
+	// The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
 	AvailabilityZone pulumi.StringPtrInput
-	BundleId         pulumi.StringPtrInput
-	CreatedAt        pulumi.StringPtrInput
-	Name             pulumi.StringPtrInput
-	Region           pulumi.StringPtrInput
-	SupportCode      pulumi.StringPtrInput
-	Tags             pulumi.StringMapInput
-	TagsAll          pulumi.StringMapInput
-	Url              pulumi.StringPtrInput
+	// The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+	BundleId pulumi.StringPtrInput
+	// The timestamp when the bucket was created.
+	CreatedAt pulumi.StringPtrInput
+	// The name for the bucket.
+	Name pulumi.StringPtrInput
+	// The Amazon Web Services Region name.
+	Region pulumi.StringPtrInput
+	// The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+	SupportCode pulumi.StringPtrInput
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	Url     pulumi.StringPtrInput
 }
 
 func (BucketState) ElementType() reflect.Type {
@@ -88,16 +152,22 @@ func (BucketState) ElementType() reflect.Type {
 }
 
 type bucketArgs struct {
-	BundleId string            `pulumi:"bundleId"`
-	Name     *string           `pulumi:"name"`
-	Tags     map[string]string `pulumi:"tags"`
+	// The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+	BundleId string `pulumi:"bundleId"`
+	// The name for the bucket.
+	Name *string `pulumi:"name"`
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Bucket resource.
 type BucketArgs struct {
+	// The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
 	BundleId pulumi.StringInput
-	Name     pulumi.StringPtrInput
-	Tags     pulumi.StringMapInput
+	// The name for the bucket.
+	Name pulumi.StringPtrInput
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (BucketArgs) ElementType() reflect.Type {
@@ -187,38 +257,47 @@ func (o BucketOutput) ToBucketOutputWithContext(ctx context.Context) BucketOutpu
 	return o
 }
 
+// The ARN of the lightsail bucket.
 func (o BucketOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
 func (o BucketOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
+// The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
 func (o BucketOutput) BundleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.BundleId }).(pulumi.StringOutput)
 }
 
+// The timestamp when the bucket was created.
 func (o BucketOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The name for the bucket.
 func (o BucketOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The Amazon Web Services Region name.
 func (o BucketOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
+// The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 func (o BucketOutput) SupportCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.SupportCode }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o BucketOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o BucketOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

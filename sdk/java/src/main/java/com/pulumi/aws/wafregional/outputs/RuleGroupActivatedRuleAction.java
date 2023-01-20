@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupActivatedRuleAction {
+    /**
+     * @return e.g., `BLOCK`, `ALLOW`, or `COUNT`
+     * 
+     */
     private String type;
 
     private RuleGroupActivatedRuleAction() {}
+    /**
+     * @return e.g., `BLOCK`, `ALLOW`, or `COUNT`
+     * 
+     */
     public String type() {
         return this.type;
     }

@@ -11,15 +11,99 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an EventBridge connection resource.
+//
+// > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
+//				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
+//					ApiKey: &cloudwatch.EventConnectionAuthParametersApiKeyArgs{
+//						Key:   pulumi.String("x-signature"),
+//						Value: pulumi.String("1234"),
+//					},
+//				},
+//				AuthorizationType: pulumi.String("API_KEY"),
+//				Description:       pulumi.String("A connection description"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Basic Authorization
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
+//				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
+//					Basic: &cloudwatch.EventConnectionAuthParametersBasicArgs{
+//						Password: pulumi.String("Pass1234!"),
+//						Username: pulumi.String("user"),
+//					},
+//				},
+//				AuthorizationType: pulumi.String("BASIC"),
+//				Description:       pulumi.String("A connection description"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// # EventBridge Connection can be imported using the `name`, e.g., console
+//
+// ```sh
+//
+//	$ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
+//
+// ```
 type EventConnection struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput                 `pulumi:"arn"`
-	AuthParameters    EventConnectionAuthParametersOutput `pulumi:"authParameters"`
-	AuthorizationType pulumi.StringOutput                 `pulumi:"authorizationType"`
-	Description       pulumi.StringPtrOutput              `pulumi:"description"`
-	Name              pulumi.StringOutput                 `pulumi:"name"`
-	SecretArn         pulumi.StringOutput                 `pulumi:"secretArn"`
+	// The Amazon Resource Name (ARN) of the connection.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+	AuthParameters EventConnectionAuthParametersOutput `pulumi:"authParameters"`
+	// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+	AuthorizationType pulumi.StringOutput `pulumi:"authorizationType"`
+	// Enter a description for the connection. Maximum of 512 characters.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
 }
 
 // NewEventConnection registers a new resource with the given unique name, arguments, and options.
@@ -57,21 +141,33 @@ func GetEventConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventConnection resources.
 type eventConnectionState struct {
-	Arn               *string                        `pulumi:"arn"`
-	AuthParameters    *EventConnectionAuthParameters `pulumi:"authParameters"`
-	AuthorizationType *string                        `pulumi:"authorizationType"`
-	Description       *string                        `pulumi:"description"`
-	Name              *string                        `pulumi:"name"`
-	SecretArn         *string                        `pulumi:"secretArn"`
+	// The Amazon Resource Name (ARN) of the connection.
+	Arn *string `pulumi:"arn"`
+	// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+	AuthParameters *EventConnectionAuthParameters `pulumi:"authParameters"`
+	// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+	AuthorizationType *string `pulumi:"authorizationType"`
+	// Enter a description for the connection. Maximum of 512 characters.
+	Description *string `pulumi:"description"`
+	// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+	Name *string `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+	SecretArn *string `pulumi:"secretArn"`
 }
 
 type EventConnectionState struct {
-	Arn               pulumi.StringPtrInput
-	AuthParameters    EventConnectionAuthParametersPtrInput
+	// The Amazon Resource Name (ARN) of the connection.
+	Arn pulumi.StringPtrInput
+	// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+	AuthParameters EventConnectionAuthParametersPtrInput
+	// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
 	AuthorizationType pulumi.StringPtrInput
-	Description       pulumi.StringPtrInput
-	Name              pulumi.StringPtrInput
-	SecretArn         pulumi.StringPtrInput
+	// Enter a description for the connection. Maximum of 512 characters.
+	Description pulumi.StringPtrInput
+	// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+	Name pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+	SecretArn pulumi.StringPtrInput
 }
 
 func (EventConnectionState) ElementType() reflect.Type {
@@ -79,18 +175,26 @@ func (EventConnectionState) ElementType() reflect.Type {
 }
 
 type eventConnectionArgs struct {
-	AuthParameters    EventConnectionAuthParameters `pulumi:"authParameters"`
-	AuthorizationType string                        `pulumi:"authorizationType"`
-	Description       *string                       `pulumi:"description"`
-	Name              *string                       `pulumi:"name"`
+	// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+	AuthParameters EventConnectionAuthParameters `pulumi:"authParameters"`
+	// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+	AuthorizationType string `pulumi:"authorizationType"`
+	// Enter a description for the connection. Maximum of 512 characters.
+	Description *string `pulumi:"description"`
+	// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a EventConnection resource.
 type EventConnectionArgs struct {
-	AuthParameters    EventConnectionAuthParametersInput
+	// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+	AuthParameters EventConnectionAuthParametersInput
+	// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
 	AuthorizationType pulumi.StringInput
-	Description       pulumi.StringPtrInput
-	Name              pulumi.StringPtrInput
+	// Enter a description for the connection. Maximum of 512 characters.
+	Description pulumi.StringPtrInput
+	// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+	Name pulumi.StringPtrInput
 }
 
 func (EventConnectionArgs) ElementType() reflect.Type {
@@ -180,26 +284,32 @@ func (o EventConnectionOutput) ToEventConnectionOutputWithContext(ctx context.Co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the connection.
 func (o EventConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventConnection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
 func (o EventConnectionOutput) AuthParameters() EventConnectionAuthParametersOutput {
 	return o.ApplyT(func(v *EventConnection) EventConnectionAuthParametersOutput { return v.AuthParameters }).(EventConnectionAuthParametersOutput)
 }
 
+// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
 func (o EventConnectionOutput) AuthorizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventConnection) pulumi.StringOutput { return v.AuthorizationType }).(pulumi.StringOutput)
 }
 
+// Enter a description for the connection. Maximum of 512 characters.
 func (o EventConnectionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventConnection) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 func (o EventConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
 func (o EventConnectionOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventConnection) pulumi.StringOutput { return v.SecretArn }).(pulumi.StringOutput)
 }

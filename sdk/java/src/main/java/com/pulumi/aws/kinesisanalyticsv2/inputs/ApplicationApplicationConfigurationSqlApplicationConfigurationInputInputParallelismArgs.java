@@ -15,9 +15,17 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs();
 
+    /**
+     * The number of in-application streams to create.
+     * 
+     */
     @Import(name="count")
     private @Nullable Output<Integer> count;
 
+    /**
+     * @return The number of in-application streams to create.
+     * 
+     */
     public Optional<Output<Integer>> count() {
         return Optional.ofNullable(this.count);
     }
@@ -46,11 +54,23 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             $ = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param count The number of in-application streams to create.
+         * 
+         * @return builder
+         * 
+         */
         public Builder count(@Nullable Output<Integer> count) {
             $.count = count;
             return this;
         }
 
+        /**
+         * @param count The number of in-application streams to create.
+         * 
+         * @return builder
+         * 
+         */
         public Builder count(Integer count) {
             return count(Output.of(count));
         }

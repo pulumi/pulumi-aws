@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class LaunchTemplateCreditSpecification
     {
+        /// <summary>
+        /// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+        /// </summary>
         public readonly string? CpuCredits;
 
         [OutputConstructor]

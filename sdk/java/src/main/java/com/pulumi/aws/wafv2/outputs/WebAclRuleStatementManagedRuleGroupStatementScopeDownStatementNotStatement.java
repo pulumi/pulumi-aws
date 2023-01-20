@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement {
+    /**
+     * @return Statement to negate. You can use any statement that can be nested. See Statement above for details.
+     * 
+     */
     private List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatement> statements;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement() {}
+    /**
+     * @return Statement to negate. You can use any statement that can be nested. See Statement above for details.
+     * 
+     */
     public List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatement> statements() {
         return this.statements;
     }

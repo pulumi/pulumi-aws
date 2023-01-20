@@ -23,6 +23,11 @@ class LoggingConfigurationDestinationConfigurationArgs:
                  cloudwatch_logs: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs']] = None,
                  firehose: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationFirehoseArgs']] = None,
                  s3: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationS3Args']] = None):
+        """
+        :param pulumi.Input['LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs'] cloudwatch_logs: An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
+        :param pulumi.Input['LoggingConfigurationDestinationConfigurationFirehoseArgs'] firehose: An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
+        :param pulumi.Input['LoggingConfigurationDestinationConfigurationS3Args'] s3: An Amazon S3 destination configuration where chat activity will be logged.
+        """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if firehose is not None:
@@ -33,6 +38,9 @@ class LoggingConfigurationDestinationConfigurationArgs:
     @property
     @pulumi.getter(name="cloudwatchLogs")
     def cloudwatch_logs(self) -> Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs']]:
+        """
+        An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
+        """
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
@@ -42,6 +50,9 @@ class LoggingConfigurationDestinationConfigurationArgs:
     @property
     @pulumi.getter
     def firehose(self) -> Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationFirehoseArgs']]:
+        """
+        An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
+        """
         return pulumi.get(self, "firehose")
 
     @firehose.setter
@@ -51,6 +62,9 @@ class LoggingConfigurationDestinationConfigurationArgs:
     @property
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationS3Args']]:
+        """
+        An Amazon S3 destination configuration where chat activity will be logged.
+        """
         return pulumi.get(self, "s3")
 
     @s3.setter
@@ -62,11 +76,17 @@ class LoggingConfigurationDestinationConfigurationArgs:
 class LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs:
     def __init__(__self__, *,
                  log_group_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] log_group_name: Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+        """
         pulumi.set(__self__, "log_group_name", log_group_name)
 
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+        """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
@@ -78,11 +98,17 @@ class LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs:
 class LoggingConfigurationDestinationConfigurationFirehoseArgs:
     def __init__(__self__, *,
                  delivery_stream_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] delivery_stream_name: Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
+        """
         pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
 
     @property
     @pulumi.getter(name="deliveryStreamName")
     def delivery_stream_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
+        """
         return pulumi.get(self, "delivery_stream_name")
 
     @delivery_stream_name.setter
@@ -94,11 +120,17 @@ class LoggingConfigurationDestinationConfigurationFirehoseArgs:
 class LoggingConfigurationDestinationConfigurationS3Args:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] bucket_name: Name of the Amazon S3 bucket where chat activity will be logged.
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
 
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Amazon S3 bucket where chat activity will be logged.
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -111,6 +143,12 @@ class RoomMessageReviewHandlerArgs:
     def __init__(__self__, *,
                  fallback_result: Optional[pulumi.Input[str]] = None,
                  uri: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] fallback_result: The fallback behavior (whether the message
+               is allowed or denied) if the handler does not return a valid response,
+               encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
+        :param pulumi.Input[str] uri: ARN of the lambda message review handler function.
+        """
         if fallback_result is not None:
             pulumi.set(__self__, "fallback_result", fallback_result)
         if uri is not None:
@@ -119,6 +157,11 @@ class RoomMessageReviewHandlerArgs:
     @property
     @pulumi.getter(name="fallbackResult")
     def fallback_result(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fallback behavior (whether the message
+        is allowed or denied) if the handler does not return a valid response,
+        encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
+        """
         return pulumi.get(self, "fallback_result")
 
     @fallback_result.setter
@@ -128,6 +171,9 @@ class RoomMessageReviewHandlerArgs:
     @property
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the lambda message review handler function.
+        """
         return pulumi.get(self, "uri")
 
     @uri.setter

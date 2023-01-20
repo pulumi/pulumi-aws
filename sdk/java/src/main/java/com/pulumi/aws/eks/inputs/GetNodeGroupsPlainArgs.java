@@ -12,9 +12,17 @@ public final class GetNodeGroupsPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetNodeGroupsPlainArgs Empty = new GetNodeGroupsPlainArgs();
 
+    /**
+     * Name of the cluster.
+     * 
+     */
     @Import(name="clusterName", required=true)
     private String clusterName;
 
+    /**
+     * @return Name of the cluster.
+     * 
+     */
     public String clusterName() {
         return this.clusterName;
     }
@@ -43,6 +51,12 @@ public final class GetNodeGroupsPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetNodeGroupsPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param clusterName Name of the cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterName(String clusterName) {
             $.clusterName = clusterName;
             return this;

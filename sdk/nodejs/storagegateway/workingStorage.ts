@@ -4,6 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an AWS Storage Gateway working storage.
+ *
+ * > **NOTE:** The Storage Gateway API provides no method to remove a working storage disk. Destroying this resource does not perform any Storage Gateway actions.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.storagegateway.WorkingStorage("example", {
+ *     diskId: data.aws_storagegateway_local_disk.example.id,
+ *     gatewayArn: aws_storagegateway_gateway.example.arn,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_storagegateway_working_storage` can be imported by using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`), e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:storagegateway/workingStorage:WorkingStorage example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
+ * ```
+ */
 export class WorkingStorage extends pulumi.CustomResource {
     /**
      * Get an existing WorkingStorage resource's state with the given name, ID, and optional extra
@@ -32,7 +57,13 @@ export class WorkingStorage extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkingStorage.__pulumiType;
     }
 
+    /**
+     * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+     */
     public readonly diskId!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the gateway.
+     */
     public readonly gatewayArn!: pulumi.Output<string>;
 
     /**
@@ -70,7 +101,13 @@ export class WorkingStorage extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WorkingStorage resources.
  */
 export interface WorkingStorageState {
+    /**
+     * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+     */
     diskId?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the gateway.
+     */
     gatewayArn?: pulumi.Input<string>;
 }
 
@@ -78,6 +115,12 @@ export interface WorkingStorageState {
  * The set of arguments for constructing a WorkingStorage resource.
  */
 export interface WorkingStorageArgs {
+    /**
+     * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+     */
     diskId: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the gateway.
+     */
     gatewayArn: pulumi.Input<string>;
 }

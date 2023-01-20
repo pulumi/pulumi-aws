@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirewallFirewallStatusCapacityUsageSummary {
+    /**
+     * @return Capacity usage of CIDR blocks used by IP set references in a firewall.
+     * 
+     */
     private List<GetFirewallFirewallStatusCapacityUsageSummaryCidr> cidrs;
 
     private GetFirewallFirewallStatusCapacityUsageSummary() {}
+    /**
+     * @return Capacity usage of CIDR blocks used by IP set references in a firewall.
+     * 
+     */
     public List<GetFirewallFirewallStatusCapacityUsageSummaryCidr> cidrs() {
         return this.cidrs;
     }

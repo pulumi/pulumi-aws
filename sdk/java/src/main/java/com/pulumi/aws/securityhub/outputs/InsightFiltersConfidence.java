@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InsightFiltersConfidence {
+    /**
+     * @return The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+     * 
+     */
     private @Nullable String eq;
+    /**
+     * @return The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+     * 
+     */
     private @Nullable String gte;
+    /**
+     * @return The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+     * 
+     */
     private @Nullable String lte;
 
     private InsightFiltersConfidence() {}
+    /**
+     * @return The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+     * 
+     */
     public Optional<String> eq() {
         return Optional.ofNullable(this.eq);
     }
+    /**
+     * @return The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+     * 
+     */
     public Optional<String> gte() {
         return Optional.ofNullable(this.gte);
     }
+    /**
+     * @return The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+     * 
+     */
     public Optional<String> lte() {
         return Optional.ofNullable(this.lte);
     }

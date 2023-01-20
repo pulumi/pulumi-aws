@@ -12,9 +12,15 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class GetLogDataProtectionPolicyDocumentStatementOperationInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configures the detection of sensitive data.
+        /// </summary>
         [Input("audit")]
         public Input<Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditInputArgs>? Audit { get; set; }
 
+        /// <summary>
+        /// Configures the masking of sensitive data.
+        /// </summary>
         [Input("deidentify")]
         public Input<Inputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyInputArgs>? Deidentify { get; set; }
 

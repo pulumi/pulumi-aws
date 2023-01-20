@@ -13,6 +13,9 @@ namespace Pulumi.Aws.EmrServerless.Outputs
     [OutputType]
     public sealed class ApplicationAutoStartConfiguration
     {
+        /// <summary>
+        /// Enables the application to automatically start on job submission. Defaults to `true`.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

@@ -9,27 +9,88 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Lambda
 {
+    /// <summary>
+    /// Creates a Lambda function alias. Creates an alias that points to the specified Lambda function version.
+    /// 
+    /// For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
+    /// For information about function aliases, see [CreateAlias](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateAlias.html) and [AliasRoutingConfiguration](https://docs.aws.amazon.com/lambda/latest/dg/API_AliasRoutingConfiguration.html) in the API docs.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testLambdaAlias = new Aws.Lambda.Alias("testLambdaAlias", new()
+    ///     {
+    ///         Description = "a sample description",
+    ///         FunctionName = aws_lambda_function.Lambda_function_test.Arn,
+    ///         FunctionVersion = "1",
+    ///         RoutingConfig = new Aws.Lambda.Inputs.AliasRoutingConfigArgs
+    ///         {
+    ///             AdditionalVersionWeights = 
+    ///             {
+    ///                 { "2", 0.5 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Lambda Function Aliases can be imported using the `function_name/alias`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:lambda/alias:Alias")]
     public partial class Alias : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) identifying your Lambda function alias.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Description of the alias.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Lambda Function name or ARN.
+        /// </summary>
         [Output("functionName")]
         public Output<string> FunctionName { get; private set; } = null!;
 
+        /// <summary>
+        /// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+        /// </summary>
         [Output("functionVersion")]
         public Output<string> FunctionVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`
+        /// </summary>
         [Output("invokeArn")]
         public Output<string> InvokeArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The Lambda alias' route configuration settings. Fields documented below
+        /// </summary>
         [Output("routingConfig")]
         public Output<Outputs.AliasRoutingConfig?> RoutingConfig { get; private set; } = null!;
 
@@ -79,18 +140,33 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class AliasArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Description of the alias.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Lambda Function name or ARN.
+        /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
 
+        /// <summary>
+        /// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+        /// </summary>
         [Input("functionVersion", required: true)]
         public Input<string> FunctionVersion { get; set; } = null!;
 
+        /// <summary>
+        /// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The Lambda alias' route configuration settings. Fields documented below
+        /// </summary>
         [Input("routingConfig")]
         public Input<Inputs.AliasRoutingConfigArgs>? RoutingConfig { get; set; }
 
@@ -102,24 +178,45 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class AliasState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) identifying your Lambda function alias.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Description of the alias.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Lambda Function name or ARN.
+        /// </summary>
         [Input("functionName")]
         public Input<string>? FunctionName { get; set; }
 
+        /// <summary>
+        /// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+        /// </summary>
         [Input("functionVersion")]
         public Input<string>? FunctionVersion { get; set; }
 
+        /// <summary>
+        /// The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`
+        /// </summary>
         [Input("invokeArn")]
         public Input<string>? InvokeArn { get; set; }
 
+        /// <summary>
+        /// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The Lambda alias' route configuration settings. Fields documented below
+        /// </summary>
         [Input("routingConfig")]
         public Input<Inputs.AliasRoutingConfigGetArgs>? RoutingConfig { get; set; }
 

@@ -11,12 +11,138 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an AWS Cognito Identity Pool Roles Attachment.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mainIdentityPool, err := cognito.NewIdentityPool(ctx, "mainIdentityPool", &cognito.IdentityPoolArgs{
+//				IdentityPoolName:               pulumi.String("identity pool"),
+//				AllowUnauthenticatedIdentities: pulumi.Bool(false),
+//				SupportedLoginProviders: pulumi.StringMap{
+//					"graph.facebook.com": pulumi.String("7346241598935555"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			authenticatedRole, err := iam.NewRole(ctx, "authenticatedRole", &iam.RoleArgs{
+//				AssumeRolePolicy: mainIdentityPool.ID().ApplyT(func(id string) (string, error) {
+//					return fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "Federated": "cognito-identity.amazonaws.com"
+//	      },
+//	      "Action": "sts:AssumeRoleWithWebIdentity",
+//	      "Condition": {
+//	        "StringEquals": {
+//	          "cognito-identity.amazonaws.com:aud": "%v"
+//	        },
+//	        "ForAnyValue:StringLike": {
+//	          "cognito-identity.amazonaws.com:amr": "authenticated"
+//	        }
+//	      }
+//	    }
+//	  ]
+//	}
+//
+// `, id), nil
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "authenticatedRolePolicy", &iam.RolePolicyArgs{
+//				Role: authenticatedRole.ID(),
+//				Policy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Effect": "Allow",
+//	      "Action": [
+//	        "mobileanalytics:PutEvents",
+//	        "cognito-sync:*",
+//	        "cognito-identity:*"
+//	      ],
+//	      "Resource": [
+//	        "*"
+//	      ]
+//	    }
+//	  ]
+//	}
+//
+// `)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewIdentityPoolRoleAttachment(ctx, "mainIdentityPoolRoleAttachment", &cognito.IdentityPoolRoleAttachmentArgs{
+//				IdentityPoolId: mainIdentityPool.ID(),
+//				RoleMappings: cognito.IdentityPoolRoleAttachmentRoleMappingArray{
+//					&cognito.IdentityPoolRoleAttachmentRoleMappingArgs{
+//						IdentityProvider:        pulumi.String("graph.facebook.com"),
+//						AmbiguousRoleResolution: pulumi.String("AuthenticatedRole"),
+//						Type:                    pulumi.String("Rules"),
+//						MappingRules: cognito.IdentityPoolRoleAttachmentRoleMappingMappingRuleArray{
+//							&cognito.IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs{
+//								Claim:     pulumi.String("isAdmin"),
+//								MatchType: pulumi.String("Equals"),
+//								RoleArn:   authenticatedRole.Arn,
+//								Value:     pulumi.String("paid"),
+//							},
+//						},
+//					},
+//				},
+//				Roles: pulumi.StringMap{
+//					"authenticated": authenticatedRole.Arn,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
+//
+// ```
 type IdentityPoolRoleAttachment struct {
 	pulumi.CustomResourceState
 
-	IdentityPoolId pulumi.StringOutput                              `pulumi:"identityPoolId"`
-	RoleMappings   IdentityPoolRoleAttachmentRoleMappingArrayOutput `pulumi:"roleMappings"`
-	Roles          pulumi.StringMapOutput                           `pulumi:"roles"`
+	// An identity pool ID in the format `REGION_GUID`.
+	IdentityPoolId pulumi.StringOutput `pulumi:"identityPoolId"`
+	// A List of Role Mapping.
+	RoleMappings IdentityPoolRoleAttachmentRoleMappingArrayOutput `pulumi:"roleMappings"`
+	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+	Roles pulumi.StringMapOutput `pulumi:"roles"`
 }
 
 // NewIdentityPoolRoleAttachment registers a new resource with the given unique name, arguments, and options.
@@ -54,15 +180,21 @@ func GetIdentityPoolRoleAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IdentityPoolRoleAttachment resources.
 type identityPoolRoleAttachmentState struct {
-	IdentityPoolId *string                                 `pulumi:"identityPoolId"`
-	RoleMappings   []IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
-	Roles          map[string]string                       `pulumi:"roles"`
+	// An identity pool ID in the format `REGION_GUID`.
+	IdentityPoolId *string `pulumi:"identityPoolId"`
+	// A List of Role Mapping.
+	RoleMappings []IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
+	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+	Roles map[string]string `pulumi:"roles"`
 }
 
 type IdentityPoolRoleAttachmentState struct {
+	// An identity pool ID in the format `REGION_GUID`.
 	IdentityPoolId pulumi.StringPtrInput
-	RoleMappings   IdentityPoolRoleAttachmentRoleMappingArrayInput
-	Roles          pulumi.StringMapInput
+	// A List of Role Mapping.
+	RoleMappings IdentityPoolRoleAttachmentRoleMappingArrayInput
+	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+	Roles pulumi.StringMapInput
 }
 
 func (IdentityPoolRoleAttachmentState) ElementType() reflect.Type {
@@ -70,16 +202,22 @@ func (IdentityPoolRoleAttachmentState) ElementType() reflect.Type {
 }
 
 type identityPoolRoleAttachmentArgs struct {
-	IdentityPoolId string                                  `pulumi:"identityPoolId"`
-	RoleMappings   []IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
-	Roles          map[string]string                       `pulumi:"roles"`
+	// An identity pool ID in the format `REGION_GUID`.
+	IdentityPoolId string `pulumi:"identityPoolId"`
+	// A List of Role Mapping.
+	RoleMappings []IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
+	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+	Roles map[string]string `pulumi:"roles"`
 }
 
 // The set of arguments for constructing a IdentityPoolRoleAttachment resource.
 type IdentityPoolRoleAttachmentArgs struct {
+	// An identity pool ID in the format `REGION_GUID`.
 	IdentityPoolId pulumi.StringInput
-	RoleMappings   IdentityPoolRoleAttachmentRoleMappingArrayInput
-	Roles          pulumi.StringMapInput
+	// A List of Role Mapping.
+	RoleMappings IdentityPoolRoleAttachmentRoleMappingArrayInput
+	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+	Roles pulumi.StringMapInput
 }
 
 func (IdentityPoolRoleAttachmentArgs) ElementType() reflect.Type {
@@ -169,16 +307,19 @@ func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutputWith
 	return o
 }
 
+// An identity pool ID in the format `REGION_GUID`.
 func (o IdentityPoolRoleAttachmentOutput) IdentityPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPoolRoleAttachment) pulumi.StringOutput { return v.IdentityPoolId }).(pulumi.StringOutput)
 }
 
+// A List of Role Mapping.
 func (o IdentityPoolRoleAttachmentOutput) RoleMappings() IdentityPoolRoleAttachmentRoleMappingArrayOutput {
 	return o.ApplyT(func(v *IdentityPoolRoleAttachment) IdentityPoolRoleAttachmentRoleMappingArrayOutput {
 		return v.RoleMappings
 	}).(IdentityPoolRoleAttachmentRoleMappingArrayOutput)
 }
 
+// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
 func (o IdentityPoolRoleAttachmentOutput) Roles() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IdentityPoolRoleAttachment) pulumi.StringMapOutput { return v.Roles }).(pulumi.StringMapOutput)
 }

@@ -4,6 +4,43 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a Lambda Provisioned Concurrency Configuration.
+ *
+ * ## Example Usage
+ * ### Alias Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.ProvisionedConcurrencyConfig("example", {
+ *     functionName: aws_lambda_alias.example.function_name,
+ *     provisionedConcurrentExecutions: 1,
+ *     qualifier: aws_lambda_alias.example.name,
+ * });
+ * ```
+ * ### Function Version
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.ProvisionedConcurrencyConfig("example", {
+ *     functionName: aws_lambda_function.example.function_name,
+ *     provisionedConcurrentExecutions: 1,
+ *     qualifier: aws_lambda_function.example.version,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Lambda Provisioned Concurrency Configs can be imported using the `function_name` and `qualifier` separated by a colon (`:`), e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function:production
+ * ```
+ */
 export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
     /**
      * Get an existing ProvisionedConcurrencyConfig resource's state with the given name, ID, and optional extra
@@ -32,8 +69,17 @@ export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProvisionedConcurrencyConfig.__pulumiType;
     }
 
+    /**
+     * Name or Amazon Resource Name (ARN) of the Lambda Function.
+     */
     public readonly functionName!: pulumi.Output<string>;
+    /**
+     * Amount of capacity to allocate. Must be greater than or equal to `1`.
+     */
     public readonly provisionedConcurrentExecutions!: pulumi.Output<number>;
+    /**
+     * Lambda Function version or Lambda Alias name.
+     */
     public readonly qualifier!: pulumi.Output<string>;
 
     /**
@@ -76,8 +122,17 @@ export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProvisionedConcurrencyConfig resources.
  */
 export interface ProvisionedConcurrencyConfigState {
+    /**
+     * Name or Amazon Resource Name (ARN) of the Lambda Function.
+     */
     functionName?: pulumi.Input<string>;
+    /**
+     * Amount of capacity to allocate. Must be greater than or equal to `1`.
+     */
     provisionedConcurrentExecutions?: pulumi.Input<number>;
+    /**
+     * Lambda Function version or Lambda Alias name.
+     */
     qualifier?: pulumi.Input<string>;
 }
 
@@ -85,7 +140,16 @@ export interface ProvisionedConcurrencyConfigState {
  * The set of arguments for constructing a ProvisionedConcurrencyConfig resource.
  */
 export interface ProvisionedConcurrencyConfigArgs {
+    /**
+     * Name or Amazon Resource Name (ARN) of the Lambda Function.
+     */
     functionName: pulumi.Input<string>;
+    /**
+     * Amount of capacity to allocate. Must be greater than or equal to `1`.
+     */
     provisionedConcurrentExecutions: pulumi.Input<number>;
+    /**
+     * Lambda Function version or Lambda Alias name.
+     */
     qualifier: pulumi.Input<string>;
 }

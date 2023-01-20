@@ -13,17 +13,139 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a WAFv2 Web ACL Association.
+ * 
+ * &gt; **NOTE on associating a WAFv2 Web ACL with a Cloudfront distribution:** Do not use this resource to associate a WAFv2 Web ACL with a Cloudfront Distribution. The [AWS API call backing this resource](https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html) notes that you should use the `web_acl_id` property on the `cloudfront_distribution` instead.
+ * 
+ * [1]: https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
+ * import com.pulumi.aws.apigateway.Deployment;
+ * import com.pulumi.aws.apigateway.DeploymentArgs;
+ * import com.pulumi.aws.apigateway.Stage;
+ * import com.pulumi.aws.apigateway.StageArgs;
+ * import com.pulumi.aws.wafv2.WebAcl;
+ * import com.pulumi.aws.wafv2.WebAclArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionAllowArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.WebAclAssociation;
+ * import com.pulumi.aws.wafv2.WebAclAssociationArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;, RestApiArgs.builder()        
+ *             .body(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;openapi&#34;, &#34;3.0.1&#34;),
+ *                     jsonProperty(&#34;info&#34;, jsonObject(
+ *                         jsonProperty(&#34;title&#34;, &#34;example&#34;),
+ *                         jsonProperty(&#34;version&#34;, &#34;1.0&#34;)
+ *                     )),
+ *                     jsonProperty(&#34;paths&#34;, jsonObject(
+ *                         jsonProperty(&#34;/path1&#34;, jsonObject(
+ *                             jsonProperty(&#34;get&#34;, jsonObject(
+ *                                 jsonProperty(&#34;x-amazon-apigateway-integration&#34;, jsonObject(
+ *                                     jsonProperty(&#34;httpMethod&#34;, &#34;GET&#34;),
+ *                                     jsonProperty(&#34;payloadFormatVersion&#34;, &#34;1.0&#34;),
+ *                                     jsonProperty(&#34;type&#34;, &#34;HTTP_PROXY&#34;),
+ *                                     jsonProperty(&#34;uri&#34;, &#34;https://ip-ranges.amazonaws.com/ip-ranges.json&#34;)
+ *                                 ))
+ *                             ))
+ *                         ))
+ *                     ))
+ *                 )))
+ *             .build());
+ * 
+ *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
+ *             .restApi(exampleRestApi.id())
+ *             .triggers(Map.of(&#34;redeployment&#34;, exampleRestApi.body().applyValue(body -&gt; serializeJson(
+ *                 body)).applyValue(toJSON -&gt; computeSHA1(toJSON))))
+ *             .build());
+ * 
+ *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
+ *             .deployment(exampleDeployment.id())
+ *             .restApi(exampleRestApi.id())
+ *             .stageName(&#34;example&#34;)
+ *             .build());
+ * 
+ *         var exampleWebAcl = new WebAcl(&#34;exampleWebAcl&#34;, WebAclArgs.builder()        
+ *             .scope(&#34;REGIONAL&#34;)
+ *             .defaultAction(WebAclDefaultActionArgs.builder()
+ *                 .allow()
+ *                 .build())
+ *             .visibilityConfig(WebAclVisibilityConfigArgs.builder()
+ *                 .cloudwatchMetricsEnabled(false)
+ *                 .metricName(&#34;friendly-metric-name&#34;)
+ *                 .sampledRequestsEnabled(false)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleWebAclAssociation = new WebAclAssociation(&#34;exampleWebAclAssociation&#34;, WebAclAssociationArgs.builder()        
+ *             .resourceArn(exampleStage.arn())
+ *             .webAclArn(exampleWebAcl.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * WAFv2 Web ACL Association can be imported using `WEB_ACL_ARN,RESOURCE_ARN` e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:wafv2/webAclAssociation:WebAclAssociation example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name
+ * ```
+ * 
+ */
 @ResourceType(type="aws:wafv2/webAclAssociation:WebAclAssociation")
 public class WebAclAssociation extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
+     * 
+     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
+     * 
+     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
+    /**
+     * The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
+     * 
+     */
     @Export(name="webAclArn", refs={String.class}, tree="[0]")
     private Output<String> webAclArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
+     * 
+     */
     public Output<String> webAclArn() {
         return this.webAclArn;
     }

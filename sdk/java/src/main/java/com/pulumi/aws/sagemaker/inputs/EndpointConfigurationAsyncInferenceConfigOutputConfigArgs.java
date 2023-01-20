@@ -16,23 +16,47 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
 
     public static final EndpointConfigurationAsyncInferenceConfigOutputConfigArgs Empty = new EndpointConfigurationAsyncInferenceConfigOutputConfigArgs();
 
+    /**
+     * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+     * 
+     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
+    /**
+     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+     * 
+     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
+    /**
+     * Specifies the configuration for notifications of inference results for asynchronous inference.
+     * 
+     */
     @Import(name="notificationConfig")
     private @Nullable Output<EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs> notificationConfig;
 
+    /**
+     * @return Specifies the configuration for notifications of inference results for asynchronous inference.
+     * 
+     */
     public Optional<Output<EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs>> notificationConfig() {
         return Optional.ofNullable(this.notificationConfig);
     }
 
+    /**
+     * The Amazon S3 location to upload inference responses to.
+     * 
+     */
     @Import(name="s3OutputPath", required=true)
     private Output<String> s3OutputPath;
 
+    /**
+     * @return The Amazon S3 location to upload inference responses to.
+     * 
+     */
     public Output<String> s3OutputPath() {
         return this.s3OutputPath;
     }
@@ -63,29 +87,65 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
             $ = new EndpointConfigurationAsyncInferenceConfigOutputConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param kmsKeyId The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
+        /**
+         * @param kmsKeyId The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
+        /**
+         * @param notificationConfig Specifies the configuration for notifications of inference results for asynchronous inference.
+         * 
+         * @return builder
+         * 
+         */
         public Builder notificationConfig(@Nullable Output<EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs> notificationConfig) {
             $.notificationConfig = notificationConfig;
             return this;
         }
 
+        /**
+         * @param notificationConfig Specifies the configuration for notifications of inference results for asynchronous inference.
+         * 
+         * @return builder
+         * 
+         */
         public Builder notificationConfig(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs notificationConfig) {
             return notificationConfig(Output.of(notificationConfig));
         }
 
+        /**
+         * @param s3OutputPath The Amazon S3 location to upload inference responses to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3OutputPath(Output<String> s3OutputPath) {
             $.s3OutputPath = s3OutputPath;
             return this;
         }
 
+        /**
+         * @param s3OutputPath The Amazon S3 location to upload inference responses to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3OutputPath(String s3OutputPath) {
             return s3OutputPath(Output.of(s3OutputPath));
         }

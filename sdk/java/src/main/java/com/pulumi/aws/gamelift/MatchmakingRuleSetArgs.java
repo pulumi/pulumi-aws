@@ -16,16 +16,32 @@ public final class MatchmakingRuleSetArgs extends com.pulumi.resources.ResourceA
 
     public static final MatchmakingRuleSetArgs Empty = new MatchmakingRuleSetArgs();
 
+    /**
+     * Name of the matchmaking rule set.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name of the matchmaking rule set.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * JSON encoded string containing rule set data.
+     * 
+     */
     @Import(name="ruleSetBody", required=true)
     private Output<String> ruleSetBody;
 
+    /**
+     * @return JSON encoded string containing rule set data.
+     * 
+     */
     public Output<String> ruleSetBody() {
         return this.ruleSetBody;
     }
@@ -63,20 +79,44 @@ public final class MatchmakingRuleSetArgs extends com.pulumi.resources.ResourceA
             $ = new MatchmakingRuleSetArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the matchmaking rule set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the matchmaking rule set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param ruleSetBody JSON encoded string containing rule set data.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ruleSetBody(Output<String> ruleSetBody) {
             $.ruleSetBody = ruleSetBody;
             return this;
         }
 
+        /**
+         * @param ruleSetBody JSON encoded string containing rule set data.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ruleSetBody(String ruleSetBody) {
             return ruleSetBody(Output.of(ruleSetBody));
         }

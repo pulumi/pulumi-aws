@@ -11,29 +11,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainNameDomainNameConfiguration {
+    /**
+     * @return ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `aws.acm.Certificate` resource to configure an ACM certificate.
+     * 
+     */
     private String certificateArn;
+    /**
+     * @return Endpoint type. Valid values: `REGIONAL`.
+     * 
+     */
     private String endpointType;
+    /**
+     * @return Amazon Route 53 Hosted Zone ID of the endpoint.
+     * 
+     */
     private @Nullable String hostedZoneId;
+    /**
+     * @return ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+     * 
+     */
     private @Nullable String ownershipVerificationCertificateArn;
+    /**
+     * @return Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+     * 
+     */
     private String securityPolicy;
+    /**
+     * @return Target domain name.
+     * 
+     */
     private @Nullable String targetDomainName;
 
     private DomainNameDomainNameConfiguration() {}
+    /**
+     * @return ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `aws.acm.Certificate` resource to configure an ACM certificate.
+     * 
+     */
     public String certificateArn() {
         return this.certificateArn;
     }
+    /**
+     * @return Endpoint type. Valid values: `REGIONAL`.
+     * 
+     */
     public String endpointType() {
         return this.endpointType;
     }
+    /**
+     * @return Amazon Route 53 Hosted Zone ID of the endpoint.
+     * 
+     */
     public Optional<String> hostedZoneId() {
         return Optional.ofNullable(this.hostedZoneId);
     }
+    /**
+     * @return ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+     * 
+     */
     public Optional<String> ownershipVerificationCertificateArn() {
         return Optional.ofNullable(this.ownershipVerificationCertificateArn);
     }
+    /**
+     * @return Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+     * 
+     */
     public String securityPolicy() {
         return this.securityPolicy;
     }
+    /**
+     * @return Target domain name.
+     * 
+     */
     public Optional<String> targetDomainName() {
         return Optional.ofNullable(this.targetDomainName);
     }

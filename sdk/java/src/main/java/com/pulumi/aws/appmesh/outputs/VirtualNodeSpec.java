@@ -16,25 +16,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualNodeSpec {
+    /**
+     * @return Defaults for backends.
+     * 
+     */
     private @Nullable VirtualNodeSpecBackendDefaults backendDefaults;
+    /**
+     * @return Backends to which the virtual node is expected to send outbound traffic.
+     * 
+     */
     private @Nullable List<VirtualNodeSpecBackend> backends;
+    /**
+     * @return Listeners from which the virtual node is expected to receive inbound traffic.
+     * 
+     */
     private @Nullable VirtualNodeSpecListener listener;
+    /**
+     * @return Inbound and outbound access logging information for the virtual node.
+     * 
+     */
     private @Nullable VirtualNodeSpecLogging logging;
+    /**
+     * @return Service discovery information for the virtual node.
+     * 
+     */
     private @Nullable VirtualNodeSpecServiceDiscovery serviceDiscovery;
 
     private VirtualNodeSpec() {}
+    /**
+     * @return Defaults for backends.
+     * 
+     */
     public Optional<VirtualNodeSpecBackendDefaults> backendDefaults() {
         return Optional.ofNullable(this.backendDefaults);
     }
+    /**
+     * @return Backends to which the virtual node is expected to send outbound traffic.
+     * 
+     */
     public List<VirtualNodeSpecBackend> backends() {
         return this.backends == null ? List.of() : this.backends;
     }
+    /**
+     * @return Listeners from which the virtual node is expected to receive inbound traffic.
+     * 
+     */
     public Optional<VirtualNodeSpecListener> listener() {
         return Optional.ofNullable(this.listener);
     }
+    /**
+     * @return Inbound and outbound access logging information for the virtual node.
+     * 
+     */
     public Optional<VirtualNodeSpecLogging> logging() {
         return Optional.ofNullable(this.logging);
     }
+    /**
+     * @return Service discovery information for the virtual node.
+     * 
+     */
     public Optional<VirtualNodeSpecServiceDiscovery> serviceDiscovery() {
         return Optional.ofNullable(this.serviceDiscovery);
     }

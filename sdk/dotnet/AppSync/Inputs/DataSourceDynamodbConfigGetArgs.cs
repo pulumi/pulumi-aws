@@ -15,12 +15,21 @@ namespace Pulumi.Aws.AppSync.Inputs
         [Input("deltaSyncConfig")]
         public Input<Inputs.DataSourceDynamodbConfigDeltaSyncConfigGetArgs>? DeltaSyncConfig { get; set; }
 
+        /// <summary>
+        /// AWS region of the DynamoDB table. Defaults to current region.
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Name of the DynamoDB table.
+        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 
+        /// <summary>
+        /// Set to `true` to use Amazon Cognito credentials with this data source.
+        /// </summary>
         [Input("useCallerCredentials")]
         public Input<bool>? UseCallerCredentials { get; set; }
 

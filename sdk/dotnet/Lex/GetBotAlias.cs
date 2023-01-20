@@ -11,9 +11,59 @@ namespace Pulumi.Aws.Lex
 {
     public static class GetBotAlias
     {
+        /// <summary>
+        /// Provides details about a specific Amazon Lex Bot Alias.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var orderFlowersProd = Aws.Lex.GetBotAlias.Invoke(new()
+        ///     {
+        ///         BotName = "OrderFlowers",
+        ///         Name = "OrderFlowersProd",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetBotAliasResult> InvokeAsync(GetBotAliasArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBotAliasResult>("aws:lex/getBotAlias:getBotAlias", args ?? new GetBotAliasArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides details about a specific Amazon Lex Bot Alias.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var orderFlowersProd = Aws.Lex.GetBotAlias.Invoke(new()
+        ///     {
+        ///         BotName = "OrderFlowers",
+        ///         Name = "OrderFlowersProd",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetBotAliasResult> Invoke(GetBotAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotAliasResult>("aws:lex/getBotAlias:getBotAlias", args ?? new GetBotAliasInvokeArgs(), options.WithDefaults());
     }
@@ -21,9 +71,15 @@ namespace Pulumi.Aws.Lex
 
     public sealed class GetBotAliasArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the bot.
+        /// </summary>
         [Input("botName", required: true)]
         public string BotName { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the bot alias. The name is case sensitive.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -35,9 +91,15 @@ namespace Pulumi.Aws.Lex
 
     public sealed class GetBotAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the bot.
+        /// </summary>
         [Input("botName", required: true)]
         public Input<string> BotName { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the bot alias. The name is case sensitive.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -51,17 +113,41 @@ namespace Pulumi.Aws.Lex
     [OutputType]
     public sealed class GetBotAliasResult
     {
+        /// <summary>
+        /// ARN of the bot alias.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Name of the bot.
+        /// </summary>
         public readonly string BotName;
+        /// <summary>
+        /// Version of the bot that the alias points to.
+        /// </summary>
         public readonly string BotVersion;
+        /// <summary>
+        /// Checksum of the bot alias.
+        /// </summary>
         public readonly string Checksum;
+        /// <summary>
+        /// Date that the bot alias was created.
+        /// </summary>
         public readonly string CreatedDate;
+        /// <summary>
+        /// Description of the alias.
+        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
+        /// </summary>
         public readonly string LastUpdatedDate;
+        /// <summary>
+        /// Name of the alias. The name is not case sensitive.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

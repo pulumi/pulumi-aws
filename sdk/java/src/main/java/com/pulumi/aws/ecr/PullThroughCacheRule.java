@@ -13,23 +13,93 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Elastic Container Registry Pull Through Cache Rule.
+ * 
+ * More information about pull through cache rules, including the set of supported
+ * upstream repositories, see [Using pull through cache rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecr.PullThroughCacheRule;
+ * import com.pulumi.aws.ecr.PullThroughCacheRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new PullThroughCacheRule(&#34;example&#34;, PullThroughCacheRuleArgs.builder()        
+ *             .ecrRepositoryPrefix(&#34;ecr-public&#34;)
+ *             .upstreamRegistryUrl(&#34;public.ecr.aws&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Use the `ecr_repository_prefix` to import a Pull Through Cache Rule. For example
+ * 
+ * ```sh
+ *  $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ecr/pullThroughCacheRule:PullThroughCacheRule")
 public class PullThroughCacheRule extends com.pulumi.resources.CustomResource {
+    /**
+     * The repository name prefix to use when caching images from the source registry.
+     * 
+     */
     @Export(name="ecrRepositoryPrefix", refs={String.class}, tree="[0]")
     private Output<String> ecrRepositoryPrefix;
 
+    /**
+     * @return The repository name prefix to use when caching images from the source registry.
+     * 
+     */
     public Output<String> ecrRepositoryPrefix() {
         return this.ecrRepositoryPrefix;
     }
+    /**
+     * The registry ID where the repository was created.
+     * 
+     */
     @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
+    /**
+     * @return The registry ID where the repository was created.
+     * 
+     */
     public Output<String> registryId() {
         return this.registryId;
     }
+    /**
+     * The registry URL of the upstream public registry to use as the source.
+     * 
+     */
     @Export(name="upstreamRegistryUrl", refs={String.class}, tree="[0]")
     private Output<String> upstreamRegistryUrl;
 
+    /**
+     * @return The registry URL of the upstream public registry to use as the source.
+     * 
+     */
     public Output<String> upstreamRegistryUrl() {
         return this.upstreamRegistryUrl;
     }

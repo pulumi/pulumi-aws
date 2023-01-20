@@ -9,24 +9,84 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Lambda
 {
+    /// <summary>
+    /// Provides a Lambda Code Signing Config resource. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+    /// 
+    /// For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var newCsc = new Aws.Lambda.CodeSigningConfig("newCsc", new()
+    ///     {
+    ///         AllowedPublishers = new Aws.Lambda.Inputs.CodeSigningConfigAllowedPublishersArgs
+    ///         {
+    ///             SigningProfileVersionArns = new[]
+    ///             {
+    ///                 aws_signer_signing_profile.Example1.Arn,
+    ///                 aws_signer_signing_profile.Example2.Arn,
+    ///             },
+    ///         },
+    ///         Policies = new Aws.Lambda.Inputs.CodeSigningConfigPoliciesArgs
+    ///         {
+    ///             UntrustedArtifactOnDeployment = "Warn",
+    ///         },
+    ///         Description = "My awesome code signing config.",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Code Signing Configs can be imported using their ARN, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:lambda/codeSigningConfig:CodeSigningConfig")]
     public partial class CodeSigningConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+        /// </summary>
         [Output("allowedPublishers")]
         public Output<Outputs.CodeSigningConfigAllowedPublishers> AllowedPublishers { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the code signing configuration.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Unique identifier for the code signing configuration.
+        /// </summary>
         [Output("configId")]
         public Output<string> ConfigId { get; private set; } = null!;
 
+        /// <summary>
+        /// Descriptive name for this code signing configuration.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time that the code signing configuration was last modified.
+        /// </summary>
         [Output("lastModified")]
         public Output<string> LastModified { get; private set; } = null!;
 
+        /// <summary>
+        /// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+        /// </summary>
         [Output("policies")]
         public Output<Outputs.CodeSigningConfigPolicies> Policies { get; private set; } = null!;
 
@@ -76,12 +136,21 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class CodeSigningConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+        /// </summary>
         [Input("allowedPublishers", required: true)]
         public Input<Inputs.CodeSigningConfigAllowedPublishersArgs> AllowedPublishers { get; set; } = null!;
 
+        /// <summary>
+        /// Descriptive name for this code signing configuration.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+        /// </summary>
         [Input("policies")]
         public Input<Inputs.CodeSigningConfigPoliciesArgs>? Policies { get; set; }
 
@@ -93,21 +162,39 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class CodeSigningConfigState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+        /// </summary>
         [Input("allowedPublishers")]
         public Input<Inputs.CodeSigningConfigAllowedPublishersGetArgs>? AllowedPublishers { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the code signing configuration.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Unique identifier for the code signing configuration.
+        /// </summary>
         [Input("configId")]
         public Input<string>? ConfigId { get; set; }
 
+        /// <summary>
+        /// Descriptive name for this code signing configuration.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The date and time that the code signing configuration was last modified.
+        /// </summary>
         [Input("lastModified")]
         public Input<string>? LastModified { get; set; }
 
+        /// <summary>
+        /// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+        /// </summary>
         [Input("policies")]
         public Input<Inputs.CodeSigningConfigPoliciesGetArgs>? Policies { get; set; }
 

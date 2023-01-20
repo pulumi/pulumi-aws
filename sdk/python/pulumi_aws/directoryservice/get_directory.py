@@ -78,11 +78,17 @@ class GetDirectoryResult:
     @property
     @pulumi.getter(name="accessUrl")
     def access_url(self) -> str:
+        """
+        Access URL for the directory/connector, such as http://alias.awsapps.com.
+        """
         return pulumi.get(self, "access_url")
 
     @property
     @pulumi.getter
     def alias(self) -> str:
+        """
+        Alias for the directory/connector, such as `d-991708b282.awsapps.com`.
+        """
         return pulumi.get(self, "alias")
 
     @property
@@ -93,6 +99,9 @@ class GetDirectoryResult:
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Textual description for the directory/connector.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -103,16 +112,25 @@ class GetDirectoryResult:
     @property
     @pulumi.getter(name="dnsIpAddresses")
     def dns_ip_addresses(self) -> Sequence[str]:
+        """
+        List of IP addresses of the DNS servers for the directory/connector.
+        """
         return pulumi.get(self, "dns_ip_addresses")
 
     @property
     @pulumi.getter
     def edition(self) -> str:
+        """
+        (for `MicrosoftAD`) Microsoft AD edition (`Standard` or `Enterprise`).
+        """
         return pulumi.get(self, "edition")
 
     @property
     @pulumi.getter(name="enableSso")
     def enable_sso(self) -> bool:
+        """
+        Directory/connector single-sign on status.
+        """
         return pulumi.get(self, "enable_sso")
 
     @property
@@ -126,6 +144,9 @@ class GetDirectoryResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Fully qualified name for the directory/connector.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -136,26 +157,41 @@ class GetDirectoryResult:
     @property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> str:
+        """
+        ID of the security group created by the directory/connector.
+        """
         return pulumi.get(self, "security_group_id")
 
     @property
     @pulumi.getter(name="shortName")
     def short_name(self) -> str:
+        """
+        Short name of the directory/connector, such as `CORP`.
+        """
         return pulumi.get(self, "short_name")
 
     @property
     @pulumi.getter
     def size(self) -> str:
+        """
+        (for `SimpleAD` and `ADConnector`) Size of the directory/connector (`Small` or `Large`).
+        """
         return pulumi.get(self, "size")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        A map of tags assigned to the directory/connector.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -193,7 +229,20 @@ def get_directory(directory_id: Optional[str] = None,
                   tags: Optional[Mapping[str, str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDirectoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.directoryservice.get_directory(directory_id=aws_directory_service_directory["main"]["id"])
+    ```
+
+
+    :param str directory_id: ID of the directory.
+    :param Mapping[str, str] tags: A map of tags assigned to the directory/connector.
     """
     __args__ = dict()
     __args__['directoryId'] = directory_id
@@ -226,6 +275,19 @@ def get_directory_output(directory_id: Optional[pulumi.Input[str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDirectoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.directoryservice.get_directory(directory_id=aws_directory_service_directory["main"]["id"])
+    ```
+
+
+    :param str directory_id: ID of the directory.
+    :param Mapping[str, str] tags: A map of tags assigned to the directory/connector.
     """
     ...

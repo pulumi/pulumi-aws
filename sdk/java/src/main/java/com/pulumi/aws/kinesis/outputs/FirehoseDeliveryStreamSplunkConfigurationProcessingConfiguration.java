@@ -13,13 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration {
+    /**
+     * @return Enables or disables data processing.
+     * 
+     */
     private @Nullable Boolean enabled;
+    /**
+     * @return Array of data processors. More details are given below
+     * 
+     */
     private @Nullable List<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor> processors;
 
     private FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration() {}
+    /**
+     * @return Enables or disables data processing.
+     * 
+     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
+    /**
+     * @return Array of data processors. More details are given below
+     * 
+     */
     public List<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor> processors() {
         return this.processors == null ? List.of() : this.processors;
     }

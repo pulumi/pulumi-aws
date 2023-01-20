@@ -11,10 +11,78 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an IoT policy attachment.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			pubsub, err := iot.NewPolicy(ctx, "pubsub", &iot.PolicyArgs{
+//				Policy: pulumi.String(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": [
+//	        "iot:*"
+//	      ],
+//	      "Effect": "Allow",
+//	      "Resource": "*"
+//	    }
+//	  ]
+//	}
+//
+// `)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			cert, err := iot.NewCertificate(ctx, "cert", &iot.CertificateArgs{
+//				Csr:    readFileOrPanic("csr.pem"),
+//				Active: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewPolicyAttachment(ctx, "att", &iot.PolicyAttachmentArgs{
+//				Policy: pubsub.Name,
+//				Target: cert.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type PolicyAttachment struct {
 	pulumi.CustomResourceState
 
+	// The name of the policy to attach.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The identity to which the policy is attached.
 	Target pulumi.StringOutput `pulumi:"target"`
 }
 
@@ -53,12 +121,16 @@ func GetPolicyAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyAttachment resources.
 type policyAttachmentState struct {
+	// The name of the policy to attach.
 	Policy interface{} `pulumi:"policy"`
-	Target *string     `pulumi:"target"`
+	// The identity to which the policy is attached.
+	Target *string `pulumi:"target"`
 }
 
 type PolicyAttachmentState struct {
+	// The name of the policy to attach.
 	Policy pulumi.Input
+	// The identity to which the policy is attached.
 	Target pulumi.StringPtrInput
 }
 
@@ -67,13 +139,17 @@ func (PolicyAttachmentState) ElementType() reflect.Type {
 }
 
 type policyAttachmentArgs struct {
+	// The name of the policy to attach.
 	Policy interface{} `pulumi:"policy"`
-	Target string      `pulumi:"target"`
+	// The identity to which the policy is attached.
+	Target string `pulumi:"target"`
 }
 
 // The set of arguments for constructing a PolicyAttachment resource.
 type PolicyAttachmentArgs struct {
+	// The name of the policy to attach.
 	Policy pulumi.Input
+	// The identity to which the policy is attached.
 	Target pulumi.StringInput
 }
 
@@ -164,10 +240,12 @@ func (o PolicyAttachmentOutput) ToPolicyAttachmentOutputWithContext(ctx context.
 	return o
 }
 
+// The name of the policy to attach.
 func (o PolicyAttachmentOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyAttachment) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
+// The identity to which the policy is attached.
 func (o PolicyAttachmentOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyAttachment) pulumi.StringOutput { return v.Target }).(pulumi.StringOutput)
 }

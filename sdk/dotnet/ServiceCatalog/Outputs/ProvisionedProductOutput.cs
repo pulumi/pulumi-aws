@@ -13,8 +13,17 @@ namespace Pulumi.Aws.ServiceCatalog.Outputs
     [OutputType]
     public sealed class ProvisionedProductOutput
     {
+        /// <summary>
+        /// The description of the output.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Parameter key.
+        /// </summary>
         public readonly string? Key;
+        /// <summary>
+        /// Parameter value.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

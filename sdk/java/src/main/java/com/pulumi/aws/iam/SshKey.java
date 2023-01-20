@@ -13,41 +13,139 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Uploads an SSH public key and associates it with the specified IAM user.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.User;
+ * import com.pulumi.aws.iam.UserArgs;
+ * import com.pulumi.aws.iam.SshKey;
+ * import com.pulumi.aws.iam.SshKeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var userUser = new User(&#34;userUser&#34;, UserArgs.builder()        
+ *             .path(&#34;/&#34;)
+ *             .build());
+ * 
+ *         var userSshKey = new SshKey(&#34;userSshKey&#34;, SshKeyArgs.builder()        
+ *             .username(userUser.name())
+ *             .encoding(&#34;SSH&#34;)
+ *             .publicKey(&#34;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 mytest@mydomain.com&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * SSH public keys can be imported using the `username`, `ssh_public_key_id`, and `encoding` e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:iam/sshKey:SshKey user user:APKAJNCNNJICVN7CFKCA:SSH
+ * ```
+ * 
+ */
 @ResourceType(type="aws:iam/sshKey:SshKey")
 public class SshKey extends com.pulumi.resources.CustomResource {
+    /**
+     * Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
+     * 
+     */
     @Export(name="encoding", refs={String.class}, tree="[0]")
     private Output<String> encoding;
 
+    /**
+     * @return Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
+     * 
+     */
     public Output<String> encoding() {
         return this.encoding;
     }
+    /**
+     * The MD5 message digest of the SSH public key.
+     * 
+     */
     @Export(name="fingerprint", refs={String.class}, tree="[0]")
     private Output<String> fingerprint;
 
+    /**
+     * @return The MD5 message digest of the SSH public key.
+     * 
+     */
     public Output<String> fingerprint() {
         return this.fingerprint;
     }
+    /**
+     * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
+     * 
+     */
     @Export(name="publicKey", refs={String.class}, tree="[0]")
     private Output<String> publicKey;
 
+    /**
+     * @return The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
+     * 
+     */
     public Output<String> publicKey() {
         return this.publicKey;
     }
+    /**
+     * The unique identifier for the SSH public key.
+     * 
+     */
     @Export(name="sshPublicKeyId", refs={String.class}, tree="[0]")
     private Output<String> sshPublicKeyId;
 
+    /**
+     * @return The unique identifier for the SSH public key.
+     * 
+     */
     public Output<String> sshPublicKeyId() {
         return this.sshPublicKeyId;
     }
+    /**
+     * The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }
+    /**
+     * The name of the IAM user to associate the SSH public key with.
+     * 
+     */
     @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
+    /**
+     * @return The name of the IAM user to associate the SSH public key with.
+     * 
+     */
     public Output<String> username() {
         return this.username;
     }

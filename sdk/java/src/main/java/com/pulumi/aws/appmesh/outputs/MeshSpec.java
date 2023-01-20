@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MeshSpec {
+    /**
+     * @return Egress filter rules for the service mesh.
+     * 
+     */
     private @Nullable MeshSpecEgressFilter egressFilter;
 
     private MeshSpec() {}
+    /**
+     * @return Egress filter rules for the service mesh.
+     * 
+     */
     public Optional<MeshSpecEgressFilter> egressFilter() {
         return Optional.ofNullable(this.egressFilter);
     }

@@ -15,16 +15,32 @@ public final class EncryptionConfigState extends com.pulumi.resources.ResourceAr
 
     public static final EncryptionConfigState Empty = new EncryptionConfigState();
 
+    /**
+     * An AWS KMS customer master key (CMK) ARN.
+     * 
+     */
     @Import(name="keyId")
     private @Nullable Output<String> keyId;
 
+    /**
+     * @return An AWS KMS customer master key (CMK) ARN.
+     * 
+     */
     public Optional<Output<String>> keyId() {
         return Optional.ofNullable(this.keyId);
     }
 
+    /**
+     * The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -54,20 +70,44 @@ public final class EncryptionConfigState extends com.pulumi.resources.ResourceAr
             $ = new EncryptionConfigState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param keyId An AWS KMS customer master key (CMK) ARN.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyId(@Nullable Output<String> keyId) {
             $.keyId = keyId;
             return this;
         }
 
+        /**
+         * @param keyId An AWS KMS customer master key (CMK) ARN.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyId(String keyId) {
             return keyId(Output.of(keyId));
         }
 
+        /**
+         * @param type The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption {
+    /**
+     * @return When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+     * 
+     */
     private @Nullable String actionOnTimeout;
+    /**
+     * @return The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
+     * 
+     */
     private @Nullable Integer waitTimeInMinutes;
 
     private DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption() {}
+    /**
+     * @return When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+     * 
+     */
     public Optional<String> actionOnTimeout() {
         return Optional.ofNullable(this.actionOnTimeout);
     }
+    /**
+     * @return The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
+     * 
+     */
     public Optional<Integer> waitTimeInMinutes() {
         return Optional.ofNullable(this.waitTimeInMinutes);
     }

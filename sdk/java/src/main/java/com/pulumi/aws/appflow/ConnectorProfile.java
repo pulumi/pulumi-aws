@@ -15,47 +15,121 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an AppFlow connector profile resource.
+ * 
+ * For information about AppFlow flows, see the [Amazon AppFlow API Reference](https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html).
+ * For specific information about creating an AppFlow connector profile, see the
+ * [CreateConnectorProfile](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html) page in the Amazon AppFlow API Reference.
+ * 
+ * ## Import
+ * 
+ * AppFlow Connector Profile can be imported using the connector profile `arn`, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
+ * ```
+ * 
+ *  [1]https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html [2]https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
+ * 
+ */
 @ResourceType(type="aws:appflow/connectorProfile:ConnectorProfile")
 public class ConnectorProfile extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the connector profile.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the connector profile.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
+     * 
+     */
     @Export(name="connectionMode", refs={String.class}, tree="[0]")
     private Output<String> connectionMode;
 
+    /**
+     * @return Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
+     * 
+     */
     public Output<String> connectionMode() {
         return this.connectionMode;
     }
+    /**
+     * The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
+     * 
+     */
     @Export(name="connectorLabel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectorLabel;
 
+    /**
+     * @return The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
+     * 
+     */
     public Output<Optional<String>> connectorLabel() {
         return Codegen.optional(this.connectorLabel);
     }
+    /**
+     * Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+     * 
+     */
     @Export(name="connectorProfileConfig", refs={ConnectorProfileConnectorProfileConfig.class}, tree="[0]")
     private Output<ConnectorProfileConnectorProfileConfig> connectorProfileConfig;
 
+    /**
+     * @return Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+     * 
+     */
     public Output<ConnectorProfileConnectorProfileConfig> connectorProfileConfig() {
         return this.connectorProfileConfig;
     }
+    /**
+     * The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
+     * 
+     */
     @Export(name="connectorType", refs={String.class}, tree="[0]")
     private Output<String> connectorType;
 
+    /**
+     * @return The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
+     * 
+     */
     public Output<String> connectorType() {
         return this.connectorType;
     }
+    /**
+     * ARN of the connector profile credentials.
+     * 
+     */
     @Export(name="credentialsArn", refs={String.class}, tree="[0]")
     private Output<String> credentialsArn;
 
+    /**
+     * @return ARN of the connector profile credentials.
+     * 
+     */
     public Output<String> credentialsArn() {
         return this.credentialsArn;
     }
+    /**
+     * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * 
+     */
     @Export(name="kmsArn", refs={String.class}, tree="[0]")
     private Output<String> kmsArn;
 
+    /**
+     * @return ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * 
+     */
     public Output<String> kmsArn() {
         return this.kmsArn;
     }

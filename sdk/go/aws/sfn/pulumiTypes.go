@@ -11,9 +11,12 @@ import (
 )
 
 type StateMachineLoggingConfiguration struct {
-	IncludeExecutionData *bool   `pulumi:"includeExecutionData"`
-	Level                *string `pulumi:"level"`
-	LogDestination       *string `pulumi:"logDestination"`
+	// Determines whether execution data is included in your log. When set to `false`, data is excluded.
+	IncludeExecutionData *bool `pulumi:"includeExecutionData"`
+	// Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
+	Level *string `pulumi:"level"`
+	// Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+	LogDestination *string `pulumi:"logDestination"`
 }
 
 // StateMachineLoggingConfigurationInput is an input type that accepts StateMachineLoggingConfigurationArgs and StateMachineLoggingConfigurationOutput values.
@@ -28,9 +31,12 @@ type StateMachineLoggingConfigurationInput interface {
 }
 
 type StateMachineLoggingConfigurationArgs struct {
-	IncludeExecutionData pulumi.BoolPtrInput   `pulumi:"includeExecutionData"`
-	Level                pulumi.StringPtrInput `pulumi:"level"`
-	LogDestination       pulumi.StringPtrInput `pulumi:"logDestination"`
+	// Determines whether execution data is included in your log. When set to `false`, data is excluded.
+	IncludeExecutionData pulumi.BoolPtrInput `pulumi:"includeExecutionData"`
+	// Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
+	Level pulumi.StringPtrInput `pulumi:"level"`
+	// Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+	LogDestination pulumi.StringPtrInput `pulumi:"logDestination"`
 }
 
 func (StateMachineLoggingConfigurationArgs) ElementType() reflect.Type {
@@ -110,14 +116,17 @@ func (o StateMachineLoggingConfigurationOutput) ToStateMachineLoggingConfigurati
 	}).(StateMachineLoggingConfigurationPtrOutput)
 }
 
+// Determines whether execution data is included in your log. When set to `false`, data is excluded.
 func (o StateMachineLoggingConfigurationOutput) IncludeExecutionData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StateMachineLoggingConfiguration) *bool { return v.IncludeExecutionData }).(pulumi.BoolPtrOutput)
 }
 
+// Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
 func (o StateMachineLoggingConfigurationOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StateMachineLoggingConfiguration) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
+// Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
 func (o StateMachineLoggingConfigurationOutput) LogDestination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StateMachineLoggingConfiguration) *string { return v.LogDestination }).(pulumi.StringPtrOutput)
 }
@@ -146,6 +155,7 @@ func (o StateMachineLoggingConfigurationPtrOutput) Elem() StateMachineLoggingCon
 	}).(StateMachineLoggingConfigurationOutput)
 }
 
+// Determines whether execution data is included in your log. When set to `false`, data is excluded.
 func (o StateMachineLoggingConfigurationPtrOutput) IncludeExecutionData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StateMachineLoggingConfiguration) *bool {
 		if v == nil {
@@ -155,6 +165,7 @@ func (o StateMachineLoggingConfigurationPtrOutput) IncludeExecutionData() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
 func (o StateMachineLoggingConfigurationPtrOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineLoggingConfiguration) *string {
 		if v == nil {
@@ -164,6 +175,7 @@ func (o StateMachineLoggingConfigurationPtrOutput) Level() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
 func (o StateMachineLoggingConfigurationPtrOutput) LogDestination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineLoggingConfiguration) *string {
 		if v == nil {
@@ -174,6 +186,7 @@ func (o StateMachineLoggingConfigurationPtrOutput) LogDestination() pulumi.Strin
 }
 
 type StateMachineTracingConfiguration struct {
+	// When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -189,6 +202,7 @@ type StateMachineTracingConfigurationInput interface {
 }
 
 type StateMachineTracingConfigurationArgs struct {
+	// When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -269,6 +283,7 @@ func (o StateMachineTracingConfigurationOutput) ToStateMachineTracingConfigurati
 	}).(StateMachineTracingConfigurationPtrOutput)
 }
 
+// When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
 func (o StateMachineTracingConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StateMachineTracingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -297,6 +312,7 @@ func (o StateMachineTracingConfigurationPtrOutput) Elem() StateMachineTracingCon
 	}).(StateMachineTracingConfigurationOutput)
 }
 
+// When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
 func (o StateMachineTracingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StateMachineTracingConfiguration) *bool {
 		if v == nil {

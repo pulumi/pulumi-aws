@@ -11,9 +11,57 @@ namespace Pulumi.Aws.Organizations
 {
     public static class GetResourceTags
     {
+        /// <summary>
+        /// Get tags attached to the specified AWS Organizations resource.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var account = Aws.Organizations.GetResourceTags.Invoke(new()
+        ///     {
+        ///         ResourceId = "123456123846",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetResourceTagsResult> InvokeAsync(GetResourceTagsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceTagsResult>("aws:organizations/getResourceTags:getResourceTags", args ?? new GetResourceTagsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get tags attached to the specified AWS Organizations resource.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var account = Aws.Organizations.GetResourceTags.Invoke(new()
+        ///     {
+        ///         ResourceId = "123456123846",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetResourceTagsResult> Invoke(GetResourceTagsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceTagsResult>("aws:organizations/getResourceTags:getResourceTags", args ?? new GetResourceTagsInvokeArgs(), options.WithDefaults());
     }
@@ -21,11 +69,18 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class GetResourceTagsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the resource with the tags to list. See details below.
+        /// </summary>
         [Input("resourceId", required: true)]
         public string ResourceId { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of key=value pairs for each tag set on the resource.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -40,11 +95,18 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class GetResourceTagsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the resource with the tags to list. See details below.
+        /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of key=value pairs for each tag set on the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -66,6 +128,9 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         public readonly string Id;
         public readonly string ResourceId;
+        /// <summary>
+        /// Map of key=value pairs for each tag set on the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

@@ -22,6 +22,12 @@ class ConstraintArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Constraint resource.
+        :param pulumi.Input[str] parameters: Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
+        :param pulumi.Input[str] portfolio_id: Portfolio identifier.
+        :param pulumi.Input[str] product_id: Product identifier.
+        :param pulumi.Input[str] type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+        :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        :param pulumi.Input[str] description: Description of the constraint.
         """
         pulumi.set(__self__, "parameters", parameters)
         pulumi.set(__self__, "portfolio_id", portfolio_id)
@@ -35,6 +41,9 @@ class ConstraintArgs:
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Input[str]:
+        """
+        Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -44,6 +53,9 @@ class ConstraintArgs:
     @property
     @pulumi.getter(name="portfolioId")
     def portfolio_id(self) -> pulumi.Input[str]:
+        """
+        Portfolio identifier.
+        """
         return pulumi.get(self, "portfolio_id")
 
     @portfolio_id.setter
@@ -53,6 +65,9 @@ class ConstraintArgs:
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> pulumi.Input[str]:
+        """
+        Product identifier.
+        """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
@@ -62,6 +77,9 @@ class ConstraintArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -71,6 +89,9 @@ class ConstraintArgs:
     @property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional[pulumi.Input[str]]:
+        """
+        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
@@ -80,6 +101,9 @@ class ConstraintArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the constraint.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -100,6 +124,13 @@ class _ConstraintState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Constraint resources.
+        :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        :param pulumi.Input[str] description: Description of the constraint.
+        :param pulumi.Input[str] owner: Owner of the constraint.
+        :param pulumi.Input[str] parameters: Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
+        :param pulumi.Input[str] portfolio_id: Portfolio identifier.
+        :param pulumi.Input[str] product_id: Product identifier.
+        :param pulumi.Input[str] type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
         """
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
@@ -121,6 +152,9 @@ class _ConstraintState:
     @property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional[pulumi.Input[str]]:
+        """
+        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
@@ -130,6 +164,9 @@ class _ConstraintState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the constraint.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -139,6 +176,9 @@ class _ConstraintState:
     @property
     @pulumi.getter
     def owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        Owner of the constraint.
+        """
         return pulumi.get(self, "owner")
 
     @owner.setter
@@ -148,6 +188,9 @@ class _ConstraintState:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -157,6 +200,9 @@ class _ConstraintState:
     @property
     @pulumi.getter(name="portfolioId")
     def portfolio_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Portfolio identifier.
+        """
         return pulumi.get(self, "portfolio_id")
 
     @portfolio_id.setter
@@ -166,6 +212,9 @@ class _ConstraintState:
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Product identifier.
+        """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
@@ -184,6 +233,9 @@ class _ConstraintState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -204,9 +256,44 @@ class Constraint(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Constraint resource with the given unique name, props, and options.
+        Manages a Service Catalog Constraint.
+
+        > **NOTE:** This resource does not associate a Service Catalog product and portfolio. However, the product and portfolio must be associated (see the `servicecatalog.ProductPortfolioAssociation` resource) prior to creating a constraint or you will receive an error.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.servicecatalog.Constraint("example",
+            description="Back off, man. I'm a scientist.",
+            portfolio_id=aws_servicecatalog_portfolio["example"]["id"],
+            product_id=aws_servicecatalog_product["example"]["id"],
+            type="LAUNCH",
+            parameters=json.dumps({
+                "RoleArn": "arn:aws:iam::123456789012:role/LaunchRole",
+            }))
+        ```
+
+        ## Import
+
+        `aws_servicecatalog_constraint` can be imported using the constraint ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        :param pulumi.Input[str] description: Description of the constraint.
+        :param pulumi.Input[str] parameters: Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
+        :param pulumi.Input[str] portfolio_id: Portfolio identifier.
+        :param pulumi.Input[str] product_id: Product identifier.
+        :param pulumi.Input[str] type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
         """
         ...
     @overload
@@ -215,7 +302,36 @@ class Constraint(pulumi.CustomResource):
                  args: ConstraintArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Constraint resource with the given unique name, props, and options.
+        Manages a Service Catalog Constraint.
+
+        > **NOTE:** This resource does not associate a Service Catalog product and portfolio. However, the product and portfolio must be associated (see the `servicecatalog.ProductPortfolioAssociation` resource) prior to creating a constraint or you will receive an error.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.servicecatalog.Constraint("example",
+            description="Back off, man. I'm a scientist.",
+            portfolio_id=aws_servicecatalog_portfolio["example"]["id"],
+            product_id=aws_servicecatalog_product["example"]["id"],
+            type="LAUNCH",
+            parameters=json.dumps({
+                "RoleArn": "arn:aws:iam::123456789012:role/LaunchRole",
+            }))
+        ```
+
+        ## Import
+
+        `aws_servicecatalog_constraint` can be imported using the constraint ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
+        ```
+
         :param str resource_name: The name of the resource.
         :param ConstraintArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -287,6 +403,13 @@ class Constraint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        :param pulumi.Input[str] description: Description of the constraint.
+        :param pulumi.Input[str] owner: Owner of the constraint.
+        :param pulumi.Input[str] parameters: Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
+        :param pulumi.Input[str] portfolio_id: Portfolio identifier.
+        :param pulumi.Input[str] product_id: Product identifier.
+        :param pulumi.Input[str] type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -305,31 +428,49 @@ class Constraint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional[str]]:
+        """
+        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        """
         return pulumi.get(self, "accept_language")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        Description of the constraint.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def owner(self) -> pulumi.Output[str]:
+        """
+        Owner of the constraint.
+        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[str]:
+        """
+        Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="portfolioId")
     def portfolio_id(self) -> pulumi.Output[str]:
+        """
+        Portfolio identifier.
+        """
         return pulumi.get(self, "portfolio_id")
 
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> pulumi.Output[str]:
+        """
+        Product identifier.
+        """
         return pulumi.get(self, "product_id")
 
     @property
@@ -340,5 +481,8 @@ class Constraint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+        """
         return pulumi.get(self, "type")
 

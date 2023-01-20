@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class LaunchTemplateLicenseSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the license configuration.
+        /// </summary>
         [Input("licenseConfigurationArn", required: true)]
         public Input<string> LicenseConfigurationArn { get; set; } = null!;
 

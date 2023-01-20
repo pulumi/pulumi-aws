@@ -4,6 +4,70 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a Security Hub finding aggregator. Security Hub needs to be enabled in a region in order for the aggregator to pull through findings.
+ *
+ * ## Example Usage
+ * ### All Regions Usage
+ *
+ * The following example will enable the aggregator for every region.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
+ * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("exampleFindingAggregator", {linkingMode: "ALL_REGIONS"}, {
+ *     dependsOn: [exampleAccount],
+ * });
+ * ```
+ * ### All Regions Except Specified Regions Usage
+ *
+ * The following example will enable the aggregator for every region except those specified in `specifiedRegions`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
+ * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("exampleFindingAggregator", {
+ *     linkingMode: "ALL_REGIONS_EXCEPT_SPECIFIED",
+ *     specifiedRegions: [
+ *         "eu-west-1",
+ *         "eu-west-2",
+ *     ],
+ * }, {
+ *     dependsOn: [exampleAccount],
+ * });
+ * ```
+ * ### Specified Regions Usage
+ *
+ * The following example will enable the aggregator for every region specified in `specifiedRegions`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
+ * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("exampleFindingAggregator", {
+ *     linkingMode: "SPECIFIED_REGIONS",
+ *     specifiedRegions: [
+ *         "eu-west-1",
+ *         "eu-west-2",
+ *     ],
+ * }, {
+ *     dependsOn: [exampleAccount],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing Security Hub finding aggregator can be imported using the `arn`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
+ * ```
+ */
 export class FindingAggregator extends pulumi.CustomResource {
     /**
      * Get an existing FindingAggregator resource's state with the given name, ID, and optional extra
@@ -32,7 +96,13 @@ export class FindingAggregator extends pulumi.CustomResource {
         return obj['__pulumiType'] === FindingAggregator.__pulumiType;
     }
 
+    /**
+     * Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
+     */
     public readonly linkingMode!: pulumi.Output<string>;
+    /**
+     * List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
+     */
     public readonly specifiedRegions!: pulumi.Output<string[] | undefined>;
 
     /**
@@ -67,7 +137,13 @@ export class FindingAggregator extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FindingAggregator resources.
  */
 export interface FindingAggregatorState {
+    /**
+     * Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
+     */
     linkingMode?: pulumi.Input<string>;
+    /**
+     * List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
+     */
     specifiedRegions?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -75,6 +151,12 @@ export interface FindingAggregatorState {
  * The set of arguments for constructing a FindingAggregator resource.
  */
 export interface FindingAggregatorArgs {
+    /**
+     * Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
+     */
     linkingMode: pulumi.Input<string>;
+    /**
+     * List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
+     */
     specifiedRegions?: pulumi.Input<pulumi.Input<string>[]>;
 }

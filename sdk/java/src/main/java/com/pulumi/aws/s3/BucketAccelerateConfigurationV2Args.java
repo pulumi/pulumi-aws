@@ -15,23 +15,47 @@ public final class BucketAccelerateConfigurationV2Args extends com.pulumi.resour
 
     public static final BucketAccelerateConfigurationV2Args Empty = new BucketAccelerateConfigurationV2Args();
 
+    /**
+     * The name of the bucket.
+     * 
+     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
+    /**
+     * @return The name of the bucket.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
+    /**
+     * The account ID of the expected bucket owner.
+     * 
+     */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
+    /**
+     * @return The account ID of the expected bucket owner.
+     * 
+     */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
 
+    /**
+     * The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+     * 
+     */
     @Import(name="status", required=true)
     private Output<String> status;
 
+    /**
+     * @return The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }
@@ -62,29 +86,65 @@ public final class BucketAccelerateConfigurationV2Args extends com.pulumi.resour
             $ = new BucketAccelerateConfigurationV2Args(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucket The name of the bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
+        /**
+         * @param bucket The name of the bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
 
+        /**
+         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }
 
+        /**
+         * @param status The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

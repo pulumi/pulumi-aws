@@ -7,6 +7,55 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a SageMaker Workteam resource.
+ *
+ * ## Example Usage
+ * ### Cognito Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.sagemaker.Workteam("example", {
+ *     workteamName: "example",
+ *     workforceName: aws_sagemaker_workforce.example.id,
+ *     description: "example",
+ *     memberDefinitions: [{
+ *         cognitoMemberDefinition: {
+ *             clientId: aws_cognito_user_pool_client.example.id,
+ *             userPool: aws_cognito_user_pool_domain.example.user_pool_id,
+ *             userGroup: aws_cognito_user_group.example.id,
+ *         },
+ *     }],
+ * });
+ * ```
+ * ### Oidc Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.sagemaker.Workteam("example", {
+ *     workteamName: "example",
+ *     workforceName: aws_sagemaker_workforce.example.id,
+ *     description: "example",
+ *     memberDefinitions: [{
+ *         oidcMemberDefinition: {
+ *             groups: ["example"],
+ *         },
+ *     }],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * SageMaker Workteams can be imported using the `workteam_name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:sagemaker/workteam:Workteam example example
+ * ```
+ */
 export class Workteam extends pulumi.CustomResource {
     /**
      * Get an existing Workteam resource's state with the given name, ID, and optional extra
@@ -35,14 +84,41 @@ export class Workteam extends pulumi.CustomResource {
         return obj['__pulumiType'] === Workteam.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A description of the work team.
+     */
     public readonly description!: pulumi.Output<string>;
+    /**
+     * A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognitoMemberDefinition`. For workforces created using your own OIDC identity provider (IdP) use `oidcMemberDefinition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
+     */
     public readonly memberDefinitions!: pulumi.Output<outputs.sagemaker.WorkteamMemberDefinition[]>;
+    /**
+     * Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
+     */
     public readonly notificationConfiguration!: pulumi.Output<outputs.sagemaker.WorkteamNotificationConfiguration | undefined>;
+    /**
+     * The subdomain for your OIDC Identity Provider.
+     */
     public /*out*/ readonly subdomain!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The name of the Workteam (must be unique).
+     */
     public readonly workforceName!: pulumi.Output<string>;
+    /**
+     * The name of the workforce.
+     */
     public readonly workteamName!: pulumi.Output<string>;
 
     /**
@@ -100,14 +176,41 @@ export class Workteam extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Workteam resources.
  */
 export interface WorkteamState {
+    /**
+     * The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * A description of the work team.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognitoMemberDefinition`. For workforces created using your own OIDC identity provider (IdP) use `oidcMemberDefinition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
+     */
     memberDefinitions?: pulumi.Input<pulumi.Input<inputs.sagemaker.WorkteamMemberDefinition>[]>;
+    /**
+     * Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
+     */
     notificationConfiguration?: pulumi.Input<inputs.sagemaker.WorkteamNotificationConfiguration>;
+    /**
+     * The subdomain for your OIDC Identity Provider.
+     */
     subdomain?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the Workteam (must be unique).
+     */
     workforceName?: pulumi.Input<string>;
+    /**
+     * The name of the workforce.
+     */
     workteamName?: pulumi.Input<string>;
 }
 
@@ -115,10 +218,28 @@ export interface WorkteamState {
  * The set of arguments for constructing a Workteam resource.
  */
 export interface WorkteamArgs {
+    /**
+     * A description of the work team.
+     */
     description: pulumi.Input<string>;
+    /**
+     * A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognitoMemberDefinition`. For workforces created using your own OIDC identity provider (IdP) use `oidcMemberDefinition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
+     */
     memberDefinitions: pulumi.Input<pulumi.Input<inputs.sagemaker.WorkteamMemberDefinition>[]>;
+    /**
+     * Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
+     */
     notificationConfiguration?: pulumi.Input<inputs.sagemaker.WorkteamNotificationConfiguration>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the Workteam (must be unique).
+     */
     workforceName: pulumi.Input<string>;
+    /**
+     * The name of the workforce.
+     */
     workteamName: pulumi.Input<string>;
 }

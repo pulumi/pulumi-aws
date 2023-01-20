@@ -20,6 +20,10 @@ class PrefixListReferenceArgs:
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrefixListReference resource.
+        :param pulumi.Input[str] prefix_list_id: Identifier of EC2 Prefix List.
+        :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
+        :param pulumi.Input[bool] blackhole: Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
+        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         """
         pulumi.set(__self__, "prefix_list_id", prefix_list_id)
         pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
@@ -31,6 +35,9 @@ class PrefixListReferenceArgs:
     @property
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> pulumi.Input[str]:
+        """
+        Identifier of EC2 Prefix List.
+        """
         return pulumi.get(self, "prefix_list_id")
 
     @prefix_list_id.setter
@@ -40,6 +47,9 @@ class PrefixListReferenceArgs:
     @property
     @pulumi.getter(name="transitGatewayRouteTableId")
     def transit_gateway_route_table_id(self) -> pulumi.Input[str]:
+        """
+        Identifier of EC2 Transit Gateway Route Table.
+        """
         return pulumi.get(self, "transit_gateway_route_table_id")
 
     @transit_gateway_route_table_id.setter
@@ -49,6 +59,9 @@ class PrefixListReferenceArgs:
     @property
     @pulumi.getter
     def blackhole(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
+        """
         return pulumi.get(self, "blackhole")
 
     @blackhole.setter
@@ -58,6 +71,9 @@ class PrefixListReferenceArgs:
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of EC2 Transit Gateway Attachment.
+        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
@@ -75,6 +91,10 @@ class _PrefixListReferenceState:
                  transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PrefixListReference resources.
+        :param pulumi.Input[bool] blackhole: Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
+        :param pulumi.Input[str] prefix_list_id: Identifier of EC2 Prefix List.
+        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
+        :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
         if blackhole is not None:
             pulumi.set(__self__, "blackhole", blackhole)
@@ -90,6 +110,9 @@ class _PrefixListReferenceState:
     @property
     @pulumi.getter
     def blackhole(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
+        """
         return pulumi.get(self, "blackhole")
 
     @blackhole.setter
@@ -99,6 +122,9 @@ class _PrefixListReferenceState:
     @property
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of EC2 Prefix List.
+        """
         return pulumi.get(self, "prefix_list_id")
 
     @prefix_list_id.setter
@@ -117,6 +143,9 @@ class _PrefixListReferenceState:
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of EC2 Transit Gateway Attachment.
+        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
@@ -126,6 +155,9 @@ class _PrefixListReferenceState:
     @property
     @pulumi.getter(name="transitGatewayRouteTableId")
     def transit_gateway_route_table_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of EC2 Transit Gateway Route Table.
+        """
         return pulumi.get(self, "transit_gateway_route_table_id")
 
     @transit_gateway_route_table_id.setter
@@ -144,9 +176,46 @@ class PrefixListReference(pulumi.CustomResource):
                  transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a PrefixListReference resource with the given unique name, props, and options.
+        Manages an EC2 Transit Gateway Prefix List Reference.
+
+        ## Example Usage
+        ### Attachment Routing
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2transitgateway.PrefixListReference("example",
+            prefix_list_id=aws_ec2_managed_prefix_list["example"]["id"],
+            transit_gateway_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
+            transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
+        ```
+        ### Blackhole Routing
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2transitgateway.PrefixListReference("example",
+            blackhole=True,
+            prefix_list_id=aws_ec2_managed_prefix_list["example"]["id"],
+            transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
+        ```
+
+        ## Import
+
+        `aws_ec2_transit_gateway_prefix_list_reference` can be imported by using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`), e.g., console
+
+        ```sh
+         $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] blackhole: Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
+        :param pulumi.Input[str] prefix_list_id: Identifier of EC2 Prefix List.
+        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
+        :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
         ...
     @overload
@@ -155,7 +224,40 @@ class PrefixListReference(pulumi.CustomResource):
                  args: PrefixListReferenceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a PrefixListReference resource with the given unique name, props, and options.
+        Manages an EC2 Transit Gateway Prefix List Reference.
+
+        ## Example Usage
+        ### Attachment Routing
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2transitgateway.PrefixListReference("example",
+            prefix_list_id=aws_ec2_managed_prefix_list["example"]["id"],
+            transit_gateway_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
+            transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
+        ```
+        ### Blackhole Routing
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2transitgateway.PrefixListReference("example",
+            blackhole=True,
+            prefix_list_id=aws_ec2_managed_prefix_list["example"]["id"],
+            transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
+        ```
+
+        ## Import
+
+        `aws_ec2_transit_gateway_prefix_list_reference` can be imported by using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`), e.g., console
+
+        ```sh
+         $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
+        ```
+
         :param str resource_name: The name of the resource.
         :param PrefixListReferenceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,6 +317,10 @@ class PrefixListReference(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] blackhole: Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
+        :param pulumi.Input[str] prefix_list_id: Identifier of EC2 Prefix List.
+        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
+        :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -230,11 +336,17 @@ class PrefixListReference(pulumi.CustomResource):
     @property
     @pulumi.getter
     def blackhole(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
+        """
         return pulumi.get(self, "blackhole")
 
     @property
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> pulumi.Output[str]:
+        """
+        Identifier of EC2 Prefix List.
+        """
         return pulumi.get(self, "prefix_list_id")
 
     @property
@@ -245,10 +357,16 @@ class PrefixListReference(pulumi.CustomResource):
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Identifier of EC2 Transit Gateway Attachment.
+        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @property
     @pulumi.getter(name="transitGatewayRouteTableId")
     def transit_gateway_route_table_id(self) -> pulumi.Output[str]:
+        """
+        Identifier of EC2 Transit Gateway Route Table.
+        """
         return pulumi.get(self, "transit_gateway_route_table_id")
 

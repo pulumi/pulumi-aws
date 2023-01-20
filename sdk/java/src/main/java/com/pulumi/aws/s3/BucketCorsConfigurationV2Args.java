@@ -17,23 +17,47 @@ public final class BucketCorsConfigurationV2Args extends com.pulumi.resources.Re
 
     public static final BucketCorsConfigurationV2Args Empty = new BucketCorsConfigurationV2Args();
 
+    /**
+     * The name of the bucket.
+     * 
+     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
+    /**
+     * @return The name of the bucket.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
+    /**
+     * Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+     * 
+     */
     @Import(name="corsRules", required=true)
     private Output<List<BucketCorsConfigurationV2CorsRuleArgs>> corsRules;
 
+    /**
+     * @return Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+     * 
+     */
     public Output<List<BucketCorsConfigurationV2CorsRuleArgs>> corsRules() {
         return this.corsRules;
     }
 
+    /**
+     * The account ID of the expected bucket owner.
+     * 
+     */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
+    /**
+     * @return The account ID of the expected bucket owner.
+     * 
+     */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
@@ -64,33 +88,75 @@ public final class BucketCorsConfigurationV2Args extends com.pulumi.resources.Re
             $ = new BucketCorsConfigurationV2Args(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucket The name of the bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
+        /**
+         * @param bucket The name of the bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param corsRules Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder corsRules(Output<List<BucketCorsConfigurationV2CorsRuleArgs>> corsRules) {
             $.corsRules = corsRules;
             return this;
         }
 
+        /**
+         * @param corsRules Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder corsRules(List<BucketCorsConfigurationV2CorsRuleArgs> corsRules) {
             return corsRules(Output.of(corsRules));
         }
 
+        /**
+         * @param corsRules Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder corsRules(BucketCorsConfigurationV2CorsRuleArgs... corsRules) {
             return corsRules(List.of(corsRules));
         }
 
+        /**
+         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
 
+        /**
+         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }

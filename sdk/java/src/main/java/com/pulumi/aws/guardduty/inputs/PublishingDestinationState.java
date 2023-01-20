@@ -15,30 +15,62 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
 
     public static final PublishingDestinationState Empty = new PublishingDestinationState();
 
+    /**
+     * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+     * 
+     */
     @Import(name="destinationArn")
     private @Nullable Output<String> destinationArn;
 
+    /**
+     * @return The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+     * 
+     */
     public Optional<Output<String>> destinationArn() {
         return Optional.ofNullable(this.destinationArn);
     }
 
+    /**
+     * Currently there is only &#34;S3&#34; available as destination type which is also the default value
+     * 
+     */
     @Import(name="destinationType")
     private @Nullable Output<String> destinationType;
 
+    /**
+     * @return Currently there is only &#34;S3&#34; available as destination type which is also the default value
+     * 
+     */
     public Optional<Output<String>> destinationType() {
         return Optional.ofNullable(this.destinationType);
     }
 
+    /**
+     * The detector ID of the GuardDuty.
+     * 
+     */
     @Import(name="detectorId")
     private @Nullable Output<String> detectorId;
 
+    /**
+     * @return The detector ID of the GuardDuty.
+     * 
+     */
     public Optional<Output<String>> detectorId() {
         return Optional.ofNullable(this.detectorId);
     }
 
+    /**
+     * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+     * 
+     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
+    /**
+     * @return The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+     * 
+     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
@@ -70,38 +102,86 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
             $ = new PublishingDestinationState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param destinationArn The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationArn(@Nullable Output<String> destinationArn) {
             $.destinationArn = destinationArn;
             return this;
         }
 
+        /**
+         * @param destinationArn The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationArn(String destinationArn) {
             return destinationArn(Output.of(destinationArn));
         }
 
+        /**
+         * @param destinationType Currently there is only &#34;S3&#34; available as destination type which is also the default value
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationType(@Nullable Output<String> destinationType) {
             $.destinationType = destinationType;
             return this;
         }
 
+        /**
+         * @param destinationType Currently there is only &#34;S3&#34; available as destination type which is also the default value
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationType(String destinationType) {
             return destinationType(Output.of(destinationType));
         }
 
+        /**
+         * @param detectorId The detector ID of the GuardDuty.
+         * 
+         * @return builder
+         * 
+         */
         public Builder detectorId(@Nullable Output<String> detectorId) {
             $.detectorId = detectorId;
             return this;
         }
 
+        /**
+         * @param detectorId The detector ID of the GuardDuty.
+         * 
+         * @return builder
+         * 
+         */
         public Builder detectorId(String detectorId) {
             return detectorId(Output.of(detectorId));
         }
 
+        /**
+         * @param kmsKeyArn The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
+        /**
+         * @param kmsKeyArn The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }

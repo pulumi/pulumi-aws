@@ -4,6 +4,44 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an AWS Backup Region Settings resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.backup.RegionSettings("test", {
+ *     resourceTypeManagementPreference: {
+ *         DynamoDB: true,
+ *         EFS: true,
+ *     },
+ *     resourceTypeOptInPreference: {
+ *         Aurora: true,
+ *         DocumentDB: true,
+ *         DynamoDB: true,
+ *         EBS: true,
+ *         EC2: true,
+ *         EFS: true,
+ *         FSx: true,
+ *         Neptune: true,
+ *         RDS: true,
+ *         "Storage Gateway": true,
+ *         VirtualMachine: true,
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Backup Region Settings can be imported using the `region`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
+ * ```
+ */
 export class RegionSettings extends pulumi.CustomResource {
     /**
      * Get an existing RegionSettings resource's state with the given name, ID, and optional extra
@@ -32,7 +70,13 @@ export class RegionSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === RegionSettings.__pulumiType;
     }
 
+    /**
+     * A map of services along with the management preferences for the Region.
+     */
     public readonly resourceTypeManagementPreference!: pulumi.Output<{[key: string]: boolean}>;
+    /**
+     * A map of services along with the opt-in preferences for the Region.
+     */
     public readonly resourceTypeOptInPreference!: pulumi.Output<{[key: string]: boolean}>;
 
     /**
@@ -67,7 +111,13 @@ export class RegionSettings extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RegionSettings resources.
  */
 export interface RegionSettingsState {
+    /**
+     * A map of services along with the management preferences for the Region.
+     */
     resourceTypeManagementPreference?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    /**
+     * A map of services along with the opt-in preferences for the Region.
+     */
     resourceTypeOptInPreference?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
 }
 
@@ -75,6 +125,12 @@ export interface RegionSettingsState {
  * The set of arguments for constructing a RegionSettings resource.
  */
 export interface RegionSettingsArgs {
+    /**
+     * A map of services along with the management preferences for the Region.
+     */
     resourceTypeManagementPreference?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    /**
+     * A map of services along with the opt-in preferences for the Region.
+     */
     resourceTypeOptInPreference: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
 }

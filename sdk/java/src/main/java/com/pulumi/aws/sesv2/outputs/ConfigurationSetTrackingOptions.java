@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ConfigurationSetTrackingOptions {
+    /**
+     * @return The domain to use for tracking open and click events.
+     * 
+     */
     private String customRedirectDomain;
 
     private ConfigurationSetTrackingOptions() {}
+    /**
+     * @return The domain to use for tracking open and click events.
+     * 
+     */
     public String customRedirectDomain() {
         return this.customRedirectDomain;
     }

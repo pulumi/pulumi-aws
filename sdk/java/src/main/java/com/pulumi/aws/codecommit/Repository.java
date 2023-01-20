@@ -15,59 +15,174 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a CodeCommit Repository Resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.codecommit.Repository;
+ * import com.pulumi.aws.codecommit.RepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
+ *             .description(&#34;This is the Sample App Repository&#34;)
+ *             .repositoryName(&#34;MyTestRepository&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Codecommit repository can be imported using repository name, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
+ * ```
+ * 
+ */
 @ResourceType(type="aws:codecommit/repository:Repository")
 public class Repository extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the repository
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the repository
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The URL to use for cloning the repository over HTTPS.
+     * 
+     */
     @Export(name="cloneUrlHttp", refs={String.class}, tree="[0]")
     private Output<String> cloneUrlHttp;
 
+    /**
+     * @return The URL to use for cloning the repository over HTTPS.
+     * 
+     */
     public Output<String> cloneUrlHttp() {
         return this.cloneUrlHttp;
     }
+    /**
+     * The URL to use for cloning the repository over SSH.
+     * 
+     */
     @Export(name="cloneUrlSsh", refs={String.class}, tree="[0]")
     private Output<String> cloneUrlSsh;
 
+    /**
+     * @return The URL to use for cloning the repository over SSH.
+     * 
+     */
     public Output<String> cloneUrlSsh() {
         return this.cloneUrlSsh;
     }
+    /**
+     * The default branch of the repository. The branch specified here needs to exist.
+     * 
+     */
     @Export(name="defaultBranch", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultBranch;
 
+    /**
+     * @return The default branch of the repository. The branch specified here needs to exist.
+     * 
+     */
     public Output<Optional<String>> defaultBranch() {
         return Codegen.optional(this.defaultBranch);
     }
+    /**
+     * The description of the repository. This needs to be less than 1000 characters
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The description of the repository. This needs to be less than 1000 characters
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The ID of the repository
+     * 
+     */
     @Export(name="repositoryId", refs={String.class}, tree="[0]")
     private Output<String> repositoryId;
 
+    /**
+     * @return The ID of the repository
+     * 
+     */
     public Output<String> repositoryId() {
         return this.repositoryId;
     }
+    /**
+     * The name for the repository. This needs to be less than 100 characters.
+     * 
+     */
     @Export(name="repositoryName", refs={String.class}, tree="[0]")
     private Output<String> repositoryName;
 
+    /**
+     * @return The name for the repository. This needs to be less than 100 characters.
+     * 
+     */
     public Output<String> repositoryName() {
         return this.repositoryName;
     }
+    /**
+     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

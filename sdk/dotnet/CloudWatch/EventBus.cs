@@ -9,21 +9,83 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
+    /// <summary>
+    /// Provides an EventBridge event bus resource.
+    /// 
+    /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var messenger = new Aws.CloudWatch.EventBus("messenger");
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var examplepartnerEventSource = Aws.CloudWatch.GetEventSource.Invoke(new()
+    ///     {
+    ///         NamePrefix = "aws.partner/examplepartner.com",
+    ///     });
+    /// 
+    ///     var examplepartnerEventBus = new Aws.CloudWatch.EventBus("examplepartnerEventBus", new()
+    ///     {
+    ///         EventSourceName = examplepartnerEventSource.Apply(getEventSourceResult =&gt; getEventSourceResult.Name),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// EventBridge event buses can be imported using the `name` (which can also be a partner event source name), e.g., console
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:cloudwatch/eventBus:EventBus")]
     public partial class EventBus : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the event bus.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The partner event source that the new event bus will be matched with. Must match `name`.
+        /// </summary>
         [Output("eventSourceName")]
         public Output<string?> EventSourceName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -73,14 +135,24 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class EventBusArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The partner event source that the new event bus will be matched with. Must match `name`.
+        /// </summary>
         [Input("eventSourceName")]
         public Input<string>? EventSourceName { get; set; }
 
+        /// <summary>
+        /// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -95,17 +167,30 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class EventBusState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the event bus.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The partner event source that the new event bus will be matched with. Must match `name`.
+        /// </summary>
         [Input("eventSourceName")]
         public Input<string>? EventSourceName { get; set; }
 
+        /// <summary>
+        /// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -114,6 +199,10 @@ namespace Pulumi.Aws.CloudWatch
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

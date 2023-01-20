@@ -71,6 +71,9 @@ class GetInstanceResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the instance.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -81,21 +84,33 @@ class GetInstanceResult:
     @property
     @pulumi.getter(name="contactFlowLogsEnabled")
     def contact_flow_logs_enabled(self) -> bool:
+        """
+        Whether contact flow logs are enabled.
+        """
         return pulumi.get(self, "contact_flow_logs_enabled")
 
     @property
     @pulumi.getter(name="contactLensEnabled")
     def contact_lens_enabled(self) -> bool:
+        """
+        Whether contact lens is enabled.
+        """
         return pulumi.get(self, "contact_lens_enabled")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> str:
+        """
+        When the instance was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="earlyMediaEnabled")
     def early_media_enabled(self) -> bool:
+        """
+        Whether early media for outbound calls is enabled .
+        """
         return pulumi.get(self, "early_media_enabled")
 
     @property
@@ -109,11 +124,17 @@ class GetInstanceResult:
     @property
     @pulumi.getter(name="identityManagementType")
     def identity_management_type(self) -> str:
+        """
+        Specifies The identity management type attached to the instance.
+        """
         return pulumi.get(self, "identity_management_type")
 
     @property
     @pulumi.getter(name="inboundCallsEnabled")
     def inbound_calls_enabled(self) -> bool:
+        """
+        Whether inbound calls are enabled.
+        """
         return pulumi.get(self, "inbound_calls_enabled")
 
     @property
@@ -129,21 +150,33 @@ class GetInstanceResult:
     @property
     @pulumi.getter(name="multiPartyConferenceEnabled")
     def multi_party_conference_enabled(self) -> bool:
+        """
+        Whether multi-party calls/conference is enabled.
+        """
         return pulumi.get(self, "multi_party_conference_enabled")
 
     @property
     @pulumi.getter(name="outboundCallsEnabled")
     def outbound_calls_enabled(self) -> bool:
+        """
+        Whether outbound calls are enabled.
+        """
         return pulumi.get(self, "outbound_calls_enabled")
 
     @property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> str:
+        """
+        Service role of the instance.
+        """
         return pulumi.get(self, "service_role")
 
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        State of the instance.
+        """
         return pulumi.get(self, "status")
 
 
@@ -174,7 +207,31 @@ def get_instance(instance_alias: Optional[str] = None,
                  instance_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about a specific Amazon Connect Instance.
+
+    ## Example Usage
+
+    By instance_alias
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.connect.get_instance(instance_alias="foo")
+    ```
+
+    By instance_id
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.connect.get_instance(instance_id="97afc98d-101a-ba98-ab97-ae114fc115ec")
+    ```
+
+
+    :param str instance_alias: Returns information on a specific connect instance by alias
+    :param str instance_id: Returns information on a specific connect instance by id
     """
     __args__ = dict()
     __args__['instanceAlias'] = instance_alias
@@ -205,6 +262,30 @@ def get_instance_output(instance_alias: Optional[pulumi.Input[Optional[str]]] = 
                         instance_id: Optional[pulumi.Input[Optional[str]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about a specific Amazon Connect Instance.
+
+    ## Example Usage
+
+    By instance_alias
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.connect.get_instance(instance_alias="foo")
+    ```
+
+    By instance_id
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.connect.get_instance(instance_id="97afc98d-101a-ba98-ab97-ae114fc115ec")
+    ```
+
+
+    :param str instance_alias: Returns information on a specific connect instance by alias
+    :param str instance_id: Returns information on a specific connect instance by id
     """
     ...

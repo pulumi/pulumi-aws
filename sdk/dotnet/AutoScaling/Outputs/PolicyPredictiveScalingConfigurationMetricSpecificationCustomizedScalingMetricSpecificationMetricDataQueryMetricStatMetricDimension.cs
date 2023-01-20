@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension
     {
+        /// <summary>
+        /// Name of the dimension.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Value of the dimension.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

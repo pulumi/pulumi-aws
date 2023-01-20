@@ -10,15 +10,58 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Service Discovery Public DNS Namespace resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicediscovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := servicediscovery.NewPublicDnsNamespace(ctx, "example", &servicediscovery.PublicDnsNamespaceArgs{
+//				Description: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Service Discovery Public DNS Namespace can be imported using the namespace ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
+//
+// ```
 type PublicDnsNamespace struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	// The ARN that Amazon Route 53 assigns to the namespace when you create it.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The description that you specify for the namespace when you create it.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	HostedZone  pulumi.StringOutput    `pulumi:"hostedZone"`
-	Name        pulumi.StringOutput    `pulumi:"name"`
-	Tags        pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
+	HostedZone pulumi.StringOutput `pulumi:"hostedZone"`
+	// The name of the namespace.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewPublicDnsNamespace registers a new resource with the given unique name, arguments, and options.
@@ -50,21 +93,33 @@ func GetPublicDnsNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PublicDnsNamespace resources.
 type publicDnsNamespaceState struct {
-	Arn         *string           `pulumi:"arn"`
-	Description *string           `pulumi:"description"`
-	HostedZone  *string           `pulumi:"hostedZone"`
-	Name        *string           `pulumi:"name"`
-	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
+	// The ARN that Amazon Route 53 assigns to the namespace when you create it.
+	Arn *string `pulumi:"arn"`
+	// The description that you specify for the namespace when you create it.
+	Description *string `pulumi:"description"`
+	// The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
+	HostedZone *string `pulumi:"hostedZone"`
+	// The name of the namespace.
+	Name *string `pulumi:"name"`
+	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type PublicDnsNamespaceState struct {
-	Arn         pulumi.StringPtrInput
+	// The ARN that Amazon Route 53 assigns to the namespace when you create it.
+	Arn pulumi.StringPtrInput
+	// The description that you specify for the namespace when you create it.
 	Description pulumi.StringPtrInput
-	HostedZone  pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
+	HostedZone pulumi.StringPtrInput
+	// The name of the namespace.
+	Name pulumi.StringPtrInput
+	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (PublicDnsNamespaceState) ElementType() reflect.Type {
@@ -72,16 +127,22 @@ func (PublicDnsNamespaceState) ElementType() reflect.Type {
 }
 
 type publicDnsNamespaceArgs struct {
-	Description *string           `pulumi:"description"`
-	Name        *string           `pulumi:"name"`
-	Tags        map[string]string `pulumi:"tags"`
+	// The description that you specify for the namespace when you create it.
+	Description *string `pulumi:"description"`
+	// The name of the namespace.
+	Name *string `pulumi:"name"`
+	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PublicDnsNamespace resource.
 type PublicDnsNamespaceArgs struct {
+	// The description that you specify for the namespace when you create it.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
+	// The name of the namespace.
+	Name pulumi.StringPtrInput
+	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (PublicDnsNamespaceArgs) ElementType() reflect.Type {
@@ -171,26 +232,32 @@ func (o PublicDnsNamespaceOutput) ToPublicDnsNamespaceOutputWithContext(ctx cont
 	return o
 }
 
+// The ARN that Amazon Route 53 assigns to the namespace when you create it.
 func (o PublicDnsNamespaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublicDnsNamespace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The description that you specify for the namespace when you create it.
 func (o PublicDnsNamespaceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicDnsNamespace) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
 func (o PublicDnsNamespaceOutput) HostedZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublicDnsNamespace) pulumi.StringOutput { return v.HostedZone }).(pulumi.StringOutput)
 }
 
+// The name of the namespace.
 func (o PublicDnsNamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublicDnsNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PublicDnsNamespaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PublicDnsNamespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PublicDnsNamespaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PublicDnsNamespace) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

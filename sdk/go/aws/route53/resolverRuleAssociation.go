@@ -11,12 +11,53 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Route53 Resolver rule association.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53.NewResolverRuleAssociation(ctx, "example", &route53.ResolverRuleAssociationArgs{
+//				ResolverRuleId: pulumi.Any(aws_route53_resolver_rule.Sys.Id),
+//				VpcId:          pulumi.Any(aws_vpc.Foo.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Route53 Resolver rule associations can be imported using the `id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
+//
+// ```
 type ResolverRuleAssociation struct {
 	pulumi.CustomResourceState
 
-	Name           pulumi.StringOutput `pulumi:"name"`
+	// A name for the association that you're creating between a resolver rule and a VPC.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The ID of the resolver rule that you want to associate with the VPC.
 	ResolverRuleId pulumi.StringOutput `pulumi:"resolverRuleId"`
-	VpcId          pulumi.StringOutput `pulumi:"vpcId"`
+	// The ID of the VPC that you want to associate the resolver rule with.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewResolverRuleAssociation registers a new resource with the given unique name, arguments, and options.
@@ -54,15 +95,21 @@ func GetResolverRuleAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverRuleAssociation resources.
 type resolverRuleAssociationState struct {
-	Name           *string `pulumi:"name"`
+	// A name for the association that you're creating between a resolver rule and a VPC.
+	Name *string `pulumi:"name"`
+	// The ID of the resolver rule that you want to associate with the VPC.
 	ResolverRuleId *string `pulumi:"resolverRuleId"`
-	VpcId          *string `pulumi:"vpcId"`
+	// The ID of the VPC that you want to associate the resolver rule with.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 type ResolverRuleAssociationState struct {
-	Name           pulumi.StringPtrInput
+	// A name for the association that you're creating between a resolver rule and a VPC.
+	Name pulumi.StringPtrInput
+	// The ID of the resolver rule that you want to associate with the VPC.
 	ResolverRuleId pulumi.StringPtrInput
-	VpcId          pulumi.StringPtrInput
+	// The ID of the VPC that you want to associate the resolver rule with.
+	VpcId pulumi.StringPtrInput
 }
 
 func (ResolverRuleAssociationState) ElementType() reflect.Type {
@@ -70,16 +117,22 @@ func (ResolverRuleAssociationState) ElementType() reflect.Type {
 }
 
 type resolverRuleAssociationArgs struct {
-	Name           *string `pulumi:"name"`
-	ResolverRuleId string  `pulumi:"resolverRuleId"`
-	VpcId          string  `pulumi:"vpcId"`
+	// A name for the association that you're creating between a resolver rule and a VPC.
+	Name *string `pulumi:"name"`
+	// The ID of the resolver rule that you want to associate with the VPC.
+	ResolverRuleId string `pulumi:"resolverRuleId"`
+	// The ID of the VPC that you want to associate the resolver rule with.
+	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a ResolverRuleAssociation resource.
 type ResolverRuleAssociationArgs struct {
-	Name           pulumi.StringPtrInput
+	// A name for the association that you're creating between a resolver rule and a VPC.
+	Name pulumi.StringPtrInput
+	// The ID of the resolver rule that you want to associate with the VPC.
 	ResolverRuleId pulumi.StringInput
-	VpcId          pulumi.StringInput
+	// The ID of the VPC that you want to associate the resolver rule with.
+	VpcId pulumi.StringInput
 }
 
 func (ResolverRuleAssociationArgs) ElementType() reflect.Type {
@@ -169,14 +222,17 @@ func (o ResolverRuleAssociationOutput) ToResolverRuleAssociationOutputWithContex
 	return o
 }
 
+// A name for the association that you're creating between a resolver rule and a VPC.
 func (o ResolverRuleAssociationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRuleAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The ID of the resolver rule that you want to associate with the VPC.
 func (o ResolverRuleAssociationOutput) ResolverRuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRuleAssociation) pulumi.StringOutput { return v.ResolverRuleId }).(pulumi.StringOutput)
 }
 
+// The ID of the VPC that you want to associate the resolver rule with.
 func (o ResolverRuleAssociationOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRuleAssociation) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

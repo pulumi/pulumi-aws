@@ -11,9 +11,15 @@ namespace Pulumi.Aws.SsoAdmin
 {
     public static class GetPermissionSet
     {
+        /// <summary>
+        /// Use this data source to get a Single Sign-On (SSO) Permission Set.
+        /// </summary>
         public static Task<GetPermissionSetResult> InvokeAsync(GetPermissionSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPermissionSetResult>("aws:ssoadmin/getPermissionSet:getPermissionSet", args ?? new GetPermissionSetArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to get a Single Sign-On (SSO) Permission Set.
+        /// </summary>
         public static Output<GetPermissionSetResult> Invoke(GetPermissionSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPermissionSetResult>("aws:ssoadmin/getPermissionSet:getPermissionSet", args ?? new GetPermissionSetInvokeArgs(), options.WithDefaults());
     }
@@ -21,17 +27,30 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class GetPermissionSetArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN of the permission set.
+        /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
+        /// <summary>
+        /// ARN of the SSO Instance associated with the permission set.
+        /// </summary>
         [Input("instanceArn", required: true)]
         public string InstanceArn { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the SSO Permission Set.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -46,17 +65,30 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class GetPermissionSetInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN of the permission set.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// ARN of the SSO Instance associated with the permission set.
+        /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the SSO Permission Set.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -75,6 +107,9 @@ namespace Pulumi.Aws.SsoAdmin
     {
         public readonly string Arn;
         public readonly string CreatedDate;
+        /// <summary>
+        /// Description of the Permission Set.
+        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -82,8 +117,17 @@ namespace Pulumi.Aws.SsoAdmin
         public readonly string Id;
         public readonly string InstanceArn;
         public readonly string Name;
+        /// <summary>
+        /// Relay state URL used to redirect users within the application during the federation authentication process.
+        /// </summary>
         public readonly string RelayState;
+        /// <summary>
+        /// Length of time that the application user sessions are valid in the ISO-8601 standard.
+        /// </summary>
         public readonly string SessionDuration;
+        /// <summary>
+        /// Key-value map of resource tags.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

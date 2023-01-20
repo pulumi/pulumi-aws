@@ -18,6 +18,8 @@ class FleetStackAssociationArgs:
                  stack_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a FleetStackAssociation resource.
+        :param pulumi.Input[str] fleet_name: Name of the fleet.
+        :param pulumi.Input[str] stack_name: Name of the stack.
         """
         pulumi.set(__self__, "fleet_name", fleet_name)
         pulumi.set(__self__, "stack_name", stack_name)
@@ -25,6 +27,9 @@ class FleetStackAssociationArgs:
     @property
     @pulumi.getter(name="fleetName")
     def fleet_name(self) -> pulumi.Input[str]:
+        """
+        Name of the fleet.
+        """
         return pulumi.get(self, "fleet_name")
 
     @fleet_name.setter
@@ -34,6 +39,9 @@ class FleetStackAssociationArgs:
     @property
     @pulumi.getter(name="stackName")
     def stack_name(self) -> pulumi.Input[str]:
+        """
+        Name of the stack.
+        """
         return pulumi.get(self, "stack_name")
 
     @stack_name.setter
@@ -48,6 +56,8 @@ class _FleetStackAssociationState:
                  stack_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FleetStackAssociation resources.
+        :param pulumi.Input[str] fleet_name: Name of the fleet.
+        :param pulumi.Input[str] stack_name: Name of the stack.
         """
         if fleet_name is not None:
             pulumi.set(__self__, "fleet_name", fleet_name)
@@ -57,6 +67,9 @@ class _FleetStackAssociationState:
     @property
     @pulumi.getter(name="fleetName")
     def fleet_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the fleet.
+        """
         return pulumi.get(self, "fleet_name")
 
     @fleet_name.setter
@@ -66,6 +79,9 @@ class _FleetStackAssociationState:
     @property
     @pulumi.getter(name="stackName")
     def stack_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the stack.
+        """
         return pulumi.get(self, "stack_name")
 
     @stack_name.setter
@@ -82,9 +98,38 @@ class FleetStackAssociation(pulumi.CustomResource):
                  stack_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a FleetStackAssociation resource with the given unique name, props, and options.
+        Manages an AppStream Fleet Stack association.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_fleet = aws.appstream.Fleet("exampleFleet",
+            image_name="Amazon-AppStream2-Sample-Image-02-04-2019",
+            instance_type="stream.standard.small",
+            compute_capacity=aws.appstream.FleetComputeCapacityArgs(
+                desired_instances=1,
+            ))
+        example_stack = aws.appstream.Stack("exampleStack")
+        example_fleet_stack_association = aws.appstream.FleetStackAssociation("exampleFleetStackAssociation",
+            fleet_name=example_fleet.name,
+            stack_name=example_stack.name)
+        ```
+
+        ## Import
+
+        AppStream Stack Fleet Association can be imported by using the `fleet_name` and `stack_name` separated by a slash (`/`), e.g.,
+
+        ```sh
+         $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] fleet_name: Name of the fleet.
+        :param pulumi.Input[str] stack_name: Name of the stack.
         """
         ...
     @overload
@@ -93,7 +138,34 @@ class FleetStackAssociation(pulumi.CustomResource):
                  args: FleetStackAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a FleetStackAssociation resource with the given unique name, props, and options.
+        Manages an AppStream Fleet Stack association.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_fleet = aws.appstream.Fleet("exampleFleet",
+            image_name="Amazon-AppStream2-Sample-Image-02-04-2019",
+            instance_type="stream.standard.small",
+            compute_capacity=aws.appstream.FleetComputeCapacityArgs(
+                desired_instances=1,
+            ))
+        example_stack = aws.appstream.Stack("exampleStack")
+        example_fleet_stack_association = aws.appstream.FleetStackAssociation("exampleFleetStackAssociation",
+            fleet_name=example_fleet.name,
+            stack_name=example_stack.name)
+        ```
+
+        ## Import
+
+        AppStream Stack Fleet Association can be imported by using the `fleet_name` and `stack_name` separated by a slash (`/`), e.g.,
+
+        ```sh
+         $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
+        ```
+
         :param str resource_name: The name of the resource.
         :param FleetStackAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +217,8 @@ class FleetStackAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] fleet_name: Name of the fleet.
+        :param pulumi.Input[str] stack_name: Name of the stack.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +231,16 @@ class FleetStackAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="fleetName")
     def fleet_name(self) -> pulumi.Output[str]:
+        """
+        Name of the fleet.
+        """
         return pulumi.get(self, "fleet_name")
 
     @property
     @pulumi.getter(name="stackName")
     def stack_name(self) -> pulumi.Output[str]:
+        """
+        Name of the stack.
+        """
         return pulumi.get(self, "stack_name")
 

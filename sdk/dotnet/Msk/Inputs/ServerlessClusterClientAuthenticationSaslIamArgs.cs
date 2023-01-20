@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ServerlessClusterClientAuthenticationSaslIamArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether SASL/IAM authentication is enabled or not.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

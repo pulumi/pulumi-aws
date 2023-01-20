@@ -15,23 +15,47 @@ public final class GetDocumentArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetDocumentArgs Empty = new GetDocumentArgs();
 
+    /**
+     * Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
+     * 
+     */
     @Import(name="documentFormat")
     private @Nullable Output<String> documentFormat;
 
+    /**
+     * @return Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
+     * 
+     */
     public Optional<Output<String>> documentFormat() {
         return Optional.ofNullable(this.documentFormat);
     }
 
+    /**
+     * Document version for which you want information.
+     * 
+     */
     @Import(name="documentVersion")
     private @Nullable Output<String> documentVersion;
 
+    /**
+     * @return Document version for which you want information.
+     * 
+     */
     public Optional<Output<String>> documentVersion() {
         return Optional.ofNullable(this.documentVersion);
     }
 
+    /**
+     * Name of the Systems Manager document.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the Systems Manager document.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -62,29 +86,65 @@ public final class GetDocumentArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetDocumentArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param documentFormat Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
+         * 
+         * @return builder
+         * 
+         */
         public Builder documentFormat(@Nullable Output<String> documentFormat) {
             $.documentFormat = documentFormat;
             return this;
         }
 
+        /**
+         * @param documentFormat Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
+         * 
+         * @return builder
+         * 
+         */
         public Builder documentFormat(String documentFormat) {
             return documentFormat(Output.of(documentFormat));
         }
 
+        /**
+         * @param documentVersion Document version for which you want information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder documentVersion(@Nullable Output<String> documentVersion) {
             $.documentVersion = documentVersion;
             return this;
         }
 
+        /**
+         * @param documentVersion Document version for which you want information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder documentVersion(String documentVersion) {
             return documentVersion(Output.of(documentVersion));
         }
 
+        /**
+         * @param name Name of the Systems Manager document.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the Systems Manager document.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

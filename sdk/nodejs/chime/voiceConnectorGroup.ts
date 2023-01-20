@@ -7,6 +7,45 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Creates an Amazon Chime Voice Connector group under the administrator's AWS account. You can associate Amazon Chime Voice Connectors with the Amazon Chime Voice Connector group by including VoiceConnectorItems in the request.
+ *
+ * You can include Amazon Chime Voice Connectors from different AWS Regions in your group. This creates a fault tolerant mechanism for fallback in case of availability events.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const vc1 = new aws.chime.VoiceConnector("vc1", {
+ *     requireEncryption: true,
+ *     awsRegion: "us-east-1",
+ * });
+ * const vc2 = new aws.chime.VoiceConnector("vc2", {
+ *     requireEncryption: true,
+ *     awsRegion: "us-west-2",
+ * });
+ * const group = new aws.chime.VoiceConnectorGroup("group", {connectors: [
+ *     {
+ *         voiceConnectorId: vc1.id,
+ *         priority: 1,
+ *     },
+ *     {
+ *         voiceConnectorId: vc2.id,
+ *         priority: 3,
+ *     },
+ * ]});
+ * ```
+ *
+ * ## Import
+ *
+ * Configuration Recorder can be imported using the name, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
+ * ```
+ */
 export class VoiceConnectorGroup extends pulumi.CustomResource {
     /**
      * Get an existing VoiceConnectorGroup resource's state with the given name, ID, and optional extra
@@ -35,7 +74,13 @@ export class VoiceConnectorGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === VoiceConnectorGroup.__pulumiType;
     }
 
+    /**
+     * The Amazon Chime Voice Connectors to route inbound calls to.
+     */
     public readonly connectors!: pulumi.Output<outputs.chime.VoiceConnectorGroupConnector[] | undefined>;
+    /**
+     * The name of the Amazon Chime Voice Connector group.
+     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -67,7 +112,13 @@ export class VoiceConnectorGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VoiceConnectorGroup resources.
  */
 export interface VoiceConnectorGroupState {
+    /**
+     * The Amazon Chime Voice Connectors to route inbound calls to.
+     */
     connectors?: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorGroupConnector>[]>;
+    /**
+     * The name of the Amazon Chime Voice Connector group.
+     */
     name?: pulumi.Input<string>;
 }
 
@@ -75,6 +126,12 @@ export interface VoiceConnectorGroupState {
  * The set of arguments for constructing a VoiceConnectorGroup resource.
  */
 export interface VoiceConnectorGroupArgs {
+    /**
+     * The Amazon Chime Voice Connectors to route inbound calls to.
+     */
     connectors?: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorGroupConnector>[]>;
+    /**
+     * The name of the Amazon Chime Voice Connector group.
+     */
     name?: pulumi.Input<string>;
 }

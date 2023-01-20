@@ -19,6 +19,9 @@ class TagOptionArgs:
                  active: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a TagOption resource.
+        :param pulumi.Input[str] key: Tag option key.
+        :param pulumi.Input[str] value: Tag option value.
+        :param pulumi.Input[bool] active: Whether tag option is active. Default is `true`.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -28,6 +31,9 @@ class TagOptionArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Tag option key.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -37,6 +43,9 @@ class TagOptionArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Tag option value.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -46,6 +55,9 @@ class TagOptionArgs:
     @property
     @pulumi.getter
     def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether tag option is active. Default is `true`.
+        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -62,6 +74,9 @@ class _TagOptionState:
                  value: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TagOption resources.
+        :param pulumi.Input[bool] active: Whether tag option is active. Default is `true`.
+        :param pulumi.Input[str] key: Tag option key.
+        :param pulumi.Input[str] value: Tag option value.
         """
         if active is not None:
             pulumi.set(__self__, "active", active)
@@ -75,6 +90,9 @@ class _TagOptionState:
     @property
     @pulumi.getter
     def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether tag option is active. Default is `true`.
+        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -84,6 +102,9 @@ class _TagOptionState:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Tag option key.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -102,6 +123,9 @@ class _TagOptionState:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Tag option value.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -119,9 +143,33 @@ class TagOption(pulumi.CustomResource):
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a TagOption resource with the given unique name, props, and options.
+        Manages a Service Catalog Tag Option.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.servicecatalog.TagOption("example",
+            key="nyckel",
+            value="värde")
+        ```
+
+        ## Import
+
+        `aws_servicecatalog_tag_option` can be imported using the tag option ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] active: Whether tag option is active. Default is `true`.
+        :param pulumi.Input[str] key: Tag option key.
+        :param pulumi.Input[str] value: Tag option value.
         """
         ...
     @overload
@@ -130,7 +178,28 @@ class TagOption(pulumi.CustomResource):
                  args: TagOptionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a TagOption resource with the given unique name, props, and options.
+        Manages a Service Catalog Tag Option.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.servicecatalog.TagOption("example",
+            key="nyckel",
+            value="värde")
+        ```
+
+        ## Import
+
+        `aws_servicecatalog_tag_option` can be imported using the tag option ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
+        ```
+
         :param str resource_name: The name of the resource.
         :param TagOptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,6 +256,9 @@ class TagOption(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] active: Whether tag option is active. Default is `true`.
+        :param pulumi.Input[str] key: Tag option key.
+        :param pulumi.Input[str] value: Tag option value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -201,11 +273,17 @@ class TagOption(pulumi.CustomResource):
     @property
     @pulumi.getter
     def active(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether tag option is active. Default is `true`.
+        """
         return pulumi.get(self, "active")
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
+        """
+        Tag option key.
+        """
         return pulumi.get(self, "key")
 
     @property
@@ -216,5 +294,8 @@ class TagOption(pulumi.CustomResource):
     @property
     @pulumi.getter
     def value(self) -> pulumi.Output[str]:
+        """
+        Tag option value.
+        """
         return pulumi.get(self, "value")
 

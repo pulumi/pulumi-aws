@@ -13,9 +13,21 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class TopicRuleS3
     {
+        /// <summary>
+        /// The Amazon S3 bucket name.
+        /// </summary>
         public readonly string BucketName;
+        /// <summary>
+        /// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+        /// </summary>
         public readonly string? CannedAcl;
+        /// <summary>
+        /// The name of the HTTP header.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The IAM role ARN that allows access to the CloudWatch alarm.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

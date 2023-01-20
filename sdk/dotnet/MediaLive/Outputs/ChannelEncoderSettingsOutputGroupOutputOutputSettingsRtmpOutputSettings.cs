@@ -14,8 +14,17 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings
     {
         public readonly string? CertficateMode;
+        /// <summary>
+        /// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        /// </summary>
         public readonly int? ConnectionRetryInterval;
+        /// <summary>
+        /// The RTMP endpoint excluding the stream name. See Destination for more details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination Destination;
+        /// <summary>
+        /// Number of retry attempts.
+        /// </summary>
         public readonly int? NumRetries;
 
         [OutputConstructor]

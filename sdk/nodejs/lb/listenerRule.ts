@@ -7,6 +7,180 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Load Balancer Listener Rule resource.
+ *
+ * > **Note:** `aws.alb.ListenerRule` is known as `aws.lb.ListenerRule`. The functionality is identical.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
+ * // ...
+ * const frontEndListener = new aws.lb.Listener("frontEndListener", {});
+ * // Other parameters
+ * const static = new aws.lb.ListenerRule("static", {
+ *     listenerArn: frontEndListener.arn,
+ *     priority: 100,
+ *     actions: [{
+ *         type: "forward",
+ *         targetGroupArn: aws_lb_target_group.static.arn,
+ *     }],
+ *     conditions: [
+ *         {
+ *             pathPattern: {
+ *                 values: ["/static/*"],
+ *             },
+ *         },
+ *         {
+ *             hostHeader: {
+ *                 values: ["example.com"],
+ *             },
+ *         },
+ *     ],
+ * });
+ * // Forward action
+ * const hostBasedWeightedRouting = new aws.lb.ListenerRule("hostBasedWeightedRouting", {
+ *     listenerArn: frontEndListener.arn,
+ *     priority: 99,
+ *     actions: [{
+ *         type: "forward",
+ *         targetGroupArn: aws_lb_target_group.static.arn,
+ *     }],
+ *     conditions: [{
+ *         hostHeader: {
+ *             values: ["my-service.*.mycompany.io"],
+ *         },
+ *     }],
+ * });
+ * // Weighted Forward action
+ * const hostBasedRouting = new aws.lb.ListenerRule("hostBasedRouting", {
+ *     listenerArn: frontEndListener.arn,
+ *     priority: 99,
+ *     actions: [{
+ *         type: "forward",
+ *         forward: {
+ *             targetGroups: [
+ *                 {
+ *                     arn: aws_lb_target_group.main.arn,
+ *                     weight: 80,
+ *                 },
+ *                 {
+ *                     arn: aws_lb_target_group.canary.arn,
+ *                     weight: 20,
+ *                 },
+ *             ],
+ *             stickiness: {
+ *                 enabled: true,
+ *                 duration: 600,
+ *             },
+ *         },
+ *     }],
+ *     conditions: [{
+ *         hostHeader: {
+ *             values: ["my-service.*.mycompany.io"],
+ *         },
+ *     }],
+ * });
+ * // Redirect action
+ * const redirectHttpToHttps = new aws.lb.ListenerRule("redirectHttpToHttps", {
+ *     listenerArn: frontEndListener.arn,
+ *     actions: [{
+ *         type: "redirect",
+ *         redirect: {
+ *             port: "443",
+ *             protocol: "HTTPS",
+ *             statusCode: "HTTP_301",
+ *         },
+ *     }],
+ *     conditions: [{
+ *         httpHeader: {
+ *             httpHeaderName: "X-Forwarded-For",
+ *             values: ["192.168.1.*"],
+ *         },
+ *     }],
+ * });
+ * // Fixed-response action
+ * const healthCheck = new aws.lb.ListenerRule("healthCheck", {
+ *     listenerArn: frontEndListener.arn,
+ *     actions: [{
+ *         type: "fixed-response",
+ *         fixedResponse: {
+ *             contentType: "text/plain",
+ *             messageBody: "HEALTHY",
+ *             statusCode: "200",
+ *         },
+ *     }],
+ *     conditions: [{
+ *         queryStrings: [
+ *             {
+ *                 key: "health",
+ *                 value: "check",
+ *             },
+ *             {
+ *                 value: "bar",
+ *             },
+ *         ],
+ *     }],
+ * });
+ * // Authenticate-cognito Action
+ * const pool = new aws.cognito.UserPool("pool", {});
+ * // ...
+ * const client = new aws.cognito.UserPoolClient("client", {});
+ * // ...
+ * const domain = new aws.cognito.UserPoolDomain("domain", {});
+ * // ...
+ * const admin = new aws.lb.ListenerRule("admin", {
+ *     listenerArn: frontEndListener.arn,
+ *     actions: [
+ *         {
+ *             type: "authenticate-cognito",
+ *             authenticateCognito: {
+ *                 userPoolArn: pool.arn,
+ *                 userPoolClientId: client.id,
+ *                 userPoolDomain: domain.domain,
+ *             },
+ *         },
+ *         {
+ *             type: "forward",
+ *             targetGroupArn: aws_lb_target_group.static.arn,
+ *         },
+ *     ],
+ * });
+ * // Authenticate-oidc Action
+ * const oidc = new aws.lb.ListenerRule("oidc", {
+ *     listenerArn: frontEndListener.arn,
+ *     actions: [
+ *         {
+ *             type: "authenticate-oidc",
+ *             authenticateOidc: {
+ *                 authorizationEndpoint: "https://example.com/authorization_endpoint",
+ *                 clientId: "client_id",
+ *                 clientSecret: "client_secret",
+ *                 issuer: "https://example.com",
+ *                 tokenEndpoint: "https://example.com/token_endpoint",
+ *                 userInfoEndpoint: "https://example.com/user_info_endpoint",
+ *             },
+ *         },
+ *         {
+ *             type: "forward",
+ *             targetGroupArn: aws_lb_target_group.static.arn,
+ *         },
+ *     ],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Rules can be imported using their ARN, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:lb/listenerRule:ListenerRule front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener-rule/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b
+ * ```
+ */
 export class ListenerRule extends pulumi.CustomResource {
     /**
      * Get an existing ListenerRule resource's state with the given name, ID, and optional extra
@@ -35,12 +209,33 @@ export class ListenerRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === ListenerRule.__pulumiType;
     }
 
+    /**
+     * An Action block. Action blocks are documented below.
+     */
     public readonly actions!: pulumi.Output<outputs.lb.ListenerRuleAction[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the target group.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
+     */
     public readonly conditions!: pulumi.Output<outputs.lb.ListenerRuleCondition[]>;
+    /**
+     * The ARN of the listener to which to attach the rule.
+     */
     public readonly listenerArn!: pulumi.Output<string>;
+    /**
+     * The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
+     */
     public readonly priority!: pulumi.Output<number>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -93,12 +288,33 @@ export class ListenerRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ListenerRule resources.
  */
 export interface ListenerRuleState {
+    /**
+     * An Action block. Action blocks are documented below.
+     */
     actions?: pulumi.Input<pulumi.Input<inputs.lb.ListenerRuleAction>[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the target group.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
+     */
     conditions?: pulumi.Input<pulumi.Input<inputs.lb.ListenerRuleCondition>[]>;
+    /**
+     * The ARN of the listener to which to attach the rule.
+     */
     listenerArn?: pulumi.Input<string>;
+    /**
+     * The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
+     */
     priority?: pulumi.Input<number>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -106,9 +322,24 @@ export interface ListenerRuleState {
  * The set of arguments for constructing a ListenerRule resource.
  */
 export interface ListenerRuleArgs {
+    /**
+     * An Action block. Action blocks are documented below.
+     */
     actions: pulumi.Input<pulumi.Input<inputs.lb.ListenerRuleAction>[]>;
+    /**
+     * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
+     */
     conditions: pulumi.Input<pulumi.Input<inputs.lb.ListenerRuleCondition>[]>;
+    /**
+     * The ARN of the listener to which to attach the rule.
+     */
     listenerArn: pulumi.Input<string>;
+    /**
+     * The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
+     */
     priority?: pulumi.Input<number>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

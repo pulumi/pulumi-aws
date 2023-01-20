@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Emr.Outputs
     [OutputType]
     public sealed class InstanceFleetInstanceTypeConfigConfiguration
     {
+        /// <summary>
+        /// The classification within a configuration.
+        /// </summary>
         public readonly string? Classification;
+        /// <summary>
+        /// A map of properties specified within a configuration classification
+        /// </summary>
         public readonly ImmutableDictionary<string, object>? Properties;
 
         [OutputConstructor]

@@ -18,6 +18,8 @@ class PolicyAttachmentArgs:
                  target_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a PolicyAttachment resource.
+        :param pulumi.Input[str] policy_id: The unique identifier (ID) of the policy that you want to attach to the target.
+        :param pulumi.Input[str] target_id: The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
         """
         pulumi.set(__self__, "policy_id", policy_id)
         pulumi.set(__self__, "target_id", target_id)
@@ -25,6 +27,9 @@ class PolicyAttachmentArgs:
     @property
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier (ID) of the policy that you want to attach to the target.
+        """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
@@ -34,6 +39,9 @@ class PolicyAttachmentArgs:
     @property
     @pulumi.getter(name="targetId")
     def target_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+        """
         return pulumi.get(self, "target_id")
 
     @target_id.setter
@@ -48,6 +56,8 @@ class _PolicyAttachmentState:
                  target_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PolicyAttachment resources.
+        :param pulumi.Input[str] policy_id: The unique identifier (ID) of the policy that you want to attach to the target.
+        :param pulumi.Input[str] target_id: The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
         """
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
@@ -57,6 +67,9 @@ class _PolicyAttachmentState:
     @property
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier (ID) of the policy that you want to attach to the target.
+        """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
@@ -66,6 +79,9 @@ class _PolicyAttachmentState:
     @property
     @pulumi.getter(name="targetId")
     def target_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+        """
         return pulumi.get(self, "target_id")
 
     @target_id.setter
@@ -82,9 +98,52 @@ class PolicyAttachment(pulumi.CustomResource):
                  target_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a PolicyAttachment resource with the given unique name, props, and options.
+        Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
+
+        ## Example Usage
+        ### Organization Account
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        account = aws.organizations.PolicyAttachment("account",
+            policy_id=aws_organizations_policy["example"]["id"],
+            target_id="123456789012")
+        ```
+        ### Organization Root
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        root = aws.organizations.PolicyAttachment("root",
+            policy_id=aws_organizations_policy["example"]["id"],
+            target_id=aws_organizations_organization["example"]["roots"][0]["id"])
+        ```
+        ### Organization Unit
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        unit = aws.organizations.PolicyAttachment("unit",
+            policy_id=aws_organizations_policy["example"]["id"],
+            target_id=aws_organizations_organizational_unit["example"]["id"])
+        ```
+
+        ## Import
+
+        `aws_organizations_policy_attachment` can be imported by using the target ID and policy ID, e.g., with an account target
+
+        ```sh
+         $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy_id: The unique identifier (ID) of the policy that you want to attach to the target.
+        :param pulumi.Input[str] target_id: The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
         """
         ...
     @overload
@@ -93,7 +152,48 @@ class PolicyAttachment(pulumi.CustomResource):
                  args: PolicyAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a PolicyAttachment resource with the given unique name, props, and options.
+        Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
+
+        ## Example Usage
+        ### Organization Account
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        account = aws.organizations.PolicyAttachment("account",
+            policy_id=aws_organizations_policy["example"]["id"],
+            target_id="123456789012")
+        ```
+        ### Organization Root
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        root = aws.organizations.PolicyAttachment("root",
+            policy_id=aws_organizations_policy["example"]["id"],
+            target_id=aws_organizations_organization["example"]["roots"][0]["id"])
+        ```
+        ### Organization Unit
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        unit = aws.organizations.PolicyAttachment("unit",
+            policy_id=aws_organizations_policy["example"]["id"],
+            target_id=aws_organizations_organizational_unit["example"]["id"])
+        ```
+
+        ## Import
+
+        `aws_organizations_policy_attachment` can be imported by using the target ID and policy ID, e.g., with an account target
+
+        ```sh
+         $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
+        ```
+
         :param str resource_name: The name of the resource.
         :param PolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +245,8 @@ class PolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy_id: The unique identifier (ID) of the policy that you want to attach to the target.
+        :param pulumi.Input[str] target_id: The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +259,16 @@ class PolicyAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier (ID) of the policy that you want to attach to the target.
+        """
         return pulumi.get(self, "policy_id")
 
     @property
     @pulumi.getter(name="targetId")
     def target_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+        """
         return pulumi.get(self, "target_id")
 

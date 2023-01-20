@@ -10,7 +10,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGlobalNetworkResult {
+    /**
+     * @return ARN of the global network.
+     * 
+     */
     private String arn;
+    /**
+     * @return Description of the global network.
+     * 
+     */
     private String description;
     private String globalNetworkId;
     /**
@@ -18,12 +26,24 @@ public final class GetGlobalNetworkResult {
      * 
      */
     private String id;
+    /**
+     * @return Map of resource tags.
+     * 
+     */
     private Map<String,String> tags;
 
     private GetGlobalNetworkResult() {}
+    /**
+     * @return ARN of the global network.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Description of the global network.
+     * 
+     */
     public String description() {
         return this.description;
     }
@@ -37,6 +57,10 @@ public final class GetGlobalNetworkResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Map of resource tags.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }

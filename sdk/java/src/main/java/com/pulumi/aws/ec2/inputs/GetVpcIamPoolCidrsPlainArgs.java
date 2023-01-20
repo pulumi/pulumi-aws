@@ -16,16 +16,32 @@ public final class GetVpcIamPoolCidrsPlainArgs extends com.pulumi.resources.Invo
 
     public static final GetVpcIamPoolCidrsPlainArgs Empty = new GetVpcIamPoolCidrsPlainArgs();
 
+    /**
+     * Custom filter block as described below.
+     * 
+     */
     @Import(name="filters")
     private @Nullable List<GetVpcIamPoolCidrsFilter> filters;
 
+    /**
+     * @return Custom filter block as described below.
+     * 
+     */
     public Optional<List<GetVpcIamPoolCidrsFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
+    /**
+     * ID of the IPAM pool you would like the list of provisioned CIDRs.
+     * 
+     */
     @Import(name="ipamPoolId", required=true)
     private String ipamPoolId;
 
+    /**
+     * @return ID of the IPAM pool you would like the list of provisioned CIDRs.
+     * 
+     */
     public String ipamPoolId() {
         return this.ipamPoolId;
     }
@@ -55,15 +71,33 @@ public final class GetVpcIamPoolCidrsPlainArgs extends com.pulumi.resources.Invo
             $ = new GetVpcIamPoolCidrsPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filters Custom filter block as described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable List<GetVpcIamPoolCidrsFilter> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters Custom filter block as described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(GetVpcIamPoolCidrsFilter... filters) {
             return filters(List.of(filters));
         }
 
+        /**
+         * @param ipamPoolId ID of the IPAM pool you would like the list of provisioned CIDRs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipamPoolId(String ipamPoolId) {
             $.ipamPoolId = ipamPoolId;
             return this;

@@ -14,23 +14,49 @@ public final class GetInvocationPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetInvocationPlainArgs Empty = new GetInvocationPlainArgs();
 
+    /**
+     * Name of the lambda function.
+     * 
+     */
     @Import(name="functionName", required=true)
     private String functionName;
 
+    /**
+     * @return Name of the lambda function.
+     * 
+     */
     public String functionName() {
         return this.functionName;
     }
 
+    /**
+     * String in JSON format that is passed as payload to the lambda function.
+     * 
+     */
     @Import(name="input", required=true)
     private String input;
 
+    /**
+     * @return String in JSON format that is passed as payload to the lambda function.
+     * 
+     */
     public String input() {
         return this.input;
     }
 
+    /**
+     * Qualifier (a.k.a version) of the lambda function. Defaults
+     * to `$LATEST`.
+     * 
+     */
     @Import(name="qualifier")
     private @Nullable String qualifier;
 
+    /**
+     * @return Qualifier (a.k.a version) of the lambda function. Defaults
+     * to `$LATEST`.
+     * 
+     */
     public Optional<String> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
@@ -61,16 +87,35 @@ public final class GetInvocationPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetInvocationPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param functionName Name of the lambda function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder functionName(String functionName) {
             $.functionName = functionName;
             return this;
         }
 
+        /**
+         * @param input String in JSON format that is passed as payload to the lambda function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder input(String input) {
             $.input = input;
             return this;
         }
 
+        /**
+         * @param qualifier Qualifier (a.k.a version) of the lambda function. Defaults
+         * to `$LATEST`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder qualifier(@Nullable String qualifier) {
             $.qualifier = qualifier;
             return this;

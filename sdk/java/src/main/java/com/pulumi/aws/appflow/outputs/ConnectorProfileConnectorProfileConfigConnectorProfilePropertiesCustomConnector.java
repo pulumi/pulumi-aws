@@ -13,13 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector {
+    /**
+     * @return The OAuth 2.0 properties required for OAuth 2.0 authentication.
+     * 
+     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties oauth2Properties;
+    /**
+     * @return A map of properties that are required to create a profile for the custom connector.
+     * 
+     */
     private @Nullable Map<String,String> profileProperties;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector() {}
+    /**
+     * @return The OAuth 2.0 properties required for OAuth 2.0 authentication.
+     * 
+     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties> oauth2Properties() {
         return Optional.ofNullable(this.oauth2Properties);
     }
+    /**
+     * @return A map of properties that are required to create a profile for the custom connector.
+     * 
+     */
     public Map<String,String> profileProperties() {
         return this.profileProperties == null ? Map.of() : this.profileProperties;
     }

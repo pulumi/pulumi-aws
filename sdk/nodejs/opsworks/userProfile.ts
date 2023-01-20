@@ -4,6 +4,21 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an OpsWorks User Profile resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const myProfile = new aws.opsworks.UserProfile("myProfile", {
+ *     userArn: aws_iam_user.user.arn,
+ *     sshUsername: "my_user",
+ * });
+ * ```
+ */
 export class UserProfile extends pulumi.CustomResource {
     /**
      * Get an existing UserProfile resource's state with the given name, ID, and optional extra
@@ -32,9 +47,21 @@ export class UserProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserProfile.__pulumiType;
     }
 
+    /**
+     * Whether users can specify their own SSH public key through the My Settings page
+     */
     public readonly allowSelfManagement!: pulumi.Output<boolean | undefined>;
+    /**
+     * The users public key
+     */
     public readonly sshPublicKey!: pulumi.Output<string | undefined>;
+    /**
+     * The ssh username, with witch this user wants to log in
+     */
     public readonly sshUsername!: pulumi.Output<string>;
+    /**
+     * The user's IAM ARN
+     */
     public readonly userArn!: pulumi.Output<string>;
 
     /**
@@ -76,9 +103,21 @@ export class UserProfile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserProfile resources.
  */
 export interface UserProfileState {
+    /**
+     * Whether users can specify their own SSH public key through the My Settings page
+     */
     allowSelfManagement?: pulumi.Input<boolean>;
+    /**
+     * The users public key
+     */
     sshPublicKey?: pulumi.Input<string>;
+    /**
+     * The ssh username, with witch this user wants to log in
+     */
     sshUsername?: pulumi.Input<string>;
+    /**
+     * The user's IAM ARN
+     */
     userArn?: pulumi.Input<string>;
 }
 
@@ -86,8 +125,20 @@ export interface UserProfileState {
  * The set of arguments for constructing a UserProfile resource.
  */
 export interface UserProfileArgs {
+    /**
+     * Whether users can specify their own SSH public key through the My Settings page
+     */
     allowSelfManagement?: pulumi.Input<boolean>;
+    /**
+     * The users public key
+     */
     sshPublicKey?: pulumi.Input<string>;
+    /**
+     * The ssh username, with witch this user wants to log in
+     */
     sshUsername: pulumi.Input<string>;
+    /**
+     * The user's IAM ARN
+     */
     userArn: pulumi.Input<string>;
 }

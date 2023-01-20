@@ -10,6 +10,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieve information about sites.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkmanager.GetSites(ctx, &networkmanager.GetSitesArgs{
+//				GlobalNetworkId: _var.Global_network_id,
+//				Tags: map[string]interface{}{
+//					"Env": "test",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetSites(ctx *pulumi.Context, args *GetSitesArgs, opts ...pulumi.InvokeOption) (*GetSitesResult, error) {
 	var rv GetSitesResult
 	err := ctx.Invoke("aws:networkmanager/getSites:getSites", args, &rv, opts...)
@@ -21,15 +51,18 @@ func GetSites(ctx *pulumi.Context, args *GetSitesArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getSites.
 type GetSitesArgs struct {
-	GlobalNetworkId string            `pulumi:"globalNetworkId"`
-	Tags            map[string]string `pulumi:"tags"`
+	// ID of the Global Network of the sites to retrieve.
+	GlobalNetworkId string `pulumi:"globalNetworkId"`
+	// Restricts the list to the sites with these tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSites.
 type GetSitesResult struct {
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string            `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// IDs of the sites.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -49,8 +82,10 @@ func GetSitesOutput(ctx *pulumi.Context, args GetSitesOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getSites.
 type GetSitesOutputArgs struct {
-	GlobalNetworkId pulumi.StringInput    `pulumi:"globalNetworkId"`
-	Tags            pulumi.StringMapInput `pulumi:"tags"`
+	// ID of the Global Network of the sites to retrieve.
+	GlobalNetworkId pulumi.StringInput `pulumi:"globalNetworkId"`
+	// Restricts the list to the sites with these tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetSitesOutputArgs) ElementType() reflect.Type {
@@ -81,6 +116,7 @@ func (o GetSitesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSitesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// IDs of the sites.
 func (o GetSitesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSitesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

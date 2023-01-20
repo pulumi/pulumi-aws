@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionTrustedKeyGroupItem {
+    /**
+     * @return The ID of the key group that contains the public keys
+     * 
+     */
     private @Nullable String keyGroupId;
+    /**
+     * @return Set of active CloudFront key pairs associated with the signer account
+     * 
+     */
     private @Nullable List<String> keyPairIds;
 
     private DistributionTrustedKeyGroupItem() {}
+    /**
+     * @return The ID of the key group that contains the public keys
+     * 
+     */
     public Optional<String> keyGroupId() {
         return Optional.ofNullable(this.keyGroupId);
     }
+    /**
+     * @return Set of active CloudFront key pairs associated with the signer account
+     * 
+     */
     public List<String> keyPairIds() {
         return this.keyPairIds == null ? List.of() : this.keyPairIds;
     }

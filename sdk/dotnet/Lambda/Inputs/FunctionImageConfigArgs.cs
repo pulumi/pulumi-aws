@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Lambda.Inputs
     {
         [Input("commands")]
         private InputList<string>? _commands;
+
+        /// <summary>
+        /// Parameters that you want to pass in with `entry_point`.
+        /// </summary>
         public InputList<string> Commands
         {
             get => _commands ?? (_commands = new InputList<string>());
@@ -22,12 +26,19 @@ namespace Pulumi.Aws.Lambda.Inputs
 
         [Input("entryPoints")]
         private InputList<string>? _entryPoints;
+
+        /// <summary>
+        /// Entry point to your application, which is typically the location of the runtime executable.
+        /// </summary>
         public InputList<string> EntryPoints
         {
             get => _entryPoints ?? (_entryPoints = new InputList<string>());
             set => _entryPoints = value;
         }
 
+        /// <summary>
+        /// Working directory.
+        /// </summary>
         [Input("workingDirectory")]
         public Input<string>? WorkingDirectory { get; set; }
 

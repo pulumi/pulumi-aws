@@ -13,9 +13,21 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus
     {
+        /// <summary>
+        /// The Access Key portion of the credentials.
+        /// </summary>
         public readonly string AccessKeyId;
+        /// <summary>
+        /// Encryption keys used to encrypt data.
+        /// </summary>
         public readonly string Datakey;
+        /// <summary>
+        /// The secret key used to sign requests.
+        /// </summary>
         public readonly string SecretAccessKey;
+        /// <summary>
+        /// Identifier for the user.
+        /// </summary>
         public readonly string UserId;
 
         [OutputConstructor]

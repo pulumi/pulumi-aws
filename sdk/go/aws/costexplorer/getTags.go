@@ -10,6 +10,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides details about a specific CE Tags.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := costexplorer.GetTags(ctx, &costexplorer.GetTagsArgs{
+//				TimePeriod: costexplorer.GetTagsTimePeriod{
+//					End:   "2022-12-01",
+//					Start: "2021-01-01",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetTags(ctx *pulumi.Context, args *GetTagsArgs, opts ...pulumi.InvokeOption) (*GetTagsResult, error) {
 	var rv GetTagsResult
 	err := ctx.Invoke("aws:costexplorer/getTags:getTags", args, &rv, opts...)
@@ -21,23 +51,29 @@ func GetTags(ctx *pulumi.Context, args *GetTagsArgs, opts ...pulumi.InvokeOption
 
 // A collection of arguments for invoking getTags.
 type GetTagsArgs struct {
-	Filter       *GetTagsFilter    `pulumi:"filter"`
-	SearchString *string           `pulumi:"searchString"`
-	SortBies     []GetTagsSortBy   `pulumi:"sortBies"`
-	TagKey       *string           `pulumi:"tagKey"`
-	TimePeriod   GetTagsTimePeriod `pulumi:"timePeriod"`
+	// Configuration block for the `Expression` object used to categorize costs. See below.
+	Filter *GetTagsFilter `pulumi:"filter"`
+	// Value that you want to search for.
+	SearchString *string `pulumi:"searchString"`
+	// Configuration block for the value by which you want to sort the data. See below.
+	SortBies []GetTagsSortBy `pulumi:"sortBies"`
+	// Key of the tag that you want to return values for.
+	TagKey *string `pulumi:"tagKey"`
+	// Configuration block for the start and end dates for retrieving the dimension values.
+	TimePeriod GetTagsTimePeriod `pulumi:"timePeriod"`
 }
 
 // A collection of values returned by getTags.
 type GetTagsResult struct {
 	Filter *GetTagsFilter `pulumi:"filter"`
 	// The provider-assigned unique ID for this managed resource.
-	Id           string            `pulumi:"id"`
-	SearchString *string           `pulumi:"searchString"`
-	SortBies     []GetTagsSortBy   `pulumi:"sortBies"`
-	TagKey       *string           `pulumi:"tagKey"`
-	Tags         []string          `pulumi:"tags"`
-	TimePeriod   GetTagsTimePeriod `pulumi:"timePeriod"`
+	Id           string          `pulumi:"id"`
+	SearchString *string         `pulumi:"searchString"`
+	SortBies     []GetTagsSortBy `pulumi:"sortBies"`
+	TagKey       *string         `pulumi:"tagKey"`
+	// Tags that match your request.
+	Tags       []string          `pulumi:"tags"`
+	TimePeriod GetTagsTimePeriod `pulumi:"timePeriod"`
 }
 
 func GetTagsOutput(ctx *pulumi.Context, args GetTagsOutputArgs, opts ...pulumi.InvokeOption) GetTagsResultOutput {
@@ -55,11 +91,16 @@ func GetTagsOutput(ctx *pulumi.Context, args GetTagsOutputArgs, opts ...pulumi.I
 
 // A collection of arguments for invoking getTags.
 type GetTagsOutputArgs struct {
-	Filter       GetTagsFilterPtrInput   `pulumi:"filter"`
-	SearchString pulumi.StringPtrInput   `pulumi:"searchString"`
-	SortBies     GetTagsSortByArrayInput `pulumi:"sortBies"`
-	TagKey       pulumi.StringPtrInput   `pulumi:"tagKey"`
-	TimePeriod   GetTagsTimePeriodInput  `pulumi:"timePeriod"`
+	// Configuration block for the `Expression` object used to categorize costs. See below.
+	Filter GetTagsFilterPtrInput `pulumi:"filter"`
+	// Value that you want to search for.
+	SearchString pulumi.StringPtrInput `pulumi:"searchString"`
+	// Configuration block for the value by which you want to sort the data. See below.
+	SortBies GetTagsSortByArrayInput `pulumi:"sortBies"`
+	// Key of the tag that you want to return values for.
+	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
+	// Configuration block for the start and end dates for retrieving the dimension values.
+	TimePeriod GetTagsTimePeriodInput `pulumi:"timePeriod"`
 }
 
 func (GetTagsOutputArgs) ElementType() reflect.Type {
@@ -102,6 +143,7 @@ func (o GetTagsResultOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTagsResult) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
+// Tags that match your request.
 func (o GetTagsResultOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTagsResult) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }

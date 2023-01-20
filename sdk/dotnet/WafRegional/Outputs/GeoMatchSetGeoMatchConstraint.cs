@@ -13,7 +13,15 @@ namespace Pulumi.Aws.WafRegional.Outputs
     [OutputType]
     public sealed class GeoMatchSetGeoMatchConstraint
     {
+        /// <summary>
+        /// The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The country that you want AWS WAF to search for.
+        /// This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
+        /// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -26,6 +26,14 @@ class RuleGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RuleGroup resource.
+        :param pulumi.Input[int] capacity: The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
+        :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        :param pulumi.Input['RuleGroupVisibilityConfigArgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        :param pulumi.Input[str] description: A friendly description of the rule group.
+        :param pulumi.Input[str] name: A friendly name of the rule group.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "scope", scope)
@@ -44,6 +52,9 @@ class RuleGroupArgs:
     @property
     @pulumi.getter
     def capacity(self) -> pulumi.Input[int]:
+        """
+        The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
+        """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
@@ -53,6 +64,9 @@ class RuleGroupArgs:
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Input[str]:
+        """
+        Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -62,6 +76,9 @@ class RuleGroupArgs:
     @property
     @pulumi.getter(name="visibilityConfig")
     def visibility_config(self) -> pulumi.Input['RuleGroupVisibilityConfigArgs']:
+        """
+        Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        """
         return pulumi.get(self, "visibility_config")
 
     @visibility_config.setter
@@ -71,6 +88,9 @@ class RuleGroupArgs:
     @property
     @pulumi.getter(name="customResponseBodies")
     def custom_response_bodies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]]]:
+        """
+        Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        """
         return pulumi.get(self, "custom_response_bodies")
 
     @custom_response_bodies.setter
@@ -80,6 +100,9 @@ class RuleGroupArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly description of the rule group.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -89,6 +112,9 @@ class RuleGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name of the rule group.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -98,6 +124,9 @@ class RuleGroupArgs:
     @property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]]:
+        """
+        The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -107,6 +136,9 @@ class RuleGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -130,6 +162,16 @@ class _RuleGroupState:
                  visibility_config: Optional[pulumi.Input['RuleGroupVisibilityConfigArgs']] = None):
         """
         Input properties used for looking up and filtering RuleGroup resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        :param pulumi.Input[int] capacity: The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        :param pulumi.Input[str] description: A friendly description of the rule group.
+        :param pulumi.Input[str] name: A friendly name of the rule group.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input['RuleGroupVisibilityConfigArgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -157,6 +199,9 @@ class _RuleGroupState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -166,6 +211,9 @@ class _RuleGroupState:
     @property
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
+        """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
@@ -175,6 +223,9 @@ class _RuleGroupState:
     @property
     @pulumi.getter(name="customResponseBodies")
     def custom_response_bodies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]]]:
+        """
+        Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        """
         return pulumi.get(self, "custom_response_bodies")
 
     @custom_response_bodies.setter
@@ -184,6 +235,9 @@ class _RuleGroupState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly description of the rule group.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -202,6 +256,9 @@ class _RuleGroupState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name of the rule group.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -211,6 +268,9 @@ class _RuleGroupState:
     @property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]]:
+        """
+        The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -220,6 +280,9 @@ class _RuleGroupState:
     @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -229,6 +292,9 @@ class _RuleGroupState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -238,6 +304,9 @@ class _RuleGroupState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -247,6 +316,9 @@ class _RuleGroupState:
     @property
     @pulumi.getter(name="visibilityConfig")
     def visibility_config(self) -> Optional[pulumi.Input['RuleGroupVisibilityConfigArgs']]:
+        """
+        Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        """
         return pulumi.get(self, "visibility_config")
 
     @visibility_config.setter
@@ -269,9 +341,271 @@ class RuleGroup(pulumi.CustomResource):
                  visibility_config: Optional[pulumi.Input[pulumi.InputType['RuleGroupVisibilityConfigArgs']]] = None,
                  __props__=None):
         """
-        Create a RuleGroup resource with the given unique name, props, and options.
+        Creates a WAFv2 Rule Group resource.
+
+        ## Example Usage
+        ### Simple
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.wafv2.RuleGroup("example",
+            capacity=2,
+            rules=[aws.wafv2.RuleGroupRuleArgs(
+                action=aws.wafv2.RuleGroupRuleActionArgs(
+                    allow=aws.wafv2.RuleGroupRuleActionAllowArgs(),
+                ),
+                name="rule-1",
+                priority=1,
+                statement=aws.wafv2.RuleGroupRuleStatementArgs(
+                    geo_match_statement=aws.wafv2.RuleGroupRuleStatementGeoMatchStatementArgs(
+                        country_codes=[
+                            "US",
+                            "NL",
+                        ],
+                    ),
+                ),
+                visibility_config=aws.wafv2.RuleGroupRuleVisibilityConfigArgs(
+                    cloudwatch_metrics_enabled=False,
+                    metric_name="friendly-rule-metric-name",
+                    sampled_requests_enabled=False,
+                ),
+            )],
+            scope="REGIONAL",
+            visibility_config=aws.wafv2.RuleGroupVisibilityConfigArgs(
+                cloudwatch_metrics_enabled=False,
+                metric_name="friendly-metric-name",
+                sampled_requests_enabled=False,
+            ))
+        ```
+        ### Complex
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_ip_set = aws.wafv2.IpSet("testIpSet",
+            scope="REGIONAL",
+            ip_address_version="IPV4",
+            addresses=[
+                "1.1.1.1/32",
+                "2.2.2.2/32",
+            ])
+        test_regex_pattern_set = aws.wafv2.RegexPatternSet("testRegexPatternSet",
+            scope="REGIONAL",
+            regular_expressions=[aws.wafv2.RegexPatternSetRegularExpressionArgs(
+                regex_string="one",
+            )])
+        example = aws.wafv2.RuleGroup("example",
+            description="An rule group containing all statements",
+            scope="REGIONAL",
+            capacity=500,
+            rules=[
+                aws.wafv2.RuleGroupRuleArgs(
+                    name="rule-1",
+                    priority=1,
+                    action=aws.wafv2.RuleGroupRuleActionArgs(
+                        block=aws.wafv2.RuleGroupRuleActionBlockArgs(),
+                    ),
+                    statement=aws.wafv2.RuleGroupRuleStatementArgs(
+                        not_statement=aws.wafv2.RuleGroupRuleStatementNotStatementArgs(
+                            statements=[aws.wafv2.RuleGroupRuleStatementNotStatementStatementArgs(
+                                and_statement=aws.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementArgs(
+                                    statements=[
+                                        aws.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementArgs(
+                                            geo_match_statement=aws.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementGeoMatchStatementArgs(
+                                                country_codes=["US"],
+                                            ),
+                                        ),
+                                        aws.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementArgs(
+                                            byte_match_statement=aws.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementArgs(
+                                                positional_constraint="CONTAINS",
+                                                search_string="word",
+                                                field_to_match=aws.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchArgs(
+                                                    all_query_arguments=aws.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs(),
+                                                ),
+                                                text_transformations=[
+                                                    aws.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementTextTransformationArgs(
+                                                        priority=5,
+                                                        type="CMD_LINE",
+                                                    ),
+                                                    aws.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementTextTransformationArgs(
+                                                        priority=2,
+                                                        type="LOWERCASE",
+                                                    ),
+                                                ],
+                                            ),
+                                        ),
+                                    ],
+                                ),
+                            )],
+                        ),
+                    ),
+                    visibility_config=aws.wafv2.RuleGroupRuleVisibilityConfigArgs(
+                        cloudwatch_metrics_enabled=False,
+                        metric_name="rule-1",
+                        sampled_requests_enabled=False,
+                    ),
+                ),
+                aws.wafv2.RuleGroupRuleArgs(
+                    name="rule-2",
+                    priority=2,
+                    action=aws.wafv2.RuleGroupRuleActionArgs(
+                        count=aws.wafv2.RuleGroupRuleActionCountArgs(),
+                    ),
+                    statement=aws.wafv2.RuleGroupRuleStatementArgs(
+                        or_statement=aws.wafv2.RuleGroupRuleStatementOrStatementArgs(
+                            statements=[
+                                aws.wafv2.RuleGroupRuleStatementOrStatementStatementArgs(
+                                    regex_match_statement=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementArgs(
+                                        regex_string="a-z?",
+                                        field_to_match=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchArgs(
+                                            single_header=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchSingleHeaderArgs(
+                                                name="user-agent",
+                                            ),
+                                        ),
+                                        text_transformations=[aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementTextTransformationArgs(
+                                            priority=6,
+                                            type="NONE",
+                                        )],
+                                    ),
+                                ),
+                                aws.wafv2.RuleGroupRuleStatementOrStatementStatementArgs(
+                                    sqli_match_statement=aws.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementArgs(
+                                        field_to_match=aws.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchArgs(
+                                            body=aws.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchBodyArgs(),
+                                        ),
+                                        text_transformations=[
+                                            aws.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArgs(
+                                                priority=5,
+                                                type="URL_DECODE",
+                                            ),
+                                            aws.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArgs(
+                                                priority=4,
+                                                type="HTML_ENTITY_DECODE",
+                                            ),
+                                            aws.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArgs(
+                                                priority=3,
+                                                type="COMPRESS_WHITE_SPACE",
+                                            ),
+                                        ],
+                                    ),
+                                ),
+                                aws.wafv2.RuleGroupRuleStatementOrStatementStatementArgs(
+                                    xss_match_statement=aws.wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementArgs(
+                                        field_to_match=aws.wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchArgs(
+                                            method=aws.wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchMethodArgs(),
+                                        ),
+                                        text_transformations=[aws.wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementTextTransformationArgs(
+                                            priority=2,
+                                            type="NONE",
+                                        )],
+                                    ),
+                                ),
+                            ],
+                        ),
+                    ),
+                    visibility_config=aws.wafv2.RuleGroupRuleVisibilityConfigArgs(
+                        cloudwatch_metrics_enabled=False,
+                        metric_name="rule-2",
+                        sampled_requests_enabled=False,
+                    ),
+                ),
+                aws.wafv2.RuleGroupRuleArgs(
+                    name="rule-3",
+                    priority=3,
+                    action=aws.wafv2.RuleGroupRuleActionArgs(
+                        block=aws.wafv2.RuleGroupRuleActionBlockArgs(),
+                    ),
+                    statement=aws.wafv2.RuleGroupRuleStatementArgs(
+                        size_constraint_statement=aws.wafv2.RuleGroupRuleStatementSizeConstraintStatementArgs(
+                            comparison_operator="GT",
+                            size=100,
+                            field_to_match=aws.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs(
+                                single_query_argument=aws.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs(
+                                    name="username",
+                                ),
+                            ),
+                            text_transformations=[aws.wafv2.RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs(
+                                priority=5,
+                                type="NONE",
+                            )],
+                        ),
+                    ),
+                    visibility_config=aws.wafv2.RuleGroupRuleVisibilityConfigArgs(
+                        cloudwatch_metrics_enabled=False,
+                        metric_name="rule-3",
+                        sampled_requests_enabled=False,
+                    ),
+                ),
+                aws.wafv2.RuleGroupRuleArgs(
+                    name="rule-4",
+                    priority=4,
+                    action=aws.wafv2.RuleGroupRuleActionArgs(
+                        block=aws.wafv2.RuleGroupRuleActionBlockArgs(),
+                    ),
+                    statement=aws.wafv2.RuleGroupRuleStatementArgs(
+                        or_statement=aws.wafv2.RuleGroupRuleStatementOrStatementArgs(
+                            statements=[
+                                aws.wafv2.RuleGroupRuleStatementOrStatementStatementArgs(
+                                    ip_set_reference_statement=aws.wafv2.RuleGroupRuleStatementOrStatementStatementIpSetReferenceStatementArgs(
+                                        arn=test_ip_set.arn,
+                                    ),
+                                ),
+                                aws.wafv2.RuleGroupRuleStatementOrStatementStatementArgs(
+                                    regex_pattern_set_reference_statement=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementArgs(
+                                        arn=test_regex_pattern_set.arn,
+                                        field_to_match=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchArgs(
+                                            single_header=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs(
+                                                name="referer",
+                                            ),
+                                        ),
+                                        text_transformations=[aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationArgs(
+                                            priority=2,
+                                            type="NONE",
+                                        )],
+                                    ),
+                                ),
+                            ],
+                        ),
+                    ),
+                    visibility_config=aws.wafv2.RuleGroupRuleVisibilityConfigArgs(
+                        cloudwatch_metrics_enabled=False,
+                        metric_name="rule-4",
+                        sampled_requests_enabled=False,
+                    ),
+                ),
+            ],
+            visibility_config=aws.wafv2.RuleGroupVisibilityConfigArgs(
+                cloudwatch_metrics_enabled=False,
+                metric_name="friendly-metric-name",
+                sampled_requests_enabled=False,
+            ),
+            tags={
+                "Name": "example-and-statement",
+                "Code": "123456",
+            })
+        ```
+
+        ## Import
+
+        WAFv2 Rule Group can be imported using `ID/name/scope` e.g.,
+
+        ```sh
+         $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] capacity: The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArgs']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        :param pulumi.Input[str] description: A friendly description of the rule group.
+        :param pulumi.Input[str] name: A friendly name of the rule group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[pulumi.InputType['RuleGroupVisibilityConfigArgs']] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
         """
         ...
     @overload
@@ -280,7 +614,261 @@ class RuleGroup(pulumi.CustomResource):
                  args: RuleGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RuleGroup resource with the given unique name, props, and options.
+        Creates a WAFv2 Rule Group resource.
+
+        ## Example Usage
+        ### Simple
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.wafv2.RuleGroup("example",
+            capacity=2,
+            rules=[aws.wafv2.RuleGroupRuleArgs(
+                action=aws.wafv2.RuleGroupRuleActionArgs(
+                    allow=aws.wafv2.RuleGroupRuleActionAllowArgs(),
+                ),
+                name="rule-1",
+                priority=1,
+                statement=aws.wafv2.RuleGroupRuleStatementArgs(
+                    geo_match_statement=aws.wafv2.RuleGroupRuleStatementGeoMatchStatementArgs(
+                        country_codes=[
+                            "US",
+                            "NL",
+                        ],
+                    ),
+                ),
+                visibility_config=aws.wafv2.RuleGroupRuleVisibilityConfigArgs(
+                    cloudwatch_metrics_enabled=False,
+                    metric_name="friendly-rule-metric-name",
+                    sampled_requests_enabled=False,
+                ),
+            )],
+            scope="REGIONAL",
+            visibility_config=aws.wafv2.RuleGroupVisibilityConfigArgs(
+                cloudwatch_metrics_enabled=False,
+                metric_name="friendly-metric-name",
+                sampled_requests_enabled=False,
+            ))
+        ```
+        ### Complex
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_ip_set = aws.wafv2.IpSet("testIpSet",
+            scope="REGIONAL",
+            ip_address_version="IPV4",
+            addresses=[
+                "1.1.1.1/32",
+                "2.2.2.2/32",
+            ])
+        test_regex_pattern_set = aws.wafv2.RegexPatternSet("testRegexPatternSet",
+            scope="REGIONAL",
+            regular_expressions=[aws.wafv2.RegexPatternSetRegularExpressionArgs(
+                regex_string="one",
+            )])
+        example = aws.wafv2.RuleGroup("example",
+            description="An rule group containing all statements",
+            scope="REGIONAL",
+            capacity=500,
+            rules=[
+                aws.wafv2.RuleGroupRuleArgs(
+                    name="rule-1",
+                    priority=1,
+                    action=aws.wafv2.RuleGroupRuleActionArgs(
+                        block=aws.wafv2.RuleGroupRuleActionBlockArgs(),
+                    ),
+                    statement=aws.wafv2.RuleGroupRuleStatementArgs(
+                        not_statement=aws.wafv2.RuleGroupRuleStatementNotStatementArgs(
+                            statements=[aws.wafv2.RuleGroupRuleStatementNotStatementStatementArgs(
+                                and_statement=aws.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementArgs(
+                                    statements=[
+                                        aws.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementArgs(
+                                            geo_match_statement=aws.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementGeoMatchStatementArgs(
+                                                country_codes=["US"],
+                                            ),
+                                        ),
+                                        aws.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementArgs(
+                                            byte_match_statement=aws.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementArgs(
+                                                positional_constraint="CONTAINS",
+                                                search_string="word",
+                                                field_to_match=aws.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchArgs(
+                                                    all_query_arguments=aws.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs(),
+                                                ),
+                                                text_transformations=[
+                                                    aws.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementTextTransformationArgs(
+                                                        priority=5,
+                                                        type="CMD_LINE",
+                                                    ),
+                                                    aws.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementTextTransformationArgs(
+                                                        priority=2,
+                                                        type="LOWERCASE",
+                                                    ),
+                                                ],
+                                            ),
+                                        ),
+                                    ],
+                                ),
+                            )],
+                        ),
+                    ),
+                    visibility_config=aws.wafv2.RuleGroupRuleVisibilityConfigArgs(
+                        cloudwatch_metrics_enabled=False,
+                        metric_name="rule-1",
+                        sampled_requests_enabled=False,
+                    ),
+                ),
+                aws.wafv2.RuleGroupRuleArgs(
+                    name="rule-2",
+                    priority=2,
+                    action=aws.wafv2.RuleGroupRuleActionArgs(
+                        count=aws.wafv2.RuleGroupRuleActionCountArgs(),
+                    ),
+                    statement=aws.wafv2.RuleGroupRuleStatementArgs(
+                        or_statement=aws.wafv2.RuleGroupRuleStatementOrStatementArgs(
+                            statements=[
+                                aws.wafv2.RuleGroupRuleStatementOrStatementStatementArgs(
+                                    regex_match_statement=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementArgs(
+                                        regex_string="a-z?",
+                                        field_to_match=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchArgs(
+                                            single_header=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchSingleHeaderArgs(
+                                                name="user-agent",
+                                            ),
+                                        ),
+                                        text_transformations=[aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementTextTransformationArgs(
+                                            priority=6,
+                                            type="NONE",
+                                        )],
+                                    ),
+                                ),
+                                aws.wafv2.RuleGroupRuleStatementOrStatementStatementArgs(
+                                    sqli_match_statement=aws.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementArgs(
+                                        field_to_match=aws.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchArgs(
+                                            body=aws.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchBodyArgs(),
+                                        ),
+                                        text_transformations=[
+                                            aws.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArgs(
+                                                priority=5,
+                                                type="URL_DECODE",
+                                            ),
+                                            aws.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArgs(
+                                                priority=4,
+                                                type="HTML_ENTITY_DECODE",
+                                            ),
+                                            aws.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArgs(
+                                                priority=3,
+                                                type="COMPRESS_WHITE_SPACE",
+                                            ),
+                                        ],
+                                    ),
+                                ),
+                                aws.wafv2.RuleGroupRuleStatementOrStatementStatementArgs(
+                                    xss_match_statement=aws.wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementArgs(
+                                        field_to_match=aws.wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchArgs(
+                                            method=aws.wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchMethodArgs(),
+                                        ),
+                                        text_transformations=[aws.wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementTextTransformationArgs(
+                                            priority=2,
+                                            type="NONE",
+                                        )],
+                                    ),
+                                ),
+                            ],
+                        ),
+                    ),
+                    visibility_config=aws.wafv2.RuleGroupRuleVisibilityConfigArgs(
+                        cloudwatch_metrics_enabled=False,
+                        metric_name="rule-2",
+                        sampled_requests_enabled=False,
+                    ),
+                ),
+                aws.wafv2.RuleGroupRuleArgs(
+                    name="rule-3",
+                    priority=3,
+                    action=aws.wafv2.RuleGroupRuleActionArgs(
+                        block=aws.wafv2.RuleGroupRuleActionBlockArgs(),
+                    ),
+                    statement=aws.wafv2.RuleGroupRuleStatementArgs(
+                        size_constraint_statement=aws.wafv2.RuleGroupRuleStatementSizeConstraintStatementArgs(
+                            comparison_operator="GT",
+                            size=100,
+                            field_to_match=aws.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs(
+                                single_query_argument=aws.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs(
+                                    name="username",
+                                ),
+                            ),
+                            text_transformations=[aws.wafv2.RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs(
+                                priority=5,
+                                type="NONE",
+                            )],
+                        ),
+                    ),
+                    visibility_config=aws.wafv2.RuleGroupRuleVisibilityConfigArgs(
+                        cloudwatch_metrics_enabled=False,
+                        metric_name="rule-3",
+                        sampled_requests_enabled=False,
+                    ),
+                ),
+                aws.wafv2.RuleGroupRuleArgs(
+                    name="rule-4",
+                    priority=4,
+                    action=aws.wafv2.RuleGroupRuleActionArgs(
+                        block=aws.wafv2.RuleGroupRuleActionBlockArgs(),
+                    ),
+                    statement=aws.wafv2.RuleGroupRuleStatementArgs(
+                        or_statement=aws.wafv2.RuleGroupRuleStatementOrStatementArgs(
+                            statements=[
+                                aws.wafv2.RuleGroupRuleStatementOrStatementStatementArgs(
+                                    ip_set_reference_statement=aws.wafv2.RuleGroupRuleStatementOrStatementStatementIpSetReferenceStatementArgs(
+                                        arn=test_ip_set.arn,
+                                    ),
+                                ),
+                                aws.wafv2.RuleGroupRuleStatementOrStatementStatementArgs(
+                                    regex_pattern_set_reference_statement=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementArgs(
+                                        arn=test_regex_pattern_set.arn,
+                                        field_to_match=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchArgs(
+                                            single_header=aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs(
+                                                name="referer",
+                                            ),
+                                        ),
+                                        text_transformations=[aws.wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationArgs(
+                                            priority=2,
+                                            type="NONE",
+                                        )],
+                                    ),
+                                ),
+                            ],
+                        ),
+                    ),
+                    visibility_config=aws.wafv2.RuleGroupRuleVisibilityConfigArgs(
+                        cloudwatch_metrics_enabled=False,
+                        metric_name="rule-4",
+                        sampled_requests_enabled=False,
+                    ),
+                ),
+            ],
+            visibility_config=aws.wafv2.RuleGroupVisibilityConfigArgs(
+                cloudwatch_metrics_enabled=False,
+                metric_name="friendly-metric-name",
+                sampled_requests_enabled=False,
+            ),
+            tags={
+                "Name": "example-and-statement",
+                "Code": "123456",
+            })
+        ```
+
+        ## Import
+
+        WAFv2 Rule Group can be imported using `ID/name/scope` e.g.,
+
+        ```sh
+         $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+        ```
+
         :param str resource_name: The name of the resource.
         :param RuleGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -358,6 +946,16 @@ class RuleGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        :param pulumi.Input[int] capacity: The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArgs']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        :param pulumi.Input[str] description: A friendly description of the rule group.
+        :param pulumi.Input[str] name: A friendly name of the rule group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[pulumi.InputType['RuleGroupVisibilityConfigArgs']] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -379,21 +977,33 @@ class RuleGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def capacity(self) -> pulumi.Output[int]:
+        """
+        The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
+        """
         return pulumi.get(self, "capacity")
 
     @property
     @pulumi.getter(name="customResponseBodies")
     def custom_response_bodies(self) -> pulumi.Output[Optional[Sequence['outputs.RuleGroupCustomResponseBody']]]:
+        """
+        Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        """
         return pulumi.get(self, "custom_response_bodies")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A friendly description of the rule group.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -404,30 +1014,48 @@ class RuleGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A friendly name of the rule group.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def rules(self) -> pulumi.Output[Optional[Sequence['outputs.RuleGroupRule']]]:
+        """
+        The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        """
         return pulumi.get(self, "rules")
 
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Output[str]:
+        """
+        Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        """
         return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="visibilityConfig")
     def visibility_config(self) -> pulumi.Output['outputs.RuleGroupVisibilityConfig']:
+        """
+        Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        """
         return pulumi.get(self, "visibility_config")
 

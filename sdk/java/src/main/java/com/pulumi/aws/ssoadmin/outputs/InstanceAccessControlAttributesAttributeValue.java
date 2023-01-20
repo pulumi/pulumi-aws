@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class InstanceAccessControlAttributesAttributeValue {
+    /**
+     * @return The identity source to use when mapping a specified attribute to AWS SSO.
+     * 
+     */
     private List<String> sources;
 
     private InstanceAccessControlAttributesAttributeValue() {}
+    /**
+     * @return The identity source to use when mapping a specified attribute to AWS SSO.
+     * 
+     */
     public List<String> sources() {
         return this.sources;
     }

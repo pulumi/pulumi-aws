@@ -14,6 +14,53 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a SageMaker Device resource.
+ * 
+ * ## Example Usage
+ * ### Basic usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sagemaker.Device;
+ * import com.pulumi.aws.sagemaker.DeviceArgs;
+ * import com.pulumi.aws.sagemaker.inputs.DeviceDeviceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Device(&#34;example&#34;, DeviceArgs.builder()        
+ *             .deviceFleetName(aws_sagemaker_device_fleet.example().device_fleet_name())
+ *             .device(DeviceDeviceArgs.builder()
+ *                 .deviceName(&#34;example&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * SageMaker Devices can be imported using the `device-fleet-name/device-name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
+ * ```
+ * 
+ */
 @ResourceType(type="aws:sagemaker/device:Device")
 public class Device extends com.pulumi.resources.CustomResource {
     @Export(name="agentVersion", refs={String.class}, tree="[0]")
@@ -22,21 +69,45 @@ public class Device extends com.pulumi.resources.CustomResource {
     public Output<String> agentVersion() {
         return this.agentVersion;
     }
+    /**
+     * The Amazon Resource Name (ARN) assigned by AWS to this Device.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) assigned by AWS to this Device.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The device to register with SageMaker Edge Manager. See Device details below.
+     * 
+     */
     @Export(name="device", refs={DeviceDevice.class}, tree="[0]")
     private Output<DeviceDevice> device;
 
+    /**
+     * @return The device to register with SageMaker Edge Manager. See Device details below.
+     * 
+     */
     public Output<DeviceDevice> device() {
         return this.device;
     }
+    /**
+     * The name of the Device Fleet.
+     * 
+     */
     @Export(name="deviceFleetName", refs={String.class}, tree="[0]")
     private Output<String> deviceFleetName;
 
+    /**
+     * @return The name of the Device Fleet.
+     * 
+     */
     public Output<String> deviceFleetName() {
         return this.deviceFleetName;
     }

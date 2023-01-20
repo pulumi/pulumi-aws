@@ -57,11 +57,17 @@ class GetVirtualServiceResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the virtual service.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> str:
+        """
+        Creation date of the virtual service.
+        """
         return pulumi.get(self, "created_date")
 
     @property
@@ -75,6 +81,9 @@ class GetVirtualServiceResult:
     @property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> str:
+        """
+        Last update date of the virtual service.
+        """
         return pulumi.get(self, "last_updated_date")
 
     @property
@@ -95,16 +104,25 @@ class GetVirtualServiceResult:
     @property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> str:
+        """
+        Resource owner's AWS account ID.
+        """
         return pulumi.get(self, "resource_owner")
 
     @property
     @pulumi.getter
     def specs(self) -> Sequence['outputs.GetVirtualServiceSpecResult']:
+        """
+        Virtual service specification
+        """
         return pulumi.get(self, "specs")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Map of tags.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -132,7 +150,33 @@ def get_virtual_service(mesh_name: Optional[str] = None,
                         tags: Optional[Mapping[str, str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    The App Mesh Virtual Service data source allows details of an App Mesh Virtual Service to be retrieved by its name, mesh_name, and optionally the mesh_owner.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.appmesh.get_virtual_service(mesh_name="example-mesh",
+        name="example.mesh.local")
+    ```
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.get_caller_identity()
+    test = aws.appmesh.get_virtual_service(name="example.mesh.local",
+        mesh_name="example-mesh",
+        mesh_owner=current.account_id)
+    ```
+
+
+    :param str mesh_name: Name of the service mesh in which the virtual service exists.
+    :param str mesh_owner: AWS account ID of the service mesh's owner.
+    :param str name: Name of the virtual service.
+    :param Mapping[str, str] tags: Map of tags.
     """
     __args__ = dict()
     __args__['meshName'] = mesh_name
@@ -162,6 +206,32 @@ def get_virtual_service_output(mesh_name: Optional[pulumi.Input[str]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualServiceResult]:
     """
-    Use this data source to access information about an existing resource.
+    The App Mesh Virtual Service data source allows details of an App Mesh Virtual Service to be retrieved by its name, mesh_name, and optionally the mesh_owner.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.appmesh.get_virtual_service(mesh_name="example-mesh",
+        name="example.mesh.local")
+    ```
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.get_caller_identity()
+    test = aws.appmesh.get_virtual_service(name="example.mesh.local",
+        mesh_name="example-mesh",
+        mesh_owner=current.account_id)
+    ```
+
+
+    :param str mesh_name: Name of the service mesh in which the virtual service exists.
+    :param str mesh_owner: AWS account ID of the service mesh's owner.
+    :param str name: Name of the virtual service.
+    :param Mapping[str, str] tags: Map of tags.
     """
     ...

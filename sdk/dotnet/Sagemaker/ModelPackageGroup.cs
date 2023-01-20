@@ -9,21 +9,65 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
+    /// <summary>
+    /// Provides a SageMaker Model Package Group resource.
+    /// 
+    /// ## Example Usage
+    /// ### Basic usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Sagemaker.ModelPackageGroup("example", new()
+    ///     {
+    ///         ModelPackageGroupName = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SageMaker Model Package Groups can be imported using the `name`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:sagemaker/modelPackageGroup:ModelPackageGroup")]
     public partial class ModelPackageGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// A description for the model group.
+        /// </summary>
         [Output("modelPackageGroupDescription")]
         public Output<string?> ModelPackageGroupDescription { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the model group.
+        /// </summary>
         [Output("modelPackageGroupName")]
         public Output<string> ModelPackageGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -73,14 +117,24 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class ModelPackageGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description for the model group.
+        /// </summary>
         [Input("modelPackageGroupDescription")]
         public Input<string>? ModelPackageGroupDescription { get; set; }
 
+        /// <summary>
+        /// The name of the model group.
+        /// </summary>
         [Input("modelPackageGroupName", required: true)]
         public Input<string> ModelPackageGroupName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -95,17 +149,30 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class ModelPackageGroupState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// A description for the model group.
+        /// </summary>
         [Input("modelPackageGroupDescription")]
         public Input<string>? ModelPackageGroupDescription { get; set; }
 
+        /// <summary>
+        /// The name of the model group.
+        /// </summary>
         [Input("modelPackageGroupName")]
         public Input<string>? ModelPackageGroupName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -114,6 +181,10 @@ namespace Pulumi.Aws.Sagemaker
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

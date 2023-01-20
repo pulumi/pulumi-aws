@@ -19,65 +19,137 @@ public final class DefaultNetworkAclState extends com.pulumi.resources.ResourceA
 
     public static final DefaultNetworkAclState Empty = new DefaultNetworkAclState();
 
+    /**
+     * ARN of the Default Network ACL
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return ARN of the Default Network ACL
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+     * 
+     */
     @Import(name="defaultNetworkAclId")
     private @Nullable Output<String> defaultNetworkAclId;
 
+    /**
+     * @return Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+     * 
+     */
     public Optional<Output<String>> defaultNetworkAclId() {
         return Optional.ofNullable(this.defaultNetworkAclId);
     }
 
+    /**
+     * Configuration block for an egress rule. Detailed below.
+     * 
+     */
     @Import(name="egress")
     private @Nullable Output<List<DefaultNetworkAclEgressArgs>> egress;
 
+    /**
+     * @return Configuration block for an egress rule. Detailed below.
+     * 
+     */
     public Optional<Output<List<DefaultNetworkAclEgressArgs>>> egress() {
         return Optional.ofNullable(this.egress);
     }
 
+    /**
+     * Configuration block for an ingress rule. Detailed below.
+     * 
+     */
     @Import(name="ingress")
     private @Nullable Output<List<DefaultNetworkAclIngressArgs>> ingress;
 
+    /**
+     * @return Configuration block for an ingress rule. Detailed below.
+     * 
+     */
     public Optional<Output<List<DefaultNetworkAclIngressArgs>>> ingress() {
         return Optional.ofNullable(this.ingress);
     }
 
+    /**
+     * ID of the AWS account that owns the Default Network ACL
+     * 
+     */
     @Import(name="ownerId")
     private @Nullable Output<String> ownerId;
 
+    /**
+     * @return ID of the AWS account that owns the Default Network ACL
+     * 
+     */
     public Optional<Output<String>> ownerId() {
         return Optional.ofNullable(this.ownerId);
     }
 
+    /**
+     * List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
+     * 
+     */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
+    /**
+     * @return List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
+     * 
+     */
     public Optional<Output<List<String>>> subnetIds() {
         return Optional.ofNullable(this.subnetIds);
     }
 
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * ID of the associated VPC
+     * 
+     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
+    /**
+     * @return ID of the associated VPC
+     * 
+     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -114,95 +186,221 @@ public final class DefaultNetworkAclState extends com.pulumi.resources.ResourceA
             $ = new DefaultNetworkAclState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn ARN of the Default Network ACL
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn ARN of the Default Network ACL
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param defaultNetworkAclId Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultNetworkAclId(@Nullable Output<String> defaultNetworkAclId) {
             $.defaultNetworkAclId = defaultNetworkAclId;
             return this;
         }
 
+        /**
+         * @param defaultNetworkAclId Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultNetworkAclId(String defaultNetworkAclId) {
             return defaultNetworkAclId(Output.of(defaultNetworkAclId));
         }
 
+        /**
+         * @param egress Configuration block for an egress rule. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder egress(@Nullable Output<List<DefaultNetworkAclEgressArgs>> egress) {
             $.egress = egress;
             return this;
         }
 
+        /**
+         * @param egress Configuration block for an egress rule. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder egress(List<DefaultNetworkAclEgressArgs> egress) {
             return egress(Output.of(egress));
         }
 
+        /**
+         * @param egress Configuration block for an egress rule. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder egress(DefaultNetworkAclEgressArgs... egress) {
             return egress(List.of(egress));
         }
 
+        /**
+         * @param ingress Configuration block for an ingress rule. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ingress(@Nullable Output<List<DefaultNetworkAclIngressArgs>> ingress) {
             $.ingress = ingress;
             return this;
         }
 
+        /**
+         * @param ingress Configuration block for an ingress rule. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ingress(List<DefaultNetworkAclIngressArgs> ingress) {
             return ingress(Output.of(ingress));
         }
 
+        /**
+         * @param ingress Configuration block for an ingress rule. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ingress(DefaultNetworkAclIngressArgs... ingress) {
             return ingress(List.of(ingress));
         }
 
+        /**
+         * @param ownerId ID of the AWS account that owns the Default Network ACL
+         * 
+         * @return builder
+         * 
+         */
         public Builder ownerId(@Nullable Output<String> ownerId) {
             $.ownerId = ownerId;
             return this;
         }
 
+        /**
+         * @param ownerId ID of the AWS account that owns the Default Network ACL
+         * 
+         * @return builder
+         * 
+         */
         public Builder ownerId(String ownerId) {
             return ownerId(Output.of(ownerId));
         }
 
+        /**
+         * @param subnetIds List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(@Nullable Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
+        /**
+         * @param subnetIds List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
+        /**
+         * @param subnetIds List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
+        /**
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
+        /**
+         * @param vpcId ID of the associated VPC
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
+        /**
+         * @param vpcId ID of the associated VPC
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

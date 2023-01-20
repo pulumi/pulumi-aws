@@ -4,6 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another
+ * resource.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.appconfig.getEnvironments({
+ *     applicationId: "a1d3rpe",
+ * });
+ * ```
+ */
 export function getEnvironments(args: GetEnvironmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentsResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -16,6 +32,9 @@ export function getEnvironments(args: GetEnvironmentsArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getEnvironments.
  */
 export interface GetEnvironmentsArgs {
+    /**
+     * ID of the AppConfig Application.
+     */
     applicationId: string;
 }
 
@@ -24,12 +43,31 @@ export interface GetEnvironmentsArgs {
  */
 export interface GetEnvironmentsResult {
     readonly applicationId: string;
+    /**
+     * Set of Environment IDs associated with this AppConfig Application.
+     */
     readonly environmentIds: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }
+/**
+ * Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another
+ * resource.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.appconfig.getEnvironments({
+ *     applicationId: "a1d3rpe",
+ * });
+ * ```
+ */
 export function getEnvironmentsOutput(args: GetEnvironmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentsResult> {
     return pulumi.output(args).apply((a: any) => getEnvironments(a, opts))
 }
@@ -38,5 +76,8 @@ export function getEnvironmentsOutput(args: GetEnvironmentsOutputArgs, opts?: pu
  * A collection of arguments for invoking getEnvironments.
  */
 export interface GetEnvironmentsOutputArgs {
+    /**
+     * ID of the AppConfig Application.
+     */
     applicationId: pulumi.Input<string>;
 }

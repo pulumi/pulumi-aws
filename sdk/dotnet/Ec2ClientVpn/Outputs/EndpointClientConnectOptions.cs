@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Ec2ClientVpn.Outputs
     [OutputType]
     public sealed class EndpointClientConnectOptions
     {
+        /// <summary>
+        /// Indicates whether client connect options are enabled. The default is `false` (not enabled).
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+        /// </summary>
         public readonly string? LambdaFunctionArn;
 
         [OutputConstructor]

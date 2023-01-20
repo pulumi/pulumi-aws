@@ -18,6 +18,8 @@ class RouteTablePropagationArgs:
                  transit_gateway_route_table_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a RouteTablePropagation resource.
+        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
+        :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
         pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
@@ -25,6 +27,9 @@ class RouteTablePropagationArgs:
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Input[str]:
+        """
+        Identifier of EC2 Transit Gateway Attachment.
+        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
@@ -34,6 +39,9 @@ class RouteTablePropagationArgs:
     @property
     @pulumi.getter(name="transitGatewayRouteTableId")
     def transit_gateway_route_table_id(self) -> pulumi.Input[str]:
+        """
+        Identifier of EC2 Transit Gateway Route Table.
+        """
         return pulumi.get(self, "transit_gateway_route_table_id")
 
     @transit_gateway_route_table_id.setter
@@ -50,6 +58,10 @@ class _RouteTablePropagationState:
                  transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RouteTablePropagation resources.
+        :param pulumi.Input[str] resource_id: Identifier of the resource
+        :param pulumi.Input[str] resource_type: Type of the resource
+        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
+        :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
@@ -63,6 +75,9 @@ class _RouteTablePropagationState:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of the resource
+        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -72,6 +87,9 @@ class _RouteTablePropagationState:
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the resource
+        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -81,6 +99,9 @@ class _RouteTablePropagationState:
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of EC2 Transit Gateway Attachment.
+        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
@@ -90,6 +111,9 @@ class _RouteTablePropagationState:
     @property
     @pulumi.getter(name="transitGatewayRouteTableId")
     def transit_gateway_route_table_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of EC2 Transit Gateway Route Table.
+        """
         return pulumi.get(self, "transit_gateway_route_table_id")
 
     @transit_gateway_route_table_id.setter
@@ -106,9 +130,31 @@ class RouteTablePropagation(pulumi.CustomResource):
                  transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a RouteTablePropagation resource with the given unique name, props, and options.
+        Manages an EC2 Transit Gateway Route Table propagation.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2transitgateway.RouteTablePropagation("example",
+            transit_gateway_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
+            transit_gateway_route_table_id=aws_ec2_transit_gateway_route_table["example"]["id"])
+        ```
+
+        ## Import
+
+        `aws_ec2_transit_gateway_route_table_propagation` can be imported by using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier, e.g.,
+
+        ```sh
+         $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
+        :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
         ...
     @overload
@@ -117,7 +163,27 @@ class RouteTablePropagation(pulumi.CustomResource):
                  args: RouteTablePropagationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RouteTablePropagation resource with the given unique name, props, and options.
+        Manages an EC2 Transit Gateway Route Table propagation.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2transitgateway.RouteTablePropagation("example",
+            transit_gateway_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
+            transit_gateway_route_table_id=aws_ec2_transit_gateway_route_table["example"]["id"])
+        ```
+
+        ## Import
+
+        `aws_ec2_transit_gateway_route_table_propagation` can be imported by using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier, e.g.,
+
+        ```sh
+         $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
+        ```
+
         :param str resource_name: The name of the resource.
         :param RouteTablePropagationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,6 +239,10 @@ class RouteTablePropagation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] resource_id: Identifier of the resource
+        :param pulumi.Input[str] resource_type: Type of the resource
+        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
+        :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -187,20 +257,32 @@ class RouteTablePropagation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
+        """
+        Identifier of the resource
+        """
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[str]:
+        """
+        Type of the resource
+        """
         return pulumi.get(self, "resource_type")
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[str]:
+        """
+        Identifier of EC2 Transit Gateway Attachment.
+        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @property
     @pulumi.getter(name="transitGatewayRouteTableId")
     def transit_gateway_route_table_id(self) -> pulumi.Output[str]:
+        """
+        Identifier of EC2 Transit Gateway Route Table.
+        """
         return pulumi.get(self, "transit_gateway_route_table_id")
 

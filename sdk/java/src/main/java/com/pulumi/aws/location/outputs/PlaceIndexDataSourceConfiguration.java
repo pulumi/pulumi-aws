@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PlaceIndexDataSourceConfiguration {
+    /**
+     * @return Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+     * 
+     */
     private @Nullable String intendedUse;
 
     private PlaceIndexDataSourceConfiguration() {}
+    /**
+     * @return Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+     * 
+     */
     public Optional<String> intendedUse() {
         return Optional.ofNullable(this.intendedUse);
     }

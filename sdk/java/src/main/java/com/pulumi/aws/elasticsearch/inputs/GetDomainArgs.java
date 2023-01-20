@@ -16,16 +16,32 @@ public final class GetDomainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetDomainArgs Empty = new GetDomainArgs();
 
+    /**
+     * Name of the domain.
+     * 
+     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
+    /**
+     * @return Name of the domain.
+     * 
+     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
+    /**
+     * Tags assigned to the domain.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Tags assigned to the domain.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -55,20 +71,44 @@ public final class GetDomainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetDomainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domainName Name of the domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
+        /**
+         * @param domainName Name of the domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
+        /**
+         * @param tags Tags assigned to the domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Tags assigned to the domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

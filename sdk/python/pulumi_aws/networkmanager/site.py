@@ -22,6 +22,10 @@ class SiteArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Site resource.
+        :param pulumi.Input[str] global_network_id: The ID of the Global Network to create the site in.
+        :param pulumi.Input[str] description: Description of the Site.
+        :param pulumi.Input['SiteLocationArgs'] location: The site location as documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "global_network_id", global_network_id)
         if description is not None:
@@ -34,6 +38,9 @@ class SiteArgs:
     @property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Global Network to create the site in.
+        """
         return pulumi.get(self, "global_network_id")
 
     @global_network_id.setter
@@ -43,6 +50,9 @@ class SiteArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the Site.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -52,6 +62,9 @@ class SiteArgs:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input['SiteLocationArgs']]:
+        """
+        The site location as documented below.
+        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -61,6 +74,9 @@ class SiteArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -79,6 +95,12 @@ class _SiteState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Site resources.
+        :param pulumi.Input[str] arn: Site Amazon Resource Name (ARN)
+        :param pulumi.Input[str] description: Description of the Site.
+        :param pulumi.Input[str] global_network_id: The ID of the Global Network to create the site in.
+        :param pulumi.Input['SiteLocationArgs'] location: The site location as documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -96,6 +118,9 @@ class _SiteState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Site Amazon Resource Name (ARN)
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -105,6 +130,9 @@ class _SiteState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the Site.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -114,6 +142,9 @@ class _SiteState:
     @property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Global Network to create the site in.
+        """
         return pulumi.get(self, "global_network_id")
 
     @global_network_id.setter
@@ -123,6 +154,9 @@ class _SiteState:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input['SiteLocationArgs']]:
+        """
+        The site location as documented below.
+        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -132,6 +166,9 @@ class _SiteState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -141,6 +178,9 @@ class _SiteState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -159,9 +199,32 @@ class Site(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Site resource with the given unique name, props, and options.
+        Creates a site in a global network.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_global_network = aws.networkmanager.GlobalNetwork("exampleGlobalNetwork")
+        example_site = aws.networkmanager.Site("exampleSite", global_network_id=example_global_network.id)
+        ```
+
+        ## Import
+
+        `aws_networkmanager_site` can be imported using the site ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Description of the Site.
+        :param pulumi.Input[str] global_network_id: The ID of the Global Network to create the site in.
+        :param pulumi.Input[pulumi.InputType['SiteLocationArgs']] location: The site location as documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -170,7 +233,26 @@ class Site(pulumi.CustomResource):
                  args: SiteArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Site resource with the given unique name, props, and options.
+        Creates a site in a global network.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_global_network = aws.networkmanager.GlobalNetwork("exampleGlobalNetwork")
+        example_site = aws.networkmanager.Site("exampleSite", global_network_id=example_global_network.id)
+        ```
+
+        ## Import
+
+        `aws_networkmanager_site` can be imported using the site ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
+        ```
+
         :param str resource_name: The name of the resource.
         :param SiteArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,6 +312,12 @@ class Site(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Site Amazon Resource Name (ARN)
+        :param pulumi.Input[str] description: Description of the Site.
+        :param pulumi.Input[str] global_network_id: The ID of the Global Network to create the site in.
+        :param pulumi.Input[pulumi.InputType['SiteLocationArgs']] location: The site location as documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -246,30 +334,48 @@ class Site(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Site Amazon Resource Name (ARN)
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Description of the Site.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Global Network to create the site in.
+        """
         return pulumi.get(self, "global_network_id")
 
     @property
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional['outputs.SiteLocation']]:
+        """
+        The site location as documented below.
+        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

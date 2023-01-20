@@ -15,16 +15,32 @@ public final class BucketPolicyState extends com.pulumi.resources.ResourceArgs {
 
     public static final BucketPolicyState Empty = new BucketPolicyState();
 
+    /**
+     * Amazon Resource Name (ARN) of the bucket.
+     * 
+     */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
+    /**
+     * @return Amazon Resource Name (ARN) of the bucket.
+     * 
+     */
     public Optional<Output<String>> bucket() {
         return Optional.ofNullable(this.bucket);
     }
 
+    /**
+     * JSON string of the resource policy.
+     * 
+     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
+    /**
+     * @return JSON string of the resource policy.
+     * 
+     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
@@ -54,20 +70,44 @@ public final class BucketPolicyState extends com.pulumi.resources.ResourceArgs {
             $ = new BucketPolicyState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucket Amazon Resource Name (ARN) of the bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(@Nullable Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
+        /**
+         * @param bucket Amazon Resource Name (ARN) of the bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param policy JSON string of the resource policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
+        /**
+         * @param policy JSON string of the resource policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }

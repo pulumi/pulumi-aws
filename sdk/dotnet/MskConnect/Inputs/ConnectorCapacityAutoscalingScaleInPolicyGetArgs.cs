@@ -12,6 +12,9 @@ namespace Pulumi.Aws.MskConnect.Inputs
 
     public sealed class ConnectorCapacityAutoscalingScaleInPolicyGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
+        /// </summary>
         [Input("cpuUtilizationPercentage")]
         public Input<int>? CpuUtilizationPercentage { get; set; }
 

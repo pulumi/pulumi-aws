@@ -83,6 +83,9 @@ class GetInfrastructureConfigurationResult:
     @property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> str:
+        """
+        Date the infrastructure configuration was updated.
+        """
         return pulumi.get(self, "date_created")
 
     @property
@@ -93,6 +96,9 @@ class GetInfrastructureConfigurationResult:
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the infrastructure configuration.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -106,61 +112,97 @@ class GetInfrastructureConfigurationResult:
     @property
     @pulumi.getter(name="instanceMetadataOptions")
     def instance_metadata_options(self) -> Sequence['outputs.GetInfrastructureConfigurationInstanceMetadataOptionResult']:
+        """
+        Nested list of instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances.
+        """
         return pulumi.get(self, "instance_metadata_options")
 
     @property
     @pulumi.getter(name="instanceProfileName")
     def instance_profile_name(self) -> str:
+        """
+        Name of the IAM Instance Profile associated with the configuration.
+        """
         return pulumi.get(self, "instance_profile_name")
 
     @property
     @pulumi.getter(name="instanceTypes")
     def instance_types(self) -> Sequence[str]:
+        """
+        Set of EC2 Instance Types associated with the configuration.
+        """
         return pulumi.get(self, "instance_types")
 
     @property
     @pulumi.getter(name="keyPair")
     def key_pair(self) -> str:
+        """
+        Name of the EC2 Key Pair associated with the configuration.
+        """
         return pulumi.get(self, "key_pair")
 
     @property
     @pulumi.getter
     def loggings(self) -> Sequence['outputs.GetInfrastructureConfigurationLoggingResult']:
+        """
+        Nested list of logging settings.
+        """
         return pulumi.get(self, "loggings")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the infrastructure configuration.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Mapping[str, str]:
+        """
+        Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
+        """
         return pulumi.get(self, "resource_tags")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[str]:
+        """
+        Set of EC2 Security Group identifiers associated with the configuration.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> str:
+        """
+        ARN of the SNS Topic associated with the configuration.
+        """
         return pulumi.get(self, "sns_topic_arn")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
+        """
+        Identifier of the EC2 Subnet associated with the configuration.
+        """
         return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Key-value map of resource tags for the infrastructure configuration.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="terminateInstanceOnFailure")
     def terminate_instance_on_failure(self) -> bool:
+        """
+        Whether instances are terminated on failure.
+        """
         return pulumi.get(self, "terminate_instance_on_failure")
 
 
@@ -194,7 +236,21 @@ def get_infrastructure_configuration(arn: Optional[str] = None,
                                      tags: Optional[Mapping[str, str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInfrastructureConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about an Image Builder Infrastructure Configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.imagebuilder.get_infrastructure_configuration(arn="arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example")
+    ```
+
+
+    :param str arn: ARN of the infrastructure configuration.
+    :param Mapping[str, str] resource_tags: Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
+    :param Mapping[str, str] tags: Key-value map of resource tags for the infrastructure configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -229,6 +285,20 @@ def get_infrastructure_configuration_output(arn: Optional[pulumi.Input[str]] = N
                                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInfrastructureConfigurationResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about an Image Builder Infrastructure Configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.imagebuilder.get_infrastructure_configuration(arn="arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example")
+    ```
+
+
+    :param str arn: ARN of the infrastructure configuration.
+    :param Mapping[str, str] resource_tags: Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
+    :param Mapping[str, str] tags: Key-value map of resource tags for the infrastructure configuration.
     """
     ...

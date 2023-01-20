@@ -7,6 +7,42 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Retrieve information about a firewall.
+ *
+ * ## Example Usage
+ * ### Find firewall policy by ARN
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.networkfirewall.getFirewall({
+ *     arn: aws_networkfirewall_firewall.arn,
+ * });
+ * ```
+ * ### Find firewall policy by Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.networkfirewall.getFirewall({
+ *     name: "Test",
+ * });
+ * ```
+ * ### Find firewall policy by ARN and Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.networkfirewall.getFirewall({
+ *     arn: aws_networkfirewall_firewall.arn,
+ *     name: "Test",
+ * });
+ * ```
+ */
 export function getFirewall(args?: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> {
     args = args || {};
 
@@ -22,8 +58,17 @@ export function getFirewall(args?: GetFirewallArgs, opts?: pulumi.InvokeOptions)
  * A collection of arguments for invoking getFirewall.
  */
 export interface GetFirewallArgs {
+    /**
+     * ARN of the firewall.
+     */
     arn?: string;
+    /**
+     * Descriptive name of the firewall.
+     */
     name?: string;
+    /**
+     * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -31,24 +76,99 @@ export interface GetFirewallArgs {
  * A collection of values returned by getFirewall.
  */
 export interface GetFirewallResult {
+    /**
+     * ARN of the firewall.
+     */
     readonly arn: string;
+    /**
+     * Boolean flag indicating whether it is possible to delete the firewall.
+     */
     readonly deleteProtection: boolean;
+    /**
+     * Description of the firewall.
+     */
     readonly description: string;
+    /**
+     * AWS Key Management Service (AWS KMS) encryption settings for the firewall.
+     */
     readonly encryptionConfigurations: outputs.networkfirewall.GetFirewallEncryptionConfiguration[];
+    /**
+     * ARN of the VPC Firewall policy.
+     */
     readonly firewallPolicyArn: string;
+    /**
+     * A boolean flag indicating whether it is possible to change the associated firewall policy.
+     */
     readonly firewallPolicyChangeProtection: boolean;
+    /**
+     * Nested list of information about the current status of the firewall.
+     */
     readonly firewallStatuses: outputs.networkfirewall.GetFirewallFirewallStatus[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Descriptive name of the firewall.
+     */
     readonly name: string;
+    /**
+     * A boolean flag indicating whether it is possible to change the associated subnet(s).
+     */
     readonly subnetChangeProtection: boolean;
+    /**
+     * Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
+     */
     readonly subnetMappings: outputs.networkfirewall.GetFirewallSubnetMapping[];
+    /**
+     * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     readonly tags?: {[key: string]: string};
+    /**
+     * String token used when updating a firewall.
+     */
     readonly updateToken: string;
+    /**
+     * Unique identifier of the VPC where AWS Network Firewall should create the firewall.
+     */
     readonly vpcId: string;
 }
+/**
+ * Retrieve information about a firewall.
+ *
+ * ## Example Usage
+ * ### Find firewall policy by ARN
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.networkfirewall.getFirewall({
+ *     arn: aws_networkfirewall_firewall.arn,
+ * });
+ * ```
+ * ### Find firewall policy by Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.networkfirewall.getFirewall({
+ *     name: "Test",
+ * });
+ * ```
+ * ### Find firewall policy by ARN and Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.networkfirewall.getFirewall({
+ *     arn: aws_networkfirewall_firewall.arn,
+ *     name: "Test",
+ * });
+ * ```
+ */
 export function getFirewallOutput(args?: GetFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallResult> {
     return pulumi.output(args).apply((a: any) => getFirewall(a, opts))
 }
@@ -57,7 +177,16 @@ export function getFirewallOutput(args?: GetFirewallOutputArgs, opts?: pulumi.In
  * A collection of arguments for invoking getFirewall.
  */
 export interface GetFirewallOutputArgs {
+    /**
+     * ARN of the firewall.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Descriptive name of the firewall.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

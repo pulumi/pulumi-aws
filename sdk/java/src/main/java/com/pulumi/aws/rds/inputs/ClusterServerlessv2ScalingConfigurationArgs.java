@@ -13,16 +13,32 @@ public final class ClusterServerlessv2ScalingConfigurationArgs extends com.pulum
 
     public static final ClusterServerlessv2ScalingConfigurationArgs Empty = new ClusterServerlessv2ScalingConfigurationArgs();
 
+    /**
+     * The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+     * 
+     */
     @Import(name="maxCapacity", required=true)
     private Output<Double> maxCapacity;
 
+    /**
+     * @return The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+     * 
+     */
     public Output<Double> maxCapacity() {
         return this.maxCapacity;
     }
 
+    /**
+     * The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+     * 
+     */
     @Import(name="minCapacity", required=true)
     private Output<Double> minCapacity;
 
+    /**
+     * @return The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+     * 
+     */
     public Output<Double> minCapacity() {
         return this.minCapacity;
     }
@@ -52,20 +68,44 @@ public final class ClusterServerlessv2ScalingConfigurationArgs extends com.pulum
             $ = new ClusterServerlessv2ScalingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param maxCapacity The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxCapacity(Output<Double> maxCapacity) {
             $.maxCapacity = maxCapacity;
             return this;
         }
 
+        /**
+         * @param maxCapacity The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxCapacity(Double maxCapacity) {
             return maxCapacity(Output.of(maxCapacity));
         }
 
+        /**
+         * @param minCapacity The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minCapacity(Output<Double> minCapacity) {
             $.minCapacity = minCapacity;
             return this;
         }
 
+        /**
+         * @param minCapacity The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minCapacity(Double minCapacity) {
             return minCapacity(Output.of(minCapacity));
         }

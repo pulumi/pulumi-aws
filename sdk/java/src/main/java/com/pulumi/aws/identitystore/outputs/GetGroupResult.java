@@ -16,8 +16,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetGroupResult {
     private @Nullable GetGroupAlternateIdentifier alternateIdentifier;
+    /**
+     * @return Description of the specified group.
+     * 
+     */
     private String description;
+    /**
+     * @return Group&#39;s display name value.
+     * 
+     */
     private String displayName;
+    /**
+     * @return List of identifiers issued to this resource by an external identity provider.
+     * 
+     */
     private List<GetGroupExternalId> externalIds;
     /**
      * @deprecated
@@ -38,12 +50,24 @@ public final class GetGroupResult {
     public Optional<GetGroupAlternateIdentifier> alternateIdentifier() {
         return Optional.ofNullable(this.alternateIdentifier);
     }
+    /**
+     * @return Description of the specified group.
+     * 
+     */
     public String description() {
         return this.description;
     }
+    /**
+     * @return Group&#39;s display name value.
+     * 
+     */
     public String displayName() {
         return this.displayName;
     }
+    /**
+     * @return List of identifiers issued to this resource by an external identity provider.
+     * 
+     */
     public List<GetGroupExternalId> externalIds() {
         return this.externalIds;
     }

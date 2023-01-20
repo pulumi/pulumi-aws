@@ -15,9 +15,17 @@ public final class VpcEndpointDnsOptionsArgs extends com.pulumi.resources.Resour
 
     public static final VpcEndpointDnsOptionsArgs Empty = new VpcEndpointDnsOptionsArgs();
 
+    /**
+     * The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+     * 
+     */
     @Import(name="dnsRecordIpType")
     private @Nullable Output<String> dnsRecordIpType;
 
+    /**
+     * @return The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+     * 
+     */
     public Optional<Output<String>> dnsRecordIpType() {
         return Optional.ofNullable(this.dnsRecordIpType);
     }
@@ -46,11 +54,23 @@ public final class VpcEndpointDnsOptionsArgs extends com.pulumi.resources.Resour
             $ = new VpcEndpointDnsOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dnsRecordIpType The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordIpType(@Nullable Output<String> dnsRecordIpType) {
             $.dnsRecordIpType = dnsRecordIpType;
             return this;
         }
 
+        /**
+         * @param dnsRecordIpType The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordIpType(String dnsRecordIpType) {
             return dnsRecordIpType(Output.of(dnsRecordIpType));
         }

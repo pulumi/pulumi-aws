@@ -4,6 +4,37 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an AppSync Type.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {authenticationType: "API_KEY"});
+ * const exampleType = new aws.appsync.Type("exampleType", {
+ *     apiId: exampleGraphQLApi.id,
+ *     format: "SDL",
+ *     definition: `type Mutation
+ *
+ * {
+ * putPost(id: ID!,title: String! ): Post
+ *
+ * }
+ * `,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Appsync Types can be imported using the `id` e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:appsync/type:Type example api-id:format:name
+ * ```
+ */
 export class Type extends pulumi.CustomResource {
     /**
      * Get an existing Type resource's state with the given name, ID, and optional extra
@@ -32,11 +63,29 @@ export class Type extends pulumi.CustomResource {
         return obj['__pulumiType'] === Type.__pulumiType;
     }
 
+    /**
+     * GraphQL API ID.
+     */
     public readonly apiId!: pulumi.Output<string>;
+    /**
+     * The ARN of the type.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The type definition.
+     */
     public readonly definition!: pulumi.Output<string>;
+    /**
+     * The type description.
+     */
     public /*out*/ readonly description!: pulumi.Output<string>;
+    /**
+     * The type format: `SDL` or `JSON`.
+     */
     public readonly format!: pulumi.Output<string>;
+    /**
+     * The type name.
+     */
     public /*out*/ readonly name!: pulumi.Output<string>;
 
     /**
@@ -85,11 +134,29 @@ export class Type extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Type resources.
  */
 export interface TypeState {
+    /**
+     * GraphQL API ID.
+     */
     apiId?: pulumi.Input<string>;
+    /**
+     * The ARN of the type.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The type definition.
+     */
     definition?: pulumi.Input<string>;
+    /**
+     * The type description.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The type format: `SDL` or `JSON`.
+     */
     format?: pulumi.Input<string>;
+    /**
+     * The type name.
+     */
     name?: pulumi.Input<string>;
 }
 
@@ -97,7 +164,16 @@ export interface TypeState {
  * The set of arguments for constructing a Type resource.
  */
 export interface TypeArgs {
+    /**
+     * GraphQL API ID.
+     */
     apiId: pulumi.Input<string>;
+    /**
+     * The type definition.
+     */
     definition: pulumi.Input<string>;
+    /**
+     * The type format: `SDL` or `JSON`.
+     */
     format: pulumi.Input<string>;
 }

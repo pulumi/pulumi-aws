@@ -16,23 +16,47 @@ public final class TransitGatewayPeeringArgs extends com.pulumi.resources.Resour
 
     public static final TransitGatewayPeeringArgs Empty = new TransitGatewayPeeringArgs();
 
+    /**
+     * The ID of a core network.
+     * 
+     */
     @Import(name="coreNetworkId", required=true)
     private Output<String> coreNetworkId;
 
+    /**
+     * @return The ID of a core network.
+     * 
+     */
     public Output<String> coreNetworkId() {
         return this.coreNetworkId;
     }
 
+    /**
+     * Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * The ARN of the transit gateway for the peering request.
+     * 
+     */
     @Import(name="transitGatewayArn", required=true)
     private Output<String> transitGatewayArn;
 
+    /**
+     * @return The ARN of the transit gateway for the peering request.
+     * 
+     */
     public Output<String> transitGatewayArn() {
         return this.transitGatewayArn;
     }
@@ -63,29 +87,65 @@ public final class TransitGatewayPeeringArgs extends com.pulumi.resources.Resour
             $ = new TransitGatewayPeeringArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param coreNetworkId The ID of a core network.
+         * 
+         * @return builder
+         * 
+         */
         public Builder coreNetworkId(Output<String> coreNetworkId) {
             $.coreNetworkId = coreNetworkId;
             return this;
         }
 
+        /**
+         * @param coreNetworkId The ID of a core network.
+         * 
+         * @return builder
+         * 
+         */
         public Builder coreNetworkId(String coreNetworkId) {
             return coreNetworkId(Output.of(coreNetworkId));
         }
 
+        /**
+         * @param tags Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param transitGatewayArn The ARN of the transit gateway for the peering request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder transitGatewayArn(Output<String> transitGatewayArn) {
             $.transitGatewayArn = transitGatewayArn;
             return this;
         }
 
+        /**
+         * @param transitGatewayArn The ARN of the transit gateway for the peering request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder transitGatewayArn(String transitGatewayArn) {
             return transitGatewayArn(Output.of(transitGatewayArn));
         }

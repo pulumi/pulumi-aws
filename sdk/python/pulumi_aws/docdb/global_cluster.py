@@ -25,6 +25,14 @@ class GlobalClusterArgs:
                  storage_encrypted: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a GlobalCluster resource.
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier.
+        :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation.
+        :param pulumi.Input[bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        :param pulumi.Input[str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `source_db_cluster_identifier`.
+        :param pulumi.Input[str] engine_version: Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
+               * **NOTE:** Upgrading major versions is not supported.
+        :param pulumi.Input[str] source_db_cluster_identifier: Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+        :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         """
         pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
         if database_name is not None:
@@ -43,6 +51,9 @@ class GlobalClusterArgs:
     @property
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> pulumi.Input[str]:
+        """
+        The global cluster identifier.
+        """
         return pulumi.get(self, "global_cluster_identifier")
 
     @global_cluster_identifier.setter
@@ -52,6 +63,9 @@ class GlobalClusterArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for an automatically created database on cluster creation.
+        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -61,6 +75,9 @@ class GlobalClusterArgs:
     @property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
@@ -70,6 +87,9 @@ class GlobalClusterArgs:
     @property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `source_db_cluster_identifier`.
+        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -79,6 +99,10 @@ class GlobalClusterArgs:
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
+        * **NOTE:** Upgrading major versions is not supported.
+        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -88,6 +112,9 @@ class GlobalClusterArgs:
     @property
     @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+        """
         return pulumi.get(self, "source_db_cluster_identifier")
 
     @source_db_cluster_identifier.setter
@@ -97,6 +124,9 @@ class GlobalClusterArgs:
     @property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+        """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
@@ -120,6 +150,17 @@ class _GlobalClusterState:
                  storage_encrypted: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering GlobalCluster resources.
+        :param pulumi.Input[str] arn: Global Cluster Amazon Resource Name (ARN)
+        :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation.
+        :param pulumi.Input[bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        :param pulumi.Input[str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `source_db_cluster_identifier`.
+        :param pulumi.Input[str] engine_version: Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
+               * **NOTE:** Upgrading major versions is not supported.
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]] global_cluster_members: Set of objects containing Global Cluster members.
+        :param pulumi.Input[str] global_cluster_resource_id: AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
+        :param pulumi.Input[str] source_db_cluster_identifier: Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+        :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -147,6 +188,9 @@ class _GlobalClusterState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Global Cluster Amazon Resource Name (ARN)
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -156,6 +200,9 @@ class _GlobalClusterState:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for an automatically created database on cluster creation.
+        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -165,6 +212,9 @@ class _GlobalClusterState:
     @property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
@@ -174,6 +224,9 @@ class _GlobalClusterState:
     @property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `source_db_cluster_identifier`.
+        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -183,6 +236,10 @@ class _GlobalClusterState:
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
+        * **NOTE:** Upgrading major versions is not supported.
+        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -192,6 +249,9 @@ class _GlobalClusterState:
     @property
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The global cluster identifier.
+        """
         return pulumi.get(self, "global_cluster_identifier")
 
     @global_cluster_identifier.setter
@@ -201,6 +261,9 @@ class _GlobalClusterState:
     @property
     @pulumi.getter(name="globalClusterMembers")
     def global_cluster_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]]]:
+        """
+        Set of objects containing Global Cluster members.
+        """
         return pulumi.get(self, "global_cluster_members")
 
     @global_cluster_members.setter
@@ -210,6 +273,9 @@ class _GlobalClusterState:
     @property
     @pulumi.getter(name="globalClusterResourceId")
     def global_cluster_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
+        """
         return pulumi.get(self, "global_cluster_resource_id")
 
     @global_cluster_resource_id.setter
@@ -219,6 +285,9 @@ class _GlobalClusterState:
     @property
     @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+        """
         return pulumi.get(self, "source_db_cluster_identifier")
 
     @source_db_cluster_identifier.setter
@@ -237,6 +306,9 @@ class _GlobalClusterState:
     @property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+        """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
@@ -258,9 +330,96 @@ class GlobalCluster(pulumi.CustomResource):
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a GlobalCluster resource with the given unique name, props, and options.
+        Manages an DocumentDB Global Cluster. A global cluster consists of one primary region and up to five read-only secondary regions. You issue write operations directly to the primary cluster in the primary region and Amazon DocumentDB automatically replicates the data to the secondary regions using dedicated infrastructure.
+
+        More information about DocumentDB Global Clusters can be found in the [DocumentDB Developer Guide](https://docs.aws.amazon.com/documentdb/latest/developerguide/global-clusters.html).
+
+        ## Example Usage
+        ### New DocumentDB Global Cluster
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        primary = aws.Provider("primary", region="us-east-2")
+        secondary = aws.Provider("secondary", region="us-east-1")
+        example = aws.docdb.GlobalCluster("example",
+            global_cluster_identifier="global-test",
+            engine="docdb",
+            engine_version="4.0.0")
+        primary_cluster = aws.docdb.Cluster("primaryCluster",
+            engine=example.engine,
+            engine_version=example.engine_version,
+            cluster_identifier="test-primary-cluster",
+            master_username="username",
+            master_password="somepass123",
+            global_cluster_identifier=example.id,
+            db_subnet_group_name="default",
+            opts=pulumi.ResourceOptions(provider=aws["primary"]))
+        primary_cluster_instance = aws.docdb.ClusterInstance("primaryClusterInstance",
+            engine=example.engine,
+            identifier="test-primary-cluster-instance",
+            cluster_identifier=primary_cluster.id,
+            instance_class="db.r5.large",
+            opts=pulumi.ResourceOptions(provider=aws["primary"]))
+        secondary_cluster = aws.docdb.Cluster("secondaryCluster",
+            engine=example.engine,
+            engine_version=example.engine_version,
+            cluster_identifier="test-secondary-cluster",
+            global_cluster_identifier=example.id,
+            db_subnet_group_name="default",
+            opts=pulumi.ResourceOptions(provider=aws["secondary"]))
+        secondary_cluster_instance = aws.docdb.ClusterInstance("secondaryClusterInstance",
+            engine=example.engine,
+            identifier="test-secondary-cluster-instance",
+            cluster_identifier=secondary_cluster.id,
+            instance_class="db.r5.large",
+            opts=pulumi.ResourceOptions(provider=aws["secondary"],
+                depends_on=[primary_cluster_instance]))
+        ```
+        ### New Global Cluster From Existing DB Cluster
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # ... other configuration ...
+        example_cluster = aws.docdb.Cluster("exampleCluster")
+        example_global_cluster = aws.docdb.GlobalCluster("exampleGlobalCluster",
+            global_cluster_identifier="example",
+            source_db_cluster_identifier=example_cluster.arn)
+        ```
+
+        ## Import
+
+        `aws_docdb_global_cluster` can be imported by using the Global Cluster identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:docdb/globalCluster:GlobalCluster example example
+        ```
+
+         Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the the provider configuration or use `ignore_changes` to hide the difference, e.g. terraform resource "aws_docdb_global_cluster" "example" {
+
+        # ... other configuration ...
+
+        # There is no API for reading source_db_cluster_identifier
+
+         lifecycle {
+
+         ignore_changes = [source_db_cluster_identifier]
+
+         } }
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation.
+        :param pulumi.Input[bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        :param pulumi.Input[str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `source_db_cluster_identifier`.
+        :param pulumi.Input[str] engine_version: Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
+               * **NOTE:** Upgrading major versions is not supported.
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier.
+        :param pulumi.Input[str] source_db_cluster_identifier: Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+        :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         """
         ...
     @overload
@@ -269,7 +428,86 @@ class GlobalCluster(pulumi.CustomResource):
                  args: GlobalClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a GlobalCluster resource with the given unique name, props, and options.
+        Manages an DocumentDB Global Cluster. A global cluster consists of one primary region and up to five read-only secondary regions. You issue write operations directly to the primary cluster in the primary region and Amazon DocumentDB automatically replicates the data to the secondary regions using dedicated infrastructure.
+
+        More information about DocumentDB Global Clusters can be found in the [DocumentDB Developer Guide](https://docs.aws.amazon.com/documentdb/latest/developerguide/global-clusters.html).
+
+        ## Example Usage
+        ### New DocumentDB Global Cluster
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        primary = aws.Provider("primary", region="us-east-2")
+        secondary = aws.Provider("secondary", region="us-east-1")
+        example = aws.docdb.GlobalCluster("example",
+            global_cluster_identifier="global-test",
+            engine="docdb",
+            engine_version="4.0.0")
+        primary_cluster = aws.docdb.Cluster("primaryCluster",
+            engine=example.engine,
+            engine_version=example.engine_version,
+            cluster_identifier="test-primary-cluster",
+            master_username="username",
+            master_password="somepass123",
+            global_cluster_identifier=example.id,
+            db_subnet_group_name="default",
+            opts=pulumi.ResourceOptions(provider=aws["primary"]))
+        primary_cluster_instance = aws.docdb.ClusterInstance("primaryClusterInstance",
+            engine=example.engine,
+            identifier="test-primary-cluster-instance",
+            cluster_identifier=primary_cluster.id,
+            instance_class="db.r5.large",
+            opts=pulumi.ResourceOptions(provider=aws["primary"]))
+        secondary_cluster = aws.docdb.Cluster("secondaryCluster",
+            engine=example.engine,
+            engine_version=example.engine_version,
+            cluster_identifier="test-secondary-cluster",
+            global_cluster_identifier=example.id,
+            db_subnet_group_name="default",
+            opts=pulumi.ResourceOptions(provider=aws["secondary"]))
+        secondary_cluster_instance = aws.docdb.ClusterInstance("secondaryClusterInstance",
+            engine=example.engine,
+            identifier="test-secondary-cluster-instance",
+            cluster_identifier=secondary_cluster.id,
+            instance_class="db.r5.large",
+            opts=pulumi.ResourceOptions(provider=aws["secondary"],
+                depends_on=[primary_cluster_instance]))
+        ```
+        ### New Global Cluster From Existing DB Cluster
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # ... other configuration ...
+        example_cluster = aws.docdb.Cluster("exampleCluster")
+        example_global_cluster = aws.docdb.GlobalCluster("exampleGlobalCluster",
+            global_cluster_identifier="example",
+            source_db_cluster_identifier=example_cluster.arn)
+        ```
+
+        ## Import
+
+        `aws_docdb_global_cluster` can be imported by using the Global Cluster identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:docdb/globalCluster:GlobalCluster example example
+        ```
+
+         Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the the provider configuration or use `ignore_changes` to hide the difference, e.g. terraform resource "aws_docdb_global_cluster" "example" {
+
+        # ... other configuration ...
+
+        # There is no API for reading source_db_cluster_identifier
+
+         lifecycle {
+
+         ignore_changes = [source_db_cluster_identifier]
+
+         } }
+
         :param str resource_name: The name of the resource.
         :param GlobalClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -342,6 +580,17 @@ class GlobalCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Global Cluster Amazon Resource Name (ARN)
+        :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation.
+        :param pulumi.Input[bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        :param pulumi.Input[str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `source_db_cluster_identifier`.
+        :param pulumi.Input[str] engine_version: Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
+               * **NOTE:** Upgrading major versions is not supported.
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalClusterGlobalClusterMemberArgs']]]] global_cluster_members: Set of objects containing Global Cluster members.
+        :param pulumi.Input[str] global_cluster_resource_id: AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
+        :param pulumi.Input[str] source_db_cluster_identifier: Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+        :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -363,46 +612,74 @@ class GlobalCluster(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Global Cluster Amazon Resource Name (ARN)
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Name for an automatically created database on cluster creation.
+        """
         return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        """
         return pulumi.get(self, "deletion_protection")
 
     @property
     @pulumi.getter
     def engine(self) -> pulumi.Output[str]:
+        """
+        Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `source_db_cluster_identifier`.
+        """
         return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[str]:
+        """
+        Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
+        * **NOTE:** Upgrading major versions is not supported.
+        """
         return pulumi.get(self, "engine_version")
 
     @property
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> pulumi.Output[str]:
+        """
+        The global cluster identifier.
+        """
         return pulumi.get(self, "global_cluster_identifier")
 
     @property
     @pulumi.getter(name="globalClusterMembers")
     def global_cluster_members(self) -> pulumi.Output[Sequence['outputs.GlobalClusterGlobalClusterMember']]:
+        """
+        Set of objects containing Global Cluster members.
+        """
         return pulumi.get(self, "global_cluster_members")
 
     @property
     @pulumi.getter(name="globalClusterResourceId")
     def global_cluster_resource_id(self) -> pulumi.Output[str]:
+        """
+        AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
+        """
         return pulumi.get(self, "global_cluster_resource_id")
 
     @property
     @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+        """
         return pulumi.get(self, "source_db_cluster_identifier")
 
     @property
@@ -413,5 +690,8 @@ class GlobalCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> pulumi.Output[bool]:
+        """
+        Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+        """
         return pulumi.get(self, "storage_encrypted")
 

@@ -11,18 +11,160 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Allocates (reserves) a CIDR from an IPAM address pool, preventing usage by IPAM. Only works for private IPv4.
+//
+// ## Example Usage
+//
+// Basic usage:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "exampleVpcIpam", &ec2.VpcIpamArgs{
+//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
+//					&ec2.VpcIpamOperatingRegionArgs{
+//						RegionName: *pulumi.String(current.Name),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "exampleVpcIpamPool", &ec2.VpcIpamPoolArgs{
+//				AddressFamily: pulumi.String("ipv4"),
+//				IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
+//				Locale:        *pulumi.String(current.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "exampleVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
+//				IpamPoolId: exampleVpcIpamPool.ID(),
+//				Cidr:       pulumi.String("172.2.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcIpamPoolCidrAllocation(ctx, "exampleVpcIpamPoolCidrAllocation", &ec2.VpcIpamPoolCidrAllocationArgs{
+//				IpamPoolId: exampleVpcIpamPool.ID(),
+//				Cidr:       pulumi.String("172.2.0.0/24"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleVpcIpamPoolCidr,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// With the `disallowedCidrs` attribute:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "exampleVpcIpam", &ec2.VpcIpamArgs{
+//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
+//					&ec2.VpcIpamOperatingRegionArgs{
+//						RegionName: *pulumi.String(current.Name),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "exampleVpcIpamPool", &ec2.VpcIpamPoolArgs{
+//				AddressFamily: pulumi.String("ipv4"),
+//				IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
+//				Locale:        *pulumi.String(current.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "exampleVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
+//				IpamPoolId: exampleVpcIpamPool.ID(),
+//				Cidr:       pulumi.String("172.2.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcIpamPoolCidrAllocation(ctx, "exampleVpcIpamPoolCidrAllocation", &ec2.VpcIpamPoolCidrAllocationArgs{
+//				IpamPoolId:    exampleVpcIpamPool.ID(),
+//				NetmaskLength: pulumi.Int(28),
+//				DisallowedCidrs: pulumi.StringArray{
+//					pulumi.String("172.2.0.0/28"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleVpcIpamPoolCidr,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// IPAMs can be imported using the `allocation id`, e.g.
+//
+// ```sh
+//
+//	$ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example
+//
+// ```
 type VpcIpamPoolCidrAllocation struct {
 	pulumi.CustomResourceState
 
-	Cidr                 pulumi.StringOutput      `pulumi:"cidr"`
-	Description          pulumi.StringPtrOutput   `pulumi:"description"`
+	// The CIDR you want to assign to the pool.
+	Cidr pulumi.StringOutput `pulumi:"cidr"`
+	// The description for the allocation.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Exclude a particular CIDR range from being returned by the pool.
 	DisallowedCidrs      pulumi.StringArrayOutput `pulumi:"disallowedCidrs"`
 	IpamPoolAllocationId pulumi.StringOutput      `pulumi:"ipamPoolAllocationId"`
-	IpamPoolId           pulumi.StringOutput      `pulumi:"ipamPoolId"`
-	NetmaskLength        pulumi.IntPtrOutput      `pulumi:"netmaskLength"`
-	ResourceId           pulumi.StringOutput      `pulumi:"resourceId"`
-	ResourceOwner        pulumi.StringOutput      `pulumi:"resourceOwner"`
-	ResourceType         pulumi.StringOutput      `pulumi:"resourceType"`
+	// The ID of the pool to which you want to assign a CIDR.
+	IpamPoolId pulumi.StringOutput `pulumi:"ipamPoolId"`
+	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
+	NetmaskLength pulumi.IntPtrOutput `pulumi:"netmaskLength"`
+	// The ID of the resource.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	// The owner of the resource.
+	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
+	// The type of the resource.
+	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
 }
 
 // NewVpcIpamPoolCidrAllocation registers a new resource with the given unique name, arguments, and options.
@@ -57,27 +199,43 @@ func GetVpcIpamPoolCidrAllocation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcIpamPoolCidrAllocation resources.
 type vpcIpamPoolCidrAllocationState struct {
-	Cidr                 *string  `pulumi:"cidr"`
-	Description          *string  `pulumi:"description"`
+	// The CIDR you want to assign to the pool.
+	Cidr *string `pulumi:"cidr"`
+	// The description for the allocation.
+	Description *string `pulumi:"description"`
+	// Exclude a particular CIDR range from being returned by the pool.
 	DisallowedCidrs      []string `pulumi:"disallowedCidrs"`
 	IpamPoolAllocationId *string  `pulumi:"ipamPoolAllocationId"`
-	IpamPoolId           *string  `pulumi:"ipamPoolId"`
-	NetmaskLength        *int     `pulumi:"netmaskLength"`
-	ResourceId           *string  `pulumi:"resourceId"`
-	ResourceOwner        *string  `pulumi:"resourceOwner"`
-	ResourceType         *string  `pulumi:"resourceType"`
+	// The ID of the pool to which you want to assign a CIDR.
+	IpamPoolId *string `pulumi:"ipamPoolId"`
+	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
+	NetmaskLength *int `pulumi:"netmaskLength"`
+	// The ID of the resource.
+	ResourceId *string `pulumi:"resourceId"`
+	// The owner of the resource.
+	ResourceOwner *string `pulumi:"resourceOwner"`
+	// The type of the resource.
+	ResourceType *string `pulumi:"resourceType"`
 }
 
 type VpcIpamPoolCidrAllocationState struct {
-	Cidr                 pulumi.StringPtrInput
-	Description          pulumi.StringPtrInput
+	// The CIDR you want to assign to the pool.
+	Cidr pulumi.StringPtrInput
+	// The description for the allocation.
+	Description pulumi.StringPtrInput
+	// Exclude a particular CIDR range from being returned by the pool.
 	DisallowedCidrs      pulumi.StringArrayInput
 	IpamPoolAllocationId pulumi.StringPtrInput
-	IpamPoolId           pulumi.StringPtrInput
-	NetmaskLength        pulumi.IntPtrInput
-	ResourceId           pulumi.StringPtrInput
-	ResourceOwner        pulumi.StringPtrInput
-	ResourceType         pulumi.StringPtrInput
+	// The ID of the pool to which you want to assign a CIDR.
+	IpamPoolId pulumi.StringPtrInput
+	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
+	NetmaskLength pulumi.IntPtrInput
+	// The ID of the resource.
+	ResourceId pulumi.StringPtrInput
+	// The owner of the resource.
+	ResourceOwner pulumi.StringPtrInput
+	// The type of the resource.
+	ResourceType pulumi.StringPtrInput
 }
 
 func (VpcIpamPoolCidrAllocationState) ElementType() reflect.Type {
@@ -85,20 +243,30 @@ func (VpcIpamPoolCidrAllocationState) ElementType() reflect.Type {
 }
 
 type vpcIpamPoolCidrAllocationArgs struct {
-	Cidr            *string  `pulumi:"cidr"`
-	Description     *string  `pulumi:"description"`
+	// The CIDR you want to assign to the pool.
+	Cidr *string `pulumi:"cidr"`
+	// The description for the allocation.
+	Description *string `pulumi:"description"`
+	// Exclude a particular CIDR range from being returned by the pool.
 	DisallowedCidrs []string `pulumi:"disallowedCidrs"`
-	IpamPoolId      string   `pulumi:"ipamPoolId"`
-	NetmaskLength   *int     `pulumi:"netmaskLength"`
+	// The ID of the pool to which you want to assign a CIDR.
+	IpamPoolId string `pulumi:"ipamPoolId"`
+	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
+	NetmaskLength *int `pulumi:"netmaskLength"`
 }
 
 // The set of arguments for constructing a VpcIpamPoolCidrAllocation resource.
 type VpcIpamPoolCidrAllocationArgs struct {
-	Cidr            pulumi.StringPtrInput
-	Description     pulumi.StringPtrInput
+	// The CIDR you want to assign to the pool.
+	Cidr pulumi.StringPtrInput
+	// The description for the allocation.
+	Description pulumi.StringPtrInput
+	// Exclude a particular CIDR range from being returned by the pool.
 	DisallowedCidrs pulumi.StringArrayInput
-	IpamPoolId      pulumi.StringInput
-	NetmaskLength   pulumi.IntPtrInput
+	// The ID of the pool to which you want to assign a CIDR.
+	IpamPoolId pulumi.StringInput
+	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
+	NetmaskLength pulumi.IntPtrInput
 }
 
 func (VpcIpamPoolCidrAllocationArgs) ElementType() reflect.Type {
@@ -188,14 +356,17 @@ func (o VpcIpamPoolCidrAllocationOutput) ToVpcIpamPoolCidrAllocationOutputWithCo
 	return o
 }
 
+// The CIDR you want to assign to the pool.
 func (o VpcIpamPoolCidrAllocationOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.Cidr }).(pulumi.StringOutput)
 }
 
+// The description for the allocation.
 func (o VpcIpamPoolCidrAllocationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Exclude a particular CIDR range from being returned by the pool.
 func (o VpcIpamPoolCidrAllocationOutput) DisallowedCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringArrayOutput { return v.DisallowedCidrs }).(pulumi.StringArrayOutput)
 }
@@ -204,22 +375,27 @@ func (o VpcIpamPoolCidrAllocationOutput) IpamPoolAllocationId() pulumi.StringOut
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.IpamPoolAllocationId }).(pulumi.StringOutput)
 }
 
+// The ID of the pool to which you want to assign a CIDR.
 func (o VpcIpamPoolCidrAllocationOutput) IpamPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.IpamPoolId }).(pulumi.StringOutput)
 }
 
+// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
 func (o VpcIpamPoolCidrAllocationOutput) NetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.IntPtrOutput { return v.NetmaskLength }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the resource.
 func (o VpcIpamPoolCidrAllocationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
+// The owner of the resource.
 func (o VpcIpamPoolCidrAllocationOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
+// The type of the resource.
 func (o VpcIpamPoolCidrAllocationOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }

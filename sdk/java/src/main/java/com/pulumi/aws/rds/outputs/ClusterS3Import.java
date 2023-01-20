@@ -11,25 +11,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterS3Import {
+    /**
+     * @return The bucket name where your backup is stored
+     * 
+     */
     private String bucketName;
+    /**
+     * @return Can be blank, but is the path to your backup
+     * 
+     */
     private @Nullable String bucketPrefix;
+    /**
+     * @return Role applied to load the data.
+     * 
+     */
     private String ingestionRole;
+    /**
+     * @return Source engine for the backup
+     * 
+     */
     private String sourceEngine;
+    /**
+     * @return Version of the source engine used to make the backup
+     * 
+     */
     private String sourceEngineVersion;
 
     private ClusterS3Import() {}
+    /**
+     * @return The bucket name where your backup is stored
+     * 
+     */
     public String bucketName() {
         return this.bucketName;
     }
+    /**
+     * @return Can be blank, but is the path to your backup
+     * 
+     */
     public Optional<String> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
+    /**
+     * @return Role applied to load the data.
+     * 
+     */
     public String ingestionRole() {
         return this.ingestionRole;
     }
+    /**
+     * @return Source engine for the backup
+     * 
+     */
     public String sourceEngine() {
         return this.sourceEngine;
     }
+    /**
+     * @return Version of the source engine used to make the backup
+     * 
+     */
     public String sourceEngineVersion() {
         return this.sourceEngineVersion;
     }

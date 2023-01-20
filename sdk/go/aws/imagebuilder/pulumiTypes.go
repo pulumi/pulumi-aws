@@ -11,8 +11,10 @@ import (
 )
 
 type ContainerRecipeComponent struct {
-	ComponentArn string                              `pulumi:"componentArn"`
-	Parameters   []ContainerRecipeComponentParameter `pulumi:"parameters"`
+	// Amazon Resource Name (ARN) of the Image Builder Component to associate.
+	ComponentArn string `pulumi:"componentArn"`
+	// Configuration block(s) for parameters to configure the component. Detailed below.
+	Parameters []ContainerRecipeComponentParameter `pulumi:"parameters"`
 }
 
 // ContainerRecipeComponentInput is an input type that accepts ContainerRecipeComponentArgs and ContainerRecipeComponentOutput values.
@@ -27,8 +29,10 @@ type ContainerRecipeComponentInput interface {
 }
 
 type ContainerRecipeComponentArgs struct {
-	ComponentArn pulumi.StringInput                          `pulumi:"componentArn"`
-	Parameters   ContainerRecipeComponentParameterArrayInput `pulumi:"parameters"`
+	// Amazon Resource Name (ARN) of the Image Builder Component to associate.
+	ComponentArn pulumi.StringInput `pulumi:"componentArn"`
+	// Configuration block(s) for parameters to configure the component. Detailed below.
+	Parameters ContainerRecipeComponentParameterArrayInput `pulumi:"parameters"`
 }
 
 func (ContainerRecipeComponentArgs) ElementType() reflect.Type {
@@ -82,10 +86,12 @@ func (o ContainerRecipeComponentOutput) ToContainerRecipeComponentOutputWithCont
 	return o
 }
 
+// Amazon Resource Name (ARN) of the Image Builder Component to associate.
 func (o ContainerRecipeComponentOutput) ComponentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerRecipeComponent) string { return v.ComponentArn }).(pulumi.StringOutput)
 }
 
+// Configuration block(s) for parameters to configure the component. Detailed below.
 func (o ContainerRecipeComponentOutput) Parameters() ContainerRecipeComponentParameterArrayOutput {
 	return o.ApplyT(func(v ContainerRecipeComponent) []ContainerRecipeComponentParameter { return v.Parameters }).(ContainerRecipeComponentParameterArrayOutput)
 }
@@ -111,7 +117,9 @@ func (o ContainerRecipeComponentArrayOutput) Index(i pulumi.IntInput) ContainerR
 }
 
 type ContainerRecipeComponentParameter struct {
-	Name  string `pulumi:"name"`
+	// The name of the component parameter.
+	Name string `pulumi:"name"`
+	// The value for the named component parameter.
 	Value string `pulumi:"value"`
 }
 
@@ -127,7 +135,9 @@ type ContainerRecipeComponentParameterInput interface {
 }
 
 type ContainerRecipeComponentParameterArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
+	// The name of the component parameter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value for the named component parameter.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -182,10 +192,12 @@ func (o ContainerRecipeComponentParameterOutput) ToContainerRecipeComponentParam
 	return o
 }
 
+// The name of the component parameter.
 func (o ContainerRecipeComponentParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerRecipeComponentParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The value for the named component parameter.
 func (o ContainerRecipeComponentParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerRecipeComponentParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -211,8 +223,10 @@ func (o ContainerRecipeComponentParameterArrayOutput) Index(i pulumi.IntInput) C
 }
 
 type ContainerRecipeInstanceConfiguration struct {
+	// Configuration block(s) with block device mappings for the container recipe. Detailed below.
 	BlockDeviceMappings []ContainerRecipeInstanceConfigurationBlockDeviceMapping `pulumi:"blockDeviceMappings"`
-	Image               *string                                                  `pulumi:"image"`
+	// The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
+	Image *string `pulumi:"image"`
 }
 
 // ContainerRecipeInstanceConfigurationInput is an input type that accepts ContainerRecipeInstanceConfigurationArgs and ContainerRecipeInstanceConfigurationOutput values.
@@ -227,8 +241,10 @@ type ContainerRecipeInstanceConfigurationInput interface {
 }
 
 type ContainerRecipeInstanceConfigurationArgs struct {
+	// Configuration block(s) with block device mappings for the container recipe. Detailed below.
 	BlockDeviceMappings ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput `pulumi:"blockDeviceMappings"`
-	Image               pulumi.StringPtrInput                                            `pulumi:"image"`
+	// The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
+	Image pulumi.StringPtrInput `pulumi:"image"`
 }
 
 func (ContainerRecipeInstanceConfigurationArgs) ElementType() reflect.Type {
@@ -308,12 +324,14 @@ func (o ContainerRecipeInstanceConfigurationOutput) ToContainerRecipeInstanceCon
 	}).(ContainerRecipeInstanceConfigurationPtrOutput)
 }
 
+// Configuration block(s) with block device mappings for the container recipe. Detailed below.
 func (o ContainerRecipeInstanceConfigurationOutput) BlockDeviceMappings() ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceConfiguration) []ContainerRecipeInstanceConfigurationBlockDeviceMapping {
 		return v.BlockDeviceMappings
 	}).(ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput)
 }
 
+// The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
 func (o ContainerRecipeInstanceConfigurationOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceConfiguration) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
@@ -342,6 +360,7 @@ func (o ContainerRecipeInstanceConfigurationPtrOutput) Elem() ContainerRecipeIns
 	}).(ContainerRecipeInstanceConfigurationOutput)
 }
 
+// Configuration block(s) with block device mappings for the container recipe. Detailed below.
 func (o ContainerRecipeInstanceConfigurationPtrOutput) BlockDeviceMappings() ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput {
 	return o.ApplyT(func(v *ContainerRecipeInstanceConfiguration) []ContainerRecipeInstanceConfigurationBlockDeviceMapping {
 		if v == nil {
@@ -351,6 +370,7 @@ func (o ContainerRecipeInstanceConfigurationPtrOutput) BlockDeviceMappings() Con
 	}).(ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput)
 }
 
+// The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
 func (o ContainerRecipeInstanceConfigurationPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeInstanceConfiguration) *string {
 		if v == nil {
@@ -361,10 +381,14 @@ func (o ContainerRecipeInstanceConfigurationPtrOutput) Image() pulumi.StringPtrO
 }
 
 type ContainerRecipeInstanceConfigurationBlockDeviceMapping struct {
-	DeviceName  *string                                                    `pulumi:"deviceName"`
-	Ebs         *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs `pulumi:"ebs"`
-	NoDevice    *bool                                                      `pulumi:"noDevice"`
-	VirtualName *string                                                    `pulumi:"virtualName"`
+	// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+	DeviceName *string `pulumi:"deviceName"`
+	// Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+	Ebs *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs `pulumi:"ebs"`
+	// Set to `true` to remove a mapping from the parent image.
+	NoDevice *bool `pulumi:"noDevice"`
+	// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+	VirtualName *string `pulumi:"virtualName"`
 }
 
 // ContainerRecipeInstanceConfigurationBlockDeviceMappingInput is an input type that accepts ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs and ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput values.
@@ -379,10 +403,14 @@ type ContainerRecipeInstanceConfigurationBlockDeviceMappingInput interface {
 }
 
 type ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs struct {
-	DeviceName  pulumi.StringPtrInput                                             `pulumi:"deviceName"`
-	Ebs         ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrInput `pulumi:"ebs"`
-	NoDevice    pulumi.BoolPtrInput                                               `pulumi:"noDevice"`
-	VirtualName pulumi.StringPtrInput                                             `pulumi:"virtualName"`
+	// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
+	// Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+	Ebs ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrInput `pulumi:"ebs"`
+	// Set to `true` to remove a mapping from the parent image.
+	NoDevice pulumi.BoolPtrInput `pulumi:"noDevice"`
+	// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
 func (ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs) ElementType() reflect.Type {
@@ -436,20 +464,24 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) ToContaine
 	return o
 }
 
+// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMapping) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
+// Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) Ebs() ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMapping) *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs {
 		return v.Ebs
 	}).(ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput)
 }
 
+// Set to `true` to remove a mapping from the parent image.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) NoDevice() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMapping) *bool { return v.NoDevice }).(pulumi.BoolPtrOutput)
 }
 
+// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
 }
@@ -475,14 +507,22 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput) Index
 }
 
 type ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs struct {
+	// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
 	DeleteOnTermination *string `pulumi:"deleteOnTermination"`
-	Encrypted           *string `pulumi:"encrypted"`
-	Iops                *int    `pulumi:"iops"`
-	KmsKeyId            *string `pulumi:"kmsKeyId"`
-	SnapshotId          *string `pulumi:"snapshotId"`
-	Throughput          *int    `pulumi:"throughput"`
-	VolumeSize          *int    `pulumi:"volumeSize"`
-	VolumeType          *string `pulumi:"volumeType"`
+	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+	Encrypted *string `pulumi:"encrypted"`
+	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+	Iops *int `pulumi:"iops"`
+	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Identifier of the EC2 Volume Snapshot.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+	Throughput *int `pulumi:"throughput"`
+	// Size of the volume, in GiB.
+	VolumeSize *int `pulumi:"volumeSize"`
+	// Type of the volume. For example, `gp2` or `io2`.
+	VolumeType *string `pulumi:"volumeType"`
 }
 
 // ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsInput is an input type that accepts ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs and ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput values.
@@ -497,14 +537,22 @@ type ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsInput interface {
 }
 
 type ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs struct {
+	// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
 	DeleteOnTermination pulumi.StringPtrInput `pulumi:"deleteOnTermination"`
-	Encrypted           pulumi.StringPtrInput `pulumi:"encrypted"`
-	Iops                pulumi.IntPtrInput    `pulumi:"iops"`
-	KmsKeyId            pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	SnapshotId          pulumi.StringPtrInput `pulumi:"snapshotId"`
-	Throughput          pulumi.IntPtrInput    `pulumi:"throughput"`
-	VolumeSize          pulumi.IntPtrInput    `pulumi:"volumeSize"`
-	VolumeType          pulumi.StringPtrInput `pulumi:"volumeType"`
+	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+	Encrypted pulumi.StringPtrInput `pulumi:"encrypted"`
+	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// Identifier of the EC2 Volume Snapshot.
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// Size of the volume, in GiB.
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+	// Type of the volume. For example, `gp2` or `io2`.
+	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
 func (ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs) ElementType() reflect.Type {
@@ -584,36 +632,44 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) ToConta
 	}).(ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput)
 }
 
+// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) DeleteOnTermination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string {
 		return v.DeleteOnTermination
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) Encrypted() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string { return v.Encrypted }).(pulumi.StringPtrOutput)
 }
 
+// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// Identifier of the EC2 Volume Snapshot.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// For GP3 volumes only. The throughput in MiB/s that the volume supports.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
+// Size of the volume, in GiB.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
+// Type of the volume. For example, `gp2` or `io2`.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -642,6 +698,7 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) Elem
 	}).(ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput)
 }
 
+// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) DeleteOnTermination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string {
 		if v == nil {
@@ -651,6 +708,7 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) Dele
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) Encrypted() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string {
 		if v == nil {
@@ -660,6 +718,7 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) Encr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *int {
 		if v == nil {
@@ -669,6 +728,7 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) Iops
 	}).(pulumi.IntPtrOutput)
 }
 
+// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string {
 		if v == nil {
@@ -678,6 +738,7 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) KmsK
 	}).(pulumi.StringPtrOutput)
 }
 
+// Identifier of the EC2 Volume Snapshot.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string {
 		if v == nil {
@@ -687,6 +748,7 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) Snap
 	}).(pulumi.StringPtrOutput)
 }
 
+// For GP3 volumes only. The throughput in MiB/s that the volume supports.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *int {
 		if v == nil {
@@ -696,6 +758,7 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) Thro
 	}).(pulumi.IntPtrOutput)
 }
 
+// Size of the volume, in GiB.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *int {
 		if v == nil {
@@ -705,6 +768,7 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) Volu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Type of the volume. For example, `gp2` or `io2`.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string {
 		if v == nil {
@@ -715,8 +779,10 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) Volu
 }
 
 type ContainerRecipeTargetRepository struct {
+	// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
 	RepositoryName string `pulumi:"repositoryName"`
-	Service        string `pulumi:"service"`
+	// The service in which this image is registered. Valid values: `ECR`.
+	Service string `pulumi:"service"`
 }
 
 // ContainerRecipeTargetRepositoryInput is an input type that accepts ContainerRecipeTargetRepositoryArgs and ContainerRecipeTargetRepositoryOutput values.
@@ -731,8 +797,10 @@ type ContainerRecipeTargetRepositoryInput interface {
 }
 
 type ContainerRecipeTargetRepositoryArgs struct {
+	// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
-	Service        pulumi.StringInput `pulumi:"service"`
+	// The service in which this image is registered. Valid values: `ECR`.
+	Service pulumi.StringInput `pulumi:"service"`
 }
 
 func (ContainerRecipeTargetRepositoryArgs) ElementType() reflect.Type {
@@ -812,10 +880,12 @@ func (o ContainerRecipeTargetRepositoryOutput) ToContainerRecipeTargetRepository
 	}).(ContainerRecipeTargetRepositoryPtrOutput)
 }
 
+// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
 func (o ContainerRecipeTargetRepositoryOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerRecipeTargetRepository) string { return v.RepositoryName }).(pulumi.StringOutput)
 }
 
+// The service in which this image is registered. Valid values: `ECR`.
 func (o ContainerRecipeTargetRepositoryOutput) Service() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerRecipeTargetRepository) string { return v.Service }).(pulumi.StringOutput)
 }
@@ -844,6 +914,7 @@ func (o ContainerRecipeTargetRepositoryPtrOutput) Elem() ContainerRecipeTargetRe
 	}).(ContainerRecipeTargetRepositoryOutput)
 }
 
+// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
 func (o ContainerRecipeTargetRepositoryPtrOutput) RepositoryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeTargetRepository) *string {
 		if v == nil {
@@ -853,6 +924,7 @@ func (o ContainerRecipeTargetRepositoryPtrOutput) RepositoryName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The service in which this image is registered. Valid values: `ECR`.
 func (o ContainerRecipeTargetRepositoryPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeTargetRepository) *string {
 		if v == nil {
@@ -863,12 +935,18 @@ func (o ContainerRecipeTargetRepositoryPtrOutput) Service() pulumi.StringPtrOutp
 }
 
 type DistributionConfigurationDistribution struct {
-	AmiDistributionConfiguration       *DistributionConfigurationDistributionAmiDistributionConfiguration       `pulumi:"amiDistributionConfiguration"`
+	// Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+	AmiDistributionConfiguration *DistributionConfigurationDistributionAmiDistributionConfiguration `pulumi:"amiDistributionConfiguration"`
+	// Configuration block with container distribution settings. Detailed below.
 	ContainerDistributionConfiguration *DistributionConfigurationDistributionContainerDistributionConfiguration `pulumi:"containerDistributionConfiguration"`
-	FastLaunchConfigurations           []DistributionConfigurationDistributionFastLaunchConfiguration           `pulumi:"fastLaunchConfigurations"`
-	LaunchTemplateConfigurations       []DistributionConfigurationDistributionLaunchTemplateConfiguration       `pulumi:"launchTemplateConfigurations"`
-	LicenseConfigurationArns           []string                                                                 `pulumi:"licenseConfigurationArns"`
-	Region                             string                                                                   `pulumi:"region"`
+	// Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
+	FastLaunchConfigurations []DistributionConfigurationDistributionFastLaunchConfiguration `pulumi:"fastLaunchConfigurations"`
+	// Set of launch template configuration settings that apply to image distribution. Detailed below.
+	LaunchTemplateConfigurations []DistributionConfigurationDistributionLaunchTemplateConfiguration `pulumi:"launchTemplateConfigurations"`
+	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+	LicenseConfigurationArns []string `pulumi:"licenseConfigurationArns"`
+	// AWS Region for the distribution.
+	Region string `pulumi:"region"`
 }
 
 // DistributionConfigurationDistributionInput is an input type that accepts DistributionConfigurationDistributionArgs and DistributionConfigurationDistributionOutput values.
@@ -883,12 +961,18 @@ type DistributionConfigurationDistributionInput interface {
 }
 
 type DistributionConfigurationDistributionArgs struct {
-	AmiDistributionConfiguration       DistributionConfigurationDistributionAmiDistributionConfigurationPtrInput       `pulumi:"amiDistributionConfiguration"`
+	// Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+	AmiDistributionConfiguration DistributionConfigurationDistributionAmiDistributionConfigurationPtrInput `pulumi:"amiDistributionConfiguration"`
+	// Configuration block with container distribution settings. Detailed below.
 	ContainerDistributionConfiguration DistributionConfigurationDistributionContainerDistributionConfigurationPtrInput `pulumi:"containerDistributionConfiguration"`
-	FastLaunchConfigurations           DistributionConfigurationDistributionFastLaunchConfigurationArrayInput          `pulumi:"fastLaunchConfigurations"`
-	LaunchTemplateConfigurations       DistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput      `pulumi:"launchTemplateConfigurations"`
-	LicenseConfigurationArns           pulumi.StringArrayInput                                                         `pulumi:"licenseConfigurationArns"`
-	Region                             pulumi.StringInput                                                              `pulumi:"region"`
+	// Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
+	FastLaunchConfigurations DistributionConfigurationDistributionFastLaunchConfigurationArrayInput `pulumi:"fastLaunchConfigurations"`
+	// Set of launch template configuration settings that apply to image distribution. Detailed below.
+	LaunchTemplateConfigurations DistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput `pulumi:"launchTemplateConfigurations"`
+	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+	LicenseConfigurationArns pulumi.StringArrayInput `pulumi:"licenseConfigurationArns"`
+	// AWS Region for the distribution.
+	Region pulumi.StringInput `pulumi:"region"`
 }
 
 func (DistributionConfigurationDistributionArgs) ElementType() reflect.Type {
@@ -942,34 +1026,40 @@ func (o DistributionConfigurationDistributionOutput) ToDistributionConfiguration
 	return o
 }
 
+// Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
 func (o DistributionConfigurationDistributionOutput) AmiDistributionConfiguration() DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) *DistributionConfigurationDistributionAmiDistributionConfiguration {
 		return v.AmiDistributionConfiguration
 	}).(DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput)
 }
 
+// Configuration block with container distribution settings. Detailed below.
 func (o DistributionConfigurationDistributionOutput) ContainerDistributionConfiguration() DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) *DistributionConfigurationDistributionContainerDistributionConfiguration {
 		return v.ContainerDistributionConfiguration
 	}).(DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput)
 }
 
+// Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
 func (o DistributionConfigurationDistributionOutput) FastLaunchConfigurations() DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) []DistributionConfigurationDistributionFastLaunchConfiguration {
 		return v.FastLaunchConfigurations
 	}).(DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput)
 }
 
+// Set of launch template configuration settings that apply to image distribution. Detailed below.
 func (o DistributionConfigurationDistributionOutput) LaunchTemplateConfigurations() DistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) []DistributionConfigurationDistributionLaunchTemplateConfiguration {
 		return v.LaunchTemplateConfigurations
 	}).(DistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput)
 }
 
+// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
 func (o DistributionConfigurationDistributionOutput) LicenseConfigurationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) []string { return v.LicenseConfigurationArns }).(pulumi.StringArrayOutput)
 }
 
+// AWS Region for the distribution.
 func (o DistributionConfigurationDistributionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -995,12 +1085,18 @@ func (o DistributionConfigurationDistributionArrayOutput) Index(i pulumi.IntInpu
 }
 
 type DistributionConfigurationDistributionAmiDistributionConfiguration struct {
-	AmiTags          map[string]string                                                                  `pulumi:"amiTags"`
-	Description      *string                                                                            `pulumi:"description"`
-	KmsKeyId         *string                                                                            `pulumi:"kmsKeyId"`
+	// Key-value map of tags to apply to the distributed AMI.
+	AmiTags map[string]string `pulumi:"amiTags"`
+	// Description to apply to the distributed AMI.
+	Description *string `pulumi:"description"`
+	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
 	LaunchPermission *DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission `pulumi:"launchPermission"`
-	Name             *string                                                                            `pulumi:"name"`
-	TargetAccountIds []string                                                                           `pulumi:"targetAccountIds"`
+	// Name to apply to the distributed AMI.
+	Name *string `pulumi:"name"`
+	// Set of AWS Account identifiers to distribute the AMI.
+	TargetAccountIds []string `pulumi:"targetAccountIds"`
 }
 
 // DistributionConfigurationDistributionAmiDistributionConfigurationInput is an input type that accepts DistributionConfigurationDistributionAmiDistributionConfigurationArgs and DistributionConfigurationDistributionAmiDistributionConfigurationOutput values.
@@ -1015,12 +1111,18 @@ type DistributionConfigurationDistributionAmiDistributionConfigurationInput inte
 }
 
 type DistributionConfigurationDistributionAmiDistributionConfigurationArgs struct {
-	AmiTags          pulumi.StringMapInput                                                                     `pulumi:"amiTags"`
-	Description      pulumi.StringPtrInput                                                                     `pulumi:"description"`
-	KmsKeyId         pulumi.StringPtrInput                                                                     `pulumi:"kmsKeyId"`
+	// Key-value map of tags to apply to the distributed AMI.
+	AmiTags pulumi.StringMapInput `pulumi:"amiTags"`
+	// Description to apply to the distributed AMI.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
 	LaunchPermission DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrInput `pulumi:"launchPermission"`
-	Name             pulumi.StringPtrInput                                                                     `pulumi:"name"`
-	TargetAccountIds pulumi.StringArrayInput                                                                   `pulumi:"targetAccountIds"`
+	// Name to apply to the distributed AMI.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Set of AWS Account identifiers to distribute the AMI.
+	TargetAccountIds pulumi.StringArrayInput `pulumi:"targetAccountIds"`
 }
 
 func (DistributionConfigurationDistributionAmiDistributionConfigurationArgs) ElementType() reflect.Type {
@@ -1100,32 +1202,38 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationOutput)
 	}).(DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput)
 }
 
+// Key-value map of tags to apply to the distributed AMI.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationOutput) AmiTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfiguration) map[string]string {
 		return v.AmiTags
 	}).(pulumi.StringMapOutput)
 }
 
+// Description to apply to the distributed AMI.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfiguration) *string {
 		return v.Description
 	}).(pulumi.StringPtrOutput)
 }
 
+// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationOutput) LaunchPermission() DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfiguration) *DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission {
 		return v.LaunchPermission
 	}).(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput)
 }
 
+// Name to apply to the distributed AMI.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Set of AWS Account identifiers to distribute the AMI.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationOutput) TargetAccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfiguration) []string {
 		return v.TargetAccountIds
@@ -1156,6 +1264,7 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutp
 	}).(DistributionConfigurationDistributionAmiDistributionConfigurationOutput)
 }
 
+// Key-value map of tags to apply to the distributed AMI.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput) AmiTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfiguration) map[string]string {
 		if v == nil {
@@ -1165,6 +1274,7 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutp
 	}).(pulumi.StringMapOutput)
 }
 
+// Description to apply to the distributed AMI.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfiguration) *string {
 		if v == nil {
@@ -1174,6 +1284,7 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfiguration) *string {
 		if v == nil {
@@ -1183,6 +1294,7 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput) LaunchPermission() DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfiguration) *DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission {
 		if v == nil {
@@ -1192,6 +1304,7 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutp
 	}).(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput)
 }
 
+// Name to apply to the distributed AMI.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfiguration) *string {
 		if v == nil {
@@ -1201,6 +1314,7 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Set of AWS Account identifiers to distribute the AMI.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput) TargetAccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfiguration) []string {
 		if v == nil {
@@ -1211,10 +1325,14 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutp
 }
 
 type DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission struct {
-	OrganizationArns       []string `pulumi:"organizationArns"`
+	// Set of AWS Organization ARNs to assign.
+	OrganizationArns []string `pulumi:"organizationArns"`
+	// Set of AWS Organizational Unit ARNs to assign.
 	OrganizationalUnitArns []string `pulumi:"organizationalUnitArns"`
-	UserGroups             []string `pulumi:"userGroups"`
-	UserIds                []string `pulumi:"userIds"`
+	// Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
+	UserGroups []string `pulumi:"userGroups"`
+	// Set of AWS Account identifiers to assign.
+	UserIds []string `pulumi:"userIds"`
 }
 
 // DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionInput is an input type that accepts DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs and DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput values.
@@ -1229,10 +1347,14 @@ type DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPerm
 }
 
 type DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs struct {
-	OrganizationArns       pulumi.StringArrayInput `pulumi:"organizationArns"`
+	// Set of AWS Organization ARNs to assign.
+	OrganizationArns pulumi.StringArrayInput `pulumi:"organizationArns"`
+	// Set of AWS Organizational Unit ARNs to assign.
 	OrganizationalUnitArns pulumi.StringArrayInput `pulumi:"organizationalUnitArns"`
-	UserGroups             pulumi.StringArrayInput `pulumi:"userGroups"`
-	UserIds                pulumi.StringArrayInput `pulumi:"userIds"`
+	// Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
+	UserGroups pulumi.StringArrayInput `pulumi:"userGroups"`
+	// Set of AWS Account identifiers to assign.
+	UserIds pulumi.StringArrayInput `pulumi:"userIds"`
 }
 
 func (DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs) ElementType() reflect.Type {
@@ -1312,24 +1434,28 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 	}).(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput)
 }
 
+// Set of AWS Organization ARNs to assign.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) OrganizationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) []string {
 		return v.OrganizationArns
 	}).(pulumi.StringArrayOutput)
 }
 
+// Set of AWS Organizational Unit ARNs to assign.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) OrganizationalUnitArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) []string {
 		return v.OrganizationalUnitArns
 	}).(pulumi.StringArrayOutput)
 }
 
+// Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) UserGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) []string {
 		return v.UserGroups
 	}).(pulumi.StringArrayOutput)
 }
 
+// Set of AWS Account identifiers to assign.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) UserIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) []string {
 		return v.UserIds
@@ -1360,6 +1486,7 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 	}).(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput)
 }
 
+// Set of AWS Organization ARNs to assign.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput) OrganizationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) []string {
 		if v == nil {
@@ -1369,6 +1496,7 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 	}).(pulumi.StringArrayOutput)
 }
 
+// Set of AWS Organizational Unit ARNs to assign.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput) OrganizationalUnitArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) []string {
 		if v == nil {
@@ -1378,6 +1506,7 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 	}).(pulumi.StringArrayOutput)
 }
 
+// Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput) UserGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) []string {
 		if v == nil {
@@ -1387,6 +1516,7 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 	}).(pulumi.StringArrayOutput)
 }
 
+// Set of AWS Account identifiers to assign.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput) UserIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) []string {
 		if v == nil {
@@ -1397,8 +1527,11 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 }
 
 type DistributionConfigurationDistributionContainerDistributionConfiguration struct {
-	ContainerTags    []string                                                                                `pulumi:"containerTags"`
-	Description      *string                                                                                 `pulumi:"description"`
+	// Set of tags that are attached to the container distribution configuration.
+	ContainerTags []string `pulumi:"containerTags"`
+	// Description of the container distribution configuration.
+	Description *string `pulumi:"description"`
+	// Configuration block with the destination repository for the container distribution configuration.
 	TargetRepository DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository `pulumi:"targetRepository"`
 }
 
@@ -1414,8 +1547,11 @@ type DistributionConfigurationDistributionContainerDistributionConfigurationInpu
 }
 
 type DistributionConfigurationDistributionContainerDistributionConfigurationArgs struct {
-	ContainerTags    pulumi.StringArrayInput                                                                      `pulumi:"containerTags"`
-	Description      pulumi.StringPtrInput                                                                        `pulumi:"description"`
+	// Set of tags that are attached to the container distribution configuration.
+	ContainerTags pulumi.StringArrayInput `pulumi:"containerTags"`
+	// Description of the container distribution configuration.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Configuration block with the destination repository for the container distribution configuration.
 	TargetRepository DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryInput `pulumi:"targetRepository"`
 }
 
@@ -1496,18 +1632,21 @@ func (o DistributionConfigurationDistributionContainerDistributionConfigurationO
 	}).(DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput)
 }
 
+// Set of tags that are attached to the container distribution configuration.
 func (o DistributionConfigurationDistributionContainerDistributionConfigurationOutput) ContainerTags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionContainerDistributionConfiguration) []string {
 		return v.ContainerTags
 	}).(pulumi.StringArrayOutput)
 }
 
+// Description of the container distribution configuration.
 func (o DistributionConfigurationDistributionContainerDistributionConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionContainerDistributionConfiguration) *string {
 		return v.Description
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration block with the destination repository for the container distribution configuration.
 func (o DistributionConfigurationDistributionContainerDistributionConfigurationOutput) TargetRepository() DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionContainerDistributionConfiguration) DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository {
 		return v.TargetRepository
@@ -1538,6 +1677,7 @@ func (o DistributionConfigurationDistributionContainerDistributionConfigurationP
 	}).(DistributionConfigurationDistributionContainerDistributionConfigurationOutput)
 }
 
+// Set of tags that are attached to the container distribution configuration.
 func (o DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput) ContainerTags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionContainerDistributionConfiguration) []string {
 		if v == nil {
@@ -1547,6 +1687,7 @@ func (o DistributionConfigurationDistributionContainerDistributionConfigurationP
 	}).(pulumi.StringArrayOutput)
 }
 
+// Description of the container distribution configuration.
 func (o DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionContainerDistributionConfiguration) *string {
 		if v == nil {
@@ -1556,6 +1697,7 @@ func (o DistributionConfigurationDistributionContainerDistributionConfigurationP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration block with the destination repository for the container distribution configuration.
 func (o DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput) TargetRepository() DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionContainerDistributionConfiguration) *DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository {
 		if v == nil {
@@ -1566,8 +1708,10 @@ func (o DistributionConfigurationDistributionContainerDistributionConfigurationP
 }
 
 type DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository struct {
+	// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
 	RepositoryName string `pulumi:"repositoryName"`
-	Service        string `pulumi:"service"`
+	// The service in which this image is registered. Valid values: `ECR`.
+	Service string `pulumi:"service"`
 }
 
 // DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryInput is an input type that accepts DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs and DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput values.
@@ -1582,8 +1726,10 @@ type DistributionConfigurationDistributionContainerDistributionConfigurationTarg
 }
 
 type DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs struct {
+	// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
-	Service        pulumi.StringInput `pulumi:"service"`
+	// The service in which this image is registered. Valid values: `ECR`.
+	Service pulumi.StringInput `pulumi:"service"`
 }
 
 func (DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs) ElementType() reflect.Type {
@@ -1663,12 +1809,14 @@ func (o DistributionConfigurationDistributionContainerDistributionConfigurationT
 	}).(DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput)
 }
 
+// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
 func (o DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository) string {
 		return v.RepositoryName
 	}).(pulumi.StringOutput)
 }
 
+// The service in which this image is registered. Valid values: `ECR`.
 func (o DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput) Service() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository) string {
 		return v.Service
@@ -1699,6 +1847,7 @@ func (o DistributionConfigurationDistributionContainerDistributionConfigurationT
 	}).(DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput)
 }
 
+// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
 func (o DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput) RepositoryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository) *string {
 		if v == nil {
@@ -1708,6 +1857,7 @@ func (o DistributionConfigurationDistributionContainerDistributionConfigurationT
 	}).(pulumi.StringPtrOutput)
 }
 
+// The service in which this image is registered. Valid values: `ECR`.
 func (o DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository) *string {
 		if v == nil {
@@ -1718,10 +1868,15 @@ func (o DistributionConfigurationDistributionContainerDistributionConfigurationT
 }
 
 type DistributionConfigurationDistributionFastLaunchConfiguration struct {
-	AccountId             string                                                                             `pulumi:"accountId"`
-	Enabled               bool                                                                               `pulumi:"enabled"`
-	LaunchTemplate        *DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate        `pulumi:"launchTemplate"`
-	MaxParallelLaunches   *int                                                                               `pulumi:"maxParallelLaunches"`
+	// The owner account ID for the fast-launch enabled Windows AMI.
+	AccountId string `pulumi:"accountId"`
+	// A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
+	Enabled bool `pulumi:"enabled"`
+	// Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
+	LaunchTemplate *DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate `pulumi:"launchTemplate"`
+	// The maximum number of parallel instances that are launched for creating resources.
+	MaxParallelLaunches *int `pulumi:"maxParallelLaunches"`
+	// Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
 	SnapshotConfiguration *DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration `pulumi:"snapshotConfiguration"`
 }
 
@@ -1737,10 +1892,15 @@ type DistributionConfigurationDistributionFastLaunchConfigurationInput interface
 }
 
 type DistributionConfigurationDistributionFastLaunchConfigurationArgs struct {
-	AccountId             pulumi.StringInput                                                                        `pulumi:"accountId"`
-	Enabled               pulumi.BoolInput                                                                          `pulumi:"enabled"`
-	LaunchTemplate        DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrInput        `pulumi:"launchTemplate"`
-	MaxParallelLaunches   pulumi.IntPtrInput                                                                        `pulumi:"maxParallelLaunches"`
+	// The owner account ID for the fast-launch enabled Windows AMI.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
+	LaunchTemplate DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrInput `pulumi:"launchTemplate"`
+	// The maximum number of parallel instances that are launched for creating resources.
+	MaxParallelLaunches pulumi.IntPtrInput `pulumi:"maxParallelLaunches"`
+	// Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
 	SnapshotConfiguration DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrInput `pulumi:"snapshotConfiguration"`
 }
 
@@ -1795,26 +1955,31 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationOutput) ToDi
 	return o
 }
 
+// The owner account ID for the fast-launch enabled Windows AMI.
 func (o DistributionConfigurationDistributionFastLaunchConfigurationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfiguration) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
+// A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
 func (o DistributionConfigurationDistributionFastLaunchConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
 func (o DistributionConfigurationDistributionFastLaunchConfigurationOutput) LaunchTemplate() DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfiguration) *DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate {
 		return v.LaunchTemplate
 	}).(DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput)
 }
 
+// The maximum number of parallel instances that are launched for creating resources.
 func (o DistributionConfigurationDistributionFastLaunchConfigurationOutput) MaxParallelLaunches() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfiguration) *int {
 		return v.MaxParallelLaunches
 	}).(pulumi.IntPtrOutput)
 }
 
+// Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
 func (o DistributionConfigurationDistributionFastLaunchConfigurationOutput) SnapshotConfiguration() DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfiguration) *DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration {
 		return v.SnapshotConfiguration
@@ -1842,8 +2007,11 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput)
 }
 
 type DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate struct {
-	LaunchTemplateId      *string `pulumi:"launchTemplateId"`
-	LaunchTemplateName    *string `pulumi:"launchTemplateName"`
+	// The ID of the launch template to use for faster launching for a Windows AMI.
+	LaunchTemplateId *string `pulumi:"launchTemplateId"`
+	// The name of the launch template to use for faster launching for a Windows AMI.
+	LaunchTemplateName *string `pulumi:"launchTemplateName"`
+	// The version of the launch template to use for faster launching for a Windows AMI.
 	LaunchTemplateVersion *string `pulumi:"launchTemplateVersion"`
 }
 
@@ -1859,8 +2027,11 @@ type DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateI
 }
 
 type DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs struct {
-	LaunchTemplateId      pulumi.StringPtrInput `pulumi:"launchTemplateId"`
-	LaunchTemplateName    pulumi.StringPtrInput `pulumi:"launchTemplateName"`
+	// The ID of the launch template to use for faster launching for a Windows AMI.
+	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
+	// The name of the launch template to use for faster launching for a Windows AMI.
+	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
+	// The version of the launch template to use for faster launching for a Windows AMI.
 	LaunchTemplateVersion pulumi.StringPtrInput `pulumi:"launchTemplateVersion"`
 }
 
@@ -1941,18 +2112,21 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTempla
 	}).(DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput)
 }
 
+// The ID of the launch template to use for faster launching for a Windows AMI.
 func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) *string {
 		return v.LaunchTemplateId
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the launch template to use for faster launching for a Windows AMI.
 func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) *string {
 		return v.LaunchTemplateName
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version of the launch template to use for faster launching for a Windows AMI.
 func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) LaunchTemplateVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) *string {
 		return v.LaunchTemplateVersion
@@ -1983,6 +2157,7 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTempla
 	}).(DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput)
 }
 
+// The ID of the launch template to use for faster launching for a Windows AMI.
 func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) *string {
 		if v == nil {
@@ -1992,6 +2167,7 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTempla
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the launch template to use for faster launching for a Windows AMI.
 func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) *string {
 		if v == nil {
@@ -2001,6 +2177,7 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTempla
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version of the launch template to use for faster launching for a Windows AMI.
 func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput) LaunchTemplateVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) *string {
 		if v == nil {
@@ -2011,6 +2188,7 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTempla
 }
 
 type DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration struct {
+	// The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
 	TargetResourceCount *int `pulumi:"targetResourceCount"`
 }
 
@@ -2026,6 +2204,7 @@ type DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigu
 }
 
 type DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs struct {
+	// The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
 	TargetResourceCount pulumi.IntPtrInput `pulumi:"targetResourceCount"`
 }
 
@@ -2106,6 +2285,7 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConf
 	}).(DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput)
 }
 
+// The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
 func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput) TargetResourceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration) *int {
 		return v.TargetResourceCount
@@ -2136,6 +2316,7 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConf
 	}).(DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput)
 }
 
+// The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
 func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput) TargetResourceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration) *int {
 		if v == nil {
@@ -2146,9 +2327,12 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConf
 }
 
 type DistributionConfigurationDistributionLaunchTemplateConfiguration struct {
-	AccountId        *string `pulumi:"accountId"`
-	Default          *bool   `pulumi:"default"`
-	LaunchTemplateId string  `pulumi:"launchTemplateId"`
+	// The account ID that this configuration applies to.
+	AccountId *string `pulumi:"accountId"`
+	// Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
+	Default *bool `pulumi:"default"`
+	// The ID of the Amazon EC2 launch template to use.
+	LaunchTemplateId string `pulumi:"launchTemplateId"`
 }
 
 // DistributionConfigurationDistributionLaunchTemplateConfigurationInput is an input type that accepts DistributionConfigurationDistributionLaunchTemplateConfigurationArgs and DistributionConfigurationDistributionLaunchTemplateConfigurationOutput values.
@@ -2163,9 +2347,12 @@ type DistributionConfigurationDistributionLaunchTemplateConfigurationInput inter
 }
 
 type DistributionConfigurationDistributionLaunchTemplateConfigurationArgs struct {
-	AccountId        pulumi.StringPtrInput `pulumi:"accountId"`
-	Default          pulumi.BoolPtrInput   `pulumi:"default"`
-	LaunchTemplateId pulumi.StringInput    `pulumi:"launchTemplateId"`
+	// The account ID that this configuration applies to.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
+	Default pulumi.BoolPtrInput `pulumi:"default"`
+	// The ID of the Amazon EC2 launch template to use.
+	LaunchTemplateId pulumi.StringInput `pulumi:"launchTemplateId"`
 }
 
 func (DistributionConfigurationDistributionLaunchTemplateConfigurationArgs) ElementType() reflect.Type {
@@ -2219,14 +2406,17 @@ func (o DistributionConfigurationDistributionLaunchTemplateConfigurationOutput) 
 	return o
 }
 
+// The account ID that this configuration applies to.
 func (o DistributionConfigurationDistributionLaunchTemplateConfigurationOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionLaunchTemplateConfiguration) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
 func (o DistributionConfigurationDistributionLaunchTemplateConfigurationOutput) Default() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionLaunchTemplateConfiguration) *bool { return v.Default }).(pulumi.BoolPtrOutput)
 }
 
+// The ID of the Amazon EC2 launch template to use.
 func (o DistributionConfigurationDistributionLaunchTemplateConfigurationOutput) LaunchTemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionLaunchTemplateConfiguration) string {
 		return v.LaunchTemplateId
@@ -2254,8 +2444,10 @@ func (o DistributionConfigurationDistributionLaunchTemplateConfigurationArrayOut
 }
 
 type ImageImageTestsConfiguration struct {
+	// Whether image tests are enabled. Defaults to `true`.
 	ImageTestsEnabled *bool `pulumi:"imageTestsEnabled"`
-	TimeoutMinutes    *int  `pulumi:"timeoutMinutes"`
+	// Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
 }
 
 // ImageImageTestsConfigurationInput is an input type that accepts ImageImageTestsConfigurationArgs and ImageImageTestsConfigurationOutput values.
@@ -2270,8 +2462,10 @@ type ImageImageTestsConfigurationInput interface {
 }
 
 type ImageImageTestsConfigurationArgs struct {
+	// Whether image tests are enabled. Defaults to `true`.
 	ImageTestsEnabled pulumi.BoolPtrInput `pulumi:"imageTestsEnabled"`
-	TimeoutMinutes    pulumi.IntPtrInput  `pulumi:"timeoutMinutes"`
+	// Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
 }
 
 func (ImageImageTestsConfigurationArgs) ElementType() reflect.Type {
@@ -2351,10 +2545,12 @@ func (o ImageImageTestsConfigurationOutput) ToImageImageTestsConfigurationPtrOut
 	}).(ImageImageTestsConfigurationPtrOutput)
 }
 
+// Whether image tests are enabled. Defaults to `true`.
 func (o ImageImageTestsConfigurationOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ImageImageTestsConfiguration) *bool { return v.ImageTestsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
 func (o ImageImageTestsConfigurationOutput) TimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImageImageTestsConfiguration) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
 }
@@ -2383,6 +2579,7 @@ func (o ImageImageTestsConfigurationPtrOutput) Elem() ImageImageTestsConfigurati
 	}).(ImageImageTestsConfigurationOutput)
 }
 
+// Whether image tests are enabled. Defaults to `true`.
 func (o ImageImageTestsConfigurationPtrOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ImageImageTestsConfiguration) *bool {
 		if v == nil {
@@ -2392,6 +2589,7 @@ func (o ImageImageTestsConfigurationPtrOutput) ImageTestsEnabled() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
 func (o ImageImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ImageImageTestsConfiguration) *int {
 		if v == nil {
@@ -2402,6 +2600,7 @@ func (o ImageImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.IntPtrOut
 }
 
 type ImageOutputResource struct {
+	// Set of objects with each Amazon Machine Image (AMI) created.
 	Amis []ImageOutputResourceAmi `pulumi:"amis"`
 }
 
@@ -2417,6 +2616,7 @@ type ImageOutputResourceInput interface {
 }
 
 type ImageOutputResourceArgs struct {
+	// Set of objects with each Amazon Machine Image (AMI) created.
 	Amis ImageOutputResourceAmiArrayInput `pulumi:"amis"`
 }
 
@@ -2471,6 +2671,7 @@ func (o ImageOutputResourceOutput) ToImageOutputResourceOutputWithContext(ctx co
 	return o
 }
 
+// Set of objects with each Amazon Machine Image (AMI) created.
 func (o ImageOutputResourceOutput) Amis() ImageOutputResourceAmiArrayOutput {
 	return o.ApplyT(func(v ImageOutputResource) []ImageOutputResourceAmi { return v.Amis }).(ImageOutputResourceAmiArrayOutput)
 }
@@ -2496,11 +2697,16 @@ func (o ImageOutputResourceArrayOutput) Index(i pulumi.IntInput) ImageOutputReso
 }
 
 type ImageOutputResourceAmi struct {
-	AccountId   *string `pulumi:"accountId"`
+	// Account identifier of the AMI.
+	AccountId *string `pulumi:"accountId"`
+	// Description of the AMI.
 	Description *string `pulumi:"description"`
-	Image       *string `pulumi:"image"`
-	Name        *string `pulumi:"name"`
-	Region      *string `pulumi:"region"`
+	// Identifier of the AMI.
+	Image *string `pulumi:"image"`
+	// Name of the AMI.
+	Name *string `pulumi:"name"`
+	// Region of the AMI.
+	Region *string `pulumi:"region"`
 }
 
 // ImageOutputResourceAmiInput is an input type that accepts ImageOutputResourceAmiArgs and ImageOutputResourceAmiOutput values.
@@ -2515,11 +2721,16 @@ type ImageOutputResourceAmiInput interface {
 }
 
 type ImageOutputResourceAmiArgs struct {
-	AccountId   pulumi.StringPtrInput `pulumi:"accountId"`
+	// Account identifier of the AMI.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// Description of the AMI.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	Image       pulumi.StringPtrInput `pulumi:"image"`
-	Name        pulumi.StringPtrInput `pulumi:"name"`
-	Region      pulumi.StringPtrInput `pulumi:"region"`
+	// Identifier of the AMI.
+	Image pulumi.StringPtrInput `pulumi:"image"`
+	// Name of the AMI.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region of the AMI.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (ImageOutputResourceAmiArgs) ElementType() reflect.Type {
@@ -2573,22 +2784,27 @@ func (o ImageOutputResourceAmiOutput) ToImageOutputResourceAmiOutputWithContext(
 	return o
 }
 
+// Account identifier of the AMI.
 func (o ImageOutputResourceAmiOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOutputResourceAmi) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
+// Description of the AMI.
 func (o ImageOutputResourceAmiOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOutputResourceAmi) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Identifier of the AMI.
 func (o ImageOutputResourceAmiOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOutputResourceAmi) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
+// Name of the AMI.
 func (o ImageOutputResourceAmiOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOutputResourceAmi) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Region of the AMI.
 func (o ImageOutputResourceAmiOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOutputResourceAmi) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -2614,8 +2830,10 @@ func (o ImageOutputResourceAmiArrayOutput) Index(i pulumi.IntInput) ImageOutputR
 }
 
 type ImagePipelineImageTestsConfiguration struct {
+	// Whether image tests are enabled. Defaults to `true`.
 	ImageTestsEnabled *bool `pulumi:"imageTestsEnabled"`
-	TimeoutMinutes    *int  `pulumi:"timeoutMinutes"`
+	// Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
 }
 
 // ImagePipelineImageTestsConfigurationInput is an input type that accepts ImagePipelineImageTestsConfigurationArgs and ImagePipelineImageTestsConfigurationOutput values.
@@ -2630,8 +2848,10 @@ type ImagePipelineImageTestsConfigurationInput interface {
 }
 
 type ImagePipelineImageTestsConfigurationArgs struct {
+	// Whether image tests are enabled. Defaults to `true`.
 	ImageTestsEnabled pulumi.BoolPtrInput `pulumi:"imageTestsEnabled"`
-	TimeoutMinutes    pulumi.IntPtrInput  `pulumi:"timeoutMinutes"`
+	// Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
 }
 
 func (ImagePipelineImageTestsConfigurationArgs) ElementType() reflect.Type {
@@ -2711,10 +2931,12 @@ func (o ImagePipelineImageTestsConfigurationOutput) ToImagePipelineImageTestsCon
 	}).(ImagePipelineImageTestsConfigurationPtrOutput)
 }
 
+// Whether image tests are enabled. Defaults to `true`.
 func (o ImagePipelineImageTestsConfigurationOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ImagePipelineImageTestsConfiguration) *bool { return v.ImageTestsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
 func (o ImagePipelineImageTestsConfigurationOutput) TimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImagePipelineImageTestsConfiguration) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
 }
@@ -2743,6 +2965,7 @@ func (o ImagePipelineImageTestsConfigurationPtrOutput) Elem() ImagePipelineImage
 	}).(ImagePipelineImageTestsConfigurationOutput)
 }
 
+// Whether image tests are enabled. Defaults to `true`.
 func (o ImagePipelineImageTestsConfigurationPtrOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ImagePipelineImageTestsConfiguration) *bool {
 		if v == nil {
@@ -2752,6 +2975,7 @@ func (o ImagePipelineImageTestsConfigurationPtrOutput) ImageTestsEnabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
 func (o ImagePipelineImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ImagePipelineImageTestsConfiguration) *int {
 		if v == nil {
@@ -2762,9 +2986,12 @@ func (o ImagePipelineImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.I
 }
 
 type ImagePipelineSchedule struct {
+	// Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
 	PipelineExecutionStartCondition *string `pulumi:"pipelineExecutionStartCondition"`
-	ScheduleExpression              string  `pulumi:"scheduleExpression"`
-	Timezone                        *string `pulumi:"timezone"`
+	// Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
+	ScheduleExpression string `pulumi:"scheduleExpression"`
+	// The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
+	Timezone *string `pulumi:"timezone"`
 }
 
 // ImagePipelineScheduleInput is an input type that accepts ImagePipelineScheduleArgs and ImagePipelineScheduleOutput values.
@@ -2779,9 +3006,12 @@ type ImagePipelineScheduleInput interface {
 }
 
 type ImagePipelineScheduleArgs struct {
+	// Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
 	PipelineExecutionStartCondition pulumi.StringPtrInput `pulumi:"pipelineExecutionStartCondition"`
-	ScheduleExpression              pulumi.StringInput    `pulumi:"scheduleExpression"`
-	Timezone                        pulumi.StringPtrInput `pulumi:"timezone"`
+	// Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
+	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
+	// The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
 
 func (ImagePipelineScheduleArgs) ElementType() reflect.Type {
@@ -2861,14 +3091,17 @@ func (o ImagePipelineScheduleOutput) ToImagePipelineSchedulePtrOutputWithContext
 	}).(ImagePipelineSchedulePtrOutput)
 }
 
+// Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
 func (o ImagePipelineScheduleOutput) PipelineExecutionStartCondition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImagePipelineSchedule) *string { return v.PipelineExecutionStartCondition }).(pulumi.StringPtrOutput)
 }
 
+// Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
 func (o ImagePipelineScheduleOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v ImagePipelineSchedule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
 
+// The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
 func (o ImagePipelineScheduleOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImagePipelineSchedule) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -2897,6 +3130,7 @@ func (o ImagePipelineSchedulePtrOutput) Elem() ImagePipelineScheduleOutput {
 	}).(ImagePipelineScheduleOutput)
 }
 
+// Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
 func (o ImagePipelineSchedulePtrOutput) PipelineExecutionStartCondition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePipelineSchedule) *string {
 		if v == nil {
@@ -2906,6 +3140,7 @@ func (o ImagePipelineSchedulePtrOutput) PipelineExecutionStartCondition() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
 func (o ImagePipelineSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePipelineSchedule) *string {
 		if v == nil {
@@ -2915,6 +3150,7 @@ func (o ImagePipelineSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
 func (o ImagePipelineSchedulePtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePipelineSchedule) *string {
 		if v == nil {
@@ -2925,10 +3161,14 @@ func (o ImagePipelineSchedulePtrOutput) Timezone() pulumi.StringPtrOutput {
 }
 
 type ImageRecipeBlockDeviceMapping struct {
-	DeviceName  *string                           `pulumi:"deviceName"`
-	Ebs         *ImageRecipeBlockDeviceMappingEbs `pulumi:"ebs"`
-	NoDevice    *bool                             `pulumi:"noDevice"`
-	VirtualName *string                           `pulumi:"virtualName"`
+	// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+	DeviceName *string `pulumi:"deviceName"`
+	// Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+	Ebs *ImageRecipeBlockDeviceMappingEbs `pulumi:"ebs"`
+	// Set to `true` to remove a mapping from the parent image.
+	NoDevice *bool `pulumi:"noDevice"`
+	// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+	VirtualName *string `pulumi:"virtualName"`
 }
 
 // ImageRecipeBlockDeviceMappingInput is an input type that accepts ImageRecipeBlockDeviceMappingArgs and ImageRecipeBlockDeviceMappingOutput values.
@@ -2943,10 +3183,14 @@ type ImageRecipeBlockDeviceMappingInput interface {
 }
 
 type ImageRecipeBlockDeviceMappingArgs struct {
-	DeviceName  pulumi.StringPtrInput                    `pulumi:"deviceName"`
-	Ebs         ImageRecipeBlockDeviceMappingEbsPtrInput `pulumi:"ebs"`
-	NoDevice    pulumi.BoolPtrInput                      `pulumi:"noDevice"`
-	VirtualName pulumi.StringPtrInput                    `pulumi:"virtualName"`
+	// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
+	// Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+	Ebs ImageRecipeBlockDeviceMappingEbsPtrInput `pulumi:"ebs"`
+	// Set to `true` to remove a mapping from the parent image.
+	NoDevice pulumi.BoolPtrInput `pulumi:"noDevice"`
+	// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
 func (ImageRecipeBlockDeviceMappingArgs) ElementType() reflect.Type {
@@ -3000,18 +3244,22 @@ func (o ImageRecipeBlockDeviceMappingOutput) ToImageRecipeBlockDeviceMappingOutp
 	return o
 }
 
+// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
 func (o ImageRecipeBlockDeviceMappingOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRecipeBlockDeviceMapping) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
+// Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
 func (o ImageRecipeBlockDeviceMappingOutput) Ebs() ImageRecipeBlockDeviceMappingEbsPtrOutput {
 	return o.ApplyT(func(v ImageRecipeBlockDeviceMapping) *ImageRecipeBlockDeviceMappingEbs { return v.Ebs }).(ImageRecipeBlockDeviceMappingEbsPtrOutput)
 }
 
+// Set to `true` to remove a mapping from the parent image.
 func (o ImageRecipeBlockDeviceMappingOutput) NoDevice() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ImageRecipeBlockDeviceMapping) *bool { return v.NoDevice }).(pulumi.BoolPtrOutput)
 }
 
+// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
 func (o ImageRecipeBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRecipeBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
 }
@@ -3037,14 +3285,22 @@ func (o ImageRecipeBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) Image
 }
 
 type ImageRecipeBlockDeviceMappingEbs struct {
+	// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
 	DeleteOnTermination *string `pulumi:"deleteOnTermination"`
-	Encrypted           *string `pulumi:"encrypted"`
-	Iops                *int    `pulumi:"iops"`
-	KmsKeyId            *string `pulumi:"kmsKeyId"`
-	SnapshotId          *string `pulumi:"snapshotId"`
-	Throughput          *int    `pulumi:"throughput"`
-	VolumeSize          *int    `pulumi:"volumeSize"`
-	VolumeType          *string `pulumi:"volumeType"`
+	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+	Encrypted *string `pulumi:"encrypted"`
+	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+	Iops *int `pulumi:"iops"`
+	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Identifier of the EC2 Volume Snapshot.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+	Throughput *int `pulumi:"throughput"`
+	// Size of the volume, in GiB.
+	VolumeSize *int `pulumi:"volumeSize"`
+	// Type of the volume. For example, `gp2` or `io2`.
+	VolumeType *string `pulumi:"volumeType"`
 }
 
 // ImageRecipeBlockDeviceMappingEbsInput is an input type that accepts ImageRecipeBlockDeviceMappingEbsArgs and ImageRecipeBlockDeviceMappingEbsOutput values.
@@ -3059,14 +3315,22 @@ type ImageRecipeBlockDeviceMappingEbsInput interface {
 }
 
 type ImageRecipeBlockDeviceMappingEbsArgs struct {
+	// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
 	DeleteOnTermination pulumi.StringPtrInput `pulumi:"deleteOnTermination"`
-	Encrypted           pulumi.StringPtrInput `pulumi:"encrypted"`
-	Iops                pulumi.IntPtrInput    `pulumi:"iops"`
-	KmsKeyId            pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	SnapshotId          pulumi.StringPtrInput `pulumi:"snapshotId"`
-	Throughput          pulumi.IntPtrInput    `pulumi:"throughput"`
-	VolumeSize          pulumi.IntPtrInput    `pulumi:"volumeSize"`
-	VolumeType          pulumi.StringPtrInput `pulumi:"volumeType"`
+	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+	Encrypted pulumi.StringPtrInput `pulumi:"encrypted"`
+	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// Identifier of the EC2 Volume Snapshot.
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// Size of the volume, in GiB.
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+	// Type of the volume. For example, `gp2` or `io2`.
+	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
 func (ImageRecipeBlockDeviceMappingEbsArgs) ElementType() reflect.Type {
@@ -3146,34 +3410,42 @@ func (o ImageRecipeBlockDeviceMappingEbsOutput) ToImageRecipeBlockDeviceMappingE
 	}).(ImageRecipeBlockDeviceMappingEbsPtrOutput)
 }
 
+// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
 func (o ImageRecipeBlockDeviceMappingEbsOutput) DeleteOnTermination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *string { return v.DeleteOnTermination }).(pulumi.StringPtrOutput)
 }
 
+// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
 func (o ImageRecipeBlockDeviceMappingEbsOutput) Encrypted() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *string { return v.Encrypted }).(pulumi.StringPtrOutput)
 }
 
+// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
 func (o ImageRecipeBlockDeviceMappingEbsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
 func (o ImageRecipeBlockDeviceMappingEbsOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// Identifier of the EC2 Volume Snapshot.
 func (o ImageRecipeBlockDeviceMappingEbsOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// For GP3 volumes only. The throughput in MiB/s that the volume supports.
 func (o ImageRecipeBlockDeviceMappingEbsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
+// Size of the volume, in GiB.
 func (o ImageRecipeBlockDeviceMappingEbsOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
+// Type of the volume. For example, `gp2` or `io2`.
 func (o ImageRecipeBlockDeviceMappingEbsOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -3202,6 +3474,7 @@ func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) Elem() ImageRecipeBlockDevice
 	}).(ImageRecipeBlockDeviceMappingEbsOutput)
 }
 
+// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
 func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) DeleteOnTermination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) *string {
 		if v == nil {
@@ -3211,6 +3484,7 @@ func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) DeleteOnTermination() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
 func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) Encrypted() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) *string {
 		if v == nil {
@@ -3220,6 +3494,7 @@ func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) Encrypted() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
 func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) *int {
 		if v == nil {
@@ -3229,6 +3504,7 @@ func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) Iops() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
 func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) *string {
 		if v == nil {
@@ -3238,6 +3514,7 @@ func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) KmsKeyId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Identifier of the EC2 Volume Snapshot.
 func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) *string {
 		if v == nil {
@@ -3247,6 +3524,7 @@ func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) SnapshotId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// For GP3 volumes only. The throughput in MiB/s that the volume supports.
 func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) *int {
 		if v == nil {
@@ -3256,6 +3534,7 @@ func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) Throughput() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+// Size of the volume, in GiB.
 func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) *int {
 		if v == nil {
@@ -3265,6 +3544,7 @@ func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) VolumeSize() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+// Type of the volume. For example, `gp2` or `io2`.
 func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) *string {
 		if v == nil {
@@ -3275,8 +3555,10 @@ func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) VolumeType() pulumi.StringPtr
 }
 
 type ImageRecipeComponent struct {
-	ComponentArn string                          `pulumi:"componentArn"`
-	Parameters   []ImageRecipeComponentParameter `pulumi:"parameters"`
+	// Amazon Resource Name (ARN) of the Image Builder Component to associate.
+	ComponentArn string `pulumi:"componentArn"`
+	// Configuration block(s) for parameters to configure the component. Detailed below.
+	Parameters []ImageRecipeComponentParameter `pulumi:"parameters"`
 }
 
 // ImageRecipeComponentInput is an input type that accepts ImageRecipeComponentArgs and ImageRecipeComponentOutput values.
@@ -3291,8 +3573,10 @@ type ImageRecipeComponentInput interface {
 }
 
 type ImageRecipeComponentArgs struct {
-	ComponentArn pulumi.StringInput                      `pulumi:"componentArn"`
-	Parameters   ImageRecipeComponentParameterArrayInput `pulumi:"parameters"`
+	// Amazon Resource Name (ARN) of the Image Builder Component to associate.
+	ComponentArn pulumi.StringInput `pulumi:"componentArn"`
+	// Configuration block(s) for parameters to configure the component. Detailed below.
+	Parameters ImageRecipeComponentParameterArrayInput `pulumi:"parameters"`
 }
 
 func (ImageRecipeComponentArgs) ElementType() reflect.Type {
@@ -3346,10 +3630,12 @@ func (o ImageRecipeComponentOutput) ToImageRecipeComponentOutputWithContext(ctx 
 	return o
 }
 
+// Amazon Resource Name (ARN) of the Image Builder Component to associate.
 func (o ImageRecipeComponentOutput) ComponentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageRecipeComponent) string { return v.ComponentArn }).(pulumi.StringOutput)
 }
 
+// Configuration block(s) for parameters to configure the component. Detailed below.
 func (o ImageRecipeComponentOutput) Parameters() ImageRecipeComponentParameterArrayOutput {
 	return o.ApplyT(func(v ImageRecipeComponent) []ImageRecipeComponentParameter { return v.Parameters }).(ImageRecipeComponentParameterArrayOutput)
 }
@@ -3375,7 +3661,9 @@ func (o ImageRecipeComponentArrayOutput) Index(i pulumi.IntInput) ImageRecipeCom
 }
 
 type ImageRecipeComponentParameter struct {
-	Name  string `pulumi:"name"`
+	// The name of the component parameter.
+	Name string `pulumi:"name"`
+	// The value for the named component parameter.
 	Value string `pulumi:"value"`
 }
 
@@ -3391,7 +3679,9 @@ type ImageRecipeComponentParameterInput interface {
 }
 
 type ImageRecipeComponentParameterArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
+	// The name of the component parameter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value for the named component parameter.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3446,10 +3736,12 @@ func (o ImageRecipeComponentParameterOutput) ToImageRecipeComponentParameterOutp
 	return o
 }
 
+// The name of the component parameter.
 func (o ImageRecipeComponentParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageRecipeComponentParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The value for the named component parameter.
 func (o ImageRecipeComponentParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageRecipeComponentParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3475,6 +3767,7 @@ func (o ImageRecipeComponentParameterArrayOutput) Index(i pulumi.IntInput) Image
 }
 
 type ImageRecipeSystemsManagerAgent struct {
+	// Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
 	UninstallAfterBuild bool `pulumi:"uninstallAfterBuild"`
 }
 
@@ -3490,6 +3783,7 @@ type ImageRecipeSystemsManagerAgentInput interface {
 }
 
 type ImageRecipeSystemsManagerAgentArgs struct {
+	// Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
 	UninstallAfterBuild pulumi.BoolInput `pulumi:"uninstallAfterBuild"`
 }
 
@@ -3570,6 +3864,7 @@ func (o ImageRecipeSystemsManagerAgentOutput) ToImageRecipeSystemsManagerAgentPt
 	}).(ImageRecipeSystemsManagerAgentPtrOutput)
 }
 
+// Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
 func (o ImageRecipeSystemsManagerAgentOutput) UninstallAfterBuild() pulumi.BoolOutput {
 	return o.ApplyT(func(v ImageRecipeSystemsManagerAgent) bool { return v.UninstallAfterBuild }).(pulumi.BoolOutput)
 }
@@ -3598,6 +3893,7 @@ func (o ImageRecipeSystemsManagerAgentPtrOutput) Elem() ImageRecipeSystemsManage
 	}).(ImageRecipeSystemsManagerAgentOutput)
 }
 
+// Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
 func (o ImageRecipeSystemsManagerAgentPtrOutput) UninstallAfterBuild() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeSystemsManagerAgent) *bool {
 		if v == nil {
@@ -3608,8 +3904,10 @@ func (o ImageRecipeSystemsManagerAgentPtrOutput) UninstallAfterBuild() pulumi.Bo
 }
 
 type InfrastructureConfigurationInstanceMetadataOptions struct {
-	HttpPutResponseHopLimit *int    `pulumi:"httpPutResponseHopLimit"`
-	HttpTokens              *string `pulumi:"httpTokens"`
+	// The number of hops that an instance can traverse to reach its destonation.
+	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
+	// Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
+	HttpTokens *string `pulumi:"httpTokens"`
 }
 
 // InfrastructureConfigurationInstanceMetadataOptionsInput is an input type that accepts InfrastructureConfigurationInstanceMetadataOptionsArgs and InfrastructureConfigurationInstanceMetadataOptionsOutput values.
@@ -3624,8 +3922,10 @@ type InfrastructureConfigurationInstanceMetadataOptionsInput interface {
 }
 
 type InfrastructureConfigurationInstanceMetadataOptionsArgs struct {
-	HttpPutResponseHopLimit pulumi.IntPtrInput    `pulumi:"httpPutResponseHopLimit"`
-	HttpTokens              pulumi.StringPtrInput `pulumi:"httpTokens"`
+	// The number of hops that an instance can traverse to reach its destonation.
+	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
+	// Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
+	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
 }
 
 func (InfrastructureConfigurationInstanceMetadataOptionsArgs) ElementType() reflect.Type {
@@ -3705,10 +4005,12 @@ func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) ToInfrastructu
 	}).(InfrastructureConfigurationInstanceMetadataOptionsPtrOutput)
 }
 
+// The number of hops that an instance can traverse to reach its destonation.
 func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InfrastructureConfigurationInstanceMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
 }
 
+// Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
 func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InfrastructureConfigurationInstanceMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
 }
@@ -3737,6 +4039,7 @@ func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) Elem() Infr
 	}).(InfrastructureConfigurationInstanceMetadataOptionsOutput)
 }
 
+// The number of hops that an instance can traverse to reach its destonation.
 func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InfrastructureConfigurationInstanceMetadataOptions) *int {
 		if v == nil {
@@ -3746,6 +4049,7 @@ func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) HttpPutResp
 	}).(pulumi.IntPtrOutput)
 }
 
+// Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
 func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfrastructureConfigurationInstanceMetadataOptions) *string {
 		if v == nil {
@@ -3756,6 +4060,7 @@ func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) HttpTokens(
 }
 
 type InfrastructureConfigurationLogging struct {
+	// Configuration block with S3 logging settings. Detailed below.
 	S3Logs InfrastructureConfigurationLoggingS3Logs `pulumi:"s3Logs"`
 }
 
@@ -3771,6 +4076,7 @@ type InfrastructureConfigurationLoggingInput interface {
 }
 
 type InfrastructureConfigurationLoggingArgs struct {
+	// Configuration block with S3 logging settings. Detailed below.
 	S3Logs InfrastructureConfigurationLoggingS3LogsInput `pulumi:"s3Logs"`
 }
 
@@ -3851,6 +4157,7 @@ func (o InfrastructureConfigurationLoggingOutput) ToInfrastructureConfigurationL
 	}).(InfrastructureConfigurationLoggingPtrOutput)
 }
 
+// Configuration block with S3 logging settings. Detailed below.
 func (o InfrastructureConfigurationLoggingOutput) S3Logs() InfrastructureConfigurationLoggingS3LogsOutput {
 	return o.ApplyT(func(v InfrastructureConfigurationLogging) InfrastructureConfigurationLoggingS3Logs { return v.S3Logs }).(InfrastructureConfigurationLoggingS3LogsOutput)
 }
@@ -3879,6 +4186,7 @@ func (o InfrastructureConfigurationLoggingPtrOutput) Elem() InfrastructureConfig
 	}).(InfrastructureConfigurationLoggingOutput)
 }
 
+// Configuration block with S3 logging settings. Detailed below.
 func (o InfrastructureConfigurationLoggingPtrOutput) S3Logs() InfrastructureConfigurationLoggingS3LogsPtrOutput {
 	return o.ApplyT(func(v *InfrastructureConfigurationLogging) *InfrastructureConfigurationLoggingS3Logs {
 		if v == nil {
@@ -3889,8 +4197,10 @@ func (o InfrastructureConfigurationLoggingPtrOutput) S3Logs() InfrastructureConf
 }
 
 type InfrastructureConfigurationLoggingS3Logs struct {
-	S3BucketName string  `pulumi:"s3BucketName"`
-	S3KeyPrefix  *string `pulumi:"s3KeyPrefix"`
+	// Name of the S3 Bucket.
+	S3BucketName string `pulumi:"s3BucketName"`
+	// Prefix to use for S3 logs. Defaults to `/`.
+	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 }
 
 // InfrastructureConfigurationLoggingS3LogsInput is an input type that accepts InfrastructureConfigurationLoggingS3LogsArgs and InfrastructureConfigurationLoggingS3LogsOutput values.
@@ -3905,8 +4215,10 @@ type InfrastructureConfigurationLoggingS3LogsInput interface {
 }
 
 type InfrastructureConfigurationLoggingS3LogsArgs struct {
-	S3BucketName pulumi.StringInput    `pulumi:"s3BucketName"`
-	S3KeyPrefix  pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
+	// Name of the S3 Bucket.
+	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
+	// Prefix to use for S3 logs. Defaults to `/`.
+	S3KeyPrefix pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
 }
 
 func (InfrastructureConfigurationLoggingS3LogsArgs) ElementType() reflect.Type {
@@ -3986,10 +4298,12 @@ func (o InfrastructureConfigurationLoggingS3LogsOutput) ToInfrastructureConfigur
 	}).(InfrastructureConfigurationLoggingS3LogsPtrOutput)
 }
 
+// Name of the S3 Bucket.
 func (o InfrastructureConfigurationLoggingS3LogsOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v InfrastructureConfigurationLoggingS3Logs) string { return v.S3BucketName }).(pulumi.StringOutput)
 }
 
+// Prefix to use for S3 logs. Defaults to `/`.
 func (o InfrastructureConfigurationLoggingS3LogsOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InfrastructureConfigurationLoggingS3Logs) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
@@ -4018,6 +4332,7 @@ func (o InfrastructureConfigurationLoggingS3LogsPtrOutput) Elem() Infrastructure
 	}).(InfrastructureConfigurationLoggingS3LogsOutput)
 }
 
+// Name of the S3 Bucket.
 func (o InfrastructureConfigurationLoggingS3LogsPtrOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfrastructureConfigurationLoggingS3Logs) *string {
 		if v == nil {
@@ -4027,6 +4342,7 @@ func (o InfrastructureConfigurationLoggingS3LogsPtrOutput) S3BucketName() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// Prefix to use for S3 logs. Defaults to `/`.
 func (o InfrastructureConfigurationLoggingS3LogsPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfrastructureConfigurationLoggingS3Logs) *string {
 		if v == nil {
@@ -4037,7 +4353,9 @@ func (o InfrastructureConfigurationLoggingS3LogsPtrOutput) S3KeyPrefix() pulumi.
 }
 
 type GetComponentsFilter struct {
-	Name   string   `pulumi:"name"`
+	// Name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
 }
 
@@ -4053,7 +4371,9 @@ type GetComponentsFilterInput interface {
 }
 
 type GetComponentsFilterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// Name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4108,10 +4428,12 @@ func (o GetComponentsFilterOutput) ToGetComponentsFilterOutputWithContext(ctx co
 	return o
 }
 
+// Name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
 func (o GetComponentsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetComponentsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 func (o GetComponentsFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetComponentsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4137,8 +4459,10 @@ func (o GetComponentsFilterArrayOutput) Index(i pulumi.IntInput) GetComponentsFi
 }
 
 type GetContainerRecipeComponent struct {
-	ComponentArn string                                 `pulumi:"componentArn"`
-	Parameters   []GetContainerRecipeComponentParameter `pulumi:"parameters"`
+	// ARN of the Image Builder Component.
+	ComponentArn string `pulumi:"componentArn"`
+	// Set of parameters that are used to configure the component.
+	Parameters []GetContainerRecipeComponentParameter `pulumi:"parameters"`
 }
 
 // GetContainerRecipeComponentInput is an input type that accepts GetContainerRecipeComponentArgs and GetContainerRecipeComponentOutput values.
@@ -4153,8 +4477,10 @@ type GetContainerRecipeComponentInput interface {
 }
 
 type GetContainerRecipeComponentArgs struct {
-	ComponentArn pulumi.StringInput                             `pulumi:"componentArn"`
-	Parameters   GetContainerRecipeComponentParameterArrayInput `pulumi:"parameters"`
+	// ARN of the Image Builder Component.
+	ComponentArn pulumi.StringInput `pulumi:"componentArn"`
+	// Set of parameters that are used to configure the component.
+	Parameters GetContainerRecipeComponentParameterArrayInput `pulumi:"parameters"`
 }
 
 func (GetContainerRecipeComponentArgs) ElementType() reflect.Type {
@@ -4208,10 +4534,12 @@ func (o GetContainerRecipeComponentOutput) ToGetContainerRecipeComponentOutputWi
 	return o
 }
 
+// ARN of the Image Builder Component.
 func (o GetContainerRecipeComponentOutput) ComponentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerRecipeComponent) string { return v.ComponentArn }).(pulumi.StringOutput)
 }
 
+// Set of parameters that are used to configure the component.
 func (o GetContainerRecipeComponentOutput) Parameters() GetContainerRecipeComponentParameterArrayOutput {
 	return o.ApplyT(func(v GetContainerRecipeComponent) []GetContainerRecipeComponentParameter { return v.Parameters }).(GetContainerRecipeComponentParameterArrayOutput)
 }
@@ -4237,7 +4565,9 @@ func (o GetContainerRecipeComponentArrayOutput) Index(i pulumi.IntInput) GetCont
 }
 
 type GetContainerRecipeComponentParameter struct {
-	Name  string `pulumi:"name"`
+	// Name of the container recipe.
+	Name string `pulumi:"name"`
+	// Value of the component parameter.
 	Value string `pulumi:"value"`
 }
 
@@ -4253,7 +4583,9 @@ type GetContainerRecipeComponentParameterInput interface {
 }
 
 type GetContainerRecipeComponentParameterArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
+	// Name of the container recipe.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of the component parameter.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -4308,10 +4640,12 @@ func (o GetContainerRecipeComponentParameterOutput) ToGetContainerRecipeComponen
 	return o
 }
 
+// Name of the container recipe.
 func (o GetContainerRecipeComponentParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerRecipeComponentParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Value of the component parameter.
 func (o GetContainerRecipeComponentParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerRecipeComponentParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4337,8 +4671,10 @@ func (o GetContainerRecipeComponentParameterArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetContainerRecipeInstanceConfiguration struct {
+	// Set of objects with block device mappings for the instance configuration.
 	BlockDeviceMappings []GetContainerRecipeInstanceConfigurationBlockDeviceMapping `pulumi:"blockDeviceMappings"`
-	Image               string                                                      `pulumi:"image"`
+	// AMI ID of the base image for container build and test instance.
+	Image string `pulumi:"image"`
 }
 
 // GetContainerRecipeInstanceConfigurationInput is an input type that accepts GetContainerRecipeInstanceConfigurationArgs and GetContainerRecipeInstanceConfigurationOutput values.
@@ -4353,8 +4689,10 @@ type GetContainerRecipeInstanceConfigurationInput interface {
 }
 
 type GetContainerRecipeInstanceConfigurationArgs struct {
+	// Set of objects with block device mappings for the instance configuration.
 	BlockDeviceMappings GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput `pulumi:"blockDeviceMappings"`
-	Image               pulumi.StringInput                                                  `pulumi:"image"`
+	// AMI ID of the base image for container build and test instance.
+	Image pulumi.StringInput `pulumi:"image"`
 }
 
 func (GetContainerRecipeInstanceConfigurationArgs) ElementType() reflect.Type {
@@ -4408,12 +4746,14 @@ func (o GetContainerRecipeInstanceConfigurationOutput) ToGetContainerRecipeInsta
 	return o
 }
 
+// Set of objects with block device mappings for the instance configuration.
 func (o GetContainerRecipeInstanceConfigurationOutput) BlockDeviceMappings() GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput {
 	return o.ApplyT(func(v GetContainerRecipeInstanceConfiguration) []GetContainerRecipeInstanceConfigurationBlockDeviceMapping {
 		return v.BlockDeviceMappings
 	}).(GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput)
 }
 
+// AMI ID of the base image for container build and test instance.
 func (o GetContainerRecipeInstanceConfigurationOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerRecipeInstanceConfiguration) string { return v.Image }).(pulumi.StringOutput)
 }
@@ -4439,10 +4779,14 @@ func (o GetContainerRecipeInstanceConfigurationArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetContainerRecipeInstanceConfigurationBlockDeviceMapping struct {
-	DeviceName  string                                                        `pulumi:"deviceName"`
-	Ebs         []GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb `pulumi:"ebs"`
-	NoDevice    string                                                        `pulumi:"noDevice"`
-	VirtualName string                                                        `pulumi:"virtualName"`
+	// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+	DeviceName string `pulumi:"deviceName"`
+	// Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+	Ebs []GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb `pulumi:"ebs"`
+	// Whether to remove a mapping from the parent image.
+	NoDevice string `pulumi:"noDevice"`
+	// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+	VirtualName string `pulumi:"virtualName"`
 }
 
 // GetContainerRecipeInstanceConfigurationBlockDeviceMappingInput is an input type that accepts GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs and GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput values.
@@ -4457,10 +4801,14 @@ type GetContainerRecipeInstanceConfigurationBlockDeviceMappingInput interface {
 }
 
 type GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs struct {
-	DeviceName  pulumi.StringInput                                                    `pulumi:"deviceName"`
-	Ebs         GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayInput `pulumi:"ebs"`
-	NoDevice    pulumi.StringInput                                                    `pulumi:"noDevice"`
-	VirtualName pulumi.StringInput                                                    `pulumi:"virtualName"`
+	// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+	Ebs GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayInput `pulumi:"ebs"`
+	// Whether to remove a mapping from the parent image.
+	NoDevice pulumi.StringInput `pulumi:"noDevice"`
+	// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+	VirtualName pulumi.StringInput `pulumi:"virtualName"`
 }
 
 func (GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs) ElementType() reflect.Type {
@@ -4514,20 +4862,24 @@ func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) ToGetCo
 	return o
 }
 
+// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
 func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMapping) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
+// Single list of object with Elastic Block Storage (EBS) block device mapping settings.
 func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) Ebs() GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput {
 	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMapping) []GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb {
 		return v.Ebs
 	}).(GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput)
 }
 
+// Whether to remove a mapping from the parent image.
 func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) NoDevice() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMapping) string { return v.NoDevice }).(pulumi.StringOutput)
 }
 
+// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
 func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) VirtualName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMapping) string { return v.VirtualName }).(pulumi.StringOutput)
 }
@@ -4553,14 +4905,22 @@ func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput) In
 }
 
 type GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb struct {
-	DeleteOnTermination bool   `pulumi:"deleteOnTermination"`
-	Encrypted           bool   `pulumi:"encrypted"`
-	Iops                int    `pulumi:"iops"`
-	KmsKeyId            string `pulumi:"kmsKeyId"`
-	SnapshotId          string `pulumi:"snapshotId"`
-	Throughput          int    `pulumi:"throughput"`
-	VolumeSize          int    `pulumi:"volumeSize"`
-	VolumeType          string `pulumi:"volumeType"`
+	// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+	DeleteOnTermination bool `pulumi:"deleteOnTermination"`
+	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+	Encrypted bool `pulumi:"encrypted"`
+	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+	Iops int `pulumi:"iops"`
+	// KMS key used to encrypt the container image.
+	KmsKeyId string `pulumi:"kmsKeyId"`
+	// Identifier of the EC2 Volume Snapshot.
+	SnapshotId string `pulumi:"snapshotId"`
+	// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+	Throughput int `pulumi:"throughput"`
+	// Size of the volume, in GiB.
+	VolumeSize int `pulumi:"volumeSize"`
+	// Type of the volume. For example, `gp2` or `io2`.
+	VolumeType string `pulumi:"volumeType"`
 }
 
 // GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbInput is an input type that accepts GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs and GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput values.
@@ -4575,14 +4935,22 @@ type GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbInput interface 
 }
 
 type GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs struct {
-	DeleteOnTermination pulumi.BoolInput   `pulumi:"deleteOnTermination"`
-	Encrypted           pulumi.BoolInput   `pulumi:"encrypted"`
-	Iops                pulumi.IntInput    `pulumi:"iops"`
-	KmsKeyId            pulumi.StringInput `pulumi:"kmsKeyId"`
-	SnapshotId          pulumi.StringInput `pulumi:"snapshotId"`
-	Throughput          pulumi.IntInput    `pulumi:"throughput"`
-	VolumeSize          pulumi.IntInput    `pulumi:"volumeSize"`
-	VolumeType          pulumi.StringInput `pulumi:"volumeType"`
+	// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
+	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
+	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+	Iops pulumi.IntInput `pulumi:"iops"`
+	// KMS key used to encrypt the container image.
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	// Identifier of the EC2 Volume Snapshot.
+	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
+	// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+	Throughput pulumi.IntInput `pulumi:"throughput"`
+	// Size of the volume, in GiB.
+	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
+	// Type of the volume. For example, `gp2` or `io2`.
+	VolumeType pulumi.StringInput `pulumi:"volumeType"`
 }
 
 func (GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs) ElementType() reflect.Type {
@@ -4636,34 +5004,42 @@ func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) ToGet
 	return o
 }
 
+// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
 func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) DeleteOnTermination() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb) bool { return v.DeleteOnTermination }).(pulumi.BoolOutput)
 }
 
+// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
 func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb) bool { return v.Encrypted }).(pulumi.BoolOutput)
 }
 
+// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
 func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) Iops() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb) int { return v.Iops }).(pulumi.IntOutput)
 }
 
+// KMS key used to encrypt the container image.
 func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
+// Identifier of the EC2 Volume Snapshot.
 func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb) string { return v.SnapshotId }).(pulumi.StringOutput)
 }
 
+// For GP3 volumes only. The throughput in MiB/s that the volume supports.
 func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb) int { return v.Throughput }).(pulumi.IntOutput)
 }
 
+// Size of the volume, in GiB.
 func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) VolumeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb) int { return v.VolumeSize }).(pulumi.IntOutput)
 }
 
+// Type of the volume. For example, `gp2` or `io2`.
 func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) VolumeType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb) string { return v.VolumeType }).(pulumi.StringOutput)
 }
@@ -4689,8 +5065,10 @@ func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput) 
 }
 
 type GetContainerRecipeTargetRepository struct {
+	// Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
 	RepositoryName string `pulumi:"repositoryName"`
-	Service        string `pulumi:"service"`
+	// Service in which this image is registered.
+	Service string `pulumi:"service"`
 }
 
 // GetContainerRecipeTargetRepositoryInput is an input type that accepts GetContainerRecipeTargetRepositoryArgs and GetContainerRecipeTargetRepositoryOutput values.
@@ -4705,8 +5083,10 @@ type GetContainerRecipeTargetRepositoryInput interface {
 }
 
 type GetContainerRecipeTargetRepositoryArgs struct {
+	// Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
-	Service        pulumi.StringInput `pulumi:"service"`
+	// Service in which this image is registered.
+	Service pulumi.StringInput `pulumi:"service"`
 }
 
 func (GetContainerRecipeTargetRepositoryArgs) ElementType() reflect.Type {
@@ -4760,10 +5140,12 @@ func (o GetContainerRecipeTargetRepositoryOutput) ToGetContainerRecipeTargetRepo
 	return o
 }
 
+// Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
 func (o GetContainerRecipeTargetRepositoryOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerRecipeTargetRepository) string { return v.RepositoryName }).(pulumi.StringOutput)
 }
 
+// Service in which this image is registered.
 func (o GetContainerRecipeTargetRepositoryOutput) Service() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerRecipeTargetRepository) string { return v.Service }).(pulumi.StringOutput)
 }
@@ -4789,7 +5171,9 @@ func (o GetContainerRecipeTargetRepositoryArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetContainerRecipesFilter struct {
-	Name   string   `pulumi:"name"`
+	// Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
 }
 
@@ -4805,7 +5189,9 @@ type GetContainerRecipesFilterInput interface {
 }
 
 type GetContainerRecipesFilterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4860,10 +5246,12 @@ func (o GetContainerRecipesFilterOutput) ToGetContainerRecipesFilterOutputWithCo
 	return o
 }
 
+// Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
 func (o GetContainerRecipesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerRecipesFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 func (o GetContainerRecipesFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetContainerRecipesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4889,12 +5277,18 @@ func (o GetContainerRecipesFilterArrayOutput) Index(i pulumi.IntInput) GetContai
 }
 
 type GetDistributionConfigurationDistribution struct {
-	AmiDistributionConfigurations       []GetDistributionConfigurationDistributionAmiDistributionConfiguration       `pulumi:"amiDistributionConfigurations"`
+	// Nested list of AMI distribution configuration.
+	AmiDistributionConfigurations []GetDistributionConfigurationDistributionAmiDistributionConfiguration `pulumi:"amiDistributionConfigurations"`
+	// Nested list of container distribution configurations.
 	ContainerDistributionConfigurations []GetDistributionConfigurationDistributionContainerDistributionConfiguration `pulumi:"containerDistributionConfigurations"`
-	FastLaunchConfigurations            []GetDistributionConfigurationDistributionFastLaunchConfiguration            `pulumi:"fastLaunchConfigurations"`
-	LaunchTemplateConfigurations        []GetDistributionConfigurationDistributionLaunchTemplateConfiguration        `pulumi:"launchTemplateConfigurations"`
-	LicenseConfigurationArns            []string                                                                     `pulumi:"licenseConfigurationArns"`
-	Region                              string                                                                       `pulumi:"region"`
+	// Nested list of Windows faster-launching configurations to use for AMI distribution.
+	FastLaunchConfigurations []GetDistributionConfigurationDistributionFastLaunchConfiguration `pulumi:"fastLaunchConfigurations"`
+	// Nested list of launch template configurations.
+	LaunchTemplateConfigurations []GetDistributionConfigurationDistributionLaunchTemplateConfiguration `pulumi:"launchTemplateConfigurations"`
+	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+	LicenseConfigurationArns []string `pulumi:"licenseConfigurationArns"`
+	// AWS Region of distribution.
+	Region string `pulumi:"region"`
 }
 
 // GetDistributionConfigurationDistributionInput is an input type that accepts GetDistributionConfigurationDistributionArgs and GetDistributionConfigurationDistributionOutput values.
@@ -4909,12 +5303,18 @@ type GetDistributionConfigurationDistributionInput interface {
 }
 
 type GetDistributionConfigurationDistributionArgs struct {
-	AmiDistributionConfigurations       GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayInput       `pulumi:"amiDistributionConfigurations"`
+	// Nested list of AMI distribution configuration.
+	AmiDistributionConfigurations GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayInput `pulumi:"amiDistributionConfigurations"`
+	// Nested list of container distribution configurations.
 	ContainerDistributionConfigurations GetDistributionConfigurationDistributionContainerDistributionConfigurationArrayInput `pulumi:"containerDistributionConfigurations"`
-	FastLaunchConfigurations            GetDistributionConfigurationDistributionFastLaunchConfigurationArrayInput            `pulumi:"fastLaunchConfigurations"`
-	LaunchTemplateConfigurations        GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput        `pulumi:"launchTemplateConfigurations"`
-	LicenseConfigurationArns            pulumi.StringArrayInput                                                              `pulumi:"licenseConfigurationArns"`
-	Region                              pulumi.StringInput                                                                   `pulumi:"region"`
+	// Nested list of Windows faster-launching configurations to use for AMI distribution.
+	FastLaunchConfigurations GetDistributionConfigurationDistributionFastLaunchConfigurationArrayInput `pulumi:"fastLaunchConfigurations"`
+	// Nested list of launch template configurations.
+	LaunchTemplateConfigurations GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput `pulumi:"launchTemplateConfigurations"`
+	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+	LicenseConfigurationArns pulumi.StringArrayInput `pulumi:"licenseConfigurationArns"`
+	// AWS Region of distribution.
+	Region pulumi.StringInput `pulumi:"region"`
 }
 
 func (GetDistributionConfigurationDistributionArgs) ElementType() reflect.Type {
@@ -4968,34 +5368,40 @@ func (o GetDistributionConfigurationDistributionOutput) ToGetDistributionConfigu
 	return o
 }
 
+// Nested list of AMI distribution configuration.
 func (o GetDistributionConfigurationDistributionOutput) AmiDistributionConfigurations() GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistribution) []GetDistributionConfigurationDistributionAmiDistributionConfiguration {
 		return v.AmiDistributionConfigurations
 	}).(GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutput)
 }
 
+// Nested list of container distribution configurations.
 func (o GetDistributionConfigurationDistributionOutput) ContainerDistributionConfigurations() GetDistributionConfigurationDistributionContainerDistributionConfigurationArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistribution) []GetDistributionConfigurationDistributionContainerDistributionConfiguration {
 		return v.ContainerDistributionConfigurations
 	}).(GetDistributionConfigurationDistributionContainerDistributionConfigurationArrayOutput)
 }
 
+// Nested list of Windows faster-launching configurations to use for AMI distribution.
 func (o GetDistributionConfigurationDistributionOutput) FastLaunchConfigurations() GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistribution) []GetDistributionConfigurationDistributionFastLaunchConfiguration {
 		return v.FastLaunchConfigurations
 	}).(GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput)
 }
 
+// Nested list of launch template configurations.
 func (o GetDistributionConfigurationDistributionOutput) LaunchTemplateConfigurations() GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistribution) []GetDistributionConfigurationDistributionLaunchTemplateConfiguration {
 		return v.LaunchTemplateConfigurations
 	}).(GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput)
 }
 
+// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
 func (o GetDistributionConfigurationDistributionOutput) LicenseConfigurationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistribution) []string { return v.LicenseConfigurationArns }).(pulumi.StringArrayOutput)
 }
 
+// AWS Region of distribution.
 func (o GetDistributionConfigurationDistributionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistribution) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -5021,12 +5427,18 @@ func (o GetDistributionConfigurationDistributionArrayOutput) Index(i pulumi.IntI
 }
 
 type GetDistributionConfigurationDistributionAmiDistributionConfiguration struct {
-	AmiTags           map[string]string                                                                      `pulumi:"amiTags"`
-	Description       string                                                                                 `pulumi:"description"`
-	KmsKeyId          string                                                                                 `pulumi:"kmsKeyId"`
+	// Key-value map of tags to apply to distributed AMI.
+	AmiTags map[string]string `pulumi:"amiTags"`
+	// Description of the container distribution configuration.
+	Description string `pulumi:"description"`
+	// ARN of Key Management Service (KMS) Key to encrypt AMI.
+	KmsKeyId string `pulumi:"kmsKeyId"`
+	// Nested list of EC2 launch permissions.
 	LaunchPermissions []GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission `pulumi:"launchPermissions"`
-	Name              string                                                                                 `pulumi:"name"`
-	TargetAccountIds  []string                                                                               `pulumi:"targetAccountIds"`
+	// Name of the distribution configuration.
+	Name string `pulumi:"name"`
+	// Set of target AWS Account identifiers.
+	TargetAccountIds []string `pulumi:"targetAccountIds"`
 }
 
 // GetDistributionConfigurationDistributionAmiDistributionConfigurationInput is an input type that accepts GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs and GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput values.
@@ -5041,12 +5453,18 @@ type GetDistributionConfigurationDistributionAmiDistributionConfigurationInput i
 }
 
 type GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs struct {
-	AmiTags           pulumi.StringMapInput                                                                          `pulumi:"amiTags"`
-	Description       pulumi.StringInput                                                                             `pulumi:"description"`
-	KmsKeyId          pulumi.StringInput                                                                             `pulumi:"kmsKeyId"`
+	// Key-value map of tags to apply to distributed AMI.
+	AmiTags pulumi.StringMapInput `pulumi:"amiTags"`
+	// Description of the container distribution configuration.
+	Description pulumi.StringInput `pulumi:"description"`
+	// ARN of Key Management Service (KMS) Key to encrypt AMI.
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	// Nested list of EC2 launch permissions.
 	LaunchPermissions GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayInput `pulumi:"launchPermissions"`
-	Name              pulumi.StringInput                                                                             `pulumi:"name"`
-	TargetAccountIds  pulumi.StringArrayInput                                                                        `pulumi:"targetAccountIds"`
+	// Name of the distribution configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of target AWS Account identifiers.
+	TargetAccountIds pulumi.StringArrayInput `pulumi:"targetAccountIds"`
 }
 
 func (GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs) ElementType() reflect.Type {
@@ -5100,32 +5518,38 @@ func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationOutp
 	return o
 }
 
+// Key-value map of tags to apply to distributed AMI.
 func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput) AmiTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionAmiDistributionConfiguration) map[string]string {
 		return v.AmiTags
 	}).(pulumi.StringMapOutput)
 }
 
+// Description of the container distribution configuration.
 func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionAmiDistributionConfiguration) string {
 		return v.Description
 	}).(pulumi.StringOutput)
 }
 
+// ARN of Key Management Service (KMS) Key to encrypt AMI.
 func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionAmiDistributionConfiguration) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
+// Nested list of EC2 launch permissions.
 func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput) LaunchPermissions() GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionAmiDistributionConfiguration) []GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission {
 		return v.LaunchPermissions
 	}).(GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput)
 }
 
+// Name of the distribution configuration.
 func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionAmiDistributionConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Set of target AWS Account identifiers.
 func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput) TargetAccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionAmiDistributionConfiguration) []string {
 		return v.TargetAccountIds
@@ -5153,10 +5577,14 @@ func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationArra
 }
 
 type GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission struct {
-	OrganizationArns       []string `pulumi:"organizationArns"`
+	// Set of AWS Organization ARNs.
+	OrganizationArns []string `pulumi:"organizationArns"`
+	// Set of AWS Organizational Unit ARNs.
 	OrganizationalUnitArns []string `pulumi:"organizationalUnitArns"`
-	UserGroups             []string `pulumi:"userGroups"`
-	UserIds                []string `pulumi:"userIds"`
+	// Set of EC2 launch permission user groups.
+	UserGroups []string `pulumi:"userGroups"`
+	// Set of AWS Account identifiers.
+	UserIds []string `pulumi:"userIds"`
 }
 
 // GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionInput is an input type that accepts GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs and GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput values.
@@ -5171,10 +5599,14 @@ type GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 }
 
 type GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs struct {
-	OrganizationArns       pulumi.StringArrayInput `pulumi:"organizationArns"`
+	// Set of AWS Organization ARNs.
+	OrganizationArns pulumi.StringArrayInput `pulumi:"organizationArns"`
+	// Set of AWS Organizational Unit ARNs.
 	OrganizationalUnitArns pulumi.StringArrayInput `pulumi:"organizationalUnitArns"`
-	UserGroups             pulumi.StringArrayInput `pulumi:"userGroups"`
-	UserIds                pulumi.StringArrayInput `pulumi:"userIds"`
+	// Set of EC2 launch permission user groups.
+	UserGroups pulumi.StringArrayInput `pulumi:"userGroups"`
+	// Set of AWS Account identifiers.
+	UserIds pulumi.StringArrayInput `pulumi:"userIds"`
 }
 
 func (GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs) ElementType() reflect.Type {
@@ -5228,24 +5660,28 @@ func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaun
 	return o
 }
 
+// Set of AWS Organization ARNs.
 func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) OrganizationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) []string {
 		return v.OrganizationArns
 	}).(pulumi.StringArrayOutput)
 }
 
+// Set of AWS Organizational Unit ARNs.
 func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) OrganizationalUnitArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) []string {
 		return v.OrganizationalUnitArns
 	}).(pulumi.StringArrayOutput)
 }
 
+// Set of EC2 launch permission user groups.
 func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) UserGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) []string {
 		return v.UserGroups
 	}).(pulumi.StringArrayOutput)
 }
 
+// Set of AWS Account identifiers.
 func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) UserIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) []string {
 		return v.UserIds
@@ -5273,8 +5709,11 @@ func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaun
 }
 
 type GetDistributionConfigurationDistributionContainerDistributionConfiguration struct {
-	ContainerTags      []string                                                                                     `pulumi:"containerTags"`
-	Description        string                                                                                       `pulumi:"description"`
+	// Set of tags that are attached to the container distribution configuration.
+	ContainerTags []string `pulumi:"containerTags"`
+	// Description of the container distribution configuration.
+	Description string `pulumi:"description"`
+	// Set of destination repositories for the container distribution configuration.
 	TargetRepositories []GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository `pulumi:"targetRepositories"`
 }
 
@@ -5290,8 +5729,11 @@ type GetDistributionConfigurationDistributionContainerDistributionConfigurationI
 }
 
 type GetDistributionConfigurationDistributionContainerDistributionConfigurationArgs struct {
-	ContainerTags      pulumi.StringArrayInput                                                                              `pulumi:"containerTags"`
-	Description        pulumi.StringInput                                                                                   `pulumi:"description"`
+	// Set of tags that are attached to the container distribution configuration.
+	ContainerTags pulumi.StringArrayInput `pulumi:"containerTags"`
+	// Description of the container distribution configuration.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Set of destination repositories for the container distribution configuration.
 	TargetRepositories GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrayInput `pulumi:"targetRepositories"`
 }
 
@@ -5346,18 +5788,21 @@ func (o GetDistributionConfigurationDistributionContainerDistributionConfigurati
 	return o
 }
 
+// Set of tags that are attached to the container distribution configuration.
 func (o GetDistributionConfigurationDistributionContainerDistributionConfigurationOutput) ContainerTags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionContainerDistributionConfiguration) []string {
 		return v.ContainerTags
 	}).(pulumi.StringArrayOutput)
 }
 
+// Description of the container distribution configuration.
 func (o GetDistributionConfigurationDistributionContainerDistributionConfigurationOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionContainerDistributionConfiguration) string {
 		return v.Description
 	}).(pulumi.StringOutput)
 }
 
+// Set of destination repositories for the container distribution configuration.
 func (o GetDistributionConfigurationDistributionContainerDistributionConfigurationOutput) TargetRepositories() GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionContainerDistributionConfiguration) []GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository {
 		return v.TargetRepositories
@@ -5385,8 +5830,10 @@ func (o GetDistributionConfigurationDistributionContainerDistributionConfigurati
 }
 
 type GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository struct {
+	// Name of the container repository where the output container image is stored.
 	RepositoryName string `pulumi:"repositoryName"`
-	Service        string `pulumi:"service"`
+	// Service in which the image is registered.
+	Service string `pulumi:"service"`
 }
 
 // GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryInput is an input type that accepts GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs and GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput values.
@@ -5401,8 +5848,10 @@ type GetDistributionConfigurationDistributionContainerDistributionConfigurationT
 }
 
 type GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs struct {
+	// Name of the container repository where the output container image is stored.
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
-	Service        pulumi.StringInput `pulumi:"service"`
+	// Service in which the image is registered.
+	Service pulumi.StringInput `pulumi:"service"`
 }
 
 func (GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs) ElementType() reflect.Type {
@@ -5456,12 +5905,14 @@ func (o GetDistributionConfigurationDistributionContainerDistributionConfigurati
 	return o
 }
 
+// Name of the container repository where the output container image is stored.
 func (o GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository) string {
 		return v.RepositoryName
 	}).(pulumi.StringOutput)
 }
 
+// Service in which the image is registered.
 func (o GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput) Service() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository) string {
 		return v.Service
@@ -5489,10 +5940,15 @@ func (o GetDistributionConfigurationDistributionContainerDistributionConfigurati
 }
 
 type GetDistributionConfigurationDistributionFastLaunchConfiguration struct {
-	AccountId              string                                                                                 `pulumi:"accountId"`
-	Enabled                bool                                                                                   `pulumi:"enabled"`
-	LaunchTemplates        []GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate        `pulumi:"launchTemplates"`
-	MaxParallelLaunches    int                                                                                    `pulumi:"maxParallelLaunches"`
+	// The account ID that this configuration applies to.
+	AccountId string `pulumi:"accountId"`
+	// A Boolean that represents the current state of faster launching for the Windows AMI.
+	Enabled bool `pulumi:"enabled"`
+	// Nested list of launch templates that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+	LaunchTemplates []GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate `pulumi:"launchTemplates"`
+	// The maximum number of parallel instances that are launched for creating resources.
+	MaxParallelLaunches int `pulumi:"maxParallelLaunches"`
+	// Nested list of configurations for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
 	SnapshotConfigurations []GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration `pulumi:"snapshotConfigurations"`
 }
 
@@ -5508,10 +5964,15 @@ type GetDistributionConfigurationDistributionFastLaunchConfigurationInput interf
 }
 
 type GetDistributionConfigurationDistributionFastLaunchConfigurationArgs struct {
-	AccountId              pulumi.StringInput                                                                             `pulumi:"accountId"`
-	Enabled                pulumi.BoolInput                                                                               `pulumi:"enabled"`
-	LaunchTemplates        GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayInput        `pulumi:"launchTemplates"`
-	MaxParallelLaunches    pulumi.IntInput                                                                                `pulumi:"maxParallelLaunches"`
+	// The account ID that this configuration applies to.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// A Boolean that represents the current state of faster launching for the Windows AMI.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Nested list of launch templates that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+	LaunchTemplates GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayInput `pulumi:"launchTemplates"`
+	// The maximum number of parallel instances that are launched for creating resources.
+	MaxParallelLaunches pulumi.IntInput `pulumi:"maxParallelLaunches"`
+	// Nested list of configurations for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
 	SnapshotConfigurations GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayInput `pulumi:"snapshotConfigurations"`
 }
 
@@ -5566,26 +6027,31 @@ func (o GetDistributionConfigurationDistributionFastLaunchConfigurationOutput) T
 	return o
 }
 
+// The account ID that this configuration applies to.
 func (o GetDistributionConfigurationDistributionFastLaunchConfigurationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionFastLaunchConfiguration) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
+// A Boolean that represents the current state of faster launching for the Windows AMI.
 func (o GetDistributionConfigurationDistributionFastLaunchConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionFastLaunchConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Nested list of launch templates that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
 func (o GetDistributionConfigurationDistributionFastLaunchConfigurationOutput) LaunchTemplates() GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionFastLaunchConfiguration) []GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate {
 		return v.LaunchTemplates
 	}).(GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput)
 }
 
+// The maximum number of parallel instances that are launched for creating resources.
 func (o GetDistributionConfigurationDistributionFastLaunchConfigurationOutput) MaxParallelLaunches() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionFastLaunchConfiguration) int {
 		return v.MaxParallelLaunches
 	}).(pulumi.IntOutput)
 }
 
+// Nested list of configurations for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
 func (o GetDistributionConfigurationDistributionFastLaunchConfigurationOutput) SnapshotConfigurations() GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionFastLaunchConfiguration) []GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration {
 		return v.SnapshotConfigurations
@@ -5613,8 +6079,11 @@ func (o GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutp
 }
 
 type GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate struct {
-	LaunchTemplateId      string `pulumi:"launchTemplateId"`
-	LaunchTemplateName    string `pulumi:"launchTemplateName"`
+	// ID of the Amazon EC2 launch template.
+	LaunchTemplateId string `pulumi:"launchTemplateId"`
+	// The name of the launch template to use for faster launching for a Windows AMI.
+	LaunchTemplateName string `pulumi:"launchTemplateName"`
+	// The version of the launch template to use for faster launching for a Windows AMI.
 	LaunchTemplateVersion string `pulumi:"launchTemplateVersion"`
 }
 
@@ -5630,8 +6099,11 @@ type GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTempla
 }
 
 type GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs struct {
-	LaunchTemplateId      pulumi.StringInput `pulumi:"launchTemplateId"`
-	LaunchTemplateName    pulumi.StringInput `pulumi:"launchTemplateName"`
+	// ID of the Amazon EC2 launch template.
+	LaunchTemplateId pulumi.StringInput `pulumi:"launchTemplateId"`
+	// The name of the launch template to use for faster launching for a Windows AMI.
+	LaunchTemplateName pulumi.StringInput `pulumi:"launchTemplateName"`
+	// The version of the launch template to use for faster launching for a Windows AMI.
 	LaunchTemplateVersion pulumi.StringInput `pulumi:"launchTemplateVersion"`
 }
 
@@ -5686,18 +6158,21 @@ func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTem
 	return o
 }
 
+// ID of the Amazon EC2 launch template.
 func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) LaunchTemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) string {
 		return v.LaunchTemplateId
 	}).(pulumi.StringOutput)
 }
 
+// The name of the launch template to use for faster launching for a Windows AMI.
 func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) LaunchTemplateName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) string {
 		return v.LaunchTemplateName
 	}).(pulumi.StringOutput)
 }
 
+// The version of the launch template to use for faster launching for a Windows AMI.
 func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) LaunchTemplateVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) string {
 		return v.LaunchTemplateVersion
@@ -5725,6 +6200,7 @@ func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTem
 }
 
 type GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration struct {
+	// The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
 	TargetResourceCount int `pulumi:"targetResourceCount"`
 }
 
@@ -5740,6 +6216,7 @@ type GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConf
 }
 
 type GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs struct {
+	// The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
 	TargetResourceCount pulumi.IntInput `pulumi:"targetResourceCount"`
 }
 
@@ -5794,6 +6271,7 @@ func (o GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotC
 	return o
 }
 
+// The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
 func (o GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput) TargetResourceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration) int {
 		return v.TargetResourceCount
@@ -5821,8 +6299,11 @@ func (o GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotC
 }
 
 type GetDistributionConfigurationDistributionLaunchTemplateConfiguration struct {
-	AccountId        string `pulumi:"accountId"`
-	Default          bool   `pulumi:"default"`
+	// The account ID that this configuration applies to.
+	AccountId string `pulumi:"accountId"`
+	// Whether the specified Amazon EC2 launch template is set as the default launch template.
+	Default bool `pulumi:"default"`
+	// ID of the Amazon EC2 launch template.
 	LaunchTemplateId string `pulumi:"launchTemplateId"`
 }
 
@@ -5838,8 +6319,11 @@ type GetDistributionConfigurationDistributionLaunchTemplateConfigurationInput in
 }
 
 type GetDistributionConfigurationDistributionLaunchTemplateConfigurationArgs struct {
-	AccountId        pulumi.StringInput `pulumi:"accountId"`
-	Default          pulumi.BoolInput   `pulumi:"default"`
+	// The account ID that this configuration applies to.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// Whether the specified Amazon EC2 launch template is set as the default launch template.
+	Default pulumi.BoolInput `pulumi:"default"`
+	// ID of the Amazon EC2 launch template.
 	LaunchTemplateId pulumi.StringInput `pulumi:"launchTemplateId"`
 }
 
@@ -5894,14 +6378,17 @@ func (o GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutpu
 	return o
 }
 
+// The account ID that this configuration applies to.
 func (o GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionLaunchTemplateConfiguration) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
+// Whether the specified Amazon EC2 launch template is set as the default launch template.
 func (o GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutput) Default() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionLaunchTemplateConfiguration) bool { return v.Default }).(pulumi.BoolOutput)
 }
 
+// ID of the Amazon EC2 launch template.
 func (o GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutput) LaunchTemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionLaunchTemplateConfiguration) string {
 		return v.LaunchTemplateId
@@ -5929,7 +6416,9 @@ func (o GetDistributionConfigurationDistributionLaunchTemplateConfigurationArray
 }
 
 type GetDistributionConfigurationsFilter struct {
-	Name   string   `pulumi:"name"`
+	// Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
 }
 
@@ -5945,7 +6434,9 @@ type GetDistributionConfigurationsFilterInput interface {
 }
 
 type GetDistributionConfigurationsFilterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -6000,10 +6491,12 @@ func (o GetDistributionConfigurationsFilterOutput) ToGetDistributionConfiguratio
 	return o
 }
 
+// Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
 func (o GetDistributionConfigurationsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 func (o GetDistributionConfigurationsFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -6029,8 +6522,10 @@ func (o GetDistributionConfigurationsFilterArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetImageImageTestsConfiguration struct {
+	// Whether image tests are enabled.
 	ImageTestsEnabled bool `pulumi:"imageTestsEnabled"`
-	TimeoutMinutes    int  `pulumi:"timeoutMinutes"`
+	// Number of minutes before image tests time out.
+	TimeoutMinutes int `pulumi:"timeoutMinutes"`
 }
 
 // GetImageImageTestsConfigurationInput is an input type that accepts GetImageImageTestsConfigurationArgs and GetImageImageTestsConfigurationOutput values.
@@ -6045,8 +6540,10 @@ type GetImageImageTestsConfigurationInput interface {
 }
 
 type GetImageImageTestsConfigurationArgs struct {
+	// Whether image tests are enabled.
 	ImageTestsEnabled pulumi.BoolInput `pulumi:"imageTestsEnabled"`
-	TimeoutMinutes    pulumi.IntInput  `pulumi:"timeoutMinutes"`
+	// Number of minutes before image tests time out.
+	TimeoutMinutes pulumi.IntInput `pulumi:"timeoutMinutes"`
 }
 
 func (GetImageImageTestsConfigurationArgs) ElementType() reflect.Type {
@@ -6100,10 +6597,12 @@ func (o GetImageImageTestsConfigurationOutput) ToGetImageImageTestsConfiguration
 	return o
 }
 
+// Whether image tests are enabled.
 func (o GetImageImageTestsConfigurationOutput) ImageTestsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetImageImageTestsConfiguration) bool { return v.ImageTestsEnabled }).(pulumi.BoolOutput)
 }
 
+// Number of minutes before image tests time out.
 func (o GetImageImageTestsConfigurationOutput) TimeoutMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetImageImageTestsConfiguration) int { return v.TimeoutMinutes }).(pulumi.IntOutput)
 }
@@ -6129,6 +6628,7 @@ func (o GetImageImageTestsConfigurationArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetImageOutputResource struct {
+	// Set of objects with each Amazon Machine Image (AMI) created.
 	Amis []GetImageOutputResourceAmi `pulumi:"amis"`
 }
 
@@ -6144,6 +6644,7 @@ type GetImageOutputResourceInput interface {
 }
 
 type GetImageOutputResourceArgs struct {
+	// Set of objects with each Amazon Machine Image (AMI) created.
 	Amis GetImageOutputResourceAmiArrayInput `pulumi:"amis"`
 }
 
@@ -6198,6 +6699,7 @@ func (o GetImageOutputResourceOutput) ToGetImageOutputResourceOutputWithContext(
 	return o
 }
 
+// Set of objects with each Amazon Machine Image (AMI) created.
 func (o GetImageOutputResourceOutput) Amis() GetImageOutputResourceAmiArrayOutput {
 	return o.ApplyT(func(v GetImageOutputResource) []GetImageOutputResourceAmi { return v.Amis }).(GetImageOutputResourceAmiArrayOutput)
 }
@@ -6223,11 +6725,16 @@ func (o GetImageOutputResourceArrayOutput) Index(i pulumi.IntInput) GetImageOutp
 }
 
 type GetImageOutputResourceAmi struct {
-	AccountId   string `pulumi:"accountId"`
+	// Account identifier of the AMI.
+	AccountId string `pulumi:"accountId"`
+	// Description of the AMI.
 	Description string `pulumi:"description"`
-	Image       string `pulumi:"image"`
-	Name        string `pulumi:"name"`
-	Region      string `pulumi:"region"`
+	// Identifier of the AMI.
+	Image string `pulumi:"image"`
+	// Name of the AMI.
+	Name string `pulumi:"name"`
+	// Region of the AMI.
+	Region string `pulumi:"region"`
 }
 
 // GetImageOutputResourceAmiInput is an input type that accepts GetImageOutputResourceAmiArgs and GetImageOutputResourceAmiOutput values.
@@ -6242,11 +6749,16 @@ type GetImageOutputResourceAmiInput interface {
 }
 
 type GetImageOutputResourceAmiArgs struct {
-	AccountId   pulumi.StringInput `pulumi:"accountId"`
+	// Account identifier of the AMI.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// Description of the AMI.
 	Description pulumi.StringInput `pulumi:"description"`
-	Image       pulumi.StringInput `pulumi:"image"`
-	Name        pulumi.StringInput `pulumi:"name"`
-	Region      pulumi.StringInput `pulumi:"region"`
+	// Identifier of the AMI.
+	Image pulumi.StringInput `pulumi:"image"`
+	// Name of the AMI.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region of the AMI.
+	Region pulumi.StringInput `pulumi:"region"`
 }
 
 func (GetImageOutputResourceAmiArgs) ElementType() reflect.Type {
@@ -6300,22 +6812,27 @@ func (o GetImageOutputResourceAmiOutput) ToGetImageOutputResourceAmiOutputWithCo
 	return o
 }
 
+// Account identifier of the AMI.
 func (o GetImageOutputResourceAmiOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageOutputResourceAmi) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
+// Description of the AMI.
 func (o GetImageOutputResourceAmiOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageOutputResourceAmi) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// Identifier of the AMI.
 func (o GetImageOutputResourceAmiOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageOutputResourceAmi) string { return v.Image }).(pulumi.StringOutput)
 }
 
+// Name of the AMI.
 func (o GetImageOutputResourceAmiOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageOutputResourceAmi) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region of the AMI.
 func (o GetImageOutputResourceAmiOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageOutputResourceAmi) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -6341,8 +6858,10 @@ func (o GetImageOutputResourceAmiArrayOutput) Index(i pulumi.IntInput) GetImageO
 }
 
 type GetImagePipelineImageTestsConfiguration struct {
+	// Whether image tests are enabled.
 	ImageTestsEnabled bool `pulumi:"imageTestsEnabled"`
-	TimeoutMinutes    int  `pulumi:"timeoutMinutes"`
+	// Number of minutes before image tests time out.
+	TimeoutMinutes int `pulumi:"timeoutMinutes"`
 }
 
 // GetImagePipelineImageTestsConfigurationInput is an input type that accepts GetImagePipelineImageTestsConfigurationArgs and GetImagePipelineImageTestsConfigurationOutput values.
@@ -6357,8 +6876,10 @@ type GetImagePipelineImageTestsConfigurationInput interface {
 }
 
 type GetImagePipelineImageTestsConfigurationArgs struct {
+	// Whether image tests are enabled.
 	ImageTestsEnabled pulumi.BoolInput `pulumi:"imageTestsEnabled"`
-	TimeoutMinutes    pulumi.IntInput  `pulumi:"timeoutMinutes"`
+	// Number of minutes before image tests time out.
+	TimeoutMinutes pulumi.IntInput `pulumi:"timeoutMinutes"`
 }
 
 func (GetImagePipelineImageTestsConfigurationArgs) ElementType() reflect.Type {
@@ -6412,10 +6933,12 @@ func (o GetImagePipelineImageTestsConfigurationOutput) ToGetImagePipelineImageTe
 	return o
 }
 
+// Whether image tests are enabled.
 func (o GetImagePipelineImageTestsConfigurationOutput) ImageTestsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetImagePipelineImageTestsConfiguration) bool { return v.ImageTestsEnabled }).(pulumi.BoolOutput)
 }
 
+// Number of minutes before image tests time out.
 func (o GetImagePipelineImageTestsConfigurationOutput) TimeoutMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetImagePipelineImageTestsConfiguration) int { return v.TimeoutMinutes }).(pulumi.IntOutput)
 }
@@ -6441,8 +6964,10 @@ func (o GetImagePipelineImageTestsConfigurationArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetImagePipelineSchedule struct {
+	// Condition when the pipeline should trigger a new image build.
 	PipelineExecutionStartCondition string `pulumi:"pipelineExecutionStartCondition"`
-	ScheduleExpression              string `pulumi:"scheduleExpression"`
+	// Cron expression of how often the pipeline start condition is evaluated.
+	ScheduleExpression string `pulumi:"scheduleExpression"`
 }
 
 // GetImagePipelineScheduleInput is an input type that accepts GetImagePipelineScheduleArgs and GetImagePipelineScheduleOutput values.
@@ -6457,8 +6982,10 @@ type GetImagePipelineScheduleInput interface {
 }
 
 type GetImagePipelineScheduleArgs struct {
+	// Condition when the pipeline should trigger a new image build.
 	PipelineExecutionStartCondition pulumi.StringInput `pulumi:"pipelineExecutionStartCondition"`
-	ScheduleExpression              pulumi.StringInput `pulumi:"scheduleExpression"`
+	// Cron expression of how often the pipeline start condition is evaluated.
+	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
 }
 
 func (GetImagePipelineScheduleArgs) ElementType() reflect.Type {
@@ -6512,10 +7039,12 @@ func (o GetImagePipelineScheduleOutput) ToGetImagePipelineScheduleOutputWithCont
 	return o
 }
 
+// Condition when the pipeline should trigger a new image build.
 func (o GetImagePipelineScheduleOutput) PipelineExecutionStartCondition() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagePipelineSchedule) string { return v.PipelineExecutionStartCondition }).(pulumi.StringOutput)
 }
 
+// Cron expression of how often the pipeline start condition is evaluated.
 func (o GetImagePipelineScheduleOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagePipelineSchedule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
@@ -6541,7 +7070,9 @@ func (o GetImagePipelineScheduleArrayOutput) Index(i pulumi.IntInput) GetImagePi
 }
 
 type GetImagePipelinesFilter struct {
-	Name   string   `pulumi:"name"`
+	// Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
 }
 
@@ -6557,7 +7088,9 @@ type GetImagePipelinesFilterInput interface {
 }
 
 type GetImagePipelinesFilterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -6612,10 +7145,12 @@ func (o GetImagePipelinesFilterOutput) ToGetImagePipelinesFilterOutputWithContex
 	return o
 }
 
+// Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
 func (o GetImagePipelinesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagePipelinesFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 func (o GetImagePipelinesFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetImagePipelinesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -6641,10 +7176,14 @@ func (o GetImagePipelinesFilterArrayOutput) Index(i pulumi.IntInput) GetImagePip
 }
 
 type GetImageRecipeBlockDeviceMapping struct {
-	DeviceName  string                               `pulumi:"deviceName"`
-	Ebs         []GetImageRecipeBlockDeviceMappingEb `pulumi:"ebs"`
-	NoDevice    string                               `pulumi:"noDevice"`
-	VirtualName string                               `pulumi:"virtualName"`
+	// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+	DeviceName string `pulumi:"deviceName"`
+	// Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+	Ebs []GetImageRecipeBlockDeviceMappingEb `pulumi:"ebs"`
+	// Whether to remove a mapping from the parent image.
+	NoDevice string `pulumi:"noDevice"`
+	// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+	VirtualName string `pulumi:"virtualName"`
 }
 
 // GetImageRecipeBlockDeviceMappingInput is an input type that accepts GetImageRecipeBlockDeviceMappingArgs and GetImageRecipeBlockDeviceMappingOutput values.
@@ -6659,10 +7198,14 @@ type GetImageRecipeBlockDeviceMappingInput interface {
 }
 
 type GetImageRecipeBlockDeviceMappingArgs struct {
-	DeviceName  pulumi.StringInput                           `pulumi:"deviceName"`
-	Ebs         GetImageRecipeBlockDeviceMappingEbArrayInput `pulumi:"ebs"`
-	NoDevice    pulumi.StringInput                           `pulumi:"noDevice"`
-	VirtualName pulumi.StringInput                           `pulumi:"virtualName"`
+	// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+	Ebs GetImageRecipeBlockDeviceMappingEbArrayInput `pulumi:"ebs"`
+	// Whether to remove a mapping from the parent image.
+	NoDevice pulumi.StringInput `pulumi:"noDevice"`
+	// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+	VirtualName pulumi.StringInput `pulumi:"virtualName"`
 }
 
 func (GetImageRecipeBlockDeviceMappingArgs) ElementType() reflect.Type {
@@ -6716,18 +7259,22 @@ func (o GetImageRecipeBlockDeviceMappingOutput) ToGetImageRecipeBlockDeviceMappi
 	return o
 }
 
+// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
 func (o GetImageRecipeBlockDeviceMappingOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageRecipeBlockDeviceMapping) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
+// Single list of object with Elastic Block Storage (EBS) block device mapping settings.
 func (o GetImageRecipeBlockDeviceMappingOutput) Ebs() GetImageRecipeBlockDeviceMappingEbArrayOutput {
 	return o.ApplyT(func(v GetImageRecipeBlockDeviceMapping) []GetImageRecipeBlockDeviceMappingEb { return v.Ebs }).(GetImageRecipeBlockDeviceMappingEbArrayOutput)
 }
 
+// Whether to remove a mapping from the parent image.
 func (o GetImageRecipeBlockDeviceMappingOutput) NoDevice() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageRecipeBlockDeviceMapping) string { return v.NoDevice }).(pulumi.StringOutput)
 }
 
+// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
 func (o GetImageRecipeBlockDeviceMappingOutput) VirtualName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageRecipeBlockDeviceMapping) string { return v.VirtualName }).(pulumi.StringOutput)
 }
@@ -6753,14 +7300,22 @@ func (o GetImageRecipeBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetImageRecipeBlockDeviceMappingEb struct {
-	DeleteOnTermination bool   `pulumi:"deleteOnTermination"`
-	Encrypted           bool   `pulumi:"encrypted"`
-	Iops                int    `pulumi:"iops"`
-	KmsKeyId            string `pulumi:"kmsKeyId"`
-	SnapshotId          string `pulumi:"snapshotId"`
-	Throughput          int    `pulumi:"throughput"`
-	VolumeSize          int    `pulumi:"volumeSize"`
-	VolumeType          string `pulumi:"volumeType"`
+	// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+	DeleteOnTermination bool `pulumi:"deleteOnTermination"`
+	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+	Encrypted bool `pulumi:"encrypted"`
+	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+	Iops int `pulumi:"iops"`
+	// ARN of the Key Management Service (KMS) Key for encryption.
+	KmsKeyId string `pulumi:"kmsKeyId"`
+	// Identifier of the EC2 Volume Snapshot.
+	SnapshotId string `pulumi:"snapshotId"`
+	// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+	Throughput int `pulumi:"throughput"`
+	// Size of the volume, in GiB.
+	VolumeSize int `pulumi:"volumeSize"`
+	// Type of the volume. For example, `gp2` or `io2`.
+	VolumeType string `pulumi:"volumeType"`
 }
 
 // GetImageRecipeBlockDeviceMappingEbInput is an input type that accepts GetImageRecipeBlockDeviceMappingEbArgs and GetImageRecipeBlockDeviceMappingEbOutput values.
@@ -6775,14 +7330,22 @@ type GetImageRecipeBlockDeviceMappingEbInput interface {
 }
 
 type GetImageRecipeBlockDeviceMappingEbArgs struct {
-	DeleteOnTermination pulumi.BoolInput   `pulumi:"deleteOnTermination"`
-	Encrypted           pulumi.BoolInput   `pulumi:"encrypted"`
-	Iops                pulumi.IntInput    `pulumi:"iops"`
-	KmsKeyId            pulumi.StringInput `pulumi:"kmsKeyId"`
-	SnapshotId          pulumi.StringInput `pulumi:"snapshotId"`
-	Throughput          pulumi.IntInput    `pulumi:"throughput"`
-	VolumeSize          pulumi.IntInput    `pulumi:"volumeSize"`
-	VolumeType          pulumi.StringInput `pulumi:"volumeType"`
+	// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
+	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
+	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+	Iops pulumi.IntInput `pulumi:"iops"`
+	// ARN of the Key Management Service (KMS) Key for encryption.
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	// Identifier of the EC2 Volume Snapshot.
+	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
+	// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+	Throughput pulumi.IntInput `pulumi:"throughput"`
+	// Size of the volume, in GiB.
+	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
+	// Type of the volume. For example, `gp2` or `io2`.
+	VolumeType pulumi.StringInput `pulumi:"volumeType"`
 }
 
 func (GetImageRecipeBlockDeviceMappingEbArgs) ElementType() reflect.Type {
@@ -6836,34 +7399,42 @@ func (o GetImageRecipeBlockDeviceMappingEbOutput) ToGetImageRecipeBlockDeviceMap
 	return o
 }
 
+// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
 func (o GetImageRecipeBlockDeviceMappingEbOutput) DeleteOnTermination() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) bool { return v.DeleteOnTermination }).(pulumi.BoolOutput)
 }
 
+// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
 func (o GetImageRecipeBlockDeviceMappingEbOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) bool { return v.Encrypted }).(pulumi.BoolOutput)
 }
 
+// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
 func (o GetImageRecipeBlockDeviceMappingEbOutput) Iops() pulumi.IntOutput {
 	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) int { return v.Iops }).(pulumi.IntOutput)
 }
 
+// ARN of the Key Management Service (KMS) Key for encryption.
 func (o GetImageRecipeBlockDeviceMappingEbOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
+// Identifier of the EC2 Volume Snapshot.
 func (o GetImageRecipeBlockDeviceMappingEbOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) string { return v.SnapshotId }).(pulumi.StringOutput)
 }
 
+// For GP3 volumes only. The throughput in MiB/s that the volume supports.
 func (o GetImageRecipeBlockDeviceMappingEbOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) int { return v.Throughput }).(pulumi.IntOutput)
 }
 
+// Size of the volume, in GiB.
 func (o GetImageRecipeBlockDeviceMappingEbOutput) VolumeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) int { return v.VolumeSize }).(pulumi.IntOutput)
 }
 
+// Type of the volume. For example, `gp2` or `io2`.
 func (o GetImageRecipeBlockDeviceMappingEbOutput) VolumeType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) string { return v.VolumeType }).(pulumi.StringOutput)
 }
@@ -6889,8 +7460,10 @@ func (o GetImageRecipeBlockDeviceMappingEbArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetImageRecipeComponent struct {
-	ComponentArn string                             `pulumi:"componentArn"`
-	Parameters   []GetImageRecipeComponentParameter `pulumi:"parameters"`
+	// ARN of the Image Builder Component.
+	ComponentArn string `pulumi:"componentArn"`
+	// Set of parameters that are used to configure the component.
+	Parameters []GetImageRecipeComponentParameter `pulumi:"parameters"`
 }
 
 // GetImageRecipeComponentInput is an input type that accepts GetImageRecipeComponentArgs and GetImageRecipeComponentOutput values.
@@ -6905,8 +7478,10 @@ type GetImageRecipeComponentInput interface {
 }
 
 type GetImageRecipeComponentArgs struct {
-	ComponentArn pulumi.StringInput                         `pulumi:"componentArn"`
-	Parameters   GetImageRecipeComponentParameterArrayInput `pulumi:"parameters"`
+	// ARN of the Image Builder Component.
+	ComponentArn pulumi.StringInput `pulumi:"componentArn"`
+	// Set of parameters that are used to configure the component.
+	Parameters GetImageRecipeComponentParameterArrayInput `pulumi:"parameters"`
 }
 
 func (GetImageRecipeComponentArgs) ElementType() reflect.Type {
@@ -6960,10 +7535,12 @@ func (o GetImageRecipeComponentOutput) ToGetImageRecipeComponentOutputWithContex
 	return o
 }
 
+// ARN of the Image Builder Component.
 func (o GetImageRecipeComponentOutput) ComponentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageRecipeComponent) string { return v.ComponentArn }).(pulumi.StringOutput)
 }
 
+// Set of parameters that are used to configure the component.
 func (o GetImageRecipeComponentOutput) Parameters() GetImageRecipeComponentParameterArrayOutput {
 	return o.ApplyT(func(v GetImageRecipeComponent) []GetImageRecipeComponentParameter { return v.Parameters }).(GetImageRecipeComponentParameterArrayOutput)
 }
@@ -6989,7 +7566,9 @@ func (o GetImageRecipeComponentArrayOutput) Index(i pulumi.IntInput) GetImageRec
 }
 
 type GetImageRecipeComponentParameter struct {
-	Name  string `pulumi:"name"`
+	// Name of the image recipe.
+	Name string `pulumi:"name"`
+	// Value of the component parameter.
 	Value string `pulumi:"value"`
 }
 
@@ -7005,7 +7584,9 @@ type GetImageRecipeComponentParameterInput interface {
 }
 
 type GetImageRecipeComponentParameterArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
+	// Name of the image recipe.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of the component parameter.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -7060,10 +7641,12 @@ func (o GetImageRecipeComponentParameterOutput) ToGetImageRecipeComponentParamet
 	return o
 }
 
+// Name of the image recipe.
 func (o GetImageRecipeComponentParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageRecipeComponentParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Value of the component parameter.
 func (o GetImageRecipeComponentParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageRecipeComponentParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -7089,7 +7672,9 @@ func (o GetImageRecipeComponentParameterArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetImageRecipesFilter struct {
-	Name   string   `pulumi:"name"`
+	// Name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
 }
 
@@ -7105,7 +7690,9 @@ type GetImageRecipesFilterInput interface {
 }
 
 type GetImageRecipesFilterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// Name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -7160,10 +7747,12 @@ func (o GetImageRecipesFilterOutput) ToGetImageRecipesFilterOutputWithContext(ct
 	return o
 }
 
+// Name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
 func (o GetImageRecipesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageRecipesFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 func (o GetImageRecipesFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetImageRecipesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -7189,8 +7778,10 @@ func (o GetImageRecipesFilterArrayOutput) Index(i pulumi.IntInput) GetImageRecip
 }
 
 type GetInfrastructureConfigurationInstanceMetadataOption struct {
-	HttpPutResponseHopLimit int    `pulumi:"httpPutResponseHopLimit"`
-	HttpTokens              string `pulumi:"httpTokens"`
+	// Number of hops that an instance can traverse to reach its destonation.
+	HttpPutResponseHopLimit int `pulumi:"httpPutResponseHopLimit"`
+	// Whether a signed token is required for instance metadata retrieval requests.
+	HttpTokens string `pulumi:"httpTokens"`
 }
 
 // GetInfrastructureConfigurationInstanceMetadataOptionInput is an input type that accepts GetInfrastructureConfigurationInstanceMetadataOptionArgs and GetInfrastructureConfigurationInstanceMetadataOptionOutput values.
@@ -7205,8 +7796,10 @@ type GetInfrastructureConfigurationInstanceMetadataOptionInput interface {
 }
 
 type GetInfrastructureConfigurationInstanceMetadataOptionArgs struct {
-	HttpPutResponseHopLimit pulumi.IntInput    `pulumi:"httpPutResponseHopLimit"`
-	HttpTokens              pulumi.StringInput `pulumi:"httpTokens"`
+	// Number of hops that an instance can traverse to reach its destonation.
+	HttpPutResponseHopLimit pulumi.IntInput `pulumi:"httpPutResponseHopLimit"`
+	// Whether a signed token is required for instance metadata retrieval requests.
+	HttpTokens pulumi.StringInput `pulumi:"httpTokens"`
 }
 
 func (GetInfrastructureConfigurationInstanceMetadataOptionArgs) ElementType() reflect.Type {
@@ -7260,10 +7853,12 @@ func (o GetInfrastructureConfigurationInstanceMetadataOptionOutput) ToGetInfrast
 	return o
 }
 
+// Number of hops that an instance can traverse to reach its destonation.
 func (o GetInfrastructureConfigurationInstanceMetadataOptionOutput) HttpPutResponseHopLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInfrastructureConfigurationInstanceMetadataOption) int { return v.HttpPutResponseHopLimit }).(pulumi.IntOutput)
 }
 
+// Whether a signed token is required for instance metadata retrieval requests.
 func (o GetInfrastructureConfigurationInstanceMetadataOptionOutput) HttpTokens() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInfrastructureConfigurationInstanceMetadataOption) string { return v.HttpTokens }).(pulumi.StringOutput)
 }
@@ -7289,6 +7884,7 @@ func (o GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput) Index(i
 }
 
 type GetInfrastructureConfigurationLogging struct {
+	// Nested list of S3 logs settings.
 	S3Logs []GetInfrastructureConfigurationLoggingS3Log `pulumi:"s3Logs"`
 }
 
@@ -7304,6 +7900,7 @@ type GetInfrastructureConfigurationLoggingInput interface {
 }
 
 type GetInfrastructureConfigurationLoggingArgs struct {
+	// Nested list of S3 logs settings.
 	S3Logs GetInfrastructureConfigurationLoggingS3LogArrayInput `pulumi:"s3Logs"`
 }
 
@@ -7358,6 +7955,7 @@ func (o GetInfrastructureConfigurationLoggingOutput) ToGetInfrastructureConfigur
 	return o
 }
 
+// Nested list of S3 logs settings.
 func (o GetInfrastructureConfigurationLoggingOutput) S3Logs() GetInfrastructureConfigurationLoggingS3LogArrayOutput {
 	return o.ApplyT(func(v GetInfrastructureConfigurationLogging) []GetInfrastructureConfigurationLoggingS3Log {
 		return v.S3Logs
@@ -7385,8 +7983,10 @@ func (o GetInfrastructureConfigurationLoggingArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetInfrastructureConfigurationLoggingS3Log struct {
+	// Name of the S3 Bucket for logging.
 	S3BucketName string `pulumi:"s3BucketName"`
-	S3KeyPrefix  string `pulumi:"s3KeyPrefix"`
+	// Key prefix for S3 Bucket logging.
+	S3KeyPrefix string `pulumi:"s3KeyPrefix"`
 }
 
 // GetInfrastructureConfigurationLoggingS3LogInput is an input type that accepts GetInfrastructureConfigurationLoggingS3LogArgs and GetInfrastructureConfigurationLoggingS3LogOutput values.
@@ -7401,8 +8001,10 @@ type GetInfrastructureConfigurationLoggingS3LogInput interface {
 }
 
 type GetInfrastructureConfigurationLoggingS3LogArgs struct {
+	// Name of the S3 Bucket for logging.
 	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
-	S3KeyPrefix  pulumi.StringInput `pulumi:"s3KeyPrefix"`
+	// Key prefix for S3 Bucket logging.
+	S3KeyPrefix pulumi.StringInput `pulumi:"s3KeyPrefix"`
 }
 
 func (GetInfrastructureConfigurationLoggingS3LogArgs) ElementType() reflect.Type {
@@ -7456,10 +8058,12 @@ func (o GetInfrastructureConfigurationLoggingS3LogOutput) ToGetInfrastructureCon
 	return o
 }
 
+// Name of the S3 Bucket for logging.
 func (o GetInfrastructureConfigurationLoggingS3LogOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInfrastructureConfigurationLoggingS3Log) string { return v.S3BucketName }).(pulumi.StringOutput)
 }
 
+// Key prefix for S3 Bucket logging.
 func (o GetInfrastructureConfigurationLoggingS3LogOutput) S3KeyPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInfrastructureConfigurationLoggingS3Log) string { return v.S3KeyPrefix }).(pulumi.StringOutput)
 }
@@ -7485,7 +8089,9 @@ func (o GetInfrastructureConfigurationLoggingS3LogArrayOutput) Index(i pulumi.In
 }
 
 type GetInfrastructureConfigurationsFilter struct {
-	Name   string   `pulumi:"name"`
+	// Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
 }
 
@@ -7501,7 +8107,9 @@ type GetInfrastructureConfigurationsFilterInput interface {
 }
 
 type GetInfrastructureConfigurationsFilterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -7556,10 +8164,12 @@ func (o GetInfrastructureConfigurationsFilterOutput) ToGetInfrastructureConfigur
 	return o
 }
 
+// Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
 func (o GetInfrastructureConfigurationsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInfrastructureConfigurationsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 func (o GetInfrastructureConfigurationsFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInfrastructureConfigurationsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

@@ -11,9 +11,57 @@ namespace Pulumi.Aws.Workspaces
 {
     public static class GetDirectory
     {
+        /// <summary>
+        /// Retrieve information about an AWS WorkSpaces directory.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Workspaces.GetDirectory.Invoke(new()
+        ///     {
+        ///         DirectoryId = "d-9067783251",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetDirectoryResult> InvokeAsync(GetDirectoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDirectoryResult>("aws:workspaces/getDirectory:getDirectory", args ?? new GetDirectoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieve information about an AWS WorkSpaces directory.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Workspaces.GetDirectory.Invoke(new()
+        ///     {
+        ///         DirectoryId = "d-9067783251",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetDirectoryResult> Invoke(GetDirectoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryResult>("aws:workspaces/getDirectory:getDirectory", args ?? new GetDirectoryInvokeArgs(), options.WithDefaults());
     }
@@ -21,11 +69,18 @@ namespace Pulumi.Aws.Workspaces
 
     public sealed class GetDirectoryArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Directory identifier for registration in WorkSpaces service.
+        /// </summary>
         [Input("directoryId", required: true)]
         public string DirectoryId { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// A map of tags assigned to the WorkSpaces directory.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -40,11 +95,18 @@ namespace Pulumi.Aws.Workspaces
 
     public sealed class GetDirectoryInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Directory identifier for registration in WorkSpaces service.
+        /// </summary>
         [Input("directoryId", required: true)]
         public Input<string> DirectoryId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags assigned to the WorkSpaces directory.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -61,24 +123,66 @@ namespace Pulumi.Aws.Workspaces
     [OutputType]
     public sealed class GetDirectoryResult
     {
+        /// <summary>
+        /// Directory alias.
+        /// </summary>
         public readonly string Alias;
+        /// <summary>
+        /// User name for the service account.
+        /// </summary>
         public readonly string CustomerUserName;
         public readonly string DirectoryId;
+        /// <summary>
+        /// Name of the directory.
+        /// </summary>
         public readonly string DirectoryName;
+        /// <summary>
+        /// Directory type.
+        /// </summary>
         public readonly string DirectoryType;
+        /// <summary>
+        /// IP addresses of the DNS servers for the directory.
+        /// </summary>
         public readonly ImmutableArray<string> DnsIpAddresses;
+        /// <summary>
+        /// Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+        /// </summary>
         public readonly string IamRoleId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Identifiers of the IP access control groups associated with the directory.
+        /// </summary>
         public readonly ImmutableArray<string> IpGroupIds;
+        /// <summary>
+        /// Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+        /// </summary>
         public readonly string RegistrationCode;
+        /// <summary>
+        /// The permissions to enable or disable self-service capabilities.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetDirectorySelfServicePermissionResult> SelfServicePermissions;
+        /// <summary>
+        /// Identifiers of the subnets where the directory resides.
+        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
+        /// A map of tags assigned to the WorkSpaces directory.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetDirectoryWorkspaceAccessPropertyResult> WorkspaceAccessProperties;
+        /// <summary>
+        /// The default properties that are used for creating WorkSpaces. Defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetDirectoryWorkspaceCreationPropertyResult> WorkspaceCreationProperties;
+        /// <summary>
+        /// The identifier of the security group that is assigned to new WorkSpaces. Defined below.
+        /// </summary>
         public readonly string WorkspaceSecurityGroupId;
 
         [OutputConstructor]

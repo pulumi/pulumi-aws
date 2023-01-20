@@ -20,6 +20,8 @@ class SqlInjectionMatchSetArgs:
                  sql_injection_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]] = None):
         """
         The set of arguments for constructing a SqlInjectionMatchSet resource.
+        :param pulumi.Input[str] name: The name or description of the SizeConstraintSet.
+        :param pulumi.Input[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]] sql_injection_match_tuples: The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -29,6 +31,9 @@ class SqlInjectionMatchSetArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or description of the SizeConstraintSet.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -38,6 +43,9 @@ class SqlInjectionMatchSetArgs:
     @property
     @pulumi.getter(name="sqlInjectionMatchTuples")
     def sql_injection_match_tuples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]]:
+        """
+        The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+        """
         return pulumi.get(self, "sql_injection_match_tuples")
 
     @sql_injection_match_tuples.setter
@@ -52,6 +60,8 @@ class _SqlInjectionMatchSetState:
                  sql_injection_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]] = None):
         """
         Input properties used for looking up and filtering SqlInjectionMatchSet resources.
+        :param pulumi.Input[str] name: The name or description of the SizeConstraintSet.
+        :param pulumi.Input[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]] sql_injection_match_tuples: The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -61,6 +71,9 @@ class _SqlInjectionMatchSetState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or description of the SizeConstraintSet.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -70,6 +83,9 @@ class _SqlInjectionMatchSetState:
     @property
     @pulumi.getter(name="sqlInjectionMatchTuples")
     def sql_injection_match_tuples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]]:
+        """
+        The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+        """
         return pulumi.get(self, "sql_injection_match_tuples")
 
     @sql_injection_match_tuples.setter
@@ -86,9 +102,34 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
                  sql_injection_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]]] = None,
                  __props__=None):
         """
-        Create a SqlInjectionMatchSet resource with the given unique name, props, and options.
+        Provides a WAF Regional SQL Injection Match Set Resource for use with Application Load Balancer.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sql_injection_match_set = aws.wafregional.SqlInjectionMatchSet("sqlInjectionMatchSet", sql_injection_match_tuples=[aws.wafregional.SqlInjectionMatchSetSqlInjectionMatchTupleArgs(
+            field_to_match=aws.wafregional.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs(
+                type="QUERY_STRING",
+            ),
+            text_transformation="URL_DECODE",
+        )])
+        ```
+
+        ## Import
+
+        WAF Regional Sql Injection Match Set can be imported using the id, e.g.,
+
+        ```sh
+         $ pulumi import aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet sql_injection_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The name or description of the SizeConstraintSet.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]] sql_injection_match_tuples: The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
         """
         ...
     @overload
@@ -97,7 +138,30 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
                  args: Optional[SqlInjectionMatchSetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SqlInjectionMatchSet resource with the given unique name, props, and options.
+        Provides a WAF Regional SQL Injection Match Set Resource for use with Application Load Balancer.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sql_injection_match_set = aws.wafregional.SqlInjectionMatchSet("sqlInjectionMatchSet", sql_injection_match_tuples=[aws.wafregional.SqlInjectionMatchSetSqlInjectionMatchTupleArgs(
+            field_to_match=aws.wafregional.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs(
+                type="QUERY_STRING",
+            ),
+            text_transformation="URL_DECODE",
+        )])
+        ```
+
+        ## Import
+
+        WAF Regional Sql Injection Match Set can be imported using the id, e.g.,
+
+        ```sh
+         $ pulumi import aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet sql_injection_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        ```
+
         :param str resource_name: The name of the resource.
         :param SqlInjectionMatchSetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +209,8 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The name or description of the SizeConstraintSet.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]] sql_injection_match_tuples: The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +223,16 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name or description of the SizeConstraintSet.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="sqlInjectionMatchTuples")
     def sql_injection_match_tuples(self) -> pulumi.Output[Optional[Sequence['outputs.SqlInjectionMatchSetSqlInjectionMatchTuple']]]:
+        """
+        The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+        """
         return pulumi.get(self, "sql_injection_match_tuples")
 

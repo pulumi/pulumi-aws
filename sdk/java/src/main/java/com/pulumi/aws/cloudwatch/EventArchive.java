@@ -15,41 +15,175 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an EventBridge event archive resource.
+ * 
+ * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.EventBus;
+ * import com.pulumi.aws.cloudwatch.EventArchive;
+ * import com.pulumi.aws.cloudwatch.EventArchiveArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var orderEventBus = new EventBus(&#34;orderEventBus&#34;);
+ * 
+ *         var orderEventArchive = new EventArchive(&#34;orderEventArchive&#34;, EventArchiveArgs.builder()        
+ *             .eventSourceArn(orderEventBus.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Example all optional arguments
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.EventBus;
+ * import com.pulumi.aws.cloudwatch.EventArchive;
+ * import com.pulumi.aws.cloudwatch.EventArchiveArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var orderEventBus = new EventBus(&#34;orderEventBus&#34;);
+ * 
+ *         var orderEventArchive = new EventArchive(&#34;orderEventArchive&#34;, EventArchiveArgs.builder()        
+ *             .description(&#34;Archived events from order service&#34;)
+ *             .eventSourceArn(orderEventBus.arn())
+ *             .retentionDays(7)
+ *             .eventPattern(&#34;&#34;&#34;
+ * {
+ *   &#34;source&#34;: [&#34;company.team.order&#34;]
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Event Archive can be imported using their name, for example console
+ * 
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
+ * ```
+ * 
+ */
 @ResourceType(type="aws:cloudwatch/eventArchive:EventArchive")
 public class EventArchive extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name (ARN) of the event archive.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the event archive.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The description of the new event archive.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The description of the new event archive.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
+     * 
+     */
     @Export(name="eventPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventPattern;
 
+    /**
+     * @return Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
+     * 
+     */
     public Output<Optional<String>> eventPattern() {
         return Codegen.optional(this.eventPattern);
     }
+    /**
+     * Event bus source ARN from where these events should be archived.
+     * 
+     */
     @Export(name="eventSourceArn", refs={String.class}, tree="[0]")
     private Output<String> eventSourceArn;
 
+    /**
+     * @return Event bus source ARN from where these events should be archived.
+     * 
+     */
     public Output<String> eventSourceArn() {
         return this.eventSourceArn;
     }
+    /**
+     * The name of the new event archive. The archive name cannot exceed 48 characters.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the new event archive. The archive name cannot exceed 48 characters.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
+     * 
+     */
     @Export(name="retentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> retentionDays;
 
+    /**
+     * @return The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
+     * 
+     */
     public Output<Optional<Integer>> retentionDays() {
         return Codegen.optional(this.retentionDays);
     }

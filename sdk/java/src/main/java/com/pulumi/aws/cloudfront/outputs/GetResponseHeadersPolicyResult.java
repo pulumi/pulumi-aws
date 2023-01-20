@@ -14,25 +14,65 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResponseHeadersPolicyResult {
+    /**
+     * @return Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
+     * 
+     */
     private String comment;
+    /**
+     * @return Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+     * 
+     */
     private List<GetResponseHeadersPolicyCorsConfig> corsConfigs;
+    /**
+     * @return Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+     * 
+     */
     private List<GetResponseHeadersPolicyCustomHeadersConfig> customHeadersConfigs;
+    /**
+     * @return Current version of the response headers policy.
+     * 
+     */
     private String etag;
     private String id;
     private String name;
+    /**
+     * @return A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
+     * 
+     */
     private List<GetResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfigs;
+    /**
+     * @return (Optional) Configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+     * 
+     */
     private List<GetResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfigs;
 
     private GetResponseHeadersPolicyResult() {}
+    /**
+     * @return Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
+     * 
+     */
     public String comment() {
         return this.comment;
     }
+    /**
+     * @return Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+     * 
+     */
     public List<GetResponseHeadersPolicyCorsConfig> corsConfigs() {
         return this.corsConfigs;
     }
+    /**
+     * @return Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+     * 
+     */
     public List<GetResponseHeadersPolicyCustomHeadersConfig> customHeadersConfigs() {
         return this.customHeadersConfigs;
     }
+    /**
+     * @return Current version of the response headers policy.
+     * 
+     */
     public String etag() {
         return this.etag;
     }
@@ -42,9 +82,17 @@ public final class GetResponseHeadersPolicyResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
+     * 
+     */
     public List<GetResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfigs() {
         return this.securityHeadersConfigs;
     }
+    /**
+     * @return (Optional) Configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+     * 
+     */
     public List<GetResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfigs() {
         return this.serverTimingHeadersConfigs;
     }

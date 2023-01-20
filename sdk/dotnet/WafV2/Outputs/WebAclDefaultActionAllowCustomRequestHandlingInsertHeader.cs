@@ -13,7 +13,13 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclDefaultActionAllowCustomRequestHandlingInsertHeader
     {
+        /// <summary>
+        /// Friendly name of the WebACL.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Value of the custom header.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

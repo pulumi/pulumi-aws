@@ -11,12 +11,73 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an AWS Opensearch Outbound Connection.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opensearch.NewOutboundConnection(ctx, "foo", &opensearch.OutboundConnectionArgs{
+//				ConnectionAlias: pulumi.String("outbound_connection"),
+//				LocalDomainInfo: &opensearch.OutboundConnectionLocalDomainInfoArgs{
+//					OwnerId:    *pulumi.String(currentCallerIdentity.AccountId),
+//					Region:     *pulumi.String(currentRegion.Name),
+//					DomainName: pulumi.Any(aws_opensearch_domain.Local_domain.Domain_name),
+//				},
+//				RemoteDomainInfo: &opensearch.OutboundConnectionRemoteDomainInfoArgs{
+//					OwnerId:    *pulumi.String(currentCallerIdentity.AccountId),
+//					Region:     *pulumi.String(currentRegion.Name),
+//					DomainName: pulumi.Any(aws_opensearch_domain.Remote_domain.Domain_name),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// AWS Opensearch Outbound Connections can be imported by using the Outbound Connection ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
+//
+// ```
 type OutboundConnection struct {
 	pulumi.CustomResourceState
 
-	ConnectionAlias  pulumi.StringOutput                      `pulumi:"connectionAlias"`
-	ConnectionStatus pulumi.StringOutput                      `pulumi:"connectionStatus"`
-	LocalDomainInfo  OutboundConnectionLocalDomainInfoOutput  `pulumi:"localDomainInfo"`
+	// Specifies the connection alias that will be used by the customer for this connection.
+	ConnectionAlias pulumi.StringOutput `pulumi:"connectionAlias"`
+	// Status of the connection request.
+	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
+	// Configuration block for the local Opensearch domain.
+	LocalDomainInfo OutboundConnectionLocalDomainInfoOutput `pulumi:"localDomainInfo"`
+	// Configuration block for the remote Opensearch domain.
 	RemoteDomainInfo OutboundConnectionRemoteDomainInfoOutput `pulumi:"remoteDomainInfo"`
 }
 
@@ -58,16 +119,24 @@ func GetOutboundConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OutboundConnection resources.
 type outboundConnectionState struct {
-	ConnectionAlias  *string                             `pulumi:"connectionAlias"`
-	ConnectionStatus *string                             `pulumi:"connectionStatus"`
-	LocalDomainInfo  *OutboundConnectionLocalDomainInfo  `pulumi:"localDomainInfo"`
+	// Specifies the connection alias that will be used by the customer for this connection.
+	ConnectionAlias *string `pulumi:"connectionAlias"`
+	// Status of the connection request.
+	ConnectionStatus *string `pulumi:"connectionStatus"`
+	// Configuration block for the local Opensearch domain.
+	LocalDomainInfo *OutboundConnectionLocalDomainInfo `pulumi:"localDomainInfo"`
+	// Configuration block for the remote Opensearch domain.
 	RemoteDomainInfo *OutboundConnectionRemoteDomainInfo `pulumi:"remoteDomainInfo"`
 }
 
 type OutboundConnectionState struct {
-	ConnectionAlias  pulumi.StringPtrInput
+	// Specifies the connection alias that will be used by the customer for this connection.
+	ConnectionAlias pulumi.StringPtrInput
+	// Status of the connection request.
 	ConnectionStatus pulumi.StringPtrInput
-	LocalDomainInfo  OutboundConnectionLocalDomainInfoPtrInput
+	// Configuration block for the local Opensearch domain.
+	LocalDomainInfo OutboundConnectionLocalDomainInfoPtrInput
+	// Configuration block for the remote Opensearch domain.
 	RemoteDomainInfo OutboundConnectionRemoteDomainInfoPtrInput
 }
 
@@ -76,15 +145,21 @@ func (OutboundConnectionState) ElementType() reflect.Type {
 }
 
 type outboundConnectionArgs struct {
-	ConnectionAlias  string                             `pulumi:"connectionAlias"`
-	LocalDomainInfo  OutboundConnectionLocalDomainInfo  `pulumi:"localDomainInfo"`
+	// Specifies the connection alias that will be used by the customer for this connection.
+	ConnectionAlias string `pulumi:"connectionAlias"`
+	// Configuration block for the local Opensearch domain.
+	LocalDomainInfo OutboundConnectionLocalDomainInfo `pulumi:"localDomainInfo"`
+	// Configuration block for the remote Opensearch domain.
 	RemoteDomainInfo OutboundConnectionRemoteDomainInfo `pulumi:"remoteDomainInfo"`
 }
 
 // The set of arguments for constructing a OutboundConnection resource.
 type OutboundConnectionArgs struct {
-	ConnectionAlias  pulumi.StringInput
-	LocalDomainInfo  OutboundConnectionLocalDomainInfoInput
+	// Specifies the connection alias that will be used by the customer for this connection.
+	ConnectionAlias pulumi.StringInput
+	// Configuration block for the local Opensearch domain.
+	LocalDomainInfo OutboundConnectionLocalDomainInfoInput
+	// Configuration block for the remote Opensearch domain.
 	RemoteDomainInfo OutboundConnectionRemoteDomainInfoInput
 }
 
@@ -175,18 +250,22 @@ func (o OutboundConnectionOutput) ToOutboundConnectionOutputWithContext(ctx cont
 	return o
 }
 
+// Specifies the connection alias that will be used by the customer for this connection.
 func (o OutboundConnectionOutput) ConnectionAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutboundConnection) pulumi.StringOutput { return v.ConnectionAlias }).(pulumi.StringOutput)
 }
 
+// Status of the connection request.
 func (o OutboundConnectionOutput) ConnectionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutboundConnection) pulumi.StringOutput { return v.ConnectionStatus }).(pulumi.StringOutput)
 }
 
+// Configuration block for the local Opensearch domain.
 func (o OutboundConnectionOutput) LocalDomainInfo() OutboundConnectionLocalDomainInfoOutput {
 	return o.ApplyT(func(v *OutboundConnection) OutboundConnectionLocalDomainInfoOutput { return v.LocalDomainInfo }).(OutboundConnectionLocalDomainInfoOutput)
 }
 
+// Configuration block for the remote Opensearch domain.
 func (o OutboundConnectionOutput) RemoteDomainInfo() OutboundConnectionRemoteDomainInfoOutput {
 	return o.ApplyT(func(v *OutboundConnection) OutboundConnectionRemoteDomainInfoOutput { return v.RemoteDomainInfo }).(OutboundConnectionRemoteDomainInfoOutput)
 }

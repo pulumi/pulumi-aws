@@ -13,7 +13,14 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class AnalyticsApplicationInputsSchemaRecordFormat
     {
+        /// <summary>
+        /// The Mapping Information for the record format.
+        /// See Mapping Parameters below for more details.
+        /// </summary>
         public readonly Outputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParameters? MappingParameters;
+        /// <summary>
+        /// The type of Record Format. Can be `CSV` or `JSON`.
+        /// </summary>
         public readonly string? RecordFormatType;
 
         [OutputConstructor]

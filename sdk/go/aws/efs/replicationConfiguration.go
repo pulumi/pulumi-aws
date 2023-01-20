@@ -11,15 +11,105 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a replica of an existing EFS file system in the same or another region. Creating this resource causes the source EFS file system to be replicated to a new read-only destination EFS file system. Deleting this resource will cause the replication from source to destination to stop and the destination file system will no longer be read only.
+//
+// > **NOTE:** Deleting this resource does **not** delete the destination file system that was created.
+//
+// ## Example Usage
+//
+// Will create a replica using regional storage in us-west-2 that will be encrypted by the default EFS KMS key `/aws/elasticfilesystem`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleFileSystem, err := efs.NewFileSystem(ctx, "exampleFileSystem", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = efs.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &efs.ReplicationConfigurationArgs{
+//				SourceFileSystemId: exampleFileSystem.ID(),
+//				Destination: &efs.ReplicationConfigurationDestinationArgs{
+//					Region: pulumi.String("us-west-2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleFileSystem, err := efs.NewFileSystem(ctx, "exampleFileSystem", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = efs.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &efs.ReplicationConfigurationArgs{
+//				SourceFileSystemId: exampleFileSystem.ID(),
+//				Destination: &efs.ReplicationConfigurationDestinationArgs{
+//					AvailabilityZoneName: pulumi.String("us-west-2b"),
+//					KmsKeyId:             pulumi.String("1234abcd-12ab-34cd-56ef-1234567890ab"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// EFS Replication Configurations can be imported using the file system ID of either the source or destination file system. When importing, the `availability_zone_name` and `kms_key_id` attributes must **not** be set in the configuration. The AWS API does not return these values when querying the replication configuration and their presence will therefore show as a diff in a subsequent plan.
+//
+// ```sh
+//
+//	$ pulumi import aws:efs/replicationConfiguration:ReplicationConfiguration example fs-id
+//
+// ```
 type ReplicationConfiguration struct {
 	pulumi.CustomResourceState
 
-	CreationTime                pulumi.StringOutput                       `pulumi:"creationTime"`
-	Destination                 ReplicationConfigurationDestinationOutput `pulumi:"destination"`
-	OriginalSourceFileSystemArn pulumi.StringOutput                       `pulumi:"originalSourceFileSystemArn"`
-	SourceFileSystemArn         pulumi.StringOutput                       `pulumi:"sourceFileSystemArn"`
-	SourceFileSystemId          pulumi.StringOutput                       `pulumi:"sourceFileSystemId"`
-	SourceFileSystemRegion      pulumi.StringOutput                       `pulumi:"sourceFileSystemRegion"`
+	// When the replication configuration was created.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// A destination configuration block (documented below).
+	Destination ReplicationConfigurationDestinationOutput `pulumi:"destination"`
+	// The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
+	OriginalSourceFileSystemArn pulumi.StringOutput `pulumi:"originalSourceFileSystemArn"`
+	// The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+	SourceFileSystemArn pulumi.StringOutput `pulumi:"sourceFileSystemArn"`
+	// The ID of the file system that is to be replicated.
+	SourceFileSystemId pulumi.StringOutput `pulumi:"sourceFileSystemId"`
+	// The AWS Region in which the source Amazon EFS file system is located.
+	// * `destination[0].file_system_id` - The fs ID of the replica.
+	// * `destination[0].status` - The status of the replication.
+	SourceFileSystemRegion pulumi.StringOutput `pulumi:"sourceFileSystemRegion"`
 }
 
 // NewReplicationConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -57,21 +147,37 @@ func GetReplicationConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationConfiguration resources.
 type replicationConfigurationState struct {
-	CreationTime                *string                              `pulumi:"creationTime"`
-	Destination                 *ReplicationConfigurationDestination `pulumi:"destination"`
-	OriginalSourceFileSystemArn *string                              `pulumi:"originalSourceFileSystemArn"`
-	SourceFileSystemArn         *string                              `pulumi:"sourceFileSystemArn"`
-	SourceFileSystemId          *string                              `pulumi:"sourceFileSystemId"`
-	SourceFileSystemRegion      *string                              `pulumi:"sourceFileSystemRegion"`
+	// When the replication configuration was created.
+	CreationTime *string `pulumi:"creationTime"`
+	// A destination configuration block (documented below).
+	Destination *ReplicationConfigurationDestination `pulumi:"destination"`
+	// The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
+	OriginalSourceFileSystemArn *string `pulumi:"originalSourceFileSystemArn"`
+	// The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+	SourceFileSystemArn *string `pulumi:"sourceFileSystemArn"`
+	// The ID of the file system that is to be replicated.
+	SourceFileSystemId *string `pulumi:"sourceFileSystemId"`
+	// The AWS Region in which the source Amazon EFS file system is located.
+	// * `destination[0].file_system_id` - The fs ID of the replica.
+	// * `destination[0].status` - The status of the replication.
+	SourceFileSystemRegion *string `pulumi:"sourceFileSystemRegion"`
 }
 
 type ReplicationConfigurationState struct {
-	CreationTime                pulumi.StringPtrInput
-	Destination                 ReplicationConfigurationDestinationPtrInput
+	// When the replication configuration was created.
+	CreationTime pulumi.StringPtrInput
+	// A destination configuration block (documented below).
+	Destination ReplicationConfigurationDestinationPtrInput
+	// The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
 	OriginalSourceFileSystemArn pulumi.StringPtrInput
-	SourceFileSystemArn         pulumi.StringPtrInput
-	SourceFileSystemId          pulumi.StringPtrInput
-	SourceFileSystemRegion      pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+	SourceFileSystemArn pulumi.StringPtrInput
+	// The ID of the file system that is to be replicated.
+	SourceFileSystemId pulumi.StringPtrInput
+	// The AWS Region in which the source Amazon EFS file system is located.
+	// * `destination[0].file_system_id` - The fs ID of the replica.
+	// * `destination[0].status` - The status of the replication.
+	SourceFileSystemRegion pulumi.StringPtrInput
 }
 
 func (ReplicationConfigurationState) ElementType() reflect.Type {
@@ -79,13 +185,17 @@ func (ReplicationConfigurationState) ElementType() reflect.Type {
 }
 
 type replicationConfigurationArgs struct {
-	Destination        ReplicationConfigurationDestination `pulumi:"destination"`
-	SourceFileSystemId string                              `pulumi:"sourceFileSystemId"`
+	// A destination configuration block (documented below).
+	Destination ReplicationConfigurationDestination `pulumi:"destination"`
+	// The ID of the file system that is to be replicated.
+	SourceFileSystemId string `pulumi:"sourceFileSystemId"`
 }
 
 // The set of arguments for constructing a ReplicationConfiguration resource.
 type ReplicationConfigurationArgs struct {
-	Destination        ReplicationConfigurationDestinationInput
+	// A destination configuration block (documented below).
+	Destination ReplicationConfigurationDestinationInput
+	// The ID of the file system that is to be replicated.
 	SourceFileSystemId pulumi.StringInput
 }
 
@@ -176,26 +286,34 @@ func (o ReplicationConfigurationOutput) ToReplicationConfigurationOutputWithCont
 	return o
 }
 
+// When the replication configuration was created.
 func (o ReplicationConfigurationOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// A destination configuration block (documented below).
 func (o ReplicationConfigurationOutput) Destination() ReplicationConfigurationDestinationOutput {
 	return o.ApplyT(func(v *ReplicationConfiguration) ReplicationConfigurationDestinationOutput { return v.Destination }).(ReplicationConfigurationDestinationOutput)
 }
 
+// The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
 func (o ReplicationConfigurationOutput) OriginalSourceFileSystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.OriginalSourceFileSystemArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
 func (o ReplicationConfigurationOutput) SourceFileSystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.SourceFileSystemArn }).(pulumi.StringOutput)
 }
 
+// The ID of the file system that is to be replicated.
 func (o ReplicationConfigurationOutput) SourceFileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.SourceFileSystemId }).(pulumi.StringOutput)
 }
 
+// The AWS Region in which the source Amazon EFS file system is located.
+// * `destination[0].file_system_id` - The fs ID of the replica.
+// * `destination[0].status` - The status of the replication.
 func (o ReplicationConfigurationOutput) SourceFileSystemRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.SourceFileSystemRegion }).(pulumi.StringOutput)
 }

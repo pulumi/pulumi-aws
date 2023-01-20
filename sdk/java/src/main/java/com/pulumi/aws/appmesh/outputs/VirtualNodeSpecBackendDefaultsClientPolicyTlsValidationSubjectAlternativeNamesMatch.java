@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
+    /**
+     * @return Values sent must match the specified values exactly.
+     * 
+     */
     private List<String> exacts;
 
     private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch() {}
+    /**
+     * @return Values sent must match the specified values exactly.
+     * 
+     */
     public List<String> exacts() {
         return this.exacts;
     }

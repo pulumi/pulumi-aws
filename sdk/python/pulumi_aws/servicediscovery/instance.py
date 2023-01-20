@@ -19,6 +19,9 @@ class InstanceArgs:
                  service_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a Instance resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
+        :param pulumi.Input[str] instance_id: The ID of the service instance.
+        :param pulumi.Input[str] service_id: The ID of the service that you want to use to create the instance.
         """
         pulumi.set(__self__, "attributes", attributes)
         pulumi.set(__self__, "instance_id", instance_id)
@@ -27,6 +30,9 @@ class InstanceArgs:
     @property
     @pulumi.getter
     def attributes(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
+        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
@@ -36,6 +42,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the service instance.
+        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -45,6 +54,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the service that you want to use to create the instance.
+        """
         return pulumi.get(self, "service_id")
 
     @service_id.setter
@@ -60,6 +72,9 @@ class _InstanceState:
                  service_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Instance resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
+        :param pulumi.Input[str] instance_id: The ID of the service instance.
+        :param pulumi.Input[str] service_id: The ID of the service that you want to use to create the instance.
         """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
@@ -71,6 +86,9 @@ class _InstanceState:
     @property
     @pulumi.getter
     def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
+        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
@@ -80,6 +98,9 @@ class _InstanceState:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the service instance.
+        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -89,6 +110,9 @@ class _InstanceState:
     @property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the service that you want to use to create the instance.
+        """
         return pulumi.get(self, "service_id")
 
     @service_id.setter
@@ -106,9 +130,69 @@ class Instance(pulumi.CustomResource):
                  service_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Instance resource with the given unique name, props, and options.
+        Provides a Service Discovery Instance resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_vpc = aws.ec2.Vpc("exampleVpc",
+            cidr_block="10.0.0.0/16",
+            enable_dns_support=True,
+            enable_dns_hostnames=True)
+        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace",
+            description="example",
+            vpc=example_vpc.id)
+        example_service = aws.servicediscovery.Service("exampleService",
+            dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
+                namespace_id=example_private_dns_namespace.id,
+                dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
+                    ttl=10,
+                    type="A",
+                )],
+                routing_policy="MULTIVALUE",
+            ),
+            health_check_custom_config=aws.servicediscovery.ServiceHealthCheckCustomConfigArgs(
+                failure_threshold=1,
+            ))
+        example_instance = aws.servicediscovery.Instance("exampleInstance",
+            instance_id="example-instance-id",
+            service_id=example_service.id,
+            attributes={
+                "AWS_INSTANCE_IPV4": "172.18.0.1",
+                "custom_attribute": "custom",
+            })
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_http_namespace = aws.servicediscovery.HttpNamespace("exampleHttpNamespace", description="example")
+        example_service = aws.servicediscovery.Service("exampleService", namespace_id=example_http_namespace.id)
+        example_instance = aws.servicediscovery.Instance("exampleInstance",
+            instance_id="example-instance-id",
+            service_id=example_service.id,
+            attributes={
+                "AWS_EC2_INSTANCE_ID": "i-0abdg374kd892cj6dl",
+            })
+        ```
+
+        ## Import
+
+        Service Discovery Instance can be imported using the service ID and instance ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
+        :param pulumi.Input[str] instance_id: The ID of the service instance.
+        :param pulumi.Input[str] service_id: The ID of the service that you want to use to create the instance.
         """
         ...
     @overload
@@ -117,7 +201,64 @@ class Instance(pulumi.CustomResource):
                  args: InstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Instance resource with the given unique name, props, and options.
+        Provides a Service Discovery Instance resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_vpc = aws.ec2.Vpc("exampleVpc",
+            cidr_block="10.0.0.0/16",
+            enable_dns_support=True,
+            enable_dns_hostnames=True)
+        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace",
+            description="example",
+            vpc=example_vpc.id)
+        example_service = aws.servicediscovery.Service("exampleService",
+            dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
+                namespace_id=example_private_dns_namespace.id,
+                dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
+                    ttl=10,
+                    type="A",
+                )],
+                routing_policy="MULTIVALUE",
+            ),
+            health_check_custom_config=aws.servicediscovery.ServiceHealthCheckCustomConfigArgs(
+                failure_threshold=1,
+            ))
+        example_instance = aws.servicediscovery.Instance("exampleInstance",
+            instance_id="example-instance-id",
+            service_id=example_service.id,
+            attributes={
+                "AWS_INSTANCE_IPV4": "172.18.0.1",
+                "custom_attribute": "custom",
+            })
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_http_namespace = aws.servicediscovery.HttpNamespace("exampleHttpNamespace", description="example")
+        example_service = aws.servicediscovery.Service("exampleService", namespace_id=example_http_namespace.id)
+        example_instance = aws.servicediscovery.Instance("exampleInstance",
+            instance_id="example-instance-id",
+            service_id=example_service.id,
+            attributes={
+                "AWS_EC2_INSTANCE_ID": "i-0abdg374kd892cj6dl",
+            })
+        ```
+
+        ## Import
+
+        Service Discovery Instance can be imported using the service ID and instance ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
+        ```
+
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,6 +315,9 @@ class Instance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
+        :param pulumi.Input[str] instance_id: The ID of the service instance.
+        :param pulumi.Input[str] service_id: The ID of the service that you want to use to create the instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -187,15 +331,24 @@ class Instance(pulumi.CustomResource):
     @property
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
+        """
         return pulumi.get(self, "attributes")
 
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the service instance.
+        """
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the service that you want to use to create the instance.
+        """
         return pulumi.get(self, "service_id")
 

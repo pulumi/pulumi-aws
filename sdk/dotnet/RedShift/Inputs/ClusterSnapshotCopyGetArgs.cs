@@ -12,12 +12,21 @@ namespace Pulumi.Aws.RedShift.Inputs
 
     public sealed class ClusterSnapshotCopyGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The destination region that you want to copy snapshots to.
+        /// </summary>
         [Input("destinationRegion", required: true)]
         public Input<string> DestinationRegion { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
+        /// </summary>
         [Input("grantName")]
         public Input<string>? GrantName { get; set; }
 
+        /// <summary>
+        /// The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
+        /// </summary>
         [Input("retentionPeriod")]
         public Input<int>? RetentionPeriod { get; set; }
 

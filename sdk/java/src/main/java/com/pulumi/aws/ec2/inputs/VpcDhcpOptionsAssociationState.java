@@ -15,16 +15,32 @@ public final class VpcDhcpOptionsAssociationState extends com.pulumi.resources.R
 
     public static final VpcDhcpOptionsAssociationState Empty = new VpcDhcpOptionsAssociationState();
 
+    /**
+     * The ID of the DHCP Options Set to associate to the VPC.
+     * 
+     */
     @Import(name="dhcpOptionsId")
     private @Nullable Output<String> dhcpOptionsId;
 
+    /**
+     * @return The ID of the DHCP Options Set to associate to the VPC.
+     * 
+     */
     public Optional<Output<String>> dhcpOptionsId() {
         return Optional.ofNullable(this.dhcpOptionsId);
     }
 
+    /**
+     * The ID of the VPC to which we would like to associate a DHCP Options Set.
+     * 
+     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
+    /**
+     * @return The ID of the VPC to which we would like to associate a DHCP Options Set.
+     * 
+     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -54,20 +70,44 @@ public final class VpcDhcpOptionsAssociationState extends com.pulumi.resources.R
             $ = new VpcDhcpOptionsAssociationState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dhcpOptionsId The ID of the DHCP Options Set to associate to the VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dhcpOptionsId(@Nullable Output<String> dhcpOptionsId) {
             $.dhcpOptionsId = dhcpOptionsId;
             return this;
         }
 
+        /**
+         * @param dhcpOptionsId The ID of the DHCP Options Set to associate to the VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dhcpOptionsId(String dhcpOptionsId) {
             return dhcpOptionsId(Output.of(dhcpOptionsId));
         }
 
+        /**
+         * @param vpcId The ID of the VPC to which we would like to associate a DHCP Options Set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
+        /**
+         * @param vpcId The ID of the VPC to which we would like to associate a DHCP Options Set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

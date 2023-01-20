@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class FeatureGroupFeatureDefinition
     {
+        /// <summary>
+        /// The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
+        /// </summary>
         public readonly string? FeatureName;
+        /// <summary>
+        /// The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
+        /// </summary>
         public readonly string? FeatureType;
 
         [OutputConstructor]

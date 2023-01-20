@@ -21,42 +21,84 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
 
     public static final BucketReplicationConfigRuleArgs Empty = new BucketReplicationConfigRuleArgs();
 
+    /**
+     * Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `filter` is used)documented below.
+     * 
+     */
     @Import(name="deleteMarkerReplication")
     private @Nullable Output<BucketReplicationConfigRuleDeleteMarkerReplicationArgs> deleteMarkerReplication;
 
+    /**
+     * @return Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `filter` is used)documented below.
+     * 
+     */
     public Optional<Output<BucketReplicationConfigRuleDeleteMarkerReplicationArgs>> deleteMarkerReplication() {
         return Optional.ofNullable(this.deleteMarkerReplication);
     }
 
+    /**
+     * Specifies the destination for the rule documented below.
+     * 
+     */
     @Import(name="destination", required=true)
     private Output<BucketReplicationConfigRuleDestinationArgs> destination;
 
+    /**
+     * @return Specifies the destination for the rule documented below.
+     * 
+     */
     public Output<BucketReplicationConfigRuleDestinationArgs> destination() {
         return this.destination;
     }
 
+    /**
+     * Replicate existing objects in the source bucket according to the rule configurations documented below.
+     * 
+     */
     @Import(name="existingObjectReplication")
     private @Nullable Output<BucketReplicationConfigRuleExistingObjectReplicationArgs> existingObjectReplication;
 
+    /**
+     * @return Replicate existing objects in the source bucket according to the rule configurations documented below.
+     * 
+     */
     public Optional<Output<BucketReplicationConfigRuleExistingObjectReplicationArgs>> existingObjectReplication() {
         return Optional.ofNullable(this.existingObjectReplication);
     }
 
+    /**
+     * Filter that identifies subset of objects to which the replication rule applies documented below. If not specified, the `rule` will default to using `prefix`.
+     * 
+     */
     @Import(name="filter")
     private @Nullable Output<BucketReplicationConfigRuleFilterArgs> filter;
 
+    /**
+     * @return Filter that identifies subset of objects to which the replication rule applies documented below. If not specified, the `rule` will default to using `prefix`.
+     * 
+     */
     public Optional<Output<BucketReplicationConfigRuleFilterArgs>> filter() {
         return Optional.ofNullable(this.filter);
     }
 
+    /**
+     * Unique identifier for the rule. Must be less than or equal to 255 characters in length.
+     * 
+     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
+    /**
+     * @return Unique identifier for the rule. Must be less than or equal to 255 characters in length.
+     * 
+     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
+     * Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
+     * 
      * @deprecated
      * Use filter instead
      * 
@@ -66,6 +108,8 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
     private @Nullable Output<String> prefix;
 
     /**
+     * @return Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
+     * 
      * @deprecated
      * Use filter instead
      * 
@@ -75,23 +119,47 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.prefix);
     }
 
+    /**
+     * The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+     * 
+     */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
+    /**
+     * @return The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+     * 
+     */
     public Optional<Output<Integer>> priority() {
         return Optional.ofNullable(this.priority);
     }
 
+    /**
+     * Specifies special object selection criteria documented below.
+     * 
+     */
     @Import(name="sourceSelectionCriteria")
     private @Nullable Output<BucketReplicationConfigRuleSourceSelectionCriteriaArgs> sourceSelectionCriteria;
 
+    /**
+     * @return Specifies special object selection criteria documented below.
+     * 
+     */
     public Optional<Output<BucketReplicationConfigRuleSourceSelectionCriteriaArgs>> sourceSelectionCriteria() {
         return Optional.ofNullable(this.sourceSelectionCriteria);
     }
 
+    /**
+     * The status of the rule. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`. The rule is ignored if status is not &#34;Enabled&#34;.
+     * 
+     */
     @Import(name="status", required=true)
     private Output<String> status;
 
+    /**
+     * @return The status of the rule. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`. The rule is ignored if status is not &#34;Enabled&#34;.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }
@@ -128,52 +196,114 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
             $ = new BucketReplicationConfigRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param deleteMarkerReplication Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `filter` is used)documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deleteMarkerReplication(@Nullable Output<BucketReplicationConfigRuleDeleteMarkerReplicationArgs> deleteMarkerReplication) {
             $.deleteMarkerReplication = deleteMarkerReplication;
             return this;
         }
 
+        /**
+         * @param deleteMarkerReplication Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `filter` is used)documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deleteMarkerReplication(BucketReplicationConfigRuleDeleteMarkerReplicationArgs deleteMarkerReplication) {
             return deleteMarkerReplication(Output.of(deleteMarkerReplication));
         }
 
+        /**
+         * @param destination Specifies the destination for the rule documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destination(Output<BucketReplicationConfigRuleDestinationArgs> destination) {
             $.destination = destination;
             return this;
         }
 
+        /**
+         * @param destination Specifies the destination for the rule documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destination(BucketReplicationConfigRuleDestinationArgs destination) {
             return destination(Output.of(destination));
         }
 
+        /**
+         * @param existingObjectReplication Replicate existing objects in the source bucket according to the rule configurations documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder existingObjectReplication(@Nullable Output<BucketReplicationConfigRuleExistingObjectReplicationArgs> existingObjectReplication) {
             $.existingObjectReplication = existingObjectReplication;
             return this;
         }
 
+        /**
+         * @param existingObjectReplication Replicate existing objects in the source bucket according to the rule configurations documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder existingObjectReplication(BucketReplicationConfigRuleExistingObjectReplicationArgs existingObjectReplication) {
             return existingObjectReplication(Output.of(existingObjectReplication));
         }
 
+        /**
+         * @param filter Filter that identifies subset of objects to which the replication rule applies documented below. If not specified, the `rule` will default to using `prefix`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filter(@Nullable Output<BucketReplicationConfigRuleFilterArgs> filter) {
             $.filter = filter;
             return this;
         }
 
+        /**
+         * @param filter Filter that identifies subset of objects to which the replication rule applies documented below. If not specified, the `rule` will default to using `prefix`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filter(BucketReplicationConfigRuleFilterArgs filter) {
             return filter(Output.of(filter));
         }
 
+        /**
+         * @param id Unique identifier for the rule. Must be less than or equal to 255 characters in length.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param id Unique identifier for the rule. Must be less than or equal to 255 characters in length.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
         /**
+         * @param prefix Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -187,6 +317,8 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
         }
 
         /**
+         * @param prefix Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -198,29 +330,65 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
             return prefix(Output.of(prefix));
         }
 
+        /**
+         * @param priority The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder priority(@Nullable Output<Integer> priority) {
             $.priority = priority;
             return this;
         }
 
+        /**
+         * @param priority The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
         }
 
+        /**
+         * @param sourceSelectionCriteria Specifies special object selection criteria documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceSelectionCriteria(@Nullable Output<BucketReplicationConfigRuleSourceSelectionCriteriaArgs> sourceSelectionCriteria) {
             $.sourceSelectionCriteria = sourceSelectionCriteria;
             return this;
         }
 
+        /**
+         * @param sourceSelectionCriteria Specifies special object selection criteria documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceSelectionCriteria(BucketReplicationConfigRuleSourceSelectionCriteriaArgs sourceSelectionCriteria) {
             return sourceSelectionCriteria(Output.of(sourceSelectionCriteria));
         }
 
+        /**
+         * @param status The status of the rule. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`. The rule is ignored if status is not &#34;Enabled&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status The status of the rule. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`. The rule is ignored if status is not &#34;Enabled&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

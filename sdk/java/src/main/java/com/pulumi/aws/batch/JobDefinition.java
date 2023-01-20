@@ -20,77 +20,324 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Batch Job Definition resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.batch.JobDefinition;
+ * import com.pulumi.aws.batch.JobDefinitionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
+ *             .containerProperties(&#34;&#34;&#34;
+ * {
+ * 	&#34;command&#34;: [&#34;ls&#34;, &#34;-la&#34;],
+ * 	&#34;image&#34;: &#34;busybox&#34;,
+ * 	&#34;resourceRequirements&#34;: [
+ *     {&#34;type&#34;: &#34;VCPU&#34;, &#34;value&#34;: &#34;0.25&#34;},
+ *     {&#34;type&#34;: &#34;MEMORY&#34;, &#34;value&#34;: &#34;512&#34;}
+ *   ],
+ * 	&#34;volumes&#34;: [
+ *       {
+ *         &#34;host&#34;: {
+ *           &#34;sourcePath&#34;: &#34;/tmp&#34;
+ *         },
+ *         &#34;name&#34;: &#34;tmp&#34;
+ *       }
+ *     ],
+ * 	&#34;environment&#34;: [
+ * 		{&#34;name&#34;: &#34;VARNAME&#34;, &#34;value&#34;: &#34;VARVAL&#34;}
+ * 	],
+ * 	&#34;mountPoints&#34;: [
+ * 		{
+ *           &#34;sourceVolume&#34;: &#34;tmp&#34;,
+ *           &#34;containerPath&#34;: &#34;/tmp&#34;,
+ *           &#34;readOnly&#34;: false
+ *         }
+ * 	],
+ *     &#34;ulimits&#34;: [
+ *       {
+ *         &#34;hardLimit&#34;: 1024,
+ *         &#34;name&#34;: &#34;nofile&#34;,
+ *         &#34;softLimit&#34;: 1024
+ *       }
+ *     ]
+ * }
+ * 
+ *             &#34;&#34;&#34;)
+ *             .type(&#34;container&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Fargate Platform Capability
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.batch.JobDefinition;
+ * import com.pulumi.aws.batch.JobDefinitionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var assumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;ecs-tasks.amazonaws.com&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var ecsTaskExecutionRole = new Role(&#34;ecsTaskExecutionRole&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(assumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .build());
+ * 
+ *         var ecsTaskExecutionRolePolicy = new RolePolicyAttachment(&#34;ecsTaskExecutionRolePolicy&#34;, RolePolicyAttachmentArgs.builder()        
+ *             .role(ecsTaskExecutionRole.name())
+ *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy&#34;)
+ *             .build());
+ * 
+ *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
+ *             .type(&#34;container&#34;)
+ *             .platformCapabilities(&#34;FARGATE&#34;)
+ *             .containerProperties(ecsTaskExecutionRole.arn().applyValue(arn -&gt; &#34;&#34;&#34;
+ * {
+ *   &#34;command&#34;: [&#34;echo&#34;, &#34;test&#34;],
+ *   &#34;image&#34;: &#34;busybox&#34;,
+ *   &#34;fargatePlatformConfiguration&#34;: {
+ *     &#34;platformVersion&#34;: &#34;LATEST&#34;
+ *   },
+ *   &#34;resourceRequirements&#34;: [
+ *     {&#34;type&#34;: &#34;VCPU&#34;, &#34;value&#34;: &#34;0.25&#34;},
+ *     {&#34;type&#34;: &#34;MEMORY&#34;, &#34;value&#34;: &#34;512&#34;}
+ *   ],
+ *   &#34;executionRoleArn&#34;: &#34;%s&#34;
+ * }
+ * &#34;, arn)))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Batch Job Definition can be imported using the `arn`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
+ * ```
+ * 
+ */
 @ResourceType(type="aws:batch/jobDefinition:JobDefinition")
 public class JobDefinition extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name of the job definition.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name of the job definition.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+     * 
+     */
     @Export(name="containerProperties", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> containerProperties;
 
+    /**
+     * @return A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+     * 
+     */
     public Output<Optional<String>> containerProperties() {
         return Codegen.optional(this.containerProperties);
     }
+    /**
+     * Specifies the name of the job definition.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Specifies the name of the job definition.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Specifies the parameter substitution placeholders to set in the job definition.
+     * 
+     */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
+    /**
+     * @return Specifies the parameter substitution placeholders to set in the job definition.
+     * 
+     */
     public Output<Optional<Map<String,String>>> parameters() {
         return Codegen.optional(this.parameters);
     }
+    /**
+     * The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+     * 
+     */
     @Export(name="platformCapabilities", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> platformCapabilities;
 
+    /**
+     * @return The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+     * 
+     */
     public Output<Optional<List<String>>> platformCapabilities() {
         return Codegen.optional(this.platformCapabilities);
     }
+    /**
+     * Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+     * 
+     */
     @Export(name="propagateTags", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> propagateTags;
 
+    /**
+     * @return Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+     * 
+     */
     public Output<Optional<Boolean>> propagateTags() {
         return Codegen.optional(this.propagateTags);
     }
+    /**
+     * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
+     * Maximum number of `retry_strategy` is `1`.  Defined below.
+     * 
+     */
     @Export(name="retryStrategy", refs={JobDefinitionRetryStrategy.class}, tree="[0]")
     private Output</* @Nullable */ JobDefinitionRetryStrategy> retryStrategy;
 
+    /**
+     * @return Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
+     * Maximum number of `retry_strategy` is `1`.  Defined below.
+     * 
+     */
     public Output<Optional<JobDefinitionRetryStrategy>> retryStrategy() {
         return Codegen.optional(this.retryStrategy);
     }
+    /**
+     * The revision of the job definition.
+     * 
+     */
     @Export(name="revision", refs={Integer.class}, tree="[0]")
     private Output<Integer> revision;
 
+    /**
+     * @return The revision of the job definition.
+     * 
+     */
     public Output<Integer> revision() {
         return this.revision;
     }
+    /**
+     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
+     * 
+     */
     @Export(name="timeout", refs={JobDefinitionTimeout.class}, tree="[0]")
     private Output</* @Nullable */ JobDefinitionTimeout> timeout;
 
+    /**
+     * @return Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
+     * 
+     */
     public Output<Optional<JobDefinitionTimeout>> timeout() {
         return Codegen.optional(this.timeout);
     }
+    /**
+     * The type of job definition. Must be `container`.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
+    /**
+     * @return The type of job definition. Must be `container`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }

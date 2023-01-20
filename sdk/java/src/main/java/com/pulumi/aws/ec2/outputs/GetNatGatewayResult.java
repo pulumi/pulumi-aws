@@ -13,12 +13,32 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNatGatewayResult {
+    /**
+     * @return ID of the EIP allocated to the selected Nat Gateway.
+     * 
+     */
     private String allocationId;
+    /**
+     * @return Connectivity type of the NAT Gateway.
+     * 
+     */
     private String connectivityType;
     private @Nullable List<GetNatGatewayFilter> filters;
     private String id;
+    /**
+     * @return The ID of the ENI allocated to the selected Nat Gateway.
+     * 
+     */
     private String networkInterfaceId;
+    /**
+     * @return Private Ip address of the selected Nat Gateway.
+     * 
+     */
     private String privateIp;
+    /**
+     * @return Public Ip (EIP) address of the selected Nat Gateway.
+     * 
+     */
     private String publicIp;
     private String state;
     private String subnetId;
@@ -26,9 +46,17 @@ public final class GetNatGatewayResult {
     private String vpcId;
 
     private GetNatGatewayResult() {}
+    /**
+     * @return ID of the EIP allocated to the selected Nat Gateway.
+     * 
+     */
     public String allocationId() {
         return this.allocationId;
     }
+    /**
+     * @return Connectivity type of the NAT Gateway.
+     * 
+     */
     public String connectivityType() {
         return this.connectivityType;
     }
@@ -38,12 +66,24 @@ public final class GetNatGatewayResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The ID of the ENI allocated to the selected Nat Gateway.
+     * 
+     */
     public String networkInterfaceId() {
         return this.networkInterfaceId;
     }
+    /**
+     * @return Private Ip address of the selected Nat Gateway.
+     * 
+     */
     public String privateIp() {
         return this.privateIp;
     }
+    /**
+     * @return Public Ip (EIP) address of the selected Nat Gateway.
+     * 
+     */
     public String publicIp() {
         return this.publicIp;
     }

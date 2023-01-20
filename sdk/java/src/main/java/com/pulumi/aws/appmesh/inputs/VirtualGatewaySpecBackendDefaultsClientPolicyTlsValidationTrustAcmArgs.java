@@ -14,9 +14,17 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
 
     public static final VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs Empty = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs();
 
+    /**
+     * One or more ACM ARNs.
+     * 
+     */
     @Import(name="certificateAuthorityArns", required=true)
     private Output<List<String>> certificateAuthorityArns;
 
+    /**
+     * @return One or more ACM ARNs.
+     * 
+     */
     public Output<List<String>> certificateAuthorityArns() {
         return this.certificateAuthorityArns;
     }
@@ -45,15 +53,33 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
             $ = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param certificateAuthorityArns One or more ACM ARNs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateAuthorityArns(Output<List<String>> certificateAuthorityArns) {
             $.certificateAuthorityArns = certificateAuthorityArns;
             return this;
         }
 
+        /**
+         * @param certificateAuthorityArns One or more ACM ARNs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateAuthorityArns(List<String> certificateAuthorityArns) {
             return certificateAuthorityArns(Output.of(certificateAuthorityArns));
         }
 
+        /**
+         * @param certificateAuthorityArns One or more ACM ARNs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateAuthorityArns(String... certificateAuthorityArns) {
             return certificateAuthorityArns(List.of(certificateAuthorityArns));
         }

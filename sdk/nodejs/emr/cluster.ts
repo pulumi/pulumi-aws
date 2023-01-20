@@ -7,6 +7,533 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an Elastic MapReduce Cluster, a web service that makes it easy to process large amounts of data efficiently. See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/elastic-mapreduce/) for more information.
+ *
+ * To configure [Instance Groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for [task nodes](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-task), see the `aws.emr.InstanceGroup` resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const cluster = new aws.emr.Cluster("cluster", {
+ *     releaseLabel: "emr-4.6.0",
+ *     applications: ["Spark"],
+ *     additionalInfo: `{
+ *   "instanceAwsClientConfiguration": {
+ *     "proxyPort": 8099,
+ *     "proxyHost": "myproxy.example.com"
+ *   }
+ * }
+ * `,
+ *     terminationProtection: false,
+ *     keepJobFlowAliveWhenNoSteps: true,
+ *     ec2Attributes: {
+ *         subnetId: aws_subnet.main.id,
+ *         emrManagedMasterSecurityGroup: aws_security_group.sg.id,
+ *         emrManagedSlaveSecurityGroup: aws_security_group.sg.id,
+ *         instanceProfile: aws_iam_instance_profile.emr_profile.arn,
+ *     },
+ *     masterInstanceGroup: {
+ *         instanceType: "m4.large",
+ *     },
+ *     coreInstanceGroup: {
+ *         instanceType: "c4.large",
+ *         instanceCount: 1,
+ *         ebsConfigs: [{
+ *             size: 40,
+ *             type: "gp2",
+ *             volumesPerInstance: 1,
+ *         }],
+ *         bidPrice: "0.30",
+ *         autoscalingPolicy: `{
+ * "Constraints": {
+ *   "MinCapacity": 1,
+ *   "MaxCapacity": 2
+ * },
+ * "Rules": [
+ *   {
+ *     "Name": "ScaleOutMemoryPercentage",
+ *     "Description": "Scale out if YARNMemoryAvailablePercentage is less than 15",
+ *     "Action": {
+ *       "SimpleScalingPolicyConfiguration": {
+ *         "AdjustmentType": "CHANGE_IN_CAPACITY",
+ *         "ScalingAdjustment": 1,
+ *         "CoolDown": 300
+ *       }
+ *     },
+ *     "Trigger": {
+ *       "CloudWatchAlarmDefinition": {
+ *         "ComparisonOperator": "LESS_THAN",
+ *         "EvaluationPeriods": 1,
+ *         "MetricName": "YARNMemoryAvailablePercentage",
+ *         "Namespace": "AWS/ElasticMapReduce",
+ *         "Period": 300,
+ *         "Statistic": "AVERAGE",
+ *         "Threshold": 15.0,
+ *         "Unit": "PERCENT"
+ *       }
+ *     }
+ *   }
+ * ]
+ * }
+ * `,
+ *     },
+ *     ebsRootVolumeSize: 100,
+ *     tags: {
+ *         role: "rolename",
+ *         env: "env",
+ *     },
+ *     bootstrapActions: [{
+ *         path: "s3://elasticmapreduce/bootstrap-actions/run-if",
+ *         name: "runif",
+ *         args: [
+ *             "instance.isMaster=true",
+ *             "echo running on master node",
+ *         ],
+ *     }],
+ *     configurationsJson: `  [
+ *     {
+ *       "Classification": "hadoop-env",
+ *       "Configurations": [
+ *         {
+ *           "Classification": "export",
+ *           "Properties": {
+ *             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+ *           }
+ *         }
+ *       ],
+ *       "Properties": {}
+ *     },
+ *     {
+ *       "Classification": "spark-env",
+ *       "Configurations": [
+ *         {
+ *           "Classification": "export",
+ *           "Properties": {
+ *             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+ *           }
+ *         }
+ *       ],
+ *       "Properties": {}
+ *     }
+ *   ]
+ * `,
+ *     serviceRole: aws_iam_role.iam_emr_service_role.arn,
+ * });
+ * ```
+ *
+ * The `aws.emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service, and another to place on your Cluster Instances to interact with AWS from those instances. The suggested role policy template for the EMR service is `AmazonElasticMapReduceRole`, and `AmazonElasticMapReduceforEC2Role` for the EC2 profile. See the [Getting Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html) guide for more information on these IAM roles.
+ * ### Instance Fleet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.emr.Cluster("example", {
+ *     masterInstanceFleet: {
+ *         instanceTypeConfigs: [{
+ *             instanceType: "m4.xlarge",
+ *         }],
+ *         targetOnDemandCapacity: 1,
+ *     },
+ *     coreInstanceFleet: {
+ *         instanceTypeConfigs: [
+ *             {
+ *                 bidPriceAsPercentageOfOnDemandPrice: 80,
+ *                 ebsConfigs: [{
+ *                     size: 100,
+ *                     type: "gp2",
+ *                     volumesPerInstance: 1,
+ *                 }],
+ *                 instanceType: "m3.xlarge",
+ *                 weightedCapacity: 1,
+ *             },
+ *             {
+ *                 bidPriceAsPercentageOfOnDemandPrice: 100,
+ *                 ebsConfigs: [{
+ *                     size: 100,
+ *                     type: "gp2",
+ *                     volumesPerInstance: 1,
+ *                 }],
+ *                 instanceType: "m4.xlarge",
+ *                 weightedCapacity: 1,
+ *             },
+ *             {
+ *                 bidPriceAsPercentageOfOnDemandPrice: 100,
+ *                 ebsConfigs: [{
+ *                     size: 100,
+ *                     type: "gp2",
+ *                     volumesPerInstance: 1,
+ *                 }],
+ *                 instanceType: "m4.2xlarge",
+ *                 weightedCapacity: 2,
+ *             },
+ *         ],
+ *         launchSpecifications: {
+ *             spotSpecifications: [{
+ *                 allocationStrategy: "capacity-optimized",
+ *                 blockDurationMinutes: 0,
+ *                 timeoutAction: "SWITCH_TO_ON_DEMAND",
+ *                 timeoutDurationMinutes: 10,
+ *             }],
+ *         },
+ *         name: "core fleet",
+ *         targetOnDemandCapacity: 2,
+ *         targetSpotCapacity: 2,
+ *     },
+ * });
+ * const task = new aws.emr.InstanceFleet("task", {
+ *     clusterId: example.id,
+ *     instanceTypeConfigs: [
+ *         {
+ *             bidPriceAsPercentageOfOnDemandPrice: 100,
+ *             ebsConfigs: [{
+ *                 size: 100,
+ *                 type: "gp2",
+ *                 volumesPerInstance: 1,
+ *             }],
+ *             instanceType: "m4.xlarge",
+ *             weightedCapacity: 1,
+ *         },
+ *         {
+ *             bidPriceAsPercentageOfOnDemandPrice: 100,
+ *             ebsConfigs: [{
+ *                 size: 100,
+ *                 type: "gp2",
+ *                 volumesPerInstance: 1,
+ *             }],
+ *             instanceType: "m4.2xlarge",
+ *             weightedCapacity: 2,
+ *         },
+ *     ],
+ *     launchSpecifications: {
+ *         spotSpecifications: [{
+ *             allocationStrategy: "capacity-optimized",
+ *             blockDurationMinutes: 0,
+ *             timeoutAction: "TERMINATE_CLUSTER",
+ *             timeoutDurationMinutes: 10,
+ *         }],
+ *     },
+ *     targetOnDemandCapacity: 1,
+ *     targetSpotCapacity: 1,
+ * });
+ * ```
+ * ### Enable Debug Logging
+ *
+ * [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html) is implemented as a step. It is highly recommended that you utilize the resource options configuration with `ignoreChanges` if other steps are being managed outside of this provider.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // ... other configuration ...
+ * const example = new aws.emr.Cluster("example", {steps: [{
+ *     actionOnFailure: "TERMINATE_CLUSTER",
+ *     name: "Setup Hadoop Debugging",
+ *     hadoopJarStep: {
+ *         jar: "command-runner.jar",
+ *         args: ["state-pusher-script"],
+ *     },
+ * }]});
+ * ```
+ * ### Multiple Node Master Instance Group
+ *
+ * Available in EMR version 5.23.0 and later, an EMR Cluster can be launched with three master nodes for high availability. Additional information about this functionality and its requirements can be found in the [EMR Management Guide](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // This configuration is for illustrative purposes and highlights
+ * // only relevant configurations for working with this functionality.
+ * // Map public IP on launch must be enabled for public (Internet accessible) subnets
+ * // ... other configuration ...
+ * const exampleSubnet = new aws.ec2.Subnet("exampleSubnet", {mapPublicIpOnLaunch: true});
+ * // ... other configuration ...
+ * const exampleCluster = new aws.emr.Cluster("exampleCluster", {
+ *     releaseLabel: "emr-5.24.1",
+ *     terminationProtection: true,
+ *     ec2Attributes: {
+ *         subnetId: exampleSubnet.id,
+ *     },
+ *     masterInstanceGroup: {
+ *         instanceCount: 3,
+ *     },
+ *     coreInstanceGroup: {},
+ * });
+ * ```
+ * ### Bootable Cluster
+ *
+ * **NOTE:** This configuration demonstrates a minimal configuration needed to boot an example EMR Cluster. It is not meant to display best practices. As with all examples, use at your own risk.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const mainVpc = new aws.ec2.Vpc("mainVpc", {
+ *     cidrBlock: "168.31.0.0/16",
+ *     enableDnsHostnames: true,
+ *     tags: {
+ *         name: "emr_test",
+ *     },
+ * });
+ * const mainSubnet = new aws.ec2.Subnet("mainSubnet", {
+ *     vpcId: mainVpc.id,
+ *     cidrBlock: "168.31.0.0/20",
+ *     tags: {
+ *         name: "emr_test",
+ *     },
+ * });
+ * const allowAccess = new aws.ec2.SecurityGroup("allowAccess", {
+ *     description: "Allow inbound traffic",
+ *     vpcId: mainVpc.id,
+ *     ingress: [{
+ *         fromPort: 0,
+ *         toPort: 0,
+ *         protocol: "-1",
+ *         cidrBlocks: [mainVpc.cidrBlock],
+ *     }],
+ *     egress: [{
+ *         fromPort: 0,
+ *         toPort: 0,
+ *         protocol: "-1",
+ *         cidrBlocks: ["0.0.0.0/0"],
+ *     }],
+ *     tags: {
+ *         name: "emr_test",
+ *     },
+ * }, {
+ *     dependsOn: [mainSubnet],
+ * });
+ * // IAM role for EMR Service
+ * const iamEmrServiceRole = new aws.iam.Role("iamEmrServiceRole", {assumeRolePolicy: `{
+ *   "Version": "2008-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "elasticmapreduce.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   ]
+ * }
+ * `});
+ * // IAM Role for EC2 Instance Profile
+ * const iamEmrProfileRole = new aws.iam.Role("iamEmrProfileRole", {assumeRolePolicy: `{
+ *   "Version": "2008-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "ec2.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   ]
+ * }
+ * `});
+ * const emrProfile = new aws.iam.InstanceProfile("emrProfile", {role: iamEmrProfileRole.name});
+ * const cluster = new aws.emr.Cluster("cluster", {
+ *     releaseLabel: "emr-4.6.0",
+ *     applications: ["Spark"],
+ *     ec2Attributes: {
+ *         subnetId: mainSubnet.id,
+ *         emrManagedMasterSecurityGroup: allowAccess.id,
+ *         emrManagedSlaveSecurityGroup: allowAccess.id,
+ *         instanceProfile: emrProfile.arn,
+ *     },
+ *     masterInstanceGroup: {
+ *         instanceType: "m5.xlarge",
+ *     },
+ *     coreInstanceGroup: {
+ *         instanceCount: 1,
+ *         instanceType: "m5.xlarge",
+ *     },
+ *     tags: {
+ *         role: "rolename",
+ *         dns_zone: "env_zone",
+ *         env: "env",
+ *         name: "name-env",
+ *     },
+ *     bootstrapActions: [{
+ *         path: "s3://elasticmapreduce/bootstrap-actions/run-if",
+ *         name: "runif",
+ *         args: [
+ *             "instance.isMaster=true",
+ *             "echo running on master node",
+ *         ],
+ *     }],
+ *     configurationsJson: `  [
+ *     {
+ *       "Classification": "hadoop-env",
+ *       "Configurations": [
+ *         {
+ *           "Classification": "export",
+ *           "Properties": {
+ *             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+ *           }
+ *         }
+ *       ],
+ *       "Properties": {}
+ *     },
+ *     {
+ *       "Classification": "spark-env",
+ *       "Configurations": [
+ *         {
+ *           "Classification": "export",
+ *           "Properties": {
+ *             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+ *           }
+ *         }
+ *       ],
+ *       "Properties": {}
+ *     }
+ *   ]
+ * `,
+ *     serviceRole: iamEmrServiceRole.arn,
+ * });
+ * const gw = new aws.ec2.InternetGateway("gw", {vpcId: mainVpc.id});
+ * const routeTable = new aws.ec2.RouteTable("routeTable", {
+ *     vpcId: mainVpc.id,
+ *     routes: [{
+ *         cidrBlock: "0.0.0.0/0",
+ *         gatewayId: gw.id,
+ *     }],
+ * });
+ * const mainRouteTableAssociation = new aws.ec2.MainRouteTableAssociation("mainRouteTableAssociation", {
+ *     vpcId: mainVpc.id,
+ *     routeTableId: routeTable.id,
+ * });
+ * //##
+ * const iamEmrServicePolicy = new aws.iam.RolePolicy("iamEmrServicePolicy", {
+ *     role: iamEmrServiceRole.id,
+ *     policy: `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [{
+ *         "Effect": "Allow",
+ *         "Resource": "*",
+ *         "Action": [
+ *             "ec2:AuthorizeSecurityGroupEgress",
+ *             "ec2:AuthorizeSecurityGroupIngress",
+ *             "ec2:CancelSpotInstanceRequests",
+ *             "ec2:CreateNetworkInterface",
+ *             "ec2:CreateSecurityGroup",
+ *             "ec2:CreateTags",
+ *             "ec2:DeleteNetworkInterface",
+ *             "ec2:DeleteSecurityGroup",
+ *             "ec2:DeleteTags",
+ *             "ec2:DescribeAvailabilityZones",
+ *             "ec2:DescribeAccountAttributes",
+ *             "ec2:DescribeDhcpOptions",
+ *             "ec2:DescribeInstanceStatus",
+ *             "ec2:DescribeInstances",
+ *             "ec2:DescribeKeyPairs",
+ *             "ec2:DescribeNetworkAcls",
+ *             "ec2:DescribeNetworkInterfaces",
+ *             "ec2:DescribePrefixLists",
+ *             "ec2:DescribeRouteTables",
+ *             "ec2:DescribeSecurityGroups",
+ *             "ec2:DescribeSpotInstanceRequests",
+ *             "ec2:DescribeSpotPriceHistory",
+ *             "ec2:DescribeSubnets",
+ *             "ec2:DescribeVpcAttribute",
+ *             "ec2:DescribeVpcEndpoints",
+ *             "ec2:DescribeVpcEndpointServices",
+ *             "ec2:DescribeVpcs",
+ *             "ec2:DetachNetworkInterface",
+ *             "ec2:ModifyImageAttribute",
+ *             "ec2:ModifyInstanceAttribute",
+ *             "ec2:RequestSpotInstances",
+ *             "ec2:RevokeSecurityGroupEgress",
+ *             "ec2:RunInstances",
+ *             "ec2:TerminateInstances",
+ *             "ec2:DeleteVolume",
+ *             "ec2:DescribeVolumeStatus",
+ *             "ec2:DescribeVolumes",
+ *             "ec2:DetachVolume",
+ *             "iam:GetRole",
+ *             "iam:GetRolePolicy",
+ *             "iam:ListInstanceProfiles",
+ *             "iam:ListRolePolicies",
+ *             "iam:PassRole",
+ *             "s3:CreateBucket",
+ *             "s3:Get*",
+ *             "s3:List*",
+ *             "sdb:BatchPutAttributes",
+ *             "sdb:Select",
+ *             "sqs:CreateQueue",
+ *             "sqs:Delete*",
+ *             "sqs:GetQueue*",
+ *             "sqs:PurgeQueue",
+ *             "sqs:ReceiveMessage"
+ *         ]
+ *     }]
+ * }
+ * `,
+ * });
+ * const iamEmrProfilePolicy = new aws.iam.RolePolicy("iamEmrProfilePolicy", {
+ *     role: iamEmrProfileRole.id,
+ *     policy: `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [{
+ *         "Effect": "Allow",
+ *         "Resource": "*",
+ *         "Action": [
+ *             "cloudwatch:*",
+ *             "dynamodb:*",
+ *             "ec2:Describe*",
+ *             "elasticmapreduce:Describe*",
+ *             "elasticmapreduce:ListBootstrapActions",
+ *             "elasticmapreduce:ListClusters",
+ *             "elasticmapreduce:ListInstanceGroups",
+ *             "elasticmapreduce:ListInstances",
+ *             "elasticmapreduce:ListSteps",
+ *             "kinesis:CreateStream",
+ *             "kinesis:DeleteStream",
+ *             "kinesis:DescribeStream",
+ *             "kinesis:GetRecords",
+ *             "kinesis:GetShardIterator",
+ *             "kinesis:MergeShards",
+ *             "kinesis:PutRecord",
+ *             "kinesis:SplitShard",
+ *             "rds:Describe*",
+ *             "s3:*",
+ *             "sdb:*",
+ *             "sns:*",
+ *             "sqs:*"
+ *         ]
+ *     }]
+ * }
+ * `,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * EMR clusters can be imported using the `id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
+ * ```
+ *
+ *  Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the
+ *
+ * `ignore_changes` option available to all resources to prevent perpetual differences, e.g., terraform resource "aws_emr_cluster" "example" {
+ *
+ * # ... other configuration ...
+ *
+ *  lifecycle {
+ *
+ *  ignore_changes = [kerberos_attributes]
+ *
+ *  } }
+ */
 export class Cluster extends pulumi.CustomResource {
     /**
      * Get an existing Cluster resource's state with the given name, ID, and optional extra
@@ -35,38 +562,134 @@ export class Cluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cluster.__pulumiType;
     }
 
+    /**
+     * JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
+     */
     public readonly additionalInfo!: pulumi.Output<string | undefined>;
+    /**
+     * A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
+     */
     public readonly applications!: pulumi.Output<string[] | undefined>;
+    /**
+     * ARN of the cluster.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
+     */
     public readonly autoTerminationPolicy!: pulumi.Output<outputs.emr.ClusterAutoTerminationPolicy | undefined>;
+    /**
+     * IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
+     */
     public readonly autoscalingRole!: pulumi.Output<string | undefined>;
+    /**
+     * Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
+     */
     public readonly bootstrapActions!: pulumi.Output<outputs.emr.ClusterBootstrapAction[] | undefined>;
     public /*out*/ readonly clusterState!: pulumi.Output<string>;
+    /**
+     * List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+     */
     public readonly configurations!: pulumi.Output<string | undefined>;
+    /**
+     * JSON string for supplying list of configurations for the EMR cluster.
+     */
     public readonly configurationsJson!: pulumi.Output<string | undefined>;
+    /**
+     * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
+     */
     public readonly coreInstanceFleet!: pulumi.Output<outputs.emr.ClusterCoreInstanceFleet>;
+    /**
+     * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
+     */
     public readonly coreInstanceGroup!: pulumi.Output<outputs.emr.ClusterCoreInstanceGroup>;
+    /**
+     * Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
+     */
     public readonly customAmiId!: pulumi.Output<string | undefined>;
+    /**
+     * Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
+     */
     public readonly ebsRootVolumeSize!: pulumi.Output<number | undefined>;
+    /**
+     * Attributes for the EC2 instances running the job flow. See below.
+     */
     public readonly ec2Attributes!: pulumi.Output<outputs.emr.ClusterEc2Attributes | undefined>;
+    /**
+     * Switch on/off run cluster with no steps or when all steps are complete (default is on)
+     */
     public readonly keepJobFlowAliveWhenNoSteps!: pulumi.Output<boolean>;
+    /**
+     * Kerberos configuration for the cluster. See below.
+     */
     public readonly kerberosAttributes!: pulumi.Output<outputs.emr.ClusterKerberosAttributes | undefined>;
+    /**
+     * List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
+     */
     public readonly listStepsStates!: pulumi.Output<string[] | undefined>;
+    /**
+     * AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+     */
     public readonly logEncryptionKmsKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
+     */
     public readonly logUri!: pulumi.Output<string | undefined>;
+    /**
+     * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `masterInstanceGroup` configuration blocks are set. Detailed below.
+     */
     public readonly masterInstanceFleet!: pulumi.Output<outputs.emr.ClusterMasterInstanceFleet>;
+    /**
+     * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
+     */
     public readonly masterInstanceGroup!: pulumi.Output<outputs.emr.ClusterMasterInstanceGroup>;
+    /**
+     * The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
+     */
     public /*out*/ readonly masterPublicDns!: pulumi.Output<string>;
+    /**
+     * Name of the job flow.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Release label for the Amazon EMR release.
+     */
     public readonly releaseLabel!: pulumi.Output<string>;
+    /**
+     * Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
+     */
     public readonly scaleDownBehavior!: pulumi.Output<string>;
+    /**
+     * Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater.
+     */
     public readonly securityConfiguration!: pulumi.Output<string | undefined>;
+    /**
+     * IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+     */
     public readonly serviceRole!: pulumi.Output<string>;
+    /**
+     * Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
+     */
     public readonly stepConcurrencyLevel!: pulumi.Output<number | undefined>;
+    /**
+     * List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
+     */
     public readonly steps!: pulumi.Output<outputs.emr.ClusterStep[]>;
+    /**
+     * list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
+     */
     public readonly terminationProtection!: pulumi.Output<boolean>;
+    /**
+     * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+     */
     public readonly visibleToAllUsers!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -166,38 +789,134 @@ export class Cluster extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Cluster resources.
  */
 export interface ClusterState {
+    /**
+     * JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
+     */
     additionalInfo?: pulumi.Input<string>;
+    /**
+     * A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
+     */
     applications?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * ARN of the cluster.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
+     */
     autoTerminationPolicy?: pulumi.Input<inputs.emr.ClusterAutoTerminationPolicy>;
+    /**
+     * IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
+     */
     autoscalingRole?: pulumi.Input<string>;
+    /**
+     * Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
+     */
     bootstrapActions?: pulumi.Input<pulumi.Input<inputs.emr.ClusterBootstrapAction>[]>;
     clusterState?: pulumi.Input<string>;
+    /**
+     * List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+     */
     configurations?: pulumi.Input<string>;
+    /**
+     * JSON string for supplying list of configurations for the EMR cluster.
+     */
     configurationsJson?: pulumi.Input<string>;
+    /**
+     * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
+     */
     coreInstanceFleet?: pulumi.Input<inputs.emr.ClusterCoreInstanceFleet>;
+    /**
+     * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
+     */
     coreInstanceGroup?: pulumi.Input<inputs.emr.ClusterCoreInstanceGroup>;
+    /**
+     * Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
+     */
     customAmiId?: pulumi.Input<string>;
+    /**
+     * Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
+     */
     ebsRootVolumeSize?: pulumi.Input<number>;
+    /**
+     * Attributes for the EC2 instances running the job flow. See below.
+     */
     ec2Attributes?: pulumi.Input<inputs.emr.ClusterEc2Attributes>;
+    /**
+     * Switch on/off run cluster with no steps or when all steps are complete (default is on)
+     */
     keepJobFlowAliveWhenNoSteps?: pulumi.Input<boolean>;
+    /**
+     * Kerberos configuration for the cluster. See below.
+     */
     kerberosAttributes?: pulumi.Input<inputs.emr.ClusterKerberosAttributes>;
+    /**
+     * List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
+     */
     listStepsStates?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+     */
     logEncryptionKmsKeyId?: pulumi.Input<string>;
+    /**
+     * S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
+     */
     logUri?: pulumi.Input<string>;
+    /**
+     * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `masterInstanceGroup` configuration blocks are set. Detailed below.
+     */
     masterInstanceFleet?: pulumi.Input<inputs.emr.ClusterMasterInstanceFleet>;
+    /**
+     * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
+     */
     masterInstanceGroup?: pulumi.Input<inputs.emr.ClusterMasterInstanceGroup>;
+    /**
+     * The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
+     */
     masterPublicDns?: pulumi.Input<string>;
+    /**
+     * Name of the job flow.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Release label for the Amazon EMR release.
+     */
     releaseLabel?: pulumi.Input<string>;
+    /**
+     * Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
+     */
     scaleDownBehavior?: pulumi.Input<string>;
+    /**
+     * Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater.
+     */
     securityConfiguration?: pulumi.Input<string>;
+    /**
+     * IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+     */
     serviceRole?: pulumi.Input<string>;
+    /**
+     * Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
+     */
     stepConcurrencyLevel?: pulumi.Input<number>;
+    /**
+     * List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
+     */
     steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStep>[]>;
+    /**
+     * list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
+     */
     terminationProtection?: pulumi.Input<boolean>;
+    /**
+     * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+     */
     visibleToAllUsers?: pulumi.Input<boolean>;
 }
 
@@ -205,33 +924,120 @@ export interface ClusterState {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
+     */
     additionalInfo?: pulumi.Input<string>;
+    /**
+     * A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
+     */
     applications?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
+     */
     autoTerminationPolicy?: pulumi.Input<inputs.emr.ClusterAutoTerminationPolicy>;
+    /**
+     * IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
+     */
     autoscalingRole?: pulumi.Input<string>;
+    /**
+     * Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
+     */
     bootstrapActions?: pulumi.Input<pulumi.Input<inputs.emr.ClusterBootstrapAction>[]>;
+    /**
+     * List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+     */
     configurations?: pulumi.Input<string>;
+    /**
+     * JSON string for supplying list of configurations for the EMR cluster.
+     */
     configurationsJson?: pulumi.Input<string>;
+    /**
+     * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
+     */
     coreInstanceFleet?: pulumi.Input<inputs.emr.ClusterCoreInstanceFleet>;
+    /**
+     * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
+     */
     coreInstanceGroup?: pulumi.Input<inputs.emr.ClusterCoreInstanceGroup>;
+    /**
+     * Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
+     */
     customAmiId?: pulumi.Input<string>;
+    /**
+     * Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
+     */
     ebsRootVolumeSize?: pulumi.Input<number>;
+    /**
+     * Attributes for the EC2 instances running the job flow. See below.
+     */
     ec2Attributes?: pulumi.Input<inputs.emr.ClusterEc2Attributes>;
+    /**
+     * Switch on/off run cluster with no steps or when all steps are complete (default is on)
+     */
     keepJobFlowAliveWhenNoSteps?: pulumi.Input<boolean>;
+    /**
+     * Kerberos configuration for the cluster. See below.
+     */
     kerberosAttributes?: pulumi.Input<inputs.emr.ClusterKerberosAttributes>;
+    /**
+     * List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
+     */
     listStepsStates?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+     */
     logEncryptionKmsKeyId?: pulumi.Input<string>;
+    /**
+     * S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
+     */
     logUri?: pulumi.Input<string>;
+    /**
+     * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `masterInstanceGroup` configuration blocks are set. Detailed below.
+     */
     masterInstanceFleet?: pulumi.Input<inputs.emr.ClusterMasterInstanceFleet>;
+    /**
+     * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
+     */
     masterInstanceGroup?: pulumi.Input<inputs.emr.ClusterMasterInstanceGroup>;
+    /**
+     * Name of the job flow.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Release label for the Amazon EMR release.
+     */
     releaseLabel: pulumi.Input<string>;
+    /**
+     * Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
+     */
     scaleDownBehavior?: pulumi.Input<string>;
+    /**
+     * Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater.
+     */
     securityConfiguration?: pulumi.Input<string>;
+    /**
+     * IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+     */
     serviceRole: pulumi.Input<string>;
+    /**
+     * Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
+     */
     stepConcurrencyLevel?: pulumi.Input<number>;
+    /**
+     * List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
+     */
     steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStep>[]>;
+    /**
+     * list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
+     */
     terminationProtection?: pulumi.Input<boolean>;
+    /**
+     * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+     */
     visibleToAllUsers?: pulumi.Input<boolean>;
 }

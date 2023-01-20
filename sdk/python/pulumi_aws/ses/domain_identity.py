@@ -17,12 +17,16 @@ class DomainIdentityArgs:
                  domain: pulumi.Input[str]):
         """
         The set of arguments for constructing a DomainIdentity resource.
+        :param pulumi.Input[str] domain: The domain name to assign to SES
         """
         pulumi.set(__self__, "domain", domain)
 
     @property
     @pulumi.getter
     def domain(self) -> pulumi.Input[str]:
+        """
+        The domain name to assign to SES
+        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -38,6 +42,16 @@ class _DomainIdentityState:
                  verification_token: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DomainIdentity resources.
+        :param pulumi.Input[str] arn: The ARN of the domain identity.
+        :param pulumi.Input[str] domain: The domain name to assign to SES
+        :param pulumi.Input[str] verification_token: A code which when added to the domain as a TXT record
+               will signal to SES that the owner of the domain has authorised SES to act on
+               their behalf. The domain identity will be in state "verification pending"
+               until this is done. See the With Route53 Record example
+               for how this might be achieved when the domain is hosted in Route 53 and
+               managed by this provider.  Find out more about verifying domains in Amazon
+               SES in the [AWS SES
+               docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -49,6 +63,9 @@ class _DomainIdentityState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the domain identity.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -58,6 +75,9 @@ class _DomainIdentityState:
     @property
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The domain name to assign to SES
+        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -67,6 +87,16 @@ class _DomainIdentityState:
     @property
     @pulumi.getter(name="verificationToken")
     def verification_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        A code which when added to the domain as a TXT record
+        will signal to SES that the owner of the domain has authorised SES to act on
+        their behalf. The domain identity will be in state "verification pending"
+        until this is done. See the With Route53 Record example
+        for how this might be achieved when the domain is hosted in Route 53 and
+        managed by this provider.  Find out more about verifying domains in Amazon
+        SES in the [AWS SES
+        docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
+        """
         return pulumi.get(self, "verification_token")
 
     @verification_token.setter
@@ -82,9 +112,43 @@ class DomainIdentity(pulumi.CustomResource):
                  domain: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a DomainIdentity resource with the given unique name, props, and options.
+        Provides an SES domain identity resource
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ses.DomainIdentity("example", domain="example.com")
+        ```
+        ### With Route53 Record
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ses.DomainIdentity("example", domain="example.com")
+        example_amazonses_verification_record = aws.route53.Record("exampleAmazonsesVerificationRecord",
+            zone_id="ABCDEFGHIJ123",
+            name="_amazonses.example.com",
+            type="TXT",
+            ttl=600,
+            records=[example.verification_token])
+        ```
+
+        ## Import
+
+        SES domain identities can be imported using the domain name.
+
+        ```sh
+         $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] domain: The domain name to assign to SES
         """
         ...
     @overload
@@ -93,7 +157,40 @@ class DomainIdentity(pulumi.CustomResource):
                  args: DomainIdentityArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DomainIdentity resource with the given unique name, props, and options.
+        Provides an SES domain identity resource
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ses.DomainIdentity("example", domain="example.com")
+        ```
+        ### With Route53 Record
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ses.DomainIdentity("example", domain="example.com")
+        example_amazonses_verification_record = aws.route53.Record("exampleAmazonsesVerificationRecord",
+            zone_id="ABCDEFGHIJ123",
+            name="_amazonses.example.com",
+            type="TXT",
+            ttl=600,
+            records=[example.verification_token])
+        ```
+
+        ## Import
+
+        SES domain identities can be imported using the domain name.
+
+        ```sh
+         $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
+        ```
+
         :param str resource_name: The name of the resource.
         :param DomainIdentityArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,6 +241,16 @@ class DomainIdentity(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the domain identity.
+        :param pulumi.Input[str] domain: The domain name to assign to SES
+        :param pulumi.Input[str] verification_token: A code which when added to the domain as a TXT record
+               will signal to SES that the owner of the domain has authorised SES to act on
+               their behalf. The domain identity will be in state "verification pending"
+               until this is done. See the With Route53 Record example
+               for how this might be achieved when the domain is hosted in Route 53 and
+               managed by this provider.  Find out more about verifying domains in Amazon
+               SES in the [AWS SES
+               docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,15 +264,31 @@ class DomainIdentity(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the domain identity.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def domain(self) -> pulumi.Output[str]:
+        """
+        The domain name to assign to SES
+        """
         return pulumi.get(self, "domain")
 
     @property
     @pulumi.getter(name="verificationToken")
     def verification_token(self) -> pulumi.Output[str]:
+        """
+        A code which when added to the domain as a TXT record
+        will signal to SES that the owner of the domain has authorised SES to act on
+        their behalf. The domain identity will be in state "verification pending"
+        until this is done. See the With Route53 Record example
+        for how this might be achieved when the domain is hosted in Route 53 and
+        managed by this provider.  Find out more about verifying domains in Amazon
+        SES in the [AWS SES
+        docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
+        """
         return pulumi.get(self, "verification_token")
 

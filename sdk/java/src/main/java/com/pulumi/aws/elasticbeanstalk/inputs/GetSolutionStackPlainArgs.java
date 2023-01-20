@@ -15,16 +15,38 @@ public final class GetSolutionStackPlainArgs extends com.pulumi.resources.Invoke
 
     public static final GetSolutionStackPlainArgs Empty = new GetSolutionStackPlainArgs();
 
+    /**
+     * If more than one result is returned, use the most
+     * recent solution stack.
+     * 
+     */
     @Import(name="mostRecent")
     private @Nullable Boolean mostRecent;
 
+    /**
+     * @return If more than one result is returned, use the most
+     * recent solution stack.
+     * 
+     */
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
 
+    /**
+     * Regex string to apply to the solution stack list returned
+     * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
+     * AWS documentation for reference solution stack names.
+     * 
+     */
     @Import(name="nameRegex", required=true)
     private String nameRegex;
 
+    /**
+     * @return Regex string to apply to the solution stack list returned
+     * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
+     * AWS documentation for reference solution stack names.
+     * 
+     */
     public String nameRegex() {
         return this.nameRegex;
     }
@@ -54,11 +76,26 @@ public final class GetSolutionStackPlainArgs extends com.pulumi.resources.Invoke
             $ = new GetSolutionStackPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param mostRecent If more than one result is returned, use the most
+         * recent solution stack.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mostRecent(@Nullable Boolean mostRecent) {
             $.mostRecent = mostRecent;
             return this;
         }
 
+        /**
+         * @param nameRegex Regex string to apply to the solution stack list returned
+         * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
+         * AWS documentation for reference solution stack names.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nameRegex(String nameRegex) {
             $.nameRegex = nameRegex;
             return this;

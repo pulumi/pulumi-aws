@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to get information on an existing backup plan.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.backup.getPlan({
+ *     planId: "my_example_backup_plan_id",
+ * });
+ * ```
+ */
 export function getPlan(args: GetPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetPlanResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,7 +31,13 @@ export function getPlan(args: GetPlanArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getPlan.
  */
 export interface GetPlanArgs {
+    /**
+     * Backup plan ID.
+     */
     planId: string;
+    /**
+     * Metadata that you can assign to help organize the plans you create.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -25,16 +45,42 @@ export interface GetPlanArgs {
  * A collection of values returned by getPlan.
  */
 export interface GetPlanResult {
+    /**
+     * ARN of the backup plan.
+     */
     readonly arn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Display name of a backup plan.
+     */
     readonly name: string;
     readonly planId: string;
+    /**
+     * Metadata that you can assign to help organize the plans you create.
+     */
     readonly tags: {[key: string]: string};
+    /**
+     * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
+     */
     readonly version: string;
 }
+/**
+ * Use this data source to get information on an existing backup plan.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.backup.getPlan({
+ *     planId: "my_example_backup_plan_id",
+ * });
+ * ```
+ */
 export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlanResult> {
     return pulumi.output(args).apply((a: any) => getPlan(a, opts))
 }
@@ -43,6 +89,12 @@ export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getPlan.
  */
 export interface GetPlanOutputArgs {
+    /**
+     * Backup plan ID.
+     */
     planId: pulumi.Input<string>;
+    /**
+     * Metadata that you can assign to help organize the plans you create.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

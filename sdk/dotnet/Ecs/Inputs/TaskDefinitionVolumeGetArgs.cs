@@ -12,18 +12,34 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class TaskDefinitionVolumeGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration block to configure a docker volume. Detailed below.
+        /// </summary>
         [Input("dockerVolumeConfiguration")]
         public Input<Inputs.TaskDefinitionVolumeDockerVolumeConfigurationGetArgs>? DockerVolumeConfiguration { get; set; }
 
+        /// <summary>
+        /// Configuration block for an EFS volume. Detailed below.
+        /// </summary>
         [Input("efsVolumeConfiguration")]
         public Input<Inputs.TaskDefinitionVolumeEfsVolumeConfigurationGetArgs>? EfsVolumeConfiguration { get; set; }
 
+        /// <summary>
+        /// Configuration block for an FSX Windows File Server volume. Detailed below.
+        /// </summary>
         [Input("fsxWindowsFileServerVolumeConfiguration")]
         public Input<Inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationGetArgs>? FsxWindowsFileServerVolumeConfiguration { get; set; }
 
+        /// <summary>
+        /// Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
+        /// </summary>
         [Input("hostPath")]
         public Input<string>? HostPath { get; set; }
 
+        /// <summary>
+        /// Name of the volume. This name is referenced in the `sourceVolume`
+        /// parameter of container definition in the `mountPoints` section.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

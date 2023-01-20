@@ -12,9 +12,17 @@ public final class GetInstanceProfilesPlainArgs extends com.pulumi.resources.Inv
 
     public static final GetInstanceProfilesPlainArgs Empty = new GetInstanceProfilesPlainArgs();
 
+    /**
+     * IAM role name.
+     * 
+     */
     @Import(name="roleName", required=true)
     private String roleName;
 
+    /**
+     * @return IAM role name.
+     * 
+     */
     public String roleName() {
         return this.roleName;
     }
@@ -43,6 +51,12 @@ public final class GetInstanceProfilesPlainArgs extends com.pulumi.resources.Inv
             $ = new GetInstanceProfilesPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param roleName IAM role name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder roleName(String roleName) {
             $.roleName = roleName;
             return this;

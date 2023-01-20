@@ -12,9 +12,16 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSourceCredentialsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+        /// When the value is not null, the `credential_pair` from the data source in the ARN is used.
+        /// </summary>
         [Input("copySourceArn")]
         public Input<string>? CopySourceArn { get; set; }
 
+        /// <summary>
+        /// Credential pair. See Credential Pair below for more details.
+        /// </summary>
         [Input("credentialPair")]
         public Input<Inputs.DataSourceCredentialsCredentialPairGetArgs>? CredentialPair { get; set; }
 

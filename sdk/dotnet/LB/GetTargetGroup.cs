@@ -11,9 +11,77 @@ namespace Pulumi.Aws.LB
 {
     public static class GetTargetGroup
     {
+        /// <summary>
+        /// &gt; **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
+        /// 
+        /// Provides information about a Load Balancer Target Group.
+        /// 
+        /// This data source can prove useful when a module accepts an LB Target Group as an
+        /// input variable and needs to know its attributes. It can also be used to get the ARN of
+        /// an LB Target Group for use in other resources, given LB Target Group name.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var lbTgArn = config.Get("lbTgArn") ?? "";
+        ///     var lbTgName = config.Get("lbTgName") ?? "";
+        ///     var test = Aws.LB.GetTargetGroup.Invoke(new()
+        ///     {
+        ///         Arn = lbTgArn,
+        ///         Name = lbTgName,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetTargetGroupResult> InvokeAsync(GetTargetGroupArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTargetGroupResult>("aws:lb/getTargetGroup:getTargetGroup", args ?? new GetTargetGroupArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// &gt; **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
+        /// 
+        /// Provides information about a Load Balancer Target Group.
+        /// 
+        /// This data source can prove useful when a module accepts an LB Target Group as an
+        /// input variable and needs to know its attributes. It can also be used to get the ARN of
+        /// an LB Target Group for use in other resources, given LB Target Group name.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var lbTgArn = config.Get("lbTgArn") ?? "";
+        ///     var lbTgName = config.Get("lbTgName") ?? "";
+        ///     var test = Aws.LB.GetTargetGroup.Invoke(new()
+        ///     {
+        ///         Arn = lbTgArn,
+        ///         Name = lbTgName,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetTargetGroupResult> Invoke(GetTargetGroupInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTargetGroupResult>("aws:lb/getTargetGroup:getTargetGroup", args ?? new GetTargetGroupInvokeArgs(), options.WithDefaults());
     }
@@ -21,14 +89,24 @@ namespace Pulumi.Aws.LB
 
     public sealed class GetTargetGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Full ARN of the target group.
+        /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
+        /// <summary>
+        /// Unique name of the target group.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -43,14 +121,24 @@ namespace Pulumi.Aws.LB
 
     public sealed class GetTargetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Full ARN of the target group.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Unique name of the target group.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

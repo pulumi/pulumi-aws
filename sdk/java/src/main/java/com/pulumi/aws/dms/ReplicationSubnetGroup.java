@@ -16,6 +16,120 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a DMS (Data Migration Service) replication subnet group resource. DMS replication subnet groups can be created, updated, deleted, and imported.
+ * 
+ * &gt; **Note:** AWS requires a special IAM role called `dms-vpc-role` when using this resource. See the example below to create it as part of your configuration.
+ * 
+ * ## Example Usage
+ * ### Basic
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.dms.ReplicationSubnetGroup;
+ * import com.pulumi.aws.dms.ReplicationSubnetGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ReplicationSubnetGroup(&#34;example&#34;, ReplicationSubnetGroupArgs.builder()        
+ *             .replicationSubnetGroupDescription(&#34;Example replication subnet group&#34;)
+ *             .replicationSubnetGroupId(&#34;example-dms-replication-subnet-group-tf&#34;)
+ *             .subnetIds(            
+ *                 &#34;subnet-12345678&#34;,
+ *                 &#34;subnet-12345679&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Creating special IAM role
+ * 
+ * If your account does not already include the `dms-vpc-role` IAM role, you will need to create it to allow DMS to manage subnets in the VPC.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.dms.ReplicationSubnetGroup;
+ * import com.pulumi.aws.dms.ReplicationSubnetGroupArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var dms_vpc_role = new Role(&#34;dms-vpc-role&#34;, RoleArgs.builder()        
+ *             .description(&#34;Allows DMS to manage VPC&#34;)
+ *             .assumeRolePolicy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;Principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;Service&#34;, &#34;dms.amazonaws.com&#34;)
+ *                         )),
+ *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;)
+ *                     )))
+ *                 )))
+ *             .build());
+ * 
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
+ *             .role(dms_vpc_role.name())
+ *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole&#34;)
+ *             .build());
+ * 
+ *         var exampleReplicationSubnetGroup = new ReplicationSubnetGroup(&#34;exampleReplicationSubnetGroup&#34;, ReplicationSubnetGroupArgs.builder()        
+ *             .replicationSubnetGroupDescription(&#34;Example&#34;)
+ *             .replicationSubnetGroupId(&#34;example-id&#34;)
+ *             .subnetIds(            
+ *                 &#34;subnet-12345678&#34;,
+ *                 &#34;subnet-12345679&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;example-id&#34;))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleRolePolicyAttachment)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Replication subnet groups can be imported using the `replication_subnet_group_id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
+ * ```
+ * 
+ */
 @ResourceType(type="aws:dms/replicationSubnetGroup:ReplicationSubnetGroup")
 public class ReplicationSubnetGroup extends com.pulumi.resources.CustomResource {
     @Export(name="replicationSubnetGroupArn", refs={String.class}, tree="[0]")
@@ -24,39 +138,87 @@ public class ReplicationSubnetGroup extends com.pulumi.resources.CustomResource 
     public Output<String> replicationSubnetGroupArn() {
         return this.replicationSubnetGroupArn;
     }
+    /**
+     * Description for the subnet group.
+     * 
+     */
     @Export(name="replicationSubnetGroupDescription", refs={String.class}, tree="[0]")
     private Output<String> replicationSubnetGroupDescription;
 
+    /**
+     * @return Description for the subnet group.
+     * 
+     */
     public Output<String> replicationSubnetGroupDescription() {
         return this.replicationSubnetGroupDescription;
     }
+    /**
+     * Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
+     * 
+     */
     @Export(name="replicationSubnetGroupId", refs={String.class}, tree="[0]")
     private Output<String> replicationSubnetGroupId;
 
+    /**
+     * @return Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
+     * 
+     */
     public Output<String> replicationSubnetGroupId() {
         return this.replicationSubnetGroupId;
     }
+    /**
+     * List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
+     * 
+     */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
+    /**
+     * @return List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
+     * 
+     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The ID of the VPC the subnet group is in.
+     * 
+     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
+    /**
+     * @return The ID of the VPC the subnet group is in.
+     * 
+     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

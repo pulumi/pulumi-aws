@@ -10,14 +10,70 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an IP access control group in AWS WorkSpaces Service
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/workspaces"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := workspaces.NewIpGroup(ctx, "contractors", &workspaces.IpGroupArgs{
+//				Description: pulumi.String("Contractors IP access control group"),
+//				Rules: workspaces.IpGroupRuleArray{
+//					&workspaces.IpGroupRuleArgs{
+//						Description: pulumi.String("NY"),
+//						Source:      pulumi.String("150.24.14.0/24"),
+//					},
+//					&workspaces.IpGroupRuleArgs{
+//						Description: pulumi.String("LA"),
+//						Source:      pulumi.String("125.191.14.85/32"),
+//					},
+//					&workspaces.IpGroupRuleArgs{
+//						Description: pulumi.String("STL"),
+//						Source:      pulumi.String("44.98.100.0/24"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// WorkSpaces IP groups can be imported using their GroupID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
+//
+// ```
 type IpGroup struct {
 	pulumi.CustomResourceState
 
+	// The description of the IP group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	Name        pulumi.StringOutput    `pulumi:"name"`
-	Rules       IpGroupRuleArrayOutput `pulumi:"rules"`
-	Tags        pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The name of the IP group.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
+	Rules IpGroupRuleArrayOutput `pulumi:"rules"`
+	// A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewIpGroup registers a new resource with the given unique name, arguments, and options.
@@ -49,19 +105,29 @@ func GetIpGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IpGroup resources.
 type ipGroupState struct {
-	Description *string           `pulumi:"description"`
-	Name        *string           `pulumi:"name"`
-	Rules       []IpGroupRule     `pulumi:"rules"`
-	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
+	// The description of the IP group.
+	Description *string `pulumi:"description"`
+	// The name of the IP group.
+	Name *string `pulumi:"name"`
+	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
+	Rules []IpGroupRule `pulumi:"rules"`
+	// A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type IpGroupState struct {
+	// The description of the IP group.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Rules       IpGroupRuleArrayInput
-	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// The name of the IP group.
+	Name pulumi.StringPtrInput
+	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
+	Rules IpGroupRuleArrayInput
+	// A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (IpGroupState) ElementType() reflect.Type {
@@ -69,18 +135,26 @@ func (IpGroupState) ElementType() reflect.Type {
 }
 
 type ipGroupArgs struct {
-	Description *string           `pulumi:"description"`
-	Name        *string           `pulumi:"name"`
-	Rules       []IpGroupRule     `pulumi:"rules"`
-	Tags        map[string]string `pulumi:"tags"`
+	// The description of the IP group.
+	Description *string `pulumi:"description"`
+	// The name of the IP group.
+	Name *string `pulumi:"name"`
+	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
+	Rules []IpGroupRule `pulumi:"rules"`
+	// A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IpGroup resource.
 type IpGroupArgs struct {
+	// The description of the IP group.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Rules       IpGroupRuleArrayInput
-	Tags        pulumi.StringMapInput
+	// The name of the IP group.
+	Name pulumi.StringPtrInput
+	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
+	Rules IpGroupRuleArrayInput
+	// A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (IpGroupArgs) ElementType() reflect.Type {
@@ -170,22 +244,27 @@ func (o IpGroupOutput) ToIpGroupOutputWithContext(ctx context.Context) IpGroupOu
 	return o
 }
 
+// The description of the IP group.
 func (o IpGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the IP group.
 func (o IpGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
 func (o IpGroupOutput) Rules() IpGroupRuleArrayOutput {
 	return o.ApplyT(func(v *IpGroup) IpGroupRuleArrayOutput { return v.Rules }).(IpGroupRuleArrayOutput)
 }
 
+// A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o IpGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IpGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o IpGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IpGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

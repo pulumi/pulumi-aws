@@ -27,6 +27,14 @@ class OntapVolumeArgs:
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OntapVolume resource.
+        :param pulumi.Input[str] junction_path: Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+        :param pulumi.Input[int] size_in_megabytes: Specifies the size of the volume, in megabytes (MB), that you are creating.
+        :param pulumi.Input[bool] storage_efficiency_enabled: Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+        :param pulumi.Input[str] storage_virtual_machine_id: Specifies the storage virtual machine in which to create the volume.
+        :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+        :param pulumi.Input[str] security_style: Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] volume_type: The type of volume, currently the only valid value is `ONTAP`.
         """
         pulumi.set(__self__, "junction_path", junction_path)
         pulumi.set(__self__, "size_in_megabytes", size_in_megabytes)
@@ -46,6 +54,9 @@ class OntapVolumeArgs:
     @property
     @pulumi.getter(name="junctionPath")
     def junction_path(self) -> pulumi.Input[str]:
+        """
+        Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+        """
         return pulumi.get(self, "junction_path")
 
     @junction_path.setter
@@ -55,6 +66,9 @@ class OntapVolumeArgs:
     @property
     @pulumi.getter(name="sizeInMegabytes")
     def size_in_megabytes(self) -> pulumi.Input[int]:
+        """
+        Specifies the size of the volume, in megabytes (MB), that you are creating.
+        """
         return pulumi.get(self, "size_in_megabytes")
 
     @size_in_megabytes.setter
@@ -64,6 +78,9 @@ class OntapVolumeArgs:
     @property
     @pulumi.getter(name="storageEfficiencyEnabled")
     def storage_efficiency_enabled(self) -> pulumi.Input[bool]:
+        """
+        Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+        """
         return pulumi.get(self, "storage_efficiency_enabled")
 
     @storage_efficiency_enabled.setter
@@ -73,6 +90,9 @@ class OntapVolumeArgs:
     @property
     @pulumi.getter(name="storageVirtualMachineId")
     def storage_virtual_machine_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the storage virtual machine in which to create the volume.
+        """
         return pulumi.get(self, "storage_virtual_machine_id")
 
     @storage_virtual_machine_id.setter
@@ -82,6 +102,9 @@ class OntapVolumeArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -91,6 +114,9 @@ class OntapVolumeArgs:
     @property
     @pulumi.getter(name="securityStyle")
     def security_style(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+        """
         return pulumi.get(self, "security_style")
 
     @security_style.setter
@@ -100,6 +126,9 @@ class OntapVolumeArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -118,6 +147,9 @@ class OntapVolumeArgs:
     @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of volume, currently the only valid value is `ONTAP`.
+        """
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
@@ -145,6 +177,20 @@ class _OntapVolumeState:
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OntapVolume resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name of the volune.
+        :param pulumi.Input[str] file_system_id: Describes the file system for the volume, e.g. `fs-12345679`
+        :param pulumi.Input[str] flexcache_endpoint_type: Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
+        :param pulumi.Input[str] junction_path: Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+        :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+        :param pulumi.Input[str] ontap_volume_type: Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+        :param pulumi.Input[str] security_style: Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+        :param pulumi.Input[int] size_in_megabytes: Specifies the size of the volume, in megabytes (MB), that you are creating.
+        :param pulumi.Input[bool] storage_efficiency_enabled: Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+        :param pulumi.Input[str] storage_virtual_machine_id: Specifies the storage virtual machine in which to create the volume.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] uuid: The Volume's UUID (universally unique identifier).
+        :param pulumi.Input[str] volume_type: The type of volume, currently the only valid value is `ONTAP`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -180,6 +226,9 @@ class _OntapVolumeState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name of the volune.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -189,6 +238,9 @@ class _OntapVolumeState:
     @property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes the file system for the volume, e.g. `fs-12345679`
+        """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
@@ -198,6 +250,9 @@ class _OntapVolumeState:
     @property
     @pulumi.getter(name="flexcacheEndpointType")
     def flexcache_endpoint_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
+        """
         return pulumi.get(self, "flexcache_endpoint_type")
 
     @flexcache_endpoint_type.setter
@@ -207,6 +262,9 @@ class _OntapVolumeState:
     @property
     @pulumi.getter(name="junctionPath")
     def junction_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+        """
         return pulumi.get(self, "junction_path")
 
     @junction_path.setter
@@ -216,6 +274,9 @@ class _OntapVolumeState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -225,6 +286,9 @@ class _OntapVolumeState:
     @property
     @pulumi.getter(name="ontapVolumeType")
     def ontap_volume_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+        """
         return pulumi.get(self, "ontap_volume_type")
 
     @ontap_volume_type.setter
@@ -234,6 +298,9 @@ class _OntapVolumeState:
     @property
     @pulumi.getter(name="securityStyle")
     def security_style(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+        """
         return pulumi.get(self, "security_style")
 
     @security_style.setter
@@ -243,6 +310,9 @@ class _OntapVolumeState:
     @property
     @pulumi.getter(name="sizeInMegabytes")
     def size_in_megabytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the size of the volume, in megabytes (MB), that you are creating.
+        """
         return pulumi.get(self, "size_in_megabytes")
 
     @size_in_megabytes.setter
@@ -252,6 +322,9 @@ class _OntapVolumeState:
     @property
     @pulumi.getter(name="storageEfficiencyEnabled")
     def storage_efficiency_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+        """
         return pulumi.get(self, "storage_efficiency_enabled")
 
     @storage_efficiency_enabled.setter
@@ -261,6 +334,9 @@ class _OntapVolumeState:
     @property
     @pulumi.getter(name="storageVirtualMachineId")
     def storage_virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the storage virtual machine in which to create the volume.
+        """
         return pulumi.get(self, "storage_virtual_machine_id")
 
     @storage_virtual_machine_id.setter
@@ -270,6 +346,9 @@ class _OntapVolumeState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -279,6 +358,9 @@ class _OntapVolumeState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -297,6 +379,9 @@ class _OntapVolumeState:
     @property
     @pulumi.getter
     def uuid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Volume's UUID (universally unique identifier).
+        """
         return pulumi.get(self, "uuid")
 
     @uuid.setter
@@ -306,6 +391,9 @@ class _OntapVolumeState:
     @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of volume, currently the only valid value is `ONTAP`.
+        """
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
@@ -329,9 +417,59 @@ class OntapVolume(pulumi.CustomResource):
                  volume_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a OntapVolume resource with the given unique name, props, and options.
+        Manages a FSx ONTAP Volume.
+        See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html) for more information.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.fsx.OntapVolume("test",
+            junction_path="/test",
+            size_in_megabytes=1024,
+            storage_efficiency_enabled=True,
+            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"])
+        ```
+        ### Using Tiering Policy
+
+        Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.fsx.OntapVolume("test",
+            junction_path="/test",
+            size_in_megabytes=1024,
+            storage_efficiency_enabled=True,
+            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"],
+            tiering_policy=aws.fsx.OntapVolumeTieringPolicyArgs(
+                name="AUTO",
+                cooling_period=31,
+            ))
+        ```
+
+        ## Import
+
+        FSx ONTAP volume can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] junction_path: Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+        :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+        :param pulumi.Input[str] security_style: Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+        :param pulumi.Input[int] size_in_megabytes: Specifies the size of the volume, in megabytes (MB), that you are creating.
+        :param pulumi.Input[bool] storage_efficiency_enabled: Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+        :param pulumi.Input[str] storage_virtual_machine_id: Specifies the storage virtual machine in which to create the volume.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] volume_type: The type of volume, currently the only valid value is `ONTAP`.
         """
         ...
     @overload
@@ -340,7 +478,49 @@ class OntapVolume(pulumi.CustomResource):
                  args: OntapVolumeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a OntapVolume resource with the given unique name, props, and options.
+        Manages a FSx ONTAP Volume.
+        See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html) for more information.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.fsx.OntapVolume("test",
+            junction_path="/test",
+            size_in_megabytes=1024,
+            storage_efficiency_enabled=True,
+            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"])
+        ```
+        ### Using Tiering Policy
+
+        Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.fsx.OntapVolume("test",
+            junction_path="/test",
+            size_in_megabytes=1024,
+            storage_efficiency_enabled=True,
+            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"],
+            tiering_policy=aws.fsx.OntapVolumeTieringPolicyArgs(
+                name="AUTO",
+                cooling_period=31,
+            ))
+        ```
+
+        ## Import
+
+        FSx ONTAP volume can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
+        ```
+
         :param str resource_name: The name of the resource.
         :param OntapVolumeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -429,6 +609,20 @@ class OntapVolume(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name of the volune.
+        :param pulumi.Input[str] file_system_id: Describes the file system for the volume, e.g. `fs-12345679`
+        :param pulumi.Input[str] flexcache_endpoint_type: Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
+        :param pulumi.Input[str] junction_path: Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+        :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+        :param pulumi.Input[str] ontap_volume_type: Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+        :param pulumi.Input[str] security_style: Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+        :param pulumi.Input[int] size_in_megabytes: Specifies the size of the volume, in megabytes (MB), that you are creating.
+        :param pulumi.Input[bool] storage_efficiency_enabled: Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+        :param pulumi.Input[str] storage_virtual_machine_id: Specifies the storage virtual machine in which to create the volume.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] uuid: The Volume's UUID (universally unique identifier).
+        :param pulumi.Input[str] volume_type: The type of volume, currently the only valid value is `ONTAP`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -454,61 +648,97 @@ class OntapVolume(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name of the volune.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Output[str]:
+        """
+        Describes the file system for the volume, e.g. `fs-12345679`
+        """
         return pulumi.get(self, "file_system_id")
 
     @property
     @pulumi.getter(name="flexcacheEndpointType")
     def flexcache_endpoint_type(self) -> pulumi.Output[str]:
+        """
+        Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
+        """
         return pulumi.get(self, "flexcache_endpoint_type")
 
     @property
     @pulumi.getter(name="junctionPath")
     def junction_path(self) -> pulumi.Output[str]:
+        """
+        Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+        """
         return pulumi.get(self, "junction_path")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ontapVolumeType")
     def ontap_volume_type(self) -> pulumi.Output[str]:
+        """
+        Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+        """
         return pulumi.get(self, "ontap_volume_type")
 
     @property
     @pulumi.getter(name="securityStyle")
     def security_style(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+        """
         return pulumi.get(self, "security_style")
 
     @property
     @pulumi.getter(name="sizeInMegabytes")
     def size_in_megabytes(self) -> pulumi.Output[int]:
+        """
+        Specifies the size of the volume, in megabytes (MB), that you are creating.
+        """
         return pulumi.get(self, "size_in_megabytes")
 
     @property
     @pulumi.getter(name="storageEfficiencyEnabled")
     def storage_efficiency_enabled(self) -> pulumi.Output[bool]:
+        """
+        Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+        """
         return pulumi.get(self, "storage_efficiency_enabled")
 
     @property
     @pulumi.getter(name="storageVirtualMachineId")
     def storage_virtual_machine_id(self) -> pulumi.Output[str]:
+        """
+        Specifies the storage virtual machine in which to create the volume.
+        """
         return pulumi.get(self, "storage_virtual_machine_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
@@ -519,10 +749,16 @@ class OntapVolume(pulumi.CustomResource):
     @property
     @pulumi.getter
     def uuid(self) -> pulumi.Output[str]:
+        """
+        The Volume's UUID (universally unique identifier).
+        """
         return pulumi.get(self, "uuid")
 
     @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of volume, currently the only valid value is `ONTAP`.
+        """
         return pulumi.get(self, "volume_type")
 

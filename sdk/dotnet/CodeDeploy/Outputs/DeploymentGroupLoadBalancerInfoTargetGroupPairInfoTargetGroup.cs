@@ -13,6 +13,9 @@ namespace Pulumi.Aws.CodeDeploy.Outputs
     [OutputType]
     public sealed class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup
     {
+        /// <summary>
+        /// Name of the target group.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

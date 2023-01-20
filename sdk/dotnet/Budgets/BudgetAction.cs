@@ -9,42 +9,184 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Budgets
 {
+    /// <summary>
+    /// Provides a budget action resource. Budget actions are cost savings controls that run either automatically on your behalf or by using a workflow approval process.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var examplePolicy = new Aws.Iam.Policy("examplePolicy", new()
+    ///     {
+    ///         Description = "My example policy",
+    ///         PolicyDocument = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": [
+    ///         ""ec2:Describe*""
+    ///       ],
+    ///       ""Effect"": ""Allow"",
+    ///       ""Resource"": ""*""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///     });
+    /// 
+    ///     var current = Aws.GetPartition.Invoke();
+    /// 
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     {
+    ///         AssumeRolePolicy = @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {{
+    ///         ""Service"": [
+    ///           ""budgets.{current.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}""
+    ///         ]
+    ///       }},
+    ///       ""Action"": [
+    ///         ""sts:AssumeRole""
+    ///       ]
+    ///     }}
+    ///   ]
+    /// }}
+    /// ",
+    ///     });
+    /// 
+    ///     var exampleBudget = new Aws.Budgets.Budget("exampleBudget", new()
+    ///     {
+    ///         BudgetType = "USAGE",
+    ///         LimitAmount = "10.0",
+    ///         LimitUnit = "dollars",
+    ///         TimePeriodStart = "2006-01-02_15:04",
+    ///         TimeUnit = "MONTHLY",
+    ///     });
+    /// 
+    ///     var exampleBudgetAction = new Aws.Budgets.BudgetAction("exampleBudgetAction", new()
+    ///     {
+    ///         BudgetName = exampleBudget.Name,
+    ///         ActionType = "APPLY_IAM_POLICY",
+    ///         ApprovalModel = "AUTOMATIC",
+    ///         NotificationType = "ACTUAL",
+    ///         ExecutionRoleArn = exampleRole.Arn,
+    ///         ActionThreshold = new Aws.Budgets.Inputs.BudgetActionActionThresholdArgs
+    ///         {
+    ///             ActionThresholdType = "ABSOLUTE_VALUE",
+    ///             ActionThresholdValue = 100,
+    ///         },
+    ///         Definition = new Aws.Budgets.Inputs.BudgetActionDefinitionArgs
+    ///         {
+    ///             IamActionDefinition = new Aws.Budgets.Inputs.BudgetActionDefinitionIamActionDefinitionArgs
+    ///             {
+    ///                 PolicyArn = examplePolicy.Arn,
+    ///                 Roles = new[]
+    ///                 {
+    ///                     exampleRole.Name,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Subscribers = new[]
+    ///         {
+    ///             new Aws.Budgets.Inputs.BudgetActionSubscriberArgs
+    ///             {
+    ///                 Address = "example@example.example",
+    ///                 SubscriptionType = "EMAIL",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Budgets can be imported using `AccountID:ActionID:BudgetName`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget`
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:budgets/budgetAction:BudgetAction")]
     public partial class BudgetAction : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
+        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// The id of the budget action.
+        /// </summary>
         [Output("actionId")]
         public Output<string> ActionId { get; private set; } = null!;
 
+        /// <summary>
+        /// The trigger threshold of the action. See Action Threshold.
+        /// </summary>
         [Output("actionThreshold")]
         public Output<Outputs.BudgetActionActionThreshold> ActionThreshold { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+        /// </summary>
         [Output("actionType")]
         public Output<string> ActionType { get; private set; } = null!;
 
+        /// <summary>
+        /// This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+        /// </summary>
         [Output("approvalModel")]
         public Output<string> ApprovalModel { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the budget action.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of a budget.
+        /// </summary>
         [Output("budgetName")]
         public Output<string> BudgetName { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies all of the type-specific parameters. See Definition.
+        /// </summary>
         [Output("definition")]
         public Output<Outputs.BudgetActionDefinition> Definition { get; private set; } = null!;
 
+        /// <summary>
+        /// The role passed for action execution and reversion. Roles and actions must be in the same account.
+        /// </summary>
         [Output("executionRoleArn")]
         public Output<string> ExecutionRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+        /// </summary>
         [Output("notificationType")]
         public Output<string> NotificationType { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the budget action.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of subscribers. See Subscriber.
+        /// </summary>
         [Output("subscribers")]
         public Output<ImmutableArray<Outputs.BudgetActionSubscriber>> Subscribers { get; private set; } = null!;
 
@@ -94,32 +236,60 @@ namespace Pulumi.Aws.Budgets
 
     public sealed class BudgetActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
+        /// <summary>
+        /// The trigger threshold of the action. See Action Threshold.
+        /// </summary>
         [Input("actionThreshold", required: true)]
         public Input<Inputs.BudgetActionActionThresholdArgs> ActionThreshold { get; set; } = null!;
 
+        /// <summary>
+        /// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+        /// </summary>
         [Input("actionType", required: true)]
         public Input<string> ActionType { get; set; } = null!;
 
+        /// <summary>
+        /// This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+        /// </summary>
         [Input("approvalModel", required: true)]
         public Input<string> ApprovalModel { get; set; } = null!;
 
+        /// <summary>
+        /// The name of a budget.
+        /// </summary>
         [Input("budgetName", required: true)]
         public Input<string> BudgetName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies all of the type-specific parameters. See Definition.
+        /// </summary>
         [Input("definition", required: true)]
         public Input<Inputs.BudgetActionDefinitionArgs> Definition { get; set; } = null!;
 
+        /// <summary>
+        /// The role passed for action execution and reversion. Roles and actions must be in the same account.
+        /// </summary>
         [Input("executionRoleArn", required: true)]
         public Input<string> ExecutionRoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+        /// </summary>
         [Input("notificationType", required: true)]
         public Input<string> NotificationType { get; set; } = null!;
 
         [Input("subscribers", required: true)]
         private InputList<Inputs.BudgetActionSubscriberArgs>? _subscribers;
+
+        /// <summary>
+        /// A list of subscribers. See Subscriber.
+        /// </summary>
         public InputList<Inputs.BudgetActionSubscriberArgs> Subscribers
         {
             get => _subscribers ?? (_subscribers = new InputList<Inputs.BudgetActionSubscriberArgs>());
@@ -134,41 +304,78 @@ namespace Pulumi.Aws.Budgets
 
     public sealed class BudgetActionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
+        /// <summary>
+        /// The id of the budget action.
+        /// </summary>
         [Input("actionId")]
         public Input<string>? ActionId { get; set; }
 
+        /// <summary>
+        /// The trigger threshold of the action. See Action Threshold.
+        /// </summary>
         [Input("actionThreshold")]
         public Input<Inputs.BudgetActionActionThresholdGetArgs>? ActionThreshold { get; set; }
 
+        /// <summary>
+        /// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+        /// </summary>
         [Input("actionType")]
         public Input<string>? ActionType { get; set; }
 
+        /// <summary>
+        /// This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+        /// </summary>
         [Input("approvalModel")]
         public Input<string>? ApprovalModel { get; set; }
 
+        /// <summary>
+        /// The ARN of the budget action.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The name of a budget.
+        /// </summary>
         [Input("budgetName")]
         public Input<string>? BudgetName { get; set; }
 
+        /// <summary>
+        /// Specifies all of the type-specific parameters. See Definition.
+        /// </summary>
         [Input("definition")]
         public Input<Inputs.BudgetActionDefinitionGetArgs>? Definition { get; set; }
 
+        /// <summary>
+        /// The role passed for action execution and reversion. Roles and actions must be in the same account.
+        /// </summary>
         [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }
 
+        /// <summary>
+        /// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+        /// </summary>
         [Input("notificationType")]
         public Input<string>? NotificationType { get; set; }
 
+        /// <summary>
+        /// The status of the budget action.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("subscribers")]
         private InputList<Inputs.BudgetActionSubscriberGetArgs>? _subscribers;
+
+        /// <summary>
+        /// A list of subscribers. See Subscriber.
+        /// </summary>
         public InputList<Inputs.BudgetActionSubscriberGetArgs> Subscribers
         {
             get => _subscribers ?? (_subscribers = new InputList<Inputs.BudgetActionSubscriberGetArgs>());

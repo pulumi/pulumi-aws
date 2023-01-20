@@ -18,6 +18,10 @@ public final class GetInstanceTypesResult {
      * 
      */
     private String id;
+    /**
+     * @return List of EC2 Instance Types.
+     * 
+     */
     private List<String> instanceTypes;
 
     private GetInstanceTypesResult() {}
@@ -31,6 +35,10 @@ public final class GetInstanceTypesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return List of EC2 Instance Types.
+     * 
+     */
     public List<String> instanceTypes() {
         return this.instanceTypes;
     }

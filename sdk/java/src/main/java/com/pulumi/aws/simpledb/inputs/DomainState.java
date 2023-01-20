@@ -15,9 +15,17 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
 
     public static final DomainState Empty = new DomainState();
 
+    /**
+     * The name of the SimpleDB domain
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the SimpleDB domain
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -46,11 +54,23 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
             $ = new DomainState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name The name of the SimpleDB domain
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the SimpleDB domain
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

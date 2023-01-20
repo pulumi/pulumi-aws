@@ -10,10 +10,18 @@ import java.util.Objects;
 
 @CustomType
 public final class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction {
+    /**
+     * @return The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
+     * 
+     */
     private String eventAction;
     private Boolean notify;
 
     private RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction() {}
+    /**
+     * @return The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
+     * 
+     */
     public String eventAction() {
         return this.eventAction;
     }

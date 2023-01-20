@@ -4,6 +4,32 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an EventBridge Schema Discoverer resource.
+ *
+ * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const messenger = new aws.cloudwatch.EventBus("messenger", {});
+ * const test = new aws.schemas.Discoverer("test", {
+ *     sourceArn: messenger.arn,
+ *     description: "Auto discover event schemas",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * EventBridge discoverers can be imported using the `id`, e.g., console
+ *
+ * ```sh
+ *  $ pulumi import aws:schemas/discoverer:Discoverer test 123
+ * ```
+ */
 export class Discoverer extends pulumi.CustomResource {
     /**
      * Get an existing Discoverer resource's state with the given name, ID, and optional extra
@@ -32,10 +58,25 @@ export class Discoverer extends pulumi.CustomResource {
         return obj['__pulumiType'] === Discoverer.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the discoverer.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The description of the discoverer. Maximum of 256 characters.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the event bus to discover event schemas on.
+     */
     public readonly sourceArn!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -76,10 +117,25 @@ export class Discoverer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Discoverer resources.
  */
 export interface DiscovererState {
+    /**
+     * The Amazon Resource Name (ARN) of the discoverer.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The description of the discoverer. Maximum of 256 characters.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The ARN of the event bus to discover event schemas on.
+     */
     sourceArn?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -87,7 +143,16 @@ export interface DiscovererState {
  * The set of arguments for constructing a Discoverer resource.
  */
 export interface DiscovererArgs {
+    /**
+     * The description of the discoverer. Maximum of 256 characters.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The ARN of the event bus to discover event schemas on.
+     */
     sourceArn: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

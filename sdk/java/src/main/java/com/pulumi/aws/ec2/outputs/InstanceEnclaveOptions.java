@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InstanceEnclaveOptions {
+    /**
+     * @return Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean enabled;
 
     private InstanceEnclaveOptions() {}
+    /**
+     * @return Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

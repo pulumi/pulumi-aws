@@ -9,24 +9,106 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
+    /// <summary>
+    /// Provides an EventBridge connection resource.
+    /// 
+    /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.CloudWatch.EventConnection("test", new()
+    ///     {
+    ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
+    ///         {
+    ///             ApiKey = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersApiKeyArgs
+    ///             {
+    ///                 Key = "x-signature",
+    ///                 Value = "1234",
+    ///             },
+    ///         },
+    ///         AuthorizationType = "API_KEY",
+    ///         Description = "A connection description",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Basic Authorization
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.CloudWatch.EventConnection("test", new()
+    ///     {
+    ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
+    ///         {
+    ///             Basic = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersBasicArgs
+    ///             {
+    ///                 Password = "Pass1234!",
+    ///                 Username = "user",
+    ///             },
+    ///         },
+    ///         AuthorizationType = "BASIC",
+    ///         Description = "A connection description",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// EventBridge Connection can be imported using the `name`, e.g., console
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:cloudwatch/eventConnection:EventConnection")]
     public partial class EventConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the connection.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+        /// </summary>
         [Output("authParameters")]
         public Output<Outputs.EventConnectionAuthParameters> AuthParameters { get; private set; } = null!;
 
+        /// <summary>
+        /// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+        /// </summary>
         [Output("authorizationType")]
         public Output<string> AuthorizationType { get; private set; } = null!;
 
+        /// <summary>
+        /// Enter a description for the connection. Maximum of 512 characters.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+        /// </summary>
         [Output("secretArn")]
         public Output<string> SecretArn { get; private set; } = null!;
 
@@ -76,15 +158,27 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class EventConnectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+        /// </summary>
         [Input("authParameters", required: true)]
         public Input<Inputs.EventConnectionAuthParametersArgs> AuthParameters { get; set; } = null!;
 
+        /// <summary>
+        /// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+        /// </summary>
         [Input("authorizationType", required: true)]
         public Input<string> AuthorizationType { get; set; } = null!;
 
+        /// <summary>
+        /// Enter a description for the connection. Maximum of 512 characters.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -96,21 +190,39 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class EventConnectionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the connection.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+        /// </summary>
         [Input("authParameters")]
         public Input<Inputs.EventConnectionAuthParametersGetArgs>? AuthParameters { get; set; }
 
+        /// <summary>
+        /// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+        /// </summary>
         [Input("authorizationType")]
         public Input<string>? AuthorizationType { get; set; }
 
+        /// <summary>
+        /// Enter a description for the connection. Maximum of 512 characters.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+        /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }
 

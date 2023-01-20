@@ -14,9 +14,17 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAc
 
     public static final RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs Empty = new RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs();
 
+    /**
+     * The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
+     * 
+     */
     @Import(name="eventAction", required=true)
     private Output<String> eventAction;
 
+    /**
+     * @return The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
+     * 
+     */
     public Output<String> eventAction() {
         return this.eventAction;
     }
@@ -53,11 +61,23 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAc
             $ = new RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param eventAction The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventAction(Output<String> eventAction) {
             $.eventAction = eventAction;
             return this;
         }
 
+        /**
+         * @param eventAction The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventAction(String eventAction) {
             return eventAction(Output.of(eventAction));
         }

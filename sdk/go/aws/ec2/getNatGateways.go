@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
 func GetNatGateways(ctx *pulumi.Context, args *GetNatGatewaysArgs, opts ...pulumi.InvokeOption) (*GetNatGatewaysResult, error) {
 	var rv GetNatGatewaysResult
 	err := ctx.Invoke("aws:ec2/getNatGateways:getNatGateways", args, &rv, opts...)
@@ -21,16 +22,21 @@ func GetNatGateways(ctx *pulumi.Context, args *GetNatGatewaysArgs, opts ...pulum
 
 // A collection of arguments for invoking getNatGateways.
 type GetNatGatewaysArgs struct {
+	// Custom filter block as described below.
 	Filters []GetNatGatewaysFilter `pulumi:"filters"`
-	Tags    map[string]string      `pulumi:"tags"`
-	VpcId   *string                `pulumi:"vpcId"`
+	// Map of tags, each pair of which must exactly match
+	// a pair on the desired NAT Gateways.
+	Tags map[string]string `pulumi:"tags"`
+	// VPC ID that you want to filter from.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // A collection of values returned by getNatGateways.
 type GetNatGatewaysResult struct {
 	Filters []GetNatGatewaysFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id    string            `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// List of all the NAT gateway ids found.
 	Ids   []string          `pulumi:"ids"`
 	Tags  map[string]string `pulumi:"tags"`
 	VpcId *string           `pulumi:"vpcId"`
@@ -51,9 +57,13 @@ func GetNatGatewaysOutput(ctx *pulumi.Context, args GetNatGatewaysOutputArgs, op
 
 // A collection of arguments for invoking getNatGateways.
 type GetNatGatewaysOutputArgs struct {
+	// Custom filter block as described below.
 	Filters GetNatGatewaysFilterArrayInput `pulumi:"filters"`
-	Tags    pulumi.StringMapInput          `pulumi:"tags"`
-	VpcId   pulumi.StringPtrInput          `pulumi:"vpcId"`
+	// Map of tags, each pair of which must exactly match
+	// a pair on the desired NAT Gateways.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// VPC ID that you want to filter from.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
 func (GetNatGatewaysOutputArgs) ElementType() reflect.Type {
@@ -84,6 +94,7 @@ func (o GetNatGatewaysResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNatGatewaysResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// List of all the NAT gateway ids found.
 func (o GetNatGatewaysResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNatGatewaysResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

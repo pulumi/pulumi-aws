@@ -14,29 +14,98 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an OpsWorks RDS DB Instance resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.opsworks.RdsDbInstance;
+ * import com.pulumi.aws.opsworks.RdsDbInstanceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var myInstance = new RdsDbInstance(&#34;myInstance&#34;, RdsDbInstanceArgs.builder()        
+ *             .stackId(aws_opsworks_stack.my_stack().id())
+ *             .rdsDbInstanceArn(aws_db_instance.my_instance().arn())
+ *             .dbUser(&#34;someUser&#34;)
+ *             .dbPassword(&#34;somePass&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="aws:opsworks/rdsDbInstance:RdsDbInstance")
 public class RdsDbInstance extends com.pulumi.resources.CustomResource {
+    /**
+     * A db password
+     * 
+     */
     @Export(name="dbPassword", refs={String.class}, tree="[0]")
     private Output<String> dbPassword;
 
+    /**
+     * @return A db password
+     * 
+     */
     public Output<String> dbPassword() {
         return this.dbPassword;
     }
+    /**
+     * A db username
+     * 
+     */
     @Export(name="dbUser", refs={String.class}, tree="[0]")
     private Output<String> dbUser;
 
+    /**
+     * @return A db username
+     * 
+     */
     public Output<String> dbUser() {
         return this.dbUser;
     }
+    /**
+     * The db instance to register for this stack. Changing this will force a new resource.
+     * 
+     */
     @Export(name="rdsDbInstanceArn", refs={String.class}, tree="[0]")
     private Output<String> rdsDbInstanceArn;
 
+    /**
+     * @return The db instance to register for this stack. Changing this will force a new resource.
+     * 
+     */
     public Output<String> rdsDbInstanceArn() {
         return this.rdsDbInstanceArn;
     }
+    /**
+     * The stack to register a db instance for. Changing this will force a new resource.
+     * 
+     */
     @Export(name="stackId", refs={String.class}, tree="[0]")
     private Output<String> stackId;
 
+    /**
+     * @return The stack to register a db instance for. Changing this will force a new resource.
+     * 
+     */
     public Output<String> stackId() {
         return this.stackId;
     }

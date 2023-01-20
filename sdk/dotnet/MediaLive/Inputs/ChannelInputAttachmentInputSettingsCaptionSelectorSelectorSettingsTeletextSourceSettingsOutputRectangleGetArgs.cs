@@ -12,6 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Output video height in pixels.
+        /// </summary>
         [Input("height", required: true)]
         public Input<double> Height { get; set; } = null!;
 
@@ -21,6 +24,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("topOffset", required: true)]
         public Input<double> TopOffset { get; set; } = null!;
 
+        /// <summary>
+        /// Output video width in pixels.
+        /// </summary>
         [Input("width", required: true)]
         public Input<double> Width { get; set; } = null!;
 

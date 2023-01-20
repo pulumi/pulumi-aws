@@ -14,35 +14,119 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a subnet CIDR reservation resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.SubnetCidrReservation;
+ * import com.pulumi.aws.ec2.SubnetCidrReservationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new SubnetCidrReservation(&#34;example&#34;, SubnetCidrReservationArgs.builder()        
+ *             .cidrBlock(&#34;10.0.0.16/28&#34;)
+ *             .reservationType(&#34;prefix&#34;)
+ *             .subnetId(aws_subnet.example().id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Existing CIDR reservations can be imported using `SUBNET_ID:RESERVATION_ID`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2/subnetCidrReservation:SubnetCidrReservation")
 public class SubnetCidrReservation extends com.pulumi.resources.CustomResource {
+    /**
+     * The CIDR block for the reservation.
+     * 
+     */
     @Export(name="cidrBlock", refs={String.class}, tree="[0]")
     private Output<String> cidrBlock;
 
+    /**
+     * @return The CIDR block for the reservation.
+     * 
+     */
     public Output<String> cidrBlock() {
         return this.cidrBlock;
     }
+    /**
+     * A brief description of the reservation.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return A brief description of the reservation.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * ID of the AWS account that owns this CIDR reservation.
+     * 
+     */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
+    /**
+     * @return ID of the AWS account that owns this CIDR reservation.
+     * 
+     */
     public Output<String> ownerId() {
         return this.ownerId;
     }
+    /**
+     * The type of reservation to create. Valid values: `explicit`, `prefix`
+     * 
+     */
     @Export(name="reservationType", refs={String.class}, tree="[0]")
     private Output<String> reservationType;
 
+    /**
+     * @return The type of reservation to create. Valid values: `explicit`, `prefix`
+     * 
+     */
     public Output<String> reservationType() {
         return this.reservationType;
     }
+    /**
+     * The ID of the subnet to create the reservation for.
+     * 
+     */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
+    /**
+     * @return The ID of the subnet to create the reservation for.
+     * 
+     */
     public Output<String> subnetId() {
         return this.subnetId;
     }

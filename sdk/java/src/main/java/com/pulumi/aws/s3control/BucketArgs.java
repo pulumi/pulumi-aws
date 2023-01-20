@@ -16,23 +16,47 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BucketArgs Empty = new BucketArgs();
 
+    /**
+     * Name of the bucket.
+     * 
+     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
+    /**
+     * @return Name of the bucket.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
+    /**
+     * Identifier of the Outpost to contain this bucket.
+     * 
+     */
     @Import(name="outpostId", required=true)
     private Output<String> outpostId;
 
+    /**
+     * @return Identifier of the Outpost to contain this bucket.
+     * 
+     */
     public Output<String> outpostId() {
         return this.outpostId;
     }
 
+    /**
+     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -63,29 +87,65 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
             $ = new BucketArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucket Name of the bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
+        /**
+         * @param bucket Name of the bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param outpostId Identifier of the Outpost to contain this bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outpostId(Output<String> outpostId) {
             $.outpostId = outpostId;
             return this;
         }
 
+        /**
+         * @param outpostId Identifier of the Outpost to contain this bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outpostId(String outpostId) {
             return outpostId(Output.of(outpostId));
         }
 
+        /**
+         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

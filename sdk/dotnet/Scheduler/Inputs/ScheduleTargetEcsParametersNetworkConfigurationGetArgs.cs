@@ -12,11 +12,18 @@ namespace Pulumi.Aws.Scheduler.Inputs
 
     public sealed class ScheduleTargetEcsParametersNetworkConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when the `launch_type` is set to `FARGATE`. One of: `ENABLED`, `DISABLED`.
+        /// </summary>
         [Input("assignPublicIp")]
         public Input<bool>? AssignPublicIp { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
+
+        /// <summary>
+        /// Set of 1 to 5 Security Group ID-s to be associated with the task. These security groups must all be in the same VPC.
+        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
@@ -25,6 +32,10 @@ namespace Pulumi.Aws.Scheduler.Inputs
 
         [Input("subnets", required: true)]
         private InputList<string>? _subnets;
+
+        /// <summary>
+        /// Set of 1 to 16 subnets to be associated with the task. These subnets must all be in the same VPC.
+        /// </summary>
         public InputList<string> Subnets
         {
             get => _subnets ?? (_subnets = new InputList<string>());

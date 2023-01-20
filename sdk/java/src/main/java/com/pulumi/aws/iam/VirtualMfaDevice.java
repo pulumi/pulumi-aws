@@ -15,47 +15,147 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an IAM Virtual MFA Device.
+ * 
+ * ## Example Usage
+ * 
+ * **Using certs on file:**
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.VirtualMfaDevice;
+ * import com.pulumi.aws.iam.VirtualMfaDeviceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new VirtualMfaDevice(&#34;example&#34;, VirtualMfaDeviceArgs.builder()        
+ *             .virtualMfaDeviceName(&#34;example&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * IAM Virtual MFA Devices can be imported using the `arn`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
+ * ```
+ * 
+ */
 @ResourceType(type="aws:iam/virtualMfaDevice:VirtualMfaDevice")
 public class VirtualMfaDevice extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name (ARN) specifying the virtual mfa device.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) specifying the virtual mfa device.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
+     * 
+     */
     @Export(name="base32StringSeed", refs={String.class}, tree="[0]")
     private Output<String> base32StringSeed;
 
+    /**
+     * @return The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
+     * 
+     */
     public Output<String> base32StringSeed() {
         return this.base32StringSeed;
     }
+    /**
+     * The path for the virtual MFA device.
+     * 
+     */
     @Export(name="path", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> path;
 
+    /**
+     * @return The path for the virtual MFA device.
+     * 
+     */
     public Output<Optional<String>> path() {
         return Codegen.optional(this.path);
     }
+    /**
+     * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID otherwise), and Base32String is the seed in base32 format.
+     * 
+     */
     @Export(name="qrCodePng", refs={String.class}, tree="[0]")
     private Output<String> qrCodePng;
 
+    /**
+     * @return A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID otherwise), and Base32String is the seed in base32 format.
+     * 
+     */
     public Output<String> qrCodePng() {
         return this.qrCodePng;
     }
+    /**
+     * Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+     * 
+     */
     @Export(name="virtualMfaDeviceName", refs={String.class}, tree="[0]")
     private Output<String> virtualMfaDeviceName;
 
+    /**
+     * @return The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+     * 
+     */
     public Output<String> virtualMfaDeviceName() {
         return this.virtualMfaDeviceName;
     }

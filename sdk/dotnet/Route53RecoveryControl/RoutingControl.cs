@@ -9,21 +9,80 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53RecoveryControl
 {
+    /// <summary>
+    /// Provides an AWS Route 53 Recovery Control Config Routing Control.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Route53RecoveryControl.RoutingControl("example", new()
+    ///     {
+    ///         ClusterArn = "arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Route53RecoveryControl.RoutingControl("example", new()
+    ///     {
+    ///         ClusterArn = "arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
+    ///         ControlPanelArn = "arn:aws:route53-recovery-control::428113431245:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Route53 Recovery Control Config Routing Control can be imported via the routing control arn, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:route53recoverycontrol/routingControl:RoutingControl mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:route53recoverycontrol/routingControl:RoutingControl")]
     public partial class RoutingControl : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of the routing control.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN of the cluster in which this routing control will reside.
+        /// </summary>
         [Output("clusterArn")]
         public Output<string> ClusterArn { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN of the control panel in which this routing control will reside.
+        /// </summary>
         [Output("controlPanelArn")]
         public Output<string> ControlPanelArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name describing the routing control.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -73,12 +132,21 @@ namespace Pulumi.Aws.Route53RecoveryControl
 
     public sealed class RoutingControlArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the cluster in which this routing control will reside.
+        /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
 
+        /// <summary>
+        /// ARN of the control panel in which this routing control will reside.
+        /// </summary>
         [Input("controlPanelArn")]
         public Input<string>? ControlPanelArn { get; set; }
 
+        /// <summary>
+        /// The name describing the routing control.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -90,18 +158,33 @@ namespace Pulumi.Aws.Route53RecoveryControl
 
     public sealed class RoutingControlState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the routing control.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// ARN of the cluster in which this routing control will reside.
+        /// </summary>
         [Input("clusterArn")]
         public Input<string>? ClusterArn { get; set; }
 
+        /// <summary>
+        /// ARN of the control panel in which this routing control will reside.
+        /// </summary>
         [Input("controlPanelArn")]
         public Input<string>? ControlPanelArn { get; set; }
 
+        /// <summary>
+        /// The name describing the routing control.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

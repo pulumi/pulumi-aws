@@ -21,6 +21,53 @@ import java.util.concurrent.CompletableFuture;
 
 public final class Elasticloadbalancingv2Functions {
     /**
+     * &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Listener.
+     * 
+     * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var listenerArn = config.get(&#34;listenerArn&#34;);
+     *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .arn(listenerArn)
+     *             .build());
+     * 
+     *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *             .name(&#34;default-public&#34;)
+     *             .build());
+     * 
+     *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
+     *             .port(443)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.elasticloadbalancingv2.getListener has been deprecated in favor of aws.lb.getListener
@@ -31,6 +78,53 @@ public final class Elasticloadbalancingv2Functions {
         return getListener(GetListenerArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Listener.
+     * 
+     * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var listenerArn = config.get(&#34;listenerArn&#34;);
+     *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .arn(listenerArn)
+     *             .build());
+     * 
+     *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *             .name(&#34;default-public&#34;)
+     *             .build());
+     * 
+     *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
+     *             .port(443)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.elasticloadbalancingv2.getListener has been deprecated in favor of aws.lb.getListener
@@ -41,6 +135,53 @@ public final class Elasticloadbalancingv2Functions {
         return getListenerPlain(GetListenerPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Listener.
+     * 
+     * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var listenerArn = config.get(&#34;listenerArn&#34;);
+     *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .arn(listenerArn)
+     *             .build());
+     * 
+     *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *             .name(&#34;default-public&#34;)
+     *             .build());
+     * 
+     *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
+     *             .port(443)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.elasticloadbalancingv2.getListener has been deprecated in favor of aws.lb.getListener
@@ -51,6 +192,53 @@ public final class Elasticloadbalancingv2Functions {
         return getListener(args, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Listener.
+     * 
+     * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var listenerArn = config.get(&#34;listenerArn&#34;);
+     *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .arn(listenerArn)
+     *             .build());
+     * 
+     *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *             .name(&#34;default-public&#34;)
+     *             .build());
+     * 
+     *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
+     *             .port(443)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.elasticloadbalancingv2.getListener has been deprecated in favor of aws.lb.getListener
@@ -61,6 +249,53 @@ public final class Elasticloadbalancingv2Functions {
         return getListenerPlain(args, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Listener.
+     * 
+     * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var listenerArn = config.get(&#34;listenerArn&#34;);
+     *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .arn(listenerArn)
+     *             .build());
+     * 
+     *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *             .name(&#34;default-public&#34;)
+     *             .build());
+     * 
+     *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
+     *             .port(443)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.elasticloadbalancingv2.getListener has been deprecated in favor of aws.lb.getListener
@@ -71,6 +306,53 @@ public final class Elasticloadbalancingv2Functions {
         return Deployment.getInstance().invoke("aws:elasticloadbalancingv2/getListener:getListener", TypeShape.of(GetListenerResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Listener.
+     * 
+     * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var listenerArn = config.get(&#34;listenerArn&#34;);
+     *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .arn(listenerArn)
+     *             .build());
+     * 
+     *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *             .name(&#34;default-public&#34;)
+     *             .build());
+     * 
+     *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
+     *             .port(443)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.elasticloadbalancingv2.getListener has been deprecated in favor of aws.lb.getListener
@@ -81,6 +363,47 @@ public final class Elasticloadbalancingv2Functions {
         return Deployment.getInstance().invokeAsync("aws:elasticloadbalancingv2/getListener:getListener", TypeShape.of(GetListenerResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * &gt; **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer.
+     * 
+     * This data source can prove useful when a module accepts an LB as an input
+     * variable and needs to, for example, determine the security groups associated
+     * with it, etc.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
+     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *             .arn(lbArn)
+     *             .name(lbName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.elasticloadbalancingv2.getLoadBalancer has been deprecated in favor of aws.lb.getLoadBalancer
@@ -91,6 +414,47 @@ public final class Elasticloadbalancingv2Functions {
         return getLoadBalancer(GetLoadBalancerArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer.
+     * 
+     * This data source can prove useful when a module accepts an LB as an input
+     * variable and needs to, for example, determine the security groups associated
+     * with it, etc.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
+     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *             .arn(lbArn)
+     *             .name(lbName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.elasticloadbalancingv2.getLoadBalancer has been deprecated in favor of aws.lb.getLoadBalancer
@@ -101,6 +465,47 @@ public final class Elasticloadbalancingv2Functions {
         return getLoadBalancerPlain(GetLoadBalancerPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer.
+     * 
+     * This data source can prove useful when a module accepts an LB as an input
+     * variable and needs to, for example, determine the security groups associated
+     * with it, etc.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
+     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *             .arn(lbArn)
+     *             .name(lbName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.elasticloadbalancingv2.getLoadBalancer has been deprecated in favor of aws.lb.getLoadBalancer
@@ -111,6 +516,47 @@ public final class Elasticloadbalancingv2Functions {
         return getLoadBalancer(args, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer.
+     * 
+     * This data source can prove useful when a module accepts an LB as an input
+     * variable and needs to, for example, determine the security groups associated
+     * with it, etc.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
+     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *             .arn(lbArn)
+     *             .name(lbName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.elasticloadbalancingv2.getLoadBalancer has been deprecated in favor of aws.lb.getLoadBalancer
@@ -121,6 +567,47 @@ public final class Elasticloadbalancingv2Functions {
         return getLoadBalancerPlain(args, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer.
+     * 
+     * This data source can prove useful when a module accepts an LB as an input
+     * variable and needs to, for example, determine the security groups associated
+     * with it, etc.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
+     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *             .arn(lbArn)
+     *             .name(lbName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.elasticloadbalancingv2.getLoadBalancer has been deprecated in favor of aws.lb.getLoadBalancer
@@ -131,6 +618,47 @@ public final class Elasticloadbalancingv2Functions {
         return Deployment.getInstance().invoke("aws:elasticloadbalancingv2/getLoadBalancer:getLoadBalancer", TypeShape.of(GetLoadBalancerResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * &gt; **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer.
+     * 
+     * This data source can prove useful when a module accepts an LB as an input
+     * variable and needs to, for example, determine the security groups associated
+     * with it, etc.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
+     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *             .arn(lbArn)
+     *             .name(lbName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.elasticloadbalancingv2.getLoadBalancer has been deprecated in favor of aws.lb.getLoadBalancer
@@ -141,6 +669,47 @@ public final class Elasticloadbalancingv2Functions {
         return Deployment.getInstance().invokeAsync("aws:elasticloadbalancingv2/getLoadBalancer:getLoadBalancer", TypeShape.of(GetLoadBalancerResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * &gt; **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Target Group.
+     * 
+     * This data source can prove useful when a module accepts an LB Target Group as an
+     * input variable and needs to know its attributes. It can also be used to get the ARN of
+     * an LB Target Group for use in other resources, given LB Target Group name.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
+     *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
+     *             .arn(lbTgArn)
+     *             .name(lbTgName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.elasticloadbalancingv2.getTargetGroup has been deprecated in favor of aws.lb.getTargetGroup
@@ -151,6 +720,47 @@ public final class Elasticloadbalancingv2Functions {
         return getTargetGroup(GetTargetGroupArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Target Group.
+     * 
+     * This data source can prove useful when a module accepts an LB Target Group as an
+     * input variable and needs to know its attributes. It can also be used to get the ARN of
+     * an LB Target Group for use in other resources, given LB Target Group name.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
+     *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
+     *             .arn(lbTgArn)
+     *             .name(lbTgName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.elasticloadbalancingv2.getTargetGroup has been deprecated in favor of aws.lb.getTargetGroup
@@ -161,6 +771,47 @@ public final class Elasticloadbalancingv2Functions {
         return getTargetGroupPlain(GetTargetGroupPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Target Group.
+     * 
+     * This data source can prove useful when a module accepts an LB Target Group as an
+     * input variable and needs to know its attributes. It can also be used to get the ARN of
+     * an LB Target Group for use in other resources, given LB Target Group name.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
+     *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
+     *             .arn(lbTgArn)
+     *             .name(lbTgName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.elasticloadbalancingv2.getTargetGroup has been deprecated in favor of aws.lb.getTargetGroup
@@ -171,6 +822,47 @@ public final class Elasticloadbalancingv2Functions {
         return getTargetGroup(args, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Target Group.
+     * 
+     * This data source can prove useful when a module accepts an LB Target Group as an
+     * input variable and needs to know its attributes. It can also be used to get the ARN of
+     * an LB Target Group for use in other resources, given LB Target Group name.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
+     *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
+     *             .arn(lbTgArn)
+     *             .name(lbTgName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.elasticloadbalancingv2.getTargetGroup has been deprecated in favor of aws.lb.getTargetGroup
@@ -181,6 +873,47 @@ public final class Elasticloadbalancingv2Functions {
         return getTargetGroupPlain(args, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Target Group.
+     * 
+     * This data source can prove useful when a module accepts an LB Target Group as an
+     * input variable and needs to know its attributes. It can also be used to get the ARN of
+     * an LB Target Group for use in other resources, given LB Target Group name.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
+     *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
+     *             .arn(lbTgArn)
+     *             .name(lbTgName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.elasticloadbalancingv2.getTargetGroup has been deprecated in favor of aws.lb.getTargetGroup
@@ -191,6 +924,47 @@ public final class Elasticloadbalancingv2Functions {
         return Deployment.getInstance().invoke("aws:elasticloadbalancingv2/getTargetGroup:getTargetGroup", TypeShape.of(GetTargetGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * &gt; **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Target Group.
+     * 
+     * This data source can prove useful when a module accepts an LB Target Group as an
+     * input variable and needs to know its attributes. It can also be used to get the ARN of
+     * an LB Target Group for use in other resources, given LB Target Group name.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
+     *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
+     *             .arn(lbTgArn)
+     *             .name(lbTgName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.elasticloadbalancingv2.getTargetGroup has been deprecated in favor of aws.lb.getTargetGroup

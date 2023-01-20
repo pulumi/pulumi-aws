@@ -17,23 +17,49 @@ public final class SecurityGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SecurityGroupArgs Empty = new SecurityGroupArgs();
 
+    /**
+     * description for the cache security group. Defaults to &#34;Managed by Pulumi&#34;.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return description for the cache security group. Defaults to &#34;Managed by Pulumi&#34;.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * Name for the cache security group. This value is stored as a lowercase string.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name for the cache security group. This value is stored as a lowercase string.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * List of EC2 security group names to be
+     * authorized for ingress to the cache security group
+     * 
+     */
     @Import(name="securityGroupNames", required=true)
     private Output<List<String>> securityGroupNames;
 
+    /**
+     * @return List of EC2 security group names to be
+     * authorized for ingress to the cache security group
+     * 
+     */
     public Output<List<String>> securityGroupNames() {
         return this.securityGroupNames;
     }
@@ -64,33 +90,78 @@ public final class SecurityGroupArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SecurityGroupArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param description description for the cache security group. Defaults to &#34;Managed by Pulumi&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description description for the cache security group. Defaults to &#34;Managed by Pulumi&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param name Name for the cache security group. This value is stored as a lowercase string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name for the cache security group. This value is stored as a lowercase string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param securityGroupNames List of EC2 security group names to be
+         * authorized for ingress to the cache security group
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupNames(Output<List<String>> securityGroupNames) {
             $.securityGroupNames = securityGroupNames;
             return this;
         }
 
+        /**
+         * @param securityGroupNames List of EC2 security group names to be
+         * authorized for ingress to the cache security group
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupNames(List<String> securityGroupNames) {
             return securityGroupNames(Output.of(securityGroupNames));
         }
 
+        /**
+         * @param securityGroupNames List of EC2 security group names to be
+         * authorized for ingress to the cache security group
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupNames(String... securityGroupNames) {
             return securityGroupNames(List.of(securityGroupNames));
         }

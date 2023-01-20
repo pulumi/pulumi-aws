@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class GetPatchBaselineGlobalFilterResult
     {
+        /// <summary>
+        /// The key for the filter.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The value for the filter.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

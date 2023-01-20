@@ -11,9 +11,67 @@ namespace Pulumi.Aws.ElasticBeanstalk
 {
     public static class GetApplication
     {
+        /// <summary>
+        /// Retrieve information about an Elastic Beanstalk Application.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ElasticBeanstalk.GetApplication.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["arn"] = example.Apply(getApplicationResult =&gt; getApplicationResult.Arn),
+        ///         ["description"] = example.Apply(getApplicationResult =&gt; getApplicationResult.Description),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws:elasticbeanstalk/getApplication:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieve information about an Elastic Beanstalk Application.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ElasticBeanstalk.GetApplication.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["arn"] = example.Apply(getApplicationResult =&gt; getApplicationResult.Arn),
+        ///         ["description"] = example.Apply(getApplicationResult =&gt; getApplicationResult.Description),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws:elasticbeanstalk/getApplication:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +79,9 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
     public sealed class GetApplicationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the application
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -32,6 +93,9 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
     public sealed class GetApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the application
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -46,7 +110,13 @@ namespace Pulumi.Aws.ElasticBeanstalk
     public sealed class GetApplicationResult
     {
         public readonly Outputs.GetApplicationAppversionLifecycleResult AppversionLifecycle;
+        /// <summary>
+        /// ARN of the application.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Short description of the application
+        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

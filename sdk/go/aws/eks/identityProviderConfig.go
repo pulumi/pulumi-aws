@@ -11,15 +11,63 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an EKS Identity Provider Configuration.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := eks.NewIdentityProviderConfig(ctx, "example", &eks.IdentityProviderConfigArgs{
+//				ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
+//				Oidc: &eks.IdentityProviderConfigOidcArgs{
+//					ClientId:                   pulumi.String("your client_id"),
+//					IdentityProviderConfigName: pulumi.String("example"),
+//					IssuerUrl:                  pulumi.String("your issuer_url"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// EKS Identity Provider Configurations can be imported using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`), e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
+//
+// ```
 type IdentityProviderConfig struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput              `pulumi:"arn"`
-	ClusterName pulumi.StringOutput              `pulumi:"clusterName"`
-	Oidc        IdentityProviderConfigOidcOutput `pulumi:"oidc"`
-	Status      pulumi.StringOutput              `pulumi:"status"`
-	Tags        pulumi.StringMapOutput           `pulumi:"tags"`
-	TagsAll     pulumi.StringMapOutput           `pulumi:"tagsAll"`
+	// Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Name of the EKS Cluster.
+	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
+	Oidc IdentityProviderConfigOidcOutput `pulumi:"oidc"`
+	// Status of the EKS Identity Provider Configuration.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewIdentityProviderConfig registers a new resource with the given unique name, arguments, and options.
@@ -57,21 +105,33 @@ func GetIdentityProviderConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IdentityProviderConfig resources.
 type identityProviderConfigState struct {
-	Arn         *string                     `pulumi:"arn"`
-	ClusterName *string                     `pulumi:"clusterName"`
-	Oidc        *IdentityProviderConfigOidc `pulumi:"oidc"`
-	Status      *string                     `pulumi:"status"`
-	Tags        map[string]string           `pulumi:"tags"`
-	TagsAll     map[string]string           `pulumi:"tagsAll"`
+	// Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+	Arn *string `pulumi:"arn"`
+	// Name of the EKS Cluster.
+	ClusterName *string `pulumi:"clusterName"`
+	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
+	Oidc *IdentityProviderConfigOidc `pulumi:"oidc"`
+	// Status of the EKS Identity Provider Configuration.
+	Status *string `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type IdentityProviderConfigState struct {
-	Arn         pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+	Arn pulumi.StringPtrInput
+	// Name of the EKS Cluster.
 	ClusterName pulumi.StringPtrInput
-	Oidc        IdentityProviderConfigOidcPtrInput
-	Status      pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
+	Oidc IdentityProviderConfigOidcPtrInput
+	// Status of the EKS Identity Provider Configuration.
+	Status pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (IdentityProviderConfigState) ElementType() reflect.Type {
@@ -79,16 +139,22 @@ func (IdentityProviderConfigState) ElementType() reflect.Type {
 }
 
 type identityProviderConfigArgs struct {
-	ClusterName string                     `pulumi:"clusterName"`
-	Oidc        IdentityProviderConfigOidc `pulumi:"oidc"`
-	Tags        map[string]string          `pulumi:"tags"`
+	// Name of the EKS Cluster.
+	ClusterName string `pulumi:"clusterName"`
+	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
+	Oidc IdentityProviderConfigOidc `pulumi:"oidc"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IdentityProviderConfig resource.
 type IdentityProviderConfigArgs struct {
+	// Name of the EKS Cluster.
 	ClusterName pulumi.StringInput
-	Oidc        IdentityProviderConfigOidcInput
-	Tags        pulumi.StringMapInput
+	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
+	Oidc IdentityProviderConfigOidcInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (IdentityProviderConfigArgs) ElementType() reflect.Type {
@@ -178,26 +244,32 @@ func (o IdentityProviderConfigOutput) ToIdentityProviderConfigOutputWithContext(
 	return o
 }
 
+// Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
 func (o IdentityProviderConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProviderConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Name of the EKS Cluster.
 func (o IdentityProviderConfigOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProviderConfig) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }
 
+// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 func (o IdentityProviderConfigOutput) Oidc() IdentityProviderConfigOidcOutput {
 	return o.ApplyT(func(v *IdentityProviderConfig) IdentityProviderConfigOidcOutput { return v.Oidc }).(IdentityProviderConfigOidcOutput)
 }
 
+// Status of the EKS Identity Provider Configuration.
 func (o IdentityProviderConfigOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProviderConfig) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o IdentityProviderConfigOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IdentityProviderConfig) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o IdentityProviderConfigOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IdentityProviderConfig) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

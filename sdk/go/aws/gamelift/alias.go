@@ -11,15 +11,62 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a GameLift Alias resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := gamelift.NewAlias(ctx, "example", &gamelift.AliasArgs{
+//				Description: pulumi.String("Example Description"),
+//				RoutingStrategy: &gamelift.AliasRoutingStrategyArgs{
+//					Message: pulumi.String("Example Message"),
+//					Type:    pulumi.String("TERMINAL"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// GameLift Aliases can be imported using the ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:gamelift/alias:Alias example <alias-id>
+//
+// ```
 type Alias struct {
 	pulumi.CustomResourceState
 
-	Arn             pulumi.StringOutput        `pulumi:"arn"`
-	Description     pulumi.StringPtrOutput     `pulumi:"description"`
-	Name            pulumi.StringOutput        `pulumi:"name"`
+	// Alias ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Description of the alias.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Name of the alias.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategyOutput `pulumi:"routingStrategy"`
-	Tags            pulumi.StringMapOutput     `pulumi:"tags"`
-	TagsAll         pulumi.StringMapOutput     `pulumi:"tagsAll"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAlias registers a new resource with the given unique name, arguments, and options.
@@ -54,21 +101,33 @@ func GetAlias(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Alias resources.
 type aliasState struct {
-	Arn             *string               `pulumi:"arn"`
-	Description     *string               `pulumi:"description"`
-	Name            *string               `pulumi:"name"`
+	// Alias ARN.
+	Arn *string `pulumi:"arn"`
+	// Description of the alias.
+	Description *string `pulumi:"description"`
+	// Name of the alias.
+	Name *string `pulumi:"name"`
+	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy *AliasRoutingStrategy `pulumi:"routingStrategy"`
-	Tags            map[string]string     `pulumi:"tags"`
-	TagsAll         map[string]string     `pulumi:"tagsAll"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type AliasState struct {
-	Arn             pulumi.StringPtrInput
-	Description     pulumi.StringPtrInput
-	Name            pulumi.StringPtrInput
+	// Alias ARN.
+	Arn pulumi.StringPtrInput
+	// Description of the alias.
+	Description pulumi.StringPtrInput
+	// Name of the alias.
+	Name pulumi.StringPtrInput
+	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategyPtrInput
-	Tags            pulumi.StringMapInput
-	TagsAll         pulumi.StringMapInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (AliasState) ElementType() reflect.Type {
@@ -76,18 +135,26 @@ func (AliasState) ElementType() reflect.Type {
 }
 
 type aliasArgs struct {
-	Description     *string              `pulumi:"description"`
-	Name            *string              `pulumi:"name"`
+	// Description of the alias.
+	Description *string `pulumi:"description"`
+	// Name of the alias.
+	Name *string `pulumi:"name"`
+	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategy `pulumi:"routingStrategy"`
-	Tags            map[string]string    `pulumi:"tags"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Alias resource.
 type AliasArgs struct {
-	Description     pulumi.StringPtrInput
-	Name            pulumi.StringPtrInput
+	// Description of the alias.
+	Description pulumi.StringPtrInput
+	// Name of the alias.
+	Name pulumi.StringPtrInput
+	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategyInput
-	Tags            pulumi.StringMapInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (AliasArgs) ElementType() reflect.Type {
@@ -177,26 +244,32 @@ func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return o
 }
 
+// Alias ARN.
 func (o AliasOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Description of the alias.
 func (o AliasOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Name of the alias.
 func (o AliasOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the fleet and/or routing type to use for the alias.
 func (o AliasOutput) RoutingStrategy() AliasRoutingStrategyOutput {
 	return o.ApplyT(func(v *Alias) AliasRoutingStrategyOutput { return v.RoutingStrategy }).(AliasRoutingStrategyOutput)
 }
 
+// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AliasOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AliasOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

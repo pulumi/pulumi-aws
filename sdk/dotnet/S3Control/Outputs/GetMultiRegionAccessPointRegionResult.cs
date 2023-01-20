@@ -13,7 +13,13 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class GetMultiRegionAccessPointRegionResult
     {
+        /// <summary>
+        /// The name of the bucket.
+        /// </summary>
         public readonly string Bucket;
+        /// <summary>
+        /// The name of the region.
+        /// </summary>
         public readonly string Region;
 
         [OutputConstructor]

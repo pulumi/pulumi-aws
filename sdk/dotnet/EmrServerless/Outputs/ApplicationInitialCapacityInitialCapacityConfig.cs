@@ -13,7 +13,13 @@ namespace Pulumi.Aws.EmrServerless.Outputs
     [OutputType]
     public sealed class ApplicationInitialCapacityInitialCapacityConfig
     {
+        /// <summary>
+        /// The resource configuration of the initial capacity configuration.
+        /// </summary>
         public readonly Outputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration? WorkerConfiguration;
+        /// <summary>
+        /// The number of workers in the initial capacity configuration.
+        /// </summary>
         public readonly int WorkerCount;
 
         [OutputConstructor]

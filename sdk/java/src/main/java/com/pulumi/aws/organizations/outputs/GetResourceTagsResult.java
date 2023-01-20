@@ -16,6 +16,10 @@ public final class GetResourceTagsResult {
      */
     private String id;
     private String resourceId;
+    /**
+     * @return Map of key=value pairs for each tag set on the resource.
+     * 
+     */
     private Map<String,String> tags;
 
     private GetResourceTagsResult() {}
@@ -29,6 +33,10 @@ public final class GetResourceTagsResult {
     public String resourceId() {
         return this.resourceId;
     }
+    /**
+     * @return Map of key=value pairs for each tag set on the resource.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }

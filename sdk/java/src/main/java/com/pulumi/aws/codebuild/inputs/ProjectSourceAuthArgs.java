@@ -16,6 +16,8 @@ public final class ProjectSourceAuthArgs extends com.pulumi.resources.ResourceAr
     public static final ProjectSourceAuthArgs Empty = new ProjectSourceAuthArgs();
 
     /**
+     * Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
+     * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
      * 
@@ -25,6 +27,8 @@ public final class ProjectSourceAuthArgs extends com.pulumi.resources.ResourceAr
     private @Nullable Output<String> resource;
 
     /**
+     * @return Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
+     * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
      * 
@@ -35,6 +39,8 @@ public final class ProjectSourceAuthArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+     * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
      * 
@@ -44,6 +50,8 @@ public final class ProjectSourceAuthArgs extends com.pulumi.resources.ResourceAr
     private Output<String> type;
 
     /**
+     * @return Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+     * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
      * 
@@ -79,6 +87,8 @@ public final class ProjectSourceAuthArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param resource Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -92,6 +102,8 @@ public final class ProjectSourceAuthArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param resource Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -104,6 +116,8 @@ public final class ProjectSourceAuthArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param type Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -117,6 +131,8 @@ public final class ProjectSourceAuthArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param type Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+         * 
          * @return builder
          * 
          * @deprecated

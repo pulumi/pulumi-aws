@@ -45,11 +45,17 @@ class GetRegexPatternSetResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the entity.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the set that helps with identification.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -68,6 +74,9 @@ class GetRegexPatternSetResult:
     @property
     @pulumi.getter(name="regularExpressions")
     def regular_expressions(self) -> Sequence['outputs.GetRegexPatternSetRegularExpressionResult']:
+        """
+        One or more blocks of regular expression patterns that AWS WAF is searching for. See Regular Expression below for details.
+        """
         return pulumi.get(self, "regular_expressions")
 
     @property
@@ -94,7 +103,21 @@ def get_regex_pattern_set(name: Optional[str] = None,
                           scope: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegexPatternSetResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves the summary of a WAFv2 Regex Pattern Set.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.wafv2.get_regex_pattern_set(name="some-regex-pattern-set",
+        scope="REGIONAL")
+    ```
+
+
+    :param str name: Name of the WAFv2 Regex Pattern Set.
+    :param str scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -116,6 +139,20 @@ def get_regex_pattern_set_output(name: Optional[pulumi.Input[str]] = None,
                                  scope: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegexPatternSetResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves the summary of a WAFv2 Regex Pattern Set.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.wafv2.get_regex_pattern_set(name="some-regex-pattern-set",
+        scope="REGIONAL")
+    ```
+
+
+    :param str name: Name of the WAFv2 Regex Pattern Set.
+    :param str scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
     """
     ...

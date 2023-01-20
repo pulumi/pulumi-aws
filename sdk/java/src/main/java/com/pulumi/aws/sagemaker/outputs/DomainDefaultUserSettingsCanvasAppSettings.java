@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDefaultUserSettingsCanvasAppSettings {
+    /**
+     * @return Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+     * 
+     */
     private @Nullable DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings timeSeriesForecastingSettings;
 
     private DomainDefaultUserSettingsCanvasAppSettings() {}
+    /**
+     * @return Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+     * 
+     */
     public Optional<DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings> timeSeriesForecastingSettings() {
         return Optional.ofNullable(this.timeSeriesForecastingSettings);
     }

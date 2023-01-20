@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides redshift serverless temporary credentials for a workgroup.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshiftserverless"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := redshiftserverless.GetCredentials(ctx, &redshiftserverless.GetCredentialsArgs{
+//				WorkgroupName: aws_redshiftserverless_workgroup.Example.Workgroup_name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetCredentials(ctx *pulumi.Context, args *GetCredentialsArgs, opts ...pulumi.InvokeOption) (*GetCredentialsResult, error) {
 	var rv GetCredentialsResult
 	err := ctx.Invoke("aws:redshiftserverless/getCredentials:getCredentials", args, &rv, opts...)
@@ -21,18 +48,24 @@ func GetCredentials(ctx *pulumi.Context, args *GetCredentialsArgs, opts ...pulum
 
 // A collection of arguments for invoking getCredentials.
 type GetCredentialsArgs struct {
-	DbName          *string `pulumi:"dbName"`
-	DurationSeconds *int    `pulumi:"durationSeconds"`
-	WorkgroupName   string  `pulumi:"workgroupName"`
+	// The name of the database to get temporary authorization to log on to.
+	DbName *string `pulumi:"dbName"`
+	// The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.
+	DurationSeconds *int `pulumi:"durationSeconds"`
+	// The name of the workgroup associated with the database.
+	WorkgroupName string `pulumi:"workgroupName"`
 }
 
 // A collection of values returned by getCredentials.
 type GetCredentialsResult struct {
-	DbName          *string `pulumi:"dbName"`
-	DbPassword      string  `pulumi:"dbPassword"`
-	DbUser          string  `pulumi:"dbUser"`
-	DurationSeconds *int    `pulumi:"durationSeconds"`
-	Expiration      string  `pulumi:"expiration"`
+	DbName *string `pulumi:"dbName"`
+	// Temporary password that authorizes the user name returned by `dbUser` to log on to the database `dbName`.
+	DbPassword string `pulumi:"dbPassword"`
+	// A database user name that is authorized to log on to the database `dbName` using the password `dbPassword` . If the specified `dbUser` exists in the database, the new user name has the same database privileges as the user named in `dbUser` . By default, the user is added to PUBLIC. the user doesn't exist in the database.
+	DbUser          string `pulumi:"dbUser"`
+	DurationSeconds *int   `pulumi:"durationSeconds"`
+	// Date and time the password in `dbPassword` expires.
+	Expiration string `pulumi:"expiration"`
 	// The provider-assigned unique ID for this managed resource.
 	Id            string `pulumi:"id"`
 	WorkgroupName string `pulumi:"workgroupName"`
@@ -53,9 +86,12 @@ func GetCredentialsOutput(ctx *pulumi.Context, args GetCredentialsOutputArgs, op
 
 // A collection of arguments for invoking getCredentials.
 type GetCredentialsOutputArgs struct {
-	DbName          pulumi.StringPtrInput `pulumi:"dbName"`
-	DurationSeconds pulumi.IntPtrInput    `pulumi:"durationSeconds"`
-	WorkgroupName   pulumi.StringInput    `pulumi:"workgroupName"`
+	// The name of the database to get temporary authorization to log on to.
+	DbName pulumi.StringPtrInput `pulumi:"dbName"`
+	// The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.
+	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
+	// The name of the workgroup associated with the database.
+	WorkgroupName pulumi.StringInput `pulumi:"workgroupName"`
 }
 
 func (GetCredentialsOutputArgs) ElementType() reflect.Type {
@@ -81,10 +117,12 @@ func (o GetCredentialsResultOutput) DbName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetCredentialsResult) *string { return v.DbName }).(pulumi.StringPtrOutput)
 }
 
+// Temporary password that authorizes the user name returned by `dbUser` to log on to the database `dbName`.
 func (o GetCredentialsResultOutput) DbPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCredentialsResult) string { return v.DbPassword }).(pulumi.StringOutput)
 }
 
+// A database user name that is authorized to log on to the database `dbName` using the password `dbPassword` . If the specified `dbUser` exists in the database, the new user name has the same database privileges as the user named in `dbUser` . By default, the user is added to PUBLIC. the user doesn't exist in the database.
 func (o GetCredentialsResultOutput) DbUser() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCredentialsResult) string { return v.DbUser }).(pulumi.StringOutput)
 }
@@ -93,6 +131,7 @@ func (o GetCredentialsResultOutput) DurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetCredentialsResult) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Date and time the password in `dbPassword` expires.
 func (o GetCredentialsResultOutput) Expiration() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCredentialsResult) string { return v.Expiration }).(pulumi.StringOutput)
 }

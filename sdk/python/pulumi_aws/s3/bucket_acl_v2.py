@@ -22,6 +22,10 @@ class BucketAclV2Args:
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BucketAclV2 resource.
+        :param pulumi.Input[str] bucket: The name of the bucket.
+        :param pulumi.Input['BucketAclV2AccessControlPolicyArgs'] access_control_policy: A configuration block that sets the ACL permissions for an object per grantee documented below.
+        :param pulumi.Input[str] acl: The canned ACL to apply to the bucket.
+        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
         """
         pulumi.set(__self__, "bucket", bucket)
         if access_control_policy is not None:
@@ -34,6 +38,9 @@ class BucketAclV2Args:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
+        """
+        The name of the bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -43,6 +50,9 @@ class BucketAclV2Args:
     @property
     @pulumi.getter(name="accessControlPolicy")
     def access_control_policy(self) -> Optional[pulumi.Input['BucketAclV2AccessControlPolicyArgs']]:
+        """
+        A configuration block that sets the ACL permissions for an object per grantee documented below.
+        """
         return pulumi.get(self, "access_control_policy")
 
     @access_control_policy.setter
@@ -52,6 +62,9 @@ class BucketAclV2Args:
     @property
     @pulumi.getter
     def acl(self) -> Optional[pulumi.Input[str]]:
+        """
+        The canned ACL to apply to the bucket.
+        """
         return pulumi.get(self, "acl")
 
     @acl.setter
@@ -61,6 +74,9 @@ class BucketAclV2Args:
     @property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account ID of the expected bucket owner.
+        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -77,6 +93,10 @@ class _BucketAclV2State:
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BucketAclV2 resources.
+        :param pulumi.Input['BucketAclV2AccessControlPolicyArgs'] access_control_policy: A configuration block that sets the ACL permissions for an object per grantee documented below.
+        :param pulumi.Input[str] acl: The canned ACL to apply to the bucket.
+        :param pulumi.Input[str] bucket: The name of the bucket.
+        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
         """
         if access_control_policy is not None:
             pulumi.set(__self__, "access_control_policy", access_control_policy)
@@ -90,6 +110,9 @@ class _BucketAclV2State:
     @property
     @pulumi.getter(name="accessControlPolicy")
     def access_control_policy(self) -> Optional[pulumi.Input['BucketAclV2AccessControlPolicyArgs']]:
+        """
+        A configuration block that sets the ACL permissions for an object per grantee documented below.
+        """
         return pulumi.get(self, "access_control_policy")
 
     @access_control_policy.setter
@@ -99,6 +122,9 @@ class _BucketAclV2State:
     @property
     @pulumi.getter
     def acl(self) -> Optional[pulumi.Input[str]]:
+        """
+        The canned ACL to apply to the bucket.
+        """
         return pulumi.get(self, "acl")
 
     @acl.setter
@@ -108,6 +134,9 @@ class _BucketAclV2State:
     @property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -117,6 +146,9 @@ class _BucketAclV2State:
     @property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account ID of the expected bucket owner.
+        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -135,9 +167,89 @@ class BucketAclV2(pulumi.CustomResource):
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a BucketAclV2 resource with the given unique name, props, and options.
+        Provides an S3 bucket ACL resource.
+
+        > **Note:** destroy does not delete the S3 Bucket ACL but does remove the resource from state.
+
+        ## Example Usage
+        ### With ACL
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketV2("example")
+        example_bucket_acl = aws.s3.BucketAclV2("exampleBucketAcl",
+            bucket=example.id,
+            acl="private")
+        ```
+        ### With Grants
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.s3.get_canonical_user_id()
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+            bucket=example_bucket_v2.id,
+            access_control_policy=aws.s3.BucketAclV2AccessControlPolicyArgs(
+                grants=[
+                    aws.s3.BucketAclV2AccessControlPolicyGrantArgs(
+                        grantee=aws.s3.BucketAclV2AccessControlPolicyGrantGranteeArgs(
+                            id=current.id,
+                            type="CanonicalUser",
+                        ),
+                        permission="READ",
+                    ),
+                    aws.s3.BucketAclV2AccessControlPolicyGrantArgs(
+                        grantee=aws.s3.BucketAclV2AccessControlPolicyGrantGranteeArgs(
+                            type="Group",
+                            uri="http://acs.amazonaws.com/groups/s3/LogDelivery",
+                        ),
+                        permission="READ_ACP",
+                    ),
+                ],
+                owner=aws.s3.BucketAclV2AccessControlPolicyOwnerArgs(
+                    id=current.id,
+                ),
+            ))
+        ```
+
+        ## Import
+
+        S3 bucket ACL can be imported in one of four ways. If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **not configured** with a [canned ACL][1] (i.e. predefined grant), the S3 bucket ACL resource should be imported using the `bucket` e.g.,
+
+        ```sh
+         $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name
+        ```
+
+         If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL][1] (i.e. predefined grant), the S3 bucket ACL resource should be imported using the `bucket` and `acl` separated by a comma (`,`), e.g.
+
+        ```sh
+         $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,private
+        ```
+
+         If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **not configured** with a [canned ACL][1] (i.e. predefined grant), the S3 bucket ACL resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+
+        ```sh
+         $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012
+        ```
+
+         If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL][1] (i.e. predefined grant), the S3 bucket ACL resource should be imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`), e.g.,
+
+        ```sh
+         $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012,private
+        ```
+
+         [1]https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['BucketAclV2AccessControlPolicyArgs']] access_control_policy: A configuration block that sets the ACL permissions for an object per grantee documented below.
+        :param pulumi.Input[str] acl: The canned ACL to apply to the bucket.
+        :param pulumi.Input[str] bucket: The name of the bucket.
+        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
         """
         ...
     @overload
@@ -146,7 +258,83 @@ class BucketAclV2(pulumi.CustomResource):
                  args: BucketAclV2Args,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a BucketAclV2 resource with the given unique name, props, and options.
+        Provides an S3 bucket ACL resource.
+
+        > **Note:** destroy does not delete the S3 Bucket ACL but does remove the resource from state.
+
+        ## Example Usage
+        ### With ACL
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketV2("example")
+        example_bucket_acl = aws.s3.BucketAclV2("exampleBucketAcl",
+            bucket=example.id,
+            acl="private")
+        ```
+        ### With Grants
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.s3.get_canonical_user_id()
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+            bucket=example_bucket_v2.id,
+            access_control_policy=aws.s3.BucketAclV2AccessControlPolicyArgs(
+                grants=[
+                    aws.s3.BucketAclV2AccessControlPolicyGrantArgs(
+                        grantee=aws.s3.BucketAclV2AccessControlPolicyGrantGranteeArgs(
+                            id=current.id,
+                            type="CanonicalUser",
+                        ),
+                        permission="READ",
+                    ),
+                    aws.s3.BucketAclV2AccessControlPolicyGrantArgs(
+                        grantee=aws.s3.BucketAclV2AccessControlPolicyGrantGranteeArgs(
+                            type="Group",
+                            uri="http://acs.amazonaws.com/groups/s3/LogDelivery",
+                        ),
+                        permission="READ_ACP",
+                    ),
+                ],
+                owner=aws.s3.BucketAclV2AccessControlPolicyOwnerArgs(
+                    id=current.id,
+                ),
+            ))
+        ```
+
+        ## Import
+
+        S3 bucket ACL can be imported in one of four ways. If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **not configured** with a [canned ACL][1] (i.e. predefined grant), the S3 bucket ACL resource should be imported using the `bucket` e.g.,
+
+        ```sh
+         $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name
+        ```
+
+         If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL][1] (i.e. predefined grant), the S3 bucket ACL resource should be imported using the `bucket` and `acl` separated by a comma (`,`), e.g.
+
+        ```sh
+         $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,private
+        ```
+
+         If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **not configured** with a [canned ACL][1] (i.e. predefined grant), the S3 bucket ACL resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+
+        ```sh
+         $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012
+        ```
+
+         If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL][1] (i.e. predefined grant), the S3 bucket ACL resource should be imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`), e.g.,
+
+        ```sh
+         $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012,private
+        ```
+
+         [1]https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
+
         :param str resource_name: The name of the resource.
         :param BucketAclV2Args args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,6 +390,10 @@ class BucketAclV2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['BucketAclV2AccessControlPolicyArgs']] access_control_policy: A configuration block that sets the ACL permissions for an object per grantee documented below.
+        :param pulumi.Input[str] acl: The canned ACL to apply to the bucket.
+        :param pulumi.Input[str] bucket: The name of the bucket.
+        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -216,20 +408,32 @@ class BucketAclV2(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessControlPolicy")
     def access_control_policy(self) -> pulumi.Output['outputs.BucketAclV2AccessControlPolicy']:
+        """
+        A configuration block that sets the ACL permissions for an object per grantee documented below.
+        """
         return pulumi.get(self, "access_control_policy")
 
     @property
     @pulumi.getter
     def acl(self) -> pulumi.Output[Optional[str]]:
+        """
+        The canned ACL to apply to the bucket.
+        """
         return pulumi.get(self, "acl")
 
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
+        """
+        The name of the bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[str]]:
+        """
+        The account ID of the expected bucket owner.
+        """
         return pulumi.get(self, "expected_bucket_owner")
 

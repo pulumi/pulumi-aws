@@ -7,6 +7,52 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a FSx ONTAP Volume.
+ * See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html) for more information.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.fsx.OntapVolume("test", {
+ *     junctionPath: "/test",
+ *     sizeInMegabytes: 1024,
+ *     storageEfficiencyEnabled: true,
+ *     storageVirtualMachineId: aws_fsx_ontap_storage_virtual_machine.test.id,
+ * });
+ * ```
+ * ### Using Tiering Policy
+ *
+ * Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.fsx.OntapVolume("test", {
+ *     junctionPath: "/test",
+ *     sizeInMegabytes: 1024,
+ *     storageEfficiencyEnabled: true,
+ *     storageVirtualMachineId: aws_fsx_ontap_storage_virtual_machine.test.id,
+ *     tieringPolicy: {
+ *         name: "AUTO",
+ *         coolingPeriod: 31,
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * FSx ONTAP volume can be imported using the `id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
+ * ```
+ */
 export class OntapVolume extends pulumi.CustomResource {
     /**
      * Get an existing OntapVolume resource's state with the given name, ID, and optional extra
@@ -35,20 +81,62 @@ export class OntapVolume extends pulumi.CustomResource {
         return obj['__pulumiType'] === OntapVolume.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name of the volune.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Describes the file system for the volume, e.g. `fs-12345679`
+     */
     public /*out*/ readonly fileSystemId!: pulumi.Output<string>;
+    /**
+     * Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
+     */
     public /*out*/ readonly flexcacheEndpointType!: pulumi.Output<string>;
+    /**
+     * Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
+     */
     public readonly junctionPath!: pulumi.Output<string>;
+    /**
+     * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+     */
     public /*out*/ readonly ontapVolumeType!: pulumi.Output<string>;
+    /**
+     * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+     */
     public readonly securityStyle!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the size of the volume, in megabytes (MB), that you are creating.
+     */
     public readonly sizeInMegabytes!: pulumi.Output<number>;
+    /**
+     * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+     */
     public readonly storageEfficiencyEnabled!: pulumi.Output<boolean>;
+    /**
+     * Specifies the storage virtual machine in which to create the volume.
+     */
     public readonly storageVirtualMachineId!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly tieringPolicy!: pulumi.Output<outputs.fsx.OntapVolumeTieringPolicy | undefined>;
+    /**
+     * The Volume's UUID (universally unique identifier).
+     */
     public /*out*/ readonly uuid!: pulumi.Output<string>;
+    /**
+     * The type of volume, currently the only valid value is `ONTAP`.
+     */
     public readonly volumeType!: pulumi.Output<string | undefined>;
 
     /**
@@ -118,20 +206,62 @@ export class OntapVolume extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OntapVolume resources.
  */
 export interface OntapVolumeState {
+    /**
+     * Amazon Resource Name of the volune.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Describes the file system for the volume, e.g. `fs-12345679`
+     */
     fileSystemId?: pulumi.Input<string>;
+    /**
+     * Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
+     */
     flexcacheEndpointType?: pulumi.Input<string>;
+    /**
+     * Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
+     */
     junctionPath?: pulumi.Input<string>;
+    /**
+     * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+     */
     ontapVolumeType?: pulumi.Input<string>;
+    /**
+     * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+     */
     securityStyle?: pulumi.Input<string>;
+    /**
+     * Specifies the size of the volume, in megabytes (MB), that you are creating.
+     */
     sizeInMegabytes?: pulumi.Input<number>;
+    /**
+     * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+     */
     storageEfficiencyEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the storage virtual machine in which to create the volume.
+     */
     storageVirtualMachineId?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tieringPolicy?: pulumi.Input<inputs.fsx.OntapVolumeTieringPolicy>;
+    /**
+     * The Volume's UUID (universally unique identifier).
+     */
     uuid?: pulumi.Input<string>;
+    /**
+     * The type of volume, currently the only valid value is `ONTAP`.
+     */
     volumeType?: pulumi.Input<string>;
 }
 
@@ -139,13 +269,37 @@ export interface OntapVolumeState {
  * The set of arguments for constructing a OntapVolume resource.
  */
 export interface OntapVolumeArgs {
+    /**
+     * Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
+     */
     junctionPath: pulumi.Input<string>;
+    /**
+     * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+     */
     securityStyle?: pulumi.Input<string>;
+    /**
+     * Specifies the size of the volume, in megabytes (MB), that you are creating.
+     */
     sizeInMegabytes: pulumi.Input<number>;
+    /**
+     * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+     */
     storageEfficiencyEnabled: pulumi.Input<boolean>;
+    /**
+     * Specifies the storage virtual machine in which to create the volume.
+     */
     storageVirtualMachineId: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tieringPolicy?: pulumi.Input<inputs.fsx.OntapVolumeTieringPolicy>;
+    /**
+     * The type of volume, currently the only valid value is `ONTAP`.
+     */
     volumeType?: pulumi.Input<string>;
 }

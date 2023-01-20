@@ -10,6 +10,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieve information about an EKS Cluster.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := eks.LookupCluster(ctx, &eks.LookupClusterArgs{
+//				Name: "example",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("endpoint", example.Endpoint)
+//			ctx.Export("kubeconfig-certificate-authority-data", example.CertificateAuthorities[0].Data)
+//			ctx.Export("identity-oidc-issuer", example.Identities[0].Oidcs[0].Issuer)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("aws:eks/getCluster:getCluster", args, &rv, opts...)
@@ -21,30 +51,47 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
-	Name string            `pulumi:"name"`
+	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	Name string `pulumi:"name"`
+	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
-	Arn                    string                           `pulumi:"arn"`
+	// ARN of the cluster.
+	Arn string `pulumi:"arn"`
+	// Nested attribute containing `certificate-authority-data` for your cluster.
 	CertificateAuthorities []GetClusterCertificateAuthority `pulumi:"certificateAuthorities"`
-	ClusterId              string                           `pulumi:"clusterId"`
-	CreatedAt              string                           `pulumi:"createdAt"`
-	EnabledClusterLogTypes []string                         `pulumi:"enabledClusterLogTypes"`
-	Endpoint               string                           `pulumi:"endpoint"`
+	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
+	ClusterId string `pulumi:"clusterId"`
+	// Unix epoch time stamp in seconds for when the cluster was created.
+	CreatedAt string `pulumi:"createdAt"`
+	// The enabled control plane logs.
+	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
+	// Endpoint for your Kubernetes API server.
+	Endpoint string `pulumi:"endpoint"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                       string                              `pulumi:"id"`
-	Identities               []GetClusterIdentity                `pulumi:"identities"`
+	Id string `pulumi:"id"`
+	// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `eks.Cluster` resource documentation.
+	Identities []GetClusterIdentity `pulumi:"identities"`
+	// Nested list containing Kubernetes Network Configuration.
 	KubernetesNetworkConfigs []GetClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfigs"`
 	Name                     string                              `pulumi:"name"`
-	OutpostConfigs           []GetClusterOutpostConfig           `pulumi:"outpostConfigs"`
-	PlatformVersion          string                              `pulumi:"platformVersion"`
-	RoleArn                  string                              `pulumi:"roleArn"`
-	Status                   string                              `pulumi:"status"`
-	Tags                     map[string]string                   `pulumi:"tags"`
-	Version                  string                              `pulumi:"version"`
-	VpcConfig                GetClusterVpcConfig                 `pulumi:"vpcConfig"`
+	// Contains Outpost Configuration.
+	OutpostConfigs []GetClusterOutpostConfig `pulumi:"outpostConfigs"`
+	// Platform version for the cluster.
+	PlatformVersion string `pulumi:"platformVersion"`
+	// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+	RoleArn string `pulumi:"roleArn"`
+	// Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
+	Status string `pulumi:"status"`
+	// Key-value map of resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Kubernetes server version for the cluster.
+	Version string `pulumi:"version"`
+	// Nested list containing VPC configuration for the cluster.
+	VpcConfig GetClusterVpcConfig `pulumi:"vpcConfig"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -62,7 +109,9 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
-	Name pulumi.StringInput    `pulumi:"name"`
+	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -85,26 +134,32 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 	return o
 }
 
+// ARN of the cluster.
 func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Nested attribute containing `certificate-authority-data` for your cluster.
 func (o LookupClusterResultOutput) CertificateAuthorities() GetClusterCertificateAuthorityArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterCertificateAuthority { return v.CertificateAuthorities }).(GetClusterCertificateAuthorityArrayOutput)
 }
 
+// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
 func (o LookupClusterResultOutput) ClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterId }).(pulumi.StringOutput)
 }
 
+// Unix epoch time stamp in seconds for when the cluster was created.
 func (o LookupClusterResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The enabled control plane logs.
 func (o LookupClusterResultOutput) EnabledClusterLogTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.EnabledClusterLogTypes }).(pulumi.StringArrayOutput)
 }
 
+// Endpoint for your Kubernetes API server.
 func (o LookupClusterResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
@@ -114,10 +169,12 @@ func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `eks.Cluster` resource documentation.
 func (o LookupClusterResultOutput) Identities() GetClusterIdentityArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterIdentity { return v.Identities }).(GetClusterIdentityArrayOutput)
 }
 
+// Nested list containing Kubernetes Network Configuration.
 func (o LookupClusterResultOutput) KubernetesNetworkConfigs() GetClusterKubernetesNetworkConfigArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterKubernetesNetworkConfig { return v.KubernetesNetworkConfigs }).(GetClusterKubernetesNetworkConfigArrayOutput)
 }
@@ -126,30 +183,37 @@ func (o LookupClusterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Contains Outpost Configuration.
 func (o LookupClusterResultOutput) OutpostConfigs() GetClusterOutpostConfigArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterOutpostConfig { return v.OutpostConfigs }).(GetClusterOutpostConfigArrayOutput)
 }
 
+// Platform version for the cluster.
 func (o LookupClusterResultOutput) PlatformVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.PlatformVersion }).(pulumi.StringOutput)
 }
 
+// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 func (o LookupClusterResultOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
 func (o LookupClusterResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags.
 func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Kubernetes server version for the cluster.
 func (o LookupClusterResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Version }).(pulumi.StringOutput)
 }
 
+// Nested list containing VPC configuration for the cluster.
 func (o LookupClusterResultOutput) VpcConfig() GetClusterVpcConfigOutput {
 	return o.ApplyT(func(v LookupClusterResult) GetClusterVpcConfig { return v.VpcConfig }).(GetClusterVpcConfigOutput)
 }

@@ -10,6 +10,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides details about a specific Amazon Kendra Faq.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := kendra.LookupFaq(ctx, &kendra.LookupFaqArgs{
+//				FaqId:   "87654321-1234-4321-4321-321987654321",
+//				IndexId: "12345678-1234-1234-1234-123456789123",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupFaq(ctx *pulumi.Context, args *LookupFaqArgs, opts ...pulumi.InvokeOption) (*LookupFaqResult, error) {
 	var rv LookupFaqResult
 	err := ctx.Invoke("aws:kendra/getFaq:getFaq", args, &rv, opts...)
@@ -21,29 +49,44 @@ func LookupFaq(ctx *pulumi.Context, args *LookupFaqArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getFaq.
 type LookupFaqArgs struct {
-	FaqId   string            `pulumi:"faqId"`
-	IndexId string            `pulumi:"indexId"`
-	Tags    map[string]string `pulumi:"tags"`
+	// Identifier of the FAQ.
+	FaqId string `pulumi:"faqId"`
+	// Identifier of the index that contains the FAQ.
+	IndexId string `pulumi:"indexId"`
+	// Metadata that helps organize the FAQs you create.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getFaq.
 type LookupFaqResult struct {
-	Arn          string `pulumi:"arn"`
-	CreatedAt    string `pulumi:"createdAt"`
-	Description  string `pulumi:"description"`
+	// ARN of the FAQ.
+	Arn string `pulumi:"arn"`
+	// Unix datetime that the faq was created.
+	CreatedAt string `pulumi:"createdAt"`
+	// Description of the FAQ.
+	Description string `pulumi:"description"`
+	// When the `status` field value is `FAILED`, this contains a message that explains why.
 	ErrorMessage string `pulumi:"errorMessage"`
 	FaqId        string `pulumi:"faqId"`
-	FileFormat   string `pulumi:"fileFormat"`
+	// File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+	FileFormat string `pulumi:"fileFormat"`
 	// The provider-assigned unique ID for this managed resource.
-	Id           string            `pulumi:"id"`
-	IndexId      string            `pulumi:"indexId"`
-	LanguageCode string            `pulumi:"languageCode"`
-	Name         string            `pulumi:"name"`
-	RoleArn      string            `pulumi:"roleArn"`
-	S3Paths      []GetFaqS3Path    `pulumi:"s3Paths"`
-	Status       string            `pulumi:"status"`
-	Tags         map[string]string `pulumi:"tags"`
-	UpdatedAt    string            `pulumi:"updatedAt"`
+	Id      string `pulumi:"id"`
+	IndexId string `pulumi:"indexId"`
+	// Code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+	LanguageCode string `pulumi:"languageCode"`
+	// Name of the FAQ.
+	Name string `pulumi:"name"`
+	// ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	RoleArn string `pulumi:"roleArn"`
+	// S3 location of the FAQ input data. Detailed below.
+	S3Paths []GetFaqS3Path `pulumi:"s3Paths"`
+	// Status of the FAQ. It is ready to use when the status is ACTIVE.
+	Status string `pulumi:"status"`
+	// Metadata that helps organize the FAQs you create.
+	Tags map[string]string `pulumi:"tags"`
+	// Date and time that the FAQ was last updated.
+	UpdatedAt string `pulumi:"updatedAt"`
 }
 
 func LookupFaqOutput(ctx *pulumi.Context, args LookupFaqOutputArgs, opts ...pulumi.InvokeOption) LookupFaqResultOutput {
@@ -61,9 +104,12 @@ func LookupFaqOutput(ctx *pulumi.Context, args LookupFaqOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getFaq.
 type LookupFaqOutputArgs struct {
-	FaqId   pulumi.StringInput    `pulumi:"faqId"`
-	IndexId pulumi.StringInput    `pulumi:"indexId"`
-	Tags    pulumi.StringMapInput `pulumi:"tags"`
+	// Identifier of the FAQ.
+	FaqId pulumi.StringInput `pulumi:"faqId"`
+	// Identifier of the index that contains the FAQ.
+	IndexId pulumi.StringInput `pulumi:"indexId"`
+	// Metadata that helps organize the FAQs you create.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupFaqOutputArgs) ElementType() reflect.Type {
@@ -85,18 +131,22 @@ func (o LookupFaqResultOutput) ToLookupFaqResultOutputWithContext(ctx context.Co
 	return o
 }
 
+// ARN of the FAQ.
 func (o LookupFaqResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFaqResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Unix datetime that the faq was created.
 func (o LookupFaqResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFaqResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// Description of the FAQ.
 func (o LookupFaqResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFaqResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// When the `status` field value is `FAILED`, this contains a message that explains why.
 func (o LookupFaqResultOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFaqResult) string { return v.ErrorMessage }).(pulumi.StringOutput)
 }
@@ -105,6 +155,7 @@ func (o LookupFaqResultOutput) FaqId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFaqResult) string { return v.FaqId }).(pulumi.StringOutput)
 }
 
+// File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
 func (o LookupFaqResultOutput) FileFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFaqResult) string { return v.FileFormat }).(pulumi.StringOutput)
 }
@@ -118,30 +169,37 @@ func (o LookupFaqResultOutput) IndexId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFaqResult) string { return v.IndexId }).(pulumi.StringOutput)
 }
 
+// Code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
 func (o LookupFaqResultOutput) LanguageCode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFaqResult) string { return v.LanguageCode }).(pulumi.StringOutput)
 }
 
+// Name of the FAQ.
 func (o LookupFaqResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFaqResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 func (o LookupFaqResultOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFaqResult) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// S3 location of the FAQ input data. Detailed below.
 func (o LookupFaqResultOutput) S3Paths() GetFaqS3PathArrayOutput {
 	return o.ApplyT(func(v LookupFaqResult) []GetFaqS3Path { return v.S3Paths }).(GetFaqS3PathArrayOutput)
 }
 
+// Status of the FAQ. It is ready to use when the status is ACTIVE.
 func (o LookupFaqResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFaqResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// Metadata that helps organize the FAQs you create.
 func (o LookupFaqResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFaqResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Date and time that the FAQ was last updated.
 func (o LookupFaqResultOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFaqResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }

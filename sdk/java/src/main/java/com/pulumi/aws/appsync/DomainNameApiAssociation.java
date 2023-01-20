@@ -13,17 +13,76 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an AppSync API Association.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appsync.DomainNameApiAssociation;
+ * import com.pulumi.aws.appsync.DomainNameApiAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new DomainNameApiAssociation(&#34;example&#34;, DomainNameApiAssociationArgs.builder()        
+ *             .apiId(aws_appsync_graphql_api.example().id())
+ *             .domainName(aws_appsync_domain_name.example().domain_name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_appsync_domain_name_api_association` can be imported using the AppSync domain name, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
+ * ```
+ * 
+ */
 @ResourceType(type="aws:appsync/domainNameApiAssociation:DomainNameApiAssociation")
 public class DomainNameApiAssociation extends com.pulumi.resources.CustomResource {
+    /**
+     * API ID.
+     * 
+     */
     @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
+    /**
+     * @return API ID.
+     * 
+     */
     public Output<String> apiId() {
         return this.apiId;
     }
+    /**
+     * Appsync domain name.
+     * 
+     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
+    /**
+     * @return Appsync domain name.
+     * 
+     */
     public Output<String> domainName() {
         return this.domainName;
     }

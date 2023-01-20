@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Ram.Outputs
     [OutputType]
     public sealed class GetResourceShareFilterResult
     {
+        /// <summary>
+        /// Name of the tag key to filter on.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Value of the tag key.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

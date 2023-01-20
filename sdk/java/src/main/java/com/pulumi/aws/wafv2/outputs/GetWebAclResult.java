@@ -9,7 +9,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetWebAclResult {
+    /**
+     * @return ARN of the entity.
+     * 
+     */
     private String arn;
+    /**
+     * @return Description of the WebACL that helps with identification.
+     * 
+     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -20,9 +28,17 @@ public final class GetWebAclResult {
     private String scope;
 
     private GetWebAclResult() {}
+    /**
+     * @return ARN of the entity.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Description of the WebACL that helps with identification.
+     * 
+     */
     public String description() {
         return this.description;
     }

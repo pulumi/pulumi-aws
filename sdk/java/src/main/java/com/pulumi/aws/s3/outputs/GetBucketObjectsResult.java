@@ -21,6 +21,10 @@ public final class GetBucketObjectsResult {
      */
     @Deprecated /* Use the aws_s3_objects data source instead */
     private String bucket;
+    /**
+     * @return List of any keys between `prefix` and the next occurrence of `delimiter` (i.e., similar to subdirectories of the `prefix` &#34;directory&#34;); the list is only returned when you specify `delimiter`
+     * 
+     */
     private List<String> commonPrefixes;
     private @Nullable String delimiter;
     private @Nullable String encodingType;
@@ -30,8 +34,16 @@ public final class GetBucketObjectsResult {
      * 
      */
     private String id;
+    /**
+     * @return List of strings representing object keys
+     * 
+     */
     private List<String> keys;
     private @Nullable Integer maxKeys;
+    /**
+     * @return List of strings representing object owner IDs (see `fetch_owner` above)
+     * 
+     */
     private List<String> owners;
     private @Nullable String prefix;
     private @Nullable String startAfter;
@@ -46,6 +58,10 @@ public final class GetBucketObjectsResult {
     public String bucket() {
         return this.bucket;
     }
+    /**
+     * @return List of any keys between `prefix` and the next occurrence of `delimiter` (i.e., similar to subdirectories of the `prefix` &#34;directory&#34;); the list is only returned when you specify `delimiter`
+     * 
+     */
     public List<String> commonPrefixes() {
         return this.commonPrefixes;
     }
@@ -65,12 +81,20 @@ public final class GetBucketObjectsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return List of strings representing object keys
+     * 
+     */
     public List<String> keys() {
         return this.keys;
     }
     public Optional<Integer> maxKeys() {
         return Optional.ofNullable(this.maxKeys);
     }
+    /**
+     * @return List of strings representing object owner IDs (see `fetch_owner` above)
+     * 
+     */
     public List<String> owners() {
         return this.owners;
     }

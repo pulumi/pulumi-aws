@@ -7,6 +7,20 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Get information on an Amazon MSK Broker Nodes.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.msk.getBrokerNodes({
+ *     clusterArn: aws_msk_cluster.example.arn,
+ * });
+ * ```
+ */
 export function getBrokerNodes(args: GetBrokerNodesArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerNodesResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -19,6 +33,9 @@ export function getBrokerNodes(args: GetBrokerNodesArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getBrokerNodes.
  */
 export interface GetBrokerNodesArgs {
+    /**
+     * ARN of the cluster the nodes belong to.
+     */
     clusterArn: string;
 }
 
@@ -33,6 +50,20 @@ export interface GetBrokerNodesResult {
     readonly id: string;
     readonly nodeInfoLists: outputs.msk.GetBrokerNodesNodeInfoList[];
 }
+/**
+ * Get information on an Amazon MSK Broker Nodes.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.msk.getBrokerNodes({
+ *     clusterArn: aws_msk_cluster.example.arn,
+ * });
+ * ```
+ */
 export function getBrokerNodesOutput(args: GetBrokerNodesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerNodesResult> {
     return pulumi.output(args).apply((a: any) => getBrokerNodes(a, opts))
 }
@@ -41,5 +72,8 @@ export function getBrokerNodesOutput(args: GetBrokerNodesOutputArgs, opts?: pulu
  * A collection of arguments for invoking getBrokerNodes.
  */
 export interface GetBrokerNodesOutputArgs {
+    /**
+     * ARN of the cluster the nodes belong to.
+     */
     clusterArn: pulumi.Input<string>;
 }

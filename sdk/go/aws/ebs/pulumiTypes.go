@@ -11,10 +11,14 @@ import (
 )
 
 type SnapshotImportClientData struct {
-	Comment     *string  `pulumi:"comment"`
-	UploadEnd   *string  `pulumi:"uploadEnd"`
-	UploadSize  *float64 `pulumi:"uploadSize"`
-	UploadStart *string  `pulumi:"uploadStart"`
+	// A user-defined comment about the disk upload.
+	Comment *string `pulumi:"comment"`
+	// The time that the disk upload ends.
+	UploadEnd *string `pulumi:"uploadEnd"`
+	// The size of the uploaded disk image, in GiB.
+	UploadSize *float64 `pulumi:"uploadSize"`
+	// The time that the disk upload starts.
+	UploadStart *string `pulumi:"uploadStart"`
 }
 
 // SnapshotImportClientDataInput is an input type that accepts SnapshotImportClientDataArgs and SnapshotImportClientDataOutput values.
@@ -29,10 +33,14 @@ type SnapshotImportClientDataInput interface {
 }
 
 type SnapshotImportClientDataArgs struct {
-	Comment     pulumi.StringPtrInput  `pulumi:"comment"`
-	UploadEnd   pulumi.StringPtrInput  `pulumi:"uploadEnd"`
-	UploadSize  pulumi.Float64PtrInput `pulumi:"uploadSize"`
-	UploadStart pulumi.StringPtrInput  `pulumi:"uploadStart"`
+	// A user-defined comment about the disk upload.
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// The time that the disk upload ends.
+	UploadEnd pulumi.StringPtrInput `pulumi:"uploadEnd"`
+	// The size of the uploaded disk image, in GiB.
+	UploadSize pulumi.Float64PtrInput `pulumi:"uploadSize"`
+	// The time that the disk upload starts.
+	UploadStart pulumi.StringPtrInput `pulumi:"uploadStart"`
 }
 
 func (SnapshotImportClientDataArgs) ElementType() reflect.Type {
@@ -112,18 +120,22 @@ func (o SnapshotImportClientDataOutput) ToSnapshotImportClientDataPtrOutputWithC
 	}).(SnapshotImportClientDataPtrOutput)
 }
 
+// A user-defined comment about the disk upload.
 func (o SnapshotImportClientDataOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotImportClientData) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// The time that the disk upload ends.
 func (o SnapshotImportClientDataOutput) UploadEnd() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotImportClientData) *string { return v.UploadEnd }).(pulumi.StringPtrOutput)
 }
 
+// The size of the uploaded disk image, in GiB.
 func (o SnapshotImportClientDataOutput) UploadSize() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SnapshotImportClientData) *float64 { return v.UploadSize }).(pulumi.Float64PtrOutput)
 }
 
+// The time that the disk upload starts.
 func (o SnapshotImportClientDataOutput) UploadStart() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotImportClientData) *string { return v.UploadStart }).(pulumi.StringPtrOutput)
 }
@@ -152,6 +164,7 @@ func (o SnapshotImportClientDataPtrOutput) Elem() SnapshotImportClientDataOutput
 	}).(SnapshotImportClientDataOutput)
 }
 
+// A user-defined comment about the disk upload.
 func (o SnapshotImportClientDataPtrOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotImportClientData) *string {
 		if v == nil {
@@ -161,6 +174,7 @@ func (o SnapshotImportClientDataPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The time that the disk upload ends.
 func (o SnapshotImportClientDataPtrOutput) UploadEnd() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotImportClientData) *string {
 		if v == nil {
@@ -170,6 +184,7 @@ func (o SnapshotImportClientDataPtrOutput) UploadEnd() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The size of the uploaded disk image, in GiB.
 func (o SnapshotImportClientDataPtrOutput) UploadSize() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SnapshotImportClientData) *float64 {
 		if v == nil {
@@ -179,6 +194,7 @@ func (o SnapshotImportClientDataPtrOutput) UploadSize() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The time that the disk upload starts.
 func (o SnapshotImportClientDataPtrOutput) UploadStart() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotImportClientData) *string {
 		if v == nil {
@@ -189,10 +205,14 @@ func (o SnapshotImportClientDataPtrOutput) UploadStart() pulumi.StringPtrOutput 
 }
 
 type SnapshotImportDiskContainer struct {
-	Description *string                                `pulumi:"description"`
-	Format      string                                 `pulumi:"format"`
-	Url         *string                                `pulumi:"url"`
-	UserBucket  *SnapshotImportDiskContainerUserBucket `pulumi:"userBucket"`
+	// The description of the disk image being imported.
+	Description *string `pulumi:"description"`
+	// The format of the disk image being imported. One of `VHD` or `VMDK`.
+	Format string `pulumi:"format"`
+	// The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `userBucket` must be set.
+	Url *string `pulumi:"url"`
+	// The Amazon S3 bucket for the disk image. One of `url` or `userBucket` must be set. Detailed below.
+	UserBucket *SnapshotImportDiskContainerUserBucket `pulumi:"userBucket"`
 }
 
 // SnapshotImportDiskContainerInput is an input type that accepts SnapshotImportDiskContainerArgs and SnapshotImportDiskContainerOutput values.
@@ -207,10 +227,14 @@ type SnapshotImportDiskContainerInput interface {
 }
 
 type SnapshotImportDiskContainerArgs struct {
-	Description pulumi.StringPtrInput                         `pulumi:"description"`
-	Format      pulumi.StringInput                            `pulumi:"format"`
-	Url         pulumi.StringPtrInput                         `pulumi:"url"`
-	UserBucket  SnapshotImportDiskContainerUserBucketPtrInput `pulumi:"userBucket"`
+	// The description of the disk image being imported.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The format of the disk image being imported. One of `VHD` or `VMDK`.
+	Format pulumi.StringInput `pulumi:"format"`
+	// The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `userBucket` must be set.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+	// The Amazon S3 bucket for the disk image. One of `url` or `userBucket` must be set. Detailed below.
+	UserBucket SnapshotImportDiskContainerUserBucketPtrInput `pulumi:"userBucket"`
 }
 
 func (SnapshotImportDiskContainerArgs) ElementType() reflect.Type {
@@ -290,18 +314,22 @@ func (o SnapshotImportDiskContainerOutput) ToSnapshotImportDiskContainerPtrOutpu
 	}).(SnapshotImportDiskContainerPtrOutput)
 }
 
+// The description of the disk image being imported.
 func (o SnapshotImportDiskContainerOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotImportDiskContainer) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The format of the disk image being imported. One of `VHD` or `VMDK`.
 func (o SnapshotImportDiskContainerOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v SnapshotImportDiskContainer) string { return v.Format }).(pulumi.StringOutput)
 }
 
+// The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `userBucket` must be set.
 func (o SnapshotImportDiskContainerOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotImportDiskContainer) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon S3 bucket for the disk image. One of `url` or `userBucket` must be set. Detailed below.
 func (o SnapshotImportDiskContainerOutput) UserBucket() SnapshotImportDiskContainerUserBucketPtrOutput {
 	return o.ApplyT(func(v SnapshotImportDiskContainer) *SnapshotImportDiskContainerUserBucket { return v.UserBucket }).(SnapshotImportDiskContainerUserBucketPtrOutput)
 }
@@ -330,6 +358,7 @@ func (o SnapshotImportDiskContainerPtrOutput) Elem() SnapshotImportDiskContainer
 	}).(SnapshotImportDiskContainerOutput)
 }
 
+// The description of the disk image being imported.
 func (o SnapshotImportDiskContainerPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotImportDiskContainer) *string {
 		if v == nil {
@@ -339,6 +368,7 @@ func (o SnapshotImportDiskContainerPtrOutput) Description() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The format of the disk image being imported. One of `VHD` or `VMDK`.
 func (o SnapshotImportDiskContainerPtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotImportDiskContainer) *string {
 		if v == nil {
@@ -348,6 +378,7 @@ func (o SnapshotImportDiskContainerPtrOutput) Format() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `userBucket` must be set.
 func (o SnapshotImportDiskContainerPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotImportDiskContainer) *string {
 		if v == nil {
@@ -357,6 +388,7 @@ func (o SnapshotImportDiskContainerPtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon S3 bucket for the disk image. One of `url` or `userBucket` must be set. Detailed below.
 func (o SnapshotImportDiskContainerPtrOutput) UserBucket() SnapshotImportDiskContainerUserBucketPtrOutput {
 	return o.ApplyT(func(v *SnapshotImportDiskContainer) *SnapshotImportDiskContainerUserBucket {
 		if v == nil {
@@ -367,8 +399,10 @@ func (o SnapshotImportDiskContainerPtrOutput) UserBucket() SnapshotImportDiskCon
 }
 
 type SnapshotImportDiskContainerUserBucket struct {
+	// The name of the Amazon S3 bucket where the disk image is located.
 	S3Bucket string `pulumi:"s3Bucket"`
-	S3Key    string `pulumi:"s3Key"`
+	// The file name of the disk image.
+	S3Key string `pulumi:"s3Key"`
 }
 
 // SnapshotImportDiskContainerUserBucketInput is an input type that accepts SnapshotImportDiskContainerUserBucketArgs and SnapshotImportDiskContainerUserBucketOutput values.
@@ -383,8 +417,10 @@ type SnapshotImportDiskContainerUserBucketInput interface {
 }
 
 type SnapshotImportDiskContainerUserBucketArgs struct {
+	// The name of the Amazon S3 bucket where the disk image is located.
 	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
-	S3Key    pulumi.StringInput `pulumi:"s3Key"`
+	// The file name of the disk image.
+	S3Key pulumi.StringInput `pulumi:"s3Key"`
 }
 
 func (SnapshotImportDiskContainerUserBucketArgs) ElementType() reflect.Type {
@@ -464,10 +500,12 @@ func (o SnapshotImportDiskContainerUserBucketOutput) ToSnapshotImportDiskContain
 	}).(SnapshotImportDiskContainerUserBucketPtrOutput)
 }
 
+// The name of the Amazon S3 bucket where the disk image is located.
 func (o SnapshotImportDiskContainerUserBucketOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v SnapshotImportDiskContainerUserBucket) string { return v.S3Bucket }).(pulumi.StringOutput)
 }
 
+// The file name of the disk image.
 func (o SnapshotImportDiskContainerUserBucketOutput) S3Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SnapshotImportDiskContainerUserBucket) string { return v.S3Key }).(pulumi.StringOutput)
 }
@@ -496,6 +534,7 @@ func (o SnapshotImportDiskContainerUserBucketPtrOutput) Elem() SnapshotImportDis
 	}).(SnapshotImportDiskContainerUserBucketOutput)
 }
 
+// The name of the Amazon S3 bucket where the disk image is located.
 func (o SnapshotImportDiskContainerUserBucketPtrOutput) S3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotImportDiskContainerUserBucket) *string {
 		if v == nil {
@@ -505,6 +544,7 @@ func (o SnapshotImportDiskContainerUserBucketPtrOutput) S3Bucket() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The file name of the disk image.
 func (o SnapshotImportDiskContainerUserBucketPtrOutput) S3Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotImportDiskContainerUserBucket) *string {
 		if v == nil {
@@ -515,7 +555,12 @@ func (o SnapshotImportDiskContainerUserBucketPtrOutput) S3Key() pulumi.StringPtr
 }
 
 type GetEbsVolumesFilter struct {
-	Name   string   `pulumi:"name"`
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
+	// For example, if matching against the `size` filter, use:
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// EBS Volume IDs will be selected if any one of the given values match.
 	Values []string `pulumi:"values"`
 }
 
@@ -531,7 +576,12 @@ type GetEbsVolumesFilterInput interface {
 }
 
 type GetEbsVolumesFilterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
+	// For example, if matching against the `size` filter, use:
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// EBS Volume IDs will be selected if any one of the given values match.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -586,10 +636,15 @@ func (o GetEbsVolumesFilterOutput) ToGetEbsVolumesFilterOutputWithContext(ctx co
 	return o
 }
 
+// Name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
+// For example, if matching against the `size` filter, use:
 func (o GetEbsVolumesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEbsVolumesFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Set of values that are accepted for the given field.
+// EBS Volume IDs will be selected if any one of the given values match.
 func (o GetEbsVolumesFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEbsVolumesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

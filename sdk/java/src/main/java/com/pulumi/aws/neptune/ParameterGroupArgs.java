@@ -18,37 +18,77 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ParameterGroupArgs Empty = new ParameterGroupArgs();
 
+    /**
+     * The description of the Neptune parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return The description of the Neptune parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * The family of the Neptune parameter group.
+     * 
+     */
     @Import(name="family", required=true)
     private Output<String> family;
 
+    /**
+     * @return The family of the Neptune parameter group.
+     * 
+     */
     public Output<String> family() {
         return this.family;
     }
 
+    /**
+     * The name of the Neptune parameter.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the Neptune parameter.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * A list of Neptune parameters to apply.
+     * 
+     */
     @Import(name="parameters")
     private @Nullable Output<List<ParameterGroupParameterArgs>> parameters;
 
+    /**
+     * @return A list of Neptune parameters to apply.
+     * 
+     */
     public Optional<Output<List<ParameterGroupParameterArgs>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -81,51 +121,117 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ParameterGroupArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param description The description of the Neptune parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description The description of the Neptune parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param family The family of the Neptune parameter group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder family(Output<String> family) {
             $.family = family;
             return this;
         }
 
+        /**
+         * @param family The family of the Neptune parameter group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder family(String family) {
             return family(Output.of(family));
         }
 
+        /**
+         * @param name The name of the Neptune parameter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the Neptune parameter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param parameters A list of Neptune parameters to apply.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parameters(@Nullable Output<List<ParameterGroupParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
+        /**
+         * @param parameters A list of Neptune parameters to apply.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parameters(List<ParameterGroupParameterArgs> parameters) {
             return parameters(Output.of(parameters));
         }
 
+        /**
+         * @param parameters A list of Neptune parameters to apply.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parameters(ParameterGroupParameterArgs... parameters) {
             return parameters(List.of(parameters));
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

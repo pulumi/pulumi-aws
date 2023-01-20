@@ -20,6 +20,10 @@ class PublishingDestinationArgs:
                  destination_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PublishingDestination resource.
+        :param pulumi.Input[str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty.
+        :param pulumi.Input[str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        :param pulumi.Input[str] destination_type: Currently there is only "S3" available as destination type which is also the default value
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "detector_id", detector_id)
@@ -30,6 +34,9 @@ class PublishingDestinationArgs:
     @property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Input[str]:
+        """
+        The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
@@ -39,6 +46,9 @@ class PublishingDestinationArgs:
     @property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Input[str]:
+        """
+        The detector ID of the GuardDuty.
+        """
         return pulumi.get(self, "detector_id")
 
     @detector_id.setter
@@ -48,6 +58,9 @@ class PublishingDestinationArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -57,6 +70,9 @@ class PublishingDestinationArgs:
     @property
     @pulumi.getter(name="destinationType")
     def destination_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Currently there is only "S3" available as destination type which is also the default value
+        """
         return pulumi.get(self, "destination_type")
 
     @destination_type.setter
@@ -73,6 +89,10 @@ class _PublishingDestinationState:
                  kms_key_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PublishingDestination resources.
+        :param pulumi.Input[str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        :param pulumi.Input[str] destination_type: Currently there is only "S3" available as destination type which is also the default value
+        :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty.
+        :param pulumi.Input[str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         """
         if destination_arn is not None:
             pulumi.set(__self__, "destination_arn", destination_arn)
@@ -86,6 +106,9 @@ class _PublishingDestinationState:
     @property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
@@ -95,6 +118,9 @@ class _PublishingDestinationState:
     @property
     @pulumi.getter(name="destinationType")
     def destination_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Currently there is only "S3" available as destination type which is also the default value
+        """
         return pulumi.get(self, "destination_type")
 
     @destination_type.setter
@@ -104,6 +130,9 @@ class _PublishingDestinationState:
     @property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The detector ID of the GuardDuty.
+        """
         return pulumi.get(self, "detector_id")
 
     @detector_id.setter
@@ -113,6 +142,9 @@ class _PublishingDestinationState:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -131,9 +163,91 @@ class PublishingDestination(pulumi.CustomResource):
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a PublishingDestination resource with the given unique name, props, and options.
+        Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current_caller_identity = aws.get_caller_identity()
+        current_region = aws.get_region()
+        gd_bucket = aws.s3.BucketV2("gdBucket", force_destroy=True)
+        bucket_pol = aws.iam.get_policy_document_output(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="Allow PutObject",
+                actions=["s3:PutObject"],
+                resources=[gd_bucket.arn.apply(lambda arn: f"{arn}/*")],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["guardduty.amazonaws.com"],
+                )],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="Allow GetBucketLocation",
+                actions=["s3:GetBucketLocation"],
+                resources=[gd_bucket.arn],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["guardduty.amazonaws.com"],
+                )],
+            ),
+        ])
+        kms_pol = aws.iam.get_policy_document(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="Allow GuardDuty to encrypt findings",
+                actions=["kms:GenerateDataKey"],
+                resources=[f"arn:aws:kms:{current_region.name}:{current_caller_identity.account_id}:key/*"],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["guardduty.amazonaws.com"],
+                )],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="Allow all users to modify/delete key (test only)",
+                actions=["kms:*"],
+                resources=[f"arn:aws:kms:{current_region.name}:{current_caller_identity.account_id}:key/*"],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="AWS",
+                    identifiers=[f"arn:aws:iam::{current_caller_identity.account_id}:root"],
+                )],
+            ),
+        ])
+        test_gd = aws.guardduty.Detector("testGd", enable=True)
+        gd_bucket_acl = aws.s3.BucketAclV2("gdBucketAcl",
+            bucket=gd_bucket.id,
+            acl="private")
+        gd_bucket_policy = aws.s3.BucketPolicy("gdBucketPolicy",
+            bucket=gd_bucket.id,
+            policy=bucket_pol.json)
+        gd_key = aws.kms.Key("gdKey",
+            description="Temporary key for AccTest of TF",
+            deletion_window_in_days=7,
+            policy=kms_pol.json)
+        test = aws.guardduty.PublishingDestination("test",
+            detector_id=test_gd.id,
+            destination_arn=gd_bucket.arn,
+            kms_key_arn=gd_key.arn,
+            opts=pulumi.ResourceOptions(depends_on=[gd_bucket_policy]))
+        ```
+
+        > **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html
+
+        ## Import
+
+        GuardDuty PublishingDestination can be imported using the master GuardDuty detector ID and PublishingDestinationID, e.g.,
+
+        ```sh
+         $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        :param pulumi.Input[str] destination_type: Currently there is only "S3" available as destination type which is also the default value
+        :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty.
+        :param pulumi.Input[str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         """
         ...
     @overload
@@ -142,7 +256,85 @@ class PublishingDestination(pulumi.CustomResource):
                  args: PublishingDestinationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a PublishingDestination resource with the given unique name, props, and options.
+        Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current_caller_identity = aws.get_caller_identity()
+        current_region = aws.get_region()
+        gd_bucket = aws.s3.BucketV2("gdBucket", force_destroy=True)
+        bucket_pol = aws.iam.get_policy_document_output(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="Allow PutObject",
+                actions=["s3:PutObject"],
+                resources=[gd_bucket.arn.apply(lambda arn: f"{arn}/*")],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["guardduty.amazonaws.com"],
+                )],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="Allow GetBucketLocation",
+                actions=["s3:GetBucketLocation"],
+                resources=[gd_bucket.arn],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["guardduty.amazonaws.com"],
+                )],
+            ),
+        ])
+        kms_pol = aws.iam.get_policy_document(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="Allow GuardDuty to encrypt findings",
+                actions=["kms:GenerateDataKey"],
+                resources=[f"arn:aws:kms:{current_region.name}:{current_caller_identity.account_id}:key/*"],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["guardduty.amazonaws.com"],
+                )],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="Allow all users to modify/delete key (test only)",
+                actions=["kms:*"],
+                resources=[f"arn:aws:kms:{current_region.name}:{current_caller_identity.account_id}:key/*"],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="AWS",
+                    identifiers=[f"arn:aws:iam::{current_caller_identity.account_id}:root"],
+                )],
+            ),
+        ])
+        test_gd = aws.guardduty.Detector("testGd", enable=True)
+        gd_bucket_acl = aws.s3.BucketAclV2("gdBucketAcl",
+            bucket=gd_bucket.id,
+            acl="private")
+        gd_bucket_policy = aws.s3.BucketPolicy("gdBucketPolicy",
+            bucket=gd_bucket.id,
+            policy=bucket_pol.json)
+        gd_key = aws.kms.Key("gdKey",
+            description="Temporary key for AccTest of TF",
+            deletion_window_in_days=7,
+            policy=kms_pol.json)
+        test = aws.guardduty.PublishingDestination("test",
+            detector_id=test_gd.id,
+            destination_arn=gd_bucket.arn,
+            kms_key_arn=gd_key.arn,
+            opts=pulumi.ResourceOptions(depends_on=[gd_bucket_policy]))
+        ```
+
+        > **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html
+
+        ## Import
+
+        GuardDuty PublishingDestination can be imported using the master GuardDuty detector ID and PublishingDestinationID, e.g.,
+
+        ```sh
+         $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
+        ```
+
         :param str resource_name: The name of the resource.
         :param PublishingDestinationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,6 +394,10 @@ class PublishingDestination(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        :param pulumi.Input[str] destination_type: Currently there is only "S3" available as destination type which is also the default value
+        :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty.
+        :param pulumi.Input[str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -216,20 +412,32 @@ class PublishingDestination(pulumi.CustomResource):
     @property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Output[str]:
+        """
+        The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        """
         return pulumi.get(self, "destination_arn")
 
     @property
     @pulumi.getter(name="destinationType")
     def destination_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Currently there is only "S3" available as destination type which is also the default value
+        """
         return pulumi.get(self, "destination_type")
 
     @property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Output[str]:
+        """
+        The detector ID of the GuardDuty.
+        """
         return pulumi.get(self, "detector_id")
 
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        """
         return pulumi.get(self, "kms_key_arn")
 

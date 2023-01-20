@@ -12,21 +12,55 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterRestoreToPointInTime {
+    /**
+     * @return Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
+     * 
+     */
     private @Nullable String restoreToTime;
+    /**
+     * @return Type of restore to be performed.
+     * Valid options are `full-copy` (default) and `copy-on-write`.
+     * 
+     */
     private @Nullable String restoreType;
+    /**
+     * @return The identifier of the source database cluster from which to restore.
+     * 
+     */
     private String sourceClusterIdentifier;
+    /**
+     * @return Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
+     * 
+     */
     private @Nullable Boolean useLatestRestorableTime;
 
     private ClusterRestoreToPointInTime() {}
+    /**
+     * @return Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
+     * 
+     */
     public Optional<String> restoreToTime() {
         return Optional.ofNullable(this.restoreToTime);
     }
+    /**
+     * @return Type of restore to be performed.
+     * Valid options are `full-copy` (default) and `copy-on-write`.
+     * 
+     */
     public Optional<String> restoreType() {
         return Optional.ofNullable(this.restoreType);
     }
+    /**
+     * @return The identifier of the source database cluster from which to restore.
+     * 
+     */
     public String sourceClusterIdentifier() {
         return this.sourceClusterIdentifier;
     }
+    /**
+     * @return Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
+     * 
+     */
     public Optional<Boolean> useLatestRestorableTime() {
         return Optional.ofNullable(this.useLatestRestorableTime);
     }

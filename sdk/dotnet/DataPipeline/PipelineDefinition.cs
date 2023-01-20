@@ -9,18 +9,132 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DataPipeline
 {
+    /// <summary>
+    /// Provides a DataPipeline Pipeline Definition resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = new Aws.DataPipeline.Pipeline("default");
+    /// 
+    ///     var example = new Aws.DataPipeline.PipelineDefinition("example", new()
+    ///     {
+    ///         PipelineId = @default.Id,
+    ///         PipelineObjects = new[]
+    ///         {
+    ///             new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectArgs
+    ///             {
+    ///                 Id = "Default",
+    ///                 Name = "Default",
+    ///                 Fields = new[]
+    ///                 {
+    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     {
+    ///                         Key = "workerGroup",
+    ///                         StringValue = "workerGroup",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectArgs
+    ///             {
+    ///                 Id = "Schedule",
+    ///                 Name = "Schedule",
+    ///                 Fields = new[]
+    ///                 {
+    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     {
+    ///                         Key = "startDateTime",
+    ///                         StringValue = "2012-12-12T00:00:00",
+    ///                     },
+    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     {
+    ///                         Key = "type",
+    ///                         StringValue = "Schedule",
+    ///                     },
+    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     {
+    ///                         Key = "period",
+    ///                         StringValue = "1 hour",
+    ///                     },
+    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     {
+    ///                         Key = "endDateTime",
+    ///                         StringValue = "2012-12-21T18:00:00",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectArgs
+    ///             {
+    ///                 Id = "SayHello",
+    ///                 Name = "SayHello",
+    ///                 Fields = new[]
+    ///                 {
+    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     {
+    ///                         Key = "type",
+    ///                         StringValue = "ShellCommandActivity",
+    ///                     },
+    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     {
+    ///                         Key = "command",
+    ///                         StringValue = "echo hello",
+    ///                     },
+    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     {
+    ///                         Key = "parent",
+    ///                         StringValue = "Default",
+    ///                     },
+    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     {
+    ///                         Key = "schedule",
+    ///                         StringValue = "Schedule",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_datapipeline_pipeline_definition` can be imported using the id, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:datapipeline/pipelineDefinition:PipelineDefinition")]
     public partial class PipelineDefinition : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Configuration block for the parameter objects used in the pipeline definition. See below
+        /// </summary>
         [Output("parameterObjects")]
         public Output<ImmutableArray<Outputs.PipelineDefinitionParameterObject>> ParameterObjects { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block for the parameter values used in the pipeline definition. See below
+        /// </summary>
         [Output("parameterValues")]
         public Output<ImmutableArray<Outputs.PipelineDefinitionParameterValue>> ParameterValues { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the pipeline.
+        /// </summary>
         [Output("pipelineId")]
         public Output<string> PipelineId { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block for the objects that define the pipeline. See below
+        /// </summary>
         [Output("pipelineObjects")]
         public Output<ImmutableArray<Outputs.PipelineDefinitionPipelineObject>> PipelineObjects { get; private set; } = null!;
 
@@ -72,6 +186,10 @@ namespace Pulumi.Aws.DataPipeline
     {
         [Input("parameterObjects")]
         private InputList<Inputs.PipelineDefinitionParameterObjectArgs>? _parameterObjects;
+
+        /// <summary>
+        /// Configuration block for the parameter objects used in the pipeline definition. See below
+        /// </summary>
         public InputList<Inputs.PipelineDefinitionParameterObjectArgs> ParameterObjects
         {
             get => _parameterObjects ?? (_parameterObjects = new InputList<Inputs.PipelineDefinitionParameterObjectArgs>());
@@ -80,17 +198,28 @@ namespace Pulumi.Aws.DataPipeline
 
         [Input("parameterValues")]
         private InputList<Inputs.PipelineDefinitionParameterValueArgs>? _parameterValues;
+
+        /// <summary>
+        /// Configuration block for the parameter values used in the pipeline definition. See below
+        /// </summary>
         public InputList<Inputs.PipelineDefinitionParameterValueArgs> ParameterValues
         {
             get => _parameterValues ?? (_parameterValues = new InputList<Inputs.PipelineDefinitionParameterValueArgs>());
             set => _parameterValues = value;
         }
 
+        /// <summary>
+        /// ID of the pipeline.
+        /// </summary>
         [Input("pipelineId", required: true)]
         public Input<string> PipelineId { get; set; } = null!;
 
         [Input("pipelineObjects", required: true)]
         private InputList<Inputs.PipelineDefinitionPipelineObjectArgs>? _pipelineObjects;
+
+        /// <summary>
+        /// Configuration block for the objects that define the pipeline. See below
+        /// </summary>
         public InputList<Inputs.PipelineDefinitionPipelineObjectArgs> PipelineObjects
         {
             get => _pipelineObjects ?? (_pipelineObjects = new InputList<Inputs.PipelineDefinitionPipelineObjectArgs>());
@@ -107,6 +236,10 @@ namespace Pulumi.Aws.DataPipeline
     {
         [Input("parameterObjects")]
         private InputList<Inputs.PipelineDefinitionParameterObjectGetArgs>? _parameterObjects;
+
+        /// <summary>
+        /// Configuration block for the parameter objects used in the pipeline definition. See below
+        /// </summary>
         public InputList<Inputs.PipelineDefinitionParameterObjectGetArgs> ParameterObjects
         {
             get => _parameterObjects ?? (_parameterObjects = new InputList<Inputs.PipelineDefinitionParameterObjectGetArgs>());
@@ -115,17 +248,28 @@ namespace Pulumi.Aws.DataPipeline
 
         [Input("parameterValues")]
         private InputList<Inputs.PipelineDefinitionParameterValueGetArgs>? _parameterValues;
+
+        /// <summary>
+        /// Configuration block for the parameter values used in the pipeline definition. See below
+        /// </summary>
         public InputList<Inputs.PipelineDefinitionParameterValueGetArgs> ParameterValues
         {
             get => _parameterValues ?? (_parameterValues = new InputList<Inputs.PipelineDefinitionParameterValueGetArgs>());
             set => _parameterValues = value;
         }
 
+        /// <summary>
+        /// ID of the pipeline.
+        /// </summary>
         [Input("pipelineId")]
         public Input<string>? PipelineId { get; set; }
 
         [Input("pipelineObjects")]
         private InputList<Inputs.PipelineDefinitionPipelineObjectGetArgs>? _pipelineObjects;
+
+        /// <summary>
+        /// Configuration block for the objects that define the pipeline. See below
+        /// </summary>
         public InputList<Inputs.PipelineDefinitionPipelineObjectGetArgs> PipelineObjects
         {
             get => _pipelineObjects ?? (_pipelineObjects = new InputList<Inputs.PipelineDefinitionPipelineObjectGetArgs>());

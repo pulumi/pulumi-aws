@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics {
+    /**
+     * @return Whether the activity metrics are enabled.
+     * 
+     */
     private @Nullable Boolean enabled;
 
     private StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics() {}
+    /**
+     * @return Whether the activity metrics are enabled.
+     * 
+     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

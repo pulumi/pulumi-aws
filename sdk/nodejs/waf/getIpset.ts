@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `aws.waf.IpSet` Retrieves a WAF IP Set Resource Id.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.waf.getIpset({
+ *     name: "tfWAFIPSet",
+ * });
+ * ```
+ */
 export function getIpset(args: GetIpsetArgs, opts?: pulumi.InvokeOptions): Promise<GetIpsetResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -16,6 +30,9 @@ export function getIpset(args: GetIpsetArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getIpset.
  */
 export interface GetIpsetArgs {
+    /**
+     * Name of the WAF IP set.
+     */
     name: string;
 }
 
@@ -29,6 +46,20 @@ export interface GetIpsetResult {
     readonly id: string;
     readonly name: string;
 }
+/**
+ * `aws.waf.IpSet` Retrieves a WAF IP Set Resource Id.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.waf.getIpset({
+ *     name: "tfWAFIPSet",
+ * });
+ * ```
+ */
 export function getIpsetOutput(args: GetIpsetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpsetResult> {
     return pulumi.output(args).apply((a: any) => getIpset(a, opts))
 }
@@ -37,5 +68,8 @@ export function getIpsetOutput(args: GetIpsetOutputArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getIpset.
  */
 export interface GetIpsetOutputArgs {
+    /**
+     * Name of the WAF IP set.
+     */
     name: pulumi.Input<string>;
 }

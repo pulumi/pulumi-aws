@@ -14,23 +14,98 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Inspector assessment target
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.inspector.ResourceGroup;
+ * import com.pulumi.aws.inspector.ResourceGroupArgs;
+ * import com.pulumi.aws.inspector.AssessmentTarget;
+ * import com.pulumi.aws.inspector.AssessmentTargetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var bar = new ResourceGroup(&#34;bar&#34;, ResourceGroupArgs.builder()        
+ *             .tags(Map.ofEntries(
+ *                 Map.entry(&#34;Name&#34;, &#34;foo&#34;),
+ *                 Map.entry(&#34;Env&#34;, &#34;bar&#34;)
+ *             ))
+ *             .build());
+ * 
+ *         var foo = new AssessmentTarget(&#34;foo&#34;, AssessmentTargetArgs.builder()        
+ *             .resourceGroupArn(bar.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Inspector Assessment Targets can be imported via their Amazon Resource Name (ARN), e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
+ * ```
+ * 
+ */
 @ResourceType(type="aws:inspector/assessmentTarget:AssessmentTarget")
 public class AssessmentTarget extends com.pulumi.resources.CustomResource {
+    /**
+     * The target assessment ARN.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The target assessment ARN.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The name of the assessment target.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the assessment target.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+     * 
+     */
     @Export(name="resourceGroupArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceGroupArn;
 
+    /**
+     * @return Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+     * 
+     */
     public Output<Optional<String>> resourceGroupArn() {
         return Codegen.optional(this.resourceGroupArn);
     }

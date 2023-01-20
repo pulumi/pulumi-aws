@@ -7,6 +7,20 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides details about an EC2 Local Gateway Virtual Interface Group. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2.getLocalGatewayVirtualInterfaceGroup({
+ *     localGatewayId: data.aws_ec2_local_gateway.example.id,
+ * });
+ * ```
+ */
 export function getLocalGatewayVirtualInterfaceGroup(args?: GetLocalGatewayVirtualInterfaceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayVirtualInterfaceGroupResult> {
     args = args || {};
 
@@ -23,9 +37,21 @@ export function getLocalGatewayVirtualInterfaceGroup(args?: GetLocalGatewayVirtu
  * A collection of arguments for invoking getLocalGatewayVirtualInterfaceGroup.
  */
 export interface GetLocalGatewayVirtualInterfaceGroupArgs {
+    /**
+     * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
+     */
     filters?: inputs.ec2.GetLocalGatewayVirtualInterfaceGroupFilter[];
+    /**
+     * Identifier of EC2 Local Gateway Virtual Interface Group.
+     */
     id?: string;
+    /**
+     * Identifier of EC2 Local Gateway.
+     */
     localGatewayId?: string;
+    /**
+     * Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -36,9 +62,26 @@ export interface GetLocalGatewayVirtualInterfaceGroupResult {
     readonly filters?: outputs.ec2.GetLocalGatewayVirtualInterfaceGroupFilter[];
     readonly id: string;
     readonly localGatewayId: string;
+    /**
+     * Set of EC2 Local Gateway Virtual Interface identifiers.
+     */
     readonly localGatewayVirtualInterfaceIds: string[];
     readonly tags: {[key: string]: string};
 }
+/**
+ * Provides details about an EC2 Local Gateway Virtual Interface Group. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2.getLocalGatewayVirtualInterfaceGroup({
+ *     localGatewayId: data.aws_ec2_local_gateway.example.id,
+ * });
+ * ```
+ */
 export function getLocalGatewayVirtualInterfaceGroupOutput(args?: GetLocalGatewayVirtualInterfaceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayVirtualInterfaceGroupResult> {
     return pulumi.output(args).apply((a: any) => getLocalGatewayVirtualInterfaceGroup(a, opts))
 }
@@ -47,8 +90,20 @@ export function getLocalGatewayVirtualInterfaceGroupOutput(args?: GetLocalGatewa
  * A collection of arguments for invoking getLocalGatewayVirtualInterfaceGroup.
  */
 export interface GetLocalGatewayVirtualInterfaceGroupOutputArgs {
+    /**
+     * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
+     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayVirtualInterfaceGroupFilterArgs>[]>;
+    /**
+     * Identifier of EC2 Local Gateway Virtual Interface Group.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Identifier of EC2 Local Gateway.
+     */
     localGatewayId?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

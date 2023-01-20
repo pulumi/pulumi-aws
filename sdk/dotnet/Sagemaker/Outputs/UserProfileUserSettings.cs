@@ -13,13 +13,37 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class UserProfileUserSettings
     {
+        /// <summary>
+        /// The Canvas app settings. See Canvas App Settings below.
+        /// </summary>
         public readonly Outputs.UserProfileUserSettingsCanvasAppSettings? CanvasAppSettings;
+        /// <summary>
+        /// The execution role ARN for the user.
+        /// </summary>
         public readonly string ExecutionRole;
+        /// <summary>
+        /// The Jupyter server's app settings. See Jupyter Server App Settings below.
+        /// </summary>
         public readonly Outputs.UserProfileUserSettingsJupyterServerAppSettings? JupyterServerAppSettings;
+        /// <summary>
+        /// The kernel gateway app settings. See Kernel Gateway App Settings below.
+        /// </summary>
         public readonly Outputs.UserProfileUserSettingsKernelGatewayAppSettings? KernelGatewayAppSettings;
+        /// <summary>
+        /// The RSession app settings. See RSession App Settings below.
+        /// </summary>
         public readonly Outputs.UserProfileUserSettingsRSessionAppSettings? RSessionAppSettings;
+        /// <summary>
+        /// The security groups.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
+        /// <summary>
+        /// The sharing settings. See Sharing Settings below.
+        /// </summary>
         public readonly Outputs.UserProfileUserSettingsSharingSettings? SharingSettings;
+        /// <summary>
+        /// The TensorBoard app settings. See TensorBoard App Settings below.
+        /// </summary>
         public readonly Outputs.UserProfileUserSettingsTensorBoardAppSettings? TensorBoardAppSettings;
 
         [OutputConstructor]

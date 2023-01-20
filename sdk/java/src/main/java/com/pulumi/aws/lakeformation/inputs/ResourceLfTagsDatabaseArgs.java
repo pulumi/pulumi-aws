@@ -15,16 +15,32 @@ public final class ResourceLfTagsDatabaseArgs extends com.pulumi.resources.Resou
 
     public static final ResourceLfTagsDatabaseArgs Empty = new ResourceLfTagsDatabaseArgs();
 
+    /**
+     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
+     * 
+     */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
+    /**
+     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
+     * 
+     */
     public Optional<Output<String>> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
 
+    /**
+     * Name of the database resource. Unique to the Data Catalog.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the database resource. Unique to the Data Catalog.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -54,20 +70,44 @@ public final class ResourceLfTagsDatabaseArgs extends com.pulumi.resources.Resou
             $ = new ResourceLfTagsDatabaseArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
+         * 
+         * @return builder
+         * 
+         */
         public Builder catalogId(@Nullable Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
+        /**
+         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
+         * 
+         * @return builder
+         * 
+         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
+        /**
+         * @param name Name of the database resource. Unique to the Data Catalog.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the database resource. Unique to the Data Catalog.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

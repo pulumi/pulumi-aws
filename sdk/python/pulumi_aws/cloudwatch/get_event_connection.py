@@ -41,11 +41,17 @@ class GetEventConnectionResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN (Amazon Resource Name) for the connection.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authorizationType")
     def authorization_type(self) -> str:
+        """
+        Type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+        """
         return pulumi.get(self, "authorization_type")
 
     @property
@@ -59,11 +65,17 @@ class GetEventConnectionResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the connection.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> str:
+        """
+        ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
+        """
         return pulumi.get(self, "secret_arn")
 
 
@@ -83,7 +95,21 @@ class AwaitableGetEventConnectionResult(GetEventConnectionResult):
 def get_event_connection(name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about an EventBridge connection.
+
+    > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.cloudwatch.get_event_connection(name="test")
+    ```
+
+
+    :param str name: Name of the connection.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -102,6 +128,20 @@ def get_event_connection(name: Optional[str] = None,
 def get_event_connection_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventConnectionResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about an EventBridge connection.
+
+    > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.cloudwatch.get_event_connection(name="test")
+    ```
+
+
+    :param str name: Name of the connection.
     """
     ...

@@ -14,6 +14,49 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Resource for managing QuickSight Group Membership
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.quicksight.GroupMembership;
+ * import com.pulumi.aws.quicksight.GroupMembershipArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new GroupMembership(&#34;example&#34;, GroupMembershipArgs.builder()        
+ *             .groupName(&#34;all-access-users&#34;)
+ *             .memberName(&#34;john_smith&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * QuickSight Group membership can be imported using the AWS account ID, namespace, group name and member name separated by `/`.
+ * 
+ * ```sh
+ *  $ pulumi import aws:quicksight/groupMembership:GroupMembership example 123456789123/default/all-access-users/john_smith
+ * ```
+ * 
+ */
 @ResourceType(type="aws:quicksight/groupMembership:GroupMembership")
 public class GroupMembership extends com.pulumi.resources.CustomResource {
     @Export(name="arn", refs={String.class}, tree="[0]")
@@ -22,27 +65,59 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+     * 
+     */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
+    /**
+     * @return The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+     * 
+     */
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
+    /**
+     * The name of the group in which the member will be added.
+     * 
+     */
     @Export(name="groupName", refs={String.class}, tree="[0]")
     private Output<String> groupName;
 
+    /**
+     * @return The name of the group in which the member will be added.
+     * 
+     */
     public Output<String> groupName() {
         return this.groupName;
     }
+    /**
+     * The name of the member to add to the group.
+     * 
+     */
     @Export(name="memberName", refs={String.class}, tree="[0]")
     private Output<String> memberName;
 
+    /**
+     * @return The name of the member to add to the group.
+     * 
+     */
     public Output<String> memberName() {
         return this.memberName;
     }
+    /**
+     * The namespace. Defaults to `default`. Currently only `default` is supported.
+     * 
+     */
     @Export(name="namespace", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> namespace;
 
+    /**
+     * @return The namespace. Defaults to `default`. Currently only `default` is supported.
+     * 
+     */
     public Output<Optional<String>> namespace() {
         return Codegen.optional(this.namespace);
     }

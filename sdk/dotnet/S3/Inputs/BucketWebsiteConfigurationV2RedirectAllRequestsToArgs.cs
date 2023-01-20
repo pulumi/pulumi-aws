@@ -12,9 +12,15 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketWebsiteConfigurationV2RedirectAllRequestsToArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the host where requests are redirected.
+        /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
 
+        /// <summary>
+        /// Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
+        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 

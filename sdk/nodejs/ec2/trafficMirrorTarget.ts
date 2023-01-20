@@ -4,6 +4,40 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Traffic mirror target.\
+ * Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
+ *
+ * ## Example Usage
+ *
+ * To create a basic traffic mirror session
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const nlb = new aws.ec2.TrafficMirrorTarget("nlb", {
+ *     description: "NLB target",
+ *     networkLoadBalancerArn: aws_lb.lb.arn,
+ * });
+ * const eni = new aws.ec2.TrafficMirrorTarget("eni", {
+ *     description: "ENI target",
+ *     networkInterfaceId: aws_instance.test.primary_network_interface_id,
+ * });
+ * const gwlb = new aws.ec2.TrafficMirrorTarget("gwlb", {
+ *     description: "GWLB target",
+ *     gatewayLoadBalancerEndpointId: aws_vpc_endpoint.example.id,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Traffic mirror targets can be imported using the `id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
+ * ```
+ */
 export class TrafficMirrorTarget extends pulumi.CustomResource {
     /**
      * Get an existing TrafficMirrorTarget resource's state with the given name, ID, and optional extra
@@ -32,13 +66,37 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrafficMirrorTarget.__pulumiType;
     }
 
+    /**
+     * The ARN of the traffic mirror target.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A description of the traffic mirror session.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+     */
     public readonly gatewayLoadBalancerEndpointId!: pulumi.Output<string | undefined>;
+    /**
+     * The network interface ID that is associated with the target.
+     */
     public readonly networkInterfaceId!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+     */
     public readonly networkLoadBalancerArn!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the AWS account that owns the traffic mirror target.
+     */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -82,13 +140,37 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TrafficMirrorTarget resources.
  */
 export interface TrafficMirrorTargetState {
+    /**
+     * The ARN of the traffic mirror target.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * A description of the traffic mirror session.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+     */
     gatewayLoadBalancerEndpointId?: pulumi.Input<string>;
+    /**
+     * The network interface ID that is associated with the target.
+     */
     networkInterfaceId?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+     */
     networkLoadBalancerArn?: pulumi.Input<string>;
+    /**
+     * The ID of the AWS account that owns the traffic mirror target.
+     */
     ownerId?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -96,9 +178,24 @@ export interface TrafficMirrorTargetState {
  * The set of arguments for constructing a TrafficMirrorTarget resource.
  */
 export interface TrafficMirrorTargetArgs {
+    /**
+     * A description of the traffic mirror session.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+     */
     gatewayLoadBalancerEndpointId?: pulumi.Input<string>;
+    /**
+     * The network interface ID that is associated with the target.
+     */
     networkInterfaceId?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+     */
     networkLoadBalancerArn?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

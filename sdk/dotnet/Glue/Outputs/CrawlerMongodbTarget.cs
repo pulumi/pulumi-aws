@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class CrawlerMongodbTarget
     {
+        /// <summary>
+        /// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        /// </summary>
         public readonly string ConnectionName;
+        /// <summary>
+        /// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+        /// </summary>
         public readonly string Path;
+        /// <summary>
+        /// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+        /// </summary>
         public readonly bool? ScanAll;
 
         [OutputConstructor]

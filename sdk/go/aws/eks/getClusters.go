@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieve EKS Clusters list
 func GetClusters(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClustersResult, error) {
 	var rv GetClustersResult
 	err := ctx.Invoke("aws:eks/getClusters:getClusters", nil, &rv, opts...)
@@ -19,6 +20,7 @@ func GetClusters(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClusters
 // A collection of values returned by getClusters.
 type GetClustersResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id    string   `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Set of EKS clusters names
 	Names []string `pulumi:"names"`
 }

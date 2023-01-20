@@ -7,6 +7,61 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const lb = new aws.elb.LoadBalancer("lb", {
+ *     availabilityZones: ["us-east-1a"],
+ *     listeners: [{
+ *         instancePort: 8000,
+ *         instanceProtocol: "https",
+ *         lbPort: 443,
+ *         lbProtocol: "https",
+ *         sslCertificateId: "arn:aws:iam::123456789012:server-certificate/certName",
+ *     }],
+ * });
+ * const foo = new aws.elb.SslNegotiationPolicy("foo", {
+ *     loadBalancer: lb.id,
+ *     lbPort: 443,
+ *     attributes: [
+ *         {
+ *             name: "Protocol-TLSv1",
+ *             value: "false",
+ *         },
+ *         {
+ *             name: "Protocol-TLSv1.1",
+ *             value: "false",
+ *         },
+ *         {
+ *             name: "Protocol-TLSv1.2",
+ *             value: "true",
+ *         },
+ *         {
+ *             name: "Server-Defined-Cipher-Order",
+ *             value: "true",
+ *         },
+ *         {
+ *             name: "ECDHE-RSA-AES128-GCM-SHA256",
+ *             value: "true",
+ *         },
+ *         {
+ *             name: "AES128-GCM-SHA256",
+ *             value: "true",
+ *         },
+ *         {
+ *             name: "EDH-RSA-DES-CBC3-SHA",
+ *             value: "false",
+ *         },
+ *     ],
+ * });
+ * ```
+ */
 export class SslNegotiationPolicy extends pulumi.CustomResource {
     /**
      * Get an existing SslNegotiationPolicy resource's state with the given name, ID, and optional extra
@@ -35,9 +90,24 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === SslNegotiationPolicy.__pulumiType;
     }
 
+    /**
+     * An SSL Negotiation policy attribute. Each has two properties:
+     */
     public readonly attributes!: pulumi.Output<outputs.elb.SslNegotiationPolicyAttribute[] | undefined>;
+    /**
+     * The load balancer port to which the policy
+     * should be applied. This must be an active listener on the load
+     * balancer.
+     */
     public readonly lbPort!: pulumi.Output<number>;
+    /**
+     * The load balancer to which the policy
+     * should be attached.
+     */
     public readonly loadBalancer!: pulumi.Output<string>;
+    /**
+     * The name of the attribute
+     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -81,9 +151,24 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SslNegotiationPolicy resources.
  */
 export interface SslNegotiationPolicyState {
+    /**
+     * An SSL Negotiation policy attribute. Each has two properties:
+     */
     attributes?: pulumi.Input<pulumi.Input<inputs.elb.SslNegotiationPolicyAttribute>[]>;
+    /**
+     * The load balancer port to which the policy
+     * should be applied. This must be an active listener on the load
+     * balancer.
+     */
     lbPort?: pulumi.Input<number>;
+    /**
+     * The load balancer to which the policy
+     * should be attached.
+     */
     loadBalancer?: pulumi.Input<string>;
+    /**
+     * The name of the attribute
+     */
     name?: pulumi.Input<string>;
 }
 
@@ -91,8 +176,23 @@ export interface SslNegotiationPolicyState {
  * The set of arguments for constructing a SslNegotiationPolicy resource.
  */
 export interface SslNegotiationPolicyArgs {
+    /**
+     * An SSL Negotiation policy attribute. Each has two properties:
+     */
     attributes?: pulumi.Input<pulumi.Input<inputs.elb.SslNegotiationPolicyAttribute>[]>;
+    /**
+     * The load balancer port to which the policy
+     * should be applied. This must be an active listener on the load
+     * balancer.
+     */
     lbPort: pulumi.Input<number>;
+    /**
+     * The load balancer to which the policy
+     * should be attached.
+     */
     loadBalancer: pulumi.Input<string>;
+    /**
+     * The name of the attribute
+     */
     name?: pulumi.Input<string>;
 }

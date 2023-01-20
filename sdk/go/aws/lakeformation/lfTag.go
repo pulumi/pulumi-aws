@@ -11,12 +11,57 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 15.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lakeformation.NewLfTag(ctx, "example", &lakeformation.LfTagArgs{
+//				Key: pulumi.String("module"),
+//				Values: pulumi.StringArray{
+//					pulumi.String("Orders"),
+//					pulumi.String("Sales"),
+//					pulumi.String("Customers"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Lake Formation LF-Tags can be imported using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.
+//
+// ```sh
+//
+//	$ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
+//
+// ```
 type LfTag struct {
 	pulumi.CustomResourceState
 
-	CatalogId pulumi.StringOutput      `pulumi:"catalogId"`
-	Key       pulumi.StringOutput      `pulumi:"key"`
-	Values    pulumi.StringArrayOutput `pulumi:"values"`
+	// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
+	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
+	// Key-name for the tag.
+	Key pulumi.StringOutput `pulumi:"key"`
+	// List of possible values an attribute can take.
+	Values pulumi.StringArrayOutput `pulumi:"values"`
 }
 
 // NewLfTag registers a new resource with the given unique name, arguments, and options.
@@ -54,15 +99,21 @@ func GetLfTag(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LfTag resources.
 type lfTagState struct {
-	CatalogId *string  `pulumi:"catalogId"`
-	Key       *string  `pulumi:"key"`
-	Values    []string `pulumi:"values"`
+	// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
+	CatalogId *string `pulumi:"catalogId"`
+	// Key-name for the tag.
+	Key *string `pulumi:"key"`
+	// List of possible values an attribute can take.
+	Values []string `pulumi:"values"`
 }
 
 type LfTagState struct {
+	// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
 	CatalogId pulumi.StringPtrInput
-	Key       pulumi.StringPtrInput
-	Values    pulumi.StringArrayInput
+	// Key-name for the tag.
+	Key pulumi.StringPtrInput
+	// List of possible values an attribute can take.
+	Values pulumi.StringArrayInput
 }
 
 func (LfTagState) ElementType() reflect.Type {
@@ -70,16 +121,22 @@ func (LfTagState) ElementType() reflect.Type {
 }
 
 type lfTagArgs struct {
-	CatalogId *string  `pulumi:"catalogId"`
-	Key       string   `pulumi:"key"`
-	Values    []string `pulumi:"values"`
+	// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
+	CatalogId *string `pulumi:"catalogId"`
+	// Key-name for the tag.
+	Key string `pulumi:"key"`
+	// List of possible values an attribute can take.
+	Values []string `pulumi:"values"`
 }
 
 // The set of arguments for constructing a LfTag resource.
 type LfTagArgs struct {
+	// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
 	CatalogId pulumi.StringPtrInput
-	Key       pulumi.StringInput
-	Values    pulumi.StringArrayInput
+	// Key-name for the tag.
+	Key pulumi.StringInput
+	// List of possible values an attribute can take.
+	Values pulumi.StringArrayInput
 }
 
 func (LfTagArgs) ElementType() reflect.Type {
@@ -169,14 +226,17 @@ func (o LfTagOutput) ToLfTagOutputWithContext(ctx context.Context) LfTagOutput {
 	return o
 }
 
+// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
 func (o LfTagOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LfTag) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
 
+// Key-name for the tag.
 func (o LfTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *LfTag) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
+// List of possible values an attribute can take.
 func (o LfTagOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LfTag) pulumi.StringArrayOutput { return v.Values }).(pulumi.StringArrayOutput)
 }

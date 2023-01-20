@@ -18,6 +18,7 @@ class ModelPackageGroupPolicyArgs:
                  resource_policy: pulumi.Input[str]):
         """
         The set of arguments for constructing a ModelPackageGroupPolicy resource.
+        :param pulumi.Input[str] model_package_group_name: The name of the model package group.
         """
         pulumi.set(__self__, "model_package_group_name", model_package_group_name)
         pulumi.set(__self__, "resource_policy", resource_policy)
@@ -25,6 +26,9 @@ class ModelPackageGroupPolicyArgs:
     @property
     @pulumi.getter(name="modelPackageGroupName")
     def model_package_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the model package group.
+        """
         return pulumi.get(self, "model_package_group_name")
 
     @model_package_group_name.setter
@@ -48,6 +52,7 @@ class _ModelPackageGroupPolicyState:
                  resource_policy: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ModelPackageGroupPolicy resources.
+        :param pulumi.Input[str] model_package_group_name: The name of the model package group.
         """
         if model_package_group_name is not None:
             pulumi.set(__self__, "model_package_group_name", model_package_group_name)
@@ -57,6 +62,9 @@ class _ModelPackageGroupPolicyState:
     @property
     @pulumi.getter(name="modelPackageGroupName")
     def model_package_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the model package group.
+        """
         return pulumi.get(self, "model_package_group_name")
 
     @model_package_group_name.setter
@@ -82,9 +90,21 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
                  resource_policy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ModelPackageGroupPolicy resource with the given unique name, props, and options.
+        Provides a SageMaker Model Package Group Policy resource.
+
+        ## Example Usage
+
+        ## Import
+
+        SageMaker Model Package Groups can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] model_package_group_name: The name of the model package group.
         """
         ...
     @overload
@@ -93,7 +113,18 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
                  args: ModelPackageGroupPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ModelPackageGroupPolicy resource with the given unique name, props, and options.
+        Provides a SageMaker Model Package Group Policy resource.
+
+        ## Example Usage
+
+        ## Import
+
+        SageMaker Model Package Groups can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param ModelPackageGroupPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +176,7 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] model_package_group_name: The name of the model package group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,6 +189,9 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="modelPackageGroupName")
     def model_package_group_name(self) -> pulumi.Output[str]:
+        """
+        The name of the model package group.
+        """
         return pulumi.get(self, "model_package_group_name")
 
     @property

@@ -11,15 +11,98 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an EventBridge event archive resource.
+//
+// > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			orderEventBus, err := cloudwatch.NewEventBus(ctx, "orderEventBus", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewEventArchive(ctx, "orderEventArchive", &cloudwatch.EventArchiveArgs{
+//				EventSourceArn: orderEventBus.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Example all optional arguments
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			orderEventBus, err := cloudwatch.NewEventBus(ctx, "orderEventBus", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewEventArchive(ctx, "orderEventArchive", &cloudwatch.EventArchiveArgs{
+//				Description:    pulumi.String("Archived events from order service"),
+//				EventSourceArn: orderEventBus.Arn,
+//				RetentionDays:  pulumi.Int(7),
+//				EventPattern:   pulumi.String(fmt.Sprintf("{\n  \"source\": [\"company.team.order\"]\n}\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// # Event Archive can be imported using their name, for example console
+//
+// ```sh
+//
+//	$ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
+//
+// ```
 type EventArchive struct {
 	pulumi.CustomResourceState
 
-	Arn            pulumi.StringOutput    `pulumi:"arn"`
-	Description    pulumi.StringPtrOutput `pulumi:"description"`
-	EventPattern   pulumi.StringPtrOutput `pulumi:"eventPattern"`
-	EventSourceArn pulumi.StringOutput    `pulumi:"eventSourceArn"`
-	Name           pulumi.StringOutput    `pulumi:"name"`
-	RetentionDays  pulumi.IntPtrOutput    `pulumi:"retentionDays"`
+	// The Amazon Resource Name (ARN) of the event archive.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The description of the new event archive.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `eventSourceArn`.
+	EventPattern pulumi.StringPtrOutput `pulumi:"eventPattern"`
+	// Event bus source ARN from where these events should be archived.
+	EventSourceArn pulumi.StringOutput `pulumi:"eventSourceArn"`
+	// The name of the new event archive. The archive name cannot exceed 48 characters.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
+	RetentionDays pulumi.IntPtrOutput `pulumi:"retentionDays"`
 }
 
 // NewEventArchive registers a new resource with the given unique name, arguments, and options.
@@ -54,21 +137,33 @@ func GetEventArchive(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventArchive resources.
 type eventArchiveState struct {
-	Arn            *string `pulumi:"arn"`
-	Description    *string `pulumi:"description"`
-	EventPattern   *string `pulumi:"eventPattern"`
+	// The Amazon Resource Name (ARN) of the event archive.
+	Arn *string `pulumi:"arn"`
+	// The description of the new event archive.
+	Description *string `pulumi:"description"`
+	// Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `eventSourceArn`.
+	EventPattern *string `pulumi:"eventPattern"`
+	// Event bus source ARN from where these events should be archived.
 	EventSourceArn *string `pulumi:"eventSourceArn"`
-	Name           *string `pulumi:"name"`
-	RetentionDays  *int    `pulumi:"retentionDays"`
+	// The name of the new event archive. The archive name cannot exceed 48 characters.
+	Name *string `pulumi:"name"`
+	// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
+	RetentionDays *int `pulumi:"retentionDays"`
 }
 
 type EventArchiveState struct {
-	Arn            pulumi.StringPtrInput
-	Description    pulumi.StringPtrInput
-	EventPattern   pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the event archive.
+	Arn pulumi.StringPtrInput
+	// The description of the new event archive.
+	Description pulumi.StringPtrInput
+	// Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `eventSourceArn`.
+	EventPattern pulumi.StringPtrInput
+	// Event bus source ARN from where these events should be archived.
 	EventSourceArn pulumi.StringPtrInput
-	Name           pulumi.StringPtrInput
-	RetentionDays  pulumi.IntPtrInput
+	// The name of the new event archive. The archive name cannot exceed 48 characters.
+	Name pulumi.StringPtrInput
+	// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
+	RetentionDays pulumi.IntPtrInput
 }
 
 func (EventArchiveState) ElementType() reflect.Type {
@@ -76,20 +171,30 @@ func (EventArchiveState) ElementType() reflect.Type {
 }
 
 type eventArchiveArgs struct {
-	Description    *string `pulumi:"description"`
-	EventPattern   *string `pulumi:"eventPattern"`
-	EventSourceArn string  `pulumi:"eventSourceArn"`
-	Name           *string `pulumi:"name"`
-	RetentionDays  *int    `pulumi:"retentionDays"`
+	// The description of the new event archive.
+	Description *string `pulumi:"description"`
+	// Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `eventSourceArn`.
+	EventPattern *string `pulumi:"eventPattern"`
+	// Event bus source ARN from where these events should be archived.
+	EventSourceArn string `pulumi:"eventSourceArn"`
+	// The name of the new event archive. The archive name cannot exceed 48 characters.
+	Name *string `pulumi:"name"`
+	// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
+	RetentionDays *int `pulumi:"retentionDays"`
 }
 
 // The set of arguments for constructing a EventArchive resource.
 type EventArchiveArgs struct {
-	Description    pulumi.StringPtrInput
-	EventPattern   pulumi.StringPtrInput
+	// The description of the new event archive.
+	Description pulumi.StringPtrInput
+	// Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `eventSourceArn`.
+	EventPattern pulumi.StringPtrInput
+	// Event bus source ARN from where these events should be archived.
 	EventSourceArn pulumi.StringInput
-	Name           pulumi.StringPtrInput
-	RetentionDays  pulumi.IntPtrInput
+	// The name of the new event archive. The archive name cannot exceed 48 characters.
+	Name pulumi.StringPtrInput
+	// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
+	RetentionDays pulumi.IntPtrInput
 }
 
 func (EventArchiveArgs) ElementType() reflect.Type {
@@ -179,26 +284,32 @@ func (o EventArchiveOutput) ToEventArchiveOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the event archive.
 func (o EventArchiveOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventArchive) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The description of the new event archive.
 func (o EventArchiveOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventArchive) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `eventSourceArn`.
 func (o EventArchiveOutput) EventPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventArchive) pulumi.StringPtrOutput { return v.EventPattern }).(pulumi.StringPtrOutput)
 }
 
+// Event bus source ARN from where these events should be archived.
 func (o EventArchiveOutput) EventSourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventArchive) pulumi.StringOutput { return v.EventSourceArn }).(pulumi.StringOutput)
 }
 
+// The name of the new event archive. The archive name cannot exceed 48 characters.
 func (o EventArchiveOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventArchive) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
 func (o EventArchiveOutput) RetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventArchive) pulumi.IntPtrOutput { return v.RetentionDays }).(pulumi.IntPtrOutput)
 }

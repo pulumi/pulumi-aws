@@ -15,23 +15,98 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a Lightsail load balancer Certificate resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lightsail.Lb;
+ * import com.pulumi.aws.lightsail.LbArgs;
+ * import com.pulumi.aws.lightsail.LbCertificate;
+ * import com.pulumi.aws.lightsail.LbCertificateArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testLb = new Lb(&#34;testLb&#34;, LbArgs.builder()        
+ *             .healthCheckPath(&#34;/&#34;)
+ *             .instancePort(&#34;80&#34;)
+ *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .build());
+ * 
+ *         var testLbCertificate = new LbCertificate(&#34;testLbCertificate&#34;, LbCertificateArgs.builder()        
+ *             .lbName(testLb.id())
+ *             .domainName(&#34;test.com&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_lightsail_lb_certificate` can be imported by using the id attribute, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
+ * ```
+ * 
+ */
 @ResourceType(type="aws:lightsail/lbCertificate:LbCertificate")
 public class LbCertificate extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the lightsail certificate.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the lightsail certificate.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The timestamp when the instance was created.
+     * 
+     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
+    /**
+     * @return The timestamp when the instance was created.
+     * 
+     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
+    /**
+     * The domain name (e.g., example.com) for your SSL/TLS certificate.
+     * 
+     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
+    /**
+     * @return The domain name (e.g., example.com) for your SSL/TLS certificate.
+     * 
+     */
     public Output<String> domainName() {
         return this.domainName;
     }
@@ -41,21 +116,45 @@ public class LbCertificate extends com.pulumi.resources.CustomResource {
     public Output<List<LbCertificateDomainValidationRecord>> domainValidationRecords() {
         return this.domainValidationRecords;
     }
+    /**
+     * The load balancer name where you want to create the SSL/TLS certificate.
+     * 
+     */
     @Export(name="lbName", refs={String.class}, tree="[0]")
     private Output<String> lbName;
 
+    /**
+     * @return The load balancer name where you want to create the SSL/TLS certificate.
+     * 
+     */
     public Output<String> lbName() {
         return this.lbName;
     }
+    /**
+     * The SSL/TLS certificate name.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The SSL/TLS certificate name.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
+     * 
+     */
     @Export(name="subjectAlternativeNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subjectAlternativeNames;
 
+    /**
+     * @return Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
+     * 
+     */
     public Output<List<String>> subjectAlternativeNames() {
         return this.subjectAlternativeNames;
     }

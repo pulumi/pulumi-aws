@@ -16,23 +16,47 @@ public final class GcmChannelArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GcmChannelArgs Empty = new GcmChannelArgs();
 
+    /**
+     * Platform credential API key from Google.
+     * 
+     */
     @Import(name="apiKey", required=true)
     private Output<String> apiKey;
 
+    /**
+     * @return Platform credential API key from Google.
+     * 
+     */
     public Output<String> apiKey() {
         return this.apiKey;
     }
 
+    /**
+     * The application ID.
+     * 
+     */
     @Import(name="applicationId", required=true)
     private Output<String> applicationId;
 
+    /**
+     * @return The application ID.
+     * 
+     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
 
+    /**
+     * Whether the channel is enabled or disabled. Defaults to `true`.
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return Whether the channel is enabled or disabled. Defaults to `true`.
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -63,29 +87,65 @@ public final class GcmChannelArgs extends com.pulumi.resources.ResourceArgs {
             $ = new GcmChannelArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param apiKey Platform credential API key from Google.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiKey(Output<String> apiKey) {
             $.apiKey = apiKey;
             return this;
         }
 
+        /**
+         * @param apiKey Platform credential API key from Google.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
         }
 
+        /**
+         * @param applicationId The application ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationId(Output<String> applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
+        /**
+         * @param applicationId The application ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationId(String applicationId) {
             return applicationId(Output.of(applicationId));
         }
 
+        /**
+         * @param enabled Whether the channel is enabled or disabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Whether the channel is enabled or disabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

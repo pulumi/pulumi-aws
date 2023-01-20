@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb
     {
+        /// <summary>
+        /// Maximum. Set to `0` to exclude instance types with accelerators.
+        /// </summary>
         public readonly double? Max;
+        /// <summary>
+        /// Minimum.
+        /// </summary>
         public readonly double? Min;
 
         [OutputConstructor]

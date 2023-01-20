@@ -11,17 +11,79 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an AWS Network Firewall Firewall Policy Resource
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
+//				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
+//					StatelessDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:pass"),
+//					},
+//					StatelessFragmentDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:drop"),
+//					},
+//					StatelessRuleGroupReferences: networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{
+//						&networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs{
+//							Priority:    pulumi.Int(1),
+//							ResourceArn: pulumi.Any(aws_networkfirewall_rule_group.Example.Arn),
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Network Firewall Policies can be imported using their `ARN`.
+//
+// ```sh
+//
+//	$ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
+//
+// ```
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
 
-	Arn                     pulumi.StringOutput                            `pulumi:"arn"`
-	Description             pulumi.StringPtrOutput                         `pulumi:"description"`
+	// The Amazon Resource Name (ARN) that identifies the firewall policy.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A friendly description of the firewall policy.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration FirewallPolicyEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
-	FirewallPolicy          FirewallPolicyFirewallPolicyOutput             `pulumi:"firewallPolicy"`
-	Name                    pulumi.StringOutput                            `pulumi:"name"`
-	Tags                    pulumi.StringMapOutput                         `pulumi:"tags"`
-	TagsAll                 pulumi.StringMapOutput                         `pulumi:"tagsAll"`
-	UpdateToken             pulumi.StringOutput                            `pulumi:"updateToken"`
+	// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
+	FirewallPolicy FirewallPolicyFirewallPolicyOutput `pulumi:"firewallPolicy"`
+	// A friendly name of the firewall policy.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A string token used when updating a firewall policy.
+	UpdateToken pulumi.StringOutput `pulumi:"updateToken"`
 }
 
 // NewFirewallPolicy registers a new resource with the given unique name, arguments, and options.
@@ -56,25 +118,41 @@ func GetFirewallPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallPolicy resources.
 type firewallPolicyState struct {
-	Arn                     *string                                `pulumi:"arn"`
-	Description             *string                                `pulumi:"description"`
+	// The Amazon Resource Name (ARN) that identifies the firewall policy.
+	Arn *string `pulumi:"arn"`
+	// A friendly description of the firewall policy.
+	Description *string `pulumi:"description"`
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration *FirewallPolicyEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	FirewallPolicy          *FirewallPolicyFirewallPolicy          `pulumi:"firewallPolicy"`
-	Name                    *string                                `pulumi:"name"`
-	Tags                    map[string]string                      `pulumi:"tags"`
-	TagsAll                 map[string]string                      `pulumi:"tagsAll"`
-	UpdateToken             *string                                `pulumi:"updateToken"`
+	// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
+	FirewallPolicy *FirewallPolicyFirewallPolicy `pulumi:"firewallPolicy"`
+	// A friendly name of the firewall policy.
+	Name *string `pulumi:"name"`
+	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// A string token used when updating a firewall policy.
+	UpdateToken *string `pulumi:"updateToken"`
 }
 
 type FirewallPolicyState struct {
-	Arn                     pulumi.StringPtrInput
-	Description             pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) that identifies the firewall policy.
+	Arn pulumi.StringPtrInput
+	// A friendly description of the firewall policy.
+	Description pulumi.StringPtrInput
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration FirewallPolicyEncryptionConfigurationPtrInput
-	FirewallPolicy          FirewallPolicyFirewallPolicyPtrInput
-	Name                    pulumi.StringPtrInput
-	Tags                    pulumi.StringMapInput
-	TagsAll                 pulumi.StringMapInput
-	UpdateToken             pulumi.StringPtrInput
+	// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
+	FirewallPolicy FirewallPolicyFirewallPolicyPtrInput
+	// A friendly name of the firewall policy.
+	Name pulumi.StringPtrInput
+	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// A string token used when updating a firewall policy.
+	UpdateToken pulumi.StringPtrInput
 }
 
 func (FirewallPolicyState) ElementType() reflect.Type {
@@ -82,20 +160,30 @@ func (FirewallPolicyState) ElementType() reflect.Type {
 }
 
 type firewallPolicyArgs struct {
-	Description             *string                                `pulumi:"description"`
+	// A friendly description of the firewall policy.
+	Description *string `pulumi:"description"`
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration *FirewallPolicyEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	FirewallPolicy          FirewallPolicyFirewallPolicy           `pulumi:"firewallPolicy"`
-	Name                    *string                                `pulumi:"name"`
-	Tags                    map[string]string                      `pulumi:"tags"`
+	// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
+	FirewallPolicy FirewallPolicyFirewallPolicy `pulumi:"firewallPolicy"`
+	// A friendly name of the firewall policy.
+	Name *string `pulumi:"name"`
+	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FirewallPolicy resource.
 type FirewallPolicyArgs struct {
-	Description             pulumi.StringPtrInput
+	// A friendly description of the firewall policy.
+	Description pulumi.StringPtrInput
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration FirewallPolicyEncryptionConfigurationPtrInput
-	FirewallPolicy          FirewallPolicyFirewallPolicyInput
-	Name                    pulumi.StringPtrInput
-	Tags                    pulumi.StringMapInput
+	// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
+	FirewallPolicy FirewallPolicyFirewallPolicyInput
+	// A friendly name of the firewall policy.
+	Name pulumi.StringPtrInput
+	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (FirewallPolicyArgs) ElementType() reflect.Type {
@@ -185,36 +273,44 @@ func (o FirewallPolicyOutput) ToFirewallPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) that identifies the firewall policy.
 func (o FirewallPolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A friendly description of the firewall policy.
 func (o FirewallPolicyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// KMS encryption configuration settings. See Encryption Configuration below for details.
 func (o FirewallPolicyOutput) EncryptionConfiguration() FirewallPolicyEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicy) FirewallPolicyEncryptionConfigurationPtrOutput {
 		return v.EncryptionConfiguration
 	}).(FirewallPolicyEncryptionConfigurationPtrOutput)
 }
 
+// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
 func (o FirewallPolicyOutput) FirewallPolicy() FirewallPolicyFirewallPolicyOutput {
 	return o.ApplyT(func(v *FirewallPolicy) FirewallPolicyFirewallPolicyOutput { return v.FirewallPolicy }).(FirewallPolicyFirewallPolicyOutput)
 }
 
+// A friendly name of the firewall policy.
 func (o FirewallPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FirewallPolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FirewallPolicyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// A string token used when updating a firewall policy.
 func (o FirewallPolicyOutput) UpdateToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.UpdateToken }).(pulumi.StringOutput)
 }

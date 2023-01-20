@@ -9,15 +9,98 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Pinpoint
 {
+    /// <summary>
+    /// Provides a Pinpoint Event Stream resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var app = new Aws.Pinpoint.App("app");
+    /// 
+    ///     var testStream = new Aws.Kinesis.Stream("testStream", new()
+    ///     {
+    ///         ShardCount = 1,
+    ///     });
+    /// 
+    ///     var testRole = new Aws.Iam.Role("testRole", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""pinpoint.us-east-1.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///     });
+    /// 
+    ///     var stream = new Aws.Pinpoint.EventStream("stream", new()
+    ///     {
+    ///         ApplicationId = app.ApplicationId,
+    ///         DestinationStreamArn = testStream.Arn,
+    ///         RoleArn = testRole.Arn,
+    ///     });
+    /// 
+    ///     var testRolePolicy = new Aws.Iam.RolePolicy("testRolePolicy", new()
+    ///     {
+    ///         Role = testRole.Id,
+    ///         Policy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": {
+    ///     ""Action"": [
+    ///       ""kinesis:PutRecords"",
+    ///       ""kinesis:DescribeStream""
+    ///     ],
+    ///     ""Effect"": ""Allow"",
+    ///     ""Resource"": [
+    ///       ""arn:aws:kinesis:us-east-1:*:*/*""
+    ///     ]
+    ///   }
+    /// }
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Pinpoint Event Stream can be imported using the `application-id`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:pinpoint/eventStream:EventStream")]
     public partial class EventStream : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The application ID.
+        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+        /// </summary>
         [Output("destinationStreamArn")]
         public Output<string> DestinationStreamArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
@@ -67,12 +150,21 @@ namespace Pulumi.Aws.Pinpoint
 
     public sealed class EventStreamArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The application ID.
+        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+        /// </summary>
         [Input("destinationStreamArn", required: true)]
         public Input<string> DestinationStreamArn { get; set; } = null!;
 
+        /// <summary>
+        /// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -84,12 +176,21 @@ namespace Pulumi.Aws.Pinpoint
 
     public sealed class EventStreamState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The application ID.
+        /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+        /// </summary>
         [Input("destinationStreamArn")]
         public Input<string>? DestinationStreamArn { get; set; }
 
+        /// <summary>
+        /// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 

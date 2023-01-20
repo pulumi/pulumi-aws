@@ -19,6 +19,9 @@ class NetworkAssociationArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NetworkAssociation resource.
+        :param pulumi.Input[str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the Client VPN endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
         """
         pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -31,6 +34,9 @@ class NetworkAssociationArgs:
     @property
     @pulumi.getter(name="clientVpnEndpointId")
     def client_vpn_endpoint_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client VPN endpoint.
+        """
         return pulumi.get(self, "client_vpn_endpoint_id")
 
     @client_vpn_endpoint_id.setter
@@ -40,6 +46,9 @@ class NetworkAssociationArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the subnet to associate with the Client VPN endpoint.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -49,6 +58,9 @@ class NetworkAssociationArgs:
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
+        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -67,6 +79,12 @@ class _NetworkAssociationState:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NetworkAssociation resources.
+        :param pulumi.Input[str] association_id: The unique ID of the target network association.
+        :param pulumi.Input[str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
+        :param pulumi.Input[str] status: **Deprecated** The current state of the target network association.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the Client VPN endpoint.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC in which the target subnet is located.
         """
         if association_id is not None:
             pulumi.set(__self__, "association_id", association_id)
@@ -90,6 +108,9 @@ class _NetworkAssociationState:
     @property
     @pulumi.getter(name="associationId")
     def association_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique ID of the target network association.
+        """
         return pulumi.get(self, "association_id")
 
     @association_id.setter
@@ -99,6 +120,9 @@ class _NetworkAssociationState:
     @property
     @pulumi.getter(name="clientVpnEndpointId")
     def client_vpn_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Client VPN endpoint.
+        """
         return pulumi.get(self, "client_vpn_endpoint_id")
 
     @client_vpn_endpoint_id.setter
@@ -108,6 +132,9 @@ class _NetworkAssociationState:
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
+        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -117,6 +144,9 @@ class _NetworkAssociationState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        **Deprecated** The current state of the target network association.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -126,6 +156,9 @@ class _NetworkAssociationState:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the subnet to associate with the Client VPN endpoint.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -135,6 +168,9 @@ class _NetworkAssociationState:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VPC in which the target subnet is located.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -152,9 +188,50 @@ class NetworkAssociation(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a NetworkAssociation resource with the given unique name, props, and options.
+        Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
+        [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
+
+        > **NOTE on Client VPN endpoint target network security groups:** The provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `security_groups` argument and a Client VPN endpoint resource with a `security_group_ids` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
+
+        ## Example Usage
+        ### Using default security group
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2clientvpn.NetworkAssociation("example",
+            client_vpn_endpoint_id=aws_ec2_client_vpn_endpoint["example"]["id"],
+            subnet_id=aws_subnet["example"]["id"])
+        ```
+        ### Using custom security groups
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2clientvpn.NetworkAssociation("example",
+            client_vpn_endpoint_id=aws_ec2_client_vpn_endpoint["example"]["id"],
+            subnet_id=aws_subnet["example"]["id"],
+            security_groups=[
+                aws_security_group["example1"]["id"],
+                aws_security_group["example2"]["id"],
+            ])
+        ```
+
+        ## Import
+
+        AWS Client VPN network associations can be imported using the endpoint ID and the association ID. Values are separated by a `,`.
+
+        ```sh
+         $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,vpn-assoc-0b8db902465d069ad
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the Client VPN endpoint.
         """
         ...
     @overload
@@ -163,7 +240,45 @@ class NetworkAssociation(pulumi.CustomResource):
                  args: NetworkAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a NetworkAssociation resource with the given unique name, props, and options.
+        Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
+        [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
+
+        > **NOTE on Client VPN endpoint target network security groups:** The provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `security_groups` argument and a Client VPN endpoint resource with a `security_group_ids` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
+
+        ## Example Usage
+        ### Using default security group
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2clientvpn.NetworkAssociation("example",
+            client_vpn_endpoint_id=aws_ec2_client_vpn_endpoint["example"]["id"],
+            subnet_id=aws_subnet["example"]["id"])
+        ```
+        ### Using custom security groups
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2clientvpn.NetworkAssociation("example",
+            client_vpn_endpoint_id=aws_ec2_client_vpn_endpoint["example"]["id"],
+            subnet_id=aws_subnet["example"]["id"],
+            security_groups=[
+                aws_security_group["example1"]["id"],
+                aws_security_group["example2"]["id"],
+            ])
+        ```
+
+        ## Import
+
+        AWS Client VPN network associations can be imported using the endpoint ID and the association ID. Values are separated by a `,`.
+
+        ```sh
+         $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,vpn-assoc-0b8db902465d069ad
+        ```
+
         :param str resource_name: The name of the resource.
         :param NetworkAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,6 +342,12 @@ class NetworkAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] association_id: The unique ID of the target network association.
+        :param pulumi.Input[str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
+        :param pulumi.Input[str] status: **Deprecated** The current state of the target network association.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the Client VPN endpoint.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC in which the target subnet is located.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -243,30 +364,48 @@ class NetworkAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="associationId")
     def association_id(self) -> pulumi.Output[str]:
+        """
+        The unique ID of the target network association.
+        """
         return pulumi.get(self, "association_id")
 
     @property
     @pulumi.getter(name="clientVpnEndpointId")
     def client_vpn_endpoint_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Client VPN endpoint.
+        """
         return pulumi.get(self, "client_vpn_endpoint_id")
 
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
+        """
         return pulumi.get(self, "security_groups")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        **Deprecated** The current state of the target network association.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the subnet to associate with the Client VPN endpoint.
+        """
         return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the VPC in which the target subnet is located.
+        """
         return pulumi.get(self, "vpc_id")
 

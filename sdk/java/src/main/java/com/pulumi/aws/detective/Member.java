@@ -15,23 +15,96 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a resource to manage an [Amazon Detective Member](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateMembers.html).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.detective.Graph;
+ * import com.pulumi.aws.detective.Member;
+ * import com.pulumi.aws.detective.MemberArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleGraph = new Graph(&#34;exampleGraph&#34;);
+ * 
+ *         var exampleMember = new Member(&#34;exampleMember&#34;, MemberArgs.builder()        
+ *             .accountId(&#34;AWS ACCOUNT ID&#34;)
+ *             .emailAddress(&#34;EMAIL&#34;)
+ *             .graphArn(exampleGraph.id())
+ *             .message(&#34;Message of the invitation&#34;)
+ *             .disableEmailNotification(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_detective_member` can be imported using the ARN of the graph followed by the account ID of the member account, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import aws:detective/member:Member example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
+ * ```
+ * 
+ */
 @ResourceType(type="aws:detective/member:Member")
 public class Member extends com.pulumi.resources.CustomResource {
+    /**
+     * AWS account ID for the account.
+     * 
+     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
+    /**
+     * @return AWS account ID for the account.
+     * 
+     */
     public Output<String> accountId() {
         return this.accountId;
     }
+    /**
+     * AWS account ID for the administrator account.
+     * 
+     */
     @Export(name="administratorId", refs={String.class}, tree="[0]")
     private Output<String> administratorId;
 
+    /**
+     * @return AWS account ID for the administrator account.
+     * 
+     */
     public Output<String> administratorId() {
         return this.administratorId;
     }
+    /**
+     * If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
+     * 
+     */
     @Export(name="disableEmailNotification", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableEmailNotification;
 
+    /**
+     * @return If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
+     * 
+     */
     public Output<Optional<Boolean>> disableEmailNotification() {
         return Codegen.optional(this.disableEmailNotification);
     }
@@ -41,45 +114,101 @@ public class Member extends com.pulumi.resources.CustomResource {
     public Output<String> disabledReason() {
         return this.disabledReason;
     }
+    /**
+     * Email address for the account.
+     * 
+     */
     @Export(name="emailAddress", refs={String.class}, tree="[0]")
     private Output<String> emailAddress;
 
+    /**
+     * @return Email address for the account.
+     * 
+     */
     public Output<String> emailAddress() {
         return this.emailAddress;
     }
+    /**
+     * ARN of the behavior graph to invite the member accounts to contribute their data to.
+     * 
+     */
     @Export(name="graphArn", refs={String.class}, tree="[0]")
     private Output<String> graphArn;
 
+    /**
+     * @return ARN of the behavior graph to invite the member accounts to contribute their data to.
+     * 
+     */
     public Output<String> graphArn() {
         return this.graphArn;
     }
+    /**
+     * Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
+     * 
+     */
     @Export(name="invitedTime", refs={String.class}, tree="[0]")
     private Output<String> invitedTime;
 
+    /**
+     * @return Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
+     * 
+     */
     public Output<String> invitedTime() {
         return this.invitedTime;
     }
+    /**
+     * A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
+     * 
+     */
     @Export(name="message", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> message;
 
+    /**
+     * @return A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
+     * 
+     */
     public Output<Optional<String>> message() {
         return Codegen.optional(this.message);
     }
+    /**
+     * Current membership status of the member account.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return Current membership status of the member account.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }
+    /**
+     * Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account&#39;s status.
+     * 
+     */
     @Export(name="updatedTime", refs={String.class}, tree="[0]")
     private Output<String> updatedTime;
 
+    /**
+     * @return Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account&#39;s status.
+     * 
+     */
     public Output<String> updatedTime() {
         return this.updatedTime;
     }
+    /**
+     * Data volume in bytes per day for the member account.
+     * 
+     */
     @Export(name="volumeUsageInBytes", refs={String.class}, tree="[0]")
     private Output<String> volumeUsageInBytes;
 
+    /**
+     * @return Data volume in bytes per day for the member account.
+     * 
+     */
     public Output<String> volumeUsageInBytes() {
         return this.volumeUsageInBytes;
     }

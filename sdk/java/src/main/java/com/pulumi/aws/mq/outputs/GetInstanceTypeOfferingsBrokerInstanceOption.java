@@ -11,29 +11,77 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstanceTypeOfferingsBrokerInstanceOption {
+    /**
+     * @return List of available AZs. See Availability Zones. below
+     * 
+     */
     private List<GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone> availabilityZones;
+    /**
+     * @return Filter response by engine type.
+     * 
+     */
     private String engineType;
+    /**
+     * @return Filter response by host instance type.
+     * 
+     */
     private String hostInstanceType;
+    /**
+     * @return Filter response by storage type.
+     * 
+     */
     private String storageType;
+    /**
+     * @return The list of supported deployment modes.
+     * 
+     */
     private List<String> supportedDeploymentModes;
+    /**
+     * @return The list of supported engine versions.
+     * 
+     */
     private List<String> supportedEngineVersions;
 
     private GetInstanceTypeOfferingsBrokerInstanceOption() {}
+    /**
+     * @return List of available AZs. See Availability Zones. below
+     * 
+     */
     public List<GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone> availabilityZones() {
         return this.availabilityZones;
     }
+    /**
+     * @return Filter response by engine type.
+     * 
+     */
     public String engineType() {
         return this.engineType;
     }
+    /**
+     * @return Filter response by host instance type.
+     * 
+     */
     public String hostInstanceType() {
         return this.hostInstanceType;
     }
+    /**
+     * @return Filter response by storage type.
+     * 
+     */
     public String storageType() {
         return this.storageType;
     }
+    /**
+     * @return The list of supported deployment modes.
+     * 
+     */
     public List<String> supportedDeploymentModes() {
         return this.supportedDeploymentModes;
     }
+    /**
+     * @return The list of supported engine versions.
+     * 
+     */
     public List<String> supportedEngineVersions() {
         return this.supportedEngineVersions;
     }

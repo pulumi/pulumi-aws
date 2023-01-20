@@ -11,13 +11,56 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Kinesis Analytics v2 Application Snapshot.
+// Snapshots are the AWS implementation of [Flink Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/state/savepoints.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesisanalyticsv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := kinesisanalyticsv2.NewApplicationSnapshot(ctx, "example", &kinesisanalyticsv2.ApplicationSnapshotArgs{
+//				ApplicationName: pulumi.Any(aws_kinesisanalyticsv2_application.Example.Name),
+//				SnapshotName:    pulumi.String("example-snapshot"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_kinesisanalyticsv2_application` can be imported by using `application_name` together with `snapshot_name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
+//
+// ```
 type ApplicationSnapshot struct {
 	pulumi.CustomResourceState
 
-	ApplicationName           pulumi.StringOutput `pulumi:"applicationName"`
-	ApplicationVersionId      pulumi.IntOutput    `pulumi:"applicationVersionId"`
+	// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+	ApplicationName pulumi.StringOutput `pulumi:"applicationName"`
+	// The current application version ID when the snapshot was created.
+	ApplicationVersionId pulumi.IntOutput `pulumi:"applicationVersionId"`
+	// The timestamp of the application snapshot.
 	SnapshotCreationTimestamp pulumi.StringOutput `pulumi:"snapshotCreationTimestamp"`
-	SnapshotName              pulumi.StringOutput `pulumi:"snapshotName"`
+	// The name of the application snapshot.
+	SnapshotName pulumi.StringOutput `pulumi:"snapshotName"`
 }
 
 // NewApplicationSnapshot registers a new resource with the given unique name, arguments, and options.
@@ -55,17 +98,25 @@ func GetApplicationSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplicationSnapshot resources.
 type applicationSnapshotState struct {
-	ApplicationName           *string `pulumi:"applicationName"`
-	ApplicationVersionId      *int    `pulumi:"applicationVersionId"`
+	// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+	ApplicationName *string `pulumi:"applicationName"`
+	// The current application version ID when the snapshot was created.
+	ApplicationVersionId *int `pulumi:"applicationVersionId"`
+	// The timestamp of the application snapshot.
 	SnapshotCreationTimestamp *string `pulumi:"snapshotCreationTimestamp"`
-	SnapshotName              *string `pulumi:"snapshotName"`
+	// The name of the application snapshot.
+	SnapshotName *string `pulumi:"snapshotName"`
 }
 
 type ApplicationSnapshotState struct {
-	ApplicationName           pulumi.StringPtrInput
-	ApplicationVersionId      pulumi.IntPtrInput
+	// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+	ApplicationName pulumi.StringPtrInput
+	// The current application version ID when the snapshot was created.
+	ApplicationVersionId pulumi.IntPtrInput
+	// The timestamp of the application snapshot.
 	SnapshotCreationTimestamp pulumi.StringPtrInput
-	SnapshotName              pulumi.StringPtrInput
+	// The name of the application snapshot.
+	SnapshotName pulumi.StringPtrInput
 }
 
 func (ApplicationSnapshotState) ElementType() reflect.Type {
@@ -73,14 +124,18 @@ func (ApplicationSnapshotState) ElementType() reflect.Type {
 }
 
 type applicationSnapshotArgs struct {
+	// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
 	ApplicationName string `pulumi:"applicationName"`
-	SnapshotName    string `pulumi:"snapshotName"`
+	// The name of the application snapshot.
+	SnapshotName string `pulumi:"snapshotName"`
 }
 
 // The set of arguments for constructing a ApplicationSnapshot resource.
 type ApplicationSnapshotArgs struct {
+	// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
 	ApplicationName pulumi.StringInput
-	SnapshotName    pulumi.StringInput
+	// The name of the application snapshot.
+	SnapshotName pulumi.StringInput
 }
 
 func (ApplicationSnapshotArgs) ElementType() reflect.Type {
@@ -170,18 +225,22 @@ func (o ApplicationSnapshotOutput) ToApplicationSnapshotOutputWithContext(ctx co
 	return o
 }
 
+// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
 func (o ApplicationSnapshotOutput) ApplicationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationSnapshot) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
 }
 
+// The current application version ID when the snapshot was created.
 func (o ApplicationSnapshotOutput) ApplicationVersionId() pulumi.IntOutput {
 	return o.ApplyT(func(v *ApplicationSnapshot) pulumi.IntOutput { return v.ApplicationVersionId }).(pulumi.IntOutput)
 }
 
+// The timestamp of the application snapshot.
 func (o ApplicationSnapshotOutput) SnapshotCreationTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationSnapshot) pulumi.StringOutput { return v.SnapshotCreationTimestamp }).(pulumi.StringOutput)
 }
 
+// The name of the application snapshot.
 func (o ApplicationSnapshotOutput) SnapshotName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationSnapshot) pulumi.StringOutput { return v.SnapshotName }).(pulumi.StringOutput)
 }

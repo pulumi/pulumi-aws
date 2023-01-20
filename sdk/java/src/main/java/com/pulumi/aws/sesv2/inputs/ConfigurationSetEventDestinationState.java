@@ -16,23 +16,47 @@ public final class ConfigurationSetEventDestinationState extends com.pulumi.reso
 
     public static final ConfigurationSetEventDestinationState Empty = new ConfigurationSetEventDestinationState();
 
+    /**
+     * The name of the configuration set.
+     * 
+     */
     @Import(name="configurationSetName")
     private @Nullable Output<String> configurationSetName;
 
+    /**
+     * @return The name of the configuration set.
+     * 
+     */
     public Optional<Output<String>> configurationSetName() {
         return Optional.ofNullable(this.configurationSetName);
     }
 
+    /**
+     * A name that identifies the event destination within the configuration set.
+     * 
+     */
     @Import(name="eventDestination")
     private @Nullable Output<ConfigurationSetEventDestinationEventDestinationArgs> eventDestination;
 
+    /**
+     * @return A name that identifies the event destination within the configuration set.
+     * 
+     */
     public Optional<Output<ConfigurationSetEventDestinationEventDestinationArgs>> eventDestination() {
         return Optional.ofNullable(this.eventDestination);
     }
 
+    /**
+     * An object that defines the event destination. See event_destination below.
+     * 
+     */
     @Import(name="eventDestinationName")
     private @Nullable Output<String> eventDestinationName;
 
+    /**
+     * @return An object that defines the event destination. See event_destination below.
+     * 
+     */
     public Optional<Output<String>> eventDestinationName() {
         return Optional.ofNullable(this.eventDestinationName);
     }
@@ -63,29 +87,65 @@ public final class ConfigurationSetEventDestinationState extends com.pulumi.reso
             $ = new ConfigurationSetEventDestinationState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param configurationSetName The name of the configuration set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder configurationSetName(@Nullable Output<String> configurationSetName) {
             $.configurationSetName = configurationSetName;
             return this;
         }
 
+        /**
+         * @param configurationSetName The name of the configuration set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder configurationSetName(String configurationSetName) {
             return configurationSetName(Output.of(configurationSetName));
         }
 
+        /**
+         * @param eventDestination A name that identifies the event destination within the configuration set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventDestination(@Nullable Output<ConfigurationSetEventDestinationEventDestinationArgs> eventDestination) {
             $.eventDestination = eventDestination;
             return this;
         }
 
+        /**
+         * @param eventDestination A name that identifies the event destination within the configuration set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventDestination(ConfigurationSetEventDestinationEventDestinationArgs eventDestination) {
             return eventDestination(Output.of(eventDestination));
         }
 
+        /**
+         * @param eventDestinationName An object that defines the event destination. See event_destination below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventDestinationName(@Nullable Output<String> eventDestinationName) {
             $.eventDestinationName = eventDestinationName;
             return this;
         }
 
+        /**
+         * @param eventDestinationName An object that defines the event destination. See event_destination below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventDestinationName(String eventDestinationName) {
             return eventDestinationName(Output.of(eventDestinationName));
         }

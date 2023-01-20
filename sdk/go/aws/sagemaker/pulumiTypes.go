@@ -11,8 +11,10 @@ import (
 )
 
 type AppImageConfigKernelGatewayImageConfig struct {
+	// The URL where the Git repository is located. See File System Config details below.
 	FileSystemConfig *AppImageConfigKernelGatewayImageConfigFileSystemConfig `pulumi:"fileSystemConfig"`
-	KernelSpec       AppImageConfigKernelGatewayImageConfigKernelSpec        `pulumi:"kernelSpec"`
+	// The default branch for the Git repository. See Kernel Spec details below.
+	KernelSpec AppImageConfigKernelGatewayImageConfigKernelSpec `pulumi:"kernelSpec"`
 }
 
 // AppImageConfigKernelGatewayImageConfigInput is an input type that accepts AppImageConfigKernelGatewayImageConfigArgs and AppImageConfigKernelGatewayImageConfigOutput values.
@@ -27,8 +29,10 @@ type AppImageConfigKernelGatewayImageConfigInput interface {
 }
 
 type AppImageConfigKernelGatewayImageConfigArgs struct {
+	// The URL where the Git repository is located. See File System Config details below.
 	FileSystemConfig AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrInput `pulumi:"fileSystemConfig"`
-	KernelSpec       AppImageConfigKernelGatewayImageConfigKernelSpecInput          `pulumi:"kernelSpec"`
+	// The default branch for the Git repository. See Kernel Spec details below.
+	KernelSpec AppImageConfigKernelGatewayImageConfigKernelSpecInput `pulumi:"kernelSpec"`
 }
 
 func (AppImageConfigKernelGatewayImageConfigArgs) ElementType() reflect.Type {
@@ -108,12 +112,14 @@ func (o AppImageConfigKernelGatewayImageConfigOutput) ToAppImageConfigKernelGate
 	}).(AppImageConfigKernelGatewayImageConfigPtrOutput)
 }
 
+// The URL where the Git repository is located. See File System Config details below.
 func (o AppImageConfigKernelGatewayImageConfigOutput) FileSystemConfig() AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput {
 	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfig) *AppImageConfigKernelGatewayImageConfigFileSystemConfig {
 		return v.FileSystemConfig
 	}).(AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput)
 }
 
+// The default branch for the Git repository. See Kernel Spec details below.
 func (o AppImageConfigKernelGatewayImageConfigOutput) KernelSpec() AppImageConfigKernelGatewayImageConfigKernelSpecOutput {
 	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfig) AppImageConfigKernelGatewayImageConfigKernelSpec {
 		return v.KernelSpec
@@ -144,6 +150,7 @@ func (o AppImageConfigKernelGatewayImageConfigPtrOutput) Elem() AppImageConfigKe
 	}).(AppImageConfigKernelGatewayImageConfigOutput)
 }
 
+// The URL where the Git repository is located. See File System Config details below.
 func (o AppImageConfigKernelGatewayImageConfigPtrOutput) FileSystemConfig() AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput {
 	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfig) *AppImageConfigKernelGatewayImageConfigFileSystemConfig {
 		if v == nil {
@@ -153,6 +160,7 @@ func (o AppImageConfigKernelGatewayImageConfigPtrOutput) FileSystemConfig() AppI
 	}).(AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput)
 }
 
+// The default branch for the Git repository. See Kernel Spec details below.
 func (o AppImageConfigKernelGatewayImageConfigPtrOutput) KernelSpec() AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
 	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfig) *AppImageConfigKernelGatewayImageConfigKernelSpec {
 		if v == nil {
@@ -163,9 +171,12 @@ func (o AppImageConfigKernelGatewayImageConfigPtrOutput) KernelSpec() AppImageCo
 }
 
 type AppImageConfigKernelGatewayImageConfigFileSystemConfig struct {
-	DefaultGid *int    `pulumi:"defaultGid"`
-	DefaultUid *int    `pulumi:"defaultUid"`
-	MountPath  *string `pulumi:"mountPath"`
+	// The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+	DefaultGid *int `pulumi:"defaultGid"`
+	// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+	DefaultUid *int `pulumi:"defaultUid"`
+	// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+	MountPath *string `pulumi:"mountPath"`
 }
 
 // AppImageConfigKernelGatewayImageConfigFileSystemConfigInput is an input type that accepts AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs and AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput values.
@@ -180,9 +191,12 @@ type AppImageConfigKernelGatewayImageConfigFileSystemConfigInput interface {
 }
 
 type AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs struct {
-	DefaultGid pulumi.IntPtrInput    `pulumi:"defaultGid"`
-	DefaultUid pulumi.IntPtrInput    `pulumi:"defaultUid"`
-	MountPath  pulumi.StringPtrInput `pulumi:"mountPath"`
+	// The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+	DefaultGid pulumi.IntPtrInput `pulumi:"defaultGid"`
+	// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+	DefaultUid pulumi.IntPtrInput `pulumi:"defaultUid"`
+	// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
 }
 
 func (AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs) ElementType() reflect.Type {
@@ -262,14 +276,17 @@ func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput) ToAppImage
 	}).(AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput)
 }
 
+// The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
 func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput) DefaultGid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfigFileSystemConfig) *int { return v.DefaultGid }).(pulumi.IntPtrOutput)
 }
 
+// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
 func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput) DefaultUid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfigFileSystemConfig) *int { return v.DefaultUid }).(pulumi.IntPtrOutput)
 }
 
+// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
 func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput) MountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfigFileSystemConfig) *string { return v.MountPath }).(pulumi.StringPtrOutput)
 }
@@ -298,6 +315,7 @@ func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput) Elem() 
 	}).(AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput)
 }
 
+// The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
 func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput) DefaultGid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfigFileSystemConfig) *int {
 		if v == nil {
@@ -307,6 +325,7 @@ func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput) Default
 	}).(pulumi.IntPtrOutput)
 }
 
+// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
 func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput) DefaultUid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfigFileSystemConfig) *int {
 		if v == nil {
@@ -316,6 +335,7 @@ func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput) Default
 	}).(pulumi.IntPtrOutput)
 }
 
+// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
 func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput) MountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfigFileSystemConfig) *string {
 		if v == nil {
@@ -326,8 +346,10 @@ func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput) MountPa
 }
 
 type AppImageConfigKernelGatewayImageConfigKernelSpec struct {
+	// The display name of the kernel.
 	DisplayName *string `pulumi:"displayName"`
-	Name        string  `pulumi:"name"`
+	// The name of the kernel.
+	Name string `pulumi:"name"`
 }
 
 // AppImageConfigKernelGatewayImageConfigKernelSpecInput is an input type that accepts AppImageConfigKernelGatewayImageConfigKernelSpecArgs and AppImageConfigKernelGatewayImageConfigKernelSpecOutput values.
@@ -342,8 +364,10 @@ type AppImageConfigKernelGatewayImageConfigKernelSpecInput interface {
 }
 
 type AppImageConfigKernelGatewayImageConfigKernelSpecArgs struct {
+	// The display name of the kernel.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	Name        pulumi.StringInput    `pulumi:"name"`
+	// The name of the kernel.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (AppImageConfigKernelGatewayImageConfigKernelSpecArgs) ElementType() reflect.Type {
@@ -423,10 +447,12 @@ func (o AppImageConfigKernelGatewayImageConfigKernelSpecOutput) ToAppImageConfig
 	}).(AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput)
 }
 
+// The display name of the kernel.
 func (o AppImageConfigKernelGatewayImageConfigKernelSpecOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfigKernelSpec) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The name of the kernel.
 func (o AppImageConfigKernelGatewayImageConfigKernelSpecOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfigKernelSpec) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -455,6 +481,7 @@ func (o AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) Elem() AppIma
 	}).(AppImageConfigKernelGatewayImageConfigKernelSpecOutput)
 }
 
+// The display name of the kernel.
 func (o AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfigKernelSpec) *string {
 		if v == nil {
@@ -464,6 +491,7 @@ func (o AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) DisplayName()
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the kernel.
 func (o AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfigKernelSpec) *string {
 		if v == nil {
@@ -474,9 +502,13 @@ func (o AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) Name() pulumi
 }
 
 type AppResourceSpec struct {
-	InstanceType             *string `pulumi:"instanceType"`
-	LifecycleConfigArn       *string `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        *string `pulumi:"sagemakerImageArn"`
+	// The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -492,9 +524,13 @@ type AppResourceSpecInput interface {
 }
 
 type AppResourceSpecArgs struct {
-	InstanceType             pulumi.StringPtrInput `pulumi:"instanceType"`
-	LifecycleConfigArn       pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -575,18 +611,22 @@ func (o AppResourceSpecOutput) ToAppResourceSpecPtrOutputWithContext(ctx context
 	}).(AppResourceSpecPtrOutput)
 }
 
+// The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o AppResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o AppResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceSpec) *string { return v.LifecycleConfigArn }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the SageMaker image that the image version belongs to.
 func (o AppResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceSpec) *string { return v.SagemakerImageArn }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o AppResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceSpec) *string { return v.SagemakerImageVersionArn }).(pulumi.StringPtrOutput)
 }
@@ -615,6 +655,7 @@ func (o AppResourceSpecPtrOutput) Elem() AppResourceSpecOutput {
 	}).(AppResourceSpecOutput)
 }
 
+// The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o AppResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppResourceSpec) *string {
 		if v == nil {
@@ -624,6 +665,7 @@ func (o AppResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o AppResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppResourceSpec) *string {
 		if v == nil {
@@ -633,6 +675,7 @@ func (o AppResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the SageMaker image that the image version belongs to.
 func (o AppResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppResourceSpec) *string {
 		if v == nil {
@@ -642,6 +685,7 @@ func (o AppResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o AppResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppResourceSpec) *string {
 		if v == nil {
@@ -652,9 +696,12 @@ func (o AppResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOut
 }
 
 type CodeRepositoryGitConfig struct {
-	Branch        *string `pulumi:"branch"`
-	RepositoryUrl string  `pulumi:"repositoryUrl"`
-	SecretArn     *string `pulumi:"secretArn"`
+	// The default branch for the Git repository.
+	Branch *string `pulumi:"branch"`
+	// The URL where the Git repository is located.
+	RepositoryUrl string `pulumi:"repositoryUrl"`
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
+	SecretArn *string `pulumi:"secretArn"`
 }
 
 // CodeRepositoryGitConfigInput is an input type that accepts CodeRepositoryGitConfigArgs and CodeRepositoryGitConfigOutput values.
@@ -669,9 +716,12 @@ type CodeRepositoryGitConfigInput interface {
 }
 
 type CodeRepositoryGitConfigArgs struct {
-	Branch        pulumi.StringPtrInput `pulumi:"branch"`
-	RepositoryUrl pulumi.StringInput    `pulumi:"repositoryUrl"`
-	SecretArn     pulumi.StringPtrInput `pulumi:"secretArn"`
+	// The default branch for the Git repository.
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// The URL where the Git repository is located.
+	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 }
 
 func (CodeRepositoryGitConfigArgs) ElementType() reflect.Type {
@@ -751,14 +801,17 @@ func (o CodeRepositoryGitConfigOutput) ToCodeRepositoryGitConfigPtrOutputWithCon
 	}).(CodeRepositoryGitConfigPtrOutput)
 }
 
+// The default branch for the Git repository.
 func (o CodeRepositoryGitConfigOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodeRepositoryGitConfig) *string { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
+// The URL where the Git repository is located.
 func (o CodeRepositoryGitConfigOutput) RepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v CodeRepositoryGitConfig) string { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
 func (o CodeRepositoryGitConfigOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodeRepositoryGitConfig) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
@@ -787,6 +840,7 @@ func (o CodeRepositoryGitConfigPtrOutput) Elem() CodeRepositoryGitConfigOutput {
 	}).(CodeRepositoryGitConfigOutput)
 }
 
+// The default branch for the Git repository.
 func (o CodeRepositoryGitConfigPtrOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
 		if v == nil {
@@ -796,6 +850,7 @@ func (o CodeRepositoryGitConfigPtrOutput) Branch() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The URL where the Git repository is located.
 func (o CodeRepositoryGitConfigPtrOutput) RepositoryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
 		if v == nil {
@@ -805,6 +860,7 @@ func (o CodeRepositoryGitConfigPtrOutput) RepositoryUrl() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
 func (o CodeRepositoryGitConfigPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
 		if v == nil {
@@ -815,8 +871,11 @@ func (o CodeRepositoryGitConfigPtrOutput) SecretArn() pulumi.StringPtrOutput {
 }
 
 type DeviceDevice struct {
-	Description  *string `pulumi:"description"`
-	DeviceName   string  `pulumi:"deviceName"`
+	// A description for the device.
+	Description *string `pulumi:"description"`
+	// The name of the device.
+	DeviceName string `pulumi:"deviceName"`
+	// Amazon Web Services Internet of Things (IoT) object name.
 	IotThingName *string `pulumi:"iotThingName"`
 }
 
@@ -832,8 +891,11 @@ type DeviceDeviceInput interface {
 }
 
 type DeviceDeviceArgs struct {
-	Description  pulumi.StringPtrInput `pulumi:"description"`
-	DeviceName   pulumi.StringInput    `pulumi:"deviceName"`
+	// A description for the device.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name of the device.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// Amazon Web Services Internet of Things (IoT) object name.
 	IotThingName pulumi.StringPtrInput `pulumi:"iotThingName"`
 }
 
@@ -914,14 +976,17 @@ func (o DeviceDeviceOutput) ToDeviceDevicePtrOutputWithContext(ctx context.Conte
 	}).(DeviceDevicePtrOutput)
 }
 
+// A description for the device.
 func (o DeviceDeviceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceDevice) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the device.
 func (o DeviceDeviceOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v DeviceDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
+// Amazon Web Services Internet of Things (IoT) object name.
 func (o DeviceDeviceOutput) IotThingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceDevice) *string { return v.IotThingName }).(pulumi.StringPtrOutput)
 }
@@ -950,6 +1015,7 @@ func (o DeviceDevicePtrOutput) Elem() DeviceDeviceOutput {
 	}).(DeviceDeviceOutput)
 }
 
+// A description for the device.
 func (o DeviceDevicePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceDevice) *string {
 		if v == nil {
@@ -959,6 +1025,7 @@ func (o DeviceDevicePtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the device.
 func (o DeviceDevicePtrOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceDevice) *string {
 		if v == nil {
@@ -968,6 +1035,7 @@ func (o DeviceDevicePtrOutput) DeviceName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Amazon Web Services Internet of Things (IoT) object name.
 func (o DeviceDevicePtrOutput) IotThingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceDevice) *string {
 		if v == nil {
@@ -978,8 +1046,10 @@ func (o DeviceDevicePtrOutput) IotThingName() pulumi.StringPtrOutput {
 }
 
 type DeviceFleetOutputConfig struct {
-	KmsKeyId         *string `pulumi:"kmsKeyId"`
-	S3OutputLocation string  `pulumi:"s3OutputLocation"`
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The Amazon Simple Storage (S3) bucker URI.
+	S3OutputLocation string `pulumi:"s3OutputLocation"`
 }
 
 // DeviceFleetOutputConfigInput is an input type that accepts DeviceFleetOutputConfigArgs and DeviceFleetOutputConfigOutput values.
@@ -994,8 +1064,10 @@ type DeviceFleetOutputConfigInput interface {
 }
 
 type DeviceFleetOutputConfigArgs struct {
-	KmsKeyId         pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	S3OutputLocation pulumi.StringInput    `pulumi:"s3OutputLocation"`
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The Amazon Simple Storage (S3) bucker URI.
+	S3OutputLocation pulumi.StringInput `pulumi:"s3OutputLocation"`
 }
 
 func (DeviceFleetOutputConfigArgs) ElementType() reflect.Type {
@@ -1075,10 +1147,12 @@ func (o DeviceFleetOutputConfigOutput) ToDeviceFleetOutputConfigPtrOutputWithCon
 	}).(DeviceFleetOutputConfigPtrOutput)
 }
 
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
 func (o DeviceFleetOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceFleetOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Simple Storage (S3) bucker URI.
 func (o DeviceFleetOutputConfigOutput) S3OutputLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v DeviceFleetOutputConfig) string { return v.S3OutputLocation }).(pulumi.StringOutput)
 }
@@ -1107,6 +1181,7 @@ func (o DeviceFleetOutputConfigPtrOutput) Elem() DeviceFleetOutputConfigOutput {
 	}).(DeviceFleetOutputConfigOutput)
 }
 
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
 func (o DeviceFleetOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceFleetOutputConfig) *string {
 		if v == nil {
@@ -1116,6 +1191,7 @@ func (o DeviceFleetOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Simple Storage (S3) bucker URI.
 func (o DeviceFleetOutputConfigPtrOutput) S3OutputLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceFleetOutputConfig) *string {
 		if v == nil {
@@ -1126,10 +1202,14 @@ func (o DeviceFleetOutputConfigPtrOutput) S3OutputLocation() pulumi.StringPtrOut
 }
 
 type DomainDefaultSpaceSettings struct {
-	ExecutionRole            string                                              `pulumi:"executionRole"`
+	// The execution role for the space.
+	ExecutionRole string `pulumi:"executionRole"`
+	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings *DomainDefaultSpaceSettingsJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
+	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings *DomainDefaultSpaceSettingsKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
-	SecurityGroups           []string                                            `pulumi:"securityGroups"`
+	// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+	SecurityGroups []string `pulumi:"securityGroups"`
 }
 
 // DomainDefaultSpaceSettingsInput is an input type that accepts DomainDefaultSpaceSettingsArgs and DomainDefaultSpaceSettingsOutput values.
@@ -1144,10 +1224,14 @@ type DomainDefaultSpaceSettingsInput interface {
 }
 
 type DomainDefaultSpaceSettingsArgs struct {
-	ExecutionRole            pulumi.StringInput                                         `pulumi:"executionRole"`
+	// The execution role for the space.
+	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
+	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
+	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
-	SecurityGroups           pulumi.StringArrayInput                                    `pulumi:"securityGroups"`
+	// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 }
 
 func (DomainDefaultSpaceSettingsArgs) ElementType() reflect.Type {
@@ -1227,22 +1311,26 @@ func (o DomainDefaultSpaceSettingsOutput) ToDomainDefaultSpaceSettingsPtrOutputW
 	}).(DomainDefaultSpaceSettingsPtrOutput)
 }
 
+// The execution role for the space.
 func (o DomainDefaultSpaceSettingsOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettings) string { return v.ExecutionRole }).(pulumi.StringOutput)
 }
 
+// The Jupyter server's app settings. See Jupyter Server App Settings below.
 func (o DomainDefaultSpaceSettingsOutput) JupyterServerAppSettings() DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettings) *DomainDefaultSpaceSettingsJupyterServerAppSettings {
 		return v.JupyterServerAppSettings
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput)
 }
 
+// The kernel gateway app settings. See Kernel Gateway App Settings below.
 func (o DomainDefaultSpaceSettingsOutput) KernelGatewayAppSettings() DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettings) *DomainDefaultSpaceSettingsKernelGatewayAppSettings {
 		return v.KernelGatewayAppSettings
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
+// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
 func (o DomainDefaultSpaceSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettings) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
@@ -1271,6 +1359,7 @@ func (o DomainDefaultSpaceSettingsPtrOutput) Elem() DomainDefaultSpaceSettingsOu
 	}).(DomainDefaultSpaceSettingsOutput)
 }
 
+// The execution role for the space.
 func (o DomainDefaultSpaceSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettings) *string {
 		if v == nil {
@@ -1280,6 +1369,7 @@ func (o DomainDefaultSpaceSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Jupyter server's app settings. See Jupyter Server App Settings below.
 func (o DomainDefaultSpaceSettingsPtrOutput) JupyterServerAppSettings() DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettings) *DomainDefaultSpaceSettingsJupyterServerAppSettings {
 		if v == nil {
@@ -1289,6 +1379,7 @@ func (o DomainDefaultSpaceSettingsPtrOutput) JupyterServerAppSettings() DomainDe
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput)
 }
 
+// The kernel gateway app settings. See Kernel Gateway App Settings below.
 func (o DomainDefaultSpaceSettingsPtrOutput) KernelGatewayAppSettings() DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettings) *DomainDefaultSpaceSettingsKernelGatewayAppSettings {
 		if v == nil {
@@ -1298,6 +1389,7 @@ func (o DomainDefaultSpaceSettingsPtrOutput) KernelGatewayAppSettings() DomainDe
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
+// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
 func (o DomainDefaultSpaceSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettings) []string {
 		if v == nil {
@@ -1308,9 +1400,12 @@ func (o DomainDefaultSpaceSettingsPtrOutput) SecurityGroups() pulumi.StringArray
 }
 
 type DomainDefaultSpaceSettingsJupyterServerAppSettings struct {
-	CodeRepositories    []DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository     `pulumi:"codeRepositories"`
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	CodeRepositories []DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository `pulumi:"codeRepositories"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec *DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
-	LifecycleConfigArns []string                                                               `pulumi:"lifecycleConfigArns"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
 // DomainDefaultSpaceSettingsJupyterServerAppSettingsInput is an input type that accepts DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs and DomainDefaultSpaceSettingsJupyterServerAppSettingsOutput values.
@@ -1325,9 +1420,12 @@ type DomainDefaultSpaceSettingsJupyterServerAppSettingsInput interface {
 }
 
 type DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs struct {
-	CodeRepositories    DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayInput    `pulumi:"codeRepositories"`
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	CodeRepositories DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
-	LifecycleConfigArns pulumi.StringArrayInput                                                       `pulumi:"lifecycleConfigArns"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
 func (DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs) ElementType() reflect.Type {
@@ -1407,18 +1505,21 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsOutput) ToDomainDefaul
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput)
 }
 
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsOutput) CodeRepositories() DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterServerAppSettings) []DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository {
 		return v.CodeRepositories
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsOutput) DefaultResourceSpec() DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterServerAppSettings) *DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterServerAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -1447,6 +1548,7 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput) Elem() Doma
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsOutput)
 }
 
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput) CodeRepositories() DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterServerAppSettings) []DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository {
 		if v == nil {
@@ -1456,6 +1558,7 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput) CodeReposit
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterServerAppSettings) *DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -1465,6 +1568,7 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput) DefaultReso
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterServerAppSettings) []string {
 		if v == nil {
@@ -1475,6 +1579,7 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput) LifecycleCo
 }
 
 type DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository struct {
+	// The URL of the Git repository.
 	RepositoryUrl string `pulumi:"repositoryUrl"`
 }
 
@@ -1490,6 +1595,7 @@ type DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryInput inter
 }
 
 type DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs struct {
+	// The URL of the Git repository.
 	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
 }
 
@@ -1544,6 +1650,7 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryOutput) 
 	return o
 }
 
+// The URL of the Git repository.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryOutput) RepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository) string {
 		return v.RepositoryUrl
@@ -1571,9 +1678,13 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOut
 }
 
 type DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec struct {
-	InstanceType             *string `pulumi:"instanceType"`
-	LifecycleConfigArn       *string `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        *string `pulumi:"sagemakerImageArn"`
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -1589,9 +1700,13 @@ type DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecInput 
 }
 
 type DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs struct {
-	InstanceType             pulumi.StringPtrInput `pulumi:"instanceType"`
-	LifecycleConfigArn       pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -1672,24 +1787,28 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOut
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.InstanceType
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageVersionArn
@@ -1720,6 +1839,7 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtr
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
 }
 
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -1729,6 +1849,7 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -1738,6 +1859,7 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -1747,6 +1869,7 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -1757,9 +1880,12 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtr
 }
 
 type DomainDefaultSpaceSettingsKernelGatewayAppSettings struct {
-	CustomImages        []DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage        `pulumi:"customImages"`
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages []DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec *DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
-	LifecycleConfigArns []string                                                               `pulumi:"lifecycleConfigArns"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
 // DomainDefaultSpaceSettingsKernelGatewayAppSettingsInput is an input type that accepts DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs and DomainDefaultSpaceSettingsKernelGatewayAppSettingsOutput values.
@@ -1774,9 +1900,12 @@ type DomainDefaultSpaceSettingsKernelGatewayAppSettingsInput interface {
 }
 
 type DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs struct {
-	CustomImages        DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArrayInput       `pulumi:"customImages"`
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArrayInput `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
-	LifecycleConfigArns pulumi.StringArrayInput                                                       `pulumi:"lifecycleConfigArns"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
 func (DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs) ElementType() reflect.Type {
@@ -1856,18 +1985,21 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsOutput) ToDomainDefaul
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsOutput) CustomImages() DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsKernelGatewayAppSettings) []DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage {
 		return v.CustomImages
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsOutput) DefaultResourceSpec() DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsKernelGatewayAppSettings) *DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsKernelGatewayAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -1896,6 +2028,7 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput) Elem() Doma
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsOutput)
 }
 
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput) CustomImages() DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsKernelGatewayAppSettings) []DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage {
 		if v == nil {
@@ -1905,6 +2038,7 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput) CustomImage
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsKernelGatewayAppSettings) *DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -1914,6 +2048,7 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput) DefaultReso
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsKernelGatewayAppSettings) []string {
 		if v == nil {
@@ -1924,9 +2059,12 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput) LifecycleCo
 }
 
 type DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage struct {
+	// The name of the App Image Config.
 	AppImageConfigName string `pulumi:"appImageConfigName"`
-	ImageName          string `pulumi:"imageName"`
-	ImageVersionNumber *int   `pulumi:"imageVersionNumber"`
+	// The name of the Custom Image.
+	ImageName string `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber *int `pulumi:"imageVersionNumber"`
 }
 
 // DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageInput is an input type that accepts DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs and DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageOutput values.
@@ -1941,8 +2079,11 @@ type DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageInput interfac
 }
 
 type DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs struct {
+	// The name of the App Image Config.
 	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
-	ImageName          pulumi.StringInput `pulumi:"imageName"`
+	// The name of the Custom Image.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// The version number of the Custom Image.
 	ImageVersionNumber pulumi.IntPtrInput `pulumi:"imageVersionNumber"`
 }
 
@@ -1997,16 +2138,19 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageOutput) ToD
 	return o
 }
 
+// The name of the App Image Config.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageOutput) AppImageConfigName() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage) string {
 		return v.AppImageConfigName
 	}).(pulumi.StringOutput)
 }
 
+// The name of the Custom Image.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage) string { return v.ImageName }).(pulumi.StringOutput)
 }
 
+// The version number of the Custom Image.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageOutput) ImageVersionNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage) *int {
 		return v.ImageVersionNumber
@@ -2034,9 +2178,13 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput
 }
 
 type DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec struct {
-	InstanceType             *string `pulumi:"instanceType"`
-	LifecycleConfigArn       *string `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        *string `pulumi:"sagemakerImageArn"`
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -2052,9 +2200,13 @@ type DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecInput 
 }
 
 type DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs struct {
-	InstanceType             pulumi.StringPtrInput `pulumi:"instanceType"`
-	LifecycleConfigArn       pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -2135,24 +2287,28 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOut
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.InstanceType
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageVersionArn
@@ -2183,6 +2339,7 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtr
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
 }
 
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -2192,6 +2349,7 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -2201,6 +2359,7 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -2210,6 +2369,7 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -2220,14 +2380,22 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtr
 }
 
 type DomainDefaultUserSettings struct {
-	CanvasAppSettings        *DomainDefaultUserSettingsCanvasAppSettings        `pulumi:"canvasAppSettings"`
-	ExecutionRole            string                                             `pulumi:"executionRole"`
+	// The Canvas app settings. See Canvas App Settings below.
+	CanvasAppSettings *DomainDefaultUserSettingsCanvasAppSettings `pulumi:"canvasAppSettings"`
+	// The execution role ARN for the user.
+	ExecutionRole string `pulumi:"executionRole"`
+	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings *DomainDefaultUserSettingsJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
+	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings *DomainDefaultUserSettingsKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
-	RSessionAppSettings      *DomainDefaultUserSettingsRSessionAppSettings      `pulumi:"rSessionAppSettings"`
-	SecurityGroups           []string                                           `pulumi:"securityGroups"`
-	SharingSettings          *DomainDefaultUserSettingsSharingSettings          `pulumi:"sharingSettings"`
-	TensorBoardAppSettings   *DomainDefaultUserSettingsTensorBoardAppSettings   `pulumi:"tensorBoardAppSettings"`
+	// The RSession app settings. See RSession App Settings below.
+	RSessionAppSettings *DomainDefaultUserSettingsRSessionAppSettings `pulumi:"rSessionAppSettings"`
+	// A list of security group IDs that will be attached to the user.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// The sharing settings. See Sharing Settings below.
+	SharingSettings *DomainDefaultUserSettingsSharingSettings `pulumi:"sharingSettings"`
+	// The TensorBoard app settings. See TensorBoard App Settings below.
+	TensorBoardAppSettings *DomainDefaultUserSettingsTensorBoardAppSettings `pulumi:"tensorBoardAppSettings"`
 }
 
 // DomainDefaultUserSettingsInput is an input type that accepts DomainDefaultUserSettingsArgs and DomainDefaultUserSettingsOutput values.
@@ -2242,14 +2410,22 @@ type DomainDefaultUserSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsArgs struct {
-	CanvasAppSettings        DomainDefaultUserSettingsCanvasAppSettingsPtrInput        `pulumi:"canvasAppSettings"`
-	ExecutionRole            pulumi.StringInput                                        `pulumi:"executionRole"`
+	// The Canvas app settings. See Canvas App Settings below.
+	CanvasAppSettings DomainDefaultUserSettingsCanvasAppSettingsPtrInput `pulumi:"canvasAppSettings"`
+	// The execution role ARN for the user.
+	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
+	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings DomainDefaultUserSettingsJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
+	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings DomainDefaultUserSettingsKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
-	RSessionAppSettings      DomainDefaultUserSettingsRSessionAppSettingsPtrInput      `pulumi:"rSessionAppSettings"`
-	SecurityGroups           pulumi.StringArrayInput                                   `pulumi:"securityGroups"`
-	SharingSettings          DomainDefaultUserSettingsSharingSettingsPtrInput          `pulumi:"sharingSettings"`
-	TensorBoardAppSettings   DomainDefaultUserSettingsTensorBoardAppSettingsPtrInput   `pulumi:"tensorBoardAppSettings"`
+	// The RSession app settings. See RSession App Settings below.
+	RSessionAppSettings DomainDefaultUserSettingsRSessionAppSettingsPtrInput `pulumi:"rSessionAppSettings"`
+	// A list of security group IDs that will be attached to the user.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// The sharing settings. See Sharing Settings below.
+	SharingSettings DomainDefaultUserSettingsSharingSettingsPtrInput `pulumi:"sharingSettings"`
+	// The TensorBoard app settings. See TensorBoard App Settings below.
+	TensorBoardAppSettings DomainDefaultUserSettingsTensorBoardAppSettingsPtrInput `pulumi:"tensorBoardAppSettings"`
 }
 
 func (DomainDefaultUserSettingsArgs) ElementType() reflect.Type {
@@ -2329,42 +2505,50 @@ func (o DomainDefaultUserSettingsOutput) ToDomainDefaultUserSettingsPtrOutputWit
 	}).(DomainDefaultUserSettingsPtrOutput)
 }
 
+// The Canvas app settings. See Canvas App Settings below.
 func (o DomainDefaultUserSettingsOutput) CanvasAppSettings() DomainDefaultUserSettingsCanvasAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsCanvasAppSettings {
 		return v.CanvasAppSettings
 	}).(DomainDefaultUserSettingsCanvasAppSettingsPtrOutput)
 }
 
+// The execution role ARN for the user.
 func (o DomainDefaultUserSettingsOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) string { return v.ExecutionRole }).(pulumi.StringOutput)
 }
 
+// The Jupyter server's app settings. See Jupyter Server App Settings below.
 func (o DomainDefaultUserSettingsOutput) JupyterServerAppSettings() DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsJupyterServerAppSettings {
 		return v.JupyterServerAppSettings
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput)
 }
 
+// The kernel gateway app settings. See Kernel Gateway App Settings below.
 func (o DomainDefaultUserSettingsOutput) KernelGatewayAppSettings() DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsKernelGatewayAppSettings {
 		return v.KernelGatewayAppSettings
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
+// The RSession app settings. See RSession App Settings below.
 func (o DomainDefaultUserSettingsOutput) RSessionAppSettings() DomainDefaultUserSettingsRSessionAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsRSessionAppSettings {
 		return v.RSessionAppSettings
 	}).(DomainDefaultUserSettingsRSessionAppSettingsPtrOutput)
 }
 
+// A list of security group IDs that will be attached to the user.
 func (o DomainDefaultUserSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// The sharing settings. See Sharing Settings below.
 func (o DomainDefaultUserSettingsOutput) SharingSettings() DomainDefaultUserSettingsSharingSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsSharingSettings { return v.SharingSettings }).(DomainDefaultUserSettingsSharingSettingsPtrOutput)
 }
 
+// The TensorBoard app settings. See TensorBoard App Settings below.
 func (o DomainDefaultUserSettingsOutput) TensorBoardAppSettings() DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsTensorBoardAppSettings {
 		return v.TensorBoardAppSettings
@@ -2395,6 +2579,7 @@ func (o DomainDefaultUserSettingsPtrOutput) Elem() DomainDefaultUserSettingsOutp
 	}).(DomainDefaultUserSettingsOutput)
 }
 
+// The Canvas app settings. See Canvas App Settings below.
 func (o DomainDefaultUserSettingsPtrOutput) CanvasAppSettings() DomainDefaultUserSettingsCanvasAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsCanvasAppSettings {
 		if v == nil {
@@ -2404,6 +2589,7 @@ func (o DomainDefaultUserSettingsPtrOutput) CanvasAppSettings() DomainDefaultUse
 	}).(DomainDefaultUserSettingsCanvasAppSettingsPtrOutput)
 }
 
+// The execution role ARN for the user.
 func (o DomainDefaultUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *string {
 		if v == nil {
@@ -2413,6 +2599,7 @@ func (o DomainDefaultUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Jupyter server's app settings. See Jupyter Server App Settings below.
 func (o DomainDefaultUserSettingsPtrOutput) JupyterServerAppSettings() DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsJupyterServerAppSettings {
 		if v == nil {
@@ -2422,6 +2609,7 @@ func (o DomainDefaultUserSettingsPtrOutput) JupyterServerAppSettings() DomainDef
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput)
 }
 
+// The kernel gateway app settings. See Kernel Gateway App Settings below.
 func (o DomainDefaultUserSettingsPtrOutput) KernelGatewayAppSettings() DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsKernelGatewayAppSettings {
 		if v == nil {
@@ -2431,6 +2619,7 @@ func (o DomainDefaultUserSettingsPtrOutput) KernelGatewayAppSettings() DomainDef
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
+// The RSession app settings. See RSession App Settings below.
 func (o DomainDefaultUserSettingsPtrOutput) RSessionAppSettings() DomainDefaultUserSettingsRSessionAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsRSessionAppSettings {
 		if v == nil {
@@ -2440,6 +2629,7 @@ func (o DomainDefaultUserSettingsPtrOutput) RSessionAppSettings() DomainDefaultU
 	}).(DomainDefaultUserSettingsRSessionAppSettingsPtrOutput)
 }
 
+// A list of security group IDs that will be attached to the user.
 func (o DomainDefaultUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) []string {
 		if v == nil {
@@ -2449,6 +2639,7 @@ func (o DomainDefaultUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
+// The sharing settings. See Sharing Settings below.
 func (o DomainDefaultUserSettingsPtrOutput) SharingSettings() DomainDefaultUserSettingsSharingSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsSharingSettings {
 		if v == nil {
@@ -2458,6 +2649,7 @@ func (o DomainDefaultUserSettingsPtrOutput) SharingSettings() DomainDefaultUserS
 	}).(DomainDefaultUserSettingsSharingSettingsPtrOutput)
 }
 
+// The TensorBoard app settings. See TensorBoard App Settings below.
 func (o DomainDefaultUserSettingsPtrOutput) TensorBoardAppSettings() DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsTensorBoardAppSettings {
 		if v == nil {
@@ -2468,6 +2660,7 @@ func (o DomainDefaultUserSettingsPtrOutput) TensorBoardAppSettings() DomainDefau
 }
 
 type DomainDefaultUserSettingsCanvasAppSettings struct {
+	// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
 	TimeSeriesForecastingSettings *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings `pulumi:"timeSeriesForecastingSettings"`
 }
 
@@ -2483,6 +2676,7 @@ type DomainDefaultUserSettingsCanvasAppSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsCanvasAppSettingsArgs struct {
+	// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
 	TimeSeriesForecastingSettings DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput `pulumi:"timeSeriesForecastingSettings"`
 }
 
@@ -2563,6 +2757,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) ToDomainDefaultUserSet
 	}).(DomainDefaultUserSettingsCanvasAppSettingsPtrOutput)
 }
 
+// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
 func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) TimeSeriesForecastingSettings() DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
 		return v.TimeSeriesForecastingSettings
@@ -2593,6 +2788,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) Elem() DomainDefaul
 	}).(DomainDefaultUserSettingsCanvasAppSettingsOutput)
 }
 
+// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
 func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) TimeSeriesForecastingSettings() DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
 		if v == nil {
@@ -2603,8 +2799,10 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) TimeSeriesForecasti
 }
 
 type DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings struct {
+	// The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
 	AmazonForecastRoleArn *string `pulumi:"amazonForecastRoleArn"`
-	Status                *string `pulumi:"status"`
+	// Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
+	Status *string `pulumi:"status"`
 }
 
 // DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs and DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput values.
@@ -2619,8 +2817,10 @@ type DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsInpu
 }
 
 type DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs struct {
+	// The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
 	AmazonForecastRoleArn pulumi.StringPtrInput `pulumi:"amazonForecastRoleArn"`
-	Status                pulumi.StringPtrInput `pulumi:"status"`
+	// Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs) ElementType() reflect.Type {
@@ -2700,12 +2900,14 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsO
 	}).(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput)
 }
 
+// The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
 func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput) AmazonForecastRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) *string {
 		return v.AmazonForecastRoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
 func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) *string {
 		return v.Status
@@ -2736,6 +2938,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsP
 	}).(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput)
 }
 
+// The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
 func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput) AmazonForecastRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) *string {
 		if v == nil {
@@ -2745,6 +2948,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
 func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) *string {
 		if v == nil {
@@ -2755,9 +2959,12 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsP
 }
 
 type DomainDefaultUserSettingsJupyterServerAppSettings struct {
-	CodeRepositories    []DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository     `pulumi:"codeRepositories"`
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	CodeRepositories []DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository `pulumi:"codeRepositories"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
-	LifecycleConfigArns []string                                                              `pulumi:"lifecycleConfigArns"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
 // DomainDefaultUserSettingsJupyterServerAppSettingsInput is an input type that accepts DomainDefaultUserSettingsJupyterServerAppSettingsArgs and DomainDefaultUserSettingsJupyterServerAppSettingsOutput values.
@@ -2772,9 +2979,12 @@ type DomainDefaultUserSettingsJupyterServerAppSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsJupyterServerAppSettingsArgs struct {
-	CodeRepositories    DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArrayInput    `pulumi:"codeRepositories"`
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	CodeRepositories DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
-	LifecycleConfigArns pulumi.StringArrayInput                                                      `pulumi:"lifecycleConfigArns"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
 func (DomainDefaultUserSettingsJupyterServerAppSettingsArgs) ElementType() reflect.Type {
@@ -2854,18 +3064,21 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) ToDomainDefault
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput)
 }
 
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) CodeRepositories() DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettings) []DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository {
 		return v.CodeRepositories
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettings) *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -2894,6 +3107,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) Elem() Domai
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsOutput)
 }
 
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) CodeRepositories() DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettings) []DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository {
 		if v == nil {
@@ -2903,6 +3117,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) CodeReposito
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettings) *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -2912,6 +3127,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) DefaultResou
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettings) []string {
 		if v == nil {
@@ -2922,6 +3138,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) LifecycleCon
 }
 
 type DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository struct {
+	// The URL of the Git repository.
 	RepositoryUrl string `pulumi:"repositoryUrl"`
 }
 
@@ -2937,6 +3154,7 @@ type DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryInput interf
 }
 
 type DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs struct {
+	// The URL of the Git repository.
 	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
 }
 
@@ -2991,6 +3209,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryOutput) T
 	return o
 }
 
+// The URL of the Git repository.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryOutput) RepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository) string { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
@@ -3016,9 +3235,13 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutp
 }
 
 type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec struct {
-	InstanceType             *string `pulumi:"instanceType"`
-	LifecycleConfigArn       *string `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        *string `pulumi:"sagemakerImageArn"`
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -3034,9 +3257,13 @@ type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput i
 }
 
 type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs struct {
-	InstanceType             pulumi.StringPtrInput `pulumi:"instanceType"`
-	LifecycleConfigArn       pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -3117,24 +3344,28 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutp
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.InstanceType
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageVersionArn
@@ -3165,6 +3396,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrO
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
 }
 
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -3174,6 +3406,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -3183,6 +3416,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -3192,6 +3426,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -3202,9 +3437,12 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrO
 }
 
 type DomainDefaultUserSettingsKernelGatewayAppSettings struct {
-	CustomImages        []DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage        `pulumi:"customImages"`
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages []DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
-	LifecycleConfigArns []string                                                              `pulumi:"lifecycleConfigArns"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
 // DomainDefaultUserSettingsKernelGatewayAppSettingsInput is an input type that accepts DomainDefaultUserSettingsKernelGatewayAppSettingsArgs and DomainDefaultUserSettingsKernelGatewayAppSettingsOutput values.
@@ -3219,9 +3457,12 @@ type DomainDefaultUserSettingsKernelGatewayAppSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsKernelGatewayAppSettingsArgs struct {
-	CustomImages        DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayInput       `pulumi:"customImages"`
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayInput `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
-	LifecycleConfigArns pulumi.StringArrayInput                                                      `pulumi:"lifecycleConfigArns"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
 func (DomainDefaultUserSettingsKernelGatewayAppSettingsArgs) ElementType() reflect.Type {
@@ -3301,18 +3542,21 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) ToDomainDefault
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) CustomImages() DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettings) []DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage {
 		return v.CustomImages
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettings) *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -3341,6 +3585,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) Elem() Domai
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsOutput)
 }
 
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) CustomImages() DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettings) []DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage {
 		if v == nil {
@@ -3350,6 +3595,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) CustomImages
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettings) *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -3359,6 +3605,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) DefaultResou
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettings) []string {
 		if v == nil {
@@ -3369,9 +3616,12 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) LifecycleCon
 }
 
 type DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage struct {
+	// The name of the App Image Config.
 	AppImageConfigName string `pulumi:"appImageConfigName"`
-	ImageName          string `pulumi:"imageName"`
-	ImageVersionNumber *int   `pulumi:"imageVersionNumber"`
+	// The name of the Custom Image.
+	ImageName string `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber *int `pulumi:"imageVersionNumber"`
 }
 
 // DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageInput is an input type that accepts DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs and DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput values.
@@ -3386,8 +3636,11 @@ type DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageInput interface
 }
 
 type DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs struct {
+	// The name of the App Image Config.
 	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
-	ImageName          pulumi.StringInput `pulumi:"imageName"`
+	// The name of the Custom Image.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// The version number of the Custom Image.
 	ImageVersionNumber pulumi.IntPtrInput `pulumi:"imageVersionNumber"`
 }
 
@@ -3442,16 +3695,19 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput) ToDo
 	return o
 }
 
+// The name of the App Image Config.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput) AppImageConfigName() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage) string {
 		return v.AppImageConfigName
 	}).(pulumi.StringOutput)
 }
 
+// The name of the Custom Image.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage) string { return v.ImageName }).(pulumi.StringOutput)
 }
 
+// The version number of the Custom Image.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutput) ImageVersionNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage) *int { return v.ImageVersionNumber }).(pulumi.IntPtrOutput)
 }
@@ -3477,9 +3733,13 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
 type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec struct {
-	InstanceType             *string `pulumi:"instanceType"`
-	LifecycleConfigArn       *string `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        *string `pulumi:"sagemakerImageArn"`
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -3495,9 +3755,13 @@ type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput i
 }
 
 type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs struct {
-	InstanceType             pulumi.StringPtrInput `pulumi:"instanceType"`
-	LifecycleConfigArn       pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -3578,24 +3842,28 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutp
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.InstanceType
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageVersionArn
@@ -3626,6 +3894,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrO
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
 }
 
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -3635,6 +3904,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -3644,6 +3914,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -3653,6 +3924,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -3663,7 +3935,9 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrO
 }
 
 type DomainDefaultUserSettingsRSessionAppSettings struct {
-	CustomImages        []DomainDefaultUserSettingsRSessionAppSettingsCustomImage        `pulumi:"customImages"`
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages []DomainDefaultUserSettingsRSessionAppSettingsCustomImage `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -3679,7 +3953,9 @@ type DomainDefaultUserSettingsRSessionAppSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsRSessionAppSettingsArgs struct {
-	CustomImages        DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayInput       `pulumi:"customImages"`
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayInput `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -3760,12 +4036,14 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsOutput) ToDomainDefaultUserS
 	}).(DomainDefaultUserSettingsRSessionAppSettingsPtrOutput)
 }
 
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
 func (o DomainDefaultUserSettingsRSessionAppSettingsOutput) CustomImages() DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettings) []DomainDefaultUserSettingsRSessionAppSettingsCustomImage {
 		return v.CustomImages
 	}).(DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o DomainDefaultUserSettingsRSessionAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettings) *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -3796,6 +4074,7 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsPtrOutput) Elem() DomainDefa
 	}).(DomainDefaultUserSettingsRSessionAppSettingsOutput)
 }
 
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
 func (o DomainDefaultUserSettingsRSessionAppSettingsPtrOutput) CustomImages() DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsRSessionAppSettings) []DomainDefaultUserSettingsRSessionAppSettingsCustomImage {
 		if v == nil {
@@ -3805,6 +4084,7 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsPtrOutput) CustomImages() Do
 	}).(DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o DomainDefaultUserSettingsRSessionAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsRSessionAppSettings) *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -3815,9 +4095,12 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsPtrOutput) DefaultResourceSp
 }
 
 type DomainDefaultUserSettingsRSessionAppSettingsCustomImage struct {
+	// The name of the App Image Config.
 	AppImageConfigName string `pulumi:"appImageConfigName"`
-	ImageName          string `pulumi:"imageName"`
-	ImageVersionNumber *int   `pulumi:"imageVersionNumber"`
+	// The name of the Custom Image.
+	ImageName string `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber *int `pulumi:"imageVersionNumber"`
 }
 
 // DomainDefaultUserSettingsRSessionAppSettingsCustomImageInput is an input type that accepts DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs and DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput values.
@@ -3832,8 +4115,11 @@ type DomainDefaultUserSettingsRSessionAppSettingsCustomImageInput interface {
 }
 
 type DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs struct {
+	// The name of the App Image Config.
 	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
-	ImageName          pulumi.StringInput `pulumi:"imageName"`
+	// The name of the Custom Image.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// The version number of the Custom Image.
 	ImageVersionNumber pulumi.IntPtrInput `pulumi:"imageVersionNumber"`
 }
 
@@ -3888,14 +4174,17 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput) ToDomainD
 	return o
 }
 
+// The name of the App Image Config.
 func (o DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput) AppImageConfigName() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettingsCustomImage) string { return v.AppImageConfigName }).(pulumi.StringOutput)
 }
 
+// The name of the Custom Image.
 func (o DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettingsCustomImage) string { return v.ImageName }).(pulumi.StringOutput)
 }
 
+// The version number of the Custom Image.
 func (o DomainDefaultUserSettingsRSessionAppSettingsCustomImageOutput) ImageVersionNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettingsCustomImage) *int { return v.ImageVersionNumber }).(pulumi.IntPtrOutput)
 }
@@ -3921,9 +4210,13 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput) Inde
 }
 
 type DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec struct {
-	InstanceType             *string `pulumi:"instanceType"`
-	LifecycleConfigArn       *string `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        *string `pulumi:"sagemakerImageArn"`
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -3939,9 +4232,13 @@ type DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecInput interf
 }
 
 type DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs struct {
-	InstanceType             pulumi.StringPtrInput `pulumi:"instanceType"`
-	LifecycleConfigArn       pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -4022,22 +4319,26 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) T
 	}).(DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageVersionArn
@@ -4068,6 +4369,7 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput
 	}).(DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput)
 }
 
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -4077,6 +4379,7 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -4086,6 +4389,7 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -4095,6 +4399,7 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -4105,9 +4410,12 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput
 }
 
 type DomainDefaultUserSettingsSharingSettings struct {
+	// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
 	NotebookOutputOption *string `pulumi:"notebookOutputOption"`
-	S3KmsKeyId           *string `pulumi:"s3KmsKeyId"`
-	S3OutputPath         *string `pulumi:"s3OutputPath"`
+	// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+	S3KmsKeyId *string `pulumi:"s3KmsKeyId"`
+	// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+	S3OutputPath *string `pulumi:"s3OutputPath"`
 }
 
 // DomainDefaultUserSettingsSharingSettingsInput is an input type that accepts DomainDefaultUserSettingsSharingSettingsArgs and DomainDefaultUserSettingsSharingSettingsOutput values.
@@ -4122,9 +4430,12 @@ type DomainDefaultUserSettingsSharingSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsSharingSettingsArgs struct {
+	// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
 	NotebookOutputOption pulumi.StringPtrInput `pulumi:"notebookOutputOption"`
-	S3KmsKeyId           pulumi.StringPtrInput `pulumi:"s3KmsKeyId"`
-	S3OutputPath         pulumi.StringPtrInput `pulumi:"s3OutputPath"`
+	// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+	S3KmsKeyId pulumi.StringPtrInput `pulumi:"s3KmsKeyId"`
+	// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+	S3OutputPath pulumi.StringPtrInput `pulumi:"s3OutputPath"`
 }
 
 func (DomainDefaultUserSettingsSharingSettingsArgs) ElementType() reflect.Type {
@@ -4204,14 +4515,17 @@ func (o DomainDefaultUserSettingsSharingSettingsOutput) ToDomainDefaultUserSetti
 	}).(DomainDefaultUserSettingsSharingSettingsPtrOutput)
 }
 
+// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
 func (o DomainDefaultUserSettingsSharingSettingsOutput) NotebookOutputOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsSharingSettings) *string { return v.NotebookOutputOption }).(pulumi.StringPtrOutput)
 }
 
+// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 func (o DomainDefaultUserSettingsSharingSettingsOutput) S3KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsSharingSettings) *string { return v.S3KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
 func (o DomainDefaultUserSettingsSharingSettingsOutput) S3OutputPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsSharingSettings) *string { return v.S3OutputPath }).(pulumi.StringPtrOutput)
 }
@@ -4240,6 +4554,7 @@ func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) Elem() DomainDefaultU
 	}).(DomainDefaultUserSettingsSharingSettingsOutput)
 }
 
+// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
 func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) NotebookOutputOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsSharingSettings) *string {
 		if v == nil {
@@ -4249,6 +4564,7 @@ func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) NotebookOutputOption(
 	}).(pulumi.StringPtrOutput)
 }
 
+// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) S3KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsSharingSettings) *string {
 		if v == nil {
@@ -4258,6 +4574,7 @@ func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) S3KmsKeyId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
 func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsSharingSettings) *string {
 		if v == nil {
@@ -4268,6 +4585,7 @@ func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) S3OutputPath() pulumi
 }
 
 type DomainDefaultUserSettingsTensorBoardAppSettings struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -4283,6 +4601,7 @@ type DomainDefaultUserSettingsTensorBoardAppSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsTensorBoardAppSettingsArgs struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -4363,6 +4682,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsOutput) ToDomainDefaultUs
 	}).(DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettings) *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -4393,6 +4713,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput) Elem() DomainD
 	}).(DomainDefaultUserSettingsTensorBoardAppSettingsOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsTensorBoardAppSettings) *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -4403,9 +4724,13 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput) DefaultResourc
 }
 
 type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec struct {
-	InstanceType             *string `pulumi:"instanceType"`
-	LifecycleConfigArn       *string `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        *string `pulumi:"sagemakerImageArn"`
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -4421,9 +4746,13 @@ type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput int
 }
 
 type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs struct {
-	InstanceType             pulumi.StringPtrInput `pulumi:"instanceType"`
-	LifecycleConfigArn       pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -4504,24 +4833,28 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput
 	}).(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		return v.InstanceType
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageVersionArn
@@ -4552,6 +4885,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOut
 	}).(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput)
 }
 
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -4561,6 +4895,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -4570,6 +4905,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -4579,6 +4915,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -4589,8 +4926,10 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOut
 }
 
 type DomainDomainSettings struct {
-	ExecutionRoleIdentityConfig *string  `pulumi:"executionRoleIdentityConfig"`
-	SecurityGroupIds            []string `pulumi:"securityGroupIds"`
+	// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
+	ExecutionRoleIdentityConfig *string `pulumi:"executionRoleIdentityConfig"`
+	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 }
 
 // DomainDomainSettingsInput is an input type that accepts DomainDomainSettingsArgs and DomainDomainSettingsOutput values.
@@ -4605,8 +4944,10 @@ type DomainDomainSettingsInput interface {
 }
 
 type DomainDomainSettingsArgs struct {
-	ExecutionRoleIdentityConfig pulumi.StringPtrInput   `pulumi:"executionRoleIdentityConfig"`
-	SecurityGroupIds            pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
+	ExecutionRoleIdentityConfig pulumi.StringPtrInput `pulumi:"executionRoleIdentityConfig"`
+	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 }
 
 func (DomainDomainSettingsArgs) ElementType() reflect.Type {
@@ -4686,10 +5027,12 @@ func (o DomainDomainSettingsOutput) ToDomainDomainSettingsPtrOutputWithContext(c
 	}).(DomainDomainSettingsPtrOutput)
 }
 
+// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
 func (o DomainDomainSettingsOutput) ExecutionRoleIdentityConfig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDomainSettings) *string { return v.ExecutionRoleIdentityConfig }).(pulumi.StringPtrOutput)
 }
 
+// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
 func (o DomainDomainSettingsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDomainSettings) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -4718,6 +5061,7 @@ func (o DomainDomainSettingsPtrOutput) Elem() DomainDomainSettingsOutput {
 	}).(DomainDomainSettingsOutput)
 }
 
+// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
 func (o DomainDomainSettingsPtrOutput) ExecutionRoleIdentityConfig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDomainSettings) *string {
 		if v == nil {
@@ -4727,6 +5071,7 @@ func (o DomainDomainSettingsPtrOutput) ExecutionRoleIdentityConfig() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
 func (o DomainDomainSettingsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDomainSettings) []string {
 		if v == nil {
@@ -4737,6 +5082,7 @@ func (o DomainDomainSettingsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutp
 }
 
 type DomainRetentionPolicy struct {
+	// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
 	HomeEfsFileSystem *string `pulumi:"homeEfsFileSystem"`
 }
 
@@ -4752,6 +5098,7 @@ type DomainRetentionPolicyInput interface {
 }
 
 type DomainRetentionPolicyArgs struct {
+	// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
 	HomeEfsFileSystem pulumi.StringPtrInput `pulumi:"homeEfsFileSystem"`
 }
 
@@ -4832,6 +5179,7 @@ func (o DomainRetentionPolicyOutput) ToDomainRetentionPolicyPtrOutputWithContext
 	}).(DomainRetentionPolicyPtrOutput)
 }
 
+// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
 func (o DomainRetentionPolicyOutput) HomeEfsFileSystem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainRetentionPolicy) *string { return v.HomeEfsFileSystem }).(pulumi.StringPtrOutput)
 }
@@ -4860,6 +5208,7 @@ func (o DomainRetentionPolicyPtrOutput) Elem() DomainRetentionPolicyOutput {
 	}).(DomainRetentionPolicyOutput)
 }
 
+// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
 func (o DomainRetentionPolicyPtrOutput) HomeEfsFileSystem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainRetentionPolicy) *string {
 		if v == nil {
@@ -4870,8 +5219,10 @@ func (o DomainRetentionPolicyPtrOutput) HomeEfsFileSystem() pulumi.StringPtrOutp
 }
 
 type EndpointConfigurationAsyncInferenceConfig struct {
+	// Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
 	ClientConfig *EndpointConfigurationAsyncInferenceConfigClientConfig `pulumi:"clientConfig"`
-	OutputConfig EndpointConfigurationAsyncInferenceConfigOutputConfig  `pulumi:"outputConfig"`
+	// Specifies the configuration for asynchronous inference invocation outputs.
+	OutputConfig EndpointConfigurationAsyncInferenceConfigOutputConfig `pulumi:"outputConfig"`
 }
 
 // EndpointConfigurationAsyncInferenceConfigInput is an input type that accepts EndpointConfigurationAsyncInferenceConfigArgs and EndpointConfigurationAsyncInferenceConfigOutput values.
@@ -4886,8 +5237,10 @@ type EndpointConfigurationAsyncInferenceConfigInput interface {
 }
 
 type EndpointConfigurationAsyncInferenceConfigArgs struct {
+	// Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
 	ClientConfig EndpointConfigurationAsyncInferenceConfigClientConfigPtrInput `pulumi:"clientConfig"`
-	OutputConfig EndpointConfigurationAsyncInferenceConfigOutputConfigInput    `pulumi:"outputConfig"`
+	// Specifies the configuration for asynchronous inference invocation outputs.
+	OutputConfig EndpointConfigurationAsyncInferenceConfigOutputConfigInput `pulumi:"outputConfig"`
 }
 
 func (EndpointConfigurationAsyncInferenceConfigArgs) ElementType() reflect.Type {
@@ -4967,12 +5320,14 @@ func (o EndpointConfigurationAsyncInferenceConfigOutput) ToEndpointConfiguration
 	}).(EndpointConfigurationAsyncInferenceConfigPtrOutput)
 }
 
+// Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
 func (o EndpointConfigurationAsyncInferenceConfigOutput) ClientConfig() EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfig) *EndpointConfigurationAsyncInferenceConfigClientConfig {
 		return v.ClientConfig
 	}).(EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput)
 }
 
+// Specifies the configuration for asynchronous inference invocation outputs.
 func (o EndpointConfigurationAsyncInferenceConfigOutput) OutputConfig() EndpointConfigurationAsyncInferenceConfigOutputConfigOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfig) EndpointConfigurationAsyncInferenceConfigOutputConfig {
 		return v.OutputConfig
@@ -5003,6 +5358,7 @@ func (o EndpointConfigurationAsyncInferenceConfigPtrOutput) Elem() EndpointConfi
 	}).(EndpointConfigurationAsyncInferenceConfigOutput)
 }
 
+// Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
 func (o EndpointConfigurationAsyncInferenceConfigPtrOutput) ClientConfig() EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfig) *EndpointConfigurationAsyncInferenceConfigClientConfig {
 		if v == nil {
@@ -5012,6 +5368,7 @@ func (o EndpointConfigurationAsyncInferenceConfigPtrOutput) ClientConfig() Endpo
 	}).(EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput)
 }
 
+// Specifies the configuration for asynchronous inference invocation outputs.
 func (o EndpointConfigurationAsyncInferenceConfigPtrOutput) OutputConfig() EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfig) *EndpointConfigurationAsyncInferenceConfigOutputConfig {
 		if v == nil {
@@ -5022,6 +5379,7 @@ func (o EndpointConfigurationAsyncInferenceConfigPtrOutput) OutputConfig() Endpo
 }
 
 type EndpointConfigurationAsyncInferenceConfigClientConfig struct {
+	// The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
 	MaxConcurrentInvocationsPerInstance *int `pulumi:"maxConcurrentInvocationsPerInstance"`
 }
 
@@ -5037,6 +5395,7 @@ type EndpointConfigurationAsyncInferenceConfigClientConfigInput interface {
 }
 
 type EndpointConfigurationAsyncInferenceConfigClientConfigArgs struct {
+	// The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
 	MaxConcurrentInvocationsPerInstance pulumi.IntPtrInput `pulumi:"maxConcurrentInvocationsPerInstance"`
 }
 
@@ -5117,6 +5476,7 @@ func (o EndpointConfigurationAsyncInferenceConfigClientConfigOutput) ToEndpointC
 	}).(EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput)
 }
 
+// The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
 func (o EndpointConfigurationAsyncInferenceConfigClientConfigOutput) MaxConcurrentInvocationsPerInstance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigClientConfig) *int {
 		return v.MaxConcurrentInvocationsPerInstance
@@ -5147,6 +5507,7 @@ func (o EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput) Elem() E
 	}).(EndpointConfigurationAsyncInferenceConfigClientConfigOutput)
 }
 
+// The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
 func (o EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput) MaxConcurrentInvocationsPerInstance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigClientConfig) *int {
 		if v == nil {
@@ -5157,9 +5518,12 @@ func (o EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput) MaxConcu
 }
 
 type EndpointConfigurationAsyncInferenceConfigOutputConfig struct {
-	KmsKeyId           *string                                                                  `pulumi:"kmsKeyId"`
+	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Specifies the configuration for notifications of inference results for asynchronous inference.
 	NotificationConfig *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig `pulumi:"notificationConfig"`
-	S3OutputPath       string                                                                   `pulumi:"s3OutputPath"`
+	// The Amazon S3 location to upload inference responses to.
+	S3OutputPath string `pulumi:"s3OutputPath"`
 }
 
 // EndpointConfigurationAsyncInferenceConfigOutputConfigInput is an input type that accepts EndpointConfigurationAsyncInferenceConfigOutputConfigArgs and EndpointConfigurationAsyncInferenceConfigOutputConfigOutput values.
@@ -5174,9 +5538,12 @@ type EndpointConfigurationAsyncInferenceConfigOutputConfigInput interface {
 }
 
 type EndpointConfigurationAsyncInferenceConfigOutputConfigArgs struct {
-	KmsKeyId           pulumi.StringPtrInput                                                           `pulumi:"kmsKeyId"`
+	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// Specifies the configuration for notifications of inference results for asynchronous inference.
 	NotificationConfig EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrInput `pulumi:"notificationConfig"`
-	S3OutputPath       pulumi.StringInput                                                              `pulumi:"s3OutputPath"`
+	// The Amazon S3 location to upload inference responses to.
+	S3OutputPath pulumi.StringInput `pulumi:"s3OutputPath"`
 }
 
 func (EndpointConfigurationAsyncInferenceConfigOutputConfigArgs) ElementType() reflect.Type {
@@ -5256,16 +5623,19 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) ToEndpointC
 	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput)
 }
 
+// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the configuration for notifications of inference results for asynchronous inference.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) NotificationConfig() EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfig) *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig {
 		return v.NotificationConfig
 	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput)
 }
 
+// The Amazon S3 location to upload inference responses to.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) S3OutputPath() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfig) string { return v.S3OutputPath }).(pulumi.StringOutput)
 }
@@ -5294,6 +5664,7 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) Elem() E
 	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigOutput)
 }
 
+// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfig) *string {
 		if v == nil {
@@ -5303,6 +5674,7 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) KmsKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the configuration for notifications of inference results for asynchronous inference.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) NotificationConfig() EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfig) *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig {
 		if v == nil {
@@ -5312,6 +5684,7 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) Notifica
 	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput)
 }
 
+// The Amazon S3 location to upload inference responses to.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfig) *string {
 		if v == nil {
@@ -5322,7 +5695,9 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) S3Output
 }
 
 type EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig struct {
-	ErrorTopic   *string `pulumi:"errorTopic"`
+	// Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+	ErrorTopic *string `pulumi:"errorTopic"`
+	// Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
 	SuccessTopic *string `pulumi:"successTopic"`
 }
 
@@ -5338,7 +5713,9 @@ type EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigInpu
 }
 
 type EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs struct {
-	ErrorTopic   pulumi.StringPtrInput `pulumi:"errorTopic"`
+	// Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+	ErrorTopic pulumi.StringPtrInput `pulumi:"errorTopic"`
+	// Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
 	SuccessTopic pulumi.StringPtrInput `pulumi:"successTopic"`
 }
 
@@ -5419,12 +5796,14 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigO
 	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput)
 }
 
+// Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput) ErrorTopic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig) *string {
 		return v.ErrorTopic
 	}).(pulumi.StringPtrOutput)
 }
 
+// Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput) SuccessTopic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig) *string {
 		return v.SuccessTopic
@@ -5455,6 +5834,7 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigP
 	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput)
 }
 
+// Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput) ErrorTopic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig) *string {
 		if v == nil {
@@ -5464,6 +5844,7 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput) SuccessTopic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig) *string {
 		if v == nil {
@@ -5474,12 +5855,18 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigP
 }
 
 type EndpointConfigurationDataCaptureConfig struct {
-	CaptureContentTypeHeader  *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader `pulumi:"captureContentTypeHeader"`
-	CaptureOptions            []EndpointConfigurationDataCaptureConfigCaptureOption           `pulumi:"captureOptions"`
-	DestinationS3Uri          string                                                          `pulumi:"destinationS3Uri"`
-	EnableCapture             *bool                                                           `pulumi:"enableCapture"`
-	InitialSamplingPercentage int                                                             `pulumi:"initialSamplingPercentage"`
-	KmsKeyId                  *string                                                         `pulumi:"kmsKeyId"`
+	// The content type headers to capture. Fields are documented below.
+	CaptureContentTypeHeader *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader `pulumi:"captureContentTypeHeader"`
+	// Specifies what data to capture. Fields are documented below.
+	CaptureOptions []EndpointConfigurationDataCaptureConfigCaptureOption `pulumi:"captureOptions"`
+	// The URL for S3 location where the captured data is stored.
+	DestinationS3Uri string `pulumi:"destinationS3Uri"`
+	// Flag to enable data capture. Defaults to `false`.
+	EnableCapture *bool `pulumi:"enableCapture"`
+	// Portion of data to capture. Should be between 0 and 100.
+	InitialSamplingPercentage int `pulumi:"initialSamplingPercentage"`
+	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
 // EndpointConfigurationDataCaptureConfigInput is an input type that accepts EndpointConfigurationDataCaptureConfigArgs and EndpointConfigurationDataCaptureConfigOutput values.
@@ -5494,12 +5881,18 @@ type EndpointConfigurationDataCaptureConfigInput interface {
 }
 
 type EndpointConfigurationDataCaptureConfigArgs struct {
-	CaptureContentTypeHeader  EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrInput `pulumi:"captureContentTypeHeader"`
-	CaptureOptions            EndpointConfigurationDataCaptureConfigCaptureOptionArrayInput          `pulumi:"captureOptions"`
-	DestinationS3Uri          pulumi.StringInput                                                     `pulumi:"destinationS3Uri"`
-	EnableCapture             pulumi.BoolPtrInput                                                    `pulumi:"enableCapture"`
-	InitialSamplingPercentage pulumi.IntInput                                                        `pulumi:"initialSamplingPercentage"`
-	KmsKeyId                  pulumi.StringPtrInput                                                  `pulumi:"kmsKeyId"`
+	// The content type headers to capture. Fields are documented below.
+	CaptureContentTypeHeader EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrInput `pulumi:"captureContentTypeHeader"`
+	// Specifies what data to capture. Fields are documented below.
+	CaptureOptions EndpointConfigurationDataCaptureConfigCaptureOptionArrayInput `pulumi:"captureOptions"`
+	// The URL for S3 location where the captured data is stored.
+	DestinationS3Uri pulumi.StringInput `pulumi:"destinationS3Uri"`
+	// Flag to enable data capture. Defaults to `false`.
+	EnableCapture pulumi.BoolPtrInput `pulumi:"enableCapture"`
+	// Portion of data to capture. Should be between 0 and 100.
+	InitialSamplingPercentage pulumi.IntInput `pulumi:"initialSamplingPercentage"`
+	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
 func (EndpointConfigurationDataCaptureConfigArgs) ElementType() reflect.Type {
@@ -5579,30 +5972,36 @@ func (o EndpointConfigurationDataCaptureConfigOutput) ToEndpointConfigurationDat
 	}).(EndpointConfigurationDataCaptureConfigPtrOutput)
 }
 
+// The content type headers to capture. Fields are documented below.
 func (o EndpointConfigurationDataCaptureConfigOutput) CaptureContentTypeHeader() EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader {
 		return v.CaptureContentTypeHeader
 	}).(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
 }
 
+// Specifies what data to capture. Fields are documented below.
 func (o EndpointConfigurationDataCaptureConfigOutput) CaptureOptions() EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) []EndpointConfigurationDataCaptureConfigCaptureOption {
 		return v.CaptureOptions
 	}).(EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput)
 }
 
+// The URL for S3 location where the captured data is stored.
 func (o EndpointConfigurationDataCaptureConfigOutput) DestinationS3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) string { return v.DestinationS3Uri }).(pulumi.StringOutput)
 }
 
+// Flag to enable data capture. Defaults to `false`.
 func (o EndpointConfigurationDataCaptureConfigOutput) EnableCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) *bool { return v.EnableCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Portion of data to capture. Should be between 0 and 100.
 func (o EndpointConfigurationDataCaptureConfigOutput) InitialSamplingPercentage() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) int { return v.InitialSamplingPercentage }).(pulumi.IntOutput)
 }
 
+// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
 func (o EndpointConfigurationDataCaptureConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -5631,6 +6030,7 @@ func (o EndpointConfigurationDataCaptureConfigPtrOutput) Elem() EndpointConfigur
 	}).(EndpointConfigurationDataCaptureConfigOutput)
 }
 
+// The content type headers to capture. Fields are documented below.
 func (o EndpointConfigurationDataCaptureConfigPtrOutput) CaptureContentTypeHeader() EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader {
 		if v == nil {
@@ -5640,6 +6040,7 @@ func (o EndpointConfigurationDataCaptureConfigPtrOutput) CaptureContentTypeHeade
 	}).(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
 }
 
+// Specifies what data to capture. Fields are documented below.
 func (o EndpointConfigurationDataCaptureConfigPtrOutput) CaptureOptions() EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) []EndpointConfigurationDataCaptureConfigCaptureOption {
 		if v == nil {
@@ -5649,6 +6050,7 @@ func (o EndpointConfigurationDataCaptureConfigPtrOutput) CaptureOptions() Endpoi
 	}).(EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput)
 }
 
+// The URL for S3 location where the captured data is stored.
 func (o EndpointConfigurationDataCaptureConfigPtrOutput) DestinationS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) *string {
 		if v == nil {
@@ -5658,6 +6060,7 @@ func (o EndpointConfigurationDataCaptureConfigPtrOutput) DestinationS3Uri() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Flag to enable data capture. Defaults to `false`.
 func (o EndpointConfigurationDataCaptureConfigPtrOutput) EnableCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) *bool {
 		if v == nil {
@@ -5667,6 +6070,7 @@ func (o EndpointConfigurationDataCaptureConfigPtrOutput) EnableCapture() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Portion of data to capture. Should be between 0 and 100.
 func (o EndpointConfigurationDataCaptureConfigPtrOutput) InitialSamplingPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) *int {
 		if v == nil {
@@ -5676,6 +6080,7 @@ func (o EndpointConfigurationDataCaptureConfigPtrOutput) InitialSamplingPercenta
 	}).(pulumi.IntPtrOutput)
 }
 
+// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
 func (o EndpointConfigurationDataCaptureConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) *string {
 		if v == nil {
@@ -5686,7 +6091,9 @@ func (o EndpointConfigurationDataCaptureConfigPtrOutput) KmsKeyId() pulumi.Strin
 }
 
 type EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader struct {
-	CsvContentTypes  []string `pulumi:"csvContentTypes"`
+	// The CSV content type headers to capture.
+	CsvContentTypes []string `pulumi:"csvContentTypes"`
+	// The JSON content type headers to capture.
 	JsonContentTypes []string `pulumi:"jsonContentTypes"`
 }
 
@@ -5702,7 +6109,9 @@ type EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderInput interfa
 }
 
 type EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs struct {
-	CsvContentTypes  pulumi.StringArrayInput `pulumi:"csvContentTypes"`
+	// The CSV content type headers to capture.
+	CsvContentTypes pulumi.StringArrayInput `pulumi:"csvContentTypes"`
+	// The JSON content type headers to capture.
 	JsonContentTypes pulumi.StringArrayInput `pulumi:"jsonContentTypes"`
 }
 
@@ -5783,12 +6192,14 @@ func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput) To
 	}).(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
 }
 
+// The CSV content type headers to capture.
 func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput) CsvContentTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) []string {
 		return v.CsvContentTypes
 	}).(pulumi.StringArrayOutput)
 }
 
+// The JSON content type headers to capture.
 func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput) JsonContentTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) []string {
 		return v.JsonContentTypes
@@ -5819,6 +6230,7 @@ func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
 	}).(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput)
 }
 
+// The CSV content type headers to capture.
 func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput) CsvContentTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) []string {
 		if v == nil {
@@ -5828,6 +6240,7 @@ func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
 	}).(pulumi.StringArrayOutput)
 }
 
+// The JSON content type headers to capture.
 func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput) JsonContentTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) []string {
 		if v == nil {
@@ -5838,6 +6251,7 @@ func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
 }
 
 type EndpointConfigurationDataCaptureConfigCaptureOption struct {
+	// Specifies the data to be captured. Should be one of `Input` or `Output`.
 	CaptureMode string `pulumi:"captureMode"`
 }
 
@@ -5853,6 +6267,7 @@ type EndpointConfigurationDataCaptureConfigCaptureOptionInput interface {
 }
 
 type EndpointConfigurationDataCaptureConfigCaptureOptionArgs struct {
+	// Specifies the data to be captured. Should be one of `Input` or `Output`.
 	CaptureMode pulumi.StringInput `pulumi:"captureMode"`
 }
 
@@ -5907,6 +6322,7 @@ func (o EndpointConfigurationDataCaptureConfigCaptureOptionOutput) ToEndpointCon
 	return o
 }
 
+// Specifies the data to be captured. Should be one of `Input` or `Output`.
 func (o EndpointConfigurationDataCaptureConfigCaptureOptionOutput) CaptureMode() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfigCaptureOption) string { return v.CaptureMode }).(pulumi.StringOutput)
 }
@@ -5932,17 +6348,28 @@ func (o EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput) Index(i 
 }
 
 type EndpointConfigurationProductionVariant struct {
-	AcceleratorType                             *string                                                 `pulumi:"acceleratorType"`
-	ContainerStartupHealthCheckTimeoutInSeconds *int                                                    `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
-	CoreDumpConfig                              *EndpointConfigurationProductionVariantCoreDumpConfig   `pulumi:"coreDumpConfig"`
-	InitialInstanceCount                        *int                                                    `pulumi:"initialInstanceCount"`
-	InitialVariantWeight                        *float64                                                `pulumi:"initialVariantWeight"`
-	InstanceType                                *string                                                 `pulumi:"instanceType"`
-	ModelDataDownloadTimeoutInSeconds           *int                                                    `pulumi:"modelDataDownloadTimeoutInSeconds"`
-	ModelName                                   string                                                  `pulumi:"modelName"`
-	ServerlessConfig                            *EndpointConfigurationProductionVariantServerlessConfig `pulumi:"serverlessConfig"`
-	VariantName                                 *string                                                 `pulumi:"variantName"`
-	VolumeSizeInGb                              *int                                                    `pulumi:"volumeSizeInGb"`
+	// The size of the Elastic Inference (EI) instance to use for the production variant.
+	AcceleratorType *string `pulumi:"acceleratorType"`
+	// The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+	ContainerStartupHealthCheckTimeoutInSeconds *int `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
+	// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+	CoreDumpConfig *EndpointConfigurationProductionVariantCoreDumpConfig `pulumi:"coreDumpConfig"`
+	// Initial number of instances used for auto-scaling.
+	InitialInstanceCount *int `pulumi:"initialInstanceCount"`
+	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+	InitialVariantWeight *float64 `pulumi:"initialVariantWeight"`
+	// The type of instance to start.
+	InstanceType *string `pulumi:"instanceType"`
+	// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+	ModelDataDownloadTimeoutInSeconds *int `pulumi:"modelDataDownloadTimeoutInSeconds"`
+	// The name of the model to use.
+	ModelName string `pulumi:"modelName"`
+	// Specifies configuration for how an endpoint performs asynchronous inference.
+	ServerlessConfig *EndpointConfigurationProductionVariantServerlessConfig `pulumi:"serverlessConfig"`
+	// The name of the variant. If omitted, this provider will assign a random, unique name.
+	VariantName *string `pulumi:"variantName"`
+	// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+	VolumeSizeInGb *int `pulumi:"volumeSizeInGb"`
 }
 
 // EndpointConfigurationProductionVariantInput is an input type that accepts EndpointConfigurationProductionVariantArgs and EndpointConfigurationProductionVariantOutput values.
@@ -5957,17 +6384,28 @@ type EndpointConfigurationProductionVariantInput interface {
 }
 
 type EndpointConfigurationProductionVariantArgs struct {
-	AcceleratorType                             pulumi.StringPtrInput                                          `pulumi:"acceleratorType"`
-	ContainerStartupHealthCheckTimeoutInSeconds pulumi.IntPtrInput                                             `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
-	CoreDumpConfig                              EndpointConfigurationProductionVariantCoreDumpConfigPtrInput   `pulumi:"coreDumpConfig"`
-	InitialInstanceCount                        pulumi.IntPtrInput                                             `pulumi:"initialInstanceCount"`
-	InitialVariantWeight                        pulumi.Float64PtrInput                                         `pulumi:"initialVariantWeight"`
-	InstanceType                                pulumi.StringPtrInput                                          `pulumi:"instanceType"`
-	ModelDataDownloadTimeoutInSeconds           pulumi.IntPtrInput                                             `pulumi:"modelDataDownloadTimeoutInSeconds"`
-	ModelName                                   pulumi.StringInput                                             `pulumi:"modelName"`
-	ServerlessConfig                            EndpointConfigurationProductionVariantServerlessConfigPtrInput `pulumi:"serverlessConfig"`
-	VariantName                                 pulumi.StringPtrInput                                          `pulumi:"variantName"`
-	VolumeSizeInGb                              pulumi.IntPtrInput                                             `pulumi:"volumeSizeInGb"`
+	// The size of the Elastic Inference (EI) instance to use for the production variant.
+	AcceleratorType pulumi.StringPtrInput `pulumi:"acceleratorType"`
+	// The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+	ContainerStartupHealthCheckTimeoutInSeconds pulumi.IntPtrInput `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
+	// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+	CoreDumpConfig EndpointConfigurationProductionVariantCoreDumpConfigPtrInput `pulumi:"coreDumpConfig"`
+	// Initial number of instances used for auto-scaling.
+	InitialInstanceCount pulumi.IntPtrInput `pulumi:"initialInstanceCount"`
+	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+	InitialVariantWeight pulumi.Float64PtrInput `pulumi:"initialVariantWeight"`
+	// The type of instance to start.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+	ModelDataDownloadTimeoutInSeconds pulumi.IntPtrInput `pulumi:"modelDataDownloadTimeoutInSeconds"`
+	// The name of the model to use.
+	ModelName pulumi.StringInput `pulumi:"modelName"`
+	// Specifies configuration for how an endpoint performs asynchronous inference.
+	ServerlessConfig EndpointConfigurationProductionVariantServerlessConfigPtrInput `pulumi:"serverlessConfig"`
+	// The name of the variant. If omitted, this provider will assign a random, unique name.
+	VariantName pulumi.StringPtrInput `pulumi:"variantName"`
+	// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+	VolumeSizeInGb pulumi.IntPtrInput `pulumi:"volumeSizeInGb"`
 }
 
 func (EndpointConfigurationProductionVariantArgs) ElementType() reflect.Type {
@@ -6021,52 +6459,63 @@ func (o EndpointConfigurationProductionVariantOutput) ToEndpointConfigurationPro
 	return o
 }
 
+// The size of the Elastic Inference (EI) instance to use for the production variant.
 func (o EndpointConfigurationProductionVariantOutput) AcceleratorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *string { return v.AcceleratorType }).(pulumi.StringPtrOutput)
 }
 
+// The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
 func (o EndpointConfigurationProductionVariantOutput) ContainerStartupHealthCheckTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *int {
 		return v.ContainerStartupHealthCheckTimeoutInSeconds
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
 func (o EndpointConfigurationProductionVariantOutput) CoreDumpConfig() EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *EndpointConfigurationProductionVariantCoreDumpConfig {
 		return v.CoreDumpConfig
 	}).(EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput)
 }
 
+// Initial number of instances used for auto-scaling.
 func (o EndpointConfigurationProductionVariantOutput) InitialInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *int { return v.InitialInstanceCount }).(pulumi.IntPtrOutput)
 }
 
+// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
 func (o EndpointConfigurationProductionVariantOutput) InitialVariantWeight() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *float64 { return v.InitialVariantWeight }).(pulumi.Float64PtrOutput)
 }
 
+// The type of instance to start.
 func (o EndpointConfigurationProductionVariantOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
 func (o EndpointConfigurationProductionVariantOutput) ModelDataDownloadTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *int { return v.ModelDataDownloadTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The name of the model to use.
 func (o EndpointConfigurationProductionVariantOutput) ModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) string { return v.ModelName }).(pulumi.StringOutput)
 }
 
+// Specifies configuration for how an endpoint performs asynchronous inference.
 func (o EndpointConfigurationProductionVariantOutput) ServerlessConfig() EndpointConfigurationProductionVariantServerlessConfigPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *EndpointConfigurationProductionVariantServerlessConfig {
 		return v.ServerlessConfig
 	}).(EndpointConfigurationProductionVariantServerlessConfigPtrOutput)
 }
 
+// The name of the variant. If omitted, this provider will assign a random, unique name.
 func (o EndpointConfigurationProductionVariantOutput) VariantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *string { return v.VariantName }).(pulumi.StringPtrOutput)
 }
 
+// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
 func (o EndpointConfigurationProductionVariantOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *int { return v.VolumeSizeInGb }).(pulumi.IntPtrOutput)
 }
@@ -6092,8 +6541,10 @@ func (o EndpointConfigurationProductionVariantArrayOutput) Index(i pulumi.IntInp
 }
 
 type EndpointConfigurationProductionVariantCoreDumpConfig struct {
-	DestinationS3Uri string  `pulumi:"destinationS3Uri"`
-	KmsKeyId         *string `pulumi:"kmsKeyId"`
+	// The Amazon S3 bucket to send the core dump to.
+	DestinationS3Uri string `pulumi:"destinationS3Uri"`
+	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
 // EndpointConfigurationProductionVariantCoreDumpConfigInput is an input type that accepts EndpointConfigurationProductionVariantCoreDumpConfigArgs and EndpointConfigurationProductionVariantCoreDumpConfigOutput values.
@@ -6108,8 +6559,10 @@ type EndpointConfigurationProductionVariantCoreDumpConfigInput interface {
 }
 
 type EndpointConfigurationProductionVariantCoreDumpConfigArgs struct {
-	DestinationS3Uri pulumi.StringInput    `pulumi:"destinationS3Uri"`
-	KmsKeyId         pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The Amazon S3 bucket to send the core dump to.
+	DestinationS3Uri pulumi.StringInput `pulumi:"destinationS3Uri"`
+	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
 func (EndpointConfigurationProductionVariantCoreDumpConfigArgs) ElementType() reflect.Type {
@@ -6189,10 +6642,12 @@ func (o EndpointConfigurationProductionVariantCoreDumpConfigOutput) ToEndpointCo
 	}).(EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput)
 }
 
+// The Amazon S3 bucket to send the core dump to.
 func (o EndpointConfigurationProductionVariantCoreDumpConfigOutput) DestinationS3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariantCoreDumpConfig) string { return v.DestinationS3Uri }).(pulumi.StringOutput)
 }
 
+// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
 func (o EndpointConfigurationProductionVariantCoreDumpConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariantCoreDumpConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -6221,6 +6676,7 @@ func (o EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput) Elem() En
 	}).(EndpointConfigurationProductionVariantCoreDumpConfigOutput)
 }
 
+// The Amazon S3 bucket to send the core dump to.
 func (o EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput) DestinationS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationProductionVariantCoreDumpConfig) *string {
 		if v == nil {
@@ -6230,6 +6686,7 @@ func (o EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput) Destinati
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
 func (o EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationProductionVariantCoreDumpConfig) *string {
 		if v == nil {
@@ -6240,7 +6697,9 @@ func (o EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput) KmsKeyId(
 }
 
 type EndpointConfigurationProductionVariantServerlessConfig struct {
+	// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
 	MaxConcurrency int `pulumi:"maxConcurrency"`
+	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 	MemorySizeInMb int `pulumi:"memorySizeInMb"`
 }
 
@@ -6256,7 +6715,9 @@ type EndpointConfigurationProductionVariantServerlessConfigInput interface {
 }
 
 type EndpointConfigurationProductionVariantServerlessConfigArgs struct {
+	// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
 	MaxConcurrency pulumi.IntInput `pulumi:"maxConcurrency"`
+	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 	MemorySizeInMb pulumi.IntInput `pulumi:"memorySizeInMb"`
 }
 
@@ -6337,10 +6798,12 @@ func (o EndpointConfigurationProductionVariantServerlessConfigOutput) ToEndpoint
 	}).(EndpointConfigurationProductionVariantServerlessConfigPtrOutput)
 }
 
+// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
 func (o EndpointConfigurationProductionVariantServerlessConfigOutput) MaxConcurrency() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariantServerlessConfig) int { return v.MaxConcurrency }).(pulumi.IntOutput)
 }
 
+// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 func (o EndpointConfigurationProductionVariantServerlessConfigOutput) MemorySizeInMb() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariantServerlessConfig) int { return v.MemorySizeInMb }).(pulumi.IntOutput)
 }
@@ -6369,6 +6832,7 @@ func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) Elem() 
 	}).(EndpointConfigurationProductionVariantServerlessConfigOutput)
 }
 
+// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
 func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) MaxConcurrency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationProductionVariantServerlessConfig) *int {
 		if v == nil {
@@ -6378,6 +6842,7 @@ func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) MaxConc
 	}).(pulumi.IntPtrOutput)
 }
 
+// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) MemorySizeInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationProductionVariantServerlessConfig) *int {
 		if v == nil {
@@ -6388,17 +6853,28 @@ func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) MemoryS
 }
 
 type EndpointConfigurationShadowProductionVariant struct {
-	AcceleratorType                             *string                                                       `pulumi:"acceleratorType"`
-	ContainerStartupHealthCheckTimeoutInSeconds *int                                                          `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
-	CoreDumpConfig                              *EndpointConfigurationShadowProductionVariantCoreDumpConfig   `pulumi:"coreDumpConfig"`
-	InitialInstanceCount                        *int                                                          `pulumi:"initialInstanceCount"`
-	InitialVariantWeight                        *float64                                                      `pulumi:"initialVariantWeight"`
-	InstanceType                                *string                                                       `pulumi:"instanceType"`
-	ModelDataDownloadTimeoutInSeconds           *int                                                          `pulumi:"modelDataDownloadTimeoutInSeconds"`
-	ModelName                                   string                                                        `pulumi:"modelName"`
-	ServerlessConfig                            *EndpointConfigurationShadowProductionVariantServerlessConfig `pulumi:"serverlessConfig"`
-	VariantName                                 *string                                                       `pulumi:"variantName"`
-	VolumeSizeInGb                              *int                                                          `pulumi:"volumeSizeInGb"`
+	// The size of the Elastic Inference (EI) instance to use for the production variant.
+	AcceleratorType *string `pulumi:"acceleratorType"`
+	// The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+	ContainerStartupHealthCheckTimeoutInSeconds *int `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
+	// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+	CoreDumpConfig *EndpointConfigurationShadowProductionVariantCoreDumpConfig `pulumi:"coreDumpConfig"`
+	// Initial number of instances used for auto-scaling.
+	InitialInstanceCount *int `pulumi:"initialInstanceCount"`
+	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+	InitialVariantWeight *float64 `pulumi:"initialVariantWeight"`
+	// The type of instance to start.
+	InstanceType *string `pulumi:"instanceType"`
+	// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+	ModelDataDownloadTimeoutInSeconds *int `pulumi:"modelDataDownloadTimeoutInSeconds"`
+	// The name of the model to use.
+	ModelName string `pulumi:"modelName"`
+	// Specifies configuration for how an endpoint performs asynchronous inference.
+	ServerlessConfig *EndpointConfigurationShadowProductionVariantServerlessConfig `pulumi:"serverlessConfig"`
+	// The name of the variant. If omitted, this provider will assign a random, unique name.
+	VariantName *string `pulumi:"variantName"`
+	// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+	VolumeSizeInGb *int `pulumi:"volumeSizeInGb"`
 }
 
 // EndpointConfigurationShadowProductionVariantInput is an input type that accepts EndpointConfigurationShadowProductionVariantArgs and EndpointConfigurationShadowProductionVariantOutput values.
@@ -6413,17 +6889,28 @@ type EndpointConfigurationShadowProductionVariantInput interface {
 }
 
 type EndpointConfigurationShadowProductionVariantArgs struct {
-	AcceleratorType                             pulumi.StringPtrInput                                                `pulumi:"acceleratorType"`
-	ContainerStartupHealthCheckTimeoutInSeconds pulumi.IntPtrInput                                                   `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
-	CoreDumpConfig                              EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrInput   `pulumi:"coreDumpConfig"`
-	InitialInstanceCount                        pulumi.IntPtrInput                                                   `pulumi:"initialInstanceCount"`
-	InitialVariantWeight                        pulumi.Float64PtrInput                                               `pulumi:"initialVariantWeight"`
-	InstanceType                                pulumi.StringPtrInput                                                `pulumi:"instanceType"`
-	ModelDataDownloadTimeoutInSeconds           pulumi.IntPtrInput                                                   `pulumi:"modelDataDownloadTimeoutInSeconds"`
-	ModelName                                   pulumi.StringInput                                                   `pulumi:"modelName"`
-	ServerlessConfig                            EndpointConfigurationShadowProductionVariantServerlessConfigPtrInput `pulumi:"serverlessConfig"`
-	VariantName                                 pulumi.StringPtrInput                                                `pulumi:"variantName"`
-	VolumeSizeInGb                              pulumi.IntPtrInput                                                   `pulumi:"volumeSizeInGb"`
+	// The size of the Elastic Inference (EI) instance to use for the production variant.
+	AcceleratorType pulumi.StringPtrInput `pulumi:"acceleratorType"`
+	// The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+	ContainerStartupHealthCheckTimeoutInSeconds pulumi.IntPtrInput `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
+	// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+	CoreDumpConfig EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrInput `pulumi:"coreDumpConfig"`
+	// Initial number of instances used for auto-scaling.
+	InitialInstanceCount pulumi.IntPtrInput `pulumi:"initialInstanceCount"`
+	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+	InitialVariantWeight pulumi.Float64PtrInput `pulumi:"initialVariantWeight"`
+	// The type of instance to start.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+	ModelDataDownloadTimeoutInSeconds pulumi.IntPtrInput `pulumi:"modelDataDownloadTimeoutInSeconds"`
+	// The name of the model to use.
+	ModelName pulumi.StringInput `pulumi:"modelName"`
+	// Specifies configuration for how an endpoint performs asynchronous inference.
+	ServerlessConfig EndpointConfigurationShadowProductionVariantServerlessConfigPtrInput `pulumi:"serverlessConfig"`
+	// The name of the variant. If omitted, this provider will assign a random, unique name.
+	VariantName pulumi.StringPtrInput `pulumi:"variantName"`
+	// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+	VolumeSizeInGb pulumi.IntPtrInput `pulumi:"volumeSizeInGb"`
 }
 
 func (EndpointConfigurationShadowProductionVariantArgs) ElementType() reflect.Type {
@@ -6477,52 +6964,63 @@ func (o EndpointConfigurationShadowProductionVariantOutput) ToEndpointConfigurat
 	return o
 }
 
+// The size of the Elastic Inference (EI) instance to use for the production variant.
 func (o EndpointConfigurationShadowProductionVariantOutput) AcceleratorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *string { return v.AcceleratorType }).(pulumi.StringPtrOutput)
 }
 
+// The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
 func (o EndpointConfigurationShadowProductionVariantOutput) ContainerStartupHealthCheckTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *int {
 		return v.ContainerStartupHealthCheckTimeoutInSeconds
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
 func (o EndpointConfigurationShadowProductionVariantOutput) CoreDumpConfig() EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *EndpointConfigurationShadowProductionVariantCoreDumpConfig {
 		return v.CoreDumpConfig
 	}).(EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput)
 }
 
+// Initial number of instances used for auto-scaling.
 func (o EndpointConfigurationShadowProductionVariantOutput) InitialInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *int { return v.InitialInstanceCount }).(pulumi.IntPtrOutput)
 }
 
+// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
 func (o EndpointConfigurationShadowProductionVariantOutput) InitialVariantWeight() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *float64 { return v.InitialVariantWeight }).(pulumi.Float64PtrOutput)
 }
 
+// The type of instance to start.
 func (o EndpointConfigurationShadowProductionVariantOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
 func (o EndpointConfigurationShadowProductionVariantOutput) ModelDataDownloadTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *int { return v.ModelDataDownloadTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The name of the model to use.
 func (o EndpointConfigurationShadowProductionVariantOutput) ModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) string { return v.ModelName }).(pulumi.StringOutput)
 }
 
+// Specifies configuration for how an endpoint performs asynchronous inference.
 func (o EndpointConfigurationShadowProductionVariantOutput) ServerlessConfig() EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *EndpointConfigurationShadowProductionVariantServerlessConfig {
 		return v.ServerlessConfig
 	}).(EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput)
 }
 
+// The name of the variant. If omitted, this provider will assign a random, unique name.
 func (o EndpointConfigurationShadowProductionVariantOutput) VariantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *string { return v.VariantName }).(pulumi.StringPtrOutput)
 }
 
+// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
 func (o EndpointConfigurationShadowProductionVariantOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *int { return v.VolumeSizeInGb }).(pulumi.IntPtrOutput)
 }
@@ -6548,8 +7046,10 @@ func (o EndpointConfigurationShadowProductionVariantArrayOutput) Index(i pulumi.
 }
 
 type EndpointConfigurationShadowProductionVariantCoreDumpConfig struct {
+	// The Amazon S3 bucket to send the core dump to.
 	DestinationS3Uri string `pulumi:"destinationS3Uri"`
-	KmsKeyId         string `pulumi:"kmsKeyId"`
+	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+	KmsKeyId string `pulumi:"kmsKeyId"`
 }
 
 // EndpointConfigurationShadowProductionVariantCoreDumpConfigInput is an input type that accepts EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs and EndpointConfigurationShadowProductionVariantCoreDumpConfigOutput values.
@@ -6564,8 +7064,10 @@ type EndpointConfigurationShadowProductionVariantCoreDumpConfigInput interface {
 }
 
 type EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs struct {
+	// The Amazon S3 bucket to send the core dump to.
 	DestinationS3Uri pulumi.StringInput `pulumi:"destinationS3Uri"`
-	KmsKeyId         pulumi.StringInput `pulumi:"kmsKeyId"`
+	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 }
 
 func (EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs) ElementType() reflect.Type {
@@ -6645,10 +7147,12 @@ func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigOutput) ToEndp
 	}).(EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput)
 }
 
+// The Amazon S3 bucket to send the core dump to.
 func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigOutput) DestinationS3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantCoreDumpConfig) string { return v.DestinationS3Uri }).(pulumi.StringOutput)
 }
 
+// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
 func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantCoreDumpConfig) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -6677,6 +7181,7 @@ func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput) Ele
 	}).(EndpointConfigurationShadowProductionVariantCoreDumpConfigOutput)
 }
 
+// The Amazon S3 bucket to send the core dump to.
 func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput) DestinationS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationShadowProductionVariantCoreDumpConfig) *string {
 		if v == nil {
@@ -6686,6 +7191,7 @@ func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput) Des
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
 func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationShadowProductionVariantCoreDumpConfig) *string {
 		if v == nil {
@@ -6696,7 +7202,9 @@ func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput) Kms
 }
 
 type EndpointConfigurationShadowProductionVariantServerlessConfig struct {
+	// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
 	MaxConcurrency int `pulumi:"maxConcurrency"`
+	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 	MemorySizeInMb int `pulumi:"memorySizeInMb"`
 }
 
@@ -6712,7 +7220,9 @@ type EndpointConfigurationShadowProductionVariantServerlessConfigInput interface
 }
 
 type EndpointConfigurationShadowProductionVariantServerlessConfigArgs struct {
+	// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
 	MaxConcurrency pulumi.IntInput `pulumi:"maxConcurrency"`
+	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 	MemorySizeInMb pulumi.IntInput `pulumi:"memorySizeInMb"`
 }
 
@@ -6793,10 +7303,12 @@ func (o EndpointConfigurationShadowProductionVariantServerlessConfigOutput) ToEn
 	}).(EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput)
 }
 
+// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
 func (o EndpointConfigurationShadowProductionVariantServerlessConfigOutput) MaxConcurrency() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantServerlessConfig) int { return v.MaxConcurrency }).(pulumi.IntOutput)
 }
 
+// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 func (o EndpointConfigurationShadowProductionVariantServerlessConfigOutput) MemorySizeInMb() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantServerlessConfig) int { return v.MemorySizeInMb }).(pulumi.IntOutput)
 }
@@ -6825,6 +7337,7 @@ func (o EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput) E
 	}).(EndpointConfigurationShadowProductionVariantServerlessConfigOutput)
 }
 
+// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
 func (o EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput) MaxConcurrency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationShadowProductionVariantServerlessConfig) *int {
 		if v == nil {
@@ -6834,6 +7347,7 @@ func (o EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput) M
 	}).(pulumi.IntPtrOutput)
 }
 
+// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 func (o EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput) MemorySizeInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationShadowProductionVariantServerlessConfig) *int {
 		if v == nil {
@@ -6844,8 +7358,10 @@ func (o EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput) M
 }
 
 type EndpointDeploymentConfig struct {
+	// Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
 	AutoRollbackConfiguration *EndpointDeploymentConfigAutoRollbackConfiguration `pulumi:"autoRollbackConfiguration"`
-	BlueGreenUpdatePolicy     EndpointDeploymentConfigBlueGreenUpdatePolicy      `pulumi:"blueGreenUpdatePolicy"`
+	// Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+	BlueGreenUpdatePolicy EndpointDeploymentConfigBlueGreenUpdatePolicy `pulumi:"blueGreenUpdatePolicy"`
 }
 
 // EndpointDeploymentConfigInput is an input type that accepts EndpointDeploymentConfigArgs and EndpointDeploymentConfigOutput values.
@@ -6860,8 +7376,10 @@ type EndpointDeploymentConfigInput interface {
 }
 
 type EndpointDeploymentConfigArgs struct {
+	// Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
 	AutoRollbackConfiguration EndpointDeploymentConfigAutoRollbackConfigurationPtrInput `pulumi:"autoRollbackConfiguration"`
-	BlueGreenUpdatePolicy     EndpointDeploymentConfigBlueGreenUpdatePolicyInput        `pulumi:"blueGreenUpdatePolicy"`
+	// Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+	BlueGreenUpdatePolicy EndpointDeploymentConfigBlueGreenUpdatePolicyInput `pulumi:"blueGreenUpdatePolicy"`
 }
 
 func (EndpointDeploymentConfigArgs) ElementType() reflect.Type {
@@ -6941,12 +7459,14 @@ func (o EndpointDeploymentConfigOutput) ToEndpointDeploymentConfigPtrOutputWithC
 	}).(EndpointDeploymentConfigPtrOutput)
 }
 
+// Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
 func (o EndpointDeploymentConfigOutput) AutoRollbackConfiguration() EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfig) *EndpointDeploymentConfigAutoRollbackConfiguration {
 		return v.AutoRollbackConfiguration
 	}).(EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput)
 }
 
+// Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
 func (o EndpointDeploymentConfigOutput) BlueGreenUpdatePolicy() EndpointDeploymentConfigBlueGreenUpdatePolicyOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfig) EndpointDeploymentConfigBlueGreenUpdatePolicy {
 		return v.BlueGreenUpdatePolicy
@@ -6977,6 +7497,7 @@ func (o EndpointDeploymentConfigPtrOutput) Elem() EndpointDeploymentConfigOutput
 	}).(EndpointDeploymentConfigOutput)
 }
 
+// Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
 func (o EndpointDeploymentConfigPtrOutput) AutoRollbackConfiguration() EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfig) *EndpointDeploymentConfigAutoRollbackConfiguration {
 		if v == nil {
@@ -6986,6 +7507,7 @@ func (o EndpointDeploymentConfigPtrOutput) AutoRollbackConfiguration() EndpointD
 	}).(EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput)
 }
 
+// Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
 func (o EndpointDeploymentConfigPtrOutput) BlueGreenUpdatePolicy() EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfig) *EndpointDeploymentConfigBlueGreenUpdatePolicy {
 		if v == nil {
@@ -6996,6 +7518,7 @@ func (o EndpointDeploymentConfigPtrOutput) BlueGreenUpdatePolicy() EndpointDeplo
 }
 
 type EndpointDeploymentConfigAutoRollbackConfiguration struct {
+	// List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment. See Alarms.
 	Alarms []EndpointDeploymentConfigAutoRollbackConfigurationAlarm `pulumi:"alarms"`
 }
 
@@ -7011,6 +7534,7 @@ type EndpointDeploymentConfigAutoRollbackConfigurationInput interface {
 }
 
 type EndpointDeploymentConfigAutoRollbackConfigurationArgs struct {
+	// List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment. See Alarms.
 	Alarms EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayInput `pulumi:"alarms"`
 }
 
@@ -7091,6 +7615,7 @@ func (o EndpointDeploymentConfigAutoRollbackConfigurationOutput) ToEndpointDeplo
 	}).(EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput)
 }
 
+// List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment. See Alarms.
 func (o EndpointDeploymentConfigAutoRollbackConfigurationOutput) Alarms() EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigAutoRollbackConfiguration) []EndpointDeploymentConfigAutoRollbackConfigurationAlarm {
 		return v.Alarms
@@ -7121,6 +7646,7 @@ func (o EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput) Elem() Endpo
 	}).(EndpointDeploymentConfigAutoRollbackConfigurationOutput)
 }
 
+// List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment. See Alarms.
 func (o EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput) Alarms() EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigAutoRollbackConfiguration) []EndpointDeploymentConfigAutoRollbackConfigurationAlarm {
 		if v == nil {
@@ -7131,6 +7657,7 @@ func (o EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput) Alarms() End
 }
 
 type EndpointDeploymentConfigAutoRollbackConfigurationAlarm struct {
+	// The name of a CloudWatch alarm in your account.
 	AlarmName string `pulumi:"alarmName"`
 }
 
@@ -7146,6 +7673,7 @@ type EndpointDeploymentConfigAutoRollbackConfigurationAlarmInput interface {
 }
 
 type EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs struct {
+	// The name of a CloudWatch alarm in your account.
 	AlarmName pulumi.StringInput `pulumi:"alarmName"`
 }
 
@@ -7200,6 +7728,7 @@ func (o EndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput) ToEndpoint
 	return o
 }
 
+// The name of a CloudWatch alarm in your account.
 func (o EndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput) AlarmName() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigAutoRollbackConfigurationAlarm) string { return v.AlarmName }).(pulumi.StringOutput)
 }
@@ -7225,9 +7754,12 @@ func (o EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput) Index
 }
 
 type EndpointDeploymentConfigBlueGreenUpdatePolicy struct {
-	MaximumExecutionTimeoutInSeconds *int                                                                     `pulumi:"maximumExecutionTimeoutInSeconds"`
-	TerminationWaitInSeconds         *int                                                                     `pulumi:"terminationWaitInSeconds"`
-	TrafficRoutingConfiguration      EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration `pulumi:"trafficRoutingConfiguration"`
+	// Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `terminationWaitInSeconds` and `waitIntervalInSeconds`. Valid values are between `600` and `14400`.
+	MaximumExecutionTimeoutInSeconds *int `pulumi:"maximumExecutionTimeoutInSeconds"`
+	// Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
+	TerminationWaitInSeconds *int `pulumi:"terminationWaitInSeconds"`
+	// Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
+	TrafficRoutingConfiguration EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration `pulumi:"trafficRoutingConfiguration"`
 }
 
 // EndpointDeploymentConfigBlueGreenUpdatePolicyInput is an input type that accepts EndpointDeploymentConfigBlueGreenUpdatePolicyArgs and EndpointDeploymentConfigBlueGreenUpdatePolicyOutput values.
@@ -7242,9 +7774,12 @@ type EndpointDeploymentConfigBlueGreenUpdatePolicyInput interface {
 }
 
 type EndpointDeploymentConfigBlueGreenUpdatePolicyArgs struct {
-	MaximumExecutionTimeoutInSeconds pulumi.IntPtrInput                                                            `pulumi:"maximumExecutionTimeoutInSeconds"`
-	TerminationWaitInSeconds         pulumi.IntPtrInput                                                            `pulumi:"terminationWaitInSeconds"`
-	TrafficRoutingConfiguration      EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationInput `pulumi:"trafficRoutingConfiguration"`
+	// Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `terminationWaitInSeconds` and `waitIntervalInSeconds`. Valid values are between `600` and `14400`.
+	MaximumExecutionTimeoutInSeconds pulumi.IntPtrInput `pulumi:"maximumExecutionTimeoutInSeconds"`
+	// Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
+	TerminationWaitInSeconds pulumi.IntPtrInput `pulumi:"terminationWaitInSeconds"`
+	// Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
+	TrafficRoutingConfiguration EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationInput `pulumi:"trafficRoutingConfiguration"`
 }
 
 func (EndpointDeploymentConfigBlueGreenUpdatePolicyArgs) ElementType() reflect.Type {
@@ -7324,14 +7859,17 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyOutput) ToEndpointDeploymen
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput)
 }
 
+// Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `terminationWaitInSeconds` and `waitIntervalInSeconds`. Valid values are between `600` and `14400`.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyOutput) MaximumExecutionTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicy) *int { return v.MaximumExecutionTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyOutput) TerminationWaitInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicy) *int { return v.TerminationWaitInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyOutput) TrafficRoutingConfiguration() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicy) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration {
 		return v.TrafficRoutingConfiguration
@@ -7362,6 +7900,7 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) Elem() EndpointD
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyOutput)
 }
 
+// Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `terminationWaitInSeconds` and `waitIntervalInSeconds`. Valid values are between `600` and `14400`.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) MaximumExecutionTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicy) *int {
 		if v == nil {
@@ -7371,6 +7910,7 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) MaximumExecution
 	}).(pulumi.IntPtrOutput)
 }
 
+// Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) TerminationWaitInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicy) *int {
 		if v == nil {
@@ -7380,6 +7920,7 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) TerminationWaitI
 	}).(pulumi.IntPtrOutput)
 }
 
+// Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) TrafficRoutingConfiguration() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicy) *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration {
 		if v == nil {
@@ -7390,10 +7931,14 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) TrafficRoutingCo
 }
 
 type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration struct {
-	CanarySize            *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize     `pulumi:"canarySize"`
-	LinearStepSize        *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize `pulumi:"linearStepSize"`
-	Type                  string                                                                                  `pulumi:"type"`
-	WaitIntervalInSeconds int                                                                                     `pulumi:"waitIntervalInSeconds"`
+	// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
+	CanarySize *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize `pulumi:"canarySize"`
+	// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
+	LinearStepSize *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize `pulumi:"linearStepSize"`
+	// Traffic routing strategy type. Valid values are: `ALL_AT_ONCE`, `CANARY`, and `LINEAR`.
+	Type string `pulumi:"type"`
+	// The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
+	WaitIntervalInSeconds int `pulumi:"waitIntervalInSeconds"`
 }
 
 // EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationInput is an input type that accepts EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs and EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput values.
@@ -7408,10 +7953,14 @@ type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationInp
 }
 
 type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs struct {
-	CanarySize            EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrInput     `pulumi:"canarySize"`
-	LinearStepSize        EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrInput `pulumi:"linearStepSize"`
-	Type                  pulumi.StringInput                                                                             `pulumi:"type"`
-	WaitIntervalInSeconds pulumi.IntInput                                                                                `pulumi:"waitIntervalInSeconds"`
+	// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
+	CanarySize EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrInput `pulumi:"canarySize"`
+	// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
+	LinearStepSize EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrInput `pulumi:"linearStepSize"`
+	// Traffic routing strategy type. Valid values are: `ALL_AT_ONCE`, `CANARY`, and `LINEAR`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
+	WaitIntervalInSeconds pulumi.IntInput `pulumi:"waitIntervalInSeconds"`
 }
 
 func (EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs) ElementType() reflect.Type {
@@ -7491,22 +8040,26 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput)
 }
 
+// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput) CanarySize() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize {
 		return v.CanarySize
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput)
 }
 
+// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput) LinearStepSize() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize {
 		return v.LinearStepSize
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput)
 }
 
+// Traffic routing strategy type. Valid values are: `ALL_AT_ONCE`, `CANARY`, and `LINEAR`.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput) WaitIntervalInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) int {
 		return v.WaitIntervalInSeconds
@@ -7537,6 +8090,7 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput)
 }
 
+// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput) CanarySize() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize {
 		if v == nil {
@@ -7546,6 +8100,7 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput)
 }
 
+// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput) LinearStepSize() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize {
 		if v == nil {
@@ -7555,6 +8110,7 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput)
 }
 
+// Traffic routing strategy type. Valid values are: `ALL_AT_ONCE`, `CANARY`, and `LINEAR`.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) *string {
 		if v == nil {
@@ -7564,6 +8120,7 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 	}).(pulumi.StringPtrOutput)
 }
 
+// The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput) WaitIntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) *int {
 		if v == nil {
@@ -7574,8 +8131,10 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 }
 
 type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize struct {
-	Type  string `pulumi:"type"`
-	Value int    `pulumi:"value"`
+	// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+	Type string `pulumi:"type"`
+	// Defines the capacity size, either as a number of instances or a capacity percentage.
+	Value int `pulumi:"value"`
 }
 
 // EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeInput is an input type that accepts EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs and EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput values.
@@ -7590,8 +8149,10 @@ type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCan
 }
 
 type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs struct {
-	Type  pulumi.StringInput `pulumi:"type"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Defines the capacity size, either as a number of instances or a capacity percentage.
+	Value pulumi.IntInput `pulumi:"value"`
 }
 
 func (EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs) ElementType() reflect.Type {
@@ -7671,12 +8232,14 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput)
 }
 
+// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize) string {
 		return v.Type
 	}).(pulumi.StringOutput)
 }
 
+// Defines the capacity size, either as a number of instances or a capacity percentage.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize) int {
 		return v.Value
@@ -7707,6 +8270,7 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput)
 }
 
+// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize) *string {
 		if v == nil {
@@ -7716,6 +8280,7 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 	}).(pulumi.StringPtrOutput)
 }
 
+// Defines the capacity size, either as a number of instances or a capacity percentage.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize) *int {
 		if v == nil {
@@ -7726,8 +8291,10 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 }
 
 type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize struct {
-	Type  string `pulumi:"type"`
-	Value int    `pulumi:"value"`
+	// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+	Type string `pulumi:"type"`
+	// Defines the capacity size, either as a number of instances or a capacity percentage.
+	Value int `pulumi:"value"`
 }
 
 // EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeInput is an input type that accepts EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs and EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput values.
@@ -7742,8 +8309,10 @@ type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLin
 }
 
 type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs struct {
-	Type  pulumi.StringInput `pulumi:"type"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Defines the capacity size, either as a number of instances or a capacity percentage.
+	Value pulumi.IntInput `pulumi:"value"`
 }
 
 func (EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs) ElementType() reflect.Type {
@@ -7823,12 +8392,14 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput)
 }
 
+// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize) string {
 		return v.Type
 	}).(pulumi.StringOutput)
 }
 
+// Defines the capacity size, either as a number of instances or a capacity percentage.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize) int {
 		return v.Value
@@ -7859,6 +8430,7 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput)
 }
 
+// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize) *string {
 		if v == nil {
@@ -7868,6 +8440,7 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 	}).(pulumi.StringPtrOutput)
 }
 
+// Defines the capacity size, either as a number of instances or a capacity percentage.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize) *int {
 		if v == nil {
@@ -7878,7 +8451,9 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 }
 
 type FeatureGroupFeatureDefinition struct {
+	// The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
 	FeatureName *string `pulumi:"featureName"`
+	// The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
 	FeatureType *string `pulumi:"featureType"`
 }
 
@@ -7894,7 +8469,9 @@ type FeatureGroupFeatureDefinitionInput interface {
 }
 
 type FeatureGroupFeatureDefinitionArgs struct {
+	// The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
 	FeatureName pulumi.StringPtrInput `pulumi:"featureName"`
+	// The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
 	FeatureType pulumi.StringPtrInput `pulumi:"featureType"`
 }
 
@@ -7949,10 +8526,12 @@ func (o FeatureGroupFeatureDefinitionOutput) ToFeatureGroupFeatureDefinitionOutp
 	return o
 }
 
+// The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
 func (o FeatureGroupFeatureDefinitionOutput) FeatureName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureGroupFeatureDefinition) *string { return v.FeatureName }).(pulumi.StringPtrOutput)
 }
 
+// The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
 func (o FeatureGroupFeatureDefinitionOutput) FeatureType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureGroupFeatureDefinition) *string { return v.FeatureType }).(pulumi.StringPtrOutput)
 }
@@ -7978,9 +8557,12 @@ func (o FeatureGroupFeatureDefinitionArrayOutput) Index(i pulumi.IntInput) Featu
 }
 
 type FeatureGroupOfflineStoreConfig struct {
-	DataCatalogConfig        *FeatureGroupOfflineStoreConfigDataCatalogConfig `pulumi:"dataCatalogConfig"`
-	DisableGlueTableCreation *bool                                            `pulumi:"disableGlueTableCreation"`
-	S3StorageConfig          FeatureGroupOfflineStoreConfigS3StorageConfig    `pulumi:"s3StorageConfig"`
+	// The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
+	DataCatalogConfig *FeatureGroupOfflineStoreConfigDataCatalogConfig `pulumi:"dataCatalogConfig"`
+	// Set to `true` to turn Online Store On.
+	DisableGlueTableCreation *bool `pulumi:"disableGlueTableCreation"`
+	// The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
+	S3StorageConfig FeatureGroupOfflineStoreConfigS3StorageConfig `pulumi:"s3StorageConfig"`
 }
 
 // FeatureGroupOfflineStoreConfigInput is an input type that accepts FeatureGroupOfflineStoreConfigArgs and FeatureGroupOfflineStoreConfigOutput values.
@@ -7995,9 +8577,12 @@ type FeatureGroupOfflineStoreConfigInput interface {
 }
 
 type FeatureGroupOfflineStoreConfigArgs struct {
-	DataCatalogConfig        FeatureGroupOfflineStoreConfigDataCatalogConfigPtrInput `pulumi:"dataCatalogConfig"`
-	DisableGlueTableCreation pulumi.BoolPtrInput                                     `pulumi:"disableGlueTableCreation"`
-	S3StorageConfig          FeatureGroupOfflineStoreConfigS3StorageConfigInput      `pulumi:"s3StorageConfig"`
+	// The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
+	DataCatalogConfig FeatureGroupOfflineStoreConfigDataCatalogConfigPtrInput `pulumi:"dataCatalogConfig"`
+	// Set to `true` to turn Online Store On.
+	DisableGlueTableCreation pulumi.BoolPtrInput `pulumi:"disableGlueTableCreation"`
+	// The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
+	S3StorageConfig FeatureGroupOfflineStoreConfigS3StorageConfigInput `pulumi:"s3StorageConfig"`
 }
 
 func (FeatureGroupOfflineStoreConfigArgs) ElementType() reflect.Type {
@@ -8077,16 +8662,19 @@ func (o FeatureGroupOfflineStoreConfigOutput) ToFeatureGroupOfflineStoreConfigPt
 	}).(FeatureGroupOfflineStoreConfigPtrOutput)
 }
 
+// The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
 func (o FeatureGroupOfflineStoreConfigOutput) DataCatalogConfig() FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput {
 	return o.ApplyT(func(v FeatureGroupOfflineStoreConfig) *FeatureGroupOfflineStoreConfigDataCatalogConfig {
 		return v.DataCatalogConfig
 	}).(FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput)
 }
 
+// Set to `true` to turn Online Store On.
 func (o FeatureGroupOfflineStoreConfigOutput) DisableGlueTableCreation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeatureGroupOfflineStoreConfig) *bool { return v.DisableGlueTableCreation }).(pulumi.BoolPtrOutput)
 }
 
+// The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
 func (o FeatureGroupOfflineStoreConfigOutput) S3StorageConfig() FeatureGroupOfflineStoreConfigS3StorageConfigOutput {
 	return o.ApplyT(func(v FeatureGroupOfflineStoreConfig) FeatureGroupOfflineStoreConfigS3StorageConfig {
 		return v.S3StorageConfig
@@ -8117,6 +8705,7 @@ func (o FeatureGroupOfflineStoreConfigPtrOutput) Elem() FeatureGroupOfflineStore
 	}).(FeatureGroupOfflineStoreConfigOutput)
 }
 
+// The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
 func (o FeatureGroupOfflineStoreConfigPtrOutput) DataCatalogConfig() FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput {
 	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfig) *FeatureGroupOfflineStoreConfigDataCatalogConfig {
 		if v == nil {
@@ -8126,6 +8715,7 @@ func (o FeatureGroupOfflineStoreConfigPtrOutput) DataCatalogConfig() FeatureGrou
 	}).(FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput)
 }
 
+// Set to `true` to turn Online Store On.
 func (o FeatureGroupOfflineStoreConfigPtrOutput) DisableGlueTableCreation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfig) *bool {
 		if v == nil {
@@ -8135,6 +8725,7 @@ func (o FeatureGroupOfflineStoreConfigPtrOutput) DisableGlueTableCreation() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
 func (o FeatureGroupOfflineStoreConfigPtrOutput) S3StorageConfig() FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput {
 	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfig) *FeatureGroupOfflineStoreConfigS3StorageConfig {
 		if v == nil {
@@ -8145,8 +8736,11 @@ func (o FeatureGroupOfflineStoreConfigPtrOutput) S3StorageConfig() FeatureGroupO
 }
 
 type FeatureGroupOfflineStoreConfigDataCatalogConfig struct {
-	Catalog   *string `pulumi:"catalog"`
-	Database  *string `pulumi:"database"`
+	// The name of the Glue table catalog.
+	Catalog *string `pulumi:"catalog"`
+	// The name of the Glue table database.
+	Database *string `pulumi:"database"`
+	// The name of the Glue table.
 	TableName *string `pulumi:"tableName"`
 }
 
@@ -8162,8 +8756,11 @@ type FeatureGroupOfflineStoreConfigDataCatalogConfigInput interface {
 }
 
 type FeatureGroupOfflineStoreConfigDataCatalogConfigArgs struct {
-	Catalog   pulumi.StringPtrInput `pulumi:"catalog"`
-	Database  pulumi.StringPtrInput `pulumi:"database"`
+	// The name of the Glue table catalog.
+	Catalog pulumi.StringPtrInput `pulumi:"catalog"`
+	// The name of the Glue table database.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// The name of the Glue table.
 	TableName pulumi.StringPtrInput `pulumi:"tableName"`
 }
 
@@ -8244,14 +8841,17 @@ func (o FeatureGroupOfflineStoreConfigDataCatalogConfigOutput) ToFeatureGroupOff
 	}).(FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput)
 }
 
+// The name of the Glue table catalog.
 func (o FeatureGroupOfflineStoreConfigDataCatalogConfigOutput) Catalog() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureGroupOfflineStoreConfigDataCatalogConfig) *string { return v.Catalog }).(pulumi.StringPtrOutput)
 }
 
+// The name of the Glue table database.
 func (o FeatureGroupOfflineStoreConfigDataCatalogConfigOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureGroupOfflineStoreConfigDataCatalogConfig) *string { return v.Database }).(pulumi.StringPtrOutput)
 }
 
+// The name of the Glue table.
 func (o FeatureGroupOfflineStoreConfigDataCatalogConfigOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureGroupOfflineStoreConfigDataCatalogConfig) *string { return v.TableName }).(pulumi.StringPtrOutput)
 }
@@ -8280,6 +8880,7 @@ func (o FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput) Elem() Feature
 	}).(FeatureGroupOfflineStoreConfigDataCatalogConfigOutput)
 }
 
+// The name of the Glue table catalog.
 func (o FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput) Catalog() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfigDataCatalogConfig) *string {
 		if v == nil {
@@ -8289,6 +8890,7 @@ func (o FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput) Catalog() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the Glue table database.
 func (o FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfigDataCatalogConfig) *string {
 		if v == nil {
@@ -8298,6 +8900,7 @@ func (o FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput) Database() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the Glue table.
 func (o FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfigDataCatalogConfig) *string {
 		if v == nil {
@@ -8308,8 +8911,10 @@ func (o FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput) TableName() pu
 }
 
 type FeatureGroupOfflineStoreConfigS3StorageConfig struct {
+	// The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	S3Uri    string  `pulumi:"s3Uri"`
+	// The S3 URI, or location in Amazon S3, of OfflineStore.
+	S3Uri string `pulumi:"s3Uri"`
 }
 
 // FeatureGroupOfflineStoreConfigS3StorageConfigInput is an input type that accepts FeatureGroupOfflineStoreConfigS3StorageConfigArgs and FeatureGroupOfflineStoreConfigS3StorageConfigOutput values.
@@ -8324,8 +8929,10 @@ type FeatureGroupOfflineStoreConfigS3StorageConfigInput interface {
 }
 
 type FeatureGroupOfflineStoreConfigS3StorageConfigArgs struct {
+	// The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	S3Uri    pulumi.StringInput    `pulumi:"s3Uri"`
+	// The S3 URI, or location in Amazon S3, of OfflineStore.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
 func (FeatureGroupOfflineStoreConfigS3StorageConfigArgs) ElementType() reflect.Type {
@@ -8405,10 +9012,12 @@ func (o FeatureGroupOfflineStoreConfigS3StorageConfigOutput) ToFeatureGroupOffli
 	}).(FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput)
 }
 
+// The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
 func (o FeatureGroupOfflineStoreConfigS3StorageConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureGroupOfflineStoreConfigS3StorageConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The S3 URI, or location in Amazon S3, of OfflineStore.
 func (o FeatureGroupOfflineStoreConfigS3StorageConfigOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v FeatureGroupOfflineStoreConfigS3StorageConfig) string { return v.S3Uri }).(pulumi.StringOutput)
 }
@@ -8437,6 +9046,7 @@ func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) Elem() FeatureGr
 	}).(FeatureGroupOfflineStoreConfigS3StorageConfigOutput)
 }
 
+// The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
 func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfigS3StorageConfig) *string {
 		if v == nil {
@@ -8446,6 +9056,7 @@ func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) KmsKeyId() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The S3 URI, or location in Amazon S3, of OfflineStore.
 func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfigS3StorageConfig) *string {
 		if v == nil {
@@ -8456,8 +9067,10 @@ func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) S3Uri() pulumi.S
 }
 
 type FeatureGroupOnlineStoreConfig struct {
-	EnableOnlineStore *bool                                        `pulumi:"enableOnlineStore"`
-	SecurityConfig    *FeatureGroupOnlineStoreConfigSecurityConfig `pulumi:"securityConfig"`
+	// Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
+	EnableOnlineStore *bool `pulumi:"enableOnlineStore"`
+	// Security config for at-rest encryption of your OnlineStore. See Security Config Below.
+	SecurityConfig *FeatureGroupOnlineStoreConfigSecurityConfig `pulumi:"securityConfig"`
 }
 
 // FeatureGroupOnlineStoreConfigInput is an input type that accepts FeatureGroupOnlineStoreConfigArgs and FeatureGroupOnlineStoreConfigOutput values.
@@ -8472,8 +9085,10 @@ type FeatureGroupOnlineStoreConfigInput interface {
 }
 
 type FeatureGroupOnlineStoreConfigArgs struct {
-	EnableOnlineStore pulumi.BoolPtrInput                                 `pulumi:"enableOnlineStore"`
-	SecurityConfig    FeatureGroupOnlineStoreConfigSecurityConfigPtrInput `pulumi:"securityConfig"`
+	// Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
+	EnableOnlineStore pulumi.BoolPtrInput `pulumi:"enableOnlineStore"`
+	// Security config for at-rest encryption of your OnlineStore. See Security Config Below.
+	SecurityConfig FeatureGroupOnlineStoreConfigSecurityConfigPtrInput `pulumi:"securityConfig"`
 }
 
 func (FeatureGroupOnlineStoreConfigArgs) ElementType() reflect.Type {
@@ -8553,10 +9168,12 @@ func (o FeatureGroupOnlineStoreConfigOutput) ToFeatureGroupOnlineStoreConfigPtrO
 	}).(FeatureGroupOnlineStoreConfigPtrOutput)
 }
 
+// Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
 func (o FeatureGroupOnlineStoreConfigOutput) EnableOnlineStore() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeatureGroupOnlineStoreConfig) *bool { return v.EnableOnlineStore }).(pulumi.BoolPtrOutput)
 }
 
+// Security config for at-rest encryption of your OnlineStore. See Security Config Below.
 func (o FeatureGroupOnlineStoreConfigOutput) SecurityConfig() FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput {
 	return o.ApplyT(func(v FeatureGroupOnlineStoreConfig) *FeatureGroupOnlineStoreConfigSecurityConfig {
 		return v.SecurityConfig
@@ -8587,6 +9204,7 @@ func (o FeatureGroupOnlineStoreConfigPtrOutput) Elem() FeatureGroupOnlineStoreCo
 	}).(FeatureGroupOnlineStoreConfigOutput)
 }
 
+// Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
 func (o FeatureGroupOnlineStoreConfigPtrOutput) EnableOnlineStore() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeatureGroupOnlineStoreConfig) *bool {
 		if v == nil {
@@ -8596,6 +9214,7 @@ func (o FeatureGroupOnlineStoreConfigPtrOutput) EnableOnlineStore() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Security config for at-rest encryption of your OnlineStore. See Security Config Below.
 func (o FeatureGroupOnlineStoreConfigPtrOutput) SecurityConfig() FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput {
 	return o.ApplyT(func(v *FeatureGroupOnlineStoreConfig) *FeatureGroupOnlineStoreConfigSecurityConfig {
 		if v == nil {
@@ -8606,6 +9225,7 @@ func (o FeatureGroupOnlineStoreConfigPtrOutput) SecurityConfig() FeatureGroupOnl
 }
 
 type FeatureGroupOnlineStoreConfigSecurityConfig struct {
+	// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -8621,6 +9241,7 @@ type FeatureGroupOnlineStoreConfigSecurityConfigInput interface {
 }
 
 type FeatureGroupOnlineStoreConfigSecurityConfigArgs struct {
+	// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -8701,6 +9322,7 @@ func (o FeatureGroupOnlineStoreConfigSecurityConfigOutput) ToFeatureGroupOnlineS
 	}).(FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput)
 }
 
+// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
 func (o FeatureGroupOnlineStoreConfigSecurityConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureGroupOnlineStoreConfigSecurityConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -8729,6 +9351,7 @@ func (o FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput) Elem() FeatureGrou
 	}).(FeatureGroupOnlineStoreConfigSecurityConfigOutput)
 }
 
+// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
 func (o FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FeatureGroupOnlineStoreConfigSecurityConfig) *string {
 		if v == nil {
@@ -8739,6 +9362,7 @@ func (o FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput) KmsKeyId() pulumi.
 }
 
 type FlowDefinitionHumanLoopActivationConfig struct {
+	// defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
 	HumanLoopActivationConditionsConfig *FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig `pulumi:"humanLoopActivationConditionsConfig"`
 }
 
@@ -8754,6 +9378,7 @@ type FlowDefinitionHumanLoopActivationConfigInput interface {
 }
 
 type FlowDefinitionHumanLoopActivationConfigArgs struct {
+	// defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
 	HumanLoopActivationConditionsConfig FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrInput `pulumi:"humanLoopActivationConditionsConfig"`
 }
 
@@ -8834,6 +9459,7 @@ func (o FlowDefinitionHumanLoopActivationConfigOutput) ToFlowDefinitionHumanLoop
 	}).(FlowDefinitionHumanLoopActivationConfigPtrOutput)
 }
 
+// defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
 func (o FlowDefinitionHumanLoopActivationConfigOutput) HumanLoopActivationConditionsConfig() FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopActivationConfig) *FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig {
 		return v.HumanLoopActivationConditionsConfig
@@ -8864,6 +9490,7 @@ func (o FlowDefinitionHumanLoopActivationConfigPtrOutput) Elem() FlowDefinitionH
 	}).(FlowDefinitionHumanLoopActivationConfigOutput)
 }
 
+// defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
 func (o FlowDefinitionHumanLoopActivationConfigPtrOutput) HumanLoopActivationConditionsConfig() FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionHumanLoopActivationConfig) *FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig {
 		if v == nil {
@@ -8874,6 +9501,7 @@ func (o FlowDefinitionHumanLoopActivationConfigPtrOutput) HumanLoopActivationCon
 }
 
 type FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig struct {
+	// A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
 	HumanLoopActivationConditions string `pulumi:"humanLoopActivationConditions"`
 }
 
@@ -8889,6 +9517,7 @@ type FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigI
 }
 
 type FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs struct {
+	// A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
 	HumanLoopActivationConditions pulumi.StringInput `pulumi:"humanLoopActivationConditions"`
 }
 
@@ -8969,6 +9598,7 @@ func (o FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConf
 	}).(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput)
 }
 
+// A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
 func (o FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput) HumanLoopActivationConditions() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig) string {
 		return v.HumanLoopActivationConditions
@@ -8999,6 +9629,7 @@ func (o FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConf
 	}).(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput)
 }
 
+// A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
 func (o FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput) HumanLoopActivationConditions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig) *string {
 		if v == nil {
@@ -9009,15 +9640,24 @@ func (o FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConf
 }
 
 type FlowDefinitionHumanLoopConfig struct {
-	HumanTaskUiArn                    string                                                 `pulumi:"humanTaskUiArn"`
-	PublicWorkforceTaskPrice          *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice `pulumi:"publicWorkforceTaskPrice"`
-	TaskAvailabilityLifetimeInSeconds *int                                                   `pulumi:"taskAvailabilityLifetimeInSeconds"`
-	TaskCount                         int                                                    `pulumi:"taskCount"`
-	TaskDescription                   string                                                 `pulumi:"taskDescription"`
-	TaskKeywords                      []string                                               `pulumi:"taskKeywords"`
-	TaskTimeLimitInSeconds            *int                                                   `pulumi:"taskTimeLimitInSeconds"`
-	TaskTitle                         string                                                 `pulumi:"taskTitle"`
-	WorkteamArn                       string                                                 `pulumi:"workteamArn"`
+	// The Amazon Resource Name (ARN) of the human task user interface.
+	HumanTaskUiArn string `pulumi:"humanTaskUiArn"`
+	// Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
+	PublicWorkforceTaskPrice *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice `pulumi:"publicWorkforceTaskPrice"`
+	// The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
+	TaskAvailabilityLifetimeInSeconds *int `pulumi:"taskAvailabilityLifetimeInSeconds"`
+	// The number of distinct workers who will perform the same task on each object. Valid value range between `1` and `3`.
+	TaskCount int `pulumi:"taskCount"`
+	// A description for the human worker task.
+	TaskDescription string `pulumi:"taskDescription"`
+	// An array of keywords used to describe the task so that workers can discover the task.
+	TaskKeywords []string `pulumi:"taskKeywords"`
+	// The amount of time that a worker has to complete a task. The default value is `3600` seconds.
+	TaskTimeLimitInSeconds *int `pulumi:"taskTimeLimitInSeconds"`
+	// A title for the human worker task.
+	TaskTitle string `pulumi:"taskTitle"`
+	// The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+	WorkteamArn string `pulumi:"workteamArn"`
 }
 
 // FlowDefinitionHumanLoopConfigInput is an input type that accepts FlowDefinitionHumanLoopConfigArgs and FlowDefinitionHumanLoopConfigOutput values.
@@ -9032,15 +9672,24 @@ type FlowDefinitionHumanLoopConfigInput interface {
 }
 
 type FlowDefinitionHumanLoopConfigArgs struct {
-	HumanTaskUiArn                    pulumi.StringInput                                            `pulumi:"humanTaskUiArn"`
-	PublicWorkforceTaskPrice          FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrInput `pulumi:"publicWorkforceTaskPrice"`
-	TaskAvailabilityLifetimeInSeconds pulumi.IntPtrInput                                            `pulumi:"taskAvailabilityLifetimeInSeconds"`
-	TaskCount                         pulumi.IntInput                                               `pulumi:"taskCount"`
-	TaskDescription                   pulumi.StringInput                                            `pulumi:"taskDescription"`
-	TaskKeywords                      pulumi.StringArrayInput                                       `pulumi:"taskKeywords"`
-	TaskTimeLimitInSeconds            pulumi.IntPtrInput                                            `pulumi:"taskTimeLimitInSeconds"`
-	TaskTitle                         pulumi.StringInput                                            `pulumi:"taskTitle"`
-	WorkteamArn                       pulumi.StringInput                                            `pulumi:"workteamArn"`
+	// The Amazon Resource Name (ARN) of the human task user interface.
+	HumanTaskUiArn pulumi.StringInput `pulumi:"humanTaskUiArn"`
+	// Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
+	PublicWorkforceTaskPrice FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrInput `pulumi:"publicWorkforceTaskPrice"`
+	// The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
+	TaskAvailabilityLifetimeInSeconds pulumi.IntPtrInput `pulumi:"taskAvailabilityLifetimeInSeconds"`
+	// The number of distinct workers who will perform the same task on each object. Valid value range between `1` and `3`.
+	TaskCount pulumi.IntInput `pulumi:"taskCount"`
+	// A description for the human worker task.
+	TaskDescription pulumi.StringInput `pulumi:"taskDescription"`
+	// An array of keywords used to describe the task so that workers can discover the task.
+	TaskKeywords pulumi.StringArrayInput `pulumi:"taskKeywords"`
+	// The amount of time that a worker has to complete a task. The default value is `3600` seconds.
+	TaskTimeLimitInSeconds pulumi.IntPtrInput `pulumi:"taskTimeLimitInSeconds"`
+	// A title for the human worker task.
+	TaskTitle pulumi.StringInput `pulumi:"taskTitle"`
+	// The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+	WorkteamArn pulumi.StringInput `pulumi:"workteamArn"`
 }
 
 func (FlowDefinitionHumanLoopConfigArgs) ElementType() reflect.Type {
@@ -9120,40 +9769,49 @@ func (o FlowDefinitionHumanLoopConfigOutput) ToFlowDefinitionHumanLoopConfigPtrO
 	}).(FlowDefinitionHumanLoopConfigPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the human task user interface.
 func (o FlowDefinitionHumanLoopConfigOutput) HumanTaskUiArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) string { return v.HumanTaskUiArn }).(pulumi.StringOutput)
 }
 
+// Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
 func (o FlowDefinitionHumanLoopConfigOutput) PublicWorkforceTaskPrice() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice {
 		return v.PublicWorkforceTaskPrice
 	}).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput)
 }
 
+// The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
 func (o FlowDefinitionHumanLoopConfigOutput) TaskAvailabilityLifetimeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) *int { return v.TaskAvailabilityLifetimeInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The number of distinct workers who will perform the same task on each object. Valid value range between `1` and `3`.
 func (o FlowDefinitionHumanLoopConfigOutput) TaskCount() pulumi.IntOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) int { return v.TaskCount }).(pulumi.IntOutput)
 }
 
+// A description for the human worker task.
 func (o FlowDefinitionHumanLoopConfigOutput) TaskDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) string { return v.TaskDescription }).(pulumi.StringOutput)
 }
 
+// An array of keywords used to describe the task so that workers can discover the task.
 func (o FlowDefinitionHumanLoopConfigOutput) TaskKeywords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) []string { return v.TaskKeywords }).(pulumi.StringArrayOutput)
 }
 
+// The amount of time that a worker has to complete a task. The default value is `3600` seconds.
 func (o FlowDefinitionHumanLoopConfigOutput) TaskTimeLimitInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) *int { return v.TaskTimeLimitInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// A title for the human worker task.
 func (o FlowDefinitionHumanLoopConfigOutput) TaskTitle() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) string { return v.TaskTitle }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
 func (o FlowDefinitionHumanLoopConfigOutput) WorkteamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) string { return v.WorkteamArn }).(pulumi.StringOutput)
 }
@@ -9182,6 +9840,7 @@ func (o FlowDefinitionHumanLoopConfigPtrOutput) Elem() FlowDefinitionHumanLoopCo
 	}).(FlowDefinitionHumanLoopConfigOutput)
 }
 
+// The Amazon Resource Name (ARN) of the human task user interface.
 func (o FlowDefinitionHumanLoopConfigPtrOutput) HumanTaskUiArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *string {
 		if v == nil {
@@ -9191,6 +9850,7 @@ func (o FlowDefinitionHumanLoopConfigPtrOutput) HumanTaskUiArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
 func (o FlowDefinitionHumanLoopConfigPtrOutput) PublicWorkforceTaskPrice() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice {
 		if v == nil {
@@ -9200,6 +9860,7 @@ func (o FlowDefinitionHumanLoopConfigPtrOutput) PublicWorkforceTaskPrice() FlowD
 	}).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput)
 }
 
+// The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
 func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskAvailabilityLifetimeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *int {
 		if v == nil {
@@ -9209,6 +9870,7 @@ func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskAvailabilityLifetimeInSecond
 	}).(pulumi.IntPtrOutput)
 }
 
+// The number of distinct workers who will perform the same task on each object. Valid value range between `1` and `3`.
 func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *int {
 		if v == nil {
@@ -9218,6 +9880,7 @@ func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskCount() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
+// A description for the human worker task.
 func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *string {
 		if v == nil {
@@ -9227,6 +9890,7 @@ func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskDescription() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// An array of keywords used to describe the task so that workers can discover the task.
 func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskKeywords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) []string {
 		if v == nil {
@@ -9236,6 +9900,7 @@ func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskKeywords() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
+// The amount of time that a worker has to complete a task. The default value is `3600` seconds.
 func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskTimeLimitInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *int {
 		if v == nil {
@@ -9245,6 +9910,7 @@ func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskTimeLimitInSeconds() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// A title for the human worker task.
 func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskTitle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *string {
 		if v == nil {
@@ -9254,6 +9920,7 @@ func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskTitle() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
 func (o FlowDefinitionHumanLoopConfigPtrOutput) WorkteamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *string {
 		if v == nil {
@@ -9264,6 +9931,7 @@ func (o FlowDefinitionHumanLoopConfigPtrOutput) WorkteamArn() pulumi.StringPtrOu
 }
 
 type FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice struct {
+	// Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
 	AmountInUsd *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd `pulumi:"amountInUsd"`
 }
 
@@ -9279,6 +9947,7 @@ type FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceInput interface {
 }
 
 type FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs struct {
+	// Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
 	AmountInUsd FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrInput `pulumi:"amountInUsd"`
 }
 
@@ -9359,6 +10028,7 @@ func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput) ToFlowDefin
 	}).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput)
 }
 
+// Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
 func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput) AmountInUsd() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice) *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd {
 		return v.AmountInUsd
@@ -9389,6 +10059,7 @@ func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput) Elem() F
 	}).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput)
 }
 
+// Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
 func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput) AmountInUsd() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice) *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd {
 		if v == nil {
@@ -9399,8 +10070,11 @@ func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput) AmountIn
 }
 
 type FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd struct {
-	Cents                 *int `pulumi:"cents"`
-	Dollars               *int `pulumi:"dollars"`
+	// The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
+	Cents *int `pulumi:"cents"`
+	// The whole number of dollars in the amount. Valid value range between `0` and `2`.
+	Dollars *int `pulumi:"dollars"`
+	// Fractions of a cent, in tenths. Valid value range between `0` and `9`.
 	TenthFractionsOfACent *int `pulumi:"tenthFractionsOfACent"`
 }
 
@@ -9416,8 +10090,11 @@ type FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdInput inter
 }
 
 type FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs struct {
-	Cents                 pulumi.IntPtrInput `pulumi:"cents"`
-	Dollars               pulumi.IntPtrInput `pulumi:"dollars"`
+	// The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
+	Cents pulumi.IntPtrInput `pulumi:"cents"`
+	// The whole number of dollars in the amount. Valid value range between `0` and `2`.
+	Dollars pulumi.IntPtrInput `pulumi:"dollars"`
+	// Fractions of a cent, in tenths. Valid value range between `0` and `9`.
 	TenthFractionsOfACent pulumi.IntPtrInput `pulumi:"tenthFractionsOfACent"`
 }
 
@@ -9498,14 +10175,17 @@ func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput) 
 	}).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput)
 }
 
+// The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
 func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput) Cents() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd) *int { return v.Cents }).(pulumi.IntPtrOutput)
 }
 
+// The whole number of dollars in the amount. Valid value range between `0` and `2`.
 func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput) Dollars() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd) *int { return v.Dollars }).(pulumi.IntPtrOutput)
 }
 
+// Fractions of a cent, in tenths. Valid value range between `0` and `9`.
 func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput) TenthFractionsOfACent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd) *int {
 		return v.TenthFractionsOfACent
@@ -9536,6 +10216,7 @@ func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutpu
 	}).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput)
 }
 
+// The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
 func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput) Cents() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd) *int {
 		if v == nil {
@@ -9545,6 +10226,7 @@ func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The whole number of dollars in the amount. Valid value range between `0` and `2`.
 func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput) Dollars() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd) *int {
 		if v == nil {
@@ -9554,6 +10236,7 @@ func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Fractions of a cent, in tenths. Valid value range between `0` and `9`.
 func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput) TenthFractionsOfACent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd) *int {
 		if v == nil {
@@ -9564,6 +10247,7 @@ func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutpu
 }
 
 type FlowDefinitionHumanLoopRequestSource struct {
+	// Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
 	AwsManagedHumanLoopRequestSource string `pulumi:"awsManagedHumanLoopRequestSource"`
 }
 
@@ -9579,6 +10263,7 @@ type FlowDefinitionHumanLoopRequestSourceInput interface {
 }
 
 type FlowDefinitionHumanLoopRequestSourceArgs struct {
+	// Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
 	AwsManagedHumanLoopRequestSource pulumi.StringInput `pulumi:"awsManagedHumanLoopRequestSource"`
 }
 
@@ -9659,6 +10344,7 @@ func (o FlowDefinitionHumanLoopRequestSourceOutput) ToFlowDefinitionHumanLoopReq
 	}).(FlowDefinitionHumanLoopRequestSourcePtrOutput)
 }
 
+// Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
 func (o FlowDefinitionHumanLoopRequestSourceOutput) AwsManagedHumanLoopRequestSource() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopRequestSource) string { return v.AwsManagedHumanLoopRequestSource }).(pulumi.StringOutput)
 }
@@ -9687,6 +10373,7 @@ func (o FlowDefinitionHumanLoopRequestSourcePtrOutput) Elem() FlowDefinitionHuma
 	}).(FlowDefinitionHumanLoopRequestSourceOutput)
 }
 
+// Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
 func (o FlowDefinitionHumanLoopRequestSourcePtrOutput) AwsManagedHumanLoopRequestSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionHumanLoopRequestSource) *string {
 		if v == nil {
@@ -9697,8 +10384,10 @@ func (o FlowDefinitionHumanLoopRequestSourcePtrOutput) AwsManagedHumanLoopReques
 }
 
 type FlowDefinitionOutputConfig struct {
-	KmsKeyId     *string `pulumi:"kmsKeyId"`
-	S3OutputPath string  `pulumi:"s3OutputPath"`
+	// The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The Amazon S3 path where the object containing human output will be made available.
+	S3OutputPath string `pulumi:"s3OutputPath"`
 }
 
 // FlowDefinitionOutputConfigInput is an input type that accepts FlowDefinitionOutputConfigArgs and FlowDefinitionOutputConfigOutput values.
@@ -9713,8 +10402,10 @@ type FlowDefinitionOutputConfigInput interface {
 }
 
 type FlowDefinitionOutputConfigArgs struct {
-	KmsKeyId     pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	S3OutputPath pulumi.StringInput    `pulumi:"s3OutputPath"`
+	// The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The Amazon S3 path where the object containing human output will be made available.
+	S3OutputPath pulumi.StringInput `pulumi:"s3OutputPath"`
 }
 
 func (FlowDefinitionOutputConfigArgs) ElementType() reflect.Type {
@@ -9794,10 +10485,12 @@ func (o FlowDefinitionOutputConfigOutput) ToFlowDefinitionOutputConfigPtrOutputW
 	}).(FlowDefinitionOutputConfigPtrOutput)
 }
 
+// The Amazon Key Management Service (KMS) key ARN for server-side encryption.
 func (o FlowDefinitionOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDefinitionOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon S3 path where the object containing human output will be made available.
 func (o FlowDefinitionOutputConfigOutput) S3OutputPath() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDefinitionOutputConfig) string { return v.S3OutputPath }).(pulumi.StringOutput)
 }
@@ -9826,6 +10519,7 @@ func (o FlowDefinitionOutputConfigPtrOutput) Elem() FlowDefinitionOutputConfigOu
 	}).(FlowDefinitionOutputConfigOutput)
 }
 
+// The Amazon Key Management Service (KMS) key ARN for server-side encryption.
 func (o FlowDefinitionOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionOutputConfig) *string {
 		if v == nil {
@@ -9835,6 +10529,7 @@ func (o FlowDefinitionOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon S3 path where the object containing human output will be made available.
 func (o FlowDefinitionOutputConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionOutputConfig) *string {
 		if v == nil {
@@ -9845,9 +10540,12 @@ func (o FlowDefinitionOutputConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutp
 }
 
 type HumanTaskUIUiTemplate struct {
-	Content       *string `pulumi:"content"`
+	// The content of the Liquid template for the worker user interface.
+	Content *string `pulumi:"content"`
+	// The SHA-256 digest of the contents of the template.
 	ContentSha256 *string `pulumi:"contentSha256"`
-	Url           *string `pulumi:"url"`
+	// The URL for the user interface template.
+	Url *string `pulumi:"url"`
 }
 
 // HumanTaskUIUiTemplateInput is an input type that accepts HumanTaskUIUiTemplateArgs and HumanTaskUIUiTemplateOutput values.
@@ -9862,9 +10560,12 @@ type HumanTaskUIUiTemplateInput interface {
 }
 
 type HumanTaskUIUiTemplateArgs struct {
-	Content       pulumi.StringPtrInput `pulumi:"content"`
+	// The content of the Liquid template for the worker user interface.
+	Content pulumi.StringPtrInput `pulumi:"content"`
+	// The SHA-256 digest of the contents of the template.
 	ContentSha256 pulumi.StringPtrInput `pulumi:"contentSha256"`
-	Url           pulumi.StringPtrInput `pulumi:"url"`
+	// The URL for the user interface template.
+	Url pulumi.StringPtrInput `pulumi:"url"`
 }
 
 func (HumanTaskUIUiTemplateArgs) ElementType() reflect.Type {
@@ -9944,14 +10645,17 @@ func (o HumanTaskUIUiTemplateOutput) ToHumanTaskUIUiTemplatePtrOutputWithContext
 	}).(HumanTaskUIUiTemplatePtrOutput)
 }
 
+// The content of the Liquid template for the worker user interface.
 func (o HumanTaskUIUiTemplateOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HumanTaskUIUiTemplate) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
+// The SHA-256 digest of the contents of the template.
 func (o HumanTaskUIUiTemplateOutput) ContentSha256() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HumanTaskUIUiTemplate) *string { return v.ContentSha256 }).(pulumi.StringPtrOutput)
 }
 
+// The URL for the user interface template.
 func (o HumanTaskUIUiTemplateOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HumanTaskUIUiTemplate) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -9980,6 +10684,7 @@ func (o HumanTaskUIUiTemplatePtrOutput) Elem() HumanTaskUIUiTemplateOutput {
 	}).(HumanTaskUIUiTemplateOutput)
 }
 
+// The content of the Liquid template for the worker user interface.
 func (o HumanTaskUIUiTemplatePtrOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HumanTaskUIUiTemplate) *string {
 		if v == nil {
@@ -9989,6 +10694,7 @@ func (o HumanTaskUIUiTemplatePtrOutput) Content() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The SHA-256 digest of the contents of the template.
 func (o HumanTaskUIUiTemplatePtrOutput) ContentSha256() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HumanTaskUIUiTemplate) *string {
 		if v == nil {
@@ -9998,6 +10704,7 @@ func (o HumanTaskUIUiTemplatePtrOutput) ContentSha256() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The URL for the user interface template.
 func (o HumanTaskUIUiTemplatePtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HumanTaskUIUiTemplate) *string {
 		if v == nil {
@@ -10008,12 +10715,19 @@ func (o HumanTaskUIUiTemplatePtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 type ModelContainer struct {
-	ContainerHostname *string                    `pulumi:"containerHostname"`
-	Environment       map[string]string          `pulumi:"environment"`
-	Image             string                     `pulumi:"image"`
-	ImageConfig       *ModelContainerImageConfig `pulumi:"imageConfig"`
-	Mode              *string                    `pulumi:"mode"`
-	ModelDataUrl      *string                    `pulumi:"modelDataUrl"`
+	// The DNS host name for the container.
+	ContainerHostname *string `pulumi:"containerHostname"`
+	// Environment variables for the Docker container.
+	// A list of key value pairs.
+	Environment map[string]string `pulumi:"environment"`
+	// The registry path where the inference code image is stored in Amazon ECR.
+	Image string `pulumi:"image"`
+	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+	ImageConfig *ModelContainerImageConfig `pulumi:"imageConfig"`
+	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+	Mode *string `pulumi:"mode"`
+	// The URL for the S3 location where model artifacts are stored.
+	ModelDataUrl *string `pulumi:"modelDataUrl"`
 }
 
 // ModelContainerInput is an input type that accepts ModelContainerArgs and ModelContainerOutput values.
@@ -10028,12 +10742,19 @@ type ModelContainerInput interface {
 }
 
 type ModelContainerArgs struct {
-	ContainerHostname pulumi.StringPtrInput             `pulumi:"containerHostname"`
-	Environment       pulumi.StringMapInput             `pulumi:"environment"`
-	Image             pulumi.StringInput                `pulumi:"image"`
-	ImageConfig       ModelContainerImageConfigPtrInput `pulumi:"imageConfig"`
-	Mode              pulumi.StringPtrInput             `pulumi:"mode"`
-	ModelDataUrl      pulumi.StringPtrInput             `pulumi:"modelDataUrl"`
+	// The DNS host name for the container.
+	ContainerHostname pulumi.StringPtrInput `pulumi:"containerHostname"`
+	// Environment variables for the Docker container.
+	// A list of key value pairs.
+	Environment pulumi.StringMapInput `pulumi:"environment"`
+	// The registry path where the inference code image is stored in Amazon ECR.
+	Image pulumi.StringInput `pulumi:"image"`
+	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+	ImageConfig ModelContainerImageConfigPtrInput `pulumi:"imageConfig"`
+	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// The URL for the S3 location where model artifacts are stored.
+	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
 }
 
 func (ModelContainerArgs) ElementType() reflect.Type {
@@ -10087,26 +10808,33 @@ func (o ModelContainerOutput) ToModelContainerOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The DNS host name for the container.
 func (o ModelContainerOutput) ContainerHostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *string { return v.ContainerHostname }).(pulumi.StringPtrOutput)
 }
 
+// Environment variables for the Docker container.
+// A list of key value pairs.
 func (o ModelContainerOutput) Environment() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ModelContainer) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
+// The registry path where the inference code image is stored in Amazon ECR.
 func (o ModelContainerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
+// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 func (o ModelContainerOutput) ImageConfig() ModelContainerImageConfigPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *ModelContainerImageConfig { return v.ImageConfig }).(ModelContainerImageConfigPtrOutput)
 }
 
+// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 func (o ModelContainerOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
+// The URL for the S3 location where model artifacts are stored.
 func (o ModelContainerOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
 }
@@ -10132,7 +10860,9 @@ func (o ModelContainerArrayOutput) Index(i pulumi.IntInput) ModelContainerOutput
 }
 
 type ModelContainerImageConfig struct {
-	RepositoryAccessMode string                                         `pulumi:"repositoryAccessMode"`
+	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+	RepositoryAccessMode string `pulumi:"repositoryAccessMode"`
+	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 	RepositoryAuthConfig *ModelContainerImageConfigRepositoryAuthConfig `pulumi:"repositoryAuthConfig"`
 }
 
@@ -10148,7 +10878,9 @@ type ModelContainerImageConfigInput interface {
 }
 
 type ModelContainerImageConfigArgs struct {
-	RepositoryAccessMode pulumi.StringInput                                    `pulumi:"repositoryAccessMode"`
+	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+	RepositoryAccessMode pulumi.StringInput `pulumi:"repositoryAccessMode"`
+	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 	RepositoryAuthConfig ModelContainerImageConfigRepositoryAuthConfigPtrInput `pulumi:"repositoryAuthConfig"`
 }
 
@@ -10229,10 +10961,12 @@ func (o ModelContainerImageConfigOutput) ToModelContainerImageConfigPtrOutputWit
 	}).(ModelContainerImageConfigPtrOutput)
 }
 
+// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
 func (o ModelContainerImageConfigOutput) RepositoryAccessMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelContainerImageConfig) string { return v.RepositoryAccessMode }).(pulumi.StringOutput)
 }
 
+// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 func (o ModelContainerImageConfigOutput) RepositoryAuthConfig() ModelContainerImageConfigRepositoryAuthConfigPtrOutput {
 	return o.ApplyT(func(v ModelContainerImageConfig) *ModelContainerImageConfigRepositoryAuthConfig {
 		return v.RepositoryAuthConfig
@@ -10263,6 +10997,7 @@ func (o ModelContainerImageConfigPtrOutput) Elem() ModelContainerImageConfigOutp
 	}).(ModelContainerImageConfigOutput)
 }
 
+// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
 func (o ModelContainerImageConfigPtrOutput) RepositoryAccessMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelContainerImageConfig) *string {
 		if v == nil {
@@ -10272,6 +11007,7 @@ func (o ModelContainerImageConfigPtrOutput) RepositoryAccessMode() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 func (o ModelContainerImageConfigPtrOutput) RepositoryAuthConfig() ModelContainerImageConfigRepositoryAuthConfigPtrOutput {
 	return o.ApplyT(func(v *ModelContainerImageConfig) *ModelContainerImageConfigRepositoryAuthConfig {
 		if v == nil {
@@ -10282,6 +11018,7 @@ func (o ModelContainerImageConfigPtrOutput) RepositoryAuthConfig() ModelContaine
 }
 
 type ModelContainerImageConfigRepositoryAuthConfig struct {
+	// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 	RepositoryCredentialsProviderArn string `pulumi:"repositoryCredentialsProviderArn"`
 }
 
@@ -10297,6 +11034,7 @@ type ModelContainerImageConfigRepositoryAuthConfigInput interface {
 }
 
 type ModelContainerImageConfigRepositoryAuthConfigArgs struct {
+	// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 	RepositoryCredentialsProviderArn pulumi.StringInput `pulumi:"repositoryCredentialsProviderArn"`
 }
 
@@ -10377,6 +11115,7 @@ func (o ModelContainerImageConfigRepositoryAuthConfigOutput) ToModelContainerIma
 	}).(ModelContainerImageConfigRepositoryAuthConfigPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 func (o ModelContainerImageConfigRepositoryAuthConfigOutput) RepositoryCredentialsProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelContainerImageConfigRepositoryAuthConfig) string {
 		return v.RepositoryCredentialsProviderArn
@@ -10407,6 +11146,7 @@ func (o ModelContainerImageConfigRepositoryAuthConfigPtrOutput) Elem() ModelCont
 	}).(ModelContainerImageConfigRepositoryAuthConfigOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 func (o ModelContainerImageConfigRepositoryAuthConfigPtrOutput) RepositoryCredentialsProviderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelContainerImageConfigRepositoryAuthConfig) *string {
 		if v == nil {
@@ -10417,6 +11157,7 @@ func (o ModelContainerImageConfigRepositoryAuthConfigPtrOutput) RepositoryCreden
 }
 
 type ModelInferenceExecutionConfig struct {
+	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode string `pulumi:"mode"`
 }
 
@@ -10432,6 +11173,7 @@ type ModelInferenceExecutionConfigInput interface {
 }
 
 type ModelInferenceExecutionConfigArgs struct {
+	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode pulumi.StringInput `pulumi:"mode"`
 }
 
@@ -10512,6 +11254,7 @@ func (o ModelInferenceExecutionConfigOutput) ToModelInferenceExecutionConfigPtrO
 	}).(ModelInferenceExecutionConfigPtrOutput)
 }
 
+// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 func (o ModelInferenceExecutionConfigOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelInferenceExecutionConfig) string { return v.Mode }).(pulumi.StringOutput)
 }
@@ -10540,6 +11283,7 @@ func (o ModelInferenceExecutionConfigPtrOutput) Elem() ModelInferenceExecutionCo
 	}).(ModelInferenceExecutionConfigOutput)
 }
 
+// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 func (o ModelInferenceExecutionConfigPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelInferenceExecutionConfig) *string {
 		if v == nil {
@@ -10550,12 +11294,19 @@ func (o ModelInferenceExecutionConfigPtrOutput) Mode() pulumi.StringPtrOutput {
 }
 
 type ModelPrimaryContainer struct {
-	ContainerHostname *string                           `pulumi:"containerHostname"`
-	Environment       map[string]string                 `pulumi:"environment"`
-	Image             string                            `pulumi:"image"`
-	ImageConfig       *ModelPrimaryContainerImageConfig `pulumi:"imageConfig"`
-	Mode              *string                           `pulumi:"mode"`
-	ModelDataUrl      *string                           `pulumi:"modelDataUrl"`
+	// The DNS host name for the container.
+	ContainerHostname *string `pulumi:"containerHostname"`
+	// Environment variables for the Docker container.
+	// A list of key value pairs.
+	Environment map[string]string `pulumi:"environment"`
+	// The registry path where the inference code image is stored in Amazon ECR.
+	Image string `pulumi:"image"`
+	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+	ImageConfig *ModelPrimaryContainerImageConfig `pulumi:"imageConfig"`
+	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+	Mode *string `pulumi:"mode"`
+	// The URL for the S3 location where model artifacts are stored.
+	ModelDataUrl *string `pulumi:"modelDataUrl"`
 }
 
 // ModelPrimaryContainerInput is an input type that accepts ModelPrimaryContainerArgs and ModelPrimaryContainerOutput values.
@@ -10570,12 +11321,19 @@ type ModelPrimaryContainerInput interface {
 }
 
 type ModelPrimaryContainerArgs struct {
-	ContainerHostname pulumi.StringPtrInput                    `pulumi:"containerHostname"`
-	Environment       pulumi.StringMapInput                    `pulumi:"environment"`
-	Image             pulumi.StringInput                       `pulumi:"image"`
-	ImageConfig       ModelPrimaryContainerImageConfigPtrInput `pulumi:"imageConfig"`
-	Mode              pulumi.StringPtrInput                    `pulumi:"mode"`
-	ModelDataUrl      pulumi.StringPtrInput                    `pulumi:"modelDataUrl"`
+	// The DNS host name for the container.
+	ContainerHostname pulumi.StringPtrInput `pulumi:"containerHostname"`
+	// Environment variables for the Docker container.
+	// A list of key value pairs.
+	Environment pulumi.StringMapInput `pulumi:"environment"`
+	// The registry path where the inference code image is stored in Amazon ECR.
+	Image pulumi.StringInput `pulumi:"image"`
+	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+	ImageConfig ModelPrimaryContainerImageConfigPtrInput `pulumi:"imageConfig"`
+	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// The URL for the S3 location where model artifacts are stored.
+	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
 }
 
 func (ModelPrimaryContainerArgs) ElementType() reflect.Type {
@@ -10655,26 +11413,33 @@ func (o ModelPrimaryContainerOutput) ToModelPrimaryContainerPtrOutputWithContext
 	}).(ModelPrimaryContainerPtrOutput)
 }
 
+// The DNS host name for the container.
 func (o ModelPrimaryContainerOutput) ContainerHostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ContainerHostname }).(pulumi.StringPtrOutput)
 }
 
+// Environment variables for the Docker container.
+// A list of key value pairs.
 func (o ModelPrimaryContainerOutput) Environment() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
+// The registry path where the inference code image is stored in Amazon ECR.
 func (o ModelPrimaryContainerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
+// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 func (o ModelPrimaryContainerOutput) ImageConfig() ModelPrimaryContainerImageConfigPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *ModelPrimaryContainerImageConfig { return v.ImageConfig }).(ModelPrimaryContainerImageConfigPtrOutput)
 }
 
+// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 func (o ModelPrimaryContainerOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
+// The URL for the S3 location where model artifacts are stored.
 func (o ModelPrimaryContainerOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
 }
@@ -10703,6 +11468,7 @@ func (o ModelPrimaryContainerPtrOutput) Elem() ModelPrimaryContainerOutput {
 	}).(ModelPrimaryContainerOutput)
 }
 
+// The DNS host name for the container.
 func (o ModelPrimaryContainerPtrOutput) ContainerHostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
 		if v == nil {
@@ -10712,6 +11478,8 @@ func (o ModelPrimaryContainerPtrOutput) ContainerHostname() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Environment variables for the Docker container.
+// A list of key value pairs.
 func (o ModelPrimaryContainerPtrOutput) Environment() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) map[string]string {
 		if v == nil {
@@ -10721,6 +11489,7 @@ func (o ModelPrimaryContainerPtrOutput) Environment() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
+// The registry path where the inference code image is stored in Amazon ECR.
 func (o ModelPrimaryContainerPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
 		if v == nil {
@@ -10730,6 +11499,7 @@ func (o ModelPrimaryContainerPtrOutput) Image() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 func (o ModelPrimaryContainerPtrOutput) ImageConfig() ModelPrimaryContainerImageConfigPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *ModelPrimaryContainerImageConfig {
 		if v == nil {
@@ -10739,6 +11509,7 @@ func (o ModelPrimaryContainerPtrOutput) ImageConfig() ModelPrimaryContainerImage
 	}).(ModelPrimaryContainerImageConfigPtrOutput)
 }
 
+// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 func (o ModelPrimaryContainerPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
 		if v == nil {
@@ -10748,6 +11519,7 @@ func (o ModelPrimaryContainerPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The URL for the S3 location where model artifacts are stored.
 func (o ModelPrimaryContainerPtrOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
 		if v == nil {
@@ -10758,7 +11530,9 @@ func (o ModelPrimaryContainerPtrOutput) ModelDataUrl() pulumi.StringPtrOutput {
 }
 
 type ModelPrimaryContainerImageConfig struct {
-	RepositoryAccessMode string                                                `pulumi:"repositoryAccessMode"`
+	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+	RepositoryAccessMode string `pulumi:"repositoryAccessMode"`
+	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 	RepositoryAuthConfig *ModelPrimaryContainerImageConfigRepositoryAuthConfig `pulumi:"repositoryAuthConfig"`
 }
 
@@ -10774,7 +11548,9 @@ type ModelPrimaryContainerImageConfigInput interface {
 }
 
 type ModelPrimaryContainerImageConfigArgs struct {
-	RepositoryAccessMode pulumi.StringInput                                           `pulumi:"repositoryAccessMode"`
+	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+	RepositoryAccessMode pulumi.StringInput `pulumi:"repositoryAccessMode"`
+	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 	RepositoryAuthConfig ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrInput `pulumi:"repositoryAuthConfig"`
 }
 
@@ -10855,10 +11631,12 @@ func (o ModelPrimaryContainerImageConfigOutput) ToModelPrimaryContainerImageConf
 	}).(ModelPrimaryContainerImageConfigPtrOutput)
 }
 
+// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
 func (o ModelPrimaryContainerImageConfigOutput) RepositoryAccessMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelPrimaryContainerImageConfig) string { return v.RepositoryAccessMode }).(pulumi.StringOutput)
 }
 
+// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 func (o ModelPrimaryContainerImageConfigOutput) RepositoryAuthConfig() ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainerImageConfig) *ModelPrimaryContainerImageConfigRepositoryAuthConfig {
 		return v.RepositoryAuthConfig
@@ -10889,6 +11667,7 @@ func (o ModelPrimaryContainerImageConfigPtrOutput) Elem() ModelPrimaryContainerI
 	}).(ModelPrimaryContainerImageConfigOutput)
 }
 
+// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
 func (o ModelPrimaryContainerImageConfigPtrOutput) RepositoryAccessMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainerImageConfig) *string {
 		if v == nil {
@@ -10898,6 +11677,7 @@ func (o ModelPrimaryContainerImageConfigPtrOutput) RepositoryAccessMode() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 func (o ModelPrimaryContainerImageConfigPtrOutput) RepositoryAuthConfig() ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainerImageConfig) *ModelPrimaryContainerImageConfigRepositoryAuthConfig {
 		if v == nil {
@@ -10908,6 +11688,7 @@ func (o ModelPrimaryContainerImageConfigPtrOutput) RepositoryAuthConfig() ModelP
 }
 
 type ModelPrimaryContainerImageConfigRepositoryAuthConfig struct {
+	// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 	RepositoryCredentialsProviderArn string `pulumi:"repositoryCredentialsProviderArn"`
 }
 
@@ -10923,6 +11704,7 @@ type ModelPrimaryContainerImageConfigRepositoryAuthConfigInput interface {
 }
 
 type ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs struct {
+	// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 	RepositoryCredentialsProviderArn pulumi.StringInput `pulumi:"repositoryCredentialsProviderArn"`
 }
 
@@ -11003,6 +11785,7 @@ func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput) ToModelPrima
 	}).(ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput) RepositoryCredentialsProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelPrimaryContainerImageConfigRepositoryAuthConfig) string {
 		return v.RepositoryCredentialsProviderArn
@@ -11033,6 +11816,7 @@ func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput) Elem() Mo
 	}).(ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput) RepositoryCredentialsProviderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainerImageConfigRepositoryAuthConfig) *string {
 		if v == nil {
@@ -11191,6 +11975,7 @@ func (o ModelVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 }
 
 type NotebookInstanceInstanceMetadataServiceConfiguration struct {
+	// Indicates the minimum IMDS version that the notebook instance supports. When passed "1" is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
 	MinimumInstanceMetadataServiceVersion *string `pulumi:"minimumInstanceMetadataServiceVersion"`
 }
 
@@ -11206,6 +11991,7 @@ type NotebookInstanceInstanceMetadataServiceConfigurationInput interface {
 }
 
 type NotebookInstanceInstanceMetadataServiceConfigurationArgs struct {
+	// Indicates the minimum IMDS version that the notebook instance supports. When passed "1" is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
 	MinimumInstanceMetadataServiceVersion pulumi.StringPtrInput `pulumi:"minimumInstanceMetadataServiceVersion"`
 }
 
@@ -11286,6 +12072,7 @@ func (o NotebookInstanceInstanceMetadataServiceConfigurationOutput) ToNotebookIn
 	}).(NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput)
 }
 
+// Indicates the minimum IMDS version that the notebook instance supports. When passed "1" is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
 func (o NotebookInstanceInstanceMetadataServiceConfigurationOutput) MinimumInstanceMetadataServiceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotebookInstanceInstanceMetadataServiceConfiguration) *string {
 		return v.MinimumInstanceMetadataServiceVersion
@@ -11316,6 +12103,7 @@ func (o NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) Elem() No
 	}).(NotebookInstanceInstanceMetadataServiceConfigurationOutput)
 }
 
+// Indicates the minimum IMDS version that the notebook instance supports. When passed "1" is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
 func (o NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) MinimumInstanceMetadataServiceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotebookInstanceInstanceMetadataServiceConfiguration) *string {
 		if v == nil {
@@ -11326,9 +12114,13 @@ func (o NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) MinimumIn
 }
 
 type ProjectServiceCatalogProvisioningDetails struct {
-	PathId                 *string                                                         `pulumi:"pathId"`
-	ProductId              string                                                          `pulumi:"productId"`
-	ProvisioningArtifactId *string                                                         `pulumi:"provisioningArtifactId"`
+	// The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
+	PathId *string `pulumi:"pathId"`
+	// The ID of the product to provision.
+	ProductId string `pulumi:"productId"`
+	// The ID of the provisioning artifact.
+	ProvisioningArtifactId *string `pulumi:"provisioningArtifactId"`
+	// A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
 	ProvisioningParameters []ProjectServiceCatalogProvisioningDetailsProvisioningParameter `pulumi:"provisioningParameters"`
 }
 
@@ -11344,9 +12136,13 @@ type ProjectServiceCatalogProvisioningDetailsInput interface {
 }
 
 type ProjectServiceCatalogProvisioningDetailsArgs struct {
-	PathId                 pulumi.StringPtrInput                                                   `pulumi:"pathId"`
-	ProductId              pulumi.StringInput                                                      `pulumi:"productId"`
-	ProvisioningArtifactId pulumi.StringPtrInput                                                   `pulumi:"provisioningArtifactId"`
+	// The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
+	PathId pulumi.StringPtrInput `pulumi:"pathId"`
+	// The ID of the product to provision.
+	ProductId pulumi.StringInput `pulumi:"productId"`
+	// The ID of the provisioning artifact.
+	ProvisioningArtifactId pulumi.StringPtrInput `pulumi:"provisioningArtifactId"`
+	// A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
 	ProvisioningParameters ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayInput `pulumi:"provisioningParameters"`
 }
 
@@ -11427,18 +12223,22 @@ func (o ProjectServiceCatalogProvisioningDetailsOutput) ToProjectServiceCatalogP
 	}).(ProjectServiceCatalogProvisioningDetailsPtrOutput)
 }
 
+// The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
 func (o ProjectServiceCatalogProvisioningDetailsOutput) PathId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectServiceCatalogProvisioningDetails) *string { return v.PathId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the product to provision.
 func (o ProjectServiceCatalogProvisioningDetailsOutput) ProductId() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectServiceCatalogProvisioningDetails) string { return v.ProductId }).(pulumi.StringOutput)
 }
 
+// The ID of the provisioning artifact.
 func (o ProjectServiceCatalogProvisioningDetailsOutput) ProvisioningArtifactId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectServiceCatalogProvisioningDetails) *string { return v.ProvisioningArtifactId }).(pulumi.StringPtrOutput)
 }
 
+// A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
 func (o ProjectServiceCatalogProvisioningDetailsOutput) ProvisioningParameters() ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput {
 	return o.ApplyT(func(v ProjectServiceCatalogProvisioningDetails) []ProjectServiceCatalogProvisioningDetailsProvisioningParameter {
 		return v.ProvisioningParameters
@@ -11469,6 +12269,7 @@ func (o ProjectServiceCatalogProvisioningDetailsPtrOutput) Elem() ProjectService
 	}).(ProjectServiceCatalogProvisioningDetailsOutput)
 }
 
+// The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
 func (o ProjectServiceCatalogProvisioningDetailsPtrOutput) PathId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectServiceCatalogProvisioningDetails) *string {
 		if v == nil {
@@ -11478,6 +12279,7 @@ func (o ProjectServiceCatalogProvisioningDetailsPtrOutput) PathId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the product to provision.
 func (o ProjectServiceCatalogProvisioningDetailsPtrOutput) ProductId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectServiceCatalogProvisioningDetails) *string {
 		if v == nil {
@@ -11487,6 +12289,7 @@ func (o ProjectServiceCatalogProvisioningDetailsPtrOutput) ProductId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the provisioning artifact.
 func (o ProjectServiceCatalogProvisioningDetailsPtrOutput) ProvisioningArtifactId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectServiceCatalogProvisioningDetails) *string {
 		if v == nil {
@@ -11496,6 +12299,7 @@ func (o ProjectServiceCatalogProvisioningDetailsPtrOutput) ProvisioningArtifactI
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
 func (o ProjectServiceCatalogProvisioningDetailsPtrOutput) ProvisioningParameters() ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput {
 	return o.ApplyT(func(v *ProjectServiceCatalogProvisioningDetails) []ProjectServiceCatalogProvisioningDetailsProvisioningParameter {
 		if v == nil {
@@ -11506,7 +12310,9 @@ func (o ProjectServiceCatalogProvisioningDetailsPtrOutput) ProvisioningParameter
 }
 
 type ProjectServiceCatalogProvisioningDetailsProvisioningParameter struct {
-	Key   string  `pulumi:"key"`
+	// The key that identifies a provisioning parameter.
+	Key string `pulumi:"key"`
+	// The value of the provisioning parameter.
 	Value *string `pulumi:"value"`
 }
 
@@ -11522,7 +12328,9 @@ type ProjectServiceCatalogProvisioningDetailsProvisioningParameterInput interfac
 }
 
 type ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs struct {
-	Key   pulumi.StringInput    `pulumi:"key"`
+	// The key that identifies a provisioning parameter.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the provisioning parameter.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -11577,10 +12385,12 @@ func (o ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput) ToP
 	return o
 }
 
+// The key that identifies a provisioning parameter.
 func (o ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectServiceCatalogProvisioningDetailsProvisioningParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value of the provisioning parameter.
 func (o ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectServiceCatalogProvisioningDetailsProvisioningParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -11606,7 +12416,9 @@ func (o ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput
 }
 
 type SpaceSpaceSettings struct {
+	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings *SpaceSpaceSettingsJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
+	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings *SpaceSpaceSettingsKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
 }
 
@@ -11622,7 +12434,9 @@ type SpaceSpaceSettingsInput interface {
 }
 
 type SpaceSpaceSettingsArgs struct {
+	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings SpaceSpaceSettingsJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
+	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings SpaceSpaceSettingsKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
 }
 
@@ -11703,12 +12517,14 @@ func (o SpaceSpaceSettingsOutput) ToSpaceSpaceSettingsPtrOutputWithContext(ctx c
 	}).(SpaceSpaceSettingsPtrOutput)
 }
 
+// The Jupyter server's app settings. See Jupyter Server App Settings below.
 func (o SpaceSpaceSettingsOutput) JupyterServerAppSettings() SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettings) *SpaceSpaceSettingsJupyterServerAppSettings {
 		return v.JupyterServerAppSettings
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput)
 }
 
+// The kernel gateway app settings. See Kernel Gateway App Settings below.
 func (o SpaceSpaceSettingsOutput) KernelGatewayAppSettings() SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettings) *SpaceSpaceSettingsKernelGatewayAppSettings {
 		return v.KernelGatewayAppSettings
@@ -11739,6 +12555,7 @@ func (o SpaceSpaceSettingsPtrOutput) Elem() SpaceSpaceSettingsOutput {
 	}).(SpaceSpaceSettingsOutput)
 }
 
+// The Jupyter server's app settings. See Jupyter Server App Settings below.
 func (o SpaceSpaceSettingsPtrOutput) JupyterServerAppSettings() SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettings) *SpaceSpaceSettingsJupyterServerAppSettings {
 		if v == nil {
@@ -11748,6 +12565,7 @@ func (o SpaceSpaceSettingsPtrOutput) JupyterServerAppSettings() SpaceSpaceSettin
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput)
 }
 
+// The kernel gateway app settings. See Kernel Gateway App Settings below.
 func (o SpaceSpaceSettingsPtrOutput) KernelGatewayAppSettings() SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettings) *SpaceSpaceSettingsKernelGatewayAppSettings {
 		if v == nil {
@@ -11758,9 +12576,12 @@ func (o SpaceSpaceSettingsPtrOutput) KernelGatewayAppSettings() SpaceSpaceSettin
 }
 
 type SpaceSpaceSettingsJupyterServerAppSettings struct {
-	CodeRepositories    []SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository    `pulumi:"codeRepositories"`
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	CodeRepositories []SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository `pulumi:"codeRepositories"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
-	LifecycleConfigArns []string                                                      `pulumi:"lifecycleConfigArns"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
 // SpaceSpaceSettingsJupyterServerAppSettingsInput is an input type that accepts SpaceSpaceSettingsJupyterServerAppSettingsArgs and SpaceSpaceSettingsJupyterServerAppSettingsOutput values.
@@ -11775,9 +12596,12 @@ type SpaceSpaceSettingsJupyterServerAppSettingsInput interface {
 }
 
 type SpaceSpaceSettingsJupyterServerAppSettingsArgs struct {
-	CodeRepositories    SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	CodeRepositories SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
-	LifecycleConfigArns pulumi.StringArrayInput                                            `pulumi:"lifecycleConfigArns"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
 func (SpaceSpaceSettingsJupyterServerAppSettingsArgs) ElementType() reflect.Type {
@@ -11857,18 +12681,21 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsOutput) ToSpaceSpaceSettingsJu
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput)
 }
 
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsOutput) CodeRepositories() SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterServerAppSettings) []SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository {
 		return v.CodeRepositories
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsOutput) DefaultResourceSpec() SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterServerAppSettings) SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterServerAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -11897,6 +12724,7 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput) Elem() SpaceSpaceSe
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsOutput)
 }
 
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput) CodeRepositories() SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterServerAppSettings) []SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository {
 		if v == nil {
@@ -11906,6 +12734,7 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput) CodeRepositories() 
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterServerAppSettings) *SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -11915,6 +12744,7 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput) DefaultResourceSpec
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterServerAppSettings) []string {
 		if v == nil {
@@ -11925,6 +12755,7 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput) LifecycleConfigArns
 }
 
 type SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository struct {
+	// The URL of the Git repository.
 	RepositoryUrl string `pulumi:"repositoryUrl"`
 }
 
@@ -11940,6 +12771,7 @@ type SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryInput interface {
 }
 
 type SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs struct {
+	// The URL of the Git repository.
 	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
 }
 
@@ -11994,6 +12826,7 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryOutput) ToSpaceS
 	return o
 }
 
+// The URL of the Git repository.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryOutput) RepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository) string { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
@@ -12019,9 +12852,13 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput) Ind
 }
 
 type SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec struct {
-	InstanceType             *string `pulumi:"instanceType"`
-	LifecycleConfigArn       *string `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        *string `pulumi:"sagemakerImageArn"`
+	// The instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -12037,9 +12874,13 @@ type SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecInput interfac
 }
 
 type SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs struct {
-	InstanceType             pulumi.StringPtrInput `pulumi:"instanceType"`
-	LifecycleConfigArn       pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -12120,22 +12961,26 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) ToS
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The instance type.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageVersionArn
@@ -12166,6 +13011,7 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
 }
 
+// The instance type.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -12175,6 +13021,7 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -12184,6 +13031,7 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -12193,6 +13041,7 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -12203,9 +13052,12 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) 
 }
 
 type SpaceSpaceSettingsKernelGatewayAppSettings struct {
-	CustomImages        []SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage       `pulumi:"customImages"`
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages []SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
-	LifecycleConfigArns []string                                                      `pulumi:"lifecycleConfigArns"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
 // SpaceSpaceSettingsKernelGatewayAppSettingsInput is an input type that accepts SpaceSpaceSettingsKernelGatewayAppSettingsArgs and SpaceSpaceSettingsKernelGatewayAppSettingsOutput values.
@@ -12220,9 +13072,12 @@ type SpaceSpaceSettingsKernelGatewayAppSettingsInput interface {
 }
 
 type SpaceSpaceSettingsKernelGatewayAppSettingsArgs struct {
-	CustomImages        SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArrayInput    `pulumi:"customImages"`
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArrayInput `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
-	LifecycleConfigArns pulumi.StringArrayInput                                            `pulumi:"lifecycleConfigArns"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
 func (SpaceSpaceSettingsKernelGatewayAppSettingsArgs) ElementType() reflect.Type {
@@ -12302,18 +13157,21 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsOutput) ToSpaceSpaceSettingsKe
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsOutput) CustomImages() SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsKernelGatewayAppSettings) []SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage {
 		return v.CustomImages
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsOutput) DefaultResourceSpec() SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsKernelGatewayAppSettings) SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsKernelGatewayAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -12342,6 +13200,7 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput) Elem() SpaceSpaceSe
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsOutput)
 }
 
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput) CustomImages() SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsKernelGatewayAppSettings) []SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage {
 		if v == nil {
@@ -12351,6 +13210,7 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput) CustomImages() Spac
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsKernelGatewayAppSettings) *SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -12360,6 +13220,7 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsKernelGatewayAppSettings) []string {
 		if v == nil {
@@ -12370,9 +13231,12 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput) LifecycleConfigArns
 }
 
 type SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage struct {
+	// The name of the App Image Config.
 	AppImageConfigName string `pulumi:"appImageConfigName"`
-	ImageName          string `pulumi:"imageName"`
-	ImageVersionNumber *int   `pulumi:"imageVersionNumber"`
+	// The name of the Custom Image.
+	ImageName string `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber *int `pulumi:"imageVersionNumber"`
 }
 
 // SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageInput is an input type that accepts SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs and SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageOutput values.
@@ -12387,8 +13251,11 @@ type SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageInput interface {
 }
 
 type SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs struct {
+	// The name of the App Image Config.
 	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
-	ImageName          pulumi.StringInput `pulumi:"imageName"`
+	// The name of the Custom Image.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// The version number of the Custom Image.
 	ImageVersionNumber pulumi.IntPtrInput `pulumi:"imageVersionNumber"`
 }
 
@@ -12443,14 +13310,17 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageOutput) ToSpaceSpac
 	return o
 }
 
+// The name of the App Image Config.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageOutput) AppImageConfigName() pulumi.StringOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage) string { return v.AppImageConfigName }).(pulumi.StringOutput)
 }
 
+// The name of the Custom Image.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage) string { return v.ImageName }).(pulumi.StringOutput)
 }
 
+// The version number of the Custom Image.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageOutput) ImageVersionNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage) *int { return v.ImageVersionNumber }).(pulumi.IntPtrOutput)
 }
@@ -12476,9 +13346,13 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput) Index(
 }
 
 type SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec struct {
-	InstanceType             *string `pulumi:"instanceType"`
-	LifecycleConfigArn       *string `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        *string `pulumi:"sagemakerImageArn"`
+	// The instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -12494,9 +13368,13 @@ type SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecInput interfac
 }
 
 type SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs struct {
-	InstanceType             pulumi.StringPtrInput `pulumi:"instanceType"`
-	LifecycleConfigArn       pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -12577,22 +13455,26 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) ToS
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The instance type.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageVersionArn
@@ -12623,6 +13505,7 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
 }
 
+// The instance type.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -12632,6 +13515,7 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -12641,6 +13525,7 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -12650,6 +13535,7 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -12660,14 +13546,22 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) 
 }
 
 type UserProfileUserSettings struct {
-	CanvasAppSettings        *UserProfileUserSettingsCanvasAppSettings        `pulumi:"canvasAppSettings"`
-	ExecutionRole            string                                           `pulumi:"executionRole"`
+	// The Canvas app settings. See Canvas App Settings below.
+	CanvasAppSettings *UserProfileUserSettingsCanvasAppSettings `pulumi:"canvasAppSettings"`
+	// The execution role ARN for the user.
+	ExecutionRole string `pulumi:"executionRole"`
+	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings *UserProfileUserSettingsJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
+	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings *UserProfileUserSettingsKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
-	RSessionAppSettings      *UserProfileUserSettingsRSessionAppSettings      `pulumi:"rSessionAppSettings"`
-	SecurityGroups           []string                                         `pulumi:"securityGroups"`
-	SharingSettings          *UserProfileUserSettingsSharingSettings          `pulumi:"sharingSettings"`
-	TensorBoardAppSettings   *UserProfileUserSettingsTensorBoardAppSettings   `pulumi:"tensorBoardAppSettings"`
+	// The RSession app settings. See RSession App Settings below.
+	RSessionAppSettings *UserProfileUserSettingsRSessionAppSettings `pulumi:"rSessionAppSettings"`
+	// The security groups.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// The sharing settings. See Sharing Settings below.
+	SharingSettings *UserProfileUserSettingsSharingSettings `pulumi:"sharingSettings"`
+	// The TensorBoard app settings. See TensorBoard App Settings below.
+	TensorBoardAppSettings *UserProfileUserSettingsTensorBoardAppSettings `pulumi:"tensorBoardAppSettings"`
 }
 
 // UserProfileUserSettingsInput is an input type that accepts UserProfileUserSettingsArgs and UserProfileUserSettingsOutput values.
@@ -12682,14 +13576,22 @@ type UserProfileUserSettingsInput interface {
 }
 
 type UserProfileUserSettingsArgs struct {
-	CanvasAppSettings        UserProfileUserSettingsCanvasAppSettingsPtrInput        `pulumi:"canvasAppSettings"`
-	ExecutionRole            pulumi.StringInput                                      `pulumi:"executionRole"`
+	// The Canvas app settings. See Canvas App Settings below.
+	CanvasAppSettings UserProfileUserSettingsCanvasAppSettingsPtrInput `pulumi:"canvasAppSettings"`
+	// The execution role ARN for the user.
+	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
+	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings UserProfileUserSettingsJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
+	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings UserProfileUserSettingsKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
-	RSessionAppSettings      UserProfileUserSettingsRSessionAppSettingsPtrInput      `pulumi:"rSessionAppSettings"`
-	SecurityGroups           pulumi.StringArrayInput                                 `pulumi:"securityGroups"`
-	SharingSettings          UserProfileUserSettingsSharingSettingsPtrInput          `pulumi:"sharingSettings"`
-	TensorBoardAppSettings   UserProfileUserSettingsTensorBoardAppSettingsPtrInput   `pulumi:"tensorBoardAppSettings"`
+	// The RSession app settings. See RSession App Settings below.
+	RSessionAppSettings UserProfileUserSettingsRSessionAppSettingsPtrInput `pulumi:"rSessionAppSettings"`
+	// The security groups.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// The sharing settings. See Sharing Settings below.
+	SharingSettings UserProfileUserSettingsSharingSettingsPtrInput `pulumi:"sharingSettings"`
+	// The TensorBoard app settings. See TensorBoard App Settings below.
+	TensorBoardAppSettings UserProfileUserSettingsTensorBoardAppSettingsPtrInput `pulumi:"tensorBoardAppSettings"`
 }
 
 func (UserProfileUserSettingsArgs) ElementType() reflect.Type {
@@ -12769,40 +13671,48 @@ func (o UserProfileUserSettingsOutput) ToUserProfileUserSettingsPtrOutputWithCon
 	}).(UserProfileUserSettingsPtrOutput)
 }
 
+// The Canvas app settings. See Canvas App Settings below.
 func (o UserProfileUserSettingsOutput) CanvasAppSettings() UserProfileUserSettingsCanvasAppSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsCanvasAppSettings { return v.CanvasAppSettings }).(UserProfileUserSettingsCanvasAppSettingsPtrOutput)
 }
 
+// The execution role ARN for the user.
 func (o UserProfileUserSettingsOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) string { return v.ExecutionRole }).(pulumi.StringOutput)
 }
 
+// The Jupyter server's app settings. See Jupyter Server App Settings below.
 func (o UserProfileUserSettingsOutput) JupyterServerAppSettings() UserProfileUserSettingsJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsJupyterServerAppSettings {
 		return v.JupyterServerAppSettings
 	}).(UserProfileUserSettingsJupyterServerAppSettingsPtrOutput)
 }
 
+// The kernel gateway app settings. See Kernel Gateway App Settings below.
 func (o UserProfileUserSettingsOutput) KernelGatewayAppSettings() UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsKernelGatewayAppSettings {
 		return v.KernelGatewayAppSettings
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
+// The RSession app settings. See RSession App Settings below.
 func (o UserProfileUserSettingsOutput) RSessionAppSettings() UserProfileUserSettingsRSessionAppSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsRSessionAppSettings {
 		return v.RSessionAppSettings
 	}).(UserProfileUserSettingsRSessionAppSettingsPtrOutput)
 }
 
+// The security groups.
 func (o UserProfileUserSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// The sharing settings. See Sharing Settings below.
 func (o UserProfileUserSettingsOutput) SharingSettings() UserProfileUserSettingsSharingSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsSharingSettings { return v.SharingSettings }).(UserProfileUserSettingsSharingSettingsPtrOutput)
 }
 
+// The TensorBoard app settings. See TensorBoard App Settings below.
 func (o UserProfileUserSettingsOutput) TensorBoardAppSettings() UserProfileUserSettingsTensorBoardAppSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsTensorBoardAppSettings {
 		return v.TensorBoardAppSettings
@@ -12833,6 +13743,7 @@ func (o UserProfileUserSettingsPtrOutput) Elem() UserProfileUserSettingsOutput {
 	}).(UserProfileUserSettingsOutput)
 }
 
+// The Canvas app settings. See Canvas App Settings below.
 func (o UserProfileUserSettingsPtrOutput) CanvasAppSettings() UserProfileUserSettingsCanvasAppSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsCanvasAppSettings {
 		if v == nil {
@@ -12842,6 +13753,7 @@ func (o UserProfileUserSettingsPtrOutput) CanvasAppSettings() UserProfileUserSet
 	}).(UserProfileUserSettingsCanvasAppSettingsPtrOutput)
 }
 
+// The execution role ARN for the user.
 func (o UserProfileUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *string {
 		if v == nil {
@@ -12851,6 +13763,7 @@ func (o UserProfileUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Jupyter server's app settings. See Jupyter Server App Settings below.
 func (o UserProfileUserSettingsPtrOutput) JupyterServerAppSettings() UserProfileUserSettingsJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsJupyterServerAppSettings {
 		if v == nil {
@@ -12860,6 +13773,7 @@ func (o UserProfileUserSettingsPtrOutput) JupyterServerAppSettings() UserProfile
 	}).(UserProfileUserSettingsJupyterServerAppSettingsPtrOutput)
 }
 
+// The kernel gateway app settings. See Kernel Gateway App Settings below.
 func (o UserProfileUserSettingsPtrOutput) KernelGatewayAppSettings() UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsKernelGatewayAppSettings {
 		if v == nil {
@@ -12869,6 +13783,7 @@ func (o UserProfileUserSettingsPtrOutput) KernelGatewayAppSettings() UserProfile
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
+// The RSession app settings. See RSession App Settings below.
 func (o UserProfileUserSettingsPtrOutput) RSessionAppSettings() UserProfileUserSettingsRSessionAppSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsRSessionAppSettings {
 		if v == nil {
@@ -12878,6 +13793,7 @@ func (o UserProfileUserSettingsPtrOutput) RSessionAppSettings() UserProfileUserS
 	}).(UserProfileUserSettingsRSessionAppSettingsPtrOutput)
 }
 
+// The security groups.
 func (o UserProfileUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) []string {
 		if v == nil {
@@ -12887,6 +13803,7 @@ func (o UserProfileUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
+// The sharing settings. See Sharing Settings below.
 func (o UserProfileUserSettingsPtrOutput) SharingSettings() UserProfileUserSettingsSharingSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsSharingSettings {
 		if v == nil {
@@ -12896,6 +13813,7 @@ func (o UserProfileUserSettingsPtrOutput) SharingSettings() UserProfileUserSetti
 	}).(UserProfileUserSettingsSharingSettingsPtrOutput)
 }
 
+// The TensorBoard app settings. See TensorBoard App Settings below.
 func (o UserProfileUserSettingsPtrOutput) TensorBoardAppSettings() UserProfileUserSettingsTensorBoardAppSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsTensorBoardAppSettings {
 		if v == nil {
@@ -12906,6 +13824,7 @@ func (o UserProfileUserSettingsPtrOutput) TensorBoardAppSettings() UserProfileUs
 }
 
 type UserProfileUserSettingsCanvasAppSettings struct {
+	// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
 	TimeSeriesForecastingSettings *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings `pulumi:"timeSeriesForecastingSettings"`
 }
 
@@ -12921,6 +13840,7 @@ type UserProfileUserSettingsCanvasAppSettingsInput interface {
 }
 
 type UserProfileUserSettingsCanvasAppSettingsArgs struct {
+	// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
 	TimeSeriesForecastingSettings UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput `pulumi:"timeSeriesForecastingSettings"`
 }
 
@@ -13001,6 +13921,7 @@ func (o UserProfileUserSettingsCanvasAppSettingsOutput) ToUserProfileUserSetting
 	}).(UserProfileUserSettingsCanvasAppSettingsPtrOutput)
 }
 
+// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
 func (o UserProfileUserSettingsCanvasAppSettingsOutput) TimeSeriesForecastingSettings() UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
 		return v.TimeSeriesForecastingSettings
@@ -13031,6 +13952,7 @@ func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) Elem() UserProfileUse
 	}).(UserProfileUserSettingsCanvasAppSettingsOutput)
 }
 
+// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
 func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) TimeSeriesForecastingSettings() UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
 		if v == nil {
@@ -13041,8 +13963,10 @@ func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) TimeSeriesForecasting
 }
 
 type UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings struct {
+	// The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
 	AmazonForecastRoleArn *string `pulumi:"amazonForecastRoleArn"`
-	Status                *string `pulumi:"status"`
+	// Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
+	Status *string `pulumi:"status"`
 }
 
 // UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs and UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput values.
@@ -13057,8 +13981,10 @@ type UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsInput 
 }
 
 type UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs struct {
+	// The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
 	AmazonForecastRoleArn pulumi.StringPtrInput `pulumi:"amazonForecastRoleArn"`
-	Status                pulumi.StringPtrInput `pulumi:"status"`
+	// Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs) ElementType() reflect.Type {
@@ -13138,12 +14064,14 @@ func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOut
 	}).(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput)
 }
 
+// The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
 func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput) AmazonForecastRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) *string {
 		return v.AmazonForecastRoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
 func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -13172,6 +14100,7 @@ func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtr
 	}).(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput)
 }
 
+// The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
 func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput) AmazonForecastRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) *string {
 		if v == nil {
@@ -13181,6 +14110,7 @@ func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
 func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) *string {
 		if v == nil {
@@ -13191,9 +14121,12 @@ func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtr
 }
 
 type UserProfileUserSettingsJupyterServerAppSettings struct {
-	CodeRepositories    []UserProfileUserSettingsJupyterServerAppSettingsCodeRepository    `pulumi:"codeRepositories"`
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	CodeRepositories []UserProfileUserSettingsJupyterServerAppSettingsCodeRepository `pulumi:"codeRepositories"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
-	LifecycleConfigArns []string                                                           `pulumi:"lifecycleConfigArns"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
 // UserProfileUserSettingsJupyterServerAppSettingsInput is an input type that accepts UserProfileUserSettingsJupyterServerAppSettingsArgs and UserProfileUserSettingsJupyterServerAppSettingsOutput values.
@@ -13208,9 +14141,12 @@ type UserProfileUserSettingsJupyterServerAppSettingsInput interface {
 }
 
 type UserProfileUserSettingsJupyterServerAppSettingsArgs struct {
-	CodeRepositories    UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	CodeRepositories UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
-	LifecycleConfigArns pulumi.StringArrayInput                                                 `pulumi:"lifecycleConfigArns"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
 func (UserProfileUserSettingsJupyterServerAppSettingsArgs) ElementType() reflect.Type {
@@ -13290,18 +14226,21 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsOutput) ToUserProfileUser
 	}).(UserProfileUserSettingsJupyterServerAppSettingsPtrOutput)
 }
 
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 func (o UserProfileUserSettingsJupyterServerAppSettingsOutput) CodeRepositories() UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettings) []UserProfileUserSettingsJupyterServerAppSettingsCodeRepository {
 		return v.CodeRepositories
 	}).(UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsJupyterServerAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettings) UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 func (o UserProfileUserSettingsJupyterServerAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -13330,6 +14269,7 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsPtrOutput) Elem() UserPro
 	}).(UserProfileUserSettingsJupyterServerAppSettingsOutput)
 }
 
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 func (o UserProfileUserSettingsJupyterServerAppSettingsPtrOutput) CodeRepositories() UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettings) []UserProfileUserSettingsJupyterServerAppSettingsCodeRepository {
 		if v == nil {
@@ -13339,6 +14279,7 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsPtrOutput) CodeRepositori
 	}).(UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettings) *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -13348,6 +14289,7 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsPtrOutput) DefaultResourc
 	}).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 func (o UserProfileUserSettingsJupyterServerAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettings) []string {
 		if v == nil {
@@ -13358,6 +14300,7 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsPtrOutput) LifecycleConfi
 }
 
 type UserProfileUserSettingsJupyterServerAppSettingsCodeRepository struct {
+	// The URL of the Git repository.
 	RepositoryUrl string `pulumi:"repositoryUrl"`
 }
 
@@ -13373,6 +14316,7 @@ type UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryInput interfac
 }
 
 type UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs struct {
+	// The URL of the Git repository.
 	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
 }
 
@@ -13427,6 +14371,7 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryOutput) ToU
 	return o
 }
 
+// The URL of the Git repository.
 func (o UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryOutput) RepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettingsCodeRepository) string { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
@@ -13452,9 +14397,13 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput
 }
 
 type UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec struct {
-	InstanceType             *string `pulumi:"instanceType"`
-	LifecycleConfigArn       *string `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        *string `pulumi:"sagemakerImageArn"`
+	// The instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -13470,9 +14419,13 @@ type UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput int
 }
 
 type UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs struct {
-	InstanceType             pulumi.StringPtrInput `pulumi:"instanceType"`
-	LifecycleConfigArn       pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -13553,24 +14506,28 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput
 	}).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The instance type.
 func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.InstanceType
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageVersionArn
@@ -13601,6 +14558,7 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOut
 	}).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
 }
 
+// The instance type.
 func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -13610,6 +14568,7 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -13619,6 +14578,7 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -13628,6 +14588,7 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -13638,9 +14599,12 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOut
 }
 
 type UserProfileUserSettingsKernelGatewayAppSettings struct {
-	CustomImages        []UserProfileUserSettingsKernelGatewayAppSettingsCustomImage       `pulumi:"customImages"`
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages []UserProfileUserSettingsKernelGatewayAppSettingsCustomImage `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
-	LifecycleConfigArns []string                                                           `pulumi:"lifecycleConfigArns"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
 // UserProfileUserSettingsKernelGatewayAppSettingsInput is an input type that accepts UserProfileUserSettingsKernelGatewayAppSettingsArgs and UserProfileUserSettingsKernelGatewayAppSettingsOutput values.
@@ -13655,9 +14619,12 @@ type UserProfileUserSettingsKernelGatewayAppSettingsInput interface {
 }
 
 type UserProfileUserSettingsKernelGatewayAppSettingsArgs struct {
-	CustomImages        UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayInput    `pulumi:"customImages"`
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayInput `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
-	LifecycleConfigArns pulumi.StringArrayInput                                                 `pulumi:"lifecycleConfigArns"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
 func (UserProfileUserSettingsKernelGatewayAppSettingsArgs) ElementType() reflect.Type {
@@ -13737,18 +14704,21 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsOutput) ToUserProfileUser
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsOutput) CustomImages() UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettings) []UserProfileUserSettingsKernelGatewayAppSettingsCustomImage {
 		return v.CustomImages
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettings) UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -13777,6 +14747,7 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) Elem() UserPro
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsOutput)
 }
 
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) CustomImages() UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettings) []UserProfileUserSettingsKernelGatewayAppSettingsCustomImage {
 		if v == nil {
@@ -13786,6 +14757,7 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) CustomImages()
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettings) *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -13795,6 +14767,7 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) DefaultResourc
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettings) []string {
 		if v == nil {
@@ -13805,9 +14778,12 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) LifecycleConfi
 }
 
 type UserProfileUserSettingsKernelGatewayAppSettingsCustomImage struct {
+	// The name of the App Image Config.
 	AppImageConfigName string `pulumi:"appImageConfigName"`
-	ImageName          string `pulumi:"imageName"`
-	ImageVersionNumber *int   `pulumi:"imageVersionNumber"`
+	// The name of the Custom Image.
+	ImageName string `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber *int `pulumi:"imageVersionNumber"`
 }
 
 // UserProfileUserSettingsKernelGatewayAppSettingsCustomImageInput is an input type that accepts UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs and UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput values.
@@ -13822,8 +14798,11 @@ type UserProfileUserSettingsKernelGatewayAppSettingsCustomImageInput interface {
 }
 
 type UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs struct {
+	// The name of the App Image Config.
 	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
-	ImageName          pulumi.StringInput `pulumi:"imageName"`
+	// The name of the Custom Image.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// The version number of the Custom Image.
 	ImageVersionNumber pulumi.IntPtrInput `pulumi:"imageVersionNumber"`
 }
 
@@ -13878,14 +14857,17 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput) ToUser
 	return o
 }
 
+// The name of the App Image Config.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput) AppImageConfigName() pulumi.StringOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettingsCustomImage) string { return v.AppImageConfigName }).(pulumi.StringOutput)
 }
 
+// The name of the Custom Image.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettingsCustomImage) string { return v.ImageName }).(pulumi.StringOutput)
 }
 
+// The version number of the Custom Image.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsCustomImageOutput) ImageVersionNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettingsCustomImage) *int { return v.ImageVersionNumber }).(pulumi.IntPtrOutput)
 }
@@ -13911,9 +14893,13 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput) I
 }
 
 type UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec struct {
-	InstanceType             *string `pulumi:"instanceType"`
-	LifecycleConfigArn       *string `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        *string `pulumi:"sagemakerImageArn"`
+	// The instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -13929,9 +14915,13 @@ type UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput int
 }
 
 type UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs struct {
-	InstanceType             pulumi.StringPtrInput `pulumi:"instanceType"`
-	LifecycleConfigArn       pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -14012,24 +15002,28 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The instance type.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.InstanceType
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageVersionArn
@@ -14060,6 +15054,7 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOut
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
 }
 
+// The instance type.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -14069,6 +15064,7 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -14078,6 +15074,7 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -14087,6 +15084,7 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -14097,7 +15095,9 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOut
 }
 
 type UserProfileUserSettingsRSessionAppSettings struct {
-	CustomImages        []UserProfileUserSettingsRSessionAppSettingsCustomImage        `pulumi:"customImages"`
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages []UserProfileUserSettingsRSessionAppSettingsCustomImage `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -14113,7 +15113,9 @@ type UserProfileUserSettingsRSessionAppSettingsInput interface {
 }
 
 type UserProfileUserSettingsRSessionAppSettingsArgs struct {
-	CustomImages        UserProfileUserSettingsRSessionAppSettingsCustomImageArrayInput       `pulumi:"customImages"`
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages UserProfileUserSettingsRSessionAppSettingsCustomImageArrayInput `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -14194,12 +15196,14 @@ func (o UserProfileUserSettingsRSessionAppSettingsOutput) ToUserProfileUserSetti
 	}).(UserProfileUserSettingsRSessionAppSettingsPtrOutput)
 }
 
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
 func (o UserProfileUserSettingsRSessionAppSettingsOutput) CustomImages() UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettings) []UserProfileUserSettingsRSessionAppSettingsCustomImage {
 		return v.CustomImages
 	}).(UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsRSessionAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettings) *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -14230,6 +15234,7 @@ func (o UserProfileUserSettingsRSessionAppSettingsPtrOutput) Elem() UserProfileU
 	}).(UserProfileUserSettingsRSessionAppSettingsOutput)
 }
 
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
 func (o UserProfileUserSettingsRSessionAppSettingsPtrOutput) CustomImages() UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsRSessionAppSettings) []UserProfileUserSettingsRSessionAppSettingsCustomImage {
 		if v == nil {
@@ -14239,6 +15244,7 @@ func (o UserProfileUserSettingsRSessionAppSettingsPtrOutput) CustomImages() User
 	}).(UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsRSessionAppSettingsPtrOutput) DefaultResourceSpec() UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsRSessionAppSettings) *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -14249,9 +15255,12 @@ func (o UserProfileUserSettingsRSessionAppSettingsPtrOutput) DefaultResourceSpec
 }
 
 type UserProfileUserSettingsRSessionAppSettingsCustomImage struct {
+	// The name of the App Image Config.
 	AppImageConfigName string `pulumi:"appImageConfigName"`
-	ImageName          string `pulumi:"imageName"`
-	ImageVersionNumber *int   `pulumi:"imageVersionNumber"`
+	// The name of the Custom Image.
+	ImageName string `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber *int `pulumi:"imageVersionNumber"`
 }
 
 // UserProfileUserSettingsRSessionAppSettingsCustomImageInput is an input type that accepts UserProfileUserSettingsRSessionAppSettingsCustomImageArgs and UserProfileUserSettingsRSessionAppSettingsCustomImageOutput values.
@@ -14266,8 +15275,11 @@ type UserProfileUserSettingsRSessionAppSettingsCustomImageInput interface {
 }
 
 type UserProfileUserSettingsRSessionAppSettingsCustomImageArgs struct {
+	// The name of the App Image Config.
 	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
-	ImageName          pulumi.StringInput `pulumi:"imageName"`
+	// The name of the Custom Image.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// The version number of the Custom Image.
 	ImageVersionNumber pulumi.IntPtrInput `pulumi:"imageVersionNumber"`
 }
 
@@ -14322,14 +15334,17 @@ func (o UserProfileUserSettingsRSessionAppSettingsCustomImageOutput) ToUserProfi
 	return o
 }
 
+// The name of the App Image Config.
 func (o UserProfileUserSettingsRSessionAppSettingsCustomImageOutput) AppImageConfigName() pulumi.StringOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettingsCustomImage) string { return v.AppImageConfigName }).(pulumi.StringOutput)
 }
 
+// The name of the Custom Image.
 func (o UserProfileUserSettingsRSessionAppSettingsCustomImageOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettingsCustomImage) string { return v.ImageName }).(pulumi.StringOutput)
 }
 
+// The version number of the Custom Image.
 func (o UserProfileUserSettingsRSessionAppSettingsCustomImageOutput) ImageVersionNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettingsCustomImage) *int { return v.ImageVersionNumber }).(pulumi.IntPtrOutput)
 }
@@ -14355,9 +15370,13 @@ func (o UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput) Index(
 }
 
 type UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec struct {
-	InstanceType             *string `pulumi:"instanceType"`
-	LifecycleConfigArn       *string `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        *string `pulumi:"sagemakerImageArn"`
+	// The instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -14373,9 +15392,13 @@ type UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecInput interfac
 }
 
 type UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs struct {
-	InstanceType             pulumi.StringPtrInput `pulumi:"instanceType"`
-	LifecycleConfigArn       pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -14456,22 +15479,26 @@ func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) ToU
 	}).(UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The instance type.
 func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageVersionArn
@@ -14502,6 +15529,7 @@ func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput)
 }
 
+// The instance type.
 func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -14511,6 +15539,7 @@ func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -14520,6 +15549,7 @@ func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -14529,6 +15559,7 @@ func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -14539,9 +15570,12 @@ func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) 
 }
 
 type UserProfileUserSettingsSharingSettings struct {
+	// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
 	NotebookOutputOption *string `pulumi:"notebookOutputOption"`
-	S3KmsKeyId           *string `pulumi:"s3KmsKeyId"`
-	S3OutputPath         *string `pulumi:"s3OutputPath"`
+	// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+	S3KmsKeyId *string `pulumi:"s3KmsKeyId"`
+	// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+	S3OutputPath *string `pulumi:"s3OutputPath"`
 }
 
 // UserProfileUserSettingsSharingSettingsInput is an input type that accepts UserProfileUserSettingsSharingSettingsArgs and UserProfileUserSettingsSharingSettingsOutput values.
@@ -14556,9 +15590,12 @@ type UserProfileUserSettingsSharingSettingsInput interface {
 }
 
 type UserProfileUserSettingsSharingSettingsArgs struct {
+	// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
 	NotebookOutputOption pulumi.StringPtrInput `pulumi:"notebookOutputOption"`
-	S3KmsKeyId           pulumi.StringPtrInput `pulumi:"s3KmsKeyId"`
-	S3OutputPath         pulumi.StringPtrInput `pulumi:"s3OutputPath"`
+	// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+	S3KmsKeyId pulumi.StringPtrInput `pulumi:"s3KmsKeyId"`
+	// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+	S3OutputPath pulumi.StringPtrInput `pulumi:"s3OutputPath"`
 }
 
 func (UserProfileUserSettingsSharingSettingsArgs) ElementType() reflect.Type {
@@ -14638,14 +15675,17 @@ func (o UserProfileUserSettingsSharingSettingsOutput) ToUserProfileUserSettingsS
 	}).(UserProfileUserSettingsSharingSettingsPtrOutput)
 }
 
+// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
 func (o UserProfileUserSettingsSharingSettingsOutput) NotebookOutputOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsSharingSettings) *string { return v.NotebookOutputOption }).(pulumi.StringPtrOutput)
 }
 
+// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 func (o UserProfileUserSettingsSharingSettingsOutput) S3KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsSharingSettings) *string { return v.S3KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
 func (o UserProfileUserSettingsSharingSettingsOutput) S3OutputPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsSharingSettings) *string { return v.S3OutputPath }).(pulumi.StringPtrOutput)
 }
@@ -14674,6 +15714,7 @@ func (o UserProfileUserSettingsSharingSettingsPtrOutput) Elem() UserProfileUserS
 	}).(UserProfileUserSettingsSharingSettingsOutput)
 }
 
+// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
 func (o UserProfileUserSettingsSharingSettingsPtrOutput) NotebookOutputOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsSharingSettings) *string {
 		if v == nil {
@@ -14683,6 +15724,7 @@ func (o UserProfileUserSettingsSharingSettingsPtrOutput) NotebookOutputOption() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 func (o UserProfileUserSettingsSharingSettingsPtrOutput) S3KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsSharingSettings) *string {
 		if v == nil {
@@ -14692,6 +15734,7 @@ func (o UserProfileUserSettingsSharingSettingsPtrOutput) S3KmsKeyId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
 func (o UserProfileUserSettingsSharingSettingsPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsSharingSettings) *string {
 		if v == nil {
@@ -14702,6 +15745,7 @@ func (o UserProfileUserSettingsSharingSettingsPtrOutput) S3OutputPath() pulumi.S
 }
 
 type UserProfileUserSettingsTensorBoardAppSettings struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -14717,6 +15761,7 @@ type UserProfileUserSettingsTensorBoardAppSettingsInput interface {
 }
 
 type UserProfileUserSettingsTensorBoardAppSettingsArgs struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -14797,6 +15842,7 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsOutput) ToUserProfileUserSe
 	}).(UserProfileUserSettingsTensorBoardAppSettingsPtrOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsTensorBoardAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsTensorBoardAppSettings) UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -14827,6 +15873,7 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsPtrOutput) Elem() UserProfi
 	}).(UserProfileUserSettingsTensorBoardAppSettingsOutput)
 }
 
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsTensorBoardAppSettingsPtrOutput) DefaultResourceSpec() UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsTensorBoardAppSettings) *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -14837,9 +15884,13 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsPtrOutput) DefaultResourceS
 }
 
 type UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec struct {
-	InstanceType             *string `pulumi:"instanceType"`
-	LifecycleConfigArn       *string `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        *string `pulumi:"sagemakerImageArn"`
+	// The instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -14855,9 +15906,13 @@ type UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput inter
 }
 
 type UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs struct {
-	InstanceType             pulumi.StringPtrInput `pulumi:"instanceType"`
-	LifecycleConfigArn       pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	SagemakerImageArn        pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
 
@@ -14938,24 +15993,28 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) 
 	}).(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The instance type.
 func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		return v.InstanceType
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageVersionArn
@@ -14986,6 +16045,7 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutpu
 	}).(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput)
 }
 
+// The instance type.
 func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -14995,6 +16055,7 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -15004,6 +16065,7 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -15013,6 +16075,7 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the image version created on the instance.
 func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -15023,7 +16086,9 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutpu
 }
 
 type WorkforceCognitoConfig struct {
+	// The client ID for your Amazon Cognito user pool.
 	ClientId string `pulumi:"clientId"`
+	// ID for your Amazon Cognito user pool.
 	UserPool string `pulumi:"userPool"`
 }
 
@@ -15039,7 +16104,9 @@ type WorkforceCognitoConfigInput interface {
 }
 
 type WorkforceCognitoConfigArgs struct {
+	// The client ID for your Amazon Cognito user pool.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// ID for your Amazon Cognito user pool.
 	UserPool pulumi.StringInput `pulumi:"userPool"`
 }
 
@@ -15120,10 +16187,12 @@ func (o WorkforceCognitoConfigOutput) ToWorkforceCognitoConfigPtrOutputWithConte
 	}).(WorkforceCognitoConfigPtrOutput)
 }
 
+// The client ID for your Amazon Cognito user pool.
 func (o WorkforceCognitoConfigOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkforceCognitoConfig) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// ID for your Amazon Cognito user pool.
 func (o WorkforceCognitoConfigOutput) UserPool() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkforceCognitoConfig) string { return v.UserPool }).(pulumi.StringOutput)
 }
@@ -15152,6 +16221,7 @@ func (o WorkforceCognitoConfigPtrOutput) Elem() WorkforceCognitoConfigOutput {
 	}).(WorkforceCognitoConfigOutput)
 }
 
+// The client ID for your Amazon Cognito user pool.
 func (o WorkforceCognitoConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkforceCognitoConfig) *string {
 		if v == nil {
@@ -15161,6 +16231,7 @@ func (o WorkforceCognitoConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// ID for your Amazon Cognito user pool.
 func (o WorkforceCognitoConfigPtrOutput) UserPool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkforceCognitoConfig) *string {
 		if v == nil {
@@ -15171,14 +16242,22 @@ func (o WorkforceCognitoConfigPtrOutput) UserPool() pulumi.StringPtrOutput {
 }
 
 type WorkforceOidcConfig struct {
+	// The OIDC IdP authorization endpoint used to configure your private workforce.
 	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
-	ClientId              string `pulumi:"clientId"`
-	ClientSecret          string `pulumi:"clientSecret"`
-	Issuer                string `pulumi:"issuer"`
-	JwksUri               string `pulumi:"jwksUri"`
-	LogoutEndpoint        string `pulumi:"logoutEndpoint"`
-	TokenEndpoint         string `pulumi:"tokenEndpoint"`
-	UserInfoEndpoint      string `pulumi:"userInfoEndpoint"`
+	// The OIDC IdP client ID used to configure your private workforce.
+	ClientId string `pulumi:"clientId"`
+	// The OIDC IdP client secret used to configure your private workforce.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The OIDC IdP issuer used to configure your private workforce.
+	Issuer string `pulumi:"issuer"`
+	// The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
+	JwksUri string `pulumi:"jwksUri"`
+	// The OIDC IdP logout endpoint used to configure your private workforce.
+	LogoutEndpoint string `pulumi:"logoutEndpoint"`
+	// The OIDC IdP token endpoint used to configure your private workforce.
+	TokenEndpoint string `pulumi:"tokenEndpoint"`
+	// The OIDC IdP user information endpoint used to configure your private workforce.
+	UserInfoEndpoint string `pulumi:"userInfoEndpoint"`
 }
 
 // WorkforceOidcConfigInput is an input type that accepts WorkforceOidcConfigArgs and WorkforceOidcConfigOutput values.
@@ -15193,14 +16272,22 @@ type WorkforceOidcConfigInput interface {
 }
 
 type WorkforceOidcConfigArgs struct {
+	// The OIDC IdP authorization endpoint used to configure your private workforce.
 	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
-	ClientId              pulumi.StringInput `pulumi:"clientId"`
-	ClientSecret          pulumi.StringInput `pulumi:"clientSecret"`
-	Issuer                pulumi.StringInput `pulumi:"issuer"`
-	JwksUri               pulumi.StringInput `pulumi:"jwksUri"`
-	LogoutEndpoint        pulumi.StringInput `pulumi:"logoutEndpoint"`
-	TokenEndpoint         pulumi.StringInput `pulumi:"tokenEndpoint"`
-	UserInfoEndpoint      pulumi.StringInput `pulumi:"userInfoEndpoint"`
+	// The OIDC IdP client ID used to configure your private workforce.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OIDC IdP client secret used to configure your private workforce.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The OIDC IdP issuer used to configure your private workforce.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
+	JwksUri pulumi.StringInput `pulumi:"jwksUri"`
+	// The OIDC IdP logout endpoint used to configure your private workforce.
+	LogoutEndpoint pulumi.StringInput `pulumi:"logoutEndpoint"`
+	// The OIDC IdP token endpoint used to configure your private workforce.
+	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
+	// The OIDC IdP user information endpoint used to configure your private workforce.
+	UserInfoEndpoint pulumi.StringInput `pulumi:"userInfoEndpoint"`
 }
 
 func (WorkforceOidcConfigArgs) ElementType() reflect.Type {
@@ -15280,34 +16367,42 @@ func (o WorkforceOidcConfigOutput) ToWorkforceOidcConfigPtrOutputWithContext(ctx
 	}).(WorkforceOidcConfigPtrOutput)
 }
 
+// The OIDC IdP authorization endpoint used to configure your private workforce.
 func (o WorkforceOidcConfigOutput) AuthorizationEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkforceOidcConfig) string { return v.AuthorizationEndpoint }).(pulumi.StringOutput)
 }
 
+// The OIDC IdP client ID used to configure your private workforce.
 func (o WorkforceOidcConfigOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkforceOidcConfig) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The OIDC IdP client secret used to configure your private workforce.
 func (o WorkforceOidcConfigOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkforceOidcConfig) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
+// The OIDC IdP issuer used to configure your private workforce.
 func (o WorkforceOidcConfigOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkforceOidcConfig) string { return v.Issuer }).(pulumi.StringOutput)
 }
 
+// The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
 func (o WorkforceOidcConfigOutput) JwksUri() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkforceOidcConfig) string { return v.JwksUri }).(pulumi.StringOutput)
 }
 
+// The OIDC IdP logout endpoint used to configure your private workforce.
 func (o WorkforceOidcConfigOutput) LogoutEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkforceOidcConfig) string { return v.LogoutEndpoint }).(pulumi.StringOutput)
 }
 
+// The OIDC IdP token endpoint used to configure your private workforce.
 func (o WorkforceOidcConfigOutput) TokenEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkforceOidcConfig) string { return v.TokenEndpoint }).(pulumi.StringOutput)
 }
 
+// The OIDC IdP user information endpoint used to configure your private workforce.
 func (o WorkforceOidcConfigOutput) UserInfoEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkforceOidcConfig) string { return v.UserInfoEndpoint }).(pulumi.StringOutput)
 }
@@ -15336,6 +16431,7 @@ func (o WorkforceOidcConfigPtrOutput) Elem() WorkforceOidcConfigOutput {
 	}).(WorkforceOidcConfigOutput)
 }
 
+// The OIDC IdP authorization endpoint used to configure your private workforce.
 func (o WorkforceOidcConfigPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkforceOidcConfig) *string {
 		if v == nil {
@@ -15345,6 +16441,7 @@ func (o WorkforceOidcConfigPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OIDC IdP client ID used to configure your private workforce.
 func (o WorkforceOidcConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkforceOidcConfig) *string {
 		if v == nil {
@@ -15354,6 +16451,7 @@ func (o WorkforceOidcConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OIDC IdP client secret used to configure your private workforce.
 func (o WorkforceOidcConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkforceOidcConfig) *string {
 		if v == nil {
@@ -15363,6 +16461,7 @@ func (o WorkforceOidcConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OIDC IdP issuer used to configure your private workforce.
 func (o WorkforceOidcConfigPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkforceOidcConfig) *string {
 		if v == nil {
@@ -15372,6 +16471,7 @@ func (o WorkforceOidcConfigPtrOutput) Issuer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
 func (o WorkforceOidcConfigPtrOutput) JwksUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkforceOidcConfig) *string {
 		if v == nil {
@@ -15381,6 +16481,7 @@ func (o WorkforceOidcConfigPtrOutput) JwksUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OIDC IdP logout endpoint used to configure your private workforce.
 func (o WorkforceOidcConfigPtrOutput) LogoutEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkforceOidcConfig) *string {
 		if v == nil {
@@ -15390,6 +16491,7 @@ func (o WorkforceOidcConfigPtrOutput) LogoutEndpoint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OIDC IdP token endpoint used to configure your private workforce.
 func (o WorkforceOidcConfigPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkforceOidcConfig) *string {
 		if v == nil {
@@ -15399,6 +16501,7 @@ func (o WorkforceOidcConfigPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OIDC IdP user information endpoint used to configure your private workforce.
 func (o WorkforceOidcConfigPtrOutput) UserInfoEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkforceOidcConfig) *string {
 		if v == nil {
@@ -15409,6 +16512,7 @@ func (o WorkforceOidcConfigPtrOutput) UserInfoEndpoint() pulumi.StringPtrOutput 
 }
 
 type WorkforceSourceIpConfig struct {
+	// A list of up to 10 CIDR values.
 	Cidrs []string `pulumi:"cidrs"`
 }
 
@@ -15424,6 +16528,7 @@ type WorkforceSourceIpConfigInput interface {
 }
 
 type WorkforceSourceIpConfigArgs struct {
+	// A list of up to 10 CIDR values.
 	Cidrs pulumi.StringArrayInput `pulumi:"cidrs"`
 }
 
@@ -15504,6 +16609,7 @@ func (o WorkforceSourceIpConfigOutput) ToWorkforceSourceIpConfigPtrOutputWithCon
 	}).(WorkforceSourceIpConfigPtrOutput)
 }
 
+// A list of up to 10 CIDR values.
 func (o WorkforceSourceIpConfigOutput) Cidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkforceSourceIpConfig) []string { return v.Cidrs }).(pulumi.StringArrayOutput)
 }
@@ -15532,6 +16638,7 @@ func (o WorkforceSourceIpConfigPtrOutput) Elem() WorkforceSourceIpConfigOutput {
 	}).(WorkforceSourceIpConfigOutput)
 }
 
+// A list of up to 10 CIDR values.
 func (o WorkforceSourceIpConfigPtrOutput) Cidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkforceSourceIpConfig) []string {
 		if v == nil {
@@ -15542,10 +16649,13 @@ func (o WorkforceSourceIpConfigPtrOutput) Cidrs() pulumi.StringArrayOutput {
 }
 
 type WorkforceWorkforceVpcConfig struct {
+	// The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	Subnets          []string `pulumi:"subnets"`
-	VpcEndpointId    *string  `pulumi:"vpcEndpointId"`
-	VpcId            *string  `pulumi:"vpcId"`
+	// The ID of the subnets in the VPC that you want to connect.
+	Subnets       []string `pulumi:"subnets"`
+	VpcEndpointId *string  `pulumi:"vpcEndpointId"`
+	// The ID of the VPC that the workforce uses for communication.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // WorkforceWorkforceVpcConfigInput is an input type that accepts WorkforceWorkforceVpcConfigArgs and WorkforceWorkforceVpcConfigOutput values.
@@ -15560,10 +16670,13 @@ type WorkforceWorkforceVpcConfigInput interface {
 }
 
 type WorkforceWorkforceVpcConfigArgs struct {
+	// The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	Subnets          pulumi.StringArrayInput `pulumi:"subnets"`
-	VpcEndpointId    pulumi.StringPtrInput   `pulumi:"vpcEndpointId"`
-	VpcId            pulumi.StringPtrInput   `pulumi:"vpcId"`
+	// The ID of the subnets in the VPC that you want to connect.
+	Subnets       pulumi.StringArrayInput `pulumi:"subnets"`
+	VpcEndpointId pulumi.StringPtrInput   `pulumi:"vpcEndpointId"`
+	// The ID of the VPC that the workforce uses for communication.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
 func (WorkforceWorkforceVpcConfigArgs) ElementType() reflect.Type {
@@ -15643,10 +16756,12 @@ func (o WorkforceWorkforceVpcConfigOutput) ToWorkforceWorkforceVpcConfigPtrOutpu
 	}).(WorkforceWorkforceVpcConfigPtrOutput)
 }
 
+// The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
 func (o WorkforceWorkforceVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkforceWorkforceVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the subnets in the VPC that you want to connect.
 func (o WorkforceWorkforceVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkforceWorkforceVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -15655,6 +16770,7 @@ func (o WorkforceWorkforceVpcConfigOutput) VpcEndpointId() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v WorkforceWorkforceVpcConfig) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the VPC that the workforce uses for communication.
 func (o WorkforceWorkforceVpcConfigOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkforceWorkforceVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -15683,6 +16799,7 @@ func (o WorkforceWorkforceVpcConfigPtrOutput) Elem() WorkforceWorkforceVpcConfig
 	}).(WorkforceWorkforceVpcConfigOutput)
 }
 
+// The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
 func (o WorkforceWorkforceVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkforceWorkforceVpcConfig) []string {
 		if v == nil {
@@ -15692,6 +16809,7 @@ func (o WorkforceWorkforceVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
+// The ID of the subnets in the VPC that you want to connect.
 func (o WorkforceWorkforceVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkforceWorkforceVpcConfig) []string {
 		if v == nil {
@@ -15710,6 +16828,7 @@ func (o WorkforceWorkforceVpcConfigPtrOutput) VpcEndpointId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the VPC that the workforce uses for communication.
 func (o WorkforceWorkforceVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkforceWorkforceVpcConfig) *string {
 		if v == nil {
@@ -15720,8 +16839,10 @@ func (o WorkforceWorkforceVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 type WorkteamMemberDefinition struct {
+	// The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
 	CognitoMemberDefinition *WorkteamMemberDefinitionCognitoMemberDefinition `pulumi:"cognitoMemberDefinition"`
-	OidcMemberDefinition    *WorkteamMemberDefinitionOidcMemberDefinition    `pulumi:"oidcMemberDefinition"`
+	// A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
+	OidcMemberDefinition *WorkteamMemberDefinitionOidcMemberDefinition `pulumi:"oidcMemberDefinition"`
 }
 
 // WorkteamMemberDefinitionInput is an input type that accepts WorkteamMemberDefinitionArgs and WorkteamMemberDefinitionOutput values.
@@ -15736,8 +16857,10 @@ type WorkteamMemberDefinitionInput interface {
 }
 
 type WorkteamMemberDefinitionArgs struct {
+	// The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
 	CognitoMemberDefinition WorkteamMemberDefinitionCognitoMemberDefinitionPtrInput `pulumi:"cognitoMemberDefinition"`
-	OidcMemberDefinition    WorkteamMemberDefinitionOidcMemberDefinitionPtrInput    `pulumi:"oidcMemberDefinition"`
+	// A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
+	OidcMemberDefinition WorkteamMemberDefinitionOidcMemberDefinitionPtrInput `pulumi:"oidcMemberDefinition"`
 }
 
 func (WorkteamMemberDefinitionArgs) ElementType() reflect.Type {
@@ -15791,12 +16914,14 @@ func (o WorkteamMemberDefinitionOutput) ToWorkteamMemberDefinitionOutputWithCont
 	return o
 }
 
+// The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
 func (o WorkteamMemberDefinitionOutput) CognitoMemberDefinition() WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput {
 	return o.ApplyT(func(v WorkteamMemberDefinition) *WorkteamMemberDefinitionCognitoMemberDefinition {
 		return v.CognitoMemberDefinition
 	}).(WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput)
 }
 
+// A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
 func (o WorkteamMemberDefinitionOutput) OidcMemberDefinition() WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput {
 	return o.ApplyT(func(v WorkteamMemberDefinition) *WorkteamMemberDefinitionOidcMemberDefinition {
 		return v.OidcMemberDefinition
@@ -15824,9 +16949,12 @@ func (o WorkteamMemberDefinitionArrayOutput) Index(i pulumi.IntInput) WorkteamMe
 }
 
 type WorkteamMemberDefinitionCognitoMemberDefinition struct {
-	ClientId  string `pulumi:"clientId"`
+	// An identifier for an application client. You must create the app client ID using Amazon Cognito.
+	ClientId string `pulumi:"clientId"`
+	// An identifier for a user group.
 	UserGroup string `pulumi:"userGroup"`
-	UserPool  string `pulumi:"userPool"`
+	// An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
+	UserPool string `pulumi:"userPool"`
 }
 
 // WorkteamMemberDefinitionCognitoMemberDefinitionInput is an input type that accepts WorkteamMemberDefinitionCognitoMemberDefinitionArgs and WorkteamMemberDefinitionCognitoMemberDefinitionOutput values.
@@ -15841,9 +16969,12 @@ type WorkteamMemberDefinitionCognitoMemberDefinitionInput interface {
 }
 
 type WorkteamMemberDefinitionCognitoMemberDefinitionArgs struct {
-	ClientId  pulumi.StringInput `pulumi:"clientId"`
+	// An identifier for an application client. You must create the app client ID using Amazon Cognito.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// An identifier for a user group.
 	UserGroup pulumi.StringInput `pulumi:"userGroup"`
-	UserPool  pulumi.StringInput `pulumi:"userPool"`
+	// An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
+	UserPool pulumi.StringInput `pulumi:"userPool"`
 }
 
 func (WorkteamMemberDefinitionCognitoMemberDefinitionArgs) ElementType() reflect.Type {
@@ -15923,14 +17054,17 @@ func (o WorkteamMemberDefinitionCognitoMemberDefinitionOutput) ToWorkteamMemberD
 	}).(WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput)
 }
 
+// An identifier for an application client. You must create the app client ID using Amazon Cognito.
 func (o WorkteamMemberDefinitionCognitoMemberDefinitionOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkteamMemberDefinitionCognitoMemberDefinition) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// An identifier for a user group.
 func (o WorkteamMemberDefinitionCognitoMemberDefinitionOutput) UserGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkteamMemberDefinitionCognitoMemberDefinition) string { return v.UserGroup }).(pulumi.StringOutput)
 }
 
+// An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
 func (o WorkteamMemberDefinitionCognitoMemberDefinitionOutput) UserPool() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkteamMemberDefinitionCognitoMemberDefinition) string { return v.UserPool }).(pulumi.StringOutput)
 }
@@ -15959,6 +17093,7 @@ func (o WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput) Elem() Worktea
 	}).(WorkteamMemberDefinitionCognitoMemberDefinitionOutput)
 }
 
+// An identifier for an application client. You must create the app client ID using Amazon Cognito.
 func (o WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkteamMemberDefinitionCognitoMemberDefinition) *string {
 		if v == nil {
@@ -15968,6 +17103,7 @@ func (o WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput) ClientId() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// An identifier for a user group.
 func (o WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput) UserGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkteamMemberDefinitionCognitoMemberDefinition) *string {
 		if v == nil {
@@ -15977,6 +17113,7 @@ func (o WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput) UserGroup() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
 func (o WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput) UserPool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkteamMemberDefinitionCognitoMemberDefinition) *string {
 		if v == nil {
@@ -15987,6 +17124,7 @@ func (o WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput) UserPool() pul
 }
 
 type WorkteamMemberDefinitionOidcMemberDefinition struct {
+	// A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
 	Groups []string `pulumi:"groups"`
 }
 
@@ -16002,6 +17140,7 @@ type WorkteamMemberDefinitionOidcMemberDefinitionInput interface {
 }
 
 type WorkteamMemberDefinitionOidcMemberDefinitionArgs struct {
+	// A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
 	Groups pulumi.StringArrayInput `pulumi:"groups"`
 }
 
@@ -16082,6 +17221,7 @@ func (o WorkteamMemberDefinitionOidcMemberDefinitionOutput) ToWorkteamMemberDefi
 	}).(WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput)
 }
 
+// A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
 func (o WorkteamMemberDefinitionOidcMemberDefinitionOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkteamMemberDefinitionOidcMemberDefinition) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
@@ -16110,6 +17250,7 @@ func (o WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput) Elem() WorkteamMe
 	}).(WorkteamMemberDefinitionOidcMemberDefinitionOutput)
 }
 
+// A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
 func (o WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkteamMemberDefinitionOidcMemberDefinition) []string {
 		if v == nil {
@@ -16120,6 +17261,7 @@ func (o WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput) Groups() pulumi.S
 }
 
 type WorkteamNotificationConfiguration struct {
+	// The ARN for the SNS topic to which notifications should be published.
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
 }
 
@@ -16135,6 +17277,7 @@ type WorkteamNotificationConfigurationInput interface {
 }
 
 type WorkteamNotificationConfigurationArgs struct {
+	// The ARN for the SNS topic to which notifications should be published.
 	NotificationTopicArn pulumi.StringPtrInput `pulumi:"notificationTopicArn"`
 }
 
@@ -16215,6 +17358,7 @@ func (o WorkteamNotificationConfigurationOutput) ToWorkteamNotificationConfigura
 	}).(WorkteamNotificationConfigurationPtrOutput)
 }
 
+// The ARN for the SNS topic to which notifications should be published.
 func (o WorkteamNotificationConfigurationOutput) NotificationTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkteamNotificationConfiguration) *string { return v.NotificationTopicArn }).(pulumi.StringPtrOutput)
 }
@@ -16243,6 +17387,7 @@ func (o WorkteamNotificationConfigurationPtrOutput) Elem() WorkteamNotificationC
 	}).(WorkteamNotificationConfigurationOutput)
 }
 
+// The ARN for the SNS topic to which notifications should be published.
 func (o WorkteamNotificationConfigurationPtrOutput) NotificationTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkteamNotificationConfiguration) *string {
 		if v == nil {

@@ -9,6 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserPoolSigningCertificateResult {
+    /**
+     * @return Certificate string
+     * 
+     */
     private String certificate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -18,6 +22,10 @@ public final class GetUserPoolSigningCertificateResult {
     private String userPoolId;
 
     private GetUserPoolSigningCertificateResult() {}
+    /**
+     * @return Certificate string
+     * 
+     */
     public String certificate() {
         return this.certificate;
     }

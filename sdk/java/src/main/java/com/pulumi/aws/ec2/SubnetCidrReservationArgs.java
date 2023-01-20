@@ -15,30 +15,62 @@ public final class SubnetCidrReservationArgs extends com.pulumi.resources.Resour
 
     public static final SubnetCidrReservationArgs Empty = new SubnetCidrReservationArgs();
 
+    /**
+     * The CIDR block for the reservation.
+     * 
+     */
     @Import(name="cidrBlock", required=true)
     private Output<String> cidrBlock;
 
+    /**
+     * @return The CIDR block for the reservation.
+     * 
+     */
     public Output<String> cidrBlock() {
         return this.cidrBlock;
     }
 
+    /**
+     * A brief description of the reservation.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return A brief description of the reservation.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * The type of reservation to create. Valid values: `explicit`, `prefix`
+     * 
+     */
     @Import(name="reservationType", required=true)
     private Output<String> reservationType;
 
+    /**
+     * @return The type of reservation to create. Valid values: `explicit`, `prefix`
+     * 
+     */
     public Output<String> reservationType() {
         return this.reservationType;
     }
 
+    /**
+     * The ID of the subnet to create the reservation for.
+     * 
+     */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
+    /**
+     * @return The ID of the subnet to create the reservation for.
+     * 
+     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
@@ -70,38 +102,86 @@ public final class SubnetCidrReservationArgs extends com.pulumi.resources.Resour
             $ = new SubnetCidrReservationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cidrBlock The CIDR block for the reservation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cidrBlock(Output<String> cidrBlock) {
             $.cidrBlock = cidrBlock;
             return this;
         }
 
+        /**
+         * @param cidrBlock The CIDR block for the reservation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cidrBlock(String cidrBlock) {
             return cidrBlock(Output.of(cidrBlock));
         }
 
+        /**
+         * @param description A brief description of the reservation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description A brief description of the reservation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param reservationType The type of reservation to create. Valid values: `explicit`, `prefix`
+         * 
+         * @return builder
+         * 
+         */
         public Builder reservationType(Output<String> reservationType) {
             $.reservationType = reservationType;
             return this;
         }
 
+        /**
+         * @param reservationType The type of reservation to create. Valid values: `explicit`, `prefix`
+         * 
+         * @return builder
+         * 
+         */
         public Builder reservationType(String reservationType) {
             return reservationType(Output.of(reservationType));
         }
 
+        /**
+         * @param subnetId The ID of the subnet to create the reservation for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetId(Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
+        /**
+         * @param subnetId The ID of the subnet to create the reservation for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

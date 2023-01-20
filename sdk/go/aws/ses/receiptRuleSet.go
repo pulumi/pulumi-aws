@@ -11,10 +11,49 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an SES receipt rule set resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewReceiptRuleSet(ctx, "main", &ses.ReceiptRuleSetArgs{
+//				RuleSetName: pulumi.String("primary-rules"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// SES receipt rule sets can be imported using the rule set name.
+//
+// ```sh
+//
+//	$ pulumi import aws:ses/receiptRuleSet:ReceiptRuleSet my_rule_set my_rule_set_name
+//
+// ```
 type ReceiptRuleSet struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput `pulumi:"arn"`
+	// SES receipt rule set ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Name of the rule set.
 	RuleSetName pulumi.StringOutput `pulumi:"ruleSetName"`
 }
 
@@ -50,12 +89,16 @@ func GetReceiptRuleSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReceiptRuleSet resources.
 type receiptRuleSetState struct {
-	Arn         *string `pulumi:"arn"`
+	// SES receipt rule set ARN.
+	Arn *string `pulumi:"arn"`
+	// Name of the rule set.
 	RuleSetName *string `pulumi:"ruleSetName"`
 }
 
 type ReceiptRuleSetState struct {
-	Arn         pulumi.StringPtrInput
+	// SES receipt rule set ARN.
+	Arn pulumi.StringPtrInput
+	// Name of the rule set.
 	RuleSetName pulumi.StringPtrInput
 }
 
@@ -64,11 +107,13 @@ func (ReceiptRuleSetState) ElementType() reflect.Type {
 }
 
 type receiptRuleSetArgs struct {
+	// Name of the rule set.
 	RuleSetName string `pulumi:"ruleSetName"`
 }
 
 // The set of arguments for constructing a ReceiptRuleSet resource.
 type ReceiptRuleSetArgs struct {
+	// Name of the rule set.
 	RuleSetName pulumi.StringInput
 }
 
@@ -159,10 +204,12 @@ func (o ReceiptRuleSetOutput) ToReceiptRuleSetOutputWithContext(ctx context.Cont
 	return o
 }
 
+// SES receipt rule set ARN.
 func (o ReceiptRuleSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptRuleSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Name of the rule set.
 func (o ReceiptRuleSetOutput) RuleSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptRuleSet) pulumi.StringOutput { return v.RuleSetName }).(pulumi.StringOutput)
 }

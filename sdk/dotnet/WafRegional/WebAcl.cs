@@ -9,30 +9,196 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WafRegional
 {
+    /// <summary>
+    /// Provides a WAF Regional Web ACL Resource for use with Application Load Balancer.
+    /// 
+    /// ## Example Usage
+    /// ### Regular Rule
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
+    ///     {
+    ///         IpSetDescriptors = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
+    ///             {
+    ///                 Type = "IPV4",
+    ///                 Value = "192.0.7.0/24",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var wafrule = new Aws.WafRegional.Rule("wafrule", new()
+    ///     {
+    ///         MetricName = "tfWAFRule",
+    ///         Predicates = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.RulePredicateArgs
+    ///             {
+    ///                 DataId = ipset.Id,
+    ///                 Negated = false,
+    ///                 Type = "IPMatch",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var wafacl = new Aws.WafRegional.WebAcl("wafacl", new()
+    ///     {
+    ///         MetricName = "tfWebACL",
+    ///         DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Type = "ALLOW",
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.WebAclRuleArgs
+    ///             {
+    ///                 Action = new Aws.WafRegional.Inputs.WebAclRuleActionArgs
+    ///                 {
+    ///                     Type = "BLOCK",
+    ///                 },
+    ///                 Priority = 1,
+    ///                 RuleId = wafrule.Id,
+    ///                 Type = "REGULAR",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Group Rule
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.WafRegional.WebAcl("example", new()
+    ///     {
+    ///         MetricName = "example",
+    ///         DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Type = "ALLOW",
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.WebAclRuleArgs
+    ///             {
+    ///                 Priority = 1,
+    ///                 RuleId = aws_wafregional_rule_group.Example.Id,
+    ///                 Type = "GROUP",
+    ///                 OverrideAction = new Aws.WafRegional.Inputs.WebAclRuleOverrideActionArgs
+    ///                 {
+    ///                     Type = "NONE",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Logging
+    /// 
+    /// &gt; *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-`. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // ... other configuration ...
+    ///     var example = new Aws.WafRegional.WebAcl("example", new()
+    ///     {
+    ///         LoggingConfiguration = new Aws.WafRegional.Inputs.WebAclLoggingConfigurationArgs
+    ///         {
+    ///             LogDestination = aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///             RedactedFields = new Aws.WafRegional.Inputs.WebAclLoggingConfigurationRedactedFieldsArgs
+    ///             {
+    ///                 FieldToMatches = new[]
+    ///                 {
+    ///                     new Aws.WafRegional.Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs
+    ///                     {
+    ///                         Type = "URI",
+    ///                     },
+    ///                     new Aws.WafRegional.Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs
+    ///                     {
+    ///                         Data = "referer",
+    ///                         Type = "HEADER",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// WAF Regional Web ACL can be imported using the id, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:wafregional/webAcl:WebAcl wafacl a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:wafregional/webAcl:WebAcl")]
     public partial class WebAcl : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the WAF Regional WebACL.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
+        /// </summary>
         [Output("defaultAction")]
         public Output<Outputs.WebAclDefaultAction> DefaultAction { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block to enable WAF logging. Detailed below.
+        /// </summary>
         [Output("loggingConfiguration")]
         public Output<Outputs.WebAclLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The name or description for the Amazon CloudWatch metric of this web ACL.
+        /// </summary>
         [Output("metricName")]
         public Output<string> MetricName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name or description of the web ACL.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Set of configuration blocks containing rules for the web ACL. Detailed below.
+        /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.WebAclRule>> Rules { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -82,20 +248,36 @@ namespace Pulumi.Aws.WafRegional
 
     public sealed class WebAclArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
+        /// </summary>
         [Input("defaultAction", required: true)]
         public Input<Inputs.WebAclDefaultActionArgs> DefaultAction { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration block to enable WAF logging. Detailed below.
+        /// </summary>
         [Input("loggingConfiguration")]
         public Input<Inputs.WebAclLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
+        /// <summary>
+        /// The name or description for the Amazon CloudWatch metric of this web ACL.
+        /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
 
+        /// <summary>
+        /// The name or description of the web ACL.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.WebAclRuleArgs>? _rules;
+
+        /// <summary>
+        /// Set of configuration blocks containing rules for the web ACL. Detailed below.
+        /// </summary>
         public InputList<Inputs.WebAclRuleArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.WebAclRuleArgs>());
@@ -104,6 +286,10 @@ namespace Pulumi.Aws.WafRegional
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -118,23 +304,42 @@ namespace Pulumi.Aws.WafRegional
 
     public sealed class WebAclState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the WAF Regional WebACL.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
+        /// </summary>
         [Input("defaultAction")]
         public Input<Inputs.WebAclDefaultActionGetArgs>? DefaultAction { get; set; }
 
+        /// <summary>
+        /// Configuration block to enable WAF logging. Detailed below.
+        /// </summary>
         [Input("loggingConfiguration")]
         public Input<Inputs.WebAclLoggingConfigurationGetArgs>? LoggingConfiguration { get; set; }
 
+        /// <summary>
+        /// The name or description for the Amazon CloudWatch metric of this web ACL.
+        /// </summary>
         [Input("metricName")]
         public Input<string>? MetricName { get; set; }
 
+        /// <summary>
+        /// The name or description of the web ACL.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.WebAclRuleGetArgs>? _rules;
+
+        /// <summary>
+        /// Set of configuration blocks containing rules for the web ACL. Detailed below.
+        /// </summary>
         public InputList<Inputs.WebAclRuleGetArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.WebAclRuleGetArgs>());
@@ -143,6 +348,10 @@ namespace Pulumi.Aws.WafRegional
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -151,6 +360,10 @@ namespace Pulumi.Aws.WafRegional
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -17,23 +17,47 @@ public final class GlobalTableState extends com.pulumi.resources.ResourceArgs {
 
     public static final GlobalTableState Empty = new GlobalTableState();
 
+    /**
+     * The ARN of the DynamoDB Global Table
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return The ARN of the DynamoDB Global Table
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * The name of the global table. Must match underlying DynamoDB Table names in all regions.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the global table. Must match underlying DynamoDB Table names in all regions.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+     * 
+     */
     @Import(name="replicas")
     private @Nullable Output<List<GlobalTableReplicaArgs>> replicas;
 
+    /**
+     * @return Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+     * 
+     */
     public Optional<Output<List<GlobalTableReplicaArgs>>> replicas() {
         return Optional.ofNullable(this.replicas);
     }
@@ -64,33 +88,75 @@ public final class GlobalTableState extends com.pulumi.resources.ResourceArgs {
             $ = new GlobalTableState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn The ARN of the DynamoDB Global Table
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn The ARN of the DynamoDB Global Table
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param name The name of the global table. Must match underlying DynamoDB Table names in all regions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the global table. Must match underlying DynamoDB Table names in all regions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param replicas Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicas(@Nullable Output<List<GlobalTableReplicaArgs>> replicas) {
             $.replicas = replicas;
             return this;
         }
 
+        /**
+         * @param replicas Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicas(List<GlobalTableReplicaArgs> replicas) {
             return replicas(Output.of(replicas));
         }
 
+        /**
+         * @param replicas Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicas(GlobalTableReplicaArgs... replicas) {
             return replicas(List.of(replicas));
         }

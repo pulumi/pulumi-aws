@@ -11,7 +11,9 @@ import (
 )
 
 type GrantConstraint struct {
+	// A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryptionContextSubset`.
 	EncryptionContextEquals map[string]string `pulumi:"encryptionContextEquals"`
+	// A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryptionContextEquals`.
 	EncryptionContextSubset map[string]string `pulumi:"encryptionContextSubset"`
 }
 
@@ -27,7 +29,9 @@ type GrantConstraintInput interface {
 }
 
 type GrantConstraintArgs struct {
+	// A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryptionContextSubset`.
 	EncryptionContextEquals pulumi.StringMapInput `pulumi:"encryptionContextEquals"`
+	// A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryptionContextEquals`.
 	EncryptionContextSubset pulumi.StringMapInput `pulumi:"encryptionContextSubset"`
 }
 
@@ -82,10 +86,12 @@ func (o GrantConstraintOutput) ToGrantConstraintOutputWithContext(ctx context.Co
 	return o
 }
 
+// A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryptionContextSubset`.
 func (o GrantConstraintOutput) EncryptionContextEquals() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GrantConstraint) map[string]string { return v.EncryptionContextEquals }).(pulumi.StringMapOutput)
 }
 
+// A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryptionContextEquals`.
 func (o GrantConstraintOutput) EncryptionContextSubset() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GrantConstraint) map[string]string { return v.EncryptionContextSubset }).(pulumi.StringMapOutput)
 }
@@ -111,9 +117,12 @@ func (o GrantConstraintArrayOutput) Index(i pulumi.IntInput) GrantConstraintOutp
 }
 
 type GetKeyMultiRegionConfiguration struct {
-	MultiRegionKeyType string                                     `pulumi:"multiRegionKeyType"`
-	PrimaryKeys        []GetKeyMultiRegionConfigurationPrimaryKey `pulumi:"primaryKeys"`
-	ReplicaKeys        []GetKeyMultiRegionConfigurationReplicaKey `pulumi:"replicaKeys"`
+	// Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
+	MultiRegionKeyType string `pulumi:"multiRegionKeyType"`
+	// The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
+	PrimaryKeys []GetKeyMultiRegionConfigurationPrimaryKey `pulumi:"primaryKeys"`
+	// The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
+	ReplicaKeys []GetKeyMultiRegionConfigurationReplicaKey `pulumi:"replicaKeys"`
 }
 
 // GetKeyMultiRegionConfigurationInput is an input type that accepts GetKeyMultiRegionConfigurationArgs and GetKeyMultiRegionConfigurationOutput values.
@@ -128,9 +137,12 @@ type GetKeyMultiRegionConfigurationInput interface {
 }
 
 type GetKeyMultiRegionConfigurationArgs struct {
-	MultiRegionKeyType pulumi.StringInput                                 `pulumi:"multiRegionKeyType"`
-	PrimaryKeys        GetKeyMultiRegionConfigurationPrimaryKeyArrayInput `pulumi:"primaryKeys"`
-	ReplicaKeys        GetKeyMultiRegionConfigurationReplicaKeyArrayInput `pulumi:"replicaKeys"`
+	// Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
+	MultiRegionKeyType pulumi.StringInput `pulumi:"multiRegionKeyType"`
+	// The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
+	PrimaryKeys GetKeyMultiRegionConfigurationPrimaryKeyArrayInput `pulumi:"primaryKeys"`
+	// The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
+	ReplicaKeys GetKeyMultiRegionConfigurationReplicaKeyArrayInput `pulumi:"replicaKeys"`
 }
 
 func (GetKeyMultiRegionConfigurationArgs) ElementType() reflect.Type {
@@ -184,16 +196,19 @@ func (o GetKeyMultiRegionConfigurationOutput) ToGetKeyMultiRegionConfigurationOu
 	return o
 }
 
+// Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
 func (o GetKeyMultiRegionConfigurationOutput) MultiRegionKeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKeyMultiRegionConfiguration) string { return v.MultiRegionKeyType }).(pulumi.StringOutput)
 }
 
+// The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
 func (o GetKeyMultiRegionConfigurationOutput) PrimaryKeys() GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput {
 	return o.ApplyT(func(v GetKeyMultiRegionConfiguration) []GetKeyMultiRegionConfigurationPrimaryKey {
 		return v.PrimaryKeys
 	}).(GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput)
 }
 
+// The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
 func (o GetKeyMultiRegionConfigurationOutput) ReplicaKeys() GetKeyMultiRegionConfigurationReplicaKeyArrayOutput {
 	return o.ApplyT(func(v GetKeyMultiRegionConfiguration) []GetKeyMultiRegionConfigurationReplicaKey {
 		return v.ReplicaKeys
@@ -221,7 +236,9 @@ func (o GetKeyMultiRegionConfigurationArrayOutput) Index(i pulumi.IntInput) GetK
 }
 
 type GetKeyMultiRegionConfigurationPrimaryKey struct {
-	Arn    string `pulumi:"arn"`
+	// The key ARN of a primary or replica key of a multi-Region key.
+	Arn string `pulumi:"arn"`
+	// The AWS Region of a primary or replica key in a multi-Region key.
 	Region string `pulumi:"region"`
 }
 
@@ -237,7 +254,9 @@ type GetKeyMultiRegionConfigurationPrimaryKeyInput interface {
 }
 
 type GetKeyMultiRegionConfigurationPrimaryKeyArgs struct {
-	Arn    pulumi.StringInput `pulumi:"arn"`
+	// The key ARN of a primary or replica key of a multi-Region key.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The AWS Region of a primary or replica key in a multi-Region key.
 	Region pulumi.StringInput `pulumi:"region"`
 }
 
@@ -292,10 +311,12 @@ func (o GetKeyMultiRegionConfigurationPrimaryKeyOutput) ToGetKeyMultiRegionConfi
 	return o
 }
 
+// The key ARN of a primary or replica key of a multi-Region key.
 func (o GetKeyMultiRegionConfigurationPrimaryKeyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKeyMultiRegionConfigurationPrimaryKey) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The AWS Region of a primary or replica key in a multi-Region key.
 func (o GetKeyMultiRegionConfigurationPrimaryKeyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKeyMultiRegionConfigurationPrimaryKey) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -321,7 +342,9 @@ func (o GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput) Index(i pulumi.IntI
 }
 
 type GetKeyMultiRegionConfigurationReplicaKey struct {
-	Arn    string `pulumi:"arn"`
+	// The key ARN of a primary or replica key of a multi-Region key.
+	Arn string `pulumi:"arn"`
+	// The AWS Region of a primary or replica key in a multi-Region key.
 	Region string `pulumi:"region"`
 }
 
@@ -337,7 +360,9 @@ type GetKeyMultiRegionConfigurationReplicaKeyInput interface {
 }
 
 type GetKeyMultiRegionConfigurationReplicaKeyArgs struct {
-	Arn    pulumi.StringInput `pulumi:"arn"`
+	// The key ARN of a primary or replica key of a multi-Region key.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The AWS Region of a primary or replica key in a multi-Region key.
 	Region pulumi.StringInput `pulumi:"region"`
 }
 
@@ -392,10 +417,12 @@ func (o GetKeyMultiRegionConfigurationReplicaKeyOutput) ToGetKeyMultiRegionConfi
 	return o
 }
 
+// The key ARN of a primary or replica key of a multi-Region key.
 func (o GetKeyMultiRegionConfigurationReplicaKeyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKeyMultiRegionConfigurationReplicaKey) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The AWS Region of a primary or replica key in a multi-Region key.
 func (o GetKeyMultiRegionConfigurationReplicaKeyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKeyMultiRegionConfigurationReplicaKey) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -533,12 +560,18 @@ func (o GetSecretSecretArrayOutput) Index(i pulumi.IntInput) GetSecretSecretOutp
 }
 
 type GetSecretsSecret struct {
-	Context             map[string]string `pulumi:"context"`
-	EncryptionAlgorithm *string           `pulumi:"encryptionAlgorithm"`
-	GrantTokens         []string          `pulumi:"grantTokens"`
-	KeyId               *string           `pulumi:"keyId"`
-	Name                string            `pulumi:"name"`
-	Payload             string            `pulumi:"payload"`
+	// An optional mapping that makes up the Encryption Context for the secret.
+	Context map[string]string `pulumi:"context"`
+	// The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+	EncryptionAlgorithm *string `pulumi:"encryptionAlgorithm"`
+	// An optional list of Grant Tokens for the secret.
+	GrantTokens []string `pulumi:"grantTokens"`
+	// Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+	KeyId *string `pulumi:"keyId"`
+	// Name to export this secret under in the attributes.
+	Name string `pulumi:"name"`
+	// Base64 encoded payload, as returned from a KMS encrypt operation.
+	Payload string `pulumi:"payload"`
 }
 
 // GetSecretsSecretInput is an input type that accepts GetSecretsSecretArgs and GetSecretsSecretOutput values.
@@ -553,12 +586,18 @@ type GetSecretsSecretInput interface {
 }
 
 type GetSecretsSecretArgs struct {
-	Context             pulumi.StringMapInput   `pulumi:"context"`
-	EncryptionAlgorithm pulumi.StringPtrInput   `pulumi:"encryptionAlgorithm"`
-	GrantTokens         pulumi.StringArrayInput `pulumi:"grantTokens"`
-	KeyId               pulumi.StringPtrInput   `pulumi:"keyId"`
-	Name                pulumi.StringInput      `pulumi:"name"`
-	Payload             pulumi.StringInput      `pulumi:"payload"`
+	// An optional mapping that makes up the Encryption Context for the secret.
+	Context pulumi.StringMapInput `pulumi:"context"`
+	// The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+	EncryptionAlgorithm pulumi.StringPtrInput `pulumi:"encryptionAlgorithm"`
+	// An optional list of Grant Tokens for the secret.
+	GrantTokens pulumi.StringArrayInput `pulumi:"grantTokens"`
+	// Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+	KeyId pulumi.StringPtrInput `pulumi:"keyId"`
+	// Name to export this secret under in the attributes.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Base64 encoded payload, as returned from a KMS encrypt operation.
+	Payload pulumi.StringInput `pulumi:"payload"`
 }
 
 func (GetSecretsSecretArgs) ElementType() reflect.Type {
@@ -612,26 +651,32 @@ func (o GetSecretsSecretOutput) ToGetSecretsSecretOutputWithContext(ctx context.
 	return o
 }
 
+// An optional mapping that makes up the Encryption Context for the secret.
 func (o GetSecretsSecretOutput) Context() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetSecretsSecret) map[string]string { return v.Context }).(pulumi.StringMapOutput)
 }
 
+// The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
 func (o GetSecretsSecretOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSecretsSecret) *string { return v.EncryptionAlgorithm }).(pulumi.StringPtrOutput)
 }
 
+// An optional list of Grant Tokens for the secret.
 func (o GetSecretsSecretOutput) GrantTokens() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecretsSecret) []string { return v.GrantTokens }).(pulumi.StringArrayOutput)
 }
 
+// Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
 func (o GetSecretsSecretOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSecretsSecret) *string { return v.KeyId }).(pulumi.StringPtrOutput)
 }
 
+// Name to export this secret under in the attributes.
 func (o GetSecretsSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretsSecret) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Base64 encoded payload, as returned from a KMS encrypt operation.
 func (o GetSecretsSecretOutput) Payload() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretsSecret) string { return v.Payload }).(pulumi.StringOutput)
 }

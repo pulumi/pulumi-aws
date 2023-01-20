@@ -4,6 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Creates a domain entry resource
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testDomain = new aws.lightsail.Domain("testDomain", {domainName: "mydomain.com"});
+ * const testDomainEntry = new aws.lightsail.DomainEntry("testDomainEntry", {
+ *     domainName: aws_lightsail_domain.domain_test.domain_name,
+ *     type: "A",
+ *     target: "127.0.0.1",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_lightsail_domain_entry` can be imported by using the id attribute, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:lightsail/domainEntry:DomainEntry example www_mydomain.com_A_127.0.0.1
+ * ```
+ */
 export class DomainEntry extends pulumi.CustomResource {
     /**
      * Get an existing DomainEntry resource's state with the given name, ID, and optional extra
@@ -32,10 +57,25 @@ export class DomainEntry extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainEntry.__pulumiType;
     }
 
+    /**
+     * The name of the Lightsail domain in which to create the entry
+     */
     public readonly domainName!: pulumi.Output<string>;
+    /**
+     * If the entry should be an alias Defaults to `false`
+     */
     public readonly isAlias!: pulumi.Output<boolean | undefined>;
+    /**
+     * Name of the entry record
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Target of the domain entry
+     */
     public readonly target!: pulumi.Output<string>;
+    /**
+     * Type of record
+     */
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -82,10 +122,25 @@ export class DomainEntry extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DomainEntry resources.
  */
 export interface DomainEntryState {
+    /**
+     * The name of the Lightsail domain in which to create the entry
+     */
     domainName?: pulumi.Input<string>;
+    /**
+     * If the entry should be an alias Defaults to `false`
+     */
     isAlias?: pulumi.Input<boolean>;
+    /**
+     * Name of the entry record
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Target of the domain entry
+     */
     target?: pulumi.Input<string>;
+    /**
+     * Type of record
+     */
     type?: pulumi.Input<string>;
 }
 
@@ -93,9 +148,24 @@ export interface DomainEntryState {
  * The set of arguments for constructing a DomainEntry resource.
  */
 export interface DomainEntryArgs {
+    /**
+     * The name of the Lightsail domain in which to create the entry
+     */
     domainName: pulumi.Input<string>;
+    /**
+     * If the entry should be an alias Defaults to `false`
+     */
     isAlias?: pulumi.Input<boolean>;
+    /**
+     * Name of the entry record
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Target of the domain entry
+     */
     target: pulumi.Input<string>;
+    /**
+     * Type of record
+     */
     type: pulumi.Input<string>;
 }

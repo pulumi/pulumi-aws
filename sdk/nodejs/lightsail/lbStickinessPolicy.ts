@@ -4,6 +4,37 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Configures Session Stickiness for a Lightsail Load Balancer.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testLb = new aws.lightsail.Lb("testLb", {
+ *     healthCheckPath: "/",
+ *     instancePort: 80,
+ *     tags: {
+ *         foo: "bar",
+ *     },
+ * });
+ * const testLbStickinessPolicy = new aws.lightsail.LbStickinessPolicy("testLbStickinessPolicy", {
+ *     lbName: testLb.name,
+ *     cookieDuration: 900,
+ *     enabled: true,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_lightsail_lb_stickiness_policy` can be imported by using the `lb_name` attribute, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy test example-load-balancer
+ * ```
+ */
 export class LbStickinessPolicy extends pulumi.CustomResource {
     /**
      * Get an existing LbStickinessPolicy resource's state with the given name, ID, and optional extra
@@ -32,8 +63,17 @@ export class LbStickinessPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === LbStickinessPolicy.__pulumiType;
     }
 
+    /**
+     * The cookie duration in seconds. This determines the length of the session stickiness.
+     */
     public readonly cookieDuration!: pulumi.Output<number>;
+    /**
+     * The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+     */
     public readonly enabled!: pulumi.Output<boolean>;
+    /**
+     * The name of the load balancer to which you want to enable session stickiness.
+     */
     public readonly lbName!: pulumi.Output<string>;
 
     /**
@@ -76,8 +116,17 @@ export class LbStickinessPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LbStickinessPolicy resources.
  */
 export interface LbStickinessPolicyState {
+    /**
+     * The cookie duration in seconds. This determines the length of the session stickiness.
+     */
     cookieDuration?: pulumi.Input<number>;
+    /**
+     * The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the load balancer to which you want to enable session stickiness.
+     */
     lbName?: pulumi.Input<string>;
 }
 
@@ -85,7 +134,16 @@ export interface LbStickinessPolicyState {
  * The set of arguments for constructing a LbStickinessPolicy resource.
  */
 export interface LbStickinessPolicyArgs {
+    /**
+     * The cookie duration in seconds. This determines the length of the session stickiness.
+     */
     cookieDuration: pulumi.Input<number>;
+    /**
+     * The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+     */
     enabled: pulumi.Input<boolean>;
+    /**
+     * The name of the load balancer to which you want to enable session stickiness.
+     */
     lbName: pulumi.Input<string>;
 }

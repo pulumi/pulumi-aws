@@ -11,10 +11,102 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a CloudWatch Log Data Protection Policy resource.
+//
+// Read more about protecting sensitive user data in the [User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewLogDataProtectionPolicy(ctx, "exampleLogDataProtectionPolicy", &cloudwatch.LogDataProtectionPolicyArgs{
+//				LogGroupName: exampleLogGroup.Name,
+//				PolicyDocument: exampleBucketV2.Bucket.ApplyT(func(bucket string) (pulumi.String, error) {
+//					var _zero pulumi.String
+//					tmpJSON0, err := json.Marshal(map[string]interface{}{
+//						"Name":    "Example",
+//						"Version": "2021-06-01",
+//						"Statement": []interface{}{
+//							map[string]interface{}{
+//								"Sid": "Audit",
+//								"DataIdentifier": []string{
+//									"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+//								},
+//								"Operation": map[string]interface{}{
+//									"Audit": map[string]interface{}{
+//										"FindingsDestination": map[string]interface{}{
+//											"S3": map[string]interface{}{
+//												"Bucket": bucket,
+//											},
+//										},
+//									},
+//								},
+//							},
+//							map[string]interface{}{
+//								"Sid": "Redact",
+//								"DataIdentifier": []string{
+//									"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+//								},
+//								"Operation": map[string]interface{}{
+//									"Deidentify": map[string]interface{}{
+//										"MaskConfig": nil,
+//									},
+//								},
+//							},
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return pulumi.String(json0), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// This resource can be imported using the `log_group_name`. For example
+//
+// ```sh
+//
+//	$ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
+//
+// ```
 type LogDataProtectionPolicy struct {
 	pulumi.CustomResourceState
 
-	LogGroupName   pulumi.StringOutput `pulumi:"logGroupName"`
+	// The name of the log group under which the log stream is to be created.
+	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
+	// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
 	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
 }
 
@@ -53,12 +145,16 @@ func GetLogDataProtectionPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogDataProtectionPolicy resources.
 type logDataProtectionPolicyState struct {
-	LogGroupName   *string `pulumi:"logGroupName"`
+	// The name of the log group under which the log stream is to be created.
+	LogGroupName *string `pulumi:"logGroupName"`
+	// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
 	PolicyDocument *string `pulumi:"policyDocument"`
 }
 
 type LogDataProtectionPolicyState struct {
-	LogGroupName   pulumi.StringPtrInput
+	// The name of the log group under which the log stream is to be created.
+	LogGroupName pulumi.StringPtrInput
+	// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
 	PolicyDocument pulumi.StringPtrInput
 }
 
@@ -67,13 +163,17 @@ func (LogDataProtectionPolicyState) ElementType() reflect.Type {
 }
 
 type logDataProtectionPolicyArgs struct {
-	LogGroupName   string `pulumi:"logGroupName"`
+	// The name of the log group under which the log stream is to be created.
+	LogGroupName string `pulumi:"logGroupName"`
+	// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
 	PolicyDocument string `pulumi:"policyDocument"`
 }
 
 // The set of arguments for constructing a LogDataProtectionPolicy resource.
 type LogDataProtectionPolicyArgs struct {
-	LogGroupName   pulumi.StringInput
+	// The name of the log group under which the log stream is to be created.
+	LogGroupName pulumi.StringInput
+	// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
 	PolicyDocument pulumi.StringInput
 }
 
@@ -164,10 +264,12 @@ func (o LogDataProtectionPolicyOutput) ToLogDataProtectionPolicyOutputWithContex
 	return o
 }
 
+// The name of the log group under which the log stream is to be created.
 func (o LogDataProtectionPolicyOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDataProtectionPolicy) pulumi.StringOutput { return v.LogGroupName }).(pulumi.StringOutput)
 }
 
+// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
 func (o LogDataProtectionPolicyOutput) PolicyDocument() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDataProtectionPolicy) pulumi.StringOutput { return v.PolicyDocument }).(pulumi.StringOutput)
 }

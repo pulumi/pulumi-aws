@@ -40,6 +40,9 @@ class GetAmiIdsResult:
     @property
     @pulumi.getter
     def arns(self) -> Sequence[str]:
+        """
+        List of the Autoscaling Groups Arns in the current region.
+        """
         return pulumi.get(self, "arns")
 
     @property
@@ -58,6 +61,9 @@ class GetAmiIdsResult:
     @property
     @pulumi.getter
     def names(self) -> Sequence[str]:
+        """
+        List of the Autoscaling Groups in the current region.
+        """
         return pulumi.get(self, "names")
 
 
@@ -77,7 +83,39 @@ def get_ami_ids(filters: Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs
                 names: Optional[Sequence[str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAmiIdsResult:
     """
-    Use this data source to access information about an existing resource.
+    The Autoscaling Groups data source allows access to the list of AWS
+    ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    groups = aws.autoscaling.get_ami_ids(filters=[
+        aws.autoscaling.GetAmiIdsFilterArgs(
+            name="tag:Team",
+            values=["Pets"],
+        ),
+        aws.autoscaling.GetAmiIdsFilterArgs(
+            name="tag-key",
+            values=["Environment"],
+        ),
+    ])
+    slack_notifications = aws.autoscaling.Notification("slackNotifications",
+        group_names=groups.names,
+        notifications=[
+            "autoscaling:EC2_INSTANCE_LAUNCH",
+            "autoscaling:EC2_INSTANCE_TERMINATE",
+            "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+            "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+        ],
+        topic_arn="TOPIC ARN")
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+    :param Sequence[str] names: List of autoscaling group names
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -97,6 +135,38 @@ def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
                        names: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAmiIdsResult]:
     """
-    Use this data source to access information about an existing resource.
+    The Autoscaling Groups data source allows access to the list of AWS
+    ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    groups = aws.autoscaling.get_ami_ids(filters=[
+        aws.autoscaling.GetAmiIdsFilterArgs(
+            name="tag:Team",
+            values=["Pets"],
+        ),
+        aws.autoscaling.GetAmiIdsFilterArgs(
+            name="tag-key",
+            values=["Environment"],
+        ),
+    ])
+    slack_notifications = aws.autoscaling.Notification("slackNotifications",
+        group_names=groups.names,
+        notifications=[
+            "autoscaling:EC2_INSTANCE_LAUNCH",
+            "autoscaling:EC2_INSTANCE_TERMINATE",
+            "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+            "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+        ],
+        topic_arn="TOPIC ARN")
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+    :param Sequence[str] names: List of autoscaling group names
     """
     ...

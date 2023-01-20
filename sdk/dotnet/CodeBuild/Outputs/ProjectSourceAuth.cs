@@ -13,7 +13,13 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class ProjectSourceAuth
     {
+        /// <summary>
+        /// Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
+        /// </summary>
         public readonly string? Resource;
+        /// <summary>
+        /// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

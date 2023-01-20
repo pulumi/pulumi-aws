@@ -20,6 +20,10 @@ class SubnetGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SubnetGroup resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs.
+        :param pulumi.Input[str] description: The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] name: The name of the Redshift Subnet group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if description is None:
@@ -34,6 +38,9 @@ class SubnetGroupArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        An array of VPC subnet IDs.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -43,6 +50,9 @@ class SubnetGroupArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -52,6 +62,9 @@ class SubnetGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Redshift Subnet group.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -61,6 +74,9 @@ class SubnetGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -79,6 +95,12 @@ class _SubnetGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering SubnetGroup resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Redshift Subnet group name
+        :param pulumi.Input[str] description: The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] name: The name of the Redshift Subnet group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -98,6 +120,9 @@ class _SubnetGroupState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the Redshift Subnet group name
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -107,6 +132,9 @@ class _SubnetGroupState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -116,6 +144,9 @@ class _SubnetGroupState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Redshift Subnet group.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -125,6 +156,9 @@ class _SubnetGroupState:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of VPC subnet IDs.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -134,6 +168,9 @@ class _SubnetGroupState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -143,6 +180,9 @@ class _SubnetGroupState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -161,9 +201,53 @@ class SubnetGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a SubnetGroup resource with the given unique name, props, and options.
+        Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.1.0.0/16")
+        foo_subnet = aws.ec2.Subnet("fooSubnet",
+            cidr_block="10.1.1.0/24",
+            availability_zone="us-west-2a",
+            vpc_id=foo_vpc.id,
+            tags={
+                "Name": "tf-dbsubnet-test-1",
+            })
+        bar = aws.ec2.Subnet("bar",
+            cidr_block="10.1.2.0/24",
+            availability_zone="us-west-2b",
+            vpc_id=foo_vpc.id,
+            tags={
+                "Name": "tf-dbsubnet-test-2",
+            })
+        foo_subnet_group = aws.redshift.SubnetGroup("fooSubnetGroup",
+            subnet_ids=[
+                foo_subnet.id,
+                bar.id,
+            ],
+            tags={
+                "environment": "Production",
+            })
+        ```
+
+        ## Import
+
+        Redshift subnet groups can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:redshift/subnetGroup:SubnetGroup testgroup1 test-cluster-subnet-group
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] name: The name of the Redshift Subnet group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -172,7 +256,47 @@ class SubnetGroup(pulumi.CustomResource):
                  args: SubnetGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SubnetGroup resource with the given unique name, props, and options.
+        Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.1.0.0/16")
+        foo_subnet = aws.ec2.Subnet("fooSubnet",
+            cidr_block="10.1.1.0/24",
+            availability_zone="us-west-2a",
+            vpc_id=foo_vpc.id,
+            tags={
+                "Name": "tf-dbsubnet-test-1",
+            })
+        bar = aws.ec2.Subnet("bar",
+            cidr_block="10.1.2.0/24",
+            availability_zone="us-west-2b",
+            vpc_id=foo_vpc.id,
+            tags={
+                "Name": "tf-dbsubnet-test-2",
+            })
+        foo_subnet_group = aws.redshift.SubnetGroup("fooSubnetGroup",
+            subnet_ids=[
+                foo_subnet.id,
+                bar.id,
+            ],
+            tags={
+                "environment": "Production",
+            })
+        ```
+
+        ## Import
+
+        Redshift subnet groups can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:redshift/subnetGroup:SubnetGroup testgroup1 test-cluster-subnet-group
+        ```
+
         :param str resource_name: The name of the resource.
         :param SubnetGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,6 +358,12 @@ class SubnetGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Redshift Subnet group name
+        :param pulumi.Input[str] description: The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] name: The name of the Redshift Subnet group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -250,30 +380,48 @@ class SubnetGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the Redshift Subnet group name
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Redshift Subnet group.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        An array of VPC subnet IDs.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

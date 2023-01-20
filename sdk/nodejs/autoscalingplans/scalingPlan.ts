@@ -7,6 +7,24 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an AWS Auto Scaling scaling plan.
+ * More information can be found in the [AWS Auto Scaling User Guide](https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html).
+ *
+ * > **NOTE:** The AWS Auto Scaling service uses an AWS IAM service-linked role to manage predictive scaling of Amazon EC2 Auto Scaling groups. The service attempts to automatically create this role the first time a scaling plan with predictive scaling enabled is created.
+ * An `aws.iam.ServiceLinkedRole` resource can be used to manually manage this role.
+ * See the [AWS documentation](https://docs.aws.amazon.com/autoscaling/plans/userguide/aws-auto-scaling-service-linked-roles.html#create-service-linked-role-manual) for more details.
+ *
+ * ## Example Usage
+ *
+ * ## Import
+ *
+ * Auto Scaling scaling plans can be imported using the `name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
+ * ```
+ */
 export class ScalingPlan extends pulumi.CustomResource {
     /**
      * Get an existing ScalingPlan resource's state with the given name, ID, and optional extra
@@ -35,9 +53,21 @@ export class ScalingPlan extends pulumi.CustomResource {
         return obj['__pulumiType'] === ScalingPlan.__pulumiType;
     }
 
+    /**
+     * CloudFormation stack or set of tags. You can create one scaling plan per application source.
+     */
     public readonly applicationSource!: pulumi.Output<outputs.autoscalingplans.ScalingPlanApplicationSource>;
+    /**
+     * Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+     */
     public readonly scalingInstructions!: pulumi.Output<outputs.autoscalingplans.ScalingPlanScalingInstruction[]>;
+    /**
+     * The version number of the scaling plan. This value is always 1.
+     */
     public /*out*/ readonly scalingPlanVersion!: pulumi.Output<number>;
 
     /**
@@ -79,9 +109,21 @@ export class ScalingPlan extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ScalingPlan resources.
  */
 export interface ScalingPlanState {
+    /**
+     * CloudFormation stack or set of tags. You can create one scaling plan per application source.
+     */
     applicationSource?: pulumi.Input<inputs.autoscalingplans.ScalingPlanApplicationSource>;
+    /**
+     * Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+     */
     scalingInstructions?: pulumi.Input<pulumi.Input<inputs.autoscalingplans.ScalingPlanScalingInstruction>[]>;
+    /**
+     * The version number of the scaling plan. This value is always 1.
+     */
     scalingPlanVersion?: pulumi.Input<number>;
 }
 
@@ -89,7 +131,16 @@ export interface ScalingPlanState {
  * The set of arguments for constructing a ScalingPlan resource.
  */
 export interface ScalingPlanArgs {
+    /**
+     * CloudFormation stack or set of tags. You can create one scaling plan per application source.
+     */
     applicationSource: pulumi.Input<inputs.autoscalingplans.ScalingPlanApplicationSource>;
+    /**
+     * Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+     */
     scalingInstructions: pulumi.Input<pulumi.Input<inputs.autoscalingplans.ScalingPlanScalingInstruction>[]>;
 }

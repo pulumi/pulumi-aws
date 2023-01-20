@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Scheduler.Outputs
     [OutputType]
     public sealed class ScheduleTargetSagemakerPipelineParameters
     {
+        /// <summary>
+        /// Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ScheduleTargetSagemakerPipelineParametersPipelineParameter> PipelineParameters;
 
         [OutputConstructor]

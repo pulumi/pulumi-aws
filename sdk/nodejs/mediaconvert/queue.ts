@@ -7,6 +7,26 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an AWS Elemental MediaConvert Queue.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.mediaconvert.Queue("test", {});
+ * ```
+ *
+ * ## Import
+ *
+ * Media Convert Queue can be imported via the queue name, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
+ * ```
+ */
 export class Queue extends pulumi.CustomResource {
     /**
      * Get an existing Queue resource's state with the given name, ID, and optional extra
@@ -35,13 +55,37 @@ export class Queue extends pulumi.CustomResource {
         return obj['__pulumiType'] === Queue.__pulumiType;
     }
 
+    /**
+     * The Arn of the queue
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A description of the queue
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * A unique identifier describing the queue
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+     */
     public readonly pricingPlan!: pulumi.Output<string | undefined>;
+    /**
+     * A detail pricing plan of the  reserved queue. See below.
+     */
     public readonly reservationPlanSettings!: pulumi.Output<outputs.mediaconvert.QueueReservationPlanSettings>;
+    /**
+     * A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+     */
     public readonly status!: pulumi.Output<string | undefined>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -85,13 +129,37 @@ export class Queue extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Queue resources.
  */
 export interface QueueState {
+    /**
+     * The Arn of the queue
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * A description of the queue
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A unique identifier describing the queue
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+     */
     pricingPlan?: pulumi.Input<string>;
+    /**
+     * A detail pricing plan of the  reserved queue. See below.
+     */
     reservationPlanSettings?: pulumi.Input<inputs.mediaconvert.QueueReservationPlanSettings>;
+    /**
+     * A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+     */
     status?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -99,10 +167,28 @@ export interface QueueState {
  * The set of arguments for constructing a Queue resource.
  */
 export interface QueueArgs {
+    /**
+     * A description of the queue
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A unique identifier describing the queue
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+     */
     pricingPlan?: pulumi.Input<string>;
+    /**
+     * A detail pricing plan of the  reserved queue. See below.
+     */
     reservationPlanSettings?: pulumi.Input<inputs.mediaconvert.QueueReservationPlanSettings>;
+    /**
+     * A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+     */
     status?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

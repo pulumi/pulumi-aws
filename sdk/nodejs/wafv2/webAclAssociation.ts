@@ -4,6 +4,75 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Creates a WAFv2 Web ACL Association.
+ *
+ * > **NOTE on associating a WAFv2 Web ACL with a Cloudfront distribution:** Do not use this resource to associate a WAFv2 Web ACL with a Cloudfront Distribution. The [AWS API call backing this resource](https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html) notes that you should use the `webAclId` property on the `cloudfrontDistribution` instead.
+ *
+ * [1]: https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as crypto from "crypto";
+ *
+ * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {body: JSON.stringify({
+ *     openapi: "3.0.1",
+ *     info: {
+ *         title: "example",
+ *         version: "1.0",
+ *     },
+ *     paths: {
+ *         "/path1": {
+ *             get: {
+ *                 "x-amazon-apigateway-integration": {
+ *                     httpMethod: "GET",
+ *                     payloadFormatVersion: "1.0",
+ *                     type: "HTTP_PROXY",
+ *                     uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
+ *                 },
+ *             },
+ *         },
+ *     },
+ * })});
+ * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
+ *     restApi: exampleRestApi.id,
+ *     triggers: {
+ *         redeployment: exampleRestApi.body.apply(body => JSON.stringify(body)).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
+ *     },
+ * });
+ * const exampleStage = new aws.apigateway.Stage("exampleStage", {
+ *     deployment: exampleDeployment.id,
+ *     restApi: exampleRestApi.id,
+ *     stageName: "example",
+ * });
+ * const exampleWebAcl = new aws.wafv2.WebAcl("exampleWebAcl", {
+ *     scope: "REGIONAL",
+ *     defaultAction: {
+ *         allow: {},
+ *     },
+ *     visibilityConfig: {
+ *         cloudwatchMetricsEnabled: false,
+ *         metricName: "friendly-metric-name",
+ *         sampledRequestsEnabled: false,
+ *     },
+ * });
+ * const exampleWebAclAssociation = new aws.wafv2.WebAclAssociation("exampleWebAclAssociation", {
+ *     resourceArn: exampleStage.arn,
+ *     webAclArn: exampleWebAcl.arn,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * WAFv2 Web ACL Association can be imported using `WEB_ACL_ARN,RESOURCE_ARN` e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:wafv2/webAclAssociation:WebAclAssociation example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name
+ * ```
+ */
 export class WebAclAssociation extends pulumi.CustomResource {
     /**
      * Get an existing WebAclAssociation resource's state with the given name, ID, and optional extra
@@ -32,7 +101,13 @@ export class WebAclAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAclAssociation.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
+     */
     public readonly resourceArn!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
+     */
     public readonly webAclArn!: pulumi.Output<string>;
 
     /**
@@ -70,7 +145,13 @@ export class WebAclAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WebAclAssociation resources.
  */
 export interface WebAclAssociationState {
+    /**
+     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
+     */
     resourceArn?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
+     */
     webAclArn?: pulumi.Input<string>;
 }
 
@@ -78,6 +159,12 @@ export interface WebAclAssociationState {
  * The set of arguments for constructing a WebAclAssociation resource.
  */
 export interface WebAclAssociationArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
+     */
     resourceArn: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
+     */
     webAclArn: pulumi.Input<string>;
 }

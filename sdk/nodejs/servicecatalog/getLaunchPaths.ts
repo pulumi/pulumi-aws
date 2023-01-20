@@ -7,6 +7,21 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.servicecatalog.getLaunchPaths({
+ *     productId: "prod-yakog5pdriver",
+ * });
+ * ```
+ */
 export function getLaunchPaths(args: GetLaunchPathsArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchPathsResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -20,7 +35,13 @@ export function getLaunchPaths(args: GetLaunchPathsArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getLaunchPaths.
  */
 export interface GetLaunchPathsArgs {
+    /**
+     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     */
     acceptLanguage?: string;
+    /**
+     * Product identifier.
+     */
     productId: string;
 }
 
@@ -34,8 +55,26 @@ export interface GetLaunchPathsResult {
      */
     readonly id: string;
     readonly productId: string;
+    /**
+     * Block with information about the launch path. See details below.
+     */
     readonly summaries: outputs.servicecatalog.GetLaunchPathsSummary[];
 }
+/**
+ * Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.servicecatalog.getLaunchPaths({
+ *     productId: "prod-yakog5pdriver",
+ * });
+ * ```
+ */
 export function getLaunchPathsOutput(args: GetLaunchPathsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchPathsResult> {
     return pulumi.output(args).apply((a: any) => getLaunchPaths(a, opts))
 }
@@ -44,6 +83,12 @@ export function getLaunchPathsOutput(args: GetLaunchPathsOutputArgs, opts?: pulu
  * A collection of arguments for invoking getLaunchPaths.
  */
 export interface GetLaunchPathsOutputArgs {
+    /**
+     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     */
     acceptLanguage?: pulumi.Input<string>;
+    /**
+     * Product identifier.
+     */
     productId: pulumi.Input<string>;
 }

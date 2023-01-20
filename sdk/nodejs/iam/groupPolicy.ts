@@ -6,6 +6,37 @@ import * as utilities from "../utilities";
 
 import {PolicyDocument} from "./index";
 
+/**
+ * Provides an IAM policy attached to a group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const myDevelopers = new aws.iam.Group("myDevelopers", {path: "/users/"});
+ * const myDeveloperPolicy = new aws.iam.GroupPolicy("myDeveloperPolicy", {
+ *     group: myDevelopers.name,
+ *     policy: JSON.stringify({
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: ["ec2:Describe*"],
+ *             Effect: "Allow",
+ *             Resource: "*",
+ *         }],
+ *     }),
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * IAM Group Policies can be imported using the `group_name:group_policy_name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
+ * ```
+ */
 export class GroupPolicy extends pulumi.CustomResource {
     /**
      * Get an existing GroupPolicy resource's state with the given name, ID, and optional extra
@@ -34,9 +65,23 @@ export class GroupPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === GroupPolicy.__pulumiType;
     }
 
+    /**
+     * The IAM group to attach to the policy.
+     */
     public readonly group!: pulumi.Output<string>;
+    /**
+     * The name of the policy. If omitted, the provider will
+     * assign a random, unique name.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -78,9 +123,23 @@ export class GroupPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GroupPolicy resources.
  */
 export interface GroupPolicyState {
+    /**
+     * The IAM group to attach to the policy.
+     */
     group?: pulumi.Input<string>;
+    /**
+     * The name of the policy. If omitted, the provider will
+     * assign a random, unique name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     policy?: pulumi.Input<string | PolicyDocument>;
 }
 
@@ -88,8 +147,22 @@ export interface GroupPolicyState {
  * The set of arguments for constructing a GroupPolicy resource.
  */
 export interface GroupPolicyArgs {
+    /**
+     * The IAM group to attach to the policy.
+     */
     group: pulumi.Input<string>;
+    /**
+     * The name of the policy. If omitted, the provider will
+     * assign a random, unique name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     policy: pulumi.Input<string | PolicyDocument>;
 }

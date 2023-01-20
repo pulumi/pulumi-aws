@@ -15,35 +15,125 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a domain entry resource
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lightsail.Domain;
+ * import com.pulumi.aws.lightsail.DomainArgs;
+ * import com.pulumi.aws.lightsail.DomainEntry;
+ * import com.pulumi.aws.lightsail.DomainEntryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testDomain = new Domain(&#34;testDomain&#34;, DomainArgs.builder()        
+ *             .domainName(&#34;mydomain.com&#34;)
+ *             .build());
+ * 
+ *         var testDomainEntry = new DomainEntry(&#34;testDomainEntry&#34;, DomainEntryArgs.builder()        
+ *             .domainName(aws_lightsail_domain.domain_test().domain_name())
+ *             .type(&#34;A&#34;)
+ *             .target(&#34;127.0.0.1&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_lightsail_domain_entry` can be imported by using the id attribute, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:lightsail/domainEntry:DomainEntry example www_mydomain.com_A_127.0.0.1
+ * ```
+ * 
+ */
 @ResourceType(type="aws:lightsail/domainEntry:DomainEntry")
 public class DomainEntry extends com.pulumi.resources.CustomResource {
+    /**
+     * The name of the Lightsail domain in which to create the entry
+     * 
+     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
+    /**
+     * @return The name of the Lightsail domain in which to create the entry
+     * 
+     */
     public Output<String> domainName() {
         return this.domainName;
     }
+    /**
+     * If the entry should be an alias Defaults to `false`
+     * 
+     */
     @Export(name="isAlias", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isAlias;
 
+    /**
+     * @return If the entry should be an alias Defaults to `false`
+     * 
+     */
     public Output<Optional<Boolean>> isAlias() {
         return Codegen.optional(this.isAlias);
     }
+    /**
+     * Name of the entry record
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name of the entry record
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Target of the domain entry
+     * 
+     */
     @Export(name="target", refs={String.class}, tree="[0]")
     private Output<String> target;
 
+    /**
+     * @return Target of the domain entry
+     * 
+     */
     public Output<String> target() {
         return this.target;
     }
+    /**
+     * Type of record
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
+    /**
+     * @return Type of record
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }

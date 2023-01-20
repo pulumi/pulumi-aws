@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterParameterGroupParameter {
+    /**
+     * @return Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+     * 
+     */
     private @Nullable String applyMethod;
+    /**
+     * @return The name of the documentDB parameter.
+     * 
+     */
     private String name;
+    /**
+     * @return The value of the documentDB parameter.
+     * 
+     */
     private String value;
 
     private ClusterParameterGroupParameter() {}
+    /**
+     * @return Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+     * 
+     */
     public Optional<String> applyMethod() {
         return Optional.ofNullable(this.applyMethod);
     }
+    /**
+     * @return The name of the documentDB parameter.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The value of the documentDB parameter.
+     * 
+     */
     public String value() {
         return this.value;
     }

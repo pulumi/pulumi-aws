@@ -10,18 +10,92 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an AWS App Mesh service mesh resource.
+//
+// ## Example Usage
+// ### Basic
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appmesh.NewMesh(ctx, "simple", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Egress Filter
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appmesh.NewMesh(ctx, "simple", &appmesh.MeshArgs{
+//				Spec: &appmesh.MeshSpecArgs{
+//					EgressFilter: &appmesh.MeshSpecEgressFilterArgs{
+//						Type: pulumi.String("ALLOW_ALL"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// App Mesh service meshes can be imported using the `name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
+//
+// ```
 type Mesh struct {
 	pulumi.CustomResourceState
 
-	Arn             pulumi.StringOutput    `pulumi:"arn"`
-	CreatedDate     pulumi.StringOutput    `pulumi:"createdDate"`
-	LastUpdatedDate pulumi.StringOutput    `pulumi:"lastUpdatedDate"`
-	MeshOwner       pulumi.StringOutput    `pulumi:"meshOwner"`
-	Name            pulumi.StringOutput    `pulumi:"name"`
-	ResourceOwner   pulumi.StringOutput    `pulumi:"resourceOwner"`
-	Spec            MeshSpecPtrOutput      `pulumi:"spec"`
-	Tags            pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll         pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// ARN of the service mesh.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Creation date of the service mesh.
+	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+	// Last update date of the service mesh.
+	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
+	// AWS account ID of the service mesh's owner.
+	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
+	// Name to use for the service mesh. Must be between 1 and 255 characters in length.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Resource owner's AWS account ID.
+	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
+	// Service mesh specification to apply.
+	Spec MeshSpecPtrOutput `pulumi:"spec"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewMesh registers a new resource with the given unique name, arguments, and options.
@@ -53,27 +127,45 @@ func GetMesh(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Mesh resources.
 type meshState struct {
-	Arn             *string           `pulumi:"arn"`
-	CreatedDate     *string           `pulumi:"createdDate"`
-	LastUpdatedDate *string           `pulumi:"lastUpdatedDate"`
-	MeshOwner       *string           `pulumi:"meshOwner"`
-	Name            *string           `pulumi:"name"`
-	ResourceOwner   *string           `pulumi:"resourceOwner"`
-	Spec            *MeshSpec         `pulumi:"spec"`
-	Tags            map[string]string `pulumi:"tags"`
-	TagsAll         map[string]string `pulumi:"tagsAll"`
+	// ARN of the service mesh.
+	Arn *string `pulumi:"arn"`
+	// Creation date of the service mesh.
+	CreatedDate *string `pulumi:"createdDate"`
+	// Last update date of the service mesh.
+	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
+	// AWS account ID of the service mesh's owner.
+	MeshOwner *string `pulumi:"meshOwner"`
+	// Name to use for the service mesh. Must be between 1 and 255 characters in length.
+	Name *string `pulumi:"name"`
+	// Resource owner's AWS account ID.
+	ResourceOwner *string `pulumi:"resourceOwner"`
+	// Service mesh specification to apply.
+	Spec *MeshSpec `pulumi:"spec"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type MeshState struct {
-	Arn             pulumi.StringPtrInput
-	CreatedDate     pulumi.StringPtrInput
+	// ARN of the service mesh.
+	Arn pulumi.StringPtrInput
+	// Creation date of the service mesh.
+	CreatedDate pulumi.StringPtrInput
+	// Last update date of the service mesh.
 	LastUpdatedDate pulumi.StringPtrInput
-	MeshOwner       pulumi.StringPtrInput
-	Name            pulumi.StringPtrInput
-	ResourceOwner   pulumi.StringPtrInput
-	Spec            MeshSpecPtrInput
-	Tags            pulumi.StringMapInput
-	TagsAll         pulumi.StringMapInput
+	// AWS account ID of the service mesh's owner.
+	MeshOwner pulumi.StringPtrInput
+	// Name to use for the service mesh. Must be between 1 and 255 characters in length.
+	Name pulumi.StringPtrInput
+	// Resource owner's AWS account ID.
+	ResourceOwner pulumi.StringPtrInput
+	// Service mesh specification to apply.
+	Spec MeshSpecPtrInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (MeshState) ElementType() reflect.Type {
@@ -81,15 +173,21 @@ func (MeshState) ElementType() reflect.Type {
 }
 
 type meshArgs struct {
-	Name *string           `pulumi:"name"`
-	Spec *MeshSpec         `pulumi:"spec"`
+	// Name to use for the service mesh. Must be between 1 and 255 characters in length.
+	Name *string `pulumi:"name"`
+	// Service mesh specification to apply.
+	Spec *MeshSpec `pulumi:"spec"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Mesh resource.
 type MeshArgs struct {
+	// Name to use for the service mesh. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
+	// Service mesh specification to apply.
 	Spec MeshSpecPtrInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -180,38 +278,47 @@ func (o MeshOutput) ToMeshOutputWithContext(ctx context.Context) MeshOutput {
 	return o
 }
 
+// ARN of the service mesh.
 func (o MeshOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Creation date of the service mesh.
 func (o MeshOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
+// Last update date of the service mesh.
 func (o MeshOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
 }
 
+// AWS account ID of the service mesh's owner.
 func (o MeshOutput) MeshOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.MeshOwner }).(pulumi.StringOutput)
 }
 
+// Name to use for the service mesh. Must be between 1 and 255 characters in length.
 func (o MeshOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Resource owner's AWS account ID.
 func (o MeshOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
+// Service mesh specification to apply.
 func (o MeshOutput) Spec() MeshSpecPtrOutput {
 	return o.ApplyT(func(v *Mesh) MeshSpecPtrOutput { return v.Spec }).(MeshSpecPtrOutput)
 }
 
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o MeshOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Mesh) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o MeshOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Mesh) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

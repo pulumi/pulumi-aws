@@ -13,17 +13,85 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a resource to create a VPC Internet Gateway Attachment.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.InternetGateway;
+ * import com.pulumi.aws.ec2.InternetGatewayAttachment;
+ * import com.pulumi.aws.ec2.InternetGatewayAttachmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+ *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *             .build());
+ * 
+ *         var exampleInternetGateway = new InternetGateway(&#34;exampleInternetGateway&#34;);
+ * 
+ *         var exampleInternetGatewayAttachment = new InternetGatewayAttachment(&#34;exampleInternetGatewayAttachment&#34;, InternetGatewayAttachmentArgs.builder()        
+ *             .internetGatewayId(exampleInternetGateway.id())
+ *             .vpcId(exampleVpc.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Internet Gateway Attachments can be imported using the `id`, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2/internetGatewayAttachment:InternetGatewayAttachment")
 public class InternetGatewayAttachment extends com.pulumi.resources.CustomResource {
+    /**
+     * The ID of the internet gateway.
+     * 
+     */
     @Export(name="internetGatewayId", refs={String.class}, tree="[0]")
     private Output<String> internetGatewayId;
 
+    /**
+     * @return The ID of the internet gateway.
+     * 
+     */
     public Output<String> internetGatewayId() {
         return this.internetGatewayId;
     }
+    /**
+     * The ID of the VPC.
+     * 
+     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
+    /**
+     * @return The ID of the VPC.
+     * 
+     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

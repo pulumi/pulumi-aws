@@ -11,17 +11,67 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS IVS (Interactive Video) Recording Configuration.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ivs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ivs.NewRecordingConfiguration(ctx, "example", &ivs.RecordingConfigurationArgs{
+//				DestinationConfiguration: &ivs.RecordingConfigurationDestinationConfigurationArgs{
+//					S3: &ivs.RecordingConfigurationDestinationConfigurationS3Args{
+//						BucketName: pulumi.String("ivs-stream-archive"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// IVS (Interactive Video) Recording Configuration can be imported using the ARN, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
+//
+// ```
 type RecordingConfiguration struct {
 	pulumi.CustomResourceState
 
-	Arn                             pulumi.StringOutput                                  `pulumi:"arn"`
-	DestinationConfiguration        RecordingConfigurationDestinationConfigurationOutput `pulumi:"destinationConfiguration"`
-	Name                            pulumi.StringOutput                                  `pulumi:"name"`
-	RecordingReconnectWindowSeconds pulumi.IntOutput                                     `pulumi:"recordingReconnectWindowSeconds"`
-	State                           pulumi.StringOutput                                  `pulumi:"state"`
-	Tags                            pulumi.StringMapOutput                               `pulumi:"tags"`
-	TagsAll                         pulumi.StringMapOutput                               `pulumi:"tagsAll"`
-	ThumbnailConfiguration          RecordingConfigurationThumbnailConfigurationOutput   `pulumi:"thumbnailConfiguration"`
+	// ARN of the Recording Configuration.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Object containing destination configuration for where recorded video will be stored.
+	DestinationConfiguration RecordingConfigurationDestinationConfigurationOutput `pulumi:"destinationConfiguration"`
+	// Recording Configuration name.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+	RecordingReconnectWindowSeconds pulumi.IntOutput `pulumi:"recordingReconnectWindowSeconds"`
+	// The current state of the Recording Configuration.
+	State pulumi.StringOutput `pulumi:"state"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
+	ThumbnailConfiguration RecordingConfigurationThumbnailConfigurationOutput `pulumi:"thumbnailConfiguration"`
 }
 
 // NewRecordingConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -56,25 +106,41 @@ func GetRecordingConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RecordingConfiguration resources.
 type recordingConfigurationState struct {
-	Arn                             *string                                         `pulumi:"arn"`
-	DestinationConfiguration        *RecordingConfigurationDestinationConfiguration `pulumi:"destinationConfiguration"`
-	Name                            *string                                         `pulumi:"name"`
-	RecordingReconnectWindowSeconds *int                                            `pulumi:"recordingReconnectWindowSeconds"`
-	State                           *string                                         `pulumi:"state"`
-	Tags                            map[string]string                               `pulumi:"tags"`
-	TagsAll                         map[string]string                               `pulumi:"tagsAll"`
-	ThumbnailConfiguration          *RecordingConfigurationThumbnailConfiguration   `pulumi:"thumbnailConfiguration"`
+	// ARN of the Recording Configuration.
+	Arn *string `pulumi:"arn"`
+	// Object containing destination configuration for where recorded video will be stored.
+	DestinationConfiguration *RecordingConfigurationDestinationConfiguration `pulumi:"destinationConfiguration"`
+	// Recording Configuration name.
+	Name *string `pulumi:"name"`
+	// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+	RecordingReconnectWindowSeconds *int `pulumi:"recordingReconnectWindowSeconds"`
+	// The current state of the Recording Configuration.
+	State *string `pulumi:"state"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
+	ThumbnailConfiguration *RecordingConfigurationThumbnailConfiguration `pulumi:"thumbnailConfiguration"`
 }
 
 type RecordingConfigurationState struct {
-	Arn                             pulumi.StringPtrInput
-	DestinationConfiguration        RecordingConfigurationDestinationConfigurationPtrInput
-	Name                            pulumi.StringPtrInput
+	// ARN of the Recording Configuration.
+	Arn pulumi.StringPtrInput
+	// Object containing destination configuration for where recorded video will be stored.
+	DestinationConfiguration RecordingConfigurationDestinationConfigurationPtrInput
+	// Recording Configuration name.
+	Name pulumi.StringPtrInput
+	// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
 	RecordingReconnectWindowSeconds pulumi.IntPtrInput
-	State                           pulumi.StringPtrInput
-	Tags                            pulumi.StringMapInput
-	TagsAll                         pulumi.StringMapInput
-	ThumbnailConfiguration          RecordingConfigurationThumbnailConfigurationPtrInput
+	// The current state of the Recording Configuration.
+	State pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
+	ThumbnailConfiguration RecordingConfigurationThumbnailConfigurationPtrInput
 }
 
 func (RecordingConfigurationState) ElementType() reflect.Type {
@@ -82,20 +148,30 @@ func (RecordingConfigurationState) ElementType() reflect.Type {
 }
 
 type recordingConfigurationArgs struct {
-	DestinationConfiguration        RecordingConfigurationDestinationConfiguration `pulumi:"destinationConfiguration"`
-	Name                            *string                                        `pulumi:"name"`
-	RecordingReconnectWindowSeconds *int                                           `pulumi:"recordingReconnectWindowSeconds"`
-	Tags                            map[string]string                              `pulumi:"tags"`
-	ThumbnailConfiguration          *RecordingConfigurationThumbnailConfiguration  `pulumi:"thumbnailConfiguration"`
+	// Object containing destination configuration for where recorded video will be stored.
+	DestinationConfiguration RecordingConfigurationDestinationConfiguration `pulumi:"destinationConfiguration"`
+	// Recording Configuration name.
+	Name *string `pulumi:"name"`
+	// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+	RecordingReconnectWindowSeconds *int `pulumi:"recordingReconnectWindowSeconds"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
+	ThumbnailConfiguration *RecordingConfigurationThumbnailConfiguration `pulumi:"thumbnailConfiguration"`
 }
 
 // The set of arguments for constructing a RecordingConfiguration resource.
 type RecordingConfigurationArgs struct {
-	DestinationConfiguration        RecordingConfigurationDestinationConfigurationInput
-	Name                            pulumi.StringPtrInput
+	// Object containing destination configuration for where recorded video will be stored.
+	DestinationConfiguration RecordingConfigurationDestinationConfigurationInput
+	// Recording Configuration name.
+	Name pulumi.StringPtrInput
+	// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
 	RecordingReconnectWindowSeconds pulumi.IntPtrInput
-	Tags                            pulumi.StringMapInput
-	ThumbnailConfiguration          RecordingConfigurationThumbnailConfigurationPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
+	ThumbnailConfiguration RecordingConfigurationThumbnailConfigurationPtrInput
 }
 
 func (RecordingConfigurationArgs) ElementType() reflect.Type {
@@ -185,36 +261,44 @@ func (o RecordingConfigurationOutput) ToRecordingConfigurationOutputWithContext(
 	return o
 }
 
+// ARN of the Recording Configuration.
 func (o RecordingConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RecordingConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Object containing destination configuration for where recorded video will be stored.
 func (o RecordingConfigurationOutput) DestinationConfiguration() RecordingConfigurationDestinationConfigurationOutput {
 	return o.ApplyT(func(v *RecordingConfiguration) RecordingConfigurationDestinationConfigurationOutput {
 		return v.DestinationConfiguration
 	}).(RecordingConfigurationDestinationConfigurationOutput)
 }
 
+// Recording Configuration name.
 func (o RecordingConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RecordingConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
 func (o RecordingConfigurationOutput) RecordingReconnectWindowSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *RecordingConfiguration) pulumi.IntOutput { return v.RecordingReconnectWindowSeconds }).(pulumi.IntOutput)
 }
 
+// The current state of the Recording Configuration.
 func (o RecordingConfigurationOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *RecordingConfiguration) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RecordingConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RecordingConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RecordingConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RecordingConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
 func (o RecordingConfigurationOutput) ThumbnailConfiguration() RecordingConfigurationThumbnailConfigurationOutput {
 	return o.ApplyT(func(v *RecordingConfiguration) RecordingConfigurationThumbnailConfigurationOutput {
 		return v.ThumbnailConfiguration

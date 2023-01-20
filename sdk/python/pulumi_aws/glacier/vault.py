@@ -22,6 +22,11 @@ class VaultArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Vault resource.
+        :param pulumi.Input[str] access_policy: The policy document. This is a JSON formatted string.
+               The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+        :param pulumi.Input[str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+        :param pulumi.Input['VaultNotificationArgs'] notification: The notifications for the Vault. Fields documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if access_policy is not None:
             pulumi.set(__self__, "access_policy", access_policy)
@@ -35,6 +40,10 @@ class VaultArgs:
     @property
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy document. This is a JSON formatted string.
+        The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+        """
         return pulumi.get(self, "access_policy")
 
     @access_policy.setter
@@ -44,6 +53,9 @@ class VaultArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -53,6 +65,9 @@ class VaultArgs:
     @property
     @pulumi.getter
     def notification(self) -> Optional[pulumi.Input['VaultNotificationArgs']]:
+        """
+        The notifications for the Vault. Fields documented below.
+        """
         return pulumi.get(self, "notification")
 
     @notification.setter
@@ -62,6 +77,9 @@ class VaultArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -81,6 +99,14 @@ class _VaultState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Vault resources.
+        :param pulumi.Input[str] access_policy: The policy document. This is a JSON formatted string.
+               The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+        :param pulumi.Input[str] arn: The ARN of the vault.
+        :param pulumi.Input[str] location: The URI of the vault that was created.
+        :param pulumi.Input[str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+        :param pulumi.Input['VaultNotificationArgs'] notification: The notifications for the Vault. Fields documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if access_policy is not None:
             pulumi.set(__self__, "access_policy", access_policy)
@@ -100,6 +126,10 @@ class _VaultState:
     @property
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy document. This is a JSON formatted string.
+        The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+        """
         return pulumi.get(self, "access_policy")
 
     @access_policy.setter
@@ -109,6 +139,9 @@ class _VaultState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the vault.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -118,6 +151,9 @@ class _VaultState:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of the vault that was created.
+        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -127,6 +163,9 @@ class _VaultState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -136,6 +175,9 @@ class _VaultState:
     @property
     @pulumi.getter
     def notification(self) -> Optional[pulumi.Input['VaultNotificationArgs']]:
+        """
+        The notifications for the Vault. Fields documented below.
+        """
         return pulumi.get(self, "notification")
 
     @notification.setter
@@ -145,6 +187,9 @@ class _VaultState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -154,6 +199,9 @@ class _VaultState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -172,9 +220,61 @@ class Vault(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Vault resource with the given unique name, props, and options.
+        Provides a Glacier Vault Resource. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-vaults.html) for a full explanation of the Glacier Vault functionality
+
+        > **NOTE:** When removing a Glacier Vault, the Vault must be empty.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        aws_sns_topic = aws.sns.Topic("awsSnsTopic")
+        my_archive = aws.glacier.Vault("myArchive",
+            notification=aws.glacier.VaultNotificationArgs(
+                sns_topic=aws_sns_topic.arn,
+                events=[
+                    "ArchiveRetrievalCompleted",
+                    "InventoryRetrievalCompleted",
+                ],
+            ),
+            access_policy=\"\"\"{
+            "Version":"2012-10-17",
+            "Statement":[
+               {
+                  "Sid": "add-read-only-perm",
+                  "Principal": "*",
+                  "Effect": "Allow",
+                  "Action": [
+                     "glacier:InitiateJob",
+                     "glacier:GetJobOutput"
+                  ],
+                  "Resource": "arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"
+               }
+            ]
+        }
+        \"\"\",
+            tags={
+                "Test": "MyArchive",
+            })
+        ```
+
+        ## Import
+
+        Glacier Vaults can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:glacier/vault:Vault archive my_archive
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_policy: The policy document. This is a JSON formatted string.
+               The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+        :param pulumi.Input[str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+        :param pulumi.Input[pulumi.InputType['VaultNotificationArgs']] notification: The notifications for the Vault. Fields documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -183,7 +283,54 @@ class Vault(pulumi.CustomResource):
                  args: Optional[VaultArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Vault resource with the given unique name, props, and options.
+        Provides a Glacier Vault Resource. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-vaults.html) for a full explanation of the Glacier Vault functionality
+
+        > **NOTE:** When removing a Glacier Vault, the Vault must be empty.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        aws_sns_topic = aws.sns.Topic("awsSnsTopic")
+        my_archive = aws.glacier.Vault("myArchive",
+            notification=aws.glacier.VaultNotificationArgs(
+                sns_topic=aws_sns_topic.arn,
+                events=[
+                    "ArchiveRetrievalCompleted",
+                    "InventoryRetrievalCompleted",
+                ],
+            ),
+            access_policy=\"\"\"{
+            "Version":"2012-10-17",
+            "Statement":[
+               {
+                  "Sid": "add-read-only-perm",
+                  "Principal": "*",
+                  "Effect": "Allow",
+                  "Action": [
+                     "glacier:InitiateJob",
+                     "glacier:GetJobOutput"
+                  ],
+                  "Resource": "arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"
+               }
+            ]
+        }
+        \"\"\",
+            tags={
+                "Test": "MyArchive",
+            })
+        ```
+
+        ## Import
+
+        Glacier Vaults can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:glacier/vault:Vault archive my_archive
+        ```
+
         :param str resource_name: The name of the resource.
         :param VaultArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -243,6 +390,14 @@ class Vault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_policy: The policy document. This is a JSON formatted string.
+               The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+        :param pulumi.Input[str] arn: The ARN of the vault.
+        :param pulumi.Input[str] location: The URI of the vault that was created.
+        :param pulumi.Input[str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+        :param pulumi.Input[pulumi.InputType['VaultNotificationArgs']] notification: The notifications for the Vault. Fields documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -260,35 +415,57 @@ class Vault(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        The policy document. This is a JSON formatted string.
+        The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+        """
         return pulumi.get(self, "access_policy")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the vault.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
+        """
+        The URI of the vault that was created.
+        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def notification(self) -> pulumi.Output[Optional['outputs.VaultNotification']]:
+        """
+        The notifications for the Vault. Fields documented below.
+        """
         return pulumi.get(self, "notification")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

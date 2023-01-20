@@ -11,9 +11,15 @@ namespace Pulumi.Aws.Kms
 {
     public static class GetSecrets
     {
+        /// <summary>
+        /// Decrypt multiple secrets from data encrypted with the AWS KMS service.
+        /// </summary>
         public static Task<GetSecretsResult> InvokeAsync(GetSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretsResult>("aws:kms/getSecrets:getSecrets", args ?? new GetSecretsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Decrypt multiple secrets from data encrypted with the AWS KMS service.
+        /// </summary>
         public static Output<GetSecretsResult> Invoke(GetSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretsResult>("aws:kms/getSecrets:getSecrets", args ?? new GetSecretsInvokeArgs(), options.WithDefaults());
     }
@@ -23,6 +29,10 @@ namespace Pulumi.Aws.Kms
     {
         [Input("secrets", required: true)]
         private List<Inputs.GetSecretsSecretArgs>? _secrets;
+
+        /// <summary>
+        /// One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+        /// </summary>
         public List<Inputs.GetSecretsSecretArgs> Secrets
         {
             get => _secrets ?? (_secrets = new List<Inputs.GetSecretsSecretArgs>());
@@ -39,6 +49,10 @@ namespace Pulumi.Aws.Kms
     {
         [Input("secrets", required: true)]
         private InputList<Inputs.GetSecretsSecretInputArgs>? _secrets;
+
+        /// <summary>
+        /// One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+        /// </summary>
         public InputList<Inputs.GetSecretsSecretInputArgs> Secrets
         {
             get => _secrets ?? (_secrets = new InputList<Inputs.GetSecretsSecretInputArgs>());
@@ -59,6 +73,9 @@ namespace Pulumi.Aws.Kms
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Map containing each `secret` `name` as the key with its decrypted plaintext value
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Plaintext;
         public readonly ImmutableArray<Outputs.GetSecretsSecretResult> Secrets;
 

@@ -7,6 +7,9 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * This resource can be useful for getting back a set of subnet IDs.
+ */
 export function getSubnets(args?: GetSubnetsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetsResult> {
     args = args || {};
 
@@ -21,7 +24,14 @@ export function getSubnets(args?: GetSubnetsArgs, opts?: pulumi.InvokeOptions): 
  * A collection of arguments for invoking getSubnets.
  */
 export interface GetSubnetsArgs {
+    /**
+     * Custom filter block as described below.
+     */
     filters?: inputs.ec2.GetSubnetsFilter[];
+    /**
+     * Map of tags, each pair of which must exactly match
+     * a pair on the desired subnets.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -34,9 +44,15 @@ export interface GetSubnetsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * List of all the subnet ids found.
+     */
     readonly ids: string[];
     readonly tags: {[key: string]: string};
 }
+/**
+ * This resource can be useful for getting back a set of subnet IDs.
+ */
 export function getSubnetsOutput(args?: GetSubnetsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetsResult> {
     return pulumi.output(args).apply((a: any) => getSubnets(a, opts))
 }
@@ -45,6 +61,13 @@ export function getSubnetsOutput(args?: GetSubnetsOutputArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getSubnets.
  */
 export interface GetSubnetsOutputArgs {
+    /**
+     * Custom filter block as described below.
+     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSubnetsFilterArgs>[]>;
+    /**
+     * Map of tags, each pair of which must exactly match
+     * a pair on the desired subnets.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

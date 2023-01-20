@@ -11,17 +11,91 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS Transcribe Vocabulary.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transcribe"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+//				ForceDestroy: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			object, err := s3.NewBucketObjectv2(ctx, "object", &s3.BucketObjectv2Args{
+//				Bucket: exampleBucketV2.ID(),
+//				Key:    pulumi.String("transcribe/test1.txt"),
+//				Source: pulumi.NewFileAsset("test.txt"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = transcribe.NewVocabulary(ctx, "exampleVocabulary", &transcribe.VocabularyArgs{
+//				VocabularyName: pulumi.String("example"),
+//				LanguageCode:   pulumi.String("en-US"),
+//				VocabularyFileUri: pulumi.All(exampleBucketV2.ID(), object.Key).ApplyT(func(_args []interface{}) (string, error) {
+//					id := _args[0].(string)
+//					key := _args[1].(string)
+//					return fmt.Sprintf("s3://%v/%v", id, key), nil
+//				}).(pulumi.StringOutput),
+//				Tags: pulumi.StringMap{
+//					"tag1": pulumi.String("value1"),
+//					"tag2": pulumi.String("value3"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				object,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Transcribe Vocabulary can be imported using the `vocabulary_name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
+//
+// ```
 type Vocabulary struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput      `pulumi:"arn"`
-	DownloadUri       pulumi.StringOutput      `pulumi:"downloadUri"`
-	LanguageCode      pulumi.StringOutput      `pulumi:"languageCode"`
-	Phrases           pulumi.StringArrayOutput `pulumi:"phrases"`
-	Tags              pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll           pulumi.StringMapOutput   `pulumi:"tagsAll"`
-	VocabularyFileUri pulumi.StringOutput      `pulumi:"vocabularyFileUri"`
-	VocabularyName    pulumi.StringOutput      `pulumi:"vocabularyName"`
+	// ARN of the Vocabulary.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Generated download URI.
+	DownloadUri pulumi.StringOutput `pulumi:"downloadUri"`
+	// The language code you selected for your vocabulary.
+	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
+	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+	Phrases pulumi.StringArrayOutput `pulumi:"phrases"`
+	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+	VocabularyFileUri pulumi.StringOutput `pulumi:"vocabularyFileUri"`
+	// The name of the Vocabulary.
+	VocabularyName pulumi.StringOutput `pulumi:"vocabularyName"`
 }
 
 // NewVocabulary registers a new resource with the given unique name, arguments, and options.
@@ -59,25 +133,39 @@ func GetVocabulary(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Vocabulary resources.
 type vocabularyState struct {
-	Arn               *string           `pulumi:"arn"`
-	DownloadUri       *string           `pulumi:"downloadUri"`
-	LanguageCode      *string           `pulumi:"languageCode"`
-	Phrases           []string          `pulumi:"phrases"`
-	Tags              map[string]string `pulumi:"tags"`
-	TagsAll           map[string]string `pulumi:"tagsAll"`
-	VocabularyFileUri *string           `pulumi:"vocabularyFileUri"`
-	VocabularyName    *string           `pulumi:"vocabularyName"`
+	// ARN of the Vocabulary.
+	Arn *string `pulumi:"arn"`
+	// Generated download URI.
+	DownloadUri *string `pulumi:"downloadUri"`
+	// The language code you selected for your vocabulary.
+	LanguageCode *string `pulumi:"languageCode"`
+	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+	Phrases []string `pulumi:"phrases"`
+	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+	VocabularyFileUri *string `pulumi:"vocabularyFileUri"`
+	// The name of the Vocabulary.
+	VocabularyName *string `pulumi:"vocabularyName"`
 }
 
 type VocabularyState struct {
-	Arn               pulumi.StringPtrInput
-	DownloadUri       pulumi.StringPtrInput
-	LanguageCode      pulumi.StringPtrInput
-	Phrases           pulumi.StringArrayInput
-	Tags              pulumi.StringMapInput
-	TagsAll           pulumi.StringMapInput
+	// ARN of the Vocabulary.
+	Arn pulumi.StringPtrInput
+	// Generated download URI.
+	DownloadUri pulumi.StringPtrInput
+	// The language code you selected for your vocabulary.
+	LanguageCode pulumi.StringPtrInput
+	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+	Phrases pulumi.StringArrayInput
+	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
+	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri pulumi.StringPtrInput
-	VocabularyName    pulumi.StringPtrInput
+	// The name of the Vocabulary.
+	VocabularyName pulumi.StringPtrInput
 }
 
 func (VocabularyState) ElementType() reflect.Type {
@@ -85,20 +173,30 @@ func (VocabularyState) ElementType() reflect.Type {
 }
 
 type vocabularyArgs struct {
-	LanguageCode      string            `pulumi:"languageCode"`
-	Phrases           []string          `pulumi:"phrases"`
-	Tags              map[string]string `pulumi:"tags"`
-	VocabularyFileUri *string           `pulumi:"vocabularyFileUri"`
-	VocabularyName    string            `pulumi:"vocabularyName"`
+	// The language code you selected for your vocabulary.
+	LanguageCode string `pulumi:"languageCode"`
+	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+	Phrases []string `pulumi:"phrases"`
+	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+	VocabularyFileUri *string `pulumi:"vocabularyFileUri"`
+	// The name of the Vocabulary.
+	VocabularyName string `pulumi:"vocabularyName"`
 }
 
 // The set of arguments for constructing a Vocabulary resource.
 type VocabularyArgs struct {
-	LanguageCode      pulumi.StringInput
-	Phrases           pulumi.StringArrayInput
-	Tags              pulumi.StringMapInput
+	// The language code you selected for your vocabulary.
+	LanguageCode pulumi.StringInput
+	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+	Phrases pulumi.StringArrayInput
+	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri pulumi.StringPtrInput
-	VocabularyName    pulumi.StringInput
+	// The name of the Vocabulary.
+	VocabularyName pulumi.StringInput
 }
 
 func (VocabularyArgs) ElementType() reflect.Type {
@@ -188,22 +286,27 @@ func (o VocabularyOutput) ToVocabularyOutputWithContext(ctx context.Context) Voc
 	return o
 }
 
+// ARN of the Vocabulary.
 func (o VocabularyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Generated download URI.
 func (o VocabularyOutput) DownloadUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.DownloadUri }).(pulumi.StringOutput)
 }
 
+// The language code you selected for your vocabulary.
 func (o VocabularyOutput) LanguageCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.LanguageCode }).(pulumi.StringOutput)
 }
 
+// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 func (o VocabularyOutput) Phrases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringArrayOutput { return v.Phrases }).(pulumi.StringArrayOutput)
 }
 
+// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VocabularyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -212,10 +315,12 @@ func (o VocabularyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 func (o VocabularyOutput) VocabularyFileUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.VocabularyFileUri }).(pulumi.StringOutput)
 }
 
+// The name of the Vocabulary.
 func (o VocabularyOutput) VocabularyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.VocabularyName }).(pulumi.StringOutput)
 }

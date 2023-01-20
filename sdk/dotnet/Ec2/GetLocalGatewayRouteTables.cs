@@ -11,9 +11,63 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetLocalGatewayRouteTables
     {
+        /// <summary>
+        /// Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following shows outputing all Local Gateway Route Table Ids.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var fooLocalGatewayRouteTables = Aws.Ec2.GetLocalGatewayRouteTables.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["foo"] = fooLocalGatewayRouteTables.Apply(getLocalGatewayRouteTablesResult =&gt; getLocalGatewayRouteTablesResult.Ids),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetLocalGatewayRouteTablesResult> InvokeAsync(GetLocalGatewayRouteTablesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayRouteTablesResult>("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", args ?? new GetLocalGatewayRouteTablesArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following shows outputing all Local Gateway Route Table Ids.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var fooLocalGatewayRouteTables = Aws.Ec2.GetLocalGatewayRouteTables.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["foo"] = fooLocalGatewayRouteTables.Apply(getLocalGatewayRouteTablesResult =&gt; getLocalGatewayRouteTablesResult.Ids),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetLocalGatewayRouteTablesResult> Invoke(GetLocalGatewayRouteTablesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteTablesResult>("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", args ?? new GetLocalGatewayRouteTablesInvokeArgs(), options.WithDefaults());
     }
@@ -23,6 +77,10 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetLocalGatewayRouteTablesFilterArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
         public List<Inputs.GetLocalGatewayRouteTablesFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetLocalGatewayRouteTablesFilterArgs>());
@@ -31,6 +89,11 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Mapping of tags, each pair of which must exactly match
+        /// a pair on the desired local gateway route table.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -47,6 +110,10 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetLocalGatewayRouteTablesFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
         public InputList<Inputs.GetLocalGatewayRouteTablesFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetLocalGatewayRouteTablesFilterInputArgs>());
@@ -55,6 +122,11 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Mapping of tags, each pair of which must exactly match
+        /// a pair on the desired local gateway route table.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -76,6 +148,9 @@ namespace Pulumi.Aws.Ec2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Set of Local Gateway Route Table identifiers
+        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, string> Tags;
 

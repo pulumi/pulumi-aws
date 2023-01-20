@@ -10,13 +10,35 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEbsVolumesFilter {
+    /**
+     * @return Name of the field to filter by, as defined by
+     * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
+     * For example, if matching against the `size` filter, use:
+     * 
+     */
     private String name;
+    /**
+     * @return Set of values that are accepted for the given field.
+     * EBS Volume IDs will be selected if any one of the given values match.
+     * 
+     */
     private List<String> values;
 
     private GetEbsVolumesFilter() {}
+    /**
+     * @return Name of the field to filter by, as defined by
+     * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
+     * For example, if matching against the `size` filter, use:
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Set of values that are accepted for the given field.
+     * EBS Volume IDs will be selected if any one of the given values match.
+     * 
+     */
     public List<String> values() {
         return this.values;
     }

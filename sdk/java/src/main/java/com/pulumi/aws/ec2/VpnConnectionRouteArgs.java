@@ -13,16 +13,32 @@ public final class VpnConnectionRouteArgs extends com.pulumi.resources.ResourceA
 
     public static final VpnConnectionRouteArgs Empty = new VpnConnectionRouteArgs();
 
+    /**
+     * The CIDR block associated with the local subnet of the customer network.
+     * 
+     */
     @Import(name="destinationCidrBlock", required=true)
     private Output<String> destinationCidrBlock;
 
+    /**
+     * @return The CIDR block associated with the local subnet of the customer network.
+     * 
+     */
     public Output<String> destinationCidrBlock() {
         return this.destinationCidrBlock;
     }
 
+    /**
+     * The ID of the VPN connection.
+     * 
+     */
     @Import(name="vpnConnectionId", required=true)
     private Output<String> vpnConnectionId;
 
+    /**
+     * @return The ID of the VPN connection.
+     * 
+     */
     public Output<String> vpnConnectionId() {
         return this.vpnConnectionId;
     }
@@ -52,20 +68,44 @@ public final class VpnConnectionRouteArgs extends com.pulumi.resources.ResourceA
             $ = new VpnConnectionRouteArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param destinationCidrBlock The CIDR block associated with the local subnet of the customer network.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationCidrBlock(Output<String> destinationCidrBlock) {
             $.destinationCidrBlock = destinationCidrBlock;
             return this;
         }
 
+        /**
+         * @param destinationCidrBlock The CIDR block associated with the local subnet of the customer network.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationCidrBlock(String destinationCidrBlock) {
             return destinationCidrBlock(Output.of(destinationCidrBlock));
         }
 
+        /**
+         * @param vpnConnectionId The ID of the VPN connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpnConnectionId(Output<String> vpnConnectionId) {
             $.vpnConnectionId = vpnConnectionId;
             return this;
         }
 
+        /**
+         * @param vpnConnectionId The ID of the VPN connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpnConnectionId(String vpnConnectionId) {
             return vpnConnectionId(Output.of(vpnConnectionId));
         }

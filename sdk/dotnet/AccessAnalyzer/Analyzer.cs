@@ -9,21 +9,96 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AccessAnalyzer
 {
+    /// <summary>
+    /// Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
+    /// 
+    /// ## Example Usage
+    /// ### Account Analyzer
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.AccessAnalyzer.Analyzer("example", new()
+    ///     {
+    ///         AnalyzerName = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Organization Analyzer
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
+    ///     {
+    ///         AwsServiceAccessPrincipals = new[]
+    ///         {
+    ///             "access-analyzer.amazonaws.com",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAnalyzer = new Aws.AccessAnalyzer.Analyzer("exampleAnalyzer", new()
+    ///     {
+    ///         AnalyzerName = "example",
+    ///         Type = "ORGANIZATION",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleOrganization,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:accessanalyzer/analyzer:Analyzer")]
     public partial class Analyzer : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Name of the Analyzer.
+        /// </summary>
         [Output("analyzerName")]
         public Output<string> AnalyzerName { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN of the Analyzer.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
@@ -73,17 +148,27 @@ namespace Pulumi.Aws.AccessAnalyzer
 
     public sealed class AnalyzerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the Analyzer.
+        /// </summary>
         [Input("analyzerName", required: true)]
         public Input<string> AnalyzerName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -95,14 +180,24 @@ namespace Pulumi.Aws.AccessAnalyzer
 
     public sealed class AnalyzerState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the Analyzer.
+        /// </summary>
         [Input("analyzerName")]
         public Input<string>? AnalyzerName { get; set; }
 
+        /// <summary>
+        /// ARN of the Analyzer.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -111,12 +206,19 @@ namespace Pulumi.Aws.AccessAnalyzer
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

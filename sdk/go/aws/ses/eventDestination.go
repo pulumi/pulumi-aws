@@ -11,17 +11,142 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an SES event destination
+//
+// ## Example Usage
+// ### CloudWatch Destination
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewEventDestination(ctx, "cloudwatch", &ses.EventDestinationArgs{
+//				ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
+//				Enabled:              pulumi.Bool(true),
+//				MatchingTypes: pulumi.StringArray{
+//					pulumi.String("bounce"),
+//					pulumi.String("send"),
+//				},
+//				CloudwatchDestinations: ses.EventDestinationCloudwatchDestinationArray{
+//					&ses.EventDestinationCloudwatchDestinationArgs{
+//						DefaultValue:  pulumi.String("default"),
+//						DimensionName: pulumi.String("dimension"),
+//						ValueSource:   pulumi.String("emailHeader"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Kinesis Destination
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewEventDestination(ctx, "kinesis", &ses.EventDestinationArgs{
+//				ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
+//				Enabled:              pulumi.Bool(true),
+//				MatchingTypes: pulumi.StringArray{
+//					pulumi.String("bounce"),
+//					pulumi.String("send"),
+//				},
+//				KinesisDestination: &ses.EventDestinationKinesisDestinationArgs{
+//					StreamArn: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
+//					RoleArn:   pulumi.Any(aws_iam_role.Example.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### SNS Destination
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewEventDestination(ctx, "sns", &ses.EventDestinationArgs{
+//				ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
+//				Enabled:              pulumi.Bool(true),
+//				MatchingTypes: pulumi.StringArray{
+//					pulumi.String("bounce"),
+//					pulumi.String("send"),
+//				},
+//				SnsDestination: &ses.EventDestinationSnsDestinationArgs{
+//					TopicArn: pulumi.Any(aws_sns_topic.Example.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// SES event destinations can be imported using `configuration_set_name` together with the event destination's `name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
+//
+// ```
 type EventDestination struct {
 	pulumi.CustomResourceState
 
-	Arn                    pulumi.StringOutput                              `pulumi:"arn"`
+	// The SES event destination ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// CloudWatch destination for the events
 	CloudwatchDestinations EventDestinationCloudwatchDestinationArrayOutput `pulumi:"cloudwatchDestinations"`
-	ConfigurationSetName   pulumi.StringOutput                              `pulumi:"configurationSetName"`
-	Enabled                pulumi.BoolPtrOutput                             `pulumi:"enabled"`
-	KinesisDestination     EventDestinationKinesisDestinationPtrOutput      `pulumi:"kinesisDestination"`
-	MatchingTypes          pulumi.StringArrayOutput                         `pulumi:"matchingTypes"`
-	Name                   pulumi.StringOutput                              `pulumi:"name"`
-	SnsDestination         EventDestinationSnsDestinationPtrOutput          `pulumi:"snsDestination"`
+	// The name of the configuration set
+	ConfigurationSetName pulumi.StringOutput `pulumi:"configurationSetName"`
+	// If true, the event destination will be enabled
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Send the events to a kinesis firehose destination
+	KinesisDestination EventDestinationKinesisDestinationPtrOutput `pulumi:"kinesisDestination"`
+	// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
+	MatchingTypes pulumi.StringArrayOutput `pulumi:"matchingTypes"`
+	// The name of the event destination
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Send the events to an SNS Topic destination
+	SnsDestination EventDestinationSnsDestinationPtrOutput `pulumi:"snsDestination"`
 }
 
 // NewEventDestination registers a new resource with the given unique name, arguments, and options.
@@ -59,25 +184,41 @@ func GetEventDestination(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventDestination resources.
 type eventDestinationState struct {
-	Arn                    *string                                 `pulumi:"arn"`
+	// The SES event destination ARN.
+	Arn *string `pulumi:"arn"`
+	// CloudWatch destination for the events
 	CloudwatchDestinations []EventDestinationCloudwatchDestination `pulumi:"cloudwatchDestinations"`
-	ConfigurationSetName   *string                                 `pulumi:"configurationSetName"`
-	Enabled                *bool                                   `pulumi:"enabled"`
-	KinesisDestination     *EventDestinationKinesisDestination     `pulumi:"kinesisDestination"`
-	MatchingTypes          []string                                `pulumi:"matchingTypes"`
-	Name                   *string                                 `pulumi:"name"`
-	SnsDestination         *EventDestinationSnsDestination         `pulumi:"snsDestination"`
+	// The name of the configuration set
+	ConfigurationSetName *string `pulumi:"configurationSetName"`
+	// If true, the event destination will be enabled
+	Enabled *bool `pulumi:"enabled"`
+	// Send the events to a kinesis firehose destination
+	KinesisDestination *EventDestinationKinesisDestination `pulumi:"kinesisDestination"`
+	// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
+	MatchingTypes []string `pulumi:"matchingTypes"`
+	// The name of the event destination
+	Name *string `pulumi:"name"`
+	// Send the events to an SNS Topic destination
+	SnsDestination *EventDestinationSnsDestination `pulumi:"snsDestination"`
 }
 
 type EventDestinationState struct {
-	Arn                    pulumi.StringPtrInput
+	// The SES event destination ARN.
+	Arn pulumi.StringPtrInput
+	// CloudWatch destination for the events
 	CloudwatchDestinations EventDestinationCloudwatchDestinationArrayInput
-	ConfigurationSetName   pulumi.StringPtrInput
-	Enabled                pulumi.BoolPtrInput
-	KinesisDestination     EventDestinationKinesisDestinationPtrInput
-	MatchingTypes          pulumi.StringArrayInput
-	Name                   pulumi.StringPtrInput
-	SnsDestination         EventDestinationSnsDestinationPtrInput
+	// The name of the configuration set
+	ConfigurationSetName pulumi.StringPtrInput
+	// If true, the event destination will be enabled
+	Enabled pulumi.BoolPtrInput
+	// Send the events to a kinesis firehose destination
+	KinesisDestination EventDestinationKinesisDestinationPtrInput
+	// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
+	MatchingTypes pulumi.StringArrayInput
+	// The name of the event destination
+	Name pulumi.StringPtrInput
+	// Send the events to an SNS Topic destination
+	SnsDestination EventDestinationSnsDestinationPtrInput
 }
 
 func (EventDestinationState) ElementType() reflect.Type {
@@ -85,24 +226,38 @@ func (EventDestinationState) ElementType() reflect.Type {
 }
 
 type eventDestinationArgs struct {
+	// CloudWatch destination for the events
 	CloudwatchDestinations []EventDestinationCloudwatchDestination `pulumi:"cloudwatchDestinations"`
-	ConfigurationSetName   string                                  `pulumi:"configurationSetName"`
-	Enabled                *bool                                   `pulumi:"enabled"`
-	KinesisDestination     *EventDestinationKinesisDestination     `pulumi:"kinesisDestination"`
-	MatchingTypes          []string                                `pulumi:"matchingTypes"`
-	Name                   *string                                 `pulumi:"name"`
-	SnsDestination         *EventDestinationSnsDestination         `pulumi:"snsDestination"`
+	// The name of the configuration set
+	ConfigurationSetName string `pulumi:"configurationSetName"`
+	// If true, the event destination will be enabled
+	Enabled *bool `pulumi:"enabled"`
+	// Send the events to a kinesis firehose destination
+	KinesisDestination *EventDestinationKinesisDestination `pulumi:"kinesisDestination"`
+	// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
+	MatchingTypes []string `pulumi:"matchingTypes"`
+	// The name of the event destination
+	Name *string `pulumi:"name"`
+	// Send the events to an SNS Topic destination
+	SnsDestination *EventDestinationSnsDestination `pulumi:"snsDestination"`
 }
 
 // The set of arguments for constructing a EventDestination resource.
 type EventDestinationArgs struct {
+	// CloudWatch destination for the events
 	CloudwatchDestinations EventDestinationCloudwatchDestinationArrayInput
-	ConfigurationSetName   pulumi.StringInput
-	Enabled                pulumi.BoolPtrInput
-	KinesisDestination     EventDestinationKinesisDestinationPtrInput
-	MatchingTypes          pulumi.StringArrayInput
-	Name                   pulumi.StringPtrInput
-	SnsDestination         EventDestinationSnsDestinationPtrInput
+	// The name of the configuration set
+	ConfigurationSetName pulumi.StringInput
+	// If true, the event destination will be enabled
+	Enabled pulumi.BoolPtrInput
+	// Send the events to a kinesis firehose destination
+	KinesisDestination EventDestinationKinesisDestinationPtrInput
+	// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
+	MatchingTypes pulumi.StringArrayInput
+	// The name of the event destination
+	Name pulumi.StringPtrInput
+	// Send the events to an SNS Topic destination
+	SnsDestination EventDestinationSnsDestinationPtrInput
 }
 
 func (EventDestinationArgs) ElementType() reflect.Type {
@@ -192,36 +347,44 @@ func (o EventDestinationOutput) ToEventDestinationOutputWithContext(ctx context.
 	return o
 }
 
+// The SES event destination ARN.
 func (o EventDestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventDestination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// CloudWatch destination for the events
 func (o EventDestinationOutput) CloudwatchDestinations() EventDestinationCloudwatchDestinationArrayOutput {
 	return o.ApplyT(func(v *EventDestination) EventDestinationCloudwatchDestinationArrayOutput {
 		return v.CloudwatchDestinations
 	}).(EventDestinationCloudwatchDestinationArrayOutput)
 }
 
+// The name of the configuration set
 func (o EventDestinationOutput) ConfigurationSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventDestination) pulumi.StringOutput { return v.ConfigurationSetName }).(pulumi.StringOutput)
 }
 
+// If true, the event destination will be enabled
 func (o EventDestinationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventDestination) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Send the events to a kinesis firehose destination
 func (o EventDestinationOutput) KinesisDestination() EventDestinationKinesisDestinationPtrOutput {
 	return o.ApplyT(func(v *EventDestination) EventDestinationKinesisDestinationPtrOutput { return v.KinesisDestination }).(EventDestinationKinesisDestinationPtrOutput)
 }
 
+// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
 func (o EventDestinationOutput) MatchingTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventDestination) pulumi.StringArrayOutput { return v.MatchingTypes }).(pulumi.StringArrayOutput)
 }
 
+// The name of the event destination
 func (o EventDestinationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventDestination) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Send the events to an SNS Topic destination
 func (o EventDestinationOutput) SnsDestination() EventDestinationSnsDestinationPtrOutput {
 	return o.ApplyT(func(v *EventDestination) EventDestinationSnsDestinationPtrOutput { return v.SnsDestination }).(EventDestinationSnsDestinationPtrOutput)
 }

@@ -12,29 +12,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination {
+    /**
+     * @return The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+     * 
+     */
     private String accountId;
+    /**
+     * @return The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+     * 
+     */
     private String arn;
+    /**
+     * @return Encryption of the metrics exports in this bucket. See Encryption below for more details.
+     * 
+     */
     private @Nullable StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption encryption;
+    /**
+     * @return The export format. Valid values: `CSV`, `Parquet`.
+     * 
+     */
     private String format;
+    /**
+     * @return The schema version of the export file. Valid values: `V_1`.
+     * 
+     */
     private String outputSchemaVersion;
+    /**
+     * @return The prefix of the destination bucket where the metrics export will be delivered.
+     * 
+     */
     private @Nullable String prefix;
 
     private StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination() {}
+    /**
+     * @return The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+     * 
+     */
     public String accountId() {
         return this.accountId;
     }
+    /**
+     * @return The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Encryption of the metrics exports in this bucket. See Encryption below for more details.
+     * 
+     */
     public Optional<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption> encryption() {
         return Optional.ofNullable(this.encryption);
     }
+    /**
+     * @return The export format. Valid values: `CSV`, `Parquet`.
+     * 
+     */
     public String format() {
         return this.format;
     }
+    /**
+     * @return The schema version of the export file. Valid values: `V_1`.
+     * 
+     */
     public String outputSchemaVersion() {
         return this.outputSchemaVersion;
     }
+    /**
+     * @return The prefix of the destination bucket where the metrics export will be delivered.
+     * 
+     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

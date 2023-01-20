@@ -11,17 +11,117 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Batch Job Queue resource.
+//
+// ## Example Usage
+// ### Basic Job Queue
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := batch.NewJobQueue(ctx, "testQueue", &batch.JobQueueArgs{
+//				State:    pulumi.String("ENABLED"),
+//				Priority: pulumi.Int(1),
+//				ComputeEnvironments: pulumi.StringArray{
+//					aws_batch_compute_environment.Test_environment_1.Arn,
+//					aws_batch_compute_environment.Test_environment_2.Arn,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Job Queue with a fair share scheduling policy
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleSchedulingPolicy, err := batch.NewSchedulingPolicy(ctx, "exampleSchedulingPolicy", &batch.SchedulingPolicyArgs{
+//				FairSharePolicy: &batch.SchedulingPolicyFairSharePolicyArgs{
+//					ComputeReservation: pulumi.Int(1),
+//					ShareDecaySeconds:  pulumi.Int(3600),
+//					ShareDistributions: batch.SchedulingPolicyFairSharePolicyShareDistributionArray{
+//						&batch.SchedulingPolicyFairSharePolicyShareDistributionArgs{
+//							ShareIdentifier: pulumi.String("A1*"),
+//							WeightFactor:    pulumi.Float64(0.1),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = batch.NewJobQueue(ctx, "exampleJobQueue", &batch.JobQueueArgs{
+//				SchedulingPolicyArn: exampleSchedulingPolicy.Arn,
+//				State:               pulumi.String("ENABLED"),
+//				Priority:            pulumi.Int(1),
+//				ComputeEnvironments: pulumi.StringArray{
+//					aws_batch_compute_environment.Test_environment_1.Arn,
+//					aws_batch_compute_environment.Test_environment_2.Arn,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Batch Job Queue can be imported using the `arn`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
+//
+// ```
 type JobQueue struct {
 	pulumi.CustomResourceState
 
-	Arn                 pulumi.StringOutput      `pulumi:"arn"`
+	// The Amazon Resource Name of the job queue.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Specifies the set of compute environments
+	// mapped to a job queue and their order.  The position of the compute environments
+	// in the list will dictate the order.
 	ComputeEnvironments pulumi.StringArrayOutput `pulumi:"computeEnvironments"`
-	Name                pulumi.StringOutput      `pulumi:"name"`
-	Priority            pulumi.IntOutput         `pulumi:"priority"`
-	SchedulingPolicyArn pulumi.StringPtrOutput   `pulumi:"schedulingPolicyArn"`
-	State               pulumi.StringOutput      `pulumi:"state"`
-	Tags                pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll             pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	// Specifies the name of the job queue.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The priority of the job queue. Job queues with a higher priority
+	// are evaluated first when associated with the same compute environment.
+	Priority pulumi.IntOutput `pulumi:"priority"`
+	// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+	SchedulingPolicyArn pulumi.StringPtrOutput `pulumi:"schedulingPolicyArn"`
+	// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+	State pulumi.StringOutput `pulumi:"state"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewJobQueue registers a new resource with the given unique name, arguments, and options.
@@ -62,25 +162,47 @@ func GetJobQueue(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering JobQueue resources.
 type jobQueueState struct {
-	Arn                 *string           `pulumi:"arn"`
-	ComputeEnvironments []string          `pulumi:"computeEnvironments"`
-	Name                *string           `pulumi:"name"`
-	Priority            *int              `pulumi:"priority"`
-	SchedulingPolicyArn *string           `pulumi:"schedulingPolicyArn"`
-	State               *string           `pulumi:"state"`
-	Tags                map[string]string `pulumi:"tags"`
-	TagsAll             map[string]string `pulumi:"tagsAll"`
+	// The Amazon Resource Name of the job queue.
+	Arn *string `pulumi:"arn"`
+	// Specifies the set of compute environments
+	// mapped to a job queue and their order.  The position of the compute environments
+	// in the list will dictate the order.
+	ComputeEnvironments []string `pulumi:"computeEnvironments"`
+	// Specifies the name of the job queue.
+	Name *string `pulumi:"name"`
+	// The priority of the job queue. Job queues with a higher priority
+	// are evaluated first when associated with the same compute environment.
+	Priority *int `pulumi:"priority"`
+	// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+	SchedulingPolicyArn *string `pulumi:"schedulingPolicyArn"`
+	// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+	State *string `pulumi:"state"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type JobQueueState struct {
-	Arn                 pulumi.StringPtrInput
+	// The Amazon Resource Name of the job queue.
+	Arn pulumi.StringPtrInput
+	// Specifies the set of compute environments
+	// mapped to a job queue and their order.  The position of the compute environments
+	// in the list will dictate the order.
 	ComputeEnvironments pulumi.StringArrayInput
-	Name                pulumi.StringPtrInput
-	Priority            pulumi.IntPtrInput
+	// Specifies the name of the job queue.
+	Name pulumi.StringPtrInput
+	// The priority of the job queue. Job queues with a higher priority
+	// are evaluated first when associated with the same compute environment.
+	Priority pulumi.IntPtrInput
+	// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
 	SchedulingPolicyArn pulumi.StringPtrInput
-	State               pulumi.StringPtrInput
-	Tags                pulumi.StringMapInput
-	TagsAll             pulumi.StringMapInput
+	// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+	State pulumi.StringPtrInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (JobQueueState) ElementType() reflect.Type {
@@ -88,22 +210,40 @@ func (JobQueueState) ElementType() reflect.Type {
 }
 
 type jobQueueArgs struct {
-	ComputeEnvironments []string          `pulumi:"computeEnvironments"`
-	Name                *string           `pulumi:"name"`
-	Priority            int               `pulumi:"priority"`
-	SchedulingPolicyArn *string           `pulumi:"schedulingPolicyArn"`
-	State               string            `pulumi:"state"`
-	Tags                map[string]string `pulumi:"tags"`
+	// Specifies the set of compute environments
+	// mapped to a job queue and their order.  The position of the compute environments
+	// in the list will dictate the order.
+	ComputeEnvironments []string `pulumi:"computeEnvironments"`
+	// Specifies the name of the job queue.
+	Name *string `pulumi:"name"`
+	// The priority of the job queue. Job queues with a higher priority
+	// are evaluated first when associated with the same compute environment.
+	Priority int `pulumi:"priority"`
+	// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+	SchedulingPolicyArn *string `pulumi:"schedulingPolicyArn"`
+	// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+	State string `pulumi:"state"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a JobQueue resource.
 type JobQueueArgs struct {
+	// Specifies the set of compute environments
+	// mapped to a job queue and their order.  The position of the compute environments
+	// in the list will dictate the order.
 	ComputeEnvironments pulumi.StringArrayInput
-	Name                pulumi.StringPtrInput
-	Priority            pulumi.IntInput
+	// Specifies the name of the job queue.
+	Name pulumi.StringPtrInput
+	// The priority of the job queue. Job queues with a higher priority
+	// are evaluated first when associated with the same compute environment.
+	Priority pulumi.IntInput
+	// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
 	SchedulingPolicyArn pulumi.StringPtrInput
-	State               pulumi.StringInput
-	Tags                pulumi.StringMapInput
+	// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+	State pulumi.StringInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (JobQueueArgs) ElementType() reflect.Type {
@@ -193,34 +333,45 @@ func (o JobQueueOutput) ToJobQueueOutputWithContext(ctx context.Context) JobQueu
 	return o
 }
 
+// The Amazon Resource Name of the job queue.
 func (o JobQueueOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Specifies the set of compute environments
+// mapped to a job queue and their order.  The position of the compute environments
+// in the list will dictate the order.
 func (o JobQueueOutput) ComputeEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringArrayOutput { return v.ComputeEnvironments }).(pulumi.StringArrayOutput)
 }
 
+// Specifies the name of the job queue.
 func (o JobQueueOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The priority of the job queue. Job queues with a higher priority
+// are evaluated first when associated with the same compute environment.
 func (o JobQueueOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
+// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
 func (o JobQueueOutput) SchedulingPolicyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringPtrOutput { return v.SchedulingPolicyArn }).(pulumi.StringPtrOutput)
 }
 
+// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
 func (o JobQueueOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o JobQueueOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o JobQueueOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

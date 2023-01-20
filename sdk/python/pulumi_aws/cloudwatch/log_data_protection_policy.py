@@ -18,6 +18,8 @@ class LogDataProtectionPolicyArgs:
                  policy_document: pulumi.Input[str]):
         """
         The set of arguments for constructing a LogDataProtectionPolicy resource.
+        :param pulumi.Input[str] log_group_name: The name of the log group under which the log stream is to be created.
+        :param pulumi.Input[str] policy_document: Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
         """
         pulumi.set(__self__, "log_group_name", log_group_name)
         pulumi.set(__self__, "policy_document", policy_document)
@@ -25,6 +27,9 @@ class LogDataProtectionPolicyArgs:
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the log group under which the log stream is to be created.
+        """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
@@ -34,6 +39,9 @@ class LogDataProtectionPolicyArgs:
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Input[str]:
+        """
+        Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
+        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -48,6 +56,8 @@ class _LogDataProtectionPolicyState:
                  policy_document: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LogDataProtectionPolicy resources.
+        :param pulumi.Input[str] log_group_name: The name of the log group under which the log stream is to be created.
+        :param pulumi.Input[str] policy_document: Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
         """
         if log_group_name is not None:
             pulumi.set(__self__, "log_group_name", log_group_name)
@@ -57,6 +67,9 @@ class _LogDataProtectionPolicyState:
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the log group under which the log stream is to be created.
+        """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
@@ -66,6 +79,9 @@ class _LogDataProtectionPolicyState:
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
+        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -82,9 +98,63 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
                  policy_document: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a LogDataProtectionPolicy resource with the given unique name, props, and options.
+        Provides a CloudWatch Log Data Protection Policy resource.
+
+        Read more about protecting sensitive user data in the [User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
+        example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy",
+            log_group_name=example_log_group.name,
+            policy_document=example_bucket_v2.bucket.apply(lambda bucket: json.dumps({
+                "Name": "Example",
+                "Version": "2021-06-01",
+                "Statement": [
+                    {
+                        "Sid": "Audit",
+                        "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
+                        "Operation": {
+                            "Audit": {
+                                "FindingsDestination": {
+                                    "S3": {
+                                        "Bucket": bucket,
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    {
+                        "Sid": "Redact",
+                        "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
+                        "Operation": {
+                            "Deidentify": {
+                                "MaskConfig": {},
+                            },
+                        },
+                    },
+                ],
+            })))
+        ```
+
+        ## Import
+
+        This resource can be imported using the `log_group_name`. For example
+
+        ```sh
+         $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] log_group_name: The name of the log group under which the log stream is to be created.
+        :param pulumi.Input[str] policy_document: Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
         """
         ...
     @overload
@@ -93,7 +163,59 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
                  args: LogDataProtectionPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a LogDataProtectionPolicy resource with the given unique name, props, and options.
+        Provides a CloudWatch Log Data Protection Policy resource.
+
+        Read more about protecting sensitive user data in the [User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
+        example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy",
+            log_group_name=example_log_group.name,
+            policy_document=example_bucket_v2.bucket.apply(lambda bucket: json.dumps({
+                "Name": "Example",
+                "Version": "2021-06-01",
+                "Statement": [
+                    {
+                        "Sid": "Audit",
+                        "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
+                        "Operation": {
+                            "Audit": {
+                                "FindingsDestination": {
+                                    "S3": {
+                                        "Bucket": bucket,
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    {
+                        "Sid": "Redact",
+                        "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
+                        "Operation": {
+                            "Deidentify": {
+                                "MaskConfig": {},
+                            },
+                        },
+                    },
+                ],
+            })))
+        ```
+
+        ## Import
+
+        This resource can be imported using the `log_group_name`. For example
+
+        ```sh
+         $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
+        ```
+
         :param str resource_name: The name of the resource.
         :param LogDataProtectionPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +267,8 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] log_group_name: The name of the log group under which the log stream is to be created.
+        :param pulumi.Input[str] policy_document: Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +281,16 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Output[str]:
+        """
+        The name of the log group under which the log stream is to be created.
+        """
         return pulumi.get(self, "log_group_name")
 
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[str]:
+        """
+        Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
+        """
         return pulumi.get(self, "policy_document")
 

@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Retrieve information about a Direct Connect Connection.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.directconnect.getConnection({
+ *     name: "tf-dx-connection",
+ * });
+ * ```
+ */
 export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,7 +31,13 @@ export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getConnection.
  */
 export interface GetConnectionArgs {
+    /**
+     * Name of the connection to retrieve.
+     */
     name: string;
+    /**
+     * Map of tags for the resource.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -25,20 +45,58 @@ export interface GetConnectionArgs {
  * A collection of values returned by getConnection.
  */
 export interface GetConnectionResult {
+    /**
+     * ARN of the connection.
+     */
     readonly arn: string;
+    /**
+     * Direct Connect endpoint on which the physical connection terminates.
+     */
     readonly awsDevice: string;
+    /**
+     * Bandwidth of the connection.
+     */
     readonly bandwidth: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * AWS Direct Connect location where the connection is located.
+     */
     readonly location: string;
     readonly name: string;
+    /**
+     * ID of the AWS account that owns the connection.
+     */
     readonly ownerAccountId: string;
+    /**
+     * Name of the service provider associated with the connection.
+     */
     readonly providerName: string;
+    /**
+     * Map of tags for the resource.
+     */
     readonly tags: {[key: string]: string};
+    /**
+     * The VLAN ID.
+     */
     readonly vlanId: string;
 }
+/**
+ * Retrieve information about a Direct Connect Connection.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.directconnect.getConnection({
+ *     name: "tf-dx-connection",
+ * });
+ * ```
+ */
 export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
     return pulumi.output(args).apply((a: any) => getConnection(a, opts))
 }
@@ -47,6 +105,12 @@ export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getConnection.
  */
 export interface GetConnectionOutputArgs {
+    /**
+     * Name of the connection to retrieve.
+     */
     name: pulumi.Input<string>;
+    /**
+     * Map of tags for the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

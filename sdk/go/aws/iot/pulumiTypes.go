@@ -11,9 +11,12 @@ import (
 )
 
 type IndexingConfigurationThingGroupIndexingConfiguration struct {
-	CustomFields           []IndexingConfigurationThingGroupIndexingConfigurationCustomField  `pulumi:"customFields"`
-	ManagedFields          []IndexingConfigurationThingGroupIndexingConfigurationManagedField `pulumi:"managedFields"`
-	ThingGroupIndexingMode string                                                             `pulumi:"thingGroupIndexingMode"`
+	// A list of thing group fields to index. This list cannot contain any managed fields. See below.
+	CustomFields []IndexingConfigurationThingGroupIndexingConfigurationCustomField `pulumi:"customFields"`
+	// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+	ManagedFields []IndexingConfigurationThingGroupIndexingConfigurationManagedField `pulumi:"managedFields"`
+	// Thing group indexing mode. Valid values: `OFF`, `ON`.
+	ThingGroupIndexingMode string `pulumi:"thingGroupIndexingMode"`
 }
 
 // IndexingConfigurationThingGroupIndexingConfigurationInput is an input type that accepts IndexingConfigurationThingGroupIndexingConfigurationArgs and IndexingConfigurationThingGroupIndexingConfigurationOutput values.
@@ -28,9 +31,12 @@ type IndexingConfigurationThingGroupIndexingConfigurationInput interface {
 }
 
 type IndexingConfigurationThingGroupIndexingConfigurationArgs struct {
-	CustomFields           IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayInput  `pulumi:"customFields"`
-	ManagedFields          IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayInput `pulumi:"managedFields"`
-	ThingGroupIndexingMode pulumi.StringInput                                                         `pulumi:"thingGroupIndexingMode"`
+	// A list of thing group fields to index. This list cannot contain any managed fields. See below.
+	CustomFields IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayInput `pulumi:"customFields"`
+	// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+	ManagedFields IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayInput `pulumi:"managedFields"`
+	// Thing group indexing mode. Valid values: `OFF`, `ON`.
+	ThingGroupIndexingMode pulumi.StringInput `pulumi:"thingGroupIndexingMode"`
 }
 
 func (IndexingConfigurationThingGroupIndexingConfigurationArgs) ElementType() reflect.Type {
@@ -110,18 +116,21 @@ func (o IndexingConfigurationThingGroupIndexingConfigurationOutput) ToIndexingCo
 	}).(IndexingConfigurationThingGroupIndexingConfigurationPtrOutput)
 }
 
+// A list of thing group fields to index. This list cannot contain any managed fields. See below.
 func (o IndexingConfigurationThingGroupIndexingConfigurationOutput) CustomFields() IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput {
 	return o.ApplyT(func(v IndexingConfigurationThingGroupIndexingConfiguration) []IndexingConfigurationThingGroupIndexingConfigurationCustomField {
 		return v.CustomFields
 	}).(IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput)
 }
 
+// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
 func (o IndexingConfigurationThingGroupIndexingConfigurationOutput) ManagedFields() IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput {
 	return o.ApplyT(func(v IndexingConfigurationThingGroupIndexingConfiguration) []IndexingConfigurationThingGroupIndexingConfigurationManagedField {
 		return v.ManagedFields
 	}).(IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput)
 }
 
+// Thing group indexing mode. Valid values: `OFF`, `ON`.
 func (o IndexingConfigurationThingGroupIndexingConfigurationOutput) ThingGroupIndexingMode() pulumi.StringOutput {
 	return o.ApplyT(func(v IndexingConfigurationThingGroupIndexingConfiguration) string { return v.ThingGroupIndexingMode }).(pulumi.StringOutput)
 }
@@ -150,6 +159,7 @@ func (o IndexingConfigurationThingGroupIndexingConfigurationPtrOutput) Elem() In
 	}).(IndexingConfigurationThingGroupIndexingConfigurationOutput)
 }
 
+// A list of thing group fields to index. This list cannot contain any managed fields. See below.
 func (o IndexingConfigurationThingGroupIndexingConfigurationPtrOutput) CustomFields() IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput {
 	return o.ApplyT(func(v *IndexingConfigurationThingGroupIndexingConfiguration) []IndexingConfigurationThingGroupIndexingConfigurationCustomField {
 		if v == nil {
@@ -159,6 +169,7 @@ func (o IndexingConfigurationThingGroupIndexingConfigurationPtrOutput) CustomFie
 	}).(IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput)
 }
 
+// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
 func (o IndexingConfigurationThingGroupIndexingConfigurationPtrOutput) ManagedFields() IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput {
 	return o.ApplyT(func(v *IndexingConfigurationThingGroupIndexingConfiguration) []IndexingConfigurationThingGroupIndexingConfigurationManagedField {
 		if v == nil {
@@ -168,6 +179,7 @@ func (o IndexingConfigurationThingGroupIndexingConfigurationPtrOutput) ManagedFi
 	}).(IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput)
 }
 
+// Thing group indexing mode. Valid values: `OFF`, `ON`.
 func (o IndexingConfigurationThingGroupIndexingConfigurationPtrOutput) ThingGroupIndexingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexingConfigurationThingGroupIndexingConfiguration) *string {
 		if v == nil {
@@ -178,7 +190,9 @@ func (o IndexingConfigurationThingGroupIndexingConfigurationPtrOutput) ThingGrou
 }
 
 type IndexingConfigurationThingGroupIndexingConfigurationCustomField struct {
+	// The name of the field.
 	Name *string `pulumi:"name"`
+	// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
 	Type *string `pulumi:"type"`
 }
 
@@ -194,7 +208,9 @@ type IndexingConfigurationThingGroupIndexingConfigurationCustomFieldInput interf
 }
 
 type IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs struct {
+	// The name of the field.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -249,10 +265,12 @@ func (o IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput) T
 	return o
 }
 
+// The name of the field.
 func (o IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexingConfigurationThingGroupIndexingConfigurationCustomField) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
 func (o IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexingConfigurationThingGroupIndexingConfigurationCustomField) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -278,7 +296,9 @@ func (o IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutp
 }
 
 type IndexingConfigurationThingGroupIndexingConfigurationManagedField struct {
+	// The name of the field.
 	Name *string `pulumi:"name"`
+	// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
 	Type *string `pulumi:"type"`
 }
 
@@ -294,7 +314,9 @@ type IndexingConfigurationThingGroupIndexingConfigurationManagedFieldInput inter
 }
 
 type IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs struct {
+	// The name of the field.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -349,10 +371,12 @@ func (o IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput) 
 	return o
 }
 
+// The name of the field.
 func (o IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexingConfigurationThingGroupIndexingConfigurationManagedField) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
 func (o IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexingConfigurationThingGroupIndexingConfigurationManagedField) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -378,12 +402,18 @@ func (o IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOut
 }
 
 type IndexingConfigurationThingIndexingConfiguration struct {
-	CustomFields                  []IndexingConfigurationThingIndexingConfigurationCustomField  `pulumi:"customFields"`
-	DeviceDefenderIndexingMode    *string                                                       `pulumi:"deviceDefenderIndexingMode"`
-	ManagedFields                 []IndexingConfigurationThingIndexingConfigurationManagedField `pulumi:"managedFields"`
-	NamedShadowIndexingMode       *string                                                       `pulumi:"namedShadowIndexingMode"`
-	ThingConnectivityIndexingMode *string                                                       `pulumi:"thingConnectivityIndexingMode"`
-	ThingIndexingMode             string                                                        `pulumi:"thingIndexingMode"`
+	// Contains custom field names and their data type. See below.
+	CustomFields []IndexingConfigurationThingIndexingConfigurationCustomField `pulumi:"customFields"`
+	// Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
+	DeviceDefenderIndexingMode *string `pulumi:"deviceDefenderIndexingMode"`
+	// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+	ManagedFields []IndexingConfigurationThingIndexingConfigurationManagedField `pulumi:"managedFields"`
+	// [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
+	NamedShadowIndexingMode *string `pulumi:"namedShadowIndexingMode"`
+	// Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
+	ThingConnectivityIndexingMode *string `pulumi:"thingConnectivityIndexingMode"`
+	// Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
+	ThingIndexingMode string `pulumi:"thingIndexingMode"`
 }
 
 // IndexingConfigurationThingIndexingConfigurationInput is an input type that accepts IndexingConfigurationThingIndexingConfigurationArgs and IndexingConfigurationThingIndexingConfigurationOutput values.
@@ -398,12 +428,18 @@ type IndexingConfigurationThingIndexingConfigurationInput interface {
 }
 
 type IndexingConfigurationThingIndexingConfigurationArgs struct {
-	CustomFields                  IndexingConfigurationThingIndexingConfigurationCustomFieldArrayInput  `pulumi:"customFields"`
-	DeviceDefenderIndexingMode    pulumi.StringPtrInput                                                 `pulumi:"deviceDefenderIndexingMode"`
-	ManagedFields                 IndexingConfigurationThingIndexingConfigurationManagedFieldArrayInput `pulumi:"managedFields"`
-	NamedShadowIndexingMode       pulumi.StringPtrInput                                                 `pulumi:"namedShadowIndexingMode"`
-	ThingConnectivityIndexingMode pulumi.StringPtrInput                                                 `pulumi:"thingConnectivityIndexingMode"`
-	ThingIndexingMode             pulumi.StringInput                                                    `pulumi:"thingIndexingMode"`
+	// Contains custom field names and their data type. See below.
+	CustomFields IndexingConfigurationThingIndexingConfigurationCustomFieldArrayInput `pulumi:"customFields"`
+	// Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
+	DeviceDefenderIndexingMode pulumi.StringPtrInput `pulumi:"deviceDefenderIndexingMode"`
+	// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+	ManagedFields IndexingConfigurationThingIndexingConfigurationManagedFieldArrayInput `pulumi:"managedFields"`
+	// [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
+	NamedShadowIndexingMode pulumi.StringPtrInput `pulumi:"namedShadowIndexingMode"`
+	// Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
+	ThingConnectivityIndexingMode pulumi.StringPtrInput `pulumi:"thingConnectivityIndexingMode"`
+	// Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
+	ThingIndexingMode pulumi.StringInput `pulumi:"thingIndexingMode"`
 }
 
 func (IndexingConfigurationThingIndexingConfigurationArgs) ElementType() reflect.Type {
@@ -483,32 +519,38 @@ func (o IndexingConfigurationThingIndexingConfigurationOutput) ToIndexingConfigu
 	}).(IndexingConfigurationThingIndexingConfigurationPtrOutput)
 }
 
+// Contains custom field names and their data type. See below.
 func (o IndexingConfigurationThingIndexingConfigurationOutput) CustomFields() IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput {
 	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfiguration) []IndexingConfigurationThingIndexingConfigurationCustomField {
 		return v.CustomFields
 	}).(IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput)
 }
 
+// Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
 func (o IndexingConfigurationThingIndexingConfigurationOutput) DeviceDefenderIndexingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfiguration) *string { return v.DeviceDefenderIndexingMode }).(pulumi.StringPtrOutput)
 }
 
+// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
 func (o IndexingConfigurationThingIndexingConfigurationOutput) ManagedFields() IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput {
 	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfiguration) []IndexingConfigurationThingIndexingConfigurationManagedField {
 		return v.ManagedFields
 	}).(IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput)
 }
 
+// [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
 func (o IndexingConfigurationThingIndexingConfigurationOutput) NamedShadowIndexingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfiguration) *string { return v.NamedShadowIndexingMode }).(pulumi.StringPtrOutput)
 }
 
+// Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
 func (o IndexingConfigurationThingIndexingConfigurationOutput) ThingConnectivityIndexingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfiguration) *string {
 		return v.ThingConnectivityIndexingMode
 	}).(pulumi.StringPtrOutput)
 }
 
+// Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
 func (o IndexingConfigurationThingIndexingConfigurationOutput) ThingIndexingMode() pulumi.StringOutput {
 	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfiguration) string { return v.ThingIndexingMode }).(pulumi.StringOutput)
 }
@@ -537,6 +579,7 @@ func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) Elem() Indexin
 	}).(IndexingConfigurationThingIndexingConfigurationOutput)
 }
 
+// Contains custom field names and their data type. See below.
 func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) CustomFields() IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput {
 	return o.ApplyT(func(v *IndexingConfigurationThingIndexingConfiguration) []IndexingConfigurationThingIndexingConfigurationCustomField {
 		if v == nil {
@@ -546,6 +589,7 @@ func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) CustomFields()
 	}).(IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput)
 }
 
+// Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
 func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) DeviceDefenderIndexingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexingConfigurationThingIndexingConfiguration) *string {
 		if v == nil {
@@ -555,6 +599,7 @@ func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) DeviceDefender
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
 func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) ManagedFields() IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput {
 	return o.ApplyT(func(v *IndexingConfigurationThingIndexingConfiguration) []IndexingConfigurationThingIndexingConfigurationManagedField {
 		if v == nil {
@@ -564,6 +609,7 @@ func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) ManagedFields(
 	}).(IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput)
 }
 
+// [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
 func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) NamedShadowIndexingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexingConfigurationThingIndexingConfiguration) *string {
 		if v == nil {
@@ -573,6 +619,7 @@ func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) NamedShadowInd
 	}).(pulumi.StringPtrOutput)
 }
 
+// Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
 func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) ThingConnectivityIndexingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexingConfigurationThingIndexingConfiguration) *string {
 		if v == nil {
@@ -582,6 +629,7 @@ func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) ThingConnectiv
 	}).(pulumi.StringPtrOutput)
 }
 
+// Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
 func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) ThingIndexingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexingConfigurationThingIndexingConfiguration) *string {
 		if v == nil {
@@ -592,7 +640,9 @@ func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) ThingIndexingM
 }
 
 type IndexingConfigurationThingIndexingConfigurationCustomField struct {
+	// The name of the field.
 	Name *string `pulumi:"name"`
+	// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
 	Type *string `pulumi:"type"`
 }
 
@@ -608,7 +658,9 @@ type IndexingConfigurationThingIndexingConfigurationCustomFieldInput interface {
 }
 
 type IndexingConfigurationThingIndexingConfigurationCustomFieldArgs struct {
+	// The name of the field.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -663,10 +715,12 @@ func (o IndexingConfigurationThingIndexingConfigurationCustomFieldOutput) ToInde
 	return o
 }
 
+// The name of the field.
 func (o IndexingConfigurationThingIndexingConfigurationCustomFieldOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfigurationCustomField) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
 func (o IndexingConfigurationThingIndexingConfigurationCustomFieldOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfigurationCustomField) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -692,7 +746,9 @@ func (o IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput) I
 }
 
 type IndexingConfigurationThingIndexingConfigurationManagedField struct {
+	// The name of the field.
 	Name *string `pulumi:"name"`
+	// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
 	Type *string `pulumi:"type"`
 }
 
@@ -708,7 +764,9 @@ type IndexingConfigurationThingIndexingConfigurationManagedFieldInput interface 
 }
 
 type IndexingConfigurationThingIndexingConfigurationManagedFieldArgs struct {
+	// The name of the field.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -763,10 +821,12 @@ func (o IndexingConfigurationThingIndexingConfigurationManagedFieldOutput) ToInd
 	return o
 }
 
+// The name of the field.
 func (o IndexingConfigurationThingIndexingConfigurationManagedFieldOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfigurationManagedField) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
 func (o IndexingConfigurationThingIndexingConfigurationManagedFieldOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfigurationManagedField) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -792,8 +852,10 @@ func (o IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput) 
 }
 
 type ProvisioningTemplatePreProvisioningHook struct {
+	// The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
 	PayloadVersion *string `pulumi:"payloadVersion"`
-	TargetArn      string  `pulumi:"targetArn"`
+	// The ARN of the target function.
+	TargetArn string `pulumi:"targetArn"`
 }
 
 // ProvisioningTemplatePreProvisioningHookInput is an input type that accepts ProvisioningTemplatePreProvisioningHookArgs and ProvisioningTemplatePreProvisioningHookOutput values.
@@ -808,8 +870,10 @@ type ProvisioningTemplatePreProvisioningHookInput interface {
 }
 
 type ProvisioningTemplatePreProvisioningHookArgs struct {
+	// The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
 	PayloadVersion pulumi.StringPtrInput `pulumi:"payloadVersion"`
-	TargetArn      pulumi.StringInput    `pulumi:"targetArn"`
+	// The ARN of the target function.
+	TargetArn pulumi.StringInput `pulumi:"targetArn"`
 }
 
 func (ProvisioningTemplatePreProvisioningHookArgs) ElementType() reflect.Type {
@@ -889,10 +953,12 @@ func (o ProvisioningTemplatePreProvisioningHookOutput) ToProvisioningTemplatePre
 	}).(ProvisioningTemplatePreProvisioningHookPtrOutput)
 }
 
+// The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
 func (o ProvisioningTemplatePreProvisioningHookOutput) PayloadVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProvisioningTemplatePreProvisioningHook) *string { return v.PayloadVersion }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the target function.
 func (o ProvisioningTemplatePreProvisioningHookOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ProvisioningTemplatePreProvisioningHook) string { return v.TargetArn }).(pulumi.StringOutput)
 }
@@ -921,6 +987,7 @@ func (o ProvisioningTemplatePreProvisioningHookPtrOutput) Elem() ProvisioningTem
 	}).(ProvisioningTemplatePreProvisioningHookOutput)
 }
 
+// The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
 func (o ProvisioningTemplatePreProvisioningHookPtrOutput) PayloadVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProvisioningTemplatePreProvisioningHook) *string {
 		if v == nil {
@@ -930,6 +997,7 @@ func (o ProvisioningTemplatePreProvisioningHookPtrOutput) PayloadVersion() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the target function.
 func (o ProvisioningTemplatePreProvisioningHookPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProvisioningTemplatePreProvisioningHook) *string {
 		if v == nil {
@@ -940,7 +1008,8 @@ func (o ProvisioningTemplatePreProvisioningHookPtrOutput) TargetArn() pulumi.Str
 }
 
 type ThingGroupMetadata struct {
-	CreationDate       *string                               `pulumi:"creationDate"`
+	CreationDate *string `pulumi:"creationDate"`
+	// The name of the parent Thing Group.
 	ParentGroupName    *string                               `pulumi:"parentGroupName"`
 	RootToParentGroups []ThingGroupMetadataRootToParentGroup `pulumi:"rootToParentGroups"`
 }
@@ -957,7 +1026,8 @@ type ThingGroupMetadataInput interface {
 }
 
 type ThingGroupMetadataArgs struct {
-	CreationDate       pulumi.StringPtrInput                         `pulumi:"creationDate"`
+	CreationDate pulumi.StringPtrInput `pulumi:"creationDate"`
+	// The name of the parent Thing Group.
 	ParentGroupName    pulumi.StringPtrInput                         `pulumi:"parentGroupName"`
 	RootToParentGroups ThingGroupMetadataRootToParentGroupArrayInput `pulumi:"rootToParentGroups"`
 }
@@ -1017,6 +1087,7 @@ func (o ThingGroupMetadataOutput) CreationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThingGroupMetadata) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
+// The name of the parent Thing Group.
 func (o ThingGroupMetadataOutput) ParentGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThingGroupMetadata) *string { return v.ParentGroupName }).(pulumi.StringPtrOutput)
 }
@@ -1146,8 +1217,10 @@ func (o ThingGroupMetadataRootToParentGroupArrayOutput) Index(i pulumi.IntInput)
 }
 
 type ThingGroupProperties struct {
+	// The Thing Group attributes. Defined below.
 	AttributePayload *ThingGroupPropertiesAttributePayload `pulumi:"attributePayload"`
-	Description      *string                               `pulumi:"description"`
+	// A description of the Thing Group.
+	Description *string `pulumi:"description"`
 }
 
 // ThingGroupPropertiesInput is an input type that accepts ThingGroupPropertiesArgs and ThingGroupPropertiesOutput values.
@@ -1162,8 +1235,10 @@ type ThingGroupPropertiesInput interface {
 }
 
 type ThingGroupPropertiesArgs struct {
+	// The Thing Group attributes. Defined below.
 	AttributePayload ThingGroupPropertiesAttributePayloadPtrInput `pulumi:"attributePayload"`
-	Description      pulumi.StringPtrInput                        `pulumi:"description"`
+	// A description of the Thing Group.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 }
 
 func (ThingGroupPropertiesArgs) ElementType() reflect.Type {
@@ -1243,10 +1318,12 @@ func (o ThingGroupPropertiesOutput) ToThingGroupPropertiesPtrOutputWithContext(c
 	}).(ThingGroupPropertiesPtrOutput)
 }
 
+// The Thing Group attributes. Defined below.
 func (o ThingGroupPropertiesOutput) AttributePayload() ThingGroupPropertiesAttributePayloadPtrOutput {
 	return o.ApplyT(func(v ThingGroupProperties) *ThingGroupPropertiesAttributePayload { return v.AttributePayload }).(ThingGroupPropertiesAttributePayloadPtrOutput)
 }
 
+// A description of the Thing Group.
 func (o ThingGroupPropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThingGroupProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -1275,6 +1352,7 @@ func (o ThingGroupPropertiesPtrOutput) Elem() ThingGroupPropertiesOutput {
 	}).(ThingGroupPropertiesOutput)
 }
 
+// The Thing Group attributes. Defined below.
 func (o ThingGroupPropertiesPtrOutput) AttributePayload() ThingGroupPropertiesAttributePayloadPtrOutput {
 	return o.ApplyT(func(v *ThingGroupProperties) *ThingGroupPropertiesAttributePayload {
 		if v == nil {
@@ -1284,6 +1362,7 @@ func (o ThingGroupPropertiesPtrOutput) AttributePayload() ThingGroupPropertiesAt
 	}).(ThingGroupPropertiesAttributePayloadPtrOutput)
 }
 
+// A description of the Thing Group.
 func (o ThingGroupPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThingGroupProperties) *string {
 		if v == nil {
@@ -1294,6 +1373,7 @@ func (o ThingGroupPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 }
 
 type ThingGroupPropertiesAttributePayload struct {
+	// Key-value map.
 	Attributes map[string]string `pulumi:"attributes"`
 }
 
@@ -1309,6 +1389,7 @@ type ThingGroupPropertiesAttributePayloadInput interface {
 }
 
 type ThingGroupPropertiesAttributePayloadArgs struct {
+	// Key-value map.
 	Attributes pulumi.StringMapInput `pulumi:"attributes"`
 }
 
@@ -1389,6 +1470,7 @@ func (o ThingGroupPropertiesAttributePayloadOutput) ToThingGroupPropertiesAttrib
 	}).(ThingGroupPropertiesAttributePayloadPtrOutput)
 }
 
+// Key-value map.
 func (o ThingGroupPropertiesAttributePayloadOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ThingGroupPropertiesAttributePayload) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
@@ -1417,6 +1499,7 @@ func (o ThingGroupPropertiesAttributePayloadPtrOutput) Elem() ThingGroupProperti
 	}).(ThingGroupPropertiesAttributePayloadOutput)
 }
 
+// Key-value map.
 func (o ThingGroupPropertiesAttributePayloadPtrOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ThingGroupPropertiesAttributePayload) map[string]string {
 		if v == nil {
@@ -1427,7 +1510,9 @@ func (o ThingGroupPropertiesAttributePayloadPtrOutput) Attributes() pulumi.Strin
 }
 
 type ThingTypeProperties struct {
-	Description          *string  `pulumi:"description"`
+	// The description of the thing type.
+	Description *string `pulumi:"description"`
+	// A list of searchable thing attribute names.
 	SearchableAttributes []string `pulumi:"searchableAttributes"`
 }
 
@@ -1443,7 +1528,9 @@ type ThingTypePropertiesInput interface {
 }
 
 type ThingTypePropertiesArgs struct {
-	Description          pulumi.StringPtrInput   `pulumi:"description"`
+	// The description of the thing type.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A list of searchable thing attribute names.
 	SearchableAttributes pulumi.StringArrayInput `pulumi:"searchableAttributes"`
 }
 
@@ -1524,10 +1611,12 @@ func (o ThingTypePropertiesOutput) ToThingTypePropertiesPtrOutputWithContext(ctx
 	}).(ThingTypePropertiesPtrOutput)
 }
 
+// The description of the thing type.
 func (o ThingTypePropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThingTypeProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A list of searchable thing attribute names.
 func (o ThingTypePropertiesOutput) SearchableAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ThingTypeProperties) []string { return v.SearchableAttributes }).(pulumi.StringArrayOutput)
 }
@@ -1556,6 +1645,7 @@ func (o ThingTypePropertiesPtrOutput) Elem() ThingTypePropertiesOutput {
 	}).(ThingTypePropertiesOutput)
 }
 
+// The description of the thing type.
 func (o ThingTypePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThingTypeProperties) *string {
 		if v == nil {
@@ -1565,6 +1655,7 @@ func (o ThingTypePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of searchable thing attribute names.
 func (o ThingTypePropertiesPtrOutput) SearchableAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ThingTypeProperties) []string {
 		if v == nil {
@@ -1575,10 +1666,14 @@ func (o ThingTypePropertiesPtrOutput) SearchableAttributes() pulumi.StringArrayO
 }
 
 type TopicRuleCloudwatchAlarm struct {
-	AlarmName   string `pulumi:"alarmName"`
-	RoleArn     string `pulumi:"roleArn"`
+	// The CloudWatch alarm name.
+	AlarmName string `pulumi:"alarmName"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn string `pulumi:"roleArn"`
+	// The reason for the alarm change.
 	StateReason string `pulumi:"stateReason"`
-	StateValue  string `pulumi:"stateValue"`
+	// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
+	StateValue string `pulumi:"stateValue"`
 }
 
 // TopicRuleCloudwatchAlarmInput is an input type that accepts TopicRuleCloudwatchAlarmArgs and TopicRuleCloudwatchAlarmOutput values.
@@ -1593,10 +1688,14 @@ type TopicRuleCloudwatchAlarmInput interface {
 }
 
 type TopicRuleCloudwatchAlarmArgs struct {
-	AlarmName   pulumi.StringInput `pulumi:"alarmName"`
-	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
+	// The CloudWatch alarm name.
+	AlarmName pulumi.StringInput `pulumi:"alarmName"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The reason for the alarm change.
 	StateReason pulumi.StringInput `pulumi:"stateReason"`
-	StateValue  pulumi.StringInput `pulumi:"stateValue"`
+	// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
+	StateValue pulumi.StringInput `pulumi:"stateValue"`
 }
 
 func (TopicRuleCloudwatchAlarmArgs) ElementType() reflect.Type {
@@ -1676,18 +1775,22 @@ func (o TopicRuleCloudwatchAlarmOutput) ToTopicRuleCloudwatchAlarmPtrOutputWithC
 	}).(TopicRuleCloudwatchAlarmPtrOutput)
 }
 
+// The CloudWatch alarm name.
 func (o TopicRuleCloudwatchAlarmOutput) AlarmName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchAlarm) string { return v.AlarmName }).(pulumi.StringOutput)
 }
 
+// The IAM role ARN that allows access to the CloudWatch alarm.
 func (o TopicRuleCloudwatchAlarmOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchAlarm) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The reason for the alarm change.
 func (o TopicRuleCloudwatchAlarmOutput) StateReason() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchAlarm) string { return v.StateReason }).(pulumi.StringOutput)
 }
 
+// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
 func (o TopicRuleCloudwatchAlarmOutput) StateValue() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchAlarm) string { return v.StateValue }).(pulumi.StringOutput)
 }
@@ -1716,6 +1819,7 @@ func (o TopicRuleCloudwatchAlarmPtrOutput) Elem() TopicRuleCloudwatchAlarmOutput
 	}).(TopicRuleCloudwatchAlarmOutput)
 }
 
+// The CloudWatch alarm name.
 func (o TopicRuleCloudwatchAlarmPtrOutput) AlarmName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchAlarm) *string {
 		if v == nil {
@@ -1725,6 +1829,7 @@ func (o TopicRuleCloudwatchAlarmPtrOutput) AlarmName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IAM role ARN that allows access to the CloudWatch alarm.
 func (o TopicRuleCloudwatchAlarmPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchAlarm) *string {
 		if v == nil {
@@ -1734,6 +1839,7 @@ func (o TopicRuleCloudwatchAlarmPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The reason for the alarm change.
 func (o TopicRuleCloudwatchAlarmPtrOutput) StateReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchAlarm) *string {
 		if v == nil {
@@ -1743,6 +1849,7 @@ func (o TopicRuleCloudwatchAlarmPtrOutput) StateReason() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
 func (o TopicRuleCloudwatchAlarmPtrOutput) StateValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchAlarm) *string {
 		if v == nil {
@@ -1753,8 +1860,10 @@ func (o TopicRuleCloudwatchAlarmPtrOutput) StateValue() pulumi.StringPtrOutput {
 }
 
 type TopicRuleCloudwatchLog struct {
+	// The CloudWatch log group name.
 	LogGroupName string `pulumi:"logGroupName"`
-	RoleArn      string `pulumi:"roleArn"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // TopicRuleCloudwatchLogInput is an input type that accepts TopicRuleCloudwatchLogArgs and TopicRuleCloudwatchLogOutput values.
@@ -1769,8 +1878,10 @@ type TopicRuleCloudwatchLogInput interface {
 }
 
 type TopicRuleCloudwatchLogArgs struct {
+	// The CloudWatch log group name.
 	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
-	RoleArn      pulumi.StringInput `pulumi:"roleArn"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleCloudwatchLogArgs) ElementType() reflect.Type {
@@ -1824,10 +1935,12 @@ func (o TopicRuleCloudwatchLogOutput) ToTopicRuleCloudwatchLogOutputWithContext(
 	return o
 }
 
+// The CloudWatch log group name.
 func (o TopicRuleCloudwatchLogOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchLog) string { return v.LogGroupName }).(pulumi.StringOutput)
 }
 
+// The IAM role ARN that allows access to the CloudWatch alarm.
 func (o TopicRuleCloudwatchLogOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchLog) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -1853,12 +1966,18 @@ func (o TopicRuleCloudwatchLogArrayOutput) Index(i pulumi.IntInput) TopicRuleClo
 }
 
 type TopicRuleCloudwatchMetric struct {
-	MetricName      string  `pulumi:"metricName"`
-	MetricNamespace string  `pulumi:"metricNamespace"`
+	// The CloudWatch metric name.
+	MetricName string `pulumi:"metricName"`
+	// The CloudWatch metric namespace name.
+	MetricNamespace string `pulumi:"metricNamespace"`
+	// An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
 	MetricTimestamp *string `pulumi:"metricTimestamp"`
-	MetricUnit      string  `pulumi:"metricUnit"`
-	MetricValue     string  `pulumi:"metricValue"`
-	RoleArn         string  `pulumi:"roleArn"`
+	// The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
+	MetricUnit string `pulumi:"metricUnit"`
+	// The CloudWatch metric value.
+	MetricValue string `pulumi:"metricValue"`
+	// The IAM role ARN that allows access to the CloudWatch metric.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // TopicRuleCloudwatchMetricInput is an input type that accepts TopicRuleCloudwatchMetricArgs and TopicRuleCloudwatchMetricOutput values.
@@ -1873,12 +1992,18 @@ type TopicRuleCloudwatchMetricInput interface {
 }
 
 type TopicRuleCloudwatchMetricArgs struct {
-	MetricName      pulumi.StringInput    `pulumi:"metricName"`
-	MetricNamespace pulumi.StringInput    `pulumi:"metricNamespace"`
+	// The CloudWatch metric name.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// The CloudWatch metric namespace name.
+	MetricNamespace pulumi.StringInput `pulumi:"metricNamespace"`
+	// An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
 	MetricTimestamp pulumi.StringPtrInput `pulumi:"metricTimestamp"`
-	MetricUnit      pulumi.StringInput    `pulumi:"metricUnit"`
-	MetricValue     pulumi.StringInput    `pulumi:"metricValue"`
-	RoleArn         pulumi.StringInput    `pulumi:"roleArn"`
+	// The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
+	MetricUnit pulumi.StringInput `pulumi:"metricUnit"`
+	// The CloudWatch metric value.
+	MetricValue pulumi.StringInput `pulumi:"metricValue"`
+	// The IAM role ARN that allows access to the CloudWatch metric.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleCloudwatchMetricArgs) ElementType() reflect.Type {
@@ -1958,26 +2083,32 @@ func (o TopicRuleCloudwatchMetricOutput) ToTopicRuleCloudwatchMetricPtrOutputWit
 	}).(TopicRuleCloudwatchMetricPtrOutput)
 }
 
+// The CloudWatch metric name.
 func (o TopicRuleCloudwatchMetricOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchMetric) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
+// The CloudWatch metric namespace name.
 func (o TopicRuleCloudwatchMetricOutput) MetricNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchMetric) string { return v.MetricNamespace }).(pulumi.StringOutput)
 }
 
+// An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
 func (o TopicRuleCloudwatchMetricOutput) MetricTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchMetric) *string { return v.MetricTimestamp }).(pulumi.StringPtrOutput)
 }
 
+// The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
 func (o TopicRuleCloudwatchMetricOutput) MetricUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchMetric) string { return v.MetricUnit }).(pulumi.StringOutput)
 }
 
+// The CloudWatch metric value.
 func (o TopicRuleCloudwatchMetricOutput) MetricValue() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchMetric) string { return v.MetricValue }).(pulumi.StringOutput)
 }
 
+// The IAM role ARN that allows access to the CloudWatch metric.
 func (o TopicRuleCloudwatchMetricOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchMetric) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -2006,6 +2137,7 @@ func (o TopicRuleCloudwatchMetricPtrOutput) Elem() TopicRuleCloudwatchMetricOutp
 	}).(TopicRuleCloudwatchMetricOutput)
 }
 
+// The CloudWatch metric name.
 func (o TopicRuleCloudwatchMetricPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) *string {
 		if v == nil {
@@ -2015,6 +2147,7 @@ func (o TopicRuleCloudwatchMetricPtrOutput) MetricName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The CloudWatch metric namespace name.
 func (o TopicRuleCloudwatchMetricPtrOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) *string {
 		if v == nil {
@@ -2024,6 +2157,7 @@ func (o TopicRuleCloudwatchMetricPtrOutput) MetricNamespace() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
 func (o TopicRuleCloudwatchMetricPtrOutput) MetricTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) *string {
 		if v == nil {
@@ -2033,6 +2167,7 @@ func (o TopicRuleCloudwatchMetricPtrOutput) MetricTimestamp() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
 func (o TopicRuleCloudwatchMetricPtrOutput) MetricUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) *string {
 		if v == nil {
@@ -2042,6 +2177,7 @@ func (o TopicRuleCloudwatchMetricPtrOutput) MetricUnit() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The CloudWatch metric value.
 func (o TopicRuleCloudwatchMetricPtrOutput) MetricValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) *string {
 		if v == nil {
@@ -2051,6 +2187,7 @@ func (o TopicRuleCloudwatchMetricPtrOutput) MetricValue() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IAM role ARN that allows access to the CloudWatch metric.
 func (o TopicRuleCloudwatchMetricPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) *string {
 		if v == nil {
@@ -2061,10 +2198,14 @@ func (o TopicRuleCloudwatchMetricPtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 type TopicRuleDestinationVpcConfiguration struct {
-	RoleArn        string   `pulumi:"roleArn"`
+	// The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+	RoleArn string `pulumi:"roleArn"`
+	// The security groups of the VPC destination.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	SubnetIds      []string `pulumi:"subnetIds"`
-	VpcId          string   `pulumi:"vpcId"`
+	// The subnet IDs of the VPC destination.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The ID of the VPC.
+	VpcId string `pulumi:"vpcId"`
 }
 
 // TopicRuleDestinationVpcConfigurationInput is an input type that accepts TopicRuleDestinationVpcConfigurationArgs and TopicRuleDestinationVpcConfigurationOutput values.
@@ -2079,10 +2220,14 @@ type TopicRuleDestinationVpcConfigurationInput interface {
 }
 
 type TopicRuleDestinationVpcConfigurationArgs struct {
-	RoleArn        pulumi.StringInput      `pulumi:"roleArn"`
+	// The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The security groups of the VPC destination.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	SubnetIds      pulumi.StringArrayInput `pulumi:"subnetIds"`
-	VpcId          pulumi.StringInput      `pulumi:"vpcId"`
+	// The subnet IDs of the VPC destination.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The ID of the VPC.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 func (TopicRuleDestinationVpcConfigurationArgs) ElementType() reflect.Type {
@@ -2162,18 +2307,22 @@ func (o TopicRuleDestinationVpcConfigurationOutput) ToTopicRuleDestinationVpcCon
 	}).(TopicRuleDestinationVpcConfigurationPtrOutput)
 }
 
+// The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
 func (o TopicRuleDestinationVpcConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDestinationVpcConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The security groups of the VPC destination.
 func (o TopicRuleDestinationVpcConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TopicRuleDestinationVpcConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// The subnet IDs of the VPC destination.
 func (o TopicRuleDestinationVpcConfigurationOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TopicRuleDestinationVpcConfiguration) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the VPC.
 func (o TopicRuleDestinationVpcConfigurationOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDestinationVpcConfiguration) string { return v.VpcId }).(pulumi.StringOutput)
 }
@@ -2202,6 +2351,7 @@ func (o TopicRuleDestinationVpcConfigurationPtrOutput) Elem() TopicRuleDestinati
 	}).(TopicRuleDestinationVpcConfigurationOutput)
 }
 
+// The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
 func (o TopicRuleDestinationVpcConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDestinationVpcConfiguration) *string {
 		if v == nil {
@@ -2211,6 +2361,7 @@ func (o TopicRuleDestinationVpcConfigurationPtrOutput) RoleArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The security groups of the VPC destination.
 func (o TopicRuleDestinationVpcConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TopicRuleDestinationVpcConfiguration) []string {
 		if v == nil {
@@ -2220,6 +2371,7 @@ func (o TopicRuleDestinationVpcConfigurationPtrOutput) SecurityGroups() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
+// The subnet IDs of the VPC destination.
 func (o TopicRuleDestinationVpcConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TopicRuleDestinationVpcConfiguration) []string {
 		if v == nil {
@@ -2229,6 +2381,7 @@ func (o TopicRuleDestinationVpcConfigurationPtrOutput) SubnetIds() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
+// The ID of the VPC.
 func (o TopicRuleDestinationVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDestinationVpcConfiguration) *string {
 		if v == nil {
@@ -2239,16 +2392,26 @@ func (o TopicRuleDestinationVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrO
 }
 
 type TopicRuleDynamodb struct {
-	HashKeyField  string  `pulumi:"hashKeyField"`
-	HashKeyType   *string `pulumi:"hashKeyType"`
-	HashKeyValue  string  `pulumi:"hashKeyValue"`
-	Operation     *string `pulumi:"operation"`
-	PayloadField  *string `pulumi:"payloadField"`
+	// The hash key name.
+	HashKeyField string `pulumi:"hashKeyField"`
+	// The hash key type. Valid values are "STRING" or "NUMBER".
+	HashKeyType *string `pulumi:"hashKeyType"`
+	// The hash key value.
+	HashKeyValue string `pulumi:"hashKeyValue"`
+	// The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
+	Operation *string `pulumi:"operation"`
+	// The action payload.
+	PayloadField *string `pulumi:"payloadField"`
+	// The range key name.
 	RangeKeyField *string `pulumi:"rangeKeyField"`
-	RangeKeyType  *string `pulumi:"rangeKeyType"`
+	// The range key type. Valid values are "STRING" or "NUMBER".
+	RangeKeyType *string `pulumi:"rangeKeyType"`
+	// The range key value.
 	RangeKeyValue *string `pulumi:"rangeKeyValue"`
-	RoleArn       string  `pulumi:"roleArn"`
-	TableName     string  `pulumi:"tableName"`
+	// The ARN of the IAM role that grants access to the DynamoDB table.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the DynamoDB table.
+	TableName string `pulumi:"tableName"`
 }
 
 // TopicRuleDynamodbInput is an input type that accepts TopicRuleDynamodbArgs and TopicRuleDynamodbOutput values.
@@ -2263,16 +2426,26 @@ type TopicRuleDynamodbInput interface {
 }
 
 type TopicRuleDynamodbArgs struct {
-	HashKeyField  pulumi.StringInput    `pulumi:"hashKeyField"`
-	HashKeyType   pulumi.StringPtrInput `pulumi:"hashKeyType"`
-	HashKeyValue  pulumi.StringInput    `pulumi:"hashKeyValue"`
-	Operation     pulumi.StringPtrInput `pulumi:"operation"`
-	PayloadField  pulumi.StringPtrInput `pulumi:"payloadField"`
+	// The hash key name.
+	HashKeyField pulumi.StringInput `pulumi:"hashKeyField"`
+	// The hash key type. Valid values are "STRING" or "NUMBER".
+	HashKeyType pulumi.StringPtrInput `pulumi:"hashKeyType"`
+	// The hash key value.
+	HashKeyValue pulumi.StringInput `pulumi:"hashKeyValue"`
+	// The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
+	Operation pulumi.StringPtrInput `pulumi:"operation"`
+	// The action payload.
+	PayloadField pulumi.StringPtrInput `pulumi:"payloadField"`
+	// The range key name.
 	RangeKeyField pulumi.StringPtrInput `pulumi:"rangeKeyField"`
-	RangeKeyType  pulumi.StringPtrInput `pulumi:"rangeKeyType"`
+	// The range key type. Valid values are "STRING" or "NUMBER".
+	RangeKeyType pulumi.StringPtrInput `pulumi:"rangeKeyType"`
+	// The range key value.
 	RangeKeyValue pulumi.StringPtrInput `pulumi:"rangeKeyValue"`
-	RoleArn       pulumi.StringInput    `pulumi:"roleArn"`
-	TableName     pulumi.StringInput    `pulumi:"tableName"`
+	// The ARN of the IAM role that grants access to the DynamoDB table.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the DynamoDB table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
 func (TopicRuleDynamodbArgs) ElementType() reflect.Type {
@@ -2352,42 +2525,52 @@ func (o TopicRuleDynamodbOutput) ToTopicRuleDynamodbPtrOutputWithContext(ctx con
 	}).(TopicRuleDynamodbPtrOutput)
 }
 
+// The hash key name.
 func (o TopicRuleDynamodbOutput) HashKeyField() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDynamodb) string { return v.HashKeyField }).(pulumi.StringOutput)
 }
 
+// The hash key type. Valid values are "STRING" or "NUMBER".
 func (o TopicRuleDynamodbOutput) HashKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamodb) *string { return v.HashKeyType }).(pulumi.StringPtrOutput)
 }
 
+// The hash key value.
 func (o TopicRuleDynamodbOutput) HashKeyValue() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDynamodb) string { return v.HashKeyValue }).(pulumi.StringOutput)
 }
 
+// The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
 func (o TopicRuleDynamodbOutput) Operation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamodb) *string { return v.Operation }).(pulumi.StringPtrOutput)
 }
 
+// The action payload.
 func (o TopicRuleDynamodbOutput) PayloadField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamodb) *string { return v.PayloadField }).(pulumi.StringPtrOutput)
 }
 
+// The range key name.
 func (o TopicRuleDynamodbOutput) RangeKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamodb) *string { return v.RangeKeyField }).(pulumi.StringPtrOutput)
 }
 
+// The range key type. Valid values are "STRING" or "NUMBER".
 func (o TopicRuleDynamodbOutput) RangeKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamodb) *string { return v.RangeKeyType }).(pulumi.StringPtrOutput)
 }
 
+// The range key value.
 func (o TopicRuleDynamodbOutput) RangeKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamodb) *string { return v.RangeKeyValue }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access to the DynamoDB table.
 func (o TopicRuleDynamodbOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDynamodb) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The name of the DynamoDB table.
 func (o TopicRuleDynamodbOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDynamodb) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -2416,6 +2599,7 @@ func (o TopicRuleDynamodbPtrOutput) Elem() TopicRuleDynamodbOutput {
 	}).(TopicRuleDynamodbOutput)
 }
 
+// The hash key name.
 func (o TopicRuleDynamodbPtrOutput) HashKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
 		if v == nil {
@@ -2425,6 +2609,7 @@ func (o TopicRuleDynamodbPtrOutput) HashKeyField() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The hash key type. Valid values are "STRING" or "NUMBER".
 func (o TopicRuleDynamodbPtrOutput) HashKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
 		if v == nil {
@@ -2434,6 +2619,7 @@ func (o TopicRuleDynamodbPtrOutput) HashKeyType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The hash key value.
 func (o TopicRuleDynamodbPtrOutput) HashKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
 		if v == nil {
@@ -2443,6 +2629,7 @@ func (o TopicRuleDynamodbPtrOutput) HashKeyValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
 func (o TopicRuleDynamodbPtrOutput) Operation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
 		if v == nil {
@@ -2452,6 +2639,7 @@ func (o TopicRuleDynamodbPtrOutput) Operation() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The action payload.
 func (o TopicRuleDynamodbPtrOutput) PayloadField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
 		if v == nil {
@@ -2461,6 +2649,7 @@ func (o TopicRuleDynamodbPtrOutput) PayloadField() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The range key name.
 func (o TopicRuleDynamodbPtrOutput) RangeKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
 		if v == nil {
@@ -2470,6 +2659,7 @@ func (o TopicRuleDynamodbPtrOutput) RangeKeyField() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The range key type. Valid values are "STRING" or "NUMBER".
 func (o TopicRuleDynamodbPtrOutput) RangeKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
 		if v == nil {
@@ -2479,6 +2669,7 @@ func (o TopicRuleDynamodbPtrOutput) RangeKeyType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The range key value.
 func (o TopicRuleDynamodbPtrOutput) RangeKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
 		if v == nil {
@@ -2488,6 +2679,7 @@ func (o TopicRuleDynamodbPtrOutput) RangeKeyValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access to the DynamoDB table.
 func (o TopicRuleDynamodbPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
 		if v == nil {
@@ -2497,6 +2689,7 @@ func (o TopicRuleDynamodbPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the DynamoDB table.
 func (o TopicRuleDynamodbPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
 		if v == nil {
@@ -2507,8 +2700,10 @@ func (o TopicRuleDynamodbPtrOutput) TableName() pulumi.StringPtrOutput {
 }
 
 type TopicRuleDynamodbv2 struct {
+	// Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
 	PutItem *TopicRuleDynamodbv2PutItem `pulumi:"putItem"`
-	RoleArn string                      `pulumi:"roleArn"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // TopicRuleDynamodbv2Input is an input type that accepts TopicRuleDynamodbv2Args and TopicRuleDynamodbv2Output values.
@@ -2523,8 +2718,10 @@ type TopicRuleDynamodbv2Input interface {
 }
 
 type TopicRuleDynamodbv2Args struct {
+	// Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
 	PutItem TopicRuleDynamodbv2PutItemPtrInput `pulumi:"putItem"`
-	RoleArn pulumi.StringInput                 `pulumi:"roleArn"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleDynamodbv2Args) ElementType() reflect.Type {
@@ -2578,10 +2775,12 @@ func (o TopicRuleDynamodbv2Output) ToTopicRuleDynamodbv2OutputWithContext(ctx co
 	return o
 }
 
+// Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
 func (o TopicRuleDynamodbv2Output) PutItem() TopicRuleDynamodbv2PutItemPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamodbv2) *TopicRuleDynamodbv2PutItem { return v.PutItem }).(TopicRuleDynamodbv2PutItemPtrOutput)
 }
 
+// The IAM role ARN that allows access to the CloudWatch alarm.
 func (o TopicRuleDynamodbv2Output) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDynamodbv2) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -2607,6 +2806,7 @@ func (o TopicRuleDynamodbv2ArrayOutput) Index(i pulumi.IntInput) TopicRuleDynamo
 }
 
 type TopicRuleDynamodbv2PutItem struct {
+	// The name of the DynamoDB table.
 	TableName string `pulumi:"tableName"`
 }
 
@@ -2622,6 +2822,7 @@ type TopicRuleDynamodbv2PutItemInput interface {
 }
 
 type TopicRuleDynamodbv2PutItemArgs struct {
+	// The name of the DynamoDB table.
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
@@ -2702,6 +2903,7 @@ func (o TopicRuleDynamodbv2PutItemOutput) ToTopicRuleDynamodbv2PutItemPtrOutputW
 	}).(TopicRuleDynamodbv2PutItemPtrOutput)
 }
 
+// The name of the DynamoDB table.
 func (o TopicRuleDynamodbv2PutItemOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDynamodbv2PutItem) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -2730,6 +2932,7 @@ func (o TopicRuleDynamodbv2PutItemPtrOutput) Elem() TopicRuleDynamodbv2PutItemOu
 	}).(TopicRuleDynamodbv2PutItemOutput)
 }
 
+// The name of the DynamoDB table.
 func (o TopicRuleDynamodbv2PutItemPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamodbv2PutItem) *string {
 		if v == nil {
@@ -2740,11 +2943,16 @@ func (o TopicRuleDynamodbv2PutItemPtrOutput) TableName() pulumi.StringPtrOutput 
 }
 
 type TopicRuleElasticsearch struct {
+	// The endpoint of your Elasticsearch domain.
 	Endpoint string `pulumi:"endpoint"`
-	Id       string `pulumi:"id"`
-	Index    string `pulumi:"index"`
-	RoleArn  string `pulumi:"roleArn"`
-	Type     string `pulumi:"type"`
+	// The unique identifier for the document you are storing.
+	Id string `pulumi:"id"`
+	// The Elasticsearch index where you want to store your data.
+	Index string `pulumi:"index"`
+	// The IAM role ARN that has access to Elasticsearch.
+	RoleArn string `pulumi:"roleArn"`
+	// The type of document you are storing.
+	Type string `pulumi:"type"`
 }
 
 // TopicRuleElasticsearchInput is an input type that accepts TopicRuleElasticsearchArgs and TopicRuleElasticsearchOutput values.
@@ -2759,11 +2967,16 @@ type TopicRuleElasticsearchInput interface {
 }
 
 type TopicRuleElasticsearchArgs struct {
+	// The endpoint of your Elasticsearch domain.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	Id       pulumi.StringInput `pulumi:"id"`
-	Index    pulumi.StringInput `pulumi:"index"`
-	RoleArn  pulumi.StringInput `pulumi:"roleArn"`
-	Type     pulumi.StringInput `pulumi:"type"`
+	// The unique identifier for the document you are storing.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Elasticsearch index where you want to store your data.
+	Index pulumi.StringInput `pulumi:"index"`
+	// The IAM role ARN that has access to Elasticsearch.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The type of document you are storing.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (TopicRuleElasticsearchArgs) ElementType() reflect.Type {
@@ -2843,22 +3056,27 @@ func (o TopicRuleElasticsearchOutput) ToTopicRuleElasticsearchPtrOutputWithConte
 	}).(TopicRuleElasticsearchPtrOutput)
 }
 
+// The endpoint of your Elasticsearch domain.
 func (o TopicRuleElasticsearchOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleElasticsearch) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
+// The unique identifier for the document you are storing.
 func (o TopicRuleElasticsearchOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleElasticsearch) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The Elasticsearch index where you want to store your data.
 func (o TopicRuleElasticsearchOutput) Index() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleElasticsearch) string { return v.Index }).(pulumi.StringOutput)
 }
 
+// The IAM role ARN that has access to Elasticsearch.
 func (o TopicRuleElasticsearchOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleElasticsearch) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The type of document you are storing.
 func (o TopicRuleElasticsearchOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleElasticsearch) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2887,6 +3105,7 @@ func (o TopicRuleElasticsearchPtrOutput) Elem() TopicRuleElasticsearchOutput {
 	}).(TopicRuleElasticsearchOutput)
 }
 
+// The endpoint of your Elasticsearch domain.
 func (o TopicRuleElasticsearchPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleElasticsearch) *string {
 		if v == nil {
@@ -2896,6 +3115,7 @@ func (o TopicRuleElasticsearchPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier for the document you are storing.
 func (o TopicRuleElasticsearchPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleElasticsearch) *string {
 		if v == nil {
@@ -2905,6 +3125,7 @@ func (o TopicRuleElasticsearchPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Elasticsearch index where you want to store your data.
 func (o TopicRuleElasticsearchPtrOutput) Index() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleElasticsearch) *string {
 		if v == nil {
@@ -2914,6 +3135,7 @@ func (o TopicRuleElasticsearchPtrOutput) Index() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IAM role ARN that has access to Elasticsearch.
 func (o TopicRuleElasticsearchPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleElasticsearch) *string {
 		if v == nil {
@@ -2923,6 +3145,7 @@ func (o TopicRuleElasticsearchPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of document you are storing.
 func (o TopicRuleElasticsearchPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleElasticsearch) *string {
 		if v == nil {
@@ -3336,10 +3559,14 @@ func (o TopicRuleErrorActionPtrOutput) Timestream() TopicRuleErrorActionTimestre
 }
 
 type TopicRuleErrorActionCloudwatchAlarm struct {
-	AlarmName   string `pulumi:"alarmName"`
-	RoleArn     string `pulumi:"roleArn"`
+	// The CloudWatch alarm name.
+	AlarmName string `pulumi:"alarmName"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn string `pulumi:"roleArn"`
+	// The reason for the alarm change.
 	StateReason string `pulumi:"stateReason"`
-	StateValue  string `pulumi:"stateValue"`
+	// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
+	StateValue string `pulumi:"stateValue"`
 }
 
 // TopicRuleErrorActionCloudwatchAlarmInput is an input type that accepts TopicRuleErrorActionCloudwatchAlarmArgs and TopicRuleErrorActionCloudwatchAlarmOutput values.
@@ -3354,10 +3581,14 @@ type TopicRuleErrorActionCloudwatchAlarmInput interface {
 }
 
 type TopicRuleErrorActionCloudwatchAlarmArgs struct {
-	AlarmName   pulumi.StringInput `pulumi:"alarmName"`
-	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
+	// The CloudWatch alarm name.
+	AlarmName pulumi.StringInput `pulumi:"alarmName"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The reason for the alarm change.
 	StateReason pulumi.StringInput `pulumi:"stateReason"`
-	StateValue  pulumi.StringInput `pulumi:"stateValue"`
+	// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
+	StateValue pulumi.StringInput `pulumi:"stateValue"`
 }
 
 func (TopicRuleErrorActionCloudwatchAlarmArgs) ElementType() reflect.Type {
@@ -3437,18 +3668,22 @@ func (o TopicRuleErrorActionCloudwatchAlarmOutput) ToTopicRuleErrorActionCloudwa
 	}).(TopicRuleErrorActionCloudwatchAlarmPtrOutput)
 }
 
+// The CloudWatch alarm name.
 func (o TopicRuleErrorActionCloudwatchAlarmOutput) AlarmName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionCloudwatchAlarm) string { return v.AlarmName }).(pulumi.StringOutput)
 }
 
+// The IAM role ARN that allows access to the CloudWatch alarm.
 func (o TopicRuleErrorActionCloudwatchAlarmOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionCloudwatchAlarm) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The reason for the alarm change.
 func (o TopicRuleErrorActionCloudwatchAlarmOutput) StateReason() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionCloudwatchAlarm) string { return v.StateReason }).(pulumi.StringOutput)
 }
 
+// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
 func (o TopicRuleErrorActionCloudwatchAlarmOutput) StateValue() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionCloudwatchAlarm) string { return v.StateValue }).(pulumi.StringOutput)
 }
@@ -3477,6 +3712,7 @@ func (o TopicRuleErrorActionCloudwatchAlarmPtrOutput) Elem() TopicRuleErrorActio
 	}).(TopicRuleErrorActionCloudwatchAlarmOutput)
 }
 
+// The CloudWatch alarm name.
 func (o TopicRuleErrorActionCloudwatchAlarmPtrOutput) AlarmName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchAlarm) *string {
 		if v == nil {
@@ -3486,6 +3722,7 @@ func (o TopicRuleErrorActionCloudwatchAlarmPtrOutput) AlarmName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IAM role ARN that allows access to the CloudWatch alarm.
 func (o TopicRuleErrorActionCloudwatchAlarmPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchAlarm) *string {
 		if v == nil {
@@ -3495,6 +3732,7 @@ func (o TopicRuleErrorActionCloudwatchAlarmPtrOutput) RoleArn() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The reason for the alarm change.
 func (o TopicRuleErrorActionCloudwatchAlarmPtrOutput) StateReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchAlarm) *string {
 		if v == nil {
@@ -3504,6 +3742,7 @@ func (o TopicRuleErrorActionCloudwatchAlarmPtrOutput) StateReason() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
 func (o TopicRuleErrorActionCloudwatchAlarmPtrOutput) StateValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchAlarm) *string {
 		if v == nil {
@@ -3514,8 +3753,10 @@ func (o TopicRuleErrorActionCloudwatchAlarmPtrOutput) StateValue() pulumi.String
 }
 
 type TopicRuleErrorActionCloudwatchLogs struct {
+	// The CloudWatch log group name.
 	LogGroupName string `pulumi:"logGroupName"`
-	RoleArn      string `pulumi:"roleArn"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // TopicRuleErrorActionCloudwatchLogsInput is an input type that accepts TopicRuleErrorActionCloudwatchLogsArgs and TopicRuleErrorActionCloudwatchLogsOutput values.
@@ -3530,8 +3771,10 @@ type TopicRuleErrorActionCloudwatchLogsInput interface {
 }
 
 type TopicRuleErrorActionCloudwatchLogsArgs struct {
+	// The CloudWatch log group name.
 	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
-	RoleArn      pulumi.StringInput `pulumi:"roleArn"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleErrorActionCloudwatchLogsArgs) ElementType() reflect.Type {
@@ -3611,10 +3854,12 @@ func (o TopicRuleErrorActionCloudwatchLogsOutput) ToTopicRuleErrorActionCloudwat
 	}).(TopicRuleErrorActionCloudwatchLogsPtrOutput)
 }
 
+// The CloudWatch log group name.
 func (o TopicRuleErrorActionCloudwatchLogsOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionCloudwatchLogs) string { return v.LogGroupName }).(pulumi.StringOutput)
 }
 
+// The IAM role ARN that allows access to the CloudWatch alarm.
 func (o TopicRuleErrorActionCloudwatchLogsOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionCloudwatchLogs) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -3643,6 +3888,7 @@ func (o TopicRuleErrorActionCloudwatchLogsPtrOutput) Elem() TopicRuleErrorAction
 	}).(TopicRuleErrorActionCloudwatchLogsOutput)
 }
 
+// The CloudWatch log group name.
 func (o TopicRuleErrorActionCloudwatchLogsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchLogs) *string {
 		if v == nil {
@@ -3652,6 +3898,7 @@ func (o TopicRuleErrorActionCloudwatchLogsPtrOutput) LogGroupName() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IAM role ARN that allows access to the CloudWatch alarm.
 func (o TopicRuleErrorActionCloudwatchLogsPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchLogs) *string {
 		if v == nil {
@@ -3662,12 +3909,18 @@ func (o TopicRuleErrorActionCloudwatchLogsPtrOutput) RoleArn() pulumi.StringPtrO
 }
 
 type TopicRuleErrorActionCloudwatchMetric struct {
-	MetricName      string  `pulumi:"metricName"`
-	MetricNamespace string  `pulumi:"metricNamespace"`
+	// The CloudWatch metric name.
+	MetricName string `pulumi:"metricName"`
+	// The CloudWatch metric namespace name.
+	MetricNamespace string `pulumi:"metricNamespace"`
+	// An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
 	MetricTimestamp *string `pulumi:"metricTimestamp"`
-	MetricUnit      string  `pulumi:"metricUnit"`
-	MetricValue     string  `pulumi:"metricValue"`
-	RoleArn         string  `pulumi:"roleArn"`
+	// The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
+	MetricUnit string `pulumi:"metricUnit"`
+	// The CloudWatch metric value.
+	MetricValue string `pulumi:"metricValue"`
+	// The IAM role ARN that allows access to the CloudWatch metric.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // TopicRuleErrorActionCloudwatchMetricInput is an input type that accepts TopicRuleErrorActionCloudwatchMetricArgs and TopicRuleErrorActionCloudwatchMetricOutput values.
@@ -3682,12 +3935,18 @@ type TopicRuleErrorActionCloudwatchMetricInput interface {
 }
 
 type TopicRuleErrorActionCloudwatchMetricArgs struct {
-	MetricName      pulumi.StringInput    `pulumi:"metricName"`
-	MetricNamespace pulumi.StringInput    `pulumi:"metricNamespace"`
+	// The CloudWatch metric name.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// The CloudWatch metric namespace name.
+	MetricNamespace pulumi.StringInput `pulumi:"metricNamespace"`
+	// An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
 	MetricTimestamp pulumi.StringPtrInput `pulumi:"metricTimestamp"`
-	MetricUnit      pulumi.StringInput    `pulumi:"metricUnit"`
-	MetricValue     pulumi.StringInput    `pulumi:"metricValue"`
-	RoleArn         pulumi.StringInput    `pulumi:"roleArn"`
+	// The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
+	MetricUnit pulumi.StringInput `pulumi:"metricUnit"`
+	// The CloudWatch metric value.
+	MetricValue pulumi.StringInput `pulumi:"metricValue"`
+	// The IAM role ARN that allows access to the CloudWatch metric.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleErrorActionCloudwatchMetricArgs) ElementType() reflect.Type {
@@ -3767,26 +4026,32 @@ func (o TopicRuleErrorActionCloudwatchMetricOutput) ToTopicRuleErrorActionCloudw
 	}).(TopicRuleErrorActionCloudwatchMetricPtrOutput)
 }
 
+// The CloudWatch metric name.
 func (o TopicRuleErrorActionCloudwatchMetricOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionCloudwatchMetric) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
+// The CloudWatch metric namespace name.
 func (o TopicRuleErrorActionCloudwatchMetricOutput) MetricNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionCloudwatchMetric) string { return v.MetricNamespace }).(pulumi.StringOutput)
 }
 
+// An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
 func (o TopicRuleErrorActionCloudwatchMetricOutput) MetricTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionCloudwatchMetric) *string { return v.MetricTimestamp }).(pulumi.StringPtrOutput)
 }
 
+// The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
 func (o TopicRuleErrorActionCloudwatchMetricOutput) MetricUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionCloudwatchMetric) string { return v.MetricUnit }).(pulumi.StringOutput)
 }
 
+// The CloudWatch metric value.
 func (o TopicRuleErrorActionCloudwatchMetricOutput) MetricValue() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionCloudwatchMetric) string { return v.MetricValue }).(pulumi.StringOutput)
 }
 
+// The IAM role ARN that allows access to the CloudWatch metric.
 func (o TopicRuleErrorActionCloudwatchMetricOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionCloudwatchMetric) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -3815,6 +4080,7 @@ func (o TopicRuleErrorActionCloudwatchMetricPtrOutput) Elem() TopicRuleErrorActi
 	}).(TopicRuleErrorActionCloudwatchMetricOutput)
 }
 
+// The CloudWatch metric name.
 func (o TopicRuleErrorActionCloudwatchMetricPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchMetric) *string {
 		if v == nil {
@@ -3824,6 +4090,7 @@ func (o TopicRuleErrorActionCloudwatchMetricPtrOutput) MetricName() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The CloudWatch metric namespace name.
 func (o TopicRuleErrorActionCloudwatchMetricPtrOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchMetric) *string {
 		if v == nil {
@@ -3833,6 +4100,7 @@ func (o TopicRuleErrorActionCloudwatchMetricPtrOutput) MetricNamespace() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
 func (o TopicRuleErrorActionCloudwatchMetricPtrOutput) MetricTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchMetric) *string {
 		if v == nil {
@@ -3842,6 +4110,7 @@ func (o TopicRuleErrorActionCloudwatchMetricPtrOutput) MetricTimestamp() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
 func (o TopicRuleErrorActionCloudwatchMetricPtrOutput) MetricUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchMetric) *string {
 		if v == nil {
@@ -3851,6 +4120,7 @@ func (o TopicRuleErrorActionCloudwatchMetricPtrOutput) MetricUnit() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The CloudWatch metric value.
 func (o TopicRuleErrorActionCloudwatchMetricPtrOutput) MetricValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchMetric) *string {
 		if v == nil {
@@ -3860,6 +4130,7 @@ func (o TopicRuleErrorActionCloudwatchMetricPtrOutput) MetricValue() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IAM role ARN that allows access to the CloudWatch metric.
 func (o TopicRuleErrorActionCloudwatchMetricPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchMetric) *string {
 		if v == nil {
@@ -3870,16 +4141,26 @@ func (o TopicRuleErrorActionCloudwatchMetricPtrOutput) RoleArn() pulumi.StringPt
 }
 
 type TopicRuleErrorActionDynamodb struct {
-	HashKeyField  string  `pulumi:"hashKeyField"`
-	HashKeyType   *string `pulumi:"hashKeyType"`
-	HashKeyValue  string  `pulumi:"hashKeyValue"`
-	Operation     *string `pulumi:"operation"`
-	PayloadField  *string `pulumi:"payloadField"`
+	// The hash key name.
+	HashKeyField string `pulumi:"hashKeyField"`
+	// The hash key type. Valid values are "STRING" or "NUMBER".
+	HashKeyType *string `pulumi:"hashKeyType"`
+	// The hash key value.
+	HashKeyValue string `pulumi:"hashKeyValue"`
+	// The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
+	Operation *string `pulumi:"operation"`
+	// The action payload.
+	PayloadField *string `pulumi:"payloadField"`
+	// The range key name.
 	RangeKeyField *string `pulumi:"rangeKeyField"`
-	RangeKeyType  *string `pulumi:"rangeKeyType"`
+	// The range key type. Valid values are "STRING" or "NUMBER".
+	RangeKeyType *string `pulumi:"rangeKeyType"`
+	// The range key value.
 	RangeKeyValue *string `pulumi:"rangeKeyValue"`
-	RoleArn       string  `pulumi:"roleArn"`
-	TableName     string  `pulumi:"tableName"`
+	// The ARN of the IAM role that grants access to the DynamoDB table.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the DynamoDB table.
+	TableName string `pulumi:"tableName"`
 }
 
 // TopicRuleErrorActionDynamodbInput is an input type that accepts TopicRuleErrorActionDynamodbArgs and TopicRuleErrorActionDynamodbOutput values.
@@ -3894,16 +4175,26 @@ type TopicRuleErrorActionDynamodbInput interface {
 }
 
 type TopicRuleErrorActionDynamodbArgs struct {
-	HashKeyField  pulumi.StringInput    `pulumi:"hashKeyField"`
-	HashKeyType   pulumi.StringPtrInput `pulumi:"hashKeyType"`
-	HashKeyValue  pulumi.StringInput    `pulumi:"hashKeyValue"`
-	Operation     pulumi.StringPtrInput `pulumi:"operation"`
-	PayloadField  pulumi.StringPtrInput `pulumi:"payloadField"`
+	// The hash key name.
+	HashKeyField pulumi.StringInput `pulumi:"hashKeyField"`
+	// The hash key type. Valid values are "STRING" or "NUMBER".
+	HashKeyType pulumi.StringPtrInput `pulumi:"hashKeyType"`
+	// The hash key value.
+	HashKeyValue pulumi.StringInput `pulumi:"hashKeyValue"`
+	// The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
+	Operation pulumi.StringPtrInput `pulumi:"operation"`
+	// The action payload.
+	PayloadField pulumi.StringPtrInput `pulumi:"payloadField"`
+	// The range key name.
 	RangeKeyField pulumi.StringPtrInput `pulumi:"rangeKeyField"`
-	RangeKeyType  pulumi.StringPtrInput `pulumi:"rangeKeyType"`
+	// The range key type. Valid values are "STRING" or "NUMBER".
+	RangeKeyType pulumi.StringPtrInput `pulumi:"rangeKeyType"`
+	// The range key value.
 	RangeKeyValue pulumi.StringPtrInput `pulumi:"rangeKeyValue"`
-	RoleArn       pulumi.StringInput    `pulumi:"roleArn"`
-	TableName     pulumi.StringInput    `pulumi:"tableName"`
+	// The ARN of the IAM role that grants access to the DynamoDB table.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the DynamoDB table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
 func (TopicRuleErrorActionDynamodbArgs) ElementType() reflect.Type {
@@ -3983,42 +4274,52 @@ func (o TopicRuleErrorActionDynamodbOutput) ToTopicRuleErrorActionDynamodbPtrOut
 	}).(TopicRuleErrorActionDynamodbPtrOutput)
 }
 
+// The hash key name.
 func (o TopicRuleErrorActionDynamodbOutput) HashKeyField() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionDynamodb) string { return v.HashKeyField }).(pulumi.StringOutput)
 }
 
+// The hash key type. Valid values are "STRING" or "NUMBER".
 func (o TopicRuleErrorActionDynamodbOutput) HashKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionDynamodb) *string { return v.HashKeyType }).(pulumi.StringPtrOutput)
 }
 
+// The hash key value.
 func (o TopicRuleErrorActionDynamodbOutput) HashKeyValue() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionDynamodb) string { return v.HashKeyValue }).(pulumi.StringOutput)
 }
 
+// The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
 func (o TopicRuleErrorActionDynamodbOutput) Operation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionDynamodb) *string { return v.Operation }).(pulumi.StringPtrOutput)
 }
 
+// The action payload.
 func (o TopicRuleErrorActionDynamodbOutput) PayloadField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionDynamodb) *string { return v.PayloadField }).(pulumi.StringPtrOutput)
 }
 
+// The range key name.
 func (o TopicRuleErrorActionDynamodbOutput) RangeKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionDynamodb) *string { return v.RangeKeyField }).(pulumi.StringPtrOutput)
 }
 
+// The range key type. Valid values are "STRING" or "NUMBER".
 func (o TopicRuleErrorActionDynamodbOutput) RangeKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionDynamodb) *string { return v.RangeKeyType }).(pulumi.StringPtrOutput)
 }
 
+// The range key value.
 func (o TopicRuleErrorActionDynamodbOutput) RangeKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionDynamodb) *string { return v.RangeKeyValue }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access to the DynamoDB table.
 func (o TopicRuleErrorActionDynamodbOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionDynamodb) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The name of the DynamoDB table.
 func (o TopicRuleErrorActionDynamodbOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionDynamodb) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -4047,6 +4348,7 @@ func (o TopicRuleErrorActionDynamodbPtrOutput) Elem() TopicRuleErrorActionDynamo
 	}).(TopicRuleErrorActionDynamodbOutput)
 }
 
+// The hash key name.
 func (o TopicRuleErrorActionDynamodbPtrOutput) HashKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionDynamodb) *string {
 		if v == nil {
@@ -4056,6 +4358,7 @@ func (o TopicRuleErrorActionDynamodbPtrOutput) HashKeyField() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The hash key type. Valid values are "STRING" or "NUMBER".
 func (o TopicRuleErrorActionDynamodbPtrOutput) HashKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionDynamodb) *string {
 		if v == nil {
@@ -4065,6 +4368,7 @@ func (o TopicRuleErrorActionDynamodbPtrOutput) HashKeyType() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The hash key value.
 func (o TopicRuleErrorActionDynamodbPtrOutput) HashKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionDynamodb) *string {
 		if v == nil {
@@ -4074,6 +4378,7 @@ func (o TopicRuleErrorActionDynamodbPtrOutput) HashKeyValue() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
 func (o TopicRuleErrorActionDynamodbPtrOutput) Operation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionDynamodb) *string {
 		if v == nil {
@@ -4083,6 +4388,7 @@ func (o TopicRuleErrorActionDynamodbPtrOutput) Operation() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The action payload.
 func (o TopicRuleErrorActionDynamodbPtrOutput) PayloadField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionDynamodb) *string {
 		if v == nil {
@@ -4092,6 +4398,7 @@ func (o TopicRuleErrorActionDynamodbPtrOutput) PayloadField() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The range key name.
 func (o TopicRuleErrorActionDynamodbPtrOutput) RangeKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionDynamodb) *string {
 		if v == nil {
@@ -4101,6 +4408,7 @@ func (o TopicRuleErrorActionDynamodbPtrOutput) RangeKeyField() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The range key type. Valid values are "STRING" or "NUMBER".
 func (o TopicRuleErrorActionDynamodbPtrOutput) RangeKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionDynamodb) *string {
 		if v == nil {
@@ -4110,6 +4418,7 @@ func (o TopicRuleErrorActionDynamodbPtrOutput) RangeKeyType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The range key value.
 func (o TopicRuleErrorActionDynamodbPtrOutput) RangeKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionDynamodb) *string {
 		if v == nil {
@@ -4119,6 +4428,7 @@ func (o TopicRuleErrorActionDynamodbPtrOutput) RangeKeyValue() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access to the DynamoDB table.
 func (o TopicRuleErrorActionDynamodbPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionDynamodb) *string {
 		if v == nil {
@@ -4128,6 +4438,7 @@ func (o TopicRuleErrorActionDynamodbPtrOutput) RoleArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the DynamoDB table.
 func (o TopicRuleErrorActionDynamodbPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionDynamodb) *string {
 		if v == nil {
@@ -4138,8 +4449,10 @@ func (o TopicRuleErrorActionDynamodbPtrOutput) TableName() pulumi.StringPtrOutpu
 }
 
 type TopicRuleErrorActionDynamodbv2 struct {
+	// Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
 	PutItem *TopicRuleErrorActionDynamodbv2PutItem `pulumi:"putItem"`
-	RoleArn string                                 `pulumi:"roleArn"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // TopicRuleErrorActionDynamodbv2Input is an input type that accepts TopicRuleErrorActionDynamodbv2Args and TopicRuleErrorActionDynamodbv2Output values.
@@ -4154,8 +4467,10 @@ type TopicRuleErrorActionDynamodbv2Input interface {
 }
 
 type TopicRuleErrorActionDynamodbv2Args struct {
+	// Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
 	PutItem TopicRuleErrorActionDynamodbv2PutItemPtrInput `pulumi:"putItem"`
-	RoleArn pulumi.StringInput                            `pulumi:"roleArn"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleErrorActionDynamodbv2Args) ElementType() reflect.Type {
@@ -4235,10 +4550,12 @@ func (o TopicRuleErrorActionDynamodbv2Output) ToTopicRuleErrorActionDynamodbv2Pt
 	}).(TopicRuleErrorActionDynamodbv2PtrOutput)
 }
 
+// Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
 func (o TopicRuleErrorActionDynamodbv2Output) PutItem() TopicRuleErrorActionDynamodbv2PutItemPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionDynamodbv2) *TopicRuleErrorActionDynamodbv2PutItem { return v.PutItem }).(TopicRuleErrorActionDynamodbv2PutItemPtrOutput)
 }
 
+// The IAM role ARN that allows access to the CloudWatch alarm.
 func (o TopicRuleErrorActionDynamodbv2Output) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionDynamodbv2) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -4267,6 +4584,7 @@ func (o TopicRuleErrorActionDynamodbv2PtrOutput) Elem() TopicRuleErrorActionDyna
 	}).(TopicRuleErrorActionDynamodbv2Output)
 }
 
+// Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
 func (o TopicRuleErrorActionDynamodbv2PtrOutput) PutItem() TopicRuleErrorActionDynamodbv2PutItemPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionDynamodbv2) *TopicRuleErrorActionDynamodbv2PutItem {
 		if v == nil {
@@ -4276,6 +4594,7 @@ func (o TopicRuleErrorActionDynamodbv2PtrOutput) PutItem() TopicRuleErrorActionD
 	}).(TopicRuleErrorActionDynamodbv2PutItemPtrOutput)
 }
 
+// The IAM role ARN that allows access to the CloudWatch alarm.
 func (o TopicRuleErrorActionDynamodbv2PtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionDynamodbv2) *string {
 		if v == nil {
@@ -4286,6 +4605,7 @@ func (o TopicRuleErrorActionDynamodbv2PtrOutput) RoleArn() pulumi.StringPtrOutpu
 }
 
 type TopicRuleErrorActionDynamodbv2PutItem struct {
+	// The name of the DynamoDB table.
 	TableName string `pulumi:"tableName"`
 }
 
@@ -4301,6 +4621,7 @@ type TopicRuleErrorActionDynamodbv2PutItemInput interface {
 }
 
 type TopicRuleErrorActionDynamodbv2PutItemArgs struct {
+	// The name of the DynamoDB table.
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
@@ -4381,6 +4702,7 @@ func (o TopicRuleErrorActionDynamodbv2PutItemOutput) ToTopicRuleErrorActionDynam
 	}).(TopicRuleErrorActionDynamodbv2PutItemPtrOutput)
 }
 
+// The name of the DynamoDB table.
 func (o TopicRuleErrorActionDynamodbv2PutItemOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionDynamodbv2PutItem) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -4409,6 +4731,7 @@ func (o TopicRuleErrorActionDynamodbv2PutItemPtrOutput) Elem() TopicRuleErrorAct
 	}).(TopicRuleErrorActionDynamodbv2PutItemOutput)
 }
 
+// The name of the DynamoDB table.
 func (o TopicRuleErrorActionDynamodbv2PutItemPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionDynamodbv2PutItem) *string {
 		if v == nil {
@@ -4419,11 +4742,16 @@ func (o TopicRuleErrorActionDynamodbv2PutItemPtrOutput) TableName() pulumi.Strin
 }
 
 type TopicRuleErrorActionElasticsearch struct {
+	// The endpoint of your Elasticsearch domain.
 	Endpoint string `pulumi:"endpoint"`
-	Id       string `pulumi:"id"`
-	Index    string `pulumi:"index"`
-	RoleArn  string `pulumi:"roleArn"`
-	Type     string `pulumi:"type"`
+	// The unique identifier for the document you are storing.
+	Id string `pulumi:"id"`
+	// The Elasticsearch index where you want to store your data.
+	Index string `pulumi:"index"`
+	// The IAM role ARN that has access to Elasticsearch.
+	RoleArn string `pulumi:"roleArn"`
+	// The type of document you are storing.
+	Type string `pulumi:"type"`
 }
 
 // TopicRuleErrorActionElasticsearchInput is an input type that accepts TopicRuleErrorActionElasticsearchArgs and TopicRuleErrorActionElasticsearchOutput values.
@@ -4438,11 +4766,16 @@ type TopicRuleErrorActionElasticsearchInput interface {
 }
 
 type TopicRuleErrorActionElasticsearchArgs struct {
+	// The endpoint of your Elasticsearch domain.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	Id       pulumi.StringInput `pulumi:"id"`
-	Index    pulumi.StringInput `pulumi:"index"`
-	RoleArn  pulumi.StringInput `pulumi:"roleArn"`
-	Type     pulumi.StringInput `pulumi:"type"`
+	// The unique identifier for the document you are storing.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Elasticsearch index where you want to store your data.
+	Index pulumi.StringInput `pulumi:"index"`
+	// The IAM role ARN that has access to Elasticsearch.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The type of document you are storing.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (TopicRuleErrorActionElasticsearchArgs) ElementType() reflect.Type {
@@ -4522,22 +4855,27 @@ func (o TopicRuleErrorActionElasticsearchOutput) ToTopicRuleErrorActionElasticse
 	}).(TopicRuleErrorActionElasticsearchPtrOutput)
 }
 
+// The endpoint of your Elasticsearch domain.
 func (o TopicRuleErrorActionElasticsearchOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionElasticsearch) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
+// The unique identifier for the document you are storing.
 func (o TopicRuleErrorActionElasticsearchOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionElasticsearch) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The Elasticsearch index where you want to store your data.
 func (o TopicRuleErrorActionElasticsearchOutput) Index() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionElasticsearch) string { return v.Index }).(pulumi.StringOutput)
 }
 
+// The IAM role ARN that has access to Elasticsearch.
 func (o TopicRuleErrorActionElasticsearchOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionElasticsearch) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The type of document you are storing.
 func (o TopicRuleErrorActionElasticsearchOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionElasticsearch) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4566,6 +4904,7 @@ func (o TopicRuleErrorActionElasticsearchPtrOutput) Elem() TopicRuleErrorActionE
 	}).(TopicRuleErrorActionElasticsearchOutput)
 }
 
+// The endpoint of your Elasticsearch domain.
 func (o TopicRuleErrorActionElasticsearchPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionElasticsearch) *string {
 		if v == nil {
@@ -4575,6 +4914,7 @@ func (o TopicRuleErrorActionElasticsearchPtrOutput) Endpoint() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier for the document you are storing.
 func (o TopicRuleErrorActionElasticsearchPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionElasticsearch) *string {
 		if v == nil {
@@ -4584,6 +4924,7 @@ func (o TopicRuleErrorActionElasticsearchPtrOutput) Id() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Elasticsearch index where you want to store your data.
 func (o TopicRuleErrorActionElasticsearchPtrOutput) Index() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionElasticsearch) *string {
 		if v == nil {
@@ -4593,6 +4934,7 @@ func (o TopicRuleErrorActionElasticsearchPtrOutput) Index() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IAM role ARN that has access to Elasticsearch.
 func (o TopicRuleErrorActionElasticsearchPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionElasticsearch) *string {
 		if v == nil {
@@ -4602,6 +4944,7 @@ func (o TopicRuleErrorActionElasticsearchPtrOutput) RoleArn() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of document you are storing.
 func (o TopicRuleErrorActionElasticsearchPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionElasticsearch) *string {
 		if v == nil {
@@ -4612,9 +4955,12 @@ func (o TopicRuleErrorActionElasticsearchPtrOutput) Type() pulumi.StringPtrOutpu
 }
 
 type TopicRuleErrorActionFirehose struct {
-	DeliveryStreamName string  `pulumi:"deliveryStreamName"`
-	RoleArn            string  `pulumi:"roleArn"`
-	Separator          *string `pulumi:"separator"`
+	// The delivery stream name.
+	DeliveryStreamName string `pulumi:"deliveryStreamName"`
+	// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
+	RoleArn string `pulumi:"roleArn"`
+	// A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+	Separator *string `pulumi:"separator"`
 }
 
 // TopicRuleErrorActionFirehoseInput is an input type that accepts TopicRuleErrorActionFirehoseArgs and TopicRuleErrorActionFirehoseOutput values.
@@ -4629,9 +4975,12 @@ type TopicRuleErrorActionFirehoseInput interface {
 }
 
 type TopicRuleErrorActionFirehoseArgs struct {
-	DeliveryStreamName pulumi.StringInput    `pulumi:"deliveryStreamName"`
-	RoleArn            pulumi.StringInput    `pulumi:"roleArn"`
-	Separator          pulumi.StringPtrInput `pulumi:"separator"`
+	// The delivery stream name.
+	DeliveryStreamName pulumi.StringInput `pulumi:"deliveryStreamName"`
+	// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+	Separator pulumi.StringPtrInput `pulumi:"separator"`
 }
 
 func (TopicRuleErrorActionFirehoseArgs) ElementType() reflect.Type {
@@ -4711,14 +5060,17 @@ func (o TopicRuleErrorActionFirehoseOutput) ToTopicRuleErrorActionFirehosePtrOut
 	}).(TopicRuleErrorActionFirehosePtrOutput)
 }
 
+// The delivery stream name.
 func (o TopicRuleErrorActionFirehoseOutput) DeliveryStreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionFirehose) string { return v.DeliveryStreamName }).(pulumi.StringOutput)
 }
 
+// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
 func (o TopicRuleErrorActionFirehoseOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionFirehose) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 func (o TopicRuleErrorActionFirehoseOutput) Separator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionFirehose) *string { return v.Separator }).(pulumi.StringPtrOutput)
 }
@@ -4747,6 +5099,7 @@ func (o TopicRuleErrorActionFirehosePtrOutput) Elem() TopicRuleErrorActionFireho
 	}).(TopicRuleErrorActionFirehoseOutput)
 }
 
+// The delivery stream name.
 func (o TopicRuleErrorActionFirehosePtrOutput) DeliveryStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionFirehose) *string {
 		if v == nil {
@@ -4756,6 +5109,7 @@ func (o TopicRuleErrorActionFirehosePtrOutput) DeliveryStreamName() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
 func (o TopicRuleErrorActionFirehosePtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionFirehose) *string {
 		if v == nil {
@@ -4765,6 +5119,7 @@ func (o TopicRuleErrorActionFirehosePtrOutput) RoleArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 func (o TopicRuleErrorActionFirehosePtrOutput) Separator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionFirehose) *string {
 		if v == nil {
@@ -4775,9 +5130,12 @@ func (o TopicRuleErrorActionFirehosePtrOutput) Separator() pulumi.StringPtrOutpu
 }
 
 type TopicRuleErrorActionHttp struct {
-	ConfirmationUrl *string                              `pulumi:"confirmationUrl"`
-	HttpHeaders     []TopicRuleErrorActionHttpHttpHeader `pulumi:"httpHeaders"`
-	Url             string                               `pulumi:"url"`
+	// The HTTPS URL used to verify ownership of `url`.
+	ConfirmationUrl *string `pulumi:"confirmationUrl"`
+	// Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+	HttpHeaders []TopicRuleErrorActionHttpHttpHeader `pulumi:"httpHeaders"`
+	// The HTTPS URL.
+	Url string `pulumi:"url"`
 }
 
 // TopicRuleErrorActionHttpInput is an input type that accepts TopicRuleErrorActionHttpArgs and TopicRuleErrorActionHttpOutput values.
@@ -4792,9 +5150,12 @@ type TopicRuleErrorActionHttpInput interface {
 }
 
 type TopicRuleErrorActionHttpArgs struct {
-	ConfirmationUrl pulumi.StringPtrInput                        `pulumi:"confirmationUrl"`
-	HttpHeaders     TopicRuleErrorActionHttpHttpHeaderArrayInput `pulumi:"httpHeaders"`
-	Url             pulumi.StringInput                           `pulumi:"url"`
+	// The HTTPS URL used to verify ownership of `url`.
+	ConfirmationUrl pulumi.StringPtrInput `pulumi:"confirmationUrl"`
+	// Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+	HttpHeaders TopicRuleErrorActionHttpHttpHeaderArrayInput `pulumi:"httpHeaders"`
+	// The HTTPS URL.
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 func (TopicRuleErrorActionHttpArgs) ElementType() reflect.Type {
@@ -4874,14 +5235,17 @@ func (o TopicRuleErrorActionHttpOutput) ToTopicRuleErrorActionHttpPtrOutputWithC
 	}).(TopicRuleErrorActionHttpPtrOutput)
 }
 
+// The HTTPS URL used to verify ownership of `url`.
 func (o TopicRuleErrorActionHttpOutput) ConfirmationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionHttp) *string { return v.ConfirmationUrl }).(pulumi.StringPtrOutput)
 }
 
+// Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
 func (o TopicRuleErrorActionHttpOutput) HttpHeaders() TopicRuleErrorActionHttpHttpHeaderArrayOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionHttp) []TopicRuleErrorActionHttpHttpHeader { return v.HttpHeaders }).(TopicRuleErrorActionHttpHttpHeaderArrayOutput)
 }
 
+// The HTTPS URL.
 func (o TopicRuleErrorActionHttpOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionHttp) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -4910,6 +5274,7 @@ func (o TopicRuleErrorActionHttpPtrOutput) Elem() TopicRuleErrorActionHttpOutput
 	}).(TopicRuleErrorActionHttpOutput)
 }
 
+// The HTTPS URL used to verify ownership of `url`.
 func (o TopicRuleErrorActionHttpPtrOutput) ConfirmationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionHttp) *string {
 		if v == nil {
@@ -4919,6 +5284,7 @@ func (o TopicRuleErrorActionHttpPtrOutput) ConfirmationUrl() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
 func (o TopicRuleErrorActionHttpPtrOutput) HttpHeaders() TopicRuleErrorActionHttpHttpHeaderArrayOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionHttp) []TopicRuleErrorActionHttpHttpHeader {
 		if v == nil {
@@ -4928,6 +5294,7 @@ func (o TopicRuleErrorActionHttpPtrOutput) HttpHeaders() TopicRuleErrorActionHtt
 	}).(TopicRuleErrorActionHttpHttpHeaderArrayOutput)
 }
 
+// The HTTPS URL.
 func (o TopicRuleErrorActionHttpPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionHttp) *string {
 		if v == nil {
@@ -4938,7 +5305,9 @@ func (o TopicRuleErrorActionHttpPtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 type TopicRuleErrorActionHttpHttpHeader struct {
-	Key   string `pulumi:"key"`
+	// The name of the HTTP header.
+	Key string `pulumi:"key"`
+	// The value of the HTTP header.
 	Value string `pulumi:"value"`
 }
 
@@ -4954,7 +5323,9 @@ type TopicRuleErrorActionHttpHttpHeaderInput interface {
 }
 
 type TopicRuleErrorActionHttpHttpHeaderArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The name of the HTTP header.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the HTTP header.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -5009,10 +5380,12 @@ func (o TopicRuleErrorActionHttpHttpHeaderOutput) ToTopicRuleErrorActionHttpHttp
 	return o
 }
 
+// The name of the HTTP header.
 func (o TopicRuleErrorActionHttpHttpHeaderOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionHttpHttpHeader) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value of the HTTP header.
 func (o TopicRuleErrorActionHttpHttpHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionHttpHttpHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5038,8 +5411,10 @@ func (o TopicRuleErrorActionHttpHttpHeaderArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type TopicRuleErrorActionIotAnalytics struct {
+	// Name of AWS IOT Analytics channel.
 	ChannelName string `pulumi:"channelName"`
-	RoleArn     string `pulumi:"roleArn"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // TopicRuleErrorActionIotAnalyticsInput is an input type that accepts TopicRuleErrorActionIotAnalyticsArgs and TopicRuleErrorActionIotAnalyticsOutput values.
@@ -5054,8 +5429,10 @@ type TopicRuleErrorActionIotAnalyticsInput interface {
 }
 
 type TopicRuleErrorActionIotAnalyticsArgs struct {
+	// Name of AWS IOT Analytics channel.
 	ChannelName pulumi.StringInput `pulumi:"channelName"`
-	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleErrorActionIotAnalyticsArgs) ElementType() reflect.Type {
@@ -5135,10 +5512,12 @@ func (o TopicRuleErrorActionIotAnalyticsOutput) ToTopicRuleErrorActionIotAnalyti
 	}).(TopicRuleErrorActionIotAnalyticsPtrOutput)
 }
 
+// Name of AWS IOT Analytics channel.
 func (o TopicRuleErrorActionIotAnalyticsOutput) ChannelName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionIotAnalytics) string { return v.ChannelName }).(pulumi.StringOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleErrorActionIotAnalyticsOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionIotAnalytics) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -5167,6 +5546,7 @@ func (o TopicRuleErrorActionIotAnalyticsPtrOutput) Elem() TopicRuleErrorActionIo
 	}).(TopicRuleErrorActionIotAnalyticsOutput)
 }
 
+// Name of AWS IOT Analytics channel.
 func (o TopicRuleErrorActionIotAnalyticsPtrOutput) ChannelName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionIotAnalytics) *string {
 		if v == nil {
@@ -5176,6 +5556,7 @@ func (o TopicRuleErrorActionIotAnalyticsPtrOutput) ChannelName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleErrorActionIotAnalyticsPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionIotAnalytics) *string {
 		if v == nil {
@@ -5186,9 +5567,12 @@ func (o TopicRuleErrorActionIotAnalyticsPtrOutput) RoleArn() pulumi.StringPtrOut
 }
 
 type TopicRuleErrorActionIotEvents struct {
-	InputName string  `pulumi:"inputName"`
+	// The name of the AWS IoT Events input.
+	InputName string `pulumi:"inputName"`
+	// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
 	MessageId *string `pulumi:"messageId"`
-	RoleArn   string  `pulumi:"roleArn"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // TopicRuleErrorActionIotEventsInput is an input type that accepts TopicRuleErrorActionIotEventsArgs and TopicRuleErrorActionIotEventsOutput values.
@@ -5203,9 +5587,12 @@ type TopicRuleErrorActionIotEventsInput interface {
 }
 
 type TopicRuleErrorActionIotEventsArgs struct {
-	InputName pulumi.StringInput    `pulumi:"inputName"`
+	// The name of the AWS IoT Events input.
+	InputName pulumi.StringInput `pulumi:"inputName"`
+	// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
 	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
-	RoleArn   pulumi.StringInput    `pulumi:"roleArn"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleErrorActionIotEventsArgs) ElementType() reflect.Type {
@@ -5285,14 +5672,17 @@ func (o TopicRuleErrorActionIotEventsOutput) ToTopicRuleErrorActionIotEventsPtrO
 	}).(TopicRuleErrorActionIotEventsPtrOutput)
 }
 
+// The name of the AWS IoT Events input.
 func (o TopicRuleErrorActionIotEventsOutput) InputName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionIotEvents) string { return v.InputName }).(pulumi.StringOutput)
 }
 
+// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
 func (o TopicRuleErrorActionIotEventsOutput) MessageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionIotEvents) *string { return v.MessageId }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleErrorActionIotEventsOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionIotEvents) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -5321,6 +5711,7 @@ func (o TopicRuleErrorActionIotEventsPtrOutput) Elem() TopicRuleErrorActionIotEv
 	}).(TopicRuleErrorActionIotEventsOutput)
 }
 
+// The name of the AWS IoT Events input.
 func (o TopicRuleErrorActionIotEventsPtrOutput) InputName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionIotEvents) *string {
 		if v == nil {
@@ -5330,6 +5721,7 @@ func (o TopicRuleErrorActionIotEventsPtrOutput) InputName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
 func (o TopicRuleErrorActionIotEventsPtrOutput) MessageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionIotEvents) *string {
 		if v == nil {
@@ -5339,6 +5731,7 @@ func (o TopicRuleErrorActionIotEventsPtrOutput) MessageId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleErrorActionIotEventsPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionIotEvents) *string {
 		if v == nil {
@@ -5349,11 +5742,16 @@ func (o TopicRuleErrorActionIotEventsPtrOutput) RoleArn() pulumi.StringPtrOutput
 }
 
 type TopicRuleErrorActionKafka struct {
+	// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
 	ClientProperties map[string]string `pulumi:"clientProperties"`
-	DestinationArn   string            `pulumi:"destinationArn"`
-	Key              *string           `pulumi:"key"`
-	Partition        *string           `pulumi:"partition"`
-	Topic            string            `pulumi:"topic"`
+	// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+	DestinationArn string `pulumi:"destinationArn"`
+	// The Kafka message key.
+	Key *string `pulumi:"key"`
+	// The Kafka message partition.
+	Partition *string `pulumi:"partition"`
+	// The Kafka topic for messages to be sent to the Kafka broker.
+	Topic string `pulumi:"topic"`
 }
 
 // TopicRuleErrorActionKafkaInput is an input type that accepts TopicRuleErrorActionKafkaArgs and TopicRuleErrorActionKafkaOutput values.
@@ -5368,11 +5766,16 @@ type TopicRuleErrorActionKafkaInput interface {
 }
 
 type TopicRuleErrorActionKafkaArgs struct {
+	// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
 	ClientProperties pulumi.StringMapInput `pulumi:"clientProperties"`
-	DestinationArn   pulumi.StringInput    `pulumi:"destinationArn"`
-	Key              pulumi.StringPtrInput `pulumi:"key"`
-	Partition        pulumi.StringPtrInput `pulumi:"partition"`
-	Topic            pulumi.StringInput    `pulumi:"topic"`
+	// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+	DestinationArn pulumi.StringInput `pulumi:"destinationArn"`
+	// The Kafka message key.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The Kafka message partition.
+	Partition pulumi.StringPtrInput `pulumi:"partition"`
+	// The Kafka topic for messages to be sent to the Kafka broker.
+	Topic pulumi.StringInput `pulumi:"topic"`
 }
 
 func (TopicRuleErrorActionKafkaArgs) ElementType() reflect.Type {
@@ -5452,22 +5855,27 @@ func (o TopicRuleErrorActionKafkaOutput) ToTopicRuleErrorActionKafkaPtrOutputWit
 	}).(TopicRuleErrorActionKafkaPtrOutput)
 }
 
+// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
 func (o TopicRuleErrorActionKafkaOutput) ClientProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionKafka) map[string]string { return v.ClientProperties }).(pulumi.StringMapOutput)
 }
 
+// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
 func (o TopicRuleErrorActionKafkaOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionKafka) string { return v.DestinationArn }).(pulumi.StringOutput)
 }
 
+// The Kafka message key.
 func (o TopicRuleErrorActionKafkaOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionKafka) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// The Kafka message partition.
 func (o TopicRuleErrorActionKafkaOutput) Partition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionKafka) *string { return v.Partition }).(pulumi.StringPtrOutput)
 }
 
+// The Kafka topic for messages to be sent to the Kafka broker.
 func (o TopicRuleErrorActionKafkaOutput) Topic() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionKafka) string { return v.Topic }).(pulumi.StringOutput)
 }
@@ -5496,6 +5904,7 @@ func (o TopicRuleErrorActionKafkaPtrOutput) Elem() TopicRuleErrorActionKafkaOutp
 	}).(TopicRuleErrorActionKafkaOutput)
 }
 
+// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
 func (o TopicRuleErrorActionKafkaPtrOutput) ClientProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionKafka) map[string]string {
 		if v == nil {
@@ -5505,6 +5914,7 @@ func (o TopicRuleErrorActionKafkaPtrOutput) ClientProperties() pulumi.StringMapO
 	}).(pulumi.StringMapOutput)
 }
 
+// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
 func (o TopicRuleErrorActionKafkaPtrOutput) DestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionKafka) *string {
 		if v == nil {
@@ -5514,6 +5924,7 @@ func (o TopicRuleErrorActionKafkaPtrOutput) DestinationArn() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Kafka message key.
 func (o TopicRuleErrorActionKafkaPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionKafka) *string {
 		if v == nil {
@@ -5523,6 +5934,7 @@ func (o TopicRuleErrorActionKafkaPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Kafka message partition.
 func (o TopicRuleErrorActionKafkaPtrOutput) Partition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionKafka) *string {
 		if v == nil {
@@ -5532,6 +5944,7 @@ func (o TopicRuleErrorActionKafkaPtrOutput) Partition() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Kafka topic for messages to be sent to the Kafka broker.
 func (o TopicRuleErrorActionKafkaPtrOutput) Topic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionKafka) *string {
 		if v == nil {
@@ -5542,9 +5955,12 @@ func (o TopicRuleErrorActionKafkaPtrOutput) Topic() pulumi.StringPtrOutput {
 }
 
 type TopicRuleErrorActionKinesis struct {
+	// The partition key.
 	PartitionKey *string `pulumi:"partitionKey"`
-	RoleArn      string  `pulumi:"roleArn"`
-	StreamName   string  `pulumi:"streamName"`
+	// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the Amazon Kinesis stream.
+	StreamName string `pulumi:"streamName"`
 }
 
 // TopicRuleErrorActionKinesisInput is an input type that accepts TopicRuleErrorActionKinesisArgs and TopicRuleErrorActionKinesisOutput values.
@@ -5559,9 +5975,12 @@ type TopicRuleErrorActionKinesisInput interface {
 }
 
 type TopicRuleErrorActionKinesisArgs struct {
+	// The partition key.
 	PartitionKey pulumi.StringPtrInput `pulumi:"partitionKey"`
-	RoleArn      pulumi.StringInput    `pulumi:"roleArn"`
-	StreamName   pulumi.StringInput    `pulumi:"streamName"`
+	// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the Amazon Kinesis stream.
+	StreamName pulumi.StringInput `pulumi:"streamName"`
 }
 
 func (TopicRuleErrorActionKinesisArgs) ElementType() reflect.Type {
@@ -5641,14 +6060,17 @@ func (o TopicRuleErrorActionKinesisOutput) ToTopicRuleErrorActionKinesisPtrOutpu
 	}).(TopicRuleErrorActionKinesisPtrOutput)
 }
 
+// The partition key.
 func (o TopicRuleErrorActionKinesisOutput) PartitionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionKinesis) *string { return v.PartitionKey }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
 func (o TopicRuleErrorActionKinesisOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionKinesis) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The name of the Amazon Kinesis stream.
 func (o TopicRuleErrorActionKinesisOutput) StreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionKinesis) string { return v.StreamName }).(pulumi.StringOutput)
 }
@@ -5677,6 +6099,7 @@ func (o TopicRuleErrorActionKinesisPtrOutput) Elem() TopicRuleErrorActionKinesis
 	}).(TopicRuleErrorActionKinesisOutput)
 }
 
+// The partition key.
 func (o TopicRuleErrorActionKinesisPtrOutput) PartitionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionKinesis) *string {
 		if v == nil {
@@ -5686,6 +6109,7 @@ func (o TopicRuleErrorActionKinesisPtrOutput) PartitionKey() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
 func (o TopicRuleErrorActionKinesisPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionKinesis) *string {
 		if v == nil {
@@ -5695,6 +6119,7 @@ func (o TopicRuleErrorActionKinesisPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the Amazon Kinesis stream.
 func (o TopicRuleErrorActionKinesisPtrOutput) StreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionKinesis) *string {
 		if v == nil {
@@ -5705,6 +6130,7 @@ func (o TopicRuleErrorActionKinesisPtrOutput) StreamName() pulumi.StringPtrOutpu
 }
 
 type TopicRuleErrorActionLambda struct {
+	// The ARN of the Lambda function.
 	FunctionArn string `pulumi:"functionArn"`
 }
 
@@ -5720,6 +6146,7 @@ type TopicRuleErrorActionLambdaInput interface {
 }
 
 type TopicRuleErrorActionLambdaArgs struct {
+	// The ARN of the Lambda function.
 	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
 }
 
@@ -5800,6 +6227,7 @@ func (o TopicRuleErrorActionLambdaOutput) ToTopicRuleErrorActionLambdaPtrOutputW
 	}).(TopicRuleErrorActionLambdaPtrOutput)
 }
 
+// The ARN of the Lambda function.
 func (o TopicRuleErrorActionLambdaOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionLambda) string { return v.FunctionArn }).(pulumi.StringOutput)
 }
@@ -5828,6 +6256,7 @@ func (o TopicRuleErrorActionLambdaPtrOutput) Elem() TopicRuleErrorActionLambdaOu
 	}).(TopicRuleErrorActionLambdaOutput)
 }
 
+// The ARN of the Lambda function.
 func (o TopicRuleErrorActionLambdaPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionLambda) *string {
 		if v == nil {
@@ -5838,9 +6267,12 @@ func (o TopicRuleErrorActionLambdaPtrOutput) FunctionArn() pulumi.StringPtrOutpu
 }
 
 type TopicRuleErrorActionRepublish struct {
-	Qos     *int   `pulumi:"qos"`
+	// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+	Qos *int `pulumi:"qos"`
+	// The ARN of the IAM role that grants access.
 	RoleArn string `pulumi:"roleArn"`
-	Topic   string `pulumi:"topic"`
+	// The name of the MQTT topic the message should be republished to.
+	Topic string `pulumi:"topic"`
 }
 
 // TopicRuleErrorActionRepublishInput is an input type that accepts TopicRuleErrorActionRepublishArgs and TopicRuleErrorActionRepublishOutput values.
@@ -5855,9 +6287,12 @@ type TopicRuleErrorActionRepublishInput interface {
 }
 
 type TopicRuleErrorActionRepublishArgs struct {
-	Qos     pulumi.IntPtrInput `pulumi:"qos"`
+	// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+	Qos pulumi.IntPtrInput `pulumi:"qos"`
+	// The ARN of the IAM role that grants access.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	Topic   pulumi.StringInput `pulumi:"topic"`
+	// The name of the MQTT topic the message should be republished to.
+	Topic pulumi.StringInput `pulumi:"topic"`
 }
 
 func (TopicRuleErrorActionRepublishArgs) ElementType() reflect.Type {
@@ -5937,14 +6372,17 @@ func (o TopicRuleErrorActionRepublishOutput) ToTopicRuleErrorActionRepublishPtrO
 	}).(TopicRuleErrorActionRepublishPtrOutput)
 }
 
+// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
 func (o TopicRuleErrorActionRepublishOutput) Qos() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionRepublish) *int { return v.Qos }).(pulumi.IntPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleErrorActionRepublishOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionRepublish) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The name of the MQTT topic the message should be republished to.
 func (o TopicRuleErrorActionRepublishOutput) Topic() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionRepublish) string { return v.Topic }).(pulumi.StringOutput)
 }
@@ -5973,6 +6411,7 @@ func (o TopicRuleErrorActionRepublishPtrOutput) Elem() TopicRuleErrorActionRepub
 	}).(TopicRuleErrorActionRepublishOutput)
 }
 
+// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
 func (o TopicRuleErrorActionRepublishPtrOutput) Qos() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionRepublish) *int {
 		if v == nil {
@@ -5982,6 +6421,7 @@ func (o TopicRuleErrorActionRepublishPtrOutput) Qos() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleErrorActionRepublishPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionRepublish) *string {
 		if v == nil {
@@ -5991,6 +6431,7 @@ func (o TopicRuleErrorActionRepublishPtrOutput) RoleArn() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the MQTT topic the message should be republished to.
 func (o TopicRuleErrorActionRepublishPtrOutput) Topic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionRepublish) *string {
 		if v == nil {
@@ -6001,10 +6442,14 @@ func (o TopicRuleErrorActionRepublishPtrOutput) Topic() pulumi.StringPtrOutput {
 }
 
 type TopicRuleErrorActionS3 struct {
-	BucketName string  `pulumi:"bucketName"`
-	CannedAcl  *string `pulumi:"cannedAcl"`
-	Key        string  `pulumi:"key"`
-	RoleArn    string  `pulumi:"roleArn"`
+	// The Amazon S3 bucket name.
+	BucketName string `pulumi:"bucketName"`
+	// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+	CannedAcl *string `pulumi:"cannedAcl"`
+	// The name of the HTTP header.
+	Key string `pulumi:"key"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // TopicRuleErrorActionS3Input is an input type that accepts TopicRuleErrorActionS3Args and TopicRuleErrorActionS3Output values.
@@ -6019,10 +6464,14 @@ type TopicRuleErrorActionS3Input interface {
 }
 
 type TopicRuleErrorActionS3Args struct {
-	BucketName pulumi.StringInput    `pulumi:"bucketName"`
-	CannedAcl  pulumi.StringPtrInput `pulumi:"cannedAcl"`
-	Key        pulumi.StringInput    `pulumi:"key"`
-	RoleArn    pulumi.StringInput    `pulumi:"roleArn"`
+	// The Amazon S3 bucket name.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+	CannedAcl pulumi.StringPtrInput `pulumi:"cannedAcl"`
+	// The name of the HTTP header.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleErrorActionS3Args) ElementType() reflect.Type {
@@ -6102,18 +6551,22 @@ func (o TopicRuleErrorActionS3Output) ToTopicRuleErrorActionS3PtrOutputWithConte
 	}).(TopicRuleErrorActionS3PtrOutput)
 }
 
+// The Amazon S3 bucket name.
 func (o TopicRuleErrorActionS3Output) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionS3) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
+// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
 func (o TopicRuleErrorActionS3Output) CannedAcl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionS3) *string { return v.CannedAcl }).(pulumi.StringPtrOutput)
 }
 
+// The name of the HTTP header.
 func (o TopicRuleErrorActionS3Output) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionS3) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The IAM role ARN that allows access to the CloudWatch alarm.
 func (o TopicRuleErrorActionS3Output) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionS3) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -6142,6 +6595,7 @@ func (o TopicRuleErrorActionS3PtrOutput) Elem() TopicRuleErrorActionS3Output {
 	}).(TopicRuleErrorActionS3Output)
 }
 
+// The Amazon S3 bucket name.
 func (o TopicRuleErrorActionS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionS3) *string {
 		if v == nil {
@@ -6151,6 +6605,7 @@ func (o TopicRuleErrorActionS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
 func (o TopicRuleErrorActionS3PtrOutput) CannedAcl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionS3) *string {
 		if v == nil {
@@ -6160,6 +6615,7 @@ func (o TopicRuleErrorActionS3PtrOutput) CannedAcl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the HTTP header.
 func (o TopicRuleErrorActionS3PtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionS3) *string {
 		if v == nil {
@@ -6169,6 +6625,7 @@ func (o TopicRuleErrorActionS3PtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IAM role ARN that allows access to the CloudWatch alarm.
 func (o TopicRuleErrorActionS3PtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionS3) *string {
 		if v == nil {
@@ -6179,9 +6636,12 @@ func (o TopicRuleErrorActionS3PtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 type TopicRuleErrorActionSns struct {
+	// The message format of the message to publish. Accepted values are "JSON" and "RAW".
 	MessageFormat *string `pulumi:"messageFormat"`
-	RoleArn       string  `pulumi:"roleArn"`
-	TargetArn     string  `pulumi:"targetArn"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
+	// The ARN of the SNS topic.
+	TargetArn string `pulumi:"targetArn"`
 }
 
 // TopicRuleErrorActionSnsInput is an input type that accepts TopicRuleErrorActionSnsArgs and TopicRuleErrorActionSnsOutput values.
@@ -6196,9 +6656,12 @@ type TopicRuleErrorActionSnsInput interface {
 }
 
 type TopicRuleErrorActionSnsArgs struct {
+	// The message format of the message to publish. Accepted values are "JSON" and "RAW".
 	MessageFormat pulumi.StringPtrInput `pulumi:"messageFormat"`
-	RoleArn       pulumi.StringInput    `pulumi:"roleArn"`
-	TargetArn     pulumi.StringInput    `pulumi:"targetArn"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The ARN of the SNS topic.
+	TargetArn pulumi.StringInput `pulumi:"targetArn"`
 }
 
 func (TopicRuleErrorActionSnsArgs) ElementType() reflect.Type {
@@ -6278,14 +6741,17 @@ func (o TopicRuleErrorActionSnsOutput) ToTopicRuleErrorActionSnsPtrOutputWithCon
 	}).(TopicRuleErrorActionSnsPtrOutput)
 }
 
+// The message format of the message to publish. Accepted values are "JSON" and "RAW".
 func (o TopicRuleErrorActionSnsOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionSns) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleErrorActionSnsOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionSns) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The ARN of the SNS topic.
 func (o TopicRuleErrorActionSnsOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionSns) string { return v.TargetArn }).(pulumi.StringOutput)
 }
@@ -6314,6 +6780,7 @@ func (o TopicRuleErrorActionSnsPtrOutput) Elem() TopicRuleErrorActionSnsOutput {
 	}).(TopicRuleErrorActionSnsOutput)
 }
 
+// The message format of the message to publish. Accepted values are "JSON" and "RAW".
 func (o TopicRuleErrorActionSnsPtrOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionSns) *string {
 		if v == nil {
@@ -6323,6 +6790,7 @@ func (o TopicRuleErrorActionSnsPtrOutput) MessageFormat() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleErrorActionSnsPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionSns) *string {
 		if v == nil {
@@ -6332,6 +6800,7 @@ func (o TopicRuleErrorActionSnsPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the SNS topic.
 func (o TopicRuleErrorActionSnsPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionSns) *string {
 		if v == nil {
@@ -6342,9 +6811,12 @@ func (o TopicRuleErrorActionSnsPtrOutput) TargetArn() pulumi.StringPtrOutput {
 }
 
 type TopicRuleErrorActionSqs struct {
-	QueueUrl  string `pulumi:"queueUrl"`
-	RoleArn   string `pulumi:"roleArn"`
-	UseBase64 bool   `pulumi:"useBase64"`
+	// The URL of the Amazon SQS queue.
+	QueueUrl string `pulumi:"queueUrl"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
+	// Specifies whether to use Base64 encoding.
+	UseBase64 bool `pulumi:"useBase64"`
 }
 
 // TopicRuleErrorActionSqsInput is an input type that accepts TopicRuleErrorActionSqsArgs and TopicRuleErrorActionSqsOutput values.
@@ -6359,9 +6831,12 @@ type TopicRuleErrorActionSqsInput interface {
 }
 
 type TopicRuleErrorActionSqsArgs struct {
-	QueueUrl  pulumi.StringInput `pulumi:"queueUrl"`
-	RoleArn   pulumi.StringInput `pulumi:"roleArn"`
-	UseBase64 pulumi.BoolInput   `pulumi:"useBase64"`
+	// The URL of the Amazon SQS queue.
+	QueueUrl pulumi.StringInput `pulumi:"queueUrl"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// Specifies whether to use Base64 encoding.
+	UseBase64 pulumi.BoolInput `pulumi:"useBase64"`
 }
 
 func (TopicRuleErrorActionSqsArgs) ElementType() reflect.Type {
@@ -6441,14 +6916,17 @@ func (o TopicRuleErrorActionSqsOutput) ToTopicRuleErrorActionSqsPtrOutputWithCon
 	}).(TopicRuleErrorActionSqsPtrOutput)
 }
 
+// The URL of the Amazon SQS queue.
 func (o TopicRuleErrorActionSqsOutput) QueueUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionSqs) string { return v.QueueUrl }).(pulumi.StringOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleErrorActionSqsOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionSqs) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// Specifies whether to use Base64 encoding.
 func (o TopicRuleErrorActionSqsOutput) UseBase64() pulumi.BoolOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionSqs) bool { return v.UseBase64 }).(pulumi.BoolOutput)
 }
@@ -6477,6 +6955,7 @@ func (o TopicRuleErrorActionSqsPtrOutput) Elem() TopicRuleErrorActionSqsOutput {
 	}).(TopicRuleErrorActionSqsOutput)
 }
 
+// The URL of the Amazon SQS queue.
 func (o TopicRuleErrorActionSqsPtrOutput) QueueUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionSqs) *string {
 		if v == nil {
@@ -6486,6 +6965,7 @@ func (o TopicRuleErrorActionSqsPtrOutput) QueueUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleErrorActionSqsPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionSqs) *string {
 		if v == nil {
@@ -6495,6 +6975,7 @@ func (o TopicRuleErrorActionSqsPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether to use Base64 encoding.
 func (o TopicRuleErrorActionSqsPtrOutput) UseBase64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionSqs) *bool {
 		if v == nil {
@@ -6505,9 +6986,12 @@ func (o TopicRuleErrorActionSqsPtrOutput) UseBase64() pulumi.BoolPtrOutput {
 }
 
 type TopicRuleErrorActionStepFunctions struct {
+	// The prefix used to generate, along with a UUID, the unique state machine execution name.
 	ExecutionNamePrefix *string `pulumi:"executionNamePrefix"`
-	RoleArn             string  `pulumi:"roleArn"`
-	StateMachineName    string  `pulumi:"stateMachineName"`
+	// The ARN of the IAM role that grants access to start execution of the state machine.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the Step Functions state machine whose execution will be started.
+	StateMachineName string `pulumi:"stateMachineName"`
 }
 
 // TopicRuleErrorActionStepFunctionsInput is an input type that accepts TopicRuleErrorActionStepFunctionsArgs and TopicRuleErrorActionStepFunctionsOutput values.
@@ -6522,9 +7006,12 @@ type TopicRuleErrorActionStepFunctionsInput interface {
 }
 
 type TopicRuleErrorActionStepFunctionsArgs struct {
+	// The prefix used to generate, along with a UUID, the unique state machine execution name.
 	ExecutionNamePrefix pulumi.StringPtrInput `pulumi:"executionNamePrefix"`
-	RoleArn             pulumi.StringInput    `pulumi:"roleArn"`
-	StateMachineName    pulumi.StringInput    `pulumi:"stateMachineName"`
+	// The ARN of the IAM role that grants access to start execution of the state machine.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the Step Functions state machine whose execution will be started.
+	StateMachineName pulumi.StringInput `pulumi:"stateMachineName"`
 }
 
 func (TopicRuleErrorActionStepFunctionsArgs) ElementType() reflect.Type {
@@ -6604,14 +7091,17 @@ func (o TopicRuleErrorActionStepFunctionsOutput) ToTopicRuleErrorActionStepFunct
 	}).(TopicRuleErrorActionStepFunctionsPtrOutput)
 }
 
+// The prefix used to generate, along with a UUID, the unique state machine execution name.
 func (o TopicRuleErrorActionStepFunctionsOutput) ExecutionNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionStepFunctions) *string { return v.ExecutionNamePrefix }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access to start execution of the state machine.
 func (o TopicRuleErrorActionStepFunctionsOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionStepFunctions) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The name of the Step Functions state machine whose execution will be started.
 func (o TopicRuleErrorActionStepFunctionsOutput) StateMachineName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionStepFunctions) string { return v.StateMachineName }).(pulumi.StringOutput)
 }
@@ -6640,6 +7130,7 @@ func (o TopicRuleErrorActionStepFunctionsPtrOutput) Elem() TopicRuleErrorActionS
 	}).(TopicRuleErrorActionStepFunctionsOutput)
 }
 
+// The prefix used to generate, along with a UUID, the unique state machine execution name.
 func (o TopicRuleErrorActionStepFunctionsPtrOutput) ExecutionNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionStepFunctions) *string {
 		if v == nil {
@@ -6649,6 +7140,7 @@ func (o TopicRuleErrorActionStepFunctionsPtrOutput) ExecutionNamePrefix() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access to start execution of the state machine.
 func (o TopicRuleErrorActionStepFunctionsPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionStepFunctions) *string {
 		if v == nil {
@@ -6658,6 +7150,7 @@ func (o TopicRuleErrorActionStepFunctionsPtrOutput) RoleArn() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the Step Functions state machine whose execution will be started.
 func (o TopicRuleErrorActionStepFunctionsPtrOutput) StateMachineName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionStepFunctions) *string {
 		if v == nil {
@@ -6668,11 +7161,16 @@ func (o TopicRuleErrorActionStepFunctionsPtrOutput) StateMachineName() pulumi.St
 }
 
 type TopicRuleErrorActionTimestream struct {
-	DatabaseName string                                    `pulumi:"databaseName"`
-	Dimensions   []TopicRuleErrorActionTimestreamDimension `pulumi:"dimensions"`
-	RoleArn      string                                    `pulumi:"roleArn"`
-	TableName    string                                    `pulumi:"tableName"`
-	Timestamp    *TopicRuleErrorActionTimestreamTimestamp  `pulumi:"timestamp"`
+	// The name of an Amazon Timestream database.
+	DatabaseName string `pulumi:"databaseName"`
+	// Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+	Dimensions []TopicRuleErrorActionTimestreamDimension `pulumi:"dimensions"`
+	// The ARN of the role that grants permission to write to the Amazon Timestream database table.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the database table into which to write the measure records.
+	TableName string `pulumi:"tableName"`
+	// Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+	Timestamp *TopicRuleErrorActionTimestreamTimestamp `pulumi:"timestamp"`
 }
 
 // TopicRuleErrorActionTimestreamInput is an input type that accepts TopicRuleErrorActionTimestreamArgs and TopicRuleErrorActionTimestreamOutput values.
@@ -6687,11 +7185,16 @@ type TopicRuleErrorActionTimestreamInput interface {
 }
 
 type TopicRuleErrorActionTimestreamArgs struct {
-	DatabaseName pulumi.StringInput                                `pulumi:"databaseName"`
-	Dimensions   TopicRuleErrorActionTimestreamDimensionArrayInput `pulumi:"dimensions"`
-	RoleArn      pulumi.StringInput                                `pulumi:"roleArn"`
-	TableName    pulumi.StringInput                                `pulumi:"tableName"`
-	Timestamp    TopicRuleErrorActionTimestreamTimestampPtrInput   `pulumi:"timestamp"`
+	// The name of an Amazon Timestream database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+	Dimensions TopicRuleErrorActionTimestreamDimensionArrayInput `pulumi:"dimensions"`
+	// The ARN of the role that grants permission to write to the Amazon Timestream database table.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the database table into which to write the measure records.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+	// Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+	Timestamp TopicRuleErrorActionTimestreamTimestampPtrInput `pulumi:"timestamp"`
 }
 
 func (TopicRuleErrorActionTimestreamArgs) ElementType() reflect.Type {
@@ -6771,22 +7274,27 @@ func (o TopicRuleErrorActionTimestreamOutput) ToTopicRuleErrorActionTimestreamPt
 	}).(TopicRuleErrorActionTimestreamPtrOutput)
 }
 
+// The name of an Amazon Timestream database.
 func (o TopicRuleErrorActionTimestreamOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionTimestream) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
 func (o TopicRuleErrorActionTimestreamOutput) Dimensions() TopicRuleErrorActionTimestreamDimensionArrayOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionTimestream) []TopicRuleErrorActionTimestreamDimension { return v.Dimensions }).(TopicRuleErrorActionTimestreamDimensionArrayOutput)
 }
 
+// The ARN of the role that grants permission to write to the Amazon Timestream database table.
 func (o TopicRuleErrorActionTimestreamOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionTimestream) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The name of the database table into which to write the measure records.
 func (o TopicRuleErrorActionTimestreamOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionTimestream) string { return v.TableName }).(pulumi.StringOutput)
 }
 
+// Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
 func (o TopicRuleErrorActionTimestreamOutput) Timestamp() TopicRuleErrorActionTimestreamTimestampPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionTimestream) *TopicRuleErrorActionTimestreamTimestamp { return v.Timestamp }).(TopicRuleErrorActionTimestreamTimestampPtrOutput)
 }
@@ -6815,6 +7323,7 @@ func (o TopicRuleErrorActionTimestreamPtrOutput) Elem() TopicRuleErrorActionTime
 	}).(TopicRuleErrorActionTimestreamOutput)
 }
 
+// The name of an Amazon Timestream database.
 func (o TopicRuleErrorActionTimestreamPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionTimestream) *string {
 		if v == nil {
@@ -6824,6 +7333,7 @@ func (o TopicRuleErrorActionTimestreamPtrOutput) DatabaseName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
 func (o TopicRuleErrorActionTimestreamPtrOutput) Dimensions() TopicRuleErrorActionTimestreamDimensionArrayOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionTimestream) []TopicRuleErrorActionTimestreamDimension {
 		if v == nil {
@@ -6833,6 +7343,7 @@ func (o TopicRuleErrorActionTimestreamPtrOutput) Dimensions() TopicRuleErrorActi
 	}).(TopicRuleErrorActionTimestreamDimensionArrayOutput)
 }
 
+// The ARN of the role that grants permission to write to the Amazon Timestream database table.
 func (o TopicRuleErrorActionTimestreamPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionTimestream) *string {
 		if v == nil {
@@ -6842,6 +7353,7 @@ func (o TopicRuleErrorActionTimestreamPtrOutput) RoleArn() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the database table into which to write the measure records.
 func (o TopicRuleErrorActionTimestreamPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionTimestream) *string {
 		if v == nil {
@@ -6851,6 +7363,7 @@ func (o TopicRuleErrorActionTimestreamPtrOutput) TableName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
 func (o TopicRuleErrorActionTimestreamPtrOutput) Timestamp() TopicRuleErrorActionTimestreamTimestampPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionTimestream) *TopicRuleErrorActionTimestreamTimestamp {
 		if v == nil {
@@ -6861,7 +7374,9 @@ func (o TopicRuleErrorActionTimestreamPtrOutput) Timestamp() TopicRuleErrorActio
 }
 
 type TopicRuleErrorActionTimestreamDimension struct {
-	Name  string `pulumi:"name"`
+	// The name of the rule.
+	Name string `pulumi:"name"`
+	// The value of the HTTP header.
 	Value string `pulumi:"value"`
 }
 
@@ -6877,7 +7392,9 @@ type TopicRuleErrorActionTimestreamDimensionInput interface {
 }
 
 type TopicRuleErrorActionTimestreamDimensionArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
+	// The name of the rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the HTTP header.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -6932,10 +7449,12 @@ func (o TopicRuleErrorActionTimestreamDimensionOutput) ToTopicRuleErrorActionTim
 	return o
 }
 
+// The name of the rule.
 func (o TopicRuleErrorActionTimestreamDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionTimestreamDimension) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The value of the HTTP header.
 func (o TopicRuleErrorActionTimestreamDimensionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionTimestreamDimension) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6961,7 +7480,9 @@ func (o TopicRuleErrorActionTimestreamDimensionArrayOutput) Index(i pulumi.IntIn
 }
 
 type TopicRuleErrorActionTimestreamTimestamp struct {
-	Unit  string `pulumi:"unit"`
+	// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+	Unit string `pulumi:"unit"`
+	// The value of the HTTP header.
 	Value string `pulumi:"value"`
 }
 
@@ -6977,7 +7498,9 @@ type TopicRuleErrorActionTimestreamTimestampInput interface {
 }
 
 type TopicRuleErrorActionTimestreamTimestampArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
+	// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The value of the HTTP header.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -7058,10 +7581,12 @@ func (o TopicRuleErrorActionTimestreamTimestampOutput) ToTopicRuleErrorActionTim
 	}).(TopicRuleErrorActionTimestreamTimestampPtrOutput)
 }
 
+// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
 func (o TopicRuleErrorActionTimestreamTimestampOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionTimestreamTimestamp) string { return v.Unit }).(pulumi.StringOutput)
 }
 
+// The value of the HTTP header.
 func (o TopicRuleErrorActionTimestreamTimestampOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionTimestreamTimestamp) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -7090,6 +7615,7 @@ func (o TopicRuleErrorActionTimestreamTimestampPtrOutput) Elem() TopicRuleErrorA
 	}).(TopicRuleErrorActionTimestreamTimestampOutput)
 }
 
+// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
 func (o TopicRuleErrorActionTimestreamTimestampPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionTimestreamTimestamp) *string {
 		if v == nil {
@@ -7099,6 +7625,7 @@ func (o TopicRuleErrorActionTimestreamTimestampPtrOutput) Unit() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The value of the HTTP header.
 func (o TopicRuleErrorActionTimestreamTimestampPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionTimestreamTimestamp) *string {
 		if v == nil {
@@ -7109,9 +7636,12 @@ func (o TopicRuleErrorActionTimestreamTimestampPtrOutput) Value() pulumi.StringP
 }
 
 type TopicRuleFirehose struct {
-	DeliveryStreamName string  `pulumi:"deliveryStreamName"`
-	RoleArn            string  `pulumi:"roleArn"`
-	Separator          *string `pulumi:"separator"`
+	// The delivery stream name.
+	DeliveryStreamName string `pulumi:"deliveryStreamName"`
+	// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
+	RoleArn string `pulumi:"roleArn"`
+	// A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+	Separator *string `pulumi:"separator"`
 }
 
 // TopicRuleFirehoseInput is an input type that accepts TopicRuleFirehoseArgs and TopicRuleFirehoseOutput values.
@@ -7126,9 +7656,12 @@ type TopicRuleFirehoseInput interface {
 }
 
 type TopicRuleFirehoseArgs struct {
-	DeliveryStreamName pulumi.StringInput    `pulumi:"deliveryStreamName"`
-	RoleArn            pulumi.StringInput    `pulumi:"roleArn"`
-	Separator          pulumi.StringPtrInput `pulumi:"separator"`
+	// The delivery stream name.
+	DeliveryStreamName pulumi.StringInput `pulumi:"deliveryStreamName"`
+	// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+	Separator pulumi.StringPtrInput `pulumi:"separator"`
 }
 
 func (TopicRuleFirehoseArgs) ElementType() reflect.Type {
@@ -7208,14 +7741,17 @@ func (o TopicRuleFirehoseOutput) ToTopicRuleFirehosePtrOutputWithContext(ctx con
 	}).(TopicRuleFirehosePtrOutput)
 }
 
+// The delivery stream name.
 func (o TopicRuleFirehoseOutput) DeliveryStreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleFirehose) string { return v.DeliveryStreamName }).(pulumi.StringOutput)
 }
 
+// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
 func (o TopicRuleFirehoseOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleFirehose) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 func (o TopicRuleFirehoseOutput) Separator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleFirehose) *string { return v.Separator }).(pulumi.StringPtrOutput)
 }
@@ -7244,6 +7780,7 @@ func (o TopicRuleFirehosePtrOutput) Elem() TopicRuleFirehoseOutput {
 	}).(TopicRuleFirehoseOutput)
 }
 
+// The delivery stream name.
 func (o TopicRuleFirehosePtrOutput) DeliveryStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleFirehose) *string {
 		if v == nil {
@@ -7253,6 +7790,7 @@ func (o TopicRuleFirehosePtrOutput) DeliveryStreamName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
 func (o TopicRuleFirehosePtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleFirehose) *string {
 		if v == nil {
@@ -7262,6 +7800,7 @@ func (o TopicRuleFirehosePtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 func (o TopicRuleFirehosePtrOutput) Separator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleFirehose) *string {
 		if v == nil {
@@ -7272,9 +7811,12 @@ func (o TopicRuleFirehosePtrOutput) Separator() pulumi.StringPtrOutput {
 }
 
 type TopicRuleHttp struct {
-	ConfirmationUrl *string                   `pulumi:"confirmationUrl"`
-	HttpHeaders     []TopicRuleHttpHttpHeader `pulumi:"httpHeaders"`
-	Url             string                    `pulumi:"url"`
+	// The HTTPS URL used to verify ownership of `url`.
+	ConfirmationUrl *string `pulumi:"confirmationUrl"`
+	// Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+	HttpHeaders []TopicRuleHttpHttpHeader `pulumi:"httpHeaders"`
+	// The HTTPS URL.
+	Url string `pulumi:"url"`
 }
 
 // TopicRuleHttpInput is an input type that accepts TopicRuleHttpArgs and TopicRuleHttpOutput values.
@@ -7289,9 +7831,12 @@ type TopicRuleHttpInput interface {
 }
 
 type TopicRuleHttpArgs struct {
-	ConfirmationUrl pulumi.StringPtrInput             `pulumi:"confirmationUrl"`
-	HttpHeaders     TopicRuleHttpHttpHeaderArrayInput `pulumi:"httpHeaders"`
-	Url             pulumi.StringInput                `pulumi:"url"`
+	// The HTTPS URL used to verify ownership of `url`.
+	ConfirmationUrl pulumi.StringPtrInput `pulumi:"confirmationUrl"`
+	// Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+	HttpHeaders TopicRuleHttpHttpHeaderArrayInput `pulumi:"httpHeaders"`
+	// The HTTPS URL.
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 func (TopicRuleHttpArgs) ElementType() reflect.Type {
@@ -7345,14 +7890,17 @@ func (o TopicRuleHttpOutput) ToTopicRuleHttpOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The HTTPS URL used to verify ownership of `url`.
 func (o TopicRuleHttpOutput) ConfirmationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleHttp) *string { return v.ConfirmationUrl }).(pulumi.StringPtrOutput)
 }
 
+// Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
 func (o TopicRuleHttpOutput) HttpHeaders() TopicRuleHttpHttpHeaderArrayOutput {
 	return o.ApplyT(func(v TopicRuleHttp) []TopicRuleHttpHttpHeader { return v.HttpHeaders }).(TopicRuleHttpHttpHeaderArrayOutput)
 }
 
+// The HTTPS URL.
 func (o TopicRuleHttpOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleHttp) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -7378,7 +7926,9 @@ func (o TopicRuleHttpArrayOutput) Index(i pulumi.IntInput) TopicRuleHttpOutput {
 }
 
 type TopicRuleHttpHttpHeader struct {
-	Key   string `pulumi:"key"`
+	// The name of the HTTP header.
+	Key string `pulumi:"key"`
+	// The value of the HTTP header.
 	Value string `pulumi:"value"`
 }
 
@@ -7394,7 +7944,9 @@ type TopicRuleHttpHttpHeaderInput interface {
 }
 
 type TopicRuleHttpHttpHeaderArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The name of the HTTP header.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the HTTP header.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -7449,10 +8001,12 @@ func (o TopicRuleHttpHttpHeaderOutput) ToTopicRuleHttpHttpHeaderOutputWithContex
 	return o
 }
 
+// The name of the HTTP header.
 func (o TopicRuleHttpHttpHeaderOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleHttpHttpHeader) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value of the HTTP header.
 func (o TopicRuleHttpHttpHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleHttpHttpHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -7478,8 +8032,10 @@ func (o TopicRuleHttpHttpHeaderArrayOutput) Index(i pulumi.IntInput) TopicRuleHt
 }
 
 type TopicRuleIotAnalytic struct {
+	// Name of AWS IOT Analytics channel.
 	ChannelName string `pulumi:"channelName"`
-	RoleArn     string `pulumi:"roleArn"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // TopicRuleIotAnalyticInput is an input type that accepts TopicRuleIotAnalyticArgs and TopicRuleIotAnalyticOutput values.
@@ -7494,8 +8050,10 @@ type TopicRuleIotAnalyticInput interface {
 }
 
 type TopicRuleIotAnalyticArgs struct {
+	// Name of AWS IOT Analytics channel.
 	ChannelName pulumi.StringInput `pulumi:"channelName"`
-	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleIotAnalyticArgs) ElementType() reflect.Type {
@@ -7549,10 +8107,12 @@ func (o TopicRuleIotAnalyticOutput) ToTopicRuleIotAnalyticOutputWithContext(ctx 
 	return o
 }
 
+// Name of AWS IOT Analytics channel.
 func (o TopicRuleIotAnalyticOutput) ChannelName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleIotAnalytic) string { return v.ChannelName }).(pulumi.StringOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleIotAnalyticOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleIotAnalytic) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -7578,9 +8138,12 @@ func (o TopicRuleIotAnalyticArrayOutput) Index(i pulumi.IntInput) TopicRuleIotAn
 }
 
 type TopicRuleIotEvent struct {
-	InputName string  `pulumi:"inputName"`
+	// The name of the AWS IoT Events input.
+	InputName string `pulumi:"inputName"`
+	// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
 	MessageId *string `pulumi:"messageId"`
-	RoleArn   string  `pulumi:"roleArn"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // TopicRuleIotEventInput is an input type that accepts TopicRuleIotEventArgs and TopicRuleIotEventOutput values.
@@ -7595,9 +8158,12 @@ type TopicRuleIotEventInput interface {
 }
 
 type TopicRuleIotEventArgs struct {
-	InputName pulumi.StringInput    `pulumi:"inputName"`
+	// The name of the AWS IoT Events input.
+	InputName pulumi.StringInput `pulumi:"inputName"`
+	// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
 	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
-	RoleArn   pulumi.StringInput    `pulumi:"roleArn"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleIotEventArgs) ElementType() reflect.Type {
@@ -7651,14 +8217,17 @@ func (o TopicRuleIotEventOutput) ToTopicRuleIotEventOutputWithContext(ctx contex
 	return o
 }
 
+// The name of the AWS IoT Events input.
 func (o TopicRuleIotEventOutput) InputName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleIotEvent) string { return v.InputName }).(pulumi.StringOutput)
 }
 
+// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
 func (o TopicRuleIotEventOutput) MessageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleIotEvent) *string { return v.MessageId }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleIotEventOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleIotEvent) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -7684,11 +8253,16 @@ func (o TopicRuleIotEventArrayOutput) Index(i pulumi.IntInput) TopicRuleIotEvent
 }
 
 type TopicRuleKafka struct {
+	// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
 	ClientProperties map[string]string `pulumi:"clientProperties"`
-	DestinationArn   string            `pulumi:"destinationArn"`
-	Key              *string           `pulumi:"key"`
-	Partition        *string           `pulumi:"partition"`
-	Topic            string            `pulumi:"topic"`
+	// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+	DestinationArn string `pulumi:"destinationArn"`
+	// The Kafka message key.
+	Key *string `pulumi:"key"`
+	// The Kafka message partition.
+	Partition *string `pulumi:"partition"`
+	// The Kafka topic for messages to be sent to the Kafka broker.
+	Topic string `pulumi:"topic"`
 }
 
 // TopicRuleKafkaInput is an input type that accepts TopicRuleKafkaArgs and TopicRuleKafkaOutput values.
@@ -7703,11 +8277,16 @@ type TopicRuleKafkaInput interface {
 }
 
 type TopicRuleKafkaArgs struct {
+	// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
 	ClientProperties pulumi.StringMapInput `pulumi:"clientProperties"`
-	DestinationArn   pulumi.StringInput    `pulumi:"destinationArn"`
-	Key              pulumi.StringPtrInput `pulumi:"key"`
-	Partition        pulumi.StringPtrInput `pulumi:"partition"`
-	Topic            pulumi.StringInput    `pulumi:"topic"`
+	// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+	DestinationArn pulumi.StringInput `pulumi:"destinationArn"`
+	// The Kafka message key.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The Kafka message partition.
+	Partition pulumi.StringPtrInput `pulumi:"partition"`
+	// The Kafka topic for messages to be sent to the Kafka broker.
+	Topic pulumi.StringInput `pulumi:"topic"`
 }
 
 func (TopicRuleKafkaArgs) ElementType() reflect.Type {
@@ -7761,22 +8340,27 @@ func (o TopicRuleKafkaOutput) ToTopicRuleKafkaOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
 func (o TopicRuleKafkaOutput) ClientProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TopicRuleKafka) map[string]string { return v.ClientProperties }).(pulumi.StringMapOutput)
 }
 
+// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
 func (o TopicRuleKafkaOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleKafka) string { return v.DestinationArn }).(pulumi.StringOutput)
 }
 
+// The Kafka message key.
 func (o TopicRuleKafkaOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleKafka) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// The Kafka message partition.
 func (o TopicRuleKafkaOutput) Partition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleKafka) *string { return v.Partition }).(pulumi.StringPtrOutput)
 }
 
+// The Kafka topic for messages to be sent to the Kafka broker.
 func (o TopicRuleKafkaOutput) Topic() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleKafka) string { return v.Topic }).(pulumi.StringOutput)
 }
@@ -7802,9 +8386,12 @@ func (o TopicRuleKafkaArrayOutput) Index(i pulumi.IntInput) TopicRuleKafkaOutput
 }
 
 type TopicRuleKinesis struct {
+	// The partition key.
 	PartitionKey *string `pulumi:"partitionKey"`
-	RoleArn      string  `pulumi:"roleArn"`
-	StreamName   string  `pulumi:"streamName"`
+	// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the Amazon Kinesis stream.
+	StreamName string `pulumi:"streamName"`
 }
 
 // TopicRuleKinesisInput is an input type that accepts TopicRuleKinesisArgs and TopicRuleKinesisOutput values.
@@ -7819,9 +8406,12 @@ type TopicRuleKinesisInput interface {
 }
 
 type TopicRuleKinesisArgs struct {
+	// The partition key.
 	PartitionKey pulumi.StringPtrInput `pulumi:"partitionKey"`
-	RoleArn      pulumi.StringInput    `pulumi:"roleArn"`
-	StreamName   pulumi.StringInput    `pulumi:"streamName"`
+	// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the Amazon Kinesis stream.
+	StreamName pulumi.StringInput `pulumi:"streamName"`
 }
 
 func (TopicRuleKinesisArgs) ElementType() reflect.Type {
@@ -7901,14 +8491,17 @@ func (o TopicRuleKinesisOutput) ToTopicRuleKinesisPtrOutputWithContext(ctx conte
 	}).(TopicRuleKinesisPtrOutput)
 }
 
+// The partition key.
 func (o TopicRuleKinesisOutput) PartitionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleKinesis) *string { return v.PartitionKey }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
 func (o TopicRuleKinesisOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleKinesis) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The name of the Amazon Kinesis stream.
 func (o TopicRuleKinesisOutput) StreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleKinesis) string { return v.StreamName }).(pulumi.StringOutput)
 }
@@ -7937,6 +8530,7 @@ func (o TopicRuleKinesisPtrOutput) Elem() TopicRuleKinesisOutput {
 	}).(TopicRuleKinesisOutput)
 }
 
+// The partition key.
 func (o TopicRuleKinesisPtrOutput) PartitionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleKinesis) *string {
 		if v == nil {
@@ -7946,6 +8540,7 @@ func (o TopicRuleKinesisPtrOutput) PartitionKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
 func (o TopicRuleKinesisPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleKinesis) *string {
 		if v == nil {
@@ -7955,6 +8550,7 @@ func (o TopicRuleKinesisPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the Amazon Kinesis stream.
 func (o TopicRuleKinesisPtrOutput) StreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleKinesis) *string {
 		if v == nil {
@@ -7965,6 +8561,7 @@ func (o TopicRuleKinesisPtrOutput) StreamName() pulumi.StringPtrOutput {
 }
 
 type TopicRuleLambda struct {
+	// The ARN of the Lambda function.
 	FunctionArn string `pulumi:"functionArn"`
 }
 
@@ -7980,6 +8577,7 @@ type TopicRuleLambdaInput interface {
 }
 
 type TopicRuleLambdaArgs struct {
+	// The ARN of the Lambda function.
 	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
 }
 
@@ -8060,6 +8658,7 @@ func (o TopicRuleLambdaOutput) ToTopicRuleLambdaPtrOutputWithContext(ctx context
 	}).(TopicRuleLambdaPtrOutput)
 }
 
+// The ARN of the Lambda function.
 func (o TopicRuleLambdaOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleLambda) string { return v.FunctionArn }).(pulumi.StringOutput)
 }
@@ -8088,6 +8687,7 @@ func (o TopicRuleLambdaPtrOutput) Elem() TopicRuleLambdaOutput {
 	}).(TopicRuleLambdaOutput)
 }
 
+// The ARN of the Lambda function.
 func (o TopicRuleLambdaPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleLambda) *string {
 		if v == nil {
@@ -8098,9 +8698,12 @@ func (o TopicRuleLambdaPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 }
 
 type TopicRuleRepublish struct {
-	Qos     *int   `pulumi:"qos"`
+	// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+	Qos *int `pulumi:"qos"`
+	// The ARN of the IAM role that grants access.
 	RoleArn string `pulumi:"roleArn"`
-	Topic   string `pulumi:"topic"`
+	// The name of the MQTT topic the message should be republished to.
+	Topic string `pulumi:"topic"`
 }
 
 // TopicRuleRepublishInput is an input type that accepts TopicRuleRepublishArgs and TopicRuleRepublishOutput values.
@@ -8115,9 +8718,12 @@ type TopicRuleRepublishInput interface {
 }
 
 type TopicRuleRepublishArgs struct {
-	Qos     pulumi.IntPtrInput `pulumi:"qos"`
+	// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+	Qos pulumi.IntPtrInput `pulumi:"qos"`
+	// The ARN of the IAM role that grants access.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	Topic   pulumi.StringInput `pulumi:"topic"`
+	// The name of the MQTT topic the message should be republished to.
+	Topic pulumi.StringInput `pulumi:"topic"`
 }
 
 func (TopicRuleRepublishArgs) ElementType() reflect.Type {
@@ -8197,14 +8803,17 @@ func (o TopicRuleRepublishOutput) ToTopicRuleRepublishPtrOutputWithContext(ctx c
 	}).(TopicRuleRepublishPtrOutput)
 }
 
+// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
 func (o TopicRuleRepublishOutput) Qos() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TopicRuleRepublish) *int { return v.Qos }).(pulumi.IntPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleRepublishOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleRepublish) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The name of the MQTT topic the message should be republished to.
 func (o TopicRuleRepublishOutput) Topic() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleRepublish) string { return v.Topic }).(pulumi.StringOutput)
 }
@@ -8233,6 +8842,7 @@ func (o TopicRuleRepublishPtrOutput) Elem() TopicRuleRepublishOutput {
 	}).(TopicRuleRepublishOutput)
 }
 
+// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
 func (o TopicRuleRepublishPtrOutput) Qos() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TopicRuleRepublish) *int {
 		if v == nil {
@@ -8242,6 +8852,7 @@ func (o TopicRuleRepublishPtrOutput) Qos() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleRepublishPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleRepublish) *string {
 		if v == nil {
@@ -8251,6 +8862,7 @@ func (o TopicRuleRepublishPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the MQTT topic the message should be republished to.
 func (o TopicRuleRepublishPtrOutput) Topic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleRepublish) *string {
 		if v == nil {
@@ -8261,10 +8873,14 @@ func (o TopicRuleRepublishPtrOutput) Topic() pulumi.StringPtrOutput {
 }
 
 type TopicRuleS3 struct {
-	BucketName string  `pulumi:"bucketName"`
-	CannedAcl  *string `pulumi:"cannedAcl"`
-	Key        string  `pulumi:"key"`
-	RoleArn    string  `pulumi:"roleArn"`
+	// The Amazon S3 bucket name.
+	BucketName string `pulumi:"bucketName"`
+	// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+	CannedAcl *string `pulumi:"cannedAcl"`
+	// The name of the HTTP header.
+	Key string `pulumi:"key"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // TopicRuleS3Input is an input type that accepts TopicRuleS3Args and TopicRuleS3Output values.
@@ -8279,10 +8895,14 @@ type TopicRuleS3Input interface {
 }
 
 type TopicRuleS3Args struct {
-	BucketName pulumi.StringInput    `pulumi:"bucketName"`
-	CannedAcl  pulumi.StringPtrInput `pulumi:"cannedAcl"`
-	Key        pulumi.StringInput    `pulumi:"key"`
-	RoleArn    pulumi.StringInput    `pulumi:"roleArn"`
+	// The Amazon S3 bucket name.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+	CannedAcl pulumi.StringPtrInput `pulumi:"cannedAcl"`
+	// The name of the HTTP header.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleS3Args) ElementType() reflect.Type {
@@ -8362,18 +8982,22 @@ func (o TopicRuleS3Output) ToTopicRuleS3PtrOutputWithContext(ctx context.Context
 	}).(TopicRuleS3PtrOutput)
 }
 
+// The Amazon S3 bucket name.
 func (o TopicRuleS3Output) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleS3) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
+// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
 func (o TopicRuleS3Output) CannedAcl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleS3) *string { return v.CannedAcl }).(pulumi.StringPtrOutput)
 }
 
+// The name of the HTTP header.
 func (o TopicRuleS3Output) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleS3) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The IAM role ARN that allows access to the CloudWatch alarm.
 func (o TopicRuleS3Output) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleS3) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -8402,6 +9026,7 @@ func (o TopicRuleS3PtrOutput) Elem() TopicRuleS3Output {
 	}).(TopicRuleS3Output)
 }
 
+// The Amazon S3 bucket name.
 func (o TopicRuleS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleS3) *string {
 		if v == nil {
@@ -8411,6 +9036,7 @@ func (o TopicRuleS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
 func (o TopicRuleS3PtrOutput) CannedAcl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleS3) *string {
 		if v == nil {
@@ -8420,6 +9046,7 @@ func (o TopicRuleS3PtrOutput) CannedAcl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the HTTP header.
 func (o TopicRuleS3PtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleS3) *string {
 		if v == nil {
@@ -8429,6 +9056,7 @@ func (o TopicRuleS3PtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IAM role ARN that allows access to the CloudWatch alarm.
 func (o TopicRuleS3PtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleS3) *string {
 		if v == nil {
@@ -8439,9 +9067,12 @@ func (o TopicRuleS3PtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 type TopicRuleSns struct {
+	// The message format of the message to publish. Accepted values are "JSON" and "RAW".
 	MessageFormat *string `pulumi:"messageFormat"`
-	RoleArn       string  `pulumi:"roleArn"`
-	TargetArn     string  `pulumi:"targetArn"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
+	// The ARN of the SNS topic.
+	TargetArn string `pulumi:"targetArn"`
 }
 
 // TopicRuleSnsInput is an input type that accepts TopicRuleSnsArgs and TopicRuleSnsOutput values.
@@ -8456,9 +9087,12 @@ type TopicRuleSnsInput interface {
 }
 
 type TopicRuleSnsArgs struct {
+	// The message format of the message to publish. Accepted values are "JSON" and "RAW".
 	MessageFormat pulumi.StringPtrInput `pulumi:"messageFormat"`
-	RoleArn       pulumi.StringInput    `pulumi:"roleArn"`
-	TargetArn     pulumi.StringInput    `pulumi:"targetArn"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The ARN of the SNS topic.
+	TargetArn pulumi.StringInput `pulumi:"targetArn"`
 }
 
 func (TopicRuleSnsArgs) ElementType() reflect.Type {
@@ -8538,14 +9172,17 @@ func (o TopicRuleSnsOutput) ToTopicRuleSnsPtrOutputWithContext(ctx context.Conte
 	}).(TopicRuleSnsPtrOutput)
 }
 
+// The message format of the message to publish. Accepted values are "JSON" and "RAW".
 func (o TopicRuleSnsOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleSns) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleSnsOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleSns) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The ARN of the SNS topic.
 func (o TopicRuleSnsOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleSns) string { return v.TargetArn }).(pulumi.StringOutput)
 }
@@ -8574,6 +9211,7 @@ func (o TopicRuleSnsPtrOutput) Elem() TopicRuleSnsOutput {
 	}).(TopicRuleSnsOutput)
 }
 
+// The message format of the message to publish. Accepted values are "JSON" and "RAW".
 func (o TopicRuleSnsPtrOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSns) *string {
 		if v == nil {
@@ -8583,6 +9221,7 @@ func (o TopicRuleSnsPtrOutput) MessageFormat() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleSnsPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSns) *string {
 		if v == nil {
@@ -8592,6 +9231,7 @@ func (o TopicRuleSnsPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the SNS topic.
 func (o TopicRuleSnsPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSns) *string {
 		if v == nil {
@@ -8602,9 +9242,12 @@ func (o TopicRuleSnsPtrOutput) TargetArn() pulumi.StringPtrOutput {
 }
 
 type TopicRuleSqs struct {
-	QueueUrl  string `pulumi:"queueUrl"`
-	RoleArn   string `pulumi:"roleArn"`
-	UseBase64 bool   `pulumi:"useBase64"`
+	// The URL of the Amazon SQS queue.
+	QueueUrl string `pulumi:"queueUrl"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
+	// Specifies whether to use Base64 encoding.
+	UseBase64 bool `pulumi:"useBase64"`
 }
 
 // TopicRuleSqsInput is an input type that accepts TopicRuleSqsArgs and TopicRuleSqsOutput values.
@@ -8619,9 +9262,12 @@ type TopicRuleSqsInput interface {
 }
 
 type TopicRuleSqsArgs struct {
-	QueueUrl  pulumi.StringInput `pulumi:"queueUrl"`
-	RoleArn   pulumi.StringInput `pulumi:"roleArn"`
-	UseBase64 pulumi.BoolInput   `pulumi:"useBase64"`
+	// The URL of the Amazon SQS queue.
+	QueueUrl pulumi.StringInput `pulumi:"queueUrl"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// Specifies whether to use Base64 encoding.
+	UseBase64 pulumi.BoolInput `pulumi:"useBase64"`
 }
 
 func (TopicRuleSqsArgs) ElementType() reflect.Type {
@@ -8701,14 +9347,17 @@ func (o TopicRuleSqsOutput) ToTopicRuleSqsPtrOutputWithContext(ctx context.Conte
 	}).(TopicRuleSqsPtrOutput)
 }
 
+// The URL of the Amazon SQS queue.
 func (o TopicRuleSqsOutput) QueueUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleSqs) string { return v.QueueUrl }).(pulumi.StringOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleSqsOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleSqs) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// Specifies whether to use Base64 encoding.
 func (o TopicRuleSqsOutput) UseBase64() pulumi.BoolOutput {
 	return o.ApplyT(func(v TopicRuleSqs) bool { return v.UseBase64 }).(pulumi.BoolOutput)
 }
@@ -8737,6 +9386,7 @@ func (o TopicRuleSqsPtrOutput) Elem() TopicRuleSqsOutput {
 	}).(TopicRuleSqsOutput)
 }
 
+// The URL of the Amazon SQS queue.
 func (o TopicRuleSqsPtrOutput) QueueUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSqs) *string {
 		if v == nil {
@@ -8746,6 +9396,7 @@ func (o TopicRuleSqsPtrOutput) QueueUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleSqsPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSqs) *string {
 		if v == nil {
@@ -8755,6 +9406,7 @@ func (o TopicRuleSqsPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether to use Base64 encoding.
 func (o TopicRuleSqsPtrOutput) UseBase64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSqs) *bool {
 		if v == nil {
@@ -8765,9 +9417,12 @@ func (o TopicRuleSqsPtrOutput) UseBase64() pulumi.BoolPtrOutput {
 }
 
 type TopicRuleStepFunction struct {
+	// The prefix used to generate, along with a UUID, the unique state machine execution name.
 	ExecutionNamePrefix *string `pulumi:"executionNamePrefix"`
-	RoleArn             string  `pulumi:"roleArn"`
-	StateMachineName    string  `pulumi:"stateMachineName"`
+	// The ARN of the IAM role that grants access to start execution of the state machine.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the Step Functions state machine whose execution will be started.
+	StateMachineName string `pulumi:"stateMachineName"`
 }
 
 // TopicRuleStepFunctionInput is an input type that accepts TopicRuleStepFunctionArgs and TopicRuleStepFunctionOutput values.
@@ -8782,9 +9437,12 @@ type TopicRuleStepFunctionInput interface {
 }
 
 type TopicRuleStepFunctionArgs struct {
+	// The prefix used to generate, along with a UUID, the unique state machine execution name.
 	ExecutionNamePrefix pulumi.StringPtrInput `pulumi:"executionNamePrefix"`
-	RoleArn             pulumi.StringInput    `pulumi:"roleArn"`
-	StateMachineName    pulumi.StringInput    `pulumi:"stateMachineName"`
+	// The ARN of the IAM role that grants access to start execution of the state machine.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the Step Functions state machine whose execution will be started.
+	StateMachineName pulumi.StringInput `pulumi:"stateMachineName"`
 }
 
 func (TopicRuleStepFunctionArgs) ElementType() reflect.Type {
@@ -8838,14 +9496,17 @@ func (o TopicRuleStepFunctionOutput) ToTopicRuleStepFunctionOutputWithContext(ct
 	return o
 }
 
+// The prefix used to generate, along with a UUID, the unique state machine execution name.
 func (o TopicRuleStepFunctionOutput) ExecutionNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleStepFunction) *string { return v.ExecutionNamePrefix }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access to start execution of the state machine.
 func (o TopicRuleStepFunctionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleStepFunction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The name of the Step Functions state machine whose execution will be started.
 func (o TopicRuleStepFunctionOutput) StateMachineName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleStepFunction) string { return v.StateMachineName }).(pulumi.StringOutput)
 }
@@ -8871,11 +9532,16 @@ func (o TopicRuleStepFunctionArrayOutput) Index(i pulumi.IntInput) TopicRuleStep
 }
 
 type TopicRuleTimestream struct {
-	DatabaseName string                         `pulumi:"databaseName"`
-	Dimensions   []TopicRuleTimestreamDimension `pulumi:"dimensions"`
-	RoleArn      string                         `pulumi:"roleArn"`
-	TableName    string                         `pulumi:"tableName"`
-	Timestamp    *TopicRuleTimestreamTimestamp  `pulumi:"timestamp"`
+	// The name of an Amazon Timestream database.
+	DatabaseName string `pulumi:"databaseName"`
+	// Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+	Dimensions []TopicRuleTimestreamDimension `pulumi:"dimensions"`
+	// The ARN of the role that grants permission to write to the Amazon Timestream database table.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the database table into which to write the measure records.
+	TableName string `pulumi:"tableName"`
+	// Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+	Timestamp *TopicRuleTimestreamTimestamp `pulumi:"timestamp"`
 }
 
 // TopicRuleTimestreamInput is an input type that accepts TopicRuleTimestreamArgs and TopicRuleTimestreamOutput values.
@@ -8890,11 +9556,16 @@ type TopicRuleTimestreamInput interface {
 }
 
 type TopicRuleTimestreamArgs struct {
-	DatabaseName pulumi.StringInput                     `pulumi:"databaseName"`
-	Dimensions   TopicRuleTimestreamDimensionArrayInput `pulumi:"dimensions"`
-	RoleArn      pulumi.StringInput                     `pulumi:"roleArn"`
-	TableName    pulumi.StringInput                     `pulumi:"tableName"`
-	Timestamp    TopicRuleTimestreamTimestampPtrInput   `pulumi:"timestamp"`
+	// The name of an Amazon Timestream database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+	Dimensions TopicRuleTimestreamDimensionArrayInput `pulumi:"dimensions"`
+	// The ARN of the role that grants permission to write to the Amazon Timestream database table.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the database table into which to write the measure records.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+	// Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+	Timestamp TopicRuleTimestreamTimestampPtrInput `pulumi:"timestamp"`
 }
 
 func (TopicRuleTimestreamArgs) ElementType() reflect.Type {
@@ -8948,22 +9619,27 @@ func (o TopicRuleTimestreamOutput) ToTopicRuleTimestreamOutputWithContext(ctx co
 	return o
 }
 
+// The name of an Amazon Timestream database.
 func (o TopicRuleTimestreamOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestream) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
 func (o TopicRuleTimestreamOutput) Dimensions() TopicRuleTimestreamDimensionArrayOutput {
 	return o.ApplyT(func(v TopicRuleTimestream) []TopicRuleTimestreamDimension { return v.Dimensions }).(TopicRuleTimestreamDimensionArrayOutput)
 }
 
+// The ARN of the role that grants permission to write to the Amazon Timestream database table.
 func (o TopicRuleTimestreamOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestream) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The name of the database table into which to write the measure records.
 func (o TopicRuleTimestreamOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestream) string { return v.TableName }).(pulumi.StringOutput)
 }
 
+// Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
 func (o TopicRuleTimestreamOutput) Timestamp() TopicRuleTimestreamTimestampPtrOutput {
 	return o.ApplyT(func(v TopicRuleTimestream) *TopicRuleTimestreamTimestamp { return v.Timestamp }).(TopicRuleTimestreamTimestampPtrOutput)
 }
@@ -8989,7 +9665,9 @@ func (o TopicRuleTimestreamArrayOutput) Index(i pulumi.IntInput) TopicRuleTimest
 }
 
 type TopicRuleTimestreamDimension struct {
-	Name  string `pulumi:"name"`
+	// The name of the rule.
+	Name string `pulumi:"name"`
+	// The value of the HTTP header.
 	Value string `pulumi:"value"`
 }
 
@@ -9005,7 +9683,9 @@ type TopicRuleTimestreamDimensionInput interface {
 }
 
 type TopicRuleTimestreamDimensionArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
+	// The name of the rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the HTTP header.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -9060,10 +9740,12 @@ func (o TopicRuleTimestreamDimensionOutput) ToTopicRuleTimestreamDimensionOutput
 	return o
 }
 
+// The name of the rule.
 func (o TopicRuleTimestreamDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamDimension) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The value of the HTTP header.
 func (o TopicRuleTimestreamDimensionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamDimension) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -9089,7 +9771,9 @@ func (o TopicRuleTimestreamDimensionArrayOutput) Index(i pulumi.IntInput) TopicR
 }
 
 type TopicRuleTimestreamTimestamp struct {
-	Unit  string `pulumi:"unit"`
+	// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+	Unit string `pulumi:"unit"`
+	// The value of the HTTP header.
 	Value string `pulumi:"value"`
 }
 
@@ -9105,7 +9789,9 @@ type TopicRuleTimestreamTimestampInput interface {
 }
 
 type TopicRuleTimestreamTimestampArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
+	// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The value of the HTTP header.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -9186,10 +9872,12 @@ func (o TopicRuleTimestreamTimestampOutput) ToTopicRuleTimestreamTimestampPtrOut
 	}).(TopicRuleTimestreamTimestampPtrOutput)
 }
 
+// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
 func (o TopicRuleTimestreamTimestampOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamTimestamp) string { return v.Unit }).(pulumi.StringOutput)
 }
 
+// The value of the HTTP header.
 func (o TopicRuleTimestreamTimestampOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamTimestamp) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -9218,6 +9906,7 @@ func (o TopicRuleTimestreamTimestampPtrOutput) Elem() TopicRuleTimestreamTimesta
 	}).(TopicRuleTimestreamTimestampOutput)
 }
 
+// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
 func (o TopicRuleTimestreamTimestampPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTimestreamTimestamp) *string {
 		if v == nil {
@@ -9227,6 +9916,7 @@ func (o TopicRuleTimestreamTimestampPtrOutput) Unit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The value of the HTTP header.
 func (o TopicRuleTimestreamTimestampPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTimestreamTimestamp) *string {
 		if v == nil {

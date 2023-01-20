@@ -17,47 +17,159 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Redshift Cluster parameter group resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.redshift.ParameterGroup;
+ * import com.pulumi.aws.redshift.ParameterGroupArgs;
+ * import com.pulumi.aws.redshift.inputs.ParameterGroupParameterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var bar = new ParameterGroup(&#34;bar&#34;, ParameterGroupArgs.builder()        
+ *             .family(&#34;redshift-1.0&#34;)
+ *             .parameters(            
+ *                 ParameterGroupParameterArgs.builder()
+ *                     .name(&#34;require_ssl&#34;)
+ *                     .value(&#34;true&#34;)
+ *                     .build(),
+ *                 ParameterGroupParameterArgs.builder()
+ *                     .name(&#34;query_group&#34;)
+ *                     .value(&#34;example&#34;)
+ *                     .build(),
+ *                 ParameterGroupParameterArgs.builder()
+ *                     .name(&#34;enable_user_activity_logging&#34;)
+ *                     .value(&#34;true&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Redshift Parameter Groups can be imported using the `name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test
+ * ```
+ * 
+ */
 @ResourceType(type="aws:redshift/parameterGroup:ParameterGroup")
 public class ParameterGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * Amazon Resource Name (ARN) of parameter group
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of parameter group
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The description of the Redshift parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
+    /**
+     * @return The description of the Redshift parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+     * 
+     */
     public Output<String> description() {
         return this.description;
     }
+    /**
+     * The family of the Redshift parameter group.
+     * 
+     */
     @Export(name="family", refs={String.class}, tree="[0]")
     private Output<String> family;
 
+    /**
+     * @return The family of the Redshift parameter group.
+     * 
+     */
     public Output<String> family() {
         return this.family;
     }
+    /**
+     * The name of the Redshift parameter.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the Redshift parameter.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * A list of Redshift parameters to apply.
+     * 
+     */
     @Export(name="parameters", refs={List.class,ParameterGroupParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ParameterGroupParameter>> parameters;
 
+    /**
+     * @return A list of Redshift parameters to apply.
+     * 
+     */
     public Output<Optional<List<ParameterGroupParameter>>> parameters() {
         return Codegen.optional(this.parameters);
     }
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

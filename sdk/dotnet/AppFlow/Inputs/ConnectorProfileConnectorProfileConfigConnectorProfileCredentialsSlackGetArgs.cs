@@ -14,6 +14,10 @@ namespace Pulumi.Aws.AppFlow.Inputs
     {
         [Input("accessToken")]
         private Input<string>? _accessToken;
+
+        /// <summary>
+        /// The access token used to access the connector on your behalf.
+        /// </summary>
         public Input<string>? AccessToken
         {
             get => _accessToken;
@@ -24,11 +28,18 @@ namespace Pulumi.Aws.AppFlow.Inputs
             }
         }
 
+        /// <summary>
+        /// The identifier for the desired client.
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
         [Input("clientSecret", required: true)]
         private Input<string>? _clientSecret;
+
+        /// <summary>
+        /// The client secret used by the OAuth client to authenticate to the authorization server.
+        /// </summary>
         public Input<string>? ClientSecret
         {
             get => _clientSecret;
@@ -39,6 +50,9 @@ namespace Pulumi.Aws.AppFlow.Inputs
             }
         }
 
+        /// <summary>
+        /// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        /// </summary>
         [Input("oauthRequest")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestGetArgs>? OauthRequest { get; set; }
 

@@ -16,30 +16,62 @@ public final class MedicalVocabularyState extends com.pulumi.resources.ResourceA
 
     public static final MedicalVocabularyState Empty = new MedicalVocabularyState();
 
+    /**
+     * ARN of the MedicalVocabulary.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return ARN of the MedicalVocabulary.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * Generated download URI.
+     * 
+     */
     @Import(name="downloadUri")
     private @Nullable Output<String> downloadUri;
 
+    /**
+     * @return Generated download URI.
+     * 
+     */
     public Optional<Output<String>> downloadUri() {
         return Optional.ofNullable(this.downloadUri);
     }
 
+    /**
+     * The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+     * 
+     */
     @Import(name="languageCode")
     private @Nullable Output<String> languageCode;
 
+    /**
+     * @return The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+     * 
+     */
     public Optional<Output<String>> languageCode() {
         return Optional.ofNullable(this.languageCode);
     }
 
+    /**
+     * A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -51,16 +83,32 @@ public final class MedicalVocabularyState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+     * 
+     */
     @Import(name="vocabularyFileUri")
     private @Nullable Output<String> vocabularyFileUri;
 
+    /**
+     * @return The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+     * 
+     */
     public Optional<Output<String>> vocabularyFileUri() {
         return Optional.ofNullable(this.vocabularyFileUri);
     }
 
+    /**
+     * The name of the Medical Vocabulary.
+     * 
+     */
     @Import(name="vocabularyName")
     private @Nullable Output<String> vocabularyName;
 
+    /**
+     * @return The name of the Medical Vocabulary.
+     * 
+     */
     public Optional<Output<String>> vocabularyName() {
         return Optional.ofNullable(this.vocabularyName);
     }
@@ -95,38 +143,86 @@ public final class MedicalVocabularyState extends com.pulumi.resources.ResourceA
             $ = new MedicalVocabularyState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn ARN of the MedicalVocabulary.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn ARN of the MedicalVocabulary.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param downloadUri Generated download URI.
+         * 
+         * @return builder
+         * 
+         */
         public Builder downloadUri(@Nullable Output<String> downloadUri) {
             $.downloadUri = downloadUri;
             return this;
         }
 
+        /**
+         * @param downloadUri Generated download URI.
+         * 
+         * @return builder
+         * 
+         */
         public Builder downloadUri(String downloadUri) {
             return downloadUri(Output.of(downloadUri));
         }
 
+        /**
+         * @param languageCode The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(@Nullable Output<String> languageCode) {
             $.languageCode = languageCode;
             return this;
         }
 
+        /**
+         * @param languageCode The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(String languageCode) {
             return languageCode(Output.of(languageCode));
         }
 
+        /**
+         * @param tags A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -140,20 +236,44 @@ public final class MedicalVocabularyState extends com.pulumi.resources.ResourceA
             return tagsAll(Output.of(tagsAll));
         }
 
+        /**
+         * @param vocabularyFileUri The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vocabularyFileUri(@Nullable Output<String> vocabularyFileUri) {
             $.vocabularyFileUri = vocabularyFileUri;
             return this;
         }
 
+        /**
+         * @param vocabularyFileUri The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vocabularyFileUri(String vocabularyFileUri) {
             return vocabularyFileUri(Output.of(vocabularyFileUri));
         }
 
+        /**
+         * @param vocabularyName The name of the Medical Vocabulary.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vocabularyName(@Nullable Output<String> vocabularyName) {
             $.vocabularyName = vocabularyName;
             return this;
         }
 
+        /**
+         * @param vocabularyName The name of the Medical Vocabulary.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vocabularyName(String vocabularyName) {
             return vocabularyName(Output.of(vocabularyName));
         }

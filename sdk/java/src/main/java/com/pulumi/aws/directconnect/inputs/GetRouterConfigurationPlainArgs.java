@@ -12,16 +12,32 @@ public final class GetRouterConfigurationPlainArgs extends com.pulumi.resources.
 
     public static final GetRouterConfigurationPlainArgs Empty = new GetRouterConfigurationPlainArgs();
 
+    /**
+     * ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+     * 
+     */
     @Import(name="routerTypeIdentifier", required=true)
     private String routerTypeIdentifier;
 
+    /**
+     * @return ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+     * 
+     */
     public String routerTypeIdentifier() {
         return this.routerTypeIdentifier;
     }
 
+    /**
+     * ID of the Direct Connect Virtual Interface
+     * 
+     */
     @Import(name="virtualInterfaceId", required=true)
     private String virtualInterfaceId;
 
+    /**
+     * @return ID of the Direct Connect Virtual Interface
+     * 
+     */
     public String virtualInterfaceId() {
         return this.virtualInterfaceId;
     }
@@ -51,11 +67,23 @@ public final class GetRouterConfigurationPlainArgs extends com.pulumi.resources.
             $ = new GetRouterConfigurationPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param routerTypeIdentifier ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+         * 
+         * @return builder
+         * 
+         */
         public Builder routerTypeIdentifier(String routerTypeIdentifier) {
             $.routerTypeIdentifier = routerTypeIdentifier;
             return this;
         }
 
+        /**
+         * @param virtualInterfaceId ID of the Direct Connect Virtual Interface
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualInterfaceId(String virtualInterfaceId) {
             $.virtualInterfaceId = virtualInterfaceId;
             return this;

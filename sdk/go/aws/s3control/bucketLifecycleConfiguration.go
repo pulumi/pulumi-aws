@@ -11,11 +11,74 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to manage an S3 Control Bucket Lifecycle Configuration.
+//
+// > **NOTE:** Each S3 Control Bucket can only have one Lifecycle Configuration. Using multiple of this resource against the same S3 Control Bucket will result in perpetual differences each provider run.
+//
+// > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Lifecycle Configurations in an AWS Partition, see the `s3.BucketV2` resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := s3control.NewBucketLifecycleConfiguration(ctx, "example", &s3control.BucketLifecycleConfigurationArgs{
+//				Bucket: pulumi.Any(aws_s3control_bucket.Example.Arn),
+//				Rules: s3control.BucketLifecycleConfigurationRuleArray{
+//					&s3control.BucketLifecycleConfigurationRuleArgs{
+//						Expiration: &s3control.BucketLifecycleConfigurationRuleExpirationArgs{
+//							Days: pulumi.Int(365),
+//						},
+//						Filter: &s3control.BucketLifecycleConfigurationRuleFilterArgs{
+//							Prefix: pulumi.String("logs/"),
+//						},
+//						Id: pulumi.String("logs"),
+//					},
+//					&s3control.BucketLifecycleConfigurationRuleArgs{
+//						Expiration: &s3control.BucketLifecycleConfigurationRuleExpirationArgs{
+//							Days: pulumi.Int(7),
+//						},
+//						Filter: &s3control.BucketLifecycleConfigurationRuleFilterArgs{
+//							Prefix: pulumi.String("temp/"),
+//						},
+//						Id: pulumi.String("temp"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// S3 Control Bucket Lifecycle Configurations can be imported using the Amazon Resource Name (ARN), e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+//
+// ```
 type BucketLifecycleConfiguration struct {
 	pulumi.CustomResourceState
 
-	Bucket pulumi.StringOutput                         `pulumi:"bucket"`
-	Rules  BucketLifecycleConfigurationRuleArrayOutput `pulumi:"rules"`
+	// Amazon Resource Name (ARN) of the bucket.
+	Bucket pulumi.StringOutput `pulumi:"bucket"`
+	// Configuration block(s) containing lifecycle rules for the bucket.
+	Rules BucketLifecycleConfigurationRuleArrayOutput `pulumi:"rules"`
 }
 
 // NewBucketLifecycleConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -53,13 +116,17 @@ func GetBucketLifecycleConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketLifecycleConfiguration resources.
 type bucketLifecycleConfigurationState struct {
-	Bucket *string                            `pulumi:"bucket"`
-	Rules  []BucketLifecycleConfigurationRule `pulumi:"rules"`
+	// Amazon Resource Name (ARN) of the bucket.
+	Bucket *string `pulumi:"bucket"`
+	// Configuration block(s) containing lifecycle rules for the bucket.
+	Rules []BucketLifecycleConfigurationRule `pulumi:"rules"`
 }
 
 type BucketLifecycleConfigurationState struct {
+	// Amazon Resource Name (ARN) of the bucket.
 	Bucket pulumi.StringPtrInput
-	Rules  BucketLifecycleConfigurationRuleArrayInput
+	// Configuration block(s) containing lifecycle rules for the bucket.
+	Rules BucketLifecycleConfigurationRuleArrayInput
 }
 
 func (BucketLifecycleConfigurationState) ElementType() reflect.Type {
@@ -67,14 +134,18 @@ func (BucketLifecycleConfigurationState) ElementType() reflect.Type {
 }
 
 type bucketLifecycleConfigurationArgs struct {
-	Bucket string                             `pulumi:"bucket"`
-	Rules  []BucketLifecycleConfigurationRule `pulumi:"rules"`
+	// Amazon Resource Name (ARN) of the bucket.
+	Bucket string `pulumi:"bucket"`
+	// Configuration block(s) containing lifecycle rules for the bucket.
+	Rules []BucketLifecycleConfigurationRule `pulumi:"rules"`
 }
 
 // The set of arguments for constructing a BucketLifecycleConfiguration resource.
 type BucketLifecycleConfigurationArgs struct {
+	// Amazon Resource Name (ARN) of the bucket.
 	Bucket pulumi.StringInput
-	Rules  BucketLifecycleConfigurationRuleArrayInput
+	// Configuration block(s) containing lifecycle rules for the bucket.
+	Rules BucketLifecycleConfigurationRuleArrayInput
 }
 
 func (BucketLifecycleConfigurationArgs) ElementType() reflect.Type {
@@ -164,10 +235,12 @@ func (o BucketLifecycleConfigurationOutput) ToBucketLifecycleConfigurationOutput
 	return o
 }
 
+// Amazon Resource Name (ARN) of the bucket.
 func (o BucketLifecycleConfigurationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfiguration) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// Configuration block(s) containing lifecycle rules for the bucket.
 func (o BucketLifecycleConfigurationOutput) Rules() BucketLifecycleConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfiguration) BucketLifecycleConfigurationRuleArrayOutput { return v.Rules }).(BucketLifecycleConfigurationRuleArrayOutput)
 }

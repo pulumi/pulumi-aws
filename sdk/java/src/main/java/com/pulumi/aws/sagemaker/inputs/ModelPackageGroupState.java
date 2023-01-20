@@ -16,37 +16,77 @@ public final class ModelPackageGroupState extends com.pulumi.resources.ResourceA
 
     public static final ModelPackageGroupState Empty = new ModelPackageGroupState();
 
+    /**
+     * The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * A description for the model group.
+     * 
+     */
     @Import(name="modelPackageGroupDescription")
     private @Nullable Output<String> modelPackageGroupDescription;
 
+    /**
+     * @return A description for the model group.
+     * 
+     */
     public Optional<Output<String>> modelPackageGroupDescription() {
         return Optional.ofNullable(this.modelPackageGroupDescription);
     }
 
+    /**
+     * The name of the model group.
+     * 
+     */
     @Import(name="modelPackageGroupName")
     private @Nullable Output<String> modelPackageGroupName;
 
+    /**
+     * @return The name of the model group.
+     * 
+     */
     public Optional<Output<String>> modelPackageGroupName() {
         return Optional.ofNullable(this.modelPackageGroupName);
     }
 
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -79,47 +119,107 @@ public final class ModelPackageGroupState extends com.pulumi.resources.ResourceA
             $ = new ModelPackageGroupState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param modelPackageGroupDescription A description for the model group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder modelPackageGroupDescription(@Nullable Output<String> modelPackageGroupDescription) {
             $.modelPackageGroupDescription = modelPackageGroupDescription;
             return this;
         }
 
+        /**
+         * @param modelPackageGroupDescription A description for the model group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder modelPackageGroupDescription(String modelPackageGroupDescription) {
             return modelPackageGroupDescription(Output.of(modelPackageGroupDescription));
         }
 
+        /**
+         * @param modelPackageGroupName The name of the model group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder modelPackageGroupName(@Nullable Output<String> modelPackageGroupName) {
             $.modelPackageGroupName = modelPackageGroupName;
             return this;
         }
 
+        /**
+         * @param modelPackageGroupName The name of the model group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder modelPackageGroupName(String modelPackageGroupName) {
             return modelPackageGroupName(Output.of(modelPackageGroupName));
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

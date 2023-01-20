@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Quicksight.Inputs
     {
         [Input("password", required: true)]
         private Input<string>? _password;
+
+        /// <summary>
+        /// Password, maximum length of 1024 characters.
+        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -26,6 +30,10 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
         [Input("username", required: true)]
         private Input<string>? _username;
+
+        /// <summary>
+        /// User name, maximum length of 64 characters.
+        /// </summary>
         public Input<string>? Username
         {
             get => _username;

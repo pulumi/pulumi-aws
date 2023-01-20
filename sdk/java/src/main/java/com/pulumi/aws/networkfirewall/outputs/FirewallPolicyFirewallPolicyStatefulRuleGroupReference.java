@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
+    /**
+     * @return Configuration block for override values
+     * 
+     */
     private @Nullable FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride override;
+    /**
+     * @return An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
+     * 
+     */
     private @Nullable Integer priority;
+    /**
+     * @return The Amazon Resource Name (ARN) of the stateful rule group.
+     * 
+     */
     private String resourceArn;
 
     private FirewallPolicyFirewallPolicyStatefulRuleGroupReference() {}
+    /**
+     * @return Configuration block for override values
+     * 
+     */
     public Optional<FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> override() {
         return Optional.ofNullable(this.override);
     }
+    /**
+     * @return An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
+     * 
+     */
     public Optional<Integer> priority() {
         return Optional.ofNullable(this.priority);
     }
+    /**
+     * @return The Amazon Resource Name (ARN) of the stateful rule group.
+     * 
+     */
     public String resourceArn() {
         return this.resourceArn;
     }

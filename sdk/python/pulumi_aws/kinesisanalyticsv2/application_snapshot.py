@@ -18,6 +18,8 @@ class ApplicationSnapshotArgs:
                  snapshot_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a ApplicationSnapshot resource.
+        :param pulumi.Input[str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+        :param pulumi.Input[str] snapshot_name: The name of the application snapshot.
         """
         pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "snapshot_name", snapshot_name)
@@ -25,6 +27,9 @@ class ApplicationSnapshotArgs:
     @property
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Input[str]:
+        """
+        The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+        """
         return pulumi.get(self, "application_name")
 
     @application_name.setter
@@ -34,6 +39,9 @@ class ApplicationSnapshotArgs:
     @property
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> pulumi.Input[str]:
+        """
+        The name of the application snapshot.
+        """
         return pulumi.get(self, "snapshot_name")
 
     @snapshot_name.setter
@@ -50,6 +58,10 @@ class _ApplicationSnapshotState:
                  snapshot_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ApplicationSnapshot resources.
+        :param pulumi.Input[str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+        :param pulumi.Input[int] application_version_id: The current application version ID when the snapshot was created.
+        :param pulumi.Input[str] snapshot_creation_timestamp: The timestamp of the application snapshot.
+        :param pulumi.Input[str] snapshot_name: The name of the application snapshot.
         """
         if application_name is not None:
             pulumi.set(__self__, "application_name", application_name)
@@ -63,6 +75,9 @@ class _ApplicationSnapshotState:
     @property
     @pulumi.getter(name="applicationName")
     def application_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+        """
         return pulumi.get(self, "application_name")
 
     @application_name.setter
@@ -72,6 +87,9 @@ class _ApplicationSnapshotState:
     @property
     @pulumi.getter(name="applicationVersionId")
     def application_version_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The current application version ID when the snapshot was created.
+        """
         return pulumi.get(self, "application_version_id")
 
     @application_version_id.setter
@@ -81,6 +99,9 @@ class _ApplicationSnapshotState:
     @property
     @pulumi.getter(name="snapshotCreationTimestamp")
     def snapshot_creation_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp of the application snapshot.
+        """
         return pulumi.get(self, "snapshot_creation_timestamp")
 
     @snapshot_creation_timestamp.setter
@@ -90,6 +111,9 @@ class _ApplicationSnapshotState:
     @property
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the application snapshot.
+        """
         return pulumi.get(self, "snapshot_name")
 
     @snapshot_name.setter
@@ -106,9 +130,32 @@ class ApplicationSnapshot(pulumi.CustomResource):
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ApplicationSnapshot resource with the given unique name, props, and options.
+        Manages a Kinesis Analytics v2 Application Snapshot.
+        Snapshots are the AWS implementation of [Flink Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/state/savepoints.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kinesisanalyticsv2.ApplicationSnapshot("example",
+            application_name=aws_kinesisanalyticsv2_application["example"]["name"],
+            snapshot_name="example-snapshot")
+        ```
+
+        ## Import
+
+        `aws_kinesisanalyticsv2_application` can be imported by using `application_name` together with `snapshot_name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+        :param pulumi.Input[str] snapshot_name: The name of the application snapshot.
         """
         ...
     @overload
@@ -117,7 +164,28 @@ class ApplicationSnapshot(pulumi.CustomResource):
                  args: ApplicationSnapshotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ApplicationSnapshot resource with the given unique name, props, and options.
+        Manages a Kinesis Analytics v2 Application Snapshot.
+        Snapshots are the AWS implementation of [Flink Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/state/savepoints.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kinesisanalyticsv2.ApplicationSnapshot("example",
+            application_name=aws_kinesisanalyticsv2_application["example"]["name"],
+            snapshot_name="example-snapshot")
+        ```
+
+        ## Import
+
+        `aws_kinesisanalyticsv2_application` can be imported by using `application_name` together with `snapshot_name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
+        ```
+
         :param str resource_name: The name of the resource.
         :param ApplicationSnapshotArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,6 +241,10 @@ class ApplicationSnapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+        :param pulumi.Input[int] application_version_id: The current application version ID when the snapshot was created.
+        :param pulumi.Input[str] snapshot_creation_timestamp: The timestamp of the application snapshot.
+        :param pulumi.Input[str] snapshot_name: The name of the application snapshot.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -187,20 +259,32 @@ class ApplicationSnapshot(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Output[str]:
+        """
+        The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+        """
         return pulumi.get(self, "application_name")
 
     @property
     @pulumi.getter(name="applicationVersionId")
     def application_version_id(self) -> pulumi.Output[int]:
+        """
+        The current application version ID when the snapshot was created.
+        """
         return pulumi.get(self, "application_version_id")
 
     @property
     @pulumi.getter(name="snapshotCreationTimestamp")
     def snapshot_creation_timestamp(self) -> pulumi.Output[str]:
+        """
+        The timestamp of the application snapshot.
+        """
         return pulumi.get(self, "snapshot_creation_timestamp")
 
     @property
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> pulumi.Output[str]:
+        """
+        The name of the application snapshot.
+        """
         return pulumi.get(self, "snapshot_name")
 

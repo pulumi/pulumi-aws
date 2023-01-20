@@ -13,29 +13,79 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ModelContainer {
+    /**
+     * @return The DNS host name for the container.
+     * 
+     */
     private @Nullable String containerHostname;
+    /**
+     * @return Environment variables for the Docker container.
+     * A list of key value pairs.
+     * 
+     */
     private @Nullable Map<String,String> environment;
+    /**
+     * @return The registry path where the inference code image is stored in Amazon ECR.
+     * 
+     */
     private String image;
+    /**
+     * @return Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+     * 
+     */
     private @Nullable ModelContainerImageConfig imageConfig;
+    /**
+     * @return The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+     * 
+     */
     private @Nullable String mode;
+    /**
+     * @return The URL for the S3 location where model artifacts are stored.
+     * 
+     */
     private @Nullable String modelDataUrl;
 
     private ModelContainer() {}
+    /**
+     * @return The DNS host name for the container.
+     * 
+     */
     public Optional<String> containerHostname() {
         return Optional.ofNullable(this.containerHostname);
     }
+    /**
+     * @return Environment variables for the Docker container.
+     * A list of key value pairs.
+     * 
+     */
     public Map<String,String> environment() {
         return this.environment == null ? Map.of() : this.environment;
     }
+    /**
+     * @return The registry path where the inference code image is stored in Amazon ECR.
+     * 
+     */
     public String image() {
         return this.image;
     }
+    /**
+     * @return Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+     * 
+     */
     public Optional<ModelContainerImageConfig> imageConfig() {
         return Optional.ofNullable(this.imageConfig);
     }
+    /**
+     * @return The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+     * 
+     */
     public Optional<String> mode() {
         return Optional.ofNullable(this.mode);
     }
+    /**
+     * @return The URL for the S3 location where model artifacts are stored.
+     * 
+     */
     public Optional<String> modelDataUrl() {
         return Optional.ofNullable(this.modelDataUrl);
     }

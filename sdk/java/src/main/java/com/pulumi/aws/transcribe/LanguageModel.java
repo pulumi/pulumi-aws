@@ -16,41 +16,194 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Resource for managing an AWS Transcribe LanguageModel.
+ * 
+ * &gt; This resource can take a significant amount of time to provision. See Language Model [FAQ](https://aws.amazon.com/transcribe/faqs/) for more details.
+ * 
+ * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.BucketObjectv2;
+ * import com.pulumi.aws.s3.BucketObjectv2Args;
+ * import com.pulumi.aws.transcribe.LanguageModel;
+ * import com.pulumi.aws.transcribe.LanguageModelArgs;
+ * import com.pulumi.aws.transcribe.inputs.LanguageModelInputDataConfigArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import com.pulumi.asset.FileAsset;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;transcribe.amazonaws.com&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .build());
+ * 
+ *         var testPolicy = new RolePolicy(&#34;testPolicy&#34;, RolePolicyArgs.builder()        
+ *             .role(exampleRole.id())
+ *             .policy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;Action&#34;, jsonArray(
+ *                             &#34;s3:GetObject&#34;, 
+ *                             &#34;s3:ListBucket&#34;
+ *                         )),
+ *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;Resource&#34;, jsonArray(&#34;*&#34;))
+ *                     )))
+ *                 )))
+ *             .build());
+ * 
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *             .forceDestroy(true)
+ *             .build());
+ * 
+ *         var object = new BucketObjectv2(&#34;object&#34;, BucketObjectv2Args.builder()        
+ *             .bucket(exampleBucketV2.id())
+ *             .key(&#34;transcribe/test1.txt&#34;)
+ *             .source(new FileAsset(&#34;test1.txt&#34;))
+ *             .build());
+ * 
+ *         var exampleLanguageModel = new LanguageModel(&#34;exampleLanguageModel&#34;, LanguageModelArgs.builder()        
+ *             .modelName(&#34;example&#34;)
+ *             .baseModelName(&#34;NarrowBand&#34;)
+ *             .inputDataConfig(LanguageModelInputDataConfigArgs.builder()
+ *                 .dataAccessRoleArn(exampleRole.arn())
+ *                 .s3Uri(exampleBucketV2.id().applyValue(id -&gt; String.format(&#34;s3://%s/transcribe/&#34;, id)))
+ *                 .build())
+ *             .languageCode(&#34;en-US&#34;)
+ *             .tags(Map.of(&#34;ENVIRONMENT&#34;, &#34;development&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Transcribe LanguageModel can be imported using the `model_name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
+ * ```
+ * 
+ */
 @ResourceType(type="aws:transcribe/languageModel:LanguageModel")
 public class LanguageModel extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the LanguageModel.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the LanguageModel.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Name of reference base model.
+     * 
+     */
     @Export(name="baseModelName", refs={String.class}, tree="[0]")
     private Output<String> baseModelName;
 
+    /**
+     * @return Name of reference base model.
+     * 
+     */
     public Output<String> baseModelName() {
         return this.baseModelName;
     }
+    /**
+     * The input data config for the LanguageModel. See Input Data Config for more details.
+     * 
+     */
     @Export(name="inputDataConfig", refs={LanguageModelInputDataConfig.class}, tree="[0]")
     private Output<LanguageModelInputDataConfig> inputDataConfig;
 
+    /**
+     * @return The input data config for the LanguageModel. See Input Data Config for more details.
+     * 
+     */
     public Output<LanguageModelInputDataConfig> inputDataConfig() {
         return this.inputDataConfig;
     }
+    /**
+     * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+     * 
+     */
     @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
+    /**
+     * @return The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+     * 
+     */
     public Output<String> languageCode() {
         return this.languageCode;
     }
+    /**
+     * The model name.
+     * 
+     */
     @Export(name="modelName", refs={String.class}, tree="[0]")
     private Output<String> modelName;
 
+    /**
+     * @return The model name.
+     * 
+     */
     public Output<String> modelName() {
         return this.modelName;
     }
+    /**
+     * A map of tags to assign to the LanguageModel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the LanguageModel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

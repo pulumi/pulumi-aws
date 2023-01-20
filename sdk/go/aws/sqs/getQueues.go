@@ -10,6 +10,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Data source for managing an AWS SQS (Simple Queue) Queues.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sqs.GetQueues(ctx, &sqs.GetQueuesArgs{
+//				QueueNamePrefix: pulumi.StringRef("example"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetQueues(ctx *pulumi.Context, args *GetQueuesArgs, opts ...pulumi.InvokeOption) (*GetQueuesResult, error) {
 	var rv GetQueuesResult
 	err := ctx.Invoke("aws:sqs/getQueues:getQueues", args, &rv, opts...)
@@ -21,15 +49,17 @@ func GetQueues(ctx *pulumi.Context, args *GetQueuesArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getQueues.
 type GetQueuesArgs struct {
+	// A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
 	QueueNamePrefix *string `pulumi:"queueNamePrefix"`
 }
 
 // A collection of values returned by getQueues.
 type GetQueuesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id              string   `pulumi:"id"`
-	QueueNamePrefix *string  `pulumi:"queueNamePrefix"`
-	QueueUrls       []string `pulumi:"queueUrls"`
+	Id              string  `pulumi:"id"`
+	QueueNamePrefix *string `pulumi:"queueNamePrefix"`
+	// A list of queue URLs.
+	QueueUrls []string `pulumi:"queueUrls"`
 }
 
 func GetQueuesOutput(ctx *pulumi.Context, args GetQueuesOutputArgs, opts ...pulumi.InvokeOption) GetQueuesResultOutput {
@@ -47,6 +77,7 @@ func GetQueuesOutput(ctx *pulumi.Context, args GetQueuesOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getQueues.
 type GetQueuesOutputArgs struct {
+	// A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
 	QueueNamePrefix pulumi.StringPtrInput `pulumi:"queueNamePrefix"`
 }
 
@@ -78,6 +109,7 @@ func (o GetQueuesResultOutput) QueueNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetQueuesResult) *string { return v.QueueNamePrefix }).(pulumi.StringPtrOutput)
 }
 
+// A list of queue URLs.
 func (o GetQueuesResultOutput) QueueUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetQueuesResult) []string { return v.QueueUrls }).(pulumi.StringArrayOutput)
 }

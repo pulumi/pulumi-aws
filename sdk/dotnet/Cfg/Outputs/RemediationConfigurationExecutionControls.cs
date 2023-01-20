@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Cfg.Outputs
     [OutputType]
     public sealed class RemediationConfigurationExecutionControls
     {
+        /// <summary>
+        /// Configuration block for SSM controls. See below.
+        /// </summary>
         public readonly Outputs.RemediationConfigurationExecutionControlsSsmControls? SsmControls;
 
         [OutputConstructor]

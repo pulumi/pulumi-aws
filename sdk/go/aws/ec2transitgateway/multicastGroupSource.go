@@ -11,11 +11,44 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Registers sources (network interfaces) with the transit gateway multicast group.
+// A multicast source is a network interface attached to a supported instance that sends multicast traffic.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2transitgateway.NewMulticastGroupSource(ctx, "example", &ec2transitgateway.MulticastGroupSourceArgs{
+//				GroupIpAddress:                  pulumi.String("224.0.0.1"),
+//				NetworkInterfaceId:              pulumi.Any(aws_network_interface.Example.Id),
+//				TransitGatewayMulticastDomainId: pulumi.Any(aws_ec2_transit_gateway_multicast_domain.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type MulticastGroupSource struct {
 	pulumi.CustomResourceState
 
-	GroupIpAddress                  pulumi.StringOutput `pulumi:"groupIpAddress"`
-	NetworkInterfaceId              pulumi.StringOutput `pulumi:"networkInterfaceId"`
+	// The IP address assigned to the transit gateway multicast group.
+	GroupIpAddress pulumi.StringOutput `pulumi:"groupIpAddress"`
+	// The group members' network interface ID to register with the transit gateway multicast group.
+	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
+	// The ID of the transit gateway multicast domain.
 	TransitGatewayMulticastDomainId pulumi.StringOutput `pulumi:"transitGatewayMulticastDomainId"`
 }
 
@@ -57,14 +90,20 @@ func GetMulticastGroupSource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MulticastGroupSource resources.
 type multicastGroupSourceState struct {
-	GroupIpAddress                  *string `pulumi:"groupIpAddress"`
-	NetworkInterfaceId              *string `pulumi:"networkInterfaceId"`
+	// The IP address assigned to the transit gateway multicast group.
+	GroupIpAddress *string `pulumi:"groupIpAddress"`
+	// The group members' network interface ID to register with the transit gateway multicast group.
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// The ID of the transit gateway multicast domain.
 	TransitGatewayMulticastDomainId *string `pulumi:"transitGatewayMulticastDomainId"`
 }
 
 type MulticastGroupSourceState struct {
-	GroupIpAddress                  pulumi.StringPtrInput
-	NetworkInterfaceId              pulumi.StringPtrInput
+	// The IP address assigned to the transit gateway multicast group.
+	GroupIpAddress pulumi.StringPtrInput
+	// The group members' network interface ID to register with the transit gateway multicast group.
+	NetworkInterfaceId pulumi.StringPtrInput
+	// The ID of the transit gateway multicast domain.
 	TransitGatewayMulticastDomainId pulumi.StringPtrInput
 }
 
@@ -73,15 +112,21 @@ func (MulticastGroupSourceState) ElementType() reflect.Type {
 }
 
 type multicastGroupSourceArgs struct {
-	GroupIpAddress                  string `pulumi:"groupIpAddress"`
-	NetworkInterfaceId              string `pulumi:"networkInterfaceId"`
+	// The IP address assigned to the transit gateway multicast group.
+	GroupIpAddress string `pulumi:"groupIpAddress"`
+	// The group members' network interface ID to register with the transit gateway multicast group.
+	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+	// The ID of the transit gateway multicast domain.
 	TransitGatewayMulticastDomainId string `pulumi:"transitGatewayMulticastDomainId"`
 }
 
 // The set of arguments for constructing a MulticastGroupSource resource.
 type MulticastGroupSourceArgs struct {
-	GroupIpAddress                  pulumi.StringInput
-	NetworkInterfaceId              pulumi.StringInput
+	// The IP address assigned to the transit gateway multicast group.
+	GroupIpAddress pulumi.StringInput
+	// The group members' network interface ID to register with the transit gateway multicast group.
+	NetworkInterfaceId pulumi.StringInput
+	// The ID of the transit gateway multicast domain.
 	TransitGatewayMulticastDomainId pulumi.StringInput
 }
 
@@ -172,14 +217,17 @@ func (o MulticastGroupSourceOutput) ToMulticastGroupSourceOutputWithContext(ctx 
 	return o
 }
 
+// The IP address assigned to the transit gateway multicast group.
 func (o MulticastGroupSourceOutput) GroupIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *MulticastGroupSource) pulumi.StringOutput { return v.GroupIpAddress }).(pulumi.StringOutput)
 }
 
+// The group members' network interface ID to register with the transit gateway multicast group.
 func (o MulticastGroupSourceOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MulticastGroupSource) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
 
+// The ID of the transit gateway multicast domain.
 func (o MulticastGroupSourceOutput) TransitGatewayMulticastDomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MulticastGroupSource) pulumi.StringOutput { return v.TransitGatewayMulticastDomainId }).(pulumi.StringOutput)
 }

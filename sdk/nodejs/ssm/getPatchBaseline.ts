@@ -7,6 +7,38 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
+ *
+ * ## Example Usage
+ *
+ * To retrieve a baseline provided by AWS:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const centos = aws.ssm.getPatchBaseline({
+ *     namePrefix: "AWS-",
+ *     operatingSystem: "CENTOS",
+ *     owner: "AWS",
+ * });
+ * ```
+ *
+ * To retrieve a baseline on your account:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const defaultCustom = aws.ssm.getPatchBaseline({
+ *     defaultBaseline: true,
+ *     namePrefix: "MyCustomBaseline",
+ *     operatingSystem: "WINDOWS",
+ *     owner: "Self",
+ * });
+ * ```
+ */
 export function getPatchBaseline(args: GetPatchBaselineArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchBaselineResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -22,9 +54,21 @@ export function getPatchBaseline(args: GetPatchBaselineArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getPatchBaseline.
  */
 export interface GetPatchBaselineArgs {
+    /**
+     * Filters the results against the baselines defaultBaseline field.
+     */
     defaultBaseline?: boolean;
+    /**
+     * Filter results by the baseline name prefix.
+     */
     namePrefix?: string;
+    /**
+     * Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
+     */
     operatingSystem?: string;
+    /**
+     * Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+     */
     owner: string;
 }
 
@@ -32,25 +76,87 @@ export interface GetPatchBaselineArgs {
  * A collection of values returned by getPatchBaseline.
  */
 export interface GetPatchBaselineResult {
+    /**
+     * List of rules used to include patches in the baseline.
+     */
     readonly approvalRules: outputs.ssm.GetPatchBaselineApprovalRule[];
+    /**
+     * List of explicitly approved patches for the baseline.
+     */
     readonly approvedPatches: string[];
+    /**
+     * The compliance level for approved patches.
+     */
     readonly approvedPatchesComplianceLevel: string;
+    /**
+     * Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
+     */
     readonly approvedPatchesEnableNonSecurity: boolean;
     readonly defaultBaseline?: boolean;
+    /**
+     * Description of the baseline.
+     */
     readonly description: string;
+    /**
+     * Set of global filters used to exclude patches from the baseline.
+     */
     readonly globalFilters: outputs.ssm.GetPatchBaselineGlobalFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The name specified to identify the patch source.
+     */
     readonly name: string;
     readonly namePrefix?: string;
     readonly operatingSystem?: string;
     readonly owner: string;
+    /**
+     * List of rejected patches.
+     */
     readonly rejectedPatches: string[];
+    /**
+     * The action specified to take on patches included in the `rejectedPatches` list.
+     */
     readonly rejectedPatchesAction: string;
+    /**
+     * Information about the patches to use to update the managed nodes, including target operating systems and source repositories.
+     */
     readonly sources: outputs.ssm.GetPatchBaselineSource[];
 }
+/**
+ * Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
+ *
+ * ## Example Usage
+ *
+ * To retrieve a baseline provided by AWS:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const centos = aws.ssm.getPatchBaseline({
+ *     namePrefix: "AWS-",
+ *     operatingSystem: "CENTOS",
+ *     owner: "AWS",
+ * });
+ * ```
+ *
+ * To retrieve a baseline on your account:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const defaultCustom = aws.ssm.getPatchBaseline({
+ *     defaultBaseline: true,
+ *     namePrefix: "MyCustomBaseline",
+ *     operatingSystem: "WINDOWS",
+ *     owner: "Self",
+ * });
+ * ```
+ */
 export function getPatchBaselineOutput(args: GetPatchBaselineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchBaselineResult> {
     return pulumi.output(args).apply((a: any) => getPatchBaseline(a, opts))
 }
@@ -59,8 +165,20 @@ export function getPatchBaselineOutput(args: GetPatchBaselineOutputArgs, opts?: 
  * A collection of arguments for invoking getPatchBaseline.
  */
 export interface GetPatchBaselineOutputArgs {
+    /**
+     * Filters the results against the baselines defaultBaseline field.
+     */
     defaultBaseline?: pulumi.Input<boolean>;
+    /**
+     * Filter results by the baseline name prefix.
+     */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
+     */
     operatingSystem?: pulumi.Input<string>;
+    /**
+     * Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+     */
     owner: pulumi.Input<string>;
 }

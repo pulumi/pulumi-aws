@@ -13,9 +13,17 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs();
 
+    /**
+     * The API secret key required for API key authentication.
+     * 
+     */
     @Import(name="apiSecretKey", required=true)
     private Output<String> apiSecretKey;
 
+    /**
+     * @return The API secret key required for API key authentication.
+     * 
+     */
     public Output<String> apiSecretKey() {
         return this.apiSecretKey;
     }
@@ -44,11 +52,23 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param apiSecretKey The API secret key required for API key authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiSecretKey(Output<String> apiSecretKey) {
             $.apiSecretKey = apiSecretKey;
             return this;
         }
 
+        /**
+         * @param apiSecretKey The API secret key required for API key authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiSecretKey(String apiSecretKey) {
             return apiSecretKey(Output.of(apiSecretKey));
         }

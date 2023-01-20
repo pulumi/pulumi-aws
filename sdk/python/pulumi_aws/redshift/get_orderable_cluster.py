@@ -44,6 +44,9 @@ class GetOrderableClusterResult:
     @property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence[str]:
+        """
+        List of Availability Zone names where the Redshit Cluster is available.
+        """
         return pulumi.get(self, "availability_zones")
 
     @property
@@ -95,7 +98,26 @@ def get_orderable_cluster(cluster_type: Optional[str] = None,
                           preferred_node_types: Optional[Sequence[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderableClusterResult:
     """
-    Use this data source to access information about an existing resource.
+    Information about Redshift Orderable Clusters and valid parameter combinations.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.redshift.get_orderable_cluster(cluster_type="multi-node",
+        preferred_node_types=[
+            "dc2.large",
+            "ds2.xlarge",
+        ])
+    ```
+
+
+    :param str cluster_type: Reshift Cluster typeE.g., `multi-node` or `single-node`
+    :param str cluster_version: Redshift Cluster versionE.g., `1.0`
+    :param str node_type: Redshift Cluster node typeE.g., `dc2.8xlarge`
+    :param Sequence[str] preferred_node_types: Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
     """
     __args__ = dict()
     __args__['clusterType'] = cluster_type
@@ -121,6 +143,25 @@ def get_orderable_cluster_output(cluster_type: Optional[pulumi.Input[Optional[st
                                  preferred_node_types: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderableClusterResult]:
     """
-    Use this data source to access information about an existing resource.
+    Information about Redshift Orderable Clusters and valid parameter combinations.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.redshift.get_orderable_cluster(cluster_type="multi-node",
+        preferred_node_types=[
+            "dc2.large",
+            "ds2.xlarge",
+        ])
+    ```
+
+
+    :param str cluster_type: Reshift Cluster typeE.g., `multi-node` or `single-node`
+    :param str cluster_version: Redshift Cluster versionE.g., `1.0`
+    :param str node_type: Redshift Cluster node typeE.g., `dc2.8xlarge`
+    :param Sequence[str] preferred_node_types: Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
     """
     ...

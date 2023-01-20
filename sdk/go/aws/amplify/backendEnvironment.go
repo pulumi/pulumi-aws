@@ -11,14 +11,63 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Amplify Backend Environment resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleApp, err := amplify.NewApp(ctx, "exampleApp", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = amplify.NewBackendEnvironment(ctx, "exampleBackendEnvironment", &amplify.BackendEnvironmentArgs{
+//				AppId:               exampleApp.ID(),
+//				EnvironmentName:     pulumi.String("example"),
+//				DeploymentArtifacts: pulumi.String("app-example-deployment"),
+//				StackName:           pulumi.String("amplify-app-example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Amplify backend environment can be imported using `app_id` and `environment_name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
+//
+// ```
 type BackendEnvironment struct {
 	pulumi.CustomResourceState
 
-	AppId               pulumi.StringOutput `pulumi:"appId"`
-	Arn                 pulumi.StringOutput `pulumi:"arn"`
+	// Unique ID for an Amplify app.
+	AppId pulumi.StringOutput `pulumi:"appId"`
+	// ARN for a backend environment that is part of an Amplify app.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Name of deployment artifacts.
 	DeploymentArtifacts pulumi.StringOutput `pulumi:"deploymentArtifacts"`
-	EnvironmentName     pulumi.StringOutput `pulumi:"environmentName"`
-	StackName           pulumi.StringOutput `pulumi:"stackName"`
+	// Name for the backend environment.
+	EnvironmentName pulumi.StringOutput `pulumi:"environmentName"`
+	// AWS CloudFormation stack name of a backend environment.
+	StackName pulumi.StringOutput `pulumi:"stackName"`
 }
 
 // NewBackendEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -56,19 +105,29 @@ func GetBackendEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackendEnvironment resources.
 type backendEnvironmentState struct {
-	AppId               *string `pulumi:"appId"`
-	Arn                 *string `pulumi:"arn"`
+	// Unique ID for an Amplify app.
+	AppId *string `pulumi:"appId"`
+	// ARN for a backend environment that is part of an Amplify app.
+	Arn *string `pulumi:"arn"`
+	// Name of deployment artifacts.
 	DeploymentArtifacts *string `pulumi:"deploymentArtifacts"`
-	EnvironmentName     *string `pulumi:"environmentName"`
-	StackName           *string `pulumi:"stackName"`
+	// Name for the backend environment.
+	EnvironmentName *string `pulumi:"environmentName"`
+	// AWS CloudFormation stack name of a backend environment.
+	StackName *string `pulumi:"stackName"`
 }
 
 type BackendEnvironmentState struct {
-	AppId               pulumi.StringPtrInput
-	Arn                 pulumi.StringPtrInput
+	// Unique ID for an Amplify app.
+	AppId pulumi.StringPtrInput
+	// ARN for a backend environment that is part of an Amplify app.
+	Arn pulumi.StringPtrInput
+	// Name of deployment artifacts.
 	DeploymentArtifacts pulumi.StringPtrInput
-	EnvironmentName     pulumi.StringPtrInput
-	StackName           pulumi.StringPtrInput
+	// Name for the backend environment.
+	EnvironmentName pulumi.StringPtrInput
+	// AWS CloudFormation stack name of a backend environment.
+	StackName pulumi.StringPtrInput
 }
 
 func (BackendEnvironmentState) ElementType() reflect.Type {
@@ -76,18 +135,26 @@ func (BackendEnvironmentState) ElementType() reflect.Type {
 }
 
 type backendEnvironmentArgs struct {
-	AppId               string  `pulumi:"appId"`
+	// Unique ID for an Amplify app.
+	AppId string `pulumi:"appId"`
+	// Name of deployment artifacts.
 	DeploymentArtifacts *string `pulumi:"deploymentArtifacts"`
-	EnvironmentName     string  `pulumi:"environmentName"`
-	StackName           *string `pulumi:"stackName"`
+	// Name for the backend environment.
+	EnvironmentName string `pulumi:"environmentName"`
+	// AWS CloudFormation stack name of a backend environment.
+	StackName *string `pulumi:"stackName"`
 }
 
 // The set of arguments for constructing a BackendEnvironment resource.
 type BackendEnvironmentArgs struct {
-	AppId               pulumi.StringInput
+	// Unique ID for an Amplify app.
+	AppId pulumi.StringInput
+	// Name of deployment artifacts.
 	DeploymentArtifacts pulumi.StringPtrInput
-	EnvironmentName     pulumi.StringInput
-	StackName           pulumi.StringPtrInput
+	// Name for the backend environment.
+	EnvironmentName pulumi.StringInput
+	// AWS CloudFormation stack name of a backend environment.
+	StackName pulumi.StringPtrInput
 }
 
 func (BackendEnvironmentArgs) ElementType() reflect.Type {
@@ -177,22 +244,27 @@ func (o BackendEnvironmentOutput) ToBackendEnvironmentOutputWithContext(ctx cont
 	return o
 }
 
+// Unique ID for an Amplify app.
 func (o BackendEnvironmentOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackendEnvironment) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
 }
 
+// ARN for a backend environment that is part of an Amplify app.
 func (o BackendEnvironmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackendEnvironment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Name of deployment artifacts.
 func (o BackendEnvironmentOutput) DeploymentArtifacts() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackendEnvironment) pulumi.StringOutput { return v.DeploymentArtifacts }).(pulumi.StringOutput)
 }
 
+// Name for the backend environment.
 func (o BackendEnvironmentOutput) EnvironmentName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackendEnvironment) pulumi.StringOutput { return v.EnvironmentName }).(pulumi.StringOutput)
 }
 
+// AWS CloudFormation stack name of a backend environment.
 func (o BackendEnvironmentOutput) StackName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackendEnvironment) pulumi.StringOutput { return v.StackName }).(pulumi.StringOutput)
 }

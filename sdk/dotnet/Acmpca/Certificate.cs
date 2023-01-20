@@ -9,30 +9,73 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Acmpca
 {
+    /// <summary>
+    /// Provides a resource to issue a certificate using AWS Certificate Manager Private Certificate Authority (ACM PCA).
+    /// 
+    /// Certificates created using `aws.acmpca.Certificate` are not eligible for automatic renewal,
+    /// and must be replaced instead.
+    /// To issue a renewable certificate using an ACM PCA, create a `aws.acm.Certificate`
+    /// with the parameter `certificate_authority_arn`.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// ACM PCA Certificates can be imported using their ARN, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:acmpca/certificate:Certificate cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:acmpca/certificate:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of the certificate.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// PEM-encoded certificate value.
+        /// </summary>
         [Output("certificate")]
         public Output<string> CertificateDetails { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN of the certificate authority.
+        /// </summary>
         [Output("certificateAuthorityArn")]
         public Output<string> CertificateAuthorityArn { get; private set; } = null!;
 
+        /// <summary>
+        /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+        /// </summary>
         [Output("certificateChain")]
         public Output<string> CertificateChain { get; private set; } = null!;
 
+        /// <summary>
+        /// Certificate Signing Request in PEM format.
+        /// </summary>
         [Output("certificateSigningRequest")]
         public Output<string> CertificateSigningRequest { get; private set; } = null!;
 
+        /// <summary>
+        /// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
+        /// </summary>
         [Output("signingAlgorithm")]
         public Output<string> SigningAlgorithm { get; private set; } = null!;
 
+        /// <summary>
+        /// Template to use when issuing a certificate.
+        /// See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
+        /// </summary>
         [Output("templateArn")]
         public Output<string?> TemplateArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Configures end of the validity period for the certificate. See validity block below.
+        /// </summary>
         [Output("validity")]
         public Output<Outputs.CertificateValidity> Validity { get; private set; } = null!;
 
@@ -82,18 +125,34 @@ namespace Pulumi.Aws.Acmpca
 
     public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the certificate authority.
+        /// </summary>
         [Input("certificateAuthorityArn", required: true)]
         public Input<string> CertificateAuthorityArn { get; set; } = null!;
 
+        /// <summary>
+        /// Certificate Signing Request in PEM format.
+        /// </summary>
         [Input("certificateSigningRequest", required: true)]
         public Input<string> CertificateSigningRequest { get; set; } = null!;
 
+        /// <summary>
+        /// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
+        /// </summary>
         [Input("signingAlgorithm", required: true)]
         public Input<string> SigningAlgorithm { get; set; } = null!;
 
+        /// <summary>
+        /// Template to use when issuing a certificate.
+        /// See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
+        /// </summary>
         [Input("templateArn")]
         public Input<string>? TemplateArn { get; set; }
 
+        /// <summary>
+        /// Configures end of the validity period for the certificate. See validity block below.
+        /// </summary>
         [Input("validity", required: true)]
         public Input<Inputs.CertificateValidityArgs> Validity { get; set; } = null!;
 
@@ -105,27 +164,52 @@ namespace Pulumi.Aws.Acmpca
 
     public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the certificate.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// PEM-encoded certificate value.
+        /// </summary>
         [Input("certificate")]
         public Input<string>? CertificateDetails { get; set; }
 
+        /// <summary>
+        /// ARN of the certificate authority.
+        /// </summary>
         [Input("certificateAuthorityArn")]
         public Input<string>? CertificateAuthorityArn { get; set; }
 
+        /// <summary>
+        /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+        /// </summary>
         [Input("certificateChain")]
         public Input<string>? CertificateChain { get; set; }
 
+        /// <summary>
+        /// Certificate Signing Request in PEM format.
+        /// </summary>
         [Input("certificateSigningRequest")]
         public Input<string>? CertificateSigningRequest { get; set; }
 
+        /// <summary>
+        /// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
+        /// </summary>
         [Input("signingAlgorithm")]
         public Input<string>? SigningAlgorithm { get; set; }
 
+        /// <summary>
+        /// Template to use when issuing a certificate.
+        /// See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
+        /// </summary>
         [Input("templateArn")]
         public Input<string>? TemplateArn { get; set; }
 
+        /// <summary>
+        /// Configures end of the validity period for the certificate. See validity block below.
+        /// </summary>
         [Input("validity")]
         public Input<Inputs.CertificateValidityGetArgs>? Validity { get; set; }
 

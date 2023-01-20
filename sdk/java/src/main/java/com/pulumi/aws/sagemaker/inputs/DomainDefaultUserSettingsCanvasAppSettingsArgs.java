@@ -15,9 +15,17 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
 
     public static final DomainDefaultUserSettingsCanvasAppSettingsArgs Empty = new DomainDefaultUserSettingsCanvasAppSettingsArgs();
 
+    /**
+     * Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+     * 
+     */
     @Import(name="timeSeriesForecastingSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs> timeSeriesForecastingSettings;
 
+    /**
+     * @return Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+     * 
+     */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs>> timeSeriesForecastingSettings() {
         return Optional.ofNullable(this.timeSeriesForecastingSettings);
     }
@@ -46,11 +54,23 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
             $ = new DomainDefaultUserSettingsCanvasAppSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeSeriesForecastingSettings(@Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs> timeSeriesForecastingSettings) {
             $.timeSeriesForecastingSettings = timeSeriesForecastingSettings;
             return this;
         }
 
+        /**
+         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeSeriesForecastingSettings(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs timeSeriesForecastingSettings) {
             return timeSeriesForecastingSettings(Output.of(timeSeriesForecastingSettings));
         }

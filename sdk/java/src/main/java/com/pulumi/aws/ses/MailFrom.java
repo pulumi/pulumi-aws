@@ -14,23 +14,153 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an SES domain MAIL FROM resource.
+ * 
+ * &gt; **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the aws.ses.DomainIdentity resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html) for more information.
+ * 
+ * ## Example Usage
+ * ### Domain Identity MAIL FROM
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ses.DomainIdentity;
+ * import com.pulumi.aws.ses.DomainIdentityArgs;
+ * import com.pulumi.aws.ses.MailFrom;
+ * import com.pulumi.aws.ses.MailFromArgs;
+ * import com.pulumi.aws.route53.Record;
+ * import com.pulumi.aws.route53.RecordArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleDomainIdentity = new DomainIdentity(&#34;exampleDomainIdentity&#34;, DomainIdentityArgs.builder()        
+ *             .domain(&#34;example.com&#34;)
+ *             .build());
+ * 
+ *         var exampleMailFrom = new MailFrom(&#34;exampleMailFrom&#34;, MailFromArgs.builder()        
+ *             .domain(exampleDomainIdentity.domain())
+ *             .mailFromDomain(exampleDomainIdentity.domain().applyValue(domain -&gt; String.format(&#34;bounce.%s&#34;, domain)))
+ *             .build());
+ * 
+ *         var exampleSesDomainMailFromMx = new Record(&#34;exampleSesDomainMailFromMx&#34;, RecordArgs.builder()        
+ *             .zoneId(aws_route53_zone.example().id())
+ *             .name(exampleMailFrom.mailFromDomain())
+ *             .type(&#34;MX&#34;)
+ *             .ttl(&#34;600&#34;)
+ *             .records(&#34;10 feedback-smtp.us-east-1.amazonses.com&#34;)
+ *             .build());
+ * 
+ *         var exampleSesDomainMailFromTxt = new Record(&#34;exampleSesDomainMailFromTxt&#34;, RecordArgs.builder()        
+ *             .zoneId(aws_route53_zone.example().id())
+ *             .name(exampleMailFrom.mailFromDomain())
+ *             .type(&#34;TXT&#34;)
+ *             .ttl(&#34;600&#34;)
+ *             .records(&#34;v=spf1 include:amazonses.com -all&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Email Identity MAIL FROM
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ses.EmailIdentity;
+ * import com.pulumi.aws.ses.EmailIdentityArgs;
+ * import com.pulumi.aws.ses.MailFrom;
+ * import com.pulumi.aws.ses.MailFromArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleEmailIdentity = new EmailIdentity(&#34;exampleEmailIdentity&#34;, EmailIdentityArgs.builder()        
+ *             .email(&#34;user@example.com&#34;)
+ *             .build());
+ * 
+ *         var exampleMailFrom = new MailFrom(&#34;exampleMailFrom&#34;, MailFromArgs.builder()        
+ *             .domain(exampleEmailIdentity.email())
+ *             .mailFromDomain(&#34;mail.example.com&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * MAIL FROM domain can be imported using the `domain` attribute, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ses/mailFrom:MailFrom example example.com
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ses/mailFrom:MailFrom")
 public class MailFrom extends com.pulumi.resources.CustomResource {
+    /**
+     * The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+     * 
+     */
     @Export(name="behaviorOnMxFailure", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> behaviorOnMxFailure;
 
+    /**
+     * @return The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+     * 
+     */
     public Output<Optional<String>> behaviorOnMxFailure() {
         return Codegen.optional(this.behaviorOnMxFailure);
     }
+    /**
+     * Verified domain name or email identity to generate DKIM tokens for.
+     * 
+     */
     @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
+    /**
+     * @return Verified domain name or email identity to generate DKIM tokens for.
+     * 
+     */
     public Output<String> domain() {
         return this.domain;
     }
+    /**
+     * Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+     * 
+     */
     @Export(name="mailFromDomain", refs={String.class}, tree="[0]")
     private Output<String> mailFromDomain;
 
+    /**
+     * @return Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+     * 
+     */
     public Output<String> mailFromDomain() {
         return this.mailFromDomain;
     }

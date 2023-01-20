@@ -66,16 +66,25 @@ class GetDeviceResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the device.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsLocations")
     def aws_locations(self) -> Sequence['outputs.GetDeviceAwsLocationResult']:
+        """
+        AWS location of the device. Documented below.
+        """
         return pulumi.get(self, "aws_locations")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the device.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -99,36 +108,57 @@ class GetDeviceResult:
     @property
     @pulumi.getter
     def locations(self) -> Sequence['outputs.GetDeviceLocationResult']:
+        """
+        Location of the device. Documented below.
+        """
         return pulumi.get(self, "locations")
 
     @property
     @pulumi.getter
     def model(self) -> str:
+        """
+        Model of device.
+        """
         return pulumi.get(self, "model")
 
     @property
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> str:
+        """
+        Serial number of the device.
+        """
         return pulumi.get(self, "serial_number")
 
     @property
     @pulumi.getter(name="siteId")
     def site_id(self) -> str:
+        """
+        ID of the site.
+        """
         return pulumi.get(self, "site_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Key-value tags for the device.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Type of device.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def vendor(self) -> str:
+        """
+        Vendor of the device.
+        """
         return pulumi.get(self, "vendor")
 
 
@@ -158,7 +188,12 @@ def get_device(device_id: Optional[str] = None,
                tags: Optional[Mapping[str, str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about a device.
+
+
+    :param str device_id: ID of the device.
+    :param str global_network_id: ID of the global network.
+    :param Mapping[str, str] tags: Key-value tags for the device.
     """
     __args__ = dict()
     __args__['deviceId'] = device_id
@@ -189,6 +224,11 @@ def get_device_output(device_id: Optional[pulumi.Input[str]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about a device.
+
+
+    :param str device_id: ID of the device.
+    :param str global_network_id: ID of the global network.
+    :param Mapping[str, str] tags: Key-value tags for the device.
     """
     ...

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class FirewallPolicyFirewallPolicyStatefulEngineOptions
     {
+        /// <summary>
+        /// Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
+        /// </summary>
         public readonly string RuleOrder;
 
         [OutputConstructor]

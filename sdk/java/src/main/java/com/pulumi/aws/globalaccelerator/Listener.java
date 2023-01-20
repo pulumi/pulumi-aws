@@ -16,29 +16,123 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Global Accelerator listener.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.globalaccelerator.Accelerator;
+ * import com.pulumi.aws.globalaccelerator.AcceleratorArgs;
+ * import com.pulumi.aws.globalaccelerator.inputs.AcceleratorAttributesArgs;
+ * import com.pulumi.aws.globalaccelerator.Listener;
+ * import com.pulumi.aws.globalaccelerator.ListenerArgs;
+ * import com.pulumi.aws.globalaccelerator.inputs.ListenerPortRangeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleAccelerator = new Accelerator(&#34;exampleAccelerator&#34;, AcceleratorArgs.builder()        
+ *             .ipAddressType(&#34;IPV4&#34;)
+ *             .enabled(true)
+ *             .attributes(AcceleratorAttributesArgs.builder()
+ *                 .flowLogsEnabled(true)
+ *                 .flowLogsS3Bucket(&#34;example-bucket&#34;)
+ *                 .flowLogsS3Prefix(&#34;flow-logs/&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
+ *             .acceleratorArn(exampleAccelerator.id())
+ *             .clientAffinity(&#34;SOURCE_IP&#34;)
+ *             .protocol(&#34;TCP&#34;)
+ *             .portRanges(ListenerPortRangeArgs.builder()
+ *                 .fromPort(80)
+ *                 .toPort(80)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Global Accelerator listeners can be imported using the `id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
+ * ```
+ * 
+ */
 @ResourceType(type="aws:globalaccelerator/listener:Listener")
 public class Listener extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name (ARN) of your accelerator.
+     * 
+     */
     @Export(name="acceleratorArn", refs={String.class}, tree="[0]")
     private Output<String> acceleratorArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of your accelerator.
+     * 
+     */
     public Output<String> acceleratorArn() {
         return this.acceleratorArn;
     }
+    /**
+     * Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the &#34;five-tuple&#34; properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the &#34;two-tuple&#34; properties of source (client) IP address and destination IP address to select the hash value.
+     * 
+     */
     @Export(name="clientAffinity", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientAffinity;
 
+    /**
+     * @return Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the &#34;five-tuple&#34; properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the &#34;two-tuple&#34; properties of source (client) IP address and destination IP address to select the hash value.
+     * 
+     */
     public Output<Optional<String>> clientAffinity() {
         return Codegen.optional(this.clientAffinity);
     }
+    /**
+     * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * 
+     */
     @Export(name="portRanges", refs={List.class,ListenerPortRange.class}, tree="[0,1]")
     private Output<List<ListenerPortRange>> portRanges;
 
+    /**
+     * @return The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * 
+     */
     public Output<List<ListenerPortRange>> portRanges() {
         return this.portRanges;
     }
+    /**
+     * The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+     * 
+     */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
+    /**
+     * @return The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+     * 
+     */
     public Output<String> protocol() {
         return this.protocol;
     }

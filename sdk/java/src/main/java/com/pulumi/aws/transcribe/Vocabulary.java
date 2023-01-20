@@ -16,35 +16,146 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Resource for managing an AWS Transcribe Vocabulary.
+ * 
+ * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.BucketObjectv2;
+ * import com.pulumi.aws.s3.BucketObjectv2Args;
+ * import com.pulumi.aws.transcribe.Vocabulary;
+ * import com.pulumi.aws.transcribe.VocabularyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.asset.FileAsset;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *             .forceDestroy(true)
+ *             .build());
+ * 
+ *         var object = new BucketObjectv2(&#34;object&#34;, BucketObjectv2Args.builder()        
+ *             .bucket(exampleBucketV2.id())
+ *             .key(&#34;transcribe/test1.txt&#34;)
+ *             .source(new FileAsset(&#34;test.txt&#34;))
+ *             .build());
+ * 
+ *         var exampleVocabulary = new Vocabulary(&#34;exampleVocabulary&#34;, VocabularyArgs.builder()        
+ *             .vocabularyName(&#34;example&#34;)
+ *             .languageCode(&#34;en-US&#34;)
+ *             .vocabularyFileUri(Output.tuple(exampleBucketV2.id(), object.key()).applyValue(values -&gt; {
+ *                 var id = values.t1;
+ *                 var key = values.t2;
+ *                 return String.format(&#34;s3://%s/%s&#34;, id,key);
+ *             }))
+ *             .tags(Map.ofEntries(
+ *                 Map.entry(&#34;tag1&#34;, &#34;value1&#34;),
+ *                 Map.entry(&#34;tag2&#34;, &#34;value3&#34;)
+ *             ))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(object)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Transcribe Vocabulary can be imported using the `vocabulary_name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
+ * ```
+ * 
+ */
 @ResourceType(type="aws:transcribe/vocabulary:Vocabulary")
 public class Vocabulary extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the Vocabulary.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the Vocabulary.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Generated download URI.
+     * 
+     */
     @Export(name="downloadUri", refs={String.class}, tree="[0]")
     private Output<String> downloadUri;
 
+    /**
+     * @return Generated download URI.
+     * 
+     */
     public Output<String> downloadUri() {
         return this.downloadUri;
     }
+    /**
+     * The language code you selected for your vocabulary.
+     * 
+     */
     @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
+    /**
+     * @return The language code you selected for your vocabulary.
+     * 
+     */
     public Output<String> languageCode() {
         return this.languageCode;
     }
+    /**
+     * A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+     * 
+     */
     @Export(name="phrases", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> phrases;
 
+    /**
+     * @return A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+     * 
+     */
     public Output<Optional<List<String>>> phrases() {
         return Codegen.optional(this.phrases);
     }
+    /**
+     * A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -54,15 +165,31 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+     * 
+     */
     @Export(name="vocabularyFileUri", refs={String.class}, tree="[0]")
     private Output<String> vocabularyFileUri;
 
+    /**
+     * @return The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+     * 
+     */
     public Output<String> vocabularyFileUri() {
         return this.vocabularyFileUri;
     }
+    /**
+     * The name of the Vocabulary.
+     * 
+     */
     @Export(name="vocabularyName", refs={String.class}, tree="[0]")
     private Output<String> vocabularyName;
 
+    /**
+     * @return The name of the Vocabulary.
+     * 
+     */
     public Output<String> vocabularyName() {
         return this.vocabularyName;
     }

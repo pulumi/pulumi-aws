@@ -11,27 +11,59 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceResult {
+    /**
+     * @return ARN of the ECS Service
+     * 
+     */
     private String arn;
     private String clusterArn;
+    /**
+     * @return Number of tasks for the ECS Service
+     * 
+     */
     private Integer desiredCount;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Launch type for the ECS Service
+     * 
+     */
     private String launchType;
+    /**
+     * @return Scheduling strategy for the ECS Service
+     * 
+     */
     private String schedulingStrategy;
     private String serviceName;
+    /**
+     * @return Resource tags.
+     * 
+     */
     private Map<String,String> tags;
+    /**
+     * @return Family for the latest ACTIVE revision
+     * 
+     */
     private String taskDefinition;
 
     private GetServiceResult() {}
+    /**
+     * @return ARN of the ECS Service
+     * 
+     */
     public String arn() {
         return this.arn;
     }
     public String clusterArn() {
         return this.clusterArn;
     }
+    /**
+     * @return Number of tasks for the ECS Service
+     * 
+     */
     public Integer desiredCount() {
         return this.desiredCount;
     }
@@ -42,18 +74,34 @@ public final class GetServiceResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Launch type for the ECS Service
+     * 
+     */
     public String launchType() {
         return this.launchType;
     }
+    /**
+     * @return Scheduling strategy for the ECS Service
+     * 
+     */
     public String schedulingStrategy() {
         return this.schedulingStrategy;
     }
     public String serviceName() {
         return this.serviceName;
     }
+    /**
+     * @return Resource tags.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @return Family for the latest ACTIVE revision
+     * 
+     */
     public String taskDefinition() {
         return this.taskDefinition;
     }

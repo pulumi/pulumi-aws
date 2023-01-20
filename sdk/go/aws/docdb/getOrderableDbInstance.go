@@ -10,6 +10,40 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Information about DocumentDB orderable DB instances.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/docdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := docdb.GetOrderableDbInstance(ctx, &docdb.GetOrderableDbInstanceArgs{
+//				Engine:        pulumi.StringRef("docdb"),
+//				EngineVersion: pulumi.StringRef("3.6.0"),
+//				LicenseModel:  pulumi.StringRef("na"),
+//				PreferredInstanceClasses: []string{
+//					"db.r5.large",
+//					"db.r4.large",
+//					"db.t3.medium",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetOrderableDbInstance(ctx *pulumi.Context, args *GetOrderableDbInstanceArgs, opts ...pulumi.InvokeOption) (*GetOrderableDbInstanceResult, error) {
 	var rv GetOrderableDbInstanceResult
 	err := ctx.Invoke("aws:docdb/getOrderableDbInstance:getOrderableDbInstance", args, &rv, opts...)
@@ -21,16 +55,23 @@ func GetOrderableDbInstance(ctx *pulumi.Context, args *GetOrderableDbInstanceArg
 
 // A collection of arguments for invoking getOrderableDbInstance.
 type GetOrderableDbInstanceArgs struct {
-	Engine                   *string  `pulumi:"engine"`
-	EngineVersion            *string  `pulumi:"engineVersion"`
-	InstanceClass            *string  `pulumi:"instanceClass"`
-	LicenseModel             *string  `pulumi:"licenseModel"`
+	// DB engine. Default: `docdb`
+	Engine *string `pulumi:"engine"`
+	// Version of the DB engine.
+	EngineVersion *string `pulumi:"engineVersion"`
+	// DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferredInstanceClasses`.)
+	InstanceClass *string `pulumi:"instanceClass"`
+	// License model. Default: `na`
+	LicenseModel *string `pulumi:"licenseModel"`
+	// Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instanceClass`.)
 	PreferredInstanceClasses []string `pulumi:"preferredInstanceClasses"`
-	Vpc                      *bool    `pulumi:"vpc"`
+	// Enable to show only VPC.
+	Vpc *bool `pulumi:"vpc"`
 }
 
 // A collection of values returned by getOrderableDbInstance.
 type GetOrderableDbInstanceResult struct {
+	// Availability zones where the instance is available.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	Engine            *string  `pulumi:"engine"`
 	EngineVersion     string   `pulumi:"engineVersion"`
@@ -57,12 +98,18 @@ func GetOrderableDbInstanceOutput(ctx *pulumi.Context, args GetOrderableDbInstan
 
 // A collection of arguments for invoking getOrderableDbInstance.
 type GetOrderableDbInstanceOutputArgs struct {
-	Engine                   pulumi.StringPtrInput   `pulumi:"engine"`
-	EngineVersion            pulumi.StringPtrInput   `pulumi:"engineVersion"`
-	InstanceClass            pulumi.StringPtrInput   `pulumi:"instanceClass"`
-	LicenseModel             pulumi.StringPtrInput   `pulumi:"licenseModel"`
+	// DB engine. Default: `docdb`
+	Engine pulumi.StringPtrInput `pulumi:"engine"`
+	// Version of the DB engine.
+	EngineVersion pulumi.StringPtrInput `pulumi:"engineVersion"`
+	// DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferredInstanceClasses`.)
+	InstanceClass pulumi.StringPtrInput `pulumi:"instanceClass"`
+	// License model. Default: `na`
+	LicenseModel pulumi.StringPtrInput `pulumi:"licenseModel"`
+	// Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instanceClass`.)
 	PreferredInstanceClasses pulumi.StringArrayInput `pulumi:"preferredInstanceClasses"`
-	Vpc                      pulumi.BoolPtrInput     `pulumi:"vpc"`
+	// Enable to show only VPC.
+	Vpc pulumi.BoolPtrInput `pulumi:"vpc"`
 }
 
 func (GetOrderableDbInstanceOutputArgs) ElementType() reflect.Type {
@@ -84,6 +131,7 @@ func (o GetOrderableDbInstanceResultOutput) ToGetOrderableDbInstanceResultOutput
 	return o
 }
 
+// Availability zones where the instance is available.
 func (o GetOrderableDbInstanceResultOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOrderableDbInstanceResult) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }

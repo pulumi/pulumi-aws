@@ -87,36 +87,57 @@ class GetLaunchConfigurationResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        Amazon Resource Name of the launch configuration.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="associatePublicIpAddress")
     def associate_public_ip_address(self) -> bool:
+        """
+        Whether a Public IP address is associated with the instance.
+        """
         return pulumi.get(self, "associate_public_ip_address")
 
     @property
     @pulumi.getter(name="ebsBlockDevices")
     def ebs_block_devices(self) -> Sequence['outputs.GetLaunchConfigurationEbsBlockDeviceResult']:
+        """
+        EBS Block Devices attached to the instance.
+        """
         return pulumi.get(self, "ebs_block_devices")
 
     @property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> bool:
+        """
+        Whether the launched EC2 instance will be EBS-optimized.
+        """
         return pulumi.get(self, "ebs_optimized")
 
     @property
     @pulumi.getter(name="enableMonitoring")
     def enable_monitoring(self) -> bool:
+        """
+        Whether Detailed Monitoring is Enabled.
+        """
         return pulumi.get(self, "enable_monitoring")
 
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
     def ephemeral_block_devices(self) -> Sequence['outputs.GetLaunchConfigurationEphemeralBlockDeviceResult']:
+        """
+        The Ephemeral volumes on the instance.
+        """
         return pulumi.get(self, "ephemeral_block_devices")
 
     @property
     @pulumi.getter(name="iamInstanceProfile")
     def iam_instance_profile(self) -> str:
+        """
+        The IAM Instance Profile to associate with launched instances.
+        """
         return pulumi.get(self, "iam_instance_profile")
 
     @property
@@ -130,61 +151,97 @@ class GetLaunchConfigurationResult:
     @property
     @pulumi.getter(name="imageId")
     def image_id(self) -> str:
+        """
+        EC2 Image ID of the instance.
+        """
         return pulumi.get(self, "image_id")
 
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> str:
+        """
+        Instance Type of the instance to launch.
+        """
         return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter(name="keyName")
     def key_name(self) -> str:
+        """
+        Key Name that should be used for the instance.
+        """
         return pulumi.get(self, "key_name")
 
     @property
     @pulumi.getter(name="metadataOptions")
     def metadata_options(self) -> Sequence['outputs.GetLaunchConfigurationMetadataOptionResult']:
+        """
+        Metadata options for the instance.
+        """
         return pulumi.get(self, "metadata_options")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the launch configuration.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="placementTenancy")
     def placement_tenancy(self) -> str:
+        """
+        Tenancy of the instance.
+        """
         return pulumi.get(self, "placement_tenancy")
 
     @property
     @pulumi.getter(name="rootBlockDevices")
     def root_block_devices(self) -> Sequence['outputs.GetLaunchConfigurationRootBlockDeviceResult']:
+        """
+        Root Block Device of the instance.
+        """
         return pulumi.get(self, "root_block_devices")
 
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[str]:
+        """
+        List of associated Security Group IDS.
+        """
         return pulumi.get(self, "security_groups")
 
     @property
     @pulumi.getter(name="spotPrice")
     def spot_price(self) -> str:
+        """
+        Price to use for reserving Spot instances.
+        """
         return pulumi.get(self, "spot_price")
 
     @property
     @pulumi.getter(name="userData")
     def user_data(self) -> str:
+        """
+        User Data of the instance.
+        """
         return pulumi.get(self, "user_data")
 
     @property
     @pulumi.getter(name="vpcClassicLinkId")
     def vpc_classic_link_id(self) -> str:
+        """
+        ID of a ClassicLink-enabled VPC.
+        """
         return pulumi.get(self, "vpc_classic_link_id")
 
     @property
     @pulumi.getter(name="vpcClassicLinkSecurityGroups")
     def vpc_classic_link_security_groups(self) -> Sequence[str]:
+        """
+        The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
+        """
         return pulumi.get(self, "vpc_classic_link_security_groups")
 
 
@@ -219,7 +276,19 @@ class AwaitableGetLaunchConfigurationResult(GetLaunchConfigurationResult):
 def get_launch_configuration(name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLaunchConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a Launch Configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    ubuntu = aws.ec2.get_launch_configuration(name="test-launch-config")
+    ```
+
+
+    :param str name: Name of the launch configuration.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -253,6 +322,18 @@ def get_launch_configuration(name: Optional[str] = None,
 def get_launch_configuration_output(name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLaunchConfigurationResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a Launch Configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    ubuntu = aws.ec2.get_launch_configuration(name="test-launch-config")
+    ```
+
+
+    :param str name: Name of the launch configuration.
     """
     ...

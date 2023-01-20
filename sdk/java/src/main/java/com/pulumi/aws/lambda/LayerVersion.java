@@ -18,113 +18,320 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Lambda Layer Version resource. Lambda Layers allow you to reuse shared bits of code across multiple lambda functions.
+ * 
+ * For information about Lambda Layers and how to use them, see [AWS Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+ * 
+ * &gt; **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy any layer version, even when running destroy. Layer versions are thus intentional dangling resources that are _not_ managed by the provider and may incur extra expense in your AWS account.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.LayerVersion;
+ * import com.pulumi.aws.lambda.LayerVersionArgs;
+ * import com.pulumi.asset.FileArchive;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var lambdaLayer = new LayerVersion(&#34;lambdaLayer&#34;, LayerVersionArgs.builder()        
+ *             .compatibleRuntimes(&#34;nodejs16.x&#34;)
+ *             .code(new FileArchive(&#34;lambda_layer_payload.zip&#34;))
+ *             .layerName(&#34;lambda_layer_name&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Specifying the Deployment Package
+ * 
+ * AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.
+ * See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatible_runtimes`.
+ * 
+ * Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
+ * indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
+ * package via S3 it may be useful to use the `aws.s3.BucketObjectv2` resource to upload it.
+ * 
+ * For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
+ * 
+ * ## Import
+ * 
+ * Lambda Layers can be imported using `arn`.
+ * 
+ * ```sh
+ *  $ pulumi import aws:lambda/layerVersion:LayerVersion \
+ * ```
+ * 
+ *  aws_lambda_layer_version.test_layer \
+ * 
+ *  arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
+ * 
+ */
 @ResourceType(type="aws:lambda/layerVersion:LayerVersion")
 public class LayerVersion extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the Lambda Layer with version.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the Lambda Layer with version.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Path to the function&#39;s deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+     * 
+     */
     @Export(name="code", refs={Archive.class}, tree="[0]")
     private Output</* @Nullable */ Archive> code;
 
+    /**
+     * @return Path to the function&#39;s deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+     * 
+     */
     public Output<Optional<Archive>> code() {
         return Codegen.optional(this.code);
     }
+    /**
+     * List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
+     * 
+     */
     @Export(name="compatibleArchitectures", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> compatibleArchitectures;
 
+    /**
+     * @return List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
+     * 
+     */
     public Output<Optional<List<String>>> compatibleArchitectures() {
         return Codegen.optional(this.compatibleArchitectures);
     }
+    /**
+     * List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+     * 
+     */
     @Export(name="compatibleRuntimes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> compatibleRuntimes;
 
+    /**
+     * @return List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+     * 
+     */
     public Output<Optional<List<String>>> compatibleRuntimes() {
         return Codegen.optional(this.compatibleRuntimes);
     }
+    /**
+     * Date this resource was created.
+     * 
+     */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
+    /**
+     * @return Date this resource was created.
+     * 
+     */
     public Output<String> createdDate() {
         return this.createdDate;
     }
+    /**
+     * Description of what your Lambda Layer does.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description of what your Lambda Layer does.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * ARN of the Lambda Layer without version.
+     * 
+     */
     @Export(name="layerArn", refs={String.class}, tree="[0]")
     private Output<String> layerArn;
 
+    /**
+     * @return ARN of the Lambda Layer without version.
+     * 
+     */
     public Output<String> layerArn() {
         return this.layerArn;
     }
+    /**
+     * Unique name for your Lambda Layer
+     * 
+     */
     @Export(name="layerName", refs={String.class}, tree="[0]")
     private Output<String> layerName;
 
+    /**
+     * @return Unique name for your Lambda Layer
+     * 
+     */
     public Output<String> layerName() {
         return this.layerName;
     }
+    /**
+     * License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
+     * 
+     */
     @Export(name="licenseInfo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> licenseInfo;
 
+    /**
+     * @return License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
+     * 
+     */
     public Output<Optional<String>> licenseInfo() {
         return Codegen.optional(this.licenseInfo);
     }
+    /**
+     * S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+     * 
+     */
     @Export(name="s3Bucket", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3Bucket;
 
+    /**
+     * @return S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+     * 
+     */
     public Output<Optional<String>> s3Bucket() {
         return Codegen.optional(this.s3Bucket);
     }
+    /**
+     * S3 key of an object containing the function&#39;s deployment package. Conflicts with `filename`.
+     * 
+     */
     @Export(name="s3Key", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3Key;
 
+    /**
+     * @return S3 key of an object containing the function&#39;s deployment package. Conflicts with `filename`.
+     * 
+     */
     public Output<Optional<String>> s3Key() {
         return Codegen.optional(this.s3Key);
     }
+    /**
+     * Object version containing the function&#39;s deployment package. Conflicts with `filename`.
+     * 
+     */
     @Export(name="s3ObjectVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3ObjectVersion;
 
+    /**
+     * @return Object version containing the function&#39;s deployment package. Conflicts with `filename`.
+     * 
+     */
     public Output<Optional<String>> s3ObjectVersion() {
         return Codegen.optional(this.s3ObjectVersion);
     }
+    /**
+     * ARN of a signing job.
+     * 
+     */
     @Export(name="signingJobArn", refs={String.class}, tree="[0]")
     private Output<String> signingJobArn;
 
+    /**
+     * @return ARN of a signing job.
+     * 
+     */
     public Output<String> signingJobArn() {
         return this.signingJobArn;
     }
+    /**
+     * ARN for a signing profile version.
+     * 
+     */
     @Export(name="signingProfileVersionArn", refs={String.class}, tree="[0]")
     private Output<String> signingProfileVersionArn;
 
+    /**
+     * @return ARN for a signing profile version.
+     * 
+     */
     public Output<String> signingProfileVersionArn() {
         return this.signingProfileVersionArn;
     }
+    /**
+     * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+     * 
+     */
     @Export(name="skipDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipDestroy;
 
+    /**
+     * @return Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+     * 
+     */
     public Output<Optional<Boolean>> skipDestroy() {
         return Codegen.optional(this.skipDestroy);
     }
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * 
+     */
     @Export(name="sourceCodeHash", refs={String.class}, tree="[0]")
     private Output<String> sourceCodeHash;
 
+    /**
+     * @return Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * 
+     */
     public Output<String> sourceCodeHash() {
         return this.sourceCodeHash;
     }
+    /**
+     * Size in bytes of the function .zip file.
+     * 
+     */
     @Export(name="sourceCodeSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> sourceCodeSize;
 
+    /**
+     * @return Size in bytes of the function .zip file.
+     * 
+     */
     public Output<Integer> sourceCodeSize() {
         return this.sourceCodeSize;
     }
+    /**
+     * Lambda Layer version.
+     * 
+     */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
+    /**
+     * @return Lambda Layer version.
+     * 
+     */
     public Output<String> version() {
         return this.version;
     }

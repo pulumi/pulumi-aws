@@ -4,6 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to get information about a SSH public key associated with the specified IAM user.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.iam.getUserSshKey({
+ *     encoding: "SSH",
+ *     sshPublicKeyId: "APKARUZ32GUTKIGARLXE",
+ *     username: "test-user",
+ * });
+ * ```
+ */
 export function getUserSshKey(args: GetUserSshKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSshKeyResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -18,8 +34,17 @@ export function getUserSshKey(args: GetUserSshKeyArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getUserSshKey.
  */
 export interface GetUserSshKeyArgs {
+    /**
+     * Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
+     */
     encoding: string;
+    /**
+     * Unique identifier for the SSH public key.
+     */
     sshPublicKeyId: string;
+    /**
+     * Name of the IAM user associated with the SSH public key.
+     */
     username: string;
 }
 
@@ -28,16 +53,41 @@ export interface GetUserSshKeyArgs {
  */
 export interface GetUserSshKeyResult {
     readonly encoding: string;
+    /**
+     * MD5 message digest of the SSH public key.
+     */
     readonly fingerprint: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * SSH public key.
+     */
     readonly publicKey: string;
     readonly sshPublicKeyId: string;
+    /**
+     * Status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
+     */
     readonly status: string;
     readonly username: string;
 }
+/**
+ * Use this data source to get information about a SSH public key associated with the specified IAM user.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.iam.getUserSshKey({
+ *     encoding: "SSH",
+ *     sshPublicKeyId: "APKARUZ32GUTKIGARLXE",
+ *     username: "test-user",
+ * });
+ * ```
+ */
 export function getUserSshKeyOutput(args: GetUserSshKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSshKeyResult> {
     return pulumi.output(args).apply((a: any) => getUserSshKey(a, opts))
 }
@@ -46,7 +96,16 @@ export function getUserSshKeyOutput(args: GetUserSshKeyOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getUserSshKey.
  */
 export interface GetUserSshKeyOutputArgs {
+    /**
+     * Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
+     */
     encoding: pulumi.Input<string>;
+    /**
+     * Unique identifier for the SSH public key.
+     */
     sshPublicKeyId: pulumi.Input<string>;
+    /**
+     * Name of the IAM user associated with the SSH public key.
+     */
     username: pulumi.Input<string>;
 }

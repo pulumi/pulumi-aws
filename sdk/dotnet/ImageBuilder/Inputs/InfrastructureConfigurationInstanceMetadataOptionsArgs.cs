@@ -12,9 +12,15 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class InfrastructureConfigurationInstanceMetadataOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of hops that an instance can traverse to reach its destonation.
+        /// </summary>
         [Input("httpPutResponseHopLimit")]
         public Input<int>? HttpPutResponseHopLimit { get; set; }
 
+        /// <summary>
+        /// Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
+        /// </summary>
         [Input("httpTokens")]
         public Input<string>? HttpTokens { get; set; }
 

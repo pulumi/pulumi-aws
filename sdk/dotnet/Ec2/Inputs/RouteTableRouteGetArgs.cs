@@ -12,45 +12,87 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class RouteTableRouteGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
+        /// </summary>
         [Input("carrierGatewayId")]
         public Input<string>? CarrierGatewayId { get; set; }
 
+        /// <summary>
+        /// The CIDR block of the route.
+        /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a core network.
+        /// </summary>
         [Input("coreNetworkArn")]
         public Input<string>? CoreNetworkArn { get; set; }
 
+        /// <summary>
+        /// The ID of a managed prefix list destination of the route.
+        /// </summary>
         [Input("destinationPrefixListId")]
         public Input<string>? DestinationPrefixListId { get; set; }
 
+        /// <summary>
+        /// Identifier of a VPC Egress Only Internet Gateway.
+        /// </summary>
         [Input("egressOnlyGatewayId")]
         public Input<string>? EgressOnlyGatewayId { get; set; }
 
+        /// <summary>
+        /// Identifier of a VPC internet gateway or a virtual private gateway.
+        /// </summary>
         [Input("gatewayId")]
         public Input<string>? GatewayId { get; set; }
 
+        /// <summary>
+        /// Identifier of an EC2 instance.
+        /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
+        /// <summary>
+        /// The Ipv6 CIDR block of the route.
+        /// </summary>
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
 
+        /// <summary>
+        /// Identifier of a Outpost local gateway.
+        /// </summary>
         [Input("localGatewayId")]
         public Input<string>? LocalGatewayId { get; set; }
 
+        /// <summary>
+        /// Identifier of a VPC NAT gateway.
+        /// </summary>
         [Input("natGatewayId")]
         public Input<string>? NatGatewayId { get; set; }
 
+        /// <summary>
+        /// Identifier of an EC2 network interface.
+        /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
+        /// <summary>
+        /// Identifier of an EC2 Transit Gateway.
+        /// </summary>
         [Input("transitGatewayId")]
         public Input<string>? TransitGatewayId { get; set; }
 
+        /// <summary>
+        /// Identifier of a VPC Endpoint.
+        /// </summary>
         [Input("vpcEndpointId")]
         public Input<string>? VpcEndpointId { get; set; }
 
+        /// <summary>
+        /// Identifier of a VPC peering connection.
+        /// </summary>
         [Input("vpcPeeringConnectionId")]
         public Input<string>? VpcPeeringConnectionId { get; set; }
 

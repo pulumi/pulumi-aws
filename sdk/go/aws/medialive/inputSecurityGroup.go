@@ -11,13 +11,62 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS MediaLive InputSecurityGroup.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/medialive"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := medialive.NewInputSecurityGroup(ctx, "example", &medialive.InputSecurityGroupArgs{
+//				Tags: pulumi.StringMap{
+//					"ENVIRONMENT": pulumi.String("prod"),
+//				},
+//				WhitelistRules: medialive.InputSecurityGroupWhitelistRuleArray{
+//					&medialive.InputSecurityGroupWhitelistRuleArgs{
+//						Cidr: pulumi.String("10.0.0.8/32"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// MediaLive InputSecurityGroup can be imported using the `id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
+//
+// ```
 type InputSecurityGroup struct {
 	pulumi.CustomResourceState
 
-	Arn            pulumi.StringOutput                        `pulumi:"arn"`
-	Inputs         pulumi.StringArrayOutput                   `pulumi:"inputs"`
-	Tags           pulumi.StringMapOutput                     `pulumi:"tags"`
-	TagsAll        pulumi.StringMapOutput                     `pulumi:"tagsAll"`
+	// ARN of the InputSecurityGroup.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The list of inputs currently using this InputSecurityGroup.
+	Inputs pulumi.StringArrayOutput `pulumi:"inputs"`
+	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Whitelist rules. See Whitelist Rules for more details.
 	WhitelistRules InputSecurityGroupWhitelistRuleArrayOutput `pulumi:"whitelistRules"`
 }
 
@@ -53,18 +102,26 @@ func GetInputSecurityGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InputSecurityGroup resources.
 type inputSecurityGroupState struct {
-	Arn            *string                           `pulumi:"arn"`
-	Inputs         []string                          `pulumi:"inputs"`
-	Tags           map[string]string                 `pulumi:"tags"`
-	TagsAll        map[string]string                 `pulumi:"tagsAll"`
+	// ARN of the InputSecurityGroup.
+	Arn *string `pulumi:"arn"`
+	// The list of inputs currently using this InputSecurityGroup.
+	Inputs []string `pulumi:"inputs"`
+	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Whitelist rules. See Whitelist Rules for more details.
 	WhitelistRules []InputSecurityGroupWhitelistRule `pulumi:"whitelistRules"`
 }
 
 type InputSecurityGroupState struct {
-	Arn            pulumi.StringPtrInput
-	Inputs         pulumi.StringArrayInput
-	Tags           pulumi.StringMapInput
-	TagsAll        pulumi.StringMapInput
+	// ARN of the InputSecurityGroup.
+	Arn pulumi.StringPtrInput
+	// The list of inputs currently using this InputSecurityGroup.
+	Inputs pulumi.StringArrayInput
+	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
+	// Whitelist rules. See Whitelist Rules for more details.
 	WhitelistRules InputSecurityGroupWhitelistRuleArrayInput
 }
 
@@ -73,13 +130,17 @@ func (InputSecurityGroupState) ElementType() reflect.Type {
 }
 
 type inputSecurityGroupArgs struct {
-	Tags           map[string]string                 `pulumi:"tags"`
+	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Whitelist rules. See Whitelist Rules for more details.
 	WhitelistRules []InputSecurityGroupWhitelistRule `pulumi:"whitelistRules"`
 }
 
 // The set of arguments for constructing a InputSecurityGroup resource.
 type InputSecurityGroupArgs struct {
-	Tags           pulumi.StringMapInput
+	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Whitelist rules. See Whitelist Rules for more details.
 	WhitelistRules InputSecurityGroupWhitelistRuleArrayInput
 }
 
@@ -170,14 +231,17 @@ func (o InputSecurityGroupOutput) ToInputSecurityGroupOutputWithContext(ctx cont
 	return o
 }
 
+// ARN of the InputSecurityGroup.
 func (o InputSecurityGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InputSecurityGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The list of inputs currently using this InputSecurityGroup.
 func (o InputSecurityGroupOutput) Inputs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InputSecurityGroup) pulumi.StringArrayOutput { return v.Inputs }).(pulumi.StringArrayOutput)
 }
 
+// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o InputSecurityGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InputSecurityGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -186,6 +250,7 @@ func (o InputSecurityGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InputSecurityGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// Whitelist rules. See Whitelist Rules for more details.
 func (o InputSecurityGroupOutput) WhitelistRules() InputSecurityGroupWhitelistRuleArrayOutput {
 	return o.ApplyT(func(v *InputSecurityGroup) InputSecurityGroupWhitelistRuleArrayOutput { return v.WhitelistRules }).(InputSecurityGroupWhitelistRuleArrayOutput)
 }

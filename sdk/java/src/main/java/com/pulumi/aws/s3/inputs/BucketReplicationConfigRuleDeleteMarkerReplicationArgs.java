@@ -13,9 +13,17 @@ public final class BucketReplicationConfigRuleDeleteMarkerReplicationArgs extend
 
     public static final BucketReplicationConfigRuleDeleteMarkerReplicationArgs Empty = new BucketReplicationConfigRuleDeleteMarkerReplicationArgs();
 
+    /**
+     * Whether delete markers should be replicated. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
+     * 
+     */
     @Import(name="status", required=true)
     private Output<String> status;
 
+    /**
+     * @return Whether delete markers should be replicated. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }
@@ -44,11 +52,23 @@ public final class BucketReplicationConfigRuleDeleteMarkerReplicationArgs extend
             $ = new BucketReplicationConfigRuleDeleteMarkerReplicationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param status Whether delete markers should be replicated. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status Whether delete markers should be replicated. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

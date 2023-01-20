@@ -11,13 +11,67 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/worklink"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := worklink.NewFleet(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = worklink.NewWebsiteCertificateAuthorityAssociation(ctx, "test", &worklink.WebsiteCertificateAuthorityAssociationArgs{
+//				FleetArn:    pulumi.Any(aws_worklink_fleet.Test.Arn),
+//				Certificate: readFileOrPanic("certificate.pem"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// WorkLink Website Certificate Authority can be imported using `FLEET-ARN,WEBSITE-CA-ID`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
+//
+// ```
 type WebsiteCertificateAuthorityAssociation struct {
 	pulumi.CustomResourceState
 
-	Certificate pulumi.StringOutput    `pulumi:"certificate"`
+	// The root certificate of the Certificate Authority.
+	Certificate pulumi.StringOutput `pulumi:"certificate"`
+	// The certificate name to display.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	FleetArn    pulumi.StringOutput    `pulumi:"fleetArn"`
-	WebsiteCaId pulumi.StringOutput    `pulumi:"websiteCaId"`
+	// The ARN of the fleet.
+	FleetArn pulumi.StringOutput `pulumi:"fleetArn"`
+	// A unique identifier for the Certificate Authority.
+	WebsiteCaId pulumi.StringOutput `pulumi:"websiteCaId"`
 }
 
 // NewWebsiteCertificateAuthorityAssociation registers a new resource with the given unique name, arguments, and options.
@@ -55,16 +109,24 @@ func GetWebsiteCertificateAuthorityAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebsiteCertificateAuthorityAssociation resources.
 type websiteCertificateAuthorityAssociationState struct {
+	// The root certificate of the Certificate Authority.
 	Certificate *string `pulumi:"certificate"`
+	// The certificate name to display.
 	DisplayName *string `pulumi:"displayName"`
-	FleetArn    *string `pulumi:"fleetArn"`
+	// The ARN of the fleet.
+	FleetArn *string `pulumi:"fleetArn"`
+	// A unique identifier for the Certificate Authority.
 	WebsiteCaId *string `pulumi:"websiteCaId"`
 }
 
 type WebsiteCertificateAuthorityAssociationState struct {
+	// The root certificate of the Certificate Authority.
 	Certificate pulumi.StringPtrInput
+	// The certificate name to display.
 	DisplayName pulumi.StringPtrInput
-	FleetArn    pulumi.StringPtrInput
+	// The ARN of the fleet.
+	FleetArn pulumi.StringPtrInput
+	// A unique identifier for the Certificate Authority.
 	WebsiteCaId pulumi.StringPtrInput
 }
 
@@ -73,16 +135,22 @@ func (WebsiteCertificateAuthorityAssociationState) ElementType() reflect.Type {
 }
 
 type websiteCertificateAuthorityAssociationArgs struct {
-	Certificate string  `pulumi:"certificate"`
+	// The root certificate of the Certificate Authority.
+	Certificate string `pulumi:"certificate"`
+	// The certificate name to display.
 	DisplayName *string `pulumi:"displayName"`
-	FleetArn    string  `pulumi:"fleetArn"`
+	// The ARN of the fleet.
+	FleetArn string `pulumi:"fleetArn"`
 }
 
 // The set of arguments for constructing a WebsiteCertificateAuthorityAssociation resource.
 type WebsiteCertificateAuthorityAssociationArgs struct {
+	// The root certificate of the Certificate Authority.
 	Certificate pulumi.StringInput
+	// The certificate name to display.
 	DisplayName pulumi.StringPtrInput
-	FleetArn    pulumi.StringInput
+	// The ARN of the fleet.
+	FleetArn pulumi.StringInput
 }
 
 func (WebsiteCertificateAuthorityAssociationArgs) ElementType() reflect.Type {
@@ -172,18 +240,22 @@ func (o WebsiteCertificateAuthorityAssociationOutput) ToWebsiteCertificateAuthor
 	return o
 }
 
+// The root certificate of the Certificate Authority.
 func (o WebsiteCertificateAuthorityAssociationOutput) Certificate() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebsiteCertificateAuthorityAssociation) pulumi.StringOutput { return v.Certificate }).(pulumi.StringOutput)
 }
 
+// The certificate name to display.
 func (o WebsiteCertificateAuthorityAssociationOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebsiteCertificateAuthorityAssociation) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the fleet.
 func (o WebsiteCertificateAuthorityAssociationOutput) FleetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebsiteCertificateAuthorityAssociation) pulumi.StringOutput { return v.FleetArn }).(pulumi.StringOutput)
 }
 
+// A unique identifier for the Certificate Authority.
 func (o WebsiteCertificateAuthorityAssociationOutput) WebsiteCaId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebsiteCertificateAuthorityAssociation) pulumi.StringOutput { return v.WebsiteCaId }).(pulumi.StringOutput)
 }

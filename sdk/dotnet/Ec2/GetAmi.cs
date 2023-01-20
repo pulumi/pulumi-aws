@@ -11,9 +11,131 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetAmi
     {
+        /// <summary>
+        /// Use this data source to get the ID of a registered AMI for use in other
+        /// resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetAmi.Invoke(new()
+        ///     {
+        ///         ExecutableUsers = new[]
+        ///         {
+        ///             "self",
+        ///         },
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
+        ///             {
+        ///                 Name = "name",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "myami-*",
+        ///                 },
+        ///             },
+        ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
+        ///             {
+        ///                 Name = "root-device-type",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "ebs",
+        ///                 },
+        ///             },
+        ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
+        ///             {
+        ///                 Name = "virtualization-type",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "hvm",
+        ///                 },
+        ///             },
+        ///         },
+        ///         MostRecent = true,
+        ///         NameRegex = "^myami-\\d{3}",
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetAmiResult> InvokeAsync(GetAmiArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAmiResult>("aws:ec2/getAmi:getAmi", args ?? new GetAmiArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to get the ID of a registered AMI for use in other
+        /// resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetAmi.Invoke(new()
+        ///     {
+        ///         ExecutableUsers = new[]
+        ///         {
+        ///             "self",
+        ///         },
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
+        ///             {
+        ///                 Name = "name",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "myami-*",
+        ///                 },
+        ///             },
+        ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
+        ///             {
+        ///                 Name = "root-device-type",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "ebs",
+        ///                 },
+        ///             },
+        ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
+        ///             {
+        ///                 Name = "virtualization-type",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "hvm",
+        ///                 },
+        ///             },
+        ///         },
+        ///         MostRecent = true,
+        ///         NameRegex = "^myami-\\d{3}",
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetAmiResult> Invoke(GetAmiInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAmiResult>("aws:ec2/getAmi:getAmi", args ?? new GetAmiInvokeArgs(), options.WithDefaults());
     }
@@ -23,6 +145,11 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("executableUsers")]
         private List<string>? _executableUsers;
+
+        /// <summary>
+        /// Limit search to users with *explicit* launch permission on
+        /// the image. Valid items are the numeric account ID or `self`.
+        /// </summary>
         public List<string> ExecutableUsers
         {
             get => _executableUsers ?? (_executableUsers = new List<string>());
@@ -31,23 +158,47 @@ namespace Pulumi.Aws.Ec2
 
         [Input("filters")]
         private List<Inputs.GetAmiFilterArgs>? _filters;
+
+        /// <summary>
+        /// One or more name/value pairs to filter off of. There are
+        /// several valid keys, for a full reference, check out
+        /// [describe-images in the AWS CLI reference][1].
+        /// </summary>
         public List<Inputs.GetAmiFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetAmiFilterArgs>());
             set => _filters = value;
         }
 
+        /// <summary>
+        /// If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
+        /// </summary>
         [Input("includeDeprecated")]
         public bool? IncludeDeprecated { get; set; }
 
+        /// <summary>
+        /// If more than one result is returned, use the most
+        /// recent AMI.
+        /// </summary>
         [Input("mostRecent")]
         public bool? MostRecent { get; set; }
 
+        /// <summary>
+        /// Regex string to apply to the AMI list returned
+        /// by AWS. This allows more advanced filtering not supported from the AWS API. This
+        /// filtering is done locally on what AWS returns, and could have a performance
+        /// impact if the result is large. Combine this with other
+        /// options to narrow down the list AWS returns.
+        /// </summary>
         [Input("nameRegex")]
         public string? NameRegex { get; set; }
 
         [Input("owners")]
         private List<string>? _owners;
+
+        /// <summary>
+        /// List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+        /// </summary>
         public List<string> Owners
         {
             get => _owners ?? (_owners = new List<string>());
@@ -56,6 +207,12 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Any tags assigned to the image.
+        /// * `tags.#.key` - Key name of the tag.
+        /// * `tags.#.value` - Value of the tag.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -72,6 +229,11 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("executableUsers")]
         private InputList<string>? _executableUsers;
+
+        /// <summary>
+        /// Limit search to users with *explicit* launch permission on
+        /// the image. Valid items are the numeric account ID or `self`.
+        /// </summary>
         public InputList<string> ExecutableUsers
         {
             get => _executableUsers ?? (_executableUsers = new InputList<string>());
@@ -80,23 +242,47 @@ namespace Pulumi.Aws.Ec2
 
         [Input("filters")]
         private InputList<Inputs.GetAmiFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// One or more name/value pairs to filter off of. There are
+        /// several valid keys, for a full reference, check out
+        /// [describe-images in the AWS CLI reference][1].
+        /// </summary>
         public InputList<Inputs.GetAmiFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetAmiFilterInputArgs>());
             set => _filters = value;
         }
 
+        /// <summary>
+        /// If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
+        /// </summary>
         [Input("includeDeprecated")]
         public Input<bool>? IncludeDeprecated { get; set; }
 
+        /// <summary>
+        /// If more than one result is returned, use the most
+        /// recent AMI.
+        /// </summary>
         [Input("mostRecent")]
         public Input<bool>? MostRecent { get; set; }
 
+        /// <summary>
+        /// Regex string to apply to the AMI list returned
+        /// by AWS. This allows more advanced filtering not supported from the AWS API. This
+        /// filtering is done locally on what AWS returns, and could have a performance
+        /// impact if the result is large. Combine this with other
+        /// options to narrow down the list AWS returns.
+        /// </summary>
         [Input("nameRegex")]
         public Input<string>? NameRegex { get; set; }
 
         [Input("owners")]
         private InputList<string>? _owners;
+
+        /// <summary>
+        /// List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+        /// </summary>
         public InputList<string> Owners
         {
             get => _owners ?? (_owners = new InputList<string>());
@@ -105,6 +291,12 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Any tags assigned to the image.
+        /// * `tags.#.key` - Key name of the tag.
+        /// * `tags.#.value` - Value of the tag.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -121,47 +313,156 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetAmiResult
     {
+        /// <summary>
+        /// OS architecture of the AMI (ie: `i386` or `x86_64`).
+        /// </summary>
         public readonly string Architecture;
+        /// <summary>
+        /// ARN of the AMI.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Set of objects with block device mappings of the AMI.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetAmiBlockDeviceMappingResult> BlockDeviceMappings;
+        /// <summary>
+        /// Boot mode of the image.
+        /// </summary>
         public readonly string BootMode;
+        /// <summary>
+        /// Date and time the image was created.
+        /// </summary>
         public readonly string CreationDate;
+        /// <summary>
+        /// Date and time when the image will be deprecated.
+        /// </summary>
         public readonly string DeprecationTime;
+        /// <summary>
+        /// Description of the AMI that was provided during image
+        /// creation.
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// Whether enhanced networking with ENA is enabled.
+        /// </summary>
         public readonly bool EnaSupport;
         public readonly ImmutableArray<string> ExecutableUsers;
         public readonly ImmutableArray<Outputs.GetAmiFilterResult> Filters;
+        /// <summary>
+        /// Hypervisor type of the image.
+        /// </summary>
         public readonly string Hypervisor;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// ID of the AMI. Should be the same as the resource `id`.
+        /// </summary>
         public readonly string ImageId;
+        /// <summary>
+        /// Location of the AMI.
+        /// </summary>
         public readonly string ImageLocation;
+        /// <summary>
+        /// AWS account alias (for example, `amazon`, `self`) or
+        /// the AWS account ID of the AMI owner.
+        /// </summary>
         public readonly string ImageOwnerAlias;
+        /// <summary>
+        /// Type of image.
+        /// </summary>
         public readonly string ImageType;
+        /// <summary>
+        /// Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.
+        /// </summary>
         public readonly string ImdsSupport;
         public readonly bool? IncludeDeprecated;
+        /// <summary>
+        /// Kernel associated with the image, if any. Only applicable
+        /// for machine images.
+        /// </summary>
         public readonly string KernelId;
         public readonly bool? MostRecent;
+        /// <summary>
+        /// Name of the AMI that was provided during image creation.
+        /// </summary>
         public readonly string Name;
         public readonly string? NameRegex;
+        /// <summary>
+        /// AWS account ID of the image owner.
+        /// </summary>
         public readonly string OwnerId;
         public readonly ImmutableArray<string> Owners;
+        /// <summary>
+        /// Value is Windows for `Windows` AMIs; otherwise blank.
+        /// </summary>
         public readonly string Platform;
+        /// <summary>
+        /// Platform details associated with the billing code of the AMI.
+        /// </summary>
         public readonly string PlatformDetails;
+        /// <summary>
+        /// Any product codes associated with the AMI.
+        /// * `product_codes.#.product_code_id` - The product code.
+        /// * `product_codes.#.product_code_type` - The type of product code.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetAmiProductCodeResult> ProductCodes;
+        /// <summary>
+        /// `true` if the image has public launch permissions.
+        /// </summary>
         public readonly bool Public;
+        /// <summary>
+        /// RAM disk associated with the image, if any. Only applicable
+        /// for machine images.
+        /// </summary>
         public readonly string RamdiskId;
+        /// <summary>
+        /// Device name of the root device.
+        /// </summary>
         public readonly string RootDeviceName;
+        /// <summary>
+        /// Type of root device (ie: `ebs` or `instance-store`).
+        /// </summary>
         public readonly string RootDeviceType;
+        /// <summary>
+        /// Snapshot id associated with the root device, if any
+        /// (only applies to `ebs` root devices).
+        /// </summary>
         public readonly string RootSnapshotId;
+        /// <summary>
+        /// Whether enhanced networking is enabled.
+        /// </summary>
         public readonly string SriovNetSupport;
+        /// <summary>
+        /// Current state of the AMI. If the state is `available`, the image
+        /// is successfully registered and can be used to launch an instance.
+        /// </summary>
         public readonly string State;
+        /// <summary>
+        /// Describes a state change. Fields are `UNSET` if not available.
+        /// * `state_reason.code` - The reason code for the state change.
+        /// * `state_reason.message` - The message for the state change.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> StateReason;
+        /// <summary>
+        /// Any tags assigned to the image.
+        /// * `tags.#.key` - Key name of the tag.
+        /// * `tags.#.value` - Value of the tag.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// If the image is configured for NitroTPM support, the value is `v2.0`.
+        /// </summary>
         public readonly string TpmSupport;
+        /// <summary>
+        /// Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+        /// </summary>
         public readonly string UsageOperation;
+        /// <summary>
+        /// Type of virtualization of the AMI (ie: `hvm` or
+        /// `paravirtual`).
+        /// </summary>
         public readonly string VirtualizationType;
 
         [OutputConstructor]

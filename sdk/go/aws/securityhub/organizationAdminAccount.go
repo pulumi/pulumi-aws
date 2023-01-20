@@ -11,9 +11,69 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Security Hub administrator account for an organization. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in Security Hub can be found in the [Security Hub User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
+//				AwsServiceAccessPrincipals: pulumi.StringArray{
+//					pulumi.String("securityhub.amazonaws.com"),
+//				},
+//				FeatureSet: pulumi.String("ALL"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securityhub.NewOrganizationAdminAccount(ctx, "exampleOrganizationAdminAccount", &securityhub.OrganizationAdminAccountArgs{
+//				AdminAccountId: pulumi.String("123456789012"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleOrganization,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securityhub.NewOrganizationConfiguration(ctx, "exampleOrganizationConfiguration", &securityhub.OrganizationConfigurationArgs{
+//				AutoEnable: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Security Hub Organization Admin Accounts can be imported using the AWS account ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+//
+// ```
 type OrganizationAdminAccount struct {
 	pulumi.CustomResourceState
 
+	// The AWS account identifier of the account to designate as the Security Hub administrator account.
 	AdminAccountId pulumi.StringOutput `pulumi:"adminAccountId"`
 }
 
@@ -49,10 +109,12 @@ func GetOrganizationAdminAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationAdminAccount resources.
 type organizationAdminAccountState struct {
+	// The AWS account identifier of the account to designate as the Security Hub administrator account.
 	AdminAccountId *string `pulumi:"adminAccountId"`
 }
 
 type OrganizationAdminAccountState struct {
+	// The AWS account identifier of the account to designate as the Security Hub administrator account.
 	AdminAccountId pulumi.StringPtrInput
 }
 
@@ -61,11 +123,13 @@ func (OrganizationAdminAccountState) ElementType() reflect.Type {
 }
 
 type organizationAdminAccountArgs struct {
+	// The AWS account identifier of the account to designate as the Security Hub administrator account.
 	AdminAccountId string `pulumi:"adminAccountId"`
 }
 
 // The set of arguments for constructing a OrganizationAdminAccount resource.
 type OrganizationAdminAccountArgs struct {
+	// The AWS account identifier of the account to designate as the Security Hub administrator account.
 	AdminAccountId pulumi.StringInput
 }
 
@@ -156,6 +220,7 @@ func (o OrganizationAdminAccountOutput) ToOrganizationAdminAccountOutputWithCont
 	return o
 }
 
+// The AWS account identifier of the account to designate as the Security Hub administrator account.
 func (o OrganizationAdminAccountOutput) AdminAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationAdminAccount) pulumi.StringOutput { return v.AdminAccountId }).(pulumi.StringOutput)
 }

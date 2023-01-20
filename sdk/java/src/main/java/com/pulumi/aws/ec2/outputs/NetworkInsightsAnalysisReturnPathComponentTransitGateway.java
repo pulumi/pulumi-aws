@@ -11,14 +11,30 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class NetworkInsightsAnalysisReturnPathComponentTransitGateway {
+    /**
+     * @return ARN of the Network Insights Analysis.
+     * 
+     */
     private @Nullable String arn;
+    /**
+     * @return ID of the Network Insights Analysis.
+     * 
+     */
     private @Nullable String id;
     private @Nullable String name;
 
     private NetworkInsightsAnalysisReturnPathComponentTransitGateway() {}
+    /**
+     * @return ARN of the Network Insights Analysis.
+     * 
+     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
+    /**
+     * @return ID of the Network Insights Analysis.
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }

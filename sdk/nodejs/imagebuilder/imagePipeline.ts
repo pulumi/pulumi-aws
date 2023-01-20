@@ -7,6 +7,32 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an Image Builder Image Pipeline.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.imagebuilder.ImagePipeline("example", {
+ *     imageRecipeArn: aws_imagebuilder_image_recipe.example.arn,
+ *     infrastructureConfigurationArn: aws_imagebuilder_infrastructure_configuration.example.arn,
+ *     schedule: {
+ *         scheduleExpression: "cron(0 0 * * ? *)",
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_imagebuilder_image_pipeline` resources can be imported using the Amazon Resource Name (ARN), e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
+ * ```
+ */
 export class ImagePipeline extends pulumi.CustomResource {
     /**
      * Get an existing ImagePipeline resource's state with the given name, ID, and optional extra
@@ -35,23 +61,77 @@ export class ImagePipeline extends pulumi.CustomResource {
         return obj['__pulumiType'] === ImagePipeline.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the image pipeline.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Amazon Resource Name (ARN) of the container recipe.
+     */
     public readonly containerRecipeArn!: pulumi.Output<string | undefined>;
+    /**
+     * Date the image pipeline was created.
+     */
     public /*out*/ readonly dateCreated!: pulumi.Output<string>;
+    /**
+     * Date the image pipeline was last run.
+     */
     public /*out*/ readonly dateLastRun!: pulumi.Output<string>;
+    /**
+     * Date the image pipeline will run next.
+     */
     public /*out*/ readonly dateNextRun!: pulumi.Output<string>;
+    /**
+     * Date the image pipeline was updated.
+     */
     public /*out*/ readonly dateUpdated!: pulumi.Output<string>;
+    /**
+     * Description of the image pipeline.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+     */
     public readonly distributionConfigurationArn!: pulumi.Output<string | undefined>;
+    /**
+     * Whether additional information about the image being created is collected. Defaults to `true`.
+     */
     public readonly enhancedImageMetadataEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Amazon Resource Name (ARN) of the image recipe.
+     */
     public readonly imageRecipeArn!: pulumi.Output<string | undefined>;
+    /**
+     * Configuration block with image tests configuration. Detailed below.
+     */
     public readonly imageTestsConfiguration!: pulumi.Output<outputs.imagebuilder.ImagePipelineImageTestsConfiguration>;
+    /**
+     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     */
     public readonly infrastructureConfigurationArn!: pulumi.Output<string>;
+    /**
+     * Name of the image pipeline.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Platform of the image pipeline.
+     */
     public /*out*/ readonly platform!: pulumi.Output<string>;
+    /**
+     * Configuration block with schedule settings. Detailed below.
+     */
     public readonly schedule!: pulumi.Output<outputs.imagebuilder.ImagePipelineSchedule | undefined>;
+    /**
+     * Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
+     */
     public readonly status!: pulumi.Output<string | undefined>;
+    /**
+     * Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -118,23 +198,77 @@ export class ImagePipeline extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ImagePipeline resources.
  */
 export interface ImagePipelineState {
+    /**
+     * Amazon Resource Name (ARN) of the image pipeline.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) of the container recipe.
+     */
     containerRecipeArn?: pulumi.Input<string>;
+    /**
+     * Date the image pipeline was created.
+     */
     dateCreated?: pulumi.Input<string>;
+    /**
+     * Date the image pipeline was last run.
+     */
     dateLastRun?: pulumi.Input<string>;
+    /**
+     * Date the image pipeline will run next.
+     */
     dateNextRun?: pulumi.Input<string>;
+    /**
+     * Date the image pipeline was updated.
+     */
     dateUpdated?: pulumi.Input<string>;
+    /**
+     * Description of the image pipeline.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+     */
     distributionConfigurationArn?: pulumi.Input<string>;
+    /**
+     * Whether additional information about the image being created is collected. Defaults to `true`.
+     */
     enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
+    /**
+     * Amazon Resource Name (ARN) of the image recipe.
+     */
     imageRecipeArn?: pulumi.Input<string>;
+    /**
+     * Configuration block with image tests configuration. Detailed below.
+     */
     imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineImageTestsConfiguration>;
+    /**
+     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     */
     infrastructureConfigurationArn?: pulumi.Input<string>;
+    /**
+     * Name of the image pipeline.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Platform of the image pipeline.
+     */
     platform?: pulumi.Input<string>;
+    /**
+     * Configuration block with schedule settings. Detailed below.
+     */
     schedule?: pulumi.Input<inputs.imagebuilder.ImagePipelineSchedule>;
+    /**
+     * Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
+     */
     status?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -142,15 +276,48 @@ export interface ImagePipelineState {
  * The set of arguments for constructing a ImagePipeline resource.
  */
 export interface ImagePipelineArgs {
+    /**
+     * Amazon Resource Name (ARN) of the container recipe.
+     */
     containerRecipeArn?: pulumi.Input<string>;
+    /**
+     * Description of the image pipeline.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+     */
     distributionConfigurationArn?: pulumi.Input<string>;
+    /**
+     * Whether additional information about the image being created is collected. Defaults to `true`.
+     */
     enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
+    /**
+     * Amazon Resource Name (ARN) of the image recipe.
+     */
     imageRecipeArn?: pulumi.Input<string>;
+    /**
+     * Configuration block with image tests configuration. Detailed below.
+     */
     imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineImageTestsConfiguration>;
+    /**
+     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     */
     infrastructureConfigurationArn: pulumi.Input<string>;
+    /**
+     * Name of the image pipeline.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Configuration block with schedule settings. Detailed below.
+     */
     schedule?: pulumi.Input<inputs.imagebuilder.ImagePipelineSchedule>;
+    /**
+     * Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
+     */
     status?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

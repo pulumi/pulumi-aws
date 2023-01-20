@@ -16,9 +16,17 @@ public final class EventSourceMappingFilterCriteriaArgs extends com.pulumi.resou
 
     public static final EventSourceMappingFilterCriteriaArgs Empty = new EventSourceMappingFilterCriteriaArgs();
 
+    /**
+     * A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+     * 
+     */
     @Import(name="filters")
     private @Nullable Output<List<EventSourceMappingFilterCriteriaFilterArgs>> filters;
 
+    /**
+     * @return A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+     * 
+     */
     public Optional<Output<List<EventSourceMappingFilterCriteriaFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
@@ -47,15 +55,33 @@ public final class EventSourceMappingFilterCriteriaArgs extends com.pulumi.resou
             $ = new EventSourceMappingFilterCriteriaArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filters A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable Output<List<EventSourceMappingFilterCriteriaFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(List<EventSourceMappingFilterCriteriaFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
+        /**
+         * @param filters A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(EventSourceMappingFilterCriteriaFilterArgs... filters) {
             return filters(List.of(filters));
         }

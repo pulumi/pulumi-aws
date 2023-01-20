@@ -15,16 +15,32 @@ public final class PrincipalAssociationState extends com.pulumi.resources.Resour
 
     public static final PrincipalAssociationState Empty = new PrincipalAssociationState();
 
+    /**
+     * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+     * 
+     */
     @Import(name="principal")
     private @Nullable Output<String> principal;
 
+    /**
+     * @return The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+     * 
+     */
     public Optional<Output<String>> principal() {
         return Optional.ofNullable(this.principal);
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the resource share.
+     * 
+     */
     @Import(name="resourceShareArn")
     private @Nullable Output<String> resourceShareArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the resource share.
+     * 
+     */
     public Optional<Output<String>> resourceShareArn() {
         return Optional.ofNullable(this.resourceShareArn);
     }
@@ -54,20 +70,44 @@ public final class PrincipalAssociationState extends com.pulumi.resources.Resour
             $ = new PrincipalAssociationState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param principal The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principal(@Nullable Output<String> principal) {
             $.principal = principal;
             return this;
         }
 
+        /**
+         * @param principal The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principal(String principal) {
             return principal(Output.of(principal));
         }
 
+        /**
+         * @param resourceShareArn The Amazon Resource Name (ARN) of the resource share.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceShareArn(@Nullable Output<String> resourceShareArn) {
             $.resourceShareArn = resourceShareArn;
             return this;
         }
 
+        /**
+         * @param resourceShareArn The Amazon Resource Name (ARN) of the resource share.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceShareArn(String resourceShareArn) {
             return resourceShareArn(Output.of(resourceShareArn));
         }

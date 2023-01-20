@@ -30,6 +30,37 @@ class DocumentClassifierArgs:
                  vpc_config: Optional[pulumi.Input['DocumentClassifierVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a DocumentClassifier resource.
+        :param pulumi.Input[str] data_access_role_arn: The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+        :param pulumi.Input['DocumentClassifierInputDataConfigArgs'] input_data_config: Configuration for the training and testing data.
+               See the `input_data_config` Configuration Block section below.
+        :param pulumi.Input[str] language_code: Two-letter language code for the language.
+               One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+        :param pulumi.Input[str] mode: The document classification mode.
+               One of `MULTI_CLASS` or `MULTI_LABEL`.
+               `MULTI_CLASS` is also known as "Single Label" in the AWS Console.
+        :param pulumi.Input[str] model_kms_key_id: KMS Key used to encrypt trained Document Classifiers.
+               Can be a KMS Key ID or a KMS Key ARN.
+        :param pulumi.Input[str] name: Name for the Document Classifier.
+               Has a maximum length of 63 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        :param pulumi.Input['DocumentClassifierOutputDataConfigArgs'] output_data_config: Configuration for the output results of training.
+               See the `output_data_config` Configuration Block section below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] version_name: Name for the version of the Document Classifier.
+               Each version must have a unique name within the Document Classifier.
+               If omitted, the provider will assign a random, unique version name.
+               If explicitly set to `""`, no version name will be set.
+               Has a maximum length of 63 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Conflicts with `version_name_prefix`.
+        :param pulumi.Input[str] version_name_prefix: Creates a unique version name beginning with the specified prefix.
+               Has a maximum length of 37 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Conflicts with `version_name`.
+        :param pulumi.Input[str] volume_kms_key_id: KMS Key used to encrypt storage volumes during job processing.
+               Can be a KMS Key ID or a KMS Key ARN.
+        :param pulumi.Input['DocumentClassifierVpcConfigArgs'] vpc_config: Configuration parameters for VPC to contain Document Classifier resources.
+               See the `vpc_config` Configuration Block section below.
         """
         pulumi.set(__self__, "data_access_role_arn", data_access_role_arn)
         pulumi.set(__self__, "input_data_config", input_data_config)
@@ -56,6 +87,9 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter(name="dataAccessRoleArn")
     def data_access_role_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+        """
         return pulumi.get(self, "data_access_role_arn")
 
     @data_access_role_arn.setter
@@ -65,6 +99,10 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter(name="inputDataConfig")
     def input_data_config(self) -> pulumi.Input['DocumentClassifierInputDataConfigArgs']:
+        """
+        Configuration for the training and testing data.
+        See the `input_data_config` Configuration Block section below.
+        """
         return pulumi.get(self, "input_data_config")
 
     @input_data_config.setter
@@ -74,6 +112,10 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[str]:
+        """
+        Two-letter language code for the language.
+        One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
@@ -83,6 +125,11 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The document classification mode.
+        One of `MULTI_CLASS` or `MULTI_LABEL`.
+        `MULTI_CLASS` is also known as "Single Label" in the AWS Console.
+        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -92,6 +139,10 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter(name="modelKmsKeyId")
     def model_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        KMS Key used to encrypt trained Document Classifiers.
+        Can be a KMS Key ID or a KMS Key ARN.
+        """
         return pulumi.get(self, "model_kms_key_id")
 
     @model_kms_key_id.setter
@@ -101,6 +152,11 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for the Document Classifier.
+        Has a maximum length of 63 characters.
+        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -110,6 +166,10 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter(name="outputDataConfig")
     def output_data_config(self) -> Optional[pulumi.Input['DocumentClassifierOutputDataConfigArgs']]:
+        """
+        Configuration for the output results of training.
+        See the `output_data_config` Configuration Block section below.
+        """
         return pulumi.get(self, "output_data_config")
 
     @output_data_config.setter
@@ -119,6 +179,9 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -128,6 +191,15 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter(name="versionName")
     def version_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for the version of the Document Classifier.
+        Each version must have a unique name within the Document Classifier.
+        If omitted, the provider will assign a random, unique version name.
+        If explicitly set to `""`, no version name will be set.
+        Has a maximum length of 63 characters.
+        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Conflicts with `version_name_prefix`.
+        """
         return pulumi.get(self, "version_name")
 
     @version_name.setter
@@ -137,6 +209,12 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter(name="versionNamePrefix")
     def version_name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique version name beginning with the specified prefix.
+        Has a maximum length of 37 characters.
+        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Conflicts with `version_name`.
+        """
         return pulumi.get(self, "version_name_prefix")
 
     @version_name_prefix.setter
@@ -146,6 +224,10 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter(name="volumeKmsKeyId")
     def volume_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        KMS Key used to encrypt storage volumes during job processing.
+        Can be a KMS Key ID or a KMS Key ARN.
+        """
         return pulumi.get(self, "volume_kms_key_id")
 
     @volume_kms_key_id.setter
@@ -155,6 +237,10 @@ class DocumentClassifierArgs:
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['DocumentClassifierVpcConfigArgs']]:
+        """
+        Configuration parameters for VPC to contain Document Classifier resources.
+        See the `vpc_config` Configuration Block section below.
+        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -181,6 +267,39 @@ class _DocumentClassifierState:
                  vpc_config: Optional[pulumi.Input['DocumentClassifierVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering DocumentClassifier resources.
+        :param pulumi.Input[str] arn: ARN of the Document Classifier version.
+        :param pulumi.Input[str] data_access_role_arn: The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+        :param pulumi.Input['DocumentClassifierInputDataConfigArgs'] input_data_config: Configuration for the training and testing data.
+               See the `input_data_config` Configuration Block section below.
+        :param pulumi.Input[str] language_code: Two-letter language code for the language.
+               One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+        :param pulumi.Input[str] mode: The document classification mode.
+               One of `MULTI_CLASS` or `MULTI_LABEL`.
+               `MULTI_CLASS` is also known as "Single Label" in the AWS Console.
+        :param pulumi.Input[str] model_kms_key_id: KMS Key used to encrypt trained Document Classifiers.
+               Can be a KMS Key ID or a KMS Key ARN.
+        :param pulumi.Input[str] name: Name for the Document Classifier.
+               Has a maximum length of 63 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        :param pulumi.Input['DocumentClassifierOutputDataConfigArgs'] output_data_config: Configuration for the output results of training.
+               See the `output_data_config` Configuration Block section below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] version_name: Name for the version of the Document Classifier.
+               Each version must have a unique name within the Document Classifier.
+               If omitted, the provider will assign a random, unique version name.
+               If explicitly set to `""`, no version name will be set.
+               Has a maximum length of 63 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Conflicts with `version_name_prefix`.
+        :param pulumi.Input[str] version_name_prefix: Creates a unique version name beginning with the specified prefix.
+               Has a maximum length of 37 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Conflicts with `version_name`.
+        :param pulumi.Input[str] volume_kms_key_id: KMS Key used to encrypt storage volumes during job processing.
+               Can be a KMS Key ID or a KMS Key ARN.
+        :param pulumi.Input['DocumentClassifierVpcConfigArgs'] vpc_config: Configuration parameters for VPC to contain Document Classifier resources.
+               See the `vpc_config` Configuration Block section below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -214,6 +333,9 @@ class _DocumentClassifierState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Document Classifier version.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -223,6 +345,9 @@ class _DocumentClassifierState:
     @property
     @pulumi.getter(name="dataAccessRoleArn")
     def data_access_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+        """
         return pulumi.get(self, "data_access_role_arn")
 
     @data_access_role_arn.setter
@@ -232,6 +357,10 @@ class _DocumentClassifierState:
     @property
     @pulumi.getter(name="inputDataConfig")
     def input_data_config(self) -> Optional[pulumi.Input['DocumentClassifierInputDataConfigArgs']]:
+        """
+        Configuration for the training and testing data.
+        See the `input_data_config` Configuration Block section below.
+        """
         return pulumi.get(self, "input_data_config")
 
     @input_data_config.setter
@@ -241,6 +370,10 @@ class _DocumentClassifierState:
     @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        Two-letter language code for the language.
+        One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
@@ -250,6 +383,11 @@ class _DocumentClassifierState:
     @property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The document classification mode.
+        One of `MULTI_CLASS` or `MULTI_LABEL`.
+        `MULTI_CLASS` is also known as "Single Label" in the AWS Console.
+        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -259,6 +397,10 @@ class _DocumentClassifierState:
     @property
     @pulumi.getter(name="modelKmsKeyId")
     def model_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        KMS Key used to encrypt trained Document Classifiers.
+        Can be a KMS Key ID or a KMS Key ARN.
+        """
         return pulumi.get(self, "model_kms_key_id")
 
     @model_kms_key_id.setter
@@ -268,6 +410,11 @@ class _DocumentClassifierState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for the Document Classifier.
+        Has a maximum length of 63 characters.
+        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -277,6 +424,10 @@ class _DocumentClassifierState:
     @property
     @pulumi.getter(name="outputDataConfig")
     def output_data_config(self) -> Optional[pulumi.Input['DocumentClassifierOutputDataConfigArgs']]:
+        """
+        Configuration for the output results of training.
+        See the `output_data_config` Configuration Block section below.
+        """
         return pulumi.get(self, "output_data_config")
 
     @output_data_config.setter
@@ -286,6 +437,9 @@ class _DocumentClassifierState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -295,6 +449,9 @@ class _DocumentClassifierState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -304,6 +461,15 @@ class _DocumentClassifierState:
     @property
     @pulumi.getter(name="versionName")
     def version_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for the version of the Document Classifier.
+        Each version must have a unique name within the Document Classifier.
+        If omitted, the provider will assign a random, unique version name.
+        If explicitly set to `""`, no version name will be set.
+        Has a maximum length of 63 characters.
+        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Conflicts with `version_name_prefix`.
+        """
         return pulumi.get(self, "version_name")
 
     @version_name.setter
@@ -313,6 +479,12 @@ class _DocumentClassifierState:
     @property
     @pulumi.getter(name="versionNamePrefix")
     def version_name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique version name beginning with the specified prefix.
+        Has a maximum length of 37 characters.
+        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Conflicts with `version_name`.
+        """
         return pulumi.get(self, "version_name_prefix")
 
     @version_name_prefix.setter
@@ -322,6 +494,10 @@ class _DocumentClassifierState:
     @property
     @pulumi.getter(name="volumeKmsKeyId")
     def volume_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        KMS Key used to encrypt storage volumes during job processing.
+        Can be a KMS Key ID or a KMS Key ARN.
+        """
         return pulumi.get(self, "volume_kms_key_id")
 
     @volume_kms_key_id.setter
@@ -331,6 +507,10 @@ class _DocumentClassifierState:
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['DocumentClassifierVpcConfigArgs']]:
+        """
+        Configuration parameters for VPC to contain Document Classifier resources.
+        See the `vpc_config` Configuration Block section below.
+        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -357,9 +537,69 @@ class DocumentClassifier(pulumi.CustomResource):
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierVpcConfigArgs']]] = None,
                  __props__=None):
         """
-        Create a DocumentClassifier resource with the given unique name, props, and options.
+        Resource for managing an AWS Comprehend Document Classifier.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        documents = aws.s3.BucketObjectv2("documents")
+        # ...
+        example = aws.comprehend.DocumentClassifier("example",
+            data_access_role_arn=aws_iam_role["example"]["arn"],
+            language_code="en",
+            input_data_config=aws.comprehend.DocumentClassifierInputDataConfigArgs(
+                s3_uri=documents.id.apply(lambda id: f"s3://{aws_s3_bucket['test']['bucket']}/{id}"),
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
+        entities = aws.s3.BucketObjectv2("entities")
+        # ...
+        ```
+
+        ## Import
+
+        Comprehend Document Classifier can be imported using the ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] data_access_role_arn: The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+        :param pulumi.Input[pulumi.InputType['DocumentClassifierInputDataConfigArgs']] input_data_config: Configuration for the training and testing data.
+               See the `input_data_config` Configuration Block section below.
+        :param pulumi.Input[str] language_code: Two-letter language code for the language.
+               One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+        :param pulumi.Input[str] mode: The document classification mode.
+               One of `MULTI_CLASS` or `MULTI_LABEL`.
+               `MULTI_CLASS` is also known as "Single Label" in the AWS Console.
+        :param pulumi.Input[str] model_kms_key_id: KMS Key used to encrypt trained Document Classifiers.
+               Can be a KMS Key ID or a KMS Key ARN.
+        :param pulumi.Input[str] name: Name for the Document Classifier.
+               Has a maximum length of 63 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        :param pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArgs']] output_data_config: Configuration for the output results of training.
+               See the `output_data_config` Configuration Block section below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] version_name: Name for the version of the Document Classifier.
+               Each version must have a unique name within the Document Classifier.
+               If omitted, the provider will assign a random, unique version name.
+               If explicitly set to `""`, no version name will be set.
+               Has a maximum length of 63 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Conflicts with `version_name_prefix`.
+        :param pulumi.Input[str] version_name_prefix: Creates a unique version name beginning with the specified prefix.
+               Has a maximum length of 37 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Conflicts with `version_name`.
+        :param pulumi.Input[str] volume_kms_key_id: KMS Key used to encrypt storage volumes during job processing.
+               Can be a KMS Key ID or a KMS Key ARN.
+        :param pulumi.Input[pulumi.InputType['DocumentClassifierVpcConfigArgs']] vpc_config: Configuration parameters for VPC to contain Document Classifier resources.
+               See the `vpc_config` Configuration Block section below.
         """
         ...
     @overload
@@ -368,7 +608,36 @@ class DocumentClassifier(pulumi.CustomResource):
                  args: DocumentClassifierArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DocumentClassifier resource with the given unique name, props, and options.
+        Resource for managing an AWS Comprehend Document Classifier.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        documents = aws.s3.BucketObjectv2("documents")
+        # ...
+        example = aws.comprehend.DocumentClassifier("example",
+            data_access_role_arn=aws_iam_role["example"]["arn"],
+            language_code="en",
+            input_data_config=aws.comprehend.DocumentClassifierInputDataConfigArgs(
+                s3_uri=documents.id.apply(lambda id: f"s3://{aws_s3_bucket['test']['bucket']}/{id}"),
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
+        entities = aws.s3.BucketObjectv2("entities")
+        # ...
+        ```
+
+        ## Import
+
+        Comprehend Document Classifier can be imported using the ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param DocumentClassifierArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -456,6 +725,39 @@ class DocumentClassifier(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the Document Classifier version.
+        :param pulumi.Input[str] data_access_role_arn: The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+        :param pulumi.Input[pulumi.InputType['DocumentClassifierInputDataConfigArgs']] input_data_config: Configuration for the training and testing data.
+               See the `input_data_config` Configuration Block section below.
+        :param pulumi.Input[str] language_code: Two-letter language code for the language.
+               One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+        :param pulumi.Input[str] mode: The document classification mode.
+               One of `MULTI_CLASS` or `MULTI_LABEL`.
+               `MULTI_CLASS` is also known as "Single Label" in the AWS Console.
+        :param pulumi.Input[str] model_kms_key_id: KMS Key used to encrypt trained Document Classifiers.
+               Can be a KMS Key ID or a KMS Key ARN.
+        :param pulumi.Input[str] name: Name for the Document Classifier.
+               Has a maximum length of 63 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        :param pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArgs']] output_data_config: Configuration for the output results of training.
+               See the `output_data_config` Configuration Block section below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] version_name: Name for the version of the Document Classifier.
+               Each version must have a unique name within the Document Classifier.
+               If omitted, the provider will assign a random, unique version name.
+               If explicitly set to `""`, no version name will be set.
+               Has a maximum length of 63 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Conflicts with `version_name_prefix`.
+        :param pulumi.Input[str] version_name_prefix: Creates a unique version name beginning with the specified prefix.
+               Has a maximum length of 37 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Conflicts with `version_name`.
+        :param pulumi.Input[str] volume_kms_key_id: KMS Key used to encrypt storage volumes during job processing.
+               Can be a KMS Key ID or a KMS Key ARN.
+        :param pulumi.Input[pulumi.InputType['DocumentClassifierVpcConfigArgs']] vpc_config: Configuration parameters for VPC to contain Document Classifier resources.
+               See the `vpc_config` Configuration Block section below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -480,70 +782,131 @@ class DocumentClassifier(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the Document Classifier version.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="dataAccessRoleArn")
     def data_access_role_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+        """
         return pulumi.get(self, "data_access_role_arn")
 
     @property
     @pulumi.getter(name="inputDataConfig")
     def input_data_config(self) -> pulumi.Output['outputs.DocumentClassifierInputDataConfig']:
+        """
+        Configuration for the training and testing data.
+        See the `input_data_config` Configuration Block section below.
+        """
         return pulumi.get(self, "input_data_config")
 
     @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Output[str]:
+        """
+        Two-letter language code for the language.
+        One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+        """
         return pulumi.get(self, "language_code")
 
     @property
     @pulumi.getter
     def mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The document classification mode.
+        One of `MULTI_CLASS` or `MULTI_LABEL`.
+        `MULTI_CLASS` is also known as "Single Label" in the AWS Console.
+        """
         return pulumi.get(self, "mode")
 
     @property
     @pulumi.getter(name="modelKmsKeyId")
     def model_kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        KMS Key used to encrypt trained Document Classifiers.
+        Can be a KMS Key ID or a KMS Key ARN.
+        """
         return pulumi.get(self, "model_kms_key_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Name for the Document Classifier.
+        Has a maximum length of 63 characters.
+        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="outputDataConfig")
     def output_data_config(self) -> pulumi.Output['outputs.DocumentClassifierOutputDataConfig']:
+        """
+        Configuration for the output results of training.
+        See the `output_data_config` Configuration Block section below.
+        """
         return pulumi.get(self, "output_data_config")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="versionName")
     def version_name(self) -> pulumi.Output[str]:
+        """
+        Name for the version of the Document Classifier.
+        Each version must have a unique name within the Document Classifier.
+        If omitted, the provider will assign a random, unique version name.
+        If explicitly set to `""`, no version name will be set.
+        Has a maximum length of 63 characters.
+        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Conflicts with `version_name_prefix`.
+        """
         return pulumi.get(self, "version_name")
 
     @property
     @pulumi.getter(name="versionNamePrefix")
     def version_name_prefix(self) -> pulumi.Output[str]:
+        """
+        Creates a unique version name beginning with the specified prefix.
+        Has a maximum length of 37 characters.
+        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Conflicts with `version_name`.
+        """
         return pulumi.get(self, "version_name_prefix")
 
     @property
     @pulumi.getter(name="volumeKmsKeyId")
     def volume_kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        KMS Key used to encrypt storage volumes during job processing.
+        Can be a KMS Key ID or a KMS Key ARN.
+        """
         return pulumi.get(self, "volume_kms_key_id")
 
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Output[Optional['outputs.DocumentClassifierVpcConfig']]:
+        """
+        Configuration parameters for VPC to contain Document Classifier resources.
+        See the `vpc_config` Configuration Block section below.
+        """
         return pulumi.get(self, "vpc_config")
 

@@ -9,30 +9,83 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedShift
 {
+    /// <summary>
+    /// Creates a new Amazon Redshift endpoint authorization.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.RedShift.EndpointAuthorization("example", new()
+    ///     {
+    ///         Account = "01234567910",
+    ///         ClusterIdentifier = aws_redshift_cluster.Example.Cluster_identifier,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Redshift endpoint authorization can be imported using the `id`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:redshift/endpointAuthorization:EndpointAuthorization")]
     public partial class EndpointAuthorization : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Web Services account ID to grant access to.
+        /// </summary>
         [Output("account")]
         public Output<string> Account { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether all VPCs in the grantee account are allowed access to the cluster.
+        /// </summary>
         [Output("allowedAllVpcs")]
         public Output<bool> AllowedAllVpcs { get; private set; } = null!;
 
+        /// <summary>
+        /// The cluster identifier of the cluster to grant access to.
+        /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of Redshift-managed VPC endpoints created for the authorization.
+        /// </summary>
         [Output("endpointCount")]
         public Output<int> EndpointCount { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
+        /// </summary>
         [Output("forceDelete")]
         public Output<bool?> ForceDelete { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Web Services account ID of the grantee of the cluster.
+        /// </summary>
         [Output("grantee")]
         public Output<string> Grantee { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Web Services account ID of the cluster owner.
+        /// </summary>
         [Output("grantor")]
         public Output<string> Grantor { get; private set; } = null!;
 
+        /// <summary>
+        /// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+        /// </summary>
         [Output("vpcIds")]
         public Output<ImmutableArray<string>> VpcIds { get; private set; } = null!;
 
@@ -82,17 +135,30 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class EndpointAuthorizationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Web Services account ID to grant access to.
+        /// </summary>
         [Input("account", required: true)]
         public Input<string> Account { get; set; } = null!;
 
+        /// <summary>
+        /// The cluster identifier of the cluster to grant access to.
+        /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
+        /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
 
         [Input("vpcIds")]
         private InputList<string>? _vpcIds;
+
+        /// <summary>
+        /// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+        /// </summary>
         public InputList<string> VpcIds
         {
             get => _vpcIds ?? (_vpcIds = new InputList<string>());
@@ -107,29 +173,54 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class EndpointAuthorizationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Web Services account ID to grant access to.
+        /// </summary>
         [Input("account")]
         public Input<string>? Account { get; set; }
 
+        /// <summary>
+        /// Indicates whether all VPCs in the grantee account are allowed access to the cluster.
+        /// </summary>
         [Input("allowedAllVpcs")]
         public Input<bool>? AllowedAllVpcs { get; set; }
 
+        /// <summary>
+        /// The cluster identifier of the cluster to grant access to.
+        /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
+        /// <summary>
+        /// The number of Redshift-managed VPC endpoints created for the authorization.
+        /// </summary>
         [Input("endpointCount")]
         public Input<int>? EndpointCount { get; set; }
 
+        /// <summary>
+        /// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
+        /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
 
+        /// <summary>
+        /// The Amazon Web Services account ID of the grantee of the cluster.
+        /// </summary>
         [Input("grantee")]
         public Input<string>? Grantee { get; set; }
 
+        /// <summary>
+        /// The Amazon Web Services account ID of the cluster owner.
+        /// </summary>
         [Input("grantor")]
         public Input<string>? Grantor { get; set; }
 
         [Input("vpcIds")]
         private InputList<string>? _vpcIds;
+
+        /// <summary>
+        /// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+        /// </summary>
         public InputList<string> VpcIds
         {
             get => _vpcIds ?? (_vpcIds = new InputList<string>());

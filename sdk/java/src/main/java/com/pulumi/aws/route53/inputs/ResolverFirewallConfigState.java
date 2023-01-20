@@ -15,23 +15,47 @@ public final class ResolverFirewallConfigState extends com.pulumi.resources.Reso
 
     public static final ResolverFirewallConfigState Empty = new ResolverFirewallConfigState();
 
+    /**
+     * Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Import(name="firewallFailOpen")
     private @Nullable Output<String> firewallFailOpen;
 
+    /**
+     * @return Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Optional<Output<String>> firewallFailOpen() {
         return Optional.ofNullable(this.firewallFailOpen);
     }
 
+    /**
+     * The AWS account ID of the owner of the VPC that this firewall configuration applies to.
+     * 
+     */
     @Import(name="ownerId")
     private @Nullable Output<String> ownerId;
 
+    /**
+     * @return The AWS account ID of the owner of the VPC that this firewall configuration applies to.
+     * 
+     */
     public Optional<Output<String>> ownerId() {
         return Optional.ofNullable(this.ownerId);
     }
 
+    /**
+     * The ID of the VPC that the configuration is for.
+     * 
+     */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
+    /**
+     * @return The ID of the VPC that the configuration is for.
+     * 
+     */
     public Optional<Output<String>> resourceId() {
         return Optional.ofNullable(this.resourceId);
     }
@@ -62,29 +86,65 @@ public final class ResolverFirewallConfigState extends com.pulumi.resources.Reso
             $ = new ResolverFirewallConfigState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param firewallFailOpen Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder firewallFailOpen(@Nullable Output<String> firewallFailOpen) {
             $.firewallFailOpen = firewallFailOpen;
             return this;
         }
 
+        /**
+         * @param firewallFailOpen Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder firewallFailOpen(String firewallFailOpen) {
             return firewallFailOpen(Output.of(firewallFailOpen));
         }
 
+        /**
+         * @param ownerId The AWS account ID of the owner of the VPC that this firewall configuration applies to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ownerId(@Nullable Output<String> ownerId) {
             $.ownerId = ownerId;
             return this;
         }
 
+        /**
+         * @param ownerId The AWS account ID of the owner of the VPC that this firewall configuration applies to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ownerId(String ownerId) {
             return ownerId(Output.of(ownerId));
         }
 
+        /**
+         * @param resourceId The ID of the VPC that the configuration is for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceId(@Nullable Output<String> resourceId) {
             $.resourceId = resourceId;
             return this;
         }
 
+        /**
+         * @param resourceId The ID of the VPC that the configuration is for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
         }

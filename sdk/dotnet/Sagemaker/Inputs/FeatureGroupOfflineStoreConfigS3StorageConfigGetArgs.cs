@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class FeatureGroupOfflineStoreConfigS3StorageConfigGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// The S3 URI, or location in Amazon S3, of OfflineStore.
+        /// </summary>
         [Input("s3Uri", required: true)]
         public Input<string> S3Uri { get; set; } = null!;
 

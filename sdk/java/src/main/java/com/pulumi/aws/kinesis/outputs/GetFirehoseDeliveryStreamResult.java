@@ -9,6 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirehoseDeliveryStreamResult {
+    /**
+     * @return ARN of the Kinesis Stream (same as id).
+     * 
+     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -18,6 +22,10 @@ public final class GetFirehoseDeliveryStreamResult {
     private String name;
 
     private GetFirehoseDeliveryStreamResult() {}
+    /**
+     * @return ARN of the Kinesis Stream (same as id).
+     * 
+     */
     public String arn() {
         return this.arn;
     }

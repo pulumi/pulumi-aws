@@ -9,33 +9,90 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Neptune
 {
+    /// <summary>
+    /// Provides an Neptune Cluster Endpoint Resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Neptune.ClusterEndpoint("example", new()
+    ///     {
+    ///         ClusterIdentifier = aws_neptune_cluster.Test.Cluster_identifier,
+    ///         ClusterEndpointIdentifier = "example",
+    ///         EndpointType = "READER",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_neptune_cluster_endpoint` can be imported by using the `cluster-identifier:endpoint-identfier`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:neptune/clusterEndpoint:ClusterEndpoint")]
     public partial class ClusterEndpoint : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the endpoint.
+        /// </summary>
         [Output("clusterEndpointIdentifier")]
         public Output<string> ClusterEndpointIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The DB cluster identifier of the DB cluster associated with the endpoint.
+        /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The DNS address of the endpoint.
+        /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
+        /// </summary>
         [Output("endpointType")]
         public Output<string> EndpointType { get; private set; } = null!;
 
+        /// <summary>
+        /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
+        /// </summary>
         [Output("excludedMembers")]
         public Output<ImmutableArray<string>> ExcludedMembers { get; private set; } = null!;
 
+        /// <summary>
+        /// List of DB instance identifiers that are part of the custom endpoint group.
+        /// </summary>
         [Output("staticMembers")]
         public Output<ImmutableArray<string>> StaticMembers { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -85,17 +142,30 @@ namespace Pulumi.Aws.Neptune
 
     public sealed class ClusterEndpointArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the endpoint.
+        /// </summary>
         [Input("clusterEndpointIdentifier", required: true)]
         public Input<string> ClusterEndpointIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The DB cluster identifier of the DB cluster associated with the endpoint.
+        /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
+        /// </summary>
         [Input("endpointType", required: true)]
         public Input<string> EndpointType { get; set; } = null!;
 
         [Input("excludedMembers")]
         private InputList<string>? _excludedMembers;
+
+        /// <summary>
+        /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
+        /// </summary>
         public InputList<string> ExcludedMembers
         {
             get => _excludedMembers ?? (_excludedMembers = new InputList<string>());
@@ -104,6 +174,10 @@ namespace Pulumi.Aws.Neptune
 
         [Input("staticMembers")]
         private InputList<string>? _staticMembers;
+
+        /// <summary>
+        /// List of DB instance identifiers that are part of the custom endpoint group.
+        /// </summary>
         public InputList<string> StaticMembers
         {
             get => _staticMembers ?? (_staticMembers = new InputList<string>());
@@ -112,6 +186,10 @@ namespace Pulumi.Aws.Neptune
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -126,23 +204,42 @@ namespace Pulumi.Aws.Neptune
 
     public sealed class ClusterEndpointState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The identifier of the endpoint.
+        /// </summary>
         [Input("clusterEndpointIdentifier")]
         public Input<string>? ClusterEndpointIdentifier { get; set; }
 
+        /// <summary>
+        /// The DB cluster identifier of the DB cluster associated with the endpoint.
+        /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
+        /// <summary>
+        /// The DNS address of the endpoint.
+        /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
+        /// <summary>
+        /// The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
+        /// </summary>
         [Input("endpointType")]
         public Input<string>? EndpointType { get; set; }
 
         [Input("excludedMembers")]
         private InputList<string>? _excludedMembers;
+
+        /// <summary>
+        /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
+        /// </summary>
         public InputList<string> ExcludedMembers
         {
             get => _excludedMembers ?? (_excludedMembers = new InputList<string>());
@@ -151,6 +248,10 @@ namespace Pulumi.Aws.Neptune
 
         [Input("staticMembers")]
         private InputList<string>? _staticMembers;
+
+        /// <summary>
+        /// List of DB instance identifiers that are part of the custom endpoint group.
+        /// </summary>
         public InputList<string> StaticMembers
         {
             get => _staticMembers ?? (_staticMembers = new InputList<string>());
@@ -159,6 +260,10 @@ namespace Pulumi.Aws.Neptune
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -167,6 +272,10 @@ namespace Pulumi.Aws.Neptune
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

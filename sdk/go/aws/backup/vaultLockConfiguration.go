@@ -11,14 +11,59 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an AWS Backup vault lock configuration resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := backup.NewVaultLockConfiguration(ctx, "test", &backup.VaultLockConfigurationArgs{
+//				BackupVaultName:   pulumi.String("example_backup_vault"),
+//				ChangeableForDays: pulumi.Int(3),
+//				MaxRetentionDays:  pulumi.Int(1200),
+//				MinRetentionDays:  pulumi.Int(7),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Backup vault lock configuration can be imported using the `name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
+//
+// ```
 type VaultLockConfiguration struct {
 	pulumi.CustomResourceState
 
-	BackupVaultArn    pulumi.StringOutput `pulumi:"backupVaultArn"`
-	BackupVaultName   pulumi.StringOutput `pulumi:"backupVaultName"`
+	// The ARN of the vault.
+	BackupVaultArn pulumi.StringOutput `pulumi:"backupVaultArn"`
+	// Name of the backup vault to add a lock configuration for.
+	BackupVaultName pulumi.StringOutput `pulumi:"backupVaultName"`
+	// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
 	ChangeableForDays pulumi.IntPtrOutput `pulumi:"changeableForDays"`
-	MaxRetentionDays  pulumi.IntPtrOutput `pulumi:"maxRetentionDays"`
-	MinRetentionDays  pulumi.IntPtrOutput `pulumi:"minRetentionDays"`
+	// The maximum retention period that the vault retains its recovery points.
+	MaxRetentionDays pulumi.IntPtrOutput `pulumi:"maxRetentionDays"`
+	// The minimum retention period that the vault retains its recovery points.
+	MinRetentionDays pulumi.IntPtrOutput `pulumi:"minRetentionDays"`
 }
 
 // NewVaultLockConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -53,19 +98,29 @@ func GetVaultLockConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VaultLockConfiguration resources.
 type vaultLockConfigurationState struct {
-	BackupVaultArn    *string `pulumi:"backupVaultArn"`
-	BackupVaultName   *string `pulumi:"backupVaultName"`
-	ChangeableForDays *int    `pulumi:"changeableForDays"`
-	MaxRetentionDays  *int    `pulumi:"maxRetentionDays"`
-	MinRetentionDays  *int    `pulumi:"minRetentionDays"`
+	// The ARN of the vault.
+	BackupVaultArn *string `pulumi:"backupVaultArn"`
+	// Name of the backup vault to add a lock configuration for.
+	BackupVaultName *string `pulumi:"backupVaultName"`
+	// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+	ChangeableForDays *int `pulumi:"changeableForDays"`
+	// The maximum retention period that the vault retains its recovery points.
+	MaxRetentionDays *int `pulumi:"maxRetentionDays"`
+	// The minimum retention period that the vault retains its recovery points.
+	MinRetentionDays *int `pulumi:"minRetentionDays"`
 }
 
 type VaultLockConfigurationState struct {
-	BackupVaultArn    pulumi.StringPtrInput
-	BackupVaultName   pulumi.StringPtrInput
+	// The ARN of the vault.
+	BackupVaultArn pulumi.StringPtrInput
+	// Name of the backup vault to add a lock configuration for.
+	BackupVaultName pulumi.StringPtrInput
+	// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
 	ChangeableForDays pulumi.IntPtrInput
-	MaxRetentionDays  pulumi.IntPtrInput
-	MinRetentionDays  pulumi.IntPtrInput
+	// The maximum retention period that the vault retains its recovery points.
+	MaxRetentionDays pulumi.IntPtrInput
+	// The minimum retention period that the vault retains its recovery points.
+	MinRetentionDays pulumi.IntPtrInput
 }
 
 func (VaultLockConfigurationState) ElementType() reflect.Type {
@@ -73,18 +128,26 @@ func (VaultLockConfigurationState) ElementType() reflect.Type {
 }
 
 type vaultLockConfigurationArgs struct {
-	BackupVaultName   string `pulumi:"backupVaultName"`
-	ChangeableForDays *int   `pulumi:"changeableForDays"`
-	MaxRetentionDays  *int   `pulumi:"maxRetentionDays"`
-	MinRetentionDays  *int   `pulumi:"minRetentionDays"`
+	// Name of the backup vault to add a lock configuration for.
+	BackupVaultName string `pulumi:"backupVaultName"`
+	// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+	ChangeableForDays *int `pulumi:"changeableForDays"`
+	// The maximum retention period that the vault retains its recovery points.
+	MaxRetentionDays *int `pulumi:"maxRetentionDays"`
+	// The minimum retention period that the vault retains its recovery points.
+	MinRetentionDays *int `pulumi:"minRetentionDays"`
 }
 
 // The set of arguments for constructing a VaultLockConfiguration resource.
 type VaultLockConfigurationArgs struct {
-	BackupVaultName   pulumi.StringInput
+	// Name of the backup vault to add a lock configuration for.
+	BackupVaultName pulumi.StringInput
+	// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
 	ChangeableForDays pulumi.IntPtrInput
-	MaxRetentionDays  pulumi.IntPtrInput
-	MinRetentionDays  pulumi.IntPtrInput
+	// The maximum retention period that the vault retains its recovery points.
+	MaxRetentionDays pulumi.IntPtrInput
+	// The minimum retention period that the vault retains its recovery points.
+	MinRetentionDays pulumi.IntPtrInput
 }
 
 func (VaultLockConfigurationArgs) ElementType() reflect.Type {
@@ -174,22 +237,27 @@ func (o VaultLockConfigurationOutput) ToVaultLockConfigurationOutputWithContext(
 	return o
 }
 
+// The ARN of the vault.
 func (o VaultLockConfigurationOutput) BackupVaultArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultLockConfiguration) pulumi.StringOutput { return v.BackupVaultArn }).(pulumi.StringOutput)
 }
 
+// Name of the backup vault to add a lock configuration for.
 func (o VaultLockConfigurationOutput) BackupVaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultLockConfiguration) pulumi.StringOutput { return v.BackupVaultName }).(pulumi.StringOutput)
 }
 
+// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
 func (o VaultLockConfigurationOutput) ChangeableForDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VaultLockConfiguration) pulumi.IntPtrOutput { return v.ChangeableForDays }).(pulumi.IntPtrOutput)
 }
 
+// The maximum retention period that the vault retains its recovery points.
 func (o VaultLockConfigurationOutput) MaxRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VaultLockConfiguration) pulumi.IntPtrOutput { return v.MaxRetentionDays }).(pulumi.IntPtrOutput)
 }
 
+// The minimum retention period that the vault retains its recovery points.
 func (o VaultLockConfigurationOutput) MinRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VaultLockConfiguration) pulumi.IntPtrOutput { return v.MinRetentionDays }).(pulumi.IntPtrOutput)
 }

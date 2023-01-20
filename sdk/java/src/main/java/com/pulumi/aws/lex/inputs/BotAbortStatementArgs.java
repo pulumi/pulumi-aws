@@ -24,9 +24,25 @@ public final class BotAbortStatementArgs extends com.pulumi.resources.ResourceAr
         return this.messages;
     }
 
+    /**
+     * The response card. Amazon Lex will substitute session attributes and
+     * slot values into the response card. For more information, see
+     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+     * slot values into the response card. For more information, see
+     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+     * 
+     */
     @Import(name="responseCard")
     private @Nullable Output<String> responseCard;
 
+    /**
+     * @return The response card. Amazon Lex will substitute session attributes and
+     * slot values into the response card. For more information, see
+     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+     * slot values into the response card. For more information, see
+     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+     * 
+     */
     public Optional<Output<String>> responseCard() {
         return Optional.ofNullable(this.responseCard);
     }
@@ -69,11 +85,31 @@ public final class BotAbortStatementArgs extends com.pulumi.resources.ResourceAr
             return messages(List.of(messages));
         }
 
+        /**
+         * @param responseCard The response card. Amazon Lex will substitute session attributes and
+         * slot values into the response card. For more information, see
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         * slot values into the response card. For more information, see
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder responseCard(@Nullable Output<String> responseCard) {
             $.responseCard = responseCard;
             return this;
         }
 
+        /**
+         * @param responseCard The response card. Amazon Lex will substitute session attributes and
+         * slot values into the response card. For more information, see
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         * slot values into the response card. For more information, see
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder responseCard(String responseCard) {
             return responseCard(Output.of(responseCard));
         }

@@ -13,11 +13,81 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
+/**
+ * Manages the Security Hub Organization Configuration.
+ * 
+ * &gt; **NOTE:** This resource requires an `aws.securityhub.OrganizationAdminAccount` to be configured (not necessarily with this provider). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation
+ * 
+ * &gt; **NOTE:** This is an advanced resource. This provider will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the configuration.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.organizations.Organization;
+ * import com.pulumi.aws.organizations.OrganizationArgs;
+ * import com.pulumi.aws.securityhub.OrganizationAdminAccount;
+ * import com.pulumi.aws.securityhub.OrganizationAdminAccountArgs;
+ * import com.pulumi.aws.securityhub.OrganizationConfiguration;
+ * import com.pulumi.aws.securityhub.OrganizationConfigurationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
+ *             .awsServiceAccessPrincipals(&#34;securityhub.amazonaws.com&#34;)
+ *             .featureSet(&#34;ALL&#34;)
+ *             .build());
+ * 
+ *         var exampleOrganizationAdminAccount = new OrganizationAdminAccount(&#34;exampleOrganizationAdminAccount&#34;, OrganizationAdminAccountArgs.builder()        
+ *             .adminAccountId(&#34;123456789012&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleOrganization)
+ *                 .build());
+ * 
+ *         var exampleOrganizationConfiguration = new OrganizationConfiguration(&#34;exampleOrganizationConfiguration&#34;, OrganizationConfigurationArgs.builder()        
+ *             .autoEnable(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
+ * ```
+ * 
+ */
 @ResourceType(type="aws:securityhub/organizationConfiguration:OrganizationConfiguration")
 public class OrganizationConfiguration extends com.pulumi.resources.CustomResource {
+    /**
+     * Whether to automatically enable Security Hub for new accounts in the organization.
+     * 
+     */
     @Export(name="autoEnable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autoEnable;
 
+    /**
+     * @return Whether to automatically enable Security Hub for new accounts in the organization.
+     * 
+     */
     public Output<Boolean> autoEnable() {
         return this.autoEnable;
     }

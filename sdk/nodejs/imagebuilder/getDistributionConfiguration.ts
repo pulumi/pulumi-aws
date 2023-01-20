@@ -7,6 +7,20 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides details about an Image Builder Distribution Configuration.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.imagebuilder.getDistributionConfiguration({
+ *     arn: "arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example",
+ * });
+ * ```
+ */
 export function getDistributionConfiguration(args: GetDistributionConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionConfigurationResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -20,7 +34,13 @@ export function getDistributionConfiguration(args: GetDistributionConfigurationA
  * A collection of arguments for invoking getDistributionConfiguration.
  */
 export interface GetDistributionConfigurationArgs {
+    /**
+     * ARN of the distribution configuration.
+     */
     arn: string;
+    /**
+     * Key-value map of resource tags for the distribution configuration.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -29,17 +49,49 @@ export interface GetDistributionConfigurationArgs {
  */
 export interface GetDistributionConfigurationResult {
     readonly arn: string;
+    /**
+     * Date the distribution configuration was created.
+     */
     readonly dateCreated: string;
+    /**
+     * Date the distribution configuration was updated.
+     */
     readonly dateUpdated: string;
+    /**
+     * Description of the container distribution configuration.
+     */
     readonly description: string;
+    /**
+     * Set of distributions.
+     */
     readonly distributions: outputs.imagebuilder.GetDistributionConfigurationDistribution[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Name of the distribution configuration.
+     */
     readonly name: string;
+    /**
+     * Key-value map of resource tags for the distribution configuration.
+     */
     readonly tags: {[key: string]: string};
 }
+/**
+ * Provides details about an Image Builder Distribution Configuration.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.imagebuilder.getDistributionConfiguration({
+ *     arn: "arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example",
+ * });
+ * ```
+ */
 export function getDistributionConfigurationOutput(args: GetDistributionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getDistributionConfiguration(a, opts))
 }
@@ -48,6 +100,12 @@ export function getDistributionConfigurationOutput(args: GetDistributionConfigur
  * A collection of arguments for invoking getDistributionConfiguration.
  */
 export interface GetDistributionConfigurationOutputArgs {
+    /**
+     * ARN of the distribution configuration.
+     */
     arn: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags for the distribution configuration.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

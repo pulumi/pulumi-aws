@@ -25,6 +25,13 @@ class SafetyRuleArgs:
                  target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SafetyRule resource.
+        :param pulumi.Input[str] control_panel_arn: ARN of the control panel in which this safety rule will reside.
+        :param pulumi.Input['SafetyRuleRuleConfigArgs'] rule_config: Configuration block for safety rule criteria. See below.
+        :param pulumi.Input[int] wait_period_ms: Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] asserted_controls: Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] gating_controls: Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
+        :param pulumi.Input[str] name: Name describing the safety rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_controls: Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
         """
         pulumi.set(__self__, "control_panel_arn", control_panel_arn)
         pulumi.set(__self__, "rule_config", rule_config)
@@ -41,6 +48,9 @@ class SafetyRuleArgs:
     @property
     @pulumi.getter(name="controlPanelArn")
     def control_panel_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of the control panel in which this safety rule will reside.
+        """
         return pulumi.get(self, "control_panel_arn")
 
     @control_panel_arn.setter
@@ -50,6 +60,9 @@ class SafetyRuleArgs:
     @property
     @pulumi.getter(name="ruleConfig")
     def rule_config(self) -> pulumi.Input['SafetyRuleRuleConfigArgs']:
+        """
+        Configuration block for safety rule criteria. See below.
+        """
         return pulumi.get(self, "rule_config")
 
     @rule_config.setter
@@ -59,6 +72,9 @@ class SafetyRuleArgs:
     @property
     @pulumi.getter(name="waitPeriodMs")
     def wait_period_ms(self) -> pulumi.Input[int]:
+        """
+        Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+        """
         return pulumi.get(self, "wait_period_ms")
 
     @wait_period_ms.setter
@@ -68,6 +84,9 @@ class SafetyRuleArgs:
     @property
     @pulumi.getter(name="assertedControls")
     def asserted_controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
+        """
         return pulumi.get(self, "asserted_controls")
 
     @asserted_controls.setter
@@ -77,6 +96,9 @@ class SafetyRuleArgs:
     @property
     @pulumi.getter(name="gatingControls")
     def gating_controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
+        """
         return pulumi.get(self, "gating_controls")
 
     @gating_controls.setter
@@ -86,6 +108,9 @@ class SafetyRuleArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name describing the safety rule.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -95,6 +120,9 @@ class SafetyRuleArgs:
     @property
     @pulumi.getter(name="targetControls")
     def target_controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
+        """
         return pulumi.get(self, "target_controls")
 
     @target_controls.setter
@@ -116,6 +144,15 @@ class _SafetyRuleState:
                  wait_period_ms: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering SafetyRule resources.
+        :param pulumi.Input[str] arn: ARN of the safety rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] asserted_controls: Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
+        :param pulumi.Input[str] control_panel_arn: ARN of the control panel in which this safety rule will reside.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] gating_controls: Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
+        :param pulumi.Input[str] name: Name describing the safety rule.
+        :param pulumi.Input['SafetyRuleRuleConfigArgs'] rule_config: Configuration block for safety rule criteria. See below.
+        :param pulumi.Input[str] status: Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_controls: Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
+        :param pulumi.Input[int] wait_period_ms: Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -139,6 +176,9 @@ class _SafetyRuleState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the safety rule.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -148,6 +188,9 @@ class _SafetyRuleState:
     @property
     @pulumi.getter(name="assertedControls")
     def asserted_controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
+        """
         return pulumi.get(self, "asserted_controls")
 
     @asserted_controls.setter
@@ -157,6 +200,9 @@ class _SafetyRuleState:
     @property
     @pulumi.getter(name="controlPanelArn")
     def control_panel_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the control panel in which this safety rule will reside.
+        """
         return pulumi.get(self, "control_panel_arn")
 
     @control_panel_arn.setter
@@ -166,6 +212,9 @@ class _SafetyRuleState:
     @property
     @pulumi.getter(name="gatingControls")
     def gating_controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
+        """
         return pulumi.get(self, "gating_controls")
 
     @gating_controls.setter
@@ -175,6 +224,9 @@ class _SafetyRuleState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name describing the safety rule.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -184,6 +236,9 @@ class _SafetyRuleState:
     @property
     @pulumi.getter(name="ruleConfig")
     def rule_config(self) -> Optional[pulumi.Input['SafetyRuleRuleConfigArgs']]:
+        """
+        Configuration block for safety rule criteria. See below.
+        """
         return pulumi.get(self, "rule_config")
 
     @rule_config.setter
@@ -193,6 +248,9 @@ class _SafetyRuleState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -202,6 +260,9 @@ class _SafetyRuleState:
     @property
     @pulumi.getter(name="targetControls")
     def target_controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
+        """
         return pulumi.get(self, "target_controls")
 
     @target_controls.setter
@@ -211,6 +272,9 @@ class _SafetyRuleState:
     @property
     @pulumi.getter(name="waitPeriodMs")
     def wait_period_ms(self) -> Optional[pulumi.Input[int]]:
+        """
+        Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+        """
         return pulumi.get(self, "wait_period_ms")
 
     @wait_period_ms.setter
@@ -232,9 +296,58 @@ class SafetyRule(pulumi.CustomResource):
                  wait_period_ms: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Create a SafetyRule resource with the given unique name, props, and options.
+        Provides an AWS Route 53 Recovery Control Config Safety Rule
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.route53recoverycontrol.SafetyRule("example",
+            asserted_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
+            control_panel_arn="arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+            wait_period_ms=5000,
+            rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
+                inverted=False,
+                threshold=1,
+                type="ATLEAST",
+            ))
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.route53recoverycontrol.SafetyRule("example",
+            control_panel_arn="arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+            wait_period_ms=5000,
+            gating_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
+            target_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
+            rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
+                inverted=False,
+                threshold=1,
+                type="ATLEAST",
+            ))
+        ```
+
+        ## Import
+
+        Route53 Recovery Control Config Safety Rule can be imported via the safety rule ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] asserted_controls: Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
+        :param pulumi.Input[str] control_panel_arn: ARN of the control panel in which this safety rule will reside.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] gating_controls: Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
+        :param pulumi.Input[str] name: Name describing the safety rule.
+        :param pulumi.Input[pulumi.InputType['SafetyRuleRuleConfigArgs']] rule_config: Configuration block for safety rule criteria. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_controls: Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
+        :param pulumi.Input[int] wait_period_ms: Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
         """
         ...
     @overload
@@ -243,7 +356,49 @@ class SafetyRule(pulumi.CustomResource):
                  args: SafetyRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SafetyRule resource with the given unique name, props, and options.
+        Provides an AWS Route 53 Recovery Control Config Safety Rule
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.route53recoverycontrol.SafetyRule("example",
+            asserted_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
+            control_panel_arn="arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+            wait_period_ms=5000,
+            rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
+                inverted=False,
+                threshold=1,
+                type="ATLEAST",
+            ))
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.route53recoverycontrol.SafetyRule("example",
+            control_panel_arn="arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+            wait_period_ms=5000,
+            gating_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
+            target_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
+            rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
+                inverted=False,
+                threshold=1,
+                type="ATLEAST",
+            ))
+        ```
+
+        ## Import
+
+        Route53 Recovery Control Config Safety Rule can be imported via the safety rule ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
+        ```
+
         :param str resource_name: The name of the resource.
         :param SafetyRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -316,6 +471,15 @@ class SafetyRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the safety rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] asserted_controls: Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
+        :param pulumi.Input[str] control_panel_arn: ARN of the control panel in which this safety rule will reside.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] gating_controls: Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
+        :param pulumi.Input[str] name: Name describing the safety rule.
+        :param pulumi.Input[pulumi.InputType['SafetyRuleRuleConfigArgs']] rule_config: Configuration block for safety rule criteria. See below.
+        :param pulumi.Input[str] status: Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_controls: Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
+        :param pulumi.Input[int] wait_period_ms: Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -335,45 +499,72 @@ class SafetyRule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the safety rule.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="assertedControls")
     def asserted_controls(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
+        """
         return pulumi.get(self, "asserted_controls")
 
     @property
     @pulumi.getter(name="controlPanelArn")
     def control_panel_arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the control panel in which this safety rule will reside.
+        """
         return pulumi.get(self, "control_panel_arn")
 
     @property
     @pulumi.getter(name="gatingControls")
     def gating_controls(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
+        """
         return pulumi.get(self, "gating_controls")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Name describing the safety rule.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ruleConfig")
     def rule_config(self) -> pulumi.Output['outputs.SafetyRuleRuleConfig']:
+        """
+        Configuration block for safety rule criteria. See below.
+        """
         return pulumi.get(self, "rule_config")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="targetControls")
     def target_controls(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
+        """
         return pulumi.get(self, "target_controls")
 
     @property
     @pulumi.getter(name="waitPeriodMs")
     def wait_period_ms(self) -> pulumi.Output[int]:
+        """
+        Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+        """
         return pulumi.get(self, "wait_period_ms")
 

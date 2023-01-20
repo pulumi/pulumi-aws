@@ -21,6 +21,10 @@ class TableMagneticStoreWritePropertiesArgs:
     def __init__(__self__, *,
                  enable_magnetic_store_writes: Optional[pulumi.Input[bool]] = None,
                  magnetic_store_rejected_data_location: Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs']] = None):
+        """
+        :param pulumi.Input[bool] enable_magnetic_store_writes: A flag to enable magnetic store writes.
+        :param pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs'] magnetic_store_rejected_data_location: The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
+        """
         if enable_magnetic_store_writes is not None:
             pulumi.set(__self__, "enable_magnetic_store_writes", enable_magnetic_store_writes)
         if magnetic_store_rejected_data_location is not None:
@@ -29,6 +33,9 @@ class TableMagneticStoreWritePropertiesArgs:
     @property
     @pulumi.getter(name="enableMagneticStoreWrites")
     def enable_magnetic_store_writes(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A flag to enable magnetic store writes.
+        """
         return pulumi.get(self, "enable_magnetic_store_writes")
 
     @enable_magnetic_store_writes.setter
@@ -38,6 +45,9 @@ class TableMagneticStoreWritePropertiesArgs:
     @property
     @pulumi.getter(name="magneticStoreRejectedDataLocation")
     def magnetic_store_rejected_data_location(self) -> Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs']]:
+        """
+        The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
+        """
         return pulumi.get(self, "magnetic_store_rejected_data_location")
 
     @magnetic_store_rejected_data_location.setter
@@ -49,12 +59,18 @@ class TableMagneticStoreWritePropertiesArgs:
 class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs:
     def __init__(__self__, *,
                  s3_configuration: Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs'] s3_configuration: Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+        """
         if s3_configuration is not None:
             pulumi.set(__self__, "s3_configuration", s3_configuration)
 
     @property
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs']]:
+        """
+        Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+        """
         return pulumi.get(self, "s3_configuration")
 
     @s3_configuration.setter
@@ -69,6 +85,12 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Config
                  encryption_option: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  object_key_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket_name: Bucket name of the customer S3 bucket.
+        :param pulumi.Input[str] encryption_option: Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
+        :param pulumi.Input[str] kms_key_id: KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+        :param pulumi.Input[str] object_key_prefix: Object key prefix for the customer S3 location.
+        """
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
         if encryption_option is not None:
@@ -81,6 +103,9 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Config
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Bucket name of the customer S3 bucket.
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -90,6 +115,9 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Config
     @property
     @pulumi.getter(name="encryptionOption")
     def encryption_option(self) -> Optional[pulumi.Input[str]]:
+        """
+        Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
+        """
         return pulumi.get(self, "encryption_option")
 
     @encryption_option.setter
@@ -99,6 +127,9 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Config
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -108,6 +139,9 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Config
     @property
     @pulumi.getter(name="objectKeyPrefix")
     def object_key_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Object key prefix for the customer S3 location.
+        """
         return pulumi.get(self, "object_key_prefix")
 
     @object_key_prefix.setter
@@ -120,12 +154,19 @@ class TableRetentionPropertiesArgs:
     def __init__(__self__, *,
                  magnetic_store_retention_period_in_days: pulumi.Input[int],
                  memory_store_retention_period_in_hours: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] magnetic_store_retention_period_in_days: The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
+        :param pulumi.Input[int] memory_store_retention_period_in_hours: The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
+        """
         pulumi.set(__self__, "magnetic_store_retention_period_in_days", magnetic_store_retention_period_in_days)
         pulumi.set(__self__, "memory_store_retention_period_in_hours", memory_store_retention_period_in_hours)
 
     @property
     @pulumi.getter(name="magneticStoreRetentionPeriodInDays")
     def magnetic_store_retention_period_in_days(self) -> pulumi.Input[int]:
+        """
+        The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
+        """
         return pulumi.get(self, "magnetic_store_retention_period_in_days")
 
     @magnetic_store_retention_period_in_days.setter
@@ -135,6 +176,9 @@ class TableRetentionPropertiesArgs:
     @property
     @pulumi.getter(name="memoryStoreRetentionPeriodInHours")
     def memory_store_retention_period_in_hours(self) -> pulumi.Input[int]:
+        """
+        The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
+        """
         return pulumi.get(self, "memory_store_retention_period_in_hours")
 
     @memory_store_retention_period_in_hours.setter

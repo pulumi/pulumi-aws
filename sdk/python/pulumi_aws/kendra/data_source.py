@@ -28,6 +28,16 @@ class DataSourceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DataSource resource.
+        :param pulumi.Input[str] index_id: The identifier of the index for your Amazon Kendra data_source.
+        :param pulumi.Input[str] type: The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+        :param pulumi.Input['DataSourceConfigurationArgs'] configuration: A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs'] custom_document_enrichment_configuration: A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+        :param pulumi.Input[str] description: A description for the Data Source connector.
+        :param pulumi.Input[str] language_code: The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        :param pulumi.Input[str] name: A name for your Data Source connector.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
+        :param pulumi.Input[str] schedule: Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "type", type)
@@ -51,6 +61,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the index for your Amazon Kendra data_source.
+        """
         return pulumi.get(self, "index_id")
 
     @index_id.setter
@@ -60,6 +73,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -69,6 +85,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationArgs']]:
+        """
+        A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -78,6 +97,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="customDocumentEnrichmentConfiguration")
     def custom_document_enrichment_configuration(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs']]:
+        """
+        A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+        """
         return pulumi.get(self, "custom_document_enrichment_configuration")
 
     @custom_document_enrichment_configuration.setter
@@ -87,6 +109,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the Data Source connector.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -96,6 +121,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
@@ -105,6 +133,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for your Data Source connector.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -114,6 +145,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -123,6 +157,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
+        """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
@@ -132,6 +169,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -161,6 +201,23 @@ class _DataSourceState:
                  updated_at: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DataSource resources.
+        :param pulumi.Input[str] arn: ARN of the Data Source.
+        :param pulumi.Input['DataSourceConfigurationArgs'] configuration: A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+        :param pulumi.Input[str] created_at: The Unix timestamp of when the Data Source was created.
+        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs'] custom_document_enrichment_configuration: A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+        :param pulumi.Input[str] data_source_id: The unique identifiers of the Data Source.
+        :param pulumi.Input[str] description: A description for the Data Source connector.
+        :param pulumi.Input[str] error_message: When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+        :param pulumi.Input[str] index_id: The identifier of the index for your Amazon Kendra data_source.
+        :param pulumi.Input[str] language_code: The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        :param pulumi.Input[str] name: A name for your Data Source connector.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
+        :param pulumi.Input[str] schedule: Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
+        :param pulumi.Input[str] status: The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] type: The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+        :param pulumi.Input[str] updated_at: The Unix timestamp of when the Data Source was last updated.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -200,6 +257,9 @@ class _DataSourceState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Data Source.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -209,6 +269,9 @@ class _DataSourceState:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationArgs']]:
+        """
+        A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -218,6 +281,9 @@ class _DataSourceState:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Unix timestamp of when the Data Source was created.
+        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -227,6 +293,9 @@ class _DataSourceState:
     @property
     @pulumi.getter(name="customDocumentEnrichmentConfiguration")
     def custom_document_enrichment_configuration(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs']]:
+        """
+        A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+        """
         return pulumi.get(self, "custom_document_enrichment_configuration")
 
     @custom_document_enrichment_configuration.setter
@@ -236,6 +305,9 @@ class _DataSourceState:
     @property
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifiers of the Data Source.
+        """
         return pulumi.get(self, "data_source_id")
 
     @data_source_id.setter
@@ -245,6 +317,9 @@ class _DataSourceState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the Data Source connector.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -254,6 +329,9 @@ class _DataSourceState:
     @property
     @pulumi.getter(name="errorMessage")
     def error_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+        """
         return pulumi.get(self, "error_message")
 
     @error_message.setter
@@ -263,6 +341,9 @@ class _DataSourceState:
     @property
     @pulumi.getter(name="indexId")
     def index_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the index for your Amazon Kendra data_source.
+        """
         return pulumi.get(self, "index_id")
 
     @index_id.setter
@@ -272,6 +353,9 @@ class _DataSourceState:
     @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
@@ -281,6 +365,9 @@ class _DataSourceState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for your Data Source connector.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -290,6 +377,9 @@ class _DataSourceState:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -299,6 +389,9 @@ class _DataSourceState:
     @property
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
+        """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
@@ -308,6 +401,9 @@ class _DataSourceState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -317,6 +413,9 @@ class _DataSourceState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -326,6 +425,9 @@ class _DataSourceState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -335,6 +437,9 @@ class _DataSourceState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -344,6 +449,9 @@ class _DataSourceState:
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Unix timestamp of when the Data Source was last updated.
+        """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
@@ -368,9 +476,283 @@ class DataSource(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a DataSource resource with the given unique name, props, and options.
+        Resource for managing an AWS Kendra Data Source.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            description="example",
+            language_code="en",
+            type="CUSTOM",
+            tags={
+                "hello": "world",
+            })
+        ```
+        ### S3 Connector
+        ### With Schedule
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="S3",
+            role_arn=aws_iam_role["example"]["arn"],
+            schedule="cron(9 10 1 * ? *)",
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                s3_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationArgs(
+                    bucket_name=aws_s3_bucket["example"]["id"],
+                ),
+            ))
+        ```
+        ### With Access Control List
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="S3",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                s3_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationArgs(
+                    access_control_list_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs(
+                        key_path=f"s3://{aws_s3_bucket['example']['id']}/path-1",
+                    ),
+                    bucket_name=aws_s3_bucket["example"]["id"],
+                ),
+            ))
+        ```
+        ### Web Crawler Connector
+        ### With Seed URLs
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="WEBCRAWLER",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
+                    urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
+                        seed_url_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs(
+                            seed_urls=["REPLACE_WITH_YOUR_URL"],
+                        ),
+                    ),
+                ),
+            ))
+        ```
+        ### With Site Maps
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="WEBCRAWLER",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
+                    urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
+                        site_maps_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs(
+                            site_maps=["REPLACE_WITH_YOUR_URL"],
+                        ),
+                    ),
+                ),
+            ))
+        ```
+        ### With Web Crawler Mode
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="WEBCRAWLER",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
+                    urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
+                        seed_url_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs(
+                            web_crawler_mode="SUBDOMAINS",
+                            seed_urls=["REPLACE_WITH_YOUR_URL"],
+                        ),
+                    ),
+                ),
+            ))
+        ```
+        ### With Authentication Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="WEBCRAWLER",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
+                    authentication_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs(
+                        basic_authentications=[aws.kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs(
+                            credentials=aws_secretsmanager_secret["example"]["arn"],
+                            host="a.example.com",
+                            port=443,
+                        )],
+                    ),
+                    urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
+                        seed_url_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs(
+                            seed_urls=["REPLACE_WITH_YOUR_URL"],
+                        ),
+                    ),
+                ),
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[aws_secretsmanager_secret_version["example"]]))
+        ```
+        ### With Crawl Depth
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="WEBCRAWLER",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
+                    crawl_depth=3,
+                    urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
+                        seed_url_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs(
+                            seed_urls=["REPLACE_WITH_YOUR_URL"],
+                        ),
+                    ),
+                ),
+            ))
+        ```
+        ### With Max Links Per Page
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="WEBCRAWLER",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
+                    max_links_per_page=100,
+                    urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
+                        seed_url_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs(
+                            seed_urls=["REPLACE_WITH_YOUR_URL"],
+                        ),
+                    ),
+                ),
+            ))
+        ```
+        ### With Max Urls Per Minute Crawl Rate
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="WEBCRAWLER",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
+                    max_urls_per_minute_crawl_rate=300,
+                    urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
+                        seed_url_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs(
+                            seed_urls=["REPLACE_WITH_YOUR_URL"],
+                        ),
+                    ),
+                ),
+            ))
+        ```
+        ### With Proxy Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="WEBCRAWLER",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
+                    proxy_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs(
+                        credentials=aws_secretsmanager_secret["example"]["arn"],
+                        host="a.example.com",
+                        port=443,
+                    ),
+                    urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
+                        seed_url_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs(
+                            seed_urls=["REPLACE_WITH_YOUR_URL"],
+                        ),
+                    ),
+                ),
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[aws_secretsmanager_secret_version["example"]]))
+        ```
+        ### With URL Exclusion and Inclusion Patterns
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="WEBCRAWLER",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
+                    url_exclusion_patterns=["example"],
+                    url_inclusion_patterns=["hello"],
+                    urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
+                        seed_url_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs(
+                            seed_urls=["REPLACE_WITH_YOUR_URL"],
+                        ),
+                    ),
+                ),
+            ))
+        ```
+
+        ## Import
+
+        Kendra Data Source can be imported using the unique identifiers of the data_source and index separated by a slash (`/`) e.g.,
+
+        ```sh
+         $ pulumi import aws:kendra/dataSource:DataSource example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['DataSourceConfigurationArgs']] configuration: A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+        :param pulumi.Input[pulumi.InputType['DataSourceCustomDocumentEnrichmentConfigurationArgs']] custom_document_enrichment_configuration: A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+        :param pulumi.Input[str] description: A description for the Data Source connector.
+        :param pulumi.Input[str] index_id: The identifier of the index for your Amazon Kendra data_source.
+        :param pulumi.Input[str] language_code: The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        :param pulumi.Input[str] name: A name for your Data Source connector.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
+        :param pulumi.Input[str] schedule: Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] type: The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
         """
         ...
     @overload
@@ -379,7 +761,271 @@ class DataSource(pulumi.CustomResource):
                  args: DataSourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DataSource resource with the given unique name, props, and options.
+        Resource for managing an AWS Kendra Data Source.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            description="example",
+            language_code="en",
+            type="CUSTOM",
+            tags={
+                "hello": "world",
+            })
+        ```
+        ### S3 Connector
+        ### With Schedule
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="S3",
+            role_arn=aws_iam_role["example"]["arn"],
+            schedule="cron(9 10 1 * ? *)",
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                s3_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationArgs(
+                    bucket_name=aws_s3_bucket["example"]["id"],
+                ),
+            ))
+        ```
+        ### With Access Control List
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="S3",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                s3_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationArgs(
+                    access_control_list_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs(
+                        key_path=f"s3://{aws_s3_bucket['example']['id']}/path-1",
+                    ),
+                    bucket_name=aws_s3_bucket["example"]["id"],
+                ),
+            ))
+        ```
+        ### Web Crawler Connector
+        ### With Seed URLs
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="WEBCRAWLER",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
+                    urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
+                        seed_url_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs(
+                            seed_urls=["REPLACE_WITH_YOUR_URL"],
+                        ),
+                    ),
+                ),
+            ))
+        ```
+        ### With Site Maps
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="WEBCRAWLER",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
+                    urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
+                        site_maps_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs(
+                            site_maps=["REPLACE_WITH_YOUR_URL"],
+                        ),
+                    ),
+                ),
+            ))
+        ```
+        ### With Web Crawler Mode
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="WEBCRAWLER",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
+                    urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
+                        seed_url_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs(
+                            web_crawler_mode="SUBDOMAINS",
+                            seed_urls=["REPLACE_WITH_YOUR_URL"],
+                        ),
+                    ),
+                ),
+            ))
+        ```
+        ### With Authentication Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="WEBCRAWLER",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
+                    authentication_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs(
+                        basic_authentications=[aws.kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs(
+                            credentials=aws_secretsmanager_secret["example"]["arn"],
+                            host="a.example.com",
+                            port=443,
+                        )],
+                    ),
+                    urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
+                        seed_url_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs(
+                            seed_urls=["REPLACE_WITH_YOUR_URL"],
+                        ),
+                    ),
+                ),
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[aws_secretsmanager_secret_version["example"]]))
+        ```
+        ### With Crawl Depth
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="WEBCRAWLER",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
+                    crawl_depth=3,
+                    urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
+                        seed_url_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs(
+                            seed_urls=["REPLACE_WITH_YOUR_URL"],
+                        ),
+                    ),
+                ),
+            ))
+        ```
+        ### With Max Links Per Page
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="WEBCRAWLER",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
+                    max_links_per_page=100,
+                    urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
+                        seed_url_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs(
+                            seed_urls=["REPLACE_WITH_YOUR_URL"],
+                        ),
+                    ),
+                ),
+            ))
+        ```
+        ### With Max Urls Per Minute Crawl Rate
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="WEBCRAWLER",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
+                    max_urls_per_minute_crawl_rate=300,
+                    urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
+                        seed_url_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs(
+                            seed_urls=["REPLACE_WITH_YOUR_URL"],
+                        ),
+                    ),
+                ),
+            ))
+        ```
+        ### With Proxy Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="WEBCRAWLER",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
+                    proxy_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs(
+                        credentials=aws_secretsmanager_secret["example"]["arn"],
+                        host="a.example.com",
+                        port=443,
+                    ),
+                    urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
+                        seed_url_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs(
+                            seed_urls=["REPLACE_WITH_YOUR_URL"],
+                        ),
+                    ),
+                ),
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[aws_secretsmanager_secret_version["example"]]))
+        ```
+        ### With URL Exclusion and Inclusion Patterns
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=aws_kendra_index["example"]["id"],
+            type="WEBCRAWLER",
+            role_arn=aws_iam_role["example"]["arn"],
+            configuration=aws.kendra.DataSourceConfigurationArgs(
+                web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
+                    url_exclusion_patterns=["example"],
+                    url_inclusion_patterns=["hello"],
+                    urls=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(
+                        seed_url_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs(
+                            seed_urls=["REPLACE_WITH_YOUR_URL"],
+                        ),
+                    ),
+                ),
+            ))
+        ```
+
+        ## Import
+
+        Kendra Data Source can be imported using the unique identifiers of the data_source and index separated by a slash (`/`) e.g.,
+
+        ```sh
+         $ pulumi import aws:kendra/dataSource:DataSource example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
+        ```
+
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -469,6 +1115,23 @@ class DataSource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the Data Source.
+        :param pulumi.Input[pulumi.InputType['DataSourceConfigurationArgs']] configuration: A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+        :param pulumi.Input[str] created_at: The Unix timestamp of when the Data Source was created.
+        :param pulumi.Input[pulumi.InputType['DataSourceCustomDocumentEnrichmentConfigurationArgs']] custom_document_enrichment_configuration: A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+        :param pulumi.Input[str] data_source_id: The unique identifiers of the Data Source.
+        :param pulumi.Input[str] description: A description for the Data Source connector.
+        :param pulumi.Input[str] error_message: When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+        :param pulumi.Input[str] index_id: The identifier of the index for your Amazon Kendra data_source.
+        :param pulumi.Input[str] language_code: The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        :param pulumi.Input[str] name: A name for your Data Source connector.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
+        :param pulumi.Input[str] schedule: Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
+        :param pulumi.Input[str] status: The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] type: The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+        :param pulumi.Input[str] updated_at: The Unix timestamp of when the Data Source was last updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -496,85 +1159,136 @@ class DataSource(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the Data Source.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional['outputs.DataSourceConfiguration']]:
+        """
+        A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The Unix timestamp of when the Data Source was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="customDocumentEnrichmentConfiguration")
     def custom_document_enrichment_configuration(self) -> pulumi.Output[Optional['outputs.DataSourceCustomDocumentEnrichmentConfiguration']]:
+        """
+        A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+        """
         return pulumi.get(self, "custom_document_enrichment_configuration")
 
     @property
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifiers of the Data Source.
+        """
         return pulumi.get(self, "data_source_id")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description for the Data Source connector.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="errorMessage")
     def error_message(self) -> pulumi.Output[str]:
+        """
+        When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+        """
         return pulumi.get(self, "error_message")
 
     @property
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the index for your Amazon Kendra data_source.
+        """
         return pulumi.get(self, "index_id")
 
     @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Output[str]:
+        """
+        The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        """
         return pulumi.get(self, "language_code")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A name for your Data Source connector.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def schedule(self) -> pulumi.Output[Optional[str]]:
+        """
+        Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
+        """
         return pulumi.get(self, "schedule")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[str]:
+        """
+        The Unix timestamp of when the Data Source was last updated.
+        """
         return pulumi.get(self, "updated_at")
 

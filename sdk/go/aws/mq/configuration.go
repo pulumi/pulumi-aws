@@ -11,19 +11,86 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an MQ Configuration Resource.
+//
+// For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mq"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := mq.NewConfiguration(ctx, "example", &mq.ConfigurationArgs{
+//				Data: pulumi.String(fmt.Sprintf(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+//
+// <broker xmlns="http://activemq.apache.org/schema/core">
+//
+//	<plugins>
+//	  <forcePersistencyModeBrokerPlugin persistenceFlag="true"/>
+//	  <statisticsBrokerPlugin/>
+//	  <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
+//	</plugins>
+//
+// </broker>
+//
+// `)),
+//
+//				Description:   pulumi.String("Example Configuration"),
+//				EngineType:    pulumi.String("ActiveMQ"),
+//				EngineVersion: pulumi.String("5.15.0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// MQ Configurations can be imported using the configuration ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
+//
+// ```
 type Configuration struct {
 	pulumi.CustomResourceState
 
-	Arn                    pulumi.StringOutput    `pulumi:"arn"`
-	AuthenticationStrategy pulumi.StringOutput    `pulumi:"authenticationStrategy"`
-	Data                   pulumi.StringOutput    `pulumi:"data"`
-	Description            pulumi.StringPtrOutput `pulumi:"description"`
-	EngineType             pulumi.StringOutput    `pulumi:"engineType"`
-	EngineVersion          pulumi.StringOutput    `pulumi:"engineVersion"`
-	LatestRevision         pulumi.IntOutput       `pulumi:"latestRevision"`
-	Name                   pulumi.StringOutput    `pulumi:"name"`
-	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll                pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// ARN of the configuration.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
+	AuthenticationStrategy pulumi.StringOutput `pulumi:"authenticationStrategy"`
+	// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+	Data pulumi.StringOutput `pulumi:"data"`
+	// Description of the configuration.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
+	EngineType pulumi.StringOutput `pulumi:"engineType"`
+	// Version of the broker engine.
+	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	// Latest revision of the configuration.
+	LatestRevision pulumi.IntOutput `pulumi:"latestRevision"`
+	// Name of the configuration.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -64,29 +131,49 @@ func GetConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Configuration resources.
 type configurationState struct {
-	Arn                    *string           `pulumi:"arn"`
-	AuthenticationStrategy *string           `pulumi:"authenticationStrategy"`
-	Data                   *string           `pulumi:"data"`
-	Description            *string           `pulumi:"description"`
-	EngineType             *string           `pulumi:"engineType"`
-	EngineVersion          *string           `pulumi:"engineVersion"`
-	LatestRevision         *int              `pulumi:"latestRevision"`
-	Name                   *string           `pulumi:"name"`
-	Tags                   map[string]string `pulumi:"tags"`
-	TagsAll                map[string]string `pulumi:"tagsAll"`
+	// ARN of the configuration.
+	Arn *string `pulumi:"arn"`
+	// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
+	AuthenticationStrategy *string `pulumi:"authenticationStrategy"`
+	// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+	Data *string `pulumi:"data"`
+	// Description of the configuration.
+	Description *string `pulumi:"description"`
+	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
+	EngineType *string `pulumi:"engineType"`
+	// Version of the broker engine.
+	EngineVersion *string `pulumi:"engineVersion"`
+	// Latest revision of the configuration.
+	LatestRevision *int `pulumi:"latestRevision"`
+	// Name of the configuration.
+	Name *string `pulumi:"name"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ConfigurationState struct {
-	Arn                    pulumi.StringPtrInput
+	// ARN of the configuration.
+	Arn pulumi.StringPtrInput
+	// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
 	AuthenticationStrategy pulumi.StringPtrInput
-	Data                   pulumi.StringPtrInput
-	Description            pulumi.StringPtrInput
-	EngineType             pulumi.StringPtrInput
-	EngineVersion          pulumi.StringPtrInput
-	LatestRevision         pulumi.IntPtrInput
-	Name                   pulumi.StringPtrInput
-	Tags                   pulumi.StringMapInput
-	TagsAll                pulumi.StringMapInput
+	// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+	Data pulumi.StringPtrInput
+	// Description of the configuration.
+	Description pulumi.StringPtrInput
+	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
+	EngineType pulumi.StringPtrInput
+	// Version of the broker engine.
+	EngineVersion pulumi.StringPtrInput
+	// Latest revision of the configuration.
+	LatestRevision pulumi.IntPtrInput
+	// Name of the configuration.
+	Name pulumi.StringPtrInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (ConfigurationState) ElementType() reflect.Type {
@@ -94,24 +181,38 @@ func (ConfigurationState) ElementType() reflect.Type {
 }
 
 type configurationArgs struct {
-	AuthenticationStrategy *string           `pulumi:"authenticationStrategy"`
-	Data                   string            `pulumi:"data"`
-	Description            *string           `pulumi:"description"`
-	EngineType             string            `pulumi:"engineType"`
-	EngineVersion          string            `pulumi:"engineVersion"`
-	Name                   *string           `pulumi:"name"`
-	Tags                   map[string]string `pulumi:"tags"`
+	// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
+	AuthenticationStrategy *string `pulumi:"authenticationStrategy"`
+	// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+	Data string `pulumi:"data"`
+	// Description of the configuration.
+	Description *string `pulumi:"description"`
+	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
+	EngineType string `pulumi:"engineType"`
+	// Version of the broker engine.
+	EngineVersion string `pulumi:"engineVersion"`
+	// Name of the configuration.
+	Name *string `pulumi:"name"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Configuration resource.
 type ConfigurationArgs struct {
+	// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
 	AuthenticationStrategy pulumi.StringPtrInput
-	Data                   pulumi.StringInput
-	Description            pulumi.StringPtrInput
-	EngineType             pulumi.StringInput
-	EngineVersion          pulumi.StringInput
-	Name                   pulumi.StringPtrInput
-	Tags                   pulumi.StringMapInput
+	// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+	Data pulumi.StringInput
+	// Description of the configuration.
+	Description pulumi.StringPtrInput
+	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
+	EngineType pulumi.StringInput
+	// Version of the broker engine.
+	EngineVersion pulumi.StringInput
+	// Name of the configuration.
+	Name pulumi.StringPtrInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ConfigurationArgs) ElementType() reflect.Type {
@@ -201,42 +302,52 @@ func (o ConfigurationOutput) ToConfigurationOutputWithContext(ctx context.Contex
 	return o
 }
 
+// ARN of the configuration.
 func (o ConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
 func (o ConfigurationOutput) AuthenticationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.AuthenticationStrategy }).(pulumi.StringOutput)
 }
 
+// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
 func (o ConfigurationOutput) Data() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Data }).(pulumi.StringOutput)
 }
 
+// Description of the configuration.
 func (o ConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
 func (o ConfigurationOutput) EngineType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.EngineType }).(pulumi.StringOutput)
 }
 
+// Version of the broker engine.
 func (o ConfigurationOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }
 
+// Latest revision of the configuration.
 func (o ConfigurationOutput) LatestRevision() pulumi.IntOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.IntOutput { return v.LatestRevision }).(pulumi.IntOutput)
 }
 
+// Name of the configuration.
 func (o ConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

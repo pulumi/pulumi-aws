@@ -7,6 +7,26 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Resource for managing an AWS Inspector V2 Organization Configuration.
+ *
+ * > **NOTE:** In order for this resource to work, the account you use must be an Inspector V2 Delegated Admin Account.
+ *
+ * > **NOTE:** When this resource is deleted, EC2 and ECR scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.inspector2.OrganizationConfiguration("example", {autoEnable: {
+ *     ec2: true,
+ *     ecr: false,
+ * }});
+ * ```
+ */
 export class OrganizationConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationConfiguration resource's state with the given name, ID, and optional extra
@@ -35,7 +55,13 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationConfiguration.__pulumiType;
     }
 
+    /**
+     * Configuration block for auto enabling. See below.
+     */
     public readonly autoEnable!: pulumi.Output<outputs.inspector2.OrganizationConfigurationAutoEnable>;
+    /**
+     * Whether your configuration reached the max account limit.
+     */
     public /*out*/ readonly maxAccountLimitReached!: pulumi.Output<boolean>;
 
     /**
@@ -70,7 +96,13 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrganizationConfiguration resources.
  */
 export interface OrganizationConfigurationState {
+    /**
+     * Configuration block for auto enabling. See below.
+     */
     autoEnable?: pulumi.Input<inputs.inspector2.OrganizationConfigurationAutoEnable>;
+    /**
+     * Whether your configuration reached the max account limit.
+     */
     maxAccountLimitReached?: pulumi.Input<boolean>;
 }
 
@@ -78,5 +110,8 @@ export interface OrganizationConfigurationState {
  * The set of arguments for constructing a OrganizationConfiguration resource.
  */
 export interface OrganizationConfigurationArgs {
+    /**
+     * Configuration block for auto enabling. See below.
+     */
     autoEnable: pulumi.Input<inputs.inspector2.OrganizationConfigurationAutoEnable>;
 }

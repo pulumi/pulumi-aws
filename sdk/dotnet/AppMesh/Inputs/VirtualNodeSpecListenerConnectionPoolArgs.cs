@@ -12,15 +12,27 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class VirtualNodeSpecListenerConnectionPoolArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Connection pool information for gRPC listeners.
+        /// </summary>
         [Input("grpc")]
         public Input<Inputs.VirtualNodeSpecListenerConnectionPoolGrpcArgs>? Grpc { get; set; }
 
+        /// <summary>
+        /// Connection pool information for HTTP listeners.
+        /// </summary>
         [Input("http")]
         public Input<Inputs.VirtualNodeSpecListenerConnectionPoolHttpArgs>? Http { get; set; }
 
+        /// <summary>
+        /// Connection pool information for HTTP2 listeners.
+        /// </summary>
         [Input("http2")]
         public Input<Inputs.VirtualNodeSpecListenerConnectionPoolHttp2Args>? Http2 { get; set; }
 
+        /// <summary>
+        /// Connection pool information for TCP listeners.
+        /// </summary>
         [Input("tcp")]
         public Input<Inputs.VirtualNodeSpecListenerConnectionPoolTcpArgs>? Tcp { get; set; }
 

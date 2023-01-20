@@ -9,33 +9,174 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGateway
 {
+    /// <summary>
+    /// Provides an API Gateway Usage Plan.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Security.Cryptography;
+    /// using System.Text;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// 	private static string ComputeSHA1(string input) {
+    /// 		return BitConverter.ToString(
+    /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
+    /// 		).Replace("-","").ToLowerInvariant());
+    /// 	}
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
+    ///     {
+    ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["openapi"] = "3.0.1",
+    ///             ["info"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["title"] = "example",
+    ///                 ["version"] = "1.0",
+    ///             },
+    ///             ["paths"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["/path1"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["get"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["x-amazon-apigateway-integration"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["httpMethod"] = "GET",
+    ///                             ["payloadFormatVersion"] = "1.0",
+    ///                             ["type"] = "HTTP_PROXY",
+    ///                             ["uri"] = "https://ip-ranges.amazonaws.com/ip-ranges.json",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     {
+    ///         RestApi = exampleRestApi.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///         },
+    ///     });
+    /// 
+    ///     var development = new Aws.ApiGateway.Stage("development", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = exampleRestApi.Id,
+    ///         StageName = "development",
+    ///     });
+    /// 
+    ///     var production = new Aws.ApiGateway.Stage("production", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = exampleRestApi.Id,
+    ///         StageName = "production",
+    ///     });
+    /// 
+    ///     var exampleUsagePlan = new Aws.ApiGateway.UsagePlan("exampleUsagePlan", new()
+    ///     {
+    ///         Description = "my description",
+    ///         ProductCode = "MYCODE",
+    ///         ApiStages = new[]
+    ///         {
+    ///             new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
+    ///             {
+    ///                 ApiId = exampleRestApi.Id,
+    ///                 Stage = development.StageName,
+    ///             },
+    ///             new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
+    ///             {
+    ///                 ApiId = exampleRestApi.Id,
+    ///                 Stage = production.StageName,
+    ///             },
+    ///         },
+    ///         QuotaSettings = new Aws.ApiGateway.Inputs.UsagePlanQuotaSettingsArgs
+    ///         {
+    ///             Limit = 20,
+    ///             Offset = 2,
+    ///             Period = "WEEK",
+    ///         },
+    ///         ThrottleSettings = new Aws.ApiGateway.Inputs.UsagePlanThrottleSettingsArgs
+    ///         {
+    ///             BurstLimit = 5,
+    ///             RateLimit = 10,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// AWS API Gateway Usage Plan can be imported using the `id`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan &lt;usage_plan_id&gt;
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:apigateway/usagePlan:UsagePlan")]
     public partial class UsagePlan : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Associated API stages of the usage plan.
+        /// </summary>
         [Output("apiStages")]
         public Output<ImmutableArray<Outputs.UsagePlanApiStage>> ApiStages { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Description of a usage plan.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the usage plan.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+        /// </summary>
         [Output("productCode")]
         public Output<string?> ProductCode { get; private set; } = null!;
 
+        /// <summary>
+        /// The quota settings of the usage plan.
+        /// </summary>
         [Output("quotaSettings")]
         public Output<Outputs.UsagePlanQuotaSettings?> QuotaSettings { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// The throttling limits of the usage plan.
+        /// </summary>
         [Output("throttleSettings")]
         public Output<Outputs.UsagePlanThrottleSettings?> ThrottleSettings { get; private set; } = null!;
 
@@ -87,32 +228,55 @@ namespace Pulumi.Aws.ApiGateway
     {
         [Input("apiStages")]
         private InputList<Inputs.UsagePlanApiStageArgs>? _apiStages;
+
+        /// <summary>
+        /// Associated API stages of the usage plan.
+        /// </summary>
         public InputList<Inputs.UsagePlanApiStageArgs> ApiStages
         {
             get => _apiStages ?? (_apiStages = new InputList<Inputs.UsagePlanApiStageArgs>());
             set => _apiStages = value;
         }
 
+        /// <summary>
+        /// Description of a usage plan.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Name of the usage plan.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+        /// </summary>
         [Input("productCode")]
         public Input<string>? ProductCode { get; set; }
 
+        /// <summary>
+        /// The quota settings of the usage plan.
+        /// </summary>
         [Input("quotaSettings")]
         public Input<Inputs.UsagePlanQuotaSettingsArgs>? QuotaSettings { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The throttling limits of the usage plan.
+        /// </summary>
         [Input("throttleSettings")]
         public Input<Inputs.UsagePlanThrottleSettingsArgs>? ThrottleSettings { get; set; }
 
@@ -126,29 +290,52 @@ namespace Pulumi.Aws.ApiGateway
     {
         [Input("apiStages")]
         private InputList<Inputs.UsagePlanApiStageGetArgs>? _apiStages;
+
+        /// <summary>
+        /// Associated API stages of the usage plan.
+        /// </summary>
         public InputList<Inputs.UsagePlanApiStageGetArgs> ApiStages
         {
             get => _apiStages ?? (_apiStages = new InputList<Inputs.UsagePlanApiStageGetArgs>());
             set => _apiStages = value;
         }
 
+        /// <summary>
+        /// ARN
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Description of a usage plan.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Name of the usage plan.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+        /// </summary>
         [Input("productCode")]
         public Input<string>? ProductCode { get; set; }
 
+        /// <summary>
+        /// The quota settings of the usage plan.
+        /// </summary>
         [Input("quotaSettings")]
         public Input<Inputs.UsagePlanQuotaSettingsGetArgs>? QuotaSettings { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -157,12 +344,19 @@ namespace Pulumi.Aws.ApiGateway
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// The throttling limits of the usage plan.
+        /// </summary>
         [Input("throttleSettings")]
         public Input<Inputs.UsagePlanThrottleSettingsGetArgs>? ThrottleSettings { get; set; }
 

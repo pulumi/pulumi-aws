@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva
     {
+        /// <summary>
+        /// The password to use to connect to a resource.
+        /// </summary>
         public readonly string Password;
+        /// <summary>
+        /// The username to use to connect to a resource.
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

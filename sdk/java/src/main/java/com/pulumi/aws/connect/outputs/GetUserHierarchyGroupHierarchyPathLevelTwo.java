@@ -9,17 +9,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserHierarchyGroupHierarchyPathLevelTwo {
+    /**
+     * @return ARN of the hierarchy group.
+     * 
+     */
     private String arn;
+    /**
+     * @return The identifier of the hierarchy group.
+     * 
+     */
     private String id;
+    /**
+     * @return Returns information on a specific hierarchy group by name
+     * 
+     */
     private String name;
 
     private GetUserHierarchyGroupHierarchyPathLevelTwo() {}
+    /**
+     * @return ARN of the hierarchy group.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return The identifier of the hierarchy group.
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return Returns information on a specific hierarchy group by name
+     * 
+     */
     public String name() {
         return this.name;
     }

@@ -11,14 +11,58 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Attach an Elastic network interface (ENI) resource with EC2 instance.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewNetworkInterfaceAttachment(ctx, "test", &ec2.NetworkInterfaceAttachmentArgs{
+//				InstanceId:         pulumi.Any(aws_instance.Test.Id),
+//				NetworkInterfaceId: pulumi.Any(aws_network_interface.Test.Id),
+//				DeviceIndex:        pulumi.Int(0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Elastic network interface (ENI) Attachments can be imported using its Attachment ID e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
+//
+// ```
 type NetworkInterfaceAttachment struct {
 	pulumi.CustomResourceState
 
-	AttachmentId       pulumi.StringOutput `pulumi:"attachmentId"`
-	DeviceIndex        pulumi.IntOutput    `pulumi:"deviceIndex"`
-	InstanceId         pulumi.StringOutput `pulumi:"instanceId"`
+	// The ENI Attachment ID.
+	AttachmentId pulumi.StringOutput `pulumi:"attachmentId"`
+	// Network interface index (int).
+	DeviceIndex pulumi.IntOutput `pulumi:"deviceIndex"`
+	// Instance ID to attach.
+	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
+	// ENI ID to attach.
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
-	Status             pulumi.StringOutput `pulumi:"status"`
+	// The status of the Network Interface Attachment.
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewNetworkInterfaceAttachment registers a new resource with the given unique name, arguments, and options.
@@ -59,19 +103,29 @@ func GetNetworkInterfaceAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkInterfaceAttachment resources.
 type networkInterfaceAttachmentState struct {
-	AttachmentId       *string `pulumi:"attachmentId"`
-	DeviceIndex        *int    `pulumi:"deviceIndex"`
-	InstanceId         *string `pulumi:"instanceId"`
+	// The ENI Attachment ID.
+	AttachmentId *string `pulumi:"attachmentId"`
+	// Network interface index (int).
+	DeviceIndex *int `pulumi:"deviceIndex"`
+	// Instance ID to attach.
+	InstanceId *string `pulumi:"instanceId"`
+	// ENI ID to attach.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	Status             *string `pulumi:"status"`
+	// The status of the Network Interface Attachment.
+	Status *string `pulumi:"status"`
 }
 
 type NetworkInterfaceAttachmentState struct {
-	AttachmentId       pulumi.StringPtrInput
-	DeviceIndex        pulumi.IntPtrInput
-	InstanceId         pulumi.StringPtrInput
+	// The ENI Attachment ID.
+	AttachmentId pulumi.StringPtrInput
+	// Network interface index (int).
+	DeviceIndex pulumi.IntPtrInput
+	// Instance ID to attach.
+	InstanceId pulumi.StringPtrInput
+	// ENI ID to attach.
 	NetworkInterfaceId pulumi.StringPtrInput
-	Status             pulumi.StringPtrInput
+	// The status of the Network Interface Attachment.
+	Status pulumi.StringPtrInput
 }
 
 func (NetworkInterfaceAttachmentState) ElementType() reflect.Type {
@@ -79,15 +133,21 @@ func (NetworkInterfaceAttachmentState) ElementType() reflect.Type {
 }
 
 type networkInterfaceAttachmentArgs struct {
-	DeviceIndex        int    `pulumi:"deviceIndex"`
-	InstanceId         string `pulumi:"instanceId"`
+	// Network interface index (int).
+	DeviceIndex int `pulumi:"deviceIndex"`
+	// Instance ID to attach.
+	InstanceId string `pulumi:"instanceId"`
+	// ENI ID to attach.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 }
 
 // The set of arguments for constructing a NetworkInterfaceAttachment resource.
 type NetworkInterfaceAttachmentArgs struct {
-	DeviceIndex        pulumi.IntInput
-	InstanceId         pulumi.StringInput
+	// Network interface index (int).
+	DeviceIndex pulumi.IntInput
+	// Instance ID to attach.
+	InstanceId pulumi.StringInput
+	// ENI ID to attach.
 	NetworkInterfaceId pulumi.StringInput
 }
 
@@ -178,22 +238,27 @@ func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentOutputWith
 	return o
 }
 
+// The ENI Attachment ID.
 func (o NetworkInterfaceAttachmentOutput) AttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.AttachmentId }).(pulumi.StringOutput)
 }
 
+// Network interface index (int).
 func (o NetworkInterfaceAttachmentOutput) DeviceIndex() pulumi.IntOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.IntOutput { return v.DeviceIndex }).(pulumi.IntOutput)
 }
 
+// Instance ID to attach.
 func (o NetworkInterfaceAttachmentOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
+// ENI ID to attach.
 func (o NetworkInterfaceAttachmentOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
 
+// The status of the Network Interface Attachment.
 func (o NetworkInterfaceAttachmentOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

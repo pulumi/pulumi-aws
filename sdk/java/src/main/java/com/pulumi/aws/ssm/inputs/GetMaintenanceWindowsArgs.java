@@ -16,9 +16,17 @@ public final class GetMaintenanceWindowsArgs extends com.pulumi.resources.Invoke
 
     public static final GetMaintenanceWindowsArgs Empty = new GetMaintenanceWindowsArgs();
 
+    /**
+     * Configuration block(s) for filtering. Detailed below.
+     * 
+     */
     @Import(name="filters")
     private @Nullable Output<List<GetMaintenanceWindowsFilterArgs>> filters;
 
+    /**
+     * @return Configuration block(s) for filtering. Detailed below.
+     * 
+     */
     public Optional<Output<List<GetMaintenanceWindowsFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
@@ -47,15 +55,33 @@ public final class GetMaintenanceWindowsArgs extends com.pulumi.resources.Invoke
             $ = new GetMaintenanceWindowsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable Output<List<GetMaintenanceWindowsFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(List<GetMaintenanceWindowsFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
+        /**
+         * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(GetMaintenanceWindowsFilterArgs... filters) {
             return filters(List.of(filters));
         }

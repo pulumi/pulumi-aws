@@ -7,6 +7,86 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * An Amazon Lightsail container service is a highly scalable compute and networking resource on which you can deploy, run,
+ * and manage containers. For more information, see
+ * [Container services in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-services).
+ *
+ * > **Note:** For more information about the AWS Regions in which you can create Amazon Lightsail container services,
+ * see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const myContainerService = new aws.lightsail.ContainerService("myContainerService", {
+ *     isDisabled: false,
+ *     power: "nano",
+ *     scale: 1,
+ *     tags: {
+ *         foo1: "bar1",
+ *         foo2: "",
+ *     },
+ * });
+ * ```
+ * ### Public Domain Names
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const myContainerService = new aws.lightsail.ContainerService("myContainerService", {publicDomainNames: {
+ *     certificates: [{
+ *         certificateName: "example-certificate",
+ *         domainNames: ["www.example.com"],
+ *     }],
+ * }});
+ * ```
+ * ### Private Registry Access
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // ... other configuration ...
+ * const defaultContainerService = new aws.lightsail.ContainerService("defaultContainerService", {privateRegistryAccess: {
+ *     ecrImagePullerRole: {
+ *         isActive: true,
+ *     },
+ * }});
+ * const defaultRepositoryPolicy = new aws.ecr.RepositoryPolicy("defaultRepositoryPolicy", {
+ *     repository: aws_ecr_repository["default"].name,
+ *     policy: defaultContainerService.privateRegistryAccess.apply(privateRegistryAccess => `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "AllowLightsailPull",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "AWS": "${privateRegistryAccess.ecrImagePullerRole?.principalArn}"
+ *       },
+ *       "Action": [
+ *         "ecr:BatchGetImage",
+ *         "ecr:GetDownloadUrlForLayer"
+ *       ]
+ *     }
+ *   ]
+ * }
+ * `),
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Lightsail Container Service can be imported using the `name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
+ * ```
+ */
 export class ContainerService extends pulumi.CustomResource {
     /**
      * Get an existing ContainerService resource's state with the given name, ID, and optional extra
@@ -35,22 +115,86 @@ export class ContainerService extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContainerService.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the container service.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The Availability Zone. Follows the format us-east-2a (case-sensitive).
+     */
     public /*out*/ readonly availabilityZone!: pulumi.Output<string>;
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * A Boolean value indicating whether the container service is disabled. Defaults to `false`.
+     */
     public readonly isDisabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The name for the container service. Names must be of length 1 to 63, and be
+     * unique within each AWS Region in your Lightsail account.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The power specification for the container service. The power specifies the amount of memory,
+     * the number of vCPUs, and the monthly price of each node of the container service.
+     * Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
+     */
     public readonly power!: pulumi.Output<string>;
+    /**
+     * The ID of the power of the container service.
+     */
     public /*out*/ readonly powerId!: pulumi.Output<string>;
+    /**
+     * The principal ARN of the container service. The principal ARN can be used to create a trust
+     * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+     * service permission to access resources in your standard AWS account.
+     */
     public /*out*/ readonly principalArn!: pulumi.Output<string>;
+    /**
+     * The private domain name of the container service. The private domain name is accessible only
+     * by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+     */
     public /*out*/ readonly privateDomainName!: pulumi.Output<string>;
+    /**
+     * An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+     */
     public readonly privateRegistryAccess!: pulumi.Output<outputs.lightsail.ContainerServicePrivateRegistryAccess>;
+    /**
+     * The public domain names to use with the container service, such as example.com
+     * and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
+     * specify are used when you create a deployment with a container configured as the public endpoint of your container
+     * service. If you don't specify public domain names, then you can use the default domain of the container service.
+     * Defined below.
+     */
     public readonly publicDomainNames!: pulumi.Output<outputs.lightsail.ContainerServicePublicDomainNames | undefined>;
+    /**
+     * The Lightsail resource type of the container service (i.e., ContainerService).
+     */
     public /*out*/ readonly resourceType!: pulumi.Output<string>;
+    /**
+     * The scale specification for the container service. The scale specifies the allocated compute
+     * nodes of the container service.
+     */
     public readonly scale!: pulumi.Output<number>;
+    /**
+     * The current state of the container service.
+     */
     public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+     * configured with a provider
+     * `defaultTags` configuration block
+     * present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider
+     * `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The publicly accessible URL of the container service. If no public endpoint is specified in the
+     * currentDeployment, this URL returns a 404 response.
+     */
     public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
@@ -118,22 +262,86 @@ export class ContainerService extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ContainerService resources.
  */
 export interface ContainerServiceState {
+    /**
+     * The Amazon Resource Name (ARN) of the container service.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The Availability Zone. Follows the format us-east-2a (case-sensitive).
+     */
     availabilityZone?: pulumi.Input<string>;
     createdAt?: pulumi.Input<string>;
+    /**
+     * A Boolean value indicating whether the container service is disabled. Defaults to `false`.
+     */
     isDisabled?: pulumi.Input<boolean>;
+    /**
+     * The name for the container service. Names must be of length 1 to 63, and be
+     * unique within each AWS Region in your Lightsail account.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The power specification for the container service. The power specifies the amount of memory,
+     * the number of vCPUs, and the monthly price of each node of the container service.
+     * Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
+     */
     power?: pulumi.Input<string>;
+    /**
+     * The ID of the power of the container service.
+     */
     powerId?: pulumi.Input<string>;
+    /**
+     * The principal ARN of the container service. The principal ARN can be used to create a trust
+     * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+     * service permission to access resources in your standard AWS account.
+     */
     principalArn?: pulumi.Input<string>;
+    /**
+     * The private domain name of the container service. The private domain name is accessible only
+     * by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+     */
     privateDomainName?: pulumi.Input<string>;
+    /**
+     * An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+     */
     privateRegistryAccess?: pulumi.Input<inputs.lightsail.ContainerServicePrivateRegistryAccess>;
+    /**
+     * The public domain names to use with the container service, such as example.com
+     * and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
+     * specify are used when you create a deployment with a container configured as the public endpoint of your container
+     * service. If you don't specify public domain names, then you can use the default domain of the container service.
+     * Defined below.
+     */
     publicDomainNames?: pulumi.Input<inputs.lightsail.ContainerServicePublicDomainNames>;
+    /**
+     * The Lightsail resource type of the container service (i.e., ContainerService).
+     */
     resourceType?: pulumi.Input<string>;
+    /**
+     * The scale specification for the container service. The scale specifies the allocated compute
+     * nodes of the container service.
+     */
     scale?: pulumi.Input<number>;
+    /**
+     * The current state of the container service.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+     * configured with a provider
+     * `defaultTags` configuration block
+     * present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider
+     * `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The publicly accessible URL of the container service. If no public endpoint is specified in the
+     * currentDeployment, this URL returns a 404 response.
+     */
     url?: pulumi.Input<string>;
 }
 
@@ -141,11 +349,43 @@ export interface ContainerServiceState {
  * The set of arguments for constructing a ContainerService resource.
  */
 export interface ContainerServiceArgs {
+    /**
+     * A Boolean value indicating whether the container service is disabled. Defaults to `false`.
+     */
     isDisabled?: pulumi.Input<boolean>;
+    /**
+     * The name for the container service. Names must be of length 1 to 63, and be
+     * unique within each AWS Region in your Lightsail account.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The power specification for the container service. The power specifies the amount of memory,
+     * the number of vCPUs, and the monthly price of each node of the container service.
+     * Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
+     */
     power: pulumi.Input<string>;
+    /**
+     * An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+     */
     privateRegistryAccess?: pulumi.Input<inputs.lightsail.ContainerServicePrivateRegistryAccess>;
+    /**
+     * The public domain names to use with the container service, such as example.com
+     * and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
+     * specify are used when you create a deployment with a container configured as the public endpoint of your container
+     * service. If you don't specify public domain names, then you can use the default domain of the container service.
+     * Defined below.
+     */
     publicDomainNames?: pulumi.Input<inputs.lightsail.ContainerServicePublicDomainNames>;
+    /**
+     * The scale specification for the container service. The scale specifies the allocated compute
+     * nodes of the container service.
+     */
     scale: pulumi.Input<number>;
+    /**
+     * Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+     * configured with a provider
+     * `defaultTags` configuration block
+     * present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

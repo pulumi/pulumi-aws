@@ -15,6 +15,9 @@ namespace Pulumi.Aws.Iot.Inputs
         [Input("creationDate")]
         public Input<string>? CreationDate { get; set; }
 
+        /// <summary>
+        /// The name of the parent Thing Group.
+        /// </summary>
         [Input("parentGroupName")]
         public Input<string>? ParentGroupName { get; set; }
 

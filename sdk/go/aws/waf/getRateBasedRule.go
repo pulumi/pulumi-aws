@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// `waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := waf.LookupRateBasedRule(ctx, &waf.LookupRateBasedRuleArgs{
+//				Name: "tfWAFRateBasedRule",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupRateBasedRule(ctx *pulumi.Context, args *LookupRateBasedRuleArgs, opts ...pulumi.InvokeOption) (*LookupRateBasedRuleResult, error) {
 	var rv LookupRateBasedRuleResult
 	err := ctx.Invoke("aws:waf/getRateBasedRule:getRateBasedRule", args, &rv, opts...)
@@ -21,6 +48,7 @@ func LookupRateBasedRule(ctx *pulumi.Context, args *LookupRateBasedRuleArgs, opt
 
 // A collection of arguments for invoking getRateBasedRule.
 type LookupRateBasedRuleArgs struct {
+	// Name of the WAF rate based rule.
 	Name string `pulumi:"name"`
 }
 
@@ -46,6 +74,7 @@ func LookupRateBasedRuleOutput(ctx *pulumi.Context, args LookupRateBasedRuleOutp
 
 // A collection of arguments for invoking getRateBasedRule.
 type LookupRateBasedRuleOutputArgs struct {
+	// Name of the WAF rate based rule.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 

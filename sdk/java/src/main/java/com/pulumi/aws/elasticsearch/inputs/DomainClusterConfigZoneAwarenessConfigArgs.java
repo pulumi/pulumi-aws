@@ -15,9 +15,17 @@ public final class DomainClusterConfigZoneAwarenessConfigArgs extends com.pulumi
 
     public static final DomainClusterConfigZoneAwarenessConfigArgs Empty = new DomainClusterConfigZoneAwarenessConfigArgs();
 
+    /**
+     * Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
+     * 
+     */
     @Import(name="availabilityZoneCount")
     private @Nullable Output<Integer> availabilityZoneCount;
 
+    /**
+     * @return Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
+     * 
+     */
     public Optional<Output<Integer>> availabilityZoneCount() {
         return Optional.ofNullable(this.availabilityZoneCount);
     }
@@ -46,11 +54,23 @@ public final class DomainClusterConfigZoneAwarenessConfigArgs extends com.pulumi
             $ = new DomainClusterConfigZoneAwarenessConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param availabilityZoneCount Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZoneCount(@Nullable Output<Integer> availabilityZoneCount) {
             $.availabilityZoneCount = availabilityZoneCount;
             return this;
         }
 
+        /**
+         * @param availabilityZoneCount Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZoneCount(Integer availabilityZoneCount) {
             return availabilityZoneCount(Output.of(availabilityZoneCount));
         }

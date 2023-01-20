@@ -13,9 +13,17 @@ public final class MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSu
 
     public static final MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs Empty = new MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs();
 
+    /**
+     * A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
+     * 
+     */
     @Import(name="realtimeMetricsSubscriptionStatus", required=true)
     private Output<String> realtimeMetricsSubscriptionStatus;
 
+    /**
+     * @return A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
+     * 
+     */
     public Output<String> realtimeMetricsSubscriptionStatus() {
         return this.realtimeMetricsSubscriptionStatus;
     }
@@ -44,11 +52,23 @@ public final class MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSu
             $ = new MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param realtimeMetricsSubscriptionStatus A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder realtimeMetricsSubscriptionStatus(Output<String> realtimeMetricsSubscriptionStatus) {
             $.realtimeMetricsSubscriptionStatus = realtimeMetricsSubscriptionStatus;
             return this;
         }
 
+        /**
+         * @param realtimeMetricsSubscriptionStatus A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder realtimeMetricsSubscriptionStatus(String realtimeMetricsSubscriptionStatus) {
             return realtimeMetricsSubscriptionStatus(Output.of(realtimeMetricsSubscriptionStatus));
         }

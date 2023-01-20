@@ -14,6 +14,9 @@ namespace Pulumi.Aws.Ssm.Outputs
     public sealed class MaintenanceWindowTaskTarget
     {
         public readonly string Key;
+        /// <summary>
+        /// The array of strings.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

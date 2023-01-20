@@ -12,6 +12,9 @@ namespace Pulumi.Aws.WafRegional.Inputs
 
     public sealed class WebAclDefaultActionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

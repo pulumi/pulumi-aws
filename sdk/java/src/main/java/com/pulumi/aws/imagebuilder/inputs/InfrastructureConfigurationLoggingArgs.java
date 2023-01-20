@@ -13,9 +13,17 @@ public final class InfrastructureConfigurationLoggingArgs extends com.pulumi.res
 
     public static final InfrastructureConfigurationLoggingArgs Empty = new InfrastructureConfigurationLoggingArgs();
 
+    /**
+     * Configuration block with S3 logging settings. Detailed below.
+     * 
+     */
     @Import(name="s3Logs", required=true)
     private Output<InfrastructureConfigurationLoggingS3LogsArgs> s3Logs;
 
+    /**
+     * @return Configuration block with S3 logging settings. Detailed below.
+     * 
+     */
     public Output<InfrastructureConfigurationLoggingS3LogsArgs> s3Logs() {
         return this.s3Logs;
     }
@@ -44,11 +52,23 @@ public final class InfrastructureConfigurationLoggingArgs extends com.pulumi.res
             $ = new InfrastructureConfigurationLoggingArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param s3Logs Configuration block with S3 logging settings. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3Logs(Output<InfrastructureConfigurationLoggingS3LogsArgs> s3Logs) {
             $.s3Logs = s3Logs;
             return this;
         }
 
+        /**
+         * @param s3Logs Configuration block with S3 logging settings. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3Logs(InfrastructureConfigurationLoggingS3LogsArgs s3Logs) {
             return s3Logs(Output.of(s3Logs));
         }

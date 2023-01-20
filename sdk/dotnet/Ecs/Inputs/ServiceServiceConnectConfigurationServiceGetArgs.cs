@@ -14,18 +14,31 @@ namespace Pulumi.Aws.Ecs.Inputs
     {
         [Input("clientAliases", required: true)]
         private InputList<Inputs.ServiceServiceConnectConfigurationServiceClientAliasGetArgs>? _clientAliases;
+
+        /// <summary>
+        /// The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+        /// </summary>
         public InputList<Inputs.ServiceServiceConnectConfigurationServiceClientAliasGetArgs> ClientAliases
         {
             get => _clientAliases ?? (_clientAliases = new InputList<Inputs.ServiceServiceConnectConfigurationServiceClientAliasGetArgs>());
             set => _clientAliases = value;
         }
 
+        /// <summary>
+        /// The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+        /// </summary>
         [Input("discoveryName")]
         public Input<string>? DiscoveryName { get; set; }
 
+        /// <summary>
+        /// The port number for the Service Connect proxy to listen on.
+        /// </summary>
         [Input("ingressPortOverride")]
         public Input<int>? IngressPortOverride { get; set; }
 
+        /// <summary>
+        /// The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+        /// </summary>
         [Input("portName", required: true)]
         public Input<string> PortName { get; set; } = null!;
 

@@ -4,6 +4,90 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages Route 53 Hosted Zone Domain Name System Security Extensions (DNSSEC). For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
+ *
+ * !> **WARNING:** If you disable DNSSEC signing for your hosted zone before the DNS changes have propagated, your domain could become unavailable on the internet. When you remove the DS records, you must wait until the longest TTL for the DS records that you remove has expired before you complete the step to disable DNSSEC signing. Please refer to the [Route 53 Developer Guide - Disable DNSSEC](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-disable.html) for a detailed breakdown on the steps required to disable DNSSEC safely for a hosted zone.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const exampleKey = new aws.kms.Key("exampleKey", {
+ *     customerMasterKeySpec: "ECC_NIST_P256",
+ *     deletionWindowInDays: 7,
+ *     keyUsage: "SIGN_VERIFY",
+ *     policy: Promise.all([current, current]).then(([current, current1]) => JSON.stringify({
+ *         Statement: [
+ *             {
+ *                 Action: [
+ *                     "kms:DescribeKey",
+ *                     "kms:GetPublicKey",
+ *                     "kms:Sign",
+ *                 ],
+ *                 Effect: "Allow",
+ *                 Principal: {
+ *                     Service: "dnssec-route53.amazonaws.com",
+ *                 },
+ *                 Sid: "Allow Route 53 DNSSEC Service",
+ *                 Resource: "*",
+ *                 Condition: {
+ *                     StringEquals: {
+ *                         "aws:SourceAccount": current.accountId,
+ *                     },
+ *                     ArnLike: {
+ *                         "aws:SourceArn": "arn:aws:route53:::hostedzone/*",
+ *                     },
+ *                 },
+ *             },
+ *             {
+ *                 Action: "kms:CreateGrant",
+ *                 Effect: "Allow",
+ *                 Principal: {
+ *                     Service: "dnssec-route53.amazonaws.com",
+ *                 },
+ *                 Sid: "Allow Route 53 DNSSEC Service to CreateGrant",
+ *                 Resource: "*",
+ *                 Condition: {
+ *                     Bool: {
+ *                         "kms:GrantIsForAWSResource": "true",
+ *                     },
+ *                 },
+ *             },
+ *             {
+ *                 Action: "kms:*",
+ *                 Effect: "Allow",
+ *                 Principal: {
+ *                     AWS: `arn:aws:iam::${current1.accountId}:root`,
+ *                 },
+ *                 Resource: "*",
+ *                 Sid: "Enable IAM User Permissions",
+ *             },
+ *         ],
+ *         Version: "2012-10-17",
+ *     })),
+ * });
+ * const exampleZone = new aws.route53.Zone("exampleZone", {});
+ * const exampleKeySigningKey = new aws.route53.KeySigningKey("exampleKeySigningKey", {
+ *     hostedZoneId: exampleZone.id,
+ *     keyManagementServiceArn: exampleKey.arn,
+ * });
+ * const exampleHostedZoneDnsSec = new aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", {hostedZoneId: exampleKeySigningKey.hostedZoneId}, {
+ *     dependsOn: [exampleKeySigningKey],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_route53_hosted_zone_dnssec` resources can be imported by using the Route 53 Hosted Zone identifier, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
+ * ```
+ */
 export class HostedZoneDnsSec extends pulumi.CustomResource {
     /**
      * Get an existing HostedZoneDnsSec resource's state with the given name, ID, and optional extra
@@ -32,7 +116,13 @@ export class HostedZoneDnsSec extends pulumi.CustomResource {
         return obj['__pulumiType'] === HostedZoneDnsSec.__pulumiType;
     }
 
+    /**
+     * Identifier of the Route 53 Hosted Zone.
+     */
     public readonly hostedZoneId!: pulumi.Output<string>;
+    /**
+     * Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
+     */
     public readonly signingStatus!: pulumi.Output<string | undefined>;
 
     /**
@@ -67,7 +157,13 @@ export class HostedZoneDnsSec extends pulumi.CustomResource {
  * Input properties used for looking up and filtering HostedZoneDnsSec resources.
  */
 export interface HostedZoneDnsSecState {
+    /**
+     * Identifier of the Route 53 Hosted Zone.
+     */
     hostedZoneId?: pulumi.Input<string>;
+    /**
+     * Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
+     */
     signingStatus?: pulumi.Input<string>;
 }
 
@@ -75,6 +171,12 @@ export interface HostedZoneDnsSecState {
  * The set of arguments for constructing a HostedZoneDnsSec resource.
  */
 export interface HostedZoneDnsSecArgs {
+    /**
+     * Identifier of the Route 53 Hosted Zone.
+     */
     hostedZoneId: pulumi.Input<string>;
+    /**
+     * Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
+     */
     signingStatus?: pulumi.Input<string>;
 }

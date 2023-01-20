@@ -17,59 +17,175 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a MemoryDB Snapshot.
+ * 
+ * More information about snapshot and restore can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/snapshots.html).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.memorydb.Snapshot;
+ * import com.pulumi.aws.memorydb.SnapshotArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Snapshot(&#34;example&#34;, SnapshotArgs.builder()        
+ *             .clusterName(aws_memorydb_cluster.example().name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Use the `name` to import a snapshot. For example
+ * 
+ * ```sh
+ *  $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
+ * ```
+ * 
+ */
 @ResourceType(type="aws:memorydb/snapshot:Snapshot")
 public class Snapshot extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the snapshot.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the snapshot.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The configuration of the cluster from which the snapshot was taken.
+     * 
+     */
     @Export(name="clusterConfigurations", refs={List.class,SnapshotClusterConfiguration.class}, tree="[0,1]")
     private Output<List<SnapshotClusterConfiguration>> clusterConfigurations;
 
+    /**
+     * @return The configuration of the cluster from which the snapshot was taken.
+     * 
+     */
     public Output<List<SnapshotClusterConfiguration>> clusterConfigurations() {
         return this.clusterConfigurations;
     }
+    /**
+     * Name of the MemoryDB cluster to take a snapshot of.
+     * 
+     */
     @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
+    /**
+     * @return Name of the MemoryDB cluster to take a snapshot of.
+     * 
+     */
     public Output<String> clusterName() {
         return this.clusterName;
     }
+    /**
+     * ARN of the KMS key used to encrypt the snapshot at rest.
+     * 
+     */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
+    /**
+     * @return ARN of the KMS key used to encrypt the snapshot at rest.
+     * 
+     */
     public Output<Optional<String>> kmsKeyArn() {
         return Codegen.optional(this.kmsKeyArn);
     }
+    /**
+     * Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
+    /**
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
+    /**
+     * Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+     * 
+     */
     @Export(name="source", refs={String.class}, tree="[0]")
     private Output<String> source;
 
+    /**
+     * @return Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+     * 
+     */
     public Output<String> source() {
         return this.source;
     }
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

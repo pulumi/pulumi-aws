@@ -7,6 +7,39 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an AWS Network Firewall Firewall Policy Resource
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.networkfirewall.FirewallPolicy("example", {
+ *     firewallPolicy: {
+ *         statelessDefaultActions: ["aws:pass"],
+ *         statelessFragmentDefaultActions: ["aws:drop"],
+ *         statelessRuleGroupReferences: [{
+ *             priority: 1,
+ *             resourceArn: aws_networkfirewall_rule_group.example.arn,
+ *         }],
+ *     },
+ *     tags: {
+ *         Tag1: "Value1",
+ *         Tag2: "Value2",
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Network Firewall Policies can be imported using their `ARN`.
+ *
+ * ```sh
+ *  $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
+ * ```
+ */
 export class FirewallPolicy extends pulumi.CustomResource {
     /**
      * Get an existing FirewallPolicy resource's state with the given name, ID, and optional extra
@@ -35,13 +68,37 @@ export class FirewallPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallPolicy.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) that identifies the firewall policy.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A friendly description of the firewall policy.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     */
     public readonly encryptionConfiguration!: pulumi.Output<outputs.networkfirewall.FirewallPolicyEncryptionConfiguration | undefined>;
+    /**
+     * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
+     */
     public readonly firewallPolicy!: pulumi.Output<outputs.networkfirewall.FirewallPolicyFirewallPolicy>;
+    /**
+     * A friendly name of the firewall policy.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * A string token used when updating a firewall policy.
+     */
     public /*out*/ readonly updateToken!: pulumi.Output<string>;
 
     /**
@@ -88,13 +145,37 @@ export class FirewallPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FirewallPolicy resources.
  */
 export interface FirewallPolicyState {
+    /**
+     * The Amazon Resource Name (ARN) that identifies the firewall policy.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * A friendly description of the firewall policy.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     */
     encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallPolicyEncryptionConfiguration>;
+    /**
+     * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
+     */
     firewallPolicy?: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicy>;
+    /**
+     * A friendly name of the firewall policy.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A string token used when updating a firewall policy.
+     */
     updateToken?: pulumi.Input<string>;
 }
 
@@ -102,9 +183,24 @@ export interface FirewallPolicyState {
  * The set of arguments for constructing a FirewallPolicy resource.
  */
 export interface FirewallPolicyArgs {
+    /**
+     * A friendly description of the firewall policy.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     */
     encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallPolicyEncryptionConfiguration>;
+    /**
+     * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
+     */
     firewallPolicy: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicy>;
+    /**
+     * A friendly name of the firewall policy.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

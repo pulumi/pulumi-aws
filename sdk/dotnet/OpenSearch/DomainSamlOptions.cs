@@ -9,12 +9,74 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.OpenSearch
 {
+    /// <summary>
+    /// Manages SAML authentication options for an AWS OpenSearch Domain.
+    /// 
+    /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleDomain = new Aws.OpenSearch.Domain("exampleDomain", new()
+    ///     {
+    ///         EngineVersion = "OpenSearch_1.1",
+    ///         ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
+    ///         {
+    ///             InstanceType = "r4.large.search",
+    ///         },
+    ///         SnapshotOptions = new Aws.OpenSearch.Inputs.DomainSnapshotOptionsArgs
+    ///         {
+    ///             AutomatedSnapshotStartHour = 23,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Domain", "TestDomain" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDomainSamlOptions = new Aws.OpenSearch.DomainSamlOptions("exampleDomainSamlOptions", new()
+    ///     {
+    ///         DomainName = exampleDomain.DomainName,
+    ///         SamlOptions = new Aws.OpenSearch.Inputs.DomainSamlOptionsSamlOptionsArgs
+    ///         {
+    ///             Enabled = true,
+    ///             Idp = new Aws.OpenSearch.Inputs.DomainSamlOptionsSamlOptionsIdpArgs
+    ///             {
+    ///                 EntityId = "https://example.com",
+    ///                 MetadataContent = File.ReadAllText("./saml-metadata.xml"),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// OpenSearch domains can be imported using the `domain_name`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:opensearch/domainSamlOptions:DomainSamlOptions")]
     public partial class DomainSamlOptions : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Name of the domain.
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// SAML authentication options for an AWS OpenSearch Domain.
+        /// </summary>
         [Output("samlOptions")]
         public Output<Outputs.DomainSamlOptionsSamlOptions?> SamlOptions { get; private set; } = null!;
 
@@ -64,9 +126,15 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class DomainSamlOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the domain.
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
+        /// <summary>
+        /// SAML authentication options for an AWS OpenSearch Domain.
+        /// </summary>
         [Input("samlOptions")]
         public Input<Inputs.DomainSamlOptionsSamlOptionsArgs>? SamlOptions { get; set; }
 
@@ -78,9 +146,15 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class DomainSamlOptionsState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the domain.
+        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
+        /// <summary>
+        /// SAML authentication options for an AWS OpenSearch Domain.
+        /// </summary>
         [Input("samlOptions")]
         public Input<Inputs.DomainSamlOptionsSamlOptionsGetArgs>? SamlOptions { get; set; }
 

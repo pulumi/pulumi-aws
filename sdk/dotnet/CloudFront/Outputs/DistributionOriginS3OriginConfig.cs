@@ -13,6 +13,9 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionOriginS3OriginConfig
     {
+        /// <summary>
+        /// The CloudFront origin access identity to associate with the origin.
+        /// </summary>
         public readonly string OriginAccessIdentity;
 
         [OutputConstructor]

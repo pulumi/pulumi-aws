@@ -15,9 +15,17 @@ public final class CanaryArtifactConfigArgs extends com.pulumi.resources.Resourc
 
     public static final CanaryArtifactConfigArgs Empty = new CanaryArtifactConfigArgs();
 
+    /**
+     * Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
+     * 
+     */
     @Import(name="s3Encryption")
     private @Nullable Output<CanaryArtifactConfigS3EncryptionArgs> s3Encryption;
 
+    /**
+     * @return Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
+     * 
+     */
     public Optional<Output<CanaryArtifactConfigS3EncryptionArgs>> s3Encryption() {
         return Optional.ofNullable(this.s3Encryption);
     }
@@ -46,11 +54,23 @@ public final class CanaryArtifactConfigArgs extends com.pulumi.resources.Resourc
             $ = new CanaryArtifactConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param s3Encryption Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3Encryption(@Nullable Output<CanaryArtifactConfigS3EncryptionArgs> s3Encryption) {
             $.s3Encryption = s3Encryption;
             return this;
         }
 
+        /**
+         * @param s3Encryption Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3Encryption(CanaryArtifactConfigS3EncryptionArgs s3Encryption) {
             return s3Encryption(Output.of(s3Encryption));
         }

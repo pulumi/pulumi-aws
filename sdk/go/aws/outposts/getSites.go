@@ -7,6 +7,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides details about multiple Outposts Sites.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/outposts"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := outposts.GetSites(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetSites(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSitesResult, error) {
 	var rv GetSitesResult
 	err := ctx.Invoke("aws:outposts/getSites:getSites", nil, &rv, opts...)
@@ -19,6 +44,7 @@ func GetSites(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSitesResult
 // A collection of values returned by getSites.
 type GetSitesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id  string   `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Set of Outposts Site identifiers.
 	Ids []string `pulumi:"ids"`
 }

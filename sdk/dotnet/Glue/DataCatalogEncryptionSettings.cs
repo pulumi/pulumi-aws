@@ -9,12 +9,58 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Glue
 {
+    /// <summary>
+    /// Provides a Glue Data Catalog Encryption Settings resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Glue.DataCatalogEncryptionSettings("example", new()
+    ///     {
+    ///         DataCatalogEncryptionSettingsConfig = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs
+    ///         {
+    ///             ConnectionPasswordEncryption = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs
+    ///             {
+    ///                 AwsKmsKeyId = aws_kms_key.Test.Arn,
+    ///                 ReturnConnectionPasswordEncrypted = true,
+    ///             },
+    ///             EncryptionAtRest = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs
+    ///             {
+    ///                 CatalogEncryptionMode = "SSE-KMS",
+    ///                 SseAwsKmsKeyId = aws_kms_key.Test.Arn,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Glue Data Catalog Encryption Settings can be imported using `CATALOG-ID` (AWS account ID if not custom), e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings")]
     public partial class DataCatalogEncryptionSettings : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+        /// </summary>
         [Output("catalogId")]
         public Output<string> CatalogId { get; private set; } = null!;
 
+        /// <summary>
+        /// The security configuration to set. see Data Catalog Encryption Settings.
+        /// </summary>
         [Output("dataCatalogEncryptionSettings")]
         public Output<Outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings> DataCatalogEncryptionSettingsConfig { get; private set; } = null!;
 
@@ -64,9 +110,15 @@ namespace Pulumi.Aws.Glue
 
     public sealed class DataCatalogEncryptionSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+        /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
+        /// <summary>
+        /// The security configuration to set. see Data Catalog Encryption Settings.
+        /// </summary>
         [Input("dataCatalogEncryptionSettings", required: true)]
         public Input<Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs> DataCatalogEncryptionSettingsConfig { get; set; } = null!;
 
@@ -78,9 +130,15 @@ namespace Pulumi.Aws.Glue
 
     public sealed class DataCatalogEncryptionSettingsState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+        /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
+        /// <summary>
+        /// The security configuration to set. see Data Catalog Encryption Settings.
+        /// </summary>
         [Input("dataCatalogEncryptionSettings")]
         public Input<Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsGetArgs>? DataCatalogEncryptionSettingsConfig { get; set; }
 

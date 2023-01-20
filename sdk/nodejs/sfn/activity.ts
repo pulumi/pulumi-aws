@@ -4,6 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Step Function Activity resource
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const sfnActivity = new aws.sfn.Activity("sfnActivity", {});
+ * ```
+ *
+ * ## Import
+ *
+ * Activities can be imported using the `arn`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
+ * ```
+ */
 export class Activity extends pulumi.CustomResource {
     /**
      * Get an existing Activity resource's state with the given name, ID, and optional extra
@@ -32,9 +52,21 @@ export class Activity extends pulumi.CustomResource {
         return obj['__pulumiType'] === Activity.__pulumiType;
     }
 
+    /**
+     * The date the activity was created.
+     */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    /**
+     * The name of the activity to create.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -70,9 +102,21 @@ export class Activity extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Activity resources.
  */
 export interface ActivityState {
+    /**
+     * The date the activity was created.
+     */
     creationDate?: pulumi.Input<string>;
+    /**
+     * The name of the activity to create.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -80,6 +124,12 @@ export interface ActivityState {
  * The set of arguments for constructing a Activity resource.
  */
 export interface ActivityArgs {
+    /**
+     * The name of the activity to create.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

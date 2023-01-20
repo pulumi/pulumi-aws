@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Get a list the AWS accounts that are designated as delegated administrators in this organization
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := organizations.GetDelegatedAdministrators(ctx, &organizations.GetDelegatedAdministratorsArgs{
+//				ServicePrincipal: pulumi.StringRef("SERVICE PRINCIPAL"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetDelegatedAdministrators(ctx *pulumi.Context, args *GetDelegatedAdministratorsArgs, opts ...pulumi.InvokeOption) (*GetDelegatedAdministratorsResult, error) {
 	var rv GetDelegatedAdministratorsResult
 	err := ctx.Invoke("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", args, &rv, opts...)
@@ -21,11 +48,13 @@ func GetDelegatedAdministrators(ctx *pulumi.Context, args *GetDelegatedAdministr
 
 // A collection of arguments for invoking getDelegatedAdministrators.
 type GetDelegatedAdministratorsArgs struct {
+	// Specifies a service principal name. If specified, then the operation lists the delegated administrators only for the specified service. If you don't specify a service principal, the operation lists all delegated administrators for all services in your organization.
 	ServicePrincipal *string `pulumi:"servicePrincipal"`
 }
 
 // A collection of values returned by getDelegatedAdministrators.
 type GetDelegatedAdministratorsResult struct {
+	// The list of delegated administrators in your organization, which have the following attributes:
 	DelegatedAdministrators []GetDelegatedAdministratorsDelegatedAdministrator `pulumi:"delegatedAdministrators"`
 	// The provider-assigned unique ID for this managed resource.
 	Id               string  `pulumi:"id"`
@@ -47,6 +76,7 @@ func GetDelegatedAdministratorsOutput(ctx *pulumi.Context, args GetDelegatedAdmi
 
 // A collection of arguments for invoking getDelegatedAdministrators.
 type GetDelegatedAdministratorsOutputArgs struct {
+	// Specifies a service principal name. If specified, then the operation lists the delegated administrators only for the specified service. If you don't specify a service principal, the operation lists all delegated administrators for all services in your organization.
 	ServicePrincipal pulumi.StringPtrInput `pulumi:"servicePrincipal"`
 }
 
@@ -69,6 +99,7 @@ func (o GetDelegatedAdministratorsResultOutput) ToGetDelegatedAdministratorsResu
 	return o
 }
 
+// The list of delegated administrators in your organization, which have the following attributes:
 func (o GetDelegatedAdministratorsResultOutput) DelegatedAdministrators() GetDelegatedAdministratorsDelegatedAdministratorArrayOutput {
 	return o.ApplyT(func(v GetDelegatedAdministratorsResult) []GetDelegatedAdministratorsDelegatedAdministrator {
 		return v.DelegatedAdministrators

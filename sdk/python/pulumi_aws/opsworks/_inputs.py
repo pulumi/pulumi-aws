@@ -94,6 +94,14 @@ class ApplicationAppSourceArgs:
                  ssh_key: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The type of source to use. For example, "archive".
+        :param pulumi.Input[str] password: Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        :param pulumi.Input[str] revision: For sources that are version-aware, the revision to use.
+        :param pulumi.Input[str] ssh_key: SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        :param pulumi.Input[str] url: The URL where the app resource can be found.
+        :param pulumi.Input[str] username: Username to use when authenticating to the source.
+        """
         pulumi.set(__self__, "type", type)
         if password is not None:
             pulumi.set(__self__, "password", password)
@@ -109,6 +117,9 @@ class ApplicationAppSourceArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The type of source to use. For example, "archive".
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -118,6 +129,9 @@ class ApplicationAppSourceArgs:
     @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -127,6 +141,9 @@ class ApplicationAppSourceArgs:
     @property
     @pulumi.getter
     def revision(self) -> Optional[pulumi.Input[str]]:
+        """
+        For sources that are version-aware, the revision to use.
+        """
         return pulumi.get(self, "revision")
 
     @revision.setter
@@ -136,6 +153,9 @@ class ApplicationAppSourceArgs:
     @property
     @pulumi.getter(name="sshKey")
     def ssh_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        """
         return pulumi.get(self, "ssh_key")
 
     @ssh_key.setter
@@ -145,6 +165,9 @@ class ApplicationAppSourceArgs:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL where the app resource can be found.
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -154,6 +177,9 @@ class ApplicationAppSourceArgs:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username to use when authenticating to the source.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -167,6 +193,11 @@ class ApplicationEnvironmentArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  secure: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] key: Variable name.
+        :param pulumi.Input[str] value: Variable value.
+        :param pulumi.Input[bool] secure: Set visibility of the variable value to `true` or `false`.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if secure is not None:
@@ -175,6 +206,9 @@ class ApplicationEnvironmentArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Variable name.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -184,6 +218,9 @@ class ApplicationEnvironmentArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Variable value.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -193,6 +230,9 @@ class ApplicationEnvironmentArgs:
     @property
     @pulumi.getter
     def secure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set visibility of the variable value to `true` or `false`.
+        """
         return pulumi.get(self, "secure")
 
     @secure.setter
@@ -206,6 +246,11 @@ class ApplicationSslConfigurationArgs:
                  certificate: pulumi.Input[str],
                  private_key: pulumi.Input[str],
                  chain: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] certificate: The contents of the certificate's domain.crt file.
+        :param pulumi.Input[str] private_key: The private key; the contents of the certificate's domain.key file.
+        :param pulumi.Input[str] chain: Can be used to specify an intermediate certificate authority key or client authentication.
+        """
         pulumi.set(__self__, "certificate", certificate)
         pulumi.set(__self__, "private_key", private_key)
         if chain is not None:
@@ -214,6 +259,9 @@ class ApplicationSslConfigurationArgs:
     @property
     @pulumi.getter
     def certificate(self) -> pulumi.Input[str]:
+        """
+        The contents of the certificate's domain.crt file.
+        """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
@@ -223,6 +271,9 @@ class ApplicationSslConfigurationArgs:
     @property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Input[str]:
+        """
+        The private key; the contents of the certificate's domain.key file.
+        """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
@@ -232,6 +283,9 @@ class ApplicationSslConfigurationArgs:
     @property
     @pulumi.getter
     def chain(self) -> Optional[pulumi.Input[str]]:
+        """
+        Can be used to specify an intermediate certificate authority key or client authentication.
+        """
         return pulumi.get(self, "chain")
 
     @chain.setter
@@ -244,6 +298,9 @@ class CustomLayerCloudwatchConfigurationArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['CustomLayerCloudwatchConfigurationLogStreamArgs']]] log_streams: A block the specifies how an opsworks logs look like. See Log Streams.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if log_streams is not None:
@@ -261,6 +318,9 @@ class CustomLayerCloudwatchConfigurationArgs:
     @property
     @pulumi.getter(name="logStreams")
     def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomLayerCloudwatchConfigurationLogStreamArgs']]]]:
+        """
+        A block the specifies how an opsworks logs look like. See Log Streams.
+        """
         return pulumi.get(self, "log_streams")
 
     @log_streams.setter
@@ -282,6 +342,19 @@ class CustomLayerCloudwatchConfigurationLogStreamArgs:
                  initial_position: Optional[pulumi.Input[str]] = None,
                  multiline_start_pattern: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] file: Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
+        :param pulumi.Input[str] log_group_name: Specifies the destination log group. A log group is created automatically if it doesn't already exist.
+        :param pulumi.Input[int] batch_count: Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
+        :param pulumi.Input[int] batch_size: Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
+        :param pulumi.Input[int] buffer_duration: Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
+        :param pulumi.Input[str] datetime_format: Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
+        :param pulumi.Input[str] encoding: Specifies the encoding of the log file so that the file can be read correctly. The default is `utf_8`.
+        :param pulumi.Input[str] file_fingerprint_lines: Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
+        :param pulumi.Input[str] initial_position: Specifies where to start to read data (`start_of_file` or `end_of_file`). The default is `start_of_file`.
+        :param pulumi.Input[str] multiline_start_pattern: Specifies the pattern for identifying the start of a log message.
+        :param pulumi.Input[str] time_zone: Specifies the time zone of log event time stamps.
+        """
         pulumi.set(__self__, "file", file)
         pulumi.set(__self__, "log_group_name", log_group_name)
         if batch_count is not None:
@@ -306,6 +379,9 @@ class CustomLayerCloudwatchConfigurationLogStreamArgs:
     @property
     @pulumi.getter
     def file(self) -> pulumi.Input[str]:
+        """
+        Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
+        """
         return pulumi.get(self, "file")
 
     @file.setter
@@ -315,6 +391,9 @@ class CustomLayerCloudwatchConfigurationLogStreamArgs:
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the destination log group. A log group is created automatically if it doesn't already exist.
+        """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
@@ -324,6 +403,9 @@ class CustomLayerCloudwatchConfigurationLogStreamArgs:
     @property
     @pulumi.getter(name="batchCount")
     def batch_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
+        """
         return pulumi.get(self, "batch_count")
 
     @batch_count.setter
@@ -333,6 +415,9 @@ class CustomLayerCloudwatchConfigurationLogStreamArgs:
     @property
     @pulumi.getter(name="batchSize")
     def batch_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
+        """
         return pulumi.get(self, "batch_size")
 
     @batch_size.setter
@@ -342,6 +427,9 @@ class CustomLayerCloudwatchConfigurationLogStreamArgs:
     @property
     @pulumi.getter(name="bufferDuration")
     def buffer_duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
+        """
         return pulumi.get(self, "buffer_duration")
 
     @buffer_duration.setter
@@ -351,6 +439,9 @@ class CustomLayerCloudwatchConfigurationLogStreamArgs:
     @property
     @pulumi.getter(name="datetimeFormat")
     def datetime_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
+        """
         return pulumi.get(self, "datetime_format")
 
     @datetime_format.setter
@@ -360,6 +451,9 @@ class CustomLayerCloudwatchConfigurationLogStreamArgs:
     @property
     @pulumi.getter
     def encoding(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the encoding of the log file so that the file can be read correctly. The default is `utf_8`.
+        """
         return pulumi.get(self, "encoding")
 
     @encoding.setter
@@ -369,6 +463,9 @@ class CustomLayerCloudwatchConfigurationLogStreamArgs:
     @property
     @pulumi.getter(name="fileFingerprintLines")
     def file_fingerprint_lines(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
+        """
         return pulumi.get(self, "file_fingerprint_lines")
 
     @file_fingerprint_lines.setter
@@ -378,6 +475,9 @@ class CustomLayerCloudwatchConfigurationLogStreamArgs:
     @property
     @pulumi.getter(name="initialPosition")
     def initial_position(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies where to start to read data (`start_of_file` or `end_of_file`). The default is `start_of_file`.
+        """
         return pulumi.get(self, "initial_position")
 
     @initial_position.setter
@@ -387,6 +487,9 @@ class CustomLayerCloudwatchConfigurationLogStreamArgs:
     @property
     @pulumi.getter(name="multilineStartPattern")
     def multiline_start_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the pattern for identifying the start of a log message.
+        """
         return pulumi.get(self, "multiline_start_pattern")
 
     @multiline_start_pattern.setter
@@ -396,6 +499,9 @@ class CustomLayerCloudwatchConfigurationLogStreamArgs:
     @property
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the time zone of log event time stamps.
+        """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
@@ -413,6 +519,15 @@ class CustomLayerEbsVolumeArgs:
                  iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[bool] encrypted: Encrypt the volume.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
+        :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         pulumi.set(__self__, "mount_point", mount_point)
         pulumi.set(__self__, "number_of_disks", number_of_disks)
         pulumi.set(__self__, "size", size)
@@ -428,6 +543,9 @@ class CustomLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> pulumi.Input[str]:
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
         return pulumi.get(self, "mount_point")
 
     @mount_point.setter
@@ -437,6 +555,9 @@ class CustomLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="numberOfDisks")
     def number_of_disks(self) -> pulumi.Input[int]:
+        """
+        The number of disks to use for the EBS volume.
+        """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
@@ -446,6 +567,9 @@ class CustomLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
+        """
+        The size of the volume in gigabytes.
+        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -455,6 +579,9 @@ class CustomLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Encrypt the volume.
+        """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
@@ -464,6 +591,9 @@ class CustomLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -473,6 +603,9 @@ class CustomLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="raidLevel")
     def raid_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RAID level to use for the volume.
+        """
         return pulumi.get(self, "raid_level")
 
     @raid_level.setter
@@ -482,6 +615,9 @@ class CustomLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -495,6 +631,11 @@ class CustomLayerLoadBasedAutoScalingArgs:
                  downscaling: Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingDownscalingArgs']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  upscaling: Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingUpscalingArgs']] = None):
+        """
+        :param pulumi.Input['CustomLayerLoadBasedAutoScalingDownscalingArgs'] downscaling: The downscaling settings, as defined below, used for load-based autoscaling
+        :param pulumi.Input[bool] enable: Whether load-based auto scaling is enabled for the layer.
+        :param pulumi.Input['CustomLayerLoadBasedAutoScalingUpscalingArgs'] upscaling: The upscaling settings, as defined below, used for load-based autoscaling
+        """
         if downscaling is not None:
             pulumi.set(__self__, "downscaling", downscaling)
         if enable is not None:
@@ -505,6 +646,9 @@ class CustomLayerLoadBasedAutoScalingArgs:
     @property
     @pulumi.getter
     def downscaling(self) -> Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingDownscalingArgs']]:
+        """
+        The downscaling settings, as defined below, used for load-based autoscaling
+        """
         return pulumi.get(self, "downscaling")
 
     @downscaling.setter
@@ -514,6 +658,9 @@ class CustomLayerLoadBasedAutoScalingArgs:
     @property
     @pulumi.getter
     def enable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether load-based auto scaling is enabled for the layer.
+        """
         return pulumi.get(self, "enable")
 
     @enable.setter
@@ -523,6 +670,9 @@ class CustomLayerLoadBasedAutoScalingArgs:
     @property
     @pulumi.getter
     def upscaling(self) -> Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingUpscalingArgs']]:
+        """
+        The upscaling settings, as defined below, used for load-based autoscaling
+        """
         return pulumi.get(self, "upscaling")
 
     @upscaling.setter
@@ -540,6 +690,15 @@ class CustomLayerLoadBasedAutoScalingDownscalingArgs:
                  load_threshold: Optional[pulumi.Input[float]] = None,
                  memory_threshold: Optional[pulumi.Input[float]] = None,
                  thresholds_wait_time: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alarms: Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+        :param pulumi.Input[float] cpu_threshold: The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+        :param pulumi.Input[int] ignore_metrics_time: The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+        :param pulumi.Input[int] instance_count: The number of instances to add or remove when the load exceeds a threshold.
+        :param pulumi.Input[float] load_threshold: The load threshold. A value of -1 disables the threshold.
+        :param pulumi.Input[float] memory_threshold: The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+        :param pulumi.Input[int] thresholds_wait_time: The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+        """
         if alarms is not None:
             pulumi.set(__self__, "alarms", alarms)
         if cpu_threshold is not None:
@@ -558,6 +717,9 @@ class CustomLayerLoadBasedAutoScalingDownscalingArgs:
     @property
     @pulumi.getter
     def alarms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+        """
         return pulumi.get(self, "alarms")
 
     @alarms.setter
@@ -567,6 +729,9 @@ class CustomLayerLoadBasedAutoScalingDownscalingArgs:
     @property
     @pulumi.getter(name="cpuThreshold")
     def cpu_threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+        """
         return pulumi.get(self, "cpu_threshold")
 
     @cpu_threshold.setter
@@ -576,6 +741,9 @@ class CustomLayerLoadBasedAutoScalingDownscalingArgs:
     @property
     @pulumi.getter(name="ignoreMetricsTime")
     def ignore_metrics_time(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+        """
         return pulumi.get(self, "ignore_metrics_time")
 
     @ignore_metrics_time.setter
@@ -585,6 +753,9 @@ class CustomLayerLoadBasedAutoScalingDownscalingArgs:
     @property
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of instances to add or remove when the load exceeds a threshold.
+        """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
@@ -594,6 +765,9 @@ class CustomLayerLoadBasedAutoScalingDownscalingArgs:
     @property
     @pulumi.getter(name="loadThreshold")
     def load_threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        The load threshold. A value of -1 disables the threshold.
+        """
         return pulumi.get(self, "load_threshold")
 
     @load_threshold.setter
@@ -603,6 +777,9 @@ class CustomLayerLoadBasedAutoScalingDownscalingArgs:
     @property
     @pulumi.getter(name="memoryThreshold")
     def memory_threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+        """
         return pulumi.get(self, "memory_threshold")
 
     @memory_threshold.setter
@@ -612,6 +789,9 @@ class CustomLayerLoadBasedAutoScalingDownscalingArgs:
     @property
     @pulumi.getter(name="thresholdsWaitTime")
     def thresholds_wait_time(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+        """
         return pulumi.get(self, "thresholds_wait_time")
 
     @thresholds_wait_time.setter
@@ -629,6 +809,15 @@ class CustomLayerLoadBasedAutoScalingUpscalingArgs:
                  load_threshold: Optional[pulumi.Input[float]] = None,
                  memory_threshold: Optional[pulumi.Input[float]] = None,
                  thresholds_wait_time: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alarms: Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+        :param pulumi.Input[float] cpu_threshold: The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+        :param pulumi.Input[int] ignore_metrics_time: The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+        :param pulumi.Input[int] instance_count: The number of instances to add or remove when the load exceeds a threshold.
+        :param pulumi.Input[float] load_threshold: The load threshold. A value of -1 disables the threshold.
+        :param pulumi.Input[float] memory_threshold: The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+        :param pulumi.Input[int] thresholds_wait_time: The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+        """
         if alarms is not None:
             pulumi.set(__self__, "alarms", alarms)
         if cpu_threshold is not None:
@@ -647,6 +836,9 @@ class CustomLayerLoadBasedAutoScalingUpscalingArgs:
     @property
     @pulumi.getter
     def alarms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+        """
         return pulumi.get(self, "alarms")
 
     @alarms.setter
@@ -656,6 +848,9 @@ class CustomLayerLoadBasedAutoScalingUpscalingArgs:
     @property
     @pulumi.getter(name="cpuThreshold")
     def cpu_threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+        """
         return pulumi.get(self, "cpu_threshold")
 
     @cpu_threshold.setter
@@ -665,6 +860,9 @@ class CustomLayerLoadBasedAutoScalingUpscalingArgs:
     @property
     @pulumi.getter(name="ignoreMetricsTime")
     def ignore_metrics_time(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+        """
         return pulumi.get(self, "ignore_metrics_time")
 
     @ignore_metrics_time.setter
@@ -674,6 +872,9 @@ class CustomLayerLoadBasedAutoScalingUpscalingArgs:
     @property
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of instances to add or remove when the load exceeds a threshold.
+        """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
@@ -683,6 +884,9 @@ class CustomLayerLoadBasedAutoScalingUpscalingArgs:
     @property
     @pulumi.getter(name="loadThreshold")
     def load_threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        The load threshold. A value of -1 disables the threshold.
+        """
         return pulumi.get(self, "load_threshold")
 
     @load_threshold.setter
@@ -692,6 +896,9 @@ class CustomLayerLoadBasedAutoScalingUpscalingArgs:
     @property
     @pulumi.getter(name="memoryThreshold")
     def memory_threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+        """
         return pulumi.get(self, "memory_threshold")
 
     @memory_threshold.setter
@@ -701,6 +908,9 @@ class CustomLayerLoadBasedAutoScalingUpscalingArgs:
     @property
     @pulumi.getter(name="thresholdsWaitTime")
     def thresholds_wait_time(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+        """
         return pulumi.get(self, "thresholds_wait_time")
 
     @thresholds_wait_time.setter
@@ -882,6 +1092,14 @@ class EcsClusterLayerEbsVolumeArgs:
                  iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
+        :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         pulumi.set(__self__, "mount_point", mount_point)
         pulumi.set(__self__, "number_of_disks", number_of_disks)
         pulumi.set(__self__, "size", size)
@@ -897,6 +1115,9 @@ class EcsClusterLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> pulumi.Input[str]:
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
         return pulumi.get(self, "mount_point")
 
     @mount_point.setter
@@ -906,6 +1127,9 @@ class EcsClusterLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="numberOfDisks")
     def number_of_disks(self) -> pulumi.Input[int]:
+        """
+        The number of disks to use for the EBS volume.
+        """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
@@ -915,6 +1139,9 @@ class EcsClusterLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
+        """
+        The size of the volume in gigabytes.
+        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -933,6 +1160,9 @@ class EcsClusterLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -942,6 +1172,9 @@ class EcsClusterLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="raidLevel")
     def raid_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RAID level to use for the volume.
+        """
         return pulumi.get(self, "raid_level")
 
     @raid_level.setter
@@ -951,6 +1184,9 @@ class EcsClusterLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1351,6 +1587,14 @@ class GangliaLayerEbsVolumeArgs:
                  iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
+        :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         pulumi.set(__self__, "mount_point", mount_point)
         pulumi.set(__self__, "number_of_disks", number_of_disks)
         pulumi.set(__self__, "size", size)
@@ -1366,6 +1610,9 @@ class GangliaLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> pulumi.Input[str]:
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
         return pulumi.get(self, "mount_point")
 
     @mount_point.setter
@@ -1375,6 +1622,9 @@ class GangliaLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="numberOfDisks")
     def number_of_disks(self) -> pulumi.Input[int]:
+        """
+        The number of disks to use for the EBS volume.
+        """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
@@ -1384,6 +1634,9 @@ class GangliaLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
+        """
+        The size of the volume in gigabytes.
+        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -1402,6 +1655,9 @@ class GangliaLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -1411,6 +1667,9 @@ class GangliaLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="raidLevel")
     def raid_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RAID level to use for the volume.
+        """
         return pulumi.get(self, "raid_level")
 
     @raid_level.setter
@@ -1420,6 +1679,9 @@ class GangliaLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1820,6 +2082,14 @@ class HaproxyLayerEbsVolumeArgs:
                  iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
+        :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         pulumi.set(__self__, "mount_point", mount_point)
         pulumi.set(__self__, "number_of_disks", number_of_disks)
         pulumi.set(__self__, "size", size)
@@ -1835,6 +2105,9 @@ class HaproxyLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> pulumi.Input[str]:
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
         return pulumi.get(self, "mount_point")
 
     @mount_point.setter
@@ -1844,6 +2117,9 @@ class HaproxyLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="numberOfDisks")
     def number_of_disks(self) -> pulumi.Input[int]:
+        """
+        The number of disks to use for the EBS volume.
+        """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
@@ -1853,6 +2129,9 @@ class HaproxyLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
+        """
+        The size of the volume in gigabytes.
+        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -1871,6 +2150,9 @@ class HaproxyLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -1880,6 +2162,9 @@ class HaproxyLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="raidLevel")
     def raid_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RAID level to use for the volume.
+        """
         return pulumi.get(self, "raid_level")
 
     @raid_level.setter
@@ -1889,6 +2174,9 @@ class HaproxyLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -2445,6 +2733,14 @@ class JavaAppLayerEbsVolumeArgs:
                  iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
+        :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         pulumi.set(__self__, "mount_point", mount_point)
         pulumi.set(__self__, "number_of_disks", number_of_disks)
         pulumi.set(__self__, "size", size)
@@ -2460,6 +2756,9 @@ class JavaAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> pulumi.Input[str]:
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
         return pulumi.get(self, "mount_point")
 
     @mount_point.setter
@@ -2469,6 +2768,9 @@ class JavaAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="numberOfDisks")
     def number_of_disks(self) -> pulumi.Input[int]:
+        """
+        The number of disks to use for the EBS volume.
+        """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
@@ -2478,6 +2780,9 @@ class JavaAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
+        """
+        The size of the volume in gigabytes.
+        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -2496,6 +2801,9 @@ class JavaAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -2505,6 +2813,9 @@ class JavaAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="raidLevel")
     def raid_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RAID level to use for the volume.
+        """
         return pulumi.get(self, "raid_level")
 
     @raid_level.setter
@@ -2514,6 +2825,9 @@ class JavaAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -2914,6 +3228,14 @@ class MemcachedLayerEbsVolumeArgs:
                  iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
+        :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         pulumi.set(__self__, "mount_point", mount_point)
         pulumi.set(__self__, "number_of_disks", number_of_disks)
         pulumi.set(__self__, "size", size)
@@ -2929,6 +3251,9 @@ class MemcachedLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> pulumi.Input[str]:
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
         return pulumi.get(self, "mount_point")
 
     @mount_point.setter
@@ -2938,6 +3263,9 @@ class MemcachedLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="numberOfDisks")
     def number_of_disks(self) -> pulumi.Input[int]:
+        """
+        The number of disks to use for the EBS volume.
+        """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
@@ -2947,6 +3275,9 @@ class MemcachedLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
+        """
+        The size of the volume in gigabytes.
+        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -2965,6 +3296,9 @@ class MemcachedLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -2974,6 +3308,9 @@ class MemcachedLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="raidLevel")
     def raid_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RAID level to use for the volume.
+        """
         return pulumi.get(self, "raid_level")
 
     @raid_level.setter
@@ -2983,6 +3320,9 @@ class MemcachedLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -3383,6 +3723,14 @@ class MysqlLayerEbsVolumeArgs:
                  iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
+        :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         pulumi.set(__self__, "mount_point", mount_point)
         pulumi.set(__self__, "number_of_disks", number_of_disks)
         pulumi.set(__self__, "size", size)
@@ -3398,6 +3746,9 @@ class MysqlLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> pulumi.Input[str]:
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
         return pulumi.get(self, "mount_point")
 
     @mount_point.setter
@@ -3407,6 +3758,9 @@ class MysqlLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="numberOfDisks")
     def number_of_disks(self) -> pulumi.Input[int]:
+        """
+        The number of disks to use for the EBS volume.
+        """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
@@ -3416,6 +3770,9 @@ class MysqlLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
+        """
+        The size of the volume in gigabytes.
+        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -3434,6 +3791,9 @@ class MysqlLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -3443,6 +3803,9 @@ class MysqlLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="raidLevel")
     def raid_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RAID level to use for the volume.
+        """
         return pulumi.get(self, "raid_level")
 
     @raid_level.setter
@@ -3452,6 +3815,9 @@ class MysqlLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -3852,6 +4218,14 @@ class NodejsAppLayerEbsVolumeArgs:
                  iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
+        :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         pulumi.set(__self__, "mount_point", mount_point)
         pulumi.set(__self__, "number_of_disks", number_of_disks)
         pulumi.set(__self__, "size", size)
@@ -3867,6 +4241,9 @@ class NodejsAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> pulumi.Input[str]:
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
         return pulumi.get(self, "mount_point")
 
     @mount_point.setter
@@ -3876,6 +4253,9 @@ class NodejsAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="numberOfDisks")
     def number_of_disks(self) -> pulumi.Input[int]:
+        """
+        The number of disks to use for the EBS volume.
+        """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
@@ -3885,6 +4265,9 @@ class NodejsAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
+        """
+        The size of the volume in gigabytes.
+        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -3903,6 +4286,9 @@ class NodejsAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -3912,6 +4298,9 @@ class NodejsAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="raidLevel")
     def raid_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RAID level to use for the volume.
+        """
         return pulumi.get(self, "raid_level")
 
     @raid_level.setter
@@ -3921,6 +4310,9 @@ class NodejsAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -4321,6 +4713,14 @@ class PhpAppLayerEbsVolumeArgs:
                  iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
+        :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         pulumi.set(__self__, "mount_point", mount_point)
         pulumi.set(__self__, "number_of_disks", number_of_disks)
         pulumi.set(__self__, "size", size)
@@ -4336,6 +4736,9 @@ class PhpAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> pulumi.Input[str]:
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
         return pulumi.get(self, "mount_point")
 
     @mount_point.setter
@@ -4345,6 +4748,9 @@ class PhpAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="numberOfDisks")
     def number_of_disks(self) -> pulumi.Input[int]:
+        """
+        The number of disks to use for the EBS volume.
+        """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
@@ -4354,6 +4760,9 @@ class PhpAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
+        """
+        The size of the volume in gigabytes.
+        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -4372,6 +4781,9 @@ class PhpAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -4381,6 +4793,9 @@ class PhpAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="raidLevel")
     def raid_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RAID level to use for the volume.
+        """
         return pulumi.get(self, "raid_level")
 
     @raid_level.setter
@@ -4390,6 +4805,9 @@ class PhpAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -4790,6 +5208,14 @@ class RailsAppLayerEbsVolumeArgs:
                  iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
+        :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         pulumi.set(__self__, "mount_point", mount_point)
         pulumi.set(__self__, "number_of_disks", number_of_disks)
         pulumi.set(__self__, "size", size)
@@ -4805,6 +5231,9 @@ class RailsAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> pulumi.Input[str]:
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
         return pulumi.get(self, "mount_point")
 
     @mount_point.setter
@@ -4814,6 +5243,9 @@ class RailsAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="numberOfDisks")
     def number_of_disks(self) -> pulumi.Input[int]:
+        """
+        The number of disks to use for the EBS volume.
+        """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
@@ -4823,6 +5255,9 @@ class RailsAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
+        """
+        The size of the volume in gigabytes.
+        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -4841,6 +5276,9 @@ class RailsAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -4850,6 +5288,9 @@ class RailsAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="raidLevel")
     def raid_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RAID level to use for the volume.
+        """
         return pulumi.get(self, "raid_level")
 
     @raid_level.setter
@@ -4859,6 +5300,9 @@ class RailsAppLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -5094,6 +5538,14 @@ class StackCustomCookbooksSourceArgs:
                  revision: Optional[pulumi.Input[str]] = None,
                  ssh_key: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The type of source to use. For example, "archive".
+        :param pulumi.Input[str] url: The URL where the cookbooks resource can be found.
+        :param pulumi.Input[str] password: Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+        :param pulumi.Input[str] revision: For sources that are version-aware, the revision to use.
+        :param pulumi.Input[str] ssh_key: SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        :param pulumi.Input[str] username: Username to use when authenticating to the source.
+        """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "url", url)
         if password is not None:
@@ -5108,6 +5560,9 @@ class StackCustomCookbooksSourceArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The type of source to use. For example, "archive".
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -5117,6 +5572,9 @@ class StackCustomCookbooksSourceArgs:
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
+        """
+        The URL where the cookbooks resource can be found.
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -5126,6 +5584,9 @@ class StackCustomCookbooksSourceArgs:
     @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -5135,6 +5596,9 @@ class StackCustomCookbooksSourceArgs:
     @property
     @pulumi.getter
     def revision(self) -> Optional[pulumi.Input[str]]:
+        """
+        For sources that are version-aware, the revision to use.
+        """
         return pulumi.get(self, "revision")
 
     @revision.setter
@@ -5144,6 +5608,9 @@ class StackCustomCookbooksSourceArgs:
     @property
     @pulumi.getter(name="sshKey")
     def ssh_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        """
         return pulumi.get(self, "ssh_key")
 
     @ssh_key.setter
@@ -5153,6 +5620,9 @@ class StackCustomCookbooksSourceArgs:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username to use when authenticating to the source.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -5334,6 +5804,14 @@ class StaticWebLayerEbsVolumeArgs:
                  iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
+        :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         pulumi.set(__self__, "mount_point", mount_point)
         pulumi.set(__self__, "number_of_disks", number_of_disks)
         pulumi.set(__self__, "size", size)
@@ -5349,6 +5827,9 @@ class StaticWebLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> pulumi.Input[str]:
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
         return pulumi.get(self, "mount_point")
 
     @mount_point.setter
@@ -5358,6 +5839,9 @@ class StaticWebLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="numberOfDisks")
     def number_of_disks(self) -> pulumi.Input[int]:
+        """
+        The number of disks to use for the EBS volume.
+        """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
@@ -5367,6 +5851,9 @@ class StaticWebLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
+        """
+        The size of the volume in gigabytes.
+        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -5385,6 +5872,9 @@ class StaticWebLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -5394,6 +5884,9 @@ class StaticWebLayerEbsVolumeArgs:
     @property
     @pulumi.getter(name="raidLevel")
     def raid_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RAID level to use for the volume.
+        """
         return pulumi.get(self, "raid_level")
 
     @raid_level.setter
@@ -5403,6 +5896,9 @@ class StaticWebLayerEbsVolumeArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter

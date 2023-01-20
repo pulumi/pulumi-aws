@@ -60,16 +60,25 @@ class GetQueueResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the Queue.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the Queue.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="hoursOfOperationId")
     def hours_of_operation_id(self) -> str:
+        """
+        Specifies the identifier of the Hours of Operation.
+        """
         return pulumi.get(self, "hours_of_operation_id")
 
     @property
@@ -88,6 +97,9 @@ class GetQueueResult:
     @property
     @pulumi.getter(name="maxContacts")
     def max_contacts(self) -> int:
+        """
+        Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
+        """
         return pulumi.get(self, "max_contacts")
 
     @property
@@ -98,21 +110,33 @@ class GetQueueResult:
     @property
     @pulumi.getter(name="outboundCallerConfigs")
     def outbound_caller_configs(self) -> Sequence['outputs.GetQueueOutboundCallerConfigResult']:
+        """
+        A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
+        """
         return pulumi.get(self, "outbound_caller_configs")
 
     @property
     @pulumi.getter(name="queueId")
     def queue_id(self) -> str:
+        """
+        Identifier for the Queue.
+        """
         return pulumi.get(self, "queue_id")
 
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        Description of the Queue. Values are `ENABLED` or `DISABLED`.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Map of tags assigned to the Queue.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -141,7 +165,35 @@ def get_queue(instance_id: Optional[str] = None,
               tags: Optional[Mapping[str, str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about a specific Amazon Connect Queue.
+
+    ## Example Usage
+
+    By `name`
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.connect.get_queue(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        name="Example")
+    ```
+
+    By `queue_id`
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.connect.get_queue(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        queue_id="cccccccc-bbbb-cccc-dddd-111111111111")
+    ```
+
+
+    :param str instance_id: Reference to the hosting Amazon Connect Instance
+    :param str name: Returns information on a specific Queue by name
+    :param str queue_id: Returns information on a specific Queue by Queue id
+    :param Mapping[str, str] tags: Map of tags assigned to the Queue.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
@@ -172,6 +224,34 @@ def get_queue_output(instance_id: Optional[pulumi.Input[str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about a specific Amazon Connect Queue.
+
+    ## Example Usage
+
+    By `name`
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.connect.get_queue(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        name="Example")
+    ```
+
+    By `queue_id`
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.connect.get_queue(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        queue_id="cccccccc-bbbb-cccc-dddd-111111111111")
+    ```
+
+
+    :param str instance_id: Reference to the hosting Amazon Connect Instance
+    :param str name: Returns information on a specific Queue by name
+    :param str queue_id: Returns information on a specific Queue by Queue id
+    :param Mapping[str, str] tags: Map of tags assigned to the Queue.
     """
     ...

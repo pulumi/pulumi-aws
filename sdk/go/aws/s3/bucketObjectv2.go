@@ -11,35 +11,262 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an S3 object resource.
+//
+// ## Example Usage
+// ### Encrypting with KMS Key
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplekms, err := kms.NewKey(ctx, "examplekms", &kms.KeyArgs{
+//				Description:          pulumi.String("KMS key 1"),
+//				DeletionWindowInDays: pulumi.Int(7),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//				Bucket: examplebucket.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+//				Key:      pulumi.String("someobject"),
+//				Bucket:   examplebucket.ID(),
+//				Source:   pulumi.NewFileAsset("index.html"),
+//				KmsKeyId: examplekms.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Server Side Encryption with S3 Default Master Key
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//				Bucket: examplebucket.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+//				Key:                  pulumi.String("someobject"),
+//				Bucket:               examplebucket.ID(),
+//				Source:               pulumi.NewFileAsset("index.html"),
+//				ServerSideEncryption: pulumi.String("aws:kms"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Server Side Encryption with AWS-Managed Key
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//				Bucket: examplebucket.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+//				Key:                  pulumi.String("someobject"),
+//				Bucket:               examplebucket.ID(),
+//				Source:               pulumi.NewFileAsset("index.html"),
+//				ServerSideEncryption: pulumi.String("AES256"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### S3 Object Lock
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", &s3.BucketV2Args{
+//				ObjectLockEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//				Bucket: examplebucket.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "exampleBucketVersioningV2", &s3.BucketVersioningV2Args{
+//				Bucket: examplebucket.ID(),
+//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+//					Status: pulumi.String("Enabled"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "examplebucketObject", &s3.BucketObjectv2Args{
+//				Key:                       pulumi.String("someobject"),
+//				Bucket:                    examplebucket.ID(),
+//				Source:                    pulumi.NewFileAsset("important.txt"),
+//				ObjectLockLegalHoldStatus: pulumi.String("ON"),
+//				ObjectLockMode:            pulumi.String("GOVERNANCE"),
+//				ObjectLockRetainUntilDate: pulumi.String("2021-12-31T23:59:60Z"),
+//				ForceDestroy:              pulumi.Bool(true),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleBucketVersioningV2,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 object some-bucket-name/some/key.txt
+//
+// ```
+//
+//	Additionally, s3 url syntax can be used, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 object s3://some-bucket-name/some/key.txt
+//
+// ```
 type BucketObjectv2 struct {
 	pulumi.CustomResourceState
 
-	Acl                       pulumi.StringPtrOutput      `pulumi:"acl"`
-	Bucket                    pulumi.StringOutput         `pulumi:"bucket"`
-	BucketKeyEnabled          pulumi.BoolOutput           `pulumi:"bucketKeyEnabled"`
-	CacheControl              pulumi.StringPtrOutput      `pulumi:"cacheControl"`
-	Content                   pulumi.StringPtrOutput      `pulumi:"content"`
-	ContentBase64             pulumi.StringPtrOutput      `pulumi:"contentBase64"`
-	ContentDisposition        pulumi.StringPtrOutput      `pulumi:"contentDisposition"`
-	ContentEncoding           pulumi.StringPtrOutput      `pulumi:"contentEncoding"`
-	ContentLanguage           pulumi.StringPtrOutput      `pulumi:"contentLanguage"`
-	ContentType               pulumi.StringOutput         `pulumi:"contentType"`
-	Etag                      pulumi.StringOutput         `pulumi:"etag"`
-	ForceDestroy              pulumi.BoolPtrOutput        `pulumi:"forceDestroy"`
-	Key                       pulumi.StringOutput         `pulumi:"key"`
-	KmsKeyId                  pulumi.StringOutput         `pulumi:"kmsKeyId"`
-	Metadata                  pulumi.StringMapOutput      `pulumi:"metadata"`
-	ObjectLockLegalHoldStatus pulumi.StringPtrOutput      `pulumi:"objectLockLegalHoldStatus"`
-	ObjectLockMode            pulumi.StringPtrOutput      `pulumi:"objectLockMode"`
-	ObjectLockRetainUntilDate pulumi.StringPtrOutput      `pulumi:"objectLockRetainUntilDate"`
-	ServerSideEncryption      pulumi.StringOutput         `pulumi:"serverSideEncryption"`
-	Source                    pulumi.AssetOrArchiveOutput `pulumi:"source"`
-	SourceHash                pulumi.StringPtrOutput      `pulumi:"sourceHash"`
-	StorageClass              pulumi.StringOutput         `pulumi:"storageClass"`
-	Tags                      pulumi.StringMapOutput      `pulumi:"tags"`
-	TagsAll                   pulumi.StringMapOutput      `pulumi:"tagsAll"`
-	VersionId                 pulumi.StringOutput         `pulumi:"versionId"`
-	WebsiteRedirect           pulumi.StringPtrOutput      `pulumi:"websiteRedirect"`
+	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+	Acl pulumi.StringPtrOutput `pulumi:"acl"`
+	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+	Bucket pulumi.StringOutput `pulumi:"bucket"`
+	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+	BucketKeyEnabled pulumi.BoolOutput `pulumi:"bucketKeyEnabled"`
+	// Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+	CacheControl pulumi.StringPtrOutput `pulumi:"cacheControl"`
+	// Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
+	Content pulumi.StringPtrOutput `pulumi:"content"`
+	// Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
+	ContentBase64 pulumi.StringPtrOutput `pulumi:"contentBase64"`
+	// Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+	ContentDisposition pulumi.StringPtrOutput `pulumi:"contentDisposition"`
+	// Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+	ContentEncoding pulumi.StringPtrOutput `pulumi:"contentEncoding"`
+	// Language the content is in e.g., en-US or en-GB.
+	ContentLanguage pulumi.StringPtrOutput `pulumi:"contentLanguage"`
+	// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
+	ContentType pulumi.StringOutput `pulumi:"contentType"`
+	// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `sourceHash` instead).
+	Etag pulumi.StringOutput `pulumi:"etag"`
+	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
+	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
+	// Name of the object once it is in the bucket.
+	Key pulumi.StringOutput `pulumi:"key"`
+	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
+	// [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+	ObjectLockLegalHoldStatus pulumi.StringPtrOutput `pulumi:"objectLockLegalHoldStatus"`
+	// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+	ObjectLockMode pulumi.StringPtrOutput `pulumi:"objectLockMode"`
+	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+	ObjectLockRetainUntilDate pulumi.StringPtrOutput `pulumi:"objectLockRetainUntilDate"`
+	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+	ServerSideEncryption pulumi.StringOutput `pulumi:"serverSideEncryption"`
+	// Path to a file that will be read and uploaded as raw bytes for the object content.
+	Source pulumi.AssetOrArchiveOutput `pulumi:"source"`
+	// Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
+	SourceHash pulumi.StringPtrOutput `pulumi:"sourceHash"`
+	// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
+	StorageClass pulumi.StringOutput `pulumi:"storageClass"`
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Unique version ID value for the object, if bucket versioning is enabled.
+	VersionId pulumi.StringOutput `pulumi:"versionId"`
+	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+	WebsiteRedirect pulumi.StringPtrOutput `pulumi:"websiteRedirect"`
 }
 
 // NewBucketObjectv2 registers a new resource with the given unique name, arguments, and options.
@@ -80,61 +307,113 @@ func GetBucketObjectv2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketObjectv2 resources.
 type bucketObjectv2State struct {
-	Acl                       *string               `pulumi:"acl"`
-	Bucket                    interface{}           `pulumi:"bucket"`
-	BucketKeyEnabled          *bool                 `pulumi:"bucketKeyEnabled"`
-	CacheControl              *string               `pulumi:"cacheControl"`
-	Content                   *string               `pulumi:"content"`
-	ContentBase64             *string               `pulumi:"contentBase64"`
-	ContentDisposition        *string               `pulumi:"contentDisposition"`
-	ContentEncoding           *string               `pulumi:"contentEncoding"`
-	ContentLanguage           *string               `pulumi:"contentLanguage"`
-	ContentType               *string               `pulumi:"contentType"`
-	Etag                      *string               `pulumi:"etag"`
-	ForceDestroy              *bool                 `pulumi:"forceDestroy"`
-	Key                       *string               `pulumi:"key"`
-	KmsKeyId                  *string               `pulumi:"kmsKeyId"`
-	Metadata                  map[string]string     `pulumi:"metadata"`
-	ObjectLockLegalHoldStatus *string               `pulumi:"objectLockLegalHoldStatus"`
-	ObjectLockMode            *string               `pulumi:"objectLockMode"`
-	ObjectLockRetainUntilDate *string               `pulumi:"objectLockRetainUntilDate"`
-	ServerSideEncryption      *string               `pulumi:"serverSideEncryption"`
-	Source                    pulumi.AssetOrArchive `pulumi:"source"`
-	SourceHash                *string               `pulumi:"sourceHash"`
-	StorageClass              *string               `pulumi:"storageClass"`
-	Tags                      map[string]string     `pulumi:"tags"`
-	TagsAll                   map[string]string     `pulumi:"tagsAll"`
-	VersionId                 *string               `pulumi:"versionId"`
-	WebsiteRedirect           *string               `pulumi:"websiteRedirect"`
+	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+	Acl *string `pulumi:"acl"`
+	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+	Bucket interface{} `pulumi:"bucket"`
+	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
+	// Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+	CacheControl *string `pulumi:"cacheControl"`
+	// Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
+	Content *string `pulumi:"content"`
+	// Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
+	ContentBase64 *string `pulumi:"contentBase64"`
+	// Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+	ContentDisposition *string `pulumi:"contentDisposition"`
+	// Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+	ContentEncoding *string `pulumi:"contentEncoding"`
+	// Language the content is in e.g., en-US or en-GB.
+	ContentLanguage *string `pulumi:"contentLanguage"`
+	// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
+	ContentType *string `pulumi:"contentType"`
+	// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `sourceHash` instead).
+	Etag *string `pulumi:"etag"`
+	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
+	// Name of the object once it is in the bucket.
+	Key *string `pulumi:"key"`
+	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	Metadata map[string]string `pulumi:"metadata"`
+	// [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+	ObjectLockLegalHoldStatus *string `pulumi:"objectLockLegalHoldStatus"`
+	// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+	ObjectLockMode *string `pulumi:"objectLockMode"`
+	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+	ObjectLockRetainUntilDate *string `pulumi:"objectLockRetainUntilDate"`
+	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
+	// Path to a file that will be read and uploaded as raw bytes for the object content.
+	Source pulumi.AssetOrArchive `pulumi:"source"`
+	// Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
+	SourceHash *string `pulumi:"sourceHash"`
+	// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
+	StorageClass *string `pulumi:"storageClass"`
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Unique version ID value for the object, if bucket versioning is enabled.
+	VersionId *string `pulumi:"versionId"`
+	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+	WebsiteRedirect *string `pulumi:"websiteRedirect"`
 }
 
 type BucketObjectv2State struct {
-	Acl                       pulumi.StringPtrInput
-	Bucket                    pulumi.Input
-	BucketKeyEnabled          pulumi.BoolPtrInput
-	CacheControl              pulumi.StringPtrInput
-	Content                   pulumi.StringPtrInput
-	ContentBase64             pulumi.StringPtrInput
-	ContentDisposition        pulumi.StringPtrInput
-	ContentEncoding           pulumi.StringPtrInput
-	ContentLanguage           pulumi.StringPtrInput
-	ContentType               pulumi.StringPtrInput
-	Etag                      pulumi.StringPtrInput
-	ForceDestroy              pulumi.BoolPtrInput
-	Key                       pulumi.StringPtrInput
-	KmsKeyId                  pulumi.StringPtrInput
-	Metadata                  pulumi.StringMapInput
+	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+	Acl pulumi.StringPtrInput
+	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+	Bucket pulumi.Input
+	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+	BucketKeyEnabled pulumi.BoolPtrInput
+	// Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+	CacheControl pulumi.StringPtrInput
+	// Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
+	Content pulumi.StringPtrInput
+	// Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
+	ContentBase64 pulumi.StringPtrInput
+	// Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+	ContentDisposition pulumi.StringPtrInput
+	// Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+	ContentEncoding pulumi.StringPtrInput
+	// Language the content is in e.g., en-US or en-GB.
+	ContentLanguage pulumi.StringPtrInput
+	// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
+	ContentType pulumi.StringPtrInput
+	// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `sourceHash` instead).
+	Etag pulumi.StringPtrInput
+	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
+	ForceDestroy pulumi.BoolPtrInput
+	// Name of the object once it is in the bucket.
+	Key pulumi.StringPtrInput
+	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
+	KmsKeyId pulumi.StringPtrInput
+	// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	Metadata pulumi.StringMapInput
+	// [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
 	ObjectLockLegalHoldStatus pulumi.StringPtrInput
-	ObjectLockMode            pulumi.StringPtrInput
+	// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+	ObjectLockMode pulumi.StringPtrInput
+	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrInput
-	ServerSideEncryption      pulumi.StringPtrInput
-	Source                    pulumi.AssetOrArchiveInput
-	SourceHash                pulumi.StringPtrInput
-	StorageClass              pulumi.StringPtrInput
-	Tags                      pulumi.StringMapInput
-	TagsAll                   pulumi.StringMapInput
-	VersionId                 pulumi.StringPtrInput
-	WebsiteRedirect           pulumi.StringPtrInput
+	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+	ServerSideEncryption pulumi.StringPtrInput
+	// Path to a file that will be read and uploaded as raw bytes for the object content.
+	Source pulumi.AssetOrArchiveInput
+	// Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
+	SourceHash pulumi.StringPtrInput
+	// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
+	StorageClass pulumi.StringPtrInput
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// Unique version ID value for the object, if bucket versioning is enabled.
+	VersionId pulumi.StringPtrInput
+	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+	WebsiteRedirect pulumi.StringPtrInput
 }
 
 func (BucketObjectv2State) ElementType() reflect.Type {
@@ -142,58 +421,106 @@ func (BucketObjectv2State) ElementType() reflect.Type {
 }
 
 type bucketObjectv2Args struct {
-	Acl                       *string               `pulumi:"acl"`
-	Bucket                    interface{}           `pulumi:"bucket"`
-	BucketKeyEnabled          *bool                 `pulumi:"bucketKeyEnabled"`
-	CacheControl              *string               `pulumi:"cacheControl"`
-	Content                   *string               `pulumi:"content"`
-	ContentBase64             *string               `pulumi:"contentBase64"`
-	ContentDisposition        *string               `pulumi:"contentDisposition"`
-	ContentEncoding           *string               `pulumi:"contentEncoding"`
-	ContentLanguage           *string               `pulumi:"contentLanguage"`
-	ContentType               *string               `pulumi:"contentType"`
-	Etag                      *string               `pulumi:"etag"`
-	ForceDestroy              *bool                 `pulumi:"forceDestroy"`
-	Key                       *string               `pulumi:"key"`
-	KmsKeyId                  *string               `pulumi:"kmsKeyId"`
-	Metadata                  map[string]string     `pulumi:"metadata"`
-	ObjectLockLegalHoldStatus *string               `pulumi:"objectLockLegalHoldStatus"`
-	ObjectLockMode            *string               `pulumi:"objectLockMode"`
-	ObjectLockRetainUntilDate *string               `pulumi:"objectLockRetainUntilDate"`
-	ServerSideEncryption      *string               `pulumi:"serverSideEncryption"`
-	Source                    pulumi.AssetOrArchive `pulumi:"source"`
-	SourceHash                *string               `pulumi:"sourceHash"`
-	StorageClass              *string               `pulumi:"storageClass"`
-	Tags                      map[string]string     `pulumi:"tags"`
-	WebsiteRedirect           *string               `pulumi:"websiteRedirect"`
+	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+	Acl *string `pulumi:"acl"`
+	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+	Bucket interface{} `pulumi:"bucket"`
+	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
+	// Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+	CacheControl *string `pulumi:"cacheControl"`
+	// Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
+	Content *string `pulumi:"content"`
+	// Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
+	ContentBase64 *string `pulumi:"contentBase64"`
+	// Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+	ContentDisposition *string `pulumi:"contentDisposition"`
+	// Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+	ContentEncoding *string `pulumi:"contentEncoding"`
+	// Language the content is in e.g., en-US or en-GB.
+	ContentLanguage *string `pulumi:"contentLanguage"`
+	// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
+	ContentType *string `pulumi:"contentType"`
+	// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `sourceHash` instead).
+	Etag *string `pulumi:"etag"`
+	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
+	// Name of the object once it is in the bucket.
+	Key *string `pulumi:"key"`
+	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	Metadata map[string]string `pulumi:"metadata"`
+	// [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+	ObjectLockLegalHoldStatus *string `pulumi:"objectLockLegalHoldStatus"`
+	// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+	ObjectLockMode *string `pulumi:"objectLockMode"`
+	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+	ObjectLockRetainUntilDate *string `pulumi:"objectLockRetainUntilDate"`
+	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
+	// Path to a file that will be read and uploaded as raw bytes for the object content.
+	Source pulumi.AssetOrArchive `pulumi:"source"`
+	// Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
+	SourceHash *string `pulumi:"sourceHash"`
+	// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
+	StorageClass *string `pulumi:"storageClass"`
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+	WebsiteRedirect *string `pulumi:"websiteRedirect"`
 }
 
 // The set of arguments for constructing a BucketObjectv2 resource.
 type BucketObjectv2Args struct {
-	Acl                       pulumi.StringPtrInput
-	Bucket                    pulumi.Input
-	BucketKeyEnabled          pulumi.BoolPtrInput
-	CacheControl              pulumi.StringPtrInput
-	Content                   pulumi.StringPtrInput
-	ContentBase64             pulumi.StringPtrInput
-	ContentDisposition        pulumi.StringPtrInput
-	ContentEncoding           pulumi.StringPtrInput
-	ContentLanguage           pulumi.StringPtrInput
-	ContentType               pulumi.StringPtrInput
-	Etag                      pulumi.StringPtrInput
-	ForceDestroy              pulumi.BoolPtrInput
-	Key                       pulumi.StringPtrInput
-	KmsKeyId                  pulumi.StringPtrInput
-	Metadata                  pulumi.StringMapInput
+	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+	Acl pulumi.StringPtrInput
+	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+	Bucket pulumi.Input
+	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+	BucketKeyEnabled pulumi.BoolPtrInput
+	// Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+	CacheControl pulumi.StringPtrInput
+	// Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
+	Content pulumi.StringPtrInput
+	// Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
+	ContentBase64 pulumi.StringPtrInput
+	// Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+	ContentDisposition pulumi.StringPtrInput
+	// Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+	ContentEncoding pulumi.StringPtrInput
+	// Language the content is in e.g., en-US or en-GB.
+	ContentLanguage pulumi.StringPtrInput
+	// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
+	ContentType pulumi.StringPtrInput
+	// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `sourceHash` instead).
+	Etag pulumi.StringPtrInput
+	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
+	ForceDestroy pulumi.BoolPtrInput
+	// Name of the object once it is in the bucket.
+	Key pulumi.StringPtrInput
+	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
+	KmsKeyId pulumi.StringPtrInput
+	// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	Metadata pulumi.StringMapInput
+	// [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
 	ObjectLockLegalHoldStatus pulumi.StringPtrInput
-	ObjectLockMode            pulumi.StringPtrInput
+	// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+	ObjectLockMode pulumi.StringPtrInput
+	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrInput
-	ServerSideEncryption      pulumi.StringPtrInput
-	Source                    pulumi.AssetOrArchiveInput
-	SourceHash                pulumi.StringPtrInput
-	StorageClass              pulumi.StringPtrInput
-	Tags                      pulumi.StringMapInput
-	WebsiteRedirect           pulumi.StringPtrInput
+	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+	ServerSideEncryption pulumi.StringPtrInput
+	// Path to a file that will be read and uploaded as raw bytes for the object content.
+	Source pulumi.AssetOrArchiveInput
+	// Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
+	SourceHash pulumi.StringPtrInput
+	// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
+	StorageClass pulumi.StringPtrInput
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+	WebsiteRedirect pulumi.StringPtrInput
 }
 
 func (BucketObjectv2Args) ElementType() reflect.Type {
@@ -283,106 +610,132 @@ func (o BucketObjectv2Output) ToBucketObjectv2OutputWithContext(ctx context.Cont
 	return o
 }
 
+// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
 func (o BucketObjectv2Output) Acl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.Acl }).(pulumi.StringPtrOutput)
 }
 
+// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
 func (o BucketObjectv2Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 func (o BucketObjectv2Output) BucketKeyEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.BoolOutput { return v.BucketKeyEnabled }).(pulumi.BoolOutput)
 }
 
+// Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
 func (o BucketObjectv2Output) CacheControl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.CacheControl }).(pulumi.StringPtrOutput)
 }
 
+// Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
 func (o BucketObjectv2Output) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.Content }).(pulumi.StringPtrOutput)
 }
 
+// Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
 func (o BucketObjectv2Output) ContentBase64() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.ContentBase64 }).(pulumi.StringPtrOutput)
 }
 
+// Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
 func (o BucketObjectv2Output) ContentDisposition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.ContentDisposition }).(pulumi.StringPtrOutput)
 }
 
+// Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
 func (o BucketObjectv2Output) ContentEncoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.ContentEncoding }).(pulumi.StringPtrOutput)
 }
 
+// Language the content is in e.g., en-US or en-GB.
 func (o BucketObjectv2Output) ContentLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.ContentLanguage }).(pulumi.StringPtrOutput)
 }
 
+// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
 func (o BucketObjectv2Output) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.ContentType }).(pulumi.StringOutput)
 }
 
+// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `sourceHash` instead).
 func (o BucketObjectv2Output) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
+// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 func (o BucketObjectv2Output) ForceDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
 }
 
+// Name of the object once it is in the bucket.
 func (o BucketObjectv2Output) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
+// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
 func (o BucketObjectv2Output) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
+// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 func (o BucketObjectv2Output) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringMapOutput { return v.Metadata }).(pulumi.StringMapOutput)
 }
 
+// [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
 func (o BucketObjectv2Output) ObjectLockLegalHoldStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.ObjectLockLegalHoldStatus }).(pulumi.StringPtrOutput)
 }
 
+// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
 func (o BucketObjectv2Output) ObjectLockMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.ObjectLockMode }).(pulumi.StringPtrOutput)
 }
 
+// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 func (o BucketObjectv2Output) ObjectLockRetainUntilDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.ObjectLockRetainUntilDate }).(pulumi.StringPtrOutput)
 }
 
+// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 func (o BucketObjectv2Output) ServerSideEncryption() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.ServerSideEncryption }).(pulumi.StringOutput)
 }
 
+// Path to a file that will be read and uploaded as raw bytes for the object content.
 func (o BucketObjectv2Output) Source() pulumi.AssetOrArchiveOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.AssetOrArchiveOutput { return v.Source }).(pulumi.AssetOrArchiveOutput)
 }
 
+// Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
 func (o BucketObjectv2Output) SourceHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.SourceHash }).(pulumi.StringPtrOutput)
 }
 
+// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
 func (o BucketObjectv2Output) StorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.StorageClass }).(pulumi.StringOutput)
 }
 
+// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o BucketObjectv2Output) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o BucketObjectv2Output) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// Unique version ID value for the object, if bucket versioning is enabled.
 func (o BucketObjectv2Output) VersionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.VersionId }).(pulumi.StringOutput)
 }
 
+// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 func (o BucketObjectv2Output) WebsiteRedirect() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.WebsiteRedirect }).(pulumi.StringPtrOutput)
 }

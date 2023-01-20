@@ -11,12 +11,87 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an AWS Backup vault policy resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleVault, err := backup.NewVault(ctx, "exampleVault", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = backup.NewVaultPolicy(ctx, "exampleVaultPolicy", &backup.VaultPolicyArgs{
+//				BackupVaultName: exampleVault.Name,
+//				Policy: exampleVault.Arn.ApplyT(func(arn string) (string, error) {
+//					return fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Id": "default",
+//	  "Statement": [
+//	    {
+//	      "Sid": "default",
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "AWS": "*"
+//	      },
+//	      "Action": [
+//			"backup:DescribeBackupVault",
+//			"backup:DeleteBackupVault",
+//			"backup:PutBackupVaultAccessPolicy",
+//			"backup:DeleteBackupVaultAccessPolicy",
+//			"backup:GetBackupVaultAccessPolicy",
+//			"backup:StartBackupJob",
+//			"backup:GetBackupVaultNotifications",
+//			"backup:PutBackupVaultNotifications"
+//	      ],
+//	      "Resource": "%v"
+//	    }
+//	  ]
+//	}
+//
+// `, arn), nil
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Backup vault policy can be imported using the `name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
+//
+// ```
 type VaultPolicy struct {
 	pulumi.CustomResourceState
 
-	BackupVaultArn  pulumi.StringOutput `pulumi:"backupVaultArn"`
+	// The ARN of the vault.
+	BackupVaultArn pulumi.StringOutput `pulumi:"backupVaultArn"`
+	// Name of the backup vault to add policy for.
 	BackupVaultName pulumi.StringOutput `pulumi:"backupVaultName"`
-	Policy          pulumi.StringOutput `pulumi:"policy"`
+	// The backup vault access policy document in JSON format.
+	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
 // NewVaultPolicy registers a new resource with the given unique name, arguments, and options.
@@ -54,15 +129,21 @@ func GetVaultPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VaultPolicy resources.
 type vaultPolicyState struct {
-	BackupVaultArn  *string `pulumi:"backupVaultArn"`
+	// The ARN of the vault.
+	BackupVaultArn *string `pulumi:"backupVaultArn"`
+	// Name of the backup vault to add policy for.
 	BackupVaultName *string `pulumi:"backupVaultName"`
-	Policy          *string `pulumi:"policy"`
+	// The backup vault access policy document in JSON format.
+	Policy *string `pulumi:"policy"`
 }
 
 type VaultPolicyState struct {
-	BackupVaultArn  pulumi.StringPtrInput
+	// The ARN of the vault.
+	BackupVaultArn pulumi.StringPtrInput
+	// Name of the backup vault to add policy for.
 	BackupVaultName pulumi.StringPtrInput
-	Policy          pulumi.StringPtrInput
+	// The backup vault access policy document in JSON format.
+	Policy pulumi.StringPtrInput
 }
 
 func (VaultPolicyState) ElementType() reflect.Type {
@@ -70,14 +151,18 @@ func (VaultPolicyState) ElementType() reflect.Type {
 }
 
 type vaultPolicyArgs struct {
+	// Name of the backup vault to add policy for.
 	BackupVaultName string `pulumi:"backupVaultName"`
-	Policy          string `pulumi:"policy"`
+	// The backup vault access policy document in JSON format.
+	Policy string `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a VaultPolicy resource.
 type VaultPolicyArgs struct {
+	// Name of the backup vault to add policy for.
 	BackupVaultName pulumi.StringInput
-	Policy          pulumi.StringInput
+	// The backup vault access policy document in JSON format.
+	Policy pulumi.StringInput
 }
 
 func (VaultPolicyArgs) ElementType() reflect.Type {
@@ -167,14 +252,17 @@ func (o VaultPolicyOutput) ToVaultPolicyOutputWithContext(ctx context.Context) V
 	return o
 }
 
+// The ARN of the vault.
 func (o VaultPolicyOutput) BackupVaultArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultPolicy) pulumi.StringOutput { return v.BackupVaultArn }).(pulumi.StringOutput)
 }
 
+// Name of the backup vault to add policy for.
 func (o VaultPolicyOutput) BackupVaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultPolicy) pulumi.StringOutput { return v.BackupVaultName }).(pulumi.StringOutput)
 }
 
+// The backup vault access policy document in JSON format.
 func (o VaultPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

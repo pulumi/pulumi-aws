@@ -13,9 +13,17 @@ public final class StorageLensConfigurationStorageLensConfigurationAwsOrgArgs ex
 
     public static final StorageLensConfigurationStorageLensConfigurationAwsOrgArgs Empty = new StorageLensConfigurationStorageLensConfigurationAwsOrgArgs();
 
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+     * 
+     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -44,11 +52,23 @@ public final class StorageLensConfigurationStorageLensConfigurationAwsOrgArgs ex
             $ = new StorageLensConfigurationStorageLensConfigurationAwsOrgArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }

@@ -12,18 +12,33 @@ namespace Pulumi.Aws.Connect.Inputs
 
     public sealed class UserHierarchyStructureHierarchyStructureArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A block that defines the details of level five. The level block is documented below.
+        /// </summary>
         [Input("levelFive")]
         public Input<Inputs.UserHierarchyStructureHierarchyStructureLevelFiveArgs>? LevelFive { get; set; }
 
+        /// <summary>
+        /// A block that defines the details of level four. The level block is documented below.
+        /// </summary>
         [Input("levelFour")]
         public Input<Inputs.UserHierarchyStructureHierarchyStructureLevelFourArgs>? LevelFour { get; set; }
 
+        /// <summary>
+        /// A block that defines the details of level one. The level block is documented below.
+        /// </summary>
         [Input("levelOne")]
         public Input<Inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs>? LevelOne { get; set; }
 
+        /// <summary>
+        /// A block that defines the details of level three. The level block is documented below.
+        /// </summary>
         [Input("levelThree")]
         public Input<Inputs.UserHierarchyStructureHierarchyStructureLevelThreeArgs>? LevelThree { get; set; }
 
+        /// <summary>
+        /// A block that defines the details of level two. The level block is documented below.
+        /// </summary>
         [Input("levelTwo")]
         public Input<Inputs.UserHierarchyStructureHierarchyStructureLevelTwoArgs>? LevelTwo { get; set; }
 

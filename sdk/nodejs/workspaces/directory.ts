@@ -7,6 +7,129 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a WorkSpaces directory in AWS WorkSpaces Service.
+ *
+ * > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const workspaces = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sts:AssumeRole"],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["workspaces.amazonaws.com"],
+ *         }],
+ *     }],
+ * });
+ * const workspacesDefault = new aws.iam.Role("workspacesDefault", {assumeRolePolicy: workspaces.then(workspaces => workspaces.json)});
+ * const workspacesDefaultServiceAccess = new aws.iam.RolePolicyAttachment("workspacesDefaultServiceAccess", {
+ *     role: workspacesDefault.name,
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess",
+ * });
+ * const workspacesDefaultSelfServiceAccess = new aws.iam.RolePolicyAttachment("workspacesDefaultSelfServiceAccess", {
+ *     role: workspacesDefault.name,
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess",
+ * });
+ * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
+ * const exampleC = new aws.ec2.Subnet("exampleC", {
+ *     vpcId: exampleVpc.id,
+ *     availabilityZone: "us-east-1c",
+ *     cidrBlock: "10.0.2.0/24",
+ * });
+ * const exampleD = new aws.ec2.Subnet("exampleD", {
+ *     vpcId: exampleVpc.id,
+ *     availabilityZone: "us-east-1d",
+ *     cidrBlock: "10.0.3.0/24",
+ * });
+ * const exampleDirectory = new aws.workspaces.Directory("exampleDirectory", {
+ *     directoryId: exampleDirectoryservice / directoryDirectory.id,
+ *     subnetIds: [
+ *         exampleC.id,
+ *         exampleD.id,
+ *     ],
+ *     tags: {
+ *         Example: "true",
+ *     },
+ *     selfServicePermissions: {
+ *         changeComputeType: true,
+ *         increaseVolumeSize: true,
+ *         rebuildWorkspace: true,
+ *         restartWorkspace: true,
+ *         switchRunningMode: true,
+ *     },
+ *     workspaceAccessProperties: {
+ *         deviceTypeAndroid: "ALLOW",
+ *         deviceTypeChromeos: "ALLOW",
+ *         deviceTypeIos: "ALLOW",
+ *         deviceTypeLinux: "DENY",
+ *         deviceTypeOsx: "ALLOW",
+ *         deviceTypeWeb: "DENY",
+ *         deviceTypeWindows: "DENY",
+ *         deviceTypeZeroclient: "DENY",
+ *     },
+ *     workspaceCreationProperties: {
+ *         customSecurityGroupId: aws_security_group.example.id,
+ *         defaultOu: "OU=AWS,DC=Workgroup,DC=Example,DC=com",
+ *         enableInternetAccess: true,
+ *         enableMaintenanceMode: true,
+ *         userEnabledAsLocalAdministrator: true,
+ *     },
+ * }, {
+ *     dependsOn: [
+ *         workspacesDefaultServiceAccess,
+ *         workspacesDefaultSelfServiceAccess,
+ *     ],
+ * });
+ * const exampleA = new aws.ec2.Subnet("exampleA", {
+ *     vpcId: exampleVpc.id,
+ *     availabilityZone: "us-east-1a",
+ *     cidrBlock: "10.0.0.0/24",
+ * });
+ * const exampleB = new aws.ec2.Subnet("exampleB", {
+ *     vpcId: exampleVpc.id,
+ *     availabilityZone: "us-east-1b",
+ *     cidrBlock: "10.0.1.0/24",
+ * });
+ * const exampleDirectoryservice_directoryDirectory = new aws.directoryservice.Directory("exampleDirectoryservice/directoryDirectory", {
+ *     name: "corp.example.com",
+ *     password: "#S1ncerely",
+ *     size: "Small",
+ *     vpcSettings: {
+ *         vpcId: exampleVpc.id,
+ *         subnetIds: [
+ *             exampleA.id,
+ *             exampleB.id,
+ *         ],
+ *     },
+ * });
+ * ```
+ * ### IP Groups
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleIpGroup = new aws.workspaces.IpGroup("exampleIpGroup", {});
+ * const exampleDirectory = new aws.workspaces.Directory("exampleDirectory", {
+ *     directoryId: aws_directory_service_directory.example.id,
+ *     ipGroupIds: [exampleIpGroup.id],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Workspaces directory can be imported using the directory ID, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:workspaces/directory:Directory main d-4444444444
+ * ```
+ */
 export class Directory extends pulumi.CustomResource {
     /**
      * Get an existing Directory resource's state with the given name, ID, and optional extra
@@ -35,21 +158,69 @@ export class Directory extends pulumi.CustomResource {
         return obj['__pulumiType'] === Directory.__pulumiType;
     }
 
+    /**
+     * The directory alias.
+     */
     public /*out*/ readonly alias!: pulumi.Output<string>;
+    /**
+     * The user name for the service account.
+     */
     public /*out*/ readonly customerUserName!: pulumi.Output<string>;
+    /**
+     * The directory identifier for registration in WorkSpaces service.
+     */
     public readonly directoryId!: pulumi.Output<string>;
+    /**
+     * The name of the directory.
+     */
     public /*out*/ readonly directoryName!: pulumi.Output<string>;
+    /**
+     * The directory type.
+     */
     public /*out*/ readonly directoryType!: pulumi.Output<string>;
+    /**
+     * The IP addresses of the DNS servers for the directory.
+     */
     public /*out*/ readonly dnsIpAddresses!: pulumi.Output<string[]>;
+    /**
+     * The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+     */
     public /*out*/ readonly iamRoleId!: pulumi.Output<string>;
+    /**
+     * The identifiers of the IP access control groups associated with the directory.
+     */
     public readonly ipGroupIds!: pulumi.Output<string[]>;
+    /**
+     * The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+     */
     public /*out*/ readonly registrationCode!: pulumi.Output<string>;
+    /**
+     * Permissions to enable or disable self-service capabilities. Defined below.
+     */
     public readonly selfServicePermissions!: pulumi.Output<outputs.workspaces.DirectorySelfServicePermissions>;
+    /**
+     * The identifiers of the subnets where the directory resides.
+     */
     public readonly subnetIds!: pulumi.Output<string[]>;
+    /**
+     * A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+     */
     public readonly workspaceAccessProperties!: pulumi.Output<outputs.workspaces.DirectoryWorkspaceAccessProperties>;
+    /**
+     * Default properties that are used for creating WorkSpaces. Defined below.
+     */
     public readonly workspaceCreationProperties!: pulumi.Output<outputs.workspaces.DirectoryWorkspaceCreationProperties>;
+    /**
+     * The identifier of the security group that is assigned to new WorkSpaces.
+     */
     public /*out*/ readonly workspaceSecurityGroupId!: pulumi.Output<string>;
 
     /**
@@ -112,21 +283,69 @@ export class Directory extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Directory resources.
  */
 export interface DirectoryState {
+    /**
+     * The directory alias.
+     */
     alias?: pulumi.Input<string>;
+    /**
+     * The user name for the service account.
+     */
     customerUserName?: pulumi.Input<string>;
+    /**
+     * The directory identifier for registration in WorkSpaces service.
+     */
     directoryId?: pulumi.Input<string>;
+    /**
+     * The name of the directory.
+     */
     directoryName?: pulumi.Input<string>;
+    /**
+     * The directory type.
+     */
     directoryType?: pulumi.Input<string>;
+    /**
+     * The IP addresses of the DNS servers for the directory.
+     */
     dnsIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+     */
     iamRoleId?: pulumi.Input<string>;
+    /**
+     * The identifiers of the IP access control groups associated with the directory.
+     */
     ipGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+     */
     registrationCode?: pulumi.Input<string>;
+    /**
+     * Permissions to enable or disable self-service capabilities. Defined below.
+     */
     selfServicePermissions?: pulumi.Input<inputs.workspaces.DirectorySelfServicePermissions>;
+    /**
+     * The identifiers of the subnets where the directory resides.
+     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+     */
     workspaceAccessProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceAccessProperties>;
+    /**
+     * Default properties that are used for creating WorkSpaces. Defined below.
+     */
     workspaceCreationProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceCreationProperties>;
+    /**
+     * The identifier of the security group that is assigned to new WorkSpaces.
+     */
     workspaceSecurityGroupId?: pulumi.Input<string>;
 }
 
@@ -134,11 +353,32 @@ export interface DirectoryState {
  * The set of arguments for constructing a Directory resource.
  */
 export interface DirectoryArgs {
+    /**
+     * The directory identifier for registration in WorkSpaces service.
+     */
     directoryId: pulumi.Input<string>;
+    /**
+     * The identifiers of the IP access control groups associated with the directory.
+     */
     ipGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Permissions to enable or disable self-service capabilities. Defined below.
+     */
     selfServicePermissions?: pulumi.Input<inputs.workspaces.DirectorySelfServicePermissions>;
+    /**
+     * The identifiers of the subnets where the directory resides.
+     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+     */
     workspaceAccessProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceAccessProperties>;
+    /**
+     * Default properties that are used for creating WorkSpaces. Defined below.
+     */
     workspaceCreationProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceCreationProperties>;
 }

@@ -13,7 +13,13 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventConnectionAuthParametersOauthClientParameters
     {
+        /// <summary>
+        /// The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+        /// </summary>
         public readonly string ClientId;
+        /// <summary>
+        /// The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+        /// </summary>
         public readonly string ClientSecret;
 
         [OutputConstructor]

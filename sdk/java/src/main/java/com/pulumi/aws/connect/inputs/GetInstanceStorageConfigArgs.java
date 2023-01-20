@@ -13,23 +13,47 @@ public final class GetInstanceStorageConfigArgs extends com.pulumi.resources.Inv
 
     public static final GetInstanceStorageConfigArgs Empty = new GetInstanceStorageConfigArgs();
 
+    /**
+     * The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+     * 
+     */
     @Import(name="associationId", required=true)
     private Output<String> associationId;
 
+    /**
+     * @return The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+     * 
+     */
     public Output<String> associationId() {
         return this.associationId;
     }
 
+    /**
+     * Reference to the hosting Amazon Connect Instance
+     * 
+     */
     @Import(name="instanceId", required=true)
     private Output<String> instanceId;
 
+    /**
+     * @return Reference to the hosting Amazon Connect Instance
+     * 
+     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
 
+    /**
+     * A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+     * 
+     */
     @Import(name="resourceType", required=true)
     private Output<String> resourceType;
 
+    /**
+     * @return A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+     * 
+     */
     public Output<String> resourceType() {
         return this.resourceType;
     }
@@ -60,29 +84,65 @@ public final class GetInstanceStorageConfigArgs extends com.pulumi.resources.Inv
             $ = new GetInstanceStorageConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param associationId The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder associationId(Output<String> associationId) {
             $.associationId = associationId;
             return this;
         }
 
+        /**
+         * @param associationId The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder associationId(String associationId) {
             return associationId(Output.of(associationId));
         }
 
+        /**
+         * @param instanceId Reference to the hosting Amazon Connect Instance
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceId(Output<String> instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
+        /**
+         * @param instanceId Reference to the hosting Amazon Connect Instance
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
         }
 
+        /**
+         * @param resourceType A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceType(Output<String> resourceType) {
             $.resourceType = resourceType;
             return this;
         }
 
+        /**
+         * @param resourceType A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceType(String resourceType) {
             return resourceType(Output.of(resourceType));
         }

@@ -17,23 +17,47 @@ public final class GetVpcDhcpOptionsPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetVpcDhcpOptionsPlainArgs Empty = new GetVpcDhcpOptionsPlainArgs();
 
+    /**
+     * EC2 DHCP Options ID.
+     * 
+     */
     @Import(name="dhcpOptionsId")
     private @Nullable String dhcpOptionsId;
 
+    /**
+     * @return EC2 DHCP Options ID.
+     * 
+     */
     public Optional<String> dhcpOptionsId() {
         return Optional.ofNullable(this.dhcpOptionsId);
     }
 
+    /**
+     * List of custom filters as described below.
+     * 
+     */
     @Import(name="filters")
     private @Nullable List<GetVpcDhcpOptionsFilter> filters;
 
+    /**
+     * @return List of custom filters as described below.
+     * 
+     */
     public Optional<List<GetVpcDhcpOptionsFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
+    /**
+     * Map of tags assigned to the resource.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -64,20 +88,44 @@ public final class GetVpcDhcpOptionsPlainArgs extends com.pulumi.resources.Invok
             $ = new GetVpcDhcpOptionsPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dhcpOptionsId EC2 DHCP Options ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dhcpOptionsId(@Nullable String dhcpOptionsId) {
             $.dhcpOptionsId = dhcpOptionsId;
             return this;
         }
 
+        /**
+         * @param filters List of custom filters as described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable List<GetVpcDhcpOptionsFilter> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters List of custom filters as described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(GetVpcDhcpOptionsFilter... filters) {
             return filters(List.of(filters));
         }
 
+        /**
+         * @param tags Map of tags assigned to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

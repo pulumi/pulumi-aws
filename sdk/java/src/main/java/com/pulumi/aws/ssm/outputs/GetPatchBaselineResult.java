@@ -16,45 +16,109 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPatchBaselineResult {
+    /**
+     * @return List of rules used to include patches in the baseline.
+     * 
+     */
     private List<GetPatchBaselineApprovalRule> approvalRules;
+    /**
+     * @return List of explicitly approved patches for the baseline.
+     * 
+     */
     private List<String> approvedPatches;
+    /**
+     * @return The compliance level for approved patches.
+     * 
+     */
     private String approvedPatchesComplianceLevel;
+    /**
+     * @return Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
+     * 
+     */
     private Boolean approvedPatchesEnableNonSecurity;
     private @Nullable Boolean defaultBaseline;
+    /**
+     * @return Description of the baseline.
+     * 
+     */
     private String description;
+    /**
+     * @return Set of global filters used to exclude patches from the baseline.
+     * 
+     */
     private List<GetPatchBaselineGlobalFilter> globalFilters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return The name specified to identify the patch source.
+     * 
+     */
     private String name;
     private @Nullable String namePrefix;
     private @Nullable String operatingSystem;
     private String owner;
+    /**
+     * @return List of rejected patches.
+     * 
+     */
     private List<String> rejectedPatches;
+    /**
+     * @return The action specified to take on patches included in the `rejected_patches` list.
+     * 
+     */
     private String rejectedPatchesAction;
+    /**
+     * @return Information about the patches to use to update the managed nodes, including target operating systems and source repositories.
+     * 
+     */
     private List<GetPatchBaselineSource> sources;
 
     private GetPatchBaselineResult() {}
+    /**
+     * @return List of rules used to include patches in the baseline.
+     * 
+     */
     public List<GetPatchBaselineApprovalRule> approvalRules() {
         return this.approvalRules;
     }
+    /**
+     * @return List of explicitly approved patches for the baseline.
+     * 
+     */
     public List<String> approvedPatches() {
         return this.approvedPatches;
     }
+    /**
+     * @return The compliance level for approved patches.
+     * 
+     */
     public String approvedPatchesComplianceLevel() {
         return this.approvedPatchesComplianceLevel;
     }
+    /**
+     * @return Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
+     * 
+     */
     public Boolean approvedPatchesEnableNonSecurity() {
         return this.approvedPatchesEnableNonSecurity;
     }
     public Optional<Boolean> defaultBaseline() {
         return Optional.ofNullable(this.defaultBaseline);
     }
+    /**
+     * @return Description of the baseline.
+     * 
+     */
     public String description() {
         return this.description;
     }
+    /**
+     * @return Set of global filters used to exclude patches from the baseline.
+     * 
+     */
     public List<GetPatchBaselineGlobalFilter> globalFilters() {
         return this.globalFilters;
     }
@@ -65,6 +129,10 @@ public final class GetPatchBaselineResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The name specified to identify the patch source.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -77,12 +145,24 @@ public final class GetPatchBaselineResult {
     public String owner() {
         return this.owner;
     }
+    /**
+     * @return List of rejected patches.
+     * 
+     */
     public List<String> rejectedPatches() {
         return this.rejectedPatches;
     }
+    /**
+     * @return The action specified to take on patches included in the `rejected_patches` list.
+     * 
+     */
     public String rejectedPatchesAction() {
         return this.rejectedPatchesAction;
     }
+    /**
+     * @return Information about the patches to use to update the managed nodes, including target operating systems and source repositories.
+     * 
+     */
     public List<GetPatchBaselineSource> sources() {
         return this.sources;
     }

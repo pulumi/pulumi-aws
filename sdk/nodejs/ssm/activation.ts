@@ -4,6 +4,45 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: `  {
+ *     "Version": "2012-10-17",
+ *     "Statement": {
+ *       "Effect": "Allow",
+ *       "Principal": {"Service": "ssm.amazonaws.com"},
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   }
+ * `});
+ * const testAttach = new aws.iam.RolePolicyAttachment("testAttach", {
+ *     role: testRole.name,
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
+ * });
+ * const foo = new aws.ssm.Activation("foo", {
+ *     description: "Test",
+ *     iamRole: testRole.id,
+ *     registrationLimit: 5,
+ * }, {
+ *     dependsOn: [testAttach],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * AWS SSM Activation can be imported using the `id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
+ * ```
+ */
 export class Activation extends pulumi.CustomResource {
     /**
      * Get an existing Activation resource's state with the given name, ID, and optional extra
@@ -32,15 +71,45 @@ export class Activation extends pulumi.CustomResource {
         return obj['__pulumiType'] === Activation.__pulumiType;
     }
 
+    /**
+     * The code the system generates when it processes the activation.
+     */
     public /*out*/ readonly activationCode!: pulumi.Output<string>;
+    /**
+     * The description of the resource that you want to register.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
+     */
     public readonly expirationDate!: pulumi.Output<string>;
+    /**
+     * If the current activation has expired.
+     */
     public /*out*/ readonly expired!: pulumi.Output<boolean>;
+    /**
+     * The IAM Role to attach to the managed instance.
+     */
     public readonly iamRole!: pulumi.Output<string>;
+    /**
+     * The default name of the registered managed instance.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The number of managed instances that are currently registered using this activation.
+     */
     public /*out*/ readonly registrationCount!: pulumi.Output<number>;
+    /**
+     * The maximum number of managed instances you want to register. The default value is 1 instance.
+     */
     public readonly registrationLimit!: pulumi.Output<number | undefined>;
+    /**
+     * A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -91,15 +160,45 @@ export class Activation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Activation resources.
  */
 export interface ActivationState {
+    /**
+     * The code the system generates when it processes the activation.
+     */
     activationCode?: pulumi.Input<string>;
+    /**
+     * The description of the resource that you want to register.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
+     */
     expirationDate?: pulumi.Input<string>;
+    /**
+     * If the current activation has expired.
+     */
     expired?: pulumi.Input<boolean>;
+    /**
+     * The IAM Role to attach to the managed instance.
+     */
     iamRole?: pulumi.Input<string>;
+    /**
+     * The default name of the registered managed instance.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The number of managed instances that are currently registered using this activation.
+     */
     registrationCount?: pulumi.Input<number>;
+    /**
+     * The maximum number of managed instances you want to register. The default value is 1 instance.
+     */
     registrationLimit?: pulumi.Input<number>;
+    /**
+     * A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -107,10 +206,28 @@ export interface ActivationState {
  * The set of arguments for constructing a Activation resource.
  */
 export interface ActivationArgs {
+    /**
+     * The description of the resource that you want to register.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
+     */
     expirationDate?: pulumi.Input<string>;
+    /**
+     * The IAM Role to attach to the managed instance.
+     */
     iamRole: pulumi.Input<string>;
+    /**
+     * The default name of the registered managed instance.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The maximum number of managed instances you want to register. The default value is 1 instance.
+     */
     registrationLimit?: pulumi.Input<number>;
+    /**
+     * A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

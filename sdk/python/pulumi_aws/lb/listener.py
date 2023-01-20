@@ -26,6 +26,14 @@ class ListenerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Listener resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]] default_actions: Configuration block for default actions. Detailed below.
+        :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
+        :param pulumi.Input[str] alpn_policy: Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+        :param pulumi.Input[str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
+        :param pulumi.Input[int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+        :param pulumi.Input[str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "default_actions", default_actions)
         pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
@@ -45,6 +53,9 @@ class ListenerArgs:
     @property
     @pulumi.getter(name="defaultActions")
     def default_actions(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]]:
+        """
+        Configuration block for default actions. Detailed below.
+        """
         return pulumi.get(self, "default_actions")
 
     @default_actions.setter
@@ -54,6 +65,9 @@ class ListenerArgs:
     @property
     @pulumi.getter(name="loadBalancerArn")
     def load_balancer_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of the load balancer.
+        """
         return pulumi.get(self, "load_balancer_arn")
 
     @load_balancer_arn.setter
@@ -63,6 +77,9 @@ class ListenerArgs:
     @property
     @pulumi.getter(name="alpnPolicy")
     def alpn_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+        """
         return pulumi.get(self, "alpn_policy")
 
     @alpn_policy.setter
@@ -72,6 +89,9 @@ class ListenerArgs:
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
@@ -81,6 +101,9 @@ class ListenerArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -90,6 +113,9 @@ class ListenerArgs:
     @property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -99,6 +125,9 @@ class ListenerArgs:
     @property
     @pulumi.getter(name="sslPolicy")
     def ssl_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+        """
         return pulumi.get(self, "ssl_policy")
 
     @ssl_policy.setter
@@ -108,6 +137,9 @@ class ListenerArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -130,6 +162,16 @@ class _ListenerState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Listener resources.
+        :param pulumi.Input[str] alpn_policy: Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+        :param pulumi.Input[str] arn: ARN of the target group.
+        :param pulumi.Input[str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]] default_actions: Configuration block for default actions. Detailed below.
+        :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
+        :param pulumi.Input[int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+        :param pulumi.Input[str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if alpn_policy is not None:
             pulumi.set(__self__, "alpn_policy", alpn_policy)
@@ -155,6 +197,9 @@ class _ListenerState:
     @property
     @pulumi.getter(name="alpnPolicy")
     def alpn_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+        """
         return pulumi.get(self, "alpn_policy")
 
     @alpn_policy.setter
@@ -164,6 +209,9 @@ class _ListenerState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the target group.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -173,6 +221,9 @@ class _ListenerState:
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
@@ -182,6 +233,9 @@ class _ListenerState:
     @property
     @pulumi.getter(name="defaultActions")
     def default_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]]]:
+        """
+        Configuration block for default actions. Detailed below.
+        """
         return pulumi.get(self, "default_actions")
 
     @default_actions.setter
@@ -191,6 +245,9 @@ class _ListenerState:
     @property
     @pulumi.getter(name="loadBalancerArn")
     def load_balancer_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the load balancer.
+        """
         return pulumi.get(self, "load_balancer_arn")
 
     @load_balancer_arn.setter
@@ -200,6 +257,9 @@ class _ListenerState:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -209,6 +269,9 @@ class _ListenerState:
     @property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -218,6 +281,9 @@ class _ListenerState:
     @property
     @pulumi.getter(name="sslPolicy")
     def ssl_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+        """
         return pulumi.get(self, "ssl_policy")
 
     @ssl_policy.setter
@@ -227,6 +293,9 @@ class _ListenerState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -236,6 +305,9 @@ class _ListenerState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -258,9 +330,204 @@ class Listener(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Listener resource with the given unique name, props, and options.
+        Provides a Load Balancer Listener resource.
+
+        > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
+
+        ## Example Usage
+        ### Forward Action
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        # ...
+        front_end_target_group = aws.lb.TargetGroup("frontEndTargetGroup")
+        # ...
+        front_end_listener = aws.lb.Listener("frontEndListener",
+            load_balancer_arn=front_end_load_balancer.arn,
+            port=443,
+            protocol="HTTPS",
+            ssl_policy="ELBSecurityPolicy-2016-08",
+            certificate_arn="arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
+            default_actions=[aws.lb.ListenerDefaultActionArgs(
+                type="forward",
+                target_group_arn=front_end_target_group.arn,
+            )])
+        ```
+
+        To a NLB:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        front_end = aws.lb.Listener("frontEnd",
+            load_balancer_arn=aws_lb["front_end"]["arn"],
+            port=443,
+            protocol="TLS",
+            certificate_arn="arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
+            alpn_policy="HTTP2Preferred",
+            default_actions=[aws.lb.ListenerDefaultActionArgs(
+                type="forward",
+                target_group_arn=aws_lb_target_group["front_end"]["arn"],
+            )])
+        ```
+        ### Redirect Action
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        # ...
+        front_end_listener = aws.lb.Listener("frontEndListener",
+            load_balancer_arn=front_end_load_balancer.arn,
+            port=80,
+            protocol="HTTP",
+            default_actions=[aws.lb.ListenerDefaultActionArgs(
+                type="redirect",
+                redirect=aws.lb.ListenerDefaultActionRedirectArgs(
+                    port="443",
+                    protocol="HTTPS",
+                    status_code="HTTP_301",
+                ),
+            )])
+        ```
+        ### Fixed-response Action
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        # ...
+        front_end_listener = aws.lb.Listener("frontEndListener",
+            load_balancer_arn=front_end_load_balancer.arn,
+            port=80,
+            protocol="HTTP",
+            default_actions=[aws.lb.ListenerDefaultActionArgs(
+                type="fixed-response",
+                fixed_response=aws.lb.ListenerDefaultActionFixedResponseArgs(
+                    content_type="text/plain",
+                    message_body="Fixed response content",
+                    status_code="200",
+                ),
+            )])
+        ```
+        ### Authenticate-cognito Action
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        # ...
+        front_end_target_group = aws.lb.TargetGroup("frontEndTargetGroup")
+        # ...
+        pool = aws.cognito.UserPool("pool")
+        # ...
+        client = aws.cognito.UserPoolClient("client")
+        # ...
+        domain = aws.cognito.UserPoolDomain("domain")
+        # ...
+        front_end_listener = aws.lb.Listener("frontEndListener",
+            load_balancer_arn=front_end_load_balancer.arn,
+            port=80,
+            protocol="HTTP",
+            default_actions=[
+                aws.lb.ListenerDefaultActionArgs(
+                    type="authenticate-cognito",
+                    authenticate_cognito=aws.lb.ListenerDefaultActionAuthenticateCognitoArgs(
+                        user_pool_arn=pool.arn,
+                        user_pool_client_id=client.id,
+                        user_pool_domain=domain.domain,
+                    ),
+                ),
+                aws.lb.ListenerDefaultActionArgs(
+                    type="forward",
+                    target_group_arn=front_end_target_group.arn,
+                ),
+            ])
+        ```
+        ### Authenticate-OIDC Action
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        # ...
+        front_end_target_group = aws.lb.TargetGroup("frontEndTargetGroup")
+        # ...
+        front_end_listener = aws.lb.Listener("frontEndListener",
+            load_balancer_arn=front_end_load_balancer.arn,
+            port=80,
+            protocol="HTTP",
+            default_actions=[
+                aws.lb.ListenerDefaultActionArgs(
+                    type="authenticate-oidc",
+                    authenticate_oidc=aws.lb.ListenerDefaultActionAuthenticateOidcArgs(
+                        authorization_endpoint="https://example.com/authorization_endpoint",
+                        client_id="client_id",
+                        client_secret="client_secret",
+                        issuer="https://example.com",
+                        token_endpoint="https://example.com/token_endpoint",
+                        user_info_endpoint="https://example.com/user_info_endpoint",
+                    ),
+                ),
+                aws.lb.ListenerDefaultActionArgs(
+                    type="forward",
+                    target_group_arn=front_end_target_group.arn,
+                ),
+            ])
+        ```
+        ### Gateway Load Balancer Listener
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_load_balancer = aws.lb.LoadBalancer("exampleLoadBalancer",
+            load_balancer_type="gateway",
+            subnet_mappings=[aws.lb.LoadBalancerSubnetMappingArgs(
+                subnet_id=aws_subnet["example"]["id"],
+            )])
+        example_target_group = aws.lb.TargetGroup("exampleTargetGroup",
+            port=6081,
+            protocol="GENEVE",
+            vpc_id=aws_vpc["example"]["id"],
+            health_check=aws.lb.TargetGroupHealthCheckArgs(
+                port="80",
+                protocol="HTTP",
+            ))
+        example_listener = aws.lb.Listener("exampleListener",
+            load_balancer_arn=example_load_balancer.id,
+            default_actions=[aws.lb.ListenerDefaultActionArgs(
+                target_group_arn=example_target_group.id,
+                type="forward",
+            )])
+        ```
+
+        ## Import
+
+        Listeners can be imported using their ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:lb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] alpn_policy: Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+        :param pulumi.Input[str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerDefaultActionArgs']]]] default_actions: Configuration block for default actions. Detailed below.
+        :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
+        :param pulumi.Input[int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+        :param pulumi.Input[str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -269,7 +536,194 @@ class Listener(pulumi.CustomResource):
                  args: ListenerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Listener resource with the given unique name, props, and options.
+        Provides a Load Balancer Listener resource.
+
+        > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
+
+        ## Example Usage
+        ### Forward Action
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        # ...
+        front_end_target_group = aws.lb.TargetGroup("frontEndTargetGroup")
+        # ...
+        front_end_listener = aws.lb.Listener("frontEndListener",
+            load_balancer_arn=front_end_load_balancer.arn,
+            port=443,
+            protocol="HTTPS",
+            ssl_policy="ELBSecurityPolicy-2016-08",
+            certificate_arn="arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
+            default_actions=[aws.lb.ListenerDefaultActionArgs(
+                type="forward",
+                target_group_arn=front_end_target_group.arn,
+            )])
+        ```
+
+        To a NLB:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        front_end = aws.lb.Listener("frontEnd",
+            load_balancer_arn=aws_lb["front_end"]["arn"],
+            port=443,
+            protocol="TLS",
+            certificate_arn="arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
+            alpn_policy="HTTP2Preferred",
+            default_actions=[aws.lb.ListenerDefaultActionArgs(
+                type="forward",
+                target_group_arn=aws_lb_target_group["front_end"]["arn"],
+            )])
+        ```
+        ### Redirect Action
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        # ...
+        front_end_listener = aws.lb.Listener("frontEndListener",
+            load_balancer_arn=front_end_load_balancer.arn,
+            port=80,
+            protocol="HTTP",
+            default_actions=[aws.lb.ListenerDefaultActionArgs(
+                type="redirect",
+                redirect=aws.lb.ListenerDefaultActionRedirectArgs(
+                    port="443",
+                    protocol="HTTPS",
+                    status_code="HTTP_301",
+                ),
+            )])
+        ```
+        ### Fixed-response Action
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        # ...
+        front_end_listener = aws.lb.Listener("frontEndListener",
+            load_balancer_arn=front_end_load_balancer.arn,
+            port=80,
+            protocol="HTTP",
+            default_actions=[aws.lb.ListenerDefaultActionArgs(
+                type="fixed-response",
+                fixed_response=aws.lb.ListenerDefaultActionFixedResponseArgs(
+                    content_type="text/plain",
+                    message_body="Fixed response content",
+                    status_code="200",
+                ),
+            )])
+        ```
+        ### Authenticate-cognito Action
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        # ...
+        front_end_target_group = aws.lb.TargetGroup("frontEndTargetGroup")
+        # ...
+        pool = aws.cognito.UserPool("pool")
+        # ...
+        client = aws.cognito.UserPoolClient("client")
+        # ...
+        domain = aws.cognito.UserPoolDomain("domain")
+        # ...
+        front_end_listener = aws.lb.Listener("frontEndListener",
+            load_balancer_arn=front_end_load_balancer.arn,
+            port=80,
+            protocol="HTTP",
+            default_actions=[
+                aws.lb.ListenerDefaultActionArgs(
+                    type="authenticate-cognito",
+                    authenticate_cognito=aws.lb.ListenerDefaultActionAuthenticateCognitoArgs(
+                        user_pool_arn=pool.arn,
+                        user_pool_client_id=client.id,
+                        user_pool_domain=domain.domain,
+                    ),
+                ),
+                aws.lb.ListenerDefaultActionArgs(
+                    type="forward",
+                    target_group_arn=front_end_target_group.arn,
+                ),
+            ])
+        ```
+        ### Authenticate-OIDC Action
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        # ...
+        front_end_target_group = aws.lb.TargetGroup("frontEndTargetGroup")
+        # ...
+        front_end_listener = aws.lb.Listener("frontEndListener",
+            load_balancer_arn=front_end_load_balancer.arn,
+            port=80,
+            protocol="HTTP",
+            default_actions=[
+                aws.lb.ListenerDefaultActionArgs(
+                    type="authenticate-oidc",
+                    authenticate_oidc=aws.lb.ListenerDefaultActionAuthenticateOidcArgs(
+                        authorization_endpoint="https://example.com/authorization_endpoint",
+                        client_id="client_id",
+                        client_secret="client_secret",
+                        issuer="https://example.com",
+                        token_endpoint="https://example.com/token_endpoint",
+                        user_info_endpoint="https://example.com/user_info_endpoint",
+                    ),
+                ),
+                aws.lb.ListenerDefaultActionArgs(
+                    type="forward",
+                    target_group_arn=front_end_target_group.arn,
+                ),
+            ])
+        ```
+        ### Gateway Load Balancer Listener
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_load_balancer = aws.lb.LoadBalancer("exampleLoadBalancer",
+            load_balancer_type="gateway",
+            subnet_mappings=[aws.lb.LoadBalancerSubnetMappingArgs(
+                subnet_id=aws_subnet["example"]["id"],
+            )])
+        example_target_group = aws.lb.TargetGroup("exampleTargetGroup",
+            port=6081,
+            protocol="GENEVE",
+            vpc_id=aws_vpc["example"]["id"],
+            health_check=aws.lb.TargetGroupHealthCheckArgs(
+                port="80",
+                protocol="HTTP",
+            ))
+        example_listener = aws.lb.Listener("exampleListener",
+            load_balancer_arn=example_load_balancer.id,
+            default_actions=[aws.lb.ListenerDefaultActionArgs(
+                target_group_arn=example_target_group.id,
+                type="forward",
+            )])
+        ```
+
+        ## Import
+
+        Listeners can be imported using their ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:lb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
+        ```
+
         :param str resource_name: The name of the resource.
         :param ListenerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -345,6 +799,16 @@ class Listener(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] alpn_policy: Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+        :param pulumi.Input[str] arn: ARN of the target group.
+        :param pulumi.Input[str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerDefaultActionArgs']]]] default_actions: Configuration block for default actions. Detailed below.
+        :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
+        :param pulumi.Input[int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+        :param pulumi.Input[str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -365,50 +829,80 @@ class Listener(pulumi.CustomResource):
     @property
     @pulumi.getter(name="alpnPolicy")
     def alpn_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+        """
         return pulumi.get(self, "alpn_policy")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the target group.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @property
     @pulumi.getter(name="defaultActions")
     def default_actions(self) -> pulumi.Output[Sequence['outputs.ListenerDefaultAction']]:
+        """
+        Configuration block for default actions. Detailed below.
+        """
         return pulumi.get(self, "default_actions")
 
     @property
     @pulumi.getter(name="loadBalancerArn")
     def load_balancer_arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the load balancer.
+        """
         return pulumi.get(self, "load_balancer_arn")
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[int]]:
+        """
+        Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Output[str]:
+        """
+        Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        """
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="sslPolicy")
     def ssl_policy(self) -> pulumi.Output[str]:
+        """
+        Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+        """
         return pulumi.get(self, "ssl_policy")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

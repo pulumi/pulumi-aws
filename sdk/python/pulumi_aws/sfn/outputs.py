@@ -39,6 +39,11 @@ class StateMachineLoggingConfiguration(dict):
                  include_execution_data: Optional[bool] = None,
                  level: Optional[str] = None,
                  log_destination: Optional[str] = None):
+        """
+        :param bool include_execution_data: Determines whether execution data is included in your log. When set to `false`, data is excluded.
+        :param str level: Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
+        :param str log_destination: Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+        """
         if include_execution_data is not None:
             pulumi.set(__self__, "include_execution_data", include_execution_data)
         if level is not None:
@@ -49,16 +54,25 @@ class StateMachineLoggingConfiguration(dict):
     @property
     @pulumi.getter(name="includeExecutionData")
     def include_execution_data(self) -> Optional[bool]:
+        """
+        Determines whether execution data is included in your log. When set to `false`, data is excluded.
+        """
         return pulumi.get(self, "include_execution_data")
 
     @property
     @pulumi.getter
     def level(self) -> Optional[str]:
+        """
+        Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
+        """
         return pulumi.get(self, "level")
 
     @property
     @pulumi.getter(name="logDestination")
     def log_destination(self) -> Optional[str]:
+        """
+        Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+        """
         return pulumi.get(self, "log_destination")
 
 
@@ -66,12 +80,18 @@ class StateMachineLoggingConfiguration(dict):
 class StateMachineTracingConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
+        """
+        :param bool enabled: When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
+        """
         return pulumi.get(self, "enabled")
 
 

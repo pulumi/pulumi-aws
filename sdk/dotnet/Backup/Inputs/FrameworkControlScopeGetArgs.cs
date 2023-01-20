@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Backup.Inputs
     {
         [Input("complianceResourceIds")]
         private InputList<string>? _complianceResourceIds;
+
+        /// <summary>
+        /// The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
+        /// </summary>
         public InputList<string> ComplianceResourceIds
         {
             get => _complianceResourceIds ?? (_complianceResourceIds = new InputList<string>());
@@ -22,6 +26,10 @@ namespace Pulumi.Aws.Backup.Inputs
 
         [Input("complianceResourceTypes")]
         private InputList<string>? _complianceResourceTypes;
+
+        /// <summary>
+        /// Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+        /// </summary>
         public InputList<string> ComplianceResourceTypes
         {
             get => _complianceResourceTypes ?? (_complianceResourceTypes = new InputList<string>());
@@ -30,6 +38,10 @@ namespace Pulumi.Aws.Backup.Inputs
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

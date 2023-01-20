@@ -22,89 +22,257 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchTemplateInstanceRequirements {
+    /**
+     * @return Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+     * 
+     */
     private @Nullable LaunchTemplateInstanceRequirementsAcceleratorCount acceleratorCount;
+    /**
+     * @return List of accelerator manufacturer names. Default is any manufacturer.
+     * 
+     */
     private @Nullable List<String> acceleratorManufacturers;
+    /**
+     * @return List of accelerator names. Default is any acclerator.
+     * 
+     */
     private @Nullable List<String> acceleratorNames;
+    /**
+     * @return Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+     * 
+     */
     private @Nullable LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib acceleratorTotalMemoryMib;
+    /**
+     * @return List of accelerator types. Default is any accelerator type.
+     * 
+     */
     private @Nullable List<String> acceleratorTypes;
+    /**
+     * @return Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+     * 
+     */
     private @Nullable String bareMetal;
+    /**
+     * @return Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+     * 
+     */
     private @Nullable LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps baselineEbsBandwidthMbps;
+    /**
+     * @return Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+     * 
+     */
     private @Nullable String burstablePerformance;
+    /**
+     * @return List of CPU manufacturer names. Default is any manufacturer.
+     * 
+     */
     private @Nullable List<String> cpuManufacturers;
+    /**
+     * @return List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+     * 
+     */
     private @Nullable List<String> excludedInstanceTypes;
+    /**
+     * @return List of instance generation names. Default is any generation.
+     * 
+     */
     private @Nullable List<String> instanceGenerations;
+    /**
+     * @return Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+     * 
+     */
     private @Nullable String localStorage;
+    /**
+     * @return List of local storage type names. Default any storage type.
+     * 
+     */
     private @Nullable List<String> localStorageTypes;
+    /**
+     * @return Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+     * 
+     */
     private @Nullable LaunchTemplateInstanceRequirementsMemoryGibPerVcpu memoryGibPerVcpu;
+    /**
+     * @return Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+     * 
+     */
     private LaunchTemplateInstanceRequirementsMemoryMib memoryMib;
+    /**
+     * @return Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+     * 
+     */
     private @Nullable LaunchTemplateInstanceRequirementsNetworkInterfaceCount networkInterfaceCount;
+    /**
+     * @return The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+     * 
+     */
     private @Nullable Integer onDemandMaxPricePercentageOverLowestPrice;
+    /**
+     * @return Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+     * 
+     */
     private @Nullable Boolean requireHibernateSupport;
+    /**
+     * @return The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+     * 
+     */
     private @Nullable Integer spotMaxPricePercentageOverLowestPrice;
+    /**
+     * @return Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+     * 
+     */
     private @Nullable LaunchTemplateInstanceRequirementsTotalLocalStorageGb totalLocalStorageGb;
+    /**
+     * @return Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+     * 
+     */
     private LaunchTemplateInstanceRequirementsVcpuCount vcpuCount;
 
     private LaunchTemplateInstanceRequirements() {}
+    /**
+     * @return Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+     * 
+     */
     public Optional<LaunchTemplateInstanceRequirementsAcceleratorCount> acceleratorCount() {
         return Optional.ofNullable(this.acceleratorCount);
     }
+    /**
+     * @return List of accelerator manufacturer names. Default is any manufacturer.
+     * 
+     */
     public List<String> acceleratorManufacturers() {
         return this.acceleratorManufacturers == null ? List.of() : this.acceleratorManufacturers;
     }
+    /**
+     * @return List of accelerator names. Default is any acclerator.
+     * 
+     */
     public List<String> acceleratorNames() {
         return this.acceleratorNames == null ? List.of() : this.acceleratorNames;
     }
+    /**
+     * @return Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+     * 
+     */
     public Optional<LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib> acceleratorTotalMemoryMib() {
         return Optional.ofNullable(this.acceleratorTotalMemoryMib);
     }
+    /**
+     * @return List of accelerator types. Default is any accelerator type.
+     * 
+     */
     public List<String> acceleratorTypes() {
         return this.acceleratorTypes == null ? List.of() : this.acceleratorTypes;
     }
+    /**
+     * @return Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+     * 
+     */
     public Optional<String> bareMetal() {
         return Optional.ofNullable(this.bareMetal);
     }
+    /**
+     * @return Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+     * 
+     */
     public Optional<LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps> baselineEbsBandwidthMbps() {
         return Optional.ofNullable(this.baselineEbsBandwidthMbps);
     }
+    /**
+     * @return Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+     * 
+     */
     public Optional<String> burstablePerformance() {
         return Optional.ofNullable(this.burstablePerformance);
     }
+    /**
+     * @return List of CPU manufacturer names. Default is any manufacturer.
+     * 
+     */
     public List<String> cpuManufacturers() {
         return this.cpuManufacturers == null ? List.of() : this.cpuManufacturers;
     }
+    /**
+     * @return List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+     * 
+     */
     public List<String> excludedInstanceTypes() {
         return this.excludedInstanceTypes == null ? List.of() : this.excludedInstanceTypes;
     }
+    /**
+     * @return List of instance generation names. Default is any generation.
+     * 
+     */
     public List<String> instanceGenerations() {
         return this.instanceGenerations == null ? List.of() : this.instanceGenerations;
     }
+    /**
+     * @return Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+     * 
+     */
     public Optional<String> localStorage() {
         return Optional.ofNullable(this.localStorage);
     }
+    /**
+     * @return List of local storage type names. Default any storage type.
+     * 
+     */
     public List<String> localStorageTypes() {
         return this.localStorageTypes == null ? List.of() : this.localStorageTypes;
     }
+    /**
+     * @return Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+     * 
+     */
     public Optional<LaunchTemplateInstanceRequirementsMemoryGibPerVcpu> memoryGibPerVcpu() {
         return Optional.ofNullable(this.memoryGibPerVcpu);
     }
+    /**
+     * @return Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+     * 
+     */
     public LaunchTemplateInstanceRequirementsMemoryMib memoryMib() {
         return this.memoryMib;
     }
+    /**
+     * @return Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+     * 
+     */
     public Optional<LaunchTemplateInstanceRequirementsNetworkInterfaceCount> networkInterfaceCount() {
         return Optional.ofNullable(this.networkInterfaceCount);
     }
+    /**
+     * @return The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+     * 
+     */
     public Optional<Integer> onDemandMaxPricePercentageOverLowestPrice() {
         return Optional.ofNullable(this.onDemandMaxPricePercentageOverLowestPrice);
     }
+    /**
+     * @return Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+     * 
+     */
     public Optional<Boolean> requireHibernateSupport() {
         return Optional.ofNullable(this.requireHibernateSupport);
     }
+    /**
+     * @return The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+     * 
+     */
     public Optional<Integer> spotMaxPricePercentageOverLowestPrice() {
         return Optional.ofNullable(this.spotMaxPricePercentageOverLowestPrice);
     }
+    /**
+     * @return Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+     * 
+     */
     public Optional<LaunchTemplateInstanceRequirementsTotalLocalStorageGb> totalLocalStorageGb() {
         return Optional.ofNullable(this.totalLocalStorageGb);
     }
+    /**
+     * @return Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+     * 
+     */
     public LaunchTemplateInstanceRequirementsVcpuCount vcpuCount() {
         return this.vcpuCount;
     }

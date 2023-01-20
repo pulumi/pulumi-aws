@@ -4,6 +4,45 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a CodeArtifact Domains Permissions Policy Resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleKey = new aws.kms.Key("exampleKey", {description: "domain key"});
+ * const exampleDomain = new aws.codeartifact.Domain("exampleDomain", {
+ *     domain: "example",
+ *     encryptionKey: exampleKey.arn,
+ * });
+ * const test = new aws.codeartifact.DomainPermissions("test", {
+ *     domain: exampleDomain.domain,
+ *     policyDocument: pulumi.interpolate`{
+ *     "Version": "2012-10-17",
+ *     "Statement": [
+ *         {
+ *             "Action": "codeartifact:CreateRepository",
+ *             "Effect": "Allow",
+ *             "Principal": "*",
+ *             "Resource": "${exampleDomain.arn}"
+ *         }
+ *     ]
+ * }
+ * `,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * CodeArtifact Domain Permissions Policies can be imported using the CodeArtifact Domain ARN, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
+ * ```
+ */
 export class DomainPermissions extends pulumi.CustomResource {
     /**
      * Get an existing DomainPermissions resource's state with the given name, ID, and optional extra
@@ -32,10 +71,25 @@ export class DomainPermissions extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainPermissions.__pulumiType;
     }
 
+    /**
+     * The name of the domain on which to set the resource policy.
+     */
     public readonly domain!: pulumi.Output<string>;
+    /**
+     * The account number of the AWS account that owns the domain.
+     */
     public readonly domainOwner!: pulumi.Output<string>;
+    /**
+     * A JSON policy string to be set as the access control resource policy on the provided domain.
+     */
     public readonly policyDocument!: pulumi.Output<string>;
+    /**
+     * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
+     */
     public readonly policyRevision!: pulumi.Output<string>;
+    /**
+     * The ARN of the resource associated with the resource policy.
+     */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
 
     /**
@@ -79,10 +133,25 @@ export class DomainPermissions extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DomainPermissions resources.
  */
 export interface DomainPermissionsState {
+    /**
+     * The name of the domain on which to set the resource policy.
+     */
     domain?: pulumi.Input<string>;
+    /**
+     * The account number of the AWS account that owns the domain.
+     */
     domainOwner?: pulumi.Input<string>;
+    /**
+     * A JSON policy string to be set as the access control resource policy on the provided domain.
+     */
     policyDocument?: pulumi.Input<string>;
+    /**
+     * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
+     */
     policyRevision?: pulumi.Input<string>;
+    /**
+     * The ARN of the resource associated with the resource policy.
+     */
     resourceArn?: pulumi.Input<string>;
 }
 
@@ -90,8 +159,20 @@ export interface DomainPermissionsState {
  * The set of arguments for constructing a DomainPermissions resource.
  */
 export interface DomainPermissionsArgs {
+    /**
+     * The name of the domain on which to set the resource policy.
+     */
     domain: pulumi.Input<string>;
+    /**
+     * The account number of the AWS account that owns the domain.
+     */
     domainOwner?: pulumi.Input<string>;
+    /**
+     * A JSON policy string to be set as the access control resource policy on the provided domain.
+     */
     policyDocument: pulumi.Input<string>;
+    /**
+     * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
+     */
     policyRevision?: pulumi.Input<string>;
 }

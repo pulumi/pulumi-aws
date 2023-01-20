@@ -12,25 +12,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FleetTargetCapacitySpecification {
+    /**
+     * @return Default target capacity type. Valid values: `on-demand`, `spot`.
+     * 
+     */
     private String defaultTargetCapacityType;
+    /**
+     * @return The number of On-Demand units to request.
+     * 
+     */
     private @Nullable Integer onDemandTargetCapacity;
+    /**
+     * @return The number of Spot units to request.
+     * 
+     */
     private @Nullable Integer spotTargetCapacity;
+    /**
+     * @return The unit for the target capacity. This can only be done with `instance_requirements` defined
+     * 
+     */
     private @Nullable String targetCapacityUnitType;
+    /**
+     * @return The number of units to request, filled using `default_target_capacity_type`.
+     * 
+     */
     private Integer totalTargetCapacity;
 
     private FleetTargetCapacitySpecification() {}
+    /**
+     * @return Default target capacity type. Valid values: `on-demand`, `spot`.
+     * 
+     */
     public String defaultTargetCapacityType() {
         return this.defaultTargetCapacityType;
     }
+    /**
+     * @return The number of On-Demand units to request.
+     * 
+     */
     public Optional<Integer> onDemandTargetCapacity() {
         return Optional.ofNullable(this.onDemandTargetCapacity);
     }
+    /**
+     * @return The number of Spot units to request.
+     * 
+     */
     public Optional<Integer> spotTargetCapacity() {
         return Optional.ofNullable(this.spotTargetCapacity);
     }
+    /**
+     * @return The unit for the target capacity. This can only be done with `instance_requirements` defined
+     * 
+     */
     public Optional<String> targetCapacityUnitType() {
         return Optional.ofNullable(this.targetCapacityUnitType);
     }
+    /**
+     * @return The number of units to request, filled using `default_target_capacity_type`.
+     * 
+     */
     public Integer totalTargetCapacity() {
         return this.totalTargetCapacity;
     }

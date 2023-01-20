@@ -11,9 +11,59 @@ namespace Pulumi.Aws.Sqs
 {
     public static class GetQueues
     {
+        /// <summary>
+        /// Data source for managing an AWS SQS (Simple Queue) Queues.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Sqs.GetQueues.Invoke(new()
+        ///     {
+        ///         QueueNamePrefix = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetQueuesResult> InvokeAsync(GetQueuesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueuesResult>("aws:sqs/getQueues:getQueues", args ?? new GetQueuesArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Data source for managing an AWS SQS (Simple Queue) Queues.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Sqs.GetQueues.Invoke(new()
+        ///     {
+        ///         QueueNamePrefix = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetQueuesResult> Invoke(GetQueuesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueuesResult>("aws:sqs/getQueues:getQueues", args ?? new GetQueuesInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +71,9 @@ namespace Pulumi.Aws.Sqs
 
     public sealed class GetQueuesArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
+        /// </summary>
         [Input("queueNamePrefix")]
         public string? QueueNamePrefix { get; set; }
 
@@ -32,6 +85,9 @@ namespace Pulumi.Aws.Sqs
 
     public sealed class GetQueuesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
+        /// </summary>
         [Input("queueNamePrefix")]
         public Input<string>? QueueNamePrefix { get; set; }
 
@@ -50,6 +106,9 @@ namespace Pulumi.Aws.Sqs
         /// </summary>
         public readonly string Id;
         public readonly string? QueueNamePrefix;
+        /// <summary>
+        /// A list of queue URLs.
+        /// </summary>
         public readonly ImmutableArray<string> QueueUrls;
 
         [OutputConstructor]

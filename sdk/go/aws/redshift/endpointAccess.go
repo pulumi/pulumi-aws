@@ -11,17 +11,64 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a new Amazon Redshift endpoint access.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := redshift.NewEndpointAccess(ctx, "example", &redshift.EndpointAccessArgs{
+//				EndpointName:      pulumi.String("example"),
+//				SubnetGroupName:   pulumi.Any(aws_redshift_subnet_group.Example.Id),
+//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Cluster_identifier),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Redshift endpoint access can be imported using the `name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
+//
+// ```
 type EndpointAccess struct {
 	pulumi.CustomResourceState
 
-	Address             pulumi.StringOutput                  `pulumi:"address"`
-	ClusterIdentifier   pulumi.StringOutput                  `pulumi:"clusterIdentifier"`
-	EndpointName        pulumi.StringOutput                  `pulumi:"endpointName"`
-	Port                pulumi.IntOutput                     `pulumi:"port"`
-	ResourceOwner       pulumi.StringOutput                  `pulumi:"resourceOwner"`
-	SubnetGroupName     pulumi.StringOutput                  `pulumi:"subnetGroupName"`
-	VpcEndpoints        EndpointAccessVpcEndpointArrayOutput `pulumi:"vpcEndpoints"`
-	VpcSecurityGroupIds pulumi.StringArrayOutput             `pulumi:"vpcSecurityGroupIds"`
+	// The DNS address of the endpoint.
+	Address pulumi.StringOutput `pulumi:"address"`
+	// The cluster identifier of the cluster to access.
+	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
+	// The Redshift-managed VPC endpoint name.
+	EndpointName pulumi.StringOutput `pulumi:"endpointName"`
+	// The port number on which the cluster accepts incoming connections.
+	Port pulumi.IntOutput `pulumi:"port"`
+	// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
+	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
+	// The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
+	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
+	// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
+	VpcEndpoints EndpointAccessVpcEndpointArrayOutput `pulumi:"vpcEndpoints"`
+	// The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
+	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
 
 // NewEndpointAccess registers a new resource with the given unique name, arguments, and options.
@@ -62,24 +109,40 @@ func GetEndpointAccess(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EndpointAccess resources.
 type endpointAccessState struct {
-	Address             *string                     `pulumi:"address"`
-	ClusterIdentifier   *string                     `pulumi:"clusterIdentifier"`
-	EndpointName        *string                     `pulumi:"endpointName"`
-	Port                *int                        `pulumi:"port"`
-	ResourceOwner       *string                     `pulumi:"resourceOwner"`
-	SubnetGroupName     *string                     `pulumi:"subnetGroupName"`
-	VpcEndpoints        []EndpointAccessVpcEndpoint `pulumi:"vpcEndpoints"`
-	VpcSecurityGroupIds []string                    `pulumi:"vpcSecurityGroupIds"`
+	// The DNS address of the endpoint.
+	Address *string `pulumi:"address"`
+	// The cluster identifier of the cluster to access.
+	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
+	// The Redshift-managed VPC endpoint name.
+	EndpointName *string `pulumi:"endpointName"`
+	// The port number on which the cluster accepts incoming connections.
+	Port *int `pulumi:"port"`
+	// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
+	ResourceOwner *string `pulumi:"resourceOwner"`
+	// The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
+	SubnetGroupName *string `pulumi:"subnetGroupName"`
+	// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
+	VpcEndpoints []EndpointAccessVpcEndpoint `pulumi:"vpcEndpoints"`
+	// The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
+	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
 type EndpointAccessState struct {
-	Address             pulumi.StringPtrInput
-	ClusterIdentifier   pulumi.StringPtrInput
-	EndpointName        pulumi.StringPtrInput
-	Port                pulumi.IntPtrInput
-	ResourceOwner       pulumi.StringPtrInput
-	SubnetGroupName     pulumi.StringPtrInput
-	VpcEndpoints        EndpointAccessVpcEndpointArrayInput
+	// The DNS address of the endpoint.
+	Address pulumi.StringPtrInput
+	// The cluster identifier of the cluster to access.
+	ClusterIdentifier pulumi.StringPtrInput
+	// The Redshift-managed VPC endpoint name.
+	EndpointName pulumi.StringPtrInput
+	// The port number on which the cluster accepts incoming connections.
+	Port pulumi.IntPtrInput
+	// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
+	ResourceOwner pulumi.StringPtrInput
+	// The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
+	SubnetGroupName pulumi.StringPtrInput
+	// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
+	VpcEndpoints EndpointAccessVpcEndpointArrayInput
+	// The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
 
@@ -88,19 +151,29 @@ func (EndpointAccessState) ElementType() reflect.Type {
 }
 
 type endpointAccessArgs struct {
-	ClusterIdentifier   string   `pulumi:"clusterIdentifier"`
-	EndpointName        string   `pulumi:"endpointName"`
-	ResourceOwner       *string  `pulumi:"resourceOwner"`
-	SubnetGroupName     string   `pulumi:"subnetGroupName"`
+	// The cluster identifier of the cluster to access.
+	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+	// The Redshift-managed VPC endpoint name.
+	EndpointName string `pulumi:"endpointName"`
+	// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
+	ResourceOwner *string `pulumi:"resourceOwner"`
+	// The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
+	SubnetGroupName string `pulumi:"subnetGroupName"`
+	// The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
 // The set of arguments for constructing a EndpointAccess resource.
 type EndpointAccessArgs struct {
-	ClusterIdentifier   pulumi.StringInput
-	EndpointName        pulumi.StringInput
-	ResourceOwner       pulumi.StringPtrInput
-	SubnetGroupName     pulumi.StringInput
+	// The cluster identifier of the cluster to access.
+	ClusterIdentifier pulumi.StringInput
+	// The Redshift-managed VPC endpoint name.
+	EndpointName pulumi.StringInput
+	// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
+	ResourceOwner pulumi.StringPtrInput
+	// The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
+	SubnetGroupName pulumi.StringInput
+	// The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
 
@@ -191,34 +264,42 @@ func (o EndpointAccessOutput) ToEndpointAccessOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The DNS address of the endpoint.
 func (o EndpointAccessOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.Address }).(pulumi.StringOutput)
 }
 
+// The cluster identifier of the cluster to access.
 func (o EndpointAccessOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
+// The Redshift-managed VPC endpoint name.
 func (o EndpointAccessOutput) EndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.EndpointName }).(pulumi.StringOutput)
 }
 
+// The port number on which the cluster accepts incoming connections.
 func (o EndpointAccessOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
 }
 
+// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
 func (o EndpointAccessOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
+// The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
 func (o EndpointAccessOutput) SubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.SubnetGroupName }).(pulumi.StringOutput)
 }
 
+// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
 func (o EndpointAccessOutput) VpcEndpoints() EndpointAccessVpcEndpointArrayOutput {
 	return o.ApplyT(func(v *EndpointAccess) EndpointAccessVpcEndpointArrayOutput { return v.VpcEndpoints }).(EndpointAccessVpcEndpointArrayOutput)
 }
 
+// The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
 func (o EndpointAccessOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }

@@ -9,9 +9,65 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecurityHub
 {
+    /// <summary>
+    /// Subscribes to a Security Hub standard.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.SecurityHub.Account("example");
+    /// 
+    ///     var current = Aws.GetRegion.Invoke();
+    /// 
+    ///     var cis = new Aws.SecurityHub.StandardsSubscription("cis", new()
+    ///     {
+    ///         StandardsArn = "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             example,
+    ///         },
+    ///     });
+    /// 
+    ///     var pci321 = new Aws.SecurityHub.StandardsSubscription("pci321", new()
+    ///     {
+    ///         StandardsArn = $"arn:aws:securityhub:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}::standards/pci-dss/v/3.2.1",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             example,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Security Hub standards subscriptions can be imported using the standards subscription ARN, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
+    /// ```
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:securityhub/standardsSubscription:StandardsSubscription")]
     public partial class StandardsSubscription : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of a standard - see below.
+        /// </summary>
         [Output("standardsArn")]
         public Output<string> StandardsArn { get; private set; } = null!;
 
@@ -61,6 +117,9 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class StandardsSubscriptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of a standard - see below.
+        /// </summary>
         [Input("standardsArn", required: true)]
         public Input<string> StandardsArn { get; set; } = null!;
 
@@ -72,6 +131,9 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class StandardsSubscriptionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of a standard - see below.
+        /// </summary>
         [Input("standardsArn")]
         public Input<string>? StandardsArn { get; set; }
 

@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class InstanceCapacityReservationSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+        /// </summary>
         [Input("capacityReservationPreference")]
         public Input<string>? CapacityReservationPreference { get; set; }
 
+        /// <summary>
+        /// Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+        /// </summary>
         [Input("capacityReservationTarget")]
         public Input<Inputs.InstanceCapacityReservationSpecificationCapacityReservationTargetArgs>? CapacityReservationTarget { get; set; }
 

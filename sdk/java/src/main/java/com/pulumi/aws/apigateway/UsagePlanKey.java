@@ -13,35 +13,135 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an API Gateway Usage Plan Key.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.UsagePlan;
+ * import com.pulumi.aws.apigateway.UsagePlanArgs;
+ * import com.pulumi.aws.apigateway.inputs.UsagePlanApiStageArgs;
+ * import com.pulumi.aws.apigateway.ApiKey;
+ * import com.pulumi.aws.apigateway.UsagePlanKey;
+ * import com.pulumi.aws.apigateway.UsagePlanKeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new RestApi(&#34;test&#34;);
+ * 
+ *         var myusageplan = new UsagePlan(&#34;myusageplan&#34;, UsagePlanArgs.builder()        
+ *             .apiStages(UsagePlanApiStageArgs.builder()
+ *                 .apiId(test.id())
+ *                 .stage(aws_api_gateway_deployment.foo().stage_name())
+ *                 .build())
+ *             .build());
+ * 
+ *         var mykey = new ApiKey(&#34;mykey&#34;);
+ * 
+ *         var main = new UsagePlanKey(&#34;main&#34;, UsagePlanKeyArgs.builder()        
+ *             .keyId(mykey.id())
+ *             .keyType(&#34;API_KEY&#34;)
+ *             .usagePlanId(myusageplan.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * AWS API Gateway Usage Plan Key can be imported using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
+ * ```
+ * 
+ */
 @ResourceType(type="aws:apigateway/usagePlanKey:UsagePlanKey")
 public class UsagePlanKey extends com.pulumi.resources.CustomResource {
+    /**
+     * Identifier of the API key resource.
+     * 
+     */
     @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output<String> keyId;
 
+    /**
+     * @return Identifier of the API key resource.
+     * 
+     */
     public Output<String> keyId() {
         return this.keyId;
     }
+    /**
+     * Type of the API key resource. Currently, the valid key type is API_KEY.
+     * 
+     */
     @Export(name="keyType", refs={String.class}, tree="[0]")
     private Output<String> keyType;
 
+    /**
+     * @return Type of the API key resource. Currently, the valid key type is API_KEY.
+     * 
+     */
     public Output<String> keyType() {
         return this.keyType;
     }
+    /**
+     * Name of a usage plan key.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name of a usage plan key.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Id of the usage plan resource representing to associate the key to.
+     * 
+     */
     @Export(name="usagePlanId", refs={String.class}, tree="[0]")
     private Output<String> usagePlanId;
 
+    /**
+     * @return Id of the usage plan resource representing to associate the key to.
+     * 
+     */
     public Output<String> usagePlanId() {
         return this.usagePlanId;
     }
+    /**
+     * Value of a usage plan key.
+     * 
+     */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
+    /**
+     * @return Value of a usage plan key.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }

@@ -15,9 +15,17 @@ public final class AccountSettingDefaultState extends com.pulumi.resources.Resou
 
     public static final AccountSettingDefaultState Empty = new AccountSettingDefaultState();
 
+    /**
+     * Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -29,9 +37,17 @@ public final class AccountSettingDefaultState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.principalArn);
     }
 
+    /**
+     * State of the setting. Valid values are `enabled` and `disabled`.
+     * 
+     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
+    /**
+     * @return State of the setting. Valid values are `enabled` and `disabled`.
+     * 
+     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -62,11 +78,23 @@ public final class AccountSettingDefaultState extends com.pulumi.resources.Resou
             $ = new AccountSettingDefaultState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -80,11 +108,23 @@ public final class AccountSettingDefaultState extends com.pulumi.resources.Resou
             return principalArn(Output.of(principalArn));
         }
 
+        /**
+         * @param value State of the setting. Valid values are `enabled` and `disabled`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value State of the setting. Valid values are `enabled` and `disabled`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

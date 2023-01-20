@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DetectorDatasourcesS3Logs {
+    /**
+     * @return Enable monitoring and feedback reporting. Setting to `false` is equivalent to &#34;suspending&#34; GuardDuty. Defaults to `true`.
+     * 
+     */
     private Boolean enable;
 
     private DetectorDatasourcesS3Logs() {}
+    /**
+     * @return Enable monitoring and feedback reporting. Setting to `false` is equivalent to &#34;suspending&#34; GuardDuty. Defaults to `true`.
+     * 
+     */
     public Boolean enable() {
         return this.enable;
     }

@@ -13,23 +13,99 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Manages an Amazon Managed Service for Prometheus (AMP) Rule Group Namespace
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.amp.Workspace;
+ * import com.pulumi.aws.amp.RuleGroupNamespace;
+ * import com.pulumi.aws.amp.RuleGroupNamespaceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var demoWorkspace = new Workspace(&#34;demoWorkspace&#34;);
+ * 
+ *         var demoRuleGroupNamespace = new RuleGroupNamespace(&#34;demoRuleGroupNamespace&#34;, RuleGroupNamespaceArgs.builder()        
+ *             .workspaceId(demoWorkspace.id())
+ *             .data(&#34;&#34;&#34;
+ * groups:
+ *   - name: test
+ *     rules:
+ *     - record: metric:recording_rule
+ *       expr: avg(rate(container_cpu_usage_seconds_total[5m]))
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * The prometheus rule group namespace can be imported using the arn, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
+ * ```
+ * 
+ */
 @ResourceType(type="aws:amp/ruleGroupNamespace:RuleGroupNamespace")
 public class RuleGroupNamespace extends com.pulumi.resources.CustomResource {
+    /**
+     * the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
+     * 
+     */
     @Export(name="data", refs={String.class}, tree="[0]")
     private Output<String> data;
 
+    /**
+     * @return the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
+     * 
+     */
     public Output<String> data() {
         return this.data;
     }
+    /**
+     * The name of the rule group namespace
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the rule group namespace
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * ID of the prometheus workspace the rule group namespace should be linked to
+     * 
+     */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
+    /**
+     * @return ID of the prometheus workspace the rule group namespace should be linked to
+     * 
+     */
     public Output<String> workspaceId() {
         return this.workspaceId;
     }

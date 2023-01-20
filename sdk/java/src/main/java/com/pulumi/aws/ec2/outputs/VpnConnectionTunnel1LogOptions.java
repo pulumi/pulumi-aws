@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VpnConnectionTunnel1LogOptions {
+    /**
+     * @return Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+     * 
+     */
     private @Nullable VpnConnectionTunnel1LogOptionsCloudwatchLogOptions cloudwatchLogOptions;
 
     private VpnConnectionTunnel1LogOptions() {}
+    /**
+     * @return Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+     * 
+     */
     public Optional<VpnConnectionTunnel1LogOptionsCloudwatchLogOptions> cloudwatchLogOptions() {
         return Optional.ofNullable(this.cloudwatchLogOptions);
     }

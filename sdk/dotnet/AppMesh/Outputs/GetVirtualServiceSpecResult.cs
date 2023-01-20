@@ -13,6 +13,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualServiceSpecResult
     {
+        /// <summary>
+        /// App Mesh object that is acting as the provider for a virtual service.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualServiceSpecProviderResult> Providers;
 
         [OutputConstructor]

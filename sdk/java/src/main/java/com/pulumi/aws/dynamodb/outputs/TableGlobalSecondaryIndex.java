@@ -13,33 +13,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TableGlobalSecondaryIndex {
+    /**
+     * @return Name of the hash key in the index; must be defined as an attribute in the resource.
+     * 
+     */
     private String hashKey;
+    /**
+     * @return Name of the index.
+     * 
+     */
     private String name;
+    /**
+     * @return Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
+     * 
+     */
     private @Nullable List<String> nonKeyAttributes;
+    /**
+     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
+     * 
+     */
     private String projectionType;
+    /**
+     * @return Name of the range key; must be defined
+     * 
+     */
     private @Nullable String rangeKey;
+    /**
+     * @return Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * 
+     */
     private @Nullable Integer readCapacity;
+    /**
+     * @return Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * 
+     */
     private @Nullable Integer writeCapacity;
 
     private TableGlobalSecondaryIndex() {}
+    /**
+     * @return Name of the hash key in the index; must be defined as an attribute in the resource.
+     * 
+     */
     public String hashKey() {
         return this.hashKey;
     }
+    /**
+     * @return Name of the index.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
+     * 
+     */
     public List<String> nonKeyAttributes() {
         return this.nonKeyAttributes == null ? List.of() : this.nonKeyAttributes;
     }
+    /**
+     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
+     * 
+     */
     public String projectionType() {
         return this.projectionType;
     }
+    /**
+     * @return Name of the range key; must be defined
+     * 
+     */
     public Optional<String> rangeKey() {
         return Optional.ofNullable(this.rangeKey);
     }
+    /**
+     * @return Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * 
+     */
     public Optional<Integer> readCapacity() {
         return Optional.ofNullable(this.readCapacity);
     }
+    /**
+     * @return Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * 
+     */
     public Optional<Integer> writeCapacity() {
         return Optional.ofNullable(this.writeCapacity);
     }

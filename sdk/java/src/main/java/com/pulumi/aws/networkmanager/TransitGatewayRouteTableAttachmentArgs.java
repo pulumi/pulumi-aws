@@ -16,23 +16,47 @@ public final class TransitGatewayRouteTableAttachmentArgs extends com.pulumi.res
 
     public static final TransitGatewayRouteTableAttachmentArgs Empty = new TransitGatewayRouteTableAttachmentArgs();
 
+    /**
+     * The ID of the peer for the attachment.
+     * 
+     */
     @Import(name="peeringId", required=true)
     private Output<String> peeringId;
 
+    /**
+     * @return The ID of the peer for the attachment.
+     * 
+     */
     public Output<String> peeringId() {
         return this.peeringId;
     }
 
+    /**
+     * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * The ARN of the transit gateway route table for the attachment.
+     * 
+     */
     @Import(name="transitGatewayRouteTableArn", required=true)
     private Output<String> transitGatewayRouteTableArn;
 
+    /**
+     * @return The ARN of the transit gateway route table for the attachment.
+     * 
+     */
     public Output<String> transitGatewayRouteTableArn() {
         return this.transitGatewayRouteTableArn;
     }
@@ -63,29 +87,65 @@ public final class TransitGatewayRouteTableAttachmentArgs extends com.pulumi.res
             $ = new TransitGatewayRouteTableAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param peeringId The ID of the peer for the attachment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder peeringId(Output<String> peeringId) {
             $.peeringId = peeringId;
             return this;
         }
 
+        /**
+         * @param peeringId The ID of the peer for the attachment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder peeringId(String peeringId) {
             return peeringId(Output.of(peeringId));
         }
 
+        /**
+         * @param tags Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param transitGatewayRouteTableArn The ARN of the transit gateway route table for the attachment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder transitGatewayRouteTableArn(Output<String> transitGatewayRouteTableArn) {
             $.transitGatewayRouteTableArn = transitGatewayRouteTableArn;
             return this;
         }
 
+        /**
+         * @param transitGatewayRouteTableArn The ARN of the transit gateway route table for the attachment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder transitGatewayRouteTableArn(String transitGatewayRouteTableArn) {
             return transitGatewayRouteTableArn(Output.of(transitGatewayRouteTableArn));
         }

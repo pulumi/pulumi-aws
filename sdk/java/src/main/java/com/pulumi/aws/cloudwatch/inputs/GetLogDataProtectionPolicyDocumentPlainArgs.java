@@ -23,16 +23,32 @@ public final class GetLogDataProtectionPolicyDocumentPlainArgs extends com.pulum
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * The name of the data protection policy document.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return The name of the data protection policy document.
+     * 
+     */
     public String name() {
         return this.name;
     }
 
+    /**
+     * Configures the data protection policy.
+     * 
+     */
     @Import(name="statements", required=true)
     private List<GetLogDataProtectionPolicyDocumentStatement> statements;
 
+    /**
+     * @return Configures the data protection policy.
+     * 
+     */
     public List<GetLogDataProtectionPolicyDocumentStatement> statements() {
         return this.statements;
     }
@@ -76,16 +92,34 @@ public final class GetLogDataProtectionPolicyDocumentPlainArgs extends com.pulum
             return this;
         }
 
+        /**
+         * @param name The name of the data protection policy document.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param statements Configures the data protection policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statements(List<GetLogDataProtectionPolicyDocumentStatement> statements) {
             $.statements = statements;
             return this;
         }
 
+        /**
+         * @param statements Configures the data protection policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statements(GetLogDataProtectionPolicyDocumentStatement... statements) {
             return statements(List.of(statements));
         }

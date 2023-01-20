@@ -57,6 +57,11 @@ class FrameworkControl(dict):
                  name: str,
                  input_parameters: Optional[Sequence['outputs.FrameworkControlInputParameter']] = None,
                  scope: Optional['outputs.FrameworkControlScope'] = None):
+        """
+        :param str name: The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        :param Sequence['FrameworkControlInputParameterArgs'] input_parameters: One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
+        :param 'FrameworkControlScopeArgs' scope: The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+        """
         pulumi.set(__self__, "name", name)
         if input_parameters is not None:
             pulumi.set(__self__, "input_parameters", input_parameters)
@@ -66,16 +71,25 @@ class FrameworkControl(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="inputParameters")
     def input_parameters(self) -> Optional[Sequence['outputs.FrameworkControlInputParameter']]:
+        """
+        One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
+        """
         return pulumi.get(self, "input_parameters")
 
     @property
     @pulumi.getter
     def scope(self) -> Optional['outputs.FrameworkControlScope']:
+        """
+        The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+        """
         return pulumi.get(self, "scope")
 
 
@@ -84,6 +98,10 @@ class FrameworkControlInputParameter(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  value: Optional[str] = None):
+        """
+        :param str name: The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        :param str value: The value of parameter, for example, hourly.
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -92,11 +110,17 @@ class FrameworkControlInputParameter(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        The value of parameter, for example, hourly.
+        """
         return pulumi.get(self, "value")
 
 
@@ -125,6 +149,11 @@ class FrameworkControlScope(dict):
                  compliance_resource_ids: Optional[Sequence[str]] = None,
                  compliance_resource_types: Optional[Sequence[str]] = None,
                  tags: Optional[Mapping[str, str]] = None):
+        """
+        :param Sequence[str] compliance_resource_ids: The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
+        :param Sequence[str] compliance_resource_types: Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+        :param Mapping[str, str] tags: Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         if compliance_resource_ids is not None:
             pulumi.set(__self__, "compliance_resource_ids", compliance_resource_ids)
         if compliance_resource_types is not None:
@@ -135,16 +164,25 @@ class FrameworkControlScope(dict):
     @property
     @pulumi.getter(name="complianceResourceIds")
     def compliance_resource_ids(self) -> Optional[Sequence[str]]:
+        """
+        The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
+        """
         return pulumi.get(self, "compliance_resource_ids")
 
     @property
     @pulumi.getter(name="complianceResourceTypes")
     def compliance_resource_types(self) -> Optional[Sequence[str]]:
+        """
+        Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+        """
         return pulumi.get(self, "compliance_resource_types")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -172,17 +210,27 @@ class PlanAdvancedBackupSetting(dict):
     def __init__(__self__, *,
                  backup_options: Mapping[str, str],
                  resource_type: str):
+        """
+        :param Mapping[str, str] backup_options: Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
+        :param str resource_type: The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
+        """
         pulumi.set(__self__, "backup_options", backup_options)
         pulumi.set(__self__, "resource_type", resource_type)
 
     @property
     @pulumi.getter(name="backupOptions")
     def backup_options(self) -> Mapping[str, str]:
+        """
+        Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
+        """
         return pulumi.get(self, "backup_options")
 
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> str:
+        """
+        The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
+        """
         return pulumi.get(self, "resource_type")
 
 
@@ -227,6 +275,17 @@ class PlanRule(dict):
                  recovery_point_tags: Optional[Mapping[str, str]] = None,
                  schedule: Optional[str] = None,
                  start_window: Optional[int] = None):
+        """
+        :param str rule_name: An display name for a backup rule.
+        :param str target_vault_name: The name of a logical container where backups are stored.
+        :param int completion_window: The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
+        :param Sequence['PlanRuleCopyActionArgs'] copy_actions: Configuration block(s) with copy operation settings. Detailed below.
+        :param bool enable_continuous_backup: Enable continuous backups for supported resources.
+        :param 'PlanRuleLifecycleArgs' lifecycle: The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+        :param Mapping[str, str] recovery_point_tags: Metadata that you can assign to help organize the resources that you create.
+        :param str schedule: A CRON expression specifying when AWS Backup initiates a backup job.
+        :param int start_window: The amount of time in minutes before beginning a backup.
+        """
         pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "target_vault_name", target_vault_name)
         if completion_window is not None:
@@ -247,46 +306,73 @@ class PlanRule(dict):
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> str:
+        """
+        An display name for a backup rule.
+        """
         return pulumi.get(self, "rule_name")
 
     @property
     @pulumi.getter(name="targetVaultName")
     def target_vault_name(self) -> str:
+        """
+        The name of a logical container where backups are stored.
+        """
         return pulumi.get(self, "target_vault_name")
 
     @property
     @pulumi.getter(name="completionWindow")
     def completion_window(self) -> Optional[int]:
+        """
+        The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
+        """
         return pulumi.get(self, "completion_window")
 
     @property
     @pulumi.getter(name="copyActions")
     def copy_actions(self) -> Optional[Sequence['outputs.PlanRuleCopyAction']]:
+        """
+        Configuration block(s) with copy operation settings. Detailed below.
+        """
         return pulumi.get(self, "copy_actions")
 
     @property
     @pulumi.getter(name="enableContinuousBackup")
     def enable_continuous_backup(self) -> Optional[bool]:
+        """
+        Enable continuous backups for supported resources.
+        """
         return pulumi.get(self, "enable_continuous_backup")
 
     @property
     @pulumi.getter
     def lifecycle(self) -> Optional['outputs.PlanRuleLifecycle']:
+        """
+        The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+        """
         return pulumi.get(self, "lifecycle")
 
     @property
     @pulumi.getter(name="recoveryPointTags")
     def recovery_point_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Metadata that you can assign to help organize the resources that you create.
+        """
         return pulumi.get(self, "recovery_point_tags")
 
     @property
     @pulumi.getter
     def schedule(self) -> Optional[str]:
+        """
+        A CRON expression specifying when AWS Backup initiates a backup job.
+        """
         return pulumi.get(self, "schedule")
 
     @property
     @pulumi.getter(name="startWindow")
     def start_window(self) -> Optional[int]:
+        """
+        The amount of time in minutes before beginning a backup.
+        """
         return pulumi.get(self, "start_window")
 
 
@@ -312,6 +398,10 @@ class PlanRuleCopyAction(dict):
     def __init__(__self__, *,
                  destination_vault_arn: str,
                  lifecycle: Optional['outputs.PlanRuleCopyActionLifecycle'] = None):
+        """
+        :param str destination_vault_arn: An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+        :param 'PlanRuleCopyActionLifecycleArgs' lifecycle: The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+        """
         pulumi.set(__self__, "destination_vault_arn", destination_vault_arn)
         if lifecycle is not None:
             pulumi.set(__self__, "lifecycle", lifecycle)
@@ -319,11 +409,17 @@ class PlanRuleCopyAction(dict):
     @property
     @pulumi.getter(name="destinationVaultArn")
     def destination_vault_arn(self) -> str:
+        """
+        An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+        """
         return pulumi.get(self, "destination_vault_arn")
 
     @property
     @pulumi.getter
     def lifecycle(self) -> Optional['outputs.PlanRuleCopyActionLifecycle']:
+        """
+        The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+        """
         return pulumi.get(self, "lifecycle")
 
 
@@ -351,6 +447,10 @@ class PlanRuleCopyActionLifecycle(dict):
     def __init__(__self__, *,
                  cold_storage_after: Optional[int] = None,
                  delete_after: Optional[int] = None):
+        """
+        :param int cold_storage_after: Specifies the number of days after creation that a recovery point is moved to cold storage.
+        :param int delete_after: Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+        """
         if cold_storage_after is not None:
             pulumi.set(__self__, "cold_storage_after", cold_storage_after)
         if delete_after is not None:
@@ -359,11 +459,17 @@ class PlanRuleCopyActionLifecycle(dict):
     @property
     @pulumi.getter(name="coldStorageAfter")
     def cold_storage_after(self) -> Optional[int]:
+        """
+        Specifies the number of days after creation that a recovery point is moved to cold storage.
+        """
         return pulumi.get(self, "cold_storage_after")
 
     @property
     @pulumi.getter(name="deleteAfter")
     def delete_after(self) -> Optional[int]:
+        """
+        Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+        """
         return pulumi.get(self, "delete_after")
 
 
@@ -391,6 +497,10 @@ class PlanRuleLifecycle(dict):
     def __init__(__self__, *,
                  cold_storage_after: Optional[int] = None,
                  delete_after: Optional[int] = None):
+        """
+        :param int cold_storage_after: Specifies the number of days after creation that a recovery point is moved to cold storage.
+        :param int delete_after: Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+        """
         if cold_storage_after is not None:
             pulumi.set(__self__, "cold_storage_after", cold_storage_after)
         if delete_after is not None:
@@ -399,11 +509,17 @@ class PlanRuleLifecycle(dict):
     @property
     @pulumi.getter(name="coldStorageAfter")
     def cold_storage_after(self) -> Optional[int]:
+        """
+        Specifies the number of days after creation that a recovery point is moved to cold storage.
+        """
         return pulumi.get(self, "cold_storage_after")
 
     @property
     @pulumi.getter(name="deleteAfter")
     def delete_after(self) -> Optional[int]:
+        """
+        Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+        """
         return pulumi.get(self, "delete_after")
 
 
@@ -432,6 +548,11 @@ class ReportPlanReportDeliveryChannel(dict):
                  s3_bucket_name: str,
                  formats: Optional[Sequence[str]] = None,
                  s3_key_prefix: Optional[str] = None):
+        """
+        :param str s3_bucket_name: The unique name of the S3 bucket that receives your reports.
+        :param Sequence[str] formats: A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
+        :param str s3_key_prefix: The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
+        """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if formats is not None:
             pulumi.set(__self__, "formats", formats)
@@ -441,16 +562,25 @@ class ReportPlanReportDeliveryChannel(dict):
     @property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> str:
+        """
+        The unique name of the S3 bucket that receives your reports.
+        """
         return pulumi.get(self, "s3_bucket_name")
 
     @property
     @pulumi.getter
     def formats(self) -> Optional[Sequence[str]]:
+        """
+        A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
+        """
         return pulumi.get(self, "formats")
 
     @property
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> Optional[str]:
+        """
+        The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
+        """
         return pulumi.get(self, "s3_key_prefix")
 
 
@@ -481,6 +611,11 @@ class ReportPlanReportSetting(dict):
                  report_template: str,
                  framework_arns: Optional[Sequence[str]] = None,
                  number_of_frameworks: Optional[int] = None):
+        """
+        :param str report_template: Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
+        :param Sequence[str] framework_arns: Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+        :param int number_of_frameworks: Specifies the number of frameworks a report covers.
+        """
         pulumi.set(__self__, "report_template", report_template)
         if framework_arns is not None:
             pulumi.set(__self__, "framework_arns", framework_arns)
@@ -490,16 +625,25 @@ class ReportPlanReportSetting(dict):
     @property
     @pulumi.getter(name="reportTemplate")
     def report_template(self) -> str:
+        """
+        Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
+        """
         return pulumi.get(self, "report_template")
 
     @property
     @pulumi.getter(name="frameworkArns")
     def framework_arns(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+        """
         return pulumi.get(self, "framework_arns")
 
     @property
     @pulumi.getter(name="numberOfFrameworks")
     def number_of_frameworks(self) -> Optional[int]:
+        """
+        Specifies the number of frameworks a report covers.
+        """
         return pulumi.get(self, "number_of_frameworks")
 
 
@@ -568,17 +712,27 @@ class SelectionConditionStringEqual(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: The key in a key-value pair.
+        :param str value: The value in a key-value pair.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key in a key-value pair.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value in a key-value pair.
+        """
         return pulumi.get(self, "value")
 
 
@@ -587,17 +741,27 @@ class SelectionConditionStringLike(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: The key in a key-value pair.
+        :param str value: The value in a key-value pair.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key in a key-value pair.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value in a key-value pair.
+        """
         return pulumi.get(self, "value")
 
 
@@ -606,17 +770,27 @@ class SelectionConditionStringNotEqual(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: The key in a key-value pair.
+        :param str value: The value in a key-value pair.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key in a key-value pair.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value in a key-value pair.
+        """
         return pulumi.get(self, "value")
 
 
@@ -625,17 +799,27 @@ class SelectionConditionStringNotLike(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: The key in a key-value pair.
+        :param str value: The value in a key-value pair.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key in a key-value pair.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value in a key-value pair.
+        """
         return pulumi.get(self, "value")
 
 
@@ -645,6 +829,11 @@ class SelectionSelectionTag(dict):
                  key: str,
                  type: str,
                  value: str):
+        """
+        :param str key: The key in a key-value pair.
+        :param str type: An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
+        :param str value: The value in a key-value pair.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -652,16 +841,25 @@ class SelectionSelectionTag(dict):
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key in a key-value pair.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value in a key-value pair.
+        """
         return pulumi.get(self, "value")
 
 
@@ -671,6 +869,11 @@ class GetFrameworkControlResult(dict):
                  input_parameters: Sequence['outputs.GetFrameworkControlInputParameterResult'],
                  name: str,
                  scopes: Sequence['outputs.GetFrameworkControlScopeResult']):
+        """
+        :param Sequence['GetFrameworkControlInputParameterArgs'] input_parameters: One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
+        :param str name: Backup framework name.
+        :param Sequence['GetFrameworkControlScopeArgs'] scopes: Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+        """
         pulumi.set(__self__, "input_parameters", input_parameters)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "scopes", scopes)
@@ -678,16 +881,25 @@ class GetFrameworkControlResult(dict):
     @property
     @pulumi.getter(name="inputParameters")
     def input_parameters(self) -> Sequence['outputs.GetFrameworkControlInputParameterResult']:
+        """
+        One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
+        """
         return pulumi.get(self, "input_parameters")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Backup framework name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def scopes(self) -> Sequence['outputs.GetFrameworkControlScopeResult']:
+        """
+        Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+        """
         return pulumi.get(self, "scopes")
 
 
@@ -696,17 +908,27 @@ class GetFrameworkControlInputParameterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
+        """
+        :param str name: Backup framework name.
+        :param str value: Value of parameter, for example, hourly.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Backup framework name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of parameter, for example, hourly.
+        """
         return pulumi.get(self, "value")
 
 
@@ -716,6 +938,11 @@ class GetFrameworkControlScopeResult(dict):
                  compliance_resource_ids: Sequence[str],
                  compliance_resource_types: Sequence[str],
                  tags: Mapping[str, str]):
+        """
+        :param Sequence[str] compliance_resource_ids: The ID of the only AWS resource that you want your control scope to contain.
+        :param Sequence[str] compliance_resource_types: Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+        :param Mapping[str, str] tags: Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        """
         pulumi.set(__self__, "compliance_resource_ids", compliance_resource_ids)
         pulumi.set(__self__, "compliance_resource_types", compliance_resource_types)
         pulumi.set(__self__, "tags", tags)
@@ -723,16 +950,25 @@ class GetFrameworkControlScopeResult(dict):
     @property
     @pulumi.getter(name="complianceResourceIds")
     def compliance_resource_ids(self) -> Sequence[str]:
+        """
+        The ID of the only AWS resource that you want your control scope to contain.
+        """
         return pulumi.get(self, "compliance_resource_ids")
 
     @property
     @pulumi.getter(name="complianceResourceTypes")
     def compliance_resource_types(self) -> Sequence[str]:
+        """
+        Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+        """
         return pulumi.get(self, "compliance_resource_types")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -742,6 +978,11 @@ class GetReportPlanReportDeliveryChannelResult(dict):
                  formats: Sequence[str],
                  s3_bucket_name: str,
                  s3_key_prefix: str):
+        """
+        :param Sequence[str] formats: List of the format of your reports: CSV, JSON, or both.
+        :param str s3_bucket_name: Unique name of the S3 bucket that receives your reports.
+        :param str s3_key_prefix: Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
+        """
         pulumi.set(__self__, "formats", formats)
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
@@ -749,16 +990,25 @@ class GetReportPlanReportDeliveryChannelResult(dict):
     @property
     @pulumi.getter
     def formats(self) -> Sequence[str]:
+        """
+        List of the format of your reports: CSV, JSON, or both.
+        """
         return pulumi.get(self, "formats")
 
     @property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> str:
+        """
+        Unique name of the S3 bucket that receives your reports.
+        """
         return pulumi.get(self, "s3_bucket_name")
 
     @property
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> str:
+        """
+        Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
+        """
         return pulumi.get(self, "s3_key_prefix")
 
 
@@ -768,6 +1018,11 @@ class GetReportPlanReportSettingResult(dict):
                  framework_arns: Sequence[str],
                  number_of_frameworks: int,
                  report_template: str):
+        """
+        :param Sequence[str] framework_arns: ARNs of the frameworks a report covers.
+        :param int number_of_frameworks: Specifies the number of frameworks a report covers.
+        :param str report_template: Identifies the report template for the report. Reports are built using a report template.
+        """
         pulumi.set(__self__, "framework_arns", framework_arns)
         pulumi.set(__self__, "number_of_frameworks", number_of_frameworks)
         pulumi.set(__self__, "report_template", report_template)
@@ -775,16 +1030,25 @@ class GetReportPlanReportSettingResult(dict):
     @property
     @pulumi.getter(name="frameworkArns")
     def framework_arns(self) -> Sequence[str]:
+        """
+        ARNs of the frameworks a report covers.
+        """
         return pulumi.get(self, "framework_arns")
 
     @property
     @pulumi.getter(name="numberOfFrameworks")
     def number_of_frameworks(self) -> int:
+        """
+        Specifies the number of frameworks a report covers.
+        """
         return pulumi.get(self, "number_of_frameworks")
 
     @property
     @pulumi.getter(name="reportTemplate")
     def report_template(self) -> str:
+        """
+        Identifies the report template for the report. Reports are built using a report template.
+        """
         return pulumi.get(self, "report_template")
 
 

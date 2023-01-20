@@ -11,9 +11,12 @@ import (
 )
 
 type RecordAlias struct {
-	EvaluateTargetHealth bool   `pulumi:"evaluateTargetHealth"`
-	Name                 string `pulumi:"name"`
-	ZoneId               string `pulumi:"zoneId"`
+	// Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
+	EvaluateTargetHealth bool `pulumi:"evaluateTargetHealth"`
+	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+	Name string `pulumi:"name"`
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+	ZoneId string `pulumi:"zoneId"`
 }
 
 // RecordAliasInput is an input type that accepts RecordAliasArgs and RecordAliasOutput values.
@@ -28,9 +31,12 @@ type RecordAliasInput interface {
 }
 
 type RecordAliasArgs struct {
-	EvaluateTargetHealth pulumi.BoolInput   `pulumi:"evaluateTargetHealth"`
-	Name                 pulumi.StringInput `pulumi:"name"`
-	ZoneId               pulumi.StringInput `pulumi:"zoneId"`
+	// Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
+	EvaluateTargetHealth pulumi.BoolInput `pulumi:"evaluateTargetHealth"`
+	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+	ZoneId pulumi.StringInput `pulumi:"zoneId"`
 }
 
 func (RecordAliasArgs) ElementType() reflect.Type {
@@ -84,14 +90,17 @@ func (o RecordAliasOutput) ToRecordAliasOutputWithContext(ctx context.Context) R
 	return o
 }
 
+// Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
 func (o RecordAliasOutput) EvaluateTargetHealth() pulumi.BoolOutput {
 	return o.ApplyT(func(v RecordAlias) bool { return v.EvaluateTargetHealth }).(pulumi.BoolOutput)
 }
 
+// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
 func (o RecordAliasOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordAlias) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
 func (o RecordAliasOutput) ZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordAlias) string { return v.ZoneId }).(pulumi.StringOutput)
 }
@@ -117,6 +126,7 @@ func (o RecordAliasArrayOutput) Index(i pulumi.IntInput) RecordAliasOutput {
 }
 
 type RecordFailoverRoutingPolicy struct {
+	// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
 	Type string `pulumi:"type"`
 }
 
@@ -132,6 +142,7 @@ type RecordFailoverRoutingPolicyInput interface {
 }
 
 type RecordFailoverRoutingPolicyArgs struct {
+	// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -186,6 +197,7 @@ func (o RecordFailoverRoutingPolicyOutput) ToRecordFailoverRoutingPolicyOutputWi
 	return o
 }
 
+// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
 func (o RecordFailoverRoutingPolicyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordFailoverRoutingPolicy) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -211,8 +223,11 @@ func (o RecordFailoverRoutingPolicyArrayOutput) Index(i pulumi.IntInput) RecordF
 }
 
 type RecordGeolocationRoutingPolicy struct {
-	Continent   *string `pulumi:"continent"`
-	Country     *string `pulumi:"country"`
+	// A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
+	Continent *string `pulumi:"continent"`
+	// A two-character country code or `*` to indicate a default resource record set.
+	Country *string `pulumi:"country"`
+	// A subdivision code for a country.
 	Subdivision *string `pulumi:"subdivision"`
 }
 
@@ -228,8 +243,11 @@ type RecordGeolocationRoutingPolicyInput interface {
 }
 
 type RecordGeolocationRoutingPolicyArgs struct {
-	Continent   pulumi.StringPtrInput `pulumi:"continent"`
-	Country     pulumi.StringPtrInput `pulumi:"country"`
+	// A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
+	Continent pulumi.StringPtrInput `pulumi:"continent"`
+	// A two-character country code or `*` to indicate a default resource record set.
+	Country pulumi.StringPtrInput `pulumi:"country"`
+	// A subdivision code for a country.
 	Subdivision pulumi.StringPtrInput `pulumi:"subdivision"`
 }
 
@@ -284,14 +302,17 @@ func (o RecordGeolocationRoutingPolicyOutput) ToRecordGeolocationRoutingPolicyOu
 	return o
 }
 
+// A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
 func (o RecordGeolocationRoutingPolicyOutput) Continent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecordGeolocationRoutingPolicy) *string { return v.Continent }).(pulumi.StringPtrOutput)
 }
 
+// A two-character country code or `*` to indicate a default resource record set.
 func (o RecordGeolocationRoutingPolicyOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecordGeolocationRoutingPolicy) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
+// A subdivision code for a country.
 func (o RecordGeolocationRoutingPolicyOutput) Subdivision() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecordGeolocationRoutingPolicy) *string { return v.Subdivision }).(pulumi.StringPtrOutput)
 }
@@ -317,6 +338,7 @@ func (o RecordGeolocationRoutingPolicyArrayOutput) Index(i pulumi.IntInput) Reco
 }
 
 type RecordLatencyRoutingPolicy struct {
+	// An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
 	Region string `pulumi:"region"`
 }
 
@@ -332,6 +354,7 @@ type RecordLatencyRoutingPolicyInput interface {
 }
 
 type RecordLatencyRoutingPolicyArgs struct {
+	// An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
 	Region pulumi.StringInput `pulumi:"region"`
 }
 
@@ -386,6 +409,7 @@ func (o RecordLatencyRoutingPolicyOutput) ToRecordLatencyRoutingPolicyOutputWith
 	return o
 }
 
+// An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
 func (o RecordLatencyRoutingPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordLatencyRoutingPolicy) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -411,6 +435,7 @@ func (o RecordLatencyRoutingPolicyArrayOutput) Index(i pulumi.IntInput) RecordLa
 }
 
 type RecordWeightedRoutingPolicy struct {
+	// A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
 	Weight int `pulumi:"weight"`
 }
 
@@ -426,6 +451,7 @@ type RecordWeightedRoutingPolicyInput interface {
 }
 
 type RecordWeightedRoutingPolicyArgs struct {
+	// A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
 	Weight pulumi.IntInput `pulumi:"weight"`
 }
 
@@ -480,6 +506,7 @@ func (o RecordWeightedRoutingPolicyOutput) ToRecordWeightedRoutingPolicyOutputWi
 	return o
 }
 
+// A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
 func (o RecordWeightedRoutingPolicyOutput) Weight() pulumi.IntOutput {
 	return o.ApplyT(func(v RecordWeightedRoutingPolicy) int { return v.Weight }).(pulumi.IntOutput)
 }
@@ -505,9 +532,11 @@ func (o RecordWeightedRoutingPolicyArrayOutput) Index(i pulumi.IntInput) RecordW
 }
 
 type ResolverEndpointIpAddress struct {
-	Ip       *string `pulumi:"ip"`
-	IpId     *string `pulumi:"ipId"`
-	SubnetId string  `pulumi:"subnetId"`
+	// The IP address in the subnet that you want to use for DNS queries.
+	Ip   *string `pulumi:"ip"`
+	IpId *string `pulumi:"ipId"`
+	// The ID of the subnet that contains the IP address.
+	SubnetId string `pulumi:"subnetId"`
 }
 
 // ResolverEndpointIpAddressInput is an input type that accepts ResolverEndpointIpAddressArgs and ResolverEndpointIpAddressOutput values.
@@ -522,9 +551,11 @@ type ResolverEndpointIpAddressInput interface {
 }
 
 type ResolverEndpointIpAddressArgs struct {
-	Ip       pulumi.StringPtrInput `pulumi:"ip"`
-	IpId     pulumi.StringPtrInput `pulumi:"ipId"`
-	SubnetId pulumi.StringInput    `pulumi:"subnetId"`
+	// The IP address in the subnet that you want to use for DNS queries.
+	Ip   pulumi.StringPtrInput `pulumi:"ip"`
+	IpId pulumi.StringPtrInput `pulumi:"ipId"`
+	// The ID of the subnet that contains the IP address.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
 func (ResolverEndpointIpAddressArgs) ElementType() reflect.Type {
@@ -578,6 +609,7 @@ func (o ResolverEndpointIpAddressOutput) ToResolverEndpointIpAddressOutputWithCo
 	return o
 }
 
+// The IP address in the subnet that you want to use for DNS queries.
 func (o ResolverEndpointIpAddressOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverEndpointIpAddress) *string { return v.Ip }).(pulumi.StringPtrOutput)
 }
@@ -586,6 +618,7 @@ func (o ResolverEndpointIpAddressOutput) IpId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverEndpointIpAddress) *string { return v.IpId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the subnet that contains the IP address.
 func (o ResolverEndpointIpAddressOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResolverEndpointIpAddress) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -611,8 +644,10 @@ func (o ResolverEndpointIpAddressArrayOutput) Index(i pulumi.IntInput) ResolverE
 }
 
 type ResolverRuleTargetIp struct {
-	Ip   string `pulumi:"ip"`
-	Port *int   `pulumi:"port"`
+	// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+	Ip string `pulumi:"ip"`
+	// The port at `ip` that you want to forward DNS queries to. Default value is `53`
+	Port *int `pulumi:"port"`
 }
 
 // ResolverRuleTargetIpInput is an input type that accepts ResolverRuleTargetIpArgs and ResolverRuleTargetIpOutput values.
@@ -627,7 +662,9 @@ type ResolverRuleTargetIpInput interface {
 }
 
 type ResolverRuleTargetIpArgs struct {
-	Ip   pulumi.StringInput `pulumi:"ip"`
+	// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+	Ip pulumi.StringInput `pulumi:"ip"`
+	// The port at `ip` that you want to forward DNS queries to. Default value is `53`
 	Port pulumi.IntPtrInput `pulumi:"port"`
 }
 
@@ -682,10 +719,12 @@ func (o ResolverRuleTargetIpOutput) ToResolverRuleTargetIpOutputWithContext(ctx 
 	return o
 }
 
+// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
 func (o ResolverRuleTargetIpOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v ResolverRuleTargetIp) string { return v.Ip }).(pulumi.StringOutput)
 }
 
+// The port at `ip` that you want to forward DNS queries to. Default value is `53`
 func (o ResolverRuleTargetIpOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResolverRuleTargetIp) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -711,7 +750,9 @@ func (o ResolverRuleTargetIpArrayOutput) Index(i pulumi.IntInput) ResolverRuleTa
 }
 
 type ZoneVpc struct {
-	VpcId     string  `pulumi:"vpcId"`
+	// ID of the VPC to associate.
+	VpcId string `pulumi:"vpcId"`
+	// Region of the VPC to associate. Defaults to AWS provider region.
 	VpcRegion *string `pulumi:"vpcRegion"`
 }
 
@@ -727,7 +768,9 @@ type ZoneVpcInput interface {
 }
 
 type ZoneVpcArgs struct {
-	VpcId     pulumi.StringInput    `pulumi:"vpcId"`
+	// ID of the VPC to associate.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+	// Region of the VPC to associate. Defaults to AWS provider region.
 	VpcRegion pulumi.StringPtrInput `pulumi:"vpcRegion"`
 }
 
@@ -782,10 +825,12 @@ func (o ZoneVpcOutput) ToZoneVpcOutputWithContext(ctx context.Context) ZoneVpcOu
 	return o
 }
 
+// ID of the VPC to associate.
 func (o ZoneVpcOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v ZoneVpc) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
+// Region of the VPC to associate. Defaults to AWS provider region.
 func (o ZoneVpcOutput) VpcRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ZoneVpc) *string { return v.VpcRegion }).(pulumi.StringPtrOutput)
 }
@@ -911,18 +956,30 @@ func (o GetResolverEndpointFilterArrayOutput) Index(i pulumi.IntInput) GetResolv
 }
 
 type GetResolverFirewallRulesFirewallRule struct {
-	Action               string `pulumi:"action"`
+	// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
+	Action string `pulumi:"action"`
+	// The DNS record's type.
 	BlockOverrideDnsType string `pulumi:"blockOverrideDnsType"`
-	BlockOverrideDomain  string `pulumi:"blockOverrideDomain"`
-	BlockOverrideTtl     int    `pulumi:"blockOverrideTtl"`
-	BlockResponse        string `pulumi:"blockResponse"`
-	CreationTime         string `pulumi:"creationTime"`
-	CreatorRequestId     string `pulumi:"creatorRequestId"`
+	// The custom DNS record to send back in response to the query.
+	BlockOverrideDomain string `pulumi:"blockOverrideDomain"`
+	// The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
+	BlockOverrideTtl int `pulumi:"blockOverrideTtl"`
+	// The way that you want DNS Firewall to block the request.
+	BlockResponse string `pulumi:"blockResponse"`
+	// The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
+	CreationTime string `pulumi:"creationTime"`
+	// A unique string defined by you to identify the request.
+	CreatorRequestId string `pulumi:"creatorRequestId"`
+	// The ID of the domain list that's used in the rule.
 	FirewallDomainListId string `pulumi:"firewallDomainListId"`
-	FirewallRuleGroupId  string `pulumi:"firewallRuleGroupId"`
-	ModificationTime     string `pulumi:"modificationTime"`
-	Name                 string `pulumi:"name"`
-	Priority             int    `pulumi:"priority"`
+	// The unique identifier of the firewall rule group that you want to retrieve the rules for.
+	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
+	// The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
+	ModificationTime string `pulumi:"modificationTime"`
+	// The name of the rule.
+	Name string `pulumi:"name"`
+	// The setting that determines the processing order of the rules in a rule group.
+	Priority int `pulumi:"priority"`
 }
 
 // GetResolverFirewallRulesFirewallRuleInput is an input type that accepts GetResolverFirewallRulesFirewallRuleArgs and GetResolverFirewallRulesFirewallRuleOutput values.
@@ -937,18 +994,30 @@ type GetResolverFirewallRulesFirewallRuleInput interface {
 }
 
 type GetResolverFirewallRulesFirewallRuleArgs struct {
-	Action               pulumi.StringInput `pulumi:"action"`
+	// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The DNS record's type.
 	BlockOverrideDnsType pulumi.StringInput `pulumi:"blockOverrideDnsType"`
-	BlockOverrideDomain  pulumi.StringInput `pulumi:"blockOverrideDomain"`
-	BlockOverrideTtl     pulumi.IntInput    `pulumi:"blockOverrideTtl"`
-	BlockResponse        pulumi.StringInput `pulumi:"blockResponse"`
-	CreationTime         pulumi.StringInput `pulumi:"creationTime"`
-	CreatorRequestId     pulumi.StringInput `pulumi:"creatorRequestId"`
+	// The custom DNS record to send back in response to the query.
+	BlockOverrideDomain pulumi.StringInput `pulumi:"blockOverrideDomain"`
+	// The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
+	BlockOverrideTtl pulumi.IntInput `pulumi:"blockOverrideTtl"`
+	// The way that you want DNS Firewall to block the request.
+	BlockResponse pulumi.StringInput `pulumi:"blockResponse"`
+	// The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
+	CreationTime pulumi.StringInput `pulumi:"creationTime"`
+	// A unique string defined by you to identify the request.
+	CreatorRequestId pulumi.StringInput `pulumi:"creatorRequestId"`
+	// The ID of the domain list that's used in the rule.
 	FirewallDomainListId pulumi.StringInput `pulumi:"firewallDomainListId"`
-	FirewallRuleGroupId  pulumi.StringInput `pulumi:"firewallRuleGroupId"`
-	ModificationTime     pulumi.StringInput `pulumi:"modificationTime"`
-	Name                 pulumi.StringInput `pulumi:"name"`
-	Priority             pulumi.IntInput    `pulumi:"priority"`
+	// The unique identifier of the firewall rule group that you want to retrieve the rules for.
+	FirewallRuleGroupId pulumi.StringInput `pulumi:"firewallRuleGroupId"`
+	// The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
+	ModificationTime pulumi.StringInput `pulumi:"modificationTime"`
+	// The name of the rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The setting that determines the processing order of the rules in a rule group.
+	Priority pulumi.IntInput `pulumi:"priority"`
 }
 
 func (GetResolverFirewallRulesFirewallRuleArgs) ElementType() reflect.Type {
@@ -1002,50 +1071,62 @@ func (o GetResolverFirewallRulesFirewallRuleOutput) ToGetResolverFirewallRulesFi
 	return o
 }
 
+// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
 func (o GetResolverFirewallRulesFirewallRuleOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.Action }).(pulumi.StringOutput)
 }
 
+// The DNS record's type.
 func (o GetResolverFirewallRulesFirewallRuleOutput) BlockOverrideDnsType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.BlockOverrideDnsType }).(pulumi.StringOutput)
 }
 
+// The custom DNS record to send back in response to the query.
 func (o GetResolverFirewallRulesFirewallRuleOutput) BlockOverrideDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.BlockOverrideDomain }).(pulumi.StringOutput)
 }
 
+// The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
 func (o GetResolverFirewallRulesFirewallRuleOutput) BlockOverrideTtl() pulumi.IntOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) int { return v.BlockOverrideTtl }).(pulumi.IntOutput)
 }
 
+// The way that you want DNS Firewall to block the request.
 func (o GetResolverFirewallRulesFirewallRuleOutput) BlockResponse() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.BlockResponse }).(pulumi.StringOutput)
 }
 
+// The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
 func (o GetResolverFirewallRulesFirewallRuleOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// A unique string defined by you to identify the request.
 func (o GetResolverFirewallRulesFirewallRuleOutput) CreatorRequestId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.CreatorRequestId }).(pulumi.StringOutput)
 }
 
+// The ID of the domain list that's used in the rule.
 func (o GetResolverFirewallRulesFirewallRuleOutput) FirewallDomainListId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.FirewallDomainListId }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the firewall rule group that you want to retrieve the rules for.
 func (o GetResolverFirewallRulesFirewallRuleOutput) FirewallRuleGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.FirewallRuleGroupId }).(pulumi.StringOutput)
 }
 
+// The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
 func (o GetResolverFirewallRulesFirewallRuleOutput) ModificationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.ModificationTime }).(pulumi.StringOutput)
 }
 
+// The name of the rule.
 func (o GetResolverFirewallRulesFirewallRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The setting that determines the processing order of the rules in a rule group.
 func (o GetResolverFirewallRulesFirewallRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) int { return v.Priority }).(pulumi.IntOutput)
 }
@@ -1071,10 +1152,14 @@ func (o GetResolverFirewallRulesFirewallRuleArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetTrafficPolicyDocumentEndpoint struct {
-	Id     string  `pulumi:"id"`
+	// ID of an endpoint you want to assign.
+	Id string `pulumi:"id"`
+	// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
 	Region *string `pulumi:"region"`
-	Type   *string `pulumi:"type"`
-	Value  *string `pulumi:"value"`
+	// Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
+	Type *string `pulumi:"type"`
+	// Value of the `type`.
+	Value *string `pulumi:"value"`
 }
 
 // GetTrafficPolicyDocumentEndpointInput is an input type that accepts GetTrafficPolicyDocumentEndpointArgs and GetTrafficPolicyDocumentEndpointOutput values.
@@ -1089,10 +1174,14 @@ type GetTrafficPolicyDocumentEndpointInput interface {
 }
 
 type GetTrafficPolicyDocumentEndpointArgs struct {
-	Id     pulumi.StringInput    `pulumi:"id"`
+	// ID of an endpoint you want to assign.
+	Id pulumi.StringInput `pulumi:"id"`
+	// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	Type   pulumi.StringPtrInput `pulumi:"type"`
-	Value  pulumi.StringPtrInput `pulumi:"value"`
+	// Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Value of the `type`.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (GetTrafficPolicyDocumentEndpointArgs) ElementType() reflect.Type {
@@ -1146,18 +1235,22 @@ func (o GetTrafficPolicyDocumentEndpointOutput) ToGetTrafficPolicyDocumentEndpoi
 	return o
 }
 
+// ID of an endpoint you want to assign.
 func (o GetTrafficPolicyDocumentEndpointOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentEndpoint) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
 func (o GetTrafficPolicyDocumentEndpointOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentEndpoint) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
+// Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
 func (o GetTrafficPolicyDocumentEndpointOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentEndpoint) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// Value of the `type`.
 func (o GetTrafficPolicyDocumentEndpointOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentEndpoint) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1183,14 +1276,22 @@ func (o GetTrafficPolicyDocumentEndpointArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetTrafficPolicyDocumentRule struct {
+	// Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
 	GeoProximityLocations []GetTrafficPolicyDocumentRuleGeoProximityLocation `pulumi:"geoProximityLocations"`
-	Id                    string                                             `pulumi:"id"`
-	Items                 []GetTrafficPolicyDocumentRuleItem                 `pulumi:"items"`
-	Locations             []GetTrafficPolicyDocumentRuleLocation             `pulumi:"locations"`
-	Primary               *GetTrafficPolicyDocumentRulePrimary               `pulumi:"primary"`
-	Regions               []GetTrafficPolicyDocumentRuleRegion               `pulumi:"regions"`
-	Secondary             *GetTrafficPolicyDocumentRuleSecondary             `pulumi:"secondary"`
-	Type                  *string                                            `pulumi:"type"`
+	// ID of a rule you want to assign.
+	Id string `pulumi:"id"`
+	// Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
+	Items []GetTrafficPolicyDocumentRuleItem `pulumi:"items"`
+	// Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
+	Locations []GetTrafficPolicyDocumentRuleLocation `pulumi:"locations"`
+	// Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
+	Primary *GetTrafficPolicyDocumentRulePrimary `pulumi:"primary"`
+	// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
+	Regions []GetTrafficPolicyDocumentRuleRegion `pulumi:"regions"`
+	// Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
+	Secondary *GetTrafficPolicyDocumentRuleSecondary `pulumi:"secondary"`
+	// Type of the rule.
+	Type *string `pulumi:"type"`
 }
 
 // GetTrafficPolicyDocumentRuleInput is an input type that accepts GetTrafficPolicyDocumentRuleArgs and GetTrafficPolicyDocumentRuleOutput values.
@@ -1205,14 +1306,22 @@ type GetTrafficPolicyDocumentRuleInput interface {
 }
 
 type GetTrafficPolicyDocumentRuleArgs struct {
+	// Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
 	GeoProximityLocations GetTrafficPolicyDocumentRuleGeoProximityLocationArrayInput `pulumi:"geoProximityLocations"`
-	Id                    pulumi.StringInput                                         `pulumi:"id"`
-	Items                 GetTrafficPolicyDocumentRuleItemArrayInput                 `pulumi:"items"`
-	Locations             GetTrafficPolicyDocumentRuleLocationArrayInput             `pulumi:"locations"`
-	Primary               GetTrafficPolicyDocumentRulePrimaryPtrInput                `pulumi:"primary"`
-	Regions               GetTrafficPolicyDocumentRuleRegionArrayInput               `pulumi:"regions"`
-	Secondary             GetTrafficPolicyDocumentRuleSecondaryPtrInput              `pulumi:"secondary"`
-	Type                  pulumi.StringPtrInput                                      `pulumi:"type"`
+	// ID of a rule you want to assign.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
+	Items GetTrafficPolicyDocumentRuleItemArrayInput `pulumi:"items"`
+	// Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
+	Locations GetTrafficPolicyDocumentRuleLocationArrayInput `pulumi:"locations"`
+	// Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
+	Primary GetTrafficPolicyDocumentRulePrimaryPtrInput `pulumi:"primary"`
+	// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
+	Regions GetTrafficPolicyDocumentRuleRegionArrayInput `pulumi:"regions"`
+	// Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
+	Secondary GetTrafficPolicyDocumentRuleSecondaryPtrInput `pulumi:"secondary"`
+	// Type of the rule.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetTrafficPolicyDocumentRuleArgs) ElementType() reflect.Type {
@@ -1266,36 +1375,44 @@ func (o GetTrafficPolicyDocumentRuleOutput) ToGetTrafficPolicyDocumentRuleOutput
 	return o
 }
 
+// Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
 func (o GetTrafficPolicyDocumentRuleOutput) GeoProximityLocations() GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRule) []GetTrafficPolicyDocumentRuleGeoProximityLocation {
 		return v.GeoProximityLocations
 	}).(GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput)
 }
 
+// ID of a rule you want to assign.
 func (o GetTrafficPolicyDocumentRuleOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRule) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
 func (o GetTrafficPolicyDocumentRuleOutput) Items() GetTrafficPolicyDocumentRuleItemArrayOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRule) []GetTrafficPolicyDocumentRuleItem { return v.Items }).(GetTrafficPolicyDocumentRuleItemArrayOutput)
 }
 
+// Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
 func (o GetTrafficPolicyDocumentRuleOutput) Locations() GetTrafficPolicyDocumentRuleLocationArrayOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRule) []GetTrafficPolicyDocumentRuleLocation { return v.Locations }).(GetTrafficPolicyDocumentRuleLocationArrayOutput)
 }
 
+// Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
 func (o GetTrafficPolicyDocumentRuleOutput) Primary() GetTrafficPolicyDocumentRulePrimaryPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRule) *GetTrafficPolicyDocumentRulePrimary { return v.Primary }).(GetTrafficPolicyDocumentRulePrimaryPtrOutput)
 }
 
+// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
 func (o GetTrafficPolicyDocumentRuleOutput) Regions() GetTrafficPolicyDocumentRuleRegionArrayOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRule) []GetTrafficPolicyDocumentRuleRegion { return v.Regions }).(GetTrafficPolicyDocumentRuleRegionArrayOutput)
 }
 
+// Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
 func (o GetTrafficPolicyDocumentRuleOutput) Secondary() GetTrafficPolicyDocumentRuleSecondaryPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRule) *GetTrafficPolicyDocumentRuleSecondary { return v.Secondary }).(GetTrafficPolicyDocumentRuleSecondaryPtrOutput)
 }
 
+// Type of the rule.
 func (o GetTrafficPolicyDocumentRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRule) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1321,14 +1438,22 @@ func (o GetTrafficPolicyDocumentRuleArrayOutput) Index(i pulumi.IntInput) GetTra
 }
 
 type GetTrafficPolicyDocumentRuleGeoProximityLocation struct {
-	Bias                 *string `pulumi:"bias"`
-	EndpointReference    *string `pulumi:"endpointReference"`
-	EvaluateTargetHealth *bool   `pulumi:"evaluateTargetHealth"`
-	HealthCheck          *string `pulumi:"healthCheck"`
-	Latitude             *string `pulumi:"latitude"`
-	Longitude            *string `pulumi:"longitude"`
-	Region               *string `pulumi:"region"`
-	RuleReference        *string `pulumi:"ruleReference"`
+	// Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
+	Bias *string `pulumi:"bias"`
+	// References to an endpoint.
+	EndpointReference *string `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth *bool `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck *string `pulumi:"healthCheck"`
+	// Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
+	Latitude *string `pulumi:"latitude"`
+	// Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
+	Longitude *string `pulumi:"longitude"`
+	// If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
+	Region *string `pulumi:"region"`
+	// References to a rule.
+	RuleReference *string `pulumi:"ruleReference"`
 }
 
 // GetTrafficPolicyDocumentRuleGeoProximityLocationInput is an input type that accepts GetTrafficPolicyDocumentRuleGeoProximityLocationArgs and GetTrafficPolicyDocumentRuleGeoProximityLocationOutput values.
@@ -1343,14 +1468,22 @@ type GetTrafficPolicyDocumentRuleGeoProximityLocationInput interface {
 }
 
 type GetTrafficPolicyDocumentRuleGeoProximityLocationArgs struct {
-	Bias                 pulumi.StringPtrInput `pulumi:"bias"`
-	EndpointReference    pulumi.StringPtrInput `pulumi:"endpointReference"`
-	EvaluateTargetHealth pulumi.BoolPtrInput   `pulumi:"evaluateTargetHealth"`
-	HealthCheck          pulumi.StringPtrInput `pulumi:"healthCheck"`
-	Latitude             pulumi.StringPtrInput `pulumi:"latitude"`
-	Longitude            pulumi.StringPtrInput `pulumi:"longitude"`
-	Region               pulumi.StringPtrInput `pulumi:"region"`
-	RuleReference        pulumi.StringPtrInput `pulumi:"ruleReference"`
+	// Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
+	Bias pulumi.StringPtrInput `pulumi:"bias"`
+	// References to an endpoint.
+	EndpointReference pulumi.StringPtrInput `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth pulumi.BoolPtrInput `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck pulumi.StringPtrInput `pulumi:"healthCheck"`
+	// Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
+	Latitude pulumi.StringPtrInput `pulumi:"latitude"`
+	// Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
+	Longitude pulumi.StringPtrInput `pulumi:"longitude"`
+	// If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// References to a rule.
+	RuleReference pulumi.StringPtrInput `pulumi:"ruleReference"`
 }
 
 func (GetTrafficPolicyDocumentRuleGeoProximityLocationArgs) ElementType() reflect.Type {
@@ -1404,34 +1537,42 @@ func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) ToGetTrafficPoli
 	return o
 }
 
+// Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
 func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) Bias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleGeoProximityLocation) *string { return v.Bias }).(pulumi.StringPtrOutput)
 }
 
+// References to an endpoint.
 func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) EndpointReference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleGeoProximityLocation) *string { return v.EndpointReference }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
 func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleGeoProximityLocation) *bool { return v.EvaluateTargetHealth }).(pulumi.BoolPtrOutput)
 }
 
+// If you want to associate a health check with the endpoint or rule.
 func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) HealthCheck() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleGeoProximityLocation) *string { return v.HealthCheck }).(pulumi.StringPtrOutput)
 }
 
+// Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
 func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) Latitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleGeoProximityLocation) *string { return v.Latitude }).(pulumi.StringPtrOutput)
 }
 
+// Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
 func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) Longitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleGeoProximityLocation) *string { return v.Longitude }).(pulumi.StringPtrOutput)
 }
 
+// If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
 func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleGeoProximityLocation) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
+// References to a rule.
 func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) RuleReference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleGeoProximityLocation) *string { return v.RuleReference }).(pulumi.StringPtrOutput)
 }
@@ -1457,8 +1598,10 @@ func (o GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput) Index(i pul
 }
 
 type GetTrafficPolicyDocumentRuleItem struct {
+	// References to an endpoint.
 	EndpointReference *string `pulumi:"endpointReference"`
-	HealthCheck       *string `pulumi:"healthCheck"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck *string `pulumi:"healthCheck"`
 }
 
 // GetTrafficPolicyDocumentRuleItemInput is an input type that accepts GetTrafficPolicyDocumentRuleItemArgs and GetTrafficPolicyDocumentRuleItemOutput values.
@@ -1473,8 +1616,10 @@ type GetTrafficPolicyDocumentRuleItemInput interface {
 }
 
 type GetTrafficPolicyDocumentRuleItemArgs struct {
+	// References to an endpoint.
 	EndpointReference pulumi.StringPtrInput `pulumi:"endpointReference"`
-	HealthCheck       pulumi.StringPtrInput `pulumi:"healthCheck"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck pulumi.StringPtrInput `pulumi:"healthCheck"`
 }
 
 func (GetTrafficPolicyDocumentRuleItemArgs) ElementType() reflect.Type {
@@ -1528,10 +1673,12 @@ func (o GetTrafficPolicyDocumentRuleItemOutput) ToGetTrafficPolicyDocumentRuleIt
 	return o
 }
 
+// References to an endpoint.
 func (o GetTrafficPolicyDocumentRuleItemOutput) EndpointReference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleItem) *string { return v.EndpointReference }).(pulumi.StringPtrOutput)
 }
 
+// If you want to associate a health check with the endpoint or rule.
 func (o GetTrafficPolicyDocumentRuleItemOutput) HealthCheck() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleItem) *string { return v.HealthCheck }).(pulumi.StringPtrOutput)
 }
@@ -1557,14 +1704,22 @@ func (o GetTrafficPolicyDocumentRuleItemArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetTrafficPolicyDocumentRuleLocation struct {
-	Continent            *string `pulumi:"continent"`
-	Country              *string `pulumi:"country"`
-	EndpointReference    *string `pulumi:"endpointReference"`
-	EvaluateTargetHealth *bool   `pulumi:"evaluateTargetHealth"`
-	HealthCheck          *string `pulumi:"healthCheck"`
-	IsDefault            *bool   `pulumi:"isDefault"`
-	RuleReference        *string `pulumi:"ruleReference"`
-	Subdivision          *string `pulumi:"subdivision"`
+	// Value of a continent.
+	Continent *string `pulumi:"continent"`
+	// Value of a country.
+	Country *string `pulumi:"country"`
+	// References to an endpoint.
+	EndpointReference *string `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth *bool `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck *string `pulumi:"healthCheck"`
+	// Indicates whether this set of values represents the default location.
+	IsDefault *bool `pulumi:"isDefault"`
+	// References to a rule.
+	RuleReference *string `pulumi:"ruleReference"`
+	// Value of a subdivision.
+	Subdivision *string `pulumi:"subdivision"`
 }
 
 // GetTrafficPolicyDocumentRuleLocationInput is an input type that accepts GetTrafficPolicyDocumentRuleLocationArgs and GetTrafficPolicyDocumentRuleLocationOutput values.
@@ -1579,14 +1734,22 @@ type GetTrafficPolicyDocumentRuleLocationInput interface {
 }
 
 type GetTrafficPolicyDocumentRuleLocationArgs struct {
-	Continent            pulumi.StringPtrInput `pulumi:"continent"`
-	Country              pulumi.StringPtrInput `pulumi:"country"`
-	EndpointReference    pulumi.StringPtrInput `pulumi:"endpointReference"`
-	EvaluateTargetHealth pulumi.BoolPtrInput   `pulumi:"evaluateTargetHealth"`
-	HealthCheck          pulumi.StringPtrInput `pulumi:"healthCheck"`
-	IsDefault            pulumi.BoolPtrInput   `pulumi:"isDefault"`
-	RuleReference        pulumi.StringPtrInput `pulumi:"ruleReference"`
-	Subdivision          pulumi.StringPtrInput `pulumi:"subdivision"`
+	// Value of a continent.
+	Continent pulumi.StringPtrInput `pulumi:"continent"`
+	// Value of a country.
+	Country pulumi.StringPtrInput `pulumi:"country"`
+	// References to an endpoint.
+	EndpointReference pulumi.StringPtrInput `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth pulumi.BoolPtrInput `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck pulumi.StringPtrInput `pulumi:"healthCheck"`
+	// Indicates whether this set of values represents the default location.
+	IsDefault pulumi.BoolPtrInput `pulumi:"isDefault"`
+	// References to a rule.
+	RuleReference pulumi.StringPtrInput `pulumi:"ruleReference"`
+	// Value of a subdivision.
+	Subdivision pulumi.StringPtrInput `pulumi:"subdivision"`
 }
 
 func (GetTrafficPolicyDocumentRuleLocationArgs) ElementType() reflect.Type {
@@ -1640,34 +1803,42 @@ func (o GetTrafficPolicyDocumentRuleLocationOutput) ToGetTrafficPolicyDocumentRu
 	return o
 }
 
+// Value of a continent.
 func (o GetTrafficPolicyDocumentRuleLocationOutput) Continent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleLocation) *string { return v.Continent }).(pulumi.StringPtrOutput)
 }
 
+// Value of a country.
 func (o GetTrafficPolicyDocumentRuleLocationOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleLocation) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
+// References to an endpoint.
 func (o GetTrafficPolicyDocumentRuleLocationOutput) EndpointReference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleLocation) *string { return v.EndpointReference }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
 func (o GetTrafficPolicyDocumentRuleLocationOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleLocation) *bool { return v.EvaluateTargetHealth }).(pulumi.BoolPtrOutput)
 }
 
+// If you want to associate a health check with the endpoint or rule.
 func (o GetTrafficPolicyDocumentRuleLocationOutput) HealthCheck() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleLocation) *string { return v.HealthCheck }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether this set of values represents the default location.
 func (o GetTrafficPolicyDocumentRuleLocationOutput) IsDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleLocation) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
 }
 
+// References to a rule.
 func (o GetTrafficPolicyDocumentRuleLocationOutput) RuleReference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleLocation) *string { return v.RuleReference }).(pulumi.StringPtrOutput)
 }
 
+// Value of a subdivision.
 func (o GetTrafficPolicyDocumentRuleLocationOutput) Subdivision() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleLocation) *string { return v.Subdivision }).(pulumi.StringPtrOutput)
 }
@@ -1693,10 +1864,14 @@ func (o GetTrafficPolicyDocumentRuleLocationArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetTrafficPolicyDocumentRulePrimary struct {
-	EndpointReference    *string `pulumi:"endpointReference"`
-	EvaluateTargetHealth *bool   `pulumi:"evaluateTargetHealth"`
-	HealthCheck          *string `pulumi:"healthCheck"`
-	RuleReference        *string `pulumi:"ruleReference"`
+	// References to an endpoint.
+	EndpointReference *string `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth *bool `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck *string `pulumi:"healthCheck"`
+	// References to a rule.
+	RuleReference *string `pulumi:"ruleReference"`
 }
 
 // GetTrafficPolicyDocumentRulePrimaryInput is an input type that accepts GetTrafficPolicyDocumentRulePrimaryArgs and GetTrafficPolicyDocumentRulePrimaryOutput values.
@@ -1711,10 +1886,14 @@ type GetTrafficPolicyDocumentRulePrimaryInput interface {
 }
 
 type GetTrafficPolicyDocumentRulePrimaryArgs struct {
-	EndpointReference    pulumi.StringPtrInput `pulumi:"endpointReference"`
-	EvaluateTargetHealth pulumi.BoolPtrInput   `pulumi:"evaluateTargetHealth"`
-	HealthCheck          pulumi.StringPtrInput `pulumi:"healthCheck"`
-	RuleReference        pulumi.StringPtrInput `pulumi:"ruleReference"`
+	// References to an endpoint.
+	EndpointReference pulumi.StringPtrInput `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth pulumi.BoolPtrInput `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck pulumi.StringPtrInput `pulumi:"healthCheck"`
+	// References to a rule.
+	RuleReference pulumi.StringPtrInput `pulumi:"ruleReference"`
 }
 
 func (GetTrafficPolicyDocumentRulePrimaryArgs) ElementType() reflect.Type {
@@ -1794,18 +1973,22 @@ func (o GetTrafficPolicyDocumentRulePrimaryOutput) ToGetTrafficPolicyDocumentRul
 	}).(GetTrafficPolicyDocumentRulePrimaryPtrOutput)
 }
 
+// References to an endpoint.
 func (o GetTrafficPolicyDocumentRulePrimaryOutput) EndpointReference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRulePrimary) *string { return v.EndpointReference }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
 func (o GetTrafficPolicyDocumentRulePrimaryOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRulePrimary) *bool { return v.EvaluateTargetHealth }).(pulumi.BoolPtrOutput)
 }
 
+// If you want to associate a health check with the endpoint or rule.
 func (o GetTrafficPolicyDocumentRulePrimaryOutput) HealthCheck() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRulePrimary) *string { return v.HealthCheck }).(pulumi.StringPtrOutput)
 }
 
+// References to a rule.
 func (o GetTrafficPolicyDocumentRulePrimaryOutput) RuleReference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRulePrimary) *string { return v.RuleReference }).(pulumi.StringPtrOutput)
 }
@@ -1834,6 +2017,7 @@ func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) Elem() GetTrafficPolicyDoc
 	}).(GetTrafficPolicyDocumentRulePrimaryOutput)
 }
 
+// References to an endpoint.
 func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) EndpointReference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetTrafficPolicyDocumentRulePrimary) *string {
 		if v == nil {
@@ -1843,6 +2027,7 @@ func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) EndpointReference() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
 func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetTrafficPolicyDocumentRulePrimary) *bool {
 		if v == nil {
@@ -1852,6 +2037,7 @@ func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) EvaluateTargetHealth() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If you want to associate a health check with the endpoint or rule.
 func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) HealthCheck() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetTrafficPolicyDocumentRulePrimary) *string {
 		if v == nil {
@@ -1861,6 +2047,7 @@ func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) HealthCheck() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// References to a rule.
 func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) RuleReference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetTrafficPolicyDocumentRulePrimary) *string {
 		if v == nil {
@@ -1871,11 +2058,16 @@ func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) RuleReference() pulumi.Str
 }
 
 type GetTrafficPolicyDocumentRuleRegion struct {
-	EndpointReference    *string `pulumi:"endpointReference"`
-	EvaluateTargetHealth *bool   `pulumi:"evaluateTargetHealth"`
-	HealthCheck          *string `pulumi:"healthCheck"`
-	Region               *string `pulumi:"region"`
-	RuleReference        *string `pulumi:"ruleReference"`
+	// References to an endpoint.
+	EndpointReference *string `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth *bool `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck *string `pulumi:"healthCheck"`
+	// Region code for the AWS Region that you created the resource in.
+	Region *string `pulumi:"region"`
+	// References to a rule.
+	RuleReference *string `pulumi:"ruleReference"`
 }
 
 // GetTrafficPolicyDocumentRuleRegionInput is an input type that accepts GetTrafficPolicyDocumentRuleRegionArgs and GetTrafficPolicyDocumentRuleRegionOutput values.
@@ -1890,11 +2082,16 @@ type GetTrafficPolicyDocumentRuleRegionInput interface {
 }
 
 type GetTrafficPolicyDocumentRuleRegionArgs struct {
-	EndpointReference    pulumi.StringPtrInput `pulumi:"endpointReference"`
-	EvaluateTargetHealth pulumi.BoolPtrInput   `pulumi:"evaluateTargetHealth"`
-	HealthCheck          pulumi.StringPtrInput `pulumi:"healthCheck"`
-	Region               pulumi.StringPtrInput `pulumi:"region"`
-	RuleReference        pulumi.StringPtrInput `pulumi:"ruleReference"`
+	// References to an endpoint.
+	EndpointReference pulumi.StringPtrInput `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth pulumi.BoolPtrInput `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck pulumi.StringPtrInput `pulumi:"healthCheck"`
+	// Region code for the AWS Region that you created the resource in.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// References to a rule.
+	RuleReference pulumi.StringPtrInput `pulumi:"ruleReference"`
 }
 
 func (GetTrafficPolicyDocumentRuleRegionArgs) ElementType() reflect.Type {
@@ -1948,22 +2145,27 @@ func (o GetTrafficPolicyDocumentRuleRegionOutput) ToGetTrafficPolicyDocumentRule
 	return o
 }
 
+// References to an endpoint.
 func (o GetTrafficPolicyDocumentRuleRegionOutput) EndpointReference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleRegion) *string { return v.EndpointReference }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
 func (o GetTrafficPolicyDocumentRuleRegionOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleRegion) *bool { return v.EvaluateTargetHealth }).(pulumi.BoolPtrOutput)
 }
 
+// If you want to associate a health check with the endpoint or rule.
 func (o GetTrafficPolicyDocumentRuleRegionOutput) HealthCheck() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleRegion) *string { return v.HealthCheck }).(pulumi.StringPtrOutput)
 }
 
+// Region code for the AWS Region that you created the resource in.
 func (o GetTrafficPolicyDocumentRuleRegionOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleRegion) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
+// References to a rule.
 func (o GetTrafficPolicyDocumentRuleRegionOutput) RuleReference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleRegion) *string { return v.RuleReference }).(pulumi.StringPtrOutput)
 }
@@ -1989,10 +2191,14 @@ func (o GetTrafficPolicyDocumentRuleRegionArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetTrafficPolicyDocumentRuleSecondary struct {
-	EndpointReference    *string `pulumi:"endpointReference"`
-	EvaluateTargetHealth *bool   `pulumi:"evaluateTargetHealth"`
-	HealthCheck          *string `pulumi:"healthCheck"`
-	RuleReference        *string `pulumi:"ruleReference"`
+	// References to an endpoint.
+	EndpointReference *string `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth *bool `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck *string `pulumi:"healthCheck"`
+	// References to a rule.
+	RuleReference *string `pulumi:"ruleReference"`
 }
 
 // GetTrafficPolicyDocumentRuleSecondaryInput is an input type that accepts GetTrafficPolicyDocumentRuleSecondaryArgs and GetTrafficPolicyDocumentRuleSecondaryOutput values.
@@ -2007,10 +2213,14 @@ type GetTrafficPolicyDocumentRuleSecondaryInput interface {
 }
 
 type GetTrafficPolicyDocumentRuleSecondaryArgs struct {
-	EndpointReference    pulumi.StringPtrInput `pulumi:"endpointReference"`
-	EvaluateTargetHealth pulumi.BoolPtrInput   `pulumi:"evaluateTargetHealth"`
-	HealthCheck          pulumi.StringPtrInput `pulumi:"healthCheck"`
-	RuleReference        pulumi.StringPtrInput `pulumi:"ruleReference"`
+	// References to an endpoint.
+	EndpointReference pulumi.StringPtrInput `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth pulumi.BoolPtrInput `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck pulumi.StringPtrInput `pulumi:"healthCheck"`
+	// References to a rule.
+	RuleReference pulumi.StringPtrInput `pulumi:"ruleReference"`
 }
 
 func (GetTrafficPolicyDocumentRuleSecondaryArgs) ElementType() reflect.Type {
@@ -2090,18 +2300,22 @@ func (o GetTrafficPolicyDocumentRuleSecondaryOutput) ToGetTrafficPolicyDocumentR
 	}).(GetTrafficPolicyDocumentRuleSecondaryPtrOutput)
 }
 
+// References to an endpoint.
 func (o GetTrafficPolicyDocumentRuleSecondaryOutput) EndpointReference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleSecondary) *string { return v.EndpointReference }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
 func (o GetTrafficPolicyDocumentRuleSecondaryOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleSecondary) *bool { return v.EvaluateTargetHealth }).(pulumi.BoolPtrOutput)
 }
 
+// If you want to associate a health check with the endpoint or rule.
 func (o GetTrafficPolicyDocumentRuleSecondaryOutput) HealthCheck() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleSecondary) *string { return v.HealthCheck }).(pulumi.StringPtrOutput)
 }
 
+// References to a rule.
 func (o GetTrafficPolicyDocumentRuleSecondaryOutput) RuleReference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleSecondary) *string { return v.RuleReference }).(pulumi.StringPtrOutput)
 }
@@ -2130,6 +2344,7 @@ func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) Elem() GetTrafficPolicyD
 	}).(GetTrafficPolicyDocumentRuleSecondaryOutput)
 }
 
+// References to an endpoint.
 func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) EndpointReference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetTrafficPolicyDocumentRuleSecondary) *string {
 		if v == nil {
@@ -2139,6 +2354,7 @@ func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) EndpointReference() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
 func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetTrafficPolicyDocumentRuleSecondary) *bool {
 		if v == nil {
@@ -2148,6 +2364,7 @@ func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) EvaluateTargetHealth() p
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If you want to associate a health check with the endpoint or rule.
 func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) HealthCheck() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetTrafficPolicyDocumentRuleSecondary) *string {
 		if v == nil {
@@ -2157,6 +2374,7 @@ func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) HealthCheck() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// References to a rule.
 func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) RuleReference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetTrafficPolicyDocumentRuleSecondary) *string {
 		if v == nil {

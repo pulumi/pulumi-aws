@@ -14,16 +14,32 @@ public final class GetMultiRegionAccessPointPlainArgs extends com.pulumi.resourc
 
     public static final GetMultiRegionAccessPointPlainArgs Empty = new GetMultiRegionAccessPointPlainArgs();
 
+    /**
+     * The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * 
+     */
     @Import(name="accountId")
     private @Nullable String accountId;
 
+    /**
+     * @return The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * 
+     */
     public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
+    /**
+     * The name of the Multi-Region Access Point.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return The name of the Multi-Region Access Point.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -53,11 +69,23 @@ public final class GetMultiRegionAccessPointPlainArgs extends com.pulumi.resourc
             $ = new GetMultiRegionAccessPointPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accountId The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(@Nullable String accountId) {
             $.accountId = accountId;
             return this;
         }
 
+        /**
+         * @param name The name of the Multi-Region Access Point.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;

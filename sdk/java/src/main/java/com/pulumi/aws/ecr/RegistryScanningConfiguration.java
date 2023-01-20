@@ -16,23 +16,143 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Elastic Container Registry Scanning Configuration. Can&#39;t be completely deleted, instead reverts to the default `BASIC` scanning configuration without rules.
+ * 
+ * ## Example Usage
+ * ### Basic example
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecr.RegistryScanningConfiguration;
+ * import com.pulumi.aws.ecr.RegistryScanningConfigurationArgs;
+ * import com.pulumi.aws.ecr.inputs.RegistryScanningConfigurationRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var configuration = new RegistryScanningConfiguration(&#34;configuration&#34;, RegistryScanningConfigurationArgs.builder()        
+ *             .rules(RegistryScanningConfigurationRuleArgs.builder()
+ *                 .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
+ *                     .filter(&#34;example&#34;)
+ *                     .filterType(&#34;WILDCARD&#34;)
+ *                     .build())
+ *                 .scanFrequency(&#34;CONTINUOUS_SCAN&#34;)
+ *                 .build())
+ *             .scanType(&#34;ENHANCED&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Multiple rules
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecr.RegistryScanningConfiguration;
+ * import com.pulumi.aws.ecr.RegistryScanningConfigurationArgs;
+ * import com.pulumi.aws.ecr.inputs.RegistryScanningConfigurationRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new RegistryScanningConfiguration(&#34;test&#34;, RegistryScanningConfigurationArgs.builder()        
+ *             .rules(            
+ *                 RegistryScanningConfigurationRuleArgs.builder()
+ *                     .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
+ *                         .filter(&#34;*&#34;)
+ *                         .filterType(&#34;WILDCARD&#34;)
+ *                         .build())
+ *                     .scanFrequency(&#34;SCAN_ON_PUSH&#34;)
+ *                     .build(),
+ *                 RegistryScanningConfigurationRuleArgs.builder()
+ *                     .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
+ *                         .filter(&#34;example&#34;)
+ *                         .filterType(&#34;WILDCARD&#34;)
+ *                         .build())
+ *                     .scanFrequency(&#34;CONTINUOUS_SCAN&#34;)
+ *                     .build())
+ *             .scanType(&#34;ENHANCED&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * ECR Scanning Configurations can be imported using the `registry_id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration")
 public class RegistryScanningConfiguration extends com.pulumi.resources.CustomResource {
+    /**
+     * The registry ID the scanning configuration applies to.
+     * 
+     */
     @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
+    /**
+     * @return The registry ID the scanning configuration applies to.
+     * 
+     */
     public Output<String> registryId() {
         return this.registryId;
     }
+    /**
+     * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+     * 
+     */
     @Export(name="rules", refs={List.class,RegistryScanningConfigurationRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RegistryScanningConfigurationRule>> rules;
 
+    /**
+     * @return One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+     * 
+     */
     public Output<Optional<List<RegistryScanningConfigurationRule>>> rules() {
         return Codegen.optional(this.rules);
     }
+    /**
+     * the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
+     * 
+     */
     @Export(name="scanType", refs={String.class}, tree="[0]")
     private Output<String> scanType;
 
+    /**
+     * @return the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
+     * 
+     */
     public Output<String> scanType() {
         return this.scanType;
     }

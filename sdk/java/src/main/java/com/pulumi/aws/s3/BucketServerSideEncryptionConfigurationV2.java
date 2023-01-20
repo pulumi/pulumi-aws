@@ -16,23 +16,113 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a S3 bucket server-side encryption configuration resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketServerSideEncryptionConfigurationV2;
+ * import com.pulumi.aws.s3.BucketServerSideEncryptionConfigurationV2Args;
+ * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationV2RuleArgs;
+ * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var mykey = new Key(&#34;mykey&#34;, KeyArgs.builder()        
+ *             .description(&#34;This key is used to encrypt bucket objects&#34;)
+ *             .deletionWindowInDays(10)
+ *             .build());
+ * 
+ *         var mybucket = new BucketV2(&#34;mybucket&#34;);
+ * 
+ *         var example = new BucketServerSideEncryptionConfigurationV2(&#34;example&#34;, BucketServerSideEncryptionConfigurationV2Args.builder()        
+ *             .bucket(mybucket.bucket())
+ *             .rules(BucketServerSideEncryptionConfigurationV2RuleArgs.builder()
+ *                 .applyServerSideEncryptionByDefault(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs.builder()
+ *                     .kmsMasterKeyId(mykey.arn())
+ *                     .sseAlgorithm(&#34;aws:kms&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * S3 bucket server-side encryption configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 server-side encryption configuration resource should be imported using the `bucket` e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name
+ * ```
+ * 
+ *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket server-side encryption configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name,123456789012
+ * ```
+ * 
+ */
 @ResourceType(type="aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2")
 public class BucketServerSideEncryptionConfigurationV2 extends com.pulumi.resources.CustomResource {
+    /**
+     * The name of the bucket.
+     * 
+     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
+    /**
+     * @return The name of the bucket.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
+    /**
+     * The account ID of the expected bucket owner.
+     * 
+     */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
+    /**
+     * @return The account ID of the expected bucket owner.
+     * 
+     */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
+    /**
+     * Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+     * 
+     */
     @Export(name="rules", refs={List.class,BucketServerSideEncryptionConfigurationV2Rule.class}, tree="[0,1]")
     private Output<List<BucketServerSideEncryptionConfigurationV2Rule>> rules;
 
+    /**
+     * @return Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+     * 
+     */
     public Output<List<BucketServerSideEncryptionConfigurationV2Rule>> rules() {
         return this.rules;
     }

@@ -11,10 +11,84 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Attaches a policy to an S3 bucket resource.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			allowAccessFromAnotherAccountPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("AWS"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("123456789012"),
+//								},
+//							},
+//						},
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:GetObject"),
+//							pulumi.String("s3:ListBucket"),
+//						},
+//						Resources: pulumi.StringArray{
+//							example.Arn,
+//							example.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = s3.NewBucketPolicy(ctx, "allowAccessFromAnotherAccountBucketPolicy", &s3.BucketPolicyArgs{
+//				Bucket: example.ID(),
+//				Policy: allowAccessFromAnotherAccountPolicyDocument.ApplyT(func(allowAccessFromAnotherAccountPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &allowAccessFromAnotherAccountPolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// S3 bucket policies can be imported using the bucket name, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket
+//
+// ```
 type BucketPolicy struct {
 	pulumi.CustomResourceState
 
+	// The name of the bucket to which to apply the policy.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
+	// The text of the policy. Although this is a bucket policy rather than an IAM policy, the `iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
@@ -53,12 +127,16 @@ func GetBucketPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketPolicy resources.
 type bucketPolicyState struct {
-	Bucket *string     `pulumi:"bucket"`
+	// The name of the bucket to which to apply the policy.
+	Bucket *string `pulumi:"bucket"`
+	// The text of the policy. Although this is a bucket policy rather than an IAM policy, the `iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
 	Policy interface{} `pulumi:"policy"`
 }
 
 type BucketPolicyState struct {
+	// The name of the bucket to which to apply the policy.
 	Bucket pulumi.StringPtrInput
+	// The text of the policy. Although this is a bucket policy rather than an IAM policy, the `iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
 	Policy pulumi.Input
 }
 
@@ -67,13 +145,17 @@ func (BucketPolicyState) ElementType() reflect.Type {
 }
 
 type bucketPolicyArgs struct {
-	Bucket string      `pulumi:"bucket"`
+	// The name of the bucket to which to apply the policy.
+	Bucket string `pulumi:"bucket"`
+	// The text of the policy. Although this is a bucket policy rather than an IAM policy, the `iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
 	Policy interface{} `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a BucketPolicy resource.
 type BucketPolicyArgs struct {
+	// The name of the bucket to which to apply the policy.
 	Bucket pulumi.StringInput
+	// The text of the policy. Although this is a bucket policy rather than an IAM policy, the `iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
 	Policy pulumi.Input
 }
 
@@ -164,10 +246,12 @@ func (o BucketPolicyOutput) ToBucketPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The name of the bucket to which to apply the policy.
 func (o BucketPolicyOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketPolicy) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// The text of the policy. Although this is a bucket policy rather than an IAM policy, the `iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
 func (o BucketPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

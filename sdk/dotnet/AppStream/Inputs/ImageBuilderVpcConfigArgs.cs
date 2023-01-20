@@ -14,6 +14,10 @@ namespace Pulumi.Aws.AppStream.Inputs
     {
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// Identifiers of the security groups for the image builder or image builder.
+        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -22,6 +26,10 @@ namespace Pulumi.Aws.AppStream.Inputs
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());

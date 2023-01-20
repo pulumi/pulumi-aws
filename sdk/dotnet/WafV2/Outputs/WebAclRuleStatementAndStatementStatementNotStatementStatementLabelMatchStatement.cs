@@ -13,7 +13,13 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementAndStatementStatementNotStatementStatementLabelMatchStatement
     {
+        /// <summary>
+        /// String to match against.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+        /// </summary>
         public readonly string Scope;
 
         [OutputConstructor]

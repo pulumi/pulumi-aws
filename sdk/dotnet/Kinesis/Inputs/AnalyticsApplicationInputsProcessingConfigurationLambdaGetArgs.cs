@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class AnalyticsApplicationInputsProcessingConfigurationLambdaGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Lambda function.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM Role used to access the Lambda function.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

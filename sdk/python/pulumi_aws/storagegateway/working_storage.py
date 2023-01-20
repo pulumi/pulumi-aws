@@ -18,6 +18,8 @@ class WorkingStorageArgs:
                  gateway_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a WorkingStorage resource.
+        :param pulumi.Input[str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+        :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
         """
         pulumi.set(__self__, "disk_id", disk_id)
         pulumi.set(__self__, "gateway_arn", gateway_arn)
@@ -25,6 +27,9 @@ class WorkingStorageArgs:
     @property
     @pulumi.getter(name="diskId")
     def disk_id(self) -> pulumi.Input[str]:
+        """
+        Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+        """
         return pulumi.get(self, "disk_id")
 
     @disk_id.setter
@@ -34,6 +39,9 @@ class WorkingStorageArgs:
     @property
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the gateway.
+        """
         return pulumi.get(self, "gateway_arn")
 
     @gateway_arn.setter
@@ -48,6 +56,8 @@ class _WorkingStorageState:
                  gateway_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering WorkingStorage resources.
+        :param pulumi.Input[str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+        :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
         """
         if disk_id is not None:
             pulumi.set(__self__, "disk_id", disk_id)
@@ -57,6 +67,9 @@ class _WorkingStorageState:
     @property
     @pulumi.getter(name="diskId")
     def disk_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+        """
         return pulumi.get(self, "disk_id")
 
     @disk_id.setter
@@ -66,6 +79,9 @@ class _WorkingStorageState:
     @property
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the gateway.
+        """
         return pulumi.get(self, "gateway_arn")
 
     @gateway_arn.setter
@@ -82,9 +98,33 @@ class WorkingStorage(pulumi.CustomResource):
                  gateway_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a WorkingStorage resource with the given unique name, props, and options.
+        Manages an AWS Storage Gateway working storage.
+
+        > **NOTE:** The Storage Gateway API provides no method to remove a working storage disk. Destroying this resource does not perform any Storage Gateway actions.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.storagegateway.WorkingStorage("example",
+            disk_id=data["aws_storagegateway_local_disk"]["example"]["id"],
+            gateway_arn=aws_storagegateway_gateway["example"]["arn"])
+        ```
+
+        ## Import
+
+        `aws_storagegateway_working_storage` can be imported by using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`), e.g.,
+
+        ```sh
+         $ pulumi import aws:storagegateway/workingStorage:WorkingStorage example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+        :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
         """
         ...
     @overload
@@ -93,7 +133,29 @@ class WorkingStorage(pulumi.CustomResource):
                  args: WorkingStorageArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a WorkingStorage resource with the given unique name, props, and options.
+        Manages an AWS Storage Gateway working storage.
+
+        > **NOTE:** The Storage Gateway API provides no method to remove a working storage disk. Destroying this resource does not perform any Storage Gateway actions.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.storagegateway.WorkingStorage("example",
+            disk_id=data["aws_storagegateway_local_disk"]["example"]["id"],
+            gateway_arn=aws_storagegateway_gateway["example"]["arn"])
+        ```
+
+        ## Import
+
+        `aws_storagegateway_working_storage` can be imported by using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`), e.g.,
+
+        ```sh
+         $ pulumi import aws:storagegateway/workingStorage:WorkingStorage example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
+        ```
+
         :param str resource_name: The name of the resource.
         :param WorkingStorageArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +207,8 @@ class WorkingStorage(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+        :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +221,16 @@ class WorkingStorage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="diskId")
     def disk_id(self) -> pulumi.Output[str]:
+        """
+        Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+        """
         return pulumi.get(self, "disk_id")
 
     @property
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the gateway.
+        """
         return pulumi.get(self, "gateway_arn")
 

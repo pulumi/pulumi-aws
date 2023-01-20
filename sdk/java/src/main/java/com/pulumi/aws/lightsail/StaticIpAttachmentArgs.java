@@ -13,16 +13,32 @@ public final class StaticIpAttachmentArgs extends com.pulumi.resources.ResourceA
 
     public static final StaticIpAttachmentArgs Empty = new StaticIpAttachmentArgs();
 
+    /**
+     * The name of the Lightsail instance to attach the IP to
+     * 
+     */
     @Import(name="instanceName", required=true)
     private Output<String> instanceName;
 
+    /**
+     * @return The name of the Lightsail instance to attach the IP to
+     * 
+     */
     public Output<String> instanceName() {
         return this.instanceName;
     }
 
+    /**
+     * The name of the allocated static IP
+     * 
+     */
     @Import(name="staticIpName", required=true)
     private Output<String> staticIpName;
 
+    /**
+     * @return The name of the allocated static IP
+     * 
+     */
     public Output<String> staticIpName() {
         return this.staticIpName;
     }
@@ -52,20 +68,44 @@ public final class StaticIpAttachmentArgs extends com.pulumi.resources.ResourceA
             $ = new StaticIpAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param instanceName The name of the Lightsail instance to attach the IP to
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceName(Output<String> instanceName) {
             $.instanceName = instanceName;
             return this;
         }
 
+        /**
+         * @param instanceName The name of the Lightsail instance to attach the IP to
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceName(String instanceName) {
             return instanceName(Output.of(instanceName));
         }
 
+        /**
+         * @param staticIpName The name of the allocated static IP
+         * 
+         * @return builder
+         * 
+         */
         public Builder staticIpName(Output<String> staticIpName) {
             $.staticIpName = staticIpName;
             return this;
         }
 
+        /**
+         * @param staticIpName The name of the allocated static IP
+         * 
+         * @return builder
+         * 
+         */
         public Builder staticIpName(String staticIpName) {
             return staticIpName(Output.of(staticIpName));
         }

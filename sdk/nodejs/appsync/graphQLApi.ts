@@ -7,6 +7,142 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an AppSync GraphQL API.
+ *
+ * ## Example Usage
+ * ### API Key Authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appsync.GraphQLApi("example", {authenticationType: "API_KEY"});
+ * ```
+ * ### AWS IAM Authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appsync.GraphQLApi("example", {authenticationType: "AWS_IAM"});
+ * ```
+ * ### AWS Cognito User Pool Authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "AMAZON_COGNITO_USER_POOLS",
+ *     userPoolConfig: {
+ *         awsRegion: data.aws_region.current.name,
+ *         defaultAction: "DENY",
+ *         userPoolId: aws_cognito_user_pool.example.id,
+ *     },
+ * });
+ * ```
+ * ### OpenID Connect Authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "OPENID_CONNECT",
+ *     openidConnectConfig: {
+ *         issuer: "https://example.com",
+ *     },
+ * });
+ * ```
+ * ### AWS Lambda Authorizer Authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "AWS_LAMBDA",
+ *     lambdaAuthorizerConfig: {
+ *         authorizerUri: "arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
+ *     },
+ * });
+ * const appsyncLambdaAuthorizer = new aws.lambda.Permission("appsyncLambdaAuthorizer", {
+ *     action: "lambda:InvokeFunction",
+ *     "function": "custom_lambda_authorizer",
+ *     principal: "appsync.amazonaws.com",
+ *     sourceArn: example.arn,
+ * });
+ * ```
+ * ### With Multiple Authentication Providers
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     additionalAuthenticationProviders: [{
+ *         authenticationType: "AWS_IAM",
+ *     }],
+ *     authenticationType: "API_KEY",
+ * });
+ * ```
+ * ### With Schema
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "AWS_IAM",
+ *     schema: `schema {
+ * 	query: Query
+ * }
+ * type Query {
+ *   test: Int
+ * }
+ *
+ * `,
+ * });
+ * ```
+ * ### Enabling Logging
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [
+ *         {
+ *         "Effect": "Allow",
+ *         "Principal": {
+ *             "Service": "appsync.amazonaws.com"
+ *         },
+ *         "Action": "sts:AssumeRole"
+ *         }
+ *     ]
+ * }
+ * `});
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
+ *     role: exampleRole.name,
+ * });
+ * // ... other configuration ...
+ * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {logConfig: {
+ *     cloudwatchLogsRoleArn: exampleRole.arn,
+ *     fieldLogLevel: "ERROR",
+ * }});
+ * ```
+ *
+ * ## Import
+ *
+ * AppSync GraphQL API can be imported using the GraphQL API ID, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
+ * ```
+ */
 export class GraphQLApi extends pulumi.CustomResource {
     /**
      * Get an existing GraphQLApi resource's state with the given name, ID, and optional extra
@@ -35,18 +171,57 @@ export class GraphQLApi extends pulumi.CustomResource {
         return obj['__pulumiType'] === GraphQLApi.__pulumiType;
     }
 
+    /**
+     * One or more additional authentication providers for the GraphqlApi. Defined below.
+     */
     public readonly additionalAuthenticationProviders!: pulumi.Output<outputs.appsync.GraphQLApiAdditionalAuthenticationProvider[] | undefined>;
+    /**
+     * ARN
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+     */
     public readonly authenticationType!: pulumi.Output<string>;
+    /**
+     * Nested argument containing Lambda authorizer configuration. Defined below.
+     */
     public readonly lambdaAuthorizerConfig!: pulumi.Output<outputs.appsync.GraphQLApiLambdaAuthorizerConfig | undefined>;
+    /**
+     * Nested argument containing logging configuration. Defined below.
+     */
     public readonly logConfig!: pulumi.Output<outputs.appsync.GraphQLApiLogConfig | undefined>;
+    /**
+     * User-supplied name for the GraphqlApi.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Nested argument containing OpenID Connect configuration. Defined below.
+     */
     public readonly openidConnectConfig!: pulumi.Output<outputs.appsync.GraphQLApiOpenidConnectConfig | undefined>;
+    /**
+     * Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+     */
     public readonly schema!: pulumi.Output<string | undefined>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+     */
     public /*out*/ readonly uris!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Amazon Cognito User Pool configuration. Defined below.
+     */
     public readonly userPoolConfig!: pulumi.Output<outputs.appsync.GraphQLApiUserPoolConfig | undefined>;
+    /**
+     * Whether tracing with X-ray is enabled. Defaults to false.
+     */
     public readonly xrayEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -103,18 +278,57 @@ export class GraphQLApi extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GraphQLApi resources.
  */
 export interface GraphQLApiState {
+    /**
+     * One or more additional authentication providers for the GraphqlApi. Defined below.
+     */
     additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProvider>[]>;
+    /**
+     * ARN
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+     */
     authenticationType?: pulumi.Input<string>;
+    /**
+     * Nested argument containing Lambda authorizer configuration. Defined below.
+     */
     lambdaAuthorizerConfig?: pulumi.Input<inputs.appsync.GraphQLApiLambdaAuthorizerConfig>;
+    /**
+     * Nested argument containing logging configuration. Defined below.
+     */
     logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfig>;
+    /**
+     * User-supplied name for the GraphqlApi.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Nested argument containing OpenID Connect configuration. Defined below.
+     */
     openidConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenidConnectConfig>;
+    /**
+     * Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+     */
     schema?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+     */
     uris?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Amazon Cognito User Pool configuration. Defined below.
+     */
     userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
+    /**
+     * Whether tracing with X-ray is enabled. Defaults to false.
+     */
     xrayEnabled?: pulumi.Input<boolean>;
 }
 
@@ -122,14 +336,44 @@ export interface GraphQLApiState {
  * The set of arguments for constructing a GraphQLApi resource.
  */
 export interface GraphQLApiArgs {
+    /**
+     * One or more additional authentication providers for the GraphqlApi. Defined below.
+     */
     additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProvider>[]>;
+    /**
+     * Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+     */
     authenticationType: pulumi.Input<string>;
+    /**
+     * Nested argument containing Lambda authorizer configuration. Defined below.
+     */
     lambdaAuthorizerConfig?: pulumi.Input<inputs.appsync.GraphQLApiLambdaAuthorizerConfig>;
+    /**
+     * Nested argument containing logging configuration. Defined below.
+     */
     logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfig>;
+    /**
+     * User-supplied name for the GraphqlApi.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Nested argument containing OpenID Connect configuration. Defined below.
+     */
     openidConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenidConnectConfig>;
+    /**
+     * Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+     */
     schema?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Amazon Cognito User Pool configuration. Defined below.
+     */
     userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
+    /**
+     * Whether tracing with X-ray is enabled. Defaults to false.
+     */
     xrayEnabled?: pulumi.Input<boolean>;
 }

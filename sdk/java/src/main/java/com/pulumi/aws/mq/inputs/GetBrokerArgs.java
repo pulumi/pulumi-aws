@@ -16,16 +16,32 @@ public final class GetBrokerArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetBrokerArgs Empty = new GetBrokerArgs();
 
+    /**
+     * Unique id of the mq broker.
+     * 
+     */
     @Import(name="brokerId")
     private @Nullable Output<String> brokerId;
 
+    /**
+     * @return Unique id of the mq broker.
+     * 
+     */
     public Optional<Output<String>> brokerId() {
         return Optional.ofNullable(this.brokerId);
     }
 
+    /**
+     * Unique name of the mq broker.
+     * 
+     */
     @Import(name="brokerName")
     private @Nullable Output<String> brokerName;
 
+    /**
+     * @return Unique name of the mq broker.
+     * 
+     */
     public Optional<Output<String>> brokerName() {
         return Optional.ofNullable(this.brokerName);
     }
@@ -63,20 +79,44 @@ public final class GetBrokerArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetBrokerArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param brokerId Unique id of the mq broker.
+         * 
+         * @return builder
+         * 
+         */
         public Builder brokerId(@Nullable Output<String> brokerId) {
             $.brokerId = brokerId;
             return this;
         }
 
+        /**
+         * @param brokerId Unique id of the mq broker.
+         * 
+         * @return builder
+         * 
+         */
         public Builder brokerId(String brokerId) {
             return brokerId(Output.of(brokerId));
         }
 
+        /**
+         * @param brokerName Unique name of the mq broker.
+         * 
+         * @return builder
+         * 
+         */
         public Builder brokerName(@Nullable Output<String> brokerName) {
             $.brokerName = brokerName;
             return this;
         }
 
+        /**
+         * @param brokerName Unique name of the mq broker.
+         * 
+         * @return builder
+         * 
+         */
         public Builder brokerName(String brokerName) {
             return brokerName(Output.of(brokerName));
         }

@@ -13,11 +13,65 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an ECS default account setting for a specific ECS Resource name within a specific region. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html).
+ * 
+ * &gt; **NOTE:** The AWS API does not delete this resource. When you run `destroy`, the provider will attempt to disable the setting.
+ * 
+ * &gt; **NOTE:** Your AWS account may not support disabling `containerInstanceLongArnFormat`, `serviceLongArnFormat`, and `taskLongArnFormat`. If your account does not support disabling these, &#34;destroying&#34; this resource will not disable the setting nor cause a provider error. However, the AWS Provider will log an AWS error: `InvalidParameterException: You can no longer disable Long Arn settings`.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.AccountSettingDefault;
+ * import com.pulumi.aws.ecs.AccountSettingDefaultArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new AccountSettingDefault(&#34;test&#34;, AccountSettingDefaultArgs.builder()        
+ *             .value(&#34;enabled&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * ECS Account Setting defaults can be imported using the `name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ecs/accountSettingDefault:AccountSettingDefault")
 public class AccountSettingDefault extends com.pulumi.resources.CustomResource {
+    /**
+     * Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -27,9 +81,17 @@ public class AccountSettingDefault extends com.pulumi.resources.CustomResource {
     public Output<String> principalArn() {
         return this.principalArn;
     }
+    /**
+     * State of the setting. Valid values are `enabled` and `disabled`.
+     * 
+     */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
+    /**
+     * @return State of the setting. Valid values are `enabled` and `disabled`.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }

@@ -24,6 +24,13 @@ class MaintenanceWindowTargetArgs:
                  owner_information: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a MaintenanceWindowTarget resource.
+        :param pulumi.Input[str] resource_type: The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
+        :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTargetTargetArgs']]] targets: The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+               (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
+        :param pulumi.Input[str] window_id: The Id of the maintenance window to register the target with.
+        :param pulumi.Input[str] description: The description of the maintenance window target.
+        :param pulumi.Input[str] name: The name of the maintenance window target.
+        :param pulumi.Input[str] owner_information: User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
         """
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "targets", targets)
@@ -38,6 +45,9 @@ class MaintenanceWindowTargetArgs:
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Input[str]:
+        """
+        The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
+        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -47,6 +57,10 @@ class MaintenanceWindowTargetArgs:
     @property
     @pulumi.getter
     def targets(self) -> pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTargetTargetArgs']]]:
+        """
+        The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+        (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
+        """
         return pulumi.get(self, "targets")
 
     @targets.setter
@@ -56,6 +70,9 @@ class MaintenanceWindowTargetArgs:
     @property
     @pulumi.getter(name="windowId")
     def window_id(self) -> pulumi.Input[str]:
+        """
+        The Id of the maintenance window to register the target with.
+        """
         return pulumi.get(self, "window_id")
 
     @window_id.setter
@@ -65,6 +82,9 @@ class MaintenanceWindowTargetArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the maintenance window target.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -74,6 +94,9 @@ class MaintenanceWindowTargetArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the maintenance window target.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -83,6 +106,9 @@ class MaintenanceWindowTargetArgs:
     @property
     @pulumi.getter(name="ownerInformation")
     def owner_information(self) -> Optional[pulumi.Input[str]]:
+        """
+        User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
+        """
         return pulumi.get(self, "owner_information")
 
     @owner_information.setter
@@ -101,6 +127,13 @@ class _MaintenanceWindowTargetState:
                  window_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering MaintenanceWindowTarget resources.
+        :param pulumi.Input[str] description: The description of the maintenance window target.
+        :param pulumi.Input[str] name: The name of the maintenance window target.
+        :param pulumi.Input[str] owner_information: User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
+        :param pulumi.Input[str] resource_type: The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
+        :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTargetTargetArgs']]] targets: The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+               (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
+        :param pulumi.Input[str] window_id: The Id of the maintenance window to register the target with.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -118,6 +151,9 @@ class _MaintenanceWindowTargetState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the maintenance window target.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -127,6 +163,9 @@ class _MaintenanceWindowTargetState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the maintenance window target.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -136,6 +175,9 @@ class _MaintenanceWindowTargetState:
     @property
     @pulumi.getter(name="ownerInformation")
     def owner_information(self) -> Optional[pulumi.Input[str]]:
+        """
+        User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
+        """
         return pulumi.get(self, "owner_information")
 
     @owner_information.setter
@@ -145,6 +187,9 @@ class _MaintenanceWindowTargetState:
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
+        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -154,6 +199,10 @@ class _MaintenanceWindowTargetState:
     @property
     @pulumi.getter
     def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTargetTargetArgs']]]]:
+        """
+        The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+        (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
+        """
         return pulumi.get(self, "targets")
 
     @targets.setter
@@ -163,6 +212,9 @@ class _MaintenanceWindowTargetState:
     @property
     @pulumi.getter(name="windowId")
     def window_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Id of the maintenance window to register the target with.
+        """
         return pulumi.get(self, "window_id")
 
     @window_id.setter
@@ -183,9 +235,65 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
                  window_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a MaintenanceWindowTarget resource with the given unique name, props, and options.
+        Provides an SSM Maintenance Window Target resource
+
+        ## Example Usage
+        ### Instance Target
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        window = aws.ssm.MaintenanceWindow("window",
+            schedule="cron(0 16 ? * TUE *)",
+            duration=3,
+            cutoff=1)
+        target1 = aws.ssm.MaintenanceWindowTarget("target1",
+            window_id=window.id,
+            description="This is a maintenance window target",
+            resource_type="INSTANCE",
+            targets=[aws.ssm.MaintenanceWindowTargetTargetArgs(
+                key="tag:Name",
+                values=["acceptance_test"],
+            )])
+        ```
+        ### Resource Group Target
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        window = aws.ssm.MaintenanceWindow("window",
+            schedule="cron(0 16 ? * TUE *)",
+            duration=3,
+            cutoff=1)
+        target1 = aws.ssm.MaintenanceWindowTarget("target1",
+            window_id=window.id,
+            description="This is a maintenance window target",
+            resource_type="RESOURCE_GROUP",
+            targets=[aws.ssm.MaintenanceWindowTargetTargetArgs(
+                key="resource-groups:ResourceTypeFilters",
+                values=["AWS::EC2::Instance"],
+            )])
+        ```
+
+        ## Import
+
+        SSM Maintenance Window targets can be imported using `WINDOW_ID/WINDOW_TARGET_ID`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the maintenance window target.
+        :param pulumi.Input[str] name: The name of the maintenance window target.
+        :param pulumi.Input[str] owner_information: User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
+        :param pulumi.Input[str] resource_type: The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaintenanceWindowTargetTargetArgs']]]] targets: The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+               (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
+        :param pulumi.Input[str] window_id: The Id of the maintenance window to register the target with.
         """
         ...
     @overload
@@ -194,7 +302,56 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
                  args: MaintenanceWindowTargetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a MaintenanceWindowTarget resource with the given unique name, props, and options.
+        Provides an SSM Maintenance Window Target resource
+
+        ## Example Usage
+        ### Instance Target
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        window = aws.ssm.MaintenanceWindow("window",
+            schedule="cron(0 16 ? * TUE *)",
+            duration=3,
+            cutoff=1)
+        target1 = aws.ssm.MaintenanceWindowTarget("target1",
+            window_id=window.id,
+            description="This is a maintenance window target",
+            resource_type="INSTANCE",
+            targets=[aws.ssm.MaintenanceWindowTargetTargetArgs(
+                key="tag:Name",
+                values=["acceptance_test"],
+            )])
+        ```
+        ### Resource Group Target
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        window = aws.ssm.MaintenanceWindow("window",
+            schedule="cron(0 16 ? * TUE *)",
+            duration=3,
+            cutoff=1)
+        target1 = aws.ssm.MaintenanceWindowTarget("target1",
+            window_id=window.id,
+            description="This is a maintenance window target",
+            resource_type="RESOURCE_GROUP",
+            targets=[aws.ssm.MaintenanceWindowTargetTargetArgs(
+                key="resource-groups:ResourceTypeFilters",
+                values=["AWS::EC2::Instance"],
+            )])
+        ```
+
+        ## Import
+
+        SSM Maintenance Window targets can be imported using `WINDOW_ID/WINDOW_TARGET_ID`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
+        ```
+
         :param str resource_name: The name of the resource.
         :param MaintenanceWindowTargetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -260,6 +417,13 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the maintenance window target.
+        :param pulumi.Input[str] name: The name of the maintenance window target.
+        :param pulumi.Input[str] owner_information: User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
+        :param pulumi.Input[str] resource_type: The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaintenanceWindowTargetTargetArgs']]]] targets: The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+               (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
+        :param pulumi.Input[str] window_id: The Id of the maintenance window to register the target with.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -276,30 +440,49 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the maintenance window target.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the maintenance window target.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ownerInformation")
     def owner_information(self) -> pulumi.Output[Optional[str]]:
+        """
+        User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
+        """
         return pulumi.get(self, "owner_information")
 
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[str]:
+        """
+        The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
+        """
         return pulumi.get(self, "resource_type")
 
     @property
     @pulumi.getter
     def targets(self) -> pulumi.Output[Sequence['outputs.MaintenanceWindowTargetTarget']]:
+        """
+        The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+        (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
+        """
         return pulumi.get(self, "targets")
 
     @property
     @pulumi.getter(name="windowId")
     def window_id(self) -> pulumi.Output[str]:
+        """
+        The Id of the maintenance window to register the target with.
+        """
         return pulumi.get(self, "window_id")
 

@@ -12,9 +12,15 @@ namespace Pulumi.Aws.MskConnect.Inputs
 
     public sealed class ConnectorKafkaClusterApacheKafkaClusterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The bootstrap servers of the cluster.
+        /// </summary>
         [Input("bootstrapServers", required: true)]
         public Input<string> BootstrapServers { get; set; } = null!;
 
+        /// <summary>
+        /// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+        /// </summary>
         [Input("vpc", required: true)]
         public Input<Inputs.ConnectorKafkaClusterApacheKafkaClusterVpcArgs> Vpc { get; set; } = null!;
 

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesInforNexus
     {
+        /// <summary>
+        /// Object specified in the flow destination.
+        /// </summary>
         public readonly string Object;
 
         [OutputConstructor]

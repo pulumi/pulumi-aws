@@ -4,6 +4,25 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to get the id of a Resource in API Gateway.
+ * To fetch the Resource, you must provide the REST API id as well as the full path.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const myRestApi = aws.apigateway.getRestApi({
+ *     name: "my-rest-api",
+ * });
+ * const myResource = myRestApi.then(myRestApi => aws.apigateway.getResource({
+ *     restApiId: myRestApi.id,
+ *     path: "/endpoint/path",
+ * }));
+ * ```
+ */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,7 +36,13 @@ export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getResource.
  */
 export interface GetResourceArgs {
+    /**
+     * Full path of the resource.  If no path is found, an error will be returned.
+     */
     path: string;
+    /**
+     * REST API id that owns the resource. If no REST API is found, an error will be returned.
+     */
     restApiId: string;
 }
 
@@ -29,11 +54,36 @@ export interface GetResourceResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Set to the ID of the parent Resource.
+     */
     readonly parentId: string;
     readonly path: string;
+    /**
+     * Set to the path relative to the parent Resource.
+     */
     readonly pathPart: string;
     readonly restApiId: string;
 }
+/**
+ * Use this data source to get the id of a Resource in API Gateway.
+ * To fetch the Resource, you must provide the REST API id as well as the full path.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const myRestApi = aws.apigateway.getRestApi({
+ *     name: "my-rest-api",
+ * });
+ * const myResource = myRestApi.then(myRestApi => aws.apigateway.getResource({
+ *     restApiId: myRestApi.id,
+ *     path: "/endpoint/path",
+ * }));
+ * ```
+ */
 export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceResult> {
     return pulumi.output(args).apply((a: any) => getResource(a, opts))
 }
@@ -42,6 +92,12 @@ export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getResource.
  */
 export interface GetResourceOutputArgs {
+    /**
+     * Full path of the resource.  If no path is found, an error will be returned.
+     */
     path: pulumi.Input<string>;
+    /**
+     * REST API id that owns the resource. If no REST API is found, an error will be returned.
+     */
     restApiId: pulumi.Input<string>;
 }

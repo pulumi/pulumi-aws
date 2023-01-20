@@ -11,9 +11,12 @@ import (
 )
 
 type ClusterParameterGroupParameter struct {
+	// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
 	ApplyMethod *string `pulumi:"applyMethod"`
-	Name        string  `pulumi:"name"`
-	Value       string  `pulumi:"value"`
+	// The name of the documentDB parameter.
+	Name string `pulumi:"name"`
+	// The value of the documentDB parameter.
+	Value string `pulumi:"value"`
 }
 
 // ClusterParameterGroupParameterInput is an input type that accepts ClusterParameterGroupParameterArgs and ClusterParameterGroupParameterOutput values.
@@ -28,9 +31,12 @@ type ClusterParameterGroupParameterInput interface {
 }
 
 type ClusterParameterGroupParameterArgs struct {
+	// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
 	ApplyMethod pulumi.StringPtrInput `pulumi:"applyMethod"`
-	Name        pulumi.StringInput    `pulumi:"name"`
-	Value       pulumi.StringInput    `pulumi:"value"`
+	// The name of the documentDB parameter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the documentDB parameter.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ClusterParameterGroupParameterArgs) ElementType() reflect.Type {
@@ -84,14 +90,17 @@ func (o ClusterParameterGroupParameterOutput) ToClusterParameterGroupParameterOu
 	return o
 }
 
+// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
 func (o ClusterParameterGroupParameterOutput) ApplyMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterParameterGroupParameter) *string { return v.ApplyMethod }).(pulumi.StringPtrOutput)
 }
 
+// The name of the documentDB parameter.
 func (o ClusterParameterGroupParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The value of the documentDB parameter.
 func (o ClusterParameterGroupParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -117,8 +126,10 @@ func (o ClusterParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) Clus
 }
 
 type GlobalClusterGlobalClusterMember struct {
+	// Amazon Resource Name (ARN) of member DB Cluster.
 	DbClusterArn *string `pulumi:"dbClusterArn"`
-	IsWriter     *bool   `pulumi:"isWriter"`
+	// Whether the member is the primary DB Cluster.
+	IsWriter *bool `pulumi:"isWriter"`
 }
 
 // GlobalClusterGlobalClusterMemberInput is an input type that accepts GlobalClusterGlobalClusterMemberArgs and GlobalClusterGlobalClusterMemberOutput values.
@@ -133,8 +144,10 @@ type GlobalClusterGlobalClusterMemberInput interface {
 }
 
 type GlobalClusterGlobalClusterMemberArgs struct {
+	// Amazon Resource Name (ARN) of member DB Cluster.
 	DbClusterArn pulumi.StringPtrInput `pulumi:"dbClusterArn"`
-	IsWriter     pulumi.BoolPtrInput   `pulumi:"isWriter"`
+	// Whether the member is the primary DB Cluster.
+	IsWriter pulumi.BoolPtrInput `pulumi:"isWriter"`
 }
 
 func (GlobalClusterGlobalClusterMemberArgs) ElementType() reflect.Type {
@@ -188,10 +201,12 @@ func (o GlobalClusterGlobalClusterMemberOutput) ToGlobalClusterGlobalClusterMemb
 	return o
 }
 
+// Amazon Resource Name (ARN) of member DB Cluster.
 func (o GlobalClusterGlobalClusterMemberOutput) DbClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalClusterGlobalClusterMember) *string { return v.DbClusterArn }).(pulumi.StringPtrOutput)
 }
 
+// Whether the member is the primary DB Cluster.
 func (o GlobalClusterGlobalClusterMemberOutput) IsWriter() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GlobalClusterGlobalClusterMember) *bool { return v.IsWriter }).(pulumi.BoolPtrOutput)
 }

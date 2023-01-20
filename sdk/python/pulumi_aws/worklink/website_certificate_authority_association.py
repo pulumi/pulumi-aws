@@ -19,6 +19,9 @@ class WebsiteCertificateAuthorityAssociationArgs:
                  display_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WebsiteCertificateAuthorityAssociation resource.
+        :param pulumi.Input[str] certificate: The root certificate of the Certificate Authority.
+        :param pulumi.Input[str] fleet_arn: The ARN of the fleet.
+        :param pulumi.Input[str] display_name: The certificate name to display.
         """
         pulumi.set(__self__, "certificate", certificate)
         pulumi.set(__self__, "fleet_arn", fleet_arn)
@@ -28,6 +31,9 @@ class WebsiteCertificateAuthorityAssociationArgs:
     @property
     @pulumi.getter
     def certificate(self) -> pulumi.Input[str]:
+        """
+        The root certificate of the Certificate Authority.
+        """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
@@ -37,6 +43,9 @@ class WebsiteCertificateAuthorityAssociationArgs:
     @property
     @pulumi.getter(name="fleetArn")
     def fleet_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the fleet.
+        """
         return pulumi.get(self, "fleet_arn")
 
     @fleet_arn.setter
@@ -46,6 +55,9 @@ class WebsiteCertificateAuthorityAssociationArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate name to display.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -62,6 +74,10 @@ class _WebsiteCertificateAuthorityAssociationState:
                  website_ca_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering WebsiteCertificateAuthorityAssociation resources.
+        :param pulumi.Input[str] certificate: The root certificate of the Certificate Authority.
+        :param pulumi.Input[str] display_name: The certificate name to display.
+        :param pulumi.Input[str] fleet_arn: The ARN of the fleet.
+        :param pulumi.Input[str] website_ca_id: A unique identifier for the Certificate Authority.
         """
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
@@ -75,6 +91,9 @@ class _WebsiteCertificateAuthorityAssociationState:
     @property
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The root certificate of the Certificate Authority.
+        """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
@@ -84,6 +103,9 @@ class _WebsiteCertificateAuthorityAssociationState:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate name to display.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -93,6 +115,9 @@ class _WebsiteCertificateAuthorityAssociationState:
     @property
     @pulumi.getter(name="fleetArn")
     def fleet_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the fleet.
+        """
         return pulumi.get(self, "fleet_arn")
 
     @fleet_arn.setter
@@ -102,6 +127,9 @@ class _WebsiteCertificateAuthorityAssociationState:
     @property
     @pulumi.getter(name="websiteCaId")
     def website_ca_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique identifier for the Certificate Authority.
+        """
         return pulumi.get(self, "website_ca_id")
 
     @website_ca_id.setter
@@ -119,9 +147,31 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
                  fleet_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a WebsiteCertificateAuthorityAssociation resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.worklink.Fleet("example")
+        test = aws.worklink.WebsiteCertificateAuthorityAssociation("test",
+            fleet_arn=aws_worklink_fleet["test"]["arn"],
+            certificate=(lambda path: open(path).read())("certificate.pem"))
+        ```
+
+        ## Import
+
+        WorkLink Website Certificate Authority can be imported using `FLEET-ARN,WEBSITE-CA-ID`, e.g.,
+
+        ```sh
+         $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate: The root certificate of the Certificate Authority.
+        :param pulumi.Input[str] display_name: The certificate name to display.
+        :param pulumi.Input[str] fleet_arn: The ARN of the fleet.
         """
         ...
     @overload
@@ -130,7 +180,26 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
                  args: WebsiteCertificateAuthorityAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a WebsiteCertificateAuthorityAssociation resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.worklink.Fleet("example")
+        test = aws.worklink.WebsiteCertificateAuthorityAssociation("test",
+            fleet_arn=aws_worklink_fleet["test"]["arn"],
+            certificate=(lambda path: open(path).read())("certificate.pem"))
+        ```
+
+        ## Import
+
+        WorkLink Website Certificate Authority can be imported using `FLEET-ARN,WEBSITE-CA-ID`, e.g.,
+
+        ```sh
+         $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
+        ```
+
         :param str resource_name: The name of the resource.
         :param WebsiteCertificateAuthorityAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,6 +256,10 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate: The root certificate of the Certificate Authority.
+        :param pulumi.Input[str] display_name: The certificate name to display.
+        :param pulumi.Input[str] fleet_arn: The ARN of the fleet.
+        :param pulumi.Input[str] website_ca_id: A unique identifier for the Certificate Authority.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -201,20 +274,32 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def certificate(self) -> pulumi.Output[str]:
+        """
+        The root certificate of the Certificate Authority.
+        """
         return pulumi.get(self, "certificate")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The certificate name to display.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="fleetArn")
     def fleet_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the fleet.
+        """
         return pulumi.get(self, "fleet_arn")
 
     @property
     @pulumi.getter(name="websiteCaId")
     def website_ca_id(self) -> pulumi.Output[str]:
+        """
+        A unique identifier for the Certificate Authority.
+        """
         return pulumi.get(self, "website_ca_id")
 

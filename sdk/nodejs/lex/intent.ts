@@ -7,6 +7,18 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an Amazon Lex Intent resource. For more information see
+ * [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
+ *
+ * ## Import
+ *
+ * Intents can be imported using their name.
+ *
+ * ```sh
+ *  $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
+ * ```
+ */
 export class Intent extends pulumi.CustomResource {
     /**
      * Get an existing Intent resource's state with the given name, ID, and optional extra
@@ -35,22 +47,96 @@ export class Intent extends pulumi.CustomResource {
         return obj['__pulumiType'] === Intent.__pulumiType;
     }
 
+    /**
+     * The ARN of the Lex intent.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Checksum identifying the version of the intent that was created. The checksum is not
+     * included as an argument because the resource will add it automatically when updating the intent.
+     */
     public /*out*/ readonly checksum!: pulumi.Output<string>;
+    /**
+     * The statement that you want Amazon Lex to convey to the user
+     * after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
+     * you provide a Lambda function in the `fulfillmentActivity`. If you return the intent to the client
+     * application, you can't specify this element. The `followUpPrompt` and `conclusionStatement` are
+     * mutually exclusive. You can specify only one. Attributes are documented under statement.
+     */
     public readonly conclusionStatement!: pulumi.Output<outputs.lex.IntentConclusionStatement | undefined>;
+    /**
+     * Prompts the user to confirm the intent. This question should
+     * have a yes or no answer. You you must provide both the `rejectionStatement` and `confirmationPrompt`,
+     * or neither. Attributes are documented under prompt.
+     */
     public readonly confirmationPrompt!: pulumi.Output<outputs.lex.IntentConfirmationPrompt | undefined>;
+    /**
+     * Determines if a new slot type version is created when the initial
+     * resource is created and on each update. Defaults to `false`.
+     */
     public readonly createVersion!: pulumi.Output<boolean | undefined>;
+    /**
+     * The date when the intent version was created.
+     */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
+     * A description of the intent. Must be less than or equal to 200 characters in length.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies a Lambda function to invoke for each user input. You can
+     * invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
+     */
     public readonly dialogCodeHook!: pulumi.Output<outputs.lex.IntentDialogCodeHook | undefined>;
+    /**
+     * Amazon Lex uses this prompt to solicit additional activity after
+     * fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
+     * user to order a drink. The `followUpPrompt` field and the `conclusionStatement` field are mutually
+     * exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
+     */
     public readonly followUpPrompt!: pulumi.Output<outputs.lex.IntentFollowUpPrompt | undefined>;
+    /**
+     * Describes how the intent is fulfilled. For example, after a
+     * user provides all of the information for a pizza order, `fulfillmentActivity` defines how the bot
+     * places an order with a local pizza store. Attributes are documented under fulfillment_activity.
+     */
     public readonly fulfillmentActivity!: pulumi.Output<outputs.lex.IntentFulfillmentActivity>;
+    /**
+     * The date when the $LATEST version of this intent was updated.
+     */
     public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
+    /**
+     * The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A unique identifier for the built-in intent to base this
+     * intent on. To find the signature for an intent, see
+     * [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
+     * in the Alexa Skills Kit.
+     */
     public readonly parentIntentSignature!: pulumi.Output<string | undefined>;
+    /**
+     * When the user answers "no" to the question defined in
+     * `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
+     * canceled. You must provide both the `rejectionStatement` and the `confirmationPrompt`, or neither.
+     * Attributes are documented under statement.
+     */
     public readonly rejectionStatement!: pulumi.Output<outputs.lex.IntentRejectionStatement | undefined>;
+    /**
+     * An array of utterances (strings) that a user might say to signal
+     * the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
+     * In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
+     */
     public readonly sampleUtterances!: pulumi.Output<string[] | undefined>;
+    /**
+     * An list of intent slots. At runtime, Amazon Lex elicits required slot values
+     * from the user using prompts defined in the slots. Attributes are documented under slot.
+     */
     public readonly slots!: pulumi.Output<outputs.lex.IntentSlot[] | undefined>;
+    /**
+     * The version of the bot.
+     */
     public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
@@ -115,22 +201,96 @@ export class Intent extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Intent resources.
  */
 export interface IntentState {
+    /**
+     * The ARN of the Lex intent.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Checksum identifying the version of the intent that was created. The checksum is not
+     * included as an argument because the resource will add it automatically when updating the intent.
+     */
     checksum?: pulumi.Input<string>;
+    /**
+     * The statement that you want Amazon Lex to convey to the user
+     * after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
+     * you provide a Lambda function in the `fulfillmentActivity`. If you return the intent to the client
+     * application, you can't specify this element. The `followUpPrompt` and `conclusionStatement` are
+     * mutually exclusive. You can specify only one. Attributes are documented under statement.
+     */
     conclusionStatement?: pulumi.Input<inputs.lex.IntentConclusionStatement>;
+    /**
+     * Prompts the user to confirm the intent. This question should
+     * have a yes or no answer. You you must provide both the `rejectionStatement` and `confirmationPrompt`,
+     * or neither. Attributes are documented under prompt.
+     */
     confirmationPrompt?: pulumi.Input<inputs.lex.IntentConfirmationPrompt>;
+    /**
+     * Determines if a new slot type version is created when the initial
+     * resource is created and on each update. Defaults to `false`.
+     */
     createVersion?: pulumi.Input<boolean>;
+    /**
+     * The date when the intent version was created.
+     */
     createdDate?: pulumi.Input<string>;
+    /**
+     * A description of the intent. Must be less than or equal to 200 characters in length.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Specifies a Lambda function to invoke for each user input. You can
+     * invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
+     */
     dialogCodeHook?: pulumi.Input<inputs.lex.IntentDialogCodeHook>;
+    /**
+     * Amazon Lex uses this prompt to solicit additional activity after
+     * fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
+     * user to order a drink. The `followUpPrompt` field and the `conclusionStatement` field are mutually
+     * exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
+     */
     followUpPrompt?: pulumi.Input<inputs.lex.IntentFollowUpPrompt>;
+    /**
+     * Describes how the intent is fulfilled. For example, after a
+     * user provides all of the information for a pizza order, `fulfillmentActivity` defines how the bot
+     * places an order with a local pizza store. Attributes are documented under fulfillment_activity.
+     */
     fulfillmentActivity?: pulumi.Input<inputs.lex.IntentFulfillmentActivity>;
+    /**
+     * The date when the $LATEST version of this intent was updated.
+     */
     lastUpdatedDate?: pulumi.Input<string>;
+    /**
+     * The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A unique identifier for the built-in intent to base this
+     * intent on. To find the signature for an intent, see
+     * [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
+     * in the Alexa Skills Kit.
+     */
     parentIntentSignature?: pulumi.Input<string>;
+    /**
+     * When the user answers "no" to the question defined in
+     * `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
+     * canceled. You must provide both the `rejectionStatement` and the `confirmationPrompt`, or neither.
+     * Attributes are documented under statement.
+     */
     rejectionStatement?: pulumi.Input<inputs.lex.IntentRejectionStatement>;
+    /**
+     * An array of utterances (strings) that a user might say to signal
+     * the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
+     * In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
+     */
     sampleUtterances?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * An list of intent slots. At runtime, Amazon Lex elicits required slot values
+     * from the user using prompts defined in the slots. Attributes are documented under slot.
+     */
     slots?: pulumi.Input<pulumi.Input<inputs.lex.IntentSlot>[]>;
+    /**
+     * The version of the bot.
+     */
     version?: pulumi.Input<string>;
 }
 
@@ -138,16 +298,74 @@ export interface IntentState {
  * The set of arguments for constructing a Intent resource.
  */
 export interface IntentArgs {
+    /**
+     * The statement that you want Amazon Lex to convey to the user
+     * after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
+     * you provide a Lambda function in the `fulfillmentActivity`. If you return the intent to the client
+     * application, you can't specify this element. The `followUpPrompt` and `conclusionStatement` are
+     * mutually exclusive. You can specify only one. Attributes are documented under statement.
+     */
     conclusionStatement?: pulumi.Input<inputs.lex.IntentConclusionStatement>;
+    /**
+     * Prompts the user to confirm the intent. This question should
+     * have a yes or no answer. You you must provide both the `rejectionStatement` and `confirmationPrompt`,
+     * or neither. Attributes are documented under prompt.
+     */
     confirmationPrompt?: pulumi.Input<inputs.lex.IntentConfirmationPrompt>;
+    /**
+     * Determines if a new slot type version is created when the initial
+     * resource is created and on each update. Defaults to `false`.
+     */
     createVersion?: pulumi.Input<boolean>;
+    /**
+     * A description of the intent. Must be less than or equal to 200 characters in length.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Specifies a Lambda function to invoke for each user input. You can
+     * invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
+     */
     dialogCodeHook?: pulumi.Input<inputs.lex.IntentDialogCodeHook>;
+    /**
+     * Amazon Lex uses this prompt to solicit additional activity after
+     * fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
+     * user to order a drink. The `followUpPrompt` field and the `conclusionStatement` field are mutually
+     * exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
+     */
     followUpPrompt?: pulumi.Input<inputs.lex.IntentFollowUpPrompt>;
+    /**
+     * Describes how the intent is fulfilled. For example, after a
+     * user provides all of the information for a pizza order, `fulfillmentActivity` defines how the bot
+     * places an order with a local pizza store. Attributes are documented under fulfillment_activity.
+     */
     fulfillmentActivity: pulumi.Input<inputs.lex.IntentFulfillmentActivity>;
+    /**
+     * The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A unique identifier for the built-in intent to base this
+     * intent on. To find the signature for an intent, see
+     * [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
+     * in the Alexa Skills Kit.
+     */
     parentIntentSignature?: pulumi.Input<string>;
+    /**
+     * When the user answers "no" to the question defined in
+     * `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
+     * canceled. You must provide both the `rejectionStatement` and the `confirmationPrompt`, or neither.
+     * Attributes are documented under statement.
+     */
     rejectionStatement?: pulumi.Input<inputs.lex.IntentRejectionStatement>;
+    /**
+     * An array of utterances (strings) that a user might say to signal
+     * the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
+     * In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
+     */
     sampleUtterances?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * An list of intent slots. At runtime, Amazon Lex elicits required slot values
+     * from the user using prompts defined in the slots. Attributes are documented under slot.
+     */
     slots?: pulumi.Input<pulumi.Input<inputs.lex.IntentSlot>[]>;
 }

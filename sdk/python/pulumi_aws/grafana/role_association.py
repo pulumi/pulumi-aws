@@ -20,6 +20,10 @@ class RoleAssociationArgs:
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RoleAssociation resource.
+        :param pulumi.Input[str] role: The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+        :param pulumi.Input[str] workspace_id: The workspace id.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The AWS SSO group ids to be assigned the role given in `role`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The AWS SSO user ids to be assigned the role given in `role`.
         """
         pulumi.set(__self__, "role", role)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -31,6 +35,9 @@ class RoleAssociationArgs:
     @property
     @pulumi.getter
     def role(self) -> pulumi.Input[str]:
+        """
+        The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -40,6 +47,9 @@ class RoleAssociationArgs:
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[str]:
+        """
+        The workspace id.
+        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -49,6 +59,9 @@ class RoleAssociationArgs:
     @property
     @pulumi.getter(name="groupIds")
     def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The AWS SSO group ids to be assigned the role given in `role`.
+        """
         return pulumi.get(self, "group_ids")
 
     @group_ids.setter
@@ -58,6 +71,9 @@ class RoleAssociationArgs:
     @property
     @pulumi.getter(name="userIds")
     def user_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The AWS SSO user ids to be assigned the role given in `role`.
+        """
         return pulumi.get(self, "user_ids")
 
     @user_ids.setter
@@ -74,6 +90,10 @@ class _RoleAssociationState:
                  workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RoleAssociation resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The AWS SSO group ids to be assigned the role given in `role`.
+        :param pulumi.Input[str] role: The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The AWS SSO user ids to be assigned the role given in `role`.
+        :param pulumi.Input[str] workspace_id: The workspace id.
         """
         if group_ids is not None:
             pulumi.set(__self__, "group_ids", group_ids)
@@ -87,6 +107,9 @@ class _RoleAssociationState:
     @property
     @pulumi.getter(name="groupIds")
     def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The AWS SSO group ids to be assigned the role given in `role`.
+        """
         return pulumi.get(self, "group_ids")
 
     @group_ids.setter
@@ -96,6 +119,9 @@ class _RoleAssociationState:
     @property
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -105,6 +131,9 @@ class _RoleAssociationState:
     @property
     @pulumi.getter(name="userIds")
     def user_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The AWS SSO user ids to be assigned the role given in `role`.
+        """
         return pulumi.get(self, "user_ids")
 
     @user_ids.setter
@@ -114,6 +143,9 @@ class _RoleAssociationState:
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The workspace id.
+        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -132,9 +164,47 @@ class RoleAssociation(pulumi.CustomResource):
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a RoleAssociation resource with the given unique name, props, and options.
+        Provides an Amazon Managed Grafana workspace role association resource.
+
+        ## Example Usage
+        ### Basic configuration
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        assume = aws.iam.Role("assume", assume_role_policy=json.dumps({
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Action": "sts:AssumeRole",
+                "Effect": "Allow",
+                "Sid": "",
+                "Principal": {
+                    "Service": "grafana.amazonaws.com",
+                },
+            }],
+        }))
+        example_workspace = aws.grafana.Workspace("exampleWorkspace",
+            account_access_type="CURRENT_ACCOUNT",
+            authentication_providers=["SAML"],
+            permission_type="SERVICE_MANAGED",
+            role_arn=assume.arn)
+        example_role_association = aws.grafana.RoleAssociation("exampleRoleAssociation",
+            role="ADMIN",
+            user_ids=[
+                "USER_ID_1",
+                "USER_ID_2",
+            ],
+            workspace_id=example_workspace.id)
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The AWS SSO group ids to be assigned the role given in `role`.
+        :param pulumi.Input[str] role: The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The AWS SSO user ids to be assigned the role given in `role`.
+        :param pulumi.Input[str] workspace_id: The workspace id.
         """
         ...
     @overload
@@ -143,7 +213,41 @@ class RoleAssociation(pulumi.CustomResource):
                  args: RoleAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RoleAssociation resource with the given unique name, props, and options.
+        Provides an Amazon Managed Grafana workspace role association resource.
+
+        ## Example Usage
+        ### Basic configuration
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        assume = aws.iam.Role("assume", assume_role_policy=json.dumps({
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Action": "sts:AssumeRole",
+                "Effect": "Allow",
+                "Sid": "",
+                "Principal": {
+                    "Service": "grafana.amazonaws.com",
+                },
+            }],
+        }))
+        example_workspace = aws.grafana.Workspace("exampleWorkspace",
+            account_access_type="CURRENT_ACCOUNT",
+            authentication_providers=["SAML"],
+            permission_type="SERVICE_MANAGED",
+            role_arn=assume.arn)
+        example_role_association = aws.grafana.RoleAssociation("exampleRoleAssociation",
+            role="ADMIN",
+            user_ids=[
+                "USER_ID_1",
+                "USER_ID_2",
+            ],
+            workspace_id=example_workspace.id)
+        ```
+
         :param str resource_name: The name of the resource.
         :param RoleAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,6 +305,10 @@ class RoleAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The AWS SSO group ids to be assigned the role given in `role`.
+        :param pulumi.Input[str] role: The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The AWS SSO user ids to be assigned the role given in `role`.
+        :param pulumi.Input[str] workspace_id: The workspace id.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -215,20 +323,32 @@ class RoleAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="groupIds")
     def group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The AWS SSO group ids to be assigned the role given in `role`.
+        """
         return pulumi.get(self, "group_ids")
 
     @property
     @pulumi.getter
     def role(self) -> pulumi.Output[str]:
+        """
+        The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+        """
         return pulumi.get(self, "role")
 
     @property
     @pulumi.getter(name="userIds")
     def user_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The AWS SSO user ids to be assigned the role given in `role`.
+        """
         return pulumi.get(self, "user_ids")
 
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[str]:
+        """
+        The workspace id.
+        """
         return pulumi.get(self, "workspace_id")
 

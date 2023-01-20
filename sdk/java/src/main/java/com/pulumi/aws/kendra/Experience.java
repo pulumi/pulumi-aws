@@ -17,59 +17,188 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Resource for managing an AWS Kendra Experience.
+ * 
+ * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kendra.Experience;
+ * import com.pulumi.aws.kendra.ExperienceArgs;
+ * import com.pulumi.aws.kendra.inputs.ExperienceConfigurationArgs;
+ * import com.pulumi.aws.kendra.inputs.ExperienceConfigurationContentSourceConfigurationArgs;
+ * import com.pulumi.aws.kendra.inputs.ExperienceConfigurationUserIdentityConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Experience(&#34;example&#34;, ExperienceArgs.builder()        
+ *             .indexId(aws_kendra_index.example().id())
+ *             .description(&#34;My Kendra Experience&#34;)
+ *             .roleArn(aws_iam_role.example().arn())
+ *             .configuration(ExperienceConfigurationArgs.builder()
+ *                 .contentSourceConfiguration(ExperienceConfigurationContentSourceConfigurationArgs.builder()
+ *                     .directPutContent(true)
+ *                     .faqIds(aws_kendra_faq.example().faq_id())
+ *                     .build())
+ *                 .userIdentityConfiguration(ExperienceConfigurationUserIdentityConfigurationArgs.builder()
+ *                     .identityAttributeName(&#34;12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Kendra Experience can be imported using the unique identifiers of the experience and index separated by a slash (`/`) e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:kendra/experience:Experience example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
+ * ```
+ * 
+ */
 @ResourceType(type="aws:kendra/experience:Experience")
 public class Experience extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the Experience.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the Experience.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+     * 
+     */
     @Export(name="configuration", refs={ExperienceConfiguration.class}, tree="[0]")
     private Output<ExperienceConfiguration> configuration;
 
+    /**
+     * @return Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+     * 
+     */
     public Output<ExperienceConfiguration> configuration() {
         return this.configuration;
     }
+    /**
+     * A description for your Amazon Kendra experience.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return A description for your Amazon Kendra experience.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
+     * 
+     */
     @Export(name="endpoints", refs={List.class,ExperienceEndpoint.class}, tree="[0,1]")
     private Output<List<ExperienceEndpoint>> endpoints;
 
+    /**
+     * @return Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
+     * 
+     */
     public Output<List<ExperienceEndpoint>> endpoints() {
         return this.endpoints;
     }
+    /**
+     * The unique identifier of the experience.
+     * 
+     */
     @Export(name="experienceId", refs={String.class}, tree="[0]")
     private Output<String> experienceId;
 
+    /**
+     * @return The unique identifier of the experience.
+     * 
+     */
     public Output<String> experienceId() {
         return this.experienceId;
     }
+    /**
+     * The identifier of the index for your Amazon Kendra experience.
+     * 
+     */
     @Export(name="indexId", refs={String.class}, tree="[0]")
     private Output<String> indexId;
 
+    /**
+     * @return The identifier of the index for your Amazon Kendra experience.
+     * 
+     */
     public Output<String> indexId() {
         return this.indexId;
     }
+    /**
+     * A name for your Amazon Kendra experience.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return A name for your Amazon Kendra experience.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * 
+     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * 
+     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
+    /**
+     * The current processing status of your Amazon Kendra experience.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return The current processing status of your Amazon Kendra experience.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }

@@ -18,35 +18,228 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Glue Classifier resource.
+ * 
+ * &gt; **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
+ * 
+ * ## Example Usage
+ * ### Csv Classifier
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glue.Classifier;
+ * import com.pulumi.aws.glue.ClassifierArgs;
+ * import com.pulumi.aws.glue.inputs.ClassifierCsvClassifierArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
+ *             .csvClassifier(ClassifierCsvClassifierArgs.builder()
+ *                 .allowSingleColumn(false)
+ *                 .containsHeader(&#34;PRESENT&#34;)
+ *                 .delimiter(&#34;,&#34;)
+ *                 .disableValueTrimming(false)
+ *                 .headers(                
+ *                     &#34;example1&#34;,
+ *                     &#34;example2&#34;)
+ *                 .quoteSymbol(&#34;&#39;&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Grok Classifier
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glue.Classifier;
+ * import com.pulumi.aws.glue.ClassifierArgs;
+ * import com.pulumi.aws.glue.inputs.ClassifierGrokClassifierArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
+ *             .grokClassifier(ClassifierGrokClassifierArgs.builder()
+ *                 .classification(&#34;example&#34;)
+ *                 .grokPattern(&#34;example&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### JSON Classifier
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glue.Classifier;
+ * import com.pulumi.aws.glue.ClassifierArgs;
+ * import com.pulumi.aws.glue.inputs.ClassifierJsonClassifierArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
+ *             .jsonClassifier(ClassifierJsonClassifierArgs.builder()
+ *                 .jsonPath(&#34;example&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### XML Classifier
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glue.Classifier;
+ * import com.pulumi.aws.glue.ClassifierArgs;
+ * import com.pulumi.aws.glue.inputs.ClassifierXmlClassifierArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
+ *             .xmlClassifier(ClassifierXmlClassifierArgs.builder()
+ *                 .classification(&#34;example&#34;)
+ *                 .rowTag(&#34;example&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Glue Classifiers can be imported using their name, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
+ * ```
+ * 
+ */
 @ResourceType(type="aws:glue/classifier:Classifier")
 public class Classifier extends com.pulumi.resources.CustomResource {
+    /**
+     * A classifier for Csv content. Defined below.
+     * 
+     */
     @Export(name="csvClassifier", refs={ClassifierCsvClassifier.class}, tree="[0]")
     private Output</* @Nullable */ ClassifierCsvClassifier> csvClassifier;
 
+    /**
+     * @return A classifier for Csv content. Defined below.
+     * 
+     */
     public Output<Optional<ClassifierCsvClassifier>> csvClassifier() {
         return Codegen.optional(this.csvClassifier);
     }
+    /**
+     * A classifier that uses grok patterns. Defined below.
+     * 
+     */
     @Export(name="grokClassifier", refs={ClassifierGrokClassifier.class}, tree="[0]")
     private Output</* @Nullable */ ClassifierGrokClassifier> grokClassifier;
 
+    /**
+     * @return A classifier that uses grok patterns. Defined below.
+     * 
+     */
     public Output<Optional<ClassifierGrokClassifier>> grokClassifier() {
         return Codegen.optional(this.grokClassifier);
     }
+    /**
+     * A classifier for JSON content. Defined below.
+     * 
+     */
     @Export(name="jsonClassifier", refs={ClassifierJsonClassifier.class}, tree="[0]")
     private Output</* @Nullable */ ClassifierJsonClassifier> jsonClassifier;
 
+    /**
+     * @return A classifier for JSON content. Defined below.
+     * 
+     */
     public Output<Optional<ClassifierJsonClassifier>> jsonClassifier() {
         return Codegen.optional(this.jsonClassifier);
     }
+    /**
+     * The name of the classifier.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the classifier.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * A classifier for XML content. Defined below.
+     * 
+     */
     @Export(name="xmlClassifier", refs={ClassifierXmlClassifier.class}, tree="[0]")
     private Output</* @Nullable */ ClassifierXmlClassifier> xmlClassifier;
 
+    /**
+     * @return A classifier for XML content. Defined below.
+     * 
+     */
     public Output<Optional<ClassifierXmlClassifier>> xmlClassifier() {
         return Codegen.optional(this.xmlClassifier);
     }

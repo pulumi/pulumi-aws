@@ -53,6 +53,9 @@ class GetSubnetsResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
+        """
+        List of all the subnet ids found.
+        """
         return pulumi.get(self, "ids")
 
     @property
@@ -77,7 +80,12 @@ def get_subnets(filters: Optional[Sequence[pulumi.InputType['GetSubnetsFilterArg
                 tags: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetsResult:
     """
-    Use this data source to access information about an existing resource.
+    This resource can be useful for getting back a set of subnet IDs.
+
+
+    :param Sequence[pulumi.InputType['GetSubnetsFilterArgs']] filters: Custom filter block as described below.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
+           a pair on the desired subnets.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -97,6 +105,11 @@ def get_subnets_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetsResult]:
     """
-    Use this data source to access information about an existing resource.
+    This resource can be useful for getting back a set of subnet IDs.
+
+
+    :param Sequence[pulumi.InputType['GetSubnetsFilterArgs']] filters: Custom filter block as described below.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
+           a pair on the desired subnets.
     """
     ...

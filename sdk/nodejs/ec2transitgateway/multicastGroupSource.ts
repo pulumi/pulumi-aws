@@ -4,6 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Registers sources (network interfaces) with the transit gateway multicast group.
+ * A multicast source is a network interface attached to a supported instance that sends multicast traffic.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2transitgateway.MulticastGroupSource("example", {
+ *     groupIpAddress: "224.0.0.1",
+ *     networkInterfaceId: aws_network_interface.example.id,
+ *     transitGatewayMulticastDomainId: aws_ec2_transit_gateway_multicast_domain.example.id,
+ * });
+ * ```
+ */
 export class MulticastGroupSource extends pulumi.CustomResource {
     /**
      * Get an existing MulticastGroupSource resource's state with the given name, ID, and optional extra
@@ -32,8 +49,17 @@ export class MulticastGroupSource extends pulumi.CustomResource {
         return obj['__pulumiType'] === MulticastGroupSource.__pulumiType;
     }
 
+    /**
+     * The IP address assigned to the transit gateway multicast group.
+     */
     public readonly groupIpAddress!: pulumi.Output<string>;
+    /**
+     * The group members' network interface ID to register with the transit gateway multicast group.
+     */
     public readonly networkInterfaceId!: pulumi.Output<string>;
+    /**
+     * The ID of the transit gateway multicast domain.
+     */
     public readonly transitGatewayMulticastDomainId!: pulumi.Output<string>;
 
     /**
@@ -76,8 +102,17 @@ export class MulticastGroupSource extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MulticastGroupSource resources.
  */
 export interface MulticastGroupSourceState {
+    /**
+     * The IP address assigned to the transit gateway multicast group.
+     */
     groupIpAddress?: pulumi.Input<string>;
+    /**
+     * The group members' network interface ID to register with the transit gateway multicast group.
+     */
     networkInterfaceId?: pulumi.Input<string>;
+    /**
+     * The ID of the transit gateway multicast domain.
+     */
     transitGatewayMulticastDomainId?: pulumi.Input<string>;
 }
 
@@ -85,7 +120,16 @@ export interface MulticastGroupSourceState {
  * The set of arguments for constructing a MulticastGroupSource resource.
  */
 export interface MulticastGroupSourceArgs {
+    /**
+     * The IP address assigned to the transit gateway multicast group.
+     */
     groupIpAddress: pulumi.Input<string>;
+    /**
+     * The group members' network interface ID to register with the transit gateway multicast group.
+     */
     networkInterfaceId: pulumi.Input<string>;
+    /**
+     * The ID of the transit gateway multicast domain.
+     */
     transitGatewayMulticastDomainId: pulumi.Input<string>;
 }

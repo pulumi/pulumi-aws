@@ -4,6 +4,28 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an AWS Backup Global Settings resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.backup.GlobalSettings("test", {globalSettings: {
+ *     isCrossAccountBackupEnabled: "true",
+ * }});
+ * ```
+ *
+ * ## Import
+ *
+ * Backup Global Settings can be imported using the `id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
+ * ```
+ */
 export class GlobalSettings extends pulumi.CustomResource {
     /**
      * Get an existing GlobalSettings resource's state with the given name, ID, and optional extra
@@ -32,6 +54,9 @@ export class GlobalSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === GlobalSettings.__pulumiType;
     }
 
+    /**
+     * A list of resources along with the opt-in preferences for the account.
+     */
     public readonly globalSettings!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -64,6 +89,9 @@ export class GlobalSettings extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GlobalSettings resources.
  */
 export interface GlobalSettingsState {
+    /**
+     * A list of resources along with the opt-in preferences for the account.
+     */
     globalSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -71,5 +99,8 @@ export interface GlobalSettingsState {
  * The set of arguments for constructing a GlobalSettings resource.
  */
 export interface GlobalSettingsArgs {
+    /**
+     * A list of resources along with the opt-in preferences for the account.
+     */
     globalSettings: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

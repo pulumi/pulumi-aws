@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Backup.Inputs
 
     public sealed class PlanRuleCopyActionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+        /// </summary>
         [Input("destinationVaultArn", required: true)]
         public Input<string> DestinationVaultArn { get; set; } = null!;
 
+        /// <summary>
+        /// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+        /// </summary>
         [Input("lifecycle")]
         public Input<Inputs.PlanRuleCopyActionLifecycleGetArgs>? Lifecycle { get; set; }
 

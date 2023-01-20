@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEipsResult {
+    /**
+     * @return List of all the allocation IDs for address for use with EC2-VPC.
+     * 
+     */
     private List<String> allocationIds;
     private @Nullable List<GetEipsFilter> filters;
     /**
@@ -20,10 +24,18 @@ public final class GetEipsResult {
      * 
      */
     private String id;
+    /**
+     * @return List of all the Elastic IP addresses.
+     * 
+     */
     private List<String> publicIps;
     private Map<String,String> tags;
 
     private GetEipsResult() {}
+    /**
+     * @return List of all the allocation IDs for address for use with EC2-VPC.
+     * 
+     */
     public List<String> allocationIds() {
         return this.allocationIds;
     }
@@ -37,6 +49,10 @@ public final class GetEipsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return List of all the Elastic IP addresses.
+     * 
+     */
     public List<String> publicIps() {
         return this.publicIps;
     }

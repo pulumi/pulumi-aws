@@ -15,16 +15,32 @@ public final class UserGroupAssociationState extends com.pulumi.resources.Resour
 
     public static final UserGroupAssociationState Empty = new UserGroupAssociationState();
 
+    /**
+     * ID of the user group.
+     * 
+     */
     @Import(name="userGroupId")
     private @Nullable Output<String> userGroupId;
 
+    /**
+     * @return ID of the user group.
+     * 
+     */
     public Optional<Output<String>> userGroupId() {
         return Optional.ofNullable(this.userGroupId);
     }
 
+    /**
+     * ID of the user to associated with the user group.
+     * 
+     */
     @Import(name="userId")
     private @Nullable Output<String> userId;
 
+    /**
+     * @return ID of the user to associated with the user group.
+     * 
+     */
     public Optional<Output<String>> userId() {
         return Optional.ofNullable(this.userId);
     }
@@ -54,20 +70,44 @@ public final class UserGroupAssociationState extends com.pulumi.resources.Resour
             $ = new UserGroupAssociationState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param userGroupId ID of the user group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userGroupId(@Nullable Output<String> userGroupId) {
             $.userGroupId = userGroupId;
             return this;
         }
 
+        /**
+         * @param userGroupId ID of the user group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userGroupId(String userGroupId) {
             return userGroupId(Output.of(userGroupId));
         }
 
+        /**
+         * @param userId ID of the user to associated with the user group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userId(@Nullable Output<String> userId) {
             $.userId = userId;
             return this;
         }
 
+        /**
+         * @param userId ID of the user to associated with the user group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userId(String userId) {
             return userId(Output.of(userId));
         }

@@ -12,9 +12,17 @@ public final class GetReplicationGroupPlainArgs extends com.pulumi.resources.Inv
 
     public static final GetReplicationGroupPlainArgs Empty = new GetReplicationGroupPlainArgs();
 
+    /**
+     * Identifier for the replication group.
+     * 
+     */
     @Import(name="replicationGroupId", required=true)
     private String replicationGroupId;
 
+    /**
+     * @return Identifier for the replication group.
+     * 
+     */
     public String replicationGroupId() {
         return this.replicationGroupId;
     }
@@ -43,6 +51,12 @@ public final class GetReplicationGroupPlainArgs extends com.pulumi.resources.Inv
             $ = new GetReplicationGroupPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param replicationGroupId Identifier for the replication group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicationGroupId(String replicationGroupId) {
             $.replicationGroupId = replicationGroupId;
             return this;

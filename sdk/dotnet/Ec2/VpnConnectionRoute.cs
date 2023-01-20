@@ -9,12 +9,64 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
+    /// <summary>
+    /// Provides a static route between a VPN connection and a customer gateway.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vpc = new Aws.Ec2.Vpc("vpc", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var vpnGateway = new Aws.Ec2.VpnGateway("vpnGateway", new()
+    ///     {
+    ///         VpcId = vpc.Id,
+    ///     });
+    /// 
+    ///     var customerGateway = new Aws.Ec2.CustomerGateway("customerGateway", new()
+    ///     {
+    ///         BgpAsn = "65000",
+    ///         IpAddress = "172.0.0.1",
+    ///         Type = "ipsec.1",
+    ///     });
+    /// 
+    ///     var main = new Aws.Ec2.VpnConnection("main", new()
+    ///     {
+    ///         VpnGatewayId = vpnGateway.Id,
+    ///         CustomerGatewayId = customerGateway.Id,
+    ///         Type = "ipsec.1",
+    ///         StaticRoutesOnly = true,
+    ///     });
+    /// 
+    ///     var office = new Aws.Ec2.VpnConnectionRoute("office", new()
+    ///     {
+    ///         DestinationCidrBlock = "192.168.10.0/24",
+    ///         VpnConnectionId = main.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:ec2/vpnConnectionRoute:VpnConnectionRoute")]
     public partial class VpnConnectionRoute : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The CIDR block associated with the local subnet of the customer network.
+        /// </summary>
         [Output("destinationCidrBlock")]
         public Output<string> DestinationCidrBlock { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPN connection.
+        /// </summary>
         [Output("vpnConnectionId")]
         public Output<string> VpnConnectionId { get; private set; } = null!;
 
@@ -64,9 +116,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpnConnectionRouteArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The CIDR block associated with the local subnet of the customer network.
+        /// </summary>
         [Input("destinationCidrBlock", required: true)]
         public Input<string> DestinationCidrBlock { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPN connection.
+        /// </summary>
         [Input("vpnConnectionId", required: true)]
         public Input<string> VpnConnectionId { get; set; } = null!;
 
@@ -78,9 +136,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpnConnectionRouteState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The CIDR block associated with the local subnet of the customer network.
+        /// </summary>
         [Input("destinationCidrBlock")]
         public Input<string>? DestinationCidrBlock { get; set; }
 
+        /// <summary>
+        /// The ID of the VPN connection.
+        /// </summary>
         [Input("vpnConnectionId")]
         public Input<string>? VpnConnectionId { get; set; }
 

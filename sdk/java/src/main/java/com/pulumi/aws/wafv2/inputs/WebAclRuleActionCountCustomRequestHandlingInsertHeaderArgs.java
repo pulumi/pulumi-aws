@@ -13,16 +13,32 @@ public final class WebAclRuleActionCountCustomRequestHandlingInsertHeaderArgs ex
 
     public static final WebAclRuleActionCountCustomRequestHandlingInsertHeaderArgs Empty = new WebAclRuleActionCountCustomRequestHandlingInsertHeaderArgs();
 
+    /**
+     * Friendly name of the WebACL.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Friendly name of the WebACL.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Value of the custom header.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return Value of the custom header.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -52,20 +68,44 @@ public final class WebAclRuleActionCountCustomRequestHandlingInsertHeaderArgs ex
             $ = new WebAclRuleActionCountCustomRequestHandlingInsertHeaderArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Friendly name of the WebACL.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Friendly name of the WebACL.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param value Value of the custom header.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Value of the custom header.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

@@ -19,6 +19,9 @@ class TypeArgs:
                  format: pulumi.Input[str]):
         """
         The set of arguments for constructing a Type resource.
+        :param pulumi.Input[str] api_id: GraphQL API ID.
+        :param pulumi.Input[str] definition: The type definition.
+        :param pulumi.Input[str] format: The type format: `SDL` or `JSON`.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "definition", definition)
@@ -27,6 +30,9 @@ class TypeArgs:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
+        """
+        GraphQL API ID.
+        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -36,6 +42,9 @@ class TypeArgs:
     @property
     @pulumi.getter
     def definition(self) -> pulumi.Input[str]:
+        """
+        The type definition.
+        """
         return pulumi.get(self, "definition")
 
     @definition.setter
@@ -45,6 +54,9 @@ class TypeArgs:
     @property
     @pulumi.getter
     def format(self) -> pulumi.Input[str]:
+        """
+        The type format: `SDL` or `JSON`.
+        """
         return pulumi.get(self, "format")
 
     @format.setter
@@ -63,6 +75,12 @@ class _TypeState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Type resources.
+        :param pulumi.Input[str] api_id: GraphQL API ID.
+        :param pulumi.Input[str] arn: The ARN of the type.
+        :param pulumi.Input[str] definition: The type definition.
+        :param pulumi.Input[str] description: The type description.
+        :param pulumi.Input[str] format: The type format: `SDL` or `JSON`.
+        :param pulumi.Input[str] name: The type name.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -80,6 +98,9 @@ class _TypeState:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        GraphQL API ID.
+        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -89,6 +110,9 @@ class _TypeState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the type.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -98,6 +122,9 @@ class _TypeState:
     @property
     @pulumi.getter
     def definition(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type definition.
+        """
         return pulumi.get(self, "definition")
 
     @definition.setter
@@ -107,6 +134,9 @@ class _TypeState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type description.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -116,6 +146,9 @@ class _TypeState:
     @property
     @pulumi.getter
     def format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type format: `SDL` or `JSON`.
+        """
         return pulumi.get(self, "format")
 
     @format.setter
@@ -125,6 +158,9 @@ class _TypeState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -142,9 +178,40 @@ class Type(pulumi.CustomResource):
                  format: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Type resource with the given unique name, props, and options.
+        Provides an AppSync Type.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
+        example_type = aws.appsync.Type("exampleType",
+            api_id=example_graph_ql_api.id,
+            format="SDL",
+            definition=\"\"\"type Mutation
+
+        {
+        putPost(id: ID!,title: String! ): Post
+
+        }
+        \"\"\")
+        ```
+
+        ## Import
+
+        Appsync Types can be imported using the `id` e.g.,
+
+        ```sh
+         $ pulumi import aws:appsync/type:Type example api-id:format:name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_id: GraphQL API ID.
+        :param pulumi.Input[str] definition: The type definition.
+        :param pulumi.Input[str] format: The type format: `SDL` or `JSON`.
         """
         ...
     @overload
@@ -153,7 +220,35 @@ class Type(pulumi.CustomResource):
                  args: TypeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Type resource with the given unique name, props, and options.
+        Provides an AppSync Type.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
+        example_type = aws.appsync.Type("exampleType",
+            api_id=example_graph_ql_api.id,
+            format="SDL",
+            definition=\"\"\"type Mutation
+
+        {
+        putPost(id: ID!,title: String! ): Post
+
+        }
+        \"\"\")
+        ```
+
+        ## Import
+
+        Appsync Types can be imported using the `id` e.g.,
+
+        ```sh
+         $ pulumi import aws:appsync/type:Type example api-id:format:name
+        ```
+
         :param str resource_name: The name of the resource.
         :param TypeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,6 +311,12 @@ class Type(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_id: GraphQL API ID.
+        :param pulumi.Input[str] arn: The ARN of the type.
+        :param pulumi.Input[str] definition: The type definition.
+        :param pulumi.Input[str] description: The type description.
+        :param pulumi.Input[str] format: The type format: `SDL` or `JSON`.
+        :param pulumi.Input[str] name: The type name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -232,30 +333,48 @@ class Type(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
+        """
+        GraphQL API ID.
+        """
         return pulumi.get(self, "api_id")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the type.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def definition(self) -> pulumi.Output[str]:
+        """
+        The type definition.
+        """
         return pulumi.get(self, "definition")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        The type description.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def format(self) -> pulumi.Output[str]:
+        """
+        The type format: `SDL` or `JSON`.
+        """
         return pulumi.get(self, "format")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The type name.
+        """
         return pulumi.get(self, "name")
 

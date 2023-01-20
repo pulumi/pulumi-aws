@@ -12,38 +12,69 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Inspect all query arguments.
+        /// </summary>
         [Input("allQueryArguments")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsGetArgs>? AllQueryArguments { get; set; }
 
+        /// <summary>
+        /// Inspect the request body, which immediately follows the request headers.
+        /// </summary>
         [Input("body")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBodyGetArgs>? Body { get; set; }
 
+        /// <summary>
+        /// Inspect the cookies in the web request. See Cookies below for details.
+        /// </summary>
         [Input("cookies")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchCookiesGetArgs>? Cookies { get; set; }
 
         [Input("headers")]
         private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchHeaderGetArgs>? _headers;
+
+        /// <summary>
+        /// Inspect the request headers. See Headers below for details.
+        /// </summary>
         public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchHeaderGetArgs> Headers
         {
             get => _headers ?? (_headers = new InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchHeaderGetArgs>());
             set => _headers = value;
         }
 
+        /// <summary>
+        /// Inspect the request body as JSON. See JSON Body for details.
+        /// </summary>
         [Input("jsonBody")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchJsonBodyGetArgs>? JsonBody { get; set; }
 
+        /// <summary>
+        /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        /// </summary>
         [Input("method")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethodGetArgs>? Method { get; set; }
 
+        /// <summary>
+        /// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        /// </summary>
         [Input("queryString")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryStringGetArgs>? QueryString { get; set; }
 
+        /// <summary>
+        /// Inspect a single header. See Single Header below for details.
+        /// </summary>
         [Input("singleHeader")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderGetArgs>? SingleHeader { get; set; }
 
+        /// <summary>
+        /// Inspect a single query argument. See Single Query Argument below for details.
+        /// </summary>
         [Input("singleQueryArgument")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentGetArgs>? SingleQueryArgument { get; set; }
 
+        /// <summary>
+        /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        /// </summary>
         [Input("uriPath")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPathGetArgs>? UriPath { get; set; }
 

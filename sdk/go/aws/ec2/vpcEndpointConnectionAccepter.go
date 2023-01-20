@@ -11,12 +11,75 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to accept a pending VPC Endpoint Connection accept request to VPC Endpoint Service.
+//
+// ## Example Usage
+// ### Accept cross-account request
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleVpcEndpointService, err := ec2.NewVpcEndpointService(ctx, "exampleVpcEndpointService", &ec2.VpcEndpointServiceArgs{
+//				AcceptanceRequired: pulumi.Bool(false),
+//				NetworkLoadBalancerArns: pulumi.StringArray{
+//					aws_lb.Example.Arn,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "exampleVpcEndpoint", &ec2.VpcEndpointArgs{
+//				VpcId:             pulumi.Any(aws_vpc.Test_alternate.Id),
+//				ServiceName:       pulumi.Any(aws_vpc_endpoint_service.Test.Service_name),
+//				VpcEndpointType:   pulumi.String("Interface"),
+//				PrivateDnsEnabled: pulumi.Bool(false),
+//				SecurityGroupIds: pulumi.StringArray{
+//					aws_security_group.Test.Id,
+//				},
+//			}, pulumi.Provider("aws.alternate"))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcEndpointConnectionAccepter(ctx, "exampleVpcEndpointConnectionAccepter", &ec2.VpcEndpointConnectionAccepterArgs{
+//				VpcEndpointServiceId: exampleVpcEndpointService.ID(),
+//				VpcEndpointId:        exampleVpcEndpoint.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// VPC Endpoint Services can be imported using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`). e.g.
+//
+// ```sh
+//
+//	$ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
+//
+// ```
 type VpcEndpointConnectionAccepter struct {
 	pulumi.CustomResourceState
 
-	VpcEndpointId        pulumi.StringOutput `pulumi:"vpcEndpointId"`
+	// AWS VPC Endpoint ID.
+	VpcEndpointId pulumi.StringOutput `pulumi:"vpcEndpointId"`
+	// AWS VPC Endpoint Service ID.
 	VpcEndpointServiceId pulumi.StringOutput `pulumi:"vpcEndpointServiceId"`
-	VpcEndpointState     pulumi.StringOutput `pulumi:"vpcEndpointState"`
+	// State of the VPC Endpoint.
+	VpcEndpointState pulumi.StringOutput `pulumi:"vpcEndpointState"`
 }
 
 // NewVpcEndpointConnectionAccepter registers a new resource with the given unique name, arguments, and options.
@@ -54,15 +117,21 @@ func GetVpcEndpointConnectionAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcEndpointConnectionAccepter resources.
 type vpcEndpointConnectionAccepterState struct {
-	VpcEndpointId        *string `pulumi:"vpcEndpointId"`
+	// AWS VPC Endpoint ID.
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
+	// AWS VPC Endpoint Service ID.
 	VpcEndpointServiceId *string `pulumi:"vpcEndpointServiceId"`
-	VpcEndpointState     *string `pulumi:"vpcEndpointState"`
+	// State of the VPC Endpoint.
+	VpcEndpointState *string `pulumi:"vpcEndpointState"`
 }
 
 type VpcEndpointConnectionAccepterState struct {
-	VpcEndpointId        pulumi.StringPtrInput
+	// AWS VPC Endpoint ID.
+	VpcEndpointId pulumi.StringPtrInput
+	// AWS VPC Endpoint Service ID.
 	VpcEndpointServiceId pulumi.StringPtrInput
-	VpcEndpointState     pulumi.StringPtrInput
+	// State of the VPC Endpoint.
+	VpcEndpointState pulumi.StringPtrInput
 }
 
 func (VpcEndpointConnectionAccepterState) ElementType() reflect.Type {
@@ -70,13 +139,17 @@ func (VpcEndpointConnectionAccepterState) ElementType() reflect.Type {
 }
 
 type vpcEndpointConnectionAccepterArgs struct {
-	VpcEndpointId        string `pulumi:"vpcEndpointId"`
+	// AWS VPC Endpoint ID.
+	VpcEndpointId string `pulumi:"vpcEndpointId"`
+	// AWS VPC Endpoint Service ID.
 	VpcEndpointServiceId string `pulumi:"vpcEndpointServiceId"`
 }
 
 // The set of arguments for constructing a VpcEndpointConnectionAccepter resource.
 type VpcEndpointConnectionAccepterArgs struct {
-	VpcEndpointId        pulumi.StringInput
+	// AWS VPC Endpoint ID.
+	VpcEndpointId pulumi.StringInput
+	// AWS VPC Endpoint Service ID.
 	VpcEndpointServiceId pulumi.StringInput
 }
 
@@ -167,14 +240,17 @@ func (o VpcEndpointConnectionAccepterOutput) ToVpcEndpointConnectionAccepterOutp
 	return o
 }
 
+// AWS VPC Endpoint ID.
 func (o VpcEndpointConnectionAccepterOutput) VpcEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointConnectionAccepter) pulumi.StringOutput { return v.VpcEndpointId }).(pulumi.StringOutput)
 }
 
+// AWS VPC Endpoint Service ID.
 func (o VpcEndpointConnectionAccepterOutput) VpcEndpointServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointConnectionAccepter) pulumi.StringOutput { return v.VpcEndpointServiceId }).(pulumi.StringOutput)
 }
 
+// State of the VPC Endpoint.
 func (o VpcEndpointConnectionAccepterOutput) VpcEndpointState() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointConnectionAccepter) pulumi.StringOutput { return v.VpcEndpointState }).(pulumi.StringOutput)
 }

@@ -16,9 +16,19 @@ public final class BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaAr
 
     public static final BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs Empty = new BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs();
 
+    /**
+     * Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
+     * in `destination` must be specified as well.
+     * 
+     */
     @Import(name="sseKmsEncryptedObjects")
     private @Nullable Output<List<BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs>> sseKmsEncryptedObjects;
 
+    /**
+     * @return Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
+     * in `destination` must be specified as well.
+     * 
+     */
     public Optional<Output<List<BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs>>> sseKmsEncryptedObjects() {
         return Optional.ofNullable(this.sseKmsEncryptedObjects);
     }
@@ -47,15 +57,36 @@ public final class BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaAr
             $ = new BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param sseKmsEncryptedObjects Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
+         * in `destination` must be specified as well.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sseKmsEncryptedObjects(@Nullable Output<List<BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs>> sseKmsEncryptedObjects) {
             $.sseKmsEncryptedObjects = sseKmsEncryptedObjects;
             return this;
         }
 
+        /**
+         * @param sseKmsEncryptedObjects Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
+         * in `destination` must be specified as well.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sseKmsEncryptedObjects(List<BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs> sseKmsEncryptedObjects) {
             return sseKmsEncryptedObjects(Output.of(sseKmsEncryptedObjects));
         }
 
+        /**
+         * @param sseKmsEncryptedObjects Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
+         * in `destination` must be specified as well.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sseKmsEncryptedObjects(BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs... sseKmsEncryptedObjects) {
             return sseKmsEncryptedObjects(List.of(sseKmsEncryptedObjects));
         }

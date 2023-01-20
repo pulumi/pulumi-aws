@@ -9,24 +9,104 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DirectConnect
 {
+    /// <summary>
+    /// Provides a MAC Security (MACSec) secret key resource for use with Direct Connect. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for information about MAC Security (MACsec) prerequisites.
+    /// 
+    /// Creating this resource will also create a resource of type `aws.secretsmanager.Secret` which is managed by Direct Connect. While you can import this resource into your state, because this secret is managed by Direct Connect, you will not be able to make any modifications to it. See [How AWS Direct Connect uses AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_how-services-use-secrets_directconnect.html) for details.
+    /// 
+    /// &gt; **Note:** All arguments including `ckn` and `cak` will be stored in the raw state as plain-text.
+    /// Read more about sensitive data in state.
+    /// 
+    /// &gt; **Note:** The `secret_arn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `aws.directconnect.MacsecKeyAssociation` resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create MACSec key with CKN and CAK
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Aws.DirectConnect.GetConnection.Invoke(new()
+    ///     {
+    ///         Name = "tf-dx-connection",
+    ///     });
+    /// 
+    ///     var test = new Aws.DirectConnect.MacsecKeyAssociation("test", new()
+    ///     {
+    ///         ConnectionId = example.Apply(getConnectionResult =&gt; getConnectionResult.Id),
+    ///         Ckn = "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+    ///         Cak = "abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Create MACSec key with existing Secrets Manager secret
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleConnection = Aws.DirectConnect.GetConnection.Invoke(new()
+    ///     {
+    ///         Name = "tf-dx-connection",
+    ///     });
+    /// 
+    ///     var exampleSecret = Aws.SecretsManager.GetSecret.Invoke(new()
+    ///     {
+    ///         Name = "directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+    ///     });
+    /// 
+    ///     var test = new Aws.DirectConnect.MacsecKeyAssociation("test", new()
+    ///     {
+    ///         ConnectionId = exampleConnection.Apply(getConnectionResult =&gt; getConnectionResult.Id),
+    ///         SecretArn = exampleSecret.Apply(getSecretResult =&gt; getSecretResult.Arn),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation")]
     public partial class MacsecKeyAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+        /// </summary>
         [Output("cak")]
         public Output<string?> Cak { get; private set; } = null!;
 
+        /// <summary>
+        /// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+        /// </summary>
         [Output("ckn")]
         public Output<string> Ckn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+        /// </summary>
         [Output("connectionId")]
         public Output<string> ConnectionId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+        /// </summary>
         [Output("secretArn")]
         public Output<string> SecretArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The date in UTC format that the MAC Security (MACsec) secret key takes effect.
+        /// </summary>
         [Output("startOn")]
         public Output<string> StartOn { get; private set; } = null!;
 
+        /// <summary>
+        /// The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
+        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
@@ -76,15 +156,27 @@ namespace Pulumi.Aws.DirectConnect
 
     public sealed class MacsecKeyAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+        /// </summary>
         [Input("cak")]
         public Input<string>? Cak { get; set; }
 
+        /// <summary>
+        /// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+        /// </summary>
         [Input("ckn")]
         public Input<string>? Ckn { get; set; }
 
+        /// <summary>
+        /// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+        /// </summary>
         [Input("connectionId", required: true)]
         public Input<string> ConnectionId { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+        /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }
 
@@ -96,21 +188,39 @@ namespace Pulumi.Aws.DirectConnect
 
     public sealed class MacsecKeyAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+        /// </summary>
         [Input("cak")]
         public Input<string>? Cak { get; set; }
 
+        /// <summary>
+        /// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+        /// </summary>
         [Input("ckn")]
         public Input<string>? Ckn { get; set; }
 
+        /// <summary>
+        /// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+        /// </summary>
         [Input("connectionId")]
         public Input<string>? ConnectionId { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+        /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }
 
+        /// <summary>
+        /// The date in UTC format that the MAC Security (MACsec) secret key takes effect.
+        /// </summary>
         [Input("startOn")]
         public Input<string>? StartOn { get; set; }
 
+        /// <summary>
+        /// The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
+        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 

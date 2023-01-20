@@ -13,9 +13,17 @@ public final class GetCodeSigningConfigArgs extends com.pulumi.resources.InvokeA
 
     public static final GetCodeSigningConfigArgs Empty = new GetCodeSigningConfigArgs();
 
+    /**
+     * ARN of the code signing configuration.
+     * 
+     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
+    /**
+     * @return ARN of the code signing configuration.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -44,11 +52,23 @@ public final class GetCodeSigningConfigArgs extends com.pulumi.resources.InvokeA
             $ = new GetCodeSigningConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn ARN of the code signing configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn ARN of the code signing configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }

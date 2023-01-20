@@ -15,16 +15,32 @@ public final class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsPar
 
     public static final MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs Empty = new MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs();
 
+    /**
+     * The inputs for the STEP_FUNCTION task.
+     * 
+     */
     @Import(name="input")
     private @Nullable Output<String> input;
 
+    /**
+     * @return The inputs for the STEP_FUNCTION task.
+     * 
+     */
     public Optional<Output<String>> input() {
         return Optional.ofNullable(this.input);
     }
 
+    /**
+     * The name of the STEP_FUNCTION task.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the STEP_FUNCTION task.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -54,20 +70,44 @@ public final class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsPar
             $ = new MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param input The inputs for the STEP_FUNCTION task.
+         * 
+         * @return builder
+         * 
+         */
         public Builder input(@Nullable Output<String> input) {
             $.input = input;
             return this;
         }
 
+        /**
+         * @param input The inputs for the STEP_FUNCTION task.
+         * 
+         * @return builder
+         * 
+         */
         public Builder input(String input) {
             return input(Output.of(input));
         }
 
+        /**
+         * @param name The name of the STEP_FUNCTION task.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the STEP_FUNCTION task.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

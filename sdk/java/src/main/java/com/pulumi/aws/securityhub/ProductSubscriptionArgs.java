@@ -13,9 +13,17 @@ public final class ProductSubscriptionArgs extends com.pulumi.resources.Resource
 
     public static final ProductSubscriptionArgs Empty = new ProductSubscriptionArgs();
 
+    /**
+     * The ARN of the product that generates findings that you want to import into Security Hub - see below.
+     * 
+     */
     @Import(name="productArn", required=true)
     private Output<String> productArn;
 
+    /**
+     * @return The ARN of the product that generates findings that you want to import into Security Hub - see below.
+     * 
+     */
     public Output<String> productArn() {
         return this.productArn;
     }
@@ -44,11 +52,23 @@ public final class ProductSubscriptionArgs extends com.pulumi.resources.Resource
             $ = new ProductSubscriptionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param productArn The ARN of the product that generates findings that you want to import into Security Hub - see below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder productArn(Output<String> productArn) {
             $.productArn = productArn;
             return this;
         }
 
+        /**
+         * @param productArn The ARN of the product that generates findings that you want to import into Security Hub - see below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder productArn(String productArn) {
             return productArn(Output.of(productArn));
         }

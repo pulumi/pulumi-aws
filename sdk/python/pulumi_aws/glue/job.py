@@ -36,6 +36,24 @@ class JobArgs:
                  worker_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Job resource.
+        :param pulumi.Input['JobCommandArgs'] command: The command of the job. Defined below.
+        :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this job.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] connections: The list of connections used for this job.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] default_arguments: The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
+        :param pulumi.Input[str] description: Description of the job.
+        :param pulumi.Input[str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+        :param pulumi.Input['JobExecutionPropertyArgs'] execution_property: Execution property of the job. Defined below.
+        :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
+        :param pulumi.Input[int] max_retries: The maximum number of times to retry this job if it fails.
+        :param pulumi.Input[str] name: The name you assign to this job. It must be unique in your account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] non_overridable_arguments: Non-overridable arguments for this job, specified as name-value pairs.
+        :param pulumi.Input['JobNotificationPropertyArgs'] notification_property: Notification property of the job. Defined below.
+        :param pulumi.Input[int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
+        :param pulumi.Input[str] security_configuration: The name of the Security Configuration to be associated with the job.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[int] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
+        :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
         """
         pulumi.set(__self__, "command", command)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -75,6 +93,9 @@ class JobArgs:
     @property
     @pulumi.getter
     def command(self) -> pulumi.Input['JobCommandArgs']:
+        """
+        The command of the job. Defined below.
+        """
         return pulumi.get(self, "command")
 
     @command.setter
@@ -84,6 +105,9 @@ class JobArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the IAM role associated with this job.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -93,6 +117,9 @@ class JobArgs:
     @property
     @pulumi.getter
     def connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of connections used for this job.
+        """
         return pulumi.get(self, "connections")
 
     @connections.setter
@@ -102,6 +129,9 @@ class JobArgs:
     @property
     @pulumi.getter(name="defaultArguments")
     def default_arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
+        """
         return pulumi.get(self, "default_arguments")
 
     @default_arguments.setter
@@ -111,6 +141,9 @@ class JobArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the job.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -120,6 +153,9 @@ class JobArgs:
     @property
     @pulumi.getter(name="executionClass")
     def execution_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+        """
         return pulumi.get(self, "execution_class")
 
     @execution_class.setter
@@ -129,6 +165,9 @@ class JobArgs:
     @property
     @pulumi.getter(name="executionProperty")
     def execution_property(self) -> Optional[pulumi.Input['JobExecutionPropertyArgs']]:
+        """
+        Execution property of the job. Defined below.
+        """
         return pulumi.get(self, "execution_property")
 
     @execution_property.setter
@@ -138,6 +177,9 @@ class JobArgs:
     @property
     @pulumi.getter(name="glueVersion")
     def glue_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        """
         return pulumi.get(self, "glue_version")
 
     @glue_version.setter
@@ -147,6 +189,9 @@ class JobArgs:
     @property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> Optional[pulumi.Input[float]]:
+        """
+        The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
+        """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
@@ -156,6 +201,9 @@ class JobArgs:
     @property
     @pulumi.getter(name="maxRetries")
     def max_retries(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of times to retry this job if it fails.
+        """
         return pulumi.get(self, "max_retries")
 
     @max_retries.setter
@@ -165,6 +213,9 @@ class JobArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name you assign to this job. It must be unique in your account.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -174,6 +225,9 @@ class JobArgs:
     @property
     @pulumi.getter(name="nonOverridableArguments")
     def non_overridable_arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Non-overridable arguments for this job, specified as name-value pairs.
+        """
         return pulumi.get(self, "non_overridable_arguments")
 
     @non_overridable_arguments.setter
@@ -183,6 +237,9 @@ class JobArgs:
     @property
     @pulumi.getter(name="notificationProperty")
     def notification_property(self) -> Optional[pulumi.Input['JobNotificationPropertyArgs']]:
+        """
+        Notification property of the job. Defined below.
+        """
         return pulumi.get(self, "notification_property")
 
     @notification_property.setter
@@ -192,6 +249,9 @@ class JobArgs:
     @property
     @pulumi.getter(name="numberOfWorkers")
     def number_of_workers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of workers of a defined workerType that are allocated when a job runs.
+        """
         return pulumi.get(self, "number_of_workers")
 
     @number_of_workers.setter
@@ -201,6 +261,9 @@ class JobArgs:
     @property
     @pulumi.getter(name="securityConfiguration")
     def security_configuration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Security Configuration to be associated with the job.
+        """
         return pulumi.get(self, "security_configuration")
 
     @security_configuration.setter
@@ -210,6 +273,9 @@ class JobArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -219,6 +285,9 @@ class JobArgs:
     @property
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
+        """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
@@ -228,6 +297,9 @@ class JobArgs:
     @property
     @pulumi.getter(name="workerType")
     def worker_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+        """
         return pulumi.get(self, "worker_type")
 
     @worker_type.setter
@@ -260,6 +332,26 @@ class _JobState:
                  worker_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Job resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Glue Job
+        :param pulumi.Input['JobCommandArgs'] command: The command of the job. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] connections: The list of connections used for this job.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] default_arguments: The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
+        :param pulumi.Input[str] description: Description of the job.
+        :param pulumi.Input[str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+        :param pulumi.Input['JobExecutionPropertyArgs'] execution_property: Execution property of the job. Defined below.
+        :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
+        :param pulumi.Input[int] max_retries: The maximum number of times to retry this job if it fails.
+        :param pulumi.Input[str] name: The name you assign to this job. It must be unique in your account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] non_overridable_arguments: Non-overridable arguments for this job, specified as name-value pairs.
+        :param pulumi.Input['JobNotificationPropertyArgs'] notification_property: Notification property of the job. Defined below.
+        :param pulumi.Input[int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
+        :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this job.
+        :param pulumi.Input[str] security_configuration: The name of the Security Configuration to be associated with the job.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[int] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
+        :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -305,6 +397,9 @@ class _JobState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of Glue Job
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -314,6 +409,9 @@ class _JobState:
     @property
     @pulumi.getter
     def command(self) -> Optional[pulumi.Input['JobCommandArgs']]:
+        """
+        The command of the job. Defined below.
+        """
         return pulumi.get(self, "command")
 
     @command.setter
@@ -323,6 +421,9 @@ class _JobState:
     @property
     @pulumi.getter
     def connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of connections used for this job.
+        """
         return pulumi.get(self, "connections")
 
     @connections.setter
@@ -332,6 +433,9 @@ class _JobState:
     @property
     @pulumi.getter(name="defaultArguments")
     def default_arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
+        """
         return pulumi.get(self, "default_arguments")
 
     @default_arguments.setter
@@ -341,6 +445,9 @@ class _JobState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the job.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -350,6 +457,9 @@ class _JobState:
     @property
     @pulumi.getter(name="executionClass")
     def execution_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+        """
         return pulumi.get(self, "execution_class")
 
     @execution_class.setter
@@ -359,6 +469,9 @@ class _JobState:
     @property
     @pulumi.getter(name="executionProperty")
     def execution_property(self) -> Optional[pulumi.Input['JobExecutionPropertyArgs']]:
+        """
+        Execution property of the job. Defined below.
+        """
         return pulumi.get(self, "execution_property")
 
     @execution_property.setter
@@ -368,6 +481,9 @@ class _JobState:
     @property
     @pulumi.getter(name="glueVersion")
     def glue_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        """
         return pulumi.get(self, "glue_version")
 
     @glue_version.setter
@@ -377,6 +493,9 @@ class _JobState:
     @property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> Optional[pulumi.Input[float]]:
+        """
+        The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
+        """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
@@ -386,6 +505,9 @@ class _JobState:
     @property
     @pulumi.getter(name="maxRetries")
     def max_retries(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of times to retry this job if it fails.
+        """
         return pulumi.get(self, "max_retries")
 
     @max_retries.setter
@@ -395,6 +517,9 @@ class _JobState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name you assign to this job. It must be unique in your account.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -404,6 +529,9 @@ class _JobState:
     @property
     @pulumi.getter(name="nonOverridableArguments")
     def non_overridable_arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Non-overridable arguments for this job, specified as name-value pairs.
+        """
         return pulumi.get(self, "non_overridable_arguments")
 
     @non_overridable_arguments.setter
@@ -413,6 +541,9 @@ class _JobState:
     @property
     @pulumi.getter(name="notificationProperty")
     def notification_property(self) -> Optional[pulumi.Input['JobNotificationPropertyArgs']]:
+        """
+        Notification property of the job. Defined below.
+        """
         return pulumi.get(self, "notification_property")
 
     @notification_property.setter
@@ -422,6 +553,9 @@ class _JobState:
     @property
     @pulumi.getter(name="numberOfWorkers")
     def number_of_workers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of workers of a defined workerType that are allocated when a job runs.
+        """
         return pulumi.get(self, "number_of_workers")
 
     @number_of_workers.setter
@@ -431,6 +565,9 @@ class _JobState:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM role associated with this job.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -440,6 +577,9 @@ class _JobState:
     @property
     @pulumi.getter(name="securityConfiguration")
     def security_configuration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Security Configuration to be associated with the job.
+        """
         return pulumi.get(self, "security_configuration")
 
     @security_configuration.setter
@@ -449,6 +589,9 @@ class _JobState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -458,6 +601,9 @@ class _JobState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -467,6 +613,9 @@ class _JobState:
     @property
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
+        """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
@@ -476,6 +625,9 @@ class _JobState:
     @property
     @pulumi.getter(name="workerType")
     def worker_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+        """
         return pulumi.get(self, "worker_type")
 
     @worker_type.setter
@@ -508,9 +660,95 @@ class Job(pulumi.CustomResource):
                  worker_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Job resource with the given unique name, props, and options.
+        Provides a Glue Job resource.
+
+        > Glue functionality, such as monitoring and logging of jobs, is typically managed with the `default_arguments` argument. See the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the Glue developer guide for additional information.
+
+        ## Example Usage
+        ### Python Job
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Job("example",
+            role_arn=aws_iam_role["example"]["arn"],
+            command=aws.glue.JobCommandArgs(
+                script_location=f"s3://{aws_s3_bucket['example']['bucket']}/example.py",
+            ))
+        ```
+        ### Scala Job
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Job("example",
+            role_arn=aws_iam_role["example"]["arn"],
+            command=aws.glue.JobCommandArgs(
+                script_location=f"s3://{aws_s3_bucket['example']['bucket']}/example.scala",
+            ),
+            default_arguments={
+                "--job-language": "scala",
+            })
+        ```
+        ### Streaming Job
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Job("example",
+            role_arn=aws_iam_role["example"]["arn"],
+            command=aws.glue.JobCommandArgs(
+                name="gluestreaming",
+                script_location=f"s3://{aws_s3_bucket['example']['bucket']}/example.script",
+            ))
+        ```
+        ### Enabling CloudWatch Logs and Metrics
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=14)
+        # ... other configuration ...
+        example_job = aws.glue.Job("exampleJob", default_arguments={
+            "--continuous-log-logGroup": example_log_group.name,
+            "--enable-continuous-cloudwatch-log": "true",
+            "--enable-continuous-log-filter": "true",
+            "--enable-metrics": "",
+        })
+        ```
+
+        ## Import
+
+        Glue Jobs can be imported using `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:glue/job:Job MyJob MyJob
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['JobCommandArgs']] command: The command of the job. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] connections: The list of connections used for this job.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] default_arguments: The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
+        :param pulumi.Input[str] description: Description of the job.
+        :param pulumi.Input[str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+        :param pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']] execution_property: Execution property of the job. Defined below.
+        :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
+        :param pulumi.Input[int] max_retries: The maximum number of times to retry this job if it fails.
+        :param pulumi.Input[str] name: The name you assign to this job. It must be unique in your account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] non_overridable_arguments: Non-overridable arguments for this job, specified as name-value pairs.
+        :param pulumi.Input[pulumi.InputType['JobNotificationPropertyArgs']] notification_property: Notification property of the job. Defined below.
+        :param pulumi.Input[int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
+        :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this job.
+        :param pulumi.Input[str] security_configuration: The name of the Security Configuration to be associated with the job.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[int] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
+        :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
         """
         ...
     @overload
@@ -519,7 +757,75 @@ class Job(pulumi.CustomResource):
                  args: JobArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Job resource with the given unique name, props, and options.
+        Provides a Glue Job resource.
+
+        > Glue functionality, such as monitoring and logging of jobs, is typically managed with the `default_arguments` argument. See the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the Glue developer guide for additional information.
+
+        ## Example Usage
+        ### Python Job
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Job("example",
+            role_arn=aws_iam_role["example"]["arn"],
+            command=aws.glue.JobCommandArgs(
+                script_location=f"s3://{aws_s3_bucket['example']['bucket']}/example.py",
+            ))
+        ```
+        ### Scala Job
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Job("example",
+            role_arn=aws_iam_role["example"]["arn"],
+            command=aws.glue.JobCommandArgs(
+                script_location=f"s3://{aws_s3_bucket['example']['bucket']}/example.scala",
+            ),
+            default_arguments={
+                "--job-language": "scala",
+            })
+        ```
+        ### Streaming Job
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Job("example",
+            role_arn=aws_iam_role["example"]["arn"],
+            command=aws.glue.JobCommandArgs(
+                name="gluestreaming",
+                script_location=f"s3://{aws_s3_bucket['example']['bucket']}/example.script",
+            ))
+        ```
+        ### Enabling CloudWatch Logs and Metrics
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=14)
+        # ... other configuration ...
+        example_job = aws.glue.Job("exampleJob", default_arguments={
+            "--continuous-log-logGroup": example_log_group.name,
+            "--enable-continuous-cloudwatch-log": "true",
+            "--enable-continuous-log-filter": "true",
+            "--enable-metrics": "",
+        })
+        ```
+
+        ## Import
+
+        Glue Jobs can be imported using `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:glue/job:Job MyJob MyJob
+        ```
+
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -623,6 +929,26 @@ class Job(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Glue Job
+        :param pulumi.Input[pulumi.InputType['JobCommandArgs']] command: The command of the job. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] connections: The list of connections used for this job.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] default_arguments: The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
+        :param pulumi.Input[str] description: Description of the job.
+        :param pulumi.Input[str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+        :param pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']] execution_property: Execution property of the job. Defined below.
+        :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
+        :param pulumi.Input[int] max_retries: The maximum number of times to retry this job if it fails.
+        :param pulumi.Input[str] name: The name you assign to this job. It must be unique in your account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] non_overridable_arguments: Non-overridable arguments for this job, specified as name-value pairs.
+        :param pulumi.Input[pulumi.InputType['JobNotificationPropertyArgs']] notification_property: Notification property of the job. Defined below.
+        :param pulumi.Input[int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
+        :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this job.
+        :param pulumi.Input[str] security_configuration: The name of the Security Configuration to be associated with the job.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[int] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
+        :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -653,100 +979,160 @@ class Job(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of Glue Job
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def command(self) -> pulumi.Output['outputs.JobCommand']:
+        """
+        The command of the job. Defined below.
+        """
         return pulumi.get(self, "command")
 
     @property
     @pulumi.getter
     def connections(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The list of connections used for this job.
+        """
         return pulumi.get(self, "connections")
 
     @property
     @pulumi.getter(name="defaultArguments")
     def default_arguments(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
+        """
         return pulumi.get(self, "default_arguments")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Description of the job.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="executionClass")
     def execution_class(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+        """
         return pulumi.get(self, "execution_class")
 
     @property
     @pulumi.getter(name="executionProperty")
     def execution_property(self) -> pulumi.Output['outputs.JobExecutionProperty']:
+        """
+        Execution property of the job. Defined below.
+        """
         return pulumi.get(self, "execution_property")
 
     @property
     @pulumi.getter(name="glueVersion")
     def glue_version(self) -> pulumi.Output[str]:
+        """
+        The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        """
         return pulumi.get(self, "glue_version")
 
     @property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> pulumi.Output[float]:
+        """
+        The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
+        """
         return pulumi.get(self, "max_capacity")
 
     @property
     @pulumi.getter(name="maxRetries")
     def max_retries(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum number of times to retry this job if it fails.
+        """
         return pulumi.get(self, "max_retries")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name you assign to this job. It must be unique in your account.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="nonOverridableArguments")
     def non_overridable_arguments(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Non-overridable arguments for this job, specified as name-value pairs.
+        """
         return pulumi.get(self, "non_overridable_arguments")
 
     @property
     @pulumi.getter(name="notificationProperty")
     def notification_property(self) -> pulumi.Output['outputs.JobNotificationProperty']:
+        """
+        Notification property of the job. Defined below.
+        """
         return pulumi.get(self, "notification_property")
 
     @property
     @pulumi.getter(name="numberOfWorkers")
     def number_of_workers(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of workers of a defined workerType that are allocated when a job runs.
+        """
         return pulumi.get(self, "number_of_workers")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the IAM role associated with this job.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="securityConfiguration")
     def security_configuration(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the Security Configuration to be associated with the job.
+        """
         return pulumi.get(self, "security_configuration")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
     def timeout(self) -> pulumi.Output[int]:
+        """
+        The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
+        """
         return pulumi.get(self, "timeout")
 
     @property
     @pulumi.getter(name="workerType")
     def worker_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+        """
         return pulumi.get(self, "worker_type")
 

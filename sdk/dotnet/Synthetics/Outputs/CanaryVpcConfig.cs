@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Synthetics.Outputs
     [OutputType]
     public sealed class CanaryVpcConfig
     {
+        /// <summary>
+        /// IDs of the security groups for this canary.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// IDs of the subnets where this canary is to run.
+        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
+        /// ID of the VPC where this canary is to run.
+        /// </summary>
         public readonly string? VpcId;
 
         [OutputConstructor]

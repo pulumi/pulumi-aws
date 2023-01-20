@@ -11,21 +11,157 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Cloud9 EC2 Development Environment.
+//
+// ## Example Usage
+//
+// Basic usage:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloud9"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloud9.NewEnvironmentEC2(ctx, "example", &cloud9.EnvironmentEC2Args{
+//				InstanceType: pulumi.String("t2.micro"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// Get the URL of the Cloud9 environment after creation:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloud9"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := cloud9.NewEnvironmentEC2(ctx, "example", &cloud9.EnvironmentEC2Args{
+//				InstanceType: pulumi.String("t2.micro"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_ = ec2.LookupInstanceOutput(ctx, ec2.GetInstanceOutputArgs{
+//				Filters: ec2.GetInstanceFilterArray{
+//					&ec2.GetInstanceFilterArgs{
+//						Name: pulumi.String("tag:aws:cloud9:environment"),
+//						Values: pulumi.StringArray{
+//							example.ID(),
+//						},
+//					},
+//				},
+//			}, nil)
+//			ctx.Export("cloud9Url", example.ID().ApplyT(func(id string) (string, error) {
+//				return fmt.Sprintf("https://%v.console.aws.amazon.com/cloud9/ide/%v", _var.Region, id), nil
+//			}).(pulumi.StringOutput))
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// Allocate a static IP to the Cloud9 environment:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloud9"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := cloud9.NewEnvironmentEC2(ctx, "example", &cloud9.EnvironmentEC2Args{
+//				InstanceType: pulumi.String("t2.micro"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			cloud9Instance := ec2.LookupInstanceOutput(ctx, ec2.GetInstanceOutputArgs{
+//				Filters: ec2.GetInstanceFilterArray{
+//					&ec2.GetInstanceFilterArgs{
+//						Name: pulumi.String("tag:aws:cloud9:environment"),
+//						Values: pulumi.StringArray{
+//							example.ID(),
+//						},
+//					},
+//				},
+//			}, nil)
+//			cloud9Eip, err := ec2.NewEip(ctx, "cloud9Eip", &ec2.EipArgs{
+//				Instance: cloud9Instance.ApplyT(func(cloud9Instance ec2.GetInstanceResult) (*string, error) {
+//					return &cloud9Instance.Id, nil
+//				}).(pulumi.StringPtrOutput),
+//				Vpc: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("cloud9PublicIp", cloud9Eip.PublicIp)
+//			return nil
+//		})
+//	}
+//
+// ```
 type EnvironmentEC2 struct {
 	pulumi.CustomResourceState
 
-	Arn                      pulumi.StringOutput    `pulumi:"arn"`
-	AutomaticStopTimeMinutes pulumi.IntPtrOutput    `pulumi:"automaticStopTimeMinutes"`
-	ConnectionType           pulumi.StringPtrOutput `pulumi:"connectionType"`
-	Description              pulumi.StringPtrOutput `pulumi:"description"`
-	ImageId                  pulumi.StringPtrOutput `pulumi:"imageId"`
-	InstanceType             pulumi.StringOutput    `pulumi:"instanceType"`
-	Name                     pulumi.StringOutput    `pulumi:"name"`
-	OwnerArn                 pulumi.StringOutput    `pulumi:"ownerArn"`
-	SubnetId                 pulumi.StringPtrOutput `pulumi:"subnetId"`
-	Tags                     pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll                  pulumi.StringMapOutput `pulumi:"tagsAll"`
-	Type                     pulumi.StringOutput    `pulumi:"type"`
+	// The ARN of the environment.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The number of minutes until the running instance is shut down after the environment has last been used.
+	AutomaticStopTimeMinutes pulumi.IntPtrOutput `pulumi:"automaticStopTimeMinutes"`
+	// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+	ConnectionType pulumi.StringPtrOutput `pulumi:"connectionType"`
+	// The description of the environment.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+	// * `amazonlinux-1-x86_64`
+	// * `amazonlinux-2-x86_64`
+	// * `ubuntu-18.04-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+	ImageId pulumi.StringPtrOutput `pulumi:"imageId"`
+	// The type of instance to connect to the environment, e.g., `t2.micro`.
+	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
+	// The name of the environment.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
+	OwnerArn pulumi.StringOutput `pulumi:"ownerArn"`
+	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
+	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The type of the environment (e.g., `ssh` or `ec2`)
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewEnvironmentEC2 registers a new resource with the given unique name, arguments, and options.
@@ -60,33 +196,69 @@ func GetEnvironmentEC2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EnvironmentEC2 resources.
 type environmentEC2State struct {
-	Arn                      *string           `pulumi:"arn"`
-	AutomaticStopTimeMinutes *int              `pulumi:"automaticStopTimeMinutes"`
-	ConnectionType           *string           `pulumi:"connectionType"`
-	Description              *string           `pulumi:"description"`
-	ImageId                  *string           `pulumi:"imageId"`
-	InstanceType             *string           `pulumi:"instanceType"`
-	Name                     *string           `pulumi:"name"`
-	OwnerArn                 *string           `pulumi:"ownerArn"`
-	SubnetId                 *string           `pulumi:"subnetId"`
-	Tags                     map[string]string `pulumi:"tags"`
-	TagsAll                  map[string]string `pulumi:"tagsAll"`
-	Type                     *string           `pulumi:"type"`
+	// The ARN of the environment.
+	Arn *string `pulumi:"arn"`
+	// The number of minutes until the running instance is shut down after the environment has last been used.
+	AutomaticStopTimeMinutes *int `pulumi:"automaticStopTimeMinutes"`
+	// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+	ConnectionType *string `pulumi:"connectionType"`
+	// The description of the environment.
+	Description *string `pulumi:"description"`
+	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+	// * `amazonlinux-1-x86_64`
+	// * `amazonlinux-2-x86_64`
+	// * `ubuntu-18.04-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+	ImageId *string `pulumi:"imageId"`
+	// The type of instance to connect to the environment, e.g., `t2.micro`.
+	InstanceType *string `pulumi:"instanceType"`
+	// The name of the environment.
+	Name *string `pulumi:"name"`
+	// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
+	OwnerArn *string `pulumi:"ownerArn"`
+	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
+	SubnetId *string `pulumi:"subnetId"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The type of the environment (e.g., `ssh` or `ec2`)
+	Type *string `pulumi:"type"`
 }
 
 type EnvironmentEC2State struct {
-	Arn                      pulumi.StringPtrInput
+	// The ARN of the environment.
+	Arn pulumi.StringPtrInput
+	// The number of minutes until the running instance is shut down after the environment has last been used.
 	AutomaticStopTimeMinutes pulumi.IntPtrInput
-	ConnectionType           pulumi.StringPtrInput
-	Description              pulumi.StringPtrInput
-	ImageId                  pulumi.StringPtrInput
-	InstanceType             pulumi.StringPtrInput
-	Name                     pulumi.StringPtrInput
-	OwnerArn                 pulumi.StringPtrInput
-	SubnetId                 pulumi.StringPtrInput
-	Tags                     pulumi.StringMapInput
-	TagsAll                  pulumi.StringMapInput
-	Type                     pulumi.StringPtrInput
+	// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+	ConnectionType pulumi.StringPtrInput
+	// The description of the environment.
+	Description pulumi.StringPtrInput
+	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+	// * `amazonlinux-1-x86_64`
+	// * `amazonlinux-2-x86_64`
+	// * `ubuntu-18.04-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+	ImageId pulumi.StringPtrInput
+	// The type of instance to connect to the environment, e.g., `t2.micro`.
+	InstanceType pulumi.StringPtrInput
+	// The name of the environment.
+	Name pulumi.StringPtrInput
+	// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
+	OwnerArn pulumi.StringPtrInput
+	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
+	SubnetId pulumi.StringPtrInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// The type of the environment (e.g., `ssh` or `ec2`)
+	Type pulumi.StringPtrInput
 }
 
 func (EnvironmentEC2State) ElementType() reflect.Type {
@@ -94,28 +266,58 @@ func (EnvironmentEC2State) ElementType() reflect.Type {
 }
 
 type environmentEC2Args struct {
-	AutomaticStopTimeMinutes *int              `pulumi:"automaticStopTimeMinutes"`
-	ConnectionType           *string           `pulumi:"connectionType"`
-	Description              *string           `pulumi:"description"`
-	ImageId                  *string           `pulumi:"imageId"`
-	InstanceType             string            `pulumi:"instanceType"`
-	Name                     *string           `pulumi:"name"`
-	OwnerArn                 *string           `pulumi:"ownerArn"`
-	SubnetId                 *string           `pulumi:"subnetId"`
-	Tags                     map[string]string `pulumi:"tags"`
+	// The number of minutes until the running instance is shut down after the environment has last been used.
+	AutomaticStopTimeMinutes *int `pulumi:"automaticStopTimeMinutes"`
+	// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+	ConnectionType *string `pulumi:"connectionType"`
+	// The description of the environment.
+	Description *string `pulumi:"description"`
+	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+	// * `amazonlinux-1-x86_64`
+	// * `amazonlinux-2-x86_64`
+	// * `ubuntu-18.04-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+	ImageId *string `pulumi:"imageId"`
+	// The type of instance to connect to the environment, e.g., `t2.micro`.
+	InstanceType string `pulumi:"instanceType"`
+	// The name of the environment.
+	Name *string `pulumi:"name"`
+	// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
+	OwnerArn *string `pulumi:"ownerArn"`
+	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
+	SubnetId *string `pulumi:"subnetId"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EnvironmentEC2 resource.
 type EnvironmentEC2Args struct {
+	// The number of minutes until the running instance is shut down after the environment has last been used.
 	AutomaticStopTimeMinutes pulumi.IntPtrInput
-	ConnectionType           pulumi.StringPtrInput
-	Description              pulumi.StringPtrInput
-	ImageId                  pulumi.StringPtrInput
-	InstanceType             pulumi.StringInput
-	Name                     pulumi.StringPtrInput
-	OwnerArn                 pulumi.StringPtrInput
-	SubnetId                 pulumi.StringPtrInput
-	Tags                     pulumi.StringMapInput
+	// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+	ConnectionType pulumi.StringPtrInput
+	// The description of the environment.
+	Description pulumi.StringPtrInput
+	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+	// * `amazonlinux-1-x86_64`
+	// * `amazonlinux-2-x86_64`
+	// * `ubuntu-18.04-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+	ImageId pulumi.StringPtrInput
+	// The type of instance to connect to the environment, e.g., `t2.micro`.
+	InstanceType pulumi.StringInput
+	// The name of the environment.
+	Name pulumi.StringPtrInput
+	// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
+	OwnerArn pulumi.StringPtrInput
+	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
+	SubnetId pulumi.StringPtrInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (EnvironmentEC2Args) ElementType() reflect.Type {
@@ -205,50 +407,68 @@ func (o EnvironmentEC2Output) ToEnvironmentEC2OutputWithContext(ctx context.Cont
 	return o
 }
 
+// The ARN of the environment.
 func (o EnvironmentEC2Output) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The number of minutes until the running instance is shut down after the environment has last been used.
 func (o EnvironmentEC2Output) AutomaticStopTimeMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EnvironmentEC2) pulumi.IntPtrOutput { return v.AutomaticStopTimeMinutes }).(pulumi.IntPtrOutput)
 }
 
+// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
 func (o EnvironmentEC2Output) ConnectionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringPtrOutput { return v.ConnectionType }).(pulumi.StringPtrOutput)
 }
 
+// The description of the environment.
 func (o EnvironmentEC2Output) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+// * `amazonlinux-1-x86_64`
+// * `amazonlinux-2-x86_64`
+// * `ubuntu-18.04-x86_64`
+// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
+// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
 func (o EnvironmentEC2Output) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringPtrOutput { return v.ImageId }).(pulumi.StringPtrOutput)
 }
 
+// The type of instance to connect to the environment, e.g., `t2.micro`.
 func (o EnvironmentEC2Output) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
 }
 
+// The name of the environment.
 func (o EnvironmentEC2Output) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
 func (o EnvironmentEC2Output) OwnerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringOutput { return v.OwnerArn }).(pulumi.StringOutput)
 }
 
+// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 func (o EnvironmentEC2Output) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
+// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o EnvironmentEC2Output) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EnvironmentEC2Output) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// The type of the environment (e.g., `ssh` or `ec2`)
 func (o EnvironmentEC2Output) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

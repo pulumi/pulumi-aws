@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Get information on an Amazon MSK Connect Connector.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.mskconnect.getConnector({
+ *     name: "example-mskconnector",
+ * });
+ * ```
+ */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -16,6 +30,9 @@ export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getConnector.
  */
 export interface GetConnectorArgs {
+    /**
+     * Name of the connector.
+     */
     name: string;
 }
 
@@ -23,15 +40,38 @@ export interface GetConnectorArgs {
  * A collection of values returned by getConnector.
  */
 export interface GetConnectorResult {
+    /**
+     * ARN of the connector.
+     */
     readonly arn: string;
+    /**
+     * Summary description of the connector.
+     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly name: string;
+    /**
+     * Current version of the connector.
+     */
     readonly version: string;
 }
+/**
+ * Get information on an Amazon MSK Connect Connector.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.mskconnect.getConnector({
+ *     name: "example-mskconnector",
+ * });
+ * ```
+ */
 export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
     return pulumi.output(args).apply((a: any) => getConnector(a, opts))
 }
@@ -40,5 +80,8 @@ export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getConnector.
  */
 export interface GetConnectorOutputArgs {
+    /**
+     * Name of the connector.
+     */
     name: pulumi.Input<string>;
 }

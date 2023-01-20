@@ -15,6 +15,10 @@ public final class GetLocationsResult {
      * 
      */
     private String id;
+    /**
+     * @return Code for the locations.
+     * 
+     */
     private List<String> locationCodes;
 
     private GetLocationsResult() {}
@@ -25,6 +29,10 @@ public final class GetLocationsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Code for the locations.
+     * 
+     */
     public List<String> locationCodes() {
         return this.locationCodes;
     }

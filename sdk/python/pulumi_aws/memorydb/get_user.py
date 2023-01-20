@@ -48,16 +48,25 @@ class GetUserResult:
     @property
     @pulumi.getter(name="accessString")
     def access_string(self) -> str:
+        """
+        Access permissions string used for this user.
+        """
         return pulumi.get(self, "access_string")
 
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the user.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authenticationModes")
     def authentication_modes(self) -> Sequence['outputs.GetUserAuthenticationModeResult']:
+        """
+        Denotes the user's authentication properties.
+        """
         return pulumi.get(self, "authentication_modes")
 
     @property
@@ -71,11 +80,17 @@ class GetUserResult:
     @property
     @pulumi.getter(name="minimumEngineVersion")
     def minimum_engine_version(self) -> str:
+        """
+        The minimum engine version supported for the user.
+        """
         return pulumi.get(self, "minimum_engine_version")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Map of tags assigned to the subnet group.
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -103,7 +118,20 @@ def get_user(tags: Optional[Mapping[str, str]] = None,
              user_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a MemoryDB User.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.memorydb.get_user(user_name="my-user")
+    ```
+
+
+    :param Mapping[str, str] tags: Map of tags assigned to the subnet group.
+    :param str user_name: Name of the user.
     """
     __args__ = dict()
     __args__['tags'] = tags
@@ -126,6 +154,19 @@ def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = 
                     user_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a MemoryDB User.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.memorydb.get_user(user_name="my-user")
+    ```
+
+
+    :param Mapping[str, str] tags: Map of tags assigned to the subnet group.
+    :param str user_name: Name of the user.
     """
     ...

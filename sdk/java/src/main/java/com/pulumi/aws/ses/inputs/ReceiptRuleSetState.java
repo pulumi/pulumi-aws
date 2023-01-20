@@ -15,16 +15,32 @@ public final class ReceiptRuleSetState extends com.pulumi.resources.ResourceArgs
 
     public static final ReceiptRuleSetState Empty = new ReceiptRuleSetState();
 
+    /**
+     * SES receipt rule set ARN.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return SES receipt rule set ARN.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * Name of the rule set.
+     * 
+     */
     @Import(name="ruleSetName")
     private @Nullable Output<String> ruleSetName;
 
+    /**
+     * @return Name of the rule set.
+     * 
+     */
     public Optional<Output<String>> ruleSetName() {
         return Optional.ofNullable(this.ruleSetName);
     }
@@ -54,20 +70,44 @@ public final class ReceiptRuleSetState extends com.pulumi.resources.ResourceArgs
             $ = new ReceiptRuleSetState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn SES receipt rule set ARN.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn SES receipt rule set ARN.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param ruleSetName Name of the rule set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ruleSetName(@Nullable Output<String> ruleSetName) {
             $.ruleSetName = ruleSetName;
             return this;
         }
 
+        /**
+         * @param ruleSetName Name of the rule set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ruleSetName(String ruleSetName) {
             return ruleSetName(Output.of(ruleSetName));
         }

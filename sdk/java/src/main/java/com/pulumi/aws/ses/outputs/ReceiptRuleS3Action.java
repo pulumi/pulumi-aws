@@ -12,25 +12,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReceiptRuleS3Action {
+    /**
+     * @return The name of the S3 bucket
+     * 
+     */
     private String bucketName;
+    /**
+     * @return The ARN of the KMS key
+     * 
+     */
     private @Nullable String kmsKeyArn;
+    /**
+     * @return The key prefix of the S3 bucket
+     * 
+     */
     private @Nullable String objectKeyPrefix;
+    /**
+     * @return The position of the action in the receipt rule
+     * 
+     */
     private Integer position;
+    /**
+     * @return The ARN of an SNS topic to notify
+     * 
+     */
     private @Nullable String topicArn;
 
     private ReceiptRuleS3Action() {}
+    /**
+     * @return The name of the S3 bucket
+     * 
+     */
     public String bucketName() {
         return this.bucketName;
     }
+    /**
+     * @return The ARN of the KMS key
+     * 
+     */
     public Optional<String> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
+    /**
+     * @return The key prefix of the S3 bucket
+     * 
+     */
     public Optional<String> objectKeyPrefix() {
         return Optional.ofNullable(this.objectKeyPrefix);
     }
+    /**
+     * @return The position of the action in the receipt rule
+     * 
+     */
     public Integer position() {
         return this.position;
     }
+    /**
+     * @return The ARN of an SNS topic to notify
+     * 
+     */
     public Optional<String> topicArn() {
         return Optional.ofNullable(this.topicArn);
     }

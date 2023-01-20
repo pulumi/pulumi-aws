@@ -11,9 +11,153 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
 {
     public static class GetResources
     {
+        /// <summary>
+        /// Provides details about resource tagging.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Get All Resource Tag Mappings
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.ResourceGroupsTaggingApi.GetResources.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Filter By Tag Key and Value
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.ResourceGroupsTaggingApi.GetResources.Invoke(new()
+        ///     {
+        ///         TagFilters = new[]
+        ///         {
+        ///             new Aws.ResourceGroupsTaggingApi.Inputs.GetResourcesTagFilterInputArgs
+        ///             {
+        ///                 Key = "tag-key",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "tag-value-1",
+        ///                     "tag-value-2",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Filter By Resource Type
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.ResourceGroupsTaggingApi.GetResources.Invoke(new()
+        ///     {
+        ///         ResourceTypeFilters = new[]
+        ///         {
+        ///             "ec2:instance",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetResourcesResult> InvokeAsync(GetResourcesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourcesResult>("aws:resourcegroupstaggingapi/getResources:getResources", args ?? new GetResourcesArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides details about resource tagging.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Get All Resource Tag Mappings
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.ResourceGroupsTaggingApi.GetResources.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Filter By Tag Key and Value
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.ResourceGroupsTaggingApi.GetResources.Invoke(new()
+        ///     {
+        ///         TagFilters = new[]
+        ///         {
+        ///             new Aws.ResourceGroupsTaggingApi.Inputs.GetResourcesTagFilterInputArgs
+        ///             {
+        ///                 Key = "tag-key",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "tag-value-1",
+        ///                     "tag-value-2",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Filter By Resource Type
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.ResourceGroupsTaggingApi.GetResources.Invoke(new()
+        ///     {
+        ///         ResourceTypeFilters = new[]
+        ///         {
+        ///             "ec2:instance",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetResourcesResult> Invoke(GetResourcesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourcesResult>("aws:resourcegroupstaggingapi/getResources:getResources", args ?? new GetResourcesInvokeArgs(), options.WithDefaults());
     }
@@ -21,14 +165,24 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
 
     public sealed class GetResourcesArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `include_compliance_details` argument is also set to `true`.
+        /// </summary>
         [Input("excludeCompliantResources")]
         public bool? ExcludeCompliantResources { get; set; }
 
+        /// <summary>
+        /// Specifies whether to include details regarding the compliance with the effective tag policy.
+        /// </summary>
         [Input("includeComplianceDetails")]
         public bool? IncludeComplianceDetails { get; set; }
 
         [Input("resourceArnLists")]
         private List<string>? _resourceArnLists;
+
+        /// <summary>
+        /// Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
+        /// </summary>
         public List<string> ResourceArnLists
         {
             get => _resourceArnLists ?? (_resourceArnLists = new List<string>());
@@ -37,6 +191,10 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
 
         [Input("resourceTypeFilters")]
         private List<string>? _resourceTypeFilters;
+
+        /// <summary>
+        /// Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
+        /// </summary>
         public List<string> ResourceTypeFilters
         {
             get => _resourceTypeFilters ?? (_resourceTypeFilters = new List<string>());
@@ -45,6 +203,10 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
 
         [Input("tagFilters")]
         private List<Inputs.GetResourcesTagFilterArgs>? _tagFilters;
+
+        /// <summary>
+        /// Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resource_arn_list`.
+        /// </summary>
         public List<Inputs.GetResourcesTagFilterArgs> TagFilters
         {
             get => _tagFilters ?? (_tagFilters = new List<Inputs.GetResourcesTagFilterArgs>());
@@ -59,14 +221,24 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
 
     public sealed class GetResourcesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `include_compliance_details` argument is also set to `true`.
+        /// </summary>
         [Input("excludeCompliantResources")]
         public Input<bool>? ExcludeCompliantResources { get; set; }
 
+        /// <summary>
+        /// Specifies whether to include details regarding the compliance with the effective tag policy.
+        /// </summary>
         [Input("includeComplianceDetails")]
         public Input<bool>? IncludeComplianceDetails { get; set; }
 
         [Input("resourceArnLists")]
         private InputList<string>? _resourceArnLists;
+
+        /// <summary>
+        /// Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
+        /// </summary>
         public InputList<string> ResourceArnLists
         {
             get => _resourceArnLists ?? (_resourceArnLists = new InputList<string>());
@@ -75,6 +247,10 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
 
         [Input("resourceTypeFilters")]
         private InputList<string>? _resourceTypeFilters;
+
+        /// <summary>
+        /// Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
+        /// </summary>
         public InputList<string> ResourceTypeFilters
         {
             get => _resourceTypeFilters ?? (_resourceTypeFilters = new InputList<string>());
@@ -83,6 +259,10 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
 
         [Input("tagFilters")]
         private InputList<Inputs.GetResourcesTagFilterInputArgs>? _tagFilters;
+
+        /// <summary>
+        /// Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resource_arn_list`.
+        /// </summary>
         public InputList<Inputs.GetResourcesTagFilterInputArgs> TagFilters
         {
             get => _tagFilters ?? (_tagFilters = new InputList<Inputs.GetResourcesTagFilterInputArgs>());
@@ -106,6 +286,9 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         public readonly string Id;
         public readonly bool? IncludeComplianceDetails;
         public readonly ImmutableArray<string> ResourceArnLists;
+        /// <summary>
+        /// List of objects matching the search criteria.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetResourcesResourceTagMappingListResult> ResourceTagMappingLists;
         public readonly ImmutableArray<string> ResourceTypeFilters;
         public readonly ImmutableArray<Outputs.GetResourcesTagFilterResult> TagFilters;

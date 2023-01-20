@@ -57,26 +57,41 @@ class GetServiceResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the service.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the service.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="dnsConfigs")
     def dns_configs(self) -> Sequence['outputs.GetServiceDnsConfigResult']:
+        """
+        Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+        """
         return pulumi.get(self, "dns_configs")
 
     @property
     @pulumi.getter(name="healthCheckConfigs")
     def health_check_configs(self) -> Sequence['outputs.GetServiceHealthCheckConfigResult']:
+        """
+        Complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+        """
         return pulumi.get(self, "health_check_configs")
 
     @property
     @pulumi.getter(name="healthCheckCustomConfigs")
     def health_check_custom_configs(self) -> Sequence['outputs.GetServiceHealthCheckCustomConfigResult']:
+        """
+        A complex type that contains settings for ECS managed health checks.
+        """
         return pulumi.get(self, "health_check_custom_configs")
 
     @property
@@ -95,16 +110,25 @@ class GetServiceResult:
     @property
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> str:
+        """
+        ID of the namespace to use for DNS configuration.
+        """
         return pulumi.get(self, "namespace_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Mapping[str, str]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
 
@@ -131,7 +155,22 @@ def get_service(name: Optional[str] = None,
                 tags: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves information about a Service Discovery Service.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.servicediscovery.get_service(name="example",
+        namespace_id="NAMESPACE_ID_VALUE")
+    ```
+
+
+    :param str name: Name of the service.
+    :param str namespace_id: ID of the namespace that the service belongs to.
+    :param Mapping[str, str] tags: Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -159,6 +198,21 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves information about a Service Discovery Service.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.servicediscovery.get_service(name="example",
+        namespace_id="NAMESPACE_ID_VALUE")
+    ```
+
+
+    :param str name: Name of the service.
+    :param str namespace_id: ID of the namespace that the service belongs to.
+    :param Mapping[str, str] tags: Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
     ...

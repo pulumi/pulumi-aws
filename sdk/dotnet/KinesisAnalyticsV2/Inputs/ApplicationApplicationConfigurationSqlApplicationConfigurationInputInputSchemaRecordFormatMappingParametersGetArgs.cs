@@ -12,9 +12,15 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Provides additional mapping information when the record format uses delimiters (for example, CSV).
+        /// </summary>
         [Input("csvMappingParameters")]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersGetArgs>? CsvMappingParameters { get; set; }
 
+        /// <summary>
+        /// Provides additional mapping information when JSON is the record format on the streaming source.
+        /// </summary>
         [Input("jsonMappingParameters")]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersGetArgs>? JsonMappingParameters { get; set; }
 

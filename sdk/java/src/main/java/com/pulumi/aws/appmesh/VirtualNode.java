@@ -16,65 +16,402 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an AWS App Mesh virtual node resource.
+ * 
+ * ## Breaking Changes
+ * 
+ * Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), `aws.appmesh.VirtualNode` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
+ * 
+ * * Rename the `service_name` attribute of the `dns` object to `hostname`.
+ * 
+ * * Replace the `backends` attribute of the `spec` object with one or more `backend` configuration blocks,
+ * setting `virtual_service_name` to the name of the service.
+ * 
+ * The state associated with existing resources will automatically be migrated.
+ * 
+ * ## Example Usage
+ * ### Basic
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appmesh.VirtualNode;
+ * import com.pulumi.aws.appmesh.VirtualNodeArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
+ *             .meshName(aws_appmesh_mesh.simple().id())
+ *             .spec(VirtualNodeSpecArgs.builder()
+ *                 .backends(VirtualNodeSpecBackendArgs.builder()
+ *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
+ *                         .virtualServiceName(&#34;servicea.simpleapp.local&#34;)
+ *                         .build())
+ *                     .build())
+ *                 .listener(VirtualNodeSpecListenerArgs.builder()
+ *                     .portMapping(VirtualNodeSpecListenerPortMappingArgs.builder()
+ *                         .port(8080)
+ *                         .protocol(&#34;http&#34;)
+ *                         .build())
+ *                     .build())
+ *                 .serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs.builder()
+ *                     .dns(VirtualNodeSpecServiceDiscoveryDnsArgs.builder()
+ *                         .hostname(&#34;serviceb.simpleapp.local&#34;)
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### AWS Cloud Map Service Discovery
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.servicediscovery.HttpNamespace;
+ * import com.pulumi.aws.appmesh.VirtualNode;
+ * import com.pulumi.aws.appmesh.VirtualNodeArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new HttpNamespace(&#34;example&#34;);
+ * 
+ *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
+ *             .meshName(aws_appmesh_mesh.simple().id())
+ *             .spec(VirtualNodeSpecArgs.builder()
+ *                 .backends(VirtualNodeSpecBackendArgs.builder()
+ *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
+ *                         .virtualServiceName(&#34;servicea.simpleapp.local&#34;)
+ *                         .build())
+ *                     .build())
+ *                 .listener(VirtualNodeSpecListenerArgs.builder()
+ *                     .portMapping(VirtualNodeSpecListenerPortMappingArgs.builder()
+ *                         .port(8080)
+ *                         .protocol(&#34;http&#34;)
+ *                         .build())
+ *                     .build())
+ *                 .serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs.builder()
+ *                     .awsCloudMap(VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs.builder()
+ *                         .attributes(Map.of(&#34;stack&#34;, &#34;blue&#34;))
+ *                         .serviceName(&#34;serviceb1&#34;)
+ *                         .namespaceName(example.name())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Listener Health Check
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appmesh.VirtualNode;
+ * import com.pulumi.aws.appmesh.VirtualNodeArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerHealthCheckArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
+ *             .meshName(aws_appmesh_mesh.simple().id())
+ *             .spec(VirtualNodeSpecArgs.builder()
+ *                 .backends(VirtualNodeSpecBackendArgs.builder()
+ *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
+ *                         .virtualServiceName(&#34;servicea.simpleapp.local&#34;)
+ *                         .build())
+ *                     .build())
+ *                 .listener(VirtualNodeSpecListenerArgs.builder()
+ *                     .portMapping(VirtualNodeSpecListenerPortMappingArgs.builder()
+ *                         .port(8080)
+ *                         .protocol(&#34;http&#34;)
+ *                         .build())
+ *                     .healthCheck(VirtualNodeSpecListenerHealthCheckArgs.builder()
+ *                         .protocol(&#34;http&#34;)
+ *                         .path(&#34;/ping&#34;)
+ *                         .healthyThreshold(2)
+ *                         .unhealthyThreshold(2)
+ *                         .timeoutMillis(2000)
+ *                         .intervalMillis(5000)
+ *                         .build())
+ *                     .build())
+ *                 .serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs.builder()
+ *                     .dns(VirtualNodeSpecServiceDiscoveryDnsArgs.builder()
+ *                         .hostname(&#34;serviceb.simpleapp.local&#34;)
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Logging
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appmesh.VirtualNode;
+ * import com.pulumi.aws.appmesh.VirtualNodeArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecLoggingArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecLoggingAccessLogArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecLoggingAccessLogFileArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
+ *             .meshName(aws_appmesh_mesh.simple().id())
+ *             .spec(VirtualNodeSpecArgs.builder()
+ *                 .backends(VirtualNodeSpecBackendArgs.builder()
+ *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
+ *                         .virtualServiceName(&#34;servicea.simpleapp.local&#34;)
+ *                         .build())
+ *                     .build())
+ *                 .listener(VirtualNodeSpecListenerArgs.builder()
+ *                     .portMapping(VirtualNodeSpecListenerPortMappingArgs.builder()
+ *                         .port(8080)
+ *                         .protocol(&#34;http&#34;)
+ *                         .build())
+ *                     .build())
+ *                 .serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs.builder()
+ *                     .dns(VirtualNodeSpecServiceDiscoveryDnsArgs.builder()
+ *                         .hostname(&#34;serviceb.simpleapp.local&#34;)
+ *                         .build())
+ *                     .build())
+ *                 .logging(VirtualNodeSpecLoggingArgs.builder()
+ *                     .accessLog(VirtualNodeSpecLoggingAccessLogArgs.builder()
+ *                         .file(VirtualNodeSpecLoggingAccessLogFileArgs.builder()
+ *                             .path(&#34;/dev/stdout&#34;)
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * App Mesh virtual nodes can be imported using `mesh_name` together with the virtual node&#39;s `name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
+ * ```
+ * 
+ */
 @ResourceType(type="aws:appmesh/virtualNode:VirtualNode")
 public class VirtualNode extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the virtual node.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the virtual node.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Creation date of the virtual node.
+     * 
+     */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
+    /**
+     * @return Creation date of the virtual node.
+     * 
+     */
     public Output<String> createdDate() {
         return this.createdDate;
     }
+    /**
+     * Last update date of the virtual node.
+     * 
+     */
     @Export(name="lastUpdatedDate", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedDate;
 
+    /**
+     * @return Last update date of the virtual node.
+     * 
+     */
     public Output<String> lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
+    /**
+     * Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
+     * 
+     */
     @Export(name="meshName", refs={String.class}, tree="[0]")
     private Output<String> meshName;
 
+    /**
+     * @return Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
+     * 
+     */
     public Output<String> meshName() {
         return this.meshName;
     }
+    /**
+     * AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
+     * 
+     */
     @Export(name="meshOwner", refs={String.class}, tree="[0]")
     private Output<String> meshOwner;
 
+    /**
+     * @return AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
+     * 
+     */
     public Output<String> meshOwner() {
         return this.meshOwner;
     }
+    /**
+     * Name to use for the virtual node. Must be between 1 and 255 characters in length.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name to use for the virtual node. Must be between 1 and 255 characters in length.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Resource owner&#39;s AWS account ID.
+     * 
+     */
     @Export(name="resourceOwner", refs={String.class}, tree="[0]")
     private Output<String> resourceOwner;
 
+    /**
+     * @return Resource owner&#39;s AWS account ID.
+     * 
+     */
     public Output<String> resourceOwner() {
         return this.resourceOwner;
     }
+    /**
+     * Virtual node specification to apply.
+     * 
+     */
     @Export(name="spec", refs={VirtualNodeSpec.class}, tree="[0]")
     private Output<VirtualNodeSpec> spec;
 
+    /**
+     * @return Virtual node specification to apply.
+     * 
+     */
     public Output<VirtualNodeSpec> spec() {
         return this.spec;
     }
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

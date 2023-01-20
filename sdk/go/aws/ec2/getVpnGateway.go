@@ -10,6 +10,42 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The VPN Gateway data source provides details about
+// a specific VPN gateway.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			selected, err := ec2.LookupVpnGateway(ctx, &ec2.LookupVpnGatewayArgs{
+//				Filters: []ec2.GetVpnGatewayFilter{
+//					{
+//						Name: "tag:Name",
+//						Values: []string{
+//							"vpn-gw",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("vpnGatewayId", selected.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupVpnGateway(ctx *pulumi.Context, args *LookupVpnGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVpnGatewayResult, error) {
 	var rv LookupVpnGatewayResult
 	err := ctx.Invoke("aws:ec2/getVpnGateway:getVpnGateway", args, &rv, opts...)
@@ -21,13 +57,21 @@ func LookupVpnGateway(ctx *pulumi.Context, args *LookupVpnGatewayArgs, opts ...p
 
 // A collection of arguments for invoking getVpnGateway.
 type LookupVpnGatewayArgs struct {
-	AmazonSideAsn    *string               `pulumi:"amazonSideAsn"`
-	AttachedVpcId    *string               `pulumi:"attachedVpcId"`
-	AvailabilityZone *string               `pulumi:"availabilityZone"`
-	Filters          []GetVpnGatewayFilter `pulumi:"filters"`
-	Id               *string               `pulumi:"id"`
-	State            *string               `pulumi:"state"`
-	Tags             map[string]string     `pulumi:"tags"`
+	// Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
+	// ID of a VPC attached to the specific VPN Gateway to retrieve.
+	AttachedVpcId *string `pulumi:"attachedVpcId"`
+	// Availability Zone of the specific VPN Gateway to retrieve.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// Custom filter block as described below.
+	Filters []GetVpnGatewayFilter `pulumi:"filters"`
+	// ID of the specific VPN Gateway to retrieve.
+	Id *string `pulumi:"id"`
+	// State of the specific VPN Gateway to retrieve.
+	State *string `pulumi:"state"`
+	// Map of tags, each pair of which must exactly match
+	// a pair on the desired VPN Gateway.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpnGateway.
@@ -57,13 +101,21 @@ func LookupVpnGatewayOutput(ctx *pulumi.Context, args LookupVpnGatewayOutputArgs
 
 // A collection of arguments for invoking getVpnGateway.
 type LookupVpnGatewayOutputArgs struct {
-	AmazonSideAsn    pulumi.StringPtrInput         `pulumi:"amazonSideAsn"`
-	AttachedVpcId    pulumi.StringPtrInput         `pulumi:"attachedVpcId"`
-	AvailabilityZone pulumi.StringPtrInput         `pulumi:"availabilityZone"`
-	Filters          GetVpnGatewayFilterArrayInput `pulumi:"filters"`
-	Id               pulumi.StringPtrInput         `pulumi:"id"`
-	State            pulumi.StringPtrInput         `pulumi:"state"`
-	Tags             pulumi.StringMapInput         `pulumi:"tags"`
+	// Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+	AmazonSideAsn pulumi.StringPtrInput `pulumi:"amazonSideAsn"`
+	// ID of a VPC attached to the specific VPN Gateway to retrieve.
+	AttachedVpcId pulumi.StringPtrInput `pulumi:"attachedVpcId"`
+	// Availability Zone of the specific VPN Gateway to retrieve.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// Custom filter block as described below.
+	Filters GetVpnGatewayFilterArrayInput `pulumi:"filters"`
+	// ID of the specific VPN Gateway to retrieve.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// State of the specific VPN Gateway to retrieve.
+	State pulumi.StringPtrInput `pulumi:"state"`
+	// Map of tags, each pair of which must exactly match
+	// a pair on the desired VPN Gateway.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupVpnGatewayOutputArgs) ElementType() reflect.Type {

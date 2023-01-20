@@ -91,16 +91,25 @@ class GetVpcEndpointResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the VPC endpoint.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> Sequence[str]:
+        """
+        List of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
+        """
         return pulumi.get(self, "cidr_blocks")
 
     @property
     @pulumi.getter(name="dnsEntries")
     def dns_entries(self) -> Sequence['outputs.GetVpcEndpointDnsEntryResult']:
+        """
+        DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+        """
         return pulumi.get(self, "dns_entries")
 
     @property
@@ -126,41 +135,65 @@ class GetVpcEndpointResult:
     @property
     @pulumi.getter(name="networkInterfaceIds")
     def network_interface_ids(self) -> Sequence[str]:
+        """
+        One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
+        """
         return pulumi.get(self, "network_interface_ids")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
+        """
+        ID of the AWS account that owns the VPC endpoint.
+        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter
     def policy(self) -> str:
+        """
+        Policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
+        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> str:
+        """
+        Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
+        """
         return pulumi.get(self, "prefix_list_id")
 
     @property
     @pulumi.getter(name="privateDnsEnabled")
     def private_dns_enabled(self) -> bool:
+        """
+        Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
+        """
         return pulumi.get(self, "private_dns_enabled")
 
     @property
     @pulumi.getter(name="requesterManaged")
     def requester_managed(self) -> bool:
+        """
+        Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
+        """
         return pulumi.get(self, "requester_managed")
 
     @property
     @pulumi.getter(name="routeTableIds")
     def route_table_ids(self) -> Sequence[str]:
+        """
+        One or more route tables associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
+        """
         return pulumi.get(self, "route_table_ids")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[str]:
+        """
+        One or more security groups associated with the network interfaces. Applicable for endpoints of type `Interface`.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
@@ -176,6 +209,9 @@ class GetVpcEndpointResult:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
+        """
+        One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
@@ -186,6 +222,9 @@ class GetVpcEndpointResult:
     @property
     @pulumi.getter(name="vpcEndpointType")
     def vpc_endpoint_type(self) -> str:
+        """
+        VPC Endpoint type, `Gateway` or `Interface`.
+        """
         return pulumi.get(self, "vpc_endpoint_type")
 
     @property
@@ -231,7 +270,30 @@ def get_vpc_endpoint(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpoint
                      vpc_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcEndpointResult:
     """
-    Use this data source to access information about an existing resource.
+    The VPC Endpoint data source provides details about
+    a specific VPC endpoint.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    s3 = aws.ec2.get_vpc_endpoint(vpc_id=aws_vpc["foo"]["id"],
+        service_name="com.amazonaws.us-west-2.s3")
+    private_s3 = aws.ec2.VpcEndpointRouteTableAssociation("privateS3",
+        vpc_endpoint_id=s3.id,
+        route_table_id=aws_route_table["private"]["id"])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetVpcEndpointFilterArgs']] filters: Custom filter block as described below.
+    :param str id: ID of the specific VPC Endpoint to retrieve.
+    :param str service_name: Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+    :param str state: State of the specific VPC Endpoint to retrieve.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
+           a pair on the specific VPC Endpoint to retrieve.
+    :param str vpc_id: ID of the VPC in which the specific VPC Endpoint is used.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -276,6 +338,29 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
                             vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcEndpointResult]:
     """
-    Use this data source to access information about an existing resource.
+    The VPC Endpoint data source provides details about
+    a specific VPC endpoint.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    s3 = aws.ec2.get_vpc_endpoint(vpc_id=aws_vpc["foo"]["id"],
+        service_name="com.amazonaws.us-west-2.s3")
+    private_s3 = aws.ec2.VpcEndpointRouteTableAssociation("privateS3",
+        vpc_endpoint_id=s3.id,
+        route_table_id=aws_route_table["private"]["id"])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetVpcEndpointFilterArgs']] filters: Custom filter block as described below.
+    :param str id: ID of the specific VPC Endpoint to retrieve.
+    :param str service_name: Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+    :param str state: State of the specific VPC Endpoint to retrieve.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
+           a pair on the specific VPC Endpoint to retrieve.
+    :param str vpc_id: ID of the VPC in which the specific VPC Endpoint is used.
     """
     ...

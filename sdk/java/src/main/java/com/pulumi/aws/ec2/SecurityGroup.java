@@ -19,71 +19,346 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a security group resource.
+ * 
+ * &gt; **NOTE on Security Groups and Security Group Rules:** This provider currently
+ * provides both a standalone Security Group Rule resource (a single `ingress` or
+ * `egress` rule), and a Security Group resource with `ingress` and `egress` rules
+ * defined in-line. At this time you cannot use a Security Group with in-line rules
+ * in conjunction with any Security Group Rule resources. Doing so will cause
+ * a conflict of rule settings and will overwrite rules.
+ * 
+ * &gt; **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
+ * 
+ * &gt; **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
+ * 
+ * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+ * import com.pulumi.aws.ec2.inputs.SecurityGroupEgressArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var allowTls = new SecurityGroup(&#34;allowTls&#34;, SecurityGroupArgs.builder()        
+ *             .description(&#34;Allow TLS inbound traffic&#34;)
+ *             .vpcId(aws_vpc.main().id())
+ *             .ingress(SecurityGroupIngressArgs.builder()
+ *                 .description(&#34;TLS from VPC&#34;)
+ *                 .fromPort(443)
+ *                 .toPort(443)
+ *                 .protocol(&#34;tcp&#34;)
+ *                 .cidrBlocks(aws_vpc.main().cidr_block())
+ *                 .ipv6CidrBlocks(aws_vpc.main().ipv6_cidr_block())
+ *                 .build())
+ *             .egress(SecurityGroupEgressArgs.builder()
+ *                 .fromPort(0)
+ *                 .toPort(0)
+ *                 .protocol(&#34;-1&#34;)
+ *                 .cidrBlocks(&#34;0.0.0.0/0&#34;)
+ *                 .ipv6CidrBlocks(&#34;::/0&#34;)
+ *                 .build())
+ *             .tags(Map.of(&#34;Name&#34;, &#34;allow_tls&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * &gt; **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import com.pulumi.aws.ec2.inputs.SecurityGroupEgressArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
+ *             .egress(SecurityGroupEgressArgs.builder()
+ *                 .cidrBlocks(&#34;0.0.0.0/0&#34;)
+ *                 .fromPort(0)
+ *                 .ipv6CidrBlocks(&#34;::/0&#34;)
+ *                 .protocol(&#34;-1&#34;)
+ *                 .toPort(0)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Usage With Prefix List IDs
+ * 
+ * Prefix Lists are either managed by AWS internally, or created by the customer using a
+ * Prefix List resource. Prefix Lists provided by
+ * AWS are associated with a prefix list name, or service name, that is linked to a specific region.
+ * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.VpcEndpoint;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import com.pulumi.aws.ec2.inputs.SecurityGroupEgressArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var myEndpoint = new VpcEndpoint(&#34;myEndpoint&#34;);
+ * 
+ *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
+ *             .egress(SecurityGroupEgressArgs.builder()
+ *                 .fromPort(0)
+ *                 .toPort(0)
+ *                 .protocol(&#34;-1&#34;)
+ *                 .prefixListIds(myEndpoint.prefixListId())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * You can also find a specific Prefix List using the `aws.ec2.getPrefixList` data source.
+ * ### Change of name or name-prefix value
+ * 
+ * Security Group&#39;s Name [cannot be edited after the resource is created](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group). In fact, the `name` and `name-prefix` arguments force the creation of a new Security Group resource when they change value. In that case, this provider first deletes the existing Security Group resource and then it creates a new one. If the existing Security Group is associated to a Network Interface resource, the deletion cannot complete. The reason is that Network Interface resources cannot be left with no Security Group attached and the new one is not yet available at that point.
+ * 
+ * You must invert the default behavior of the provider. That is, first the new Security Group resource must be created, then associated to possible Network Interface resources and finally the old Security Group can be detached and deleted. To force this behavior, you must set the create_before_destroy property:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var sgWithChangeableName = new SecurityGroup(&#34;sgWithChangeableName&#34;);
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Security Groups can be imported using the `security group id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2/securityGroup:SecurityGroup")
 public class SecurityGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the security group.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the security group.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Security group description. Defaults to `Managed by Pulumi`. Cannot be `&#34;&#34;`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you&#39;d like to classify your security groups in a way that can be updated, use `tags`.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
+    /**
+     * @return Security group description. Defaults to `Managed by Pulumi`. Cannot be `&#34;&#34;`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you&#39;d like to classify your security groups in a way that can be updated, use `tags`.
+     * 
+     */
     public Output<String> description() {
         return this.description;
     }
+    /**
+     * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+     * 
+     */
     @Export(name="egress", refs={List.class,SecurityGroupEgress.class}, tree="[0,1]")
     private Output<List<SecurityGroupEgress>> egress;
 
+    /**
+     * @return Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+     * 
+     */
     public Output<List<SecurityGroupEgress>> egress() {
         return this.egress;
     }
+    /**
+     * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+     * 
+     */
     @Export(name="ingress", refs={List.class,SecurityGroupIngress.class}, tree="[0,1]")
     private Output<List<SecurityGroupIngress>> ingress;
 
+    /**
+     * @return Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+     * 
+     */
     public Output<List<SecurityGroupIngress>> ingress() {
         return this.ingress;
     }
+    /**
+     * Name of the security group. If omitted, this provider will assign a random, unique name.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name of the security group. If omitted, this provider will assign a random, unique name.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
+    /**
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
+    /**
+     * Owner ID.
+     * 
+     */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
+    /**
+     * @return Owner ID.
+     * 
+     */
     public Output<String> ownerId() {
         return this.ownerId;
     }
+    /**
+     * Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+     * 
+     */
     @Export(name="revokeRulesOnDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> revokeRulesOnDelete;
 
+    /**
+     * @return Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+     * 
+     */
     public Output<Optional<Boolean>> revokeRulesOnDelete() {
         return Codegen.optional(this.revokeRulesOnDelete);
     }
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * VPC ID.
+     * Defaults to the region&#39;s default VPC.
+     * 
+     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
+    /**
+     * @return VPC ID.
+     * Defaults to the region&#39;s default VPC.
+     * 
+     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

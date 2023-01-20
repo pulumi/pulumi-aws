@@ -9,33 +9,172 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.StorageGateway
 {
+    /// <summary>
+    /// Associate an Amazon FSx file system with the FSx File Gateway. After the association process is complete, the file shares on the Amazon FSx file system are available for access through the gateway. This operation only supports the FSx File Gateway type.
+    /// 
+    /// [FSx File Gateway requirements](https://docs.aws.amazon.com/filegateway/latest/filefsxw/Requirements.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.StorageGateway.FileSystemAssociation("example", new()
+    ///     {
+    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
+    ///         LocationArn = aws_fsx_windows_file_system.Example.Arn,
+    ///         Username = "Admin",
+    ///         Password = "avoid-plaintext-passwords",
+    ///         AuditDestinationArn = aws_s3_bucket.Example.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Required Services Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var awsServiceStoragegatewayAmiFILES3Latest = Aws.Ssm.GetParameter.Invoke(new()
+    ///     {
+    ///         Name = "/aws/service/storagegateway/ami/FILE_S3/latest",
+    ///     });
+    /// 
+    ///     var testInstance = new Aws.Ec2.Instance("testInstance", new()
+    ///     {
+    ///         Ami = awsServiceStoragegatewayAmiFILES3Latest.Apply(getParameterResult =&gt; getParameterResult.Value),
+    ///         AssociatePublicIpAddress = true,
+    ///         InstanceType = System.Enum.Parse&lt;Aws.Ec2/InstanceType.InstanceType&gt;(data.Aws_ec2_instance_type_offering.Available.Instance_type),
+    ///         VpcSecurityGroupIds = new[]
+    ///         {
+    ///             aws_security_group.Test.Id,
+    ///         },
+    ///         SubnetId = aws_subnet.Test[0].Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             aws_route.Test,
+    ///             aws_vpc_dhcp_options_association.Test,
+    ///         },
+    ///     });
+    /// 
+    ///     var testGateway = new Aws.StorageGateway.Gateway("testGateway", new()
+    ///     {
+    ///         GatewayIpAddress = testInstance.PublicIp,
+    ///         GatewayName = "test-sgw",
+    ///         GatewayTimezone = "GMT",
+    ///         GatewayType = "FILE_FSX_SMB",
+    ///         SmbActiveDirectorySettings = new Aws.StorageGateway.Inputs.GatewaySmbActiveDirectorySettingsArgs
+    ///         {
+    ///             DomainName = aws_directory_service_directory.Test.Name,
+    ///             Password = aws_directory_service_directory.Test.Password,
+    ///             Username = "Admin",
+    ///         },
+    ///     });
+    /// 
+    ///     var testWindowsFileSystem = new Aws.Fsx.WindowsFileSystem("testWindowsFileSystem", new()
+    ///     {
+    ///         ActiveDirectoryId = aws_directory_service_directory.Test.Id,
+    ///         SecurityGroupIds = new[]
+    ///         {
+    ///             aws_security_group.Test.Id,
+    ///         },
+    ///         SkipFinalBackup = true,
+    ///         StorageCapacity = 32,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             aws_subnet.Test[0].Id,
+    ///         },
+    ///         ThroughputCapacity = 8,
+    ///     });
+    /// 
+    ///     var fsx = new Aws.StorageGateway.FileSystemAssociation("fsx", new()
+    ///     {
+    ///         GatewayArn = testGateway.Arn,
+    ///         LocationArn = testWindowsFileSystem.Arn,
+    ///         Username = "Admin",
+    ///         Password = aws_directory_service_directory.Test.Password,
+    ///         CacheAttributes = new Aws.StorageGateway.Inputs.FileSystemAssociationCacheAttributesArgs
+    ///         {
+    ///             CacheStaleTimeoutInSeconds = 400,
+    ///         },
+    ///         AuditDestinationArn = aws_cloudwatch_log_group.Test.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_storagegateway_file_system_association` can be imported by using the FSx file system association Amazon Resource Name (ARN), e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:storagegateway/fileSystemAssociation:FileSystemAssociation example arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:storagegateway/fileSystemAssociation:FileSystemAssociation")]
     public partial class FileSystemAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the newly created file system association.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the storage used for the audit logs.
+        /// </summary>
         [Output("auditDestinationArn")]
         public Output<string?> AuditDestinationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Refresh cache information. see Cache Attributes for more details.
+        /// </summary>
         [Output("cacheAttributes")]
         public Output<Outputs.FileSystemAssociationCacheAttributes?> CacheAttributes { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the gateway.
+        /// </summary>
         [Output("gatewayArn")]
         public Output<string> GatewayArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+        /// </summary>
         [Output("locationArn")]
         public Output<string> LocationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The password of the user credential.
+        /// </summary>
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
+        /// </summary>
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
 
@@ -89,20 +228,36 @@ namespace Pulumi.Aws.StorageGateway
 
     public sealed class FileSystemAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the storage used for the audit logs.
+        /// </summary>
         [Input("auditDestinationArn")]
         public Input<string>? AuditDestinationArn { get; set; }
 
+        /// <summary>
+        /// Refresh cache information. see Cache Attributes for more details.
+        /// </summary>
         [Input("cacheAttributes")]
         public Input<Inputs.FileSystemAssociationCacheAttributesArgs>? CacheAttributes { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the gateway.
+        /// </summary>
         [Input("gatewayArn", required: true)]
         public Input<string> GatewayArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+        /// </summary>
         [Input("locationArn", required: true)]
         public Input<string> LocationArn { get; set; } = null!;
 
         [Input("password", required: true)]
         private Input<string>? _password;
+
+        /// <summary>
+        /// The password of the user credential.
+        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -115,12 +270,19 @@ namespace Pulumi.Aws.StorageGateway
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -132,23 +294,42 @@ namespace Pulumi.Aws.StorageGateway
 
     public sealed class FileSystemAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the newly created file system association.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the storage used for the audit logs.
+        /// </summary>
         [Input("auditDestinationArn")]
         public Input<string>? AuditDestinationArn { get; set; }
 
+        /// <summary>
+        /// Refresh cache information. see Cache Attributes for more details.
+        /// </summary>
         [Input("cacheAttributes")]
         public Input<Inputs.FileSystemAssociationCacheAttributesGetArgs>? CacheAttributes { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the gateway.
+        /// </summary>
         [Input("gatewayArn")]
         public Input<string>? GatewayArn { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+        /// </summary>
         [Input("locationArn")]
         public Input<string>? LocationArn { get; set; }
 
         [Input("password")]
         private Input<string>? _password;
+
+        /// <summary>
+        /// The password of the user credential.
+        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -161,6 +342,10 @@ namespace Pulumi.Aws.StorageGateway
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -169,12 +354,19 @@ namespace Pulumi.Aws.StorageGateway
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
+        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

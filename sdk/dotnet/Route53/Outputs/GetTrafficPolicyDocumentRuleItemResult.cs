@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class GetTrafficPolicyDocumentRuleItemResult
     {
+        /// <summary>
+        /// References to an endpoint.
+        /// </summary>
         public readonly string? EndpointReference;
+        /// <summary>
+        /// If you want to associate a health check with the endpoint or rule.
+        /// </summary>
         public readonly string? HealthCheck;
 
         [OutputConstructor]

@@ -15,16 +15,32 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperation extends 
 
     public static final GetLogDataProtectionPolicyDocumentStatementOperation Empty = new GetLogDataProtectionPolicyDocumentStatementOperation();
 
+    /**
+     * Configures the detection of sensitive data.
+     * 
+     */
     @Import(name="audit")
     private @Nullable GetLogDataProtectionPolicyDocumentStatementOperationAudit audit;
 
+    /**
+     * @return Configures the detection of sensitive data.
+     * 
+     */
     public Optional<GetLogDataProtectionPolicyDocumentStatementOperationAudit> audit() {
         return Optional.ofNullable(this.audit);
     }
 
+    /**
+     * Configures the masking of sensitive data.
+     * 
+     */
     @Import(name="deidentify")
     private @Nullable GetLogDataProtectionPolicyDocumentStatementOperationDeidentify deidentify;
 
+    /**
+     * @return Configures the masking of sensitive data.
+     * 
+     */
     public Optional<GetLogDataProtectionPolicyDocumentStatementOperationDeidentify> deidentify() {
         return Optional.ofNullable(this.deidentify);
     }
@@ -54,11 +70,23 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperation extends 
             $ = new GetLogDataProtectionPolicyDocumentStatementOperation(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param audit Configures the detection of sensitive data.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audit(@Nullable GetLogDataProtectionPolicyDocumentStatementOperationAudit audit) {
             $.audit = audit;
             return this;
         }
 
+        /**
+         * @param deidentify Configures the masking of sensitive data.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deidentify(@Nullable GetLogDataProtectionPolicyDocumentStatementOperationDeidentify deidentify) {
             $.deidentify = deidentify;
             return this;

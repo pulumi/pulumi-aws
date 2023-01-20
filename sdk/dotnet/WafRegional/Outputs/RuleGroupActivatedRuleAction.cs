@@ -13,6 +13,9 @@ namespace Pulumi.Aws.WafRegional.Outputs
     [OutputType]
     public sealed class RuleGroupActivatedRuleAction
     {
+        /// <summary>
+        /// e.g., `BLOCK`, `ALLOW`, or `COUNT`
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

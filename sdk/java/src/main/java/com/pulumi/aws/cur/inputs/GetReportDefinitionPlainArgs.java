@@ -12,9 +12,17 @@ public final class GetReportDefinitionPlainArgs extends com.pulumi.resources.Inv
 
     public static final GetReportDefinitionPlainArgs Empty = new GetReportDefinitionPlainArgs();
 
+    /**
+     * Name of the report definition to match.
+     * 
+     */
     @Import(name="reportName", required=true)
     private String reportName;
 
+    /**
+     * @return Name of the report definition to match.
+     * 
+     */
     public String reportName() {
         return this.reportName;
     }
@@ -43,6 +51,12 @@ public final class GetReportDefinitionPlainArgs extends com.pulumi.resources.Inv
             $ = new GetReportDefinitionPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param reportName Name of the report definition to match.
+         * 
+         * @return builder
+         * 
+         */
         public Builder reportName(String reportName) {
             $.reportName = reportName;
             return this;

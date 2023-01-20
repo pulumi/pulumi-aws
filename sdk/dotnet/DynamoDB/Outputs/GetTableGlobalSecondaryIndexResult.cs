@@ -14,6 +14,9 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     public sealed class GetTableGlobalSecondaryIndexResult
     {
         public readonly string HashKey;
+        /// <summary>
+        /// Name of the DynamoDB table.
+        /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<string> NonKeyAttributes;
         public readonly string ProjectionType;

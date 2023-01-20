@@ -16,23 +16,98 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a DAX Parameter Group resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.dax.ParameterGroup;
+ * import com.pulumi.aws.dax.ParameterGroupArgs;
+ * import com.pulumi.aws.dax.inputs.ParameterGroupParameterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ParameterGroup(&#34;example&#34;, ParameterGroupArgs.builder()        
+ *             .parameters(            
+ *                 ParameterGroupParameterArgs.builder()
+ *                     .name(&#34;query-ttl-millis&#34;)
+ *                     .value(&#34;100000&#34;)
+ *                     .build(),
+ *                 ParameterGroupParameterArgs.builder()
+ *                     .name(&#34;record-ttl-millis&#34;)
+ *                     .value(&#34;100000&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * DAX Parameter Group can be imported using the `name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
+ * ```
+ * 
+ */
 @ResourceType(type="aws:dax/parameterGroup:ParameterGroup")
 public class ParameterGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * A description of the parameter group.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return A description of the parameter group.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The name of the parameter group.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the parameter group.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The parameters of the parameter group.
+     * 
+     */
     @Export(name="parameters", refs={List.class,ParameterGroupParameter.class}, tree="[0,1]")
     private Output<List<ParameterGroupParameter>> parameters;
 
+    /**
+     * @return The parameters of the parameter group.
+     * 
+     */
     public Output<List<ParameterGroupParameter>> parameters() {
         return this.parameters;
     }

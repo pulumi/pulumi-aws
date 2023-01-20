@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class TopicRuleErrorActionTimestreamDimension {
+    /**
+     * @return The name of the rule.
+     * 
+     */
     private String name;
+    /**
+     * @return The value of the HTTP header.
+     * 
+     */
     private String value;
 
     private TopicRuleErrorActionTimestreamDimension() {}
+    /**
+     * @return The name of the rule.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The value of the HTTP header.
+     * 
+     */
     public String value() {
         return this.value;
     }

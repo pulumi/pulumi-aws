@@ -12,15 +12,27 @@ namespace Pulumi.Aws.AppStream.Inputs
 
     public sealed class FleetComputeCapacityArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Number of currently available instances that can be used to stream sessions.
+        /// </summary>
         [Input("available")]
         public Input<int>? Available { get; set; }
 
+        /// <summary>
+        /// Desired number of streaming instances.
+        /// </summary>
         [Input("desiredInstances", required: true)]
         public Input<int> DesiredInstances { get; set; } = null!;
 
+        /// <summary>
+        /// Number of instances in use for streaming.
+        /// </summary>
         [Input("inUse")]
         public Input<int>? InUse { get; set; }
 
+        /// <summary>
+        /// Total number of simultaneous streaming instances that are running.
+        /// </summary>
         [Input("running")]
         public Input<int>? Running { get; set; }
 

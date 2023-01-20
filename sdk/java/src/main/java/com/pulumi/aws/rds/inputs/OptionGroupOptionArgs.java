@@ -18,44 +18,92 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
 
     public static final OptionGroupOptionArgs Empty = new OptionGroupOptionArgs();
 
+    /**
+     * A list of DB Security Groups for which the option is enabled.
+     * 
+     */
     @Import(name="dbSecurityGroupMemberships")
     private @Nullable Output<List<String>> dbSecurityGroupMemberships;
 
+    /**
+     * @return A list of DB Security Groups for which the option is enabled.
+     * 
+     */
     public Optional<Output<List<String>>> dbSecurityGroupMemberships() {
         return Optional.ofNullable(this.dbSecurityGroupMemberships);
     }
 
+    /**
+     * The Name of the Option (e.g., MEMCACHED).
+     * 
+     */
     @Import(name="optionName", required=true)
     private Output<String> optionName;
 
+    /**
+     * @return The Name of the Option (e.g., MEMCACHED).
+     * 
+     */
     public Output<String> optionName() {
         return this.optionName;
     }
 
+    /**
+     * A list of option settings to apply.
+     * 
+     */
     @Import(name="optionSettings")
     private @Nullable Output<List<OptionGroupOptionOptionSettingArgs>> optionSettings;
 
+    /**
+     * @return A list of option settings to apply.
+     * 
+     */
     public Optional<Output<List<OptionGroupOptionOptionSettingArgs>>> optionSettings() {
         return Optional.ofNullable(this.optionSettings);
     }
 
+    /**
+     * The Port number when connecting to the Option (e.g., 11211).
+     * 
+     */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
+    /**
+     * @return The Port number when connecting to the Option (e.g., 11211).
+     * 
+     */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
 
+    /**
+     * The version of the option (e.g., 13.1.0.0).
+     * 
+     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
+    /**
+     * @return The version of the option (e.g., 13.1.0.0).
+     * 
+     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
 
+    /**
+     * A list of VPC Security Groups for which the option is enabled.
+     * 
+     */
     @Import(name="vpcSecurityGroupMemberships")
     private @Nullable Output<List<String>> vpcSecurityGroupMemberships;
 
+    /**
+     * @return A list of VPC Security Groups for which the option is enabled.
+     * 
+     */
     public Optional<Output<List<String>>> vpcSecurityGroupMemberships() {
         return Optional.ofNullable(this.vpcSecurityGroupMemberships);
     }
@@ -89,68 +137,158 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
             $ = new OptionGroupOptionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dbSecurityGroupMemberships A list of DB Security Groups for which the option is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbSecurityGroupMemberships(@Nullable Output<List<String>> dbSecurityGroupMemberships) {
             $.dbSecurityGroupMemberships = dbSecurityGroupMemberships;
             return this;
         }
 
+        /**
+         * @param dbSecurityGroupMemberships A list of DB Security Groups for which the option is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbSecurityGroupMemberships(List<String> dbSecurityGroupMemberships) {
             return dbSecurityGroupMemberships(Output.of(dbSecurityGroupMemberships));
         }
 
+        /**
+         * @param dbSecurityGroupMemberships A list of DB Security Groups for which the option is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbSecurityGroupMemberships(String... dbSecurityGroupMemberships) {
             return dbSecurityGroupMemberships(List.of(dbSecurityGroupMemberships));
         }
 
+        /**
+         * @param optionName The Name of the Option (e.g., MEMCACHED).
+         * 
+         * @return builder
+         * 
+         */
         public Builder optionName(Output<String> optionName) {
             $.optionName = optionName;
             return this;
         }
 
+        /**
+         * @param optionName The Name of the Option (e.g., MEMCACHED).
+         * 
+         * @return builder
+         * 
+         */
         public Builder optionName(String optionName) {
             return optionName(Output.of(optionName));
         }
 
+        /**
+         * @param optionSettings A list of option settings to apply.
+         * 
+         * @return builder
+         * 
+         */
         public Builder optionSettings(@Nullable Output<List<OptionGroupOptionOptionSettingArgs>> optionSettings) {
             $.optionSettings = optionSettings;
             return this;
         }
 
+        /**
+         * @param optionSettings A list of option settings to apply.
+         * 
+         * @return builder
+         * 
+         */
         public Builder optionSettings(List<OptionGroupOptionOptionSettingArgs> optionSettings) {
             return optionSettings(Output.of(optionSettings));
         }
 
+        /**
+         * @param optionSettings A list of option settings to apply.
+         * 
+         * @return builder
+         * 
+         */
         public Builder optionSettings(OptionGroupOptionOptionSettingArgs... optionSettings) {
             return optionSettings(List.of(optionSettings));
         }
 
+        /**
+         * @param port The Port number when connecting to the Option (e.g., 11211).
+         * 
+         * @return builder
+         * 
+         */
         public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
 
+        /**
+         * @param port The Port number when connecting to the Option (e.g., 11211).
+         * 
+         * @return builder
+         * 
+         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
 
+        /**
+         * @param version The version of the option (e.g., 13.1.0.0).
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
+        /**
+         * @param version The version of the option (e.g., 13.1.0.0).
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(String version) {
             return version(Output.of(version));
         }
 
+        /**
+         * @param vpcSecurityGroupMemberships A list of VPC Security Groups for which the option is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcSecurityGroupMemberships(@Nullable Output<List<String>> vpcSecurityGroupMemberships) {
             $.vpcSecurityGroupMemberships = vpcSecurityGroupMemberships;
             return this;
         }
 
+        /**
+         * @param vpcSecurityGroupMemberships A list of VPC Security Groups for which the option is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcSecurityGroupMemberships(List<String> vpcSecurityGroupMemberships) {
             return vpcSecurityGroupMemberships(Output.of(vpcSecurityGroupMemberships));
         }
 
+        /**
+         * @param vpcSecurityGroupMemberships A list of VPC Security Groups for which the option is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcSecurityGroupMemberships(String... vpcSecurityGroupMemberships) {
             return vpcSecurityGroupMemberships(List.of(vpcSecurityGroupMemberships));
         }

@@ -16,35 +16,174 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a SageMaker Code Repository resource.
+ * 
+ * ## Example Usage
+ * ### Basic usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sagemaker.CodeRepository;
+ * import com.pulumi.aws.sagemaker.CodeRepositoryArgs;
+ * import com.pulumi.aws.sagemaker.inputs.CodeRepositoryGitConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new CodeRepository(&#34;example&#34;, CodeRepositoryArgs.builder()        
+ *             .codeRepositoryName(&#34;example&#34;)
+ *             .gitConfig(CodeRepositoryGitConfigArgs.builder()
+ *                 .repositoryUrl(&#34;https://github.com/github/docs.git&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example with Secret
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.secretsmanager.Secret;
+ * import com.pulumi.aws.secretsmanager.SecretVersion;
+ * import com.pulumi.aws.secretsmanager.SecretVersionArgs;
+ * import com.pulumi.aws.sagemaker.CodeRepository;
+ * import com.pulumi.aws.sagemaker.CodeRepositoryArgs;
+ * import com.pulumi.aws.sagemaker.inputs.CodeRepositoryGitConfigArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleSecret = new Secret(&#34;exampleSecret&#34;);
+ * 
+ *         var exampleSecretVersion = new SecretVersion(&#34;exampleSecretVersion&#34;, SecretVersionArgs.builder()        
+ *             .secretId(exampleSecret.id())
+ *             .secretString(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;username&#34;, &#34;example&#34;),
+ *                     jsonProperty(&#34;password&#34;, &#34;example&#34;)
+ *                 )))
+ *             .build());
+ * 
+ *         var exampleCodeRepository = new CodeRepository(&#34;exampleCodeRepository&#34;, CodeRepositoryArgs.builder()        
+ *             .codeRepositoryName(&#34;example&#34;)
+ *             .gitConfig(CodeRepositoryGitConfigArgs.builder()
+ *                 .repositoryUrl(&#34;https://github.com/github/docs.git&#34;)
+ *                 .secretArn(exampleSecret.arn())
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleSecretVersion)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * SageMaker Code Repositories can be imported using the `name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
+ * ```
+ * 
+ */
 @ResourceType(type="aws:sagemaker/codeRepository:CodeRepository")
 public class CodeRepository extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The name of the Code Repository (must be unique).
+     * 
+     */
     @Export(name="codeRepositoryName", refs={String.class}, tree="[0]")
     private Output<String> codeRepositoryName;
 
+    /**
+     * @return The name of the Code Repository (must be unique).
+     * 
+     */
     public Output<String> codeRepositoryName() {
         return this.codeRepositoryName;
     }
+    /**
+     * Specifies details about the repository. see Git Config details below.
+     * 
+     */
     @Export(name="gitConfig", refs={CodeRepositoryGitConfig.class}, tree="[0]")
     private Output<CodeRepositoryGitConfig> gitConfig;
 
+    /**
+     * @return Specifies details about the repository. see Git Config details below.
+     * 
+     */
     public Output<CodeRepositoryGitConfig> gitConfig() {
         return this.gitConfig;
     }
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

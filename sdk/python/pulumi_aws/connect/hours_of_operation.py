@@ -24,6 +24,12 @@ class HoursOfOperationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a HoursOfOperation resource.
+        :param pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
+        :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
+        :param pulumi.Input[str] time_zone: Specifies the time zone of the Hours of Operation.
+        :param pulumi.Input[str] description: Specifies the description of the Hours of Operation.
+        :param pulumi.Input[str] name: Specifies the name of the Hours of Operation.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "configs", configs)
         pulumi.set(__self__, "instance_id", instance_id)
@@ -38,6 +44,9 @@ class HoursOfOperationArgs:
     @property
     @pulumi.getter
     def configs(self) -> pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]]:
+        """
+        One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
+        """
         return pulumi.get(self, "configs")
 
     @configs.setter
@@ -47,6 +56,9 @@ class HoursOfOperationArgs:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the identifier of the hosting Amazon Connect Instance.
+        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -56,6 +68,9 @@ class HoursOfOperationArgs:
     @property
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> pulumi.Input[str]:
+        """
+        Specifies the time zone of the Hours of Operation.
+        """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
@@ -65,6 +80,9 @@ class HoursOfOperationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the description of the Hours of Operation.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -74,6 +92,9 @@ class HoursOfOperationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Hours of Operation.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -83,6 +104,9 @@ class HoursOfOperationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -105,6 +129,16 @@ class _HoursOfOperationState:
                  time_zone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering HoursOfOperation resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Hours of Operation.
+        :param pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
+        :param pulumi.Input[str] description: Specifies the description of the Hours of Operation.
+        :param pulumi.Input[str] hours_of_operation_arn: (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
+        :param pulumi.Input[str] hours_of_operation_id: The identifier for the hours of operation.
+        :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
+        :param pulumi.Input[str] name: Specifies the name of the Hours of Operation.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] time_zone: Specifies the time zone of the Hours of Operation.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -133,6 +167,9 @@ class _HoursOfOperationState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Hours of Operation.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -142,6 +179,9 @@ class _HoursOfOperationState:
     @property
     @pulumi.getter
     def configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]]]:
+        """
+        One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
+        """
         return pulumi.get(self, "configs")
 
     @configs.setter
@@ -151,6 +191,9 @@ class _HoursOfOperationState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the description of the Hours of Operation.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -160,6 +203,9 @@ class _HoursOfOperationState:
     @property
     @pulumi.getter(name="hoursOfOperationArn")
     def hours_of_operation_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
+        """
         return pulumi.get(self, "hours_of_operation_arn")
 
     @hours_of_operation_arn.setter
@@ -169,6 +215,9 @@ class _HoursOfOperationState:
     @property
     @pulumi.getter(name="hoursOfOperationId")
     def hours_of_operation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for the hours of operation.
+        """
         return pulumi.get(self, "hours_of_operation_id")
 
     @hours_of_operation_id.setter
@@ -178,6 +227,9 @@ class _HoursOfOperationState:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the identifier of the hosting Amazon Connect Instance.
+        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -187,6 +239,9 @@ class _HoursOfOperationState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Hours of Operation.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -196,6 +251,9 @@ class _HoursOfOperationState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -205,6 +263,9 @@ class _HoursOfOperationState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -214,6 +275,9 @@ class _HoursOfOperationState:
     @property
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the time zone of the Hours of Operation.
+        """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
@@ -234,9 +298,64 @@ class HoursOfOperation(pulumi.CustomResource):
                  time_zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a HoursOfOperation resource with the given unique name, props, and options.
+        Provides an Amazon Connect Hours of Operation resource. For more information see
+        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.connect.HoursOfOperation("test",
+            configs=[
+                aws.connect.HoursOfOperationConfigArgs(
+                    day="MONDAY",
+                    end_time=aws.connect.HoursOfOperationConfigEndTimeArgs(
+                        hours=23,
+                        minutes=8,
+                    ),
+                    start_time=aws.connect.HoursOfOperationConfigStartTimeArgs(
+                        hours=8,
+                        minutes=0,
+                    ),
+                ),
+                aws.connect.HoursOfOperationConfigArgs(
+                    day="TUESDAY",
+                    end_time=aws.connect.HoursOfOperationConfigEndTimeArgs(
+                        hours=21,
+                        minutes=0,
+                    ),
+                    start_time=aws.connect.HoursOfOperationConfigStartTimeArgs(
+                        hours=9,
+                        minutes=0,
+                    ),
+                ),
+            ],
+            description="Monday office hours",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            tags={
+                "Name": "Example Hours of Operation",
+            },
+            time_zone="EST")
+        ```
+
+        ## Import
+
+        Amazon Connect Hours of Operations can be imported using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`), e.g.,
+
+        ```sh
+         $ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HoursOfOperationConfigArgs']]]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
+        :param pulumi.Input[str] description: Specifies the description of the Hours of Operation.
+        :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
+        :param pulumi.Input[str] name: Specifies the name of the Hours of Operation.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] time_zone: Specifies the time zone of the Hours of Operation.
         """
         ...
     @overload
@@ -245,7 +364,56 @@ class HoursOfOperation(pulumi.CustomResource):
                  args: HoursOfOperationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a HoursOfOperation resource with the given unique name, props, and options.
+        Provides an Amazon Connect Hours of Operation resource. For more information see
+        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.connect.HoursOfOperation("test",
+            configs=[
+                aws.connect.HoursOfOperationConfigArgs(
+                    day="MONDAY",
+                    end_time=aws.connect.HoursOfOperationConfigEndTimeArgs(
+                        hours=23,
+                        minutes=8,
+                    ),
+                    start_time=aws.connect.HoursOfOperationConfigStartTimeArgs(
+                        hours=8,
+                        minutes=0,
+                    ),
+                ),
+                aws.connect.HoursOfOperationConfigArgs(
+                    day="TUESDAY",
+                    end_time=aws.connect.HoursOfOperationConfigEndTimeArgs(
+                        hours=21,
+                        minutes=0,
+                    ),
+                    start_time=aws.connect.HoursOfOperationConfigStartTimeArgs(
+                        hours=9,
+                        minutes=0,
+                    ),
+                ),
+            ],
+            description="Monday office hours",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            tags={
+                "Name": "Example Hours of Operation",
+            },
+            time_zone="EST")
+        ```
+
+        ## Import
+
+        Amazon Connect Hours of Operations can be imported using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`), e.g.,
+
+        ```sh
+         $ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        ```
+
         :param str resource_name: The name of the resource.
         :param HoursOfOperationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -319,6 +487,16 @@ class HoursOfOperation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Hours of Operation.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HoursOfOperationConfigArgs']]]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
+        :param pulumi.Input[str] description: Specifies the description of the Hours of Operation.
+        :param pulumi.Input[str] hours_of_operation_arn: (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
+        :param pulumi.Input[str] hours_of_operation_id: The identifier for the hours of operation.
+        :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
+        :param pulumi.Input[str] name: Specifies the name of the Hours of Operation.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] time_zone: Specifies the time zone of the Hours of Operation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -339,50 +517,80 @@ class HoursOfOperation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Hours of Operation.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def configs(self) -> pulumi.Output[Sequence['outputs.HoursOfOperationConfig']]:
+        """
+        One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
+        """
         return pulumi.get(self, "configs")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the description of the Hours of Operation.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="hoursOfOperationArn")
     def hours_of_operation_arn(self) -> pulumi.Output[str]:
+        """
+        (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
+        """
         return pulumi.get(self, "hours_of_operation_arn")
 
     @property
     @pulumi.getter(name="hoursOfOperationId")
     def hours_of_operation_id(self) -> pulumi.Output[str]:
+        """
+        The identifier for the hours of operation.
+        """
         return pulumi.get(self, "hours_of_operation_id")
 
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[str]:
+        """
+        Specifies the identifier of the hosting Amazon Connect Instance.
+        """
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Specifies the name of the Hours of Operation.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> pulumi.Output[str]:
+        """
+        Specifies the time zone of the Hours of Operation.
+        """
         return pulumi.get(self, "time_zone")
 

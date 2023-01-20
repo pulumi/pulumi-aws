@@ -11,12 +11,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an individual DynamoDB resource tag. This resource should only be used in cases where DynamoDB resources are created outside the provider (e.g., Table replicas in other regions).
+//
+// > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `dynamodb.Table` and `dynamodb.Tag` to manage tags of the same DynamoDB Table in the same region will cause a perpetual difference where the `awsDynamodbCluster` resource will try to remove the tag being added by the `dynamodb.Tag` resource.
+//
+// > **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
+//
+// ## Import
+//
+// `aws_dynamodb_tag` can be imported by using the DynamoDB resource identifier and key, separated by a comma (`,`), e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:dynamodb/tag:Tag example arn:aws:dynamodb:us-east-1:123456789012:table/example,Name
+//
+// ```
 type Tag struct {
 	pulumi.CustomResourceState
 
-	Key         pulumi.StringOutput `pulumi:"key"`
+	// Tag name.
+	Key pulumi.StringOutput `pulumi:"key"`
+	// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	Value       pulumi.StringOutput `pulumi:"value"`
+	// Tag value.
+	Value pulumi.StringOutput `pulumi:"value"`
 }
 
 // NewTag registers a new resource with the given unique name, arguments, and options.
@@ -57,15 +75,21 @@ func GetTag(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Tag resources.
 type tagState struct {
-	Key         *string `pulumi:"key"`
+	// Tag name.
+	Key *string `pulumi:"key"`
+	// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
 	ResourceArn *string `pulumi:"resourceArn"`
-	Value       *string `pulumi:"value"`
+	// Tag value.
+	Value *string `pulumi:"value"`
 }
 
 type TagState struct {
-	Key         pulumi.StringPtrInput
+	// Tag name.
+	Key pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
 	ResourceArn pulumi.StringPtrInput
-	Value       pulumi.StringPtrInput
+	// Tag value.
+	Value pulumi.StringPtrInput
 }
 
 func (TagState) ElementType() reflect.Type {
@@ -73,16 +97,22 @@ func (TagState) ElementType() reflect.Type {
 }
 
 type tagArgs struct {
-	Key         string `pulumi:"key"`
+	// Tag name.
+	Key string `pulumi:"key"`
+	// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
 	ResourceArn string `pulumi:"resourceArn"`
-	Value       string `pulumi:"value"`
+	// Tag value.
+	Value string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a Tag resource.
 type TagArgs struct {
-	Key         pulumi.StringInput
+	// Tag name.
+	Key pulumi.StringInput
+	// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
 	ResourceArn pulumi.StringInput
-	Value       pulumi.StringInput
+	// Tag value.
+	Value pulumi.StringInput
 }
 
 func (TagArgs) ElementType() reflect.Type {
@@ -172,14 +202,17 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return o
 }
 
+// Tag name.
 func (o TagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
+// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
 func (o TagOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
+// Tag value.
 func (o TagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

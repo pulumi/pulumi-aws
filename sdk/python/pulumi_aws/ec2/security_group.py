@@ -26,6 +26,15 @@ class SecurityGroupArgs:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityGroup resource.
+        :param pulumi.Input[str] description: Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityGroupEgressArgs']]] egress: Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityGroupIngressArgs']]] ingress: Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+        :param pulumi.Input[str] name: Name of the security group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[bool] revoke_rules_on_delete: Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] vpc_id: VPC ID.
+               Defaults to the region's default VPC.
         """
         if description is None:
             description = 'Managed by Pulumi'
@@ -49,6 +58,9 @@ class SecurityGroupArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -58,6 +70,9 @@ class SecurityGroupArgs:
     @property
     @pulumi.getter
     def egress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupEgressArgs']]]]:
+        """
+        Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+        """
         return pulumi.get(self, "egress")
 
     @egress.setter
@@ -67,6 +82,9 @@ class SecurityGroupArgs:
     @property
     @pulumi.getter
     def ingress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupIngressArgs']]]]:
+        """
+        Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+        """
         return pulumi.get(self, "ingress")
 
     @ingress.setter
@@ -76,6 +94,9 @@ class SecurityGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the security group. If omitted, this provider will assign a random, unique name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -85,6 +106,9 @@ class SecurityGroupArgs:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -94,6 +118,9 @@ class SecurityGroupArgs:
     @property
     @pulumi.getter(name="revokeRulesOnDelete")
     def revoke_rules_on_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+        """
         return pulumi.get(self, "revoke_rules_on_delete")
 
     @revoke_rules_on_delete.setter
@@ -103,6 +130,9 @@ class SecurityGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -112,6 +142,10 @@ class SecurityGroupArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        VPC ID.
+        Defaults to the region's default VPC.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -135,6 +169,18 @@ class _SecurityGroupState:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SecurityGroup resources.
+        :param pulumi.Input[str] arn: ARN of the security group.
+        :param pulumi.Input[str] description: Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityGroupEgressArgs']]] egress: Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityGroupIngressArgs']]] ingress: Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+        :param pulumi.Input[str] name: Name of the security group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] owner_id: Owner ID.
+        :param pulumi.Input[bool] revoke_rules_on_delete: Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] vpc_id: VPC ID.
+               Defaults to the region's default VPC.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -164,6 +210,9 @@ class _SecurityGroupState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the security group.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -173,6 +222,9 @@ class _SecurityGroupState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -182,6 +234,9 @@ class _SecurityGroupState:
     @property
     @pulumi.getter
     def egress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupEgressArgs']]]]:
+        """
+        Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+        """
         return pulumi.get(self, "egress")
 
     @egress.setter
@@ -191,6 +246,9 @@ class _SecurityGroupState:
     @property
     @pulumi.getter
     def ingress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupIngressArgs']]]]:
+        """
+        Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+        """
         return pulumi.get(self, "ingress")
 
     @ingress.setter
@@ -200,6 +258,9 @@ class _SecurityGroupState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the security group. If omitted, this provider will assign a random, unique name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -209,6 +270,9 @@ class _SecurityGroupState:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -218,6 +282,9 @@ class _SecurityGroupState:
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Owner ID.
+        """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
@@ -227,6 +294,9 @@ class _SecurityGroupState:
     @property
     @pulumi.getter(name="revokeRulesOnDelete")
     def revoke_rules_on_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+        """
         return pulumi.get(self, "revoke_rules_on_delete")
 
     @revoke_rules_on_delete.setter
@@ -236,6 +306,9 @@ class _SecurityGroupState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -245,6 +318,9 @@ class _SecurityGroupState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -254,6 +330,10 @@ class _SecurityGroupState:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        VPC ID.
+        Defaults to the region's default VPC.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -276,9 +356,118 @@ class SecurityGroup(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a SecurityGroup resource with the given unique name, props, and options.
+        Provides a security group resource.
+
+        > **NOTE on Security Groups and Security Group Rules:** This provider currently
+        provides both a standalone Security Group Rule resource (a single `ingress` or
+        `egress` rule), and a Security Group resource with `ingress` and `egress` rules
+        defined in-line. At this time you cannot use a Security Group with in-line rules
+        in conjunction with any Security Group Rule resources. Doing so will cause
+        a conflict of rule settings and will overwrite rules.
+
+        > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
+
+        > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        allow_tls = aws.ec2.SecurityGroup("allowTls",
+            description="Allow TLS inbound traffic",
+            vpc_id=aws_vpc["main"]["id"],
+            ingress=[aws.ec2.SecurityGroupIngressArgs(
+                description="TLS from VPC",
+                from_port=443,
+                to_port=443,
+                protocol="tcp",
+                cidr_blocks=[aws_vpc["main"]["cidr_block"]],
+                ipv6_cidr_blocks=[aws_vpc["main"]["ipv6_cidr_block"]],
+            )],
+            egress=[aws.ec2.SecurityGroupEgressArgs(
+                from_port=0,
+                to_port=0,
+                protocol="-1",
+                cidr_blocks=["0.0.0.0/0"],
+                ipv6_cidr_blocks=["::/0"],
+            )],
+            tags={
+                "Name": "allow_tls",
+            })
+        ```
+
+        > **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.SecurityGroup("example", egress=[aws.ec2.SecurityGroupEgressArgs(
+            cidr_blocks=["0.0.0.0/0"],
+            from_port=0,
+            ipv6_cidr_blocks=["::/0"],
+            protocol="-1",
+            to_port=0,
+        )])
+        ```
+        ### Usage With Prefix List IDs
+
+        Prefix Lists are either managed by AWS internally, or created by the customer using a
+        Prefix List resource. Prefix Lists provided by
+        AWS are associated with a prefix list name, or service name, that is linked to a specific region.
+        Prefix list IDs are exported on VPC Endpoints, so you can use this format:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        my_endpoint = aws.ec2.VpcEndpoint("myEndpoint")
+        # ... other configuration ...
+        # ... other configuration ...
+        example = aws.ec2.SecurityGroup("example", egress=[aws.ec2.SecurityGroupEgressArgs(
+            from_port=0,
+            to_port=0,
+            protocol="-1",
+            prefix_list_ids=[my_endpoint.prefix_list_id],
+        )])
+        ```
+
+        You can also find a specific Prefix List using the `ec2.get_prefix_list` data source.
+        ### Change of name or name-prefix value
+
+        Security Group's Name [cannot be edited after the resource is created](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group). In fact, the `name` and `name-prefix` arguments force the creation of a new Security Group resource when they change value. In that case, this provider first deletes the existing Security Group resource and then it creates a new one. If the existing Security Group is associated to a Network Interface resource, the deletion cannot complete. The reason is that Network Interface resources cannot be left with no Security Group attached and the new one is not yet available at that point.
+
+        You must invert the default behavior of the provider. That is, first the new Security Group resource must be created, then associated to possible Network Interface resources and finally the old Security Group can be detached and deleted. To force this behavior, you must set the create_before_destroy property:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sg_with_changeable_name = aws.ec2.SecurityGroup("sgWithChangeableName")
+        ```
+
+        ## Import
+
+        Security Groups can be imported using the `security group id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]] egress: Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]] ingress: Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+        :param pulumi.Input[str] name: Name of the security group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[bool] revoke_rules_on_delete: Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] vpc_id: VPC ID.
+               Defaults to the region's default VPC.
         """
         ...
     @overload
@@ -287,7 +476,107 @@ class SecurityGroup(pulumi.CustomResource):
                  args: Optional[SecurityGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SecurityGroup resource with the given unique name, props, and options.
+        Provides a security group resource.
+
+        > **NOTE on Security Groups and Security Group Rules:** This provider currently
+        provides both a standalone Security Group Rule resource (a single `ingress` or
+        `egress` rule), and a Security Group resource with `ingress` and `egress` rules
+        defined in-line. At this time you cannot use a Security Group with in-line rules
+        in conjunction with any Security Group Rule resources. Doing so will cause
+        a conflict of rule settings and will overwrite rules.
+
+        > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
+
+        > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        allow_tls = aws.ec2.SecurityGroup("allowTls",
+            description="Allow TLS inbound traffic",
+            vpc_id=aws_vpc["main"]["id"],
+            ingress=[aws.ec2.SecurityGroupIngressArgs(
+                description="TLS from VPC",
+                from_port=443,
+                to_port=443,
+                protocol="tcp",
+                cidr_blocks=[aws_vpc["main"]["cidr_block"]],
+                ipv6_cidr_blocks=[aws_vpc["main"]["ipv6_cidr_block"]],
+            )],
+            egress=[aws.ec2.SecurityGroupEgressArgs(
+                from_port=0,
+                to_port=0,
+                protocol="-1",
+                cidr_blocks=["0.0.0.0/0"],
+                ipv6_cidr_blocks=["::/0"],
+            )],
+            tags={
+                "Name": "allow_tls",
+            })
+        ```
+
+        > **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.SecurityGroup("example", egress=[aws.ec2.SecurityGroupEgressArgs(
+            cidr_blocks=["0.0.0.0/0"],
+            from_port=0,
+            ipv6_cidr_blocks=["::/0"],
+            protocol="-1",
+            to_port=0,
+        )])
+        ```
+        ### Usage With Prefix List IDs
+
+        Prefix Lists are either managed by AWS internally, or created by the customer using a
+        Prefix List resource. Prefix Lists provided by
+        AWS are associated with a prefix list name, or service name, that is linked to a specific region.
+        Prefix list IDs are exported on VPC Endpoints, so you can use this format:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        my_endpoint = aws.ec2.VpcEndpoint("myEndpoint")
+        # ... other configuration ...
+        # ... other configuration ...
+        example = aws.ec2.SecurityGroup("example", egress=[aws.ec2.SecurityGroupEgressArgs(
+            from_port=0,
+            to_port=0,
+            protocol="-1",
+            prefix_list_ids=[my_endpoint.prefix_list_id],
+        )])
+        ```
+
+        You can also find a specific Prefix List using the `ec2.get_prefix_list` data source.
+        ### Change of name or name-prefix value
+
+        Security Group's Name [cannot be edited after the resource is created](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group). In fact, the `name` and `name-prefix` arguments force the creation of a new Security Group resource when they change value. In that case, this provider first deletes the existing Security Group resource and then it creates a new one. If the existing Security Group is associated to a Network Interface resource, the deletion cannot complete. The reason is that Network Interface resources cannot be left with no Security Group attached and the new one is not yet available at that point.
+
+        You must invert the default behavior of the provider. That is, first the new Security Group resource must be created, then associated to possible Network Interface resources and finally the old Security Group can be detached and deleted. To force this behavior, you must set the create_before_destroy property:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sg_with_changeable_name = aws.ec2.SecurityGroup("sgWithChangeableName")
+        ```
+
+        ## Import
+
+        Security Groups can be imported using the `security group id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
+        ```
+
         :param str resource_name: The name of the resource.
         :param SecurityGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -361,6 +650,18 @@ class SecurityGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the security group.
+        :param pulumi.Input[str] description: Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]] egress: Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]] ingress: Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+        :param pulumi.Input[str] name: Name of the security group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] owner_id: Owner ID.
+        :param pulumi.Input[bool] revoke_rules_on_delete: Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] vpc_id: VPC ID.
+               Defaults to the region's default VPC.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -382,55 +683,89 @@ class SecurityGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the security group.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def egress(self) -> pulumi.Output[Sequence['outputs.SecurityGroupEgress']]:
+        """
+        Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+        """
         return pulumi.get(self, "egress")
 
     @property
     @pulumi.getter
     def ingress(self) -> pulumi.Output[Sequence['outputs.SecurityGroupIngress']]:
+        """
+        Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+        """
         return pulumi.get(self, "ingress")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Name of the security group. If omitted, this provider will assign a random, unique name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[str]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[str]:
+        """
+        Owner ID.
+        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter(name="revokeRulesOnDelete")
     def revoke_rules_on_delete(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+        """
         return pulumi.get(self, "revoke_rules_on_delete")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        VPC ID.
+        Defaults to the region's default VPC.
+        """
         return pulumi.get(self, "vpc_id")
 

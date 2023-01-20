@@ -11,9 +11,133 @@ namespace Pulumi.Aws.NetworkFirewall
 {
     public static class GetFirewall
     {
+        /// <summary>
+        /// Retrieve information about a firewall.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Find firewall policy by ARN
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.NetworkFirewall.GetFirewall.Invoke(new()
+        ///     {
+        ///         Arn = aws_networkfirewall_firewall.Arn,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Find firewall policy by Name
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.NetworkFirewall.GetFirewall.Invoke(new()
+        ///     {
+        ///         Name = "Test",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Find firewall policy by ARN and Name
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.NetworkFirewall.GetFirewall.Invoke(new()
+        ///     {
+        ///         Arn = aws_networkfirewall_firewall.Arn,
+        ///         Name = "Test",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetFirewallResult> InvokeAsync(GetFirewallArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallResult>("aws:networkfirewall/getFirewall:getFirewall", args ?? new GetFirewallArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieve information about a firewall.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Find firewall policy by ARN
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.NetworkFirewall.GetFirewall.Invoke(new()
+        ///     {
+        ///         Arn = aws_networkfirewall_firewall.Arn,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Find firewall policy by Name
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.NetworkFirewall.GetFirewall.Invoke(new()
+        ///     {
+        ///         Name = "Test",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Find firewall policy by ARN and Name
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.NetworkFirewall.GetFirewall.Invoke(new()
+        ///     {
+        ///         Arn = aws_networkfirewall_firewall.Arn,
+        ///         Name = "Test",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetFirewallResult> Invoke(GetFirewallInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallResult>("aws:networkfirewall/getFirewall:getFirewall", args ?? new GetFirewallInvokeArgs(), options.WithDefaults());
     }
@@ -21,14 +145,24 @@ namespace Pulumi.Aws.NetworkFirewall
 
     public sealed class GetFirewallArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN of the firewall.
+        /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
+        /// <summary>
+        /// Descriptive name of the firewall.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -43,14 +177,24 @@ namespace Pulumi.Aws.NetworkFirewall
 
     public sealed class GetFirewallInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN of the firewall.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Descriptive name of the firewall.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -67,22 +211,61 @@ namespace Pulumi.Aws.NetworkFirewall
     [OutputType]
     public sealed class GetFirewallResult
     {
+        /// <summary>
+        /// ARN of the firewall.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Boolean flag indicating whether it is possible to delete the firewall.
+        /// </summary>
         public readonly bool DeleteProtection;
+        /// <summary>
+        /// Description of the firewall.
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// AWS Key Management Service (AWS KMS) encryption settings for the firewall.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallEncryptionConfigurationResult> EncryptionConfigurations;
+        /// <summary>
+        /// ARN of the VPC Firewall policy.
+        /// </summary>
         public readonly string FirewallPolicyArn;
+        /// <summary>
+        /// A boolean flag indicating whether it is possible to change the associated firewall policy.
+        /// </summary>
         public readonly bool FirewallPolicyChangeProtection;
+        /// <summary>
+        /// Nested list of information about the current status of the firewall.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallFirewallStatusResult> FirewallStatuses;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Descriptive name of the firewall.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A boolean flag indicating whether it is possible to change the associated subnet(s).
+        /// </summary>
         public readonly bool SubnetChangeProtection;
+        /// <summary>
+        /// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallSubnetMappingResult> SubnetMappings;
+        /// <summary>
+        /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// String token used when updating a firewall.
+        /// </summary>
         public readonly string UpdateToken;
+        /// <summary>
+        /// Unique identifier of the VPC where AWS Network Firewall should create the firewall.
+        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

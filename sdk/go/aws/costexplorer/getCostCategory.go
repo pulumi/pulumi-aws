@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides details about a specific CostExplorer Cost Category.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := costexplorer.LookupCostCategory(ctx, &costexplorer.LookupCostCategoryArgs{
+//				CostCategoryArn: "costCategoryARN",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupCostCategory(ctx *pulumi.Context, args *LookupCostCategoryArgs, opts ...pulumi.InvokeOption) (*LookupCostCategoryResult, error) {
 	var rv LookupCostCategoryResult
 	err := ctx.Invoke("aws:costexplorer/getCostCategory:getCostCategory", args, &rv, opts...)
@@ -21,22 +48,30 @@ func LookupCostCategory(ctx *pulumi.Context, args *LookupCostCategoryArgs, opts 
 
 // A collection of arguments for invoking getCostCategory.
 type LookupCostCategoryArgs struct {
-	CostCategoryArn string            `pulumi:"costCategoryArn"`
-	Tags            map[string]string `pulumi:"tags"`
+	// Unique name for the Cost Category.
+	CostCategoryArn string `pulumi:"costCategoryArn"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCostCategory.
 type LookupCostCategoryResult struct {
 	CostCategoryArn string `pulumi:"costCategoryArn"`
-	EffectiveEnd    string `pulumi:"effectiveEnd"`
-	EffectiveStart  string `pulumi:"effectiveStart"`
+	// Effective end data of your Cost Category.
+	EffectiveEnd string `pulumi:"effectiveEnd"`
+	// Effective state data of your Cost Category.
+	EffectiveStart string `pulumi:"effectiveStart"`
 	// The provider-assigned unique ID for this managed resource.
-	Id               string                           `pulumi:"id"`
-	Name             string                           `pulumi:"name"`
-	RuleVersion      string                           `pulumi:"ruleVersion"`
-	Rules            []GetCostCategoryRule            `pulumi:"rules"`
+	Id   string `pulumi:"id"`
+	Name string `pulumi:"name"`
+	// Rule schema version in this particular Cost Category.
+	RuleVersion string `pulumi:"ruleVersion"`
+	// Configuration block for the `Expression` object used to categorize costs. See below.
+	Rules []GetCostCategoryRule `pulumi:"rules"`
+	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules []GetCostCategorySplitChargeRule `pulumi:"splitChargeRules"`
-	Tags             map[string]string                `pulumi:"tags"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupCostCategoryOutput(ctx *pulumi.Context, args LookupCostCategoryOutputArgs, opts ...pulumi.InvokeOption) LookupCostCategoryResultOutput {
@@ -54,8 +89,10 @@ func LookupCostCategoryOutput(ctx *pulumi.Context, args LookupCostCategoryOutput
 
 // A collection of arguments for invoking getCostCategory.
 type LookupCostCategoryOutputArgs struct {
-	CostCategoryArn pulumi.StringInput    `pulumi:"costCategoryArn"`
-	Tags            pulumi.StringMapInput `pulumi:"tags"`
+	// Unique name for the Cost Category.
+	CostCategoryArn pulumi.StringInput `pulumi:"costCategoryArn"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupCostCategoryOutputArgs) ElementType() reflect.Type {
@@ -81,10 +118,12 @@ func (o LookupCostCategoryResultOutput) CostCategoryArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCostCategoryResult) string { return v.CostCategoryArn }).(pulumi.StringOutput)
 }
 
+// Effective end data of your Cost Category.
 func (o LookupCostCategoryResultOutput) EffectiveEnd() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCostCategoryResult) string { return v.EffectiveEnd }).(pulumi.StringOutput)
 }
 
+// Effective state data of your Cost Category.
 func (o LookupCostCategoryResultOutput) EffectiveStart() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCostCategoryResult) string { return v.EffectiveStart }).(pulumi.StringOutput)
 }
@@ -98,18 +137,22 @@ func (o LookupCostCategoryResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCostCategoryResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Rule schema version in this particular Cost Category.
 func (o LookupCostCategoryResultOutput) RuleVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCostCategoryResult) string { return v.RuleVersion }).(pulumi.StringOutput)
 }
 
+// Configuration block for the `Expression` object used to categorize costs. See below.
 func (o LookupCostCategoryResultOutput) Rules() GetCostCategoryRuleArrayOutput {
 	return o.ApplyT(func(v LookupCostCategoryResult) []GetCostCategoryRule { return v.Rules }).(GetCostCategoryRuleArrayOutput)
 }
 
+// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 func (o LookupCostCategoryResultOutput) SplitChargeRules() GetCostCategorySplitChargeRuleArrayOutput {
 	return o.ApplyT(func(v LookupCostCategoryResult) []GetCostCategorySplitChargeRule { return v.SplitChargeRules }).(GetCostCategorySplitChargeRuleArrayOutput)
 }
 
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
 func (o LookupCostCategoryResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupCostCategoryResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

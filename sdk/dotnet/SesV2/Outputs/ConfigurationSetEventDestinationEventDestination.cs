@@ -13,11 +13,29 @@ namespace Pulumi.Aws.SesV2.Outputs
     [OutputType]
     public sealed class ConfigurationSetEventDestinationEventDestination
     {
+        /// <summary>
+        /// An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below
+        /// </summary>
         public readonly Outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestination? CloudWatchDestination;
+        /// <summary>
+        /// When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.
+        /// </summary>
         public readonly Outputs.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination? KinesisFirehoseDestination;
+        /// <summary>
+        /// An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+        /// </summary>
         public readonly ImmutableArray<string> MatchingEventTypes;
+        /// <summary>
+        /// An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.
+        /// </summary>
         public readonly Outputs.ConfigurationSetEventDestinationEventDestinationPinpointDestination? PinpointDestination;
+        /// <summary>
+        /// An object that defines an Amazon SNS destination for email events. See sns_destination below.
+        /// </summary>
         public readonly Outputs.ConfigurationSetEventDestinationEventDestinationSnsDestination? SnsDestination;
 
         [OutputConstructor]

@@ -15,9 +15,17 @@ public final class EncryptionByDefaultState extends com.pulumi.resources.Resourc
 
     public static final EncryptionByDefaultState Empty = new EncryptionByDefaultState();
 
+    /**
+     * Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -46,11 +54,23 @@ public final class EncryptionByDefaultState extends com.pulumi.resources.Resourc
             $ = new EncryptionByDefaultState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param enabled Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

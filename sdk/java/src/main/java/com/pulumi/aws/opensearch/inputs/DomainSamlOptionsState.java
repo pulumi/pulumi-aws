@@ -16,16 +16,32 @@ public final class DomainSamlOptionsState extends com.pulumi.resources.ResourceA
 
     public static final DomainSamlOptionsState Empty = new DomainSamlOptionsState();
 
+    /**
+     * Name of the domain.
+     * 
+     */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
+    /**
+     * @return Name of the domain.
+     * 
+     */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
     }
 
+    /**
+     * SAML authentication options for an AWS OpenSearch Domain.
+     * 
+     */
     @Import(name="samlOptions")
     private @Nullable Output<DomainSamlOptionsSamlOptionsArgs> samlOptions;
 
+    /**
+     * @return SAML authentication options for an AWS OpenSearch Domain.
+     * 
+     */
     public Optional<Output<DomainSamlOptionsSamlOptionsArgs>> samlOptions() {
         return Optional.ofNullable(this.samlOptions);
     }
@@ -55,20 +71,44 @@ public final class DomainSamlOptionsState extends com.pulumi.resources.ResourceA
             $ = new DomainSamlOptionsState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domainName Name of the domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(@Nullable Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
+        /**
+         * @param domainName Name of the domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
+        /**
+         * @param samlOptions SAML authentication options for an AWS OpenSearch Domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder samlOptions(@Nullable Output<DomainSamlOptionsSamlOptionsArgs> samlOptions) {
             $.samlOptions = samlOptions;
             return this;
         }
 
+        /**
+         * @param samlOptions SAML authentication options for an AWS OpenSearch Domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder samlOptions(DomainSamlOptionsSamlOptionsArgs samlOptions) {
             return samlOptions(Output.of(samlOptions));
         }

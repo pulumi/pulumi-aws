@@ -18,11 +18,71 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an OpsWorks stack resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.opsworks.Stack;
+ * import com.pulumi.aws.opsworks.StackArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var main = new Stack(&#34;main&#34;, StackArgs.builder()        
+ *             .region(&#34;us-west-1&#34;)
+ *             .serviceRoleArn(aws_iam_role.opsworks().arn())
+ *             .defaultInstanceProfileArn(aws_iam_instance_profile.opsworks().arn())
+ *             .tags(Map.of(&#34;Name&#34;, &#34;foobar-stack&#34;))
+ *             .customJson(&#34;&#34;&#34;
+ * {
+ *  &#34;foobar&#34;: {
+ *     &#34;version&#34;: &#34;1.0.0&#34;
+ *   }
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * OpsWorks stacks can be imported using the `id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
+ * ```
+ * 
+ */
 @ResourceType(type="aws:opsworks/stack:Stack")
 public class Stack extends com.pulumi.resources.CustomResource {
+    /**
+     * If set to `&#34;LATEST&#34;`, OpsWorks will automatically install the latest version.
+     * 
+     */
     @Export(name="agentVersion", refs={String.class}, tree="[0]")
     private Output<String> agentVersion;
 
+    /**
+     * @return If set to `&#34;LATEST&#34;`, OpsWorks will automatically install the latest version.
+     * 
+     */
     public Output<String> agentVersion() {
         return this.agentVersion;
     }
@@ -32,105 +92,245 @@ public class Stack extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * If `manage_berkshelf` is enabled, the version of Berkshelf to use.
+     * 
+     */
     @Export(name="berkshelfVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> berkshelfVersion;
 
+    /**
+     * @return If `manage_berkshelf` is enabled, the version of Berkshelf to use.
+     * 
+     */
     public Output<Optional<String>> berkshelfVersion() {
         return Codegen.optional(this.berkshelfVersion);
     }
+    /**
+     * Color to paint next to the stack&#39;s resources in the OpsWorks console.
+     * 
+     */
     @Export(name="color", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> color;
 
+    /**
+     * @return Color to paint next to the stack&#39;s resources in the OpsWorks console.
+     * 
+     */
     public Output<Optional<String>> color() {
         return Codegen.optional(this.color);
     }
+    /**
+     * Name of the configuration manager to use. Defaults to &#34;Chef&#34;.
+     * 
+     */
     @Export(name="configurationManagerName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> configurationManagerName;
 
+    /**
+     * @return Name of the configuration manager to use. Defaults to &#34;Chef&#34;.
+     * 
+     */
     public Output<Optional<String>> configurationManagerName() {
         return Codegen.optional(this.configurationManagerName);
     }
+    /**
+     * Version of the configuration manager to use. Defaults to &#34;11.4&#34;.
+     * 
+     */
     @Export(name="configurationManagerVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> configurationManagerVersion;
 
+    /**
+     * @return Version of the configuration manager to use. Defaults to &#34;11.4&#34;.
+     * 
+     */
     public Output<Optional<String>> configurationManagerVersion() {
         return Codegen.optional(this.configurationManagerVersion);
     }
+    /**
+     * When `use_custom_cookbooks` is set, provide this sub-object as described below.
+     * 
+     */
     @Export(name="customCookbooksSources", refs={List.class,StackCustomCookbooksSource.class}, tree="[0,1]")
     private Output<List<StackCustomCookbooksSource>> customCookbooksSources;
 
+    /**
+     * @return When `use_custom_cookbooks` is set, provide this sub-object as described below.
+     * 
+     */
     public Output<List<StackCustomCookbooksSource>> customCookbooksSources() {
         return this.customCookbooksSources;
     }
+    /**
+     * Custom JSON attributes to apply to the entire stack.
+     * 
+     */
     @Export(name="customJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customJson;
 
+    /**
+     * @return Custom JSON attributes to apply to the entire stack.
+     * 
+     */
     public Output<Optional<String>> customJson() {
         return Codegen.optional(this.customJson);
     }
+    /**
+     * Name of the availability zone where instances will be created by default.
+     * Cannot be set when `vpc_id` is set.
+     * 
+     */
     @Export(name="defaultAvailabilityZone", refs={String.class}, tree="[0]")
     private Output<String> defaultAvailabilityZone;
 
+    /**
+     * @return Name of the availability zone where instances will be created by default.
+     * Cannot be set when `vpc_id` is set.
+     * 
+     */
     public Output<String> defaultAvailabilityZone() {
         return this.defaultAvailabilityZone;
     }
+    /**
+     * The ARN of an IAM Instance Profile that created instances will have by default.
+     * 
+     */
     @Export(name="defaultInstanceProfileArn", refs={String.class}, tree="[0]")
     private Output<String> defaultInstanceProfileArn;
 
+    /**
+     * @return The ARN of an IAM Instance Profile that created instances will have by default.
+     * 
+     */
     public Output<String> defaultInstanceProfileArn() {
         return this.defaultInstanceProfileArn;
     }
+    /**
+     * Name of OS that will be installed on instances by default.
+     * 
+     */
     @Export(name="defaultOs", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultOs;
 
+    /**
+     * @return Name of OS that will be installed on instances by default.
+     * 
+     */
     public Output<Optional<String>> defaultOs() {
         return Codegen.optional(this.defaultOs);
     }
+    /**
+     * Name of the type of root device instances will have by default.
+     * 
+     */
     @Export(name="defaultRootDeviceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultRootDeviceType;
 
+    /**
+     * @return Name of the type of root device instances will have by default.
+     * 
+     */
     public Output<Optional<String>> defaultRootDeviceType() {
         return Codegen.optional(this.defaultRootDeviceType);
     }
+    /**
+     * Name of the SSH keypair that instances will have by default.
+     * 
+     */
     @Export(name="defaultSshKeyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultSshKeyName;
 
+    /**
+     * @return Name of the SSH keypair that instances will have by default.
+     * 
+     */
     public Output<Optional<String>> defaultSshKeyName() {
         return Codegen.optional(this.defaultSshKeyName);
     }
+    /**
+     * ID of the subnet in which instances will be created by default.
+     * Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn&#39;t.
+     * 
+     */
     @Export(name="defaultSubnetId", refs={String.class}, tree="[0]")
     private Output<String> defaultSubnetId;
 
+    /**
+     * @return ID of the subnet in which instances will be created by default.
+     * Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn&#39;t.
+     * 
+     */
     public Output<String> defaultSubnetId() {
         return this.defaultSubnetId;
     }
+    /**
+     * Keyword representing the naming scheme that will be used for instance hostnames within this stack.
+     * 
+     */
     @Export(name="hostnameTheme", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hostnameTheme;
 
+    /**
+     * @return Keyword representing the naming scheme that will be used for instance hostnames within this stack.
+     * 
+     */
     public Output<Optional<String>> hostnameTheme() {
         return Codegen.optional(this.hostnameTheme);
     }
+    /**
+     * Boolean value controlling whether Opsworks will run Berkshelf for this stack.
+     * 
+     */
     @Export(name="manageBerkshelf", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> manageBerkshelf;
 
+    /**
+     * @return Boolean value controlling whether Opsworks will run Berkshelf for this stack.
+     * 
+     */
     public Output<Optional<Boolean>> manageBerkshelf() {
         return Codegen.optional(this.manageBerkshelf);
     }
+    /**
+     * The name of the stack.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the stack.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The name of the region where the stack will exist.
+     * 
+     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
+    /**
+     * @return The name of the region where the stack will exist.
+     * 
+     */
     public Output<String> region() {
         return this.region;
     }
+    /**
+     * The ARN of an IAM role that the OpsWorks service will act as.
+     * 
+     */
     @Export(name="serviceRoleArn", refs={String.class}, tree="[0]")
     private Output<String> serviceRoleArn;
 
+    /**
+     * @return The ARN of an IAM role that the OpsWorks service will act as.
+     * 
+     */
     public Output<String> serviceRoleArn() {
         return this.serviceRoleArn;
     }
@@ -140,33 +340,77 @@ public class Stack extends com.pulumi.resources.CustomResource {
     public Output<String> stackEndpoint() {
         return this.stackEndpoint;
     }
+    /**
+     * A map of tags to assign to the resource.
+     * If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource.
+     * If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Boolean value controlling whether the custom cookbook settings are enabled.
+     * 
+     */
     @Export(name="useCustomCookbooks", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useCustomCookbooks;
 
+    /**
+     * @return Boolean value controlling whether the custom cookbook settings are enabled.
+     * 
+     */
     public Output<Optional<Boolean>> useCustomCookbooks() {
         return Codegen.optional(this.useCustomCookbooks);
     }
+    /**
+     * Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
+     * 
+     */
     @Export(name="useOpsworksSecurityGroups", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useOpsworksSecurityGroups;
 
+    /**
+     * @return Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
+     * 
+     */
     public Output<Optional<Boolean>> useOpsworksSecurityGroups() {
         return Codegen.optional(this.useOpsworksSecurityGroups);
     }
+    /**
+     * ID of the VPC that this stack belongs to.
+     * Defaults to the region&#39;s default VPC.
+     * 
+     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
+    /**
+     * @return ID of the VPC that this stack belongs to.
+     * Defaults to the region&#39;s default VPC.
+     * 
+     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

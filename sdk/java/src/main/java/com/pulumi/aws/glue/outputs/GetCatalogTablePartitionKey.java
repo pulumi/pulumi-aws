@@ -9,17 +9,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCatalogTablePartitionKey {
+    /**
+     * @return Free-form text comment.
+     * 
+     */
     private String comment;
+    /**
+     * @return Name of the table.
+     * 
+     */
     private String name;
+    /**
+     * @return Datatype of data in the Column.
+     * 
+     */
     private String type;
 
     private GetCatalogTablePartitionKey() {}
+    /**
+     * @return Free-form text comment.
+     * 
+     */
     public String comment() {
         return this.comment;
     }
+    /**
+     * @return Name of the table.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Datatype of data in the Column.
+     * 
+     */
     public String type() {
         return this.type;
     }

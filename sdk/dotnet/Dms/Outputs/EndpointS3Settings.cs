@@ -13,43 +13,159 @@ namespace Pulumi.Aws.Dms.Outputs
     [OutputType]
     public sealed class EndpointS3Settings
     {
+        /// <summary>
+        /// Whether to add column name information to the .csv output file. Default is `false`.
+        /// </summary>
         public readonly bool? AddColumnName;
+        /// <summary>
+        /// Custom S3 Bucket Object prefix for intermediate storage.
+        /// </summary>
         public readonly string? BucketFolder;
+        /// <summary>
+        /// Custom S3 Bucket name for intermediate storage.
+        /// </summary>
         public readonly string? BucketName;
+        /// <summary>
+        /// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
+        /// </summary>
         public readonly string? CannedAclForObjects;
+        /// <summary>
+        /// Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
+        /// </summary>
         public readonly bool? CdcInsertsAndUpdates;
+        /// <summary>
+        /// Whether to write insert operations to .csv or .parquet output files. Default is `false`.
+        /// </summary>
         public readonly bool? CdcInsertsOnly;
+        /// <summary>
+        /// Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. Default is `60`.
+        /// </summary>
         public readonly int? CdcMaxBatchInterval;
+        /// <summary>
+        /// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. Default is `32000`. **NOTE:** Previously, this setting was measured in megabytes but now represents kilobytes. Update configurations accordingly.
+        /// </summary>
         public readonly int? CdcMinFileSize;
+        /// <summary>
+        /// Folder path of CDC files. For an S3 source, this setting is required if a task captures change data; otherwise, it's optional. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+        /// </summary>
         public readonly string? CdcPath;
+        /// <summary>
+        /// Set to compress target files. Default is `NONE`. Valid values are `GZIP` and `NONE`.
+        /// </summary>
         public readonly string? CompressionType;
+        /// <summary>
+        /// Delimiter used to separate columns in the source files. Default is `,`.
+        /// </summary>
         public readonly string? CsvDelimiter;
+        /// <summary>
+        /// String to use for all columns not included in the supplemental log.
+        /// </summary>
         public readonly string? CsvNoSupValue;
+        /// <summary>
+        /// String to as null when writing to the target.
+        /// </summary>
         public readonly string? CsvNullValue;
+        /// <summary>
+        /// Delimiter used to separate rows in the source files. Default is `\n`.
+        /// </summary>
         public readonly string? CsvRowDelimiter;
+        /// <summary>
+        /// Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`. Default is `csv`.
+        /// </summary>
         public readonly string? DataFormat;
+        /// <summary>
+        /// Size of one data page in bytes. Default is `1048576` (1 MiB).
+        /// </summary>
         public readonly int? DataPageSize;
+        /// <summary>
+        /// Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. Default is `SLASH`.
+        /// </summary>
         public readonly string? DatePartitionDelimiter;
+        /// <summary>
+        /// Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+        /// </summary>
         public readonly bool? DatePartitionEnabled;
+        /// <summary>
+        /// Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. Default is `YYYYMMDD`.
+        /// </summary>
         public readonly string? DatePartitionSequence;
+        /// <summary>
+        /// Maximum size in bytes of an encoded dictionary page of a column. Default is `1048576` (1 MiB).
+        /// </summary>
         public readonly int? DictPageSizeLimit;
+        /// <summary>
+        /// Whether to enable statistics for Parquet pages and row groups. Default is `true`.
+        /// </summary>
         public readonly bool? EnableStatistics;
+        /// <summary>
+        /// Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. Default is `rle_dictionary`.
+        /// </summary>
         public readonly string? EncodingType;
+        /// <summary>
+        /// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+        /// </summary>
         public readonly string? EncryptionMode;
+        /// <summary>
+        /// JSON document that describes how AWS DMS should interpret the data.
+        /// </summary>
         public readonly string? ExternalTableDefinition;
+        /// <summary>
+        /// When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+        /// </summary>
         public readonly int? IgnoreHeaderRows;
+        /// <summary>
+        /// Deprecated. This setting has no effect. Will be removed in a future version.
+        /// </summary>
         public readonly int? IgnoreHeadersRow;
+        /// <summary>
+        /// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
+        /// </summary>
         public readonly bool? IncludeOpForFullLoad;
+        /// <summary>
+        /// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+        /// </summary>
         public readonly int? MaxFileSize;
+        /// <summary>
+        /// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
+        /// </summary>
         public readonly bool? ParquetTimestampInMillisecond;
+        /// <summary>
+        /// Version of the .parquet file format. Default is `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
+        /// </summary>
         public readonly string? ParquetVersion;
+        /// <summary>
+        /// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`.
+        /// </summary>
         public readonly bool? PreserveTransactions;
+        /// <summary>
+        /// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
+        /// </summary>
         public readonly bool? Rfc4180;
+        /// <summary>
+        /// Number of rows in a row group. Default is `10000`.
+        /// </summary>
         public readonly int? RowGroupLength;
+        /// <summary>
+        /// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+        /// </summary>
         public readonly string? ServerSideEncryptionKmsKeyId;
+        /// <summary>
+        /// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
+        /// </summary>
         public readonly string? ServiceAccessRoleArn;
+        /// <summary>
+        /// Column to add with timestamp information to the endpoint data for an Amazon S3 target.
+        /// </summary>
         public readonly string? TimestampColumnName;
+        /// <summary>
+        /// Whether to use `csv_no_sup_value` for columns not included in the supplemental log.
+        /// </summary>
         public readonly bool? UseCsvNoSupValue;
+        /// <summary>
+        /// When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
+        /// For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
+        /// When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+        /// </summary>
         public readonly bool? UseTaskStartTimeForFullLoadTimestamp;
 
         [OutputConstructor]

@@ -13,23 +13,91 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Manages an EC2 Local Gateway Route. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.LocalGatewayRoute;
+ * import com.pulumi.aws.ec2.LocalGatewayRouteArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new LocalGatewayRoute(&#34;example&#34;, LocalGatewayRouteArgs.builder()        
+ *             .destinationCidrBlock(&#34;172.16.0.0/16&#34;)
+ *             .localGatewayRouteTableId(data.aws_ec2_local_gateway_route_table().example().id())
+ *             .localGatewayVirtualInterfaceGroupId(data.aws_ec2_local_gateway_virtual_interface_group().example().id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_ec2_local_gateway_route` can be imported by using the EC2 Local Gateway Route Table identifier and destination CIDR block separated by underscores (`_`), e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2/localGatewayRoute:LocalGatewayRoute")
 public class LocalGatewayRoute extends com.pulumi.resources.CustomResource {
+    /**
+     * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+     * 
+     */
     @Export(name="destinationCidrBlock", refs={String.class}, tree="[0]")
     private Output<String> destinationCidrBlock;
 
+    /**
+     * @return IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+     * 
+     */
     public Output<String> destinationCidrBlock() {
         return this.destinationCidrBlock;
     }
+    /**
+     * Identifier of EC2 Local Gateway Route Table.
+     * 
+     */
     @Export(name="localGatewayRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> localGatewayRouteTableId;
 
+    /**
+     * @return Identifier of EC2 Local Gateway Route Table.
+     * 
+     */
     public Output<String> localGatewayRouteTableId() {
         return this.localGatewayRouteTableId;
     }
+    /**
+     * Identifier of EC2 Local Gateway Virtual Interface Group.
+     * 
+     */
     @Export(name="localGatewayVirtualInterfaceGroupId", refs={String.class}, tree="[0]")
     private Output<String> localGatewayVirtualInterfaceGroupId;
 
+    /**
+     * @return Identifier of EC2 Local Gateway Virtual Interface Group.
+     * 
+     */
     public Output<String> localGatewayVirtualInterfaceGroupId() {
         return this.localGatewayVirtualInterfaceGroupId;
     }

@@ -66,7 +66,19 @@ class AwaitableGetBrokerNodesResult(GetBrokerNodesResult):
 def get_broker_nodes(cluster_arn: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrokerNodesResult:
     """
-    Use this data source to access information about an existing resource.
+    Get information on an Amazon MSK Broker Nodes.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.msk.get_broker_nodes(cluster_arn=aws_msk_cluster["example"]["arn"])
+    ```
+
+
+    :param str cluster_arn: ARN of the cluster the nodes belong to.
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn
@@ -83,6 +95,18 @@ def get_broker_nodes(cluster_arn: Optional[str] = None,
 def get_broker_nodes_output(cluster_arn: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBrokerNodesResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get information on an Amazon MSK Broker Nodes.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.msk.get_broker_nodes(cluster_arn=aws_msk_cluster["example"]["arn"])
+    ```
+
+
+    :param str cluster_arn: ARN of the cluster the nodes belong to.
     """
     ...

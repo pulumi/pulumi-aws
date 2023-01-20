@@ -11,21 +11,119 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS Comprehend Entity Recognizer.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/comprehend"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			documents, err := s3.NewBucketObjectv2(ctx, "documents", nil)
+//			if err != nil {
+//				return err
+//			}
+//			entities, err := s3.NewBucketObjectv2(ctx, "entities", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = comprehend.NewEntityRecognizer(ctx, "example", &comprehend.EntityRecognizerArgs{
+//				DataAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				LanguageCode:      pulumi.String("en"),
+//				InputDataConfig: &comprehend.EntityRecognizerInputDataConfigArgs{
+//					EntityTypes: comprehend.EntityRecognizerInputDataConfigEntityTypeArray{
+//						&comprehend.EntityRecognizerInputDataConfigEntityTypeArgs{
+//							Type: pulumi.String("ENTITY_1"),
+//						},
+//						&comprehend.EntityRecognizerInputDataConfigEntityTypeArgs{
+//							Type: pulumi.String("ENTITY_2"),
+//						},
+//					},
+//					Documents: &comprehend.EntityRecognizerInputDataConfigDocumentsArgs{
+//						S3Uri: documents.ID().ApplyT(func(id string) (string, error) {
+//							return fmt.Sprintf("s3://%v/%v", aws_s3_bucket.Documents.Bucket, id), nil
+//						}).(pulumi.StringOutput),
+//					},
+//					EntityList: &comprehend.EntityRecognizerInputDataConfigEntityListArgs{
+//						S3Uri: entities.ID().ApplyT(func(id string) (string, error) {
+//							return fmt.Sprintf("s3://%v/%v", aws_s3_bucket.Entities.Bucket, id), nil
+//						}).(pulumi.StringOutput),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				aws_iam_role_policy.Example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Comprehend Entity Recognizer can be imported using the ARN, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
+//
+// ```
 type EntityRecognizer struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput                   `pulumi:"arn"`
-	DataAccessRoleArn pulumi.StringOutput                   `pulumi:"dataAccessRoleArn"`
-	InputDataConfig   EntityRecognizerInputDataConfigOutput `pulumi:"inputDataConfig"`
-	LanguageCode      pulumi.StringOutput                   `pulumi:"languageCode"`
-	ModelKmsKeyId     pulumi.StringPtrOutput                `pulumi:"modelKmsKeyId"`
-	Name              pulumi.StringOutput                   `pulumi:"name"`
-	Tags              pulumi.StringMapOutput                `pulumi:"tags"`
-	TagsAll           pulumi.StringMapOutput                `pulumi:"tagsAll"`
-	VersionName       pulumi.StringOutput                   `pulumi:"versionName"`
-	VersionNamePrefix pulumi.StringOutput                   `pulumi:"versionNamePrefix"`
-	VolumeKmsKeyId    pulumi.StringPtrOutput                `pulumi:"volumeKmsKeyId"`
-	VpcConfig         EntityRecognizerVpcConfigPtrOutput    `pulumi:"vpcConfig"`
+	// ARN of the Entity Recognizer version.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+	DataAccessRoleArn pulumi.StringOutput `pulumi:"dataAccessRoleArn"`
+	// Configuration for the training and testing data.
+	// See the `inputDataConfig` Configuration Block section below.
+	InputDataConfig EntityRecognizerInputDataConfigOutput `pulumi:"inputDataConfig"`
+	// Two-letter language code for the language.
+	// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
+	// The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
+	ModelKmsKeyId pulumi.StringPtrOutput `pulumi:"modelKmsKeyId"`
+	// Name for the Entity Recognizer.
+	// Has a maximum length of 63 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Name for the version of the Entity Recognizer.
+	// Each version must have a unique name within the Entity Recognizer.
+	// If omitted, the provider will assign a random, unique version name.
+	// If explicitly set to `""`, no version name will be set.
+	// Has a maximum length of 63 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Conflicts with `versionNamePrefix`.
+	VersionName pulumi.StringOutput `pulumi:"versionName"`
+	// Creates a unique version name beginning with the specified prefix.
+	// Has a maximum length of 37 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Conflicts with `versionName`.
+	VersionNamePrefix pulumi.StringOutput `pulumi:"versionNamePrefix"`
+	// ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
+	VolumeKmsKeyId pulumi.StringPtrOutput `pulumi:"volumeKmsKeyId"`
+	// Configuration parameters for VPC to contain Entity Recognizer resources.
+	// See the `vpcConfig` Configuration Block section below.
+	VpcConfig EntityRecognizerVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
 
 // NewEntityRecognizer registers a new resource with the given unique name, arguments, and options.
@@ -66,33 +164,85 @@ func GetEntityRecognizer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EntityRecognizer resources.
 type entityRecognizerState struct {
-	Arn               *string                          `pulumi:"arn"`
-	DataAccessRoleArn *string                          `pulumi:"dataAccessRoleArn"`
-	InputDataConfig   *EntityRecognizerInputDataConfig `pulumi:"inputDataConfig"`
-	LanguageCode      *string                          `pulumi:"languageCode"`
-	ModelKmsKeyId     *string                          `pulumi:"modelKmsKeyId"`
-	Name              *string                          `pulumi:"name"`
-	Tags              map[string]string                `pulumi:"tags"`
-	TagsAll           map[string]string                `pulumi:"tagsAll"`
-	VersionName       *string                          `pulumi:"versionName"`
-	VersionNamePrefix *string                          `pulumi:"versionNamePrefix"`
-	VolumeKmsKeyId    *string                          `pulumi:"volumeKmsKeyId"`
-	VpcConfig         *EntityRecognizerVpcConfig       `pulumi:"vpcConfig"`
+	// ARN of the Entity Recognizer version.
+	Arn *string `pulumi:"arn"`
+	// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+	DataAccessRoleArn *string `pulumi:"dataAccessRoleArn"`
+	// Configuration for the training and testing data.
+	// See the `inputDataConfig` Configuration Block section below.
+	InputDataConfig *EntityRecognizerInputDataConfig `pulumi:"inputDataConfig"`
+	// Two-letter language code for the language.
+	// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+	LanguageCode *string `pulumi:"languageCode"`
+	// The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
+	ModelKmsKeyId *string `pulumi:"modelKmsKeyId"`
+	// Name for the Entity Recognizer.
+	// Has a maximum length of 63 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	Name *string `pulumi:"name"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Name for the version of the Entity Recognizer.
+	// Each version must have a unique name within the Entity Recognizer.
+	// If omitted, the provider will assign a random, unique version name.
+	// If explicitly set to `""`, no version name will be set.
+	// Has a maximum length of 63 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Conflicts with `versionNamePrefix`.
+	VersionName *string `pulumi:"versionName"`
+	// Creates a unique version name beginning with the specified prefix.
+	// Has a maximum length of 37 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Conflicts with `versionName`.
+	VersionNamePrefix *string `pulumi:"versionNamePrefix"`
+	// ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
+	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
+	// Configuration parameters for VPC to contain Entity Recognizer resources.
+	// See the `vpcConfig` Configuration Block section below.
+	VpcConfig *EntityRecognizerVpcConfig `pulumi:"vpcConfig"`
 }
 
 type EntityRecognizerState struct {
-	Arn               pulumi.StringPtrInput
+	// ARN of the Entity Recognizer version.
+	Arn pulumi.StringPtrInput
+	// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
 	DataAccessRoleArn pulumi.StringPtrInput
-	InputDataConfig   EntityRecognizerInputDataConfigPtrInput
-	LanguageCode      pulumi.StringPtrInput
-	ModelKmsKeyId     pulumi.StringPtrInput
-	Name              pulumi.StringPtrInput
-	Tags              pulumi.StringMapInput
-	TagsAll           pulumi.StringMapInput
-	VersionName       pulumi.StringPtrInput
+	// Configuration for the training and testing data.
+	// See the `inputDataConfig` Configuration Block section below.
+	InputDataConfig EntityRecognizerInputDataConfigPtrInput
+	// Two-letter language code for the language.
+	// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+	LanguageCode pulumi.StringPtrInput
+	// The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
+	ModelKmsKeyId pulumi.StringPtrInput
+	// Name for the Entity Recognizer.
+	// Has a maximum length of 63 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	Name pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// Name for the version of the Entity Recognizer.
+	// Each version must have a unique name within the Entity Recognizer.
+	// If omitted, the provider will assign a random, unique version name.
+	// If explicitly set to `""`, no version name will be set.
+	// Has a maximum length of 63 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Conflicts with `versionNamePrefix`.
+	VersionName pulumi.StringPtrInput
+	// Creates a unique version name beginning with the specified prefix.
+	// Has a maximum length of 37 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Conflicts with `versionName`.
 	VersionNamePrefix pulumi.StringPtrInput
-	VolumeKmsKeyId    pulumi.StringPtrInput
-	VpcConfig         EntityRecognizerVpcConfigPtrInput
+	// ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
+	VolumeKmsKeyId pulumi.StringPtrInput
+	// Configuration parameters for VPC to contain Entity Recognizer resources.
+	// See the `vpcConfig` Configuration Block section below.
+	VpcConfig EntityRecognizerVpcConfigPtrInput
 }
 
 func (EntityRecognizerState) ElementType() reflect.Type {
@@ -100,30 +250,78 @@ func (EntityRecognizerState) ElementType() reflect.Type {
 }
 
 type entityRecognizerArgs struct {
-	DataAccessRoleArn string                          `pulumi:"dataAccessRoleArn"`
-	InputDataConfig   EntityRecognizerInputDataConfig `pulumi:"inputDataConfig"`
-	LanguageCode      string                          `pulumi:"languageCode"`
-	ModelKmsKeyId     *string                         `pulumi:"modelKmsKeyId"`
-	Name              *string                         `pulumi:"name"`
-	Tags              map[string]string               `pulumi:"tags"`
-	VersionName       *string                         `pulumi:"versionName"`
-	VersionNamePrefix *string                         `pulumi:"versionNamePrefix"`
-	VolumeKmsKeyId    *string                         `pulumi:"volumeKmsKeyId"`
-	VpcConfig         *EntityRecognizerVpcConfig      `pulumi:"vpcConfig"`
+	// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+	DataAccessRoleArn string `pulumi:"dataAccessRoleArn"`
+	// Configuration for the training and testing data.
+	// See the `inputDataConfig` Configuration Block section below.
+	InputDataConfig EntityRecognizerInputDataConfig `pulumi:"inputDataConfig"`
+	// Two-letter language code for the language.
+	// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+	LanguageCode string `pulumi:"languageCode"`
+	// The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
+	ModelKmsKeyId *string `pulumi:"modelKmsKeyId"`
+	// Name for the Entity Recognizer.
+	// Has a maximum length of 63 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	Name *string `pulumi:"name"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Name for the version of the Entity Recognizer.
+	// Each version must have a unique name within the Entity Recognizer.
+	// If omitted, the provider will assign a random, unique version name.
+	// If explicitly set to `""`, no version name will be set.
+	// Has a maximum length of 63 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Conflicts with `versionNamePrefix`.
+	VersionName *string `pulumi:"versionName"`
+	// Creates a unique version name beginning with the specified prefix.
+	// Has a maximum length of 37 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Conflicts with `versionName`.
+	VersionNamePrefix *string `pulumi:"versionNamePrefix"`
+	// ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
+	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
+	// Configuration parameters for VPC to contain Entity Recognizer resources.
+	// See the `vpcConfig` Configuration Block section below.
+	VpcConfig *EntityRecognizerVpcConfig `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a EntityRecognizer resource.
 type EntityRecognizerArgs struct {
+	// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
 	DataAccessRoleArn pulumi.StringInput
-	InputDataConfig   EntityRecognizerInputDataConfigInput
-	LanguageCode      pulumi.StringInput
-	ModelKmsKeyId     pulumi.StringPtrInput
-	Name              pulumi.StringPtrInput
-	Tags              pulumi.StringMapInput
-	VersionName       pulumi.StringPtrInput
+	// Configuration for the training and testing data.
+	// See the `inputDataConfig` Configuration Block section below.
+	InputDataConfig EntityRecognizerInputDataConfigInput
+	// Two-letter language code for the language.
+	// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+	LanguageCode pulumi.StringInput
+	// The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
+	ModelKmsKeyId pulumi.StringPtrInput
+	// Name for the Entity Recognizer.
+	// Has a maximum length of 63 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	Name pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Name for the version of the Entity Recognizer.
+	// Each version must have a unique name within the Entity Recognizer.
+	// If omitted, the provider will assign a random, unique version name.
+	// If explicitly set to `""`, no version name will be set.
+	// Has a maximum length of 63 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Conflicts with `versionNamePrefix`.
+	VersionName pulumi.StringPtrInput
+	// Creates a unique version name beginning with the specified prefix.
+	// Has a maximum length of 37 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Conflicts with `versionName`.
 	VersionNamePrefix pulumi.StringPtrInput
-	VolumeKmsKeyId    pulumi.StringPtrInput
-	VpcConfig         EntityRecognizerVpcConfigPtrInput
+	// ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
+	VolumeKmsKeyId pulumi.StringPtrInput
+	// Configuration parameters for VPC to contain Entity Recognizer resources.
+	// See the `vpcConfig` Configuration Block section below.
+	VpcConfig EntityRecognizerVpcConfigPtrInput
 }
 
 func (EntityRecognizerArgs) ElementType() reflect.Type {
@@ -213,50 +411,76 @@ func (o EntityRecognizerOutput) ToEntityRecognizerOutputWithContext(ctx context.
 	return o
 }
 
+// ARN of the Entity Recognizer version.
 func (o EntityRecognizerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
 func (o EntityRecognizerOutput) DataAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringOutput { return v.DataAccessRoleArn }).(pulumi.StringOutput)
 }
 
+// Configuration for the training and testing data.
+// See the `inputDataConfig` Configuration Block section below.
 func (o EntityRecognizerOutput) InputDataConfig() EntityRecognizerInputDataConfigOutput {
 	return o.ApplyT(func(v *EntityRecognizer) EntityRecognizerInputDataConfigOutput { return v.InputDataConfig }).(EntityRecognizerInputDataConfigOutput)
 }
 
+// Two-letter language code for the language.
+// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
 func (o EntityRecognizerOutput) LanguageCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringOutput { return v.LanguageCode }).(pulumi.StringOutput)
 }
 
+// The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
 func (o EntityRecognizerOutput) ModelKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringPtrOutput { return v.ModelKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// Name for the Entity Recognizer.
+// Has a maximum length of 63 characters.
+// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
 func (o EntityRecognizerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o EntityRecognizerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EntityRecognizerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// Name for the version of the Entity Recognizer.
+// Each version must have a unique name within the Entity Recognizer.
+// If omitted, the provider will assign a random, unique version name.
+// If explicitly set to `""`, no version name will be set.
+// Has a maximum length of 63 characters.
+// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+// Conflicts with `versionNamePrefix`.
 func (o EntityRecognizerOutput) VersionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringOutput { return v.VersionName }).(pulumi.StringOutput)
 }
 
+// Creates a unique version name beginning with the specified prefix.
+// Has a maximum length of 37 characters.
+// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+// Conflicts with `versionName`.
 func (o EntityRecognizerOutput) VersionNamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringOutput { return v.VersionNamePrefix }).(pulumi.StringOutput)
 }
 
+// ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
 func (o EntityRecognizerOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringPtrOutput { return v.VolumeKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// Configuration parameters for VPC to contain Entity Recognizer resources.
+// See the `vpcConfig` Configuration Block section below.
 func (o EntityRecognizerOutput) VpcConfig() EntityRecognizerVpcConfigPtrOutput {
 	return o.ApplyT(func(v *EntityRecognizer) EntityRecognizerVpcConfigPtrOutput { return v.VpcConfig }).(EntityRecognizerVpcConfigPtrOutput)
 }

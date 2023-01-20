@@ -13,6 +13,10 @@ namespace Pulumi.Aws.Rds.Outputs
     [OutputType]
     public sealed class InstanceBlueGreenUpdate
     {
+        /// <summary>
+        /// Enables low-downtime updates when `true`.
+        /// Default is `false`.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

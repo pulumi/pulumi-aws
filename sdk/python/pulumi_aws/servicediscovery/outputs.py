@@ -48,6 +48,11 @@ class ServiceDnsConfig(dict):
                  dns_records: Sequence['outputs.ServiceDnsConfigDnsRecord'],
                  namespace_id: str,
                  routing_policy: Optional[str] = None):
+        """
+        :param Sequence['ServiceDnsConfigDnsRecordArgs'] dns_records: An array that contains one DnsRecord object for each resource record set.
+        :param str namespace_id: The ID of the namespace to use for DNS configuration.
+        :param str routing_policy: The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
+        """
         pulumi.set(__self__, "dns_records", dns_records)
         pulumi.set(__self__, "namespace_id", namespace_id)
         if routing_policy is not None:
@@ -56,16 +61,25 @@ class ServiceDnsConfig(dict):
     @property
     @pulumi.getter(name="dnsRecords")
     def dns_records(self) -> Sequence['outputs.ServiceDnsConfigDnsRecord']:
+        """
+        An array that contains one DnsRecord object for each resource record set.
+        """
         return pulumi.get(self, "dns_records")
 
     @property
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> str:
+        """
+        The ID of the namespace to use for DNS configuration.
+        """
         return pulumi.get(self, "namespace_id")
 
     @property
     @pulumi.getter(name="routingPolicy")
     def routing_policy(self) -> Optional[str]:
+        """
+        The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
+        """
         return pulumi.get(self, "routing_policy")
 
 
@@ -74,17 +88,27 @@ class ServiceDnsConfigDnsRecord(dict):
     def __init__(__self__, *,
                  ttl: int,
                  type: str):
+        """
+        :param int ttl: The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
+        :param str type: The type of the resource, which indicates the value that Amazon Route 53 returns in response to DNS queries. Valid Values: A, AAAA, SRV, CNAME
+        """
         pulumi.set(__self__, "ttl", ttl)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def ttl(self) -> int:
+        """
+        The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
+        """
         return pulumi.get(self, "ttl")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The type of the resource, which indicates the value that Amazon Route 53 returns in response to DNS queries. Valid Values: A, AAAA, SRV, CNAME
+        """
         return pulumi.get(self, "type")
 
 
@@ -113,6 +137,11 @@ class ServiceHealthCheckConfig(dict):
                  failure_threshold: Optional[int] = None,
                  resource_path: Optional[str] = None,
                  type: Optional[str] = None):
+        """
+        :param int failure_threshold: The number of consecutive health checks. Maximum value of 10.
+        :param str resource_path: The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
+        :param str type: The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+        """
         if failure_threshold is not None:
             pulumi.set(__self__, "failure_threshold", failure_threshold)
         if resource_path is not None:
@@ -123,16 +152,25 @@ class ServiceHealthCheckConfig(dict):
     @property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> Optional[int]:
+        """
+        The number of consecutive health checks. Maximum value of 10.
+        """
         return pulumi.get(self, "failure_threshold")
 
     @property
     @pulumi.getter(name="resourcePath")
     def resource_path(self) -> Optional[str]:
+        """
+        The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
+        """
         return pulumi.get(self, "resource_path")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+        """
         return pulumi.get(self, "type")
 
 
@@ -157,12 +195,18 @@ class ServiceHealthCheckCustomConfig(dict):
 
     def __init__(__self__, *,
                  failure_threshold: Optional[int] = None):
+        """
+        :param int failure_threshold: The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+        """
         if failure_threshold is not None:
             pulumi.set(__self__, "failure_threshold", failure_threshold)
 
     @property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> Optional[int]:
+        """
+        The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+        """
         return pulumi.get(self, "failure_threshold")
 
 
@@ -172,6 +216,11 @@ class GetServiceDnsConfigResult(dict):
                  dns_records: Sequence['outputs.GetServiceDnsConfigDnsRecordResult'],
                  namespace_id: str,
                  routing_policy: str):
+        """
+        :param Sequence['GetServiceDnsConfigDnsRecordArgs'] dns_records: An array that contains one DnsRecord object for each resource record set.
+        :param str namespace_id: ID of the namespace that the service belongs to.
+        :param str routing_policy: Routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
+        """
         pulumi.set(__self__, "dns_records", dns_records)
         pulumi.set(__self__, "namespace_id", namespace_id)
         pulumi.set(__self__, "routing_policy", routing_policy)
@@ -179,16 +228,25 @@ class GetServiceDnsConfigResult(dict):
     @property
     @pulumi.getter(name="dnsRecords")
     def dns_records(self) -> Sequence['outputs.GetServiceDnsConfigDnsRecordResult']:
+        """
+        An array that contains one DnsRecord object for each resource record set.
+        """
         return pulumi.get(self, "dns_records")
 
     @property
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> str:
+        """
+        ID of the namespace that the service belongs to.
+        """
         return pulumi.get(self, "namespace_id")
 
     @property
     @pulumi.getter(name="routingPolicy")
     def routing_policy(self) -> str:
+        """
+        Routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
+        """
         return pulumi.get(self, "routing_policy")
 
 
@@ -197,17 +255,27 @@ class GetServiceDnsConfigDnsRecordResult(dict):
     def __init__(__self__, *,
                  ttl: int,
                  type: str):
+        """
+        :param int ttl: Amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
+        :param str type: The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+        """
         pulumi.set(__self__, "ttl", ttl)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def ttl(self) -> int:
+        """
+        Amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
+        """
         return pulumi.get(self, "ttl")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+        """
         return pulumi.get(self, "type")
 
 
@@ -217,6 +285,11 @@ class GetServiceHealthCheckConfigResult(dict):
                  failure_threshold: int,
                  resource_path: str,
                  type: str):
+        """
+        :param int failure_threshold: The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+        :param str resource_path: Path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
+        :param str type: The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+        """
         pulumi.set(__self__, "failure_threshold", failure_threshold)
         pulumi.set(__self__, "resource_path", resource_path)
         pulumi.set(__self__, "type", type)
@@ -224,16 +297,25 @@ class GetServiceHealthCheckConfigResult(dict):
     @property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> int:
+        """
+        The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+        """
         return pulumi.get(self, "failure_threshold")
 
     @property
     @pulumi.getter(name="resourcePath")
     def resource_path(self) -> str:
+        """
+        Path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
+        """
         return pulumi.get(self, "resource_path")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+        """
         return pulumi.get(self, "type")
 
 
@@ -241,11 +323,17 @@ class GetServiceHealthCheckConfigResult(dict):
 class GetServiceHealthCheckCustomConfigResult(dict):
     def __init__(__self__, *,
                  failure_threshold: int):
+        """
+        :param int failure_threshold: The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+        """
         pulumi.set(__self__, "failure_threshold", failure_threshold)
 
     @property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> int:
+        """
+        The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+        """
         return pulumi.get(self, "failure_threshold")
 
 

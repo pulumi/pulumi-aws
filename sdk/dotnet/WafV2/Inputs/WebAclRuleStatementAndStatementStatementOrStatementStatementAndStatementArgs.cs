@@ -14,6 +14,10 @@ namespace Pulumi.Aws.WafV2.Inputs
     {
         [Input("statements", required: true)]
         private InputList<Inputs.WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementArgs>? _statements;
+
+        /// <summary>
+        /// Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+        /// </summary>
         public InputList<Inputs.WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementArgs> Statements
         {
             get => _statements ?? (_statements = new InputList<Inputs.WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementArgs>());

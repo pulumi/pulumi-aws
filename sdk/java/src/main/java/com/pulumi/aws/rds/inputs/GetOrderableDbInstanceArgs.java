@@ -17,121 +17,257 @@ public final class GetOrderableDbInstanceArgs extends com.pulumi.resources.Invok
 
     public static final GetOrderableDbInstanceArgs Empty = new GetOrderableDbInstanceArgs();
 
+    /**
+     * Availability zone group.
+     * 
+     */
     @Import(name="availabilityZoneGroup")
     private @Nullable Output<String> availabilityZoneGroup;
 
+    /**
+     * @return Availability zone group.
+     * 
+     */
     public Optional<Output<String>> availabilityZoneGroup() {
         return Optional.ofNullable(this.availabilityZoneGroup);
     }
 
+    /**
+     * DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+     * 
+     */
     @Import(name="engine", required=true)
     private Output<String> engine;
 
+    /**
+     * @return DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+     * 
+     */
     public Output<String> engine() {
         return this.engine;
     }
 
+    /**
+     * Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+     * 
+     */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
+    /**
+     * @return Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+     * 
+     */
     public Optional<Output<String>> engineVersion() {
         return Optional.ofNullable(this.engineVersion);
     }
 
+    /**
+     * DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
+     * 
+     */
     @Import(name="instanceClass")
     private @Nullable Output<String> instanceClass;
 
+    /**
+     * @return DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
+     * 
+     */
     public Optional<Output<String>> instanceClass() {
         return Optional.ofNullable(this.instanceClass);
     }
 
+    /**
+     * License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
+     * 
+     */
     @Import(name="licenseModel")
     private @Nullable Output<String> licenseModel;
 
+    /**
+     * @return License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
+     * 
+     */
     public Optional<Output<String>> licenseModel() {
         return Optional.ofNullable(this.licenseModel);
     }
 
+    /**
+     * Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+     * 
+     */
     @Import(name="preferredEngineVersions")
     private @Nullable Output<List<String>> preferredEngineVersions;
 
+    /**
+     * @return Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+     * 
+     */
     public Optional<Output<List<String>>> preferredEngineVersions() {
         return Optional.ofNullable(this.preferredEngineVersions);
     }
 
+    /**
+     * Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+     * 
+     */
     @Import(name="preferredInstanceClasses")
     private @Nullable Output<List<String>> preferredInstanceClasses;
 
+    /**
+     * @return Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+     * 
+     */
     public Optional<Output<List<String>>> preferredInstanceClasses() {
         return Optional.ofNullable(this.preferredInstanceClasses);
     }
 
+    /**
+     * Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
+     * 
+     */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
+    /**
+     * @return Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
+     * 
+     */
     public Optional<Output<String>> storageType() {
         return Optional.ofNullable(this.storageType);
     }
 
+    /**
+     * Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
+     * 
+     */
     @Import(name="supportsEnhancedMonitoring")
     private @Nullable Output<Boolean> supportsEnhancedMonitoring;
 
+    /**
+     * @return Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
+     * 
+     */
     public Optional<Output<Boolean>> supportsEnhancedMonitoring() {
         return Optional.ofNullable(this.supportsEnhancedMonitoring);
     }
 
+    /**
+     * Enable this to ensure a DB instance supports Aurora global databases with a specific combination of other DB engine attributes.
+     * 
+     */
     @Import(name="supportsGlobalDatabases")
     private @Nullable Output<Boolean> supportsGlobalDatabases;
 
+    /**
+     * @return Enable this to ensure a DB instance supports Aurora global databases with a specific combination of other DB engine attributes.
+     * 
+     */
     public Optional<Output<Boolean>> supportsGlobalDatabases() {
         return Optional.ofNullable(this.supportsGlobalDatabases);
     }
 
+    /**
+     * Enable this to ensure a DB instance supports IAM database authentication.
+     * 
+     */
     @Import(name="supportsIamDatabaseAuthentication")
     private @Nullable Output<Boolean> supportsIamDatabaseAuthentication;
 
+    /**
+     * @return Enable this to ensure a DB instance supports IAM database authentication.
+     * 
+     */
     public Optional<Output<Boolean>> supportsIamDatabaseAuthentication() {
         return Optional.ofNullable(this.supportsIamDatabaseAuthentication);
     }
 
+    /**
+     * Enable this to ensure a DB instance supports provisioned IOPS.
+     * 
+     */
     @Import(name="supportsIops")
     private @Nullable Output<Boolean> supportsIops;
 
+    /**
+     * @return Enable this to ensure a DB instance supports provisioned IOPS.
+     * 
+     */
     public Optional<Output<Boolean>> supportsIops() {
         return Optional.ofNullable(this.supportsIops);
     }
 
+    /**
+     * Enable this to ensure a DB instance supports Kerberos Authentication.
+     * 
+     */
     @Import(name="supportsKerberosAuthentication")
     private @Nullable Output<Boolean> supportsKerberosAuthentication;
 
+    /**
+     * @return Enable this to ensure a DB instance supports Kerberos Authentication.
+     * 
+     */
     public Optional<Output<Boolean>> supportsKerberosAuthentication() {
         return Optional.ofNullable(this.supportsKerberosAuthentication);
     }
 
+    /**
+     * Enable this to ensure a DB instance supports Performance Insights.
+     * 
+     */
     @Import(name="supportsPerformanceInsights")
     private @Nullable Output<Boolean> supportsPerformanceInsights;
 
+    /**
+     * @return Enable this to ensure a DB instance supports Performance Insights.
+     * 
+     */
     public Optional<Output<Boolean>> supportsPerformanceInsights() {
         return Optional.ofNullable(this.supportsPerformanceInsights);
     }
 
+    /**
+     * Enable this to ensure Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
+     * 
+     */
     @Import(name="supportsStorageAutoscaling")
     private @Nullable Output<Boolean> supportsStorageAutoscaling;
 
+    /**
+     * @return Enable this to ensure Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
+     * 
+     */
     public Optional<Output<Boolean>> supportsStorageAutoscaling() {
         return Optional.ofNullable(this.supportsStorageAutoscaling);
     }
 
+    /**
+     * Enable this to ensure a DB instance supports encrypted storage.
+     * 
+     */
     @Import(name="supportsStorageEncryption")
     private @Nullable Output<Boolean> supportsStorageEncryption;
 
+    /**
+     * @return Enable this to ensure a DB instance supports encrypted storage.
+     * 
+     */
     public Optional<Output<Boolean>> supportsStorageEncryption() {
         return Optional.ofNullable(this.supportsStorageEncryption);
     }
 
+    /**
+     * Boolean that indicates whether to show only VPC or non-VPC offerings.
+     * 
+     */
     @Import(name="vpc")
     private @Nullable Output<Boolean> vpc;
 
+    /**
+     * @return Boolean that indicates whether to show only VPC or non-VPC offerings.
+     * 
+     */
     public Optional<Output<Boolean>> vpc() {
         return Optional.ofNullable(this.vpc);
     }
@@ -176,163 +312,379 @@ public final class GetOrderableDbInstanceArgs extends com.pulumi.resources.Invok
             $ = new GetOrderableDbInstanceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param availabilityZoneGroup Availability zone group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZoneGroup(@Nullable Output<String> availabilityZoneGroup) {
             $.availabilityZoneGroup = availabilityZoneGroup;
             return this;
         }
 
+        /**
+         * @param availabilityZoneGroup Availability zone group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZoneGroup(String availabilityZoneGroup) {
             return availabilityZoneGroup(Output.of(availabilityZoneGroup));
         }
 
+        /**
+         * @param engine DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engine(Output<String> engine) {
             $.engine = engine;
             return this;
         }
 
+        /**
+         * @param engine DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engine(String engine) {
             return engine(Output.of(engine));
         }
 
+        /**
+         * @param engineVersion Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engineVersion(@Nullable Output<String> engineVersion) {
             $.engineVersion = engineVersion;
             return this;
         }
 
+        /**
+         * @param engineVersion Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engineVersion(String engineVersion) {
             return engineVersion(Output.of(engineVersion));
         }
 
+        /**
+         * @param instanceClass DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceClass(@Nullable Output<String> instanceClass) {
             $.instanceClass = instanceClass;
             return this;
         }
 
+        /**
+         * @param instanceClass DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceClass(String instanceClass) {
             return instanceClass(Output.of(instanceClass));
         }
 
+        /**
+         * @param licenseModel License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder licenseModel(@Nullable Output<String> licenseModel) {
             $.licenseModel = licenseModel;
             return this;
         }
 
+        /**
+         * @param licenseModel License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder licenseModel(String licenseModel) {
             return licenseModel(Output.of(licenseModel));
         }
 
+        /**
+         * @param preferredEngineVersions Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferredEngineVersions(@Nullable Output<List<String>> preferredEngineVersions) {
             $.preferredEngineVersions = preferredEngineVersions;
             return this;
         }
 
+        /**
+         * @param preferredEngineVersions Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferredEngineVersions(List<String> preferredEngineVersions) {
             return preferredEngineVersions(Output.of(preferredEngineVersions));
         }
 
+        /**
+         * @param preferredEngineVersions Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferredEngineVersions(String... preferredEngineVersions) {
             return preferredEngineVersions(List.of(preferredEngineVersions));
         }
 
+        /**
+         * @param preferredInstanceClasses Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferredInstanceClasses(@Nullable Output<List<String>> preferredInstanceClasses) {
             $.preferredInstanceClasses = preferredInstanceClasses;
             return this;
         }
 
+        /**
+         * @param preferredInstanceClasses Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferredInstanceClasses(List<String> preferredInstanceClasses) {
             return preferredInstanceClasses(Output.of(preferredInstanceClasses));
         }
 
+        /**
+         * @param preferredInstanceClasses Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferredInstanceClasses(String... preferredInstanceClasses) {
             return preferredInstanceClasses(List.of(preferredInstanceClasses));
         }
 
+        /**
+         * @param storageType Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageType(@Nullable Output<String> storageType) {
             $.storageType = storageType;
             return this;
         }
 
+        /**
+         * @param storageType Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageType(String storageType) {
             return storageType(Output.of(storageType));
         }
 
+        /**
+         * @param supportsEnhancedMonitoring Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportsEnhancedMonitoring(@Nullable Output<Boolean> supportsEnhancedMonitoring) {
             $.supportsEnhancedMonitoring = supportsEnhancedMonitoring;
             return this;
         }
 
+        /**
+         * @param supportsEnhancedMonitoring Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportsEnhancedMonitoring(Boolean supportsEnhancedMonitoring) {
             return supportsEnhancedMonitoring(Output.of(supportsEnhancedMonitoring));
         }
 
+        /**
+         * @param supportsGlobalDatabases Enable this to ensure a DB instance supports Aurora global databases with a specific combination of other DB engine attributes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportsGlobalDatabases(@Nullable Output<Boolean> supportsGlobalDatabases) {
             $.supportsGlobalDatabases = supportsGlobalDatabases;
             return this;
         }
 
+        /**
+         * @param supportsGlobalDatabases Enable this to ensure a DB instance supports Aurora global databases with a specific combination of other DB engine attributes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportsGlobalDatabases(Boolean supportsGlobalDatabases) {
             return supportsGlobalDatabases(Output.of(supportsGlobalDatabases));
         }
 
+        /**
+         * @param supportsIamDatabaseAuthentication Enable this to ensure a DB instance supports IAM database authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportsIamDatabaseAuthentication(@Nullable Output<Boolean> supportsIamDatabaseAuthentication) {
             $.supportsIamDatabaseAuthentication = supportsIamDatabaseAuthentication;
             return this;
         }
 
+        /**
+         * @param supportsIamDatabaseAuthentication Enable this to ensure a DB instance supports IAM database authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportsIamDatabaseAuthentication(Boolean supportsIamDatabaseAuthentication) {
             return supportsIamDatabaseAuthentication(Output.of(supportsIamDatabaseAuthentication));
         }
 
+        /**
+         * @param supportsIops Enable this to ensure a DB instance supports provisioned IOPS.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportsIops(@Nullable Output<Boolean> supportsIops) {
             $.supportsIops = supportsIops;
             return this;
         }
 
+        /**
+         * @param supportsIops Enable this to ensure a DB instance supports provisioned IOPS.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportsIops(Boolean supportsIops) {
             return supportsIops(Output.of(supportsIops));
         }
 
+        /**
+         * @param supportsKerberosAuthentication Enable this to ensure a DB instance supports Kerberos Authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportsKerberosAuthentication(@Nullable Output<Boolean> supportsKerberosAuthentication) {
             $.supportsKerberosAuthentication = supportsKerberosAuthentication;
             return this;
         }
 
+        /**
+         * @param supportsKerberosAuthentication Enable this to ensure a DB instance supports Kerberos Authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportsKerberosAuthentication(Boolean supportsKerberosAuthentication) {
             return supportsKerberosAuthentication(Output.of(supportsKerberosAuthentication));
         }
 
+        /**
+         * @param supportsPerformanceInsights Enable this to ensure a DB instance supports Performance Insights.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportsPerformanceInsights(@Nullable Output<Boolean> supportsPerformanceInsights) {
             $.supportsPerformanceInsights = supportsPerformanceInsights;
             return this;
         }
 
+        /**
+         * @param supportsPerformanceInsights Enable this to ensure a DB instance supports Performance Insights.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportsPerformanceInsights(Boolean supportsPerformanceInsights) {
             return supportsPerformanceInsights(Output.of(supportsPerformanceInsights));
         }
 
+        /**
+         * @param supportsStorageAutoscaling Enable this to ensure Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportsStorageAutoscaling(@Nullable Output<Boolean> supportsStorageAutoscaling) {
             $.supportsStorageAutoscaling = supportsStorageAutoscaling;
             return this;
         }
 
+        /**
+         * @param supportsStorageAutoscaling Enable this to ensure Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportsStorageAutoscaling(Boolean supportsStorageAutoscaling) {
             return supportsStorageAutoscaling(Output.of(supportsStorageAutoscaling));
         }
 
+        /**
+         * @param supportsStorageEncryption Enable this to ensure a DB instance supports encrypted storage.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportsStorageEncryption(@Nullable Output<Boolean> supportsStorageEncryption) {
             $.supportsStorageEncryption = supportsStorageEncryption;
             return this;
         }
 
+        /**
+         * @param supportsStorageEncryption Enable this to ensure a DB instance supports encrypted storage.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportsStorageEncryption(Boolean supportsStorageEncryption) {
             return supportsStorageEncryption(Output.of(supportsStorageEncryption));
         }
 
+        /**
+         * @param vpc Boolean that indicates whether to show only VPC or non-VPC offerings.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpc(@Nullable Output<Boolean> vpc) {
             $.vpc = vpc;
             return this;
         }
 
+        /**
+         * @param vpc Boolean that indicates whether to show only VPC or non-VPC offerings.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpc(Boolean vpc) {
             return vpc(Output.of(vpc));
         }

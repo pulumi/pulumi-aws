@@ -13,9 +13,17 @@ public final class RuleGroupActivatedRuleActionArgs extends com.pulumi.resources
 
     public static final RuleGroupActivatedRuleActionArgs Empty = new RuleGroupActivatedRuleActionArgs();
 
+    /**
+     * e.g., `BLOCK`, `ALLOW`, or `COUNT`
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return e.g., `BLOCK`, `ALLOW`, or `COUNT`
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -44,11 +52,23 @@ public final class RuleGroupActivatedRuleActionArgs extends com.pulumi.resources
             $ = new RuleGroupActivatedRuleActionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param type e.g., `BLOCK`, `ALLOW`, or `COUNT`
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type e.g., `BLOCK`, `ALLOW`, or `COUNT`
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

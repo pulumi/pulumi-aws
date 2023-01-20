@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// `wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := wafregional.LookupRule(ctx, &wafregional.LookupRuleArgs{
+//				Name: "tfWAFRegionalRule",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.InvokeOption) (*LookupRuleResult, error) {
 	var rv LookupRuleResult
 	err := ctx.Invoke("aws:wafregional/getRule:getRule", args, &rv, opts...)
@@ -21,6 +48,7 @@ func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getRule.
 type LookupRuleArgs struct {
+	// Name of the WAF Regional rule.
 	Name string `pulumi:"name"`
 }
 
@@ -46,6 +74,7 @@ func LookupRuleOutput(ctx *pulumi.Context, args LookupRuleOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getRule.
 type LookupRuleOutputArgs struct {
+	// Name of the WAF Regional rule.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 

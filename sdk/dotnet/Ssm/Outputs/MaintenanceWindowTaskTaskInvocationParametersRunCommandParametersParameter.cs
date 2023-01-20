@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter
     {
+        /// <summary>
+        /// The parameter name.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The array of strings.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

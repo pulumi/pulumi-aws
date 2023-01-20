@@ -13,9 +13,17 @@ public final class ScheduledActionTargetActionResumeClusterArgs extends com.pulu
 
     public static final ScheduledActionTargetActionResumeClusterArgs Empty = new ScheduledActionTargetActionResumeClusterArgs();
 
+    /**
+     * The identifier of the cluster to be resumed.
+     * 
+     */
     @Import(name="clusterIdentifier", required=true)
     private Output<String> clusterIdentifier;
 
+    /**
+     * @return The identifier of the cluster to be resumed.
+     * 
+     */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
@@ -44,11 +52,23 @@ public final class ScheduledActionTargetActionResumeClusterArgs extends com.pulu
             $ = new ScheduledActionTargetActionResumeClusterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param clusterIdentifier The identifier of the cluster to be resumed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterIdentifier(Output<String> clusterIdentifier) {
             $.clusterIdentifier = clusterIdentifier;
             return this;
         }
 
+        /**
+         * @param clusterIdentifier The identifier of the cluster to be resumed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterIdentifier(String clusterIdentifier) {
             return clusterIdentifier(Output.of(clusterIdentifier));
         }

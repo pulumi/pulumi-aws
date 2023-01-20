@@ -15,30 +15,62 @@ public final class PipelineNotificationsArgs extends com.pulumi.resources.Resour
 
     public static final PipelineNotificationsArgs Empty = new PipelineNotificationsArgs();
 
+    /**
+     * The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
+     * 
+     */
     @Import(name="completed")
     private @Nullable Output<String> completed;
 
+    /**
+     * @return The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
+     * 
+     */
     public Optional<Output<String>> completed() {
         return Optional.ofNullable(this.completed);
     }
 
+    /**
+     * The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
+     * 
+     */
     @Import(name="error")
     private @Nullable Output<String> error;
 
+    /**
+     * @return The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
+     * 
+     */
     public Optional<Output<String>> error() {
         return Optional.ofNullable(this.error);
     }
 
+    /**
+     * The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
+     * 
+     */
     @Import(name="progressing")
     private @Nullable Output<String> progressing;
 
+    /**
+     * @return The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
+     * 
+     */
     public Optional<Output<String>> progressing() {
         return Optional.ofNullable(this.progressing);
     }
 
+    /**
+     * The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
+     * 
+     */
     @Import(name="warning")
     private @Nullable Output<String> warning;
 
+    /**
+     * @return The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
+     * 
+     */
     public Optional<Output<String>> warning() {
         return Optional.ofNullable(this.warning);
     }
@@ -70,38 +102,86 @@ public final class PipelineNotificationsArgs extends com.pulumi.resources.Resour
             $ = new PipelineNotificationsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param completed The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder completed(@Nullable Output<String> completed) {
             $.completed = completed;
             return this;
         }
 
+        /**
+         * @param completed The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder completed(String completed) {
             return completed(Output.of(completed));
         }
 
+        /**
+         * @param error The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder error(@Nullable Output<String> error) {
             $.error = error;
             return this;
         }
 
+        /**
+         * @param error The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder error(String error) {
             return error(Output.of(error));
         }
 
+        /**
+         * @param progressing The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder progressing(@Nullable Output<String> progressing) {
             $.progressing = progressing;
             return this;
         }
 
+        /**
+         * @param progressing The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder progressing(String progressing) {
             return progressing(Output.of(progressing));
         }
 
+        /**
+         * @param warning The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder warning(@Nullable Output<String> warning) {
             $.warning = warning;
             return this;
         }
 
+        /**
+         * @param warning The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder warning(String warning) {
             return warning(Output.of(warning));
         }

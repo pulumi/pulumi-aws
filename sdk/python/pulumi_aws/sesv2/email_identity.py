@@ -22,6 +22,10 @@ class EmailIdentityArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EmailIdentity resource.
+        :param pulumi.Input[str] email_identity: The email address or domain to verify.
+        :param pulumi.Input[str] configuration_set_name: The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+        :param pulumi.Input['EmailIdentityDkimSigningAttributesArgs'] dkim_signing_attributes: The configuration of the DKIM authentication settings for an email domain identity.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "email_identity", email_identity)
         if configuration_set_name is not None:
@@ -34,6 +38,9 @@ class EmailIdentityArgs:
     @property
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> pulumi.Input[str]:
+        """
+        The email address or domain to verify.
+        """
         return pulumi.get(self, "email_identity")
 
     @email_identity.setter
@@ -43,6 +50,9 @@ class EmailIdentityArgs:
     @property
     @pulumi.getter(name="configurationSetName")
     def configuration_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+        """
         return pulumi.get(self, "configuration_set_name")
 
     @configuration_set_name.setter
@@ -52,6 +62,9 @@ class EmailIdentityArgs:
     @property
     @pulumi.getter(name="dkimSigningAttributes")
     def dkim_signing_attributes(self) -> Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']]:
+        """
+        The configuration of the DKIM authentication settings for an email domain identity.
+        """
         return pulumi.get(self, "dkim_signing_attributes")
 
     @dkim_signing_attributes.setter
@@ -61,6 +74,9 @@ class EmailIdentityArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -81,6 +97,13 @@ class _EmailIdentityState:
                  verified_for_sending_status: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering EmailIdentity resources.
+        :param pulumi.Input[str] arn: ARN of the Email Identity.
+        :param pulumi.Input[str] configuration_set_name: The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+        :param pulumi.Input['EmailIdentityDkimSigningAttributesArgs'] dkim_signing_attributes: The configuration of the DKIM authentication settings for an email domain identity.
+        :param pulumi.Input[str] email_identity: The email address or domain to verify.
+        :param pulumi.Input[str] identity_type: The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[bool] verified_for_sending_status: Specifies whether or not the identity is verified.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -102,6 +125,9 @@ class _EmailIdentityState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Email Identity.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -111,6 +137,9 @@ class _EmailIdentityState:
     @property
     @pulumi.getter(name="configurationSetName")
     def configuration_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+        """
         return pulumi.get(self, "configuration_set_name")
 
     @configuration_set_name.setter
@@ -120,6 +149,9 @@ class _EmailIdentityState:
     @property
     @pulumi.getter(name="dkimSigningAttributes")
     def dkim_signing_attributes(self) -> Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']]:
+        """
+        The configuration of the DKIM authentication settings for an email domain identity.
+        """
         return pulumi.get(self, "dkim_signing_attributes")
 
     @dkim_signing_attributes.setter
@@ -129,6 +161,9 @@ class _EmailIdentityState:
     @property
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The email address or domain to verify.
+        """
         return pulumi.get(self, "email_identity")
 
     @email_identity.setter
@@ -138,6 +173,9 @@ class _EmailIdentityState:
     @property
     @pulumi.getter(name="identityType")
     def identity_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+        """
         return pulumi.get(self, "identity_type")
 
     @identity_type.setter
@@ -147,6 +185,9 @@ class _EmailIdentityState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -165,6 +206,9 @@ class _EmailIdentityState:
     @property
     @pulumi.getter(name="verifiedForSendingStatus")
     def verified_for_sending_status(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether or not the identity is verified.
+        """
         return pulumi.get(self, "verified_for_sending_status")
 
     @verified_for_sending_status.setter
@@ -183,9 +227,53 @@ class EmailIdentity(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a EmailIdentity resource with the given unique name, props, and options.
+        Resource for managing an AWS SESv2 (Simple Email V2) Email Identity.
+
+        ## Example Usage
+
+        ### Basic Usage
+        ### Email Address Identity
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sesv2.EmailIdentity("example", email_identity="testing@example.com")
+        ```
+        ### Domain Identity
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sesv2.EmailIdentity("example", email_identity="example.com")
+        ```
+        ### Configuration Set
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
+        example_email_identity = aws.sesv2.EmailIdentity("exampleEmailIdentity",
+            email_identity="example.com",
+            configuration_set_name=example_configuration_set.configuration_set_name)
+        ```
+
+        ## Import
+
+        SESv2 (Simple Email V2) Email Identity can be imported using the `email_identity`, e.g.,
+
+        ```sh
+         $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] configuration_set_name: The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+        :param pulumi.Input[pulumi.InputType['EmailIdentityDkimSigningAttributesArgs']] dkim_signing_attributes: The configuration of the DKIM authentication settings for an email domain identity.
+        :param pulumi.Input[str] email_identity: The email address or domain to verify.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -194,7 +282,47 @@ class EmailIdentity(pulumi.CustomResource):
                  args: EmailIdentityArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a EmailIdentity resource with the given unique name, props, and options.
+        Resource for managing an AWS SESv2 (Simple Email V2) Email Identity.
+
+        ## Example Usage
+
+        ### Basic Usage
+        ### Email Address Identity
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sesv2.EmailIdentity("example", email_identity="testing@example.com")
+        ```
+        ### Domain Identity
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sesv2.EmailIdentity("example", email_identity="example.com")
+        ```
+        ### Configuration Set
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
+        example_email_identity = aws.sesv2.EmailIdentity("exampleEmailIdentity",
+            email_identity="example.com",
+            configuration_set_name=example_configuration_set.configuration_set_name)
+        ```
+
+        ## Import
+
+        SESv2 (Simple Email V2) Email Identity can be imported using the `email_identity`, e.g.,
+
+        ```sh
+         $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
+        ```
+
         :param str resource_name: The name of the resource.
         :param EmailIdentityArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -258,6 +386,13 @@ class EmailIdentity(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the Email Identity.
+        :param pulumi.Input[str] configuration_set_name: The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+        :param pulumi.Input[pulumi.InputType['EmailIdentityDkimSigningAttributesArgs']] dkim_signing_attributes: The configuration of the DKIM authentication settings for an email domain identity.
+        :param pulumi.Input[str] email_identity: The email address or domain to verify.
+        :param pulumi.Input[str] identity_type: The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[bool] verified_for_sending_status: Specifies whether or not the identity is verified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -276,31 +411,49 @@ class EmailIdentity(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the Email Identity.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="configurationSetName")
     def configuration_set_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+        """
         return pulumi.get(self, "configuration_set_name")
 
     @property
     @pulumi.getter(name="dkimSigningAttributes")
     def dkim_signing_attributes(self) -> pulumi.Output['outputs.EmailIdentityDkimSigningAttributes']:
+        """
+        The configuration of the DKIM authentication settings for an email domain identity.
+        """
         return pulumi.get(self, "dkim_signing_attributes")
 
     @property
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> pulumi.Output[str]:
+        """
+        The email address or domain to verify.
+        """
         return pulumi.get(self, "email_identity")
 
     @property
     @pulumi.getter(name="identityType")
     def identity_type(self) -> pulumi.Output[str]:
+        """
+        The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+        """
         return pulumi.get(self, "identity_type")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -311,5 +464,8 @@ class EmailIdentity(pulumi.CustomResource):
     @property
     @pulumi.getter(name="verifiedForSendingStatus")
     def verified_for_sending_status(self) -> pulumi.Output[bool]:
+        """
+        Specifies whether or not the identity is verified.
+        """
         return pulumi.get(self, "verified_for_sending_status")
 

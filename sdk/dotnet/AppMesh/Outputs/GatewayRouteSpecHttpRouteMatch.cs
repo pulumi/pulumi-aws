@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GatewayRouteSpecHttpRouteMatch
     {
+        /// <summary>
+        /// Host name to rewrite.
+        /// </summary>
         public readonly Outputs.GatewayRouteSpecHttpRouteMatchHostname? Hostname;
+        /// <summary>
+        /// Specified beginning characters to rewrite.
+        /// </summary>
         public readonly string? Prefix;
 
         [OutputConstructor]

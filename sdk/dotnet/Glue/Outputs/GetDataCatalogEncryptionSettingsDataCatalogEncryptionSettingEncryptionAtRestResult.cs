@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult
     {
+        /// <summary>
+        /// The encryption-at-rest mode for encrypting Data Catalog data.
+        /// </summary>
         public readonly string CatalogEncryptionMode;
+        /// <summary>
+        /// ARN of the AWS KMS key to use for encryption at rest.
+        /// </summary>
         public readonly string SseAwsKmsKeyId;
 
         [OutputConstructor]

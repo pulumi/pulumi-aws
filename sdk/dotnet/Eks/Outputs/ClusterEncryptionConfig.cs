@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class ClusterEncryptionConfig
     {
+        /// <summary>
+        /// Configuration block with provider for encryption. Detailed below.
+        /// </summary>
         public readonly Outputs.ClusterEncryptionConfigProvider Provider;
+        /// <summary>
+        /// List of strings with resources to be encrypted. Valid values: `secrets`.
+        /// </summary>
         public readonly ImmutableArray<string> Resources;
 
         [OutputConstructor]

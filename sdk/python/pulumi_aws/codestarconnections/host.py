@@ -22,6 +22,10 @@ class HostArgs:
                  vpc_configuration: Optional[pulumi.Input['HostVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Host resource.
+        :param pulumi.Input[str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
+        :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured.
+        :param pulumi.Input[str] name: The name of the host to be created. The name must be unique in the calling AWS account.
+        :param pulumi.Input['HostVpcConfigurationArgs'] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         pulumi.set(__self__, "provider_endpoint", provider_endpoint)
         pulumi.set(__self__, "provider_type", provider_type)
@@ -33,6 +37,9 @@ class HostArgs:
     @property
     @pulumi.getter(name="providerEndpoint")
     def provider_endpoint(self) -> pulumi.Input[str]:
+        """
+        The endpoint of the infrastructure to be represented by the host after it is created.
+        """
         return pulumi.get(self, "provider_endpoint")
 
     @provider_endpoint.setter
@@ -42,6 +49,9 @@ class HostArgs:
     @property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> pulumi.Input[str]:
+        """
+        The name of the external provider where your third-party code repository is configured.
+        """
         return pulumi.get(self, "provider_type")
 
     @provider_type.setter
@@ -51,6 +61,9 @@ class HostArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the host to be created. The name must be unique in the calling AWS account.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -60,6 +73,9 @@ class HostArgs:
     @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['HostVpcConfigurationArgs']]:
+        """
+        The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
+        """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
@@ -78,6 +94,12 @@ class _HostState:
                  vpc_configuration: Optional[pulumi.Input['HostVpcConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering Host resources.
+        :param pulumi.Input[str] arn: The CodeStar Host ARN.
+        :param pulumi.Input[str] name: The name of the host to be created. The name must be unique in the calling AWS account.
+        :param pulumi.Input[str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
+        :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured.
+        :param pulumi.Input[str] status: The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
+        :param pulumi.Input['HostVpcConfigurationArgs'] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -95,6 +117,9 @@ class _HostState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CodeStar Host ARN.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -104,6 +129,9 @@ class _HostState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the host to be created. The name must be unique in the calling AWS account.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -113,6 +141,9 @@ class _HostState:
     @property
     @pulumi.getter(name="providerEndpoint")
     def provider_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint of the infrastructure to be represented by the host after it is created.
+        """
         return pulumi.get(self, "provider_endpoint")
 
     @provider_endpoint.setter
@@ -122,6 +153,9 @@ class _HostState:
     @property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the external provider where your third-party code repository is configured.
+        """
         return pulumi.get(self, "provider_type")
 
     @provider_type.setter
@@ -131,6 +165,9 @@ class _HostState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -140,6 +177,9 @@ class _HostState:
     @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['HostVpcConfigurationArgs']]:
+        """
+        The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
+        """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
@@ -158,9 +198,35 @@ class Host(pulumi.CustomResource):
                  vpc_configuration: Optional[pulumi.Input[pulumi.InputType['HostVpcConfigurationArgs']]] = None,
                  __props__=None):
         """
-        Create a Host resource with the given unique name, props, and options.
+        Provides a CodeStar Host.
+
+        > **NOTE:** The `codestarconnections.Host` resource is created in the state `PENDING`. Authentication with the host provider must be completed in the AWS Console. For more information visit [Set up a pending host](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-host-setup.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.codestarconnections.Host("example",
+            provider_endpoint="https://example.com",
+            provider_type="GitHubEnterpriseServer")
+        ```
+
+        ## Import
+
+        CodeStar Host can be imported using the ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:codestarconnections/host:Host example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The name of the host to be created. The name must be unique in the calling AWS account.
+        :param pulumi.Input[str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
+        :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured.
+        :param pulumi.Input[pulumi.InputType['HostVpcConfigurationArgs']] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         ...
     @overload
@@ -169,7 +235,29 @@ class Host(pulumi.CustomResource):
                  args: HostArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Host resource with the given unique name, props, and options.
+        Provides a CodeStar Host.
+
+        > **NOTE:** The `codestarconnections.Host` resource is created in the state `PENDING`. Authentication with the host provider must be completed in the AWS Console. For more information visit [Set up a pending host](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-host-setup.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.codestarconnections.Host("example",
+            provider_endpoint="https://example.com",
+            provider_type="GitHubEnterpriseServer")
+        ```
+
+        ## Import
+
+        CodeStar Host can be imported using the ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:codestarconnections/host:Host example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
+        ```
+
         :param str resource_name: The name of the resource.
         :param HostArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,6 +319,12 @@ class Host(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The CodeStar Host ARN.
+        :param pulumi.Input[str] name: The name of the host to be created. The name must be unique in the calling AWS account.
+        :param pulumi.Input[str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
+        :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured.
+        :param pulumi.Input[str] status: The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
+        :param pulumi.Input[pulumi.InputType['HostVpcConfigurationArgs']] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -247,30 +341,48 @@ class Host(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The CodeStar Host ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the host to be created. The name must be unique in the calling AWS account.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="providerEndpoint")
     def provider_endpoint(self) -> pulumi.Output[str]:
+        """
+        The endpoint of the infrastructure to be represented by the host after it is created.
+        """
         return pulumi.get(self, "provider_endpoint")
 
     @property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> pulumi.Output[str]:
+        """
+        The name of the external provider where your third-party code repository is configured.
+        """
         return pulumi.get(self, "provider_type")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Output[Optional['outputs.HostVpcConfiguration']]:
+        """
+        The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
+        """
         return pulumi.get(self, "vpc_configuration")
 

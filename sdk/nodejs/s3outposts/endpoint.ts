@@ -7,6 +7,30 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a resource to manage an S3 Outposts Endpoint.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.s3outposts.Endpoint("example", {
+ *     outpostId: data.aws_outposts_outpost.example.id,
+ *     securityGroupId: aws_security_group.example.id,
+ *     subnetId: aws_subnet.example.id,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * S3 Outposts Endpoints can be imported using Amazon Resource Name (ARN), EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`) e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
+ * ```
+ */
 export class Endpoint extends pulumi.CustomResource {
     /**
      * Get an existing Endpoint resource's state with the given name, ID, and optional extra
@@ -35,12 +59,33 @@ export class Endpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === Endpoint.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the endpoint.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * VPC CIDR block of the endpoint.
+     */
     public /*out*/ readonly cidrBlock!: pulumi.Output<string>;
+    /**
+     * UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * Set of nested attributes for associated Elastic Network Interfaces (ENIs).
+     */
     public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.s3outposts.EndpointNetworkInterface[]>;
+    /**
+     * Identifier of the Outpost to contain this endpoint.
+     */
     public readonly outpostId!: pulumi.Output<string>;
+    /**
+     * Identifier of the EC2 Security Group.
+     */
     public readonly securityGroupId!: pulumi.Output<string>;
+    /**
+     * Identifier of the EC2 Subnet.
+     */
     public readonly subnetId!: pulumi.Output<string>;
 
     /**
@@ -91,12 +136,33 @@ export class Endpoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Endpoint resources.
  */
 export interface EndpointState {
+    /**
+     * Amazon Resource Name (ARN) of the endpoint.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * VPC CIDR block of the endpoint.
+     */
     cidrBlock?: pulumi.Input<string>;
+    /**
+     * UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     */
     creationTime?: pulumi.Input<string>;
+    /**
+     * Set of nested attributes for associated Elastic Network Interfaces (ENIs).
+     */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.s3outposts.EndpointNetworkInterface>[]>;
+    /**
+     * Identifier of the Outpost to contain this endpoint.
+     */
     outpostId?: pulumi.Input<string>;
+    /**
+     * Identifier of the EC2 Security Group.
+     */
     securityGroupId?: pulumi.Input<string>;
+    /**
+     * Identifier of the EC2 Subnet.
+     */
     subnetId?: pulumi.Input<string>;
 }
 
@@ -104,7 +170,16 @@ export interface EndpointState {
  * The set of arguments for constructing a Endpoint resource.
  */
 export interface EndpointArgs {
+    /**
+     * Identifier of the Outpost to contain this endpoint.
+     */
     outpostId: pulumi.Input<string>;
+    /**
+     * Identifier of the EC2 Security Group.
+     */
     securityGroupId: pulumi.Input<string>;
+    /**
+     * Identifier of the EC2 Subnet.
+     */
     subnetId: pulumi.Input<string>;
 }

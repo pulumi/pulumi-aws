@@ -11,6 +11,10 @@ import java.util.Objects;
 @CustomType
 public final class GetEnvironmentsResult {
     private String applicationId;
+    /**
+     * @return Set of Environment IDs associated with this AppConfig Application.
+     * 
+     */
     private List<String> environmentIds;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -22,6 +26,10 @@ public final class GetEnvironmentsResult {
     public String applicationId() {
         return this.applicationId;
     }
+    /**
+     * @return Set of Environment IDs associated with this AppConfig Application.
+     * 
+     */
     public List<String> environmentIds() {
         return this.environmentIds;
     }

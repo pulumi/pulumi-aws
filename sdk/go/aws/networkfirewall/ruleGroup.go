@@ -11,20 +11,261 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an AWS Network Firewall Rule Group Resource
+//
+// ## Example Usage
+// ### Stateful Inspection for denying access to a domain
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
+//				Capacity: pulumi.Int(100),
+//				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
+//					RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
+//						RulesSourceList: &networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs{
+//							GeneratedRulesType: pulumi.String("DENYLIST"),
+//							TargetTypes: pulumi.StringArray{
+//								pulumi.String("HTTP_HOST"),
+//							},
+//							Targets: pulumi.StringArray{
+//								pulumi.String("test.example.com"),
+//							},
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
+//				Type: pulumi.String("STATEFUL"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Stateful Inspection from rules specifications defined in Suricata flat format
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
+//				Capacity: pulumi.Int(100),
+//				Type:     pulumi.String("STATEFUL"),
+//				Rules:    readFileOrPanic("example.rules"),
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
+//				Capacity: pulumi.Int(100),
+//				Type:     pulumi.String("STATEFUL"),
+//				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
+//					RuleVariables: &networkfirewall.RuleGroupRuleGroupRuleVariablesArgs{
+//						IpSets: networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArray{
+//							&networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs{
+//								Key: pulumi.String("WEBSERVERS_HOSTS"),
+//								IpSet: &networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs{
+//									Definitions: pulumi.StringArray{
+//										pulumi.String("10.0.0.0/16"),
+//										pulumi.String("10.0.1.0/24"),
+//										pulumi.String("192.168.0.0/16"),
+//									},
+//								},
+//							},
+//							&networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs{
+//								Key: pulumi.String("EXTERNAL_HOST"),
+//								IpSet: &networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs{
+//									Definitions: pulumi.StringArray{
+//										pulumi.String("1.2.3.4/32"),
+//									},
+//								},
+//							},
+//						},
+//						PortSets: networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArray{
+//							&networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArgs{
+//								Key: pulumi.String("HTTP_PORTS"),
+//								PortSet: &networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs{
+//									Definitions: pulumi.StringArray{
+//										pulumi.String("443"),
+//										pulumi.String("80"),
+//									},
+//								},
+//							},
+//						},
+//					},
+//					RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
+//						RulesString: readFileOrPanic("suricata_rules_file"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### IP Set References to the Rule Group
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
+//				Capacity: pulumi.Int(100),
+//				Type:     pulumi.String("STATEFUL"),
+//				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
+//					RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
+//						RulesSourceList: &networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs{
+//							GeneratedRulesType: pulumi.String("DENYLIST"),
+//							TargetTypes: pulumi.StringArray{
+//								pulumi.String("HTTP_HOST"),
+//							},
+//							Targets: pulumi.StringArray{
+//								pulumi.String("test.example.com"),
+//							},
+//						},
+//					},
+//					ReferenceSets: &networkfirewall.RuleGroupRuleGroupReferenceSetsArgs{
+//						IpSetReferences: networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArray{
+//							&networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs{
+//								Key: pulumi.String("example"),
+//								IpSetReferences: networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArray{
+//									&networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs{
+//										ReferenceArn: pulumi.Any(aws_ec2_managed_prefix_list.This.Arn),
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Network Firewall Rule Groups can be imported using their `ARN`.
+//
+// ```sh
+//
+//	$ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+//
+// ```
 type RuleGroup struct {
 	pulumi.CustomResourceState
 
-	Arn                     pulumi.StringOutput                       `pulumi:"arn"`
-	Capacity                pulumi.IntOutput                          `pulumi:"capacity"`
-	Description             pulumi.StringPtrOutput                    `pulumi:"description"`
+	// The Amazon Resource Name (ARN) that identifies the rule group.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
+	Capacity pulumi.IntOutput `pulumi:"capacity"`
+	// A friendly description of the rule group.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration RuleGroupEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
-	Name                    pulumi.StringOutput                       `pulumi:"name"`
-	RuleGroup               RuleGroupRuleGroupOutput                  `pulumi:"ruleGroup"`
-	Rules                   pulumi.StringPtrOutput                    `pulumi:"rules"`
-	Tags                    pulumi.StringMapOutput                    `pulumi:"tags"`
-	TagsAll                 pulumi.StringMapOutput                    `pulumi:"tagsAll"`
-	Type                    pulumi.StringOutput                       `pulumi:"type"`
-	UpdateToken             pulumi.StringOutput                       `pulumi:"updateToken"`
+	// A friendly name of the rule group.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+	RuleGroup RuleGroupRuleGroupOutput `pulumi:"ruleGroup"`
+	// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
+	Rules pulumi.StringPtrOutput `pulumi:"rules"`
+	// A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+	Type pulumi.StringOutput `pulumi:"type"`
+	// A string token used when updating the rule group.
+	UpdateToken pulumi.StringOutput `pulumi:"updateToken"`
 }
 
 // NewRuleGroup registers a new resource with the given unique name, arguments, and options.
@@ -62,31 +303,53 @@ func GetRuleGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleGroup resources.
 type ruleGroupState struct {
-	Arn                     *string                           `pulumi:"arn"`
-	Capacity                *int                              `pulumi:"capacity"`
-	Description             *string                           `pulumi:"description"`
+	// The Amazon Resource Name (ARN) that identifies the rule group.
+	Arn *string `pulumi:"arn"`
+	// The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
+	Capacity *int `pulumi:"capacity"`
+	// A friendly description of the rule group.
+	Description *string `pulumi:"description"`
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration *RuleGroupEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	Name                    *string                           `pulumi:"name"`
-	RuleGroup               *RuleGroupRuleGroup               `pulumi:"ruleGroup"`
-	Rules                   *string                           `pulumi:"rules"`
-	Tags                    map[string]string                 `pulumi:"tags"`
-	TagsAll                 map[string]string                 `pulumi:"tagsAll"`
-	Type                    *string                           `pulumi:"type"`
-	UpdateToken             *string                           `pulumi:"updateToken"`
+	// A friendly name of the rule group.
+	Name *string `pulumi:"name"`
+	// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+	RuleGroup *RuleGroupRuleGroup `pulumi:"ruleGroup"`
+	// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
+	Rules *string `pulumi:"rules"`
+	// A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+	Type *string `pulumi:"type"`
+	// A string token used when updating the rule group.
+	UpdateToken *string `pulumi:"updateToken"`
 }
 
 type RuleGroupState struct {
-	Arn                     pulumi.StringPtrInput
-	Capacity                pulumi.IntPtrInput
-	Description             pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) that identifies the rule group.
+	Arn pulumi.StringPtrInput
+	// The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
+	Capacity pulumi.IntPtrInput
+	// A friendly description of the rule group.
+	Description pulumi.StringPtrInput
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration RuleGroupEncryptionConfigurationPtrInput
-	Name                    pulumi.StringPtrInput
-	RuleGroup               RuleGroupRuleGroupPtrInput
-	Rules                   pulumi.StringPtrInput
-	Tags                    pulumi.StringMapInput
-	TagsAll                 pulumi.StringMapInput
-	Type                    pulumi.StringPtrInput
-	UpdateToken             pulumi.StringPtrInput
+	// A friendly name of the rule group.
+	Name pulumi.StringPtrInput
+	// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+	RuleGroup RuleGroupRuleGroupPtrInput
+	// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
+	Rules pulumi.StringPtrInput
+	// A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+	Type pulumi.StringPtrInput
+	// A string token used when updating the rule group.
+	UpdateToken pulumi.StringPtrInput
 }
 
 func (RuleGroupState) ElementType() reflect.Type {
@@ -94,26 +357,42 @@ func (RuleGroupState) ElementType() reflect.Type {
 }
 
 type ruleGroupArgs struct {
-	Capacity                int                               `pulumi:"capacity"`
-	Description             *string                           `pulumi:"description"`
+	// The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
+	Capacity int `pulumi:"capacity"`
+	// A friendly description of the rule group.
+	Description *string `pulumi:"description"`
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration *RuleGroupEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	Name                    *string                           `pulumi:"name"`
-	RuleGroup               *RuleGroupRuleGroup               `pulumi:"ruleGroup"`
-	Rules                   *string                           `pulumi:"rules"`
-	Tags                    map[string]string                 `pulumi:"tags"`
-	Type                    string                            `pulumi:"type"`
+	// A friendly name of the rule group.
+	Name *string `pulumi:"name"`
+	// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+	RuleGroup *RuleGroupRuleGroup `pulumi:"ruleGroup"`
+	// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
+	Rules *string `pulumi:"rules"`
+	// A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a RuleGroup resource.
 type RuleGroupArgs struct {
-	Capacity                pulumi.IntInput
-	Description             pulumi.StringPtrInput
+	// The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
+	Capacity pulumi.IntInput
+	// A friendly description of the rule group.
+	Description pulumi.StringPtrInput
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration RuleGroupEncryptionConfigurationPtrInput
-	Name                    pulumi.StringPtrInput
-	RuleGroup               RuleGroupRuleGroupPtrInput
-	Rules                   pulumi.StringPtrInput
-	Tags                    pulumi.StringMapInput
-	Type                    pulumi.StringInput
+	// A friendly name of the rule group.
+	Name pulumi.StringPtrInput
+	// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+	RuleGroup RuleGroupRuleGroupPtrInput
+	// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
+	Rules pulumi.StringPtrInput
+	// A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+	Type pulumi.StringInput
 }
 
 func (RuleGroupArgs) ElementType() reflect.Type {
@@ -203,46 +482,57 @@ func (o RuleGroupOutput) ToRuleGroupOutputWithContext(ctx context.Context) RuleG
 	return o
 }
 
+// The Amazon Resource Name (ARN) that identifies the rule group.
 func (o RuleGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
 func (o RuleGroupOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.IntOutput { return v.Capacity }).(pulumi.IntOutput)
 }
 
+// A friendly description of the rule group.
 func (o RuleGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// KMS encryption configuration settings. See Encryption Configuration below for details.
 func (o RuleGroupOutput) EncryptionConfiguration() RuleGroupEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *RuleGroup) RuleGroupEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(RuleGroupEncryptionConfigurationPtrOutput)
 }
 
+// A friendly name of the rule group.
 func (o RuleGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
 func (o RuleGroupOutput) RuleGroup() RuleGroupRuleGroupOutput {
 	return o.ApplyT(func(v *RuleGroup) RuleGroupRuleGroupOutput { return v.RuleGroup }).(RuleGroupRuleGroupOutput)
 }
 
+// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
 func (o RuleGroupOutput) Rules() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringPtrOutput { return v.Rules }).(pulumi.StringPtrOutput)
 }
 
+// A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RuleGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RuleGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
 func (o RuleGroupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
+// A string token used when updating the rule group.
 func (o RuleGroupOutput) UpdateToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.UpdateToken }).(pulumi.StringOutput)
 }

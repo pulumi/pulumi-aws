@@ -14,23 +14,47 @@ public final class FleetNetworkArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FleetNetworkArgs Empty = new FleetNetworkArgs();
 
+    /**
+     * A list of security group IDs associated with access to the provided subnets.
+     * 
+     */
     @Import(name="securityGroupIds", required=true)
     private Output<List<String>> securityGroupIds;
 
+    /**
+     * @return A list of security group IDs associated with access to the provided subnets.
+     * 
+     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
 
+    /**
+     * A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
+     * 
+     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
+    /**
+     * @return A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
+     * 
+     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
 
+    /**
+     * The VPC ID with connectivity to associated websites.
+     * 
+     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
+    /**
+     * @return The VPC ID with connectivity to associated websites.
+     * 
+     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
@@ -61,37 +85,85 @@ public final class FleetNetworkArgs extends com.pulumi.resources.ResourceArgs {
             $ = new FleetNetworkArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param securityGroupIds A list of security group IDs associated with access to the provided subnets.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
+        /**
+         * @param securityGroupIds A list of security group IDs associated with access to the provided subnets.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
+        /**
+         * @param securityGroupIds A list of security group IDs associated with access to the provided subnets.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
+        /**
+         * @param subnetIds A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
+        /**
+         * @param subnetIds A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
+        /**
+         * @param subnetIds A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
+        /**
+         * @param vpcId The VPC ID with connectivity to associated websites.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
+        /**
+         * @param vpcId The VPC ID with connectivity to associated websites.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

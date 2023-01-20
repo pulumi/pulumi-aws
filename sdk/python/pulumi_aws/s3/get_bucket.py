@@ -53,6 +53,9 @@ class GetBucketResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -63,16 +66,25 @@ class GetBucketResult:
     @property
     @pulumi.getter(name="bucketDomainName")
     def bucket_domain_name(self) -> str:
+        """
+        Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
+        """
         return pulumi.get(self, "bucket_domain_name")
 
     @property
     @pulumi.getter(name="bucketRegionalDomainName")
     def bucket_regional_domain_name(self) -> str:
+        """
+        The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
+        """
         return pulumi.get(self, "bucket_regional_domain_name")
 
     @property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> str:
+        """
+        The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
+        """
         return pulumi.get(self, "hosted_zone_id")
 
     @property
@@ -86,16 +98,25 @@ class GetBucketResult:
     @property
     @pulumi.getter
     def region(self) -> str:
+        """
+        AWS region this bucket resides in.
+        """
         return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="websiteDomain")
     def website_domain(self) -> str:
+        """
+        Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+        """
         return pulumi.get(self, "website_domain")
 
     @property
     @pulumi.getter(name="websiteEndpoint")
     def website_endpoint(self) -> str:
+        """
+        Website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+        """
         return pulumi.get(self, "website_endpoint")
 
 
@@ -119,7 +140,44 @@ class AwaitableGetBucketResult(GetBucketResult):
 def get_bucket(bucket: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBucketResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about a specific S3 bucket.
+
+    This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
+    Distribution.
+
+    ## Example Usage
+    ### Route53 Record
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    selected = aws.s3.get_bucket(bucket="bucket.test.com")
+    test_zone = aws.route53.get_zone(name="test.com.")
+    example = aws.route53.Record("example",
+        zone_id=test_zone.id,
+        name="bucket",
+        type="A",
+        aliases=[aws.route53.RecordAliasArgs(
+            name=selected.website_domain,
+            zone_id=selected.hosted_zone_id,
+        )])
+    ```
+    ### CloudFront Origin
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    selected = aws.s3.get_bucket(bucket="a-test-bucket")
+    test = aws.cloudfront.Distribution("test", origins=[aws.cloudfront.DistributionOriginArgs(
+        domain_name=selected.bucket_domain_name,
+        origin_id="s3-selected-bucket",
+    )])
+    ```
+
+
+    :param str bucket: Name of the bucket
     """
     __args__ = dict()
     __args__['bucket'] = bucket
@@ -142,6 +200,43 @@ def get_bucket(bucket: Optional[str] = None,
 def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about a specific S3 bucket.
+
+    This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
+    Distribution.
+
+    ## Example Usage
+    ### Route53 Record
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    selected = aws.s3.get_bucket(bucket="bucket.test.com")
+    test_zone = aws.route53.get_zone(name="test.com.")
+    example = aws.route53.Record("example",
+        zone_id=test_zone.id,
+        name="bucket",
+        type="A",
+        aliases=[aws.route53.RecordAliasArgs(
+            name=selected.website_domain,
+            zone_id=selected.hosted_zone_id,
+        )])
+    ```
+    ### CloudFront Origin
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    selected = aws.s3.get_bucket(bucket="a-test-bucket")
+    test = aws.cloudfront.Distribution("test", origins=[aws.cloudfront.DistributionOriginArgs(
+        domain_name=selected.bucket_domain_name,
+        origin_id="s3-selected-bucket",
+    )])
+    ```
+
+
+    :param str bucket: Name of the bucket
     """
     ...

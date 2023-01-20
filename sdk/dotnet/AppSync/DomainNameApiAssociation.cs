@@ -9,12 +9,47 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppSync
 {
+    /// <summary>
+    /// Provides an AppSync API Association.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.AppSync.DomainNameApiAssociation("example", new()
+    ///     {
+    ///         ApiId = aws_appsync_graphql_api.Example.Id,
+    ///         DomainName = aws_appsync_domain_name.Example.Domain_name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_appsync_domain_name_api_association` can be imported using the AppSync domain name, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:appsync/domainNameApiAssociation:DomainNameApiAssociation")]
     public partial class DomainNameApiAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// API ID.
+        /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
+        /// <summary>
+        /// Appsync domain name.
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
@@ -64,9 +99,15 @@ namespace Pulumi.Aws.AppSync
 
     public sealed class DomainNameApiAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// API ID.
+        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
+        /// <summary>
+        /// Appsync domain name.
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
@@ -78,9 +119,15 @@ namespace Pulumi.Aws.AppSync
 
     public sealed class DomainNameApiAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// API ID.
+        /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
 
+        /// <summary>
+        /// Appsync domain name.
+        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 

@@ -7,6 +7,134 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an AWS App Mesh route resource.
+ *
+ * ## Example Usage
+ * ### HTTP Routing
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const serviceb = new aws.appmesh.Route("serviceb", {
+ *     meshName: aws_appmesh_mesh.simple.id,
+ *     virtualRouterName: aws_appmesh_virtual_router.serviceb.name,
+ *     spec: {
+ *         httpRoute: {
+ *             match: {
+ *                 prefix: "/",
+ *             },
+ *             action: {
+ *                 weightedTargets: [
+ *                     {
+ *                         virtualNode: aws_appmesh_virtual_node.serviceb1.name,
+ *                         weight: 90,
+ *                     },
+ *                     {
+ *                         virtualNode: aws_appmesh_virtual_node.serviceb2.name,
+ *                         weight: 10,
+ *                     },
+ *                 ],
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ * ### HTTP Header Routing
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const serviceb = new aws.appmesh.Route("serviceb", {
+ *     meshName: aws_appmesh_mesh.simple.id,
+ *     virtualRouterName: aws_appmesh_virtual_router.serviceb.name,
+ *     spec: {
+ *         httpRoute: {
+ *             match: {
+ *                 method: "POST",
+ *                 prefix: "/",
+ *                 scheme: "https",
+ *                 headers: [{
+ *                     name: "clientRequestId",
+ *                     match: {
+ *                         prefix: "123",
+ *                     },
+ *                 }],
+ *             },
+ *             action: {
+ *                 weightedTargets: [{
+ *                     virtualNode: aws_appmesh_virtual_node.serviceb.name,
+ *                     weight: 100,
+ *                 }],
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ * ### Retry Policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const serviceb = new aws.appmesh.Route("serviceb", {
+ *     meshName: aws_appmesh_mesh.simple.id,
+ *     virtualRouterName: aws_appmesh_virtual_router.serviceb.name,
+ *     spec: {
+ *         httpRoute: {
+ *             match: {
+ *                 prefix: "/",
+ *             },
+ *             retryPolicy: {
+ *                 httpRetryEvents: ["server-error"],
+ *                 maxRetries: 1,
+ *                 perRetryTimeout: {
+ *                     unit: "s",
+ *                     value: 15,
+ *                 },
+ *             },
+ *             action: {
+ *                 weightedTargets: [{
+ *                     virtualNode: aws_appmesh_virtual_node.serviceb.name,
+ *                     weight: 100,
+ *                 }],
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ * ### TCP Routing
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const serviceb = new aws.appmesh.Route("serviceb", {
+ *     meshName: aws_appmesh_mesh.simple.id,
+ *     virtualRouterName: aws_appmesh_virtual_router.serviceb.name,
+ *     spec: {
+ *         tcpRoute: {
+ *             action: {
+ *                 weightedTargets: [{
+ *                     virtualNode: aws_appmesh_virtual_node.serviceb1.name,
+ *                     weight: 100,
+ *                 }],
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * App Mesh virtual routes can be imported using `mesh_name` and `virtual_router_name` together with the route's `name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
+ * ```
+ */
 export class Route extends pulumi.CustomResource {
     /**
      * Get an existing Route resource's state with the given name, ID, and optional extra
@@ -35,16 +163,49 @@ export class Route extends pulumi.CustomResource {
         return obj['__pulumiType'] === Route.__pulumiType;
     }
 
+    /**
+     * ARN of the route.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Creation date of the route.
+     */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
+     * Last update date of the route.
+     */
     public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
+    /**
+     * Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
+     */
     public readonly meshName!: pulumi.Output<string>;
+    /**
+     * AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
+     */
     public readonly meshOwner!: pulumi.Output<string>;
+    /**
+     * Name to use for the route. Must be between 1 and 255 characters in length.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Resource owner's AWS account ID.
+     */
     public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
+    /**
+     * Route specification to apply.
+     */
     public readonly spec!: pulumi.Output<outputs.appmesh.RouteSpec>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
+     */
     public readonly virtualRouterName!: pulumi.Output<string>;
 
     /**
@@ -103,16 +264,49 @@ export class Route extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Route resources.
  */
 export interface RouteState {
+    /**
+     * ARN of the route.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Creation date of the route.
+     */
     createdDate?: pulumi.Input<string>;
+    /**
+     * Last update date of the route.
+     */
     lastUpdatedDate?: pulumi.Input<string>;
+    /**
+     * Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
+     */
     meshName?: pulumi.Input<string>;
+    /**
+     * AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
+     */
     meshOwner?: pulumi.Input<string>;
+    /**
+     * Name to use for the route. Must be between 1 and 255 characters in length.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Resource owner's AWS account ID.
+     */
     resourceOwner?: pulumi.Input<string>;
+    /**
+     * Route specification to apply.
+     */
     spec?: pulumi.Input<inputs.appmesh.RouteSpec>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
+     */
     virtualRouterName?: pulumi.Input<string>;
 }
 
@@ -120,10 +314,28 @@ export interface RouteState {
  * The set of arguments for constructing a Route resource.
  */
 export interface RouteArgs {
+    /**
+     * Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
+     */
     meshName: pulumi.Input<string>;
+    /**
+     * AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
+     */
     meshOwner?: pulumi.Input<string>;
+    /**
+     * Name to use for the route. Must be between 1 and 255 characters in length.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Route specification to apply.
+     */
     spec: pulumi.Input<inputs.appmesh.RouteSpec>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
+     */
     virtualRouterName: pulumi.Input<string>;
 }

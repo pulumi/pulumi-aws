@@ -13,7 +13,13 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class TableAttribute
     {
+        /// <summary>
+        /// Name of the attribute
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -11,9 +11,57 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetNetworkInsightsAnalysis
     {
+        /// <summary>
+        /// `aws.ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetNetworkInsightsAnalysis.Invoke(new()
+        ///     {
+        ///         NetworkInsightsAnalysisId = aws_ec2_network_insights_analysis.Example.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetNetworkInsightsAnalysisResult> InvokeAsync(GetNetworkInsightsAnalysisArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInsightsAnalysisResult>("aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis", args ?? new GetNetworkInsightsAnalysisArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// `aws.ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetNetworkInsightsAnalysis.Invoke(new()
+        ///     {
+        ///         NetworkInsightsAnalysisId = aws_ec2_network_insights_analysis.Example.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetNetworkInsightsAnalysisResult> Invoke(GetNetworkInsightsAnalysisInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInsightsAnalysisResult>("aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis", args ?? new GetNetworkInsightsAnalysisInvokeArgs(), options.WithDefaults());
     }
@@ -23,12 +71,19 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetNetworkInsightsAnalysisFilterArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
         public List<Inputs.GetNetworkInsightsAnalysisFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetNetworkInsightsAnalysisFilterArgs>());
             set => _filters = value;
         }
 
+        /// <summary>
+        /// ID of the Network Insights Analysis to select.
+        /// </summary>
         [Input("networkInsightsAnalysisId")]
         public string? NetworkInsightsAnalysisId { get; set; }
 
@@ -50,12 +105,19 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetNetworkInsightsAnalysisFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
         public InputList<Inputs.GetNetworkInsightsAnalysisFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetNetworkInsightsAnalysisFilterInputArgs>());
             set => _filters = value;
         }
 
+        /// <summary>
+        /// ID of the Network Insights Analysis to select.
+        /// </summary>
         [Input("networkInsightsAnalysisId")]
         public Input<string>? NetworkInsightsAnalysisId { get; set; }
 
@@ -77,24 +139,60 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetNetworkInsightsAnalysisResult
     {
+        /// <summary>
+        /// Potential intermediate components of a feasible path.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisAlternatePathHintResult> AlternatePathHints;
+        /// <summary>
+        /// ARN of the selected Network Insights Analysis.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Explanation codes for an unreachable path.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationResult> Explanations;
+        /// <summary>
+        /// ARNs of the AWS resources that the path must traverse.
+        /// </summary>
         public readonly ImmutableArray<string> FilterInArns;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisFilterResult> Filters;
+        /// <summary>
+        /// The components in the path from source to destination.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisForwardPathComponentResult> ForwardPathComponents;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string NetworkInsightsAnalysisId;
+        /// <summary>
+        /// The ID of the path.
+        /// </summary>
         public readonly string NetworkInsightsPathId;
+        /// <summary>
+        /// Set to `true` if the destination was reachable.
+        /// </summary>
         public readonly bool PathFound;
+        /// <summary>
+        /// The components in the path from destination to source.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisReturnPathComponentResult> ReturnPathComponents;
+        /// <summary>
+        /// Date/time the analysis was started.
+        /// </summary>
         public readonly string StartDate;
+        /// <summary>
+        /// Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// Message to provide more context when the `status` is `failed`.
+        /// </summary>
         public readonly string StatusMessage;
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// Warning message.
+        /// </summary>
         public readonly string WarningMessage;
 
         [OutputConstructor]

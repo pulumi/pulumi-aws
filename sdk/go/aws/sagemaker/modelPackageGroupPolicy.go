@@ -11,9 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a SageMaker Model Package Group Policy resource.
+//
+// ## Example Usage
+//
+// ## Import
+//
+// SageMaker Model Package Groups can be imported using the `name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
+//
+// ```
 type ModelPackageGroupPolicy struct {
 	pulumi.CustomResourceState
 
+	// The name of the model package group.
 	ModelPackageGroupName pulumi.StringOutput `pulumi:"modelPackageGroupName"`
 	ResourcePolicy        pulumi.StringOutput `pulumi:"resourcePolicy"`
 }
@@ -53,11 +67,13 @@ func GetModelPackageGroupPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ModelPackageGroupPolicy resources.
 type modelPackageGroupPolicyState struct {
+	// The name of the model package group.
 	ModelPackageGroupName *string `pulumi:"modelPackageGroupName"`
 	ResourcePolicy        *string `pulumi:"resourcePolicy"`
 }
 
 type ModelPackageGroupPolicyState struct {
+	// The name of the model package group.
 	ModelPackageGroupName pulumi.StringPtrInput
 	ResourcePolicy        pulumi.StringPtrInput
 }
@@ -67,12 +83,14 @@ func (ModelPackageGroupPolicyState) ElementType() reflect.Type {
 }
 
 type modelPackageGroupPolicyArgs struct {
+	// The name of the model package group.
 	ModelPackageGroupName string `pulumi:"modelPackageGroupName"`
 	ResourcePolicy        string `pulumi:"resourcePolicy"`
 }
 
 // The set of arguments for constructing a ModelPackageGroupPolicy resource.
 type ModelPackageGroupPolicyArgs struct {
+	// The name of the model package group.
 	ModelPackageGroupName pulumi.StringInput
 	ResourcePolicy        pulumi.StringInput
 }
@@ -164,6 +182,7 @@ func (o ModelPackageGroupPolicyOutput) ToModelPackageGroupPolicyOutputWithContex
 	return o
 }
 
+// The name of the model package group.
 func (o ModelPackageGroupPolicyOutput) ModelPackageGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelPackageGroupPolicy) pulumi.StringOutput { return v.ModelPackageGroupName }).(pulumi.StringOutput)
 }

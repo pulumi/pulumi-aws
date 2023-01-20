@@ -16,16 +16,32 @@ public final class GetTrackerArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTrackerArgs Empty = new GetTrackerArgs();
 
+    /**
+     * Key-value map of resource tags for the tracker.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags for the tracker.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Name of the tracker resource.
+     * 
+     */
     @Import(name="trackerName", required=true)
     private Output<String> trackerName;
 
+    /**
+     * @return Name of the tracker resource.
+     * 
+     */
     public Output<String> trackerName() {
         return this.trackerName;
     }
@@ -55,20 +71,44 @@ public final class GetTrackerArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetTrackerArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param tags Key-value map of resource tags for the tracker.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of resource tags for the tracker.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param trackerName Name of the tracker resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder trackerName(Output<String> trackerName) {
             $.trackerName = trackerName;
             return this;
         }
 
+        /**
+         * @param trackerName Name of the tracker resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder trackerName(String trackerName) {
             return trackerName(Output.of(trackerName));
         }

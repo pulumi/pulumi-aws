@@ -18,6 +18,8 @@ class PullThroughCacheRuleArgs:
                  upstream_registry_url: pulumi.Input[str]):
         """
         The set of arguments for constructing a PullThroughCacheRule resource.
+        :param pulumi.Input[str] ecr_repository_prefix: The repository name prefix to use when caching images from the source registry.
+        :param pulumi.Input[str] upstream_registry_url: The registry URL of the upstream public registry to use as the source.
         """
         pulumi.set(__self__, "ecr_repository_prefix", ecr_repository_prefix)
         pulumi.set(__self__, "upstream_registry_url", upstream_registry_url)
@@ -25,6 +27,9 @@ class PullThroughCacheRuleArgs:
     @property
     @pulumi.getter(name="ecrRepositoryPrefix")
     def ecr_repository_prefix(self) -> pulumi.Input[str]:
+        """
+        The repository name prefix to use when caching images from the source registry.
+        """
         return pulumi.get(self, "ecr_repository_prefix")
 
     @ecr_repository_prefix.setter
@@ -34,6 +39,9 @@ class PullThroughCacheRuleArgs:
     @property
     @pulumi.getter(name="upstreamRegistryUrl")
     def upstream_registry_url(self) -> pulumi.Input[str]:
+        """
+        The registry URL of the upstream public registry to use as the source.
+        """
         return pulumi.get(self, "upstream_registry_url")
 
     @upstream_registry_url.setter
@@ -49,6 +57,9 @@ class _PullThroughCacheRuleState:
                  upstream_registry_url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PullThroughCacheRule resources.
+        :param pulumi.Input[str] ecr_repository_prefix: The repository name prefix to use when caching images from the source registry.
+        :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
+        :param pulumi.Input[str] upstream_registry_url: The registry URL of the upstream public registry to use as the source.
         """
         if ecr_repository_prefix is not None:
             pulumi.set(__self__, "ecr_repository_prefix", ecr_repository_prefix)
@@ -60,6 +71,9 @@ class _PullThroughCacheRuleState:
     @property
     @pulumi.getter(name="ecrRepositoryPrefix")
     def ecr_repository_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repository name prefix to use when caching images from the source registry.
+        """
         return pulumi.get(self, "ecr_repository_prefix")
 
     @ecr_repository_prefix.setter
@@ -69,6 +83,9 @@ class _PullThroughCacheRuleState:
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The registry ID where the repository was created.
+        """
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter
@@ -78,6 +95,9 @@ class _PullThroughCacheRuleState:
     @property
     @pulumi.getter(name="upstreamRegistryUrl")
     def upstream_registry_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The registry URL of the upstream public registry to use as the source.
+        """
         return pulumi.get(self, "upstream_registry_url")
 
     @upstream_registry_url.setter
@@ -94,9 +114,34 @@ class PullThroughCacheRule(pulumi.CustomResource):
                  upstream_registry_url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a PullThroughCacheRule resource with the given unique name, props, and options.
+        Provides an Elastic Container Registry Pull Through Cache Rule.
+
+        More information about pull through cache rules, including the set of supported
+        upstream repositories, see [Using pull through cache rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ecr.PullThroughCacheRule("example",
+            ecr_repository_prefix="ecr-public",
+            upstream_registry_url="public.ecr.aws")
+        ```
+
+        ## Import
+
+        Use the `ecr_repository_prefix` to import a Pull Through Cache Rule. For example
+
+        ```sh
+         $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] ecr_repository_prefix: The repository name prefix to use when caching images from the source registry.
+        :param pulumi.Input[str] upstream_registry_url: The registry URL of the upstream public registry to use as the source.
         """
         ...
     @overload
@@ -105,7 +150,30 @@ class PullThroughCacheRule(pulumi.CustomResource):
                  args: PullThroughCacheRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a PullThroughCacheRule resource with the given unique name, props, and options.
+        Provides an Elastic Container Registry Pull Through Cache Rule.
+
+        More information about pull through cache rules, including the set of supported
+        upstream repositories, see [Using pull through cache rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ecr.PullThroughCacheRule("example",
+            ecr_repository_prefix="ecr-public",
+            upstream_registry_url="public.ecr.aws")
+        ```
+
+        ## Import
+
+        Use the `ecr_repository_prefix` to import a Pull Through Cache Rule. For example
+
+        ```sh
+         $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
+        ```
+
         :param str resource_name: The name of the resource.
         :param PullThroughCacheRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,6 +227,9 @@ class PullThroughCacheRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] ecr_repository_prefix: The repository name prefix to use when caching images from the source registry.
+        :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
+        :param pulumi.Input[str] upstream_registry_url: The registry URL of the upstream public registry to use as the source.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -172,15 +243,24 @@ class PullThroughCacheRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ecrRepositoryPrefix")
     def ecr_repository_prefix(self) -> pulumi.Output[str]:
+        """
+        The repository name prefix to use when caching images from the source registry.
+        """
         return pulumi.get(self, "ecr_repository_prefix")
 
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> pulumi.Output[str]:
+        """
+        The registry ID where the repository was created.
+        """
         return pulumi.get(self, "registry_id")
 
     @property
     @pulumi.getter(name="upstreamRegistryUrl")
     def upstream_registry_url(self) -> pulumi.Output[str]:
+        """
+        The registry URL of the upstream public registry to use as the source.
+        """
         return pulumi.get(self, "upstream_registry_url")
 

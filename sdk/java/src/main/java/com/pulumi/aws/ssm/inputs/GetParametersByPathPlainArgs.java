@@ -15,23 +15,47 @@ public final class GetParametersByPathPlainArgs extends com.pulumi.resources.Inv
 
     public static final GetParametersByPathPlainArgs Empty = new GetParametersByPathPlainArgs();
 
+    /**
+     * Prefix path of the parameter.
+     * 
+     */
     @Import(name="path", required=true)
     private String path;
 
+    /**
+     * @return Prefix path of the parameter.
+     * 
+     */
     public String path() {
         return this.path;
     }
 
+    /**
+     * Whether to recursively return parameters under `path`. Defaults to `false`.
+     * 
+     */
     @Import(name="recursive")
     private @Nullable Boolean recursive;
 
+    /**
+     * @return Whether to recursively return parameters under `path`. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> recursive() {
         return Optional.ofNullable(this.recursive);
     }
 
+    /**
+     * Whether to return decrypted `SecureString` value. Defaults to `true`.
+     * 
+     */
     @Import(name="withDecryption")
     private @Nullable Boolean withDecryption;
 
+    /**
+     * @return Whether to return decrypted `SecureString` value. Defaults to `true`.
+     * 
+     */
     public Optional<Boolean> withDecryption() {
         return Optional.ofNullable(this.withDecryption);
     }
@@ -62,16 +86,34 @@ public final class GetParametersByPathPlainArgs extends com.pulumi.resources.Inv
             $ = new GetParametersByPathPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param path Prefix path of the parameter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(String path) {
             $.path = path;
             return this;
         }
 
+        /**
+         * @param recursive Whether to recursively return parameters under `path`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recursive(@Nullable Boolean recursive) {
             $.recursive = recursive;
             return this;
         }
 
+        /**
+         * @param withDecryption Whether to return decrypted `SecureString` value. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withDecryption(@Nullable Boolean withDecryption) {
             $.withDecryption = withDecryption;
             return this;

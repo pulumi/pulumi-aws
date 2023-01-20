@@ -20,71 +20,213 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a CodeDeploy CustomActionType
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.codepipeline.CustomActionType;
+ * import com.pulumi.aws.codepipeline.CustomActionTypeArgs;
+ * import com.pulumi.aws.codepipeline.inputs.CustomActionTypeInputArtifactDetailsArgs;
+ * import com.pulumi.aws.codepipeline.inputs.CustomActionTypeOutputArtifactDetailsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new CustomActionType(&#34;example&#34;, CustomActionTypeArgs.builder()        
+ *             .category(&#34;Build&#34;)
+ *             .inputArtifactDetails(CustomActionTypeInputArtifactDetailsArgs.builder()
+ *                 .maximumCount(1)
+ *                 .minimumCount(0)
+ *                 .build())
+ *             .outputArtifactDetails(CustomActionTypeOutputArtifactDetailsArgs.builder()
+ *                 .maximumCount(1)
+ *                 .minimumCount(0)
+ *                 .build())
+ *             .providerName(&#34;example&#34;)
+ *             .version(&#34;1&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * CodeDeploy CustomActionType can be imported using the `id`, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:terraform:1
+ * ```
+ * 
+ */
 @ResourceType(type="aws:codepipeline/customActionType:CustomActionType")
 public class CustomActionType extends com.pulumi.resources.CustomResource {
+    /**
+     * The action ARN.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The action ARN.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
+     * 
+     */
     @Export(name="category", refs={String.class}, tree="[0]")
     private Output<String> category;
 
+    /**
+     * @return The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
+     * 
+     */
     public Output<String> category() {
         return this.category;
     }
+    /**
+     * The configuration properties for the custom action. Max 10 items.
+     * 
+     */
     @Export(name="configurationProperties", refs={List.class,CustomActionTypeConfigurationProperty.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CustomActionTypeConfigurationProperty>> configurationProperties;
 
+    /**
+     * @return The configuration properties for the custom action. Max 10 items.
+     * 
+     */
     public Output<Optional<List<CustomActionTypeConfigurationProperty>>> configurationProperties() {
         return Codegen.optional(this.configurationProperties);
     }
+    /**
+     * The details of the input artifact for the action.
+     * 
+     */
     @Export(name="inputArtifactDetails", refs={CustomActionTypeInputArtifactDetails.class}, tree="[0]")
     private Output<CustomActionTypeInputArtifactDetails> inputArtifactDetails;
 
+    /**
+     * @return The details of the input artifact for the action.
+     * 
+     */
     public Output<CustomActionTypeInputArtifactDetails> inputArtifactDetails() {
         return this.inputArtifactDetails;
     }
+    /**
+     * The details of the output artifact of the action.
+     * 
+     */
     @Export(name="outputArtifactDetails", refs={CustomActionTypeOutputArtifactDetails.class}, tree="[0]")
     private Output<CustomActionTypeOutputArtifactDetails> outputArtifactDetails;
 
+    /**
+     * @return The details of the output artifact of the action.
+     * 
+     */
     public Output<CustomActionTypeOutputArtifactDetails> outputArtifactDetails() {
         return this.outputArtifactDetails;
     }
+    /**
+     * The creator of the action being called.
+     * 
+     */
     @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
+    /**
+     * @return The creator of the action being called.
+     * 
+     */
     public Output<String> owner() {
         return this.owner;
     }
+    /**
+     * The provider of the service used in the custom action
+     * 
+     */
     @Export(name="providerName", refs={String.class}, tree="[0]")
     private Output<String> providerName;
 
+    /**
+     * @return The provider of the service used in the custom action
+     * 
+     */
     public Output<String> providerName() {
         return this.providerName;
     }
+    /**
+     * The settings for an action type.
+     * 
+     */
     @Export(name="settings", refs={CustomActionTypeSettings.class}, tree="[0]")
     private Output</* @Nullable */ CustomActionTypeSettings> settings;
 
+    /**
+     * @return The settings for an action type.
+     * 
+     */
     public Output<Optional<CustomActionTypeSettings>> settings() {
         return Codegen.optional(this.settings);
     }
+    /**
+     * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The version identifier of the custom action.
+     * 
+     */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
+    /**
+     * @return The version identifier of the custom action.
+     * 
+     */
     public Output<String> version() {
         return this.version;
     }

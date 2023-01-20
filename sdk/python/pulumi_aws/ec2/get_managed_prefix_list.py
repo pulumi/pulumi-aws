@@ -58,16 +58,25 @@ class GetManagedPrefixListResult:
     @property
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> str:
+        """
+        Address family of the prefix list. Valid values are `IPv4` and `IPv6`.
+        """
         return pulumi.get(self, "address_family")
 
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the selected prefix list.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def entries(self) -> Sequence['outputs.GetManagedPrefixListEntryResult']:
+        """
+        Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
+        """
         return pulumi.get(self, "entries")
 
     @property
@@ -78,26 +87,41 @@ class GetManagedPrefixListResult:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        ID of the selected prefix list.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="maxEntries")
     def max_entries(self) -> int:
+        """
+        When then prefix list is managed, the maximum number of entries it supports, or null otherwise.
+        """
         return pulumi.get(self, "max_entries")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the selected prefix list.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
+        """
+        Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
+        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Map of tags assigned to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -130,7 +154,36 @@ def get_managed_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetMana
                             tags: Optional[Mapping[str, str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedPrefixListResult:
     """
-    Use this data source to access information about an existing resource.
+    `ec2.ManagedPrefixList` provides details about a specific AWS prefix list or
+    customer-managed prefix list in the current region.
+
+    ## Example Usage
+    ### Find the regional DynamoDB prefix list
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.get_region()
+    example = aws.ec2.get_managed_prefix_list(name=f"com.amazonaws.{current.name}.dynamodb")
+    ```
+    ### Find a managed prefix list using filters
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2.get_managed_prefix_list(filters=[aws.ec2.GetManagedPrefixListFilterArgs(
+        name="prefix-list-name",
+        values=["my-prefix-list"],
+    )])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetManagedPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param str id: ID of the prefix list to select.
+    :param str name: Name of the prefix list to select.
+    :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -160,6 +213,35 @@ def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Seque
                                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedPrefixListResult]:
     """
-    Use this data source to access information about an existing resource.
+    `ec2.ManagedPrefixList` provides details about a specific AWS prefix list or
+    customer-managed prefix list in the current region.
+
+    ## Example Usage
+    ### Find the regional DynamoDB prefix list
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.get_region()
+    example = aws.ec2.get_managed_prefix_list(name=f"com.amazonaws.{current.name}.dynamodb")
+    ```
+    ### Find a managed prefix list using filters
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2.get_managed_prefix_list(filters=[aws.ec2.GetManagedPrefixListFilterArgs(
+        name="prefix-list-name",
+        values=["my-prefix-list"],
+    )])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetManagedPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param str id: ID of the prefix list to select.
+    :param str name: Name of the prefix list to select.
+    :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
     ...

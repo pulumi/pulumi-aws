@@ -13,16 +13,32 @@ public final class RegistryPolicyArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final RegistryPolicyArgs Empty = new RegistryPolicyArgs();
 
+    /**
+     * Resource Policy for EventBridge Schema Registry
+     * 
+     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
+    /**
+     * @return Resource Policy for EventBridge Schema Registry
+     * 
+     */
     public Output<String> policy() {
         return this.policy;
     }
 
+    /**
+     * Name of EventBridge Schema Registry
+     * 
+     */
     @Import(name="registryName", required=true)
     private Output<String> registryName;
 
+    /**
+     * @return Name of EventBridge Schema Registry
+     * 
+     */
     public Output<String> registryName() {
         return this.registryName;
     }
@@ -52,20 +68,44 @@ public final class RegistryPolicyArgs extends com.pulumi.resources.ResourceArgs 
             $ = new RegistryPolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param policy Resource Policy for EventBridge Schema Registry
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
+        /**
+         * @param policy Resource Policy for EventBridge Schema Registry
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
+        /**
+         * @param registryName Name of EventBridge Schema Registry
+         * 
+         * @return builder
+         * 
+         */
         public Builder registryName(Output<String> registryName) {
             $.registryName = registryName;
             return this;
         }
 
+        /**
+         * @param registryName Name of EventBridge Schema Registry
+         * 
+         * @return builder
+         * 
+         */
         public Builder registryName(String registryName) {
             return registryName(Output.of(registryName));
         }

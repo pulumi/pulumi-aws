@@ -15,41 +15,131 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Resource for managing an AWS Location Geofence Collection.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.location.GeofenceCollection;
+ * import com.pulumi.aws.location.GeofenceCollectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new GeofenceCollection(&#34;example&#34;, GeofenceCollectionArgs.builder()        
+ *             .collectionName(&#34;example&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Location Geofence Collection can be imported using the `collection_name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:location/geofenceCollection:GeofenceCollection example example
+ * ```
+ * 
+ */
 @ResourceType(type="aws:location/geofenceCollection:GeofenceCollection")
 public class GeofenceCollection extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+     * 
+     */
     @Export(name="collectionArn", refs={String.class}, tree="[0]")
     private Output<String> collectionArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+     * 
+     */
     public Output<String> collectionArn() {
         return this.collectionArn;
     }
+    /**
+     * The name of the geofence collection.
+     * 
+     */
     @Export(name="collectionName", refs={String.class}, tree="[0]")
     private Output<String> collectionName;
 
+    /**
+     * @return The name of the geofence collection.
+     * 
+     */
     public Output<String> collectionName() {
         return this.collectionName;
     }
+    /**
+     * The timestamp for when the geofence collection resource was created in ISO 8601 format.
+     * 
+     */
     @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
+    /**
+     * @return The timestamp for when the geofence collection resource was created in ISO 8601 format.
+     * 
+     */
     public Output<String> createTime() {
         return this.createTime;
     }
+    /**
+     * The optional description for the geofence collection.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The optional description for the geofence collection.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+     * 
+     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
+    /**
+     * @return A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+     * 
+     */
     public Output<Optional<String>> kmsKeyId() {
         return Codegen.optional(this.kmsKeyId);
     }
+    /**
+     * Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -59,9 +149,17 @@ public class GeofenceCollection extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
+     * 
+     */
     @Export(name="updateTime", refs={String.class}, tree="[0]")
     private Output<String> updateTime;
 
+    /**
+     * @return The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
+     * 
+     */
     public Output<String> updateTime() {
         return this.updateTime;
     }

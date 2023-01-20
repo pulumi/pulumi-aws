@@ -15,23 +15,47 @@ public final class GetPortfolioConstraintsArgs extends com.pulumi.resources.Invo
 
     public static final GetPortfolioConstraintsArgs Empty = new GetPortfolioConstraintsArgs();
 
+    /**
+     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     * 
+     */
     @Import(name="acceptLanguage")
     private @Nullable Output<String> acceptLanguage;
 
+    /**
+     * @return Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     * 
+     */
     public Optional<Output<String>> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
 
+    /**
+     * Portfolio identifier.
+     * 
+     */
     @Import(name="portfolioId", required=true)
     private Output<String> portfolioId;
 
+    /**
+     * @return Portfolio identifier.
+     * 
+     */
     public Output<String> portfolioId() {
         return this.portfolioId;
     }
 
+    /**
+     * Product identifier.
+     * 
+     */
     @Import(name="productId")
     private @Nullable Output<String> productId;
 
+    /**
+     * @return Product identifier.
+     * 
+     */
     public Optional<Output<String>> productId() {
         return Optional.ofNullable(this.productId);
     }
@@ -62,29 +86,65 @@ public final class GetPortfolioConstraintsArgs extends com.pulumi.resources.Invo
             $ = new GetPortfolioConstraintsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param acceptLanguage Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder acceptLanguage(@Nullable Output<String> acceptLanguage) {
             $.acceptLanguage = acceptLanguage;
             return this;
         }
 
+        /**
+         * @param acceptLanguage Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder acceptLanguage(String acceptLanguage) {
             return acceptLanguage(Output.of(acceptLanguage));
         }
 
+        /**
+         * @param portfolioId Portfolio identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder portfolioId(Output<String> portfolioId) {
             $.portfolioId = portfolioId;
             return this;
         }
 
+        /**
+         * @param portfolioId Portfolio identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder portfolioId(String portfolioId) {
             return portfolioId(Output.of(portfolioId));
         }
 
+        /**
+         * @param productId Product identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder productId(@Nullable Output<String> productId) {
             $.productId = productId;
             return this;
         }
 
+        /**
+         * @param productId Product identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder productId(String productId) {
             return productId(Output.of(productId));
         }

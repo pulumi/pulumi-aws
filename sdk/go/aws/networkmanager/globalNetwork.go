@@ -10,13 +10,54 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a global network resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkmanager.NewGlobalNetwork(ctx, "example", &networkmanager.GlobalNetworkArgs{
+//				Description: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_networkmanager_global_network` can be imported using the global network ID, e.g.
+//
+// ```sh
+//
+//	$ pulumi import aws:networkmanager/globalNetwork:GlobalNetwork example global-network-0d47f6t230mz46dy4
+//
+// ```
 type GlobalNetwork struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	// Global Network Amazon Resource Name (ARN)
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Description of the Global Network.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	Tags        pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Key-value tags for the Global Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewGlobalNetwork registers a new resource with the given unique name, arguments, and options.
@@ -48,17 +89,25 @@ func GetGlobalNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GlobalNetwork resources.
 type globalNetworkState struct {
-	Arn         *string           `pulumi:"arn"`
-	Description *string           `pulumi:"description"`
-	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
+	// Global Network Amazon Resource Name (ARN)
+	Arn *string `pulumi:"arn"`
+	// Description of the Global Network.
+	Description *string `pulumi:"description"`
+	// Key-value tags for the Global Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type GlobalNetworkState struct {
-	Arn         pulumi.StringPtrInput
+	// Global Network Amazon Resource Name (ARN)
+	Arn pulumi.StringPtrInput
+	// Description of the Global Network.
 	Description pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// Key-value tags for the Global Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (GlobalNetworkState) ElementType() reflect.Type {
@@ -66,14 +115,18 @@ func (GlobalNetworkState) ElementType() reflect.Type {
 }
 
 type globalNetworkArgs struct {
-	Description *string           `pulumi:"description"`
-	Tags        map[string]string `pulumi:"tags"`
+	// Description of the Global Network.
+	Description *string `pulumi:"description"`
+	// Key-value tags for the Global Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GlobalNetwork resource.
 type GlobalNetworkArgs struct {
+	// Description of the Global Network.
 	Description pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
+	// Key-value tags for the Global Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (GlobalNetworkArgs) ElementType() reflect.Type {
@@ -163,18 +216,22 @@ func (o GlobalNetworkOutput) ToGlobalNetworkOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Global Network Amazon Resource Name (ARN)
 func (o GlobalNetworkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalNetwork) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Description of the Global Network.
 func (o GlobalNetworkOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalNetwork) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Key-value tags for the Global Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o GlobalNetworkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GlobalNetwork) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o GlobalNetworkOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GlobalNetwork) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

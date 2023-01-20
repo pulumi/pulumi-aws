@@ -12,12 +12,21 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketReplicationConfigRuleFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
+        /// </summary>
         [Input("and")]
         public Input<Inputs.BucketReplicationConfigRuleFilterAndArgs>? And { get; set; }
 
+        /// <summary>
+        /// An object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
+        /// <summary>
+        /// A configuration block for specifying a tag key and value documented below.
+        /// </summary>
         [Input("tag")]
         public Input<Inputs.BucketReplicationConfigRuleFilterTagArgs>? Tag { get; set; }
 

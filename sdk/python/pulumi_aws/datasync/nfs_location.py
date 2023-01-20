@@ -23,6 +23,11 @@ class NfsLocationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NfsLocation resource.
+        :param pulumi.Input['NfsLocationOnPremConfigArgs'] on_prem_config: Configuration block containing information for connecting to the NFS File System.
+        :param pulumi.Input[str] server_hostname: Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
+        :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
+        :param pulumi.Input['NfsLocationMountOptionsArgs'] mount_options: Configuration block containing mount options used by DataSync to access the NFS Server.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "on_prem_config", on_prem_config)
         pulumi.set(__self__, "server_hostname", server_hostname)
@@ -35,6 +40,9 @@ class NfsLocationArgs:
     @property
     @pulumi.getter(name="onPremConfig")
     def on_prem_config(self) -> pulumi.Input['NfsLocationOnPremConfigArgs']:
+        """
+        Configuration block containing information for connecting to the NFS File System.
+        """
         return pulumi.get(self, "on_prem_config")
 
     @on_prem_config.setter
@@ -44,6 +52,9 @@ class NfsLocationArgs:
     @property
     @pulumi.getter(name="serverHostname")
     def server_hostname(self) -> pulumi.Input[str]:
+        """
+        Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
+        """
         return pulumi.get(self, "server_hostname")
 
     @server_hostname.setter
@@ -53,6 +64,9 @@ class NfsLocationArgs:
     @property
     @pulumi.getter
     def subdirectory(self) -> pulumi.Input[str]:
+        """
+        Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
+        """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
@@ -62,6 +76,9 @@ class NfsLocationArgs:
     @property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> Optional[pulumi.Input['NfsLocationMountOptionsArgs']]:
+        """
+        Configuration block containing mount options used by DataSync to access the NFS Server.
+        """
         return pulumi.get(self, "mount_options")
 
     @mount_options.setter
@@ -71,6 +88,9 @@ class NfsLocationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -91,6 +111,13 @@ class _NfsLocationState:
                  uri: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NfsLocation resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Location.
+        :param pulumi.Input['NfsLocationMountOptionsArgs'] mount_options: Configuration block containing mount options used by DataSync to access the NFS Server.
+        :param pulumi.Input['NfsLocationOnPremConfigArgs'] on_prem_config: Configuration block containing information for connecting to the NFS File System.
+        :param pulumi.Input[str] server_hostname: Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
+        :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -112,6 +139,9 @@ class _NfsLocationState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the DataSync Location.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -121,6 +151,9 @@ class _NfsLocationState:
     @property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> Optional[pulumi.Input['NfsLocationMountOptionsArgs']]:
+        """
+        Configuration block containing mount options used by DataSync to access the NFS Server.
+        """
         return pulumi.get(self, "mount_options")
 
     @mount_options.setter
@@ -130,6 +163,9 @@ class _NfsLocationState:
     @property
     @pulumi.getter(name="onPremConfig")
     def on_prem_config(self) -> Optional[pulumi.Input['NfsLocationOnPremConfigArgs']]:
+        """
+        Configuration block containing information for connecting to the NFS File System.
+        """
         return pulumi.get(self, "on_prem_config")
 
     @on_prem_config.setter
@@ -139,6 +175,9 @@ class _NfsLocationState:
     @property
     @pulumi.getter(name="serverHostname")
     def server_hostname(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
+        """
         return pulumi.get(self, "server_hostname")
 
     @server_hostname.setter
@@ -148,6 +187,9 @@ class _NfsLocationState:
     @property
     @pulumi.getter
     def subdirectory(self) -> Optional[pulumi.Input[str]]:
+        """
+        Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
+        """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
@@ -157,6 +199,9 @@ class _NfsLocationState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -166,6 +211,9 @@ class _NfsLocationState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -194,9 +242,39 @@ class NfsLocation(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a NfsLocation resource with the given unique name, props, and options.
+        Manages an NFS Location within AWS DataSync.
+
+        > **NOTE:** The DataSync Agents must be available before creating this resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.datasync.NfsLocation("example",
+            server_hostname="nfs.example.com",
+            subdirectory="/exported/path",
+            on_prem_config=aws.datasync.NfsLocationOnPremConfigArgs(
+                agent_arns=[aws_datasync_agent["example"]["arn"]],
+            ))
+        ```
+
+        ## Import
+
+        `aws_datasync_location_nfs` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.,
+
+        ```sh
+         $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['NfsLocationMountOptionsArgs']] mount_options: Configuration block containing mount options used by DataSync to access the NFS Server.
+        :param pulumi.Input[pulumi.InputType['NfsLocationOnPremConfigArgs']] on_prem_config: Configuration block containing information for connecting to the NFS File System.
+        :param pulumi.Input[str] server_hostname: Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
+        :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -205,7 +283,32 @@ class NfsLocation(pulumi.CustomResource):
                  args: NfsLocationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a NfsLocation resource with the given unique name, props, and options.
+        Manages an NFS Location within AWS DataSync.
+
+        > **NOTE:** The DataSync Agents must be available before creating this resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.datasync.NfsLocation("example",
+            server_hostname="nfs.example.com",
+            subdirectory="/exported/path",
+            on_prem_config=aws.datasync.NfsLocationOnPremConfigArgs(
+                agent_arns=[aws_datasync_agent["example"]["arn"]],
+            ))
+        ```
+
+        ## Import
+
+        `aws_datasync_location_nfs` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.,
+
+        ```sh
+         $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        ```
+
         :param str resource_name: The name of the resource.
         :param NfsLocationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -274,6 +377,13 @@ class NfsLocation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Location.
+        :param pulumi.Input[pulumi.InputType['NfsLocationMountOptionsArgs']] mount_options: Configuration block containing mount options used by DataSync to access the NFS Server.
+        :param pulumi.Input[pulumi.InputType['NfsLocationOnPremConfigArgs']] on_prem_config: Configuration block containing information for connecting to the NFS File System.
+        :param pulumi.Input[str] server_hostname: Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
+        :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -292,36 +402,57 @@ class NfsLocation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the DataSync Location.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> pulumi.Output[Optional['outputs.NfsLocationMountOptions']]:
+        """
+        Configuration block containing mount options used by DataSync to access the NFS Server.
+        """
         return pulumi.get(self, "mount_options")
 
     @property
     @pulumi.getter(name="onPremConfig")
     def on_prem_config(self) -> pulumi.Output['outputs.NfsLocationOnPremConfig']:
+        """
+        Configuration block containing information for connecting to the NFS File System.
+        """
         return pulumi.get(self, "on_prem_config")
 
     @property
     @pulumi.getter(name="serverHostname")
     def server_hostname(self) -> pulumi.Output[str]:
+        """
+        Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
+        """
         return pulumi.get(self, "server_hostname")
 
     @property
     @pulumi.getter
     def subdirectory(self) -> pulumi.Output[str]:
+        """
+        Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
+        """
         return pulumi.get(self, "subdirectory")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

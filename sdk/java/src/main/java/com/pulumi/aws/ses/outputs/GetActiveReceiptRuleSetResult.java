@@ -9,15 +9,27 @@ import java.util.Objects;
 
 @CustomType
 public final class GetActiveReceiptRuleSetResult {
+    /**
+     * @return SES receipt rule set ARN.
+     * 
+     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Name of the rule set
+     * 
+     */
     private String ruleSetName;
 
     private GetActiveReceiptRuleSetResult() {}
+    /**
+     * @return SES receipt rule set ARN.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
@@ -28,6 +40,10 @@ public final class GetActiveReceiptRuleSetResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Name of the rule set
+     * 
+     */
     public String ruleSetName() {
         return this.ruleSetName;
     }

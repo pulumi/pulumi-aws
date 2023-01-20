@@ -10,6 +10,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := acmpca.LookupCertificate(ctx, &acmpca.LookupCertificateArgs{
+//				Arn:                     "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/1234b4a0d73e2056789bdbe77d5b1a23",
+//				CertificateAuthorityArn: "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
 	err := ctx.Invoke("aws:acmpca/getCertificate:getCertificate", args, &rv, opts...)
@@ -21,16 +49,20 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 
 // A collection of arguments for invoking getCertificate.
 type LookupCertificateArgs struct {
-	Arn                     string `pulumi:"arn"`
+	// ARN of the certificate issued by the private certificate authority.
+	Arn string `pulumi:"arn"`
+	// ARN of the certificate authority.
 	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
 }
 
 // A collection of values returned by getCertificate.
 type LookupCertificateResult struct {
-	Arn                     string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
+	// PEM-encoded certificate value.
 	Certificate             string `pulumi:"certificate"`
 	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
-	CertificateChain        string `pulumi:"certificateChain"`
+	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+	CertificateChain string `pulumi:"certificateChain"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }
@@ -50,7 +82,9 @@ func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputAr
 
 // A collection of arguments for invoking getCertificate.
 type LookupCertificateOutputArgs struct {
-	Arn                     pulumi.StringInput `pulumi:"arn"`
+	// ARN of the certificate issued by the private certificate authority.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// ARN of the certificate authority.
 	CertificateAuthorityArn pulumi.StringInput `pulumi:"certificateAuthorityArn"`
 }
 
@@ -77,6 +111,7 @@ func (o LookupCertificateResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// PEM-encoded certificate value.
 func (o LookupCertificateResultOutput) Certificate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Certificate }).(pulumi.StringOutput)
 }
@@ -85,6 +120,7 @@ func (o LookupCertificateResultOutput) CertificateAuthorityArn() pulumi.StringOu
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateAuthorityArn }).(pulumi.StringOutput)
 }
 
+// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
 func (o LookupCertificateResultOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateChain }).(pulumi.StringOutput)
 }

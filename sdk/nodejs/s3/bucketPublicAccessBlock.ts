@@ -4,6 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
+ * const exampleBucketPublicAccessBlock = new aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock", {
+ *     bucket: exampleBucketV2.id,
+ *     blockPublicAcls: true,
+ *     blockPublicPolicy: true,
+ *     ignorePublicAcls: true,
+ *     restrictPublicBuckets: true,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_s3_bucket_public_access_block` can be imported by using the bucket name, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
+ * ```
+ */
 export class BucketPublicAccessBlock extends pulumi.CustomResource {
     /**
      * Get an existing BucketPublicAccessBlock resource's state with the given name, ID, and optional extra
@@ -32,10 +59,30 @@ export class BucketPublicAccessBlock extends pulumi.CustomResource {
         return obj['__pulumiType'] === BucketPublicAccessBlock.__pulumiType;
     }
 
+    /**
+     * Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+     * * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
+     * * PUT Object calls will fail if the request includes an object ACL.
+     */
     public readonly blockPublicAcls!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether Amazon S3 should block public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the existing bucket policy. When set to `true` causes Amazon S3 to:
+     * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+     */
     public readonly blockPublicPolicy!: pulumi.Output<boolean | undefined>;
+    /**
+     * S3 Bucket to which this Public Access Block configuration should be applied.
+     */
     public readonly bucket!: pulumi.Output<string>;
+    /**
+     * Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+     * * Ignore public ACLs on this bucket and any objects that it contains.
+     */
     public readonly ignorePublicAcls!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+     * * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
+     */
     public readonly restrictPublicBuckets!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -76,10 +123,30 @@ export class BucketPublicAccessBlock extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BucketPublicAccessBlock resources.
  */
 export interface BucketPublicAccessBlockState {
+    /**
+     * Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+     * * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
+     * * PUT Object calls will fail if the request includes an object ACL.
+     */
     blockPublicAcls?: pulumi.Input<boolean>;
+    /**
+     * Whether Amazon S3 should block public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the existing bucket policy. When set to `true` causes Amazon S3 to:
+     * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+     */
     blockPublicPolicy?: pulumi.Input<boolean>;
+    /**
+     * S3 Bucket to which this Public Access Block configuration should be applied.
+     */
     bucket?: pulumi.Input<string>;
+    /**
+     * Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+     * * Ignore public ACLs on this bucket and any objects that it contains.
+     */
     ignorePublicAcls?: pulumi.Input<boolean>;
+    /**
+     * Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+     * * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
+     */
     restrictPublicBuckets?: pulumi.Input<boolean>;
 }
 
@@ -87,9 +154,29 @@ export interface BucketPublicAccessBlockState {
  * The set of arguments for constructing a BucketPublicAccessBlock resource.
  */
 export interface BucketPublicAccessBlockArgs {
+    /**
+     * Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+     * * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
+     * * PUT Object calls will fail if the request includes an object ACL.
+     */
     blockPublicAcls?: pulumi.Input<boolean>;
+    /**
+     * Whether Amazon S3 should block public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the existing bucket policy. When set to `true` causes Amazon S3 to:
+     * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+     */
     blockPublicPolicy?: pulumi.Input<boolean>;
+    /**
+     * S3 Bucket to which this Public Access Block configuration should be applied.
+     */
     bucket: pulumi.Input<string>;
+    /**
+     * Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+     * * Ignore public ACLs on this bucket and any objects that it contains.
+     */
     ignorePublicAcls?: pulumi.Input<boolean>;
+    /**
+     * Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+     * * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
+     */
     restrictPublicBuckets?: pulumi.Input<boolean>;
 }

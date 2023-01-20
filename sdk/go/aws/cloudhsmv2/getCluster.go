@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to get information about a CloudHSM v2 cluster
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudhsmv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudhsmv2.LookupCluster(ctx, &cloudhsmv2.LookupClusterArgs{
+//				ClusterId: "cluster-testclusterid",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("aws:cloudhsmv2/getCluster:getCluster", args, &rv, opts...)
@@ -21,20 +48,32 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
-	ClusterId    string  `pulumi:"clusterId"`
+	// ID of Cloud HSM v2 cluster.
+	ClusterId string `pulumi:"clusterId"`
+	// State of the cluster to be found.
 	ClusterState *string `pulumi:"clusterState"`
 }
 
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
+	// The list of cluster certificates.
+	// * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+	// * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in UNINITIALIZED state.
+	// * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
+	// * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
+	// * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
+	//   The number of available cluster certificates may vary depending on state of the cluster.
 	ClusterCertificates []GetClusterClusterCertificate `pulumi:"clusterCertificates"`
 	ClusterId           string                         `pulumi:"clusterId"`
 	ClusterState        string                         `pulumi:"clusterState"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string   `pulumi:"id"`
-	SecurityGroupId string   `pulumi:"securityGroupId"`
-	SubnetIds       []string `pulumi:"subnetIds"`
-	VpcId           string   `pulumi:"vpcId"`
+	Id string `pulumi:"id"`
+	// ID of the security group associated with the CloudHSM cluster.
+	SecurityGroupId string `pulumi:"securityGroupId"`
+	// IDs of subnets in which cluster operates.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// ID of the VPC that the CloudHSM cluster resides in.
+	VpcId string `pulumi:"vpcId"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -52,7 +91,9 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
-	ClusterId    pulumi.StringInput    `pulumi:"clusterId"`
+	// ID of Cloud HSM v2 cluster.
+	ClusterId pulumi.StringInput `pulumi:"clusterId"`
+	// State of the cluster to be found.
 	ClusterState pulumi.StringPtrInput `pulumi:"clusterState"`
 }
 
@@ -75,6 +116,13 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 	return o
 }
 
+// The list of cluster certificates.
+//   - `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+//   - `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in UNINITIALIZED state.
+//   - `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
+//   - `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
+//   - `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
+//     The number of available cluster certificates may vary depending on state of the cluster.
 func (o LookupClusterResultOutput) ClusterCertificates() GetClusterClusterCertificateArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterClusterCertificate { return v.ClusterCertificates }).(GetClusterClusterCertificateArrayOutput)
 }
@@ -92,14 +140,17 @@ func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// ID of the security group associated with the CloudHSM cluster.
 func (o LookupClusterResultOutput) SecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.SecurityGroupId }).(pulumi.StringOutput)
 }
 
+// IDs of subnets in which cluster operates.
 func (o LookupClusterResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// ID of the VPC that the CloudHSM cluster resides in.
 func (o LookupClusterResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.VpcId }).(pulumi.StringOutput)
 }

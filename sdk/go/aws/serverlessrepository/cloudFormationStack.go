@@ -11,17 +11,81 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Deploys an Application CloudFormation Stack from the Serverless Application Repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/serverlessrepository"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = serverlessrepository.NewCloudFormationStack(ctx, "postgres-rotator", &serverlessrepository.CloudFormationStackArgs{
+//				ApplicationId: pulumi.String("arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser"),
+//				Capabilities: pulumi.StringArray{
+//					pulumi.String("CAPABILITY_IAM"),
+//					pulumi.String("CAPABILITY_RESOURCE_POLICY"),
+//				},
+//				Parameters: pulumi.StringMap{
+//					"endpoint":     pulumi.String(fmt.Sprintf("secretsmanager.%v.%v", currentRegion.Name, currentPartition.DnsSuffix)),
+//					"functionName": pulumi.String("func-postgres-rotator"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Serverless Application Repository Stack can be imported using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
+//
+// ```
 type CloudFormationStack struct {
 	pulumi.CustomResourceState
 
-	ApplicationId   pulumi.StringOutput      `pulumi:"applicationId"`
-	Capabilities    pulumi.StringArrayOutput `pulumi:"capabilities"`
-	Name            pulumi.StringOutput      `pulumi:"name"`
-	Outputs         pulumi.StringMapOutput   `pulumi:"outputs"`
-	Parameters      pulumi.StringMapOutput   `pulumi:"parameters"`
-	SemanticVersion pulumi.StringOutput      `pulumi:"semanticVersion"`
-	Tags            pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll         pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	// The ARN of the application from the Serverless Application Repository.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
+	Capabilities pulumi.StringArrayOutput `pulumi:"capabilities"`
+	// The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A map of outputs from the stack.
+	Outputs pulumi.StringMapOutput `pulumi:"outputs"`
+	// A map of Parameter structures that specify input parameters for the stack.
+	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+	// The version of the application to deploy. If not supplied, deploys the latest version.
+	SemanticVersion pulumi.StringOutput `pulumi:"semanticVersion"`
+	// A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewCloudFormationStack registers a new resource with the given unique name, arguments, and options.
@@ -59,25 +123,41 @@ func GetCloudFormationStack(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CloudFormationStack resources.
 type cloudFormationStackState struct {
-	ApplicationId   *string           `pulumi:"applicationId"`
-	Capabilities    []string          `pulumi:"capabilities"`
-	Name            *string           `pulumi:"name"`
-	Outputs         map[string]string `pulumi:"outputs"`
-	Parameters      map[string]string `pulumi:"parameters"`
-	SemanticVersion *string           `pulumi:"semanticVersion"`
-	Tags            map[string]string `pulumi:"tags"`
-	TagsAll         map[string]string `pulumi:"tagsAll"`
+	// The ARN of the application from the Serverless Application Repository.
+	ApplicationId *string `pulumi:"applicationId"`
+	// A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
+	Capabilities []string `pulumi:"capabilities"`
+	// The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
+	Name *string `pulumi:"name"`
+	// A map of outputs from the stack.
+	Outputs map[string]string `pulumi:"outputs"`
+	// A map of Parameter structures that specify input parameters for the stack.
+	Parameters map[string]string `pulumi:"parameters"`
+	// The version of the application to deploy. If not supplied, deploys the latest version.
+	SemanticVersion *string `pulumi:"semanticVersion"`
+	// A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type CloudFormationStackState struct {
-	ApplicationId   pulumi.StringPtrInput
-	Capabilities    pulumi.StringArrayInput
-	Name            pulumi.StringPtrInput
-	Outputs         pulumi.StringMapInput
-	Parameters      pulumi.StringMapInput
+	// The ARN of the application from the Serverless Application Repository.
+	ApplicationId pulumi.StringPtrInput
+	// A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
+	Capabilities pulumi.StringArrayInput
+	// The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
+	Name pulumi.StringPtrInput
+	// A map of outputs from the stack.
+	Outputs pulumi.StringMapInput
+	// A map of Parameter structures that specify input parameters for the stack.
+	Parameters pulumi.StringMapInput
+	// The version of the application to deploy. If not supplied, deploys the latest version.
 	SemanticVersion pulumi.StringPtrInput
-	Tags            pulumi.StringMapInput
-	TagsAll         pulumi.StringMapInput
+	// A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (CloudFormationStackState) ElementType() reflect.Type {
@@ -85,22 +165,34 @@ func (CloudFormationStackState) ElementType() reflect.Type {
 }
 
 type cloudFormationStackArgs struct {
-	ApplicationId   string            `pulumi:"applicationId"`
-	Capabilities    []string          `pulumi:"capabilities"`
-	Name            *string           `pulumi:"name"`
-	Parameters      map[string]string `pulumi:"parameters"`
-	SemanticVersion *string           `pulumi:"semanticVersion"`
-	Tags            map[string]string `pulumi:"tags"`
+	// The ARN of the application from the Serverless Application Repository.
+	ApplicationId string `pulumi:"applicationId"`
+	// A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
+	Capabilities []string `pulumi:"capabilities"`
+	// The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
+	Name *string `pulumi:"name"`
+	// A map of Parameter structures that specify input parameters for the stack.
+	Parameters map[string]string `pulumi:"parameters"`
+	// The version of the application to deploy. If not supplied, deploys the latest version.
+	SemanticVersion *string `pulumi:"semanticVersion"`
+	// A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CloudFormationStack resource.
 type CloudFormationStackArgs struct {
-	ApplicationId   pulumi.StringInput
-	Capabilities    pulumi.StringArrayInput
-	Name            pulumi.StringPtrInput
-	Parameters      pulumi.StringMapInput
+	// The ARN of the application from the Serverless Application Repository.
+	ApplicationId pulumi.StringInput
+	// A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
+	Capabilities pulumi.StringArrayInput
+	// The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
+	Name pulumi.StringPtrInput
+	// A map of Parameter structures that specify input parameters for the stack.
+	Parameters pulumi.StringMapInput
+	// The version of the application to deploy. If not supplied, deploys the latest version.
 	SemanticVersion pulumi.StringPtrInput
-	Tags            pulumi.StringMapInput
+	// A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (CloudFormationStackArgs) ElementType() reflect.Type {
@@ -190,34 +282,42 @@ func (o CloudFormationStackOutput) ToCloudFormationStackOutputWithContext(ctx co
 	return o
 }
 
+// The ARN of the application from the Serverless Application Repository.
 func (o CloudFormationStackOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudFormationStack) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
+// A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
 func (o CloudFormationStackOutput) Capabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CloudFormationStack) pulumi.StringArrayOutput { return v.Capabilities }).(pulumi.StringArrayOutput)
 }
 
+// The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
 func (o CloudFormationStackOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudFormationStack) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A map of outputs from the stack.
 func (o CloudFormationStackOutput) Outputs() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CloudFormationStack) pulumi.StringMapOutput { return v.Outputs }).(pulumi.StringMapOutput)
 }
 
+// A map of Parameter structures that specify input parameters for the stack.
 func (o CloudFormationStackOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CloudFormationStack) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
+// The version of the application to deploy. If not supplied, deploys the latest version.
 func (o CloudFormationStackOutput) SemanticVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudFormationStack) pulumi.StringOutput { return v.SemanticVersion }).(pulumi.StringOutput)
 }
 
+// A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CloudFormationStackOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CloudFormationStack) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CloudFormationStackOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CloudFormationStack) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

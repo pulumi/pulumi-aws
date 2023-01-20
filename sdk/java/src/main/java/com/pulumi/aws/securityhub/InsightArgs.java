@@ -16,23 +16,47 @@ public final class InsightArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final InsightArgs Empty = new InsightArgs();
 
+    /**
+     * A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
+     * 
+     */
     @Import(name="filters", required=true)
     private Output<InsightFiltersArgs> filters;
 
+    /**
+     * @return A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
+     * 
+     */
     public Output<InsightFiltersArgs> filters() {
         return this.filters;
     }
 
+    /**
+     * The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+     * 
+     */
     @Import(name="groupByAttribute", required=true)
     private Output<String> groupByAttribute;
 
+    /**
+     * @return The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+     * 
+     */
     public Output<String> groupByAttribute() {
         return this.groupByAttribute;
     }
 
+    /**
+     * The name of the custom insight.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the custom insight.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -63,29 +87,65 @@ public final class InsightArgs extends com.pulumi.resources.ResourceArgs {
             $ = new InsightArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filters A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(Output<InsightFiltersArgs> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(InsightFiltersArgs filters) {
             return filters(Output.of(filters));
         }
 
+        /**
+         * @param groupByAttribute The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupByAttribute(Output<String> groupByAttribute) {
             $.groupByAttribute = groupByAttribute;
             return this;
         }
 
+        /**
+         * @param groupByAttribute The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupByAttribute(String groupByAttribute) {
             return groupByAttribute(Output.of(groupByAttribute));
         }
 
+        /**
+         * @param name The name of the custom insight.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the custom insight.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

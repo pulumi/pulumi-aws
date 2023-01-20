@@ -14,21 +14,249 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class EmrFunctions {
+    /**
+     * Retrieve information about EMR Release Labels.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.EmrFunctions;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsArgs;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsFiltersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
+     *             .filters(GetReleaseLabelsFiltersArgs.builder()
+     *                 .application(&#34;spark@2.1.0&#34;)
+     *                 .prefix(&#34;emr-5&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetReleaseLabelsResult> getReleaseLabels() {
         return getReleaseLabels(GetReleaseLabelsArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Retrieve information about EMR Release Labels.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.EmrFunctions;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsArgs;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsFiltersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
+     *             .filters(GetReleaseLabelsFiltersArgs.builder()
+     *                 .application(&#34;spark@2.1.0&#34;)
+     *                 .prefix(&#34;emr-5&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetReleaseLabelsResult> getReleaseLabelsPlain() {
         return getReleaseLabelsPlain(GetReleaseLabelsPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Retrieve information about EMR Release Labels.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.EmrFunctions;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsArgs;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsFiltersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
+     *             .filters(GetReleaseLabelsFiltersArgs.builder()
+     *                 .application(&#34;spark@2.1.0&#34;)
+     *                 .prefix(&#34;emr-5&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetReleaseLabelsResult> getReleaseLabels(GetReleaseLabelsArgs args) {
         return getReleaseLabels(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieve information about EMR Release Labels.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.EmrFunctions;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsArgs;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsFiltersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
+     *             .filters(GetReleaseLabelsFiltersArgs.builder()
+     *                 .application(&#34;spark@2.1.0&#34;)
+     *                 .prefix(&#34;emr-5&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetReleaseLabelsResult> getReleaseLabelsPlain(GetReleaseLabelsPlainArgs args) {
         return getReleaseLabelsPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieve information about EMR Release Labels.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.EmrFunctions;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsArgs;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsFiltersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
+     *             .filters(GetReleaseLabelsFiltersArgs.builder()
+     *                 .application(&#34;spark@2.1.0&#34;)
+     *                 .prefix(&#34;emr-5&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetReleaseLabelsResult> getReleaseLabels(GetReleaseLabelsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:emr/getReleaseLabels:getReleaseLabels", TypeShape.of(GetReleaseLabelsResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieve information about EMR Release Labels.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.EmrFunctions;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsArgs;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsFiltersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
+     *             .filters(GetReleaseLabelsFiltersArgs.builder()
+     *                 .application(&#34;spark@2.1.0&#34;)
+     *                 .prefix(&#34;emr-5&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetReleaseLabelsResult> getReleaseLabelsPlain(GetReleaseLabelsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:emr/getReleaseLabels:getReleaseLabels", TypeShape.of(GetReleaseLabelsResult.class), args, Utilities.withVersion(options));
     }

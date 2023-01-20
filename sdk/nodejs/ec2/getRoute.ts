@@ -4,6 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `aws.ec2.Route` provides details about a specific Route.
+ *
+ * This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
+ *
+ * ## Example Usage
+ *
+ * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const subnetId = config.requireObject("subnetId");
+ * const selected = aws.ec2.getRouteTable({
+ *     subnetId: subnetId,
+ * });
+ * const route = aws.ec2.getRoute({
+ *     routeTableId: aws_route_table.selected.id,
+ *     destinationCidrBlock: "10.0.1.0/24",
+ * });
+ * const interface = route.then(route => aws.ec2.getNetworkInterface({
+ *     id: route.networkInterfaceId,
+ * }));
+ * ```
+ */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -29,19 +56,61 @@ export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getRoute.
  */
 export interface GetRouteArgs {
+    /**
+     * EC2 Carrier Gateway ID of the Route belonging to the Route Table.
+     */
     carrierGatewayId?: string;
+    /**
+     * Core network ARN of the Route belonging to the Route Table.
+     */
     coreNetworkArn?: string;
+    /**
+     * CIDR block of the Route belonging to the Route Table.
+     */
     destinationCidrBlock?: string;
+    /**
+     * IPv6 CIDR block of the Route belonging to the Route Table.
+     */
     destinationIpv6CidrBlock?: string;
+    /**
+     * ID of a managed prefix list destination of the Route belonging to the Route Table.
+     */
     destinationPrefixListId?: string;
+    /**
+     * Egress Only Gateway ID of the Route belonging to the Route Table.
+     */
     egressOnlyGatewayId?: string;
+    /**
+     * Gateway ID of the Route belonging to the Route Table.
+     */
     gatewayId?: string;
+    /**
+     * Instance ID of the Route belonging to the Route Table.
+     */
     instanceId?: string;
+    /**
+     * Local Gateway ID of the Route belonging to the Route Table.
+     */
     localGatewayId?: string;
+    /**
+     * NAT Gateway ID of the Route belonging to the Route Table.
+     */
     natGatewayId?: string;
+    /**
+     * Network Interface ID of the Route belonging to the Route Table.
+     */
     networkInterfaceId?: string;
+    /**
+     * ID of the specific Route Table containing the Route entry.
+     */
     routeTableId: string;
+    /**
+     * EC2 Transit Gateway ID of the Route belonging to the Route Table.
+     */
     transitGatewayId?: string;
+    /**
+     * VPC Peering Connection ID of the Route belonging to the Route Table.
+     */
     vpcPeeringConnectionId?: string;
 }
 
@@ -68,6 +137,33 @@ export interface GetRouteResult {
     readonly transitGatewayId: string;
     readonly vpcPeeringConnectionId: string;
 }
+/**
+ * `aws.ec2.Route` provides details about a specific Route.
+ *
+ * This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
+ *
+ * ## Example Usage
+ *
+ * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const subnetId = config.requireObject("subnetId");
+ * const selected = aws.ec2.getRouteTable({
+ *     subnetId: subnetId,
+ * });
+ * const route = aws.ec2.getRoute({
+ *     routeTableId: aws_route_table.selected.id,
+ *     destinationCidrBlock: "10.0.1.0/24",
+ * });
+ * const interface = route.then(route => aws.ec2.getNetworkInterface({
+ *     id: route.networkInterfaceId,
+ * }));
+ * ```
+ */
 export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
     return pulumi.output(args).apply((a: any) => getRoute(a, opts))
 }
@@ -76,18 +172,60 @@ export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getRoute.
  */
 export interface GetRouteOutputArgs {
+    /**
+     * EC2 Carrier Gateway ID of the Route belonging to the Route Table.
+     */
     carrierGatewayId?: pulumi.Input<string>;
+    /**
+     * Core network ARN of the Route belonging to the Route Table.
+     */
     coreNetworkArn?: pulumi.Input<string>;
+    /**
+     * CIDR block of the Route belonging to the Route Table.
+     */
     destinationCidrBlock?: pulumi.Input<string>;
+    /**
+     * IPv6 CIDR block of the Route belonging to the Route Table.
+     */
     destinationIpv6CidrBlock?: pulumi.Input<string>;
+    /**
+     * ID of a managed prefix list destination of the Route belonging to the Route Table.
+     */
     destinationPrefixListId?: pulumi.Input<string>;
+    /**
+     * Egress Only Gateway ID of the Route belonging to the Route Table.
+     */
     egressOnlyGatewayId?: pulumi.Input<string>;
+    /**
+     * Gateway ID of the Route belonging to the Route Table.
+     */
     gatewayId?: pulumi.Input<string>;
+    /**
+     * Instance ID of the Route belonging to the Route Table.
+     */
     instanceId?: pulumi.Input<string>;
+    /**
+     * Local Gateway ID of the Route belonging to the Route Table.
+     */
     localGatewayId?: pulumi.Input<string>;
+    /**
+     * NAT Gateway ID of the Route belonging to the Route Table.
+     */
     natGatewayId?: pulumi.Input<string>;
+    /**
+     * Network Interface ID of the Route belonging to the Route Table.
+     */
     networkInterfaceId?: pulumi.Input<string>;
+    /**
+     * ID of the specific Route Table containing the Route entry.
+     */
     routeTableId: pulumi.Input<string>;
+    /**
+     * EC2 Transit Gateway ID of the Route belonging to the Route Table.
+     */
     transitGatewayId?: pulumi.Input<string>;
+    /**
+     * VPC Peering Connection ID of the Route belonging to the Route Table.
+     */
     vpcPeeringConnectionId?: pulumi.Input<string>;
 }

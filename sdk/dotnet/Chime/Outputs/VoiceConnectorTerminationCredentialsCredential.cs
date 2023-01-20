@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Chime.Outputs
     [OutputType]
     public sealed class VoiceConnectorTerminationCredentialsCredential
     {
+        /// <summary>
+        /// RFC2617 compliant password associated with the SIP credentials.
+        /// </summary>
         public readonly string Password;
+        /// <summary>
+        /// RFC2617 compliant username associated with the SIP credentials.
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

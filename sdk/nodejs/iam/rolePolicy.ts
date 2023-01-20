@@ -6,6 +6,49 @@ import * as utilities from "../utilities";
 
 import {PolicyDocument, Role} from "./index";
 
+/**
+ * Provides an IAM role inline policy.
+ *
+ * > **NOTE:** For a given role, this resource is incompatible with using the `aws.iam.Role` resource `inlinePolicy` argument. When using that argument and this resource, both will attempt to manage the role's inline policies and the provider will show a permanent difference.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: JSON.stringify({
+ *     Version: "2012-10-17",
+ *     Statement: [{
+ *         Action: "sts:AssumeRole",
+ *         Effect: "Allow",
+ *         Sid: "",
+ *         Principal: {
+ *             Service: "ec2.amazonaws.com",
+ *         },
+ *     }],
+ * })});
+ * const testPolicy = new aws.iam.RolePolicy("testPolicy", {
+ *     role: testRole.id,
+ *     policy: JSON.stringify({
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: ["ec2:Describe*"],
+ *             Effect: "Allow",
+ *             Resource: "*",
+ *         }],
+ *     }),
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * IAM Role Policies can be imported using the `role_name:role_policy_name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name
+ * ```
+ */
 export class RolePolicy extends pulumi.CustomResource {
     /**
      * Get an existing RolePolicy resource's state with the given name, ID, and optional extra
@@ -34,9 +77,23 @@ export class RolePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RolePolicy.__pulumiType;
     }
 
+    /**
+     * The name of the role policy. If omitted, this provider will
+     * assign a random, unique name.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
+    /**
+     * The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+     */
     public readonly policy!: pulumi.Output<string>;
+    /**
+     * The name of the IAM role to attach to the policy.
+     */
     public readonly role!: pulumi.Output<string>;
 
     /**
@@ -78,9 +135,23 @@ export class RolePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RolePolicy resources.
  */
 export interface RolePolicyState {
+    /**
+     * The name of the role policy. If omitted, this provider will
+     * assign a random, unique name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+     */
     policy?: pulumi.Input<string | PolicyDocument>;
+    /**
+     * The name of the IAM role to attach to the policy.
+     */
     role?: pulumi.Input<string | Role>;
 }
 
@@ -88,8 +159,22 @@ export interface RolePolicyState {
  * The set of arguments for constructing a RolePolicy resource.
  */
 export interface RolePolicyArgs {
+    /**
+     * The name of the role policy. If omitted, this provider will
+     * assign a random, unique name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+     */
     policy: pulumi.Input<string | PolicyDocument>;
+    /**
+     * The name of the IAM role to attach to the policy.
+     */
     role: pulumi.Input<string | Role>;
 }

@@ -17,12 +17,16 @@ class DomainArgs:
                  domain_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a Domain resource.
+        :param pulumi.Input[str] domain_name: The name of the Lightsail domain to manage
         """
         pulumi.set(__self__, "domain_name", domain_name)
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Lightsail domain to manage
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -37,6 +41,8 @@ class _DomainState:
                  domain_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Domain resources.
+        :param pulumi.Input[str] arn: The ARN of the Lightsail domain
+        :param pulumi.Input[str] domain_name: The name of the Lightsail domain to manage
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -46,6 +52,9 @@ class _DomainState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Lightsail domain
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -55,6 +64,9 @@ class _DomainState:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Lightsail domain to manage
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -70,9 +82,26 @@ class Domain(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Domain resource with the given unique name, props, and options.
+        Creates a domain resource for the specified domain (e.g., example.com).
+        You cannot register a new domain name using Lightsail. You must register
+        a domain name using Amazon Route 53 or another domain name registrar.
+        If you have already registered your domain, you can enter its name in
+        this parameter to manage the DNS records for that domain.
+
+        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        domain_test = aws.lightsail.Domain("domainTest", domain_name="mydomain.com")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] domain_name: The name of the Lightsail domain to manage
         """
         ...
     @overload
@@ -81,7 +110,23 @@ class Domain(pulumi.CustomResource):
                  args: DomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Domain resource with the given unique name, props, and options.
+        Creates a domain resource for the specified domain (e.g., example.com).
+        You cannot register a new domain name using Lightsail. You must register
+        a domain name using Amazon Route 53 or another domain name registrar.
+        If you have already registered your domain, you can enter its name in
+        this parameter to manage the DNS records for that domain.
+
+        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        domain_test = aws.lightsail.Domain("domainTest", domain_name="mydomain.com")
+        ```
+
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,6 +175,8 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the Lightsail domain
+        :param pulumi.Input[str] domain_name: The name of the Lightsail domain to manage
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -142,10 +189,16 @@ class Domain(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the Lightsail domain
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Lightsail domain to manage
+        """
         return pulumi.get(self, "domain_name")
 

@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GatewayRouteSpecGrpcRouteMatch {
+    /**
+     * @return Fully qualified domain name for the service to match from the request.
+     * 
+     */
     private String serviceName;
 
     private GatewayRouteSpecGrpcRouteMatch() {}
+    /**
+     * @return Fully qualified domain name for the service to match from the request.
+     * 
+     */
     public String serviceName() {
         return this.serviceName;
     }

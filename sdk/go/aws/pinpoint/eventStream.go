@@ -11,12 +11,111 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Pinpoint Event Stream resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			app, err := pinpoint.NewApp(ctx, "app", nil)
+//			if err != nil {
+//				return err
+//			}
+//			testStream, err := kinesis.NewStream(ctx, "testStream", &kinesis.StreamArgs{
+//				ShardCount: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": "sts:AssumeRole",
+//	      "Principal": {
+//	        "Service": "pinpoint.us-east-1.amazonaws.com"
+//	      },
+//	      "Effect": "Allow",
+//	      "Sid": ""
+//	    }
+//	  ]
+//	}
+//
+// `)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pinpoint.NewEventStream(ctx, "stream", &pinpoint.EventStreamArgs{
+//				ApplicationId:        app.ApplicationId,
+//				DestinationStreamArn: testStream.Arn,
+//				RoleArn:              testRole.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "testRolePolicy", &iam.RolePolicyArgs{
+//				Role: testRole.ID(),
+//				Policy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": {
+//	    "Action": [
+//	      "kinesis:PutRecords",
+//	      "kinesis:DescribeStream"
+//	    ],
+//	    "Effect": "Allow",
+//	    "Resource": [
+//	      "arn:aws:kinesis:us-east-1:*:*/*"
+//	    ]
+//	  }
+//	}
+//
+// `)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Pinpoint Event Stream can be imported using the `application-id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
+//
+// ```
 type EventStream struct {
 	pulumi.CustomResourceState
 
-	ApplicationId        pulumi.StringOutput `pulumi:"applicationId"`
+	// The application ID.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
 	DestinationStreamArn pulumi.StringOutput `pulumi:"destinationStreamArn"`
-	RoleArn              pulumi.StringOutput `pulumi:"roleArn"`
+	// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 }
 
 // NewEventStream registers a new resource with the given unique name, arguments, and options.
@@ -57,15 +156,21 @@ func GetEventStream(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventStream resources.
 type eventStreamState struct {
-	ApplicationId        *string `pulumi:"applicationId"`
+	// The application ID.
+	ApplicationId *string `pulumi:"applicationId"`
+	// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
 	DestinationStreamArn *string `pulumi:"destinationStreamArn"`
-	RoleArn              *string `pulumi:"roleArn"`
+	// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+	RoleArn *string `pulumi:"roleArn"`
 }
 
 type EventStreamState struct {
-	ApplicationId        pulumi.StringPtrInput
+	// The application ID.
+	ApplicationId pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
 	DestinationStreamArn pulumi.StringPtrInput
-	RoleArn              pulumi.StringPtrInput
+	// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+	RoleArn pulumi.StringPtrInput
 }
 
 func (EventStreamState) ElementType() reflect.Type {
@@ -73,16 +178,22 @@ func (EventStreamState) ElementType() reflect.Type {
 }
 
 type eventStreamArgs struct {
-	ApplicationId        string `pulumi:"applicationId"`
+	// The application ID.
+	ApplicationId string `pulumi:"applicationId"`
+	// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
 	DestinationStreamArn string `pulumi:"destinationStreamArn"`
-	RoleArn              string `pulumi:"roleArn"`
+	// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // The set of arguments for constructing a EventStream resource.
 type EventStreamArgs struct {
-	ApplicationId        pulumi.StringInput
+	// The application ID.
+	ApplicationId pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
 	DestinationStreamArn pulumi.StringInput
-	RoleArn              pulumi.StringInput
+	// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+	RoleArn pulumi.StringInput
 }
 
 func (EventStreamArgs) ElementType() reflect.Type {
@@ -172,14 +283,17 @@ func (o EventStreamOutput) ToEventStreamOutputWithContext(ctx context.Context) E
 	return o
 }
 
+// The application ID.
 func (o EventStreamOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventStream) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
 func (o EventStreamOutput) DestinationStreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventStream) pulumi.StringOutput { return v.DestinationStreamArn }).(pulumi.StringOutput)
 }
 
+// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
 func (o EventStreamOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventStream) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

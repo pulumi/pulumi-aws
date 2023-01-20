@@ -16,30 +16,62 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TableReplicaArgs Empty = new TableReplicaArgs();
 
+    /**
+     * ARN of the CMK that should be used for the AWS KMS encryption.
+     * 
+     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
+    /**
+     * @return ARN of the CMK that should be used for the AWS KMS encryption.
+     * 
+     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
 
+    /**
+     * Whether to enable Point In Time Recovery for the replica. Default is `false`.
+     * 
+     */
     @Import(name="pointInTimeRecovery")
     private @Nullable Output<Boolean> pointInTimeRecovery;
 
+    /**
+     * @return Whether to enable Point In Time Recovery for the replica. Default is `false`.
+     * 
+     */
     public Optional<Output<Boolean>> pointInTimeRecovery() {
         return Optional.ofNullable(this.pointInTimeRecovery);
     }
 
+    /**
+     * Whether to propagate the global table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
+     * 
+     */
     @Import(name="propagateTags")
     private @Nullable Output<Boolean> propagateTags;
 
+    /**
+     * @return Whether to propagate the global table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
+     * 
+     */
     public Optional<Output<Boolean>> propagateTags() {
         return Optional.ofNullable(this.propagateTags);
     }
 
+    /**
+     * Region name of the replica.
+     * 
+     */
     @Import(name="regionName", required=true)
     private Output<String> regionName;
 
+    /**
+     * @return Region name of the replica.
+     * 
+     */
     public Output<String> regionName() {
         return this.regionName;
     }
@@ -71,38 +103,86 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TableReplicaArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param kmsKeyArn ARN of the CMK that should be used for the AWS KMS encryption.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
+        /**
+         * @param kmsKeyArn ARN of the CMK that should be used for the AWS KMS encryption.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
+        /**
+         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the replica. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pointInTimeRecovery(@Nullable Output<Boolean> pointInTimeRecovery) {
             $.pointInTimeRecovery = pointInTimeRecovery;
             return this;
         }
 
+        /**
+         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the replica. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pointInTimeRecovery(Boolean pointInTimeRecovery) {
             return pointInTimeRecovery(Output.of(pointInTimeRecovery));
         }
 
+        /**
+         * @param propagateTags Whether to propagate the global table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder propagateTags(@Nullable Output<Boolean> propagateTags) {
             $.propagateTags = propagateTags;
             return this;
         }
 
+        /**
+         * @param propagateTags Whether to propagate the global table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder propagateTags(Boolean propagateTags) {
             return propagateTags(Output.of(propagateTags));
         }
 
+        /**
+         * @param regionName Region name of the replica.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regionName(Output<String> regionName) {
             $.regionName = regionName;
             return this;
         }
 
+        /**
+         * @param regionName Region name of the replica.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regionName(String regionName) {
             return regionName(Output.of(regionName));
         }

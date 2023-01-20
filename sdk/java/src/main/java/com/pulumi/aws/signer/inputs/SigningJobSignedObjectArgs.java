@@ -16,9 +16,17 @@ public final class SigningJobSignedObjectArgs extends com.pulumi.resources.Resou
 
     public static final SigningJobSignedObjectArgs Empty = new SigningJobSignedObjectArgs();
 
+    /**
+     * A configuration block describing the S3 Source object: See S3 Source below for details.
+     * 
+     */
     @Import(name="s3s")
     private @Nullable Output<List<SigningJobSignedObjectS3Args>> s3s;
 
+    /**
+     * @return A configuration block describing the S3 Source object: See S3 Source below for details.
+     * 
+     */
     public Optional<Output<List<SigningJobSignedObjectS3Args>>> s3s() {
         return Optional.ofNullable(this.s3s);
     }
@@ -47,15 +55,33 @@ public final class SigningJobSignedObjectArgs extends com.pulumi.resources.Resou
             $ = new SigningJobSignedObjectArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param s3s A configuration block describing the S3 Source object: See S3 Source below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3s(@Nullable Output<List<SigningJobSignedObjectS3Args>> s3s) {
             $.s3s = s3s;
             return this;
         }
 
+        /**
+         * @param s3s A configuration block describing the S3 Source object: See S3 Source below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3s(List<SigningJobSignedObjectS3Args> s3s) {
             return s3s(Output.of(s3s));
         }
 
+        /**
+         * @param s3s A configuration block describing the S3 Source object: See S3 Source below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3s(SigningJobSignedObjectS3Args... s3s) {
             return s3s(List.of(s3s));
         }

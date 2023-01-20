@@ -7,6 +7,31 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Resource for managing an AWS IVS (Interactive Video) Recording Configuration.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ivs.RecordingConfiguration("example", {destinationConfiguration: {
+ *     s3: {
+ *         bucketName: "ivs-stream-archive",
+ *     },
+ * }});
+ * ```
+ *
+ * ## Import
+ *
+ * IVS (Interactive Video) Recording Configuration can be imported using the ARN, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
+ * ```
+ */
 export class RecordingConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing RecordingConfiguration resource's state with the given name, ID, and optional extra
@@ -35,13 +60,37 @@ export class RecordingConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === RecordingConfiguration.__pulumiType;
     }
 
+    /**
+     * ARN of the Recording Configuration.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Object containing destination configuration for where recorded video will be stored.
+     */
     public readonly destinationConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationDestinationConfiguration>;
+    /**
+     * Recording Configuration name.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+     */
     public readonly recordingReconnectWindowSeconds!: pulumi.Output<number>;
+    /**
+     * The current state of the Recording Configuration.
+     */
     public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
+     */
     public readonly thumbnailConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationThumbnailConfiguration>;
 
     /**
@@ -88,13 +137,37 @@ export class RecordingConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RecordingConfiguration resources.
  */
 export interface RecordingConfigurationState {
+    /**
+     * ARN of the Recording Configuration.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Object containing destination configuration for where recorded video will be stored.
+     */
     destinationConfiguration?: pulumi.Input<inputs.ivs.RecordingConfigurationDestinationConfiguration>;
+    /**
+     * Recording Configuration name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+     */
     recordingReconnectWindowSeconds?: pulumi.Input<number>;
+    /**
+     * The current state of the Recording Configuration.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
+     */
     thumbnailConfiguration?: pulumi.Input<inputs.ivs.RecordingConfigurationThumbnailConfiguration>;
 }
 
@@ -102,9 +175,24 @@ export interface RecordingConfigurationState {
  * The set of arguments for constructing a RecordingConfiguration resource.
  */
 export interface RecordingConfigurationArgs {
+    /**
+     * Object containing destination configuration for where recorded video will be stored.
+     */
     destinationConfiguration: pulumi.Input<inputs.ivs.RecordingConfigurationDestinationConfiguration>;
+    /**
+     * Recording Configuration name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+     */
     recordingReconnectWindowSeconds?: pulumi.Input<number>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
+     */
     thumbnailConfiguration?: pulumi.Input<inputs.ivs.RecordingConfigurationThumbnailConfiguration>;
 }

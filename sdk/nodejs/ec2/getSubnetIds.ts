@@ -7,6 +7,13 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * `aws.ec2.getSubnetIds` provides a set of ids for a vpcId
+ *
+ * This resource can be useful for getting back a set of subnet ids for a vpc.
+ *
+ * > **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
+ */
 export function getSubnetIds(args: GetSubnetIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetIdsResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -21,8 +28,18 @@ export function getSubnetIds(args: GetSubnetIdsArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getSubnetIds.
  */
 export interface GetSubnetIdsArgs {
+    /**
+     * Custom filter block as described below.
+     */
     filters?: inputs.ec2.GetSubnetIdsFilter[];
+    /**
+     * Map of tags, each pair of which must exactly match
+     * a pair on the desired subnets.
+     */
     tags?: {[key: string]: string};
+    /**
+     * VPC ID that you want to filter from.
+     */
     vpcId: string;
 }
 
@@ -35,10 +52,20 @@ export interface GetSubnetIdsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Set of all the subnet ids found. This data source will fail if none are found.
+     */
     readonly ids: string[];
     readonly tags: {[key: string]: string};
     readonly vpcId: string;
 }
+/**
+ * `aws.ec2.getSubnetIds` provides a set of ids for a vpcId
+ *
+ * This resource can be useful for getting back a set of subnet ids for a vpc.
+ *
+ * > **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
+ */
 export function getSubnetIdsOutput(args: GetSubnetIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetIdsResult> {
     return pulumi.output(args).apply((a: any) => getSubnetIds(a, opts))
 }
@@ -47,7 +74,17 @@ export function getSubnetIdsOutput(args: GetSubnetIdsOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getSubnetIds.
  */
 export interface GetSubnetIdsOutputArgs {
+    /**
+     * Custom filter block as described below.
+     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSubnetIdsFilterArgs>[]>;
+    /**
+     * Map of tags, each pair of which must exactly match
+     * a pair on the desired subnets.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * VPC ID that you want to filter from.
+     */
     vpcId: pulumi.Input<string>;
 }

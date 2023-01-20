@@ -11,9 +11,57 @@ namespace Pulumi.Aws.CloudFront
 {
     public static class GetRealtimeLogConfig
     {
+        /// <summary>
+        /// Provides a CloudFront real-time log configuration resource.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CloudFront.GetRealtimeLogConfig.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetRealtimeLogConfigResult> InvokeAsync(GetRealtimeLogConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRealtimeLogConfigResult>("aws:cloudfront/getRealtimeLogConfig:getRealtimeLogConfig", args ?? new GetRealtimeLogConfigArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides a CloudFront real-time log configuration resource.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CloudFront.GetRealtimeLogConfig.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetRealtimeLogConfigResult> Invoke(GetRealtimeLogConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRealtimeLogConfigResult>("aws:cloudfront/getRealtimeLogConfig:getRealtimeLogConfig", args ?? new GetRealtimeLogConfigInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +69,9 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetRealtimeLogConfigArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Unique name to identify this real-time log configuration.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -32,6 +83,9 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetRealtimeLogConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Unique name to identify this real-time log configuration.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -45,14 +99,26 @@ namespace Pulumi.Aws.CloudFront
     [OutputType]
     public sealed class GetRealtimeLogConfigResult
     {
+        /// <summary>
+        /// ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// (Required) Amazon Kinesis data streams where real-time log data is sent.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetRealtimeLogConfigEndpointResult> Endpoints;
+        /// <summary>
+        /// (Required) Fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
+        /// </summary>
         public readonly ImmutableArray<string> Fields;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        /// <summary>
+        /// (Required) Sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
+        /// </summary>
         public readonly int SamplingRate;
 
         [OutputConstructor]

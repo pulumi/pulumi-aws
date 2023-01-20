@@ -13,17 +13,78 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Manages an AWS Storage Gateway working storage.
+ * 
+ * &gt; **NOTE:** The Storage Gateway API provides no method to remove a working storage disk. Destroying this resource does not perform any Storage Gateway actions.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.storagegateway.WorkingStorage;
+ * import com.pulumi.aws.storagegateway.WorkingStorageArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new WorkingStorage(&#34;example&#34;, WorkingStorageArgs.builder()        
+ *             .diskId(data.aws_storagegateway_local_disk().example().id())
+ *             .gatewayArn(aws_storagegateway_gateway.example().arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_storagegateway_working_storage` can be imported by using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`), e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:storagegateway/workingStorage:WorkingStorage example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
+ * ```
+ * 
+ */
 @ResourceType(type="aws:storagegateway/workingStorage:WorkingStorage")
 public class WorkingStorage extends com.pulumi.resources.CustomResource {
+    /**
+     * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+     * 
+     */
     @Export(name="diskId", refs={String.class}, tree="[0]")
     private Output<String> diskId;
 
+    /**
+     * @return Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+     * 
+     */
     public Output<String> diskId() {
         return this.diskId;
     }
+    /**
+     * The Amazon Resource Name (ARN) of the gateway.
+     * 
+     */
     @Export(name="gatewayArn", refs={String.class}, tree="[0]")
     private Output<String> gatewayArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the gateway.
+     * 
+     */
     public Output<String> gatewayArn() {
         return this.gatewayArn;
     }

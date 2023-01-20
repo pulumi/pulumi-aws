@@ -7,6 +7,89 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a CodeDeploy deployment config for an application
+ *
+ * ## Example Usage
+ * ### Server Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const fooDeploymentConfig = new aws.codedeploy.DeploymentConfig("fooDeploymentConfig", {
+ *     deploymentConfigName: "test-deployment-config",
+ *     minimumHealthyHosts: {
+ *         type: "HOST_COUNT",
+ *         value: 2,
+ *     },
+ * });
+ * const fooDeploymentGroup = new aws.codedeploy.DeploymentGroup("fooDeploymentGroup", {
+ *     appName: aws_codedeploy_app.foo_app.name,
+ *     deploymentGroupName: "bar",
+ *     serviceRoleArn: aws_iam_role.foo_role.arn,
+ *     deploymentConfigName: fooDeploymentConfig.id,
+ *     ec2TagFilters: [{
+ *         key: "filterkey",
+ *         type: "KEY_AND_VALUE",
+ *         value: "filtervalue",
+ *     }],
+ *     triggerConfigurations: [{
+ *         triggerEvents: ["DeploymentFailure"],
+ *         triggerName: "foo-trigger",
+ *         triggerTargetArn: "foo-topic-arn",
+ *     }],
+ *     autoRollbackConfiguration: {
+ *         enabled: true,
+ *         events: ["DEPLOYMENT_FAILURE"],
+ *     },
+ *     alarmConfiguration: {
+ *         alarms: ["my-alarm-name"],
+ *         enabled: true,
+ *     },
+ * });
+ * ```
+ * ### Lambda Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const fooDeploymentConfig = new aws.codedeploy.DeploymentConfig("fooDeploymentConfig", {
+ *     deploymentConfigName: "test-deployment-config",
+ *     computePlatform: "Lambda",
+ *     trafficRoutingConfig: {
+ *         type: "TimeBasedLinear",
+ *         timeBasedLinear: {
+ *             interval: 10,
+ *             percentage: 10,
+ *         },
+ *     },
+ * });
+ * const fooDeploymentGroup = new aws.codedeploy.DeploymentGroup("fooDeploymentGroup", {
+ *     appName: aws_codedeploy_app.foo_app.name,
+ *     deploymentGroupName: "bar",
+ *     serviceRoleArn: aws_iam_role.foo_role.arn,
+ *     deploymentConfigName: fooDeploymentConfig.id,
+ *     autoRollbackConfiguration: {
+ *         enabled: true,
+ *         events: ["DEPLOYMENT_STOP_ON_ALARM"],
+ *     },
+ *     alarmConfiguration: {
+ *         alarms: ["my-alarm-name"],
+ *         enabled: true,
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * CodeDeploy Deployment Configurations can be imported using the `deployment_config_name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
+ * ```
+ */
 export class DeploymentConfig extends pulumi.CustomResource {
     /**
      * Get an existing DeploymentConfig resource's state with the given name, ID, and optional extra
@@ -35,10 +118,25 @@ export class DeploymentConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === DeploymentConfig.__pulumiType;
     }
 
+    /**
+     * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
+     */
     public readonly computePlatform!: pulumi.Output<string | undefined>;
+    /**
+     * The AWS Assigned deployment config id
+     */
     public /*out*/ readonly deploymentConfigId!: pulumi.Output<string>;
+    /**
+     * The name of the deployment config.
+     */
     public readonly deploymentConfigName!: pulumi.Output<string>;
+    /**
+     * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+     */
     public readonly minimumHealthyHosts!: pulumi.Output<outputs.codedeploy.DeploymentConfigMinimumHealthyHosts | undefined>;
+    /**
+     * A trafficRoutingConfig block. Traffic Routing Config is documented below.
+     */
     public readonly trafficRoutingConfig!: pulumi.Output<outputs.codedeploy.DeploymentConfigTrafficRoutingConfig | undefined>;
 
     /**
@@ -76,10 +174,25 @@ export class DeploymentConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DeploymentConfig resources.
  */
 export interface DeploymentConfigState {
+    /**
+     * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
+     */
     computePlatform?: pulumi.Input<string>;
+    /**
+     * The AWS Assigned deployment config id
+     */
     deploymentConfigId?: pulumi.Input<string>;
+    /**
+     * The name of the deployment config.
+     */
     deploymentConfigName?: pulumi.Input<string>;
+    /**
+     * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+     */
     minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts>;
+    /**
+     * A trafficRoutingConfig block. Traffic Routing Config is documented below.
+     */
     trafficRoutingConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigTrafficRoutingConfig>;
 }
 
@@ -87,8 +200,20 @@ export interface DeploymentConfigState {
  * The set of arguments for constructing a DeploymentConfig resource.
  */
 export interface DeploymentConfigArgs {
+    /**
+     * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
+     */
     computePlatform?: pulumi.Input<string>;
+    /**
+     * The name of the deployment config.
+     */
     deploymentConfigName?: pulumi.Input<string>;
+    /**
+     * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+     */
     minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts>;
+    /**
+     * A trafficRoutingConfig block. Traffic Routing Config is documented below.
+     */
     trafficRoutingConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigTrafficRoutingConfig>;
 }

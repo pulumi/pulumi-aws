@@ -12,6 +12,9 @@ namespace Pulumi.Aws.LightSail.Inputs
 
     public sealed class CertificateDomainValidationOptionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A domain name for which the certificate should be issued.
+        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 

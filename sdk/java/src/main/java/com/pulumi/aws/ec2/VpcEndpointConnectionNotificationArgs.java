@@ -16,30 +16,62 @@ public final class VpcEndpointConnectionNotificationArgs extends com.pulumi.reso
 
     public static final VpcEndpointConnectionNotificationArgs Empty = new VpcEndpointConnectionNotificationArgs();
 
+    /**
+     * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+     * 
+     */
     @Import(name="connectionEvents", required=true)
     private Output<List<String>> connectionEvents;
 
+    /**
+     * @return One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+     * 
+     */
     public Output<List<String>> connectionEvents() {
         return this.connectionEvents;
     }
 
+    /**
+     * The ARN of the SNS topic for the notifications.
+     * 
+     */
     @Import(name="connectionNotificationArn", required=true)
     private Output<String> connectionNotificationArn;
 
+    /**
+     * @return The ARN of the SNS topic for the notifications.
+     * 
+     */
     public Output<String> connectionNotificationArn() {
         return this.connectionNotificationArn;
     }
 
+    /**
+     * The ID of the VPC Endpoint to receive notifications for.
+     * 
+     */
     @Import(name="vpcEndpointId")
     private @Nullable Output<String> vpcEndpointId;
 
+    /**
+     * @return The ID of the VPC Endpoint to receive notifications for.
+     * 
+     */
     public Optional<Output<String>> vpcEndpointId() {
         return Optional.ofNullable(this.vpcEndpointId);
     }
 
+    /**
+     * The ID of the VPC Endpoint Service to receive notifications for.
+     * 
+     */
     @Import(name="vpcEndpointServiceId")
     private @Nullable Output<String> vpcEndpointServiceId;
 
+    /**
+     * @return The ID of the VPC Endpoint Service to receive notifications for.
+     * 
+     */
     public Optional<Output<String>> vpcEndpointServiceId() {
         return Optional.ofNullable(this.vpcEndpointServiceId);
     }
@@ -71,42 +103,96 @@ public final class VpcEndpointConnectionNotificationArgs extends com.pulumi.reso
             $ = new VpcEndpointConnectionNotificationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param connectionEvents One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionEvents(Output<List<String>> connectionEvents) {
             $.connectionEvents = connectionEvents;
             return this;
         }
 
+        /**
+         * @param connectionEvents One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionEvents(List<String> connectionEvents) {
             return connectionEvents(Output.of(connectionEvents));
         }
 
+        /**
+         * @param connectionEvents One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionEvents(String... connectionEvents) {
             return connectionEvents(List.of(connectionEvents));
         }
 
+        /**
+         * @param connectionNotificationArn The ARN of the SNS topic for the notifications.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionNotificationArn(Output<String> connectionNotificationArn) {
             $.connectionNotificationArn = connectionNotificationArn;
             return this;
         }
 
+        /**
+         * @param connectionNotificationArn The ARN of the SNS topic for the notifications.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionNotificationArn(String connectionNotificationArn) {
             return connectionNotificationArn(Output.of(connectionNotificationArn));
         }
 
+        /**
+         * @param vpcEndpointId The ID of the VPC Endpoint to receive notifications for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcEndpointId(@Nullable Output<String> vpcEndpointId) {
             $.vpcEndpointId = vpcEndpointId;
             return this;
         }
 
+        /**
+         * @param vpcEndpointId The ID of the VPC Endpoint to receive notifications for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcEndpointId(String vpcEndpointId) {
             return vpcEndpointId(Output.of(vpcEndpointId));
         }
 
+        /**
+         * @param vpcEndpointServiceId The ID of the VPC Endpoint Service to receive notifications for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcEndpointServiceId(@Nullable Output<String> vpcEndpointServiceId) {
             $.vpcEndpointServiceId = vpcEndpointServiceId;
             return this;
         }
 
+        /**
+         * @param vpcEndpointServiceId The ID of the VPC Endpoint Service to receive notifications for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcEndpointServiceId(String vpcEndpointServiceId) {
             return vpcEndpointServiceId(Output.of(vpcEndpointServiceId));
         }

@@ -12,6 +12,10 @@ namespace Pulumi.Aws.Rds.Inputs
 
     public sealed class InstanceBlueGreenUpdateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enables low-downtime updates when `true`.
+        /// Default is `false`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

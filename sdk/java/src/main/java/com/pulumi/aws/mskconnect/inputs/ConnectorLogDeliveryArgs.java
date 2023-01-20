@@ -13,9 +13,17 @@ public final class ConnectorLogDeliveryArgs extends com.pulumi.resources.Resourc
 
     public static final ConnectorLogDeliveryArgs Empty = new ConnectorLogDeliveryArgs();
 
+    /**
+     * The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
+     * 
+     */
     @Import(name="workerLogDelivery", required=true)
     private Output<ConnectorLogDeliveryWorkerLogDeliveryArgs> workerLogDelivery;
 
+    /**
+     * @return The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
+     * 
+     */
     public Output<ConnectorLogDeliveryWorkerLogDeliveryArgs> workerLogDelivery() {
         return this.workerLogDelivery;
     }
@@ -44,11 +52,23 @@ public final class ConnectorLogDeliveryArgs extends com.pulumi.resources.Resourc
             $ = new ConnectorLogDeliveryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param workerLogDelivery The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workerLogDelivery(Output<ConnectorLogDeliveryWorkerLogDeliveryArgs> workerLogDelivery) {
             $.workerLogDelivery = workerLogDelivery;
             return this;
         }
 
+        /**
+         * @param workerLogDelivery The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workerLogDelivery(ConnectorLogDeliveryWorkerLogDeliveryArgs workerLogDelivery) {
             return workerLogDelivery(Output.of(workerLogDelivery));
         }

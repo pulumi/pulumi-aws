@@ -13,23 +13,47 @@ public final class OutboundConnectionRemoteDomainInfoArgs extends com.pulumi.res
 
     public static final OutboundConnectionRemoteDomainInfoArgs Empty = new OutboundConnectionRemoteDomainInfoArgs();
 
+    /**
+     * The name of the remote domain.
+     * 
+     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
+    /**
+     * @return The name of the remote domain.
+     * 
+     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
+    /**
+     * The Account ID of the owner of the remote domain.
+     * 
+     */
     @Import(name="ownerId", required=true)
     private Output<String> ownerId;
 
+    /**
+     * @return The Account ID of the owner of the remote domain.
+     * 
+     */
     public Output<String> ownerId() {
         return this.ownerId;
     }
 
+    /**
+     * The region of the remote domain.
+     * 
+     */
     @Import(name="region", required=true)
     private Output<String> region;
 
+    /**
+     * @return The region of the remote domain.
+     * 
+     */
     public Output<String> region() {
         return this.region;
     }
@@ -60,29 +84,65 @@ public final class OutboundConnectionRemoteDomainInfoArgs extends com.pulumi.res
             $ = new OutboundConnectionRemoteDomainInfoArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domainName The name of the remote domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
+        /**
+         * @param domainName The name of the remote domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
+        /**
+         * @param ownerId The Account ID of the owner of the remote domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ownerId(Output<String> ownerId) {
             $.ownerId = ownerId;
             return this;
         }
 
+        /**
+         * @param ownerId The Account ID of the owner of the remote domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ownerId(String ownerId) {
             return ownerId(Output.of(ownerId));
         }
 
+        /**
+         * @param region The region of the remote domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(Output<String> region) {
             $.region = region;
             return this;
         }
 
+        /**
+         * @param region The region of the remote domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

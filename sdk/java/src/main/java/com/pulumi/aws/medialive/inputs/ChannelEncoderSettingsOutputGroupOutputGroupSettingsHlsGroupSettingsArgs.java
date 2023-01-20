@@ -21,9 +21,17 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs();
 
+    /**
+     * The ad marker type for this output group.
+     * 
+     */
     @Import(name="adMarkers")
     private @Nullable Output<List<String>> adMarkers;
 
+    /**
+     * @return The ad marker type for this output group.
+     * 
+     */
     public Optional<Output<List<String>>> adMarkers() {
         return Optional.ofNullable(this.adMarkers);
     }
@@ -91,9 +99,17 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         return Optional.ofNullable(this.constantIv);
     }
 
+    /**
+     * A director and base filename where archive files should be written. See Destination for more details.
+     * 
+     */
     @Import(name="destination", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs> destination;
 
+    /**
+     * @return A director and base filename where archive files should be written. See Destination for more details.
+     * 
+     */
     public Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs> destination() {
         return this.destination;
     }
@@ -154,9 +170,17 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         return Optional.ofNullable(this.indexNSegments);
     }
 
+    /**
+     * Controls the behavior of the RTMP group if input becomes unavailable.
+     * 
+     */
     @Import(name="inputLossAction")
     private @Nullable Output<String> inputLossAction;
 
+    /**
+     * @return Controls the behavior of the RTMP group if input becomes unavailable.
+     * 
+     */
     public Optional<Output<String>> inputLossAction() {
         return Optional.ofNullable(this.inputLossAction);
     }
@@ -287,9 +311,17 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         return Optional.ofNullable(this.streamInfResolution);
     }
 
+    /**
+     * Indicates ID3 frame that has the timecode.
+     * 
+     */
     @Import(name="timedMetadataId3Frame")
     private @Nullable Output<String> timedMetadataId3Frame;
 
+    /**
+     * @return Indicates ID3 frame that has the timecode.
+     * 
+     */
     public Optional<Output<String>> timedMetadataId3Frame() {
         return Optional.ofNullable(this.timedMetadataId3Frame);
     }
@@ -380,15 +412,33 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param adMarkers The ad marker type for this output group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adMarkers(@Nullable Output<List<String>> adMarkers) {
             $.adMarkers = adMarkers;
             return this;
         }
 
+        /**
+         * @param adMarkers The ad marker type for this output group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adMarkers(List<String> adMarkers) {
             return adMarkers(Output.of(adMarkers));
         }
 
+        /**
+         * @param adMarkers The ad marker type for this output group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adMarkers(String... adMarkers) {
             return adMarkers(List.of(adMarkers));
         }
@@ -478,11 +528,23 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return constantIv(Output.of(constantIv));
         }
 
+        /**
+         * @param destination A director and base filename where archive files should be written. See Destination for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destination(Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs> destination) {
             $.destination = destination;
             return this;
         }
 
+        /**
+         * @param destination A director and base filename where archive files should be written. See Destination for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destination(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs destination) {
             return destination(Output.of(destination));
         }
@@ -563,11 +625,23 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return indexNSegments(Output.of(indexNSegments));
         }
 
+        /**
+         * @param inputLossAction Controls the behavior of the RTMP group if input becomes unavailable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputLossAction(@Nullable Output<String> inputLossAction) {
             $.inputLossAction = inputLossAction;
             return this;
         }
 
+        /**
+         * @param inputLossAction Controls the behavior of the RTMP group if input becomes unavailable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputLossAction(String inputLossAction) {
             return inputLossAction(Output.of(inputLossAction));
         }
@@ -734,11 +808,23 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return streamInfResolution(Output.of(streamInfResolution));
         }
 
+        /**
+         * @param timedMetadataId3Frame Indicates ID3 frame that has the timecode.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timedMetadataId3Frame(@Nullable Output<String> timedMetadataId3Frame) {
             $.timedMetadataId3Frame = timedMetadataId3Frame;
             return this;
         }
 
+        /**
+         * @param timedMetadataId3Frame Indicates ID3 frame that has the timecode.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timedMetadataId3Frame(String timedMetadataId3Frame) {
             return timedMetadataId3Frame(Output.of(timedMetadataId3Frame));
         }

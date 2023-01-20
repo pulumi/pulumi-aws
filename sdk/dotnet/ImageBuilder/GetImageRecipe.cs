@@ -11,9 +11,57 @@ namespace Pulumi.Aws.ImageBuilder
 {
     public static class GetImageRecipe
     {
+        /// <summary>
+        /// Provides details about an Image Builder Image Recipe.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ImageBuilder.GetImageRecipe.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetImageRecipeResult> InvokeAsync(GetImageRecipeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageRecipeResult>("aws:imagebuilder/getImageRecipe:getImageRecipe", args ?? new GetImageRecipeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides details about an Image Builder Image Recipe.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ImageBuilder.GetImageRecipe.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetImageRecipeResult> Invoke(GetImageRecipeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageRecipeResult>("aws:imagebuilder/getImageRecipe:getImageRecipe", args ?? new GetImageRecipeInvokeArgs(), options.WithDefaults());
     }
@@ -21,11 +69,18 @@ namespace Pulumi.Aws.ImageBuilder
 
     public sealed class GetImageRecipeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN of the image recipe.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags for the image recipe.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -40,11 +95,18 @@ namespace Pulumi.Aws.ImageBuilder
 
     public sealed class GetImageRecipeInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN of the image recipe.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags for the image recipe.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -62,21 +124,57 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class GetImageRecipeResult
     {
         public readonly string Arn;
+        /// <summary>
+        /// Set of objects with block device mappings for the image recipe.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetImageRecipeBlockDeviceMappingResult> BlockDeviceMappings;
+        /// <summary>
+        /// List of objects with components for the image recipe.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetImageRecipeComponentResult> Components;
+        /// <summary>
+        /// Date the image recipe was created.
+        /// </summary>
         public readonly string DateCreated;
+        /// <summary>
+        /// Description of the image recipe.
+        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Name of the image recipe.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Owner of the image recipe.
+        /// </summary>
         public readonly string Owner;
+        /// <summary>
+        /// Base image of the image recipe.
+        /// </summary>
         public readonly string ParentImage;
+        /// <summary>
+        /// Platform of the image recipe.
+        /// </summary>
         public readonly string Platform;
+        /// <summary>
+        /// Key-value map of resource tags for the image recipe.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
+        /// </summary>
         public readonly string UserDataBase64;
+        /// <summary>
+        /// Version of the image recipe.
+        /// </summary>
         public readonly string Version;
+        /// <summary>
+        /// Working directory used during build and test workflows.
+        /// </summary>
         public readonly string WorkingDirectory;
 
         [OutputConstructor]

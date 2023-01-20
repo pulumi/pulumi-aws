@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to get information about an ElastiCache Replication Group.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := elasticache.LookupReplicationGroup(ctx, &elasticache.LookupReplicationGroupArgs{
+//				ReplicationGroupId: "example",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupReplicationGroup(ctx *pulumi.Context, args *LookupReplicationGroupArgs, opts ...pulumi.InvokeOption) (*LookupReplicationGroupResult, error) {
 	var rv LookupReplicationGroupResult
 	err := ctx.Invoke("aws:elasticache/getReplicationGroup:getReplicationGroup", args, &rv, opts...)
@@ -21,35 +48,57 @@ func LookupReplicationGroup(ctx *pulumi.Context, args *LookupReplicationGroupArg
 
 // A collection of arguments for invoking getReplicationGroup.
 type LookupReplicationGroupArgs struct {
+	// Identifier for the replication group.
 	ReplicationGroupId string `pulumi:"replicationGroupId"`
 }
 
 // A collection of values returned by getReplicationGroup.
 type LookupReplicationGroupResult struct {
-	Arn                          string `pulumi:"arn"`
-	AuthTokenEnabled             bool   `pulumi:"authTokenEnabled"`
-	AutomaticFailoverEnabled     bool   `pulumi:"automaticFailoverEnabled"`
+	// ARN of the created ElastiCache Replication Group.
+	Arn string `pulumi:"arn"`
+	// Whether an AuthToken (password) is enabled.
+	AuthTokenEnabled bool `pulumi:"authTokenEnabled"`
+	// A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
+	AutomaticFailoverEnabled bool `pulumi:"automaticFailoverEnabled"`
+	// The configuration endpoint address to allow host discovery.
 	ConfigurationEndpointAddress string `pulumi:"configurationEndpointAddress"`
-	Description                  string `pulumi:"description"`
+	// Description of the replication group.
+	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                        string                                        `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
 	LogDeliveryConfigurations []GetReplicationGroupLogDeliveryConfiguration `pulumi:"logDeliveryConfigurations"`
-	MemberClusters            []string                                      `pulumi:"memberClusters"`
-	MultiAzEnabled            bool                                          `pulumi:"multiAzEnabled"`
-	NodeType                  string                                        `pulumi:"nodeType"`
-	NumCacheClusters          int                                           `pulumi:"numCacheClusters"`
-	NumNodeGroups             int                                           `pulumi:"numNodeGroups"`
+	// Identifiers of all the nodes that are part of this replication group.
+	MemberClusters []string `pulumi:"memberClusters"`
+	// Whether Multi-AZ Support is enabled for the replication group.
+	MultiAzEnabled bool `pulumi:"multiAzEnabled"`
+	// The cluster node type.
+	NodeType string `pulumi:"nodeType"`
+	// The number of cache clusters that the replication group has.
+	NumCacheClusters int `pulumi:"numCacheClusters"`
+	// Number of node groups (shards) for the replication group.
+	NumNodeGroups int `pulumi:"numNodeGroups"`
+	// (**Deprecated** use `numCacheClusters` instead) Number of cache clusters that the replication group has.
+	//
 	// Deprecated: Use num_cache_clusters instead
-	NumberCacheClusters    int    `pulumi:"numberCacheClusters"`
-	Port                   int    `pulumi:"port"`
+	NumberCacheClusters int `pulumi:"numberCacheClusters"`
+	// The port number on which the configuration endpoint will accept connections.
+	Port int `pulumi:"port"`
+	// The endpoint of the primary node in this node group (shard).
 	PrimaryEndpointAddress string `pulumi:"primaryEndpointAddress"`
-	ReaderEndpointAddress  string `pulumi:"readerEndpointAddress"`
-	ReplicasPerNodeGroup   int    `pulumi:"replicasPerNodeGroup"`
+	// The endpoint of the reader node in this node group (shard).
+	ReaderEndpointAddress string `pulumi:"readerEndpointAddress"`
+	// Number of replica nodes in each node group.
+	ReplicasPerNodeGroup int `pulumi:"replicasPerNodeGroup"`
+	// (**Deprecated** use `description` instead) Description of the replication group.
+	//
 	// Deprecated: Use description instead
 	ReplicationGroupDescription string `pulumi:"replicationGroupDescription"`
 	ReplicationGroupId          string `pulumi:"replicationGroupId"`
-	SnapshotRetentionLimit      int    `pulumi:"snapshotRetentionLimit"`
-	SnapshotWindow              string `pulumi:"snapshotWindow"`
+	// The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
+	SnapshotRetentionLimit int `pulumi:"snapshotRetentionLimit"`
+	// Daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
+	SnapshotWindow string `pulumi:"snapshotWindow"`
 }
 
 func LookupReplicationGroupOutput(ctx *pulumi.Context, args LookupReplicationGroupOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationGroupResultOutput {
@@ -67,6 +116,7 @@ func LookupReplicationGroupOutput(ctx *pulumi.Context, args LookupReplicationGro
 
 // A collection of arguments for invoking getReplicationGroup.
 type LookupReplicationGroupOutputArgs struct {
+	// Identifier for the replication group.
 	ReplicationGroupId pulumi.StringInput `pulumi:"replicationGroupId"`
 }
 
@@ -89,22 +139,27 @@ func (o LookupReplicationGroupResultOutput) ToLookupReplicationGroupResultOutput
 	return o
 }
 
+// ARN of the created ElastiCache Replication Group.
 func (o LookupReplicationGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Whether an AuthToken (password) is enabled.
 func (o LookupReplicationGroupResultOutput) AuthTokenEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) bool { return v.AuthTokenEnabled }).(pulumi.BoolOutput)
 }
 
+// A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
 func (o LookupReplicationGroupResultOutput) AutomaticFailoverEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) bool { return v.AutomaticFailoverEnabled }).(pulumi.BoolOutput)
 }
 
+// The configuration endpoint address to allow host discovery.
 func (o LookupReplicationGroupResultOutput) ConfigurationEndpointAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) string { return v.ConfigurationEndpointAddress }).(pulumi.StringOutput)
 }
 
+// Description of the replication group.
 func (o LookupReplicationGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -114,53 +169,67 @@ func (o LookupReplicationGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
 func (o LookupReplicationGroupResultOutput) LogDeliveryConfigurations() GetReplicationGroupLogDeliveryConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) []GetReplicationGroupLogDeliveryConfiguration {
 		return v.LogDeliveryConfigurations
 	}).(GetReplicationGroupLogDeliveryConfigurationArrayOutput)
 }
 
+// Identifiers of all the nodes that are part of this replication group.
 func (o LookupReplicationGroupResultOutput) MemberClusters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) []string { return v.MemberClusters }).(pulumi.StringArrayOutput)
 }
 
+// Whether Multi-AZ Support is enabled for the replication group.
 func (o LookupReplicationGroupResultOutput) MultiAzEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) bool { return v.MultiAzEnabled }).(pulumi.BoolOutput)
 }
 
+// The cluster node type.
 func (o LookupReplicationGroupResultOutput) NodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) string { return v.NodeType }).(pulumi.StringOutput)
 }
 
+// The number of cache clusters that the replication group has.
 func (o LookupReplicationGroupResultOutput) NumCacheClusters() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) int { return v.NumCacheClusters }).(pulumi.IntOutput)
 }
 
+// Number of node groups (shards) for the replication group.
 func (o LookupReplicationGroupResultOutput) NumNodeGroups() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) int { return v.NumNodeGroups }).(pulumi.IntOutput)
 }
 
+// (**Deprecated** use `numCacheClusters` instead) Number of cache clusters that the replication group has.
+//
 // Deprecated: Use num_cache_clusters instead
 func (o LookupReplicationGroupResultOutput) NumberCacheClusters() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) int { return v.NumberCacheClusters }).(pulumi.IntOutput)
 }
 
+// The port number on which the configuration endpoint will accept connections.
 func (o LookupReplicationGroupResultOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The endpoint of the primary node in this node group (shard).
 func (o LookupReplicationGroupResultOutput) PrimaryEndpointAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) string { return v.PrimaryEndpointAddress }).(pulumi.StringOutput)
 }
 
+// The endpoint of the reader node in this node group (shard).
 func (o LookupReplicationGroupResultOutput) ReaderEndpointAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) string { return v.ReaderEndpointAddress }).(pulumi.StringOutput)
 }
 
+// Number of replica nodes in each node group.
 func (o LookupReplicationGroupResultOutput) ReplicasPerNodeGroup() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) int { return v.ReplicasPerNodeGroup }).(pulumi.IntOutput)
 }
 
+// (**Deprecated** use `description` instead) Description of the replication group.
+//
 // Deprecated: Use description instead
 func (o LookupReplicationGroupResultOutput) ReplicationGroupDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) string { return v.ReplicationGroupDescription }).(pulumi.StringOutput)
@@ -170,10 +239,12 @@ func (o LookupReplicationGroupResultOutput) ReplicationGroupId() pulumi.StringOu
 	return o.ApplyT(func(v LookupReplicationGroupResult) string { return v.ReplicationGroupId }).(pulumi.StringOutput)
 }
 
+// The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
 func (o LookupReplicationGroupResultOutput) SnapshotRetentionLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) int { return v.SnapshotRetentionLimit }).(pulumi.IntOutput)
 }
 
+// Daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
 func (o LookupReplicationGroupResultOutput) SnapshotWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) string { return v.SnapshotWindow }).(pulumi.StringOutput)
 }

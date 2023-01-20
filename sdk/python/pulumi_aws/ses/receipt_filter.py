@@ -19,6 +19,9 @@ class ReceiptFilterArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ReceiptFilter resource.
+        :param pulumi.Input[str] cidr: The IP address or address range to filter, in CIDR notation
+        :param pulumi.Input[str] policy: Block or Allow
+        :param pulumi.Input[str] name: The name of the filter
         """
         pulumi.set(__self__, "cidr", cidr)
         pulumi.set(__self__, "policy", policy)
@@ -28,6 +31,9 @@ class ReceiptFilterArgs:
     @property
     @pulumi.getter
     def cidr(self) -> pulumi.Input[str]:
+        """
+        The IP address or address range to filter, in CIDR notation
+        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -37,6 +43,9 @@ class ReceiptFilterArgs:
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
+        """
+        Block or Allow
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -46,6 +55,9 @@ class ReceiptFilterArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the filter
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -62,6 +74,10 @@ class _ReceiptFilterState:
                  policy: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ReceiptFilter resources.
+        :param pulumi.Input[str] arn: The SES receipt filter ARN.
+        :param pulumi.Input[str] cidr: The IP address or address range to filter, in CIDR notation
+        :param pulumi.Input[str] name: The name of the filter
+        :param pulumi.Input[str] policy: Block or Allow
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -75,6 +91,9 @@ class _ReceiptFilterState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SES receipt filter ARN.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -84,6 +103,9 @@ class _ReceiptFilterState:
     @property
     @pulumi.getter
     def cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address or address range to filter, in CIDR notation
+        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -93,6 +115,9 @@ class _ReceiptFilterState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the filter
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -102,6 +127,9 @@ class _ReceiptFilterState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Block or Allow
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -119,9 +147,32 @@ class ReceiptFilter(pulumi.CustomResource):
                  policy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ReceiptFilter resource with the given unique name, props, and options.
+        Provides an SES receipt filter resource
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        filter = aws.ses.ReceiptFilter("filter",
+            cidr="10.10.10.10",
+            policy="Block")
+        ```
+
+        ## Import
+
+        SES Receipt Filter can be imported using their `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cidr: The IP address or address range to filter, in CIDR notation
+        :param pulumi.Input[str] name: The name of the filter
+        :param pulumi.Input[str] policy: Block or Allow
         """
         ...
     @overload
@@ -130,7 +181,27 @@ class ReceiptFilter(pulumi.CustomResource):
                  args: ReceiptFilterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ReceiptFilter resource with the given unique name, props, and options.
+        Provides an SES receipt filter resource
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        filter = aws.ses.ReceiptFilter("filter",
+            cidr="10.10.10.10",
+            policy="Block")
+        ```
+
+        ## Import
+
+        SES Receipt Filter can be imported using their `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
+        ```
+
         :param str resource_name: The name of the resource.
         :param ReceiptFilterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,6 +258,10 @@ class ReceiptFilter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The SES receipt filter ARN.
+        :param pulumi.Input[str] cidr: The IP address or address range to filter, in CIDR notation
+        :param pulumi.Input[str] name: The name of the filter
+        :param pulumi.Input[str] policy: Block or Allow
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -201,20 +276,32 @@ class ReceiptFilter(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The SES receipt filter ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def cidr(self) -> pulumi.Output[str]:
+        """
+        The IP address or address range to filter, in CIDR notation
+        """
         return pulumi.get(self, "cidr")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the filter
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
+        """
+        Block or Allow
+        """
         return pulumi.get(self, "policy")
 

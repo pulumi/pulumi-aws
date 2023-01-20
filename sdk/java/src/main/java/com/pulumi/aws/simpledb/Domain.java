@@ -13,11 +13,58 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a SimpleDB domain resource
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.simpledb.Domain;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var users = new Domain(&#34;users&#34;);
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * SimpleDB Domains can be imported using the `name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:simpledb/domain:Domain users users
+ * ```
+ * 
+ */
 @ResourceType(type="aws:simpledb/domain:Domain")
 public class Domain extends com.pulumi.resources.CustomResource {
+    /**
+     * The name of the SimpleDB domain
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the SimpleDB domain
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

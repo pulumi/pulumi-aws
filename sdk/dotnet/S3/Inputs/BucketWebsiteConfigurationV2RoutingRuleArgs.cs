@@ -12,9 +12,15 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketWebsiteConfigurationV2RoutingRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A configuration block for describing a condition that must be met for the specified redirect to apply detailed below.
+        /// </summary>
         [Input("condition")]
         public Input<Inputs.BucketWebsiteConfigurationV2RoutingRuleConditionArgs>? Condition { get; set; }
 
+        /// <summary>
+        /// A configuration block for redirect information detailed below.
+        /// </summary>
         [Input("redirect", required: true)]
         public Input<Inputs.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs> Redirect { get; set; } = null!;
 

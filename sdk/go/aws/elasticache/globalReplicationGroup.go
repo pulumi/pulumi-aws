@@ -11,26 +11,173 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an ElastiCache Global Replication Group resource, which manages replication between two or more Replication Groups in different regions. For more information, see the [ElastiCache User Guide](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
+//
+// ## Example Usage
+// ### Global replication group with one secondary replication group
+//
+// The global replication group depends on the primary group existing. Secondary replication groups depend on the global replication group. the provider dependency management will handle this transparently using resource value references.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary, err := elasticache.NewReplicationGroup(ctx, "primary", &elasticache.ReplicationGroupArgs{
+//				ReplicationGroupDescription: pulumi.String("primary replication group"),
+//				Engine:                      pulumi.String("redis"),
+//				EngineVersion:               pulumi.String("5.0.6"),
+//				NodeType:                    pulumi.String("cache.m5.large"),
+//				NumberCacheClusters:         pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example, err := elasticache.NewGlobalReplicationGroup(ctx, "example", &elasticache.GlobalReplicationGroupArgs{
+//				GlobalReplicationGroupIdSuffix: pulumi.String("example"),
+//				PrimaryReplicationGroupId:      primary.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elasticache.NewReplicationGroup(ctx, "secondary", &elasticache.ReplicationGroupArgs{
+//				ReplicationGroupDescription: pulumi.String("secondary replication group"),
+//				GlobalReplicationGroupId:    example.GlobalReplicationGroupId,
+//				NumberCacheClusters:         pulumi.Int(1),
+//			}, pulumi.Provider(aws.Other_region))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Managing Redis Engine Versions
+//
+// The initial Redis version is determined by the version set on the primary replication group.
+// However, once it is part of a Global Replication Group,
+// the Global Replication Group manages the version of all member replication groups.
+//
+// The member replication groups must have `lifecycle.ignore_changes[engineVersion]` set,
+// or the provider will always return a diff.
+//
+// In this example,
+// the primary replication group will be created with Redis 6.0,
+// and then upgraded to Redis 6.2 once added to the Global Replication Group.
+// The secondary replication group will be created with Redis 6.2.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary, err := elasticache.NewReplicationGroup(ctx, "primary", &elasticache.ReplicationGroupArgs{
+//				ReplicationGroupDescription: pulumi.String("primary replication group"),
+//				Engine:                      pulumi.String("redis"),
+//				EngineVersion:               pulumi.String("6.0"),
+//				NodeType:                    pulumi.String("cache.m5.large"),
+//				NumberCacheClusters:         pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example, err := elasticache.NewGlobalReplicationGroup(ctx, "example", &elasticache.GlobalReplicationGroupArgs{
+//				GlobalReplicationGroupIdSuffix: pulumi.String("example"),
+//				PrimaryReplicationGroupId:      primary.ID(),
+//				EngineVersion:                  pulumi.String("6.2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elasticache.NewReplicationGroup(ctx, "secondary", &elasticache.ReplicationGroupArgs{
+//				ReplicationGroupDescription: pulumi.String("secondary replication group"),
+//				GlobalReplicationGroupId:    example.GlobalReplicationGroupId,
+//				NumberCacheClusters:         pulumi.Int(1),
+//			}, pulumi.Provider(aws.Other_region))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// ElastiCache Global Replication Groups can be imported using the `global_replication_group_id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1
+//
+// ```
 type GlobalReplicationGroup struct {
 	pulumi.CustomResourceState
 
-	Arn                               pulumi.StringOutput                              `pulumi:"arn"`
-	AtRestEncryptionEnabled           pulumi.BoolOutput                                `pulumi:"atRestEncryptionEnabled"`
-	AuthTokenEnabled                  pulumi.BoolOutput                                `pulumi:"authTokenEnabled"`
-	AutomaticFailoverEnabled          pulumi.BoolOutput                                `pulumi:"automaticFailoverEnabled"`
-	CacheNodeType                     pulumi.StringOutput                              `pulumi:"cacheNodeType"`
-	ClusterEnabled                    pulumi.BoolOutput                                `pulumi:"clusterEnabled"`
-	Engine                            pulumi.StringOutput                              `pulumi:"engine"`
-	EngineVersion                     pulumi.StringOutput                              `pulumi:"engineVersion"`
-	EngineVersionActual               pulumi.StringOutput                              `pulumi:"engineVersionActual"`
-	GlobalNodeGroups                  GlobalReplicationGroupGlobalNodeGroupArrayOutput `pulumi:"globalNodeGroups"`
-	GlobalReplicationGroupDescription pulumi.StringPtrOutput                           `pulumi:"globalReplicationGroupDescription"`
-	GlobalReplicationGroupId          pulumi.StringOutput                              `pulumi:"globalReplicationGroupId"`
-	GlobalReplicationGroupIdSuffix    pulumi.StringOutput                              `pulumi:"globalReplicationGroupIdSuffix"`
-	NumNodeGroups                     pulumi.IntOutput                                 `pulumi:"numNodeGroups"`
-	ParameterGroupName                pulumi.StringPtrOutput                           `pulumi:"parameterGroupName"`
-	PrimaryReplicationGroupId         pulumi.StringOutput                              `pulumi:"primaryReplicationGroupId"`
-	TransitEncryptionEnabled          pulumi.BoolOutput                                `pulumi:"transitEncryptionEnabled"`
+	// The ARN of the ElastiCache Global Replication Group.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A flag that indicate whether the encryption at rest is enabled.
+	AtRestEncryptionEnabled pulumi.BoolOutput `pulumi:"atRestEncryptionEnabled"`
+	// A flag that indicate whether AuthToken (password) is enabled.
+	AuthTokenEnabled pulumi.BoolOutput `pulumi:"authTokenEnabled"`
+	// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+	// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+	AutomaticFailoverEnabled pulumi.BoolOutput `pulumi:"automaticFailoverEnabled"`
+	// The instance class used.
+	// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+	// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
+	CacheNodeType pulumi.StringOutput `pulumi:"cacheNodeType"`
+	// Indicates whether the Global Datastore is cluster enabled.
+	ClusterEnabled pulumi.BoolOutput `pulumi:"clusterEnabled"`
+	// The name of the cache engine to be used for the clusters in this global replication group.
+	Engine pulumi.StringOutput `pulumi:"engine"`
+	// Redis version to use for the Global Replication Group.
+	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
+	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	// The full version number of the cache engine running on the members of this global replication group.
+	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
+	// Set of node groups (shards) on the global replication group.
+	// Has the values:
+	GlobalNodeGroups GlobalReplicationGroupGlobalNodeGroupArrayOutput `pulumi:"globalNodeGroups"`
+	// A user-created description for the global replication group.
+	GlobalReplicationGroupDescription pulumi.StringPtrOutput `pulumi:"globalReplicationGroupDescription"`
+	// The full ID of the global replication group.
+	GlobalReplicationGroupId pulumi.StringOutput `pulumi:"globalReplicationGroupId"`
+	// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
+	GlobalReplicationGroupIdSuffix pulumi.StringOutput `pulumi:"globalReplicationGroupIdSuffix"`
+	// The number of node groups (shards) on the global replication group.
+	NumNodeGroups pulumi.IntOutput `pulumi:"numNodeGroups"`
+	// An ElastiCache Parameter Group to use for the Global Replication Group.
+	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+	// Specifying without a major version upgrade will fail.
+	// Note that ElastiCache creates a copy of this parameter group for each member replication group.
+	ParameterGroupName pulumi.StringPtrOutput `pulumi:"parameterGroupName"`
+	// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
+	PrimaryReplicationGroupId pulumi.StringOutput `pulumi:"primaryReplicationGroupId"`
+	// A flag that indicates whether the encryption in transit is enabled.
+	TransitEncryptionEnabled pulumi.BoolOutput `pulumi:"transitEncryptionEnabled"`
 }
 
 // NewGlobalReplicationGroup registers a new resource with the given unique name, arguments, and options.
@@ -68,43 +215,105 @@ func GetGlobalReplicationGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GlobalReplicationGroup resources.
 type globalReplicationGroupState struct {
-	Arn                               *string                                 `pulumi:"arn"`
-	AtRestEncryptionEnabled           *bool                                   `pulumi:"atRestEncryptionEnabled"`
-	AuthTokenEnabled                  *bool                                   `pulumi:"authTokenEnabled"`
-	AutomaticFailoverEnabled          *bool                                   `pulumi:"automaticFailoverEnabled"`
-	CacheNodeType                     *string                                 `pulumi:"cacheNodeType"`
-	ClusterEnabled                    *bool                                   `pulumi:"clusterEnabled"`
-	Engine                            *string                                 `pulumi:"engine"`
-	EngineVersion                     *string                                 `pulumi:"engineVersion"`
-	EngineVersionActual               *string                                 `pulumi:"engineVersionActual"`
-	GlobalNodeGroups                  []GlobalReplicationGroupGlobalNodeGroup `pulumi:"globalNodeGroups"`
-	GlobalReplicationGroupDescription *string                                 `pulumi:"globalReplicationGroupDescription"`
-	GlobalReplicationGroupId          *string                                 `pulumi:"globalReplicationGroupId"`
-	GlobalReplicationGroupIdSuffix    *string                                 `pulumi:"globalReplicationGroupIdSuffix"`
-	NumNodeGroups                     *int                                    `pulumi:"numNodeGroups"`
-	ParameterGroupName                *string                                 `pulumi:"parameterGroupName"`
-	PrimaryReplicationGroupId         *string                                 `pulumi:"primaryReplicationGroupId"`
-	TransitEncryptionEnabled          *bool                                   `pulumi:"transitEncryptionEnabled"`
+	// The ARN of the ElastiCache Global Replication Group.
+	Arn *string `pulumi:"arn"`
+	// A flag that indicate whether the encryption at rest is enabled.
+	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
+	// A flag that indicate whether AuthToken (password) is enabled.
+	AuthTokenEnabled *bool `pulumi:"authTokenEnabled"`
+	// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+	// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
+	// The instance class used.
+	// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+	// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
+	CacheNodeType *string `pulumi:"cacheNodeType"`
+	// Indicates whether the Global Datastore is cluster enabled.
+	ClusterEnabled *bool `pulumi:"clusterEnabled"`
+	// The name of the cache engine to be used for the clusters in this global replication group.
+	Engine *string `pulumi:"engine"`
+	// Redis version to use for the Global Replication Group.
+	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
+	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	EngineVersion *string `pulumi:"engineVersion"`
+	// The full version number of the cache engine running on the members of this global replication group.
+	EngineVersionActual *string `pulumi:"engineVersionActual"`
+	// Set of node groups (shards) on the global replication group.
+	// Has the values:
+	GlobalNodeGroups []GlobalReplicationGroupGlobalNodeGroup `pulumi:"globalNodeGroups"`
+	// A user-created description for the global replication group.
+	GlobalReplicationGroupDescription *string `pulumi:"globalReplicationGroupDescription"`
+	// The full ID of the global replication group.
+	GlobalReplicationGroupId *string `pulumi:"globalReplicationGroupId"`
+	// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
+	GlobalReplicationGroupIdSuffix *string `pulumi:"globalReplicationGroupIdSuffix"`
+	// The number of node groups (shards) on the global replication group.
+	NumNodeGroups *int `pulumi:"numNodeGroups"`
+	// An ElastiCache Parameter Group to use for the Global Replication Group.
+	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+	// Specifying without a major version upgrade will fail.
+	// Note that ElastiCache creates a copy of this parameter group for each member replication group.
+	ParameterGroupName *string `pulumi:"parameterGroupName"`
+	// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
+	PrimaryReplicationGroupId *string `pulumi:"primaryReplicationGroupId"`
+	// A flag that indicates whether the encryption in transit is enabled.
+	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
 
 type GlobalReplicationGroupState struct {
-	Arn                               pulumi.StringPtrInput
-	AtRestEncryptionEnabled           pulumi.BoolPtrInput
-	AuthTokenEnabled                  pulumi.BoolPtrInput
-	AutomaticFailoverEnabled          pulumi.BoolPtrInput
-	CacheNodeType                     pulumi.StringPtrInput
-	ClusterEnabled                    pulumi.BoolPtrInput
-	Engine                            pulumi.StringPtrInput
-	EngineVersion                     pulumi.StringPtrInput
-	EngineVersionActual               pulumi.StringPtrInput
-	GlobalNodeGroups                  GlobalReplicationGroupGlobalNodeGroupArrayInput
+	// The ARN of the ElastiCache Global Replication Group.
+	Arn pulumi.StringPtrInput
+	// A flag that indicate whether the encryption at rest is enabled.
+	AtRestEncryptionEnabled pulumi.BoolPtrInput
+	// A flag that indicate whether AuthToken (password) is enabled.
+	AuthTokenEnabled pulumi.BoolPtrInput
+	// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+	// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+	AutomaticFailoverEnabled pulumi.BoolPtrInput
+	// The instance class used.
+	// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+	// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
+	CacheNodeType pulumi.StringPtrInput
+	// Indicates whether the Global Datastore is cluster enabled.
+	ClusterEnabled pulumi.BoolPtrInput
+	// The name of the cache engine to be used for the clusters in this global replication group.
+	Engine pulumi.StringPtrInput
+	// Redis version to use for the Global Replication Group.
+	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
+	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	EngineVersion pulumi.StringPtrInput
+	// The full version number of the cache engine running on the members of this global replication group.
+	EngineVersionActual pulumi.StringPtrInput
+	// Set of node groups (shards) on the global replication group.
+	// Has the values:
+	GlobalNodeGroups GlobalReplicationGroupGlobalNodeGroupArrayInput
+	// A user-created description for the global replication group.
 	GlobalReplicationGroupDescription pulumi.StringPtrInput
-	GlobalReplicationGroupId          pulumi.StringPtrInput
-	GlobalReplicationGroupIdSuffix    pulumi.StringPtrInput
-	NumNodeGroups                     pulumi.IntPtrInput
-	ParameterGroupName                pulumi.StringPtrInput
-	PrimaryReplicationGroupId         pulumi.StringPtrInput
-	TransitEncryptionEnabled          pulumi.BoolPtrInput
+	// The full ID of the global replication group.
+	GlobalReplicationGroupId pulumi.StringPtrInput
+	// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
+	GlobalReplicationGroupIdSuffix pulumi.StringPtrInput
+	// The number of node groups (shards) on the global replication group.
+	NumNodeGroups pulumi.IntPtrInput
+	// An ElastiCache Parameter Group to use for the Global Replication Group.
+	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+	// Specifying without a major version upgrade will fail.
+	// Note that ElastiCache creates a copy of this parameter group for each member replication group.
+	ParameterGroupName pulumi.StringPtrInput
+	// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
+	PrimaryReplicationGroupId pulumi.StringPtrInput
+	// A flag that indicates whether the encryption in transit is enabled.
+	TransitEncryptionEnabled pulumi.BoolPtrInput
 }
 
 func (GlobalReplicationGroupState) ElementType() reflect.Type {
@@ -112,26 +321,68 @@ func (GlobalReplicationGroupState) ElementType() reflect.Type {
 }
 
 type globalReplicationGroupArgs struct {
-	AutomaticFailoverEnabled          *bool   `pulumi:"automaticFailoverEnabled"`
-	CacheNodeType                     *string `pulumi:"cacheNodeType"`
-	EngineVersion                     *string `pulumi:"engineVersion"`
+	// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+	// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
+	// The instance class used.
+	// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+	// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
+	CacheNodeType *string `pulumi:"cacheNodeType"`
+	// Redis version to use for the Global Replication Group.
+	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
+	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	EngineVersion *string `pulumi:"engineVersion"`
+	// A user-created description for the global replication group.
 	GlobalReplicationGroupDescription *string `pulumi:"globalReplicationGroupDescription"`
-	GlobalReplicationGroupIdSuffix    string  `pulumi:"globalReplicationGroupIdSuffix"`
-	NumNodeGroups                     *int    `pulumi:"numNodeGroups"`
-	ParameterGroupName                *string `pulumi:"parameterGroupName"`
-	PrimaryReplicationGroupId         string  `pulumi:"primaryReplicationGroupId"`
+	// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
+	GlobalReplicationGroupIdSuffix string `pulumi:"globalReplicationGroupIdSuffix"`
+	// The number of node groups (shards) on the global replication group.
+	NumNodeGroups *int `pulumi:"numNodeGroups"`
+	// An ElastiCache Parameter Group to use for the Global Replication Group.
+	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+	// Specifying without a major version upgrade will fail.
+	// Note that ElastiCache creates a copy of this parameter group for each member replication group.
+	ParameterGroupName *string `pulumi:"parameterGroupName"`
+	// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
+	PrimaryReplicationGroupId string `pulumi:"primaryReplicationGroupId"`
 }
 
 // The set of arguments for constructing a GlobalReplicationGroup resource.
 type GlobalReplicationGroupArgs struct {
-	AutomaticFailoverEnabled          pulumi.BoolPtrInput
-	CacheNodeType                     pulumi.StringPtrInput
-	EngineVersion                     pulumi.StringPtrInput
+	// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+	// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+	AutomaticFailoverEnabled pulumi.BoolPtrInput
+	// The instance class used.
+	// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+	// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
+	CacheNodeType pulumi.StringPtrInput
+	// Redis version to use for the Global Replication Group.
+	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
+	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	EngineVersion pulumi.StringPtrInput
+	// A user-created description for the global replication group.
 	GlobalReplicationGroupDescription pulumi.StringPtrInput
-	GlobalReplicationGroupIdSuffix    pulumi.StringInput
-	NumNodeGroups                     pulumi.IntPtrInput
-	ParameterGroupName                pulumi.StringPtrInput
-	PrimaryReplicationGroupId         pulumi.StringInput
+	// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
+	GlobalReplicationGroupIdSuffix pulumi.StringInput
+	// The number of node groups (shards) on the global replication group.
+	NumNodeGroups pulumi.IntPtrInput
+	// An ElastiCache Parameter Group to use for the Global Replication Group.
+	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+	// Specifying without a major version upgrade will fail.
+	// Note that ElastiCache creates a copy of this parameter group for each member replication group.
+	ParameterGroupName pulumi.StringPtrInput
+	// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
+	PrimaryReplicationGroupId pulumi.StringInput
 }
 
 func (GlobalReplicationGroupArgs) ElementType() reflect.Type {
@@ -221,72 +472,103 @@ func (o GlobalReplicationGroupOutput) ToGlobalReplicationGroupOutputWithContext(
 	return o
 }
 
+// The ARN of the ElastiCache Global Replication Group.
 func (o GlobalReplicationGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A flag that indicate whether the encryption at rest is enabled.
 func (o GlobalReplicationGroupOutput) AtRestEncryptionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.BoolOutput { return v.AtRestEncryptionEnabled }).(pulumi.BoolOutput)
 }
 
+// A flag that indicate whether AuthToken (password) is enabled.
 func (o GlobalReplicationGroupOutput) AuthTokenEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.BoolOutput { return v.AuthTokenEnabled }).(pulumi.BoolOutput)
 }
 
+// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
 func (o GlobalReplicationGroupOutput) AutomaticFailoverEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.BoolOutput { return v.AutomaticFailoverEnabled }).(pulumi.BoolOutput)
 }
 
+// The instance class used.
+// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
 func (o GlobalReplicationGroupOutput) CacheNodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.CacheNodeType }).(pulumi.StringOutput)
 }
 
+// Indicates whether the Global Datastore is cluster enabled.
 func (o GlobalReplicationGroupOutput) ClusterEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.BoolOutput { return v.ClusterEnabled }).(pulumi.BoolOutput)
 }
 
+// The name of the cache engine to be used for the clusters in this global replication group.
 func (o GlobalReplicationGroupOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }
 
+// Redis version to use for the Global Replication Group.
+// When creating, by default the Global Replication Group inherits the version of the primary replication group.
+// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
 func (o GlobalReplicationGroupOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }
 
+// The full version number of the cache engine running on the members of this global replication group.
 func (o GlobalReplicationGroupOutput) EngineVersionActual() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.EngineVersionActual }).(pulumi.StringOutput)
 }
 
+// Set of node groups (shards) on the global replication group.
+// Has the values:
 func (o GlobalReplicationGroupOutput) GlobalNodeGroups() GlobalReplicationGroupGlobalNodeGroupArrayOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) GlobalReplicationGroupGlobalNodeGroupArrayOutput {
 		return v.GlobalNodeGroups
 	}).(GlobalReplicationGroupGlobalNodeGroupArrayOutput)
 }
 
+// A user-created description for the global replication group.
 func (o GlobalReplicationGroupOutput) GlobalReplicationGroupDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringPtrOutput { return v.GlobalReplicationGroupDescription }).(pulumi.StringPtrOutput)
 }
 
+// The full ID of the global replication group.
 func (o GlobalReplicationGroupOutput) GlobalReplicationGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.GlobalReplicationGroupId }).(pulumi.StringOutput)
 }
 
+// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
 func (o GlobalReplicationGroupOutput) GlobalReplicationGroupIdSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.GlobalReplicationGroupIdSuffix }).(pulumi.StringOutput)
 }
 
+// The number of node groups (shards) on the global replication group.
 func (o GlobalReplicationGroupOutput) NumNodeGroups() pulumi.IntOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.IntOutput { return v.NumNodeGroups }).(pulumi.IntOutput)
 }
 
+// An ElastiCache Parameter Group to use for the Global Replication Group.
+// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+// Specifying without a major version upgrade will fail.
+// Note that ElastiCache creates a copy of this parameter group for each member replication group.
 func (o GlobalReplicationGroupOutput) ParameterGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringPtrOutput { return v.ParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
 func (o GlobalReplicationGroupOutput) PrimaryReplicationGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.PrimaryReplicationGroupId }).(pulumi.StringOutput)
 }
 
+// A flag that indicates whether the encryption in transit is enabled.
 func (o GlobalReplicationGroupOutput) TransitEncryptionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.BoolOutput { return v.TransitEncryptionEnabled }).(pulumi.BoolOutput)
 }

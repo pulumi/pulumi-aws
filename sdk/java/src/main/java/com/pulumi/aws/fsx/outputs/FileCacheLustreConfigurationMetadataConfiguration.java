@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class FileCacheLustreConfigurationMetadataConfiguration {
+    /**
+     * @return The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+     * 
+     */
     private Integer storageCapacity;
 
     private FileCacheLustreConfigurationMetadataConfiguration() {}
+    /**
+     * @return The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+     * 
+     */
     public Integer storageCapacity() {
         return this.storageCapacity;
     }

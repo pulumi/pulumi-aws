@@ -16,35 +16,174 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a CloudFront real-time log configuration resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import com.pulumi.aws.cloudfront.RealtimeLogConfig;
+ * import com.pulumi.aws.cloudfront.RealtimeLogConfigArgs;
+ * import com.pulumi.aws.cloudfront.inputs.RealtimeLogConfigEndpointArgs;
+ * import com.pulumi.aws.cloudfront.inputs.RealtimeLogConfigEndpointKinesisStreamConfigArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
+ *       &#34;Principal&#34;: {
+ *         &#34;Service&#34;: &#34;cloudfront.amazonaws.com&#34;
+ *       },
+ *       &#34;Effect&#34;: &#34;Allow&#34;
+ *     }
+ *   ]
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .role(exampleRole.id())
+ *             .policy(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *         &#34;Effect&#34;: &#34;Allow&#34;,
+ *         &#34;Action&#34;: [
+ *           &#34;kinesis:DescribeStreamSummary&#34;,
+ *           &#34;kinesis:DescribeStream&#34;,
+ *           &#34;kinesis:PutRecord&#34;,
+ *           &#34;kinesis:PutRecords&#34;
+ *         ],
+ *         &#34;Resource&#34;: &#34;%s&#34;
+ *     }
+ *   ]
+ * }
+ * &#34;, aws_kinesis_stream.example().arn()))
+ *             .build());
+ * 
+ *         var exampleRealtimeLogConfig = new RealtimeLogConfig(&#34;exampleRealtimeLogConfig&#34;, RealtimeLogConfigArgs.builder()        
+ *             .samplingRate(75)
+ *             .fields(            
+ *                 &#34;timestamp&#34;,
+ *                 &#34;c-ip&#34;)
+ *             .endpoint(RealtimeLogConfigEndpointArgs.builder()
+ *                 .streamType(&#34;Kinesis&#34;)
+ *                 .kinesisStreamConfig(RealtimeLogConfigEndpointKinesisStreamConfigArgs.builder()
+ *                     .roleArn(exampleRole.arn())
+ *                     .streamArn(aws_kinesis_stream.example().arn())
+ *                     .build())
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleRolePolicy)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * CloudFront real-time log configurations can be imported using the ARN, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:cloudfront/realtimeLogConfig:RealtimeLogConfig example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
+ * ```
+ * 
+ */
 @ResourceType(type="aws:cloudfront/realtimeLogConfig:RealtimeLogConfig")
 public class RealtimeLogConfig extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The Amazon Kinesis data streams where real-time log data is sent.
+     * 
+     */
     @Export(name="endpoint", refs={RealtimeLogConfigEndpoint.class}, tree="[0]")
     private Output<RealtimeLogConfigEndpoint> endpoint;
 
+    /**
+     * @return The Amazon Kinesis data streams where real-time log data is sent.
+     * 
+     */
     public Output<RealtimeLogConfigEndpoint> endpoint() {
         return this.endpoint;
     }
+    /**
+     * The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
+     * 
+     */
     @Export(name="fields", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> fields;
 
+    /**
+     * @return The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
+     * 
+     */
     public Output<List<String>> fields() {
         return this.fields;
     }
+    /**
+     * The unique name to identify this real-time log configuration.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The unique name to identify this real-time log configuration.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
+     * 
+     */
     @Export(name="samplingRate", refs={Integer.class}, tree="[0]")
     private Output<Integer> samplingRate;
 
+    /**
+     * @return The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
+     * 
+     */
     public Output<Integer> samplingRate() {
         return this.samplingRate;
     }

@@ -15,9 +15,17 @@ public final class AccountAliasState extends com.pulumi.resources.ResourceArgs {
 
     public static final AccountAliasState Empty = new AccountAliasState();
 
+    /**
+     * The account alias
+     * 
+     */
     @Import(name="accountAlias")
     private @Nullable Output<String> accountAlias;
 
+    /**
+     * @return The account alias
+     * 
+     */
     public Optional<Output<String>> accountAlias() {
         return Optional.ofNullable(this.accountAlias);
     }
@@ -46,11 +54,23 @@ public final class AccountAliasState extends com.pulumi.resources.ResourceArgs {
             $ = new AccountAliasState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accountAlias The account alias
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountAlias(@Nullable Output<String> accountAlias) {
             $.accountAlias = accountAlias;
             return this;
         }
 
+        /**
+         * @param accountAlias The account alias
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountAlias(String accountAlias) {
             return accountAlias(Output.of(accountAlias));
         }

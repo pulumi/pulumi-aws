@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class LaunchTemplateElasticInferenceAccelerator
     {
+        /// <summary>
+        /// Accelerator type.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

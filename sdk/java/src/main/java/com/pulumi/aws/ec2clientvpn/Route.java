@@ -14,41 +14,158 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides additional routes for AWS Client VPN endpoints. For more information on usage, please see the
+ * [AWS Client VPN Administrator&#39;s Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2clientvpn.Endpoint;
+ * import com.pulumi.aws.ec2clientvpn.EndpointArgs;
+ * import com.pulumi.aws.ec2clientvpn.inputs.EndpointAuthenticationOptionArgs;
+ * import com.pulumi.aws.ec2clientvpn.inputs.EndpointConnectionLogOptionsArgs;
+ * import com.pulumi.aws.ec2clientvpn.NetworkAssociation;
+ * import com.pulumi.aws.ec2clientvpn.NetworkAssociationArgs;
+ * import com.pulumi.aws.ec2clientvpn.Route;
+ * import com.pulumi.aws.ec2clientvpn.RouteArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleEndpoint = new Endpoint(&#34;exampleEndpoint&#34;, EndpointArgs.builder()        
+ *             .description(&#34;Example Client VPN endpoint&#34;)
+ *             .serverCertificateArn(aws_acm_certificate.example().arn())
+ *             .clientCidrBlock(&#34;10.0.0.0/16&#34;)
+ *             .authenticationOptions(EndpointAuthenticationOptionArgs.builder()
+ *                 .type(&#34;certificate-authentication&#34;)
+ *                 .rootCertificateChainArn(aws_acm_certificate.example().arn())
+ *                 .build())
+ *             .connectionLogOptions(EndpointConnectionLogOptionsArgs.builder()
+ *                 .enabled(false)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleNetworkAssociation = new NetworkAssociation(&#34;exampleNetworkAssociation&#34;, NetworkAssociationArgs.builder()        
+ *             .clientVpnEndpointId(exampleEndpoint.id())
+ *             .subnetId(aws_subnet.example().id())
+ *             .build());
+ * 
+ *         var exampleRoute = new Route(&#34;exampleRoute&#34;, RouteArgs.builder()        
+ *             .clientVpnEndpointId(exampleEndpoint.id())
+ *             .destinationCidrBlock(&#34;0.0.0.0/0&#34;)
+ *             .targetVpcSubnetId(exampleNetworkAssociation.subnetId())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * AWS Client VPN routes can be imported using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`.
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2clientvpn/route:Route")
 public class Route extends com.pulumi.resources.CustomResource {
+    /**
+     * The ID of the Client VPN endpoint.
+     * 
+     */
     @Export(name="clientVpnEndpointId", refs={String.class}, tree="[0]")
     private Output<String> clientVpnEndpointId;
 
+    /**
+     * @return The ID of the Client VPN endpoint.
+     * 
+     */
     public Output<String> clientVpnEndpointId() {
         return this.clientVpnEndpointId;
     }
+    /**
+     * A brief description of the route.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return A brief description of the route.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The IPv4 address range, in CIDR notation, of the route destination.
+     * 
+     */
     @Export(name="destinationCidrBlock", refs={String.class}, tree="[0]")
     private Output<String> destinationCidrBlock;
 
+    /**
+     * @return The IPv4 address range, in CIDR notation, of the route destination.
+     * 
+     */
     public Output<String> destinationCidrBlock() {
         return this.destinationCidrBlock;
     }
+    /**
+     * Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
+     * 
+     */
     @Export(name="origin", refs={String.class}, tree="[0]")
     private Output<String> origin;
 
+    /**
+     * @return Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
+     * 
+     */
     public Output<String> origin() {
         return this.origin;
     }
+    /**
+     * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+     * 
+     */
     @Export(name="targetVpcSubnetId", refs={String.class}, tree="[0]")
     private Output<String> targetVpcSubnetId;
 
+    /**
+     * @return The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+     * 
+     */
     public Output<String> targetVpcSubnetId() {
         return this.targetVpcSubnetId;
     }
+    /**
+     * The type of the route.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
+    /**
+     * @return The type of the route.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }

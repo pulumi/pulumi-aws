@@ -9,12 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ControlTower
 {
+    /// <summary>
+    /// Allows the application of pre-defined controls to organizational units. For more information on usage, please see the
+    /// [AWS Control Tower User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/enable-guardrails.html).
+    /// 
+    /// ## Import
+    /// 
+    /// Control Tower Controls can be imported using their `organizational_unit_arn/control_identifier`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:controltower/controlTowerControl:ControlTowerControl")]
     public partial class ControlTowerControl : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
+        /// </summary>
         [Output("controlIdentifier")]
         public Output<string> ControlIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the organizational unit.
+        /// </summary>
         [Output("targetIdentifier")]
         public Output<string> TargetIdentifier { get; private set; } = null!;
 
@@ -64,9 +82,15 @@ namespace Pulumi.Aws.ControlTower
 
     public sealed class ControlTowerControlArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
+        /// </summary>
         [Input("controlIdentifier", required: true)]
         public Input<string> ControlIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the organizational unit.
+        /// </summary>
         [Input("targetIdentifier", required: true)]
         public Input<string> TargetIdentifier { get; set; } = null!;
 
@@ -78,9 +102,15 @@ namespace Pulumi.Aws.ControlTower
 
     public sealed class ControlTowerControlState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
+        /// </summary>
         [Input("controlIdentifier")]
         public Input<string>? ControlIdentifier { get; set; }
 
+        /// <summary>
+        /// The ARN of the organizational unit.
+        /// </summary>
         [Input("targetIdentifier")]
         public Input<string>? TargetIdentifier { get; set; }
 

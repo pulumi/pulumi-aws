@@ -20,6 +20,8 @@ class MultiRegionAccessPointPolicyArgs:
                  account_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a MultiRegionAccessPointPolicy resource.
+        :param pulumi.Input['MultiRegionAccessPointPolicyDetailsArgs'] details: A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+        :param pulumi.Input[str] account_id: The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         """
         pulumi.set(__self__, "details", details)
         if account_id is not None:
@@ -28,6 +30,9 @@ class MultiRegionAccessPointPolicyArgs:
     @property
     @pulumi.getter
     def details(self) -> pulumi.Input['MultiRegionAccessPointPolicyDetailsArgs']:
+        """
+        A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+        """
         return pulumi.get(self, "details")
 
     @details.setter
@@ -37,6 +42,9 @@ class MultiRegionAccessPointPolicyArgs:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -53,6 +61,10 @@ class _MultiRegionAccessPointPolicyState:
                  proposed: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering MultiRegionAccessPointPolicy resources.
+        :param pulumi.Input[str] account_id: The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        :param pulumi.Input['MultiRegionAccessPointPolicyDetailsArgs'] details: A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+        :param pulumi.Input[str] established: The last established policy for the Multi-Region Access Point.
+        :param pulumi.Input[str] proposed: The proposed policy for the Multi-Region Access Point.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -66,6 +78,9 @@ class _MultiRegionAccessPointPolicyState:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -75,6 +90,9 @@ class _MultiRegionAccessPointPolicyState:
     @property
     @pulumi.getter
     def details(self) -> Optional[pulumi.Input['MultiRegionAccessPointPolicyDetailsArgs']]:
+        """
+        A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+        """
         return pulumi.get(self, "details")
 
     @details.setter
@@ -84,6 +102,9 @@ class _MultiRegionAccessPointPolicyState:
     @property
     @pulumi.getter
     def established(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last established policy for the Multi-Region Access Point.
+        """
         return pulumi.get(self, "established")
 
     @established.setter
@@ -93,6 +114,9 @@ class _MultiRegionAccessPointPolicyState:
     @property
     @pulumi.getter
     def proposed(self) -> Optional[pulumi.Input[str]]:
+        """
+        The proposed policy for the Multi-Region Access Point.
+        """
         return pulumi.get(self, "proposed")
 
     @proposed.setter
@@ -109,9 +133,57 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
                  details: Optional[pulumi.Input[pulumi.InputType['MultiRegionAccessPointPolicyDetailsArgs']]] = None,
                  __props__=None):
         """
-        Create a MultiRegionAccessPointPolicy resource with the given unique name, props, and options.
+        Provides a resource to manage an S3 Multi-Region Access Point access control policy.
+
+        ## Example Usage
+        ### Basic Example
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current_caller_identity = aws.get_caller_identity()
+        current_partition = aws.get_partition()
+        foo_bucket = aws.s3.BucketV2("fooBucket")
+        example_multi_region_access_point = aws.s3control.MultiRegionAccessPoint("exampleMultiRegionAccessPoint", details=aws.s3control.MultiRegionAccessPointDetailsArgs(
+            name="example",
+            regions=[aws.s3control.MultiRegionAccessPointDetailsRegionArgs(
+                bucket=foo_bucket.id,
+            )],
+        ))
+        example_multi_region_access_point_policy = aws.s3control.MultiRegionAccessPointPolicy("exampleMultiRegionAccessPointPolicy", details=aws.s3control.MultiRegionAccessPointPolicyDetailsArgs(
+            name=example_multi_region_access_point.id.apply(lambda id: id.split(":"))[1],
+            policy=example_multi_region_access_point.alias.apply(lambda alias: json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Sid": "Example",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": current_caller_identity.account_id,
+                    },
+                    "Action": [
+                        "s3:GetObject",
+                        "s3:PutObject",
+                    ],
+                    "Resource": f"arn:{current_partition.partition}:s3::{current_caller_identity.account_id}:accesspoint/{alias}/object/*",
+                }],
+            })),
+        ))
+        ```
+
+        ## Import
+
+        Multi-Region Access Point Policies can be imported using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`), e.g.
+
+        ```sh
+         $ pulumi import aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy example 123456789012:example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_id: The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        :param pulumi.Input[pulumi.InputType['MultiRegionAccessPointPolicyDetailsArgs']] details: A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
         """
         ...
     @overload
@@ -120,7 +192,53 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
                  args: MultiRegionAccessPointPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a MultiRegionAccessPointPolicy resource with the given unique name, props, and options.
+        Provides a resource to manage an S3 Multi-Region Access Point access control policy.
+
+        ## Example Usage
+        ### Basic Example
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current_caller_identity = aws.get_caller_identity()
+        current_partition = aws.get_partition()
+        foo_bucket = aws.s3.BucketV2("fooBucket")
+        example_multi_region_access_point = aws.s3control.MultiRegionAccessPoint("exampleMultiRegionAccessPoint", details=aws.s3control.MultiRegionAccessPointDetailsArgs(
+            name="example",
+            regions=[aws.s3control.MultiRegionAccessPointDetailsRegionArgs(
+                bucket=foo_bucket.id,
+            )],
+        ))
+        example_multi_region_access_point_policy = aws.s3control.MultiRegionAccessPointPolicy("exampleMultiRegionAccessPointPolicy", details=aws.s3control.MultiRegionAccessPointPolicyDetailsArgs(
+            name=example_multi_region_access_point.id.apply(lambda id: id.split(":"))[1],
+            policy=example_multi_region_access_point.alias.apply(lambda alias: json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Sid": "Example",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": current_caller_identity.account_id,
+                    },
+                    "Action": [
+                        "s3:GetObject",
+                        "s3:PutObject",
+                    ],
+                    "Resource": f"arn:{current_partition.partition}:s3::{current_caller_identity.account_id}:accesspoint/{alias}/object/*",
+                }],
+            })),
+        ))
+        ```
+
+        ## Import
+
+        Multi-Region Access Point Policies can be imported using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`), e.g.
+
+        ```sh
+         $ pulumi import aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy example 123456789012:example
+        ```
+
         :param str resource_name: The name of the resource.
         :param MultiRegionAccessPointPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,6 +292,10 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_id: The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        :param pulumi.Input[pulumi.InputType['MultiRegionAccessPointPolicyDetailsArgs']] details: A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+        :param pulumi.Input[str] established: The last established policy for the Multi-Region Access Point.
+        :param pulumi.Input[str] proposed: The proposed policy for the Multi-Region Access Point.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -188,20 +310,32 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
+        """
+        The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
     def details(self) -> pulumi.Output['outputs.MultiRegionAccessPointPolicyDetails']:
+        """
+        A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+        """
         return pulumi.get(self, "details")
 
     @property
     @pulumi.getter
     def established(self) -> pulumi.Output[str]:
+        """
+        The last established policy for the Multi-Region Access Point.
+        """
         return pulumi.get(self, "established")
 
     @property
     @pulumi.getter
     def proposed(self) -> pulumi.Output[str]:
+        """
+        The proposed policy for the Multi-Region Access Point.
+        """
         return pulumi.get(self, "proposed")
 

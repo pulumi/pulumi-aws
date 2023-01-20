@@ -22,6 +22,10 @@ class SpaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Space resource.
+        :param pulumi.Input[str] domain_id: The ID of the associated Domain.
+        :param pulumi.Input[str] space_name: The name of the space.
+        :param pulumi.Input['SpaceSpaceSettingsArgs'] space_settings: A collection of space settings. See Space Settings below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "domain_id", domain_id)
         pulumi.set(__self__, "space_name", space_name)
@@ -33,6 +37,9 @@ class SpaceArgs:
     @property
     @pulumi.getter(name="domainId")
     def domain_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the associated Domain.
+        """
         return pulumi.get(self, "domain_id")
 
     @domain_id.setter
@@ -42,6 +49,9 @@ class SpaceArgs:
     @property
     @pulumi.getter(name="spaceName")
     def space_name(self) -> pulumi.Input[str]:
+        """
+        The name of the space.
+        """
         return pulumi.get(self, "space_name")
 
     @space_name.setter
@@ -51,6 +61,9 @@ class SpaceArgs:
     @property
     @pulumi.getter(name="spaceSettings")
     def space_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsArgs']]:
+        """
+        A collection of space settings. See Space Settings below.
+        """
         return pulumi.get(self, "space_settings")
 
     @space_settings.setter
@@ -60,6 +73,9 @@ class SpaceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -79,6 +95,13 @@ class _SpaceState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Space resources.
+        :param pulumi.Input[str] arn: The space's Amazon Resource Name (ARN).
+        :param pulumi.Input[str] domain_id: The ID of the associated Domain.
+        :param pulumi.Input[str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
+        :param pulumi.Input[str] space_name: The name of the space.
+        :param pulumi.Input['SpaceSpaceSettingsArgs'] space_settings: A collection of space settings. See Space Settings below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -98,6 +121,9 @@ class _SpaceState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The space's Amazon Resource Name (ARN).
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -107,6 +133,9 @@ class _SpaceState:
     @property
     @pulumi.getter(name="domainId")
     def domain_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the associated Domain.
+        """
         return pulumi.get(self, "domain_id")
 
     @domain_id.setter
@@ -116,6 +145,9 @@ class _SpaceState:
     @property
     @pulumi.getter(name="homeEfsFileSystemUid")
     def home_efs_file_system_uid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the space's profile in the Amazon Elastic File System volume.
+        """
         return pulumi.get(self, "home_efs_file_system_uid")
 
     @home_efs_file_system_uid.setter
@@ -125,6 +157,9 @@ class _SpaceState:
     @property
     @pulumi.getter(name="spaceName")
     def space_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the space.
+        """
         return pulumi.get(self, "space_name")
 
     @space_name.setter
@@ -134,6 +169,9 @@ class _SpaceState:
     @property
     @pulumi.getter(name="spaceSettings")
     def space_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsArgs']]:
+        """
+        A collection of space settings. See Space Settings below.
+        """
         return pulumi.get(self, "space_settings")
 
     @space_settings.setter
@@ -143,6 +181,9 @@ class _SpaceState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -152,6 +193,9 @@ class _SpaceState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -170,9 +214,34 @@ class Space(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Space resource with the given unique name, props, and options.
+        Provides a SageMaker Space resource.
+
+        ## Example Usage
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sagemaker.Space("example",
+            domain_id=aws_sagemaker_domain["test"]["id"],
+            space_name="example")
+        ```
+
+        ## Import
+
+        SageMaker Spaces can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] domain_id: The ID of the associated Domain.
+        :param pulumi.Input[str] space_name: The name of the space.
+        :param pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArgs']] space_settings: A collection of space settings. See Space Settings below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -181,7 +250,28 @@ class Space(pulumi.CustomResource):
                  args: SpaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Space resource with the given unique name, props, and options.
+        Provides a SageMaker Space resource.
+
+        ## Example Usage
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sagemaker.Space("example",
+            domain_id=aws_sagemaker_domain["test"]["id"],
+            space_name="example")
+        ```
+
+        ## Import
+
+        SageMaker Spaces can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
+        ```
+
         :param str resource_name: The name of the resource.
         :param SpaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,6 +335,13 @@ class Space(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The space's Amazon Resource Name (ARN).
+        :param pulumi.Input[str] domain_id: The ID of the associated Domain.
+        :param pulumi.Input[str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
+        :param pulumi.Input[str] space_name: The name of the space.
+        :param pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArgs']] space_settings: A collection of space settings. See Space Settings below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -262,35 +359,56 @@ class Space(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The space's Amazon Resource Name (ARN).
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="domainId")
     def domain_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the associated Domain.
+        """
         return pulumi.get(self, "domain_id")
 
     @property
     @pulumi.getter(name="homeEfsFileSystemUid")
     def home_efs_file_system_uid(self) -> pulumi.Output[str]:
+        """
+        The ID of the space's profile in the Amazon Elastic File System volume.
+        """
         return pulumi.get(self, "home_efs_file_system_uid")
 
     @property
     @pulumi.getter(name="spaceName")
     def space_name(self) -> pulumi.Output[str]:
+        """
+        The name of the space.
+        """
         return pulumi.get(self, "space_name")
 
     @property
     @pulumi.getter(name="spaceSettings")
     def space_settings(self) -> pulumi.Output[Optional['outputs.SpaceSpaceSettings']]:
+        """
+        A collection of space settings. See Space Settings below.
+        """
         return pulumi.get(self, "space_settings")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

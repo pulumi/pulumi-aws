@@ -10,17 +10,84 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Athena database.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = athena.NewDatabase(ctx, "exampleDatabase", &athena.DatabaseArgs{
+//				Name:   pulumi.String("database_name"),
+//				Bucket: exampleBucketV2.Bucket,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Athena Databases can be imported using their name, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:athena/database:Database example example
+//
+// ```
+//
+//	Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the configuration or use `ignore_changes` to hide the difference, e.g., terraform resource "aws_athena_database" "example" {
+//
+//	name
+//
+//	= "database_name"
+//
+//	bucket = aws_s3_bucket.example.bucket
+//
+// # There is no API for reading bucket
+//
+//	lifecycle {
+//
+//	ignore_changes = [bucket]
+//
+//	} }
 type Database struct {
 	pulumi.CustomResourceState
 
-	AclConfiguration        DatabaseAclConfigurationPtrOutput        `pulumi:"aclConfiguration"`
-	Bucket                  pulumi.StringPtrOutput                   `pulumi:"bucket"`
-	Comment                 pulumi.StringPtrOutput                   `pulumi:"comment"`
+	// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+	AclConfiguration DatabaseAclConfigurationPtrOutput `pulumi:"aclConfiguration"`
+	// Name of S3 bucket to save the results of the query execution.
+	Bucket pulumi.StringPtrOutput `pulumi:"bucket"`
+	// Description of the database.
+	Comment pulumi.StringPtrOutput `pulumi:"comment"`
+	// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
 	EncryptionConfiguration DatabaseEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
-	ExpectedBucketOwner     pulumi.StringPtrOutput                   `pulumi:"expectedBucketOwner"`
-	ForceDestroy            pulumi.BoolPtrOutput                     `pulumi:"forceDestroy"`
-	Name                    pulumi.StringOutput                      `pulumi:"name"`
-	Properties              pulumi.StringMapOutput                   `pulumi:"properties"`
+	// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
+	// Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
+	// Name of the database to create.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Key-value map of custom metadata properties for the database definition.
+	Properties pulumi.StringMapOutput `pulumi:"properties"`
 }
 
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
@@ -52,25 +119,41 @@ func GetDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Database resources.
 type databaseState struct {
-	AclConfiguration        *DatabaseAclConfiguration        `pulumi:"aclConfiguration"`
-	Bucket                  *string                          `pulumi:"bucket"`
-	Comment                 *string                          `pulumi:"comment"`
+	// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+	AclConfiguration *DatabaseAclConfiguration `pulumi:"aclConfiguration"`
+	// Name of S3 bucket to save the results of the query execution.
+	Bucket *string `pulumi:"bucket"`
+	// Description of the database.
+	Comment *string `pulumi:"comment"`
+	// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
 	EncryptionConfiguration *DatabaseEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	ExpectedBucketOwner     *string                          `pulumi:"expectedBucketOwner"`
-	ForceDestroy            *bool                            `pulumi:"forceDestroy"`
-	Name                    *string                          `pulumi:"name"`
-	Properties              map[string]string                `pulumi:"properties"`
+	// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+	// Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
+	// Name of the database to create.
+	Name *string `pulumi:"name"`
+	// Key-value map of custom metadata properties for the database definition.
+	Properties map[string]string `pulumi:"properties"`
 }
 
 type DatabaseState struct {
-	AclConfiguration        DatabaseAclConfigurationPtrInput
-	Bucket                  pulumi.StringPtrInput
-	Comment                 pulumi.StringPtrInput
+	// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+	AclConfiguration DatabaseAclConfigurationPtrInput
+	// Name of S3 bucket to save the results of the query execution.
+	Bucket pulumi.StringPtrInput
+	// Description of the database.
+	Comment pulumi.StringPtrInput
+	// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
 	EncryptionConfiguration DatabaseEncryptionConfigurationPtrInput
-	ExpectedBucketOwner     pulumi.StringPtrInput
-	ForceDestroy            pulumi.BoolPtrInput
-	Name                    pulumi.StringPtrInput
-	Properties              pulumi.StringMapInput
+	// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+	ExpectedBucketOwner pulumi.StringPtrInput
+	// Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+	ForceDestroy pulumi.BoolPtrInput
+	// Name of the database to create.
+	Name pulumi.StringPtrInput
+	// Key-value map of custom metadata properties for the database definition.
+	Properties pulumi.StringMapInput
 }
 
 func (DatabaseState) ElementType() reflect.Type {
@@ -78,26 +161,42 @@ func (DatabaseState) ElementType() reflect.Type {
 }
 
 type databaseArgs struct {
-	AclConfiguration        *DatabaseAclConfiguration        `pulumi:"aclConfiguration"`
-	Bucket                  *string                          `pulumi:"bucket"`
-	Comment                 *string                          `pulumi:"comment"`
+	// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+	AclConfiguration *DatabaseAclConfiguration `pulumi:"aclConfiguration"`
+	// Name of S3 bucket to save the results of the query execution.
+	Bucket *string `pulumi:"bucket"`
+	// Description of the database.
+	Comment *string `pulumi:"comment"`
+	// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
 	EncryptionConfiguration *DatabaseEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	ExpectedBucketOwner     *string                          `pulumi:"expectedBucketOwner"`
-	ForceDestroy            *bool                            `pulumi:"forceDestroy"`
-	Name                    *string                          `pulumi:"name"`
-	Properties              map[string]string                `pulumi:"properties"`
+	// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+	// Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
+	// Name of the database to create.
+	Name *string `pulumi:"name"`
+	// Key-value map of custom metadata properties for the database definition.
+	Properties map[string]string `pulumi:"properties"`
 }
 
 // The set of arguments for constructing a Database resource.
 type DatabaseArgs struct {
-	AclConfiguration        DatabaseAclConfigurationPtrInput
-	Bucket                  pulumi.StringPtrInput
-	Comment                 pulumi.StringPtrInput
+	// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+	AclConfiguration DatabaseAclConfigurationPtrInput
+	// Name of S3 bucket to save the results of the query execution.
+	Bucket pulumi.StringPtrInput
+	// Description of the database.
+	Comment pulumi.StringPtrInput
+	// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
 	EncryptionConfiguration DatabaseEncryptionConfigurationPtrInput
-	ExpectedBucketOwner     pulumi.StringPtrInput
-	ForceDestroy            pulumi.BoolPtrInput
-	Name                    pulumi.StringPtrInput
-	Properties              pulumi.StringMapInput
+	// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+	ExpectedBucketOwner pulumi.StringPtrInput
+	// Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+	ForceDestroy pulumi.BoolPtrInput
+	// Name of the database to create.
+	Name pulumi.StringPtrInput
+	// Key-value map of custom metadata properties for the database definition.
+	Properties pulumi.StringMapInput
 }
 
 func (DatabaseArgs) ElementType() reflect.Type {
@@ -187,34 +286,42 @@ func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) Databas
 	return o
 }
 
+// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
 func (o DatabaseOutput) AclConfiguration() DatabaseAclConfigurationPtrOutput {
 	return o.ApplyT(func(v *Database) DatabaseAclConfigurationPtrOutput { return v.AclConfiguration }).(DatabaseAclConfigurationPtrOutput)
 }
 
+// Name of S3 bucket to save the results of the query execution.
 func (o DatabaseOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
+// Description of the database.
 func (o DatabaseOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
 func (o DatabaseOutput) EncryptionConfiguration() DatabaseEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *Database) DatabaseEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(DatabaseEncryptionConfigurationPtrOutput)
 }
 
+// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
 func (o DatabaseOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
+// Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
 func (o DatabaseOutput) ForceDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
 }
 
+// Name of the database to create.
 func (o DatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Key-value map of custom metadata properties for the database definition.
 func (o DatabaseOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringMapOutput { return v.Properties }).(pulumi.StringMapOutput)
 }

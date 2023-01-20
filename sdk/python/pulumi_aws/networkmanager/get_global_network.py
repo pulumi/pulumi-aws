@@ -41,11 +41,17 @@ class GetGlobalNetworkResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the global network.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the global network.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -64,6 +70,9 @@ class GetGlobalNetworkResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Map of resource tags.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -84,7 +93,20 @@ def get_global_network(global_network_id: Optional[str] = None,
                        tags: Optional[Mapping[str, str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalNetworkResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about a global network.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.networkmanager.get_global_network(global_network_id=var["global_network_id"])
+    ```
+
+
+    :param str global_network_id: ID of the specific global network to retrieve.
+    :param Mapping[str, str] tags: Map of resource tags.
     """
     __args__ = dict()
     __args__['globalNetworkId'] = global_network_id
@@ -105,6 +127,19 @@ def get_global_network_output(global_network_id: Optional[pulumi.Input[str]] = N
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalNetworkResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about a global network.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.networkmanager.get_global_network(global_network_id=var["global_network_id"])
+    ```
+
+
+    :param str global_network_id: ID of the specific global network to retrieve.
+    :param Mapping[str, str] tags: Map of resource tags.
     """
     ...

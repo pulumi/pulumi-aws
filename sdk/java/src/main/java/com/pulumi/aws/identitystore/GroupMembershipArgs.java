@@ -13,23 +13,47 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
 
     public static final GroupMembershipArgs Empty = new GroupMembershipArgs();
 
+    /**
+     * The identifier for a group in the Identity Store.
+     * 
+     */
     @Import(name="groupId", required=true)
     private Output<String> groupId;
 
+    /**
+     * @return The identifier for a group in the Identity Store.
+     * 
+     */
     public Output<String> groupId() {
         return this.groupId;
     }
 
+    /**
+     * Identity Store ID associated with the Single Sign-On Instance.
+     * 
+     */
     @Import(name="identityStoreId", required=true)
     private Output<String> identityStoreId;
 
+    /**
+     * @return Identity Store ID associated with the Single Sign-On Instance.
+     * 
+     */
     public Output<String> identityStoreId() {
         return this.identityStoreId;
     }
 
+    /**
+     * The identifier for a user in the Identity Store.
+     * 
+     */
     @Import(name="memberId", required=true)
     private Output<String> memberId;
 
+    /**
+     * @return The identifier for a user in the Identity Store.
+     * 
+     */
     public Output<String> memberId() {
         return this.memberId;
     }
@@ -60,29 +84,65 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
             $ = new GroupMembershipArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param groupId The identifier for a group in the Identity Store.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupId(Output<String> groupId) {
             $.groupId = groupId;
             return this;
         }
 
+        /**
+         * @param groupId The identifier for a group in the Identity Store.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupId(String groupId) {
             return groupId(Output.of(groupId));
         }
 
+        /**
+         * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityStoreId(Output<String> identityStoreId) {
             $.identityStoreId = identityStoreId;
             return this;
         }
 
+        /**
+         * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityStoreId(String identityStoreId) {
             return identityStoreId(Output.of(identityStoreId));
         }
 
+        /**
+         * @param memberId The identifier for a user in the Identity Store.
+         * 
+         * @return builder
+         * 
+         */
         public Builder memberId(Output<String> memberId) {
             $.memberId = memberId;
             return this;
         }
 
+        /**
+         * @param memberId The identifier for a user in the Identity Store.
+         * 
+         * @return builder
+         * 
+         */
         public Builder memberId(String memberId) {
             return memberId(Output.of(memberId));
         }

@@ -15,6 +15,10 @@ public final class GetDefaultTagsResult {
      * 
      */
     private String id;
+    /**
+     * @return Blocks of default tags set on the provider. See details below.
+     * 
+     */
     private Map<String,String> tags;
 
     private GetDefaultTagsResult() {}
@@ -25,6 +29,10 @@ public final class GetDefaultTagsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Blocks of default tags set on the provider. See details below.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }

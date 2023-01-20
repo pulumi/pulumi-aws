@@ -12,17 +12,27 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CrawlerDeltaTargetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the connection to use to connect to the Delta table target.
+        /// </summary>
         [Input("connectionName")]
         public Input<string>? ConnectionName { get; set; }
 
         [Input("deltaTables", required: true)]
         private InputList<string>? _deltaTables;
+
+        /// <summary>
+        /// A list of the Amazon S3 paths to the Delta tables.
+        /// </summary>
         public InputList<string> DeltaTables
         {
             get => _deltaTables ?? (_deltaTables = new InputList<string>());
             set => _deltaTables = value;
         }
 
+        /// <summary>
+        /// Specifies whether to write the manifest files to the Delta table path.
+        /// </summary>
         [Input("writeManifest", required: true)]
         public Input<bool> WriteManifest { get; set; } = null!;
 

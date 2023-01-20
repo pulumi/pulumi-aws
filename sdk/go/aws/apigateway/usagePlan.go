@@ -10,17 +10,156 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an API Gateway Usage Plan.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"crypto/sha1"
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func sha1Hash(input string) string {
+//		hash := sha1.Sum([]byte(input))
+//		return hex.EncodeToString(hash[:])
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"openapi": "3.0.1",
+//				"info": map[string]interface{}{
+//					"title":   "example",
+//					"version": "1.0",
+//				},
+//				"paths": map[string]interface{}{
+//					"/path1": map[string]interface{}{
+//						"get": map[string]interface{}{
+//							"x-amazon-apigateway-integration": map[string]interface{}{
+//								"httpMethod":           "GET",
+//								"payloadFormatVersion": "1.0",
+//								"type":                 "HTTP_PROXY",
+//								"uri":                  "https://ip-ranges.amazonaws.com/ip-ranges.json",
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", &apigateway.RestApiArgs{
+//				Body: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
+//				RestApi: exampleRestApi.ID(),
+//				Triggers: pulumi.StringMap{
+//					"redeployment": exampleRestApi.Body.ApplyT(func(body *string) (pulumi.String, error) {
+//						var _zero pulumi.String
+//						tmpJSON1, err := json.Marshal(body)
+//						if err != nil {
+//							return _zero, err
+//						}
+//						json1 := string(tmpJSON1)
+//						return pulumi.String(json1), nil
+//					}).(pulumi.StringOutput).ApplyT(func(toJSON string) (pulumi.String, error) {
+//						return pulumi.String(sha1Hash(toJSON)), nil
+//					}).(pulumi.StringOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			development, err := apigateway.NewStage(ctx, "development", &apigateway.StageArgs{
+//				Deployment: exampleDeployment.ID(),
+//				RestApi:    exampleRestApi.ID(),
+//				StageName:  pulumi.String("development"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			production, err := apigateway.NewStage(ctx, "production", &apigateway.StageArgs{
+//				Deployment: exampleDeployment.ID(),
+//				RestApi:    exampleRestApi.ID(),
+//				StageName:  pulumi.String("production"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewUsagePlan(ctx, "exampleUsagePlan", &apigateway.UsagePlanArgs{
+//				Description: pulumi.String("my description"),
+//				ProductCode: pulumi.String("MYCODE"),
+//				ApiStages: apigateway.UsagePlanApiStageArray{
+//					&apigateway.UsagePlanApiStageArgs{
+//						ApiId: exampleRestApi.ID(),
+//						Stage: development.StageName,
+//					},
+//					&apigateway.UsagePlanApiStageArgs{
+//						ApiId: exampleRestApi.ID(),
+//						Stage: production.StageName,
+//					},
+//				},
+//				QuotaSettings: &apigateway.UsagePlanQuotaSettingsArgs{
+//					Limit:  pulumi.Int(20),
+//					Offset: pulumi.Int(2),
+//					Period: pulumi.String("WEEK"),
+//				},
+//				ThrottleSettings: &apigateway.UsagePlanThrottleSettingsArgs{
+//					BurstLimit: pulumi.Int(5),
+//					RateLimit:  pulumi.Float64(10),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// AWS API Gateway Usage Plan can be imported using the `id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
+//
+// ```
 type UsagePlan struct {
 	pulumi.CustomResourceState
 
-	ApiStages        UsagePlanApiStageArrayOutput       `pulumi:"apiStages"`
-	Arn              pulumi.StringOutput                `pulumi:"arn"`
-	Description      pulumi.StringPtrOutput             `pulumi:"description"`
-	Name             pulumi.StringOutput                `pulumi:"name"`
-	ProductCode      pulumi.StringPtrOutput             `pulumi:"productCode"`
-	QuotaSettings    UsagePlanQuotaSettingsPtrOutput    `pulumi:"quotaSettings"`
-	Tags             pulumi.StringMapOutput             `pulumi:"tags"`
-	TagsAll          pulumi.StringMapOutput             `pulumi:"tagsAll"`
+	// Associated API stages of the usage plan.
+	ApiStages UsagePlanApiStageArrayOutput `pulumi:"apiStages"`
+	// ARN
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Description of a usage plan.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Name of the usage plan.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+	ProductCode pulumi.StringPtrOutput `pulumi:"productCode"`
+	// The quota settings of the usage plan.
+	QuotaSettings UsagePlanQuotaSettingsPtrOutput `pulumi:"quotaSettings"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The throttling limits of the usage plan.
 	ThrottleSettings UsagePlanThrottleSettingsPtrOutput `pulumi:"throttleSettings"`
 }
 
@@ -53,26 +192,44 @@ func GetUsagePlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UsagePlan resources.
 type usagePlanState struct {
-	ApiStages        []UsagePlanApiStage        `pulumi:"apiStages"`
-	Arn              *string                    `pulumi:"arn"`
-	Description      *string                    `pulumi:"description"`
-	Name             *string                    `pulumi:"name"`
-	ProductCode      *string                    `pulumi:"productCode"`
-	QuotaSettings    *UsagePlanQuotaSettings    `pulumi:"quotaSettings"`
-	Tags             map[string]string          `pulumi:"tags"`
-	TagsAll          map[string]string          `pulumi:"tagsAll"`
+	// Associated API stages of the usage plan.
+	ApiStages []UsagePlanApiStage `pulumi:"apiStages"`
+	// ARN
+	Arn *string `pulumi:"arn"`
+	// Description of a usage plan.
+	Description *string `pulumi:"description"`
+	// Name of the usage plan.
+	Name *string `pulumi:"name"`
+	// AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+	ProductCode *string `pulumi:"productCode"`
+	// The quota settings of the usage plan.
+	QuotaSettings *UsagePlanQuotaSettings `pulumi:"quotaSettings"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The throttling limits of the usage plan.
 	ThrottleSettings *UsagePlanThrottleSettings `pulumi:"throttleSettings"`
 }
 
 type UsagePlanState struct {
-	ApiStages        UsagePlanApiStageArrayInput
-	Arn              pulumi.StringPtrInput
-	Description      pulumi.StringPtrInput
-	Name             pulumi.StringPtrInput
-	ProductCode      pulumi.StringPtrInput
-	QuotaSettings    UsagePlanQuotaSettingsPtrInput
-	Tags             pulumi.StringMapInput
-	TagsAll          pulumi.StringMapInput
+	// Associated API stages of the usage plan.
+	ApiStages UsagePlanApiStageArrayInput
+	// ARN
+	Arn pulumi.StringPtrInput
+	// Description of a usage plan.
+	Description pulumi.StringPtrInput
+	// Name of the usage plan.
+	Name pulumi.StringPtrInput
+	// AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+	ProductCode pulumi.StringPtrInput
+	// The quota settings of the usage plan.
+	QuotaSettings UsagePlanQuotaSettingsPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// The throttling limits of the usage plan.
 	ThrottleSettings UsagePlanThrottleSettingsPtrInput
 }
 
@@ -81,23 +238,37 @@ func (UsagePlanState) ElementType() reflect.Type {
 }
 
 type usagePlanArgs struct {
-	ApiStages        []UsagePlanApiStage        `pulumi:"apiStages"`
-	Description      *string                    `pulumi:"description"`
-	Name             *string                    `pulumi:"name"`
-	ProductCode      *string                    `pulumi:"productCode"`
-	QuotaSettings    *UsagePlanQuotaSettings    `pulumi:"quotaSettings"`
-	Tags             map[string]string          `pulumi:"tags"`
+	// Associated API stages of the usage plan.
+	ApiStages []UsagePlanApiStage `pulumi:"apiStages"`
+	// Description of a usage plan.
+	Description *string `pulumi:"description"`
+	// Name of the usage plan.
+	Name *string `pulumi:"name"`
+	// AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+	ProductCode *string `pulumi:"productCode"`
+	// The quota settings of the usage plan.
+	QuotaSettings *UsagePlanQuotaSettings `pulumi:"quotaSettings"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// The throttling limits of the usage plan.
 	ThrottleSettings *UsagePlanThrottleSettings `pulumi:"throttleSettings"`
 }
 
 // The set of arguments for constructing a UsagePlan resource.
 type UsagePlanArgs struct {
-	ApiStages        UsagePlanApiStageArrayInput
-	Description      pulumi.StringPtrInput
-	Name             pulumi.StringPtrInput
-	ProductCode      pulumi.StringPtrInput
-	QuotaSettings    UsagePlanQuotaSettingsPtrInput
-	Tags             pulumi.StringMapInput
+	// Associated API stages of the usage plan.
+	ApiStages UsagePlanApiStageArrayInput
+	// Description of a usage plan.
+	Description pulumi.StringPtrInput
+	// Name of the usage plan.
+	Name pulumi.StringPtrInput
+	// AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+	ProductCode pulumi.StringPtrInput
+	// The quota settings of the usage plan.
+	QuotaSettings UsagePlanQuotaSettingsPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// The throttling limits of the usage plan.
 	ThrottleSettings UsagePlanThrottleSettingsPtrInput
 }
 
@@ -188,38 +359,47 @@ func (o UsagePlanOutput) ToUsagePlanOutputWithContext(ctx context.Context) Usage
 	return o
 }
 
+// Associated API stages of the usage plan.
 func (o UsagePlanOutput) ApiStages() UsagePlanApiStageArrayOutput {
 	return o.ApplyT(func(v *UsagePlan) UsagePlanApiStageArrayOutput { return v.ApiStages }).(UsagePlanApiStageArrayOutput)
 }
 
+// ARN
 func (o UsagePlanOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UsagePlan) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Description of a usage plan.
 func (o UsagePlanOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UsagePlan) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Name of the usage plan.
 func (o UsagePlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *UsagePlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
 func (o UsagePlanOutput) ProductCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UsagePlan) pulumi.StringPtrOutput { return v.ProductCode }).(pulumi.StringPtrOutput)
 }
 
+// The quota settings of the usage plan.
 func (o UsagePlanOutput) QuotaSettings() UsagePlanQuotaSettingsPtrOutput {
 	return o.ApplyT(func(v *UsagePlan) UsagePlanQuotaSettingsPtrOutput { return v.QuotaSettings }).(UsagePlanQuotaSettingsPtrOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o UsagePlanOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UsagePlan) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o UsagePlanOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UsagePlan) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// The throttling limits of the usage plan.
 func (o UsagePlanOutput) ThrottleSettings() UsagePlanThrottleSettingsPtrOutput {
 	return o.ApplyT(func(v *UsagePlan) UsagePlanThrottleSettingsPtrOutput { return v.ThrottleSettings }).(UsagePlanThrottleSettingsPtrOutput)
 }

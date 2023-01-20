@@ -7,6 +7,30 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an GameLift Script resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.gamelift.Script("example", {storageLocation: {
+ *     bucket: aws_s3_bucket.example.bucket,
+ *     key: aws_s3_object.example.key,
+ *     roleArn: aws_iam_role.example.arn,
+ * }});
+ * ```
+ *
+ * ## Import
+ *
+ * GameLift Scripts can be imported using the ID, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:gamelift/script:Script example <script-id>
+ * ```
+ */
 export class Script extends pulumi.CustomResource {
     /**
      * Get an existing Script resource's state with the given name, ID, and optional extra
@@ -35,12 +59,33 @@ export class Script extends pulumi.CustomResource {
         return obj['__pulumiType'] === Script.__pulumiType;
     }
 
+    /**
+     * GameLift Script ARN.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Name of the script
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Information indicating where your game script files are stored. See below.
+     */
     public readonly storageLocation!: pulumi.Output<outputs.gamelift.ScriptStorageLocation>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Version that is associated with this script.
+     */
     public readonly version!: pulumi.Output<string | undefined>;
+    /**
+     * A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+     */
     public readonly zipFile!: pulumi.Output<string | undefined>;
 
     /**
@@ -82,12 +127,33 @@ export class Script extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Script resources.
  */
 export interface ScriptState {
+    /**
+     * GameLift Script ARN.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Name of the script
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Information indicating where your game script files are stored. See below.
+     */
     storageLocation?: pulumi.Input<inputs.gamelift.ScriptStorageLocation>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Version that is associated with this script.
+     */
     version?: pulumi.Input<string>;
+    /**
+     * A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+     */
     zipFile?: pulumi.Input<string>;
 }
 
@@ -95,9 +161,24 @@ export interface ScriptState {
  * The set of arguments for constructing a Script resource.
  */
 export interface ScriptArgs {
+    /**
+     * Name of the script
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Information indicating where your game script files are stored. See below.
+     */
     storageLocation?: pulumi.Input<inputs.gamelift.ScriptStorageLocation>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Version that is associated with this script.
+     */
     version?: pulumi.Input<string>;
+    /**
+     * A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+     */
     zipFile?: pulumi.Input<string>;
 }

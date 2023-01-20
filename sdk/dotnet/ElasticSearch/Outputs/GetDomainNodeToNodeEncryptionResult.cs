@@ -13,6 +13,9 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
     [OutputType]
     public sealed class GetDomainNodeToNodeEncryptionResult
     {
+        /// <summary>
+        /// Whether node to node encryption is enabled.
+        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

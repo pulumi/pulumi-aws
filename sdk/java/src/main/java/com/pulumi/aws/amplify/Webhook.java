@@ -14,35 +14,129 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Amplify Webhook resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.amplify.App;
+ * import com.pulumi.aws.amplify.Branch;
+ * import com.pulumi.aws.amplify.BranchArgs;
+ * import com.pulumi.aws.amplify.Webhook;
+ * import com.pulumi.aws.amplify.WebhookArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new App(&#34;example&#34;);
+ * 
+ *         var masterBranch = new Branch(&#34;masterBranch&#34;, BranchArgs.builder()        
+ *             .appId(example.id())
+ *             .branchName(&#34;master&#34;)
+ *             .build());
+ * 
+ *         var masterWebhook = new Webhook(&#34;masterWebhook&#34;, WebhookArgs.builder()        
+ *             .appId(example.id())
+ *             .branchName(masterBranch.branchName())
+ *             .description(&#34;triggermaster&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Amplify webhook can be imported using a webhook ID, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
+ * ```
+ * 
+ */
 @ResourceType(type="aws:amplify/webhook:Webhook")
 public class Webhook extends com.pulumi.resources.CustomResource {
+    /**
+     * Unique ID for an Amplify app.
+     * 
+     */
     @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
+    /**
+     * @return Unique ID for an Amplify app.
+     * 
+     */
     public Output<String> appId() {
         return this.appId;
     }
+    /**
+     * ARN for the webhook.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN for the webhook.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Name for a branch that is part of the Amplify app.
+     * 
+     */
     @Export(name="branchName", refs={String.class}, tree="[0]")
     private Output<String> branchName;
 
+    /**
+     * @return Name for a branch that is part of the Amplify app.
+     * 
+     */
     public Output<String> branchName() {
         return this.branchName;
     }
+    /**
+     * Description for a webhook.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description for a webhook.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * URL of the webhook.
+     * 
+     */
     @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
+    /**
+     * @return URL of the webhook.
+     * 
+     */
     public Output<String> url() {
         return this.url;
     }

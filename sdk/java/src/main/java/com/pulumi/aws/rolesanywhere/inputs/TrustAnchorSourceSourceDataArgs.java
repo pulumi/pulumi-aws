@@ -15,9 +15,17 @@ public final class TrustAnchorSourceSourceDataArgs extends com.pulumi.resources.
 
     public static final TrustAnchorSourceSourceDataArgs Empty = new TrustAnchorSourceSourceDataArgs();
 
+    /**
+     * The ARN of an ACM Private Certificate Authority.
+     * 
+     */
     @Import(name="acmPcaArn")
     private @Nullable Output<String> acmPcaArn;
 
+    /**
+     * @return The ARN of an ACM Private Certificate Authority.
+     * 
+     */
     public Optional<Output<String>> acmPcaArn() {
         return Optional.ofNullable(this.acmPcaArn);
     }
@@ -54,11 +62,23 @@ public final class TrustAnchorSourceSourceDataArgs extends com.pulumi.resources.
             $ = new TrustAnchorSourceSourceDataArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param acmPcaArn The ARN of an ACM Private Certificate Authority.
+         * 
+         * @return builder
+         * 
+         */
         public Builder acmPcaArn(@Nullable Output<String> acmPcaArn) {
             $.acmPcaArn = acmPcaArn;
             return this;
         }
 
+        /**
+         * @param acmPcaArn The ARN of an ACM Private Certificate Authority.
+         * 
+         * @return builder
+         * 
+         */
         public Builder acmPcaArn(String acmPcaArn) {
             return acmPcaArn(Output.of(acmPcaArn));
         }

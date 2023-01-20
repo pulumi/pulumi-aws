@@ -12,9 +12,15 @@ namespace Pulumi.Aws.CostExplorer.Inputs
 
     public sealed class GetTagsTimePeriodArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Beginning of the time period.
+        /// </summary>
         [Input("end", required: true)]
         public string End { get; set; } = null!;
 
+        /// <summary>
+        /// End of the time period.
+        /// </summary>
         [Input("start", required: true)]
         public string Start { get; set; } = null!;
 

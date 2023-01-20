@@ -9,24 +9,131 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Cfg
 {
+    /// <summary>
+    /// Manages an AWS Config Configuration Aggregator
+    /// 
+    /// ## Example Usage
+    /// ### Account Based Aggregation
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new Aws.Cfg.ConfigurationAggregator("account", new()
+    ///     {
+    ///         AccountAggregationSource = new Aws.Cfg.Inputs.ConfigurationAggregatorAccountAggregationSourceArgs
+    ///         {
+    ///             AccountIds = new[]
+    ///             {
+    ///                 "123456789012",
+    ///             },
+    ///             Regions = new[]
+    ///             {
+    ///                 "us-west-2",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Organization Based Aggregation
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var organizationRole = new Aws.Iam.Role("organizationRole", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Sid"": """",
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""config.amazonaws.com""
+    ///       },
+    ///       ""Action"": ""sts:AssumeRole""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///     });
+    /// 
+    ///     var organizationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("organizationRolePolicyAttachment", new()
+    ///     {
+    ///         Role = organizationRole.Name,
+    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
+    ///     });
+    /// 
+    ///     var organizationConfigurationAggregator = new Aws.Cfg.ConfigurationAggregator("organizationConfigurationAggregator", new()
+    ///     {
+    ///         OrganizationAggregationSource = new Aws.Cfg.Inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs
+    ///         {
+    ///             AllRegions = true,
+    ///             RoleArn = organizationRole.Arn,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             organizationRolePolicyAttachment,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Configuration Aggregators can be imported using the name, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:cfg/configurationAggregator:ConfigurationAggregator")]
     public partial class ConfigurationAggregator : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The account(s) to aggregate config data from as documented below.
+        /// </summary>
         [Output("accountAggregationSource")]
         public Output<Outputs.ConfigurationAggregatorAccountAggregationSource?> AccountAggregationSource { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the aggregator
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the configuration aggregator.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The organization to aggregate config data from as documented below.
+        /// </summary>
         [Output("organizationAggregationSource")]
         public Output<Outputs.ConfigurationAggregatorOrganizationAggregationSource?> OrganizationAggregationSource { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -76,17 +183,30 @@ namespace Pulumi.Aws.Cfg
 
     public sealed class ConfigurationAggregatorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The account(s) to aggregate config data from as documented below.
+        /// </summary>
         [Input("accountAggregationSource")]
         public Input<Inputs.ConfigurationAggregatorAccountAggregationSourceArgs>? AccountAggregationSource { get; set; }
 
+        /// <summary>
+        /// The name of the configuration aggregator.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The organization to aggregate config data from as documented below.
+        /// </summary>
         [Input("organizationAggregationSource")]
         public Input<Inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs>? OrganizationAggregationSource { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -101,20 +221,36 @@ namespace Pulumi.Aws.Cfg
 
     public sealed class ConfigurationAggregatorState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The account(s) to aggregate config data from as documented below.
+        /// </summary>
         [Input("accountAggregationSource")]
         public Input<Inputs.ConfigurationAggregatorAccountAggregationSourceGetArgs>? AccountAggregationSource { get; set; }
 
+        /// <summary>
+        /// The ARN of the aggregator
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The name of the configuration aggregator.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The organization to aggregate config data from as documented below.
+        /// </summary>
         [Input("organizationAggregationSource")]
         public Input<Inputs.ConfigurationAggregatorOrganizationAggregationSourceGetArgs>? OrganizationAggregationSource { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -123,6 +259,10 @@ namespace Pulumi.Aws.Cfg
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

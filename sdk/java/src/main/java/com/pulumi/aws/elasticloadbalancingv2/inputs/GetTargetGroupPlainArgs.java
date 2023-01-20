@@ -15,23 +15,47 @@ public final class GetTargetGroupPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetTargetGroupPlainArgs Empty = new GetTargetGroupPlainArgs();
 
+    /**
+     * Full ARN of the target group.
+     * 
+     */
     @Import(name="arn")
     private @Nullable String arn;
 
+    /**
+     * @return Full ARN of the target group.
+     * 
+     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * Unique name of the target group.
+     * 
+     */
     @Import(name="name")
     private @Nullable String name;
 
+    /**
+     * @return Unique name of the target group.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -62,16 +86,34 @@ public final class GetTargetGroupPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetTargetGroupPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn Full ARN of the target group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable String arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param name Unique name of the target group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param tags Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

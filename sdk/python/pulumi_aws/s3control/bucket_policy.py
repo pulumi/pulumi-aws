@@ -18,6 +18,8 @@ class BucketPolicyArgs:
                  policy: pulumi.Input[str]):
         """
         The set of arguments for constructing a BucketPolicy resource.
+        :param pulumi.Input[str] bucket: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[str] policy: JSON string of the resource policy.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "policy", policy)
@@ -25,6 +27,9 @@ class BucketPolicyArgs:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
+        """
+        Amazon Resource Name (ARN) of the bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -34,6 +39,9 @@ class BucketPolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
+        """
+        JSON string of the resource policy.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -48,6 +56,8 @@ class _BucketPolicyState:
                  policy: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BucketPolicy resources.
+        :param pulumi.Input[str] bucket: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[str] policy: JSON string of the resource policy.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -57,6 +67,9 @@ class _BucketPolicyState:
     @property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -66,6 +79,9 @@ class _BucketPolicyState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON string of the resource policy.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -82,9 +98,46 @@ class BucketPolicy(pulumi.CustomResource):
                  policy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a BucketPolicy resource with the given unique name, props, and options.
+        Provides a resource to manage an S3 Control Bucket Policy.
+
+        > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Policies in an AWS Partition, see the `s3.BucketPolicy` resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.s3control.BucketPolicy("example",
+            bucket=aws_s3control_bucket["example"]["arn"],
+            policy=json.dumps({
+                "Id": "testBucketPolicy",
+                "Statement": [{
+                    "Action": "s3-outposts:PutBucketLifecycleConfiguration",
+                    "Effect": "Deny",
+                    "Principal": {
+                        "AWS": "*",
+                    },
+                    "Resource": aws_s3control_bucket["example"]["arn"],
+                    "Sid": "statement1",
+                }],
+                "Version": "2012-10-17",
+            }))
+        ```
+
+        ## Import
+
+        S3 Control Bucket Policies can be imported using the Amazon Resource Name (ARN), e.g.,
+
+        ```sh
+         $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bucket: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[str] policy: JSON string of the resource policy.
         """
         ...
     @overload
@@ -93,7 +146,42 @@ class BucketPolicy(pulumi.CustomResource):
                  args: BucketPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a BucketPolicy resource with the given unique name, props, and options.
+        Provides a resource to manage an S3 Control Bucket Policy.
+
+        > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Policies in an AWS Partition, see the `s3.BucketPolicy` resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.s3control.BucketPolicy("example",
+            bucket=aws_s3control_bucket["example"]["arn"],
+            policy=json.dumps({
+                "Id": "testBucketPolicy",
+                "Statement": [{
+                    "Action": "s3-outposts:PutBucketLifecycleConfiguration",
+                    "Effect": "Deny",
+                    "Principal": {
+                        "AWS": "*",
+                    },
+                    "Resource": aws_s3control_bucket["example"]["arn"],
+                    "Sid": "statement1",
+                }],
+                "Version": "2012-10-17",
+            }))
+        ```
+
+        ## Import
+
+        S3 Control Bucket Policies can be imported using the Amazon Resource Name (ARN), e.g.,
+
+        ```sh
+         $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param BucketPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +233,8 @@ class BucketPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bucket: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[str] policy: JSON string of the resource policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +247,16 @@ class BucketPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
+        """
+        JSON string of the resource policy.
+        """
         return pulumi.get(self, "policy")
 

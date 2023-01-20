@@ -13,7 +13,13 @@ namespace Pulumi.Aws.CloudTrail.Outputs
     [OutputType]
     public sealed class EventDataStoreAdvancedEventSelector
     {
+        /// <summary>
+        /// Specifies the selector statements in an advanced event selector. Fields documented below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EventDataStoreAdvancedEventSelectorFieldSelector> FieldSelectors;
+        /// <summary>
+        /// The name of the event data store.
+        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

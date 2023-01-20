@@ -13,20 +13,56 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings {
+    /**
+     * @return Sets the attenuation control.
+     * 
+     */
     private @Nullable String attenuationControl;
+    /**
+     * @return Average bitrate in bits/second.
+     * 
+     */
     private @Nullable Double bitrate;
+    /**
+     * @return Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+     * 
+     */
     private @Nullable String bitstreamMode;
+    /**
+     * @return Mono, Stereo, or 5.1 channel layout.
+     * 
+     */
     private @Nullable String codingMode;
     private @Nullable String dcFilter;
+    /**
+     * @return Sets the dialnorm of the output.
+     * 
+     */
     private @Nullable Integer dialnorm;
+    /**
+     * @return Sets the Dolby dynamic range compression profile.
+     * 
+     */
     private @Nullable String drcLine;
+    /**
+     * @return Sets the profile for heavy Dolby dynamic range compression.
+     * 
+     */
     private @Nullable String drcRf;
     private @Nullable String lfeControl;
+    /**
+     * @return When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+     * 
+     */
     private @Nullable String lfeFilter;
     private @Nullable Double loRoCenterMixLevel;
     private @Nullable Double loRoSurroundMixLevel;
     private @Nullable Double ltRtCenterMixLevel;
     private @Nullable Double ltRtSurroundMixLevel;
+    /**
+     * @return Metadata control.
+     * 
+     */
     private @Nullable String metadataControl;
     private @Nullable String passthroughControl;
     private @Nullable String phaseControl;
@@ -35,33 +71,65 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
     private @Nullable String surroundMode;
 
     private ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings() {}
+    /**
+     * @return Sets the attenuation control.
+     * 
+     */
     public Optional<String> attenuationControl() {
         return Optional.ofNullable(this.attenuationControl);
     }
+    /**
+     * @return Average bitrate in bits/second.
+     * 
+     */
     public Optional<Double> bitrate() {
         return Optional.ofNullable(this.bitrate);
     }
+    /**
+     * @return Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+     * 
+     */
     public Optional<String> bitstreamMode() {
         return Optional.ofNullable(this.bitstreamMode);
     }
+    /**
+     * @return Mono, Stereo, or 5.1 channel layout.
+     * 
+     */
     public Optional<String> codingMode() {
         return Optional.ofNullable(this.codingMode);
     }
     public Optional<String> dcFilter() {
         return Optional.ofNullable(this.dcFilter);
     }
+    /**
+     * @return Sets the dialnorm of the output.
+     * 
+     */
     public Optional<Integer> dialnorm() {
         return Optional.ofNullable(this.dialnorm);
     }
+    /**
+     * @return Sets the Dolby dynamic range compression profile.
+     * 
+     */
     public Optional<String> drcLine() {
         return Optional.ofNullable(this.drcLine);
     }
+    /**
+     * @return Sets the profile for heavy Dolby dynamic range compression.
+     * 
+     */
     public Optional<String> drcRf() {
         return Optional.ofNullable(this.drcRf);
     }
     public Optional<String> lfeControl() {
         return Optional.ofNullable(this.lfeControl);
     }
+    /**
+     * @return When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+     * 
+     */
     public Optional<String> lfeFilter() {
         return Optional.ofNullable(this.lfeFilter);
     }
@@ -77,6 +145,10 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
     public Optional<Double> ltRtSurroundMixLevel() {
         return Optional.ofNullable(this.ltRtSurroundMixLevel);
     }
+    /**
+     * @return Metadata control.
+     * 
+     */
     public Optional<String> metadataControl() {
         return Optional.ofNullable(this.metadataControl);
     }

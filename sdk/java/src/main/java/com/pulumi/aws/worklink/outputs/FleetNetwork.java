@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class FleetNetwork {
+    /**
+     * @return A list of security group IDs associated with access to the provided subnets.
+     * 
+     */
     private List<String> securityGroupIds;
+    /**
+     * @return A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
+     * 
+     */
     private List<String> subnetIds;
+    /**
+     * @return The VPC ID with connectivity to associated websites.
+     * 
+     */
     private String vpcId;
 
     private FleetNetwork() {}
+    /**
+     * @return A list of security group IDs associated with access to the provided subnets.
+     * 
+     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
+    /**
+     * @return A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
+     * 
+     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
+    /**
+     * @return The VPC ID with connectivity to associated websites.
+     * 
+     */
     public String vpcId() {
         return this.vpcId;
     }

@@ -15,16 +15,32 @@ public final class GetDomainNamePlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetDomainNamePlainArgs Empty = new GetDomainNamePlainArgs();
 
+    /**
+     * Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
+     * 
+     */
     @Import(name="domainName", required=true)
     private String domainName;
 
+    /**
+     * @return Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
+     * 
+     */
     public String domainName() {
         return this.domainName;
     }
 
+    /**
+     * Key-value map of tags for the resource.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return Key-value map of tags for the resource.
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -54,11 +70,23 @@ public final class GetDomainNamePlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetDomainNamePlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domainName Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(String domainName) {
             $.domainName = domainName;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of tags for the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

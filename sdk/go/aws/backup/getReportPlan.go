@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to get information on an existing backup report plan.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := backup.LookupReportPlan(ctx, &backup.LookupReportPlanArgs{
+//				Name: "my_example_backup_report_plan_name",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupReportPlan(ctx *pulumi.Context, args *LookupReportPlanArgs, opts ...pulumi.InvokeOption) (*LookupReportPlanResult, error) {
 	var rv LookupReportPlanResult
 	err := ctx.Invoke("aws:backup/getReportPlan:getReportPlan", args, &rv, opts...)
@@ -21,22 +48,31 @@ func LookupReportPlan(ctx *pulumi.Context, args *LookupReportPlanArgs, opts ...p
 
 // A collection of arguments for invoking getReportPlan.
 type LookupReportPlanArgs struct {
-	Name string            `pulumi:"name"`
+	// Backup report plan name.
+	Name string `pulumi:"name"`
+	// Metadata that you can assign to help organize the report plans you create.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getReportPlan.
 type LookupReportPlanResult struct {
-	Arn              string `pulumi:"arn"`
-	CreationTime     string `pulumi:"creationTime"`
+	// ARN of the backup report plan.
+	Arn string `pulumi:"arn"`
+	// Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+	CreationTime string `pulumi:"creationTime"`
+	// Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
 	DeploymentStatus string `pulumi:"deploymentStatus"`
-	Description      string `pulumi:"description"`
+	// Description of the report plan.
+	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                     string                               `pulumi:"id"`
-	Name                   string                               `pulumi:"name"`
+	Id   string `pulumi:"id"`
+	Name string `pulumi:"name"`
+	// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
 	ReportDeliveryChannels []GetReportPlanReportDeliveryChannel `pulumi:"reportDeliveryChannels"`
-	ReportSettings         []GetReportPlanReportSetting         `pulumi:"reportSettings"`
-	Tags                   map[string]string                    `pulumi:"tags"`
+	// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+	ReportSettings []GetReportPlanReportSetting `pulumi:"reportSettings"`
+	// Metadata that you can assign to help organize the report plans you create.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupReportPlanOutput(ctx *pulumi.Context, args LookupReportPlanOutputArgs, opts ...pulumi.InvokeOption) LookupReportPlanResultOutput {
@@ -54,7 +90,9 @@ func LookupReportPlanOutput(ctx *pulumi.Context, args LookupReportPlanOutputArgs
 
 // A collection of arguments for invoking getReportPlan.
 type LookupReportPlanOutputArgs struct {
-	Name pulumi.StringInput    `pulumi:"name"`
+	// Backup report plan name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Metadata that you can assign to help organize the report plans you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -77,18 +115,22 @@ func (o LookupReportPlanResultOutput) ToLookupReportPlanResultOutputWithContext(
 	return o
 }
 
+// ARN of the backup report plan.
 func (o LookupReportPlanResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportPlanResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
 func (o LookupReportPlanResultOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportPlanResult) string { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
 func (o LookupReportPlanResultOutput) DeploymentStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportPlanResult) string { return v.DeploymentStatus }).(pulumi.StringOutput)
 }
 
+// Description of the report plan.
 func (o LookupReportPlanResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportPlanResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -102,14 +144,17 @@ func (o LookupReportPlanResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportPlanResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
 func (o LookupReportPlanResultOutput) ReportDeliveryChannels() GetReportPlanReportDeliveryChannelArrayOutput {
 	return o.ApplyT(func(v LookupReportPlanResult) []GetReportPlanReportDeliveryChannel { return v.ReportDeliveryChannels }).(GetReportPlanReportDeliveryChannelArrayOutput)
 }
 
+// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
 func (o LookupReportPlanResultOutput) ReportSettings() GetReportPlanReportSettingArrayOutput {
 	return o.ApplyT(func(v LookupReportPlanResult) []GetReportPlanReportSetting { return v.ReportSettings }).(GetReportPlanReportSettingArrayOutput)
 }
 
+// Metadata that you can assign to help organize the report plans you create.
 func (o LookupReportPlanResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupReportPlanResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

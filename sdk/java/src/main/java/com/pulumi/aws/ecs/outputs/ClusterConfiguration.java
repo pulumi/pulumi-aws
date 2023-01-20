@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterConfiguration {
+    /**
+     * @return The details of the execute command configuration. Detailed below.
+     * 
+     */
     private @Nullable ClusterConfigurationExecuteCommandConfiguration executeCommandConfiguration;
 
     private ClusterConfiguration() {}
+    /**
+     * @return The details of the execute command configuration. Detailed below.
+     * 
+     */
     public Optional<ClusterConfigurationExecuteCommandConfiguration> executeCommandConfiguration() {
         return Optional.ofNullable(this.executeCommandConfiguration);
     }

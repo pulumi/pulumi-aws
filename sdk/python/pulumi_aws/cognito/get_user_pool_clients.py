@@ -38,11 +38,17 @@ class GetUserPoolClientsResult:
     @property
     @pulumi.getter(name="clientIds")
     def client_ids(self) -> Sequence[str]:
+        """
+        List of Cognito user pool client IDs.
+        """
         return pulumi.get(self, "client_ids")
 
     @property
     @pulumi.getter(name="clientNames")
     def client_names(self) -> Sequence[str]:
+        """
+        List of Cognito user pool client names.
+        """
         return pulumi.get(self, "client_names")
 
     @property
@@ -74,7 +80,19 @@ class AwaitableGetUserPoolClientsResult(GetUserPoolClientsResult):
 def get_user_pool_clients(user_pool_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolClientsResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    main = aws.cognito.get_user_pool_clients(user_pool_id=aws_cognito_user_pool["main"]["id"])
+    ```
+
+
+    :param str user_pool_id: Cognito user pool ID.
     """
     __args__ = dict()
     __args__['userPoolId'] = user_pool_id
@@ -92,6 +110,18 @@ def get_user_pool_clients(user_pool_id: Optional[str] = None,
 def get_user_pool_clients_output(user_pool_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolClientsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    main = aws.cognito.get_user_pool_clients(user_pool_id=aws_cognito_user_pool["main"]["id"])
+    ```
+
+
+    :param str user_pool_id: Cognito user pool ID.
     """
     ...

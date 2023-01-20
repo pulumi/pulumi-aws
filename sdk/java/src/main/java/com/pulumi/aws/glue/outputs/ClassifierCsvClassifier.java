@@ -13,37 +13,101 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClassifierCsvClassifier {
+    /**
+     * @return Enables the processing of files that contain only one column.
+     * 
+     */
     private @Nullable Boolean allowSingleColumn;
+    /**
+     * @return Indicates whether the CSV file contains a header. This can be one of &#34;ABSENT&#34;, &#34;PRESENT&#34;, or &#34;UNKNOWN&#34;.
+     * 
+     */
     private @Nullable String containsHeader;
+    /**
+     * @return A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+     * 
+     */
     private @Nullable Boolean customDatatypeConfigured;
+    /**
+     * @return A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+     * 
+     */
     private @Nullable List<String> customDatatypes;
+    /**
+     * @return The delimiter used in the Csv to separate columns.
+     * 
+     */
     private @Nullable String delimiter;
+    /**
+     * @return Specifies whether to trim column values.
+     * 
+     */
     private @Nullable Boolean disableValueTrimming;
+    /**
+     * @return A list of strings representing column names.
+     * 
+     */
     private @Nullable List<String> headers;
+    /**
+     * @return A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+     * 
+     */
     private @Nullable String quoteSymbol;
 
     private ClassifierCsvClassifier() {}
+    /**
+     * @return Enables the processing of files that contain only one column.
+     * 
+     */
     public Optional<Boolean> allowSingleColumn() {
         return Optional.ofNullable(this.allowSingleColumn);
     }
+    /**
+     * @return Indicates whether the CSV file contains a header. This can be one of &#34;ABSENT&#34;, &#34;PRESENT&#34;, or &#34;UNKNOWN&#34;.
+     * 
+     */
     public Optional<String> containsHeader() {
         return Optional.ofNullable(this.containsHeader);
     }
+    /**
+     * @return A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+     * 
+     */
     public Optional<Boolean> customDatatypeConfigured() {
         return Optional.ofNullable(this.customDatatypeConfigured);
     }
+    /**
+     * @return A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+     * 
+     */
     public List<String> customDatatypes() {
         return this.customDatatypes == null ? List.of() : this.customDatatypes;
     }
+    /**
+     * @return The delimiter used in the Csv to separate columns.
+     * 
+     */
     public Optional<String> delimiter() {
         return Optional.ofNullable(this.delimiter);
     }
+    /**
+     * @return Specifies whether to trim column values.
+     * 
+     */
     public Optional<Boolean> disableValueTrimming() {
         return Optional.ofNullable(this.disableValueTrimming);
     }
+    /**
+     * @return A list of strings representing column names.
+     * 
+     */
     public List<String> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
+    /**
+     * @return A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+     * 
+     */
     public Optional<String> quoteSymbol() {
         return Optional.ofNullable(this.quoteSymbol);
     }

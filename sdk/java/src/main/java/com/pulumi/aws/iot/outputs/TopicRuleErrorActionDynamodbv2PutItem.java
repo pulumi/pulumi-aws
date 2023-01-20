@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class TopicRuleErrorActionDynamodbv2PutItem {
+    /**
+     * @return The name of the DynamoDB table.
+     * 
+     */
     private String tableName;
 
     private TopicRuleErrorActionDynamodbv2PutItem() {}
+    /**
+     * @return The name of the DynamoDB table.
+     * 
+     */
     public String tableName() {
         return this.tableName;
     }

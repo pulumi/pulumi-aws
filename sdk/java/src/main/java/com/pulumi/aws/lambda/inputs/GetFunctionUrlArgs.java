@@ -15,16 +15,32 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetFunctionUrlArgs Empty = new GetFunctionUrlArgs();
 
+    /**
+     * he name (or ARN) of the Lambda function.
+     * 
+     */
     @Import(name="functionName", required=true)
     private Output<String> functionName;
 
+    /**
+     * @return he name (or ARN) of the Lambda function.
+     * 
+     */
     public Output<String> functionName() {
         return this.functionName;
     }
 
+    /**
+     * Alias name or `&#34;$LATEST&#34;`.
+     * 
+     */
     @Import(name="qualifier")
     private @Nullable Output<String> qualifier;
 
+    /**
+     * @return Alias name or `&#34;$LATEST&#34;`.
+     * 
+     */
     public Optional<Output<String>> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
@@ -54,20 +70,44 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetFunctionUrlArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param functionName he name (or ARN) of the Lambda function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder functionName(Output<String> functionName) {
             $.functionName = functionName;
             return this;
         }
 
+        /**
+         * @param functionName he name (or ARN) of the Lambda function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder functionName(String functionName) {
             return functionName(Output.of(functionName));
         }
 
+        /**
+         * @param qualifier Alias name or `&#34;$LATEST&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder qualifier(@Nullable Output<String> qualifier) {
             $.qualifier = qualifier;
             return this;
         }
 
+        /**
+         * @param qualifier Alias name or `&#34;$LATEST&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder qualifier(String qualifier) {
             return qualifier(Output.of(qualifier));
         }

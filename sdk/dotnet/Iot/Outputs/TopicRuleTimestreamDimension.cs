@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class TopicRuleTimestreamDimension
     {
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The value of the HTTP header.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

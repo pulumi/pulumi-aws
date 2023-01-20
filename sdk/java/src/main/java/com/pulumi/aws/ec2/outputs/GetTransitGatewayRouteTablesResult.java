@@ -19,6 +19,10 @@ public final class GetTransitGatewayRouteTablesResult {
      * 
      */
     private String id;
+    /**
+     * @return Set of Transit Gateway Route Table identifiers.
+     * 
+     */
     private List<String> ids;
     private Map<String,String> tags;
 
@@ -33,6 +37,10 @@ public final class GetTransitGatewayRouteTablesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Set of Transit Gateway Route Table identifiers.
+     * 
+     */
     public List<String> ids() {
         return this.ids;
     }

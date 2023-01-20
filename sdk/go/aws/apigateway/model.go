@@ -11,14 +11,67 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Model for a REST API Gateway.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
+//				Description: pulumi.String("This is my API for demonstration purposes"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewModel(ctx, "myDemoModel", &apigateway.ModelArgs{
+//				RestApi:     myDemoAPI.ID(),
+//				Description: pulumi.String("a JSON schema"),
+//				ContentType: pulumi.String("application/json"),
+//				Schema:      pulumi.String(fmt.Sprintf("{\n  \"type\": \"object\"\n}\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_api_gateway_model` can be imported using `REST-API-ID/NAME`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:apigateway/model:Model example 12345abcde/example
+//
+// ```
 type Model struct {
 	pulumi.CustomResourceState
 
-	ContentType pulumi.StringOutput    `pulumi:"contentType"`
+	// Content type of the model
+	ContentType pulumi.StringOutput `pulumi:"contentType"`
+	// Description of the model
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	Name        pulumi.StringOutput    `pulumi:"name"`
-	RestApi     pulumi.StringOutput    `pulumi:"restApi"`
-	Schema      pulumi.StringPtrOutput `pulumi:"schema"`
+	// Name of the model
+	Name pulumi.StringOutput `pulumi:"name"`
+	// ID of the associated REST API
+	RestApi pulumi.StringOutput `pulumi:"restApi"`
+	// Schema of the model in a JSON form
+	Schema pulumi.StringPtrOutput `pulumi:"schema"`
 }
 
 // NewModel registers a new resource with the given unique name, arguments, and options.
@@ -56,19 +109,29 @@ func GetModel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Model resources.
 type modelState struct {
-	ContentType *string     `pulumi:"contentType"`
-	Description *string     `pulumi:"description"`
-	Name        *string     `pulumi:"name"`
-	RestApi     interface{} `pulumi:"restApi"`
-	Schema      *string     `pulumi:"schema"`
+	// Content type of the model
+	ContentType *string `pulumi:"contentType"`
+	// Description of the model
+	Description *string `pulumi:"description"`
+	// Name of the model
+	Name *string `pulumi:"name"`
+	// ID of the associated REST API
+	RestApi interface{} `pulumi:"restApi"`
+	// Schema of the model in a JSON form
+	Schema *string `pulumi:"schema"`
 }
 
 type ModelState struct {
+	// Content type of the model
 	ContentType pulumi.StringPtrInput
+	// Description of the model
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	RestApi     pulumi.Input
-	Schema      pulumi.StringPtrInput
+	// Name of the model
+	Name pulumi.StringPtrInput
+	// ID of the associated REST API
+	RestApi pulumi.Input
+	// Schema of the model in a JSON form
+	Schema pulumi.StringPtrInput
 }
 
 func (ModelState) ElementType() reflect.Type {
@@ -76,20 +139,30 @@ func (ModelState) ElementType() reflect.Type {
 }
 
 type modelArgs struct {
-	ContentType string      `pulumi:"contentType"`
-	Description *string     `pulumi:"description"`
-	Name        *string     `pulumi:"name"`
-	RestApi     interface{} `pulumi:"restApi"`
-	Schema      *string     `pulumi:"schema"`
+	// Content type of the model
+	ContentType string `pulumi:"contentType"`
+	// Description of the model
+	Description *string `pulumi:"description"`
+	// Name of the model
+	Name *string `pulumi:"name"`
+	// ID of the associated REST API
+	RestApi interface{} `pulumi:"restApi"`
+	// Schema of the model in a JSON form
+	Schema *string `pulumi:"schema"`
 }
 
 // The set of arguments for constructing a Model resource.
 type ModelArgs struct {
+	// Content type of the model
 	ContentType pulumi.StringInput
+	// Description of the model
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	RestApi     pulumi.Input
-	Schema      pulumi.StringPtrInput
+	// Name of the model
+	Name pulumi.StringPtrInput
+	// ID of the associated REST API
+	RestApi pulumi.Input
+	// Schema of the model in a JSON form
+	Schema pulumi.StringPtrInput
 }
 
 func (ModelArgs) ElementType() reflect.Type {
@@ -179,22 +252,27 @@ func (o ModelOutput) ToModelOutputWithContext(ctx context.Context) ModelOutput {
 	return o
 }
 
+// Content type of the model
 func (o ModelOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.ContentType }).(pulumi.StringOutput)
 }
 
+// Description of the model
 func (o ModelOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Name of the model
 func (o ModelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// ID of the associated REST API
 func (o ModelOutput) RestApi() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.RestApi }).(pulumi.StringOutput)
 }
 
+// Schema of the model in a JSON form
 func (o ModelOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringPtrOutput { return v.Schema }).(pulumi.StringPtrOutput)
 }

@@ -18,6 +18,8 @@ class InternetGatewayAttachmentArgs:
                  vpc_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a InternetGatewayAttachment resource.
+        :param pulumi.Input[str] internet_gateway_id: The ID of the internet gateway.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC.
         """
         pulumi.set(__self__, "internet_gateway_id", internet_gateway_id)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -25,6 +27,9 @@ class InternetGatewayAttachmentArgs:
     @property
     @pulumi.getter(name="internetGatewayId")
     def internet_gateway_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the internet gateway.
+        """
         return pulumi.get(self, "internet_gateway_id")
 
     @internet_gateway_id.setter
@@ -34,6 +39,9 @@ class InternetGatewayAttachmentArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -48,6 +56,8 @@ class _InternetGatewayAttachmentState:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering InternetGatewayAttachment resources.
+        :param pulumi.Input[str] internet_gateway_id: The ID of the internet gateway.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC.
         """
         if internet_gateway_id is not None:
             pulumi.set(__self__, "internet_gateway_id", internet_gateway_id)
@@ -57,6 +67,9 @@ class _InternetGatewayAttachmentState:
     @property
     @pulumi.getter(name="internetGatewayId")
     def internet_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the internet gateway.
+        """
         return pulumi.get(self, "internet_gateway_id")
 
     @internet_gateway_id.setter
@@ -66,6 +79,9 @@ class _InternetGatewayAttachmentState:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VPC.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -82,9 +98,33 @@ class InternetGatewayAttachment(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a InternetGatewayAttachment resource with the given unique name, props, and options.
+        Provides a resource to create a VPC Internet Gateway Attachment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.1.0.0/16")
+        example_internet_gateway = aws.ec2.InternetGateway("exampleInternetGateway")
+        example_internet_gateway_attachment = aws.ec2.InternetGatewayAttachment("exampleInternetGatewayAttachment",
+            internet_gateway_id=example_internet_gateway.id,
+            vpc_id=example_vpc.id)
+        ```
+
+        ## Import
+
+        Internet Gateway Attachments can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] internet_gateway_id: The ID of the internet gateway.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC.
         """
         ...
     @overload
@@ -93,7 +133,29 @@ class InternetGatewayAttachment(pulumi.CustomResource):
                  args: InternetGatewayAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a InternetGatewayAttachment resource with the given unique name, props, and options.
+        Provides a resource to create a VPC Internet Gateway Attachment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.1.0.0/16")
+        example_internet_gateway = aws.ec2.InternetGateway("exampleInternetGateway")
+        example_internet_gateway_attachment = aws.ec2.InternetGatewayAttachment("exampleInternetGatewayAttachment",
+            internet_gateway_id=example_internet_gateway.id,
+            vpc_id=example_vpc.id)
+        ```
+
+        ## Import
+
+        Internet Gateway Attachments can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
+        ```
+
         :param str resource_name: The name of the resource.
         :param InternetGatewayAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +207,8 @@ class InternetGatewayAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] internet_gateway_id: The ID of the internet gateway.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +221,16 @@ class InternetGatewayAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="internetGatewayId")
     def internet_gateway_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the internet gateway.
+        """
         return pulumi.get(self, "internet_gateway_id")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the VPC.
+        """
         return pulumi.get(self, "vpc_id")
 

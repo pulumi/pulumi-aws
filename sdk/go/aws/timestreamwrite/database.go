@@ -11,15 +11,88 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Timestream database resource.
+//
+// ## Example Usage
+// ### Basic usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/timestreamwrite"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := timestreamwrite.NewDatabase(ctx, "example", &timestreamwrite.DatabaseArgs{
+//				DatabaseName: pulumi.String("database-example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Full usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/timestreamwrite"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := timestreamwrite.NewDatabase(ctx, "example", &timestreamwrite.DatabaseArgs{
+//				DatabaseName: pulumi.String("database-example"),
+//				KmsKeyId:     pulumi.Any(aws_kms_key.Example.Arn),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Timestream databases can be imported using the `database_name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:timestreamwrite/database:Database example example
+//
+// ```
 type Database struct {
 	pulumi.CustomResourceState
 
-	Arn          pulumi.StringOutput    `pulumi:"arn"`
-	DatabaseName pulumi.StringOutput    `pulumi:"databaseName"`
-	KmsKeyId     pulumi.StringOutput    `pulumi:"kmsKeyId"`
-	TableCount   pulumi.IntOutput       `pulumi:"tableCount"`
-	Tags         pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll      pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The ARN that uniquely identifies this database.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name of the Timestream database. Minimum length of 3. Maximum length of 64.
+	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	// The total number of tables found within the Timestream database.
+	TableCount pulumi.IntOutput `pulumi:"tableCount"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
@@ -54,21 +127,33 @@ func GetDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Database resources.
 type databaseState struct {
-	Arn          *string           `pulumi:"arn"`
-	DatabaseName *string           `pulumi:"databaseName"`
-	KmsKeyId     *string           `pulumi:"kmsKeyId"`
-	TableCount   *int              `pulumi:"tableCount"`
-	Tags         map[string]string `pulumi:"tags"`
-	TagsAll      map[string]string `pulumi:"tagsAll"`
+	// The ARN that uniquely identifies this database.
+	Arn *string `pulumi:"arn"`
+	// The name of the Timestream database. Minimum length of 3. Maximum length of 64.
+	DatabaseName *string `pulumi:"databaseName"`
+	// The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The total number of tables found within the Timestream database.
+	TableCount *int `pulumi:"tableCount"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type DatabaseState struct {
-	Arn          pulumi.StringPtrInput
+	// The ARN that uniquely identifies this database.
+	Arn pulumi.StringPtrInput
+	// The name of the Timestream database. Minimum length of 3. Maximum length of 64.
 	DatabaseName pulumi.StringPtrInput
-	KmsKeyId     pulumi.StringPtrInput
-	TableCount   pulumi.IntPtrInput
-	Tags         pulumi.StringMapInput
-	TagsAll      pulumi.StringMapInput
+	// The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
+	KmsKeyId pulumi.StringPtrInput
+	// The total number of tables found within the Timestream database.
+	TableCount pulumi.IntPtrInput
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (DatabaseState) ElementType() reflect.Type {
@@ -76,16 +161,22 @@ func (DatabaseState) ElementType() reflect.Type {
 }
 
 type databaseArgs struct {
-	DatabaseName string            `pulumi:"databaseName"`
-	KmsKeyId     *string           `pulumi:"kmsKeyId"`
-	Tags         map[string]string `pulumi:"tags"`
+	// The name of the Timestream database. Minimum length of 3. Maximum length of 64.
+	DatabaseName string `pulumi:"databaseName"`
+	// The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Database resource.
 type DatabaseArgs struct {
+	// The name of the Timestream database. Minimum length of 3. Maximum length of 64.
 	DatabaseName pulumi.StringInput
-	KmsKeyId     pulumi.StringPtrInput
-	Tags         pulumi.StringMapInput
+	// The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
+	KmsKeyId pulumi.StringPtrInput
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (DatabaseArgs) ElementType() reflect.Type {
@@ -175,26 +266,32 @@ func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) Databas
 	return o
 }
 
+// The ARN that uniquely identifies this database.
 func (o DatabaseOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The name of the Timestream database. Minimum length of 3. Maximum length of 64.
 func (o DatabaseOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
 func (o DatabaseOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
+// The total number of tables found within the Timestream database.
 func (o DatabaseOutput) TableCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Database) pulumi.IntOutput { return v.TableCount }).(pulumi.IntOutput)
 }
 
+// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DatabaseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DatabaseOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

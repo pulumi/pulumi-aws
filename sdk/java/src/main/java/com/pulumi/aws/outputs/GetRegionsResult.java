@@ -21,6 +21,10 @@ public final class GetRegionsResult {
      * 
      */
     private String id;
+    /**
+     * @return Names of regions that meets the criteria.
+     * 
+     */
     private List<String> names;
 
     private GetRegionsResult() {}
@@ -37,6 +41,10 @@ public final class GetRegionsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Names of regions that meets the criteria.
+     * 
+     */
     public List<String> names() {
         return this.names;
     }

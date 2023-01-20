@@ -31,6 +31,9 @@ class GetRulesPackagesResult:
     @property
     @pulumi.getter
     def arns(self) -> Sequence[str]:
+        """
+        List of the AWS Inspector Rules Packages arns available in the AWS region.
+        """
         return pulumi.get(self, "arns")
 
     @property
@@ -54,7 +57,27 @@ class AwaitableGetRulesPackagesResult(GetRulesPackagesResult):
 
 def get_rules_packages(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRulesPackagesResult:
     """
-    Use this data source to access information about an existing resource.
+    The AWS Inspector Rules Packages data source allows access to the list of AWS
+    Inspector Rules Packages which can be used by AWS Inspector within the region
+    configured in the provider.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    rules = aws.inspector.get_rules_packages()
+    # e.g., Use in aws_inspector_assessment_template
+    group = aws.inspector.ResourceGroup("group", tags={
+        "test": "test",
+    })
+    assessment_assessment_target = aws.inspector.AssessmentTarget("assessmentAssessmentTarget", resource_group_arn=group.arn)
+    assessment_assessment_template = aws.inspector.AssessmentTemplate("assessmentAssessmentTemplate",
+        target_arn=assessment_assessment_target.arn,
+        duration=60,
+        rules_package_arns=rules.arns)
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

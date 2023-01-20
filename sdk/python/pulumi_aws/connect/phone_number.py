@@ -24,6 +24,12 @@ class PhoneNumberArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PhoneNumber resource.
+        :param pulumi.Input[str] country_code: The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
+        :param pulumi.Input[str] target_arn: The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+        :param pulumi.Input[str] type: The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
+        :param pulumi.Input[str] description: The description of the phone number.
+        :param pulumi.Input[str] prefix: The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "country_code", country_code)
         pulumi.set(__self__, "target_arn", target_arn)
@@ -38,6 +44,9 @@ class PhoneNumberArgs:
     @property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> pulumi.Input[str]:
+        """
+        The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
+        """
         return pulumi.get(self, "country_code")
 
     @country_code.setter
@@ -47,6 +56,9 @@ class PhoneNumberArgs:
     @property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+        """
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter
@@ -56,6 +68,9 @@ class PhoneNumberArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -65,6 +80,9 @@ class PhoneNumberArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the phone number.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -74,6 +92,9 @@ class PhoneNumberArgs:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -83,6 +104,9 @@ class PhoneNumberArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -105,6 +129,16 @@ class _PhoneNumberState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PhoneNumber resources.
+        :param pulumi.Input[str] arn: The ARN of the phone number.
+        :param pulumi.Input[str] country_code: The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
+        :param pulumi.Input[str] description: The description of the phone number.
+        :param pulumi.Input[str] phone_number: The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
+        :param pulumi.Input[str] prefix: The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['PhoneNumberStatusArgs']]] statuses: The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] target_arn: The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+        :param pulumi.Input[str] type: The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -130,6 +164,9 @@ class _PhoneNumberState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the phone number.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -139,6 +176,9 @@ class _PhoneNumberState:
     @property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
+        """
         return pulumi.get(self, "country_code")
 
     @country_code.setter
@@ -148,6 +188,9 @@ class _PhoneNumberState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the phone number.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -157,6 +200,9 @@ class _PhoneNumberState:
     @property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> Optional[pulumi.Input[str]]:
+        """
+        The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
+        """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
@@ -166,6 +212,9 @@ class _PhoneNumberState:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -175,6 +224,9 @@ class _PhoneNumberState:
     @property
     @pulumi.getter
     def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberStatusArgs']]]]:
+        """
+        The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
+        """
         return pulumi.get(self, "statuses")
 
     @statuses.setter
@@ -184,6 +236,9 @@ class _PhoneNumberState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -193,6 +248,9 @@ class _PhoneNumberState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -202,6 +260,9 @@ class _PhoneNumberState:
     @property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+        """
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter
@@ -211,6 +272,9 @@ class _PhoneNumberState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -231,9 +295,65 @@ class PhoneNumber(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a PhoneNumber resource with the given unique name, props, and options.
+        Provides an Amazon Connect Phone Number resource. For more information see
+        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
+
+        ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.connect.PhoneNumber("example",
+            target_arn=aws_connect_instance["example"]["arn"],
+            country_code="US",
+            type="DID",
+            tags={
+                "hello": "world",
+            })
+        ```
+        ### Description
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.connect.PhoneNumber("example",
+            target_arn=aws_connect_instance["example"]["arn"],
+            country_code="US",
+            type="DID",
+            description="example description")
+        ```
+        ### Prefix to filter phone numbers
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.connect.PhoneNumber("example",
+            target_arn=aws_connect_instance["example"]["arn"],
+            country_code="US",
+            type="DID",
+            prefix="+18005")
+        ```
+
+        ## Import
+
+        Amazon Connect Phone Numbers can be imported using its `id` e.g.,
+
+        ```sh
+         $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] country_code: The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
+        :param pulumi.Input[str] description: The description of the phone number.
+        :param pulumi.Input[str] prefix: The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] target_arn: The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+        :param pulumi.Input[str] type: The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
         """
         ...
     @overload
@@ -242,7 +362,57 @@ class PhoneNumber(pulumi.CustomResource):
                  args: PhoneNumberArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a PhoneNumber resource with the given unique name, props, and options.
+        Provides an Amazon Connect Phone Number resource. For more information see
+        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
+
+        ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.connect.PhoneNumber("example",
+            target_arn=aws_connect_instance["example"]["arn"],
+            country_code="US",
+            type="DID",
+            tags={
+                "hello": "world",
+            })
+        ```
+        ### Description
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.connect.PhoneNumber("example",
+            target_arn=aws_connect_instance["example"]["arn"],
+            country_code="US",
+            type="DID",
+            description="example description")
+        ```
+        ### Prefix to filter phone numbers
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.connect.PhoneNumber("example",
+            target_arn=aws_connect_instance["example"]["arn"],
+            country_code="US",
+            type="DID",
+            prefix="+18005")
+        ```
+
+        ## Import
+
+        Amazon Connect Phone Numbers can be imported using its `id` e.g.,
+
+        ```sh
+         $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
+        ```
+
         :param str resource_name: The name of the resource.
         :param PhoneNumberArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -316,6 +486,16 @@ class PhoneNumber(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the phone number.
+        :param pulumi.Input[str] country_code: The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
+        :param pulumi.Input[str] description: The description of the phone number.
+        :param pulumi.Input[str] phone_number: The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
+        :param pulumi.Input[str] prefix: The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhoneNumberStatusArgs']]]] statuses: The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] target_arn: The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+        :param pulumi.Input[str] type: The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -336,50 +516,80 @@ class PhoneNumber(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the phone number.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> pulumi.Output[str]:
+        """
+        The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
+        """
         return pulumi.get(self, "country_code")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the phone number.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> pulumi.Output[str]:
+        """
+        The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
+        """
         return pulumi.get(self, "phone_number")
 
     @property
     @pulumi.getter
     def prefix(self) -> pulumi.Output[Optional[str]]:
+        """
+        The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
+        """
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter
     def statuses(self) -> pulumi.Output[Sequence['outputs.PhoneNumberStatus']]:
+        """
+        The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
+        """
         return pulumi.get(self, "statuses")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+        """
         return pulumi.get(self, "target_arn")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
+        """
         return pulumi.get(self, "type")
 

@@ -12,15 +12,27 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
     public sealed class PolicyTargetTrackingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Customized metric. Conflicts with `predefined_metric_specification`.
+        /// </summary>
         [Input("customizedMetricSpecification")]
         public Input<Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs>? CustomizedMetricSpecification { get; set; }
 
+        /// <summary>
+        /// Whether scale in by the target tracking policy is disabled.
+        /// </summary>
         [Input("disableScaleIn")]
         public Input<bool>? DisableScaleIn { get; set; }
 
+        /// <summary>
+        /// Predefined metric. Conflicts with `customized_metric_specification`.
+        /// </summary>
         [Input("predefinedMetricSpecification")]
         public Input<Inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs>? PredefinedMetricSpecification { get; set; }
 
+        /// <summary>
+        /// Target value for the metric.
+        /// </summary>
         [Input("targetValue", required: true)]
         public Input<double> TargetValue { get; set; } = null!;
 

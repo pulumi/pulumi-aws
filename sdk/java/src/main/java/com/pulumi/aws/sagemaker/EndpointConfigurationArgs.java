@@ -21,51 +21,107 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
 
     public static final EndpointConfigurationArgs Empty = new EndpointConfigurationArgs();
 
+    /**
+     * Specifies configuration for how an endpoint performs asynchronous inference.
+     * 
+     */
     @Import(name="asyncInferenceConfig")
     private @Nullable Output<EndpointConfigurationAsyncInferenceConfigArgs> asyncInferenceConfig;
 
+    /**
+     * @return Specifies configuration for how an endpoint performs asynchronous inference.
+     * 
+     */
     public Optional<Output<EndpointConfigurationAsyncInferenceConfigArgs>> asyncInferenceConfig() {
         return Optional.ofNullable(this.asyncInferenceConfig);
     }
 
+    /**
+     * Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
+     * 
+     */
     @Import(name="dataCaptureConfig")
     private @Nullable Output<EndpointConfigurationDataCaptureConfigArgs> dataCaptureConfig;
 
+    /**
+     * @return Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
+     * 
+     */
     public Optional<Output<EndpointConfigurationDataCaptureConfigArgs>> dataCaptureConfig() {
         return Optional.ofNullable(this.dataCaptureConfig);
     }
 
+    /**
+     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+     * 
+     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+     * 
+     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
 
+    /**
+     * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+     * 
+     */
     @Import(name="productionVariants", required=true)
     private Output<List<EndpointConfigurationProductionVariantArgs>> productionVariants;
 
+    /**
+     * @return An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+     * 
+     */
     public Output<List<EndpointConfigurationProductionVariantArgs>> productionVariants() {
         return this.productionVariants;
     }
 
+    /**
+     * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     * 
+     */
     @Import(name="shadowProductionVariants")
     private @Nullable Output<List<EndpointConfigurationShadowProductionVariantArgs>> shadowProductionVariants;
 
+    /**
+     * @return Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     * 
+     */
     public Optional<Output<List<EndpointConfigurationShadowProductionVariantArgs>>> shadowProductionVariants() {
         return Optional.ofNullable(this.shadowProductionVariants);
     }
 
+    /**
+     * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -100,73 +156,169 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
             $ = new EndpointConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param asyncInferenceConfig Specifies configuration for how an endpoint performs asynchronous inference.
+         * 
+         * @return builder
+         * 
+         */
         public Builder asyncInferenceConfig(@Nullable Output<EndpointConfigurationAsyncInferenceConfigArgs> asyncInferenceConfig) {
             $.asyncInferenceConfig = asyncInferenceConfig;
             return this;
         }
 
+        /**
+         * @param asyncInferenceConfig Specifies configuration for how an endpoint performs asynchronous inference.
+         * 
+         * @return builder
+         * 
+         */
         public Builder asyncInferenceConfig(EndpointConfigurationAsyncInferenceConfigArgs asyncInferenceConfig) {
             return asyncInferenceConfig(Output.of(asyncInferenceConfig));
         }
 
+        /**
+         * @param dataCaptureConfig Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataCaptureConfig(@Nullable Output<EndpointConfigurationDataCaptureConfigArgs> dataCaptureConfig) {
             $.dataCaptureConfig = dataCaptureConfig;
             return this;
         }
 
+        /**
+         * @param dataCaptureConfig Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataCaptureConfig(EndpointConfigurationDataCaptureConfigArgs dataCaptureConfig) {
             return dataCaptureConfig(Output.of(dataCaptureConfig));
         }
 
+        /**
+         * @param kmsKeyArn Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
+        /**
+         * @param kmsKeyArn Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
+        /**
+         * @param name The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param productionVariants An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder productionVariants(Output<List<EndpointConfigurationProductionVariantArgs>> productionVariants) {
             $.productionVariants = productionVariants;
             return this;
         }
 
+        /**
+         * @param productionVariants An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder productionVariants(List<EndpointConfigurationProductionVariantArgs> productionVariants) {
             return productionVariants(Output.of(productionVariants));
         }
 
+        /**
+         * @param productionVariants An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder productionVariants(EndpointConfigurationProductionVariantArgs... productionVariants) {
             return productionVariants(List.of(productionVariants));
         }
 
+        /**
+         * @param shadowProductionVariants Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder shadowProductionVariants(@Nullable Output<List<EndpointConfigurationShadowProductionVariantArgs>> shadowProductionVariants) {
             $.shadowProductionVariants = shadowProductionVariants;
             return this;
         }
 
+        /**
+         * @param shadowProductionVariants Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder shadowProductionVariants(List<EndpointConfigurationShadowProductionVariantArgs> shadowProductionVariants) {
             return shadowProductionVariants(Output.of(shadowProductionVariants));
         }
 
+        /**
+         * @param shadowProductionVariants Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder shadowProductionVariants(EndpointConfigurationShadowProductionVariantArgs... shadowProductionVariants) {
             return shadowProductionVariants(List.of(shadowProductionVariants));
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

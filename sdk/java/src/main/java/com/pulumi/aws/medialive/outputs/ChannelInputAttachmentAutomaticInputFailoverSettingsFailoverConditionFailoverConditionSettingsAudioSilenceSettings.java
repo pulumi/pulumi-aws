@@ -12,10 +12,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings {
+    /**
+     * @return The name of the audio selector used as the source for this AudioDescription.
+     * 
+     */
     private String audioSelectorName;
     private @Nullable Integer audioSilenceThresholdMsec;
 
     private ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings() {}
+    /**
+     * @return The name of the audio selector used as the source for this AudioDescription.
+     * 
+     */
     public String audioSelectorName() {
         return this.audioSelectorName;
     }

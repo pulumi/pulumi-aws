@@ -11,9 +11,137 @@ namespace Pulumi.Aws
 {
     public static class GetService
     {
+        /// <summary>
+        /// Use this data source to compose and decompose AWS service DNS names.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Get Service DNS Name
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetRegion.Invoke();
+        /// 
+        ///     var test = Aws.GetService.Invoke(new()
+        ///     {
+        ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+        ///         ServiceId = "ec2",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Use Service Reverse DNS Name to Get Components
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var s3 = Aws.GetService.Invoke(new()
+        ///     {
+        ///         ReverseDnsName = "cn.com.amazonaws.cn-north-1.s3",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Determine Regional Support for a Service
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var s3 = Aws.GetService.Invoke(new()
+        ///     {
+        ///         ReverseDnsName = "com.amazonaws.us-gov-west-1.waf",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws:index/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to compose and decompose AWS service DNS names.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Get Service DNS Name
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetRegion.Invoke();
+        /// 
+        ///     var test = Aws.GetService.Invoke(new()
+        ///     {
+        ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+        ///         ServiceId = "ec2",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Use Service Reverse DNS Name to Get Components
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var s3 = Aws.GetService.Invoke(new()
+        ///     {
+        ///         ReverseDnsName = "cn.com.amazonaws.cn-north-1.s3",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Determine Regional Support for a Service
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var s3 = Aws.GetService.Invoke(new()
+        ///     {
+        ///         ReverseDnsName = "com.amazonaws.us-gov-west-1.waf",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws:index/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
@@ -21,18 +149,33 @@ namespace Pulumi.Aws
 
     public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+        /// </summary>
         [Input("dnsName")]
         public string? DnsName { get; set; }
 
+        /// <summary>
+        /// Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
+        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
+        /// <summary>
+        /// Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+        /// </summary>
         [Input("reverseDnsName")]
         public string? ReverseDnsName { get; set; }
 
+        /// <summary>
+        /// Prefix of the service (_e.g.,_ `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
+        /// </summary>
         [Input("reverseDnsPrefix")]
         public string? ReverseDnsPrefix { get; set; }
 
+        /// <summary>
+        /// Service (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+        /// </summary>
         [Input("serviceId")]
         public string? ServiceId { get; set; }
 
@@ -44,18 +187,33 @@ namespace Pulumi.Aws
 
     public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+        /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
 
+        /// <summary>
+        /// Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+        /// </summary>
         [Input("reverseDnsName")]
         public Input<string>? ReverseDnsName { get; set; }
 
+        /// <summary>
+        /// Prefix of the service (_e.g.,_ `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
+        /// </summary>
         [Input("reverseDnsPrefix")]
         public Input<string>? ReverseDnsPrefix { get; set; }
 
+        /// <summary>
+        /// Service (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+        /// </summary>
         [Input("serviceId")]
         public Input<string>? ServiceId { get; set; }
 
@@ -79,6 +237,9 @@ namespace Pulumi.Aws
         public readonly string ReverseDnsName;
         public readonly string ReverseDnsPrefix;
         public readonly string ServiceId;
+        /// <summary>
+        /// Whether the service is supported in the region's partition. New services may not be listed immediately as supported.
+        /// </summary>
         public readonly bool Supported;
 
         [OutputConstructor]

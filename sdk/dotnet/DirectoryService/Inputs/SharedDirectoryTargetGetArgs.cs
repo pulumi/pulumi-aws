@@ -12,9 +12,15 @@ namespace Pulumi.Aws.DirectoryService.Inputs
 
     public sealed class SharedDirectoryTargetGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Identifier of the directory consumer account.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// Type of identifier to be used in the `id` field. Valid value is `ACCOUNT`. Default is `ACCOUNT`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

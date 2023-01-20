@@ -18,6 +18,8 @@ class RecorderStatusArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RecorderStatus resource.
+        :param pulumi.Input[bool] is_enabled: Whether the configuration recorder should be enabled or disabled.
+        :param pulumi.Input[str] name: The name of the recorder
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
         if name is not None:
@@ -26,6 +28,9 @@ class RecorderStatusArgs:
     @property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> pulumi.Input[bool]:
+        """
+        Whether the configuration recorder should be enabled or disabled.
+        """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
@@ -35,6 +40,9 @@ class RecorderStatusArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the recorder
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -49,6 +57,8 @@ class _RecorderStatusState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RecorderStatus resources.
+        :param pulumi.Input[bool] is_enabled: Whether the configuration recorder should be enabled or disabled.
+        :param pulumi.Input[str] name: The name of the recorder
         """
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
@@ -58,6 +68,9 @@ class _RecorderStatusState:
     @property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the configuration recorder should be enabled or disabled.
+        """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
@@ -67,6 +80,9 @@ class _RecorderStatusState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the recorder
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -83,9 +99,70 @@ class RecorderStatus(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a RecorderStatus resource with the given unique name, props, and options.
+        Manages status (recording / stopped) of an AWS Config Configuration Recorder.
+
+        > **Note:** Starting Configuration Recorder requires a Delivery Channel to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bucket_v2 = aws.s3.BucketV2("bucketV2")
+        foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket_v2.bucket)
+        foo_recorder_status = aws.cfg.RecorderStatus("fooRecorderStatus", is_enabled=True,
+        opts=pulumi.ResourceOptions(depends_on=[foo_delivery_channel]))
+        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "config.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+        \"\"\")
+        role_policy_attachment = aws.iam.RolePolicyAttachment("rolePolicyAttachment",
+            role=role.name,
+            policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRole")
+        foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
+        role_policy = aws.iam.RolePolicy("rolePolicy",
+            role=role.id,
+            policy=pulumi.Output.all(bucket_v2.arn, bucket_v2.arn).apply(lambda bucketV2Arn, bucketV2Arn1: f\"\"\"{{
+          "Version": "2012-10-17",
+          "Statement": [
+            {{
+              "Action": [
+                "s3:*"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                "{bucket_v2_arn}",
+                "{bucket_v2_arn1}/*"
+              ]
+            }}
+          ]
+        }}
+        \"\"\"))
+        ```
+
+        ## Import
+
+        Configuration Recorder Status can be imported using the name of the Configuration Recorder, e.g.,
+
+        ```sh
+         $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] is_enabled: Whether the configuration recorder should be enabled or disabled.
+        :param pulumi.Input[str] name: The name of the recorder
         """
         ...
     @overload
@@ -94,7 +171,66 @@ class RecorderStatus(pulumi.CustomResource):
                  args: RecorderStatusArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RecorderStatus resource with the given unique name, props, and options.
+        Manages status (recording / stopped) of an AWS Config Configuration Recorder.
+
+        > **Note:** Starting Configuration Recorder requires a Delivery Channel to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bucket_v2 = aws.s3.BucketV2("bucketV2")
+        foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket_v2.bucket)
+        foo_recorder_status = aws.cfg.RecorderStatus("fooRecorderStatus", is_enabled=True,
+        opts=pulumi.ResourceOptions(depends_on=[foo_delivery_channel]))
+        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "config.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+        \"\"\")
+        role_policy_attachment = aws.iam.RolePolicyAttachment("rolePolicyAttachment",
+            role=role.name,
+            policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRole")
+        foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
+        role_policy = aws.iam.RolePolicy("rolePolicy",
+            role=role.id,
+            policy=pulumi.Output.all(bucket_v2.arn, bucket_v2.arn).apply(lambda bucketV2Arn, bucketV2Arn1: f\"\"\"{{
+          "Version": "2012-10-17",
+          "Statement": [
+            {{
+              "Action": [
+                "s3:*"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                "{bucket_v2_arn}",
+                "{bucket_v2_arn1}/*"
+              ]
+            }}
+          ]
+        }}
+        \"\"\"))
+        ```
+
+        ## Import
+
+        Configuration Recorder Status can be imported using the name of the Configuration Recorder, e.g.,
+
+        ```sh
+         $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
+        ```
+
         :param str resource_name: The name of the resource.
         :param RecorderStatusArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,6 +280,8 @@ class RecorderStatus(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] is_enabled: Whether the configuration recorder should be enabled or disabled.
+        :param pulumi.Input[str] name: The name of the recorder
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -156,10 +294,16 @@ class RecorderStatus(pulumi.CustomResource):
     @property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> pulumi.Output[bool]:
+        """
+        Whether the configuration recorder should be enabled or disabled.
+        """
         return pulumi.get(self, "is_enabled")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the recorder
+        """
         return pulumi.get(self, "name")
 

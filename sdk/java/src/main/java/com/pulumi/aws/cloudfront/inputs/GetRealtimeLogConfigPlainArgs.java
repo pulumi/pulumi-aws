@@ -12,9 +12,17 @@ public final class GetRealtimeLogConfigPlainArgs extends com.pulumi.resources.In
 
     public static final GetRealtimeLogConfigPlainArgs Empty = new GetRealtimeLogConfigPlainArgs();
 
+    /**
+     * Unique name to identify this real-time log configuration.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return Unique name to identify this real-time log configuration.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -43,6 +51,12 @@ public final class GetRealtimeLogConfigPlainArgs extends com.pulumi.resources.In
             $ = new GetRealtimeLogConfigPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Unique name to identify this real-time log configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;

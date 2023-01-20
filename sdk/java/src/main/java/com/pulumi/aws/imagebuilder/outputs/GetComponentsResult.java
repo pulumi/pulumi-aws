@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetComponentsResult {
+    /**
+     * @return Set of ARNs of the matched Image Builder Components.
+     * 
+     */
     private List<String> arns;
     private @Nullable List<GetComponentsFilter> filters;
     /**
@@ -20,10 +24,18 @@ public final class GetComponentsResult {
      * 
      */
     private String id;
+    /**
+     * @return Set of names of the matched Image Builder Components.
+     * 
+     */
     private List<String> names;
     private @Nullable String owner;
 
     private GetComponentsResult() {}
+    /**
+     * @return Set of ARNs of the matched Image Builder Components.
+     * 
+     */
     public List<String> arns() {
         return this.arns;
     }
@@ -37,6 +49,10 @@ public final class GetComponentsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Set of names of the matched Image Builder Components.
+     * 
+     */
     public List<String> names() {
         return this.names;
     }

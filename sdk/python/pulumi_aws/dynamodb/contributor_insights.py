@@ -18,6 +18,8 @@ class ContributorInsightsArgs:
                  index_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ContributorInsights resource.
+        :param pulumi.Input[str] table_name: The name of the table to enable contributor insights
+        :param pulumi.Input[str] index_name: The global secondary index name
         """
         pulumi.set(__self__, "table_name", table_name)
         if index_name is not None:
@@ -26,6 +28,9 @@ class ContributorInsightsArgs:
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
+        """
+        The name of the table to enable contributor insights
+        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -35,6 +40,9 @@ class ContributorInsightsArgs:
     @property
     @pulumi.getter(name="indexName")
     def index_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The global secondary index name
+        """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
@@ -49,6 +57,8 @@ class _ContributorInsightsState:
                  table_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ContributorInsights resources.
+        :param pulumi.Input[str] index_name: The global secondary index name
+        :param pulumi.Input[str] table_name: The name of the table to enable contributor insights
         """
         if index_name is not None:
             pulumi.set(__self__, "index_name", index_name)
@@ -58,6 +68,9 @@ class _ContributorInsightsState:
     @property
     @pulumi.getter(name="indexName")
     def index_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The global secondary index name
+        """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
@@ -67,6 +80,9 @@ class _ContributorInsightsState:
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the table to enable contributor insights
+        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -83,9 +99,29 @@ class ContributorInsights(pulumi.CustomResource):
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ContributorInsights resource with the given unique name, props, and options.
+        Provides a DynamoDB contributor insights resource
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.dynamodb.ContributorInsights("test", table_name="ExampleTableName")
+        ```
+
+        ## Import
+
+        `aws_dynamodb_contributor_insights` can be imported using the format `name:table_name/index:index_name`, followed by the account number, e.g.,
+
+        ```sh
+         $ pulumi import aws:dynamodb/contributorInsights:ContributorInsights test name:ExampleTableName/index:ExampleIndexName/123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] index_name: The global secondary index name
+        :param pulumi.Input[str] table_name: The name of the table to enable contributor insights
         """
         ...
     @overload
@@ -94,7 +130,25 @@ class ContributorInsights(pulumi.CustomResource):
                  args: ContributorInsightsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ContributorInsights resource with the given unique name, props, and options.
+        Provides a DynamoDB contributor insights resource
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.dynamodb.ContributorInsights("test", table_name="ExampleTableName")
+        ```
+
+        ## Import
+
+        `aws_dynamodb_contributor_insights` can be imported using the format `name:table_name/index:index_name`, followed by the account number, e.g.,
+
+        ```sh
+         $ pulumi import aws:dynamodb/contributorInsights:ContributorInsights test name:ExampleTableName/index:ExampleIndexName/123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param ContributorInsightsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,6 +198,8 @@ class ContributorInsights(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] index_name: The global secondary index name
+        :param pulumi.Input[str] table_name: The name of the table to enable contributor insights
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -156,10 +212,16 @@ class ContributorInsights(pulumi.CustomResource):
     @property
     @pulumi.getter(name="indexName")
     def index_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The global secondary index name
+        """
         return pulumi.get(self, "index_name")
 
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[str]:
+        """
+        The name of the table to enable contributor insights
+        """
         return pulumi.get(self, "table_name")
 

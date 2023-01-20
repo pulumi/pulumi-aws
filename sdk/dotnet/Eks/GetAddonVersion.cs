@@ -11,9 +11,97 @@ namespace Pulumi.Aws.Eks
 {
     public static class GetAddonVersion
     {
+        /// <summary>
+        /// Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var defaultAddonVersion = Aws.Eks.GetAddonVersion.Invoke(new()
+        ///     {
+        ///         AddonName = "vpc-cni",
+        ///         KubernetesVersion = aws_eks_cluster.Example.Version,
+        ///     });
+        /// 
+        ///     var latestAddonVersion = Aws.Eks.GetAddonVersion.Invoke(new()
+        ///     {
+        ///         AddonName = "vpc-cni",
+        ///         KubernetesVersion = aws_eks_cluster.Example.Version,
+        ///         MostRecent = true,
+        ///     });
+        /// 
+        ///     var vpcCni = new Aws.Eks.Addon("vpcCni", new()
+        ///     {
+        ///         ClusterName = aws_eks_cluster.Example.Name,
+        ///         AddonName = "vpc-cni",
+        ///         AddonVersion = latestAddonVersion.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["default"] = defaultAddonVersion.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version),
+        ///         ["latest"] = latestAddonVersion.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetAddonVersionResult> InvokeAsync(GetAddonVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAddonVersionResult>("aws:eks/getAddonVersion:getAddonVersion", args ?? new GetAddonVersionArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var defaultAddonVersion = Aws.Eks.GetAddonVersion.Invoke(new()
+        ///     {
+        ///         AddonName = "vpc-cni",
+        ///         KubernetesVersion = aws_eks_cluster.Example.Version,
+        ///     });
+        /// 
+        ///     var latestAddonVersion = Aws.Eks.GetAddonVersion.Invoke(new()
+        ///     {
+        ///         AddonName = "vpc-cni",
+        ///         KubernetesVersion = aws_eks_cluster.Example.Version,
+        ///         MostRecent = true,
+        ///     });
+        /// 
+        ///     var vpcCni = new Aws.Eks.Addon("vpcCni", new()
+        ///     {
+        ///         ClusterName = aws_eks_cluster.Example.Name,
+        ///         AddonName = "vpc-cni",
+        ///         AddonVersion = latestAddonVersion.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["default"] = defaultAddonVersion.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version),
+        ///         ["latest"] = latestAddonVersion.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetAddonVersionResult> Invoke(GetAddonVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAddonVersionResult>("aws:eks/getAddonVersion:getAddonVersion", args ?? new GetAddonVersionInvokeArgs(), options.WithDefaults());
     }
@@ -21,12 +109,22 @@ namespace Pulumi.Aws.Eks
 
     public sealed class GetAddonVersionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the EKS add-on. The name must match one of
+        /// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+        /// </summary>
         [Input("addonName", required: true)]
         public string AddonName { get; set; } = null!;
 
+        /// <summary>
+        /// Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// </summary>
         [Input("kubernetesVersion", required: true)]
         public string KubernetesVersion { get; set; } = null!;
 
+        /// <summary>
+        /// Determines if the most recent or default version of the addon should be returned.
+        /// </summary>
         [Input("mostRecent")]
         public bool? MostRecent { get; set; }
 
@@ -38,12 +136,22 @@ namespace Pulumi.Aws.Eks
 
     public sealed class GetAddonVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the EKS add-on. The name must match one of
+        /// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+        /// </summary>
         [Input("addonName", required: true)]
         public Input<string> AddonName { get; set; } = null!;
 
+        /// <summary>
+        /// Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// </summary>
         [Input("kubernetesVersion", required: true)]
         public Input<string> KubernetesVersion { get; set; } = null!;
 
+        /// <summary>
+        /// Determines if the most recent or default version of the addon should be returned.
+        /// </summary>
         [Input("mostRecent")]
         public Input<bool>? MostRecent { get; set; }
 
@@ -64,6 +172,9 @@ namespace Pulumi.Aws.Eks
         public readonly string Id;
         public readonly string KubernetesVersion;
         public readonly bool? MostRecent;
+        /// <summary>
+        /// Version of the EKS add-on.
+        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]

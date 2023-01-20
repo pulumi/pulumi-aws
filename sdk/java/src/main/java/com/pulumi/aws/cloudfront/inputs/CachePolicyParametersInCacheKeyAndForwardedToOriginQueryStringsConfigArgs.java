@@ -16,16 +16,32 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStrin
 
     public static final CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs Empty = new CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs();
 
+    /**
+     * Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+     * 
+     */
     @Import(name="queryStringBehavior", required=true)
     private Output<String> queryStringBehavior;
 
+    /**
+     * @return Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+     * 
+     */
     public Output<String> queryStringBehavior() {
         return this.queryStringBehavior;
     }
 
+    /**
+     * Object that contains a list of query string names. See Items for more information.
+     * 
+     */
     @Import(name="queryStrings")
     private @Nullable Output<CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs> queryStrings;
 
+    /**
+     * @return Object that contains a list of query string names. See Items for more information.
+     * 
+     */
     public Optional<Output<CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs>> queryStrings() {
         return Optional.ofNullable(this.queryStrings);
     }
@@ -55,20 +71,44 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStrin
             $ = new CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param queryStringBehavior Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queryStringBehavior(Output<String> queryStringBehavior) {
             $.queryStringBehavior = queryStringBehavior;
             return this;
         }
 
+        /**
+         * @param queryStringBehavior Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queryStringBehavior(String queryStringBehavior) {
             return queryStringBehavior(Output.of(queryStringBehavior));
         }
 
+        /**
+         * @param queryStrings Object that contains a list of query string names. See Items for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queryStrings(@Nullable Output<CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs> queryStrings) {
             $.queryStrings = queryStrings;
             return this;
         }
 
+        /**
+         * @param queryStrings Object that contains a list of query string names. See Items for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queryStrings(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs queryStrings) {
             return queryStrings(Output.of(queryStrings));
         }

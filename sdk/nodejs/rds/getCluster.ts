@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides information about an RDS cluster.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const clusterName = aws.rds.getCluster({
+ *     clusterIdentifier: "clusterName",
+ * });
+ * ```
+ */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,6 +31,9 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getCluster.
  */
 export interface GetClusterArgs {
+    /**
+     * Cluster identifier of the RDS cluster.
+     */
     clusterIdentifier: string;
     tags?: {[key: string]: string};
 }
@@ -60,6 +77,20 @@ export interface GetClusterResult {
     readonly tags: {[key: string]: string};
     readonly vpcSecurityGroupIds: string[];
 }
+/**
+ * Provides information about an RDS cluster.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const clusterName = aws.rds.getCluster({
+ *     clusterIdentifier: "clusterName",
+ * });
+ * ```
+ */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }
@@ -68,6 +99,9 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getCluster.
  */
 export interface GetClusterOutputArgs {
+    /**
+     * Cluster identifier of the RDS cluster.
+     */
     clusterIdentifier: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

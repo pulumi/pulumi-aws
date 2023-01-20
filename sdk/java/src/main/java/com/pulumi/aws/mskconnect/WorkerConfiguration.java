@@ -15,35 +15,122 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Amazon MSK Connect Worker Configuration Resource.
+ * 
+ * ## Example Usage
+ * ### Basic configuration
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.mskconnect.WorkerConfiguration;
+ * import com.pulumi.aws.mskconnect.WorkerConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new WorkerConfiguration(&#34;example&#34;, WorkerConfigurationArgs.builder()        
+ *             .propertiesFileContent(&#34;&#34;&#34;
+ * key.converter=org.apache.kafka.connect.storage.StringConverter
+ * value.converter=org.apache.kafka.connect.storage.StringConverter
+ * 
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * MSK Connect Worker Configuration can be imported using the plugin&#39;s `arn`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example &#39;arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4&#39;
+ * ```
+ * 
+ */
 @ResourceType(type="aws:mskconnect/workerConfiguration:WorkerConfiguration")
 public class WorkerConfiguration extends com.pulumi.resources.CustomResource {
+    /**
+     * the Amazon Resource Name (ARN) of the worker configuration.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return the Amazon Resource Name (ARN) of the worker configuration.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * A summary description of the worker configuration.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return A summary description of the worker configuration.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * an ID of the latest successfully created revision of the worker configuration.
+     * 
+     */
     @Export(name="latestRevision", refs={Integer.class}, tree="[0]")
     private Output<Integer> latestRevision;
 
+    /**
+     * @return an ID of the latest successfully created revision of the worker configuration.
+     * 
+     */
     public Output<Integer> latestRevision() {
         return this.latestRevision;
     }
+    /**
+     * The name of the worker configuration.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the worker configuration.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+     * 
+     */
     @Export(name="propertiesFileContent", refs={String.class}, tree="[0]")
     private Output<String> propertiesFileContent;
 
+    /**
+     * @return Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+     * 
+     */
     public Output<String> propertiesFileContent() {
         return this.propertiesFileContent;
     }

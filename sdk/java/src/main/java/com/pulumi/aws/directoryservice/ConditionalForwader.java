@@ -14,23 +14,93 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a conditional forwarder for managed Microsoft AD in AWS Directory Service.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.directoryservice.ConditionalForwader;
+ * import com.pulumi.aws.directoryservice.ConditionalForwaderArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ConditionalForwader(&#34;example&#34;, ConditionalForwaderArgs.builder()        
+ *             .directoryId(aws_directory_service_directory.ad().id())
+ *             .remoteDomainName(&#34;example.com&#34;)
+ *             .dnsIps(            
+ *                 &#34;8.8.8.8&#34;,
+ *                 &#34;8.8.4.4&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Conditional forwarders can be imported using the directory id and remote_domain_name, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
+ * ```
+ * 
+ */
 @ResourceType(type="aws:directoryservice/conditionalForwader:ConditionalForwader")
 public class ConditionalForwader extends com.pulumi.resources.CustomResource {
+    /**
+     * ID of directory.
+     * 
+     */
     @Export(name="directoryId", refs={String.class}, tree="[0]")
     private Output<String> directoryId;
 
+    /**
+     * @return ID of directory.
+     * 
+     */
     public Output<String> directoryId() {
         return this.directoryId;
     }
+    /**
+     * A list of forwarder IP addresses.
+     * 
+     */
     @Export(name="dnsIps", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> dnsIps;
 
+    /**
+     * @return A list of forwarder IP addresses.
+     * 
+     */
     public Output<List<String>> dnsIps() {
         return this.dnsIps;
     }
+    /**
+     * The fully qualified domain name of the remote domain for which forwarders will be used.
+     * 
+     */
     @Export(name="remoteDomainName", refs={String.class}, tree="[0]")
     private Output<String> remoteDomainName;
 
+    /**
+     * @return The fully qualified domain name of the remote domain for which forwarders will be used.
+     * 
+     */
     public Output<String> remoteDomainName() {
         return this.remoteDomainName;
     }

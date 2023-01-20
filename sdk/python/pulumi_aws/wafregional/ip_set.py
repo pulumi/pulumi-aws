@@ -20,6 +20,8 @@ class IpSetArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IpSet resource.
+        :param pulumi.Input[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]] ip_set_descriptors: One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
+        :param pulumi.Input[str] name: The name or description of the IPSet.
         """
         if ip_set_descriptors is not None:
             pulumi.set(__self__, "ip_set_descriptors", ip_set_descriptors)
@@ -29,6 +31,9 @@ class IpSetArgs:
     @property
     @pulumi.getter(name="ipSetDescriptors")
     def ip_set_descriptors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]]]:
+        """
+        One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
+        """
         return pulumi.get(self, "ip_set_descriptors")
 
     @ip_set_descriptors.setter
@@ -38,6 +43,9 @@ class IpSetArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or description of the IPSet.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -53,6 +61,9 @@ class _IpSetState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering IpSet resources.
+        :param pulumi.Input[str] arn: The ARN of the WAF IPSet.
+        :param pulumi.Input[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]] ip_set_descriptors: One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
+        :param pulumi.Input[str] name: The name or description of the IPSet.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -64,6 +75,9 @@ class _IpSetState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the WAF IPSet.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -73,6 +87,9 @@ class _IpSetState:
     @property
     @pulumi.getter(name="ipSetDescriptors")
     def ip_set_descriptors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]]]:
+        """
+        One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
+        """
         return pulumi.get(self, "ip_set_descriptors")
 
     @ip_set_descriptors.setter
@@ -82,6 +99,9 @@ class _IpSetState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or description of the IPSet.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -98,9 +118,38 @@ class IpSet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a IpSet resource with the given unique name, props, and options.
+        Provides a WAF Regional IPSet Resource for use with Application Load Balancer.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[
+            aws.wafregional.IpSetIpSetDescriptorArgs(
+                type="IPV4",
+                value="192.0.7.0/24",
+            ),
+            aws.wafregional.IpSetIpSetDescriptorArgs(
+                type="IPV4",
+                value="10.16.16.0/16",
+            ),
+        ])
+        ```
+
+        ## Import
+
+        WAF Regional IPSets can be imported using their ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:wafregional/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpSetIpSetDescriptorArgs']]]] ip_set_descriptors: One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
+        :param pulumi.Input[str] name: The name or description of the IPSet.
         """
         ...
     @overload
@@ -109,7 +158,34 @@ class IpSet(pulumi.CustomResource):
                  args: Optional[IpSetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a IpSet resource with the given unique name, props, and options.
+        Provides a WAF Regional IPSet Resource for use with Application Load Balancer.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[
+            aws.wafregional.IpSetIpSetDescriptorArgs(
+                type="IPV4",
+                value="192.0.7.0/24",
+            ),
+            aws.wafregional.IpSetIpSetDescriptorArgs(
+                type="IPV4",
+                value="10.16.16.0/16",
+            ),
+        ])
+        ```
+
+        ## Import
+
+        WAF Regional IPSets can be imported using their ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:wafregional/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        ```
+
         :param str resource_name: The name of the resource.
         :param IpSetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,6 +235,9 @@ class IpSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the WAF IPSet.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpSetIpSetDescriptorArgs']]]] ip_set_descriptors: One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
+        :param pulumi.Input[str] name: The name or description of the IPSet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -172,15 +251,24 @@ class IpSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the WAF IPSet.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="ipSetDescriptors")
     def ip_set_descriptors(self) -> pulumi.Output[Optional[Sequence['outputs.IpSetIpSetDescriptor']]]:
+        """
+        One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
+        """
         return pulumi.get(self, "ip_set_descriptors")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name or description of the IPSet.
+        """
         return pulumi.get(self, "name")
 

@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ClusterConfigurationExecuteCommandConfiguration
     {
+        /// <summary>
+        /// The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+        /// </summary>
         public readonly string? KmsKeyId;
+        /// <summary>
+        /// The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+        /// </summary>
         public readonly Outputs.ClusterConfigurationExecuteCommandConfigurationLogConfiguration? LogConfiguration;
+        /// <summary>
+        /// The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+        /// </summary>
         public readonly string? Logging;
 
         [OutputConstructor]

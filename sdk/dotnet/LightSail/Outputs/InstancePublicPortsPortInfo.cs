@@ -13,11 +13,26 @@ namespace Pulumi.Aws.LightSail.Outputs
     [OutputType]
     public sealed class InstancePublicPortsPortInfo
     {
+        /// <summary>
+        /// Set of CIDR aliases that define access for a preconfigured range of IP addresses.
+        /// </summary>
         public readonly ImmutableArray<string> CidrListAliases;
+        /// <summary>
+        /// Set of CIDR blocks.
+        /// </summary>
         public readonly ImmutableArray<string> Cidrs;
+        /// <summary>
+        /// First port in a range of open ports on an instance.
+        /// </summary>
         public readonly int FromPort;
         public readonly ImmutableArray<string> Ipv6Cidrs;
+        /// <summary>
+        /// IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
+        /// </summary>
         public readonly string Protocol;
+        /// <summary>
+        /// Last port in a range of open ports on an instance.
+        /// </summary>
         public readonly int ToPort;
 
         [OutputConstructor]

@@ -11,9 +11,77 @@ namespace Pulumi.Aws.Ssm
 {
     public static class GetInstances
     {
+        /// <summary>
+        /// Use this data source to get the instance IDs of SSM managed instances.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ssm.GetInstances.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ssm.Inputs.GetInstancesFilterInputArgs
+        ///             {
+        ///                 Name = "PlatformTypes",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "Linux",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetInstancesResult> InvokeAsync(GetInstancesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ssm/getInstances:getInstances", args ?? new GetInstancesArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to get the instance IDs of SSM managed instances.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ssm.GetInstances.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ssm.Inputs.GetInstancesFilterInputArgs
+        ///             {
+        ///                 Name = "PlatformTypes",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "Linux",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetInstancesResult> Invoke(GetInstancesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstancesResult>("aws:ssm/getInstances:getInstances", args ?? new GetInstancesInvokeArgs(), options.WithDefaults());
     }
@@ -23,6 +91,10 @@ namespace Pulumi.Aws.Ssm
     {
         [Input("filters")]
         private List<Inputs.GetInstancesFilterArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
         public List<Inputs.GetInstancesFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetInstancesFilterArgs>());
@@ -39,6 +111,10 @@ namespace Pulumi.Aws.Ssm
     {
         [Input("filters")]
         private InputList<Inputs.GetInstancesFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
         public InputList<Inputs.GetInstancesFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetInstancesFilterInputArgs>());
@@ -60,6 +136,9 @@ namespace Pulumi.Aws.Ssm
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Set of instance IDs of the matched SSM managed instances.
+        /// </summary>
         public readonly ImmutableArray<string> Ids;
 
         [OutputConstructor]

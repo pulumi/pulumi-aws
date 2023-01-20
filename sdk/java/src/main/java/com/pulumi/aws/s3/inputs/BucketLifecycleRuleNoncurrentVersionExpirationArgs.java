@@ -15,9 +15,17 @@ public final class BucketLifecycleRuleNoncurrentVersionExpirationArgs extends co
 
     public static final BucketLifecycleRuleNoncurrentVersionExpirationArgs Empty = new BucketLifecycleRuleNoncurrentVersionExpirationArgs();
 
+    /**
+     * Specifies the number of days noncurrent object versions expire.
+     * 
+     */
     @Import(name="days")
     private @Nullable Output<Integer> days;
 
+    /**
+     * @return Specifies the number of days noncurrent object versions expire.
+     * 
+     */
     public Optional<Output<Integer>> days() {
         return Optional.ofNullable(this.days);
     }
@@ -46,11 +54,23 @@ public final class BucketLifecycleRuleNoncurrentVersionExpirationArgs extends co
             $ = new BucketLifecycleRuleNoncurrentVersionExpirationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param days Specifies the number of days noncurrent object versions expire.
+         * 
+         * @return builder
+         * 
+         */
         public Builder days(@Nullable Output<Integer> days) {
             $.days = days;
             return this;
         }
 
+        /**
+         * @param days Specifies the number of days noncurrent object versions expire.
+         * 
+         * @return builder
+         * 
+         */
         public Builder days(Integer days) {
             return days(Output.of(days));
         }

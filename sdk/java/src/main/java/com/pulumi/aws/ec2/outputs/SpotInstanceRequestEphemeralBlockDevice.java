@@ -12,17 +12,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SpotInstanceRequestEphemeralBlockDevice {
+    /**
+     * @return Name of the block device to mount on the instance.
+     * 
+     */
     private String deviceName;
+    /**
+     * @return Suppresses the specified device included in the AMI&#39;s block device mapping.
+     * 
+     */
     private @Nullable Boolean noDevice;
+    /**
+     * @return [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
+     * 
+     */
     private @Nullable String virtualName;
 
     private SpotInstanceRequestEphemeralBlockDevice() {}
+    /**
+     * @return Name of the block device to mount on the instance.
+     * 
+     */
     public String deviceName() {
         return this.deviceName;
     }
+    /**
+     * @return Suppresses the specified device included in the AMI&#39;s block device mapping.
+     * 
+     */
     public Optional<Boolean> noDevice() {
         return Optional.ofNullable(this.noDevice);
     }
+    /**
+     * @return [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
+     * 
+     */
     public Optional<String> virtualName() {
         return Optional.ofNullable(this.virtualName);
     }

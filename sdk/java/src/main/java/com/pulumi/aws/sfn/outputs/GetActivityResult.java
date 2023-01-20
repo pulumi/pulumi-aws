@@ -10,6 +10,10 @@ import java.util.Objects;
 @CustomType
 public final class GetActivityResult {
     private String arn;
+    /**
+     * @return Date the activity was created.
+     * 
+     */
     private String creationDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -22,6 +26,10 @@ public final class GetActivityResult {
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Date the activity was created.
+     * 
+     */
     public String creationDate() {
         return this.creationDate;
     }

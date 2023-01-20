@@ -4,6 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Location Service Route Calculator.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.location.RouteCalculation("example", {
+ *     calculatorName: "example",
+ *     dataSource: "Here",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_location_route_calculator` can be imported using the route calculator name, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:location/routeCalculation:RouteCalculation example example
+ * ```
+ */
 export class RouteCalculation extends pulumi.CustomResource {
     /**
      * Get an existing RouteCalculation resource's state with the given name, ID, and optional extra
@@ -32,13 +55,37 @@ export class RouteCalculation extends pulumi.CustomResource {
         return obj['__pulumiType'] === RouteCalculation.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+     */
     public /*out*/ readonly calculatorArn!: pulumi.Output<string>;
+    /**
+     * The name of the route calculator resource.
+     */
     public readonly calculatorName!: pulumi.Output<string>;
+    /**
+     * The timestamp for when the route calculator resource was created in ISO 8601 format.
+     */
     public /*out*/ readonly createTime!: pulumi.Output<string>;
+    /**
+     * Specifies the data provider of traffic and road network data.
+     */
     public readonly dataSource!: pulumi.Output<string>;
+    /**
+     * The optional description for the route calculator resource.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The timestamp for when the route calculator resource was last update in ISO 8601.
+     */
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -88,13 +135,37 @@ export class RouteCalculation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RouteCalculation resources.
  */
 export interface RouteCalculationState {
+    /**
+     * The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+     */
     calculatorArn?: pulumi.Input<string>;
+    /**
+     * The name of the route calculator resource.
+     */
     calculatorName?: pulumi.Input<string>;
+    /**
+     * The timestamp for when the route calculator resource was created in ISO 8601 format.
+     */
     createTime?: pulumi.Input<string>;
+    /**
+     * Specifies the data provider of traffic and road network data.
+     */
     dataSource?: pulumi.Input<string>;
+    /**
+     * The optional description for the route calculator resource.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The timestamp for when the route calculator resource was last update in ISO 8601.
+     */
     updateTime?: pulumi.Input<string>;
 }
 
@@ -102,8 +173,20 @@ export interface RouteCalculationState {
  * The set of arguments for constructing a RouteCalculation resource.
  */
 export interface RouteCalculationArgs {
+    /**
+     * The name of the route calculator resource.
+     */
     calculatorName: pulumi.Input<string>;
+    /**
+     * Specifies the data provider of traffic and road network data.
+     */
     dataSource: pulumi.Input<string>;
+    /**
+     * The optional description for the route calculator resource.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

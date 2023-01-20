@@ -11,26 +11,136 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Cognito User Resource.
+//
+// ## Example Usage
+// ### Basic configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewUser(ctx, "exampleUser", &cognito.UserArgs{
+//				UserPoolId: exampleUserPool.ID(),
+//				Username:   pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Setting user attributes
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", &cognito.UserPoolArgs{
+//				Schemas: cognito.UserPoolSchemaArray{
+//					&cognito.UserPoolSchemaArgs{
+//						Name:                   pulumi.String("example"),
+//						AttributeDataType:      pulumi.String("Boolean"),
+//						Mutable:                pulumi.Bool(false),
+//						Required:               pulumi.Bool(false),
+//						DeveloperOnlyAttribute: pulumi.Bool(false),
+//					},
+//					&cognito.UserPoolSchemaArgs{
+//						Name:                       pulumi.String("foo"),
+//						AttributeDataType:          pulumi.String("String"),
+//						Mutable:                    pulumi.Bool(false),
+//						Required:                   pulumi.Bool(false),
+//						DeveloperOnlyAttribute:     pulumi.Bool(false),
+//						StringAttributeConstraints: nil,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewUser(ctx, "exampleUser", &cognito.UserArgs{
+//				UserPoolId: exampleUserPool.ID(),
+//				Username:   pulumi.String("example"),
+//				Attributes: pulumi.StringMap{
+//					"example":        pulumi.String("true"),
+//					"foo":            pulumi.String("bar"),
+//					"email":          pulumi.String("no-reply@domain.example"),
+//					"email_verified": pulumi.String("true"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Cognito User can be imported using the `user_pool_id`/`name` attributes concatenated, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
+//
+// ```
 type User struct {
 	pulumi.CustomResourceState
 
-	Attributes             pulumi.StringMapOutput   `pulumi:"attributes"`
-	ClientMetadata         pulumi.StringMapOutput   `pulumi:"clientMetadata"`
-	CreationDate           pulumi.StringOutput      `pulumi:"creationDate"`
+	// A map that contains user attributes and attribute values to be set for the user.
+	Attributes pulumi.StringMapOutput `pulumi:"attributes"`
+	// A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `clientMetadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
+	ClientMetadata pulumi.StringMapOutput `pulumi:"clientMetadata"`
+	CreationDate   pulumi.StringOutput    `pulumi:"creationDate"`
+	// A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phoneNumber` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desiredDeliveryMediums` value. Defaults to `["SMS"]`.
 	DesiredDeliveryMediums pulumi.StringArrayOutput `pulumi:"desiredDeliveryMediums"`
-	Enabled                pulumi.BoolPtrOutput     `pulumi:"enabled"`
-	ForceAliasCreation     pulumi.BoolPtrOutput     `pulumi:"forceAliasCreation"`
-	LastModifiedDate       pulumi.StringOutput      `pulumi:"lastModifiedDate"`
-	MessageAction          pulumi.StringPtrOutput   `pulumi:"messageAction"`
-	MfaSettingLists        pulumi.StringArrayOutput `pulumi:"mfaSettingLists"`
-	Password               pulumi.StringPtrOutput   `pulumi:"password"`
-	PreferredMfaSetting    pulumi.StringOutput      `pulumi:"preferredMfaSetting"`
-	Status                 pulumi.StringOutput      `pulumi:"status"`
-	Sub                    pulumi.StringOutput      `pulumi:"sub"`
-	TemporaryPassword      pulumi.StringPtrOutput   `pulumi:"temporaryPassword"`
-	UserPoolId             pulumi.StringOutput      `pulumi:"userPoolId"`
-	Username               pulumi.StringOutput      `pulumi:"username"`
-	ValidationData         pulumi.StringMapOutput   `pulumi:"validationData"`
+	// Specifies whether the user should be enabled after creation. The welcome message will be sent regardless of the `enabled` value. The behavior can be changed with `messageAction` argument. Defaults to `true`.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// If this parameter is set to True and the `phoneNumber` or `email` address specified in the `attributes` parameter already exists as an alias with a different user, Amazon Cognito will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias. Amazon Cognito does not store the `forceAliasCreation` value. Defaults to `false`.
+	ForceAliasCreation pulumi.BoolPtrOutput `pulumi:"forceAliasCreation"`
+	LastModifiedDate   pulumi.StringOutput  `pulumi:"lastModifiedDate"`
+	// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `messageAction` value.
+	MessageAction   pulumi.StringPtrOutput   `pulumi:"messageAction"`
+	MfaSettingLists pulumi.StringArrayOutput `pulumi:"mfaSettingLists"`
+	// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporaryPassword` value. You can suppress sending the welcome message with the `messageAction` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporaryPassword`.
+	Password            pulumi.StringPtrOutput `pulumi:"password"`
+	PreferredMfaSetting pulumi.StringOutput    `pulumi:"preferredMfaSetting"`
+	// current user status.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// unique user id that is never reassignable to another user.
+	Sub pulumi.StringOutput `pulumi:"sub"`
+	// The user's temporary password. Conflicts with `password`.
+	TemporaryPassword pulumi.StringPtrOutput `pulumi:"temporaryPassword"`
+	// The user pool ID for the user pool where the user will be created.
+	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
+	// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+	Username pulumi.StringOutput `pulumi:"username"`
+	// The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validationData` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
+	ValidationData pulumi.StringMapOutput `pulumi:"validationData"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -79,43 +189,69 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
-	Attributes             map[string]string `pulumi:"attributes"`
-	ClientMetadata         map[string]string `pulumi:"clientMetadata"`
-	CreationDate           *string           `pulumi:"creationDate"`
-	DesiredDeliveryMediums []string          `pulumi:"desiredDeliveryMediums"`
-	Enabled                *bool             `pulumi:"enabled"`
-	ForceAliasCreation     *bool             `pulumi:"forceAliasCreation"`
-	LastModifiedDate       *string           `pulumi:"lastModifiedDate"`
-	MessageAction          *string           `pulumi:"messageAction"`
-	MfaSettingLists        []string          `pulumi:"mfaSettingLists"`
-	Password               *string           `pulumi:"password"`
-	PreferredMfaSetting    *string           `pulumi:"preferredMfaSetting"`
-	Status                 *string           `pulumi:"status"`
-	Sub                    *string           `pulumi:"sub"`
-	TemporaryPassword      *string           `pulumi:"temporaryPassword"`
-	UserPoolId             *string           `pulumi:"userPoolId"`
-	Username               *string           `pulumi:"username"`
-	ValidationData         map[string]string `pulumi:"validationData"`
+	// A map that contains user attributes and attribute values to be set for the user.
+	Attributes map[string]string `pulumi:"attributes"`
+	// A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `clientMetadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
+	ClientMetadata map[string]string `pulumi:"clientMetadata"`
+	CreationDate   *string           `pulumi:"creationDate"`
+	// A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phoneNumber` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desiredDeliveryMediums` value. Defaults to `["SMS"]`.
+	DesiredDeliveryMediums []string `pulumi:"desiredDeliveryMediums"`
+	// Specifies whether the user should be enabled after creation. The welcome message will be sent regardless of the `enabled` value. The behavior can be changed with `messageAction` argument. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// If this parameter is set to True and the `phoneNumber` or `email` address specified in the `attributes` parameter already exists as an alias with a different user, Amazon Cognito will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias. Amazon Cognito does not store the `forceAliasCreation` value. Defaults to `false`.
+	ForceAliasCreation *bool   `pulumi:"forceAliasCreation"`
+	LastModifiedDate   *string `pulumi:"lastModifiedDate"`
+	// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `messageAction` value.
+	MessageAction   *string  `pulumi:"messageAction"`
+	MfaSettingLists []string `pulumi:"mfaSettingLists"`
+	// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporaryPassword` value. You can suppress sending the welcome message with the `messageAction` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporaryPassword`.
+	Password            *string `pulumi:"password"`
+	PreferredMfaSetting *string `pulumi:"preferredMfaSetting"`
+	// current user status.
+	Status *string `pulumi:"status"`
+	// unique user id that is never reassignable to another user.
+	Sub *string `pulumi:"sub"`
+	// The user's temporary password. Conflicts with `password`.
+	TemporaryPassword *string `pulumi:"temporaryPassword"`
+	// The user pool ID for the user pool where the user will be created.
+	UserPoolId *string `pulumi:"userPoolId"`
+	// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+	Username *string `pulumi:"username"`
+	// The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validationData` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
+	ValidationData map[string]string `pulumi:"validationData"`
 }
 
 type UserState struct {
-	Attributes             pulumi.StringMapInput
-	ClientMetadata         pulumi.StringMapInput
-	CreationDate           pulumi.StringPtrInput
+	// A map that contains user attributes and attribute values to be set for the user.
+	Attributes pulumi.StringMapInput
+	// A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `clientMetadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
+	ClientMetadata pulumi.StringMapInput
+	CreationDate   pulumi.StringPtrInput
+	// A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phoneNumber` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desiredDeliveryMediums` value. Defaults to `["SMS"]`.
 	DesiredDeliveryMediums pulumi.StringArrayInput
-	Enabled                pulumi.BoolPtrInput
-	ForceAliasCreation     pulumi.BoolPtrInput
-	LastModifiedDate       pulumi.StringPtrInput
-	MessageAction          pulumi.StringPtrInput
-	MfaSettingLists        pulumi.StringArrayInput
-	Password               pulumi.StringPtrInput
-	PreferredMfaSetting    pulumi.StringPtrInput
-	Status                 pulumi.StringPtrInput
-	Sub                    pulumi.StringPtrInput
-	TemporaryPassword      pulumi.StringPtrInput
-	UserPoolId             pulumi.StringPtrInput
-	Username               pulumi.StringPtrInput
-	ValidationData         pulumi.StringMapInput
+	// Specifies whether the user should be enabled after creation. The welcome message will be sent regardless of the `enabled` value. The behavior can be changed with `messageAction` argument. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput
+	// If this parameter is set to True and the `phoneNumber` or `email` address specified in the `attributes` parameter already exists as an alias with a different user, Amazon Cognito will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias. Amazon Cognito does not store the `forceAliasCreation` value. Defaults to `false`.
+	ForceAliasCreation pulumi.BoolPtrInput
+	LastModifiedDate   pulumi.StringPtrInput
+	// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `messageAction` value.
+	MessageAction   pulumi.StringPtrInput
+	MfaSettingLists pulumi.StringArrayInput
+	// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporaryPassword` value. You can suppress sending the welcome message with the `messageAction` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporaryPassword`.
+	Password            pulumi.StringPtrInput
+	PreferredMfaSetting pulumi.StringPtrInput
+	// current user status.
+	Status pulumi.StringPtrInput
+	// unique user id that is never reassignable to another user.
+	Sub pulumi.StringPtrInput
+	// The user's temporary password. Conflicts with `password`.
+	TemporaryPassword pulumi.StringPtrInput
+	// The user pool ID for the user pool where the user will be created.
+	UserPoolId pulumi.StringPtrInput
+	// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+	Username pulumi.StringPtrInput
+	// The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validationData` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
+	ValidationData pulumi.StringMapInput
 }
 
 func (UserState) ElementType() reflect.Type {
@@ -123,32 +259,54 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	Attributes             map[string]string `pulumi:"attributes"`
-	ClientMetadata         map[string]string `pulumi:"clientMetadata"`
-	DesiredDeliveryMediums []string          `pulumi:"desiredDeliveryMediums"`
-	Enabled                *bool             `pulumi:"enabled"`
-	ForceAliasCreation     *bool             `pulumi:"forceAliasCreation"`
-	MessageAction          *string           `pulumi:"messageAction"`
-	Password               *string           `pulumi:"password"`
-	TemporaryPassword      *string           `pulumi:"temporaryPassword"`
-	UserPoolId             string            `pulumi:"userPoolId"`
-	Username               string            `pulumi:"username"`
-	ValidationData         map[string]string `pulumi:"validationData"`
+	// A map that contains user attributes and attribute values to be set for the user.
+	Attributes map[string]string `pulumi:"attributes"`
+	// A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `clientMetadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
+	ClientMetadata map[string]string `pulumi:"clientMetadata"`
+	// A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phoneNumber` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desiredDeliveryMediums` value. Defaults to `["SMS"]`.
+	DesiredDeliveryMediums []string `pulumi:"desiredDeliveryMediums"`
+	// Specifies whether the user should be enabled after creation. The welcome message will be sent regardless of the `enabled` value. The behavior can be changed with `messageAction` argument. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// If this parameter is set to True and the `phoneNumber` or `email` address specified in the `attributes` parameter already exists as an alias with a different user, Amazon Cognito will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias. Amazon Cognito does not store the `forceAliasCreation` value. Defaults to `false`.
+	ForceAliasCreation *bool `pulumi:"forceAliasCreation"`
+	// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `messageAction` value.
+	MessageAction *string `pulumi:"messageAction"`
+	// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporaryPassword` value. You can suppress sending the welcome message with the `messageAction` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporaryPassword`.
+	Password *string `pulumi:"password"`
+	// The user's temporary password. Conflicts with `password`.
+	TemporaryPassword *string `pulumi:"temporaryPassword"`
+	// The user pool ID for the user pool where the user will be created.
+	UserPoolId string `pulumi:"userPoolId"`
+	// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+	Username string `pulumi:"username"`
+	// The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validationData` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
+	ValidationData map[string]string `pulumi:"validationData"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	Attributes             pulumi.StringMapInput
-	ClientMetadata         pulumi.StringMapInput
+	// A map that contains user attributes and attribute values to be set for the user.
+	Attributes pulumi.StringMapInput
+	// A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `clientMetadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
+	ClientMetadata pulumi.StringMapInput
+	// A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phoneNumber` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desiredDeliveryMediums` value. Defaults to `["SMS"]`.
 	DesiredDeliveryMediums pulumi.StringArrayInput
-	Enabled                pulumi.BoolPtrInput
-	ForceAliasCreation     pulumi.BoolPtrInput
-	MessageAction          pulumi.StringPtrInput
-	Password               pulumi.StringPtrInput
-	TemporaryPassword      pulumi.StringPtrInput
-	UserPoolId             pulumi.StringInput
-	Username               pulumi.StringInput
-	ValidationData         pulumi.StringMapInput
+	// Specifies whether the user should be enabled after creation. The welcome message will be sent regardless of the `enabled` value. The behavior can be changed with `messageAction` argument. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput
+	// If this parameter is set to True and the `phoneNumber` or `email` address specified in the `attributes` parameter already exists as an alias with a different user, Amazon Cognito will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias. Amazon Cognito does not store the `forceAliasCreation` value. Defaults to `false`.
+	ForceAliasCreation pulumi.BoolPtrInput
+	// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `messageAction` value.
+	MessageAction pulumi.StringPtrInput
+	// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporaryPassword` value. You can suppress sending the welcome message with the `messageAction` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporaryPassword`.
+	Password pulumi.StringPtrInput
+	// The user's temporary password. Conflicts with `password`.
+	TemporaryPassword pulumi.StringPtrInput
+	// The user pool ID for the user pool where the user will be created.
+	UserPoolId pulumi.StringInput
+	// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+	Username pulumi.StringInput
+	// The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validationData` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
+	ValidationData pulumi.StringMapInput
 }
 
 func (UserArgs) ElementType() reflect.Type {
@@ -238,10 +396,12 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
+// A map that contains user attributes and attribute values to be set for the user.
 func (o UserOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
+// A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `clientMetadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
 func (o UserOutput) ClientMetadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.ClientMetadata }).(pulumi.StringMapOutput)
 }
@@ -250,14 +410,17 @@ func (o UserOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }
 
+// A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phoneNumber` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desiredDeliveryMediums` value. Defaults to `["SMS"]`.
 func (o UserOutput) DesiredDeliveryMediums() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.DesiredDeliveryMediums }).(pulumi.StringArrayOutput)
 }
 
+// Specifies whether the user should be enabled after creation. The welcome message will be sent regardless of the `enabled` value. The behavior can be changed with `messageAction` argument. Defaults to `true`.
 func (o UserOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If this parameter is set to True and the `phoneNumber` or `email` address specified in the `attributes` parameter already exists as an alias with a different user, Amazon Cognito will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias. Amazon Cognito does not store the `forceAliasCreation` value. Defaults to `false`.
 func (o UserOutput) ForceAliasCreation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.ForceAliasCreation }).(pulumi.BoolPtrOutput)
 }
@@ -266,6 +429,7 @@ func (o UserOutput) LastModifiedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.LastModifiedDate }).(pulumi.StringOutput)
 }
 
+// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `messageAction` value.
 func (o UserOutput) MessageAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.MessageAction }).(pulumi.StringPtrOutput)
 }
@@ -274,6 +438,7 @@ func (o UserOutput) MfaSettingLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.MfaSettingLists }).(pulumi.StringArrayOutput)
 }
 
+// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporaryPassword` value. You can suppress sending the welcome message with the `messageAction` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporaryPassword`.
 func (o UserOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -282,26 +447,32 @@ func (o UserOutput) PreferredMfaSetting() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.PreferredMfaSetting }).(pulumi.StringOutput)
 }
 
+// current user status.
 func (o UserOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// unique user id that is never reassignable to another user.
 func (o UserOutput) Sub() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Sub }).(pulumi.StringOutput)
 }
 
+// The user's temporary password. Conflicts with `password`.
 func (o UserOutput) TemporaryPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.TemporaryPassword }).(pulumi.StringPtrOutput)
 }
 
+// The user pool ID for the user pool where the user will be created.
 func (o UserOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }
 
+// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
 func (o UserOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
 }
 
+// The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validationData` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
 func (o UserOutput) ValidationData() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.ValidationData }).(pulumi.StringMapOutput)
 }

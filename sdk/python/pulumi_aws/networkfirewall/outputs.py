@@ -97,6 +97,10 @@ class FirewallEncryptionConfiguration(dict):
     def __init__(__self__, *,
                  type: str,
                  key_id: Optional[str] = None):
+        """
+        :param str type: The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+        :param str key_id: The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+        """
         pulumi.set(__self__, "type", type)
         if key_id is not None:
             pulumi.set(__self__, "key_id", key_id)
@@ -104,11 +108,17 @@ class FirewallEncryptionConfiguration(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[str]:
+        """
+        The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+        """
         return pulumi.get(self, "key_id")
 
 
@@ -133,12 +143,18 @@ class FirewallFirewallStatus(dict):
 
     def __init__(__self__, *,
                  sync_states: Optional[Sequence['outputs.FirewallFirewallStatusSyncState']] = None):
+        """
+        :param Sequence['FirewallFirewallStatusSyncStateArgs'] sync_states: Set of subnets configured for use by the firewall.
+        """
         if sync_states is not None:
             pulumi.set(__self__, "sync_states", sync_states)
 
     @property
     @pulumi.getter(name="syncStates")
     def sync_states(self) -> Optional[Sequence['outputs.FirewallFirewallStatusSyncState']]:
+        """
+        Set of subnets configured for use by the firewall.
+        """
         return pulumi.get(self, "sync_states")
 
 
@@ -164,6 +180,10 @@ class FirewallFirewallStatusSyncState(dict):
     def __init__(__self__, *,
                  attachments: Optional[Sequence['outputs.FirewallFirewallStatusSyncStateAttachment']] = None,
                  availability_zone: Optional[str] = None):
+        """
+        :param Sequence['FirewallFirewallStatusSyncStateAttachmentArgs'] attachments: Nested list describing the attachment status of the firewall's association with a single VPC subnet.
+        :param str availability_zone: The Availability Zone where the subnet is configured.
+        """
         if attachments is not None:
             pulumi.set(__self__, "attachments", attachments)
         if availability_zone is not None:
@@ -172,11 +192,17 @@ class FirewallFirewallStatusSyncState(dict):
     @property
     @pulumi.getter
     def attachments(self) -> Optional[Sequence['outputs.FirewallFirewallStatusSyncStateAttachment']]:
+        """
+        Nested list describing the attachment status of the firewall's association with a single VPC subnet.
+        """
         return pulumi.get(self, "attachments")
 
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[str]:
+        """
+        The Availability Zone where the subnet is configured.
+        """
         return pulumi.get(self, "availability_zone")
 
 
@@ -204,6 +230,10 @@ class FirewallFirewallStatusSyncStateAttachment(dict):
     def __init__(__self__, *,
                  endpoint_id: Optional[str] = None,
                  subnet_id: Optional[str] = None):
+        """
+        :param str endpoint_id: The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+        :param str subnet_id: The unique identifier for the subnet.
+        """
         if endpoint_id is not None:
             pulumi.set(__self__, "endpoint_id", endpoint_id)
         if subnet_id is not None:
@@ -212,11 +242,17 @@ class FirewallFirewallStatusSyncStateAttachment(dict):
     @property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> Optional[str]:
+        """
+        The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+        """
         return pulumi.get(self, "endpoint_id")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[str]:
+        """
+        The unique identifier for the subnet.
+        """
         return pulumi.get(self, "subnet_id")
 
 
@@ -242,6 +278,10 @@ class FirewallPolicyEncryptionConfiguration(dict):
     def __init__(__self__, *,
                  type: str,
                  key_id: Optional[str] = None):
+        """
+        :param str type: The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+        :param str key_id: The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+        """
         pulumi.set(__self__, "type", type)
         if key_id is not None:
             pulumi.set(__self__, "key_id", key_id)
@@ -249,11 +289,17 @@ class FirewallPolicyEncryptionConfiguration(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[str]:
+        """
+        The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+        """
         return pulumi.get(self, "key_id")
 
 
@@ -296,6 +342,17 @@ class FirewallPolicyFirewallPolicy(dict):
                  stateful_rule_group_references: Optional[Sequence['outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReference']] = None,
                  stateless_custom_actions: Optional[Sequence['outputs.FirewallPolicyFirewallPolicyStatelessCustomAction']] = None,
                  stateless_rule_group_references: Optional[Sequence['outputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReference']] = None):
+        """
+        :param Sequence[str] stateless_default_actions: Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
+               In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+        :param Sequence[str] stateless_fragment_default_actions: Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
+               In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+        :param Sequence[str] stateful_default_actions: Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
+        :param 'FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs' stateful_engine_options: A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
+        :param Sequence['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs'] stateful_rule_group_references: Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
+        :param Sequence['FirewallPolicyFirewallPolicyStatelessCustomActionArgs'] stateless_custom_actions: Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's `stateless_default_actions`. See Stateless Custom Action below for details.
+        :param Sequence['FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs'] stateless_rule_group_references: Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
+        """
         pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
         pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
         if stateful_default_actions is not None:
@@ -312,36 +369,59 @@ class FirewallPolicyFirewallPolicy(dict):
     @property
     @pulumi.getter(name="statelessDefaultActions")
     def stateless_default_actions(self) -> Sequence[str]:
+        """
+        Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
+        In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+        """
         return pulumi.get(self, "stateless_default_actions")
 
     @property
     @pulumi.getter(name="statelessFragmentDefaultActions")
     def stateless_fragment_default_actions(self) -> Sequence[str]:
+        """
+        Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
+        In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+        """
         return pulumi.get(self, "stateless_fragment_default_actions")
 
     @property
     @pulumi.getter(name="statefulDefaultActions")
     def stateful_default_actions(self) -> Optional[Sequence[str]]:
+        """
+        Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
+        """
         return pulumi.get(self, "stateful_default_actions")
 
     @property
     @pulumi.getter(name="statefulEngineOptions")
     def stateful_engine_options(self) -> Optional['outputs.FirewallPolicyFirewallPolicyStatefulEngineOptions']:
+        """
+        A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
+        """
         return pulumi.get(self, "stateful_engine_options")
 
     @property
     @pulumi.getter(name="statefulRuleGroupReferences")
     def stateful_rule_group_references(self) -> Optional[Sequence['outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReference']]:
+        """
+        Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
+        """
         return pulumi.get(self, "stateful_rule_group_references")
 
     @property
     @pulumi.getter(name="statelessCustomActions")
     def stateless_custom_actions(self) -> Optional[Sequence['outputs.FirewallPolicyFirewallPolicyStatelessCustomAction']]:
+        """
+        Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's `stateless_default_actions`. See Stateless Custom Action below for details.
+        """
         return pulumi.get(self, "stateless_custom_actions")
 
     @property
     @pulumi.getter(name="statelessRuleGroupReferences")
     def stateless_rule_group_references(self) -> Optional[Sequence['outputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReference']]:
+        """
+        Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
+        """
         return pulumi.get(self, "stateless_rule_group_references")
 
 
@@ -366,11 +446,17 @@ class FirewallPolicyFirewallPolicyStatefulEngineOptions(dict):
 
     def __init__(__self__, *,
                  rule_order: str):
+        """
+        :param str rule_order: Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
+        """
         pulumi.set(__self__, "rule_order", rule_order)
 
     @property
     @pulumi.getter(name="ruleOrder")
     def rule_order(self) -> str:
+        """
+        Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
+        """
         return pulumi.get(self, "rule_order")
 
 
@@ -397,6 +483,11 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReference(dict):
                  resource_arn: str,
                  override: Optional['outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride'] = None,
                  priority: Optional[int] = None):
+        """
+        :param str resource_arn: The Amazon Resource Name (ARN) of the stateful rule group.
+        :param 'FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs' override: Configuration block for override values
+        :param int priority: An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
+        """
         pulumi.set(__self__, "resource_arn", resource_arn)
         if override is not None:
             pulumi.set(__self__, "override", override)
@@ -406,16 +497,25 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReference(dict):
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the stateful rule group.
+        """
         return pulumi.get(self, "resource_arn")
 
     @property
     @pulumi.getter
     def override(self) -> Optional['outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride']:
+        """
+        Configuration block for override values
+        """
         return pulumi.get(self, "override")
 
     @property
     @pulumi.getter
     def priority(self) -> Optional[int]:
+        """
+        An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
+        """
         return pulumi.get(self, "priority")
 
 
@@ -423,12 +523,18 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReference(dict):
 class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride(dict):
     def __init__(__self__, *,
                  action: Optional[str] = None):
+        """
+        :param str action: The action that changes the rule group from DROP to ALERT . This only applies to managed rule groups.
+        """
         if action is not None:
             pulumi.set(__self__, "action", action)
 
     @property
     @pulumi.getter
     def action(self) -> Optional[str]:
+        """
+        The action that changes the rule group from DROP to ALERT . This only applies to managed rule groups.
+        """
         return pulumi.get(self, "action")
 
 
@@ -456,17 +562,27 @@ class FirewallPolicyFirewallPolicyStatelessCustomAction(dict):
     def __init__(__self__, *,
                  action_definition: 'outputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition',
                  action_name: str):
+        """
+        :param 'FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs' action_definition: A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
+        :param str action_name: A friendly name of the custom action.
+        """
         pulumi.set(__self__, "action_definition", action_definition)
         pulumi.set(__self__, "action_name", action_name)
 
     @property
     @pulumi.getter(name="actionDefinition")
     def action_definition(self) -> 'outputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition':
+        """
+        A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
+        """
         return pulumi.get(self, "action_definition")
 
     @property
     @pulumi.getter(name="actionName")
     def action_name(self) -> str:
+        """
+        A friendly name of the custom action.
+        """
         return pulumi.get(self, "action_name")
 
 
@@ -491,11 +607,17 @@ class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition(dict):
 
     def __init__(__self__, *,
                  publish_metric_action: 'outputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction'):
+        """
+        :param 'FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs' publish_metric_action: A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
+        """
         pulumi.set(__self__, "publish_metric_action", publish_metric_action)
 
     @property
     @pulumi.getter(name="publishMetricAction")
     def publish_metric_action(self) -> 'outputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction':
+        """
+        A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
+        """
         return pulumi.get(self, "publish_metric_action")
 
 
@@ -503,11 +625,17 @@ class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition(dict):
 class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction(dict):
     def __init__(__self__, *,
                  dimensions: Sequence['outputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension']):
+        """
+        :param Sequence['FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs'] dimensions: Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
+        """
         pulumi.set(__self__, "dimensions", dimensions)
 
     @property
     @pulumi.getter
     def dimensions(self) -> Sequence['outputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension']:
+        """
+        Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
+        """
         return pulumi.get(self, "dimensions")
 
 
@@ -515,11 +643,17 @@ class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMe
 class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension(dict):
     def __init__(__self__, *,
                  value: str):
+        """
+        :param str value: The string value to use in the custom metric dimension.
+        """
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The string value to use in the custom metric dimension.
+        """
         return pulumi.get(self, "value")
 
 
@@ -545,17 +679,27 @@ class FirewallPolicyFirewallPolicyStatelessRuleGroupReference(dict):
     def __init__(__self__, *,
                  priority: int,
                  resource_arn: str):
+        """
+        :param int priority: An integer setting that indicates the order in which to run the stateless rule groups in a single policy. AWS Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting.
+        :param str resource_arn: The Amazon Resource Name (ARN) of the stateless rule group.
+        """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter
     def priority(self) -> int:
+        """
+        An integer setting that indicates the order in which to run the stateless rule groups in a single policy. AWS Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting.
+        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the stateless rule group.
+        """
         return pulumi.get(self, "resource_arn")
 
 
@@ -580,11 +724,17 @@ class FirewallSubnetMapping(dict):
 
     def __init__(__self__, *,
                  subnet_id: str):
+        """
+        :param str subnet_id: The unique identifier for the subnet.
+        """
         pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
+        """
+        The unique identifier for the subnet.
+        """
         return pulumi.get(self, "subnet_id")
 
 
@@ -609,11 +759,17 @@ class LoggingConfigurationLoggingConfiguration(dict):
 
     def __init__(__self__, *,
                  log_destination_configs: Sequence['outputs.LoggingConfigurationLoggingConfigurationLogDestinationConfig']):
+        """
+        :param Sequence['LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs'] log_destination_configs: Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
+        """
         pulumi.set(__self__, "log_destination_configs", log_destination_configs)
 
     @property
     @pulumi.getter(name="logDestinationConfigs")
     def log_destination_configs(self) -> Sequence['outputs.LoggingConfigurationLoggingConfigurationLogDestinationConfig']:
+        """
+        Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
+        """
         return pulumi.get(self, "log_destination_configs")
 
 
@@ -644,6 +800,14 @@ class LoggingConfigurationLoggingConfigurationLogDestinationConfig(dict):
                  log_destination: Mapping[str, str],
                  log_destination_type: str,
                  log_type: str):
+        """
+        :param Mapping[str, str] log_destination: A map describing the logging destination for the chosen `log_destination_type`.
+               * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path.
+               * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
+               * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
+        :param str log_destination_type: The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
+        :param str log_type: The type of log to send. Valid values: `ALERT` or `FLOW`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
+        """
         pulumi.set(__self__, "log_destination", log_destination)
         pulumi.set(__self__, "log_destination_type", log_destination_type)
         pulumi.set(__self__, "log_type", log_type)
@@ -651,16 +815,28 @@ class LoggingConfigurationLoggingConfigurationLogDestinationConfig(dict):
     @property
     @pulumi.getter(name="logDestination")
     def log_destination(self) -> Mapping[str, str]:
+        """
+        A map describing the logging destination for the chosen `log_destination_type`.
+        * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path.
+        * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
+        * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
+        """
         return pulumi.get(self, "log_destination")
 
     @property
     @pulumi.getter(name="logDestinationType")
     def log_destination_type(self) -> str:
+        """
+        The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
+        """
         return pulumi.get(self, "log_destination_type")
 
     @property
     @pulumi.getter(name="logType")
     def log_type(self) -> str:
+        """
+        The type of log to send. Valid values: `ALERT` or `FLOW`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
+        """
         return pulumi.get(self, "log_type")
 
 
@@ -686,6 +862,10 @@ class RuleGroupEncryptionConfiguration(dict):
     def __init__(__self__, *,
                  type: str,
                  key_id: Optional[str] = None):
+        """
+        :param str type: The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+        :param str key_id: The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+        """
         pulumi.set(__self__, "type", type)
         if key_id is not None:
             pulumi.set(__self__, "key_id", key_id)
@@ -693,11 +873,17 @@ class RuleGroupEncryptionConfiguration(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[str]:
+        """
+        The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+        """
         return pulumi.get(self, "key_id")
 
 
@@ -731,6 +917,12 @@ class RuleGroupRuleGroup(dict):
                  reference_sets: Optional['outputs.RuleGroupRuleGroupReferenceSets'] = None,
                  rule_variables: Optional['outputs.RuleGroupRuleGroupRuleVariables'] = None,
                  stateful_rule_options: Optional['outputs.RuleGroupRuleGroupStatefulRuleOptions'] = None):
+        """
+        :param 'RuleGroupRuleGroupRulesSourceArgs' rules_source: A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
+        :param 'RuleGroupRuleGroupReferenceSetsArgs' reference_sets: A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+        :param 'RuleGroupRuleGroupRuleVariablesArgs' rule_variables: A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
+        :param 'RuleGroupRuleGroupStatefulRuleOptionsArgs' stateful_rule_options: A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
+        """
         pulumi.set(__self__, "rules_source", rules_source)
         if reference_sets is not None:
             pulumi.set(__self__, "reference_sets", reference_sets)
@@ -742,21 +934,33 @@ class RuleGroupRuleGroup(dict):
     @property
     @pulumi.getter(name="rulesSource")
     def rules_source(self) -> 'outputs.RuleGroupRuleGroupRulesSource':
+        """
+        A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
+        """
         return pulumi.get(self, "rules_source")
 
     @property
     @pulumi.getter(name="referenceSets")
     def reference_sets(self) -> Optional['outputs.RuleGroupRuleGroupReferenceSets']:
+        """
+        A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+        """
         return pulumi.get(self, "reference_sets")
 
     @property
     @pulumi.getter(name="ruleVariables")
     def rule_variables(self) -> Optional['outputs.RuleGroupRuleGroupRuleVariables']:
+        """
+        A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
+        """
         return pulumi.get(self, "rule_variables")
 
     @property
     @pulumi.getter(name="statefulRuleOptions")
     def stateful_rule_options(self) -> Optional['outputs.RuleGroupRuleGroupStatefulRuleOptions']:
+        """
+        A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
+        """
         return pulumi.get(self, "stateful_rule_options")
 
 
@@ -812,17 +1016,27 @@ class RuleGroupRuleGroupReferenceSetsIpSetReference(dict):
     def __init__(__self__, *,
                  ip_set_references: Sequence['outputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference'],
                  key: str):
+        """
+        :param Sequence['RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs'] ip_set_references: Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
+        :param str key: A unique alphanumeric string to identify the `ip_set`.
+        """
         pulumi.set(__self__, "ip_set_references", ip_set_references)
         pulumi.set(__self__, "key", key)
 
     @property
     @pulumi.getter(name="ipSetReferences")
     def ip_set_references(self) -> Sequence['outputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference']:
+        """
+        Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
+        """
         return pulumi.get(self, "ip_set_references")
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        A unique alphanumeric string to identify the `ip_set`.
+        """
         return pulumi.get(self, "key")
 
 
@@ -847,11 +1061,17 @@ class RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference(dict):
 
     def __init__(__self__, *,
                  reference_arn: str):
+        """
+        :param str reference_arn: Set of Managed Prefix IP ARN(s)
+        """
         pulumi.set(__self__, "reference_arn", reference_arn)
 
     @property
     @pulumi.getter(name="referenceArn")
     def reference_arn(self) -> str:
+        """
+        Set of Managed Prefix IP ARN(s)
+        """
         return pulumi.get(self, "reference_arn")
 
 
@@ -879,6 +1099,10 @@ class RuleGroupRuleGroupRuleVariables(dict):
     def __init__(__self__, *,
                  ip_sets: Optional[Sequence['outputs.RuleGroupRuleGroupRuleVariablesIpSet']] = None,
                  port_sets: Optional[Sequence['outputs.RuleGroupRuleGroupRuleVariablesPortSet']] = None):
+        """
+        :param Sequence['RuleGroupRuleGroupRuleVariablesIpSetArgs'] ip_sets: Set of configuration blocks that define IP address information. See IP Sets below for details.
+        :param Sequence['RuleGroupRuleGroupRuleVariablesPortSetArgs'] port_sets: Set of configuration blocks that define port range information. See Port Sets below for details.
+        """
         if ip_sets is not None:
             pulumi.set(__self__, "ip_sets", ip_sets)
         if port_sets is not None:
@@ -887,11 +1111,17 @@ class RuleGroupRuleGroupRuleVariables(dict):
     @property
     @pulumi.getter(name="ipSets")
     def ip_sets(self) -> Optional[Sequence['outputs.RuleGroupRuleGroupRuleVariablesIpSet']]:
+        """
+        Set of configuration blocks that define IP address information. See IP Sets below for details.
+        """
         return pulumi.get(self, "ip_sets")
 
     @property
     @pulumi.getter(name="portSets")
     def port_sets(self) -> Optional[Sequence['outputs.RuleGroupRuleGroupRuleVariablesPortSet']]:
+        """
+        Set of configuration blocks that define port range information. See Port Sets below for details.
+        """
         return pulumi.get(self, "port_sets")
 
 
@@ -917,17 +1147,27 @@ class RuleGroupRuleGroupRuleVariablesIpSet(dict):
     def __init__(__self__, *,
                  ip_set: 'outputs.RuleGroupRuleGroupRuleVariablesIpSetIpSet',
                  key: str):
+        """
+        :param 'RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs' ip_set: A configuration block that defines a set of IP addresses. See IP Set below for details.
+        :param str key: A unique alphanumeric string to identify the `ip_set`.
+        """
         pulumi.set(__self__, "ip_set", ip_set)
         pulumi.set(__self__, "key", key)
 
     @property
     @pulumi.getter(name="ipSet")
     def ip_set(self) -> 'outputs.RuleGroupRuleGroupRuleVariablesIpSetIpSet':
+        """
+        A configuration block that defines a set of IP addresses. See IP Set below for details.
+        """
         return pulumi.get(self, "ip_set")
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        A unique alphanumeric string to identify the `ip_set`.
+        """
         return pulumi.get(self, "key")
 
 
@@ -935,11 +1175,17 @@ class RuleGroupRuleGroupRuleVariablesIpSet(dict):
 class RuleGroupRuleGroupRuleVariablesIpSetIpSet(dict):
     def __init__(__self__, *,
                  definitions: Sequence[str]):
+        """
+        :param Sequence[str] definitions: Set of IP addresses and address ranges, in CIDR notation.
+        """
         pulumi.set(__self__, "definitions", definitions)
 
     @property
     @pulumi.getter
     def definitions(self) -> Sequence[str]:
+        """
+        Set of IP addresses and address ranges, in CIDR notation.
+        """
         return pulumi.get(self, "definitions")
 
 
@@ -965,17 +1211,27 @@ class RuleGroupRuleGroupRuleVariablesPortSet(dict):
     def __init__(__self__, *,
                  key: str,
                  port_set: 'outputs.RuleGroupRuleGroupRuleVariablesPortSetPortSet'):
+        """
+        :param str key: An unique alphanumeric string to identify the `port_set`.
+        :param 'RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs' port_set: A configuration block that defines a set of port ranges. See Port Set below for details.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "port_set", port_set)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        An unique alphanumeric string to identify the `port_set`.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter(name="portSet")
     def port_set(self) -> 'outputs.RuleGroupRuleGroupRuleVariablesPortSetPortSet':
+        """
+        A configuration block that defines a set of port ranges. See Port Set below for details.
+        """
         return pulumi.get(self, "port_set")
 
 
@@ -983,11 +1239,17 @@ class RuleGroupRuleGroupRuleVariablesPortSet(dict):
 class RuleGroupRuleGroupRuleVariablesPortSetPortSet(dict):
     def __init__(__self__, *,
                  definitions: Sequence[str]):
+        """
+        :param Sequence[str] definitions: Set of port ranges.
+        """
         pulumi.set(__self__, "definitions", definitions)
 
     @property
     @pulumi.getter
     def definitions(self) -> Sequence[str]:
+        """
+        Set of port ranges.
+        """
         return pulumi.get(self, "definitions")
 
 
@@ -1021,6 +1283,12 @@ class RuleGroupRuleGroupRulesSource(dict):
                  rules_string: Optional[str] = None,
                  stateful_rules: Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatefulRule']] = None,
                  stateless_rules_and_custom_actions: Optional['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions'] = None):
+        """
+        :param 'RuleGroupRuleGroupRulesSourceRulesSourceListArgs' rules_source_list: A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
+        :param str rules_string: The fully qualified name of a file in an S3 bucket that contains Suricata compatible intrusion preventions system (IPS) rules or the Suricata rules as a string. These rules contain **stateful** inspection criteria and the action to take for traffic that matches the criteria.
+        :param Sequence['RuleGroupRuleGroupRulesSourceStatefulRuleArgs'] stateful_rules: Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
+        :param 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs' stateless_rules_and_custom_actions: A configuration block containing **stateless** inspection criteria for a stateless rule group. See Stateless Rules and Custom Actions below for details.
+        """
         if rules_source_list is not None:
             pulumi.set(__self__, "rules_source_list", rules_source_list)
         if rules_string is not None:
@@ -1033,21 +1301,33 @@ class RuleGroupRuleGroupRulesSource(dict):
     @property
     @pulumi.getter(name="rulesSourceList")
     def rules_source_list(self) -> Optional['outputs.RuleGroupRuleGroupRulesSourceRulesSourceList']:
+        """
+        A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
+        """
         return pulumi.get(self, "rules_source_list")
 
     @property
     @pulumi.getter(name="rulesString")
     def rules_string(self) -> Optional[str]:
+        """
+        The fully qualified name of a file in an S3 bucket that contains Suricata compatible intrusion preventions system (IPS) rules or the Suricata rules as a string. These rules contain **stateful** inspection criteria and the action to take for traffic that matches the criteria.
+        """
         return pulumi.get(self, "rules_string")
 
     @property
     @pulumi.getter(name="statefulRules")
     def stateful_rules(self) -> Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatefulRule']]:
+        """
+        Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
+        """
         return pulumi.get(self, "stateful_rules")
 
     @property
     @pulumi.getter(name="statelessRulesAndCustomActions")
     def stateless_rules_and_custom_actions(self) -> Optional['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions']:
+        """
+        A configuration block containing **stateless** inspection criteria for a stateless rule group. See Stateless Rules and Custom Actions below for details.
+        """
         return pulumi.get(self, "stateless_rules_and_custom_actions")
 
 
@@ -1076,6 +1356,11 @@ class RuleGroupRuleGroupRulesSourceRulesSourceList(dict):
                  generated_rules_type: str,
                  target_types: Sequence[str],
                  targets: Sequence[str]):
+        """
+        :param str generated_rules_type: String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
+        :param Sequence[str] target_types: Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
+        :param Sequence[str] targets: Set of domains that you want to inspect for in your traffic flows.
+        """
         pulumi.set(__self__, "generated_rules_type", generated_rules_type)
         pulumi.set(__self__, "target_types", target_types)
         pulumi.set(__self__, "targets", targets)
@@ -1083,16 +1368,25 @@ class RuleGroupRuleGroupRulesSourceRulesSourceList(dict):
     @property
     @pulumi.getter(name="generatedRulesType")
     def generated_rules_type(self) -> str:
+        """
+        String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
+        """
         return pulumi.get(self, "generated_rules_type")
 
     @property
     @pulumi.getter(name="targetTypes")
     def target_types(self) -> Sequence[str]:
+        """
+        Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
+        """
         return pulumi.get(self, "target_types")
 
     @property
     @pulumi.getter
     def targets(self) -> Sequence[str]:
+        """
+        Set of domains that you want to inspect for in your traffic flows.
+        """
         return pulumi.get(self, "targets")
 
 
@@ -1119,6 +1413,11 @@ class RuleGroupRuleGroupRulesSourceStatefulRule(dict):
                  action: str,
                  header: 'outputs.RuleGroupRuleGroupRulesSourceStatefulRuleHeader',
                  rule_options: Sequence['outputs.RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption']):
+        """
+        :param str action: Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP` or `PASS`.
+        :param 'RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs' header: A configuration block containing the stateful 5-tuple inspection criteria for the rule, used to inspect traffic flows. See Header below for details.
+        :param Sequence['RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs'] rule_options: Set of configuration blocks containing additional settings for a stateful rule. See Rule Option below for details.
+        """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "header", header)
         pulumi.set(__self__, "rule_options", rule_options)
@@ -1126,16 +1425,25 @@ class RuleGroupRuleGroupRulesSourceStatefulRule(dict):
     @property
     @pulumi.getter
     def action(self) -> str:
+        """
+        Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP` or `PASS`.
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
     def header(self) -> 'outputs.RuleGroupRuleGroupRulesSourceStatefulRuleHeader':
+        """
+        A configuration block containing the stateful 5-tuple inspection criteria for the rule, used to inspect traffic flows. See Header below for details.
+        """
         return pulumi.get(self, "header")
 
     @property
     @pulumi.getter(name="ruleOptions")
     def rule_options(self) -> Sequence['outputs.RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption']:
+        """
+        Set of configuration blocks containing additional settings for a stateful rule. See Rule Option below for details.
+        """
         return pulumi.get(self, "rule_options")
 
 
@@ -1167,6 +1475,14 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleHeader(dict):
                  protocol: str,
                  source: str,
                  source_port: str):
+        """
+        :param str destination: The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
+        :param str destination_port: The destination port to inspect for. To match with any address, specify `ANY`.
+        :param str direction: The direction of traffic flow to inspect. Valid values: `ANY` or `FORWARD`.
+        :param str protocol: The protocol to inspect. Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
+        :param str source: The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
+        :param str source_port: The source port to inspect for. To match with any address, specify `ANY`.
+        """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "destination_port", destination_port)
         pulumi.set(__self__, "direction", direction)
@@ -1177,31 +1493,49 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleHeader(dict):
     @property
     @pulumi.getter
     def destination(self) -> str:
+        """
+        The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
+        """
         return pulumi.get(self, "destination")
 
     @property
     @pulumi.getter(name="destinationPort")
     def destination_port(self) -> str:
+        """
+        The destination port to inspect for. To match with any address, specify `ANY`.
+        """
         return pulumi.get(self, "destination_port")
 
     @property
     @pulumi.getter
     def direction(self) -> str:
+        """
+        The direction of traffic flow to inspect. Valid values: `ANY` or `FORWARD`.
+        """
         return pulumi.get(self, "direction")
 
     @property
     @pulumi.getter
     def protocol(self) -> str:
+        """
+        The protocol to inspect. Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
+        """
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter
     def source(self) -> str:
+        """
+        The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
+        """
         return pulumi.get(self, "source")
 
     @property
     @pulumi.getter(name="sourcePort")
     def source_port(self) -> str:
+        """
+        The source port to inspect for. To match with any address, specify `ANY`.
+        """
         return pulumi.get(self, "source_port")
 
 
@@ -1210,6 +1544,11 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption(dict):
     def __init__(__self__, *,
                  keyword: str,
                  settings: Optional[Sequence[str]] = None):
+        """
+        :param str keyword: Keyword defined by open source detection systems like Snort or Suricata for stateful rule inspection.
+               See [Snort General Rule Options](http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node31.html) or [Suricata Rule Options](https://suricata.readthedocs.io/en/suricata-5.0.1/rules/intro.html#rule-options) for more details.
+        :param Sequence[str] settings: Set of strings for additional settings to use in stateful rule inspection.
+        """
         pulumi.set(__self__, "keyword", keyword)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
@@ -1217,11 +1556,18 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption(dict):
     @property
     @pulumi.getter
     def keyword(self) -> str:
+        """
+        Keyword defined by open source detection systems like Snort or Suricata for stateful rule inspection.
+        See [Snort General Rule Options](http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node31.html) or [Suricata Rule Options](https://suricata.readthedocs.io/en/suricata-5.0.1/rules/intro.html#rule-options) for more details.
+        """
         return pulumi.get(self, "keyword")
 
     @property
     @pulumi.getter
     def settings(self) -> Optional[Sequence[str]]:
+        """
+        Set of strings for additional settings to use in stateful rule inspection.
+        """
         return pulumi.get(self, "settings")
 
 
@@ -1249,6 +1595,10 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions(dict):
     def __init__(__self__, *,
                  stateless_rules: Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule'],
                  custom_actions: Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction']] = None):
+        """
+        :param Sequence['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs'] stateless_rules: Set of configuration blocks containing the stateless rules for use in the stateless rule group. See Stateless Rule below for details.
+        :param Sequence['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs'] custom_actions: Set of configuration blocks containing custom action definitions that are available for use by the set of `stateless rule`. See Custom Action below for details.
+        """
         pulumi.set(__self__, "stateless_rules", stateless_rules)
         if custom_actions is not None:
             pulumi.set(__self__, "custom_actions", custom_actions)
@@ -1256,11 +1606,17 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions(dict):
     @property
     @pulumi.getter(name="statelessRules")
     def stateless_rules(self) -> Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule']:
+        """
+        Set of configuration blocks containing the stateless rules for use in the stateless rule group. See Stateless Rule below for details.
+        """
         return pulumi.get(self, "stateless_rules")
 
     @property
     @pulumi.getter(name="customActions")
     def custom_actions(self) -> Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction']]:
+        """
+        Set of configuration blocks containing custom action definitions that are available for use by the set of `stateless rule`. See Custom Action below for details.
+        """
         return pulumi.get(self, "custom_actions")
 
 
@@ -1288,17 +1644,27 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction(di
     def __init__(__self__, *,
                  action_definition: 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition',
                  action_name: str):
+        """
+        :param 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs' action_definition: A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
+        :param str action_name: A friendly name of the custom action.
+        """
         pulumi.set(__self__, "action_definition", action_definition)
         pulumi.set(__self__, "action_name", action_name)
 
     @property
     @pulumi.getter(name="actionDefinition")
     def action_definition(self) -> 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition':
+        """
+        A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
+        """
         return pulumi.get(self, "action_definition")
 
     @property
     @pulumi.getter(name="actionName")
     def action_name(self) -> str:
+        """
+        A friendly name of the custom action.
+        """
         return pulumi.get(self, "action_name")
 
 
@@ -1323,11 +1689,17 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionAct
 
     def __init__(__self__, *,
                  publish_metric_action: 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction'):
+        """
+        :param 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgs' publish_metric_action: A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
+        """
         pulumi.set(__self__, "publish_metric_action", publish_metric_action)
 
     @property
     @pulumi.getter(name="publishMetricAction")
     def publish_metric_action(self) -> 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction':
+        """
+        A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
+        """
         return pulumi.get(self, "publish_metric_action")
 
 
@@ -1335,11 +1707,17 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionAct
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction(dict):
     def __init__(__self__, *,
                  dimensions: Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension']):
+        """
+        :param Sequence['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgs'] dimensions: Set of configuration blocks containing the dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for details.
+        """
         pulumi.set(__self__, "dimensions", dimensions)
 
     @property
     @pulumi.getter
     def dimensions(self) -> Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension']:
+        """
+        Set of configuration blocks containing the dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for details.
+        """
         return pulumi.get(self, "dimensions")
 
 
@@ -1347,11 +1725,17 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionAct
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension(dict):
     def __init__(__self__, *,
                  value: str):
+        """
+        :param str value: The value to use in the custom metric dimension.
+        """
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value to use in the custom metric dimension.
+        """
         return pulumi.get(self, "value")
 
 
@@ -1377,17 +1761,27 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule(d
     def __init__(__self__, *,
                  priority: int,
                  rule_definition: 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition'):
+        """
+        :param int priority: A setting that indicates the order in which to run this rule relative to all of the rules that are defined for a stateless rule group. AWS Network Firewall evaluates the rules in a rule group starting with the lowest priority setting.
+        :param 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs' rule_definition: A configuration block defining the stateless 5-tuple packet inspection criteria and the action to take on a packet that matches the criteria. See Rule Definition below for details.
+        """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "rule_definition", rule_definition)
 
     @property
     @pulumi.getter
     def priority(self) -> int:
+        """
+        A setting that indicates the order in which to run this rule relative to all of the rules that are defined for a stateless rule group. AWS Network Firewall evaluates the rules in a rule group starting with the lowest priority setting.
+        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="ruleDefinition")
     def rule_definition(self) -> 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition':
+        """
+        A configuration block defining the stateless 5-tuple packet inspection criteria and the action to take on a packet that matches the criteria. See Rule Definition below for details.
+        """
         return pulumi.get(self, "rule_definition")
 
 
@@ -1413,17 +1807,27 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     def __init__(__self__, *,
                  actions: Sequence[str],
                  match_attributes: 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes'):
+        """
+        :param Sequence[str] actions: Set of actions to take on a packet that matches one of the stateless rule definition's `match_attributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
+        :param 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs' match_attributes: A configuration block containing criteria for AWS Network Firewall to use to inspect an individual packet in stateless rule inspection. See Match Attributes below for details.
+        """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "match_attributes", match_attributes)
 
     @property
     @pulumi.getter
     def actions(self) -> Sequence[str]:
+        """
+        Set of actions to take on a packet that matches one of the stateless rule definition's `match_attributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="matchAttributes")
     def match_attributes(self) -> 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes':
+        """
+        A configuration block containing criteria for AWS Network Firewall to use to inspect an individual packet in stateless rule inspection. See Match Attributes below for details.
+        """
         return pulumi.get(self, "match_attributes")
 
 
@@ -1457,6 +1861,14 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
                  source_ports: Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort']] = None,
                  sources: Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource']] = None,
                  tcp_flags: Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag']] = None):
+        """
+        :param Sequence['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs'] destination_ports: Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Port below for details.
+        :param Sequence['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs'] destinations: Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
+        :param Sequence[int] protocols: Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+        :param Sequence['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs'] source_ports: Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Port below for details.
+        :param Sequence['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs'] sources: Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
+        :param Sequence['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs'] tcp_flags: Set of configuration blocks containing the TCP flags and masks to inspect for. If not specified, this matches with any settings.
+        """
         if destination_ports is not None:
             pulumi.set(__self__, "destination_ports", destination_ports)
         if destinations is not None:
@@ -1473,31 +1885,49 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     @property
     @pulumi.getter(name="destinationPorts")
     def destination_ports(self) -> Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort']]:
+        """
+        Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Port below for details.
+        """
         return pulumi.get(self, "destination_ports")
 
     @property
     @pulumi.getter
     def destinations(self) -> Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination']]:
+        """
+        Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
+        """
         return pulumi.get(self, "destinations")
 
     @property
     @pulumi.getter
     def protocols(self) -> Optional[Sequence[int]]:
+        """
+        Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+        """
         return pulumi.get(self, "protocols")
 
     @property
     @pulumi.getter(name="sourcePorts")
     def source_ports(self) -> Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort']]:
+        """
+        Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Port below for details.
+        """
         return pulumi.get(self, "source_ports")
 
     @property
     @pulumi.getter
     def sources(self) -> Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource']]:
+        """
+        Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
+        """
         return pulumi.get(self, "sources")
 
     @property
     @pulumi.getter(name="tcpFlags")
     def tcp_flags(self) -> Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag']]:
+        """
+        Set of configuration blocks containing the TCP flags and masks to inspect for. If not specified, this matches with any settings.
+        """
         return pulumi.get(self, "tcp_flags")
 
 
@@ -1522,11 +1952,17 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
 
     def __init__(__self__, *,
                  address_definition: str):
+        """
+        :param str address_definition: An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+        """
         pulumi.set(__self__, "address_definition", address_definition)
 
     @property
     @pulumi.getter(name="addressDefinition")
     def address_definition(self) -> str:
+        """
+        An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+        """
         return pulumi.get(self, "address_definition")
 
 
@@ -1554,6 +1990,10 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     def __init__(__self__, *,
                  from_port: int,
                  to_port: Optional[int] = None):
+        """
+        :param int from_port: The lower limit of the port range. This must be less than or equal to the `to_port`.
+        :param int to_port: The upper limit of the port range. This must be greater than or equal to the `from_port`.
+        """
         pulumi.set(__self__, "from_port", from_port)
         if to_port is not None:
             pulumi.set(__self__, "to_port", to_port)
@@ -1561,11 +2001,17 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     @property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> int:
+        """
+        The lower limit of the port range. This must be less than or equal to the `to_port`.
+        """
         return pulumi.get(self, "from_port")
 
     @property
     @pulumi.getter(name="toPort")
     def to_port(self) -> Optional[int]:
+        """
+        The upper limit of the port range. This must be greater than or equal to the `from_port`.
+        """
         return pulumi.get(self, "to_port")
 
 
@@ -1590,11 +2036,17 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
 
     def __init__(__self__, *,
                  address_definition: str):
+        """
+        :param str address_definition: An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+        """
         pulumi.set(__self__, "address_definition", address_definition)
 
     @property
     @pulumi.getter(name="addressDefinition")
     def address_definition(self) -> str:
+        """
+        An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+        """
         return pulumi.get(self, "address_definition")
 
 
@@ -1622,6 +2074,10 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     def __init__(__self__, *,
                  from_port: int,
                  to_port: Optional[int] = None):
+        """
+        :param int from_port: The lower limit of the port range. This must be less than or equal to the `to_port`.
+        :param int to_port: The upper limit of the port range. This must be greater than or equal to the `from_port`.
+        """
         pulumi.set(__self__, "from_port", from_port)
         if to_port is not None:
             pulumi.set(__self__, "to_port", to_port)
@@ -1629,11 +2085,17 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     @property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> int:
+        """
+        The lower limit of the port range. This must be less than or equal to the `to_port`.
+        """
         return pulumi.get(self, "from_port")
 
     @property
     @pulumi.getter(name="toPort")
     def to_port(self) -> Optional[int]:
+        """
+        The upper limit of the port range. This must be greater than or equal to the `from_port`.
+        """
         return pulumi.get(self, "to_port")
 
 
@@ -1642,6 +2104,12 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     def __init__(__self__, *,
                  flags: Sequence[str],
                  masks: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] flags: Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
+               Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
+        :param Sequence[str] masks: Set of flags to consider in the inspection. To inspect all flags, leave this empty.
+               Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
+        """
         pulumi.set(__self__, "flags", flags)
         if masks is not None:
             pulumi.set(__self__, "masks", masks)
@@ -1649,11 +2117,19 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     @property
     @pulumi.getter
     def flags(self) -> Sequence[str]:
+        """
+        Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
+        Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
+        """
         return pulumi.get(self, "flags")
 
     @property
     @pulumi.getter
     def masks(self) -> Optional[Sequence[str]]:
+        """
+        Set of flags to consider in the inspection. To inspect all flags, leave this empty.
+        Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
+        """
         return pulumi.get(self, "masks")
 
 
@@ -1678,11 +2154,17 @@ class RuleGroupRuleGroupStatefulRuleOptions(dict):
 
     def __init__(__self__, *,
                  rule_order: str):
+        """
+        :param str rule_order: Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
+        """
         pulumi.set(__self__, "rule_order", rule_order)
 
     @property
     @pulumi.getter(name="ruleOrder")
     def rule_order(self) -> str:
+        """
+        Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
+        """
         return pulumi.get(self, "rule_order")
 
 
@@ -1691,17 +2173,27 @@ class GetFirewallEncryptionConfigurationResult(dict):
     def __init__(__self__, *,
                  key_id: str,
                  type: str):
+        """
+        :param str key_id: The ID of the AWS Key Management Service (AWS KMS) customer managed key.
+        :param str type: The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
+        """
         pulumi.set(__self__, "key_id", key_id)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> str:
+        """
+        The ID of the AWS Key Management Service (AWS KMS) customer managed key.
+        """
         return pulumi.get(self, "key_id")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
+        """
         return pulumi.get(self, "type")
 
 
@@ -1712,6 +2204,11 @@ class GetFirewallFirewallStatusResult(dict):
                  configuration_sync_state_summary: str,
                  status: str,
                  sync_states: Sequence['outputs.GetFirewallFirewallStatusSyncStateResult']):
+        """
+        :param Sequence['GetFirewallFirewallStatusCapacityUsageSummaryArgs'] capacity_usage_summaries: Aggregated count of all resources used by reference sets in a firewall.
+        :param str configuration_sync_state_summary: Summary of sync states for all availability zones in which the firewall is configured.
+        :param Sequence['GetFirewallFirewallStatusSyncStateArgs'] sync_states: Set of subnets configured for use by the firewall.
+        """
         pulumi.set(__self__, "capacity_usage_summaries", capacity_usage_summaries)
         pulumi.set(__self__, "configuration_sync_state_summary", configuration_sync_state_summary)
         pulumi.set(__self__, "status", status)
@@ -1720,11 +2217,17 @@ class GetFirewallFirewallStatusResult(dict):
     @property
     @pulumi.getter(name="capacityUsageSummaries")
     def capacity_usage_summaries(self) -> Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryResult']:
+        """
+        Aggregated count of all resources used by reference sets in a firewall.
+        """
         return pulumi.get(self, "capacity_usage_summaries")
 
     @property
     @pulumi.getter(name="configurationSyncStateSummary")
     def configuration_sync_state_summary(self) -> str:
+        """
+        Summary of sync states for all availability zones in which the firewall is configured.
+        """
         return pulumi.get(self, "configuration_sync_state_summary")
 
     @property
@@ -1735,6 +2238,9 @@ class GetFirewallFirewallStatusResult(dict):
     @property
     @pulumi.getter(name="syncStates")
     def sync_states(self) -> Sequence['outputs.GetFirewallFirewallStatusSyncStateResult']:
+        """
+        Set of subnets configured for use by the firewall.
+        """
         return pulumi.get(self, "sync_states")
 
 
@@ -1742,11 +2248,17 @@ class GetFirewallFirewallStatusResult(dict):
 class GetFirewallFirewallStatusCapacityUsageSummaryResult(dict):
     def __init__(__self__, *,
                  cidrs: Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrResult']):
+        """
+        :param Sequence['GetFirewallFirewallStatusCapacityUsageSummaryCidrArgs'] cidrs: Capacity usage of CIDR blocks used by IP set references in a firewall.
+        """
         pulumi.set(__self__, "cidrs", cidrs)
 
     @property
     @pulumi.getter
     def cidrs(self) -> Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrResult']:
+        """
+        Capacity usage of CIDR blocks used by IP set references in a firewall.
+        """
         return pulumi.get(self, "cidrs")
 
 
@@ -1756,6 +2268,11 @@ class GetFirewallFirewallStatusCapacityUsageSummaryCidrResult(dict):
                  available_cidr_count: int,
                  ip_set_references: Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult'],
                  utilized_cidr_count: int):
+        """
+        :param int available_cidr_count: Available number of CIDR blocks available for use by the IP set references in a firewall.
+        :param Sequence['GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArgs'] ip_set_references: The list of IP set references used by a firewall.
+        :param int utilized_cidr_count: Number of CIDR blocks used by the IP set references in a firewall.
+        """
         pulumi.set(__self__, "available_cidr_count", available_cidr_count)
         pulumi.set(__self__, "ip_set_references", ip_set_references)
         pulumi.set(__self__, "utilized_cidr_count", utilized_cidr_count)
@@ -1763,16 +2280,25 @@ class GetFirewallFirewallStatusCapacityUsageSummaryCidrResult(dict):
     @property
     @pulumi.getter(name="availableCidrCount")
     def available_cidr_count(self) -> int:
+        """
+        Available number of CIDR blocks available for use by the IP set references in a firewall.
+        """
         return pulumi.get(self, "available_cidr_count")
 
     @property
     @pulumi.getter(name="ipSetReferences")
     def ip_set_references(self) -> Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult']:
+        """
+        The list of IP set references used by a firewall.
+        """
         return pulumi.get(self, "ip_set_references")
 
     @property
     @pulumi.getter(name="utilizedCidrCount")
     def utilized_cidr_count(self) -> int:
+        """
+        Number of CIDR blocks used by the IP set references in a firewall.
+        """
         return pulumi.get(self, "utilized_cidr_count")
 
 
@@ -1780,11 +2306,17 @@ class GetFirewallFirewallStatusCapacityUsageSummaryCidrResult(dict):
 class GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult(dict):
     def __init__(__self__, *,
                  resolved_cidr_count: int):
+        """
+        :param int resolved_cidr_count: Total number of CIDR blocks used by the IP set references in a firewall.
+        """
         pulumi.set(__self__, "resolved_cidr_count", resolved_cidr_count)
 
     @property
     @pulumi.getter(name="resolvedCidrCount")
     def resolved_cidr_count(self) -> int:
+        """
+        Total number of CIDR blocks used by the IP set references in a firewall.
+        """
         return pulumi.get(self, "resolved_cidr_count")
 
 
@@ -1793,17 +2325,27 @@ class GetFirewallFirewallStatusSyncStateResult(dict):
     def __init__(__self__, *,
                  attachments: Sequence['outputs.GetFirewallFirewallStatusSyncStateAttachmentResult'],
                  availability_zone: str):
+        """
+        :param Sequence['GetFirewallFirewallStatusSyncStateAttachmentArgs'] attachments: Nested list describing the attachment status of the firewall's association with a single VPC subnet.
+        :param str availability_zone: The Availability Zone where the subnet is configured.
+        """
         pulumi.set(__self__, "attachments", attachments)
         pulumi.set(__self__, "availability_zone", availability_zone)
 
     @property
     @pulumi.getter
     def attachments(self) -> Sequence['outputs.GetFirewallFirewallStatusSyncStateAttachmentResult']:
+        """
+        Nested list describing the attachment status of the firewall's association with a single VPC subnet.
+        """
         return pulumi.get(self, "attachments")
 
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> str:
+        """
+        The Availability Zone where the subnet is configured.
+        """
         return pulumi.get(self, "availability_zone")
 
 
@@ -1813,6 +2355,10 @@ class GetFirewallFirewallStatusSyncStateAttachmentResult(dict):
                  endpoint_id: str,
                  status: str,
                  subnet_id: str):
+        """
+        :param str endpoint_id: The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+        :param str subnet_id: The unique identifier for the subnet.
+        """
         pulumi.set(__self__, "endpoint_id", endpoint_id)
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -1820,6 +2366,9 @@ class GetFirewallFirewallStatusSyncStateAttachmentResult(dict):
     @property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> str:
+        """
+        The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+        """
         return pulumi.get(self, "endpoint_id")
 
     @property
@@ -1830,6 +2379,9 @@ class GetFirewallFirewallStatusSyncStateAttachmentResult(dict):
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
+        """
+        The unique identifier for the subnet.
+        """
         return pulumi.get(self, "subnet_id")
 
 
@@ -1996,11 +2548,17 @@ class GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult(dict):
 class GetFirewallSubnetMappingResult(dict):
     def __init__(__self__, *,
                  subnet_id: str):
+        """
+        :param str subnet_id: The unique identifier for the subnet.
+        """
         pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
+        """
+        The unique identifier for the subnet.
+        """
         return pulumi.get(self, "subnet_id")
 
 

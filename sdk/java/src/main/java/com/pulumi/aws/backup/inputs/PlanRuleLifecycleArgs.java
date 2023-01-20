@@ -15,16 +15,32 @@ public final class PlanRuleLifecycleArgs extends com.pulumi.resources.ResourceAr
 
     public static final PlanRuleLifecycleArgs Empty = new PlanRuleLifecycleArgs();
 
+    /**
+     * Specifies the number of days after creation that a recovery point is moved to cold storage.
+     * 
+     */
     @Import(name="coldStorageAfter")
     private @Nullable Output<Integer> coldStorageAfter;
 
+    /**
+     * @return Specifies the number of days after creation that a recovery point is moved to cold storage.
+     * 
+     */
     public Optional<Output<Integer>> coldStorageAfter() {
         return Optional.ofNullable(this.coldStorageAfter);
     }
 
+    /**
+     * Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+     * 
+     */
     @Import(name="deleteAfter")
     private @Nullable Output<Integer> deleteAfter;
 
+    /**
+     * @return Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+     * 
+     */
     public Optional<Output<Integer>> deleteAfter() {
         return Optional.ofNullable(this.deleteAfter);
     }
@@ -54,20 +70,44 @@ public final class PlanRuleLifecycleArgs extends com.pulumi.resources.ResourceAr
             $ = new PlanRuleLifecycleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param coldStorageAfter Specifies the number of days after creation that a recovery point is moved to cold storage.
+         * 
+         * @return builder
+         * 
+         */
         public Builder coldStorageAfter(@Nullable Output<Integer> coldStorageAfter) {
             $.coldStorageAfter = coldStorageAfter;
             return this;
         }
 
+        /**
+         * @param coldStorageAfter Specifies the number of days after creation that a recovery point is moved to cold storage.
+         * 
+         * @return builder
+         * 
+         */
         public Builder coldStorageAfter(Integer coldStorageAfter) {
             return coldStorageAfter(Output.of(coldStorageAfter));
         }
 
+        /**
+         * @param deleteAfter Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deleteAfter(@Nullable Output<Integer> deleteAfter) {
             $.deleteAfter = deleteAfter;
             return this;
         }
 
+        /**
+         * @param deleteAfter Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deleteAfter(Integer deleteAfter) {
             return deleteAfter(Output.of(deleteAfter));
         }

@@ -14,17 +14,106 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
+/**
+ * Resource for enabling AWS Inspector V2 resource scans.
+ * 
+ * &gt; **NOTE:** Due to testing limitations, we provide this resource as best effort. If you use it or have the ability to test it, and notice problems, please consider reaching out to us on GitHub.
+ * 
+ * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.inspector2.Enabler;
+ * import com.pulumi.aws.inspector2.EnablerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Enabler(&#34;example&#34;, EnablerArgs.builder()        
+ *             .accountIds(&#34;012345678901&#34;)
+ *             .resourceTypes(&#34;EC2&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### For the Calling Account
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inspector2.Enabler;
+ * import com.pulumi.aws.inspector2.EnablerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity();
+ * 
+ *         var test = new Enabler(&#34;test&#34;, EnablerArgs.builder()        
+ *             .accountIds(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *             .resourceTypes(            
+ *                 &#34;ECR&#34;,
+ *                 &#34;EC2&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="aws:inspector2/enabler:Enabler")
 public class Enabler extends com.pulumi.resources.CustomResource {
+    /**
+     * Set of account IDs.
+     * 
+     */
     @Export(name="accountIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> accountIds;
 
+    /**
+     * @return Set of account IDs.
+     * 
+     */
     public Output<List<String>> accountIds() {
         return this.accountIds;
     }
+    /**
+     * Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+     * 
+     */
     @Export(name="resourceTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> resourceTypes;
 
+    /**
+     * @return Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+     * 
+     */
     public Output<List<String>> resourceTypes() {
         return this.resourceTypes;
     }

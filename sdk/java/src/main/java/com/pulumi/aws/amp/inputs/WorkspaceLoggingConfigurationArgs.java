@@ -13,9 +13,17 @@ public final class WorkspaceLoggingConfigurationArgs extends com.pulumi.resource
 
     public static final WorkspaceLoggingConfigurationArgs Empty = new WorkspaceLoggingConfigurationArgs();
 
+    /**
+     * The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
+     * 
+     */
     @Import(name="logGroupArn", required=true)
     private Output<String> logGroupArn;
 
+    /**
+     * @return The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
+     * 
+     */
     public Output<String> logGroupArn() {
         return this.logGroupArn;
     }
@@ -44,11 +52,23 @@ public final class WorkspaceLoggingConfigurationArgs extends com.pulumi.resource
             $ = new WorkspaceLoggingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param logGroupArn The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logGroupArn(Output<String> logGroupArn) {
             $.logGroupArn = logGroupArn;
             return this;
         }
 
+        /**
+         * @param logGroupArn The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logGroupArn(String logGroupArn) {
             return logGroupArn(Output.of(logGroupArn));
         }

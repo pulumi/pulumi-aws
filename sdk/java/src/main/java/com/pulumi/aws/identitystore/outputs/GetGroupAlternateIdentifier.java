@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGroupAlternateIdentifier {
+    /**
+     * @return Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+     * 
+     */
     private @Nullable GetGroupAlternateIdentifierExternalId externalId;
+    /**
+     * @return An entity attribute that&#39;s unique to a specific entity. Detailed below.
+     * 
+     */
     private @Nullable GetGroupAlternateIdentifierUniqueAttribute uniqueAttribute;
 
     private GetGroupAlternateIdentifier() {}
+    /**
+     * @return Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+     * 
+     */
     public Optional<GetGroupAlternateIdentifierExternalId> externalId() {
         return Optional.ofNullable(this.externalId);
     }
+    /**
+     * @return An entity attribute that&#39;s unique to a specific entity. Detailed below.
+     * 
+     */
     public Optional<GetGroupAlternateIdentifierUniqueAttribute> uniqueAttribute() {
         return Optional.ofNullable(this.uniqueAttribute);
     }

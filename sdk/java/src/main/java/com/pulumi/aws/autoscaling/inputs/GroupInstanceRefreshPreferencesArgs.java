@@ -18,37 +18,77 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
 
     public static final GroupInstanceRefreshPreferencesArgs Empty = new GroupInstanceRefreshPreferencesArgs();
 
+    /**
+     * Number of seconds to wait after a checkpoint. Defaults to `3600`.
+     * 
+     */
     @Import(name="checkpointDelay")
     private @Nullable Output<String> checkpointDelay;
 
+    /**
+     * @return Number of seconds to wait after a checkpoint. Defaults to `3600`.
+     * 
+     */
     public Optional<Output<String>> checkpointDelay() {
         return Optional.ofNullable(this.checkpointDelay);
     }
 
+    /**
+     * List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
+     * 
+     */
     @Import(name="checkpointPercentages")
     private @Nullable Output<List<Integer>> checkpointPercentages;
 
+    /**
+     * @return List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
+     * 
+     */
     public Optional<Output<List<Integer>>> checkpointPercentages() {
         return Optional.ofNullable(this.checkpointPercentages);
     }
 
+    /**
+     * Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
+     * 
+     */
     @Import(name="instanceWarmup")
     private @Nullable Output<String> instanceWarmup;
 
+    /**
+     * @return Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
+     * 
+     */
     public Optional<Output<String>> instanceWarmup() {
         return Optional.ofNullable(this.instanceWarmup);
     }
 
+    /**
+     * Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+     * 
+     */
     @Import(name="minHealthyPercentage")
     private @Nullable Output<Integer> minHealthyPercentage;
 
+    /**
+     * @return Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+     * 
+     */
     public Optional<Output<Integer>> minHealthyPercentage() {
         return Optional.ofNullable(this.minHealthyPercentage);
     }
 
+    /**
+     * Replace instances that already have your desired configuration. Defaults to `false`.
+     * 
+     */
     @Import(name="skipMatching")
     private @Nullable Output<Boolean> skipMatching;
 
+    /**
+     * @return Replace instances that already have your desired configuration. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> skipMatching() {
         return Optional.ofNullable(this.skipMatching);
     }
@@ -81,51 +121,117 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
             $ = new GroupInstanceRefreshPreferencesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param checkpointDelay Number of seconds to wait after a checkpoint. Defaults to `3600`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder checkpointDelay(@Nullable Output<String> checkpointDelay) {
             $.checkpointDelay = checkpointDelay;
             return this;
         }
 
+        /**
+         * @param checkpointDelay Number of seconds to wait after a checkpoint. Defaults to `3600`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder checkpointDelay(String checkpointDelay) {
             return checkpointDelay(Output.of(checkpointDelay));
         }
 
+        /**
+         * @param checkpointPercentages List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder checkpointPercentages(@Nullable Output<List<Integer>> checkpointPercentages) {
             $.checkpointPercentages = checkpointPercentages;
             return this;
         }
 
+        /**
+         * @param checkpointPercentages List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder checkpointPercentages(List<Integer> checkpointPercentages) {
             return checkpointPercentages(Output.of(checkpointPercentages));
         }
 
+        /**
+         * @param checkpointPercentages List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder checkpointPercentages(Integer... checkpointPercentages) {
             return checkpointPercentages(List.of(checkpointPercentages));
         }
 
+        /**
+         * @param instanceWarmup Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceWarmup(@Nullable Output<String> instanceWarmup) {
             $.instanceWarmup = instanceWarmup;
             return this;
         }
 
+        /**
+         * @param instanceWarmup Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceWarmup(String instanceWarmup) {
             return instanceWarmup(Output.of(instanceWarmup));
         }
 
+        /**
+         * @param minHealthyPercentage Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minHealthyPercentage(@Nullable Output<Integer> minHealthyPercentage) {
             $.minHealthyPercentage = minHealthyPercentage;
             return this;
         }
 
+        /**
+         * @param minHealthyPercentage Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minHealthyPercentage(Integer minHealthyPercentage) {
             return minHealthyPercentage(Output.of(minHealthyPercentage));
         }
 
+        /**
+         * @param skipMatching Replace instances that already have your desired configuration. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder skipMatching(@Nullable Output<Boolean> skipMatching) {
             $.skipMatching = skipMatching;
             return this;
         }
 
+        /**
+         * @param skipMatching Replace instances that already have your desired configuration. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder skipMatching(Boolean skipMatching) {
             return skipMatching(Output.of(skipMatching));
         }

@@ -9,42 +9,330 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rds
 {
+    /// <summary>
+    /// Manages an RDS Global Cluster, which is an Aurora global database spread across multiple regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
+    /// 
+    /// More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
+    /// 
+    /// ## Example Usage
+    /// ### New MySQL Global Cluster
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Rds.GlobalCluster("example", new()
+    ///     {
+    ///         GlobalClusterIdentifier = "global-test",
+    ///         Engine = "aurora",
+    ///         EngineVersion = "5.6.mysql_aurora.1.22.2",
+    ///         DatabaseName = "example_db",
+    ///     });
+    /// 
+    ///     var primaryCluster = new Aws.Rds.Cluster("primaryCluster", new()
+    ///     {
+    ///         Engine = example.Engine,
+    ///         EngineVersion = example.EngineVersion,
+    ///         ClusterIdentifier = "test-primary-cluster",
+    ///         MasterUsername = "username",
+    ///         MasterPassword = "somepass123",
+    ///         DatabaseName = "example_db",
+    ///         GlobalClusterIdentifier = example.Id,
+    ///         DbSubnetGroupName = "default",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Primary,
+    ///     });
+    /// 
+    ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance("primaryClusterInstance", new()
+    ///     {
+    ///         Engine = example.Engine,
+    ///         EngineVersion = example.EngineVersion,
+    ///         Identifier = "test-primary-cluster-instance",
+    ///         ClusterIdentifier = primaryCluster.Id,
+    ///         InstanceClass = "db.r4.large",
+    ///         DbSubnetGroupName = "default",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Primary,
+    ///     });
+    /// 
+    ///     var secondaryCluster = new Aws.Rds.Cluster("secondaryCluster", new()
+    ///     {
+    ///         Engine = example.Engine,
+    ///         EngineVersion = example.EngineVersion,
+    ///         ClusterIdentifier = "test-secondary-cluster",
+    ///         GlobalClusterIdentifier = example.Id,
+    ///         DbSubnetGroupName = "default",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Secondary,
+    ///         DependsOn = new[]
+    ///         {
+    ///             primaryClusterInstance,
+    ///         },
+    ///     });
+    /// 
+    ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondaryClusterInstance", new()
+    ///     {
+    ///         Engine = example.Engine,
+    ///         EngineVersion = example.EngineVersion,
+    ///         Identifier = "test-secondary-cluster-instance",
+    ///         ClusterIdentifier = secondaryCluster.Id,
+    ///         InstanceClass = "db.r4.large",
+    ///         DbSubnetGroupName = "default",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Secondary,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### New PostgreSQL Global Cluster
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var primary = new Aws.Provider("primary", new()
+    ///     {
+    ///         Region = "us-east-2",
+    ///     });
+    /// 
+    ///     var secondary = new Aws.Provider("secondary", new()
+    ///     {
+    ///         Region = "us-east-1",
+    ///     });
+    /// 
+    ///     var example = new Aws.Rds.GlobalCluster("example", new()
+    ///     {
+    ///         GlobalClusterIdentifier = "global-test",
+    ///         Engine = "aurora-postgresql",
+    ///         EngineVersion = "11.9",
+    ///         DatabaseName = "example_db",
+    ///     });
+    /// 
+    ///     var primaryCluster = new Aws.Rds.Cluster("primaryCluster", new()
+    ///     {
+    ///         Engine = example.Engine,
+    ///         EngineVersion = example.EngineVersion,
+    ///         ClusterIdentifier = "test-primary-cluster",
+    ///         MasterUsername = "username",
+    ///         MasterPassword = "somepass123",
+    ///         DatabaseName = "example_db",
+    ///         GlobalClusterIdentifier = example.Id,
+    ///         DbSubnetGroupName = "default",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Primary,
+    ///     });
+    /// 
+    ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance("primaryClusterInstance", new()
+    ///     {
+    ///         Engine = example.Engine,
+    ///         EngineVersion = example.EngineVersion,
+    ///         Identifier = "test-primary-cluster-instance",
+    ///         ClusterIdentifier = primaryCluster.Id,
+    ///         InstanceClass = "db.r4.large",
+    ///         DbSubnetGroupName = "default",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Primary,
+    ///     });
+    /// 
+    ///     var secondaryCluster = new Aws.Rds.Cluster("secondaryCluster", new()
+    ///     {
+    ///         Engine = example.Engine,
+    ///         EngineVersion = example.EngineVersion,
+    ///         ClusterIdentifier = "test-secondary-cluster",
+    ///         GlobalClusterIdentifier = example.Id,
+    ///         SkipFinalSnapshot = true,
+    ///         DbSubnetGroupName = "default",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Secondary,
+    ///         DependsOn = new[]
+    ///         {
+    ///             primaryClusterInstance,
+    ///         },
+    ///     });
+    /// 
+    ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondaryClusterInstance", new()
+    ///     {
+    ///         Engine = example.Engine,
+    ///         EngineVersion = example.EngineVersion,
+    ///         Identifier = "test-secondary-cluster-instance",
+    ///         ClusterIdentifier = secondaryCluster.Id,
+    ///         InstanceClass = "db.r4.large",
+    ///         DbSubnetGroupName = "default",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Secondary,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### New Global Cluster From Existing DB Cluster
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // ... other configuration ...
+    ///     var exampleCluster = new Aws.Rds.Cluster("exampleCluster");
+    /// 
+    ///     var exampleGlobalCluster = new Aws.Rds.GlobalCluster("exampleGlobalCluster", new()
+    ///     {
+    ///         ForceDestroy = true,
+    ///         GlobalClusterIdentifier = "example",
+    ///         SourceDbClusterIdentifier = exampleCluster.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Upgrading Engine Versions
+    /// 
+    /// When you upgrade the version of an `aws.rds.GlobalCluster`, the provider will attempt to in-place upgrade the engine versions of all associated clusters. Since the `aws.rds.Cluster` resource is being updated through the `aws.rds.GlobalCluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignore_changes` meta argument as shown below on the `aws.rds.Cluster`.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Rds.GlobalCluster("example", new()
+    ///     {
+    ///         GlobalClusterIdentifier = "kyivkharkiv",
+    ///         Engine = "aurora-mysql",
+    ///         EngineVersion = "5.7.mysql_aurora.2.07.5",
+    ///     });
+    /// 
+    ///     var primaryCluster = new Aws.Rds.Cluster("primaryCluster", new()
+    ///     {
+    ///         AllowMajorVersionUpgrade = true,
+    ///         ApplyImmediately = true,
+    ///         ClusterIdentifier = "odessadnipro",
+    ///         DatabaseName = "totoro",
+    ///         Engine = example.Engine,
+    ///         EngineVersion = example.EngineVersion,
+    ///         GlobalClusterIdentifier = example.Id,
+    ///         MasterPassword = "satsukimae",
+    ///         MasterUsername = "maesatsuki",
+    ///         SkipFinalSnapshot = true,
+    ///     });
+    /// 
+    ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance("primaryClusterInstance", new()
+    ///     {
+    ///         ApplyImmediately = true,
+    ///         ClusterIdentifier = primaryCluster.Id,
+    ///         Engine = primaryCluster.Engine,
+    ///         EngineVersion = primaryCluster.EngineVersion,
+    ///         Identifier = "donetsklviv",
+    ///         InstanceClass = "db.r4.large",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_rds_global_cluster` can be imported by using the RDS Global Cluster identifier, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:rds/globalCluster:GlobalCluster example example
+    /// ```
+    /// 
+    ///  Certain resource arguments, like `force_destroy`, only exist within this provider. If the argument is set in the the provider configuration on an imported resource, This provider will show a difference on the first plan after import to update the state value. This change is safe to apply immediately so the state matches the desired configuration. Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the the provider configuration or use `ignore_changes` to hide the difference, e.g. terraform resource "aws_rds_global_cluster" "example" {
+    /// 
+    /// # ... other configuration ...
+    /// 
+    /// # There is no API for reading source_db_cluster_identifier
+    /// 
+    ///  lifecycle {
+    /// 
+    ///  ignore_changes = [source_db_cluster_identifier]
+    /// 
+    ///  } }
+    /// </summary>
     [AwsResourceType("aws:rds/globalCluster:GlobalCluster")]
     public partial class GlobalCluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// RDS Global Cluster Amazon Resource Name (ARN)
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Name for an automatically created database on cluster creation.
+        /// </summary>
         [Output("databaseName")]
         public Output<string?> DatabaseName { get; private set; } = null!;
 
+        /// <summary>
+        /// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        /// </summary>
         [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
+        /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
 
+        /// <summary>
+        /// Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
+        /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
         [Output("engineVersionActual")]
         public Output<string> EngineVersionActual { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
+        /// </summary>
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
 
+        /// <summary>
+        /// Global cluster identifier.
+        /// </summary>
         [Output("globalClusterIdentifier")]
         public Output<string> GlobalClusterIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// Set of objects containing Global Cluster members.
+        /// </summary>
         [Output("globalClusterMembers")]
         public Output<ImmutableArray<Outputs.GlobalClusterGlobalClusterMember>> GlobalClusterMembers { get; private set; } = null!;
 
+        /// <summary>
+        /// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+        /// </summary>
         [Output("globalClusterResourceId")]
         public Output<string> GlobalClusterResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+        /// </summary>
         [Output("sourceDbClusterIdentifier")]
         public Output<string> SourceDbClusterIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Output("storageEncrypted")]
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
@@ -94,27 +382,51 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GlobalClusterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name for an automatically created database on cluster creation.
+        /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
+        /// <summary>
+        /// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 
+        /// <summary>
+        /// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
+        /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
+        /// <summary>
+        /// Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
+        /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
+        /// <summary>
+        /// Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
+        /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
+        /// <summary>
+        /// Global cluster identifier.
+        /// </summary>
         [Input("globalClusterIdentifier", required: true)]
         public Input<string> GlobalClusterIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+        /// </summary>
         [Input("sourceDbClusterIdentifier")]
         public Input<string>? SourceDbClusterIdentifier { get; set; }
 
+        /// <summary>
+        /// Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 
@@ -126,44 +438,78 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GlobalClusterState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// RDS Global Cluster Amazon Resource Name (ARN)
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Name for an automatically created database on cluster creation.
+        /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
+        /// <summary>
+        /// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 
+        /// <summary>
+        /// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
+        /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
+        /// <summary>
+        /// Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
+        /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         [Input("engineVersionActual")]
         public Input<string>? EngineVersionActual { get; set; }
 
+        /// <summary>
+        /// Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
+        /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
+        /// <summary>
+        /// Global cluster identifier.
+        /// </summary>
         [Input("globalClusterIdentifier")]
         public Input<string>? GlobalClusterIdentifier { get; set; }
 
         [Input("globalClusterMembers")]
         private InputList<Inputs.GlobalClusterGlobalClusterMemberGetArgs>? _globalClusterMembers;
+
+        /// <summary>
+        /// Set of objects containing Global Cluster members.
+        /// </summary>
         public InputList<Inputs.GlobalClusterGlobalClusterMemberGetArgs> GlobalClusterMembers
         {
             get => _globalClusterMembers ?? (_globalClusterMembers = new InputList<Inputs.GlobalClusterGlobalClusterMemberGetArgs>());
             set => _globalClusterMembers = value;
         }
 
+        /// <summary>
+        /// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+        /// </summary>
         [Input("globalClusterResourceId")]
         public Input<string>? GlobalClusterResourceId { get; set; }
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+        /// </summary>
         [Input("sourceDbClusterIdentifier")]
         public Input<string>? SourceDbClusterIdentifier { get; set; }
 
+        /// <summary>
+        /// Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 

@@ -9,48 +9,256 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Glue
 {
+    /// <summary>
+    /// Manages a Glue Trigger resource.
+    /// 
+    /// ## Example Usage
+    /// ### Conditional Trigger
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Glue.Trigger("example", new()
+    ///     {
+    ///         Type = "CONDITIONAL",
+    ///         Actions = new[]
+    ///         {
+    ///             new Aws.Glue.Inputs.TriggerActionArgs
+    ///             {
+    ///                 JobName = aws_glue_job.Example1.Name,
+    ///             },
+    ///         },
+    ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
+    ///         {
+    ///             Conditions = new[]
+    ///             {
+    ///                 new Aws.Glue.Inputs.TriggerPredicateConditionArgs
+    ///                 {
+    ///                     JobName = aws_glue_job.Example2.Name,
+    ///                     State = "SUCCEEDED",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### On-Demand Trigger
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Glue.Trigger("example", new()
+    ///     {
+    ///         Type = "ON_DEMAND",
+    ///         Actions = new[]
+    ///         {
+    ///             new Aws.Glue.Inputs.TriggerActionArgs
+    ///             {
+    ///                 JobName = aws_glue_job.Example.Name,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Scheduled Trigger
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Glue.Trigger("example", new()
+    ///     {
+    ///         Schedule = "cron(15 12 * * ? *)",
+    ///         Type = "SCHEDULED",
+    ///         Actions = new[]
+    ///         {
+    ///             new Aws.Glue.Inputs.TriggerActionArgs
+    ///             {
+    ///                 JobName = aws_glue_job.Example.Name,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Conditional Trigger with Crawler Action
+    /// 
+    /// **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Glue.Trigger("example", new()
+    ///     {
+    ///         Type = "CONDITIONAL",
+    ///         Actions = new[]
+    ///         {
+    ///             new Aws.Glue.Inputs.TriggerActionArgs
+    ///             {
+    ///                 CrawlerName = aws_glue_crawler.Example1.Name,
+    ///             },
+    ///         },
+    ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
+    ///         {
+    ///             Conditions = new[]
+    ///             {
+    ///                 new Aws.Glue.Inputs.TriggerPredicateConditionArgs
+    ///                 {
+    ///                     JobName = aws_glue_job.Example2.Name,
+    ///                     State = "SUCCEEDED",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Conditional Trigger with Crawler Condition
+    /// 
+    /// **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Glue.Trigger("example", new()
+    ///     {
+    ///         Type = "CONDITIONAL",
+    ///         Actions = new[]
+    ///         {
+    ///             new Aws.Glue.Inputs.TriggerActionArgs
+    ///             {
+    ///                 JobName = aws_glue_job.Example1.Name,
+    ///             },
+    ///         },
+    ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
+    ///         {
+    ///             Conditions = new[]
+    ///             {
+    ///                 new Aws.Glue.Inputs.TriggerPredicateConditionArgs
+    ///                 {
+    ///                     CrawlerName = aws_glue_crawler.Example2.Name,
+    ///                     CrawlState = "SUCCEEDED",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Glue Triggers can be imported using `name`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:glue/trigger:Trigger")]
     public partial class Trigger : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// List of actions initiated by this trigger when it fires. See Actions Below.
+        /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.TriggerAction>> Actions { get; private set; } = null!;
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of Glue Trigger
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the new trigger.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Start the trigger. Defaults to `true`.
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+        /// </summary>
         [Output("eventBatchingConditions")]
         public Output<ImmutableArray<Outputs.TriggerEventBatchingCondition>> EventBatchingConditions { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the trigger.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+        /// </summary>
         [Output("predicate")]
         public Output<Outputs.TriggerPredicate?> Predicate { get; private set; } = null!;
 
+        /// <summary>
+        /// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+        /// </summary>
         [Output("schedule")]
         public Output<string?> Schedule { get; private set; } = null!;
 
+        /// <summary>
+        /// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+        /// </summary>
         [Output("startOnCreation")]
         public Output<bool?> StartOnCreation { get; private set; } = null!;
 
+        /// <summary>
+        /// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+        /// </summary>
         [Output("workflowName")]
         public Output<string?> WorkflowName { get; private set; } = null!;
 
@@ -102,49 +310,85 @@ namespace Pulumi.Aws.Glue
     {
         [Input("actions", required: true)]
         private InputList<Inputs.TriggerActionArgs>? _actions;
+
+        /// <summary>
+        /// List of actions initiated by this trigger when it fires. See Actions Below.
+        /// </summary>
         public InputList<Inputs.TriggerActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.TriggerActionArgs>());
             set => _actions = value;
         }
 
+        /// <summary>
+        /// A description of the new trigger.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Start the trigger. Defaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("eventBatchingConditions")]
         private InputList<Inputs.TriggerEventBatchingConditionArgs>? _eventBatchingConditions;
+
+        /// <summary>
+        /// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+        /// </summary>
         public InputList<Inputs.TriggerEventBatchingConditionArgs> EventBatchingConditions
         {
             get => _eventBatchingConditions ?? (_eventBatchingConditions = new InputList<Inputs.TriggerEventBatchingConditionArgs>());
             set => _eventBatchingConditions = value;
         }
 
+        /// <summary>
+        /// The name of the trigger.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+        /// </summary>
         [Input("predicate")]
         public Input<Inputs.TriggerPredicateArgs>? Predicate { get; set; }
 
+        /// <summary>
+        /// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+        /// </summary>
         [Input("schedule")]
         public Input<string>? Schedule { get; set; }
 
+        /// <summary>
+        /// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+        /// </summary>
         [Input("startOnCreation")]
         public Input<bool>? StartOnCreation { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+        /// </summary>
         [Input("workflowName")]
         public Input<string>? WorkflowName { get; set; }
 
@@ -158,46 +402,82 @@ namespace Pulumi.Aws.Glue
     {
         [Input("actions")]
         private InputList<Inputs.TriggerActionGetArgs>? _actions;
+
+        /// <summary>
+        /// List of actions initiated by this trigger when it fires. See Actions Below.
+        /// </summary>
         public InputList<Inputs.TriggerActionGetArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.TriggerActionGetArgs>());
             set => _actions = value;
         }
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of Glue Trigger
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// A description of the new trigger.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Start the trigger. Defaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("eventBatchingConditions")]
         private InputList<Inputs.TriggerEventBatchingConditionGetArgs>? _eventBatchingConditions;
+
+        /// <summary>
+        /// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+        /// </summary>
         public InputList<Inputs.TriggerEventBatchingConditionGetArgs> EventBatchingConditions
         {
             get => _eventBatchingConditions ?? (_eventBatchingConditions = new InputList<Inputs.TriggerEventBatchingConditionGetArgs>());
             set => _eventBatchingConditions = value;
         }
 
+        /// <summary>
+        /// The name of the trigger.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+        /// </summary>
         [Input("predicate")]
         public Input<Inputs.TriggerPredicateGetArgs>? Predicate { get; set; }
 
+        /// <summary>
+        /// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+        /// </summary>
         [Input("schedule")]
         public Input<string>? Schedule { get; set; }
 
+        /// <summary>
+        /// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
+        /// </summary>
         [Input("startOnCreation")]
         public Input<bool>? StartOnCreation { get; set; }
 
+        /// <summary>
+        /// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -206,15 +486,25 @@ namespace Pulumi.Aws.Glue
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+        /// </summary>
         [Input("workflowName")]
         public Input<string>? WorkflowName { get; set; }
 

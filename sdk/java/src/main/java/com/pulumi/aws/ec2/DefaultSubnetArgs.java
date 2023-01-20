@@ -24,9 +24,21 @@ public final class DefaultSubnetArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.assignIpv6AddressOnCreation);
     }
 
+    /**
+     * is required
+     * * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
+     * * The default value for `map_public_ip_on_launch` is `true`
+     * 
+     */
     @Import(name="availabilityZone", required=true)
     private Output<String> availabilityZone;
 
+    /**
+     * @return is required
+     * * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
+     * * The default value for `map_public_ip_on_launch` is `true`
+     * 
+     */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
@@ -59,9 +71,17 @@ public final class DefaultSubnetArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.enableResourceNameDnsAaaaRecordOnLaunch);
     }
 
+    /**
+     * Whether destroying the resource deletes the default subnet. Default: `false`
+     * 
+     */
     @Import(name="forceDestroy")
     private @Nullable Output<Boolean> forceDestroy;
 
+    /**
+     * @return Whether destroying the resource deletes the default subnet. Default: `false`
+     * 
+     */
     public Optional<Output<Boolean>> forceDestroy() {
         return Optional.ofNullable(this.forceDestroy);
     }
@@ -153,11 +173,27 @@ public final class DefaultSubnetArgs extends com.pulumi.resources.ResourceArgs {
             return assignIpv6AddressOnCreation(Output.of(assignIpv6AddressOnCreation));
         }
 
+        /**
+         * @param availabilityZone is required
+         * * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
+         * * The default value for `map_public_ip_on_launch` is `true`
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZone(Output<String> availabilityZone) {
             $.availabilityZone = availabilityZone;
             return this;
         }
 
+        /**
+         * @param availabilityZone is required
+         * * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
+         * * The default value for `map_public_ip_on_launch` is `true`
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZone(String availabilityZone) {
             return availabilityZone(Output.of(availabilityZone));
         }
@@ -198,11 +234,23 @@ public final class DefaultSubnetArgs extends com.pulumi.resources.ResourceArgs {
             return enableResourceNameDnsAaaaRecordOnLaunch(Output.of(enableResourceNameDnsAaaaRecordOnLaunch));
         }
 
+        /**
+         * @param forceDestroy Whether destroying the resource deletes the default subnet. Default: `false`
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceDestroy(@Nullable Output<Boolean> forceDestroy) {
             $.forceDestroy = forceDestroy;
             return this;
         }
 
+        /**
+         * @param forceDestroy Whether destroying the resource deletes the default subnet. Default: `false`
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceDestroy(Boolean forceDestroy) {
             return forceDestroy(Output.of(forceDestroy));
         }

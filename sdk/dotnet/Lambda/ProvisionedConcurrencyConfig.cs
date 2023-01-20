@@ -9,15 +9,73 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Lambda
 {
+    /// <summary>
+    /// Manages a Lambda Provisioned Concurrency Configuration.
+    /// 
+    /// ## Example Usage
+    /// ### Alias Name
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lambda.ProvisionedConcurrencyConfig("example", new()
+    ///     {
+    ///         FunctionName = aws_lambda_alias.Example.Function_name,
+    ///         ProvisionedConcurrentExecutions = 1,
+    ///         Qualifier = aws_lambda_alias.Example.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Function Version
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lambda.ProvisionedConcurrencyConfig("example", new()
+    ///     {
+    ///         FunctionName = aws_lambda_function.Example.Function_name,
+    ///         ProvisionedConcurrentExecutions = 1,
+    ///         Qualifier = aws_lambda_function.Example.Version,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Lambda Provisioned Concurrency Configs can be imported using the `function_name` and `qualifier` separated by a colon (`:`), e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function:production
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig")]
     public partial class ProvisionedConcurrencyConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Name or Amazon Resource Name (ARN) of the Lambda Function.
+        /// </summary>
         [Output("functionName")]
         public Output<string> FunctionName { get; private set; } = null!;
 
+        /// <summary>
+        /// Amount of capacity to allocate. Must be greater than or equal to `1`.
+        /// </summary>
         [Output("provisionedConcurrentExecutions")]
         public Output<int> ProvisionedConcurrentExecutions { get; private set; } = null!;
 
+        /// <summary>
+        /// Lambda Function version or Lambda Alias name.
+        /// </summary>
         [Output("qualifier")]
         public Output<string> Qualifier { get; private set; } = null!;
 
@@ -67,12 +125,21 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class ProvisionedConcurrencyConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name or Amazon Resource Name (ARN) of the Lambda Function.
+        /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
 
+        /// <summary>
+        /// Amount of capacity to allocate. Must be greater than or equal to `1`.
+        /// </summary>
         [Input("provisionedConcurrentExecutions", required: true)]
         public Input<int> ProvisionedConcurrentExecutions { get; set; } = null!;
 
+        /// <summary>
+        /// Lambda Function version or Lambda Alias name.
+        /// </summary>
         [Input("qualifier", required: true)]
         public Input<string> Qualifier { get; set; } = null!;
 
@@ -84,12 +151,21 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class ProvisionedConcurrencyConfigState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name or Amazon Resource Name (ARN) of the Lambda Function.
+        /// </summary>
         [Input("functionName")]
         public Input<string>? FunctionName { get; set; }
 
+        /// <summary>
+        /// Amount of capacity to allocate. Must be greater than or equal to `1`.
+        /// </summary>
         [Input("provisionedConcurrentExecutions")]
         public Input<int>? ProvisionedConcurrentExecutions { get; set; }
 
+        /// <summary>
+        /// Lambda Function version or Lambda Alias name.
+        /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
 

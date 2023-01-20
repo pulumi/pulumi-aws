@@ -14,23 +14,101 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an ElastiCache Security Group to control access to one or more cache
+ * clusters.
+ * 
+ * &gt; **NOTE:** ElastiCache Security Groups are for use only when working with an
+ * ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
+ * ElastiCache Subnet Group resource.
+ * 
+ * !&gt; **WARNING:** With the retirement of EC2-Classic the `aws.elasticache.SecurityGroup` resource has been deprecated and will be removed in a future version.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.elasticache.SecurityGroup;
+ * import com.pulumi.aws.elasticache.SecurityGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var barSecurityGroup = new SecurityGroup(&#34;barSecurityGroup&#34;);
+ * 
+ *         var barElasticache_securityGroupSecurityGroup = new SecurityGroup(&#34;barElasticache/securityGroupSecurityGroup&#34;, SecurityGroupArgs.builder()        
+ *             .securityGroupNames(barSecurityGroup.name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * ElastiCache Security Groups can be imported by name, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:elasticache/securityGroup:SecurityGroup my_ec_security_group ec-security-group-1
+ * ```
+ * 
+ */
 @ResourceType(type="aws:elasticache/securityGroup:SecurityGroup")
 public class SecurityGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * description for the cache security group. Defaults to &#34;Managed by Pulumi&#34;.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
+    /**
+     * @return description for the cache security group. Defaults to &#34;Managed by Pulumi&#34;.
+     * 
+     */
     public Output<String> description() {
         return this.description;
     }
+    /**
+     * Name for the cache security group. This value is stored as a lowercase string.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name for the cache security group. This value is stored as a lowercase string.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * List of EC2 security group names to be
+     * authorized for ingress to the cache security group
+     * 
+     */
     @Export(name="securityGroupNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupNames;
 
+    /**
+     * @return List of EC2 security group names to be
+     * authorized for ingress to the cache security group
+     * 
+     */
     public Output<List<String>> securityGroupNames() {
         return this.securityGroupNames;
     }

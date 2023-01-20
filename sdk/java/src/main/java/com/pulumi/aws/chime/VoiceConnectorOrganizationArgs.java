@@ -18,23 +18,47 @@ public final class VoiceConnectorOrganizationArgs extends com.pulumi.resources.R
 
     public static final VoiceConnectorOrganizationArgs Empty = new VoiceConnectorOrganizationArgs();
 
+    /**
+     * When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
+     * 
+     */
     @Import(name="disabled")
     private @Nullable Output<Boolean> disabled;
 
+    /**
+     * @return When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
+     * 
+     */
     public Optional<Output<Boolean>> disabled() {
         return Optional.ofNullable(this.disabled);
     }
 
+    /**
+     * Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
+     * 
+     */
     @Import(name="routes", required=true)
     private Output<List<VoiceConnectorOrganizationRouteArgs>> routes;
 
+    /**
+     * @return Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
+     * 
+     */
     public Output<List<VoiceConnectorOrganizationRouteArgs>> routes() {
         return this.routes;
     }
 
+    /**
+     * The Amazon Chime Voice Connector ID.
+     * 
+     */
     @Import(name="voiceConnectorId", required=true)
     private Output<String> voiceConnectorId;
 
+    /**
+     * @return The Amazon Chime Voice Connector ID.
+     * 
+     */
     public Output<String> voiceConnectorId() {
         return this.voiceConnectorId;
     }
@@ -65,33 +89,75 @@ public final class VoiceConnectorOrganizationArgs extends com.pulumi.resources.R
             $ = new VoiceConnectorOrganizationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param disabled When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
+         * 
+         * @return builder
+         * 
+         */
         public Builder disabled(@Nullable Output<Boolean> disabled) {
             $.disabled = disabled;
             return this;
         }
 
+        /**
+         * @param disabled When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
+         * 
+         * @return builder
+         * 
+         */
         public Builder disabled(Boolean disabled) {
             return disabled(Output.of(disabled));
         }
 
+        /**
+         * @param routes Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
+         * 
+         * @return builder
+         * 
+         */
         public Builder routes(Output<List<VoiceConnectorOrganizationRouteArgs>> routes) {
             $.routes = routes;
             return this;
         }
 
+        /**
+         * @param routes Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
+         * 
+         * @return builder
+         * 
+         */
         public Builder routes(List<VoiceConnectorOrganizationRouteArgs> routes) {
             return routes(Output.of(routes));
         }
 
+        /**
+         * @param routes Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
+         * 
+         * @return builder
+         * 
+         */
         public Builder routes(VoiceConnectorOrganizationRouteArgs... routes) {
             return routes(List.of(routes));
         }
 
+        /**
+         * @param voiceConnectorId The Amazon Chime Voice Connector ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder voiceConnectorId(Output<String> voiceConnectorId) {
             $.voiceConnectorId = voiceConnectorId;
             return this;
         }
 
+        /**
+         * @param voiceConnectorId The Amazon Chime Voice Connector ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder voiceConnectorId(String voiceConnectorId) {
             return voiceConnectorId(Output.of(voiceConnectorId));
         }

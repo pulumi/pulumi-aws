@@ -9,12 +9,54 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Amp
 {
+    /// <summary>
+    /// Manages an Amazon Managed Service for Prometheus (AMP) Alert Manager Definition
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var demoWorkspace = new Aws.Amp.Workspace("demoWorkspace");
+    /// 
+    ///     var demoAlertManagerDefinition = new Aws.Amp.AlertManagerDefinition("demoAlertManagerDefinition", new()
+    ///     {
+    ///         WorkspaceId = demoWorkspace.Id,
+    ///         Definition = @"alertmanager_config: |
+    ///   route:
+    ///     receiver: 'default'
+    ///   receivers:
+    ///     - name: 'default'
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// The prometheus alert manager definition can be imported using the workspace identifier, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:amp/alertManagerDefinition:AlertManagerDefinition")]
     public partial class AlertManagerDefinition : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
+        /// </summary>
         [Output("definition")]
         public Output<string> Definition { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the prometheus workspace the alert manager definition should be linked to
+        /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
 
@@ -64,9 +106,15 @@ namespace Pulumi.Aws.Amp
 
     public sealed class AlertManagerDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
+        /// </summary>
         [Input("definition", required: true)]
         public Input<string> Definition { get; set; } = null!;
 
+        /// <summary>
+        /// ID of the prometheus workspace the alert manager definition should be linked to
+        /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
 
@@ -78,9 +126,15 @@ namespace Pulumi.Aws.Amp
 
     public sealed class AlertManagerDefinitionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
+        /// </summary>
         [Input("definition")]
         public Input<string>? Definition { get; set; }
 
+        /// <summary>
+        /// ID of the prometheus workspace the alert manager definition should be linked to
+        /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }
 

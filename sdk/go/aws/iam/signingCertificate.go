@@ -11,13 +11,96 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an IAM Signing Certificate resource to upload Signing Certificates.
+//
+// ## Example Usage
+//
+// **Using certs on file:**
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.NewSigningCertificate(ctx, "testCert", &iam.SigningCertificateArgs{
+//				Username:        pulumi.String("some_test_cert"),
+//				CertificateBody: readFileOrPanic("self-ca-cert.pem"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// **Example with cert in-line:**
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.NewSigningCertificate(ctx, "testCertAlt", &iam.SigningCertificateArgs{
+//				CertificateBody: pulumi.String(fmt.Sprintf("-----BEGIN CERTIFICATE-----\n[......] # cert contents\n-----END CERTIFICATE-----\n\n")),
+//				Username:        pulumi.String("some_test_cert"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// IAM Signing Certificates can be imported using the `id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
+//
+// ```
 type SigningCertificate struct {
 	pulumi.CustomResourceState
 
-	CertificateBody pulumi.StringOutput    `pulumi:"certificateBody"`
-	CertificateId   pulumi.StringOutput    `pulumi:"certificateId"`
-	Status          pulumi.StringPtrOutput `pulumi:"status"`
-	UserName        pulumi.StringOutput    `pulumi:"userName"`
+	// The contents of the signing certificate in PEM-encoded format.
+	CertificateBody pulumi.StringOutput `pulumi:"certificateBody"`
+	// The ID for the signing certificate.
+	CertificateId pulumi.StringOutput `pulumi:"certificateId"`
+	// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// The name of the user the signing certificate is for.
+	UserName pulumi.StringOutput `pulumi:"userName"`
 }
 
 // NewSigningCertificate registers a new resource with the given unique name, arguments, and options.
@@ -55,17 +138,25 @@ func GetSigningCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SigningCertificate resources.
 type signingCertificateState struct {
+	// The contents of the signing certificate in PEM-encoded format.
 	CertificateBody *string `pulumi:"certificateBody"`
-	CertificateId   *string `pulumi:"certificateId"`
-	Status          *string `pulumi:"status"`
-	UserName        *string `pulumi:"userName"`
+	// The ID for the signing certificate.
+	CertificateId *string `pulumi:"certificateId"`
+	// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
+	Status *string `pulumi:"status"`
+	// The name of the user the signing certificate is for.
+	UserName *string `pulumi:"userName"`
 }
 
 type SigningCertificateState struct {
+	// The contents of the signing certificate in PEM-encoded format.
 	CertificateBody pulumi.StringPtrInput
-	CertificateId   pulumi.StringPtrInput
-	Status          pulumi.StringPtrInput
-	UserName        pulumi.StringPtrInput
+	// The ID for the signing certificate.
+	CertificateId pulumi.StringPtrInput
+	// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
+	Status pulumi.StringPtrInput
+	// The name of the user the signing certificate is for.
+	UserName pulumi.StringPtrInput
 }
 
 func (SigningCertificateState) ElementType() reflect.Type {
@@ -73,16 +164,22 @@ func (SigningCertificateState) ElementType() reflect.Type {
 }
 
 type signingCertificateArgs struct {
-	CertificateBody string  `pulumi:"certificateBody"`
-	Status          *string `pulumi:"status"`
-	UserName        string  `pulumi:"userName"`
+	// The contents of the signing certificate in PEM-encoded format.
+	CertificateBody string `pulumi:"certificateBody"`
+	// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
+	Status *string `pulumi:"status"`
+	// The name of the user the signing certificate is for.
+	UserName string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a SigningCertificate resource.
 type SigningCertificateArgs struct {
+	// The contents of the signing certificate in PEM-encoded format.
 	CertificateBody pulumi.StringInput
-	Status          pulumi.StringPtrInput
-	UserName        pulumi.StringInput
+	// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
+	Status pulumi.StringPtrInput
+	// The name of the user the signing certificate is for.
+	UserName pulumi.StringInput
 }
 
 func (SigningCertificateArgs) ElementType() reflect.Type {
@@ -172,18 +269,22 @@ func (o SigningCertificateOutput) ToSigningCertificateOutputWithContext(ctx cont
 	return o
 }
 
+// The contents of the signing certificate in PEM-encoded format.
 func (o SigningCertificateOutput) CertificateBody() pulumi.StringOutput {
 	return o.ApplyT(func(v *SigningCertificate) pulumi.StringOutput { return v.CertificateBody }).(pulumi.StringOutput)
 }
 
+// The ID for the signing certificate.
 func (o SigningCertificateOutput) CertificateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SigningCertificate) pulumi.StringOutput { return v.CertificateId }).(pulumi.StringOutput)
 }
 
+// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
 func (o SigningCertificateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SigningCertificate) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// The name of the user the signing certificate is for.
 func (o SigningCertificateOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SigningCertificate) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }

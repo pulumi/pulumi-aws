@@ -15,16 +15,32 @@ public final class EndpointConfigurationProductionVariantCoreDumpConfigArgs exte
 
     public static final EndpointConfigurationProductionVariantCoreDumpConfigArgs Empty = new EndpointConfigurationProductionVariantCoreDumpConfigArgs();
 
+    /**
+     * The Amazon S3 bucket to send the core dump to.
+     * 
+     */
     @Import(name="destinationS3Uri", required=true)
     private Output<String> destinationS3Uri;
 
+    /**
+     * @return The Amazon S3 bucket to send the core dump to.
+     * 
+     */
     public Output<String> destinationS3Uri() {
         return this.destinationS3Uri;
     }
 
+    /**
+     * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+     * 
+     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
+    /**
+     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+     * 
+     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
@@ -54,20 +70,44 @@ public final class EndpointConfigurationProductionVariantCoreDumpConfigArgs exte
             $ = new EndpointConfigurationProductionVariantCoreDumpConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param destinationS3Uri The Amazon S3 bucket to send the core dump to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationS3Uri(Output<String> destinationS3Uri) {
             $.destinationS3Uri = destinationS3Uri;
             return this;
         }
 
+        /**
+         * @param destinationS3Uri The Amazon S3 bucket to send the core dump to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationS3Uri(String destinationS3Uri) {
             return destinationS3Uri(Output.of(destinationS3Uri));
         }
 
+        /**
+         * @param kmsKeyId The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
+        /**
+         * @param kmsKeyId The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }

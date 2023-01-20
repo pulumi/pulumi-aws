@@ -9,12 +9,48 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Connect
 {
+    /// <summary>
+    /// Provides an Amazon Connect Lambda Function Association. For more information see
+    /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html) and [Invoke AWS Lambda functions](https://docs.aws.amazon.com/connect/latest/adminguide/connect-lambda-functions.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Connect.LambdaFunctionAssociation("example", new()
+    ///     {
+    ///         FunctionArn = aws_lambda_function.Example.Arn,
+    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_connect_lambda_function_association` can be imported using the `instance_id` and `function_arn` separated by a comma (`,`) e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation")]
     public partial class LambdaFunctionAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// </summary>
         [Output("functionArn")]
         public Output<string> FunctionArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+        /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
@@ -64,9 +100,15 @@ namespace Pulumi.Aws.Connect
 
     public sealed class LambdaFunctionAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// </summary>
         [Input("functionArn", required: true)]
         public Input<string> FunctionArn { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
@@ -78,9 +120,15 @@ namespace Pulumi.Aws.Connect
 
     public sealed class LambdaFunctionAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// </summary>
         [Input("functionArn")]
         public Input<string>? FunctionArn { get; set; }
 
+        /// <summary>
+        /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+        /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 

@@ -13,12 +13,33 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings
     {
+        /// <summary>
+        /// Average bitrate in bits/second.
+        /// </summary>
         public readonly double? Bitrate;
+        /// <summary>
+        /// Mono, Stereo, or 5.1 channel layout.
+        /// </summary>
         public readonly string? CodingMode;
+        /// <summary>
+        /// Sets the dialnorm of the output.
+        /// </summary>
         public readonly double? Dialnorm;
+        /// <summary>
+        /// Sets the Dolby dynamic range compression profile.
+        /// </summary>
         public readonly string? DrcLine;
+        /// <summary>
+        /// Sets the profile for heavy Dolby dynamic range compression.
+        /// </summary>
         public readonly string? DrcRf;
+        /// <summary>
+        /// Height dimensional trim.
+        /// </summary>
         public readonly double? HeightTrim;
+        /// <summary>
+        /// Surround dimensional trim.
+        /// </summary>
         public readonly double? SurroundTrim;
 
         [OutputConstructor]

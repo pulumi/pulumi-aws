@@ -10,16 +10,149 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Config Conformance Pack. More information about this collection of Config rules and remediation actions can be found in the
+// [Conformance Packs](https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html) documentation.
+// Sample Conformance Pack templates may be found in the
+// [AWS Config Rules Repository](https://github.com/awslabs/aws-config-rules/tree/master/aws-config-conformance-packs).
+//
+// > **NOTE:** The account must have a Configuration Recorder with proper IAM permissions before the Conformance Pack will
+// successfully create or update. See also the
+// `cfg.Recorder` resource.
+//
+// ## Example Usage
+// ### Template Body
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cfg.NewConformancePack(ctx, "example", &cfg.ConformancePackArgs{
+//				InputParameters: cfg.ConformancePackInputParameterArray{
+//					&cfg.ConformancePackInputParameterArgs{
+//						ParameterName:  pulumi.String("AccessKeysRotatedParameterMaxAccessKeyAge"),
+//						ParameterValue: pulumi.String("90"),
+//					},
+//				},
+//				TemplateBody: pulumi.String(fmt.Sprintf(`Parameters:
+//	  AccessKeysRotatedParameterMaxAccessKeyAge:
+//	    Type: String
+//
+// Resources:
+//
+//	IAMPasswordPolicy:
+//	  Properties:
+//	    ConfigRuleName: IAMPasswordPolicy
+//	    Source:
+//	      Owner: AWS
+//	      SourceIdentifier: IAM_PASSWORD_POLICY
+//	  Type: AWS::Config::ConfigRule
+//
+// `)),
+//
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				aws_config_configuration_recorder.Example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Template S3 URI
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+//				Bucket: exampleBucketV2.ID(),
+//				Key:    pulumi.String("example-key"),
+//				Content: pulumi.String(fmt.Sprintf(`Resources:
+//	  IAMPasswordPolicy:
+//	    Properties:
+//	      ConfigRuleName: IAMPasswordPolicy
+//	      Source:
+//	        Owner: AWS
+//	        SourceIdentifier: IAM_PASSWORD_POLICY
+//	    Type: AWS::Config::ConfigRule
+//
+// `)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cfg.NewConformancePack(ctx, "exampleConformancePack", &cfg.ConformancePackArgs{
+//				TemplateS3Uri: pulumi.All(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).ApplyT(func(_args []interface{}) (string, error) {
+//					bucket := _args[0].(string)
+//					key := _args[1].(string)
+//					return fmt.Sprintf("s3://%v/%v", bucket, key), nil
+//				}).(pulumi.StringOutput),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				aws_config_configuration_recorder.Example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Config Conformance Packs can be imported using the `name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:cfg/conformancePack:ConformancePack example example
+//
+// ```
 type ConformancePack struct {
 	pulumi.CustomResourceState
 
-	Arn                 pulumi.StringOutput                      `pulumi:"arn"`
-	DeliveryS3Bucket    pulumi.StringPtrOutput                   `pulumi:"deliveryS3Bucket"`
-	DeliveryS3KeyPrefix pulumi.StringPtrOutput                   `pulumi:"deliveryS3KeyPrefix"`
-	InputParameters     ConformancePackInputParameterArrayOutput `pulumi:"inputParameters"`
-	Name                pulumi.StringOutput                      `pulumi:"name"`
-	TemplateBody        pulumi.StringPtrOutput                   `pulumi:"templateBody"`
-	TemplateS3Uri       pulumi.StringPtrOutput                   `pulumi:"templateS3Uri"`
+	// Amazon Resource Name (ARN) of the conformance pack.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
+	DeliveryS3Bucket pulumi.StringPtrOutput `pulumi:"deliveryS3Bucket"`
+	// The prefix for the Amazon S3 bucket. Maximum length of 1024.
+	DeliveryS3KeyPrefix pulumi.StringPtrOutput `pulumi:"deliveryS3KeyPrefix"`
+	// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
+	InputParameters ConformancePackInputParameterArrayOutput `pulumi:"inputParameters"`
+	// The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
+	TemplateBody pulumi.StringPtrOutput `pulumi:"templateBody"`
+	// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+	TemplateS3Uri pulumi.StringPtrOutput `pulumi:"templateS3Uri"`
 }
 
 // NewConformancePack registers a new resource with the given unique name, arguments, and options.
@@ -51,23 +184,37 @@ func GetConformancePack(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConformancePack resources.
 type conformancePackState struct {
-	Arn                 *string                         `pulumi:"arn"`
-	DeliveryS3Bucket    *string                         `pulumi:"deliveryS3Bucket"`
-	DeliveryS3KeyPrefix *string                         `pulumi:"deliveryS3KeyPrefix"`
-	InputParameters     []ConformancePackInputParameter `pulumi:"inputParameters"`
-	Name                *string                         `pulumi:"name"`
-	TemplateBody        *string                         `pulumi:"templateBody"`
-	TemplateS3Uri       *string                         `pulumi:"templateS3Uri"`
+	// Amazon Resource Name (ARN) of the conformance pack.
+	Arn *string `pulumi:"arn"`
+	// Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
+	DeliveryS3Bucket *string `pulumi:"deliveryS3Bucket"`
+	// The prefix for the Amazon S3 bucket. Maximum length of 1024.
+	DeliveryS3KeyPrefix *string `pulumi:"deliveryS3KeyPrefix"`
+	// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
+	InputParameters []ConformancePackInputParameter `pulumi:"inputParameters"`
+	// The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
+	Name *string `pulumi:"name"`
+	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
+	TemplateBody *string `pulumi:"templateBody"`
+	// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+	TemplateS3Uri *string `pulumi:"templateS3Uri"`
 }
 
 type ConformancePackState struct {
-	Arn                 pulumi.StringPtrInput
-	DeliveryS3Bucket    pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the conformance pack.
+	Arn pulumi.StringPtrInput
+	// Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
+	DeliveryS3Bucket pulumi.StringPtrInput
+	// The prefix for the Amazon S3 bucket. Maximum length of 1024.
 	DeliveryS3KeyPrefix pulumi.StringPtrInput
-	InputParameters     ConformancePackInputParameterArrayInput
-	Name                pulumi.StringPtrInput
-	TemplateBody        pulumi.StringPtrInput
-	TemplateS3Uri       pulumi.StringPtrInput
+	// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
+	InputParameters ConformancePackInputParameterArrayInput
+	// The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
+	Name pulumi.StringPtrInput
+	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
+	TemplateBody pulumi.StringPtrInput
+	// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+	TemplateS3Uri pulumi.StringPtrInput
 }
 
 func (ConformancePackState) ElementType() reflect.Type {
@@ -75,22 +222,34 @@ func (ConformancePackState) ElementType() reflect.Type {
 }
 
 type conformancePackArgs struct {
-	DeliveryS3Bucket    *string                         `pulumi:"deliveryS3Bucket"`
-	DeliveryS3KeyPrefix *string                         `pulumi:"deliveryS3KeyPrefix"`
-	InputParameters     []ConformancePackInputParameter `pulumi:"inputParameters"`
-	Name                *string                         `pulumi:"name"`
-	TemplateBody        *string                         `pulumi:"templateBody"`
-	TemplateS3Uri       *string                         `pulumi:"templateS3Uri"`
+	// Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
+	DeliveryS3Bucket *string `pulumi:"deliveryS3Bucket"`
+	// The prefix for the Amazon S3 bucket. Maximum length of 1024.
+	DeliveryS3KeyPrefix *string `pulumi:"deliveryS3KeyPrefix"`
+	// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
+	InputParameters []ConformancePackInputParameter `pulumi:"inputParameters"`
+	// The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
+	Name *string `pulumi:"name"`
+	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
+	TemplateBody *string `pulumi:"templateBody"`
+	// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+	TemplateS3Uri *string `pulumi:"templateS3Uri"`
 }
 
 // The set of arguments for constructing a ConformancePack resource.
 type ConformancePackArgs struct {
-	DeliveryS3Bucket    pulumi.StringPtrInput
+	// Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
+	DeliveryS3Bucket pulumi.StringPtrInput
+	// The prefix for the Amazon S3 bucket. Maximum length of 1024.
 	DeliveryS3KeyPrefix pulumi.StringPtrInput
-	InputParameters     ConformancePackInputParameterArrayInput
-	Name                pulumi.StringPtrInput
-	TemplateBody        pulumi.StringPtrInput
-	TemplateS3Uri       pulumi.StringPtrInput
+	// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
+	InputParameters ConformancePackInputParameterArrayInput
+	// The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
+	Name pulumi.StringPtrInput
+	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
+	TemplateBody pulumi.StringPtrInput
+	// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+	TemplateS3Uri pulumi.StringPtrInput
 }
 
 func (ConformancePackArgs) ElementType() reflect.Type {
@@ -180,30 +339,37 @@ func (o ConformancePackOutput) ToConformancePackOutputWithContext(ctx context.Co
 	return o
 }
 
+// Amazon Resource Name (ARN) of the conformance pack.
 func (o ConformancePackOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConformancePack) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
 func (o ConformancePackOutput) DeliveryS3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConformancePack) pulumi.StringPtrOutput { return v.DeliveryS3Bucket }).(pulumi.StringPtrOutput)
 }
 
+// The prefix for the Amazon S3 bucket. Maximum length of 1024.
 func (o ConformancePackOutput) DeliveryS3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConformancePack) pulumi.StringPtrOutput { return v.DeliveryS3KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
+// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
 func (o ConformancePackOutput) InputParameters() ConformancePackInputParameterArrayOutput {
 	return o.ApplyT(func(v *ConformancePack) ConformancePackInputParameterArrayOutput { return v.InputParameters }).(ConformancePackInputParameterArrayOutput)
 }
 
+// The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
 func (o ConformancePackOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConformancePack) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
 func (o ConformancePackOutput) TemplateBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConformancePack) pulumi.StringPtrOutput { return v.TemplateBody }).(pulumi.StringPtrOutput)
 }
 
+// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
 func (o ConformancePackOutput) TemplateS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConformancePack) pulumi.StringPtrOutput { return v.TemplateS3Uri }).(pulumi.StringPtrOutput)
 }

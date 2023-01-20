@@ -14,17 +14,82 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * &gt; **Note:** There is only a single subscription allowed per account.
+ * 
+ * To help you understand the charges for your Spot instances, Amazon EC2 provides a data feed that describes your Spot instance usage and pricing.
+ * This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.ec2.SpotDatafeedSubscription;
+ * import com.pulumi.aws.ec2.SpotDatafeedSubscriptionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var defaultBucketV2 = new BucketV2(&#34;defaultBucketV2&#34;);
+ * 
+ *         var defaultSpotDatafeedSubscription = new SpotDatafeedSubscription(&#34;defaultSpotDatafeedSubscription&#34;, SpotDatafeedSubscriptionArgs.builder()        
+ *             .bucket(defaultBucketV2.bucket())
+ *             .prefix(&#34;my_subdirectory&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * A Spot Datafeed Subscription can be imported using the word `spot-datafeed-subscription`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription")
 public class SpotDatafeedSubscription extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon S3 bucket in which to store the Spot instance data feed.
+     * 
+     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
+    /**
+     * @return The Amazon S3 bucket in which to store the Spot instance data feed.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
+    /**
+     * Path of folder inside bucket to place spot pricing data.
+     * 
+     */
     @Export(name="prefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> prefix;
 
+    /**
+     * @return Path of folder inside bucket to place spot pricing data.
+     * 
+     */
     public Output<Optional<String>> prefix() {
         return Codegen.optional(this.prefix);
     }

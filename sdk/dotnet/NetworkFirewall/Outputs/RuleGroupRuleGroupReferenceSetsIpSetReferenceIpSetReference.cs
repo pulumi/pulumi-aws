@@ -13,6 +13,9 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference
     {
+        /// <summary>
+        /// Set of Managed Prefix IP ARN(s)
+        /// </summary>
         public readonly string ReferenceArn;
 
         [OutputConstructor]

@@ -28,6 +28,7 @@ class DefaultVpcArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DefaultVpc resource.
+        :param pulumi.Input[bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
         """
         if assign_generated_ipv6_cidr_block is not None:
             pulumi.set(__self__, "assign_generated_ipv6_cidr_block", assign_generated_ipv6_cidr_block)
@@ -117,6 +118,9 @@ class DefaultVpcArgs:
     @property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether destroying the resource deletes the default VPC. Default: `false`
+        """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
@@ -198,6 +202,9 @@ class _DefaultVpcState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering DefaultVpc resources.
+        :param pulumi.Input[str] cidr_block: The primary IPv4 CIDR block for the VPC
+        :param pulumi.Input[bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
+        :param pulumi.Input[str] instance_tenancy: The allowed tenancy of instances launched into the VPC
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -275,6 +282,9 @@ class _DefaultVpcState:
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary IPv4 CIDR block for the VPC
+        """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
@@ -374,6 +384,9 @@ class _DefaultVpcState:
     @property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether destroying the resource deletes the default VPC. Default: `false`
+        """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
@@ -383,6 +396,9 @@ class _DefaultVpcState:
     @property
     @pulumi.getter(name="instanceTenancy")
     def instance_tenancy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The allowed tenancy of instances launched into the VPC
+        """
         return pulumi.get(self, "instance_tenancy")
 
     @instance_tenancy.setter
@@ -490,9 +506,42 @@ class DefaultVpc(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a DefaultVpc resource with the given unique name, props, and options.
+        Provides a resource to manage the [default AWS VPC](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html)
+        in the current AWS Region.
+
+        If you created your AWS account after 2013-12-04 you have a default VPC in each AWS Region.
+
+        **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
+
+        The `ec2.DefaultVpc` resource behaves differently from normal resources in that if a default VPC exists, this provider does not _create_ this resource, but instead "adopts" it into management.
+        If no default VPC exists, the provider creates a new default VPC, which leads to the implicit creation of [other resources](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#default-vpc-components).
+        By default, `pulumi destroy` does not delete the default VPC but does remove the resource from the state.
+        Set the `force_destroy` argument to `true` to delete the default VPC.
+
+        ## Example Usage
+
+        Basic usage with tags:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.ec2.DefaultVpc("default", tags={
+            "Name": "Default VPC",
+        })
+        ```
+
+        ## Import
+
+        Default VPCs can be imported using the `vpc id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
         """
         ...
     @overload
@@ -501,7 +550,39 @@ class DefaultVpc(pulumi.CustomResource):
                  args: Optional[DefaultVpcArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DefaultVpc resource with the given unique name, props, and options.
+        Provides a resource to manage the [default AWS VPC](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html)
+        in the current AWS Region.
+
+        If you created your AWS account after 2013-12-04 you have a default VPC in each AWS Region.
+
+        **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
+
+        The `ec2.DefaultVpc` resource behaves differently from normal resources in that if a default VPC exists, this provider does not _create_ this resource, but instead "adopts" it into management.
+        If no default VPC exists, the provider creates a new default VPC, which leads to the implicit creation of [other resources](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#default-vpc-components).
+        By default, `pulumi destroy` does not delete the default VPC but does remove the resource from the state.
+        Set the `force_destroy` argument to `true` to delete the default VPC.
+
+        ## Example Usage
+
+        Basic usage with tags:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.ec2.DefaultVpc("default", tags={
+            "Name": "Default VPC",
+        })
+        ```
+
+        ## Import
+
+        Default VPCs can be imported using the `vpc id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
+        ```
+
         :param str resource_name: The name of the resource.
         :param DefaultVpcArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -609,6 +690,9 @@ class DefaultVpc(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cidr_block: The primary IPv4 CIDR block for the VPC
+        :param pulumi.Input[bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
+        :param pulumi.Input[str] instance_tenancy: The allowed tenancy of instances launched into the VPC
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -653,6 +737,9 @@ class DefaultVpc(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> pulumi.Output[str]:
+        """
+        The primary IPv4 CIDR block for the VPC
+        """
         return pulumi.get(self, "cidr_block")
 
     @property
@@ -708,11 +795,17 @@ class DefaultVpc(pulumi.CustomResource):
     @property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether destroying the resource deletes the default VPC. Default: `false`
+        """
         return pulumi.get(self, "force_destroy")
 
     @property
     @pulumi.getter(name="instanceTenancy")
     def instance_tenancy(self) -> pulumi.Output[str]:
+        """
+        The allowed tenancy of instances launched into the VPC
+        """
         return pulumi.get(self, "instance_tenancy")
 
     @property

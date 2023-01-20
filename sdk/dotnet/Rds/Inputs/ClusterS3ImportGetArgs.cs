@@ -12,18 +12,33 @@ namespace Pulumi.Aws.Rds.Inputs
 
     public sealed class ClusterS3ImportGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The bucket name where your backup is stored
+        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
+        /// <summary>
+        /// Can be blank, but is the path to your backup
+        /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
+        /// <summary>
+        /// Role applied to load the data.
+        /// </summary>
         [Input("ingestionRole", required: true)]
         public Input<string> IngestionRole { get; set; } = null!;
 
+        /// <summary>
+        /// Source engine for the backup
+        /// </summary>
         [Input("sourceEngine", required: true)]
         public Input<string> SourceEngine { get; set; } = null!;
 
+        /// <summary>
+        /// Version of the source engine used to make the backup
+        /// </summary>
         [Input("sourceEngineVersion", required: true)]
         public Input<string> SourceEngineVersion { get; set; } = null!;
 

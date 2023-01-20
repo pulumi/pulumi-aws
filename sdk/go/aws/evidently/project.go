@@ -10,23 +10,145 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a CloudWatch Evidently Project resource.
+//
+// ## Example Usage
+// ### Basic
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/evidently"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := evidently.NewProject(ctx, "example", &evidently.ProjectArgs{
+//				Description: pulumi.String("Example Description"),
+//				Tags: pulumi.StringMap{
+//					"Key1": pulumi.String("example Project"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Store evaluation events in a CloudWatch Log Group
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/evidently"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := evidently.NewProject(ctx, "example", &evidently.ProjectArgs{
+//				DataDelivery: &evidently.ProjectDataDeliveryArgs{
+//					CloudwatchLogs: &evidently.ProjectDataDeliveryCloudwatchLogsArgs{
+//						LogGroup: pulumi.String("example-log-group-name"),
+//					},
+//				},
+//				Description: pulumi.String("Example Description"),
+//				Tags: pulumi.StringMap{
+//					"Key1": pulumi.String("example Project"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Store evaluation events in an S3 bucket
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/evidently"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := evidently.NewProject(ctx, "example", &evidently.ProjectArgs{
+//				DataDelivery: &evidently.ProjectDataDeliveryArgs{
+//					S3Destination: &evidently.ProjectDataDeliveryS3DestinationArgs{
+//						Bucket: pulumi.String("example-bucket-name"),
+//						Prefix: pulumi.String("example"),
+//					},
+//				},
+//				Description: pulumi.String("Example Description"),
+//				Tags: pulumi.StringMap{
+//					"Key1": pulumi.String("example Project"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// CloudWatch Evidently Project can be imported using the `arn`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
+//
+// ```
 type Project struct {
 	pulumi.CustomResourceState
 
-	ActiveExperimentCount pulumi.IntOutput             `pulumi:"activeExperimentCount"`
-	ActiveLaunchCount     pulumi.IntOutput             `pulumi:"activeLaunchCount"`
-	Arn                   pulumi.StringOutput          `pulumi:"arn"`
-	CreatedTime           pulumi.StringOutput          `pulumi:"createdTime"`
-	DataDelivery          ProjectDataDeliveryPtrOutput `pulumi:"dataDelivery"`
-	Description           pulumi.StringPtrOutput       `pulumi:"description"`
-	ExperimentCount       pulumi.IntOutput             `pulumi:"experimentCount"`
-	FeatureCount          pulumi.IntOutput             `pulumi:"featureCount"`
-	LastUpdatedTime       pulumi.StringOutput          `pulumi:"lastUpdatedTime"`
-	LaunchCount           pulumi.IntOutput             `pulumi:"launchCount"`
-	Name                  pulumi.StringOutput          `pulumi:"name"`
-	Status                pulumi.StringOutput          `pulumi:"status"`
-	Tags                  pulumi.StringMapOutput       `pulumi:"tags"`
-	TagsAll               pulumi.StringMapOutput       `pulumi:"tagsAll"`
+	// The number of ongoing experiments currently in the project.
+	ActiveExperimentCount pulumi.IntOutput `pulumi:"activeExperimentCount"`
+	// The number of ongoing launches currently in the project.
+	ActiveLaunchCount pulumi.IntOutput `pulumi:"activeLaunchCount"`
+	// The ARN of the project.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The date and time that the project is created.
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
+	DataDelivery ProjectDataDeliveryPtrOutput `pulumi:"dataDelivery"`
+	// Specifies the description of the project.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
+	ExperimentCount pulumi.IntOutput `pulumi:"experimentCount"`
+	// The number of features currently in the project.
+	FeatureCount pulumi.IntOutput `pulumi:"featureCount"`
+	// The date and time that the project was most recently updated.
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	// The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
+	LaunchCount pulumi.IntOutput `pulumi:"launchCount"`
+	// A name for the project.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -58,37 +180,65 @@ func GetProject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Project resources.
 type projectState struct {
-	ActiveExperimentCount *int                 `pulumi:"activeExperimentCount"`
-	ActiveLaunchCount     *int                 `pulumi:"activeLaunchCount"`
-	Arn                   *string              `pulumi:"arn"`
-	CreatedTime           *string              `pulumi:"createdTime"`
-	DataDelivery          *ProjectDataDelivery `pulumi:"dataDelivery"`
-	Description           *string              `pulumi:"description"`
-	ExperimentCount       *int                 `pulumi:"experimentCount"`
-	FeatureCount          *int                 `pulumi:"featureCount"`
-	LastUpdatedTime       *string              `pulumi:"lastUpdatedTime"`
-	LaunchCount           *int                 `pulumi:"launchCount"`
-	Name                  *string              `pulumi:"name"`
-	Status                *string              `pulumi:"status"`
-	Tags                  map[string]string    `pulumi:"tags"`
-	TagsAll               map[string]string    `pulumi:"tagsAll"`
+	// The number of ongoing experiments currently in the project.
+	ActiveExperimentCount *int `pulumi:"activeExperimentCount"`
+	// The number of ongoing launches currently in the project.
+	ActiveLaunchCount *int `pulumi:"activeLaunchCount"`
+	// The ARN of the project.
+	Arn *string `pulumi:"arn"`
+	// The date and time that the project is created.
+	CreatedTime *string `pulumi:"createdTime"`
+	// A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
+	DataDelivery *ProjectDataDelivery `pulumi:"dataDelivery"`
+	// Specifies the description of the project.
+	Description *string `pulumi:"description"`
+	// The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
+	ExperimentCount *int `pulumi:"experimentCount"`
+	// The number of features currently in the project.
+	FeatureCount *int `pulumi:"featureCount"`
+	// The date and time that the project was most recently updated.
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
+	LaunchCount *int `pulumi:"launchCount"`
+	// A name for the project.
+	Name *string `pulumi:"name"`
+	// The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
+	Status *string `pulumi:"status"`
+	// Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ProjectState struct {
+	// The number of ongoing experiments currently in the project.
 	ActiveExperimentCount pulumi.IntPtrInput
-	ActiveLaunchCount     pulumi.IntPtrInput
-	Arn                   pulumi.StringPtrInput
-	CreatedTime           pulumi.StringPtrInput
-	DataDelivery          ProjectDataDeliveryPtrInput
-	Description           pulumi.StringPtrInput
-	ExperimentCount       pulumi.IntPtrInput
-	FeatureCount          pulumi.IntPtrInput
-	LastUpdatedTime       pulumi.StringPtrInput
-	LaunchCount           pulumi.IntPtrInput
-	Name                  pulumi.StringPtrInput
-	Status                pulumi.StringPtrInput
-	Tags                  pulumi.StringMapInput
-	TagsAll               pulumi.StringMapInput
+	// The number of ongoing launches currently in the project.
+	ActiveLaunchCount pulumi.IntPtrInput
+	// The ARN of the project.
+	Arn pulumi.StringPtrInput
+	// The date and time that the project is created.
+	CreatedTime pulumi.StringPtrInput
+	// A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
+	DataDelivery ProjectDataDeliveryPtrInput
+	// Specifies the description of the project.
+	Description pulumi.StringPtrInput
+	// The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
+	ExperimentCount pulumi.IntPtrInput
+	// The number of features currently in the project.
+	FeatureCount pulumi.IntPtrInput
+	// The date and time that the project was most recently updated.
+	LastUpdatedTime pulumi.StringPtrInput
+	// The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
+	LaunchCount pulumi.IntPtrInput
+	// A name for the project.
+	Name pulumi.StringPtrInput
+	// The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
+	Status pulumi.StringPtrInput
+	// Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (ProjectState) ElementType() reflect.Type {
@@ -96,18 +246,26 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
+	// A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
 	DataDelivery *ProjectDataDelivery `pulumi:"dataDelivery"`
-	Description  *string              `pulumi:"description"`
-	Name         *string              `pulumi:"name"`
-	Tags         map[string]string    `pulumi:"tags"`
+	// Specifies the description of the project.
+	Description *string `pulumi:"description"`
+	// A name for the project.
+	Name *string `pulumi:"name"`
+	// Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
+	// A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
 	DataDelivery ProjectDataDeliveryPtrInput
-	Description  pulumi.StringPtrInput
-	Name         pulumi.StringPtrInput
-	Tags         pulumi.StringMapInput
+	// Specifies the description of the project.
+	Description pulumi.StringPtrInput
+	// A name for the project.
+	Name pulumi.StringPtrInput
+	// Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {
@@ -197,58 +355,72 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
+// The number of ongoing experiments currently in the project.
 func (o ProjectOutput) ActiveExperimentCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Project) pulumi.IntOutput { return v.ActiveExperimentCount }).(pulumi.IntOutput)
 }
 
+// The number of ongoing launches currently in the project.
 func (o ProjectOutput) ActiveLaunchCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Project) pulumi.IntOutput { return v.ActiveLaunchCount }).(pulumi.IntOutput)
 }
 
+// The ARN of the project.
 func (o ProjectOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The date and time that the project is created.
 func (o ProjectOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
+// A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
 func (o ProjectOutput) DataDelivery() ProjectDataDeliveryPtrOutput {
 	return o.ApplyT(func(v *Project) ProjectDataDeliveryPtrOutput { return v.DataDelivery }).(ProjectDataDeliveryPtrOutput)
 }
 
+// Specifies the description of the project.
 func (o ProjectOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
 func (o ProjectOutput) ExperimentCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Project) pulumi.IntOutput { return v.ExperimentCount }).(pulumi.IntOutput)
 }
 
+// The number of features currently in the project.
 func (o ProjectOutput) FeatureCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Project) pulumi.IntOutput { return v.FeatureCount }).(pulumi.IntOutput)
 }
 
+// The date and time that the project was most recently updated.
 func (o ProjectOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
+// The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
 func (o ProjectOutput) LaunchCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Project) pulumi.IntOutput { return v.LaunchCount }).(pulumi.IntOutput)
 }
 
+// A name for the project.
 func (o ProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
 func (o ProjectOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProjectOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ProjectOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

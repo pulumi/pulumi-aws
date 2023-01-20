@@ -16,16 +16,32 @@ public final class GetComputeEnvironmentArgs extends com.pulumi.resources.Invoke
 
     public static final GetComputeEnvironmentArgs Empty = new GetComputeEnvironmentArgs();
 
+    /**
+     * Name of the Batch Compute Environment
+     * 
+     */
     @Import(name="computeEnvironmentName", required=true)
     private Output<String> computeEnvironmentName;
 
+    /**
+     * @return Name of the Batch Compute Environment
+     * 
+     */
     public Output<String> computeEnvironmentName() {
         return this.computeEnvironmentName;
     }
 
+    /**
+     * Key-value map of resource tags
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -55,20 +71,44 @@ public final class GetComputeEnvironmentArgs extends com.pulumi.resources.Invoke
             $ = new GetComputeEnvironmentArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param computeEnvironmentName Name of the Batch Compute Environment
+         * 
+         * @return builder
+         * 
+         */
         public Builder computeEnvironmentName(Output<String> computeEnvironmentName) {
             $.computeEnvironmentName = computeEnvironmentName;
             return this;
         }
 
+        /**
+         * @param computeEnvironmentName Name of the Batch Compute Environment
+         * 
+         * @return builder
+         * 
+         */
         public Builder computeEnvironmentName(String computeEnvironmentName) {
             return computeEnvironmentName(Output.of(computeEnvironmentName));
         }
 
+        /**
+         * @param tags Key-value map of resource tags
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of resource tags
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -16,16 +16,32 @@ public final class EnablerState extends com.pulumi.resources.ResourceArgs {
 
     public static final EnablerState Empty = new EnablerState();
 
+    /**
+     * Set of account IDs.
+     * 
+     */
     @Import(name="accountIds")
     private @Nullable Output<List<String>> accountIds;
 
+    /**
+     * @return Set of account IDs.
+     * 
+     */
     public Optional<Output<List<String>>> accountIds() {
         return Optional.ofNullable(this.accountIds);
     }
 
+    /**
+     * Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+     * 
+     */
     @Import(name="resourceTypes")
     private @Nullable Output<List<String>> resourceTypes;
 
+    /**
+     * @return Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+     * 
+     */
     public Optional<Output<List<String>>> resourceTypes() {
         return Optional.ofNullable(this.resourceTypes);
     }
@@ -55,28 +71,64 @@ public final class EnablerState extends com.pulumi.resources.ResourceArgs {
             $ = new EnablerState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accountIds Set of account IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountIds(@Nullable Output<List<String>> accountIds) {
             $.accountIds = accountIds;
             return this;
         }
 
+        /**
+         * @param accountIds Set of account IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountIds(List<String> accountIds) {
             return accountIds(Output.of(accountIds));
         }
 
+        /**
+         * @param accountIds Set of account IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountIds(String... accountIds) {
             return accountIds(List.of(accountIds));
         }
 
+        /**
+         * @param resourceTypes Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceTypes(@Nullable Output<List<String>> resourceTypes) {
             $.resourceTypes = resourceTypes;
             return this;
         }
 
+        /**
+         * @param resourceTypes Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceTypes(List<String> resourceTypes) {
             return resourceTypes(Output.of(resourceTypes));
         }
 
+        /**
+         * @param resourceTypes Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceTypes(String... resourceTypes) {
             return resourceTypes(List.of(resourceTypes));
         }

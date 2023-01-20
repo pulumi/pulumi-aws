@@ -11,9 +11,191 @@ namespace Pulumi.Aws.Pricing
 {
     public static class GetProduct
     {
+        /// <summary>
+        /// Use this data source to get the pricing information of all products in AWS.
+        /// This data source is only available in a us-east-1 or ap-south-1 provider.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Pricing.GetProduct.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "instanceType",
+        ///                 Value = "c5.xlarge",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "operatingSystem",
+        ///                 Value = "Linux",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "location",
+        ///                 Value = "US East (N. Virginia)",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "preInstalledSw",
+        ///                 Value = "NA",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "licenseModel",
+        ///                 Value = "No License required",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "tenancy",
+        ///                 Value = "Shared",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "capacitystatus",
+        ///                 Value = "Used",
+        ///             },
+        ///         },
+        ///         ServiceCode = "AmazonEC2",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Pricing.GetProduct.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "instanceType",
+        ///                 Value = "ds1.xlarge",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "location",
+        ///                 Value = "US East (N. Virginia)",
+        ///             },
+        ///         },
+        ///         ServiceCode = "AmazonRedshift",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("aws:pricing/getProduct:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to get the pricing information of all products in AWS.
+        /// This data source is only available in a us-east-1 or ap-south-1 provider.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Pricing.GetProduct.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "instanceType",
+        ///                 Value = "c5.xlarge",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "operatingSystem",
+        ///                 Value = "Linux",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "location",
+        ///                 Value = "US East (N. Virginia)",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "preInstalledSw",
+        ///                 Value = "NA",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "licenseModel",
+        ///                 Value = "No License required",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "tenancy",
+        ///                 Value = "Shared",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "capacitystatus",
+        ///                 Value = "Used",
+        ///             },
+        ///         },
+        ///         ServiceCode = "AmazonEC2",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Pricing.GetProduct.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "instanceType",
+        ///                 Value = "ds1.xlarge",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "location",
+        ///                 Value = "US East (N. Virginia)",
+        ///             },
+        ///         },
+        ///         ServiceCode = "AmazonRedshift",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("aws:pricing/getProduct:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
     }
@@ -23,12 +205,19 @@ namespace Pulumi.Aws.Pricing
     {
         [Input("filters", required: true)]
         private List<Inputs.GetProductFilterArgs>? _filters;
+
+        /// <summary>
+        /// List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+        /// </summary>
         public List<Inputs.GetProductFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetProductFilterArgs>());
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
+        /// </summary>
         [Input("serviceCode", required: true)]
         public string ServiceCode { get; set; } = null!;
 
@@ -42,12 +231,19 @@ namespace Pulumi.Aws.Pricing
     {
         [Input("filters", required: true)]
         private InputList<Inputs.GetProductFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+        /// </summary>
         public InputList<Inputs.GetProductFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetProductFilterInputArgs>());
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
+        /// </summary>
         [Input("serviceCode", required: true)]
         public Input<string> ServiceCode { get; set; } = null!;
 
@@ -66,6 +262,9 @@ namespace Pulumi.Aws.Pricing
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Set to the product returned from the API.
+        /// </summary>
         public readonly string Result;
         public readonly string ServiceCode;
 

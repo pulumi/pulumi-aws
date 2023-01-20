@@ -9,12 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AutoScaling
 {
+    /// <summary>
+    /// Manages an individual Autoscaling Group (ASG) tag. This resource should only be used in cases where ASGs are created outside the provider (e.g., ASGs implicitly created by EKS Node Groups).
+    /// 
+    /// &gt; **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `aws.autoscaling.Group` and `aws.autoscaling.Tag` to manage tags of the same ASG will cause a perpetual difference where the `aws.autoscaling.Group` resource will try to remove the tag being added by the `aws.autoscaling.Tag` resource.
+    /// 
+    /// &gt; **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_autoscaling_group_tag` can be imported by using the ASG name and key, separated by a comma (`,`), e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:autoscaling/tag:Tag example asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:autoscaling/tag:Tag")]
     public partial class Tag : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Name of the Autoscaling Group to apply the tag to.
+        /// </summary>
         [Output("autoscalingGroupName")]
         public Output<string> AutoscalingGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// Tag to create. The `tag` block is documented below.
+        /// </summary>
         [Output("tag")]
         public Output<Outputs.TagTag> TagDetails { get; private set; } = null!;
 
@@ -64,9 +85,15 @@ namespace Pulumi.Aws.AutoScaling
 
     public sealed class TagArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the Autoscaling Group to apply the tag to.
+        /// </summary>
         [Input("autoscalingGroupName", required: true)]
         public Input<string> AutoscalingGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Tag to create. The `tag` block is documented below.
+        /// </summary>
         [Input("tag", required: true)]
         public Input<Inputs.TagTagArgs> TagDetails { get; set; } = null!;
 
@@ -78,9 +105,15 @@ namespace Pulumi.Aws.AutoScaling
 
     public sealed class TagState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the Autoscaling Group to apply the tag to.
+        /// </summary>
         [Input("autoscalingGroupName")]
         public Input<string>? AutoscalingGroupName { get; set; }
 
+        /// <summary>
+        /// Tag to create. The `tag` block is documented below.
+        /// </summary>
         [Input("tag")]
         public Input<Inputs.TagTagGetArgs>? TagDetails { get; set; }
 

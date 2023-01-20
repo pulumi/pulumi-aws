@@ -17,23 +17,89 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Elastic File System (EFS) access point.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.efs.AccessPoint;
+ * import com.pulumi.aws.efs.AccessPointArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new AccessPoint(&#34;test&#34;, AccessPointArgs.builder()        
+ *             .fileSystemId(aws_efs_file_system.foo().id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * The EFS access points can be imported using the `id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
+ * ```
+ * 
+ */
 @ResourceType(type="aws:efs/accessPoint:AccessPoint")
 public class AccessPoint extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the access point.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the access point.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * ARN of the file system.
+     * 
+     */
     @Export(name="fileSystemArn", refs={String.class}, tree="[0]")
     private Output<String> fileSystemArn;
 
+    /**
+     * @return ARN of the file system.
+     * 
+     */
     public Output<String> fileSystemArn() {
         return this.fileSystemArn;
     }
+    /**
+     * ID of the file system for which the access point is intended.
+     * 
+     */
     @Export(name="fileSystemId", refs={String.class}, tree="[0]")
     private Output<String> fileSystemId;
 
+    /**
+     * @return ID of the file system for which the access point is intended.
+     * 
+     */
     public Output<String> fileSystemId() {
         return this.fileSystemId;
     }
@@ -43,27 +109,59 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
     public Output<String> ownerId() {
         return this.ownerId;
     }
+    /**
+     * Operating system user and group applied to all file system requests made using the access point. Detailed below.
+     * 
+     */
     @Export(name="posixUser", refs={AccessPointPosixUser.class}, tree="[0]")
     private Output</* @Nullable */ AccessPointPosixUser> posixUser;
 
+    /**
+     * @return Operating system user and group applied to all file system requests made using the access point. Detailed below.
+     * 
+     */
     public Output<Optional<AccessPointPosixUser>> posixUser() {
         return Codegen.optional(this.posixUser);
     }
+    /**
+     * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
+     * 
+     */
     @Export(name="rootDirectory", refs={AccessPointRootDirectory.class}, tree="[0]")
     private Output<AccessPointRootDirectory> rootDirectory;
 
+    /**
+     * @return Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
+     * 
+     */
     public Output<AccessPointRootDirectory> rootDirectory() {
         return this.rootDirectory;
     }
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

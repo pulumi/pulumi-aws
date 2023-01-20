@@ -9,33 +9,89 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Organizations
 {
+    /// <summary>
+    /// Provides a resource to manage an [AWS Organizations Delegated Administrator](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Organizations.DelegatedAdministrator("example", new()
+    ///     {
+    ///         AccountId = "123456789012",
+    ///         ServicePrincipal = "principal",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_organizations_delegated_administrator` can be imported by using the account ID and its service principal, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:organizations/delegatedAdministrator:DelegatedAdministrator example 123456789012/config.amazonaws.com
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:organizations/delegatedAdministrator:DelegatedAdministrator")]
     public partial class DelegatedAdministrator : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The account ID number of the member account in the organization to register as a delegated administrator.
+        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the delegated administrator's account.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The date when the account was made a delegated administrator.
+        /// </summary>
         [Output("delegationEnabledDate")]
         public Output<string> DelegationEnabledDate { get; private set; } = null!;
 
+        /// <summary>
+        /// The email address that is associated with the delegated administrator's AWS account.
+        /// </summary>
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
 
+        /// <summary>
+        /// The method by which the delegated administrator's account joined the organization.
+        /// </summary>
         [Output("joinedMethod")]
         public Output<string> JoinedMethod { get; private set; } = null!;
 
+        /// <summary>
+        /// The date when the delegated administrator's account became a part of the organization.
+        /// </summary>
         [Output("joinedTimestamp")]
         public Output<string> JoinedTimestamp { get; private set; } = null!;
 
+        /// <summary>
+        /// The friendly name of the delegated administrator's account.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The service principal of the AWS service for which you want to make the member account a delegated administrator.
+        /// </summary>
         [Output("servicePrincipal")]
         public Output<string> ServicePrincipal { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the delegated administrator's account in the organization.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -85,9 +141,15 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class DelegatedAdministratorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The account ID number of the member account in the organization to register as a delegated administrator.
+        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The service principal of the AWS service for which you want to make the member account a delegated administrator.
+        /// </summary>
         [Input("servicePrincipal", required: true)]
         public Input<string> ServicePrincipal { get; set; } = null!;
 
@@ -99,30 +161,57 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class DelegatedAdministratorState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The account ID number of the member account in the organization to register as a delegated administrator.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the delegated administrator's account.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The date when the account was made a delegated administrator.
+        /// </summary>
         [Input("delegationEnabledDate")]
         public Input<string>? DelegationEnabledDate { get; set; }
 
+        /// <summary>
+        /// The email address that is associated with the delegated administrator's AWS account.
+        /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
 
+        /// <summary>
+        /// The method by which the delegated administrator's account joined the organization.
+        /// </summary>
         [Input("joinedMethod")]
         public Input<string>? JoinedMethod { get; set; }
 
+        /// <summary>
+        /// The date when the delegated administrator's account became a part of the organization.
+        /// </summary>
         [Input("joinedTimestamp")]
         public Input<string>? JoinedTimestamp { get; set; }
 
+        /// <summary>
+        /// The friendly name of the delegated administrator's account.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The service principal of the AWS service for which you want to make the member account a delegated administrator.
+        /// </summary>
         [Input("servicePrincipal")]
         public Input<string>? ServicePrincipal { get; set; }
 
+        /// <summary>
+        /// The status of the delegated administrator's account in the organization.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

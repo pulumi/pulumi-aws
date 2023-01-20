@@ -56,6 +56,17 @@ class AppMonitorAppMonitorConfiguration(dict):
                  included_pages: Optional[Sequence[str]] = None,
                  session_sample_rate: Optional[float] = None,
                  telemetries: Optional[Sequence[str]] = None):
+        """
+        :param bool allow_cookies: If you set this to `true`, RUM web client sets two cookies, a session cookie  and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
+        :param bool enable_xray: If you set this to `true`, RUM enables X-Ray tracing for the user sessions  that RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also records an X-Ray segment for allowed HTTP requests.
+        :param Sequence[str] excluded_pages: A list of URLs in your website or application to exclude from RUM data collection.
+        :param Sequence[str] favorite_pages: A list of pages in the CloudWatch RUM console that are to be displayed with a "favorite" icon.
+        :param str guest_role_arn: The ARN of the guest IAM role that is attached to the Amazon Cognito identity pool that is used to authorize the sending of data to RUM.
+        :param str identity_pool_id: The ID of the Amazon Cognito identity pool that is used to authorize the sending of data to RUM.
+        :param Sequence[str] included_pages: If this app monitor is to collect data from only certain pages in your application, this structure lists those pages.
+        :param float session_sample_rate: Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. Default value is `0.1`.
+        :param Sequence[str] telemetries: An array that lists the types of telemetry data that this app monitor is to collect. Valid values are `errors`, `performance`, and `http`.
+        """
         if allow_cookies is not None:
             pulumi.set(__self__, "allow_cookies", allow_cookies)
         if enable_xray is not None:
@@ -78,46 +89,73 @@ class AppMonitorAppMonitorConfiguration(dict):
     @property
     @pulumi.getter(name="allowCookies")
     def allow_cookies(self) -> Optional[bool]:
+        """
+        If you set this to `true`, RUM web client sets two cookies, a session cookie  and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
+        """
         return pulumi.get(self, "allow_cookies")
 
     @property
     @pulumi.getter(name="enableXray")
     def enable_xray(self) -> Optional[bool]:
+        """
+        If you set this to `true`, RUM enables X-Ray tracing for the user sessions  that RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also records an X-Ray segment for allowed HTTP requests.
+        """
         return pulumi.get(self, "enable_xray")
 
     @property
     @pulumi.getter(name="excludedPages")
     def excluded_pages(self) -> Optional[Sequence[str]]:
+        """
+        A list of URLs in your website or application to exclude from RUM data collection.
+        """
         return pulumi.get(self, "excluded_pages")
 
     @property
     @pulumi.getter(name="favoritePages")
     def favorite_pages(self) -> Optional[Sequence[str]]:
+        """
+        A list of pages in the CloudWatch RUM console that are to be displayed with a "favorite" icon.
+        """
         return pulumi.get(self, "favorite_pages")
 
     @property
     @pulumi.getter(name="guestRoleArn")
     def guest_role_arn(self) -> Optional[str]:
+        """
+        The ARN of the guest IAM role that is attached to the Amazon Cognito identity pool that is used to authorize the sending of data to RUM.
+        """
         return pulumi.get(self, "guest_role_arn")
 
     @property
     @pulumi.getter(name="identityPoolId")
     def identity_pool_id(self) -> Optional[str]:
+        """
+        The ID of the Amazon Cognito identity pool that is used to authorize the sending of data to RUM.
+        """
         return pulumi.get(self, "identity_pool_id")
 
     @property
     @pulumi.getter(name="includedPages")
     def included_pages(self) -> Optional[Sequence[str]]:
+        """
+        If this app monitor is to collect data from only certain pages in your application, this structure lists those pages.
+        """
         return pulumi.get(self, "included_pages")
 
     @property
     @pulumi.getter(name="sessionSampleRate")
     def session_sample_rate(self) -> Optional[float]:
+        """
+        Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. Default value is `0.1`.
+        """
         return pulumi.get(self, "session_sample_rate")
 
     @property
     @pulumi.getter
     def telemetries(self) -> Optional[Sequence[str]]:
+        """
+        An array that lists the types of telemetry data that this app monitor is to collect. Valid values are `errors`, `performance`, and `http`.
+        """
         return pulumi.get(self, "telemetries")
 
 

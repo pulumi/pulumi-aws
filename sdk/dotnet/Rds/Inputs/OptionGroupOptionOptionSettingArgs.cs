@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Rds.Inputs
 
     public sealed class OptionGroupOptionOptionSettingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Name of the setting.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Value of the setting.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

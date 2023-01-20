@@ -11,9 +11,65 @@ namespace Pulumi.Aws.Emr
 {
     public static class GetReleaseLabels
     {
+        /// <summary>
+        /// Retrieve information about EMR Release Labels.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Emr.GetReleaseLabels.Invoke(new()
+        ///     {
+        ///         Filters = new Aws.Emr.Inputs.GetReleaseLabelsFiltersInputArgs
+        ///         {
+        ///             Application = "spark@2.1.0",
+        ///             Prefix = "emr-5",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetReleaseLabelsResult> InvokeAsync(GetReleaseLabelsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReleaseLabelsResult>("aws:emr/getReleaseLabels:getReleaseLabels", args ?? new GetReleaseLabelsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieve information about EMR Release Labels.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Emr.GetReleaseLabels.Invoke(new()
+        ///     {
+        ///         Filters = new Aws.Emr.Inputs.GetReleaseLabelsFiltersInputArgs
+        ///         {
+        ///             Application = "spark@2.1.0",
+        ///             Prefix = "emr-5",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetReleaseLabelsResult> Invoke(GetReleaseLabelsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReleaseLabelsResult>("aws:emr/getReleaseLabels:getReleaseLabels", args ?? new GetReleaseLabelsInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +77,9 @@ namespace Pulumi.Aws.Emr
 
     public sealed class GetReleaseLabelsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
+        /// </summary>
         [Input("filters")]
         public Inputs.GetReleaseLabelsFiltersArgs? Filters { get; set; }
 
@@ -32,6 +91,9 @@ namespace Pulumi.Aws.Emr
 
     public sealed class GetReleaseLabelsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
+        /// </summary>
         [Input("filters")]
         public Input<Inputs.GetReleaseLabelsFiltersInputArgs>? Filters { get; set; }
 
@@ -50,6 +112,9 @@ namespace Pulumi.Aws.Emr
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Returned release labels.
+        /// </summary>
         public readonly ImmutableArray<string> ReleaseLabels;
 
         [OutputConstructor]

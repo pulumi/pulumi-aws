@@ -13,16 +13,32 @@ public final class ApprovalRuleTemplateAssociationArgs extends com.pulumi.resour
 
     public static final ApprovalRuleTemplateAssociationArgs Empty = new ApprovalRuleTemplateAssociationArgs();
 
+    /**
+     * The name for the approval rule template.
+     * 
+     */
     @Import(name="approvalRuleTemplateName", required=true)
     private Output<String> approvalRuleTemplateName;
 
+    /**
+     * @return The name for the approval rule template.
+     * 
+     */
     public Output<String> approvalRuleTemplateName() {
         return this.approvalRuleTemplateName;
     }
 
+    /**
+     * The name of the repository that you want to associate with the template.
+     * 
+     */
     @Import(name="repositoryName", required=true)
     private Output<String> repositoryName;
 
+    /**
+     * @return The name of the repository that you want to associate with the template.
+     * 
+     */
     public Output<String> repositoryName() {
         return this.repositoryName;
     }
@@ -52,20 +68,44 @@ public final class ApprovalRuleTemplateAssociationArgs extends com.pulumi.resour
             $ = new ApprovalRuleTemplateAssociationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param approvalRuleTemplateName The name for the approval rule template.
+         * 
+         * @return builder
+         * 
+         */
         public Builder approvalRuleTemplateName(Output<String> approvalRuleTemplateName) {
             $.approvalRuleTemplateName = approvalRuleTemplateName;
             return this;
         }
 
+        /**
+         * @param approvalRuleTemplateName The name for the approval rule template.
+         * 
+         * @return builder
+         * 
+         */
         public Builder approvalRuleTemplateName(String approvalRuleTemplateName) {
             return approvalRuleTemplateName(Output.of(approvalRuleTemplateName));
         }
 
+        /**
+         * @param repositoryName The name of the repository that you want to associate with the template.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repositoryName(Output<String> repositoryName) {
             $.repositoryName = repositoryName;
             return this;
         }
 
+        /**
+         * @param repositoryName The name of the repository that you want to associate with the template.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repositoryName(String repositoryName) {
             return repositoryName(Output.of(repositoryName));
         }

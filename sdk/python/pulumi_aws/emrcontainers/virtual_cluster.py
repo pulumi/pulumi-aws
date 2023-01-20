@@ -21,6 +21,9 @@ class VirtualClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VirtualCluster resource.
+        :param pulumi.Input['VirtualClusterContainerProviderArgs'] container_provider: Configuration block for the container provider associated with your cluster.
+        :param pulumi.Input[str] name: Name of the virtual cluster.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         pulumi.set(__self__, "container_provider", container_provider)
         if name is not None:
@@ -31,6 +34,9 @@ class VirtualClusterArgs:
     @property
     @pulumi.getter(name="containerProvider")
     def container_provider(self) -> pulumi.Input['VirtualClusterContainerProviderArgs']:
+        """
+        Configuration block for the container provider associated with your cluster.
+        """
         return pulumi.get(self, "container_provider")
 
     @container_provider.setter
@@ -40,6 +46,9 @@ class VirtualClusterArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the virtual cluster.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -49,6 +58,9 @@ class VirtualClusterArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -66,6 +78,11 @@ class _VirtualClusterState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering VirtualCluster resources.
+        :param pulumi.Input[str] arn: ARN of the cluster.
+        :param pulumi.Input['VirtualClusterContainerProviderArgs'] container_provider: Configuration block for the container provider associated with your cluster.
+        :param pulumi.Input[str] name: Name of the virtual cluster.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -81,6 +98,9 @@ class _VirtualClusterState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the cluster.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -90,6 +110,9 @@ class _VirtualClusterState:
     @property
     @pulumi.getter(name="containerProvider")
     def container_provider(self) -> Optional[pulumi.Input['VirtualClusterContainerProviderArgs']]:
+        """
+        Configuration block for the container provider associated with your cluster.
+        """
         return pulumi.get(self, "container_provider")
 
     @container_provider.setter
@@ -99,6 +122,9 @@ class _VirtualClusterState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the virtual cluster.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -108,6 +134,9 @@ class _VirtualClusterState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -117,6 +146,9 @@ class _VirtualClusterState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -134,9 +166,39 @@ class VirtualCluster(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a VirtualCluster resource with the given unique name, props, and options.
+        Manages an EMR Containers (EMR on EKS) Virtual Cluster.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.emrcontainers.VirtualCluster("example", container_provider=aws.emrcontainers.VirtualClusterContainerProviderArgs(
+            id=aws_eks_cluster["example"]["name"],
+            type="EKS",
+            info=aws.emrcontainers.VirtualClusterContainerProviderInfoArgs(
+                eks_info=aws.emrcontainers.VirtualClusterContainerProviderInfoEksInfoArgs(
+                    namespace="default",
+                ),
+            ),
+        ))
+        ```
+
+        ## Import
+
+        EKS Clusters can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['VirtualClusterContainerProviderArgs']] container_provider: Configuration block for the container provider associated with your cluster.
+        :param pulumi.Input[str] name: Name of the virtual cluster.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         ...
     @overload
@@ -145,7 +207,34 @@ class VirtualCluster(pulumi.CustomResource):
                  args: VirtualClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a VirtualCluster resource with the given unique name, props, and options.
+        Manages an EMR Containers (EMR on EKS) Virtual Cluster.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.emrcontainers.VirtualCluster("example", container_provider=aws.emrcontainers.VirtualClusterContainerProviderArgs(
+            id=aws_eks_cluster["example"]["name"],
+            type="EKS",
+            info=aws.emrcontainers.VirtualClusterContainerProviderInfoArgs(
+                eks_info=aws.emrcontainers.VirtualClusterContainerProviderInfoEksInfoArgs(
+                    namespace="default",
+                ),
+            ),
+        ))
+        ```
+
+        ## Import
+
+        EKS Clusters can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
+        ```
+
         :param str resource_name: The name of the resource.
         :param VirtualClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,6 +291,11 @@ class VirtualCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the cluster.
+        :param pulumi.Input[pulumi.InputType['VirtualClusterContainerProviderArgs']] container_provider: Configuration block for the container provider associated with your cluster.
+        :param pulumi.Input[str] name: Name of the virtual cluster.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -217,25 +311,40 @@ class VirtualCluster(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the cluster.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="containerProvider")
     def container_provider(self) -> pulumi.Output['outputs.VirtualClusterContainerProvider']:
+        """
+        Configuration block for the container provider associated with your cluster.
+        """
         return pulumi.get(self, "container_provider")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Name of the virtual cluster.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

@@ -13,10 +13,25 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig
     {
+        /// <summary>
+        /// Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See AWS Managed Rules Bot Control Rule Set for more details
+        /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet? AwsManagedRulesBotControlRuleSet;
+        /// <summary>
+        /// The path of the login endpoint for your application.
+        /// </summary>
         public readonly string? LoginPath;
+        /// <summary>
+        /// Details about your login page password field. See Password Field for more details.
+        /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField? PasswordField;
+        /// <summary>
+        /// The payload type for your login endpoint, either JSON or form encoded.
+        /// </summary>
         public readonly string? PayloadType;
+        /// <summary>
+        /// Details about your login page username field. See Username Field for more details.
+        /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField? UsernameField;
 
         [OutputConstructor]

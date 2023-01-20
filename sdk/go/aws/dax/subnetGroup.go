@@ -11,13 +11,57 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a DAX Subnet Group resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dax"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := dax.NewSubnetGroup(ctx, "example", &dax.SubnetGroupArgs{
+//				SubnetIds: pulumi.StringArray{
+//					aws_subnet.Example1.Id,
+//					aws_subnet.Example2.Id,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// DAX Subnet Group can be imported using the `name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
+//
+// ```
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringPtrOutput   `pulumi:"description"`
-	Name        pulumi.StringOutput      `pulumi:"name"`
-	SubnetIds   pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	VpcId       pulumi.StringOutput      `pulumi:"vpcId"`
+	// A description of the subnet group.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name of the subnet group.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A list of VPC subnet IDs for the subnet group.
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// VPC ID of the subnet group.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -52,17 +96,25 @@ func GetSubnetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SubnetGroup resources.
 type subnetGroupState struct {
-	Description *string  `pulumi:"description"`
-	Name        *string  `pulumi:"name"`
-	SubnetIds   []string `pulumi:"subnetIds"`
-	VpcId       *string  `pulumi:"vpcId"`
+	// A description of the subnet group.
+	Description *string `pulumi:"description"`
+	// The name of the subnet group.
+	Name *string `pulumi:"name"`
+	// A list of VPC subnet IDs for the subnet group.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// VPC ID of the subnet group.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 type SubnetGroupState struct {
+	// A description of the subnet group.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	SubnetIds   pulumi.StringArrayInput
-	VpcId       pulumi.StringPtrInput
+	// The name of the subnet group.
+	Name pulumi.StringPtrInput
+	// A list of VPC subnet IDs for the subnet group.
+	SubnetIds pulumi.StringArrayInput
+	// VPC ID of the subnet group.
+	VpcId pulumi.StringPtrInput
 }
 
 func (SubnetGroupState) ElementType() reflect.Type {
@@ -70,16 +122,22 @@ func (SubnetGroupState) ElementType() reflect.Type {
 }
 
 type subnetGroupArgs struct {
-	Description *string  `pulumi:"description"`
-	Name        *string  `pulumi:"name"`
-	SubnetIds   []string `pulumi:"subnetIds"`
+	// A description of the subnet group.
+	Description *string `pulumi:"description"`
+	// The name of the subnet group.
+	Name *string `pulumi:"name"`
+	// A list of VPC subnet IDs for the subnet group.
+	SubnetIds []string `pulumi:"subnetIds"`
 }
 
 // The set of arguments for constructing a SubnetGroup resource.
 type SubnetGroupArgs struct {
+	// A description of the subnet group.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	SubnetIds   pulumi.StringArrayInput
+	// The name of the subnet group.
+	Name pulumi.StringPtrInput
+	// A list of VPC subnet IDs for the subnet group.
+	SubnetIds pulumi.StringArrayInput
 }
 
 func (SubnetGroupArgs) ElementType() reflect.Type {
@@ -169,18 +227,22 @@ func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) S
 	return o
 }
 
+// A description of the subnet group.
 func (o SubnetGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the subnet group.
 func (o SubnetGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A list of VPC subnet IDs for the subnet group.
 func (o SubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// VPC ID of the subnet group.
 func (o SubnetGroupOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

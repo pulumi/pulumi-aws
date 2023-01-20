@@ -20,6 +20,10 @@ class CustomKeyStoreArgs:
                  trust_anchor_certificate: pulumi.Input[str]):
         """
         The set of arguments for constructing a CustomKeyStore resource.
+        :param pulumi.Input[str] cloud_hsm_cluster_id: Cluster ID of CloudHSM.
+        :param pulumi.Input[str] custom_key_store_name: Unique name for Custom Key Store.
+        :param pulumi.Input[str] key_store_password: Password for `kmsuser` on CloudHSM.
+        :param pulumi.Input[str] trust_anchor_certificate: Customer certificate used for signing on CloudHSM.
         """
         pulumi.set(__self__, "cloud_hsm_cluster_id", cloud_hsm_cluster_id)
         pulumi.set(__self__, "custom_key_store_name", custom_key_store_name)
@@ -29,6 +33,9 @@ class CustomKeyStoreArgs:
     @property
     @pulumi.getter(name="cloudHsmClusterId")
     def cloud_hsm_cluster_id(self) -> pulumi.Input[str]:
+        """
+        Cluster ID of CloudHSM.
+        """
         return pulumi.get(self, "cloud_hsm_cluster_id")
 
     @cloud_hsm_cluster_id.setter
@@ -38,6 +45,9 @@ class CustomKeyStoreArgs:
     @property
     @pulumi.getter(name="customKeyStoreName")
     def custom_key_store_name(self) -> pulumi.Input[str]:
+        """
+        Unique name for Custom Key Store.
+        """
         return pulumi.get(self, "custom_key_store_name")
 
     @custom_key_store_name.setter
@@ -47,6 +57,9 @@ class CustomKeyStoreArgs:
     @property
     @pulumi.getter(name="keyStorePassword")
     def key_store_password(self) -> pulumi.Input[str]:
+        """
+        Password for `kmsuser` on CloudHSM.
+        """
         return pulumi.get(self, "key_store_password")
 
     @key_store_password.setter
@@ -56,6 +69,9 @@ class CustomKeyStoreArgs:
     @property
     @pulumi.getter(name="trustAnchorCertificate")
     def trust_anchor_certificate(self) -> pulumi.Input[str]:
+        """
+        Customer certificate used for signing on CloudHSM.
+        """
         return pulumi.get(self, "trust_anchor_certificate")
 
     @trust_anchor_certificate.setter
@@ -72,6 +88,10 @@ class _CustomKeyStoreState:
                  trust_anchor_certificate: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CustomKeyStore resources.
+        :param pulumi.Input[str] cloud_hsm_cluster_id: Cluster ID of CloudHSM.
+        :param pulumi.Input[str] custom_key_store_name: Unique name for Custom Key Store.
+        :param pulumi.Input[str] key_store_password: Password for `kmsuser` on CloudHSM.
+        :param pulumi.Input[str] trust_anchor_certificate: Customer certificate used for signing on CloudHSM.
         """
         if cloud_hsm_cluster_id is not None:
             pulumi.set(__self__, "cloud_hsm_cluster_id", cloud_hsm_cluster_id)
@@ -85,6 +105,9 @@ class _CustomKeyStoreState:
     @property
     @pulumi.getter(name="cloudHsmClusterId")
     def cloud_hsm_cluster_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cluster ID of CloudHSM.
+        """
         return pulumi.get(self, "cloud_hsm_cluster_id")
 
     @cloud_hsm_cluster_id.setter
@@ -94,6 +117,9 @@ class _CustomKeyStoreState:
     @property
     @pulumi.getter(name="customKeyStoreName")
     def custom_key_store_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique name for Custom Key Store.
+        """
         return pulumi.get(self, "custom_key_store_name")
 
     @custom_key_store_name.setter
@@ -103,6 +129,9 @@ class _CustomKeyStoreState:
     @property
     @pulumi.getter(name="keyStorePassword")
     def key_store_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password for `kmsuser` on CloudHSM.
+        """
         return pulumi.get(self, "key_store_password")
 
     @key_store_password.setter
@@ -112,6 +141,9 @@ class _CustomKeyStoreState:
     @property
     @pulumi.getter(name="trustAnchorCertificate")
     def trust_anchor_certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        Customer certificate used for signing on CloudHSM.
+        """
         return pulumi.get(self, "trust_anchor_certificate")
 
     @trust_anchor_certificate.setter
@@ -130,9 +162,36 @@ class CustomKeyStore(pulumi.CustomResource):
                  trust_anchor_certificate: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a CustomKeyStore resource with the given unique name, props, and options.
+        Resource for managing an AWS KMS (Key Management) Custom Key Store.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.kms.CustomKeyStore("test",
+            cloud_hsm_cluster_id=var["cloud_hsm_cluster_id"],
+            custom_key_store_name="kms-custom-key-store-test",
+            key_store_password="noplaintextpasswords1",
+            trust_anchor_certificate=(lambda path: open(path).read())("anchor-certificate.crt"))
+        ```
+
+        ## Import
+
+        KMS (Key Management) Custom Key Store can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cloud_hsm_cluster_id: Cluster ID of CloudHSM.
+        :param pulumi.Input[str] custom_key_store_name: Unique name for Custom Key Store.
+        :param pulumi.Input[str] key_store_password: Password for `kmsuser` on CloudHSM.
+        :param pulumi.Input[str] trust_anchor_certificate: Customer certificate used for signing on CloudHSM.
         """
         ...
     @overload
@@ -141,7 +200,30 @@ class CustomKeyStore(pulumi.CustomResource):
                  args: CustomKeyStoreArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a CustomKeyStore resource with the given unique name, props, and options.
+        Resource for managing an AWS KMS (Key Management) Custom Key Store.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.kms.CustomKeyStore("test",
+            cloud_hsm_cluster_id=var["cloud_hsm_cluster_id"],
+            custom_key_store_name="kms-custom-key-store-test",
+            key_store_password="noplaintextpasswords1",
+            trust_anchor_certificate=(lambda path: open(path).read())("anchor-certificate.crt"))
+        ```
+
+        ## Import
+
+        KMS (Key Management) Custom Key Store can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
+        ```
+
         :param str resource_name: The name of the resource.
         :param CustomKeyStoreArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,6 +285,10 @@ class CustomKeyStore(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cloud_hsm_cluster_id: Cluster ID of CloudHSM.
+        :param pulumi.Input[str] custom_key_store_name: Unique name for Custom Key Store.
+        :param pulumi.Input[str] key_store_password: Password for `kmsuser` on CloudHSM.
+        :param pulumi.Input[str] trust_anchor_certificate: Customer certificate used for signing on CloudHSM.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -217,20 +303,32 @@ class CustomKeyStore(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cloudHsmClusterId")
     def cloud_hsm_cluster_id(self) -> pulumi.Output[str]:
+        """
+        Cluster ID of CloudHSM.
+        """
         return pulumi.get(self, "cloud_hsm_cluster_id")
 
     @property
     @pulumi.getter(name="customKeyStoreName")
     def custom_key_store_name(self) -> pulumi.Output[str]:
+        """
+        Unique name for Custom Key Store.
+        """
         return pulumi.get(self, "custom_key_store_name")
 
     @property
     @pulumi.getter(name="keyStorePassword")
     def key_store_password(self) -> pulumi.Output[str]:
+        """
+        Password for `kmsuser` on CloudHSM.
+        """
         return pulumi.get(self, "key_store_password")
 
     @property
     @pulumi.getter(name="trustAnchorCertificate")
     def trust_anchor_certificate(self) -> pulumi.Output[str]:
+        """
+        Customer certificate used for signing on CloudHSM.
+        """
         return pulumi.get(self, "trust_anchor_certificate")
 

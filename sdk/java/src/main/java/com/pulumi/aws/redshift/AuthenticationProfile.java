@@ -13,17 +13,82 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a Redshift authentication profile
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.redshift.AuthenticationProfile;
+ * import com.pulumi.aws.redshift.AuthenticationProfileArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AuthenticationProfile(&#34;example&#34;, AuthenticationProfileArgs.builder()        
+ *             .authenticationProfileName(&#34;example&#34;)
+ *             .authenticationProfileContent(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;AllowDBUserOverride&#34;, &#34;1&#34;),
+ *                     jsonProperty(&#34;Client_ID&#34;, &#34;ExampleClientID&#34;),
+ *                     jsonProperty(&#34;App_ID&#34;, &#34;example&#34;)
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Redshift Authentication Profiles support import by `authentication_profile_name`, e.g., console
+ * 
+ * ```sh
+ *  $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
+ * ```
+ * 
+ */
 @ResourceType(type="aws:redshift/authenticationProfile:AuthenticationProfile")
 public class AuthenticationProfile extends com.pulumi.resources.CustomResource {
+    /**
+     * The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
+     * 
+     */
     @Export(name="authenticationProfileContent", refs={String.class}, tree="[0]")
     private Output<String> authenticationProfileContent;
 
+    /**
+     * @return The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
+     * 
+     */
     public Output<String> authenticationProfileContent() {
         return this.authenticationProfileContent;
     }
+    /**
+     * The name of the authentication profile.
+     * 
+     */
     @Export(name="authenticationProfileName", refs={String.class}, tree="[0]")
     private Output<String> authenticationProfileName;
 
+    /**
+     * @return The name of the authentication profile.
+     * 
+     */
     public Output<String> authenticationProfileName() {
         return this.authenticationProfileName;
     }

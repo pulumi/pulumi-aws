@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Eks.Inputs
 
     public sealed class NodeGroupUpdateConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Desired max number of unavailable worker nodes during node group update.
+        /// </summary>
         [Input("maxUnavailable")]
         public Input<int>? MaxUnavailable { get; set; }
 
+        /// <summary>
+        /// Desired max percentage of unavailable worker nodes during node group update.
+        /// </summary>
         [Input("maxUnavailablePercentage")]
         public Input<int>? MaxUnavailablePercentage { get; set; }
 

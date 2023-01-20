@@ -13,6 +13,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination
     {
+        /// <summary>
+        /// Reference ID for the destination.
+        /// </summary>
         public readonly string DestinationRefId;
 
         [OutputConstructor]

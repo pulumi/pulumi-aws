@@ -17,23 +17,47 @@ public final class GetPrefixListArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetPrefixListArgs Empty = new GetPrefixListArgs();
 
+    /**
+     * Configuration block(s) for filtering. Detailed below.
+     * 
+     */
     @Import(name="filters")
     private @Nullable Output<List<GetPrefixListFilterArgs>> filters;
 
+    /**
+     * @return Configuration block(s) for filtering. Detailed below.
+     * 
+     */
     public Optional<Output<List<GetPrefixListFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
+    /**
+     * Name of the prefix list to select.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name of the prefix list to select.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * ID of the prefix list to select.
+     * 
+     */
     @Import(name="prefixListId")
     private @Nullable Output<String> prefixListId;
 
+    /**
+     * @return ID of the prefix list to select.
+     * 
+     */
     public Optional<Output<String>> prefixListId() {
         return Optional.ofNullable(this.prefixListId);
     }
@@ -64,33 +88,75 @@ public final class GetPrefixListArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetPrefixListArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable Output<List<GetPrefixListFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(List<GetPrefixListFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
+        /**
+         * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(GetPrefixListFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
+        /**
+         * @param name Name of the prefix list to select.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the prefix list to select.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param prefixListId ID of the prefix list to select.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefixListId(@Nullable Output<String> prefixListId) {
             $.prefixListId = prefixListId;
             return this;
         }
 
+        /**
+         * @param prefixListId ID of the prefix list to select.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefixListId(String prefixListId) {
             return prefixListId(Output.of(prefixListId));
         }

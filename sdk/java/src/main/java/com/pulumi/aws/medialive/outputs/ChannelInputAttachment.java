@@ -14,20 +14,44 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelInputAttachment {
     private @Nullable ChannelInputAttachmentAutomaticInputFailoverSettings automaticInputFailoverSettings;
+    /**
+     * @return User-specified name for the attachment.
+     * 
+     */
     private String inputAttachmentName;
+    /**
+     * @return The ID of the input.
+     * 
+     */
     private String inputId;
+    /**
+     * @return Settings of an input. See Input Settings for more details
+     * 
+     */
     private @Nullable ChannelInputAttachmentInputSettings inputSettings;
 
     private ChannelInputAttachment() {}
     public Optional<ChannelInputAttachmentAutomaticInputFailoverSettings> automaticInputFailoverSettings() {
         return Optional.ofNullable(this.automaticInputFailoverSettings);
     }
+    /**
+     * @return User-specified name for the attachment.
+     * 
+     */
     public String inputAttachmentName() {
         return this.inputAttachmentName;
     }
+    /**
+     * @return The ID of the input.
+     * 
+     */
     public String inputId() {
         return this.inputId;
     }
+    /**
+     * @return Settings of an input. See Input Settings for more details
+     * 
+     */
     public Optional<ChannelInputAttachmentInputSettings> inputSettings() {
         return Optional.ofNullable(this.inputSettings);
     }

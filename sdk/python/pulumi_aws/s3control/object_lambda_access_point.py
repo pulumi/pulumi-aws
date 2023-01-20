@@ -21,6 +21,9 @@ class ObjectLambdaAccessPointArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ObjectLambdaAccessPoint resource.
+        :param pulumi.Input['ObjectLambdaAccessPointConfigurationArgs'] configuration: A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+        :param pulumi.Input[str] account_id: The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        :param pulumi.Input[str] name: The name for this Object Lambda Access Point.
         """
         pulumi.set(__self__, "configuration", configuration)
         if account_id is not None:
@@ -31,6 +34,9 @@ class ObjectLambdaAccessPointArgs:
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Input['ObjectLambdaAccessPointConfigurationArgs']:
+        """
+        A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -40,6 +46,9 @@ class ObjectLambdaAccessPointArgs:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -49,6 +58,9 @@ class ObjectLambdaAccessPointArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for this Object Lambda Access Point.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -65,6 +77,10 @@ class _ObjectLambdaAccessPointState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ObjectLambdaAccessPoint resources.
+        :param pulumi.Input[str] account_id: The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Object Lambda Access Point.
+        :param pulumi.Input['ObjectLambdaAccessPointConfigurationArgs'] configuration: A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+        :param pulumi.Input[str] name: The name for this Object Lambda Access Point.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -78,6 +94,9 @@ class _ObjectLambdaAccessPointState:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -87,6 +106,9 @@ class _ObjectLambdaAccessPointState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the Object Lambda Access Point.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -96,6 +118,9 @@ class _ObjectLambdaAccessPointState:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['ObjectLambdaAccessPointConfigurationArgs']]:
+        """
+        A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -105,6 +130,9 @@ class _ObjectLambdaAccessPointState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for this Object Lambda Access Point.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -122,9 +150,43 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ObjectLambdaAccessPoint resource with the given unique name, props, and options.
+        Provides a resource to manage an S3 Object Lambda Access Point.
+        An Object Lambda access point is associated with exactly one standard access point and thus one Amazon S3 bucket.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
+        example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
+        example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArgs(
+            supporting_access_point=example_access_point.arn,
+            transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs(
+                actions=["GetObject"],
+                content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
+                    aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
+                        function_arn=aws_lambda_function["example"]["arn"],
+                    ),
+                ),
+            )],
+        ))
+        ```
+
+        ## Import
+
+        Object Lambda Access Points can be imported using the `account_id` and `name`, separated by a colon (`:`), e.g.
+
+        ```sh
+         $ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_id: The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        :param pulumi.Input[pulumi.InputType['ObjectLambdaAccessPointConfigurationArgs']] configuration: A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+        :param pulumi.Input[str] name: The name for this Object Lambda Access Point.
         """
         ...
     @overload
@@ -133,7 +195,38 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
                  args: ObjectLambdaAccessPointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ObjectLambdaAccessPoint resource with the given unique name, props, and options.
+        Provides a resource to manage an S3 Object Lambda Access Point.
+        An Object Lambda access point is associated with exactly one standard access point and thus one Amazon S3 bucket.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
+        example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
+        example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArgs(
+            supporting_access_point=example_access_point.arn,
+            transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs(
+                actions=["GetObject"],
+                content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
+                    aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
+                        function_arn=aws_lambda_function["example"]["arn"],
+                    ),
+                ),
+            )],
+        ))
+        ```
+
+        ## Import
+
+        Object Lambda Access Points can be imported using the `account_id` and `name`, separated by a colon (`:`), e.g.
+
+        ```sh
+         $ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
+        ```
+
         :param str resource_name: The name of the resource.
         :param ObjectLambdaAccessPointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,6 +281,10 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_id: The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Object Lambda Access Point.
+        :param pulumi.Input[pulumi.InputType['ObjectLambdaAccessPointConfigurationArgs']] configuration: A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+        :param pulumi.Input[str] name: The name for this Object Lambda Access Point.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -202,20 +299,32 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
+        """
+        The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the Object Lambda Access Point.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output['outputs.ObjectLambdaAccessPointConfiguration']:
+        """
+        A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name for this Object Lambda Access Point.
+        """
         return pulumi.get(self, "name")
 

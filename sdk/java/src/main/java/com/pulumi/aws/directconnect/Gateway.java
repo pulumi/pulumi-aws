@@ -13,23 +13,89 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Direct Connect Gateway.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.directconnect.Gateway;
+ * import com.pulumi.aws.directconnect.GatewayArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
+ *             .amazonSideAsn(&#34;64512&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Direct Connect Gateways can be imported using the `gateway id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:directconnect/gateway:Gateway test abcd1234-dcba-5678-be23-cdef9876ab45
+ * ```
+ * 
+ */
 @ResourceType(type="aws:directconnect/gateway:Gateway")
 public class Gateway extends com.pulumi.resources.CustomResource {
+    /**
+     * The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
+     * 
+     */
     @Export(name="amazonSideAsn", refs={String.class}, tree="[0]")
     private Output<String> amazonSideAsn;
 
+    /**
+     * @return The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
+     * 
+     */
     public Output<String> amazonSideAsn() {
         return this.amazonSideAsn;
     }
+    /**
+     * The name of the connection.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the connection.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * AWS Account ID of the gateway.
+     * 
+     */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
+    /**
+     * @return AWS Account ID of the gateway.
+     * 
+     */
     public Output<String> ownerAccountId() {
         return this.ownerAccountId;
     }

@@ -14,6 +14,13 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class BotAbortStatement
     {
         public readonly ImmutableArray<Outputs.BotAbortStatementMessage> Messages;
+        /// <summary>
+        /// The response card. Amazon Lex will substitute session attributes and
+        /// slot values into the response card. For more information, see
+        /// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+        /// slot values into the response card. For more information, see
+        /// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+        /// </summary>
         public readonly string? ResponseCard;
 
         [OutputConstructor]

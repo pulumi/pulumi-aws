@@ -9,30 +9,92 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.MemoryDb
 {
+    /// <summary>
+    /// Provides a MemoryDB Parameter Group.
+    /// 
+    /// More information about parameter groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/parametergroups.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.MemoryDb.ParameterGroup("example", new()
+    ///     {
+    ///         Family = "memorydb_redis6",
+    ///         Parameters = new[]
+    ///         {
+    ///             new Aws.MemoryDb.Inputs.ParameterGroupParameterArgs
+    ///             {
+    ///                 Name = "activedefrag",
+    ///                 Value = "yes",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Use the `name` to import a parameter group. For example
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:memorydb/parameterGroup:ParameterGroup")]
     public partial class ParameterGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the parameter group.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Description for the parameter group.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The engine version that the parameter group can be used with.
+        /// </summary>
         [Output("family")]
         public Output<string> Family { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
 
+        /// <summary>
+        /// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
+        /// </summary>
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.ParameterGroupParameter>> Parameters { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -82,20 +144,36 @@ namespace Pulumi.Aws.MemoryDb
 
     public sealed class ParameterGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Description for the parameter group.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The engine version that the parameter group can be used with.
+        /// </summary>
         [Input("family", required: true)]
         public Input<string> Family { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
         [Input("parameters")]
         private InputList<Inputs.ParameterGroupParameterArgs>? _parameters;
+
+        /// <summary>
+        /// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
+        /// </summary>
         public InputList<Inputs.ParameterGroupParameterArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.ParameterGroupParameterArgs>());
@@ -104,6 +182,10 @@ namespace Pulumi.Aws.MemoryDb
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -118,23 +200,42 @@ namespace Pulumi.Aws.MemoryDb
 
     public sealed class ParameterGroupState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the parameter group.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Description for the parameter group.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The engine version that the parameter group can be used with.
+        /// </summary>
         [Input("family")]
         public Input<string>? Family { get; set; }
 
+        /// <summary>
+        /// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
         [Input("parameters")]
         private InputList<Inputs.ParameterGroupParameterGetArgs>? _parameters;
+
+        /// <summary>
+        /// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
+        /// </summary>
         public InputList<Inputs.ParameterGroupParameterGetArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.ParameterGroupParameterGetArgs>());
@@ -143,6 +244,10 @@ namespace Pulumi.Aws.MemoryDb
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -151,6 +256,10 @@ namespace Pulumi.Aws.MemoryDb
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

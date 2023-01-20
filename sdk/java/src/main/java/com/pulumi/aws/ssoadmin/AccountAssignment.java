@@ -14,41 +14,101 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Single Sign-On (SSO) Account Assignment resource
+ * 
+ * ## Import
+ * 
+ * SSO Account Assignments can be imported using the `principal_id`, `principal_type`, `target_id`, `target_type`, `permission_set_arn`, `instance_arn` separated by commas (`,`) e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ssoadmin/accountAssignment:AccountAssignment example f81d4fae-7dec-11d0-a765-00a0c91e6bf6,GROUP,1234567890,AWS_ACCOUNT,arn:aws:sso:::permissionSet/ssoins-0123456789abcdef/ps-0123456789abcdef,arn:aws:sso:::instance/ssoins-0123456789abcdef
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ssoadmin/accountAssignment:AccountAssignment")
 public class AccountAssignment extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name (ARN) of the SSO Instance.
+     * 
+     */
     @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the SSO Instance.
+     * 
+     */
     public Output<String> instanceArn() {
         return this.instanceArn;
     }
+    /**
+     * The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+     * 
+     */
     @Export(name="permissionSetArn", refs={String.class}, tree="[0]")
     private Output<String> permissionSetArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+     * 
+     */
     public Output<String> permissionSetArn() {
         return this.permissionSetArn;
     }
+    /**
+     * An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
+     * 
+     */
     @Export(name="principalId", refs={String.class}, tree="[0]")
     private Output<String> principalId;
 
+    /**
+     * @return An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
+     * 
+     */
     public Output<String> principalId() {
         return this.principalId;
     }
+    /**
+     * The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
+     * 
+     */
     @Export(name="principalType", refs={String.class}, tree="[0]")
     private Output<String> principalType;
 
+    /**
+     * @return The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
+     * 
+     */
     public Output<String> principalType() {
         return this.principalType;
     }
+    /**
+     * An AWS account identifier, typically a 10-12 digit string.
+     * 
+     */
     @Export(name="targetId", refs={String.class}, tree="[0]")
     private Output<String> targetId;
 
+    /**
+     * @return An AWS account identifier, typically a 10-12 digit string.
+     * 
+     */
     public Output<String> targetId() {
         return this.targetId;
     }
+    /**
+     * The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
+     * 
+     */
     @Export(name="targetType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetType;
 
+    /**
+     * @return The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
+     * 
+     */
     public Output<Optional<String>> targetType() {
         return Codegen.optional(this.targetType);
     }

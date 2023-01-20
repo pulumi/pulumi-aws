@@ -16,16 +16,32 @@ public final class FunctionVpcConfigArgs extends com.pulumi.resources.ResourceAr
 
     public static final FunctionVpcConfigArgs Empty = new FunctionVpcConfigArgs();
 
+    /**
+     * List of security group IDs associated with the Lambda function.
+     * 
+     */
     @Import(name="securityGroupIds", required=true)
     private Output<List<String>> securityGroupIds;
 
+    /**
+     * @return List of security group IDs associated with the Lambda function.
+     * 
+     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
 
+    /**
+     * List of subnet IDs associated with the Lambda function.
+     * 
+     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
+    /**
+     * @return List of subnet IDs associated with the Lambda function.
+     * 
+     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
@@ -63,28 +79,64 @@ public final class FunctionVpcConfigArgs extends com.pulumi.resources.ResourceAr
             $ = new FunctionVpcConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param securityGroupIds List of security group IDs associated with the Lambda function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
+        /**
+         * @param securityGroupIds List of security group IDs associated with the Lambda function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
+        /**
+         * @param securityGroupIds List of security group IDs associated with the Lambda function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
+        /**
+         * @param subnetIds List of subnet IDs associated with the Lambda function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
+        /**
+         * @param subnetIds List of subnet IDs associated with the Lambda function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
+        /**
+         * @param subnetIds List of subnet IDs associated with the Lambda function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }

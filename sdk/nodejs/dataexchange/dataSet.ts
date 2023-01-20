@@ -4,6 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a resource to manage AWS Data Exchange DataSets.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.dataexchange.DataSet("example", {
+ *     assetType: "S3_SNAPSHOT",
+ *     description: "example",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * DataExchange DataSets can be imported by their arn
+ *
+ * ```sh
+ *  $ pulumi import aws:dataexchange/dataSet:DataSet example arn:aws:dataexchange:us-west-2:123456789012:data-sets/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+ * ```
+ */
 export class DataSet extends pulumi.CustomResource {
     /**
      * Get an existing DataSet resource's state with the given name, ID, and optional extra
@@ -32,11 +55,29 @@ export class DataSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataSet.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name of this data set.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+     */
     public readonly assetType!: pulumi.Output<string>;
+    /**
+     * A description for the data set.
+     */
     public readonly description!: pulumi.Output<string>;
+    /**
+     * The name of the data set.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -82,11 +123,29 @@ export class DataSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DataSet resources.
  */
 export interface DataSetState {
+    /**
+     * The Amazon Resource Name of this data set.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+     */
     assetType?: pulumi.Input<string>;
+    /**
+     * A description for the data set.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the data set.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -94,8 +153,20 @@ export interface DataSetState {
  * The set of arguments for constructing a DataSet resource.
  */
 export interface DataSetArgs {
+    /**
+     * The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+     */
     assetType: pulumi.Input<string>;
+    /**
+     * A description for the data set.
+     */
     description: pulumi.Input<string>;
+    /**
+     * The name of the data set.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

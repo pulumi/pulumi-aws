@@ -11,6 +11,7 @@ import (
 )
 
 type SigningJobDestination struct {
+	// A configuration block describing the S3 Destination object: See S3 Destination below for details.
 	S3 SigningJobDestinationS3 `pulumi:"s3"`
 }
 
@@ -26,6 +27,7 @@ type SigningJobDestinationInput interface {
 }
 
 type SigningJobDestinationArgs struct {
+	// A configuration block describing the S3 Destination object: See S3 Destination below for details.
 	S3 SigningJobDestinationS3Input `pulumi:"s3"`
 }
 
@@ -106,6 +108,7 @@ func (o SigningJobDestinationOutput) ToSigningJobDestinationPtrOutputWithContext
 	}).(SigningJobDestinationPtrOutput)
 }
 
+// A configuration block describing the S3 Destination object: See S3 Destination below for details.
 func (o SigningJobDestinationOutput) S3() SigningJobDestinationS3Output {
 	return o.ApplyT(func(v SigningJobDestination) SigningJobDestinationS3 { return v.S3 }).(SigningJobDestinationS3Output)
 }
@@ -134,6 +137,7 @@ func (o SigningJobDestinationPtrOutput) Elem() SigningJobDestinationOutput {
 	}).(SigningJobDestinationOutput)
 }
 
+// A configuration block describing the S3 Destination object: See S3 Destination below for details.
 func (o SigningJobDestinationPtrOutput) S3() SigningJobDestinationS3PtrOutput {
 	return o.ApplyT(func(v *SigningJobDestination) *SigningJobDestinationS3 {
 		if v == nil {
@@ -144,7 +148,9 @@ func (o SigningJobDestinationPtrOutput) S3() SigningJobDestinationS3PtrOutput {
 }
 
 type SigningJobDestinationS3 struct {
-	Bucket string  `pulumi:"bucket"`
+	// Name of the S3 bucket.
+	Bucket string `pulumi:"bucket"`
+	// An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
 	Prefix *string `pulumi:"prefix"`
 }
 
@@ -160,7 +166,9 @@ type SigningJobDestinationS3Input interface {
 }
 
 type SigningJobDestinationS3Args struct {
-	Bucket pulumi.StringInput    `pulumi:"bucket"`
+	// Name of the S3 bucket.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
@@ -241,10 +249,12 @@ func (o SigningJobDestinationS3Output) ToSigningJobDestinationS3PtrOutputWithCon
 	}).(SigningJobDestinationS3PtrOutput)
 }
 
+// Name of the S3 bucket.
 func (o SigningJobDestinationS3Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v SigningJobDestinationS3) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
 func (o SigningJobDestinationS3Output) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SigningJobDestinationS3) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -273,6 +283,7 @@ func (o SigningJobDestinationS3PtrOutput) Elem() SigningJobDestinationS3Output {
 	}).(SigningJobDestinationS3Output)
 }
 
+// Name of the S3 bucket.
 func (o SigningJobDestinationS3PtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SigningJobDestinationS3) *string {
 		if v == nil {
@@ -282,6 +293,7 @@ func (o SigningJobDestinationS3PtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
 func (o SigningJobDestinationS3PtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SigningJobDestinationS3) *string {
 		if v == nil {
@@ -398,6 +410,7 @@ func (o SigningJobRevocationRecordArrayOutput) Index(i pulumi.IntInput) SigningJ
 }
 
 type SigningJobSignedObject struct {
+	// A configuration block describing the S3 Source object: See S3 Source below for details.
 	S3s []SigningJobSignedObjectS3 `pulumi:"s3s"`
 }
 
@@ -413,6 +426,7 @@ type SigningJobSignedObjectInput interface {
 }
 
 type SigningJobSignedObjectArgs struct {
+	// A configuration block describing the S3 Source object: See S3 Source below for details.
 	S3s SigningJobSignedObjectS3ArrayInput `pulumi:"s3s"`
 }
 
@@ -467,6 +481,7 @@ func (o SigningJobSignedObjectOutput) ToSigningJobSignedObjectOutputWithContext(
 	return o
 }
 
+// A configuration block describing the S3 Source object: See S3 Source below for details.
 func (o SigningJobSignedObjectOutput) S3s() SigningJobSignedObjectS3ArrayOutput {
 	return o.ApplyT(func(v SigningJobSignedObject) []SigningJobSignedObjectS3 { return v.S3s }).(SigningJobSignedObjectS3ArrayOutput)
 }
@@ -492,8 +507,10 @@ func (o SigningJobSignedObjectArrayOutput) Index(i pulumi.IntInput) SigningJobSi
 }
 
 type SigningJobSignedObjectS3 struct {
+	// Name of the S3 bucket.
 	Bucket *string `pulumi:"bucket"`
-	Key    *string `pulumi:"key"`
+	// Key name of the object that contains your unsigned code.
+	Key *string `pulumi:"key"`
 }
 
 // SigningJobSignedObjectS3Input is an input type that accepts SigningJobSignedObjectS3Args and SigningJobSignedObjectS3Output values.
@@ -508,8 +525,10 @@ type SigningJobSignedObjectS3Input interface {
 }
 
 type SigningJobSignedObjectS3Args struct {
+	// Name of the S3 bucket.
 	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
-	Key    pulumi.StringPtrInput `pulumi:"key"`
+	// Key name of the object that contains your unsigned code.
+	Key pulumi.StringPtrInput `pulumi:"key"`
 }
 
 func (SigningJobSignedObjectS3Args) ElementType() reflect.Type {
@@ -563,10 +582,12 @@ func (o SigningJobSignedObjectS3Output) ToSigningJobSignedObjectS3OutputWithCont
 	return o
 }
 
+// Name of the S3 bucket.
 func (o SigningJobSignedObjectS3Output) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SigningJobSignedObjectS3) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
+// Key name of the object that contains your unsigned code.
 func (o SigningJobSignedObjectS3Output) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SigningJobSignedObjectS3) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -592,6 +613,7 @@ func (o SigningJobSignedObjectS3ArrayOutput) Index(i pulumi.IntInput) SigningJob
 }
 
 type SigningJobSource struct {
+	// A configuration block describing the S3 Source object: See S3 Source below for details.
 	S3 SigningJobSourceS3 `pulumi:"s3"`
 }
 
@@ -607,6 +629,7 @@ type SigningJobSourceInput interface {
 }
 
 type SigningJobSourceArgs struct {
+	// A configuration block describing the S3 Source object: See S3 Source below for details.
 	S3 SigningJobSourceS3Input `pulumi:"s3"`
 }
 
@@ -687,6 +710,7 @@ func (o SigningJobSourceOutput) ToSigningJobSourcePtrOutputWithContext(ctx conte
 	}).(SigningJobSourcePtrOutput)
 }
 
+// A configuration block describing the S3 Source object: See S3 Source below for details.
 func (o SigningJobSourceOutput) S3() SigningJobSourceS3Output {
 	return o.ApplyT(func(v SigningJobSource) SigningJobSourceS3 { return v.S3 }).(SigningJobSourceS3Output)
 }
@@ -715,6 +739,7 @@ func (o SigningJobSourcePtrOutput) Elem() SigningJobSourceOutput {
 	}).(SigningJobSourceOutput)
 }
 
+// A configuration block describing the S3 Source object: See S3 Source below for details.
 func (o SigningJobSourcePtrOutput) S3() SigningJobSourceS3PtrOutput {
 	return o.ApplyT(func(v *SigningJobSource) *SigningJobSourceS3 {
 		if v == nil {
@@ -725,8 +750,11 @@ func (o SigningJobSourcePtrOutput) S3() SigningJobSourceS3PtrOutput {
 }
 
 type SigningJobSourceS3 struct {
-	Bucket  string `pulumi:"bucket"`
-	Key     string `pulumi:"key"`
+	// Name of the S3 bucket.
+	Bucket string `pulumi:"bucket"`
+	// Key name of the object that contains your unsigned code.
+	Key string `pulumi:"key"`
+	// Version of your source image in your version enabled S3 bucket.
 	Version string `pulumi:"version"`
 }
 
@@ -742,8 +770,11 @@ type SigningJobSourceS3Input interface {
 }
 
 type SigningJobSourceS3Args struct {
-	Bucket  pulumi.StringInput `pulumi:"bucket"`
-	Key     pulumi.StringInput `pulumi:"key"`
+	// Name of the S3 bucket.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// Key name of the object that contains your unsigned code.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Version of your source image in your version enabled S3 bucket.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -824,14 +855,17 @@ func (o SigningJobSourceS3Output) ToSigningJobSourceS3PtrOutputWithContext(ctx c
 	}).(SigningJobSourceS3PtrOutput)
 }
 
+// Name of the S3 bucket.
 func (o SigningJobSourceS3Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v SigningJobSourceS3) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// Key name of the object that contains your unsigned code.
 func (o SigningJobSourceS3Output) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SigningJobSourceS3) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Version of your source image in your version enabled S3 bucket.
 func (o SigningJobSourceS3Output) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v SigningJobSourceS3) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -860,6 +894,7 @@ func (o SigningJobSourceS3PtrOutput) Elem() SigningJobSourceS3Output {
 	}).(SigningJobSourceS3Output)
 }
 
+// Name of the S3 bucket.
 func (o SigningJobSourceS3PtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SigningJobSourceS3) *string {
 		if v == nil {
@@ -869,6 +904,7 @@ func (o SigningJobSourceS3PtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Key name of the object that contains your unsigned code.
 func (o SigningJobSourceS3PtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SigningJobSourceS3) *string {
 		if v == nil {
@@ -878,6 +914,7 @@ func (o SigningJobSourceS3PtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Version of your source image in your version enabled S3 bucket.
 func (o SigningJobSourceS3PtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SigningJobSourceS3) *string {
 		if v == nil {

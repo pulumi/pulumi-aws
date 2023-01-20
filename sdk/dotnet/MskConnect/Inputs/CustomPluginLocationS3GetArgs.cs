@@ -12,12 +12,21 @@ namespace Pulumi.Aws.MskConnect.Inputs
 
     public sealed class CustomPluginLocationS3GetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an S3 bucket.
+        /// </summary>
         [Input("bucketArn", required: true)]
         public Input<string> BucketArn { get; set; } = null!;
 
+        /// <summary>
+        /// The file key for an object in an S3 bucket.
+        /// </summary>
         [Input("fileKey", required: true)]
         public Input<string> FileKey { get; set; } = null!;
 
+        /// <summary>
+        /// The version of an object in an S3 bucket.
+        /// </summary>
         [Input("objectVersion")]
         public Input<string>? ObjectVersion { get; set; }
 

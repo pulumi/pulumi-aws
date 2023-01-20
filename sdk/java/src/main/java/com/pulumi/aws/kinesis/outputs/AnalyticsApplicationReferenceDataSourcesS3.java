@@ -9,17 +9,41 @@ import java.util.Objects;
 
 @CustomType
 public final class AnalyticsApplicationReferenceDataSourcesS3 {
+    /**
+     * @return The S3 Bucket ARN.
+     * 
+     */
     private String bucketArn;
+    /**
+     * @return The File Key name containing reference data.
+     * 
+     */
     private String fileKey;
+    /**
+     * @return The ARN of the IAM Role used to send application messages.
+     * 
+     */
     private String roleArn;
 
     private AnalyticsApplicationReferenceDataSourcesS3() {}
+    /**
+     * @return The S3 Bucket ARN.
+     * 
+     */
     public String bucketArn() {
         return this.bucketArn;
     }
+    /**
+     * @return The File Key name containing reference data.
+     * 
+     */
     public String fileKey() {
         return this.fileKey;
     }
+    /**
+     * @return The ARN of the IAM Role used to send application messages.
+     * 
+     */
     public String roleArn() {
         return this.roleArn;
     }

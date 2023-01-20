@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides details about an Outposts Outpost.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.outposts.getOutpost({
+ *     name: "example",
+ * });
+ * ```
+ */
 export function getOutpost(args?: GetOutpostArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostResult> {
     args = args || {};
 
@@ -20,9 +34,21 @@ export function getOutpost(args?: GetOutpostArgs, opts?: pulumi.InvokeOptions): 
  * A collection of arguments for invoking getOutpost.
  */
 export interface GetOutpostArgs {
+    /**
+     * ARN.
+     */
     arn?: string;
+    /**
+     * Identifier of the Outpost.
+     */
     id?: string;
+    /**
+     * Name of the Outpost.
+     */
     name?: string;
+    /**
+     * AWS Account identifier of the Outpost owner.
+     */
     ownerId?: string;
 }
 
@@ -31,14 +57,40 @@ export interface GetOutpostArgs {
  */
 export interface GetOutpostResult {
     readonly arn: string;
+    /**
+     * Availability Zone name.
+     */
     readonly availabilityZone: string;
+    /**
+     * Availability Zone identifier.
+     */
     readonly availabilityZoneId: string;
+    /**
+     * Description.
+     */
     readonly description: string;
     readonly id: string;
     readonly name: string;
     readonly ownerId: string;
+    /**
+     * Site identifier.
+     */
     readonly siteId: string;
 }
+/**
+ * Provides details about an Outposts Outpost.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.outposts.getOutpost({
+ *     name: "example",
+ * });
+ * ```
+ */
 export function getOutpostOutput(args?: GetOutpostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutpostResult> {
     return pulumi.output(args).apply((a: any) => getOutpost(a, opts))
 }
@@ -47,8 +99,20 @@ export function getOutpostOutput(args?: GetOutpostOutputArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getOutpost.
  */
 export interface GetOutpostOutputArgs {
+    /**
+     * ARN.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Identifier of the Outpost.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the Outpost.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * AWS Account identifier of the Outpost owner.
+     */
     ownerId?: pulumi.Input<string>;
 }

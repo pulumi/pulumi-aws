@@ -16,16 +16,32 @@ public final class ProxyDefaultTargetGroupArgs extends com.pulumi.resources.Reso
 
     public static final ProxyDefaultTargetGroupArgs Empty = new ProxyDefaultTargetGroupArgs();
 
+    /**
+     * The settings that determine the size and behavior of the connection pool for the target group.
+     * 
+     */
     @Import(name="connectionPoolConfig")
     private @Nullable Output<ProxyDefaultTargetGroupConnectionPoolConfigArgs> connectionPoolConfig;
 
+    /**
+     * @return The settings that determine the size and behavior of the connection pool for the target group.
+     * 
+     */
     public Optional<Output<ProxyDefaultTargetGroupConnectionPoolConfigArgs>> connectionPoolConfig() {
         return Optional.ofNullable(this.connectionPoolConfig);
     }
 
+    /**
+     * Name of the RDS DB Proxy.
+     * 
+     */
     @Import(name="dbProxyName", required=true)
     private Output<String> dbProxyName;
 
+    /**
+     * @return Name of the RDS DB Proxy.
+     * 
+     */
     public Output<String> dbProxyName() {
         return this.dbProxyName;
     }
@@ -55,20 +71,44 @@ public final class ProxyDefaultTargetGroupArgs extends com.pulumi.resources.Reso
             $ = new ProxyDefaultTargetGroupArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param connectionPoolConfig The settings that determine the size and behavior of the connection pool for the target group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionPoolConfig(@Nullable Output<ProxyDefaultTargetGroupConnectionPoolConfigArgs> connectionPoolConfig) {
             $.connectionPoolConfig = connectionPoolConfig;
             return this;
         }
 
+        /**
+         * @param connectionPoolConfig The settings that determine the size and behavior of the connection pool for the target group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionPoolConfig(ProxyDefaultTargetGroupConnectionPoolConfigArgs connectionPoolConfig) {
             return connectionPoolConfig(Output.of(connectionPoolConfig));
         }
 
+        /**
+         * @param dbProxyName Name of the RDS DB Proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbProxyName(Output<String> dbProxyName) {
             $.dbProxyName = dbProxyName;
             return this;
         }
 
+        /**
+         * @param dbProxyName Name of the RDS DB Proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbProxyName(String dbProxyName) {
             return dbProxyName(Output.of(dbProxyName));
         }

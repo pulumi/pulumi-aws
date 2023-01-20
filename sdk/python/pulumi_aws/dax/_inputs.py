@@ -22,6 +22,9 @@ class ClusterNodeArgs:
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] port: The port used by the configuration endpoint
+        """
         if address is not None:
             pulumi.set(__self__, "address", address)
         if availability_zone is not None:
@@ -61,6 +64,9 @@ class ClusterNodeArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port used by the configuration endpoint
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -72,12 +78,18 @@ class ClusterNodeArgs:
 class ClusterServerSideEncryptionArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Whether to enable encryption at rest. Defaults to `false`.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable encryption at rest. Defaults to `false`.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -90,12 +102,19 @@ class ParameterGroupParameterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the parameter.
+        :param pulumi.Input[str] value: The value for the parameter.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the parameter.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -105,6 +124,9 @@ class ParameterGroupParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value for the parameter.
+        """
         return pulumi.get(self, "value")
 
     @value.setter

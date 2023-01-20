@@ -12,6 +12,9 @@ namespace Pulumi.Aws.SesV2.Inputs
 
     public sealed class ConfigurationSetTrackingOptionsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The domain to use for tracking open and click events.
+        /// </summary>
         [Input("customRedirectDomain", required: true)]
         public Input<string> CustomRedirectDomain { get; set; } = null!;
 

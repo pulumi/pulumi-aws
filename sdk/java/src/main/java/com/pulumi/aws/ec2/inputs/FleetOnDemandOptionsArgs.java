@@ -15,9 +15,17 @@ public final class FleetOnDemandOptionsArgs extends com.pulumi.resources.Resourc
 
     public static final FleetOnDemandOptionsArgs Empty = new FleetOnDemandOptionsArgs();
 
+    /**
+     * The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
+     * 
+     */
     @Import(name="allocationStrategy")
     private @Nullable Output<String> allocationStrategy;
 
+    /**
+     * @return The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
+     * 
+     */
     public Optional<Output<String>> allocationStrategy() {
         return Optional.ofNullable(this.allocationStrategy);
     }
@@ -46,11 +54,23 @@ public final class FleetOnDemandOptionsArgs extends com.pulumi.resources.Resourc
             $ = new FleetOnDemandOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allocationStrategy The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allocationStrategy(@Nullable Output<String> allocationStrategy) {
             $.allocationStrategy = allocationStrategy;
             return this;
         }
 
+        /**
+         * @param allocationStrategy The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allocationStrategy(String allocationStrategy) {
             return allocationStrategy(Output.of(allocationStrategy));
         }

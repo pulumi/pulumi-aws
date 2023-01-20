@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMapConfiguration {
+    /**
+     * @return The map style selected from an available data provider.
+     * 
+     */
     private String style;
 
     private GetMapConfiguration() {}
+    /**
+     * @return The map style selected from an available data provider.
+     * 
+     */
     public String style() {
         return this.style;
     }

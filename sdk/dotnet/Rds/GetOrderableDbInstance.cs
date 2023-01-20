@@ -11,9 +11,135 @@ namespace Pulumi.Aws.Rds
 {
     public static class GetOrderableDbInstance
     {
+        /// <summary>
+        /// Information about RDS orderable DB instances and valid parameter combinations.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Rds.GetOrderableDbInstance.Invoke(new()
+        ///     {
+        ///         Engine = "mysql",
+        ///         EngineVersion = "5.7.22",
+        ///         LicenseModel = "general-public-license",
+        ///         PreferredInstanceClasses = new[]
+        ///         {
+        ///             "db.r6.xlarge",
+        ///             "db.m4.large",
+        ///             "db.t3.small",
+        ///         },
+        ///         StorageType = "standard",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Rds.GetOrderableDbInstance.Invoke(new()
+        ///     {
+        ///         Engine = "mysql",
+        ///         LicenseModel = "general-public-license",
+        ///         PreferredEngineVersions = new[]
+        ///         {
+        ///             "5.6.35",
+        ///             "5.6.41",
+        ///             "5.6.44",
+        ///         },
+        ///         PreferredInstanceClasses = new[]
+        ///         {
+        ///             "db.t2.small",
+        ///             "db.t3.medium",
+        ///             "db.t3.large",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetOrderableDbInstanceResult> InvokeAsync(GetOrderableDbInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrderableDbInstanceResult>("aws:rds/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Information about RDS orderable DB instances and valid parameter combinations.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Rds.GetOrderableDbInstance.Invoke(new()
+        ///     {
+        ///         Engine = "mysql",
+        ///         EngineVersion = "5.7.22",
+        ///         LicenseModel = "general-public-license",
+        ///         PreferredInstanceClasses = new[]
+        ///         {
+        ///             "db.r6.xlarge",
+        ///             "db.m4.large",
+        ///             "db.t3.small",
+        ///         },
+        ///         StorageType = "standard",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Rds.GetOrderableDbInstance.Invoke(new()
+        ///     {
+        ///         Engine = "mysql",
+        ///         LicenseModel = "general-public-license",
+        ///         PreferredEngineVersions = new[]
+        ///         {
+        ///             "5.6.35",
+        ///             "5.6.41",
+        ///             "5.6.44",
+        ///         },
+        ///         PreferredInstanceClasses = new[]
+        ///         {
+        ///             "db.t2.small",
+        ///             "db.t3.medium",
+        ///             "db.t3.large",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetOrderableDbInstanceResult> Invoke(GetOrderableDbInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrderableDbInstanceResult>("aws:rds/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceInvokeArgs(), options.WithDefaults());
     }
@@ -21,23 +147,42 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GetOrderableDbInstanceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Availability zone group.
+        /// </summary>
         [Input("availabilityZoneGroup")]
         public string? AvailabilityZoneGroup { get; set; }
 
+        /// <summary>
+        /// DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+        /// </summary>
         [Input("engine", required: true)]
         public string Engine { get; set; } = null!;
 
+        /// <summary>
+        /// Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+        /// </summary>
         [Input("engineVersion")]
         public string? EngineVersion { get; set; }
 
+        /// <summary>
+        /// DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
+        /// </summary>
         [Input("instanceClass")]
         public string? InstanceClass { get; set; }
 
+        /// <summary>
+        /// License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
+        /// </summary>
         [Input("licenseModel")]
         public string? LicenseModel { get; set; }
 
         [Input("preferredEngineVersions")]
         private List<string>? _preferredEngineVersions;
+
+        /// <summary>
+        /// Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+        /// </summary>
         public List<string> PreferredEngineVersions
         {
             get => _preferredEngineVersions ?? (_preferredEngineVersions = new List<string>());
@@ -46,39 +191,73 @@ namespace Pulumi.Aws.Rds
 
         [Input("preferredInstanceClasses")]
         private List<string>? _preferredInstanceClasses;
+
+        /// <summary>
+        /// Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+        /// </summary>
         public List<string> PreferredInstanceClasses
         {
             get => _preferredInstanceClasses ?? (_preferredInstanceClasses = new List<string>());
             set => _preferredInstanceClasses = value;
         }
 
+        /// <summary>
+        /// Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
+        /// </summary>
         [Input("storageType")]
         public string? StorageType { get; set; }
 
+        /// <summary>
+        /// Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
+        /// </summary>
         [Input("supportsEnhancedMonitoring")]
         public bool? SupportsEnhancedMonitoring { get; set; }
 
+        /// <summary>
+        /// Enable this to ensure a DB instance supports Aurora global databases with a specific combination of other DB engine attributes.
+        /// </summary>
         [Input("supportsGlobalDatabases")]
         public bool? SupportsGlobalDatabases { get; set; }
 
+        /// <summary>
+        /// Enable this to ensure a DB instance supports IAM database authentication.
+        /// </summary>
         [Input("supportsIamDatabaseAuthentication")]
         public bool? SupportsIamDatabaseAuthentication { get; set; }
 
+        /// <summary>
+        /// Enable this to ensure a DB instance supports provisioned IOPS.
+        /// </summary>
         [Input("supportsIops")]
         public bool? SupportsIops { get; set; }
 
+        /// <summary>
+        /// Enable this to ensure a DB instance supports Kerberos Authentication.
+        /// </summary>
         [Input("supportsKerberosAuthentication")]
         public bool? SupportsKerberosAuthentication { get; set; }
 
+        /// <summary>
+        /// Enable this to ensure a DB instance supports Performance Insights.
+        /// </summary>
         [Input("supportsPerformanceInsights")]
         public bool? SupportsPerformanceInsights { get; set; }
 
+        /// <summary>
+        /// Enable this to ensure Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
+        /// </summary>
         [Input("supportsStorageAutoscaling")]
         public bool? SupportsStorageAutoscaling { get; set; }
 
+        /// <summary>
+        /// Enable this to ensure a DB instance supports encrypted storage.
+        /// </summary>
         [Input("supportsStorageEncryption")]
         public bool? SupportsStorageEncryption { get; set; }
 
+        /// <summary>
+        /// Boolean that indicates whether to show only VPC or non-VPC offerings.
+        /// </summary>
         [Input("vpc")]
         public bool? Vpc { get; set; }
 
@@ -90,23 +269,42 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GetOrderableDbInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Availability zone group.
+        /// </summary>
         [Input("availabilityZoneGroup")]
         public Input<string>? AvailabilityZoneGroup { get; set; }
 
+        /// <summary>
+        /// DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+        /// </summary>
         [Input("engine", required: true)]
         public Input<string> Engine { get; set; } = null!;
 
+        /// <summary>
+        /// Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+        /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
+        /// <summary>
+        /// DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
+        /// </summary>
         [Input("instanceClass")]
         public Input<string>? InstanceClass { get; set; }
 
+        /// <summary>
+        /// License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
+        /// </summary>
         [Input("licenseModel")]
         public Input<string>? LicenseModel { get; set; }
 
         [Input("preferredEngineVersions")]
         private InputList<string>? _preferredEngineVersions;
+
+        /// <summary>
+        /// Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+        /// </summary>
         public InputList<string> PreferredEngineVersions
         {
             get => _preferredEngineVersions ?? (_preferredEngineVersions = new InputList<string>());
@@ -115,39 +313,73 @@ namespace Pulumi.Aws.Rds
 
         [Input("preferredInstanceClasses")]
         private InputList<string>? _preferredInstanceClasses;
+
+        /// <summary>
+        /// Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+        /// </summary>
         public InputList<string> PreferredInstanceClasses
         {
             get => _preferredInstanceClasses ?? (_preferredInstanceClasses = new InputList<string>());
             set => _preferredInstanceClasses = value;
         }
 
+        /// <summary>
+        /// Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
+        /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
 
+        /// <summary>
+        /// Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
+        /// </summary>
         [Input("supportsEnhancedMonitoring")]
         public Input<bool>? SupportsEnhancedMonitoring { get; set; }
 
+        /// <summary>
+        /// Enable this to ensure a DB instance supports Aurora global databases with a specific combination of other DB engine attributes.
+        /// </summary>
         [Input("supportsGlobalDatabases")]
         public Input<bool>? SupportsGlobalDatabases { get; set; }
 
+        /// <summary>
+        /// Enable this to ensure a DB instance supports IAM database authentication.
+        /// </summary>
         [Input("supportsIamDatabaseAuthentication")]
         public Input<bool>? SupportsIamDatabaseAuthentication { get; set; }
 
+        /// <summary>
+        /// Enable this to ensure a DB instance supports provisioned IOPS.
+        /// </summary>
         [Input("supportsIops")]
         public Input<bool>? SupportsIops { get; set; }
 
+        /// <summary>
+        /// Enable this to ensure a DB instance supports Kerberos Authentication.
+        /// </summary>
         [Input("supportsKerberosAuthentication")]
         public Input<bool>? SupportsKerberosAuthentication { get; set; }
 
+        /// <summary>
+        /// Enable this to ensure a DB instance supports Performance Insights.
+        /// </summary>
         [Input("supportsPerformanceInsights")]
         public Input<bool>? SupportsPerformanceInsights { get; set; }
 
+        /// <summary>
+        /// Enable this to ensure Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
+        /// </summary>
         [Input("supportsStorageAutoscaling")]
         public Input<bool>? SupportsStorageAutoscaling { get; set; }
 
+        /// <summary>
+        /// Enable this to ensure a DB instance supports encrypted storage.
+        /// </summary>
         [Input("supportsStorageEncryption")]
         public Input<bool>? SupportsStorageEncryption { get; set; }
 
+        /// <summary>
+        /// Boolean that indicates whether to show only VPC or non-VPC offerings.
+        /// </summary>
         [Input("vpc")]
         public Input<bool>? Vpc { get; set; }
 
@@ -162,6 +394,9 @@ namespace Pulumi.Aws.Rds
     public sealed class GetOrderableDbInstanceResult
     {
         public readonly string AvailabilityZoneGroup;
+        /// <summary>
+        /// Availability zones where the instance is available.
+        /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         public readonly string Engine;
         public readonly string EngineVersion;
@@ -171,19 +406,52 @@ namespace Pulumi.Aws.Rds
         public readonly string Id;
         public readonly string InstanceClass;
         public readonly string LicenseModel;
+        /// <summary>
+        /// Maximum total provisioned IOPS for a DB instance.
+        /// </summary>
         public readonly int MaxIopsPerDbInstance;
+        /// <summary>
+        /// Maximum provisioned IOPS per GiB for a DB instance.
+        /// </summary>
         public readonly double MaxIopsPerGib;
+        /// <summary>
+        /// Maximum storage size for a DB instance.
+        /// </summary>
         public readonly int MaxStorageSize;
+        /// <summary>
+        /// Minimum total provisioned IOPS for a DB instance.
+        /// </summary>
         public readonly int MinIopsPerDbInstance;
+        /// <summary>
+        /// Minimum provisioned IOPS per GiB for a DB instance.
+        /// </summary>
         public readonly double MinIopsPerGib;
+        /// <summary>
+        /// Minimum storage size for a DB instance.
+        /// </summary>
         public readonly int MinStorageSize;
+        /// <summary>
+        /// Whether a DB instance is Multi-AZ capable.
+        /// </summary>
         public readonly bool MultiAzCapable;
+        /// <summary>
+        /// Whether a DB instance supports RDS on Outposts.
+        /// </summary>
         public readonly bool OutpostCapable;
         public readonly ImmutableArray<string> PreferredEngineVersions;
         public readonly ImmutableArray<string> PreferredInstanceClasses;
+        /// <summary>
+        /// Whether a DB instance can have a read replica.
+        /// </summary>
         public readonly bool ReadReplicaCapable;
         public readonly string StorageType;
+        /// <summary>
+        /// A list of the supported DB engine modes.
+        /// </summary>
         public readonly ImmutableArray<string> SupportedEngineModes;
+        /// <summary>
+        /// The network types supported by the DB instance (`IPV4` or `DUAL`).
+        /// </summary>
         public readonly ImmutableArray<string> SupportedNetworkTypes;
         public readonly bool SupportsEnhancedMonitoring;
         public readonly bool SupportsGlobalDatabases;

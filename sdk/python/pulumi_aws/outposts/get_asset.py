@@ -57,11 +57,17 @@ class GetAssetResult:
     @property
     @pulumi.getter(name="assetType")
     def asset_type(self) -> str:
+        """
+        Type of the asset.
+        """
         return pulumi.get(self, "asset_type")
 
     @property
     @pulumi.getter(name="hostId")
     def host_id(self) -> str:
+        """
+        Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
+        """
         return pulumi.get(self, "host_id")
 
     @property
@@ -75,11 +81,17 @@ class GetAssetResult:
     @property
     @pulumi.getter(name="rackElevation")
     def rack_elevation(self) -> int:
+        """
+        Position of an asset in a rack measured in rack units.
+        """
         return pulumi.get(self, "rack_elevation")
 
     @property
     @pulumi.getter(name="rackId")
     def rack_id(self) -> str:
+        """
+        Rack ID of the asset.
+        """
         return pulumi.get(self, "rack_id")
 
 
@@ -102,7 +114,11 @@ def get_asset(arn: Optional[str] = None,
               asset_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssetResult:
     """
-    Use this data source to access information about an existing resource.
+    Information about a specific hardware asset in an Outpost.
+
+
+    :param str arn: Outpost ARN.
+    :param str asset_id: ID of the asset.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -125,6 +141,10 @@ def get_asset_output(arn: Optional[pulumi.Input[str]] = None,
                      asset_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssetResult]:
     """
-    Use this data source to access information about an existing resource.
+    Information about a specific hardware asset in an Outpost.
+
+
+    :param str arn: Outpost ARN.
+    :param str asset_id: ID of the asset.
     """
     ...

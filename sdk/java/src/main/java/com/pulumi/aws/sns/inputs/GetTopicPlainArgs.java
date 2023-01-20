@@ -12,9 +12,17 @@ public final class GetTopicPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTopicPlainArgs Empty = new GetTopicPlainArgs();
 
+    /**
+     * Friendly name of the topic to match.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return Friendly name of the topic to match.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -43,6 +51,12 @@ public final class GetTopicPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetTopicPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Friendly name of the topic to match.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;

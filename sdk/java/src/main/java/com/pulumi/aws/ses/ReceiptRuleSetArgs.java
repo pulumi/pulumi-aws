@@ -13,9 +13,17 @@ public final class ReceiptRuleSetArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ReceiptRuleSetArgs Empty = new ReceiptRuleSetArgs();
 
+    /**
+     * Name of the rule set.
+     * 
+     */
     @Import(name="ruleSetName", required=true)
     private Output<String> ruleSetName;
 
+    /**
+     * @return Name of the rule set.
+     * 
+     */
     public Output<String> ruleSetName() {
         return this.ruleSetName;
     }
@@ -44,11 +52,23 @@ public final class ReceiptRuleSetArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ReceiptRuleSetArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param ruleSetName Name of the rule set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ruleSetName(Output<String> ruleSetName) {
             $.ruleSetName = ruleSetName;
             return this;
         }
 
+        /**
+         * @param ruleSetName Name of the rule set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ruleSetName(String ruleSetName) {
             return ruleSetName(Output.of(ruleSetName));
         }

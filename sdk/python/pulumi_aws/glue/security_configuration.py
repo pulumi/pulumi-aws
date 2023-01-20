@@ -20,6 +20,8 @@ class SecurityConfigurationArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityConfiguration resource.
+        :param pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs'] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
+        :param pulumi.Input[str] name: Name of the security configuration.
         """
         pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if name is not None:
@@ -28,6 +30,9 @@ class SecurityConfigurationArgs:
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs']:
+        """
+        Configuration block containing encryption configuration. Detailed below.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -37,6 +42,9 @@ class SecurityConfigurationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the security configuration.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -51,6 +59,8 @@ class _SecurityConfigurationState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SecurityConfiguration resources.
+        :param pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs'] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
+        :param pulumi.Input[str] name: Name of the security configuration.
         """
         if encryption_configuration is not None:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
@@ -60,6 +70,9 @@ class _SecurityConfigurationState:
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs']]:
+        """
+        Configuration block containing encryption configuration. Detailed below.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -69,6 +82,9 @@ class _SecurityConfigurationState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the security configuration.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -85,9 +101,40 @@ class SecurityConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a SecurityConfiguration resource with the given unique name, props, and options.
+        Manages a Glue Security Configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.SecurityConfiguration("example", encryption_configuration=aws.glue.SecurityConfigurationEncryptionConfigurationArgs(
+            cloudwatch_encryption=aws.glue.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs(
+                cloudwatch_encryption_mode="DISABLED",
+            ),
+            job_bookmarks_encryption=aws.glue.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs(
+                job_bookmarks_encryption_mode="DISABLED",
+            ),
+            s3_encryption=aws.glue.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs(
+                kms_key_arn=data["aws_kms_key"]["example"]["arn"],
+                s3_encryption_mode="SSE-KMS",
+            ),
+        ))
+        ```
+
+        ## Import
+
+        Glue Security Configurations can be imported using `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['SecurityConfigurationEncryptionConfigurationArgs']] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
+        :param pulumi.Input[str] name: Name of the security configuration.
         """
         ...
     @overload
@@ -96,7 +143,36 @@ class SecurityConfiguration(pulumi.CustomResource):
                  args: SecurityConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SecurityConfiguration resource with the given unique name, props, and options.
+        Manages a Glue Security Configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.SecurityConfiguration("example", encryption_configuration=aws.glue.SecurityConfigurationEncryptionConfigurationArgs(
+            cloudwatch_encryption=aws.glue.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs(
+                cloudwatch_encryption_mode="DISABLED",
+            ),
+            job_bookmarks_encryption=aws.glue.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs(
+                job_bookmarks_encryption_mode="DISABLED",
+            ),
+            s3_encryption=aws.glue.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs(
+                kms_key_arn=data["aws_kms_key"]["example"]["arn"],
+                s3_encryption_mode="SSE-KMS",
+            ),
+        ))
+        ```
+
+        ## Import
+
+        Glue Security Configurations can be imported using `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param SecurityConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,6 +222,8 @@ class SecurityConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['SecurityConfigurationEncryptionConfigurationArgs']] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
+        :param pulumi.Input[str] name: Name of the security configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -158,10 +236,16 @@ class SecurityConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output['outputs.SecurityConfigurationEncryptionConfiguration']:
+        """
+        Configuration block containing encryption configuration. Detailed below.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Name of the security configuration.
+        """
         return pulumi.get(self, "name")
 

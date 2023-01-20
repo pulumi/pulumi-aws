@@ -12,9 +12,17 @@ public final class GetLocationPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetLocationPlainArgs Empty = new GetLocationPlainArgs();
 
+    /**
+     * Code for the location to retrieve.
+     * 
+     */
     @Import(name="locationCode", required=true)
     private String locationCode;
 
+    /**
+     * @return Code for the location to retrieve.
+     * 
+     */
     public String locationCode() {
         return this.locationCode;
     }
@@ -43,6 +51,12 @@ public final class GetLocationPlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetLocationPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param locationCode Code for the location to retrieve.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationCode(String locationCode) {
             $.locationCode = locationCode;
             return this;

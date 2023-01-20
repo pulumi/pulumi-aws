@@ -16,23 +16,47 @@ public final class GetCredentialsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetCredentialsArgs Empty = new GetCredentialsArgs();
 
+    /**
+     * The name of the database to get temporary authorization to log on to.
+     * 
+     */
     @Import(name="dbName")
     private @Nullable Output<String> dbName;
 
+    /**
+     * @return The name of the database to get temporary authorization to log on to.
+     * 
+     */
     public Optional<Output<String>> dbName() {
         return Optional.ofNullable(this.dbName);
     }
 
+    /**
+     * The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.
+     * 
+     */
     @Import(name="durationSeconds")
     private @Nullable Output<Integer> durationSeconds;
 
+    /**
+     * @return The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.
+     * 
+     */
     public Optional<Output<Integer>> durationSeconds() {
         return Optional.ofNullable(this.durationSeconds);
     }
 
+    /**
+     * The name of the workgroup associated with the database.
+     * 
+     */
     @Import(name="workgroupName", required=true)
     private Output<String> workgroupName;
 
+    /**
+     * @return The name of the workgroup associated with the database.
+     * 
+     */
     public Output<String> workgroupName() {
         return this.workgroupName;
     }
@@ -63,29 +87,65 @@ public final class GetCredentialsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetCredentialsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dbName The name of the database to get temporary authorization to log on to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbName(@Nullable Output<String> dbName) {
             $.dbName = dbName;
             return this;
         }
 
+        /**
+         * @param dbName The name of the database to get temporary authorization to log on to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbName(String dbName) {
             return dbName(Output.of(dbName));
         }
 
+        /**
+         * @param durationSeconds The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder durationSeconds(@Nullable Output<Integer> durationSeconds) {
             $.durationSeconds = durationSeconds;
             return this;
         }
 
+        /**
+         * @param durationSeconds The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder durationSeconds(Integer durationSeconds) {
             return durationSeconds(Output.of(durationSeconds));
         }
 
+        /**
+         * @param workgroupName The name of the workgroup associated with the database.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workgroupName(Output<String> workgroupName) {
             $.workgroupName = workgroupName;
             return this;
         }
 
+        /**
+         * @param workgroupName The name of the workgroup associated with the database.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workgroupName(String workgroupName) {
             return workgroupName(Output.of(workgroupName));
         }

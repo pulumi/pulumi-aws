@@ -11,15 +11,78 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a WAF Rule Resource
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			ipset, err := waf.NewIpSet(ctx, "ipset", &waf.IpSetArgs{
+//				IpSetDescriptors: waf.IpSetIpSetDescriptorArray{
+//					&waf.IpSetIpSetDescriptorArgs{
+//						Type:  pulumi.String("IPV4"),
+//						Value: pulumi.String("192.0.7.0/24"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = waf.NewRule(ctx, "wafrule", &waf.RuleArgs{
+//				MetricName: pulumi.String("tfWAFRule"),
+//				Predicates: waf.RulePredicateArray{
+//					&waf.RulePredicateArgs{
+//						DataId:  ipset.ID(),
+//						Negated: pulumi.Bool(false),
+//						Type:    pulumi.String("IPMatch"),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				ipset,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// WAF rules can be imported using the id, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:waf/rule:Rule example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
+// ```
 type Rule struct {
 	pulumi.CustomResourceState
 
-	Arn        pulumi.StringOutput      `pulumi:"arn"`
-	MetricName pulumi.StringOutput      `pulumi:"metricName"`
-	Name       pulumi.StringOutput      `pulumi:"name"`
+	// The ARN of the WAF rule.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
+	MetricName pulumi.StringOutput `pulumi:"metricName"`
+	// The name or description of the rule.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The objects to include in a rule (documented below).
 	Predicates RulePredicateArrayOutput `pulumi:"predicates"`
-	Tags       pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll    pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewRule registers a new resource with the given unique name, arguments, and options.
@@ -54,21 +117,33 @@ func GetRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Rule resources.
 type ruleState struct {
-	Arn        *string           `pulumi:"arn"`
-	MetricName *string           `pulumi:"metricName"`
-	Name       *string           `pulumi:"name"`
-	Predicates []RulePredicate   `pulumi:"predicates"`
-	Tags       map[string]string `pulumi:"tags"`
-	TagsAll    map[string]string `pulumi:"tagsAll"`
+	// The ARN of the WAF rule.
+	Arn *string `pulumi:"arn"`
+	// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
+	MetricName *string `pulumi:"metricName"`
+	// The name or description of the rule.
+	Name *string `pulumi:"name"`
+	// The objects to include in a rule (documented below).
+	Predicates []RulePredicate `pulumi:"predicates"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type RuleState struct {
-	Arn        pulumi.StringPtrInput
+	// The ARN of the WAF rule.
+	Arn pulumi.StringPtrInput
+	// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
 	MetricName pulumi.StringPtrInput
-	Name       pulumi.StringPtrInput
+	// The name or description of the rule.
+	Name pulumi.StringPtrInput
+	// The objects to include in a rule (documented below).
 	Predicates RulePredicateArrayInput
-	Tags       pulumi.StringMapInput
-	TagsAll    pulumi.StringMapInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (RuleState) ElementType() reflect.Type {
@@ -76,18 +151,26 @@ func (RuleState) ElementType() reflect.Type {
 }
 
 type ruleArgs struct {
-	MetricName string            `pulumi:"metricName"`
-	Name       *string           `pulumi:"name"`
-	Predicates []RulePredicate   `pulumi:"predicates"`
-	Tags       map[string]string `pulumi:"tags"`
+	// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
+	MetricName string `pulumi:"metricName"`
+	// The name or description of the rule.
+	Name *string `pulumi:"name"`
+	// The objects to include in a rule (documented below).
+	Predicates []RulePredicate `pulumi:"predicates"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Rule resource.
 type RuleArgs struct {
+	// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
 	MetricName pulumi.StringInput
-	Name       pulumi.StringPtrInput
+	// The name or description of the rule.
+	Name pulumi.StringPtrInput
+	// The objects to include in a rule (documented below).
 	Predicates RulePredicateArrayInput
-	Tags       pulumi.StringMapInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (RuleArgs) ElementType() reflect.Type {
@@ -177,26 +260,32 @@ func (o RuleOutput) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return o
 }
 
+// The ARN of the WAF rule.
 func (o RuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
 func (o RuleOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.MetricName }).(pulumi.StringOutput)
 }
 
+// The name or description of the rule.
 func (o RuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The objects to include in a rule (documented below).
 func (o RuleOutput) Predicates() RulePredicateArrayOutput {
 	return o.ApplyT(func(v *Rule) RulePredicateArrayOutput { return v.Predicates }).(RulePredicateArrayOutput)
 }
 
+// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

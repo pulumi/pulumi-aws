@@ -51,21 +51,33 @@ class GetResponseHeadersPolicyResult:
     @property
     @pulumi.getter
     def comment(self) -> str:
+        """
+        Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
+        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter(name="corsConfigs")
     def cors_configs(self) -> Sequence['outputs.GetResponseHeadersPolicyCorsConfigResult']:
+        """
+        Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+        """
         return pulumi.get(self, "cors_configs")
 
     @property
     @pulumi.getter(name="customHeadersConfigs")
     def custom_headers_configs(self) -> Sequence['outputs.GetResponseHeadersPolicyCustomHeadersConfigResult']:
+        """
+        Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+        """
         return pulumi.get(self, "custom_headers_configs")
 
     @property
     @pulumi.getter
     def etag(self) -> str:
+        """
+        Current version of the response headers policy.
+        """
         return pulumi.get(self, "etag")
 
     @property
@@ -81,11 +93,17 @@ class GetResponseHeadersPolicyResult:
     @property
     @pulumi.getter(name="securityHeadersConfigs")
     def security_headers_configs(self) -> Sequence['outputs.GetResponseHeadersPolicySecurityHeadersConfigResult']:
+        """
+        A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
+        """
         return pulumi.get(self, "security_headers_configs")
 
     @property
     @pulumi.getter(name="serverTimingHeadersConfigs")
     def server_timing_headers_configs(self) -> Sequence['outputs.GetResponseHeadersPolicyServerTimingHeadersConfigResult']:
+        """
+        (Optional) Configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+        """
         return pulumi.get(self, "server_timing_headers_configs")
 
 
@@ -109,7 +127,31 @@ def get_response_headers_policy(id: Optional[str] = None,
                                 name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResponseHeadersPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about a CloudFront cache policy.
+
+    ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.cloudfront.get_response_headers_policy(name="example-policy")
+    ```
+    ### AWS-Managed Policies
+
+    AWS managed response header policy names are prefixed with `Managed-`:
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.cloudfront.get_response_headers_policy(name="Managed-SimpleCORS")
+    ```
+
+
+    :param str id: Identifier for the response headers policy.
+    :param str name: Unique name to identify the response headers policy.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -133,6 +175,30 @@ def get_response_headers_policy_output(id: Optional[pulumi.Input[Optional[str]]]
                                        name: Optional[pulumi.Input[Optional[str]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResponseHeadersPolicyResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information about a CloudFront cache policy.
+
+    ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.cloudfront.get_response_headers_policy(name="example-policy")
+    ```
+    ### AWS-Managed Policies
+
+    AWS managed response header policy names are prefixed with `Managed-`:
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.cloudfront.get_response_headers_policy(name="Managed-SimpleCORS")
+    ```
+
+
+    :param str id: Identifier for the response headers policy.
+    :param str name: Unique name to identify the response headers policy.
     """
     ...

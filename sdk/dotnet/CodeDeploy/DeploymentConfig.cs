@@ -9,21 +9,165 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CodeDeploy
 {
+    /// <summary>
+    /// Provides a CodeDeploy deployment config for an application
+    /// 
+    /// ## Example Usage
+    /// ### Server Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fooDeploymentConfig = new Aws.CodeDeploy.DeploymentConfig("fooDeploymentConfig", new()
+    ///     {
+    ///         DeploymentConfigName = "test-deployment-config",
+    ///         MinimumHealthyHosts = new Aws.CodeDeploy.Inputs.DeploymentConfigMinimumHealthyHostsArgs
+    ///         {
+    ///             Type = "HOST_COUNT",
+    ///             Value = 2,
+    ///         },
+    ///     });
+    /// 
+    ///     var fooDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("fooDeploymentGroup", new()
+    ///     {
+    ///         AppName = aws_codedeploy_app.Foo_app.Name,
+    ///         DeploymentGroupName = "bar",
+    ///         ServiceRoleArn = aws_iam_role.Foo_role.Arn,
+    ///         DeploymentConfigName = fooDeploymentConfig.Id,
+    ///         Ec2TagFilters = new[]
+    ///         {
+    ///             new Aws.CodeDeploy.Inputs.DeploymentGroupEc2TagFilterArgs
+    ///             {
+    ///                 Key = "filterkey",
+    ///                 Type = "KEY_AND_VALUE",
+    ///                 Value = "filtervalue",
+    ///             },
+    ///         },
+    ///         TriggerConfigurations = new[]
+    ///         {
+    ///             new Aws.CodeDeploy.Inputs.DeploymentGroupTriggerConfigurationArgs
+    ///             {
+    ///                 TriggerEvents = new[]
+    ///                 {
+    ///                     "DeploymentFailure",
+    ///                 },
+    ///                 TriggerName = "foo-trigger",
+    ///                 TriggerTargetArn = "foo-topic-arn",
+    ///             },
+    ///         },
+    ///         AutoRollbackConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAutoRollbackConfigurationArgs
+    ///         {
+    ///             Enabled = true,
+    ///             Events = new[]
+    ///             {
+    ///                 "DEPLOYMENT_FAILURE",
+    ///             },
+    ///         },
+    ///         AlarmConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAlarmConfigurationArgs
+    ///         {
+    ///             Alarms = new[]
+    ///             {
+    ///                 "my-alarm-name",
+    ///             },
+    ///             Enabled = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Lambda Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fooDeploymentConfig = new Aws.CodeDeploy.DeploymentConfig("fooDeploymentConfig", new()
+    ///     {
+    ///         DeploymentConfigName = "test-deployment-config",
+    ///         ComputePlatform = "Lambda",
+    ///         TrafficRoutingConfig = new Aws.CodeDeploy.Inputs.DeploymentConfigTrafficRoutingConfigArgs
+    ///         {
+    ///             Type = "TimeBasedLinear",
+    ///             TimeBasedLinear = new Aws.CodeDeploy.Inputs.DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs
+    ///             {
+    ///                 Interval = 10,
+    ///                 Percentage = 10,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var fooDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("fooDeploymentGroup", new()
+    ///     {
+    ///         AppName = aws_codedeploy_app.Foo_app.Name,
+    ///         DeploymentGroupName = "bar",
+    ///         ServiceRoleArn = aws_iam_role.Foo_role.Arn,
+    ///         DeploymentConfigName = fooDeploymentConfig.Id,
+    ///         AutoRollbackConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAutoRollbackConfigurationArgs
+    ///         {
+    ///             Enabled = true,
+    ///             Events = new[]
+    ///             {
+    ///                 "DEPLOYMENT_STOP_ON_ALARM",
+    ///             },
+    ///         },
+    ///         AlarmConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAlarmConfigurationArgs
+    ///         {
+    ///             Alarms = new[]
+    ///             {
+    ///                 "my-alarm-name",
+    ///             },
+    ///             Enabled = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// CodeDeploy Deployment Configurations can be imported using the `deployment_config_name`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:codedeploy/deploymentConfig:DeploymentConfig")]
     public partial class DeploymentConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
+        /// </summary>
         [Output("computePlatform")]
         public Output<string?> ComputePlatform { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Assigned deployment config id
+        /// </summary>
         [Output("deploymentConfigId")]
         public Output<string> DeploymentConfigId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the deployment config.
+        /// </summary>
         [Output("deploymentConfigName")]
         public Output<string> DeploymentConfigName { get; private set; } = null!;
 
+        /// <summary>
+        /// A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+        /// </summary>
         [Output("minimumHealthyHosts")]
         public Output<Outputs.DeploymentConfigMinimumHealthyHosts?> MinimumHealthyHosts { get; private set; } = null!;
 
+        /// <summary>
+        /// A traffic_routing_config block. Traffic Routing Config is documented below.
+        /// </summary>
         [Output("trafficRoutingConfig")]
         public Output<Outputs.DeploymentConfigTrafficRoutingConfig?> TrafficRoutingConfig { get; private set; } = null!;
 
@@ -73,15 +217,27 @@ namespace Pulumi.Aws.CodeDeploy
 
     public sealed class DeploymentConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
+        /// </summary>
         [Input("computePlatform")]
         public Input<string>? ComputePlatform { get; set; }
 
+        /// <summary>
+        /// The name of the deployment config.
+        /// </summary>
         [Input("deploymentConfigName")]
         public Input<string>? DeploymentConfigName { get; set; }
 
+        /// <summary>
+        /// A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+        /// </summary>
         [Input("minimumHealthyHosts")]
         public Input<Inputs.DeploymentConfigMinimumHealthyHostsArgs>? MinimumHealthyHosts { get; set; }
 
+        /// <summary>
+        /// A traffic_routing_config block. Traffic Routing Config is documented below.
+        /// </summary>
         [Input("trafficRoutingConfig")]
         public Input<Inputs.DeploymentConfigTrafficRoutingConfigArgs>? TrafficRoutingConfig { get; set; }
 
@@ -93,18 +249,33 @@ namespace Pulumi.Aws.CodeDeploy
 
     public sealed class DeploymentConfigState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
+        /// </summary>
         [Input("computePlatform")]
         public Input<string>? ComputePlatform { get; set; }
 
+        /// <summary>
+        /// The AWS Assigned deployment config id
+        /// </summary>
         [Input("deploymentConfigId")]
         public Input<string>? DeploymentConfigId { get; set; }
 
+        /// <summary>
+        /// The name of the deployment config.
+        /// </summary>
         [Input("deploymentConfigName")]
         public Input<string>? DeploymentConfigName { get; set; }
 
+        /// <summary>
+        /// A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+        /// </summary>
         [Input("minimumHealthyHosts")]
         public Input<Inputs.DeploymentConfigMinimumHealthyHostsGetArgs>? MinimumHealthyHosts { get; set; }
 
+        /// <summary>
+        /// A traffic_routing_config block. Traffic Routing Config is documented below.
+        /// </summary>
         [Input("trafficRoutingConfig")]
         public Input<Inputs.DeploymentConfigTrafficRoutingConfigGetArgs>? TrafficRoutingConfig { get; set; }
 

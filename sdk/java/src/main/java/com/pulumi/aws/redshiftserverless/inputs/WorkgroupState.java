@@ -21,93 +21,197 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
 
     public static final WorkgroupState Empty = new WorkgroupState();
 
+    /**
+     * Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+     * 
+     */
     @Import(name="baseCapacity")
     private @Nullable Output<Integer> baseCapacity;
 
+    /**
+     * @return The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+     * 
+     */
     public Optional<Output<Integer>> baseCapacity() {
         return Optional.ofNullable(this.baseCapacity);
     }
 
+    /**
+     * An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+     * 
+     */
     @Import(name="configParameters")
     private @Nullable Output<List<WorkgroupConfigParameterArgs>> configParameters;
 
+    /**
+     * @return An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+     * 
+     */
     public Optional<Output<List<WorkgroupConfigParameterArgs>>> configParameters() {
         return Optional.ofNullable(this.configParameters);
     }
 
+    /**
+     * The endpoint that is created from the workgroup. See `Endpoint` below.
+     * 
+     */
     @Import(name="endpoints")
     private @Nullable Output<List<WorkgroupEndpointArgs>> endpoints;
 
+    /**
+     * @return The endpoint that is created from the workgroup. See `Endpoint` below.
+     * 
+     */
     public Optional<Output<List<WorkgroupEndpointArgs>>> endpoints() {
         return Optional.ofNullable(this.endpoints);
     }
 
+    /**
+     * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+     * 
+     */
     @Import(name="enhancedVpcRouting")
     private @Nullable Output<Boolean> enhancedVpcRouting;
 
+    /**
+     * @return The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+     * 
+     */
     public Optional<Output<Boolean>> enhancedVpcRouting() {
         return Optional.ofNullable(this.enhancedVpcRouting);
     }
 
+    /**
+     * The name of the namespace.
+     * 
+     */
     @Import(name="namespaceName")
     private @Nullable Output<String> namespaceName;
 
+    /**
+     * @return The name of the namespace.
+     * 
+     */
     public Optional<Output<String>> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
     }
 
+    /**
+     * A value that specifies whether the workgroup can be accessed from a public network.
+     * 
+     */
     @Import(name="publiclyAccessible")
     private @Nullable Output<Boolean> publiclyAccessible;
 
+    /**
+     * @return A value that specifies whether the workgroup can be accessed from a public network.
+     * 
+     */
     public Optional<Output<Boolean>> publiclyAccessible() {
         return Optional.ofNullable(this.publiclyAccessible);
     }
 
+    /**
+     * An array of security group IDs to associate with the workgroup.
+     * 
+     */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
+    /**
+     * @return An array of security group IDs to associate with the workgroup.
+     * 
+     */
     public Optional<Output<List<String>>> securityGroupIds() {
         return Optional.ofNullable(this.securityGroupIds);
     }
 
+    /**
+     * An array of VPC subnet IDs to associate with the workgroup.
+     * 
+     */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
+    /**
+     * @return An array of VPC subnet IDs to associate with the workgroup.
+     * 
+     */
     public Optional<Output<List<String>>> subnetIds() {
         return Optional.ofNullable(this.subnetIds);
     }
 
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * The Redshift Workgroup ID.
+     * 
+     */
     @Import(name="workgroupId")
     private @Nullable Output<String> workgroupId;
 
+    /**
+     * @return The Redshift Workgroup ID.
+     * 
+     */
     public Optional<Output<String>> workgroupId() {
         return Optional.ofNullable(this.workgroupId);
     }
 
+    /**
+     * The name of the workgroup.
+     * 
+     */
     @Import(name="workgroupName")
     private @Nullable Output<String> workgroupName;
 
+    /**
+     * @return The name of the workgroup.
+     * 
+     */
     public Optional<Output<String>> workgroupName() {
         return Optional.ofNullable(this.workgroupName);
     }
@@ -148,135 +252,315 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
             $ = new WorkgroupState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param baseCapacity The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+         * 
+         * @return builder
+         * 
+         */
         public Builder baseCapacity(@Nullable Output<Integer> baseCapacity) {
             $.baseCapacity = baseCapacity;
             return this;
         }
 
+        /**
+         * @param baseCapacity The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+         * 
+         * @return builder
+         * 
+         */
         public Builder baseCapacity(Integer baseCapacity) {
             return baseCapacity(Output.of(baseCapacity));
         }
 
+        /**
+         * @param configParameters An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder configParameters(@Nullable Output<List<WorkgroupConfigParameterArgs>> configParameters) {
             $.configParameters = configParameters;
             return this;
         }
 
+        /**
+         * @param configParameters An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder configParameters(List<WorkgroupConfigParameterArgs> configParameters) {
             return configParameters(Output.of(configParameters));
         }
 
+        /**
+         * @param configParameters An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder configParameters(WorkgroupConfigParameterArgs... configParameters) {
             return configParameters(List.of(configParameters));
         }
 
+        /**
+         * @param endpoints The endpoint that is created from the workgroup. See `Endpoint` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpoints(@Nullable Output<List<WorkgroupEndpointArgs>> endpoints) {
             $.endpoints = endpoints;
             return this;
         }
 
+        /**
+         * @param endpoints The endpoint that is created from the workgroup. See `Endpoint` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpoints(List<WorkgroupEndpointArgs> endpoints) {
             return endpoints(Output.of(endpoints));
         }
 
+        /**
+         * @param endpoints The endpoint that is created from the workgroup. See `Endpoint` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpoints(WorkgroupEndpointArgs... endpoints) {
             return endpoints(List.of(endpoints));
         }
 
+        /**
+         * @param enhancedVpcRouting The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enhancedVpcRouting(@Nullable Output<Boolean> enhancedVpcRouting) {
             $.enhancedVpcRouting = enhancedVpcRouting;
             return this;
         }
 
+        /**
+         * @param enhancedVpcRouting The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enhancedVpcRouting(Boolean enhancedVpcRouting) {
             return enhancedVpcRouting(Output.of(enhancedVpcRouting));
         }
 
+        /**
+         * @param namespaceName The name of the namespace.
+         * 
+         * @return builder
+         * 
+         */
         public Builder namespaceName(@Nullable Output<String> namespaceName) {
             $.namespaceName = namespaceName;
             return this;
         }
 
+        /**
+         * @param namespaceName The name of the namespace.
+         * 
+         * @return builder
+         * 
+         */
         public Builder namespaceName(String namespaceName) {
             return namespaceName(Output.of(namespaceName));
         }
 
+        /**
+         * @param publiclyAccessible A value that specifies whether the workgroup can be accessed from a public network.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publiclyAccessible(@Nullable Output<Boolean> publiclyAccessible) {
             $.publiclyAccessible = publiclyAccessible;
             return this;
         }
 
+        /**
+         * @param publiclyAccessible A value that specifies whether the workgroup can be accessed from a public network.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publiclyAccessible(Boolean publiclyAccessible) {
             return publiclyAccessible(Output.of(publiclyAccessible));
         }
 
+        /**
+         * @param securityGroupIds An array of security group IDs to associate with the workgroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(@Nullable Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
+        /**
+         * @param securityGroupIds An array of security group IDs to associate with the workgroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
+        /**
+         * @param securityGroupIds An array of security group IDs to associate with the workgroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
+        /**
+         * @param subnetIds An array of VPC subnet IDs to associate with the workgroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(@Nullable Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
+        /**
+         * @param subnetIds An array of VPC subnet IDs to associate with the workgroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
+        /**
+         * @param subnetIds An array of VPC subnet IDs to associate with the workgroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
+        /**
+         * @param workgroupId The Redshift Workgroup ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workgroupId(@Nullable Output<String> workgroupId) {
             $.workgroupId = workgroupId;
             return this;
         }
 
+        /**
+         * @param workgroupId The Redshift Workgroup ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workgroupId(String workgroupId) {
             return workgroupId(Output.of(workgroupId));
         }
 
+        /**
+         * @param workgroupName The name of the workgroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workgroupName(@Nullable Output<String> workgroupName) {
             $.workgroupName = workgroupName;
             return this;
         }
 
+        /**
+         * @param workgroupName The name of the workgroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workgroupName(String workgroupName) {
             return workgroupName(Output.of(workgroupName));
         }

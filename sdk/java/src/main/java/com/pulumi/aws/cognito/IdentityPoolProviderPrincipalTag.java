@@ -16,29 +16,73 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an AWS Cognito Identity Principal Mapping.
+ * 
+ * ## Import
+ * 
+ * Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID and provider name, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example us-west-2_abc123:CorpAD
+ * ```
+ * 
+ */
 @ResourceType(type="aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag")
 public class IdentityPoolProviderPrincipalTag extends com.pulumi.resources.CustomResource {
+    /**
+     * An identity pool ID.
+     * 
+     */
     @Export(name="identityPoolId", refs={String.class}, tree="[0]")
     private Output<String> identityPoolId;
 
+    /**
+     * @return An identity pool ID.
+     * 
+     */
     public Output<String> identityPoolId() {
         return this.identityPoolId;
     }
+    /**
+     * The name of the identity provider.
+     * 
+     */
     @Export(name="identityProviderName", refs={String.class}, tree="[0]")
     private Output<String> identityProviderName;
 
+    /**
+     * @return The name of the identity provider.
+     * 
+     */
     public Output<String> identityProviderName() {
         return this.identityProviderName;
     }
+    /**
+     * String to string map of variables.
+     * 
+     */
     @Export(name="principalTags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> principalTags;
 
+    /**
+     * @return String to string map of variables.
+     * 
+     */
     public Output<Optional<Map<String,String>>> principalTags() {
         return Codegen.optional(this.principalTags);
     }
+    /**
+     * use default (username and clientID) attribute mappings.
+     * 
+     */
     @Export(name="useDefaults", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useDefaults;
 
+    /**
+     * @return use default (username and clientID) attribute mappings.
+     * 
+     */
     public Output<Optional<Boolean>> useDefaults() {
         return Codegen.optional(this.useDefaults);
     }

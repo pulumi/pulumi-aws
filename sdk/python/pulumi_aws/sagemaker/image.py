@@ -21,6 +21,11 @@ class ImageArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Image resource.
+        :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        :param pulumi.Input[str] description: The description of the image.
+        :param pulumi.Input[str] display_name: The display name of the image. When the image is added to a domain (must be unique to the domain).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "image_name", image_name)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -34,6 +39,9 @@ class ImageArgs:
     @property
     @pulumi.getter(name="imageName")
     def image_name(self) -> pulumi.Input[str]:
+        """
+        The name of the image. Must be unique to your account.
+        """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
@@ -43,6 +51,9 @@ class ImageArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -52,6 +63,9 @@ class ImageArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the image.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -61,6 +75,9 @@ class ImageArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the image. When the image is added to a domain (must be unique to the domain).
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -70,6 +87,9 @@ class ImageArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -89,6 +109,13 @@ class _ImageState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Image resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Image.
+        :param pulumi.Input[str] description: The description of the image.
+        :param pulumi.Input[str] display_name: The display name of the image. When the image is added to a domain (must be unique to the domain).
+        :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -108,6 +135,9 @@ class _ImageState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) assigned by AWS to this Image.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -117,6 +147,9 @@ class _ImageState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the image.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -126,6 +159,9 @@ class _ImageState:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the image. When the image is added to a domain (must be unique to the domain).
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -135,6 +171,9 @@ class _ImageState:
     @property
     @pulumi.getter(name="imageName")
     def image_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the image. Must be unique to your account.
+        """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
@@ -144,6 +183,9 @@ class _ImageState:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -153,6 +195,9 @@ class _ImageState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -162,6 +207,9 @@ class _ImageState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -181,9 +229,35 @@ class Image(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Image resource with the given unique name, props, and options.
+        Provides a SageMaker Image resource.
+
+        ## Example Usage
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sagemaker.Image("example",
+            image_name="example",
+            role_arn=aws_iam_role["test"]["arn"])
+        ```
+
+        ## Import
+
+        SageMaker Code Images can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the image.
+        :param pulumi.Input[str] display_name: The display name of the image. When the image is added to a domain (must be unique to the domain).
+        :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -192,7 +266,28 @@ class Image(pulumi.CustomResource):
                  args: ImageArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Image resource with the given unique name, props, and options.
+        Provides a SageMaker Image resource.
+
+        ## Example Usage
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sagemaker.Image("example",
+            image_name="example",
+            role_arn=aws_iam_role["test"]["arn"])
+        ```
+
+        ## Import
+
+        SageMaker Code Images can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param ImageArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -257,6 +352,13 @@ class Image(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Image.
+        :param pulumi.Input[str] description: The description of the image.
+        :param pulumi.Input[str] display_name: The display name of the image. When the image is added to a domain (must be unique to the domain).
+        :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -274,35 +376,56 @@ class Image(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) assigned by AWS to this Image.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the image.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The display name of the image. When the image is added to a domain (must be unique to the domain).
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="imageName")
     def image_name(self) -> pulumi.Output[str]:
+        """
+        The name of the image. Must be unique to your account.
+        """
         return pulumi.get(self, "image_name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

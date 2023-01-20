@@ -17,23 +17,47 @@ public final class ResourceServerArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ResourceServerArgs Empty = new ResourceServerArgs();
 
+    /**
+     * An identifier for the resource server.
+     * 
+     */
     @Import(name="identifier", required=true)
     private Output<String> identifier;
 
+    /**
+     * @return An identifier for the resource server.
+     * 
+     */
     public Output<String> identifier() {
         return this.identifier;
     }
 
+    /**
+     * A name for the resource server.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return A name for the resource server.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * A list of Authorization Scope.
+     * 
+     */
     @Import(name="scopes")
     private @Nullable Output<List<ResourceServerScopeArgs>> scopes;
 
+    /**
+     * @return A list of Authorization Scope.
+     * 
+     */
     public Optional<Output<List<ResourceServerScopeArgs>>> scopes() {
         return Optional.ofNullable(this.scopes);
     }
@@ -72,33 +96,75 @@ public final class ResourceServerArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ResourceServerArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param identifier An identifier for the resource server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identifier(Output<String> identifier) {
             $.identifier = identifier;
             return this;
         }
 
+        /**
+         * @param identifier An identifier for the resource server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identifier(String identifier) {
             return identifier(Output.of(identifier));
         }
 
+        /**
+         * @param name A name for the resource server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name A name for the resource server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param scopes A list of Authorization Scope.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scopes(@Nullable Output<List<ResourceServerScopeArgs>> scopes) {
             $.scopes = scopes;
             return this;
         }
 
+        /**
+         * @param scopes A list of Authorization Scope.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scopes(List<ResourceServerScopeArgs> scopes) {
             return scopes(Output.of(scopes));
         }
 
+        /**
+         * @param scopes A list of Authorization Scope.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scopes(ResourceServerScopeArgs... scopes) {
             return scopes(List.of(scopes));
         }

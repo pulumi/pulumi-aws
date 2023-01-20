@@ -16,16 +16,32 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
 
     public static final SpaceSpaceSettingsArgs Empty = new SpaceSpaceSettingsArgs();
 
+    /**
+     * The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+     * 
+     */
     @Import(name="jupyterServerAppSettings")
     private @Nullable Output<SpaceSpaceSettingsJupyterServerAppSettingsArgs> jupyterServerAppSettings;
 
+    /**
+     * @return The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+     * 
+     */
     public Optional<Output<SpaceSpaceSettingsJupyterServerAppSettingsArgs>> jupyterServerAppSettings() {
         return Optional.ofNullable(this.jupyterServerAppSettings);
     }
 
+    /**
+     * The kernel gateway app settings. See Kernel Gateway App Settings below.
+     * 
+     */
     @Import(name="kernelGatewayAppSettings")
     private @Nullable Output<SpaceSpaceSettingsKernelGatewayAppSettingsArgs> kernelGatewayAppSettings;
 
+    /**
+     * @return The kernel gateway app settings. See Kernel Gateway App Settings below.
+     * 
+     */
     public Optional<Output<SpaceSpaceSettingsKernelGatewayAppSettingsArgs>> kernelGatewayAppSettings() {
         return Optional.ofNullable(this.kernelGatewayAppSettings);
     }
@@ -55,20 +71,44 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
             $ = new SpaceSpaceSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jupyterServerAppSettings(@Nullable Output<SpaceSpaceSettingsJupyterServerAppSettingsArgs> jupyterServerAppSettings) {
             $.jupyterServerAppSettings = jupyterServerAppSettings;
             return this;
         }
 
+        /**
+         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jupyterServerAppSettings(SpaceSpaceSettingsJupyterServerAppSettingsArgs jupyterServerAppSettings) {
             return jupyterServerAppSettings(Output.of(jupyterServerAppSettings));
         }
 
+        /**
+         * @param kernelGatewayAppSettings The kernel gateway app settings. See Kernel Gateway App Settings below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kernelGatewayAppSettings(@Nullable Output<SpaceSpaceSettingsKernelGatewayAppSettingsArgs> kernelGatewayAppSettings) {
             $.kernelGatewayAppSettings = kernelGatewayAppSettings;
             return this;
         }
 
+        /**
+         * @param kernelGatewayAppSettings The kernel gateway app settings. See Kernel Gateway App Settings below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kernelGatewayAppSettings(SpaceSpaceSettingsKernelGatewayAppSettingsArgs kernelGatewayAppSettings) {
             return kernelGatewayAppSettings(Output.of(kernelGatewayAppSettings));
         }

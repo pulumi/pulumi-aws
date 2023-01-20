@@ -11,6 +11,7 @@ import (
 )
 
 type RecordingConfigurationDestinationConfiguration struct {
+	// S3 destination configuration where recorded videos will be stored.
 	S3 RecordingConfigurationDestinationConfigurationS3 `pulumi:"s3"`
 }
 
@@ -26,6 +27,7 @@ type RecordingConfigurationDestinationConfigurationInput interface {
 }
 
 type RecordingConfigurationDestinationConfigurationArgs struct {
+	// S3 destination configuration where recorded videos will be stored.
 	S3 RecordingConfigurationDestinationConfigurationS3Input `pulumi:"s3"`
 }
 
@@ -106,6 +108,7 @@ func (o RecordingConfigurationDestinationConfigurationOutput) ToRecordingConfigu
 	}).(RecordingConfigurationDestinationConfigurationPtrOutput)
 }
 
+// S3 destination configuration where recorded videos will be stored.
 func (o RecordingConfigurationDestinationConfigurationOutput) S3() RecordingConfigurationDestinationConfigurationS3Output {
 	return o.ApplyT(func(v RecordingConfigurationDestinationConfiguration) RecordingConfigurationDestinationConfigurationS3 {
 		return v.S3
@@ -136,6 +139,7 @@ func (o RecordingConfigurationDestinationConfigurationPtrOutput) Elem() Recordin
 	}).(RecordingConfigurationDestinationConfigurationOutput)
 }
 
+// S3 destination configuration where recorded videos will be stored.
 func (o RecordingConfigurationDestinationConfigurationPtrOutput) S3() RecordingConfigurationDestinationConfigurationS3PtrOutput {
 	return o.ApplyT(func(v *RecordingConfigurationDestinationConfiguration) *RecordingConfigurationDestinationConfigurationS3 {
 		if v == nil {
@@ -146,6 +150,7 @@ func (o RecordingConfigurationDestinationConfigurationPtrOutput) S3() RecordingC
 }
 
 type RecordingConfigurationDestinationConfigurationS3 struct {
+	// S3 bucket name where recorded videos will be stored.
 	BucketName string `pulumi:"bucketName"`
 }
 
@@ -161,6 +166,7 @@ type RecordingConfigurationDestinationConfigurationS3Input interface {
 }
 
 type RecordingConfigurationDestinationConfigurationS3Args struct {
+	// S3 bucket name where recorded videos will be stored.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 }
 
@@ -241,6 +247,7 @@ func (o RecordingConfigurationDestinationConfigurationS3Output) ToRecordingConfi
 	}).(RecordingConfigurationDestinationConfigurationS3PtrOutput)
 }
 
+// S3 bucket name where recorded videos will be stored.
 func (o RecordingConfigurationDestinationConfigurationS3Output) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordingConfigurationDestinationConfigurationS3) string { return v.BucketName }).(pulumi.StringOutput)
 }
@@ -269,6 +276,7 @@ func (o RecordingConfigurationDestinationConfigurationS3PtrOutput) Elem() Record
 	}).(RecordingConfigurationDestinationConfigurationS3Output)
 }
 
+// S3 bucket name where recorded videos will be stored.
 func (o RecordingConfigurationDestinationConfigurationS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecordingConfigurationDestinationConfigurationS3) *string {
 		if v == nil {
@@ -279,8 +287,10 @@ func (o RecordingConfigurationDestinationConfigurationS3PtrOutput) BucketName() 
 }
 
 type RecordingConfigurationThumbnailConfiguration struct {
-	RecordingMode         *string `pulumi:"recordingMode"`
-	TargetIntervalSeconds *int    `pulumi:"targetIntervalSeconds"`
+	// Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
+	RecordingMode *string `pulumi:"recordingMode"`
+	// The targeted thumbnail-generation interval in seconds.
+	TargetIntervalSeconds *int `pulumi:"targetIntervalSeconds"`
 }
 
 // RecordingConfigurationThumbnailConfigurationInput is an input type that accepts RecordingConfigurationThumbnailConfigurationArgs and RecordingConfigurationThumbnailConfigurationOutput values.
@@ -295,8 +305,10 @@ type RecordingConfigurationThumbnailConfigurationInput interface {
 }
 
 type RecordingConfigurationThumbnailConfigurationArgs struct {
-	RecordingMode         pulumi.StringPtrInput `pulumi:"recordingMode"`
-	TargetIntervalSeconds pulumi.IntPtrInput    `pulumi:"targetIntervalSeconds"`
+	// Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
+	RecordingMode pulumi.StringPtrInput `pulumi:"recordingMode"`
+	// The targeted thumbnail-generation interval in seconds.
+	TargetIntervalSeconds pulumi.IntPtrInput `pulumi:"targetIntervalSeconds"`
 }
 
 func (RecordingConfigurationThumbnailConfigurationArgs) ElementType() reflect.Type {
@@ -376,10 +388,12 @@ func (o RecordingConfigurationThumbnailConfigurationOutput) ToRecordingConfigura
 	}).(RecordingConfigurationThumbnailConfigurationPtrOutput)
 }
 
+// Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
 func (o RecordingConfigurationThumbnailConfigurationOutput) RecordingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecordingConfigurationThumbnailConfiguration) *string { return v.RecordingMode }).(pulumi.StringPtrOutput)
 }
 
+// The targeted thumbnail-generation interval in seconds.
 func (o RecordingConfigurationThumbnailConfigurationOutput) TargetIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RecordingConfigurationThumbnailConfiguration) *int { return v.TargetIntervalSeconds }).(pulumi.IntPtrOutput)
 }
@@ -408,6 +422,7 @@ func (o RecordingConfigurationThumbnailConfigurationPtrOutput) Elem() RecordingC
 	}).(RecordingConfigurationThumbnailConfigurationOutput)
 }
 
+// Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
 func (o RecordingConfigurationThumbnailConfigurationPtrOutput) RecordingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecordingConfigurationThumbnailConfiguration) *string {
 		if v == nil {
@@ -417,6 +432,7 @@ func (o RecordingConfigurationThumbnailConfigurationPtrOutput) RecordingMode() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// The targeted thumbnail-generation interval in seconds.
 func (o RecordingConfigurationThumbnailConfigurationPtrOutput) TargetIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RecordingConfigurationThumbnailConfiguration) *int {
 		if v == nil {

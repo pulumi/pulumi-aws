@@ -9,15 +9,53 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ecs
 {
+    /// <summary>
+    /// Provides an ECS default account setting for a specific ECS Resource name within a specific region. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html).
+    /// 
+    /// &gt; **NOTE:** The AWS API does not delete this resource. When you run `destroy`, the provider will attempt to disable the setting.
+    /// 
+    /// &gt; **NOTE:** Your AWS account may not support disabling `containerInstanceLongArnFormat`, `serviceLongArnFormat`, and `taskLongArnFormat`. If your account does not support disabling these, "destroying" this resource will not disable the setting nor cause a provider error. However, the AWS Provider will log an AWS error: `InvalidParameterException: You can no longer disable Long Arn settings`.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Ecs.AccountSettingDefault("test", new()
+    ///     {
+    ///         Value = "enabled",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ECS Account Setting defaults can be imported using the `name`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:ecs/accountSettingDefault:AccountSettingDefault")]
     public partial class AccountSettingDefault : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         [Output("principalArn")]
         public Output<string> PrincipalArn { get; private set; } = null!;
 
+        /// <summary>
+        /// State of the setting. Valid values are `enabled` and `disabled`.
+        /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
@@ -67,9 +105,15 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class AccountSettingDefaultArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// State of the setting. Valid values are `enabled` and `disabled`.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -81,12 +125,18 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class AccountSettingDefaultState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("principalArn")]
         public Input<string>? PrincipalArn { get; set; }
 
+        /// <summary>
+        /// State of the setting. Valid values are `enabled` and `disabled`.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

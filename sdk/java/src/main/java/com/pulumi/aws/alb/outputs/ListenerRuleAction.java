@@ -17,37 +17,93 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleAction {
+    /**
+     * @return Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
+     * 
+     */
     private @Nullable ListenerRuleActionAuthenticateCognito authenticateCognito;
+    /**
+     * @return Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
+     * 
+     */
     private @Nullable ListenerRuleActionAuthenticateOidc authenticateOidc;
+    /**
+     * @return Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
+     * 
+     */
     private @Nullable ListenerRuleActionFixedResponse fixedResponse;
+    /**
+     * @return Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
+     * 
+     */
     private @Nullable ListenerRuleActionForward forward;
     private @Nullable Integer order;
+    /**
+     * @return Information for creating a redirect action. Required if `type` is `redirect`.
+     * 
+     */
     private @Nullable ListenerRuleActionRedirect redirect;
+    /**
+     * @return The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+     * 
+     */
     private @Nullable String targetGroupArn;
+    /**
+     * @return The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+     * 
+     */
     private String type;
 
     private ListenerRuleAction() {}
+    /**
+     * @return Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
+     * 
+     */
     public Optional<ListenerRuleActionAuthenticateCognito> authenticateCognito() {
         return Optional.ofNullable(this.authenticateCognito);
     }
+    /**
+     * @return Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
+     * 
+     */
     public Optional<ListenerRuleActionAuthenticateOidc> authenticateOidc() {
         return Optional.ofNullable(this.authenticateOidc);
     }
+    /**
+     * @return Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
+     * 
+     */
     public Optional<ListenerRuleActionFixedResponse> fixedResponse() {
         return Optional.ofNullable(this.fixedResponse);
     }
+    /**
+     * @return Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
+     * 
+     */
     public Optional<ListenerRuleActionForward> forward() {
         return Optional.ofNullable(this.forward);
     }
     public Optional<Integer> order() {
         return Optional.ofNullable(this.order);
     }
+    /**
+     * @return Information for creating a redirect action. Required if `type` is `redirect`.
+     * 
+     */
     public Optional<ListenerRuleActionRedirect> redirect() {
         return Optional.ofNullable(this.redirect);
     }
+    /**
+     * @return The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+     * 
+     */
     public Optional<String> targetGroupArn() {
         return Optional.ofNullable(this.targetGroupArn);
     }
+    /**
+     * @return The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+     * 
+     */
     public String type() {
         return this.type;
     }

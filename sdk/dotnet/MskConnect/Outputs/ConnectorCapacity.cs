@@ -13,7 +13,13 @@ namespace Pulumi.Aws.MskConnect.Outputs
     [OutputType]
     public sealed class ConnectorCapacity
     {
+        /// <summary>
+        /// Information about the auto scaling parameters for the connector. See below.
+        /// </summary>
         public readonly Outputs.ConnectorCapacityAutoscaling? Autoscaling;
+        /// <summary>
+        /// Details about a fixed capacity allocated to a connector. See below.
+        /// </summary>
         public readonly Outputs.ConnectorCapacityProvisionedCapacity? ProvisionedCapacity;
 
         [OutputConstructor]

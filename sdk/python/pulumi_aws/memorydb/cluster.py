@@ -42,6 +42,30 @@ class ClusterArgs:
                  tls_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+        :param pulumi.Input[str] acl_name: The name of the Access Control List to associate with the cluster.
+        :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        :param pulumi.Input[bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
+        :param pulumi.Input[bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+        :param pulumi.Input[str] description: Description for the cluster.
+        :param pulumi.Input[str] engine_version: Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+        :param pulumi.Input[str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
+        :param pulumi.Input[str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        :param pulumi.Input[str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[int] num_replicas_per_shard: The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+        :param pulumi.Input[int] num_shards: The number of shards in the cluster. Defaults to `1`.
+        :param pulumi.Input[str] parameter_group_name: The name of the parameter group associated with the cluster.
+        :param pulumi.Input[int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
+        :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
+        :param pulumi.Input[int] snapshot_retention_limit: The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+        :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        :param pulumi.Input[str] sns_topic_arn: ARN of the SNS topic to which cluster notifications are sent.
+        :param pulumi.Input[str] subnet_group_name: The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[bool] tls_enabled: A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
         """
         pulumi.set(__self__, "acl_name", acl_name)
         pulumi.set(__self__, "node_type", node_type)
@@ -93,6 +117,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="aclName")
     def acl_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Access Control List to associate with the cluster.
+        """
         return pulumi.get(self, "acl_name")
 
     @acl_name.setter
@@ -102,6 +129,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> pulumi.Input[str]:
+        """
+        The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        """
         return pulumi.get(self, "node_type")
 
     @node_type.setter
@@ -111,6 +141,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
+        """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @auto_minor_version_upgrade.setter
@@ -120,6 +153,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="dataTiering")
     def data_tiering(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+        """
         return pulumi.get(self, "data_tiering")
 
     @data_tiering.setter
@@ -129,6 +165,9 @@ class ClusterArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description for the cluster.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -138,6 +177,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -147,6 +189,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="finalSnapshotName")
     def final_snapshot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
+        """
         return pulumi.get(self, "final_snapshot_name")
 
     @final_snapshot_name.setter
@@ -156,6 +201,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the KMS key used to encrypt the cluster at rest.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -165,6 +213,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
@@ -174,6 +225,9 @@ class ClusterArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -183,6 +237,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -192,6 +249,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="numReplicasPerShard")
     def num_replicas_per_shard(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+        """
         return pulumi.get(self, "num_replicas_per_shard")
 
     @num_replicas_per_shard.setter
@@ -201,6 +261,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="numShards")
     def num_shards(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of shards in the cluster. Defaults to `1`.
+        """
         return pulumi.get(self, "num_shards")
 
     @num_shards.setter
@@ -210,6 +273,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the parameter group associated with the cluster.
+        """
         return pulumi.get(self, "parameter_group_name")
 
     @parameter_group_name.setter
@@ -219,6 +285,9 @@ class ClusterArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -228,6 +297,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of VPC Security Group ID-s to associate with this cluster.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -237,6 +309,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="snapshotArns")
     def snapshot_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
+        """
         return pulumi.get(self, "snapshot_arns")
 
     @snapshot_arns.setter
@@ -246,6 +321,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a snapshot from which to restore data into the new cluster.
+        """
         return pulumi.get(self, "snapshot_name")
 
     @snapshot_name.setter
@@ -255,6 +333,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+        """
         return pulumi.get(self, "snapshot_retention_limit")
 
     @snapshot_retention_limit.setter
@@ -264,6 +345,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="snapshotWindow")
     def snapshot_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        """
         return pulumi.get(self, "snapshot_window")
 
     @snapshot_window.setter
@@ -273,6 +357,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the SNS topic to which cluster notifications are sent.
+        """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
@@ -282,6 +369,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="subnetGroupName")
     def subnet_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+        """
         return pulumi.get(self, "subnet_group_name")
 
     @subnet_group_name.setter
@@ -291,6 +381,9 @@ class ClusterArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -300,6 +393,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="tlsEnabled")
     def tls_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
+        """
         return pulumi.get(self, "tls_enabled")
 
     @tls_enabled.setter
@@ -341,6 +437,34 @@ class _ClusterState:
                  tls_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
+        :param pulumi.Input[str] acl_name: The name of the Access Control List to associate with the cluster.
+        :param pulumi.Input[str] arn: The ARN of the cluster.
+        :param pulumi.Input[bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
+        :param pulumi.Input[bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+        :param pulumi.Input[str] description: Description for the cluster.
+        :param pulumi.Input[str] engine_patch_version: Patch version number of the Redis engine used by the cluster.
+        :param pulumi.Input[str] engine_version: Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+        :param pulumi.Input[str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
+        :param pulumi.Input[str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        :param pulumi.Input[str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        :param pulumi.Input[int] num_replicas_per_shard: The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+        :param pulumi.Input[int] num_shards: The number of shards in the cluster. Defaults to `1`.
+        :param pulumi.Input[str] parameter_group_name: The name of the parameter group associated with the cluster.
+        :param pulumi.Input[int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterShardArgs']]] shards: Set of shards in this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
+        :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
+        :param pulumi.Input[int] snapshot_retention_limit: The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+        :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        :param pulumi.Input[str] sns_topic_arn: ARN of the SNS topic to which cluster notifications are sent.
+        :param pulumi.Input[str] subnet_group_name: The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[bool] tls_enabled: A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
         """
         if acl_name is not None:
             pulumi.set(__self__, "acl_name", acl_name)
@@ -404,6 +528,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="aclName")
     def acl_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Access Control List to associate with the cluster.
+        """
         return pulumi.get(self, "acl_name")
 
     @acl_name.setter
@@ -413,6 +540,9 @@ class _ClusterState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the cluster.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -422,6 +552,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
+        """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @auto_minor_version_upgrade.setter
@@ -440,6 +573,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="dataTiering")
     def data_tiering(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+        """
         return pulumi.get(self, "data_tiering")
 
     @data_tiering.setter
@@ -449,6 +585,9 @@ class _ClusterState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description for the cluster.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -458,6 +597,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="enginePatchVersion")
     def engine_patch_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Patch version number of the Redis engine used by the cluster.
+        """
         return pulumi.get(self, "engine_patch_version")
 
     @engine_patch_version.setter
@@ -467,6 +609,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -476,6 +621,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="finalSnapshotName")
     def final_snapshot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
+        """
         return pulumi.get(self, "final_snapshot_name")
 
     @final_snapshot_name.setter
@@ -485,6 +633,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the KMS key used to encrypt the cluster at rest.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -494,6 +645,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
@@ -503,6 +657,9 @@ class _ClusterState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -512,6 +669,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -521,6 +681,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        """
         return pulumi.get(self, "node_type")
 
     @node_type.setter
@@ -530,6 +693,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="numReplicasPerShard")
     def num_replicas_per_shard(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+        """
         return pulumi.get(self, "num_replicas_per_shard")
 
     @num_replicas_per_shard.setter
@@ -539,6 +705,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="numShards")
     def num_shards(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of shards in the cluster. Defaults to `1`.
+        """
         return pulumi.get(self, "num_shards")
 
     @num_shards.setter
@@ -548,6 +717,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the parameter group associated with the cluster.
+        """
         return pulumi.get(self, "parameter_group_name")
 
     @parameter_group_name.setter
@@ -557,6 +729,9 @@ class _ClusterState:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -566,6 +741,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of VPC Security Group ID-s to associate with this cluster.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -575,6 +753,9 @@ class _ClusterState:
     @property
     @pulumi.getter
     def shards(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardArgs']]]]:
+        """
+        Set of shards in this cluster.
+        """
         return pulumi.get(self, "shards")
 
     @shards.setter
@@ -584,6 +765,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="snapshotArns")
     def snapshot_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
+        """
         return pulumi.get(self, "snapshot_arns")
 
     @snapshot_arns.setter
@@ -593,6 +777,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a snapshot from which to restore data into the new cluster.
+        """
         return pulumi.get(self, "snapshot_name")
 
     @snapshot_name.setter
@@ -602,6 +789,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+        """
         return pulumi.get(self, "snapshot_retention_limit")
 
     @snapshot_retention_limit.setter
@@ -611,6 +801,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="snapshotWindow")
     def snapshot_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        """
         return pulumi.get(self, "snapshot_window")
 
     @snapshot_window.setter
@@ -620,6 +813,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the SNS topic to which cluster notifications are sent.
+        """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
@@ -629,6 +825,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="subnetGroupName")
     def subnet_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+        """
         return pulumi.get(self, "subnet_group_name")
 
     @subnet_group_name.setter
@@ -638,6 +837,9 @@ class _ClusterState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -647,6 +849,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -656,6 +861,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="tlsEnabled")
     def tls_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
+        """
         return pulumi.get(self, "tls_enabled")
 
     @tls_enabled.setter
@@ -694,9 +902,59 @@ class Cluster(pulumi.CustomResource):
                  tls_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a Cluster resource with the given unique name, props, and options.
+        Provides a MemoryDB Cluster.
+
+        More information about MemoryDB can be found in the [Developer Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/what-is-memorydb-for-redis.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.memorydb.Cluster("example",
+            acl_name="open-access",
+            node_type="db.t4g.small",
+            num_shards=2,
+            security_group_ids=[aws_security_group["example"]["id"]],
+            snapshot_retention_limit=7,
+            subnet_group_name=aws_memorydb_subnet_group["example"]["id"])
+        ```
+
+        ## Import
+
+        Use the `name` to import a cluster. For example
+
+        ```sh
+         $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] acl_name: The name of the Access Control List to associate with the cluster.
+        :param pulumi.Input[bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
+        :param pulumi.Input[bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+        :param pulumi.Input[str] description: Description for the cluster.
+        :param pulumi.Input[str] engine_version: Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+        :param pulumi.Input[str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
+        :param pulumi.Input[str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        :param pulumi.Input[str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        :param pulumi.Input[int] num_replicas_per_shard: The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+        :param pulumi.Input[int] num_shards: The number of shards in the cluster. Defaults to `1`.
+        :param pulumi.Input[str] parameter_group_name: The name of the parameter group associated with the cluster.
+        :param pulumi.Input[int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
+        :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
+        :param pulumi.Input[int] snapshot_retention_limit: The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+        :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        :param pulumi.Input[str] sns_topic_arn: ARN of the SNS topic to which cluster notifications are sent.
+        :param pulumi.Input[str] subnet_group_name: The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[bool] tls_enabled: A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
         """
         ...
     @overload
@@ -705,7 +963,33 @@ class Cluster(pulumi.CustomResource):
                  args: ClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Cluster resource with the given unique name, props, and options.
+        Provides a MemoryDB Cluster.
+
+        More information about MemoryDB can be found in the [Developer Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/what-is-memorydb-for-redis.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.memorydb.Cluster("example",
+            acl_name="open-access",
+            node_type="db.t4g.small",
+            num_shards=2,
+            security_group_ids=[aws_security_group["example"]["id"]],
+            snapshot_retention_limit=7,
+            subnet_group_name=aws_memorydb_subnet_group["example"]["id"])
+        ```
+
+        ## Import
+
+        Use the `name` to import a cluster. For example
+
+        ```sh
+         $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
+        ```
+
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -833,6 +1117,34 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] acl_name: The name of the Access Control List to associate with the cluster.
+        :param pulumi.Input[str] arn: The ARN of the cluster.
+        :param pulumi.Input[bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
+        :param pulumi.Input[bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+        :param pulumi.Input[str] description: Description for the cluster.
+        :param pulumi.Input[str] engine_patch_version: Patch version number of the Redis engine used by the cluster.
+        :param pulumi.Input[str] engine_version: Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+        :param pulumi.Input[str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
+        :param pulumi.Input[str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        :param pulumi.Input[str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        :param pulumi.Input[int] num_replicas_per_shard: The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+        :param pulumi.Input[int] num_shards: The number of shards in the cluster. Defaults to `1`.
+        :param pulumi.Input[str] parameter_group_name: The name of the parameter group associated with the cluster.
+        :param pulumi.Input[int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterShardArgs']]]] shards: Set of shards in this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
+        :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
+        :param pulumi.Input[int] snapshot_retention_limit: The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+        :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        :param pulumi.Input[str] sns_topic_arn: ARN of the SNS topic to which cluster notifications are sent.
+        :param pulumi.Input[str] subnet_group_name: The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[bool] tls_enabled: A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -872,16 +1184,25 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="aclName")
     def acl_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Access Control List to associate with the cluster.
+        """
         return pulumi.get(self, "acl_name")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the cluster.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
+        """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @property
@@ -892,125 +1213,200 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dataTiering")
     def data_tiering(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+        """
         return pulumi.get(self, "data_tiering")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Description for the cluster.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="enginePatchVersion")
     def engine_patch_version(self) -> pulumi.Output[str]:
+        """
+        Patch version number of the Redis engine used by the cluster.
+        """
         return pulumi.get(self, "engine_patch_version")
 
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[str]:
+        """
+        Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+        """
         return pulumi.get(self, "engine_version")
 
     @property
     @pulumi.getter(name="finalSnapshotName")
     def final_snapshot_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
+        """
         return pulumi.get(self, "final_snapshot_name")
 
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        ARN of the KMS key used to encrypt the cluster at rest.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @property
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> pulumi.Output[str]:
+        """
+        Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        """
         return pulumi.get(self, "maintenance_window")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[str]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> pulumi.Output[str]:
+        """
+        The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        """
         return pulumi.get(self, "node_type")
 
     @property
     @pulumi.getter(name="numReplicasPerShard")
     def num_replicas_per_shard(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+        """
         return pulumi.get(self, "num_replicas_per_shard")
 
     @property
     @pulumi.getter(name="numShards")
     def num_shards(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of shards in the cluster. Defaults to `1`.
+        """
         return pulumi.get(self, "num_shards")
 
     @property
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> pulumi.Output[str]:
+        """
+        The name of the parameter group associated with the cluster.
+        """
         return pulumi.get(self, "parameter_group_name")
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Output[int]:
+        """
+        The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Set of VPC Security Group ID-s to associate with this cluster.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter
     def shards(self) -> pulumi.Output[Sequence['outputs.ClusterShard']]:
+        """
+        Set of shards in this cluster.
+        """
         return pulumi.get(self, "shards")
 
     @property
     @pulumi.getter(name="snapshotArns")
     def snapshot_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
+        """
         return pulumi.get(self, "snapshot_arns")
 
     @property
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of a snapshot from which to restore data into the new cluster.
+        """
         return pulumi.get(self, "snapshot_name")
 
     @property
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> pulumi.Output[int]:
+        """
+        The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+        """
         return pulumi.get(self, "snapshot_retention_limit")
 
     @property
     @pulumi.getter(name="snapshotWindow")
     def snapshot_window(self) -> pulumi.Output[str]:
+        """
+        The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        """
         return pulumi.get(self, "snapshot_window")
 
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        ARN of the SNS topic to which cluster notifications are sent.
+        """
         return pulumi.get(self, "sns_topic_arn")
 
     @property
     @pulumi.getter(name="subnetGroupName")
     def subnet_group_name(self) -> pulumi.Output[str]:
+        """
+        The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+        """
         return pulumi.get(self, "subnet_group_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="tlsEnabled")
     def tls_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
+        """
         return pulumi.get(self, "tls_enabled")
 

@@ -10,6 +10,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := directconnect.GetRouterConfiguration(ctx, &directconnect.GetRouterConfigurationArgs{
+//				RouterTypeIdentifier: "CiscoSystemsInc-2900SeriesRouters-IOS124",
+//				VirtualInterfaceId:   "dxvif-abcde123",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetRouterConfiguration(ctx *pulumi.Context, args *GetRouterConfigurationArgs, opts ...pulumi.InvokeOption) (*GetRouterConfigurationResult, error) {
 	var rv GetRouterConfigurationResult
 	err := ctx.Invoke("aws:directconnect/getRouterConfiguration:getRouterConfiguration", args, &rv, opts...)
@@ -21,16 +50,21 @@ func GetRouterConfiguration(ctx *pulumi.Context, args *GetRouterConfigurationArg
 
 // A collection of arguments for invoking getRouterConfiguration.
 type GetRouterConfigurationArgs struct {
+	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
 	RouterTypeIdentifier string `pulumi:"routerTypeIdentifier"`
-	VirtualInterfaceId   string `pulumi:"virtualInterfaceId"`
+	// ID of the Direct Connect Virtual Interface
+	VirtualInterfaceId string `pulumi:"virtualInterfaceId"`
 }
 
 // A collection of values returned by getRouterConfiguration.
 type GetRouterConfigurationResult struct {
+	// Instructions for configuring your router
 	CustomerRouterConfig string `pulumi:"customerRouterConfig"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                   string                         `pulumi:"id"`
-	RouterTypeIdentifier string                         `pulumi:"routerTypeIdentifier"`
+	Id string `pulumi:"id"`
+	// Router type identifier
+	RouterTypeIdentifier string `pulumi:"routerTypeIdentifier"`
+	// Block of the router type details
 	Routers              []GetRouterConfigurationRouter `pulumi:"routers"`
 	VirtualInterfaceId   string                         `pulumi:"virtualInterfaceId"`
 	VirtualInterfaceName string                         `pulumi:"virtualInterfaceName"`
@@ -51,8 +85,10 @@ func GetRouterConfigurationOutput(ctx *pulumi.Context, args GetRouterConfigurati
 
 // A collection of arguments for invoking getRouterConfiguration.
 type GetRouterConfigurationOutputArgs struct {
+	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
 	RouterTypeIdentifier pulumi.StringInput `pulumi:"routerTypeIdentifier"`
-	VirtualInterfaceId   pulumi.StringInput `pulumi:"virtualInterfaceId"`
+	// ID of the Direct Connect Virtual Interface
+	VirtualInterfaceId pulumi.StringInput `pulumi:"virtualInterfaceId"`
 }
 
 func (GetRouterConfigurationOutputArgs) ElementType() reflect.Type {
@@ -74,6 +110,7 @@ func (o GetRouterConfigurationResultOutput) ToGetRouterConfigurationResultOutput
 	return o
 }
 
+// Instructions for configuring your router
 func (o GetRouterConfigurationResultOutput) CustomerRouterConfig() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouterConfigurationResult) string { return v.CustomerRouterConfig }).(pulumi.StringOutput)
 }
@@ -83,10 +120,12 @@ func (o GetRouterConfigurationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouterConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Router type identifier
 func (o GetRouterConfigurationResultOutput) RouterTypeIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouterConfigurationResult) string { return v.RouterTypeIdentifier }).(pulumi.StringOutput)
 }
 
+// Block of the router type details
 func (o GetRouterConfigurationResultOutput) Routers() GetRouterConfigurationRouterArrayOutput {
 	return o.ApplyT(func(v GetRouterConfigurationResult) []GetRouterConfigurationRouter { return v.Routers }).(GetRouterConfigurationRouterArrayOutput)
 }

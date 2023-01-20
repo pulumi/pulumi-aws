@@ -4,6 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides details about CodeStar Connection.
+ *
+ * ## Example Usage
+ * ### By ARN
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.codestarconnections.getConnection({
+ *     arn: aws_codestarconnections_connection.example.arn,
+ * });
+ * ```
+ * ### By Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.codestarconnections.getConnection({
+ *     name: aws_codestarconnections_connection.example.name,
+ * });
+ * ```
+ */
 export function getConnection(args?: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
     args = args || {};
 
@@ -19,8 +44,17 @@ export function getConnection(args?: GetConnectionArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getConnection.
  */
 export interface GetConnectionArgs {
+    /**
+     * CodeStar Connection ARN.
+     */
     arn?: string;
+    /**
+     * CodeStar Connection name.
+     */
     name?: string;
+    /**
+     * Map of key-value resource tags to associate with the resource.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -29,16 +63,56 @@ export interface GetConnectionArgs {
  */
 export interface GetConnectionResult {
     readonly arn: string;
+    /**
+     * CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+     */
     readonly connectionStatus: string;
+    /**
+     * ARN of the host associated with the connection.
+     */
     readonly hostArn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Name of the CodeStar Connection. The name is unique in the calling AWS account.
+     */
     readonly name: string;
+    /**
+     * Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an aws.codestarconnections.Host resource and use `hostArn` instead.
+     */
     readonly providerType: string;
+    /**
+     * Map of key-value resource tags to associate with the resource.
+     */
     readonly tags: {[key: string]: string};
 }
+/**
+ * Provides details about CodeStar Connection.
+ *
+ * ## Example Usage
+ * ### By ARN
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.codestarconnections.getConnection({
+ *     arn: aws_codestarconnections_connection.example.arn,
+ * });
+ * ```
+ * ### By Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.codestarconnections.getConnection({
+ *     name: aws_codestarconnections_connection.example.name,
+ * });
+ * ```
+ */
 export function getConnectionOutput(args?: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
     return pulumi.output(args).apply((a: any) => getConnection(a, opts))
 }
@@ -47,7 +121,16 @@ export function getConnectionOutput(args?: GetConnectionOutputArgs, opts?: pulum
  * A collection of arguments for invoking getConnection.
  */
 export interface GetConnectionOutputArgs {
+    /**
+     * CodeStar Connection ARN.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * CodeStar Connection name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Map of key-value resource tags to associate with the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

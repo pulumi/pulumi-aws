@@ -11,18 +11,67 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a connection between two devices.
+// The devices can be a physical or virtual appliance that connects to a third-party appliance in a VPC, or a physical appliance that connects to another physical appliance in an on-premises network.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkmanager.NewConnection(ctx, "example", &networkmanager.ConnectionArgs{
+//				GlobalNetworkId:   pulumi.Any(aws_networkmanager_global_network.Example.Id),
+//				DeviceId:          pulumi.Any(aws_networkmanager_device.Example1.Id),
+//				ConnectedDeviceId: pulumi.Any(aws_networkmanager_device.Example2.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_networkmanager_connection` can be imported using the connection ARN, e.g.
+//
+// ```sh
+//
+//	$ pulumi import aws:networkmanager/connection:Connection example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123
+//
+// ```
 type Connection struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput    `pulumi:"arn"`
-	ConnectedDeviceId pulumi.StringOutput    `pulumi:"connectedDeviceId"`
-	ConnectedLinkId   pulumi.StringPtrOutput `pulumi:"connectedLinkId"`
-	Description       pulumi.StringPtrOutput `pulumi:"description"`
-	DeviceId          pulumi.StringOutput    `pulumi:"deviceId"`
-	GlobalNetworkId   pulumi.StringOutput    `pulumi:"globalNetworkId"`
-	LinkId            pulumi.StringPtrOutput `pulumi:"linkId"`
-	Tags              pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll           pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The Amazon Resource Name (ARN) of the connection.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the second device in the connection.
+	ConnectedDeviceId pulumi.StringOutput `pulumi:"connectedDeviceId"`
+	// The ID of the link for the second device.
+	ConnectedLinkId pulumi.StringPtrOutput `pulumi:"connectedLinkId"`
+	// A description of the connection.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The ID of the first device in the connection.
+	DeviceId pulumi.StringOutput `pulumi:"deviceId"`
+	// The ID of the global network.
+	GlobalNetworkId pulumi.StringOutput `pulumi:"globalNetworkId"`
+	// The ID of the link for the first device.
+	LinkId pulumi.StringPtrOutput `pulumi:"linkId"`
+	// Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -63,27 +112,45 @@ func GetConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connection resources.
 type connectionState struct {
-	Arn               *string           `pulumi:"arn"`
-	ConnectedDeviceId *string           `pulumi:"connectedDeviceId"`
-	ConnectedLinkId   *string           `pulumi:"connectedLinkId"`
-	Description       *string           `pulumi:"description"`
-	DeviceId          *string           `pulumi:"deviceId"`
-	GlobalNetworkId   *string           `pulumi:"globalNetworkId"`
-	LinkId            *string           `pulumi:"linkId"`
-	Tags              map[string]string `pulumi:"tags"`
-	TagsAll           map[string]string `pulumi:"tagsAll"`
+	// The Amazon Resource Name (ARN) of the connection.
+	Arn *string `pulumi:"arn"`
+	// The ID of the second device in the connection.
+	ConnectedDeviceId *string `pulumi:"connectedDeviceId"`
+	// The ID of the link for the second device.
+	ConnectedLinkId *string `pulumi:"connectedLinkId"`
+	// A description of the connection.
+	Description *string `pulumi:"description"`
+	// The ID of the first device in the connection.
+	DeviceId *string `pulumi:"deviceId"`
+	// The ID of the global network.
+	GlobalNetworkId *string `pulumi:"globalNetworkId"`
+	// The ID of the link for the first device.
+	LinkId *string `pulumi:"linkId"`
+	// Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ConnectionState struct {
-	Arn               pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the connection.
+	Arn pulumi.StringPtrInput
+	// The ID of the second device in the connection.
 	ConnectedDeviceId pulumi.StringPtrInput
-	ConnectedLinkId   pulumi.StringPtrInput
-	Description       pulumi.StringPtrInput
-	DeviceId          pulumi.StringPtrInput
-	GlobalNetworkId   pulumi.StringPtrInput
-	LinkId            pulumi.StringPtrInput
-	Tags              pulumi.StringMapInput
-	TagsAll           pulumi.StringMapInput
+	// The ID of the link for the second device.
+	ConnectedLinkId pulumi.StringPtrInput
+	// A description of the connection.
+	Description pulumi.StringPtrInput
+	// The ID of the first device in the connection.
+	DeviceId pulumi.StringPtrInput
+	// The ID of the global network.
+	GlobalNetworkId pulumi.StringPtrInput
+	// The ID of the link for the first device.
+	LinkId pulumi.StringPtrInput
+	// Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (ConnectionState) ElementType() reflect.Type {
@@ -91,24 +158,38 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
-	ConnectedDeviceId string            `pulumi:"connectedDeviceId"`
-	ConnectedLinkId   *string           `pulumi:"connectedLinkId"`
-	Description       *string           `pulumi:"description"`
-	DeviceId          string            `pulumi:"deviceId"`
-	GlobalNetworkId   string            `pulumi:"globalNetworkId"`
-	LinkId            *string           `pulumi:"linkId"`
-	Tags              map[string]string `pulumi:"tags"`
+	// The ID of the second device in the connection.
+	ConnectedDeviceId string `pulumi:"connectedDeviceId"`
+	// The ID of the link for the second device.
+	ConnectedLinkId *string `pulumi:"connectedLinkId"`
+	// A description of the connection.
+	Description *string `pulumi:"description"`
+	// The ID of the first device in the connection.
+	DeviceId string `pulumi:"deviceId"`
+	// The ID of the global network.
+	GlobalNetworkId string `pulumi:"globalNetworkId"`
+	// The ID of the link for the first device.
+	LinkId *string `pulumi:"linkId"`
+	// Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
+	// The ID of the second device in the connection.
 	ConnectedDeviceId pulumi.StringInput
-	ConnectedLinkId   pulumi.StringPtrInput
-	Description       pulumi.StringPtrInput
-	DeviceId          pulumi.StringInput
-	GlobalNetworkId   pulumi.StringInput
-	LinkId            pulumi.StringPtrInput
-	Tags              pulumi.StringMapInput
+	// The ID of the link for the second device.
+	ConnectedLinkId pulumi.StringPtrInput
+	// A description of the connection.
+	Description pulumi.StringPtrInput
+	// The ID of the first device in the connection.
+	DeviceId pulumi.StringInput
+	// The ID of the global network.
+	GlobalNetworkId pulumi.StringInput
+	// The ID of the link for the first device.
+	LinkId pulumi.StringPtrInput
+	// Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {
@@ -198,38 +279,47 @@ func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) Con
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the connection.
 func (o ConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID of the second device in the connection.
 func (o ConnectionOutput) ConnectedDeviceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ConnectedDeviceId }).(pulumi.StringOutput)
 }
 
+// The ID of the link for the second device.
 func (o ConnectionOutput) ConnectedLinkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.ConnectedLinkId }).(pulumi.StringPtrOutput)
 }
 
+// A description of the connection.
 func (o ConnectionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the first device in the connection.
 func (o ConnectionOutput) DeviceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.DeviceId }).(pulumi.StringOutput)
 }
 
+// The ID of the global network.
 func (o ConnectionOutput) GlobalNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.GlobalNetworkId }).(pulumi.StringOutput)
 }
 
+// The ID of the link for the first device.
 func (o ConnectionOutput) LinkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.LinkId }).(pulumi.StringPtrOutput)
 }
 
+// Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ConnectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

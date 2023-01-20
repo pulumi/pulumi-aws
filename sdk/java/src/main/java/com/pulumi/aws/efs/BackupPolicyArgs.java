@@ -14,16 +14,32 @@ public final class BackupPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BackupPolicyArgs Empty = new BackupPolicyArgs();
 
+    /**
+     * A backup_policy object (documented below).
+     * 
+     */
     @Import(name="backupPolicy", required=true)
     private Output<BackupPolicyBackupPolicyArgs> backupPolicy;
 
+    /**
+     * @return A backup_policy object (documented below).
+     * 
+     */
     public Output<BackupPolicyBackupPolicyArgs> backupPolicy() {
         return this.backupPolicy;
     }
 
+    /**
+     * The ID of the EFS file system.
+     * 
+     */
     @Import(name="fileSystemId", required=true)
     private Output<String> fileSystemId;
 
+    /**
+     * @return The ID of the EFS file system.
+     * 
+     */
     public Output<String> fileSystemId() {
         return this.fileSystemId;
     }
@@ -53,20 +69,44 @@ public final class BackupPolicyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new BackupPolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param backupPolicy A backup_policy object (documented below).
+         * 
+         * @return builder
+         * 
+         */
         public Builder backupPolicy(Output<BackupPolicyBackupPolicyArgs> backupPolicy) {
             $.backupPolicy = backupPolicy;
             return this;
         }
 
+        /**
+         * @param backupPolicy A backup_policy object (documented below).
+         * 
+         * @return builder
+         * 
+         */
         public Builder backupPolicy(BackupPolicyBackupPolicyArgs backupPolicy) {
             return backupPolicy(Output.of(backupPolicy));
         }
 
+        /**
+         * @param fileSystemId The ID of the EFS file system.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileSystemId(Output<String> fileSystemId) {
             $.fileSystemId = fileSystemId;
             return this;
         }
 
+        /**
+         * @param fileSystemId The ID of the EFS file system.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileSystemId(String fileSystemId) {
             return fileSystemId(Output.of(fileSystemId));
         }

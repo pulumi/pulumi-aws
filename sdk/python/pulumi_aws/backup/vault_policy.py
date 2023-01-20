@@ -18,6 +18,8 @@ class VaultPolicyArgs:
                  policy: pulumi.Input[str]):
         """
         The set of arguments for constructing a VaultPolicy resource.
+        :param pulumi.Input[str] backup_vault_name: Name of the backup vault to add policy for.
+        :param pulumi.Input[str] policy: The backup vault access policy document in JSON format.
         """
         pulumi.set(__self__, "backup_vault_name", backup_vault_name)
         pulumi.set(__self__, "policy", policy)
@@ -25,6 +27,9 @@ class VaultPolicyArgs:
     @property
     @pulumi.getter(name="backupVaultName")
     def backup_vault_name(self) -> pulumi.Input[str]:
+        """
+        Name of the backup vault to add policy for.
+        """
         return pulumi.get(self, "backup_vault_name")
 
     @backup_vault_name.setter
@@ -34,6 +39,9 @@ class VaultPolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
+        """
+        The backup vault access policy document in JSON format.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -49,6 +57,9 @@ class _VaultPolicyState:
                  policy: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VaultPolicy resources.
+        :param pulumi.Input[str] backup_vault_arn: The ARN of the vault.
+        :param pulumi.Input[str] backup_vault_name: Name of the backup vault to add policy for.
+        :param pulumi.Input[str] policy: The backup vault access policy document in JSON format.
         """
         if backup_vault_arn is not None:
             pulumi.set(__self__, "backup_vault_arn", backup_vault_arn)
@@ -60,6 +71,9 @@ class _VaultPolicyState:
     @property
     @pulumi.getter(name="backupVaultArn")
     def backup_vault_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the vault.
+        """
         return pulumi.get(self, "backup_vault_arn")
 
     @backup_vault_arn.setter
@@ -69,6 +83,9 @@ class _VaultPolicyState:
     @property
     @pulumi.getter(name="backupVaultName")
     def backup_vault_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the backup vault to add policy for.
+        """
         return pulumi.get(self, "backup_vault_name")
 
     @backup_vault_name.setter
@@ -78,6 +95,9 @@ class _VaultPolicyState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The backup vault access policy document in JSON format.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -94,9 +114,56 @@ class VaultPolicy(pulumi.CustomResource):
                  policy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a VaultPolicy resource with the given unique name, props, and options.
+        Provides an AWS Backup vault policy resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_vault = aws.backup.Vault("exampleVault")
+        example_vault_policy = aws.backup.VaultPolicy("exampleVaultPolicy",
+            backup_vault_name=example_vault.name,
+            policy=example_vault.arn.apply(lambda arn: f\"\"\"{{
+          "Version": "2012-10-17",
+          "Id": "default",
+          "Statement": [
+            {{
+              "Sid": "default",
+              "Effect": "Allow",
+              "Principal": {{
+                "AWS": "*"
+              }},
+              "Action": [
+        		"backup:DescribeBackupVault",
+        		"backup:DeleteBackupVault",
+        		"backup:PutBackupVaultAccessPolicy",
+        		"backup:DeleteBackupVaultAccessPolicy",
+        		"backup:GetBackupVaultAccessPolicy",
+        		"backup:StartBackupJob",
+        		"backup:GetBackupVaultNotifications",
+        		"backup:PutBackupVaultNotifications"
+              ],
+              "Resource": "{arn}"
+            }}
+          ]
+        }}
+        \"\"\"))
+        ```
+
+        ## Import
+
+        Backup vault policy can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] backup_vault_name: Name of the backup vault to add policy for.
+        :param pulumi.Input[str] policy: The backup vault access policy document in JSON format.
         """
         ...
     @overload
@@ -105,7 +172,52 @@ class VaultPolicy(pulumi.CustomResource):
                  args: VaultPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a VaultPolicy resource with the given unique name, props, and options.
+        Provides an AWS Backup vault policy resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_vault = aws.backup.Vault("exampleVault")
+        example_vault_policy = aws.backup.VaultPolicy("exampleVaultPolicy",
+            backup_vault_name=example_vault.name,
+            policy=example_vault.arn.apply(lambda arn: f\"\"\"{{
+          "Version": "2012-10-17",
+          "Id": "default",
+          "Statement": [
+            {{
+              "Sid": "default",
+              "Effect": "Allow",
+              "Principal": {{
+                "AWS": "*"
+              }},
+              "Action": [
+        		"backup:DescribeBackupVault",
+        		"backup:DeleteBackupVault",
+        		"backup:PutBackupVaultAccessPolicy",
+        		"backup:DeleteBackupVaultAccessPolicy",
+        		"backup:GetBackupVaultAccessPolicy",
+        		"backup:StartBackupJob",
+        		"backup:GetBackupVaultNotifications",
+        		"backup:PutBackupVaultNotifications"
+              ],
+              "Resource": "{arn}"
+            }}
+          ]
+        }}
+        \"\"\"))
+        ```
+
+        ## Import
+
+        Backup vault policy can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
+        ```
+
         :param str resource_name: The name of the resource.
         :param VaultPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,6 +271,9 @@ class VaultPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] backup_vault_arn: The ARN of the vault.
+        :param pulumi.Input[str] backup_vault_name: Name of the backup vault to add policy for.
+        :param pulumi.Input[str] policy: The backup vault access policy document in JSON format.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -172,15 +287,24 @@ class VaultPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="backupVaultArn")
     def backup_vault_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the vault.
+        """
         return pulumi.get(self, "backup_vault_arn")
 
     @property
     @pulumi.getter(name="backupVaultName")
     def backup_vault_name(self) -> pulumi.Output[str]:
+        """
+        Name of the backup vault to add policy for.
+        """
         return pulumi.get(self, "backup_vault_name")
 
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
+        """
+        The backup vault access policy document in JSON format.
+        """
         return pulumi.get(self, "policy")
 

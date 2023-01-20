@@ -13,9 +13,17 @@ public final class UserPoolUserPoolAddOnsArgs extends com.pulumi.resources.Resou
 
     public static final UserPoolUserPoolAddOnsArgs Empty = new UserPoolUserPoolAddOnsArgs();
 
+    /**
+     * Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+     * 
+     */
     @Import(name="advancedSecurityMode", required=true)
     private Output<String> advancedSecurityMode;
 
+    /**
+     * @return Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+     * 
+     */
     public Output<String> advancedSecurityMode() {
         return this.advancedSecurityMode;
     }
@@ -44,11 +52,23 @@ public final class UserPoolUserPoolAddOnsArgs extends com.pulumi.resources.Resou
             $ = new UserPoolUserPoolAddOnsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param advancedSecurityMode Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder advancedSecurityMode(Output<String> advancedSecurityMode) {
             $.advancedSecurityMode = advancedSecurityMode;
             return this;
         }
 
+        /**
+         * @param advancedSecurityMode Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder advancedSecurityMode(String advancedSecurityMode) {
             return advancedSecurityMode(Output.of(advancedSecurityMode));
         }

@@ -14,16 +14,32 @@ public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSecretPlainArgs Empty = new GetSecretPlainArgs();
 
+    /**
+     * ARN of the secret to retrieve.
+     * 
+     */
     @Import(name="arn")
     private @Nullable String arn;
 
+    /**
+     * @return ARN of the secret to retrieve.
+     * 
+     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * Name of the secret to retrieve.
+     * 
+     */
     @Import(name="name")
     private @Nullable String name;
 
+    /**
+     * @return Name of the secret to retrieve.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
@@ -53,11 +69,23 @@ public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetSecretPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn ARN of the secret to retrieve.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable String arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param name Name of the secret to retrieve.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;

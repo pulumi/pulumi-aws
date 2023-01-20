@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupInstanceRefresh {
+    /**
+     * @return Override default parameters for Instance Refresh.
+     * 
+     */
     private @Nullable GroupInstanceRefreshPreferences preferences;
+    /**
+     * @return Strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
+     * 
+     */
     private String strategy;
+    /**
+     * @return Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
+     * 
+     */
     private @Nullable List<String> triggers;
 
     private GroupInstanceRefresh() {}
+    /**
+     * @return Override default parameters for Instance Refresh.
+     * 
+     */
     public Optional<GroupInstanceRefreshPreferences> preferences() {
         return Optional.ofNullable(this.preferences);
     }
+    /**
+     * @return Strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
+     * 
+     */
     public String strategy() {
         return this.strategy;
     }
+    /**
+     * @return Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
+     * 
+     */
     public List<String> triggers() {
         return this.triggers == null ? List.of() : this.triggers;
     }

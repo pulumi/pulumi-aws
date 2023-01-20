@@ -13,6 +13,9 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
     [OutputType]
     public sealed class DomainSnapshotOptions
     {
+        /// <summary>
+        /// Hour during which the service takes an automated daily snapshot of the indices in the domain.
+        /// </summary>
         public readonly int AutomatedSnapshotStartHour;
 
         [OutputConstructor]

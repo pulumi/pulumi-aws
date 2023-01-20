@@ -23,167 +23,704 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB, SQS, Amazon MQ and Managed Streaming for Apache Kafka (MSK).
+ * 
+ * For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
+ * For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
+ * 
+ * ## Example Usage
+ * ### DynamoDB
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.EventSourceMapping;
+ * import com.pulumi.aws.lambda.EventSourceMappingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
+ *             .eventSourceArn(aws_dynamodb_table.example().stream_arn())
+ *             .functionName(aws_lambda_function.example().arn())
+ *             .startingPosition(&#34;LATEST&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Kinesis
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.EventSourceMapping;
+ * import com.pulumi.aws.lambda.EventSourceMappingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
+ *             .eventSourceArn(aws_kinesis_stream.example().arn())
+ *             .functionName(aws_lambda_function.example().arn())
+ *             .startingPosition(&#34;LATEST&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Managed Streaming for Apache Kafka (MSK)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.EventSourceMapping;
+ * import com.pulumi.aws.lambda.EventSourceMappingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
+ *             .eventSourceArn(aws_msk_cluster.example().arn())
+ *             .functionName(aws_lambda_function.example().arn())
+ *             .topics(&#34;Example&#34;)
+ *             .startingPosition(&#34;TRIM_HORIZON&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Self Managed Apache Kafka
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.EventSourceMapping;
+ * import com.pulumi.aws.lambda.EventSourceMappingArgs;
+ * import com.pulumi.aws.lambda.inputs.EventSourceMappingSelfManagedEventSourceArgs;
+ * import com.pulumi.aws.lambda.inputs.EventSourceMappingSourceAccessConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
+ *             .functionName(aws_lambda_function.example().arn())
+ *             .topics(&#34;Example&#34;)
+ *             .startingPosition(&#34;TRIM_HORIZON&#34;)
+ *             .selfManagedEventSource(EventSourceMappingSelfManagedEventSourceArgs.builder()
+ *                 .endpoints(Map.of(&#34;KAFKA_BOOTSTRAP_SERVERS&#34;, &#34;kafka1.example.com:9092,kafka2.example.com:9092&#34;))
+ *                 .build())
+ *             .sourceAccessConfigurations(            
+ *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
+ *                     .type(&#34;VPC_SUBNET&#34;)
+ *                     .uri(&#34;subnet:subnet-example1&#34;)
+ *                     .build(),
+ *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
+ *                     .type(&#34;VPC_SUBNET&#34;)
+ *                     .uri(&#34;subnet:subnet-example2&#34;)
+ *                     .build(),
+ *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
+ *                     .type(&#34;VPC_SECURITY_GROUP&#34;)
+ *                     .uri(&#34;security_group:sg-example&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### SQS
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.EventSourceMapping;
+ * import com.pulumi.aws.lambda.EventSourceMappingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
+ *             .eventSourceArn(aws_sqs_queue.sqs_queue_test().arn())
+ *             .functionName(aws_lambda_function.example().arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### SQS with event filter
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.EventSourceMapping;
+ * import com.pulumi.aws.lambda.EventSourceMappingArgs;
+ * import com.pulumi.aws.lambda.inputs.EventSourceMappingFilterCriteriaArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
+ *             .eventSourceArn(aws_sqs_queue.sqs_queue_test().arn())
+ *             .functionName(aws_lambda_function.example().arn())
+ *             .filterCriteria(EventSourceMappingFilterCriteriaArgs.builder()
+ *                 .filters(EventSourceMappingFilterCriteriaFilterArgs.builder()
+ *                     .pattern(serializeJson(
+ *                         jsonObject(
+ *                             jsonProperty(&#34;body&#34;, jsonObject(
+ *                                 jsonProperty(&#34;Temperature&#34;, jsonArray(jsonObject(
+ *                                     jsonProperty(&#34;numeric&#34;, jsonArray(
+ *                                         &#34;&gt;&#34;, 
+ *                                         0, 
+ *                                         &#34;&lt;=&#34;, 
+ *                                         100
+ *                                     ))
+ *                                 ))),
+ *                                 jsonProperty(&#34;Location&#34;, jsonArray(&#34;New York&#34;))
+ *                             ))
+ *                         )))
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Amazon MQ (ActiveMQ)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.EventSourceMapping;
+ * import com.pulumi.aws.lambda.EventSourceMappingArgs;
+ * import com.pulumi.aws.lambda.inputs.EventSourceMappingSourceAccessConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
+ *             .batchSize(10)
+ *             .eventSourceArn(aws_mq_broker.example().arn())
+ *             .enabled(true)
+ *             .functionName(aws_lambda_function.example().arn())
+ *             .queues(&#34;example&#34;)
+ *             .sourceAccessConfigurations(EventSourceMappingSourceAccessConfigurationArgs.builder()
+ *                 .type(&#34;BASIC_AUTH&#34;)
+ *                 .uri(aws_secretsmanager_secret_version.example().arn())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Amazon MQ (RabbitMQ)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.EventSourceMapping;
+ * import com.pulumi.aws.lambda.EventSourceMappingArgs;
+ * import com.pulumi.aws.lambda.inputs.EventSourceMappingSourceAccessConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
+ *             .batchSize(1)
+ *             .eventSourceArn(aws_mq_broker.example().arn())
+ *             .enabled(true)
+ *             .functionName(aws_lambda_function.example().arn())
+ *             .queues(&#34;example&#34;)
+ *             .sourceAccessConfigurations(            
+ *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
+ *                     .type(&#34;VIRTUAL_HOST&#34;)
+ *                     .uri(&#34;/example&#34;)
+ *                     .build(),
+ *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
+ *                     .type(&#34;BASIC_AUTH&#34;)
+ *                     .uri(aws_secretsmanager_secret_version.example().arn())
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Lambda event source mappings can be imported using the `UUID` (event source mapping identifier), e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
+ * ```
+ * 
+ */
 @ResourceType(type="aws:lambda/eventSourceMapping:EventSourceMapping")
 public class EventSourceMapping extends com.pulumi.resources.CustomResource {
+    /**
+     * Additional configuration block for Amazon Managed Kafka sources. Incompatible with &#34;self_managed_event_source&#34; and &#34;self_managed_kafka_event_source_config&#34;. Detailed below.
+     * 
+     */
     @Export(name="amazonManagedKafkaEventSourceConfig", refs={EventSourceMappingAmazonManagedKafkaEventSourceConfig.class}, tree="[0]")
     private Output<EventSourceMappingAmazonManagedKafkaEventSourceConfig> amazonManagedKafkaEventSourceConfig;
 
+    /**
+     * @return Additional configuration block for Amazon Managed Kafka sources. Incompatible with &#34;self_managed_event_source&#34; and &#34;self_managed_kafka_event_source_config&#34;. Detailed below.
+     * 
+     */
     public Output<EventSourceMappingAmazonManagedKafkaEventSourceConfig> amazonManagedKafkaEventSourceConfig() {
         return this.amazonManagedKafkaEventSourceConfig;
     }
+    /**
+     * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
+     * 
+     */
     @Export(name="batchSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> batchSize;
 
+    /**
+     * @return The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
+     * 
+     */
     public Output<Optional<Integer>> batchSize() {
         return Codegen.optional(this.batchSize);
     }
+    /**
+     * - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+     * 
+     */
     @Export(name="bisectBatchOnFunctionError", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> bisectBatchOnFunctionError;
 
+    /**
+     * @return - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+     * 
+     */
     public Output<Optional<Boolean>> bisectBatchOnFunctionError() {
         return Codegen.optional(this.bisectBatchOnFunctionError);
     }
+    /**
+     * - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     * 
+     */
     @Export(name="destinationConfig", refs={EventSourceMappingDestinationConfig.class}, tree="[0]")
     private Output</* @Nullable */ EventSourceMappingDestinationConfig> destinationConfig;
 
+    /**
+     * @return - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     * 
+     */
     public Output<Optional<EventSourceMappingDestinationConfig>> destinationConfig() {
         return Codegen.optional(this.destinationConfig);
     }
+    /**
+     * Determines if the mapping will be enabled on creation. Defaults to `true`.
+     * 
+     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
+    /**
+     * @return Determines if the mapping will be enabled on creation. Defaults to `true`.
+     * 
+     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
+    /**
+     * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+     * 
+     */
     @Export(name="eventSourceArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventSourceArn;
 
+    /**
+     * @return The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+     * 
+     */
     public Output<Optional<String>> eventSourceArn() {
         return Codegen.optional(this.eventSourceArn);
     }
+    /**
+     * The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
+     * 
+     */
     @Export(name="filterCriteria", refs={EventSourceMappingFilterCriteria.class}, tree="[0]")
     private Output</* @Nullable */ EventSourceMappingFilterCriteria> filterCriteria;
 
+    /**
+     * @return The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
+     * 
+     */
     public Output<Optional<EventSourceMappingFilterCriteria>> filterCriteria() {
         return Codegen.optional(this.filterCriteria);
     }
+    /**
+     * The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
+     * 
+     */
     @Export(name="functionArn", refs={String.class}, tree="[0]")
     private Output<String> functionArn;
 
+    /**
+     * @return The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
+     * 
+     */
     public Output<String> functionArn() {
         return this.functionArn;
     }
+    /**
+     * The name or the ARN of the Lambda function that will be subscribing to events.
+     * 
+     */
     @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output<String> functionName;
 
+    /**
+     * @return The name or the ARN of the Lambda function that will be subscribing to events.
+     * 
+     */
     public Output<String> functionName() {
         return this.functionName;
     }
+    /**
+     * A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
+     * 
+     */
     @Export(name="functionResponseTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> functionResponseTypes;
 
+    /**
+     * @return A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
+     * 
+     */
     public Output<Optional<List<String>>> functionResponseTypes() {
         return Codegen.optional(this.functionResponseTypes);
     }
+    /**
+     * The date this resource was last modified.
+     * 
+     */
     @Export(name="lastModified", refs={String.class}, tree="[0]")
     private Output<String> lastModified;
 
+    /**
+     * @return The date this resource was last modified.
+     * 
+     */
     public Output<String> lastModified() {
         return this.lastModified;
     }
+    /**
+     * The result of the last AWS Lambda invocation of your Lambda function.
+     * 
+     */
     @Export(name="lastProcessingResult", refs={String.class}, tree="[0]")
     private Output<String> lastProcessingResult;
 
+    /**
+     * @return The result of the last AWS Lambda invocation of your Lambda function.
+     * 
+     */
     public Output<String> lastProcessingResult() {
         return this.lastProcessingResult;
     }
+    /**
+     * The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
+     * 
+     */
     @Export(name="maximumBatchingWindowInSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maximumBatchingWindowInSeconds;
 
+    /**
+     * @return The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
+     * 
+     */
     public Output<Optional<Integer>> maximumBatchingWindowInSeconds() {
         return Codegen.optional(this.maximumBatchingWindowInSeconds);
     }
+    /**
+     * - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
+     * 
+     */
     @Export(name="maximumRecordAgeInSeconds", refs={Integer.class}, tree="[0]")
     private Output<Integer> maximumRecordAgeInSeconds;
 
+    /**
+     * @return - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
+     * 
+     */
     public Output<Integer> maximumRecordAgeInSeconds() {
         return this.maximumRecordAgeInSeconds;
     }
+    /**
+     * - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+     * 
+     */
     @Export(name="maximumRetryAttempts", refs={Integer.class}, tree="[0]")
     private Output<Integer> maximumRetryAttempts;
 
+    /**
+     * @return - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+     * 
+     */
     public Output<Integer> maximumRetryAttempts() {
         return this.maximumRetryAttempts;
     }
+    /**
+     * - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+     * 
+     */
     @Export(name="parallelizationFactor", refs={Integer.class}, tree="[0]")
     private Output<Integer> parallelizationFactor;
 
+    /**
+     * @return - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+     * 
+     */
     public Output<Integer> parallelizationFactor() {
         return this.parallelizationFactor;
     }
+    /**
+     * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+     * 
+     */
     @Export(name="queues", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> queues;
 
+    /**
+     * @return The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+     * 
+     */
     public Output<Optional<List<String>>> queues() {
         return Codegen.optional(this.queues);
     }
+    /**
+     * - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
+     * 
+     */
     @Export(name="selfManagedEventSource", refs={EventSourceMappingSelfManagedEventSource.class}, tree="[0]")
     private Output</* @Nullable */ EventSourceMappingSelfManagedEventSource> selfManagedEventSource;
 
+    /**
+     * @return - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
+     * 
+     */
     public Output<Optional<EventSourceMappingSelfManagedEventSource>> selfManagedEventSource() {
         return Codegen.optional(this.selfManagedEventSource);
     }
+    /**
+     * Additional configuration block for Self Managed Kafka sources. Incompatible with &#34;event_source_arn&#34; and &#34;amazon_managed_kafka_event_source_config&#34;. Detailed below.
+     * 
+     */
     @Export(name="selfManagedKafkaEventSourceConfig", refs={EventSourceMappingSelfManagedKafkaEventSourceConfig.class}, tree="[0]")
     private Output<EventSourceMappingSelfManagedKafkaEventSourceConfig> selfManagedKafkaEventSourceConfig;
 
+    /**
+     * @return Additional configuration block for Self Managed Kafka sources. Incompatible with &#34;event_source_arn&#34; and &#34;amazon_managed_kafka_event_source_config&#34;. Detailed below.
+     * 
+     */
     public Output<EventSourceMappingSelfManagedKafkaEventSourceConfig> selfManagedKafkaEventSourceConfig() {
         return this.selfManagedKafkaEventSourceConfig;
     }
+    /**
+     * For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
+     * 
+     */
     @Export(name="sourceAccessConfigurations", refs={List.class,EventSourceMappingSourceAccessConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EventSourceMappingSourceAccessConfiguration>> sourceAccessConfigurations;
 
+    /**
+     * @return For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
+     * 
+     */
     public Output<Optional<List<EventSourceMappingSourceAccessConfiguration>>> sourceAccessConfigurations() {
         return Codegen.optional(this.sourceAccessConfigurations);
     }
+    /**
+     * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB or MSK. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
+     * 
+     */
     @Export(name="startingPosition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> startingPosition;
 
+    /**
+     * @return The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB or MSK. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
+     * 
+     */
     public Output<Optional<String>> startingPosition() {
         return Codegen.optional(this.startingPosition);
     }
+    /**
+     * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+     * 
+     */
     @Export(name="startingPositionTimestamp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> startingPositionTimestamp;
 
+    /**
+     * @return A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+     * 
+     */
     public Output<Optional<String>> startingPositionTimestamp() {
         return Codegen.optional(this.startingPositionTimestamp);
     }
+    /**
+     * The state of the event source mapping.
+     * 
+     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
+    /**
+     * @return The state of the event source mapping.
+     * 
+     */
     public Output<String> state() {
         return this.state;
     }
+    /**
+     * The reason the event source mapping is in its current state.
+     * 
+     */
     @Export(name="stateTransitionReason", refs={String.class}, tree="[0]")
     private Output<String> stateTransitionReason;
 
+    /**
+     * @return The reason the event source mapping is in its current state.
+     * 
+     */
     public Output<String> stateTransitionReason() {
         return this.stateTransitionReason;
     }
+    /**
+     * The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
+     * 
+     */
     @Export(name="topics", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> topics;
 
+    /**
+     * @return The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
+     * 
+     */
     public Output<Optional<List<String>>> topics() {
         return Codegen.optional(this.topics);
     }
+    /**
+     * The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
+     * 
+     */
     @Export(name="tumblingWindowInSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tumblingWindowInSeconds;
 
+    /**
+     * @return The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
+     * 
+     */
     public Output<Optional<Integer>> tumblingWindowInSeconds() {
         return Codegen.optional(this.tumblingWindowInSeconds);
     }
+    /**
+     * The UUID of the created event source mapping.
+     * 
+     */
     @Export(name="uuid", refs={String.class}, tree="[0]")
     private Output<String> uuid;
 
+    /**
+     * @return The UUID of the created event source mapping.
+     * 
+     */
     public Output<String> uuid() {
         return this.uuid;
     }

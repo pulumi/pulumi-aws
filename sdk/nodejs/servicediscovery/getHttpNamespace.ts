@@ -4,6 +4,18 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.servicediscovery.getHttpNamespace({
+ *     name: "development",
+ * });
+ * ```
+ */
 export function getHttpNamespace(args: GetHttpNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetHttpNamespaceResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,7 +29,13 @@ export function getHttpNamespace(args: GetHttpNamespaceArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getHttpNamespace.
  */
 export interface GetHttpNamespaceArgs {
+    /**
+     * Name of the http namespace.
+     */
     name: string;
+    /**
+     * Map of tags for the resource.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -25,16 +43,40 @@ export interface GetHttpNamespaceArgs {
  * A collection of values returned by getHttpNamespace.
  */
 export interface GetHttpNamespaceResult {
+    /**
+     * ARN that Amazon Route 53 assigns to the namespace when you create it.
+     */
     readonly arn: string;
+    /**
+     * Description that you specify for the namespace when you create it.
+     */
     readonly description: string;
+    /**
+     * Name of an HTTP namespace.
+     */
     readonly httpName: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly name: string;
+    /**
+     * Map of tags for the resource.
+     */
     readonly tags: {[key: string]: string};
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.servicediscovery.getHttpNamespace({
+ *     name: "development",
+ * });
+ * ```
+ */
 export function getHttpNamespaceOutput(args: GetHttpNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHttpNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getHttpNamespace(a, opts))
 }
@@ -43,6 +85,12 @@ export function getHttpNamespaceOutput(args: GetHttpNamespaceOutputArgs, opts?: 
  * A collection of arguments for invoking getHttpNamespace.
  */
 export interface GetHttpNamespaceOutputArgs {
+    /**
+     * Name of the http namespace.
+     */
     name: pulumi.Input<string>;
+    /**
+     * Map of tags for the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

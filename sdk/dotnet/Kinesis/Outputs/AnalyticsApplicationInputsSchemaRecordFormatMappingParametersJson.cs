@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson
     {
+        /// <summary>
+        /// Path to the top-level parent that contains the records.
+        /// </summary>
         public readonly string RecordRowPath;
 
         [OutputConstructor]

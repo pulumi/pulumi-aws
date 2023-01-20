@@ -7,6 +7,41 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an AWS IoT Thing Group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const parent = new aws.iot.ThingGroup("parent", {});
+ * const example = new aws.iot.ThingGroup("example", {
+ *     parentGroupName: parent.name,
+ *     properties: {
+ *         attributePayload: {
+ *             attributes: {
+ *                 One: "11111",
+ *                 Two: "TwoTwo",
+ *             },
+ *         },
+ *         description: "This is my thing group",
+ *     },
+ *     tags: {
+ *         managed: "true",
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * IoT Things Groups can be imported using the name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:iot/thingGroup:ThingGroup example example
+ * ```
+ */
 export class ThingGroup extends pulumi.CustomResource {
     /**
      * Get an existing ThingGroup resource's state with the given name, ID, and optional extra
@@ -35,13 +70,31 @@ export class ThingGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ThingGroup.__pulumiType;
     }
 
+    /**
+     * The ARN of the Thing Group.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly metadatas!: pulumi.Output<outputs.iot.ThingGroupMetadata[]>;
+    /**
+     * The name of the Thing Group.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The name of the parent Thing Group.
+     */
     public readonly parentGroupName!: pulumi.Output<string | undefined>;
+    /**
+     * The Thing Group properties. Defined below.
+     */
     public readonly properties!: pulumi.Output<outputs.iot.ThingGroupProperties | undefined>;
+    /**
+     * Key-value mapping of resource tags
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The current version of the Thing Group record in the registry.
+     */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
@@ -85,13 +138,31 @@ export class ThingGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ThingGroup resources.
  */
 export interface ThingGroupState {
+    /**
+     * The ARN of the Thing Group.
+     */
     arn?: pulumi.Input<string>;
     metadatas?: pulumi.Input<pulumi.Input<inputs.iot.ThingGroupMetadata>[]>;
+    /**
+     * The name of the Thing Group.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The name of the parent Thing Group.
+     */
     parentGroupName?: pulumi.Input<string>;
+    /**
+     * The Thing Group properties. Defined below.
+     */
     properties?: pulumi.Input<inputs.iot.ThingGroupProperties>;
+    /**
+     * Key-value mapping of resource tags
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The current version of the Thing Group record in the registry.
+     */
     version?: pulumi.Input<number>;
 }
 
@@ -99,8 +170,20 @@ export interface ThingGroupState {
  * The set of arguments for constructing a ThingGroup resource.
  */
 export interface ThingGroupArgs {
+    /**
+     * The name of the Thing Group.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The name of the parent Thing Group.
+     */
     parentGroupName?: pulumi.Input<string>;
+    /**
+     * The Thing Group properties. Defined below.
+     */
     properties?: pulumi.Input<inputs.iot.ThingGroupProperties>;
+    /**
+     * Key-value mapping of resource tags
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

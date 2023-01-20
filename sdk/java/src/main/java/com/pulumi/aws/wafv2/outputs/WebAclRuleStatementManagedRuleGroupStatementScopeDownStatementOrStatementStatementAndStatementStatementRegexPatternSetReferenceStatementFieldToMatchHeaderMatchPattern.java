@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern {
+    /**
+     * @return An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll all;
+    /**
+     * @return An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+     * 
+     */
     private @Nullable List<String> excludedHeaders;
+    /**
+     * @return An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+     * 
+     */
     private @Nullable List<String> includedHeaders;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern() {}
+    /**
+     * @return An empty configuration block that is used for inspecting all headers.
+     * 
+     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll> all() {
         return Optional.ofNullable(this.all);
     }
+    /**
+     * @return An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+     * 
+     */
     public List<String> excludedHeaders() {
         return this.excludedHeaders == null ? List.of() : this.excludedHeaders;
     }
+    /**
+     * @return An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+     * 
+     */
     public List<String> includedHeaders() {
         return this.includedHeaders == null ? List.of() : this.includedHeaders;
     }

@@ -47,11 +47,17 @@ class GetApplicationResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the application.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Short description of the application
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -84,7 +90,21 @@ class AwaitableGetApplicationResult(GetApplicationResult):
 def get_application(name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about an Elastic Beanstalk Application.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.elasticbeanstalk.get_application(name="example")
+    pulumi.export("arn", example.arn)
+    pulumi.export("description", example.description)
+    ```
+
+
+    :param str name: Name of the application
     """
     __args__ = dict()
     __args__['name'] = name
@@ -103,6 +123,20 @@ def get_application(name: Optional[str] = None,
 def get_application_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about an Elastic Beanstalk Application.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.elasticbeanstalk.get_application(name="example")
+    pulumi.export("arn", example.arn)
+    pulumi.export("description", example.description)
+    ```
+
+
+    :param str name: Name of the application
     """
     ...

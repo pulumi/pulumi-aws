@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class RiskConfigurationCompromisedCredentialsRiskConfigurationActions
     {
+        /// <summary>
+        /// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        /// </summary>
         public readonly string EventAction;
 
         [OutputConstructor]

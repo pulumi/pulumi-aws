@@ -9,12 +9,53 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedShift
 {
+    /// <summary>
+    /// Creates a Redshift authentication profile
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.RedShift.AuthenticationProfile("example", new()
+    ///     {
+    ///         AuthenticationProfileName = "example",
+    ///         AuthenticationProfileContent = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["AllowDBUserOverride"] = "1",
+    ///             ["Client_ID"] = "ExampleClientID",
+    ///             ["App_ID"] = "example",
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Redshift Authentication Profiles support import by `authentication_profile_name`, e.g., console
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:redshift/authenticationProfile:AuthenticationProfile")]
     public partial class AuthenticationProfile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
+        /// </summary>
         [Output("authenticationProfileContent")]
         public Output<string> AuthenticationProfileContent { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the authentication profile.
+        /// </summary>
         [Output("authenticationProfileName")]
         public Output<string> AuthenticationProfileName { get; private set; } = null!;
 
@@ -64,9 +105,15 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class AuthenticationProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
+        /// </summary>
         [Input("authenticationProfileContent", required: true)]
         public Input<string> AuthenticationProfileContent { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the authentication profile.
+        /// </summary>
         [Input("authenticationProfileName", required: true)]
         public Input<string> AuthenticationProfileName { get; set; } = null!;
 
@@ -78,9 +125,15 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class AuthenticationProfileState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
+        /// </summary>
         [Input("authenticationProfileContent")]
         public Input<string>? AuthenticationProfileContent { get; set; }
 
+        /// <summary>
+        /// The name of the authentication profile.
+        /// </summary>
         [Input("authenticationProfileName")]
         public Input<string>? AuthenticationProfileName { get; set; }
 

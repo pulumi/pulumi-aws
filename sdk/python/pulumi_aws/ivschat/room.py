@@ -24,6 +24,17 @@ class RoomArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Room resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] logging_configuration_identifiers: List of Logging Configuration
+               ARNs to attach to the room.
+        :param pulumi.Input[int] maximum_message_length: Maximum number of characters in a single
+               message. Messages are expected to be UTF-8 encoded and this limit applies
+               specifically to rune/code-point count, not number of bytes.
+        :param pulumi.Input[int] maximum_message_rate_per_second: Maximum number of messages per
+               second that can be sent to the room (by all clients).
+        :param pulumi.Input['RoomMessageReviewHandlerArgs'] message_review_handler: Configuration information for optional
+               review of messages.
+        :param pulumi.Input[str] name: Room name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if logging_configuration_identifiers is not None:
             pulumi.set(__self__, "logging_configuration_identifiers", logging_configuration_identifiers)
@@ -41,6 +52,10 @@ class RoomArgs:
     @property
     @pulumi.getter(name="loggingConfigurationIdentifiers")
     def logging_configuration_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Logging Configuration
+        ARNs to attach to the room.
+        """
         return pulumi.get(self, "logging_configuration_identifiers")
 
     @logging_configuration_identifiers.setter
@@ -50,6 +65,11 @@ class RoomArgs:
     @property
     @pulumi.getter(name="maximumMessageLength")
     def maximum_message_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of characters in a single
+        message. Messages are expected to be UTF-8 encoded and this limit applies
+        specifically to rune/code-point count, not number of bytes.
+        """
         return pulumi.get(self, "maximum_message_length")
 
     @maximum_message_length.setter
@@ -59,6 +79,10 @@ class RoomArgs:
     @property
     @pulumi.getter(name="maximumMessageRatePerSecond")
     def maximum_message_rate_per_second(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of messages per
+        second that can be sent to the room (by all clients).
+        """
         return pulumi.get(self, "maximum_message_rate_per_second")
 
     @maximum_message_rate_per_second.setter
@@ -68,6 +92,10 @@ class RoomArgs:
     @property
     @pulumi.getter(name="messageReviewHandler")
     def message_review_handler(self) -> Optional[pulumi.Input['RoomMessageReviewHandlerArgs']]:
+        """
+        Configuration information for optional
+        review of messages.
+        """
         return pulumi.get(self, "message_review_handler")
 
     @message_review_handler.setter
@@ -77,6 +105,9 @@ class RoomArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Room name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -86,6 +117,9 @@ class RoomArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -106,6 +140,19 @@ class _RoomState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Room resources.
+        :param pulumi.Input[str] arn: ARN of the Room.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] logging_configuration_identifiers: List of Logging Configuration
+               ARNs to attach to the room.
+        :param pulumi.Input[int] maximum_message_length: Maximum number of characters in a single
+               message. Messages are expected to be UTF-8 encoded and this limit applies
+               specifically to rune/code-point count, not number of bytes.
+        :param pulumi.Input[int] maximum_message_rate_per_second: Maximum number of messages per
+               second that can be sent to the room (by all clients).
+        :param pulumi.Input['RoomMessageReviewHandlerArgs'] message_review_handler: Configuration information for optional
+               review of messages.
+        :param pulumi.Input[str] name: Room name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -127,6 +174,9 @@ class _RoomState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Room.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -136,6 +186,10 @@ class _RoomState:
     @property
     @pulumi.getter(name="loggingConfigurationIdentifiers")
     def logging_configuration_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Logging Configuration
+        ARNs to attach to the room.
+        """
         return pulumi.get(self, "logging_configuration_identifiers")
 
     @logging_configuration_identifiers.setter
@@ -145,6 +199,11 @@ class _RoomState:
     @property
     @pulumi.getter(name="maximumMessageLength")
     def maximum_message_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of characters in a single
+        message. Messages are expected to be UTF-8 encoded and this limit applies
+        specifically to rune/code-point count, not number of bytes.
+        """
         return pulumi.get(self, "maximum_message_length")
 
     @maximum_message_length.setter
@@ -154,6 +213,10 @@ class _RoomState:
     @property
     @pulumi.getter(name="maximumMessageRatePerSecond")
     def maximum_message_rate_per_second(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of messages per
+        second that can be sent to the room (by all clients).
+        """
         return pulumi.get(self, "maximum_message_rate_per_second")
 
     @maximum_message_rate_per_second.setter
@@ -163,6 +226,10 @@ class _RoomState:
     @property
     @pulumi.getter(name="messageReviewHandler")
     def message_review_handler(self) -> Optional[pulumi.Input['RoomMessageReviewHandlerArgs']]:
+        """
+        Configuration information for optional
+        review of messages.
+        """
         return pulumi.get(self, "message_review_handler")
 
     @message_review_handler.setter
@@ -172,6 +239,9 @@ class _RoomState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Room name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -181,6 +251,9 @@ class _RoomState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -190,6 +263,9 @@ class _RoomState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -210,9 +286,55 @@ class Room(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Room resource with the given unique name, props, and options.
+        Resource for managing an AWS IVS (Interactive Video) Chat Room.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ivschat.Room("example")
+        ```
+        ## Usage with Logging Configuration to S3 Bucket
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2",
+            bucket_prefix="tf-ivschat-logging-bucket-",
+            force_destroy=True)
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
+            s3=aws.ivschat.LoggingConfigurationDestinationConfigurationS3Args(
+                bucket_name=example_bucket_v2.id,
+            ),
+        ))
+        example_room = aws.ivschat.Room("exampleRoom", logging_configuration_identifiers=[example_logging_configuration.arn])
+        ```
+
+        ## Import
+
+        IVS (Interactive Video) Chat Room can be imported using the ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] logging_configuration_identifiers: List of Logging Configuration
+               ARNs to attach to the room.
+        :param pulumi.Input[int] maximum_message_length: Maximum number of characters in a single
+               message. Messages are expected to be UTF-8 encoded and this limit applies
+               specifically to rune/code-point count, not number of bytes.
+        :param pulumi.Input[int] maximum_message_rate_per_second: Maximum number of messages per
+               second that can be sent to the room (by all clients).
+        :param pulumi.Input[pulumi.InputType['RoomMessageReviewHandlerArgs']] message_review_handler: Configuration information for optional
+               review of messages.
+        :param pulumi.Input[str] name: Room name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -221,7 +343,42 @@ class Room(pulumi.CustomResource):
                  args: Optional[RoomArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Room resource with the given unique name, props, and options.
+        Resource for managing an AWS IVS (Interactive Video) Chat Room.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ivschat.Room("example")
+        ```
+        ## Usage with Logging Configuration to S3 Bucket
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2",
+            bucket_prefix="tf-ivschat-logging-bucket-",
+            force_destroy=True)
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
+            s3=aws.ivschat.LoggingConfigurationDestinationConfigurationS3Args(
+                bucket_name=example_bucket_v2.id,
+            ),
+        ))
+        example_room = aws.ivschat.Room("exampleRoom", logging_configuration_identifiers=[example_logging_configuration.arn])
+        ```
+
+        ## Import
+
+        IVS (Interactive Video) Chat Room can be imported using the ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
+        ```
+
         :param str resource_name: The name of the resource.
         :param RoomArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -285,6 +442,19 @@ class Room(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the Room.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] logging_configuration_identifiers: List of Logging Configuration
+               ARNs to attach to the room.
+        :param pulumi.Input[int] maximum_message_length: Maximum number of characters in a single
+               message. Messages are expected to be UTF-8 encoded and this limit applies
+               specifically to rune/code-point count, not number of bytes.
+        :param pulumi.Input[int] maximum_message_rate_per_second: Maximum number of messages per
+               second that can be sent to the room (by all clients).
+        :param pulumi.Input[pulumi.InputType['RoomMessageReviewHandlerArgs']] message_review_handler: Configuration information for optional
+               review of messages.
+        :param pulumi.Input[str] name: Room name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -303,40 +473,69 @@ class Room(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the Room.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="loggingConfigurationIdentifiers")
     def logging_configuration_identifiers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of Logging Configuration
+        ARNs to attach to the room.
+        """
         return pulumi.get(self, "logging_configuration_identifiers")
 
     @property
     @pulumi.getter(name="maximumMessageLength")
     def maximum_message_length(self) -> pulumi.Output[int]:
+        """
+        Maximum number of characters in a single
+        message. Messages are expected to be UTF-8 encoded and this limit applies
+        specifically to rune/code-point count, not number of bytes.
+        """
         return pulumi.get(self, "maximum_message_length")
 
     @property
     @pulumi.getter(name="maximumMessageRatePerSecond")
     def maximum_message_rate_per_second(self) -> pulumi.Output[int]:
+        """
+        Maximum number of messages per
+        second that can be sent to the room (by all clients).
+        """
         return pulumi.get(self, "maximum_message_rate_per_second")
 
     @property
     @pulumi.getter(name="messageReviewHandler")
     def message_review_handler(self) -> pulumi.Output[Optional['outputs.RoomMessageReviewHandler']]:
+        """
+        Configuration information for optional
+        review of messages.
+        """
         return pulumi.get(self, "message_review_handler")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Room name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

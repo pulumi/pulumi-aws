@@ -21,6 +21,11 @@ class TrafficPolicyInstanceArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TrafficPolicyInstance resource.
+        :param pulumi.Input[str] hosted_zone_id: ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
+        :param pulumi.Input[str] traffic_policy_id: ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
+        :param pulumi.Input[int] traffic_policy_version: Version of the traffic policy
+        :param pulumi.Input[int] ttl: TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
+        :param pulumi.Input[str] name: Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
         """
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
         pulumi.set(__self__, "traffic_policy_id", traffic_policy_id)
@@ -32,6 +37,9 @@ class TrafficPolicyInstanceArgs:
     @property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Input[str]:
+        """
+        ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
+        """
         return pulumi.get(self, "hosted_zone_id")
 
     @hosted_zone_id.setter
@@ -41,6 +49,9 @@ class TrafficPolicyInstanceArgs:
     @property
     @pulumi.getter(name="trafficPolicyId")
     def traffic_policy_id(self) -> pulumi.Input[str]:
+        """
+        ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
+        """
         return pulumi.get(self, "traffic_policy_id")
 
     @traffic_policy_id.setter
@@ -50,6 +61,9 @@ class TrafficPolicyInstanceArgs:
     @property
     @pulumi.getter(name="trafficPolicyVersion")
     def traffic_policy_version(self) -> pulumi.Input[int]:
+        """
+        Version of the traffic policy
+        """
         return pulumi.get(self, "traffic_policy_version")
 
     @traffic_policy_version.setter
@@ -59,6 +73,9 @@ class TrafficPolicyInstanceArgs:
     @property
     @pulumi.getter
     def ttl(self) -> pulumi.Input[int]:
+        """
+        TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
+        """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
@@ -68,6 +85,9 @@ class TrafficPolicyInstanceArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -85,6 +105,11 @@ class _TrafficPolicyInstanceState:
                  ttl: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering TrafficPolicyInstance resources.
+        :param pulumi.Input[str] hosted_zone_id: ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
+        :param pulumi.Input[str] name: Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
+        :param pulumi.Input[str] traffic_policy_id: ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
+        :param pulumi.Input[int] traffic_policy_version: Version of the traffic policy
+        :param pulumi.Input[int] ttl: TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
         """
         if hosted_zone_id is not None:
             pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
@@ -100,6 +125,9 @@ class _TrafficPolicyInstanceState:
     @property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
+        """
         return pulumi.get(self, "hosted_zone_id")
 
     @hosted_zone_id.setter
@@ -109,6 +137,9 @@ class _TrafficPolicyInstanceState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -118,6 +149,9 @@ class _TrafficPolicyInstanceState:
     @property
     @pulumi.getter(name="trafficPolicyId")
     def traffic_policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
+        """
         return pulumi.get(self, "traffic_policy_id")
 
     @traffic_policy_id.setter
@@ -127,6 +161,9 @@ class _TrafficPolicyInstanceState:
     @property
     @pulumi.getter(name="trafficPolicyVersion")
     def traffic_policy_version(self) -> Optional[pulumi.Input[int]]:
+        """
+        Version of the traffic policy
+        """
         return pulumi.get(self, "traffic_policy_version")
 
     @traffic_policy_version.setter
@@ -136,6 +173,9 @@ class _TrafficPolicyInstanceState:
     @property
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
+        """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
@@ -155,9 +195,36 @@ class TrafficPolicyInstance(pulumi.CustomResource):
                  ttl: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Create a TrafficPolicyInstance resource with the given unique name, props, and options.
+        Provides a Route53 traffic policy instance resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.route53.TrafficPolicyInstance("test",
+            hosted_zone_id="Z033120931TAQO548OGJC",
+            traffic_policy_id="b3gb108f-ea6f-45a5-baab-9d112d8b4037",
+            traffic_policy_version=1,
+            ttl=360)
+        ```
+
+        ## Import
+
+        Route53 traffic policy instance can be imported using its id.
+
+        ```sh
+         $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] hosted_zone_id: ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
+        :param pulumi.Input[str] name: Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
+        :param pulumi.Input[str] traffic_policy_id: ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
+        :param pulumi.Input[int] traffic_policy_version: Version of the traffic policy
+        :param pulumi.Input[int] ttl: TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
         """
         ...
     @overload
@@ -166,7 +233,29 @@ class TrafficPolicyInstance(pulumi.CustomResource):
                  args: TrafficPolicyInstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a TrafficPolicyInstance resource with the given unique name, props, and options.
+        Provides a Route53 traffic policy instance resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.route53.TrafficPolicyInstance("test",
+            hosted_zone_id="Z033120931TAQO548OGJC",
+            traffic_policy_id="b3gb108f-ea6f-45a5-baab-9d112d8b4037",
+            traffic_policy_version=1,
+            ttl=360)
+        ```
+
+        ## Import
+
+        Route53 traffic policy instance can be imported using its id.
+
+        ```sh
+         $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
+        ```
+
         :param str resource_name: The name of the resource.
         :param TrafficPolicyInstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,6 +320,11 @@ class TrafficPolicyInstance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] hosted_zone_id: ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
+        :param pulumi.Input[str] name: Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
+        :param pulumi.Input[str] traffic_policy_id: ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
+        :param pulumi.Input[int] traffic_policy_version: Version of the traffic policy
+        :param pulumi.Input[int] ttl: TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -246,25 +340,40 @@ class TrafficPolicyInstance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Output[str]:
+        """
+        ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
+        """
         return pulumi.get(self, "hosted_zone_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="trafficPolicyId")
     def traffic_policy_id(self) -> pulumi.Output[str]:
+        """
+        ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
+        """
         return pulumi.get(self, "traffic_policy_id")
 
     @property
     @pulumi.getter(name="trafficPolicyVersion")
     def traffic_policy_version(self) -> pulumi.Output[int]:
+        """
+        Version of the traffic policy
+        """
         return pulumi.get(self, "traffic_policy_version")
 
     @property
     @pulumi.getter
     def ttl(self) -> pulumi.Output[int]:
+        """
+        TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
+        """
         return pulumi.get(self, "ttl")
 

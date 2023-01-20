@@ -7,6 +7,9 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to get an Identity Store Group.
+ */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -22,12 +25,23 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getGroup.
  */
 export interface GetGroupArgs {
+    /**
+     * A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
+     */
     alternateIdentifier?: inputs.identitystore.GetGroupAlternateIdentifier;
     /**
+     * Configuration block for filtering by a unique attribute of the group. Detailed below.
+     *
      * @deprecated Use the alternate_identifier attribute instead.
      */
     filter?: inputs.identitystore.GetGroupFilter;
+    /**
+     * The identifier for a group in the Identity Store.
+     */
     groupId?: string;
+    /**
+     * Identity Store ID associated with the Single Sign-On Instance.
+     */
     identityStoreId: string;
 }
 
@@ -36,8 +50,17 @@ export interface GetGroupArgs {
  */
 export interface GetGroupResult {
     readonly alternateIdentifier?: outputs.identitystore.GetGroupAlternateIdentifier;
+    /**
+     * Description of the specified group.
+     */
     readonly description: string;
+    /**
+     * Group's display name value.
+     */
     readonly displayName: string;
+    /**
+     * List of identifiers issued to this resource by an external identity provider.
+     */
     readonly externalIds: outputs.identitystore.GetGroupExternalId[];
     /**
      * @deprecated Use the alternate_identifier attribute instead.
@@ -50,6 +73,9 @@ export interface GetGroupResult {
     readonly id: string;
     readonly identityStoreId: string;
 }
+/**
+ * Use this data source to get an Identity Store Group.
+ */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
     return pulumi.output(args).apply((a: any) => getGroup(a, opts))
 }
@@ -58,11 +84,22 @@ export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getGroup.
  */
 export interface GetGroupOutputArgs {
+    /**
+     * A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
+     */
     alternateIdentifier?: pulumi.Input<inputs.identitystore.GetGroupAlternateIdentifierArgs>;
     /**
+     * Configuration block for filtering by a unique attribute of the group. Detailed below.
+     *
      * @deprecated Use the alternate_identifier attribute instead.
      */
     filter?: pulumi.Input<inputs.identitystore.GetGroupFilterArgs>;
+    /**
+     * The identifier for a group in the Identity Store.
+     */
     groupId?: pulumi.Input<string>;
+    /**
+     * Identity Store ID associated with the Single Sign-On Instance.
+     */
     identityStoreId: pulumi.Input<string>;
 }

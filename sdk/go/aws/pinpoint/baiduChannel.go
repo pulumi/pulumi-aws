@@ -11,13 +11,60 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Pinpoint Baidu Channel resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			app, err := pinpoint.NewApp(ctx, "app", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pinpoint.NewBaiduChannel(ctx, "channel", &pinpoint.BaiduChannelArgs{
+//				ApplicationId: app.ApplicationId,
+//				ApiKey:        pulumi.String(""),
+//				SecretKey:     pulumi.String(""),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Pinpoint Baidu Channel can be imported using the `application-id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
+//
+// ```
 type BaiduChannel struct {
 	pulumi.CustomResourceState
 
-	ApiKey        pulumi.StringOutput  `pulumi:"apiKey"`
-	ApplicationId pulumi.StringOutput  `pulumi:"applicationId"`
-	Enabled       pulumi.BoolPtrOutput `pulumi:"enabled"`
-	SecretKey     pulumi.StringOutput  `pulumi:"secretKey"`
+	// Platform credential API key from Baidu.
+	ApiKey pulumi.StringOutput `pulumi:"apiKey"`
+	// The application ID.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// Specifies whether to enable the channel. Defaults to `true`.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Platform credential Secret key from Baidu.
+	SecretKey pulumi.StringOutput `pulumi:"secretKey"`
 }
 
 // NewBaiduChannel registers a new resource with the given unique name, arguments, and options.
@@ -69,17 +116,25 @@ func GetBaiduChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BaiduChannel resources.
 type baiduChannelState struct {
-	ApiKey        *string `pulumi:"apiKey"`
+	// Platform credential API key from Baidu.
+	ApiKey *string `pulumi:"apiKey"`
+	// The application ID.
 	ApplicationId *string `pulumi:"applicationId"`
-	Enabled       *bool   `pulumi:"enabled"`
-	SecretKey     *string `pulumi:"secretKey"`
+	// Specifies whether to enable the channel. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// Platform credential Secret key from Baidu.
+	SecretKey *string `pulumi:"secretKey"`
 }
 
 type BaiduChannelState struct {
-	ApiKey        pulumi.StringPtrInput
+	// Platform credential API key from Baidu.
+	ApiKey pulumi.StringPtrInput
+	// The application ID.
 	ApplicationId pulumi.StringPtrInput
-	Enabled       pulumi.BoolPtrInput
-	SecretKey     pulumi.StringPtrInput
+	// Specifies whether to enable the channel. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput
+	// Platform credential Secret key from Baidu.
+	SecretKey pulumi.StringPtrInput
 }
 
 func (BaiduChannelState) ElementType() reflect.Type {
@@ -87,18 +142,26 @@ func (BaiduChannelState) ElementType() reflect.Type {
 }
 
 type baiduChannelArgs struct {
-	ApiKey        string `pulumi:"apiKey"`
+	// Platform credential API key from Baidu.
+	ApiKey string `pulumi:"apiKey"`
+	// The application ID.
 	ApplicationId string `pulumi:"applicationId"`
-	Enabled       *bool  `pulumi:"enabled"`
-	SecretKey     string `pulumi:"secretKey"`
+	// Specifies whether to enable the channel. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// Platform credential Secret key from Baidu.
+	SecretKey string `pulumi:"secretKey"`
 }
 
 // The set of arguments for constructing a BaiduChannel resource.
 type BaiduChannelArgs struct {
-	ApiKey        pulumi.StringInput
+	// Platform credential API key from Baidu.
+	ApiKey pulumi.StringInput
+	// The application ID.
 	ApplicationId pulumi.StringInput
-	Enabled       pulumi.BoolPtrInput
-	SecretKey     pulumi.StringInput
+	// Specifies whether to enable the channel. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput
+	// Platform credential Secret key from Baidu.
+	SecretKey pulumi.StringInput
 }
 
 func (BaiduChannelArgs) ElementType() reflect.Type {
@@ -188,18 +251,22 @@ func (o BaiduChannelOutput) ToBaiduChannelOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Platform credential API key from Baidu.
 func (o BaiduChannelOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *BaiduChannel) pulumi.StringOutput { return v.ApiKey }).(pulumi.StringOutput)
 }
 
+// The application ID.
 func (o BaiduChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BaiduChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
+// Specifies whether to enable the channel. Defaults to `true`.
 func (o BaiduChannelOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BaiduChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Platform credential Secret key from Baidu.
 func (o BaiduChannelOutput) SecretKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *BaiduChannel) pulumi.StringOutput { return v.SecretKey }).(pulumi.StringOutput)
 }

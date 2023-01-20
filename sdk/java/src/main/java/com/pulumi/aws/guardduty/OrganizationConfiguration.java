@@ -15,23 +15,122 @@ import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Manages the GuardDuty Organization Configuration in the current AWS Region. The AWS account utilizing this resource must have been assigned as a delegated Organization administrator account, e.g., via the `aws.guardduty.OrganizationAdminAccount` resource. More information about Organizations support in GuardDuty can be found in the [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
+ * 
+ * &gt; **NOTE:** This is an advanced resource. The provider will automatically assume management of the GuardDuty Organization Configuration without import and perform no actions on removal from the resource configuration.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.guardduty.Detector;
+ * import com.pulumi.aws.guardduty.DetectorArgs;
+ * import com.pulumi.aws.guardduty.OrganizationConfiguration;
+ * import com.pulumi.aws.guardduty.OrganizationConfigurationArgs;
+ * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesArgs;
+ * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesS3LogsArgs;
+ * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesKubernetesArgs;
+ * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs;
+ * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesMalwareProtectionArgs;
+ * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs;
+ * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleDetector = new Detector(&#34;exampleDetector&#34;, DetectorArgs.builder()        
+ *             .enable(true)
+ *             .build());
+ * 
+ *         var exampleOrganizationConfiguration = new OrganizationConfiguration(&#34;exampleOrganizationConfiguration&#34;, OrganizationConfigurationArgs.builder()        
+ *             .autoEnable(true)
+ *             .detectorId(exampleDetector.id())
+ *             .datasources(OrganizationConfigurationDatasourcesArgs.builder()
+ *                 .s3Logs(OrganizationConfigurationDatasourcesS3LogsArgs.builder()
+ *                     .autoEnable(true)
+ *                     .build())
+ *                 .kubernetes(OrganizationConfigurationDatasourcesKubernetesArgs.builder()
+ *                     .auditLogs(OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs.builder()
+ *                         .enable(true)
+ *                         .build())
+ *                     .build())
+ *                 .malwareProtection(OrganizationConfigurationDatasourcesMalwareProtectionArgs.builder()
+ *                     .scanEc2InstanceWithFindings(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs.builder()
+ *                         .ebsVolumes(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs.builder()
+ *                             .autoEnable(true)
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * GuardDuty Organization Configurations can be imported using the GuardDuty Detector ID, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:guardduty/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
+ * ```
+ * 
+ */
 @ResourceType(type="aws:guardduty/organizationConfiguration:OrganizationConfiguration")
 public class OrganizationConfiguration extends com.pulumi.resources.CustomResource {
+    /**
+     * When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     * 
+     */
     @Export(name="autoEnable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autoEnable;
 
+    /**
+     * @return When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     * 
+     */
     public Output<Boolean> autoEnable() {
         return this.autoEnable;
     }
+    /**
+     * Configuration for the collected datasources.
+     * 
+     */
     @Export(name="datasources", refs={OrganizationConfigurationDatasources.class}, tree="[0]")
     private Output<OrganizationConfigurationDatasources> datasources;
 
+    /**
+     * @return Configuration for the collected datasources.
+     * 
+     */
     public Output<OrganizationConfigurationDatasources> datasources() {
         return this.datasources;
     }
+    /**
+     * The detector ID of the GuardDuty account.
+     * 
+     */
     @Export(name="detectorId", refs={String.class}, tree="[0]")
     private Output<String> detectorId;
 
+    /**
+     * @return The detector ID of the GuardDuty account.
+     * 
+     */
     public Output<String> detectorId() {
         return this.detectorId;
     }

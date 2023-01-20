@@ -30,275 +30,591 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
     public static final FunctionState Empty = new FunctionState();
 
+    /**
+     * Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
+     * 
+     */
     @Import(name="architectures")
     private @Nullable Output<List<String>> architectures;
 
+    /**
+     * @return Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
+     * 
+     */
     public Optional<Output<List<String>>> architectures() {
         return Optional.ofNullable(this.architectures);
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+     * 
+     */
     @Import(name="code")
     private @Nullable Output<Archive> code;
 
+    /**
+     * @return Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+     * 
+     */
     public Optional<Output<Archive>> code() {
         return Optional.ofNullable(this.code);
     }
 
+    /**
+     * To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
+     * 
+     */
     @Import(name="codeSigningConfigArn")
     private @Nullable Output<String> codeSigningConfigArn;
 
+    /**
+     * @return To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
+     * 
+     */
     public Optional<Output<String>> codeSigningConfigArn() {
         return Optional.ofNullable(this.codeSigningConfigArn);
     }
 
+    /**
+     * Configuration block. Detailed below.
+     * 
+     */
     @Import(name="deadLetterConfig")
     private @Nullable Output<FunctionDeadLetterConfigArgs> deadLetterConfig;
 
+    /**
+     * @return Configuration block. Detailed below.
+     * 
+     */
     public Optional<Output<FunctionDeadLetterConfigArgs>> deadLetterConfig() {
         return Optional.ofNullable(this.deadLetterConfig);
     }
 
+    /**
+     * Description of what your Lambda Function does.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Description of what your Lambda Function does.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * Configuration block. Detailed below.
+     * 
+     */
     @Import(name="environment")
     private @Nullable Output<FunctionEnvironmentArgs> environment;
 
+    /**
+     * @return Configuration block. Detailed below.
+     * 
+     */
     public Optional<Output<FunctionEnvironmentArgs>> environment() {
         return Optional.ofNullable(this.environment);
     }
 
+    /**
+     * The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+     * 
+     */
     @Import(name="ephemeralStorage")
     private @Nullable Output<FunctionEphemeralStorageArgs> ephemeralStorage;
 
+    /**
+     * @return The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+     * 
+     */
     public Optional<Output<FunctionEphemeralStorageArgs>> ephemeralStorage() {
         return Optional.ofNullable(this.ephemeralStorage);
     }
 
+    /**
+     * Configuration block. Detailed below.
+     * 
+     */
     @Import(name="fileSystemConfig")
     private @Nullable Output<FunctionFileSystemConfigArgs> fileSystemConfig;
 
+    /**
+     * @return Configuration block. Detailed below.
+     * 
+     */
     public Optional<Output<FunctionFileSystemConfigArgs>> fileSystemConfig() {
         return Optional.ofNullable(this.fileSystemConfig);
     }
 
+    /**
+     * Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
+     * 
+     */
     @Import(name="handler")
     private @Nullable Output<String> handler;
 
+    /**
+     * @return Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
+     * 
+     */
     public Optional<Output<String>> handler() {
         return Optional.ofNullable(this.handler);
     }
 
+    /**
+     * Configuration block. Detailed below.
+     * 
+     */
     @Import(name="imageConfig")
     private @Nullable Output<FunctionImageConfigArgs> imageConfig;
 
+    /**
+     * @return Configuration block. Detailed below.
+     * 
+     */
     public Optional<Output<FunctionImageConfigArgs>> imageConfig() {
         return Optional.ofNullable(this.imageConfig);
     }
 
+    /**
+     * ECR image URI containing the function&#39;s deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+     * 
+     */
     @Import(name="imageUri")
     private @Nullable Output<String> imageUri;
 
+    /**
+     * @return ECR image URI containing the function&#39;s deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+     * 
+     */
     public Optional<Output<String>> imageUri() {
         return Optional.ofNullable(this.imageUri);
     }
 
+    /**
+     * ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
+     * 
+     */
     @Import(name="invokeArn")
     private @Nullable Output<String> invokeArn;
 
+    /**
+     * @return ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
+     * 
+     */
     public Optional<Output<String>> invokeArn() {
         return Optional.ofNullable(this.invokeArn);
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
+     * 
+     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
+     * 
+     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
 
+    /**
+     * Date this resource was last modified.
+     * 
+     */
     @Import(name="lastModified")
     private @Nullable Output<String> lastModified;
 
+    /**
+     * @return Date this resource was last modified.
+     * 
+     */
     public Optional<Output<String>> lastModified() {
         return Optional.ofNullable(this.lastModified);
     }
 
+    /**
+     * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+     * 
+     */
     @Import(name="layers")
     private @Nullable Output<List<String>> layers;
 
+    /**
+     * @return List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+     * 
+     */
     public Optional<Output<List<String>>> layers() {
         return Optional.ofNullable(this.layers);
     }
 
+    /**
+     * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
+     * 
+     */
     @Import(name="memorySize")
     private @Nullable Output<Integer> memorySize;
 
+    /**
+     * @return Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
+     * 
+     */
     public Optional<Output<Integer>> memorySize() {
         return Optional.ofNullable(this.memorySize);
     }
 
+    /**
+     * Unique name for your Lambda Function.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Unique name for your Lambda Function.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
+     * 
+     */
     @Import(name="packageType")
     private @Nullable Output<String> packageType;
 
+    /**
+     * @return Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
+     * 
+     */
     public Optional<Output<String>> packageType() {
         return Optional.ofNullable(this.packageType);
     }
 
+    /**
+     * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
+     * 
+     */
     @Import(name="publish")
     private @Nullable Output<Boolean> publish;
 
+    /**
+     * @return Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> publish() {
         return Optional.ofNullable(this.publish);
     }
 
+    /**
+     * ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
+     * 
+     */
     @Import(name="qualifiedArn")
     private @Nullable Output<String> qualifiedArn;
 
+    /**
+     * @return ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
+     * 
+     */
     public Optional<Output<String>> qualifiedArn() {
         return Optional.ofNullable(this.qualifiedArn);
     }
 
+    /**
+     * Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
+     * 
+     */
     @Import(name="qualifiedInvokeArn")
     private @Nullable Output<String> qualifiedInvokeArn;
 
+    /**
+     * @return Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
+     * 
+     */
     public Optional<Output<String>> qualifiedInvokeArn() {
         return Optional.ofNullable(this.qualifiedInvokeArn);
     }
 
+    /**
+     * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
+     * 
+     */
     @Import(name="reservedConcurrentExecutions")
     private @Nullable Output<Integer> reservedConcurrentExecutions;
 
+    /**
+     * @return Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
+     * 
+     */
     public Optional<Output<Integer>> reservedConcurrentExecutions() {
         return Optional.ofNullable(this.reservedConcurrentExecutions);
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
+     * 
+     */
     @Import(name="role")
     private @Nullable Output<String> role;
 
+    /**
+     * @return Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
+     * 
+     */
     public Optional<Output<String>> role() {
         return Optional.ofNullable(this.role);
     }
 
+    /**
+     * Identifier of the function&#39;s runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+     * 
+     */
     @Import(name="runtime")
     private @Nullable Output<Either<String,Runtime>> runtime;
 
+    /**
+     * @return Identifier of the function&#39;s runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+     * 
+     */
     public Optional<Output<Either<String,Runtime>>> runtime() {
         return Optional.ofNullable(this.runtime);
     }
 
+    /**
+     * S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+     * 
+     */
     @Import(name="s3Bucket")
     private @Nullable Output<String> s3Bucket;
 
+    /**
+     * @return S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+     * 
+     */
     public Optional<Output<String>> s3Bucket() {
         return Optional.ofNullable(this.s3Bucket);
     }
 
+    /**
+     * S3 key of an object containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+     * 
+     */
     @Import(name="s3Key")
     private @Nullable Output<String> s3Key;
 
+    /**
+     * @return S3 key of an object containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+     * 
+     */
     public Optional<Output<String>> s3Key() {
         return Optional.ofNullable(this.s3Key);
     }
 
+    /**
+     * Object version containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+     * 
+     */
     @Import(name="s3ObjectVersion")
     private @Nullable Output<String> s3ObjectVersion;
 
+    /**
+     * @return Object version containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+     * 
+     */
     public Optional<Output<String>> s3ObjectVersion() {
         return Optional.ofNullable(this.s3ObjectVersion);
     }
 
+    /**
+     * ARN of the signing job.
+     * 
+     */
     @Import(name="signingJobArn")
     private @Nullable Output<String> signingJobArn;
 
+    /**
+     * @return ARN of the signing job.
+     * 
+     */
     public Optional<Output<String>> signingJobArn() {
         return Optional.ofNullable(this.signingJobArn);
     }
 
+    /**
+     * ARN of the signing profile version.
+     * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
+     * 
+     */
     @Import(name="signingProfileVersionArn")
     private @Nullable Output<String> signingProfileVersionArn;
 
+    /**
+     * @return ARN of the signing profile version.
+     * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
+     * 
+     */
     public Optional<Output<String>> signingProfileVersionArn() {
         return Optional.ofNullable(this.signingProfileVersionArn);
     }
 
+    /**
+     * Snap start settings block. Detailed below.
+     * 
+     */
     @Import(name="snapStart")
     private @Nullable Output<FunctionSnapStartArgs> snapStart;
 
+    /**
+     * @return Snap start settings block. Detailed below.
+     * 
+     */
     public Optional<Output<FunctionSnapStartArgs>> snapStart() {
         return Optional.ofNullable(this.snapStart);
     }
 
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * 
+     */
     @Import(name="sourceCodeHash")
     private @Nullable Output<String> sourceCodeHash;
 
+    /**
+     * @return Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * 
+     */
     public Optional<Output<String>> sourceCodeHash() {
         return Optional.ofNullable(this.sourceCodeHash);
     }
 
+    /**
+     * Size in bytes of the function .zip file.
+     * 
+     */
     @Import(name="sourceCodeSize")
     private @Nullable Output<Integer> sourceCodeSize;
 
+    /**
+     * @return Size in bytes of the function .zip file.
+     * 
+     */
     public Optional<Output<Integer>> sourceCodeSize() {
         return Optional.ofNullable(this.sourceCodeSize);
     }
 
+    /**
+     * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
+     * 
+     */
     @Import(name="timeout")
     private @Nullable Output<Integer> timeout;
 
+    /**
+     * @return Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
+     * 
+     */
     public Optional<Output<Integer>> timeout() {
         return Optional.ofNullable(this.timeout);
     }
 
+    /**
+     * Configuration block. Detailed below.
+     * 
+     */
     @Import(name="tracingConfig")
     private @Nullable Output<FunctionTracingConfigArgs> tracingConfig;
 
+    /**
+     * @return Configuration block. Detailed below.
+     * 
+     */
     public Optional<Output<FunctionTracingConfigArgs>> tracingConfig() {
         return Optional.ofNullable(this.tracingConfig);
     }
 
+    /**
+     * Latest published version of your Lambda Function.
+     * * `vpc_config.vpc_id` - ID of the VPC.
+     * 
+     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
+    /**
+     * @return Latest published version of your Lambda Function.
+     * * `vpc_config.vpc_id` - ID of the VPC.
+     * 
+     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
 
+    /**
+     * Configuration block. Detailed below.
+     * 
+     */
     @Import(name="vpcConfig")
     private @Nullable Output<FunctionVpcConfigArgs> vpcConfig;
 
+    /**
+     * @return Configuration block. Detailed below.
+     * 
+     */
     public Optional<Output<FunctionVpcConfigArgs>> vpcConfig() {
         return Optional.ofNullable(this.vpcConfig);
     }
@@ -365,369 +681,865 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
             $ = new FunctionState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param architectures Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
+         * 
+         * @return builder
+         * 
+         */
         public Builder architectures(@Nullable Output<List<String>> architectures) {
             $.architectures = architectures;
             return this;
         }
 
+        /**
+         * @param architectures Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
+         * 
+         * @return builder
+         * 
+         */
         public Builder architectures(List<String> architectures) {
             return architectures(Output.of(architectures));
         }
 
+        /**
+         * @param architectures Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
+         * 
+         * @return builder
+         * 
+         */
         public Builder architectures(String... architectures) {
             return architectures(List.of(architectures));
         }
 
+        /**
+         * @param arn Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param code Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder code(@Nullable Output<Archive> code) {
             $.code = code;
             return this;
         }
 
+        /**
+         * @param code Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder code(Archive code) {
             return code(Output.of(code));
         }
 
+        /**
+         * @param codeSigningConfigArn To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder codeSigningConfigArn(@Nullable Output<String> codeSigningConfigArn) {
             $.codeSigningConfigArn = codeSigningConfigArn;
             return this;
         }
 
+        /**
+         * @param codeSigningConfigArn To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder codeSigningConfigArn(String codeSigningConfigArn) {
             return codeSigningConfigArn(Output.of(codeSigningConfigArn));
         }
 
+        /**
+         * @param deadLetterConfig Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deadLetterConfig(@Nullable Output<FunctionDeadLetterConfigArgs> deadLetterConfig) {
             $.deadLetterConfig = deadLetterConfig;
             return this;
         }
 
+        /**
+         * @param deadLetterConfig Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deadLetterConfig(FunctionDeadLetterConfigArgs deadLetterConfig) {
             return deadLetterConfig(Output.of(deadLetterConfig));
         }
 
+        /**
+         * @param description Description of what your Lambda Function does.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Description of what your Lambda Function does.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param environment Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder environment(@Nullable Output<FunctionEnvironmentArgs> environment) {
             $.environment = environment;
             return this;
         }
 
+        /**
+         * @param environment Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder environment(FunctionEnvironmentArgs environment) {
             return environment(Output.of(environment));
         }
 
+        /**
+         * @param ephemeralStorage The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ephemeralStorage(@Nullable Output<FunctionEphemeralStorageArgs> ephemeralStorage) {
             $.ephemeralStorage = ephemeralStorage;
             return this;
         }
 
+        /**
+         * @param ephemeralStorage The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ephemeralStorage(FunctionEphemeralStorageArgs ephemeralStorage) {
             return ephemeralStorage(Output.of(ephemeralStorage));
         }
 
+        /**
+         * @param fileSystemConfig Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileSystemConfig(@Nullable Output<FunctionFileSystemConfigArgs> fileSystemConfig) {
             $.fileSystemConfig = fileSystemConfig;
             return this;
         }
 
+        /**
+         * @param fileSystemConfig Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileSystemConfig(FunctionFileSystemConfigArgs fileSystemConfig) {
             return fileSystemConfig(Output.of(fileSystemConfig));
         }
 
+        /**
+         * @param handler Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
+         * 
+         * @return builder
+         * 
+         */
         public Builder handler(@Nullable Output<String> handler) {
             $.handler = handler;
             return this;
         }
 
+        /**
+         * @param handler Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
+         * 
+         * @return builder
+         * 
+         */
         public Builder handler(String handler) {
             return handler(Output.of(handler));
         }
 
+        /**
+         * @param imageConfig Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder imageConfig(@Nullable Output<FunctionImageConfigArgs> imageConfig) {
             $.imageConfig = imageConfig;
             return this;
         }
 
+        /**
+         * @param imageConfig Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder imageConfig(FunctionImageConfigArgs imageConfig) {
             return imageConfig(Output.of(imageConfig));
         }
 
+        /**
+         * @param imageUri ECR image URI containing the function&#39;s deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder imageUri(@Nullable Output<String> imageUri) {
             $.imageUri = imageUri;
             return this;
         }
 
+        /**
+         * @param imageUri ECR image URI containing the function&#39;s deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder imageUri(String imageUri) {
             return imageUri(Output.of(imageUri));
         }
 
+        /**
+         * @param invokeArn ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder invokeArn(@Nullable Output<String> invokeArn) {
             $.invokeArn = invokeArn;
             return this;
         }
 
+        /**
+         * @param invokeArn ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder invokeArn(String invokeArn) {
             return invokeArn(Output.of(invokeArn));
         }
 
+        /**
+         * @param kmsKeyArn Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
+        /**
+         * @param kmsKeyArn Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
+        /**
+         * @param lastModified Date this resource was last modified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lastModified(@Nullable Output<String> lastModified) {
             $.lastModified = lastModified;
             return this;
         }
 
+        /**
+         * @param lastModified Date this resource was last modified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lastModified(String lastModified) {
             return lastModified(Output.of(lastModified));
         }
 
+        /**
+         * @param layers List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+         * 
+         * @return builder
+         * 
+         */
         public Builder layers(@Nullable Output<List<String>> layers) {
             $.layers = layers;
             return this;
         }
 
+        /**
+         * @param layers List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+         * 
+         * @return builder
+         * 
+         */
         public Builder layers(List<String> layers) {
             return layers(Output.of(layers));
         }
 
+        /**
+         * @param layers List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+         * 
+         * @return builder
+         * 
+         */
         public Builder layers(String... layers) {
             return layers(List.of(layers));
         }
 
+        /**
+         * @param memorySize Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
+         * 
+         * @return builder
+         * 
+         */
         public Builder memorySize(@Nullable Output<Integer> memorySize) {
             $.memorySize = memorySize;
             return this;
         }
 
+        /**
+         * @param memorySize Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
+         * 
+         * @return builder
+         * 
+         */
         public Builder memorySize(Integer memorySize) {
             return memorySize(Output.of(memorySize));
         }
 
+        /**
+         * @param name Unique name for your Lambda Function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Unique name for your Lambda Function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param packageType Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder packageType(@Nullable Output<String> packageType) {
             $.packageType = packageType;
             return this;
         }
 
+        /**
+         * @param packageType Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder packageType(String packageType) {
             return packageType(Output.of(packageType));
         }
 
+        /**
+         * @param publish Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publish(@Nullable Output<Boolean> publish) {
             $.publish = publish;
             return this;
         }
 
+        /**
+         * @param publish Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publish(Boolean publish) {
             return publish(Output.of(publish));
         }
 
+        /**
+         * @param qualifiedArn ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder qualifiedArn(@Nullable Output<String> qualifiedArn) {
             $.qualifiedArn = qualifiedArn;
             return this;
         }
 
+        /**
+         * @param qualifiedArn ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder qualifiedArn(String qualifiedArn) {
             return qualifiedArn(Output.of(qualifiedArn));
         }
 
+        /**
+         * @param qualifiedInvokeArn Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder qualifiedInvokeArn(@Nullable Output<String> qualifiedInvokeArn) {
             $.qualifiedInvokeArn = qualifiedInvokeArn;
             return this;
         }
 
+        /**
+         * @param qualifiedInvokeArn Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder qualifiedInvokeArn(String qualifiedInvokeArn) {
             return qualifiedInvokeArn(Output.of(qualifiedInvokeArn));
         }
 
+        /**
+         * @param reservedConcurrentExecutions Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
+         * 
+         * @return builder
+         * 
+         */
         public Builder reservedConcurrentExecutions(@Nullable Output<Integer> reservedConcurrentExecutions) {
             $.reservedConcurrentExecutions = reservedConcurrentExecutions;
             return this;
         }
 
+        /**
+         * @param reservedConcurrentExecutions Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
+         * 
+         * @return builder
+         * 
+         */
         public Builder reservedConcurrentExecutions(Integer reservedConcurrentExecutions) {
             return reservedConcurrentExecutions(Output.of(reservedConcurrentExecutions));
         }
 
+        /**
+         * @param role Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder role(@Nullable Output<String> role) {
             $.role = role;
             return this;
         }
 
+        /**
+         * @param role Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder role(String role) {
             return role(Output.of(role));
         }
 
+        /**
+         * @param runtime Identifier of the function&#39;s runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder runtime(@Nullable Output<Either<String,Runtime>> runtime) {
             $.runtime = runtime;
             return this;
         }
 
+        /**
+         * @param runtime Identifier of the function&#39;s runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder runtime(Either<String,Runtime> runtime) {
             return runtime(Output.of(runtime));
         }
 
+        /**
+         * @param runtime Identifier of the function&#39;s runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder runtime(String runtime) {
             return runtime(Either.ofLeft(runtime));
         }
 
+        /**
+         * @param runtime Identifier of the function&#39;s runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder runtime(Runtime runtime) {
             return runtime(Either.ofRight(runtime));
         }
 
+        /**
+         * @param s3Bucket S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3Bucket(@Nullable Output<String> s3Bucket) {
             $.s3Bucket = s3Bucket;
             return this;
         }
 
+        /**
+         * @param s3Bucket S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3Bucket(String s3Bucket) {
             return s3Bucket(Output.of(s3Bucket));
         }
 
+        /**
+         * @param s3Key S3 key of an object containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3Key(@Nullable Output<String> s3Key) {
             $.s3Key = s3Key;
             return this;
         }
 
+        /**
+         * @param s3Key S3 key of an object containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3Key(String s3Key) {
             return s3Key(Output.of(s3Key));
         }
 
+        /**
+         * @param s3ObjectVersion Object version containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3ObjectVersion(@Nullable Output<String> s3ObjectVersion) {
             $.s3ObjectVersion = s3ObjectVersion;
             return this;
         }
 
+        /**
+         * @param s3ObjectVersion Object version containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3ObjectVersion(String s3ObjectVersion) {
             return s3ObjectVersion(Output.of(s3ObjectVersion));
         }
 
+        /**
+         * @param signingJobArn ARN of the signing job.
+         * 
+         * @return builder
+         * 
+         */
         public Builder signingJobArn(@Nullable Output<String> signingJobArn) {
             $.signingJobArn = signingJobArn;
             return this;
         }
 
+        /**
+         * @param signingJobArn ARN of the signing job.
+         * 
+         * @return builder
+         * 
+         */
         public Builder signingJobArn(String signingJobArn) {
             return signingJobArn(Output.of(signingJobArn));
         }
 
+        /**
+         * @param signingProfileVersionArn ARN of the signing profile version.
+         * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder signingProfileVersionArn(@Nullable Output<String> signingProfileVersionArn) {
             $.signingProfileVersionArn = signingProfileVersionArn;
             return this;
         }
 
+        /**
+         * @param signingProfileVersionArn ARN of the signing profile version.
+         * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder signingProfileVersionArn(String signingProfileVersionArn) {
             return signingProfileVersionArn(Output.of(signingProfileVersionArn));
         }
 
+        /**
+         * @param snapStart Snap start settings block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapStart(@Nullable Output<FunctionSnapStartArgs> snapStart) {
             $.snapStart = snapStart;
             return this;
         }
 
+        /**
+         * @param snapStart Snap start settings block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapStart(FunctionSnapStartArgs snapStart) {
             return snapStart(Output.of(snapStart));
         }
 
+        /**
+         * @param sourceCodeHash Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceCodeHash(@Nullable Output<String> sourceCodeHash) {
             $.sourceCodeHash = sourceCodeHash;
             return this;
         }
 
+        /**
+         * @param sourceCodeHash Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceCodeHash(String sourceCodeHash) {
             return sourceCodeHash(Output.of(sourceCodeHash));
         }
 
+        /**
+         * @param sourceCodeSize Size in bytes of the function .zip file.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceCodeSize(@Nullable Output<Integer> sourceCodeSize) {
             $.sourceCodeSize = sourceCodeSize;
             return this;
         }
 
+        /**
+         * @param sourceCodeSize Size in bytes of the function .zip file.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceCodeSize(Integer sourceCodeSize) {
             return sourceCodeSize(Output.of(sourceCodeSize));
         }
 
+        /**
+         * @param tags Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
+        /**
+         * @param timeout Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeout(@Nullable Output<Integer> timeout) {
             $.timeout = timeout;
             return this;
         }
 
+        /**
+         * @param timeout Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeout(Integer timeout) {
             return timeout(Output.of(timeout));
         }
 
+        /**
+         * @param tracingConfig Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tracingConfig(@Nullable Output<FunctionTracingConfigArgs> tracingConfig) {
             $.tracingConfig = tracingConfig;
             return this;
         }
 
+        /**
+         * @param tracingConfig Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tracingConfig(FunctionTracingConfigArgs tracingConfig) {
             return tracingConfig(Output.of(tracingConfig));
         }
 
+        /**
+         * @param version Latest published version of your Lambda Function.
+         * * `vpc_config.vpc_id` - ID of the VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
+        /**
+         * @param version Latest published version of your Lambda Function.
+         * * `vpc_config.vpc_id` - ID of the VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(String version) {
             return version(Output.of(version));
         }
 
+        /**
+         * @param vpcConfig Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcConfig(@Nullable Output<FunctionVpcConfigArgs> vpcConfig) {
             $.vpcConfig = vpcConfig;
             return this;
         }
 
+        /**
+         * @param vpcConfig Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcConfig(FunctionVpcConfigArgs vpcConfig) {
             return vpcConfig(Output.of(vpcConfig));
         }

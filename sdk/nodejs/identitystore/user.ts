@@ -7,6 +7,24 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * This resource manages a User resource within an Identity Store.
+ *
+ * > **Note:** If you use an external identity provider or Active Directory as your identity source,
+ * use this resource with caution. IAM Identity Center does not support outbound synchronization,
+ * so your identity source does not automatically update with the changes that you make to
+ * users using this resource.
+ *
+ * ## Example Usage
+ *
+ * ## Import
+ *
+ * An Identity Store User can be imported using the combination `identity_store_id/user_id`. For example
+ *
+ * ```sh
+ *  $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
+ * ```
+ */
 export class User extends pulumi.CustomResource {
     /**
      * Get an existing User resource's state with the given name, ID, and optional extra
@@ -35,21 +53,69 @@ export class User extends pulumi.CustomResource {
         return obj['__pulumiType'] === User.__pulumiType;
     }
 
+    /**
+     * Details about the user's address. At most 1 address is allowed. Detailed below.
+     */
     public readonly addresses!: pulumi.Output<outputs.identitystore.UserAddresses | undefined>;
+    /**
+     * The name that is typically displayed when the user is referenced.
+     */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * Details about the user's email. At most 1 email is allowed. Detailed below.
+     */
     public readonly emails!: pulumi.Output<outputs.identitystore.UserEmails | undefined>;
+    /**
+     * A list of identifiers issued to this resource by an external identity provider.
+     */
     public /*out*/ readonly externalIds!: pulumi.Output<outputs.identitystore.UserExternalId[]>;
+    /**
+     * The globally unique identifier for the identity store that this user is in.
+     */
     public readonly identityStoreId!: pulumi.Output<string>;
+    /**
+     * The user's geographical region or location.
+     */
     public readonly locale!: pulumi.Output<string | undefined>;
+    /**
+     * Details about the user's full name. Detailed below.
+     */
     public readonly name!: pulumi.Output<outputs.identitystore.UserName>;
+    /**
+     * An alternate name for the user.
+     */
     public readonly nickname!: pulumi.Output<string | undefined>;
+    /**
+     * Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
+     */
     public readonly phoneNumbers!: pulumi.Output<outputs.identitystore.UserPhoneNumbers | undefined>;
+    /**
+     * The preferred language of the user.
+     */
     public readonly preferredLanguage!: pulumi.Output<string | undefined>;
+    /**
+     * An URL that may be associated with the user.
+     */
     public readonly profileUrl!: pulumi.Output<string | undefined>;
+    /**
+     * The user's time zone.
+     */
     public readonly timezone!: pulumi.Output<string | undefined>;
+    /**
+     * The user's title.
+     */
     public readonly title!: pulumi.Output<string | undefined>;
+    /**
+     * The identifier for this user in the identity store.
+     */
     public /*out*/ readonly userId!: pulumi.Output<string>;
+    /**
+     * A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+     */
     public readonly userName!: pulumi.Output<string>;
+    /**
+     * The user type.
+     */
     public readonly userType!: pulumi.Output<string | undefined>;
 
     /**
@@ -118,21 +184,69 @@ export class User extends pulumi.CustomResource {
  * Input properties used for looking up and filtering User resources.
  */
 export interface UserState {
+    /**
+     * Details about the user's address. At most 1 address is allowed. Detailed below.
+     */
     addresses?: pulumi.Input<inputs.identitystore.UserAddresses>;
+    /**
+     * The name that is typically displayed when the user is referenced.
+     */
     displayName?: pulumi.Input<string>;
+    /**
+     * Details about the user's email. At most 1 email is allowed. Detailed below.
+     */
     emails?: pulumi.Input<inputs.identitystore.UserEmails>;
+    /**
+     * A list of identifiers issued to this resource by an external identity provider.
+     */
     externalIds?: pulumi.Input<pulumi.Input<inputs.identitystore.UserExternalId>[]>;
+    /**
+     * The globally unique identifier for the identity store that this user is in.
+     */
     identityStoreId?: pulumi.Input<string>;
+    /**
+     * The user's geographical region or location.
+     */
     locale?: pulumi.Input<string>;
+    /**
+     * Details about the user's full name. Detailed below.
+     */
     name?: pulumi.Input<inputs.identitystore.UserName>;
+    /**
+     * An alternate name for the user.
+     */
     nickname?: pulumi.Input<string>;
+    /**
+     * Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
+     */
     phoneNumbers?: pulumi.Input<inputs.identitystore.UserPhoneNumbers>;
+    /**
+     * The preferred language of the user.
+     */
     preferredLanguage?: pulumi.Input<string>;
+    /**
+     * An URL that may be associated with the user.
+     */
     profileUrl?: pulumi.Input<string>;
+    /**
+     * The user's time zone.
+     */
     timezone?: pulumi.Input<string>;
+    /**
+     * The user's title.
+     */
     title?: pulumi.Input<string>;
+    /**
+     * The identifier for this user in the identity store.
+     */
     userId?: pulumi.Input<string>;
+    /**
+     * A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+     */
     userName?: pulumi.Input<string>;
+    /**
+     * The user type.
+     */
     userType?: pulumi.Input<string>;
 }
 
@@ -140,18 +254,60 @@ export interface UserState {
  * The set of arguments for constructing a User resource.
  */
 export interface UserArgs {
+    /**
+     * Details about the user's address. At most 1 address is allowed. Detailed below.
+     */
     addresses?: pulumi.Input<inputs.identitystore.UserAddresses>;
+    /**
+     * The name that is typically displayed when the user is referenced.
+     */
     displayName: pulumi.Input<string>;
+    /**
+     * Details about the user's email. At most 1 email is allowed. Detailed below.
+     */
     emails?: pulumi.Input<inputs.identitystore.UserEmails>;
+    /**
+     * The globally unique identifier for the identity store that this user is in.
+     */
     identityStoreId: pulumi.Input<string>;
+    /**
+     * The user's geographical region or location.
+     */
     locale?: pulumi.Input<string>;
+    /**
+     * Details about the user's full name. Detailed below.
+     */
     name?: pulumi.Input<inputs.identitystore.UserName>;
+    /**
+     * An alternate name for the user.
+     */
     nickname?: pulumi.Input<string>;
+    /**
+     * Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
+     */
     phoneNumbers?: pulumi.Input<inputs.identitystore.UserPhoneNumbers>;
+    /**
+     * The preferred language of the user.
+     */
     preferredLanguage?: pulumi.Input<string>;
+    /**
+     * An URL that may be associated with the user.
+     */
     profileUrl?: pulumi.Input<string>;
+    /**
+     * The user's time zone.
+     */
     timezone?: pulumi.Input<string>;
+    /**
+     * The user's title.
+     */
     title?: pulumi.Input<string>;
+    /**
+     * A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+     */
     userName: pulumi.Input<string>;
+    /**
+     * The user type.
+     */
     userType?: pulumi.Input<string>;
 }

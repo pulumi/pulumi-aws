@@ -11,10 +11,64 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an AppStream Fleet Stack association.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleFleet, err := appstream.NewFleet(ctx, "exampleFleet", &appstream.FleetArgs{
+//				ImageName:    pulumi.String("Amazon-AppStream2-Sample-Image-02-04-2019"),
+//				InstanceType: pulumi.String("stream.standard.small"),
+//				ComputeCapacity: &appstream.FleetComputeCapacityArgs{
+//					DesiredInstances: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleStack, err := appstream.NewStack(ctx, "exampleStack", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appstream.NewFleetStackAssociation(ctx, "exampleFleetStackAssociation", &appstream.FleetStackAssociationArgs{
+//				FleetName: exampleFleet.Name,
+//				StackName: exampleStack.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// AppStream Stack Fleet Association can be imported by using the `fleet_name` and `stack_name` separated by a slash (`/`), e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
+//
+// ```
 type FleetStackAssociation struct {
 	pulumi.CustomResourceState
 
+	// Name of the fleet.
 	FleetName pulumi.StringOutput `pulumi:"fleetName"`
+	// Name of the stack.
 	StackName pulumi.StringOutput `pulumi:"stackName"`
 }
 
@@ -53,12 +107,16 @@ func GetFleetStackAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FleetStackAssociation resources.
 type fleetStackAssociationState struct {
+	// Name of the fleet.
 	FleetName *string `pulumi:"fleetName"`
+	// Name of the stack.
 	StackName *string `pulumi:"stackName"`
 }
 
 type FleetStackAssociationState struct {
+	// Name of the fleet.
 	FleetName pulumi.StringPtrInput
+	// Name of the stack.
 	StackName pulumi.StringPtrInput
 }
 
@@ -67,13 +125,17 @@ func (FleetStackAssociationState) ElementType() reflect.Type {
 }
 
 type fleetStackAssociationArgs struct {
+	// Name of the fleet.
 	FleetName string `pulumi:"fleetName"`
+	// Name of the stack.
 	StackName string `pulumi:"stackName"`
 }
 
 // The set of arguments for constructing a FleetStackAssociation resource.
 type FleetStackAssociationArgs struct {
+	// Name of the fleet.
 	FleetName pulumi.StringInput
+	// Name of the stack.
 	StackName pulumi.StringInput
 }
 
@@ -164,10 +226,12 @@ func (o FleetStackAssociationOutput) ToFleetStackAssociationOutputWithContext(ct
 	return o
 }
 
+// Name of the fleet.
 func (o FleetStackAssociationOutput) FleetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FleetStackAssociation) pulumi.StringOutput { return v.FleetName }).(pulumi.StringOutput)
 }
 
+// Name of the stack.
 func (o FleetStackAssociationOutput) StackName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FleetStackAssociation) pulumi.StringOutput { return v.StackName }).(pulumi.StringOutput)
 }

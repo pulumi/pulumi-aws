@@ -10,6 +10,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to get the name of a elastic beanstalk solution stack.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticbeanstalk"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := elasticbeanstalk.GetSolutionStack(ctx, &elasticbeanstalk.GetSolutionStackArgs{
+//				MostRecent: pulumi.BoolRef(true),
+//				NameRegex:  fmt.Sprintf("^64bit Amazon Linux (.*) Multi-container Docker (.*)$"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetSolutionStack(ctx *pulumi.Context, args *GetSolutionStackArgs, opts ...pulumi.InvokeOption) (*GetSolutionStackResult, error) {
 	var rv GetSolutionStackResult
 	err := ctx.Invoke("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args, &rv, opts...)
@@ -21,8 +51,13 @@ func GetSolutionStack(ctx *pulumi.Context, args *GetSolutionStackArgs, opts ...p
 
 // A collection of arguments for invoking getSolutionStack.
 type GetSolutionStackArgs struct {
-	MostRecent *bool  `pulumi:"mostRecent"`
-	NameRegex  string `pulumi:"nameRegex"`
+	// If more than one result is returned, use the most
+	// recent solution stack.
+	MostRecent *bool `pulumi:"mostRecent"`
+	// Regex string to apply to the solution stack list returned
+	// by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
+	// AWS documentation for reference solution stack names.
+	NameRegex string `pulumi:"nameRegex"`
 }
 
 // A collection of values returned by getSolutionStack.
@@ -30,8 +65,9 @@ type GetSolutionStackResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	MostRecent *bool  `pulumi:"mostRecent"`
-	Name       string `pulumi:"name"`
-	NameRegex  string `pulumi:"nameRegex"`
+	// Name of the solution stack.
+	Name      string `pulumi:"name"`
+	NameRegex string `pulumi:"nameRegex"`
 }
 
 func GetSolutionStackOutput(ctx *pulumi.Context, args GetSolutionStackOutputArgs, opts ...pulumi.InvokeOption) GetSolutionStackResultOutput {
@@ -49,8 +85,13 @@ func GetSolutionStackOutput(ctx *pulumi.Context, args GetSolutionStackOutputArgs
 
 // A collection of arguments for invoking getSolutionStack.
 type GetSolutionStackOutputArgs struct {
+	// If more than one result is returned, use the most
+	// recent solution stack.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
-	NameRegex  pulumi.StringInput  `pulumi:"nameRegex"`
+	// Regex string to apply to the solution stack list returned
+	// by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
+	// AWS documentation for reference solution stack names.
+	NameRegex pulumi.StringInput `pulumi:"nameRegex"`
 }
 
 func (GetSolutionStackOutputArgs) ElementType() reflect.Type {
@@ -81,6 +122,7 @@ func (o GetSolutionStackResultOutput) MostRecent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetSolutionStackResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
 }
 
+// Name of the solution stack.
 func (o GetSolutionStackResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSolutionStackResult) string { return v.Name }).(pulumi.StringOutput)
 }

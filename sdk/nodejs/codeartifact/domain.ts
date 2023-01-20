@@ -4,6 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a CodeArtifact Domain Resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.codeartifact.Domain("example", {domain: "example"});
+ * ```
+ *
+ * ## Import
+ *
+ * CodeArtifact Domain can be imported using the CodeArtifact Domain arn, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
+ * ```
+ */
 export class Domain extends pulumi.CustomResource {
     /**
      * Get an existing Domain resource's state with the given name, ID, and optional extra
@@ -32,14 +52,41 @@ export class Domain extends pulumi.CustomResource {
         return obj['__pulumiType'] === Domain.__pulumiType;
     }
 
+    /**
+     * The ARN of the Domain.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The total size of all assets in the domain.
+     */
     public /*out*/ readonly assetSizeBytes!: pulumi.Output<number>;
+    /**
+     * A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
+     */
     public readonly domain!: pulumi.Output<string>;
+    /**
+     * The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+     */
     public readonly encryptionKey!: pulumi.Output<string>;
+    /**
+     * The AWS account ID that owns the domain.
+     */
     public /*out*/ readonly owner!: pulumi.Output<string>;
+    /**
+     * The number of repositories in the domain.
+     */
     public /*out*/ readonly repositoryCount!: pulumi.Output<number>;
+    /**
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -88,14 +135,41 @@ export class Domain extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Domain resources.
  */
 export interface DomainState {
+    /**
+     * The ARN of the Domain.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The total size of all assets in the domain.
+     */
     assetSizeBytes?: pulumi.Input<number>;
+    /**
+     * A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     */
     createdTime?: pulumi.Input<string>;
+    /**
+     * The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
+     */
     domain?: pulumi.Input<string>;
+    /**
+     * The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+     */
     encryptionKey?: pulumi.Input<string>;
+    /**
+     * The AWS account ID that owns the domain.
+     */
     owner?: pulumi.Input<string>;
+    /**
+     * The number of repositories in the domain.
+     */
     repositoryCount?: pulumi.Input<number>;
+    /**
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -103,7 +177,16 @@ export interface DomainState {
  * The set of arguments for constructing a Domain resource.
  */
 export interface DomainArgs {
+    /**
+     * The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
+     */
     domain: pulumi.Input<string>;
+    /**
+     * The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+     */
     encryptionKey?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

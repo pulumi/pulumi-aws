@@ -17,59 +17,216 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Amazon Connect User Hierarchy Group resource. For more information see
+ * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
+ * 
+ * &gt; **NOTE:** The User Hierarchy Structure must be created before creating a User Hierarchy Group.
+ * 
+ * ## Example Usage
+ * ### Basic
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.connect.UserHierarchyGroup;
+ * import com.pulumi.aws.connect.UserHierarchyGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new UserHierarchyGroup(&#34;example&#34;, UserHierarchyGroupArgs.builder()        
+ *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;Example User Hierarchy Group&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### With a parent group
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.connect.UserHierarchyGroup;
+ * import com.pulumi.aws.connect.UserHierarchyGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var parent = new UserHierarchyGroup(&#34;parent&#34;, UserHierarchyGroupArgs.builder()        
+ *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;Example User Hierarchy Group Parent&#34;))
+ *             .build());
+ * 
+ *         var child = new UserHierarchyGroup(&#34;child&#34;, UserHierarchyGroupArgs.builder()        
+ *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .parentGroupId(parent.hierarchyGroupId())
+ *             .tags(Map.of(&#34;Name&#34;, &#34;Example User Hierarchy Group Child&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Amazon Connect User Hierarchy Groups can be imported using the `instance_id` and `hierarchy_group_id` separated by a colon (`:`), e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:connect/userHierarchyGroup:UserHierarchyGroup example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+ * ```
+ * 
+ */
 @ResourceType(type="aws:connect/userHierarchyGroup:UserHierarchyGroup")
 public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name (ARN) of the hierarchy group.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the hierarchy group.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The identifier for the hierarchy group.
+     * 
+     */
     @Export(name="hierarchyGroupId", refs={String.class}, tree="[0]")
     private Output<String> hierarchyGroupId;
 
+    /**
+     * @return The identifier for the hierarchy group.
+     * 
+     */
     public Output<String> hierarchyGroupId() {
         return this.hierarchyGroupId;
     }
+    /**
+     * A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
+     * 
+     */
     @Export(name="hierarchyPaths", refs={List.class,UserHierarchyGroupHierarchyPath.class}, tree="[0,1]")
     private Output<List<UserHierarchyGroupHierarchyPath>> hierarchyPaths;
 
+    /**
+     * @return A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
+     * 
+     */
     public Output<List<UserHierarchyGroupHierarchyPath>> hierarchyPaths() {
         return this.hierarchyPaths;
     }
+    /**
+     * Specifies the identifier of the hosting Amazon Connect Instance.
+     * 
+     */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
+    /**
+     * @return Specifies the identifier of the hosting Amazon Connect Instance.
+     * 
+     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
+    /**
+     * The identifier of the level in the hierarchy group.
+     * 
+     */
     @Export(name="levelId", refs={String.class}, tree="[0]")
     private Output<String> levelId;
 
+    /**
+     * @return The identifier of the level in the hierarchy group.
+     * 
+     */
     public Output<String> levelId() {
         return this.levelId;
     }
+    /**
+     * The name of the user hierarchy group. Must not be more than 100 characters.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the user hierarchy group. Must not be more than 100 characters.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
+     * 
+     */
     @Export(name="parentGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parentGroupId;
 
+    /**
+     * @return The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
+     * 
+     */
     public Output<Optional<String>> parentGroupId() {
         return Codegen.optional(this.parentGroupId);
     }
+    /**
+     * Tags to apply to the hierarchy group. If configured with a provider
+     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Tags to apply to the hierarchy group. If configured with a provider
+     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

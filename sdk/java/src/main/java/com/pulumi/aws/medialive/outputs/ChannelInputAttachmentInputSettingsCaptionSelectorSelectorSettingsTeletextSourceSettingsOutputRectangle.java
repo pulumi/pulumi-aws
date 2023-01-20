@@ -9,12 +9,24 @@ import java.util.Objects;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle {
+    /**
+     * @return Output video height in pixels.
+     * 
+     */
     private Double height;
     private Double leftOffset;
     private Double topOffset;
+    /**
+     * @return Output video width in pixels.
+     * 
+     */
     private Double width;
 
     private ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle() {}
+    /**
+     * @return Output video height in pixels.
+     * 
+     */
     public Double height() {
         return this.height;
     }
@@ -24,6 +36,10 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     public Double topOffset() {
         return this.topOffset;
     }
+    /**
+     * @return Output video width in pixels.
+     * 
+     */
     public Double width() {
         return this.width;
     }

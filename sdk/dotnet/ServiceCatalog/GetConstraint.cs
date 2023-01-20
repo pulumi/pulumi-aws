@@ -11,9 +11,61 @@ namespace Pulumi.Aws.ServiceCatalog
 {
     public static class GetConstraint
     {
+        /// <summary>
+        /// Provides information on a Service Catalog Constraint.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ServiceCatalog.GetConstraint.Invoke(new()
+        ///     {
+        ///         AcceptLanguage = "en",
+        ///         Id = "cons-hrvy0335",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetConstraintResult> InvokeAsync(GetConstraintArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConstraintResult>("aws:servicecatalog/getConstraint:getConstraint", args ?? new GetConstraintArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides information on a Service Catalog Constraint.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ServiceCatalog.GetConstraint.Invoke(new()
+        ///     {
+        ///         AcceptLanguage = "en",
+        ///         Id = "cons-hrvy0335",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetConstraintResult> Invoke(GetConstraintInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConstraintResult>("aws:servicecatalog/getConstraint:getConstraint", args ?? new GetConstraintInvokeArgs(), options.WithDefaults());
     }
@@ -21,12 +73,21 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class GetConstraintArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// </summary>
         [Input("acceptLanguage")]
         public string? AcceptLanguage { get; set; }
 
+        /// <summary>
+        /// Description of the constraint.
+        /// </summary>
         [Input("description")]
         public string? Description { get; set; }
 
+        /// <summary>
+        /// Constraint identifier.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,12 +99,21 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class GetConstraintInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
+        /// <summary>
+        /// Description of the constraint.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Constraint identifier.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -58,13 +128,34 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class GetConstraintResult
     {
         public readonly string? AcceptLanguage;
+        /// <summary>
+        /// Description of the constraint.
+        /// </summary>
         public readonly string Description;
         public readonly string Id;
+        /// <summary>
+        /// Owner of the constraint.
+        /// </summary>
         public readonly string Owner;
+        /// <summary>
+        /// Constraint parameters in JSON format.
+        /// </summary>
         public readonly string Parameters;
+        /// <summary>
+        /// Portfolio identifier.
+        /// </summary>
         public readonly string PortfolioId;
+        /// <summary>
+        /// Product identifier.
+        /// </summary>
         public readonly string ProductId;
+        /// <summary>
+        /// Constraint status.
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

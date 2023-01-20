@@ -11,9 +11,107 @@ namespace Pulumi.Aws.Acm
 {
     public static class GetCertificate
     {
+        /// <summary>
+        /// Use this data source to get the ARN of a certificate in AWS Certificate
+        /// Manager (ACM), you can reference
+        /// it by domain without having to hard code the ARNs as input.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var issued = Aws.Acm.GetCertificate.Invoke(new()
+        ///     {
+        ///         Domain = "tf.example.com",
+        ///         Statuses = new[]
+        ///         {
+        ///             "ISSUED",
+        ///         },
+        ///     });
+        /// 
+        ///     var amazonIssued = Aws.Acm.GetCertificate.Invoke(new()
+        ///     {
+        ///         Domain = "tf.example.com",
+        ///         MostRecent = true,
+        ///         Types = new[]
+        ///         {
+        ///             "AMAZON_ISSUED",
+        ///         },
+        ///     });
+        /// 
+        ///     var rsa4096 = Aws.Acm.GetCertificate.Invoke(new()
+        ///     {
+        ///         Domain = "tf.example.com",
+        ///         KeyTypes = new[]
+        ///         {
+        ///             "RSA_4096",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("aws:acm/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to get the ARN of a certificate in AWS Certificate
+        /// Manager (ACM), you can reference
+        /// it by domain without having to hard code the ARNs as input.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var issued = Aws.Acm.GetCertificate.Invoke(new()
+        ///     {
+        ///         Domain = "tf.example.com",
+        ///         Statuses = new[]
+        ///         {
+        ///             "ISSUED",
+        ///         },
+        ///     });
+        /// 
+        ///     var amazonIssued = Aws.Acm.GetCertificate.Invoke(new()
+        ///     {
+        ///         Domain = "tf.example.com",
+        ///         MostRecent = true,
+        ///         Types = new[]
+        ///         {
+        ///             "AMAZON_ISSUED",
+        ///         },
+        ///     });
+        /// 
+        ///     var rsa4096 = Aws.Acm.GetCertificate.Invoke(new()
+        ///     {
+        ///         Domain = "tf.example.com",
+        ///         KeyTypes = new[]
+        ///         {
+        ///             "RSA_4096",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws:acm/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
     }
@@ -21,22 +119,38 @@ namespace Pulumi.Aws.Acm
 
     public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+        /// </summary>
         [Input("domain", required: true)]
         public string Domain { get; set; } = null!;
 
         [Input("keyTypes")]
         private List<string>? _keyTypes;
+
+        /// <summary>
+        /// List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
+        /// </summary>
         public List<string> KeyTypes
         {
             get => _keyTypes ?? (_keyTypes = new List<string>());
             set => _keyTypes = value;
         }
 
+        /// <summary>
+        /// If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
+        /// </summary>
         [Input("mostRecent")]
         public bool? MostRecent { get; set; }
 
         [Input("statuses")]
         private List<string>? _statuses;
+
+        /// <summary>
+        /// List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+        /// `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
+        /// are returned.
+        /// </summary>
         public List<string> Statuses
         {
             get => _statuses ?? (_statuses = new List<string>());
@@ -45,6 +159,10 @@ namespace Pulumi.Aws.Acm
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Mapping of tags for the resource.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -53,6 +171,10 @@ namespace Pulumi.Aws.Acm
 
         [Input("types")]
         private List<string>? _types;
+
+        /// <summary>
+        /// List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
+        /// </summary>
         public List<string> Types
         {
             get => _types ?? (_types = new List<string>());
@@ -67,22 +189,38 @@ namespace Pulumi.Aws.Acm
 
     public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+        /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
         [Input("keyTypes")]
         private InputList<string>? _keyTypes;
+
+        /// <summary>
+        /// List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
+        /// </summary>
         public InputList<string> KeyTypes
         {
             get => _keyTypes ?? (_keyTypes = new InputList<string>());
             set => _keyTypes = value;
         }
 
+        /// <summary>
+        /// If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
+        /// </summary>
         [Input("mostRecent")]
         public Input<bool>? MostRecent { get; set; }
 
         [Input("statuses")]
         private InputList<string>? _statuses;
+
+        /// <summary>
+        /// List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+        /// `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
+        /// are returned.
+        /// </summary>
         public InputList<string> Statuses
         {
             get => _statuses ?? (_statuses = new InputList<string>());
@@ -91,6 +229,10 @@ namespace Pulumi.Aws.Acm
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Mapping of tags for the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -99,6 +241,10 @@ namespace Pulumi.Aws.Acm
 
         [Input("types")]
         private InputList<string>? _types;
+
+        /// <summary>
+        /// List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
+        /// </summary>
         public InputList<string> Types
         {
             get => _types ?? (_types = new InputList<string>());
@@ -115,8 +261,17 @@ namespace Pulumi.Aws.Acm
     [OutputType]
     public sealed class GetCertificateResult
     {
+        /// <summary>
+        /// ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// ACM-issued certificate.
+        /// </summary>
         public readonly string Certificate;
+        /// <summary>
+        /// Certificates forming the requested ACM-issued certificate's chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
+        /// </summary>
         public readonly string CertificateChain;
         public readonly string Domain;
         /// <summary>
@@ -125,8 +280,14 @@ namespace Pulumi.Aws.Acm
         public readonly string Id;
         public readonly ImmutableArray<string> KeyTypes;
         public readonly bool? MostRecent;
+        /// <summary>
+        /// Status of the found certificate.
+        /// </summary>
         public readonly string Status;
         public readonly ImmutableArray<string> Statuses;
+        /// <summary>
+        /// Mapping of tags for the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly ImmutableArray<string> Types;
 

@@ -16,16 +16,36 @@ public final class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs e
 
     public static final ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs Empty = new ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs();
 
+    /**
+     * A Boolean value that indicates whether to activate the role. The default is `false`.
+     * 
+     */
     @Import(name="isActive")
     private @Nullable Output<Boolean> isActive;
 
+    /**
+     * @return A Boolean value that indicates whether to activate the role. The default is `false`.
+     * 
+     */
     public Optional<Output<Boolean>> isActive() {
         return Optional.ofNullable(this.isActive);
     }
 
+    /**
+     * The principal ARN of the container service. The principal ARN can be used to create a trust
+     * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+     * service permission to access resources in your standard AWS account.
+     * 
+     */
     @Import(name="principalArn")
     private @Nullable Output<String> principalArn;
 
+    /**
+     * @return The principal ARN of the container service. The principal ARN can be used to create a trust
+     * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+     * service permission to access resources in your standard AWS account.
+     * 
+     */
     public Optional<Output<String>> principalArn() {
         return Optional.ofNullable(this.principalArn);
     }
@@ -55,20 +75,48 @@ public final class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs e
             $ = new ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param isActive A Boolean value that indicates whether to activate the role. The default is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isActive(@Nullable Output<Boolean> isActive) {
             $.isActive = isActive;
             return this;
         }
 
+        /**
+         * @param isActive A Boolean value that indicates whether to activate the role. The default is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isActive(Boolean isActive) {
             return isActive(Output.of(isActive));
         }
 
+        /**
+         * @param principalArn The principal ARN of the container service. The principal ARN can be used to create a trust
+         * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+         * service permission to access resources in your standard AWS account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalArn(@Nullable Output<String> principalArn) {
             $.principalArn = principalArn;
             return this;
         }
 
+        /**
+         * @param principalArn The principal ARN of the container service. The principal ARN can be used to create a trust
+         * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+         * service permission to access resources in your standard AWS account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalArn(String principalArn) {
             return principalArn(Output.of(principalArn));
         }

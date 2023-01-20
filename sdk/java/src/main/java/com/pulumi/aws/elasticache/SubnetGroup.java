@@ -16,6 +16,68 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an ElastiCache Subnet Group resource.
+ * 
+ * &gt; **NOTE:** ElastiCache Subnet Groups are only for use when working with an
+ * ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
+ * ElastiCache Security Group resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.aws.elasticache.SubnetGroup;
+ * import com.pulumi.aws.elasticache.SubnetGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var fooVpc = new Vpc(&#34;fooVpc&#34;, VpcArgs.builder()        
+ *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;tf-test&#34;))
+ *             .build());
+ * 
+ *         var fooSubnet = new Subnet(&#34;fooSubnet&#34;, SubnetArgs.builder()        
+ *             .vpcId(fooVpc.id())
+ *             .cidrBlock(&#34;10.0.0.0/24&#34;)
+ *             .availabilityZone(&#34;us-west-2a&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;tf-test&#34;))
+ *             .build());
+ * 
+ *         var bar = new SubnetGroup(&#34;bar&#34;, SubnetGroupArgs.builder()        
+ *             .subnetIds(fooSubnet.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * ElastiCache Subnet Groups can be imported using the `name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
+ * ```
+ * 
+ */
 @ResourceType(type="aws:elasticache/subnetGroup:SubnetGroup")
 public class SubnetGroup extends com.pulumi.resources.CustomResource {
     @Export(name="arn", refs={String.class}, tree="[0]")
@@ -24,33 +86,73 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Description for the cache subnet group. Defaults to &#34;Managed by Pulumi&#34;.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
+    /**
+     * @return Description for the cache subnet group. Defaults to &#34;Managed by Pulumi&#34;.
+     * 
+     */
     public Output<String> description() {
         return this.description;
     }
+    /**
+     * Name for the cache subnet group. ElastiCache converts this name to lowercase.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name for the cache subnet group. ElastiCache converts this name to lowercase.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * List of VPC Subnet IDs for the cache subnet group
+     * 
+     */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
+    /**
+     * @return List of VPC Subnet IDs for the cache subnet group
+     * 
+     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
+    /**
+     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -9,12 +9,116 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Msk
 {
+    /// <summary>
+    /// Associates SCRAM secrets stored in the Secrets Manager service with a Managed Streaming for Kafka (MSK) cluster.
+    /// 
+    /// &gt; **Note:** The following assumes the MSK cluster has SASL/SCRAM authentication enabled. See below for example usage or refer to the [Username/Password Authentication](https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html) section of the MSK Developer Guide for more details.
+    /// 
+    /// To set up username and password authentication for a cluster, create an `aws.secretsmanager.Secret` resource and associate
+    /// a username and password with the secret with an `aws.secretsmanager.SecretVersion` resource. When creating a secret for the cluster,
+    /// the `name` must have the prefix `AmazonMSK_` and you must either use an existing custom AWS KMS key or create a new
+    /// custom AWS KMS key for your secret with the `aws.kms.Key` resource. It is important to note that a policy is required for the `aws.secretsmanager.Secret`
+    /// resource in order for Kafka to be able to read it. This policy is attached automatically when the `aws.msk.ScramSecretAssociation` is used,
+    /// however, this policy will not be in the state and as such, will present a diff on plan/apply. For that reason, you must use the `aws.secretsmanager.SecretPolicy`
+    /// resource](/docs/providers/aws/r/secretsmanager_secret_policy.html) as shown below in order to ensure that the state is in a clean state after the creation of secret and the association to the cluster.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleCluster = new Aws.Msk.Cluster("exampleCluster", new()
+    ///     {
+    ///         ClientAuthentication = new Aws.Msk.Inputs.ClusterClientAuthenticationArgs
+    ///         {
+    ///             Sasl = new Aws.Msk.Inputs.ClusterClientAuthenticationSaslArgs
+    ///             {
+    ///                 Scram = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     {
+    ///         Description = "Example Key for MSK Cluster Scram Secret Association",
+    ///     });
+    /// 
+    ///     var exampleSecret = new Aws.SecretsManager.Secret("exampleSecret", new()
+    ///     {
+    ///         KmsKeyId = exampleKey.KeyId,
+    ///     });
+    /// 
+    ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("exampleSecretVersion", new()
+    ///     {
+    ///         SecretId = exampleSecret.Id,
+    ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["username"] = "user",
+    ///             ["password"] = "pass",
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleScramSecretAssociation = new Aws.Msk.ScramSecretAssociation("exampleScramSecretAssociation", new()
+    ///     {
+    ///         ClusterArn = exampleCluster.Arn,
+    ///         SecretArnLists = new[]
+    ///         {
+    ///             exampleSecret.Arn,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleSecretVersion,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSecretPolicy = new Aws.SecretsManager.SecretPolicy("exampleSecretPolicy", new()
+    ///     {
+    ///         SecretArn = exampleSecret.Arn,
+    ///         Policy = exampleSecret.Arn.Apply(arn =&gt; @$"{{
+    ///   ""Version"" : ""2012-10-17"",
+    ///   ""Statement"" : [ {{
+    ///     ""Sid"": ""AWSKafkaResourcePolicy"",
+    ///     ""Effect"" : ""Allow"",
+    ///     ""Principal"" : {{
+    ///       ""Service"" : ""kafka.amazonaws.com""
+    ///     }},
+    ///     ""Action"" : ""secretsmanager:getSecretValue"",
+    ///     ""Resource"" : ""{arn}""
+    ///   }} ]
+    /// }}
+    /// "),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// MSK SCRAM Secret Associations can be imported using the `id` e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:msk/scramSecretAssociation:ScramSecretAssociation")]
     public partial class ScramSecretAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the MSK cluster.
+        /// </summary>
         [Output("clusterArn")]
         public Output<string> ClusterArn { get; private set; } = null!;
 
+        /// <summary>
+        /// List of AWS Secrets Manager secret ARNs.
+        /// </summary>
         [Output("secretArnLists")]
         public Output<ImmutableArray<string>> SecretArnLists { get; private set; } = null!;
 
@@ -64,11 +168,18 @@ namespace Pulumi.Aws.Msk
 
     public sealed class ScramSecretAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the MSK cluster.
+        /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
 
         [Input("secretArnLists", required: true)]
         private InputList<string>? _secretArnLists;
+
+        /// <summary>
+        /// List of AWS Secrets Manager secret ARNs.
+        /// </summary>
         public InputList<string> SecretArnLists
         {
             get => _secretArnLists ?? (_secretArnLists = new InputList<string>());
@@ -83,11 +194,18 @@ namespace Pulumi.Aws.Msk
 
     public sealed class ScramSecretAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the MSK cluster.
+        /// </summary>
         [Input("clusterArn")]
         public Input<string>? ClusterArn { get; set; }
 
         [Input("secretArnLists")]
         private InputList<string>? _secretArnLists;
+
+        /// <summary>
+        /// List of AWS Secrets Manager secret ARNs.
+        /// </summary>
         public InputList<string> SecretArnLists
         {
             get => _secretArnLists ?? (_secretArnLists = new InputList<string>());

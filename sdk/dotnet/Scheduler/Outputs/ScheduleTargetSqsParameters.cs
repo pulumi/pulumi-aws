@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Scheduler.Outputs
     [OutputType]
     public sealed class ScheduleTargetSqsParameters
     {
+        /// <summary>
+        /// FIFO message group ID to use as the target.
+        /// </summary>
         public readonly string? MessageGroupId;
 
         [OutputConstructor]

@@ -20,6 +20,10 @@ class SubnetCidrReservationArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SubnetCidrReservation resource.
+        :param pulumi.Input[str] cidr_block: The CIDR block for the reservation.
+        :param pulumi.Input[str] reservation_type: The type of reservation to create. Valid values: `explicit`, `prefix`
+        :param pulumi.Input[str] subnet_id: The ID of the subnet to create the reservation for.
+        :param pulumi.Input[str] description: A brief description of the reservation.
         """
         pulumi.set(__self__, "cidr_block", cidr_block)
         pulumi.set(__self__, "reservation_type", reservation_type)
@@ -30,6 +34,9 @@ class SubnetCidrReservationArgs:
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> pulumi.Input[str]:
+        """
+        The CIDR block for the reservation.
+        """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
@@ -39,6 +46,9 @@ class SubnetCidrReservationArgs:
     @property
     @pulumi.getter(name="reservationType")
     def reservation_type(self) -> pulumi.Input[str]:
+        """
+        The type of reservation to create. Valid values: `explicit`, `prefix`
+        """
         return pulumi.get(self, "reservation_type")
 
     @reservation_type.setter
@@ -48,6 +58,9 @@ class SubnetCidrReservationArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the subnet to create the reservation for.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -57,6 +70,9 @@ class SubnetCidrReservationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A brief description of the reservation.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -74,6 +90,11 @@ class _SubnetCidrReservationState:
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SubnetCidrReservation resources.
+        :param pulumi.Input[str] cidr_block: The CIDR block for the reservation.
+        :param pulumi.Input[str] description: A brief description of the reservation.
+        :param pulumi.Input[str] owner_id: ID of the AWS account that owns this CIDR reservation.
+        :param pulumi.Input[str] reservation_type: The type of reservation to create. Valid values: `explicit`, `prefix`
+        :param pulumi.Input[str] subnet_id: The ID of the subnet to create the reservation for.
         """
         if cidr_block is not None:
             pulumi.set(__self__, "cidr_block", cidr_block)
@@ -89,6 +110,9 @@ class _SubnetCidrReservationState:
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR block for the reservation.
+        """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
@@ -98,6 +122,9 @@ class _SubnetCidrReservationState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A brief description of the reservation.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -107,6 +134,9 @@ class _SubnetCidrReservationState:
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the AWS account that owns this CIDR reservation.
+        """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
@@ -116,6 +146,9 @@ class _SubnetCidrReservationState:
     @property
     @pulumi.getter(name="reservationType")
     def reservation_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of reservation to create. Valid values: `explicit`, `prefix`
+        """
         return pulumi.get(self, "reservation_type")
 
     @reservation_type.setter
@@ -125,6 +158,9 @@ class _SubnetCidrReservationState:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the subnet to create the reservation for.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -143,9 +179,34 @@ class SubnetCidrReservation(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a SubnetCidrReservation resource with the given unique name, props, and options.
+        Provides a subnet CIDR reservation resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.SubnetCidrReservation("example",
+            cidr_block="10.0.0.16/28",
+            reservation_type="prefix",
+            subnet_id=aws_subnet["example"]["id"])
+        ```
+
+        ## Import
+
+        Existing CIDR reservations can be imported using `SUBNET_ID:RESERVATION_ID`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cidr_block: The CIDR block for the reservation.
+        :param pulumi.Input[str] description: A brief description of the reservation.
+        :param pulumi.Input[str] reservation_type: The type of reservation to create. Valid values: `explicit`, `prefix`
+        :param pulumi.Input[str] subnet_id: The ID of the subnet to create the reservation for.
         """
         ...
     @overload
@@ -154,7 +215,28 @@ class SubnetCidrReservation(pulumi.CustomResource):
                  args: SubnetCidrReservationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SubnetCidrReservation resource with the given unique name, props, and options.
+        Provides a subnet CIDR reservation resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.SubnetCidrReservation("example",
+            cidr_block="10.0.0.16/28",
+            reservation_type="prefix",
+            subnet_id=aws_subnet["example"]["id"])
+        ```
+
+        ## Import
+
+        Existing CIDR reservations can be imported using `SUBNET_ID:RESERVATION_ID`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
+        ```
+
         :param str resource_name: The name of the resource.
         :param SubnetCidrReservationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,6 +298,11 @@ class SubnetCidrReservation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cidr_block: The CIDR block for the reservation.
+        :param pulumi.Input[str] description: A brief description of the reservation.
+        :param pulumi.Input[str] owner_id: ID of the AWS account that owns this CIDR reservation.
+        :param pulumi.Input[str] reservation_type: The type of reservation to create. Valid values: `explicit`, `prefix`
+        :param pulumi.Input[str] subnet_id: The ID of the subnet to create the reservation for.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -231,25 +318,40 @@ class SubnetCidrReservation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> pulumi.Output[str]:
+        """
+        The CIDR block for the reservation.
+        """
         return pulumi.get(self, "cidr_block")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A brief description of the reservation.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[str]:
+        """
+        ID of the AWS account that owns this CIDR reservation.
+        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter(name="reservationType")
     def reservation_type(self) -> pulumi.Output[str]:
+        """
+        The type of reservation to create. Valid values: `explicit`, `prefix`
+        """
         return pulumi.get(self, "reservation_type")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the subnet to create the reservation for.
+        """
         return pulumi.get(self, "subnet_id")
 

@@ -10,53 +10,149 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResolverFirewallRulesFirewallRule {
+    /**
+     * @return The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list.
+     * 
+     */
     private String action;
+    /**
+     * @return The DNS record&#39;s type.
+     * 
+     */
     private String blockOverrideDnsType;
+    /**
+     * @return The custom DNS record to send back in response to the query.
+     * 
+     */
     private String blockOverrideDomain;
+    /**
+     * @return The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
+     * 
+     */
     private Integer blockOverrideTtl;
+    /**
+     * @return The way that you want DNS Firewall to block the request.
+     * 
+     */
     private String blockResponse;
+    /**
+     * @return The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     private String creationTime;
+    /**
+     * @return A unique string defined by you to identify the request.
+     * 
+     */
     private String creatorRequestId;
+    /**
+     * @return The ID of the domain list that&#39;s used in the rule.
+     * 
+     */
     private String firewallDomainListId;
+    /**
+     * @return The unique identifier of the firewall rule group that you want to retrieve the rules for.
+     * 
+     */
     private String firewallRuleGroupId;
+    /**
+     * @return The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     private String modificationTime;
+    /**
+     * @return The name of the rule.
+     * 
+     */
     private String name;
+    /**
+     * @return The setting that determines the processing order of the rules in a rule group.
+     * 
+     */
     private Integer priority;
 
     private GetResolverFirewallRulesFirewallRule() {}
+    /**
+     * @return The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list.
+     * 
+     */
     public String action() {
         return this.action;
     }
+    /**
+     * @return The DNS record&#39;s type.
+     * 
+     */
     public String blockOverrideDnsType() {
         return this.blockOverrideDnsType;
     }
+    /**
+     * @return The custom DNS record to send back in response to the query.
+     * 
+     */
     public String blockOverrideDomain() {
         return this.blockOverrideDomain;
     }
+    /**
+     * @return The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
+     * 
+     */
     public Integer blockOverrideTtl() {
         return this.blockOverrideTtl;
     }
+    /**
+     * @return The way that you want DNS Firewall to block the request.
+     * 
+     */
     public String blockResponse() {
         return this.blockResponse;
     }
+    /**
+     * @return The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     public String creationTime() {
         return this.creationTime;
     }
+    /**
+     * @return A unique string defined by you to identify the request.
+     * 
+     */
     public String creatorRequestId() {
         return this.creatorRequestId;
     }
+    /**
+     * @return The ID of the domain list that&#39;s used in the rule.
+     * 
+     */
     public String firewallDomainListId() {
         return this.firewallDomainListId;
     }
+    /**
+     * @return The unique identifier of the firewall rule group that you want to retrieve the rules for.
+     * 
+     */
     public String firewallRuleGroupId() {
         return this.firewallRuleGroupId;
     }
+    /**
+     * @return The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     public String modificationTime() {
         return this.modificationTime;
     }
+    /**
+     * @return The name of the rule.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The setting that determines the processing order of the rules in a rule group.
+     * 
+     */
     public Integer priority() {
         return this.priority;
     }

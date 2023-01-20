@@ -13,6 +13,9 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet
     {
+        /// <summary>
+        /// The inspection level to use for the Bot Control rule group.
+        /// </summary>
         public readonly string InspectionLevel;
 
         [OutputConstructor]

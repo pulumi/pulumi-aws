@@ -17,53 +17,218 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Batch Job Queue resource.
+ * 
+ * ## Example Usage
+ * ### Basic Job Queue
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.batch.JobQueue;
+ * import com.pulumi.aws.batch.JobQueueArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testQueue = new JobQueue(&#34;testQueue&#34;, JobQueueArgs.builder()        
+ *             .state(&#34;ENABLED&#34;)
+ *             .priority(1)
+ *             .computeEnvironments(            
+ *                 aws_batch_compute_environment.test_environment_1().arn(),
+ *                 aws_batch_compute_environment.test_environment_2().arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Job Queue with a fair share scheduling policy
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.batch.SchedulingPolicy;
+ * import com.pulumi.aws.batch.SchedulingPolicyArgs;
+ * import com.pulumi.aws.batch.inputs.SchedulingPolicyFairSharePolicyArgs;
+ * import com.pulumi.aws.batch.JobQueue;
+ * import com.pulumi.aws.batch.JobQueueArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleSchedulingPolicy = new SchedulingPolicy(&#34;exampleSchedulingPolicy&#34;, SchedulingPolicyArgs.builder()        
+ *             .fairSharePolicy(SchedulingPolicyFairSharePolicyArgs.builder()
+ *                 .computeReservation(1)
+ *                 .shareDecaySeconds(3600)
+ *                 .shareDistributions(SchedulingPolicyFairSharePolicyShareDistributionArgs.builder()
+ *                     .shareIdentifier(&#34;A1*&#34;)
+ *                     .weightFactor(0.1)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleJobQueue = new JobQueue(&#34;exampleJobQueue&#34;, JobQueueArgs.builder()        
+ *             .schedulingPolicyArn(exampleSchedulingPolicy.arn())
+ *             .state(&#34;ENABLED&#34;)
+ *             .priority(1)
+ *             .computeEnvironments(            
+ *                 aws_batch_compute_environment.test_environment_1().arn(),
+ *                 aws_batch_compute_environment.test_environment_2().arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Batch Job Queue can be imported using the `arn`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
+ * ```
+ * 
+ */
 @ResourceType(type="aws:batch/jobQueue:JobQueue")
 public class JobQueue extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name of the job queue.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name of the job queue.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Specifies the set of compute environments
+     * mapped to a job queue and their order.  The position of the compute environments
+     * in the list will dictate the order.
+     * 
+     */
     @Export(name="computeEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> computeEnvironments;
 
+    /**
+     * @return Specifies the set of compute environments
+     * mapped to a job queue and their order.  The position of the compute environments
+     * in the list will dictate the order.
+     * 
+     */
     public Output<List<String>> computeEnvironments() {
         return this.computeEnvironments;
     }
+    /**
+     * Specifies the name of the job queue.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Specifies the name of the job queue.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The priority of the job queue. Job queues with a higher priority
+     * are evaluated first when associated with the same compute environment.
+     * 
+     */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
+    /**
+     * @return The priority of the job queue. Job queues with a higher priority
+     * are evaluated first when associated with the same compute environment.
+     * 
+     */
     public Output<Integer> priority() {
         return this.priority;
     }
+    /**
+     * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
+     * 
+     */
     @Export(name="schedulingPolicyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schedulingPolicyArn;
 
+    /**
+     * @return The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
+     * 
+     */
     public Output<Optional<String>> schedulingPolicyArn() {
         return Codegen.optional(this.schedulingPolicyArn);
     }
+    /**
+     * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+     * 
+     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
+    /**
+     * @return The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+     * 
+     */
     public Output<String> state() {
         return this.state;
     }
+    /**
+     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

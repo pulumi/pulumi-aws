@@ -55,6 +55,9 @@ class GetResourceShareResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the resource share.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -78,6 +81,9 @@ class GetResourceShareResult:
     @property
     @pulumi.getter(name="owningAccountId")
     def owning_account_id(self) -> str:
+        """
+        ID of the AWS account that owns the resource share.
+        """
         return pulumi.get(self, "owning_account_id")
 
     @property
@@ -93,11 +99,17 @@ class GetResourceShareResult:
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        Status of the RAM share.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Tags attached to the RAM share
+        """
         return pulumi.get(self, "tags")
 
 
@@ -125,7 +137,37 @@ def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceS
                        tags: Optional[Mapping[str, str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceShareResult:
     """
-    Use this data source to access information about an existing resource.
+    `ram.ResourceShare` Retrieve information about a RAM Resource Share.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ram.get_resource_share(name="example",
+        resource_owner="SELF")
+    ```
+    ## Search by filters
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    tag_filter = aws.ram.get_resource_share(filters=[aws.ram.GetResourceShareFilterArgs(
+            name="NameOfTag",
+            values=["exampleNameTagValue"],
+        )],
+        name="MyResourceName",
+        resource_owner="SELF")
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetResourceShareFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+    :param str name: Name of the tag key to filter on.
+    :param str resource_owner: Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
+    :param str resource_share_status: Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
+    :param Mapping[str, str] tags: Tags attached to the RAM share
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -156,6 +198,36 @@ def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[p
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceShareResult]:
     """
-    Use this data source to access information about an existing resource.
+    `ram.ResourceShare` Retrieve information about a RAM Resource Share.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ram.get_resource_share(name="example",
+        resource_owner="SELF")
+    ```
+    ## Search by filters
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    tag_filter = aws.ram.get_resource_share(filters=[aws.ram.GetResourceShareFilterArgs(
+            name="NameOfTag",
+            values=["exampleNameTagValue"],
+        )],
+        name="MyResourceName",
+        resource_owner="SELF")
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetResourceShareFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+    :param str name: Name of the tag key to filter on.
+    :param str resource_owner: Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
+    :param str resource_share_status: Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
+    :param Mapping[str, str] tags: Tags attached to the RAM share
     """
     ...

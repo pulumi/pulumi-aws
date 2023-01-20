@@ -18,37 +18,77 @@ public final class AppMonitorArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AppMonitorArgs Empty = new AppMonitorArgs();
 
+    /**
+     * configuration data for the app monitor. See app_monitor_configuration below.
+     * 
+     */
     @Import(name="appMonitorConfiguration")
     private @Nullable Output<AppMonitorAppMonitorConfigurationArgs> appMonitorConfiguration;
 
+    /**
+     * @return configuration data for the app monitor. See app_monitor_configuration below.
+     * 
+     */
     public Optional<Output<AppMonitorAppMonitorConfigurationArgs>> appMonitorConfiguration() {
         return Optional.ofNullable(this.appMonitorConfiguration);
     }
 
+    /**
+     * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+     * 
+     */
     @Import(name="cwLogEnabled")
     private @Nullable Output<Boolean> cwLogEnabled;
 
+    /**
+     * @return Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+     * 
+     */
     public Optional<Output<Boolean>> cwLogEnabled() {
         return Optional.ofNullable(this.cwLogEnabled);
     }
 
+    /**
+     * The top-level internet domain name for which your application has administrative authority.
+     * 
+     */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
+    /**
+     * @return The top-level internet domain name for which your application has administrative authority.
+     * 
+     */
     public Output<String> domain() {
         return this.domain;
     }
 
+    /**
+     * The name of the log stream.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the log stream.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -81,47 +121,107 @@ public final class AppMonitorArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AppMonitorArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param appMonitorConfiguration configuration data for the app monitor. See app_monitor_configuration below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder appMonitorConfiguration(@Nullable Output<AppMonitorAppMonitorConfigurationArgs> appMonitorConfiguration) {
             $.appMonitorConfiguration = appMonitorConfiguration;
             return this;
         }
 
+        /**
+         * @param appMonitorConfiguration configuration data for the app monitor. See app_monitor_configuration below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder appMonitorConfiguration(AppMonitorAppMonitorConfigurationArgs appMonitorConfiguration) {
             return appMonitorConfiguration(Output.of(appMonitorConfiguration));
         }
 
+        /**
+         * @param cwLogEnabled Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cwLogEnabled(@Nullable Output<Boolean> cwLogEnabled) {
             $.cwLogEnabled = cwLogEnabled;
             return this;
         }
 
+        /**
+         * @param cwLogEnabled Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cwLogEnabled(Boolean cwLogEnabled) {
             return cwLogEnabled(Output.of(cwLogEnabled));
         }
 
+        /**
+         * @param domain The top-level internet domain name for which your application has administrative authority.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domain(Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
+        /**
+         * @param domain The top-level internet domain name for which your application has administrative authority.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }
 
+        /**
+         * @param name The name of the log stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the log stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

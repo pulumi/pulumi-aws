@@ -11,9 +11,113 @@ namespace Pulumi.Aws.RedShift
 {
     public static class GetCluster
     {
+        /// <summary>
+        /// Provides details about a specific redshift cluster.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.RedShift.GetCluster.Invoke(new()
+        ///     {
+        ///         ClusterIdentifier = "example-cluster",
+        ///     });
+        /// 
+        ///     var exampleStream = new Aws.Kinesis.FirehoseDeliveryStream("exampleStream", new()
+        ///     {
+        ///         Destination = "redshift",
+        ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+        ///         {
+        ///             RoleArn = aws_iam_role.Firehose_role.Arn,
+        ///             BucketArn = aws_s3_bucket.Bucket.Arn,
+        ///             BufferSize = 10,
+        ///             BufferInterval = 400,
+        ///             CompressionFormat = "GZIP",
+        ///         },
+        ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
+        ///         {
+        ///             RoleArn = aws_iam_role.Firehose_role.Arn,
+        ///             ClusterJdbcurl = Output.Tuple(example.Apply(getClusterResult =&gt; getClusterResult), example.Apply(getClusterResult =&gt; getClusterResult)).Apply(values =&gt;
+        ///             {
+        ///                 var example = values.Item1;
+        ///                 var example1 = values.Item2;
+        ///                 return $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example1.DatabaseName}";
+        ///             }),
+        ///             Username = "exampleuser",
+        ///             Password = "Exampl3Pass",
+        ///             DataTableName = "example-table",
+        ///             CopyOptions = "delimiter '|'",
+        ///             DataTableColumns = "example-col",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:redshift/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides details about a specific redshift cluster.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.RedShift.GetCluster.Invoke(new()
+        ///     {
+        ///         ClusterIdentifier = "example-cluster",
+        ///     });
+        /// 
+        ///     var exampleStream = new Aws.Kinesis.FirehoseDeliveryStream("exampleStream", new()
+        ///     {
+        ///         Destination = "redshift",
+        ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+        ///         {
+        ///             RoleArn = aws_iam_role.Firehose_role.Arn,
+        ///             BucketArn = aws_s3_bucket.Bucket.Arn,
+        ///             BufferSize = 10,
+        ///             BufferInterval = 400,
+        ///             CompressionFormat = "GZIP",
+        ///         },
+        ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
+        ///         {
+        ///             RoleArn = aws_iam_role.Firehose_role.Arn,
+        ///             ClusterJdbcurl = Output.Tuple(example.Apply(getClusterResult =&gt; getClusterResult), example.Apply(getClusterResult =&gt; getClusterResult)).Apply(values =&gt;
+        ///             {
+        ///                 var example = values.Item1;
+        ///                 var example1 = values.Item2;
+        ///                 return $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example1.DatabaseName}";
+        ///             }),
+        ///             Username = "exampleuser",
+        ///             Password = "Exampl3Pass",
+        ///             DataTableName = "example-table",
+        ///             CopyOptions = "delimiter '|'",
+        ///             DataTableColumns = "example-col",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws:redshift/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
@@ -21,11 +125,18 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Cluster identifier
+        /// </summary>
         [Input("clusterIdentifier", required: true)]
         public string ClusterIdentifier { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Tags associated to the cluster
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -40,11 +151,18 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Cluster identifier
+        /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tags associated to the cluster
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -61,48 +179,162 @@ namespace Pulumi.Aws.RedShift
     [OutputType]
     public sealed class GetClusterResult
     {
+        /// <summary>
+        /// Whether major version upgrades can be applied during maintenance period
+        /// </summary>
         public readonly bool AllowVersionUpgrade;
+        /// <summary>
+        /// The value represents how the cluster is configured to use AQUA.
+        /// </summary>
         public readonly string AquaConfigurationStatus;
+        /// <summary>
+        /// ARN of cluster.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// The backup retention period
+        /// </summary>
         public readonly int AutomatedSnapshotRetentionPeriod;
+        /// <summary>
+        /// Availability zone of the cluster
+        /// </summary>
         public readonly string AvailabilityZone;
+        /// <summary>
+        /// Indicates whether the cluster is able to be relocated to another availability zone.
+        /// </summary>
         public readonly bool AvailabilityZoneRelocationEnabled;
+        /// <summary>
+        /// Name of the S3 bucket where the log files are to be stored
+        /// </summary>
         public readonly string BucketName;
+        /// <summary>
+        /// Cluster identifier
+        /// </summary>
         public readonly string ClusterIdentifier;
+        /// <summary>
+        /// Nodes in the cluster. Cluster node blocks are documented below
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterClusterNodeResult> ClusterNodes;
+        /// <summary>
+        /// The name of the parameter group to be associated with this cluster
+        /// </summary>
         public readonly string ClusterParameterGroupName;
+        /// <summary>
+        /// Public key for the cluster
+        /// </summary>
         public readonly string ClusterPublicKey;
+        /// <summary>
+        /// The cluster revision number
+        /// </summary>
         public readonly string ClusterRevisionNumber;
+        /// <summary>
+        /// The security groups associated with the cluster
+        /// </summary>
         public readonly ImmutableArray<string> ClusterSecurityGroups;
+        /// <summary>
+        /// The name of a cluster subnet group to be associated with this cluster
+        /// </summary>
         public readonly string ClusterSubnetGroupName;
+        /// <summary>
+        /// Cluster type
+        /// </summary>
         public readonly string ClusterType;
         public readonly string ClusterVersion;
+        /// <summary>
+        /// Name of the default database in the cluster
+        /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
+        /// </summary>
         public readonly string DefaultIamRoleArn;
+        /// <summary>
+        /// Elastic IP of the cluster
+        /// </summary>
         public readonly string ElasticIp;
+        /// <summary>
+        /// Whether cluster logging is enabled
+        /// </summary>
         public readonly bool EnableLogging;
+        /// <summary>
+        /// Whether the cluster data is encrypted
+        /// </summary>
         public readonly bool Encrypted;
+        /// <summary>
+        /// Cluster endpoint
+        /// </summary>
         public readonly string Endpoint;
+        /// <summary>
+        /// Whether enhanced VPC routing is enabled
+        /// </summary>
         public readonly bool EnhancedVpcRouting;
+        /// <summary>
+        /// IAM roles associated to the cluster
+        /// </summary>
         public readonly ImmutableArray<string> IamRoles;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// KMS encryption key associated to the cluster
+        /// </summary>
         public readonly string KmsKeyId;
+        /// <summary>
+        /// The log destination type.
+        /// </summary>
         public readonly string LogDestinationType;
+        /// <summary>
+        /// Collection of exported log types. Log types include the connection log, user log and user activity log.
+        /// </summary>
         public readonly ImmutableArray<string> LogExports;
+        /// <summary>
+        /// The name of the maintenance track for the restored cluster.
+        /// </summary>
         public readonly string MaintenanceTrackName;
+        /// <summary>
+        /// (Optional)  The default number of days to retain a manual snapshot.
+        /// </summary>
         public readonly int ManualSnapshotRetentionPeriod;
+        /// <summary>
+        /// Username for the master DB user
+        /// </summary>
         public readonly string MasterUsername;
+        /// <summary>
+        /// Cluster node type
+        /// </summary>
         public readonly string NodeType;
+        /// <summary>
+        /// Number of nodes in the cluster
+        /// </summary>
         public readonly int NumberOfNodes;
+        /// <summary>
+        /// Port the cluster responds on
+        /// </summary>
         public readonly int Port;
+        /// <summary>
+        /// The maintenance window
+        /// </summary>
         public readonly string PreferredMaintenanceWindow;
+        /// <summary>
+        /// Whether the cluster is publicly accessible
+        /// </summary>
         public readonly bool PubliclyAccessible;
+        /// <summary>
+        /// Folder inside the S3 bucket where the log files are stored
+        /// </summary>
         public readonly string S3KeyPrefix;
+        /// <summary>
+        /// Tags associated to the cluster
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// VPC Id associated with the cluster
+        /// </summary>
         public readonly string VpcId;
+        /// <summary>
+        /// The VPC security group Ids associated with the cluster
+        /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
         [OutputConstructor]

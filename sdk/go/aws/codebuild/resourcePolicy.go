@@ -11,10 +11,98 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a CodeBuild Resource Policy Resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleReportGroup, err := codebuild.NewReportGroup(ctx, "exampleReportGroup", &codebuild.ReportGroupArgs{
+//				Type: pulumi.String("TEST"),
+//				ExportConfig: &codebuild.ReportGroupExportConfigArgs{
+//					Type: pulumi.String("NO_EXPORT"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codebuild.NewResourcePolicy(ctx, "exampleResourcePolicy", &codebuild.ResourcePolicyArgs{
+//				ResourceArn: exampleReportGroup.Arn,
+//				Policy: exampleReportGroup.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//					var _zero pulumi.String
+//					tmpJSON0, err := json.Marshal(map[string]interface{}{
+//						"Version": "2012-10-17",
+//						"Id":      "default",
+//						"Statement": []map[string]interface{}{
+//							map[string]interface{}{
+//								"Sid":    "default",
+//								"Effect": "Allow",
+//								"Principal": map[string]interface{}{
+//									"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentPartition.Partition, currentCallerIdentity.AccountId),
+//								},
+//								"Action": []string{
+//									"codebuild:BatchGetReportGroups",
+//									"codebuild:BatchGetReports",
+//									"codebuild:ListReportsForReportGroup",
+//									"codebuild:DescribeTestCases",
+//								},
+//								"Resource": arn,
+//							},
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return pulumi.String(json0), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// CodeBuild Resource Policy can be imported using the CodeBuild Resource Policy arn, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:codebuild/resourcePolicy:ResourcePolicy example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+//
+// ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
-	Policy      pulumi.StringOutput `pulumi:"policy"`
+	// A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
+	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 }
 
@@ -53,12 +141,16 @@ func GetResourcePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourcePolicy resources.
 type resourcePolicyState struct {
-	Policy      *string `pulumi:"policy"`
+	// A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
+	Policy *string `pulumi:"policy"`
+	// The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
 	ResourceArn *string `pulumi:"resourceArn"`
 }
 
 type ResourcePolicyState struct {
-	Policy      pulumi.StringPtrInput
+	// A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
+	Policy pulumi.StringPtrInput
+	// The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
 	ResourceArn pulumi.StringPtrInput
 }
 
@@ -67,13 +159,17 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 }
 
 type resourcePolicyArgs struct {
-	Policy      string `pulumi:"policy"`
+	// A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
+	Policy string `pulumi:"policy"`
+	// The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
 // The set of arguments for constructing a ResourcePolicy resource.
 type ResourcePolicyArgs struct {
-	Policy      pulumi.StringInput
+	// A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
+	Policy pulumi.StringInput
+	// The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
 	ResourceArn pulumi.StringInput
 }
 
@@ -164,10 +260,12 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+// A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
 func (o ResourcePolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
+// The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
 func (o ResourcePolicyOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

@@ -15,6 +15,10 @@ public final class GetClusterAuthResult {
      */
     private String id;
     private String name;
+    /**
+     * @return Token to use to authenticate with the cluster.
+     * 
+     */
     private String token;
 
     private GetClusterAuthResult() {}
@@ -28,6 +32,10 @@ public final class GetClusterAuthResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Token to use to authenticate with the cluster.
+     * 
+     */
     public String token() {
         return this.token;
     }

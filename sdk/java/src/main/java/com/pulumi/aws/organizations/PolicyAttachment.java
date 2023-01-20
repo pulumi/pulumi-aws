@@ -13,17 +13,137 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
+ * 
+ * ## Example Usage
+ * ### Organization Account
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.organizations.PolicyAttachment;
+ * import com.pulumi.aws.organizations.PolicyAttachmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var account = new PolicyAttachment(&#34;account&#34;, PolicyAttachmentArgs.builder()        
+ *             .policyId(aws_organizations_policy.example().id())
+ *             .targetId(&#34;123456789012&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Organization Root
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.organizations.PolicyAttachment;
+ * import com.pulumi.aws.organizations.PolicyAttachmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var root = new PolicyAttachment(&#34;root&#34;, PolicyAttachmentArgs.builder()        
+ *             .policyId(aws_organizations_policy.example().id())
+ *             .targetId(aws_organizations_organization.example().roots()[0].id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Organization Unit
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.organizations.PolicyAttachment;
+ * import com.pulumi.aws.organizations.PolicyAttachmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var unit = new PolicyAttachment(&#34;unit&#34;, PolicyAttachmentArgs.builder()        
+ *             .policyId(aws_organizations_policy.example().id())
+ *             .targetId(aws_organizations_organizational_unit.example().id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_organizations_policy_attachment` can be imported by using the target ID and policy ID, e.g., with an account target
+ * 
+ * ```sh
+ *  $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
+ * ```
+ * 
+ */
 @ResourceType(type="aws:organizations/policyAttachment:PolicyAttachment")
 public class PolicyAttachment extends com.pulumi.resources.CustomResource {
+    /**
+     * The unique identifier (ID) of the policy that you want to attach to the target.
+     * 
+     */
     @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
+    /**
+     * @return The unique identifier (ID) of the policy that you want to attach to the target.
+     * 
+     */
     public Output<String> policyId() {
         return this.policyId;
     }
+    /**
+     * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+     * 
+     */
     @Export(name="targetId", refs={String.class}, tree="[0]")
     private Output<String> targetId;
 
+    /**
+     * @return The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+     * 
+     */
     public Output<String> targetId() {
         return this.targetId;
     }

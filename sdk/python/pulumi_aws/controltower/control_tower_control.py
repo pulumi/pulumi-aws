@@ -18,6 +18,8 @@ class ControlTowerControlArgs:
                  target_identifier: pulumi.Input[str]):
         """
         The set of arguments for constructing a ControlTowerControl resource.
+        :param pulumi.Input[str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
+        :param pulumi.Input[str] target_identifier: The ARN of the organizational unit.
         """
         pulumi.set(__self__, "control_identifier", control_identifier)
         pulumi.set(__self__, "target_identifier", target_identifier)
@@ -25,6 +27,9 @@ class ControlTowerControlArgs:
     @property
     @pulumi.getter(name="controlIdentifier")
     def control_identifier(self) -> pulumi.Input[str]:
+        """
+        The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
+        """
         return pulumi.get(self, "control_identifier")
 
     @control_identifier.setter
@@ -34,6 +39,9 @@ class ControlTowerControlArgs:
     @property
     @pulumi.getter(name="targetIdentifier")
     def target_identifier(self) -> pulumi.Input[str]:
+        """
+        The ARN of the organizational unit.
+        """
         return pulumi.get(self, "target_identifier")
 
     @target_identifier.setter
@@ -48,6 +56,8 @@ class _ControlTowerControlState:
                  target_identifier: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ControlTowerControl resources.
+        :param pulumi.Input[str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
+        :param pulumi.Input[str] target_identifier: The ARN of the organizational unit.
         """
         if control_identifier is not None:
             pulumi.set(__self__, "control_identifier", control_identifier)
@@ -57,6 +67,9 @@ class _ControlTowerControlState:
     @property
     @pulumi.getter(name="controlIdentifier")
     def control_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
+        """
         return pulumi.get(self, "control_identifier")
 
     @control_identifier.setter
@@ -66,6 +79,9 @@ class _ControlTowerControlState:
     @property
     @pulumi.getter(name="targetIdentifier")
     def target_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the organizational unit.
+        """
         return pulumi.get(self, "target_identifier")
 
     @target_identifier.setter
@@ -82,9 +98,21 @@ class ControlTowerControl(pulumi.CustomResource):
                  target_identifier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ControlTowerControl resource with the given unique name, props, and options.
+        Allows the application of pre-defined controls to organizational units. For more information on usage, please see the
+        [AWS Control Tower User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/enable-guardrails.html).
+
+        ## Import
+
+        Control Tower Controls can be imported using their `organizational_unit_arn/control_identifier`, e.g.,
+
+        ```sh
+         $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
+        :param pulumi.Input[str] target_identifier: The ARN of the organizational unit.
         """
         ...
     @overload
@@ -93,7 +121,17 @@ class ControlTowerControl(pulumi.CustomResource):
                  args: ControlTowerControlArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ControlTowerControl resource with the given unique name, props, and options.
+        Allows the application of pre-defined controls to organizational units. For more information on usage, please see the
+        [AWS Control Tower User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/enable-guardrails.html).
+
+        ## Import
+
+        Control Tower Controls can be imported using their `organizational_unit_arn/control_identifier`, e.g.,
+
+        ```sh
+         $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
+        ```
+
         :param str resource_name: The name of the resource.
         :param ControlTowerControlArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +183,8 @@ class ControlTowerControl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
+        :param pulumi.Input[str] target_identifier: The ARN of the organizational unit.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +197,16 @@ class ControlTowerControl(pulumi.CustomResource):
     @property
     @pulumi.getter(name="controlIdentifier")
     def control_identifier(self) -> pulumi.Output[str]:
+        """
+        The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
+        """
         return pulumi.get(self, "control_identifier")
 
     @property
     @pulumi.getter(name="targetIdentifier")
     def target_identifier(self) -> pulumi.Output[str]:
+        """
+        The ARN of the organizational unit.
+        """
         return pulumi.get(self, "target_identifier")
 

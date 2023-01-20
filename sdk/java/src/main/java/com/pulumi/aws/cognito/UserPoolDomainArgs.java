@@ -15,23 +15,47 @@ public final class UserPoolDomainArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final UserPoolDomainArgs Empty = new UserPoolDomainArgs();
 
+    /**
+     * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
+     * 
+     */
     @Import(name="certificateArn")
     private @Nullable Output<String> certificateArn;
 
+    /**
+     * @return The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
+     * 
+     */
     public Optional<Output<String>> certificateArn() {
         return Optional.ofNullable(this.certificateArn);
     }
 
+    /**
+     * For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
+     * 
+     */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
+    /**
+     * @return For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
+     * 
+     */
     public Output<String> domain() {
         return this.domain;
     }
 
+    /**
+     * The user pool ID.
+     * 
+     */
     @Import(name="userPoolId", required=true)
     private Output<String> userPoolId;
 
+    /**
+     * @return The user pool ID.
+     * 
+     */
     public Output<String> userPoolId() {
         return this.userPoolId;
     }
@@ -62,29 +86,65 @@ public final class UserPoolDomainArgs extends com.pulumi.resources.ResourceArgs 
             $ = new UserPoolDomainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param certificateArn The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateArn(@Nullable Output<String> certificateArn) {
             $.certificateArn = certificateArn;
             return this;
         }
 
+        /**
+         * @param certificateArn The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateArn(String certificateArn) {
             return certificateArn(Output.of(certificateArn));
         }
 
+        /**
+         * @param domain For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domain(Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
+        /**
+         * @param domain For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }
 
+        /**
+         * @param userPoolId The user pool ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userPoolId(Output<String> userPoolId) {
             $.userPoolId = userPoolId;
             return this;
         }
 
+        /**
+         * @param userPoolId The user pool ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userPoolId(String userPoolId) {
             return userPoolId(Output.of(userPoolId));
         }

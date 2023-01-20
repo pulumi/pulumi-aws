@@ -9,15 +9,47 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2TransitGateway
 {
+    /// <summary>
+    /// Registers sources (network interfaces) with the transit gateway multicast group.
+    /// A multicast source is a network interface attached to a supported instance that sends multicast traffic.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ec2TransitGateway.MulticastGroupSource("example", new()
+    ///     {
+    ///         GroupIpAddress = "224.0.0.1",
+    ///         NetworkInterfaceId = aws_network_interface.Example.Id,
+    ///         TransitGatewayMulticastDomainId = aws_ec2_transit_gateway_multicast_domain.Example.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:ec2transitgateway/multicastGroupSource:MulticastGroupSource")]
     public partial class MulticastGroupSource : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The IP address assigned to the transit gateway multicast group.
+        /// </summary>
         [Output("groupIpAddress")]
         public Output<string> GroupIpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// The group members' network interface ID to register with the transit gateway multicast group.
+        /// </summary>
         [Output("networkInterfaceId")]
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the transit gateway multicast domain.
+        /// </summary>
         [Output("transitGatewayMulticastDomainId")]
         public Output<string> TransitGatewayMulticastDomainId { get; private set; } = null!;
 
@@ -67,12 +99,21 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class MulticastGroupSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IP address assigned to the transit gateway multicast group.
+        /// </summary>
         [Input("groupIpAddress", required: true)]
         public Input<string> GroupIpAddress { get; set; } = null!;
 
+        /// <summary>
+        /// The group members' network interface ID to register with the transit gateway multicast group.
+        /// </summary>
         [Input("networkInterfaceId", required: true)]
         public Input<string> NetworkInterfaceId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the transit gateway multicast domain.
+        /// </summary>
         [Input("transitGatewayMulticastDomainId", required: true)]
         public Input<string> TransitGatewayMulticastDomainId { get; set; } = null!;
 
@@ -84,12 +125,21 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class MulticastGroupSourceState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IP address assigned to the transit gateway multicast group.
+        /// </summary>
         [Input("groupIpAddress")]
         public Input<string>? GroupIpAddress { get; set; }
 
+        /// <summary>
+        /// The group members' network interface ID to register with the transit gateway multicast group.
+        /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
+        /// <summary>
+        /// The ID of the transit gateway multicast domain.
+        /// </summary>
         [Input("transitGatewayMulticastDomainId")]
         public Input<string>? TransitGatewayMulticastDomainId { get; set; }
 

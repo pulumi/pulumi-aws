@@ -13,6 +13,9 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketObjectLockConfigurationV2Rule
     {
+        /// <summary>
+        /// A configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket detailed below.
+        /// </summary>
         public readonly Outputs.BucketObjectLockConfigurationV2RuleDefaultRetention DefaultRetention;
 
         [OutputConstructor]

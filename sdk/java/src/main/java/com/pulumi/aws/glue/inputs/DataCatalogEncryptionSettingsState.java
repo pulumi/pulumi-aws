@@ -16,16 +16,32 @@ public final class DataCatalogEncryptionSettingsState extends com.pulumi.resourc
 
     public static final DataCatalogEncryptionSettingsState Empty = new DataCatalogEncryptionSettingsState();
 
+    /**
+     * The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+     * 
+     */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
+    /**
+     * @return The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+     * 
+     */
     public Optional<Output<String>> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
 
+    /**
+     * The security configuration to set. see Data Catalog Encryption Settings.
+     * 
+     */
     @Import(name="dataCatalogEncryptionSettings")
     private @Nullable Output<DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs> dataCatalogEncryptionSettings;
 
+    /**
+     * @return The security configuration to set. see Data Catalog Encryption Settings.
+     * 
+     */
     public Optional<Output<DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs>> dataCatalogEncryptionSettings() {
         return Optional.ofNullable(this.dataCatalogEncryptionSettings);
     }
@@ -55,20 +71,44 @@ public final class DataCatalogEncryptionSettingsState extends com.pulumi.resourc
             $ = new DataCatalogEncryptionSettingsState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param catalogId The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+         * 
+         * @return builder
+         * 
+         */
         public Builder catalogId(@Nullable Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
+        /**
+         * @param catalogId The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+         * 
+         * @return builder
+         * 
+         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
+        /**
+         * @param dataCatalogEncryptionSettings The security configuration to set. see Data Catalog Encryption Settings.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataCatalogEncryptionSettings(@Nullable Output<DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs> dataCatalogEncryptionSettings) {
             $.dataCatalogEncryptionSettings = dataCatalogEncryptionSettings;
             return this;
         }
 
+        /**
+         * @param dataCatalogEncryptionSettings The security configuration to set. see Data Catalog Encryption Settings.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataCatalogEncryptionSettings(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs dataCatalogEncryptionSettings) {
             return dataCatalogEncryptionSettings(Output.of(dataCatalogEncryptionSettings));
         }

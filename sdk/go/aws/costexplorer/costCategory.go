@@ -11,19 +11,110 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a CE Cost Category.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := costexplorer.NewCostCategory(ctx, "test", &costexplorer.CostCategoryArgs{
+//				Rules: costexplorer.CostCategoryRuleArray{
+//					&costexplorer.CostCategoryRuleArgs{
+//						Rule: &costexplorer.CostCategoryRuleRuleArgs{
+//							Dimension: &costexplorer.CostCategoryRuleRuleDimensionArgs{
+//								Key: pulumi.String("LINKED_ACCOUNT_NAME"),
+//								MatchOptions: pulumi.StringArray{
+//									pulumi.String("ENDS_WITH"),
+//								},
+//								Values: pulumi.StringArray{
+//									pulumi.String("-prod"),
+//								},
+//							},
+//						},
+//						Value: pulumi.String("production"),
+//					},
+//					&costexplorer.CostCategoryRuleArgs{
+//						Rule: &costexplorer.CostCategoryRuleRuleArgs{
+//							Dimension: &costexplorer.CostCategoryRuleRuleDimensionArgs{
+//								Key: pulumi.String("LINKED_ACCOUNT_NAME"),
+//								MatchOptions: pulumi.StringArray{
+//									pulumi.String("ENDS_WITH"),
+//								},
+//								Values: pulumi.StringArray{
+//									pulumi.String("-stg"),
+//								},
+//							},
+//						},
+//						Value: pulumi.String("staging"),
+//					},
+//					&costexplorer.CostCategoryRuleArgs{
+//						Rule: &costexplorer.CostCategoryRuleRuleArgs{
+//							Dimension: &costexplorer.CostCategoryRuleRuleDimensionArgs{
+//								Key: pulumi.String("LINKED_ACCOUNT_NAME"),
+//								MatchOptions: pulumi.StringArray{
+//									pulumi.String("ENDS_WITH"),
+//								},
+//								Values: pulumi.StringArray{
+//									pulumi.String("-dev"),
+//								},
+//							},
+//						},
+//						Value: pulumi.String("testing"),
+//					},
+//				},
+//				RuleVersion: pulumi.String("CostCategoryExpression.v1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_ce_cost_category` can be imported using the id, e.g.
+//
+// ```sh
+//
+//	$ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
+//
+// ```
 type CostCategory struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput                    `pulumi:"arn"`
-	DefaultValue     pulumi.StringPtrOutput                 `pulumi:"defaultValue"`
-	EffectiveEnd     pulumi.StringOutput                    `pulumi:"effectiveEnd"`
-	EffectiveStart   pulumi.StringOutput                    `pulumi:"effectiveStart"`
-	Name             pulumi.StringOutput                    `pulumi:"name"`
-	RuleVersion      pulumi.StringOutput                    `pulumi:"ruleVersion"`
-	Rules            CostCategoryRuleArrayOutput            `pulumi:"rules"`
+	// ARN of the cost category.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Default value for the cost category.
+	DefaultValue pulumi.StringPtrOutput `pulumi:"defaultValue"`
+	// Effective end data of your Cost Category.
+	EffectiveEnd pulumi.StringOutput `pulumi:"effectiveEnd"`
+	// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+	EffectiveStart pulumi.StringOutput `pulumi:"effectiveStart"`
+	// Unique name for the Cost Category.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Rule schema version in this particular Cost Category.
+	RuleVersion pulumi.StringOutput `pulumi:"ruleVersion"`
+	// Configuration block for the Cost Category rules used to categorize costs. See below.
+	Rules CostCategoryRuleArrayOutput `pulumi:"rules"`
+	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules CostCategorySplitChargeRuleArrayOutput `pulumi:"splitChargeRules"`
-	Tags             pulumi.StringMapOutput                 `pulumi:"tags"`
-	TagsAll          pulumi.StringMapOutput                 `pulumi:"tagsAll"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewCostCategory registers a new resource with the given unique name, arguments, and options.
@@ -61,29 +152,49 @@ func GetCostCategory(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CostCategory resources.
 type costCategoryState struct {
-	Arn              *string                       `pulumi:"arn"`
-	DefaultValue     *string                       `pulumi:"defaultValue"`
-	EffectiveEnd     *string                       `pulumi:"effectiveEnd"`
-	EffectiveStart   *string                       `pulumi:"effectiveStart"`
-	Name             *string                       `pulumi:"name"`
-	RuleVersion      *string                       `pulumi:"ruleVersion"`
-	Rules            []CostCategoryRule            `pulumi:"rules"`
+	// ARN of the cost category.
+	Arn *string `pulumi:"arn"`
+	// Default value for the cost category.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// Effective end data of your Cost Category.
+	EffectiveEnd *string `pulumi:"effectiveEnd"`
+	// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+	EffectiveStart *string `pulumi:"effectiveStart"`
+	// Unique name for the Cost Category.
+	Name *string `pulumi:"name"`
+	// Rule schema version in this particular Cost Category.
+	RuleVersion *string `pulumi:"ruleVersion"`
+	// Configuration block for the Cost Category rules used to categorize costs. See below.
+	Rules []CostCategoryRule `pulumi:"rules"`
+	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules []CostCategorySplitChargeRule `pulumi:"splitChargeRules"`
-	Tags             map[string]string             `pulumi:"tags"`
-	TagsAll          map[string]string             `pulumi:"tagsAll"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type CostCategoryState struct {
-	Arn              pulumi.StringPtrInput
-	DefaultValue     pulumi.StringPtrInput
-	EffectiveEnd     pulumi.StringPtrInput
-	EffectiveStart   pulumi.StringPtrInput
-	Name             pulumi.StringPtrInput
-	RuleVersion      pulumi.StringPtrInput
-	Rules            CostCategoryRuleArrayInput
+	// ARN of the cost category.
+	Arn pulumi.StringPtrInput
+	// Default value for the cost category.
+	DefaultValue pulumi.StringPtrInput
+	// Effective end data of your Cost Category.
+	EffectiveEnd pulumi.StringPtrInput
+	// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+	EffectiveStart pulumi.StringPtrInput
+	// Unique name for the Cost Category.
+	Name pulumi.StringPtrInput
+	// Rule schema version in this particular Cost Category.
+	RuleVersion pulumi.StringPtrInput
+	// Configuration block for the Cost Category rules used to categorize costs. See below.
+	Rules CostCategoryRuleArrayInput
+	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules CostCategorySplitChargeRuleArrayInput
-	Tags             pulumi.StringMapInput
-	TagsAll          pulumi.StringMapInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (CostCategoryState) ElementType() reflect.Type {
@@ -91,24 +202,38 @@ func (CostCategoryState) ElementType() reflect.Type {
 }
 
 type costCategoryArgs struct {
-	DefaultValue     *string                       `pulumi:"defaultValue"`
-	EffectiveStart   *string                       `pulumi:"effectiveStart"`
-	Name             *string                       `pulumi:"name"`
-	RuleVersion      string                        `pulumi:"ruleVersion"`
-	Rules            []CostCategoryRule            `pulumi:"rules"`
+	// Default value for the cost category.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+	EffectiveStart *string `pulumi:"effectiveStart"`
+	// Unique name for the Cost Category.
+	Name *string `pulumi:"name"`
+	// Rule schema version in this particular Cost Category.
+	RuleVersion string `pulumi:"ruleVersion"`
+	// Configuration block for the Cost Category rules used to categorize costs. See below.
+	Rules []CostCategoryRule `pulumi:"rules"`
+	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules []CostCategorySplitChargeRule `pulumi:"splitChargeRules"`
-	Tags             map[string]string             `pulumi:"tags"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CostCategory resource.
 type CostCategoryArgs struct {
-	DefaultValue     pulumi.StringPtrInput
-	EffectiveStart   pulumi.StringPtrInput
-	Name             pulumi.StringPtrInput
-	RuleVersion      pulumi.StringInput
-	Rules            CostCategoryRuleArrayInput
+	// Default value for the cost category.
+	DefaultValue pulumi.StringPtrInput
+	// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+	EffectiveStart pulumi.StringPtrInput
+	// Unique name for the Cost Category.
+	Name pulumi.StringPtrInput
+	// Rule schema version in this particular Cost Category.
+	RuleVersion pulumi.StringInput
+	// Configuration block for the Cost Category rules used to categorize costs. See below.
+	Rules CostCategoryRuleArrayInput
+	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules CostCategorySplitChargeRuleArrayInput
-	Tags             pulumi.StringMapInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (CostCategoryArgs) ElementType() reflect.Type {
@@ -198,42 +323,52 @@ func (o CostCategoryOutput) ToCostCategoryOutputWithContext(ctx context.Context)
 	return o
 }
 
+// ARN of the cost category.
 func (o CostCategoryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CostCategory) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Default value for the cost category.
 func (o CostCategoryOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CostCategory) pulumi.StringPtrOutput { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
+// Effective end data of your Cost Category.
 func (o CostCategoryOutput) EffectiveEnd() pulumi.StringOutput {
 	return o.ApplyT(func(v *CostCategory) pulumi.StringOutput { return v.EffectiveEnd }).(pulumi.StringOutput)
 }
 
+// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
 func (o CostCategoryOutput) EffectiveStart() pulumi.StringOutput {
 	return o.ApplyT(func(v *CostCategory) pulumi.StringOutput { return v.EffectiveStart }).(pulumi.StringOutput)
 }
 
+// Unique name for the Cost Category.
 func (o CostCategoryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CostCategory) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Rule schema version in this particular Cost Category.
 func (o CostCategoryOutput) RuleVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *CostCategory) pulumi.StringOutput { return v.RuleVersion }).(pulumi.StringOutput)
 }
 
+// Configuration block for the Cost Category rules used to categorize costs. See below.
 func (o CostCategoryOutput) Rules() CostCategoryRuleArrayOutput {
 	return o.ApplyT(func(v *CostCategory) CostCategoryRuleArrayOutput { return v.Rules }).(CostCategoryRuleArrayOutput)
 }
 
+// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 func (o CostCategoryOutput) SplitChargeRules() CostCategorySplitChargeRuleArrayOutput {
 	return o.ApplyT(func(v *CostCategory) CostCategorySplitChargeRuleArrayOutput { return v.SplitChargeRules }).(CostCategorySplitChargeRuleArrayOutput)
 }
 
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CostCategoryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CostCategory) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CostCategoryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CostCategory) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

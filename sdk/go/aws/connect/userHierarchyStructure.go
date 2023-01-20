@@ -11,11 +11,99 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Amazon Connect User Hierarchy Structure resource. For more information see
+// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
+//
+// ## Example Usage
+// ### Basic
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewUserHierarchyStructure(ctx, "example", &connect.UserHierarchyStructureArgs{
+//				HierarchyStructure: &connect.UserHierarchyStructureHierarchyStructureArgs{
+//					LevelOne: &connect.UserHierarchyStructureHierarchyStructureLevelOneArgs{
+//						Name: pulumi.String("levelone"),
+//					},
+//				},
+//				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With Five Levels
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewUserHierarchyStructure(ctx, "example", &connect.UserHierarchyStructureArgs{
+//				HierarchyStructure: &connect.UserHierarchyStructureHierarchyStructureArgs{
+//					LevelFive: &connect.UserHierarchyStructureHierarchyStructureLevelFiveArgs{
+//						Name: pulumi.String("levelfive"),
+//					},
+//					LevelFour: &connect.UserHierarchyStructureHierarchyStructureLevelFourArgs{
+//						Name: pulumi.String("levelfour"),
+//					},
+//					LevelOne: &connect.UserHierarchyStructureHierarchyStructureLevelOneArgs{
+//						Name: pulumi.String("levelone"),
+//					},
+//					LevelThree: &connect.UserHierarchyStructureHierarchyStructureLevelThreeArgs{
+//						Name: pulumi.String("levelthree"),
+//					},
+//					LevelTwo: &connect.UserHierarchyStructureHierarchyStructureLevelTwoArgs{
+//						Name: pulumi.String("leveltwo"),
+//					},
+//				},
+//				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Amazon Connect User Hierarchy Structures can be imported using the `instance_id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
+//
+// ```
 type UserHierarchyStructure struct {
 	pulumi.CustomResourceState
 
+	// A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
 	HierarchyStructure UserHierarchyStructureHierarchyStructureOutput `pulumi:"hierarchyStructure"`
-	InstanceId         pulumi.StringOutput                            `pulumi:"instanceId"`
+	// Specifies the identifier of the hosting Amazon Connect Instance.
+	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 }
 
 // NewUserHierarchyStructure registers a new resource with the given unique name, arguments, and options.
@@ -53,13 +141,17 @@ func GetUserHierarchyStructure(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserHierarchyStructure resources.
 type userHierarchyStructureState struct {
+	// A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
 	HierarchyStructure *UserHierarchyStructureHierarchyStructure `pulumi:"hierarchyStructure"`
-	InstanceId         *string                                   `pulumi:"instanceId"`
+	// Specifies the identifier of the hosting Amazon Connect Instance.
+	InstanceId *string `pulumi:"instanceId"`
 }
 
 type UserHierarchyStructureState struct {
+	// A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
 	HierarchyStructure UserHierarchyStructureHierarchyStructurePtrInput
-	InstanceId         pulumi.StringPtrInput
+	// Specifies the identifier of the hosting Amazon Connect Instance.
+	InstanceId pulumi.StringPtrInput
 }
 
 func (UserHierarchyStructureState) ElementType() reflect.Type {
@@ -67,14 +159,18 @@ func (UserHierarchyStructureState) ElementType() reflect.Type {
 }
 
 type userHierarchyStructureArgs struct {
+	// A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
 	HierarchyStructure UserHierarchyStructureHierarchyStructure `pulumi:"hierarchyStructure"`
-	InstanceId         string                                   `pulumi:"instanceId"`
+	// Specifies the identifier of the hosting Amazon Connect Instance.
+	InstanceId string `pulumi:"instanceId"`
 }
 
 // The set of arguments for constructing a UserHierarchyStructure resource.
 type UserHierarchyStructureArgs struct {
+	// A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
 	HierarchyStructure UserHierarchyStructureHierarchyStructureInput
-	InstanceId         pulumi.StringInput
+	// Specifies the identifier of the hosting Amazon Connect Instance.
+	InstanceId pulumi.StringInput
 }
 
 func (UserHierarchyStructureArgs) ElementType() reflect.Type {
@@ -164,12 +260,14 @@ func (o UserHierarchyStructureOutput) ToUserHierarchyStructureOutputWithContext(
 	return o
 }
 
+// A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
 func (o UserHierarchyStructureOutput) HierarchyStructure() UserHierarchyStructureHierarchyStructureOutput {
 	return o.ApplyT(func(v *UserHierarchyStructure) UserHierarchyStructureHierarchyStructureOutput {
 		return v.HierarchyStructure
 	}).(UserHierarchyStructureHierarchyStructureOutput)
 }
 
+// Specifies the identifier of the hosting Amazon Connect Instance.
 func (o UserHierarchyStructureOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserHierarchyStructure) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }

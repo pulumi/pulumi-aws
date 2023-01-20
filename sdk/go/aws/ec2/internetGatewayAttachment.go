@@ -11,11 +11,61 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to create a VPC Internet Gateway Attachment.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.1.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInternetGateway, err := ec2.NewInternetGateway(ctx, "exampleInternetGateway", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewInternetGatewayAttachment(ctx, "exampleInternetGatewayAttachment", &ec2.InternetGatewayAttachmentArgs{
+//				InternetGatewayId: exampleInternetGateway.ID(),
+//				VpcId:             exampleVpc.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Internet Gateway Attachments can be imported using the `id`, e.g.
+//
+// ```sh
+//
+//	$ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
+//
+// ```
 type InternetGatewayAttachment struct {
 	pulumi.CustomResourceState
 
+	// The ID of the internet gateway.
 	InternetGatewayId pulumi.StringOutput `pulumi:"internetGatewayId"`
-	VpcId             pulumi.StringOutput `pulumi:"vpcId"`
+	// The ID of the VPC.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewInternetGatewayAttachment registers a new resource with the given unique name, arguments, and options.
@@ -53,13 +103,17 @@ func GetInternetGatewayAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InternetGatewayAttachment resources.
 type internetGatewayAttachmentState struct {
+	// The ID of the internet gateway.
 	InternetGatewayId *string `pulumi:"internetGatewayId"`
-	VpcId             *string `pulumi:"vpcId"`
+	// The ID of the VPC.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 type InternetGatewayAttachmentState struct {
+	// The ID of the internet gateway.
 	InternetGatewayId pulumi.StringPtrInput
-	VpcId             pulumi.StringPtrInput
+	// The ID of the VPC.
+	VpcId pulumi.StringPtrInput
 }
 
 func (InternetGatewayAttachmentState) ElementType() reflect.Type {
@@ -67,14 +121,18 @@ func (InternetGatewayAttachmentState) ElementType() reflect.Type {
 }
 
 type internetGatewayAttachmentArgs struct {
+	// The ID of the internet gateway.
 	InternetGatewayId string `pulumi:"internetGatewayId"`
-	VpcId             string `pulumi:"vpcId"`
+	// The ID of the VPC.
+	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a InternetGatewayAttachment resource.
 type InternetGatewayAttachmentArgs struct {
+	// The ID of the internet gateway.
 	InternetGatewayId pulumi.StringInput
-	VpcId             pulumi.StringInput
+	// The ID of the VPC.
+	VpcId pulumi.StringInput
 }
 
 func (InternetGatewayAttachmentArgs) ElementType() reflect.Type {
@@ -164,10 +222,12 @@ func (o InternetGatewayAttachmentOutput) ToInternetGatewayAttachmentOutputWithCo
 	return o
 }
 
+// The ID of the internet gateway.
 func (o InternetGatewayAttachmentOutput) InternetGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetGatewayAttachment) pulumi.StringOutput { return v.InternetGatewayId }).(pulumi.StringOutput)
 }
 
+// The ID of the VPC.
 func (o InternetGatewayAttachmentOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetGatewayAttachment) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

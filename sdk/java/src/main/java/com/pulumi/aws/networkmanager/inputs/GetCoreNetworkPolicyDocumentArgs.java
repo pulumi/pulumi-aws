@@ -20,30 +20,62 @@ public final class GetCoreNetworkPolicyDocumentArgs extends com.pulumi.resources
 
     public static final GetCoreNetworkPolicyDocumentArgs Empty = new GetCoreNetworkPolicyDocumentArgs();
 
+    /**
+     * In a core network, all attachments use the block argument `attachment_policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
+     * 
+     */
     @Import(name="attachmentPolicies")
     private @Nullable Output<List<GetCoreNetworkPolicyDocumentAttachmentPolicyArgs>> attachmentPolicies;
 
+    /**
+     * @return In a core network, all attachments use the block argument `attachment_policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
+     * 
+     */
     public Optional<Output<List<GetCoreNetworkPolicyDocumentAttachmentPolicyArgs>>> attachmentPolicies() {
         return Optional.ofNullable(this.attachmentPolicies);
     }
 
+    /**
+     * The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it&#39;s created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
+     * 
+     */
     @Import(name="coreNetworkConfigurations", required=true)
     private Output<List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs>> coreNetworkConfigurations;
 
+    /**
+     * @return The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it&#39;s created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
+     * 
+     */
     public Output<List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs>> coreNetworkConfigurations() {
         return this.coreNetworkConfigurations;
     }
 
+    /**
+     * A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+     * 
+     */
     @Import(name="segmentActions")
     private @Nullable Output<List<GetCoreNetworkPolicyDocumentSegmentActionArgs>> segmentActions;
 
+    /**
+     * @return A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+     * 
+     */
     public Optional<Output<List<GetCoreNetworkPolicyDocumentSegmentActionArgs>>> segmentActions() {
         return Optional.ofNullable(this.segmentActions);
     }
 
+    /**
+     * Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+     * 
+     */
     @Import(name="segments", required=true)
     private Output<List<GetCoreNetworkPolicyDocumentSegmentArgs>> segments;
 
+    /**
+     * @return Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+     * 
+     */
     public Output<List<GetCoreNetworkPolicyDocumentSegmentArgs>> segments() {
         return this.segments;
     }
@@ -83,54 +115,126 @@ public final class GetCoreNetworkPolicyDocumentArgs extends com.pulumi.resources
             $ = new GetCoreNetworkPolicyDocumentArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param attachmentPolicies In a core network, all attachments use the block argument `attachment_policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attachmentPolicies(@Nullable Output<List<GetCoreNetworkPolicyDocumentAttachmentPolicyArgs>> attachmentPolicies) {
             $.attachmentPolicies = attachmentPolicies;
             return this;
         }
 
+        /**
+         * @param attachmentPolicies In a core network, all attachments use the block argument `attachment_policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attachmentPolicies(List<GetCoreNetworkPolicyDocumentAttachmentPolicyArgs> attachmentPolicies) {
             return attachmentPolicies(Output.of(attachmentPolicies));
         }
 
+        /**
+         * @param attachmentPolicies In a core network, all attachments use the block argument `attachment_policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attachmentPolicies(GetCoreNetworkPolicyDocumentAttachmentPolicyArgs... attachmentPolicies) {
             return attachmentPolicies(List.of(attachmentPolicies));
         }
 
+        /**
+         * @param coreNetworkConfigurations The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it&#39;s created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder coreNetworkConfigurations(Output<List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs>> coreNetworkConfigurations) {
             $.coreNetworkConfigurations = coreNetworkConfigurations;
             return this;
         }
 
+        /**
+         * @param coreNetworkConfigurations The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it&#39;s created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder coreNetworkConfigurations(List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs> coreNetworkConfigurations) {
             return coreNetworkConfigurations(Output.of(coreNetworkConfigurations));
         }
 
+        /**
+         * @param coreNetworkConfigurations The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it&#39;s created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs... coreNetworkConfigurations) {
             return coreNetworkConfigurations(List.of(coreNetworkConfigurations));
         }
 
+        /**
+         * @param segmentActions A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder segmentActions(@Nullable Output<List<GetCoreNetworkPolicyDocumentSegmentActionArgs>> segmentActions) {
             $.segmentActions = segmentActions;
             return this;
         }
 
+        /**
+         * @param segmentActions A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder segmentActions(List<GetCoreNetworkPolicyDocumentSegmentActionArgs> segmentActions) {
             return segmentActions(Output.of(segmentActions));
         }
 
+        /**
+         * @param segmentActions A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs... segmentActions) {
             return segmentActions(List.of(segmentActions));
         }
 
+        /**
+         * @param segments Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder segments(Output<List<GetCoreNetworkPolicyDocumentSegmentArgs>> segments) {
             $.segments = segments;
             return this;
         }
 
+        /**
+         * @param segments Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder segments(List<GetCoreNetworkPolicyDocumentSegmentArgs> segments) {
             return segments(Output.of(segments));
         }
 
+        /**
+         * @param segments Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder segments(GetCoreNetworkPolicyDocumentSegmentArgs... segments) {
             return segments(List.of(segments));
         }

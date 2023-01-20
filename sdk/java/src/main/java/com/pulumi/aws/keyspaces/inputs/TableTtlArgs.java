@@ -13,9 +13,17 @@ public final class TableTtlArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TableTtlArgs Empty = new TableTtlArgs();
 
+    /**
+     * Valid values: `ENABLED`.
+     * 
+     */
     @Import(name="status", required=true)
     private Output<String> status;
 
+    /**
+     * @return Valid values: `ENABLED`.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }
@@ -44,11 +52,23 @@ public final class TableTtlArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TableTtlArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param status Valid values: `ENABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status Valid values: `ENABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

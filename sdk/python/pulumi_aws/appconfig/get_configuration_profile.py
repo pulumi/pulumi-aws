@@ -65,6 +65,9 @@ class GetConfigurationProfileResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the Configuration Profile.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -75,6 +78,9 @@ class GetConfigurationProfileResult:
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the Configuration Profile.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -88,31 +94,49 @@ class GetConfigurationProfileResult:
     @property
     @pulumi.getter(name="locationUri")
     def location_uri(self) -> str:
+        """
+        Location URI of the Configuration Profile.
+        """
         return pulumi.get(self, "location_uri")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the Configuration Profile.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="retrievalRoleArn")
     def retrieval_role_arn(self) -> str:
+        """
+        ARN of an IAM role with permission to access the configuration at the specified location_uri.
+        """
         return pulumi.get(self, "retrieval_role_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Map of tags for the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def validators(self) -> Sequence['outputs.GetConfigurationProfileValidatorResult']:
+        """
+        Nested list of methods for validating the configuration.
+        """
         return pulumi.get(self, "validators")
 
 
@@ -140,7 +164,23 @@ def get_configuration_profile(application_id: Optional[str] = None,
                               tags: Optional[Mapping[str, str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfileResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides access to an AppConfig Configuration Profile.
+
+    ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.appconfig.get_configuration_profile(application_id="b5d5gpj",
+        configuration_profile_id="qrbb1c1")
+    ```
+
+
+    :param str application_id: ID of the AppConfig application to which this configuration profile belongs.
+    :param str configuration_profile_id: ID of the Configuration Profile.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
@@ -169,6 +209,22 @@ def get_configuration_profile_output(application_id: Optional[pulumi.Input[str]]
                                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfileResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides access to an AppConfig Configuration Profile.
+
+    ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.appconfig.get_configuration_profile(application_id="b5d5gpj",
+        configuration_profile_id="qrbb1c1")
+    ```
+
+
+    :param str application_id: ID of the AppConfig application to which this configuration profile belongs.
+    :param str configuration_profile_id: ID of the Configuration Profile.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     ...

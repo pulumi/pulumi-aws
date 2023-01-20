@@ -18,6 +18,8 @@ class TrackerAssociationArgs:
                  tracker_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a TrackerAssociation resource.
+        :param pulumi.Input[str] consumer_arn: The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+        :param pulumi.Input[str] tracker_name: The name of the tracker resource to be associated with a geofence collection.
         """
         pulumi.set(__self__, "consumer_arn", consumer_arn)
         pulumi.set(__self__, "tracker_name", tracker_name)
@@ -25,6 +27,9 @@ class TrackerAssociationArgs:
     @property
     @pulumi.getter(name="consumerArn")
     def consumer_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+        """
         return pulumi.get(self, "consumer_arn")
 
     @consumer_arn.setter
@@ -34,6 +39,9 @@ class TrackerAssociationArgs:
     @property
     @pulumi.getter(name="trackerName")
     def tracker_name(self) -> pulumi.Input[str]:
+        """
+        The name of the tracker resource to be associated with a geofence collection.
+        """
         return pulumi.get(self, "tracker_name")
 
     @tracker_name.setter
@@ -48,6 +56,8 @@ class _TrackerAssociationState:
                  tracker_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TrackerAssociation resources.
+        :param pulumi.Input[str] consumer_arn: The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+        :param pulumi.Input[str] tracker_name: The name of the tracker resource to be associated with a geofence collection.
         """
         if consumer_arn is not None:
             pulumi.set(__self__, "consumer_arn", consumer_arn)
@@ -57,6 +67,9 @@ class _TrackerAssociationState:
     @property
     @pulumi.getter(name="consumerArn")
     def consumer_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+        """
         return pulumi.get(self, "consumer_arn")
 
     @consumer_arn.setter
@@ -66,6 +79,9 @@ class _TrackerAssociationState:
     @property
     @pulumi.getter(name="trackerName")
     def tracker_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the tracker resource to be associated with a geofence collection.
+        """
         return pulumi.get(self, "tracker_name")
 
     @tracker_name.setter
@@ -82,9 +98,33 @@ class TrackerAssociation(pulumi.CustomResource):
                  tracker_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a TrackerAssociation resource with the given unique name, props, and options.
+        Resource for managing an AWS Location Tracker Association.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_geofence_collection = aws.location.GeofenceCollection("exampleGeofenceCollection", collection_name="example")
+        example_tracker = aws.location.Tracker("exampleTracker", tracker_name="example")
+        example_tracker_association = aws.location.TrackerAssociation("exampleTrackerAssociation",
+            consumer_arn=example_geofence_collection.collection_arn,
+            tracker_name=example_tracker.tracker_name)
+        ```
+
+        ## Import
+
+        Location Tracker Association can be imported using the `tracker_name|consumer_arn`, e.g.,
+
+        ```sh
+         $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] consumer_arn: The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+        :param pulumi.Input[str] tracker_name: The name of the tracker resource to be associated with a geofence collection.
         """
         ...
     @overload
@@ -93,7 +133,29 @@ class TrackerAssociation(pulumi.CustomResource):
                  args: TrackerAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a TrackerAssociation resource with the given unique name, props, and options.
+        Resource for managing an AWS Location Tracker Association.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_geofence_collection = aws.location.GeofenceCollection("exampleGeofenceCollection", collection_name="example")
+        example_tracker = aws.location.Tracker("exampleTracker", tracker_name="example")
+        example_tracker_association = aws.location.TrackerAssociation("exampleTrackerAssociation",
+            consumer_arn=example_geofence_collection.collection_arn,
+            tracker_name=example_tracker.tracker_name)
+        ```
+
+        ## Import
+
+        Location Tracker Association can be imported using the `tracker_name|consumer_arn`, e.g.,
+
+        ```sh
+         $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
+        ```
+
         :param str resource_name: The name of the resource.
         :param TrackerAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +207,8 @@ class TrackerAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] consumer_arn: The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+        :param pulumi.Input[str] tracker_name: The name of the tracker resource to be associated with a geofence collection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +221,16 @@ class TrackerAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="consumerArn")
     def consumer_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+        """
         return pulumi.get(self, "consumer_arn")
 
     @property
     @pulumi.getter(name="trackerName")
     def tracker_name(self) -> pulumi.Output[str]:
+        """
+        The name of the tracker resource to be associated with a geofence collection.
+        """
         return pulumi.get(self, "tracker_name")
 

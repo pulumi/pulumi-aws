@@ -4,6 +4,32 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Direct Connect LAG. Connections can be added to the LAG via the `aws.directconnect.Connection` and `aws.directconnect.ConnectionAssociation` resources.
+ *
+ * > *NOTE:* When creating a LAG, if no existing connection is specified, Direct Connect will create a connection and this provider will remove this unmanaged connection during resource creation.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const hoge = new aws.directconnect.LinkAggregationGroup("hoge", {
+ *     connectionsBandwidth: "1Gbps",
+ *     forceDestroy: true,
+ *     location: "EqDC2",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Direct Connect LAGs can be imported using the `lag id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
+ * ```
+ */
 export class LinkAggregationGroup extends pulumi.CustomResource {
     /**
      * Get an existing LinkAggregationGroup resource's state with the given name, ID, and optional extra
@@ -32,17 +58,53 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === LinkAggregationGroup.__pulumiType;
     }
 
+    /**
+     * The ARN of the LAG.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of an existing dedicated connection to migrate to the LAG.
+     */
     public readonly connectionId!: pulumi.Output<string | undefined>;
+    /**
+     * The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
+     */
     public readonly connectionsBandwidth!: pulumi.Output<string>;
+    /**
+     * A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
+     */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
+     */
     public /*out*/ readonly hasLogicalRedundancy!: pulumi.Output<string>;
+    /**
+     * Indicates whether jumbo frames (9001 MTU) are supported.
+     */
     public /*out*/ readonly jumboFrameCapable!: pulumi.Output<boolean>;
+    /**
+     * The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
+     */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The name of the LAG.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ID of the AWS account that owns the LAG.
+     */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    /**
+     * The name of the service provider associated with the LAG.
+     */
     public readonly providerName!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -100,17 +162,53 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LinkAggregationGroup resources.
  */
 export interface LinkAggregationGroupState {
+    /**
+     * The ARN of the LAG.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The ID of an existing dedicated connection to migrate to the LAG.
+     */
     connectionId?: pulumi.Input<string>;
+    /**
+     * The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
+     */
     connectionsBandwidth?: pulumi.Input<string>;
+    /**
+     * A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
+     */
     forceDestroy?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
+     */
     hasLogicalRedundancy?: pulumi.Input<string>;
+    /**
+     * Indicates whether jumbo frames (9001 MTU) are supported.
+     */
     jumboFrameCapable?: pulumi.Input<boolean>;
+    /**
+     * The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
+     */
     location?: pulumi.Input<string>;
+    /**
+     * The name of the LAG.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the AWS account that owns the LAG.
+     */
     ownerAccountId?: pulumi.Input<string>;
+    /**
+     * The name of the service provider associated with the LAG.
+     */
     providerName?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -118,11 +216,32 @@ export interface LinkAggregationGroupState {
  * The set of arguments for constructing a LinkAggregationGroup resource.
  */
 export interface LinkAggregationGroupArgs {
+    /**
+     * The ID of an existing dedicated connection to migrate to the LAG.
+     */
     connectionId?: pulumi.Input<string>;
+    /**
+     * The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
+     */
     connectionsBandwidth: pulumi.Input<string>;
+    /**
+     * A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
+     */
     forceDestroy?: pulumi.Input<boolean>;
+    /**
+     * The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
+     */
     location: pulumi.Input<string>;
+    /**
+     * The name of the LAG.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The name of the service provider associated with the LAG.
+     */
     providerName?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

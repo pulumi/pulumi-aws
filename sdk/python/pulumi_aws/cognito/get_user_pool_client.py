@@ -99,31 +99,49 @@ class GetUserPoolClientResult:
     @property
     @pulumi.getter(name="accessTokenValidity")
     def access_token_validity(self) -> int:
+        """
+        (Optional) Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        """
         return pulumi.get(self, "access_token_validity")
 
     @property
     @pulumi.getter(name="allowedOauthFlows")
     def allowed_oauth_flows(self) -> Sequence[str]:
+        """
+        (Optional) List of allowed OAuth flows (code, implicit, client_credentials).
+        """
         return pulumi.get(self, "allowed_oauth_flows")
 
     @property
     @pulumi.getter(name="allowedOauthFlowsUserPoolClient")
     def allowed_oauth_flows_user_pool_client(self) -> bool:
+        """
+        (Optional) Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
+        """
         return pulumi.get(self, "allowed_oauth_flows_user_pool_client")
 
     @property
     @pulumi.getter(name="allowedOauthScopes")
     def allowed_oauth_scopes(self) -> Sequence[str]:
+        """
+        (Optional) List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
+        """
         return pulumi.get(self, "allowed_oauth_scopes")
 
     @property
     @pulumi.getter(name="analyticsConfigurations")
     def analytics_configurations(self) -> Sequence['outputs.GetUserPoolClientAnalyticsConfigurationResult']:
+        """
+        (Optional) Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
+        """
         return pulumi.get(self, "analytics_configurations")
 
     @property
     @pulumi.getter(name="callbackUrls")
     def callback_urls(self) -> Sequence[str]:
+        """
+        (Optional) List of allowed callback URLs for the identity providers.
+        """
         return pulumi.get(self, "callback_urls")
 
     @property
@@ -134,11 +152,17 @@ class GetUserPoolClientResult:
     @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> str:
+        """
+        Client secret of the user pool client.
+        """
         return pulumi.get(self, "client_secret")
 
     @property
     @pulumi.getter(name="defaultRedirectUri")
     def default_redirect_uri(self) -> str:
+        """
+        (Optional) Default redirect URI. Must be in the list of callback URLs.
+        """
         return pulumi.get(self, "default_redirect_uri")
 
     @property
@@ -149,16 +173,25 @@ class GetUserPoolClientResult:
     @property
     @pulumi.getter(name="enableTokenRevocation")
     def enable_token_revocation(self) -> bool:
+        """
+        (Optional) Enables or disables token revocation.
+        """
         return pulumi.get(self, "enable_token_revocation")
 
     @property
     @pulumi.getter(name="explicitAuthFlows")
     def explicit_auth_flows(self) -> Sequence[str]:
+        """
+        (Optional) List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
+        """
         return pulumi.get(self, "explicit_auth_flows")
 
     @property
     @pulumi.getter(name="generateSecret")
     def generate_secret(self) -> bool:
+        """
+        (Optional) Should an application secret be generated.
+        """
         return pulumi.get(self, "generate_secret")
 
     @property
@@ -172,11 +205,17 @@ class GetUserPoolClientResult:
     @property
     @pulumi.getter(name="idTokenValidity")
     def id_token_validity(self) -> int:
+        """
+        (Optional) Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        """
         return pulumi.get(self, "id_token_validity")
 
     @property
     @pulumi.getter(name="logoutUrls")
     def logout_urls(self) -> Sequence[str]:
+        """
+        (Optional) List of allowed logout URLs for the identity providers.
+        """
         return pulumi.get(self, "logout_urls")
 
     @property
@@ -187,26 +226,41 @@ class GetUserPoolClientResult:
     @property
     @pulumi.getter(name="preventUserExistenceErrors")
     def prevent_user_existence_errors(self) -> str:
+        """
+        (Optional) Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+        """
         return pulumi.get(self, "prevent_user_existence_errors")
 
     @property
     @pulumi.getter(name="readAttributes")
     def read_attributes(self) -> Sequence[str]:
+        """
+        (Optional) List of user pool attributes the application client can read from.
+        """
         return pulumi.get(self, "read_attributes")
 
     @property
     @pulumi.getter(name="refreshTokenValidity")
     def refresh_token_validity(self) -> int:
+        """
+        (Optional) Time limit in days refresh tokens are valid for.
+        """
         return pulumi.get(self, "refresh_token_validity")
 
     @property
     @pulumi.getter(name="supportedIdentityProviders")
     def supported_identity_providers(self) -> Sequence[str]:
+        """
+        (Optional) List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
+        """
         return pulumi.get(self, "supported_identity_providers")
 
     @property
     @pulumi.getter(name="tokenValidityUnits")
     def token_validity_units(self) -> Sequence['outputs.GetUserPoolClientTokenValidityUnitResult']:
+        """
+        (Optional) Configuration block for units in which the validity times are represented in. Detailed below.
+        """
         return pulumi.get(self, "token_validity_units")
 
     @property
@@ -217,6 +271,9 @@ class GetUserPoolClientResult:
     @property
     @pulumi.getter(name="writeAttributes")
     def write_attributes(self) -> Sequence[str]:
+        """
+        (Optional) List of user pool attributes the application client can write to.
+        """
         return pulumi.get(self, "write_attributes")
 
 
@@ -256,7 +313,21 @@ def get_user_pool_client(client_id: Optional[str] = None,
                          user_pool_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolClientResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides a Cognito User Pool Client resource.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    client = aws.cognito.get_user_pool_client(client_id="38fjsnc484p94kpqsnet7mpld0",
+        user_pool_id="us-west-2_aaaaaaaaa")
+    ```
+
+
+    :param str client_id: Client Id of the user pool.
+    :param str user_pool_id: User pool the client belongs to.
     """
     __args__ = dict()
     __args__['clientId'] = client_id
@@ -296,6 +367,20 @@ def get_user_pool_client_output(client_id: Optional[pulumi.Input[str]] = None,
                                 user_pool_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolClientResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides a Cognito User Pool Client resource.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    client = aws.cognito.get_user_pool_client(client_id="38fjsnc484p94kpqsnet7mpld0",
+        user_pool_id="us-west-2_aaaaaaaaa")
+    ```
+
+
+    :param str client_id: Client Id of the user pool.
+    :param str user_pool_id: User pool the client belongs to.
     """
     ...

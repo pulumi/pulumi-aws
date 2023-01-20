@@ -13,10 +13,25 @@ namespace Pulumi.Aws.MskConnect.Outputs
     [OutputType]
     public sealed class ConnectorCapacityAutoscaling
     {
+        /// <summary>
+        /// The maximum number of workers allocated to the connector.
+        /// </summary>
         public readonly int MaxWorkerCount;
+        /// <summary>
+        /// The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+        /// </summary>
         public readonly int? McuCount;
+        /// <summary>
+        /// The minimum number of workers allocated to the connector.
+        /// </summary>
         public readonly int MinWorkerCount;
+        /// <summary>
+        /// The scale-in policy for the connector. See below.
+        /// </summary>
         public readonly Outputs.ConnectorCapacityAutoscalingScaleInPolicy? ScaleInPolicy;
+        /// <summary>
+        /// The scale-out policy for the connector. See below.
+        /// </summary>
         public readonly Outputs.ConnectorCapacityAutoscalingScaleOutPolicy? ScaleOutPolicy;
 
         [OutputConstructor]

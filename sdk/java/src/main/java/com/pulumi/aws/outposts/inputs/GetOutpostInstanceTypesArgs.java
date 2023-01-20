@@ -13,9 +13,17 @@ public final class GetOutpostInstanceTypesArgs extends com.pulumi.resources.Invo
 
     public static final GetOutpostInstanceTypesArgs Empty = new GetOutpostInstanceTypesArgs();
 
+    /**
+     * Outpost ARN.
+     * 
+     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
+    /**
+     * @return Outpost ARN.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -44,11 +52,23 @@ public final class GetOutpostInstanceTypesArgs extends com.pulumi.resources.Invo
             $ = new GetOutpostInstanceTypesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn Outpost ARN.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn Outpost ARN.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }

@@ -16,41 +16,140 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an AppSync API Cache.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appsync.GraphQLApi;
+ * import com.pulumi.aws.appsync.GraphQLApiArgs;
+ * import com.pulumi.aws.appsync.ApiCache;
+ * import com.pulumi.aws.appsync.ApiCacheArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleGraphQLApi = new GraphQLApi(&#34;exampleGraphQLApi&#34;, GraphQLApiArgs.builder()        
+ *             .authenticationType(&#34;API_KEY&#34;)
+ *             .build());
+ * 
+ *         var exampleApiCache = new ApiCache(&#34;exampleApiCache&#34;, ApiCacheArgs.builder()        
+ *             .apiId(exampleGraphQLApi.id())
+ *             .apiCachingBehavior(&#34;FULL_REQUEST_CACHING&#34;)
+ *             .type(&#34;LARGE&#34;)
+ *             .ttl(900)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_appsync_api_cache` can be imported using the AppSync API ID, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
+ * ```
+ * 
+ */
 @ResourceType(type="aws:appsync/apiCache:ApiCache")
 public class ApiCache extends com.pulumi.resources.CustomResource {
+    /**
+     * Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
+     * 
+     */
     @Export(name="apiCachingBehavior", refs={String.class}, tree="[0]")
     private Output<String> apiCachingBehavior;
 
+    /**
+     * @return Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
+     * 
+     */
     public Output<String> apiCachingBehavior() {
         return this.apiCachingBehavior;
     }
+    /**
+     * GraphQL API ID.
+     * 
+     */
     @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
+    /**
+     * @return GraphQL API ID.
+     * 
+     */
     public Output<String> apiId() {
         return this.apiId;
     }
+    /**
+     * At-rest encryption flag for cache. You cannot update this setting after creation.
+     * 
+     */
     @Export(name="atRestEncryptionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> atRestEncryptionEnabled;
 
+    /**
+     * @return At-rest encryption flag for cache. You cannot update this setting after creation.
+     * 
+     */
     public Output<Optional<Boolean>> atRestEncryptionEnabled() {
         return Codegen.optional(this.atRestEncryptionEnabled);
     }
+    /**
+     * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
+     * 
+     */
     @Export(name="transitEncryptionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> transitEncryptionEnabled;
 
+    /**
+     * @return Transit encryption flag when connecting to cache. You cannot update this setting after creation.
+     * 
+     */
     public Output<Optional<Boolean>> transitEncryptionEnabled() {
         return Codegen.optional(this.transitEncryptionEnabled);
     }
+    /**
+     * TTL in seconds for cache entries.
+     * 
+     */
     @Export(name="ttl", refs={Integer.class}, tree="[0]")
     private Output<Integer> ttl;
 
+    /**
+     * @return TTL in seconds for cache entries.
+     * 
+     */
     public Output<Integer> ttl() {
         return this.ttl;
     }
+    /**
+     * Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
+    /**
+     * @return Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }

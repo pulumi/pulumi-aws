@@ -7,6 +7,22 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+ *
+ * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const existingCsc = aws.lambda.getCodeSigningConfig({
+ *     arn: `arn:aws:lambda:${_var.aws_region}:${_var.aws_account}:code-signing-config:csc-0f6c334abcdea4d8b`,
+ * });
+ * ```
+ */
 export function getCodeSigningConfig(args: GetCodeSigningConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeSigningConfigResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -19,6 +35,9 @@ export function getCodeSigningConfig(args: GetCodeSigningConfigArgs, opts?: pulu
  * A collection of arguments for invoking getCodeSigningConfig.
  */
 export interface GetCodeSigningConfigArgs {
+    /**
+     * ARN of the code signing configuration.
+     */
     arn: string;
 }
 
@@ -26,17 +45,48 @@ export interface GetCodeSigningConfigArgs {
  * A collection of values returned by getCodeSigningConfig.
  */
 export interface GetCodeSigningConfigResult {
+    /**
+     * List of allowed publishers as signing profiles for this code signing configuration.
+     */
     readonly allowedPublishers: outputs.lambda.GetCodeSigningConfigAllowedPublisher[];
     readonly arn: string;
+    /**
+     * Unique identifier for the code signing configuration.
+     */
     readonly configId: string;
+    /**
+     * Code signing configuration description.
+     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Date and time that the code signing configuration was last modified.
+     */
     readonly lastModified: string;
+    /**
+     * List of code signing policies that control the validation failure action for signature mismatch or expiry.
+     */
     readonly policies: outputs.lambda.GetCodeSigningConfigPolicy[];
 }
+/**
+ * Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+ *
+ * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const existingCsc = aws.lambda.getCodeSigningConfig({
+ *     arn: `arn:aws:lambda:${_var.aws_region}:${_var.aws_account}:code-signing-config:csc-0f6c334abcdea4d8b`,
+ * });
+ * ```
+ */
 export function getCodeSigningConfigOutput(args: GetCodeSigningConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeSigningConfigResult> {
     return pulumi.output(args).apply((a: any) => getCodeSigningConfig(a, opts))
 }
@@ -45,5 +95,8 @@ export function getCodeSigningConfigOutput(args: GetCodeSigningConfigOutputArgs,
  * A collection of arguments for invoking getCodeSigningConfig.
  */
 export interface GetCodeSigningConfigOutputArgs {
+    /**
+     * ARN of the code signing configuration.
+     */
     arn: pulumi.Input<string>;
 }

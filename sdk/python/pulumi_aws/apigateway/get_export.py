@@ -58,16 +58,25 @@ class GetExportResult:
     @property
     @pulumi.getter
     def body(self) -> str:
+        """
+        API Spec.
+        """
         return pulumi.get(self, "body")
 
     @property
     @pulumi.getter(name="contentDisposition")
     def content_disposition(self) -> str:
+        """
+        Content-disposition header value in the HTTP response.
+        """
         return pulumi.get(self, "content_disposition")
 
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> str:
+        """
+        Content-type header value in the HTTP response.
+        """
         return pulumi.get(self, "content_type")
 
     @property
@@ -123,7 +132,23 @@ def get_export(accepts: Optional[str] = None,
                stage_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.apigateway.get_export(rest_api_id=aws_api_gateway_stage["example"]["rest_api_id"],
+        stage_name=aws_api_gateway_stage["example"]["stage_name"],
+        export_type="oas30")
+    ```
+
+
+    :param str accepts: Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+    :param str export_type: Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
+    :param Mapping[str, str] parameters: Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
+    :param str rest_api_id: Identifier of the associated REST API.
+    :param str stage_name: Name of the Stage that will be exported.
     """
     __args__ = dict()
     __args__['accepts'] = accepts
@@ -154,6 +179,22 @@ def get_export_output(accepts: Optional[pulumi.Input[Optional[str]]] = None,
                       stage_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.apigateway.get_export(rest_api_id=aws_api_gateway_stage["example"]["rest_api_id"],
+        stage_name=aws_api_gateway_stage["example"]["stage_name"],
+        export_type="oas30")
+    ```
+
+
+    :param str accepts: Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+    :param str export_type: Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
+    :param Mapping[str, str] parameters: Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
+    :param str rest_api_id: Identifier of the associated REST API.
+    :param str stage_name: Name of the Stage that will be exported.
     """
     ...

@@ -16,44 +16,94 @@ public final class CustomerGatewayArgs extends com.pulumi.resources.ResourceArgs
 
     public static final CustomerGatewayArgs Empty = new CustomerGatewayArgs();
 
+    /**
+     * The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+     * 
+     */
     @Import(name="bgpAsn", required=true)
     private Output<String> bgpAsn;
 
+    /**
+     * @return The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+     * 
+     */
     public Output<String> bgpAsn() {
         return this.bgpAsn;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) for the customer gateway certificate.
+     * 
+     */
     @Import(name="certificateArn")
     private @Nullable Output<String> certificateArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) for the customer gateway certificate.
+     * 
+     */
     public Optional<Output<String>> certificateArn() {
         return Optional.ofNullable(this.certificateArn);
     }
 
+    /**
+     * A name for the customer gateway device.
+     * 
+     */
     @Import(name="deviceName")
     private @Nullable Output<String> deviceName;
 
+    /**
+     * @return A name for the customer gateway device.
+     * 
+     */
     public Optional<Output<String>> deviceName() {
         return Optional.ofNullable(this.deviceName);
     }
 
+    /**
+     * The IPv4 address for the customer gateway device&#39;s outside interface.
+     * 
+     */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
+    /**
+     * @return The IPv4 address for the customer gateway device&#39;s outside interface.
+     * 
+     */
     public Optional<Output<String>> ipAddress() {
         return Optional.ofNullable(this.ipAddress);
     }
 
+    /**
+     * Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * The type of customer gateway. The only type AWS
+     * supports at this time is &#34;ipsec.1&#34;.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return The type of customer gateway. The only type AWS
+     * supports at this time is &#34;ipsec.1&#34;.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -87,56 +137,130 @@ public final class CustomerGatewayArgs extends com.pulumi.resources.ResourceArgs
             $ = new CustomerGatewayArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bgpAsn The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+         * 
+         * @return builder
+         * 
+         */
         public Builder bgpAsn(Output<String> bgpAsn) {
             $.bgpAsn = bgpAsn;
             return this;
         }
 
+        /**
+         * @param bgpAsn The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+         * 
+         * @return builder
+         * 
+         */
         public Builder bgpAsn(String bgpAsn) {
             return bgpAsn(Output.of(bgpAsn));
         }
 
+        /**
+         * @param certificateArn The Amazon Resource Name (ARN) for the customer gateway certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateArn(@Nullable Output<String> certificateArn) {
             $.certificateArn = certificateArn;
             return this;
         }
 
+        /**
+         * @param certificateArn The Amazon Resource Name (ARN) for the customer gateway certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateArn(String certificateArn) {
             return certificateArn(Output.of(certificateArn));
         }
 
+        /**
+         * @param deviceName A name for the customer gateway device.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceName(@Nullable Output<String> deviceName) {
             $.deviceName = deviceName;
             return this;
         }
 
+        /**
+         * @param deviceName A name for the customer gateway device.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceName(String deviceName) {
             return deviceName(Output.of(deviceName));
         }
 
+        /**
+         * @param ipAddress The IPv4 address for the customer gateway device&#39;s outside interface.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddress(@Nullable Output<String> ipAddress) {
             $.ipAddress = ipAddress;
             return this;
         }
 
+        /**
+         * @param ipAddress The IPv4 address for the customer gateway device&#39;s outside interface.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddress(String ipAddress) {
             return ipAddress(Output.of(ipAddress));
         }
 
+        /**
+         * @param tags Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param type The type of customer gateway. The only type AWS
+         * supports at this time is &#34;ipsec.1&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The type of customer gateway. The only type AWS
+         * supports at this time is &#34;ipsec.1&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

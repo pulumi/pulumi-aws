@@ -25,37 +25,79 @@ public final class GetLocalGatewayRouteTableArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.filters);
     }
 
+    /**
+     * ID of the specific local gateway route table to retrieve.
+     * 
+     */
     @Import(name="localGatewayId")
     private @Nullable Output<String> localGatewayId;
 
+    /**
+     * @return ID of the specific local gateway route table to retrieve.
+     * 
+     */
     public Optional<Output<String>> localGatewayId() {
         return Optional.ofNullable(this.localGatewayId);
     }
 
+    /**
+     * Local Gateway Route Table Id assigned to desired local gateway route table
+     * 
+     */
     @Import(name="localGatewayRouteTableId")
     private @Nullable Output<String> localGatewayRouteTableId;
 
+    /**
+     * @return Local Gateway Route Table Id assigned to desired local gateway route table
+     * 
+     */
     public Optional<Output<String>> localGatewayRouteTableId() {
         return Optional.ofNullable(this.localGatewayRouteTableId);
     }
 
+    /**
+     * ARN of the Outpost the local gateway route table is associated with.
+     * 
+     */
     @Import(name="outpostArn")
     private @Nullable Output<String> outpostArn;
 
+    /**
+     * @return ARN of the Outpost the local gateway route table is associated with.
+     * 
+     */
     public Optional<Output<String>> outpostArn() {
         return Optional.ofNullable(this.outpostArn);
     }
 
+    /**
+     * State of the local gateway route table.
+     * 
+     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
+    /**
+     * @return State of the local gateway route table.
+     * 
+     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
+    /**
+     * Mapping of tags, each pair of which must exactly match
+     * a pair on the desired local gateway route table.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Mapping of tags, each pair of which must exactly match
+     * a pair on the desired local gateway route table.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -102,47 +144,109 @@ public final class GetLocalGatewayRouteTableArgs extends com.pulumi.resources.In
             return filters(List.of(filters));
         }
 
+        /**
+         * @param localGatewayId ID of the specific local gateway route table to retrieve.
+         * 
+         * @return builder
+         * 
+         */
         public Builder localGatewayId(@Nullable Output<String> localGatewayId) {
             $.localGatewayId = localGatewayId;
             return this;
         }
 
+        /**
+         * @param localGatewayId ID of the specific local gateway route table to retrieve.
+         * 
+         * @return builder
+         * 
+         */
         public Builder localGatewayId(String localGatewayId) {
             return localGatewayId(Output.of(localGatewayId));
         }
 
+        /**
+         * @param localGatewayRouteTableId Local Gateway Route Table Id assigned to desired local gateway route table
+         * 
+         * @return builder
+         * 
+         */
         public Builder localGatewayRouteTableId(@Nullable Output<String> localGatewayRouteTableId) {
             $.localGatewayRouteTableId = localGatewayRouteTableId;
             return this;
         }
 
+        /**
+         * @param localGatewayRouteTableId Local Gateway Route Table Id assigned to desired local gateway route table
+         * 
+         * @return builder
+         * 
+         */
         public Builder localGatewayRouteTableId(String localGatewayRouteTableId) {
             return localGatewayRouteTableId(Output.of(localGatewayRouteTableId));
         }
 
+        /**
+         * @param outpostArn ARN of the Outpost the local gateway route table is associated with.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outpostArn(@Nullable Output<String> outpostArn) {
             $.outpostArn = outpostArn;
             return this;
         }
 
+        /**
+         * @param outpostArn ARN of the Outpost the local gateway route table is associated with.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outpostArn(String outpostArn) {
             return outpostArn(Output.of(outpostArn));
         }
 
+        /**
+         * @param state State of the local gateway route table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
+        /**
+         * @param state State of the local gateway route table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
+        /**
+         * @param tags Mapping of tags, each pair of which must exactly match
+         * a pair on the desired local gateway route table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Mapping of tags, each pair of which must exactly match
+         * a pair on the desired local gateway route table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

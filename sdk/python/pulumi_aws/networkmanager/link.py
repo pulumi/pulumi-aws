@@ -25,6 +25,13 @@ class LinkArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Link resource.
+        :param pulumi.Input['LinkBandwidthArgs'] bandwidth: The upload speed and download speed in Mbps. Documented below.
+        :param pulumi.Input[str] global_network_id: The ID of the global network.
+        :param pulumi.Input[str] site_id: The ID of the site.
+        :param pulumi.Input[str] description: A description of the link.
+        :param pulumi.Input[str] provider_name: The provider of the link.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] type: The type of the link.
         """
         pulumi.set(__self__, "bandwidth", bandwidth)
         pulumi.set(__self__, "global_network_id", global_network_id)
@@ -41,6 +48,9 @@ class LinkArgs:
     @property
     @pulumi.getter
     def bandwidth(self) -> pulumi.Input['LinkBandwidthArgs']:
+        """
+        The upload speed and download speed in Mbps. Documented below.
+        """
         return pulumi.get(self, "bandwidth")
 
     @bandwidth.setter
@@ -50,6 +60,9 @@ class LinkArgs:
     @property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the global network.
+        """
         return pulumi.get(self, "global_network_id")
 
     @global_network_id.setter
@@ -59,6 +72,9 @@ class LinkArgs:
     @property
     @pulumi.getter(name="siteId")
     def site_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the site.
+        """
         return pulumi.get(self, "site_id")
 
     @site_id.setter
@@ -68,6 +84,9 @@ class LinkArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the link.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -77,6 +96,9 @@ class LinkArgs:
     @property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The provider of the link.
+        """
         return pulumi.get(self, "provider_name")
 
     @provider_name.setter
@@ -86,6 +108,9 @@ class LinkArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -95,6 +120,9 @@ class LinkArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the link.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -116,6 +144,15 @@ class _LinkState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Link resources.
+        :param pulumi.Input[str] arn: Link Amazon Resource Name (ARN).
+        :param pulumi.Input['LinkBandwidthArgs'] bandwidth: The upload speed and download speed in Mbps. Documented below.
+        :param pulumi.Input[str] description: A description of the link.
+        :param pulumi.Input[str] global_network_id: The ID of the global network.
+        :param pulumi.Input[str] provider_name: The provider of the link.
+        :param pulumi.Input[str] site_id: The ID of the site.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] type: The type of the link.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -139,6 +176,9 @@ class _LinkState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Link Amazon Resource Name (ARN).
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -148,6 +188,9 @@ class _LinkState:
     @property
     @pulumi.getter
     def bandwidth(self) -> Optional[pulumi.Input['LinkBandwidthArgs']]:
+        """
+        The upload speed and download speed in Mbps. Documented below.
+        """
         return pulumi.get(self, "bandwidth")
 
     @bandwidth.setter
@@ -157,6 +200,9 @@ class _LinkState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the link.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -166,6 +212,9 @@ class _LinkState:
     @property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the global network.
+        """
         return pulumi.get(self, "global_network_id")
 
     @global_network_id.setter
@@ -175,6 +224,9 @@ class _LinkState:
     @property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The provider of the link.
+        """
         return pulumi.get(self, "provider_name")
 
     @provider_name.setter
@@ -184,6 +236,9 @@ class _LinkState:
     @property
     @pulumi.getter(name="siteId")
     def site_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the site.
+        """
         return pulumi.get(self, "site_id")
 
     @site_id.setter
@@ -193,6 +248,9 @@ class _LinkState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -202,6 +260,9 @@ class _LinkState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -211,6 +272,9 @@ class _LinkState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the link.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -232,9 +296,41 @@ class Link(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Link resource with the given unique name, props, and options.
+        Creates a link for a site.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkmanager.Link("example",
+            global_network_id=aws_networkmanager_global_network["example"]["id"],
+            site_id=aws_networkmanager_site["example"]["id"],
+            bandwidth=aws.networkmanager.LinkBandwidthArgs(
+                upload_speed=10,
+                download_speed=50,
+            ),
+            provider_name="MegaCorp")
+        ```
+
+        ## Import
+
+        `aws_networkmanager_link` can be imported using the link ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['LinkBandwidthArgs']] bandwidth: The upload speed and download speed in Mbps. Documented below.
+        :param pulumi.Input[str] description: A description of the link.
+        :param pulumi.Input[str] global_network_id: The ID of the global network.
+        :param pulumi.Input[str] provider_name: The provider of the link.
+        :param pulumi.Input[str] site_id: The ID of the site.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] type: The type of the link.
         """
         ...
     @overload
@@ -243,7 +339,32 @@ class Link(pulumi.CustomResource):
                  args: LinkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Link resource with the given unique name, props, and options.
+        Creates a link for a site.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkmanager.Link("example",
+            global_network_id=aws_networkmanager_global_network["example"]["id"],
+            site_id=aws_networkmanager_site["example"]["id"],
+            bandwidth=aws.networkmanager.LinkBandwidthArgs(
+                upload_speed=10,
+                download_speed=50,
+            ),
+            provider_name="MegaCorp")
+        ```
+
+        ## Import
+
+        `aws_networkmanager_link` can be imported using the link ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
+        ```
+
         :param str resource_name: The name of the resource.
         :param LinkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -316,6 +437,15 @@ class Link(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Link Amazon Resource Name (ARN).
+        :param pulumi.Input[pulumi.InputType['LinkBandwidthArgs']] bandwidth: The upload speed and download speed in Mbps. Documented below.
+        :param pulumi.Input[str] description: A description of the link.
+        :param pulumi.Input[str] global_network_id: The ID of the global network.
+        :param pulumi.Input[str] provider_name: The provider of the link.
+        :param pulumi.Input[str] site_id: The ID of the site.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] type: The type of the link.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -335,45 +465,72 @@ class Link(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Link Amazon Resource Name (ARN).
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def bandwidth(self) -> pulumi.Output['outputs.LinkBandwidth']:
+        """
+        The upload speed and download speed in Mbps. Documented below.
+        """
         return pulumi.get(self, "bandwidth")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the link.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the global network.
+        """
         return pulumi.get(self, "global_network_id")
 
     @property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The provider of the link.
+        """
         return pulumi.get(self, "provider_name")
 
     @property
     @pulumi.getter(name="siteId")
     def site_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the site.
+        """
         return pulumi.get(self, "site_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of the link.
+        """
         return pulumi.get(self, "type")
 

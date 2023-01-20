@@ -12,32 +12,57 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class UserProfileUserSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Canvas app settings. See Canvas App Settings below.
+        /// </summary>
         [Input("canvasAppSettings")]
         public Input<Inputs.UserProfileUserSettingsCanvasAppSettingsArgs>? CanvasAppSettings { get; set; }
 
+        /// <summary>
+        /// The execution role ARN for the user.
+        /// </summary>
         [Input("executionRole", required: true)]
         public Input<string> ExecutionRole { get; set; } = null!;
 
+        /// <summary>
+        /// The Jupyter server's app settings. See Jupyter Server App Settings below.
+        /// </summary>
         [Input("jupyterServerAppSettings")]
         public Input<Inputs.UserProfileUserSettingsJupyterServerAppSettingsArgs>? JupyterServerAppSettings { get; set; }
 
+        /// <summary>
+        /// The kernel gateway app settings. See Kernel Gateway App Settings below.
+        /// </summary>
         [Input("kernelGatewayAppSettings")]
         public Input<Inputs.UserProfileUserSettingsKernelGatewayAppSettingsArgs>? KernelGatewayAppSettings { get; set; }
 
+        /// <summary>
+        /// The RSession app settings. See RSession App Settings below.
+        /// </summary>
         [Input("rSessionAppSettings")]
         public Input<Inputs.UserProfileUserSettingsRSessionAppSettingsArgs>? RSessionAppSettings { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
+
+        /// <summary>
+        /// The security groups.
+        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
             set => _securityGroups = value;
         }
 
+        /// <summary>
+        /// The sharing settings. See Sharing Settings below.
+        /// </summary>
         [Input("sharingSettings")]
         public Input<Inputs.UserProfileUserSettingsSharingSettingsArgs>? SharingSettings { get; set; }
 
+        /// <summary>
+        /// The TensorBoard app settings. See TensorBoard App Settings below.
+        /// </summary>
         [Input("tensorBoardAppSettings")]
         public Input<Inputs.UserProfileUserSettingsTensorBoardAppSettingsArgs>? TensorBoardAppSettings { get; set; }
 

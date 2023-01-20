@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to get information on an existing backup vault.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := backup.LookupVault(ctx, &backup.LookupVaultArgs{
+//				Name: "example_backup_vault",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupVault(ctx *pulumi.Context, args *LookupVaultArgs, opts ...pulumi.InvokeOption) (*LookupVaultResult, error) {
 	var rv LookupVaultResult
 	err := ctx.Invoke("aws:backup/getVault:getVault", args, &rv, opts...)
@@ -21,19 +48,25 @@ func LookupVault(ctx *pulumi.Context, args *LookupVaultArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getVault.
 type LookupVaultArgs struct {
-	Name string            `pulumi:"name"`
+	// Name of the backup vault.
+	Name string `pulumi:"name"`
+	// Metadata that you can assign to help organize the resources that you create.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVault.
 type LookupVaultResult struct {
+	// ARN of the vault.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id             string            `pulumi:"id"`
-	KmsKeyArn      string            `pulumi:"kmsKeyArn"`
-	Name           string            `pulumi:"name"`
-	RecoveryPoints int               `pulumi:"recoveryPoints"`
-	Tags           map[string]string `pulumi:"tags"`
+	Id string `pulumi:"id"`
+	// Server-side encryption key that is used to protect your backups.
+	KmsKeyArn string `pulumi:"kmsKeyArn"`
+	Name      string `pulumi:"name"`
+	// Number of recovery points that are stored in a backup vault.
+	RecoveryPoints int `pulumi:"recoveryPoints"`
+	// Metadata that you can assign to help organize the resources that you create.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupVaultOutput(ctx *pulumi.Context, args LookupVaultOutputArgs, opts ...pulumi.InvokeOption) LookupVaultResultOutput {
@@ -51,7 +84,9 @@ func LookupVaultOutput(ctx *pulumi.Context, args LookupVaultOutputArgs, opts ...
 
 // A collection of arguments for invoking getVault.
 type LookupVaultOutputArgs struct {
-	Name pulumi.StringInput    `pulumi:"name"`
+	// Name of the backup vault.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Metadata that you can assign to help organize the resources that you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -74,6 +109,7 @@ func (o LookupVaultResultOutput) ToLookupVaultResultOutputWithContext(ctx contex
 	return o
 }
 
+// ARN of the vault.
 func (o LookupVaultResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVaultResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -83,6 +119,7 @@ func (o LookupVaultResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVaultResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Server-side encryption key that is used to protect your backups.
 func (o LookupVaultResultOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVaultResult) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
@@ -91,10 +128,12 @@ func (o LookupVaultResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVaultResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Number of recovery points that are stored in a backup vault.
 func (o LookupVaultResultOutput) RecoveryPoints() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupVaultResult) int { return v.RecoveryPoints }).(pulumi.IntOutput)
 }
 
+// Metadata that you can assign to help organize the resources that you create.
 func (o LookupVaultResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupVaultResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

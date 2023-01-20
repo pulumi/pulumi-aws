@@ -15,9 +15,17 @@ public final class GetLoadBalancerPlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetLoadBalancerPlainArgs Empty = new GetLoadBalancerPlainArgs();
 
+    /**
+     * Unique name of the load balancer.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return Unique name of the load balancer.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -54,6 +62,12 @@ public final class GetLoadBalancerPlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetLoadBalancerPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Unique name of the load balancer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;

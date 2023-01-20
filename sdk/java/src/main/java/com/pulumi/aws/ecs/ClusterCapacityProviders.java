@@ -16,23 +16,103 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages the capacity providers of an ECS Cluster.
+ * 
+ * More information about capacity providers can be found in the [ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
+ * 
+ * &gt; **NOTE on Clusters and Cluster Capacity Providers:** The provider provides both a standalone `aws.ecs.ClusterCapacityProviders` resource, as well as allowing the capacity providers and default strategies to be managed in-line by the `aws.ecs.Cluster` resource. You cannot use a Cluster with in-line capacity providers in conjunction with the Capacity Providers resource, nor use more than one Capacity Providers resource with a single Cluster, as doing so will cause a conflict and will lead to mutual overwrites.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.Cluster;
+ * import com.pulumi.aws.ecs.ClusterCapacityProviders;
+ * import com.pulumi.aws.ecs.ClusterCapacityProvidersArgs;
+ * import com.pulumi.aws.ecs.inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;);
+ * 
+ *         var exampleClusterCapacityProviders = new ClusterCapacityProviders(&#34;exampleClusterCapacityProviders&#34;, ClusterCapacityProvidersArgs.builder()        
+ *             .clusterName(exampleCluster.name())
+ *             .capacityProviders(&#34;FARGATE&#34;)
+ *             .defaultCapacityProviderStrategies(ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs.builder()
+ *                 .base(1)
+ *                 .weight(100)
+ *                 .capacityProvider(&#34;FARGATE&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * ECS cluster capacity providers can be imported using the `cluster_name` attribute. For example
+ * 
+ * ```sh
+ *  $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ecs/clusterCapacityProviders:ClusterCapacityProviders")
 public class ClusterCapacityProviders extends com.pulumi.resources.CustomResource {
+    /**
+     * Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+     * 
+     */
     @Export(name="capacityProviders", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> capacityProviders;
 
+    /**
+     * @return Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+     * 
+     */
     public Output<Optional<List<String>>> capacityProviders() {
         return Codegen.optional(this.capacityProviders);
     }
+    /**
+     * Name of the ECS cluster to manage capacity providers for.
+     * 
+     */
     @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
+    /**
+     * @return Name of the ECS cluster to manage capacity providers for.
+     * 
+     */
     public Output<String> clusterName() {
         return this.clusterName;
     }
+    /**
+     * Set of capacity provider strategies to use by default for the cluster. Detailed below.
+     * 
+     */
     @Export(name="defaultCapacityProviderStrategies", refs={List.class,ClusterCapacityProvidersDefaultCapacityProviderStrategy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ClusterCapacityProvidersDefaultCapacityProviderStrategy>> defaultCapacityProviderStrategies;
 
+    /**
+     * @return Set of capacity provider strategies to use by default for the cluster. Detailed below.
+     * 
+     */
     public Output<Optional<List<ClusterCapacityProvidersDefaultCapacityProviderStrategy>>> defaultCapacityProviderStrategies() {
         return Codegen.optional(this.defaultCapacityProviderStrategies);
     }

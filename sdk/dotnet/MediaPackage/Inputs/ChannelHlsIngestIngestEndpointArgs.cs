@@ -14,6 +14,10 @@ namespace Pulumi.Aws.MediaPackage.Inputs
     {
         [Input("password")]
         private Input<string>? _password;
+
+        /// <summary>
+        /// The password
+        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -24,9 +28,15 @@ namespace Pulumi.Aws.MediaPackage.Inputs
             }
         }
 
+        /// <summary>
+        /// The URL
+        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
+        /// <summary>
+        /// The username
+        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

@@ -4,6 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Resource for managing an AWS Location Tracker Association.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleGeofenceCollection = new aws.location.GeofenceCollection("exampleGeofenceCollection", {collectionName: "example"});
+ * const exampleTracker = new aws.location.Tracker("exampleTracker", {trackerName: "example"});
+ * const exampleTrackerAssociation = new aws.location.TrackerAssociation("exampleTrackerAssociation", {
+ *     consumerArn: exampleGeofenceCollection.collectionArn,
+ *     trackerName: exampleTracker.trackerName,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Location Tracker Association can be imported using the `tracker_name|consumer_arn`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
+ * ```
+ */
 export class TrackerAssociation extends pulumi.CustomResource {
     /**
      * Get an existing TrackerAssociation resource's state with the given name, ID, and optional extra
@@ -32,7 +57,13 @@ export class TrackerAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrackerAssociation.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+     */
     public readonly consumerArn!: pulumi.Output<string>;
+    /**
+     * The name of the tracker resource to be associated with a geofence collection.
+     */
     public readonly trackerName!: pulumi.Output<string>;
 
     /**
@@ -70,7 +101,13 @@ export class TrackerAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TrackerAssociation resources.
  */
 export interface TrackerAssociationState {
+    /**
+     * The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+     */
     consumerArn?: pulumi.Input<string>;
+    /**
+     * The name of the tracker resource to be associated with a geofence collection.
+     */
     trackerName?: pulumi.Input<string>;
 }
 
@@ -78,6 +115,12 @@ export interface TrackerAssociationState {
  * The set of arguments for constructing a TrackerAssociation resource.
  */
 export interface TrackerAssociationArgs {
+    /**
+     * The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+     */
     consumerArn: pulumi.Input<string>;
+    /**
+     * The name of the tracker resource to be associated with a geofence collection.
+     */
     trackerName: pulumi.Input<string>;
 }

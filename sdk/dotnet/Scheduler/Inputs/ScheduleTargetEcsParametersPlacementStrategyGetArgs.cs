@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Scheduler.Inputs
 
     public sealed class ScheduleTargetEcsParametersPlacementStrategyGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field to apply the placement strategy against.
+        /// </summary>
         [Input("field")]
         public Input<string>? Field { get; set; }
 
+        /// <summary>
+        /// The type of placement strategy. One of: `random`, `spread`, `binpack`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

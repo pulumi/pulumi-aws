@@ -30,6 +30,10 @@ class AccountThrottleSettingArgs:
     def __init__(__self__, *,
                  burst_limit: Optional[pulumi.Input[int]] = None,
                  rate_limit: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[int] burst_limit: Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
+        :param pulumi.Input[float] rate_limit: Number of times API Gateway allows the API to be called per second on average (RPS).
+        """
         if burst_limit is not None:
             pulumi.set(__self__, "burst_limit", burst_limit)
         if rate_limit is not None:
@@ -38,6 +42,9 @@ class AccountThrottleSettingArgs:
     @property
     @pulumi.getter(name="burstLimit")
     def burst_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
+        """
         return pulumi.get(self, "burst_limit")
 
     @burst_limit.setter
@@ -47,6 +54,9 @@ class AccountThrottleSettingArgs:
     @property
     @pulumi.getter(name="rateLimit")
     def rate_limit(self) -> Optional[pulumi.Input[float]]:
+        """
+        Number of times API Gateway allows the API to be called per second on average (RPS).
+        """
         return pulumi.get(self, "rate_limit")
 
     @rate_limit.setter
@@ -62,6 +72,13 @@ class DocumentationPartLocationArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  status_code: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
+        :param pulumi.Input[str] method: HTTP verb of a method. The default value is `*` for any method.
+        :param pulumi.Input[str] name: Name of the targeted API entity.
+        :param pulumi.Input[str] path: URL path of the target. The default value is `/` for the root resource.
+        :param pulumi.Input[str] status_code: HTTP status code of a response. The default value is `*` for any status code.
+        """
         pulumi.set(__self__, "type", type)
         if method is not None:
             pulumi.set(__self__, "method", method)
@@ -75,6 +92,9 @@ class DocumentationPartLocationArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        Type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -84,6 +104,9 @@ class DocumentationPartLocationArgs:
     @property
     @pulumi.getter
     def method(self) -> Optional[pulumi.Input[str]]:
+        """
+        HTTP verb of a method. The default value is `*` for any method.
+        """
         return pulumi.get(self, "method")
 
     @method.setter
@@ -93,6 +116,9 @@ class DocumentationPartLocationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the targeted API entity.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -102,6 +128,9 @@ class DocumentationPartLocationArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL path of the target. The default value is `/` for the root resource.
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -111,6 +140,9 @@ class DocumentationPartLocationArgs:
     @property
     @pulumi.getter(name="statusCode")
     def status_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        HTTP status code of a response. The default value is `*` for any status code.
+        """
         return pulumi.get(self, "status_code")
 
     @status_code.setter
@@ -122,11 +154,17 @@ class DocumentationPartLocationArgs:
 class DomainNameEndpointConfigurationArgs:
     def __init__(__self__, *,
                  types: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] types: List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+        """
         pulumi.set(__self__, "types", types)
 
     @property
     @pulumi.getter
     def types(self) -> pulumi.Input[str]:
+        """
+        List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+        """
         return pulumi.get(self, "types")
 
     @types.setter
@@ -139,6 +177,10 @@ class DomainNameMutualTlsAuthenticationArgs:
     def __init__(__self__, *,
                  truststore_uri: pulumi.Input[str],
                  truststore_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] truststore_uri: Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+        :param pulumi.Input[str] truststore_version: Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+        """
         pulumi.set(__self__, "truststore_uri", truststore_uri)
         if truststore_version is not None:
             pulumi.set(__self__, "truststore_version", truststore_version)
@@ -146,6 +188,9 @@ class DomainNameMutualTlsAuthenticationArgs:
     @property
     @pulumi.getter(name="truststoreUri")
     def truststore_uri(self) -> pulumi.Input[str]:
+        """
+        Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+        """
         return pulumi.get(self, "truststore_uri")
 
     @truststore_uri.setter
@@ -155,6 +200,9 @@ class DomainNameMutualTlsAuthenticationArgs:
     @property
     @pulumi.getter(name="truststoreVersion")
     def truststore_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+        """
         return pulumi.get(self, "truststore_version")
 
     @truststore_version.setter
@@ -166,12 +214,18 @@ class DomainNameMutualTlsAuthenticationArgs:
 class IntegrationTlsConfigArgs:
     def __init__(__self__, *,
                  insecure_skip_verification: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] insecure_skip_verification: Whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a [supported certificate authority](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html). This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate's expiration date, hostname, and presence of a root certificate authority. Supported only for `HTTP` and `HTTP_PROXY` integrations.
+        """
         if insecure_skip_verification is not None:
             pulumi.set(__self__, "insecure_skip_verification", insecure_skip_verification)
 
     @property
     @pulumi.getter(name="insecureSkipVerification")
     def insecure_skip_verification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a [supported certificate authority](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html). This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate's expiration date, hostname, and presence of a root certificate authority. Supported only for `HTTP` and `HTTP_PROXY` integrations.
+        """
         return pulumi.get(self, "insecure_skip_verification")
 
     @insecure_skip_verification.setter
@@ -192,6 +246,18 @@ class MethodSettingsSettingsArgs:
                  throttling_burst_limit: Optional[pulumi.Input[int]] = None,
                  throttling_rate_limit: Optional[pulumi.Input[float]] = None,
                  unauthorized_cache_control_header_strategy: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] cache_data_encrypted: Whether the cached responses are encrypted.
+        :param pulumi.Input[int] cache_ttl_in_seconds: Time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
+        :param pulumi.Input[bool] caching_enabled: Whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
+        :param pulumi.Input[bool] data_trace_enabled: Whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
+        :param pulumi.Input[str] logging_level: Logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
+        :param pulumi.Input[bool] metrics_enabled: Whether Amazon CloudWatch metrics are enabled for this method.
+        :param pulumi.Input[bool] require_authorization_for_cache_control: Whether authorization is required for a cache invalidation request.
+        :param pulumi.Input[int] throttling_burst_limit: Throttling burst limit. Default: `-1` (throttling disabled).
+        :param pulumi.Input[float] throttling_rate_limit: Throttling rate limit. Default: `-1` (throttling disabled).
+        :param pulumi.Input[str] unauthorized_cache_control_header_strategy: How to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
+        """
         if cache_data_encrypted is not None:
             pulumi.set(__self__, "cache_data_encrypted", cache_data_encrypted)
         if cache_ttl_in_seconds is not None:
@@ -216,6 +282,9 @@ class MethodSettingsSettingsArgs:
     @property
     @pulumi.getter(name="cacheDataEncrypted")
     def cache_data_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the cached responses are encrypted.
+        """
         return pulumi.get(self, "cache_data_encrypted")
 
     @cache_data_encrypted.setter
@@ -225,6 +294,9 @@ class MethodSettingsSettingsArgs:
     @property
     @pulumi.getter(name="cacheTtlInSeconds")
     def cache_ttl_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
+        """
         return pulumi.get(self, "cache_ttl_in_seconds")
 
     @cache_ttl_in_seconds.setter
@@ -234,6 +306,9 @@ class MethodSettingsSettingsArgs:
     @property
     @pulumi.getter(name="cachingEnabled")
     def caching_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
+        """
         return pulumi.get(self, "caching_enabled")
 
     @caching_enabled.setter
@@ -243,6 +318,9 @@ class MethodSettingsSettingsArgs:
     @property
     @pulumi.getter(name="dataTraceEnabled")
     def data_trace_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
+        """
         return pulumi.get(self, "data_trace_enabled")
 
     @data_trace_enabled.setter
@@ -252,6 +330,9 @@ class MethodSettingsSettingsArgs:
     @property
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
+        """
         return pulumi.get(self, "logging_level")
 
     @logging_level.setter
@@ -261,6 +342,9 @@ class MethodSettingsSettingsArgs:
     @property
     @pulumi.getter(name="metricsEnabled")
     def metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Amazon CloudWatch metrics are enabled for this method.
+        """
         return pulumi.get(self, "metrics_enabled")
 
     @metrics_enabled.setter
@@ -270,6 +354,9 @@ class MethodSettingsSettingsArgs:
     @property
     @pulumi.getter(name="requireAuthorizationForCacheControl")
     def require_authorization_for_cache_control(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether authorization is required for a cache invalidation request.
+        """
         return pulumi.get(self, "require_authorization_for_cache_control")
 
     @require_authorization_for_cache_control.setter
@@ -279,6 +366,9 @@ class MethodSettingsSettingsArgs:
     @property
     @pulumi.getter(name="throttlingBurstLimit")
     def throttling_burst_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        Throttling burst limit. Default: `-1` (throttling disabled).
+        """
         return pulumi.get(self, "throttling_burst_limit")
 
     @throttling_burst_limit.setter
@@ -288,6 +378,9 @@ class MethodSettingsSettingsArgs:
     @property
     @pulumi.getter(name="throttlingRateLimit")
     def throttling_rate_limit(self) -> Optional[pulumi.Input[float]]:
+        """
+        Throttling rate limit. Default: `-1` (throttling disabled).
+        """
         return pulumi.get(self, "throttling_rate_limit")
 
     @throttling_rate_limit.setter
@@ -297,6 +390,9 @@ class MethodSettingsSettingsArgs:
     @property
     @pulumi.getter(name="unauthorizedCacheControlHeaderStrategy")
     def unauthorized_cache_control_header_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        How to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
+        """
         return pulumi.get(self, "unauthorized_cache_control_header_strategy")
 
     @unauthorized_cache_control_header_strategy.setter
@@ -309,6 +405,10 @@ class RestApiEndpointConfigurationArgs:
     def __init__(__self__, *,
                  types: pulumi.Input[str],
                  vpc_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] types: List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. If set to `PRIVATE` recommend to set `put_rest_api_mode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_endpoint_ids: Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
+        """
         pulumi.set(__self__, "types", types)
         if vpc_endpoint_ids is not None:
             pulumi.set(__self__, "vpc_endpoint_ids", vpc_endpoint_ids)
@@ -316,6 +416,9 @@ class RestApiEndpointConfigurationArgs:
     @property
     @pulumi.getter
     def types(self) -> pulumi.Input[str]:
+        """
+        List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. If set to `PRIVATE` recommend to set `put_rest_api_mode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+        """
         return pulumi.get(self, "types")
 
     @types.setter
@@ -325,6 +428,9 @@ class RestApiEndpointConfigurationArgs:
     @property
     @pulumi.getter(name="vpcEndpointIds")
     def vpc_endpoint_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
+        """
         return pulumi.get(self, "vpc_endpoint_ids")
 
     @vpc_endpoint_ids.setter
@@ -337,12 +443,20 @@ class StageAccessLogSettingsArgs:
     def __init__(__self__, *,
                  destination_arn: pulumi.Input[str],
                  format: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] destination_arn: ARN of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
+        :param pulumi.Input[str] format: Formatting and values recorded in the logs.
+               For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+        """
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "format", format)
 
     @property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
+        """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
@@ -352,6 +466,10 @@ class StageAccessLogSettingsArgs:
     @property
     @pulumi.getter
     def format(self) -> pulumi.Input[str]:
+        """
+        Formatting and values recorded in the logs.
+        For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+        """
         return pulumi.get(self, "format")
 
     @format.setter
@@ -365,6 +483,11 @@ class StageCanarySettingsArgs:
                  percent_traffic: Optional[pulumi.Input[float]] = None,
                  stage_variable_overrides: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  use_stage_cache: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[float] percent_traffic: Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+        :param pulumi.Input[Mapping[str, Any]] stage_variable_overrides: Map of overridden stage `variables` (including new variables) for the canary deployment.
+        :param pulumi.Input[bool] use_stage_cache: Whether the canary deployment uses the stage cache. Defaults to false.
+        """
         if percent_traffic is not None:
             pulumi.set(__self__, "percent_traffic", percent_traffic)
         if stage_variable_overrides is not None:
@@ -375,6 +498,9 @@ class StageCanarySettingsArgs:
     @property
     @pulumi.getter(name="percentTraffic")
     def percent_traffic(self) -> Optional[pulumi.Input[float]]:
+        """
+        Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+        """
         return pulumi.get(self, "percent_traffic")
 
     @percent_traffic.setter
@@ -384,6 +510,9 @@ class StageCanarySettingsArgs:
     @property
     @pulumi.getter(name="stageVariableOverrides")
     def stage_variable_overrides(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Map of overridden stage `variables` (including new variables) for the canary deployment.
+        """
         return pulumi.get(self, "stage_variable_overrides")
 
     @stage_variable_overrides.setter
@@ -393,6 +522,9 @@ class StageCanarySettingsArgs:
     @property
     @pulumi.getter(name="useStageCache")
     def use_stage_cache(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the canary deployment uses the stage cache. Defaults to false.
+        """
         return pulumi.get(self, "use_stage_cache")
 
     @use_stage_cache.setter
@@ -406,6 +538,11 @@ class UsagePlanApiStageArgs:
                  api_id: pulumi.Input[str],
                  stage: pulumi.Input[str],
                  throttles: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]]] = None):
+        """
+        :param pulumi.Input[str] api_id: API Id of the associated API stage in a usage plan.
+        :param pulumi.Input[str] stage: API stage name of the associated API stage in a usage plan.
+        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]] throttles: The throttling limits of the usage plan.
+        """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "stage", stage)
         if throttles is not None:
@@ -414,6 +551,9 @@ class UsagePlanApiStageArgs:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
+        """
+        API Id of the associated API stage in a usage plan.
+        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -423,6 +563,9 @@ class UsagePlanApiStageArgs:
     @property
     @pulumi.getter
     def stage(self) -> pulumi.Input[str]:
+        """
+        API stage name of the associated API stage in a usage plan.
+        """
         return pulumi.get(self, "stage")
 
     @stage.setter
@@ -432,6 +575,9 @@ class UsagePlanApiStageArgs:
     @property
     @pulumi.getter
     def throttles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]]]:
+        """
+        The throttling limits of the usage plan.
+        """
         return pulumi.get(self, "throttles")
 
     @throttles.setter
@@ -445,6 +591,11 @@ class UsagePlanApiStageThrottleArgs:
                  path: pulumi.Input[str],
                  burst_limit: Optional[pulumi.Input[int]] = None,
                  rate_limit: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[str] path: Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+        :param pulumi.Input[int] burst_limit: The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+        :param pulumi.Input[float] rate_limit: The API request steady-state rate limit.
+        """
         pulumi.set(__self__, "path", path)
         if burst_limit is not None:
             pulumi.set(__self__, "burst_limit", burst_limit)
@@ -454,6 +605,9 @@ class UsagePlanApiStageThrottleArgs:
     @property
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
+        """
+        Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -463,6 +617,9 @@ class UsagePlanApiStageThrottleArgs:
     @property
     @pulumi.getter(name="burstLimit")
     def burst_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+        """
         return pulumi.get(self, "burst_limit")
 
     @burst_limit.setter
@@ -472,6 +629,9 @@ class UsagePlanApiStageThrottleArgs:
     @property
     @pulumi.getter(name="rateLimit")
     def rate_limit(self) -> Optional[pulumi.Input[float]]:
+        """
+        The API request steady-state rate limit.
+        """
         return pulumi.get(self, "rate_limit")
 
     @rate_limit.setter
@@ -485,6 +645,11 @@ class UsagePlanQuotaSettingsArgs:
                  limit: pulumi.Input[int],
                  period: pulumi.Input[str],
                  offset: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] limit: Maximum number of requests that can be made in a given time period.
+        :param pulumi.Input[str] period: Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+        :param pulumi.Input[int] offset: Number of requests subtracted from the given limit in the initial time period.
+        """
         pulumi.set(__self__, "limit", limit)
         pulumi.set(__self__, "period", period)
         if offset is not None:
@@ -493,6 +658,9 @@ class UsagePlanQuotaSettingsArgs:
     @property
     @pulumi.getter
     def limit(self) -> pulumi.Input[int]:
+        """
+        Maximum number of requests that can be made in a given time period.
+        """
         return pulumi.get(self, "limit")
 
     @limit.setter
@@ -502,6 +670,9 @@ class UsagePlanQuotaSettingsArgs:
     @property
     @pulumi.getter
     def period(self) -> pulumi.Input[str]:
+        """
+        Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+        """
         return pulumi.get(self, "period")
 
     @period.setter
@@ -511,6 +682,9 @@ class UsagePlanQuotaSettingsArgs:
     @property
     @pulumi.getter
     def offset(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of requests subtracted from the given limit in the initial time period.
+        """
         return pulumi.get(self, "offset")
 
     @offset.setter
@@ -523,6 +697,10 @@ class UsagePlanThrottleSettingsArgs:
     def __init__(__self__, *,
                  burst_limit: Optional[pulumi.Input[int]] = None,
                  rate_limit: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[int] burst_limit: The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+        :param pulumi.Input[float] rate_limit: The API request steady-state rate limit.
+        """
         if burst_limit is not None:
             pulumi.set(__self__, "burst_limit", burst_limit)
         if rate_limit is not None:
@@ -531,6 +709,9 @@ class UsagePlanThrottleSettingsArgs:
     @property
     @pulumi.getter(name="burstLimit")
     def burst_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+        """
         return pulumi.get(self, "burst_limit")
 
     @burst_limit.setter
@@ -540,6 +721,9 @@ class UsagePlanThrottleSettingsArgs:
     @property
     @pulumi.getter(name="rateLimit")
     def rate_limit(self) -> Optional[pulumi.Input[float]]:
+        """
+        The API request steady-state rate limit.
+        """
         return pulumi.get(self, "rate_limit")
 
     @rate_limit.setter

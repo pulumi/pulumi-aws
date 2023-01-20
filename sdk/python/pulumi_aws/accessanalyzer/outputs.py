@@ -21,6 +21,13 @@ class ArchiveRuleFilter(dict):
                  eqs: Optional[Sequence[str]] = None,
                  exists: Optional[str] = None,
                  neqs: Optional[Sequence[str]] = None):
+        """
+        :param str criteria: Filter criteria.
+        :param Sequence[str] contains: Contains comparator.
+        :param Sequence[str] eqs: Equals comparator.
+        :param str exists: Boolean comparator.
+        :param Sequence[str] neqs: Not Equals comparator.
+        """
         pulumi.set(__self__, "criteria", criteria)
         if contains is not None:
             pulumi.set(__self__, "contains", contains)
@@ -34,26 +41,41 @@ class ArchiveRuleFilter(dict):
     @property
     @pulumi.getter
     def criteria(self) -> str:
+        """
+        Filter criteria.
+        """
         return pulumi.get(self, "criteria")
 
     @property
     @pulumi.getter
     def contains(self) -> Optional[Sequence[str]]:
+        """
+        Contains comparator.
+        """
         return pulumi.get(self, "contains")
 
     @property
     @pulumi.getter
     def eqs(self) -> Optional[Sequence[str]]:
+        """
+        Equals comparator.
+        """
         return pulumi.get(self, "eqs")
 
     @property
     @pulumi.getter
     def exists(self) -> Optional[str]:
+        """
+        Boolean comparator.
+        """
         return pulumi.get(self, "exists")
 
     @property
     @pulumi.getter
     def neqs(self) -> Optional[Sequence[str]]:
+        """
+        Not Equals comparator.
+        """
         return pulumi.get(self, "neqs")
 
 

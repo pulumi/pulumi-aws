@@ -9,18 +9,59 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2TransitGateway
 {
+    /// <summary>
+    /// Manages an EC2 Transit Gateway Policy Table association.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ec2TransitGateway.PolicyTableAssociation("example", new()
+    ///     {
+    ///         TransitGatewayAttachmentId = aws_networkmanager_transit_gateway_peering.Example.Transit_gateway_peering_attachment_id,
+    ///         TransitGatewayPolicyTableId = aws_ec2_transit_gateway_policy_table.Example.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_ec2_transit_gateway_policy_table_association` can be imported by using the EC2 Transit Gateway Policy Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation")]
     public partial class PolicyTableAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Identifier of the resource
+        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of the resource
+        /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
 
+        /// <summary>
+        /// Identifier of EC2 Transit Gateway Attachment.
+        /// </summary>
         [Output("transitGatewayAttachmentId")]
         public Output<string> TransitGatewayAttachmentId { get; private set; } = null!;
 
+        /// <summary>
+        /// Identifier of EC2 Transit Gateway Policy Table.
+        /// </summary>
         [Output("transitGatewayPolicyTableId")]
         public Output<string> TransitGatewayPolicyTableId { get; private set; } = null!;
 
@@ -70,9 +111,15 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class PolicyTableAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Identifier of EC2 Transit Gateway Attachment.
+        /// </summary>
         [Input("transitGatewayAttachmentId", required: true)]
         public Input<string> TransitGatewayAttachmentId { get; set; } = null!;
 
+        /// <summary>
+        /// Identifier of EC2 Transit Gateway Policy Table.
+        /// </summary>
         [Input("transitGatewayPolicyTableId", required: true)]
         public Input<string> TransitGatewayPolicyTableId { get; set; } = null!;
 
@@ -84,15 +131,27 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class PolicyTableAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Identifier of the resource
+        /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
+        /// <summary>
+        /// Type of the resource
+        /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
 
+        /// <summary>
+        /// Identifier of EC2 Transit Gateway Attachment.
+        /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }
 
+        /// <summary>
+        /// Identifier of EC2 Transit Gateway Policy Table.
+        /// </summary>
         [Input("transitGatewayPolicyTableId")]
         public Input<string>? TransitGatewayPolicyTableId { get; set; }
 

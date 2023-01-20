@@ -15,9 +15,17 @@ public final class RouteSpecTcpRouteTimeoutArgs extends com.pulumi.resources.Res
 
     public static final RouteSpecTcpRouteTimeoutArgs Empty = new RouteSpecTcpRouteTimeoutArgs();
 
+    /**
+     * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+     * 
+     */
     @Import(name="idle")
     private @Nullable Output<RouteSpecTcpRouteTimeoutIdleArgs> idle;
 
+    /**
+     * @return Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+     * 
+     */
     public Optional<Output<RouteSpecTcpRouteTimeoutIdleArgs>> idle() {
         return Optional.ofNullable(this.idle);
     }
@@ -46,11 +54,23 @@ public final class RouteSpecTcpRouteTimeoutArgs extends com.pulumi.resources.Res
             $ = new RouteSpecTcpRouteTimeoutArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param idle Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+         * 
+         * @return builder
+         * 
+         */
         public Builder idle(@Nullable Output<RouteSpecTcpRouteTimeoutIdleArgs> idle) {
             $.idle = idle;
             return this;
         }
 
+        /**
+         * @param idle Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+         * 
+         * @return builder
+         * 
+         */
         public Builder idle(RouteSpecTcpRouteTimeoutIdleArgs idle) {
             return idle(Output.of(idle));
         }

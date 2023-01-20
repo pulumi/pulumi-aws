@@ -12,9 +12,17 @@ public final class GetProxyPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetProxyPlainArgs Empty = new GetProxyPlainArgs();
 
+    /**
+     * Name of the DB proxy.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return Name of the DB proxy.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -43,6 +51,12 @@ public final class GetProxyPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetProxyPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the DB proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;

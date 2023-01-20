@@ -9,24 +9,53 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SsoAdmin
 {
+    /// <summary>
+    /// Provides a Single Sign-On (SSO) Account Assignment resource
+    /// 
+    /// ## Import
+    /// 
+    /// SSO Account Assignments can be imported using the `principal_id`, `principal_type`, `target_id`, `target_type`, `permission_set_arn`, `instance_arn` separated by commas (`,`) e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ssoadmin/accountAssignment:AccountAssignment example f81d4fae-7dec-11d0-a765-00a0c91e6bf6,GROUP,1234567890,AWS_ACCOUNT,arn:aws:sso:::permissionSet/ssoins-0123456789abcdef/ps-0123456789abcdef,arn:aws:sso:::instance/ssoins-0123456789abcdef
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:ssoadmin/accountAssignment:AccountAssignment")]
     public partial class AccountAssignment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSO Instance.
+        /// </summary>
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+        /// </summary>
         [Output("permissionSetArn")]
         public Output<string> PermissionSetArn { get; private set; } = null!;
 
+        /// <summary>
+        /// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
+        /// </summary>
         [Output("principalId")]
         public Output<string> PrincipalId { get; private set; } = null!;
 
+        /// <summary>
+        /// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
+        /// </summary>
         [Output("principalType")]
         public Output<string> PrincipalType { get; private set; } = null!;
 
+        /// <summary>
+        /// An AWS account identifier, typically a 10-12 digit string.
+        /// </summary>
         [Output("targetId")]
         public Output<string> TargetId { get; private set; } = null!;
 
+        /// <summary>
+        /// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
+        /// </summary>
         [Output("targetType")]
         public Output<string?> TargetType { get; private set; } = null!;
 
@@ -76,21 +105,39 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class AccountAssignmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSO Instance.
+        /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+        /// </summary>
         [Input("permissionSetArn", required: true)]
         public Input<string> PermissionSetArn { get; set; } = null!;
 
+        /// <summary>
+        /// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
+        /// </summary>
         [Input("principalId", required: true)]
         public Input<string> PrincipalId { get; set; } = null!;
 
+        /// <summary>
+        /// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
+        /// </summary>
         [Input("principalType", required: true)]
         public Input<string> PrincipalType { get; set; } = null!;
 
+        /// <summary>
+        /// An AWS account identifier, typically a 10-12 digit string.
+        /// </summary>
         [Input("targetId", required: true)]
         public Input<string> TargetId { get; set; } = null!;
 
+        /// <summary>
+        /// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
+        /// </summary>
         [Input("targetType")]
         public Input<string>? TargetType { get; set; }
 
@@ -102,21 +149,39 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class AccountAssignmentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSO Instance.
+        /// </summary>
         [Input("instanceArn")]
         public Input<string>? InstanceArn { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+        /// </summary>
         [Input("permissionSetArn")]
         public Input<string>? PermissionSetArn { get; set; }
 
+        /// <summary>
+        /// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
+        /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
+        /// <summary>
+        /// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
+        /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }
 
+        /// <summary>
+        /// An AWS account identifier, typically a 10-12 digit string.
+        /// </summary>
         [Input("targetId")]
         public Input<string>? TargetId { get; set; }
 
+        /// <summary>
+        /// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
+        /// </summary>
         [Input("targetType")]
         public Input<string>? TargetType { get; set; }
 

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument
     {
+        /// <summary>
+        /// Name of the query header to inspect. This setting must be provided as lower case characters.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

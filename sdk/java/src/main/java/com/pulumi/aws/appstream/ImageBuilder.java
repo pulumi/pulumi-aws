@@ -20,107 +20,294 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an AppStream image builder.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appstream.ImageBuilder;
+ * import com.pulumi.aws.appstream.ImageBuilderArgs;
+ * import com.pulumi.aws.appstream.inputs.ImageBuilderVpcConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testFleet = new ImageBuilder(&#34;testFleet&#34;, ImageBuilderArgs.builder()        
+ *             .description(&#34;Description of a ImageBuilder&#34;)
+ *             .displayName(&#34;Display name of a ImageBuilder&#34;)
+ *             .enableDefaultInternetAccess(false)
+ *             .imageName(&#34;AppStream-WinServer2019-10-05-2022&#34;)
+ *             .instanceType(&#34;stream.standard.large&#34;)
+ *             .vpcConfig(ImageBuilderVpcConfigArgs.builder()
+ *                 .subnetIds(aws_subnet.example().id())
+ *                 .build())
+ *             .tags(Map.of(&#34;Name&#34;, &#34;Example Image Builder&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_appstream_image_builder` can be imported using the `name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
+ * ```
+ * 
+ */
 @ResourceType(type="aws:appstream/imageBuilder:ImageBuilder")
 public class ImageBuilder extends com.pulumi.resources.CustomResource {
+    /**
+     * Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
+     * 
+     */
     @Export(name="accessEndpoints", refs={List.class,ImageBuilderAccessEndpoint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ImageBuilderAccessEndpoint>> accessEndpoints;
 
+    /**
+     * @return Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
+     * 
+     */
     public Output<Optional<List<ImageBuilderAccessEndpoint>>> accessEndpoints() {
         return Codegen.optional(this.accessEndpoints);
     }
+    /**
+     * Version of the AppStream 2.0 agent to use for this image builder.
+     * 
+     */
     @Export(name="appstreamAgentVersion", refs={String.class}, tree="[0]")
     private Output<String> appstreamAgentVersion;
 
+    /**
+     * @return Version of the AppStream 2.0 agent to use for this image builder.
+     * 
+     */
     public Output<String> appstreamAgentVersion() {
         return this.appstreamAgentVersion;
     }
+    /**
+     * ARN of the appstream image builder.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the appstream image builder.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
+     * 
+     */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
+    /**
+     * @return Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
+     * 
+     */
     public Output<String> createdTime() {
         return this.createdTime;
     }
+    /**
+     * Description to display.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
+    /**
+     * @return Description to display.
+     * 
+     */
     public Output<String> description() {
         return this.description;
     }
+    /**
+     * Human-readable friendly name for the AppStream image builder.
+     * 
+     */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
+    /**
+     * @return Human-readable friendly name for the AppStream image builder.
+     * 
+     */
     public Output<String> displayName() {
         return this.displayName;
     }
+    /**
+     * Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
+     * 
+     */
     @Export(name="domainJoinInfo", refs={ImageBuilderDomainJoinInfo.class}, tree="[0]")
     private Output<ImageBuilderDomainJoinInfo> domainJoinInfo;
 
+    /**
+     * @return Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
+     * 
+     */
     public Output<ImageBuilderDomainJoinInfo> domainJoinInfo() {
         return this.domainJoinInfo;
     }
+    /**
+     * Enables or disables default internet access for the image builder.
+     * 
+     */
     @Export(name="enableDefaultInternetAccess", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableDefaultInternetAccess;
 
+    /**
+     * @return Enables or disables default internet access for the image builder.
+     * 
+     */
     public Output<Boolean> enableDefaultInternetAccess() {
         return this.enableDefaultInternetAccess;
     }
+    /**
+     * ARN of the IAM role to apply to the image builder.
+     * 
+     */
     @Export(name="iamRoleArn", refs={String.class}, tree="[0]")
     private Output<String> iamRoleArn;
 
+    /**
+     * @return ARN of the IAM role to apply to the image builder.
+     * 
+     */
     public Output<String> iamRoleArn() {
         return this.iamRoleArn;
     }
+    /**
+     * ARN of the public, private, or shared image to use.
+     * 
+     */
     @Export(name="imageArn", refs={String.class}, tree="[0]")
     private Output<String> imageArn;
 
+    /**
+     * @return ARN of the public, private, or shared image to use.
+     * 
+     */
     public Output<String> imageArn() {
         return this.imageArn;
     }
+    /**
+     * Name of the image used to create the image builder.
+     * 
+     */
     @Export(name="imageName", refs={String.class}, tree="[0]")
     private Output<String> imageName;
 
+    /**
+     * @return Name of the image used to create the image builder.
+     * 
+     */
     public Output<String> imageName() {
         return this.imageName;
     }
+    /**
+     * Instance type to use when launching the image builder.
+     * 
+     */
     @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output<String> instanceType;
 
+    /**
+     * @return Instance type to use when launching the image builder.
+     * 
+     */
     public Output<String> instanceType() {
         return this.instanceType;
     }
+    /**
+     * Unique name for the image builder.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Unique name for the image builder.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
+     * 
+     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
+    /**
+     * @return State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
+     * 
+     */
     public Output<String> state() {
         return this.state;
     }
+    /**
+     * Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Configuration block for the VPC configuration for the image builder. See below.
+     * 
+     */
     @Export(name="vpcConfig", refs={ImageBuilderVpcConfig.class}, tree="[0]")
     private Output<ImageBuilderVpcConfig> vpcConfig;
 
+    /**
+     * @return Configuration block for the VPC configuration for the image builder. See below.
+     * 
+     */
     public Output<ImageBuilderVpcConfig> vpcConfig() {
         return this.vpcConfig;
     }

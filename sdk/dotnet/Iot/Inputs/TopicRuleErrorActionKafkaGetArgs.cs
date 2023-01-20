@@ -14,21 +14,37 @@ namespace Pulumi.Aws.Iot.Inputs
     {
         [Input("clientProperties", required: true)]
         private InputMap<string>? _clientProperties;
+
+        /// <summary>
+        /// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+        /// </summary>
         public InputMap<string> ClientProperties
         {
             get => _clientProperties ?? (_clientProperties = new InputMap<string>());
             set => _clientProperties = value;
         }
 
+        /// <summary>
+        /// The ARN of Kafka action's VPC `aws.iot.TopicRuleDestination` .
+        /// </summary>
         [Input("destinationArn", required: true)]
         public Input<string> DestinationArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Kafka message key.
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// The Kafka message partition.
+        /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }
 
+        /// <summary>
+        /// The Kafka topic for messages to be sent to the Kafka broker.
+        /// </summary>
         [Input("topic", required: true)]
         public Input<string> Topic { get; set; } = null!;
 

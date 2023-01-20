@@ -15,16 +15,32 @@ public final class SnapshotCreateVolumePermissionState extends com.pulumi.resour
 
     public static final SnapshotCreateVolumePermissionState Empty = new SnapshotCreateVolumePermissionState();
 
+    /**
+     * An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot&#39;s owner
+     * 
+     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
+    /**
+     * @return An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot&#39;s owner
+     * 
+     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
+    /**
+     * A snapshot ID
+     * 
+     */
     @Import(name="snapshotId")
     private @Nullable Output<String> snapshotId;
 
+    /**
+     * @return A snapshot ID
+     * 
+     */
     public Optional<Output<String>> snapshotId() {
         return Optional.ofNullable(this.snapshotId);
     }
@@ -54,20 +70,44 @@ public final class SnapshotCreateVolumePermissionState extends com.pulumi.resour
             $ = new SnapshotCreateVolumePermissionState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accountId An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot&#39;s owner
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
+        /**
+         * @param accountId An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot&#39;s owner
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
+        /**
+         * @param snapshotId A snapshot ID
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshotId(@Nullable Output<String> snapshotId) {
             $.snapshotId = snapshotId;
             return this;
         }
 
+        /**
+         * @param snapshotId A snapshot ID
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshotId(String snapshotId) {
             return snapshotId(Output.of(snapshotId));
         }

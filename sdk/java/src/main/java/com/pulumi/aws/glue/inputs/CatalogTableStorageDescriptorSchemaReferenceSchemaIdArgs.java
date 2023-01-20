@@ -15,23 +15,47 @@ public final class CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs exte
 
     public static final CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs Empty = new CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs();
 
+    /**
+     * Name of the schema registry that contains the schema. Must be provided when `schema_name` is specified and conflicts with `schema_arn`.
+     * 
+     */
     @Import(name="registryName")
     private @Nullable Output<String> registryName;
 
+    /**
+     * @return Name of the schema registry that contains the schema. Must be provided when `schema_name` is specified and conflicts with `schema_arn`.
+     * 
+     */
     public Optional<Output<String>> registryName() {
         return Optional.ofNullable(this.registryName);
     }
 
+    /**
+     * ARN of the schema. One of `schema_arn` or `schema_name` has to be provided.
+     * 
+     */
     @Import(name="schemaArn")
     private @Nullable Output<String> schemaArn;
 
+    /**
+     * @return ARN of the schema. One of `schema_arn` or `schema_name` has to be provided.
+     * 
+     */
     public Optional<Output<String>> schemaArn() {
         return Optional.ofNullable(this.schemaArn);
     }
 
+    /**
+     * Name of the schema. One of `schema_arn` or `schema_name` has to be provided.
+     * 
+     */
     @Import(name="schemaName")
     private @Nullable Output<String> schemaName;
 
+    /**
+     * @return Name of the schema. One of `schema_arn` or `schema_name` has to be provided.
+     * 
+     */
     public Optional<Output<String>> schemaName() {
         return Optional.ofNullable(this.schemaName);
     }
@@ -62,29 +86,65 @@ public final class CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs exte
             $ = new CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param registryName Name of the schema registry that contains the schema. Must be provided when `schema_name` is specified and conflicts with `schema_arn`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder registryName(@Nullable Output<String> registryName) {
             $.registryName = registryName;
             return this;
         }
 
+        /**
+         * @param registryName Name of the schema registry that contains the schema. Must be provided when `schema_name` is specified and conflicts with `schema_arn`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder registryName(String registryName) {
             return registryName(Output.of(registryName));
         }
 
+        /**
+         * @param schemaArn ARN of the schema. One of `schema_arn` or `schema_name` has to be provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder schemaArn(@Nullable Output<String> schemaArn) {
             $.schemaArn = schemaArn;
             return this;
         }
 
+        /**
+         * @param schemaArn ARN of the schema. One of `schema_arn` or `schema_name` has to be provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder schemaArn(String schemaArn) {
             return schemaArn(Output.of(schemaArn));
         }
 
+        /**
+         * @param schemaName Name of the schema. One of `schema_arn` or `schema_name` has to be provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder schemaName(@Nullable Output<String> schemaName) {
             $.schemaName = schemaName;
             return this;
         }
 
+        /**
+         * @param schemaName Name of the schema. One of `schema_arn` or `schema_name` has to be provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder schemaName(String schemaName) {
             return schemaName(Output.of(schemaName));
         }

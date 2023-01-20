@@ -11,12 +11,56 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a SageMaker Device resource.
+//
+// ## Example Usage
+// ### Basic usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sagemaker.NewDevice(ctx, "example", &sagemaker.DeviceArgs{
+//				DeviceFleetName: pulumi.Any(aws_sagemaker_device_fleet.Example.Device_fleet_name),
+//				Device: &sagemaker.DeviceDeviceArgs{
+//					DeviceName: pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// SageMaker Devices can be imported using the `device-fleet-name/device-name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
+//
+// ```
 type Device struct {
 	pulumi.CustomResourceState
 
-	AgentVersion    pulumi.StringOutput `pulumi:"agentVersion"`
-	Arn             pulumi.StringOutput `pulumi:"arn"`
-	Device          DeviceDeviceOutput  `pulumi:"device"`
+	AgentVersion pulumi.StringOutput `pulumi:"agentVersion"`
+	// The Amazon Resource Name (ARN) assigned by AWS to this Device.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The device to register with SageMaker Edge Manager. See Device details below.
+	Device DeviceDeviceOutput `pulumi:"device"`
+	// The name of the Device Fleet.
 	DeviceFleetName pulumi.StringOutput `pulumi:"deviceFleetName"`
 }
 
@@ -55,16 +99,22 @@ func GetDevice(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Device resources.
 type deviceState struct {
-	AgentVersion    *string       `pulumi:"agentVersion"`
-	Arn             *string       `pulumi:"arn"`
-	Device          *DeviceDevice `pulumi:"device"`
-	DeviceFleetName *string       `pulumi:"deviceFleetName"`
+	AgentVersion *string `pulumi:"agentVersion"`
+	// The Amazon Resource Name (ARN) assigned by AWS to this Device.
+	Arn *string `pulumi:"arn"`
+	// The device to register with SageMaker Edge Manager. See Device details below.
+	Device *DeviceDevice `pulumi:"device"`
+	// The name of the Device Fleet.
+	DeviceFleetName *string `pulumi:"deviceFleetName"`
 }
 
 type DeviceState struct {
-	AgentVersion    pulumi.StringPtrInput
-	Arn             pulumi.StringPtrInput
-	Device          DeviceDevicePtrInput
+	AgentVersion pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) assigned by AWS to this Device.
+	Arn pulumi.StringPtrInput
+	// The device to register with SageMaker Edge Manager. See Device details below.
+	Device DeviceDevicePtrInput
+	// The name of the Device Fleet.
 	DeviceFleetName pulumi.StringPtrInput
 }
 
@@ -73,13 +123,17 @@ func (DeviceState) ElementType() reflect.Type {
 }
 
 type deviceArgs struct {
-	Device          DeviceDevice `pulumi:"device"`
-	DeviceFleetName string       `pulumi:"deviceFleetName"`
+	// The device to register with SageMaker Edge Manager. See Device details below.
+	Device DeviceDevice `pulumi:"device"`
+	// The name of the Device Fleet.
+	DeviceFleetName string `pulumi:"deviceFleetName"`
 }
 
 // The set of arguments for constructing a Device resource.
 type DeviceArgs struct {
-	Device          DeviceDeviceInput
+	// The device to register with SageMaker Edge Manager. See Device details below.
+	Device DeviceDeviceInput
+	// The name of the Device Fleet.
 	DeviceFleetName pulumi.StringInput
 }
 
@@ -174,14 +228,17 @@ func (o DeviceOutput) AgentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.AgentVersion }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) assigned by AWS to this Device.
 func (o DeviceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The device to register with SageMaker Edge Manager. See Device details below.
 func (o DeviceOutput) Device() DeviceDeviceOutput {
 	return o.ApplyT(func(v *Device) DeviceDeviceOutput { return v.Device }).(DeviceDeviceOutput)
 }
 
+// The name of the Device Fleet.
 func (o DeviceOutput) DeviceFleetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.DeviceFleetName }).(pulumi.StringOutput)
 }

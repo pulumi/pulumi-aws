@@ -9,9 +9,32 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DirectConnect
 {
+    /// <summary>
+    /// Provides a confirmation of the creation of the specified hosted connection on an interconnect.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var confirmation = new Aws.DirectConnect.ConnectionConfirmation("confirmation", new()
+    ///     {
+    ///         ConnectionId = "dxcon-ffabc123",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:directconnect/connectionConfirmation:ConnectionConfirmation")]
     public partial class ConnectionConfirmation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the hosted connection.
+        /// </summary>
         [Output("connectionId")]
         public Output<string> ConnectionId { get; private set; } = null!;
 
@@ -61,6 +84,9 @@ namespace Pulumi.Aws.DirectConnect
 
     public sealed class ConnectionConfirmationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the hosted connection.
+        /// </summary>
         [Input("connectionId", required: true)]
         public Input<string> ConnectionId { get; set; } = null!;
 
@@ -72,6 +98,9 @@ namespace Pulumi.Aws.DirectConnect
 
     public sealed class ConnectionConfirmationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the hosted connection.
+        /// </summary>
         [Input("connectionId")]
         public Input<string>? ConnectionId { get; set; }
 

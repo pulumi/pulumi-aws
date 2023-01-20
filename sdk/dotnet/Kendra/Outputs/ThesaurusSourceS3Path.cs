@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Kendra.Outputs
     [OutputType]
     public sealed class ThesaurusSourceS3Path
     {
+        /// <summary>
+        /// The name of the S3 bucket that contains the file.
+        /// </summary>
         public readonly string Bucket;
+        /// <summary>
+        /// The name of the file.
+        /// </summary>
         public readonly string Key;
 
         [OutputConstructor]

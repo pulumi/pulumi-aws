@@ -11,9 +11,74 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Subscribes to a Security Hub standard.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := securityhub.NewAccount(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			current, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securityhub.NewStandardsSubscription(ctx, "cis", &securityhub.StandardsSubscriptionArgs{
+//				StandardsArn: pulumi.String("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securityhub.NewStandardsSubscription(ctx, "pci321", &securityhub.StandardsSubscriptionArgs{
+//				StandardsArn: pulumi.String(fmt.Sprintf("arn:aws:securityhub:%v::standards/pci-dss/v/3.2.1", current.Name)),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Security Hub standards subscriptions can be imported using the standards subscription ARN, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
+//
+// ```
+//
+// ```sh
+//
+//	$ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1
+//
+// ```
 type StandardsSubscription struct {
 	pulumi.CustomResourceState
 
+	// The ARN of a standard - see below.
 	StandardsArn pulumi.StringOutput `pulumi:"standardsArn"`
 }
 
@@ -49,10 +114,12 @@ func GetStandardsSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StandardsSubscription resources.
 type standardsSubscriptionState struct {
+	// The ARN of a standard - see below.
 	StandardsArn *string `pulumi:"standardsArn"`
 }
 
 type StandardsSubscriptionState struct {
+	// The ARN of a standard - see below.
 	StandardsArn pulumi.StringPtrInput
 }
 
@@ -61,11 +128,13 @@ func (StandardsSubscriptionState) ElementType() reflect.Type {
 }
 
 type standardsSubscriptionArgs struct {
+	// The ARN of a standard - see below.
 	StandardsArn string `pulumi:"standardsArn"`
 }
 
 // The set of arguments for constructing a StandardsSubscription resource.
 type StandardsSubscriptionArgs struct {
+	// The ARN of a standard - see below.
 	StandardsArn pulumi.StringInput
 }
 
@@ -156,6 +225,7 @@ func (o StandardsSubscriptionOutput) ToStandardsSubscriptionOutputWithContext(ct
 	return o
 }
 
+// The ARN of a standard - see below.
 func (o StandardsSubscriptionOutput) StandardsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsSubscription) pulumi.StringOutput { return v.StandardsArn }).(pulumi.StringOutput)
 }

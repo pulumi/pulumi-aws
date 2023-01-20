@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerPortRange {
+    /**
+     * @return The first port in the range of ports, inclusive.
+     * 
+     */
     private @Nullable Integer fromPort;
+    /**
+     * @return The last port in the range of ports, inclusive.
+     * 
+     */
     private @Nullable Integer toPort;
 
     private ListenerPortRange() {}
+    /**
+     * @return The first port in the range of ports, inclusive.
+     * 
+     */
     public Optional<Integer> fromPort() {
         return Optional.ofNullable(this.fromPort);
     }
+    /**
+     * @return The last port in the range of ports, inclusive.
+     * 
+     */
     public Optional<Integer> toPort() {
         return Optional.ofNullable(this.toPort);
     }

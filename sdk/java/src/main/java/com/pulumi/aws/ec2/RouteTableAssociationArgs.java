@@ -15,23 +15,47 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Resour
 
     public static final RouteTableAssociationArgs Empty = new RouteTableAssociationArgs();
 
+    /**
+     * The gateway ID to create an association. Conflicts with `subnet_id`.
+     * 
+     */
     @Import(name="gatewayId")
     private @Nullable Output<String> gatewayId;
 
+    /**
+     * @return The gateway ID to create an association. Conflicts with `subnet_id`.
+     * 
+     */
     public Optional<Output<String>> gatewayId() {
         return Optional.ofNullable(this.gatewayId);
     }
 
+    /**
+     * The ID of the routing table to associate with.
+     * 
+     */
     @Import(name="routeTableId", required=true)
     private Output<String> routeTableId;
 
+    /**
+     * @return The ID of the routing table to associate with.
+     * 
+     */
     public Output<String> routeTableId() {
         return this.routeTableId;
     }
 
+    /**
+     * The subnet ID to create an association. Conflicts with `gateway_id`.
+     * 
+     */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
+    /**
+     * @return The subnet ID to create an association. Conflicts with `gateway_id`.
+     * 
+     */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
@@ -62,29 +86,65 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Resour
             $ = new RouteTableAssociationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param gatewayId The gateway ID to create an association. Conflicts with `subnet_id`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder gatewayId(@Nullable Output<String> gatewayId) {
             $.gatewayId = gatewayId;
             return this;
         }
 
+        /**
+         * @param gatewayId The gateway ID to create an association. Conflicts with `subnet_id`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder gatewayId(String gatewayId) {
             return gatewayId(Output.of(gatewayId));
         }
 
+        /**
+         * @param routeTableId The ID of the routing table to associate with.
+         * 
+         * @return builder
+         * 
+         */
         public Builder routeTableId(Output<String> routeTableId) {
             $.routeTableId = routeTableId;
             return this;
         }
 
+        /**
+         * @param routeTableId The ID of the routing table to associate with.
+         * 
+         * @return builder
+         * 
+         */
         public Builder routeTableId(String routeTableId) {
             return routeTableId(Output.of(routeTableId));
         }
 
+        /**
+         * @param subnetId The subnet ID to create an association. Conflicts with `gateway_id`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
+        /**
+         * @param subnetId The subnet ID to create an association. Conflicts with `gateway_id`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

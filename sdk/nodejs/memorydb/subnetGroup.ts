@@ -4,6 +4,34 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a MemoryDB Subnet Group.
+ *
+ * More information about subnet groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/subnetgroups.html).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
+ * const exampleSubnet = new aws.ec2.Subnet("exampleSubnet", {
+ *     vpcId: exampleVpc.id,
+ *     cidrBlock: "10.0.0.0/24",
+ *     availabilityZone: "us-west-2a",
+ * });
+ * const exampleSubnetGroup = new aws.memorydb.SubnetGroup("exampleSubnetGroup", {subnetIds: [exampleSubnet.id]});
+ * ```
+ *
+ * ## Import
+ *
+ * Use the `name` to import a subnet group. For example
+ *
+ * ```sh
+ *  $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
+ * ```
+ */
 export class SubnetGroup extends pulumi.CustomResource {
     /**
      * Get an existing SubnetGroup resource's state with the given name, ID, and optional extra
@@ -32,13 +60,37 @@ export class SubnetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubnetGroup.__pulumiType;
     }
 
+    /**
+     * The ARN of the subnet group.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Description for the subnet group.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     public readonly namePrefix!: pulumi.Output<string>;
+    /**
+     * Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+     */
     public readonly subnetIds!: pulumi.Output<string[]>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The VPC in which the subnet group exists.
+     */
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -85,13 +137,37 @@ export class SubnetGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SubnetGroup resources.
  */
 export interface SubnetGroupState {
+    /**
+     * The ARN of the subnet group.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Description for the subnet group.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The VPC in which the subnet group exists.
+     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -99,9 +175,24 @@ export interface SubnetGroupState {
  * The set of arguments for constructing a SubnetGroup resource.
  */
 export interface SubnetGroupArgs {
+    /**
+     * Description for the subnet group.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

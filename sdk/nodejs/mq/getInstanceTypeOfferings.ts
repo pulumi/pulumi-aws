@@ -7,6 +7,32 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides information about a MQ Broker Instance Offerings.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const empty = aws.mq.getInstanceTypeOfferings({});
+ * const engine = aws.mq.getInstanceTypeOfferings({
+ *     engineType: "ACTIVEMQ",
+ * });
+ * const storage = aws.mq.getInstanceTypeOfferings({
+ *     storageType: "EBS",
+ * });
+ * const instance = aws.mq.getInstanceTypeOfferings({
+ *     hostInstanceType: "mq.m5.large",
+ * });
+ * const all = aws.mq.getInstanceTypeOfferings({
+ *     engineType: "ACTIVEMQ",
+ *     hostInstanceType: "mq.m5.large",
+ *     storageType: "EBS",
+ * });
+ * ```
+ */
 export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingsResult> {
     args = args || {};
 
@@ -22,8 +48,17 @@ export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, op
  * A collection of arguments for invoking getInstanceTypeOfferings.
  */
 export interface GetInstanceTypeOfferingsArgs {
+    /**
+     * Filter response by engine type.
+     */
     engineType?: string;
+    /**
+     * Filter response by host instance type.
+     */
     hostInstanceType?: string;
+    /**
+     * Filter response by storage type.
+     */
     storageType?: string;
 }
 
@@ -31,15 +66,53 @@ export interface GetInstanceTypeOfferingsArgs {
  * A collection of values returned by getInstanceTypeOfferings.
  */
 export interface GetInstanceTypeOfferingsResult {
+    /**
+     * Option for host instance type. See Broker Instance Options below.
+     */
     readonly brokerInstanceOptions: outputs.mq.GetInstanceTypeOfferingsBrokerInstanceOption[];
+    /**
+     * Broker's engine type.
+     */
     readonly engineType?: string;
+    /**
+     * Broker's instance type.
+     */
     readonly hostInstanceType?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Broker's storage type.
+     */
     readonly storageType?: string;
 }
+/**
+ * Provides information about a MQ Broker Instance Offerings.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const empty = aws.mq.getInstanceTypeOfferings({});
+ * const engine = aws.mq.getInstanceTypeOfferings({
+ *     engineType: "ACTIVEMQ",
+ * });
+ * const storage = aws.mq.getInstanceTypeOfferings({
+ *     storageType: "EBS",
+ * });
+ * const instance = aws.mq.getInstanceTypeOfferings({
+ *     hostInstanceType: "mq.m5.large",
+ * });
+ * const all = aws.mq.getInstanceTypeOfferings({
+ *     engineType: "ACTIVEMQ",
+ *     hostInstanceType: "mq.m5.large",
+ *     storageType: "EBS",
+ * });
+ * ```
+ */
 export function getInstanceTypeOfferingsOutput(args?: GetInstanceTypeOfferingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceTypeOfferingsResult> {
     return pulumi.output(args).apply((a: any) => getInstanceTypeOfferings(a, opts))
 }
@@ -48,7 +121,16 @@ export function getInstanceTypeOfferingsOutput(args?: GetInstanceTypeOfferingsOu
  * A collection of arguments for invoking getInstanceTypeOfferings.
  */
 export interface GetInstanceTypeOfferingsOutputArgs {
+    /**
+     * Filter response by engine type.
+     */
     engineType?: pulumi.Input<string>;
+    /**
+     * Filter response by host instance type.
+     */
     hostInstanceType?: pulumi.Input<string>;
+    /**
+     * Filter response by storage type.
+     */
     storageType?: pulumi.Input<string>;
 }

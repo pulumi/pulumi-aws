@@ -18,6 +18,8 @@ class GatewayArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Gateway resource.
+        :param pulumi.Input[str] amazon_side_asn: The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
+        :param pulumi.Input[str] name: The name of the connection.
         """
         pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
         if name is not None:
@@ -26,6 +28,9 @@ class GatewayArgs:
     @property
     @pulumi.getter(name="amazonSideAsn")
     def amazon_side_asn(self) -> pulumi.Input[str]:
+        """
+        The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
+        """
         return pulumi.get(self, "amazon_side_asn")
 
     @amazon_side_asn.setter
@@ -35,6 +40,9 @@ class GatewayArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the connection.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -50,6 +58,9 @@ class _GatewayState:
                  owner_account_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Gateway resources.
+        :param pulumi.Input[str] amazon_side_asn: The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
+        :param pulumi.Input[str] name: The name of the connection.
+        :param pulumi.Input[str] owner_account_id: AWS Account ID of the gateway.
         """
         if amazon_side_asn is not None:
             pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
@@ -61,6 +72,9 @@ class _GatewayState:
     @property
     @pulumi.getter(name="amazonSideAsn")
     def amazon_side_asn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
+        """
         return pulumi.get(self, "amazon_side_asn")
 
     @amazon_side_asn.setter
@@ -70,6 +84,9 @@ class _GatewayState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the connection.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -79,6 +96,9 @@ class _GatewayState:
     @property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS Account ID of the gateway.
+        """
         return pulumi.get(self, "owner_account_id")
 
     @owner_account_id.setter
@@ -95,9 +115,29 @@ class Gateway(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Gateway resource with the given unique name, props, and options.
+        Provides a Direct Connect Gateway.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.directconnect.Gateway("example", amazon_side_asn="64512")
+        ```
+
+        ## Import
+
+        Direct Connect Gateways can be imported using the `gateway id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:directconnect/gateway:Gateway test abcd1234-dcba-5678-be23-cdef9876ab45
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] amazon_side_asn: The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
+        :param pulumi.Input[str] name: The name of the connection.
         """
         ...
     @overload
@@ -106,7 +146,25 @@ class Gateway(pulumi.CustomResource):
                  args: GatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Gateway resource with the given unique name, props, and options.
+        Provides a Direct Connect Gateway.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.directconnect.Gateway("example", amazon_side_asn="64512")
+        ```
+
+        ## Import
+
+        Direct Connect Gateways can be imported using the `gateway id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:directconnect/gateway:Gateway test abcd1234-dcba-5678-be23-cdef9876ab45
+        ```
+
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,6 +216,9 @@ class Gateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] amazon_side_asn: The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
+        :param pulumi.Input[str] name: The name of the connection.
+        :param pulumi.Input[str] owner_account_id: AWS Account ID of the gateway.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -171,15 +232,24 @@ class Gateway(pulumi.CustomResource):
     @property
     @pulumi.getter(name="amazonSideAsn")
     def amazon_side_asn(self) -> pulumi.Output[str]:
+        """
+        The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
+        """
         return pulumi.get(self, "amazon_side_asn")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the connection.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> pulumi.Output[str]:
+        """
+        AWS Account ID of the gateway.
+        """
         return pulumi.get(self, "owner_account_id")
 

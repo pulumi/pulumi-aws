@@ -19,6 +19,9 @@ class PlaybackKeyPairArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PlaybackKeyPair resource.
+        :param pulumi.Input[str] public_key: Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+        :param pulumi.Input[str] name: Playback Key Pair name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "public_key", public_key)
         if name is not None:
@@ -29,6 +32,9 @@ class PlaybackKeyPairArgs:
     @property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Input[str]:
+        """
+        Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+        """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
@@ -38,6 +44,9 @@ class PlaybackKeyPairArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Playback Key Pair name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -47,6 +56,9 @@ class PlaybackKeyPairArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -65,6 +77,12 @@ class _PlaybackKeyPairState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering PlaybackKeyPair resources.
+        :param pulumi.Input[str] arn: ARN of the Playback Key Pair.
+        :param pulumi.Input[str] fingerprint: Key-pair identifier.
+        :param pulumi.Input[str] name: Playback Key Pair name.
+        :param pulumi.Input[str] public_key: Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -82,6 +100,9 @@ class _PlaybackKeyPairState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Playback Key Pair.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -91,6 +112,9 @@ class _PlaybackKeyPairState:
     @property
     @pulumi.getter
     def fingerprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key-pair identifier.
+        """
         return pulumi.get(self, "fingerprint")
 
     @fingerprint.setter
@@ -100,6 +124,9 @@ class _PlaybackKeyPairState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Playback Key Pair name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -109,6 +136,9 @@ class _PlaybackKeyPairState:
     @property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+        """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
@@ -118,6 +148,9 @@ class _PlaybackKeyPairState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -127,6 +160,9 @@ class _PlaybackKeyPairState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -144,9 +180,31 @@ class PlaybackKeyPair(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a PlaybackKeyPair resource with the given unique name, props, and options.
+        Resource for managing an AWS IVS (Interactive Video) Playback Key Pair.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ivs.PlaybackKeyPair("example", public_key=(lambda path: open(path).read())("./public-key.pem"))
+        ```
+
+        ## Import
+
+        IVS (Interactive Video) Playback Key Pair can be imported using the ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: Playback Key Pair name.
+        :param pulumi.Input[str] public_key: Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -155,7 +213,26 @@ class PlaybackKeyPair(pulumi.CustomResource):
                  args: PlaybackKeyPairArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a PlaybackKeyPair resource with the given unique name, props, and options.
+        Resource for managing an AWS IVS (Interactive Video) Playback Key Pair.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ivs.PlaybackKeyPair("example", public_key=(lambda path: open(path).read())("./public-key.pem"))
+        ```
+
+        ## Import
+
+        IVS (Interactive Video) Playback Key Pair can be imported using the ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
+        ```
+
         :param str resource_name: The name of the resource.
         :param PlaybackKeyPairArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,6 +291,12 @@ class PlaybackKeyPair(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the Playback Key Pair.
+        :param pulumi.Input[str] fingerprint: Key-pair identifier.
+        :param pulumi.Input[str] name: Playback Key Pair name.
+        :param pulumi.Input[str] public_key: Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -230,30 +313,48 @@ class PlaybackKeyPair(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the Playback Key Pair.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def fingerprint(self) -> pulumi.Output[str]:
+        """
+        Key-pair identifier.
+        """
         return pulumi.get(self, "fingerprint")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Playback Key Pair name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Output[str]:
+        """
+        Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+        """
         return pulumi.get(self, "public_key")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

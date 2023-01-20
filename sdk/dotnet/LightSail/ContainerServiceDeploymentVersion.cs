@@ -9,24 +9,106 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LightSail
 {
+    /// <summary>
+    /// Provides a resource to manage a deployment version for your Amazon Lightsail container service.
+    /// 
+    /// &gt; **NOTE:** The Amazon Lightsail container service must be enabled to create a deployment.
+    /// 
+    /// &gt; **NOTE:** This resource allows you to manage an Amazon Lightsail container service deployment version but the provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile.
+    /// 
+    /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.LightSail.ContainerServiceDeploymentVersion("example", new()
+    ///     {
+    ///         Containers = new[]
+    ///         {
+    ///             new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionContainerArgs
+    ///             {
+    ///                 ContainerName = "hello-world",
+    ///                 Image = "amazon/amazon-lightsail:hello-world",
+    ///                 Commands = new[] {},
+    ///                 Environment = 
+    ///                 {
+    ///                     { "MY_ENVIRONMENT_VARIABLE", "my_value" },
+    ///                 },
+    ///                 Ports = 
+    ///                 {
+    ///                     { "80", "HTTP" },
+    ///                 },
+    ///             },
+    ///         },
+    ///         PublicEndpoint = new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionPublicEndpointArgs
+    ///         {
+    ///             ContainerName = "hello-world",
+    ///             ContainerPort = 80,
+    ///             HealthCheck = new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs
+    ///             {
+    ///                 HealthyThreshold = 2,
+    ///                 UnhealthyThreshold = 2,
+    ///                 TimeoutSeconds = 2,
+    ///                 IntervalSeconds = 5,
+    ///                 Path = "/",
+    ///                 SuccessCodes = "200-499",
+    ///             },
+    ///         },
+    ///         ServiceName = aws_lightsail_container_service.Example.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Lightsail Container Service Deployment Version can be imported using the `service_name` and `version` separated by a slash (`/`), e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion example container-service-1/1
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion")]
     public partial class ContainerServiceDeploymentVersion : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+        /// </summary>
         [Output("containers")]
         public Output<ImmutableArray<Outputs.ContainerServiceDeploymentVersionContainer>> Containers { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp when the deployment was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+        /// </summary>
         [Output("publicEndpoint")]
         public Output<Outputs.ContainerServiceDeploymentVersionPublicEndpoint?> PublicEndpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// The name for the container service.
+        /// </summary>
         [Output("serviceName")]
         public Output<string> ServiceName { get; private set; } = null!;
 
+        /// <summary>
+        /// The current state of the container service.
+        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
+        /// <summary>
+        /// The version number of the deployment.
+        /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
@@ -78,15 +160,25 @@ namespace Pulumi.Aws.LightSail
     {
         [Input("containers", required: true)]
         private InputList<Inputs.ContainerServiceDeploymentVersionContainerArgs>? _containers;
+
+        /// <summary>
+        /// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+        /// </summary>
         public InputList<Inputs.ContainerServiceDeploymentVersionContainerArgs> Containers
         {
             get => _containers ?? (_containers = new InputList<Inputs.ContainerServiceDeploymentVersionContainerArgs>());
             set => _containers = value;
         }
 
+        /// <summary>
+        /// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+        /// </summary>
         [Input("publicEndpoint")]
         public Input<Inputs.ContainerServiceDeploymentVersionPublicEndpointArgs>? PublicEndpoint { get; set; }
 
+        /// <summary>
+        /// The name for the container service.
+        /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 
@@ -100,24 +192,43 @@ namespace Pulumi.Aws.LightSail
     {
         [Input("containers")]
         private InputList<Inputs.ContainerServiceDeploymentVersionContainerGetArgs>? _containers;
+
+        /// <summary>
+        /// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+        /// </summary>
         public InputList<Inputs.ContainerServiceDeploymentVersionContainerGetArgs> Containers
         {
             get => _containers ?? (_containers = new InputList<Inputs.ContainerServiceDeploymentVersionContainerGetArgs>());
             set => _containers = value;
         }
 
+        /// <summary>
+        /// The timestamp when the deployment was created.
+        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
+        /// <summary>
+        /// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+        /// </summary>
         [Input("publicEndpoint")]
         public Input<Inputs.ContainerServiceDeploymentVersionPublicEndpointGetArgs>? PublicEndpoint { get; set; }
 
+        /// <summary>
+        /// The name for the container service.
+        /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
+        /// <summary>
+        /// The current state of the container service.
+        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
+        /// <summary>
+        /// The version number of the deployment.
+        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 

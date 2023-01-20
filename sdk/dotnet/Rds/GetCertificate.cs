@@ -11,9 +11,57 @@ namespace Pulumi.Aws.Rds
 {
     public static class GetCertificate
     {
+        /// <summary>
+        /// Information about an RDS Certificate.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Rds.GetCertificate.Invoke(new()
+        ///     {
+        ///         LatestValidTill = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("aws:rds/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Information about an RDS Certificate.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Rds.GetCertificate.Invoke(new()
+        ///     {
+        ///         LatestValidTill = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws:rds/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
     }
@@ -21,9 +69,15 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Certificate identifier. For example, `rds-ca-2019`.
+        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
+        /// <summary>
+        /// When enabled, returns the certificate with the latest `ValidTill`.
+        /// </summary>
         [Input("latestValidTill")]
         public bool? LatestValidTill { get; set; }
 
@@ -35,9 +89,15 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Certificate identifier. For example, `rds-ca-2019`.
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// When enabled, returns the certificate with the latest `ValidTill`.
+        /// </summary>
         [Input("latestValidTill")]
         public Input<bool>? LatestValidTill { get; set; }
 
@@ -51,14 +111,35 @@ namespace Pulumi.Aws.Rds
     [OutputType]
     public sealed class GetCertificateResult
     {
+        /// <summary>
+        /// ARN of the certificate.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Type of certificate. For example, `CA`.
+        /// </summary>
         public readonly string CertificateType;
+        /// <summary>
+        /// Boolean whether there is an override for the default certificate identifier.
+        /// </summary>
         public readonly bool CustomerOverride;
+        /// <summary>
+        /// If there is an override for the default certificate identifier, when the override expires.
+        /// </summary>
         public readonly string CustomerOverrideValidTill;
         public readonly string Id;
         public readonly bool? LatestValidTill;
+        /// <summary>
+        /// Thumbprint of the certificate.
+        /// </summary>
         public readonly string Thumbprint;
+        /// <summary>
+        /// [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate starting validity date.
+        /// </summary>
         public readonly string ValidFrom;
+        /// <summary>
+        /// [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate ending validity date.
+        /// </summary>
         public readonly string ValidTill;
 
         [OutputConstructor]

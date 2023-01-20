@@ -12,6 +12,9 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class EventTargetSqsTargetGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The FIFO message group ID to use as the target.
+        /// </summary>
         [Input("messageGroupId")]
         public Input<string>? MessageGroupId { get; set; }
 

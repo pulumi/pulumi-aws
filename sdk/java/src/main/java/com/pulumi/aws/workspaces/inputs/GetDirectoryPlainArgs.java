@@ -15,16 +15,32 @@ public final class GetDirectoryPlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetDirectoryPlainArgs Empty = new GetDirectoryPlainArgs();
 
+    /**
+     * Directory identifier for registration in WorkSpaces service.
+     * 
+     */
     @Import(name="directoryId", required=true)
     private String directoryId;
 
+    /**
+     * @return Directory identifier for registration in WorkSpaces service.
+     * 
+     */
     public String directoryId() {
         return this.directoryId;
     }
 
+    /**
+     * A map of tags assigned to the WorkSpaces directory.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return A map of tags assigned to the WorkSpaces directory.
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -54,11 +70,23 @@ public final class GetDirectoryPlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetDirectoryPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param directoryId Directory identifier for registration in WorkSpaces service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder directoryId(String directoryId) {
             $.directoryId = directoryId;
             return this;
         }
 
+        /**
+         * @param tags A map of tags assigned to the WorkSpaces directory.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

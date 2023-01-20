@@ -4,6 +4,41 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a resource to manage an [Amazon Macie Invitation Accepter](https://docs.aws.amazon.com/macie/latest/APIReference/invitations-accept.html).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const primaryAccount = new aws.macie2.Account("primaryAccount", {}, {
+ *     provider: "awsalternate",
+ * });
+ * const memberAccount = new aws.macie2.Account("memberAccount", {});
+ * const primaryMember = new aws.macie2.Member("primaryMember", {
+ *     accountId: "ACCOUNT ID",
+ *     email: "EMAIL",
+ *     invite: true,
+ *     invitationMessage: "Message of the invite",
+ * }, {
+ *     provider: "awsalternate",
+ *     dependsOn: [primaryAccount],
+ * });
+ * const memberInvitationAccepter = new aws.macie2.InvitationAccepter("memberInvitationAccepter", {administratorAccountId: "ADMINISTRATOR ACCOUNT ID"}, {
+ *     dependsOn: [primaryMember],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_macie2_invitation_accepter` can be imported using the admin account ID, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
+ * ```
+ */
 export class InvitationAccepter extends pulumi.CustomResource {
     /**
      * Get an existing InvitationAccepter resource's state with the given name, ID, and optional extra
@@ -32,7 +67,13 @@ export class InvitationAccepter extends pulumi.CustomResource {
         return obj['__pulumiType'] === InvitationAccepter.__pulumiType;
     }
 
+    /**
+     * The AWS account ID for the account that sent the invitation.
+     */
     public readonly administratorAccountId!: pulumi.Output<string>;
+    /**
+     * The unique identifier for the invitation.
+     */
     public /*out*/ readonly invitationId!: pulumi.Output<string>;
 
     /**
@@ -67,7 +108,13 @@ export class InvitationAccepter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering InvitationAccepter resources.
  */
 export interface InvitationAccepterState {
+    /**
+     * The AWS account ID for the account that sent the invitation.
+     */
     administratorAccountId?: pulumi.Input<string>;
+    /**
+     * The unique identifier for the invitation.
+     */
     invitationId?: pulumi.Input<string>;
 }
 
@@ -75,5 +122,8 @@ export interface InvitationAccepterState {
  * The set of arguments for constructing a InvitationAccepter resource.
  */
 export interface InvitationAccepterArgs {
+    /**
+     * The AWS account ID for the account that sent the invitation.
+     */
     administratorAccountId: pulumi.Input<string>;
 }

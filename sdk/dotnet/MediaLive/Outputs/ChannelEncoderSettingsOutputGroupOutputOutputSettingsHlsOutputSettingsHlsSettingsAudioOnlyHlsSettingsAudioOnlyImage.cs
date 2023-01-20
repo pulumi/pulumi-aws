@@ -13,8 +13,17 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage
     {
+        /// <summary>
+        /// Key used to extract the password from EC2 Parameter store.
+        /// </summary>
         public readonly string? PasswordParam;
+        /// <summary>
+        /// Path to a file accessible to the live stream.
+        /// </summary>
         public readonly string Uri;
+        /// <summary>
+        /// Username for destination.
+        /// </summary>
         public readonly string? Username;
 
         [OutputConstructor]

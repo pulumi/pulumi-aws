@@ -12,6 +12,8 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ProjectSourceAuth {
     /**
+     * @return Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
+     * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
      * 
@@ -19,6 +21,8 @@ public final class ProjectSourceAuth {
     @Deprecated /* Use the aws_codebuild_source_credential resource instead */
     private @Nullable String resource;
     /**
+     * @return Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+     * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
      * 
@@ -28,6 +32,8 @@ public final class ProjectSourceAuth {
 
     private ProjectSourceAuth() {}
     /**
+     * @return Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
+     * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
      * 
@@ -37,6 +43,8 @@ public final class ProjectSourceAuth {
         return Optional.ofNullable(this.resource);
     }
     /**
+     * @return Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+     * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
      * 

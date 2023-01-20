@@ -19,6 +19,9 @@ class LbStickinessPolicyArgs:
                  lb_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a LbStickinessPolicy resource.
+        :param pulumi.Input[int] cookie_duration: The cookie duration in seconds. This determines the length of the session stickiness.
+        :param pulumi.Input[bool] enabled: The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+        :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to enable session stickiness.
         """
         pulumi.set(__self__, "cookie_duration", cookie_duration)
         pulumi.set(__self__, "enabled", enabled)
@@ -27,6 +30,9 @@ class LbStickinessPolicyArgs:
     @property
     @pulumi.getter(name="cookieDuration")
     def cookie_duration(self) -> pulumi.Input[int]:
+        """
+        The cookie duration in seconds. This determines the length of the session stickiness.
+        """
         return pulumi.get(self, "cookie_duration")
 
     @cookie_duration.setter
@@ -36,6 +42,9 @@ class LbStickinessPolicyArgs:
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
+        """
+        The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -45,6 +54,9 @@ class LbStickinessPolicyArgs:
     @property
     @pulumi.getter(name="lbName")
     def lb_name(self) -> pulumi.Input[str]:
+        """
+        The name of the load balancer to which you want to enable session stickiness.
+        """
         return pulumi.get(self, "lb_name")
 
     @lb_name.setter
@@ -60,6 +72,9 @@ class _LbStickinessPolicyState:
                  lb_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LbStickinessPolicy resources.
+        :param pulumi.Input[int] cookie_duration: The cookie duration in seconds. This determines the length of the session stickiness.
+        :param pulumi.Input[bool] enabled: The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+        :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to enable session stickiness.
         """
         if cookie_duration is not None:
             pulumi.set(__self__, "cookie_duration", cookie_duration)
@@ -71,6 +86,9 @@ class _LbStickinessPolicyState:
     @property
     @pulumi.getter(name="cookieDuration")
     def cookie_duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        The cookie duration in seconds. This determines the length of the session stickiness.
+        """
         return pulumi.get(self, "cookie_duration")
 
     @cookie_duration.setter
@@ -80,6 +98,9 @@ class _LbStickinessPolicyState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -89,6 +110,9 @@ class _LbStickinessPolicyState:
     @property
     @pulumi.getter(name="lbName")
     def lb_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the load balancer to which you want to enable session stickiness.
+        """
         return pulumi.get(self, "lb_name")
 
     @lb_name.setter
@@ -106,9 +130,39 @@ class LbStickinessPolicy(pulumi.CustomResource):
                  lb_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a LbStickinessPolicy resource with the given unique name, props, and options.
+        Configures Session Stickiness for a Lightsail Load Balancer.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_lb = aws.lightsail.Lb("testLb",
+            health_check_path="/",
+            instance_port=80,
+            tags={
+                "foo": "bar",
+            })
+        test_lb_stickiness_policy = aws.lightsail.LbStickinessPolicy("testLbStickinessPolicy",
+            lb_name=test_lb.name,
+            cookie_duration=900,
+            enabled=True)
+        ```
+
+        ## Import
+
+        `aws_lightsail_lb_stickiness_policy` can be imported by using the `lb_name` attribute, e.g.,
+
+        ```sh
+         $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy test example-load-balancer
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] cookie_duration: The cookie duration in seconds. This determines the length of the session stickiness.
+        :param pulumi.Input[bool] enabled: The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+        :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to enable session stickiness.
         """
         ...
     @overload
@@ -117,7 +171,34 @@ class LbStickinessPolicy(pulumi.CustomResource):
                  args: LbStickinessPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a LbStickinessPolicy resource with the given unique name, props, and options.
+        Configures Session Stickiness for a Lightsail Load Balancer.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_lb = aws.lightsail.Lb("testLb",
+            health_check_path="/",
+            instance_port=80,
+            tags={
+                "foo": "bar",
+            })
+        test_lb_stickiness_policy = aws.lightsail.LbStickinessPolicy("testLbStickinessPolicy",
+            lb_name=test_lb.name,
+            cookie_duration=900,
+            enabled=True)
+        ```
+
+        ## Import
+
+        `aws_lightsail_lb_stickiness_policy` can be imported by using the `lb_name` attribute, e.g.,
+
+        ```sh
+         $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy test example-load-balancer
+        ```
+
         :param str resource_name: The name of the resource.
         :param LbStickinessPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,6 +255,9 @@ class LbStickinessPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] cookie_duration: The cookie duration in seconds. This determines the length of the session stickiness.
+        :param pulumi.Input[bool] enabled: The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+        :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to enable session stickiness.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -187,15 +271,24 @@ class LbStickinessPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cookieDuration")
     def cookie_duration(self) -> pulumi.Output[int]:
+        """
+        The cookie duration in seconds. This determines the length of the session stickiness.
+        """
         return pulumi.get(self, "cookie_duration")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[bool]:
+        """
+        The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="lbName")
     def lb_name(self) -> pulumi.Output[str]:
+        """
+        The name of the load balancer to which you want to enable session stickiness.
+        """
         return pulumi.get(self, "lb_name")
 

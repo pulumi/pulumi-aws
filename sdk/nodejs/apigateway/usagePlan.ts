@@ -7,6 +7,84 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an API Gateway Usage Plan.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as crypto from "crypto";
+ *
+ * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {body: JSON.stringify({
+ *     openapi: "3.0.1",
+ *     info: {
+ *         title: "example",
+ *         version: "1.0",
+ *     },
+ *     paths: {
+ *         "/path1": {
+ *             get: {
+ *                 "x-amazon-apigateway-integration": {
+ *                     httpMethod: "GET",
+ *                     payloadFormatVersion: "1.0",
+ *                     type: "HTTP_PROXY",
+ *                     uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
+ *                 },
+ *             },
+ *         },
+ *     },
+ * })});
+ * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
+ *     restApi: exampleRestApi.id,
+ *     triggers: {
+ *         redeployment: exampleRestApi.body.apply(body => JSON.stringify(body)).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
+ *     },
+ * });
+ * const development = new aws.apigateway.Stage("development", {
+ *     deployment: exampleDeployment.id,
+ *     restApi: exampleRestApi.id,
+ *     stageName: "development",
+ * });
+ * const production = new aws.apigateway.Stage("production", {
+ *     deployment: exampleDeployment.id,
+ *     restApi: exampleRestApi.id,
+ *     stageName: "production",
+ * });
+ * const exampleUsagePlan = new aws.apigateway.UsagePlan("exampleUsagePlan", {
+ *     description: "my description",
+ *     productCode: "MYCODE",
+ *     apiStages: [
+ *         {
+ *             apiId: exampleRestApi.id,
+ *             stage: development.stageName,
+ *         },
+ *         {
+ *             apiId: exampleRestApi.id,
+ *             stage: production.stageName,
+ *         },
+ *     ],
+ *     quotaSettings: {
+ *         limit: 20,
+ *         offset: 2,
+ *         period: "WEEK",
+ *     },
+ *     throttleSettings: {
+ *         burstLimit: 5,
+ *         rateLimit: 10,
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * AWS API Gateway Usage Plan can be imported using the `id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
+ * ```
+ */
 export class UsagePlan extends pulumi.CustomResource {
     /**
      * Get an existing UsagePlan resource's state with the given name, ID, and optional extra
@@ -35,14 +113,41 @@ export class UsagePlan extends pulumi.CustomResource {
         return obj['__pulumiType'] === UsagePlan.__pulumiType;
     }
 
+    /**
+     * Associated API stages of the usage plan.
+     */
     public readonly apiStages!: pulumi.Output<outputs.apigateway.UsagePlanApiStage[] | undefined>;
+    /**
+     * ARN
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Description of a usage plan.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Name of the usage plan.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+     */
     public readonly productCode!: pulumi.Output<string | undefined>;
+    /**
+     * The quota settings of the usage plan.
+     */
     public readonly quotaSettings!: pulumi.Output<outputs.apigateway.UsagePlanQuotaSettings | undefined>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The throttling limits of the usage plan.
+     */
     public readonly throttleSettings!: pulumi.Output<outputs.apigateway.UsagePlanThrottleSettings | undefined>;
 
     /**
@@ -88,14 +193,41 @@ export class UsagePlan extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UsagePlan resources.
  */
 export interface UsagePlanState {
+    /**
+     * Associated API stages of the usage plan.
+     */
     apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStage>[]>;
+    /**
+     * ARN
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Description of a usage plan.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Name of the usage plan.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+     */
     productCode?: pulumi.Input<string>;
+    /**
+     * The quota settings of the usage plan.
+     */
     quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The throttling limits of the usage plan.
+     */
     throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings>;
 }
 
@@ -103,11 +235,32 @@ export interface UsagePlanState {
  * The set of arguments for constructing a UsagePlan resource.
  */
 export interface UsagePlanArgs {
+    /**
+     * Associated API stages of the usage plan.
+     */
     apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStage>[]>;
+    /**
+     * Description of a usage plan.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Name of the usage plan.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+     */
     productCode?: pulumi.Input<string>;
+    /**
+     * The quota settings of the usage plan.
+     */
     quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The throttling limits of the usage plan.
+     */
     throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings>;
 }

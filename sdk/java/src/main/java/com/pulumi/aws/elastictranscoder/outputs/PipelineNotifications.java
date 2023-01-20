@@ -11,21 +11,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineNotifications {
+    /**
+     * @return The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
+     * 
+     */
     private @Nullable String completed;
+    /**
+     * @return The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
+     * 
+     */
     private @Nullable String error;
+    /**
+     * @return The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
+     * 
+     */
     private @Nullable String progressing;
+    /**
+     * @return The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
+     * 
+     */
     private @Nullable String warning;
 
     private PipelineNotifications() {}
+    /**
+     * @return The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
+     * 
+     */
     public Optional<String> completed() {
         return Optional.ofNullable(this.completed);
     }
+    /**
+     * @return The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
+     * 
+     */
     public Optional<String> error() {
         return Optional.ofNullable(this.error);
     }
+    /**
+     * @return The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
+     * 
+     */
     public Optional<String> progressing() {
         return Optional.ofNullable(this.progressing);
     }
+    /**
+     * @return The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
+     * 
+     */
     public Optional<String> warning() {
         return Optional.ofNullable(this.warning);
     }

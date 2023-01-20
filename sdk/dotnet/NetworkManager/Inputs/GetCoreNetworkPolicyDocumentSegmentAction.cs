@@ -12,14 +12,24 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
     public sealed class GetCoreNetworkPolicyDocumentSegmentActionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Action to take for the chosen segment. Valid values `create-route` or `share`.
+        /// </summary>
         [Input("action", required: true)]
         public string Action { get; set; } = null!;
 
+        /// <summary>
+        /// A user-defined string describing the segment action.
+        /// </summary>
         [Input("description")]
         public string? Description { get; set; }
 
         [Input("destinationCidrBlocks")]
         private List<string>? _destinationCidrBlocks;
+
+        /// <summary>
+        /// List of strings containing CIDRs. You can define the IPv4 and IPv6 CIDR notation for each AWS Region. For example, `10.1.0.0/16` or `2001:db8::/56`. This is an array of CIDR notation strings.
+        /// </summary>
         public List<string> DestinationCidrBlocks
         {
             get => _destinationCidrBlocks ?? (_destinationCidrBlocks = new List<string>());
@@ -28,20 +38,34 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
         [Input("destinations")]
         private List<string>? _destinations;
+
+        /// <summary>
+        /// A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
+        /// </summary>
         public List<string> Destinations
         {
             get => _destinations ?? (_destinations = new List<string>());
             set => _destinations = value;
         }
 
+        /// <summary>
+        /// String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+        /// </summary>
         [Input("mode")]
         public string? Mode { get; set; }
 
+        /// <summary>
+        /// Name of the segment.
+        /// </summary>
         [Input("segment", required: true)]
         public string Segment { get; set; } = null!;
 
         [Input("shareWithExcepts")]
         private List<string>? _shareWithExcepts;
+
+        /// <summary>
+        /// A set subtraction of segments to not share with.
+        /// </summary>
         public List<string> ShareWithExcepts
         {
             get => _shareWithExcepts ?? (_shareWithExcepts = new List<string>());
@@ -50,6 +74,10 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
         [Input("shareWiths")]
         private List<string>? _shareWiths;
+
+        /// <summary>
+        /// A list of strings to share with. Must be a substring is all segments. Valid values include: `["*"]` or `["&lt;segment-names&gt;"]`.
+        /// </summary>
         public List<string> ShareWiths
         {
             get => _shareWiths ?? (_shareWiths = new List<string>());

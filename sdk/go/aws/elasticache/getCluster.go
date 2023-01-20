@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to get information about an ElastiCache Cluster
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := elasticache.LookupCluster(ctx, &elasticache.LookupClusterArgs{
+//				ClusterId: "my-cluster-id",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("aws:elasticache/getCluster:getCluster", args, &rv, opts...)
@@ -21,39 +48,70 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
-	ClusterId string            `pulumi:"clusterId"`
-	Tags      map[string]string `pulumi:"tags"`
+	// Group identifier.
+	ClusterId string `pulumi:"clusterId"`
+	// Tags assigned to the resource
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
-	Arn                   string                `pulumi:"arn"`
-	AvailabilityZone      string                `pulumi:"availabilityZone"`
-	CacheNodes            []GetClusterCacheNode `pulumi:"cacheNodes"`
-	ClusterAddress        string                `pulumi:"clusterAddress"`
-	ClusterId             string                `pulumi:"clusterId"`
-	ConfigurationEndpoint string                `pulumi:"configurationEndpoint"`
-	Engine                string                `pulumi:"engine"`
-	EngineVersion         string                `pulumi:"engineVersion"`
+	Arn string `pulumi:"arn"`
+	// Availability Zone for the cache cluster.
+	AvailabilityZone string `pulumi:"availabilityZone"`
+	// List of node objects including `id`, `address`, `port`, `availabilityZone` and `outpostArn`.
+	// Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
+	CacheNodes []GetClusterCacheNode `pulumi:"cacheNodes"`
+	// (Memcached only) DNS name of the cache cluster without the port appended.
+	ClusterAddress string `pulumi:"clusterAddress"`
+	ClusterId      string `pulumi:"clusterId"`
+	// (Memcached only) Configuration endpoint to allow host discovery.
+	ConfigurationEndpoint string `pulumi:"configurationEndpoint"`
+	// Name of the cache engine.
+	Engine string `pulumi:"engine"`
+	// Version number of the cache engine.
+	EngineVersion string `pulumi:"engineVersion"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                        string                               `pulumi:"id"`
-	IpDiscovery               string                               `pulumi:"ipDiscovery"`
+	Id string `pulumi:"id"`
+	// The IP version advertised in the discovery protocol.
+	IpDiscovery string `pulumi:"ipDiscovery"`
+	// Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
 	LogDeliveryConfigurations []GetClusterLogDeliveryConfiguration `pulumi:"logDeliveryConfigurations"`
-	MaintenanceWindow         string                               `pulumi:"maintenanceWindow"`
-	NetworkType               string                               `pulumi:"networkType"`
-	NodeType                  string                               `pulumi:"nodeType"`
-	NotificationTopicArn      string                               `pulumi:"notificationTopicArn"`
-	NumCacheNodes             int                                  `pulumi:"numCacheNodes"`
-	ParameterGroupName        string                               `pulumi:"parameterGroupName"`
-	Port                      int                                  `pulumi:"port"`
-	PreferredOutpostArn       string                               `pulumi:"preferredOutpostArn"`
-	ReplicationGroupId        string                               `pulumi:"replicationGroupId"`
-	SecurityGroupIds          []string                             `pulumi:"securityGroupIds"`
-	SecurityGroupNames        []string                             `pulumi:"securityGroupNames"`
-	SnapshotRetentionLimit    int                                  `pulumi:"snapshotRetentionLimit"`
-	SnapshotWindow            string                               `pulumi:"snapshotWindow"`
-	SubnetGroupName           string                               `pulumi:"subnetGroupName"`
-	Tags                      map[string]string                    `pulumi:"tags"`
+	// Specifies the weekly time range for when maintenance
+	// on the cache cluster is performed.
+	MaintenanceWindow string `pulumi:"maintenanceWindow"`
+	// The IP versions for cache cluster connections.
+	NetworkType string `pulumi:"networkType"`
+	// The cluster node type.
+	NodeType string `pulumi:"nodeType"`
+	// An ARN of an
+	// SNS topic that ElastiCache notifications get sent to.
+	NotificationTopicArn string `pulumi:"notificationTopicArn"`
+	// The number of cache nodes that the cache cluster has.
+	NumCacheNodes int `pulumi:"numCacheNodes"`
+	// Name of the parameter group associated with this cache cluster.
+	ParameterGroupName string `pulumi:"parameterGroupName"`
+	// The port number on which each of the cache nodes will
+	// accept connections.
+	Port int `pulumi:"port"`
+	// The outpost ARN in which the cache cluster was created if created in outpost.
+	PreferredOutpostArn string `pulumi:"preferredOutpostArn"`
+	// The replication group to which this cache cluster belongs.
+	ReplicationGroupId string `pulumi:"replicationGroupId"`
+	// List VPC security groups associated with the cache cluster.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// List of security group names associated with this cache cluster.
+	SecurityGroupNames []string `pulumi:"securityGroupNames"`
+	// The number of days for which ElastiCache will
+	// retain automatic cache cluster snapshots before deleting them.
+	SnapshotRetentionLimit int `pulumi:"snapshotRetentionLimit"`
+	// Daily time range (in UTC) during which ElastiCache will
+	// begin taking a daily snapshot of the cache cluster.
+	SnapshotWindow string `pulumi:"snapshotWindow"`
+	// Name of the subnet group associated to the cache cluster.
+	SubnetGroupName string `pulumi:"subnetGroupName"`
+	// Tags assigned to the resource
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -71,8 +129,10 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
-	ClusterId pulumi.StringInput    `pulumi:"clusterId"`
-	Tags      pulumi.StringMapInput `pulumi:"tags"`
+	// Group identifier.
+	ClusterId pulumi.StringInput `pulumi:"clusterId"`
+	// Tags assigned to the resource
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupClusterOutputArgs) ElementType() reflect.Type {
@@ -98,14 +158,18 @@ func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Availability Zone for the cache cluster.
 func (o LookupClusterResultOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
+// List of node objects including `id`, `address`, `port`, `availabilityZone` and `outpostArn`.
+// Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
 func (o LookupClusterResultOutput) CacheNodes() GetClusterCacheNodeArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterCacheNode { return v.CacheNodes }).(GetClusterCacheNodeArrayOutput)
 }
 
+// (Memcached only) DNS name of the cache cluster without the port appended.
 func (o LookupClusterResultOutput) ClusterAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterAddress }).(pulumi.StringOutput)
 }
@@ -114,14 +178,17 @@ func (o LookupClusterResultOutput) ClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterId }).(pulumi.StringOutput)
 }
 
+// (Memcached only) Configuration endpoint to allow host discovery.
 func (o LookupClusterResultOutput) ConfigurationEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ConfigurationEndpoint }).(pulumi.StringOutput)
 }
 
+// Name of the cache engine.
 func (o LookupClusterResultOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Engine }).(pulumi.StringOutput)
 }
 
+// Version number of the cache engine.
 func (o LookupClusterResultOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.EngineVersion }).(pulumi.StringOutput)
 }
@@ -131,70 +198,92 @@ func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The IP version advertised in the discovery protocol.
 func (o LookupClusterResultOutput) IpDiscovery() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.IpDiscovery }).(pulumi.StringOutput)
 }
 
+// Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
 func (o LookupClusterResultOutput) LogDeliveryConfigurations() GetClusterLogDeliveryConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterLogDeliveryConfiguration { return v.LogDeliveryConfigurations }).(GetClusterLogDeliveryConfigurationArrayOutput)
 }
 
+// Specifies the weekly time range for when maintenance
+// on the cache cluster is performed.
 func (o LookupClusterResultOutput) MaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.MaintenanceWindow }).(pulumi.StringOutput)
 }
 
+// The IP versions for cache cluster connections.
 func (o LookupClusterResultOutput) NetworkType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.NetworkType }).(pulumi.StringOutput)
 }
 
+// The cluster node type.
 func (o LookupClusterResultOutput) NodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.NodeType }).(pulumi.StringOutput)
 }
 
+// An ARN of an
+// SNS topic that ElastiCache notifications get sent to.
 func (o LookupClusterResultOutput) NotificationTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.NotificationTopicArn }).(pulumi.StringOutput)
 }
 
+// The number of cache nodes that the cache cluster has.
 func (o LookupClusterResultOutput) NumCacheNodes() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.NumCacheNodes }).(pulumi.IntOutput)
 }
 
+// Name of the parameter group associated with this cache cluster.
 func (o LookupClusterResultOutput) ParameterGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ParameterGroupName }).(pulumi.StringOutput)
 }
 
+// The port number on which each of the cache nodes will
+// accept connections.
 func (o LookupClusterResultOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The outpost ARN in which the cache cluster was created if created in outpost.
 func (o LookupClusterResultOutput) PreferredOutpostArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.PreferredOutpostArn }).(pulumi.StringOutput)
 }
 
+// The replication group to which this cache cluster belongs.
 func (o LookupClusterResultOutput) ReplicationGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ReplicationGroupId }).(pulumi.StringOutput)
 }
 
+// List VPC security groups associated with the cache cluster.
 func (o LookupClusterResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// List of security group names associated with this cache cluster.
 func (o LookupClusterResultOutput) SecurityGroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.SecurityGroupNames }).(pulumi.StringArrayOutput)
 }
 
+// The number of days for which ElastiCache will
+// retain automatic cache cluster snapshots before deleting them.
 func (o LookupClusterResultOutput) SnapshotRetentionLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.SnapshotRetentionLimit }).(pulumi.IntOutput)
 }
 
+// Daily time range (in UTC) during which ElastiCache will
+// begin taking a daily snapshot of the cache cluster.
 func (o LookupClusterResultOutput) SnapshotWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.SnapshotWindow }).(pulumi.StringOutput)
 }
 
+// Name of the subnet group associated to the cache cluster.
 func (o LookupClusterResultOutput) SubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.SubnetGroupName }).(pulumi.StringOutput)
 }
 
+// Tags assigned to the resource
 func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

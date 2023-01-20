@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus {
+    /**
+     * @return The location of the Datadog resource.
+     * 
+     */
     private String instanceUrl;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus() {}
+    /**
+     * @return The location of the Datadog resource.
+     * 
+     */
     public String instanceUrl() {
         return this.instanceUrl;
     }

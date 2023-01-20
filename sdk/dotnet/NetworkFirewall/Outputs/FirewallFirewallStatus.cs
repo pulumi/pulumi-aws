@@ -13,6 +13,9 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class FirewallFirewallStatus
     {
+        /// <summary>
+        /// Set of subnets configured for use by the firewall.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FirewallFirewallStatusSyncState> SyncStates;
 
         [OutputConstructor]

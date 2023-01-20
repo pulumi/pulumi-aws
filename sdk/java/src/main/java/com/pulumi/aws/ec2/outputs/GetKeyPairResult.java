@@ -15,9 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetKeyPairResult {
+    /**
+     * @return ARN of the Key Pair.
+     * 
+     */
     private String arn;
+    /**
+     * @return Timestamp for when the key pair was created in ISO 8601 format.
+     * 
+     */
     private String createTime;
     private @Nullable List<GetKeyPairFilter> filters;
+    /**
+     * @return SHA-1 digest of the DER encoded private key.
+     * 
+     */
     private String fingerprint;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -27,20 +39,44 @@ public final class GetKeyPairResult {
     private @Nullable Boolean includePublicKey;
     private @Nullable String keyName;
     private @Nullable String keyPairId;
+    /**
+     * @return Type of key pair.
+     * 
+     */
     private String keyType;
+    /**
+     * @return Public key material.
+     * 
+     */
     private String publicKey;
+    /**
+     * @return Any tags assigned to the Key Pair.
+     * 
+     */
     private Map<String,String> tags;
 
     private GetKeyPairResult() {}
+    /**
+     * @return ARN of the Key Pair.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Timestamp for when the key pair was created in ISO 8601 format.
+     * 
+     */
     public String createTime() {
         return this.createTime;
     }
     public List<GetKeyPairFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
+    /**
+     * @return SHA-1 digest of the DER encoded private key.
+     * 
+     */
     public String fingerprint() {
         return this.fingerprint;
     }
@@ -60,12 +96,24 @@ public final class GetKeyPairResult {
     public Optional<String> keyPairId() {
         return Optional.ofNullable(this.keyPairId);
     }
+    /**
+     * @return Type of key pair.
+     * 
+     */
     public String keyType() {
         return this.keyType;
     }
+    /**
+     * @return Public key material.
+     * 
+     */
     public String publicKey() {
         return this.publicKey;
     }
+    /**
+     * @return Any tags assigned to the Key Pair.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }

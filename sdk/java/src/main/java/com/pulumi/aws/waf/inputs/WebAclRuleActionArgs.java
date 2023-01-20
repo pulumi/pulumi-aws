@@ -13,9 +13,19 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
 
     public static final WebAclRuleActionArgs Empty = new WebAclRuleActionArgs();
 
+    /**
+     * Specifies how you want AWS WAF to respond to requests that don&#39;t match the criteria in any of the `rules`.
+     * e.g., `ALLOW` or `BLOCK`
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Specifies how you want AWS WAF to respond to requests that don&#39;t match the criteria in any of the `rules`.
+     * e.g., `ALLOW` or `BLOCK`
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -44,11 +54,25 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
             $ = new WebAclRuleActionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param type Specifies how you want AWS WAF to respond to requests that don&#39;t match the criteria in any of the `rules`.
+         * e.g., `ALLOW` or `BLOCK`
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Specifies how you want AWS WAF to respond to requests that don&#39;t match the criteria in any of the `rules`.
+         * e.g., `ALLOW` or `BLOCK`
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

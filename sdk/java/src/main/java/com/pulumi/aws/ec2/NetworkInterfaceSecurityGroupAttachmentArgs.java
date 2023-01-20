@@ -13,16 +13,32 @@ public final class NetworkInterfaceSecurityGroupAttachmentArgs extends com.pulum
 
     public static final NetworkInterfaceSecurityGroupAttachmentArgs Empty = new NetworkInterfaceSecurityGroupAttachmentArgs();
 
+    /**
+     * The ID of the network interface to attach to.
+     * 
+     */
     @Import(name="networkInterfaceId", required=true)
     private Output<String> networkInterfaceId;
 
+    /**
+     * @return The ID of the network interface to attach to.
+     * 
+     */
     public Output<String> networkInterfaceId() {
         return this.networkInterfaceId;
     }
 
+    /**
+     * The ID of the security group.
+     * 
+     */
     @Import(name="securityGroupId", required=true)
     private Output<String> securityGroupId;
 
+    /**
+     * @return The ID of the security group.
+     * 
+     */
     public Output<String> securityGroupId() {
         return this.securityGroupId;
     }
@@ -52,20 +68,44 @@ public final class NetworkInterfaceSecurityGroupAttachmentArgs extends com.pulum
             $ = new NetworkInterfaceSecurityGroupAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param networkInterfaceId The ID of the network interface to attach to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkInterfaceId(Output<String> networkInterfaceId) {
             $.networkInterfaceId = networkInterfaceId;
             return this;
         }
 
+        /**
+         * @param networkInterfaceId The ID of the network interface to attach to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkInterfaceId(String networkInterfaceId) {
             return networkInterfaceId(Output.of(networkInterfaceId));
         }
 
+        /**
+         * @param securityGroupId The ID of the security group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupId(Output<String> securityGroupId) {
             $.securityGroupId = securityGroupId;
             return this;
         }
 
+        /**
+         * @param securityGroupId The ID of the security group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupId(String securityGroupId) {
             return securityGroupId(Output.of(securityGroupId));
         }

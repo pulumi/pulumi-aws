@@ -17,12 +17,18 @@ __all__ = [
 class EndpointNetworkInterfaceArgs:
     def __init__(__self__, *,
                  network_interface_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] network_interface_id: Identifier of the Elastic Network Interface (ENI).
+        """
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
 
     @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of the Elastic Network Interface (ENI).
+        """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter

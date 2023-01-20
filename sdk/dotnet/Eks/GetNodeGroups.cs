@@ -11,9 +11,15 @@ namespace Pulumi.Aws.Eks
 {
     public static class GetNodeGroups
     {
+        /// <summary>
+        /// Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
+        /// </summary>
         public static Task<GetNodeGroupsResult> InvokeAsync(GetNodeGroupsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNodeGroupsResult>("aws:eks/getNodeGroups:getNodeGroups", args ?? new GetNodeGroupsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
+        /// </summary>
         public static Output<GetNodeGroupsResult> Invoke(GetNodeGroupsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeGroupsResult>("aws:eks/getNodeGroups:getNodeGroups", args ?? new GetNodeGroupsInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +27,9 @@ namespace Pulumi.Aws.Eks
 
     public sealed class GetNodeGroupsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the cluster.
+        /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
 
@@ -32,6 +41,9 @@ namespace Pulumi.Aws.Eks
 
     public sealed class GetNodeGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the cluster.
+        /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
@@ -50,6 +62,9 @@ namespace Pulumi.Aws.Eks
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Set of all node group names in an EKS Cluster.
+        /// </summary>
         public readonly ImmutableArray<string> Names;
 
         [OutputConstructor]

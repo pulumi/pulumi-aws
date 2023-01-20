@@ -7,6 +7,24 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.imagebuilder.getComponents({
+ *     filters: [{
+ *         name: "platform",
+ *         values: ["Linux"],
+ *     }],
+ *     owner: "Self",
+ * });
+ * ```
+ */
 export function getComponents(args?: GetComponentsArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentsResult> {
     args = args || {};
 
@@ -21,7 +39,13 @@ export function getComponents(args?: GetComponentsArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getComponents.
  */
 export interface GetComponentsArgs {
+    /**
+     * Configuration block(s) for filtering. Detailed below.
+     */
     filters?: inputs.imagebuilder.GetComponentsFilter[];
+    /**
+     * Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+     */
     owner?: string;
 }
 
@@ -29,15 +53,39 @@ export interface GetComponentsArgs {
  * A collection of values returned by getComponents.
  */
 export interface GetComponentsResult {
+    /**
+     * Set of ARNs of the matched Image Builder Components.
+     */
     readonly arns: string[];
     readonly filters?: outputs.imagebuilder.GetComponentsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Set of names of the matched Image Builder Components.
+     */
     readonly names: string[];
     readonly owner?: string;
 }
+/**
+ * Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.imagebuilder.getComponents({
+ *     filters: [{
+ *         name: "platform",
+ *         values: ["Linux"],
+ *     }],
+ *     owner: "Self",
+ * });
+ * ```
+ */
 export function getComponentsOutput(args?: GetComponentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentsResult> {
     return pulumi.output(args).apply((a: any) => getComponents(a, opts))
 }
@@ -46,6 +94,12 @@ export function getComponentsOutput(args?: GetComponentsOutputArgs, opts?: pulum
  * A collection of arguments for invoking getComponents.
  */
 export interface GetComponentsOutputArgs {
+    /**
+     * Configuration block(s) for filtering. Detailed below.
+     */
     filters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.GetComponentsFilterArgs>[]>;
+    /**
+     * Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+     */
     owner?: pulumi.Input<string>;
 }

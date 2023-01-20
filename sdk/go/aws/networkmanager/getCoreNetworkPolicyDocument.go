@@ -10,6 +10,128 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awsccNetworkmanagerCoreNetwork`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
+//
+// Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
+//
+// ## Example Usage
+// ### Basic Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkmanager.GetCoreNetworkPolicyDocument(ctx, &networkmanager.GetCoreNetworkPolicyDocumentArgs{
+//				AttachmentPolicies: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicy{
+//					{
+//						Action: {
+//							AssociationMethod: "constant",
+//							Segment:           pulumi.StringRef("shared"),
+//						},
+//						ConditionLogic: pulumi.StringRef("or"),
+//						Conditions: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyCondition{
+//							{
+//								Key:      pulumi.StringRef("segment"),
+//								Operator: pulumi.StringRef("equals"),
+//								Type:     "tag-value",
+//								Value:    pulumi.StringRef("shared"),
+//							},
+//						},
+//						RuleNumber: 100,
+//					},
+//					{
+//						Action: {
+//							AssociationMethod: "constant",
+//							Segment:           pulumi.StringRef("prod"),
+//						},
+//						ConditionLogic: pulumi.StringRef("or"),
+//						Conditions: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyCondition{
+//							{
+//								Key:      pulumi.StringRef("segment"),
+//								Operator: pulumi.StringRef("equals"),
+//								Type:     "tag-value",
+//								Value:    pulumi.StringRef("prod"),
+//							},
+//						},
+//						RuleNumber: 200,
+//					},
+//				},
+//				CoreNetworkConfigurations: []networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfiguration{
+//					{
+//						AsnRanges: []string{
+//							"64512-64555",
+//						},
+//						EdgeLocations: []networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation{
+//							{
+//								Asn:      pulumi.StringRef("64512"),
+//								Location: "us-east-1",
+//							},
+//							{
+//								Asn:      pulumi.StringRef("64513"),
+//								Location: "eu-central-1",
+//							},
+//						},
+//						VpnEcmpSupport: pulumi.BoolRef(false),
+//					},
+//				},
+//				SegmentActions: []networkmanager.GetCoreNetworkPolicyDocumentSegmentAction{
+//					{
+//						Action:  "share",
+//						Mode:    pulumi.StringRef("attachment-route"),
+//						Segment: "shared",
+//						ShareWiths: []string{
+//							"*",
+//						},
+//					},
+//				},
+//				Segments: []networkmanager.GetCoreNetworkPolicyDocumentSegment{
+//					{
+//						Description:                 pulumi.StringRef("Segment for shared services"),
+//						Name:                        "shared",
+//						RequireAttachmentAcceptance: pulumi.BoolRef(true),
+//					},
+//					{
+//						Description:                 pulumi.StringRef("Segment for prod services"),
+//						Name:                        "prod",
+//						RequireAttachmentAcceptance: pulumi.BoolRef(true),
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetCoreNetworkPolicyDocument(ctx *pulumi.Context, args *GetCoreNetworkPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetCoreNetworkPolicyDocumentResult, error) {
 	var rv GetCoreNetworkPolicyDocumentResult
 	err := ctx.Invoke("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", args, &rv, opts...)
@@ -21,11 +143,15 @@ func GetCoreNetworkPolicyDocument(ctx *pulumi.Context, args *GetCoreNetworkPolic
 
 // A collection of arguments for invoking getCoreNetworkPolicyDocument.
 type GetCoreNetworkPolicyDocumentArgs struct {
-	AttachmentPolicies        []GetCoreNetworkPolicyDocumentAttachmentPolicy         `pulumi:"attachmentPolicies"`
+	// In a core network, all attachments use the block argument `attachmentPolicies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
+	AttachmentPolicies []GetCoreNetworkPolicyDocumentAttachmentPolicy `pulumi:"attachmentPolicies"`
+	// The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
 	CoreNetworkConfigurations []GetCoreNetworkPolicyDocumentCoreNetworkConfiguration `pulumi:"coreNetworkConfigurations"`
-	SegmentActions            []GetCoreNetworkPolicyDocumentSegmentAction            `pulumi:"segmentActions"`
-	Segments                  []GetCoreNetworkPolicyDocumentSegment                  `pulumi:"segments"`
-	Version                   *string                                                `pulumi:"version"`
+	// A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+	SegmentActions []GetCoreNetworkPolicyDocumentSegmentAction `pulumi:"segmentActions"`
+	// Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+	Segments []GetCoreNetworkPolicyDocumentSegment `pulumi:"segments"`
+	Version  *string                               `pulumi:"version"`
 }
 
 // A collection of values returned by getCoreNetworkPolicyDocument.
@@ -33,7 +159,8 @@ type GetCoreNetworkPolicyDocumentResult struct {
 	AttachmentPolicies        []GetCoreNetworkPolicyDocumentAttachmentPolicy         `pulumi:"attachmentPolicies"`
 	CoreNetworkConfigurations []GetCoreNetworkPolicyDocumentCoreNetworkConfiguration `pulumi:"coreNetworkConfigurations"`
 	// The provider-assigned unique ID for this managed resource.
-	Id             string                                      `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Standard JSON policy document rendered based on the arguments above.
 	Json           string                                      `pulumi:"json"`
 	SegmentActions []GetCoreNetworkPolicyDocumentSegmentAction `pulumi:"segmentActions"`
 	Segments       []GetCoreNetworkPolicyDocumentSegment       `pulumi:"segments"`
@@ -55,11 +182,15 @@ func GetCoreNetworkPolicyDocumentOutput(ctx *pulumi.Context, args GetCoreNetwork
 
 // A collection of arguments for invoking getCoreNetworkPolicyDocument.
 type GetCoreNetworkPolicyDocumentOutputArgs struct {
-	AttachmentPolicies        GetCoreNetworkPolicyDocumentAttachmentPolicyArrayInput         `pulumi:"attachmentPolicies"`
+	// In a core network, all attachments use the block argument `attachmentPolicies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
+	AttachmentPolicies GetCoreNetworkPolicyDocumentAttachmentPolicyArrayInput `pulumi:"attachmentPolicies"`
+	// The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
 	CoreNetworkConfigurations GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayInput `pulumi:"coreNetworkConfigurations"`
-	SegmentActions            GetCoreNetworkPolicyDocumentSegmentActionArrayInput            `pulumi:"segmentActions"`
-	Segments                  GetCoreNetworkPolicyDocumentSegmentArrayInput                  `pulumi:"segments"`
-	Version                   pulumi.StringPtrInput                                          `pulumi:"version"`
+	// A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+	SegmentActions GetCoreNetworkPolicyDocumentSegmentActionArrayInput `pulumi:"segmentActions"`
+	// Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+	Segments GetCoreNetworkPolicyDocumentSegmentArrayInput `pulumi:"segments"`
+	Version  pulumi.StringPtrInput                         `pulumi:"version"`
 }
 
 func (GetCoreNetworkPolicyDocumentOutputArgs) ElementType() reflect.Type {
@@ -98,6 +229,7 @@ func (o GetCoreNetworkPolicyDocumentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Standard JSON policy document rendered based on the arguments above.
 func (o GetCoreNetworkPolicyDocumentResultOutput) Json() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentResult) string { return v.Json }).(pulumi.StringOutput)
 }

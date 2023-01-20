@@ -12,16 +12,32 @@ public final class GetAssetPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAssetPlainArgs Empty = new GetAssetPlainArgs();
 
+    /**
+     * Outpost ARN.
+     * 
+     */
     @Import(name="arn", required=true)
     private String arn;
 
+    /**
+     * @return Outpost ARN.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
 
+    /**
+     * ID of the asset.
+     * 
+     */
     @Import(name="assetId", required=true)
     private String assetId;
 
+    /**
+     * @return ID of the asset.
+     * 
+     */
     public String assetId() {
         return this.assetId;
     }
@@ -51,11 +67,23 @@ public final class GetAssetPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetAssetPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn Outpost ARN.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param assetId ID of the asset.
+         * 
+         * @return builder
+         * 
+         */
         public Builder assetId(String assetId) {
             $.assetId = assetId;
             return this;

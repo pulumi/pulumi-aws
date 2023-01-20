@@ -38,11 +38,17 @@ class GetRegionResult:
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Region's description in this format: "Location (Region name)".
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def endpoint(self) -> str:
+        """
+        EC2 endpoint for the selected region.
+        """
         return pulumi.get(self, "endpoint")
 
     @property
@@ -56,6 +62,9 @@ class GetRegionResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the selected region.
+        """
         return pulumi.get(self, "name")
 
 
@@ -75,7 +84,28 @@ def get_region(endpoint: Optional[str] = None,
                name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegionResult:
     """
-    Use this data source to access information about an existing resource.
+    `get_region` provides details about a specific AWS region.
+
+    As well as validating a given region name this resource can be used to
+    discover the name of the region configured within the provider. The latter
+    can be useful in a child module which is inheriting an AWS provider
+    configuration from its parent module.
+
+    ## Example Usage
+
+    The following example shows how the resource might be used to obtain
+    the name of the AWS region configured on the provider.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.get_region()
+    ```
+
+
+    :param str endpoint: EC2 endpoint of the region to select.
+    :param str name: Full name of the region to select.
     """
     __args__ = dict()
     __args__['endpoint'] = endpoint
@@ -95,6 +125,27 @@ def get_region_output(endpoint: Optional[pulumi.Input[Optional[str]]] = None,
                       name: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegionResult]:
     """
-    Use this data source to access information about an existing resource.
+    `get_region` provides details about a specific AWS region.
+
+    As well as validating a given region name this resource can be used to
+    discover the name of the region configured within the provider. The latter
+    can be useful in a child module which is inheriting an AWS provider
+    configuration from its parent module.
+
+    ## Example Usage
+
+    The following example shows how the resource might be used to obtain
+    the name of the AWS region configured on the provider.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.get_region()
+    ```
+
+
+    :param str endpoint: EC2 endpoint of the region to select.
+    :param str name: Full name of the region to select.
     """
     ...

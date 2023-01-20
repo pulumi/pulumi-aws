@@ -11,10 +11,58 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Glue Data Catalog Encryption Settings resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewDataCatalogEncryptionSettings(ctx, "example", &glue.DataCatalogEncryptionSettingsArgs{
+//				DataCatalogEncryptionSettings: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs{
+//					ConnectionPasswordEncryption: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{
+//						AwsKmsKeyId:                       pulumi.Any(aws_kms_key.Test.Arn),
+//						ReturnConnectionPasswordEncrypted: pulumi.Bool(true),
+//					},
+//					EncryptionAtRest: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs{
+//						CatalogEncryptionMode: pulumi.String("SSE-KMS"),
+//						SseAwsKmsKeyId:        pulumi.Any(aws_kms_key.Test.Arn),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Glue Data Catalog Encryption Settings can be imported using `CATALOG-ID` (AWS account ID if not custom), e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
+//
+// ```
 type DataCatalogEncryptionSettings struct {
 	pulumi.CustomResourceState
 
-	CatalogId                     pulumi.StringOutput                                              `pulumi:"catalogId"`
+	// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
+	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput `pulumi:"dataCatalogEncryptionSettings"`
 }
 
@@ -50,12 +98,16 @@ func GetDataCatalogEncryptionSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataCatalogEncryptionSettings resources.
 type dataCatalogEncryptionSettingsState struct {
-	CatalogId                     *string                                                     `pulumi:"catalogId"`
+	// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+	CatalogId *string `pulumi:"catalogId"`
+	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings `pulumi:"dataCatalogEncryptionSettings"`
 }
 
 type DataCatalogEncryptionSettingsState struct {
-	CatalogId                     pulumi.StringPtrInput
+	// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+	CatalogId pulumi.StringPtrInput
+	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput
 }
 
@@ -64,13 +116,17 @@ func (DataCatalogEncryptionSettingsState) ElementType() reflect.Type {
 }
 
 type dataCatalogEncryptionSettingsArgs struct {
-	CatalogId                     *string                                                    `pulumi:"catalogId"`
+	// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+	CatalogId *string `pulumi:"catalogId"`
+	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettings `pulumi:"dataCatalogEncryptionSettings"`
 }
 
 // The set of arguments for constructing a DataCatalogEncryptionSettings resource.
 type DataCatalogEncryptionSettingsArgs struct {
-	CatalogId                     pulumi.StringPtrInput
+	// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+	CatalogId pulumi.StringPtrInput
+	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsInput
 }
 
@@ -161,10 +217,12 @@ func (o DataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsOutp
 	return o
 }
 
+// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
 func (o DataCatalogEncryptionSettingsOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataCatalogEncryptionSettings) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
 
+// The security configuration to set. see Data Catalog Encryption Settings.
 func (o DataCatalogEncryptionSettingsOutput) DataCatalogEncryptionSettings() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
 	return o.ApplyT(func(v *DataCatalogEncryptionSettings) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
 		return v.DataCatalogEncryptionSettings

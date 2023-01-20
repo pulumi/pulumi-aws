@@ -10,6 +10,66 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// `route53.ResolverEndpoint` provides details about a specific Route53 Resolver Endpoint.
+//
+// This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53.LookupResolverEndpoint(ctx, &route53.LookupResolverEndpointArgs{
+//				ResolverEndpointId: pulumi.StringRef("rslvr-in-1abc2345ef678g91h"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53.LookupResolverEndpoint(ctx, &route53.LookupResolverEndpointArgs{
+//				Filters: []route53.GetResolverEndpointFilter{
+//					{
+//						Name: "NAME",
+//						Values: []string{
+//							"MyResolverExampleName",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupResolverEndpoint(ctx *pulumi.Context, args *LookupResolverEndpointArgs, opts ...pulumi.InvokeOption) (*LookupResolverEndpointResult, error) {
 	var rv LookupResolverEndpointResult
 	err := ctx.Invoke("aws:route53/getResolverEndpoint:getResolverEndpoint", args, &rv, opts...)
@@ -21,8 +81,12 @@ func LookupResolverEndpoint(ctx *pulumi.Context, args *LookupResolverEndpointArg
 
 // A collection of arguments for invoking getResolverEndpoint.
 type LookupResolverEndpointArgs struct {
-	Filters            []GetResolverEndpointFilter `pulumi:"filters"`
-	ResolverEndpointId *string                     `pulumi:"resolverEndpointId"`
+	// One or more name/value pairs to use as filters. There are
+	// several valid keys, for a full reference, check out
+	// [Route53resolver Filter value in the AWS API reference][1].
+	Filters []GetResolverEndpointFilter `pulumi:"filters"`
+	// ID of the Route53 Resolver Endpoint.
+	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
 }
 
 // A collection of values returned by getResolverEndpoint.
@@ -54,8 +118,12 @@ func LookupResolverEndpointOutput(ctx *pulumi.Context, args LookupResolverEndpoi
 
 // A collection of arguments for invoking getResolverEndpoint.
 type LookupResolverEndpointOutputArgs struct {
-	Filters            GetResolverEndpointFilterArrayInput `pulumi:"filters"`
-	ResolverEndpointId pulumi.StringPtrInput               `pulumi:"resolverEndpointId"`
+	// One or more name/value pairs to use as filters. There are
+	// several valid keys, for a full reference, check out
+	// [Route53resolver Filter value in the AWS API reference][1].
+	Filters GetResolverEndpointFilterArrayInput `pulumi:"filters"`
+	// ID of the Route53 Resolver Endpoint.
+	ResolverEndpointId pulumi.StringPtrInput `pulumi:"resolverEndpointId"`
 }
 
 func (LookupResolverEndpointOutputArgs) ElementType() reflect.Type {

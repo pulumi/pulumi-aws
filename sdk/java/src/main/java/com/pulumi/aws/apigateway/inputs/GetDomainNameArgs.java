@@ -16,16 +16,32 @@ public final class GetDomainNameArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetDomainNameArgs Empty = new GetDomainNameArgs();
 
+    /**
+     * Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
+     * 
+     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
+    /**
+     * @return Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
+     * 
+     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
+    /**
+     * Key-value map of tags for the resource.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of tags for the resource.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -55,20 +71,44 @@ public final class GetDomainNameArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetDomainNameArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domainName Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
+        /**
+         * @param domainName Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
+        /**
+         * @param tags Key-value map of tags for the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of tags for the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

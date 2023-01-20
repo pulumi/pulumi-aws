@@ -12,9 +12,15 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketReplicationConfigRuleDestinationMetricsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event documented below.
+        /// </summary>
         [Input("eventThreshold")]
         public Input<Inputs.BucketReplicationConfigRuleDestinationMetricsEventThresholdGetArgs>? EventThreshold { get; set; }
 
+        /// <summary>
+        /// The status of the Destination Metrics. Either `"Enabled"` or `"Disabled"`.
+        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 

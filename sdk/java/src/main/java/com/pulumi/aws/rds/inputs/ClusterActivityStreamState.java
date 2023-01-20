@@ -16,37 +16,77 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
 
     public static final ClusterActivityStreamState Empty = new ClusterActivityStreamState();
 
+    /**
+     * Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+     * 
+     */
     @Import(name="engineNativeAuditFieldsIncluded")
     private @Nullable Output<Boolean> engineNativeAuditFieldsIncluded;
 
+    /**
+     * @return Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+     * 
+     */
     public Optional<Output<Boolean>> engineNativeAuditFieldsIncluded() {
         return Optional.ofNullable(this.engineNativeAuditFieldsIncluded);
     }
 
+    /**
+     * The name of the Amazon Kinesis data stream to be used for the database activity stream.
+     * 
+     */
     @Import(name="kinesisStreamName")
     private @Nullable Output<String> kinesisStreamName;
 
+    /**
+     * @return The name of the Amazon Kinesis data stream to be used for the database activity stream.
+     * 
+     */
     public Optional<Output<String>> kinesisStreamName() {
         return Optional.ofNullable(this.kinesisStreamName);
     }
 
+    /**
+     * The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+     * 
+     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
+    /**
+     * @return The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+     * 
+     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
+    /**
+     * Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
+     * 
+     */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
+    /**
+     * @return Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
+     * 
+     */
     public Optional<Output<String>> mode() {
         return Optional.ofNullable(this.mode);
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the DB cluster.
+     * 
+     */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the DB cluster.
+     * 
+     */
     public Optional<Output<String>> resourceArn() {
         return Optional.ofNullable(this.resourceArn);
     }
@@ -79,47 +119,107 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
             $ = new ClusterActivityStreamState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param engineNativeAuditFieldsIncluded Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engineNativeAuditFieldsIncluded(@Nullable Output<Boolean> engineNativeAuditFieldsIncluded) {
             $.engineNativeAuditFieldsIncluded = engineNativeAuditFieldsIncluded;
             return this;
         }
 
+        /**
+         * @param engineNativeAuditFieldsIncluded Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engineNativeAuditFieldsIncluded(Boolean engineNativeAuditFieldsIncluded) {
             return engineNativeAuditFieldsIncluded(Output.of(engineNativeAuditFieldsIncluded));
         }
 
+        /**
+         * @param kinesisStreamName The name of the Amazon Kinesis data stream to be used for the database activity stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kinesisStreamName(@Nullable Output<String> kinesisStreamName) {
             $.kinesisStreamName = kinesisStreamName;
             return this;
         }
 
+        /**
+         * @param kinesisStreamName The name of the Amazon Kinesis data stream to be used for the database activity stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kinesisStreamName(String kinesisStreamName) {
             return kinesisStreamName(Output.of(kinesisStreamName));
         }
 
+        /**
+         * @param kmsKeyId The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
+        /**
+         * @param kmsKeyId The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
+        /**
+         * @param mode Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mode(@Nullable Output<String> mode) {
             $.mode = mode;
             return this;
         }
 
+        /**
+         * @param mode Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
         }
 
+        /**
+         * @param resourceArn The Amazon Resource Name (ARN) of the DB cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceArn(@Nullable Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
+        /**
+         * @param resourceArn The Amazon Resource Name (ARN) of the DB cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

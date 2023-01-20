@@ -16,6 +16,9 @@ namespace Pulumi.Aws.Dax.Outputs
         public readonly string? Address;
         public readonly string? AvailabilityZone;
         public readonly string? Id;
+        /// <summary>
+        /// The port used by the configuration endpoint
+        /// </summary>
         public readonly int? Port;
 
         [OutputConstructor]

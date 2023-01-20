@@ -13,16 +13,32 @@ public final class LogDataProtectionPolicyArgs extends com.pulumi.resources.Reso
 
     public static final LogDataProtectionPolicyArgs Empty = new LogDataProtectionPolicyArgs();
 
+    /**
+     * The name of the log group under which the log stream is to be created.
+     * 
+     */
     @Import(name="logGroupName", required=true)
     private Output<String> logGroupName;
 
+    /**
+     * @return The name of the log group under which the log stream is to be created.
+     * 
+     */
     public Output<String> logGroupName() {
         return this.logGroupName;
     }
 
+    /**
+     * Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
+     * 
+     */
     @Import(name="policyDocument", required=true)
     private Output<String> policyDocument;
 
+    /**
+     * @return Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
+     * 
+     */
     public Output<String> policyDocument() {
         return this.policyDocument;
     }
@@ -52,20 +68,44 @@ public final class LogDataProtectionPolicyArgs extends com.pulumi.resources.Reso
             $ = new LogDataProtectionPolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param logGroupName The name of the log group under which the log stream is to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logGroupName(Output<String> logGroupName) {
             $.logGroupName = logGroupName;
             return this;
         }
 
+        /**
+         * @param logGroupName The name of the log group under which the log stream is to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logGroupName(String logGroupName) {
             return logGroupName(Output.of(logGroupName));
         }
 
+        /**
+         * @param policyDocument Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyDocument(Output<String> policyDocument) {
             $.policyDocument = policyDocument;
             return this;
         }
 
+        /**
+         * @param policyDocument Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyDocument(String policyDocument) {
             return policyDocument(Output.of(policyDocument));
         }

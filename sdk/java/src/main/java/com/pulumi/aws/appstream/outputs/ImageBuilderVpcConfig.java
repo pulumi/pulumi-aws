@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ImageBuilderVpcConfig {
+    /**
+     * @return Identifiers of the security groups for the image builder or image builder.
+     * 
+     */
     private @Nullable List<String> securityGroupIds;
+    /**
+     * @return Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+     * 
+     */
     private @Nullable List<String> subnetIds;
 
     private ImageBuilderVpcConfig() {}
+    /**
+     * @return Identifiers of the security groups for the image builder or image builder.
+     * 
+     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
+    /**
+     * @return Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+     * 
+     */
     public List<String> subnetIds() {
         return this.subnetIds == null ? List.of() : this.subnetIds;
     }

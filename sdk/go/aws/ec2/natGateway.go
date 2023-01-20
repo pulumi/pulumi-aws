@@ -11,17 +11,95 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to create a VPC NAT Gateway.
+//
+// ## Example Usage
+// ### Public NAT
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
+//				AllocationId: pulumi.Any(aws_eip.Example.Id),
+//				SubnetId:     pulumi.Any(aws_subnet.Example.Id),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("gw NAT"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				aws_internet_gateway.Example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Private NAT
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
+//				ConnectivityType: pulumi.String("private"),
+//				SubnetId:         pulumi.Any(aws_subnet.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// NAT Gateways can be imported using the `id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
+//
+// ```
 type NatGateway struct {
 	pulumi.CustomResourceState
 
-	AllocationId       pulumi.StringPtrOutput `pulumi:"allocationId"`
-	ConnectivityType   pulumi.StringPtrOutput `pulumi:"connectivityType"`
-	NetworkInterfaceId pulumi.StringOutput    `pulumi:"networkInterfaceId"`
-	PrivateIp          pulumi.StringOutput    `pulumi:"privateIp"`
-	PublicIp           pulumi.StringOutput    `pulumi:"publicIp"`
-	SubnetId           pulumi.StringOutput    `pulumi:"subnetId"`
-	Tags               pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll            pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The Allocation ID of the Elastic IP address for the gateway. Required for `connectivityType` of `public`.
+	AllocationId pulumi.StringPtrOutput `pulumi:"allocationId"`
+	// Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+	ConnectivityType pulumi.StringPtrOutput `pulumi:"connectivityType"`
+	// The ID of the network interface associated with the NAT gateway.
+	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
+	// The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+	PrivateIp pulumi.StringOutput `pulumi:"privateIp"`
+	// The Elastic IP address associated with the NAT gateway.
+	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
+	// The Subnet ID of the subnet in which to place the gateway.
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewNatGateway registers a new resource with the given unique name, arguments, and options.
@@ -56,25 +134,41 @@ func GetNatGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NatGateway resources.
 type natGatewayState struct {
-	AllocationId       *string           `pulumi:"allocationId"`
-	ConnectivityType   *string           `pulumi:"connectivityType"`
-	NetworkInterfaceId *string           `pulumi:"networkInterfaceId"`
-	PrivateIp          *string           `pulumi:"privateIp"`
-	PublicIp           *string           `pulumi:"publicIp"`
-	SubnetId           *string           `pulumi:"subnetId"`
-	Tags               map[string]string `pulumi:"tags"`
-	TagsAll            map[string]string `pulumi:"tagsAll"`
+	// The Allocation ID of the Elastic IP address for the gateway. Required for `connectivityType` of `public`.
+	AllocationId *string `pulumi:"allocationId"`
+	// Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+	ConnectivityType *string `pulumi:"connectivityType"`
+	// The ID of the network interface associated with the NAT gateway.
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+	PrivateIp *string `pulumi:"privateIp"`
+	// The Elastic IP address associated with the NAT gateway.
+	PublicIp *string `pulumi:"publicIp"`
+	// The Subnet ID of the subnet in which to place the gateway.
+	SubnetId *string `pulumi:"subnetId"`
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type NatGatewayState struct {
-	AllocationId       pulumi.StringPtrInput
-	ConnectivityType   pulumi.StringPtrInput
+	// The Allocation ID of the Elastic IP address for the gateway. Required for `connectivityType` of `public`.
+	AllocationId pulumi.StringPtrInput
+	// Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+	ConnectivityType pulumi.StringPtrInput
+	// The ID of the network interface associated with the NAT gateway.
 	NetworkInterfaceId pulumi.StringPtrInput
-	PrivateIp          pulumi.StringPtrInput
-	PublicIp           pulumi.StringPtrInput
-	SubnetId           pulumi.StringPtrInput
-	Tags               pulumi.StringMapInput
-	TagsAll            pulumi.StringMapInput
+	// The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+	PrivateIp pulumi.StringPtrInput
+	// The Elastic IP address associated with the NAT gateway.
+	PublicIp pulumi.StringPtrInput
+	// The Subnet ID of the subnet in which to place the gateway.
+	SubnetId pulumi.StringPtrInput
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (NatGatewayState) ElementType() reflect.Type {
@@ -82,20 +176,30 @@ func (NatGatewayState) ElementType() reflect.Type {
 }
 
 type natGatewayArgs struct {
-	AllocationId     *string           `pulumi:"allocationId"`
-	ConnectivityType *string           `pulumi:"connectivityType"`
-	PrivateIp        *string           `pulumi:"privateIp"`
-	SubnetId         string            `pulumi:"subnetId"`
-	Tags             map[string]string `pulumi:"tags"`
+	// The Allocation ID of the Elastic IP address for the gateway. Required for `connectivityType` of `public`.
+	AllocationId *string `pulumi:"allocationId"`
+	// Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+	ConnectivityType *string `pulumi:"connectivityType"`
+	// The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+	PrivateIp *string `pulumi:"privateIp"`
+	// The Subnet ID of the subnet in which to place the gateway.
+	SubnetId string `pulumi:"subnetId"`
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NatGateway resource.
 type NatGatewayArgs struct {
-	AllocationId     pulumi.StringPtrInput
+	// The Allocation ID of the Elastic IP address for the gateway. Required for `connectivityType` of `public`.
+	AllocationId pulumi.StringPtrInput
+	// Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
 	ConnectivityType pulumi.StringPtrInput
-	PrivateIp        pulumi.StringPtrInput
-	SubnetId         pulumi.StringInput
-	Tags             pulumi.StringMapInput
+	// The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+	PrivateIp pulumi.StringPtrInput
+	// The Subnet ID of the subnet in which to place the gateway.
+	SubnetId pulumi.StringInput
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (NatGatewayArgs) ElementType() reflect.Type {
@@ -185,34 +289,42 @@ func (o NatGatewayOutput) ToNatGatewayOutputWithContext(ctx context.Context) Nat
 	return o
 }
 
+// The Allocation ID of the Elastic IP address for the gateway. Required for `connectivityType` of `public`.
 func (o NatGatewayOutput) AllocationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.AllocationId }).(pulumi.StringPtrOutput)
 }
 
+// Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
 func (o NatGatewayOutput) ConnectivityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.ConnectivityType }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the network interface associated with the NAT gateway.
 func (o NatGatewayOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
 
+// The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
 func (o NatGatewayOutput) PrivateIp() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.PrivateIp }).(pulumi.StringOutput)
 }
 
+// The Elastic IP address associated with the NAT gateway.
 func (o NatGatewayOutput) PublicIp() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.PublicIp }).(pulumi.StringOutput)
 }
 
+// The Subnet ID of the subnet in which to place the gateway.
 func (o NatGatewayOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NatGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o NatGatewayOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

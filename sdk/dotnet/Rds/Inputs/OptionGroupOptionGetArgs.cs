@@ -14,31 +14,52 @@ namespace Pulumi.Aws.Rds.Inputs
     {
         [Input("dbSecurityGroupMemberships")]
         private InputList<string>? _dbSecurityGroupMemberships;
+
+        /// <summary>
+        /// A list of DB Security Groups for which the option is enabled.
+        /// </summary>
         public InputList<string> DbSecurityGroupMemberships
         {
             get => _dbSecurityGroupMemberships ?? (_dbSecurityGroupMemberships = new InputList<string>());
             set => _dbSecurityGroupMemberships = value;
         }
 
+        /// <summary>
+        /// The Name of the Option (e.g., MEMCACHED).
+        /// </summary>
         [Input("optionName", required: true)]
         public Input<string> OptionName { get; set; } = null!;
 
         [Input("optionSettings")]
         private InputList<Inputs.OptionGroupOptionOptionSettingGetArgs>? _optionSettings;
+
+        /// <summary>
+        /// A list of option settings to apply.
+        /// </summary>
         public InputList<Inputs.OptionGroupOptionOptionSettingGetArgs> OptionSettings
         {
             get => _optionSettings ?? (_optionSettings = new InputList<Inputs.OptionGroupOptionOptionSettingGetArgs>());
             set => _optionSettings = value;
         }
 
+        /// <summary>
+        /// The Port number when connecting to the Option (e.g., 11211).
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// The version of the option (e.g., 13.1.0.0).
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
         [Input("vpcSecurityGroupMemberships")]
         private InputList<string>? _vpcSecurityGroupMemberships;
+
+        /// <summary>
+        /// A list of VPC Security Groups for which the option is enabled.
+        /// </summary>
         public InputList<string> VpcSecurityGroupMemberships
         {
             get => _vpcSecurityGroupMemberships ?? (_vpcSecurityGroupMemberships = new InputList<string>());

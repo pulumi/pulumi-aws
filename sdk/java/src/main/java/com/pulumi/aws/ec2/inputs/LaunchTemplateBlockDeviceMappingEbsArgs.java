@@ -16,58 +16,130 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
 
     public static final LaunchTemplateBlockDeviceMappingEbsArgs Empty = new LaunchTemplateBlockDeviceMappingEbsArgs();
 
+    /**
+     * Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+     * 
+     */
     @Import(name="deleteOnTermination")
     private @Nullable Output<String> deleteOnTermination;
 
+    /**
+     * @return Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+     * 
+     */
     public Optional<Output<String>> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
     }
 
+    /**
+     * Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
+     * on the volume (Default: `false`). Cannot be used with `snapshot_id`.
+     * 
+     */
     @Import(name="encrypted")
     private @Nullable Output<String> encrypted;
 
+    /**
+     * @return Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
+     * on the volume (Default: `false`). Cannot be used with `snapshot_id`.
+     * 
+     */
     public Optional<Output<String>> encrypted() {
         return Optional.ofNullable(this.encrypted);
     }
 
+    /**
+     * The amount of provisioned
+     * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+     * This must be set with a `volume_type` of `&#34;io1/io2&#34;`.
+     * 
+     */
     @Import(name="iops")
     private @Nullable Output<Integer> iops;
 
+    /**
+     * @return The amount of provisioned
+     * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+     * This must be set with a `volume_type` of `&#34;io1/io2&#34;`.
+     * 
+     */
     public Optional<Output<Integer>> iops() {
         return Optional.ofNullable(this.iops);
     }
 
+    /**
+     * The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+     * `encrypted` must be set to `true` when this is set.
+     * 
+     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
+    /**
+     * @return The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+     * `encrypted` must be set to `true` when this is set.
+     * 
+     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
+    /**
+     * The Snapshot ID to mount.
+     * 
+     */
     @Import(name="snapshotId")
     private @Nullable Output<String> snapshotId;
 
+    /**
+     * @return The Snapshot ID to mount.
+     * 
+     */
     public Optional<Output<String>> snapshotId() {
         return Optional.ofNullable(this.snapshotId);
     }
 
+    /**
+     * The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
+     * 
+     */
     @Import(name="throughput")
     private @Nullable Output<Integer> throughput;
 
+    /**
+     * @return The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
+     * 
+     */
     public Optional<Output<Integer>> throughput() {
         return Optional.ofNullable(this.throughput);
     }
 
+    /**
+     * The size of the volume in gigabytes.
+     * 
+     */
     @Import(name="volumeSize")
     private @Nullable Output<Integer> volumeSize;
 
+    /**
+     * @return The size of the volume in gigabytes.
+     * 
+     */
     public Optional<Output<Integer>> volumeSize() {
         return Optional.ofNullable(this.volumeSize);
     }
 
+    /**
+     * The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * 
+     */
     @Import(name="volumeType")
     private @Nullable Output<String> volumeType;
 
+    /**
+     * @return The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * 
+     */
     public Optional<Output<String>> volumeType() {
         return Optional.ofNullable(this.volumeType);
     }
@@ -103,74 +175,178 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
             $ = new LaunchTemplateBlockDeviceMappingEbsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param deleteOnTermination Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deleteOnTermination(@Nullable Output<String> deleteOnTermination) {
             $.deleteOnTermination = deleteOnTermination;
             return this;
         }
 
+        /**
+         * @param deleteOnTermination Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deleteOnTermination(String deleteOnTermination) {
             return deleteOnTermination(Output.of(deleteOnTermination));
         }
 
+        /**
+         * @param encrypted Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
+         * on the volume (Default: `false`). Cannot be used with `snapshot_id`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encrypted(@Nullable Output<String> encrypted) {
             $.encrypted = encrypted;
             return this;
         }
 
+        /**
+         * @param encrypted Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
+         * on the volume (Default: `false`). Cannot be used with `snapshot_id`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encrypted(String encrypted) {
             return encrypted(Output.of(encrypted));
         }
 
+        /**
+         * @param iops The amount of provisioned
+         * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+         * This must be set with a `volume_type` of `&#34;io1/io2&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder iops(@Nullable Output<Integer> iops) {
             $.iops = iops;
             return this;
         }
 
+        /**
+         * @param iops The amount of provisioned
+         * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+         * This must be set with a `volume_type` of `&#34;io1/io2&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder iops(Integer iops) {
             return iops(Output.of(iops));
         }
 
+        /**
+         * @param kmsKeyId The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+         * `encrypted` must be set to `true` when this is set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
+        /**
+         * @param kmsKeyId The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+         * `encrypted` must be set to `true` when this is set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
+        /**
+         * @param snapshotId The Snapshot ID to mount.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshotId(@Nullable Output<String> snapshotId) {
             $.snapshotId = snapshotId;
             return this;
         }
 
+        /**
+         * @param snapshotId The Snapshot ID to mount.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshotId(String snapshotId) {
             return snapshotId(Output.of(snapshotId));
         }
 
+        /**
+         * @param throughput The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
+         * 
+         * @return builder
+         * 
+         */
         public Builder throughput(@Nullable Output<Integer> throughput) {
             $.throughput = throughput;
             return this;
         }
 
+        /**
+         * @param throughput The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
+         * 
+         * @return builder
+         * 
+         */
         public Builder throughput(Integer throughput) {
             return throughput(Output.of(throughput));
         }
 
+        /**
+         * @param volumeSize The size of the volume in gigabytes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder volumeSize(@Nullable Output<Integer> volumeSize) {
             $.volumeSize = volumeSize;
             return this;
         }
 
+        /**
+         * @param volumeSize The size of the volume in gigabytes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder volumeSize(Integer volumeSize) {
             return volumeSize(Output.of(volumeSize));
         }
 
+        /**
+         * @param volumeType The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder volumeType(@Nullable Output<String> volumeType) {
             $.volumeType = volumeType;
             return this;
         }
 
+        /**
+         * @param volumeType The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder volumeType(String volumeType) {
             return volumeType(Output.of(volumeType));
         }

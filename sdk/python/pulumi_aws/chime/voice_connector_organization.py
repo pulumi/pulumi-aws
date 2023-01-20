@@ -21,6 +21,9 @@ class VoiceConnectorOrganizationArgs:
                  disabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a VoiceConnectorOrganization resource.
+        :param pulumi.Input[Sequence[pulumi.Input['VoiceConnectorOrganizationRouteArgs']]] routes: Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
+        :param pulumi.Input[str] voice_connector_id: The Amazon Chime Voice Connector ID.
+        :param pulumi.Input[bool] disabled: When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
         """
         pulumi.set(__self__, "routes", routes)
         pulumi.set(__self__, "voice_connector_id", voice_connector_id)
@@ -30,6 +33,9 @@ class VoiceConnectorOrganizationArgs:
     @property
     @pulumi.getter
     def routes(self) -> pulumi.Input[Sequence[pulumi.Input['VoiceConnectorOrganizationRouteArgs']]]:
+        """
+        Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
+        """
         return pulumi.get(self, "routes")
 
     @routes.setter
@@ -39,6 +45,9 @@ class VoiceConnectorOrganizationArgs:
     @property
     @pulumi.getter(name="voiceConnectorId")
     def voice_connector_id(self) -> pulumi.Input[str]:
+        """
+        The Amazon Chime Voice Connector ID.
+        """
         return pulumi.get(self, "voice_connector_id")
 
     @voice_connector_id.setter
@@ -48,6 +57,9 @@ class VoiceConnectorOrganizationArgs:
     @property
     @pulumi.getter
     def disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
+        """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
@@ -63,6 +75,9 @@ class _VoiceConnectorOrganizationState:
                  voice_connector_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VoiceConnectorOrganization resources.
+        :param pulumi.Input[bool] disabled: When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
+        :param pulumi.Input[Sequence[pulumi.Input['VoiceConnectorOrganizationRouteArgs']]] routes: Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
+        :param pulumi.Input[str] voice_connector_id: The Amazon Chime Voice Connector ID.
         """
         if disabled is not None:
             pulumi.set(__self__, "disabled", disabled)
@@ -74,6 +89,9 @@ class _VoiceConnectorOrganizationState:
     @property
     @pulumi.getter
     def disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
+        """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
@@ -83,6 +101,9 @@ class _VoiceConnectorOrganizationState:
     @property
     @pulumi.getter
     def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VoiceConnectorOrganizationRouteArgs']]]]:
+        """
+        Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
+        """
         return pulumi.get(self, "routes")
 
     @routes.setter
@@ -92,6 +113,9 @@ class _VoiceConnectorOrganizationState:
     @property
     @pulumi.getter(name="voiceConnectorId")
     def voice_connector_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Chime Voice Connector ID.
+        """
         return pulumi.get(self, "voice_connector_id")
 
     @voice_connector_id.setter
@@ -109,9 +133,49 @@ class VoiceConnectorOrganization(pulumi.CustomResource):
                  voice_connector_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a VoiceConnectorOrganization resource with the given unique name, props, and options.
+        Enable origination settings to control inbound calling to your SIP infrastructure.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
+        default_voice_connector_organization = aws.chime.VoiceConnectorOrganization("defaultVoiceConnectorOrganization",
+            disabled=False,
+            voice_connector_id=default_voice_connector.id,
+            routes=[
+                aws.chime.VoiceConnectorOrganizationRouteArgs(
+                    host="127.0.0.1",
+                    port=8081,
+                    protocol="TCP",
+                    priority=1,
+                    weight=1,
+                ),
+                aws.chime.VoiceConnectorOrganizationRouteArgs(
+                    host="127.0.0.2",
+                    port=8082,
+                    protocol="TCP",
+                    priority=2,
+                    weight=10,
+                ),
+            ])
+        ```
+
+        ## Import
+
+        Chime Voice Connector Origination can be imported using the `voice_connector_id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] disabled: When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VoiceConnectorOrganizationRouteArgs']]]] routes: Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
+        :param pulumi.Input[str] voice_connector_id: The Amazon Chime Voice Connector ID.
         """
         ...
     @overload
@@ -120,7 +184,44 @@ class VoiceConnectorOrganization(pulumi.CustomResource):
                  args: VoiceConnectorOrganizationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a VoiceConnectorOrganization resource with the given unique name, props, and options.
+        Enable origination settings to control inbound calling to your SIP infrastructure.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
+        default_voice_connector_organization = aws.chime.VoiceConnectorOrganization("defaultVoiceConnectorOrganization",
+            disabled=False,
+            voice_connector_id=default_voice_connector.id,
+            routes=[
+                aws.chime.VoiceConnectorOrganizationRouteArgs(
+                    host="127.0.0.1",
+                    port=8081,
+                    protocol="TCP",
+                    priority=1,
+                    weight=1,
+                ),
+                aws.chime.VoiceConnectorOrganizationRouteArgs(
+                    host="127.0.0.2",
+                    port=8082,
+                    protocol="TCP",
+                    priority=2,
+                    weight=10,
+                ),
+            ])
+        ```
+
+        ## Import
+
+        Chime Voice Connector Origination can be imported using the `voice_connector_id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4
+        ```
+
         :param str resource_name: The name of the resource.
         :param VoiceConnectorOrganizationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,6 +276,9 @@ class VoiceConnectorOrganization(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] disabled: When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VoiceConnectorOrganizationRouteArgs']]]] routes: Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
+        :param pulumi.Input[str] voice_connector_id: The Amazon Chime Voice Connector ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -188,15 +292,24 @@ class VoiceConnectorOrganization(pulumi.CustomResource):
     @property
     @pulumi.getter
     def disabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
+        """
         return pulumi.get(self, "disabled")
 
     @property
     @pulumi.getter
     def routes(self) -> pulumi.Output[Sequence['outputs.VoiceConnectorOrganizationRoute']]:
+        """
+        Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
+        """
         return pulumi.get(self, "routes")
 
     @property
     @pulumi.getter(name="voiceConnectorId")
     def voice_connector_id(self) -> pulumi.Output[str]:
+        """
+        The Amazon Chime Voice Connector ID.
+        """
         return pulumi.get(self, "voice_connector_id")
 

@@ -17,16 +17,32 @@ public final class RegistryScanningConfigurationArgs extends com.pulumi.resource
 
     public static final RegistryScanningConfigurationArgs Empty = new RegistryScanningConfigurationArgs();
 
+    /**
+     * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+     * 
+     */
     @Import(name="rules")
     private @Nullable Output<List<RegistryScanningConfigurationRuleArgs>> rules;
 
+    /**
+     * @return One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+     * 
+     */
     public Optional<Output<List<RegistryScanningConfigurationRuleArgs>>> rules() {
         return Optional.ofNullable(this.rules);
     }
 
+    /**
+     * the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
+     * 
+     */
     @Import(name="scanType", required=true)
     private Output<String> scanType;
 
+    /**
+     * @return the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
+     * 
+     */
     public Output<String> scanType() {
         return this.scanType;
     }
@@ -56,24 +72,54 @@ public final class RegistryScanningConfigurationArgs extends com.pulumi.resource
             $ = new RegistryScanningConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param rules One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rules(@Nullable Output<List<RegistryScanningConfigurationRuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
 
+        /**
+         * @param rules One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rules(List<RegistryScanningConfigurationRuleArgs> rules) {
             return rules(Output.of(rules));
         }
 
+        /**
+         * @param rules One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rules(RegistryScanningConfigurationRuleArgs... rules) {
             return rules(List.of(rules));
         }
 
+        /**
+         * @param scanType the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scanType(Output<String> scanType) {
             $.scanType = scanType;
             return this;
         }
 
+        /**
+         * @param scanType the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scanType(String scanType) {
             return scanType(Output.of(scanType));
         }

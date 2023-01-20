@@ -22,6 +22,10 @@ class UserArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a User resource.
+        :param pulumi.Input[str] access_string: The access permissions string used for this user.
+        :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Denotes the user's authentication properties. Detailed below.
+        :param pulumi.Input[str] user_name: Name of the MemoryDB user. Up to 40 characters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "access_string", access_string)
         pulumi.set(__self__, "authentication_mode", authentication_mode)
@@ -32,6 +36,9 @@ class UserArgs:
     @property
     @pulumi.getter(name="accessString")
     def access_string(self) -> pulumi.Input[str]:
+        """
+        The access permissions string used for this user.
+        """
         return pulumi.get(self, "access_string")
 
     @access_string.setter
@@ -41,6 +48,9 @@ class UserArgs:
     @property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> pulumi.Input['UserAuthenticationModeArgs']:
+        """
+        Denotes the user's authentication properties. Detailed below.
+        """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
@@ -50,6 +60,9 @@ class UserArgs:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[str]:
+        """
+        Name of the MemoryDB user. Up to 40 characters.
+        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -59,6 +72,9 @@ class UserArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -78,6 +94,13 @@ class _UserState:
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering User resources.
+        :param pulumi.Input[str] access_string: The access permissions string used for this user.
+        :param pulumi.Input[str] arn: The ARN of the user.
+        :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Denotes the user's authentication properties. Detailed below.
+        :param pulumi.Input[str] minimum_engine_version: The minimum engine version supported for the user.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] user_name: Name of the MemoryDB user. Up to 40 characters.
         """
         if access_string is not None:
             pulumi.set(__self__, "access_string", access_string)
@@ -97,6 +120,9 @@ class _UserState:
     @property
     @pulumi.getter(name="accessString")
     def access_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The access permissions string used for this user.
+        """
         return pulumi.get(self, "access_string")
 
     @access_string.setter
@@ -106,6 +132,9 @@ class _UserState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the user.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -115,6 +144,9 @@ class _UserState:
     @property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> Optional[pulumi.Input['UserAuthenticationModeArgs']]:
+        """
+        Denotes the user's authentication properties. Detailed below.
+        """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
@@ -124,6 +156,9 @@ class _UserState:
     @property
     @pulumi.getter(name="minimumEngineVersion")
     def minimum_engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The minimum engine version supported for the user.
+        """
         return pulumi.get(self, "minimum_engine_version")
 
     @minimum_engine_version.setter
@@ -133,6 +168,9 @@ class _UserState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -142,6 +180,9 @@ class _UserState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -151,6 +192,9 @@ class _UserState:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the MemoryDB user. Up to 40 characters.
+        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -169,9 +213,43 @@ class User(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a User resource with the given unique name, props, and options.
+        Provides a MemoryDB User.
+
+        More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_random as random
+
+        example_random_password = random.RandomPassword("exampleRandomPassword", length=16)
+        example_user = aws.memorydb.User("exampleUser",
+            user_name="my-user",
+            access_string="on ~* &* +@all",
+            authentication_mode=aws.memorydb.UserAuthenticationModeArgs(
+                type="password",
+                passwords=[example_random_password.result],
+            ))
+        ```
+
+        ## Import
+
+        Use the `user_name` to import a user. For example
+
+        ```sh
+         $ pulumi import aws:memorydb/user:User example my-user
+        ```
+
+         The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_string: The access permissions string used for this user.
+        :param pulumi.Input[pulumi.InputType['UserAuthenticationModeArgs']] authentication_mode: Denotes the user's authentication properties. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] user_name: Name of the MemoryDB user. Up to 40 characters.
         """
         ...
     @overload
@@ -180,7 +258,37 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a User resource with the given unique name, props, and options.
+        Provides a MemoryDB User.
+
+        More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_random as random
+
+        example_random_password = random.RandomPassword("exampleRandomPassword", length=16)
+        example_user = aws.memorydb.User("exampleUser",
+            user_name="my-user",
+            access_string="on ~* &* +@all",
+            authentication_mode=aws.memorydb.UserAuthenticationModeArgs(
+                type="password",
+                passwords=[example_random_password.result],
+            ))
+        ```
+
+        ## Import
+
+        Use the `user_name` to import a user. For example
+
+        ```sh
+         $ pulumi import aws:memorydb/user:User example my-user
+        ```
+
+         The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
+
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -246,6 +354,13 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_string: The access permissions string used for this user.
+        :param pulumi.Input[str] arn: The ARN of the user.
+        :param pulumi.Input[pulumi.InputType['UserAuthenticationModeArgs']] authentication_mode: Denotes the user's authentication properties. Detailed below.
+        :param pulumi.Input[str] minimum_engine_version: The minimum engine version supported for the user.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] user_name: Name of the MemoryDB user. Up to 40 characters.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -263,35 +378,56 @@ class User(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessString")
     def access_string(self) -> pulumi.Output[str]:
+        """
+        The access permissions string used for this user.
+        """
         return pulumi.get(self, "access_string")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the user.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> pulumi.Output['outputs.UserAuthenticationMode']:
+        """
+        Denotes the user's authentication properties. Detailed below.
+        """
         return pulumi.get(self, "authentication_mode")
 
     @property
     @pulumi.getter(name="minimumEngineVersion")
     def minimum_engine_version(self) -> pulumi.Output[str]:
+        """
+        The minimum engine version supported for the user.
+        """
         return pulumi.get(self, "minimum_engine_version")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[str]:
+        """
+        Name of the MemoryDB user. Up to 40 characters.
+        """
         return pulumi.get(self, "user_name")
 

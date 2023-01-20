@@ -15,16 +15,32 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ResourcePolicyArgs Empty = new ResourcePolicyArgs();
 
+    /**
+     * Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+     * 
+     */
     @Import(name="enableHybrid")
     private @Nullable Output<String> enableHybrid;
 
+    /**
+     * @return Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+     * 
+     */
     public Optional<Output<String>> enableHybrid() {
         return Optional.ofNullable(this.enableHybrid);
     }
 
+    /**
+     * The policy to be applied to the aws glue data catalog.
+     * 
+     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
+    /**
+     * @return The policy to be applied to the aws glue data catalog.
+     * 
+     */
     public Output<String> policy() {
         return this.policy;
     }
@@ -54,20 +70,44 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ResourcePolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param enableHybrid Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableHybrid(@Nullable Output<String> enableHybrid) {
             $.enableHybrid = enableHybrid;
             return this;
         }
 
+        /**
+         * @param enableHybrid Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableHybrid(String enableHybrid) {
             return enableHybrid(Output.of(enableHybrid));
         }
 
+        /**
+         * @param policy The policy to be applied to the aws glue data catalog.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
+        /**
+         * @param policy The policy to be applied to the aws glue data catalog.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }

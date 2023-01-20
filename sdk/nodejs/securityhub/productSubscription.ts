@@ -4,6 +4,30 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Subscribes to a Security Hub product.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
+ * const current = aws.getRegion({});
+ * const exampleProductSubscription = new aws.securityhub.ProductSubscription("exampleProductSubscription", {productArn: current.then(current => `arn:aws:securityhub:${current.name}:733251395267:product/alertlogic/althreatmanagement`)}, {
+ *     dependsOn: [exampleAccount],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Security Hub product subscriptions can be imported in the form `product_arn,arn`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
+ * ```
+ */
 export class ProductSubscription extends pulumi.CustomResource {
     /**
      * Get an existing ProductSubscription resource's state with the given name, ID, and optional extra
@@ -32,7 +56,13 @@ export class ProductSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProductSubscription.__pulumiType;
     }
 
+    /**
+     * The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ARN of the product that generates findings that you want to import into Security Hub - see below.
+     */
     public readonly productArn!: pulumi.Output<string>;
 
     /**
@@ -67,7 +97,13 @@ export class ProductSubscription extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProductSubscription resources.
  */
 export interface ProductSubscriptionState {
+    /**
+     * The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The ARN of the product that generates findings that you want to import into Security Hub - see below.
+     */
     productArn?: pulumi.Input<string>;
 }
 
@@ -75,5 +111,8 @@ export interface ProductSubscriptionState {
  * The set of arguments for constructing a ProductSubscription resource.
  */
 export interface ProductSubscriptionArgs {
+    /**
+     * The ARN of the product that generates findings that you want to import into Security Hub - see below.
+     */
     productArn: pulumi.Input<string>;
 }

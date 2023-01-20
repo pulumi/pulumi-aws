@@ -16,23 +16,47 @@ public final class GetIpamPreviewNextCidrPlainArgs extends com.pulumi.resources.
 
     public static final GetIpamPreviewNextCidrPlainArgs Empty = new GetIpamPreviewNextCidrPlainArgs();
 
+    /**
+     * Exclude a particular CIDR range from being returned by the pool.
+     * 
+     */
     @Import(name="disallowedCidrs")
     private @Nullable List<String> disallowedCidrs;
 
+    /**
+     * @return Exclude a particular CIDR range from being returned by the pool.
+     * 
+     */
     public Optional<List<String>> disallowedCidrs() {
         return Optional.ofNullable(this.disallowedCidrs);
     }
 
+    /**
+     * ID of the pool to which you want to assign a CIDR.
+     * 
+     */
     @Import(name="ipamPoolId", required=true)
     private String ipamPoolId;
 
+    /**
+     * @return ID of the pool to which you want to assign a CIDR.
+     * 
+     */
     public String ipamPoolId() {
         return this.ipamPoolId;
     }
 
+    /**
+     * Netmask length of the CIDR you would like to preview from the IPAM pool.
+     * 
+     */
     @Import(name="netmaskLength")
     private @Nullable Integer netmaskLength;
 
+    /**
+     * @return Netmask length of the CIDR you would like to preview from the IPAM pool.
+     * 
+     */
     public Optional<Integer> netmaskLength() {
         return Optional.ofNullable(this.netmaskLength);
     }
@@ -63,20 +87,44 @@ public final class GetIpamPreviewNextCidrPlainArgs extends com.pulumi.resources.
             $ = new GetIpamPreviewNextCidrPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param disallowedCidrs Exclude a particular CIDR range from being returned by the pool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder disallowedCidrs(@Nullable List<String> disallowedCidrs) {
             $.disallowedCidrs = disallowedCidrs;
             return this;
         }
 
+        /**
+         * @param disallowedCidrs Exclude a particular CIDR range from being returned by the pool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder disallowedCidrs(String... disallowedCidrs) {
             return disallowedCidrs(List.of(disallowedCidrs));
         }
 
+        /**
+         * @param ipamPoolId ID of the pool to which you want to assign a CIDR.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipamPoolId(String ipamPoolId) {
             $.ipamPoolId = ipamPoolId;
             return this;
         }
 
+        /**
+         * @param netmaskLength Netmask length of the CIDR you would like to preview from the IPAM pool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder netmaskLength(@Nullable Integer netmaskLength) {
             $.netmaskLength = netmaskLength;
             return this;

@@ -13,9 +13,21 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce
     {
+        /// <summary>
+        /// The access token used to access the connector on your behalf.
+        /// </summary>
         public readonly string? AccessToken;
+        /// <summary>
+        /// The secret manager ARN, which contains the client ID and client secret of the connected app.
+        /// </summary>
         public readonly string? ClientCredentialsArn;
+        /// <summary>
+        /// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest? OauthRequest;
+        /// <summary>
+        /// The refresh token used to refresh an expired access token.
+        /// </summary>
         public readonly string? RefreshToken;
 
         [OutputConstructor]

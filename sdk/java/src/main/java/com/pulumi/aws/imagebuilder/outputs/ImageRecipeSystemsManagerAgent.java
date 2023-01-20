@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ImageRecipeSystemsManagerAgent {
+    /**
+     * @return Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+     * 
+     */
     private Boolean uninstallAfterBuild;
 
     private ImageRecipeSystemsManagerAgent() {}
+    /**
+     * @return Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+     * 
+     */
     public Boolean uninstallAfterBuild() {
         return this.uninstallAfterBuild;
     }

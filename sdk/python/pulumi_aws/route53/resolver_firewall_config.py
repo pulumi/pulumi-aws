@@ -18,6 +18,8 @@ class ResolverFirewallConfigArgs:
                  firewall_fail_open: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResolverFirewallConfig resource.
+        :param pulumi.Input[str] resource_id: The ID of the VPC that the configuration is for.
+        :param pulumi.Input[str] firewall_fail_open: Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
         """
         pulumi.set(__self__, "resource_id", resource_id)
         if firewall_fail_open is not None:
@@ -26,6 +28,9 @@ class ResolverFirewallConfigArgs:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC that the configuration is for.
+        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -35,6 +40,9 @@ class ResolverFirewallConfigArgs:
     @property
     @pulumi.getter(name="firewallFailOpen")
     def firewall_fail_open(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "firewall_fail_open")
 
     @firewall_fail_open.setter
@@ -50,6 +58,9 @@ class _ResolverFirewallConfigState:
                  resource_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ResolverFirewallConfig resources.
+        :param pulumi.Input[str] firewall_fail_open: Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[str] owner_id: The AWS account ID of the owner of the VPC that this firewall configuration applies to.
+        :param pulumi.Input[str] resource_id: The ID of the VPC that the configuration is for.
         """
         if firewall_fail_open is not None:
             pulumi.set(__self__, "firewall_fail_open", firewall_fail_open)
@@ -61,6 +72,9 @@ class _ResolverFirewallConfigState:
     @property
     @pulumi.getter(name="firewallFailOpen")
     def firewall_fail_open(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "firewall_fail_open")
 
     @firewall_fail_open.setter
@@ -70,6 +84,9 @@ class _ResolverFirewallConfigState:
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID of the owner of the VPC that this firewall configuration applies to.
+        """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
@@ -79,6 +96,9 @@ class _ResolverFirewallConfigState:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VPC that the configuration is for.
+        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -95,9 +115,35 @@ class ResolverFirewallConfig(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ResolverFirewallConfig resource with the given unique name, props, and options.
+        Provides a Route 53 Resolver DNS Firewall config resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_vpc = aws.ec2.Vpc("exampleVpc",
+            cidr_block="10.0.0.0/16",
+            enable_dns_support=True,
+            enable_dns_hostnames=True)
+        example_resolver_firewall_config = aws.route53.ResolverFirewallConfig("exampleResolverFirewallConfig",
+            resource_id=example_vpc.id,
+            firewall_fail_open="ENABLED")
+        ```
+
+        ## Import
+
+        Route 53 Resolver DNS Firewall configs can be imported using the Route 53 Resolver DNS Firewall config ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:route53/resolverFirewallConfig:ResolverFirewallConfig example rdsc-be1866ecc1683e95
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] firewall_fail_open: Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[str] resource_id: The ID of the VPC that the configuration is for.
         """
         ...
     @overload
@@ -106,7 +152,31 @@ class ResolverFirewallConfig(pulumi.CustomResource):
                  args: ResolverFirewallConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ResolverFirewallConfig resource with the given unique name, props, and options.
+        Provides a Route 53 Resolver DNS Firewall config resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_vpc = aws.ec2.Vpc("exampleVpc",
+            cidr_block="10.0.0.0/16",
+            enable_dns_support=True,
+            enable_dns_hostnames=True)
+        example_resolver_firewall_config = aws.route53.ResolverFirewallConfig("exampleResolverFirewallConfig",
+            resource_id=example_vpc.id,
+            firewall_fail_open="ENABLED")
+        ```
+
+        ## Import
+
+        Route 53 Resolver DNS Firewall configs can be imported using the Route 53 Resolver DNS Firewall config ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:route53/resolverFirewallConfig:ResolverFirewallConfig example rdsc-be1866ecc1683e95
+        ```
+
         :param str resource_name: The name of the resource.
         :param ResolverFirewallConfigArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,6 +228,9 @@ class ResolverFirewallConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] firewall_fail_open: Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[str] owner_id: The AWS account ID of the owner of the VPC that this firewall configuration applies to.
+        :param pulumi.Input[str] resource_id: The ID of the VPC that the configuration is for.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -171,15 +244,24 @@ class ResolverFirewallConfig(pulumi.CustomResource):
     @property
     @pulumi.getter(name="firewallFailOpen")
     def firewall_fail_open(self) -> pulumi.Output[str]:
+        """
+        Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "firewall_fail_open")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[str]:
+        """
+        The AWS account ID of the owner of the VPC that this firewall configuration applies to.
+        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the VPC that the configuration is for.
+        """
         return pulumi.get(self, "resource_id")
 

@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Athena.Inputs
 
     public sealed class WorkgroupConfigurationEngineVersionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.
+        /// </summary>
         [Input("effectiveEngineVersion")]
         public Input<string>? EffectiveEngineVersion { get; set; }
 
+        /// <summary>
+        /// Requested engine version. Defaults to `AUTO`.
+        /// </summary>
         [Input("selectedEngineVersion")]
         public Input<string>? SelectedEngineVersion { get; set; }
 

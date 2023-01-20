@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides details about a Lake Formation resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lakeformation.LookupResource(ctx, &lakeformation.LookupResourceArgs{
+//				Arn: "arn:aws:s3:::tf-acc-test-9151654063908211878",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {
 	var rv LookupResourceResult
 	err := ctx.Invoke("aws:lakeformation/getResource:getResource", args, &rv, opts...)
@@ -21,6 +48,7 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 
 // A collection of arguments for invoking getResource.
 type LookupResourceArgs struct {
+	// ARN of the resource, an S3 path.
 	Arn string `pulumi:"arn"`
 }
 
@@ -28,9 +56,11 @@ type LookupResourceArgs struct {
 type LookupResourceResult struct {
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id           string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModified string `pulumi:"lastModified"`
-	RoleArn      string `pulumi:"roleArn"`
+	// Role that the resource was registered with.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, opts ...pulumi.InvokeOption) LookupResourceResultOutput {
@@ -48,6 +78,7 @@ func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, op
 
 // A collection of arguments for invoking getResource.
 type LookupResourceOutputArgs struct {
+	// ARN of the resource, an S3 path.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -79,10 +110,12 @@ func (o LookupResourceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o LookupResourceResultOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.LastModified }).(pulumi.StringOutput)
 }
 
+// Role that the resource was registered with.
 func (o LookupResourceResultOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.RoleArn }).(pulumi.StringOutput)
 }

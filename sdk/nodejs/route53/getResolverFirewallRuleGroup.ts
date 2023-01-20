@@ -4,6 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `aws.route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
+ *
+ * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
+ *
+ * ## Example Usage
+ *
+ * The following example shows how to get a firewall rule group from its ID.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.route53.getResolverFirewallRuleGroup({
+ *     firewallRuleGroupId: "rslvr-frg-example",
+ * });
+ * ```
+ */
 export function getResolverFirewallRuleGroup(args: GetResolverFirewallRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallRuleGroupResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -16,6 +34,9 @@ export function getResolverFirewallRuleGroup(args: GetResolverFirewallRuleGroupA
  * A collection of arguments for invoking getResolverFirewallRuleGroup.
  */
 export interface GetResolverFirewallRuleGroupArgs {
+    /**
+     * The ID of the rule group.
+     */
     firewallRuleGroupId: string;
 }
 
@@ -39,6 +60,24 @@ export interface GetResolverFirewallRuleGroupResult {
     readonly status: string;
     readonly statusMessage: string;
 }
+/**
+ * `aws.route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
+ *
+ * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
+ *
+ * ## Example Usage
+ *
+ * The following example shows how to get a firewall rule group from its ID.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.route53.getResolverFirewallRuleGroup({
+ *     firewallRuleGroupId: "rslvr-frg-example",
+ * });
+ * ```
+ */
 export function getResolverFirewallRuleGroupOutput(args: GetResolverFirewallRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverFirewallRuleGroupResult> {
     return pulumi.output(args).apply((a: any) => getResolverFirewallRuleGroup(a, opts))
 }
@@ -47,5 +86,8 @@ export function getResolverFirewallRuleGroupOutput(args: GetResolverFirewallRule
  * A collection of arguments for invoking getResolverFirewallRuleGroup.
  */
 export interface GetResolverFirewallRuleGroupOutputArgs {
+    /**
+     * The ID of the rule group.
+     */
     firewallRuleGroupId: pulumi.Input<string>;
 }

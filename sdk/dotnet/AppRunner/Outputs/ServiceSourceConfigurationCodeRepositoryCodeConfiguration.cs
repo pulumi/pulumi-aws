@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AppRunner.Outputs
     [OutputType]
     public sealed class ServiceSourceConfigurationCodeRepositoryCodeConfiguration
     {
+        /// <summary>
+        /// Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
+        /// </summary>
         public readonly Outputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues? CodeConfigurationValues;
+        /// <summary>
+        /// Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
+        /// </summary>
         public readonly string ConfigurationSource;
 
         [OutputConstructor]

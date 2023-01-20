@@ -16,59 +16,184 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Pinpoint APNs Channel resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.pinpoint.App;
+ * import com.pulumi.aws.pinpoint.ApnsChannel;
+ * import com.pulumi.aws.pinpoint.ApnsChannelArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var app = new App(&#34;app&#34;);
+ * 
+ *         var apns = new ApnsChannel(&#34;apns&#34;, ApnsChannelArgs.builder()        
+ *             .applicationId(app.applicationId())
+ *             .certificate(Files.readString(Paths.get(&#34;./certificate.pem&#34;)))
+ *             .privateKey(Files.readString(Paths.get(&#34;./private_key.key&#34;)))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Pinpoint APNs Channel can be imported using the `application-id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:pinpoint/apnsChannel:ApnsChannel apns application-id
+ * ```
+ * 
+ */
 @ResourceType(type="aws:pinpoint/apnsChannel:ApnsChannel")
 public class ApnsChannel extends com.pulumi.resources.CustomResource {
+    /**
+     * The application ID.
+     * 
+     */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
+    /**
+     * @return The application ID.
+     * 
+     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
+    /**
+     * The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
+     * 
+     */
     @Export(name="bundleId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bundleId;
 
+    /**
+     * @return The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
+     * 
+     */
     public Output<Optional<String>> bundleId() {
         return Codegen.optional(this.bundleId);
     }
+    /**
+     * The pem encoded TLS Certificate from Apple.
+     * 
+     */
     @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificate;
 
+    /**
+     * @return The pem encoded TLS Certificate from Apple.
+     * 
+     */
     public Output<Optional<String>> certificate() {
         return Codegen.optional(this.certificate);
     }
+    /**
+     * The default authentication method used for APNs.
+     * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
+     * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
+     * If your default authentication type fails, Amazon Pinpoint doesn&#39;t attempt to use the other authentication type.
+     * 
+     */
     @Export(name="defaultAuthenticationMethod", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultAuthenticationMethod;
 
+    /**
+     * @return The default authentication method used for APNs.
+     * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
+     * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
+     * If your default authentication type fails, Amazon Pinpoint doesn&#39;t attempt to use the other authentication type.
+     * 
+     */
     public Output<Optional<String>> defaultAuthenticationMethod() {
         return Codegen.optional(this.defaultAuthenticationMethod);
     }
+    /**
+     * Whether the channel is enabled or disabled. Defaults to `true`.
+     * 
+     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
+    /**
+     * @return Whether the channel is enabled or disabled. Defaults to `true`.
+     * 
+     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
+    /**
+     * The Certificate Private Key file (ie. `.key` file).
+     * 
+     */
     @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privateKey;
 
+    /**
+     * @return The Certificate Private Key file (ie. `.key` file).
+     * 
+     */
     public Output<Optional<String>> privateKey() {
         return Codegen.optional(this.privateKey);
     }
+    /**
+     * The ID assigned to your Apple developer account team. This value is provided on the Membership page.
+     * 
+     */
     @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> teamId;
 
+    /**
+     * @return The ID assigned to your Apple developer account team. This value is provided on the Membership page.
+     * 
+     */
     public Output<Optional<String>> teamId() {
         return Codegen.optional(this.teamId);
     }
+    /**
+     * The `.p8` file that you download from your Apple developer account when you create an authentication key.
+     * 
+     */
     @Export(name="tokenKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tokenKey;
 
+    /**
+     * @return The `.p8` file that you download from your Apple developer account when you create an authentication key.
+     * 
+     */
     public Output<Optional<String>> tokenKey() {
         return Codegen.optional(this.tokenKey);
     }
+    /**
+     * The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
+     * 
+     */
     @Export(name="tokenKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tokenKeyId;
 
+    /**
+     * @return The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
+     * 
+     */
     public Output<Optional<String>> tokenKeyId() {
         return Codegen.optional(this.tokenKeyId);
     }

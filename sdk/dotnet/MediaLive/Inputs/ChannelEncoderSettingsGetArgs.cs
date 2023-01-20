@@ -14,28 +14,46 @@ namespace Pulumi.Aws.MediaLive.Inputs
     {
         [Input("audioDescriptions")]
         private InputList<Inputs.ChannelEncoderSettingsAudioDescriptionGetArgs>? _audioDescriptions;
+
+        /// <summary>
+        /// Audio descriptions for the channel. See Audio Descriptions for more details.
+        /// </summary>
         public InputList<Inputs.ChannelEncoderSettingsAudioDescriptionGetArgs> AudioDescriptions
         {
             get => _audioDescriptions ?? (_audioDescriptions = new InputList<Inputs.ChannelEncoderSettingsAudioDescriptionGetArgs>());
             set => _audioDescriptions = value;
         }
 
+        /// <summary>
+        /// Settings for ad avail blanking. See Avail Blanking for more details.
+        /// </summary>
         [Input("availBlanking")]
         public Input<Inputs.ChannelEncoderSettingsAvailBlankingGetArgs>? AvailBlanking { get; set; }
 
         [Input("outputGroups", required: true)]
         private InputList<Inputs.ChannelEncoderSettingsOutputGroupGetArgs>? _outputGroups;
+
+        /// <summary>
+        /// Output groups for the channel. See Output Groups for more details.
+        /// </summary>
         public InputList<Inputs.ChannelEncoderSettingsOutputGroupGetArgs> OutputGroups
         {
             get => _outputGroups ?? (_outputGroups = new InputList<Inputs.ChannelEncoderSettingsOutputGroupGetArgs>());
             set => _outputGroups = value;
         }
 
+        /// <summary>
+        /// Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
+        /// </summary>
         [Input("timecodeConfig", required: true)]
         public Input<Inputs.ChannelEncoderSettingsTimecodeConfigGetArgs> TimecodeConfig { get; set; } = null!;
 
         [Input("videoDescriptions")]
         private InputList<Inputs.ChannelEncoderSettingsVideoDescriptionGetArgs>? _videoDescriptions;
+
+        /// <summary>
+        /// Video Descriptions. See Video Descriptions for more details.
+        /// </summary>
         public InputList<Inputs.ChannelEncoderSettingsVideoDescriptionGetArgs> VideoDescriptions
         {
             get => _videoDescriptions ?? (_videoDescriptions = new InputList<Inputs.ChannelEncoderSettingsVideoDescriptionGetArgs>());

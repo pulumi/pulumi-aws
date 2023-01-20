@@ -7,6 +7,39 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to get the default EBS encryption KMS key in the current region.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := ebs.LookupDefaultKmsKey(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
+//				AvailabilityZone: pulumi.String("us-west-2a"),
+//				Encrypted:        pulumi.Bool(true),
+//				KmsKeyId:         *pulumi.String(current.KeyArn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupDefaultKmsKey(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupDefaultKmsKeyResult, error) {
 	var rv LookupDefaultKmsKeyResult
 	err := ctx.Invoke("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", nil, &rv, opts...)
@@ -19,6 +52,7 @@ func LookupDefaultKmsKey(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*Loo
 // A collection of values returned by getDefaultKmsKey.
 type LookupDefaultKmsKeyResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// ARN of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
 	KeyArn string `pulumi:"keyArn"`
 }

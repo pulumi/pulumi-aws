@@ -14,9 +14,17 @@ public final class WebAclRuleActionCaptchaCustomRequestHandlingArgs extends com.
 
     public static final WebAclRuleActionCaptchaCustomRequestHandlingArgs Empty = new WebAclRuleActionCaptchaCustomRequestHandlingArgs();
 
+    /**
+     * The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+     * 
+     */
     @Import(name="insertHeaders", required=true)
     private Output<List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs>> insertHeaders;
 
+    /**
+     * @return The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+     * 
+     */
     public Output<List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs>> insertHeaders() {
         return this.insertHeaders;
     }
@@ -45,15 +53,33 @@ public final class WebAclRuleActionCaptchaCustomRequestHandlingArgs extends com.
             $ = new WebAclRuleActionCaptchaCustomRequestHandlingArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param insertHeaders The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder insertHeaders(Output<List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs>> insertHeaders) {
             $.insertHeaders = insertHeaders;
             return this;
         }
 
+        /**
+         * @param insertHeaders The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder insertHeaders(List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs> insertHeaders) {
             return insertHeaders(Output.of(insertHeaders));
         }
 
+        /**
+         * @param insertHeaders The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder insertHeaders(WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs... insertHeaders) {
             return insertHeaders(List.of(insertHeaders));
         }

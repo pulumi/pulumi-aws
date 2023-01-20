@@ -9,30 +9,110 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Transcribe
 {
+    /// <summary>
+    /// Resource for managing an AWS Transcribe Vocabulary.
+    /// 
+    /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
+    ///     {
+    ///         ForceDestroy = true,
+    ///     });
+    /// 
+    ///     var @object = new Aws.S3.BucketObjectv2("object", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         Key = "transcribe/test1.txt",
+    ///         Source = new FileAsset("test.txt"),
+    ///     });
+    /// 
+    ///     var exampleVocabulary = new Aws.Transcribe.Vocabulary("exampleVocabulary", new()
+    ///     {
+    ///         VocabularyName = "example",
+    ///         LanguageCode = "en-US",
+    ///         VocabularyFileUri = Output.Tuple(exampleBucketV2.Id, @object.Key).Apply(values =&gt;
+    ///         {
+    ///             var id = values.Item1;
+    ///             var key = values.Item2;
+    ///             return $"s3://{id}/{key}";
+    ///         }),
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value3" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             @object,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Transcribe Vocabulary can be imported using the `vocabulary_name`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:transcribe/vocabulary:Vocabulary")]
     public partial class Vocabulary : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of the Vocabulary.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Generated download URI.
+        /// </summary>
         [Output("downloadUri")]
         public Output<string> DownloadUri { get; private set; } = null!;
 
+        /// <summary>
+        /// The language code you selected for your vocabulary.
+        /// </summary>
         [Output("languageCode")]
         public Output<string> LanguageCode { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        /// </summary>
         [Output("phrases")]
         public Output<ImmutableArray<string>> Phrases { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+        /// </summary>
         [Output("vocabularyFileUri")]
         public Output<string> VocabularyFileUri { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Vocabulary.
+        /// </summary>
         [Output("vocabularyName")]
         public Output<string> VocabularyName { get; private set; } = null!;
 
@@ -82,11 +162,18 @@ namespace Pulumi.Aws.Transcribe
 
     public sealed class VocabularyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The language code you selected for your vocabulary.
+        /// </summary>
         [Input("languageCode", required: true)]
         public Input<string> LanguageCode { get; set; } = null!;
 
         [Input("phrases")]
         private InputList<string>? _phrases;
+
+        /// <summary>
+        /// A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        /// </summary>
         public InputList<string> Phrases
         {
             get => _phrases ?? (_phrases = new InputList<string>());
@@ -95,15 +182,25 @@ namespace Pulumi.Aws.Transcribe
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+        /// </summary>
         [Input("vocabularyFileUri")]
         public Input<string>? VocabularyFileUri { get; set; }
 
+        /// <summary>
+        /// The name of the Vocabulary.
+        /// </summary>
         [Input("vocabularyName", required: true)]
         public Input<string> VocabularyName { get; set; } = null!;
 
@@ -115,17 +212,30 @@ namespace Pulumi.Aws.Transcribe
 
     public sealed class VocabularyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the Vocabulary.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Generated download URI.
+        /// </summary>
         [Input("downloadUri")]
         public Input<string>? DownloadUri { get; set; }
 
+        /// <summary>
+        /// The language code you selected for your vocabulary.
+        /// </summary>
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }
 
         [Input("phrases")]
         private InputList<string>? _phrases;
+
+        /// <summary>
+        /// A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        /// </summary>
         public InputList<string> Phrases
         {
             get => _phrases ?? (_phrases = new InputList<string>());
@@ -134,6 +244,10 @@ namespace Pulumi.Aws.Transcribe
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -148,9 +262,15 @@ namespace Pulumi.Aws.Transcribe
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+        /// </summary>
         [Input("vocabularyFileUri")]
         public Input<string>? VocabularyFileUri { get; set; }
 
+        /// <summary>
+        /// The name of the Vocabulary.
+        /// </summary>
         [Input("vocabularyName")]
         public Input<string>? VocabularyName { get; set; }
 

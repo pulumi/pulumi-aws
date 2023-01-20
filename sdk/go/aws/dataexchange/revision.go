@@ -11,15 +11,58 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to manage AWS Data Exchange Revisions.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dataexchange"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := dataexchange.NewRevision(ctx, "example", &dataexchange.RevisionArgs{
+//				DataSetId: pulumi.Any(aws_dataexchange_data_set.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// DataExchange Revisions can be imported by their `data-set-id:revision-id`
+//
+// ```sh
+//
+//	$ pulumi import aws:dataexchange/revision:Revision example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+//
+// ```
 type Revision struct {
 	pulumi.CustomResourceState
 
-	Arn        pulumi.StringOutput    `pulumi:"arn"`
-	Comment    pulumi.StringPtrOutput `pulumi:"comment"`
-	DataSetId  pulumi.StringOutput    `pulumi:"dataSetId"`
-	RevisionId pulumi.StringOutput    `pulumi:"revisionId"`
-	Tags       pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll    pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The Amazon Resource Name of this data set.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// An optional comment about the revision.
+	Comment pulumi.StringPtrOutput `pulumi:"comment"`
+	// The dataset id.
+	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
+	// The Id of the revision.
+	RevisionId pulumi.StringOutput `pulumi:"revisionId"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewRevision registers a new resource with the given unique name, arguments, and options.
@@ -54,21 +97,33 @@ func GetRevision(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Revision resources.
 type revisionState struct {
-	Arn        *string           `pulumi:"arn"`
-	Comment    *string           `pulumi:"comment"`
-	DataSetId  *string           `pulumi:"dataSetId"`
-	RevisionId *string           `pulumi:"revisionId"`
-	Tags       map[string]string `pulumi:"tags"`
-	TagsAll    map[string]string `pulumi:"tagsAll"`
+	// The Amazon Resource Name of this data set.
+	Arn *string `pulumi:"arn"`
+	// An optional comment about the revision.
+	Comment *string `pulumi:"comment"`
+	// The dataset id.
+	DataSetId *string `pulumi:"dataSetId"`
+	// The Id of the revision.
+	RevisionId *string `pulumi:"revisionId"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type RevisionState struct {
-	Arn        pulumi.StringPtrInput
-	Comment    pulumi.StringPtrInput
-	DataSetId  pulumi.StringPtrInput
+	// The Amazon Resource Name of this data set.
+	Arn pulumi.StringPtrInput
+	// An optional comment about the revision.
+	Comment pulumi.StringPtrInput
+	// The dataset id.
+	DataSetId pulumi.StringPtrInput
+	// The Id of the revision.
 	RevisionId pulumi.StringPtrInput
-	Tags       pulumi.StringMapInput
-	TagsAll    pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (RevisionState) ElementType() reflect.Type {
@@ -76,16 +131,22 @@ func (RevisionState) ElementType() reflect.Type {
 }
 
 type revisionArgs struct {
-	Comment   *string           `pulumi:"comment"`
-	DataSetId string            `pulumi:"dataSetId"`
-	Tags      map[string]string `pulumi:"tags"`
+	// An optional comment about the revision.
+	Comment *string `pulumi:"comment"`
+	// The dataset id.
+	DataSetId string `pulumi:"dataSetId"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Revision resource.
 type RevisionArgs struct {
-	Comment   pulumi.StringPtrInput
+	// An optional comment about the revision.
+	Comment pulumi.StringPtrInput
+	// The dataset id.
 	DataSetId pulumi.StringInput
-	Tags      pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (RevisionArgs) ElementType() reflect.Type {
@@ -175,26 +236,32 @@ func (o RevisionOutput) ToRevisionOutputWithContext(ctx context.Context) Revisio
 	return o
 }
 
+// The Amazon Resource Name of this data set.
 func (o RevisionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Revision) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// An optional comment about the revision.
 func (o RevisionOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Revision) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// The dataset id.
 func (o RevisionOutput) DataSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Revision) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
 }
 
+// The Id of the revision.
 func (o RevisionOutput) RevisionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Revision) pulumi.StringOutput { return v.RevisionId }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RevisionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Revision) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RevisionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Revision) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

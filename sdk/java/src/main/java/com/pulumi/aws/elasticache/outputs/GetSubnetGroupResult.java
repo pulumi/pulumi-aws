@@ -12,7 +12,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSubnetGroupResult {
+    /**
+     * @return ARN of the subnet group.
+     * 
+     */
     private String arn;
+    /**
+     * @return Description of the subnet group.
+     * 
+     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -20,13 +28,29 @@ public final class GetSubnetGroupResult {
      */
     private String id;
     private String name;
+    /**
+     * @return Set of VPC Subnet ID-s of the subnet group.
+     * 
+     */
     private List<String> subnetIds;
+    /**
+     * @return Map of tags assigned to the subnet group.
+     * 
+     */
     private @Nullable Map<String,String> tags;
 
     private GetSubnetGroupResult() {}
+    /**
+     * @return ARN of the subnet group.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Description of the subnet group.
+     * 
+     */
     public String description() {
         return this.description;
     }
@@ -40,9 +64,17 @@ public final class GetSubnetGroupResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Set of VPC Subnet ID-s of the subnet group.
+     * 
+     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
+    /**
+     * @return Map of tags assigned to the subnet group.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }

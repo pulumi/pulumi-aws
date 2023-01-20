@@ -19,10 +19,26 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserResult {
+    /**
+     * @return List of details about the user&#39;s address.
+     * 
+     */
     private List<GetUserAddress> addresses;
     private @Nullable GetUserAlternateIdentifier alternateIdentifier;
+    /**
+     * @return The name that is typically displayed when the user is referenced.
+     * 
+     */
     private String displayName;
+    /**
+     * @return List of details about the user&#39;s email.
+     * 
+     */
     private List<GetUserEmail> emails;
+    /**
+     * @return List of identifiers issued to this resource by an external identity provider.
+     * 
+     */
     private List<GetUserExternalId> externalIds;
     /**
      * @deprecated
@@ -37,31 +53,87 @@ public final class GetUserResult {
      */
     private String id;
     private String identityStoreId;
+    /**
+     * @return The user&#39;s geographical region or location.
+     * 
+     */
     private String locale;
+    /**
+     * @return Details about the user&#39;s full name.
+     * 
+     */
     private List<GetUserName> names;
+    /**
+     * @return An alternate name for the user.
+     * 
+     */
     private String nickname;
+    /**
+     * @return List of details about the user&#39;s phone number.
+     * 
+     */
     private List<GetUserPhoneNumber> phoneNumbers;
+    /**
+     * @return The preferred language of the user.
+     * 
+     */
     private String preferredLanguage;
+    /**
+     * @return An URL that may be associated with the user.
+     * 
+     */
     private String profileUrl;
+    /**
+     * @return The user&#39;s time zone.
+     * 
+     */
     private String timezone;
+    /**
+     * @return The user&#39;s title.
+     * 
+     */
     private String title;
     private String userId;
+    /**
+     * @return User&#39;s user name value.
+     * 
+     */
     private String userName;
+    /**
+     * @return The user type.
+     * 
+     */
     private String userType;
 
     private GetUserResult() {}
+    /**
+     * @return List of details about the user&#39;s address.
+     * 
+     */
     public List<GetUserAddress> addresses() {
         return this.addresses;
     }
     public Optional<GetUserAlternateIdentifier> alternateIdentifier() {
         return Optional.ofNullable(this.alternateIdentifier);
     }
+    /**
+     * @return The name that is typically displayed when the user is referenced.
+     * 
+     */
     public String displayName() {
         return this.displayName;
     }
+    /**
+     * @return List of details about the user&#39;s email.
+     * 
+     */
     public List<GetUserEmail> emails() {
         return this.emails;
     }
+    /**
+     * @return List of identifiers issued to this resource by an external identity provider.
+     * 
+     */
     public List<GetUserExternalId> externalIds() {
         return this.externalIds;
     }
@@ -84,36 +156,76 @@ public final class GetUserResult {
     public String identityStoreId() {
         return this.identityStoreId;
     }
+    /**
+     * @return The user&#39;s geographical region or location.
+     * 
+     */
     public String locale() {
         return this.locale;
     }
+    /**
+     * @return Details about the user&#39;s full name.
+     * 
+     */
     public List<GetUserName> names() {
         return this.names;
     }
+    /**
+     * @return An alternate name for the user.
+     * 
+     */
     public String nickname() {
         return this.nickname;
     }
+    /**
+     * @return List of details about the user&#39;s phone number.
+     * 
+     */
     public List<GetUserPhoneNumber> phoneNumbers() {
         return this.phoneNumbers;
     }
+    /**
+     * @return The preferred language of the user.
+     * 
+     */
     public String preferredLanguage() {
         return this.preferredLanguage;
     }
+    /**
+     * @return An URL that may be associated with the user.
+     * 
+     */
     public String profileUrl() {
         return this.profileUrl;
     }
+    /**
+     * @return The user&#39;s time zone.
+     * 
+     */
     public String timezone() {
         return this.timezone;
     }
+    /**
+     * @return The user&#39;s title.
+     * 
+     */
     public String title() {
         return this.title;
     }
     public String userId() {
         return this.userId;
     }
+    /**
+     * @return User&#39;s user name value.
+     * 
+     */
     public String userName() {
         return this.userName;
     }
+    /**
+     * @return The user type.
+     * 
+     */
     public String userType() {
         return this.userType;
     }

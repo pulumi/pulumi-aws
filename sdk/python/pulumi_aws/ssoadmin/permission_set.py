@@ -22,6 +22,12 @@ class PermissionSetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PermissionSet resource.
+        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        :param pulumi.Input[str] description: The description of the Permission Set.
+        :param pulumi.Input[str] name: The name of the Permission Set.
+        :param pulumi.Input[str] relay_state: The relay state URL used to redirect users within the application during the federation authentication process.
+        :param pulumi.Input[str] session_duration: The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         if description is not None:
@@ -38,6 +44,9 @@ class PermissionSetArgs:
     @property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        """
         return pulumi.get(self, "instance_arn")
 
     @instance_arn.setter
@@ -47,6 +56,9 @@ class PermissionSetArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Permission Set.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -56,6 +68,9 @@ class PermissionSetArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Permission Set.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -65,6 +80,9 @@ class PermissionSetArgs:
     @property
     @pulumi.getter(name="relayState")
     def relay_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The relay state URL used to redirect users within the application during the federation authentication process.
+        """
         return pulumi.get(self, "relay_state")
 
     @relay_state.setter
@@ -74,6 +92,9 @@ class PermissionSetArgs:
     @property
     @pulumi.getter(name="sessionDuration")
     def session_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
+        """
         return pulumi.get(self, "session_duration")
 
     @session_duration.setter
@@ -83,6 +104,9 @@ class PermissionSetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -104,6 +128,15 @@ class _PermissionSetState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering PermissionSet resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Permission Set.
+        :param pulumi.Input[str] created_date: The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param pulumi.Input[str] description: The description of the Permission Set.
+        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        :param pulumi.Input[str] name: The name of the Permission Set.
+        :param pulumi.Input[str] relay_state: The relay state URL used to redirect users within the application during the federation authentication process.
+        :param pulumi.Input[str] session_duration: The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -127,6 +160,9 @@ class _PermissionSetState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Permission Set.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -136,6 +172,9 @@ class _PermissionSetState:
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
@@ -145,6 +184,9 @@ class _PermissionSetState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Permission Set.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -154,6 +196,9 @@ class _PermissionSetState:
     @property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        """
         return pulumi.get(self, "instance_arn")
 
     @instance_arn.setter
@@ -163,6 +208,9 @@ class _PermissionSetState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Permission Set.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -172,6 +220,9 @@ class _PermissionSetState:
     @property
     @pulumi.getter(name="relayState")
     def relay_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The relay state URL used to redirect users within the application during the federation authentication process.
+        """
         return pulumi.get(self, "relay_state")
 
     @relay_state.setter
@@ -181,6 +232,9 @@ class _PermissionSetState:
     @property
     @pulumi.getter(name="sessionDuration")
     def session_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
+        """
         return pulumi.get(self, "session_duration")
 
     @session_duration.setter
@@ -190,6 +244,9 @@ class _PermissionSetState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -199,6 +256,9 @@ class _PermissionSetState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -219,9 +279,26 @@ class PermissionSet(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a PermissionSet resource with the given unique name, props, and options.
+        Provides a Single Sign-On (SSO) Permission Set resource
+
+        > **NOTE:** Updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
+
+        ## Import
+
+        SSO Permission Sets can be imported using the `arn` and `instance_arn` separated by a comma (`,`) e.g.,
+
+        ```sh
+         $ pulumi import aws:ssoadmin/permissionSet:PermissionSet example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the Permission Set.
+        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        :param pulumi.Input[str] name: The name of the Permission Set.
+        :param pulumi.Input[str] relay_state: The relay state URL used to redirect users within the application during the federation authentication process.
+        :param pulumi.Input[str] session_duration: The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -230,7 +307,18 @@ class PermissionSet(pulumi.CustomResource):
                  args: PermissionSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a PermissionSet resource with the given unique name, props, and options.
+        Provides a Single Sign-On (SSO) Permission Set resource
+
+        > **NOTE:** Updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
+
+        ## Import
+
+        SSO Permission Sets can be imported using the `arn` and `instance_arn` separated by a comma (`,`) e.g.,
+
+        ```sh
+         $ pulumi import aws:ssoadmin/permissionSet:PermissionSet example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+        ```
+
         :param str resource_name: The name of the resource.
         :param PermissionSetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -298,6 +386,15 @@ class PermissionSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Permission Set.
+        :param pulumi.Input[str] created_date: The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param pulumi.Input[str] description: The description of the Permission Set.
+        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        :param pulumi.Input[str] name: The name of the Permission Set.
+        :param pulumi.Input[str] relay_state: The relay state URL used to redirect users within the application during the federation authentication process.
+        :param pulumi.Input[str] session_duration: The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -317,45 +414,72 @@ class PermissionSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Permission Set.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Output[str]:
+        """
+        The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        """
         return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the Permission Set.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        """
         return pulumi.get(self, "instance_arn")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Permission Set.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="relayState")
     def relay_state(self) -> pulumi.Output[Optional[str]]:
+        """
+        The relay state URL used to redirect users within the application during the federation authentication process.
+        """
         return pulumi.get(self, "relay_state")
 
     @property
     @pulumi.getter(name="sessionDuration")
     def session_duration(self) -> pulumi.Output[Optional[str]]:
+        """
+        The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
+        """
         return pulumi.get(self, "session_duration")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

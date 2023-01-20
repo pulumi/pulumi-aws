@@ -11,19 +11,72 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an App Runner AutoScaling Configuration Version.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apprunner.NewAutoScalingConfigurationVersion(ctx, "example", &apprunner.AutoScalingConfigurationVersionArgs{
+//				AutoScalingConfigurationName: pulumi.String("example"),
+//				MaxConcurrency:               pulumi.Int(50),
+//				MaxSize:                      pulumi.Int(10),
+//				MinSize:                      pulumi.Int(2),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-apprunner-autoscaling"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// App Runner AutoScaling Configuration Versions can be imported by using the `arn`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
+//
+// ```
 type AutoScalingConfigurationVersion struct {
 	pulumi.CustomResourceState
 
-	Arn                              pulumi.StringOutput    `pulumi:"arn"`
-	AutoScalingConfigurationName     pulumi.StringOutput    `pulumi:"autoScalingConfigurationName"`
-	AutoScalingConfigurationRevision pulumi.IntOutput       `pulumi:"autoScalingConfigurationRevision"`
-	Latest                           pulumi.BoolOutput      `pulumi:"latest"`
-	MaxConcurrency                   pulumi.IntPtrOutput    `pulumi:"maxConcurrency"`
-	MaxSize                          pulumi.IntPtrOutput    `pulumi:"maxSize"`
-	MinSize                          pulumi.IntPtrOutput    `pulumi:"minSize"`
-	Status                           pulumi.StringOutput    `pulumi:"status"`
-	Tags                             pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll                          pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// ARN of this auto scaling configuration version.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Name of the auto scaling configuration.
+	AutoScalingConfigurationName pulumi.StringOutput `pulumi:"autoScalingConfigurationName"`
+	// The revision of this auto scaling configuration.
+	AutoScalingConfigurationRevision pulumi.IntOutput `pulumi:"autoScalingConfigurationRevision"`
+	// Whether the auto scaling configuration has the highest `autoScalingConfigurationRevision` among all configurations that share the same `autoScalingConfigurationName`.
+	Latest pulumi.BoolOutput `pulumi:"latest"`
+	// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+	MaxConcurrency pulumi.IntPtrOutput `pulumi:"maxConcurrency"`
+	// Maximal number of instances that App Runner provisions for your service.
+	MaxSize pulumi.IntPtrOutput `pulumi:"maxSize"`
+	// Minimal number of instances that App Runner provisions for your service.
+	MinSize pulumi.IntPtrOutput `pulumi:"minSize"`
+	// Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAutoScalingConfigurationVersion registers a new resource with the given unique name, arguments, and options.
@@ -58,29 +111,49 @@ func GetAutoScalingConfigurationVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AutoScalingConfigurationVersion resources.
 type autoScalingConfigurationVersionState struct {
-	Arn                              *string           `pulumi:"arn"`
-	AutoScalingConfigurationName     *string           `pulumi:"autoScalingConfigurationName"`
-	AutoScalingConfigurationRevision *int              `pulumi:"autoScalingConfigurationRevision"`
-	Latest                           *bool             `pulumi:"latest"`
-	MaxConcurrency                   *int              `pulumi:"maxConcurrency"`
-	MaxSize                          *int              `pulumi:"maxSize"`
-	MinSize                          *int              `pulumi:"minSize"`
-	Status                           *string           `pulumi:"status"`
-	Tags                             map[string]string `pulumi:"tags"`
-	TagsAll                          map[string]string `pulumi:"tagsAll"`
+	// ARN of this auto scaling configuration version.
+	Arn *string `pulumi:"arn"`
+	// Name of the auto scaling configuration.
+	AutoScalingConfigurationName *string `pulumi:"autoScalingConfigurationName"`
+	// The revision of this auto scaling configuration.
+	AutoScalingConfigurationRevision *int `pulumi:"autoScalingConfigurationRevision"`
+	// Whether the auto scaling configuration has the highest `autoScalingConfigurationRevision` among all configurations that share the same `autoScalingConfigurationName`.
+	Latest *bool `pulumi:"latest"`
+	// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+	MaxConcurrency *int `pulumi:"maxConcurrency"`
+	// Maximal number of instances that App Runner provisions for your service.
+	MaxSize *int `pulumi:"maxSize"`
+	// Minimal number of instances that App Runner provisions for your service.
+	MinSize *int `pulumi:"minSize"`
+	// Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
+	Status *string `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type AutoScalingConfigurationVersionState struct {
-	Arn                              pulumi.StringPtrInput
-	AutoScalingConfigurationName     pulumi.StringPtrInput
+	// ARN of this auto scaling configuration version.
+	Arn pulumi.StringPtrInput
+	// Name of the auto scaling configuration.
+	AutoScalingConfigurationName pulumi.StringPtrInput
+	// The revision of this auto scaling configuration.
 	AutoScalingConfigurationRevision pulumi.IntPtrInput
-	Latest                           pulumi.BoolPtrInput
-	MaxConcurrency                   pulumi.IntPtrInput
-	MaxSize                          pulumi.IntPtrInput
-	MinSize                          pulumi.IntPtrInput
-	Status                           pulumi.StringPtrInput
-	Tags                             pulumi.StringMapInput
-	TagsAll                          pulumi.StringMapInput
+	// Whether the auto scaling configuration has the highest `autoScalingConfigurationRevision` among all configurations that share the same `autoScalingConfigurationName`.
+	Latest pulumi.BoolPtrInput
+	// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+	MaxConcurrency pulumi.IntPtrInput
+	// Maximal number of instances that App Runner provisions for your service.
+	MaxSize pulumi.IntPtrInput
+	// Minimal number of instances that App Runner provisions for your service.
+	MinSize pulumi.IntPtrInput
+	// Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
+	Status pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (AutoScalingConfigurationVersionState) ElementType() reflect.Type {
@@ -88,20 +161,30 @@ func (AutoScalingConfigurationVersionState) ElementType() reflect.Type {
 }
 
 type autoScalingConfigurationVersionArgs struct {
-	AutoScalingConfigurationName string            `pulumi:"autoScalingConfigurationName"`
-	MaxConcurrency               *int              `pulumi:"maxConcurrency"`
-	MaxSize                      *int              `pulumi:"maxSize"`
-	MinSize                      *int              `pulumi:"minSize"`
-	Tags                         map[string]string `pulumi:"tags"`
+	// Name of the auto scaling configuration.
+	AutoScalingConfigurationName string `pulumi:"autoScalingConfigurationName"`
+	// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+	MaxConcurrency *int `pulumi:"maxConcurrency"`
+	// Maximal number of instances that App Runner provisions for your service.
+	MaxSize *int `pulumi:"maxSize"`
+	// Minimal number of instances that App Runner provisions for your service.
+	MinSize *int `pulumi:"minSize"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AutoScalingConfigurationVersion resource.
 type AutoScalingConfigurationVersionArgs struct {
+	// Name of the auto scaling configuration.
 	AutoScalingConfigurationName pulumi.StringInput
-	MaxConcurrency               pulumi.IntPtrInput
-	MaxSize                      pulumi.IntPtrInput
-	MinSize                      pulumi.IntPtrInput
-	Tags                         pulumi.StringMapInput
+	// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+	MaxConcurrency pulumi.IntPtrInput
+	// Maximal number of instances that App Runner provisions for your service.
+	MaxSize pulumi.IntPtrInput
+	// Minimal number of instances that App Runner provisions for your service.
+	MinSize pulumi.IntPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (AutoScalingConfigurationVersionArgs) ElementType() reflect.Type {
@@ -191,42 +274,52 @@ func (o AutoScalingConfigurationVersionOutput) ToAutoScalingConfigurationVersion
 	return o
 }
 
+// ARN of this auto scaling configuration version.
 func (o AutoScalingConfigurationVersionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutoScalingConfigurationVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Name of the auto scaling configuration.
 func (o AutoScalingConfigurationVersionOutput) AutoScalingConfigurationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutoScalingConfigurationVersion) pulumi.StringOutput { return v.AutoScalingConfigurationName }).(pulumi.StringOutput)
 }
 
+// The revision of this auto scaling configuration.
 func (o AutoScalingConfigurationVersionOutput) AutoScalingConfigurationRevision() pulumi.IntOutput {
 	return o.ApplyT(func(v *AutoScalingConfigurationVersion) pulumi.IntOutput { return v.AutoScalingConfigurationRevision }).(pulumi.IntOutput)
 }
 
+// Whether the auto scaling configuration has the highest `autoScalingConfigurationRevision` among all configurations that share the same `autoScalingConfigurationName`.
 func (o AutoScalingConfigurationVersionOutput) Latest() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AutoScalingConfigurationVersion) pulumi.BoolOutput { return v.Latest }).(pulumi.BoolOutput)
 }
 
+// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
 func (o AutoScalingConfigurationVersionOutput) MaxConcurrency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AutoScalingConfigurationVersion) pulumi.IntPtrOutput { return v.MaxConcurrency }).(pulumi.IntPtrOutput)
 }
 
+// Maximal number of instances that App Runner provisions for your service.
 func (o AutoScalingConfigurationVersionOutput) MaxSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AutoScalingConfigurationVersion) pulumi.IntPtrOutput { return v.MaxSize }).(pulumi.IntPtrOutput)
 }
 
+// Minimal number of instances that App Runner provisions for your service.
 func (o AutoScalingConfigurationVersionOutput) MinSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AutoScalingConfigurationVersion) pulumi.IntPtrOutput { return v.MinSize }).(pulumi.IntPtrOutput)
 }
 
+// Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
 func (o AutoScalingConfigurationVersionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutoScalingConfigurationVersion) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AutoScalingConfigurationVersionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AutoScalingConfigurationVersion) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AutoScalingConfigurationVersionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AutoScalingConfigurationVersion) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

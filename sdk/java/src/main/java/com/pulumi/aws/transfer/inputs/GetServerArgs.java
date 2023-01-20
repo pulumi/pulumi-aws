@@ -13,9 +13,17 @@ public final class GetServerArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetServerArgs Empty = new GetServerArgs();
 
+    /**
+     * ID for an SFTP server.
+     * 
+     */
     @Import(name="serverId", required=true)
     private Output<String> serverId;
 
+    /**
+     * @return ID for an SFTP server.
+     * 
+     */
     public Output<String> serverId() {
         return this.serverId;
     }
@@ -44,11 +52,23 @@ public final class GetServerArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetServerArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param serverId ID for an SFTP server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serverId(Output<String> serverId) {
             $.serverId = serverId;
             return this;
         }
 
+        /**
+         * @param serverId ID for an SFTP server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serverId(String serverId) {
             return serverId(Output.of(serverId));
         }

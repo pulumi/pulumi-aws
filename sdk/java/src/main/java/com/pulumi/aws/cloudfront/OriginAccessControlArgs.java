@@ -15,37 +15,77 @@ public final class OriginAccessControlArgs extends com.pulumi.resources.Resource
 
     public static final OriginAccessControlArgs Empty = new OriginAccessControlArgs();
 
+    /**
+     * The description of the Origin Access Control. It may be empty.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return The description of the Origin Access Control. It may be empty.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * A name that identifies the Origin Access Control.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return A name that identifies the Origin Access Control.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+     * 
+     */
     @Import(name="originAccessControlOriginType", required=true)
     private Output<String> originAccessControlOriginType;
 
+    /**
+     * @return The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+     * 
+     */
     public Output<String> originAccessControlOriginType() {
         return this.originAccessControlOriginType;
     }
 
+    /**
+     * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+     * 
+     */
     @Import(name="signingBehavior", required=true)
     private Output<String> signingBehavior;
 
+    /**
+     * @return Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+     * 
+     */
     public Output<String> signingBehavior() {
         return this.signingBehavior;
     }
 
+    /**
+     * Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+     * 
+     */
     @Import(name="signingProtocol", required=true)
     private Output<String> signingProtocol;
 
+    /**
+     * @return Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+     * 
+     */
     public Output<String> signingProtocol() {
         return this.signingProtocol;
     }
@@ -78,47 +118,107 @@ public final class OriginAccessControlArgs extends com.pulumi.resources.Resource
             $ = new OriginAccessControlArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param description The description of the Origin Access Control. It may be empty.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description The description of the Origin Access Control. It may be empty.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param name A name that identifies the Origin Access Control.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name A name that identifies the Origin Access Control.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param originAccessControlOriginType The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder originAccessControlOriginType(Output<String> originAccessControlOriginType) {
             $.originAccessControlOriginType = originAccessControlOriginType;
             return this;
         }
 
+        /**
+         * @param originAccessControlOriginType The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder originAccessControlOriginType(String originAccessControlOriginType) {
             return originAccessControlOriginType(Output.of(originAccessControlOriginType));
         }
 
+        /**
+         * @param signingBehavior Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder signingBehavior(Output<String> signingBehavior) {
             $.signingBehavior = signingBehavior;
             return this;
         }
 
+        /**
+         * @param signingBehavior Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder signingBehavior(String signingBehavior) {
             return signingBehavior(Output.of(signingBehavior));
         }
 
+        /**
+         * @param signingProtocol Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder signingProtocol(Output<String> signingProtocol) {
             $.signingProtocol = signingProtocol;
             return this;
         }
 
+        /**
+         * @param signingProtocol Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder signingProtocol(String signingProtocol) {
             return signingProtocol(Output.of(signingProtocol));
         }

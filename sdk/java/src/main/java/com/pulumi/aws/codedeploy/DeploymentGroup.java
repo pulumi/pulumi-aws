@@ -26,125 +26,539 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a CodeDeploy Deployment Group for a CodeDeploy Application
+ * 
+ * &gt; **NOTE on blue/green deployments:** When using `green_fleet_provisioning_option` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by this provider and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.codedeploy.Application;
+ * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.codedeploy.DeploymentGroup;
+ * import com.pulumi.aws.codedeploy.DeploymentGroupArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupEc2TagSetArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupTriggerConfigurationArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAutoRollbackConfigurationArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAlarmConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Sid&#34;: &#34;&#34;,
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Principal&#34;: {
+ *         &#34;Service&#34;: &#34;codedeploy.amazonaws.com&#34;
+ *       },
+ *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;
+ *     }
+ *   ]
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *         var aWSCodeDeployRole = new RolePolicyAttachment(&#34;aWSCodeDeployRole&#34;, RolePolicyAttachmentArgs.builder()        
+ *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole&#34;)
+ *             .role(exampleRole.name())
+ *             .build());
+ * 
+ *         var exampleApplication = new Application(&#34;exampleApplication&#34;);
+ * 
+ *         var exampleTopic = new Topic(&#34;exampleTopic&#34;);
+ * 
+ *         var exampleDeploymentGroup = new DeploymentGroup(&#34;exampleDeploymentGroup&#34;, DeploymentGroupArgs.builder()        
+ *             .appName(exampleApplication.name())
+ *             .deploymentGroupName(&#34;example-group&#34;)
+ *             .serviceRoleArn(exampleRole.arn())
+ *             .ec2TagSets(DeploymentGroupEc2TagSetArgs.builder()
+ *                 .ec2TagFilters(                
+ *                     DeploymentGroupEc2TagSetEc2TagFilterArgs.builder()
+ *                         .key(&#34;filterkey1&#34;)
+ *                         .type(&#34;KEY_AND_VALUE&#34;)
+ *                         .value(&#34;filtervalue&#34;)
+ *                         .build(),
+ *                     DeploymentGroupEc2TagSetEc2TagFilterArgs.builder()
+ *                         .key(&#34;filterkey2&#34;)
+ *                         .type(&#34;KEY_AND_VALUE&#34;)
+ *                         .value(&#34;filtervalue&#34;)
+ *                         .build())
+ *                 .build())
+ *             .triggerConfigurations(DeploymentGroupTriggerConfigurationArgs.builder()
+ *                 .triggerEvents(&#34;DeploymentFailure&#34;)
+ *                 .triggerName(&#34;example-trigger&#34;)
+ *                 .triggerTargetArn(exampleTopic.arn())
+ *                 .build())
+ *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
+ *                 .enabled(true)
+ *                 .events(&#34;DEPLOYMENT_FAILURE&#34;)
+ *                 .build())
+ *             .alarmConfiguration(DeploymentGroupAlarmConfigurationArgs.builder()
+ *                 .alarms(&#34;my-alarm-name&#34;)
+ *                 .enabled(true)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Blue Green Deployments with ECS
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.codedeploy.Application;
+ * import com.pulumi.aws.codedeploy.ApplicationArgs;
+ * import com.pulumi.aws.codedeploy.DeploymentGroup;
+ * import com.pulumi.aws.codedeploy.DeploymentGroupArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAutoRollbackConfigurationArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupDeploymentStyleArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupEcsServiceArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupLoadBalancerInfoArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
+ *             .computePlatform(&#34;ECS&#34;)
+ *             .build());
+ * 
+ *         var exampleDeploymentGroup = new DeploymentGroup(&#34;exampleDeploymentGroup&#34;, DeploymentGroupArgs.builder()        
+ *             .appName(exampleApplication.name())
+ *             .deploymentConfigName(&#34;CodeDeployDefault.ECSAllAtOnce&#34;)
+ *             .deploymentGroupName(&#34;example&#34;)
+ *             .serviceRoleArn(aws_iam_role.example().arn())
+ *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
+ *                 .enabled(true)
+ *                 .events(&#34;DEPLOYMENT_FAILURE&#34;)
+ *                 .build())
+ *             .blueGreenDeploymentConfig(DeploymentGroupBlueGreenDeploymentConfigArgs.builder()
+ *                 .deploymentReadyOption(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs.builder()
+ *                     .actionOnTimeout(&#34;CONTINUE_DEPLOYMENT&#34;)
+ *                     .build())
+ *                 .terminateBlueInstancesOnDeploymentSuccess(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs.builder()
+ *                     .action(&#34;TERMINATE&#34;)
+ *                     .terminationWaitTimeInMinutes(5)
+ *                     .build())
+ *                 .build())
+ *             .deploymentStyle(DeploymentGroupDeploymentStyleArgs.builder()
+ *                 .deploymentOption(&#34;WITH_TRAFFIC_CONTROL&#34;)
+ *                 .deploymentType(&#34;BLUE_GREEN&#34;)
+ *                 .build())
+ *             .ecsService(DeploymentGroupEcsServiceArgs.builder()
+ *                 .clusterName(aws_ecs_cluster.example().name())
+ *                 .serviceName(aws_ecs_service.example().name())
+ *                 .build())
+ *             .loadBalancerInfo(DeploymentGroupLoadBalancerInfoArgs.builder()
+ *                 .targetGroupPairInfo(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs.builder()
+ *                     .prodTrafficRoute(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs.builder()
+ *                         .listenerArns(aws_lb_listener.example().arn())
+ *                         .build())
+ *                     .targetGroups(                    
+ *                         DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs.builder()
+ *                             .name(aws_lb_target_group.blue().name())
+ *                             .build(),
+ *                         DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs.builder()
+ *                             .name(aws_lb_target_group.green().name())
+ *                             .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Blue Green Deployments with Servers and Classic ELB
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.codedeploy.Application;
+ * import com.pulumi.aws.codedeploy.DeploymentGroup;
+ * import com.pulumi.aws.codedeploy.DeploymentGroupArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupDeploymentStyleArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupLoadBalancerInfoArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleApplication = new Application(&#34;exampleApplication&#34;);
+ * 
+ *         var exampleDeploymentGroup = new DeploymentGroup(&#34;exampleDeploymentGroup&#34;, DeploymentGroupArgs.builder()        
+ *             .appName(exampleApplication.name())
+ *             .deploymentGroupName(&#34;example-group&#34;)
+ *             .serviceRoleArn(aws_iam_role.example().arn())
+ *             .deploymentStyle(DeploymentGroupDeploymentStyleArgs.builder()
+ *                 .deploymentOption(&#34;WITH_TRAFFIC_CONTROL&#34;)
+ *                 .deploymentType(&#34;BLUE_GREEN&#34;)
+ *                 .build())
+ *             .loadBalancerInfo(DeploymentGroupLoadBalancerInfoArgs.builder()
+ *                 .elbInfos(DeploymentGroupLoadBalancerInfoElbInfoArgs.builder()
+ *                     .name(aws_elb.example().name())
+ *                     .build())
+ *                 .build())
+ *             .blueGreenDeploymentConfig(DeploymentGroupBlueGreenDeploymentConfigArgs.builder()
+ *                 .deploymentReadyOption(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs.builder()
+ *                     .actionOnTimeout(&#34;STOP_DEPLOYMENT&#34;)
+ *                     .waitTimeInMinutes(60)
+ *                     .build())
+ *                 .greenFleetProvisioningOption(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs.builder()
+ *                     .action(&#34;DISCOVER_EXISTING&#34;)
+ *                     .build())
+ *                 .terminateBlueInstancesOnDeploymentSuccess(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs.builder()
+ *                     .action(&#34;KEEP_ALIVE&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * CodeDeploy Deployment Groups can be imported by their `app_name`, a colon, and `deployment_group_name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
+ * ```
+ * 
+ *  [1]http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html
+ * 
+ */
 @ResourceType(type="aws:codedeploy/deploymentGroup:DeploymentGroup")
 public class DeploymentGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * Configuration block of alarms associated with the deployment group (documented below).
+     * 
+     */
     @Export(name="alarmConfiguration", refs={DeploymentGroupAlarmConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentGroupAlarmConfiguration> alarmConfiguration;
 
+    /**
+     * @return Configuration block of alarms associated with the deployment group (documented below).
+     * 
+     */
     public Output<Optional<DeploymentGroupAlarmConfiguration>> alarmConfiguration() {
         return Codegen.optional(this.alarmConfiguration);
     }
+    /**
+     * The name of the application.
+     * 
+     */
     @Export(name="appName", refs={String.class}, tree="[0]")
     private Output<String> appName;
 
+    /**
+     * @return The name of the application.
+     * 
+     */
     public Output<String> appName() {
         return this.appName;
     }
+    /**
+     * The ARN of the CodeDeploy deployment group.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the CodeDeploy deployment group.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
+     * 
+     */
     @Export(name="autoRollbackConfiguration", refs={DeploymentGroupAutoRollbackConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentGroupAutoRollbackConfiguration> autoRollbackConfiguration;
 
+    /**
+     * @return Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
+     * 
+     */
     public Output<Optional<DeploymentGroupAutoRollbackConfiguration>> autoRollbackConfiguration() {
         return Codegen.optional(this.autoRollbackConfiguration);
     }
+    /**
+     * Autoscaling groups associated with the deployment group.
+     * 
+     */
     @Export(name="autoscalingGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> autoscalingGroups;
 
+    /**
+     * @return Autoscaling groups associated with the deployment group.
+     * 
+     */
     public Output<Optional<List<String>>> autoscalingGroups() {
         return Codegen.optional(this.autoscalingGroups);
     }
+    /**
+     * Configuration block of the blue/green deployment options for a deployment group (documented below).
+     * 
+     */
     @Export(name="blueGreenDeploymentConfig", refs={DeploymentGroupBlueGreenDeploymentConfig.class}, tree="[0]")
     private Output<DeploymentGroupBlueGreenDeploymentConfig> blueGreenDeploymentConfig;
 
+    /**
+     * @return Configuration block of the blue/green deployment options for a deployment group (documented below).
+     * 
+     */
     public Output<DeploymentGroupBlueGreenDeploymentConfig> blueGreenDeploymentConfig() {
         return this.blueGreenDeploymentConfig;
     }
+    /**
+     * The destination platform type for the deployment.
+     * 
+     */
     @Export(name="computePlatform", refs={String.class}, tree="[0]")
     private Output<String> computePlatform;
 
+    /**
+     * @return The destination platform type for the deployment.
+     * 
+     */
     public Output<String> computePlatform() {
         return this.computePlatform;
     }
+    /**
+     * The name of the group&#39;s deployment config. The default is &#34;CodeDeployDefault.OneAtATime&#34;.
+     * 
+     */
     @Export(name="deploymentConfigName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deploymentConfigName;
 
+    /**
+     * @return The name of the group&#39;s deployment config. The default is &#34;CodeDeployDefault.OneAtATime&#34;.
+     * 
+     */
     public Output<Optional<String>> deploymentConfigName() {
         return Codegen.optional(this.deploymentConfigName);
     }
+    /**
+     * The ID of the CodeDeploy deployment group.
+     * 
+     */
     @Export(name="deploymentGroupId", refs={String.class}, tree="[0]")
     private Output<String> deploymentGroupId;
 
+    /**
+     * @return The ID of the CodeDeploy deployment group.
+     * 
+     */
     public Output<String> deploymentGroupId() {
         return this.deploymentGroupId;
     }
+    /**
+     * The name of the deployment group.
+     * 
+     */
     @Export(name="deploymentGroupName", refs={String.class}, tree="[0]")
     private Output<String> deploymentGroupName;
 
+    /**
+     * @return The name of the deployment group.
+     * 
+     */
     public Output<String> deploymentGroupName() {
         return this.deploymentGroupName;
     }
+    /**
+     * Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
+     * 
+     */
     @Export(name="deploymentStyle", refs={DeploymentGroupDeploymentStyle.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentGroupDeploymentStyle> deploymentStyle;
 
+    /**
+     * @return Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
+     * 
+     */
     public Output<Optional<DeploymentGroupDeploymentStyle>> deploymentStyle() {
         return Codegen.optional(this.deploymentStyle);
     }
+    /**
+     * Tag filters associated with the deployment group. See the AWS docs for details.
+     * 
+     */
     @Export(name="ec2TagFilters", refs={List.class,DeploymentGroupEc2TagFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DeploymentGroupEc2TagFilter>> ec2TagFilters;
 
+    /**
+     * @return Tag filters associated with the deployment group. See the AWS docs for details.
+     * 
+     */
     public Output<Optional<List<DeploymentGroupEc2TagFilter>>> ec2TagFilters() {
         return Codegen.optional(this.ec2TagFilters);
     }
+    /**
+     * Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
+     * 
+     */
     @Export(name="ec2TagSets", refs={List.class,DeploymentGroupEc2TagSet.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DeploymentGroupEc2TagSet>> ec2TagSets;
 
+    /**
+     * @return Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
+     * 
+     */
     public Output<Optional<List<DeploymentGroupEc2TagSet>>> ec2TagSets() {
         return Codegen.optional(this.ec2TagSets);
     }
+    /**
+     * Configuration block(s) of the ECS services for a deployment group (documented below).
+     * 
+     */
     @Export(name="ecsService", refs={DeploymentGroupEcsService.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentGroupEcsService> ecsService;
 
+    /**
+     * @return Configuration block(s) of the ECS services for a deployment group (documented below).
+     * 
+     */
     public Output<Optional<DeploymentGroupEcsService>> ecsService() {
         return Codegen.optional(this.ecsService);
     }
+    /**
+     * Single configuration block of the load balancer to use in a blue/green deployment (documented below).
+     * 
+     */
     @Export(name="loadBalancerInfo", refs={DeploymentGroupLoadBalancerInfo.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentGroupLoadBalancerInfo> loadBalancerInfo;
 
+    /**
+     * @return Single configuration block of the load balancer to use in a blue/green deployment (documented below).
+     * 
+     */
     public Output<Optional<DeploymentGroupLoadBalancerInfo>> loadBalancerInfo() {
         return Codegen.optional(this.loadBalancerInfo);
     }
+    /**
+     * On premise tag filters associated with the group. See the AWS docs for details.
+     * 
+     */
     @Export(name="onPremisesInstanceTagFilters", refs={List.class,DeploymentGroupOnPremisesInstanceTagFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DeploymentGroupOnPremisesInstanceTagFilter>> onPremisesInstanceTagFilters;
 
+    /**
+     * @return On premise tag filters associated with the group. See the AWS docs for details.
+     * 
+     */
     public Output<Optional<List<DeploymentGroupOnPremisesInstanceTagFilter>>> onPremisesInstanceTagFilters() {
         return Codegen.optional(this.onPremisesInstanceTagFilters);
     }
+    /**
+     * The service role ARN that allows deployments.
+     * 
+     */
     @Export(name="serviceRoleArn", refs={String.class}, tree="[0]")
     private Output<String> serviceRoleArn;
 
+    /**
+     * @return The service role ARN that allows deployments.
+     * 
+     */
     public Output<String> serviceRoleArn() {
         return this.serviceRoleArn;
     }
+    /**
+     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Configuration block(s) of the triggers for the deployment group (documented below).
+     * 
+     */
     @Export(name="triggerConfigurations", refs={List.class,DeploymentGroupTriggerConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DeploymentGroupTriggerConfiguration>> triggerConfigurations;
 
+    /**
+     * @return Configuration block(s) of the triggers for the deployment group (documented below).
+     * 
+     */
     public Output<Optional<List<DeploymentGroupTriggerConfiguration>>> triggerConfigurations() {
         return Codegen.optional(this.triggerConfigurations);
     }

@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class EventSourceMappingSourceAccessConfiguration {
+    /**
+     * @return The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
+     * 
+     */
     private String type;
+    /**
+     * @return The URI for this configuration.  For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an aws.ec2.Subnet resource&#39;s id attribute.  For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an aws.ec2.SecurityGroup resource&#39;s id attribute.
+     * 
+     */
     private String uri;
 
     private EventSourceMappingSourceAccessConfiguration() {}
+    /**
+     * @return The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
+     * 
+     */
     public String type() {
         return this.type;
     }
+    /**
+     * @return The URI for this configuration.  For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an aws.ec2.Subnet resource&#39;s id attribute.  For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an aws.ec2.SecurityGroup resource&#39;s id attribute.
+     * 
+     */
     public String uri() {
         return this.uri;
     }

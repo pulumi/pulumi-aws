@@ -10,14 +10,54 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a MediaStore Container.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mediastore"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := mediastore.NewContainer(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// MediaStore Container can be imported using the MediaStore Container Name, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:mediastore/container:Container example example
+//
+// ```
 type Container struct {
 	pulumi.CustomResourceState
 
-	Arn      pulumi.StringOutput    `pulumi:"arn"`
-	Endpoint pulumi.StringOutput    `pulumi:"endpoint"`
-	Name     pulumi.StringOutput    `pulumi:"name"`
-	Tags     pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The ARN of the container.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The DNS endpoint of the container.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// The name of the container. Must contain alphanumeric characters or underscores.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewContainer registers a new resource with the given unique name, arguments, and options.
@@ -49,19 +89,29 @@ func GetContainer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Container resources.
 type containerState struct {
-	Arn      *string           `pulumi:"arn"`
-	Endpoint *string           `pulumi:"endpoint"`
-	Name     *string           `pulumi:"name"`
-	Tags     map[string]string `pulumi:"tags"`
-	TagsAll  map[string]string `pulumi:"tagsAll"`
+	// The ARN of the container.
+	Arn *string `pulumi:"arn"`
+	// The DNS endpoint of the container.
+	Endpoint *string `pulumi:"endpoint"`
+	// The name of the container. Must contain alphanumeric characters or underscores.
+	Name *string `pulumi:"name"`
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ContainerState struct {
-	Arn      pulumi.StringPtrInput
+	// The ARN of the container.
+	Arn pulumi.StringPtrInput
+	// The DNS endpoint of the container.
 	Endpoint pulumi.StringPtrInput
-	Name     pulumi.StringPtrInput
-	Tags     pulumi.StringMapInput
-	TagsAll  pulumi.StringMapInput
+	// The name of the container. Must contain alphanumeric characters or underscores.
+	Name pulumi.StringPtrInput
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (ContainerState) ElementType() reflect.Type {
@@ -69,13 +119,17 @@ func (ContainerState) ElementType() reflect.Type {
 }
 
 type containerArgs struct {
-	Name *string           `pulumi:"name"`
+	// The name of the container. Must contain alphanumeric characters or underscores.
+	Name *string `pulumi:"name"`
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Container resource.
 type ContainerArgs struct {
+	// The name of the container. Must contain alphanumeric characters or underscores.
 	Name pulumi.StringPtrInput
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -166,22 +220,27 @@ func (o ContainerOutput) ToContainerOutputWithContext(ctx context.Context) Conta
 	return o
 }
 
+// The ARN of the container.
 func (o ContainerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The DNS endpoint of the container.
 func (o ContainerOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
+// The name of the container. Must contain alphanumeric characters or underscores.
 func (o ContainerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ContainerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ContainerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

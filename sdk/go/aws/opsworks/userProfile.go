@@ -11,13 +11,45 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an OpsWorks User Profile resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsworks.NewUserProfile(ctx, "myProfile", &opsworks.UserProfileArgs{
+//				UserArn:     pulumi.Any(aws_iam_user.User.Arn),
+//				SshUsername: pulumi.String("my_user"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type UserProfile struct {
 	pulumi.CustomResourceState
 
-	AllowSelfManagement pulumi.BoolPtrOutput   `pulumi:"allowSelfManagement"`
-	SshPublicKey        pulumi.StringPtrOutput `pulumi:"sshPublicKey"`
-	SshUsername         pulumi.StringOutput    `pulumi:"sshUsername"`
-	UserArn             pulumi.StringOutput    `pulumi:"userArn"`
+	// Whether users can specify their own SSH public key through the My Settings page
+	AllowSelfManagement pulumi.BoolPtrOutput `pulumi:"allowSelfManagement"`
+	// The users public key
+	SshPublicKey pulumi.StringPtrOutput `pulumi:"sshPublicKey"`
+	// The ssh username, with witch this user wants to log in
+	SshUsername pulumi.StringOutput `pulumi:"sshUsername"`
+	// The user's IAM ARN
+	UserArn pulumi.StringOutput `pulumi:"userArn"`
 }
 
 // NewUserProfile registers a new resource with the given unique name, arguments, and options.
@@ -55,17 +87,25 @@ func GetUserProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserProfile resources.
 type userProfileState struct {
-	AllowSelfManagement *bool   `pulumi:"allowSelfManagement"`
-	SshPublicKey        *string `pulumi:"sshPublicKey"`
-	SshUsername         *string `pulumi:"sshUsername"`
-	UserArn             *string `pulumi:"userArn"`
+	// Whether users can specify their own SSH public key through the My Settings page
+	AllowSelfManagement *bool `pulumi:"allowSelfManagement"`
+	// The users public key
+	SshPublicKey *string `pulumi:"sshPublicKey"`
+	// The ssh username, with witch this user wants to log in
+	SshUsername *string `pulumi:"sshUsername"`
+	// The user's IAM ARN
+	UserArn *string `pulumi:"userArn"`
 }
 
 type UserProfileState struct {
+	// Whether users can specify their own SSH public key through the My Settings page
 	AllowSelfManagement pulumi.BoolPtrInput
-	SshPublicKey        pulumi.StringPtrInput
-	SshUsername         pulumi.StringPtrInput
-	UserArn             pulumi.StringPtrInput
+	// The users public key
+	SshPublicKey pulumi.StringPtrInput
+	// The ssh username, with witch this user wants to log in
+	SshUsername pulumi.StringPtrInput
+	// The user's IAM ARN
+	UserArn pulumi.StringPtrInput
 }
 
 func (UserProfileState) ElementType() reflect.Type {
@@ -73,18 +113,26 @@ func (UserProfileState) ElementType() reflect.Type {
 }
 
 type userProfileArgs struct {
-	AllowSelfManagement *bool   `pulumi:"allowSelfManagement"`
-	SshPublicKey        *string `pulumi:"sshPublicKey"`
-	SshUsername         string  `pulumi:"sshUsername"`
-	UserArn             string  `pulumi:"userArn"`
+	// Whether users can specify their own SSH public key through the My Settings page
+	AllowSelfManagement *bool `pulumi:"allowSelfManagement"`
+	// The users public key
+	SshPublicKey *string `pulumi:"sshPublicKey"`
+	// The ssh username, with witch this user wants to log in
+	SshUsername string `pulumi:"sshUsername"`
+	// The user's IAM ARN
+	UserArn string `pulumi:"userArn"`
 }
 
 // The set of arguments for constructing a UserProfile resource.
 type UserProfileArgs struct {
+	// Whether users can specify their own SSH public key through the My Settings page
 	AllowSelfManagement pulumi.BoolPtrInput
-	SshPublicKey        pulumi.StringPtrInput
-	SshUsername         pulumi.StringInput
-	UserArn             pulumi.StringInput
+	// The users public key
+	SshPublicKey pulumi.StringPtrInput
+	// The ssh username, with witch this user wants to log in
+	SshUsername pulumi.StringInput
+	// The user's IAM ARN
+	UserArn pulumi.StringInput
 }
 
 func (UserProfileArgs) ElementType() reflect.Type {
@@ -174,18 +222,22 @@ func (o UserProfileOutput) ToUserProfileOutputWithContext(ctx context.Context) U
 	return o
 }
 
+// Whether users can specify their own SSH public key through the My Settings page
 func (o UserProfileOutput) AllowSelfManagement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.BoolPtrOutput { return v.AllowSelfManagement }).(pulumi.BoolPtrOutput)
 }
 
+// The users public key
 func (o UserProfileOutput) SshPublicKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringPtrOutput { return v.SshPublicKey }).(pulumi.StringPtrOutput)
 }
 
+// The ssh username, with witch this user wants to log in
 func (o UserProfileOutput) SshUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.SshUsername }).(pulumi.StringOutput)
 }
 
+// The user's IAM ARN
 func (o UserProfileOutput) UserArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.UserArn }).(pulumi.StringOutput)
 }

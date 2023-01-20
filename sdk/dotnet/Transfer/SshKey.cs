@@ -9,15 +9,110 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Transfer
 {
+    /// <summary>
+    /// Provides a AWS Transfer User SSH Key resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleServer = new Aws.Transfer.Server("exampleServer", new()
+    ///     {
+    ///         IdentityProviderType = "SERVICE_MANAGED",
+    ///         Tags = 
+    ///         {
+    ///             { "NAME", "tf-acc-test-transfer-server" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
+    /// 	""Version"": ""2012-10-17"",
+    /// 	""Statement"": [
+    /// 		{
+    /// 		""Effect"": ""Allow"",
+    /// 		""Principal"": {
+    /// 			""Service"": ""transfer.amazonaws.com""
+    /// 		},
+    /// 		""Action"": ""sts:AssumeRole""
+    /// 		}
+    /// 	]
+    /// }
+    /// ",
+    ///     });
+    /// 
+    ///     var exampleUser = new Aws.Transfer.User("exampleUser", new()
+    ///     {
+    ///         ServerId = exampleServer.Id,
+    ///         UserName = "tftestuser",
+    ///         Role = exampleRole.Arn,
+    ///         Tags = 
+    ///         {
+    ///             { "NAME", "tftestuser" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSshKey = new Aws.Transfer.SshKey("exampleSshKey", new()
+    ///     {
+    ///         ServerId = exampleServer.Id,
+    ///         UserName = exampleUser.UserName,
+    ///         Body = "... SSH key ...",
+    ///     });
+    /// 
+    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
+    ///     {
+    ///         Role = exampleRole.Id,
+    ///         Policy = @"{
+    /// 	""Version"": ""2012-10-17"",
+    /// 	""Statement"": [
+    /// 		{
+    /// 			""Sid"": ""AllowFullAccesstoS3"",
+    /// 			""Effect"": ""Allow"",
+    /// 			""Action"": [
+    /// 				""s3:*""
+    /// 			],
+    /// 			""Resource"": ""*""
+    /// 		}
+    /// 	]
+    /// }
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Transfer SSH Public Key can be imported using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:transfer/sshKey:SshKey")]
     public partial class SshKey : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The public key portion of an SSH key pair.
+        /// </summary>
         [Output("body")]
         public Output<string> Body { get; private set; } = null!;
 
+        /// <summary>
+        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
+        /// </summary>
         [Output("serverId")]
         public Output<string> ServerId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the user account that is assigned to one or more servers.
+        /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
 
@@ -67,12 +162,21 @@ namespace Pulumi.Aws.Transfer
 
     public sealed class SshKeyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The public key portion of an SSH key pair.
+        /// </summary>
         [Input("body", required: true)]
         public Input<string> Body { get; set; } = null!;
 
+        /// <summary>
+        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
+        /// </summary>
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the user account that is assigned to one or more servers.
+        /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
 
@@ -84,12 +188,21 @@ namespace Pulumi.Aws.Transfer
 
     public sealed class SshKeyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The public key portion of an SSH key pair.
+        /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
 
+        /// <summary>
+        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
+        /// </summary>
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }
 
+        /// <summary>
+        /// The name of the user account that is assigned to one or more servers.
+        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 

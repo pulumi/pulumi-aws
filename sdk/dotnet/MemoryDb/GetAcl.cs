@@ -11,9 +11,57 @@ namespace Pulumi.Aws.MemoryDb
 {
     public static class GetAcl
     {
+        /// <summary>
+        /// Provides information about a MemoryDB ACL.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.MemoryDb.GetAcl.Invoke(new()
+        ///     {
+        ///         Name = "my-acl",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetAclResult> InvokeAsync(GetAclArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAclResult>("aws:memorydb/getAcl:getAcl", args ?? new GetAclArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides information about a MemoryDB ACL.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.MemoryDb.GetAcl.Invoke(new()
+        ///     {
+        ///         Name = "my-acl",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetAclResult> Invoke(GetAclInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAclResult>("aws:memorydb/getAcl:getAcl", args ?? new GetAclInvokeArgs(), options.WithDefaults());
     }
@@ -21,11 +69,18 @@ namespace Pulumi.Aws.MemoryDb
 
     public sealed class GetAclArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the ACL.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags assigned to the ACL.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -40,11 +95,18 @@ namespace Pulumi.Aws.MemoryDb
 
     public sealed class GetAclInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the ACL.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags assigned to the ACL.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -61,14 +123,26 @@ namespace Pulumi.Aws.MemoryDb
     [OutputType]
     public sealed class GetAclResult
     {
+        /// <summary>
+        /// ARN of the ACL.
+        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The minimum engine version supported by the ACL.
+        /// </summary>
         public readonly string MinimumEngineVersion;
         public readonly string Name;
+        /// <summary>
+        /// Map of tags assigned to the ACL.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// Set of MemoryDB user names included in this ACL.
+        /// </summary>
         public readonly ImmutableArray<string> UserNames;
 
         [OutputConstructor]

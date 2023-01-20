@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an AppStream User Stack association.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testStack = new aws.appstream.Stack("testStack", {});
+ * const testUser = new aws.appstream.User("testUser", {
+ *     authenticationType: "USERPOOL",
+ *     userName: "EMAIL",
+ * });
+ * const testUserStackAssociation = new aws.appstream.UserStackAssociation("testUserStackAssociation", {
+ *     authenticationType: testUser.authenticationType,
+ *     stackName: testStack.name,
+ *     userName: testUser.userName,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * AppStream User Stack Association can be imported by using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`), e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
+ * ```
+ */
 export class UserStackAssociation extends pulumi.CustomResource {
     /**
      * Get an existing UserStackAssociation resource's state with the given name, ID, and optional extra
@@ -32,9 +61,21 @@ export class UserStackAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserStackAssociation.__pulumiType;
     }
 
+    /**
+     * Authentication type for the user.
+     */
     public readonly authenticationType!: pulumi.Output<string>;
+    /**
+     * Whether a welcome email is sent to a user after the user is created in the user pool.
+     */
     public readonly sendEmailNotification!: pulumi.Output<boolean | undefined>;
+    /**
+     * Name of the stack that is associated with the user.
+     */
     public readonly stackName!: pulumi.Output<string>;
+    /**
+     * Email address of the user who is associated with the stack.
+     */
     public readonly userName!: pulumi.Output<string>;
 
     /**
@@ -79,9 +120,21 @@ export class UserStackAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserStackAssociation resources.
  */
 export interface UserStackAssociationState {
+    /**
+     * Authentication type for the user.
+     */
     authenticationType?: pulumi.Input<string>;
+    /**
+     * Whether a welcome email is sent to a user after the user is created in the user pool.
+     */
     sendEmailNotification?: pulumi.Input<boolean>;
+    /**
+     * Name of the stack that is associated with the user.
+     */
     stackName?: pulumi.Input<string>;
+    /**
+     * Email address of the user who is associated with the stack.
+     */
     userName?: pulumi.Input<string>;
 }
 
@@ -89,8 +142,20 @@ export interface UserStackAssociationState {
  * The set of arguments for constructing a UserStackAssociation resource.
  */
 export interface UserStackAssociationArgs {
+    /**
+     * Authentication type for the user.
+     */
     authenticationType: pulumi.Input<string>;
+    /**
+     * Whether a welcome email is sent to a user after the user is created in the user pool.
+     */
     sendEmailNotification?: pulumi.Input<boolean>;
+    /**
+     * Name of the stack that is associated with the user.
+     */
     stackName: pulumi.Input<string>;
+    /**
+     * Email address of the user who is associated with the stack.
+     */
     userName: pulumi.Input<string>;
 }

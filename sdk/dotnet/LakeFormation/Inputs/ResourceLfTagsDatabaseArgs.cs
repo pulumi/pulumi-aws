@@ -12,9 +12,15 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
     public sealed class ResourceLfTagsDatabaseArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
+        /// <summary>
+        /// Name of the database resource. Unique to the Data Catalog.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

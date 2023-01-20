@@ -16,6 +16,56 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a resource to manage a [default subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics) in the current region.
+ * 
+ * **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
+ * 
+ * The `aws.ec2.DefaultSubnet` resource behaves differently from normal resources in that if a default subnet exists in the specified Availability Zone, this provider does not _create_ this resource, but instead &#34;adopts&#34; it into management.
+ * If no default subnet exists, this provider creates a new default subnet.
+ * By default, `pulumi destroy` does not delete the default subnet but does remove the resource from the state.
+ * Set the `force_destroy` argument to `true` to delete the default subnet.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.DefaultSubnet;
+ * import com.pulumi.aws.ec2.DefaultSubnetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var defaultAz1 = new DefaultSubnet(&#34;defaultAz1&#34;, DefaultSubnetArgs.builder()        
+ *             .availabilityZone(&#34;us-west-2a&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;Default subnet for us-west-2a&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Subnets can be imported using the `subnet id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2/defaultSubnet:DefaultSubnet")
 public class DefaultSubnet extends com.pulumi.resources.CustomResource {
     @Export(name="arn", refs={String.class}, tree="[0]")
@@ -30,21 +80,49 @@ public class DefaultSubnet extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> assignIpv6AddressOnCreation() {
         return Codegen.optional(this.assignIpv6AddressOnCreation);
     }
+    /**
+     * is required
+     * * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
+     * * The default value for `map_public_ip_on_launch` is `true`
+     * 
+     */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
+    /**
+     * @return is required
+     * * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
+     * * The default value for `map_public_ip_on_launch` is `true`
+     * 
+     */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
+    /**
+     * The AZ ID of the subnet
+     * 
+     */
     @Export(name="availabilityZoneId", refs={String.class}, tree="[0]")
     private Output<String> availabilityZoneId;
 
+    /**
+     * @return The AZ ID of the subnet
+     * 
+     */
     public Output<String> availabilityZoneId() {
         return this.availabilityZoneId;
     }
+    /**
+     * The IPv4 CIDR block assigned to the subnet
+     * 
+     */
     @Export(name="cidrBlock", refs={String.class}, tree="[0]")
     private Output<String> cidrBlock;
 
+    /**
+     * @return The IPv4 CIDR block assigned to the subnet
+     * 
+     */
     public Output<String> cidrBlock() {
         return this.cidrBlock;
     }
@@ -78,9 +156,17 @@ public class DefaultSubnet extends com.pulumi.resources.CustomResource {
     public Output<Boolean> existingDefaultSubnet() {
         return this.existingDefaultSubnet;
     }
+    /**
+     * Whether destroying the resource deletes the default subnet. Default: `false`
+     * 
+     */
     @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDestroy;
 
+    /**
+     * @return Whether destroying the resource deletes the default subnet. Default: `false`
+     * 
+     */
     public Output<Optional<Boolean>> forceDestroy() {
         return Codegen.optional(this.forceDestroy);
     }
@@ -144,9 +230,17 @@ public class DefaultSubnet extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The ID of the VPC the subnet is in
+     * 
+     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
+    /**
+     * @return The ID of the VPC the subnet is in
+     * 
+     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

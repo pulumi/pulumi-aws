@@ -86,41 +86,65 @@ class GetImagePipelineResult:
     @property
     @pulumi.getter(name="containerRecipeArn")
     def container_recipe_arn(self) -> str:
+        """
+        ARN of the container recipe.
+        """
         return pulumi.get(self, "container_recipe_arn")
 
     @property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> str:
+        """
+        Date the image pipeline was created.
+        """
         return pulumi.get(self, "date_created")
 
     @property
     @pulumi.getter(name="dateLastRun")
     def date_last_run(self) -> str:
+        """
+        Date the image pipeline was last run.
+        """
         return pulumi.get(self, "date_last_run")
 
     @property
     @pulumi.getter(name="dateNextRun")
     def date_next_run(self) -> str:
+        """
+        Date the image pipeline will run next.
+        """
         return pulumi.get(self, "date_next_run")
 
     @property
     @pulumi.getter(name="dateUpdated")
     def date_updated(self) -> str:
+        """
+        Date the image pipeline was updated.
+        """
         return pulumi.get(self, "date_updated")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the image pipeline.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="distributionConfigurationArn")
     def distribution_configuration_arn(self) -> str:
+        """
+        ARN of the Image Builder Distribution Configuration.
+        """
         return pulumi.get(self, "distribution_configuration_arn")
 
     @property
     @pulumi.getter(name="enhancedImageMetadataEnabled")
     def enhanced_image_metadata_enabled(self) -> bool:
+        """
+        Whether additional information about the image being created is collected.
+        """
         return pulumi.get(self, "enhanced_image_metadata_enabled")
 
     @property
@@ -134,41 +158,65 @@ class GetImagePipelineResult:
     @property
     @pulumi.getter(name="imageRecipeArn")
     def image_recipe_arn(self) -> str:
+        """
+        ARN of the image recipe.
+        """
         return pulumi.get(self, "image_recipe_arn")
 
     @property
     @pulumi.getter(name="imageTestsConfigurations")
     def image_tests_configurations(self) -> Sequence['outputs.GetImagePipelineImageTestsConfigurationResult']:
+        """
+        List of an object with image tests configuration.
+        """
         return pulumi.get(self, "image_tests_configurations")
 
     @property
     @pulumi.getter(name="infrastructureConfigurationArn")
     def infrastructure_configuration_arn(self) -> str:
+        """
+        ARN of the Image Builder Infrastructure Configuration.
+        """
         return pulumi.get(self, "infrastructure_configuration_arn")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the image pipeline.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def platform(self) -> str:
+        """
+        Platform of the image pipeline.
+        """
         return pulumi.get(self, "platform")
 
     @property
     @pulumi.getter
     def schedules(self) -> Sequence['outputs.GetImagePipelineScheduleResult']:
+        """
+        List of an object with schedule settings.
+        """
         return pulumi.get(self, "schedules")
 
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        Status of the image pipeline.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Key-value map of resource tags for the image pipeline.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -202,7 +250,20 @@ def get_image_pipeline(arn: Optional[str] = None,
                        tags: Optional[Mapping[str, str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImagePipelineResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about an Image Builder Image Pipeline.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.imagebuilder.get_image_pipeline(arn="arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example")
+    ```
+
+
+    :param str arn: ARN of the image pipeline.
+    :param Mapping[str, str] tags: Key-value map of resource tags for the image pipeline.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -236,6 +297,19 @@ def get_image_pipeline_output(arn: Optional[pulumi.Input[str]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImagePipelineResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about an Image Builder Image Pipeline.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.imagebuilder.get_image_pipeline(arn="arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example")
+    ```
+
+
+    :param str arn: ARN of the image pipeline.
+    :param Mapping[str, str] tags: Key-value map of resource tags for the image pipeline.
     """
     ...

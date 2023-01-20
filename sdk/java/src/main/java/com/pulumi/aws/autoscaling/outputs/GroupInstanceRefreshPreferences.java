@@ -14,25 +14,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupInstanceRefreshPreferences {
+    /**
+     * @return Number of seconds to wait after a checkpoint. Defaults to `3600`.
+     * 
+     */
     private @Nullable String checkpointDelay;
+    /**
+     * @return List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
+     * 
+     */
     private @Nullable List<Integer> checkpointPercentages;
+    /**
+     * @return Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
+     * 
+     */
     private @Nullable String instanceWarmup;
+    /**
+     * @return Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+     * 
+     */
     private @Nullable Integer minHealthyPercentage;
+    /**
+     * @return Replace instances that already have your desired configuration. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean skipMatching;
 
     private GroupInstanceRefreshPreferences() {}
+    /**
+     * @return Number of seconds to wait after a checkpoint. Defaults to `3600`.
+     * 
+     */
     public Optional<String> checkpointDelay() {
         return Optional.ofNullable(this.checkpointDelay);
     }
+    /**
+     * @return List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
+     * 
+     */
     public List<Integer> checkpointPercentages() {
         return this.checkpointPercentages == null ? List.of() : this.checkpointPercentages;
     }
+    /**
+     * @return Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
+     * 
+     */
     public Optional<String> instanceWarmup() {
         return Optional.ofNullable(this.instanceWarmup);
     }
+    /**
+     * @return Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+     * 
+     */
     public Optional<Integer> minHealthyPercentage() {
         return Optional.ofNullable(this.minHealthyPercentage);
     }
+    /**
+     * @return Replace instances that already have your desired configuration. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> skipMatching() {
         return Optional.ofNullable(this.skipMatching);
     }

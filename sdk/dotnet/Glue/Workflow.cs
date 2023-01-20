@@ -9,27 +9,112 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Glue
 {
+    /// <summary>
+    /// Provides a Glue Workflow resource.
+    /// The workflow graph (DAG) can be build using the `aws.glue.Trigger` resource.
+    /// See the example below for creating a graph with four nodes (two triggers and two jobs).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Glue.Workflow("example");
+    /// 
+    ///     var example_start = new Aws.Glue.Trigger("example-start", new()
+    ///     {
+    ///         Type = "ON_DEMAND",
+    ///         WorkflowName = example.Name,
+    ///         Actions = new[]
+    ///         {
+    ///             new Aws.Glue.Inputs.TriggerActionArgs
+    ///             {
+    ///                 JobName = "example-job",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var example_inner = new Aws.Glue.Trigger("example-inner", new()
+    ///     {
+    ///         Type = "CONDITIONAL",
+    ///         WorkflowName = example.Name,
+    ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
+    ///         {
+    ///             Conditions = new[]
+    ///             {
+    ///                 new Aws.Glue.Inputs.TriggerPredicateConditionArgs
+    ///                 {
+    ///                     JobName = "example-job",
+    ///                     State = "SUCCEEDED",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Actions = new[]
+    ///         {
+    ///             new Aws.Glue.Inputs.TriggerActionArgs
+    ///             {
+    ///                 JobName = "another-example-job",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Glue Workflows can be imported using `name`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:glue/workflow:Workflow")]
     public partial class Workflow : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of Glue Workflow
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        /// </summary>
         [Output("defaultRunProperties")]
         public Output<ImmutableDictionary<string, object>?> DefaultRunProperties { get; private set; } = null!;
 
+        /// <summary>
+        /// Description of the workflow.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+        /// </summary>
         [Output("maxConcurrentRuns")]
         public Output<int?> MaxConcurrentRuns { get; private set; } = null!;
 
+        /// <summary>
+        /// The name you assign to this workflow.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -81,23 +166,40 @@ namespace Pulumi.Aws.Glue
     {
         [Input("defaultRunProperties")]
         private InputMap<object>? _defaultRunProperties;
+
+        /// <summary>
+        /// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        /// </summary>
         public InputMap<object> DefaultRunProperties
         {
             get => _defaultRunProperties ?? (_defaultRunProperties = new InputMap<object>());
             set => _defaultRunProperties = value;
         }
 
+        /// <summary>
+        /// Description of the workflow.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+        /// </summary>
         [Input("maxConcurrentRuns")]
         public Input<int>? MaxConcurrentRuns { get; set; }
 
+        /// <summary>
+        /// The name you assign to this workflow.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -112,28 +214,48 @@ namespace Pulumi.Aws.Glue
 
     public sealed class WorkflowState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of Glue Workflow
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("defaultRunProperties")]
         private InputMap<object>? _defaultRunProperties;
+
+        /// <summary>
+        /// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        /// </summary>
         public InputMap<object> DefaultRunProperties
         {
             get => _defaultRunProperties ?? (_defaultRunProperties = new InputMap<object>());
             set => _defaultRunProperties = value;
         }
 
+        /// <summary>
+        /// Description of the workflow.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+        /// </summary>
         [Input("maxConcurrentRuns")]
         public Input<int>? MaxConcurrentRuns { get; set; }
 
+        /// <summary>
+        /// The name you assign to this workflow.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -142,6 +264,10 @@ namespace Pulumi.Aws.Glue
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

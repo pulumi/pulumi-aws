@@ -16,23 +16,47 @@ public final class GetOutpostInstanceTypeArgs extends com.pulumi.resources.Invok
 
     public static final GetOutpostInstanceTypeArgs Empty = new GetOutpostInstanceTypeArgs();
 
+    /**
+     * Outpost ARN.
+     * 
+     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
+    /**
+     * @return Outpost ARN.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
 
+    /**
+     * Desired instance type. Conflicts with `preferred_instance_types`.
+     * 
+     */
     @Import(name="instanceType")
     private @Nullable Output<String> instanceType;
 
+    /**
+     * @return Desired instance type. Conflicts with `preferred_instance_types`.
+     * 
+     */
     public Optional<Output<String>> instanceType() {
         return Optional.ofNullable(this.instanceType);
     }
 
+    /**
+     * Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
+     * 
+     */
     @Import(name="preferredInstanceTypes")
     private @Nullable Output<List<String>> preferredInstanceTypes;
 
+    /**
+     * @return Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
+     * 
+     */
     public Optional<Output<List<String>>> preferredInstanceTypes() {
         return Optional.ofNullable(this.preferredInstanceTypes);
     }
@@ -63,33 +87,75 @@ public final class GetOutpostInstanceTypeArgs extends com.pulumi.resources.Invok
             $ = new GetOutpostInstanceTypeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn Outpost ARN.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn Outpost ARN.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param instanceType Desired instance type. Conflicts with `preferred_instance_types`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceType(@Nullable Output<String> instanceType) {
             $.instanceType = instanceType;
             return this;
         }
 
+        /**
+         * @param instanceType Desired instance type. Conflicts with `preferred_instance_types`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceType(String instanceType) {
             return instanceType(Output.of(instanceType));
         }
 
+        /**
+         * @param preferredInstanceTypes Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferredInstanceTypes(@Nullable Output<List<String>> preferredInstanceTypes) {
             $.preferredInstanceTypes = preferredInstanceTypes;
             return this;
         }
 
+        /**
+         * @param preferredInstanceTypes Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferredInstanceTypes(List<String> preferredInstanceTypes) {
             return preferredInstanceTypes(Output.of(preferredInstanceTypes));
         }
 
+        /**
+         * @param preferredInstanceTypes Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferredInstanceTypes(String... preferredInstanceTypes) {
             return preferredInstanceTypes(List.of(preferredInstanceTypes));
         }

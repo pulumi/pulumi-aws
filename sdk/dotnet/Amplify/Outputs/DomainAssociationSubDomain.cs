@@ -13,9 +13,21 @@ namespace Pulumi.Aws.Amplify.Outputs
     [OutputType]
     public sealed class DomainAssociationSubDomain
     {
+        /// <summary>
+        /// Branch name setting for the subdomain.
+        /// </summary>
         public readonly string BranchName;
+        /// <summary>
+        /// DNS record for the subdomain.
+        /// </summary>
         public readonly string? DnsRecord;
+        /// <summary>
+        /// Prefix setting for the subdomain.
+        /// </summary>
         public readonly string Prefix;
+        /// <summary>
+        /// Verified status of the subdomain.
+        /// </summary>
         public readonly bool? Verified;
 
         [OutputConstructor]

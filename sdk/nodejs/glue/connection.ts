@@ -7,6 +7,52 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Glue Connection resource.
+ *
+ * ## Example Usage
+ * ### Non-VPC Connection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.glue.Connection("example", {connectionProperties: {
+ *     JDBC_CONNECTION_URL: "jdbc:mysql://example.com/exampledatabase",
+ *     PASSWORD: "examplepassword",
+ *     USERNAME: "exampleusername",
+ * }});
+ * ```
+ * ### VPC Connection
+ *
+ * For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.glue.Connection("example", {
+ *     connectionProperties: {
+ *         JDBC_CONNECTION_URL: `jdbc:mysql://${aws_rds_cluster.example.endpoint}/exampledatabase`,
+ *         PASSWORD: "examplepassword",
+ *         USERNAME: "exampleusername",
+ *     },
+ *     physicalConnectionRequirements: {
+ *         availabilityZone: aws_subnet.example.availability_zone,
+ *         securityGroupIdLists: [aws_security_group.example.id],
+ *         subnetId: aws_subnet.example.id,
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Glue Connections can be imported using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
+ * ```
+ */
 export class Connection extends pulumi.CustomResource {
     /**
      * Get an existing Connection resource's state with the given name, ID, and optional extra
@@ -35,15 +81,45 @@ export class Connection extends pulumi.CustomResource {
         return obj['__pulumiType'] === Connection.__pulumiType;
     }
 
+    /**
+     * The ARN of the Glue Connection.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+     */
     public readonly catalogId!: pulumi.Output<string>;
+    /**
+     * A map of key-value pairs used as parameters for this connection.
+     */
     public readonly connectionProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
+     */
     public readonly connectionType!: pulumi.Output<string | undefined>;
+    /**
+     * Description of the connection.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * A list of criteria that can be used in selecting this connection.
+     */
     public readonly matchCriterias!: pulumi.Output<string[] | undefined>;
+    /**
+     * The name of the connection.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+     */
     public readonly physicalConnectionRequirements!: pulumi.Output<outputs.glue.ConnectionPhysicalConnectionRequirements | undefined>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -93,15 +169,45 @@ export class Connection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Connection resources.
  */
 export interface ConnectionState {
+    /**
+     * The ARN of the Glue Connection.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+     */
     catalogId?: pulumi.Input<string>;
+    /**
+     * A map of key-value pairs used as parameters for this connection.
+     */
     connectionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
+     */
     connectionType?: pulumi.Input<string>;
+    /**
+     * Description of the connection.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A list of criteria that can be used in selecting this connection.
+     */
     matchCriterias?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the connection.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+     */
     physicalConnectionRequirements?: pulumi.Input<inputs.glue.ConnectionPhysicalConnectionRequirements>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -109,12 +215,36 @@ export interface ConnectionState {
  * The set of arguments for constructing a Connection resource.
  */
 export interface ConnectionArgs {
+    /**
+     * The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+     */
     catalogId?: pulumi.Input<string>;
+    /**
+     * A map of key-value pairs used as parameters for this connection.
+     */
     connectionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
+     */
     connectionType?: pulumi.Input<string>;
+    /**
+     * Description of the connection.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A list of criteria that can be used in selecting this connection.
+     */
     matchCriterias?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the connection.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+     */
     physicalConnectionRequirements?: pulumi.Input<inputs.glue.ConnectionPhysicalConnectionRequirements>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

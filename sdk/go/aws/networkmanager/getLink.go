@@ -10,6 +10,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieve information about a link.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkmanager.LookupLink(ctx, &networkmanager.LookupLinkArgs{
+//				GlobalNetworkId: _var.Global_network_id,
+//				LinkId:          _var.Link_id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupLink(ctx *pulumi.Context, args *LookupLinkArgs, opts ...pulumi.InvokeOption) (*LookupLinkResult, error) {
 	var rv LookupLinkResult
 	err := ctx.Invoke("aws:networkmanager/getLink:getLink", args, &rv, opts...)
@@ -21,24 +49,34 @@ func LookupLink(ctx *pulumi.Context, args *LookupLinkArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getLink.
 type LookupLinkArgs struct {
-	GlobalNetworkId string            `pulumi:"globalNetworkId"`
-	LinkId          string            `pulumi:"linkId"`
-	Tags            map[string]string `pulumi:"tags"`
+	// ID of the Global Network of the link to retrieve.
+	GlobalNetworkId string `pulumi:"globalNetworkId"`
+	// ID of the specific link to retrieve.
+	LinkId string `pulumi:"linkId"`
+	// Key-value tags for the link.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLink.
 type LookupLinkResult struct {
-	Arn             string             `pulumi:"arn"`
-	Bandwidths      []GetLinkBandwidth `pulumi:"bandwidths"`
-	Description     string             `pulumi:"description"`
-	GlobalNetworkId string             `pulumi:"globalNetworkId"`
+	// ARN of the link.
+	Arn string `pulumi:"arn"`
+	// Upload speed and download speed of the link as documented below
+	Bandwidths []GetLinkBandwidth `pulumi:"bandwidths"`
+	// Description of the link.
+	Description     string `pulumi:"description"`
+	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id           string            `pulumi:"id"`
-	LinkId       string            `pulumi:"linkId"`
-	ProviderName string            `pulumi:"providerName"`
-	SiteId       string            `pulumi:"siteId"`
-	Tags         map[string]string `pulumi:"tags"`
-	Type         string            `pulumi:"type"`
+	Id     string `pulumi:"id"`
+	LinkId string `pulumi:"linkId"`
+	// Provider of the link.
+	ProviderName string `pulumi:"providerName"`
+	// ID of the site.
+	SiteId string `pulumi:"siteId"`
+	// Key-value tags for the link.
+	Tags map[string]string `pulumi:"tags"`
+	// Type of the link.
+	Type string `pulumi:"type"`
 }
 
 func LookupLinkOutput(ctx *pulumi.Context, args LookupLinkOutputArgs, opts ...pulumi.InvokeOption) LookupLinkResultOutput {
@@ -56,9 +94,12 @@ func LookupLinkOutput(ctx *pulumi.Context, args LookupLinkOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getLink.
 type LookupLinkOutputArgs struct {
-	GlobalNetworkId pulumi.StringInput    `pulumi:"globalNetworkId"`
-	LinkId          pulumi.StringInput    `pulumi:"linkId"`
-	Tags            pulumi.StringMapInput `pulumi:"tags"`
+	// ID of the Global Network of the link to retrieve.
+	GlobalNetworkId pulumi.StringInput `pulumi:"globalNetworkId"`
+	// ID of the specific link to retrieve.
+	LinkId pulumi.StringInput `pulumi:"linkId"`
+	// Key-value tags for the link.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupLinkOutputArgs) ElementType() reflect.Type {
@@ -80,14 +121,17 @@ func (o LookupLinkResultOutput) ToLookupLinkResultOutputWithContext(ctx context.
 	return o
 }
 
+// ARN of the link.
 func (o LookupLinkResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinkResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Upload speed and download speed of the link as documented below
 func (o LookupLinkResultOutput) Bandwidths() GetLinkBandwidthArrayOutput {
 	return o.ApplyT(func(v LookupLinkResult) []GetLinkBandwidth { return v.Bandwidths }).(GetLinkBandwidthArrayOutput)
 }
 
+// Description of the link.
 func (o LookupLinkResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinkResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -105,18 +149,22 @@ func (o LookupLinkResultOutput) LinkId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinkResult) string { return v.LinkId }).(pulumi.StringOutput)
 }
 
+// Provider of the link.
 func (o LookupLinkResultOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinkResult) string { return v.ProviderName }).(pulumi.StringOutput)
 }
 
+// ID of the site.
 func (o LookupLinkResultOutput) SiteId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinkResult) string { return v.SiteId }).(pulumi.StringOutput)
 }
 
+// Key-value tags for the link.
 func (o LookupLinkResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupLinkResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Type of the link.
 func (o LookupLinkResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinkResult) string { return v.Type }).(pulumi.StringOutput)
 }

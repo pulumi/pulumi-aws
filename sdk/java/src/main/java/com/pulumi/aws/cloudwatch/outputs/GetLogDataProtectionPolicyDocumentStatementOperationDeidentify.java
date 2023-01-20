@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLogDataProtectionPolicyDocumentStatementOperationDeidentify {
+    /**
+     * @return An empty object that configures masking.
+     * 
+     */
     private GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig maskConfig;
 
     private GetLogDataProtectionPolicyDocumentStatementOperationDeidentify() {}
+    /**
+     * @return An empty object that configures masking.
+     * 
+     */
     public GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig maskConfig() {
         return this.maskConfig;
     }

@@ -15,23 +15,47 @@ public final class GetGeofenceCollectionPlainArgs extends com.pulumi.resources.I
 
     public static final GetGeofenceCollectionPlainArgs Empty = new GetGeofenceCollectionPlainArgs();
 
+    /**
+     * Name of the geofence collection.
+     * 
+     */
     @Import(name="collectionName", required=true)
     private String collectionName;
 
+    /**
+     * @return Name of the geofence collection.
+     * 
+     */
     public String collectionName() {
         return this.collectionName;
     }
 
+    /**
+     * Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+     * 
+     */
     @Import(name="kmsKeyId")
     private @Nullable String kmsKeyId;
 
+    /**
+     * @return Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+     * 
+     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
+    /**
+     * Key-value map of resource tags for the geofence collection.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return Key-value map of resource tags for the geofence collection.
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -62,16 +86,34 @@ public final class GetGeofenceCollectionPlainArgs extends com.pulumi.resources.I
             $ = new GetGeofenceCollectionPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param collectionName Name of the geofence collection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder collectionName(String collectionName) {
             $.collectionName = collectionName;
             return this;
         }
 
+        /**
+         * @param kmsKeyId Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of resource tags for the geofence collection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

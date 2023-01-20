@@ -16,16 +16,34 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetConnectionArgs Empty = new GetConnectionArgs();
 
+    /**
+     * Concatenation of the catalog ID and connection name. For example, if your account ID is
+     * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+     * 
+     */
     @Import(name="id", required=true)
     private Output<String> id;
 
+    /**
+     * @return Concatenation of the catalog ID and connection name. For example, if your account ID is
+     * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+     * 
+     */
     public Output<String> id() {
         return this.id;
     }
 
+    /**
+     * Tags assigned to the resource
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Tags assigned to the resource
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -55,20 +73,46 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetConnectionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param id Concatenation of the catalog ID and connection name. For example, if your account ID is
+         * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param id Concatenation of the catalog ID and connection name. For example, if your account ID is
+         * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
+        /**
+         * @param tags Tags assigned to the resource
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Tags assigned to the resource
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -17,14 +17,24 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetGroupArgs Empty = new GetGroupArgs();
 
+    /**
+     * A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+     * 
+     */
     @Import(name="alternateIdentifier")
     private @Nullable Output<GetGroupAlternateIdentifierArgs> alternateIdentifier;
 
+    /**
+     * @return A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+     * 
+     */
     public Optional<Output<GetGroupAlternateIdentifierArgs>> alternateIdentifier() {
         return Optional.ofNullable(this.alternateIdentifier);
     }
 
     /**
+     * Configuration block for filtering by a unique attribute of the group. Detailed below.
+     * 
      * @deprecated
      * Use the alternate_identifier attribute instead.
      * 
@@ -34,6 +44,8 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<GetGroupFilterArgs> filter;
 
     /**
+     * @return Configuration block for filtering by a unique attribute of the group. Detailed below.
+     * 
      * @deprecated
      * Use the alternate_identifier attribute instead.
      * 
@@ -43,16 +55,32 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.filter);
     }
 
+    /**
+     * The identifier for a group in the Identity Store.
+     * 
+     */
     @Import(name="groupId")
     private @Nullable Output<String> groupId;
 
+    /**
+     * @return The identifier for a group in the Identity Store.
+     * 
+     */
     public Optional<Output<String>> groupId() {
         return Optional.ofNullable(this.groupId);
     }
 
+    /**
+     * Identity Store ID associated with the Single Sign-On Instance.
+     * 
+     */
     @Import(name="identityStoreId", required=true)
     private Output<String> identityStoreId;
 
+    /**
+     * @return Identity Store ID associated with the Single Sign-On Instance.
+     * 
+     */
     public Output<String> identityStoreId() {
         return this.identityStoreId;
     }
@@ -84,16 +112,30 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetGroupArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param alternateIdentifier A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alternateIdentifier(@Nullable Output<GetGroupAlternateIdentifierArgs> alternateIdentifier) {
             $.alternateIdentifier = alternateIdentifier;
             return this;
         }
 
+        /**
+         * @param alternateIdentifier A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alternateIdentifier(GetGroupAlternateIdentifierArgs alternateIdentifier) {
             return alternateIdentifier(Output.of(alternateIdentifier));
         }
 
         /**
+         * @param filter Configuration block for filtering by a unique attribute of the group. Detailed below.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -107,6 +149,8 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
+         * @param filter Configuration block for filtering by a unique attribute of the group. Detailed below.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -118,20 +162,44 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
             return filter(Output.of(filter));
         }
 
+        /**
+         * @param groupId The identifier for a group in the Identity Store.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupId(@Nullable Output<String> groupId) {
             $.groupId = groupId;
             return this;
         }
 
+        /**
+         * @param groupId The identifier for a group in the Identity Store.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupId(String groupId) {
             return groupId(Output.of(groupId));
         }
 
+        /**
+         * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityStoreId(Output<String> identityStoreId) {
             $.identityStoreId = identityStoreId;
             return this;
         }
 
+        /**
+         * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityStoreId(String identityStoreId) {
             return identityStoreId(Output.of(identityStoreId));
         }

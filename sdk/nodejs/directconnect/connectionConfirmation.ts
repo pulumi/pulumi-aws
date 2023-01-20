@@ -4,6 +4,18 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a confirmation of the creation of the specified hosted connection on an interconnect.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const confirmation = new aws.directconnect.ConnectionConfirmation("confirmation", {connectionId: "dxcon-ffabc123"});
+ * ```
+ */
 export class ConnectionConfirmation extends pulumi.CustomResource {
     /**
      * Get an existing ConnectionConfirmation resource's state with the given name, ID, and optional extra
@@ -32,6 +44,9 @@ export class ConnectionConfirmation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConnectionConfirmation.__pulumiType;
     }
 
+    /**
+     * The ID of the hosted connection.
+     */
     public readonly connectionId!: pulumi.Output<string>;
 
     /**
@@ -64,6 +79,9 @@ export class ConnectionConfirmation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ConnectionConfirmation resources.
  */
 export interface ConnectionConfirmationState {
+    /**
+     * The ID of the hosted connection.
+     */
     connectionId?: pulumi.Input<string>;
 }
 
@@ -71,5 +89,8 @@ export interface ConnectionConfirmationState {
  * The set of arguments for constructing a ConnectionConfirmation resource.
  */
 export interface ConnectionConfirmationArgs {
+    /**
+     * The ID of the hosted connection.
+     */
     connectionId: pulumi.Input<string>;
 }

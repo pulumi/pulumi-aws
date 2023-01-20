@@ -20,9 +20,17 @@ public final class ThingGroupState extends com.pulumi.resources.ResourceArgs {
 
     public static final ThingGroupState Empty = new ThingGroupState();
 
+    /**
+     * The ARN of the Thing Group.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return The ARN of the Thing Group.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -34,30 +42,62 @@ public final class ThingGroupState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.metadatas);
     }
 
+    /**
+     * The name of the Thing Group.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the Thing Group.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The name of the parent Thing Group.
+     * 
+     */
     @Import(name="parentGroupName")
     private @Nullable Output<String> parentGroupName;
 
+    /**
+     * @return The name of the parent Thing Group.
+     * 
+     */
     public Optional<Output<String>> parentGroupName() {
         return Optional.ofNullable(this.parentGroupName);
     }
 
+    /**
+     * The Thing Group properties. Defined below.
+     * 
+     */
     @Import(name="properties")
     private @Nullable Output<ThingGroupPropertiesArgs> properties;
 
+    /**
+     * @return The Thing Group properties. Defined below.
+     * 
+     */
     public Optional<Output<ThingGroupPropertiesArgs>> properties() {
         return Optional.ofNullable(this.properties);
     }
 
+    /**
+     * Key-value mapping of resource tags
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value mapping of resource tags
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -69,9 +109,17 @@ public final class ThingGroupState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * The current version of the Thing Group record in the registry.
+     * 
+     */
     @Import(name="version")
     private @Nullable Output<Integer> version;
 
+    /**
+     * @return The current version of the Thing Group record in the registry.
+     * 
+     */
     public Optional<Output<Integer>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -107,11 +155,23 @@ public final class ThingGroupState extends com.pulumi.resources.ResourceArgs {
             $ = new ThingGroupState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn The ARN of the Thing Group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn The ARN of the Thing Group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
@@ -129,38 +189,86 @@ public final class ThingGroupState extends com.pulumi.resources.ResourceArgs {
             return metadatas(List.of(metadatas));
         }
 
+        /**
+         * @param name The name of the Thing Group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the Thing Group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param parentGroupName The name of the parent Thing Group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parentGroupName(@Nullable Output<String> parentGroupName) {
             $.parentGroupName = parentGroupName;
             return this;
         }
 
+        /**
+         * @param parentGroupName The name of the parent Thing Group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parentGroupName(String parentGroupName) {
             return parentGroupName(Output.of(parentGroupName));
         }
 
+        /**
+         * @param properties The Thing Group properties. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder properties(@Nullable Output<ThingGroupPropertiesArgs> properties) {
             $.properties = properties;
             return this;
         }
 
+        /**
+         * @param properties The Thing Group properties. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder properties(ThingGroupPropertiesArgs properties) {
             return properties(Output.of(properties));
         }
 
+        /**
+         * @param tags Key-value mapping of resource tags
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value mapping of resource tags
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -174,11 +282,23 @@ public final class ThingGroupState extends com.pulumi.resources.ResourceArgs {
             return tagsAll(Output.of(tagsAll));
         }
 
+        /**
+         * @param version The current version of the Thing Group record in the registry.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(@Nullable Output<Integer> version) {
             $.version = version;
             return this;
         }
 
+        /**
+         * @param version The current version of the Thing Group record in the registry.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(Integer version) {
             return version(Output.of(version));
         }

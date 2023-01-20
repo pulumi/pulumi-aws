@@ -11,14 +11,57 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an AWS Route 53 Recovery Readiness Readiness Check.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoveryreadiness"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53recoveryreadiness.NewReadinessCheck(ctx, "example", &route53recoveryreadiness.ReadinessCheckArgs{
+//				ReadinessCheckName: pulumi.Any(my_cw_alarm_check),
+//				ResourceSetName:    pulumi.Any(my_cw_alarm_set),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Route53 Recovery Readiness readiness checks can be imported via the readiness check name, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check
+//
+// ```
 type ReadinessCheck struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput    `pulumi:"arn"`
-	ReadinessCheckName pulumi.StringOutput    `pulumi:"readinessCheckName"`
-	ResourceSetName    pulumi.StringOutput    `pulumi:"resourceSetName"`
-	Tags               pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll            pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// ARN of the readiness_check
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Unique name describing the readiness check.
+	ReadinessCheckName pulumi.StringOutput `pulumi:"readinessCheckName"`
+	// Name describing the resource set that will be monitored for readiness.
+	ResourceSetName pulumi.StringOutput `pulumi:"resourceSetName"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewReadinessCheck registers a new resource with the given unique name, arguments, and options.
@@ -56,19 +99,29 @@ func GetReadinessCheck(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReadinessCheck resources.
 type readinessCheckState struct {
-	Arn                *string           `pulumi:"arn"`
-	ReadinessCheckName *string           `pulumi:"readinessCheckName"`
-	ResourceSetName    *string           `pulumi:"resourceSetName"`
-	Tags               map[string]string `pulumi:"tags"`
-	TagsAll            map[string]string `pulumi:"tagsAll"`
+	// ARN of the readiness_check
+	Arn *string `pulumi:"arn"`
+	// Unique name describing the readiness check.
+	ReadinessCheckName *string `pulumi:"readinessCheckName"`
+	// Name describing the resource set that will be monitored for readiness.
+	ResourceSetName *string `pulumi:"resourceSetName"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ReadinessCheckState struct {
-	Arn                pulumi.StringPtrInput
+	// ARN of the readiness_check
+	Arn pulumi.StringPtrInput
+	// Unique name describing the readiness check.
 	ReadinessCheckName pulumi.StringPtrInput
-	ResourceSetName    pulumi.StringPtrInput
-	Tags               pulumi.StringMapInput
-	TagsAll            pulumi.StringMapInput
+	// Name describing the resource set that will be monitored for readiness.
+	ResourceSetName pulumi.StringPtrInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (ReadinessCheckState) ElementType() reflect.Type {
@@ -76,16 +129,22 @@ func (ReadinessCheckState) ElementType() reflect.Type {
 }
 
 type readinessCheckArgs struct {
-	ReadinessCheckName string            `pulumi:"readinessCheckName"`
-	ResourceSetName    string            `pulumi:"resourceSetName"`
-	Tags               map[string]string `pulumi:"tags"`
+	// Unique name describing the readiness check.
+	ReadinessCheckName string `pulumi:"readinessCheckName"`
+	// Name describing the resource set that will be monitored for readiness.
+	ResourceSetName string `pulumi:"resourceSetName"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ReadinessCheck resource.
 type ReadinessCheckArgs struct {
+	// Unique name describing the readiness check.
 	ReadinessCheckName pulumi.StringInput
-	ResourceSetName    pulumi.StringInput
-	Tags               pulumi.StringMapInput
+	// Name describing the resource set that will be monitored for readiness.
+	ResourceSetName pulumi.StringInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags pulumi.StringMapInput
 }
 
 func (ReadinessCheckArgs) ElementType() reflect.Type {
@@ -175,22 +234,27 @@ func (o ReadinessCheckOutput) ToReadinessCheckOutputWithContext(ctx context.Cont
 	return o
 }
 
+// ARN of the readiness_check
 func (o ReadinessCheckOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReadinessCheck) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Unique name describing the readiness check.
 func (o ReadinessCheckOutput) ReadinessCheckName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReadinessCheck) pulumi.StringOutput { return v.ReadinessCheckName }).(pulumi.StringOutput)
 }
 
+// Name describing the resource set that will be monitored for readiness.
 func (o ReadinessCheckOutput) ResourceSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReadinessCheck) pulumi.StringOutput { return v.ResourceSetName }).(pulumi.StringOutput)
 }
 
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 func (o ReadinessCheckOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReadinessCheck) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ReadinessCheckOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReadinessCheck) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

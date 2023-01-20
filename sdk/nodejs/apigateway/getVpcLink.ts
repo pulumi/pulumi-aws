@@ -4,6 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to get the id of a VPC Link in
+ * API Gateway. To fetch the VPC Link you must provide a name to match against.
+ * As there is no unique name constraint on API Gateway VPC Links this data source will
+ * error if there is more than one match.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const myApiGatewayVpcLink = aws.apigateway.getVpcLink({
+ *     name: "my-vpc-link",
+ * });
+ * ```
+ */
 export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcLinkResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,7 +34,14 @@ export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getVpcLink.
  */
 export interface GetVpcLinkArgs {
+    /**
+     * Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
+     * If multiple API Gateway VPC Links are found with this name, an error will be returned.
+     */
     name: string;
+    /**
+     * Key-value map of resource tags
+     */
     tags?: {[key: string]: string};
 }
 
@@ -25,14 +49,49 @@ export interface GetVpcLinkArgs {
  * A collection of values returned by getVpcLink.
  */
 export interface GetVpcLinkResult {
+    /**
+     * Description of the VPC link.
+     */
     readonly description: string;
+    /**
+     * Set to the ID of the found API Gateway VPC Link.
+     */
     readonly id: string;
     readonly name: string;
+    /**
+     * Status of the VPC link.
+     */
     readonly status: string;
+    /**
+     * Status message of the VPC link.
+     */
     readonly statusMessage: string;
+    /**
+     * Key-value map of resource tags
+     */
     readonly tags: {[key: string]: string};
+    /**
+     * List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+     */
     readonly targetArns: string[];
 }
+/**
+ * Use this data source to get the id of a VPC Link in
+ * API Gateway. To fetch the VPC Link you must provide a name to match against.
+ * As there is no unique name constraint on API Gateway VPC Links this data source will
+ * error if there is more than one match.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const myApiGatewayVpcLink = aws.apigateway.getVpcLink({
+ *     name: "my-vpc-link",
+ * });
+ * ```
+ */
 export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcLinkResult> {
     return pulumi.output(args).apply((a: any) => getVpcLink(a, opts))
 }
@@ -41,6 +100,13 @@ export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getVpcLink.
  */
 export interface GetVpcLinkOutputArgs {
+    /**
+     * Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
+     * If multiple API Gateway VPC Links are found with this name, an error will be returned.
+     */
     name: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -14,12 +14,28 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BotAbortStatement {
     private List<BotAbortStatementMessage> messages;
+    /**
+     * @return The response card. Amazon Lex will substitute session attributes and
+     * slot values into the response card. For more information, see
+     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+     * slot values into the response card. For more information, see
+     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+     * 
+     */
     private @Nullable String responseCard;
 
     private BotAbortStatement() {}
     public List<BotAbortStatementMessage> messages() {
         return this.messages;
     }
+    /**
+     * @return The response card. Amazon Lex will substitute session attributes and
+     * slot values into the response card. For more information, see
+     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+     * slot values into the response card. For more information, see
+     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+     * 
+     */
     public Optional<String> responseCard() {
         return Optional.ofNullable(this.responseCard);
     }

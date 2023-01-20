@@ -25,6 +25,13 @@ class FindingsFilterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FindingsFilter resource.
+        :param pulumi.Input[str] action: The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
+        :param pulumi.Input['FindingsFilterFindingCriteriaArgs'] finding_criteria: The criteria to use to filter findings.
+        :param pulumi.Input[str] description: A custom description of the filter. The description can contain as many as 512 characters.
+        :param pulumi.Input[str] name: A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[int] position: The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the filter.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "finding_criteria", finding_criteria)
@@ -42,6 +49,9 @@ class FindingsFilterArgs:
     @property
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
+        """
+        The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -51,6 +61,9 @@ class FindingsFilterArgs:
     @property
     @pulumi.getter(name="findingCriteria")
     def finding_criteria(self) -> pulumi.Input['FindingsFilterFindingCriteriaArgs']:
+        """
+        The criteria to use to filter findings.
+        """
         return pulumi.get(self, "finding_criteria")
 
     @finding_criteria.setter
@@ -60,6 +73,9 @@ class FindingsFilterArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom description of the filter. The description can contain as many as 512 characters.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -69,6 +85,9 @@ class FindingsFilterArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -78,6 +97,9 @@ class FindingsFilterArgs:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -87,6 +109,9 @@ class FindingsFilterArgs:
     @property
     @pulumi.getter
     def position(self) -> Optional[pulumi.Input[int]]:
+        """
+        The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+        """
         return pulumi.get(self, "position")
 
     @position.setter
@@ -96,6 +121,9 @@ class FindingsFilterArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of key-value pairs that specifies the tags to associate with the filter.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -117,6 +145,14 @@ class _FindingsFilterState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering FindingsFilter resources.
+        :param pulumi.Input[str] action: The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Findings Filter.
+        :param pulumi.Input[str] description: A custom description of the filter. The description can contain as many as 512 characters.
+        :param pulumi.Input['FindingsFilterFindingCriteriaArgs'] finding_criteria: The criteria to use to filter findings.
+        :param pulumi.Input[str] name: A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[int] position: The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the filter.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -140,6 +176,9 @@ class _FindingsFilterState:
     @property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -149,6 +188,9 @@ class _FindingsFilterState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Findings Filter.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -158,6 +200,9 @@ class _FindingsFilterState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom description of the filter. The description can contain as many as 512 characters.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -167,6 +212,9 @@ class _FindingsFilterState:
     @property
     @pulumi.getter(name="findingCriteria")
     def finding_criteria(self) -> Optional[pulumi.Input['FindingsFilterFindingCriteriaArgs']]:
+        """
+        The criteria to use to filter findings.
+        """
         return pulumi.get(self, "finding_criteria")
 
     @finding_criteria.setter
@@ -176,6 +224,9 @@ class _FindingsFilterState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -185,6 +236,9 @@ class _FindingsFilterState:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -194,6 +248,9 @@ class _FindingsFilterState:
     @property
     @pulumi.getter
     def position(self) -> Optional[pulumi.Input[int]]:
+        """
+        The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+        """
         return pulumi.get(self, "position")
 
     @position.setter
@@ -203,6 +260,9 @@ class _FindingsFilterState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of key-value pairs that specifies the tags to associate with the filter.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -233,9 +293,45 @@ class FindingsFilter(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a FindingsFilter resource with the given unique name, props, and options.
+        Provides a resource to manage an [Amazon Macie Findings Filter](https://docs.aws.amazon.com/macie/latest/APIReference/findingsfilters-id.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.macie2.Account("example")
+        test = aws.macie.FindingsFilter("test",
+            description="DESCRIPTION",
+            position=1,
+            action="ARCHIVE",
+            finding_criteria=aws.macie.FindingsFilterFindingCriteriaArgs(
+                criterions=[aws.macie.FindingsFilterFindingCriteriaCriterionArgs(
+                    field="region",
+                    eqs=[data["aws_region"]["current"]["name"]],
+                )],
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[aws_macie2_account["test"]]))
+        ```
+
+        ## Import
+
+        `aws_macie2_findings_filter` can be imported using the id, e.g.,
+
+        ```sh
+         $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] action: The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
+        :param pulumi.Input[str] description: A custom description of the filter. The description can contain as many as 512 characters.
+        :param pulumi.Input[pulumi.InputType['FindingsFilterFindingCriteriaArgs']] finding_criteria: The criteria to use to filter findings.
+        :param pulumi.Input[str] name: A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[int] position: The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the filter.
         """
         ...
     @overload
@@ -244,7 +340,36 @@ class FindingsFilter(pulumi.CustomResource):
                  args: FindingsFilterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a FindingsFilter resource with the given unique name, props, and options.
+        Provides a resource to manage an [Amazon Macie Findings Filter](https://docs.aws.amazon.com/macie/latest/APIReference/findingsfilters-id.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.macie2.Account("example")
+        test = aws.macie.FindingsFilter("test",
+            description="DESCRIPTION",
+            position=1,
+            action="ARCHIVE",
+            finding_criteria=aws.macie.FindingsFilterFindingCriteriaArgs(
+                criterions=[aws.macie.FindingsFilterFindingCriteriaCriterionArgs(
+                    field="region",
+                    eqs=[data["aws_region"]["current"]["name"]],
+                )],
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[aws_macie2_account["test"]]))
+        ```
+
+        ## Import
+
+        `aws_macie2_findings_filter` can be imported using the id, e.g.,
+
+        ```sh
+         $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
+        ```
+
         :param str resource_name: The name of the resource.
         :param FindingsFilterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -315,6 +440,14 @@ class FindingsFilter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] action: The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Findings Filter.
+        :param pulumi.Input[str] description: A custom description of the filter. The description can contain as many as 512 characters.
+        :param pulumi.Input[pulumi.InputType['FindingsFilterFindingCriteriaArgs']] finding_criteria: The criteria to use to filter findings.
+        :param pulumi.Input[str] name: A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[int] position: The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the filter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -334,41 +467,65 @@ class FindingsFilter(pulumi.CustomResource):
     @property
     @pulumi.getter
     def action(self) -> pulumi.Output[str]:
+        """
+        The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Findings Filter.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A custom description of the filter. The description can contain as many as 512 characters.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="findingCriteria")
     def finding_criteria(self) -> pulumi.Output['outputs.FindingsFilterFindingCriteria']:
+        """
+        The criteria to use to filter findings.
+        """
         return pulumi.get(self, "finding_criteria")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[str]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @property
     @pulumi.getter
     def position(self) -> pulumi.Output[int]:
+        """
+        The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
+        """
         return pulumi.get(self, "position")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of key-value pairs that specifies the tags to associate with the filter.
+        """
         return pulumi.get(self, "tags")
 
     @property

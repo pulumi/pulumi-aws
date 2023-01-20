@@ -11,9 +11,57 @@ namespace Pulumi.Aws.CloudFront
 {
     public static class GetDistribution
     {
+        /// <summary>
+        /// Use this data source to retrieve information about a CloudFront distribution.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.CloudFront.GetDistribution.Invoke(new()
+        ///     {
+        ///         Id = "EDFDVBD632BHDS5",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetDistributionResult> InvokeAsync(GetDistributionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDistributionResult>("aws:cloudfront/getDistribution:getDistribution", args ?? new GetDistributionArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to retrieve information about a CloudFront distribution.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.CloudFront.GetDistribution.Invoke(new()
+        ///     {
+        ///         Id = "EDFDVBD632BHDS5",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetDistributionResult> Invoke(GetDistributionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDistributionResult>("aws:cloudfront/getDistribution:getDistribution", args ?? new GetDistributionInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +69,9 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetDistributionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -40,6 +91,9 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetDistributionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -61,15 +115,49 @@ namespace Pulumi.Aws.CloudFront
     [OutputType]
     public sealed class GetDistributionResult
     {
+        /// <summary>
+        /// List that contains information about CNAMEs (alternate domain names), if any, for this distribution.
+        /// </summary>
         public readonly ImmutableArray<string> Aliases;
+        /// <summary>
+        /// ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Domain name corresponding to the distribution. For
+        /// example: `d604721fxaaqy9.cloudfront.net`.
+        /// </summary>
         public readonly string DomainName;
         public readonly bool Enabled;
+        /// <summary>
+        /// Current version of the distribution's information. For example:
+        /// `E2QWRUHAPOMQZL`.
+        /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// CloudFront Route 53 zone ID that can be used to
+        /// route an [Alias Resource Record Set][7] to. This attribute is simply an
+        /// alias for the zone ID `Z2FDTNDATAQYW2`.
+        /// </summary>
         public readonly string HostedZoneId;
+        /// <summary>
+        /// Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The number of invalidation batches
+        /// currently in progress.
+        /// </summary>
         public readonly int InProgressValidationBatches;
+        /// <summary>
+        /// Date and time the distribution was last modified.
+        /// </summary>
         public readonly string LastModifiedTime;
+        /// <summary>
+        /// Current status of the distribution. `Deployed` if the
+        /// distribution's information is fully propagated throughout the Amazon
+        /// CloudFront system.
+        /// </summary>
         public readonly string Status;
         public readonly ImmutableDictionary<string, string>? Tags;
 

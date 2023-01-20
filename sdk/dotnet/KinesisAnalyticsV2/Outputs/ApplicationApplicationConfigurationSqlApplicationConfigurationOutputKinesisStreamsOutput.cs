@@ -13,6 +13,9 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput
     {
+        /// <summary>
+        /// The ARN of the destination Kinesis data stream to write to.
+        /// </summary>
         public readonly string ResourceArn;
 
         [OutputConstructor]

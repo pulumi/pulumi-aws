@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class TableSchemaDefinitionPartitionKey {
+    /**
+     * @return The name of the partition key column.
+     * 
+     */
     private String name;
 
     private TableSchemaDefinitionPartitionKey() {}
+    /**
+     * @return The name of the partition key column.
+     * 
+     */
     public String name() {
         return this.name;
     }

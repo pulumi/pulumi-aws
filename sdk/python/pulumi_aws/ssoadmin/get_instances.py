@@ -34,6 +34,9 @@ class GetInstancesResult:
     @property
     @pulumi.getter
     def arns(self) -> Sequence[str]:
+        """
+        Set of Amazon Resource Names (ARNs) of the SSO Instances.
+        """
         return pulumi.get(self, "arns")
 
     @property
@@ -47,6 +50,9 @@ class GetInstancesResult:
     @property
     @pulumi.getter(name="identityStoreIds")
     def identity_store_ids(self) -> Sequence[str]:
+        """
+        Set of identifiers of the identity stores connected to the SSO Instances.
+        """
         return pulumi.get(self, "identity_store_ids")
 
 
@@ -63,7 +69,7 @@ class AwaitableGetInstancesResult(GetInstancesResult):
 
 def get_instances(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancesResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

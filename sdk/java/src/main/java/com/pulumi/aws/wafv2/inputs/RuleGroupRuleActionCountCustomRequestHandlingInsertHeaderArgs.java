@@ -13,16 +13,32 @@ public final class RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs
 
     public static final RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs Empty = new RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs();
 
+    /**
+     * A friendly name of the rule group.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return A friendly name of the rule group.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * The value of the custom header.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return The value of the custom header.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -52,20 +68,44 @@ public final class RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs
             $ = new RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name A friendly name of the rule group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name A friendly name of the rule group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param value The value of the custom header.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value The value of the custom header.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

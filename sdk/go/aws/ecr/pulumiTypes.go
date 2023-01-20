@@ -11,8 +11,10 @@ import (
 )
 
 type RegistryScanningConfigurationRule struct {
+	// One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
 	RepositoryFilters []RegistryScanningConfigurationRuleRepositoryFilter `pulumi:"repositoryFilters"`
-	ScanFrequency     string                                              `pulumi:"scanFrequency"`
+	// The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
+	ScanFrequency string `pulumi:"scanFrequency"`
 }
 
 // RegistryScanningConfigurationRuleInput is an input type that accepts RegistryScanningConfigurationRuleArgs and RegistryScanningConfigurationRuleOutput values.
@@ -27,8 +29,10 @@ type RegistryScanningConfigurationRuleInput interface {
 }
 
 type RegistryScanningConfigurationRuleArgs struct {
+	// One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
 	RepositoryFilters RegistryScanningConfigurationRuleRepositoryFilterArrayInput `pulumi:"repositoryFilters"`
-	ScanFrequency     pulumi.StringInput                                          `pulumi:"scanFrequency"`
+	// The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
+	ScanFrequency pulumi.StringInput `pulumi:"scanFrequency"`
 }
 
 func (RegistryScanningConfigurationRuleArgs) ElementType() reflect.Type {
@@ -82,12 +86,14 @@ func (o RegistryScanningConfigurationRuleOutput) ToRegistryScanningConfiguration
 	return o
 }
 
+// One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
 func (o RegistryScanningConfigurationRuleOutput) RepositoryFilters() RegistryScanningConfigurationRuleRepositoryFilterArrayOutput {
 	return o.ApplyT(func(v RegistryScanningConfigurationRule) []RegistryScanningConfigurationRuleRepositoryFilter {
 		return v.RepositoryFilters
 	}).(RegistryScanningConfigurationRuleRepositoryFilterArrayOutput)
 }
 
+// The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
 func (o RegistryScanningConfigurationRuleOutput) ScanFrequency() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryScanningConfigurationRule) string { return v.ScanFrequency }).(pulumi.StringOutput)
 }
@@ -213,6 +219,7 @@ func (o RegistryScanningConfigurationRuleRepositoryFilterArrayOutput) Index(i pu
 }
 
 type ReplicationConfigurationReplicationConfiguration struct {
+	// The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
 	Rules []ReplicationConfigurationReplicationConfigurationRule `pulumi:"rules"`
 }
 
@@ -228,6 +235,7 @@ type ReplicationConfigurationReplicationConfigurationInput interface {
 }
 
 type ReplicationConfigurationReplicationConfigurationArgs struct {
+	// The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
 	Rules ReplicationConfigurationReplicationConfigurationRuleArrayInput `pulumi:"rules"`
 }
 
@@ -308,6 +316,7 @@ func (o ReplicationConfigurationReplicationConfigurationOutput) ToReplicationCon
 	}).(ReplicationConfigurationReplicationConfigurationPtrOutput)
 }
 
+// The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
 func (o ReplicationConfigurationReplicationConfigurationOutput) Rules() ReplicationConfigurationReplicationConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationConfiguration) []ReplicationConfigurationReplicationConfigurationRule {
 		return v.Rules
@@ -338,6 +347,7 @@ func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Elem() Replic
 	}).(ReplicationConfigurationReplicationConfigurationOutput)
 }
 
+// The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
 func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Rules() ReplicationConfigurationReplicationConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v *ReplicationConfigurationReplicationConfiguration) []ReplicationConfigurationReplicationConfigurationRule {
 		if v == nil {
@@ -348,7 +358,9 @@ func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Rules() Repli
 }
 
 type ReplicationConfigurationReplicationConfigurationRule struct {
-	Destinations      []ReplicationConfigurationReplicationConfigurationRuleDestination      `pulumi:"destinations"`
+	// the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
+	Destinations []ReplicationConfigurationReplicationConfigurationRuleDestination `pulumi:"destinations"`
+	// filters for a replication rule. See Repository Filter.
 	RepositoryFilters []ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter `pulumi:"repositoryFilters"`
 }
 
@@ -364,7 +376,9 @@ type ReplicationConfigurationReplicationConfigurationRuleInput interface {
 }
 
 type ReplicationConfigurationReplicationConfigurationRuleArgs struct {
-	Destinations      ReplicationConfigurationReplicationConfigurationRuleDestinationArrayInput      `pulumi:"destinations"`
+	// the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
+	Destinations ReplicationConfigurationReplicationConfigurationRuleDestinationArrayInput `pulumi:"destinations"`
+	// filters for a replication rule. See Repository Filter.
 	RepositoryFilters ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayInput `pulumi:"repositoryFilters"`
 }
 
@@ -419,12 +433,14 @@ func (o ReplicationConfigurationReplicationConfigurationRuleOutput) ToReplicatio
 	return o
 }
 
+// the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
 func (o ReplicationConfigurationReplicationConfigurationRuleOutput) Destinations() ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationConfigurationRule) []ReplicationConfigurationReplicationConfigurationRuleDestination {
 		return v.Destinations
 	}).(ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput)
 }
 
+// filters for a replication rule. See Repository Filter.
 func (o ReplicationConfigurationReplicationConfigurationRuleOutput) RepositoryFilters() ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationConfigurationRule) []ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter {
 		return v.RepositoryFilters
@@ -452,7 +468,9 @@ func (o ReplicationConfigurationReplicationConfigurationRuleArrayOutput) Index(i
 }
 
 type ReplicationConfigurationReplicationConfigurationRuleDestination struct {
-	Region     string `pulumi:"region"`
+	// A Region to replicate to.
+	Region string `pulumi:"region"`
+	// The account ID of the destination registry to replicate to.
 	RegistryId string `pulumi:"registryId"`
 }
 
@@ -468,7 +486,9 @@ type ReplicationConfigurationReplicationConfigurationRuleDestinationInput interf
 }
 
 type ReplicationConfigurationReplicationConfigurationRuleDestinationArgs struct {
-	Region     pulumi.StringInput `pulumi:"region"`
+	// A Region to replicate to.
+	Region pulumi.StringInput `pulumi:"region"`
+	// The account ID of the destination registry to replicate to.
 	RegistryId pulumi.StringInput `pulumi:"registryId"`
 }
 
@@ -523,10 +543,12 @@ func (o ReplicationConfigurationReplicationConfigurationRuleDestinationOutput) T
 	return o
 }
 
+// A Region to replicate to.
 func (o ReplicationConfigurationReplicationConfigurationRuleDestinationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationConfigurationRuleDestination) string { return v.Region }).(pulumi.StringOutput)
 }
 
+// The account ID of the destination registry to replicate to.
 func (o ReplicationConfigurationReplicationConfigurationRuleDestinationOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationConfigurationRuleDestination) string { return v.RegistryId }).(pulumi.StringOutput)
 }
@@ -552,7 +574,9 @@ func (o ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutp
 }
 
 type ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter struct {
-	Filter     string `pulumi:"filter"`
+	// The repository filter details.
+	Filter string `pulumi:"filter"`
+	// The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
 	FilterType string `pulumi:"filterType"`
 }
 
@@ -568,7 +592,9 @@ type ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterInput i
 }
 
 type ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs struct {
-	Filter     pulumi.StringInput `pulumi:"filter"`
+	// The repository filter details.
+	Filter pulumi.StringInput `pulumi:"filter"`
+	// The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
 	FilterType pulumi.StringInput `pulumi:"filterType"`
 }
 
@@ -623,10 +649,12 @@ func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutp
 	return o
 }
 
+// The repository filter details.
 func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput) Filter() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter) string { return v.Filter }).(pulumi.StringOutput)
 }
 
+// The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
 func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput) FilterType() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter) string {
 		return v.FilterType
@@ -654,8 +682,10 @@ func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArra
 }
 
 type RepositoryEncryptionConfiguration struct {
+	// The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
 	EncryptionType *string `pulumi:"encryptionType"`
-	KmsKey         *string `pulumi:"kmsKey"`
+	// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+	KmsKey *string `pulumi:"kmsKey"`
 }
 
 // RepositoryEncryptionConfigurationInput is an input type that accepts RepositoryEncryptionConfigurationArgs and RepositoryEncryptionConfigurationOutput values.
@@ -670,8 +700,10 @@ type RepositoryEncryptionConfigurationInput interface {
 }
 
 type RepositoryEncryptionConfigurationArgs struct {
+	// The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
 	EncryptionType pulumi.StringPtrInput `pulumi:"encryptionType"`
-	KmsKey         pulumi.StringPtrInput `pulumi:"kmsKey"`
+	// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
 }
 
 func (RepositoryEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -725,10 +757,12 @@ func (o RepositoryEncryptionConfigurationOutput) ToRepositoryEncryptionConfigura
 	return o
 }
 
+// The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
 func (o RepositoryEncryptionConfigurationOutput) EncryptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryEncryptionConfiguration) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
 func (o RepositoryEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
@@ -754,6 +788,7 @@ func (o RepositoryEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) R
 }
 
 type RepositoryImageScanningConfiguration struct {
+	// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
 	ScanOnPush bool `pulumi:"scanOnPush"`
 }
 
@@ -769,6 +804,7 @@ type RepositoryImageScanningConfigurationInput interface {
 }
 
 type RepositoryImageScanningConfigurationArgs struct {
+	// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
 	ScanOnPush pulumi.BoolInput `pulumi:"scanOnPush"`
 }
 
@@ -849,6 +885,7 @@ func (o RepositoryImageScanningConfigurationOutput) ToRepositoryImageScanningCon
 	}).(RepositoryImageScanningConfigurationPtrOutput)
 }
 
+// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
 func (o RepositoryImageScanningConfigurationOutput) ScanOnPush() pulumi.BoolOutput {
 	return o.ApplyT(func(v RepositoryImageScanningConfiguration) bool { return v.ScanOnPush }).(pulumi.BoolOutput)
 }
@@ -877,6 +914,7 @@ func (o RepositoryImageScanningConfigurationPtrOutput) Elem() RepositoryImageSca
 	}).(RepositoryImageScanningConfigurationOutput)
 }
 
+// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
 func (o RepositoryImageScanningConfigurationPtrOutput) ScanOnPush() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryImageScanningConfiguration) *bool {
 		if v == nil {
@@ -887,8 +925,10 @@ func (o RepositoryImageScanningConfigurationPtrOutput) ScanOnPush() pulumi.BoolP
 }
 
 type GetRepositoryEncryptionConfiguration struct {
+	// Encryption type to use for the repository, either `AES256` or `KMS`.
 	EncryptionType string `pulumi:"encryptionType"`
-	KmsKey         string `pulumi:"kmsKey"`
+	// If `encryptionType` is `KMS`, the ARN of the KMS key used.
+	KmsKey string `pulumi:"kmsKey"`
 }
 
 // GetRepositoryEncryptionConfigurationInput is an input type that accepts GetRepositoryEncryptionConfigurationArgs and GetRepositoryEncryptionConfigurationOutput values.
@@ -903,8 +943,10 @@ type GetRepositoryEncryptionConfigurationInput interface {
 }
 
 type GetRepositoryEncryptionConfigurationArgs struct {
+	// Encryption type to use for the repository, either `AES256` or `KMS`.
 	EncryptionType pulumi.StringInput `pulumi:"encryptionType"`
-	KmsKey         pulumi.StringInput `pulumi:"kmsKey"`
+	// If `encryptionType` is `KMS`, the ARN of the KMS key used.
+	KmsKey pulumi.StringInput `pulumi:"kmsKey"`
 }
 
 func (GetRepositoryEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -958,10 +1000,12 @@ func (o GetRepositoryEncryptionConfigurationOutput) ToGetRepositoryEncryptionCon
 	return o
 }
 
+// Encryption type to use for the repository, either `AES256` or `KMS`.
 func (o GetRepositoryEncryptionConfigurationOutput) EncryptionType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryEncryptionConfiguration) string { return v.EncryptionType }).(pulumi.StringOutput)
 }
 
+// If `encryptionType` is `KMS`, the ARN of the KMS key used.
 func (o GetRepositoryEncryptionConfigurationOutput) KmsKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryEncryptionConfiguration) string { return v.KmsKey }).(pulumi.StringOutput)
 }
@@ -987,6 +1031,7 @@ func (o GetRepositoryEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetRepositoryImageScanningConfiguration struct {
+	// Whether images are scanned after being pushed to the repository.
 	ScanOnPush bool `pulumi:"scanOnPush"`
 }
 
@@ -1002,6 +1047,7 @@ type GetRepositoryImageScanningConfigurationInput interface {
 }
 
 type GetRepositoryImageScanningConfigurationArgs struct {
+	// Whether images are scanned after being pushed to the repository.
 	ScanOnPush pulumi.BoolInput `pulumi:"scanOnPush"`
 }
 
@@ -1056,6 +1102,7 @@ func (o GetRepositoryImageScanningConfigurationOutput) ToGetRepositoryImageScann
 	return o
 }
 
+// Whether images are scanned after being pushed to the repository.
 func (o GetRepositoryImageScanningConfigurationOutput) ScanOnPush() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetRepositoryImageScanningConfiguration) bool { return v.ScanOnPush }).(pulumi.BoolOutput)
 }

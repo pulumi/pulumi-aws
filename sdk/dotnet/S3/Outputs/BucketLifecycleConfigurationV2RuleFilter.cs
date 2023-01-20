@@ -13,10 +13,25 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketLifecycleConfigurationV2RuleFilter
     {
+        /// <summary>
+        /// Configuration block used to apply a logical `AND` to two or more predicates documented below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
+        /// </summary>
         public readonly Outputs.BucketLifecycleConfigurationV2RuleFilterAnd? And;
+        /// <summary>
+        /// Minimum object size (in bytes) to which the rule applies.
+        /// </summary>
         public readonly string? ObjectSizeGreaterThan;
+        /// <summary>
+        /// Maximum object size (in bytes) to which the rule applies.
+        /// </summary>
         public readonly string? ObjectSizeLessThan;
+        /// <summary>
+        /// Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
+        /// </summary>
         public readonly string? Prefix;
+        /// <summary>
+        /// A configuration block for specifying a tag key and value documented below.
+        /// </summary>
         public readonly Outputs.BucketLifecycleConfigurationV2RuleFilterTag? Tag;
 
         [OutputConstructor]

@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.apigateway.getExport({
+ *     restApiId: aws_api_gateway_stage.example.rest_api_id,
+ *     stageName: aws_api_gateway_stage.example.stage_name,
+ *     exportType: "oas30",
+ * });
+ * ```
+ */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -20,10 +34,25 @@ export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getExport.
  */
 export interface GetExportArgs {
+    /**
+     * Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `exportType` `ofoas30` and `swagger`.
+     */
     accepts?: string;
+    /**
+     * Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
+     */
     exportType: string;
+    /**
+     * Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
+     */
     parameters?: {[key: string]: string};
+    /**
+     * Identifier of the associated REST API.
+     */
     restApiId: string;
+    /**
+     * Name of the Stage that will be exported.
+     */
     stageName: string;
 }
 
@@ -32,8 +61,17 @@ export interface GetExportArgs {
  */
 export interface GetExportResult {
     readonly accepts?: string;
+    /**
+     * API Spec.
+     */
     readonly body: string;
+    /**
+     * Content-disposition header value in the HTTP response.
+     */
     readonly contentDisposition: string;
+    /**
+     * Content-type header value in the HTTP response.
+     */
     readonly contentType: string;
     readonly exportType: string;
     /**
@@ -44,6 +82,20 @@ export interface GetExportResult {
     readonly restApiId: string;
     readonly stageName: string;
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.apigateway.getExport({
+ *     restApiId: aws_api_gateway_stage.example.rest_api_id,
+ *     stageName: aws_api_gateway_stage.example.stage_name,
+ *     exportType: "oas30",
+ * });
+ * ```
+ */
 export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportResult> {
     return pulumi.output(args).apply((a: any) => getExport(a, opts))
 }
@@ -52,9 +104,24 @@ export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getExport.
  */
 export interface GetExportOutputArgs {
+    /**
+     * Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `exportType` `ofoas30` and `swagger`.
+     */
     accepts?: pulumi.Input<string>;
+    /**
+     * Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
+     */
     exportType: pulumi.Input<string>;
+    /**
+     * Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
+     */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Identifier of the associated REST API.
+     */
     restApiId: pulumi.Input<string>;
+    /**
+     * Name of the Stage that will be exported.
+     */
     stageName: pulumi.Input<string>;
 }

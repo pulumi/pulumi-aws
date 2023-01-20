@@ -23,6 +23,11 @@ class RecordingConfigurationArgs:
                  thumbnail_configuration: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']] = None):
         """
         The set of arguments for constructing a RecordingConfiguration resource.
+        :param pulumi.Input['RecordingConfigurationDestinationConfigurationArgs'] destination_configuration: Object containing destination configuration for where recorded video will be stored.
+        :param pulumi.Input[str] name: Recording Configuration name.
+        :param pulumi.Input[int] recording_reconnect_window_seconds: If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs'] thumbnail_configuration: Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
         """
         pulumi.set(__self__, "destination_configuration", destination_configuration)
         if name is not None:
@@ -37,6 +42,9 @@ class RecordingConfigurationArgs:
     @property
     @pulumi.getter(name="destinationConfiguration")
     def destination_configuration(self) -> pulumi.Input['RecordingConfigurationDestinationConfigurationArgs']:
+        """
+        Object containing destination configuration for where recorded video will be stored.
+        """
         return pulumi.get(self, "destination_configuration")
 
     @destination_configuration.setter
@@ -46,6 +54,9 @@ class RecordingConfigurationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Recording Configuration name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -55,6 +66,9 @@ class RecordingConfigurationArgs:
     @property
     @pulumi.getter(name="recordingReconnectWindowSeconds")
     def recording_reconnect_window_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+        """
         return pulumi.get(self, "recording_reconnect_window_seconds")
 
     @recording_reconnect_window_seconds.setter
@@ -64,6 +78,9 @@ class RecordingConfigurationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -73,6 +90,9 @@ class RecordingConfigurationArgs:
     @property
     @pulumi.getter(name="thumbnailConfiguration")
     def thumbnail_configuration(self) -> Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']]:
+        """
+        Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
+        """
         return pulumi.get(self, "thumbnail_configuration")
 
     @thumbnail_configuration.setter
@@ -93,6 +113,14 @@ class _RecordingConfigurationState:
                  thumbnail_configuration: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering RecordingConfiguration resources.
+        :param pulumi.Input[str] arn: ARN of the Recording Configuration.
+        :param pulumi.Input['RecordingConfigurationDestinationConfigurationArgs'] destination_configuration: Object containing destination configuration for where recorded video will be stored.
+        :param pulumi.Input[str] name: Recording Configuration name.
+        :param pulumi.Input[int] recording_reconnect_window_seconds: If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+        :param pulumi.Input[str] state: The current state of the Recording Configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs'] thumbnail_configuration: Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -114,6 +142,9 @@ class _RecordingConfigurationState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Recording Configuration.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -123,6 +154,9 @@ class _RecordingConfigurationState:
     @property
     @pulumi.getter(name="destinationConfiguration")
     def destination_configuration(self) -> Optional[pulumi.Input['RecordingConfigurationDestinationConfigurationArgs']]:
+        """
+        Object containing destination configuration for where recorded video will be stored.
+        """
         return pulumi.get(self, "destination_configuration")
 
     @destination_configuration.setter
@@ -132,6 +166,9 @@ class _RecordingConfigurationState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Recording Configuration name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -141,6 +178,9 @@ class _RecordingConfigurationState:
     @property
     @pulumi.getter(name="recordingReconnectWindowSeconds")
     def recording_reconnect_window_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+        """
         return pulumi.get(self, "recording_reconnect_window_seconds")
 
     @recording_reconnect_window_seconds.setter
@@ -150,6 +190,9 @@ class _RecordingConfigurationState:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current state of the Recording Configuration.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -159,6 +202,9 @@ class _RecordingConfigurationState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -168,6 +214,9 @@ class _RecordingConfigurationState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -177,6 +226,9 @@ class _RecordingConfigurationState:
     @property
     @pulumi.getter(name="thumbnailConfiguration")
     def thumbnail_configuration(self) -> Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']]:
+        """
+        Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
+        """
         return pulumi.get(self, "thumbnail_configuration")
 
     @thumbnail_configuration.setter
@@ -196,9 +248,37 @@ class RecordingConfiguration(pulumi.CustomResource):
                  thumbnail_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationThumbnailConfigurationArgs']]] = None,
                  __props__=None):
         """
-        Create a RecordingConfiguration resource with the given unique name, props, and options.
+        Resource for managing an AWS IVS (Interactive Video) Recording Configuration.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ivs.RecordingConfiguration("example", destination_configuration=aws.ivs.RecordingConfigurationDestinationConfigurationArgs(
+            s3=aws.ivs.RecordingConfigurationDestinationConfigurationS3Args(
+                bucket_name="ivs-stream-archive",
+            ),
+        ))
+        ```
+
+        ## Import
+
+        IVS (Interactive Video) Recording Configuration can be imported using the ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['RecordingConfigurationDestinationConfigurationArgs']] destination_configuration: Object containing destination configuration for where recorded video will be stored.
+        :param pulumi.Input[str] name: Recording Configuration name.
+        :param pulumi.Input[int] recording_reconnect_window_seconds: If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[pulumi.InputType['RecordingConfigurationThumbnailConfigurationArgs']] thumbnail_configuration: Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
         """
         ...
     @overload
@@ -207,7 +287,30 @@ class RecordingConfiguration(pulumi.CustomResource):
                  args: RecordingConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RecordingConfiguration resource with the given unique name, props, and options.
+        Resource for managing an AWS IVS (Interactive Video) Recording Configuration.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ivs.RecordingConfiguration("example", destination_configuration=aws.ivs.RecordingConfigurationDestinationConfigurationArgs(
+            s3=aws.ivs.RecordingConfigurationDestinationConfigurationS3Args(
+                bucket_name="ivs-stream-archive",
+            ),
+        ))
+        ```
+
+        ## Import
+
+        IVS (Interactive Video) Recording Configuration can be imported using the ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
+        ```
+
         :param str resource_name: The name of the resource.
         :param RecordingConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -272,6 +375,14 @@ class RecordingConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the Recording Configuration.
+        :param pulumi.Input[pulumi.InputType['RecordingConfigurationDestinationConfigurationArgs']] destination_configuration: Object containing destination configuration for where recorded video will be stored.
+        :param pulumi.Input[str] name: Recording Configuration name.
+        :param pulumi.Input[int] recording_reconnect_window_seconds: If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+        :param pulumi.Input[str] state: The current state of the Recording Configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[pulumi.InputType['RecordingConfigurationThumbnailConfigurationArgs']] thumbnail_configuration: Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -290,40 +401,64 @@ class RecordingConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the Recording Configuration.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="destinationConfiguration")
     def destination_configuration(self) -> pulumi.Output['outputs.RecordingConfigurationDestinationConfiguration']:
+        """
+        Object containing destination configuration for where recorded video will be stored.
+        """
         return pulumi.get(self, "destination_configuration")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Recording Configuration name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="recordingReconnectWindowSeconds")
     def recording_reconnect_window_seconds(self) -> pulumi.Output[int]:
+        """
+        If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+        """
         return pulumi.get(self, "recording_reconnect_window_seconds")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
+        """
+        The current state of the Recording Configuration.
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="thumbnailConfiguration")
     def thumbnail_configuration(self) -> pulumi.Output['outputs.RecordingConfigurationThumbnailConfiguration']:
+        """
+        Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
+        """
         return pulumi.get(self, "thumbnail_configuration")
 

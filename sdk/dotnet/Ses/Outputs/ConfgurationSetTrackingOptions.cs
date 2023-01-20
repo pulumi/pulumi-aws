@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Ses.Outputs
     [OutputType]
     public sealed class ConfgurationSetTrackingOptions
     {
+        /// <summary>
+        /// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+        /// </summary>
         public readonly string? CustomRedirectDomain;
 
         [OutputConstructor]

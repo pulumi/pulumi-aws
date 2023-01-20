@@ -4,6 +4,92 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an AppConfig Hosted Configuration Version resource.
+ *
+ * ## Example Usage
+ * ### Freeform
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appconfig.HostedConfigurationVersion("example", {
+ *     applicationId: aws_appconfig_application.example.id,
+ *     configurationProfileId: aws_appconfig_configuration_profile.example.configuration_profile_id,
+ *     description: "Example Freeform Hosted Configuration Version",
+ *     contentType: "application/json",
+ *     content: JSON.stringify({
+ *         foo: "bar",
+ *         fruit: [
+ *             "apple",
+ *             "pear",
+ *             "orange",
+ *         ],
+ *         isThingEnabled: true,
+ *     }),
+ * });
+ * ```
+ * ### Feature Flags
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appconfig.HostedConfigurationVersion("example", {
+ *     applicationId: aws_appconfig_application.example.id,
+ *     configurationProfileId: aws_appconfig_configuration_profile.example.configuration_profile_id,
+ *     description: "Example Feature Flag Configuration Version",
+ *     contentType: "application/json",
+ *     content: JSON.stringify({
+ *         flags: {
+ *             foo: {
+ *                 name: "foo",
+ *                 _deprecation: {
+ *                     status: "planned",
+ *                 },
+ *             },
+ *             bar: {
+ *                 name: "bar",
+ *                 attributes: {
+ *                     someAttribute: {
+ *                         constraints: {
+ *                             type: "string",
+ *                             required: true,
+ *                         },
+ *                     },
+ *                     someOtherAttribute: {
+ *                         constraints: {
+ *                             type: "number",
+ *                             required: true,
+ *                         },
+ *                     },
+ *                 },
+ *             },
+ *         },
+ *         values: {
+ *             foo: {
+ *                 enabled: "true",
+ *             },
+ *             bar: {
+ *                 enabled: "true",
+ *                 someAttribute: "Hello World",
+ *                 someOtherAttribute: 123,
+ *             },
+ *         },
+ *         version: "1",
+ *     }),
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * AppConfig Hosted Configuration Versions can be imported by using the application ID, configuration profile ID, and version number separated by a slash (`/`), e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
+ * ```
+ */
 export class HostedConfigurationVersion extends pulumi.CustomResource {
     /**
      * Get an existing HostedConfigurationVersion resource's state with the given name, ID, and optional extra
@@ -32,12 +118,33 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === HostedConfigurationVersion.__pulumiType;
     }
 
+    /**
+     * Application ID.
+     */
     public readonly applicationId!: pulumi.Output<string>;
+    /**
+     * ARN of the AppConfig  hosted configuration version.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Configuration profile ID.
+     */
     public readonly configurationProfileId!: pulumi.Output<string>;
+    /**
+     * Content of the configuration or the configuration data.
+     */
     public readonly content!: pulumi.Output<string>;
+    /**
+     * Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+     */
     public readonly contentType!: pulumi.Output<string>;
+    /**
+     * Description of the configuration.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Version number of the hosted configuration.
+     */
     public /*out*/ readonly versionNumber!: pulumi.Output<number>;
 
     /**
@@ -93,12 +200,33 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
  * Input properties used for looking up and filtering HostedConfigurationVersion resources.
  */
 export interface HostedConfigurationVersionState {
+    /**
+     * Application ID.
+     */
     applicationId?: pulumi.Input<string>;
+    /**
+     * ARN of the AppConfig  hosted configuration version.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Configuration profile ID.
+     */
     configurationProfileId?: pulumi.Input<string>;
+    /**
+     * Content of the configuration or the configuration data.
+     */
     content?: pulumi.Input<string>;
+    /**
+     * Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+     */
     contentType?: pulumi.Input<string>;
+    /**
+     * Description of the configuration.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Version number of the hosted configuration.
+     */
     versionNumber?: pulumi.Input<number>;
 }
 
@@ -106,9 +234,24 @@ export interface HostedConfigurationVersionState {
  * The set of arguments for constructing a HostedConfigurationVersion resource.
  */
 export interface HostedConfigurationVersionArgs {
+    /**
+     * Application ID.
+     */
     applicationId: pulumi.Input<string>;
+    /**
+     * Configuration profile ID.
+     */
     configurationProfileId: pulumi.Input<string>;
+    /**
+     * Content of the configuration or the configuration data.
+     */
     content: pulumi.Input<string>;
+    /**
+     * Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+     */
     contentType: pulumi.Input<string>;
+    /**
+     * Description of the configuration.
+     */
     description?: pulumi.Input<string>;
 }

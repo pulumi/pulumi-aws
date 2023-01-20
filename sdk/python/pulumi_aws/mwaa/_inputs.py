@@ -27,6 +27,11 @@ class EnvironmentLastUpdatedArgs:
                  created_at: Optional[pulumi.Input[str]] = None,
                  errors: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentLastUpdatedErrorArgs']]]] = None,
                  status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] created_at: The Created At date of the MWAA Environment
+               * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+        :param pulumi.Input[str] status: The status of the Amazon MWAA Environment
+        """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
         if errors is not None:
@@ -37,6 +42,10 @@ class EnvironmentLastUpdatedArgs:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Created At date of the MWAA Environment
+        * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -55,6 +64,9 @@ class EnvironmentLastUpdatedArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the Amazon MWAA Environment
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -99,6 +111,13 @@ class EnvironmentLoggingConfigurationArgs:
                  task_logs: Optional[pulumi.Input['EnvironmentLoggingConfigurationTaskLogsArgs']] = None,
                  webserver_logs: Optional[pulumi.Input['EnvironmentLoggingConfigurationWebserverLogsArgs']] = None,
                  worker_logs: Optional[pulumi.Input['EnvironmentLoggingConfigurationWorkerLogsArgs']] = None):
+        """
+        :param pulumi.Input['EnvironmentLoggingConfigurationDagProcessingLogsArgs'] dag_processing_logs: (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+        :param pulumi.Input['EnvironmentLoggingConfigurationSchedulerLogsArgs'] scheduler_logs: Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
+        :param pulumi.Input['EnvironmentLoggingConfigurationTaskLogsArgs'] task_logs: Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
+        :param pulumi.Input['EnvironmentLoggingConfigurationWebserverLogsArgs'] webserver_logs: Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
+        :param pulumi.Input['EnvironmentLoggingConfigurationWorkerLogsArgs'] worker_logs: Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
+        """
         if dag_processing_logs is not None:
             pulumi.set(__self__, "dag_processing_logs", dag_processing_logs)
         if scheduler_logs is not None:
@@ -113,6 +132,9 @@ class EnvironmentLoggingConfigurationArgs:
     @property
     @pulumi.getter(name="dagProcessingLogs")
     def dag_processing_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationDagProcessingLogsArgs']]:
+        """
+        (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+        """
         return pulumi.get(self, "dag_processing_logs")
 
     @dag_processing_logs.setter
@@ -122,6 +144,9 @@ class EnvironmentLoggingConfigurationArgs:
     @property
     @pulumi.getter(name="schedulerLogs")
     def scheduler_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationSchedulerLogsArgs']]:
+        """
+        Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
+        """
         return pulumi.get(self, "scheduler_logs")
 
     @scheduler_logs.setter
@@ -131,6 +156,9 @@ class EnvironmentLoggingConfigurationArgs:
     @property
     @pulumi.getter(name="taskLogs")
     def task_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationTaskLogsArgs']]:
+        """
+        Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
+        """
         return pulumi.get(self, "task_logs")
 
     @task_logs.setter
@@ -140,6 +168,9 @@ class EnvironmentLoggingConfigurationArgs:
     @property
     @pulumi.getter(name="webserverLogs")
     def webserver_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationWebserverLogsArgs']]:
+        """
+        Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
+        """
         return pulumi.get(self, "webserver_logs")
 
     @webserver_logs.setter
@@ -149,6 +180,9 @@ class EnvironmentLoggingConfigurationArgs:
     @property
     @pulumi.getter(name="workerLogs")
     def worker_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationWorkerLogsArgs']]:
+        """
+        Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
+        """
         return pulumi.get(self, "worker_logs")
 
     @worker_logs.setter
@@ -162,6 +196,10 @@ class EnvironmentLoggingConfigurationDagProcessingLogsArgs:
                  cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  log_level: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Enabling or disabling the collection of logs
+        :param pulumi.Input[str] log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         if cloud_watch_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
@@ -181,6 +219,9 @@ class EnvironmentLoggingConfigurationDagProcessingLogsArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enabling or disabling the collection of logs
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -190,6 +231,9 @@ class EnvironmentLoggingConfigurationDagProcessingLogsArgs:
     @property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
@@ -203,6 +247,10 @@ class EnvironmentLoggingConfigurationSchedulerLogsArgs:
                  cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  log_level: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Enabling or disabling the collection of logs
+        :param pulumi.Input[str] log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         if cloud_watch_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
@@ -222,6 +270,9 @@ class EnvironmentLoggingConfigurationSchedulerLogsArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enabling or disabling the collection of logs
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -231,6 +282,9 @@ class EnvironmentLoggingConfigurationSchedulerLogsArgs:
     @property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
@@ -244,6 +298,10 @@ class EnvironmentLoggingConfigurationTaskLogsArgs:
                  cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  log_level: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Enabling or disabling the collection of logs
+        :param pulumi.Input[str] log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         if cloud_watch_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
@@ -263,6 +321,9 @@ class EnvironmentLoggingConfigurationTaskLogsArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enabling or disabling the collection of logs
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -272,6 +333,9 @@ class EnvironmentLoggingConfigurationTaskLogsArgs:
     @property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
@@ -285,6 +349,10 @@ class EnvironmentLoggingConfigurationWebserverLogsArgs:
                  cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  log_level: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Enabling or disabling the collection of logs
+        :param pulumi.Input[str] log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         if cloud_watch_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
@@ -304,6 +372,9 @@ class EnvironmentLoggingConfigurationWebserverLogsArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enabling or disabling the collection of logs
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -313,6 +384,9 @@ class EnvironmentLoggingConfigurationWebserverLogsArgs:
     @property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
@@ -326,6 +400,10 @@ class EnvironmentLoggingConfigurationWorkerLogsArgs:
                  cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  log_level: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Enabling or disabling the collection of logs
+        :param pulumi.Input[str] log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         if cloud_watch_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
@@ -345,6 +423,9 @@ class EnvironmentLoggingConfigurationWorkerLogsArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enabling or disabling the collection of logs
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -354,6 +435,9 @@ class EnvironmentLoggingConfigurationWorkerLogsArgs:
     @property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
@@ -366,12 +450,19 @@ class EnvironmentNetworkConfigurationArgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The private subnet IDs in which the environment should be created. MWAA requires two subnets.
+        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -381,6 +472,9 @@ class EnvironmentNetworkConfigurationArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The private subnet IDs in which the environment should be created. MWAA requires two subnets.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter

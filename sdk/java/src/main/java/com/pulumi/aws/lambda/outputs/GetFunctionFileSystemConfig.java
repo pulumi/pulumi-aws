@@ -9,10 +9,18 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFunctionFileSystemConfig {
+    /**
+     * @return Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
+     * 
+     */
     private String arn;
     private String localMountPath;
 
     private GetFunctionFileSystemConfig() {}
+    /**
+     * @return Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
+     * 
+     */
     public String arn() {
         return this.arn;
     }

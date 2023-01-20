@@ -11,18 +11,155 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Associate an Amazon FSx file system with the FSx File Gateway. After the association process is complete, the file shares on the Amazon FSx file system are available for access through the gateway. This operation only supports the FSx File Gateway type.
+//
+// [FSx File Gateway requirements](https://docs.aws.amazon.com/filegateway/latest/filefsxw/Requirements.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := storagegateway.NewFileSystemAssociation(ctx, "example", &storagegateway.FileSystemAssociationArgs{
+//				GatewayArn:          pulumi.Any(aws_storagegateway_gateway.Example.Arn),
+//				LocationArn:         pulumi.Any(aws_fsx_windows_file_system.Example.Arn),
+//				Username:            pulumi.String("Admin"),
+//				Password:            pulumi.String("avoid-plaintext-passwords"),
+//				AuditDestinationArn: pulumi.Any(aws_s3_bucket.Example.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Required Services Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			awsServiceStoragegatewayAmiFILES3Latest, err := ssm.LookupParameter(ctx, &ssm.LookupParameterArgs{
+//				Name: "/aws/service/storagegateway/ami/FILE_S3/latest",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			testInstance, err := ec2.NewInstance(ctx, "testInstance", &ec2.InstanceArgs{
+//				Ami:                      *pulumi.String(awsServiceStoragegatewayAmiFILES3Latest.Value),
+//				AssociatePublicIpAddress: pulumi.Bool(true),
+//				InstanceType:             ec2.InstanceType(data.Aws_ec2_instance_type_offering.Available.Instance_type),
+//				VpcSecurityGroupIds: pulumi.StringArray{
+//					aws_security_group.Test.Id,
+//				},
+//				SubnetId: pulumi.Any(aws_subnet.Test[0].Id),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				aws_route.Test,
+//				aws_vpc_dhcp_options_association.Test,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			testGateway, err := storagegateway.NewGateway(ctx, "testGateway", &storagegateway.GatewayArgs{
+//				GatewayIpAddress: testInstance.PublicIp,
+//				GatewayName:      pulumi.String("test-sgw"),
+//				GatewayTimezone:  pulumi.String("GMT"),
+//				GatewayType:      pulumi.String("FILE_FSX_SMB"),
+//				SmbActiveDirectorySettings: &storagegateway.GatewaySmbActiveDirectorySettingsArgs{
+//					DomainName: pulumi.Any(aws_directory_service_directory.Test.Name),
+//					Password:   pulumi.Any(aws_directory_service_directory.Test.Password),
+//					Username:   pulumi.String("Admin"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testWindowsFileSystem, err := fsx.NewWindowsFileSystem(ctx, "testWindowsFileSystem", &fsx.WindowsFileSystemArgs{
+//				ActiveDirectoryId: pulumi.Any(aws_directory_service_directory.Test.Id),
+//				SecurityGroupIds: pulumi.StringArray{
+//					aws_security_group.Test.Id,
+//				},
+//				SkipFinalBackup: pulumi.Bool(true),
+//				StorageCapacity: pulumi.Int(32),
+//				SubnetIds: pulumi.StringArray{
+//					aws_subnet.Test[0].Id,
+//				},
+//				ThroughputCapacity: pulumi.Int(8),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storagegateway.NewFileSystemAssociation(ctx, "fsx", &storagegateway.FileSystemAssociationArgs{
+//				GatewayArn:  testGateway.Arn,
+//				LocationArn: testWindowsFileSystem.Arn,
+//				Username:    pulumi.String("Admin"),
+//				Password:    pulumi.Any(aws_directory_service_directory.Test.Password),
+//				CacheAttributes: &storagegateway.FileSystemAssociationCacheAttributesArgs{
+//					CacheStaleTimeoutInSeconds: pulumi.Int(400),
+//				},
+//				AuditDestinationArn: pulumi.Any(aws_cloudwatch_log_group.Test.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_storagegateway_file_system_association` can be imported by using the FSx file system association Amazon Resource Name (ARN), e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:storagegateway/fileSystemAssociation:FileSystemAssociation example arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125
+//
+// ```
 type FileSystemAssociation struct {
 	pulumi.CustomResourceState
 
-	Arn                 pulumi.StringOutput                           `pulumi:"arn"`
-	AuditDestinationArn pulumi.StringPtrOutput                        `pulumi:"auditDestinationArn"`
-	CacheAttributes     FileSystemAssociationCacheAttributesPtrOutput `pulumi:"cacheAttributes"`
-	GatewayArn          pulumi.StringOutput                           `pulumi:"gatewayArn"`
-	LocationArn         pulumi.StringOutput                           `pulumi:"locationArn"`
-	Password            pulumi.StringOutput                           `pulumi:"password"`
-	Tags                pulumi.StringMapOutput                        `pulumi:"tags"`
-	TagsAll             pulumi.StringMapOutput                        `pulumi:"tagsAll"`
-	Username            pulumi.StringOutput                           `pulumi:"username"`
+	// Amazon Resource Name (ARN) of the newly created file system association.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the storage used for the audit logs.
+	AuditDestinationArn pulumi.StringPtrOutput `pulumi:"auditDestinationArn"`
+	// Refresh cache information. see Cache Attributes for more details.
+	CacheAttributes FileSystemAssociationCacheAttributesPtrOutput `pulumi:"cacheAttributes"`
+	// The Amazon Resource Name (ARN) of the gateway.
+	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
+	// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
+	// The password of the user credential.
+	Password pulumi.StringOutput `pulumi:"password"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
+	Username pulumi.StringOutput `pulumi:"username"`
 }
 
 // NewFileSystemAssociation registers a new resource with the given unique name, arguments, and options.
@@ -73,27 +210,45 @@ func GetFileSystemAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FileSystemAssociation resources.
 type fileSystemAssociationState struct {
-	Arn                 *string                               `pulumi:"arn"`
-	AuditDestinationArn *string                               `pulumi:"auditDestinationArn"`
-	CacheAttributes     *FileSystemAssociationCacheAttributes `pulumi:"cacheAttributes"`
-	GatewayArn          *string                               `pulumi:"gatewayArn"`
-	LocationArn         *string                               `pulumi:"locationArn"`
-	Password            *string                               `pulumi:"password"`
-	Tags                map[string]string                     `pulumi:"tags"`
-	TagsAll             map[string]string                     `pulumi:"tagsAll"`
-	Username            *string                               `pulumi:"username"`
+	// Amazon Resource Name (ARN) of the newly created file system association.
+	Arn *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the storage used for the audit logs.
+	AuditDestinationArn *string `pulumi:"auditDestinationArn"`
+	// Refresh cache information. see Cache Attributes for more details.
+	CacheAttributes *FileSystemAssociationCacheAttributes `pulumi:"cacheAttributes"`
+	// The Amazon Resource Name (ARN) of the gateway.
+	GatewayArn *string `pulumi:"gatewayArn"`
+	// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+	LocationArn *string `pulumi:"locationArn"`
+	// The password of the user credential.
+	Password *string `pulumi:"password"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
+	Username *string `pulumi:"username"`
 }
 
 type FileSystemAssociationState struct {
-	Arn                 pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the newly created file system association.
+	Arn pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the storage used for the audit logs.
 	AuditDestinationArn pulumi.StringPtrInput
-	CacheAttributes     FileSystemAssociationCacheAttributesPtrInput
-	GatewayArn          pulumi.StringPtrInput
-	LocationArn         pulumi.StringPtrInput
-	Password            pulumi.StringPtrInput
-	Tags                pulumi.StringMapInput
-	TagsAll             pulumi.StringMapInput
-	Username            pulumi.StringPtrInput
+	// Refresh cache information. see Cache Attributes for more details.
+	CacheAttributes FileSystemAssociationCacheAttributesPtrInput
+	// The Amazon Resource Name (ARN) of the gateway.
+	GatewayArn pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+	LocationArn pulumi.StringPtrInput
+	// The password of the user credential.
+	Password pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
+	Username pulumi.StringPtrInput
 }
 
 func (FileSystemAssociationState) ElementType() reflect.Type {
@@ -101,24 +256,38 @@ func (FileSystemAssociationState) ElementType() reflect.Type {
 }
 
 type fileSystemAssociationArgs struct {
-	AuditDestinationArn *string                               `pulumi:"auditDestinationArn"`
-	CacheAttributes     *FileSystemAssociationCacheAttributes `pulumi:"cacheAttributes"`
-	GatewayArn          string                                `pulumi:"gatewayArn"`
-	LocationArn         string                                `pulumi:"locationArn"`
-	Password            string                                `pulumi:"password"`
-	Tags                map[string]string                     `pulumi:"tags"`
-	Username            string                                `pulumi:"username"`
+	// The Amazon Resource Name (ARN) of the storage used for the audit logs.
+	AuditDestinationArn *string `pulumi:"auditDestinationArn"`
+	// Refresh cache information. see Cache Attributes for more details.
+	CacheAttributes *FileSystemAssociationCacheAttributes `pulumi:"cacheAttributes"`
+	// The Amazon Resource Name (ARN) of the gateway.
+	GatewayArn string `pulumi:"gatewayArn"`
+	// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+	LocationArn string `pulumi:"locationArn"`
+	// The password of the user credential.
+	Password string `pulumi:"password"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
+	Username string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a FileSystemAssociation resource.
 type FileSystemAssociationArgs struct {
+	// The Amazon Resource Name (ARN) of the storage used for the audit logs.
 	AuditDestinationArn pulumi.StringPtrInput
-	CacheAttributes     FileSystemAssociationCacheAttributesPtrInput
-	GatewayArn          pulumi.StringInput
-	LocationArn         pulumi.StringInput
-	Password            pulumi.StringInput
-	Tags                pulumi.StringMapInput
-	Username            pulumi.StringInput
+	// Refresh cache information. see Cache Attributes for more details.
+	CacheAttributes FileSystemAssociationCacheAttributesPtrInput
+	// The Amazon Resource Name (ARN) of the gateway.
+	GatewayArn pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+	LocationArn pulumi.StringInput
+	// The password of the user credential.
+	Password pulumi.StringInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
+	Username pulumi.StringInput
 }
 
 func (FileSystemAssociationArgs) ElementType() reflect.Type {
@@ -208,38 +377,47 @@ func (o FileSystemAssociationOutput) ToFileSystemAssociationOutputWithContext(ct
 	return o
 }
 
+// Amazon Resource Name (ARN) of the newly created file system association.
 func (o FileSystemAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystemAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the storage used for the audit logs.
 func (o FileSystemAssociationOutput) AuditDestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystemAssociation) pulumi.StringPtrOutput { return v.AuditDestinationArn }).(pulumi.StringPtrOutput)
 }
 
+// Refresh cache information. see Cache Attributes for more details.
 func (o FileSystemAssociationOutput) CacheAttributes() FileSystemAssociationCacheAttributesPtrOutput {
 	return o.ApplyT(func(v *FileSystemAssociation) FileSystemAssociationCacheAttributesPtrOutput { return v.CacheAttributes }).(FileSystemAssociationCacheAttributesPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the gateway.
 func (o FileSystemAssociationOutput) GatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystemAssociation) pulumi.StringOutput { return v.GatewayArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
 func (o FileSystemAssociationOutput) LocationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystemAssociation) pulumi.StringOutput { return v.LocationArn }).(pulumi.StringOutput)
 }
 
+// The password of the user credential.
 func (o FileSystemAssociationOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystemAssociation) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FileSystemAssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FileSystemAssociation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FileSystemAssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FileSystemAssociation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
 func (o FileSystemAssociationOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystemAssociation) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
 }

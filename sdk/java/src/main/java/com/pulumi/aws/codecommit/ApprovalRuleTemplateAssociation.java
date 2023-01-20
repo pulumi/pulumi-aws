@@ -13,17 +13,76 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Associates a CodeCommit Approval Rule Template with a Repository.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.codecommit.ApprovalRuleTemplateAssociation;
+ * import com.pulumi.aws.codecommit.ApprovalRuleTemplateAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ApprovalRuleTemplateAssociation(&#34;example&#34;, ApprovalRuleTemplateAssociationArgs.builder()        
+ *             .approvalRuleTemplateName(aws_codecommit_approval_rule_template.example().name())
+ *             .repositoryName(aws_codecommit_repository.example().repository_name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * CodeCommit approval rule template associations can be imported using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`), e.g.
+ * 
+ * ```sh
+ *  $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
+ * ```
+ * 
+ */
 @ResourceType(type="aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation")
 public class ApprovalRuleTemplateAssociation extends com.pulumi.resources.CustomResource {
+    /**
+     * The name for the approval rule template.
+     * 
+     */
     @Export(name="approvalRuleTemplateName", refs={String.class}, tree="[0]")
     private Output<String> approvalRuleTemplateName;
 
+    /**
+     * @return The name for the approval rule template.
+     * 
+     */
     public Output<String> approvalRuleTemplateName() {
         return this.approvalRuleTemplateName;
     }
+    /**
+     * The name of the repository that you want to associate with the template.
+     * 
+     */
     @Export(name="repositoryName", refs={String.class}, tree="[0]")
     private Output<String> repositoryName;
 
+    /**
+     * @return The name of the repository that you want to associate with the template.
+     * 
+     */
     public Output<String> repositoryName() {
         return this.repositoryName;
     }

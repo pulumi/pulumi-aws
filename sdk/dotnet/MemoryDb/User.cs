@@ -9,27 +9,95 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.MemoryDb
 {
+    /// <summary>
+    /// Provides a MemoryDB User.
+    /// 
+    /// More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Random = Pulumi.Random;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRandomPassword = new Random.RandomPassword("exampleRandomPassword", new()
+    ///     {
+    ///         Length = 16,
+    ///     });
+    /// 
+    ///     var exampleUser = new Aws.MemoryDb.User("exampleUser", new()
+    ///     {
+    ///         UserName = "my-user",
+    ///         AccessString = "on ~* &amp;* +@all",
+    ///         AuthenticationMode = new Aws.MemoryDb.Inputs.UserAuthenticationModeArgs
+    ///         {
+    ///             Type = "password",
+    ///             Passwords = new[]
+    ///             {
+    ///                 exampleRandomPassword.Result,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Use the `user_name` to import a user. For example
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:memorydb/user:User example my-user
+    /// ```
+    /// 
+    ///  The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
+    /// </summary>
     [AwsResourceType("aws:memorydb/user:User")]
     public partial class User : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The access permissions string used for this user.
+        /// </summary>
         [Output("accessString")]
         public Output<string> AccessString { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the user.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Denotes the user's authentication properties. Detailed below.
+        /// </summary>
         [Output("authenticationMode")]
         public Output<Outputs.UserAuthenticationMode> AuthenticationMode { get; private set; } = null!;
 
+        /// <summary>
+        /// The minimum engine version supported for the user.
+        /// </summary>
         [Output("minimumEngineVersion")]
         public Output<string> MinimumEngineVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the MemoryDB user. Up to 40 characters.
+        /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
 
@@ -79,20 +147,33 @@ namespace Pulumi.Aws.MemoryDb
 
     public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The access permissions string used for this user.
+        /// </summary>
         [Input("accessString", required: true)]
         public Input<string> AccessString { get; set; } = null!;
 
+        /// <summary>
+        /// Denotes the user's authentication properties. Detailed below.
+        /// </summary>
         [Input("authenticationMode", required: true)]
         public Input<Inputs.UserAuthenticationModeArgs> AuthenticationMode { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Name of the MemoryDB user. Up to 40 characters.
+        /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
 
@@ -104,20 +185,36 @@ namespace Pulumi.Aws.MemoryDb
 
     public sealed class UserState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The access permissions string used for this user.
+        /// </summary>
         [Input("accessString")]
         public Input<string>? AccessString { get; set; }
 
+        /// <summary>
+        /// The ARN of the user.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Denotes the user's authentication properties. Detailed below.
+        /// </summary>
         [Input("authenticationMode")]
         public Input<Inputs.UserAuthenticationModeGetArgs>? AuthenticationMode { get; set; }
 
+        /// <summary>
+        /// The minimum engine version supported for the user.
+        /// </summary>
         [Input("minimumEngineVersion")]
         public Input<string>? MinimumEngineVersion { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -126,12 +223,19 @@ namespace Pulumi.Aws.MemoryDb
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// Name of the MemoryDB user. Up to 40 characters.
+        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 

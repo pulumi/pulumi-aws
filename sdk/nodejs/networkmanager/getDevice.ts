@@ -7,6 +7,9 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Retrieve information about a device.
+ */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -21,8 +24,17 @@ export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getDevice.
  */
 export interface GetDeviceArgs {
+    /**
+     * ID of the device.
+     */
     deviceId: string;
+    /**
+     * ID of the global network.
+     */
     globalNetworkId: string;
+    /**
+     * Key-value tags for the device.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -30,8 +42,17 @@ export interface GetDeviceArgs {
  * A collection of values returned by getDevice.
  */
 export interface GetDeviceResult {
+    /**
+     * ARN of the device.
+     */
     readonly arn: string;
+    /**
+     * AWS location of the device. Documented below.
+     */
     readonly awsLocations: outputs.networkmanager.GetDeviceAwsLocation[];
+    /**
+     * Description of the device.
+     */
     readonly description: string;
     readonly deviceId: string;
     readonly globalNetworkId: string;
@@ -39,14 +60,38 @@ export interface GetDeviceResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Location of the device. Documented below.
+     */
     readonly locations: outputs.networkmanager.GetDeviceLocation[];
+    /**
+     * Model of device.
+     */
     readonly model: string;
+    /**
+     * Serial number of the device.
+     */
     readonly serialNumber: string;
+    /**
+     * ID of the site.
+     */
     readonly siteId: string;
+    /**
+     * Key-value tags for the device.
+     */
     readonly tags: {[key: string]: string};
+    /**
+     * Type of device.
+     */
     readonly type: string;
+    /**
+     * Vendor of the device.
+     */
     readonly vendor: string;
 }
+/**
+ * Retrieve information about a device.
+ */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
     return pulumi.output(args).apply((a: any) => getDevice(a, opts))
 }
@@ -55,7 +100,16 @@ export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getDevice.
  */
 export interface GetDeviceOutputArgs {
+    /**
+     * ID of the device.
+     */
     deviceId: pulumi.Input<string>;
+    /**
+     * ID of the global network.
+     */
     globalNetworkId: pulumi.Input<string>;
+    /**
+     * Key-value tags for the device.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

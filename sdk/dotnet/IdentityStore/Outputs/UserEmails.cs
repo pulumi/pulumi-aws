@@ -13,8 +13,17 @@ namespace Pulumi.Aws.IdentityStore.Outputs
     [OutputType]
     public sealed class UserEmails
     {
+        /// <summary>
+        /// When `true`, this is the primary email associated with the user.
+        /// </summary>
         public readonly bool? Primary;
+        /// <summary>
+        /// The type of email.
+        /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// The email address. This value must be unique across the identity store.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

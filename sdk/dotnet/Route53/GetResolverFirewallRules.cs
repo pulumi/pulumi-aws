@@ -11,9 +11,61 @@ namespace Pulumi.Aws.Route53
 {
     public static class GetResolverFirewallRules
     {
+        /// <summary>
+        /// `aws.route53.getResolverFirewallRules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Route53.GetResolverFirewallRules.Invoke(new()
+        ///     {
+        ///         FirewallRuleGroupId = aws_route53_resolver_firewall_rule_group.Example.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetResolverFirewallRulesResult> InvokeAsync(GetResolverFirewallRulesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverFirewallRulesResult>("aws:route53/getResolverFirewallRules:getResolverFirewallRules", args ?? new GetResolverFirewallRulesArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// `aws.route53.getResolverFirewallRules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Route53.GetResolverFirewallRules.Invoke(new()
+        ///     {
+        ///         FirewallRuleGroupId = aws_route53_resolver_firewall_rule_group.Example.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetResolverFirewallRulesResult> Invoke(GetResolverFirewallRulesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverFirewallRulesResult>("aws:route53/getResolverFirewallRules:getResolverFirewallRules", args ?? new GetResolverFirewallRulesInvokeArgs(), options.WithDefaults());
     }
@@ -21,12 +73,21 @@ namespace Pulumi.Aws.Route53
 
     public sealed class GetResolverFirewallRulesArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
+        /// </summary>
         [Input("action")]
         public string? Action { get; set; }
 
+        /// <summary>
+        /// The unique identifier of the firewall rule group that you want to retrieve the rules for.
+        /// </summary>
         [Input("firewallRuleGroupId", required: true)]
         public string FirewallRuleGroupId { get; set; } = null!;
 
+        /// <summary>
+        /// The setting that determines the processing order of the rules in a rule group.
+        /// </summary>
         [Input("priority")]
         public int? Priority { get; set; }
 
@@ -38,12 +99,21 @@ namespace Pulumi.Aws.Route53
 
     public sealed class GetResolverFirewallRulesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
+        /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
+        /// <summary>
+        /// The unique identifier of the firewall rule group that you want to retrieve the rules for.
+        /// </summary>
         [Input("firewallRuleGroupId", required: true)]
         public Input<string> FirewallRuleGroupId { get; set; } = null!;
 
+        /// <summary>
+        /// The setting that determines the processing order of the rules in a rule group.
+        /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
@@ -59,6 +129,9 @@ namespace Pulumi.Aws.Route53
     {
         public readonly string? Action;
         public readonly string FirewallRuleGroupId;
+        /// <summary>
+        /// List with information about the firewall rules. See details below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetResolverFirewallRulesFirewallRuleResult> FirewallRules;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

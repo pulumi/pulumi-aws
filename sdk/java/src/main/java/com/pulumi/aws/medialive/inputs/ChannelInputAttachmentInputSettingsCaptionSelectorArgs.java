@@ -16,16 +16,32 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorArgs extend
 
     public static final ChannelInputAttachmentInputSettingsCaptionSelectorArgs Empty = new ChannelInputAttachmentInputSettingsCaptionSelectorArgs();
 
+    /**
+     * When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * 
+     */
     @Import(name="languageCode")
     private @Nullable Output<String> languageCode;
 
+    /**
+     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * 
+     */
     public Optional<Output<String>> languageCode() {
         return Optional.ofNullable(this.languageCode);
     }
 
+    /**
+     * Name of the Channel.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the Channel.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -63,20 +79,44 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorArgs extend
             $ = new ChannelInputAttachmentInputSettingsCaptionSelectorArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param languageCode When specified this field indicates the three letter language code of the caption track to extract from the source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(@Nullable Output<String> languageCode) {
             $.languageCode = languageCode;
             return this;
         }
 
+        /**
+         * @param languageCode When specified this field indicates the three letter language code of the caption track to extract from the source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(String languageCode) {
             return languageCode(Output.of(languageCode));
         }
 
+        /**
+         * @param name Name of the Channel.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the Channel.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

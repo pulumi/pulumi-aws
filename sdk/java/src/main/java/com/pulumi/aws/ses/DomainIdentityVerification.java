@@ -13,17 +13,92 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Represents a successful verification of an SES domain identity.
+ * 
+ * Most commonly, this resource is used together with `aws.route53.Record` and
+ * `aws.ses.DomainIdentity` to request an SES domain identity,
+ * deploy the required DNS verification records, and wait for verification to complete.
+ * 
+ * &gt; **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ses.DomainIdentity;
+ * import com.pulumi.aws.ses.DomainIdentityArgs;
+ * import com.pulumi.aws.route53.Record;
+ * import com.pulumi.aws.route53.RecordArgs;
+ * import com.pulumi.aws.ses.DomainIdentityVerification;
+ * import com.pulumi.aws.ses.DomainIdentityVerificationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new DomainIdentity(&#34;example&#34;, DomainIdentityArgs.builder()        
+ *             .domain(&#34;example.com&#34;)
+ *             .build());
+ * 
+ *         var exampleAmazonsesVerificationRecord = new Record(&#34;exampleAmazonsesVerificationRecord&#34;, RecordArgs.builder()        
+ *             .zoneId(aws_route53_zone.example().zone_id())
+ *             .name(example.id().applyValue(id -&gt; String.format(&#34;_amazonses.%s&#34;, id)))
+ *             .type(&#34;TXT&#34;)
+ *             .ttl(&#34;600&#34;)
+ *             .records(example.verificationToken())
+ *             .build());
+ * 
+ *         var exampleVerification = new DomainIdentityVerification(&#34;exampleVerification&#34;, DomainIdentityVerificationArgs.builder()        
+ *             .domain(example.id())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAmazonsesVerificationRecord)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ses/domainIdentityVerification:DomainIdentityVerification")
 public class DomainIdentityVerification extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the domain identity.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the domain identity.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The domain name of the SES domain identity to verify.
+     * 
+     */
     @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
+    /**
+     * @return The domain name of the SES domain identity to verify.
+     * 
+     */
     public Output<String> domain() {
         return this.domain;
     }

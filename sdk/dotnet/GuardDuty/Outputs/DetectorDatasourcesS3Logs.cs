@@ -13,6 +13,9 @@ namespace Pulumi.Aws.GuardDuty.Outputs
     [OutputType]
     public sealed class DetectorDatasourcesS3Logs
     {
+        /// <summary>
+        /// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+        /// </summary>
         public readonly bool Enable;
 
         [OutputConstructor]

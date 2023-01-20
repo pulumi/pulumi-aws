@@ -7,6 +7,34 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses allowed to connect to the instance through the ports, and the protocol.
+ *
+ * > See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail) for more information.
+ *
+ * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testInstance = new aws.lightsail.Instance("testInstance", {
+ *     availabilityZone: data.aws_availability_zones.available.names[0],
+ *     blueprintId: "amazon_linux",
+ *     bundleId: "nano_1_0",
+ * });
+ * const testInstancePublicPorts = new aws.lightsail.InstancePublicPorts("testInstancePublicPorts", {
+ *     instanceName: testInstance.name,
+ *     portInfos: [{
+ *         protocol: "tcp",
+ *         fromPort: 80,
+ *         toPort: 80,
+ *     }],
+ * });
+ * ```
+ */
 export class InstancePublicPorts extends pulumi.CustomResource {
     /**
      * Get an existing InstancePublicPorts resource's state with the given name, ID, and optional extra
@@ -35,7 +63,13 @@ export class InstancePublicPorts extends pulumi.CustomResource {
         return obj['__pulumiType'] === InstancePublicPorts.__pulumiType;
     }
 
+    /**
+     * Name of the Lightsail Instance.
+     */
     public readonly instanceName!: pulumi.Output<string>;
+    /**
+     * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
+     */
     public readonly portInfos!: pulumi.Output<outputs.lightsail.InstancePublicPortsPortInfo[]>;
 
     /**
@@ -73,7 +107,13 @@ export class InstancePublicPorts extends pulumi.CustomResource {
  * Input properties used for looking up and filtering InstancePublicPorts resources.
  */
 export interface InstancePublicPortsState {
+    /**
+     * Name of the Lightsail Instance.
+     */
     instanceName?: pulumi.Input<string>;
+    /**
+     * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
+     */
     portInfos?: pulumi.Input<pulumi.Input<inputs.lightsail.InstancePublicPortsPortInfo>[]>;
 }
 
@@ -81,6 +121,12 @@ export interface InstancePublicPortsState {
  * The set of arguments for constructing a InstancePublicPorts resource.
  */
 export interface InstancePublicPortsArgs {
+    /**
+     * Name of the Lightsail Instance.
+     */
     instanceName: pulumi.Input<string>;
+    /**
+     * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
+     */
     portInfos: pulumi.Input<pulumi.Input<inputs.lightsail.InstancePublicPortsPortInfo>[]>;
 }

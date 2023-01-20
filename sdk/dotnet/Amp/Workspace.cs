@@ -9,24 +9,95 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Amp
 {
+    /// <summary>
+    /// Manages an Amazon Managed Service for Prometheus (AMP) Workspace.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Amp.Workspace("example", new()
+    ///     {
+    ///         Alias = "example",
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### CloudWatch Logging
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    /// 
+    ///     var exampleWorkspace = new Aws.Amp.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         LoggingConfiguration = new Aws.Amp.Inputs.WorkspaceLoggingConfigurationArgs
+    ///         {
+    ///             LogGroupArn = exampleLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// AMP Workspaces can be imported using the identifier, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:amp/workspace:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+        /// </summary>
         [Output("alias")]
         public Output<string?> Alias { get; private set; } = null!;
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the workspace.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Logging configuration for the workspace. See Logging Configuration below for details.
+        /// </summary>
         [Output("loggingConfiguration")]
         public Output<Outputs.WorkspaceLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Prometheus endpoint available for this workspace.
+        /// </summary>
         [Output("prometheusEndpoint")]
         public Output<string> PrometheusEndpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -76,14 +147,24 @@ namespace Pulumi.Aws.Amp
 
     public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+        /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
+        /// <summary>
+        /// Logging configuration for the workspace. See Logging Configuration below for details.
+        /// </summary>
         [Input("loggingConfiguration")]
         public Input<Inputs.WorkspaceLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -98,20 +179,36 @@ namespace Pulumi.Aws.Amp
 
     public sealed class WorkspaceState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+        /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the workspace.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Logging configuration for the workspace. See Logging Configuration below for details.
+        /// </summary>
         [Input("loggingConfiguration")]
         public Input<Inputs.WorkspaceLoggingConfigurationGetArgs>? LoggingConfiguration { get; set; }
 
+        /// <summary>
+        /// Prometheus endpoint available for this workspace.
+        /// </summary>
         [Input("prometheusEndpoint")]
         public Input<string>? PrometheusEndpoint { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -120,6 +217,10 @@ namespace Pulumi.Aws.Amp
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

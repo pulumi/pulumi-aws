@@ -7,6 +7,31 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Network Insights Analysis resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const path = new aws.ec2.NetworkInsightsPath("path", {
+ *     source: aws_network_interface.source.id,
+ *     destination: aws_network_interface.destination.id,
+ *     protocol: "tcp",
+ * });
+ * const analysis = new aws.ec2.NetworkInsightsAnalysis("analysis", {networkInsightsPathId: path.id});
+ * ```
+ *
+ * ## Import
+ *
+ * Network Insights Analyses can be imported using the `id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
+ * ```
+ */
 export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     /**
      * Get an existing NetworkInsightsAnalysis resource's state with the given name, ID, and optional extra
@@ -35,20 +60,65 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkInsightsAnalysis.__pulumiType;
     }
 
+    /**
+     * Potential intermediate components of a feasible path. Described below.
+     */
     public /*out*/ readonly alternatePathHints!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisAlternatePathHint[]>;
+    /**
+     * ARN of the Network Insights Analysis.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
+     */
     public /*out*/ readonly explanations!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisExplanation[]>;
+    /**
+     * A list of ARNs for resources the path must traverse.
+     */
     public readonly filterInArns!: pulumi.Output<string[] | undefined>;
+    /**
+     * The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
+     */
     public /*out*/ readonly forwardPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisForwardPathComponent[]>;
+    /**
+     * ID of the Network Insights Path to run an analysis on.
+     */
     public readonly networkInsightsPathId!: pulumi.Output<string>;
+    /**
+     * Set to `true` if the destination was reachable.
+     */
     public /*out*/ readonly pathFound!: pulumi.Output<boolean>;
+    /**
+     * The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
+     */
     public /*out*/ readonly returnPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisReturnPathComponent[]>;
+    /**
+     * The date/time the analysis was started.
+     */
     public /*out*/ readonly startDate!: pulumi.Output<string>;
+    /**
+     * The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * A message to provide more context when the `status` is `failed`.
+     */
     public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
+     */
     public readonly waitForCompletion!: pulumi.Output<boolean | undefined>;
+    /**
+     * The warning message.
+     */
     public /*out*/ readonly warningMessage!: pulumi.Output<string>;
 
     /**
@@ -109,20 +179,65 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NetworkInsightsAnalysis resources.
  */
 export interface NetworkInsightsAnalysisState {
+    /**
+     * Potential intermediate components of a feasible path. Described below.
+     */
     alternatePathHints?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisAlternatePathHint>[]>;
+    /**
+     * ARN of the Network Insights Analysis.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
+     */
     explanations?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisExplanation>[]>;
+    /**
+     * A list of ARNs for resources the path must traverse.
+     */
     filterInArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
+     */
     forwardPathComponents?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisForwardPathComponent>[]>;
+    /**
+     * ID of the Network Insights Path to run an analysis on.
+     */
     networkInsightsPathId?: pulumi.Input<string>;
+    /**
+     * Set to `true` if the destination was reachable.
+     */
     pathFound?: pulumi.Input<boolean>;
+    /**
+     * The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
+     */
     returnPathComponents?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisReturnPathComponent>[]>;
+    /**
+     * The date/time the analysis was started.
+     */
     startDate?: pulumi.Input<string>;
+    /**
+     * The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
+     */
     status?: pulumi.Input<string>;
+    /**
+     * A message to provide more context when the `status` is `failed`.
+     */
     statusMessage?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
+     */
     waitForCompletion?: pulumi.Input<boolean>;
+    /**
+     * The warning message.
+     */
     warningMessage?: pulumi.Input<string>;
 }
 
@@ -130,8 +245,20 @@ export interface NetworkInsightsAnalysisState {
  * The set of arguments for constructing a NetworkInsightsAnalysis resource.
  */
 export interface NetworkInsightsAnalysisArgs {
+    /**
+     * A list of ARNs for resources the path must traverse.
+     */
     filterInArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * ID of the Network Insights Path to run an analysis on.
+     */
     networkInsightsPathId: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
+     */
     waitForCompletion?: pulumi.Input<boolean>;
 }

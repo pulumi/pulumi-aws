@@ -11,16 +11,77 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates and manages an AWS IoT Authorizer.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iot.NewAuthorizer(ctx, "example", &iot.AuthorizerArgs{
+//				AuthorizerFunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
+//				SigningDisabled:       pulumi.Bool(false),
+//				Status:                pulumi.String("ACTIVE"),
+//				TokenKeyName:          pulumi.String("Token-Header"),
+//				TokenSigningPublicKeys: pulumi.StringMap{
+//					"Key1": readFileOrPanic("test-fixtures/iot-authorizer-signing-key.pem"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// IOT Authorizers can be imported using the name, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:iot/authorizer:Authorizer example example
+//
+// ```
 type Authorizer struct {
 	pulumi.CustomResourceState
 
-	Arn                    pulumi.StringOutput    `pulumi:"arn"`
-	AuthorizerFunctionArn  pulumi.StringOutput    `pulumi:"authorizerFunctionArn"`
-	EnableCachingForHttp   pulumi.BoolPtrOutput   `pulumi:"enableCachingForHttp"`
-	Name                   pulumi.StringOutput    `pulumi:"name"`
-	SigningDisabled        pulumi.BoolPtrOutput   `pulumi:"signingDisabled"`
-	Status                 pulumi.StringPtrOutput `pulumi:"status"`
-	TokenKeyName           pulumi.StringPtrOutput `pulumi:"tokenKeyName"`
+	// The ARN of the authorizer.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ARN of the authorizer's Lambda function.
+	AuthorizerFunctionArn pulumi.StringOutput `pulumi:"authorizerFunctionArn"`
+	// Specifies whether the HTTP caching is enabled or not. Default: `false`.
+	EnableCachingForHttp pulumi.BoolPtrOutput `pulumi:"enableCachingForHttp"`
+	// The name of the authorizer.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
+	SigningDisabled pulumi.BoolPtrOutput `pulumi:"signingDisabled"`
+	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
+	TokenKeyName pulumi.StringPtrOutput `pulumi:"tokenKeyName"`
+	// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
 	TokenSigningPublicKeys pulumi.StringMapOutput `pulumi:"tokenSigningPublicKeys"`
 }
 
@@ -63,24 +124,40 @@ func GetAuthorizer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Authorizer resources.
 type authorizerState struct {
-	Arn                    *string           `pulumi:"arn"`
-	AuthorizerFunctionArn  *string           `pulumi:"authorizerFunctionArn"`
-	EnableCachingForHttp   *bool             `pulumi:"enableCachingForHttp"`
-	Name                   *string           `pulumi:"name"`
-	SigningDisabled        *bool             `pulumi:"signingDisabled"`
-	Status                 *string           `pulumi:"status"`
-	TokenKeyName           *string           `pulumi:"tokenKeyName"`
+	// The ARN of the authorizer.
+	Arn *string `pulumi:"arn"`
+	// The ARN of the authorizer's Lambda function.
+	AuthorizerFunctionArn *string `pulumi:"authorizerFunctionArn"`
+	// Specifies whether the HTTP caching is enabled or not. Default: `false`.
+	EnableCachingForHttp *bool `pulumi:"enableCachingForHttp"`
+	// The name of the authorizer.
+	Name *string `pulumi:"name"`
+	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
+	SigningDisabled *bool `pulumi:"signingDisabled"`
+	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
+	Status *string `pulumi:"status"`
+	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
+	TokenKeyName *string `pulumi:"tokenKeyName"`
+	// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
 	TokenSigningPublicKeys map[string]string `pulumi:"tokenSigningPublicKeys"`
 }
 
 type AuthorizerState struct {
-	Arn                    pulumi.StringPtrInput
-	AuthorizerFunctionArn  pulumi.StringPtrInput
-	EnableCachingForHttp   pulumi.BoolPtrInput
-	Name                   pulumi.StringPtrInput
-	SigningDisabled        pulumi.BoolPtrInput
-	Status                 pulumi.StringPtrInput
-	TokenKeyName           pulumi.StringPtrInput
+	// The ARN of the authorizer.
+	Arn pulumi.StringPtrInput
+	// The ARN of the authorizer's Lambda function.
+	AuthorizerFunctionArn pulumi.StringPtrInput
+	// Specifies whether the HTTP caching is enabled or not. Default: `false`.
+	EnableCachingForHttp pulumi.BoolPtrInput
+	// The name of the authorizer.
+	Name pulumi.StringPtrInput
+	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
+	SigningDisabled pulumi.BoolPtrInput
+	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
+	Status pulumi.StringPtrInput
+	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
+	TokenKeyName pulumi.StringPtrInput
+	// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
 	TokenSigningPublicKeys pulumi.StringMapInput
 }
 
@@ -89,23 +166,37 @@ func (AuthorizerState) ElementType() reflect.Type {
 }
 
 type authorizerArgs struct {
-	AuthorizerFunctionArn  string            `pulumi:"authorizerFunctionArn"`
-	EnableCachingForHttp   *bool             `pulumi:"enableCachingForHttp"`
-	Name                   *string           `pulumi:"name"`
-	SigningDisabled        *bool             `pulumi:"signingDisabled"`
-	Status                 *string           `pulumi:"status"`
-	TokenKeyName           *string           `pulumi:"tokenKeyName"`
+	// The ARN of the authorizer's Lambda function.
+	AuthorizerFunctionArn string `pulumi:"authorizerFunctionArn"`
+	// Specifies whether the HTTP caching is enabled or not. Default: `false`.
+	EnableCachingForHttp *bool `pulumi:"enableCachingForHttp"`
+	// The name of the authorizer.
+	Name *string `pulumi:"name"`
+	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
+	SigningDisabled *bool `pulumi:"signingDisabled"`
+	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
+	Status *string `pulumi:"status"`
+	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
+	TokenKeyName *string `pulumi:"tokenKeyName"`
+	// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
 	TokenSigningPublicKeys map[string]string `pulumi:"tokenSigningPublicKeys"`
 }
 
 // The set of arguments for constructing a Authorizer resource.
 type AuthorizerArgs struct {
-	AuthorizerFunctionArn  pulumi.StringInput
-	EnableCachingForHttp   pulumi.BoolPtrInput
-	Name                   pulumi.StringPtrInput
-	SigningDisabled        pulumi.BoolPtrInput
-	Status                 pulumi.StringPtrInput
-	TokenKeyName           pulumi.StringPtrInput
+	// The ARN of the authorizer's Lambda function.
+	AuthorizerFunctionArn pulumi.StringInput
+	// Specifies whether the HTTP caching is enabled or not. Default: `false`.
+	EnableCachingForHttp pulumi.BoolPtrInput
+	// The name of the authorizer.
+	Name pulumi.StringPtrInput
+	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
+	SigningDisabled pulumi.BoolPtrInput
+	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
+	Status pulumi.StringPtrInput
+	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
+	TokenKeyName pulumi.StringPtrInput
+	// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
 	TokenSigningPublicKeys pulumi.StringMapInput
 }
 
@@ -196,34 +287,42 @@ func (o AuthorizerOutput) ToAuthorizerOutputWithContext(ctx context.Context) Aut
 	return o
 }
 
+// The ARN of the authorizer.
 func (o AuthorizerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ARN of the authorizer's Lambda function.
 func (o AuthorizerOutput) AuthorizerFunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.AuthorizerFunctionArn }).(pulumi.StringOutput)
 }
 
+// Specifies whether the HTTP caching is enabled or not. Default: `false`.
 func (o AuthorizerOutput) EnableCachingForHttp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.BoolPtrOutput { return v.EnableCachingForHttp }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the authorizer.
 func (o AuthorizerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
 func (o AuthorizerOutput) SigningDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.BoolPtrOutput { return v.SigningDisabled }).(pulumi.BoolPtrOutput)
 }
 
+// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
 func (o AuthorizerOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
 func (o AuthorizerOutput) TokenKeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.TokenKeyName }).(pulumi.StringPtrOutput)
 }
 
+// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
 func (o AuthorizerOutput) TokenSigningPublicKeys() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringMapOutput { return v.TokenSigningPublicKeys }).(pulumi.StringMapOutput)
 }

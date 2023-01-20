@@ -57,6 +57,9 @@ class GetLaunchPathsResult:
     @property
     @pulumi.getter
     def summaries(self) -> Sequence['outputs.GetLaunchPathsSummaryResult']:
+        """
+        Block with information about the launch path. See details below.
+        """
         return pulumi.get(self, "summaries")
 
 
@@ -76,7 +79,21 @@ def get_launch_paths(accept_language: Optional[str] = None,
                      product_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLaunchPathsResult:
     """
-    Use this data source to access information about an existing resource.
+    Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
+
+    ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.servicecatalog.get_launch_paths(product_id="prod-yakog5pdriver")
+    ```
+
+
+    :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+    :param str product_id: Product identifier.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
@@ -96,6 +113,20 @@ def get_launch_paths_output(accept_language: Optional[pulumi.Input[Optional[str]
                             product_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLaunchPathsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
+
+    ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.servicecatalog.get_launch_paths(product_id="prod-yakog5pdriver")
+    ```
+
+
+    :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+    :param str product_id: Product identifier.
     """
     ...

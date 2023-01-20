@@ -12,9 +12,15 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        /// </summary>
         [Input("errorHandlingConfig")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigGetArgs>? ErrorHandlingConfig { get; set; }
 
+        /// <summary>
+        /// Object specified in the flow destination.
+        /// </summary>
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;
 

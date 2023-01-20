@@ -9,18 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.OpsWorks
 {
+    /// <summary>
+    /// Provides an OpsWorks User Profile resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myProfile = new Aws.OpsWorks.UserProfile("myProfile", new()
+    ///     {
+    ///         UserArn = aws_iam_user.User.Arn,
+    ///         SshUsername = "my_user",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:opsworks/userProfile:UserProfile")]
     public partial class UserProfile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Whether users can specify their own SSH public key through the My Settings page
+        /// </summary>
         [Output("allowSelfManagement")]
         public Output<bool?> AllowSelfManagement { get; private set; } = null!;
 
+        /// <summary>
+        /// The users public key
+        /// </summary>
         [Output("sshPublicKey")]
         public Output<string?> SshPublicKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The ssh username, with witch this user wants to log in
+        /// </summary>
         [Output("sshUsername")]
         public Output<string> SshUsername { get; private set; } = null!;
 
+        /// <summary>
+        /// The user's IAM ARN
+        /// </summary>
         [Output("userArn")]
         public Output<string> UserArn { get; private set; } = null!;
 
@@ -70,15 +103,27 @@ namespace Pulumi.Aws.OpsWorks
 
     public sealed class UserProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether users can specify their own SSH public key through the My Settings page
+        /// </summary>
         [Input("allowSelfManagement")]
         public Input<bool>? AllowSelfManagement { get; set; }
 
+        /// <summary>
+        /// The users public key
+        /// </summary>
         [Input("sshPublicKey")]
         public Input<string>? SshPublicKey { get; set; }
 
+        /// <summary>
+        /// The ssh username, with witch this user wants to log in
+        /// </summary>
         [Input("sshUsername", required: true)]
         public Input<string> SshUsername { get; set; } = null!;
 
+        /// <summary>
+        /// The user's IAM ARN
+        /// </summary>
         [Input("userArn", required: true)]
         public Input<string> UserArn { get; set; } = null!;
 
@@ -90,15 +135,27 @@ namespace Pulumi.Aws.OpsWorks
 
     public sealed class UserProfileState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether users can specify their own SSH public key through the My Settings page
+        /// </summary>
         [Input("allowSelfManagement")]
         public Input<bool>? AllowSelfManagement { get; set; }
 
+        /// <summary>
+        /// The users public key
+        /// </summary>
         [Input("sshPublicKey")]
         public Input<string>? SshPublicKey { get; set; }
 
+        /// <summary>
+        /// The ssh username, with witch this user wants to log in
+        /// </summary>
         [Input("sshUsername")]
         public Input<string>? SshUsername { get; set; }
 
+        /// <summary>
+        /// The user's IAM ARN
+        /// </summary>
         [Input("userArn")]
         public Input<string>? UserArn { get; set; }
 

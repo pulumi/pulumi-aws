@@ -4,6 +4,21 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.acmpca.getCertificate({
+ *     arn: "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/1234b4a0d73e2056789bdbe77d5b1a23",
+ *     certificateAuthorityArn: "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
+ * });
+ * ```
+ */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,7 +32,13 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getCertificate.
  */
 export interface GetCertificateArgs {
+    /**
+     * ARN of the certificate issued by the private certificate authority.
+     */
     arn: string;
+    /**
+     * ARN of the certificate authority.
+     */
     certificateAuthorityArn: string;
 }
 
@@ -26,14 +47,35 @@ export interface GetCertificateArgs {
  */
 export interface GetCertificateResult {
     readonly arn: string;
+    /**
+     * PEM-encoded certificate value.
+     */
     readonly certificate: string;
     readonly certificateAuthorityArn: string;
+    /**
+     * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+     */
     readonly certificateChain: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }
+/**
+ * Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.acmpca.getCertificate({
+ *     arn: "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/1234b4a0d73e2056789bdbe77d5b1a23",
+ *     certificateAuthorityArn: "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
+ * });
+ * ```
+ */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
 }
@@ -42,6 +84,12 @@ export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulu
  * A collection of arguments for invoking getCertificate.
  */
 export interface GetCertificateOutputArgs {
+    /**
+     * ARN of the certificate issued by the private certificate authority.
+     */
     arn: pulumi.Input<string>;
+    /**
+     * ARN of the certificate authority.
+     */
     certificateAuthorityArn: pulumi.Input<string>;
 }

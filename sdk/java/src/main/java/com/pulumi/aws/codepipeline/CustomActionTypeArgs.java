@@ -21,58 +21,122 @@ public final class CustomActionTypeArgs extends com.pulumi.resources.ResourceArg
 
     public static final CustomActionTypeArgs Empty = new CustomActionTypeArgs();
 
+    /**
+     * The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
+     * 
+     */
     @Import(name="category", required=true)
     private Output<String> category;
 
+    /**
+     * @return The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
+     * 
+     */
     public Output<String> category() {
         return this.category;
     }
 
+    /**
+     * The configuration properties for the custom action. Max 10 items.
+     * 
+     */
     @Import(name="configurationProperties")
     private @Nullable Output<List<CustomActionTypeConfigurationPropertyArgs>> configurationProperties;
 
+    /**
+     * @return The configuration properties for the custom action. Max 10 items.
+     * 
+     */
     public Optional<Output<List<CustomActionTypeConfigurationPropertyArgs>>> configurationProperties() {
         return Optional.ofNullable(this.configurationProperties);
     }
 
+    /**
+     * The details of the input artifact for the action.
+     * 
+     */
     @Import(name="inputArtifactDetails", required=true)
     private Output<CustomActionTypeInputArtifactDetailsArgs> inputArtifactDetails;
 
+    /**
+     * @return The details of the input artifact for the action.
+     * 
+     */
     public Output<CustomActionTypeInputArtifactDetailsArgs> inputArtifactDetails() {
         return this.inputArtifactDetails;
     }
 
+    /**
+     * The details of the output artifact of the action.
+     * 
+     */
     @Import(name="outputArtifactDetails", required=true)
     private Output<CustomActionTypeOutputArtifactDetailsArgs> outputArtifactDetails;
 
+    /**
+     * @return The details of the output artifact of the action.
+     * 
+     */
     public Output<CustomActionTypeOutputArtifactDetailsArgs> outputArtifactDetails() {
         return this.outputArtifactDetails;
     }
 
+    /**
+     * The provider of the service used in the custom action
+     * 
+     */
     @Import(name="providerName", required=true)
     private Output<String> providerName;
 
+    /**
+     * @return The provider of the service used in the custom action
+     * 
+     */
     public Output<String> providerName() {
         return this.providerName;
     }
 
+    /**
+     * The settings for an action type.
+     * 
+     */
     @Import(name="settings")
     private @Nullable Output<CustomActionTypeSettingsArgs> settings;
 
+    /**
+     * @return The settings for an action type.
+     * 
+     */
     public Optional<Output<CustomActionTypeSettingsArgs>> settings() {
         return Optional.ofNullable(this.settings);
     }
 
+    /**
+     * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * The version identifier of the custom action.
+     * 
+     */
     @Import(name="version", required=true)
     private Output<String> version;
 
+    /**
+     * @return The version identifier of the custom action.
+     * 
+     */
     public Output<String> version() {
         return this.version;
     }
@@ -108,78 +172,180 @@ public final class CustomActionTypeArgs extends com.pulumi.resources.ResourceArg
             $ = new CustomActionTypeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param category The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
+         * 
+         * @return builder
+         * 
+         */
         public Builder category(Output<String> category) {
             $.category = category;
             return this;
         }
 
+        /**
+         * @param category The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
+         * 
+         * @return builder
+         * 
+         */
         public Builder category(String category) {
             return category(Output.of(category));
         }
 
+        /**
+         * @param configurationProperties The configuration properties for the custom action. Max 10 items.
+         * 
+         * @return builder
+         * 
+         */
         public Builder configurationProperties(@Nullable Output<List<CustomActionTypeConfigurationPropertyArgs>> configurationProperties) {
             $.configurationProperties = configurationProperties;
             return this;
         }
 
+        /**
+         * @param configurationProperties The configuration properties for the custom action. Max 10 items.
+         * 
+         * @return builder
+         * 
+         */
         public Builder configurationProperties(List<CustomActionTypeConfigurationPropertyArgs> configurationProperties) {
             return configurationProperties(Output.of(configurationProperties));
         }
 
+        /**
+         * @param configurationProperties The configuration properties for the custom action. Max 10 items.
+         * 
+         * @return builder
+         * 
+         */
         public Builder configurationProperties(CustomActionTypeConfigurationPropertyArgs... configurationProperties) {
             return configurationProperties(List.of(configurationProperties));
         }
 
+        /**
+         * @param inputArtifactDetails The details of the input artifact for the action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputArtifactDetails(Output<CustomActionTypeInputArtifactDetailsArgs> inputArtifactDetails) {
             $.inputArtifactDetails = inputArtifactDetails;
             return this;
         }
 
+        /**
+         * @param inputArtifactDetails The details of the input artifact for the action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputArtifactDetails(CustomActionTypeInputArtifactDetailsArgs inputArtifactDetails) {
             return inputArtifactDetails(Output.of(inputArtifactDetails));
         }
 
+        /**
+         * @param outputArtifactDetails The details of the output artifact of the action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outputArtifactDetails(Output<CustomActionTypeOutputArtifactDetailsArgs> outputArtifactDetails) {
             $.outputArtifactDetails = outputArtifactDetails;
             return this;
         }
 
+        /**
+         * @param outputArtifactDetails The details of the output artifact of the action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outputArtifactDetails(CustomActionTypeOutputArtifactDetailsArgs outputArtifactDetails) {
             return outputArtifactDetails(Output.of(outputArtifactDetails));
         }
 
+        /**
+         * @param providerName The provider of the service used in the custom action
+         * 
+         * @return builder
+         * 
+         */
         public Builder providerName(Output<String> providerName) {
             $.providerName = providerName;
             return this;
         }
 
+        /**
+         * @param providerName The provider of the service used in the custom action
+         * 
+         * @return builder
+         * 
+         */
         public Builder providerName(String providerName) {
             return providerName(Output.of(providerName));
         }
 
+        /**
+         * @param settings The settings for an action type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder settings(@Nullable Output<CustomActionTypeSettingsArgs> settings) {
             $.settings = settings;
             return this;
         }
 
+        /**
+         * @param settings The settings for an action type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder settings(CustomActionTypeSettingsArgs settings) {
             return settings(Output.of(settings));
         }
 
+        /**
+         * @param tags Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param version The version identifier of the custom action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(Output<String> version) {
             $.version = version;
             return this;
         }
 
+        /**
+         * @param version The version identifier of the custom action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

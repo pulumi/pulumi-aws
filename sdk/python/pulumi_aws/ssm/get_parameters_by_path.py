@@ -112,7 +112,23 @@ def get_parameters_by_path(path: Optional[str] = None,
                            with_decryption: Optional[bool] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetParametersByPathResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides SSM Parameters by path.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.ssm.get_parameters_by_path(path="/foo")
+    ```
+
+    > **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
+
+
+    :param str path: Prefix path of the parameter.
+    :param bool recursive: Whether to recursively return parameters under `path`. Defaults to `false`.
+    :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
     """
     __args__ = dict()
     __args__['path'] = path
@@ -138,6 +154,22 @@ def get_parameters_by_path_output(path: Optional[pulumi.Input[str]] = None,
                                   with_decryption: Optional[pulumi.Input[Optional[bool]]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetParametersByPathResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides SSM Parameters by path.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.ssm.get_parameters_by_path(path="/foo")
+    ```
+
+    > **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
+
+
+    :param str path: Prefix path of the parameter.
+    :param bool recursive: Whether to recursively return parameters under `path`. Defaults to `false`.
+    :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
     """
     ...

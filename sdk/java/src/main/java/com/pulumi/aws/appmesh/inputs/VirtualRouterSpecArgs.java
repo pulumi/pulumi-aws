@@ -13,9 +13,19 @@ public final class VirtualRouterSpecArgs extends com.pulumi.resources.ResourceAr
 
     public static final VirtualRouterSpecArgs Empty = new VirtualRouterSpecArgs();
 
+    /**
+     * Listeners that the virtual router is expected to receive inbound traffic from.
+     * Currently only one listener is supported per virtual router.
+     * 
+     */
     @Import(name="listener", required=true)
     private Output<VirtualRouterSpecListenerArgs> listener;
 
+    /**
+     * @return Listeners that the virtual router is expected to receive inbound traffic from.
+     * Currently only one listener is supported per virtual router.
+     * 
+     */
     public Output<VirtualRouterSpecListenerArgs> listener() {
         return this.listener;
     }
@@ -44,11 +54,25 @@ public final class VirtualRouterSpecArgs extends com.pulumi.resources.ResourceAr
             $ = new VirtualRouterSpecArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param listener Listeners that the virtual router is expected to receive inbound traffic from.
+         * Currently only one listener is supported per virtual router.
+         * 
+         * @return builder
+         * 
+         */
         public Builder listener(Output<VirtualRouterSpecListenerArgs> listener) {
             $.listener = listener;
             return this;
         }
 
+        /**
+         * @param listener Listeners that the virtual router is expected to receive inbound traffic from.
+         * Currently only one listener is supported per virtual router.
+         * 
+         * @return builder
+         * 
+         */
         public Builder listener(VirtualRouterSpecListenerArgs listener) {
             return listener(Output.of(listener));
         }

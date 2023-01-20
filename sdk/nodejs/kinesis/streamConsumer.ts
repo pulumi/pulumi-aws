@@ -4,6 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a resource to manage a Kinesis Stream Consumer.
+ *
+ * > **Note:** You can register up to 20 consumers per stream. A given consumer can only be registered with one stream at a time.
+ *
+ * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleStream = new aws.kinesis.Stream("exampleStream", {shardCount: 1});
+ * const exampleStreamConsumer = new aws.kinesis.StreamConsumer("exampleStreamConsumer", {streamArn: exampleStream.arn});
+ * ```
+ *
+ * ## Import
+ *
+ * Kinesis Stream Consumers can be imported using the Amazon Resource Name (ARN) e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
+ * ```
+ *
+ *  [1]https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html
+ */
 export class StreamConsumer extends pulumi.CustomResource {
     /**
      * Get an existing StreamConsumer resource's state with the given name, ID, and optional extra
@@ -32,9 +59,21 @@ export class StreamConsumer extends pulumi.CustomResource {
         return obj['__pulumiType'] === StreamConsumer.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the stream consumer.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
+     */
     public /*out*/ readonly creationTimestamp!: pulumi.Output<string>;
+    /**
+     * Name of the stream consumer.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+     */
     public readonly streamArn!: pulumi.Output<string>;
 
     /**
@@ -73,9 +112,21 @@ export class StreamConsumer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering StreamConsumer resources.
  */
 export interface StreamConsumerState {
+    /**
+     * Amazon Resource Name (ARN) of the stream consumer.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
+     */
     creationTimestamp?: pulumi.Input<string>;
+    /**
+     * Name of the stream consumer.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+     */
     streamArn?: pulumi.Input<string>;
 }
 
@@ -83,6 +134,12 @@ export interface StreamConsumerState {
  * The set of arguments for constructing a StreamConsumer resource.
  */
 export interface StreamConsumerArgs {
+    /**
+     * Name of the stream consumer.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+     */
     streamArn: pulumi.Input<string>;
 }

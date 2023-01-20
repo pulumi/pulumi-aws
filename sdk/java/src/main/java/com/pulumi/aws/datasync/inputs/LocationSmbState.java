@@ -18,65 +18,137 @@ public final class LocationSmbState extends com.pulumi.resources.ResourceArgs {
 
     public static final LocationSmbState Empty = new LocationSmbState();
 
+    /**
+     * A list of DataSync Agent ARNs with which this location will be associated.
+     * 
+     */
     @Import(name="agentArns")
     private @Nullable Output<List<String>> agentArns;
 
+    /**
+     * @return A list of DataSync Agent ARNs with which this location will be associated.
+     * 
+     */
     public Optional<Output<List<String>>> agentArns() {
         return Optional.ofNullable(this.agentArns);
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the DataSync Location.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of the DataSync Location.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * The name of the Windows domain the SMB server belongs to.
+     * 
+     */
     @Import(name="domain")
     private @Nullable Output<String> domain;
 
+    /**
+     * @return The name of the Windows domain the SMB server belongs to.
+     * 
+     */
     public Optional<Output<String>> domain() {
         return Optional.ofNullable(this.domain);
     }
 
+    /**
+     * Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
+     * 
+     */
     @Import(name="mountOptions")
     private @Nullable Output<LocationSmbMountOptionsArgs> mountOptions;
 
+    /**
+     * @return Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
+     * 
+     */
     public Optional<Output<LocationSmbMountOptionsArgs>> mountOptions() {
         return Optional.ofNullable(this.mountOptions);
     }
 
+    /**
+     * The password of the user who can mount the share and has file permissions in the SMB.
+     * 
+     */
     @Import(name="password")
     private @Nullable Output<String> password;
 
+    /**
+     * @return The password of the user who can mount the share and has file permissions in the SMB.
+     * 
+     */
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
     }
 
+    /**
+     * Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
+     * 
+     */
     @Import(name="serverHostname")
     private @Nullable Output<String> serverHostname;
 
+    /**
+     * @return Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
+     * 
+     */
     public Optional<Output<String>> serverHostname() {
         return Optional.ofNullable(this.serverHostname);
     }
 
+    /**
+     * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
+     * 
+     */
     @Import(name="subdirectory")
     private @Nullable Output<String> subdirectory;
 
+    /**
+     * @return Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
+     * 
+     */
     public Optional<Output<String>> subdirectory() {
         return Optional.ofNullable(this.subdirectory);
     }
 
+    /**
+     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -88,9 +160,17 @@ public final class LocationSmbState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.uri);
     }
 
+    /**
+     * The user who can mount the share and has file and folder permissions in the SMB share.
+     * 
+     */
     @Import(name="user")
     private @Nullable Output<String> user;
 
+    /**
+     * @return The user who can mount the share and has file and folder permissions in the SMB share.
+     * 
+     */
     public Optional<Output<String>> user() {
         return Optional.ofNullable(this.user);
     }
@@ -129,87 +209,201 @@ public final class LocationSmbState extends com.pulumi.resources.ResourceArgs {
             $ = new LocationSmbState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param agentArns A list of DataSync Agent ARNs with which this location will be associated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder agentArns(@Nullable Output<List<String>> agentArns) {
             $.agentArns = agentArns;
             return this;
         }
 
+        /**
+         * @param agentArns A list of DataSync Agent ARNs with which this location will be associated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder agentArns(List<String> agentArns) {
             return agentArns(Output.of(agentArns));
         }
 
+        /**
+         * @param agentArns A list of DataSync Agent ARNs with which this location will be associated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder agentArns(String... agentArns) {
             return agentArns(List.of(agentArns));
         }
 
+        /**
+         * @param arn Amazon Resource Name (ARN) of the DataSync Location.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn Amazon Resource Name (ARN) of the DataSync Location.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param domain The name of the Windows domain the SMB server belongs to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domain(@Nullable Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
+        /**
+         * @param domain The name of the Windows domain the SMB server belongs to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }
 
+        /**
+         * @param mountOptions Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mountOptions(@Nullable Output<LocationSmbMountOptionsArgs> mountOptions) {
             $.mountOptions = mountOptions;
             return this;
         }
 
+        /**
+         * @param mountOptions Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mountOptions(LocationSmbMountOptionsArgs mountOptions) {
             return mountOptions(Output.of(mountOptions));
         }
 
+        /**
+         * @param password The password of the user who can mount the share and has file permissions in the SMB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
         }
 
+        /**
+         * @param password The password of the user who can mount the share and has file permissions in the SMB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
 
+        /**
+         * @param serverHostname Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serverHostname(@Nullable Output<String> serverHostname) {
             $.serverHostname = serverHostname;
             return this;
         }
 
+        /**
+         * @param serverHostname Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serverHostname(String serverHostname) {
             return serverHostname(Output.of(serverHostname));
         }
 
+        /**
+         * @param subdirectory Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subdirectory(@Nullable Output<String> subdirectory) {
             $.subdirectory = subdirectory;
             return this;
         }
 
+        /**
+         * @param subdirectory Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subdirectory(String subdirectory) {
             return subdirectory(Output.of(subdirectory));
         }
 
+        /**
+         * @param tags Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
@@ -223,11 +417,23 @@ public final class LocationSmbState extends com.pulumi.resources.ResourceArgs {
             return uri(Output.of(uri));
         }
 
+        /**
+         * @param user The user who can mount the share and has file and folder permissions in the SMB share.
+         * 
+         * @return builder
+         * 
+         */
         public Builder user(@Nullable Output<String> user) {
             $.user = user;
             return this;
         }
 
+        /**
+         * @param user The user who can mount the share and has file and folder permissions in the SMB share.
+         * 
+         * @return builder
+         * 
+         */
         public Builder user(String user) {
             return user(Output.of(user));
         }

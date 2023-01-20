@@ -9,18 +9,59 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Chime
 {
+    /// <summary>
+    /// Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Chime.VoiceConnector("test", new()
+    ///     {
+    ///         AwsRegion = "us-east-1",
+    ///         RequireEncryption = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Configuration Recorder can be imported using the name, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:chime/voiceConnector:VoiceConnector")]
     public partial class VoiceConnector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
+        /// </summary>
         [Output("awsRegion")]
         public Output<string?> AwsRegion { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Amazon Chime Voice Connector.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The outbound host name for the Amazon Chime Voice Connector.
+        /// </summary>
         [Output("outboundHostName")]
         public Output<string> OutboundHostName { get; private set; } = null!;
 
+        /// <summary>
+        /// When enabled, requires encryption for the Amazon Chime Voice Connector.
+        /// </summary>
         [Output("requireEncryption")]
         public Output<bool> RequireEncryption { get; private set; } = null!;
 
@@ -70,12 +111,21 @@ namespace Pulumi.Aws.Chime
 
     public sealed class VoiceConnectorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
+        /// </summary>
         [Input("awsRegion")]
         public Input<string>? AwsRegion { get; set; }
 
+        /// <summary>
+        /// The name of the Amazon Chime Voice Connector.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// When enabled, requires encryption for the Amazon Chime Voice Connector.
+        /// </summary>
         [Input("requireEncryption", required: true)]
         public Input<bool> RequireEncryption { get; set; } = null!;
 
@@ -87,15 +137,27 @@ namespace Pulumi.Aws.Chime
 
     public sealed class VoiceConnectorState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
+        /// </summary>
         [Input("awsRegion")]
         public Input<string>? AwsRegion { get; set; }
 
+        /// <summary>
+        /// The name of the Amazon Chime Voice Connector.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The outbound host name for the Amazon Chime Voice Connector.
+        /// </summary>
         [Input("outboundHostName")]
         public Input<string>? OutboundHostName { get; set; }
 
+        /// <summary>
+        /// When enabled, requires encryption for the Amazon Chime Voice Connector.
+        /// </summary>
         [Input("requireEncryption")]
         public Input<bool>? RequireEncryption { get; set; }
 

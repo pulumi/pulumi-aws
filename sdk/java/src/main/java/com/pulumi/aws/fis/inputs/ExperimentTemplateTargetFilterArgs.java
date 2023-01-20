@@ -14,16 +14,32 @@ public final class ExperimentTemplateTargetFilterArgs extends com.pulumi.resourc
 
     public static final ExperimentTemplateTargetFilterArgs Empty = new ExperimentTemplateTargetFilterArgs();
 
+    /**
+     * Attribute path for the filter.
+     * 
+     */
     @Import(name="path", required=true)
     private Output<String> path;
 
+    /**
+     * @return Attribute path for the filter.
+     * 
+     */
     public Output<String> path() {
         return this.path;
     }
 
+    /**
+     * Set of attribute values for the filter.
+     * 
+     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
+    /**
+     * @return Set of attribute values for the filter.
+     * 
+     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -53,24 +69,54 @@ public final class ExperimentTemplateTargetFilterArgs extends com.pulumi.resourc
             $ = new ExperimentTemplateTargetFilterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param path Attribute path for the filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(Output<String> path) {
             $.path = path;
             return this;
         }
 
+        /**
+         * @param path Attribute path for the filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
+        /**
+         * @param values Set of attribute values for the filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
+        /**
+         * @param values Set of attribute values for the filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
+        /**
+         * @param values Set of attribute values for the filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

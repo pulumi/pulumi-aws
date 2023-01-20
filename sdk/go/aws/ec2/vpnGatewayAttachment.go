@@ -11,10 +11,67 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Virtual Private Gateway attachment resource, allowing for an existing
+// hardware VPN gateway to be attached and/or detached from a VPC.
+//
+// > **Note:** The `ec2.VpnGateway`
+// resource can also automatically attach the Virtual Private Gateway it creates
+// to an existing VPC by setting the `vpcId` attribute accordingly.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			network, err := ec2.NewVpc(ctx, "network", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			vpn, err := ec2.NewVpnGateway(ctx, "vpn", &ec2.VpnGatewayArgs{
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-vpn-gateway"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpnGatewayAttachment(ctx, "vpnAttachment", &ec2.VpnGatewayAttachmentArgs{
+//				VpcId:        network.ID(),
+//				VpnGatewayId: vpn.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
+// and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
+// guides for more information.
+//
+// ## Import
+//
+// This resource does not support importing.
 type VpnGatewayAttachment struct {
 	pulumi.CustomResourceState
 
-	VpcId        pulumi.StringOutput `pulumi:"vpcId"`
+	// The ID of the VPC.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	// The ID of the Virtual Private Gateway.
 	VpnGatewayId pulumi.StringOutput `pulumi:"vpnGatewayId"`
 }
 
@@ -53,12 +110,16 @@ func GetVpnGatewayAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpnGatewayAttachment resources.
 type vpnGatewayAttachmentState struct {
-	VpcId        *string `pulumi:"vpcId"`
+	// The ID of the VPC.
+	VpcId *string `pulumi:"vpcId"`
+	// The ID of the Virtual Private Gateway.
 	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
 type VpnGatewayAttachmentState struct {
-	VpcId        pulumi.StringPtrInput
+	// The ID of the VPC.
+	VpcId pulumi.StringPtrInput
+	// The ID of the Virtual Private Gateway.
 	VpnGatewayId pulumi.StringPtrInput
 }
 
@@ -67,13 +128,17 @@ func (VpnGatewayAttachmentState) ElementType() reflect.Type {
 }
 
 type vpnGatewayAttachmentArgs struct {
-	VpcId        string `pulumi:"vpcId"`
+	// The ID of the VPC.
+	VpcId string `pulumi:"vpcId"`
+	// The ID of the Virtual Private Gateway.
 	VpnGatewayId string `pulumi:"vpnGatewayId"`
 }
 
 // The set of arguments for constructing a VpnGatewayAttachment resource.
 type VpnGatewayAttachmentArgs struct {
-	VpcId        pulumi.StringInput
+	// The ID of the VPC.
+	VpcId pulumi.StringInput
+	// The ID of the Virtual Private Gateway.
 	VpnGatewayId pulumi.StringInput
 }
 
@@ -164,10 +229,12 @@ func (o VpnGatewayAttachmentOutput) ToVpnGatewayAttachmentOutputWithContext(ctx 
 	return o
 }
 
+// The ID of the VPC.
 func (o VpnGatewayAttachmentOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnGatewayAttachment) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
+// The ID of the Virtual Private Gateway.
 func (o VpnGatewayAttachmentOutput) VpnGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnGatewayAttachment) pulumi.StringOutput { return v.VpnGatewayId }).(pulumi.StringOutput)
 }

@@ -4,6 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides information on a Service Catalog Constraint.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.servicecatalog.getConstraint({
+ *     acceptLanguage: "en",
+ *     id: "cons-hrvy0335",
+ * });
+ * ```
+ */
 export function getConstraint(args: GetConstraintArgs, opts?: pulumi.InvokeOptions): Promise<GetConstraintResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -18,8 +34,17 @@ export function getConstraint(args: GetConstraintArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getConstraint.
  */
 export interface GetConstraintArgs {
+    /**
+     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     */
     acceptLanguage?: string;
+    /**
+     * Description of the constraint.
+     */
     description?: string;
+    /**
+     * Constraint identifier.
+     */
     id: string;
 }
 
@@ -28,15 +53,52 @@ export interface GetConstraintArgs {
  */
 export interface GetConstraintResult {
     readonly acceptLanguage?: string;
+    /**
+     * Description of the constraint.
+     */
     readonly description: string;
     readonly id: string;
+    /**
+     * Owner of the constraint.
+     */
     readonly owner: string;
+    /**
+     * Constraint parameters in JSON format.
+     */
     readonly parameters: string;
+    /**
+     * Portfolio identifier.
+     */
     readonly portfolioId: string;
+    /**
+     * Product identifier.
+     */
     readonly productId: string;
+    /**
+     * Constraint status.
+     */
     readonly status: string;
+    /**
+     * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+     */
     readonly type: string;
 }
+/**
+ * Provides information on a Service Catalog Constraint.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.servicecatalog.getConstraint({
+ *     acceptLanguage: "en",
+ *     id: "cons-hrvy0335",
+ * });
+ * ```
+ */
 export function getConstraintOutput(args: GetConstraintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConstraintResult> {
     return pulumi.output(args).apply((a: any) => getConstraint(a, opts))
 }
@@ -45,7 +107,16 @@ export function getConstraintOutput(args: GetConstraintOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getConstraint.
  */
 export interface GetConstraintOutputArgs {
+    /**
+     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     */
     acceptLanguage?: pulumi.Input<string>;
+    /**
+     * Description of the constraint.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Constraint identifier.
+     */
     id: pulumi.Input<string>;
 }

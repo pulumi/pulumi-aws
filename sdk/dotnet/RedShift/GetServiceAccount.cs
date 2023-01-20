@@ -11,9 +11,131 @@ namespace Pulumi.Aws.RedShift
 {
     public static class GetServiceAccount
     {
+        /// <summary>
+        /// Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+        /// in a given region for the purpose of allowing Redshift to store audit data in S3.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = Aws.RedShift.GetServiceAccount.Invoke();
+        /// 
+        ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+        ///     {
+        ///         ForceDestroy = true,
+        ///     });
+        /// 
+        ///     var allowAuditLogging = new Aws.S3.BucketPolicy("allowAuditLogging", new()
+        ///     {
+        ///         Bucket = bucket.Id,
+        ///         Policy = Output.Tuple(main.Apply(getServiceAccountResult =&gt; getServiceAccountResult), main.Apply(getServiceAccountResult =&gt; getServiceAccountResult)).Apply(values =&gt;
+        ///         {
+        ///             var main = values.Item1;
+        ///             var main1 = values.Item2;
+        ///             return @$"{{
+        /// 	""Version"": ""2008-10-17"",
+        /// 	""Statement"": [
+        /// 		{{
+        ///             ""Sid"": ""Put bucket policy needed for audit logging"",
+        ///             ""Effect"": ""Allow"",
+        ///             ""Principal"": {{
+        /// 		        ""AWS"": ""{main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn)}""
+        ///             }},
+        ///             ""Action"": ""s3:PutObject"",
+        ///             ""Resource"": ""arn:aws:s3:::tf-redshift-logging-test-bucket/*""
+        ///         }},
+        ///         {{
+        ///             ""Sid"": ""Get bucket policy needed for audit logging "",
+        ///             ""Effect"": ""Allow"",
+        ///             ""Principal"": {{
+        /// 		        ""AWS"": ""{main1.Arn}""
+        ///             }},
+        ///             ""Action"": ""s3:GetBucketAcl"",
+        ///             ""Resource"": ""arn:aws:s3:::tf-redshift-logging-test-bucket""
+        ///         }}
+        /// 	]
+        /// }}
+        /// ";
+        ///         }),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetServiceAccountResult> InvokeAsync(GetServiceAccountArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceAccountResult>("aws:redshift/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+        /// in a given region for the purpose of allowing Redshift to store audit data in S3.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = Aws.RedShift.GetServiceAccount.Invoke();
+        /// 
+        ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+        ///     {
+        ///         ForceDestroy = true,
+        ///     });
+        /// 
+        ///     var allowAuditLogging = new Aws.S3.BucketPolicy("allowAuditLogging", new()
+        ///     {
+        ///         Bucket = bucket.Id,
+        ///         Policy = Output.Tuple(main.Apply(getServiceAccountResult =&gt; getServiceAccountResult), main.Apply(getServiceAccountResult =&gt; getServiceAccountResult)).Apply(values =&gt;
+        ///         {
+        ///             var main = values.Item1;
+        ///             var main1 = values.Item2;
+        ///             return @$"{{
+        /// 	""Version"": ""2008-10-17"",
+        /// 	""Statement"": [
+        /// 		{{
+        ///             ""Sid"": ""Put bucket policy needed for audit logging"",
+        ///             ""Effect"": ""Allow"",
+        ///             ""Principal"": {{
+        /// 		        ""AWS"": ""{main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn)}""
+        ///             }},
+        ///             ""Action"": ""s3:PutObject"",
+        ///             ""Resource"": ""arn:aws:s3:::tf-redshift-logging-test-bucket/*""
+        ///         }},
+        ///         {{
+        ///             ""Sid"": ""Get bucket policy needed for audit logging "",
+        ///             ""Effect"": ""Allow"",
+        ///             ""Principal"": {{
+        /// 		        ""AWS"": ""{main1.Arn}""
+        ///             }},
+        ///             ""Action"": ""s3:GetBucketAcl"",
+        ///             ""Resource"": ""arn:aws:s3:::tf-redshift-logging-test-bucket""
+        ///         }}
+        /// 	]
+        /// }}
+        /// ";
+        ///         }),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetServiceAccountResult> Invoke(GetServiceAccountInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceAccountResult>("aws:redshift/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +143,10 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class GetServiceAccountArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the region whose AWS Redshift account ID is desired.
+        /// Defaults to the region from the AWS provider configuration.
+        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -32,6 +158,10 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class GetServiceAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the region whose AWS Redshift account ID is desired.
+        /// Defaults to the region from the AWS provider configuration.
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -45,6 +175,9 @@ namespace Pulumi.Aws.RedShift
     [OutputType]
     public sealed class GetServiceAccountResult
     {
+        /// <summary>
+        /// ARN of the AWS Redshift service account in the selected region.
+        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

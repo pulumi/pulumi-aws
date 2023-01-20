@@ -4,6 +4,32 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an ElastiCache user resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.elasticache.User("test", {
+ *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
+ *     engine: "REDIS",
+ *     passwords: ["password123456789"],
+ *     userId: "testUserId",
+ *     userName: "testUserName",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * ElastiCache users can be imported using the `user_id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:elasticache/user:User my_user userId1
+ * ```
+ */
 export class User extends pulumi.CustomResource {
     /**
      * Get an existing User resource's state with the given name, ID, and optional extra
@@ -32,14 +58,38 @@ export class User extends pulumi.CustomResource {
         return obj['__pulumiType'] === User.__pulumiType;
     }
 
+    /**
+     * Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
+     */
     public readonly accessString!: pulumi.Output<string>;
+    /**
+     * The ARN of the created ElastiCache User.
+     */
     public readonly arn!: pulumi.Output<string>;
+    /**
+     * The current supported value is `REDIS`.
+     */
     public readonly engine!: pulumi.Output<string>;
+    /**
+     * Indicates a password is not required for this user.
+     */
     public readonly noPasswordRequired!: pulumi.Output<boolean | undefined>;
+    /**
+     * Passwords used for this user. You can create up to two passwords for each user.
+     */
     public readonly passwords!: pulumi.Output<string[] | undefined>;
+    /**
+     * A list of tags to be added to this resource. A tag is a key-value pair.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The ID of the user.
+     */
     public readonly userId!: pulumi.Output<string>;
+    /**
+     * The username of the user.
+     */
     public readonly userName!: pulumi.Output<string>;
 
     /**
@@ -99,14 +149,38 @@ export class User extends pulumi.CustomResource {
  * Input properties used for looking up and filtering User resources.
  */
 export interface UserState {
+    /**
+     * Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
+     */
     accessString?: pulumi.Input<string>;
+    /**
+     * The ARN of the created ElastiCache User.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The current supported value is `REDIS`.
+     */
     engine?: pulumi.Input<string>;
+    /**
+     * Indicates a password is not required for this user.
+     */
     noPasswordRequired?: pulumi.Input<boolean>;
+    /**
+     * Passwords used for this user. You can create up to two passwords for each user.
+     */
     passwords?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of tags to be added to this resource. A tag is a key-value pair.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ID of the user.
+     */
     userId?: pulumi.Input<string>;
+    /**
+     * The username of the user.
+     */
     userName?: pulumi.Input<string>;
 }
 
@@ -114,12 +188,36 @@ export interface UserState {
  * The set of arguments for constructing a User resource.
  */
 export interface UserArgs {
+    /**
+     * Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
+     */
     accessString: pulumi.Input<string>;
+    /**
+     * The ARN of the created ElastiCache User.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The current supported value is `REDIS`.
+     */
     engine: pulumi.Input<string>;
+    /**
+     * Indicates a password is not required for this user.
+     */
     noPasswordRequired?: pulumi.Input<boolean>;
+    /**
+     * Passwords used for this user. You can create up to two passwords for each user.
+     */
     passwords?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of tags to be added to this resource. A tag is a key-value pair.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ID of the user.
+     */
     userId: pulumi.Input<string>;
+    /**
+     * The username of the user.
+     */
     userName: pulumi.Input<string>;
 }

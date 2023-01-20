@@ -15,16 +15,32 @@ public final class GetWorkspacePlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetWorkspacePlainArgs Empty = new GetWorkspacePlainArgs();
 
+    /**
+     * Tags assigned to the resource
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return Tags assigned to the resource
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Grafana workspace ID.
+     * 
+     */
     @Import(name="workspaceId", required=true)
     private String workspaceId;
 
+    /**
+     * @return Grafana workspace ID.
+     * 
+     */
     public String workspaceId() {
         return this.workspaceId;
     }
@@ -54,11 +70,23 @@ public final class GetWorkspacePlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetWorkspacePlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param tags Tags assigned to the resource
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param workspaceId Grafana workspace ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workspaceId(String workspaceId) {
             $.workspaceId = workspaceId;
             return this;

@@ -11,9 +11,59 @@ namespace Pulumi.Aws.SecretsManager
 {
     public static class GetSecretRotation
     {
+        /// <summary>
+        /// Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Retrieve Secret Rotation Configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SecretsManager.GetSecretRotation.Invoke(new()
+        ///     {
+        ///         SecretId = data.Aws_secretsmanager_secret.Example.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetSecretRotationResult> InvokeAsync(GetSecretRotationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretRotationResult>("aws:secretsmanager/getSecretRotation:getSecretRotation", args ?? new GetSecretRotationArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Retrieve Secret Rotation Configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SecretsManager.GetSecretRotation.Invoke(new()
+        ///     {
+        ///         SecretId = data.Aws_secretsmanager_secret.Example.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetSecretRotationResult> Invoke(GetSecretRotationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretRotationResult>("aws:secretsmanager/getSecretRotation:getSecretRotation", args ?? new GetSecretRotationInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +71,9 @@ namespace Pulumi.Aws.SecretsManager
 
     public sealed class GetSecretRotationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+        /// </summary>
         [Input("secretId", required: true)]
         public string SecretId { get; set; } = null!;
 
@@ -32,6 +85,9 @@ namespace Pulumi.Aws.SecretsManager
 
     public sealed class GetSecretRotationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+        /// </summary>
         [Input("secretId", required: true)]
         public Input<string> SecretId { get; set; } = null!;
 
@@ -49,8 +105,17 @@ namespace Pulumi.Aws.SecretsManager
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// ARN of the secret.
+        /// </summary>
         public readonly bool RotationEnabled;
+        /// <summary>
+        /// Decrypted part of the protected secret information that was originally provided as a string.
+        /// </summary>
         public readonly string RotationLambdaArn;
+        /// <summary>
+        /// Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetSecretRotationRotationRuleResult> RotationRules;
         public readonly string SecretId;
 

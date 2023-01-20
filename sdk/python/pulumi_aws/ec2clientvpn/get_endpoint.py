@@ -91,26 +91,41 @@ class GetEndpointResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        The ARN of the Client VPN endpoint.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authenticationOptions")
     def authentication_options(self) -> Sequence['outputs.GetEndpointAuthenticationOptionResult']:
+        """
+        Information about the authentication method used by the Client VPN endpoint.
+        """
         return pulumi.get(self, "authentication_options")
 
     @property
     @pulumi.getter(name="clientCidrBlock")
     def client_cidr_block(self) -> str:
+        """
+        IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
+        """
         return pulumi.get(self, "client_cidr_block")
 
     @property
     @pulumi.getter(name="clientConnectOptions")
     def client_connect_options(self) -> Sequence['outputs.GetEndpointClientConnectOptionResult']:
+        """
+        The options for managing connection authorization for new client connections.
+        """
         return pulumi.get(self, "client_connect_options")
 
     @property
     @pulumi.getter(name="clientLoginBannerOptions")
     def client_login_banner_options(self) -> Sequence['outputs.GetEndpointClientLoginBannerOptionResult']:
+        """
+        Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+        """
         return pulumi.get(self, "client_login_banner_options")
 
     @property
@@ -121,21 +136,33 @@ class GetEndpointResult:
     @property
     @pulumi.getter(name="connectionLogOptions")
     def connection_log_options(self) -> Sequence['outputs.GetEndpointConnectionLogOptionResult']:
+        """
+        Information about the client connection logging options for the Client VPN endpoint.
+        """
         return pulumi.get(self, "connection_log_options")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Brief description of the endpoint.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> str:
+        """
+        DNS name to be used by clients when connecting to the Client VPN endpoint.
+        """
         return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="dnsServers")
     def dns_servers(self) -> Sequence[str]:
+        """
+        Information about the DNS servers to be used for DNS resolution.
+        """
         return pulumi.get(self, "dns_servers")
 
     @property
@@ -154,26 +181,41 @@ class GetEndpointResult:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[str]:
+        """
+        IDs of the security groups for the target network associated with the Client VPN endpoint.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="selfServicePortal")
     def self_service_portal(self) -> str:
+        """
+        Whether the self-service portal for the Client VPN endpoint is enabled.
+        """
         return pulumi.get(self, "self_service_portal")
 
     @property
     @pulumi.getter(name="serverCertificateArn")
     def server_certificate_arn(self) -> str:
+        """
+        The ARN of the server certificate.
+        """
         return pulumi.get(self, "server_certificate_arn")
 
     @property
     @pulumi.getter(name="sessionTimeoutHours")
     def session_timeout_hours(self) -> int:
+        """
+        The maximum VPN session duration time in hours.
+        """
         return pulumi.get(self, "session_timeout_hours")
 
     @property
     @pulumi.getter(name="splitTunnel")
     def split_tunnel(self) -> bool:
+        """
+        Whether split-tunnel is enabled in the AWS Client VPN endpoint.
+        """
         return pulumi.get(self, "split_tunnel")
 
     @property
@@ -184,16 +226,25 @@ class GetEndpointResult:
     @property
     @pulumi.getter(name="transportProtocol")
     def transport_protocol(self) -> str:
+        """
+        Transport protocol used by the Client VPN endpoint.
+        """
         return pulumi.get(self, "transport_protocol")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
+        """
+        ID of the VPC associated with the Client VPN endpoint.
+        """
         return pulumi.get(self, "vpc_id")
 
     @property
     @pulumi.getter(name="vpnPort")
     def vpn_port(self) -> int:
+        """
+        Port number for the Client VPN endpoint.
+        """
         return pulumi.get(self, "vpn_port")
 
 
@@ -231,7 +282,33 @@ def get_endpoint(client_vpn_endpoint_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
-    Use this data source to access information about an existing resource.
+    Get information on an EC2 Client VPN endpoint.
+
+    ## Example Usage
+    ### By Filter
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2clientvpn.get_endpoint(filters=[aws.ec2clientvpn.GetEndpointFilterArgs(
+        name="tag:Name",
+        values=["ExampleVpn"],
+    )])
+    ```
+    ### By Identifier
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2clientvpn.get_endpoint(client_vpn_endpoint_id="cvpn-endpoint-083cf50d6eb314f21")
+    ```
+
+
+    :param str client_vpn_endpoint_id: ID of the Client VPN endpoint.
+    :param Sequence[pulumi.InputType['GetEndpointFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired endpoint.
     """
     __args__ = dict()
     __args__['clientVpnEndpointId'] = client_vpn_endpoint_id
@@ -270,6 +347,32 @@ def get_endpoint_output(client_vpn_endpoint_id: Optional[pulumi.Input[Optional[s
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get information on an EC2 Client VPN endpoint.
+
+    ## Example Usage
+    ### By Filter
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2clientvpn.get_endpoint(filters=[aws.ec2clientvpn.GetEndpointFilterArgs(
+        name="tag:Name",
+        values=["ExampleVpn"],
+    )])
+    ```
+    ### By Identifier
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2clientvpn.get_endpoint(client_vpn_endpoint_id="cvpn-endpoint-083cf50d6eb314f21")
+    ```
+
+
+    :param str client_vpn_endpoint_id: ID of the Client VPN endpoint.
+    :param Sequence[pulumi.InputType['GetEndpointFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired endpoint.
     """
     ...

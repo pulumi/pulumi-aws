@@ -11,12 +11,109 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Elastic Container Registry Scanning Configuration. Can't be completely deleted, instead reverts to the default `BASIC` scanning configuration without rules.
+//
+// ## Example Usage
+// ### Basic example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecr.NewRegistryScanningConfiguration(ctx, "configuration", &ecr.RegistryScanningConfigurationArgs{
+//				Rules: ecr.RegistryScanningConfigurationRuleArray{
+//					&ecr.RegistryScanningConfigurationRuleArgs{
+//						RepositoryFilters: ecr.RegistryScanningConfigurationRuleRepositoryFilterArray{
+//							&ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs{
+//								Filter:     pulumi.String("example"),
+//								FilterType: pulumi.String("WILDCARD"),
+//							},
+//						},
+//						ScanFrequency: pulumi.String("CONTINUOUS_SCAN"),
+//					},
+//				},
+//				ScanType: pulumi.String("ENHANCED"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Multiple rules
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecr.NewRegistryScanningConfiguration(ctx, "test", &ecr.RegistryScanningConfigurationArgs{
+//				Rules: ecr.RegistryScanningConfigurationRuleArray{
+//					&ecr.RegistryScanningConfigurationRuleArgs{
+//						RepositoryFilters: ecr.RegistryScanningConfigurationRuleRepositoryFilterArray{
+//							&ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs{
+//								Filter:     pulumi.String("*"),
+//								FilterType: pulumi.String("WILDCARD"),
+//							},
+//						},
+//						ScanFrequency: pulumi.String("SCAN_ON_PUSH"),
+//					},
+//					&ecr.RegistryScanningConfigurationRuleArgs{
+//						RepositoryFilters: ecr.RegistryScanningConfigurationRuleRepositoryFilterArray{
+//							&ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs{
+//								Filter:     pulumi.String("example"),
+//								FilterType: pulumi.String("WILDCARD"),
+//							},
+//						},
+//						ScanFrequency: pulumi.String("CONTINUOUS_SCAN"),
+//					},
+//				},
+//				ScanType: pulumi.String("ENHANCED"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// ECR Scanning Configurations can be imported using the `registry_id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
+//
+// ```
 type RegistryScanningConfiguration struct {
 	pulumi.CustomResourceState
 
-	RegistryId pulumi.StringOutput                          `pulumi:"registryId"`
-	Rules      RegistryScanningConfigurationRuleArrayOutput `pulumi:"rules"`
-	ScanType   pulumi.StringOutput                          `pulumi:"scanType"`
+	// The registry ID the scanning configuration applies to.
+	RegistryId pulumi.StringOutput `pulumi:"registryId"`
+	// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+	Rules RegistryScanningConfigurationRuleArrayOutput `pulumi:"rules"`
+	// the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
+	ScanType pulumi.StringOutput `pulumi:"scanType"`
 }
 
 // NewRegistryScanningConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -51,15 +148,21 @@ func GetRegistryScanningConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegistryScanningConfiguration resources.
 type registryScanningConfigurationState struct {
-	RegistryId *string                             `pulumi:"registryId"`
-	Rules      []RegistryScanningConfigurationRule `pulumi:"rules"`
-	ScanType   *string                             `pulumi:"scanType"`
+	// The registry ID the scanning configuration applies to.
+	RegistryId *string `pulumi:"registryId"`
+	// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+	Rules []RegistryScanningConfigurationRule `pulumi:"rules"`
+	// the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
+	ScanType *string `pulumi:"scanType"`
 }
 
 type RegistryScanningConfigurationState struct {
+	// The registry ID the scanning configuration applies to.
 	RegistryId pulumi.StringPtrInput
-	Rules      RegistryScanningConfigurationRuleArrayInput
-	ScanType   pulumi.StringPtrInput
+	// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+	Rules RegistryScanningConfigurationRuleArrayInput
+	// the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
+	ScanType pulumi.StringPtrInput
 }
 
 func (RegistryScanningConfigurationState) ElementType() reflect.Type {
@@ -67,13 +170,17 @@ func (RegistryScanningConfigurationState) ElementType() reflect.Type {
 }
 
 type registryScanningConfigurationArgs struct {
-	Rules    []RegistryScanningConfigurationRule `pulumi:"rules"`
-	ScanType string                              `pulumi:"scanType"`
+	// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+	Rules []RegistryScanningConfigurationRule `pulumi:"rules"`
+	// the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
+	ScanType string `pulumi:"scanType"`
 }
 
 // The set of arguments for constructing a RegistryScanningConfiguration resource.
 type RegistryScanningConfigurationArgs struct {
-	Rules    RegistryScanningConfigurationRuleArrayInput
+	// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+	Rules RegistryScanningConfigurationRuleArrayInput
+	// the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
 	ScanType pulumi.StringInput
 }
 
@@ -164,14 +271,17 @@ func (o RegistryScanningConfigurationOutput) ToRegistryScanningConfigurationOutp
 	return o
 }
 
+// The registry ID the scanning configuration applies to.
 func (o RegistryScanningConfigurationOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryScanningConfiguration) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
 }
 
+// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
 func (o RegistryScanningConfigurationOutput) Rules() RegistryScanningConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v *RegistryScanningConfiguration) RegistryScanningConfigurationRuleArrayOutput { return v.Rules }).(RegistryScanningConfigurationRuleArrayOutput)
 }
 
+// the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
 func (o RegistryScanningConfigurationOutput) ScanType() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryScanningConfiguration) pulumi.StringOutput { return v.ScanType }).(pulumi.StringOutput)
 }

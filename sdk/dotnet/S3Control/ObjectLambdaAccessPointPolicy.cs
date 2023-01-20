@@ -9,18 +9,107 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3Control
 {
+    /// <summary>
+    /// Provides a resource to manage an S3 Object Lambda Access Point resource policy.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    /// 
+    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///     });
+    /// 
+    ///     var exampleObjectLambdaAccessPoint = new Aws.S3Control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", new()
+    ///     {
+    ///         Configuration = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationArgs
+    ///         {
+    ///             SupportingAccessPoint = exampleAccessPoint.Arn,
+    ///             TransformationConfigurations = new[]
+    ///             {
+    ///                 new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs
+    ///                 {
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "GetObject",
+    ///                     },
+    ///                     ContentTransformation = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs
+    ///                     {
+    ///                         AwsLambda = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs
+    ///                         {
+    ///                             FunctionArn = aws_lambda_function.Example.Arn,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleObjectLambdaAccessPointPolicy = new Aws.S3Control.ObjectLambdaAccessPointPolicy("exampleObjectLambdaAccessPointPolicy", new()
+    ///     {
+    ///         Policy = exampleObjectLambdaAccessPoint.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2008-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Action"] = "s3-object-lambda:GetObject",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = data.Aws_caller_identity.Current.Account_id,
+    ///                     },
+    ///                     ["Resource"] = arn,
+    ///                 },
+    ///             },
+    ///         })),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Object Lambda Access Point policies can be imported using the `account_id` and `name`, separated by a colon (`:`), e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy")]
     public partial class ObjectLambdaAccessPointPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether this access point currently has a policy that allows public access.
+        /// </summary>
         [Output("hasPublicAccessPolicy")]
         public Output<bool> HasPublicAccessPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Object Lambda Access Point.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The Object Lambda Access Point resource policy document.
+        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -70,12 +159,21 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class ObjectLambdaAccessPointPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
+        /// <summary>
+        /// The name of the Object Lambda Access Point.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The Object Lambda Access Point resource policy document.
+        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
@@ -87,15 +185,27 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class ObjectLambdaAccessPointPolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
+        /// <summary>
+        /// Indicates whether this access point currently has a policy that allows public access.
+        /// </summary>
         [Input("hasPublicAccessPolicy")]
         public Input<bool>? HasPublicAccessPolicy { get; set; }
 
+        /// <summary>
+        /// The name of the Object Lambda Access Point.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The Object Lambda Access Point resource policy document.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

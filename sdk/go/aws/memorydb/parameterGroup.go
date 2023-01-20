@@ -11,17 +11,70 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a MemoryDB Parameter Group.
+//
+// More information about parameter groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/parametergroups.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := memorydb.NewParameterGroup(ctx, "example", &memorydb.ParameterGroupArgs{
+//				Family: pulumi.String("memorydb_redis6"),
+//				Parameters: memorydb.ParameterGroupParameterArray{
+//					&memorydb.ParameterGroupParameterArgs{
+//						Name:  pulumi.String("activedefrag"),
+//						Value: pulumi.String("yes"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Use the `name` to import a parameter group. For example
+//
+// ```sh
+//
+//	$ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
+//
+// ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput                `pulumi:"arn"`
-	Description pulumi.StringPtrOutput             `pulumi:"description"`
-	Family      pulumi.StringOutput                `pulumi:"family"`
-	Name        pulumi.StringOutput                `pulumi:"name"`
-	NamePrefix  pulumi.StringOutput                `pulumi:"namePrefix"`
-	Parameters  ParameterGroupParameterArrayOutput `pulumi:"parameters"`
-	Tags        pulumi.StringMapOutput             `pulumi:"tags"`
-	TagsAll     pulumi.StringMapOutput             `pulumi:"tagsAll"`
+	// The ARN of the parameter group.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Description for the parameter group.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The engine version that the parameter group can be used with.
+	Family pulumi.StringOutput `pulumi:"family"`
+	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
+	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -56,25 +109,41 @@ func GetParameterGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ParameterGroup resources.
 type parameterGroupState struct {
-	Arn         *string                   `pulumi:"arn"`
-	Description *string                   `pulumi:"description"`
-	Family      *string                   `pulumi:"family"`
-	Name        *string                   `pulumi:"name"`
-	NamePrefix  *string                   `pulumi:"namePrefix"`
-	Parameters  []ParameterGroupParameter `pulumi:"parameters"`
-	Tags        map[string]string         `pulumi:"tags"`
-	TagsAll     map[string]string         `pulumi:"tagsAll"`
+	// The ARN of the parameter group.
+	Arn *string `pulumi:"arn"`
+	// Description for the parameter group.
+	Description *string `pulumi:"description"`
+	// The engine version that the parameter group can be used with.
+	Family *string `pulumi:"family"`
+	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name *string `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix *string `pulumi:"namePrefix"`
+	// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
+	Parameters []ParameterGroupParameter `pulumi:"parameters"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ParameterGroupState struct {
-	Arn         pulumi.StringPtrInput
+	// The ARN of the parameter group.
+	Arn pulumi.StringPtrInput
+	// Description for the parameter group.
 	Description pulumi.StringPtrInput
-	Family      pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	NamePrefix  pulumi.StringPtrInput
-	Parameters  ParameterGroupParameterArrayInput
-	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// The engine version that the parameter group can be used with.
+	Family pulumi.StringPtrInput
+	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringPtrInput
+	// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
+	Parameters ParameterGroupParameterArrayInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (ParameterGroupState) ElementType() reflect.Type {
@@ -82,22 +151,34 @@ func (ParameterGroupState) ElementType() reflect.Type {
 }
 
 type parameterGroupArgs struct {
-	Description *string                   `pulumi:"description"`
-	Family      string                    `pulumi:"family"`
-	Name        *string                   `pulumi:"name"`
-	NamePrefix  *string                   `pulumi:"namePrefix"`
-	Parameters  []ParameterGroupParameter `pulumi:"parameters"`
-	Tags        map[string]string         `pulumi:"tags"`
+	// Description for the parameter group.
+	Description *string `pulumi:"description"`
+	// The engine version that the parameter group can be used with.
+	Family string `pulumi:"family"`
+	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name *string `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix *string `pulumi:"namePrefix"`
+	// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
+	Parameters []ParameterGroupParameter `pulumi:"parameters"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ParameterGroup resource.
 type ParameterGroupArgs struct {
+	// Description for the parameter group.
 	Description pulumi.StringPtrInput
-	Family      pulumi.StringInput
-	Name        pulumi.StringPtrInput
-	NamePrefix  pulumi.StringPtrInput
-	Parameters  ParameterGroupParameterArrayInput
-	Tags        pulumi.StringMapInput
+	// The engine version that the parameter group can be used with.
+	Family pulumi.StringInput
+	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringPtrInput
+	// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
+	Parameters ParameterGroupParameterArrayInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ParameterGroupArgs) ElementType() reflect.Type {
@@ -187,34 +268,42 @@ func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The ARN of the parameter group.
 func (o ParameterGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Description for the parameter group.
 func (o ParameterGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The engine version that the parameter group can be used with.
 func (o ParameterGroupOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
 }
 
+// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o ParameterGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o ParameterGroupOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
+// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
 func (o ParameterGroupOutput) Parameters() ParameterGroupParameterArrayOutput {
 	return o.ApplyT(func(v *ParameterGroup) ParameterGroupParameterArrayOutput { return v.Parameters }).(ParameterGroupParameterArrayOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ParameterGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ParameterGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -20,6 +20,8 @@ class ManagedScalingPolicyArgs:
                  compute_limits: pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]]):
         """
         The set of arguments for constructing a ManagedScalingPolicy resource.
+        :param pulumi.Input[str] cluster_id: ID of the EMR cluster
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]] compute_limits: Configuration block with compute limit settings. Described below.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "compute_limits", compute_limits)
@@ -27,6 +29,9 @@ class ManagedScalingPolicyArgs:
     @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Input[str]:
+        """
+        ID of the EMR cluster
+        """
         return pulumi.get(self, "cluster_id")
 
     @cluster_id.setter
@@ -36,6 +41,9 @@ class ManagedScalingPolicyArgs:
     @property
     @pulumi.getter(name="computeLimits")
     def compute_limits(self) -> pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]]:
+        """
+        Configuration block with compute limit settings. Described below.
+        """
         return pulumi.get(self, "compute_limits")
 
     @compute_limits.setter
@@ -50,6 +58,8 @@ class _ManagedScalingPolicyState:
                  compute_limits: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]]] = None):
         """
         Input properties used for looking up and filtering ManagedScalingPolicy resources.
+        :param pulumi.Input[str] cluster_id: ID of the EMR cluster
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]] compute_limits: Configuration block with compute limit settings. Described below.
         """
         if cluster_id is not None:
             pulumi.set(__self__, "cluster_id", cluster_id)
@@ -59,6 +69,9 @@ class _ManagedScalingPolicyState:
     @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the EMR cluster
+        """
         return pulumi.get(self, "cluster_id")
 
     @cluster_id.setter
@@ -68,6 +81,9 @@ class _ManagedScalingPolicyState:
     @property
     @pulumi.getter(name="computeLimits")
     def compute_limits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]]]:
+        """
+        Configuration block with compute limit settings. Described below.
+        """
         return pulumi.get(self, "compute_limits")
 
     @compute_limits.setter
@@ -84,9 +100,46 @@ class ManagedScalingPolicy(pulumi.CustomResource):
                  compute_limits: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedScalingPolicyComputeLimitArgs']]]]] = None,
                  __props__=None):
         """
-        Create a ManagedScalingPolicy resource with the given unique name, props, and options.
+        Provides a Managed Scaling policy for EMR Cluster. With Amazon EMR versions 5.30.0 and later (except for Amazon EMR 6.0.0), you can enable EMR managed scaling to automatically increase or decrease the number of instances or units in your cluster based on workload. See [Using EMR Managed Scaling in Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-scaling.html) for more information.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sample = aws.emr.Cluster("sample",
+            release_label="emr-5.30.0",
+            master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
+                instance_type="m4.large",
+            ),
+            core_instance_group=aws.emr.ClusterCoreInstanceGroupArgs(
+                instance_type="c4.large",
+            ))
+        # skip ...
+        samplepolicy = aws.emr.ManagedScalingPolicy("samplepolicy",
+            cluster_id=sample.id,
+            compute_limits=[aws.emr.ManagedScalingPolicyComputeLimitArgs(
+                unit_type="Instances",
+                minimum_capacity_units=2,
+                maximum_capacity_units=10,
+                maximum_ondemand_capacity_units=2,
+                maximum_core_capacity_units=10,
+            )])
+        ```
+
+        ## Import
+
+        EMR Managed Scaling Policies can be imported via the EMR Cluster identifier, e.g., console
+
+        ```sh
+         $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cluster_id: ID of the EMR cluster
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedScalingPolicyComputeLimitArgs']]]] compute_limits: Configuration block with compute limit settings. Described below.
         """
         ...
     @overload
@@ -95,7 +148,42 @@ class ManagedScalingPolicy(pulumi.CustomResource):
                  args: ManagedScalingPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ManagedScalingPolicy resource with the given unique name, props, and options.
+        Provides a Managed Scaling policy for EMR Cluster. With Amazon EMR versions 5.30.0 and later (except for Amazon EMR 6.0.0), you can enable EMR managed scaling to automatically increase or decrease the number of instances or units in your cluster based on workload. See [Using EMR Managed Scaling in Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-scaling.html) for more information.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sample = aws.emr.Cluster("sample",
+            release_label="emr-5.30.0",
+            master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
+                instance_type="m4.large",
+            ),
+            core_instance_group=aws.emr.ClusterCoreInstanceGroupArgs(
+                instance_type="c4.large",
+            ))
+        # skip ...
+        samplepolicy = aws.emr.ManagedScalingPolicy("samplepolicy",
+            cluster_id=sample.id,
+            compute_limits=[aws.emr.ManagedScalingPolicyComputeLimitArgs(
+                unit_type="Instances",
+                minimum_capacity_units=2,
+                maximum_capacity_units=10,
+                maximum_ondemand_capacity_units=2,
+                maximum_core_capacity_units=10,
+            )])
+        ```
+
+        ## Import
+
+        EMR Managed Scaling Policies can be imported via the EMR Cluster identifier, e.g., console
+
+        ```sh
+         $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
+        ```
+
         :param str resource_name: The name of the resource.
         :param ManagedScalingPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,6 +235,8 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cluster_id: ID of the EMR cluster
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedScalingPolicyComputeLimitArgs']]]] compute_limits: Configuration block with compute limit settings. Described below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -159,10 +249,16 @@ class ManagedScalingPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Output[str]:
+        """
+        ID of the EMR cluster
+        """
         return pulumi.get(self, "cluster_id")
 
     @property
     @pulumi.getter(name="computeLimits")
     def compute_limits(self) -> pulumi.Output[Sequence['outputs.ManagedScalingPolicyComputeLimit']]:
+        """
+        Configuration block with compute limit settings. Described below.
+        """
         return pulumi.get(self, "compute_limits")
 

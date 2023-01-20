@@ -25,6 +25,13 @@ class WebhookArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Webhook resource.
+        :param pulumi.Input[str] authentication: The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
+        :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterArgs']]] filters: One or more `filter` blocks. Filter blocks are documented below.
+        :param pulumi.Input[str] target_action: The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
+        :param pulumi.Input[str] target_pipeline: The name of the pipeline.
+        :param pulumi.Input['WebhookAuthenticationConfigurationArgs'] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+        :param pulumi.Input[str] name: The name of the webhook.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "authentication", authentication)
         pulumi.set(__self__, "filters", filters)
@@ -40,6 +47,9 @@ class WebhookArgs:
     @property
     @pulumi.getter
     def authentication(self) -> pulumi.Input[str]:
+        """
+        The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
+        """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
@@ -49,6 +59,9 @@ class WebhookArgs:
     @property
     @pulumi.getter
     def filters(self) -> pulumi.Input[Sequence[pulumi.Input['WebhookFilterArgs']]]:
+        """
+        One or more `filter` blocks. Filter blocks are documented below.
+        """
         return pulumi.get(self, "filters")
 
     @filters.setter
@@ -58,6 +71,9 @@ class WebhookArgs:
     @property
     @pulumi.getter(name="targetAction")
     def target_action(self) -> pulumi.Input[str]:
+        """
+        The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
+        """
         return pulumi.get(self, "target_action")
 
     @target_action.setter
@@ -67,6 +83,9 @@ class WebhookArgs:
     @property
     @pulumi.getter(name="targetPipeline")
     def target_pipeline(self) -> pulumi.Input[str]:
+        """
+        The name of the pipeline.
+        """
         return pulumi.get(self, "target_pipeline")
 
     @target_pipeline.setter
@@ -76,6 +95,9 @@ class WebhookArgs:
     @property
     @pulumi.getter(name="authenticationConfiguration")
     def authentication_configuration(self) -> Optional[pulumi.Input['WebhookAuthenticationConfigurationArgs']]:
+        """
+        An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+        """
         return pulumi.get(self, "authentication_configuration")
 
     @authentication_configuration.setter
@@ -85,6 +107,9 @@ class WebhookArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the webhook.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -94,6 +119,9 @@ class WebhookArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -116,6 +144,16 @@ class _WebhookState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Webhook resources.
+        :param pulumi.Input[str] arn: The CodePipeline webhook's ARN.
+        :param pulumi.Input[str] authentication: The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
+        :param pulumi.Input['WebhookAuthenticationConfigurationArgs'] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterArgs']]] filters: One or more `filter` blocks. Filter blocks are documented below.
+        :param pulumi.Input[str] name: The name of the webhook.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] target_action: The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
+        :param pulumi.Input[str] target_pipeline: The name of the pipeline.
+        :param pulumi.Input[str] url: The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -141,6 +179,9 @@ class _WebhookState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CodePipeline webhook's ARN.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -150,6 +191,9 @@ class _WebhookState:
     @property
     @pulumi.getter
     def authentication(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
+        """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
@@ -159,6 +203,9 @@ class _WebhookState:
     @property
     @pulumi.getter(name="authenticationConfiguration")
     def authentication_configuration(self) -> Optional[pulumi.Input['WebhookAuthenticationConfigurationArgs']]:
+        """
+        An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+        """
         return pulumi.get(self, "authentication_configuration")
 
     @authentication_configuration.setter
@@ -168,6 +215,9 @@ class _WebhookState:
     @property
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterArgs']]]]:
+        """
+        One or more `filter` blocks. Filter blocks are documented below.
+        """
         return pulumi.get(self, "filters")
 
     @filters.setter
@@ -177,6 +227,9 @@ class _WebhookState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the webhook.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -186,6 +239,9 @@ class _WebhookState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -195,6 +251,9 @@ class _WebhookState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -204,6 +263,9 @@ class _WebhookState:
     @property
     @pulumi.getter(name="targetAction")
     def target_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
+        """
         return pulumi.get(self, "target_action")
 
     @target_action.setter
@@ -213,6 +275,9 @@ class _WebhookState:
     @property
     @pulumi.getter(name="targetPipeline")
     def target_pipeline(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the pipeline.
+        """
         return pulumi.get(self, "target_pipeline")
 
     @target_pipeline.setter
@@ -222,6 +287,9 @@ class _WebhookState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -243,9 +311,98 @@ class Webhook(pulumi.CustomResource):
                  target_pipeline: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Webhook resource with the given unique name, props, and options.
+        Provides a CodePipeline Webhook.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_github as github
+
+        bar_pipeline = aws.codepipeline.Pipeline("barPipeline",
+            role_arn=aws_iam_role["bar"]["arn"],
+            artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs(
+                location=aws_s3_bucket["bar"]["bucket"],
+                type="S3",
+                encryption_key=aws.codepipeline.PipelineArtifactStoreEncryptionKeyArgs(
+                    id=data["aws_kms_alias"]["s3kmskey"]["arn"],
+                    type="KMS",
+                ),
+            )],
+            stages=[
+                aws.codepipeline.PipelineStageArgs(
+                    name="Source",
+                    actions=[aws.codepipeline.PipelineStageActionArgs(
+                        name="Source",
+                        category="Source",
+                        owner="ThirdParty",
+                        provider="GitHub",
+                        version="1",
+                        output_artifacts=["test"],
+                        configuration={
+                            "Owner": "my-organization",
+                            "Repo": "test",
+                            "Branch": "master",
+                        },
+                    )],
+                ),
+                aws.codepipeline.PipelineStageArgs(
+                    name="Build",
+                    actions=[aws.codepipeline.PipelineStageActionArgs(
+                        name="Build",
+                        category="Build",
+                        owner="AWS",
+                        provider="CodeBuild",
+                        input_artifacts=["test"],
+                        version="1",
+                        configuration={
+                            "ProjectName": "test",
+                        },
+                    )],
+                ),
+            ])
+        webhook_secret = "super-secret"
+        bar_webhook = aws.codepipeline.Webhook("barWebhook",
+            authentication="GITHUB_HMAC",
+            target_action="Source",
+            target_pipeline=bar_pipeline.name,
+            authentication_configuration=aws.codepipeline.WebhookAuthenticationConfigurationArgs(
+                secret_token=webhook_secret,
+            ),
+            filters=[aws.codepipeline.WebhookFilterArgs(
+                json_path="$.ref",
+                match_equals="refs/heads/{Branch}",
+            )])
+        # Wire the CodePipeline webhook into a GitHub repository.
+        bar_repository_webhook = github.RepositoryWebhook("barRepositoryWebhook",
+            repository=github_repository["repo"]["name"],
+            configuration=github.RepositoryWebhookConfigurationArgs(
+                url=bar_webhook.url,
+                content_type="json",
+                insecure_ssl=True,
+                secret=webhook_secret,
+            ),
+            events=["push"])
+        ```
+
+        ## Import
+
+        CodePipeline Webhooks can be imported by their ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] authentication: The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
+        :param pulumi.Input[pulumi.InputType['WebhookAuthenticationConfigurationArgs']] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterArgs']]]] filters: One or more `filter` blocks. Filter blocks are documented below.
+        :param pulumi.Input[str] name: The name of the webhook.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] target_action: The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
+        :param pulumi.Input[str] target_pipeline: The name of the pipeline.
         """
         ...
     @overload
@@ -254,7 +411,89 @@ class Webhook(pulumi.CustomResource):
                  args: WebhookArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Webhook resource with the given unique name, props, and options.
+        Provides a CodePipeline Webhook.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_github as github
+
+        bar_pipeline = aws.codepipeline.Pipeline("barPipeline",
+            role_arn=aws_iam_role["bar"]["arn"],
+            artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs(
+                location=aws_s3_bucket["bar"]["bucket"],
+                type="S3",
+                encryption_key=aws.codepipeline.PipelineArtifactStoreEncryptionKeyArgs(
+                    id=data["aws_kms_alias"]["s3kmskey"]["arn"],
+                    type="KMS",
+                ),
+            )],
+            stages=[
+                aws.codepipeline.PipelineStageArgs(
+                    name="Source",
+                    actions=[aws.codepipeline.PipelineStageActionArgs(
+                        name="Source",
+                        category="Source",
+                        owner="ThirdParty",
+                        provider="GitHub",
+                        version="1",
+                        output_artifacts=["test"],
+                        configuration={
+                            "Owner": "my-organization",
+                            "Repo": "test",
+                            "Branch": "master",
+                        },
+                    )],
+                ),
+                aws.codepipeline.PipelineStageArgs(
+                    name="Build",
+                    actions=[aws.codepipeline.PipelineStageActionArgs(
+                        name="Build",
+                        category="Build",
+                        owner="AWS",
+                        provider="CodeBuild",
+                        input_artifacts=["test"],
+                        version="1",
+                        configuration={
+                            "ProjectName": "test",
+                        },
+                    )],
+                ),
+            ])
+        webhook_secret = "super-secret"
+        bar_webhook = aws.codepipeline.Webhook("barWebhook",
+            authentication="GITHUB_HMAC",
+            target_action="Source",
+            target_pipeline=bar_pipeline.name,
+            authentication_configuration=aws.codepipeline.WebhookAuthenticationConfigurationArgs(
+                secret_token=webhook_secret,
+            ),
+            filters=[aws.codepipeline.WebhookFilterArgs(
+                json_path="$.ref",
+                match_equals="refs/heads/{Branch}",
+            )])
+        # Wire the CodePipeline webhook into a GitHub repository.
+        bar_repository_webhook = github.RepositoryWebhook("barRepositoryWebhook",
+            repository=github_repository["repo"]["name"],
+            configuration=github.RepositoryWebhookConfigurationArgs(
+                url=bar_webhook.url,
+                content_type="json",
+                insecure_ssl=True,
+                secret=webhook_secret,
+            ),
+            events=["push"])
+        ```
+
+        ## Import
+
+        CodePipeline Webhooks can be imported by their ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+        ```
+
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -331,6 +570,16 @@ class Webhook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The CodePipeline webhook's ARN.
+        :param pulumi.Input[str] authentication: The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
+        :param pulumi.Input[pulumi.InputType['WebhookAuthenticationConfigurationArgs']] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterArgs']]]] filters: One or more `filter` blocks. Filter blocks are documented below.
+        :param pulumi.Input[str] name: The name of the webhook.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] target_action: The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
+        :param pulumi.Input[str] target_pipeline: The name of the pipeline.
+        :param pulumi.Input[str] url: The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -351,50 +600,80 @@ class Webhook(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The CodePipeline webhook's ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def authentication(self) -> pulumi.Output[str]:
+        """
+        The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
+        """
         return pulumi.get(self, "authentication")
 
     @property
     @pulumi.getter(name="authenticationConfiguration")
     def authentication_configuration(self) -> pulumi.Output[Optional['outputs.WebhookAuthenticationConfiguration']]:
+        """
+        An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+        """
         return pulumi.get(self, "authentication_configuration")
 
     @property
     @pulumi.getter
     def filters(self) -> pulumi.Output[Sequence['outputs.WebhookFilter']]:
+        """
+        One or more `filter` blocks. Filter blocks are documented below.
+        """
         return pulumi.get(self, "filters")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the webhook.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="targetAction")
     def target_action(self) -> pulumi.Output[str]:
+        """
+        The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
+        """
         return pulumi.get(self, "target_action")
 
     @property
     @pulumi.getter(name="targetPipeline")
     def target_pipeline(self) -> pulumi.Output[str]:
+        """
+        The name of the pipeline.
+        """
         return pulumi.get(self, "target_pipeline")
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
+        """
+        The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
+        """
         return pulumi.get(self, "url")
 

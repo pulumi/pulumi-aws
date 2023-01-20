@@ -23,6 +23,11 @@ class ScriptArgs:
                  zip_file: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Script resource.
+        :param pulumi.Input[str] name: Name of the script
+        :param pulumi.Input['ScriptStorageLocationArgs'] storage_location: Information indicating where your game script files are stored. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] version: Version that is associated with this script.
+        :param pulumi.Input[str] zip_file: A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -38,6 +43,9 @@ class ScriptArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the script
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -47,6 +55,9 @@ class ScriptArgs:
     @property
     @pulumi.getter(name="storageLocation")
     def storage_location(self) -> Optional[pulumi.Input['ScriptStorageLocationArgs']]:
+        """
+        Information indicating where your game script files are stored. See below.
+        """
         return pulumi.get(self, "storage_location")
 
     @storage_location.setter
@@ -56,6 +67,9 @@ class ScriptArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -65,6 +79,9 @@ class ScriptArgs:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version that is associated with this script.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -74,6 +91,9 @@ class ScriptArgs:
     @property
     @pulumi.getter(name="zipFile")
     def zip_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+        """
         return pulumi.get(self, "zip_file")
 
     @zip_file.setter
@@ -93,6 +113,13 @@ class _ScriptState:
                  zip_file: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Script resources.
+        :param pulumi.Input[str] arn: GameLift Script ARN.
+        :param pulumi.Input[str] name: Name of the script
+        :param pulumi.Input['ScriptStorageLocationArgs'] storage_location: Information indicating where your game script files are stored. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] version: Version that is associated with this script.
+        :param pulumi.Input[str] zip_file: A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -112,6 +139,9 @@ class _ScriptState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        GameLift Script ARN.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -121,6 +151,9 @@ class _ScriptState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the script
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -130,6 +163,9 @@ class _ScriptState:
     @property
     @pulumi.getter(name="storageLocation")
     def storage_location(self) -> Optional[pulumi.Input['ScriptStorageLocationArgs']]:
+        """
+        Information indicating where your game script files are stored. See below.
+        """
         return pulumi.get(self, "storage_location")
 
     @storage_location.setter
@@ -139,6 +175,9 @@ class _ScriptState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -148,6 +187,9 @@ class _ScriptState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -157,6 +199,9 @@ class _ScriptState:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version that is associated with this script.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -166,6 +211,9 @@ class _ScriptState:
     @property
     @pulumi.getter(name="zipFile")
     def zip_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+        """
         return pulumi.get(self, "zip_file")
 
     @zip_file.setter
@@ -185,9 +233,36 @@ class Script(pulumi.CustomResource):
                  zip_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Script resource with the given unique name, props, and options.
+        Provides an GameLift Script resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.gamelift.Script("example", storage_location=aws.gamelift.ScriptStorageLocationArgs(
+            bucket=aws_s3_bucket["example"]["bucket"],
+            key=aws_s3_object["example"]["key"],
+            role_arn=aws_iam_role["example"]["arn"],
+        ))
+        ```
+
+        ## Import
+
+        GameLift Scripts can be imported using the ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:gamelift/script:Script example <script-id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: Name of the script
+        :param pulumi.Input[pulumi.InputType['ScriptStorageLocationArgs']] storage_location: Information indicating where your game script files are stored. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] version: Version that is associated with this script.
+        :param pulumi.Input[str] zip_file: A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
         """
         ...
     @overload
@@ -196,7 +271,29 @@ class Script(pulumi.CustomResource):
                  args: Optional[ScriptArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Script resource with the given unique name, props, and options.
+        Provides an GameLift Script resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.gamelift.Script("example", storage_location=aws.gamelift.ScriptStorageLocationArgs(
+            bucket=aws_s3_bucket["example"]["bucket"],
+            key=aws_s3_object["example"]["key"],
+            role_arn=aws_iam_role["example"]["arn"],
+        ))
+        ```
+
+        ## Import
+
+        GameLift Scripts can be imported using the ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:gamelift/script:Script example <script-id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param ScriptArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -257,6 +354,13 @@ class Script(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: GameLift Script ARN.
+        :param pulumi.Input[str] name: Name of the script
+        :param pulumi.Input[pulumi.InputType['ScriptStorageLocationArgs']] storage_location: Information indicating where your game script files are stored. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] version: Version that is associated with this script.
+        :param pulumi.Input[str] zip_file: A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -274,35 +378,56 @@ class Script(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        GameLift Script ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Name of the script
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="storageLocation")
     def storage_location(self) -> pulumi.Output['outputs.ScriptStorageLocation']:
+        """
+        Information indicating where your game script files are stored. See below.
+        """
         return pulumi.get(self, "storage_location")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[Optional[str]]:
+        """
+        Version that is associated with this script.
+        """
         return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="zipFile")
     def zip_file(self) -> pulumi.Output[Optional[str]]:
+        """
+        A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+        """
         return pulumi.get(self, "zip_file")
 

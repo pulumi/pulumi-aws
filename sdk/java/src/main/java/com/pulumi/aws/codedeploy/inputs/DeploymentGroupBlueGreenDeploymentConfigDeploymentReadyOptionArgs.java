@@ -16,16 +16,32 @@ public final class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption
 
     public static final DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs Empty = new DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs();
 
+    /**
+     * When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+     * 
+     */
     @Import(name="actionOnTimeout")
     private @Nullable Output<String> actionOnTimeout;
 
+    /**
+     * @return When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+     * 
+     */
     public Optional<Output<String>> actionOnTimeout() {
         return Optional.ofNullable(this.actionOnTimeout);
     }
 
+    /**
+     * The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
+     * 
+     */
     @Import(name="waitTimeInMinutes")
     private @Nullable Output<Integer> waitTimeInMinutes;
 
+    /**
+     * @return The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
+     * 
+     */
     public Optional<Output<Integer>> waitTimeInMinutes() {
         return Optional.ofNullable(this.waitTimeInMinutes);
     }
@@ -55,20 +71,44 @@ public final class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption
             $ = new DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param actionOnTimeout When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder actionOnTimeout(@Nullable Output<String> actionOnTimeout) {
             $.actionOnTimeout = actionOnTimeout;
             return this;
         }
 
+        /**
+         * @param actionOnTimeout When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder actionOnTimeout(String actionOnTimeout) {
             return actionOnTimeout(Output.of(actionOnTimeout));
         }
 
+        /**
+         * @param waitTimeInMinutes The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder waitTimeInMinutes(@Nullable Output<Integer> waitTimeInMinutes) {
             $.waitTimeInMinutes = waitTimeInMinutes;
             return this;
         }
 
+        /**
+         * @param waitTimeInMinutes The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder waitTimeInMinutes(Integer waitTimeInMinutes) {
             return waitTimeInMinutes(Output.of(waitTimeInMinutes));
         }

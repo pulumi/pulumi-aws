@@ -10,13 +10,52 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an AWS Route 53 Recovery Control Config Cluster.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoverycontrol"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53recoverycontrol.NewCluster(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Route53 Recovery Control Config cluster can be imported via the cluster ARN, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:route53recoverycontrol/cluster:Cluster mycluster arn:aws:route53-recovery-control::313517334327:cluster/f9ae13be-a11e-4ec7-8522-94a70468e6ea
+//
+// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput               `pulumi:"arn"`
+	// ARN of the cluster
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
 	ClusterEndpoints ClusterClusterEndpointArrayOutput `pulumi:"clusterEndpoints"`
-	Name             pulumi.StringOutput               `pulumi:"name"`
-	Status           pulumi.StringOutput               `pulumi:"status"`
+	// Unique name describing the cluster.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -48,17 +87,25 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
-	Arn              *string                  `pulumi:"arn"`
+	// ARN of the cluster
+	Arn *string `pulumi:"arn"`
+	// List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
 	ClusterEndpoints []ClusterClusterEndpoint `pulumi:"clusterEndpoints"`
-	Name             *string                  `pulumi:"name"`
-	Status           *string                  `pulumi:"status"`
+	// Unique name describing the cluster.
+	Name *string `pulumi:"name"`
+	// Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
+	Status *string `pulumi:"status"`
 }
 
 type ClusterState struct {
-	Arn              pulumi.StringPtrInput
+	// ARN of the cluster
+	Arn pulumi.StringPtrInput
+	// List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
 	ClusterEndpoints ClusterClusterEndpointArrayInput
-	Name             pulumi.StringPtrInput
-	Status           pulumi.StringPtrInput
+	// Unique name describing the cluster.
+	Name pulumi.StringPtrInput
+	// Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
+	Status pulumi.StringPtrInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -66,11 +113,13 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
+	// Unique name describing the cluster.
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	// Unique name describing the cluster.
 	Name pulumi.StringPtrInput
 }
 
@@ -161,18 +210,22 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// ARN of the cluster
 func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
 func (o ClusterOutput) ClusterEndpoints() ClusterClusterEndpointArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterClusterEndpointArrayOutput { return v.ClusterEndpoints }).(ClusterClusterEndpointArrayOutput)
 }
 
+// Unique name describing the cluster.
 func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
 func (o ClusterOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

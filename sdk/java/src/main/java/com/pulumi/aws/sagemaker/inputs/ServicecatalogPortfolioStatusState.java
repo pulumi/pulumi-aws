@@ -15,9 +15,17 @@ public final class ServicecatalogPortfolioStatusState extends com.pulumi.resourc
 
     public static final ServicecatalogPortfolioStatusState Empty = new ServicecatalogPortfolioStatusState();
 
+    /**
+     * Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -46,11 +54,23 @@ public final class ServicecatalogPortfolioStatusState extends com.pulumi.resourc
             $ = new ServicecatalogPortfolioStatusState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param status Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

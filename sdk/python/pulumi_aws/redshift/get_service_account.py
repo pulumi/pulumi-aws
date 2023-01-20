@@ -35,6 +35,9 @@ class GetServiceAccountResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the AWS Redshift service account in the selected region.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -65,7 +68,48 @@ class AwaitableGetServiceAccountResult(GetServiceAccountResult):
 def get_service_account(region: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+    in a given region for the purpose of allowing Redshift to store audit data in S3.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    main = aws.redshift.get_service_account()
+    bucket = aws.s3.BucketV2("bucket", force_destroy=True)
+    allow_audit_logging = aws.s3.BucketPolicy("allowAuditLogging",
+        bucket=bucket.id,
+        policy=f\"\"\"{{
+    	"Version": "2008-10-17",
+    	"Statement": [
+    		{{
+                "Sid": "Put bucket policy needed for audit logging",
+                "Effect": "Allow",
+                "Principal": {{
+    		        "AWS": "{main.arn}"
+                }},
+                "Action": "s3:PutObject",
+                "Resource": "arn:aws:s3:::tf-redshift-logging-test-bucket/*"
+            }},
+            {{
+                "Sid": "Get bucket policy needed for audit logging ",
+                "Effect": "Allow",
+                "Principal": {{
+    		        "AWS": "{main.arn}"
+                }},
+                "Action": "s3:GetBucketAcl",
+                "Resource": "arn:aws:s3:::tf-redshift-logging-test-bucket"
+            }}
+    	]
+    }}
+    \"\"\")
+    ```
+
+
+    :param str region: Name of the region whose AWS Redshift account ID is desired.
+           Defaults to the region from the AWS provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -82,6 +126,47 @@ def get_service_account(region: Optional[str] = None,
 def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceAccountResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+    in a given region for the purpose of allowing Redshift to store audit data in S3.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    main = aws.redshift.get_service_account()
+    bucket = aws.s3.BucketV2("bucket", force_destroy=True)
+    allow_audit_logging = aws.s3.BucketPolicy("allowAuditLogging",
+        bucket=bucket.id,
+        policy=f\"\"\"{{
+    	"Version": "2008-10-17",
+    	"Statement": [
+    		{{
+                "Sid": "Put bucket policy needed for audit logging",
+                "Effect": "Allow",
+                "Principal": {{
+    		        "AWS": "{main.arn}"
+                }},
+                "Action": "s3:PutObject",
+                "Resource": "arn:aws:s3:::tf-redshift-logging-test-bucket/*"
+            }},
+            {{
+                "Sid": "Get bucket policy needed for audit logging ",
+                "Effect": "Allow",
+                "Principal": {{
+    		        "AWS": "{main.arn}"
+                }},
+                "Action": "s3:GetBucketAcl",
+                "Resource": "arn:aws:s3:::tf-redshift-logging-test-bucket"
+            }}
+    	]
+    }}
+    \"\"\")
+    ```
+
+
+    :param str region: Name of the region whose AWS Redshift account ID is desired.
+           Defaults to the region from the AWS provider configuration.
     """
     ...

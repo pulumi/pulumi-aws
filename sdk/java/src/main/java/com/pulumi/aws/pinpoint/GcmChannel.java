@@ -16,23 +16,93 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Pinpoint GCM Channel resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.pinpoint.App;
+ * import com.pulumi.aws.pinpoint.GcmChannel;
+ * import com.pulumi.aws.pinpoint.GcmChannelArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var app = new App(&#34;app&#34;);
+ * 
+ *         var gcm = new GcmChannel(&#34;gcm&#34;, GcmChannelArgs.builder()        
+ *             .applicationId(app.applicationId())
+ *             .apiKey(&#34;api_key&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Pinpoint GCM Channel can be imported using the `application-id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
+ * ```
+ * 
+ */
 @ResourceType(type="aws:pinpoint/gcmChannel:GcmChannel")
 public class GcmChannel extends com.pulumi.resources.CustomResource {
+    /**
+     * Platform credential API key from Google.
+     * 
+     */
     @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output<String> apiKey;
 
+    /**
+     * @return Platform credential API key from Google.
+     * 
+     */
     public Output<String> apiKey() {
         return this.apiKey;
     }
+    /**
+     * The application ID.
+     * 
+     */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
+    /**
+     * @return The application ID.
+     * 
+     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
+    /**
+     * Whether the channel is enabled or disabled. Defaults to `true`.
+     * 
+     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
+    /**
+     * @return Whether the channel is enabled or disabled. Defaults to `true`.
+     * 
+     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }

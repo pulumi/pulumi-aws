@@ -11,9 +11,67 @@ namespace Pulumi.Aws.Sagemaker
 {
     public static class GetPrebuiltEcrImage
     {
+        /// <summary>
+        /// Get information about prebuilt Amazon SageMaker Docker images.
+        /// 
+        /// &gt; **NOTE:** The AWS provider creates a validly constructed `registry_path` but does not verify that the `registry_path` corresponds to an existing image. For example, using a `registry_path` containing an `image_tag` that does not correspond to a Docker image in the ECR repository, will result in an error.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// Basic usage:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Sagemaker.GetPrebuiltEcrImage.Invoke(new()
+        ///     {
+        ///         ImageTag = "2.2-1.0.11.0",
+        ///         RepositoryName = "sagemaker-scikit-learn",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetPrebuiltEcrImageResult> InvokeAsync(GetPrebuiltEcrImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrebuiltEcrImageResult>("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", args ?? new GetPrebuiltEcrImageArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get information about prebuilt Amazon SageMaker Docker images.
+        /// 
+        /// &gt; **NOTE:** The AWS provider creates a validly constructed `registry_path` but does not verify that the `registry_path` corresponds to an existing image. For example, using a `registry_path` containing an `image_tag` that does not correspond to a Docker image in the ECR repository, will result in an error.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// Basic usage:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Sagemaker.GetPrebuiltEcrImage.Invoke(new()
+        ///     {
+        ///         ImageTag = "2.2-1.0.11.0",
+        ///         RepositoryName = "sagemaker-scikit-learn",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetPrebuiltEcrImageResult> Invoke(GetPrebuiltEcrImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrebuiltEcrImageResult>("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", args ?? new GetPrebuiltEcrImageInvokeArgs(), options.WithDefaults());
     }
@@ -21,15 +79,27 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class GetPrebuiltEcrImageArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
+        /// </summary>
         [Input("dnsSuffix")]
         public string? DnsSuffix { get; set; }
 
+        /// <summary>
+        /// Image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
+        /// </summary>
         [Input("imageTag")]
         public string? ImageTag { get; set; }
 
+        /// <summary>
+        /// Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
+        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
+        /// <summary>
+        /// Name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, `tensorflow-training`, `huggingface-tensorflow-training`, `huggingface-tensorflow-inference`, `huggingface-pytorch-training`, and `huggingface-pytorch-inference`.
+        /// </summary>
         [Input("repositoryName", required: true)]
         public string RepositoryName { get; set; } = null!;
 
@@ -41,15 +111,27 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class GetPrebuiltEcrImageInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
+        /// </summary>
         [Input("dnsSuffix")]
         public Input<string>? DnsSuffix { get; set; }
 
+        /// <summary>
+        /// Image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
+        /// </summary>
         [Input("imageTag")]
         public Input<string>? ImageTag { get; set; }
 
+        /// <summary>
+        /// Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, `tensorflow-training`, `huggingface-tensorflow-training`, `huggingface-tensorflow-inference`, `huggingface-pytorch-training`, and `huggingface-pytorch-inference`.
+        /// </summary>
         [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
 
@@ -70,7 +152,13 @@ namespace Pulumi.Aws.Sagemaker
         public readonly string Id;
         public readonly string? ImageTag;
         public readonly string? Region;
+        /// <summary>
+        /// Account ID containing the image. For example, `469771592824`.
+        /// </summary>
         public readonly string RegistryId;
+        /// <summary>
+        /// Docker image URL. For example, `341280168497.dkr.ecr.ca-central-1.amazonaws.com/sagemaker-sparkml-serving:2.4`.
+        /// </summary>
         public readonly string RegistryPath;
         public readonly string RepositoryName;
 

@@ -11,9 +11,57 @@ namespace Pulumi.Aws.WafRegional
 {
     public static class GetRule
     {
+        /// <summary>
+        /// `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.WafRegional.GetRule.Invoke(new()
+        ///     {
+        ///         Name = "tfWAFRegionalRule",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("aws:wafregional/getRule:getRule", args ?? new GetRuleArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.WafRegional.GetRule.Invoke(new()
+        ///     {
+        ///         Name = "tfWAFRegionalRule",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("aws:wafregional/getRule:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +69,9 @@ namespace Pulumi.Aws.WafRegional
 
     public sealed class GetRuleArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the WAF Regional rule.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -32,6 +83,9 @@ namespace Pulumi.Aws.WafRegional
 
     public sealed class GetRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the WAF Regional rule.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

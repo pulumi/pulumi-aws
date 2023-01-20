@@ -15,35 +15,124 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an API Gateway Gateway Response for a REST API Gateway.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.Response;
+ * import com.pulumi.aws.apigateway.ResponseArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var main = new RestApi(&#34;main&#34;);
+ * 
+ *         var test = new Response(&#34;test&#34;, ResponseArgs.builder()        
+ *             .restApiId(main.id())
+ *             .statusCode(&#34;401&#34;)
+ *             .responseType(&#34;UNAUTHORIZED&#34;)
+ *             .responseTemplates(Map.of(&#34;application/json&#34;, &#34;{\&#34;message\&#34;:$context.error.messageString}&#34;))
+ *             .responseParameters(Map.of(&#34;gatewayresponse.header.Authorization&#34;, &#34;&#39;Basic&#39;&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_api_gateway_gateway_response` can be imported using `REST-API-ID/RESPONSE-TYPE`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
+ * ```
+ * 
+ */
 @ResourceType(type="aws:apigateway/response:Response")
 public class Response extends com.pulumi.resources.CustomResource {
+    /**
+     * Map of parameters (paths, query strings and headers) of the Gateway Response.
+     * 
+     */
     @Export(name="responseParameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> responseParameters;
 
+    /**
+     * @return Map of parameters (paths, query strings and headers) of the Gateway Response.
+     * 
+     */
     public Output<Optional<Map<String,String>>> responseParameters() {
         return Codegen.optional(this.responseParameters);
     }
+    /**
+     * Map of templates used to transform the response body.
+     * 
+     */
     @Export(name="responseTemplates", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> responseTemplates;
 
+    /**
+     * @return Map of templates used to transform the response body.
+     * 
+     */
     public Output<Optional<Map<String,String>>> responseTemplates() {
         return Codegen.optional(this.responseTemplates);
     }
+    /**
+     * Response type of the associated GatewayResponse.
+     * 
+     */
     @Export(name="responseType", refs={String.class}, tree="[0]")
     private Output<String> responseType;
 
+    /**
+     * @return Response type of the associated GatewayResponse.
+     * 
+     */
     public Output<String> responseType() {
         return this.responseType;
     }
+    /**
+     * String identifier of the associated REST API.
+     * 
+     */
     @Export(name="restApiId", refs={String.class}, tree="[0]")
     private Output<String> restApiId;
 
+    /**
+     * @return String identifier of the associated REST API.
+     * 
+     */
     public Output<String> restApiId() {
         return this.restApiId;
     }
+    /**
+     * HTTP status code of the Gateway Response.
+     * 
+     */
     @Export(name="statusCode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> statusCode;
 
+    /**
+     * @return HTTP status code of the Gateway Response.
+     * 
+     */
     public Output<Optional<String>> statusCode() {
         return Codegen.optional(this.statusCode);
     }

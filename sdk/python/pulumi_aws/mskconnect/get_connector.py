@@ -41,11 +41,17 @@ class GetConnectorResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the connector.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Summary description of the connector.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -64,6 +70,9 @@ class GetConnectorResult:
     @property
     @pulumi.getter
     def version(self) -> str:
+        """
+        Current version of the connector.
+        """
         return pulumi.get(self, "version")
 
 
@@ -83,7 +92,19 @@ class AwaitableGetConnectorResult(GetConnectorResult):
 def get_connector(name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
-    Use this data source to access information about an existing resource.
+    Get information on an Amazon MSK Connect Connector.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.mskconnect.get_connector(name="example-mskconnector")
+    ```
+
+
+    :param str name: Name of the connector.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -102,6 +123,18 @@ def get_connector(name: Optional[str] = None,
 def get_connector_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get information on an Amazon MSK Connect Connector.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.mskconnect.get_connector(name="example-mskconnector")
+    ```
+
+
+    :param str name: Name of the connector.
     """
     ...

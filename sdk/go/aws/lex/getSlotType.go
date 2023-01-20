@@ -10,6 +10,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides details about a specific Amazon Lex Slot Type.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lex"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lex.LookupSlotType(ctx, &lex.LookupSlotTypeArgs{
+//				Name:    "FlowerTypes",
+//				Version: pulumi.StringRef("1"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupSlotType(ctx *pulumi.Context, args *LookupSlotTypeArgs, opts ...pulumi.InvokeOption) (*LookupSlotTypeResult, error) {
 	var rv LookupSlotTypeResult
 	err := ctx.Invoke("aws:lex/getSlotType:getSlotType", args, &rv, opts...)
@@ -21,22 +49,38 @@ func LookupSlotType(ctx *pulumi.Context, args *LookupSlotTypeArgs, opts ...pulum
 
 // A collection of arguments for invoking getSlotType.
 type LookupSlotTypeArgs struct {
-	Name    string  `pulumi:"name"`
+	// Name of the slot type. The name is case sensitive.
+	Name string `pulumi:"name"`
+	// Version of the slot type.
 	Version *string `pulumi:"version"`
 }
 
 // A collection of values returned by getSlotType.
 type LookupSlotTypeResult struct {
-	Checksum          string                        `pulumi:"checksum"`
-	CreatedDate       string                        `pulumi:"createdDate"`
-	Description       string                        `pulumi:"description"`
+	// Checksum identifying the version of the slot type that was created. The checksum is
+	// not included as an argument because the resource will add it automatically when updating the slot type.
+	Checksum string `pulumi:"checksum"`
+	// Date when the slot type version was created.
+	CreatedDate string `pulumi:"createdDate"`
+	// Description of the slot type.
+	Description string `pulumi:"description"`
+	// Set of EnumerationValue objects that defines the values that
+	// the slot type can take. Each value can have a set of synonyms, which are additional values that help
+	// train the machine learning model about the values that it resolves for a slot.
 	EnumerationValues []GetSlotTypeEnumerationValue `pulumi:"enumerationValues"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                     string  `pulumi:"id"`
-	LastUpdatedDate        string  `pulumi:"lastUpdatedDate"`
-	Name                   string  `pulumi:"name"`
-	ValueSelectionStrategy string  `pulumi:"valueSelectionStrategy"`
-	Version                *string `pulumi:"version"`
+	Id string `pulumi:"id"`
+	// Date when the $LATEST version of this slot type was updated.
+	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
+	// Name of the slot type. The name is not case sensitive.
+	Name string `pulumi:"name"`
+	// Determines the slot resolution strategy that Amazon Lex
+	// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
+	// value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
+	// if there is a resolution list for the slot, otherwise null is returned.
+	ValueSelectionStrategy string `pulumi:"valueSelectionStrategy"`
+	// Version of the slot type.
+	Version *string `pulumi:"version"`
 }
 
 func LookupSlotTypeOutput(ctx *pulumi.Context, args LookupSlotTypeOutputArgs, opts ...pulumi.InvokeOption) LookupSlotTypeResultOutput {
@@ -54,7 +98,9 @@ func LookupSlotTypeOutput(ctx *pulumi.Context, args LookupSlotTypeOutputArgs, op
 
 // A collection of arguments for invoking getSlotType.
 type LookupSlotTypeOutputArgs struct {
-	Name    pulumi.StringInput    `pulumi:"name"`
+	// Name of the slot type. The name is case sensitive.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Version of the slot type.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -77,18 +123,25 @@ func (o LookupSlotTypeResultOutput) ToLookupSlotTypeResultOutputWithContext(ctx 
 	return o
 }
 
+// Checksum identifying the version of the slot type that was created. The checksum is
+// not included as an argument because the resource will add it automatically when updating the slot type.
 func (o LookupSlotTypeResultOutput) Checksum() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSlotTypeResult) string { return v.Checksum }).(pulumi.StringOutput)
 }
 
+// Date when the slot type version was created.
 func (o LookupSlotTypeResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSlotTypeResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
+// Description of the slot type.
 func (o LookupSlotTypeResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSlotTypeResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// Set of EnumerationValue objects that defines the values that
+// the slot type can take. Each value can have a set of synonyms, which are additional values that help
+// train the machine learning model about the values that it resolves for a slot.
 func (o LookupSlotTypeResultOutput) EnumerationValues() GetSlotTypeEnumerationValueArrayOutput {
 	return o.ApplyT(func(v LookupSlotTypeResult) []GetSlotTypeEnumerationValue { return v.EnumerationValues }).(GetSlotTypeEnumerationValueArrayOutput)
 }
@@ -98,18 +151,25 @@ func (o LookupSlotTypeResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSlotTypeResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Date when the $LATEST version of this slot type was updated.
 func (o LookupSlotTypeResultOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSlotTypeResult) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
 }
 
+// Name of the slot type. The name is not case sensitive.
 func (o LookupSlotTypeResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSlotTypeResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Determines the slot resolution strategy that Amazon Lex
+// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
+// value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
+// if there is a resolution list for the slot, otherwise null is returned.
 func (o LookupSlotTypeResultOutput) ValueSelectionStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSlotTypeResult) string { return v.ValueSelectionStrategy }).(pulumi.StringOutput)
 }
 
+// Version of the slot type.
 func (o LookupSlotTypeResultOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSlotTypeResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }

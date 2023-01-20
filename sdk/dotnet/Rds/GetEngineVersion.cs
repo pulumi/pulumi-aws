@@ -11,9 +11,131 @@ namespace Pulumi.Aws.Rds
 {
     public static class GetEngineVersion
     {
+        /// <summary>
+        /// Information about an RDS engine version.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Rds.GetEngineVersion.Invoke(new()
+        ///     {
+        ///         Engine = "mysql",
+        ///         PreferredVersions = new[]
+        ///         {
+        ///             "8.0.27",
+        ///             "8.0.26",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### With `filter`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Rds.GetEngineVersion.Invoke(new()
+        ///     {
+        ///         Engine = "aurora-postgresql",
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Rds.Inputs.GetEngineVersionFilterInputArgs
+        ///             {
+        ///                 Name = "engine-mode",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "serverless",
+        ///                 },
+        ///             },
+        ///         },
+        ///         IncludeAll = true,
+        ///         Version = "10.14",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetEngineVersionResult> InvokeAsync(GetEngineVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEngineVersionResult>("aws:rds/getEngineVersion:getEngineVersion", args ?? new GetEngineVersionArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Information about an RDS engine version.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Rds.GetEngineVersion.Invoke(new()
+        ///     {
+        ///         Engine = "mysql",
+        ///         PreferredVersions = new[]
+        ///         {
+        ///             "8.0.27",
+        ///             "8.0.26",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### With `filter`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Rds.GetEngineVersion.Invoke(new()
+        ///     {
+        ///         Engine = "aurora-postgresql",
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Rds.Inputs.GetEngineVersionFilterInputArgs
+        ///             {
+        ///                 Name = "engine-mode",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "serverless",
+        ///                 },
+        ///             },
+        ///         },
+        ///         IncludeAll = true,
+        ///         Version = "10.14",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetEngineVersionResult> Invoke(GetEngineVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEngineVersionResult>("aws:rds/getEngineVersion:getEngineVersion", args ?? new GetEngineVersionInvokeArgs(), options.WithDefaults());
     }
@@ -21,34 +143,57 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GetEngineVersionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
+        /// </summary>
         [Input("defaultOnly")]
         public bool? DefaultOnly { get; set; }
 
+        /// <summary>
+        /// DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+        /// </summary>
         [Input("engine", required: true)]
         public string Engine { get; set; } = null!;
 
         [Input("filters")]
         private List<Inputs.GetEngineVersionFilterArgs>? _filters;
+
+        /// <summary>
+        /// One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+        /// </summary>
         public List<Inputs.GetEngineVersionFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetEngineVersionFilterArgs>());
             set => _filters = value;
         }
 
+        /// <summary>
+        /// When set to `true`, the specified `version` or member of `preferred_versions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
+        /// </summary>
         [Input("includeAll")]
         public bool? IncludeAll { get; set; }
 
+        /// <summary>
+        /// Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
+        /// </summary>
         [Input("parameterGroupFamily")]
         public string? ParameterGroupFamily { get; set; }
 
         [Input("preferredVersions")]
         private List<string>? _preferredVersions;
+
+        /// <summary>
+        /// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+        /// </summary>
         public List<string> PreferredVersions
         {
             get => _preferredVersions ?? (_preferredVersions = new List<string>());
             set => _preferredVersions = value;
         }
 
+        /// <summary>
+        /// Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+        /// </summary>
         [Input("version")]
         public string? Version { get; set; }
 
@@ -60,34 +205,57 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GetEngineVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
+        /// </summary>
         [Input("defaultOnly")]
         public Input<bool>? DefaultOnly { get; set; }
 
+        /// <summary>
+        /// DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+        /// </summary>
         [Input("engine", required: true)]
         public Input<string> Engine { get; set; } = null!;
 
         [Input("filters")]
         private InputList<Inputs.GetEngineVersionFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+        /// </summary>
         public InputList<Inputs.GetEngineVersionFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetEngineVersionFilterInputArgs>());
             set => _filters = value;
         }
 
+        /// <summary>
+        /// When set to `true`, the specified `version` or member of `preferred_versions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
+        /// </summary>
         [Input("includeAll")]
         public Input<bool>? IncludeAll { get; set; }
 
+        /// <summary>
+        /// Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
+        /// </summary>
         [Input("parameterGroupFamily")]
         public Input<string>? ParameterGroupFamily { get; set; }
 
         [Input("preferredVersions")]
         private InputList<string>? _preferredVersions;
+
+        /// <summary>
+        /// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+        /// </summary>
         public InputList<string> PreferredVersions
         {
             get => _preferredVersions ?? (_preferredVersions = new InputList<string>());
             set => _preferredVersions = value;
         }
 
+        /// <summary>
+        /// Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
@@ -101,10 +269,19 @@ namespace Pulumi.Aws.Rds
     [OutputType]
     public sealed class GetEngineVersionResult
     {
+        /// <summary>
+        /// The default character set for new instances of this engine version.
+        /// </summary>
         public readonly string DefaultCharacterSet;
         public readonly bool? DefaultOnly;
         public readonly string Engine;
+        /// <summary>
+        /// Description of the database engine.
+        /// </summary>
         public readonly string EngineDescription;
+        /// <summary>
+        /// Set of log types that the database engine has available for export to CloudWatch Logs.
+        /// </summary>
         public readonly ImmutableArray<string> ExportableLogTypes;
         public readonly ImmutableArray<Outputs.GetEngineVersionFilterResult> Filters;
         /// <summary>
@@ -114,17 +291,50 @@ namespace Pulumi.Aws.Rds
         public readonly bool? IncludeAll;
         public readonly string ParameterGroupFamily;
         public readonly ImmutableArray<string> PreferredVersions;
+        /// <summary>
+        /// Status of the DB engine version, either available or deprecated.
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// Set of the character sets supported by this engine.
+        /// </summary>
         public readonly ImmutableArray<string> SupportedCharacterSets;
+        /// <summary>
+        /// Set of features supported by the DB engine.
+        /// </summary>
         public readonly ImmutableArray<string> SupportedFeatureNames;
+        /// <summary>
+        /// Set of the supported DB engine modes.
+        /// </summary>
         public readonly ImmutableArray<string> SupportedModes;
+        /// <summary>
+        /// Set of the time zones supported by this engine.
+        /// </summary>
         public readonly ImmutableArray<string> SupportedTimezones;
+        /// <summary>
+        /// Indicates whether you can use Aurora global databases with a specific DB engine version.
+        /// </summary>
         public readonly bool SupportsGlobalDatabases;
+        /// <summary>
+        /// Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
+        /// </summary>
         public readonly bool SupportsLogExportsToCloudwatch;
+        /// <summary>
+        /// Indicates whether you can use Aurora parallel query with a specific DB engine version.
+        /// </summary>
         public readonly bool SupportsParallelQuery;
+        /// <summary>
+        /// Indicates whether the database engine version supports read replicas.
+        /// </summary>
         public readonly bool SupportsReadReplica;
+        /// <summary>
+        /// Set of engine versions that this database engine version can be upgraded to.
+        /// </summary>
         public readonly ImmutableArray<string> ValidUpgradeTargets;
         public readonly string Version;
+        /// <summary>
+        /// Description of the database engine version.
+        /// </summary>
         public readonly string VersionDescription;
 
         [OutputConstructor]

@@ -10,6 +10,43 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Get information on a Amazon MSK Kafka Version
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/msk"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := msk.GetKafkaVersion(ctx, &msk.GetKafkaVersionArgs{
+//				PreferredVersions: []string{
+//					"2.4.1.1",
+//					"2.4.1",
+//					"2.2.1",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = msk.GetKafkaVersion(ctx, &msk.GetKafkaVersionArgs{
+//				Version: pulumi.StringRef("2.8.0"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetKafkaVersion(ctx *pulumi.Context, args *GetKafkaVersionArgs, opts ...pulumi.InvokeOption) (*GetKafkaVersionResult, error) {
 	var rv GetKafkaVersionResult
 	err := ctx.Invoke("aws:msk/getKafkaVersion:getKafkaVersion", args, &rv, opts...)
@@ -21,8 +58,10 @@ func GetKafkaVersion(ctx *pulumi.Context, args *GetKafkaVersionArgs, opts ...pul
 
 // A collection of arguments for invoking getKafkaVersion.
 type GetKafkaVersionArgs struct {
+	// Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferredVersions` or `version` must be set.
 	PreferredVersions []string `pulumi:"preferredVersions"`
-	Version           *string  `pulumi:"version"`
+	// Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferredVersions` or `version` must be set.
+	Version *string `pulumi:"version"`
 }
 
 // A collection of values returned by getKafkaVersion.
@@ -30,8 +69,9 @@ type GetKafkaVersionResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id                string   `pulumi:"id"`
 	PreferredVersions []string `pulumi:"preferredVersions"`
-	Status            string   `pulumi:"status"`
-	Version           string   `pulumi:"version"`
+	// Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.
+	Status  string `pulumi:"status"`
+	Version string `pulumi:"version"`
 }
 
 func GetKafkaVersionOutput(ctx *pulumi.Context, args GetKafkaVersionOutputArgs, opts ...pulumi.InvokeOption) GetKafkaVersionResultOutput {
@@ -49,8 +89,10 @@ func GetKafkaVersionOutput(ctx *pulumi.Context, args GetKafkaVersionOutputArgs, 
 
 // A collection of arguments for invoking getKafkaVersion.
 type GetKafkaVersionOutputArgs struct {
+	// Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferredVersions` or `version` must be set.
 	PreferredVersions pulumi.StringArrayInput `pulumi:"preferredVersions"`
-	Version           pulumi.StringPtrInput   `pulumi:"version"`
+	// Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferredVersions` or `version` must be set.
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (GetKafkaVersionOutputArgs) ElementType() reflect.Type {
@@ -81,6 +123,7 @@ func (o GetKafkaVersionResultOutput) PreferredVersions() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v GetKafkaVersionResult) []string { return v.PreferredVersions }).(pulumi.StringArrayOutput)
 }
 
+// Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.
 func (o GetKafkaVersionResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKafkaVersionResult) string { return v.Status }).(pulumi.StringOutput)
 }

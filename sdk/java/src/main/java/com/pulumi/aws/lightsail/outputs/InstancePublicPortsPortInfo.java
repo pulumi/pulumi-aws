@@ -12,29 +12,69 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InstancePublicPortsPortInfo {
+    /**
+     * @return Set of CIDR aliases that define access for a preconfigured range of IP addresses.
+     * 
+     */
     private @Nullable List<String> cidrListAliases;
+    /**
+     * @return Set of CIDR blocks.
+     * 
+     */
     private @Nullable List<String> cidrs;
+    /**
+     * @return First port in a range of open ports on an instance.
+     * 
+     */
     private Integer fromPort;
     private @Nullable List<String> ipv6Cidrs;
+    /**
+     * @return IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
+     * 
+     */
     private String protocol;
+    /**
+     * @return Last port in a range of open ports on an instance.
+     * 
+     */
     private Integer toPort;
 
     private InstancePublicPortsPortInfo() {}
+    /**
+     * @return Set of CIDR aliases that define access for a preconfigured range of IP addresses.
+     * 
+     */
     public List<String> cidrListAliases() {
         return this.cidrListAliases == null ? List.of() : this.cidrListAliases;
     }
+    /**
+     * @return Set of CIDR blocks.
+     * 
+     */
     public List<String> cidrs() {
         return this.cidrs == null ? List.of() : this.cidrs;
     }
+    /**
+     * @return First port in a range of open ports on an instance.
+     * 
+     */
     public Integer fromPort() {
         return this.fromPort;
     }
     public List<String> ipv6Cidrs() {
         return this.ipv6Cidrs == null ? List.of() : this.ipv6Cidrs;
     }
+    /**
+     * @return IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
+     * 
+     */
     public String protocol() {
         return this.protocol;
     }
+    /**
+     * @return Last port in a range of open ports on an instance.
+     * 
+     */
     public Integer toPort() {
         return this.toPort;
     }

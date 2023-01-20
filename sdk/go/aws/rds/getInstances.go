@@ -10,6 +10,41 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Data source for listing RDS Database Instances.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.GetInstances(ctx, &rds.GetInstancesArgs{
+//				Filters: []rds.GetInstancesFilter{
+//					{
+//						Name: "db-instance-id",
+//						Values: []string{
+//							"my-database-id",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.InvokeOption) (*GetInstancesResult, error) {
 	var rv GetInstancesResult
 	err := ctx.Invoke("aws:rds/getInstances:getInstances", args, &rv, opts...)
@@ -21,6 +56,7 @@ func GetInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getInstances.
 type GetInstancesArgs struct {
+	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetInstancesFilter `pulumi:"filters"`
 }
 
@@ -28,8 +64,10 @@ type GetInstancesArgs struct {
 type GetInstancesResult struct {
 	Filters []GetInstancesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                  string   `pulumi:"id"`
-	InstanceArns        []string `pulumi:"instanceArns"`
+	Id string `pulumi:"id"`
+	// ARNs of the matched RDS instances.
+	InstanceArns []string `pulumi:"instanceArns"`
+	// Identifiers of the matched RDS instances.
 	InstanceIdentifiers []string `pulumi:"instanceIdentifiers"`
 }
 
@@ -48,6 +86,7 @@ func GetInstancesOutput(ctx *pulumi.Context, args GetInstancesOutputArgs, opts .
 
 // A collection of arguments for invoking getInstances.
 type GetInstancesOutputArgs struct {
+	// Configuration block(s) for filtering. Detailed below.
 	Filters GetInstancesFilterArrayInput `pulumi:"filters"`
 }
 
@@ -79,10 +118,12 @@ func (o GetInstancesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstancesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// ARNs of the matched RDS instances.
 func (o GetInstancesResultOutput) InstanceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstancesResult) []string { return v.InstanceArns }).(pulumi.StringArrayOutput)
 }
 
+// Identifiers of the matched RDS instances.
 func (o GetInstancesResultOutput) InstanceIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstancesResult) []string { return v.InstanceIdentifiers }).(pulumi.StringArrayOutput)
 }

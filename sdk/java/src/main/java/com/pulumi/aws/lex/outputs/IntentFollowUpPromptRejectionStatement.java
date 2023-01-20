@@ -14,12 +14,32 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IntentFollowUpPromptRejectionStatement {
     private List<IntentFollowUpPromptRejectionStatementMessage> messages;
+    /**
+     * @return The response card. Amazon Lex will substitute session attributes and
+     * slot values into the response card. For more information, see
+     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
+     * slot values into the response card. For more information, see
+     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
+     * slot values into the response card. For more information, see
+     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
+     * 
+     */
     private @Nullable String responseCard;
 
     private IntentFollowUpPromptRejectionStatement() {}
     public List<IntentFollowUpPromptRejectionStatementMessage> messages() {
         return this.messages;
     }
+    /**
+     * @return The response card. Amazon Lex will substitute session attributes and
+     * slot values into the response card. For more information, see
+     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
+     * slot values into the response card. For more information, see
+     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
+     * slot values into the response card. For more information, see
+     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
+     * 
+     */
     public Optional<String> responseCard() {
         return Optional.ofNullable(this.responseCard);
     }

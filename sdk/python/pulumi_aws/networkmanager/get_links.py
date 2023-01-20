@@ -60,6 +60,9 @@ class GetLinksResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
+        """
+        IDs of the links.
+        """
         return pulumi.get(self, "ids")
 
     @property
@@ -105,7 +108,26 @@ def get_links(global_network_id: Optional[str] = None,
               type: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinksResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about link.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.networkmanager.get_links(global_network_id=var["global_network_id"],
+        tags={
+            "Env": "test",
+        })
+    ```
+
+
+    :param str global_network_id: ID of the Global Network of the links to retrieve.
+    :param str provider_name: Link provider to retrieve.
+    :param str site_id: ID of the site of the links to retrieve.
+    :param Mapping[str, str] tags: Restricts the list to the links with these tags.
+    :param str type: Link type to retrieve.
     """
     __args__ = dict()
     __args__['globalNetworkId'] = global_network_id
@@ -134,6 +156,25 @@ def get_links_output(global_network_id: Optional[pulumi.Input[str]] = None,
                      type: Optional[pulumi.Input[Optional[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinksResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about link.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.networkmanager.get_links(global_network_id=var["global_network_id"],
+        tags={
+            "Env": "test",
+        })
+    ```
+
+
+    :param str global_network_id: ID of the Global Network of the links to retrieve.
+    :param str provider_name: Link provider to retrieve.
+    :param str site_id: ID of the site of the links to retrieve.
+    :param Mapping[str, str] tags: Restricts the list to the links with these tags.
+    :param str type: Link type to retrieve.
     """
     ...

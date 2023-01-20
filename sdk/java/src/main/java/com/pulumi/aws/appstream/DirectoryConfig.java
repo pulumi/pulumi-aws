@@ -15,29 +15,109 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an AppStream Directory Config.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appstream.DirectoryConfig;
+ * import com.pulumi.aws.appstream.DirectoryConfigArgs;
+ * import com.pulumi.aws.appstream.inputs.DirectoryConfigServiceAccountCredentialsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new DirectoryConfig(&#34;example&#34;, DirectoryConfigArgs.builder()        
+ *             .directoryName(&#34;NAME OF DIRECTORY&#34;)
+ *             .organizationalUnitDistinguishedNames(&#34;DISTINGUISHED NAME&#34;)
+ *             .serviceAccountCredentials(DirectoryConfigServiceAccountCredentialsArgs.builder()
+ *                 .accountName(&#34;NAME OF ACCOUNT&#34;)
+ *                 .accountPassword(&#34;PASSWORD OF ACCOUNT&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_appstream_directory_config` can be imported using the id, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
+ * ```
+ * 
+ */
 @ResourceType(type="aws:appstream/directoryConfig:DirectoryConfig")
 public class DirectoryConfig extends com.pulumi.resources.CustomResource {
+    /**
+     * Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
+     * 
+     */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
+    /**
+     * @return Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
+     * 
+     */
     public Output<String> createdTime() {
         return this.createdTime;
     }
+    /**
+     * Fully qualified name of the directory.
+     * 
+     */
     @Export(name="directoryName", refs={String.class}, tree="[0]")
     private Output<String> directoryName;
 
+    /**
+     * @return Fully qualified name of the directory.
+     * 
+     */
     public Output<String> directoryName() {
         return this.directoryName;
     }
+    /**
+     * Distinguished names of the organizational units for computer accounts.
+     * 
+     */
     @Export(name="organizationalUnitDistinguishedNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> organizationalUnitDistinguishedNames;
 
+    /**
+     * @return Distinguished names of the organizational units for computer accounts.
+     * 
+     */
     public Output<List<String>> organizationalUnitDistinguishedNames() {
         return this.organizationalUnitDistinguishedNames;
     }
+    /**
+     * Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
+     * 
+     */
     @Export(name="serviceAccountCredentials", refs={DirectoryConfigServiceAccountCredentials.class}, tree="[0]")
     private Output<DirectoryConfigServiceAccountCredentials> serviceAccountCredentials;
 
+    /**
+     * @return Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
+     * 
+     */
     public Output<DirectoryConfigServiceAccountCredentials> serviceAccountCredentials() {
         return this.serviceAccountCredentials;
     }

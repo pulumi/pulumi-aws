@@ -10,17 +10,33 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPipelineResult {
+    /**
+     * @return Description of Pipeline.
+     * 
+     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Name of Pipeline.
+     * 
+     */
     private String name;
     private String pipelineId;
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     private Map<String,String> tags;
 
     private GetPipelineResult() {}
+    /**
+     * @return Description of Pipeline.
+     * 
+     */
     public String description() {
         return this.description;
     }
@@ -31,12 +47,20 @@ public final class GetPipelineResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Name of Pipeline.
+     * 
+     */
     public String name() {
         return this.name;
     }
     public String pipelineId() {
         return this.pipelineId;
     }
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }

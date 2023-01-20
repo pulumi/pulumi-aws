@@ -11,9 +11,49 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.
+//
+// ## Example Usage
+//
+// Usage:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sagemaker.NewServicecatalogPortfolioStatus(ctx, "example", &sagemaker.ServicecatalogPortfolioStatusArgs{
+//				Status: pulumi.String("Enabled"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Models can be imported using the `id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
+//
+// ```
 type ServicecatalogPortfolioStatus struct {
 	pulumi.CustomResourceState
 
+	// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
 	Status pulumi.StringOutput `pulumi:"status"`
 }
 
@@ -49,10 +89,12 @@ func GetServicecatalogPortfolioStatus(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServicecatalogPortfolioStatus resources.
 type servicecatalogPortfolioStatusState struct {
+	// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
 	Status *string `pulumi:"status"`
 }
 
 type ServicecatalogPortfolioStatusState struct {
+	// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
 	Status pulumi.StringPtrInput
 }
 
@@ -61,11 +103,13 @@ func (ServicecatalogPortfolioStatusState) ElementType() reflect.Type {
 }
 
 type servicecatalogPortfolioStatusArgs struct {
+	// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
 	Status string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a ServicecatalogPortfolioStatus resource.
 type ServicecatalogPortfolioStatusArgs struct {
+	// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
 	Status pulumi.StringInput
 }
 
@@ -156,6 +200,7 @@ func (o ServicecatalogPortfolioStatusOutput) ToServicecatalogPortfolioStatusOutp
 	return o
 }
 
+// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
 func (o ServicecatalogPortfolioStatusOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServicecatalogPortfolioStatus) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

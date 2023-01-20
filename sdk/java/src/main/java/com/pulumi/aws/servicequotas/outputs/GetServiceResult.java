@@ -14,6 +14,10 @@ public final class GetServiceResult {
      * 
      */
     private String id;
+    /**
+     * @return Code of the service.
+     * 
+     */
     private String serviceCode;
     private String serviceName;
 
@@ -25,6 +29,10 @@ public final class GetServiceResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Code of the service.
+     * 
+     */
     public String serviceCode() {
         return this.serviceCode;
     }

@@ -11,21 +11,73 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a Lightsail load balancer resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lightsail.NewLb(ctx, "test", &lightsail.LbArgs{
+//				HealthCheckPath: pulumi.String("/"),
+//				InstancePort:    pulumi.Int(80),
+//				Tags: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_lightsail_lb` can be imported by using the name attribute, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:lightsail/lb:Lb test example-load-balancer
+//
+// ```
 type Lb struct {
 	pulumi.CustomResourceState
 
-	Arn             pulumi.StringOutput    `pulumi:"arn"`
-	CreatedAt       pulumi.StringOutput    `pulumi:"createdAt"`
-	DnsName         pulumi.StringOutput    `pulumi:"dnsName"`
+	// The ARN of the Lightsail load balancer.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The timestamp when the load balancer was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The DNS name of the load balancer.
+	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	// The health check path of the load balancer. Default value "/".
 	HealthCheckPath pulumi.StringPtrOutput `pulumi:"healthCheckPath"`
-	InstancePort    pulumi.IntOutput       `pulumi:"instancePort"`
-	IpAddressType   pulumi.StringPtrOutput `pulumi:"ipAddressType"`
-	Name            pulumi.StringOutput    `pulumi:"name"`
-	Protocol        pulumi.StringOutput    `pulumi:"protocol"`
-	PublicPorts     pulumi.IntArrayOutput  `pulumi:"publicPorts"`
-	SupportCode     pulumi.StringOutput    `pulumi:"supportCode"`
-	Tags            pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll         pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The instance port the load balancer will connect.
+	InstancePort  pulumi.IntOutput       `pulumi:"instancePort"`
+	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
+	// The name of the Lightsail load balancer.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The protocol of the load balancer.
+	Protocol pulumi.StringOutput `pulumi:"protocol"`
+	// The public ports of the load balancer.
+	PublicPorts pulumi.IntArrayOutput `pulumi:"publicPorts"`
+	// The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewLb registers a new resource with the given unique name, arguments, and options.
@@ -60,33 +112,55 @@ func GetLb(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Lb resources.
 type lbState struct {
-	Arn             *string           `pulumi:"arn"`
-	CreatedAt       *string           `pulumi:"createdAt"`
-	DnsName         *string           `pulumi:"dnsName"`
-	HealthCheckPath *string           `pulumi:"healthCheckPath"`
-	InstancePort    *int              `pulumi:"instancePort"`
-	IpAddressType   *string           `pulumi:"ipAddressType"`
-	Name            *string           `pulumi:"name"`
-	Protocol        *string           `pulumi:"protocol"`
-	PublicPorts     []int             `pulumi:"publicPorts"`
-	SupportCode     *string           `pulumi:"supportCode"`
-	Tags            map[string]string `pulumi:"tags"`
-	TagsAll         map[string]string `pulumi:"tagsAll"`
+	// The ARN of the Lightsail load balancer.
+	Arn *string `pulumi:"arn"`
+	// The timestamp when the load balancer was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The DNS name of the load balancer.
+	DnsName *string `pulumi:"dnsName"`
+	// The health check path of the load balancer. Default value "/".
+	HealthCheckPath *string `pulumi:"healthCheckPath"`
+	// The instance port the load balancer will connect.
+	InstancePort  *int    `pulumi:"instancePort"`
+	IpAddressType *string `pulumi:"ipAddressType"`
+	// The name of the Lightsail load balancer.
+	Name *string `pulumi:"name"`
+	// The protocol of the load balancer.
+	Protocol *string `pulumi:"protocol"`
+	// The public ports of the load balancer.
+	PublicPorts []int `pulumi:"publicPorts"`
+	// The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+	SupportCode *string `pulumi:"supportCode"`
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type LbState struct {
-	Arn             pulumi.StringPtrInput
-	CreatedAt       pulumi.StringPtrInput
-	DnsName         pulumi.StringPtrInput
+	// The ARN of the Lightsail load balancer.
+	Arn pulumi.StringPtrInput
+	// The timestamp when the load balancer was created.
+	CreatedAt pulumi.StringPtrInput
+	// The DNS name of the load balancer.
+	DnsName pulumi.StringPtrInput
+	// The health check path of the load balancer. Default value "/".
 	HealthCheckPath pulumi.StringPtrInput
-	InstancePort    pulumi.IntPtrInput
-	IpAddressType   pulumi.StringPtrInput
-	Name            pulumi.StringPtrInput
-	Protocol        pulumi.StringPtrInput
-	PublicPorts     pulumi.IntArrayInput
-	SupportCode     pulumi.StringPtrInput
-	Tags            pulumi.StringMapInput
-	TagsAll         pulumi.StringMapInput
+	// The instance port the load balancer will connect.
+	InstancePort  pulumi.IntPtrInput
+	IpAddressType pulumi.StringPtrInput
+	// The name of the Lightsail load balancer.
+	Name pulumi.StringPtrInput
+	// The protocol of the load balancer.
+	Protocol pulumi.StringPtrInput
+	// The public ports of the load balancer.
+	PublicPorts pulumi.IntArrayInput
+	// The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+	SupportCode pulumi.StringPtrInput
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (LbState) ElementType() reflect.Type {
@@ -94,20 +168,28 @@ func (LbState) ElementType() reflect.Type {
 }
 
 type lbArgs struct {
-	HealthCheckPath *string           `pulumi:"healthCheckPath"`
-	InstancePort    int               `pulumi:"instancePort"`
-	IpAddressType   *string           `pulumi:"ipAddressType"`
-	Name            *string           `pulumi:"name"`
-	Tags            map[string]string `pulumi:"tags"`
+	// The health check path of the load balancer. Default value "/".
+	HealthCheckPath *string `pulumi:"healthCheckPath"`
+	// The instance port the load balancer will connect.
+	InstancePort  int     `pulumi:"instancePort"`
+	IpAddressType *string `pulumi:"ipAddressType"`
+	// The name of the Lightsail load balancer.
+	Name *string `pulumi:"name"`
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Lb resource.
 type LbArgs struct {
+	// The health check path of the load balancer. Default value "/".
 	HealthCheckPath pulumi.StringPtrInput
-	InstancePort    pulumi.IntInput
-	IpAddressType   pulumi.StringPtrInput
-	Name            pulumi.StringPtrInput
-	Tags            pulumi.StringMapInput
+	// The instance port the load balancer will connect.
+	InstancePort  pulumi.IntInput
+	IpAddressType pulumi.StringPtrInput
+	// The name of the Lightsail load balancer.
+	Name pulumi.StringPtrInput
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (LbArgs) ElementType() reflect.Type {
@@ -197,22 +279,27 @@ func (o LbOutput) ToLbOutputWithContext(ctx context.Context) LbOutput {
 	return o
 }
 
+// The ARN of the Lightsail load balancer.
 func (o LbOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Lb) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The timestamp when the load balancer was created.
 func (o LbOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Lb) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The DNS name of the load balancer.
 func (o LbOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Lb) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
 
+// The health check path of the load balancer. Default value "/".
 func (o LbOutput) HealthCheckPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Lb) pulumi.StringPtrOutput { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
 }
 
+// The instance port the load balancer will connect.
 func (o LbOutput) InstancePort() pulumi.IntOutput {
 	return o.ApplyT(func(v *Lb) pulumi.IntOutput { return v.InstancePort }).(pulumi.IntOutput)
 }
@@ -221,26 +308,32 @@ func (o LbOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Lb) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
+// The name of the Lightsail load balancer.
 func (o LbOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Lb) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The protocol of the load balancer.
 func (o LbOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *Lb) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }
 
+// The public ports of the load balancer.
 func (o LbOutput) PublicPorts() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *Lb) pulumi.IntArrayOutput { return v.PublicPorts }).(pulumi.IntArrayOutput)
 }
 
+// The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 func (o LbOutput) SupportCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Lb) pulumi.StringOutput { return v.SupportCode }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LbOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Lb) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LbOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Lb) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

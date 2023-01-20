@@ -15,57 +15,161 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamElasticsearchConfiguration {
+    /**
+     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * 
+     */
     private @Nullable Integer bufferingInterval;
+    /**
+     * @return Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+     * 
+     */
     private @Nullable Integer bufferingSize;
+    /**
+     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * 
+     */
     private @Nullable FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
+    /**
+     * @return The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
+     * 
+     */
     private @Nullable String clusterEndpoint;
+    /**
+     * @return The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
+     * 
+     */
     private @Nullable String domainArn;
+    /**
+     * @return The Elasticsearch index name.
+     * 
+     */
     private String indexName;
+    /**
+     * @return The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+     * 
+     */
     private @Nullable String indexRotationPeriod;
+    /**
+     * @return The data processing configuration.  More details are given below.
+     * 
+     */
     private @Nullable FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration processingConfiguration;
+    /**
+     * @return After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+     * 
+     */
     private @Nullable Integer retryDuration;
+    /**
+     * @return The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+     * 
+     */
     private String roleArn;
+    /**
+     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+     * 
+     */
     private @Nullable String s3BackupMode;
+    /**
+     * @return The Elasticsearch type name with maximum length of 100 characters.
+     * 
+     */
     private @Nullable String typeName;
+    /**
+     * @return The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
+     * 
+     */
     private @Nullable FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig vpcConfig;
 
     private FirehoseDeliveryStreamElasticsearchConfiguration() {}
+    /**
+     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * 
+     */
     public Optional<Integer> bufferingInterval() {
         return Optional.ofNullable(this.bufferingInterval);
     }
+    /**
+     * @return Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+     * 
+     */
     public Optional<Integer> bufferingSize() {
         return Optional.ofNullable(this.bufferingSize);
     }
+    /**
+     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * 
+     */
     public Optional<FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
         return Optional.ofNullable(this.cloudwatchLoggingOptions);
     }
+    /**
+     * @return The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
+     * 
+     */
     public Optional<String> clusterEndpoint() {
         return Optional.ofNullable(this.clusterEndpoint);
     }
+    /**
+     * @return The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
+     * 
+     */
     public Optional<String> domainArn() {
         return Optional.ofNullable(this.domainArn);
     }
+    /**
+     * @return The Elasticsearch index name.
+     * 
+     */
     public String indexName() {
         return this.indexName;
     }
+    /**
+     * @return The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+     * 
+     */
     public Optional<String> indexRotationPeriod() {
         return Optional.ofNullable(this.indexRotationPeriod);
     }
+    /**
+     * @return The data processing configuration.  More details are given below.
+     * 
+     */
     public Optional<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration> processingConfiguration() {
         return Optional.ofNullable(this.processingConfiguration);
     }
+    /**
+     * @return After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+     * 
+     */
     public Optional<Integer> retryDuration() {
         return Optional.ofNullable(this.retryDuration);
     }
+    /**
+     * @return The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+     * 
+     */
     public String roleArn() {
         return this.roleArn;
     }
+    /**
+     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+     * 
+     */
     public Optional<String> s3BackupMode() {
         return Optional.ofNullable(this.s3BackupMode);
     }
+    /**
+     * @return The Elasticsearch type name with maximum length of 100 characters.
+     * 
+     */
     public Optional<String> typeName() {
         return Optional.ofNullable(this.typeName);
     }
+    /**
+     * @return The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
+     * 
+     */
     public Optional<FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig> vpcConfig() {
         return Optional.ofNullable(this.vpcConfig);
     }

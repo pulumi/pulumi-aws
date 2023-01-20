@@ -17,44 +17,92 @@ public final class UserGroupState extends com.pulumi.resources.ResourceArgs {
 
     public static final UserGroupState Empty = new UserGroupState();
 
+    /**
+     * The ARN that identifies the user group.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return The ARN that identifies the user group.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * The current supported value is `REDIS`.
+     * 
+     */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
+    /**
+     * @return The current supported value is `REDIS`.
+     * 
+     */
     public Optional<Output<String>> engine() {
         return Optional.ofNullable(this.engine);
     }
 
+    /**
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * The ID of the user group.
+     * 
+     */
     @Import(name="userGroupId")
     private @Nullable Output<String> userGroupId;
 
+    /**
+     * @return The ID of the user group.
+     * 
+     */
     public Optional<Output<String>> userGroupId() {
         return Optional.ofNullable(this.userGroupId);
     }
 
+    /**
+     * The list of user IDs that belong to the user group.
+     * 
+     */
     @Import(name="userIds")
     private @Nullable Output<List<String>> userIds;
 
+    /**
+     * @return The list of user IDs that belong to the user group.
+     * 
+     */
     public Optional<Output<List<String>>> userIds() {
         return Optional.ofNullable(this.userIds);
     }
@@ -88,60 +136,138 @@ public final class UserGroupState extends com.pulumi.resources.ResourceArgs {
             $ = new UserGroupState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn The ARN that identifies the user group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn The ARN that identifies the user group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param engine The current supported value is `REDIS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engine(@Nullable Output<String> engine) {
             $.engine = engine;
             return this;
         }
 
+        /**
+         * @param engine The current supported value is `REDIS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engine(String engine) {
             return engine(Output.of(engine));
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
+        /**
+         * @param userGroupId The ID of the user group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userGroupId(@Nullable Output<String> userGroupId) {
             $.userGroupId = userGroupId;
             return this;
         }
 
+        /**
+         * @param userGroupId The ID of the user group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userGroupId(String userGroupId) {
             return userGroupId(Output.of(userGroupId));
         }
 
+        /**
+         * @param userIds The list of user IDs that belong to the user group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userIds(@Nullable Output<List<String>> userIds) {
             $.userIds = userIds;
             return this;
         }
 
+        /**
+         * @param userIds The list of user IDs that belong to the user group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userIds(List<String> userIds) {
             return userIds(Output.of(userIds));
         }
 
+        /**
+         * @param userIds The list of user IDs that belong to the user group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userIds(String... userIds) {
             return userIds(List.of(userIds));
         }

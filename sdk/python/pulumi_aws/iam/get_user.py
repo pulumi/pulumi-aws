@@ -47,6 +47,9 @@ class GetUserResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN assigned by AWS for this user.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -60,26 +63,41 @@ class GetUserResult:
     @property
     @pulumi.getter
     def path(self) -> str:
+        """
+        Path in which this user was created.
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter(name="permissionsBoundary")
     def permissions_boundary(self) -> str:
+        """
+        The ARN of the policy that is used to set the permissions boundary for the user.
+        """
         return pulumi.get(self, "permissions_boundary")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Map of key-value pairs associated with the user.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> str:
+        """
+        Unique ID assigned by AWS for this user.
+        """
         return pulumi.get(self, "user_id")
 
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> str:
+        """
+        Name associated to this User
+        """
         return pulumi.get(self, "user_name")
 
 
@@ -102,7 +120,22 @@ def get_user(tags: Optional[Mapping[str, str]] = None,
              user_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    Use this data source to access information about an existing resource.
+    This data source can be used to fetch information about a specific
+    IAM user. By using this data source, you can reference IAM user
+    properties without having to hard code ARNs or unique IDs as input.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.iam.get_user(user_name="an_example_user_name")
+    ```
+
+
+    :param Mapping[str, str] tags: Map of key-value pairs associated with the user.
+    :param str user_name: Friendly IAM user name to match.
     """
     __args__ = dict()
     __args__['tags'] = tags
@@ -125,6 +158,21 @@ def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = 
                     user_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
-    Use this data source to access information about an existing resource.
+    This data source can be used to fetch information about a specific
+    IAM user. By using this data source, you can reference IAM user
+    properties without having to hard code ARNs or unique IDs as input.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.iam.get_user(user_name="an_example_user_name")
+    ```
+
+
+    :param Mapping[str, str] tags: Map of key-value pairs associated with the user.
+    :param str user_name: Friendly IAM user name to match.
     """
     ...

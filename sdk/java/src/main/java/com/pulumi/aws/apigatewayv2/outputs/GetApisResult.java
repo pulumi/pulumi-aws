@@ -18,6 +18,10 @@ public final class GetApisResult {
      * 
      */
     private String id;
+    /**
+     * @return Set of API identifiers.
+     * 
+     */
     private List<String> ids;
     private @Nullable String name;
     private @Nullable String protocolType;
@@ -31,6 +35,10 @@ public final class GetApisResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Set of API identifiers.
+     * 
+     */
     public List<String> ids() {
         return this.ids;
     }

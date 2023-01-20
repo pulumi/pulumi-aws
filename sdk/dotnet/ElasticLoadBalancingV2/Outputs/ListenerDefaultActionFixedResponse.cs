@@ -13,8 +13,17 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Outputs
     [OutputType]
     public sealed class ListenerDefaultActionFixedResponse
     {
+        /// <summary>
+        /// Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+        /// </summary>
         public readonly string ContentType;
+        /// <summary>
+        /// Message body.
+        /// </summary>
         public readonly string? MessageBody;
+        /// <summary>
+        /// HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+        /// </summary>
         public readonly string? StatusCode;
 
         [OutputConstructor]

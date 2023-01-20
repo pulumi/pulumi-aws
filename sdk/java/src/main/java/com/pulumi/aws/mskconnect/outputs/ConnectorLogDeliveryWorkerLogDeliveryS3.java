@@ -12,17 +12,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorLogDeliveryWorkerLogDeliveryS3 {
+    /**
+     * @return The name of the S3 bucket that is the destination for log delivery.
+     * 
+     */
     private @Nullable String bucket;
+    /**
+     * @return Whether log delivery to Amazon CloudWatch Logs is enabled.
+     * 
+     */
     private Boolean enabled;
+    /**
+     * @return The S3 prefix that is the destination for log delivery.
+     * 
+     */
     private @Nullable String prefix;
 
     private ConnectorLogDeliveryWorkerLogDeliveryS3() {}
+    /**
+     * @return The name of the S3 bucket that is the destination for log delivery.
+     * 
+     */
     public Optional<String> bucket() {
         return Optional.ofNullable(this.bucket);
     }
+    /**
+     * @return Whether log delivery to Amazon CloudWatch Logs is enabled.
+     * 
+     */
     public Boolean enabled() {
         return this.enabled;
     }
+    /**
+     * @return The S3 prefix that is the destination for log delivery.
+     * 
+     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

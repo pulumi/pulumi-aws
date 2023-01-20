@@ -15,9 +15,17 @@ public final class WebAclRuleActionCaptchaArgs extends com.pulumi.resources.Reso
 
     public static final WebAclRuleActionCaptchaArgs Empty = new WebAclRuleActionCaptchaArgs();
 
+    /**
+     * Defines custom handling for the web request. See Custom Request Handling below for details.
+     * 
+     */
     @Import(name="customRequestHandling")
     private @Nullable Output<WebAclRuleActionCaptchaCustomRequestHandlingArgs> customRequestHandling;
 
+    /**
+     * @return Defines custom handling for the web request. See Custom Request Handling below for details.
+     * 
+     */
     public Optional<Output<WebAclRuleActionCaptchaCustomRequestHandlingArgs>> customRequestHandling() {
         return Optional.ofNullable(this.customRequestHandling);
     }
@@ -46,11 +54,23 @@ public final class WebAclRuleActionCaptchaArgs extends com.pulumi.resources.Reso
             $ = new WebAclRuleActionCaptchaArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param customRequestHandling Defines custom handling for the web request. See Custom Request Handling below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customRequestHandling(@Nullable Output<WebAclRuleActionCaptchaCustomRequestHandlingArgs> customRequestHandling) {
             $.customRequestHandling = customRequestHandling;
             return this;
         }
 
+        /**
+         * @param customRequestHandling Defines custom handling for the web request. See Custom Request Handling below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customRequestHandling(WebAclRuleActionCaptchaCustomRequestHandlingArgs customRequestHandling) {
             return customRequestHandling(Output.of(customRequestHandling));
         }

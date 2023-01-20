@@ -9,12 +9,125 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkFirewall
 {
+    /// <summary>
+    /// Provides an AWS Network Firewall Logging Configuration Resource
+    /// 
+    /// ## Example Usage
+    /// ### Logging to S3
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
+    ///     {
+    ///         FirewallArn = aws_networkfirewall_firewall.Example.Arn,
+    ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
+    ///         {
+    ///             LogDestinationConfigs = new[]
+    ///             {
+    ///                 new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs
+    ///                 {
+    ///                     LogDestination = 
+    ///                     {
+    ///                         { "bucketName", aws_s3_bucket.Example.Bucket },
+    ///                         { "prefix", "/example" },
+    ///                     },
+    ///                     LogDestinationType = "S3",
+    ///                     LogType = "FLOW",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Logging to CloudWatch
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
+    ///     {
+    ///         FirewallArn = aws_networkfirewall_firewall.Example.Arn,
+    ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
+    ///         {
+    ///             LogDestinationConfigs = new[]
+    ///             {
+    ///                 new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs
+    ///                 {
+    ///                     LogDestination = 
+    ///                     {
+    ///                         { "logGroup", aws_cloudwatch_log_group.Example.Name },
+    ///                     },
+    ///                     LogDestinationType = "CloudWatchLogs",
+    ///                     LogType = "ALERT",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Logging to Kinesis Data Firehose
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
+    ///     {
+    ///         FirewallArn = aws_networkfirewall_firewall.Example.Arn,
+    ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
+    ///         {
+    ///             LogDestinationConfigs = new[]
+    ///             {
+    ///                 new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs
+    ///                 {
+    ///                     LogDestination = 
+    ///                     {
+    ///                         { "deliveryStream", aws_kinesis_firehose_delivery_stream.Example.Name },
+    ///                     },
+    ///                     LogDestinationType = "KinesisDataFirehose",
+    ///                     LogType = "ALERT",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Network Firewall Logging Configurations can be imported using the `firewall_arn` e.g
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:networkfirewall/loggingConfiguration:LoggingConfiguration")]
     public partial class LoggingConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Network Firewall firewall.
+        /// </summary>
         [Output("firewallArn")]
         public Output<string> FirewallArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
+        /// </summary>
         [Output("loggingConfiguration")]
         public Output<Outputs.LoggingConfigurationLoggingConfiguration> LoggingConfig { get; private set; } = null!;
 
@@ -64,9 +177,15 @@ namespace Pulumi.Aws.NetworkFirewall
 
     public sealed class LoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Network Firewall firewall.
+        /// </summary>
         [Input("firewallArn", required: true)]
         public Input<string> FirewallArn { get; set; } = null!;
 
+        /// <summary>
+        /// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
+        /// </summary>
         [Input("loggingConfiguration", required: true)]
         public Input<Inputs.LoggingConfigurationLoggingConfigurationArgs> LoggingConfig { get; set; } = null!;
 
@@ -78,9 +197,15 @@ namespace Pulumi.Aws.NetworkFirewall
 
     public sealed class LoggingConfigurationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Network Firewall firewall.
+        /// </summary>
         [Input("firewallArn")]
         public Input<string>? FirewallArn { get; set; }
 
+        /// <summary>
+        /// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
+        /// </summary>
         [Input("loggingConfiguration")]
         public Input<Inputs.LoggingConfigurationLoggingConfigurationGetArgs>? LoggingConfig { get; set; }
 

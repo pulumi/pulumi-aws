@@ -21,58 +21,122 @@ public final class GetTrafficPolicyDocumentRule extends com.pulumi.resources.Inv
 
     public static final GetTrafficPolicyDocumentRule Empty = new GetTrafficPolicyDocumentRule();
 
+    /**
+     * Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
+     * 
+     */
     @Import(name="geoProximityLocations")
     private @Nullable List<GetTrafficPolicyDocumentRuleGeoProximityLocation> geoProximityLocations;
 
+    /**
+     * @return Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
+     * 
+     */
     public Optional<List<GetTrafficPolicyDocumentRuleGeoProximityLocation>> geoProximityLocations() {
         return Optional.ofNullable(this.geoProximityLocations);
     }
 
+    /**
+     * ID of a rule you want to assign.
+     * 
+     */
     @Import(name="id", required=true)
     private String id;
 
+    /**
+     * @return ID of a rule you want to assign.
+     * 
+     */
     public String id() {
         return this.id;
     }
 
+    /**
+     * Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
+     * 
+     */
     @Import(name="items")
     private @Nullable List<GetTrafficPolicyDocumentRuleItem> items;
 
+    /**
+     * @return Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
+     * 
+     */
     public Optional<List<GetTrafficPolicyDocumentRuleItem>> items() {
         return Optional.ofNullable(this.items);
     }
 
+    /**
+     * Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
+     * 
+     */
     @Import(name="locations")
     private @Nullable List<GetTrafficPolicyDocumentRuleLocation> locations;
 
+    /**
+     * @return Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
+     * 
+     */
     public Optional<List<GetTrafficPolicyDocumentRuleLocation>> locations() {
         return Optional.ofNullable(this.locations);
     }
 
+    /**
+     * Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
+     * 
+     */
     @Import(name="primary")
     private @Nullable GetTrafficPolicyDocumentRulePrimary primary;
 
+    /**
+     * @return Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
+     * 
+     */
     public Optional<GetTrafficPolicyDocumentRulePrimary> primary() {
         return Optional.ofNullable(this.primary);
     }
 
+    /**
+     * To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
+     * 
+     */
     @Import(name="regions")
     private @Nullable List<GetTrafficPolicyDocumentRuleRegion> regions;
 
+    /**
+     * @return To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
+     * 
+     */
     public Optional<List<GetTrafficPolicyDocumentRuleRegion>> regions() {
         return Optional.ofNullable(this.regions);
     }
 
+    /**
+     * Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
+     * 
+     */
     @Import(name="secondary")
     private @Nullable GetTrafficPolicyDocumentRuleSecondary secondary;
 
+    /**
+     * @return Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
+     * 
+     */
     public Optional<GetTrafficPolicyDocumentRuleSecondary> secondary() {
         return Optional.ofNullable(this.secondary);
     }
 
+    /**
+     * Type of the rule.
+     * 
+     */
     @Import(name="type")
     private @Nullable String type;
 
+    /**
+     * @return Type of the rule.
+     * 
+     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
@@ -108,57 +172,129 @@ public final class GetTrafficPolicyDocumentRule extends com.pulumi.resources.Inv
             $ = new GetTrafficPolicyDocumentRule(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param geoProximityLocations Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
+         * 
+         * @return builder
+         * 
+         */
         public Builder geoProximityLocations(@Nullable List<GetTrafficPolicyDocumentRuleGeoProximityLocation> geoProximityLocations) {
             $.geoProximityLocations = geoProximityLocations;
             return this;
         }
 
+        /**
+         * @param geoProximityLocations Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
+         * 
+         * @return builder
+         * 
+         */
         public Builder geoProximityLocations(GetTrafficPolicyDocumentRuleGeoProximityLocation... geoProximityLocations) {
             return geoProximityLocations(List.of(geoProximityLocations));
         }
 
+        /**
+         * @param id ID of a rule you want to assign.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(String id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param items Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
+         * 
+         * @return builder
+         * 
+         */
         public Builder items(@Nullable List<GetTrafficPolicyDocumentRuleItem> items) {
             $.items = items;
             return this;
         }
 
+        /**
+         * @param items Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
+         * 
+         * @return builder
+         * 
+         */
         public Builder items(GetTrafficPolicyDocumentRuleItem... items) {
             return items(List.of(items));
         }
 
+        /**
+         * @param locations Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(@Nullable List<GetTrafficPolicyDocumentRuleLocation> locations) {
             $.locations = locations;
             return this;
         }
 
+        /**
+         * @param locations Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(GetTrafficPolicyDocumentRuleLocation... locations) {
             return locations(List.of(locations));
         }
 
+        /**
+         * @param primary Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
+         * 
+         * @return builder
+         * 
+         */
         public Builder primary(@Nullable GetTrafficPolicyDocumentRulePrimary primary) {
             $.primary = primary;
             return this;
         }
 
+        /**
+         * @param regions To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regions(@Nullable List<GetTrafficPolicyDocumentRuleRegion> regions) {
             $.regions = regions;
             return this;
         }
 
+        /**
+         * @param regions To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regions(GetTrafficPolicyDocumentRuleRegion... regions) {
             return regions(List.of(regions));
         }
 
+        /**
+         * @param secondary Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
+         * 
+         * @return builder
+         * 
+         */
         public Builder secondary(@Nullable GetTrafficPolicyDocumentRuleSecondary secondary) {
             $.secondary = secondary;
             return this;
         }
 
+        /**
+         * @param type Type of the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable String type) {
             $.type = type;
             return this;

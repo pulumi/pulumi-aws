@@ -22,6 +22,10 @@ class ThingGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ThingGroup resource.
+        :param pulumi.Input[str] name: The name of the Thing Group.
+        :param pulumi.Input[str] parent_group_name: The name of the parent Thing Group.
+        :param pulumi.Input['ThingGroupPropertiesArgs'] properties: The Thing Group properties. Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -35,6 +39,9 @@ class ThingGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Thing Group.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -44,6 +51,9 @@ class ThingGroupArgs:
     @property
     @pulumi.getter(name="parentGroupName")
     def parent_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the parent Thing Group.
+        """
         return pulumi.get(self, "parent_group_name")
 
     @parent_group_name.setter
@@ -53,6 +63,9 @@ class ThingGroupArgs:
     @property
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['ThingGroupPropertiesArgs']]:
+        """
+        The Thing Group properties. Defined below.
+        """
         return pulumi.get(self, "properties")
 
     @properties.setter
@@ -62,6 +75,9 @@ class ThingGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -82,6 +98,12 @@ class _ThingGroupState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering ThingGroup resources.
+        :param pulumi.Input[str] arn: The ARN of the Thing Group.
+        :param pulumi.Input[str] name: The name of the Thing Group.
+        :param pulumi.Input[str] parent_group_name: The name of the parent Thing Group.
+        :param pulumi.Input['ThingGroupPropertiesArgs'] properties: The Thing Group properties. Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
+        :param pulumi.Input[int] version: The current version of the Thing Group record in the registry.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -103,6 +125,9 @@ class _ThingGroupState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Thing Group.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -121,6 +146,9 @@ class _ThingGroupState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Thing Group.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -130,6 +158,9 @@ class _ThingGroupState:
     @property
     @pulumi.getter(name="parentGroupName")
     def parent_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the parent Thing Group.
+        """
         return pulumi.get(self, "parent_group_name")
 
     @parent_group_name.setter
@@ -139,6 +170,9 @@ class _ThingGroupState:
     @property
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['ThingGroupPropertiesArgs']]:
+        """
+        The Thing Group properties. Defined below.
+        """
         return pulumi.get(self, "properties")
 
     @properties.setter
@@ -148,6 +182,9 @@ class _ThingGroupState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -166,6 +203,9 @@ class _ThingGroupState:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        The current version of the Thing Group record in the registry.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -184,9 +224,45 @@ class ThingGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a ThingGroup resource with the given unique name, props, and options.
+        Manages an AWS IoT Thing Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        parent = aws.iot.ThingGroup("parent")
+        example = aws.iot.ThingGroup("example",
+            parent_group_name=parent.name,
+            properties=aws.iot.ThingGroupPropertiesArgs(
+                attribute_payload=aws.iot.ThingGroupPropertiesAttributePayloadArgs(
+                    attributes={
+                        "One": "11111",
+                        "Two": "TwoTwo",
+                    },
+                ),
+                description="This is my thing group",
+            ),
+            tags={
+                "managed": "true",
+            })
+        ```
+
+        ## Import
+
+        IoT Things Groups can be imported using the name, e.g.
+
+        ```sh
+         $ pulumi import aws:iot/thingGroup:ThingGroup example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The name of the Thing Group.
+        :param pulumi.Input[str] parent_group_name: The name of the parent Thing Group.
+        :param pulumi.Input[pulumi.InputType['ThingGroupPropertiesArgs']] properties: The Thing Group properties. Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
         """
         ...
     @overload
@@ -195,7 +271,39 @@ class ThingGroup(pulumi.CustomResource):
                  args: Optional[ThingGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ThingGroup resource with the given unique name, props, and options.
+        Manages an AWS IoT Thing Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        parent = aws.iot.ThingGroup("parent")
+        example = aws.iot.ThingGroup("example",
+            parent_group_name=parent.name,
+            properties=aws.iot.ThingGroupPropertiesArgs(
+                attribute_payload=aws.iot.ThingGroupPropertiesAttributePayloadArgs(
+                    attributes={
+                        "One": "11111",
+                        "Two": "TwoTwo",
+                    },
+                ),
+                description="This is my thing group",
+            ),
+            tags={
+                "managed": "true",
+            })
+        ```
+
+        ## Import
+
+        IoT Things Groups can be imported using the name, e.g.
+
+        ```sh
+         $ pulumi import aws:iot/thingGroup:ThingGroup example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param ThingGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -257,6 +365,12 @@ class ThingGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the Thing Group.
+        :param pulumi.Input[str] name: The name of the Thing Group.
+        :param pulumi.Input[str] parent_group_name: The name of the parent Thing Group.
+        :param pulumi.Input[pulumi.InputType['ThingGroupPropertiesArgs']] properties: The Thing Group properties. Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
+        :param pulumi.Input[int] version: The current version of the Thing Group record in the registry.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -275,6 +389,9 @@ class ThingGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the Thing Group.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -285,21 +402,33 @@ class ThingGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Thing Group.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="parentGroupName")
     def parent_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the parent Thing Group.
+        """
         return pulumi.get(self, "parent_group_name")
 
     @property
     @pulumi.getter
     def properties(self) -> pulumi.Output[Optional['outputs.ThingGroupProperties']]:
+        """
+        The Thing Group properties. Defined below.
+        """
         return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value mapping of resource tags
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -310,5 +439,8 @@ class ThingGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[int]:
+        """
+        The current version of the Thing Group record in the registry.
+        """
         return pulumi.get(self, "version")
 

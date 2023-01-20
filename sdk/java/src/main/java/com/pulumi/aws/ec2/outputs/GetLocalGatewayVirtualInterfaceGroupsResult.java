@@ -19,7 +19,15 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
      * 
      */
     private String id;
+    /**
+     * @return Set of EC2 Local Gateway Virtual Interface Group identifiers.
+     * 
+     */
     private List<String> ids;
+    /**
+     * @return Set of EC2 Local Gateway Virtual Interface identifiers.
+     * 
+     */
     private List<String> localGatewayVirtualInterfaceIds;
     private Map<String,String> tags;
 
@@ -34,9 +42,17 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Set of EC2 Local Gateway Virtual Interface Group identifiers.
+     * 
+     */
     public List<String> ids() {
         return this.ids;
     }
+    /**
+     * @return Set of EC2 Local Gateway Virtual Interface identifiers.
+     * 
+     */
     public List<String> localGatewayVirtualInterfaceIds() {
         return this.localGatewayVirtualInterfaceIds;
     }

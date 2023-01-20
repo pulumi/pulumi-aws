@@ -13,17 +13,82 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Associates a Direct Connect Connection with a LAG.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.directconnect.Connection;
+ * import com.pulumi.aws.directconnect.ConnectionArgs;
+ * import com.pulumi.aws.directconnect.LinkAggregationGroup;
+ * import com.pulumi.aws.directconnect.LinkAggregationGroupArgs;
+ * import com.pulumi.aws.directconnect.ConnectionAssociation;
+ * import com.pulumi.aws.directconnect.ConnectionAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleConnection = new Connection(&#34;exampleConnection&#34;, ConnectionArgs.builder()        
+ *             .bandwidth(&#34;1Gbps&#34;)
+ *             .location(&#34;EqSe2-EQ&#34;)
+ *             .build());
+ * 
+ *         var exampleLinkAggregationGroup = new LinkAggregationGroup(&#34;exampleLinkAggregationGroup&#34;, LinkAggregationGroupArgs.builder()        
+ *             .connectionsBandwidth(&#34;1Gbps&#34;)
+ *             .location(&#34;EqSe2-EQ&#34;)
+ *             .build());
+ * 
+ *         var exampleConnectionAssociation = new ConnectionAssociation(&#34;exampleConnectionAssociation&#34;, ConnectionAssociationArgs.builder()        
+ *             .connectionId(exampleConnection.id())
+ *             .lagId(exampleLinkAggregationGroup.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="aws:directconnect/connectionAssociation:ConnectionAssociation")
 public class ConnectionAssociation extends com.pulumi.resources.CustomResource {
+    /**
+     * The ID of the connection.
+     * 
+     */
     @Export(name="connectionId", refs={String.class}, tree="[0]")
     private Output<String> connectionId;
 
+    /**
+     * @return The ID of the connection.
+     * 
+     */
     public Output<String> connectionId() {
         return this.connectionId;
     }
+    /**
+     * The ID of the LAG with which to associate the connection.
+     * 
+     */
     @Export(name="lagId", refs={String.class}, tree="[0]")
     private Output<String> lagId;
 
+    /**
+     * @return The ID of the LAG with which to associate the connection.
+     * 
+     */
     public Output<String> lagId() {
         return this.lagId;
     }

@@ -47,16 +47,25 @@ class GetDnsNamespaceResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the namespace.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the namespace.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="hostedZone")
     def hosted_zone(self) -> str:
+        """
+        ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
+        """
         return pulumi.get(self, "hosted_zone")
 
     @property
@@ -75,6 +84,9 @@ class GetDnsNamespaceResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Map of tags for the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -103,7 +115,22 @@ def get_dns_namespace(name: Optional[str] = None,
                       type: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsNamespaceResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves information about a Service Discovery private or public DNS namespace.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.servicediscovery.get_dns_namespace(name="example.service.local",
+        type="DNS_PRIVATE")
+    ```
+
+
+    :param str name: Name of the namespace.
+    :param Mapping[str, str] tags: Map of tags for the resource.
+    :param str type: Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -128,6 +155,21 @@ def get_dns_namespace_output(name: Optional[pulumi.Input[str]] = None,
                              type: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsNamespaceResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves information about a Service Discovery private or public DNS namespace.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.servicediscovery.get_dns_namespace(name="example.service.local",
+        type="DNS_PRIVATE")
+    ```
+
+
+    :param str name: Name of the namespace.
+    :param Mapping[str, str] tags: Map of tags for the resource.
+    :param str type: Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
     """
     ...

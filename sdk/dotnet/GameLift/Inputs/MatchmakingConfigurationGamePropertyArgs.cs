@@ -12,9 +12,15 @@ namespace Pulumi.Aws.GameLift.Inputs
 
     public sealed class MatchmakingConfigurationGamePropertyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A game property key
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// A game property value.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

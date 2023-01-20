@@ -7,6 +7,49 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Resource for managing an AWS SESv2 (Simple Email V2) Email Identity.
+ *
+ * ## Example Usage
+ *
+ * ### Basic Usage
+ * ### Email Address Identity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.sesv2.EmailIdentity("example", {emailIdentity: "testing@example.com"});
+ * ```
+ * ### Domain Identity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.sesv2.EmailIdentity("example", {emailIdentity: "example.com"});
+ * ```
+ * ### Configuration Set
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleConfigurationSet = new aws.sesv2.ConfigurationSet("exampleConfigurationSet", {configurationSetName: "example"});
+ * const exampleEmailIdentity = new aws.sesv2.EmailIdentity("exampleEmailIdentity", {
+ *     emailIdentity: "example.com",
+ *     configurationSetName: exampleConfigurationSet.configurationSetName,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * SESv2 (Simple Email V2) Email Identity can be imported using the `email_identity`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
+ * ```
+ */
 export class EmailIdentity extends pulumi.CustomResource {
     /**
      * Get an existing EmailIdentity resource's state with the given name, ID, and optional extra
@@ -35,13 +78,34 @@ export class EmailIdentity extends pulumi.CustomResource {
         return obj['__pulumiType'] === EmailIdentity.__pulumiType;
     }
 
+    /**
+     * ARN of the Email Identity.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+     */
     public readonly configurationSetName!: pulumi.Output<string | undefined>;
+    /**
+     * The configuration of the DKIM authentication settings for an email domain identity.
+     */
     public readonly dkimSigningAttributes!: pulumi.Output<outputs.sesv2.EmailIdentityDkimSigningAttributes>;
+    /**
+     * The email address or domain to verify.
+     */
     public readonly emailIdentity!: pulumi.Output<string>;
+    /**
+     * The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+     */
     public /*out*/ readonly identityType!: pulumi.Output<string>;
+    /**
+     * (Optional) A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Specifies whether or not the identity is verified.
+     */
     public /*out*/ readonly verifiedForSendingStatus!: pulumi.Output<boolean>;
 
     /**
@@ -88,13 +152,34 @@ export class EmailIdentity extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EmailIdentity resources.
  */
 export interface EmailIdentityState {
+    /**
+     * ARN of the Email Identity.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+     */
     configurationSetName?: pulumi.Input<string>;
+    /**
+     * The configuration of the DKIM authentication settings for an email domain identity.
+     */
     dkimSigningAttributes?: pulumi.Input<inputs.sesv2.EmailIdentityDkimSigningAttributes>;
+    /**
+     * The email address or domain to verify.
+     */
     emailIdentity?: pulumi.Input<string>;
+    /**
+     * The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+     */
     identityType?: pulumi.Input<string>;
+    /**
+     * (Optional) A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies whether or not the identity is verified.
+     */
     verifiedForSendingStatus?: pulumi.Input<boolean>;
 }
 
@@ -102,8 +187,20 @@ export interface EmailIdentityState {
  * The set of arguments for constructing a EmailIdentity resource.
  */
 export interface EmailIdentityArgs {
+    /**
+     * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+     */
     configurationSetName?: pulumi.Input<string>;
+    /**
+     * The configuration of the DKIM authentication settings for an email domain identity.
+     */
     dkimSigningAttributes?: pulumi.Input<inputs.sesv2.EmailIdentityDkimSigningAttributes>;
+    /**
+     * The email address or domain to verify.
+     */
     emailIdentity: pulumi.Input<string>;
+    /**
+     * (Optional) A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

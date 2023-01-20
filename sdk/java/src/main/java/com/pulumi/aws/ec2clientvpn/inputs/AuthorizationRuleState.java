@@ -16,37 +16,77 @@ public final class AuthorizationRuleState extends com.pulumi.resources.ResourceA
 
     public static final AuthorizationRuleState Empty = new AuthorizationRuleState();
 
+    /**
+     * The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
+     * 
+     */
     @Import(name="accessGroupId")
     private @Nullable Output<String> accessGroupId;
 
+    /**
+     * @return The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
+     * 
+     */
     public Optional<Output<String>> accessGroupId() {
         return Optional.ofNullable(this.accessGroupId);
     }
 
+    /**
+     * Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
+     * 
+     */
     @Import(name="authorizeAllGroups")
     private @Nullable Output<Boolean> authorizeAllGroups;
 
+    /**
+     * @return Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
+     * 
+     */
     public Optional<Output<Boolean>> authorizeAllGroups() {
         return Optional.ofNullable(this.authorizeAllGroups);
     }
 
+    /**
+     * The ID of the Client VPN endpoint.
+     * 
+     */
     @Import(name="clientVpnEndpointId")
     private @Nullable Output<String> clientVpnEndpointId;
 
+    /**
+     * @return The ID of the Client VPN endpoint.
+     * 
+     */
     public Optional<Output<String>> clientVpnEndpointId() {
         return Optional.ofNullable(this.clientVpnEndpointId);
     }
 
+    /**
+     * A brief description of the authorization rule.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return A brief description of the authorization rule.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+     * 
+     */
     @Import(name="targetNetworkCidr")
     private @Nullable Output<String> targetNetworkCidr;
 
+    /**
+     * @return The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+     * 
+     */
     public Optional<Output<String>> targetNetworkCidr() {
         return Optional.ofNullable(this.targetNetworkCidr);
     }
@@ -79,47 +119,107 @@ public final class AuthorizationRuleState extends com.pulumi.resources.ResourceA
             $ = new AuthorizationRuleState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accessGroupId The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessGroupId(@Nullable Output<String> accessGroupId) {
             $.accessGroupId = accessGroupId;
             return this;
         }
 
+        /**
+         * @param accessGroupId The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessGroupId(String accessGroupId) {
             return accessGroupId(Output.of(accessGroupId));
         }
 
+        /**
+         * @param authorizeAllGroups Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authorizeAllGroups(@Nullable Output<Boolean> authorizeAllGroups) {
             $.authorizeAllGroups = authorizeAllGroups;
             return this;
         }
 
+        /**
+         * @param authorizeAllGroups Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authorizeAllGroups(Boolean authorizeAllGroups) {
             return authorizeAllGroups(Output.of(authorizeAllGroups));
         }
 
+        /**
+         * @param clientVpnEndpointId The ID of the Client VPN endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientVpnEndpointId(@Nullable Output<String> clientVpnEndpointId) {
             $.clientVpnEndpointId = clientVpnEndpointId;
             return this;
         }
 
+        /**
+         * @param clientVpnEndpointId The ID of the Client VPN endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientVpnEndpointId(String clientVpnEndpointId) {
             return clientVpnEndpointId(Output.of(clientVpnEndpointId));
         }
 
+        /**
+         * @param description A brief description of the authorization rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description A brief description of the authorization rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param targetNetworkCidr The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetNetworkCidr(@Nullable Output<String> targetNetworkCidr) {
             $.targetNetworkCidr = targetNetworkCidr;
             return this;
         }
 
+        /**
+         * @param targetNetworkCidr The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetNetworkCidr(String targetNetworkCidr) {
             return targetNetworkCidr(Output.of(targetNetworkCidr));
         }

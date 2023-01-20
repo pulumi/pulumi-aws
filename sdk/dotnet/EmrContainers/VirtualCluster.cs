@@ -9,21 +9,76 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.EmrContainers
 {
+    /// <summary>
+    /// Manages an EMR Containers (EMR on EKS) Virtual Cluster.
+    /// 
+    /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.EmrContainers.VirtualCluster("example", new()
+    ///     {
+    ///         ContainerProvider = new Aws.EmrContainers.Inputs.VirtualClusterContainerProviderArgs
+    ///         {
+    ///             Id = aws_eks_cluster.Example.Name,
+    ///             Type = "EKS",
+    ///             Info = new Aws.EmrContainers.Inputs.VirtualClusterContainerProviderInfoArgs
+    ///             {
+    ///                 EksInfo = new Aws.EmrContainers.Inputs.VirtualClusterContainerProviderInfoEksInfoArgs
+    ///                 {
+    ///                     Namespace = "default",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// EKS Clusters can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:emrcontainers/virtualCluster:VirtualCluster")]
     public partial class VirtualCluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of the cluster.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block for the container provider associated with your cluster.
+        /// </summary>
         [Output("containerProvider")]
         public Output<Outputs.VirtualClusterContainerProvider> ContainerProvider { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the virtual cluster.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -73,14 +128,24 @@ namespace Pulumi.Aws.EmrContainers
 
     public sealed class VirtualClusterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration block for the container provider associated with your cluster.
+        /// </summary>
         [Input("containerProvider", required: true)]
         public Input<Inputs.VirtualClusterContainerProviderArgs> ContainerProvider { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the virtual cluster.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -95,17 +160,30 @@ namespace Pulumi.Aws.EmrContainers
 
     public sealed class VirtualClusterState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the cluster.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Configuration block for the container provider associated with your cluster.
+        /// </summary>
         [Input("containerProvider")]
         public Input<Inputs.VirtualClusterContainerProviderGetArgs>? ContainerProvider { get; set; }
 
+        /// <summary>
+        /// Name of the virtual cluster.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -114,6 +192,10 @@ namespace Pulumi.Aws.EmrContainers
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

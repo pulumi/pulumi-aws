@@ -4,6 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an AWS Route 53 Recovery Readiness Readiness Check.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.route53recoveryreadiness.ReadinessCheck("example", {
+ *     readinessCheckName: my_cw_alarm_check,
+ *     resourceSetName: my_cw_alarm_set,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Route53 Recovery Readiness readiness checks can be imported via the readiness check name, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check
+ * ```
+ */
 export class ReadinessCheck extends pulumi.CustomResource {
     /**
      * Get an existing ReadinessCheck resource's state with the given name, ID, and optional extra
@@ -32,10 +55,25 @@ export class ReadinessCheck extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReadinessCheck.__pulumiType;
     }
 
+    /**
+     * ARN of the readiness_check
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Unique name describing the readiness check.
+     */
     public readonly readinessCheckName!: pulumi.Output<string>;
+    /**
+     * Name describing the resource set that will be monitored for readiness.
+     */
     public readonly resourceSetName!: pulumi.Output<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -79,10 +117,25 @@ export class ReadinessCheck extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ReadinessCheck resources.
  */
 export interface ReadinessCheckState {
+    /**
+     * ARN of the readiness_check
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Unique name describing the readiness check.
+     */
     readinessCheckName?: pulumi.Input<string>;
+    /**
+     * Name describing the resource set that will be monitored for readiness.
+     */
     resourceSetName?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -90,7 +143,16 @@ export interface ReadinessCheckState {
  * The set of arguments for constructing a ReadinessCheck resource.
  */
 export interface ReadinessCheckArgs {
+    /**
+     * Unique name describing the readiness check.
+     */
     readinessCheckName: pulumi.Input<string>;
+    /**
+     * Name describing the resource set that will be monitored for readiness.
+     */
     resourceSetName: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

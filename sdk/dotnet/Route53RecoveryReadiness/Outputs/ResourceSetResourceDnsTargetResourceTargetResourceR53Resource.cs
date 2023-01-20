@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Route53RecoveryReadiness.Outputs
     [OutputType]
     public sealed class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource
     {
+        /// <summary>
+        /// DNS Name that acts as the ingress point to a portion of application.
+        /// </summary>
         public readonly string? DomainName;
+        /// <summary>
+        /// Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+        /// </summary>
         public readonly string? RecordSetId;
 
         [OutputConstructor]

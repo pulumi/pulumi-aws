@@ -12,6 +12,9 @@ namespace Pulumi.Aws.CodeArtifact.Inputs
 
     public sealed class RepositoryUpstreamGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of an upstream repository.
+        /// </summary>
         [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
 

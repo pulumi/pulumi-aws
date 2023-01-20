@@ -13,13 +13,37 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class WorkforceOidcConfig
     {
+        /// <summary>
+        /// The OIDC IdP authorization endpoint used to configure your private workforce.
+        /// </summary>
         public readonly string AuthorizationEndpoint;
+        /// <summary>
+        /// The OIDC IdP client ID used to configure your private workforce.
+        /// </summary>
         public readonly string ClientId;
+        /// <summary>
+        /// The OIDC IdP client secret used to configure your private workforce.
+        /// </summary>
         public readonly string ClientSecret;
+        /// <summary>
+        /// The OIDC IdP issuer used to configure your private workforce.
+        /// </summary>
         public readonly string Issuer;
+        /// <summary>
+        /// The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
+        /// </summary>
         public readonly string JwksUri;
+        /// <summary>
+        /// The OIDC IdP logout endpoint used to configure your private workforce.
+        /// </summary>
         public readonly string LogoutEndpoint;
+        /// <summary>
+        /// The OIDC IdP token endpoint used to configure your private workforce.
+        /// </summary>
         public readonly string TokenEndpoint;
+        /// <summary>
+        /// The OIDC IdP user information endpoint used to configure your private workforce.
+        /// </summary>
         public readonly string UserInfoEndpoint;
 
         [OutputConstructor]

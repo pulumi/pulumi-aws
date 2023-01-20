@@ -16,23 +16,57 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * IoT topic rule destinations can be imported using the `arn`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
+ * ```
+ * 
+ */
 @ResourceType(type="aws:iot/topicRuleDestination:TopicRuleDestination")
 public class TopicRuleDestination extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the topic rule destination
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the topic rule destination
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Whether or not to enable the destination. Default: `true`.
+     * 
+     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
+    /**
+     * @return Whether or not to enable the destination. Default: `true`.
+     * 
+     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
+    /**
+     * Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+     * 
+     */
     @Export(name="vpcConfiguration", refs={TopicRuleDestinationVpcConfiguration.class}, tree="[0]")
     private Output<TopicRuleDestinationVpcConfiguration> vpcConfiguration;
 
+    /**
+     * @return Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+     * 
+     */
     public Output<TopicRuleDestinationVpcConfiguration> vpcConfiguration() {
         return this.vpcConfiguration;
     }

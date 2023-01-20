@@ -12,9 +12,15 @@ namespace Pulumi.Aws.SesV2.Inputs
 
     public sealed class ConfigurationSetDeliveryOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the dedicated IP pool to associate with the configuration set.
+        /// </summary>
         [Input("sendingPoolName")]
         public Input<string>? SendingPoolName { get; set; }
 
+        /// <summary>
+        /// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
+        /// </summary>
         [Input("tlsPolicy")]
         public Input<string>? TlsPolicy { get; set; }
 

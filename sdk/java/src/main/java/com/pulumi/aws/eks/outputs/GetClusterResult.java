@@ -16,44 +16,128 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterResult {
+    /**
+     * @return ARN of the cluster.
+     * 
+     */
     private String arn;
+    /**
+     * @return Nested attribute containing `certificate-authority-data` for your cluster.
+     * 
+     */
     private List<GetClusterCertificateAuthority> certificateAuthorities;
+    /**
+     * @return The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn&#39;t available for an AWS EKS cluster on AWS cloud.
+     * 
+     */
     private String clusterId;
+    /**
+     * @return Unix epoch time stamp in seconds for when the cluster was created.
+     * 
+     */
     private String createdAt;
+    /**
+     * @return The enabled control plane logs.
+     * 
+     */
     private List<String> enabledClusterLogTypes;
+    /**
+     * @return Endpoint for your Kubernetes API server.
+     * 
+     */
     private String endpoint;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `aws.eks.Cluster` resource documentation.
+     * 
+     */
     private List<GetClusterIdentity> identities;
+    /**
+     * @return Nested list containing Kubernetes Network Configuration.
+     * 
+     */
     private List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs;
     private String name;
+    /**
+     * @return Contains Outpost Configuration.
+     * 
+     */
     private List<GetClusterOutpostConfig> outpostConfigs;
+    /**
+     * @return Platform version for the cluster.
+     * 
+     */
     private String platformVersion;
+    /**
+     * @return ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+     * 
+     */
     private String roleArn;
+    /**
+     * @return Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
+     * 
+     */
     private String status;
+    /**
+     * @return Key-value map of resource tags.
+     * 
+     */
     private Map<String,String> tags;
+    /**
+     * @return Kubernetes server version for the cluster.
+     * 
+     */
     private String version;
+    /**
+     * @return Nested list containing VPC configuration for the cluster.
+     * 
+     */
     private GetClusterVpcConfig vpcConfig;
 
     private GetClusterResult() {}
+    /**
+     * @return ARN of the cluster.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Nested attribute containing `certificate-authority-data` for your cluster.
+     * 
+     */
     public List<GetClusterCertificateAuthority> certificateAuthorities() {
         return this.certificateAuthorities;
     }
+    /**
+     * @return The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn&#39;t available for an AWS EKS cluster on AWS cloud.
+     * 
+     */
     public String clusterId() {
         return this.clusterId;
     }
+    /**
+     * @return Unix epoch time stamp in seconds for when the cluster was created.
+     * 
+     */
     public String createdAt() {
         return this.createdAt;
     }
+    /**
+     * @return The enabled control plane logs.
+     * 
+     */
     public List<String> enabledClusterLogTypes() {
         return this.enabledClusterLogTypes;
     }
+    /**
+     * @return Endpoint for your Kubernetes API server.
+     * 
+     */
     public String endpoint() {
         return this.endpoint;
     }
@@ -64,33 +148,69 @@ public final class GetClusterResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `aws.eks.Cluster` resource documentation.
+     * 
+     */
     public List<GetClusterIdentity> identities() {
         return this.identities;
     }
+    /**
+     * @return Nested list containing Kubernetes Network Configuration.
+     * 
+     */
     public List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs() {
         return this.kubernetesNetworkConfigs;
     }
     public String name() {
         return this.name;
     }
+    /**
+     * @return Contains Outpost Configuration.
+     * 
+     */
     public List<GetClusterOutpostConfig> outpostConfigs() {
         return this.outpostConfigs;
     }
+    /**
+     * @return Platform version for the cluster.
+     * 
+     */
     public String platformVersion() {
         return this.platformVersion;
     }
+    /**
+     * @return ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+     * 
+     */
     public String roleArn() {
         return this.roleArn;
     }
+    /**
+     * @return Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
+     * 
+     */
     public String status() {
         return this.status;
     }
+    /**
+     * @return Key-value map of resource tags.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @return Kubernetes server version for the cluster.
+     * 
+     */
     public String version() {
         return this.version;
     }
+    /**
+     * @return Nested list containing VPC configuration for the cluster.
+     * 
+     */
     public GetClusterVpcConfig vpcConfig() {
         return this.vpcConfig;
     }

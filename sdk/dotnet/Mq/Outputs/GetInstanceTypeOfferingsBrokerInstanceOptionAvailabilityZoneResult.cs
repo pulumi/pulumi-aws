@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Mq.Outputs
     [OutputType]
     public sealed class GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult
     {
+        /// <summary>
+        /// Name of the Availability Zone.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

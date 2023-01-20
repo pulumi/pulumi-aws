@@ -9,15 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DynamoDB
 {
+    /// <summary>
+    /// Manages an individual DynamoDB resource tag. This resource should only be used in cases where DynamoDB resources are created outside the provider (e.g., Table replicas in other regions).
+    /// 
+    /// &gt; **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `aws.dynamodb.Table` and `aws.dynamodb.Tag` to manage tags of the same DynamoDB Table in the same region will cause a perpetual difference where the `aws_dynamodb_cluster` resource will try to remove the tag being added by the `aws.dynamodb.Tag` resource.
+    /// 
+    /// &gt; **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_dynamodb_tag` can be imported by using the DynamoDB resource identifier and key, separated by a comma (`,`), e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:dynamodb/tag:Tag example arn:aws:dynamodb:us-east-1:123456789012:table/example,Name
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:dynamodb/tag:Tag")]
     public partial class Tag : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Tag name.
+        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
+        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Tag value.
+        /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
@@ -67,12 +91,21 @@ namespace Pulumi.Aws.DynamoDB
 
     public sealed class TagArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Tag name.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// Tag value.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -84,12 +117,21 @@ namespace Pulumi.Aws.DynamoDB
 
     public sealed class TagState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Tag name.
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
+        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
+        /// <summary>
+        /// Tag value.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

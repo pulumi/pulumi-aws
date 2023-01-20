@@ -14,71 +14,220 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Elastic File System (EFS) mount target.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.aws.efs.MountTarget;
+ * import com.pulumi.aws.efs.MountTargetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
+ *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *             .build());
+ * 
+ *         var alphaSubnet = new Subnet(&#34;alphaSubnet&#34;, SubnetArgs.builder()        
+ *             .vpcId(foo.id())
+ *             .availabilityZone(&#34;us-west-2a&#34;)
+ *             .cidrBlock(&#34;10.0.1.0/24&#34;)
+ *             .build());
+ * 
+ *         var alphaMountTarget = new MountTarget(&#34;alphaMountTarget&#34;, MountTargetArgs.builder()        
+ *             .fileSystemId(aws_efs_file_system.foo().id())
+ *             .subnetId(alphaSubnet.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * The EFS mount targets can be imported using the `id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
+ * ```
+ * 
+ */
 @ResourceType(type="aws:efs/mountTarget:MountTarget")
 public class MountTarget extends com.pulumi.resources.CustomResource {
+    /**
+     * The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
+     * 
+     */
     @Export(name="availabilityZoneId", refs={String.class}, tree="[0]")
     private Output<String> availabilityZoneId;
 
+    /**
+     * @return The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
+     * 
+     */
     public Output<String> availabilityZoneId() {
         return this.availabilityZoneId;
     }
+    /**
+     * The name of the Availability Zone (AZ) that the mount target resides in.
+     * 
+     */
     @Export(name="availabilityZoneName", refs={String.class}, tree="[0]")
     private Output<String> availabilityZoneName;
 
+    /**
+     * @return The name of the Availability Zone (AZ) that the mount target resides in.
+     * 
+     */
     public Output<String> availabilityZoneName() {
         return this.availabilityZoneName;
     }
+    /**
+     * The DNS name for the EFS file system.
+     * 
+     */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
     private Output<String> dnsName;
 
+    /**
+     * @return The DNS name for the EFS file system.
+     * 
+     */
     public Output<String> dnsName() {
         return this.dnsName;
     }
+    /**
+     * Amazon Resource Name of the file system.
+     * 
+     */
     @Export(name="fileSystemArn", refs={String.class}, tree="[0]")
     private Output<String> fileSystemArn;
 
+    /**
+     * @return Amazon Resource Name of the file system.
+     * 
+     */
     public Output<String> fileSystemArn() {
         return this.fileSystemArn;
     }
+    /**
+     * The ID of the file system for which the mount target is intended.
+     * 
+     */
     @Export(name="fileSystemId", refs={String.class}, tree="[0]")
     private Output<String> fileSystemId;
 
+    /**
+     * @return The ID of the file system for which the mount target is intended.
+     * 
+     */
     public Output<String> fileSystemId() {
         return this.fileSystemId;
     }
+    /**
+     * The address (within the address range of the specified subnet) at
+     * which the file system may be mounted via the mount target.
+     * 
+     */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
+    /**
+     * @return The address (within the address range of the specified subnet) at
+     * which the file system may be mounted via the mount target.
+     * 
+     */
     public Output<String> ipAddress() {
         return this.ipAddress;
     }
+    /**
+     * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+     * 
+     */
     @Export(name="mountTargetDnsName", refs={String.class}, tree="[0]")
     private Output<String> mountTargetDnsName;
 
+    /**
+     * @return The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+     * 
+     */
     public Output<String> mountTargetDnsName() {
         return this.mountTargetDnsName;
     }
+    /**
+     * The ID of the network interface that Amazon EFS created when it created the mount target.
+     * 
+     */
     @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
+    /**
+     * @return The ID of the network interface that Amazon EFS created when it created the mount target.
+     * 
+     */
     public Output<String> networkInterfaceId() {
         return this.networkInterfaceId;
     }
+    /**
+     * AWS account ID that owns the resource.
+     * 
+     */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
+    /**
+     * @return AWS account ID that owns the resource.
+     * 
+     */
     public Output<String> ownerId() {
         return this.ownerId;
     }
+    /**
+     * A list of up to 5 VPC security group IDs (that must
+     * be for the same VPC as subnet specified) in effect for the mount target.
+     * 
+     */
     @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroups;
 
+    /**
+     * @return A list of up to 5 VPC security group IDs (that must
+     * be for the same VPC as subnet specified) in effect for the mount target.
+     * 
+     */
     public Output<List<String>> securityGroups() {
         return this.securityGroups;
     }
+    /**
+     * The ID of the subnet to add the mount target in.
+     * 
+     */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
+    /**
+     * @return The ID of the subnet to add the mount target in.
+     * 
+     */
     public Output<String> subnetId() {
         return this.subnetId;
     }

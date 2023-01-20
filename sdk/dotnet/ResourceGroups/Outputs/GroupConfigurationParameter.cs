@@ -13,7 +13,13 @@ namespace Pulumi.Aws.ResourceGroups.Outputs
     [OutputType]
     public sealed class GroupConfigurationParameter
     {
+        /// <summary>
+        /// The name of the group configuration parameter.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The value or values to be used for the specified parameter.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

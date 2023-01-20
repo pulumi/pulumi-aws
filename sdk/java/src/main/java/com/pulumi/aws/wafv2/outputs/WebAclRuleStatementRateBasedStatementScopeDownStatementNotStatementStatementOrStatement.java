@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatement {
+    /**
+     * @return Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+     * 
+     */
     private List<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatement> statements;
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatement() {}
+    /**
+     * @return Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+     * 
+     */
     public List<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatement> statements() {
         return this.statements;
     }

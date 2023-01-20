@@ -11,15 +11,69 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS IVS (Interactive Video) Playback Key Pair.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ivs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ivs.NewPlaybackKeyPair(ctx, "example", &ivs.PlaybackKeyPairArgs{
+//				PublicKey: readFileOrPanic("./public-key.pem"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// IVS (Interactive Video) Playback Key Pair can be imported using the ARN, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
+//
+// ```
 type PlaybackKeyPair struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput    `pulumi:"arn"`
-	Fingerprint pulumi.StringOutput    `pulumi:"fingerprint"`
-	Name        pulumi.StringOutput    `pulumi:"name"`
-	PublicKey   pulumi.StringOutput    `pulumi:"publicKey"`
-	Tags        pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// ARN of the Playback Key Pair.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Key-pair identifier.
+	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
+	// Playback Key Pair name.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewPlaybackKeyPair registers a new resource with the given unique name, arguments, and options.
@@ -54,21 +108,33 @@ func GetPlaybackKeyPair(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PlaybackKeyPair resources.
 type playbackKeyPairState struct {
-	Arn         *string           `pulumi:"arn"`
-	Fingerprint *string           `pulumi:"fingerprint"`
-	Name        *string           `pulumi:"name"`
-	PublicKey   *string           `pulumi:"publicKey"`
-	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
+	// ARN of the Playback Key Pair.
+	Arn *string `pulumi:"arn"`
+	// Key-pair identifier.
+	Fingerprint *string `pulumi:"fingerprint"`
+	// Playback Key Pair name.
+	Name *string `pulumi:"name"`
+	// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+	PublicKey *string `pulumi:"publicKey"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type PlaybackKeyPairState struct {
-	Arn         pulumi.StringPtrInput
+	// ARN of the Playback Key Pair.
+	Arn pulumi.StringPtrInput
+	// Key-pair identifier.
 	Fingerprint pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	PublicKey   pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// Playback Key Pair name.
+	Name pulumi.StringPtrInput
+	// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+	PublicKey pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (PlaybackKeyPairState) ElementType() reflect.Type {
@@ -76,16 +142,22 @@ func (PlaybackKeyPairState) ElementType() reflect.Type {
 }
 
 type playbackKeyPairArgs struct {
-	Name      *string           `pulumi:"name"`
-	PublicKey string            `pulumi:"publicKey"`
-	Tags      map[string]string `pulumi:"tags"`
+	// Playback Key Pair name.
+	Name *string `pulumi:"name"`
+	// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+	PublicKey string `pulumi:"publicKey"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PlaybackKeyPair resource.
 type PlaybackKeyPairArgs struct {
-	Name      pulumi.StringPtrInput
+	// Playback Key Pair name.
+	Name pulumi.StringPtrInput
+	// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
 	PublicKey pulumi.StringInput
-	Tags      pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (PlaybackKeyPairArgs) ElementType() reflect.Type {
@@ -175,26 +247,32 @@ func (o PlaybackKeyPairOutput) ToPlaybackKeyPairOutputWithContext(ctx context.Co
 	return o
 }
 
+// ARN of the Playback Key Pair.
 func (o PlaybackKeyPairOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Key-pair identifier.
 func (o PlaybackKeyPairOutput) Fingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringOutput { return v.Fingerprint }).(pulumi.StringOutput)
 }
 
+// Playback Key Pair name.
 func (o PlaybackKeyPairOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
 func (o PlaybackKeyPairOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringOutput { return v.PublicKey }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PlaybackKeyPairOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PlaybackKeyPairOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

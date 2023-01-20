@@ -7,6 +7,24 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Data source for listing RDS Database Instances.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.rds.getInstances({
+ *     filters: [{
+ *         name: "db-instance-id",
+ *         values: ["my-database-id"],
+ *     }],
+ * });
+ * ```
+ */
 export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancesResult> {
     args = args || {};
 
@@ -20,6 +38,9 @@ export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOption
  * A collection of arguments for invoking getInstances.
  */
 export interface GetInstancesArgs {
+    /**
+     * Configuration block(s) for filtering. Detailed below.
+     */
     filters?: inputs.rds.GetInstancesFilter[];
 }
 
@@ -32,9 +53,33 @@ export interface GetInstancesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * ARNs of the matched RDS instances.
+     */
     readonly instanceArns: string[];
+    /**
+     * Identifiers of the matched RDS instances.
+     */
     readonly instanceIdentifiers: string[];
 }
+/**
+ * Data source for listing RDS Database Instances.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.rds.getInstances({
+ *     filters: [{
+ *         name: "db-instance-id",
+ *         values: ["my-database-id"],
+ *     }],
+ * });
+ * ```
+ */
 export function getInstancesOutput(args?: GetInstancesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstancesResult> {
     return pulumi.output(args).apply((a: any) => getInstances(a, opts))
 }
@@ -43,5 +88,8 @@ export function getInstancesOutput(args?: GetInstancesOutputArgs, opts?: pulumi.
  * A collection of arguments for invoking getInstances.
  */
 export interface GetInstancesOutputArgs {
+    /**
+     * Configuration block(s) for filtering. Detailed below.
+     */
     filters?: pulumi.Input<pulumi.Input<inputs.rds.GetInstancesFilterArgs>[]>;
 }

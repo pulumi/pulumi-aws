@@ -22,53 +22,149 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementOrStatementStatementAndStatementStatement {
+    /**
+     * @return Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+     * 
+     */
     private @Nullable WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatement andStatement;
+    /**
+     * @return Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+     * 
+     */
     private @Nullable WebAclRuleStatementOrStatementStatementAndStatementStatementByteMatchStatement byteMatchStatement;
+    /**
+     * @return Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+     * 
+     */
     private @Nullable WebAclRuleStatementOrStatementStatementAndStatementStatementGeoMatchStatement geoMatchStatement;
+    /**
+     * @return Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+     * 
+     */
     private @Nullable WebAclRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement ipSetReferenceStatement;
+    /**
+     * @return Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+     * 
+     */
     private @Nullable WebAclRuleStatementOrStatementStatementAndStatementStatementLabelMatchStatement labelMatchStatement;
+    /**
+     * @return Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+     * 
+     */
     private @Nullable WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatement notStatement;
+    /**
+     * @return Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+     * 
+     */
     private @Nullable WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatement orStatement;
+    /**
+     * @return Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
     private @Nullable WebAclRuleStatementOrStatementStatementAndStatementStatementRegexMatchStatement regexMatchStatement;
+    /**
+     * @return Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+     * 
+     */
     private @Nullable WebAclRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement;
+    /**
+     * @return Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See Size Constraint Statement below for more details.
+     * 
+     */
     private @Nullable WebAclRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatement sizeConstraintStatement;
+    /**
+     * @return An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+     * 
+     */
     private @Nullable WebAclRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatement sqliMatchStatement;
+    /**
+     * @return Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+     * 
+     */
     private @Nullable WebAclRuleStatementOrStatementStatementAndStatementStatementXssMatchStatement xssMatchStatement;
 
     private WebAclRuleStatementOrStatementStatementAndStatementStatement() {}
+    /**
+     * @return Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+     * 
+     */
     public Optional<WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatement> andStatement() {
         return Optional.ofNullable(this.andStatement);
     }
+    /**
+     * @return Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+     * 
+     */
     public Optional<WebAclRuleStatementOrStatementStatementAndStatementStatementByteMatchStatement> byteMatchStatement() {
         return Optional.ofNullable(this.byteMatchStatement);
     }
+    /**
+     * @return Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+     * 
+     */
     public Optional<WebAclRuleStatementOrStatementStatementAndStatementStatementGeoMatchStatement> geoMatchStatement() {
         return Optional.ofNullable(this.geoMatchStatement);
     }
+    /**
+     * @return Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+     * 
+     */
     public Optional<WebAclRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement> ipSetReferenceStatement() {
         return Optional.ofNullable(this.ipSetReferenceStatement);
     }
+    /**
+     * @return Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+     * 
+     */
     public Optional<WebAclRuleStatementOrStatementStatementAndStatementStatementLabelMatchStatement> labelMatchStatement() {
         return Optional.ofNullable(this.labelMatchStatement);
     }
+    /**
+     * @return Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+     * 
+     */
     public Optional<WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatement> notStatement() {
         return Optional.ofNullable(this.notStatement);
     }
+    /**
+     * @return Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+     * 
+     */
     public Optional<WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatement> orStatement() {
         return Optional.ofNullable(this.orStatement);
     }
+    /**
+     * @return Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * 
+     */
     public Optional<WebAclRuleStatementOrStatementStatementAndStatementStatementRegexMatchStatement> regexMatchStatement() {
         return Optional.ofNullable(this.regexMatchStatement);
     }
+    /**
+     * @return Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+     * 
+     */
     public Optional<WebAclRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement> regexPatternSetReferenceStatement() {
         return Optional.ofNullable(this.regexPatternSetReferenceStatement);
     }
+    /**
+     * @return Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See Size Constraint Statement below for more details.
+     * 
+     */
     public Optional<WebAclRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatement> sizeConstraintStatement() {
         return Optional.ofNullable(this.sizeConstraintStatement);
     }
+    /**
+     * @return An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+     * 
+     */
     public Optional<WebAclRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatement> sqliMatchStatement() {
         return Optional.ofNullable(this.sqliMatchStatement);
     }
+    /**
+     * @return Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+     * 
+     */
     public Optional<WebAclRuleStatementOrStatementStatementAndStatementStatementXssMatchStatement> xssMatchStatement() {
         return Optional.ofNullable(this.xssMatchStatement);
     }

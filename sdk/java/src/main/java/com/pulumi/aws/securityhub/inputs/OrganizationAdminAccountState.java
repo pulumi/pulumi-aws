@@ -15,9 +15,17 @@ public final class OrganizationAdminAccountState extends com.pulumi.resources.Re
 
     public static final OrganizationAdminAccountState Empty = new OrganizationAdminAccountState();
 
+    /**
+     * The AWS account identifier of the account to designate as the Security Hub administrator account.
+     * 
+     */
     @Import(name="adminAccountId")
     private @Nullable Output<String> adminAccountId;
 
+    /**
+     * @return The AWS account identifier of the account to designate as the Security Hub administrator account.
+     * 
+     */
     public Optional<Output<String>> adminAccountId() {
         return Optional.ofNullable(this.adminAccountId);
     }
@@ -46,11 +54,23 @@ public final class OrganizationAdminAccountState extends com.pulumi.resources.Re
             $ = new OrganizationAdminAccountState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param adminAccountId The AWS account identifier of the account to designate as the Security Hub administrator account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminAccountId(@Nullable Output<String> adminAccountId) {
             $.adminAccountId = adminAccountId;
             return this;
         }
 
+        /**
+         * @param adminAccountId The AWS account identifier of the account to designate as the Security Hub administrator account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminAccountId(String adminAccountId) {
             return adminAccountId(Output.of(adminAccountId));
         }

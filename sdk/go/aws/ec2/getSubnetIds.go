@@ -10,6 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// `ec2.getSubnetIds` provides a set of ids for a vpcId
+//
+// This resource can be useful for getting back a set of subnet ids for a vpc.
+//
+// > **NOTE:** The `ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `ec2.getSubnets` data source instead.
 func GetSubnetIds(ctx *pulumi.Context, args *GetSubnetIdsArgs, opts ...pulumi.InvokeOption) (*GetSubnetIdsResult, error) {
 	var rv GetSubnetIdsResult
 	err := ctx.Invoke("aws:ec2/getSubnetIds:getSubnetIds", args, &rv, opts...)
@@ -21,16 +26,21 @@ func GetSubnetIds(ctx *pulumi.Context, args *GetSubnetIdsArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getSubnetIds.
 type GetSubnetIdsArgs struct {
+	// Custom filter block as described below.
 	Filters []GetSubnetIdsFilter `pulumi:"filters"`
-	Tags    map[string]string    `pulumi:"tags"`
-	VpcId   string               `pulumi:"vpcId"`
+	// Map of tags, each pair of which must exactly match
+	// a pair on the desired subnets.
+	Tags map[string]string `pulumi:"tags"`
+	// VPC ID that you want to filter from.
+	VpcId string `pulumi:"vpcId"`
 }
 
 // A collection of values returned by getSubnetIds.
 type GetSubnetIdsResult struct {
 	Filters []GetSubnetIdsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id    string            `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Set of all the subnet ids found. This data source will fail if none are found.
 	Ids   []string          `pulumi:"ids"`
 	Tags  map[string]string `pulumi:"tags"`
 	VpcId string            `pulumi:"vpcId"`
@@ -51,9 +61,13 @@ func GetSubnetIdsOutput(ctx *pulumi.Context, args GetSubnetIdsOutputArgs, opts .
 
 // A collection of arguments for invoking getSubnetIds.
 type GetSubnetIdsOutputArgs struct {
+	// Custom filter block as described below.
 	Filters GetSubnetIdsFilterArrayInput `pulumi:"filters"`
-	Tags    pulumi.StringMapInput        `pulumi:"tags"`
-	VpcId   pulumi.StringInput           `pulumi:"vpcId"`
+	// Map of tags, each pair of which must exactly match
+	// a pair on the desired subnets.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// VPC ID that you want to filter from.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 func (GetSubnetIdsOutputArgs) ElementType() reflect.Type {
@@ -84,6 +98,7 @@ func (o GetSubnetIdsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSubnetIdsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Set of all the subnet ids found. This data source will fail if none are found.
 func (o GetSubnetIdsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSubnetIdsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

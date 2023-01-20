@@ -4,6 +4,28 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Enables Security Hub for this AWS account.
+ *
+ * > **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.securityhub.Account("example", {});
+ * ```
+ *
+ * ## Import
+ *
+ * An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:securityhub/account:Account example 123456789012
+ * ```
+ */
 export class Account extends pulumi.CustomResource {
     /**
      * Get an existing Account resource's state with the given name, ID, and optional extra

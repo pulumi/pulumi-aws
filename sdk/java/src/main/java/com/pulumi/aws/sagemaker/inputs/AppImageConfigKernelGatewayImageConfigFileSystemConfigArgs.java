@@ -16,23 +16,47 @@ public final class AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs ex
 
     public static final AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs Empty = new AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs();
 
+    /**
+     * The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+     * 
+     */
     @Import(name="defaultGid")
     private @Nullable Output<Integer> defaultGid;
 
+    /**
+     * @return The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+     * 
+     */
     public Optional<Output<Integer>> defaultGid() {
         return Optional.ofNullable(this.defaultGid);
     }
 
+    /**
+     * The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+     * 
+     */
     @Import(name="defaultUid")
     private @Nullable Output<Integer> defaultUid;
 
+    /**
+     * @return The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+     * 
+     */
     public Optional<Output<Integer>> defaultUid() {
         return Optional.ofNullable(this.defaultUid);
     }
 
+    /**
+     * The path within the image to mount the user&#39;s EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+     * 
+     */
     @Import(name="mountPath")
     private @Nullable Output<String> mountPath;
 
+    /**
+     * @return The path within the image to mount the user&#39;s EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+     * 
+     */
     public Optional<Output<String>> mountPath() {
         return Optional.ofNullable(this.mountPath);
     }
@@ -63,29 +87,65 @@ public final class AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs ex
             $ = new AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param defaultGid The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultGid(@Nullable Output<Integer> defaultGid) {
             $.defaultGid = defaultGid;
             return this;
         }
 
+        /**
+         * @param defaultGid The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultGid(Integer defaultGid) {
             return defaultGid(Output.of(defaultGid));
         }
 
+        /**
+         * @param defaultUid The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultUid(@Nullable Output<Integer> defaultUid) {
             $.defaultUid = defaultUid;
             return this;
         }
 
+        /**
+         * @param defaultUid The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultUid(Integer defaultUid) {
             return defaultUid(Output.of(defaultUid));
         }
 
+        /**
+         * @param mountPath The path within the image to mount the user&#39;s EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mountPath(@Nullable Output<String> mountPath) {
             $.mountPath = mountPath;
             return this;
         }
 
+        /**
+         * @param mountPath The path within the image to mount the user&#39;s EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mountPath(String mountPath) {
             return mountPath(Output.of(mountPath));
         }

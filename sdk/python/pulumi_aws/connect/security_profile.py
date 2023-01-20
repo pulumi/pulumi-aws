@@ -21,6 +21,12 @@ class SecurityProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SecurityProfile resource.
+        :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
+        :param pulumi.Input[str] description: Specifies the description of the Security Profile.
+        :param pulumi.Input[str] name: Specifies the name of the Security Profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: Specifies a list of permissions assigned to the security profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Security Profile. If configured with a provider
+               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "instance_id", instance_id)
         if description is not None:
@@ -35,6 +41,9 @@ class SecurityProfileArgs:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the identifier of the hosting Amazon Connect Instance.
+        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -44,6 +53,9 @@ class SecurityProfileArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the description of the Security Profile.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -53,6 +65,9 @@ class SecurityProfileArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Security Profile.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -62,6 +77,9 @@ class SecurityProfileArgs:
     @property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of permissions assigned to the security profile.
+        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -71,6 +89,10 @@ class SecurityProfileArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the Security Profile. If configured with a provider
+        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -92,6 +114,16 @@ class _SecurityProfileState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering SecurityProfile resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Security Profile.
+        :param pulumi.Input[str] description: Specifies the description of the Security Profile.
+        :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
+        :param pulumi.Input[str] name: Specifies the name of the Security Profile.
+        :param pulumi.Input[str] organization_resource_id: The organization resource identifier for the security profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: Specifies a list of permissions assigned to the security profile.
+        :param pulumi.Input[str] security_profile_id: The identifier for the Security Profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Security Profile. If configured with a provider
+               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -115,6 +147,9 @@ class _SecurityProfileState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Security Profile.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -124,6 +159,9 @@ class _SecurityProfileState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the description of the Security Profile.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -133,6 +171,9 @@ class _SecurityProfileState:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the identifier of the hosting Amazon Connect Instance.
+        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -142,6 +183,9 @@ class _SecurityProfileState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Security Profile.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -151,6 +195,9 @@ class _SecurityProfileState:
     @property
     @pulumi.getter(name="organizationResourceId")
     def organization_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The organization resource identifier for the security profile.
+        """
         return pulumi.get(self, "organization_resource_id")
 
     @organization_resource_id.setter
@@ -160,6 +207,9 @@ class _SecurityProfileState:
     @property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of permissions assigned to the security profile.
+        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -169,6 +219,9 @@ class _SecurityProfileState:
     @property
     @pulumi.getter(name="securityProfileId")
     def security_profile_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for the Security Profile.
+        """
         return pulumi.get(self, "security_profile_id")
 
     @security_profile_id.setter
@@ -178,6 +231,10 @@ class _SecurityProfileState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the Security Profile. If configured with a provider
+        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -187,6 +244,9 @@ class _SecurityProfileState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -206,9 +266,43 @@ class SecurityProfile(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a SecurityProfile resource with the given unique name, props, and options.
+        Provides an Amazon Connect Security Profile resource. For more information see
+        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.connect.SecurityProfile("example",
+            description="example description",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            permissions=[
+                "BasicAgentAccess",
+                "OutboundCallAccess",
+            ],
+            tags={
+                "Name": "Example Security Profile",
+            })
+        ```
+
+        ## Import
+
+        Amazon Connect Security Profiles can be imported using the `instance_id` and `security_profile_id` separated by a colon (`:`), e.g.,
+
+        ```sh
+         $ pulumi import aws:connect/securityProfile:SecurityProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Specifies the description of the Security Profile.
+        :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
+        :param pulumi.Input[str] name: Specifies the name of the Security Profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: Specifies a list of permissions assigned to the security profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Security Profile. If configured with a provider
+               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -217,7 +311,35 @@ class SecurityProfile(pulumi.CustomResource):
                  args: SecurityProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SecurityProfile resource with the given unique name, props, and options.
+        Provides an Amazon Connect Security Profile resource. For more information see
+        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.connect.SecurityProfile("example",
+            description="example description",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            permissions=[
+                "BasicAgentAccess",
+                "OutboundCallAccess",
+            ],
+            tags={
+                "Name": "Example Security Profile",
+            })
+        ```
+
+        ## Import
+
+        Amazon Connect Security Profiles can be imported using the `instance_id` and `security_profile_id` separated by a colon (`:`), e.g.,
+
+        ```sh
+         $ pulumi import aws:connect/securityProfile:SecurityProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        ```
+
         :param str resource_name: The name of the resource.
         :param SecurityProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -284,6 +406,16 @@ class SecurityProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Security Profile.
+        :param pulumi.Input[str] description: Specifies the description of the Security Profile.
+        :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
+        :param pulumi.Input[str] name: Specifies the name of the Security Profile.
+        :param pulumi.Input[str] organization_resource_id: The organization resource identifier for the security profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: Specifies a list of permissions assigned to the security profile.
+        :param pulumi.Input[str] security_profile_id: The identifier for the Security Profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Security Profile. If configured with a provider
+               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -303,45 +435,73 @@ class SecurityProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Security Profile.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the description of the Security Profile.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[str]:
+        """
+        Specifies the identifier of the hosting Amazon Connect Instance.
+        """
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Specifies the name of the Security Profile.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="organizationResourceId")
     def organization_resource_id(self) -> pulumi.Output[str]:
+        """
+        The organization resource identifier for the security profile.
+        """
         return pulumi.get(self, "organization_resource_id")
 
     @property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies a list of permissions assigned to the security profile.
+        """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter(name="securityProfileId")
     def security_profile_id(self) -> pulumi.Output[str]:
+        """
+        The identifier for the Security Profile.
+        """
         return pulumi.get(self, "security_profile_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Tags to apply to the Security Profile. If configured with a provider
+        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

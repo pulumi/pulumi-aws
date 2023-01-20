@@ -17,35 +17,125 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Cognito Risk Configuration resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cognito.RiskConfiguration;
+ * import com.pulumi.aws.cognito.RiskConfigurationArgs;
+ * import com.pulumi.aws.cognito.inputs.RiskConfigurationRiskExceptionConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new RiskConfiguration(&#34;example&#34;, RiskConfigurationArgs.builder()        
+ *             .userPoolId(aws_cognito_user_pool.example().id())
+ *             .riskExceptionConfiguration(RiskConfigurationRiskExceptionConfigurationArgs.builder()
+ *                 .blockedIpRangeLists(&#34;10.10.10.10/32&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Cognito Risk Configurations can be imported using the `id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
+ * ```
+ * 
+ * ```sh
+ *  $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
+ * ```
+ * 
+ */
 @ResourceType(type="aws:cognito/riskConfiguration:RiskConfiguration")
 public class RiskConfiguration extends com.pulumi.resources.CustomResource {
+    /**
+     * The account takeover risk configuration. See details below.
+     * 
+     */
     @Export(name="accountTakeoverRiskConfiguration", refs={RiskConfigurationAccountTakeoverRiskConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ RiskConfigurationAccountTakeoverRiskConfiguration> accountTakeoverRiskConfiguration;
 
+    /**
+     * @return The account takeover risk configuration. See details below.
+     * 
+     */
     public Output<Optional<RiskConfigurationAccountTakeoverRiskConfiguration>> accountTakeoverRiskConfiguration() {
         return Codegen.optional(this.accountTakeoverRiskConfiguration);
     }
+    /**
+     * The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
+     * 
+     */
     @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientId;
 
+    /**
+     * @return The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
+     * 
+     */
     public Output<Optional<String>> clientId() {
         return Codegen.optional(this.clientId);
     }
+    /**
+     * The compromised credentials risk configuration. See details below.
+     * 
+     */
     @Export(name="compromisedCredentialsRiskConfiguration", refs={RiskConfigurationCompromisedCredentialsRiskConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ RiskConfigurationCompromisedCredentialsRiskConfiguration> compromisedCredentialsRiskConfiguration;
 
+    /**
+     * @return The compromised credentials risk configuration. See details below.
+     * 
+     */
     public Output<Optional<RiskConfigurationCompromisedCredentialsRiskConfiguration>> compromisedCredentialsRiskConfiguration() {
         return Codegen.optional(this.compromisedCredentialsRiskConfiguration);
     }
+    /**
+     * The configuration to override the risk decision. See details below.
+     * 
+     */
     @Export(name="riskExceptionConfiguration", refs={RiskConfigurationRiskExceptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ RiskConfigurationRiskExceptionConfiguration> riskExceptionConfiguration;
 
+    /**
+     * @return The configuration to override the risk decision. See details below.
+     * 
+     */
     public Output<Optional<RiskConfigurationRiskExceptionConfiguration>> riskExceptionConfiguration() {
         return Codegen.optional(this.riskExceptionConfiguration);
     }
+    /**
+     * The user pool ID.
+     * 
+     */
     @Export(name="userPoolId", refs={String.class}, tree="[0]")
     private Output<String> userPoolId;
 
+    /**
+     * @return The user pool ID.
+     * 
+     */
     public Output<String> userPoolId() {
         return this.userPoolId;
     }

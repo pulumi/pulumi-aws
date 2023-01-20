@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class BucketObjectLockConfigurationV2Rule {
+    /**
+     * @return A configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket detailed below.
+     * 
+     */
     private BucketObjectLockConfigurationV2RuleDefaultRetention defaultRetention;
 
     private BucketObjectLockConfigurationV2Rule() {}
+    /**
+     * @return A configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket detailed below.
+     * 
+     */
     public BucketObjectLockConfigurationV2RuleDefaultRetention defaultRetention() {
         return this.defaultRetention;
     }

@@ -4,6 +4,25 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Requests automatic route propagation between a VPN gateway and a route table.
+ *
+ * > **Note:** This resource should not be used with a route table that has
+ * the `propagatingVgws` argument set. If that argument is set, any route
+ * propagation not explicitly listed in its value will be removed.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2.VpnGatewayRoutePropagation("example", {
+ *     vpnGatewayId: aws_vpn_gateway.example.id,
+ *     routeTableId: aws_route_table.example.id,
+ * });
+ * ```
+ */
 export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
     /**
      * Get an existing VpnGatewayRoutePropagation resource's state with the given name, ID, and optional extra
@@ -32,7 +51,13 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpnGatewayRoutePropagation.__pulumiType;
     }
 
+    /**
+     * The id of the `aws.ec2.RouteTable` to propagate routes into.
+     */
     public readonly routeTableId!: pulumi.Output<string>;
+    /**
+     * The id of the `aws.ec2.VpnGateway` to propagate routes from.
+     */
     public readonly vpnGatewayId!: pulumi.Output<string>;
 
     /**
@@ -70,7 +95,13 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpnGatewayRoutePropagation resources.
  */
 export interface VpnGatewayRoutePropagationState {
+    /**
+     * The id of the `aws.ec2.RouteTable` to propagate routes into.
+     */
     routeTableId?: pulumi.Input<string>;
+    /**
+     * The id of the `aws.ec2.VpnGateway` to propagate routes from.
+     */
     vpnGatewayId?: pulumi.Input<string>;
 }
 
@@ -78,6 +109,12 @@ export interface VpnGatewayRoutePropagationState {
  * The set of arguments for constructing a VpnGatewayRoutePropagation resource.
  */
 export interface VpnGatewayRoutePropagationArgs {
+    /**
+     * The id of the `aws.ec2.RouteTable` to propagate routes into.
+     */
     routeTableId: pulumi.Input<string>;
+    /**
+     * The id of the `aws.ec2.VpnGateway` to propagate routes from.
+     */
     vpnGatewayId: pulumi.Input<string>;
 }

@@ -9,15 +9,182 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SesV2
 {
+    /// <summary>
+    /// Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination.
+    /// 
+    /// ## Example Usage
+    /// ### Cloud Watch Destination
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleConfigurationSet = new Aws.SesV2.ConfigurationSet("exampleConfigurationSet", new()
+    ///     {
+    ///         ConfigurationSetName = "example",
+    ///     });
+    /// 
+    ///     var exampleConfigurationSetEventDestination = new Aws.SesV2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", new()
+    ///     {
+    ///         ConfigurationSetName = exampleConfigurationSet.ConfigurationSetName,
+    ///         EventDestinationName = "example",
+    ///         EventDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationArgs
+    ///         {
+    ///             CloudWatchDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs
+    ///             {
+    ///                 DimensionConfigurations = new[]
+    ///                 {
+    ///                     new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs
+    ///                     {
+    ///                         DefaultDimensionValue = "example",
+    ///                         DimensionName = "example",
+    ///                         DimensionValueSource = "MESSAGE_TAG",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Enabled = true,
+    ///             MatchingEventTypes = new[]
+    ///             {
+    ///                 "SEND",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Kinesis Firehose Destination
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleConfigurationSet = new Aws.SesV2.ConfigurationSet("exampleConfigurationSet", new()
+    ///     {
+    ///         ConfigurationSetName = "example",
+    ///     });
+    /// 
+    ///     var exampleConfigurationSetEventDestination = new Aws.SesV2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", new()
+    ///     {
+    ///         ConfigurationSetName = exampleConfigurationSet.ConfigurationSetName,
+    ///         EventDestinationName = "example",
+    ///         EventDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationArgs
+    ///         {
+    ///             KinesisFirehoseDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs
+    ///             {
+    ///                 DeliveryStreamArn = aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///                 IamRoleArn = aws_iam_role.Example.Arn,
+    ///             },
+    ///             Enabled = true,
+    ///             MatchingEventTypes = new[]
+    ///             {
+    ///                 "SEND",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Pinpoint Destination
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleConfigurationSet = new Aws.SesV2.ConfigurationSet("exampleConfigurationSet", new()
+    ///     {
+    ///         ConfigurationSetName = "example",
+    ///     });
+    /// 
+    ///     var exampleConfigurationSetEventDestination = new Aws.SesV2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", new()
+    ///     {
+    ///         ConfigurationSetName = exampleConfigurationSet.ConfigurationSetName,
+    ///         EventDestinationName = "example",
+    ///         EventDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationArgs
+    ///         {
+    ///             PinpointDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs
+    ///             {
+    ///                 ApplicationArn = aws_pinpoint_app.Example.Arn,
+    ///             },
+    ///             Enabled = true,
+    ///             MatchingEventTypes = new[]
+    ///             {
+    ///                 "SEND",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### SNS Destination
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleConfigurationSet = new Aws.SesV2.ConfigurationSet("exampleConfigurationSet", new()
+    ///     {
+    ///         ConfigurationSetName = "example",
+    ///     });
+    /// 
+    ///     var exampleConfigurationSetEventDestination = new Aws.SesV2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", new()
+    ///     {
+    ///         ConfigurationSetName = exampleConfigurationSet.ConfigurationSetName,
+    ///         EventDestinationName = "example",
+    ///         EventDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationArgs
+    ///         {
+    ///             SnsDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs
+    ///             {
+    ///                 TopicArn = aws_sns_topic.Example.Arn,
+    ///             },
+    ///             Enabled = true,
+    ///             MatchingEventTypes = new[]
+    ///             {
+    ///                 "SEND",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SESv2 (Simple Email V2) Configuration Set Event Destination can be imported using the `id` (`configuration_set_name|event_destination_name`), e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination")]
     public partial class ConfigurationSetEventDestination : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the configuration set.
+        /// </summary>
         [Output("configurationSetName")]
         public Output<string> ConfigurationSetName { get; private set; } = null!;
 
+        /// <summary>
+        /// A name that identifies the event destination within the configuration set.
+        /// </summary>
         [Output("eventDestination")]
         public Output<Outputs.ConfigurationSetEventDestinationEventDestination> EventDestination { get; private set; } = null!;
 
+        /// <summary>
+        /// An object that defines the event destination. See event_destination below.
+        /// </summary>
         [Output("eventDestinationName")]
         public Output<string> EventDestinationName { get; private set; } = null!;
 
@@ -67,12 +234,21 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class ConfigurationSetEventDestinationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the configuration set.
+        /// </summary>
         [Input("configurationSetName", required: true)]
         public Input<string> ConfigurationSetName { get; set; } = null!;
 
+        /// <summary>
+        /// A name that identifies the event destination within the configuration set.
+        /// </summary>
         [Input("eventDestination", required: true)]
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationArgs> EventDestination { get; set; } = null!;
 
+        /// <summary>
+        /// An object that defines the event destination. See event_destination below.
+        /// </summary>
         [Input("eventDestinationName", required: true)]
         public Input<string> EventDestinationName { get; set; } = null!;
 
@@ -84,12 +260,21 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class ConfigurationSetEventDestinationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the configuration set.
+        /// </summary>
         [Input("configurationSetName")]
         public Input<string>? ConfigurationSetName { get; set; }
 
+        /// <summary>
+        /// A name that identifies the event destination within the configuration set.
+        /// </summary>
         [Input("eventDestination")]
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationGetArgs>? EventDestination { get; set; }
 
+        /// <summary>
+        /// An object that defines the event destination. See event_destination below.
+        /// </summary>
         [Input("eventDestinationName")]
         public Input<string>? EventDestinationName { get; set; }
 

@@ -10,6 +10,60 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
+//
+// ## Example Usage
+// ### Filter By Workspace ID
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/workspaces"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := workspaces.LookupWorkspace(ctx, &workspaces.LookupWorkspaceArgs{
+//				WorkspaceId: pulumi.StringRef("ws-cj5xcxsz5"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Filter By Directory ID & User Name
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/workspaces"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := workspaces.LookupWorkspace(ctx, &workspaces.LookupWorkspaceArgs{
+//				DirectoryId: pulumi.StringRef("d-9967252f57"),
+//				UserName:    pulumi.StringRef("Example"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
 	err := ctx.Invoke("aws:workspaces/getWorkspace:getWorkspace", args, &rv, opts...)
@@ -21,21 +75,28 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 
 // A collection of arguments for invoking getWorkspace.
 type LookupWorkspaceArgs struct {
-	DirectoryId *string           `pulumi:"directoryId"`
-	Tags        map[string]string `pulumi:"tags"`
-	UserName    *string           `pulumi:"userName"`
-	WorkspaceId *string           `pulumi:"workspaceId"`
+	// ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
+	DirectoryId *string `pulumi:"directoryId"`
+	// Tags for the WorkSpace.
+	Tags map[string]string `pulumi:"tags"`
+	// User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
+	UserName *string `pulumi:"userName"`
+	// ID of the WorkSpace. You cannot combine this parameter with `directoryId`.
+	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 // A collection of values returned by getWorkspace.
 type LookupWorkspaceResult struct {
-	BundleId     string `pulumi:"bundleId"`
+	BundleId string `pulumi:"bundleId"`
+	// Name of the WorkSpace, as seen by the operating system.
 	ComputerName string `pulumi:"computerName"`
 	DirectoryId  string `pulumi:"directoryId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                          string                          `pulumi:"id"`
-	IpAddress                   string                          `pulumi:"ipAddress"`
-	RootVolumeEncryptionEnabled bool                            `pulumi:"rootVolumeEncryptionEnabled"`
+	Id string `pulumi:"id"`
+	// IP address of the WorkSpace.
+	IpAddress                   string `pulumi:"ipAddress"`
+	RootVolumeEncryptionEnabled bool   `pulumi:"rootVolumeEncryptionEnabled"`
+	// Operational state of the WorkSpace.
 	State                       string                          `pulumi:"state"`
 	Tags                        map[string]string               `pulumi:"tags"`
 	UserName                    string                          `pulumi:"userName"`
@@ -60,9 +121,13 @@ func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, 
 
 // A collection of arguments for invoking getWorkspace.
 type LookupWorkspaceOutputArgs struct {
+	// ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
 	DirectoryId pulumi.StringPtrInput `pulumi:"directoryId"`
-	Tags        pulumi.StringMapInput `pulumi:"tags"`
-	UserName    pulumi.StringPtrInput `pulumi:"userName"`
+	// Tags for the WorkSpace.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
+	UserName pulumi.StringPtrInput `pulumi:"userName"`
+	// ID of the WorkSpace. You cannot combine this parameter with `directoryId`.
 	WorkspaceId pulumi.StringPtrInput `pulumi:"workspaceId"`
 }
 
@@ -89,6 +154,7 @@ func (o LookupWorkspaceResultOutput) BundleId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.BundleId }).(pulumi.StringOutput)
 }
 
+// Name of the WorkSpace, as seen by the operating system.
 func (o LookupWorkspaceResultOutput) ComputerName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.ComputerName }).(pulumi.StringOutput)
 }
@@ -102,6 +168,7 @@ func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// IP address of the WorkSpace.
 func (o LookupWorkspaceResultOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.IpAddress }).(pulumi.StringOutput)
 }
@@ -110,6 +177,7 @@ func (o LookupWorkspaceResultOutput) RootVolumeEncryptionEnabled() pulumi.BoolOu
 	return o.ApplyT(func(v LookupWorkspaceResult) bool { return v.RootVolumeEncryptionEnabled }).(pulumi.BoolOutput)
 }
 
+// Operational state of the WorkSpace.
 func (o LookupWorkspaceResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.State }).(pulumi.StringOutput)
 }

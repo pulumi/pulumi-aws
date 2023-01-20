@@ -11,13 +11,61 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates Security Hub custom action.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securityhub.NewActionTarget(ctx, "exampleActionTarget", &securityhub.ActionTargetArgs{
+//				Identifier:  pulumi.String("SendToChat"),
+//				Description: pulumi.String("This is custom action sends selected findings to chat"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAccount,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Security Hub custom action can be imported using the action target ARN e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
+//
+// ```
 type ActionTarget struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput `pulumi:"arn"`
+	// Amazon Resource Name (ARN) of the Security Hub custom action target.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name of the custom action target.
 	Description pulumi.StringOutput `pulumi:"description"`
-	Identifier  pulumi.StringOutput `pulumi:"identifier"`
-	Name        pulumi.StringOutput `pulumi:"name"`
+	// The ID for the custom action target.
+	Identifier pulumi.StringOutput `pulumi:"identifier"`
+	// The description for the custom action target.
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewActionTarget registers a new resource with the given unique name, arguments, and options.
@@ -55,17 +103,25 @@ func GetActionTarget(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActionTarget resources.
 type actionTargetState struct {
-	Arn         *string `pulumi:"arn"`
+	// Amazon Resource Name (ARN) of the Security Hub custom action target.
+	Arn *string `pulumi:"arn"`
+	// The name of the custom action target.
 	Description *string `pulumi:"description"`
-	Identifier  *string `pulumi:"identifier"`
-	Name        *string `pulumi:"name"`
+	// The ID for the custom action target.
+	Identifier *string `pulumi:"identifier"`
+	// The description for the custom action target.
+	Name *string `pulumi:"name"`
 }
 
 type ActionTargetState struct {
-	Arn         pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the Security Hub custom action target.
+	Arn pulumi.StringPtrInput
+	// The name of the custom action target.
 	Description pulumi.StringPtrInput
-	Identifier  pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
+	// The ID for the custom action target.
+	Identifier pulumi.StringPtrInput
+	// The description for the custom action target.
+	Name pulumi.StringPtrInput
 }
 
 func (ActionTargetState) ElementType() reflect.Type {
@@ -73,16 +129,22 @@ func (ActionTargetState) ElementType() reflect.Type {
 }
 
 type actionTargetArgs struct {
-	Description string  `pulumi:"description"`
-	Identifier  string  `pulumi:"identifier"`
-	Name        *string `pulumi:"name"`
+	// The name of the custom action target.
+	Description string `pulumi:"description"`
+	// The ID for the custom action target.
+	Identifier string `pulumi:"identifier"`
+	// The description for the custom action target.
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ActionTarget resource.
 type ActionTargetArgs struct {
+	// The name of the custom action target.
 	Description pulumi.StringInput
-	Identifier  pulumi.StringInput
-	Name        pulumi.StringPtrInput
+	// The ID for the custom action target.
+	Identifier pulumi.StringInput
+	// The description for the custom action target.
+	Name pulumi.StringPtrInput
 }
 
 func (ActionTargetArgs) ElementType() reflect.Type {
@@ -172,18 +234,22 @@ func (o ActionTargetOutput) ToActionTargetOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Amazon Resource Name (ARN) of the Security Hub custom action target.
 func (o ActionTargetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionTarget) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The name of the custom action target.
 func (o ActionTargetOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionTarget) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
+// The ID for the custom action target.
 func (o ActionTargetOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionTarget) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
 }
 
+// The description for the custom action target.
 func (o ActionTargetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionTarget) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -17,53 +17,201 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a CodeBuild Report Groups Resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.codebuild.ReportGroup;
+ * import com.pulumi.aws.codebuild.ReportGroupArgs;
+ * import com.pulumi.aws.codebuild.inputs.ReportGroupExportConfigArgs;
+ * import com.pulumi.aws.codebuild.inputs.ReportGroupExportConfigS3DestinationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity();
+ * 
+ *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .description(&#34;my test kms key&#34;)
+ *             .deletionWindowInDays(7)
+ *             .policy(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Id&#34;: &#34;kms-tf-1&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Sid&#34;: &#34;Enable IAM User Permissions&#34;,
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Principal&#34;: {
+ *         &#34;AWS&#34;: &#34;arn:aws:iam::%s:root&#34;
+ *       },
+ *       &#34;Action&#34;: &#34;kms:*&#34;,
+ *       &#34;Resource&#34;: &#34;*&#34;
+ *     }
+ *   ]
+ * }
+ * &#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *             .build());
+ * 
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ * 
+ *         var exampleReportGroup = new ReportGroup(&#34;exampleReportGroup&#34;, ReportGroupArgs.builder()        
+ *             .type(&#34;TEST&#34;)
+ *             .exportConfig(ReportGroupExportConfigArgs.builder()
+ *                 .type(&#34;S3&#34;)
+ *                 .s3Destination(ReportGroupExportConfigS3DestinationArgs.builder()
+ *                     .bucket(exampleBucketV2.id())
+ *                     .encryptionDisabled(false)
+ *                     .encryptionKey(exampleKey.arn())
+ *                     .packaging(&#34;NONE&#34;)
+ *                     .path(&#34;/some&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * CodeBuild Report Group can be imported using the CodeBuild Report Group arn, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+ * ```
+ * 
+ */
 @ResourceType(type="aws:codebuild/reportGroup:ReportGroup")
 public class ReportGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of Report Group.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of Report Group.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The date and time this Report Group was created.
+     * 
+     */
     @Export(name="created", refs={String.class}, tree="[0]")
     private Output<String> created;
 
+    /**
+     * @return The date and time this Report Group was created.
+     * 
+     */
     public Output<String> created() {
         return this.created;
     }
+    /**
+     * If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+     * 
+     */
     @Export(name="deleteReports", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteReports;
 
+    /**
+     * @return If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+     * 
+     */
     public Output<Optional<Boolean>> deleteReports() {
         return Codegen.optional(this.deleteReports);
     }
+    /**
+     * Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
+     * 
+     */
     @Export(name="exportConfig", refs={ReportGroupExportConfig.class}, tree="[0]")
     private Output<ReportGroupExportConfig> exportConfig;
 
+    /**
+     * @return Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
+     * 
+     */
     public Output<ReportGroupExportConfig> exportConfig() {
         return this.exportConfig;
     }
+    /**
+     * The name of a Report Group.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of a Report Group.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
+    /**
+     * @return The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }

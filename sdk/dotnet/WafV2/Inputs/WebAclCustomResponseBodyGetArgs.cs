@@ -12,12 +12,21 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclCustomResponseBodyGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Payload of the custom response.
+        /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
 
+        /// <summary>
+        /// Type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
+        /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
+        /// <summary>
+        /// Unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the Custom Response block.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 

@@ -11,15 +11,62 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Service Catalog Tag Option Resource Association.
+//
+// > **Tip:** A "resource" is either a Service Catalog portfolio or product.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := servicecatalog.NewTagOptionResourceAssociation(ctx, "example", &servicecatalog.TagOptionResourceAssociationArgs{
+//				ResourceId:  pulumi.String("prod-dnigbtea24ste"),
+//				TagOptionId: pulumi.String("tag-pjtvyakdlyo3m"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_servicecatalog_tag_option_resource_association` can be imported using the tag option ID and resource ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
+//
+// ```
 type TagOptionResourceAssociation struct {
 	pulumi.CustomResourceState
 
-	ResourceArn         pulumi.StringOutput `pulumi:"resourceArn"`
+	// ARN of the resource.
+	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	// Creation time of the resource.
 	ResourceCreatedTime pulumi.StringOutput `pulumi:"resourceCreatedTime"`
+	// Description of the resource.
 	ResourceDescription pulumi.StringOutput `pulumi:"resourceDescription"`
-	ResourceId          pulumi.StringOutput `pulumi:"resourceId"`
-	ResourceName        pulumi.StringOutput `pulumi:"resourceName"`
-	TagOptionId         pulumi.StringOutput `pulumi:"tagOptionId"`
+	// Resource identifier.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	// Description of the resource.
+	ResourceName pulumi.StringOutput `pulumi:"resourceName"`
+	// Tag Option identifier.
+	TagOptionId pulumi.StringOutput `pulumi:"tagOptionId"`
 }
 
 // NewTagOptionResourceAssociation registers a new resource with the given unique name, arguments, and options.
@@ -57,21 +104,33 @@ func GetTagOptionResourceAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TagOptionResourceAssociation resources.
 type tagOptionResourceAssociationState struct {
-	ResourceArn         *string `pulumi:"resourceArn"`
+	// ARN of the resource.
+	ResourceArn *string `pulumi:"resourceArn"`
+	// Creation time of the resource.
 	ResourceCreatedTime *string `pulumi:"resourceCreatedTime"`
+	// Description of the resource.
 	ResourceDescription *string `pulumi:"resourceDescription"`
-	ResourceId          *string `pulumi:"resourceId"`
-	ResourceName        *string `pulumi:"resourceName"`
-	TagOptionId         *string `pulumi:"tagOptionId"`
+	// Resource identifier.
+	ResourceId *string `pulumi:"resourceId"`
+	// Description of the resource.
+	ResourceName *string `pulumi:"resourceName"`
+	// Tag Option identifier.
+	TagOptionId *string `pulumi:"tagOptionId"`
 }
 
 type TagOptionResourceAssociationState struct {
-	ResourceArn         pulumi.StringPtrInput
+	// ARN of the resource.
+	ResourceArn pulumi.StringPtrInput
+	// Creation time of the resource.
 	ResourceCreatedTime pulumi.StringPtrInput
+	// Description of the resource.
 	ResourceDescription pulumi.StringPtrInput
-	ResourceId          pulumi.StringPtrInput
-	ResourceName        pulumi.StringPtrInput
-	TagOptionId         pulumi.StringPtrInput
+	// Resource identifier.
+	ResourceId pulumi.StringPtrInput
+	// Description of the resource.
+	ResourceName pulumi.StringPtrInput
+	// Tag Option identifier.
+	TagOptionId pulumi.StringPtrInput
 }
 
 func (TagOptionResourceAssociationState) ElementType() reflect.Type {
@@ -79,13 +138,17 @@ func (TagOptionResourceAssociationState) ElementType() reflect.Type {
 }
 
 type tagOptionResourceAssociationArgs struct {
-	ResourceId  string `pulumi:"resourceId"`
+	// Resource identifier.
+	ResourceId string `pulumi:"resourceId"`
+	// Tag Option identifier.
 	TagOptionId string `pulumi:"tagOptionId"`
 }
 
 // The set of arguments for constructing a TagOptionResourceAssociation resource.
 type TagOptionResourceAssociationArgs struct {
-	ResourceId  pulumi.StringInput
+	// Resource identifier.
+	ResourceId pulumi.StringInput
+	// Tag Option identifier.
 	TagOptionId pulumi.StringInput
 }
 
@@ -176,26 +239,32 @@ func (o TagOptionResourceAssociationOutput) ToTagOptionResourceAssociationOutput
 	return o
 }
 
+// ARN of the resource.
 func (o TagOptionResourceAssociationOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
+// Creation time of the resource.
 func (o TagOptionResourceAssociationOutput) ResourceCreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringOutput { return v.ResourceCreatedTime }).(pulumi.StringOutput)
 }
 
+// Description of the resource.
 func (o TagOptionResourceAssociationOutput) ResourceDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringOutput { return v.ResourceDescription }).(pulumi.StringOutput)
 }
 
+// Resource identifier.
 func (o TagOptionResourceAssociationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
+// Description of the resource.
 func (o TagOptionResourceAssociationOutput) ResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringOutput { return v.ResourceName }).(pulumi.StringOutput)
 }
 
+// Tag Option identifier.
 func (o TagOptionResourceAssociationOutput) TagOptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringOutput { return v.TagOptionId }).(pulumi.StringOutput)
 }

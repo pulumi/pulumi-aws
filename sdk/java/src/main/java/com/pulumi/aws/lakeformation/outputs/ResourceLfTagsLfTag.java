@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResourceLfTagsLfTag {
+    /**
+     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
+     * 
+     */
     private @Nullable String catalogId;
+    /**
+     * @return Key name for an existing LF-tag.
+     * 
+     */
     private String key;
+    /**
+     * @return Value from the possible values for the LF-tag.
+     * 
+     */
     private String value;
 
     private ResourceLfTagsLfTag() {}
+    /**
+     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
+     * 
+     */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
+    /**
+     * @return Key name for an existing LF-tag.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return Value from the possible values for the LF-tag.
+     * 
+     */
     public String value() {
         return this.value;
     }

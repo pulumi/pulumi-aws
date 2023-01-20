@@ -50,11 +50,17 @@ class GetSubnetGroupResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN for the DB subnet group.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Provides the description of the DB subnet group.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -73,21 +79,33 @@ class GetSubnetGroupResult:
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        Provides the status of the DB subnet group.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
+        """
+        Contains a list of subnet identifiers.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter(name="supportedNetworkTypes")
     def supported_network_types(self) -> Sequence[str]:
+        """
+        The network type of the DB subnet group.
+        """
         return pulumi.get(self, "supported_network_types")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
+        """
+        Provides the VPC ID of the DB subnet group.
+        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -110,7 +128,19 @@ class AwaitableGetSubnetGroupResult(GetSubnetGroupResult):
 def get_subnet_group(name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about an RDS subnet group.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    database = aws.rds.get_subnet_group(name="my-test-database-subnet-group")
+    ```
+
+
+    :param str name: Name of the RDS database subnet group.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -132,6 +162,18 @@ def get_subnet_group(name: Optional[str] = None,
 def get_subnet_group_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetGroupResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about an RDS subnet group.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    database = aws.rds.get_subnet_group(name="my-test-database-subnet-group")
+    ```
+
+
+    :param str name: Name of the RDS database subnet group.
     """
     ...

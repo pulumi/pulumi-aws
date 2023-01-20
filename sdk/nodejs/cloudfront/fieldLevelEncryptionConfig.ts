@@ -7,6 +7,46 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a CloudFront Field-level Encryption Config resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.cloudfront.FieldLevelEncryptionConfig("test", {
+ *     comment: "test comment",
+ *     contentTypeProfileConfig: {
+ *         forwardWhenContentTypeIsUnknown: true,
+ *         contentTypeProfiles: {
+ *             items: [{
+ *                 contentType: "application/x-www-form-urlencoded",
+ *                 format: "URLEncoded",
+ *             }],
+ *         },
+ *     },
+ *     queryArgProfileConfig: {
+ *         forwardWhenQueryArgProfileIsUnknown: true,
+ *         queryArgProfiles: {
+ *             items: [{
+ *                 profileId: aws_cloudfront_field_level_encryption_profile.test.id,
+ *                 queryArg: "Arg1",
+ *             }],
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Cloudfront Field Level Encryption Config can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
+ * ```
+ */
 export class FieldLevelEncryptionConfig extends pulumi.CustomResource {
     /**
      * Get an existing FieldLevelEncryptionConfig resource's state with the given name, ID, and optional extra
@@ -35,10 +75,25 @@ export class FieldLevelEncryptionConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === FieldLevelEncryptionConfig.__pulumiType;
     }
 
+    /**
+     * Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
+     */
     public /*out*/ readonly callerReference!: pulumi.Output<string>;
+    /**
+     * An optional comment about the Field Level Encryption Config.
+     */
     public readonly comment!: pulumi.Output<string | undefined>;
+    /**
+     * Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+     */
     public readonly contentTypeProfileConfig!: pulumi.Output<outputs.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfig>;
+    /**
+     * The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
+     */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
+     */
     public readonly queryArgProfileConfig!: pulumi.Output<outputs.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfig>;
 
     /**
@@ -82,10 +137,25 @@ export class FieldLevelEncryptionConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FieldLevelEncryptionConfig resources.
  */
 export interface FieldLevelEncryptionConfigState {
+    /**
+     * Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
+     */
     callerReference?: pulumi.Input<string>;
+    /**
+     * An optional comment about the Field Level Encryption Config.
+     */
     comment?: pulumi.Input<string>;
+    /**
+     * Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+     */
     contentTypeProfileConfig?: pulumi.Input<inputs.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfig>;
+    /**
+     * The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
+     */
     etag?: pulumi.Input<string>;
+    /**
+     * Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
+     */
     queryArgProfileConfig?: pulumi.Input<inputs.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfig>;
 }
 
@@ -93,7 +163,16 @@ export interface FieldLevelEncryptionConfigState {
  * The set of arguments for constructing a FieldLevelEncryptionConfig resource.
  */
 export interface FieldLevelEncryptionConfigArgs {
+    /**
+     * An optional comment about the Field Level Encryption Config.
+     */
     comment?: pulumi.Input<string>;
+    /**
+     * Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+     */
     contentTypeProfileConfig: pulumi.Input<inputs.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfig>;
+    /**
+     * Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
+     */
     queryArgProfileConfig: pulumi.Input<inputs.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfig>;
 }

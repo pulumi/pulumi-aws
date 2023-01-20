@@ -36,6 +36,9 @@ class GetOrganizationalUnitsResult:
     @property
     @pulumi.getter
     def childrens(self) -> Sequence['outputs.GetOrganizationalUnitsChildrenResult']:
+        """
+        List of child organizational units, which have the following attributes:
+        """
         return pulumi.get(self, "childrens")
 
     @property
@@ -66,7 +69,20 @@ class AwaitableGetOrganizationalUnitsResult(GetOrganizationalUnitsResult):
 def get_organizational_units(parent_id: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationalUnitsResult:
     """
-    Use this data source to access information about an existing resource.
+    Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    org = aws.organizations.get_organization()
+    ou = aws.organizations.get_organizational_units(parent_id=org.roots[0].id)
+    ```
+
+
+    :param str parent_id: Parent ID of the organizational unit.
     """
     __args__ = dict()
     __args__['parentId'] = parent_id
@@ -83,6 +99,19 @@ def get_organizational_units(parent_id: Optional[str] = None,
 def get_organizational_units_output(parent_id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationalUnitsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    org = aws.organizations.get_organization()
+    ou = aws.organizations.get_organizational_units(parent_id=org.roots[0].id)
+    ```
+
+
+    :param str parent_id: Parent ID of the organizational unit.
     """
     ...

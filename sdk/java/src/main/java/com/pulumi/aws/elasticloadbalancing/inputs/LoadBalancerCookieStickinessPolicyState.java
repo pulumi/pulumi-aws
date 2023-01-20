@@ -16,30 +16,70 @@ public final class LoadBalancerCookieStickinessPolicyState extends com.pulumi.re
 
     public static final LoadBalancerCookieStickinessPolicyState Empty = new LoadBalancerCookieStickinessPolicyState();
 
+    /**
+     * The time period after which
+     * the session cookie should be considered stale, expressed in seconds.
+     * 
+     */
     @Import(name="cookieExpirationPeriod")
     private @Nullable Output<Integer> cookieExpirationPeriod;
 
+    /**
+     * @return The time period after which
+     * the session cookie should be considered stale, expressed in seconds.
+     * 
+     */
     public Optional<Output<Integer>> cookieExpirationPeriod() {
         return Optional.ofNullable(this.cookieExpirationPeriod);
     }
 
+    /**
+     * The load balancer port to which the policy
+     * should be applied. This must be an active listener on the load
+     * balancer.
+     * 
+     */
     @Import(name="lbPort")
     private @Nullable Output<Integer> lbPort;
 
+    /**
+     * @return The load balancer port to which the policy
+     * should be applied. This must be an active listener on the load
+     * balancer.
+     * 
+     */
     public Optional<Output<Integer>> lbPort() {
         return Optional.ofNullable(this.lbPort);
     }
 
+    /**
+     * The load balancer to which the policy
+     * should be attached.
+     * 
+     */
     @Import(name="loadBalancer")
     private @Nullable Output<String> loadBalancer;
 
+    /**
+     * @return The load balancer to which the policy
+     * should be attached.
+     * 
+     */
     public Optional<Output<String>> loadBalancer() {
         return Optional.ofNullable(this.loadBalancer);
     }
 
+    /**
+     * The name of the stickiness policy.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the stickiness policy.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -71,38 +111,94 @@ public final class LoadBalancerCookieStickinessPolicyState extends com.pulumi.re
             $ = new LoadBalancerCookieStickinessPolicyState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cookieExpirationPeriod The time period after which
+         * the session cookie should be considered stale, expressed in seconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cookieExpirationPeriod(@Nullable Output<Integer> cookieExpirationPeriod) {
             $.cookieExpirationPeriod = cookieExpirationPeriod;
             return this;
         }
 
+        /**
+         * @param cookieExpirationPeriod The time period after which
+         * the session cookie should be considered stale, expressed in seconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cookieExpirationPeriod(Integer cookieExpirationPeriod) {
             return cookieExpirationPeriod(Output.of(cookieExpirationPeriod));
         }
 
+        /**
+         * @param lbPort The load balancer port to which the policy
+         * should be applied. This must be an active listener on the load
+         * balancer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lbPort(@Nullable Output<Integer> lbPort) {
             $.lbPort = lbPort;
             return this;
         }
 
+        /**
+         * @param lbPort The load balancer port to which the policy
+         * should be applied. This must be an active listener on the load
+         * balancer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lbPort(Integer lbPort) {
             return lbPort(Output.of(lbPort));
         }
 
+        /**
+         * @param loadBalancer The load balancer to which the policy
+         * should be attached.
+         * 
+         * @return builder
+         * 
+         */
         public Builder loadBalancer(@Nullable Output<String> loadBalancer) {
             $.loadBalancer = loadBalancer;
             return this;
         }
 
+        /**
+         * @param loadBalancer The load balancer to which the policy
+         * should be attached.
+         * 
+         * @return builder
+         * 
+         */
         public Builder loadBalancer(String loadBalancer) {
             return loadBalancer(Output.of(loadBalancer));
         }
 
+        /**
+         * @param name The name of the stickiness policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the stickiness policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

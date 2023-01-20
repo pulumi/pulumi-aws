@@ -14,23 +14,47 @@ public final class GetPermissionsLfTagArgs extends com.pulumi.resources.Resource
 
     public static final GetPermissionsLfTagArgs Empty = new GetPermissionsLfTagArgs();
 
+    /**
+     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
+     * 
+     */
     @Import(name="catalogId", required=true)
     private Output<String> catalogId;
 
+    /**
+     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
+     * 
+     */
     public Output<String> catalogId() {
         return this.catalogId;
     }
 
+    /**
+     * Key-name for the tag.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return Key-name for the tag.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * List of possible values an attribute can take.
+     * 
+     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
+    /**
+     * @return List of possible values an attribute can take.
+     * 
+     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -61,33 +85,75 @@ public final class GetPermissionsLfTagArgs extends com.pulumi.resources.Resource
             $ = new GetPermissionsLfTagArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
+         * 
+         * @return builder
+         * 
+         */
         public Builder catalogId(Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
+        /**
+         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
+         * 
+         * @return builder
+         * 
+         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
+        /**
+         * @param key Key-name for the tag.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key Key-name for the tag.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param values List of possible values an attribute can take.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
+        /**
+         * @param values List of possible values an attribute can take.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
+        /**
+         * @param values List of possible values an attribute can take.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

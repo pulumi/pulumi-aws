@@ -11,10 +11,44 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Requests automatic route propagation between a VPN gateway and a route table.
+//
+// > **Note:** This resource should not be used with a route table that has
+// the `propagatingVgws` argument set. If that argument is set, any route
+// propagation not explicitly listed in its value will be removed.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewVpnGatewayRoutePropagation(ctx, "example", &ec2.VpnGatewayRoutePropagationArgs{
+//				VpnGatewayId: pulumi.Any(aws_vpn_gateway.Example.Id),
+//				RouteTableId: pulumi.Any(aws_route_table.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type VpnGatewayRoutePropagation struct {
 	pulumi.CustomResourceState
 
+	// The id of the `ec2.RouteTable` to propagate routes into.
 	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
+	// The id of the `ec2.VpnGateway` to propagate routes from.
 	VpnGatewayId pulumi.StringOutput `pulumi:"vpnGatewayId"`
 }
 
@@ -53,12 +87,16 @@ func GetVpnGatewayRoutePropagation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpnGatewayRoutePropagation resources.
 type vpnGatewayRoutePropagationState struct {
+	// The id of the `ec2.RouteTable` to propagate routes into.
 	RouteTableId *string `pulumi:"routeTableId"`
+	// The id of the `ec2.VpnGateway` to propagate routes from.
 	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
 type VpnGatewayRoutePropagationState struct {
+	// The id of the `ec2.RouteTable` to propagate routes into.
 	RouteTableId pulumi.StringPtrInput
+	// The id of the `ec2.VpnGateway` to propagate routes from.
 	VpnGatewayId pulumi.StringPtrInput
 }
 
@@ -67,13 +105,17 @@ func (VpnGatewayRoutePropagationState) ElementType() reflect.Type {
 }
 
 type vpnGatewayRoutePropagationArgs struct {
+	// The id of the `ec2.RouteTable` to propagate routes into.
 	RouteTableId string `pulumi:"routeTableId"`
+	// The id of the `ec2.VpnGateway` to propagate routes from.
 	VpnGatewayId string `pulumi:"vpnGatewayId"`
 }
 
 // The set of arguments for constructing a VpnGatewayRoutePropagation resource.
 type VpnGatewayRoutePropagationArgs struct {
+	// The id of the `ec2.RouteTable` to propagate routes into.
 	RouteTableId pulumi.StringInput
+	// The id of the `ec2.VpnGateway` to propagate routes from.
 	VpnGatewayId pulumi.StringInput
 }
 
@@ -164,10 +206,12 @@ func (o VpnGatewayRoutePropagationOutput) ToVpnGatewayRoutePropagationOutputWith
 	return o
 }
 
+// The id of the `ec2.RouteTable` to propagate routes into.
 func (o VpnGatewayRoutePropagationOutput) RouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnGatewayRoutePropagation) pulumi.StringOutput { return v.RouteTableId }).(pulumi.StringOutput)
 }
 
+// The id of the `ec2.VpnGateway` to propagate routes from.
 func (o VpnGatewayRoutePropagationOutput) VpnGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnGatewayRoutePropagation) pulumi.StringOutput { return v.VpnGatewayId }).(pulumi.StringOutput)
 }

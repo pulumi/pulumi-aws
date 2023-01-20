@@ -20,6 +20,10 @@ class PartnerArgs:
                  partner_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a Partner resource.
+        :param pulumi.Input[str] account_id: The Amazon Web Services account ID that owns the cluster.
+        :param pulumi.Input[str] cluster_identifier: The cluster identifier of the cluster that receives data from the partner.
+        :param pulumi.Input[str] database_name: The name of the database that receives data from the partner.
+        :param pulumi.Input[str] partner_name: The name of the partner that is authorized to send data.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
@@ -29,6 +33,9 @@ class PartnerArgs:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[str]:
+        """
+        The Amazon Web Services account ID that owns the cluster.
+        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -38,6 +45,9 @@ class PartnerArgs:
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[str]:
+        """
+        The cluster identifier of the cluster that receives data from the partner.
+        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -47,6 +57,9 @@ class PartnerArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the database that receives data from the partner.
+        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -56,6 +69,9 @@ class PartnerArgs:
     @property
     @pulumi.getter(name="partnerName")
     def partner_name(self) -> pulumi.Input[str]:
+        """
+        The name of the partner that is authorized to send data.
+        """
         return pulumi.get(self, "partner_name")
 
     @partner_name.setter
@@ -74,6 +90,12 @@ class _PartnerState:
                  status_message: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Partner resources.
+        :param pulumi.Input[str] account_id: The Amazon Web Services account ID that owns the cluster.
+        :param pulumi.Input[str] cluster_identifier: The cluster identifier of the cluster that receives data from the partner.
+        :param pulumi.Input[str] database_name: The name of the database that receives data from the partner.
+        :param pulumi.Input[str] partner_name: The name of the partner that is authorized to send data.
+        :param pulumi.Input[str] status: (Optional) The partner integration status.
+        :param pulumi.Input[str] status_message: (Optional) The status message provided by the partner.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -91,6 +113,9 @@ class _PartnerState:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Web Services account ID that owns the cluster.
+        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -100,6 +125,9 @@ class _PartnerState:
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The cluster identifier of the cluster that receives data from the partner.
+        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -109,6 +137,9 @@ class _PartnerState:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the database that receives data from the partner.
+        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -118,6 +149,9 @@ class _PartnerState:
     @property
     @pulumi.getter(name="partnerName")
     def partner_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the partner that is authorized to send data.
+        """
         return pulumi.get(self, "partner_name")
 
     @partner_name.setter
@@ -127,6 +161,9 @@ class _PartnerState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional) The partner integration status.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -136,6 +173,9 @@ class _PartnerState:
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional) The status message provided by the partner.
+        """
         return pulumi.get(self, "status_message")
 
     @status_message.setter
@@ -154,9 +194,35 @@ class Partner(pulumi.CustomResource):
                  partner_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Partner resource with the given unique name, props, and options.
+        Creates a new Amazon Redshift Partner Integration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.redshift.Partner("example",
+            cluster_identifier=aws_redshift_cluster["example"]["id"],
+            account_id="1234567910",
+            database_name=aws_redshift_cluster["example"]["database_name"],
+            partner_name="example")
+        ```
+
+        ## Import
+
+        Redshift usage limits can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_id: The Amazon Web Services account ID that owns the cluster.
+        :param pulumi.Input[str] cluster_identifier: The cluster identifier of the cluster that receives data from the partner.
+        :param pulumi.Input[str] database_name: The name of the database that receives data from the partner.
+        :param pulumi.Input[str] partner_name: The name of the partner that is authorized to send data.
         """
         ...
     @overload
@@ -165,7 +231,29 @@ class Partner(pulumi.CustomResource):
                  args: PartnerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Partner resource with the given unique name, props, and options.
+        Creates a new Amazon Redshift Partner Integration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.redshift.Partner("example",
+            cluster_identifier=aws_redshift_cluster["example"]["id"],
+            account_id="1234567910",
+            database_name=aws_redshift_cluster["example"]["database_name"],
+            partner_name="example")
+        ```
+
+        ## Import
+
+        Redshift usage limits can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
+        ```
+
         :param str resource_name: The name of the resource.
         :param PartnerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,6 +319,12 @@ class Partner(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_id: The Amazon Web Services account ID that owns the cluster.
+        :param pulumi.Input[str] cluster_identifier: The cluster identifier of the cluster that receives data from the partner.
+        :param pulumi.Input[str] database_name: The name of the database that receives data from the partner.
+        :param pulumi.Input[str] partner_name: The name of the partner that is authorized to send data.
+        :param pulumi.Input[str] status: (Optional) The partner integration status.
+        :param pulumi.Input[str] status_message: (Optional) The status message provided by the partner.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -247,30 +341,48 @@ class Partner(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
+        """
+        The Amazon Web Services account ID that owns the cluster.
+        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[str]:
+        """
+        The cluster identifier of the cluster that receives data from the partner.
+        """
         return pulumi.get(self, "cluster_identifier")
 
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Output[str]:
+        """
+        The name of the database that receives data from the partner.
+        """
         return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter(name="partnerName")
     def partner_name(self) -> pulumi.Output[str]:
+        """
+        The name of the partner that is authorized to send data.
+        """
         return pulumi.get(self, "partner_name")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        (Optional) The partner integration status.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> pulumi.Output[str]:
+        """
+        (Optional) The status message provided by the partner.
+        """
         return pulumi.get(self, "status_message")
 

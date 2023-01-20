@@ -14,9 +14,17 @@ public final class GetLogDeliveryCanonicalUserIdPlainArgs extends com.pulumi.res
 
     public static final GetLogDeliveryCanonicalUserIdPlainArgs Empty = new GetLogDeliveryCanonicalUserIdPlainArgs();
 
+    /**
+     * Region you&#39;d like the zone for. By default, fetches the current region.
+     * 
+     */
     @Import(name="region")
     private @Nullable String region;
 
+    /**
+     * @return Region you&#39;d like the zone for. By default, fetches the current region.
+     * 
+     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -45,6 +53,12 @@ public final class GetLogDeliveryCanonicalUserIdPlainArgs extends com.pulumi.res
             $ = new GetLogDeliveryCanonicalUserIdPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param region Region you&#39;d like the zone for. By default, fetches the current region.
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

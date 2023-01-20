@@ -13,10 +13,25 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketWebsiteConfigurationV2RoutingRuleRedirect
     {
+        /// <summary>
+        /// The host name to use in the redirect request.
+        /// </summary>
         public readonly string? HostName;
+        /// <summary>
+        /// The HTTP redirect code to use on the response.
+        /// </summary>
         public readonly string? HttpRedirectCode;
+        /// <summary>
+        /// Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
+        /// </summary>
         public readonly string? Protocol;
+        /// <summary>
+        /// The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
+        /// </summary>
         public readonly string? ReplaceKeyPrefixWith;
+        /// <summary>
+        /// The specific object key to use in the redirect request. For example, redirect request to `error.html`.
+        /// </summary>
         public readonly string? ReplaceKeyWith;
 
         [OutputConstructor]

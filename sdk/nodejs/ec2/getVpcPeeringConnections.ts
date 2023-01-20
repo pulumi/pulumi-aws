@@ -7,6 +7,13 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to get IDs of Amazon VPC peering connections
+ * To get more details on each connection, use the data resource aws.ec2.VpcPeeringConnection
+ *
+ * Note: To use this data source in a count, the resources should exist before trying to access
+ * the data source.
+ */
 export function getVpcPeeringConnections(args?: GetVpcPeeringConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcPeeringConnectionsResult> {
     args = args || {};
 
@@ -21,7 +28,14 @@ export function getVpcPeeringConnections(args?: GetVpcPeeringConnectionsArgs, op
  * A collection of arguments for invoking getVpcPeeringConnections.
  */
 export interface GetVpcPeeringConnectionsArgs {
+    /**
+     * Custom filter block as described below.
+     */
     filters?: inputs.ec2.GetVpcPeeringConnectionsFilter[];
+    /**
+     * Mapping of tags, each pair of which must exactly match
+     * a pair on the desired VPC Peering Connection.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -34,9 +48,19 @@ export interface GetVpcPeeringConnectionsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * IDs of the VPC Peering Connections.
+     */
     readonly ids: string[];
     readonly tags: {[key: string]: string};
 }
+/**
+ * Use this data source to get IDs of Amazon VPC peering connections
+ * To get more details on each connection, use the data resource aws.ec2.VpcPeeringConnection
+ *
+ * Note: To use this data source in a count, the resources should exist before trying to access
+ * the data source.
+ */
 export function getVpcPeeringConnectionsOutput(args?: GetVpcPeeringConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcPeeringConnectionsResult> {
     return pulumi.output(args).apply((a: any) => getVpcPeeringConnections(a, opts))
 }
@@ -45,6 +69,13 @@ export function getVpcPeeringConnectionsOutput(args?: GetVpcPeeringConnectionsOu
  * A collection of arguments for invoking getVpcPeeringConnections.
  */
 export interface GetVpcPeeringConnectionsOutputArgs {
+    /**
+     * Custom filter block as described below.
+     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcPeeringConnectionsFilterArgs>[]>;
+    /**
+     * Mapping of tags, each pair of which must exactly match
+     * a pair on the desired VPC Peering Connection.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

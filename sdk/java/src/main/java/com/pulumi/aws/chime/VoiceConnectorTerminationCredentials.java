@@ -15,17 +15,103 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
+/**
+ * Adds termination SIP credentials for the specified Amazon Chime Voice Connector.
+ * 
+ * &gt; **Note:** Voice Connector Termination Credentials requires a Voice Connector Termination to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.chime.VoiceConnector;
+ * import com.pulumi.aws.chime.VoiceConnectorArgs;
+ * import com.pulumi.aws.chime.VoiceConnectorTermination;
+ * import com.pulumi.aws.chime.VoiceConnectorTerminationArgs;
+ * import com.pulumi.aws.chime.VoiceConnectorTerminationCredentials;
+ * import com.pulumi.aws.chime.VoiceConnectorTerminationCredentialsArgs;
+ * import com.pulumi.aws.chime.inputs.VoiceConnectorTerminationCredentialsCredentialArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var defaultVoiceConnector = new VoiceConnector(&#34;defaultVoiceConnector&#34;, VoiceConnectorArgs.builder()        
+ *             .requireEncryption(true)
+ *             .build());
+ * 
+ *         var defaultVoiceConnectorTermination = new VoiceConnectorTermination(&#34;defaultVoiceConnectorTermination&#34;, VoiceConnectorTerminationArgs.builder()        
+ *             .disabled(true)
+ *             .cpsLimit(1)
+ *             .cidrAllowLists(&#34;50.35.78.96/31&#34;)
+ *             .callingRegions(            
+ *                 &#34;US&#34;,
+ *                 &#34;CA&#34;)
+ *             .voiceConnectorId(defaultVoiceConnector.id())
+ *             .build());
+ * 
+ *         var defaultVoiceConnectorTerminationCredentials = new VoiceConnectorTerminationCredentials(&#34;defaultVoiceConnectorTerminationCredentials&#34;, VoiceConnectorTerminationCredentialsArgs.builder()        
+ *             .voiceConnectorId(defaultVoiceConnector.id())
+ *             .credentials(VoiceConnectorTerminationCredentialsCredentialArgs.builder()
+ *                 .username(&#34;test&#34;)
+ *                 .password(&#34;test!&#34;)
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(defaultVoiceConnectorTermination)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Chime Voice Connector Termination Credentials can be imported using the `voice_connector_id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4
+ * ```
+ * 
+ */
 @ResourceType(type="aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials")
 public class VoiceConnectorTerminationCredentials extends com.pulumi.resources.CustomResource {
+    /**
+     * List of termination SIP credentials.
+     * 
+     */
     @Export(name="credentials", refs={List.class,VoiceConnectorTerminationCredentialsCredential.class}, tree="[0,1]")
     private Output<List<VoiceConnectorTerminationCredentialsCredential>> credentials;
 
+    /**
+     * @return List of termination SIP credentials.
+     * 
+     */
     public Output<List<VoiceConnectorTerminationCredentialsCredential>> credentials() {
         return this.credentials;
     }
+    /**
+     * Amazon Chime Voice Connector ID.
+     * 
+     */
     @Export(name="voiceConnectorId", refs={String.class}, tree="[0]")
     private Output<String> voiceConnectorId;
 
+    /**
+     * @return Amazon Chime Voice Connector ID.
+     * 
+     */
     public Output<String> voiceConnectorId() {
         return this.voiceConnectorId;
     }

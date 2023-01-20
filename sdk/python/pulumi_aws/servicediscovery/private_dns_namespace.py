@@ -20,6 +20,10 @@ class PrivateDnsNamespaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PrivateDnsNamespace resource.
+        :param pulumi.Input[str] vpc: The ID of VPC that you want to associate the namespace with.
+        :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.
+        :param pulumi.Input[str] name: The name of the namespace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "vpc", vpc)
         if description is not None:
@@ -32,6 +36,9 @@ class PrivateDnsNamespaceArgs:
     @property
     @pulumi.getter
     def vpc(self) -> pulumi.Input[str]:
+        """
+        The ID of VPC that you want to associate the namespace with.
+        """
         return pulumi.get(self, "vpc")
 
     @vpc.setter
@@ -41,6 +48,9 @@ class PrivateDnsNamespaceArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description that you specify for the namespace when you create it.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -50,6 +60,9 @@ class PrivateDnsNamespaceArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the namespace.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -59,6 +72,9 @@ class PrivateDnsNamespaceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -78,6 +94,13 @@ class _PrivateDnsNamespaceState:
                  vpc: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PrivateDnsNamespace resources.
+        :param pulumi.Input[str] arn: The ARN that Amazon Route 53 assigns to the namespace when you create it.
+        :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.
+        :param pulumi.Input[str] hosted_zone: The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
+        :param pulumi.Input[str] name: The name of the namespace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] vpc: The ID of VPC that you want to associate the namespace with.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -97,6 +120,9 @@ class _PrivateDnsNamespaceState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN that Amazon Route 53 assigns to the namespace when you create it.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -106,6 +132,9 @@ class _PrivateDnsNamespaceState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description that you specify for the namespace when you create it.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -115,6 +144,9 @@ class _PrivateDnsNamespaceState:
     @property
     @pulumi.getter(name="hostedZone")
     def hosted_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
+        """
         return pulumi.get(self, "hosted_zone")
 
     @hosted_zone.setter
@@ -124,6 +156,9 @@ class _PrivateDnsNamespaceState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the namespace.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -133,6 +168,9 @@ class _PrivateDnsNamespaceState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -142,6 +180,9 @@ class _PrivateDnsNamespaceState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -151,6 +192,9 @@ class _PrivateDnsNamespaceState:
     @property
     @pulumi.getter
     def vpc(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of VPC that you want to associate the namespace with.
+        """
         return pulumi.get(self, "vpc")
 
     @vpc.setter
@@ -169,9 +213,34 @@ class PrivateDnsNamespace(pulumi.CustomResource):
                  vpc: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a PrivateDnsNamespace resource with the given unique name, props, and options.
+        Provides a Service Discovery Private DNS Namespace resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
+        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace",
+            description="example",
+            vpc=example_vpc.id)
+        ```
+
+        ## Import
+
+        Service Discovery Private DNS Namespace can be imported using the namespace ID and VPC ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.
+        :param pulumi.Input[str] name: The name of the namespace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] vpc: The ID of VPC that you want to associate the namespace with.
         """
         ...
     @overload
@@ -180,7 +249,28 @@ class PrivateDnsNamespace(pulumi.CustomResource):
                  args: PrivateDnsNamespaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a PrivateDnsNamespace resource with the given unique name, props, and options.
+        Provides a Service Discovery Private DNS Namespace resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
+        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace",
+            description="example",
+            vpc=example_vpc.id)
+        ```
+
+        ## Import
+
+        Service Discovery Private DNS Namespace can be imported using the namespace ID and VPC ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
+        ```
+
         :param str resource_name: The name of the resource.
         :param PrivateDnsNamespaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -242,6 +332,13 @@ class PrivateDnsNamespace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN that Amazon Route 53 assigns to the namespace when you create it.
+        :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.
+        :param pulumi.Input[str] hosted_zone: The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
+        :param pulumi.Input[str] name: The name of the namespace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] vpc: The ID of VPC that you want to associate the namespace with.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -259,35 +356,56 @@ class PrivateDnsNamespace(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN that Amazon Route 53 assigns to the namespace when you create it.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description that you specify for the namespace when you create it.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="hostedZone")
     def hosted_zone(self) -> pulumi.Output[str]:
+        """
+        The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
+        """
         return pulumi.get(self, "hosted_zone")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the namespace.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
     def vpc(self) -> pulumi.Output[str]:
+        """
+        The ID of VPC that you want to associate the namespace with.
+        """
         return pulumi.get(self, "vpc")
 

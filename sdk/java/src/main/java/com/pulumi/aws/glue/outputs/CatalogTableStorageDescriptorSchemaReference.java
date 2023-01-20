@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogTableStorageDescriptorSchemaReference {
+    /**
+     * @return Configuration block that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See `schema_id` below.
+     * 
+     */
     private @Nullable CatalogTableStorageDescriptorSchemaReferenceSchemaId schemaId;
+    /**
+     * @return Unique ID assigned to a version of the schema. Either this or the `schema_id` has to be provided.
+     * 
+     */
     private @Nullable String schemaVersionId;
+    /**
+     * @return Version number of the schema.
+     * 
+     */
     private Integer schemaVersionNumber;
 
     private CatalogTableStorageDescriptorSchemaReference() {}
+    /**
+     * @return Configuration block that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See `schema_id` below.
+     * 
+     */
     public Optional<CatalogTableStorageDescriptorSchemaReferenceSchemaId> schemaId() {
         return Optional.ofNullable(this.schemaId);
     }
+    /**
+     * @return Unique ID assigned to a version of the schema. Either this or the `schema_id` has to be provided.
+     * 
+     */
     public Optional<String> schemaVersionId() {
         return Optional.ofNullable(this.schemaVersionId);
     }
+    /**
+     * @return Version number of the schema.
+     * 
+     */
     public Integer schemaVersionNumber() {
         return this.schemaVersionNumber;
     }

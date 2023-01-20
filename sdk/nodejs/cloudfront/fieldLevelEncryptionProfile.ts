@@ -7,6 +7,42 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a CloudFront Field-level Encryption Profile resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ *
+ * const example = new aws.cloudfront.PublicKey("example", {
+ *     comment: "test public key",
+ *     encodedKey: fs.readFileSync("public_key.pem"),
+ * });
+ * const test = new aws.cloudfront.FieldLevelEncryptionProfile("test", {
+ *     comment: "test comment",
+ *     encryptionEntities: {
+ *         items: [{
+ *             publicKeyId: example.id,
+ *             providerId: "test provider",
+ *             fieldPatterns: {
+ *                 items: ["DateOfBirth"],
+ *             },
+ *         }],
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Cloudfront Field Level Encryption Profile can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON
+ * ```
+ */
 export class FieldLevelEncryptionProfile extends pulumi.CustomResource {
     /**
      * Get an existing FieldLevelEncryptionProfile resource's state with the given name, ID, and optional extra
@@ -35,10 +71,25 @@ export class FieldLevelEncryptionProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === FieldLevelEncryptionProfile.__pulumiType;
     }
 
+    /**
+     * Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
+     */
     public /*out*/ readonly callerReference!: pulumi.Output<string>;
+    /**
+     * An optional comment about the Field Level Encryption Profile.
+     */
     public readonly comment!: pulumi.Output<string | undefined>;
+    /**
+     * The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
+     */
     public readonly encryptionEntities!: pulumi.Output<outputs.cloudfront.FieldLevelEncryptionProfileEncryptionEntities>;
+    /**
+     * The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
+     */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The name of the Field Level Encryption Profile.
+     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -79,10 +130,25 @@ export class FieldLevelEncryptionProfile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FieldLevelEncryptionProfile resources.
  */
 export interface FieldLevelEncryptionProfileState {
+    /**
+     * Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
+     */
     callerReference?: pulumi.Input<string>;
+    /**
+     * An optional comment about the Field Level Encryption Profile.
+     */
     comment?: pulumi.Input<string>;
+    /**
+     * The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
+     */
     encryptionEntities?: pulumi.Input<inputs.cloudfront.FieldLevelEncryptionProfileEncryptionEntities>;
+    /**
+     * The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
+     */
     etag?: pulumi.Input<string>;
+    /**
+     * The name of the Field Level Encryption Profile.
+     */
     name?: pulumi.Input<string>;
 }
 
@@ -90,7 +156,16 @@ export interface FieldLevelEncryptionProfileState {
  * The set of arguments for constructing a FieldLevelEncryptionProfile resource.
  */
 export interface FieldLevelEncryptionProfileArgs {
+    /**
+     * An optional comment about the Field Level Encryption Profile.
+     */
     comment?: pulumi.Input<string>;
+    /**
+     * The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
+     */
     encryptionEntities: pulumi.Input<inputs.cloudfront.FieldLevelEncryptionProfileEncryptionEntities>;
+    /**
+     * The name of the Field Level Encryption Profile.
+     */
     name?: pulumi.Input<string>;
 }

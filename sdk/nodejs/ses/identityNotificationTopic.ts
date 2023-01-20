@@ -4,6 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Resource for managing SES Identity Notification Topics
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.ses.IdentityNotificationTopic("test", {
+ *     topicArn: aws_sns_topic.example.arn,
+ *     notificationType: "Bounce",
+ *     identity: aws_ses_domain_identity.example.domain,
+ *     includeOriginalHeaders: true,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Identity Notification Topics can be imported using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type.
+ *
+ * ```sh
+ *  $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
+ * ```
+ */
 export class IdentityNotificationTopic extends pulumi.CustomResource {
     /**
      * Get an existing IdentityNotificationTopic resource's state with the given name, ID, and optional extra
@@ -32,9 +57,21 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
         return obj['__pulumiType'] === IdentityNotificationTopic.__pulumiType;
     }
 
+    /**
+     * The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+     */
     public readonly identity!: pulumi.Output<string>;
+    /**
+     * Whether SES should include original email headers in SNS notifications of this type. `false` by default.
+     */
     public readonly includeOriginalHeaders!: pulumi.Output<boolean | undefined>;
+    /**
+     * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
+     */
     public readonly notificationType!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
+     */
     public readonly topicArn!: pulumi.Output<string | undefined>;
 
     /**
@@ -76,9 +113,21 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IdentityNotificationTopic resources.
  */
 export interface IdentityNotificationTopicState {
+    /**
+     * The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+     */
     identity?: pulumi.Input<string>;
+    /**
+     * Whether SES should include original email headers in SNS notifications of this type. `false` by default.
+     */
     includeOriginalHeaders?: pulumi.Input<boolean>;
+    /**
+     * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
+     */
     notificationType?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
+     */
     topicArn?: pulumi.Input<string>;
 }
 
@@ -86,8 +135,20 @@ export interface IdentityNotificationTopicState {
  * The set of arguments for constructing a IdentityNotificationTopic resource.
  */
 export interface IdentityNotificationTopicArgs {
+    /**
+     * The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+     */
     identity: pulumi.Input<string>;
+    /**
+     * Whether SES should include original email headers in SNS notifications of this type. `false` by default.
+     */
     includeOriginalHeaders?: pulumi.Input<boolean>;
+    /**
+     * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
+     */
     notificationType: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
+     */
     topicArn?: pulumi.Input<string>;
 }

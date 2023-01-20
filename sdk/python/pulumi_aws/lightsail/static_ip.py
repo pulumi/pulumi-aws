@@ -17,6 +17,7 @@ class StaticIpArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a StaticIp resource.
+        :param pulumi.Input[str] name: The name for the allocated static IP
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -24,6 +25,9 @@ class StaticIpArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the allocated static IP
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -40,6 +44,10 @@ class _StaticIpState:
                  support_code: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering StaticIp resources.
+        :param pulumi.Input[str] arn: The ARN of the Lightsail static IP
+        :param pulumi.Input[str] ip_address: The allocated static IP address
+        :param pulumi.Input[str] name: The name for the allocated static IP
+        :param pulumi.Input[str] support_code: The support code.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -53,6 +61,9 @@ class _StaticIpState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Lightsail static IP
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -62,6 +73,9 @@ class _StaticIpState:
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The allocated static IP address
+        """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
@@ -71,6 +85,9 @@ class _StaticIpState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the allocated static IP
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -80,6 +97,9 @@ class _StaticIpState:
     @property
     @pulumi.getter(name="supportCode")
     def support_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The support code.
+        """
         return pulumi.get(self, "support_code")
 
     @support_code.setter
@@ -95,9 +115,22 @@ class StaticIp(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a StaticIp resource with the given unique name, props, and options.
+        Allocates a static IP address.
+
+        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lightsail.StaticIp("test")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The name for the allocated static IP
         """
         ...
     @overload
@@ -106,7 +139,19 @@ class StaticIp(pulumi.CustomResource):
                  args: Optional[StaticIpArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a StaticIp resource with the given unique name, props, and options.
+        Allocates a static IP address.
+
+        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lightsail.StaticIp("test")
+        ```
+
         :param str resource_name: The name of the resource.
         :param StaticIpArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,6 +202,10 @@ class StaticIp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the Lightsail static IP
+        :param pulumi.Input[str] ip_address: The allocated static IP address
+        :param pulumi.Input[str] name: The name for the allocated static IP
+        :param pulumi.Input[str] support_code: The support code.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -171,20 +220,32 @@ class StaticIp(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the Lightsail static IP
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[str]:
+        """
+        The allocated static IP address
+        """
         return pulumi.get(self, "ip_address")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name for the allocated static IP
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="supportCode")
     def support_code(self) -> pulumi.Output[str]:
+        """
+        The support code.
+        """
         return pulumi.get(self, "support_code")
 

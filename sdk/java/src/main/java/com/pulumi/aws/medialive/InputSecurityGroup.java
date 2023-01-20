@@ -17,23 +17,94 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Resource for managing an AWS MediaLive InputSecurityGroup.
+ * 
+ * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.medialive.InputSecurityGroup;
+ * import com.pulumi.aws.medialive.InputSecurityGroupArgs;
+ * import com.pulumi.aws.medialive.inputs.InputSecurityGroupWhitelistRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new InputSecurityGroup(&#34;example&#34;, InputSecurityGroupArgs.builder()        
+ *             .tags(Map.of(&#34;ENVIRONMENT&#34;, &#34;prod&#34;))
+ *             .whitelistRules(InputSecurityGroupWhitelistRuleArgs.builder()
+ *                 .cidr(&#34;10.0.0.8/32&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * MediaLive InputSecurityGroup can be imported using the `id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
+ * ```
+ * 
+ */
 @ResourceType(type="aws:medialive/inputSecurityGroup:InputSecurityGroup")
 public class InputSecurityGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the InputSecurityGroup.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the InputSecurityGroup.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The list of inputs currently using this InputSecurityGroup.
+     * 
+     */
     @Export(name="inputs", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> inputs;
 
+    /**
+     * @return The list of inputs currently using this InputSecurityGroup.
+     * 
+     */
     public Output<List<String>> inputs() {
         return this.inputs;
     }
+    /**
+     * A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -43,9 +114,17 @@ public class InputSecurityGroup extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Whitelist rules. See Whitelist Rules for more details.
+     * 
+     */
     @Export(name="whitelistRules", refs={List.class,InputSecurityGroupWhitelistRule.class}, tree="[0,1]")
     private Output<List<InputSecurityGroupWhitelistRule>> whitelistRules;
 
+    /**
+     * @return Whitelist rules. See Whitelist Rules for more details.
+     * 
+     */
     public Output<List<InputSecurityGroupWhitelistRule>> whitelistRules() {
         return this.whitelistRules;
     }

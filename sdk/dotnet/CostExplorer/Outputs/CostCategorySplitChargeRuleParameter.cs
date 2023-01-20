@@ -13,7 +13,13 @@ namespace Pulumi.Aws.CostExplorer.Outputs
     [OutputType]
     public sealed class CostCategorySplitChargeRuleParameter
     {
+        /// <summary>
+        /// Parameter type.
+        /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// Parameter values.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

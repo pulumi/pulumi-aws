@@ -12,12 +12,18 @@ namespace Pulumi.Aws.Route53.Inputs
 
     public sealed class ResolverEndpointIpAddressArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IP address in the subnet that you want to use for DNS queries.
+        /// </summary>
         [Input("ip")]
         public Input<string>? Ip { get; set; }
 
         [Input("ipId")]
         public Input<string>? IpId { get; set; }
 
+        /// <summary>
+        /// The ID of the subnet that contains the IP address.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 

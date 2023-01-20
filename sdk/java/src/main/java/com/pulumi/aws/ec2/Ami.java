@@ -19,89 +19,266 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The AMI resource allows the creation and management of a completely-custom
+ * *Amazon Machine Image* (AMI).
+ * 
+ * If you just want to duplicate an existing AMI, possibly copying it to another
+ * region, it&#39;s better to use `aws.ec2.AmiCopy` instead.
+ * 
+ * If you just want to share an existing AMI with another AWS account,
+ * it&#39;s better to use `aws.ec2.AmiLaunchPermission` instead.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Ami;
+ * import com.pulumi.aws.ec2.AmiArgs;
+ * import com.pulumi.aws.ec2.inputs.AmiEbsBlockDeviceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Ami(&#34;example&#34;, AmiArgs.builder()        
+ *             .ebsBlockDevices(AmiEbsBlockDeviceArgs.builder()
+ *                 .deviceName(&#34;/dev/xvda&#34;)
+ *                 .snapshotId(&#34;snap-xxxxxxxx&#34;)
+ *                 .volumeSize(8)
+ *                 .build())
+ *             .imdsSupport(&#34;v2.0&#34;)
+ *             .rootDeviceName(&#34;/dev/xvda&#34;)
+ *             .virtualizationType(&#34;hvm&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_ami` can be imported using the ID of the AMI, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2/ami:Ami example ami-12345678
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2/ami:Ami")
 public class Ami extends com.pulumi.resources.CustomResource {
+    /**
+     * Machine architecture for created instances. Defaults to &#34;x86_64&#34;.
+     * 
+     */
     @Export(name="architecture", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> architecture;
 
+    /**
+     * @return Machine architecture for created instances. Defaults to &#34;x86_64&#34;.
+     * 
+     */
     public Output<Optional<String>> architecture() {
         return Codegen.optional(this.architecture);
     }
+    /**
+     * ARN of the AMI.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the AMI.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * 
+     */
     @Export(name="bootMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bootMode;
 
+    /**
+     * @return Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * 
+     */
     public Output<Optional<String>> bootMode() {
         return Codegen.optional(this.bootMode);
     }
+    /**
+     * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     * 
+     */
     @Export(name="deprecationTime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deprecationTime;
 
+    /**
+     * @return Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     * 
+     */
     public Output<Optional<String>> deprecationTime() {
         return Codegen.optional(this.deprecationTime);
     }
+    /**
+     * Longer, human-readable description for the AMI.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Longer, human-readable description for the AMI.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Nested block describing an EBS block device that should be
+     * attached to created instances. The structure of this block is described below.
+     * 
+     */
     @Export(name="ebsBlockDevices", refs={List.class,AmiEbsBlockDevice.class}, tree="[0,1]")
     private Output<List<AmiEbsBlockDevice>> ebsBlockDevices;
 
+    /**
+     * @return Nested block describing an EBS block device that should be
+     * attached to created instances. The structure of this block is described below.
+     * 
+     */
     public Output<List<AmiEbsBlockDevice>> ebsBlockDevices() {
         return this.ebsBlockDevices;
     }
+    /**
+     * Whether enhanced networking with ENA is enabled. Defaults to `false`.
+     * 
+     */
     @Export(name="enaSupport", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enaSupport;
 
+    /**
+     * @return Whether enhanced networking with ENA is enabled. Defaults to `false`.
+     * 
+     */
     public Output<Optional<Boolean>> enaSupport() {
         return Codegen.optional(this.enaSupport);
     }
+    /**
+     * Nested block describing an ephemeral block device that
+     * should be attached to created instances. The structure of this block is described below.
+     * 
+     */
     @Export(name="ephemeralBlockDevices", refs={List.class,AmiEphemeralBlockDevice.class}, tree="[0,1]")
     private Output<List<AmiEphemeralBlockDevice>> ephemeralBlockDevices;
 
+    /**
+     * @return Nested block describing an ephemeral block device that
+     * should be attached to created instances. The structure of this block is described below.
+     * 
+     */
     public Output<List<AmiEphemeralBlockDevice>> ephemeralBlockDevices() {
         return this.ephemeralBlockDevices;
     }
+    /**
+     * Hypervisor type of the image.
+     * 
+     */
     @Export(name="hypervisor", refs={String.class}, tree="[0]")
     private Output<String> hypervisor;
 
+    /**
+     * @return Hypervisor type of the image.
+     * 
+     */
     public Output<String> hypervisor() {
         return this.hypervisor;
     }
+    /**
+     * Path to an S3 object containing an image manifest, e.g., created
+     * by the `ec2-upload-bundle` command in the EC2 command line tools.
+     * 
+     */
     @Export(name="imageLocation", refs={String.class}, tree="[0]")
     private Output<String> imageLocation;
 
+    /**
+     * @return Path to an S3 object containing an image manifest, e.g., created
+     * by the `ec2-upload-bundle` command in the EC2 command line tools.
+     * 
+     */
     public Output<String> imageLocation() {
         return this.imageLocation;
     }
+    /**
+     * AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+     * 
+     */
     @Export(name="imageOwnerAlias", refs={String.class}, tree="[0]")
     private Output<String> imageOwnerAlias;
 
+    /**
+     * @return AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+     * 
+     */
     public Output<String> imageOwnerAlias() {
         return this.imageOwnerAlias;
     }
+    /**
+     * Type of image.
+     * 
+     */
     @Export(name="imageType", refs={String.class}, tree="[0]")
     private Output<String> imageType;
 
+    /**
+     * @return Type of image.
+     * 
+     */
     public Output<String> imageType() {
         return this.imageType;
     }
+    /**
+     * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+     * 
+     */
     @Export(name="imdsSupport", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imdsSupport;
 
+    /**
+     * @return If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+     * 
+     */
     public Output<Optional<String>> imdsSupport() {
         return Codegen.optional(this.imdsSupport);
     }
+    /**
+     * ID of the kernel image (AKI) that will be used as the paravirtual
+     * kernel in created instances.
+     * 
+     */
     @Export(name="kernelId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kernelId;
 
+    /**
+     * @return ID of the kernel image (AKI) that will be used as the paravirtual
+     * kernel in created instances.
+     * 
+     */
     public Output<Optional<String>> kernelId() {
         return Codegen.optional(this.kernelId);
     }
@@ -111,87 +288,207 @@ public class Ami extends com.pulumi.resources.CustomResource {
     public Output<Boolean> manageEbsSnapshots() {
         return this.manageEbsSnapshots;
     }
+    /**
+     * Region-unique name for the AMI.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Region-unique name for the AMI.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * AWS account ID of the image owner.
+     * 
+     */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
+    /**
+     * @return AWS account ID of the image owner.
+     * 
+     */
     public Output<String> ownerId() {
         return this.ownerId;
     }
+    /**
+     * This value is set to windows for Windows AMIs; otherwise, it is blank.
+     * 
+     */
     @Export(name="platform", refs={String.class}, tree="[0]")
     private Output<String> platform;
 
+    /**
+     * @return This value is set to windows for Windows AMIs; otherwise, it is blank.
+     * 
+     */
     public Output<String> platform() {
         return this.platform;
     }
+    /**
+     * Platform details associated with the billing code of the AMI.
+     * 
+     */
     @Export(name="platformDetails", refs={String.class}, tree="[0]")
     private Output<String> platformDetails;
 
+    /**
+     * @return Platform details associated with the billing code of the AMI.
+     * 
+     */
     public Output<String> platformDetails() {
         return this.platformDetails;
     }
+    /**
+     * Whether the image has public launch permissions.
+     * 
+     */
     @Export(name="public", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> public_;
 
+    /**
+     * @return Whether the image has public launch permissions.
+     * 
+     */
     public Output<Boolean> public_() {
         return this.public_;
     }
+    /**
+     * ID of an initrd image (ARI) that will be used when booting the
+     * created instances.
+     * 
+     */
     @Export(name="ramdiskId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ramdiskId;
 
+    /**
+     * @return ID of an initrd image (ARI) that will be used when booting the
+     * created instances.
+     * 
+     */
     public Output<Optional<String>> ramdiskId() {
         return Codegen.optional(this.ramdiskId);
     }
+    /**
+     * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+     * 
+     */
     @Export(name="rootDeviceName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rootDeviceName;
 
+    /**
+     * @return Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+     * 
+     */
     public Output<Optional<String>> rootDeviceName() {
         return Codegen.optional(this.rootDeviceName);
     }
+    /**
+     * Snapshot ID for the root volume (for EBS-backed AMIs)
+     * 
+     */
     @Export(name="rootSnapshotId", refs={String.class}, tree="[0]")
     private Output<String> rootSnapshotId;
 
+    /**
+     * @return Snapshot ID for the root volume (for EBS-backed AMIs)
+     * 
+     */
     public Output<String> rootSnapshotId() {
         return this.rootSnapshotId;
     }
+    /**
+     * When set to &#34;simple&#34; (the default), enables enhanced networking
+     * for created instances. No other value is supported at this time.
+     * 
+     */
     @Export(name="sriovNetSupport", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sriovNetSupport;
 
+    /**
+     * @return When set to &#34;simple&#34; (the default), enables enhanced networking
+     * for created instances. No other value is supported at this time.
+     * 
+     */
     public Output<Optional<String>> sriovNetSupport() {
         return Codegen.optional(this.sriovNetSupport);
     }
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+     * 
+     */
     @Export(name="tpmSupport", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tpmSupport;
 
+    /**
+     * @return If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+     * 
+     */
     public Output<Optional<String>> tpmSupport() {
         return Codegen.optional(this.tpmSupport);
     }
+    /**
+     * Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+     * 
+     */
     @Export(name="usageOperation", refs={String.class}, tree="[0]")
     private Output<String> usageOperation;
 
+    /**
+     * @return Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+     * 
+     */
     public Output<String> usageOperation() {
         return this.usageOperation;
     }
+    /**
+     * Keyword to choose what virtualization mode created instances
+     * will use. Can be either &#34;paravirtual&#34; (the default) or &#34;hvm&#34;. The choice of virtualization type
+     * changes the set of further arguments that are required, as described below.
+     * 
+     */
     @Export(name="virtualizationType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualizationType;
 
+    /**
+     * @return Keyword to choose what virtualization mode created instances
+     * will use. Can be either &#34;paravirtual&#34; (the default) or &#34;hvm&#34;. The choice of virtualization type
+     * changes the set of further arguments that are required, as described below.
+     * 
+     */
     public Output<Optional<String>> virtualizationType() {
         return Codegen.optional(this.virtualizationType);
     }

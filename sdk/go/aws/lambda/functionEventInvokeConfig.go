@@ -11,14 +11,198 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an asynchronous invocation configuration for a Lambda Function or Alias. More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
+//
+// ## Example Usage
+// ### Destination Configuration
+//
+// > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
+//				FunctionName: pulumi.Any(aws_lambda_alias.Example.Function_name),
+//				DestinationConfig: &lambda.FunctionEventInvokeConfigDestinationConfigArgs{
+//					OnFailure: &lambda.FunctionEventInvokeConfigDestinationConfigOnFailureArgs{
+//						Destination: pulumi.Any(aws_sqs_queue.Example.Arn),
+//					},
+//					OnSuccess: &lambda.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs{
+//						Destination: pulumi.Any(aws_sns_topic.Example.Arn),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Error Handling Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
+//				FunctionName:             pulumi.Any(aws_lambda_alias.Example.Function_name),
+//				MaximumEventAgeInSeconds: pulumi.Int(60),
+//				MaximumRetryAttempts:     pulumi.Int(0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Configuration for Alias Name
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
+//				FunctionName: pulumi.Any(aws_lambda_alias.Example.Function_name),
+//				Qualifier:    pulumi.Any(aws_lambda_alias.Example.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Configuration for Function Latest Unpublished Version
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
+//				FunctionName: pulumi.Any(aws_lambda_function.Example.Function_name),
+//				Qualifier:    pulumi.String(fmt.Sprintf("$LATEST")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Configuration for Function Published Version
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
+//				FunctionName: pulumi.Any(aws_lambda_function.Example.Function_name),
+//				Qualifier:    pulumi.Any(aws_lambda_function.Example.Version),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Lambda Function Event Invoke Configs can be imported using the fully qualified Function name or Amazon Resource Name (ARN), e.g., ARN without qualifier (all versions and aliases)
+//
+// ```sh
+//
+//	$ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
+//
+// ```
+//
+//	ARN with qualifier
+//
+// ```sh
+//
+//	$ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
+//
+// ```
+//
+//	Name without qualifier (all versions and aliases)
+//
+// ```sh
+//
+//	$ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
+//
+// ```
+//
+//	Name with qualifier
+//
+// ```sh
+//
+//	$ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
+//
+// ```
 type FunctionEventInvokeConfig struct {
 	pulumi.CustomResourceState
 
-	DestinationConfig        FunctionEventInvokeConfigDestinationConfigPtrOutput `pulumi:"destinationConfig"`
-	FunctionName             pulumi.StringOutput                                 `pulumi:"functionName"`
-	MaximumEventAgeInSeconds pulumi.IntPtrOutput                                 `pulumi:"maximumEventAgeInSeconds"`
-	MaximumRetryAttempts     pulumi.IntPtrOutput                                 `pulumi:"maximumRetryAttempts"`
-	Qualifier                pulumi.StringPtrOutput                              `pulumi:"qualifier"`
+	// Configuration block with destination configuration. See below for details.
+	DestinationConfig FunctionEventInvokeConfigDestinationConfigPtrOutput `pulumi:"destinationConfig"`
+	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	FunctionName pulumi.StringOutput `pulumi:"functionName"`
+	// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
+	MaximumEventAgeInSeconds pulumi.IntPtrOutput `pulumi:"maximumEventAgeInSeconds"`
+	// Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
+	MaximumRetryAttempts pulumi.IntPtrOutput `pulumi:"maximumRetryAttempts"`
+	// Lambda Function published version, `$LATEST`, or Lambda Alias name.
+	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
 }
 
 // NewFunctionEventInvokeConfig registers a new resource with the given unique name, arguments, and options.
@@ -53,19 +237,29 @@ func GetFunctionEventInvokeConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FunctionEventInvokeConfig resources.
 type functionEventInvokeConfigState struct {
-	DestinationConfig        *FunctionEventInvokeConfigDestinationConfig `pulumi:"destinationConfig"`
-	FunctionName             *string                                     `pulumi:"functionName"`
-	MaximumEventAgeInSeconds *int                                        `pulumi:"maximumEventAgeInSeconds"`
-	MaximumRetryAttempts     *int                                        `pulumi:"maximumRetryAttempts"`
-	Qualifier                *string                                     `pulumi:"qualifier"`
+	// Configuration block with destination configuration. See below for details.
+	DestinationConfig *FunctionEventInvokeConfigDestinationConfig `pulumi:"destinationConfig"`
+	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	FunctionName *string `pulumi:"functionName"`
+	// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
+	MaximumEventAgeInSeconds *int `pulumi:"maximumEventAgeInSeconds"`
+	// Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
+	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
+	// Lambda Function published version, `$LATEST`, or Lambda Alias name.
+	Qualifier *string `pulumi:"qualifier"`
 }
 
 type FunctionEventInvokeConfigState struct {
-	DestinationConfig        FunctionEventInvokeConfigDestinationConfigPtrInput
-	FunctionName             pulumi.StringPtrInput
+	// Configuration block with destination configuration. See below for details.
+	DestinationConfig FunctionEventInvokeConfigDestinationConfigPtrInput
+	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	FunctionName pulumi.StringPtrInput
+	// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
 	MaximumEventAgeInSeconds pulumi.IntPtrInput
-	MaximumRetryAttempts     pulumi.IntPtrInput
-	Qualifier                pulumi.StringPtrInput
+	// Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
+	MaximumRetryAttempts pulumi.IntPtrInput
+	// Lambda Function published version, `$LATEST`, or Lambda Alias name.
+	Qualifier pulumi.StringPtrInput
 }
 
 func (FunctionEventInvokeConfigState) ElementType() reflect.Type {
@@ -73,20 +267,30 @@ func (FunctionEventInvokeConfigState) ElementType() reflect.Type {
 }
 
 type functionEventInvokeConfigArgs struct {
-	DestinationConfig        *FunctionEventInvokeConfigDestinationConfig `pulumi:"destinationConfig"`
-	FunctionName             string                                      `pulumi:"functionName"`
-	MaximumEventAgeInSeconds *int                                        `pulumi:"maximumEventAgeInSeconds"`
-	MaximumRetryAttempts     *int                                        `pulumi:"maximumRetryAttempts"`
-	Qualifier                *string                                     `pulumi:"qualifier"`
+	// Configuration block with destination configuration. See below for details.
+	DestinationConfig *FunctionEventInvokeConfigDestinationConfig `pulumi:"destinationConfig"`
+	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	FunctionName string `pulumi:"functionName"`
+	// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
+	MaximumEventAgeInSeconds *int `pulumi:"maximumEventAgeInSeconds"`
+	// Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
+	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
+	// Lambda Function published version, `$LATEST`, or Lambda Alias name.
+	Qualifier *string `pulumi:"qualifier"`
 }
 
 // The set of arguments for constructing a FunctionEventInvokeConfig resource.
 type FunctionEventInvokeConfigArgs struct {
-	DestinationConfig        FunctionEventInvokeConfigDestinationConfigPtrInput
-	FunctionName             pulumi.StringInput
+	// Configuration block with destination configuration. See below for details.
+	DestinationConfig FunctionEventInvokeConfigDestinationConfigPtrInput
+	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	FunctionName pulumi.StringInput
+	// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
 	MaximumEventAgeInSeconds pulumi.IntPtrInput
-	MaximumRetryAttempts     pulumi.IntPtrInput
-	Qualifier                pulumi.StringPtrInput
+	// Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
+	MaximumRetryAttempts pulumi.IntPtrInput
+	// Lambda Function published version, `$LATEST`, or Lambda Alias name.
+	Qualifier pulumi.StringPtrInput
 }
 
 func (FunctionEventInvokeConfigArgs) ElementType() reflect.Type {
@@ -176,24 +380,29 @@ func (o FunctionEventInvokeConfigOutput) ToFunctionEventInvokeConfigOutputWithCo
 	return o
 }
 
+// Configuration block with destination configuration. See below for details.
 func (o FunctionEventInvokeConfigOutput) DestinationConfig() FunctionEventInvokeConfigDestinationConfigPtrOutput {
 	return o.ApplyT(func(v *FunctionEventInvokeConfig) FunctionEventInvokeConfigDestinationConfigPtrOutput {
 		return v.DestinationConfig
 	}).(FunctionEventInvokeConfigDestinationConfigPtrOutput)
 }
 
+// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
 func (o FunctionEventInvokeConfigOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionEventInvokeConfig) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
 }
 
+// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
 func (o FunctionEventInvokeConfigOutput) MaximumEventAgeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FunctionEventInvokeConfig) pulumi.IntPtrOutput { return v.MaximumEventAgeInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
 func (o FunctionEventInvokeConfigOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FunctionEventInvokeConfig) pulumi.IntPtrOutput { return v.MaximumRetryAttempts }).(pulumi.IntPtrOutput)
 }
 
+// Lambda Function published version, `$LATEST`, or Lambda Alias name.
 func (o FunctionEventInvokeConfigOutput) Qualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionEventInvokeConfig) pulumi.StringPtrOutput { return v.Qualifier }).(pulumi.StringPtrOutput)
 }

@@ -17,12 +17,16 @@ class ServicecatalogPortfolioStatusArgs:
                  status: pulumi.Input[str]):
         """
         The set of arguments for constructing a ServicecatalogPortfolioStatus resource.
+        :param pulumi.Input[str] status: Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
         """
         pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Input[str]:
+        """
+        Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -36,6 +40,7 @@ class _ServicecatalogPortfolioStatusState:
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServicecatalogPortfolioStatus resources.
+        :param pulumi.Input[str] status: Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
         """
         if status is not None:
             pulumi.set(__self__, "status", status)
@@ -43,6 +48,9 @@ class _ServicecatalogPortfolioStatusState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -58,9 +66,30 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ServicecatalogPortfolioStatus resource with the given unique name, props, and options.
+        Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.
+
+        ## Example Usage
+
+        Usage:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sagemaker.ServicecatalogPortfolioStatus("example", status="Enabled")
+        ```
+
+        ## Import
+
+        Models can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] status: Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
         """
         ...
     @overload
@@ -69,7 +98,27 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
                  args: ServicecatalogPortfolioStatusArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ServicecatalogPortfolioStatus resource with the given unique name, props, and options.
+        Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.
+
+        ## Example Usage
+
+        Usage:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sagemaker.ServicecatalogPortfolioStatus("example", status="Enabled")
+        ```
+
+        ## Import
+
+        Models can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
+        ```
+
         :param str resource_name: The name of the resource.
         :param ServicecatalogPortfolioStatusArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,6 +165,7 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] status: Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -127,5 +177,8 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
+        """
         return pulumi.get(self, "status")
 

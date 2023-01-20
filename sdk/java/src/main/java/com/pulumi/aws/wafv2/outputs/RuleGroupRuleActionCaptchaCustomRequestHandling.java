@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleActionCaptchaCustomRequestHandling {
+    /**
+     * @return The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+     * 
+     */
     private List<RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader> insertHeaders;
 
     private RuleGroupRuleActionCaptchaCustomRequestHandling() {}
+    /**
+     * @return The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+     * 
+     */
     public List<RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader> insertHeaders() {
         return this.insertHeaders;
     }

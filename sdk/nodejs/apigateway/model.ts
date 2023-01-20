@@ -6,6 +6,35 @@ import * as utilities from "../utilities";
 
 import {RestApi} from "./index";
 
+/**
+ * Provides a Model for a REST API Gateway.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
+ * const myDemoModel = new aws.apigateway.Model("myDemoModel", {
+ *     restApi: myDemoAPI.id,
+ *     description: "a JSON schema",
+ *     contentType: "application/json",
+ *     schema: `{
+ *   "type": "object"
+ * }
+ * `,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_api_gateway_model` can be imported using `REST-API-ID/NAME`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:apigateway/model:Model example 12345abcde/example
+ * ```
+ */
 export class Model extends pulumi.CustomResource {
     /**
      * Get an existing Model resource's state with the given name, ID, and optional extra
@@ -34,10 +63,25 @@ export class Model extends pulumi.CustomResource {
         return obj['__pulumiType'] === Model.__pulumiType;
     }
 
+    /**
+     * Content type of the model
+     */
     public readonly contentType!: pulumi.Output<string>;
+    /**
+     * Description of the model
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Name of the model
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * ID of the associated REST API
+     */
     public readonly restApi!: pulumi.Output<string>;
+    /**
+     * Schema of the model in a JSON form
+     */
     public readonly schema!: pulumi.Output<string | undefined>;
 
     /**
@@ -81,10 +125,25 @@ export class Model extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Model resources.
  */
 export interface ModelState {
+    /**
+     * Content type of the model
+     */
     contentType?: pulumi.Input<string>;
+    /**
+     * Description of the model
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Name of the model
+     */
     name?: pulumi.Input<string>;
+    /**
+     * ID of the associated REST API
+     */
     restApi?: pulumi.Input<string | RestApi>;
+    /**
+     * Schema of the model in a JSON form
+     */
     schema?: pulumi.Input<string>;
 }
 
@@ -92,9 +151,24 @@ export interface ModelState {
  * The set of arguments for constructing a Model resource.
  */
 export interface ModelArgs {
+    /**
+     * Content type of the model
+     */
     contentType: pulumi.Input<string>;
+    /**
+     * Description of the model
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Name of the model
+     */
     name?: pulumi.Input<string>;
+    /**
+     * ID of the associated REST API
+     */
     restApi: pulumi.Input<string | RestApi>;
+    /**
+     * Schema of the model in a JSON form
+     */
     schema?: pulumi.Input<string>;
 }

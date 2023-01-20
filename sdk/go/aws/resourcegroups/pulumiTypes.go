@@ -11,8 +11,10 @@ import (
 )
 
 type GroupConfiguration struct {
+	// A collection of parameters for this group configuration item. See below for details.
 	Parameters []GroupConfigurationParameter `pulumi:"parameters"`
-	Type       string                        `pulumi:"type"`
+	// Specifies the type of group configuration item.
+	Type string `pulumi:"type"`
 }
 
 // GroupConfigurationInput is an input type that accepts GroupConfigurationArgs and GroupConfigurationOutput values.
@@ -27,8 +29,10 @@ type GroupConfigurationInput interface {
 }
 
 type GroupConfigurationArgs struct {
+	// A collection of parameters for this group configuration item. See below for details.
 	Parameters GroupConfigurationParameterArrayInput `pulumi:"parameters"`
-	Type       pulumi.StringInput                    `pulumi:"type"`
+	// Specifies the type of group configuration item.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (GroupConfigurationArgs) ElementType() reflect.Type {
@@ -82,10 +86,12 @@ func (o GroupConfigurationOutput) ToGroupConfigurationOutputWithContext(ctx cont
 	return o
 }
 
+// A collection of parameters for this group configuration item. See below for details.
 func (o GroupConfigurationOutput) Parameters() GroupConfigurationParameterArrayOutput {
 	return o.ApplyT(func(v GroupConfiguration) []GroupConfigurationParameter { return v.Parameters }).(GroupConfigurationParameterArrayOutput)
 }
 
+// Specifies the type of group configuration item.
 func (o GroupConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -111,7 +117,9 @@ func (o GroupConfigurationArrayOutput) Index(i pulumi.IntInput) GroupConfigurati
 }
 
 type GroupConfigurationParameter struct {
-	Name   string   `pulumi:"name"`
+	// The name of the group configuration parameter.
+	Name string `pulumi:"name"`
+	// The value or values to be used for the specified parameter.
 	Values []string `pulumi:"values"`
 }
 
@@ -127,7 +135,9 @@ type GroupConfigurationParameterInput interface {
 }
 
 type GroupConfigurationParameterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// The name of the group configuration parameter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value or values to be used for the specified parameter.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -182,10 +192,12 @@ func (o GroupConfigurationParameterOutput) ToGroupConfigurationParameterOutputWi
 	return o
 }
 
+// The name of the group configuration parameter.
 func (o GroupConfigurationParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupConfigurationParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The value or values to be used for the specified parameter.
 func (o GroupConfigurationParameterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupConfigurationParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -211,8 +223,10 @@ func (o GroupConfigurationParameterArrayOutput) Index(i pulumi.IntInput) GroupCo
 }
 
 type GroupResourceQuery struct {
-	Query string  `pulumi:"query"`
-	Type  *string `pulumi:"type"`
+	// The resource query as a JSON string.
+	Query string `pulumi:"query"`
+	// The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
+	Type *string `pulumi:"type"`
 }
 
 // GroupResourceQueryInput is an input type that accepts GroupResourceQueryArgs and GroupResourceQueryOutput values.
@@ -227,8 +241,10 @@ type GroupResourceQueryInput interface {
 }
 
 type GroupResourceQueryArgs struct {
-	Query pulumi.StringInput    `pulumi:"query"`
-	Type  pulumi.StringPtrInput `pulumi:"type"`
+	// The resource query as a JSON string.
+	Query pulumi.StringInput `pulumi:"query"`
+	// The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GroupResourceQueryArgs) ElementType() reflect.Type {
@@ -308,10 +324,12 @@ func (o GroupResourceQueryOutput) ToGroupResourceQueryPtrOutputWithContext(ctx c
 	}).(GroupResourceQueryPtrOutput)
 }
 
+// The resource query as a JSON string.
 func (o GroupResourceQueryOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupResourceQuery) string { return v.Query }).(pulumi.StringOutput)
 }
 
+// The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
 func (o GroupResourceQueryOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupResourceQuery) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -340,6 +358,7 @@ func (o GroupResourceQueryPtrOutput) Elem() GroupResourceQueryOutput {
 	}).(GroupResourceQueryOutput)
 }
 
+// The resource query as a JSON string.
 func (o GroupResourceQueryPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupResourceQuery) *string {
 		if v == nil {
@@ -349,6 +368,7 @@ func (o GroupResourceQueryPtrOutput) Query() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
 func (o GroupResourceQueryPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupResourceQuery) *string {
 		if v == nil {

@@ -15,23 +15,47 @@ public final class OutboundConnectionArgs extends com.pulumi.resources.ResourceA
 
     public static final OutboundConnectionArgs Empty = new OutboundConnectionArgs();
 
+    /**
+     * Specifies the connection alias that will be used by the customer for this connection.
+     * 
+     */
     @Import(name="connectionAlias", required=true)
     private Output<String> connectionAlias;
 
+    /**
+     * @return Specifies the connection alias that will be used by the customer for this connection.
+     * 
+     */
     public Output<String> connectionAlias() {
         return this.connectionAlias;
     }
 
+    /**
+     * Configuration block for the local Opensearch domain.
+     * 
+     */
     @Import(name="localDomainInfo", required=true)
     private Output<OutboundConnectionLocalDomainInfoArgs> localDomainInfo;
 
+    /**
+     * @return Configuration block for the local Opensearch domain.
+     * 
+     */
     public Output<OutboundConnectionLocalDomainInfoArgs> localDomainInfo() {
         return this.localDomainInfo;
     }
 
+    /**
+     * Configuration block for the remote Opensearch domain.
+     * 
+     */
     @Import(name="remoteDomainInfo", required=true)
     private Output<OutboundConnectionRemoteDomainInfoArgs> remoteDomainInfo;
 
+    /**
+     * @return Configuration block for the remote Opensearch domain.
+     * 
+     */
     public Output<OutboundConnectionRemoteDomainInfoArgs> remoteDomainInfo() {
         return this.remoteDomainInfo;
     }
@@ -62,29 +86,65 @@ public final class OutboundConnectionArgs extends com.pulumi.resources.ResourceA
             $ = new OutboundConnectionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param connectionAlias Specifies the connection alias that will be used by the customer for this connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionAlias(Output<String> connectionAlias) {
             $.connectionAlias = connectionAlias;
             return this;
         }
 
+        /**
+         * @param connectionAlias Specifies the connection alias that will be used by the customer for this connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionAlias(String connectionAlias) {
             return connectionAlias(Output.of(connectionAlias));
         }
 
+        /**
+         * @param localDomainInfo Configuration block for the local Opensearch domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder localDomainInfo(Output<OutboundConnectionLocalDomainInfoArgs> localDomainInfo) {
             $.localDomainInfo = localDomainInfo;
             return this;
         }
 
+        /**
+         * @param localDomainInfo Configuration block for the local Opensearch domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder localDomainInfo(OutboundConnectionLocalDomainInfoArgs localDomainInfo) {
             return localDomainInfo(Output.of(localDomainInfo));
         }
 
+        /**
+         * @param remoteDomainInfo Configuration block for the remote Opensearch domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder remoteDomainInfo(Output<OutboundConnectionRemoteDomainInfoArgs> remoteDomainInfo) {
             $.remoteDomainInfo = remoteDomainInfo;
             return this;
         }
 
+        /**
+         * @param remoteDomainInfo Configuration block for the remote Opensearch domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder remoteDomainInfo(OutboundConnectionRemoteDomainInfoArgs remoteDomainInfo) {
             return remoteDomainInfo(Output.of(remoteDomainInfo));
         }

@@ -14,32 +14,80 @@ import javax.annotation.Nullable;
 @CustomType
 public final class MemcachedLayerEbsVolume {
     private @Nullable Boolean encrypted;
+    /**
+     * @return For PIOPS volumes, the IOPS per disk.
+     * 
+     */
     private @Nullable Integer iops;
+    /**
+     * @return The path to mount the EBS volume on the layer&#39;s instances.
+     * 
+     */
     private String mountPoint;
+    /**
+     * @return The number of disks to use for the EBS volume.
+     * 
+     */
     private Integer numberOfDisks;
+    /**
+     * @return The RAID level to use for the volume.
+     * 
+     */
     private @Nullable String raidLevel;
+    /**
+     * @return The size of the volume in gigabytes.
+     * 
+     */
     private Integer size;
+    /**
+     * @return The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+     * 
+     */
     private @Nullable String type;
 
     private MemcachedLayerEbsVolume() {}
     public Optional<Boolean> encrypted() {
         return Optional.ofNullable(this.encrypted);
     }
+    /**
+     * @return For PIOPS volumes, the IOPS per disk.
+     * 
+     */
     public Optional<Integer> iops() {
         return Optional.ofNullable(this.iops);
     }
+    /**
+     * @return The path to mount the EBS volume on the layer&#39;s instances.
+     * 
+     */
     public String mountPoint() {
         return this.mountPoint;
     }
+    /**
+     * @return The number of disks to use for the EBS volume.
+     * 
+     */
     public Integer numberOfDisks() {
         return this.numberOfDisks;
     }
+    /**
+     * @return The RAID level to use for the volume.
+     * 
+     */
     public Optional<String> raidLevel() {
         return Optional.ofNullable(this.raidLevel);
     }
+    /**
+     * @return The size of the volume in gigabytes.
+     * 
+     */
     public Integer size() {
         return this.size;
     }
+    /**
+     * @return The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+     * 
+     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

@@ -35,6 +35,9 @@ class GetTrackerAssociationsResult:
     @property
     @pulumi.getter(name="consumerArns")
     def consumer_arns(self) -> Sequence[str]:
+        """
+        List of geofence collection ARNs associated to the tracker resource.
+        """
         return pulumi.get(self, "consumer_arns")
 
     @property
@@ -65,7 +68,20 @@ class AwaitableGetTrackerAssociationsResult(GetTrackerAssociationsResult):
 def get_tracker_associations(tracker_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrackerAssociationsResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about Location Service Tracker Associations.
+
+    ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.location.get_tracker_associations(tracker_name="example")
+    ```
+
+
+    :param str tracker_name: Name of the tracker resource associated with a geofence collection.
     """
     __args__ = dict()
     __args__['trackerName'] = tracker_name
@@ -82,6 +98,19 @@ def get_tracker_associations(tracker_name: Optional[str] = None,
 def get_tracker_associations_output(tracker_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrackerAssociationsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about Location Service Tracker Associations.
+
+    ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.location.get_tracker_associations(tracker_name="example")
+    ```
+
+
+    :param str tracker_name: Name of the tracker resource associated with a geofence collection.
     """
     ...

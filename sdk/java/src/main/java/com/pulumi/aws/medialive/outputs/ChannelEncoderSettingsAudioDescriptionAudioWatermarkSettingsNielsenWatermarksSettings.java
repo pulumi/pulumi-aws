@@ -14,17 +14,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings {
+    /**
+     * @return Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings nielsenCbetSettings;
+    /**
+     * @return Distribution types to assign to the watermarks. Options are `PROGRAM_CONTENT` and `FINAL_DISTRIBUTOR`.
+     * 
+     */
     private @Nullable String nielsenDistributionType;
+    /**
+     * @return Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
+     * 
+     */
     private @Nullable List<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting> nielsenNaesIiNwSettings;
 
     private ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings() {}
+    /**
+     * @return Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings> nielsenCbetSettings() {
         return Optional.ofNullable(this.nielsenCbetSettings);
     }
+    /**
+     * @return Distribution types to assign to the watermarks. Options are `PROGRAM_CONTENT` and `FINAL_DISTRIBUTOR`.
+     * 
+     */
     public Optional<String> nielsenDistributionType() {
         return Optional.ofNullable(this.nielsenDistributionType);
     }
+    /**
+     * @return Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
+     * 
+     */
     public List<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting> nielsenNaesIiNwSettings() {
         return this.nielsenNaesIiNwSettings == null ? List.of() : this.nielsenNaesIiNwSettings;
     }

@@ -21,7 +21,15 @@ public final class GetSpotPriceResult {
      */
     private String id;
     private @Nullable String instanceType;
+    /**
+     * @return Most recent Spot Price value for the given instance type and AZ.
+     * 
+     */
     private String spotPrice;
+    /**
+     * @return The timestamp at which the Spot Price value was published.
+     * 
+     */
     private String spotPriceTimestamp;
 
     private GetSpotPriceResult() {}
@@ -41,9 +49,17 @@ public final class GetSpotPriceResult {
     public Optional<String> instanceType() {
         return Optional.ofNullable(this.instanceType);
     }
+    /**
+     * @return Most recent Spot Price value for the given instance type and AZ.
+     * 
+     */
     public String spotPrice() {
         return this.spotPrice;
     }
+    /**
+     * @return The timestamp at which the Spot Price value was published.
+     * 
+     */
     public String spotPriceTimestamp() {
         return this.spotPriceTimestamp;
     }

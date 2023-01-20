@@ -10,23 +10,122 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an AppStream stack.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appstream.NewStack(ctx, "example", &appstream.StackArgs{
+//				ApplicationSettings: &appstream.StackApplicationSettingsArgs{
+//					Enabled:       pulumi.Bool(true),
+//					SettingsGroup: pulumi.String("SettingsGroup"),
+//				},
+//				Description: pulumi.String("stack description"),
+//				DisplayName: pulumi.String("stack display name"),
+//				FeedbackUrl: pulumi.String("http://your-domain/feedback"),
+//				RedirectUrl: pulumi.String("http://your-domain/redirect"),
+//				StorageConnectors: appstream.StackStorageConnectorArray{
+//					&appstream.StackStorageConnectorArgs{
+//						ConnectorType: pulumi.String("HOMEFOLDERS"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"TagName": pulumi.String("TagValue"),
+//				},
+//				UserSettings: appstream.StackUserSettingArray{
+//					&appstream.StackUserSettingArgs{
+//						Action:     pulumi.String("CLIPBOARD_COPY_FROM_LOCAL_DEVICE"),
+//						Permission: pulumi.String("ENABLED"),
+//					},
+//					&appstream.StackUserSettingArgs{
+//						Action:     pulumi.String("CLIPBOARD_COPY_TO_LOCAL_DEVICE"),
+//						Permission: pulumi.String("ENABLED"),
+//					},
+//					&appstream.StackUserSettingArgs{
+//						Action:     pulumi.String("DOMAIN_PASSWORD_SIGNIN"),
+//						Permission: pulumi.String("ENABLED"),
+//					},
+//					&appstream.StackUserSettingArgs{
+//						Action:     pulumi.String("DOMAIN_SMART_CARD_SIGNIN"),
+//						Permission: pulumi.String("DISABLED"),
+//					},
+//					&appstream.StackUserSettingArgs{
+//						Action:     pulumi.String("FILE_DOWNLOAD"),
+//						Permission: pulumi.String("ENABLED"),
+//					},
+//					&appstream.StackUserSettingArgs{
+//						Action:     pulumi.String("FILE_UPLOAD"),
+//						Permission: pulumi.String("ENABLED"),
+//					},
+//					&appstream.StackUserSettingArgs{
+//						Action:     pulumi.String("PRINTING_TO_LOCAL_DEVICE"),
+//						Permission: pulumi.String("ENABLED"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_appstream_stack` can be imported using the id, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:appstream/stack:Stack example stackID
+//
+// ```
 type Stack struct {
 	pulumi.CustomResourceState
 
-	AccessEndpoints     StackAccessEndpointArrayOutput   `pulumi:"accessEndpoints"`
-	ApplicationSettings StackApplicationSettingsOutput   `pulumi:"applicationSettings"`
-	Arn                 pulumi.StringOutput              `pulumi:"arn"`
-	CreatedTime         pulumi.StringOutput              `pulumi:"createdTime"`
-	Description         pulumi.StringPtrOutput           `pulumi:"description"`
-	DisplayName         pulumi.StringPtrOutput           `pulumi:"displayName"`
-	EmbedHostDomains    pulumi.StringArrayOutput         `pulumi:"embedHostDomains"`
-	FeedbackUrl         pulumi.StringOutput              `pulumi:"feedbackUrl"`
-	Name                pulumi.StringOutput              `pulumi:"name"`
-	RedirectUrl         pulumi.StringOutput              `pulumi:"redirectUrl"`
-	StorageConnectors   StackStorageConnectorArrayOutput `pulumi:"storageConnectors"`
-	Tags                pulumi.StringMapOutput           `pulumi:"tags"`
-	TagsAll             pulumi.StringMapOutput           `pulumi:"tagsAll"`
-	UserSettings        StackUserSettingArrayOutput      `pulumi:"userSettings"`
+	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+	// See `accessEndpoints` below.
+	AccessEndpoints StackAccessEndpointArrayOutput `pulumi:"accessEndpoints"`
+	// Settings for application settings persistence.
+	// See `applicationSettings` below.
+	ApplicationSettings StackApplicationSettingsOutput `pulumi:"applicationSettings"`
+	// ARN of the appstream stack.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Date and time, in UTC and extended RFC 3339 format, when the stack was created.
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// Description for the AppStream stack.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Stack name to display.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
+	EmbedHostDomains pulumi.StringArrayOutput `pulumi:"embedHostDomains"`
+	// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
+	FeedbackUrl pulumi.StringOutput `pulumi:"feedbackUrl"`
+	// Unique name for the AppStream stack.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// URL that users are redirected to after their streaming session ends.
+	RedirectUrl pulumi.StringOutput `pulumi:"redirectUrl"`
+	// Configuration block for the storage connectors to enable.
+	// See `storageConnectors` below.
+	StorageConnectors StackStorageConnectorArrayOutput `pulumi:"storageConnectors"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
+	// See `userSettings` below.
+	UserSettings StackUserSettingArrayOutput `pulumi:"userSettings"`
 }
 
 // NewStack registers a new resource with the given unique name, arguments, and options.
@@ -58,37 +157,71 @@ func GetStack(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Stack resources.
 type stackState struct {
-	AccessEndpoints     []StackAccessEndpoint     `pulumi:"accessEndpoints"`
+	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+	// See `accessEndpoints` below.
+	AccessEndpoints []StackAccessEndpoint `pulumi:"accessEndpoints"`
+	// Settings for application settings persistence.
+	// See `applicationSettings` below.
 	ApplicationSettings *StackApplicationSettings `pulumi:"applicationSettings"`
-	Arn                 *string                   `pulumi:"arn"`
-	CreatedTime         *string                   `pulumi:"createdTime"`
-	Description         *string                   `pulumi:"description"`
-	DisplayName         *string                   `pulumi:"displayName"`
-	EmbedHostDomains    []string                  `pulumi:"embedHostDomains"`
-	FeedbackUrl         *string                   `pulumi:"feedbackUrl"`
-	Name                *string                   `pulumi:"name"`
-	RedirectUrl         *string                   `pulumi:"redirectUrl"`
-	StorageConnectors   []StackStorageConnector   `pulumi:"storageConnectors"`
-	Tags                map[string]string         `pulumi:"tags"`
-	TagsAll             map[string]string         `pulumi:"tagsAll"`
-	UserSettings        []StackUserSetting        `pulumi:"userSettings"`
+	// ARN of the appstream stack.
+	Arn *string `pulumi:"arn"`
+	// Date and time, in UTC and extended RFC 3339 format, when the stack was created.
+	CreatedTime *string `pulumi:"createdTime"`
+	// Description for the AppStream stack.
+	Description *string `pulumi:"description"`
+	// Stack name to display.
+	DisplayName *string `pulumi:"displayName"`
+	// Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
+	EmbedHostDomains []string `pulumi:"embedHostDomains"`
+	// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
+	FeedbackUrl *string `pulumi:"feedbackUrl"`
+	// Unique name for the AppStream stack.
+	Name *string `pulumi:"name"`
+	// URL that users are redirected to after their streaming session ends.
+	RedirectUrl *string `pulumi:"redirectUrl"`
+	// Configuration block for the storage connectors to enable.
+	// See `storageConnectors` below.
+	StorageConnectors []StackStorageConnector `pulumi:"storageConnectors"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
+	// See `userSettings` below.
+	UserSettings []StackUserSetting `pulumi:"userSettings"`
 }
 
 type StackState struct {
-	AccessEndpoints     StackAccessEndpointArrayInput
+	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+	// See `accessEndpoints` below.
+	AccessEndpoints StackAccessEndpointArrayInput
+	// Settings for application settings persistence.
+	// See `applicationSettings` below.
 	ApplicationSettings StackApplicationSettingsPtrInput
-	Arn                 pulumi.StringPtrInput
-	CreatedTime         pulumi.StringPtrInput
-	Description         pulumi.StringPtrInput
-	DisplayName         pulumi.StringPtrInput
-	EmbedHostDomains    pulumi.StringArrayInput
-	FeedbackUrl         pulumi.StringPtrInput
-	Name                pulumi.StringPtrInput
-	RedirectUrl         pulumi.StringPtrInput
-	StorageConnectors   StackStorageConnectorArrayInput
-	Tags                pulumi.StringMapInput
-	TagsAll             pulumi.StringMapInput
-	UserSettings        StackUserSettingArrayInput
+	// ARN of the appstream stack.
+	Arn pulumi.StringPtrInput
+	// Date and time, in UTC and extended RFC 3339 format, when the stack was created.
+	CreatedTime pulumi.StringPtrInput
+	// Description for the AppStream stack.
+	Description pulumi.StringPtrInput
+	// Stack name to display.
+	DisplayName pulumi.StringPtrInput
+	// Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
+	EmbedHostDomains pulumi.StringArrayInput
+	// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
+	FeedbackUrl pulumi.StringPtrInput
+	// Unique name for the AppStream stack.
+	Name pulumi.StringPtrInput
+	// URL that users are redirected to after their streaming session ends.
+	RedirectUrl pulumi.StringPtrInput
+	// Configuration block for the storage connectors to enable.
+	// See `storageConnectors` below.
+	StorageConnectors StackStorageConnectorArrayInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
+	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
+	// See `userSettings` below.
+	UserSettings StackUserSettingArrayInput
 }
 
 func (StackState) ElementType() reflect.Type {
@@ -96,32 +229,62 @@ func (StackState) ElementType() reflect.Type {
 }
 
 type stackArgs struct {
-	AccessEndpoints     []StackAccessEndpoint     `pulumi:"accessEndpoints"`
+	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+	// See `accessEndpoints` below.
+	AccessEndpoints []StackAccessEndpoint `pulumi:"accessEndpoints"`
+	// Settings for application settings persistence.
+	// See `applicationSettings` below.
 	ApplicationSettings *StackApplicationSettings `pulumi:"applicationSettings"`
-	Description         *string                   `pulumi:"description"`
-	DisplayName         *string                   `pulumi:"displayName"`
-	EmbedHostDomains    []string                  `pulumi:"embedHostDomains"`
-	FeedbackUrl         *string                   `pulumi:"feedbackUrl"`
-	Name                *string                   `pulumi:"name"`
-	RedirectUrl         *string                   `pulumi:"redirectUrl"`
-	StorageConnectors   []StackStorageConnector   `pulumi:"storageConnectors"`
-	Tags                map[string]string         `pulumi:"tags"`
-	UserSettings        []StackUserSetting        `pulumi:"userSettings"`
+	// Description for the AppStream stack.
+	Description *string `pulumi:"description"`
+	// Stack name to display.
+	DisplayName *string `pulumi:"displayName"`
+	// Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
+	EmbedHostDomains []string `pulumi:"embedHostDomains"`
+	// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
+	FeedbackUrl *string `pulumi:"feedbackUrl"`
+	// Unique name for the AppStream stack.
+	Name *string `pulumi:"name"`
+	// URL that users are redirected to after their streaming session ends.
+	RedirectUrl *string `pulumi:"redirectUrl"`
+	// Configuration block for the storage connectors to enable.
+	// See `storageConnectors` below.
+	StorageConnectors []StackStorageConnector `pulumi:"storageConnectors"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
+	// See `userSettings` below.
+	UserSettings []StackUserSetting `pulumi:"userSettings"`
 }
 
 // The set of arguments for constructing a Stack resource.
 type StackArgs struct {
-	AccessEndpoints     StackAccessEndpointArrayInput
+	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+	// See `accessEndpoints` below.
+	AccessEndpoints StackAccessEndpointArrayInput
+	// Settings for application settings persistence.
+	// See `applicationSettings` below.
 	ApplicationSettings StackApplicationSettingsPtrInput
-	Description         pulumi.StringPtrInput
-	DisplayName         pulumi.StringPtrInput
-	EmbedHostDomains    pulumi.StringArrayInput
-	FeedbackUrl         pulumi.StringPtrInput
-	Name                pulumi.StringPtrInput
-	RedirectUrl         pulumi.StringPtrInput
-	StorageConnectors   StackStorageConnectorArrayInput
-	Tags                pulumi.StringMapInput
-	UserSettings        StackUserSettingArrayInput
+	// Description for the AppStream stack.
+	Description pulumi.StringPtrInput
+	// Stack name to display.
+	DisplayName pulumi.StringPtrInput
+	// Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
+	EmbedHostDomains pulumi.StringArrayInput
+	// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
+	FeedbackUrl pulumi.StringPtrInput
+	// Unique name for the AppStream stack.
+	Name pulumi.StringPtrInput
+	// URL that users are redirected to after their streaming session ends.
+	RedirectUrl pulumi.StringPtrInput
+	// Configuration block for the storage connectors to enable.
+	// See `storageConnectors` below.
+	StorageConnectors StackStorageConnectorArrayInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
+	// See `userSettings` below.
+	UserSettings StackUserSettingArrayInput
 }
 
 func (StackArgs) ElementType() reflect.Type {
@@ -211,50 +374,65 @@ func (o StackOutput) ToStackOutputWithContext(ctx context.Context) StackOutput {
 	return o
 }
 
+// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+// See `accessEndpoints` below.
 func (o StackOutput) AccessEndpoints() StackAccessEndpointArrayOutput {
 	return o.ApplyT(func(v *Stack) StackAccessEndpointArrayOutput { return v.AccessEndpoints }).(StackAccessEndpointArrayOutput)
 }
 
+// Settings for application settings persistence.
+// See `applicationSettings` below.
 func (o StackOutput) ApplicationSettings() StackApplicationSettingsOutput {
 	return o.ApplyT(func(v *Stack) StackApplicationSettingsOutput { return v.ApplicationSettings }).(StackApplicationSettingsOutput)
 }
 
+// ARN of the appstream stack.
 func (o StackOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Date and time, in UTC and extended RFC 3339 format, when the stack was created.
 func (o StackOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
+// Description for the AppStream stack.
 func (o StackOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Stack name to display.
 func (o StackOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
 func (o StackOutput) EmbedHostDomains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringArrayOutput { return v.EmbedHostDomains }).(pulumi.StringArrayOutput)
 }
 
+// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
 func (o StackOutput) FeedbackUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.FeedbackUrl }).(pulumi.StringOutput)
 }
 
+// Unique name for the AppStream stack.
 func (o StackOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// URL that users are redirected to after their streaming session ends.
 func (o StackOutput) RedirectUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.RedirectUrl }).(pulumi.StringOutput)
 }
 
+// Configuration block for the storage connectors to enable.
+// See `storageConnectors` below.
 func (o StackOutput) StorageConnectors() StackStorageConnectorArrayOutput {
 	return o.ApplyT(func(v *Stack) StackStorageConnectorArrayOutput { return v.StorageConnectors }).(StackStorageConnectorArrayOutput)
 }
 
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o StackOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -263,6 +441,8 @@ func (o StackOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
+// See `userSettings` below.
 func (o StackOutput) UserSettings() StackUserSettingArrayOutput {
 	return o.ApplyT(func(v *Stack) StackUserSettingArrayOutput { return v.UserSettings }).(StackUserSettingArrayOutput)
 }

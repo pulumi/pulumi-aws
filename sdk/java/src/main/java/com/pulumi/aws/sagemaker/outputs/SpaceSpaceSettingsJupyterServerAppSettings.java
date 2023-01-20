@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SpaceSpaceSettingsJupyterServerAppSettings {
+    /**
+     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * 
+     */
     private @Nullable List<SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository> codeRepositories;
+    /**
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * 
+     */
     private SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec;
+    /**
+     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+     * 
+     */
     private @Nullable List<String> lifecycleConfigArns;
 
     private SpaceSpaceSettingsJupyterServerAppSettings() {}
+    /**
+     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * 
+     */
     public List<SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository> codeRepositories() {
         return this.codeRepositories == null ? List.of() : this.codeRepositories;
     }
+    /**
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * 
+     */
     public SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec() {
         return this.defaultResourceSpec;
     }
+    /**
+     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+     * 
+     */
     public List<String> lifecycleConfigArns() {
         return this.lifecycleConfigArns == null ? List.of() : this.lifecycleConfigArns;
     }

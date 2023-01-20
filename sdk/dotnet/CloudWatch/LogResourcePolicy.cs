@@ -9,12 +9,126 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
+    /// <summary>
+    /// Provides a resource to manage a CloudWatch log resource policy.
+    /// 
+    /// ## Example Usage
+    /// ### Elasticsearch Log Publishing
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var elasticsearch_log_publishing_policyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "logs:CreateLogStream",
+    ///                     "logs:PutLogEvents",
+    ///                     "logs:PutLogEventsBatch",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:logs:*",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "es.amazonaws.com",
+    ///                         },
+    ///                         Type = "Service",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var elasticsearch_log_publishing_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("elasticsearch-log-publishing-policyLogResourcePolicy", new()
+    ///     {
+    ///         PolicyDocument = elasticsearch_log_publishing_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult).Apply(elasticsearch_log_publishing_policyPolicyDocument =&gt; elasticsearch_log_publishing_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
+    ///         PolicyName = "elasticsearch-log-publishing-policy",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Route53 Query Logging
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var route53_query_logging_policyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "logs:CreateLogStream",
+    ///                     "logs:PutLogEvents",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:logs:*:*:log-group:/aws/route53/*",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "route53.amazonaws.com",
+    ///                         },
+    ///                         Type = "Service",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var route53_query_logging_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy", new()
+    ///     {
+    ///         PolicyDocument = route53_query_logging_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult).Apply(route53_query_logging_policyPolicyDocument =&gt; route53_query_logging_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
+    ///         PolicyName = "route53-query-logging-policy",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// CloudWatch log resource policies can be imported using the policy name, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:cloudwatch/logResourcePolicy:LogResourcePolicy")]
     public partial class LogResourcePolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
+        /// </summary>
         [Output("policyDocument")]
         public Output<string> PolicyDocument { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the resource policy.
+        /// </summary>
         [Output("policyName")]
         public Output<string> PolicyName { get; private set; } = null!;
 
@@ -64,9 +178,15 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
+        /// </summary>
         [Input("policyDocument", required: true)]
         public Input<string> PolicyDocument { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the resource policy.
+        /// </summary>
         [Input("policyName", required: true)]
         public Input<string> PolicyName { get; set; } = null!;
 
@@ -78,9 +198,15 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogResourcePolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
+        /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
 
+        /// <summary>
+        /// Name of the resource policy.
+        /// </summary>
         [Input("policyName")]
         public Input<string>? PolicyName { get; set; }
 

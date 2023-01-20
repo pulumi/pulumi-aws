@@ -21,7 +21,13 @@ class UserArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a User resource.
-        :param pulumi.Input[bool] force_destroy: Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
+        :param pulumi.Input[bool] force_destroy: When destroying this user, destroy even if it
+               has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+               a user with non-provider-managed access keys and login profile will fail to be destroyed.
+        :param pulumi.Input[str] name: The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
+        :param pulumi.Input[str] path: Path in which to create the user.
+        :param pulumi.Input[str] permissions_boundary: The ARN of the policy that is used to set the permissions boundary for the user.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if force_destroy is not None:
             pulumi.set(__self__, "force_destroy", force_destroy)
@@ -38,7 +44,9 @@ class UserArgs:
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[bool]]:
         """
-        Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
+        When destroying this user, destroy even if it
+        has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+        a user with non-provider-managed access keys and login profile will fail to be destroyed.
         """
         return pulumi.get(self, "force_destroy")
 
@@ -49,6 +57,9 @@ class UserArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -58,6 +69,9 @@ class UserArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path in which to create the user.
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -67,6 +81,9 @@ class UserArgs:
     @property
     @pulumi.getter(name="permissionsBoundary")
     def permissions_boundary(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the policy that is used to set the permissions boundary for the user.
+        """
         return pulumi.get(self, "permissions_boundary")
 
     @permissions_boundary.setter
@@ -76,6 +93,9 @@ class UserArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -96,7 +116,16 @@ class _UserState:
                  unique_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering User resources.
-        :param pulumi.Input[bool] force_destroy: Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
+        :param pulumi.Input[str] arn: The ARN assigned by AWS for this user.
+        :param pulumi.Input[bool] force_destroy: When destroying this user, destroy even if it
+               has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+               a user with non-provider-managed access keys and login profile will fail to be destroyed.
+        :param pulumi.Input[str] name: The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
+        :param pulumi.Input[str] path: Path in which to create the user.
+        :param pulumi.Input[str] permissions_boundary: The ARN of the policy that is used to set the permissions boundary for the user.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] unique_id: The [unique ID][1] assigned by AWS.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -118,6 +147,9 @@ class _UserState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN assigned by AWS for this user.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -128,7 +160,9 @@ class _UserState:
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[bool]]:
         """
-        Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
+        When destroying this user, destroy even if it
+        has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+        a user with non-provider-managed access keys and login profile will fail to be destroyed.
         """
         return pulumi.get(self, "force_destroy")
 
@@ -139,6 +173,9 @@ class _UserState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -148,6 +185,9 @@ class _UserState:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path in which to create the user.
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -157,6 +197,9 @@ class _UserState:
     @property
     @pulumi.getter(name="permissionsBoundary")
     def permissions_boundary(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the policy that is used to set the permissions boundary for the user.
+        """
         return pulumi.get(self, "permissions_boundary")
 
     @permissions_boundary.setter
@@ -166,6 +209,9 @@ class _UserState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -175,6 +221,9 @@ class _UserState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -184,6 +233,9 @@ class _UserState:
     @property
     @pulumi.getter(name="uniqueId")
     def unique_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The [unique ID][1] assigned by AWS.
+        """
         return pulumi.get(self, "unique_id")
 
     @unique_id.setter
@@ -203,10 +255,56 @@ class User(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a User resource with the given unique name, props, and options.
+        Provides an IAM user.
+
+        > *NOTE:* If policies are attached to the user via the `iam.PolicyAttachment` resource and you are modifying the user `name` or `path`, the `force_destroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `iam.UserPolicyAttachment` resource (recommended) does not have this requirement.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lb_user = aws.iam.User("lbUser",
+            path="/system/",
+            tags={
+                "tag-key": "tag-value",
+            })
+        lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
+        lb_ro = aws.iam.UserPolicy("lbRo",
+            user=lb_user.name,
+            policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": [
+                "ec2:Describe*"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ]
+        }
+        \"\"\")
+        ```
+
+        ## Import
+
+        IAM Users can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:iam/user:User lb loadbalancer
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] force_destroy: Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
+        :param pulumi.Input[bool] force_destroy: When destroying this user, destroy even if it
+               has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+               a user with non-provider-managed access keys and login profile will fail to be destroyed.
+        :param pulumi.Input[str] name: The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
+        :param pulumi.Input[str] path: Path in which to create the user.
+        :param pulumi.Input[str] permissions_boundary: The ARN of the policy that is used to set the permissions boundary for the user.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -215,7 +313,47 @@ class User(pulumi.CustomResource):
                  args: Optional[UserArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a User resource with the given unique name, props, and options.
+        Provides an IAM user.
+
+        > *NOTE:* If policies are attached to the user via the `iam.PolicyAttachment` resource and you are modifying the user `name` or `path`, the `force_destroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `iam.UserPolicyAttachment` resource (recommended) does not have this requirement.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lb_user = aws.iam.User("lbUser",
+            path="/system/",
+            tags={
+                "tag-key": "tag-value",
+            })
+        lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
+        lb_ro = aws.iam.UserPolicy("lbRo",
+            user=lb_user.name,
+            policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": [
+                "ec2:Describe*"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ]
+        }
+        \"\"\")
+        ```
+
+        ## Import
+
+        IAM Users can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:iam/user:User lb loadbalancer
+        ```
+
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,7 +416,16 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] force_destroy: Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
+        :param pulumi.Input[str] arn: The ARN assigned by AWS for this user.
+        :param pulumi.Input[bool] force_destroy: When destroying this user, destroy even if it
+               has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+               a user with non-provider-managed access keys and login profile will fail to be destroyed.
+        :param pulumi.Input[str] name: The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
+        :param pulumi.Input[str] path: Path in which to create the user.
+        :param pulumi.Input[str] permissions_boundary: The ARN of the policy that is used to set the permissions boundary for the user.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] unique_id: The [unique ID][1] assigned by AWS.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -297,43 +444,66 @@ class User(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN assigned by AWS for this user.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> pulumi.Output[Optional[bool]]:
         """
-        Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
+        When destroying this user, destroy even if it
+        has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+        a user with non-provider-managed access keys and login profile will fail to be destroyed.
         """
         return pulumi.get(self, "force_destroy")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def path(self) -> pulumi.Output[Optional[str]]:
+        """
+        Path in which to create the user.
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter(name="permissionsBoundary")
     def permissions_boundary(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the policy that is used to set the permissions boundary for the user.
+        """
         return pulumi.get(self, "permissions_boundary")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="uniqueId")
     def unique_id(self) -> pulumi.Output[str]:
+        """
+        The [unique ID][1] assigned by AWS.
+        """
         return pulumi.get(self, "unique_id")
 

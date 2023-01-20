@@ -16,37 +16,77 @@ public final class ResponseState extends com.pulumi.resources.ResourceArgs {
 
     public static final ResponseState Empty = new ResponseState();
 
+    /**
+     * Map of parameters (paths, query strings and headers) of the Gateway Response.
+     * 
+     */
     @Import(name="responseParameters")
     private @Nullable Output<Map<String,String>> responseParameters;
 
+    /**
+     * @return Map of parameters (paths, query strings and headers) of the Gateway Response.
+     * 
+     */
     public Optional<Output<Map<String,String>>> responseParameters() {
         return Optional.ofNullable(this.responseParameters);
     }
 
+    /**
+     * Map of templates used to transform the response body.
+     * 
+     */
     @Import(name="responseTemplates")
     private @Nullable Output<Map<String,String>> responseTemplates;
 
+    /**
+     * @return Map of templates used to transform the response body.
+     * 
+     */
     public Optional<Output<Map<String,String>>> responseTemplates() {
         return Optional.ofNullable(this.responseTemplates);
     }
 
+    /**
+     * Response type of the associated GatewayResponse.
+     * 
+     */
     @Import(name="responseType")
     private @Nullable Output<String> responseType;
 
+    /**
+     * @return Response type of the associated GatewayResponse.
+     * 
+     */
     public Optional<Output<String>> responseType() {
         return Optional.ofNullable(this.responseType);
     }
 
+    /**
+     * String identifier of the associated REST API.
+     * 
+     */
     @Import(name="restApiId")
     private @Nullable Output<String> restApiId;
 
+    /**
+     * @return String identifier of the associated REST API.
+     * 
+     */
     public Optional<Output<String>> restApiId() {
         return Optional.ofNullable(this.restApiId);
     }
 
+    /**
+     * HTTP status code of the Gateway Response.
+     * 
+     */
     @Import(name="statusCode")
     private @Nullable Output<String> statusCode;
 
+    /**
+     * @return HTTP status code of the Gateway Response.
+     * 
+     */
     public Optional<Output<String>> statusCode() {
         return Optional.ofNullable(this.statusCode);
     }
@@ -79,47 +119,107 @@ public final class ResponseState extends com.pulumi.resources.ResourceArgs {
             $ = new ResponseState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param responseParameters Map of parameters (paths, query strings and headers) of the Gateway Response.
+         * 
+         * @return builder
+         * 
+         */
         public Builder responseParameters(@Nullable Output<Map<String,String>> responseParameters) {
             $.responseParameters = responseParameters;
             return this;
         }
 
+        /**
+         * @param responseParameters Map of parameters (paths, query strings and headers) of the Gateway Response.
+         * 
+         * @return builder
+         * 
+         */
         public Builder responseParameters(Map<String,String> responseParameters) {
             return responseParameters(Output.of(responseParameters));
         }
 
+        /**
+         * @param responseTemplates Map of templates used to transform the response body.
+         * 
+         * @return builder
+         * 
+         */
         public Builder responseTemplates(@Nullable Output<Map<String,String>> responseTemplates) {
             $.responseTemplates = responseTemplates;
             return this;
         }
 
+        /**
+         * @param responseTemplates Map of templates used to transform the response body.
+         * 
+         * @return builder
+         * 
+         */
         public Builder responseTemplates(Map<String,String> responseTemplates) {
             return responseTemplates(Output.of(responseTemplates));
         }
 
+        /**
+         * @param responseType Response type of the associated GatewayResponse.
+         * 
+         * @return builder
+         * 
+         */
         public Builder responseType(@Nullable Output<String> responseType) {
             $.responseType = responseType;
             return this;
         }
 
+        /**
+         * @param responseType Response type of the associated GatewayResponse.
+         * 
+         * @return builder
+         * 
+         */
         public Builder responseType(String responseType) {
             return responseType(Output.of(responseType));
         }
 
+        /**
+         * @param restApiId String identifier of the associated REST API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder restApiId(@Nullable Output<String> restApiId) {
             $.restApiId = restApiId;
             return this;
         }
 
+        /**
+         * @param restApiId String identifier of the associated REST API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder restApiId(String restApiId) {
             return restApiId(Output.of(restApiId));
         }
 
+        /**
+         * @param statusCode HTTP status code of the Gateway Response.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statusCode(@Nullable Output<String> statusCode) {
             $.statusCode = statusCode;
             return this;
         }
 
+        /**
+         * @param statusCode HTTP status code of the Gateway Response.
+         * 
+         * @return builder
+         * 
+         */
         public Builder statusCode(String statusCode) {
             return statusCode(Output.of(statusCode));
         }

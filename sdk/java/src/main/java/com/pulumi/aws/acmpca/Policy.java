@@ -13,17 +13,114 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Attaches a resource based policy to a private CA.
+ * 
+ * ## Example Usage
+ * ### Basic
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.acmpca.Policy;
+ * import com.pulumi.aws.acmpca.PolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+ *             .resourceArn(aws_acmpca_certificate_authority.example().arn())
+ *             .policy(&#34;&#34;&#34;
+ * {                        
+ *    &#34;Version&#34;:&#34;2012-10-17&#34;,
+ *    &#34;Statement&#34;:[
+ *       {    
+ *          &#34;Sid&#34;:&#34;1&#34;,
+ *          &#34;Effect&#34;:&#34;Allow&#34;,         
+ *          &#34;Principal&#34;:{                                                                                                                                               
+ *             &#34;AWS&#34;:&#34;%s&#34;                                                                                
+ *          },
+ *          &#34;Action&#34;:[
+ *             &#34;acm-pca:DescribeCertificateAuthority&#34;,
+ *             &#34;acm-pca:GetCertificate&#34;,
+ *             &#34;acm-pca:GetCertificateAuthorityCertificate&#34;,
+ *             &#34;acm-pca:ListPermissions&#34;,
+ *             &#34;acm-pca:ListTags&#34;                                                                                   
+ *          ],                                                                                              
+ *          &#34;Resource&#34;:&#34;%s&#34;
+ *       },
+ *       {
+ *          &#34;Sid&#34;:&#34;1&#34;,  
+ *          &#34;Effect&#34;:&#34;Allow&#34;,
+ *          &#34;Principal&#34;:{
+ *             &#34;AWS&#34;:&#34;%s&#34;
+ *          },
+ *          &#34;Action&#34;:[
+ *             &#34;acm-pca:IssueCertificate&#34;
+ *          ],
+ *          &#34;Resource&#34;:&#34;%s&#34;,
+ *          &#34;Condition&#34;:{
+ *             &#34;StringEquals&#34;:{
+ *                &#34;acm-pca:TemplateArn&#34;:&#34;arn:aws:acm-pca:::template/EndEntityCertificate/V1&#34;
+ *             }
+ *          }
+ *       }
+ *    ]
+ * }
+ * &#34;, data.aws_caller_identity().current().account_id(),aws_acmpca_certificate_authority.example().arn(),data.aws_caller_identity().current().account_id(),aws_acmpca_certificate_authority.example().arn()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_acmpca_policy` can be imported using the `resource_arn` value.
+ * 
+ * ```sh
+ *  $ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
+ * ```
+ * 
+ */
 @ResourceType(type="aws:acmpca/policy:Policy")
 public class Policy extends com.pulumi.resources.CustomResource {
+    /**
+     * JSON-formatted IAM policy to attach to the specified private CA resource.
+     * 
+     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
+    /**
+     * @return JSON-formatted IAM policy to attach to the specified private CA resource.
+     * 
+     */
     public Output<String> policy() {
         return this.policy;
     }
+    /**
+     * ARN of the private CA to associate with the policy.
+     * 
+     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
+    /**
+     * @return ARN of the private CA to associate with the policy.
+     * 
+     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }

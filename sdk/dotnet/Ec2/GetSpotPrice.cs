@@ -11,9 +11,81 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetSpotPrice
     {
+        /// <summary>
+        /// Information about most recent Spot Price for a given EC2 instance.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetSpotPrice.Invoke(new()
+        ///     {
+        ///         AvailabilityZone = "us-west-2a",
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetSpotPriceFilterInputArgs
+        ///             {
+        ///                 Name = "product-description",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "Linux/UNIX",
+        ///                 },
+        ///             },
+        ///         },
+        ///         InstanceType = "t3.medium",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetSpotPriceResult> InvokeAsync(GetSpotPriceArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpotPriceResult>("aws:ec2/getSpotPrice:getSpotPrice", args ?? new GetSpotPriceArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Information about most recent Spot Price for a given EC2 instance.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetSpotPrice.Invoke(new()
+        ///     {
+        ///         AvailabilityZone = "us-west-2a",
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetSpotPriceFilterInputArgs
+        ///             {
+        ///                 Name = "product-description",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "Linux/UNIX",
+        ///                 },
+        ///             },
+        ///         },
+        ///         InstanceType = "t3.medium",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetSpotPriceResult> Invoke(GetSpotPriceInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpotPriceResult>("aws:ec2/getSpotPrice:getSpotPrice", args ?? new GetSpotPriceInvokeArgs(), options.WithDefaults());
     }
@@ -21,17 +93,27 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class GetSpotPriceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Availability zone in which to query Spot price information.
+        /// </summary>
         [Input("availabilityZone")]
         public string? AvailabilityZone { get; set; }
 
         [Input("filters")]
         private List<Inputs.GetSpotPriceFilterArgs>? _filters;
+
+        /// <summary>
+        /// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
+        /// </summary>
         public List<Inputs.GetSpotPriceFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetSpotPriceFilterArgs>());
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Type of instance for which to query Spot Price information.
+        /// </summary>
         [Input("instanceType")]
         public string? InstanceType { get; set; }
 
@@ -43,17 +125,27 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class GetSpotPriceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Availability zone in which to query Spot price information.
+        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
         [Input("filters")]
         private InputList<Inputs.GetSpotPriceFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
+        /// </summary>
         public InputList<Inputs.GetSpotPriceFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetSpotPriceFilterInputArgs>());
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Type of instance for which to query Spot Price information.
+        /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
@@ -74,7 +166,13 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         public readonly string? InstanceType;
+        /// <summary>
+        /// Most recent Spot Price value for the given instance type and AZ.
+        /// </summary>
         public readonly string SpotPrice;
+        /// <summary>
+        /// The timestamp at which the Spot Price value was published.
+        /// </summary>
         public readonly string SpotPriceTimestamp;
 
         [OutputConstructor]

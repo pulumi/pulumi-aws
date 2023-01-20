@@ -17,44 +17,92 @@ public final class SmsChannelState extends com.pulumi.resources.ResourceArgs {
 
     public static final SmsChannelState Empty = new SmsChannelState();
 
+    /**
+     * The application ID.
+     * 
+     */
     @Import(name="applicationId")
     private @Nullable Output<String> applicationId;
 
+    /**
+     * @return The application ID.
+     * 
+     */
     public Optional<Output<String>> applicationId() {
         return Optional.ofNullable(this.applicationId);
     }
 
+    /**
+     * Whether the channel is enabled or disabled. Defaults to `true`.
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return Whether the channel is enabled or disabled. Defaults to `true`.
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
+    /**
+     * Promotional messages per second that can be sent.
+     * 
+     */
     @Import(name="promotionalMessagesPerSecond")
     private @Nullable Output<Integer> promotionalMessagesPerSecond;
 
+    /**
+     * @return Promotional messages per second that can be sent.
+     * 
+     */
     public Optional<Output<Integer>> promotionalMessagesPerSecond() {
         return Optional.ofNullable(this.promotionalMessagesPerSecond);
     }
 
+    /**
+     * Sender identifier of your messages.
+     * 
+     */
     @Import(name="senderId")
     private @Nullable Output<String> senderId;
 
+    /**
+     * @return Sender identifier of your messages.
+     * 
+     */
     public Optional<Output<String>> senderId() {
         return Optional.ofNullable(this.senderId);
     }
 
+    /**
+     * The Short Code registered with the phone provider.
+     * 
+     */
     @Import(name="shortCode")
     private @Nullable Output<String> shortCode;
 
+    /**
+     * @return The Short Code registered with the phone provider.
+     * 
+     */
     public Optional<Output<String>> shortCode() {
         return Optional.ofNullable(this.shortCode);
     }
 
+    /**
+     * Transactional messages per second that can be sent.
+     * 
+     */
     @Import(name="transactionalMessagesPerSecond")
     private @Nullable Output<Integer> transactionalMessagesPerSecond;
 
+    /**
+     * @return Transactional messages per second that can be sent.
+     * 
+     */
     public Optional<Output<Integer>> transactionalMessagesPerSecond() {
         return Optional.ofNullable(this.transactionalMessagesPerSecond);
     }
@@ -88,56 +136,128 @@ public final class SmsChannelState extends com.pulumi.resources.ResourceArgs {
             $ = new SmsChannelState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param applicationId The application ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationId(@Nullable Output<String> applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
+        /**
+         * @param applicationId The application ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationId(String applicationId) {
             return applicationId(Output.of(applicationId));
         }
 
+        /**
+         * @param enabled Whether the channel is enabled or disabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Whether the channel is enabled or disabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
+        /**
+         * @param promotionalMessagesPerSecond Promotional messages per second that can be sent.
+         * 
+         * @return builder
+         * 
+         */
         public Builder promotionalMessagesPerSecond(@Nullable Output<Integer> promotionalMessagesPerSecond) {
             $.promotionalMessagesPerSecond = promotionalMessagesPerSecond;
             return this;
         }
 
+        /**
+         * @param promotionalMessagesPerSecond Promotional messages per second that can be sent.
+         * 
+         * @return builder
+         * 
+         */
         public Builder promotionalMessagesPerSecond(Integer promotionalMessagesPerSecond) {
             return promotionalMessagesPerSecond(Output.of(promotionalMessagesPerSecond));
         }
 
+        /**
+         * @param senderId Sender identifier of your messages.
+         * 
+         * @return builder
+         * 
+         */
         public Builder senderId(@Nullable Output<String> senderId) {
             $.senderId = senderId;
             return this;
         }
 
+        /**
+         * @param senderId Sender identifier of your messages.
+         * 
+         * @return builder
+         * 
+         */
         public Builder senderId(String senderId) {
             return senderId(Output.of(senderId));
         }
 
+        /**
+         * @param shortCode The Short Code registered with the phone provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder shortCode(@Nullable Output<String> shortCode) {
             $.shortCode = shortCode;
             return this;
         }
 
+        /**
+         * @param shortCode The Short Code registered with the phone provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder shortCode(String shortCode) {
             return shortCode(Output.of(shortCode));
         }
 
+        /**
+         * @param transactionalMessagesPerSecond Transactional messages per second that can be sent.
+         * 
+         * @return builder
+         * 
+         */
         public Builder transactionalMessagesPerSecond(@Nullable Output<Integer> transactionalMessagesPerSecond) {
             $.transactionalMessagesPerSecond = transactionalMessagesPerSecond;
             return this;
         }
 
+        /**
+         * @param transactionalMessagesPerSecond Transactional messages per second that can be sent.
+         * 
+         * @return builder
+         * 
+         */
         public Builder transactionalMessagesPerSecond(Integer transactionalMessagesPerSecond) {
             return transactionalMessagesPerSecond(Output.of(transactionalMessagesPerSecond));
         }

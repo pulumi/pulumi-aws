@@ -38,11 +38,17 @@ class GetSiteResult:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> str:
+        """
+        AWS Account identifier.
+        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -72,7 +78,20 @@ def get_site(id: Optional[str] = None,
              name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about an Outposts Site.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.outposts.get_site(name="example")
+    ```
+
+
+    :param str id: Identifier of the Site.
+    :param str name: Name of the Site.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -92,6 +111,19 @@ def get_site_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                     name: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about an Outposts Site.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.outposts.get_site(name="example")
+    ```
+
+
+    :param str id: Identifier of the Site.
+    :param str name: Name of the Site.
     """
     ...

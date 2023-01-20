@@ -9,15 +9,61 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
+    /// <summary>
+    /// Provides an S3 bucket accelerate configuration resource. See the [Requirements for using Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html#transfer-acceleration-requirements) for more details.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mybucket = new Aws.S3.BucketV2("mybucket");
+    /// 
+    ///     var example = new Aws.S3.BucketAccelerateConfigurationV2("example", new()
+    ///     {
+    ///         Bucket = mybucket.Bucket,
+    ///         Status = "Enabled",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// S3 bucket accelerate configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name
+    /// ```
+    /// 
+    ///  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2")]
     public partial class BucketAccelerateConfigurationV2 : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the bucket.
+        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
+        /// <summary>
+        /// The account ID of the expected bucket owner.
+        /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
+        /// <summary>
+        /// The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -67,12 +113,21 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketAccelerateConfigurationV2Args : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the bucket.
+        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// The account ID of the expected bucket owner.
+        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
+        /// <summary>
+        /// The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
@@ -84,12 +139,21 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketAccelerateConfigurationV2State : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the bucket.
+        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
+        /// <summary>
+        /// The account ID of the expected bucket owner.
+        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
+        /// <summary>
+        /// The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

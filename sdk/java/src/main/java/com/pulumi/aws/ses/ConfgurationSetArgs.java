@@ -18,37 +18,77 @@ public final class ConfgurationSetArgs extends com.pulumi.resources.ResourceArgs
 
     public static final ConfgurationSetArgs Empty = new ConfgurationSetArgs();
 
+    /**
+     * Whether messages that use the configuration set are required to use TLS. See below.
+     * 
+     */
     @Import(name="deliveryOptions")
     private @Nullable Output<ConfgurationSetDeliveryOptionsArgs> deliveryOptions;
 
+    /**
+     * @return Whether messages that use the configuration set are required to use TLS. See below.
+     * 
+     */
     public Optional<Output<ConfgurationSetDeliveryOptionsArgs>> deliveryOptions() {
         return Optional.ofNullable(this.deliveryOptions);
     }
 
+    /**
+     * Name of the configuration set.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name of the configuration set.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+     * 
+     */
     @Import(name="reputationMetricsEnabled")
     private @Nullable Output<Boolean> reputationMetricsEnabled;
 
+    /**
+     * @return Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+     * 
+     */
     public Optional<Output<Boolean>> reputationMetricsEnabled() {
         return Optional.ofNullable(this.reputationMetricsEnabled);
     }
 
+    /**
+     * Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+     * 
+     */
     @Import(name="sendingEnabled")
     private @Nullable Output<Boolean> sendingEnabled;
 
+    /**
+     * @return Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+     * 
+     */
     public Optional<Output<Boolean>> sendingEnabled() {
         return Optional.ofNullable(this.sendingEnabled);
     }
 
+    /**
+     * Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+     * 
+     */
     @Import(name="trackingOptions")
     private @Nullable Output<ConfgurationSetTrackingOptionsArgs> trackingOptions;
 
+    /**
+     * @return Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+     * 
+     */
     public Optional<Output<ConfgurationSetTrackingOptionsArgs>> trackingOptions() {
         return Optional.ofNullable(this.trackingOptions);
     }
@@ -81,47 +121,107 @@ public final class ConfgurationSetArgs extends com.pulumi.resources.ResourceArgs
             $ = new ConfgurationSetArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param deliveryOptions Whether messages that use the configuration set are required to use TLS. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deliveryOptions(@Nullable Output<ConfgurationSetDeliveryOptionsArgs> deliveryOptions) {
             $.deliveryOptions = deliveryOptions;
             return this;
         }
 
+        /**
+         * @param deliveryOptions Whether messages that use the configuration set are required to use TLS. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deliveryOptions(ConfgurationSetDeliveryOptionsArgs deliveryOptions) {
             return deliveryOptions(Output.of(deliveryOptions));
         }
 
+        /**
+         * @param name Name of the configuration set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the configuration set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param reputationMetricsEnabled Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder reputationMetricsEnabled(@Nullable Output<Boolean> reputationMetricsEnabled) {
             $.reputationMetricsEnabled = reputationMetricsEnabled;
             return this;
         }
 
+        /**
+         * @param reputationMetricsEnabled Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder reputationMetricsEnabled(Boolean reputationMetricsEnabled) {
             return reputationMetricsEnabled(Output.of(reputationMetricsEnabled));
         }
 
+        /**
+         * @param sendingEnabled Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sendingEnabled(@Nullable Output<Boolean> sendingEnabled) {
             $.sendingEnabled = sendingEnabled;
             return this;
         }
 
+        /**
+         * @param sendingEnabled Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sendingEnabled(Boolean sendingEnabled) {
             return sendingEnabled(Output.of(sendingEnabled));
         }
 
+        /**
+         * @param trackingOptions Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+         * 
+         * @return builder
+         * 
+         */
         public Builder trackingOptions(@Nullable Output<ConfgurationSetTrackingOptionsArgs> trackingOptions) {
             $.trackingOptions = trackingOptions;
             return this;
         }
 
+        /**
+         * @param trackingOptions Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+         * 
+         * @return builder
+         * 
+         */
         public Builder trackingOptions(ConfgurationSetTrackingOptionsArgs trackingOptions) {
             return trackingOptions(Output.of(trackingOptions));
         }

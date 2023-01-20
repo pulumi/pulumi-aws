@@ -6,6 +6,51 @@ import * as utilities from "../utilities";
 
 import {RestApi} from "./index";
 
+/**
+ * Connects a custom domain name registered via `aws.apigateway.DomainName`
+ * with a deployed API so that its methods can be called via the
+ * custom domain name.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ *
+ * const exampleStage = new aws.apigateway.Stage("exampleStage", {
+ *     deployment: aws_api_gateway_deployment.example.id,
+ *     restApi: aws_api_gateway_rest_api.example.id,
+ *     stageName: "example",
+ * });
+ * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
+ *     domainName: "example.com",
+ *     certificateName: "example-api",
+ *     certificateBody: fs.readFileSync(`${path.module}/example.com/example.crt`),
+ *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`),
+ *     certificatePrivateKey: fs.readFileSync(`${path.module}/example.com/example.key`),
+ * });
+ * const exampleBasePathMapping = new aws.apigateway.BasePathMapping("exampleBasePathMapping", {
+ *     restApi: aws_api_gateway_rest_api.example.id,
+ *     stageName: exampleStage.stageName,
+ *     domainName: exampleDomainName.domainName,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_api_gateway_base_path_mapping` can be imported by using the domain name and base path, e.g., For empty `base_path` (e.g., root path (`/`))
+ *
+ * ```sh
+ *  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
+ * ```
+ *
+ *  Otherwise
+ *
+ * ```sh
+ *  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
+ * ```
+ */
 export class BasePathMapping extends pulumi.CustomResource {
     /**
      * Get an existing BasePathMapping resource's state with the given name, ID, and optional extra
@@ -34,9 +79,21 @@ export class BasePathMapping extends pulumi.CustomResource {
         return obj['__pulumiType'] === BasePathMapping.__pulumiType;
     }
 
+    /**
+     * Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
+     */
     public readonly basePath!: pulumi.Output<string | undefined>;
+    /**
+     * Already-registered domain name to connect the API to.
+     */
     public readonly domainName!: pulumi.Output<string>;
+    /**
+     * ID of the API to connect.
+     */
     public readonly restApi!: pulumi.Output<string>;
+    /**
+     * Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+     */
     public readonly stageName!: pulumi.Output<string | undefined>;
 
     /**
@@ -78,9 +135,21 @@ export class BasePathMapping extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BasePathMapping resources.
  */
 export interface BasePathMappingState {
+    /**
+     * Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
+     */
     basePath?: pulumi.Input<string>;
+    /**
+     * Already-registered domain name to connect the API to.
+     */
     domainName?: pulumi.Input<string>;
+    /**
+     * ID of the API to connect.
+     */
     restApi?: pulumi.Input<string | RestApi>;
+    /**
+     * Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+     */
     stageName?: pulumi.Input<string>;
 }
 
@@ -88,8 +157,20 @@ export interface BasePathMappingState {
  * The set of arguments for constructing a BasePathMapping resource.
  */
 export interface BasePathMappingArgs {
+    /**
+     * Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
+     */
     basePath?: pulumi.Input<string>;
+    /**
+     * Already-registered domain name to connect the API to.
+     */
     domainName: pulumi.Input<string>;
+    /**
+     * ID of the API to connect.
+     */
     restApi: pulumi.Input<string | RestApi>;
+    /**
+     * Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+     */
     stageName?: pulumi.Input<string>;
 }

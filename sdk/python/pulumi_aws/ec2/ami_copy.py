@@ -29,6 +29,24 @@ class AmiCopyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AmiCopy resource.
+        :param pulumi.Input[str] source_ami_id: Id of the AMI to copy. This id must be valid in the region
+               given by `source_ami_region`.
+        :param pulumi.Input[str] source_ami_region: Region from which the AMI will be copied. This may be the
+               same as the AWS provider region in order to create a copy within the same region.
+        :param pulumi.Input[str] deprecation_time: Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+        :param pulumi.Input[str] description: Longer, human-readable description for the AMI.
+        :param pulumi.Input[str] destination_outpost_arn: ARN of the Outpost to which to copy the AMI.
+               Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+        :param pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]] ebs_block_devices: Nested block describing an EBS block device that should be
+               attached to created instances. The structure of this block is described below.
+        :param pulumi.Input[bool] encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        :param pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Nested block describing an ephemeral block device that
+               should be attached to created instances. The structure of this block is described below.
+        :param pulumi.Input[str] kms_key_id: Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+               an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+               if this parameter is not specified, the default CMK for EBS is used
+        :param pulumi.Input[str] name: Region-unique name for the AMI.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "source_ami_id", source_ami_id)
         pulumi.set(__self__, "source_ami_region", source_ami_region)
@@ -54,6 +72,10 @@ class AmiCopyArgs:
     @property
     @pulumi.getter(name="sourceAmiId")
     def source_ami_id(self) -> pulumi.Input[str]:
+        """
+        Id of the AMI to copy. This id must be valid in the region
+        given by `source_ami_region`.
+        """
         return pulumi.get(self, "source_ami_id")
 
     @source_ami_id.setter
@@ -63,6 +85,10 @@ class AmiCopyArgs:
     @property
     @pulumi.getter(name="sourceAmiRegion")
     def source_ami_region(self) -> pulumi.Input[str]:
+        """
+        Region from which the AMI will be copied. This may be the
+        same as the AWS provider region in order to create a copy within the same region.
+        """
         return pulumi.get(self, "source_ami_region")
 
     @source_ami_region.setter
@@ -72,6 +98,9 @@ class AmiCopyArgs:
     @property
     @pulumi.getter(name="deprecationTime")
     def deprecation_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+        """
         return pulumi.get(self, "deprecation_time")
 
     @deprecation_time.setter
@@ -81,6 +110,9 @@ class AmiCopyArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Longer, human-readable description for the AMI.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -90,6 +122,10 @@ class AmiCopyArgs:
     @property
     @pulumi.getter(name="destinationOutpostArn")
     def destination_outpost_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Outpost to which to copy the AMI.
+        Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+        """
         return pulumi.get(self, "destination_outpost_arn")
 
     @destination_outpost_arn.setter
@@ -99,6 +135,10 @@ class AmiCopyArgs:
     @property
     @pulumi.getter(name="ebsBlockDevices")
     def ebs_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]]]:
+        """
+        Nested block describing an EBS block device that should be
+        attached to created instances. The structure of this block is described below.
+        """
         return pulumi.get(self, "ebs_block_devices")
 
     @ebs_block_devices.setter
@@ -108,6 +148,9 @@ class AmiCopyArgs:
     @property
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
@@ -117,6 +160,10 @@ class AmiCopyArgs:
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
     def ephemeral_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]]]:
+        """
+        Nested block describing an ephemeral block device that
+        should be attached to created instances. The structure of this block is described below.
+        """
         return pulumi.get(self, "ephemeral_block_devices")
 
     @ephemeral_block_devices.setter
@@ -126,6 +173,11 @@ class AmiCopyArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+        an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+        if this parameter is not specified, the default CMK for EBS is used
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -135,6 +187,9 @@ class AmiCopyArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Region-unique name for the AMI.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -144,6 +199,9 @@ class AmiCopyArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -190,6 +248,42 @@ class _AmiCopyState:
                  virtualization_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AmiCopy resources.
+        :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
+        :param pulumi.Input[str] arn: ARN of the AMI.
+        :param pulumi.Input[str] boot_mode: Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        :param pulumi.Input[str] deprecation_time: Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+        :param pulumi.Input[str] description: Longer, human-readable description for the AMI.
+        :param pulumi.Input[str] destination_outpost_arn: ARN of the Outpost to which to copy the AMI.
+               Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+        :param pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]] ebs_block_devices: Nested block describing an EBS block device that should be
+               attached to created instances. The structure of this block is described below.
+        :param pulumi.Input[bool] ena_support: Whether enhanced networking with ENA is enabled. Defaults to `false`.
+        :param pulumi.Input[bool] encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        :param pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Nested block describing an ephemeral block device that
+               should be attached to created instances. The structure of this block is described below.
+        :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g., created
+               by the `ec2-upload-bundle` command in the EC2 command line tools.
+        :param pulumi.Input[str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+        :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
+               kernel in created instances.
+        :param pulumi.Input[str] kms_key_id: Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+               an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+               if this parameter is not specified, the default CMK for EBS is used
+        :param pulumi.Input[str] name: Region-unique name for the AMI.
+        :param pulumi.Input[str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
+               created instances.
+        :param pulumi.Input[str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+        :param pulumi.Input[str] source_ami_id: Id of the AMI to copy. This id must be valid in the region
+               given by `source_ami_region`.
+        :param pulumi.Input[str] source_ami_region: Region from which the AMI will be copied. This may be the
+               same as the AWS provider region in order to create a copy within the same region.
+        :param pulumi.Input[str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
+               for created instances. No other value is supported at this time.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
+               will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
+               changes the set of further arguments that are required, as described below.
         """
         if architecture is not None:
             pulumi.set(__self__, "architecture", architecture)
@@ -263,6 +357,9 @@ class _AmiCopyState:
     @property
     @pulumi.getter
     def architecture(self) -> Optional[pulumi.Input[str]]:
+        """
+        Machine architecture for created instances. Defaults to "x86_64".
+        """
         return pulumi.get(self, "architecture")
 
     @architecture.setter
@@ -272,6 +369,9 @@ class _AmiCopyState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the AMI.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -281,6 +381,9 @@ class _AmiCopyState:
     @property
     @pulumi.getter(name="bootMode")
     def boot_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        """
         return pulumi.get(self, "boot_mode")
 
     @boot_mode.setter
@@ -290,6 +393,9 @@ class _AmiCopyState:
     @property
     @pulumi.getter(name="deprecationTime")
     def deprecation_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+        """
         return pulumi.get(self, "deprecation_time")
 
     @deprecation_time.setter
@@ -299,6 +405,9 @@ class _AmiCopyState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Longer, human-readable description for the AMI.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -308,6 +417,10 @@ class _AmiCopyState:
     @property
     @pulumi.getter(name="destinationOutpostArn")
     def destination_outpost_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Outpost to which to copy the AMI.
+        Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+        """
         return pulumi.get(self, "destination_outpost_arn")
 
     @destination_outpost_arn.setter
@@ -317,6 +430,10 @@ class _AmiCopyState:
     @property
     @pulumi.getter(name="ebsBlockDevices")
     def ebs_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]]]:
+        """
+        Nested block describing an EBS block device that should be
+        attached to created instances. The structure of this block is described below.
+        """
         return pulumi.get(self, "ebs_block_devices")
 
     @ebs_block_devices.setter
@@ -326,6 +443,9 @@ class _AmiCopyState:
     @property
     @pulumi.getter(name="enaSupport")
     def ena_support(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether enhanced networking with ENA is enabled. Defaults to `false`.
+        """
         return pulumi.get(self, "ena_support")
 
     @ena_support.setter
@@ -335,6 +455,9 @@ class _AmiCopyState:
     @property
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
@@ -344,6 +467,10 @@ class _AmiCopyState:
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
     def ephemeral_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]]]:
+        """
+        Nested block describing an ephemeral block device that
+        should be attached to created instances. The structure of this block is described below.
+        """
         return pulumi.get(self, "ephemeral_block_devices")
 
     @ephemeral_block_devices.setter
@@ -362,6 +489,10 @@ class _AmiCopyState:
     @property
     @pulumi.getter(name="imageLocation")
     def image_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to an S3 object containing an image manifest, e.g., created
+        by the `ec2-upload-bundle` command in the EC2 command line tools.
+        """
         return pulumi.get(self, "image_location")
 
     @image_location.setter
@@ -389,6 +520,9 @@ class _AmiCopyState:
     @property
     @pulumi.getter(name="imdsSupport")
     def imds_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+        """
         return pulumi.get(self, "imds_support")
 
     @imds_support.setter
@@ -398,6 +532,10 @@ class _AmiCopyState:
     @property
     @pulumi.getter(name="kernelId")
     def kernel_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the kernel image (AKI) that will be used as the paravirtual
+        kernel in created instances.
+        """
         return pulumi.get(self, "kernel_id")
 
     @kernel_id.setter
@@ -407,6 +545,11 @@ class _AmiCopyState:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+        an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+        if this parameter is not specified, the default CMK for EBS is used
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -425,6 +568,9 @@ class _AmiCopyState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Region-unique name for the AMI.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -470,6 +616,10 @@ class _AmiCopyState:
     @property
     @pulumi.getter(name="ramdiskId")
     def ramdisk_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of an initrd image (ARI) that will be used when booting the
+        created instances.
+        """
         return pulumi.get(self, "ramdisk_id")
 
     @ramdisk_id.setter
@@ -479,6 +629,9 @@ class _AmiCopyState:
     @property
     @pulumi.getter(name="rootDeviceName")
     def root_device_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+        """
         return pulumi.get(self, "root_device_name")
 
     @root_device_name.setter
@@ -497,6 +650,10 @@ class _AmiCopyState:
     @property
     @pulumi.getter(name="sourceAmiId")
     def source_ami_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the AMI to copy. This id must be valid in the region
+        given by `source_ami_region`.
+        """
         return pulumi.get(self, "source_ami_id")
 
     @source_ami_id.setter
@@ -506,6 +663,10 @@ class _AmiCopyState:
     @property
     @pulumi.getter(name="sourceAmiRegion")
     def source_ami_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        Region from which the AMI will be copied. This may be the
+        same as the AWS provider region in order to create a copy within the same region.
+        """
         return pulumi.get(self, "source_ami_region")
 
     @source_ami_region.setter
@@ -515,6 +676,10 @@ class _AmiCopyState:
     @property
     @pulumi.getter(name="sriovNetSupport")
     def sriov_net_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        When set to "simple" (the default), enables enhanced networking
+        for created instances. No other value is supported at this time.
+        """
         return pulumi.get(self, "sriov_net_support")
 
     @sriov_net_support.setter
@@ -524,6 +689,9 @@ class _AmiCopyState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -542,6 +710,9 @@ class _AmiCopyState:
     @property
     @pulumi.getter(name="tpmSupport")
     def tpm_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        """
         return pulumi.get(self, "tpm_support")
 
     @tpm_support.setter
@@ -560,6 +731,11 @@ class _AmiCopyState:
     @property
     @pulumi.getter(name="virtualizationType")
     def virtualization_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Keyword to choose what virtualization mode created instances
+        will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
+        changes the set of further arguments that are required, as described below.
+        """
         return pulumi.get(self, "virtualization_type")
 
     @virtualization_type.setter
@@ -585,9 +761,53 @@ class AmiCopy(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a AmiCopy resource with the given unique name, props, and options.
+        The "AMI copy" resource allows duplication of an Amazon Machine Image (AMI),
+        including cross-region copies.
+
+        If the source AMI has associated EBS snapshots, those will also be duplicated
+        along with the AMI.
+
+        This is useful for taking a single AMI provisioned in one region and making
+        it available in another for a multi-region deployment.
+
+        Copying an AMI can take several minutes. The creation of this resource will
+        block until the new AMI is available for use on new instances.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.AmiCopy("example",
+            description="A copy of ami-xxxxxxxx",
+            source_ami_id="ami-xxxxxxxx",
+            source_ami_region="us-west-1",
+            tags={
+                "Name": "HelloWorld",
+            })
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] deprecation_time: Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+        :param pulumi.Input[str] description: Longer, human-readable description for the AMI.
+        :param pulumi.Input[str] destination_outpost_arn: ARN of the Outpost to which to copy the AMI.
+               Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]] ebs_block_devices: Nested block describing an EBS block device that should be
+               attached to created instances. The structure of this block is described below.
+        :param pulumi.Input[bool] encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
+               should be attached to created instances. The structure of this block is described below.
+        :param pulumi.Input[str] kms_key_id: Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+               an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+               if this parameter is not specified, the default CMK for EBS is used
+        :param pulumi.Input[str] name: Region-unique name for the AMI.
+        :param pulumi.Input[str] source_ami_id: Id of the AMI to copy. This id must be valid in the region
+               given by `source_ami_region`.
+        :param pulumi.Input[str] source_ami_region: Region from which the AMI will be copied. This may be the
+               same as the AWS provider region in order to create a copy within the same region.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -596,7 +816,33 @@ class AmiCopy(pulumi.CustomResource):
                  args: AmiCopyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AmiCopy resource with the given unique name, props, and options.
+        The "AMI copy" resource allows duplication of an Amazon Machine Image (AMI),
+        including cross-region copies.
+
+        If the source AMI has associated EBS snapshots, those will also be duplicated
+        along with the AMI.
+
+        This is useful for taking a single AMI provisioned in one region and making
+        it available in another for a multi-region deployment.
+
+        Copying an AMI can take several minutes. The creation of this resource will
+        block until the new AMI is available for use on new instances.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.AmiCopy("example",
+            description="A copy of ami-xxxxxxxx",
+            source_ami_id="ami-xxxxxxxx",
+            source_ami_region="us-west-1",
+            tags={
+                "Name": "HelloWorld",
+            })
+        ```
+
         :param str resource_name: The name of the resource.
         :param AmiCopyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -721,6 +967,42 @@ class AmiCopy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
+        :param pulumi.Input[str] arn: ARN of the AMI.
+        :param pulumi.Input[str] boot_mode: Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        :param pulumi.Input[str] deprecation_time: Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+        :param pulumi.Input[str] description: Longer, human-readable description for the AMI.
+        :param pulumi.Input[str] destination_outpost_arn: ARN of the Outpost to which to copy the AMI.
+               Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]] ebs_block_devices: Nested block describing an EBS block device that should be
+               attached to created instances. The structure of this block is described below.
+        :param pulumi.Input[bool] ena_support: Whether enhanced networking with ENA is enabled. Defaults to `false`.
+        :param pulumi.Input[bool] encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
+               should be attached to created instances. The structure of this block is described below.
+        :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g., created
+               by the `ec2-upload-bundle` command in the EC2 command line tools.
+        :param pulumi.Input[str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+        :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
+               kernel in created instances.
+        :param pulumi.Input[str] kms_key_id: Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+               an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+               if this parameter is not specified, the default CMK for EBS is used
+        :param pulumi.Input[str] name: Region-unique name for the AMI.
+        :param pulumi.Input[str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
+               created instances.
+        :param pulumi.Input[str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+        :param pulumi.Input[str] source_ami_id: Id of the AMI to copy. This id must be valid in the region
+               given by `source_ami_region`.
+        :param pulumi.Input[str] source_ami_region: Region from which the AMI will be copied. This may be the
+               same as the AWS provider region in order to create a copy within the same region.
+        :param pulumi.Input[str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
+               for created instances. No other value is supported at this time.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
+               will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
+               changes the set of further arguments that are required, as described below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -765,51 +1047,84 @@ class AmiCopy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def architecture(self) -> pulumi.Output[str]:
+        """
+        Machine architecture for created instances. Defaults to "x86_64".
+        """
         return pulumi.get(self, "architecture")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the AMI.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="bootMode")
     def boot_mode(self) -> pulumi.Output[str]:
+        """
+        Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        """
         return pulumi.get(self, "boot_mode")
 
     @property
     @pulumi.getter(name="deprecationTime")
     def deprecation_time(self) -> pulumi.Output[Optional[str]]:
+        """
+        Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+        """
         return pulumi.get(self, "deprecation_time")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Longer, human-readable description for the AMI.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="destinationOutpostArn")
     def destination_outpost_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        ARN of the Outpost to which to copy the AMI.
+        Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
+        """
         return pulumi.get(self, "destination_outpost_arn")
 
     @property
     @pulumi.getter(name="ebsBlockDevices")
     def ebs_block_devices(self) -> pulumi.Output[Sequence['outputs.AmiCopyEbsBlockDevice']]:
+        """
+        Nested block describing an EBS block device that should be
+        attached to created instances. The structure of this block is described below.
+        """
         return pulumi.get(self, "ebs_block_devices")
 
     @property
     @pulumi.getter(name="enaSupport")
     def ena_support(self) -> pulumi.Output[bool]:
+        """
+        Whether enhanced networking with ENA is enabled. Defaults to `false`.
+        """
         return pulumi.get(self, "ena_support")
 
     @property
     @pulumi.getter
     def encrypted(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        """
         return pulumi.get(self, "encrypted")
 
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
     def ephemeral_block_devices(self) -> pulumi.Output[Sequence['outputs.AmiCopyEphemeralBlockDevice']]:
+        """
+        Nested block describing an ephemeral block device that
+        should be attached to created instances. The structure of this block is described below.
+        """
         return pulumi.get(self, "ephemeral_block_devices")
 
     @property
@@ -820,6 +1135,10 @@ class AmiCopy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="imageLocation")
     def image_location(self) -> pulumi.Output[str]:
+        """
+        Path to an S3 object containing an image manifest, e.g., created
+        by the `ec2-upload-bundle` command in the EC2 command line tools.
+        """
         return pulumi.get(self, "image_location")
 
     @property
@@ -835,16 +1154,28 @@ class AmiCopy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="imdsSupport")
     def imds_support(self) -> pulumi.Output[str]:
+        """
+        If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+        """
         return pulumi.get(self, "imds_support")
 
     @property
     @pulumi.getter(name="kernelId")
     def kernel_id(self) -> pulumi.Output[str]:
+        """
+        ID of the kernel image (AKI) that will be used as the paravirtual
+        kernel in created instances.
+        """
         return pulumi.get(self, "kernel_id")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[str]:
+        """
+        Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+        an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+        if this parameter is not specified, the default CMK for EBS is used
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
@@ -855,6 +1186,9 @@ class AmiCopy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Region-unique name for the AMI.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -880,11 +1214,18 @@ class AmiCopy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ramdiskId")
     def ramdisk_id(self) -> pulumi.Output[str]:
+        """
+        ID of an initrd image (ARI) that will be used when booting the
+        created instances.
+        """
         return pulumi.get(self, "ramdisk_id")
 
     @property
     @pulumi.getter(name="rootDeviceName")
     def root_device_name(self) -> pulumi.Output[str]:
+        """
+        Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+        """
         return pulumi.get(self, "root_device_name")
 
     @property
@@ -895,21 +1236,36 @@ class AmiCopy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sourceAmiId")
     def source_ami_id(self) -> pulumi.Output[str]:
+        """
+        Id of the AMI to copy. This id must be valid in the region
+        given by `source_ami_region`.
+        """
         return pulumi.get(self, "source_ami_id")
 
     @property
     @pulumi.getter(name="sourceAmiRegion")
     def source_ami_region(self) -> pulumi.Output[str]:
+        """
+        Region from which the AMI will be copied. This may be the
+        same as the AWS provider region in order to create a copy within the same region.
+        """
         return pulumi.get(self, "source_ami_region")
 
     @property
     @pulumi.getter(name="sriovNetSupport")
     def sriov_net_support(self) -> pulumi.Output[str]:
+        """
+        When set to "simple" (the default), enables enhanced networking
+        for created instances. No other value is supported at this time.
+        """
         return pulumi.get(self, "sriov_net_support")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -920,6 +1276,9 @@ class AmiCopy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tpmSupport")
     def tpm_support(self) -> pulumi.Output[str]:
+        """
+        If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        """
         return pulumi.get(self, "tpm_support")
 
     @property
@@ -930,5 +1289,10 @@ class AmiCopy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="virtualizationType")
     def virtualization_type(self) -> pulumi.Output[str]:
+        """
+        Keyword to choose what virtualization mode created instances
+        will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
+        changes the set of further arguments that are required, as described below.
+        """
         return pulumi.get(self, "virtualization_type")
 

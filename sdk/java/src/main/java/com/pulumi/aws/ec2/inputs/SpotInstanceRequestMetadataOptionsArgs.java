@@ -16,30 +16,62 @@ public final class SpotInstanceRequestMetadataOptionsArgs extends com.pulumi.res
 
     public static final SpotInstanceRequestMetadataOptionsArgs Empty = new SpotInstanceRequestMetadataOptionsArgs();
 
+    /**
+     * Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
+     * 
+     */
     @Import(name="httpEndpoint")
     private @Nullable Output<String> httpEndpoint;
 
+    /**
+     * @return Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
+     * 
+     */
     public Optional<Output<String>> httpEndpoint() {
         return Optional.ofNullable(this.httpEndpoint);
     }
 
+    /**
+     * Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
+     * 
+     */
     @Import(name="httpPutResponseHopLimit")
     private @Nullable Output<Integer> httpPutResponseHopLimit;
 
+    /**
+     * @return Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
+     * 
+     */
     public Optional<Output<Integer>> httpPutResponseHopLimit() {
         return Optional.ofNullable(this.httpPutResponseHopLimit);
     }
 
+    /**
+     * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+     * 
+     */
     @Import(name="httpTokens")
     private @Nullable Output<String> httpTokens;
 
+    /**
+     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+     * 
+     */
     public Optional<Output<String>> httpTokens() {
         return Optional.ofNullable(this.httpTokens);
     }
 
+    /**
+     * Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+     * 
+     */
     @Import(name="instanceMetadataTags")
     private @Nullable Output<String> instanceMetadataTags;
 
+    /**
+     * @return Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+     * 
+     */
     public Optional<Output<String>> instanceMetadataTags() {
         return Optional.ofNullable(this.instanceMetadataTags);
     }
@@ -71,38 +103,86 @@ public final class SpotInstanceRequestMetadataOptionsArgs extends com.pulumi.res
             $ = new SpotInstanceRequestMetadataOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param httpEndpoint Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpEndpoint(@Nullable Output<String> httpEndpoint) {
             $.httpEndpoint = httpEndpoint;
             return this;
         }
 
+        /**
+         * @param httpEndpoint Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpEndpoint(String httpEndpoint) {
             return httpEndpoint(Output.of(httpEndpoint));
         }
 
+        /**
+         * @param httpPutResponseHopLimit Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpPutResponseHopLimit(@Nullable Output<Integer> httpPutResponseHopLimit) {
             $.httpPutResponseHopLimit = httpPutResponseHopLimit;
             return this;
         }
 
+        /**
+         * @param httpPutResponseHopLimit Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpPutResponseHopLimit(Integer httpPutResponseHopLimit) {
             return httpPutResponseHopLimit(Output.of(httpPutResponseHopLimit));
         }
 
+        /**
+         * @param httpTokens Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpTokens(@Nullable Output<String> httpTokens) {
             $.httpTokens = httpTokens;
             return this;
         }
 
+        /**
+         * @param httpTokens Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpTokens(String httpTokens) {
             return httpTokens(Output.of(httpTokens));
         }
 
+        /**
+         * @param instanceMetadataTags Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceMetadataTags(@Nullable Output<String> instanceMetadataTags) {
             $.instanceMetadataTags = instanceMetadataTags;
             return this;
         }
 
+        /**
+         * @param instanceMetadataTags Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceMetadataTags(String instanceMetadataTags) {
             return instanceMetadataTags(Output.of(instanceMetadataTags));
         }

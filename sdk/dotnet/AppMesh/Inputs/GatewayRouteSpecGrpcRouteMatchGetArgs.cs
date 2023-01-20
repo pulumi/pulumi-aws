@@ -12,6 +12,9 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class GatewayRouteSpecGrpcRouteMatchGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Fully qualified domain name for the service to match from the request.
+        /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 

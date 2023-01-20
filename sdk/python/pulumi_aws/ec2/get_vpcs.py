@@ -53,6 +53,9 @@ class GetVpcsResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
+        """
+        List of all the VPC Ids found.
+        """
         return pulumi.get(self, "ids")
 
     @property
@@ -77,7 +80,14 @@ def get_vpcs(filters: Optional[Sequence[pulumi.InputType['GetVpcsFilterArgs']]] 
              tags: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcsResult:
     """
-    Use this data source to access information about an existing resource.
+    This resource can be useful for getting back a list of VPC Ids for a region.
+
+    The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+
+
+    :param Sequence[pulumi.InputType['GetVpcsFilterArgs']] filters: Custom filter block as described below.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
+           a pair on the desired vpcs.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -97,6 +107,13 @@ def get_vpcs_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.Inpu
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcsResult]:
     """
-    Use this data source to access information about an existing resource.
+    This resource can be useful for getting back a list of VPC Ids for a region.
+
+    The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+
+
+    :param Sequence[pulumi.InputType['GetVpcsFilterArgs']] filters: Custom filter block as described below.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
+           a pair on the desired vpcs.
     """
     ...

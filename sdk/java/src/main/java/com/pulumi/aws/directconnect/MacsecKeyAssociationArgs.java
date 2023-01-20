@@ -15,30 +15,62 @@ public final class MacsecKeyAssociationArgs extends com.pulumi.resources.Resourc
 
     public static final MacsecKeyAssociationArgs Empty = new MacsecKeyAssociationArgs();
 
+    /**
+     * The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+     * 
+     */
     @Import(name="cak")
     private @Nullable Output<String> cak;
 
+    /**
+     * @return The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+     * 
+     */
     public Optional<Output<String>> cak() {
         return Optional.ofNullable(this.cak);
     }
 
+    /**
+     * The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+     * 
+     */
     @Import(name="ckn")
     private @Nullable Output<String> ckn;
 
+    /**
+     * @return The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+     * 
+     */
     public Optional<Output<String>> ckn() {
         return Optional.ofNullable(this.ckn);
     }
 
+    /**
+     * The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+     * 
+     */
     @Import(name="connectionId", required=true)
     private Output<String> connectionId;
 
+    /**
+     * @return The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+     * 
+     */
     public Output<String> connectionId() {
         return this.connectionId;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+     * 
+     */
     @Import(name="secretArn")
     private @Nullable Output<String> secretArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+     * 
+     */
     public Optional<Output<String>> secretArn() {
         return Optional.ofNullable(this.secretArn);
     }
@@ -70,38 +102,86 @@ public final class MacsecKeyAssociationArgs extends com.pulumi.resources.Resourc
             $ = new MacsecKeyAssociationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cak The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cak(@Nullable Output<String> cak) {
             $.cak = cak;
             return this;
         }
 
+        /**
+         * @param cak The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cak(String cak) {
             return cak(Output.of(cak));
         }
 
+        /**
+         * @param ckn The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ckn(@Nullable Output<String> ckn) {
             $.ckn = ckn;
             return this;
         }
 
+        /**
+         * @param ckn The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ckn(String ckn) {
             return ckn(Output.of(ckn));
         }
 
+        /**
+         * @param connectionId The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionId(Output<String> connectionId) {
             $.connectionId = connectionId;
             return this;
         }
 
+        /**
+         * @param connectionId The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionId(String connectionId) {
             return connectionId(Output.of(connectionId));
         }
 
+        /**
+         * @param secretArn The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretArn(@Nullable Output<String> secretArn) {
             $.secretArn = secretArn;
             return this;
         }
 
+        /**
+         * @param secretArn The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretArn(String secretArn) {
             return secretArn(Output.of(secretArn));
         }

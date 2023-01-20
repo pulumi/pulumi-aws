@@ -12,6 +12,9 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.
+        /// </summary>
         [Input("labelName", required: true)]
         public Input<string> LabelName { get; set; } = null!;
 

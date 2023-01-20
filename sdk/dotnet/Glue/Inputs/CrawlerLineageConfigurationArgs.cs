@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CrawlerLineageConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+        /// </summary>
         [Input("crawlerLineageSettings")]
         public Input<string>? CrawlerLineageSettings { get; set; }
 

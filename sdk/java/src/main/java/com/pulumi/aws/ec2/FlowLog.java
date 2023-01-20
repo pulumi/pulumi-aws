@@ -17,51 +17,357 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
+ * interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
+ * 
+ * ## Example Usage
+ * ### CloudWatch Logging
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.ec2.FlowLog;
+ * import com.pulumi.aws.ec2.FlowLogArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
+ * 
+ *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Sid&#34;: &#34;&#34;,
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Principal&#34;: {
+ *         &#34;Service&#34;: &#34;vpc-flow-logs.amazonaws.com&#34;
+ *       },
+ *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;
+ *     }
+ *   ]
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *         var exampleFlowLog = new FlowLog(&#34;exampleFlowLog&#34;, FlowLogArgs.builder()        
+ *             .iamRoleArn(exampleRole.arn())
+ *             .logDestination(exampleLogGroup.arn())
+ *             .trafficType(&#34;ALL&#34;)
+ *             .vpcId(aws_vpc.example().id())
+ *             .build());
+ * 
+ *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .role(exampleRole.id())
+ *             .policy(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Action&#34;: [
+ *         &#34;logs:CreateLogGroup&#34;,
+ *         &#34;logs:CreateLogStream&#34;,
+ *         &#34;logs:PutLogEvents&#34;,
+ *         &#34;logs:DescribeLogGroups&#34;,
+ *         &#34;logs:DescribeLogStreams&#34;
+ *       ],
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Resource&#34;: &#34;*&#34;
+ *     }
+ *   ]
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Amazon Kinesis Data Firehose logging
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.ec2.FlowLog;
+ * import com.pulumi.aws.ec2.FlowLogArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
+ * 
+ *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Sid&#34;: &#34;&#34;,
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Principal&#34;: {
+ *         &#34;Service&#34;: &#34;delivery.logs.amazonaws.com&#34;
+ *       },
+ *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;
+ *     }
+ *   ]
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *         var exampleFlowLog = new FlowLog(&#34;exampleFlowLog&#34;, FlowLogArgs.builder()        
+ *             .iamRoleArn(exampleRole.arn())
+ *             .logDestination(exampleLogGroup.arn())
+ *             .trafficType(&#34;ALL&#34;)
+ *             .vpcId(aws_vpc.example().id())
+ *             .build());
+ * 
+ *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .role(exampleRole.id())
+ *             .policy(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Action&#34;: [
+ *         &#34;logs:CreateLogDelivery&#34;,
+ *         &#34;logs:DeleteLogDelivery&#34;,
+ *         &#34;logs:ListLogDeliveries&#34;,
+ *         &#34;logs:GetLogDelivery&#34;,
+ *         &#34;firehose:TagDeliveryStream&#34;
+ *       ],
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Resource&#34;: &#34;*&#34;
+ *     }
+ *   ]
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### S3 Logging
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.ec2.FlowLog;
+ * import com.pulumi.aws.ec2.FlowLogArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ * 
+ *         var exampleFlowLog = new FlowLog(&#34;exampleFlowLog&#34;, FlowLogArgs.builder()        
+ *             .logDestination(exampleBucketV2.arn())
+ *             .logDestinationType(&#34;s3&#34;)
+ *             .trafficType(&#34;ALL&#34;)
+ *             .vpcId(aws_vpc.example().id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### S3 Logging in Apache Parquet format with per-hour partitions
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.ec2.FlowLog;
+ * import com.pulumi.aws.ec2.FlowLogArgs;
+ * import com.pulumi.aws.ec2.inputs.FlowLogDestinationOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ * 
+ *         var exampleFlowLog = new FlowLog(&#34;exampleFlowLog&#34;, FlowLogArgs.builder()        
+ *             .logDestination(exampleBucketV2.arn())
+ *             .logDestinationType(&#34;s3&#34;)
+ *             .trafficType(&#34;ALL&#34;)
+ *             .vpcId(aws_vpc.example().id())
+ *             .destinationOptions(FlowLogDestinationOptionsArgs.builder()
+ *                 .fileFormat(&#34;parquet&#34;)
+ *                 .perHourPartition(true)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Flow Logs can be imported using the `id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2/flowLog:FlowLog")
 public class FlowLog extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the Flow Log.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the Flow Log.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Describes the destination options for a flow log. More details below.
+     * 
+     */
     @Export(name="destinationOptions", refs={FlowLogDestinationOptions.class}, tree="[0]")
     private Output</* @Nullable */ FlowLogDestinationOptions> destinationOptions;
 
+    /**
+     * @return Describes the destination options for a flow log. More details below.
+     * 
+     */
     public Output<Optional<FlowLogDestinationOptions>> destinationOptions() {
         return Codegen.optional(this.destinationOptions);
     }
+    /**
+     * Elastic Network Interface ID to attach to
+     * 
+     */
     @Export(name="eniId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eniId;
 
+    /**
+     * @return Elastic Network Interface ID to attach to
+     * 
+     */
     public Output<Optional<String>> eniId() {
         return Codegen.optional(this.eniId);
     }
+    /**
+     * The ARN for the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group
+     * 
+     */
     @Export(name="iamRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> iamRoleArn;
 
+    /**
+     * @return The ARN for the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group
+     * 
+     */
     public Output<Optional<String>> iamRoleArn() {
         return Codegen.optional(this.iamRoleArn);
     }
+    /**
+     * The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
+     * 
+     */
     @Export(name="logDestination", refs={String.class}, tree="[0]")
     private Output<String> logDestination;
 
+    /**
+     * @return The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
+     * 
+     */
     public Output<String> logDestination() {
         return this.logDestination;
     }
+    /**
+     * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
+     * 
+     */
     @Export(name="logDestinationType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logDestinationType;
 
+    /**
+     * @return The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
+     * 
+     */
     public Output<Optional<String>> logDestinationType() {
         return Codegen.optional(this.logDestinationType);
     }
+    /**
+     * The fields to include in the flow log record, in the order in which they should appear.
+     * 
+     */
     @Export(name="logFormat", refs={String.class}, tree="[0]")
     private Output<String> logFormat;
 
+    /**
+     * @return The fields to include in the flow log record, in the order in which they should appear.
+     * 
+     */
     public Output<String> logFormat() {
         return this.logFormat;
     }
     /**
+     * *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+     * 
      * @deprecated
      * use &#39;log_destination&#39; argument instead
      * 
@@ -70,54 +376,128 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
     @Export(name="logGroupName", refs={String.class}, tree="[0]")
     private Output<String> logGroupName;
 
+    /**
+     * @return *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+     * 
+     */
     public Output<String> logGroupName() {
         return this.logGroupName;
     }
+    /**
+     * The maximum interval of time
+     * during which a flow of packets is captured and aggregated into a flow
+     * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
+     * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
+     * 
+     */
     @Export(name="maxAggregationInterval", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxAggregationInterval;
 
+    /**
+     * @return The maximum interval of time
+     * during which a flow of packets is captured and aggregated into a flow
+     * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
+     * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
+     * 
+     */
     public Output<Optional<Integer>> maxAggregationInterval() {
         return Codegen.optional(this.maxAggregationInterval);
     }
+    /**
+     * Subnet ID to attach to
+     * 
+     */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetId;
 
+    /**
+     * @return Subnet ID to attach to
+     * 
+     */
     public Output<Optional<String>> subnetId() {
         return Codegen.optional(this.subnetId);
     }
+    /**
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+     * 
+     */
     @Export(name="trafficType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> trafficType;
 
+    /**
+     * @return The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+     * 
+     */
     public Output<Optional<String>> trafficType() {
         return Codegen.optional(this.trafficType);
     }
+    /**
+     * Transit Gateway Attachment ID to attach to
+     * 
+     */
     @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> transitGatewayAttachmentId;
 
+    /**
+     * @return Transit Gateway Attachment ID to attach to
+     * 
+     */
     public Output<Optional<String>> transitGatewayAttachmentId() {
         return Codegen.optional(this.transitGatewayAttachmentId);
     }
+    /**
+     * Transit Gateway ID to attach to
+     * 
+     */
     @Export(name="transitGatewayId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> transitGatewayId;
 
+    /**
+     * @return Transit Gateway ID to attach to
+     * 
+     */
     public Output<Optional<String>> transitGatewayId() {
         return Codegen.optional(this.transitGatewayId);
     }
+    /**
+     * VPC ID to attach to
+     * 
+     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpcId;
 
+    /**
+     * @return VPC ID to attach to
+     * 
+     */
     public Output<Optional<String>> vpcId() {
         return Codegen.optional(this.vpcId);
     }

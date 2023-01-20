@@ -38,6 +38,26 @@ class EnvironmentArgs:
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Environment resource.
+        :param pulumi.Input[str] dag_s3_path: The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+        :param pulumi.Input['EnvironmentNetworkConfigurationArgs'] network_configuration: Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+        :param pulumi.Input[str] source_bucket_arn: The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] airflow_configuration_options: The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
+        :param pulumi.Input[str] airflow_version: Airflow version of your environment, will be set by default to the latest version that MWAA supports.
+        :param pulumi.Input[str] environment_class: Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+        :param pulumi.Input[str] kms_key: The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+        :param pulumi.Input['EnvironmentLoggingConfigurationArgs'] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+        :param pulumi.Input[int] max_workers: The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
+        :param pulumi.Input[int] min_workers: The minimum number of workers that you want to run in your environment. Will be `1` by default.
+        :param pulumi.Input[str] name: The name of the Apache Airflow Environment
+        :param pulumi.Input[str] plugins_s3_object_version: The plugins.zip file version you want to use.
+        :param pulumi.Input[str] plugins_s3_path: The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        :param pulumi.Input[str] requirements_s3_object_version: The requirements.txt file version you want to use.
+        :param pulumi.Input[str] requirements_s3_path: The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        :param pulumi.Input[int] schedulers: The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] webserver_access_mode: Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+        :param pulumi.Input[str] weekly_maintenance_window_start: Specifies the start date for the weekly maintenance window.
         """
         pulumi.set(__self__, "dag_s3_path", dag_s3_path)
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
@@ -79,6 +99,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="dagS3Path")
     def dag_s3_path(self) -> pulumi.Input[str]:
+        """
+        The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        """
         return pulumi.get(self, "dag_s3_path")
 
     @dag_s3_path.setter
@@ -88,6 +111,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+        """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
@@ -97,6 +123,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Input['EnvironmentNetworkConfigurationArgs']:
+        """
+        Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -106,6 +135,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="sourceBucketArn")
     def source_bucket_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        """
         return pulumi.get(self, "source_bucket_arn")
 
     @source_bucket_arn.setter
@@ -115,6 +147,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="airflowConfigurationOptions")
     def airflow_configuration_options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
+        """
         return pulumi.get(self, "airflow_configuration_options")
 
     @airflow_configuration_options.setter
@@ -124,6 +159,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="airflowVersion")
     def airflow_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Airflow version of your environment, will be set by default to the latest version that MWAA supports.
+        """
         return pulumi.get(self, "airflow_version")
 
     @airflow_version.setter
@@ -133,6 +171,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="environmentClass")
     def environment_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+        """
         return pulumi.get(self, "environment_class")
 
     @environment_class.setter
@@ -142,6 +183,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+        """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
@@ -151,6 +195,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationArgs']]:
+        """
+        The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+        """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
@@ -160,6 +207,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="maxWorkers")
     def max_workers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
+        """
         return pulumi.get(self, "max_workers")
 
     @max_workers.setter
@@ -169,6 +219,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="minWorkers")
     def min_workers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of workers that you want to run in your environment. Will be `1` by default.
+        """
         return pulumi.get(self, "min_workers")
 
     @min_workers.setter
@@ -178,6 +231,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Apache Airflow Environment
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -187,6 +243,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="pluginsS3ObjectVersion")
     def plugins_s3_object_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The plugins.zip file version you want to use.
+        """
         return pulumi.get(self, "plugins_s3_object_version")
 
     @plugins_s3_object_version.setter
@@ -196,6 +255,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="pluginsS3Path")
     def plugins_s3_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        """
         return pulumi.get(self, "plugins_s3_path")
 
     @plugins_s3_path.setter
@@ -205,6 +267,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="requirementsS3ObjectVersion")
     def requirements_s3_object_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The requirements.txt file version you want to use.
+        """
         return pulumi.get(self, "requirements_s3_object_version")
 
     @requirements_s3_object_version.setter
@@ -214,6 +279,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="requirementsS3Path")
     def requirements_s3_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        """
         return pulumi.get(self, "requirements_s3_path")
 
     @requirements_s3_path.setter
@@ -223,6 +291,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter
     def schedulers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+        """
         return pulumi.get(self, "schedulers")
 
     @schedulers.setter
@@ -232,6 +303,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -241,6 +315,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="webserverAccessMode")
     def webserver_access_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+        """
         return pulumi.get(self, "webserver_access_mode")
 
     @webserver_access_mode.setter
@@ -250,6 +327,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")
     def weekly_maintenance_window_start(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the start date for the weekly maintenance window.
+        """
         return pulumi.get(self, "weekly_maintenance_window_start")
 
     @weekly_maintenance_window_start.setter
@@ -289,6 +369,33 @@ class _EnvironmentState:
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Environment resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] airflow_configuration_options: The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
+        :param pulumi.Input[str] airflow_version: Airflow version of your environment, will be set by default to the latest version that MWAA supports.
+        :param pulumi.Input[str] arn: The ARN of the MWAA Environment
+        :param pulumi.Input[str] created_at: The Created At date of the MWAA Environment
+               * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+        :param pulumi.Input[str] dag_s3_path: The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        :param pulumi.Input[str] environment_class: Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+        :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+        :param pulumi.Input[str] kms_key: The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+        :param pulumi.Input['EnvironmentLoggingConfigurationArgs'] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+        :param pulumi.Input[int] max_workers: The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
+        :param pulumi.Input[int] min_workers: The minimum number of workers that you want to run in your environment. Will be `1` by default.
+        :param pulumi.Input[str] name: The name of the Apache Airflow Environment
+        :param pulumi.Input['EnvironmentNetworkConfigurationArgs'] network_configuration: Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+        :param pulumi.Input[str] plugins_s3_object_version: The plugins.zip file version you want to use.
+        :param pulumi.Input[str] plugins_s3_path: The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        :param pulumi.Input[str] requirements_s3_object_version: The requirements.txt file version you want to use.
+        :param pulumi.Input[str] requirements_s3_path: The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        :param pulumi.Input[int] schedulers: The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+        :param pulumi.Input[str] service_role_arn: The Service Role ARN of the Amazon MWAA Environment
+        :param pulumi.Input[str] source_bucket_arn: The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        :param pulumi.Input[str] status: The status of the Amazon MWAA Environment
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] webserver_access_mode: Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+        :param pulumi.Input[str] webserver_url: The webserver URL of the MWAA Environment
+        :param pulumi.Input[str] weekly_maintenance_window_start: Specifies the start date for the weekly maintenance window.
         """
         if airflow_configuration_options is not None:
             pulumi.set(__self__, "airflow_configuration_options", airflow_configuration_options)
@@ -348,6 +455,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="airflowConfigurationOptions")
     def airflow_configuration_options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
+        """
         return pulumi.get(self, "airflow_configuration_options")
 
     @airflow_configuration_options.setter
@@ -357,6 +467,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="airflowVersion")
     def airflow_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Airflow version of your environment, will be set by default to the latest version that MWAA supports.
+        """
         return pulumi.get(self, "airflow_version")
 
     @airflow_version.setter
@@ -366,6 +479,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the MWAA Environment
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -375,6 +491,10 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Created At date of the MWAA Environment
+        * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -384,6 +504,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="dagS3Path")
     def dag_s3_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        """
         return pulumi.get(self, "dag_s3_path")
 
     @dag_s3_path.setter
@@ -393,6 +516,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="environmentClass")
     def environment_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+        """
         return pulumi.get(self, "environment_class")
 
     @environment_class.setter
@@ -402,6 +528,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+        """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
@@ -411,6 +540,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+        """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
@@ -429,6 +561,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationArgs']]:
+        """
+        The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+        """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
@@ -438,6 +573,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="maxWorkers")
     def max_workers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
+        """
         return pulumi.get(self, "max_workers")
 
     @max_workers.setter
@@ -447,6 +585,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="minWorkers")
     def min_workers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of workers that you want to run in your environment. Will be `1` by default.
+        """
         return pulumi.get(self, "min_workers")
 
     @min_workers.setter
@@ -456,6 +597,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Apache Airflow Environment
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -465,6 +609,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['EnvironmentNetworkConfigurationArgs']]:
+        """
+        Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -474,6 +621,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="pluginsS3ObjectVersion")
     def plugins_s3_object_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The plugins.zip file version you want to use.
+        """
         return pulumi.get(self, "plugins_s3_object_version")
 
     @plugins_s3_object_version.setter
@@ -483,6 +633,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="pluginsS3Path")
     def plugins_s3_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        """
         return pulumi.get(self, "plugins_s3_path")
 
     @plugins_s3_path.setter
@@ -492,6 +645,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="requirementsS3ObjectVersion")
     def requirements_s3_object_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The requirements.txt file version you want to use.
+        """
         return pulumi.get(self, "requirements_s3_object_version")
 
     @requirements_s3_object_version.setter
@@ -501,6 +657,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="requirementsS3Path")
     def requirements_s3_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        """
         return pulumi.get(self, "requirements_s3_path")
 
     @requirements_s3_path.setter
@@ -510,6 +669,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter
     def schedulers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+        """
         return pulumi.get(self, "schedulers")
 
     @schedulers.setter
@@ -519,6 +681,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Role ARN of the Amazon MWAA Environment
+        """
         return pulumi.get(self, "service_role_arn")
 
     @service_role_arn.setter
@@ -528,6 +693,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="sourceBucketArn")
     def source_bucket_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        """
         return pulumi.get(self, "source_bucket_arn")
 
     @source_bucket_arn.setter
@@ -537,6 +705,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the Amazon MWAA Environment
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -546,6 +717,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -555,6 +729,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -564,6 +741,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="webserverAccessMode")
     def webserver_access_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+        """
         return pulumi.get(self, "webserver_access_mode")
 
     @webserver_access_mode.setter
@@ -573,6 +753,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="webserverUrl")
     def webserver_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The webserver URL of the MWAA Environment
+        """
         return pulumi.get(self, "webserver_url")
 
     @webserver_url.setter
@@ -582,6 +765,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")
     def weekly_maintenance_window_start(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the start date for the weekly maintenance window.
+        """
         return pulumi.get(self, "weekly_maintenance_window_start")
 
     @weekly_maintenance_window_start.setter
@@ -616,9 +802,134 @@ class Environment(pulumi.CustomResource):
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Environment resource with the given unique name, props, and options.
+        Creates a MWAA Environment resource.
+
+        ## Example Usage
+
+        A MWAA Environment requires an IAM role (`iam.Role`), two subnets in the private zone (`ec2.Subnet`) and a versioned S3 bucket (`s3.BucketV2`).
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.mwaa.Environment("example",
+            dag_s3_path="dags/",
+            execution_role_arn=aws_iam_role["example"]["arn"],
+            network_configuration=aws.mwaa.EnvironmentNetworkConfigurationArgs(
+                security_group_ids=[aws_security_group["example"]["id"]],
+                subnet_ids=[__item["id"] for __item in aws_subnet["private"]],
+            ),
+            source_bucket_arn=aws_s3_bucket["example"]["arn"])
+        ```
+        ### Example with Airflow configuration options
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.mwaa.Environment("example",
+            airflow_configuration_options={
+                "core.default_task_retries": "16",
+                "core.parallelism": "1",
+            },
+            dag_s3_path="dags/",
+            execution_role_arn=aws_iam_role["example"]["arn"],
+            network_configuration=aws.mwaa.EnvironmentNetworkConfigurationArgs(
+                security_group_ids=[aws_security_group["example"]["id"]],
+                subnet_ids=[__item["id"] for __item in aws_subnet["private"]],
+            ),
+            source_bucket_arn=aws_s3_bucket["example"]["arn"])
+        ```
+        ### Example with logging configurations
+
+        Note that Airflow task logs are enabled by default with the `INFO` log level.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.mwaa.Environment("example",
+            dag_s3_path="dags/",
+            execution_role_arn=aws_iam_role["example"]["arn"],
+            logging_configuration=aws.mwaa.EnvironmentLoggingConfigurationArgs(
+                dag_processing_logs=aws.mwaa.EnvironmentLoggingConfigurationDagProcessingLogsArgs(
+                    enabled=True,
+                    log_level="DEBUG",
+                ),
+                scheduler_logs=aws.mwaa.EnvironmentLoggingConfigurationSchedulerLogsArgs(
+                    enabled=True,
+                    log_level="INFO",
+                ),
+                task_logs=aws.mwaa.EnvironmentLoggingConfigurationTaskLogsArgs(
+                    enabled=True,
+                    log_level="WARNING",
+                ),
+                webserver_logs=aws.mwaa.EnvironmentLoggingConfigurationWebserverLogsArgs(
+                    enabled=True,
+                    log_level="ERROR",
+                ),
+                worker_logs=aws.mwaa.EnvironmentLoggingConfigurationWorkerLogsArgs(
+                    enabled=True,
+                    log_level="CRITICAL",
+                ),
+            ),
+            network_configuration=aws.mwaa.EnvironmentNetworkConfigurationArgs(
+                security_group_ids=[aws_security_group["example"]["id"]],
+                subnet_ids=[__item["id"] for __item in aws_subnet["private"]],
+            ),
+            source_bucket_arn=aws_s3_bucket["example"]["arn"])
+        ```
+        ### Example with tags
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.mwaa.Environment("example",
+            dag_s3_path="dags/",
+            execution_role_arn=aws_iam_role["example"]["arn"],
+            network_configuration=aws.mwaa.EnvironmentNetworkConfigurationArgs(
+                security_group_ids=[aws_security_group["example"]["id"]],
+                subnet_ids=[__item["id"] for __item in aws_subnet["private"]],
+            ),
+            source_bucket_arn=aws_s3_bucket["example"]["arn"],
+            tags={
+                "Name": "example",
+                "Environment": "production",
+            })
+        ```
+
+        ## Import
+
+        MWAA Environment can be imported using `Name` e.g.,
+
+        ```sh
+         $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] airflow_configuration_options: The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
+        :param pulumi.Input[str] airflow_version: Airflow version of your environment, will be set by default to the latest version that MWAA supports.
+        :param pulumi.Input[str] dag_s3_path: The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        :param pulumi.Input[str] environment_class: Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+        :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+        :param pulumi.Input[str] kms_key: The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+        :param pulumi.Input[pulumi.InputType['EnvironmentLoggingConfigurationArgs']] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+        :param pulumi.Input[int] max_workers: The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
+        :param pulumi.Input[int] min_workers: The minimum number of workers that you want to run in your environment. Will be `1` by default.
+        :param pulumi.Input[str] name: The name of the Apache Airflow Environment
+        :param pulumi.Input[pulumi.InputType['EnvironmentNetworkConfigurationArgs']] network_configuration: Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+        :param pulumi.Input[str] plugins_s3_object_version: The plugins.zip file version you want to use.
+        :param pulumi.Input[str] plugins_s3_path: The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        :param pulumi.Input[str] requirements_s3_object_version: The requirements.txt file version you want to use.
+        :param pulumi.Input[str] requirements_s3_path: The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        :param pulumi.Input[int] schedulers: The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+        :param pulumi.Input[str] source_bucket_arn: The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] webserver_access_mode: Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+        :param pulumi.Input[str] weekly_maintenance_window_start: Specifies the start date for the weekly maintenance window.
         """
         ...
     @overload
@@ -627,7 +938,112 @@ class Environment(pulumi.CustomResource):
                  args: EnvironmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Environment resource with the given unique name, props, and options.
+        Creates a MWAA Environment resource.
+
+        ## Example Usage
+
+        A MWAA Environment requires an IAM role (`iam.Role`), two subnets in the private zone (`ec2.Subnet`) and a versioned S3 bucket (`s3.BucketV2`).
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.mwaa.Environment("example",
+            dag_s3_path="dags/",
+            execution_role_arn=aws_iam_role["example"]["arn"],
+            network_configuration=aws.mwaa.EnvironmentNetworkConfigurationArgs(
+                security_group_ids=[aws_security_group["example"]["id"]],
+                subnet_ids=[__item["id"] for __item in aws_subnet["private"]],
+            ),
+            source_bucket_arn=aws_s3_bucket["example"]["arn"])
+        ```
+        ### Example with Airflow configuration options
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.mwaa.Environment("example",
+            airflow_configuration_options={
+                "core.default_task_retries": "16",
+                "core.parallelism": "1",
+            },
+            dag_s3_path="dags/",
+            execution_role_arn=aws_iam_role["example"]["arn"],
+            network_configuration=aws.mwaa.EnvironmentNetworkConfigurationArgs(
+                security_group_ids=[aws_security_group["example"]["id"]],
+                subnet_ids=[__item["id"] for __item in aws_subnet["private"]],
+            ),
+            source_bucket_arn=aws_s3_bucket["example"]["arn"])
+        ```
+        ### Example with logging configurations
+
+        Note that Airflow task logs are enabled by default with the `INFO` log level.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.mwaa.Environment("example",
+            dag_s3_path="dags/",
+            execution_role_arn=aws_iam_role["example"]["arn"],
+            logging_configuration=aws.mwaa.EnvironmentLoggingConfigurationArgs(
+                dag_processing_logs=aws.mwaa.EnvironmentLoggingConfigurationDagProcessingLogsArgs(
+                    enabled=True,
+                    log_level="DEBUG",
+                ),
+                scheduler_logs=aws.mwaa.EnvironmentLoggingConfigurationSchedulerLogsArgs(
+                    enabled=True,
+                    log_level="INFO",
+                ),
+                task_logs=aws.mwaa.EnvironmentLoggingConfigurationTaskLogsArgs(
+                    enabled=True,
+                    log_level="WARNING",
+                ),
+                webserver_logs=aws.mwaa.EnvironmentLoggingConfigurationWebserverLogsArgs(
+                    enabled=True,
+                    log_level="ERROR",
+                ),
+                worker_logs=aws.mwaa.EnvironmentLoggingConfigurationWorkerLogsArgs(
+                    enabled=True,
+                    log_level="CRITICAL",
+                ),
+            ),
+            network_configuration=aws.mwaa.EnvironmentNetworkConfigurationArgs(
+                security_group_ids=[aws_security_group["example"]["id"]],
+                subnet_ids=[__item["id"] for __item in aws_subnet["private"]],
+            ),
+            source_bucket_arn=aws_s3_bucket["example"]["arn"])
+        ```
+        ### Example with tags
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.mwaa.Environment("example",
+            dag_s3_path="dags/",
+            execution_role_arn=aws_iam_role["example"]["arn"],
+            network_configuration=aws.mwaa.EnvironmentNetworkConfigurationArgs(
+                security_group_ids=[aws_security_group["example"]["id"]],
+                subnet_ids=[__item["id"] for __item in aws_subnet["private"]],
+            ),
+            source_bucket_arn=aws_s3_bucket["example"]["arn"],
+            tags={
+                "Name": "example",
+                "Environment": "production",
+            })
+        ```
+
+        ## Import
+
+        MWAA Environment can be imported using `Name` e.g.,
+
+        ```sh
+         $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
+        ```
+
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -753,6 +1169,33 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] airflow_configuration_options: The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
+        :param pulumi.Input[str] airflow_version: Airflow version of your environment, will be set by default to the latest version that MWAA supports.
+        :param pulumi.Input[str] arn: The ARN of the MWAA Environment
+        :param pulumi.Input[str] created_at: The Created At date of the MWAA Environment
+               * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+        :param pulumi.Input[str] dag_s3_path: The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        :param pulumi.Input[str] environment_class: Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+        :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+        :param pulumi.Input[str] kms_key: The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+        :param pulumi.Input[pulumi.InputType['EnvironmentLoggingConfigurationArgs']] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+        :param pulumi.Input[int] max_workers: The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
+        :param pulumi.Input[int] min_workers: The minimum number of workers that you want to run in your environment. Will be `1` by default.
+        :param pulumi.Input[str] name: The name of the Apache Airflow Environment
+        :param pulumi.Input[pulumi.InputType['EnvironmentNetworkConfigurationArgs']] network_configuration: Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+        :param pulumi.Input[str] plugins_s3_object_version: The plugins.zip file version you want to use.
+        :param pulumi.Input[str] plugins_s3_path: The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        :param pulumi.Input[str] requirements_s3_object_version: The requirements.txt file version you want to use.
+        :param pulumi.Input[str] requirements_s3_path: The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        :param pulumi.Input[int] schedulers: The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+        :param pulumi.Input[str] service_role_arn: The Service Role ARN of the Amazon MWAA Environment
+        :param pulumi.Input[str] source_bucket_arn: The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        :param pulumi.Input[str] status: The status of the Amazon MWAA Environment
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] webserver_access_mode: Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+        :param pulumi.Input[str] webserver_url: The webserver URL of the MWAA Environment
+        :param pulumi.Input[str] weekly_maintenance_window_start: Specifies the start date for the weekly maintenance window.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -790,41 +1233,66 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="airflowConfigurationOptions")
     def airflow_configuration_options(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
+        """
         return pulumi.get(self, "airflow_configuration_options")
 
     @property
     @pulumi.getter(name="airflowVersion")
     def airflow_version(self) -> pulumi.Output[str]:
+        """
+        Airflow version of your environment, will be set by default to the latest version that MWAA supports.
+        """
         return pulumi.get(self, "airflow_version")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the MWAA Environment
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The Created At date of the MWAA Environment
+        * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="dagS3Path")
     def dag_s3_path(self) -> pulumi.Output[str]:
+        """
+        The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        """
         return pulumi.get(self, "dag_s3_path")
 
     @property
     @pulumi.getter(name="environmentClass")
     def environment_class(self) -> pulumi.Output[str]:
+        """
+        Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+        """
         return pulumi.get(self, "environment_class")
 
     @property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+        """
         return pulumi.get(self, "execution_role_arn")
 
     @property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+        """
         return pulumi.get(self, "kms_key")
 
     @property
@@ -835,90 +1303,144 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Output['outputs.EnvironmentLoggingConfiguration']:
+        """
+        The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+        """
         return pulumi.get(self, "logging_configuration")
 
     @property
     @pulumi.getter(name="maxWorkers")
     def max_workers(self) -> pulumi.Output[int]:
+        """
+        The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
+        """
         return pulumi.get(self, "max_workers")
 
     @property
     @pulumi.getter(name="minWorkers")
     def min_workers(self) -> pulumi.Output[int]:
+        """
+        The minimum number of workers that you want to run in your environment. Will be `1` by default.
+        """
         return pulumi.get(self, "min_workers")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Apache Airflow Environment
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output['outputs.EnvironmentNetworkConfiguration']:
+        """
+        Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+        """
         return pulumi.get(self, "network_configuration")
 
     @property
     @pulumi.getter(name="pluginsS3ObjectVersion")
     def plugins_s3_object_version(self) -> pulumi.Output[str]:
+        """
+        The plugins.zip file version you want to use.
+        """
         return pulumi.get(self, "plugins_s3_object_version")
 
     @property
     @pulumi.getter(name="pluginsS3Path")
     def plugins_s3_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        """
         return pulumi.get(self, "plugins_s3_path")
 
     @property
     @pulumi.getter(name="requirementsS3ObjectVersion")
     def requirements_s3_object_version(self) -> pulumi.Output[str]:
+        """
+        The requirements.txt file version you want to use.
+        """
         return pulumi.get(self, "requirements_s3_object_version")
 
     @property
     @pulumi.getter(name="requirementsS3Path")
     def requirements_s3_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        """
         return pulumi.get(self, "requirements_s3_path")
 
     @property
     @pulumi.getter
     def schedulers(self) -> pulumi.Output[int]:
+        """
+        The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+        """
         return pulumi.get(self, "schedulers")
 
     @property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> pulumi.Output[str]:
+        """
+        The Service Role ARN of the Amazon MWAA Environment
+        """
         return pulumi.get(self, "service_role_arn")
 
     @property
     @pulumi.getter(name="sourceBucketArn")
     def source_bucket_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        """
         return pulumi.get(self, "source_bucket_arn")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The status of the Amazon MWAA Environment
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="webserverAccessMode")
     def webserver_access_mode(self) -> pulumi.Output[str]:
+        """
+        Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+        """
         return pulumi.get(self, "webserver_access_mode")
 
     @property
     @pulumi.getter(name="webserverUrl")
     def webserver_url(self) -> pulumi.Output[str]:
+        """
+        The webserver URL of the MWAA Environment
+        """
         return pulumi.get(self, "webserver_url")
 
     @property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")
     def weekly_maintenance_window_start(self) -> pulumi.Output[str]:
+        """
+        Specifies the start date for the weekly maintenance window.
+        """
         return pulumi.get(self, "weekly_maintenance_window_start")
 

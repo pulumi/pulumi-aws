@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Fms.Inputs
     {
         [Input("accounts")]
         private InputList<string>? _accounts;
+
+        /// <summary>
+        /// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
+        /// </summary>
         public InputList<string> Accounts
         {
             get => _accounts ?? (_accounts = new InputList<string>());
@@ -22,6 +26,10 @@ namespace Pulumi.Aws.Fms.Inputs
 
         [Input("orgunits")]
         private InputList<string>? _orgunits;
+
+        /// <summary>
+        /// A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+        /// </summary>
         public InputList<string> Orgunits
         {
             get => _orgunits ?? (_orgunits = new InputList<string>());

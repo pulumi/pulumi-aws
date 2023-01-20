@@ -29,9 +29,17 @@ public final class SecurityConfigurationEncryptionConfigurationArgs extends com.
         return this.jobBookmarksEncryption;
     }
 
+    /**
+     * A ` s3_encryption  ` block as described below, which contains encryption configuration for S3 data.
+     * 
+     */
     @Import(name="s3Encryption", required=true)
     private Output<SecurityConfigurationEncryptionConfigurationS3EncryptionArgs> s3Encryption;
 
+    /**
+     * @return A ` s3_encryption  ` block as described below, which contains encryption configuration for S3 data.
+     * 
+     */
     public Output<SecurityConfigurationEncryptionConfigurationS3EncryptionArgs> s3Encryption() {
         return this.s3Encryption;
     }
@@ -80,11 +88,23 @@ public final class SecurityConfigurationEncryptionConfigurationArgs extends com.
             return jobBookmarksEncryption(Output.of(jobBookmarksEncryption));
         }
 
+        /**
+         * @param s3Encryption A ` s3_encryption  ` block as described below, which contains encryption configuration for S3 data.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3Encryption(Output<SecurityConfigurationEncryptionConfigurationS3EncryptionArgs> s3Encryption) {
             $.s3Encryption = s3Encryption;
             return this;
         }
 
+        /**
+         * @param s3Encryption A ` s3_encryption  ` block as described below, which contains encryption configuration for S3 data.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3Encryption(SecurityConfigurationEncryptionConfigurationS3EncryptionArgs s3Encryption) {
             return s3Encryption(Output.of(s3Encryption));
         }

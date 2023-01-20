@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an Amazon Managed Service for Prometheus (AMP) Rule Group Namespace
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const demoWorkspace = new aws.amp.Workspace("demoWorkspace", {});
+ * const demoRuleGroupNamespace = new aws.amp.RuleGroupNamespace("demoRuleGroupNamespace", {
+ *     workspaceId: demoWorkspace.id,
+ *     data: `groups:
+ *   - name: test
+ *     rules:
+ *     - record: metric:recording_rule
+ *       expr: avg(rate(container_cpu_usage_seconds_total[5m]))
+ * `,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * The prometheus rule group namespace can be imported using the arn, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
+ * ```
+ */
 export class RuleGroupNamespace extends pulumi.CustomResource {
     /**
      * Get an existing RuleGroupNamespace resource's state with the given name, ID, and optional extra
@@ -32,8 +61,17 @@ export class RuleGroupNamespace extends pulumi.CustomResource {
         return obj['__pulumiType'] === RuleGroupNamespace.__pulumiType;
     }
 
+    /**
+     * the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
+     */
     public readonly data!: pulumi.Output<string>;
+    /**
+     * The name of the rule group namespace
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * ID of the prometheus workspace the rule group namespace should be linked to
+     */
     public readonly workspaceId!: pulumi.Output<string>;
 
     /**
@@ -73,8 +111,17 @@ export class RuleGroupNamespace extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RuleGroupNamespace resources.
  */
 export interface RuleGroupNamespaceState {
+    /**
+     * the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
+     */
     data?: pulumi.Input<string>;
+    /**
+     * The name of the rule group namespace
+     */
     name?: pulumi.Input<string>;
+    /**
+     * ID of the prometheus workspace the rule group namespace should be linked to
+     */
     workspaceId?: pulumi.Input<string>;
 }
 
@@ -82,7 +129,16 @@ export interface RuleGroupNamespaceState {
  * The set of arguments for constructing a RuleGroupNamespace resource.
  */
 export interface RuleGroupNamespaceArgs {
+    /**
+     * the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
+     */
     data: pulumi.Input<string>;
+    /**
+     * The name of the rule group namespace
+     */
     name?: pulumi.Input<string>;
+    /**
+     * ID of the prometheus workspace the rule group namespace should be linked to
+     */
     workspaceId: pulumi.Input<string>;
 }

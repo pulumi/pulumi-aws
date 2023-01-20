@@ -16,23 +16,47 @@ public final class GetPrefixListPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetPrefixListPlainArgs Empty = new GetPrefixListPlainArgs();
 
+    /**
+     * Configuration block(s) for filtering. Detailed below.
+     * 
+     */
     @Import(name="filters")
     private @Nullable List<GetPrefixListFilter> filters;
 
+    /**
+     * @return Configuration block(s) for filtering. Detailed below.
+     * 
+     */
     public Optional<List<GetPrefixListFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
+    /**
+     * Name of the prefix list to select.
+     * 
+     */
     @Import(name="name")
     private @Nullable String name;
 
+    /**
+     * @return Name of the prefix list to select.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * ID of the prefix list to select.
+     * 
+     */
     @Import(name="prefixListId")
     private @Nullable String prefixListId;
 
+    /**
+     * @return ID of the prefix list to select.
+     * 
+     */
     public Optional<String> prefixListId() {
         return Optional.ofNullable(this.prefixListId);
     }
@@ -63,20 +87,44 @@ public final class GetPrefixListPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetPrefixListPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable List<GetPrefixListFilter> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(GetPrefixListFilter... filters) {
             return filters(List.of(filters));
         }
 
+        /**
+         * @param name Name of the prefix list to select.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param prefixListId ID of the prefix list to select.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefixListId(@Nullable String prefixListId) {
             $.prefixListId = prefixListId;
             return this;

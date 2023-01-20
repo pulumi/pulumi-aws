@@ -14,17 +14,90 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Manages a Glue Security Configuration.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glue.SecurityConfiguration;
+ * import com.pulumi.aws.glue.SecurityConfigurationArgs;
+ * import com.pulumi.aws.glue.inputs.SecurityConfigurationEncryptionConfigurationArgs;
+ * import com.pulumi.aws.glue.inputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs;
+ * import com.pulumi.aws.glue.inputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs;
+ * import com.pulumi.aws.glue.inputs.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new SecurityConfiguration(&#34;example&#34;, SecurityConfigurationArgs.builder()        
+ *             .encryptionConfiguration(SecurityConfigurationEncryptionConfigurationArgs.builder()
+ *                 .cloudwatchEncryption(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs.builder()
+ *                     .cloudwatchEncryptionMode(&#34;DISABLED&#34;)
+ *                     .build())
+ *                 .jobBookmarksEncryption(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs.builder()
+ *                     .jobBookmarksEncryptionMode(&#34;DISABLED&#34;)
+ *                     .build())
+ *                 .s3Encryption(SecurityConfigurationEncryptionConfigurationS3EncryptionArgs.builder()
+ *                     .kmsKeyArn(data.aws_kms_key().example().arn())
+ *                     .s3EncryptionMode(&#34;SSE-KMS&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Glue Security Configurations can be imported using `name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
+ * ```
+ * 
+ */
 @ResourceType(type="aws:glue/securityConfiguration:SecurityConfiguration")
 public class SecurityConfiguration extends com.pulumi.resources.CustomResource {
+    /**
+     * Configuration block containing encryption configuration. Detailed below.
+     * 
+     */
     @Export(name="encryptionConfiguration", refs={SecurityConfigurationEncryptionConfiguration.class}, tree="[0]")
     private Output<SecurityConfigurationEncryptionConfiguration> encryptionConfiguration;
 
+    /**
+     * @return Configuration block containing encryption configuration. Detailed below.
+     * 
+     */
     public Output<SecurityConfigurationEncryptionConfiguration> encryptionConfiguration() {
         return this.encryptionConfiguration;
     }
+    /**
+     * Name of the security configuration.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name of the security configuration.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

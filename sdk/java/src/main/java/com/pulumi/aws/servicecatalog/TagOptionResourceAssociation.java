@@ -13,41 +13,135 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Manages a Service Catalog Tag Option Resource Association.
+ * 
+ * &gt; **Tip:** A &#34;resource&#34; is either a Service Catalog portfolio or product.
+ * 
+ * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.servicecatalog.TagOptionResourceAssociation;
+ * import com.pulumi.aws.servicecatalog.TagOptionResourceAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new TagOptionResourceAssociation(&#34;example&#34;, TagOptionResourceAssociationArgs.builder()        
+ *             .resourceId(&#34;prod-dnigbtea24ste&#34;)
+ *             .tagOptionId(&#34;tag-pjtvyakdlyo3m&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_servicecatalog_tag_option_resource_association` can be imported using the tag option ID and resource ID, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
+ * ```
+ * 
+ */
 @ResourceType(type="aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation")
 public class TagOptionResourceAssociation extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the resource.
+     * 
+     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
+    /**
+     * @return ARN of the resource.
+     * 
+     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
+    /**
+     * Creation time of the resource.
+     * 
+     */
     @Export(name="resourceCreatedTime", refs={String.class}, tree="[0]")
     private Output<String> resourceCreatedTime;
 
+    /**
+     * @return Creation time of the resource.
+     * 
+     */
     public Output<String> resourceCreatedTime() {
         return this.resourceCreatedTime;
     }
+    /**
+     * Description of the resource.
+     * 
+     */
     @Export(name="resourceDescription", refs={String.class}, tree="[0]")
     private Output<String> resourceDescription;
 
+    /**
+     * @return Description of the resource.
+     * 
+     */
     public Output<String> resourceDescription() {
         return this.resourceDescription;
     }
+    /**
+     * Resource identifier.
+     * 
+     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
+    /**
+     * @return Resource identifier.
+     * 
+     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
+    /**
+     * Description of the resource.
+     * 
+     */
     @Export(name="resourceName", refs={String.class}, tree="[0]")
     private Output<String> resourceName;
 
+    /**
+     * @return Description of the resource.
+     * 
+     */
     public Output<String> resourceName() {
         return this.resourceName;
     }
+    /**
+     * Tag Option identifier.
+     * 
+     */
     @Export(name="tagOptionId", refs={String.class}, tree="[0]")
     private Output<String> tagOptionId;
 
+    /**
+     * @return Tag Option identifier.
+     * 
+     */
     public Output<String> tagOptionId() {
         return this.tagOptionId;
     }

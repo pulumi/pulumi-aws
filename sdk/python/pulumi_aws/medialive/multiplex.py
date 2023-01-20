@@ -23,6 +23,11 @@ class MultiplexArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Multiplex resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of availability zones. You must specify exactly two.
+        :param pulumi.Input['MultiplexMultiplexSettingsArgs'] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
+        :param pulumi.Input[str] name: name of Multiplex.
+        :param pulumi.Input[bool] start_multiplex: Whether to start the Multiplex. Defaults to `false`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "availability_zones", availability_zones)
         if multiplex_settings is not None:
@@ -37,6 +42,9 @@ class MultiplexArgs:
     @property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of availability zones. You must specify exactly two.
+        """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
@@ -46,6 +54,9 @@ class MultiplexArgs:
     @property
     @pulumi.getter(name="multiplexSettings")
     def multiplex_settings(self) -> Optional[pulumi.Input['MultiplexMultiplexSettingsArgs']]:
+        """
+        Multiplex settings. See Multiplex Settings for more details.
+        """
         return pulumi.get(self, "multiplex_settings")
 
     @multiplex_settings.setter
@@ -55,6 +66,9 @@ class MultiplexArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        name of Multiplex.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -64,6 +78,9 @@ class MultiplexArgs:
     @property
     @pulumi.getter(name="startMultiplex")
     def start_multiplex(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to start the Multiplex. Defaults to `false`.
+        """
         return pulumi.get(self, "start_multiplex")
 
     @start_multiplex.setter
@@ -73,6 +90,9 @@ class MultiplexArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -92,6 +112,12 @@ class _MultiplexState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Multiplex resources.
+        :param pulumi.Input[str] arn: ARN of the Multiplex.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of availability zones. You must specify exactly two.
+        :param pulumi.Input['MultiplexMultiplexSettingsArgs'] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
+        :param pulumi.Input[str] name: name of Multiplex.
+        :param pulumi.Input[bool] start_multiplex: Whether to start the Multiplex. Defaults to `false`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -111,6 +137,9 @@ class _MultiplexState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Multiplex.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -120,6 +149,9 @@ class _MultiplexState:
     @property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of availability zones. You must specify exactly two.
+        """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
@@ -129,6 +161,9 @@ class _MultiplexState:
     @property
     @pulumi.getter(name="multiplexSettings")
     def multiplex_settings(self) -> Optional[pulumi.Input['MultiplexMultiplexSettingsArgs']]:
+        """
+        Multiplex settings. See Multiplex Settings for more details.
+        """
         return pulumi.get(self, "multiplex_settings")
 
     @multiplex_settings.setter
@@ -138,6 +173,9 @@ class _MultiplexState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        name of Multiplex.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -147,6 +185,9 @@ class _MultiplexState:
     @property
     @pulumi.getter(name="startMultiplex")
     def start_multiplex(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to start the Multiplex. Defaults to `false`.
+        """
         return pulumi.get(self, "start_multiplex")
 
     @start_multiplex.setter
@@ -156,6 +197,9 @@ class _MultiplexState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -184,9 +228,48 @@ class Multiplex(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Multiplex resource with the given unique name, props, and options.
+        Resource for managing an AWS MediaLive Multiplex.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        available = aws.get_availability_zones(state="available")
+        example = aws.medialive.Multiplex("example",
+            availability_zones=[
+                available.names[0],
+                available.names[1],
+            ],
+            multiplex_settings=aws.medialive.MultiplexMultiplexSettingsArgs(
+                transport_stream_bitrate=1000000,
+                transport_stream_id=1,
+                transport_stream_reserved_bitrate=1,
+                maximum_video_buffer_delay_milliseconds=1000,
+            ),
+            start_multiplex=True,
+            tags={
+                "tag1": "value1",
+            })
+        ```
+
+        ## Import
+
+        MediaLive Multiplex can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of availability zones. You must specify exactly two.
+        :param pulumi.Input[pulumi.InputType['MultiplexMultiplexSettingsArgs']] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
+        :param pulumi.Input[str] name: name of Multiplex.
+        :param pulumi.Input[bool] start_multiplex: Whether to start the Multiplex. Defaults to `false`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -195,7 +278,41 @@ class Multiplex(pulumi.CustomResource):
                  args: MultiplexArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Multiplex resource with the given unique name, props, and options.
+        Resource for managing an AWS MediaLive Multiplex.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        available = aws.get_availability_zones(state="available")
+        example = aws.medialive.Multiplex("example",
+            availability_zones=[
+                available.names[0],
+                available.names[1],
+            ],
+            multiplex_settings=aws.medialive.MultiplexMultiplexSettingsArgs(
+                transport_stream_bitrate=1000000,
+                transport_stream_id=1,
+                transport_stream_reserved_bitrate=1,
+                maximum_video_buffer_delay_milliseconds=1000,
+            ),
+            start_multiplex=True,
+            tags={
+                "tag1": "value1",
+            })
+        ```
+
+        ## Import
+
+        MediaLive Multiplex can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
+        ```
+
         :param str resource_name: The name of the resource.
         :param MultiplexArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -258,6 +375,12 @@ class Multiplex(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the Multiplex.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of availability zones. You must specify exactly two.
+        :param pulumi.Input[pulumi.InputType['MultiplexMultiplexSettingsArgs']] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
+        :param pulumi.Input[str] name: name of Multiplex.
+        :param pulumi.Input[bool] start_multiplex: Whether to start the Multiplex. Defaults to `false`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -275,31 +398,49 @@ class Multiplex(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the Multiplex.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of availability zones. You must specify exactly two.
+        """
         return pulumi.get(self, "availability_zones")
 
     @property
     @pulumi.getter(name="multiplexSettings")
     def multiplex_settings(self) -> pulumi.Output[Optional['outputs.MultiplexMultiplexSettings']]:
+        """
+        Multiplex settings. See Multiplex Settings for more details.
+        """
         return pulumi.get(self, "multiplex_settings")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        name of Multiplex.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="startMultiplex")
     def start_multiplex(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to start the Multiplex. Defaults to `false`.
+        """
         return pulumi.get(self, "start_multiplex")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

@@ -19,6 +19,9 @@ class RoutingControlArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RoutingControl resource.
+        :param pulumi.Input[str] cluster_arn: ARN of the cluster in which this routing control will reside.
+        :param pulumi.Input[str] control_panel_arn: ARN of the control panel in which this routing control will reside.
+        :param pulumi.Input[str] name: The name describing the routing control.
         """
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         if control_panel_arn is not None:
@@ -29,6 +32,9 @@ class RoutingControlArgs:
     @property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of the cluster in which this routing control will reside.
+        """
         return pulumi.get(self, "cluster_arn")
 
     @cluster_arn.setter
@@ -38,6 +44,9 @@ class RoutingControlArgs:
     @property
     @pulumi.getter(name="controlPanelArn")
     def control_panel_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the control panel in which this routing control will reside.
+        """
         return pulumi.get(self, "control_panel_arn")
 
     @control_panel_arn.setter
@@ -47,6 +56,9 @@ class RoutingControlArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name describing the routing control.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -64,6 +76,11 @@ class _RoutingControlState:
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RoutingControl resources.
+        :param pulumi.Input[str] arn: ARN of the routing control.
+        :param pulumi.Input[str] cluster_arn: ARN of the cluster in which this routing control will reside.
+        :param pulumi.Input[str] control_panel_arn: ARN of the control panel in which this routing control will reside.
+        :param pulumi.Input[str] name: The name describing the routing control.
+        :param pulumi.Input[str] status: Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -79,6 +96,9 @@ class _RoutingControlState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the routing control.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -88,6 +108,9 @@ class _RoutingControlState:
     @property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the cluster in which this routing control will reside.
+        """
         return pulumi.get(self, "cluster_arn")
 
     @cluster_arn.setter
@@ -97,6 +120,9 @@ class _RoutingControlState:
     @property
     @pulumi.getter(name="controlPanelArn")
     def control_panel_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the control panel in which this routing control will reside.
+        """
         return pulumi.get(self, "control_panel_arn")
 
     @control_panel_arn.setter
@@ -106,6 +132,9 @@ class _RoutingControlState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name describing the routing control.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -115,6 +144,9 @@ class _RoutingControlState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -132,9 +164,39 @@ class RoutingControl(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a RoutingControl resource with the given unique name, props, and options.
+        Provides an AWS Route 53 Recovery Control Config Routing Control.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.route53recoverycontrol.RoutingControl("example", cluster_arn="arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393")
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.route53recoverycontrol.RoutingControl("example",
+            cluster_arn="arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
+            control_panel_arn="arn:aws:route53-recovery-control::428113431245:controlpanel/abd5fbfc052d4844a082dbf400f61da8")
+        ```
+
+        ## Import
+
+        Route53 Recovery Control Config Routing Control can be imported via the routing control arn, e.g.,
+
+        ```sh
+         $ pulumi import aws:route53recoverycontrol/routingControl:RoutingControl mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cluster_arn: ARN of the cluster in which this routing control will reside.
+        :param pulumi.Input[str] control_panel_arn: ARN of the control panel in which this routing control will reside.
+        :param pulumi.Input[str] name: The name describing the routing control.
         """
         ...
     @overload
@@ -143,7 +205,34 @@ class RoutingControl(pulumi.CustomResource):
                  args: RoutingControlArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RoutingControl resource with the given unique name, props, and options.
+        Provides an AWS Route 53 Recovery Control Config Routing Control.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.route53recoverycontrol.RoutingControl("example", cluster_arn="arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393")
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.route53recoverycontrol.RoutingControl("example",
+            cluster_arn="arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
+            control_panel_arn="arn:aws:route53-recovery-control::428113431245:controlpanel/abd5fbfc052d4844a082dbf400f61da8")
+        ```
+
+        ## Import
+
+        Route53 Recovery Control Config Routing Control can be imported via the routing control arn, e.g.,
+
+        ```sh
+         $ pulumi import aws:route53recoverycontrol/routingControl:RoutingControl mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
+        ```
+
         :param str resource_name: The name of the resource.
         :param RoutingControlArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,6 +289,11 @@ class RoutingControl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the routing control.
+        :param pulumi.Input[str] cluster_arn: ARN of the cluster in which this routing control will reside.
+        :param pulumi.Input[str] control_panel_arn: ARN of the control panel in which this routing control will reside.
+        :param pulumi.Input[str] name: The name describing the routing control.
+        :param pulumi.Input[str] status: Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -215,25 +309,40 @@ class RoutingControl(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the routing control.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the cluster in which this routing control will reside.
+        """
         return pulumi.get(self, "cluster_arn")
 
     @property
     @pulumi.getter(name="controlPanelArn")
     def control_panel_arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the control panel in which this routing control will reside.
+        """
         return pulumi.get(self, "control_panel_arn")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name describing the routing control.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+        """
         return pulumi.get(self, "status")
 

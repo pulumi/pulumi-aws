@@ -11,10 +11,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FunctionSnapStart {
+    /**
+     * @return Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+     * 
+     */
     private String applyOn;
     private @Nullable String optimizationStatus;
 
     private FunctionSnapStart() {}
+    /**
+     * @return Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+     * 
+     */
     public String applyOn() {
         return this.applyOn;
     }

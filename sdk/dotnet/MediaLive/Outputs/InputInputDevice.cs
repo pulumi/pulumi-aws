@@ -13,6 +13,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class InputInputDevice
     {
+        /// <summary>
+        /// The unique ID for the device.
+        /// </summary>
         public readonly string Id;
 
         [OutputConstructor]

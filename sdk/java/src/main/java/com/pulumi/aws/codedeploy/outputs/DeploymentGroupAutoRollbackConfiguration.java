@@ -13,13 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DeploymentGroupAutoRollbackConfiguration {
+    /**
+     * @return Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
+     * 
+     */
     private @Nullable Boolean enabled;
+    /**
+     * @return The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+     * 
+     */
     private @Nullable List<String> events;
 
     private DeploymentGroupAutoRollbackConfiguration() {}
+    /**
+     * @return Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
+     * 
+     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
+    /**
+     * @return The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+     * 
+     */
     public List<String> events() {
         return this.events == null ? List.of() : this.events;
     }

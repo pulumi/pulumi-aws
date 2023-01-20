@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Connect.Outputs
     [OutputType]
     public sealed class HoursOfOperationConfigStartTime
     {
+        /// <summary>
+        /// Specifies the hour of opening.
+        /// </summary>
         public readonly int Hours;
+        /// <summary>
+        /// Specifies the minute of opening.
+        /// </summary>
         public readonly int Minutes;
 
         [OutputConstructor]

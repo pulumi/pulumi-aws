@@ -11,10 +11,14 @@ import (
 )
 
 type HostVpcConfiguration struct {
+	// he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	SubnetIds        []string `pulumi:"subnetIds"`
-	TlsCertificate   *string  `pulumi:"tlsCertificate"`
-	VpcId            string   `pulumi:"vpcId"`
+	// The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+	TlsCertificate *string `pulumi:"tlsCertificate"`
+	// The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
+	VpcId string `pulumi:"vpcId"`
 }
 
 // HostVpcConfigurationInput is an input type that accepts HostVpcConfigurationArgs and HostVpcConfigurationOutput values.
@@ -29,10 +33,14 @@ type HostVpcConfigurationInput interface {
 }
 
 type HostVpcConfigurationArgs struct {
+	// he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
-	TlsCertificate   pulumi.StringPtrInput   `pulumi:"tlsCertificate"`
-	VpcId            pulumi.StringInput      `pulumi:"vpcId"`
+	// The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+	TlsCertificate pulumi.StringPtrInput `pulumi:"tlsCertificate"`
+	// The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 func (HostVpcConfigurationArgs) ElementType() reflect.Type {
@@ -112,18 +120,22 @@ func (o HostVpcConfigurationOutput) ToHostVpcConfigurationPtrOutputWithContext(c
 	}).(HostVpcConfigurationPtrOutput)
 }
 
+// he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
 func (o HostVpcConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HostVpcConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
 func (o HostVpcConfigurationOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HostVpcConfiguration) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
 func (o HostVpcConfigurationOutput) TlsCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostVpcConfiguration) *string { return v.TlsCertificate }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
 func (o HostVpcConfigurationOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v HostVpcConfiguration) string { return v.VpcId }).(pulumi.StringOutput)
 }
@@ -152,6 +164,7 @@ func (o HostVpcConfigurationPtrOutput) Elem() HostVpcConfigurationOutput {
 	}).(HostVpcConfigurationOutput)
 }
 
+// he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
 func (o HostVpcConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HostVpcConfiguration) []string {
 		if v == nil {
@@ -161,6 +174,7 @@ func (o HostVpcConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
+// The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
 func (o HostVpcConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HostVpcConfiguration) []string {
 		if v == nil {
@@ -170,6 +184,7 @@ func (o HostVpcConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
 func (o HostVpcConfigurationPtrOutput) TlsCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostVpcConfiguration) *string {
 		if v == nil {
@@ -179,6 +194,7 @@ func (o HostVpcConfigurationPtrOutput) TlsCertificate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
 func (o HostVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostVpcConfiguration) *string {
 		if v == nil {

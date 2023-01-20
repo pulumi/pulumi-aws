@@ -23,6 +23,11 @@ class ManagedPrefixListArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ManagedPrefixList resource.
+        :param pulumi.Input[str] address_family: Address family (`IPv4` or `IPv6`) of this prefix list.
+        :param pulumi.Input[int] max_entries: Maximum number of entries that this prefix list can contain.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]] entries: Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+        :param pulumi.Input[str] name: Name of this resource. The name must not start with `com.amazonaws`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "address_family", address_family)
         pulumi.set(__self__, "max_entries", max_entries)
@@ -36,6 +41,9 @@ class ManagedPrefixListArgs:
     @property
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> pulumi.Input[str]:
+        """
+        Address family (`IPv4` or `IPv6`) of this prefix list.
+        """
         return pulumi.get(self, "address_family")
 
     @address_family.setter
@@ -45,6 +53,9 @@ class ManagedPrefixListArgs:
     @property
     @pulumi.getter(name="maxEntries")
     def max_entries(self) -> pulumi.Input[int]:
+        """
+        Maximum number of entries that this prefix list can contain.
+        """
         return pulumi.get(self, "max_entries")
 
     @max_entries.setter
@@ -54,6 +65,9 @@ class ManagedPrefixListArgs:
     @property
     @pulumi.getter
     def entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]]:
+        """
+        Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+        """
         return pulumi.get(self, "entries")
 
     @entries.setter
@@ -63,6 +77,9 @@ class ManagedPrefixListArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of this resource. The name must not start with `com.amazonaws`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -72,6 +89,9 @@ class ManagedPrefixListArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -93,6 +113,15 @@ class _ManagedPrefixListState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering ManagedPrefixList resources.
+        :param pulumi.Input[str] address_family: Address family (`IPv4` or `IPv6`) of this prefix list.
+        :param pulumi.Input[str] arn: ARN of the prefix list.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]] entries: Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+        :param pulumi.Input[int] max_entries: Maximum number of entries that this prefix list can contain.
+        :param pulumi.Input[str] name: Name of this resource. The name must not start with `com.amazonaws`.
+        :param pulumi.Input[str] owner_id: ID of the AWS account that owns this prefix list.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[int] version: Latest version of this prefix list.
         """
         if address_family is not None:
             pulumi.set(__self__, "address_family", address_family)
@@ -116,6 +145,9 @@ class _ManagedPrefixListState:
     @property
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> Optional[pulumi.Input[str]]:
+        """
+        Address family (`IPv4` or `IPv6`) of this prefix list.
+        """
         return pulumi.get(self, "address_family")
 
     @address_family.setter
@@ -125,6 +157,9 @@ class _ManagedPrefixListState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the prefix list.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -134,6 +169,9 @@ class _ManagedPrefixListState:
     @property
     @pulumi.getter
     def entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]]:
+        """
+        Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+        """
         return pulumi.get(self, "entries")
 
     @entries.setter
@@ -143,6 +181,9 @@ class _ManagedPrefixListState:
     @property
     @pulumi.getter(name="maxEntries")
     def max_entries(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of entries that this prefix list can contain.
+        """
         return pulumi.get(self, "max_entries")
 
     @max_entries.setter
@@ -152,6 +193,9 @@ class _ManagedPrefixListState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of this resource. The name must not start with `com.amazonaws`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -161,6 +205,9 @@ class _ManagedPrefixListState:
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the AWS account that owns this prefix list.
+        """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
@@ -170,6 +217,9 @@ class _ManagedPrefixListState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -179,6 +229,9 @@ class _ManagedPrefixListState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -188,6 +241,9 @@ class _ManagedPrefixListState:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        Latest version of this prefix list.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -207,9 +263,61 @@ class ManagedPrefixList(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a ManagedPrefixList resource with the given unique name, props, and options.
+        Provides a managed prefix list resource.
+
+        > **NOTE on Managed Prefix Lists and Managed Prefix List Entries:** The provider
+        currently provides both a standalone Managed Prefix List Entry resource (a single entry),
+        and a Managed Prefix List resource with entries defined in-line. At this time you
+        cannot use a Managed Prefix List with in-line rules in conjunction with any Managed
+        Prefix List Entry resources. Doing so will cause a conflict of entries and will overwrite entries.
+
+        > **NOTE on `max_entries`:** When you reference a Prefix List in a resource,
+        the maximum number of entries for the prefix lists counts as the same number of rules
+        or entries for the resource. For example, if you create a prefix list with a maximum
+        of 20 entries and you reference that prefix list in a security group rule, this counts
+        as 20 rules for the security group.
+
+        ## Example Usage
+
+        Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.ManagedPrefixList("example",
+            address_family="IPv4",
+            max_entries=5,
+            entries=[
+                aws.ec2.ManagedPrefixListEntryArgs(
+                    cidr=aws_vpc["example"]["cidr_block"],
+                    description="Primary",
+                ),
+                aws.ec2.ManagedPrefixListEntryArgs(
+                    cidr=aws_vpc_ipv4_cidr_block_association["example"]["cidr_block"],
+                    description="Secondary",
+                ),
+            ],
+            tags={
+                "Env": "live",
+            })
+        ```
+
+        ## Import
+
+        Prefix Lists can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] address_family: Address family (`IPv4` or `IPv6`) of this prefix list.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedPrefixListEntryArgs']]]] entries: Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+        :param pulumi.Input[int] max_entries: Maximum number of entries that this prefix list can contain.
+        :param pulumi.Input[str] name: Name of this resource. The name must not start with `com.amazonaws`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -218,7 +326,54 @@ class ManagedPrefixList(pulumi.CustomResource):
                  args: ManagedPrefixListArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ManagedPrefixList resource with the given unique name, props, and options.
+        Provides a managed prefix list resource.
+
+        > **NOTE on Managed Prefix Lists and Managed Prefix List Entries:** The provider
+        currently provides both a standalone Managed Prefix List Entry resource (a single entry),
+        and a Managed Prefix List resource with entries defined in-line. At this time you
+        cannot use a Managed Prefix List with in-line rules in conjunction with any Managed
+        Prefix List Entry resources. Doing so will cause a conflict of entries and will overwrite entries.
+
+        > **NOTE on `max_entries`:** When you reference a Prefix List in a resource,
+        the maximum number of entries for the prefix lists counts as the same number of rules
+        or entries for the resource. For example, if you create a prefix list with a maximum
+        of 20 entries and you reference that prefix list in a security group rule, this counts
+        as 20 rules for the security group.
+
+        ## Example Usage
+
+        Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.ManagedPrefixList("example",
+            address_family="IPv4",
+            max_entries=5,
+            entries=[
+                aws.ec2.ManagedPrefixListEntryArgs(
+                    cidr=aws_vpc["example"]["cidr_block"],
+                    description="Primary",
+                ),
+                aws.ec2.ManagedPrefixListEntryArgs(
+                    cidr=aws_vpc_ipv4_cidr_block_association["example"]["cidr_block"],
+                    description="Secondary",
+                ),
+            ],
+            tags={
+                "Env": "live",
+            })
+        ```
+
+        ## Import
+
+        Prefix Lists can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
+        ```
+
         :param str resource_name: The name of the resource.
         :param ManagedPrefixListArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -287,6 +442,15 @@ class ManagedPrefixList(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] address_family: Address family (`IPv4` or `IPv6`) of this prefix list.
+        :param pulumi.Input[str] arn: ARN of the prefix list.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedPrefixListEntryArgs']]]] entries: Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+        :param pulumi.Input[int] max_entries: Maximum number of entries that this prefix list can contain.
+        :param pulumi.Input[str] name: Name of this resource. The name must not start with `com.amazonaws`.
+        :param pulumi.Input[str] owner_id: ID of the AWS account that owns this prefix list.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[int] version: Latest version of this prefix list.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -306,45 +470,72 @@ class ManagedPrefixList(pulumi.CustomResource):
     @property
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> pulumi.Output[str]:
+        """
+        Address family (`IPv4` or `IPv6`) of this prefix list.
+        """
         return pulumi.get(self, "address_family")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the prefix list.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def entries(self) -> pulumi.Output[Sequence['outputs.ManagedPrefixListEntry']]:
+        """
+        Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+        """
         return pulumi.get(self, "entries")
 
     @property
     @pulumi.getter(name="maxEntries")
     def max_entries(self) -> pulumi.Output[int]:
+        """
+        Maximum number of entries that this prefix list can contain.
+        """
         return pulumi.get(self, "max_entries")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Name of this resource. The name must not start with `com.amazonaws`.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[str]:
+        """
+        ID of the AWS account that owns this prefix list.
+        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[int]:
+        """
+        Latest version of this prefix list.
+        """
         return pulumi.get(self, "version")
 

@@ -13,16 +13,32 @@ public final class GetAutoscalingGroupsFilter extends com.pulumi.resources.Invok
 
     public static final GetAutoscalingGroupsFilter Empty = new GetAutoscalingGroupsFilter();
 
+    /**
+     * Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
+     * 
+     */
     public String name() {
         return this.name;
     }
 
+    /**
+     * Value of the filter.
+     * 
+     */
     @Import(name="values", required=true)
     private List<String> values;
 
+    /**
+     * @return Value of the filter.
+     * 
+     */
     public List<String> values() {
         return this.values;
     }
@@ -52,16 +68,34 @@ public final class GetAutoscalingGroupsFilter extends com.pulumi.resources.Invok
             $ = new GetAutoscalingGroupsFilter(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param values Value of the filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
+        /**
+         * @param values Value of the filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

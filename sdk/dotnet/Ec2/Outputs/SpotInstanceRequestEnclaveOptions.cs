@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class SpotInstanceRequestEnclaveOptions
     {
+        /// <summary>
+        /// Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class VpcIpamOperatingRegionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Region you want to add to the IPAM.
+        /// </summary>
         [Input("regionName", required: true)]
         public Input<string> RegionName { get; set; } = null!;
 

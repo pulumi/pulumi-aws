@@ -4,6 +4,32 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a resource to manage AWS Device Farm Uploads.
+ *
+ * > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleProject = new aws.devicefarm.Project("exampleProject", {});
+ * const exampleUpload = new aws.devicefarm.Upload("exampleUpload", {
+ *     projectArn: exampleProject.arn,
+ *     type: "APPIUM_JAVA_TESTNG_TEST_SPEC",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * DeviceFarm Uploads can be imported by their arn
+ *
+ * ```sh
+ *  $ pulumi import aws:devicefarm/upload:Upload example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+ * ```
+ */
 export class Upload extends pulumi.CustomResource {
     /**
      * Get an existing Upload resource's state with the given name, ID, and optional extra
@@ -32,13 +58,37 @@ export class Upload extends pulumi.CustomResource {
         return obj['__pulumiType'] === Upload.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name of this upload.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The upload's category.
+     */
     public /*out*/ readonly category!: pulumi.Output<string>;
+    /**
+     * The upload's content type (for example, application/octet-stream).
+     */
     public readonly contentType!: pulumi.Output<string | undefined>;
+    /**
+     * The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
+     */
     public /*out*/ readonly metadata!: pulumi.Output<string>;
+    /**
+     * The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ARN of the project for the upload.
+     */
     public readonly projectArn!: pulumi.Output<string>;
+    /**
+     * The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
+     */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * The presigned Amazon S3 URL that was used to store a file using a PUT request.
+     */
     public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
@@ -88,13 +138,37 @@ export class Upload extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Upload resources.
  */
 export interface UploadState {
+    /**
+     * The Amazon Resource Name of this upload.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The upload's category.
+     */
     category?: pulumi.Input<string>;
+    /**
+     * The upload's content type (for example, application/octet-stream).
+     */
     contentType?: pulumi.Input<string>;
+    /**
+     * The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
+     */
     metadata?: pulumi.Input<string>;
+    /**
+     * The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ARN of the project for the upload.
+     */
     projectArn?: pulumi.Input<string>;
+    /**
+     * The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
+     */
     type?: pulumi.Input<string>;
+    /**
+     * The presigned Amazon S3 URL that was used to store a file using a PUT request.
+     */
     url?: pulumi.Input<string>;
 }
 
@@ -102,8 +176,20 @@ export interface UploadState {
  * The set of arguments for constructing a Upload resource.
  */
 export interface UploadArgs {
+    /**
+     * The upload's content type (for example, application/octet-stream).
+     */
     contentType?: pulumi.Input<string>;
+    /**
+     * The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ARN of the project for the upload.
+     */
     projectArn: pulumi.Input<string>;
+    /**
+     * The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
+     */
     type: pulumi.Input<string>;
 }

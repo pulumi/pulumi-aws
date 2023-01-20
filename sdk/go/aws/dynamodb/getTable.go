@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides information about a DynamoDB table.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := dynamodb.LookupTable(ctx, &dynamodb.LookupTableArgs{
+//				Name: "tableName",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.InvokeOption) (*LookupTableResult, error) {
 	var rv LookupTableResult
 	err := ctx.Invoke("aws:dynamodb/getTable:getTable", args, &rv, opts...)
@@ -21,6 +48,7 @@ func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getTable.
 type LookupTableArgs struct {
+	// Name of the DynamoDB table.
 	Name                 string                        `pulumi:"name"`
 	ServerSideEncryption *GetTableServerSideEncryption `pulumi:"serverSideEncryption"`
 	Tags                 map[string]string             `pulumi:"tags"`
@@ -67,6 +95,7 @@ func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...
 
 // A collection of arguments for invoking getTable.
 type LookupTableOutputArgs struct {
+	// Name of the DynamoDB table.
 	Name                 pulumi.StringInput                   `pulumi:"name"`
 	ServerSideEncryption GetTableServerSideEncryptionPtrInput `pulumi:"serverSideEncryption"`
 	Tags                 pulumi.StringMapInput                `pulumi:"tags"`

@@ -11,21 +11,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleErrorActionS3 {
+    /**
+     * @return The Amazon S3 bucket name.
+     * 
+     */
     private String bucketName;
+    /**
+     * @return The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+     * 
+     */
     private @Nullable String cannedAcl;
+    /**
+     * @return The name of the HTTP header.
+     * 
+     */
     private String key;
+    /**
+     * @return The IAM role ARN that allows access to the CloudWatch alarm.
+     * 
+     */
     private String roleArn;
 
     private TopicRuleErrorActionS3() {}
+    /**
+     * @return The Amazon S3 bucket name.
+     * 
+     */
     public String bucketName() {
         return this.bucketName;
     }
+    /**
+     * @return The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+     * 
+     */
     public Optional<String> cannedAcl() {
         return Optional.ofNullable(this.cannedAcl);
     }
+    /**
+     * @return The name of the HTTP header.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return The IAM role ARN that allows access to the CloudWatch alarm.
+     * 
+     */
     public String roleArn() {
         return this.roleArn;
     }

@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInfrastructureConfigurationsResult {
+    /**
+     * @return Set of ARNs of the matched Image Builder Infrastructure Configurations.
+     * 
+     */
     private List<String> arns;
     private @Nullable List<GetInfrastructureConfigurationsFilter> filters;
     /**
@@ -19,9 +23,17 @@ public final class GetInfrastructureConfigurationsResult {
      * 
      */
     private String id;
+    /**
+     * @return Set of names of the matched Image Builder Infrastructure Configurations.
+     * 
+     */
     private List<String> names;
 
     private GetInfrastructureConfigurationsResult() {}
+    /**
+     * @return Set of ARNs of the matched Image Builder Infrastructure Configurations.
+     * 
+     */
     public List<String> arns() {
         return this.arns;
     }
@@ -35,6 +47,10 @@ public final class GetInfrastructureConfigurationsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Set of names of the matched Image Builder Infrastructure Configurations.
+     * 
+     */
     public List<String> names() {
         return this.names;
     }

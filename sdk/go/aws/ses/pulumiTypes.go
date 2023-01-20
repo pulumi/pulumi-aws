@@ -11,6 +11,7 @@ import (
 )
 
 type ConfgurationSetDeliveryOptions struct {
+	// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
 	TlsPolicy *string `pulumi:"tlsPolicy"`
 }
 
@@ -26,6 +27,7 @@ type ConfgurationSetDeliveryOptionsInput interface {
 }
 
 type ConfgurationSetDeliveryOptionsArgs struct {
+	// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
 	TlsPolicy pulumi.StringPtrInput `pulumi:"tlsPolicy"`
 }
 
@@ -106,6 +108,7 @@ func (o ConfgurationSetDeliveryOptionsOutput) ToConfgurationSetDeliveryOptionsPt
 	}).(ConfgurationSetDeliveryOptionsPtrOutput)
 }
 
+// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
 func (o ConfgurationSetDeliveryOptionsOutput) TlsPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfgurationSetDeliveryOptions) *string { return v.TlsPolicy }).(pulumi.StringPtrOutput)
 }
@@ -134,6 +137,7 @@ func (o ConfgurationSetDeliveryOptionsPtrOutput) Elem() ConfgurationSetDeliveryO
 	}).(ConfgurationSetDeliveryOptionsOutput)
 }
 
+// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
 func (o ConfgurationSetDeliveryOptionsPtrOutput) TlsPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfgurationSetDeliveryOptions) *string {
 		if v == nil {
@@ -144,6 +148,7 @@ func (o ConfgurationSetDeliveryOptionsPtrOutput) TlsPolicy() pulumi.StringPtrOut
 }
 
 type ConfgurationSetTrackingOptions struct {
+	// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
 	CustomRedirectDomain *string `pulumi:"customRedirectDomain"`
 }
 
@@ -159,6 +164,7 @@ type ConfgurationSetTrackingOptionsInput interface {
 }
 
 type ConfgurationSetTrackingOptionsArgs struct {
+	// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
 	CustomRedirectDomain pulumi.StringPtrInput `pulumi:"customRedirectDomain"`
 }
 
@@ -239,6 +245,7 @@ func (o ConfgurationSetTrackingOptionsOutput) ToConfgurationSetTrackingOptionsPt
 	}).(ConfgurationSetTrackingOptionsPtrOutput)
 }
 
+// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
 func (o ConfgurationSetTrackingOptionsOutput) CustomRedirectDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfgurationSetTrackingOptions) *string { return v.CustomRedirectDomain }).(pulumi.StringPtrOutput)
 }
@@ -267,6 +274,7 @@ func (o ConfgurationSetTrackingOptionsPtrOutput) Elem() ConfgurationSetTrackingO
 	}).(ConfgurationSetTrackingOptionsOutput)
 }
 
+// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
 func (o ConfgurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfgurationSetTrackingOptions) *string {
 		if v == nil {
@@ -277,6 +285,7 @@ func (o ConfgurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.S
 }
 
 type ConfigurationSetDeliveryOptions struct {
+	// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
 	TlsPolicy *string `pulumi:"tlsPolicy"`
 }
 
@@ -292,6 +301,7 @@ type ConfigurationSetDeliveryOptionsInput interface {
 }
 
 type ConfigurationSetDeliveryOptionsArgs struct {
+	// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
 	TlsPolicy pulumi.StringPtrInput `pulumi:"tlsPolicy"`
 }
 
@@ -372,6 +382,7 @@ func (o ConfigurationSetDeliveryOptionsOutput) ToConfigurationSetDeliveryOptions
 	}).(ConfigurationSetDeliveryOptionsPtrOutput)
 }
 
+// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
 func (o ConfigurationSetDeliveryOptionsOutput) TlsPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetDeliveryOptions) *string { return v.TlsPolicy }).(pulumi.StringPtrOutput)
 }
@@ -400,6 +411,7 @@ func (o ConfigurationSetDeliveryOptionsPtrOutput) Elem() ConfigurationSetDeliver
 	}).(ConfigurationSetDeliveryOptionsOutput)
 }
 
+// Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
 func (o ConfigurationSetDeliveryOptionsPtrOutput) TlsPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetDeliveryOptions) *string {
 		if v == nil {
@@ -410,6 +422,7 @@ func (o ConfigurationSetDeliveryOptionsPtrOutput) TlsPolicy() pulumi.StringPtrOu
 }
 
 type ConfigurationSetTrackingOptions struct {
+	// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
 	CustomRedirectDomain *string `pulumi:"customRedirectDomain"`
 }
 
@@ -425,6 +438,7 @@ type ConfigurationSetTrackingOptionsInput interface {
 }
 
 type ConfigurationSetTrackingOptionsArgs struct {
+	// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
 	CustomRedirectDomain pulumi.StringPtrInput `pulumi:"customRedirectDomain"`
 }
 
@@ -505,6 +519,7 @@ func (o ConfigurationSetTrackingOptionsOutput) ToConfigurationSetTrackingOptions
 	}).(ConfigurationSetTrackingOptionsPtrOutput)
 }
 
+// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
 func (o ConfigurationSetTrackingOptionsOutput) CustomRedirectDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetTrackingOptions) *string { return v.CustomRedirectDomain }).(pulumi.StringPtrOutput)
 }
@@ -533,6 +548,7 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) Elem() ConfigurationSetTrackin
 	}).(ConfigurationSetTrackingOptionsOutput)
 }
 
+// Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
 func (o ConfigurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetTrackingOptions) *string {
 		if v == nil {
@@ -543,9 +559,12 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.
 }
 
 type EventDestinationCloudwatchDestination struct {
-	DefaultValue  string `pulumi:"defaultValue"`
+	// The default value for the event
+	DefaultValue string `pulumi:"defaultValue"`
+	// The name for the dimension
 	DimensionName string `pulumi:"dimensionName"`
-	ValueSource   string `pulumi:"valueSource"`
+	// The source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
+	ValueSource string `pulumi:"valueSource"`
 }
 
 // EventDestinationCloudwatchDestinationInput is an input type that accepts EventDestinationCloudwatchDestinationArgs and EventDestinationCloudwatchDestinationOutput values.
@@ -560,9 +579,12 @@ type EventDestinationCloudwatchDestinationInput interface {
 }
 
 type EventDestinationCloudwatchDestinationArgs struct {
-	DefaultValue  pulumi.StringInput `pulumi:"defaultValue"`
+	// The default value for the event
+	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
+	// The name for the dimension
 	DimensionName pulumi.StringInput `pulumi:"dimensionName"`
-	ValueSource   pulumi.StringInput `pulumi:"valueSource"`
+	// The source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
+	ValueSource pulumi.StringInput `pulumi:"valueSource"`
 }
 
 func (EventDestinationCloudwatchDestinationArgs) ElementType() reflect.Type {
@@ -616,14 +638,17 @@ func (o EventDestinationCloudwatchDestinationOutput) ToEventDestinationCloudwatc
 	return o
 }
 
+// The default value for the event
 func (o EventDestinationCloudwatchDestinationOutput) DefaultValue() pulumi.StringOutput {
 	return o.ApplyT(func(v EventDestinationCloudwatchDestination) string { return v.DefaultValue }).(pulumi.StringOutput)
 }
 
+// The name for the dimension
 func (o EventDestinationCloudwatchDestinationOutput) DimensionName() pulumi.StringOutput {
 	return o.ApplyT(func(v EventDestinationCloudwatchDestination) string { return v.DimensionName }).(pulumi.StringOutput)
 }
 
+// The source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
 func (o EventDestinationCloudwatchDestinationOutput) ValueSource() pulumi.StringOutput {
 	return o.ApplyT(func(v EventDestinationCloudwatchDestination) string { return v.ValueSource }).(pulumi.StringOutput)
 }
@@ -649,7 +674,9 @@ func (o EventDestinationCloudwatchDestinationArrayOutput) Index(i pulumi.IntInpu
 }
 
 type EventDestinationKinesisDestination struct {
-	RoleArn   string `pulumi:"roleArn"`
+	// The ARN of the role that has permissions to access the Kinesis Stream
+	RoleArn string `pulumi:"roleArn"`
+	// The ARN of the Kinesis Stream
 	StreamArn string `pulumi:"streamArn"`
 }
 
@@ -665,7 +692,9 @@ type EventDestinationKinesisDestinationInput interface {
 }
 
 type EventDestinationKinesisDestinationArgs struct {
-	RoleArn   pulumi.StringInput `pulumi:"roleArn"`
+	// The ARN of the role that has permissions to access the Kinesis Stream
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The ARN of the Kinesis Stream
 	StreamArn pulumi.StringInput `pulumi:"streamArn"`
 }
 
@@ -746,10 +775,12 @@ func (o EventDestinationKinesisDestinationOutput) ToEventDestinationKinesisDesti
 	}).(EventDestinationKinesisDestinationPtrOutput)
 }
 
+// The ARN of the role that has permissions to access the Kinesis Stream
 func (o EventDestinationKinesisDestinationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v EventDestinationKinesisDestination) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The ARN of the Kinesis Stream
 func (o EventDestinationKinesisDestinationOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v EventDestinationKinesisDestination) string { return v.StreamArn }).(pulumi.StringOutput)
 }
@@ -778,6 +809,7 @@ func (o EventDestinationKinesisDestinationPtrOutput) Elem() EventDestinationKine
 	}).(EventDestinationKinesisDestinationOutput)
 }
 
+// The ARN of the role that has permissions to access the Kinesis Stream
 func (o EventDestinationKinesisDestinationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventDestinationKinesisDestination) *string {
 		if v == nil {
@@ -787,6 +819,7 @@ func (o EventDestinationKinesisDestinationPtrOutput) RoleArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the Kinesis Stream
 func (o EventDestinationKinesisDestinationPtrOutput) StreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventDestinationKinesisDestination) *string {
 		if v == nil {
@@ -797,6 +830,7 @@ func (o EventDestinationKinesisDestinationPtrOutput) StreamArn() pulumi.StringPt
 }
 
 type EventDestinationSnsDestination struct {
+	// The ARN of the SNS topic
 	TopicArn string `pulumi:"topicArn"`
 }
 
@@ -812,6 +846,7 @@ type EventDestinationSnsDestinationInput interface {
 }
 
 type EventDestinationSnsDestinationArgs struct {
+	// The ARN of the SNS topic
 	TopicArn pulumi.StringInput `pulumi:"topicArn"`
 }
 
@@ -892,6 +927,7 @@ func (o EventDestinationSnsDestinationOutput) ToEventDestinationSnsDestinationPt
 	}).(EventDestinationSnsDestinationPtrOutput)
 }
 
+// The ARN of the SNS topic
 func (o EventDestinationSnsDestinationOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v EventDestinationSnsDestination) string { return v.TopicArn }).(pulumi.StringOutput)
 }
@@ -920,6 +956,7 @@ func (o EventDestinationSnsDestinationPtrOutput) Elem() EventDestinationSnsDesti
 	}).(EventDestinationSnsDestinationOutput)
 }
 
+// The ARN of the SNS topic
 func (o EventDestinationSnsDestinationPtrOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventDestinationSnsDestination) *string {
 		if v == nil {
@@ -930,9 +967,12 @@ func (o EventDestinationSnsDestinationPtrOutput) TopicArn() pulumi.StringPtrOutp
 }
 
 type ReceiptRuleAddHeaderAction struct {
-	HeaderName  string `pulumi:"headerName"`
+	// The name of the header to add
+	HeaderName string `pulumi:"headerName"`
+	// The value of the header to add
 	HeaderValue string `pulumi:"headerValue"`
-	Position    int    `pulumi:"position"`
+	// The position of the action in the receipt rule
+	Position int `pulumi:"position"`
 }
 
 // ReceiptRuleAddHeaderActionInput is an input type that accepts ReceiptRuleAddHeaderActionArgs and ReceiptRuleAddHeaderActionOutput values.
@@ -947,9 +987,12 @@ type ReceiptRuleAddHeaderActionInput interface {
 }
 
 type ReceiptRuleAddHeaderActionArgs struct {
-	HeaderName  pulumi.StringInput `pulumi:"headerName"`
+	// The name of the header to add
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	// The value of the header to add
 	HeaderValue pulumi.StringInput `pulumi:"headerValue"`
-	Position    pulumi.IntInput    `pulumi:"position"`
+	// The position of the action in the receipt rule
+	Position pulumi.IntInput `pulumi:"position"`
 }
 
 func (ReceiptRuleAddHeaderActionArgs) ElementType() reflect.Type {
@@ -1003,14 +1046,17 @@ func (o ReceiptRuleAddHeaderActionOutput) ToReceiptRuleAddHeaderActionOutputWith
 	return o
 }
 
+// The name of the header to add
 func (o ReceiptRuleAddHeaderActionOutput) HeaderName() pulumi.StringOutput {
 	return o.ApplyT(func(v ReceiptRuleAddHeaderAction) string { return v.HeaderName }).(pulumi.StringOutput)
 }
 
+// The value of the header to add
 func (o ReceiptRuleAddHeaderActionOutput) HeaderValue() pulumi.StringOutput {
 	return o.ApplyT(func(v ReceiptRuleAddHeaderAction) string { return v.HeaderValue }).(pulumi.StringOutput)
 }
 
+// The position of the action in the receipt rule
 func (o ReceiptRuleAddHeaderActionOutput) Position() pulumi.IntOutput {
 	return o.ApplyT(func(v ReceiptRuleAddHeaderAction) int { return v.Position }).(pulumi.IntOutput)
 }
@@ -1036,12 +1082,18 @@ func (o ReceiptRuleAddHeaderActionArrayOutput) Index(i pulumi.IntInput) ReceiptR
 }
 
 type ReceiptRuleBounceAction struct {
-	Message       string  `pulumi:"message"`
-	Position      int     `pulumi:"position"`
-	Sender        string  `pulumi:"sender"`
-	SmtpReplyCode string  `pulumi:"smtpReplyCode"`
-	StatusCode    *string `pulumi:"statusCode"`
-	TopicArn      *string `pulumi:"topicArn"`
+	// The message to send
+	Message string `pulumi:"message"`
+	// The position of the action in the receipt rule
+	Position int `pulumi:"position"`
+	// The email address of the sender
+	Sender string `pulumi:"sender"`
+	// The RFC 5321 SMTP reply code
+	SmtpReplyCode string `pulumi:"smtpReplyCode"`
+	// The RFC 3463 SMTP enhanced status code
+	StatusCode *string `pulumi:"statusCode"`
+	// The ARN of an SNS topic to notify
+	TopicArn *string `pulumi:"topicArn"`
 }
 
 // ReceiptRuleBounceActionInput is an input type that accepts ReceiptRuleBounceActionArgs and ReceiptRuleBounceActionOutput values.
@@ -1056,12 +1108,18 @@ type ReceiptRuleBounceActionInput interface {
 }
 
 type ReceiptRuleBounceActionArgs struct {
-	Message       pulumi.StringInput    `pulumi:"message"`
-	Position      pulumi.IntInput       `pulumi:"position"`
-	Sender        pulumi.StringInput    `pulumi:"sender"`
-	SmtpReplyCode pulumi.StringInput    `pulumi:"smtpReplyCode"`
-	StatusCode    pulumi.StringPtrInput `pulumi:"statusCode"`
-	TopicArn      pulumi.StringPtrInput `pulumi:"topicArn"`
+	// The message to send
+	Message pulumi.StringInput `pulumi:"message"`
+	// The position of the action in the receipt rule
+	Position pulumi.IntInput `pulumi:"position"`
+	// The email address of the sender
+	Sender pulumi.StringInput `pulumi:"sender"`
+	// The RFC 5321 SMTP reply code
+	SmtpReplyCode pulumi.StringInput `pulumi:"smtpReplyCode"`
+	// The RFC 3463 SMTP enhanced status code
+	StatusCode pulumi.StringPtrInput `pulumi:"statusCode"`
+	// The ARN of an SNS topic to notify
+	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
 }
 
 func (ReceiptRuleBounceActionArgs) ElementType() reflect.Type {
@@ -1115,26 +1173,32 @@ func (o ReceiptRuleBounceActionOutput) ToReceiptRuleBounceActionOutputWithContex
 	return o
 }
 
+// The message to send
 func (o ReceiptRuleBounceActionOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v ReceiptRuleBounceAction) string { return v.Message }).(pulumi.StringOutput)
 }
 
+// The position of the action in the receipt rule
 func (o ReceiptRuleBounceActionOutput) Position() pulumi.IntOutput {
 	return o.ApplyT(func(v ReceiptRuleBounceAction) int { return v.Position }).(pulumi.IntOutput)
 }
 
+// The email address of the sender
 func (o ReceiptRuleBounceActionOutput) Sender() pulumi.StringOutput {
 	return o.ApplyT(func(v ReceiptRuleBounceAction) string { return v.Sender }).(pulumi.StringOutput)
 }
 
+// The RFC 5321 SMTP reply code
 func (o ReceiptRuleBounceActionOutput) SmtpReplyCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ReceiptRuleBounceAction) string { return v.SmtpReplyCode }).(pulumi.StringOutput)
 }
 
+// The RFC 3463 SMTP enhanced status code
 func (o ReceiptRuleBounceActionOutput) StatusCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReceiptRuleBounceAction) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of an SNS topic to notify
 func (o ReceiptRuleBounceActionOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReceiptRuleBounceAction) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
 }
@@ -1160,10 +1224,14 @@ func (o ReceiptRuleBounceActionArrayOutput) Index(i pulumi.IntInput) ReceiptRule
 }
 
 type ReceiptRuleLambdaAction struct {
-	FunctionArn    string  `pulumi:"functionArn"`
+	// The ARN of the Lambda function to invoke
+	FunctionArn string `pulumi:"functionArn"`
+	// `Event` or `RequestResponse`
 	InvocationType *string `pulumi:"invocationType"`
-	Position       int     `pulumi:"position"`
-	TopicArn       *string `pulumi:"topicArn"`
+	// The position of the action in the receipt rule
+	Position int `pulumi:"position"`
+	// The ARN of an SNS topic to notify
+	TopicArn *string `pulumi:"topicArn"`
 }
 
 // ReceiptRuleLambdaActionInput is an input type that accepts ReceiptRuleLambdaActionArgs and ReceiptRuleLambdaActionOutput values.
@@ -1178,10 +1246,14 @@ type ReceiptRuleLambdaActionInput interface {
 }
 
 type ReceiptRuleLambdaActionArgs struct {
-	FunctionArn    pulumi.StringInput    `pulumi:"functionArn"`
+	// The ARN of the Lambda function to invoke
+	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
+	// `Event` or `RequestResponse`
 	InvocationType pulumi.StringPtrInput `pulumi:"invocationType"`
-	Position       pulumi.IntInput       `pulumi:"position"`
-	TopicArn       pulumi.StringPtrInput `pulumi:"topicArn"`
+	// The position of the action in the receipt rule
+	Position pulumi.IntInput `pulumi:"position"`
+	// The ARN of an SNS topic to notify
+	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
 }
 
 func (ReceiptRuleLambdaActionArgs) ElementType() reflect.Type {
@@ -1235,18 +1307,22 @@ func (o ReceiptRuleLambdaActionOutput) ToReceiptRuleLambdaActionOutputWithContex
 	return o
 }
 
+// The ARN of the Lambda function to invoke
 func (o ReceiptRuleLambdaActionOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ReceiptRuleLambdaAction) string { return v.FunctionArn }).(pulumi.StringOutput)
 }
 
+// `Event` or `RequestResponse`
 func (o ReceiptRuleLambdaActionOutput) InvocationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReceiptRuleLambdaAction) *string { return v.InvocationType }).(pulumi.StringPtrOutput)
 }
 
+// The position of the action in the receipt rule
 func (o ReceiptRuleLambdaActionOutput) Position() pulumi.IntOutput {
 	return o.ApplyT(func(v ReceiptRuleLambdaAction) int { return v.Position }).(pulumi.IntOutput)
 }
 
+// The ARN of an SNS topic to notify
 func (o ReceiptRuleLambdaActionOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReceiptRuleLambdaAction) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
 }
@@ -1272,11 +1348,16 @@ func (o ReceiptRuleLambdaActionArrayOutput) Index(i pulumi.IntInput) ReceiptRule
 }
 
 type ReceiptRuleS3Action struct {
-	BucketName      string  `pulumi:"bucketName"`
-	KmsKeyArn       *string `pulumi:"kmsKeyArn"`
+	// The name of the S3 bucket
+	BucketName string `pulumi:"bucketName"`
+	// The ARN of the KMS key
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The key prefix of the S3 bucket
 	ObjectKeyPrefix *string `pulumi:"objectKeyPrefix"`
-	Position        int     `pulumi:"position"`
-	TopicArn        *string `pulumi:"topicArn"`
+	// The position of the action in the receipt rule
+	Position int `pulumi:"position"`
+	// The ARN of an SNS topic to notify
+	TopicArn *string `pulumi:"topicArn"`
 }
 
 // ReceiptRuleS3ActionInput is an input type that accepts ReceiptRuleS3ActionArgs and ReceiptRuleS3ActionOutput values.
@@ -1291,11 +1372,16 @@ type ReceiptRuleS3ActionInput interface {
 }
 
 type ReceiptRuleS3ActionArgs struct {
-	BucketName      pulumi.StringInput    `pulumi:"bucketName"`
-	KmsKeyArn       pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// The name of the S3 bucket
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// The ARN of the KMS key
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// The key prefix of the S3 bucket
 	ObjectKeyPrefix pulumi.StringPtrInput `pulumi:"objectKeyPrefix"`
-	Position        pulumi.IntInput       `pulumi:"position"`
-	TopicArn        pulumi.StringPtrInput `pulumi:"topicArn"`
+	// The position of the action in the receipt rule
+	Position pulumi.IntInput `pulumi:"position"`
+	// The ARN of an SNS topic to notify
+	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
 }
 
 func (ReceiptRuleS3ActionArgs) ElementType() reflect.Type {
@@ -1349,22 +1435,27 @@ func (o ReceiptRuleS3ActionOutput) ToReceiptRuleS3ActionOutputWithContext(ctx co
 	return o
 }
 
+// The name of the S3 bucket
 func (o ReceiptRuleS3ActionOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ReceiptRuleS3Action) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
+// The ARN of the KMS key
 func (o ReceiptRuleS3ActionOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReceiptRuleS3Action) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The key prefix of the S3 bucket
 func (o ReceiptRuleS3ActionOutput) ObjectKeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReceiptRuleS3Action) *string { return v.ObjectKeyPrefix }).(pulumi.StringPtrOutput)
 }
 
+// The position of the action in the receipt rule
 func (o ReceiptRuleS3ActionOutput) Position() pulumi.IntOutput {
 	return o.ApplyT(func(v ReceiptRuleS3Action) int { return v.Position }).(pulumi.IntOutput)
 }
 
+// The ARN of an SNS topic to notify
 func (o ReceiptRuleS3ActionOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReceiptRuleS3Action) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
 }
@@ -1390,9 +1481,12 @@ func (o ReceiptRuleS3ActionArrayOutput) Index(i pulumi.IntInput) ReceiptRuleS3Ac
 }
 
 type ReceiptRuleSnsAction struct {
+	// The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
 	Encoding *string `pulumi:"encoding"`
-	Position int     `pulumi:"position"`
-	TopicArn string  `pulumi:"topicArn"`
+	// The position of the action in the receipt rule
+	Position int `pulumi:"position"`
+	// The ARN of an SNS topic to notify
+	TopicArn string `pulumi:"topicArn"`
 }
 
 // ReceiptRuleSnsActionInput is an input type that accepts ReceiptRuleSnsActionArgs and ReceiptRuleSnsActionOutput values.
@@ -1407,9 +1501,12 @@ type ReceiptRuleSnsActionInput interface {
 }
 
 type ReceiptRuleSnsActionArgs struct {
+	// The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
 	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
-	Position pulumi.IntInput       `pulumi:"position"`
-	TopicArn pulumi.StringInput    `pulumi:"topicArn"`
+	// The position of the action in the receipt rule
+	Position pulumi.IntInput `pulumi:"position"`
+	// The ARN of an SNS topic to notify
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
 }
 
 func (ReceiptRuleSnsActionArgs) ElementType() reflect.Type {
@@ -1463,14 +1560,17 @@ func (o ReceiptRuleSnsActionOutput) ToReceiptRuleSnsActionOutputWithContext(ctx 
 	return o
 }
 
+// The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
 func (o ReceiptRuleSnsActionOutput) Encoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReceiptRuleSnsAction) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
+// The position of the action in the receipt rule
 func (o ReceiptRuleSnsActionOutput) Position() pulumi.IntOutput {
 	return o.ApplyT(func(v ReceiptRuleSnsAction) int { return v.Position }).(pulumi.IntOutput)
 }
 
+// The ARN of an SNS topic to notify
 func (o ReceiptRuleSnsActionOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ReceiptRuleSnsAction) string { return v.TopicArn }).(pulumi.StringOutput)
 }
@@ -1496,8 +1596,11 @@ func (o ReceiptRuleSnsActionArrayOutput) Index(i pulumi.IntInput) ReceiptRuleSns
 }
 
 type ReceiptRuleStopAction struct {
-	Position int     `pulumi:"position"`
-	Scope    string  `pulumi:"scope"`
+	// The position of the action in the receipt rule
+	Position int `pulumi:"position"`
+	// The scope to apply. The only acceptable value is `RuleSet`.
+	Scope string `pulumi:"scope"`
+	// The ARN of an SNS topic to notify
 	TopicArn *string `pulumi:"topicArn"`
 }
 
@@ -1513,8 +1616,11 @@ type ReceiptRuleStopActionInput interface {
 }
 
 type ReceiptRuleStopActionArgs struct {
-	Position pulumi.IntInput       `pulumi:"position"`
-	Scope    pulumi.StringInput    `pulumi:"scope"`
+	// The position of the action in the receipt rule
+	Position pulumi.IntInput `pulumi:"position"`
+	// The scope to apply. The only acceptable value is `RuleSet`.
+	Scope pulumi.StringInput `pulumi:"scope"`
+	// The ARN of an SNS topic to notify
 	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
 }
 
@@ -1569,14 +1675,17 @@ func (o ReceiptRuleStopActionOutput) ToReceiptRuleStopActionOutputWithContext(ct
 	return o
 }
 
+// The position of the action in the receipt rule
 func (o ReceiptRuleStopActionOutput) Position() pulumi.IntOutput {
 	return o.ApplyT(func(v ReceiptRuleStopAction) int { return v.Position }).(pulumi.IntOutput)
 }
 
+// The scope to apply. The only acceptable value is `RuleSet`.
 func (o ReceiptRuleStopActionOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v ReceiptRuleStopAction) string { return v.Scope }).(pulumi.StringOutput)
 }
 
+// The ARN of an SNS topic to notify
 func (o ReceiptRuleStopActionOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReceiptRuleStopAction) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
 }
@@ -1602,9 +1711,12 @@ func (o ReceiptRuleStopActionArrayOutput) Index(i pulumi.IntInput) ReceiptRuleSt
 }
 
 type ReceiptRuleWorkmailAction struct {
-	OrganizationArn string  `pulumi:"organizationArn"`
-	Position        int     `pulumi:"position"`
-	TopicArn        *string `pulumi:"topicArn"`
+	// The ARN of the WorkMail organization
+	OrganizationArn string `pulumi:"organizationArn"`
+	// The position of the action in the receipt rule
+	Position int `pulumi:"position"`
+	// The ARN of an SNS topic to notify
+	TopicArn *string `pulumi:"topicArn"`
 }
 
 // ReceiptRuleWorkmailActionInput is an input type that accepts ReceiptRuleWorkmailActionArgs and ReceiptRuleWorkmailActionOutput values.
@@ -1619,9 +1731,12 @@ type ReceiptRuleWorkmailActionInput interface {
 }
 
 type ReceiptRuleWorkmailActionArgs struct {
-	OrganizationArn pulumi.StringInput    `pulumi:"organizationArn"`
-	Position        pulumi.IntInput       `pulumi:"position"`
-	TopicArn        pulumi.StringPtrInput `pulumi:"topicArn"`
+	// The ARN of the WorkMail organization
+	OrganizationArn pulumi.StringInput `pulumi:"organizationArn"`
+	// The position of the action in the receipt rule
+	Position pulumi.IntInput `pulumi:"position"`
+	// The ARN of an SNS topic to notify
+	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
 }
 
 func (ReceiptRuleWorkmailActionArgs) ElementType() reflect.Type {
@@ -1675,14 +1790,17 @@ func (o ReceiptRuleWorkmailActionOutput) ToReceiptRuleWorkmailActionOutputWithCo
 	return o
 }
 
+// The ARN of the WorkMail organization
 func (o ReceiptRuleWorkmailActionOutput) OrganizationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ReceiptRuleWorkmailAction) string { return v.OrganizationArn }).(pulumi.StringOutput)
 }
 
+// The position of the action in the receipt rule
 func (o ReceiptRuleWorkmailActionOutput) Position() pulumi.IntOutput {
 	return o.ApplyT(func(v ReceiptRuleWorkmailAction) int { return v.Position }).(pulumi.IntOutput)
 }
 
+// The ARN of an SNS topic to notify
 func (o ReceiptRuleWorkmailActionOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReceiptRuleWorkmailAction) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
 }

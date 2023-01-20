@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides details about an Image Builder Infrastructure Configuration.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := imagebuilder.LookupInfrastructureConfiguration(ctx, &imagebuilder.LookupInfrastructureConfigurationArgs{
+//				Arn: "arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupInfrastructureConfiguration(ctx *pulumi.Context, args *LookupInfrastructureConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupInfrastructureConfigurationResult, error) {
 	var rv LookupInfrastructureConfigurationResult
 	err := ctx.Invoke("aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration", args, &rv, opts...)
@@ -21,31 +48,48 @@ func LookupInfrastructureConfiguration(ctx *pulumi.Context, args *LookupInfrastr
 
 // A collection of arguments for invoking getInfrastructureConfiguration.
 type LookupInfrastructureConfigurationArgs struct {
-	Arn          string            `pulumi:"arn"`
+	// ARN of the infrastructure configuration.
+	Arn string `pulumi:"arn"`
+	// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
-	Tags         map[string]string `pulumi:"tags"`
+	// Key-value map of resource tags for the infrastructure configuration.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getInfrastructureConfiguration.
 type LookupInfrastructureConfigurationResult struct {
-	Arn         string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
+	// Date the infrastructure configuration was updated.
 	DateCreated string `pulumi:"dateCreated"`
 	DateUpdated string `pulumi:"dateUpdated"`
+	// Description of the infrastructure configuration.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                         string                                                 `pulumi:"id"`
-	InstanceMetadataOptions    []GetInfrastructureConfigurationInstanceMetadataOption `pulumi:"instanceMetadataOptions"`
-	InstanceProfileName        string                                                 `pulumi:"instanceProfileName"`
-	InstanceTypes              []string                                               `pulumi:"instanceTypes"`
-	KeyPair                    string                                                 `pulumi:"keyPair"`
-	Loggings                   []GetInfrastructureConfigurationLogging                `pulumi:"loggings"`
-	Name                       string                                                 `pulumi:"name"`
-	ResourceTags               map[string]string                                      `pulumi:"resourceTags"`
-	SecurityGroupIds           []string                                               `pulumi:"securityGroupIds"`
-	SnsTopicArn                string                                                 `pulumi:"snsTopicArn"`
-	SubnetId                   string                                                 `pulumi:"subnetId"`
-	Tags                       map[string]string                                      `pulumi:"tags"`
-	TerminateInstanceOnFailure bool                                                   `pulumi:"terminateInstanceOnFailure"`
+	Id string `pulumi:"id"`
+	// Nested list of instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances.
+	InstanceMetadataOptions []GetInfrastructureConfigurationInstanceMetadataOption `pulumi:"instanceMetadataOptions"`
+	// Name of the IAM Instance Profile associated with the configuration.
+	InstanceProfileName string `pulumi:"instanceProfileName"`
+	// Set of EC2 Instance Types associated with the configuration.
+	InstanceTypes []string `pulumi:"instanceTypes"`
+	// Name of the EC2 Key Pair associated with the configuration.
+	KeyPair string `pulumi:"keyPair"`
+	// Nested list of logging settings.
+	Loggings []GetInfrastructureConfigurationLogging `pulumi:"loggings"`
+	// Name of the infrastructure configuration.
+	Name string `pulumi:"name"`
+	// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
+	ResourceTags map[string]string `pulumi:"resourceTags"`
+	// Set of EC2 Security Group identifiers associated with the configuration.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// ARN of the SNS Topic associated with the configuration.
+	SnsTopicArn string `pulumi:"snsTopicArn"`
+	// Identifier of the EC2 Subnet associated with the configuration.
+	SubnetId string `pulumi:"subnetId"`
+	// Key-value map of resource tags for the infrastructure configuration.
+	Tags map[string]string `pulumi:"tags"`
+	// Whether instances are terminated on failure.
+	TerminateInstanceOnFailure bool `pulumi:"terminateInstanceOnFailure"`
 }
 
 func LookupInfrastructureConfigurationOutput(ctx *pulumi.Context, args LookupInfrastructureConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupInfrastructureConfigurationResultOutput {
@@ -63,9 +107,12 @@ func LookupInfrastructureConfigurationOutput(ctx *pulumi.Context, args LookupInf
 
 // A collection of arguments for invoking getInfrastructureConfiguration.
 type LookupInfrastructureConfigurationOutputArgs struct {
-	Arn          pulumi.StringInput    `pulumi:"arn"`
+	// ARN of the infrastructure configuration.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
 	ResourceTags pulumi.StringMapInput `pulumi:"resourceTags"`
-	Tags         pulumi.StringMapInput `pulumi:"tags"`
+	// Key-value map of resource tags for the infrastructure configuration.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupInfrastructureConfigurationOutputArgs) ElementType() reflect.Type {
@@ -91,6 +138,7 @@ func (o LookupInfrastructureConfigurationResultOutput) Arn() pulumi.StringOutput
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Date the infrastructure configuration was updated.
 func (o LookupInfrastructureConfigurationResultOutput) DateCreated() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) string { return v.DateCreated }).(pulumi.StringOutput)
 }
@@ -99,6 +147,7 @@ func (o LookupInfrastructureConfigurationResultOutput) DateUpdated() pulumi.Stri
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) string { return v.DateUpdated }).(pulumi.StringOutput)
 }
 
+// Description of the infrastructure configuration.
 func (o LookupInfrastructureConfigurationResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -108,54 +157,66 @@ func (o LookupInfrastructureConfigurationResultOutput) Id() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Nested list of instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances.
 func (o LookupInfrastructureConfigurationResultOutput) InstanceMetadataOptions() GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput {
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) []GetInfrastructureConfigurationInstanceMetadataOption {
 		return v.InstanceMetadataOptions
 	}).(GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput)
 }
 
+// Name of the IAM Instance Profile associated with the configuration.
 func (o LookupInfrastructureConfigurationResultOutput) InstanceProfileName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) string { return v.InstanceProfileName }).(pulumi.StringOutput)
 }
 
+// Set of EC2 Instance Types associated with the configuration.
 func (o LookupInfrastructureConfigurationResultOutput) InstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) []string { return v.InstanceTypes }).(pulumi.StringArrayOutput)
 }
 
+// Name of the EC2 Key Pair associated with the configuration.
 func (o LookupInfrastructureConfigurationResultOutput) KeyPair() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) string { return v.KeyPair }).(pulumi.StringOutput)
 }
 
+// Nested list of logging settings.
 func (o LookupInfrastructureConfigurationResultOutput) Loggings() GetInfrastructureConfigurationLoggingArrayOutput {
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) []GetInfrastructureConfigurationLogging {
 		return v.Loggings
 	}).(GetInfrastructureConfigurationLoggingArrayOutput)
 }
 
+// Name of the infrastructure configuration.
 func (o LookupInfrastructureConfigurationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
 func (o LookupInfrastructureConfigurationResultOutput) ResourceTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) map[string]string { return v.ResourceTags }).(pulumi.StringMapOutput)
 }
 
+// Set of EC2 Security Group identifiers associated with the configuration.
 func (o LookupInfrastructureConfigurationResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// ARN of the SNS Topic associated with the configuration.
 func (o LookupInfrastructureConfigurationResultOutput) SnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) string { return v.SnsTopicArn }).(pulumi.StringOutput)
 }
 
+// Identifier of the EC2 Subnet associated with the configuration.
 func (o LookupInfrastructureConfigurationResultOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags for the infrastructure configuration.
 func (o LookupInfrastructureConfigurationResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Whether instances are terminated on failure.
 func (o LookupInfrastructureConfigurationResultOutput) TerminateInstanceOnFailure() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) bool { return v.TerminateInstanceOnFailure }).(pulumi.BoolOutput)
 }

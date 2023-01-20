@@ -9,9 +9,43 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Backup
 {
+    /// <summary>
+    /// Provides an AWS Backup Global Settings resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Backup.GlobalSettings("test", new()
+    ///     {
+    ///         GlobalSettingsList = 
+    ///         {
+    ///             { "isCrossAccountBackupEnabled", "true" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Backup Global Settings can be imported using the `id`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:backup/globalSettings:GlobalSettings")]
     public partial class GlobalSettings : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A list of resources along with the opt-in preferences for the account.
+        /// </summary>
         [Output("globalSettings")]
         public Output<ImmutableDictionary<string, string>> GlobalSettingsList { get; private set; } = null!;
 
@@ -63,6 +97,10 @@ namespace Pulumi.Aws.Backup
     {
         [Input("globalSettings", required: true)]
         private InputMap<string>? _globalSettings;
+
+        /// <summary>
+        /// A list of resources along with the opt-in preferences for the account.
+        /// </summary>
         public InputMap<string> GlobalSettingsList
         {
             get => _globalSettings ?? (_globalSettings = new InputMap<string>());
@@ -79,6 +117,10 @@ namespace Pulumi.Aws.Backup
     {
         [Input("globalSettings")]
         private InputMap<string>? _globalSettings;
+
+        /// <summary>
+        /// A list of resources along with the opt-in preferences for the account.
+        /// </summary>
         public InputMap<string> GlobalSettingsList
         {
             get => _globalSettings ?? (_globalSettings = new InputMap<string>());

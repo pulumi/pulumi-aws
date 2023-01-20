@@ -20,6 +20,8 @@ class BucketLifecycleConfigurationArgs:
                  rules: pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]]):
         """
         The set of arguments for constructing a BucketLifecycleConfiguration resource.
+        :param pulumi.Input[str] bucket: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]] rules: Configuration block(s) containing lifecycle rules for the bucket.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "rules", rules)
@@ -27,6 +29,9 @@ class BucketLifecycleConfigurationArgs:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
+        """
+        Amazon Resource Name (ARN) of the bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -36,6 +41,9 @@ class BucketLifecycleConfigurationArgs:
     @property
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]]:
+        """
+        Configuration block(s) containing lifecycle rules for the bucket.
+        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -50,6 +58,8 @@ class _BucketLifecycleConfigurationState:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering BucketLifecycleConfiguration resources.
+        :param pulumi.Input[str] bucket: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]] rules: Configuration block(s) containing lifecycle rules for the bucket.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -59,6 +69,9 @@ class _BucketLifecycleConfigurationState:
     @property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -68,6 +81,9 @@ class _BucketLifecycleConfigurationState:
     @property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]]]:
+        """
+        Configuration block(s) containing lifecycle rules for the bucket.
+        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -84,9 +100,54 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationRuleArgs']]]]] = None,
                  __props__=None):
         """
-        Create a BucketLifecycleConfiguration resource with the given unique name, props, and options.
+        Provides a resource to manage an S3 Control Bucket Lifecycle Configuration.
+
+        > **NOTE:** Each S3 Control Bucket can only have one Lifecycle Configuration. Using multiple of this resource against the same S3 Control Bucket will result in perpetual differences each provider run.
+
+        > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Lifecycle Configurations in an AWS Partition, see the `s3.BucketV2` resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3control.BucketLifecycleConfiguration("example",
+            bucket=aws_s3control_bucket["example"]["arn"],
+            rules=[
+                aws.s3control.BucketLifecycleConfigurationRuleArgs(
+                    expiration=aws.s3control.BucketLifecycleConfigurationRuleExpirationArgs(
+                        days=365,
+                    ),
+                    filter=aws.s3control.BucketLifecycleConfigurationRuleFilterArgs(
+                        prefix="logs/",
+                    ),
+                    id="logs",
+                ),
+                aws.s3control.BucketLifecycleConfigurationRuleArgs(
+                    expiration=aws.s3control.BucketLifecycleConfigurationRuleExpirationArgs(
+                        days=7,
+                    ),
+                    filter=aws.s3control.BucketLifecycleConfigurationRuleFilterArgs(
+                        prefix="temp/",
+                    ),
+                    id="temp",
+                ),
+            ])
+        ```
+
+        ## Import
+
+        S3 Control Bucket Lifecycle Configurations can be imported using the Amazon Resource Name (ARN), e.g.,
+
+        ```sh
+         $ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bucket: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationRuleArgs']]]] rules: Configuration block(s) containing lifecycle rules for the bucket.
         """
         ...
     @overload
@@ -95,7 +156,50 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
                  args: BucketLifecycleConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a BucketLifecycleConfiguration resource with the given unique name, props, and options.
+        Provides a resource to manage an S3 Control Bucket Lifecycle Configuration.
+
+        > **NOTE:** Each S3 Control Bucket can only have one Lifecycle Configuration. Using multiple of this resource against the same S3 Control Bucket will result in perpetual differences each provider run.
+
+        > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Lifecycle Configurations in an AWS Partition, see the `s3.BucketV2` resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3control.BucketLifecycleConfiguration("example",
+            bucket=aws_s3control_bucket["example"]["arn"],
+            rules=[
+                aws.s3control.BucketLifecycleConfigurationRuleArgs(
+                    expiration=aws.s3control.BucketLifecycleConfigurationRuleExpirationArgs(
+                        days=365,
+                    ),
+                    filter=aws.s3control.BucketLifecycleConfigurationRuleFilterArgs(
+                        prefix="logs/",
+                    ),
+                    id="logs",
+                ),
+                aws.s3control.BucketLifecycleConfigurationRuleArgs(
+                    expiration=aws.s3control.BucketLifecycleConfigurationRuleExpirationArgs(
+                        days=7,
+                    ),
+                    filter=aws.s3control.BucketLifecycleConfigurationRuleFilterArgs(
+                        prefix="temp/",
+                    ),
+                    id="temp",
+                ),
+            ])
+        ```
+
+        ## Import
+
+        S3 Control Bucket Lifecycle Configurations can be imported using the Amazon Resource Name (ARN), e.g.,
+
+        ```sh
+         $ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param BucketLifecycleConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,6 +251,8 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bucket: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationRuleArgs']]]] rules: Configuration block(s) containing lifecycle rules for the bucket.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -159,10 +265,16 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter
     def rules(self) -> pulumi.Output[Sequence['outputs.BucketLifecycleConfigurationRule']]:
+        """
+        Configuration block(s) containing lifecycle rules for the bucket.
+        """
         return pulumi.get(self, "rules")
 

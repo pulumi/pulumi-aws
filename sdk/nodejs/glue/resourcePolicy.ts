@@ -4,6 +4,39 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Glue resource policy. Only one can exist per region.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const currentCallerIdentity = aws.getCallerIdentity({});
+ * const currentPartition = aws.getPartition({});
+ * const currentRegion = aws.getRegion({});
+ * const glue-example-policy = Promise.all([currentPartition, currentRegion, currentCallerIdentity]).then(([currentPartition, currentRegion, currentCallerIdentity]) => aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["glue:CreateTable"],
+ *         resources: [`arn:${currentPartition.partition}:glue:${currentRegion.name}:${currentCallerIdentity.accountId}:*`],
+ *         principals: [{
+ *             identifiers: ["*"],
+ *             type: "AWS",
+ *         }],
+ *     }],
+ * }));
+ * const example = new aws.glue.ResourcePolicy("example", {policy: glue_example_policy.then(glue_example_policy => glue_example_policy.json)});
+ * ```
+ *
+ * ## Import
+ *
+ * Glue Resource Policy can be imported using the account ID
+ *
+ * ```sh
+ *  $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
+ * ```
+ */
 export class ResourcePolicy extends pulumi.CustomResource {
     /**
      * Get an existing ResourcePolicy resource's state with the given name, ID, and optional extra
@@ -32,7 +65,13 @@ export class ResourcePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourcePolicy.__pulumiType;
     }
 
+    /**
+     * Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+     */
     public readonly enableHybrid!: pulumi.Output<string | undefined>;
+    /**
+     * The policy to be applied to the aws glue data catalog.
+     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -67,7 +106,13 @@ export class ResourcePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResourcePolicy resources.
  */
 export interface ResourcePolicyState {
+    /**
+     * Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+     */
     enableHybrid?: pulumi.Input<string>;
+    /**
+     * The policy to be applied to the aws glue data catalog.
+     */
     policy?: pulumi.Input<string>;
 }
 
@@ -75,6 +120,12 @@ export interface ResourcePolicyState {
  * The set of arguments for constructing a ResourcePolicy resource.
  */
 export interface ResourcePolicyArgs {
+    /**
+     * Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+     */
     enableHybrid?: pulumi.Input<string>;
+    /**
+     * The policy to be applied to the aws glue data catalog.
+     */
     policy: pulumi.Input<string>;
 }

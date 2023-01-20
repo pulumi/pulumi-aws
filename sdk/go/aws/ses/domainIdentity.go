@@ -11,11 +11,97 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an SES domain identity resource
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewDomainIdentity(ctx, "example", &ses.DomainIdentityArgs{
+//				Domain: pulumi.String("example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With Route53 Record
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ses.NewDomainIdentity(ctx, "example", &ses.DomainIdentityArgs{
+//				Domain: pulumi.String("example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewRecord(ctx, "exampleAmazonsesVerificationRecord", &route53.RecordArgs{
+//				ZoneId: pulumi.String("ABCDEFGHIJ123"),
+//				Name:   pulumi.String("_amazonses.example.com"),
+//				Type:   pulumi.String("TXT"),
+//				Ttl:    pulumi.Int(600),
+//				Records: pulumi.StringArray{
+//					example.VerificationToken,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// SES domain identities can be imported using the domain name.
+//
+// ```sh
+//
+//	$ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
+//
+// ```
 type DomainIdentity struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput `pulumi:"arn"`
-	Domain            pulumi.StringOutput `pulumi:"domain"`
+	// The ARN of the domain identity.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The domain name to assign to SES
+	Domain pulumi.StringOutput `pulumi:"domain"`
+	// A code which when added to the domain as a TXT record
+	// will signal to SES that the owner of the domain has authorised SES to act on
+	// their behalf. The domain identity will be in state "verification pending"
+	// until this is done. See the With Route53 Record example
+	// for how this might be achieved when the domain is hosted in Route 53 and
+	// managed by this provider.  Find out more about verifying domains in Amazon
+	// SES in the [AWS SES
+	// docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
 	VerificationToken pulumi.StringOutput `pulumi:"verificationToken"`
 }
 
@@ -51,14 +137,34 @@ func GetDomainIdentity(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainIdentity resources.
 type domainIdentityState struct {
-	Arn               *string `pulumi:"arn"`
-	Domain            *string `pulumi:"domain"`
+	// The ARN of the domain identity.
+	Arn *string `pulumi:"arn"`
+	// The domain name to assign to SES
+	Domain *string `pulumi:"domain"`
+	// A code which when added to the domain as a TXT record
+	// will signal to SES that the owner of the domain has authorised SES to act on
+	// their behalf. The domain identity will be in state "verification pending"
+	// until this is done. See the With Route53 Record example
+	// for how this might be achieved when the domain is hosted in Route 53 and
+	// managed by this provider.  Find out more about verifying domains in Amazon
+	// SES in the [AWS SES
+	// docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
 	VerificationToken *string `pulumi:"verificationToken"`
 }
 
 type DomainIdentityState struct {
-	Arn               pulumi.StringPtrInput
-	Domain            pulumi.StringPtrInput
+	// The ARN of the domain identity.
+	Arn pulumi.StringPtrInput
+	// The domain name to assign to SES
+	Domain pulumi.StringPtrInput
+	// A code which when added to the domain as a TXT record
+	// will signal to SES that the owner of the domain has authorised SES to act on
+	// their behalf. The domain identity will be in state "verification pending"
+	// until this is done. See the With Route53 Record example
+	// for how this might be achieved when the domain is hosted in Route 53 and
+	// managed by this provider.  Find out more about verifying domains in Amazon
+	// SES in the [AWS SES
+	// docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
 	VerificationToken pulumi.StringPtrInput
 }
 
@@ -67,11 +173,13 @@ func (DomainIdentityState) ElementType() reflect.Type {
 }
 
 type domainIdentityArgs struct {
+	// The domain name to assign to SES
 	Domain string `pulumi:"domain"`
 }
 
 // The set of arguments for constructing a DomainIdentity resource.
 type DomainIdentityArgs struct {
+	// The domain name to assign to SES
 	Domain pulumi.StringInput
 }
 
@@ -162,14 +270,24 @@ func (o DomainIdentityOutput) ToDomainIdentityOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The ARN of the domain identity.
 func (o DomainIdentityOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainIdentity) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The domain name to assign to SES
 func (o DomainIdentityOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainIdentity) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
 }
 
+// A code which when added to the domain as a TXT record
+// will signal to SES that the owner of the domain has authorised SES to act on
+// their behalf. The domain identity will be in state "verification pending"
+// until this is done. See the With Route53 Record example
+// for how this might be achieved when the domain is hosted in Route 53 and
+// managed by this provider.  Find out more about verifying domains in Amazon
+// SES in the [AWS SES
+// docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
 func (o DomainIdentityOutput) VerificationToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainIdentity) pulumi.StringOutput { return v.VerificationToken }).(pulumi.StringOutput)
 }

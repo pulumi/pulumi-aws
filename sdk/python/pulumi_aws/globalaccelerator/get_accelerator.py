@@ -131,7 +131,28 @@ def get_accelerator(arn: Optional[str] = None,
                     tags: Optional[Mapping[str, str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAcceleratorResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a Global Accelerator accelerator.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    accelerator_arn = config.get("acceleratorArn")
+    if accelerator_arn is None:
+        accelerator_arn = ""
+    accelerator_name = config.get("acceleratorName")
+    if accelerator_name is None:
+        accelerator_name = ""
+    example = aws.globalaccelerator.get_accelerator(arn=accelerator_arn,
+        name=accelerator_name)
+    ```
+
+
+    :param str arn: Full ARN of the Global Accelerator.
+    :param str name: Unique name of the Global Accelerator.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -159,6 +180,27 @@ def get_accelerator_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAcceleratorResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a Global Accelerator accelerator.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    accelerator_arn = config.get("acceleratorArn")
+    if accelerator_arn is None:
+        accelerator_arn = ""
+    accelerator_name = config.get("acceleratorName")
+    if accelerator_name is None:
+        accelerator_name = ""
+    example = aws.globalaccelerator.get_accelerator(arn=accelerator_arn,
+        name=accelerator_name)
+    ```
+
+
+    :param str arn: Full ARN of the Global Accelerator.
+    :param str name: Unique name of the Global Accelerator.
     """
     ...

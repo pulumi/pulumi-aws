@@ -49,6 +49,9 @@ class GetInternetGatewayResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the Internet Gateway.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -77,6 +80,9 @@ class GetInternetGatewayResult:
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
+        """
+        ID of the AWS account that owns the internet gateway.
+        """
         return pulumi.get(self, "owner_id")
 
     @property
@@ -105,7 +111,27 @@ def get_internet_gateway(filters: Optional[Sequence[pulumi.InputType['GetInterne
                          tags: Optional[Mapping[str, str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInternetGatewayResult:
     """
-    Use this data source to access information about an existing resource.
+    `ec2.InternetGateway` provides details about a specific Internet Gateway.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    vpc_id = config.require_object("vpcId")
+    default = aws.ec2.get_internet_gateway(filters=[aws.ec2.GetInternetGatewayFilterArgs(
+        name="attachment.vpc-id",
+        values=[vpc_id],
+    )])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetInternetGatewayFilterArgs']] filters: Custom filter block as described below.
+    :param str internet_gateway_id: ID of the specific Internet Gateway to retrieve.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
+           a pair on the desired Internet Gateway.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -130,6 +156,26 @@ def get_internet_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInternetGatewayResult]:
     """
-    Use this data source to access information about an existing resource.
+    `ec2.InternetGateway` provides details about a specific Internet Gateway.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    vpc_id = config.require_object("vpcId")
+    default = aws.ec2.get_internet_gateway(filters=[aws.ec2.GetInternetGatewayFilterArgs(
+        name="attachment.vpc-id",
+        values=[vpc_id],
+    )])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetInternetGatewayFilterArgs']] filters: Custom filter block as described below.
+    :param str internet_gateway_id: ID of the specific Internet Gateway to retrieve.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
+           a pair on the desired Internet Gateway.
     """
     ...

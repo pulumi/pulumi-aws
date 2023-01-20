@@ -62,21 +62,33 @@ class GetReportDefinitionResult:
     @property
     @pulumi.getter(name="additionalArtifacts")
     def additional_artifacts(self) -> Sequence[str]:
+        """
+        A list of additional artifacts.
+        """
         return pulumi.get(self, "additional_artifacts")
 
     @property
     @pulumi.getter(name="additionalSchemaElements")
     def additional_schema_elements(self) -> Sequence[str]:
+        """
+        A list of schema elements.
+        """
         return pulumi.get(self, "additional_schema_elements")
 
     @property
     @pulumi.getter
     def compression(self) -> str:
+        """
+        Preferred format for report.
+        """
         return pulumi.get(self, "compression")
 
     @property
     @pulumi.getter
     def format(self) -> str:
+        """
+        Preferred compression format for report.
+        """
         return pulumi.get(self, "format")
 
     @property
@@ -90,6 +102,9 @@ class GetReportDefinitionResult:
     @property
     @pulumi.getter(name="refreshClosedReports")
     def refresh_closed_reports(self) -> bool:
+        """
+        If true reports are updated after they have been finalized.
+        """
         return pulumi.get(self, "refresh_closed_reports")
 
     @property
@@ -100,26 +115,41 @@ class GetReportDefinitionResult:
     @property
     @pulumi.getter(name="reportVersioning")
     def report_versioning(self) -> str:
+        """
+        Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
+        """
         return pulumi.get(self, "report_versioning")
 
     @property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> str:
+        """
+        Name of customer S3 bucket.
+        """
         return pulumi.get(self, "s3_bucket")
 
     @property
     @pulumi.getter(name="s3Prefix")
     def s3_prefix(self) -> str:
+        """
+        Preferred report path prefix.
+        """
         return pulumi.get(self, "s3_prefix")
 
     @property
     @pulumi.getter(name="s3Region")
     def s3_region(self) -> str:
+        """
+        Region of customer S3 bucket.
+        """
         return pulumi.get(self, "s3_region")
 
     @property
     @pulumi.getter(name="timeUnit")
     def time_unit(self) -> str:
+        """
+        Frequency on which report data are measured and displayed.
+        """
         return pulumi.get(self, "time_unit")
 
 
@@ -146,7 +176,23 @@ class AwaitableGetReportDefinitionResult(GetReportDefinitionResult):
 def get_report_definition(report_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportDefinitionResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information on an AWS Cost and Usage Report Definition.
+
+    > *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
+
+    > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    report_definition = aws.cur.get_report_definition(report_name="example")
+    ```
+
+
+    :param str report_name: Name of the report definition to match.
     """
     __args__ = dict()
     __args__['reportName'] = report_name
@@ -172,6 +218,22 @@ def get_report_definition(report_name: Optional[str] = None,
 def get_report_definition_output(report_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportDefinitionResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information on an AWS Cost and Usage Report Definition.
+
+    > *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
+
+    > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    report_definition = aws.cur.get_report_definition(report_name="example")
+    ```
+
+
+    :param str report_name: Name of the report definition to match.
     """
     ...

@@ -10,6 +10,37 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
+//
+// ## Example Usage
+// ### By name
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.LookupBotAssociation(ctx, &connect.LookupBotAssociationArgs{
+//				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+//				LexBot: connect.GetBotAssociationLexBot{
+//					Name: "Test",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupBotAssociation(ctx *pulumi.Context, args *LookupBotAssociationArgs, opts ...pulumi.InvokeOption) (*LookupBotAssociationResult, error) {
 	var rv LookupBotAssociationResult
 	err := ctx.Invoke("aws:connect/getBotAssociation:getBotAssociation", args, &rv, opts...)
@@ -21,8 +52,10 @@ func LookupBotAssociation(ctx *pulumi.Context, args *LookupBotAssociationArgs, o
 
 // A collection of arguments for invoking getBotAssociation.
 type LookupBotAssociationArgs struct {
-	InstanceId string                  `pulumi:"instanceId"`
-	LexBot     GetBotAssociationLexBot `pulumi:"lexBot"`
+	// Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+	InstanceId string `pulumi:"instanceId"`
+	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
+	LexBot GetBotAssociationLexBot `pulumi:"lexBot"`
 }
 
 // A collection of values returned by getBotAssociation.
@@ -48,8 +81,10 @@ func LookupBotAssociationOutput(ctx *pulumi.Context, args LookupBotAssociationOu
 
 // A collection of arguments for invoking getBotAssociation.
 type LookupBotAssociationOutputArgs struct {
-	InstanceId pulumi.StringInput           `pulumi:"instanceId"`
-	LexBot     GetBotAssociationLexBotInput `pulumi:"lexBot"`
+	// Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
+	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
+	LexBot GetBotAssociationLexBotInput `pulumi:"lexBot"`
 }
 
 func (LookupBotAssociationOutputArgs) ElementType() reflect.Type {

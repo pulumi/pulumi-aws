@@ -11,9 +11,65 @@ namespace Pulumi.Aws.NetworkManager
 {
     public static class GetSites
     {
+        /// <summary>
+        /// Retrieve information about sites.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.NetworkManager.GetSites.Invoke(new()
+        ///     {
+        ///         GlobalNetworkId = @var.Global_network_id,
+        ///         Tags = 
+        ///         {
+        ///             { "Env", "test" },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetSitesResult> InvokeAsync(GetSitesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSitesResult>("aws:networkmanager/getSites:getSites", args ?? new GetSitesArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieve information about sites.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.NetworkManager.GetSites.Invoke(new()
+        ///     {
+        ///         GlobalNetworkId = @var.Global_network_id,
+        ///         Tags = 
+        ///         {
+        ///             { "Env", "test" },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetSitesResult> Invoke(GetSitesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSitesResult>("aws:networkmanager/getSites:getSites", args ?? new GetSitesInvokeArgs(), options.WithDefaults());
     }
@@ -21,11 +77,18 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class GetSitesArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the Global Network of the sites to retrieve.
+        /// </summary>
         [Input("globalNetworkId", required: true)]
         public string GlobalNetworkId { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Restricts the list to the sites with these tags.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -40,11 +103,18 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class GetSitesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the Global Network of the sites to retrieve.
+        /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Restricts the list to the sites with these tags.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -66,6 +136,9 @@ namespace Pulumi.Aws.NetworkManager
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// IDs of the sites.
+        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, string>? Tags;
 

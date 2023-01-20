@@ -13,7 +13,13 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class GetDomainAdvancedSecurityOptionResult
     {
+        /// <summary>
+        /// Whether node to node encryption is enabled.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// Whether the internal user database is enabled.
+        /// </summary>
         public readonly bool InternalUserDatabaseEnabled;
 
         [OutputConstructor]

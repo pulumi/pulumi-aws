@@ -16,23 +16,115 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an S3 bucket CORS configuration resource. For more information about CORS, go to [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) in the Amazon S3 User Guide.
+ * 
+ * &gt; **NOTE:** S3 Buckets only support a single CORS configuration. Declaring multiple `aws.s3.BucketCorsConfigurationV2` resources to the same S3 Bucket will cause a perpetual difference in configuration.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketCorsConfigurationV2;
+ * import com.pulumi.aws.s3.BucketCorsConfigurationV2Args;
+ * import com.pulumi.aws.s3.inputs.BucketCorsConfigurationV2CorsRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ * 
+ *         var exampleBucketCorsConfigurationV2 = new BucketCorsConfigurationV2(&#34;exampleBucketCorsConfigurationV2&#34;, BucketCorsConfigurationV2Args.builder()        
+ *             .bucket(exampleBucketV2.id())
+ *             .corsRules(            
+ *                 BucketCorsConfigurationV2CorsRuleArgs.builder()
+ *                     .allowedHeaders(&#34;*&#34;)
+ *                     .allowedMethods(                    
+ *                         &#34;PUT&#34;,
+ *                         &#34;POST&#34;)
+ *                     .allowedOrigins(&#34;https://s3-website-test.domain.example&#34;)
+ *                     .exposeHeaders(&#34;ETag&#34;)
+ *                     .maxAgeSeconds(3000)
+ *                     .build(),
+ *                 BucketCorsConfigurationV2CorsRuleArgs.builder()
+ *                     .allowedMethods(&#34;GET&#34;)
+ *                     .allowedOrigins(&#34;*&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * S3 bucket CORS configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket CORS configuration resource should be imported using the `bucket` e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name
+ * ```
+ * 
+ *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket CORS configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name,123456789012
+ * ```
+ * 
+ */
 @ResourceType(type="aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")
 public class BucketCorsConfigurationV2 extends com.pulumi.resources.CustomResource {
+    /**
+     * The name of the bucket.
+     * 
+     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
+    /**
+     * @return The name of the bucket.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
+    /**
+     * Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+     * 
+     */
     @Export(name="corsRules", refs={List.class,BucketCorsConfigurationV2CorsRule.class}, tree="[0,1]")
     private Output<List<BucketCorsConfigurationV2CorsRule>> corsRules;
 
+    /**
+     * @return Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+     * 
+     */
     public Output<List<BucketCorsConfigurationV2CorsRule>> corsRules() {
         return this.corsRules;
     }
+    /**
+     * The account ID of the expected bucket owner.
+     * 
+     */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
+    /**
+     * @return The account ID of the expected bucket owner.
+     * 
+     */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }

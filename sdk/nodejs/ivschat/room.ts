@@ -7,6 +7,44 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Resource for managing an AWS IVS (Interactive Video) Chat Room.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ivschat.Room("example", {});
+ * ```
+ * ## Usage with Logging Configuration to S3 Bucket
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {
+ *     bucketPrefix: "tf-ivschat-logging-bucket-",
+ *     forceDestroy: true,
+ * });
+ * const exampleLoggingConfiguration = new aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", {destinationConfiguration: {
+ *     s3: {
+ *         bucketName: exampleBucketV2.id,
+ *     },
+ * }});
+ * const exampleRoom = new aws.ivschat.Room("exampleRoom", {loggingConfigurationIdentifiers: [exampleLoggingConfiguration.arn]});
+ * ```
+ *
+ * ## Import
+ *
+ * IVS (Interactive Video) Chat Room can be imported using the ARN, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
+ * ```
+ */
 export class Room extends pulumi.CustomResource {
     /**
      * Get an existing Room resource's state with the given name, ID, and optional extra
@@ -35,13 +73,42 @@ export class Room extends pulumi.CustomResource {
         return obj['__pulumiType'] === Room.__pulumiType;
     }
 
+    /**
+     * ARN of the Room.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * List of Logging Configuration
+     * ARNs to attach to the room.
+     */
     public readonly loggingConfigurationIdentifiers!: pulumi.Output<string[] | undefined>;
+    /**
+     * Maximum number of characters in a single
+     * message. Messages are expected to be UTF-8 encoded and this limit applies
+     * specifically to rune/code-point count, not number of bytes.
+     */
     public readonly maximumMessageLength!: pulumi.Output<number>;
+    /**
+     * Maximum number of messages per
+     * second that can be sent to the room (by all clients).
+     */
     public readonly maximumMessageRatePerSecond!: pulumi.Output<number>;
+    /**
+     * Configuration information for optional
+     * review of messages.
+     */
     public readonly messageReviewHandler!: pulumi.Output<outputs.ivschat.RoomMessageReviewHandler | undefined>;
+    /**
+     * Room name.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -85,13 +152,42 @@ export class Room extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Room resources.
  */
 export interface RoomState {
+    /**
+     * ARN of the Room.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * List of Logging Configuration
+     * ARNs to attach to the room.
+     */
     loggingConfigurationIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Maximum number of characters in a single
+     * message. Messages are expected to be UTF-8 encoded and this limit applies
+     * specifically to rune/code-point count, not number of bytes.
+     */
     maximumMessageLength?: pulumi.Input<number>;
+    /**
+     * Maximum number of messages per
+     * second that can be sent to the room (by all clients).
+     */
     maximumMessageRatePerSecond?: pulumi.Input<number>;
+    /**
+     * Configuration information for optional
+     * review of messages.
+     */
     messageReviewHandler?: pulumi.Input<inputs.ivschat.RoomMessageReviewHandler>;
+    /**
+     * Room name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -99,10 +195,33 @@ export interface RoomState {
  * The set of arguments for constructing a Room resource.
  */
 export interface RoomArgs {
+    /**
+     * List of Logging Configuration
+     * ARNs to attach to the room.
+     */
     loggingConfigurationIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Maximum number of characters in a single
+     * message. Messages are expected to be UTF-8 encoded and this limit applies
+     * specifically to rune/code-point count, not number of bytes.
+     */
     maximumMessageLength?: pulumi.Input<number>;
+    /**
+     * Maximum number of messages per
+     * second that can be sent to the room (by all clients).
+     */
     maximumMessageRatePerSecond?: pulumi.Input<number>;
+    /**
+     * Configuration information for optional
+     * review of messages.
+     */
     messageReviewHandler?: pulumi.Input<inputs.ivschat.RoomMessageReviewHandler>;
+    /**
+     * Room name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

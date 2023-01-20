@@ -15,29 +15,187 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an S3 bucket ACL resource.
+ * 
+ * &gt; **Note:** destroy does not delete the S3 Bucket ACL but does remove the resource from state.
+ * 
+ * ## Example Usage
+ * ### With ACL
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketAclV2;
+ * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new BucketV2(&#34;example&#34;);
+ * 
+ *         var exampleBucketAcl = new BucketAclV2(&#34;exampleBucketAcl&#34;, BucketAclV2Args.builder()        
+ *             .bucket(example.id())
+ *             .acl(&#34;private&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### With Grants
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.S3Functions;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketAclV2;
+ * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
+ * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = S3Functions.getCanonicalUserId();
+ * 
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ * 
+ *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+ *             .bucket(exampleBucketV2.id())
+ *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
+ *                 .grants(                
+ *                     BucketAclV2AccessControlPolicyGrantArgs.builder()
+ *                         .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
+ *                             .id(current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()))
+ *                             .type(&#34;CanonicalUser&#34;)
+ *                             .build())
+ *                         .permission(&#34;READ&#34;)
+ *                         .build(),
+ *                     BucketAclV2AccessControlPolicyGrantArgs.builder()
+ *                         .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
+ *                             .type(&#34;Group&#34;)
+ *                             .uri(&#34;http://acs.amazonaws.com/groups/s3/LogDelivery&#34;)
+ *                             .build())
+ *                         .permission(&#34;READ_ACP&#34;)
+ *                         .build())
+ *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
+ *                     .id(current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()))
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * S3 bucket ACL can be imported in one of four ways. If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **not configured** with a [canned ACL][1] (i.e. predefined grant), the S3 bucket ACL resource should be imported using the `bucket` e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name
+ * ```
+ * 
+ *  If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL][1] (i.e. predefined grant), the S3 bucket ACL resource should be imported using the `bucket` and `acl` separated by a comma (`,`), e.g.
+ * 
+ * ```sh
+ *  $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,private
+ * ```
+ * 
+ *  If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **not configured** with a [canned ACL][1] (i.e. predefined grant), the S3 bucket ACL resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012
+ * ```
+ * 
+ *  If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL][1] (i.e. predefined grant), the S3 bucket ACL resource should be imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`), e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012,private
+ * ```
+ * 
+ *  [1]https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
+ * 
+ */
 @ResourceType(type="aws:s3/bucketAclV2:BucketAclV2")
 public class BucketAclV2 extends com.pulumi.resources.CustomResource {
+    /**
+     * A configuration block that sets the ACL permissions for an object per grantee documented below.
+     * 
+     */
     @Export(name="accessControlPolicy", refs={BucketAclV2AccessControlPolicy.class}, tree="[0]")
     private Output<BucketAclV2AccessControlPolicy> accessControlPolicy;
 
+    /**
+     * @return A configuration block that sets the ACL permissions for an object per grantee documented below.
+     * 
+     */
     public Output<BucketAclV2AccessControlPolicy> accessControlPolicy() {
         return this.accessControlPolicy;
     }
+    /**
+     * The canned ACL to apply to the bucket.
+     * 
+     */
     @Export(name="acl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> acl;
 
+    /**
+     * @return The canned ACL to apply to the bucket.
+     * 
+     */
     public Output<Optional<String>> acl() {
         return Codegen.optional(this.acl);
     }
+    /**
+     * The name of the bucket.
+     * 
+     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
+    /**
+     * @return The name of the bucket.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
+    /**
+     * The account ID of the expected bucket owner.
+     * 
+     */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
+    /**
+     * @return The account ID of the expected bucket owner.
+     * 
+     */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }

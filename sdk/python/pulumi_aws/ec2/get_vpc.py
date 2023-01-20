@@ -79,11 +79,17 @@ class GetVpcResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of VPC
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> str:
+        """
+        CIDR block for the association.
+        """
         return pulumi.get(self, "cidr_block")
 
     @property
@@ -104,16 +110,25 @@ class GetVpcResult:
     @property
     @pulumi.getter(name="enableDnsHostnames")
     def enable_dns_hostnames(self) -> bool:
+        """
+        Whether or not the VPC has DNS hostname support
+        """
         return pulumi.get(self, "enable_dns_hostnames")
 
     @property
     @pulumi.getter(name="enableDnsSupport")
     def enable_dns_support(self) -> bool:
+        """
+        Whether or not the VPC has DNS support
+        """
         return pulumi.get(self, "enable_dns_support")
 
     @property
     @pulumi.getter(name="enableNetworkAddressUsageMetrics")
     def enable_network_address_usage_metrics(self) -> bool:
+        """
+        Whether Network Address Usage metrics are enabled for your VPC
+        """
         return pulumi.get(self, "enable_network_address_usage_metrics")
 
     @property
@@ -129,31 +144,50 @@ class GetVpcResult:
     @property
     @pulumi.getter(name="instanceTenancy")
     def instance_tenancy(self) -> str:
+        """
+        Allowed tenancy of instances launched into the
+        selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
+        """
         return pulumi.get(self, "instance_tenancy")
 
     @property
     @pulumi.getter(name="ipv6AssociationId")
     def ipv6_association_id(self) -> str:
+        """
+        Association ID for the IPv6 CIDR block.
+        """
         return pulumi.get(self, "ipv6_association_id")
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> str:
+        """
+        IPv6 CIDR block.
+        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @property
     @pulumi.getter(name="mainRouteTableId")
     def main_route_table_id(self) -> str:
+        """
+        ID of the main route table associated with this VPC.
+        """
         return pulumi.get(self, "main_route_table_id")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
+        """
+        ID of the AWS account that owns the VPC.
+        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter
     def state(self) -> str:
+        """
+        State of the association.
+        """
         return pulumi.get(self, "state")
 
     @property
@@ -196,7 +230,23 @@ def get_vpc(cidr_block: Optional[str] = None,
             tags: Optional[Mapping[str, str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcResult:
     """
-    Use this data source to access information about an existing resource.
+    `ec2.Vpc` provides details about a specific VPC.
+
+    This resource can prove useful when a module accepts a vpc id as
+    an input variable and needs to, for example, determine the CIDR block of that
+    VPC.
+
+
+    :param str cidr_block: Cidr block of the desired VPC.
+    :param bool default: Boolean constraint on whether the desired VPC is
+           the default VPC for the region.
+    :param str dhcp_options_id: DHCP options id of the desired VPC.
+    :param Sequence[pulumi.InputType['GetVpcFilterArgs']] filters: Custom filter block as described below.
+    :param str id: ID of the specific VPC to retrieve.
+    :param str state: Current state of the desired VPC.
+           Can be either `"pending"` or `"available"`.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
+           a pair on the desired VPC.
     """
     __args__ = dict()
     __args__['cidrBlock'] = cidr_block
@@ -239,6 +289,22 @@ def get_vpc_output(cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcResult]:
     """
-    Use this data source to access information about an existing resource.
+    `ec2.Vpc` provides details about a specific VPC.
+
+    This resource can prove useful when a module accepts a vpc id as
+    an input variable and needs to, for example, determine the CIDR block of that
+    VPC.
+
+
+    :param str cidr_block: Cidr block of the desired VPC.
+    :param bool default: Boolean constraint on whether the desired VPC is
+           the default VPC for the region.
+    :param str dhcp_options_id: DHCP options id of the desired VPC.
+    :param Sequence[pulumi.InputType['GetVpcFilterArgs']] filters: Custom filter block as described below.
+    :param str id: ID of the specific VPC to retrieve.
+    :param str state: Current state of the desired VPC.
+           Can be either `"pending"` or `"available"`.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
+           a pair on the desired VPC.
     """
     ...

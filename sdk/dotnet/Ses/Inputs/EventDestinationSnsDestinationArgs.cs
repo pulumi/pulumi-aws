@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Ses.Inputs
 
     public sealed class EventDestinationSnsDestinationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the SNS topic
+        /// </summary>
         [Input("topicArn", required: true)]
         public Input<string> TopicArn { get; set; } = null!;
 

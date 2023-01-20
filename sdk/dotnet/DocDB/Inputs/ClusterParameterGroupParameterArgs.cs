@@ -12,12 +12,21 @@ namespace Pulumi.Aws.DocDB.Inputs
 
     public sealed class ClusterParameterGroupParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+        /// </summary>
         [Input("applyMethod")]
         public Input<string>? ApplyMethod { get; set; }
 
+        /// <summary>
+        /// The name of the documentDB parameter.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The value of the documentDB parameter.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

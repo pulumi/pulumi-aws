@@ -23,6 +23,11 @@ class BucketIntelligentTieringConfigurationArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BucketIntelligentTieringConfiguration resource.
+        :param pulumi.Input[str] bucket: The name of the bucket this intelligent tiering configuration is associated with.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketIntelligentTieringConfigurationTieringArgs']]] tierings: The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+        :param pulumi.Input['BucketIntelligentTieringConfigurationFilterArgs'] filter: A bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+        :param pulumi.Input[str] name: The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+        :param pulumi.Input[str] status: Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "tierings", tierings)
@@ -36,6 +41,9 @@ class BucketIntelligentTieringConfigurationArgs:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
+        """
+        The name of the bucket this intelligent tiering configuration is associated with.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -45,6 +53,9 @@ class BucketIntelligentTieringConfigurationArgs:
     @property
     @pulumi.getter
     def tierings(self) -> pulumi.Input[Sequence[pulumi.Input['BucketIntelligentTieringConfigurationTieringArgs']]]:
+        """
+        The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+        """
         return pulumi.get(self, "tierings")
 
     @tierings.setter
@@ -54,6 +65,9 @@ class BucketIntelligentTieringConfigurationArgs:
     @property
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input['BucketIntelligentTieringConfigurationFilterArgs']]:
+        """
+        A bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -63,6 +77,9 @@ class BucketIntelligentTieringConfigurationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -72,6 +89,9 @@ class BucketIntelligentTieringConfigurationArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -89,6 +109,11 @@ class _BucketIntelligentTieringConfigurationState:
                  tierings: Optional[pulumi.Input[Sequence[pulumi.Input['BucketIntelligentTieringConfigurationTieringArgs']]]] = None):
         """
         Input properties used for looking up and filtering BucketIntelligentTieringConfiguration resources.
+        :param pulumi.Input[str] bucket: The name of the bucket this intelligent tiering configuration is associated with.
+        :param pulumi.Input['BucketIntelligentTieringConfigurationFilterArgs'] filter: A bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+        :param pulumi.Input[str] name: The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+        :param pulumi.Input[str] status: Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketIntelligentTieringConfigurationTieringArgs']]] tierings: The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -104,6 +129,9 @@ class _BucketIntelligentTieringConfigurationState:
     @property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the bucket this intelligent tiering configuration is associated with.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -113,6 +141,9 @@ class _BucketIntelligentTieringConfigurationState:
     @property
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input['BucketIntelligentTieringConfigurationFilterArgs']]:
+        """
+        A bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -122,6 +153,9 @@ class _BucketIntelligentTieringConfigurationState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -131,6 +165,9 @@ class _BucketIntelligentTieringConfigurationState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -140,6 +177,9 @@ class _BucketIntelligentTieringConfigurationState:
     @property
     @pulumi.getter
     def tierings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketIntelligentTieringConfigurationTieringArgs']]]]:
+        """
+        The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+        """
         return pulumi.get(self, "tierings")
 
     @tierings.setter
@@ -159,9 +199,67 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
                  tierings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketIntelligentTieringConfigurationTieringArgs']]]]] = None,
                  __props__=None):
         """
-        Create a BucketIntelligentTieringConfiguration resource with the given unique name, props, and options.
+        Provides an [S3 Intelligent-Tiering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html) configuration resource.
+
+        ## Example Usage
+        ### Add intelligent tiering configuration for entire S3 bucket
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketV2("example")
+        example_entire_bucket = aws.s3.BucketIntelligentTieringConfiguration("example-entire-bucket",
+            bucket=example.bucket,
+            tierings=[
+                aws.s3.BucketIntelligentTieringConfigurationTieringArgs(
+                    access_tier="DEEP_ARCHIVE_ACCESS",
+                    days=180,
+                ),
+                aws.s3.BucketIntelligentTieringConfigurationTieringArgs(
+                    access_tier="ARCHIVE_ACCESS",
+                    days=125,
+                ),
+            ])
+        ```
+        ### Add intelligent tiering configuration with S3 object filter
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketV2("example")
+        example_filtered = aws.s3.BucketIntelligentTieringConfiguration("example-filtered",
+            bucket=example.bucket,
+            status="Disabled",
+            filter=aws.s3.BucketIntelligentTieringConfigurationFilterArgs(
+                prefix="documents/",
+                tags={
+                    "priority": "high",
+                    "class": "blue",
+                },
+            ),
+            tierings=[aws.s3.BucketIntelligentTieringConfigurationTieringArgs(
+                access_tier="ARCHIVE_ACCESS",
+                days=125,
+            )])
+        ```
+
+        ## Import
+
+        S3 bucket intelligent tiering configurations can be imported using `bucket:name`, e.g.
+
+        ```sh
+         $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bucket: The name of the bucket this intelligent tiering configuration is associated with.
+        :param pulumi.Input[pulumi.InputType['BucketIntelligentTieringConfigurationFilterArgs']] filter: A bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+        :param pulumi.Input[str] name: The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+        :param pulumi.Input[str] status: Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketIntelligentTieringConfigurationTieringArgs']]]] tierings: The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
         """
         ...
     @overload
@@ -170,7 +268,60 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
                  args: BucketIntelligentTieringConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a BucketIntelligentTieringConfiguration resource with the given unique name, props, and options.
+        Provides an [S3 Intelligent-Tiering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html) configuration resource.
+
+        ## Example Usage
+        ### Add intelligent tiering configuration for entire S3 bucket
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketV2("example")
+        example_entire_bucket = aws.s3.BucketIntelligentTieringConfiguration("example-entire-bucket",
+            bucket=example.bucket,
+            tierings=[
+                aws.s3.BucketIntelligentTieringConfigurationTieringArgs(
+                    access_tier="DEEP_ARCHIVE_ACCESS",
+                    days=180,
+                ),
+                aws.s3.BucketIntelligentTieringConfigurationTieringArgs(
+                    access_tier="ARCHIVE_ACCESS",
+                    days=125,
+                ),
+            ])
+        ```
+        ### Add intelligent tiering configuration with S3 object filter
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.BucketV2("example")
+        example_filtered = aws.s3.BucketIntelligentTieringConfiguration("example-filtered",
+            bucket=example.bucket,
+            status="Disabled",
+            filter=aws.s3.BucketIntelligentTieringConfigurationFilterArgs(
+                prefix="documents/",
+                tags={
+                    "priority": "high",
+                    "class": "blue",
+                },
+            ),
+            tierings=[aws.s3.BucketIntelligentTieringConfigurationTieringArgs(
+                access_tier="ARCHIVE_ACCESS",
+                days=125,
+            )])
+        ```
+
+        ## Import
+
+        S3 bucket intelligent tiering configurations can be imported using `bucket:name`, e.g.
+
+        ```sh
+         $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
+        ```
+
         :param str resource_name: The name of the resource.
         :param BucketIntelligentTieringConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,6 +382,11 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bucket: The name of the bucket this intelligent tiering configuration is associated with.
+        :param pulumi.Input[pulumi.InputType['BucketIntelligentTieringConfigurationFilterArgs']] filter: A bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+        :param pulumi.Input[str] name: The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+        :param pulumi.Input[str] status: Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketIntelligentTieringConfigurationTieringArgs']]]] tierings: The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -246,25 +402,40 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
+        """
+        The name of the bucket this intelligent tiering configuration is associated with.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter
     def filter(self) -> pulumi.Output[Optional['outputs.BucketIntelligentTieringConfigurationFilter']]:
+        """
+        A bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+        """
         return pulumi.get(self, "filter")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tierings(self) -> pulumi.Output[Sequence['outputs.BucketIntelligentTieringConfigurationTiering']]:
+        """
+        The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+        """
         return pulumi.get(self, "tierings")
 

@@ -11,7 +11,9 @@ import (
 )
 
 type AccessHomeDirectoryMapping struct {
-	Entry  string `pulumi:"entry"`
+	// Represents an entry and a target.
+	Entry string `pulumi:"entry"`
+	// Represents the map target.
 	Target string `pulumi:"target"`
 }
 
@@ -27,7 +29,9 @@ type AccessHomeDirectoryMappingInput interface {
 }
 
 type AccessHomeDirectoryMappingArgs struct {
-	Entry  pulumi.StringInput `pulumi:"entry"`
+	// Represents an entry and a target.
+	Entry pulumi.StringInput `pulumi:"entry"`
+	// Represents the map target.
 	Target pulumi.StringInput `pulumi:"target"`
 }
 
@@ -82,10 +86,12 @@ func (o AccessHomeDirectoryMappingOutput) ToAccessHomeDirectoryMappingOutputWith
 	return o
 }
 
+// Represents an entry and a target.
 func (o AccessHomeDirectoryMappingOutput) Entry() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessHomeDirectoryMapping) string { return v.Entry }).(pulumi.StringOutput)
 }
 
+// Represents the map target.
 func (o AccessHomeDirectoryMappingOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessHomeDirectoryMapping) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -111,9 +117,12 @@ func (o AccessHomeDirectoryMappingArrayOutput) Index(i pulumi.IntInput) AccessHo
 }
 
 type AccessPosixProfile struct {
-	Gid           int   `pulumi:"gid"`
+	// The POSIX group ID used for all EFS operations by this user.
+	Gid int `pulumi:"gid"`
+	// The secondary POSIX group IDs used for all EFS operations by this user.
 	SecondaryGids []int `pulumi:"secondaryGids"`
-	Uid           int   `pulumi:"uid"`
+	// The POSIX user ID used for all EFS operations by this user.
+	Uid int `pulumi:"uid"`
 }
 
 // AccessPosixProfileInput is an input type that accepts AccessPosixProfileArgs and AccessPosixProfileOutput values.
@@ -128,9 +137,12 @@ type AccessPosixProfileInput interface {
 }
 
 type AccessPosixProfileArgs struct {
-	Gid           pulumi.IntInput      `pulumi:"gid"`
+	// The POSIX group ID used for all EFS operations by this user.
+	Gid pulumi.IntInput `pulumi:"gid"`
+	// The secondary POSIX group IDs used for all EFS operations by this user.
 	SecondaryGids pulumi.IntArrayInput `pulumi:"secondaryGids"`
-	Uid           pulumi.IntInput      `pulumi:"uid"`
+	// The POSIX user ID used for all EFS operations by this user.
+	Uid pulumi.IntInput `pulumi:"uid"`
 }
 
 func (AccessPosixProfileArgs) ElementType() reflect.Type {
@@ -210,14 +222,17 @@ func (o AccessPosixProfileOutput) ToAccessPosixProfilePtrOutputWithContext(ctx c
 	}).(AccessPosixProfilePtrOutput)
 }
 
+// The POSIX group ID used for all EFS operations by this user.
 func (o AccessPosixProfileOutput) Gid() pulumi.IntOutput {
 	return o.ApplyT(func(v AccessPosixProfile) int { return v.Gid }).(pulumi.IntOutput)
 }
 
+// The secondary POSIX group IDs used for all EFS operations by this user.
 func (o AccessPosixProfileOutput) SecondaryGids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v AccessPosixProfile) []int { return v.SecondaryGids }).(pulumi.IntArrayOutput)
 }
 
+// The POSIX user ID used for all EFS operations by this user.
 func (o AccessPosixProfileOutput) Uid() pulumi.IntOutput {
 	return o.ApplyT(func(v AccessPosixProfile) int { return v.Uid }).(pulumi.IntOutput)
 }
@@ -246,6 +261,7 @@ func (o AccessPosixProfilePtrOutput) Elem() AccessPosixProfileOutput {
 	}).(AccessPosixProfileOutput)
 }
 
+// The POSIX group ID used for all EFS operations by this user.
 func (o AccessPosixProfilePtrOutput) Gid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccessPosixProfile) *int {
 		if v == nil {
@@ -255,6 +271,7 @@ func (o AccessPosixProfilePtrOutput) Gid() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The secondary POSIX group IDs used for all EFS operations by this user.
 func (o AccessPosixProfilePtrOutput) SecondaryGids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *AccessPosixProfile) []int {
 		if v == nil {
@@ -264,6 +281,7 @@ func (o AccessPosixProfilePtrOutput) SecondaryGids() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
+// The POSIX user ID used for all EFS operations by this user.
 func (o AccessPosixProfilePtrOutput) Uid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccessPosixProfile) *int {
 		if v == nil {
@@ -274,11 +292,16 @@ func (o AccessPosixProfilePtrOutput) Uid() pulumi.IntPtrOutput {
 }
 
 type ServerEndpointDetails struct {
+	// A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
 	AddressAllocationIds []string `pulumi:"addressAllocationIds"`
-	SecurityGroupIds     []string `pulumi:"securityGroupIds"`
-	SubnetIds            []string `pulumi:"subnetIds"`
-	VpcEndpointId        *string  `pulumi:"vpcEndpointId"`
-	VpcId                *string  `pulumi:"vpcId"`
+	// A list of security groups IDs that are available to attach to your server's endpoint. If no security groups are specified, the VPC's default security groups are automatically assigned to your endpoint. This property can only be used when `endpointType` is set to `VPC`.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpointType` is set to `VPC`.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The ID of the VPC endpoint. This property can only be used when `endpointType` is set to `VPC_ENDPOINT`
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
+	// The VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // ServerEndpointDetailsInput is an input type that accepts ServerEndpointDetailsArgs and ServerEndpointDetailsOutput values.
@@ -293,11 +316,16 @@ type ServerEndpointDetailsInput interface {
 }
 
 type ServerEndpointDetailsArgs struct {
+	// A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
 	AddressAllocationIds pulumi.StringArrayInput `pulumi:"addressAllocationIds"`
-	SecurityGroupIds     pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds            pulumi.StringArrayInput `pulumi:"subnetIds"`
-	VpcEndpointId        pulumi.StringPtrInput   `pulumi:"vpcEndpointId"`
-	VpcId                pulumi.StringPtrInput   `pulumi:"vpcId"`
+	// A list of security groups IDs that are available to attach to your server's endpoint. If no security groups are specified, the VPC's default security groups are automatically assigned to your endpoint. This property can only be used when `endpointType` is set to `VPC`.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpointType` is set to `VPC`.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The ID of the VPC endpoint. This property can only be used when `endpointType` is set to `VPC_ENDPOINT`
+	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
+	// The VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
 func (ServerEndpointDetailsArgs) ElementType() reflect.Type {
@@ -377,22 +405,27 @@ func (o ServerEndpointDetailsOutput) ToServerEndpointDetailsPtrOutputWithContext
 	}).(ServerEndpointDetailsPtrOutput)
 }
 
+// A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
 func (o ServerEndpointDetailsOutput) AddressAllocationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerEndpointDetails) []string { return v.AddressAllocationIds }).(pulumi.StringArrayOutput)
 }
 
+// A list of security groups IDs that are available to attach to your server's endpoint. If no security groups are specified, the VPC's default security groups are automatically assigned to your endpoint. This property can only be used when `endpointType` is set to `VPC`.
 func (o ServerEndpointDetailsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerEndpointDetails) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpointType` is set to `VPC`.
 func (o ServerEndpointDetailsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerEndpointDetails) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the VPC endpoint. This property can only be used when `endpointType` is set to `VPC_ENDPOINT`
 func (o ServerEndpointDetailsOutput) VpcEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerEndpointDetails) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
 }
 
+// The VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
 func (o ServerEndpointDetailsOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerEndpointDetails) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -421,6 +454,7 @@ func (o ServerEndpointDetailsPtrOutput) Elem() ServerEndpointDetailsOutput {
 	}).(ServerEndpointDetailsOutput)
 }
 
+// A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
 func (o ServerEndpointDetailsPtrOutput) AddressAllocationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerEndpointDetails) []string {
 		if v == nil {
@@ -430,6 +464,7 @@ func (o ServerEndpointDetailsPtrOutput) AddressAllocationIds() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of security groups IDs that are available to attach to your server's endpoint. If no security groups are specified, the VPC's default security groups are automatically assigned to your endpoint. This property can only be used when `endpointType` is set to `VPC`.
 func (o ServerEndpointDetailsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerEndpointDetails) []string {
 		if v == nil {
@@ -439,6 +474,7 @@ func (o ServerEndpointDetailsPtrOutput) SecurityGroupIds() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpointType` is set to `VPC`.
 func (o ServerEndpointDetailsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerEndpointDetails) []string {
 		if v == nil {
@@ -448,6 +484,7 @@ func (o ServerEndpointDetailsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The ID of the VPC endpoint. This property can only be used when `endpointType` is set to `VPC_ENDPOINT`
 func (o ServerEndpointDetailsPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerEndpointDetails) *string {
 		if v == nil {
@@ -457,6 +494,7 @@ func (o ServerEndpointDetailsPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
 func (o ServerEndpointDetailsPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerEndpointDetails) *string {
 		if v == nil {
@@ -467,6 +505,7 @@ func (o ServerEndpointDetailsPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 type ServerWorkflowDetails struct {
+	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
 	OnUpload *ServerWorkflowDetailsOnUpload `pulumi:"onUpload"`
 }
 
@@ -482,6 +521,7 @@ type ServerWorkflowDetailsInput interface {
 }
 
 type ServerWorkflowDetailsArgs struct {
+	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
 	OnUpload ServerWorkflowDetailsOnUploadPtrInput `pulumi:"onUpload"`
 }
 
@@ -562,6 +602,7 @@ func (o ServerWorkflowDetailsOutput) ToServerWorkflowDetailsPtrOutputWithContext
 	}).(ServerWorkflowDetailsPtrOutput)
 }
 
+// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
 func (o ServerWorkflowDetailsOutput) OnUpload() ServerWorkflowDetailsOnUploadPtrOutput {
 	return o.ApplyT(func(v ServerWorkflowDetails) *ServerWorkflowDetailsOnUpload { return v.OnUpload }).(ServerWorkflowDetailsOnUploadPtrOutput)
 }
@@ -590,6 +631,7 @@ func (o ServerWorkflowDetailsPtrOutput) Elem() ServerWorkflowDetailsOutput {
 	}).(ServerWorkflowDetailsOutput)
 }
 
+// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
 func (o ServerWorkflowDetailsPtrOutput) OnUpload() ServerWorkflowDetailsOnUploadPtrOutput {
 	return o.ApplyT(func(v *ServerWorkflowDetails) *ServerWorkflowDetailsOnUpload {
 		if v == nil {
@@ -600,8 +642,10 @@ func (o ServerWorkflowDetailsPtrOutput) OnUpload() ServerWorkflowDetailsOnUpload
 }
 
 type ServerWorkflowDetailsOnUpload struct {
+	// Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
 	ExecutionRole string `pulumi:"executionRole"`
-	WorkflowId    string `pulumi:"workflowId"`
+	// A unique identifier for the workflow.
+	WorkflowId string `pulumi:"workflowId"`
 }
 
 // ServerWorkflowDetailsOnUploadInput is an input type that accepts ServerWorkflowDetailsOnUploadArgs and ServerWorkflowDetailsOnUploadOutput values.
@@ -616,8 +660,10 @@ type ServerWorkflowDetailsOnUploadInput interface {
 }
 
 type ServerWorkflowDetailsOnUploadArgs struct {
+	// Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
 	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
-	WorkflowId    pulumi.StringInput `pulumi:"workflowId"`
+	// A unique identifier for the workflow.
+	WorkflowId pulumi.StringInput `pulumi:"workflowId"`
 }
 
 func (ServerWorkflowDetailsOnUploadArgs) ElementType() reflect.Type {
@@ -697,10 +743,12 @@ func (o ServerWorkflowDetailsOnUploadOutput) ToServerWorkflowDetailsOnUploadPtrO
 	}).(ServerWorkflowDetailsOnUploadPtrOutput)
 }
 
+// Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
 func (o ServerWorkflowDetailsOnUploadOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerWorkflowDetailsOnUpload) string { return v.ExecutionRole }).(pulumi.StringOutput)
 }
 
+// A unique identifier for the workflow.
 func (o ServerWorkflowDetailsOnUploadOutput) WorkflowId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerWorkflowDetailsOnUpload) string { return v.WorkflowId }).(pulumi.StringOutput)
 }
@@ -729,6 +777,7 @@ func (o ServerWorkflowDetailsOnUploadPtrOutput) Elem() ServerWorkflowDetailsOnUp
 	}).(ServerWorkflowDetailsOnUploadOutput)
 }
 
+// Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
 func (o ServerWorkflowDetailsOnUploadPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerWorkflowDetailsOnUpload) *string {
 		if v == nil {
@@ -738,6 +787,7 @@ func (o ServerWorkflowDetailsOnUploadPtrOutput) ExecutionRole() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// A unique identifier for the workflow.
 func (o ServerWorkflowDetailsOnUploadPtrOutput) WorkflowId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerWorkflowDetailsOnUpload) *string {
 		if v == nil {
@@ -748,7 +798,9 @@ func (o ServerWorkflowDetailsOnUploadPtrOutput) WorkflowId() pulumi.StringPtrOut
 }
 
 type UserHomeDirectoryMapping struct {
-	Entry  string `pulumi:"entry"`
+	// Represents an entry and a target.
+	Entry string `pulumi:"entry"`
+	// Represents the map target.
 	Target string `pulumi:"target"`
 }
 
@@ -764,7 +816,9 @@ type UserHomeDirectoryMappingInput interface {
 }
 
 type UserHomeDirectoryMappingArgs struct {
-	Entry  pulumi.StringInput `pulumi:"entry"`
+	// Represents an entry and a target.
+	Entry pulumi.StringInput `pulumi:"entry"`
+	// Represents the map target.
 	Target pulumi.StringInput `pulumi:"target"`
 }
 
@@ -819,10 +873,12 @@ func (o UserHomeDirectoryMappingOutput) ToUserHomeDirectoryMappingOutputWithCont
 	return o
 }
 
+// Represents an entry and a target.
 func (o UserHomeDirectoryMappingOutput) Entry() pulumi.StringOutput {
 	return o.ApplyT(func(v UserHomeDirectoryMapping) string { return v.Entry }).(pulumi.StringOutput)
 }
 
+// Represents the map target.
 func (o UserHomeDirectoryMappingOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v UserHomeDirectoryMapping) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -848,9 +904,12 @@ func (o UserHomeDirectoryMappingArrayOutput) Index(i pulumi.IntInput) UserHomeDi
 }
 
 type UserPosixProfile struct {
-	Gid           int   `pulumi:"gid"`
+	// The POSIX group ID used for all EFS operations by this user.
+	Gid int `pulumi:"gid"`
+	// The secondary POSIX group IDs used for all EFS operations by this user.
 	SecondaryGids []int `pulumi:"secondaryGids"`
-	Uid           int   `pulumi:"uid"`
+	// The POSIX user ID used for all EFS operations by this user.
+	Uid int `pulumi:"uid"`
 }
 
 // UserPosixProfileInput is an input type that accepts UserPosixProfileArgs and UserPosixProfileOutput values.
@@ -865,9 +924,12 @@ type UserPosixProfileInput interface {
 }
 
 type UserPosixProfileArgs struct {
-	Gid           pulumi.IntInput      `pulumi:"gid"`
+	// The POSIX group ID used for all EFS operations by this user.
+	Gid pulumi.IntInput `pulumi:"gid"`
+	// The secondary POSIX group IDs used for all EFS operations by this user.
 	SecondaryGids pulumi.IntArrayInput `pulumi:"secondaryGids"`
-	Uid           pulumi.IntInput      `pulumi:"uid"`
+	// The POSIX user ID used for all EFS operations by this user.
+	Uid pulumi.IntInput `pulumi:"uid"`
 }
 
 func (UserPosixProfileArgs) ElementType() reflect.Type {
@@ -947,14 +1009,17 @@ func (o UserPosixProfileOutput) ToUserPosixProfilePtrOutputWithContext(ctx conte
 	}).(UserPosixProfilePtrOutput)
 }
 
+// The POSIX group ID used for all EFS operations by this user.
 func (o UserPosixProfileOutput) Gid() pulumi.IntOutput {
 	return o.ApplyT(func(v UserPosixProfile) int { return v.Gid }).(pulumi.IntOutput)
 }
 
+// The secondary POSIX group IDs used for all EFS operations by this user.
 func (o UserPosixProfileOutput) SecondaryGids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v UserPosixProfile) []int { return v.SecondaryGids }).(pulumi.IntArrayOutput)
 }
 
+// The POSIX user ID used for all EFS operations by this user.
 func (o UserPosixProfileOutput) Uid() pulumi.IntOutput {
 	return o.ApplyT(func(v UserPosixProfile) int { return v.Uid }).(pulumi.IntOutput)
 }
@@ -983,6 +1048,7 @@ func (o UserPosixProfilePtrOutput) Elem() UserPosixProfileOutput {
 	}).(UserPosixProfileOutput)
 }
 
+// The POSIX group ID used for all EFS operations by this user.
 func (o UserPosixProfilePtrOutput) Gid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPosixProfile) *int {
 		if v == nil {
@@ -992,6 +1058,7 @@ func (o UserPosixProfilePtrOutput) Gid() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The secondary POSIX group IDs used for all EFS operations by this user.
 func (o UserPosixProfilePtrOutput) SecondaryGids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *UserPosixProfile) []int {
 		if v == nil {
@@ -1001,6 +1068,7 @@ func (o UserPosixProfilePtrOutput) SecondaryGids() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
+// The POSIX user ID used for all EFS operations by this user.
 func (o UserPosixProfilePtrOutput) Uid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPosixProfile) *int {
 		if v == nil {
@@ -1011,11 +1079,16 @@ func (o UserPosixProfilePtrOutput) Uid() pulumi.IntPtrOutput {
 }
 
 type WorkflowOnExceptionStep struct {
-	CopyStepDetails   *WorkflowOnExceptionStepCopyStepDetails   `pulumi:"copyStepDetails"`
+	// Details for a step that performs a file copy. See Copy Step Details below.
+	CopyStepDetails *WorkflowOnExceptionStepCopyStepDetails `pulumi:"copyStepDetails"`
+	// Details for a step that invokes a lambda function.
 	CustomStepDetails *WorkflowOnExceptionStepCustomStepDetails `pulumi:"customStepDetails"`
+	// Details for a step that deletes the file.
 	DeleteStepDetails *WorkflowOnExceptionStepDeleteStepDetails `pulumi:"deleteStepDetails"`
-	TagStepDetails    *WorkflowOnExceptionStepTagStepDetails    `pulumi:"tagStepDetails"`
-	Type              string                                    `pulumi:"type"`
+	// Details for a step that creates one or more tags.
+	TagStepDetails *WorkflowOnExceptionStepTagStepDetails `pulumi:"tagStepDetails"`
+	// One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+	Type string `pulumi:"type"`
 }
 
 // WorkflowOnExceptionStepInput is an input type that accepts WorkflowOnExceptionStepArgs and WorkflowOnExceptionStepOutput values.
@@ -1030,11 +1103,16 @@ type WorkflowOnExceptionStepInput interface {
 }
 
 type WorkflowOnExceptionStepArgs struct {
-	CopyStepDetails   WorkflowOnExceptionStepCopyStepDetailsPtrInput   `pulumi:"copyStepDetails"`
+	// Details for a step that performs a file copy. See Copy Step Details below.
+	CopyStepDetails WorkflowOnExceptionStepCopyStepDetailsPtrInput `pulumi:"copyStepDetails"`
+	// Details for a step that invokes a lambda function.
 	CustomStepDetails WorkflowOnExceptionStepCustomStepDetailsPtrInput `pulumi:"customStepDetails"`
+	// Details for a step that deletes the file.
 	DeleteStepDetails WorkflowOnExceptionStepDeleteStepDetailsPtrInput `pulumi:"deleteStepDetails"`
-	TagStepDetails    WorkflowOnExceptionStepTagStepDetailsPtrInput    `pulumi:"tagStepDetails"`
-	Type              pulumi.StringInput                               `pulumi:"type"`
+	// Details for a step that creates one or more tags.
+	TagStepDetails WorkflowOnExceptionStepTagStepDetailsPtrInput `pulumi:"tagStepDetails"`
+	// One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (WorkflowOnExceptionStepArgs) ElementType() reflect.Type {
@@ -1088,22 +1166,27 @@ func (o WorkflowOnExceptionStepOutput) ToWorkflowOnExceptionStepOutputWithContex
 	return o
 }
 
+// Details for a step that performs a file copy. See Copy Step Details below.
 func (o WorkflowOnExceptionStepOutput) CopyStepDetails() WorkflowOnExceptionStepCopyStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStep) *WorkflowOnExceptionStepCopyStepDetails { return v.CopyStepDetails }).(WorkflowOnExceptionStepCopyStepDetailsPtrOutput)
 }
 
+// Details for a step that invokes a lambda function.
 func (o WorkflowOnExceptionStepOutput) CustomStepDetails() WorkflowOnExceptionStepCustomStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStep) *WorkflowOnExceptionStepCustomStepDetails { return v.CustomStepDetails }).(WorkflowOnExceptionStepCustomStepDetailsPtrOutput)
 }
 
+// Details for a step that deletes the file.
 func (o WorkflowOnExceptionStepOutput) DeleteStepDetails() WorkflowOnExceptionStepDeleteStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStep) *WorkflowOnExceptionStepDeleteStepDetails { return v.DeleteStepDetails }).(WorkflowOnExceptionStepDeleteStepDetailsPtrOutput)
 }
 
+// Details for a step that creates one or more tags.
 func (o WorkflowOnExceptionStepOutput) TagStepDetails() WorkflowOnExceptionStepTagStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStep) *WorkflowOnExceptionStepTagStepDetails { return v.TagStepDetails }).(WorkflowOnExceptionStepTagStepDetailsPtrOutput)
 }
 
+// One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
 func (o WorkflowOnExceptionStepOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStep) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1129,10 +1212,14 @@ func (o WorkflowOnExceptionStepArrayOutput) Index(i pulumi.IntInput) WorkflowOnE
 }
 
 type WorkflowOnExceptionStepCopyStepDetails struct {
+	// Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
 	DestinationFileLocation *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation `pulumi:"destinationFileLocation"`
-	Name                    *string                                                        `pulumi:"name"`
-	OverwriteExisting       *string                                                        `pulumi:"overwriteExisting"`
-	SourceFileLocation      *string                                                        `pulumi:"sourceFileLocation"`
+	// The name of the step, used as an identifier.
+	Name *string `pulumi:"name"`
+	// A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+	OverwriteExisting *string `pulumi:"overwriteExisting"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+	SourceFileLocation *string `pulumi:"sourceFileLocation"`
 }
 
 // WorkflowOnExceptionStepCopyStepDetailsInput is an input type that accepts WorkflowOnExceptionStepCopyStepDetailsArgs and WorkflowOnExceptionStepCopyStepDetailsOutput values.
@@ -1147,10 +1234,14 @@ type WorkflowOnExceptionStepCopyStepDetailsInput interface {
 }
 
 type WorkflowOnExceptionStepCopyStepDetailsArgs struct {
+	// Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
 	DestinationFileLocation WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrInput `pulumi:"destinationFileLocation"`
-	Name                    pulumi.StringPtrInput                                                 `pulumi:"name"`
-	OverwriteExisting       pulumi.StringPtrInput                                                 `pulumi:"overwriteExisting"`
-	SourceFileLocation      pulumi.StringPtrInput                                                 `pulumi:"sourceFileLocation"`
+	// The name of the step, used as an identifier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+	OverwriteExisting pulumi.StringPtrInput `pulumi:"overwriteExisting"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+	SourceFileLocation pulumi.StringPtrInput `pulumi:"sourceFileLocation"`
 }
 
 func (WorkflowOnExceptionStepCopyStepDetailsArgs) ElementType() reflect.Type {
@@ -1230,20 +1321,24 @@ func (o WorkflowOnExceptionStepCopyStepDetailsOutput) ToWorkflowOnExceptionStepC
 	}).(WorkflowOnExceptionStepCopyStepDetailsPtrOutput)
 }
 
+// Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
 func (o WorkflowOnExceptionStepCopyStepDetailsOutput) DestinationFileLocation() WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepCopyStepDetails) *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation {
 		return v.DestinationFileLocation
 	}).(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput)
 }
 
+// The name of the step, used as an identifier.
 func (o WorkflowOnExceptionStepCopyStepDetailsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepCopyStepDetails) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
 func (o WorkflowOnExceptionStepCopyStepDetailsOutput) OverwriteExisting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepCopyStepDetails) *string { return v.OverwriteExisting }).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 func (o WorkflowOnExceptionStepCopyStepDetailsOutput) SourceFileLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepCopyStepDetails) *string { return v.SourceFileLocation }).(pulumi.StringPtrOutput)
 }
@@ -1272,6 +1367,7 @@ func (o WorkflowOnExceptionStepCopyStepDetailsPtrOutput) Elem() WorkflowOnExcept
 	}).(WorkflowOnExceptionStepCopyStepDetailsOutput)
 }
 
+// Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
 func (o WorkflowOnExceptionStepCopyStepDetailsPtrOutput) DestinationFileLocation() WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepCopyStepDetails) *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation {
 		if v == nil {
@@ -1281,6 +1377,7 @@ func (o WorkflowOnExceptionStepCopyStepDetailsPtrOutput) DestinationFileLocation
 	}).(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput)
 }
 
+// The name of the step, used as an identifier.
 func (o WorkflowOnExceptionStepCopyStepDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepCopyStepDetails) *string {
 		if v == nil {
@@ -1290,6 +1387,7 @@ func (o WorkflowOnExceptionStepCopyStepDetailsPtrOutput) Name() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
 func (o WorkflowOnExceptionStepCopyStepDetailsPtrOutput) OverwriteExisting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepCopyStepDetails) *string {
 		if v == nil {
@@ -1299,6 +1397,7 @@ func (o WorkflowOnExceptionStepCopyStepDetailsPtrOutput) OverwriteExisting() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 func (o WorkflowOnExceptionStepCopyStepDetailsPtrOutput) SourceFileLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepCopyStepDetails) *string {
 		if v == nil {
@@ -1309,8 +1408,10 @@ func (o WorkflowOnExceptionStepCopyStepDetailsPtrOutput) SourceFileLocation() pu
 }
 
 type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation struct {
+	// Specifies the details for the EFS file being copied.
 	EfsFileLocation *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation `pulumi:"efsFileLocation"`
-	S3FileLocation  *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation  `pulumi:"s3FileLocation"`
+	// Specifies the details for the S3 file being copied.
+	S3FileLocation *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation `pulumi:"s3FileLocation"`
 }
 
 // WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationInput is an input type that accepts WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs and WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationOutput values.
@@ -1325,8 +1426,10 @@ type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationInput interfac
 }
 
 type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs struct {
+	// Specifies the details for the EFS file being copied.
 	EfsFileLocation WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrInput `pulumi:"efsFileLocation"`
-	S3FileLocation  WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrInput  `pulumi:"s3FileLocation"`
+	// Specifies the details for the S3 file being copied.
+	S3FileLocation WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrInput `pulumi:"s3FileLocation"`
 }
 
 func (WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs) ElementType() reflect.Type {
@@ -1406,12 +1509,14 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationOutput) ToW
 	}).(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput)
 }
 
+// Specifies the details for the EFS file being copied.
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationOutput) EfsFileLocation() WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation) *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation {
 		return v.EfsFileLocation
 	}).(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
 }
 
+// Specifies the details for the S3 file being copied.
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationOutput) S3FileLocation() WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation) *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation {
 		return v.S3FileLocation
@@ -1442,6 +1547,7 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput) 
 	}).(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationOutput)
 }
 
+// Specifies the details for the EFS file being copied.
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput) EfsFileLocation() WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation) *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation {
 		if v == nil {
@@ -1451,6 +1557,7 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput) 
 	}).(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
 }
 
+// Specifies the details for the S3 file being copied.
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput) S3FileLocation() WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation) *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation {
 		if v == nil {
@@ -1461,8 +1568,10 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput) 
 }
 
 type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation struct {
+	// The ID of the file system, assigned by Amazon EFS.
 	FileSystemId *string `pulumi:"fileSystemId"`
-	Path         *string `pulumi:"path"`
+	// The pathname for the folder being used by a workflow.
+	Path *string `pulumi:"path"`
 }
 
 // WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationInput is an input type that accepts WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs and WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput values.
@@ -1477,8 +1586,10 @@ type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocatio
 }
 
 type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs struct {
+	// The ID of the file system, assigned by Amazon EFS.
 	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
-	Path         pulumi.StringPtrInput `pulumi:"path"`
+	// The pathname for the folder being used by a workflow.
+	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
 func (WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs) ElementType() reflect.Type {
@@ -1558,12 +1669,14 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLoca
 	}).(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
 }
 
+// The ID of the file system, assigned by Amazon EFS.
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation) *string {
 		return v.FileSystemId
 	}).(pulumi.StringPtrOutput)
 }
 
+// The pathname for the folder being used by a workflow.
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation) *string {
 		return v.Path
@@ -1594,6 +1707,7 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLoca
 	}).(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput)
 }
 
+// The ID of the file system, assigned by Amazon EFS.
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation) *string {
 		if v == nil {
@@ -1603,6 +1717,7 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLoca
 	}).(pulumi.StringPtrOutput)
 }
 
+// The pathname for the folder being used by a workflow.
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation) *string {
 		if v == nil {
@@ -1613,8 +1728,10 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLoca
 }
 
 type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation struct {
+	// Specifies the S3 bucket for the customer input file.
 	Bucket *string `pulumi:"bucket"`
-	Key    *string `pulumi:"key"`
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+	Key *string `pulumi:"key"`
 }
 
 // WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationInput is an input type that accepts WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs and WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput values.
@@ -1629,8 +1746,10 @@ type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation
 }
 
 type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs struct {
+	// Specifies the S3 bucket for the customer input file.
 	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
-	Key    pulumi.StringPtrInput `pulumi:"key"`
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+	Key pulumi.StringPtrInput `pulumi:"key"`
 }
 
 func (WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs) ElementType() reflect.Type {
@@ -1710,12 +1829,14 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocat
 	}).(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput)
 }
 
+// Specifies the S3 bucket for the customer input file.
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation) *string {
 		return v.Bucket
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation) *string {
 		return v.Key
@@ -1746,6 +1867,7 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocat
 	}).(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput)
 }
 
+// Specifies the S3 bucket for the customer input file.
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation) *string {
 		if v == nil {
@@ -1755,6 +1877,7 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocat
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation) *string {
 		if v == nil {
@@ -1765,10 +1888,14 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocat
 }
 
 type WorkflowOnExceptionStepCustomStepDetails struct {
-	Name               *string `pulumi:"name"`
+	// The name of the step, used as an identifier.
+	Name *string `pulumi:"name"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 	SourceFileLocation *string `pulumi:"sourceFileLocation"`
-	Target             *string `pulumi:"target"`
-	TimeoutSeconds     *int    `pulumi:"timeoutSeconds"`
+	// The ARN for the lambda function that is being called.
+	Target *string `pulumi:"target"`
+	// Timeout, in seconds, for the step.
+	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
 }
 
 // WorkflowOnExceptionStepCustomStepDetailsInput is an input type that accepts WorkflowOnExceptionStepCustomStepDetailsArgs and WorkflowOnExceptionStepCustomStepDetailsOutput values.
@@ -1783,10 +1910,14 @@ type WorkflowOnExceptionStepCustomStepDetailsInput interface {
 }
 
 type WorkflowOnExceptionStepCustomStepDetailsArgs struct {
-	Name               pulumi.StringPtrInput `pulumi:"name"`
+	// The name of the step, used as an identifier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 	SourceFileLocation pulumi.StringPtrInput `pulumi:"sourceFileLocation"`
-	Target             pulumi.StringPtrInput `pulumi:"target"`
-	TimeoutSeconds     pulumi.IntPtrInput    `pulumi:"timeoutSeconds"`
+	// The ARN for the lambda function that is being called.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// Timeout, in seconds, for the step.
+	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
 }
 
 func (WorkflowOnExceptionStepCustomStepDetailsArgs) ElementType() reflect.Type {
@@ -1866,18 +1997,22 @@ func (o WorkflowOnExceptionStepCustomStepDetailsOutput) ToWorkflowOnExceptionSte
 	}).(WorkflowOnExceptionStepCustomStepDetailsPtrOutput)
 }
 
+// The name of the step, used as an identifier.
 func (o WorkflowOnExceptionStepCustomStepDetailsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepCustomStepDetails) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 func (o WorkflowOnExceptionStepCustomStepDetailsOutput) SourceFileLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepCustomStepDetails) *string { return v.SourceFileLocation }).(pulumi.StringPtrOutput)
 }
 
+// The ARN for the lambda function that is being called.
 func (o WorkflowOnExceptionStepCustomStepDetailsOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepCustomStepDetails) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
+// Timeout, in seconds, for the step.
 func (o WorkflowOnExceptionStepCustomStepDetailsOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepCustomStepDetails) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
@@ -1906,6 +2041,7 @@ func (o WorkflowOnExceptionStepCustomStepDetailsPtrOutput) Elem() WorkflowOnExce
 	}).(WorkflowOnExceptionStepCustomStepDetailsOutput)
 }
 
+// The name of the step, used as an identifier.
 func (o WorkflowOnExceptionStepCustomStepDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepCustomStepDetails) *string {
 		if v == nil {
@@ -1915,6 +2051,7 @@ func (o WorkflowOnExceptionStepCustomStepDetailsPtrOutput) Name() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 func (o WorkflowOnExceptionStepCustomStepDetailsPtrOutput) SourceFileLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepCustomStepDetails) *string {
 		if v == nil {
@@ -1924,6 +2061,7 @@ func (o WorkflowOnExceptionStepCustomStepDetailsPtrOutput) SourceFileLocation() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN for the lambda function that is being called.
 func (o WorkflowOnExceptionStepCustomStepDetailsPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepCustomStepDetails) *string {
 		if v == nil {
@@ -1933,6 +2071,7 @@ func (o WorkflowOnExceptionStepCustomStepDetailsPtrOutput) Target() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Timeout, in seconds, for the step.
 func (o WorkflowOnExceptionStepCustomStepDetailsPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepCustomStepDetails) *int {
 		if v == nil {
@@ -1943,7 +2082,9 @@ func (o WorkflowOnExceptionStepCustomStepDetailsPtrOutput) TimeoutSeconds() pulu
 }
 
 type WorkflowOnExceptionStepDeleteStepDetails struct {
-	Name               *string `pulumi:"name"`
+	// The name of the step, used as an identifier.
+	Name *string `pulumi:"name"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 	SourceFileLocation *string `pulumi:"sourceFileLocation"`
 }
 
@@ -1959,7 +2100,9 @@ type WorkflowOnExceptionStepDeleteStepDetailsInput interface {
 }
 
 type WorkflowOnExceptionStepDeleteStepDetailsArgs struct {
-	Name               pulumi.StringPtrInput `pulumi:"name"`
+	// The name of the step, used as an identifier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 	SourceFileLocation pulumi.StringPtrInput `pulumi:"sourceFileLocation"`
 }
 
@@ -2040,10 +2183,12 @@ func (o WorkflowOnExceptionStepDeleteStepDetailsOutput) ToWorkflowOnExceptionSte
 	}).(WorkflowOnExceptionStepDeleteStepDetailsPtrOutput)
 }
 
+// The name of the step, used as an identifier.
 func (o WorkflowOnExceptionStepDeleteStepDetailsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepDeleteStepDetails) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 func (o WorkflowOnExceptionStepDeleteStepDetailsOutput) SourceFileLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepDeleteStepDetails) *string { return v.SourceFileLocation }).(pulumi.StringPtrOutput)
 }
@@ -2072,6 +2217,7 @@ func (o WorkflowOnExceptionStepDeleteStepDetailsPtrOutput) Elem() WorkflowOnExce
 	}).(WorkflowOnExceptionStepDeleteStepDetailsOutput)
 }
 
+// The name of the step, used as an identifier.
 func (o WorkflowOnExceptionStepDeleteStepDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepDeleteStepDetails) *string {
 		if v == nil {
@@ -2081,6 +2227,7 @@ func (o WorkflowOnExceptionStepDeleteStepDetailsPtrOutput) Name() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 func (o WorkflowOnExceptionStepDeleteStepDetailsPtrOutput) SourceFileLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepDeleteStepDetails) *string {
 		if v == nil {
@@ -2091,9 +2238,12 @@ func (o WorkflowOnExceptionStepDeleteStepDetailsPtrOutput) SourceFileLocation() 
 }
 
 type WorkflowOnExceptionStepTagStepDetails struct {
-	Name               *string                                    `pulumi:"name"`
-	SourceFileLocation *string                                    `pulumi:"sourceFileLocation"`
-	Tags               []WorkflowOnExceptionStepTagStepDetailsTag `pulumi:"tags"`
+	// The name of the step, used as an identifier.
+	Name *string `pulumi:"name"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+	SourceFileLocation *string `pulumi:"sourceFileLocation"`
+	// Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+	Tags []WorkflowOnExceptionStepTagStepDetailsTag `pulumi:"tags"`
 }
 
 // WorkflowOnExceptionStepTagStepDetailsInput is an input type that accepts WorkflowOnExceptionStepTagStepDetailsArgs and WorkflowOnExceptionStepTagStepDetailsOutput values.
@@ -2108,9 +2258,12 @@ type WorkflowOnExceptionStepTagStepDetailsInput interface {
 }
 
 type WorkflowOnExceptionStepTagStepDetailsArgs struct {
-	Name               pulumi.StringPtrInput                              `pulumi:"name"`
-	SourceFileLocation pulumi.StringPtrInput                              `pulumi:"sourceFileLocation"`
-	Tags               WorkflowOnExceptionStepTagStepDetailsTagArrayInput `pulumi:"tags"`
+	// The name of the step, used as an identifier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+	SourceFileLocation pulumi.StringPtrInput `pulumi:"sourceFileLocation"`
+	// Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+	Tags WorkflowOnExceptionStepTagStepDetailsTagArrayInput `pulumi:"tags"`
 }
 
 func (WorkflowOnExceptionStepTagStepDetailsArgs) ElementType() reflect.Type {
@@ -2190,14 +2343,17 @@ func (o WorkflowOnExceptionStepTagStepDetailsOutput) ToWorkflowOnExceptionStepTa
 	}).(WorkflowOnExceptionStepTagStepDetailsPtrOutput)
 }
 
+// The name of the step, used as an identifier.
 func (o WorkflowOnExceptionStepTagStepDetailsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepTagStepDetails) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 func (o WorkflowOnExceptionStepTagStepDetailsOutput) SourceFileLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepTagStepDetails) *string { return v.SourceFileLocation }).(pulumi.StringPtrOutput)
 }
 
+// Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
 func (o WorkflowOnExceptionStepTagStepDetailsOutput) Tags() WorkflowOnExceptionStepTagStepDetailsTagArrayOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepTagStepDetails) []WorkflowOnExceptionStepTagStepDetailsTag {
 		return v.Tags
@@ -2228,6 +2384,7 @@ func (o WorkflowOnExceptionStepTagStepDetailsPtrOutput) Elem() WorkflowOnExcepti
 	}).(WorkflowOnExceptionStepTagStepDetailsOutput)
 }
 
+// The name of the step, used as an identifier.
 func (o WorkflowOnExceptionStepTagStepDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepTagStepDetails) *string {
 		if v == nil {
@@ -2237,6 +2394,7 @@ func (o WorkflowOnExceptionStepTagStepDetailsPtrOutput) Name() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 func (o WorkflowOnExceptionStepTagStepDetailsPtrOutput) SourceFileLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepTagStepDetails) *string {
 		if v == nil {
@@ -2246,6 +2404,7 @@ func (o WorkflowOnExceptionStepTagStepDetailsPtrOutput) SourceFileLocation() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
 func (o WorkflowOnExceptionStepTagStepDetailsPtrOutput) Tags() WorkflowOnExceptionStepTagStepDetailsTagArrayOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepTagStepDetails) []WorkflowOnExceptionStepTagStepDetailsTag {
 		if v == nil {
@@ -2256,7 +2415,9 @@ func (o WorkflowOnExceptionStepTagStepDetailsPtrOutput) Tags() WorkflowOnExcepti
 }
 
 type WorkflowOnExceptionStepTagStepDetailsTag struct {
-	Key   string `pulumi:"key"`
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+	Key string `pulumi:"key"`
+	// The value that corresponds to the key.
 	Value string `pulumi:"value"`
 }
 
@@ -2272,7 +2433,9 @@ type WorkflowOnExceptionStepTagStepDetailsTagInput interface {
 }
 
 type WorkflowOnExceptionStepTagStepDetailsTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value that corresponds to the key.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2327,10 +2490,12 @@ func (o WorkflowOnExceptionStepTagStepDetailsTagOutput) ToWorkflowOnExceptionSte
 	return o
 }
 
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowOnExceptionStepTagStepDetailsTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepTagStepDetailsTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value that corresponds to the key.
 func (o WorkflowOnExceptionStepTagStepDetailsTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepTagStepDetailsTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2356,11 +2521,16 @@ func (o WorkflowOnExceptionStepTagStepDetailsTagArrayOutput) Index(i pulumi.IntI
 }
 
 type WorkflowStep struct {
-	CopyStepDetails   *WorkflowStepCopyStepDetails   `pulumi:"copyStepDetails"`
+	// Details for a step that performs a file copy. See Copy Step Details below.
+	CopyStepDetails *WorkflowStepCopyStepDetails `pulumi:"copyStepDetails"`
+	// Details for a step that invokes a lambda function.
 	CustomStepDetails *WorkflowStepCustomStepDetails `pulumi:"customStepDetails"`
+	// Details for a step that deletes the file.
 	DeleteStepDetails *WorkflowStepDeleteStepDetails `pulumi:"deleteStepDetails"`
-	TagStepDetails    *WorkflowStepTagStepDetails    `pulumi:"tagStepDetails"`
-	Type              string                         `pulumi:"type"`
+	// Details for a step that creates one or more tags.
+	TagStepDetails *WorkflowStepTagStepDetails `pulumi:"tagStepDetails"`
+	// One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+	Type string `pulumi:"type"`
 }
 
 // WorkflowStepInput is an input type that accepts WorkflowStepArgs and WorkflowStepOutput values.
@@ -2375,11 +2545,16 @@ type WorkflowStepInput interface {
 }
 
 type WorkflowStepArgs struct {
-	CopyStepDetails   WorkflowStepCopyStepDetailsPtrInput   `pulumi:"copyStepDetails"`
+	// Details for a step that performs a file copy. See Copy Step Details below.
+	CopyStepDetails WorkflowStepCopyStepDetailsPtrInput `pulumi:"copyStepDetails"`
+	// Details for a step that invokes a lambda function.
 	CustomStepDetails WorkflowStepCustomStepDetailsPtrInput `pulumi:"customStepDetails"`
+	// Details for a step that deletes the file.
 	DeleteStepDetails WorkflowStepDeleteStepDetailsPtrInput `pulumi:"deleteStepDetails"`
-	TagStepDetails    WorkflowStepTagStepDetailsPtrInput    `pulumi:"tagStepDetails"`
-	Type              pulumi.StringInput                    `pulumi:"type"`
+	// Details for a step that creates one or more tags.
+	TagStepDetails WorkflowStepTagStepDetailsPtrInput `pulumi:"tagStepDetails"`
+	// One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (WorkflowStepArgs) ElementType() reflect.Type {
@@ -2433,22 +2608,27 @@ func (o WorkflowStepOutput) ToWorkflowStepOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Details for a step that performs a file copy. See Copy Step Details below.
 func (o WorkflowStepOutput) CopyStepDetails() WorkflowStepCopyStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowStep) *WorkflowStepCopyStepDetails { return v.CopyStepDetails }).(WorkflowStepCopyStepDetailsPtrOutput)
 }
 
+// Details for a step that invokes a lambda function.
 func (o WorkflowStepOutput) CustomStepDetails() WorkflowStepCustomStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowStep) *WorkflowStepCustomStepDetails { return v.CustomStepDetails }).(WorkflowStepCustomStepDetailsPtrOutput)
 }
 
+// Details for a step that deletes the file.
 func (o WorkflowStepOutput) DeleteStepDetails() WorkflowStepDeleteStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowStep) *WorkflowStepDeleteStepDetails { return v.DeleteStepDetails }).(WorkflowStepDeleteStepDetailsPtrOutput)
 }
 
+// Details for a step that creates one or more tags.
 func (o WorkflowStepOutput) TagStepDetails() WorkflowStepTagStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowStep) *WorkflowStepTagStepDetails { return v.TagStepDetails }).(WorkflowStepTagStepDetailsPtrOutput)
 }
 
+// One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
 func (o WorkflowStepOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowStep) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2474,10 +2654,14 @@ func (o WorkflowStepArrayOutput) Index(i pulumi.IntInput) WorkflowStepOutput {
 }
 
 type WorkflowStepCopyStepDetails struct {
+	// Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
 	DestinationFileLocation *WorkflowStepCopyStepDetailsDestinationFileLocation `pulumi:"destinationFileLocation"`
-	Name                    *string                                             `pulumi:"name"`
-	OverwriteExisting       *string                                             `pulumi:"overwriteExisting"`
-	SourceFileLocation      *string                                             `pulumi:"sourceFileLocation"`
+	// The name of the step, used as an identifier.
+	Name *string `pulumi:"name"`
+	// A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+	OverwriteExisting *string `pulumi:"overwriteExisting"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+	SourceFileLocation *string `pulumi:"sourceFileLocation"`
 }
 
 // WorkflowStepCopyStepDetailsInput is an input type that accepts WorkflowStepCopyStepDetailsArgs and WorkflowStepCopyStepDetailsOutput values.
@@ -2492,10 +2676,14 @@ type WorkflowStepCopyStepDetailsInput interface {
 }
 
 type WorkflowStepCopyStepDetailsArgs struct {
+	// Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
 	DestinationFileLocation WorkflowStepCopyStepDetailsDestinationFileLocationPtrInput `pulumi:"destinationFileLocation"`
-	Name                    pulumi.StringPtrInput                                      `pulumi:"name"`
-	OverwriteExisting       pulumi.StringPtrInput                                      `pulumi:"overwriteExisting"`
-	SourceFileLocation      pulumi.StringPtrInput                                      `pulumi:"sourceFileLocation"`
+	// The name of the step, used as an identifier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+	OverwriteExisting pulumi.StringPtrInput `pulumi:"overwriteExisting"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+	SourceFileLocation pulumi.StringPtrInput `pulumi:"sourceFileLocation"`
 }
 
 func (WorkflowStepCopyStepDetailsArgs) ElementType() reflect.Type {
@@ -2575,20 +2763,24 @@ func (o WorkflowStepCopyStepDetailsOutput) ToWorkflowStepCopyStepDetailsPtrOutpu
 	}).(WorkflowStepCopyStepDetailsPtrOutput)
 }
 
+// Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
 func (o WorkflowStepCopyStepDetailsOutput) DestinationFileLocation() WorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput {
 	return o.ApplyT(func(v WorkflowStepCopyStepDetails) *WorkflowStepCopyStepDetailsDestinationFileLocation {
 		return v.DestinationFileLocation
 	}).(WorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput)
 }
 
+// The name of the step, used as an identifier.
 func (o WorkflowStepCopyStepDetailsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepCopyStepDetails) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
 func (o WorkflowStepCopyStepDetailsOutput) OverwriteExisting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepCopyStepDetails) *string { return v.OverwriteExisting }).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 func (o WorkflowStepCopyStepDetailsOutput) SourceFileLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepCopyStepDetails) *string { return v.SourceFileLocation }).(pulumi.StringPtrOutput)
 }
@@ -2617,6 +2809,7 @@ func (o WorkflowStepCopyStepDetailsPtrOutput) Elem() WorkflowStepCopyStepDetails
 	}).(WorkflowStepCopyStepDetailsOutput)
 }
 
+// Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
 func (o WorkflowStepCopyStepDetailsPtrOutput) DestinationFileLocation() WorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepCopyStepDetails) *WorkflowStepCopyStepDetailsDestinationFileLocation {
 		if v == nil {
@@ -2626,6 +2819,7 @@ func (o WorkflowStepCopyStepDetailsPtrOutput) DestinationFileLocation() Workflow
 	}).(WorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput)
 }
 
+// The name of the step, used as an identifier.
 func (o WorkflowStepCopyStepDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepCopyStepDetails) *string {
 		if v == nil {
@@ -2635,6 +2829,7 @@ func (o WorkflowStepCopyStepDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
 func (o WorkflowStepCopyStepDetailsPtrOutput) OverwriteExisting() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepCopyStepDetails) *string {
 		if v == nil {
@@ -2644,6 +2839,7 @@ func (o WorkflowStepCopyStepDetailsPtrOutput) OverwriteExisting() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 func (o WorkflowStepCopyStepDetailsPtrOutput) SourceFileLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepCopyStepDetails) *string {
 		if v == nil {
@@ -2654,8 +2850,10 @@ func (o WorkflowStepCopyStepDetailsPtrOutput) SourceFileLocation() pulumi.String
 }
 
 type WorkflowStepCopyStepDetailsDestinationFileLocation struct {
+	// Specifies the details for the EFS file being copied.
 	EfsFileLocation *WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation `pulumi:"efsFileLocation"`
-	S3FileLocation  *WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation  `pulumi:"s3FileLocation"`
+	// Specifies the details for the S3 file being copied.
+	S3FileLocation *WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation `pulumi:"s3FileLocation"`
 }
 
 // WorkflowStepCopyStepDetailsDestinationFileLocationInput is an input type that accepts WorkflowStepCopyStepDetailsDestinationFileLocationArgs and WorkflowStepCopyStepDetailsDestinationFileLocationOutput values.
@@ -2670,8 +2868,10 @@ type WorkflowStepCopyStepDetailsDestinationFileLocationInput interface {
 }
 
 type WorkflowStepCopyStepDetailsDestinationFileLocationArgs struct {
+	// Specifies the details for the EFS file being copied.
 	EfsFileLocation WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrInput `pulumi:"efsFileLocation"`
-	S3FileLocation  WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrInput  `pulumi:"s3FileLocation"`
+	// Specifies the details for the S3 file being copied.
+	S3FileLocation WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrInput `pulumi:"s3FileLocation"`
 }
 
 func (WorkflowStepCopyStepDetailsDestinationFileLocationArgs) ElementType() reflect.Type {
@@ -2751,12 +2951,14 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationOutput) ToWorkflowStep
 	}).(WorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput)
 }
 
+// Specifies the details for the EFS file being copied.
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationOutput) EfsFileLocation() WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
 	return o.ApplyT(func(v WorkflowStepCopyStepDetailsDestinationFileLocation) *WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation {
 		return v.EfsFileLocation
 	}).(WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
 }
 
+// Specifies the details for the S3 file being copied.
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationOutput) S3FileLocation() WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
 	return o.ApplyT(func(v WorkflowStepCopyStepDetailsDestinationFileLocation) *WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation {
 		return v.S3FileLocation
@@ -2787,6 +2989,7 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput) Elem() Work
 	}).(WorkflowStepCopyStepDetailsDestinationFileLocationOutput)
 }
 
+// Specifies the details for the EFS file being copied.
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput) EfsFileLocation() WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepCopyStepDetailsDestinationFileLocation) *WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation {
 		if v == nil {
@@ -2796,6 +2999,7 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput) EfsFileLoca
 	}).(WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
 }
 
+// Specifies the details for the S3 file being copied.
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput) S3FileLocation() WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepCopyStepDetailsDestinationFileLocation) *WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation {
 		if v == nil {
@@ -2806,8 +3010,10 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput) S3FileLocat
 }
 
 type WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation struct {
+	// The ID of the file system, assigned by Amazon EFS.
 	FileSystemId *string `pulumi:"fileSystemId"`
-	Path         *string `pulumi:"path"`
+	// The pathname for the folder being used by a workflow.
+	Path *string `pulumi:"path"`
 }
 
 // WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationInput is an input type that accepts WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs and WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput values.
@@ -2822,8 +3028,10 @@ type WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationInput inte
 }
 
 type WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs struct {
+	// The ID of the file system, assigned by Amazon EFS.
 	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
-	Path         pulumi.StringPtrInput `pulumi:"path"`
+	// The pathname for the folder being used by a workflow.
+	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
 func (WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs) ElementType() reflect.Type {
@@ -2903,12 +3111,14 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput)
 	}).(WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
 }
 
+// The ID of the file system, assigned by Amazon EFS.
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation) *string {
 		return v.FileSystemId
 	}).(pulumi.StringPtrOutput)
 }
 
+// The pathname for the folder being used by a workflow.
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -2937,6 +3147,7 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutp
 	}).(WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput)
 }
 
+// The ID of the file system, assigned by Amazon EFS.
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation) *string {
 		if v == nil {
@@ -2946,6 +3157,7 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The pathname for the folder being used by a workflow.
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation) *string {
 		if v == nil {
@@ -2956,8 +3168,10 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutp
 }
 
 type WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation struct {
+	// Specifies the S3 bucket for the customer input file.
 	Bucket *string `pulumi:"bucket"`
-	Key    *string `pulumi:"key"`
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+	Key *string `pulumi:"key"`
 }
 
 // WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationInput is an input type that accepts WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs and WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput values.
@@ -2972,8 +3186,10 @@ type WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationInput inter
 }
 
 type WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs struct {
+	// Specifies the S3 bucket for the customer input file.
 	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
-	Key    pulumi.StringPtrInput `pulumi:"key"`
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+	Key pulumi.StringPtrInput `pulumi:"key"`
 }
 
 func (WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs) ElementType() reflect.Type {
@@ -3053,10 +3269,12 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput) 
 	}).(WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput)
 }
 
+// Specifies the S3 bucket for the customer input file.
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -3085,6 +3303,7 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutpu
 	}).(WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput)
 }
 
+// Specifies the S3 bucket for the customer input file.
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation) *string {
 		if v == nil {
@@ -3094,6 +3313,7 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation) *string {
 		if v == nil {
@@ -3104,10 +3324,14 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutpu
 }
 
 type WorkflowStepCustomStepDetails struct {
-	Name               *string `pulumi:"name"`
+	// The name of the step, used as an identifier.
+	Name *string `pulumi:"name"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 	SourceFileLocation *string `pulumi:"sourceFileLocation"`
-	Target             *string `pulumi:"target"`
-	TimeoutSeconds     *int    `pulumi:"timeoutSeconds"`
+	// The ARN for the lambda function that is being called.
+	Target *string `pulumi:"target"`
+	// Timeout, in seconds, for the step.
+	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
 }
 
 // WorkflowStepCustomStepDetailsInput is an input type that accepts WorkflowStepCustomStepDetailsArgs and WorkflowStepCustomStepDetailsOutput values.
@@ -3122,10 +3346,14 @@ type WorkflowStepCustomStepDetailsInput interface {
 }
 
 type WorkflowStepCustomStepDetailsArgs struct {
-	Name               pulumi.StringPtrInput `pulumi:"name"`
+	// The name of the step, used as an identifier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 	SourceFileLocation pulumi.StringPtrInput `pulumi:"sourceFileLocation"`
-	Target             pulumi.StringPtrInput `pulumi:"target"`
-	TimeoutSeconds     pulumi.IntPtrInput    `pulumi:"timeoutSeconds"`
+	// The ARN for the lambda function that is being called.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// Timeout, in seconds, for the step.
+	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
 }
 
 func (WorkflowStepCustomStepDetailsArgs) ElementType() reflect.Type {
@@ -3205,18 +3433,22 @@ func (o WorkflowStepCustomStepDetailsOutput) ToWorkflowStepCustomStepDetailsPtrO
 	}).(WorkflowStepCustomStepDetailsPtrOutput)
 }
 
+// The name of the step, used as an identifier.
 func (o WorkflowStepCustomStepDetailsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepCustomStepDetails) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 func (o WorkflowStepCustomStepDetailsOutput) SourceFileLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepCustomStepDetails) *string { return v.SourceFileLocation }).(pulumi.StringPtrOutput)
 }
 
+// The ARN for the lambda function that is being called.
 func (o WorkflowStepCustomStepDetailsOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepCustomStepDetails) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
+// Timeout, in seconds, for the step.
 func (o WorkflowStepCustomStepDetailsOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkflowStepCustomStepDetails) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
@@ -3245,6 +3477,7 @@ func (o WorkflowStepCustomStepDetailsPtrOutput) Elem() WorkflowStepCustomStepDet
 	}).(WorkflowStepCustomStepDetailsOutput)
 }
 
+// The name of the step, used as an identifier.
 func (o WorkflowStepCustomStepDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepCustomStepDetails) *string {
 		if v == nil {
@@ -3254,6 +3487,7 @@ func (o WorkflowStepCustomStepDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 func (o WorkflowStepCustomStepDetailsPtrOutput) SourceFileLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepCustomStepDetails) *string {
 		if v == nil {
@@ -3263,6 +3497,7 @@ func (o WorkflowStepCustomStepDetailsPtrOutput) SourceFileLocation() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN for the lambda function that is being called.
 func (o WorkflowStepCustomStepDetailsPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepCustomStepDetails) *string {
 		if v == nil {
@@ -3272,6 +3507,7 @@ func (o WorkflowStepCustomStepDetailsPtrOutput) Target() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Timeout, in seconds, for the step.
 func (o WorkflowStepCustomStepDetailsPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepCustomStepDetails) *int {
 		if v == nil {
@@ -3282,7 +3518,9 @@ func (o WorkflowStepCustomStepDetailsPtrOutput) TimeoutSeconds() pulumi.IntPtrOu
 }
 
 type WorkflowStepDeleteStepDetails struct {
-	Name               *string `pulumi:"name"`
+	// The name of the step, used as an identifier.
+	Name *string `pulumi:"name"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 	SourceFileLocation *string `pulumi:"sourceFileLocation"`
 }
 
@@ -3298,7 +3536,9 @@ type WorkflowStepDeleteStepDetailsInput interface {
 }
 
 type WorkflowStepDeleteStepDetailsArgs struct {
-	Name               pulumi.StringPtrInput `pulumi:"name"`
+	// The name of the step, used as an identifier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 	SourceFileLocation pulumi.StringPtrInput `pulumi:"sourceFileLocation"`
 }
 
@@ -3379,10 +3619,12 @@ func (o WorkflowStepDeleteStepDetailsOutput) ToWorkflowStepDeleteStepDetailsPtrO
 	}).(WorkflowStepDeleteStepDetailsPtrOutput)
 }
 
+// The name of the step, used as an identifier.
 func (o WorkflowStepDeleteStepDetailsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepDeleteStepDetails) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 func (o WorkflowStepDeleteStepDetailsOutput) SourceFileLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepDeleteStepDetails) *string { return v.SourceFileLocation }).(pulumi.StringPtrOutput)
 }
@@ -3411,6 +3653,7 @@ func (o WorkflowStepDeleteStepDetailsPtrOutput) Elem() WorkflowStepDeleteStepDet
 	}).(WorkflowStepDeleteStepDetailsOutput)
 }
 
+// The name of the step, used as an identifier.
 func (o WorkflowStepDeleteStepDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepDeleteStepDetails) *string {
 		if v == nil {
@@ -3420,6 +3663,7 @@ func (o WorkflowStepDeleteStepDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 func (o WorkflowStepDeleteStepDetailsPtrOutput) SourceFileLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepDeleteStepDetails) *string {
 		if v == nil {
@@ -3430,9 +3674,12 @@ func (o WorkflowStepDeleteStepDetailsPtrOutput) SourceFileLocation() pulumi.Stri
 }
 
 type WorkflowStepTagStepDetails struct {
-	Name               *string                         `pulumi:"name"`
-	SourceFileLocation *string                         `pulumi:"sourceFileLocation"`
-	Tags               []WorkflowStepTagStepDetailsTag `pulumi:"tags"`
+	// The name of the step, used as an identifier.
+	Name *string `pulumi:"name"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+	SourceFileLocation *string `pulumi:"sourceFileLocation"`
+	// Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+	Tags []WorkflowStepTagStepDetailsTag `pulumi:"tags"`
 }
 
 // WorkflowStepTagStepDetailsInput is an input type that accepts WorkflowStepTagStepDetailsArgs and WorkflowStepTagStepDetailsOutput values.
@@ -3447,9 +3694,12 @@ type WorkflowStepTagStepDetailsInput interface {
 }
 
 type WorkflowStepTagStepDetailsArgs struct {
-	Name               pulumi.StringPtrInput                   `pulumi:"name"`
-	SourceFileLocation pulumi.StringPtrInput                   `pulumi:"sourceFileLocation"`
-	Tags               WorkflowStepTagStepDetailsTagArrayInput `pulumi:"tags"`
+	// The name of the step, used as an identifier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+	SourceFileLocation pulumi.StringPtrInput `pulumi:"sourceFileLocation"`
+	// Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+	Tags WorkflowStepTagStepDetailsTagArrayInput `pulumi:"tags"`
 }
 
 func (WorkflowStepTagStepDetailsArgs) ElementType() reflect.Type {
@@ -3529,14 +3779,17 @@ func (o WorkflowStepTagStepDetailsOutput) ToWorkflowStepTagStepDetailsPtrOutputW
 	}).(WorkflowStepTagStepDetailsPtrOutput)
 }
 
+// The name of the step, used as an identifier.
 func (o WorkflowStepTagStepDetailsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepTagStepDetails) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 func (o WorkflowStepTagStepDetailsOutput) SourceFileLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepTagStepDetails) *string { return v.SourceFileLocation }).(pulumi.StringPtrOutput)
 }
 
+// Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
 func (o WorkflowStepTagStepDetailsOutput) Tags() WorkflowStepTagStepDetailsTagArrayOutput {
 	return o.ApplyT(func(v WorkflowStepTagStepDetails) []WorkflowStepTagStepDetailsTag { return v.Tags }).(WorkflowStepTagStepDetailsTagArrayOutput)
 }
@@ -3565,6 +3818,7 @@ func (o WorkflowStepTagStepDetailsPtrOutput) Elem() WorkflowStepTagStepDetailsOu
 	}).(WorkflowStepTagStepDetailsOutput)
 }
 
+// The name of the step, used as an identifier.
 func (o WorkflowStepTagStepDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepTagStepDetails) *string {
 		if v == nil {
@@ -3574,6 +3828,7 @@ func (o WorkflowStepTagStepDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
 func (o WorkflowStepTagStepDetailsPtrOutput) SourceFileLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepTagStepDetails) *string {
 		if v == nil {
@@ -3583,6 +3838,7 @@ func (o WorkflowStepTagStepDetailsPtrOutput) SourceFileLocation() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
 func (o WorkflowStepTagStepDetailsPtrOutput) Tags() WorkflowStepTagStepDetailsTagArrayOutput {
 	return o.ApplyT(func(v *WorkflowStepTagStepDetails) []WorkflowStepTagStepDetailsTag {
 		if v == nil {
@@ -3593,7 +3849,9 @@ func (o WorkflowStepTagStepDetailsPtrOutput) Tags() WorkflowStepTagStepDetailsTa
 }
 
 type WorkflowStepTagStepDetailsTag struct {
-	Key   string `pulumi:"key"`
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+	Key string `pulumi:"key"`
+	// The value that corresponds to the key.
 	Value string `pulumi:"value"`
 }
 
@@ -3609,7 +3867,9 @@ type WorkflowStepTagStepDetailsTagInput interface {
 }
 
 type WorkflowStepTagStepDetailsTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value that corresponds to the key.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3664,10 +3924,12 @@ func (o WorkflowStepTagStepDetailsTagOutput) ToWorkflowStepTagStepDetailsTagOutp
 	return o
 }
 
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowStepTagStepDetailsTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowStepTagStepDetailsTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value that corresponds to the key.
 func (o WorkflowStepTagStepDetailsTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowStepTagStepDetailsTag) string { return v.Value }).(pulumi.StringOutput)
 }

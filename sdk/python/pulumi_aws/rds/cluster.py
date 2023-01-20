@@ -65,6 +65,51 @@ class ClusterArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+        :param pulumi.Input[int] allocated_storage: The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. (This setting is required to create a Multi-AZ DB cluster).
+        :param pulumi.Input[bool] allow_major_version_upgrade: Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
+        :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+        :param pulumi.Input[int] backtrack_window: The target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
+        :param pulumi.Input[int] backup_retention_period: The days to retain backups for. Default `1`
+        :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_members: List of RDS Instances that are a part of this cluster
+        :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Cluster `tags` to snapshots. Default is `false`.
+        :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        :param pulumi.Input[str] db_cluster_instance_class: The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster).
+        :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
+        :param pulumi.Input[str] db_instance_parameter_group_name: Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
+        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
+        :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+        :param pulumi.Input[Union[str, 'EngineType']] engine: The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        :param pulumi.Input[Union[str, 'EngineMode']] engine_mode: The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        :param pulumi.Input[str] engine_version: The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
+        :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on `rds.GlobalCluster`.
+        :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A List of ARNs for the IAM roles to associate to the RDS Cluster.
+        :param pulumi.Input[int] iops: The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+        :param pulumi.Input[str] network_type: The network type of the cluster. Valid values: `IPV4`, `DUAL`.
+        :param pulumi.Input[int] port: The port on which the DB accepts connections
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        :param pulumi.Input[str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
+        :param pulumi.Input['ClusterRestoreToPointInTimeArgs'] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+        :param pulumi.Input['ClusterScalingConfigurationArgs'] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+        :param pulumi.Input['ClusterServerlessv2ScalingConfigurationArgs'] serverlessv2_scaling_configuration: Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
+        :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+        :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
+        :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[str] storage_type: Specifies the storage type to be associated with the DB cluster. (This setting is required to create a Multi-AZ DB cluster). Valid values: `io1`, Default: `io1`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
         if allocated_storage is not None:
             pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -162,6 +207,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. (This setting is required to create a Multi-AZ DB cluster).
+        """
         return pulumi.get(self, "allocated_storage")
 
     @allocated_storage.setter
@@ -171,6 +219,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="allowMajorVersionUpgrade")
     def allow_major_version_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
+        """
         return pulumi.get(self, "allow_major_version_upgrade")
 
     @allow_major_version_upgrade.setter
@@ -180,6 +231,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+        """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
@@ -189,6 +243,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+        """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
@@ -198,6 +255,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="backtrackWindow")
     def backtrack_window(self) -> Optional[pulumi.Input[int]]:
+        """
+        The target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
+        """
         return pulumi.get(self, "backtrack_window")
 
     @backtrack_window.setter
@@ -207,6 +267,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        The days to retain backups for. Default `1`
+        """
         return pulumi.get(self, "backup_retention_period")
 
     @backup_retention_period.setter
@@ -216,6 +279,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -225,6 +291,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="clusterIdentifierPrefix")
     def cluster_identifier_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        """
         return pulumi.get(self, "cluster_identifier_prefix")
 
     @cluster_identifier_prefix.setter
@@ -234,6 +303,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="clusterMembers")
     def cluster_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of RDS Instances that are a part of this cluster
+        """
         return pulumi.get(self, "cluster_members")
 
     @cluster_members.setter
@@ -243,6 +315,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="copyTagsToSnapshot")
     def copy_tags_to_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Copy all Cluster `tags` to snapshots. Default is `false`.
+        """
         return pulumi.get(self, "copy_tags_to_snapshot")
 
     @copy_tags_to_snapshot.setter
@@ -252,6 +327,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -261,6 +339,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="dbClusterInstanceClass")
     def db_cluster_instance_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster).
+        """
         return pulumi.get(self, "db_cluster_instance_class")
 
     @db_cluster_instance_class.setter
@@ -270,6 +351,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="dbClusterParameterGroupName")
     def db_cluster_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A cluster parameter group to associate with the cluster.
+        """
         return pulumi.get(self, "db_cluster_parameter_group_name")
 
     @db_cluster_parameter_group_name.setter
@@ -279,6 +363,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="dbInstanceParameterGroupName")
     def db_instance_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
+        """
         return pulumi.get(self, "db_instance_parameter_group_name")
 
     @db_instance_parameter_group_name.setter
@@ -288,6 +375,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
+        """
         return pulumi.get(self, "db_subnet_group_name")
 
     @db_subnet_group_name.setter
@@ -297,6 +387,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
@@ -306,6 +399,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="enableGlobalWriteForwarding")
     def enable_global_write_forwarding(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        """
         return pulumi.get(self, "enable_global_write_forwarding")
 
     @enable_global_write_forwarding.setter
@@ -315,6 +411,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="enableHttpEndpoint")
     def enable_http_endpoint(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        """
         return pulumi.get(self, "enable_http_endpoint")
 
     @enable_http_endpoint.setter
@@ -324,6 +423,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+        """
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
 
     @enabled_cloudwatch_logs_exports.setter
@@ -333,6 +435,9 @@ class ClusterArgs:
     @property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[Union[str, 'EngineType']]]:
+        """
+        The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -342,6 +447,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="engineMode")
     def engine_mode(self) -> Optional[pulumi.Input[Union[str, 'EngineMode']]]:
+        """
+        The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        """
         return pulumi.get(self, "engine_mode")
 
     @engine_mode.setter
@@ -351,6 +459,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
+        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -360,6 +471,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="finalSnapshotIdentifier")
     def final_snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
+        """
         return pulumi.get(self, "final_snapshot_identifier")
 
     @final_snapshot_identifier.setter
@@ -369,6 +483,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The global cluster identifier specified on `rds.GlobalCluster`.
+        """
         return pulumi.get(self, "global_cluster_identifier")
 
     @global_cluster_identifier.setter
@@ -378,6 +495,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="iamDatabaseAuthenticationEnabled")
     def iam_database_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+        """
         return pulumi.get(self, "iam_database_authentication_enabled")
 
     @iam_database_authentication_enabled.setter
@@ -387,6 +507,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A List of ARNs for the IAM roles to associate to the RDS Cluster.
+        """
         return pulumi.get(self, "iam_roles")
 
     @iam_roles.setter
@@ -396,6 +519,9 @@ class ClusterArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -405,6 +531,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -414,6 +543,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        """
         return pulumi.get(self, "master_password")
 
     @master_password.setter
@@ -423,6 +555,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+        """
         return pulumi.get(self, "master_username")
 
     @master_username.setter
@@ -432,6 +567,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="networkType")
     def network_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The network type of the cluster. Valid values: `IPV4`, `DUAL`.
+        """
         return pulumi.get(self, "network_type")
 
     @network_type.setter
@@ -441,6 +579,9 @@ class ClusterArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port on which the DB accepts connections
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -450,6 +591,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        """
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
@@ -459,6 +603,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -468,6 +615,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="replicationSourceIdentifier")
     def replication_source_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
+        """
         return pulumi.get(self, "replication_source_identifier")
 
     @replication_source_identifier.setter
@@ -477,6 +627,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="restoreToPointInTime")
     def restore_to_point_in_time(self) -> Optional[pulumi.Input['ClusterRestoreToPointInTimeArgs']]:
+        """
+        Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+        """
         return pulumi.get(self, "restore_to_point_in_time")
 
     @restore_to_point_in_time.setter
@@ -495,6 +648,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="scalingConfiguration")
     def scaling_configuration(self) -> Optional[pulumi.Input['ClusterScalingConfigurationArgs']]:
+        """
+        Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+        """
         return pulumi.get(self, "scaling_configuration")
 
     @scaling_configuration.setter
@@ -504,6 +660,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="serverlessv2ScalingConfiguration")
     def serverlessv2_scaling_configuration(self) -> Optional[pulumi.Input['ClusterServerlessv2ScalingConfigurationArgs']]:
+        """
+        Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
+        """
         return pulumi.get(self, "serverlessv2_scaling_configuration")
 
     @serverlessv2_scaling_configuration.setter
@@ -513,6 +672,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        """
         return pulumi.get(self, "skip_final_snapshot")
 
     @skip_final_snapshot.setter
@@ -522,6 +684,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+        """
         return pulumi.get(self, "snapshot_identifier")
 
     @snapshot_identifier.setter
@@ -531,6 +696,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="sourceRegion")
     def source_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source region for an encrypted replica DB cluster.
+        """
         return pulumi.get(self, "source_region")
 
     @source_region.setter
@@ -540,6 +708,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+        """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
@@ -549,6 +720,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the storage type to be associated with the DB cluster. (This setting is required to create a Multi-AZ DB cluster). Valid values: `io1`, Default: `io1`.
+        """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
@@ -558,6 +732,9 @@ class ClusterArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -567,6 +744,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of VPC security groups to associate with the Cluster
+        """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
@@ -632,6 +812,59 @@ class _ClusterState:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
+        :param pulumi.Input[int] allocated_storage: The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. (This setting is required to create a Multi-AZ DB cluster).
+        :param pulumi.Input[bool] allow_major_version_upgrade: Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
+        :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of cluster
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+        :param pulumi.Input[int] backtrack_window: The target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
+        :param pulumi.Input[int] backup_retention_period: The days to retain backups for. Default `1`
+        :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_members: List of RDS Instances that are a part of this cluster
+        :param pulumi.Input[str] cluster_resource_id: The RDS Cluster Resource ID
+        :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Cluster `tags` to snapshots. Default is `false`.
+        :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        :param pulumi.Input[str] db_cluster_instance_class: The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster).
+        :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
+        :param pulumi.Input[str] db_instance_parameter_group_name: Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
+        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
+        :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+        :param pulumi.Input[str] endpoint: The DNS address of the RDS instance
+        :param pulumi.Input[Union[str, 'EngineType']] engine: The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        :param pulumi.Input[Union[str, 'EngineMode']] engine_mode: The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        :param pulumi.Input[str] engine_version: The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
+        :param pulumi.Input[str] engine_version_actual: The running version of the database.
+        :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on `rds.GlobalCluster`.
+        :param pulumi.Input[str] hosted_zone_id: The Route53 Hosted Zone ID of the endpoint
+        :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A List of ARNs for the IAM roles to associate to the RDS Cluster.
+        :param pulumi.Input[int] iops: The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+        :param pulumi.Input[str] network_type: The network type of the cluster. Valid values: `IPV4`, `DUAL`.
+        :param pulumi.Input[int] port: The port on which the DB accepts connections
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        :param pulumi.Input[str] reader_endpoint: A read-only endpoint for the Aurora cluster, automatically
+               load-balanced across replicas
+        :param pulumi.Input[str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
+        :param pulumi.Input['ClusterRestoreToPointInTimeArgs'] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+        :param pulumi.Input['ClusterScalingConfigurationArgs'] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+        :param pulumi.Input['ClusterServerlessv2ScalingConfigurationArgs'] serverlessv2_scaling_configuration: Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
+        :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+        :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
+        :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[str] storage_type: Specifies the storage type to be associated with the DB cluster. (This setting is required to create a Multi-AZ DB cluster). Valid values: `io1`, Default: `io1`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
         if allocated_storage is not None:
             pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -743,6 +976,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. (This setting is required to create a Multi-AZ DB cluster).
+        """
         return pulumi.get(self, "allocated_storage")
 
     @allocated_storage.setter
@@ -752,6 +988,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="allowMajorVersionUpgrade")
     def allow_major_version_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
+        """
         return pulumi.get(self, "allow_major_version_upgrade")
 
     @allow_major_version_upgrade.setter
@@ -761,6 +1000,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+        """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
@@ -770,6 +1012,9 @@ class _ClusterState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of cluster
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -779,6 +1024,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+        """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
@@ -788,6 +1036,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="backtrackWindow")
     def backtrack_window(self) -> Optional[pulumi.Input[int]]:
+        """
+        The target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
+        """
         return pulumi.get(self, "backtrack_window")
 
     @backtrack_window.setter
@@ -797,6 +1048,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        The days to retain backups for. Default `1`
+        """
         return pulumi.get(self, "backup_retention_period")
 
     @backup_retention_period.setter
@@ -806,6 +1060,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -815,6 +1072,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="clusterIdentifierPrefix")
     def cluster_identifier_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        """
         return pulumi.get(self, "cluster_identifier_prefix")
 
     @cluster_identifier_prefix.setter
@@ -824,6 +1084,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="clusterMembers")
     def cluster_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of RDS Instances that are a part of this cluster
+        """
         return pulumi.get(self, "cluster_members")
 
     @cluster_members.setter
@@ -833,6 +1096,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="clusterResourceId")
     def cluster_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RDS Cluster Resource ID
+        """
         return pulumi.get(self, "cluster_resource_id")
 
     @cluster_resource_id.setter
@@ -842,6 +1108,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="copyTagsToSnapshot")
     def copy_tags_to_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Copy all Cluster `tags` to snapshots. Default is `false`.
+        """
         return pulumi.get(self, "copy_tags_to_snapshot")
 
     @copy_tags_to_snapshot.setter
@@ -851,6 +1120,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -860,6 +1132,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="dbClusterInstanceClass")
     def db_cluster_instance_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster).
+        """
         return pulumi.get(self, "db_cluster_instance_class")
 
     @db_cluster_instance_class.setter
@@ -869,6 +1144,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="dbClusterParameterGroupName")
     def db_cluster_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A cluster parameter group to associate with the cluster.
+        """
         return pulumi.get(self, "db_cluster_parameter_group_name")
 
     @db_cluster_parameter_group_name.setter
@@ -878,6 +1156,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="dbInstanceParameterGroupName")
     def db_instance_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
+        """
         return pulumi.get(self, "db_instance_parameter_group_name")
 
     @db_instance_parameter_group_name.setter
@@ -887,6 +1168,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
+        """
         return pulumi.get(self, "db_subnet_group_name")
 
     @db_subnet_group_name.setter
@@ -896,6 +1180,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
@@ -905,6 +1192,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="enableGlobalWriteForwarding")
     def enable_global_write_forwarding(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        """
         return pulumi.get(self, "enable_global_write_forwarding")
 
     @enable_global_write_forwarding.setter
@@ -914,6 +1204,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="enableHttpEndpoint")
     def enable_http_endpoint(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        """
         return pulumi.get(self, "enable_http_endpoint")
 
     @enable_http_endpoint.setter
@@ -923,6 +1216,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+        """
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
 
     @enabled_cloudwatch_logs_exports.setter
@@ -932,6 +1228,9 @@ class _ClusterState:
     @property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DNS address of the RDS instance
+        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -941,6 +1240,9 @@ class _ClusterState:
     @property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[Union[str, 'EngineType']]]:
+        """
+        The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -950,6 +1252,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="engineMode")
     def engine_mode(self) -> Optional[pulumi.Input[Union[str, 'EngineMode']]]:
+        """
+        The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        """
         return pulumi.get(self, "engine_mode")
 
     @engine_mode.setter
@@ -959,6 +1264,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
+        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -968,6 +1276,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="engineVersionActual")
     def engine_version_actual(self) -> Optional[pulumi.Input[str]]:
+        """
+        The running version of the database.
+        """
         return pulumi.get(self, "engine_version_actual")
 
     @engine_version_actual.setter
@@ -977,6 +1288,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="finalSnapshotIdentifier")
     def final_snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
+        """
         return pulumi.get(self, "final_snapshot_identifier")
 
     @final_snapshot_identifier.setter
@@ -986,6 +1300,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The global cluster identifier specified on `rds.GlobalCluster`.
+        """
         return pulumi.get(self, "global_cluster_identifier")
 
     @global_cluster_identifier.setter
@@ -995,6 +1312,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Route53 Hosted Zone ID of the endpoint
+        """
         return pulumi.get(self, "hosted_zone_id")
 
     @hosted_zone_id.setter
@@ -1004,6 +1324,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="iamDatabaseAuthenticationEnabled")
     def iam_database_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+        """
         return pulumi.get(self, "iam_database_authentication_enabled")
 
     @iam_database_authentication_enabled.setter
@@ -1013,6 +1336,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A List of ARNs for the IAM roles to associate to the RDS Cluster.
+        """
         return pulumi.get(self, "iam_roles")
 
     @iam_roles.setter
@@ -1022,6 +1348,9 @@ class _ClusterState:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -1031,6 +1360,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -1040,6 +1372,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        """
         return pulumi.get(self, "master_password")
 
     @master_password.setter
@@ -1049,6 +1384,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+        """
         return pulumi.get(self, "master_username")
 
     @master_username.setter
@@ -1058,6 +1396,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="networkType")
     def network_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The network type of the cluster. Valid values: `IPV4`, `DUAL`.
+        """
         return pulumi.get(self, "network_type")
 
     @network_type.setter
@@ -1067,6 +1408,9 @@ class _ClusterState:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port on which the DB accepts connections
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -1076,6 +1420,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        """
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
@@ -1085,6 +1432,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -1094,6 +1444,10 @@ class _ClusterState:
     @property
     @pulumi.getter(name="readerEndpoint")
     def reader_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        A read-only endpoint for the Aurora cluster, automatically
+        load-balanced across replicas
+        """
         return pulumi.get(self, "reader_endpoint")
 
     @reader_endpoint.setter
@@ -1103,6 +1457,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="replicationSourceIdentifier")
     def replication_source_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
+        """
         return pulumi.get(self, "replication_source_identifier")
 
     @replication_source_identifier.setter
@@ -1112,6 +1469,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="restoreToPointInTime")
     def restore_to_point_in_time(self) -> Optional[pulumi.Input['ClusterRestoreToPointInTimeArgs']]:
+        """
+        Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+        """
         return pulumi.get(self, "restore_to_point_in_time")
 
     @restore_to_point_in_time.setter
@@ -1130,6 +1490,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="scalingConfiguration")
     def scaling_configuration(self) -> Optional[pulumi.Input['ClusterScalingConfigurationArgs']]:
+        """
+        Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+        """
         return pulumi.get(self, "scaling_configuration")
 
     @scaling_configuration.setter
@@ -1139,6 +1502,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="serverlessv2ScalingConfiguration")
     def serverlessv2_scaling_configuration(self) -> Optional[pulumi.Input['ClusterServerlessv2ScalingConfigurationArgs']]:
+        """
+        Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
+        """
         return pulumi.get(self, "serverlessv2_scaling_configuration")
 
     @serverlessv2_scaling_configuration.setter
@@ -1148,6 +1514,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        """
         return pulumi.get(self, "skip_final_snapshot")
 
     @skip_final_snapshot.setter
@@ -1157,6 +1526,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+        """
         return pulumi.get(self, "snapshot_identifier")
 
     @snapshot_identifier.setter
@@ -1166,6 +1538,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="sourceRegion")
     def source_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source region for an encrypted replica DB cluster.
+        """
         return pulumi.get(self, "source_region")
 
     @source_region.setter
@@ -1175,6 +1550,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+        """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
@@ -1184,6 +1562,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the storage type to be associated with the DB cluster. (This setting is required to create a Multi-AZ DB cluster). Valid values: `io1`, Default: `io1`.
+        """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
@@ -1193,6 +1574,9 @@ class _ClusterState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -1202,6 +1586,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -1211,6 +1598,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of VPC security groups to associate with the Cluster
+        """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
@@ -1271,9 +1661,209 @@ class Cluster(pulumi.CustomResource):
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Cluster resource with the given unique name, props, and options.
+        Manages a [RDS Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html). To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the `rds.ClusterInstance` resource. To manage non-Aurora databases (e.g., MySQL, PostgreSQL, SQL Server, etc.), see the `rds.Instance` resource.
+
+        For information on the difference between the available Aurora MySQL engines
+        see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+        in the Amazon RDS User Guide.
+
+        Changes to an RDS Cluster can occur when you manually change a
+        parameter, such as `port`, and are reflected in the next maintenance
+        window. Because of this, this provider may report a difference in its planning
+        phase because a modification has not yet taken place. You can use the
+        `apply_immediately` flag to instruct the service to apply the change immediately
+        (see documentation below).
+
+        > **Note:** using `apply_immediately` can result in a
+        brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html)
+        for more information.
+
+        ## Example Usage
+        ### Aurora MySQL 2.x (MySQL 5.7)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.rds.Cluster("default",
+            availability_zones=[
+                "us-west-2a",
+                "us-west-2b",
+                "us-west-2c",
+            ],
+            backup_retention_period=5,
+            cluster_identifier="aurora-cluster-demo",
+            database_name="mydb",
+            engine="aurora-mysql",
+            engine_version="5.7.mysql_aurora.2.03.2",
+            master_password="bar",
+            master_username="foo",
+            preferred_backup_window="07:00-09:00")
+        ```
+        ### Aurora MySQL 1.x (MySQL 5.6)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.rds.Cluster("default",
+            availability_zones=[
+                "us-west-2a",
+                "us-west-2b",
+                "us-west-2c",
+            ],
+            backup_retention_period=5,
+            cluster_identifier="aurora-cluster-demo",
+            database_name="mydb",
+            master_password="bar",
+            master_username="foo",
+            preferred_backup_window="07:00-09:00")
+        ```
+        ### Aurora with PostgreSQL engine
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        postgresql = aws.rds.Cluster("postgresql",
+            availability_zones=[
+                "us-west-2a",
+                "us-west-2b",
+                "us-west-2c",
+            ],
+            backup_retention_period=5,
+            cluster_identifier="aurora-cluster-demo",
+            database_name="mydb",
+            engine="aurora-postgresql",
+            master_password="bar",
+            master_username="foo",
+            preferred_backup_window="07:00-09:00")
+        ```
+        ### Aurora Multi-Master Cluster
+
+        > More information about Aurora Multi-Master Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.rds.Cluster("example",
+            cluster_identifier="example",
+            db_subnet_group_name=aws_db_subnet_group["example"]["name"],
+            engine_mode="multimaster",
+            master_password="barbarbarbar",
+            master_username="foo",
+            skip_final_snapshot=True)
+        ```
+        ### RDS Multi-AZ Cluster
+
+        > More information about RDS Multi-AZ Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html).
+
+        To create a Multi-AZ RDS cluster, you must additionally specify the `engine`, `storage_type`, `allocated_storage`, `iops` and `db_cluster_instance_class` attributes.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.rds.Cluster("example",
+            allocated_storage=100,
+            availability_zones=[
+                "us-west-2a",
+                "us-west-2b",
+                "us-west-2c",
+            ],
+            cluster_identifier="example",
+            db_cluster_instance_class="db.r6gd.xlarge",
+            engine="mysql",
+            iops=1000,
+            master_password="mustbeeightcharaters",
+            master_username="test",
+            storage_type="io1")
+        ```
+        ### RDS Serverless v2 Cluster
+
+        > More information about RDS Serverless v2 Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html).
+
+        To create a Serverless v2 RDS cluster, you must additionally specify the `engine_mode` and `serverlessv2_scaling_configuration` attributes. An `rds.ClusterInstance` resource must also be added to the cluster with the `instance_class` attribute specified.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_cluster = aws.rds.Cluster("exampleCluster",
+            cluster_identifier="example",
+            engine="aurora-postgresql",
+            engine_mode="provisioned",
+            engine_version="13.6",
+            database_name="test",
+            master_username="test",
+            master_password="must_be_eight_characters",
+            serverlessv2_scaling_configuration=aws.rds.ClusterServerlessv2ScalingConfigurationArgs(
+                max_capacity=1,
+                min_capacity=0.5,
+            ))
+        example_cluster_instance = aws.rds.ClusterInstance("exampleClusterInstance",
+            cluster_identifier=example_cluster.id,
+            instance_class="db.serverless",
+            engine=example_cluster.engine,
+            engine_version=example_cluster.engine_version)
+        ```
+
+        ## Import
+
+        RDS Clusters can be imported using the `cluster_identifier`, e.g.,
+
+        ```sh
+         $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] allocated_storage: The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. (This setting is required to create a Multi-AZ DB cluster).
+        :param pulumi.Input[bool] allow_major_version_upgrade: Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
+        :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+        :param pulumi.Input[int] backtrack_window: The target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
+        :param pulumi.Input[int] backup_retention_period: The days to retain backups for. Default `1`
+        :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_members: List of RDS Instances that are a part of this cluster
+        :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Cluster `tags` to snapshots. Default is `false`.
+        :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        :param pulumi.Input[str] db_cluster_instance_class: The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster).
+        :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
+        :param pulumi.Input[str] db_instance_parameter_group_name: Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
+        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
+        :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+        :param pulumi.Input[Union[str, 'EngineType']] engine: The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        :param pulumi.Input[Union[str, 'EngineMode']] engine_mode: The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        :param pulumi.Input[str] engine_version: The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
+        :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on `rds.GlobalCluster`.
+        :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A List of ARNs for the IAM roles to associate to the RDS Cluster.
+        :param pulumi.Input[int] iops: The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+        :param pulumi.Input[str] network_type: The network type of the cluster. Valid values: `IPV4`, `DUAL`.
+        :param pulumi.Input[int] port: The port on which the DB accepts connections
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        :param pulumi.Input[str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
+        :param pulumi.Input[pulumi.InputType['ClusterRestoreToPointInTimeArgs']] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+        :param pulumi.Input[pulumi.InputType['ClusterScalingConfigurationArgs']] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+        :param pulumi.Input[pulumi.InputType['ClusterServerlessv2ScalingConfigurationArgs']] serverlessv2_scaling_configuration: Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
+        :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+        :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
+        :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[str] storage_type: Specifies the storage type to be associated with the DB cluster. (This setting is required to create a Multi-AZ DB cluster). Valid values: `io1`, Default: `io1`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
         ...
     @overload
@@ -1282,7 +1872,162 @@ class Cluster(pulumi.CustomResource):
                  args: Optional[ClusterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Cluster resource with the given unique name, props, and options.
+        Manages a [RDS Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html). To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the `rds.ClusterInstance` resource. To manage non-Aurora databases (e.g., MySQL, PostgreSQL, SQL Server, etc.), see the `rds.Instance` resource.
+
+        For information on the difference between the available Aurora MySQL engines
+        see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+        in the Amazon RDS User Guide.
+
+        Changes to an RDS Cluster can occur when you manually change a
+        parameter, such as `port`, and are reflected in the next maintenance
+        window. Because of this, this provider may report a difference in its planning
+        phase because a modification has not yet taken place. You can use the
+        `apply_immediately` flag to instruct the service to apply the change immediately
+        (see documentation below).
+
+        > **Note:** using `apply_immediately` can result in a
+        brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html)
+        for more information.
+
+        ## Example Usage
+        ### Aurora MySQL 2.x (MySQL 5.7)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.rds.Cluster("default",
+            availability_zones=[
+                "us-west-2a",
+                "us-west-2b",
+                "us-west-2c",
+            ],
+            backup_retention_period=5,
+            cluster_identifier="aurora-cluster-demo",
+            database_name="mydb",
+            engine="aurora-mysql",
+            engine_version="5.7.mysql_aurora.2.03.2",
+            master_password="bar",
+            master_username="foo",
+            preferred_backup_window="07:00-09:00")
+        ```
+        ### Aurora MySQL 1.x (MySQL 5.6)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.rds.Cluster("default",
+            availability_zones=[
+                "us-west-2a",
+                "us-west-2b",
+                "us-west-2c",
+            ],
+            backup_retention_period=5,
+            cluster_identifier="aurora-cluster-demo",
+            database_name="mydb",
+            master_password="bar",
+            master_username="foo",
+            preferred_backup_window="07:00-09:00")
+        ```
+        ### Aurora with PostgreSQL engine
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        postgresql = aws.rds.Cluster("postgresql",
+            availability_zones=[
+                "us-west-2a",
+                "us-west-2b",
+                "us-west-2c",
+            ],
+            backup_retention_period=5,
+            cluster_identifier="aurora-cluster-demo",
+            database_name="mydb",
+            engine="aurora-postgresql",
+            master_password="bar",
+            master_username="foo",
+            preferred_backup_window="07:00-09:00")
+        ```
+        ### Aurora Multi-Master Cluster
+
+        > More information about Aurora Multi-Master Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.rds.Cluster("example",
+            cluster_identifier="example",
+            db_subnet_group_name=aws_db_subnet_group["example"]["name"],
+            engine_mode="multimaster",
+            master_password="barbarbarbar",
+            master_username="foo",
+            skip_final_snapshot=True)
+        ```
+        ### RDS Multi-AZ Cluster
+
+        > More information about RDS Multi-AZ Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html).
+
+        To create a Multi-AZ RDS cluster, you must additionally specify the `engine`, `storage_type`, `allocated_storage`, `iops` and `db_cluster_instance_class` attributes.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.rds.Cluster("example",
+            allocated_storage=100,
+            availability_zones=[
+                "us-west-2a",
+                "us-west-2b",
+                "us-west-2c",
+            ],
+            cluster_identifier="example",
+            db_cluster_instance_class="db.r6gd.xlarge",
+            engine="mysql",
+            iops=1000,
+            master_password="mustbeeightcharaters",
+            master_username="test",
+            storage_type="io1")
+        ```
+        ### RDS Serverless v2 Cluster
+
+        > More information about RDS Serverless v2 Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html).
+
+        To create a Serverless v2 RDS cluster, you must additionally specify the `engine_mode` and `serverlessv2_scaling_configuration` attributes. An `rds.ClusterInstance` resource must also be added to the cluster with the `instance_class` attribute specified.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_cluster = aws.rds.Cluster("exampleCluster",
+            cluster_identifier="example",
+            engine="aurora-postgresql",
+            engine_mode="provisioned",
+            engine_version="13.6",
+            database_name="test",
+            master_username="test",
+            master_password="must_be_eight_characters",
+            serverlessv2_scaling_configuration=aws.rds.ClusterServerlessv2ScalingConfigurationArgs(
+                max_capacity=1,
+                min_capacity=0.5,
+            ))
+        example_cluster_instance = aws.rds.ClusterInstance("exampleClusterInstance",
+            cluster_identifier=example_cluster.id,
+            instance_class="db.serverless",
+            engine=example_cluster.engine,
+            engine_version=example_cluster.engine_version)
+        ```
+
+        ## Import
+
+        RDS Clusters can be imported using the `cluster_identifier`, e.g.,
+
+        ```sh
+         $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
+        ```
+
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1478,6 +2223,59 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] allocated_storage: The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. (This setting is required to create a Multi-AZ DB cluster).
+        :param pulumi.Input[bool] allow_major_version_upgrade: Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
+        :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of cluster
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+        :param pulumi.Input[int] backtrack_window: The target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
+        :param pulumi.Input[int] backup_retention_period: The days to retain backups for. Default `1`
+        :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_members: List of RDS Instances that are a part of this cluster
+        :param pulumi.Input[str] cluster_resource_id: The RDS Cluster Resource ID
+        :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Cluster `tags` to snapshots. Default is `false`.
+        :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        :param pulumi.Input[str] db_cluster_instance_class: The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster).
+        :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
+        :param pulumi.Input[str] db_instance_parameter_group_name: Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
+        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
+        :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+        :param pulumi.Input[str] endpoint: The DNS address of the RDS instance
+        :param pulumi.Input[Union[str, 'EngineType']] engine: The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        :param pulumi.Input[Union[str, 'EngineMode']] engine_mode: The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        :param pulumi.Input[str] engine_version: The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
+        :param pulumi.Input[str] engine_version_actual: The running version of the database.
+        :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on `rds.GlobalCluster`.
+        :param pulumi.Input[str] hosted_zone_id: The Route53 Hosted Zone ID of the endpoint
+        :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A List of ARNs for the IAM roles to associate to the RDS Cluster.
+        :param pulumi.Input[int] iops: The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+        :param pulumi.Input[str] network_type: The network type of the cluster. Valid values: `IPV4`, `DUAL`.
+        :param pulumi.Input[int] port: The port on which the DB accepts connections
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        :param pulumi.Input[str] reader_endpoint: A read-only endpoint for the Aurora cluster, automatically
+               load-balanced across replicas
+        :param pulumi.Input[str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
+        :param pulumi.Input[pulumi.InputType['ClusterRestoreToPointInTimeArgs']] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+        :param pulumi.Input[pulumi.InputType['ClusterScalingConfigurationArgs']] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+        :param pulumi.Input[pulumi.InputType['ClusterServerlessv2ScalingConfigurationArgs']] serverlessv2_scaling_configuration: Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
+        :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+        :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
+        :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[str] storage_type: Specifies the storage type to be associated with the DB cluster. (This setting is required to create a Multi-AZ DB cluster). Valid values: `io1`, Default: `io1`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1541,211 +2339,338 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> pulumi.Output[int]:
+        """
+        The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. (This setting is required to create a Multi-AZ DB cluster).
+        """
         return pulumi.get(self, "allocated_storage")
 
     @property
     @pulumi.getter(name="allowMajorVersionUpgrade")
     def allow_major_version_upgrade(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
+        """
         return pulumi.get(self, "allow_major_version_upgrade")
 
     @property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> pulumi.Output[bool]:
+        """
+        Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+        """
         return pulumi.get(self, "apply_immediately")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of cluster
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Output[Sequence[str]]:
+        """
+        List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+        """
         return pulumi.get(self, "availability_zones")
 
     @property
     @pulumi.getter(name="backtrackWindow")
     def backtrack_window(self) -> pulumi.Output[Optional[int]]:
+        """
+        The target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
+        """
         return pulumi.get(self, "backtrack_window")
 
     @property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> pulumi.Output[Optional[int]]:
+        """
+        The days to retain backups for. Default `1`
+        """
         return pulumi.get(self, "backup_retention_period")
 
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[str]:
+        """
+        The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        """
         return pulumi.get(self, "cluster_identifier")
 
     @property
     @pulumi.getter(name="clusterIdentifierPrefix")
     def cluster_identifier_prefix(self) -> pulumi.Output[str]:
+        """
+        Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        """
         return pulumi.get(self, "cluster_identifier_prefix")
 
     @property
     @pulumi.getter(name="clusterMembers")
     def cluster_members(self) -> pulumi.Output[Sequence[str]]:
+        """
+        List of RDS Instances that are a part of this cluster
+        """
         return pulumi.get(self, "cluster_members")
 
     @property
     @pulumi.getter(name="clusterResourceId")
     def cluster_resource_id(self) -> pulumi.Output[str]:
+        """
+        The RDS Cluster Resource ID
+        """
         return pulumi.get(self, "cluster_resource_id")
 
     @property
     @pulumi.getter(name="copyTagsToSnapshot")
     def copy_tags_to_snapshot(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Copy all Cluster `tags` to snapshots. Default is `false`.
+        """
         return pulumi.get(self, "copy_tags_to_snapshot")
 
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Output[str]:
+        """
+        Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        """
         return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter(name="dbClusterInstanceClass")
     def db_cluster_instance_class(self) -> pulumi.Output[Optional[str]]:
+        """
+        The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster).
+        """
         return pulumi.get(self, "db_cluster_instance_class")
 
     @property
     @pulumi.getter(name="dbClusterParameterGroupName")
     def db_cluster_parameter_group_name(self) -> pulumi.Output[str]:
+        """
+        A cluster parameter group to associate with the cluster.
+        """
         return pulumi.get(self, "db_cluster_parameter_group_name")
 
     @property
     @pulumi.getter(name="dbInstanceParameterGroupName")
     def db_instance_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
+        """
         return pulumi.get(self, "db_instance_parameter_group_name")
 
     @property
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> pulumi.Output[str]:
+        """
+        A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
+        """
         return pulumi.get(self, "db_subnet_group_name")
 
     @property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        """
         return pulumi.get(self, "deletion_protection")
 
     @property
     @pulumi.getter(name="enableGlobalWriteForwarding")
     def enable_global_write_forwarding(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        """
         return pulumi.get(self, "enable_global_write_forwarding")
 
     @property
     @pulumi.getter(name="enableHttpEndpoint")
     def enable_http_endpoint(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        """
         return pulumi.get(self, "enable_http_endpoint")
 
     @property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+        """
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
 
     @property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[str]:
+        """
+        The DNS address of the RDS instance
+        """
         return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter
     def engine(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        """
         return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter(name="engineMode")
     def engine_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        """
         return pulumi.get(self, "engine_mode")
 
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[str]:
+        """
+        The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
+        """
         return pulumi.get(self, "engine_version")
 
     @property
     @pulumi.getter(name="engineVersionActual")
     def engine_version_actual(self) -> pulumi.Output[str]:
+        """
+        The running version of the database.
+        """
         return pulumi.get(self, "engine_version_actual")
 
     @property
     @pulumi.getter(name="finalSnapshotIdentifier")
     def final_snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
+        """
         return pulumi.get(self, "final_snapshot_identifier")
 
     @property
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The global cluster identifier specified on `rds.GlobalCluster`.
+        """
         return pulumi.get(self, "global_cluster_identifier")
 
     @property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Output[str]:
+        """
+        The Route53 Hosted Zone ID of the endpoint
+        """
         return pulumi.get(self, "hosted_zone_id")
 
     @property
     @pulumi.getter(name="iamDatabaseAuthenticationEnabled")
     def iam_database_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+        """
         return pulumi.get(self, "iam_database_authentication_enabled")
 
     @property
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A List of ARNs for the IAM roles to associate to the RDS Cluster.
+        """
         return pulumi.get(self, "iam_roles")
 
     @property
     @pulumi.getter
     def iops(self) -> pulumi.Output[Optional[int]]:
+        """
+        The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+        """
         return pulumi.get(self, "iops")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[str]:
+        """
+        The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> pulumi.Output[Optional[str]]:
+        """
+        Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        """
         return pulumi.get(self, "master_password")
 
     @property
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> pulumi.Output[str]:
+        """
+        Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+        """
         return pulumi.get(self, "master_username")
 
     @property
     @pulumi.getter(name="networkType")
     def network_type(self) -> pulumi.Output[str]:
+        """
+        The network type of the cluster. Valid values: `IPV4`, `DUAL`.
+        """
         return pulumi.get(self, "network_type")
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Output[int]:
+        """
+        The port on which the DB accepts connections
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> pulumi.Output[str]:
+        """
+        The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        """
         return pulumi.get(self, "preferred_backup_window")
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> pulumi.Output[str]:
+        """
+        The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @property
     @pulumi.getter(name="readerEndpoint")
     def reader_endpoint(self) -> pulumi.Output[str]:
+        """
+        A read-only endpoint for the Aurora cluster, automatically
+        load-balanced across replicas
+        """
         return pulumi.get(self, "reader_endpoint")
 
     @property
     @pulumi.getter(name="replicationSourceIdentifier")
     def replication_source_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
+        """
         return pulumi.get(self, "replication_source_identifier")
 
     @property
     @pulumi.getter(name="restoreToPointInTime")
     def restore_to_point_in_time(self) -> pulumi.Output[Optional['outputs.ClusterRestoreToPointInTime']]:
+        """
+        Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+        """
         return pulumi.get(self, "restore_to_point_in_time")
 
     @property
@@ -1756,50 +2681,80 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="scalingConfiguration")
     def scaling_configuration(self) -> pulumi.Output[Optional['outputs.ClusterScalingConfiguration']]:
+        """
+        Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+        """
         return pulumi.get(self, "scaling_configuration")
 
     @property
     @pulumi.getter(name="serverlessv2ScalingConfiguration")
     def serverlessv2_scaling_configuration(self) -> pulumi.Output[Optional['outputs.ClusterServerlessv2ScalingConfiguration']]:
+        """
+        Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
+        """
         return pulumi.get(self, "serverlessv2_scaling_configuration")
 
     @property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        """
         return pulumi.get(self, "skip_final_snapshot")
 
     @property
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+        """
         return pulumi.get(self, "snapshot_identifier")
 
     @property
     @pulumi.getter(name="sourceRegion")
     def source_region(self) -> pulumi.Output[Optional[str]]:
+        """
+        The source region for an encrypted replica DB cluster.
+        """
         return pulumi.get(self, "source_region")
 
     @property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> pulumi.Output[bool]:
+        """
+        Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+        """
         return pulumi.get(self, "storage_encrypted")
 
     @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the storage type to be associated with the DB cluster. (This setting is required to create a Multi-AZ DB cluster). Valid values: `io1`, Default: `io1`.
+        """
         return pulumi.get(self, "storage_type")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        List of VPC security groups to associate with the Cluster
+        """
         return pulumi.get(self, "vpc_security_group_ids")
 

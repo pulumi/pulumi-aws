@@ -15,17 +15,79 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a CodeCommit Trigger Resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.codecommit.Repository;
+ * import com.pulumi.aws.codecommit.RepositoryArgs;
+ * import com.pulumi.aws.codecommit.Trigger;
+ * import com.pulumi.aws.codecommit.TriggerArgs;
+ * import com.pulumi.aws.codecommit.inputs.TriggerTriggerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testRepository = new Repository(&#34;testRepository&#34;, RepositoryArgs.builder()        
+ *             .repositoryName(&#34;test&#34;)
+ *             .build());
+ * 
+ *         var testTrigger = new Trigger(&#34;testTrigger&#34;, TriggerArgs.builder()        
+ *             .repositoryName(testRepository.repositoryName())
+ *             .triggers(TriggerTriggerArgs.builder()
+ *                 .name(&#34;all&#34;)
+ *                 .events(&#34;all&#34;)
+ *                 .destinationArn(aws_sns_topic.test().arn())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="aws:codecommit/trigger:Trigger")
 public class Trigger extends com.pulumi.resources.CustomResource {
+    /**
+     * System-generated unique identifier.
+     * 
+     */
     @Export(name="configurationId", refs={String.class}, tree="[0]")
     private Output<String> configurationId;
 
+    /**
+     * @return System-generated unique identifier.
+     * 
+     */
     public Output<String> configurationId() {
         return this.configurationId;
     }
+    /**
+     * The name for the repository. This needs to be less than 100 characters.
+     * 
+     */
     @Export(name="repositoryName", refs={String.class}, tree="[0]")
     private Output<String> repositoryName;
 
+    /**
+     * @return The name for the repository. This needs to be less than 100 characters.
+     * 
+     */
     public Output<String> repositoryName() {
         return this.repositoryName;
     }

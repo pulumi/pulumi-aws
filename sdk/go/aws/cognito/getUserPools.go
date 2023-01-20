@@ -10,6 +10,48 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to get a list of cognito user pools.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			selectedRestApi, err := apigateway.LookupRestApi(ctx, &apigateway.LookupRestApiArgs{
+//				Name: _var.Api_gateway_name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			selectedUserPools, err := cognito.GetUserPools(ctx, &cognito.GetUserPoolsArgs{
+//				Name: _var.Cognito_user_pool_name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewAuthorizer(ctx, "cognito", &apigateway.AuthorizerArgs{
+//				Type:         pulumi.String("COGNITO_USER_POOLS"),
+//				RestApi:      *pulumi.String(selectedRestApi.Id),
+//				ProviderArns: interface{}(selectedUserPools.Arns),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetUserPools(ctx *pulumi.Context, args *GetUserPoolsArgs, opts ...pulumi.InvokeOption) (*GetUserPoolsResult, error) {
 	var rv GetUserPoolsResult
 	err := ctx.Invoke("aws:cognito/getUserPools:getUserPools", args, &rv, opts...)
@@ -21,14 +63,17 @@ func GetUserPools(ctx *pulumi.Context, args *GetUserPoolsArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getUserPools.
 type GetUserPoolsArgs struct {
+	// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getUserPools.
 type GetUserPoolsResult struct {
+	// Set of cognito user pool Amazon Resource Names (ARNs).
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string   `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Set of cognito user pool ids.
 	Ids  []string `pulumi:"ids"`
 	Name string   `pulumi:"name"`
 }
@@ -48,6 +93,7 @@ func GetUserPoolsOutput(ctx *pulumi.Context, args GetUserPoolsOutputArgs, opts .
 
 // A collection of arguments for invoking getUserPools.
 type GetUserPoolsOutputArgs struct {
+	// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -70,6 +116,7 @@ func (o GetUserPoolsResultOutput) ToGetUserPoolsResultOutputWithContext(ctx cont
 	return o
 }
 
+// Set of cognito user pool Amazon Resource Names (ARNs).
 func (o GetUserPoolsResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetUserPoolsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }
@@ -79,6 +126,7 @@ func (o GetUserPoolsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserPoolsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Set of cognito user pool ids.
 func (o GetUserPoolsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetUserPoolsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

@@ -14,23 +14,49 @@ public final class GroupTagArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GroupTagArgs Empty = new GroupTagArgs();
 
+    /**
+     * Key
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return Key
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * Enables propagation of the tag to
+     * Amazon EC2 instances launched via this ASG
+     * 
+     */
     @Import(name="propagateAtLaunch", required=true)
     private Output<Boolean> propagateAtLaunch;
 
+    /**
+     * @return Enables propagation of the tag to
+     * Amazon EC2 instances launched via this ASG
+     * 
+     */
     public Output<Boolean> propagateAtLaunch() {
         return this.propagateAtLaunch;
     }
 
+    /**
+     * Value
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return Value
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -61,29 +87,67 @@ public final class GroupTagArgs extends com.pulumi.resources.ResourceArgs {
             $ = new GroupTagArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param key Key
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key Key
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param propagateAtLaunch Enables propagation of the tag to
+         * Amazon EC2 instances launched via this ASG
+         * 
+         * @return builder
+         * 
+         */
         public Builder propagateAtLaunch(Output<Boolean> propagateAtLaunch) {
             $.propagateAtLaunch = propagateAtLaunch;
             return this;
         }
 
+        /**
+         * @param propagateAtLaunch Enables propagation of the tag to
+         * Amazon EC2 instances launched via this ASG
+         * 
+         * @return builder
+         * 
+         */
         public Builder propagateAtLaunch(Boolean propagateAtLaunch) {
             return propagateAtLaunch(Output.of(propagateAtLaunch));
         }
 
+        /**
+         * @param value Value
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Value
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

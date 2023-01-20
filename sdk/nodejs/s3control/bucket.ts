@@ -4,6 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a resource to manage an S3 Control Bucket.
+ *
+ * > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Buckets in an AWS Partition, see the `aws.s3.BucketV2` resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.s3control.Bucket("example", {
+ *     bucket: "example",
+ *     outpostId: data.aws_outposts_outpost.example.id,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * S3 Control Buckets can be imported using Amazon Resource Name (ARN), e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+ * ```
+ */
 export class Bucket extends pulumi.CustomResource {
     /**
      * Get an existing Bucket resource's state with the given name, ID, and optional extra
@@ -32,12 +57,33 @@ export class Bucket extends pulumi.CustomResource {
         return obj['__pulumiType'] === Bucket.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the bucket.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Name of the bucket.
+     */
     public readonly bucket!: pulumi.Output<string>;
+    /**
+     * UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    /**
+     * Identifier of the Outpost to contain this bucket.
+     */
     public readonly outpostId!: pulumi.Output<string>;
+    /**
+     * Boolean whether Public Access Block is enabled.
+     */
     public /*out*/ readonly publicAccessBlockEnabled!: pulumi.Output<boolean>;
+    /**
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -85,12 +131,33 @@ export class Bucket extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Bucket resources.
  */
 export interface BucketState {
+    /**
+     * Amazon Resource Name (ARN) of the bucket.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Name of the bucket.
+     */
     bucket?: pulumi.Input<string>;
+    /**
+     * UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     */
     creationDate?: pulumi.Input<string>;
+    /**
+     * Identifier of the Outpost to contain this bucket.
+     */
     outpostId?: pulumi.Input<string>;
+    /**
+     * Boolean whether Public Access Block is enabled.
+     */
     publicAccessBlockEnabled?: pulumi.Input<boolean>;
+    /**
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -98,7 +165,16 @@ export interface BucketState {
  * The set of arguments for constructing a Bucket resource.
  */
 export interface BucketArgs {
+    /**
+     * Name of the bucket.
+     */
     bucket: pulumi.Input<string>;
+    /**
+     * Identifier of the Outpost to contain this bucket.
+     */
     outpostId: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

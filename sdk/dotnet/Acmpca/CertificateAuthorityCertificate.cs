@@ -9,15 +9,134 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Acmpca
 {
+    /// <summary>
+    /// Associates a certificate with an AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority). An ACM PCA Certificate Authority is unable to issue certificates until it has a certificate associated with it. A root level ACM PCA Certificate Authority is able to self-sign its own root certificate.
+    /// 
+    /// ## Example Usage
+    /// ### Self-Signed Root Certificate Authority Certificate
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("exampleCertificateAuthority", new()
+    ///     {
+    ///         Type = "ROOT",
+    ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
+    ///         {
+    ///             KeyAlgorithm = "RSA_4096",
+    ///             SigningAlgorithm = "SHA512WITHRSA",
+    ///             Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
+    ///             {
+    ///                 CommonName = "example.com",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var current = Aws.GetPartition.Invoke();
+    /// 
+    ///     var exampleCertificate = new Aws.Acmpca.Certificate("exampleCertificate", new()
+    ///     {
+    ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
+    ///         CertificateSigningRequest = exampleCertificateAuthority.CertificateSigningRequest,
+    ///         SigningAlgorithm = "SHA512WITHRSA",
+    ///         TemplateArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:acm-pca:::template/RootCACertificate/V1",
+    ///         Validity = new Aws.Acmpca.Inputs.CertificateValidityArgs
+    ///         {
+    ///             Type = "YEARS",
+    ///             Value = "1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCertificateAuthorityCertificate = new Aws.Acmpca.CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate", new()
+    ///     {
+    ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
+    ///         Certificate = exampleCertificate.Certificate,
+    ///         CertificateChain = exampleCertificate.CertificateChain,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Certificate for Subordinate Certificate Authority
+    /// 
+    /// Note that the certificate for the subordinate certificate authority must be issued by the root certificate authority using a signing request from the subordinate certificate authority.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var subordinateCertificateAuthority = new Aws.Acmpca.CertificateAuthority("subordinateCertificateAuthority", new()
+    ///     {
+    ///         Type = "SUBORDINATE",
+    ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
+    ///         {
+    ///             KeyAlgorithm = "RSA_2048",
+    ///             SigningAlgorithm = "SHA512WITHRSA",
+    ///             Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
+    ///             {
+    ///                 CommonName = "sub.example.com",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var rootCertificateAuthority = new Aws.Acmpca.CertificateAuthority("rootCertificateAuthority");
+    /// 
+    ///     // ...
+    ///     var current = Aws.GetPartition.Invoke();
+    /// 
+    ///     var subordinateCertificate = new Aws.Acmpca.Certificate("subordinateCertificate", new()
+    ///     {
+    ///         CertificateAuthorityArn = rootCertificateAuthority.Arn,
+    ///         CertificateSigningRequest = subordinateCertificateAuthority.CertificateSigningRequest,
+    ///         SigningAlgorithm = "SHA512WITHRSA",
+    ///         TemplateArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:acm-pca:::template/SubordinateCACertificate_PathLen0/V1",
+    ///         Validity = new Aws.Acmpca.Inputs.CertificateValidityArgs
+    ///         {
+    ///             Type = "YEARS",
+    ///             Value = "1",
+    ///         },
+    ///     });
+    /// 
+    ///     var subordinateCertificateAuthorityCertificate = new Aws.Acmpca.CertificateAuthorityCertificate("subordinateCertificateAuthorityCertificate", new()
+    ///     {
+    ///         CertificateAuthorityArn = subordinateCertificateAuthority.Arn,
+    ///         Certificate = subordinateCertificate.Certificate,
+    ///         CertificateChain = subordinateCertificate.CertificateChain,
+    ///     });
+    /// 
+    ///     var rootCertificateAuthorityCertificate = new Aws.Acmpca.CertificateAuthorityCertificate("rootCertificateAuthorityCertificate");
+    /// 
+    ///     // ...
+    ///     var rootCertificate = new Aws.Acmpca.Certificate("rootCertificate");
+    /// 
+    ///     // ...
+    /// });
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate")]
     public partial class CertificateAuthorityCertificate : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// PEM-encoded certificate for the Certificate Authority.
+        /// </summary>
         [Output("certificate")]
         public Output<string> Certificate { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN of the Certificate Authority.
+        /// </summary>
         [Output("certificateAuthorityArn")]
         public Output<string> CertificateAuthorityArn { get; private set; } = null!;
 
+        /// <summary>
+        /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        /// </summary>
         [Output("certificateChain")]
         public Output<string?> CertificateChain { get; private set; } = null!;
 
@@ -67,12 +186,21 @@ namespace Pulumi.Aws.Acmpca
 
     public sealed class CertificateAuthorityCertificateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// PEM-encoded certificate for the Certificate Authority.
+        /// </summary>
         [Input("certificate", required: true)]
         public Input<string> Certificate { get; set; } = null!;
 
+        /// <summary>
+        /// ARN of the Certificate Authority.
+        /// </summary>
         [Input("certificateAuthorityArn", required: true)]
         public Input<string> CertificateAuthorityArn { get; set; } = null!;
 
+        /// <summary>
+        /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        /// </summary>
         [Input("certificateChain")]
         public Input<string>? CertificateChain { get; set; }
 
@@ -84,12 +212,21 @@ namespace Pulumi.Aws.Acmpca
 
     public sealed class CertificateAuthorityCertificateState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// PEM-encoded certificate for the Certificate Authority.
+        /// </summary>
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
 
+        /// <summary>
+        /// ARN of the Certificate Authority.
+        /// </summary>
         [Input("certificateAuthorityArn")]
         public Input<string>? CertificateAuthorityArn { get; set; }
 
+        /// <summary>
+        /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        /// </summary>
         [Input("certificateChain")]
         public Input<string>? CertificateChain { get; set; }
 

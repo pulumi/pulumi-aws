@@ -11,11 +11,55 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Elastic Container Registry Pull Through Cache Rule.
+//
+// More information about pull through cache rules, including the set of supported
+// upstream repositories, see [Using pull through cache rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecr.NewPullThroughCacheRule(ctx, "example", &ecr.PullThroughCacheRuleArgs{
+//				EcrRepositoryPrefix: pulumi.String("ecr-public"),
+//				UpstreamRegistryUrl: pulumi.String("public.ecr.aws"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Use the `ecr_repository_prefix` to import a Pull Through Cache Rule. For example
+//
+// ```sh
+//
+//	$ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
+//
+// ```
 type PullThroughCacheRule struct {
 	pulumi.CustomResourceState
 
+	// The repository name prefix to use when caching images from the source registry.
 	EcrRepositoryPrefix pulumi.StringOutput `pulumi:"ecrRepositoryPrefix"`
-	RegistryId          pulumi.StringOutput `pulumi:"registryId"`
+	// The registry ID where the repository was created.
+	RegistryId pulumi.StringOutput `pulumi:"registryId"`
+	// The registry URL of the upstream public registry to use as the source.
 	UpstreamRegistryUrl pulumi.StringOutput `pulumi:"upstreamRegistryUrl"`
 }
 
@@ -54,14 +98,20 @@ func GetPullThroughCacheRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PullThroughCacheRule resources.
 type pullThroughCacheRuleState struct {
+	// The repository name prefix to use when caching images from the source registry.
 	EcrRepositoryPrefix *string `pulumi:"ecrRepositoryPrefix"`
-	RegistryId          *string `pulumi:"registryId"`
+	// The registry ID where the repository was created.
+	RegistryId *string `pulumi:"registryId"`
+	// The registry URL of the upstream public registry to use as the source.
 	UpstreamRegistryUrl *string `pulumi:"upstreamRegistryUrl"`
 }
 
 type PullThroughCacheRuleState struct {
+	// The repository name prefix to use when caching images from the source registry.
 	EcrRepositoryPrefix pulumi.StringPtrInput
-	RegistryId          pulumi.StringPtrInput
+	// The registry ID where the repository was created.
+	RegistryId pulumi.StringPtrInput
+	// The registry URL of the upstream public registry to use as the source.
 	UpstreamRegistryUrl pulumi.StringPtrInput
 }
 
@@ -70,13 +120,17 @@ func (PullThroughCacheRuleState) ElementType() reflect.Type {
 }
 
 type pullThroughCacheRuleArgs struct {
+	// The repository name prefix to use when caching images from the source registry.
 	EcrRepositoryPrefix string `pulumi:"ecrRepositoryPrefix"`
+	// The registry URL of the upstream public registry to use as the source.
 	UpstreamRegistryUrl string `pulumi:"upstreamRegistryUrl"`
 }
 
 // The set of arguments for constructing a PullThroughCacheRule resource.
 type PullThroughCacheRuleArgs struct {
+	// The repository name prefix to use when caching images from the source registry.
 	EcrRepositoryPrefix pulumi.StringInput
+	// The registry URL of the upstream public registry to use as the source.
 	UpstreamRegistryUrl pulumi.StringInput
 }
 
@@ -167,14 +221,17 @@ func (o PullThroughCacheRuleOutput) ToPullThroughCacheRuleOutputWithContext(ctx 
 	return o
 }
 
+// The repository name prefix to use when caching images from the source registry.
 func (o PullThroughCacheRuleOutput) EcrRepositoryPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *PullThroughCacheRule) pulumi.StringOutput { return v.EcrRepositoryPrefix }).(pulumi.StringOutput)
 }
 
+// The registry ID where the repository was created.
 func (o PullThroughCacheRuleOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PullThroughCacheRule) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
 }
 
+// The registry URL of the upstream public registry to use as the source.
 func (o PullThroughCacheRuleOutput) UpstreamRegistryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *PullThroughCacheRule) pulumi.StringOutput { return v.UpstreamRegistryUrl }).(pulumi.StringOutput)
 }

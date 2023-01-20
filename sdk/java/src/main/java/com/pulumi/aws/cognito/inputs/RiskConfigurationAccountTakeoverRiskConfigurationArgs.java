@@ -14,16 +14,32 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationArgs extends
 
     public static final RiskConfigurationAccountTakeoverRiskConfigurationArgs Empty = new RiskConfigurationAccountTakeoverRiskConfigurationArgs();
 
+    /**
+     * Account takeover risk configuration actions. See details below.
+     * 
+     */
     @Import(name="actions", required=true)
     private Output<RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs> actions;
 
+    /**
+     * @return Account takeover risk configuration actions. See details below.
+     * 
+     */
     public Output<RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs> actions() {
         return this.actions;
     }
 
+    /**
+     * The notify configuration used to construct email notifications. See details below.
+     * 
+     */
     @Import(name="notifyConfiguration", required=true)
     private Output<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs> notifyConfiguration;
 
+    /**
+     * @return The notify configuration used to construct email notifications. See details below.
+     * 
+     */
     public Output<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs> notifyConfiguration() {
         return this.notifyConfiguration;
     }
@@ -53,20 +69,44 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationArgs extends
             $ = new RiskConfigurationAccountTakeoverRiskConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param actions Account takeover risk configuration actions. See details below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder actions(Output<RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs> actions) {
             $.actions = actions;
             return this;
         }
 
+        /**
+         * @param actions Account takeover risk configuration actions. See details below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder actions(RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs actions) {
             return actions(Output.of(actions));
         }
 
+        /**
+         * @param notifyConfiguration The notify configuration used to construct email notifications. See details below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder notifyConfiguration(Output<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs> notifyConfiguration) {
             $.notifyConfiguration = notifyConfiguration;
             return this;
         }
 
+        /**
+         * @param notifyConfiguration The notify configuration used to construct email notifications. See details below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder notifyConfiguration(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs notifyConfiguration) {
             return notifyConfiguration(Output.of(notifyConfiguration));
         }

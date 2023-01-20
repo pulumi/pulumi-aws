@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to get a list of AWS Cloudwatch Log Groups
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.cloudwatch.getLogGroups({
+ *     logGroupNamePrefix: "/MyImportantLogs",
+ * });
+ * ```
+ */
 export function getLogGroups(args?: GetLogGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetLogGroupsResult> {
     args = args || {};
 
@@ -17,6 +31,9 @@ export function getLogGroups(args?: GetLogGroupsArgs, opts?: pulumi.InvokeOption
  * A collection of arguments for invoking getLogGroups.
  */
 export interface GetLogGroupsArgs {
+    /**
+     * Group prefix of the Cloudwatch log groups to list
+     */
     logGroupNamePrefix?: string;
 }
 
@@ -24,14 +41,34 @@ export interface GetLogGroupsArgs {
  * A collection of values returned by getLogGroups.
  */
 export interface GetLogGroupsResult {
+    /**
+     * Set of ARNs of the Cloudwatch log groups
+     */
     readonly arns: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly logGroupNamePrefix?: string;
+    /**
+     * Set of names of the Cloudwatch log groups
+     */
     readonly logGroupNames: string[];
 }
+/**
+ * Use this data source to get a list of AWS Cloudwatch Log Groups
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.cloudwatch.getLogGroups({
+ *     logGroupNamePrefix: "/MyImportantLogs",
+ * });
+ * ```
+ */
 export function getLogGroupsOutput(args?: GetLogGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogGroupsResult> {
     return pulumi.output(args).apply((a: any) => getLogGroups(a, opts))
 }
@@ -40,5 +77,8 @@ export function getLogGroupsOutput(args?: GetLogGroupsOutputArgs, opts?: pulumi.
  * A collection of arguments for invoking getLogGroups.
  */
 export interface GetLogGroupsOutputArgs {
+    /**
+     * Group prefix of the Cloudwatch log groups to list
+     */
     logGroupNamePrefix?: pulumi.Input<string>;
 }

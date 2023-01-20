@@ -15,17 +15,91 @@ import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an AWS Backup Region Settings resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.backup.RegionSettings;
+ * import com.pulumi.aws.backup.RegionSettingsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new RegionSettings(&#34;test&#34;, RegionSettingsArgs.builder()        
+ *             .resourceTypeManagementPreference(Map.ofEntries(
+ *                 Map.entry(&#34;DynamoDB&#34;, true),
+ *                 Map.entry(&#34;EFS&#34;, true)
+ *             ))
+ *             .resourceTypeOptInPreference(Map.ofEntries(
+ *                 Map.entry(&#34;Aurora&#34;, true),
+ *                 Map.entry(&#34;DocumentDB&#34;, true),
+ *                 Map.entry(&#34;DynamoDB&#34;, true),
+ *                 Map.entry(&#34;EBS&#34;, true),
+ *                 Map.entry(&#34;EC2&#34;, true),
+ *                 Map.entry(&#34;EFS&#34;, true),
+ *                 Map.entry(&#34;FSx&#34;, true),
+ *                 Map.entry(&#34;Neptune&#34;, true),
+ *                 Map.entry(&#34;RDS&#34;, true),
+ *                 Map.entry(&#34;Storage Gateway&#34;, true),
+ *                 Map.entry(&#34;VirtualMachine&#34;, true)
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Backup Region Settings can be imported using the `region`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
+ * ```
+ * 
+ */
 @ResourceType(type="aws:backup/regionSettings:RegionSettings")
 public class RegionSettings extends com.pulumi.resources.CustomResource {
+    /**
+     * A map of services along with the management preferences for the Region.
+     * 
+     */
     @Export(name="resourceTypeManagementPreference", refs={Map.class,String.class,Boolean.class}, tree="[0,1,2]")
     private Output<Map<String,Boolean>> resourceTypeManagementPreference;
 
+    /**
+     * @return A map of services along with the management preferences for the Region.
+     * 
+     */
     public Output<Map<String,Boolean>> resourceTypeManagementPreference() {
         return this.resourceTypeManagementPreference;
     }
+    /**
+     * A map of services along with the opt-in preferences for the Region.
+     * 
+     */
     @Export(name="resourceTypeOptInPreference", refs={Map.class,String.class,Boolean.class}, tree="[0,1,2]")
     private Output<Map<String,Boolean>> resourceTypeOptInPreference;
 
+    /**
+     * @return A map of services along with the opt-in preferences for the Region.
+     * 
+     */
     public Output<Map<String,Boolean>> resourceTypeOptInPreference() {
         return this.resourceTypeOptInPreference;
     }

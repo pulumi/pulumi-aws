@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolAccountRecoverySettingRecoveryMechanism
     {
+        /// <summary>
+        /// Name of the user pool.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Positive integer specifying priority of a method with 1 being the highest priority.
+        /// </summary>
         public readonly int Priority;
 
         [OutputConstructor]

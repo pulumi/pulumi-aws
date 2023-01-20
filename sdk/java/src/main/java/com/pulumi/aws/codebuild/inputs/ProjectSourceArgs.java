@@ -21,6 +21,8 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProjectSourceArgs Empty = new ProjectSourceArgs();
 
     /**
+     * Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console&#39;s use only. Use the `aws.codebuild.SourceCredential` resource instead. Auth blocks are documented below.
+     * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
      * 
@@ -30,6 +32,8 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<ProjectSourceAuthArgs> auth;
 
     /**
+     * @return Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console&#39;s use only. Use the `aws.codebuild.SourceCredential` resource instead. Auth blocks are documented below.
+     * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
      * 
@@ -39,58 +43,122 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.auth);
     }
 
+    /**
+     * Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
+     * 
+     */
     @Import(name="buildStatusConfig")
     private @Nullable Output<ProjectSourceBuildStatusConfigArgs> buildStatusConfig;
 
+    /**
+     * @return Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
+     * 
+     */
     public Optional<Output<ProjectSourceBuildStatusConfigArgs>> buildStatusConfig() {
         return Optional.ofNullable(this.buildStatusConfig);
     }
 
+    /**
+     * Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`.
+     * 
+     */
     @Import(name="buildspec")
     private @Nullable Output<String> buildspec;
 
+    /**
+     * @return Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`.
+     * 
+     */
     public Optional<Output<String>> buildspec() {
         return Optional.ofNullable(this.buildspec);
     }
 
+    /**
+     * Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
+     * 
+     */
     @Import(name="gitCloneDepth")
     private @Nullable Output<Integer> gitCloneDepth;
 
+    /**
+     * @return Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
+     * 
+     */
     public Optional<Output<Integer>> gitCloneDepth() {
         return Optional.ofNullable(this.gitCloneDepth);
     }
 
+    /**
+     * Configuration block. Detailed below.
+     * 
+     */
     @Import(name="gitSubmodulesConfig")
     private @Nullable Output<ProjectSourceGitSubmodulesConfigArgs> gitSubmodulesConfig;
 
+    /**
+     * @return Configuration block. Detailed below.
+     * 
+     */
     public Optional<Output<ProjectSourceGitSubmodulesConfigArgs>> gitSubmodulesConfig() {
         return Optional.ofNullable(this.gitSubmodulesConfig);
     }
 
+    /**
+     * Ignore SSL warnings when connecting to source control.
+     * 
+     */
     @Import(name="insecureSsl")
     private @Nullable Output<Boolean> insecureSsl;
 
+    /**
+     * @return Ignore SSL warnings when connecting to source control.
+     * 
+     */
     public Optional<Output<Boolean>> insecureSsl() {
         return Optional.ofNullable(this.insecureSsl);
     }
 
+    /**
+     * Location of the source code from git or s3.
+     * 
+     */
     @Import(name="location")
     private @Nullable Output<String> location;
 
+    /**
+     * @return Location of the source code from git or s3.
+     * 
+     */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
     }
 
+    /**
+     * Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+     * 
+     */
     @Import(name="reportBuildStatus")
     private @Nullable Output<Boolean> reportBuildStatus;
 
+    /**
+     * @return Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+     * 
+     */
     public Optional<Output<Boolean>> reportBuildStatus() {
         return Optional.ofNullable(this.reportBuildStatus);
     }
 
+    /**
+     * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -128,6 +196,8 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param auth Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console&#39;s use only. Use the `aws.codebuild.SourceCredential` resource instead. Auth blocks are documented below.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -141,6 +211,8 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param auth Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console&#39;s use only. Use the `aws.codebuild.SourceCredential` resource instead. Auth blocks are documented below.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -152,74 +224,170 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
             return auth(Output.of(auth));
         }
 
+        /**
+         * @param buildStatusConfig Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder buildStatusConfig(@Nullable Output<ProjectSourceBuildStatusConfigArgs> buildStatusConfig) {
             $.buildStatusConfig = buildStatusConfig;
             return this;
         }
 
+        /**
+         * @param buildStatusConfig Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder buildStatusConfig(ProjectSourceBuildStatusConfigArgs buildStatusConfig) {
             return buildStatusConfig(Output.of(buildStatusConfig));
         }
 
+        /**
+         * @param buildspec Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder buildspec(@Nullable Output<String> buildspec) {
             $.buildspec = buildspec;
             return this;
         }
 
+        /**
+         * @param buildspec Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder buildspec(String buildspec) {
             return buildspec(Output.of(buildspec));
         }
 
+        /**
+         * @param gitCloneDepth Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder gitCloneDepth(@Nullable Output<Integer> gitCloneDepth) {
             $.gitCloneDepth = gitCloneDepth;
             return this;
         }
 
+        /**
+         * @param gitCloneDepth Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder gitCloneDepth(Integer gitCloneDepth) {
             return gitCloneDepth(Output.of(gitCloneDepth));
         }
 
+        /**
+         * @param gitSubmodulesConfig Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder gitSubmodulesConfig(@Nullable Output<ProjectSourceGitSubmodulesConfigArgs> gitSubmodulesConfig) {
             $.gitSubmodulesConfig = gitSubmodulesConfig;
             return this;
         }
 
+        /**
+         * @param gitSubmodulesConfig Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder gitSubmodulesConfig(ProjectSourceGitSubmodulesConfigArgs gitSubmodulesConfig) {
             return gitSubmodulesConfig(Output.of(gitSubmodulesConfig));
         }
 
+        /**
+         * @param insecureSsl Ignore SSL warnings when connecting to source control.
+         * 
+         * @return builder
+         * 
+         */
         public Builder insecureSsl(@Nullable Output<Boolean> insecureSsl) {
             $.insecureSsl = insecureSsl;
             return this;
         }
 
+        /**
+         * @param insecureSsl Ignore SSL warnings when connecting to source control.
+         * 
+         * @return builder
+         * 
+         */
         public Builder insecureSsl(Boolean insecureSsl) {
             return insecureSsl(Output.of(insecureSsl));
         }
 
+        /**
+         * @param location Location of the source code from git or s3.
+         * 
+         * @return builder
+         * 
+         */
         public Builder location(@Nullable Output<String> location) {
             $.location = location;
             return this;
         }
 
+        /**
+         * @param location Location of the source code from git or s3.
+         * 
+         * @return builder
+         * 
+         */
         public Builder location(String location) {
             return location(Output.of(location));
         }
 
+        /**
+         * @param reportBuildStatus Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder reportBuildStatus(@Nullable Output<Boolean> reportBuildStatus) {
             $.reportBuildStatus = reportBuildStatus;
             return this;
         }
 
+        /**
+         * @param reportBuildStatus Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder reportBuildStatus(Boolean reportBuildStatus) {
             return reportBuildStatus(Output.of(reportBuildStatus));
         }
 
+        /**
+         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

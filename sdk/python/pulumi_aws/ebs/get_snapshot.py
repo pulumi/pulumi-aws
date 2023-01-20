@@ -88,21 +88,33 @@ class GetSnapshotResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the EBS Snapshot.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="dataEncryptionKeyId")
     def data_encryption_key_id(self) -> str:
+        """
+        The data encryption key identifier for the snapshot.
+        """
         return pulumi.get(self, "data_encryption_key_id")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description for the snapshot
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def encrypted(self) -> bool:
+        """
+        Whether the snapshot is encrypted.
+        """
         return pulumi.get(self, "encrypted")
 
     @property
@@ -121,6 +133,9 @@ class GetSnapshotResult:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
+        """
+        ARN for the KMS encryption key.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
@@ -131,16 +146,25 @@ class GetSnapshotResult:
     @property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> str:
+        """
+        ARN of the Outpost on which the snapshot is stored.
+        """
         return pulumi.get(self, "outpost_arn")
 
     @property
     @pulumi.getter(name="ownerAlias")
     def owner_alias(self) -> str:
+        """
+        Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
+        """
         return pulumi.get(self, "owner_alias")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
+        """
+        AWS account ID of the EBS snapshot owner.
+        """
         return pulumi.get(self, "owner_id")
 
     @property
@@ -156,6 +180,9 @@ class GetSnapshotResult:
     @property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> str:
+        """
+        Snapshot ID (e.g., snap-59fcb34e).
+        """
         return pulumi.get(self, "snapshot_id")
 
     @property
@@ -166,26 +193,41 @@ class GetSnapshotResult:
     @property
     @pulumi.getter
     def state(self) -> str:
+        """
+        Snapshot state.
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="storageTier")
     def storage_tier(self) -> str:
+        """
+        Storage tier in which the snapshot is stored.
+        """
         return pulumi.get(self, "storage_tier")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Map of tags for the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> str:
+        """
+        Volume ID (e.g., vol-59fcb34e).
+        """
         return pulumi.get(self, "volume_id")
 
     @property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> int:
+        """
+        Size of the drive in GiBs.
+        """
         return pulumi.get(self, "volume_size")
 
 
@@ -225,7 +267,37 @@ def get_snapshot(filters: Optional[Sequence[pulumi.InputType['GetSnapshotFilterA
                  tags: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    ebs_volume = aws.ebs.get_snapshot(filters=[
+            aws.ebs.GetSnapshotFilterArgs(
+                name="volume-size",
+                values=["40"],
+            ),
+            aws.ebs.GetSnapshotFilterArgs(
+                name="tag:Name",
+                values=["Example"],
+            ),
+        ],
+        most_recent=True,
+        owners=["self"])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetSnapshotFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+           several valid keys, for a full reference, check out
+           [describe-snapshots in the AWS CLI reference][1].
+    :param bool most_recent: If more than one result is returned, use the most recent snapshot.
+    :param Sequence[str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+    :param Sequence[str] restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
+    :param Sequence[str] snapshot_ids: Returns information on a specific snapshot_id.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -269,6 +341,36 @@ def get_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    ebs_volume = aws.ebs.get_snapshot(filters=[
+            aws.ebs.GetSnapshotFilterArgs(
+                name="volume-size",
+                values=["40"],
+            ),
+            aws.ebs.GetSnapshotFilterArgs(
+                name="tag:Name",
+                values=["Example"],
+            ),
+        ],
+        most_recent=True,
+        owners=["self"])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetSnapshotFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+           several valid keys, for a full reference, check out
+           [describe-snapshots in the AWS CLI reference][1].
+    :param bool most_recent: If more than one result is returned, use the most recent snapshot.
+    :param Sequence[str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+    :param Sequence[str] restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
+    :param Sequence[str] snapshot_ids: Returns information on a specific snapshot_id.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     ...

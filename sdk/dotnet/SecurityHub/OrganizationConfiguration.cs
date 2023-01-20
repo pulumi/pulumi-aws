@@ -9,9 +9,64 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecurityHub
 {
+    /// <summary>
+    /// Manages the Security Hub Organization Configuration.
+    /// 
+    /// &gt; **NOTE:** This resource requires an `aws.securityhub.OrganizationAdminAccount` to be configured (not necessarily with this provider). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation
+    /// 
+    /// &gt; **NOTE:** This is an advanced resource. This provider will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the configuration.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
+    ///     {
+    ///         AwsServiceAccessPrincipals = new[]
+    ///         {
+    ///             "securityhub.amazonaws.com",
+    ///         },
+    ///         FeatureSet = "ALL",
+    ///     });
+    /// 
+    ///     var exampleOrganizationAdminAccount = new Aws.SecurityHub.OrganizationAdminAccount("exampleOrganizationAdminAccount", new()
+    ///     {
+    ///         AdminAccountId = "123456789012",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleOrganization,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleOrganizationConfiguration = new Aws.SecurityHub.OrganizationConfiguration("exampleOrganizationConfiguration", new()
+    ///     {
+    ///         AutoEnable = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:securityhub/organizationConfiguration:OrganizationConfiguration")]
     public partial class OrganizationConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Whether to automatically enable Security Hub for new accounts in the organization.
+        /// </summary>
         [Output("autoEnable")]
         public Output<bool> AutoEnable { get; private set; } = null!;
 
@@ -61,6 +116,9 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class OrganizationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to automatically enable Security Hub for new accounts in the organization.
+        /// </summary>
         [Input("autoEnable", required: true)]
         public Input<bool> AutoEnable { get; set; } = null!;
 
@@ -72,6 +130,9 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class OrganizationConfigurationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to automatically enable Security Hub for new accounts in the organization.
+        /// </summary>
         [Input("autoEnable")]
         public Input<bool>? AutoEnable { get; set; }
 

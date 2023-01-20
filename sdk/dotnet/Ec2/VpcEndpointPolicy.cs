@@ -9,12 +9,84 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
+    /// <summary>
+    /// Provides a VPC Endpoint Policy resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleVpcEndpointService = Aws.Ec2.GetVpcEndpointService.Invoke(new()
+    ///     {
+    ///         Service = "dynamodb",
+    ///     });
+    /// 
+    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("exampleVpcEndpoint", new()
+    ///     {
+    ///         ServiceName = exampleVpcEndpointService.Apply(getVpcEndpointServiceResult =&gt; getVpcEndpointServiceResult.ServiceName),
+    ///         VpcId = exampleVpc.Id,
+    ///     });
+    /// 
+    ///     var exampleVpcEndpointPolicy = new Aws.Ec2.VpcEndpointPolicy("exampleVpcEndpointPolicy", new()
+    ///     {
+    ///         VpcEndpointId = exampleVpcEndpoint.Id,
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Sid"] = "AllowAll",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = "*",
+    ///                     },
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "dynamodb:*",
+    ///                     },
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// VPC Endpoint Policies can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy example vpce-3ecf2a57
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy")]
     public partial class VpcEndpointPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
+        /// <summary>
+        /// The VPC Endpoint ID.
+        /// </summary>
         [Output("vpcEndpointId")]
         public Output<string> VpcEndpointId { get; private set; } = null!;
 
@@ -64,9 +136,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcEndpointPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
+        /// <summary>
+        /// The VPC Endpoint ID.
+        /// </summary>
         [Input("vpcEndpointId", required: true)]
         public Input<string> VpcEndpointId { get; set; } = null!;
 
@@ -78,9 +156,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcEndpointPolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
+        /// <summary>
+        /// The VPC Endpoint ID.
+        /// </summary>
         [Input("vpcEndpointId")]
         public Input<string>? VpcEndpointId { get; set; }
 

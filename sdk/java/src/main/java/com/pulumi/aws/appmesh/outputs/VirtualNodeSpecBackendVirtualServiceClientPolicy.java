@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualNodeSpecBackendVirtualServiceClientPolicy {
+    /**
+     * @return Transport Layer Security (TLS) client policy.
+     * 
+     */
     private @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTls tls;
 
     private VirtualNodeSpecBackendVirtualServiceClientPolicy() {}
+    /**
+     * @return Transport Layer Security (TLS) client policy.
+     * 
+     */
     public Optional<VirtualNodeSpecBackendVirtualServiceClientPolicyTls> tls() {
         return Optional.ofNullable(this.tls);
     }

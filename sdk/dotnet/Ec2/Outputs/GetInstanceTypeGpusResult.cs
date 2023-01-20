@@ -15,6 +15,9 @@ namespace Pulumi.Aws.Ec2.Outputs
     {
         public readonly int Count;
         public readonly string Manufacturer;
+        /// <summary>
+        /// Size of the instance memory, in MiB.
+        /// </summary>
         public readonly int MemorySize;
         public readonly string Name;
 

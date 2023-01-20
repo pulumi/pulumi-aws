@@ -9,24 +9,71 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DataExchange
 {
+    /// <summary>
+    /// Provides a resource to manage AWS Data Exchange DataSets.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.DataExchange.DataSet("example", new()
+    ///     {
+    ///         AssetType = "S3_SNAPSHOT",
+    ///         Description = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// DataExchange DataSets can be imported by their arn
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:dataexchange/dataSet:DataSet example arn:aws:dataexchange:us-west-2:123456789012:data-sets/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:dataexchange/dataSet:DataSet")]
     public partial class DataSet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name of this data set.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+        /// </summary>
         [Output("assetType")]
         public Output<string> AssetType { get; private set; } = null!;
 
+        /// <summary>
+        /// A description for the data set.
+        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the data set.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -76,17 +123,30 @@ namespace Pulumi.Aws.DataExchange
 
     public sealed class DataSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+        /// </summary>
         [Input("assetType", required: true)]
         public Input<string> AssetType { get; set; } = null!;
 
+        /// <summary>
+        /// A description for the data set.
+        /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the data set.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -101,20 +161,36 @@ namespace Pulumi.Aws.DataExchange
 
     public sealed class DataSetState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name of this data set.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+        /// </summary>
         [Input("assetType")]
         public Input<string>? AssetType { get; set; }
 
+        /// <summary>
+        /// A description for the data set.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the data set.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -123,6 +199,10 @@ namespace Pulumi.Aws.DataExchange
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

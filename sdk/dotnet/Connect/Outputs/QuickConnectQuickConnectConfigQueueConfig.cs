@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Connect.Outputs
     [OutputType]
     public sealed class QuickConnectQuickConnectConfigQueueConfig
     {
+        /// <summary>
+        /// Specifies the identifier of the contact flow.
+        /// </summary>
         public readonly string ContactFlowId;
+        /// <summary>
+        /// Specifies the identifier for the queue.
+        /// </summary>
         public readonly string QueueId;
 
         [OutputConstructor]

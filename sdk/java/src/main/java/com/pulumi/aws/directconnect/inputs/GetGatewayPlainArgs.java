@@ -12,9 +12,17 @@ public final class GetGatewayPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetGatewayPlainArgs Empty = new GetGatewayPlainArgs();
 
+    /**
+     * Name of the gateway to retrieve.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return Name of the gateway to retrieve.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -43,6 +51,12 @@ public final class GetGatewayPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetGatewayPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the gateway to retrieve.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;

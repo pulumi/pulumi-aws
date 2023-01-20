@@ -13,9 +13,17 @@ public final class GetRateBasedModArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRateBasedModArgs Empty = new GetRateBasedModArgs();
 
+    /**
+     * Name of the WAF Regional rate based rule.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the WAF Regional rate based rule.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -44,11 +52,23 @@ public final class GetRateBasedModArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRateBasedModArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the WAF Regional rate based rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the WAF Regional rate based rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

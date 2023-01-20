@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GlobalTableReplica {
+    /**
+     * @return AWS region name of replica DynamoDB TableE.g., `us-east-1`
+     * 
+     */
     private String regionName;
 
     private GlobalTableReplica() {}
+    /**
+     * @return AWS region name of replica DynamoDB TableE.g., `us-east-1`
+     * 
+     */
     public String regionName() {
         return this.regionName;
     }

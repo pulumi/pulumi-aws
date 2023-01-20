@@ -4,6 +4,21 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages Service Catalog AWS Organizations Access, a portfolio sharing feature through AWS Organizations. This allows Service Catalog to receive updates on your organization in order to sync your shares with the current structure. This resource will prompt AWS to set `organizations:EnableAWSServiceAccess` on your behalf so that your shares can be in sync with any changes in your AWS Organizations structure.
+ *
+ * > **NOTE:** This resource can only be used by the management account in the organization. In other words, a delegated administrator is not authorized to use the resource.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.servicecatalog.OrganizationsAccess("example", {enabled: true});
+ * ```
+ */
 export class OrganizationsAccess extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationsAccess resource's state with the given name, ID, and optional extra
@@ -32,6 +47,9 @@ export class OrganizationsAccess extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationsAccess.__pulumiType;
     }
 
+    /**
+     * Whether to enable AWS Organizations access.
+     */
     public readonly enabled!: pulumi.Output<boolean>;
 
     /**
@@ -64,6 +82,9 @@ export class OrganizationsAccess extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrganizationsAccess resources.
  */
 export interface OrganizationsAccessState {
+    /**
+     * Whether to enable AWS Organizations access.
+     */
     enabled?: pulumi.Input<boolean>;
 }
 
@@ -71,5 +92,8 @@ export interface OrganizationsAccessState {
  * The set of arguments for constructing a OrganizationsAccess resource.
  */
 export interface OrganizationsAccessArgs {
+    /**
+     * Whether to enable AWS Organizations access.
+     */
     enabled: pulumi.Input<boolean>;
 }

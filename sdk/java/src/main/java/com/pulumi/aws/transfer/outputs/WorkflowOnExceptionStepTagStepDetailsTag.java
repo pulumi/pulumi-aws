@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class WorkflowOnExceptionStepTagStepDetailsTag {
+    /**
+     * @return The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+     * 
+     */
     private String key;
+    /**
+     * @return The value that corresponds to the key.
+     * 
+     */
     private String value;
 
     private WorkflowOnExceptionStepTagStepDetailsTag() {}
+    /**
+     * @return The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return The value that corresponds to the key.
+     * 
+     */
     public String value() {
         return this.value;
     }

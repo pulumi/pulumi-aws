@@ -13,9 +13,17 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs();
 
+    /**
+     * The name of the password field.
+     * 
+     */
     @Import(name="identifier", required=true)
     private Output<String> identifier;
 
+    /**
+     * @return The name of the password field.
+     * 
+     */
     public Output<String> identifier() {
         return this.identifier;
     }
@@ -44,11 +52,23 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param identifier The name of the password field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identifier(Output<String> identifier) {
             $.identifier = identifier;
             return this;
         }
 
+        /**
+         * @param identifier The name of the password field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identifier(String identifier) {
             return identifier(Output.of(identifier));
         }

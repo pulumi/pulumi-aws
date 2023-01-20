@@ -11,14 +11,50 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Amazon Managed Grafana workspace API Key resource.
+//
+// ## Example Usage
+// ### Basic configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/grafana"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := grafana.NewWorkspaceApiKey(ctx, "key", &grafana.WorkspaceApiKeyArgs{
+//				KeyName:       pulumi.String("test-key"),
+//				KeyRole:       pulumi.String("VIEWER"),
+//				SecondsToLive: pulumi.Int(3600),
+//				WorkspaceId:   pulumi.Any(aws_grafana_workspace.Test.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type WorkspaceApiKey struct {
 	pulumi.CustomResourceState
 
-	Key           pulumi.StringOutput `pulumi:"key"`
-	KeyName       pulumi.StringOutput `pulumi:"keyName"`
-	KeyRole       pulumi.StringOutput `pulumi:"keyRole"`
-	SecondsToLive pulumi.IntOutput    `pulumi:"secondsToLive"`
-	WorkspaceId   pulumi.StringOutput `pulumi:"workspaceId"`
+	// The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
+	Key pulumi.StringOutput `pulumi:"key"`
+	// Specifies the name of the API key. Key names must be unique to the workspace.
+	KeyName pulumi.StringOutput `pulumi:"keyName"`
+	// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+	KeyRole pulumi.StringOutput `pulumi:"keyRole"`
+	// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
+	SecondsToLive pulumi.IntOutput `pulumi:"secondsToLive"`
+	// The ID of the workspace that the API key is valid for.
+	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
 // NewWorkspaceApiKey registers a new resource with the given unique name, arguments, and options.
@@ -62,19 +98,29 @@ func GetWorkspaceApiKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkspaceApiKey resources.
 type workspaceApiKeyState struct {
-	Key           *string `pulumi:"key"`
-	KeyName       *string `pulumi:"keyName"`
-	KeyRole       *string `pulumi:"keyRole"`
-	SecondsToLive *int    `pulumi:"secondsToLive"`
-	WorkspaceId   *string `pulumi:"workspaceId"`
+	// The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
+	Key *string `pulumi:"key"`
+	// Specifies the name of the API key. Key names must be unique to the workspace.
+	KeyName *string `pulumi:"keyName"`
+	// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+	KeyRole *string `pulumi:"keyRole"`
+	// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
+	SecondsToLive *int `pulumi:"secondsToLive"`
+	// The ID of the workspace that the API key is valid for.
+	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type WorkspaceApiKeyState struct {
-	Key           pulumi.StringPtrInput
-	KeyName       pulumi.StringPtrInput
-	KeyRole       pulumi.StringPtrInput
+	// The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
+	Key pulumi.StringPtrInput
+	// Specifies the name of the API key. Key names must be unique to the workspace.
+	KeyName pulumi.StringPtrInput
+	// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+	KeyRole pulumi.StringPtrInput
+	// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
 	SecondsToLive pulumi.IntPtrInput
-	WorkspaceId   pulumi.StringPtrInput
+	// The ID of the workspace that the API key is valid for.
+	WorkspaceId pulumi.StringPtrInput
 }
 
 func (WorkspaceApiKeyState) ElementType() reflect.Type {
@@ -82,18 +128,26 @@ func (WorkspaceApiKeyState) ElementType() reflect.Type {
 }
 
 type workspaceApiKeyArgs struct {
-	KeyName       string `pulumi:"keyName"`
-	KeyRole       string `pulumi:"keyRole"`
-	SecondsToLive int    `pulumi:"secondsToLive"`
-	WorkspaceId   string `pulumi:"workspaceId"`
+	// Specifies the name of the API key. Key names must be unique to the workspace.
+	KeyName string `pulumi:"keyName"`
+	// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+	KeyRole string `pulumi:"keyRole"`
+	// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
+	SecondsToLive int `pulumi:"secondsToLive"`
+	// The ID of the workspace that the API key is valid for.
+	WorkspaceId string `pulumi:"workspaceId"`
 }
 
 // The set of arguments for constructing a WorkspaceApiKey resource.
 type WorkspaceApiKeyArgs struct {
-	KeyName       pulumi.StringInput
-	KeyRole       pulumi.StringInput
+	// Specifies the name of the API key. Key names must be unique to the workspace.
+	KeyName pulumi.StringInput
+	// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+	KeyRole pulumi.StringInput
+	// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
 	SecondsToLive pulumi.IntInput
-	WorkspaceId   pulumi.StringInput
+	// The ID of the workspace that the API key is valid for.
+	WorkspaceId pulumi.StringInput
 }
 
 func (WorkspaceApiKeyArgs) ElementType() reflect.Type {
@@ -183,22 +237,27 @@ func (o WorkspaceApiKeyOutput) ToWorkspaceApiKeyOutputWithContext(ctx context.Co
 	return o
 }
 
+// The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
 func (o WorkspaceApiKeyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceApiKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
+// Specifies the name of the API key. Key names must be unique to the workspace.
 func (o WorkspaceApiKeyOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceApiKey) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
 }
 
+// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
 func (o WorkspaceApiKeyOutput) KeyRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceApiKey) pulumi.StringOutput { return v.KeyRole }).(pulumi.StringOutput)
 }
 
+// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
 func (o WorkspaceApiKeyOutput) SecondsToLive() pulumi.IntOutput {
 	return o.ApplyT(func(v *WorkspaceApiKey) pulumi.IntOutput { return v.SecondsToLive }).(pulumi.IntOutput)
 }
 
+// The ID of the workspace that the API key is valid for.
 func (o WorkspaceApiKeyOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceApiKey) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

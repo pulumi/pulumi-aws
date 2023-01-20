@@ -15,30 +15,62 @@ public final class DomainPermissionsArgs extends com.pulumi.resources.ResourceAr
 
     public static final DomainPermissionsArgs Empty = new DomainPermissionsArgs();
 
+    /**
+     * The name of the domain on which to set the resource policy.
+     * 
+     */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
+    /**
+     * @return The name of the domain on which to set the resource policy.
+     * 
+     */
     public Output<String> domain() {
         return this.domain;
     }
 
+    /**
+     * The account number of the AWS account that owns the domain.
+     * 
+     */
     @Import(name="domainOwner")
     private @Nullable Output<String> domainOwner;
 
+    /**
+     * @return The account number of the AWS account that owns the domain.
+     * 
+     */
     public Optional<Output<String>> domainOwner() {
         return Optional.ofNullable(this.domainOwner);
     }
 
+    /**
+     * A JSON policy string to be set as the access control resource policy on the provided domain.
+     * 
+     */
     @Import(name="policyDocument", required=true)
     private Output<String> policyDocument;
 
+    /**
+     * @return A JSON policy string to be set as the access control resource policy on the provided domain.
+     * 
+     */
     public Output<String> policyDocument() {
         return this.policyDocument;
     }
 
+    /**
+     * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain&#39;s resource policy.
+     * 
+     */
     @Import(name="policyRevision")
     private @Nullable Output<String> policyRevision;
 
+    /**
+     * @return The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain&#39;s resource policy.
+     * 
+     */
     public Optional<Output<String>> policyRevision() {
         return Optional.ofNullable(this.policyRevision);
     }
@@ -70,38 +102,86 @@ public final class DomainPermissionsArgs extends com.pulumi.resources.ResourceAr
             $ = new DomainPermissionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domain The name of the domain on which to set the resource policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domain(Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
+        /**
+         * @param domain The name of the domain on which to set the resource policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }
 
+        /**
+         * @param domainOwner The account number of the AWS account that owns the domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainOwner(@Nullable Output<String> domainOwner) {
             $.domainOwner = domainOwner;
             return this;
         }
 
+        /**
+         * @param domainOwner The account number of the AWS account that owns the domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainOwner(String domainOwner) {
             return domainOwner(Output.of(domainOwner));
         }
 
+        /**
+         * @param policyDocument A JSON policy string to be set as the access control resource policy on the provided domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyDocument(Output<String> policyDocument) {
             $.policyDocument = policyDocument;
             return this;
         }
 
+        /**
+         * @param policyDocument A JSON policy string to be set as the access control resource policy on the provided domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyDocument(String policyDocument) {
             return policyDocument(Output.of(policyDocument));
         }
 
+        /**
+         * @param policyRevision The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain&#39;s resource policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyRevision(@Nullable Output<String> policyRevision) {
             $.policyRevision = policyRevision;
             return this;
         }
 
+        /**
+         * @param policyRevision The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain&#39;s resource policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyRevision(String policyRevision) {
             return policyRevision(Output.of(policyRevision));
         }

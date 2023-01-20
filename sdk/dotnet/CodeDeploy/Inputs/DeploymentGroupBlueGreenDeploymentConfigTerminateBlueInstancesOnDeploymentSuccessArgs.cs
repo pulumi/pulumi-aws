@@ -12,9 +12,15 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
 
     public sealed class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action to take on instances in the original environment after a successful blue/green deployment.
+        /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
+        /// <summary>
+        /// The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
+        /// </summary>
         [Input("terminationWaitTimeInMinutes")]
         public Input<int>? TerminationWaitTimeInMinutes { get; set; }
 

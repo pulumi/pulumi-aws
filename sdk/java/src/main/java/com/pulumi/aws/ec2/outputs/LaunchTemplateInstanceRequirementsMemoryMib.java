@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchTemplateInstanceRequirementsMemoryMib {
+    /**
+     * @return Maximum. Set to `0` to exclude instance types with accelerators.
+     * 
+     */
     private @Nullable Integer max;
+    /**
+     * @return Minimum.
+     * 
+     */
     private Integer min;
 
     private LaunchTemplateInstanceRequirementsMemoryMib() {}
+    /**
+     * @return Maximum. Set to `0` to exclude instance types with accelerators.
+     * 
+     */
     public Optional<Integer> max() {
         return Optional.ofNullable(this.max);
     }
+    /**
+     * @return Minimum.
+     * 
+     */
     public Integer min() {
         return this.min;
     }

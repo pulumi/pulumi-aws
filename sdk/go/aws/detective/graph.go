@@ -10,13 +10,55 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to manage an [AWS Detective Graph](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateGraph.html). As an AWS account may own only one Detective graph per region, provisioning multiple Detective graphs requires a separate provider configuration for each graph.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/detective"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := detective.NewGraph(ctx, "example", &detective.GraphArgs{
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-detective-graph"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_detective_graph` can be imported using the ARN, e.g.
+//
+// ```sh
+//
+//	$ pulumi import aws:detective/graph:Graph example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
+//
+// ```
 type Graph struct {
 	pulumi.CustomResourceState
 
-	CreatedTime pulumi.StringOutput    `pulumi:"createdTime"`
-	GraphArn    pulumi.StringOutput    `pulumi:"graphArn"`
-	Tags        pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// ARN of the Detective Graph.
+	GraphArn pulumi.StringOutput `pulumi:"graphArn"`
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewGraph registers a new resource with the given unique name, arguments, and options.
@@ -48,17 +90,23 @@ func GetGraph(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Graph resources.
 type graphState struct {
-	CreatedTime *string           `pulumi:"createdTime"`
-	GraphArn    *string           `pulumi:"graphArn"`
-	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
+	// Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
+	CreatedTime *string `pulumi:"createdTime"`
+	// ARN of the Detective Graph.
+	GraphArn *string `pulumi:"graphArn"`
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type GraphState struct {
+	// Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
 	CreatedTime pulumi.StringPtrInput
-	GraphArn    pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// ARN of the Detective Graph.
+	GraphArn pulumi.StringPtrInput
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (GraphState) ElementType() reflect.Type {
@@ -66,11 +114,13 @@ func (GraphState) ElementType() reflect.Type {
 }
 
 type graphArgs struct {
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Graph resource.
 type GraphArgs struct {
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -161,14 +211,17 @@ func (o GraphOutput) ToGraphOutputWithContext(ctx context.Context) GraphOutput {
 	return o
 }
 
+// Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
 func (o GraphOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Graph) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
+// ARN of the Detective Graph.
 func (o GraphOutput) GraphArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Graph) pulumi.StringOutput { return v.GraphArn }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o GraphOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Graph) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

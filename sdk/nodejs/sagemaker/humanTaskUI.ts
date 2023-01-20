@@ -7,6 +7,32 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a SageMaker Human Task UI resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ *
+ * const example = new aws.sagemaker.HumanTaskUI("example", {
+ *     humanTaskUiName: "example",
+ *     uiTemplate: {
+ *         content: fs.readFileSync("sagemaker-human-task-ui-template.html"),
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * SageMaker Human Task UIs can be imported using the `human_task_ui_name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
+ * ```
+ */
 export class HumanTaskUI extends pulumi.CustomResource {
     /**
      * Get an existing HumanTaskUI resource's state with the given name, ID, and optional extra
@@ -35,10 +61,25 @@ export class HumanTaskUI extends pulumi.CustomResource {
         return obj['__pulumiType'] === HumanTaskUI.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name of the Human Task UI.
+     */
     public readonly humanTaskUiName!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Liquid template for the worker user interface. See UI Template below.
+     */
     public readonly uiTemplate!: pulumi.Output<outputs.sagemaker.HumanTaskUIUiTemplate>;
 
     /**
@@ -82,10 +123,25 @@ export class HumanTaskUI extends pulumi.CustomResource {
  * Input properties used for looking up and filtering HumanTaskUI resources.
  */
 export interface HumanTaskUIState {
+    /**
+     * The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The name of the Human Task UI.
+     */
     humanTaskUiName?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Liquid template for the worker user interface. See UI Template below.
+     */
     uiTemplate?: pulumi.Input<inputs.sagemaker.HumanTaskUIUiTemplate>;
 }
 
@@ -93,7 +149,16 @@ export interface HumanTaskUIState {
  * The set of arguments for constructing a HumanTaskUI resource.
  */
 export interface HumanTaskUIArgs {
+    /**
+     * The name of the Human Task UI.
+     */
     humanTaskUiName: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Liquid template for the worker user interface. See UI Template below.
+     */
     uiTemplate: pulumi.Input<inputs.sagemaker.HumanTaskUIUiTemplate>;
 }

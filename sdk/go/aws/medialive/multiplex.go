@@ -11,16 +11,80 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS MediaLive Multiplex.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/medialive"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
+//				State: pulumi.StringRef("available"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = medialive.NewMultiplex(ctx, "example", &medialive.MultiplexArgs{
+//				AvailabilityZones: pulumi.StringArray{
+//					*pulumi.String(available.Names[0]),
+//					*pulumi.String(available.Names[1]),
+//				},
+//				MultiplexSettings: &medialive.MultiplexMultiplexSettingsArgs{
+//					TransportStreamBitrate:              pulumi.Int(1000000),
+//					TransportStreamId:                   pulumi.Int(1),
+//					TransportStreamReservedBitrate:      pulumi.Int(1),
+//					MaximumVideoBufferDelayMilliseconds: pulumi.Int(1000),
+//				},
+//				StartMultiplex: pulumi.Bool(true),
+//				Tags: pulumi.StringMap{
+//					"tag1": pulumi.String("value1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// MediaLive Multiplex can be imported using the `id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:medialive/multiplex:Multiplex example 12345678
+//
+// ```
 type Multiplex struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput                 `pulumi:"arn"`
-	AvailabilityZones pulumi.StringArrayOutput            `pulumi:"availabilityZones"`
+	// ARN of the Multiplex.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A list of availability zones. You must specify exactly two.
+	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
+	// Multiplex settings. See Multiplex Settings for more details.
 	MultiplexSettings MultiplexMultiplexSettingsPtrOutput `pulumi:"multiplexSettings"`
-	Name              pulumi.StringOutput                 `pulumi:"name"`
-	StartMultiplex    pulumi.BoolPtrOutput                `pulumi:"startMultiplex"`
-	Tags              pulumi.StringMapOutput              `pulumi:"tags"`
-	TagsAll           pulumi.StringMapOutput              `pulumi:"tagsAll"`
+	// name of Multiplex.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether to start the Multiplex. Defaults to `false`.
+	StartMultiplex pulumi.BoolPtrOutput `pulumi:"startMultiplex"`
+	// A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewMultiplex registers a new resource with the given unique name, arguments, and options.
@@ -55,23 +119,35 @@ func GetMultiplex(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Multiplex resources.
 type multiplexState struct {
-	Arn               *string                     `pulumi:"arn"`
-	AvailabilityZones []string                    `pulumi:"availabilityZones"`
+	// ARN of the Multiplex.
+	Arn *string `pulumi:"arn"`
+	// A list of availability zones. You must specify exactly two.
+	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// Multiplex settings. See Multiplex Settings for more details.
 	MultiplexSettings *MultiplexMultiplexSettings `pulumi:"multiplexSettings"`
-	Name              *string                     `pulumi:"name"`
-	StartMultiplex    *bool                       `pulumi:"startMultiplex"`
-	Tags              map[string]string           `pulumi:"tags"`
-	TagsAll           map[string]string           `pulumi:"tagsAll"`
+	// name of Multiplex.
+	Name *string `pulumi:"name"`
+	// Whether to start the Multiplex. Defaults to `false`.
+	StartMultiplex *bool `pulumi:"startMultiplex"`
+	// A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type MultiplexState struct {
-	Arn               pulumi.StringPtrInput
+	// ARN of the Multiplex.
+	Arn pulumi.StringPtrInput
+	// A list of availability zones. You must specify exactly two.
 	AvailabilityZones pulumi.StringArrayInput
+	// Multiplex settings. See Multiplex Settings for more details.
 	MultiplexSettings MultiplexMultiplexSettingsPtrInput
-	Name              pulumi.StringPtrInput
-	StartMultiplex    pulumi.BoolPtrInput
-	Tags              pulumi.StringMapInput
-	TagsAll           pulumi.StringMapInput
+	// name of Multiplex.
+	Name pulumi.StringPtrInput
+	// Whether to start the Multiplex. Defaults to `false`.
+	StartMultiplex pulumi.BoolPtrInput
+	// A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (MultiplexState) ElementType() reflect.Type {
@@ -79,20 +155,30 @@ func (MultiplexState) ElementType() reflect.Type {
 }
 
 type multiplexArgs struct {
-	AvailabilityZones []string                    `pulumi:"availabilityZones"`
+	// A list of availability zones. You must specify exactly two.
+	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// Multiplex settings. See Multiplex Settings for more details.
 	MultiplexSettings *MultiplexMultiplexSettings `pulumi:"multiplexSettings"`
-	Name              *string                     `pulumi:"name"`
-	StartMultiplex    *bool                       `pulumi:"startMultiplex"`
-	Tags              map[string]string           `pulumi:"tags"`
+	// name of Multiplex.
+	Name *string `pulumi:"name"`
+	// Whether to start the Multiplex. Defaults to `false`.
+	StartMultiplex *bool `pulumi:"startMultiplex"`
+	// A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Multiplex resource.
 type MultiplexArgs struct {
+	// A list of availability zones. You must specify exactly two.
 	AvailabilityZones pulumi.StringArrayInput
+	// Multiplex settings. See Multiplex Settings for more details.
 	MultiplexSettings MultiplexMultiplexSettingsPtrInput
-	Name              pulumi.StringPtrInput
-	StartMultiplex    pulumi.BoolPtrInput
-	Tags              pulumi.StringMapInput
+	// name of Multiplex.
+	Name pulumi.StringPtrInput
+	// Whether to start the Multiplex. Defaults to `false`.
+	StartMultiplex pulumi.BoolPtrInput
+	// A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (MultiplexArgs) ElementType() reflect.Type {
@@ -182,26 +268,32 @@ func (o MultiplexOutput) ToMultiplexOutputWithContext(ctx context.Context) Multi
 	return o
 }
 
+// ARN of the Multiplex.
 func (o MultiplexOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Multiplex) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A list of availability zones. You must specify exactly two.
 func (o MultiplexOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Multiplex) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
+// Multiplex settings. See Multiplex Settings for more details.
 func (o MultiplexOutput) MultiplexSettings() MultiplexMultiplexSettingsPtrOutput {
 	return o.ApplyT(func(v *Multiplex) MultiplexMultiplexSettingsPtrOutput { return v.MultiplexSettings }).(MultiplexMultiplexSettingsPtrOutput)
 }
 
+// name of Multiplex.
 func (o MultiplexOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Multiplex) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Whether to start the Multiplex. Defaults to `false`.
 func (o MultiplexOutput) StartMultiplex() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Multiplex) pulumi.BoolPtrOutput { return v.StartMultiplex }).(pulumi.BoolPtrOutput)
 }
 
+// A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o MultiplexOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Multiplex) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -7,6 +7,116 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Creates a AWS Batch compute environment. Compute environments contain the Amazon ECS container instances that are used to run containerized batch jobs.
+ *
+ * For information about AWS Batch, see [What is AWS Batch?](http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html) .
+ * For information about compute environment, see [Compute Environments](http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) .
+ *
+ * > **Note:** To prevent a race condition during environment deletion, make sure to set `dependsOn` to the related `aws.iam.RolePolicyAttachment`;
+ * otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
+ *
+ * ## Example Usage
+ * ### EC2 Type
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const ecsInstanceRoleRole = new aws.iam.Role("ecsInstanceRoleRole", {assumeRolePolicy: `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [
+ * 	{
+ * 	    "Action": "sts:AssumeRole",
+ * 	    "Effect": "Allow",
+ * 	    "Principal": {
+ * 	        "Service": "ec2.amazonaws.com"
+ * 	    }
+ * 	}
+ *     ]
+ * }
+ * `});
+ * const ecsInstanceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment", {
+ *     role: ecsInstanceRoleRole.name,
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
+ * });
+ * const ecsInstanceRoleInstanceProfile = new aws.iam.InstanceProfile("ecsInstanceRoleInstanceProfile", {role: ecsInstanceRoleRole.name});
+ * const awsBatchServiceRoleRole = new aws.iam.Role("awsBatchServiceRoleRole", {assumeRolePolicy: `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [
+ * 	{
+ * 	    "Action": "sts:AssumeRole",
+ * 	    "Effect": "Allow",
+ * 	    "Principal": {
+ * 		"Service": "batch.amazonaws.com"
+ * 	    }
+ * 	}
+ *     ]
+ * }
+ * `});
+ * const awsBatchServiceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment", {
+ *     role: awsBatchServiceRoleRole.name,
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
+ * });
+ * const sampleSecurityGroup = new aws.ec2.SecurityGroup("sampleSecurityGroup", {egress: [{
+ *     fromPort: 0,
+ *     toPort: 0,
+ *     protocol: "-1",
+ *     cidrBlocks: ["0.0.0.0/0"],
+ * }]});
+ * const sampleVpc = new aws.ec2.Vpc("sampleVpc", {cidrBlock: "10.1.0.0/16"});
+ * const sampleSubnet = new aws.ec2.Subnet("sampleSubnet", {
+ *     vpcId: sampleVpc.id,
+ *     cidrBlock: "10.1.1.0/24",
+ * });
+ * const sampleComputeEnvironment = new aws.batch.ComputeEnvironment("sampleComputeEnvironment", {
+ *     computeEnvironmentName: "sample",
+ *     computeResources: {
+ *         instanceRole: ecsInstanceRoleInstanceProfile.arn,
+ *         instanceTypes: ["c4.large"],
+ *         maxVcpus: 16,
+ *         minVcpus: 0,
+ *         securityGroupIds: [sampleSecurityGroup.id],
+ *         subnets: [sampleSubnet.id],
+ *         type: "EC2",
+ *     },
+ *     serviceRole: awsBatchServiceRoleRole.arn,
+ *     type: "MANAGED",
+ * }, {
+ *     dependsOn: [awsBatchServiceRoleRolePolicyAttachment],
+ * });
+ * ```
+ * ### Fargate Type
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const sample = new aws.batch.ComputeEnvironment("sample", {
+ *     computeEnvironmentName: "sample",
+ *     computeResources: {
+ *         maxVcpus: 16,
+ *         securityGroupIds: [aws_security_group.sample.id],
+ *         subnets: [aws_subnet.sample.id],
+ *         type: "FARGATE",
+ *     },
+ *     serviceRole: aws_iam_role.aws_batch_service_role.arn,
+ *     type: "MANAGED",
+ * }, {
+ *     dependsOn: [aws_iam_role_policy_attachment.aws_batch_service_role],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * AWS Batch compute can be imported using the `compute_environment_name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
+ * ```
+ *
+ *  [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html [4]https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html
+ */
 export class ComputeEnvironment extends pulumi.CustomResource {
     /**
      * Get an existing ComputeEnvironment resource's state with the given name, ID, and optional extra
@@ -35,18 +145,57 @@ export class ComputeEnvironment extends pulumi.CustomResource {
         return obj['__pulumiType'] === ComputeEnvironment.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the compute environment.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+     */
     public readonly computeEnvironmentName!: pulumi.Output<string>;
+    /**
+     * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
+     */
     public readonly computeEnvironmentNamePrefix!: pulumi.Output<string>;
+    /**
+     * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
+     */
     public readonly computeResources!: pulumi.Output<outputs.batch.ComputeEnvironmentComputeResources | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+     */
     public /*out*/ readonly ecsClusterArn!: pulumi.Output<string>;
+    /**
+     * Details for the Amazon EKS cluster that supports the compute environment. See details below.
+     */
     public readonly eksConfiguration!: pulumi.Output<outputs.batch.ComputeEnvironmentEksConfiguration | undefined>;
+    /**
+     * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+     */
     public readonly serviceRole!: pulumi.Output<string>;
+    /**
+     * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     */
     public readonly state!: pulumi.Output<string | undefined>;
+    /**
+     * The current status of the compute environment (for example, CREATING or VALID).
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * A short, human-readable string to provide additional details about the current status of the compute environment.
+     */
     public /*out*/ readonly statusReason!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+     */
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -103,18 +252,57 @@ export class ComputeEnvironment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ComputeEnvironment resources.
  */
 export interface ComputeEnvironmentState {
+    /**
+     * The Amazon Resource Name (ARN) of the compute environment.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+     */
     computeEnvironmentName?: pulumi.Input<string>;
+    /**
+     * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
+     */
     computeEnvironmentNamePrefix?: pulumi.Input<string>;
+    /**
+     * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
+     */
     computeResources?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResources>;
+    /**
+     * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+     */
     ecsClusterArn?: pulumi.Input<string>;
+    /**
+     * Details for the Amazon EKS cluster that supports the compute environment. See details below.
+     */
     eksConfiguration?: pulumi.Input<inputs.batch.ComputeEnvironmentEksConfiguration>;
+    /**
+     * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+     */
     serviceRole?: pulumi.Input<string>;
+    /**
+     * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * The current status of the compute environment (for example, CREATING or VALID).
+     */
     status?: pulumi.Input<string>;
+    /**
+     * A short, human-readable string to provide additional details about the current status of the compute environment.
+     */
     statusReason?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+     */
     type?: pulumi.Input<string>;
 }
 
@@ -122,12 +310,36 @@ export interface ComputeEnvironmentState {
  * The set of arguments for constructing a ComputeEnvironment resource.
  */
 export interface ComputeEnvironmentArgs {
+    /**
+     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+     */
     computeEnvironmentName?: pulumi.Input<string>;
+    /**
+     * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
+     */
     computeEnvironmentNamePrefix?: pulumi.Input<string>;
+    /**
+     * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
+     */
     computeResources?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResources>;
+    /**
+     * Details for the Amazon EKS cluster that supports the compute environment. See details below.
+     */
     eksConfiguration?: pulumi.Input<inputs.batch.ComputeEnvironmentEksConfiguration>;
+    /**
+     * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+     */
     serviceRole?: pulumi.Input<string>;
+    /**
+     * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+     */
     type: pulumi.Input<string>;
 }

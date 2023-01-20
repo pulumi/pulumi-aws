@@ -39,17 +39,27 @@ class TrustAnchorSource(dict):
     def __init__(__self__, *,
                  source_data: 'outputs.TrustAnchorSourceSourceData',
                  source_type: str):
+        """
+        :param 'TrustAnchorSourceSourceDataArgs' source_data: The data denoting the source of trust, documented below
+        :param str source_type: The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
+        """
         pulumi.set(__self__, "source_data", source_data)
         pulumi.set(__self__, "source_type", source_type)
 
     @property
     @pulumi.getter(name="sourceData")
     def source_data(self) -> 'outputs.TrustAnchorSourceSourceData':
+        """
+        The data denoting the source of trust, documented below
+        """
         return pulumi.get(self, "source_data")
 
     @property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> str:
+        """
+        The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
+        """
         return pulumi.get(self, "source_type")
 
 
@@ -77,6 +87,9 @@ class TrustAnchorSourceSourceData(dict):
     def __init__(__self__, *,
                  acm_pca_arn: Optional[str] = None,
                  x509_certificate_data: Optional[str] = None):
+        """
+        :param str acm_pca_arn: The ARN of an ACM Private Certificate Authority.
+        """
         if acm_pca_arn is not None:
             pulumi.set(__self__, "acm_pca_arn", acm_pca_arn)
         if x509_certificate_data is not None:
@@ -85,6 +98,9 @@ class TrustAnchorSourceSourceData(dict):
     @property
     @pulumi.getter(name="acmPcaArn")
     def acm_pca_arn(self) -> Optional[str]:
+        """
+        The ARN of an ACM Private Certificate Authority.
+        """
         return pulumi.get(self, "acm_pca_arn")
 
     @property

@@ -16,30 +16,62 @@ public final class BaiduChannelState extends com.pulumi.resources.ResourceArgs {
 
     public static final BaiduChannelState Empty = new BaiduChannelState();
 
+    /**
+     * Platform credential API key from Baidu.
+     * 
+     */
     @Import(name="apiKey")
     private @Nullable Output<String> apiKey;
 
+    /**
+     * @return Platform credential API key from Baidu.
+     * 
+     */
     public Optional<Output<String>> apiKey() {
         return Optional.ofNullable(this.apiKey);
     }
 
+    /**
+     * The application ID.
+     * 
+     */
     @Import(name="applicationId")
     private @Nullable Output<String> applicationId;
 
+    /**
+     * @return The application ID.
+     * 
+     */
     public Optional<Output<String>> applicationId() {
         return Optional.ofNullable(this.applicationId);
     }
 
+    /**
+     * Specifies whether to enable the channel. Defaults to `true`.
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return Specifies whether to enable the channel. Defaults to `true`.
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
+    /**
+     * Platform credential Secret key from Baidu.
+     * 
+     */
     @Import(name="secretKey")
     private @Nullable Output<String> secretKey;
 
+    /**
+     * @return Platform credential Secret key from Baidu.
+     * 
+     */
     public Optional<Output<String>> secretKey() {
         return Optional.ofNullable(this.secretKey);
     }
@@ -71,38 +103,86 @@ public final class BaiduChannelState extends com.pulumi.resources.ResourceArgs {
             $ = new BaiduChannelState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param apiKey Platform credential API key from Baidu.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiKey(@Nullable Output<String> apiKey) {
             $.apiKey = apiKey;
             return this;
         }
 
+        /**
+         * @param apiKey Platform credential API key from Baidu.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
         }
 
+        /**
+         * @param applicationId The application ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationId(@Nullable Output<String> applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
+        /**
+         * @param applicationId The application ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationId(String applicationId) {
             return applicationId(Output.of(applicationId));
         }
 
+        /**
+         * @param enabled Specifies whether to enable the channel. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Specifies whether to enable the channel. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
+        /**
+         * @param secretKey Platform credential Secret key from Baidu.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretKey(@Nullable Output<String> secretKey) {
             $.secretKey = secretKey;
             return this;
         }
 
+        /**
+         * @param secretKey Platform credential Secret key from Baidu.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretKey(String secretKey) {
             return secretKey(Output.of(secretKey));
         }

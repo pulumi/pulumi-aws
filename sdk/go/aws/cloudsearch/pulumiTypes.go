@@ -11,7 +11,9 @@ import (
 )
 
 type DomainEndpointOptions struct {
-	EnforceHttps      *bool   `pulumi:"enforceHttps"`
+	// Enables or disables the requirement that all requests to the domain arrive over HTTPS.
+	EnforceHttps *bool `pulumi:"enforceHttps"`
+	// The minimum required TLS version. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DomainEndpointOptions.html) for valid values.
 	TlsSecurityPolicy *string `pulumi:"tlsSecurityPolicy"`
 }
 
@@ -27,7 +29,9 @@ type DomainEndpointOptionsInput interface {
 }
 
 type DomainEndpointOptionsArgs struct {
-	EnforceHttps      pulumi.BoolPtrInput   `pulumi:"enforceHttps"`
+	// Enables or disables the requirement that all requests to the domain arrive over HTTPS.
+	EnforceHttps pulumi.BoolPtrInput `pulumi:"enforceHttps"`
+	// The minimum required TLS version. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DomainEndpointOptions.html) for valid values.
 	TlsSecurityPolicy pulumi.StringPtrInput `pulumi:"tlsSecurityPolicy"`
 }
 
@@ -108,10 +112,12 @@ func (o DomainEndpointOptionsOutput) ToDomainEndpointOptionsPtrOutputWithContext
 	}).(DomainEndpointOptionsPtrOutput)
 }
 
+// Enables or disables the requirement that all requests to the domain arrive over HTTPS.
 func (o DomainEndpointOptionsOutput) EnforceHttps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainEndpointOptions) *bool { return v.EnforceHttps }).(pulumi.BoolPtrOutput)
 }
 
+// The minimum required TLS version. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DomainEndpointOptions.html) for valid values.
 func (o DomainEndpointOptionsOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainEndpointOptions) *string { return v.TlsSecurityPolicy }).(pulumi.StringPtrOutput)
 }
@@ -140,6 +146,7 @@ func (o DomainEndpointOptionsPtrOutput) Elem() DomainEndpointOptionsOutput {
 	}).(DomainEndpointOptionsOutput)
 }
 
+// Enables or disables the requirement that all requests to the domain arrive over HTTPS.
 func (o DomainEndpointOptionsPtrOutput) EnforceHttps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainEndpointOptions) *bool {
 		if v == nil {
@@ -149,6 +156,7 @@ func (o DomainEndpointOptionsPtrOutput) EnforceHttps() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The minimum required TLS version. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DomainEndpointOptions.html) for valid values.
 func (o DomainEndpointOptionsPtrOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainEndpointOptions) *string {
 		if v == nil {
@@ -159,16 +167,26 @@ func (o DomainEndpointOptionsPtrOutput) TlsSecurityPolicy() pulumi.StringPtrOutp
 }
 
 type DomainIndexField struct {
+	// The analysis scheme you want to use for a `text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
 	AnalysisScheme *string `pulumi:"analysisScheme"`
-	DefaultValue   *string `pulumi:"defaultValue"`
-	Facet          *bool   `pulumi:"facet"`
-	Highlight      *bool   `pulumi:"highlight"`
-	Name           string  `pulumi:"name"`
-	Return         *bool   `pulumi:"return"`
-	Search         *bool   `pulumi:"search"`
-	Sort           *bool   `pulumi:"sort"`
-	SourceFields   *string `pulumi:"sourceFields"`
-	Type           string  `pulumi:"type"`
+	// The default value for the field. This value is used when no value is specified for the field in the document data.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// You can get facet information by enabling this.
+	Facet *bool `pulumi:"facet"`
+	// You can highlight information.
+	Highlight *bool `pulumi:"highlight"`
+	// A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+	Name string `pulumi:"name"`
+	// You can enable returning the value of all searchable fields.
+	Return *bool `pulumi:"return"`
+	// You can set whether this index should be searchable or not.
+	Search *bool `pulumi:"search"`
+	// You can enable the property to be sortable.
+	Sort *bool `pulumi:"sort"`
+	// A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
+	SourceFields *string `pulumi:"sourceFields"`
+	// The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+	Type string `pulumi:"type"`
 }
 
 // DomainIndexFieldInput is an input type that accepts DomainIndexFieldArgs and DomainIndexFieldOutput values.
@@ -183,16 +201,26 @@ type DomainIndexFieldInput interface {
 }
 
 type DomainIndexFieldArgs struct {
+	// The analysis scheme you want to use for a `text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
 	AnalysisScheme pulumi.StringPtrInput `pulumi:"analysisScheme"`
-	DefaultValue   pulumi.StringPtrInput `pulumi:"defaultValue"`
-	Facet          pulumi.BoolPtrInput   `pulumi:"facet"`
-	Highlight      pulumi.BoolPtrInput   `pulumi:"highlight"`
-	Name           pulumi.StringInput    `pulumi:"name"`
-	Return         pulumi.BoolPtrInput   `pulumi:"return"`
-	Search         pulumi.BoolPtrInput   `pulumi:"search"`
-	Sort           pulumi.BoolPtrInput   `pulumi:"sort"`
-	SourceFields   pulumi.StringPtrInput `pulumi:"sourceFields"`
-	Type           pulumi.StringInput    `pulumi:"type"`
+	// The default value for the field. This value is used when no value is specified for the field in the document data.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// You can get facet information by enabling this.
+	Facet pulumi.BoolPtrInput `pulumi:"facet"`
+	// You can highlight information.
+	Highlight pulumi.BoolPtrInput `pulumi:"highlight"`
+	// A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// You can enable returning the value of all searchable fields.
+	Return pulumi.BoolPtrInput `pulumi:"return"`
+	// You can set whether this index should be searchable or not.
+	Search pulumi.BoolPtrInput `pulumi:"search"`
+	// You can enable the property to be sortable.
+	Sort pulumi.BoolPtrInput `pulumi:"sort"`
+	// A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
+	SourceFields pulumi.StringPtrInput `pulumi:"sourceFields"`
+	// The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (DomainIndexFieldArgs) ElementType() reflect.Type {
@@ -246,42 +274,52 @@ func (o DomainIndexFieldOutput) ToDomainIndexFieldOutputWithContext(ctx context.
 	return o
 }
 
+// The analysis scheme you want to use for a `text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
 func (o DomainIndexFieldOutput) AnalysisScheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainIndexField) *string { return v.AnalysisScheme }).(pulumi.StringPtrOutput)
 }
 
+// The default value for the field. This value is used when no value is specified for the field in the document data.
 func (o DomainIndexFieldOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainIndexField) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
+// You can get facet information by enabling this.
 func (o DomainIndexFieldOutput) Facet() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainIndexField) *bool { return v.Facet }).(pulumi.BoolPtrOutput)
 }
 
+// You can highlight information.
 func (o DomainIndexFieldOutput) Highlight() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainIndexField) *bool { return v.Highlight }).(pulumi.BoolPtrOutput)
 }
 
+// A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
 func (o DomainIndexFieldOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainIndexField) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// You can enable returning the value of all searchable fields.
 func (o DomainIndexFieldOutput) Return() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainIndexField) *bool { return v.Return }).(pulumi.BoolPtrOutput)
 }
 
+// You can set whether this index should be searchable or not.
 func (o DomainIndexFieldOutput) Search() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainIndexField) *bool { return v.Search }).(pulumi.BoolPtrOutput)
 }
 
+// You can enable the property to be sortable.
 func (o DomainIndexFieldOutput) Sort() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainIndexField) *bool { return v.Sort }).(pulumi.BoolPtrOutput)
 }
 
+// A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
 func (o DomainIndexFieldOutput) SourceFields() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainIndexField) *string { return v.SourceFields }).(pulumi.StringPtrOutput)
 }
 
+// The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
 func (o DomainIndexFieldOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainIndexField) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -307,9 +345,12 @@ func (o DomainIndexFieldArrayOutput) Index(i pulumi.IntInput) DomainIndexFieldOu
 }
 
 type DomainScalingParameters struct {
-	DesiredInstanceType     *string `pulumi:"desiredInstanceType"`
-	DesiredPartitionCount   *int    `pulumi:"desiredPartitionCount"`
-	DesiredReplicationCount *int    `pulumi:"desiredReplicationCount"`
+	// The instance type that you want to preconfigure for your domain. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ScalingParameters.html) for valid values.
+	DesiredInstanceType *string `pulumi:"desiredInstanceType"`
+	// The number of partitions you want to preconfigure for your domain. Only valid when you select `search.2xlarge` as the instance type.
+	DesiredPartitionCount *int `pulumi:"desiredPartitionCount"`
+	// The number of replicas you want to preconfigure for each index partition.
+	DesiredReplicationCount *int `pulumi:"desiredReplicationCount"`
 }
 
 // DomainScalingParametersInput is an input type that accepts DomainScalingParametersArgs and DomainScalingParametersOutput values.
@@ -324,9 +365,12 @@ type DomainScalingParametersInput interface {
 }
 
 type DomainScalingParametersArgs struct {
-	DesiredInstanceType     pulumi.StringPtrInput `pulumi:"desiredInstanceType"`
-	DesiredPartitionCount   pulumi.IntPtrInput    `pulumi:"desiredPartitionCount"`
-	DesiredReplicationCount pulumi.IntPtrInput    `pulumi:"desiredReplicationCount"`
+	// The instance type that you want to preconfigure for your domain. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ScalingParameters.html) for valid values.
+	DesiredInstanceType pulumi.StringPtrInput `pulumi:"desiredInstanceType"`
+	// The number of partitions you want to preconfigure for your domain. Only valid when you select `search.2xlarge` as the instance type.
+	DesiredPartitionCount pulumi.IntPtrInput `pulumi:"desiredPartitionCount"`
+	// The number of replicas you want to preconfigure for each index partition.
+	DesiredReplicationCount pulumi.IntPtrInput `pulumi:"desiredReplicationCount"`
 }
 
 func (DomainScalingParametersArgs) ElementType() reflect.Type {
@@ -406,14 +450,17 @@ func (o DomainScalingParametersOutput) ToDomainScalingParametersPtrOutputWithCon
 	}).(DomainScalingParametersPtrOutput)
 }
 
+// The instance type that you want to preconfigure for your domain. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ScalingParameters.html) for valid values.
 func (o DomainScalingParametersOutput) DesiredInstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainScalingParameters) *string { return v.DesiredInstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The number of partitions you want to preconfigure for your domain. Only valid when you select `search.2xlarge` as the instance type.
 func (o DomainScalingParametersOutput) DesiredPartitionCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainScalingParameters) *int { return v.DesiredPartitionCount }).(pulumi.IntPtrOutput)
 }
 
+// The number of replicas you want to preconfigure for each index partition.
 func (o DomainScalingParametersOutput) DesiredReplicationCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainScalingParameters) *int { return v.DesiredReplicationCount }).(pulumi.IntPtrOutput)
 }
@@ -442,6 +489,7 @@ func (o DomainScalingParametersPtrOutput) Elem() DomainScalingParametersOutput {
 	}).(DomainScalingParametersOutput)
 }
 
+// The instance type that you want to preconfigure for your domain. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ScalingParameters.html) for valid values.
 func (o DomainScalingParametersPtrOutput) DesiredInstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainScalingParameters) *string {
 		if v == nil {
@@ -451,6 +499,7 @@ func (o DomainScalingParametersPtrOutput) DesiredInstanceType() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The number of partitions you want to preconfigure for your domain. Only valid when you select `search.2xlarge` as the instance type.
 func (o DomainScalingParametersPtrOutput) DesiredPartitionCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainScalingParameters) *int {
 		if v == nil {
@@ -460,6 +509,7 @@ func (o DomainScalingParametersPtrOutput) DesiredPartitionCount() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+// The number of replicas you want to preconfigure for each index partition.
 func (o DomainScalingParametersPtrOutput) DesiredReplicationCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainScalingParameters) *int {
 		if v == nil {

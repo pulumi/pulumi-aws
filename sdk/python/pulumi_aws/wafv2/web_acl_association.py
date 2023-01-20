@@ -18,6 +18,8 @@ class WebAclAssociationArgs:
                  web_acl_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a WebAclAssociation resource.
+        :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
+        :param pulumi.Input[str] web_acl_arn: The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
         pulumi.set(__self__, "web_acl_arn", web_acl_arn)
@@ -25,6 +27,9 @@ class WebAclAssociationArgs:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
+        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -34,6 +39,9 @@ class WebAclAssociationArgs:
     @property
     @pulumi.getter(name="webAclArn")
     def web_acl_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
+        """
         return pulumi.get(self, "web_acl_arn")
 
     @web_acl_arn.setter
@@ -48,6 +56,8 @@ class _WebAclAssociationState:
                  web_acl_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering WebAclAssociation resources.
+        :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
+        :param pulumi.Input[str] web_acl_arn: The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
         """
         if resource_arn is not None:
             pulumi.set(__self__, "resource_arn", resource_arn)
@@ -57,6 +67,9 @@ class _WebAclAssociationState:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
+        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -66,6 +79,9 @@ class _WebAclAssociationState:
     @property
     @pulumi.getter(name="webAclArn")
     def web_acl_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
+        """
         return pulumi.get(self, "web_acl_arn")
 
     @web_acl_arn.setter
@@ -82,9 +98,75 @@ class WebAclAssociation(pulumi.CustomResource):
                  web_acl_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a WebAclAssociation resource with the given unique name, props, and options.
+        Creates a WAFv2 Web ACL Association.
+
+        > **NOTE on associating a WAFv2 Web ACL with a Cloudfront distribution:** Do not use this resource to associate a WAFv2 Web ACL with a Cloudfront Distribution. The [AWS API call backing this resource](https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html) notes that you should use the `web_acl_id` property on the `cloudfront_distribution` instead.
+
+        [1]: https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import hashlib
+        import json
+        import pulumi_aws as aws
+
+        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
+            "openapi": "3.0.1",
+            "info": {
+                "title": "example",
+                "version": "1.0",
+            },
+            "paths": {
+                "/path1": {
+                    "get": {
+                        "x-amazon-apigateway-integration": {
+                            "httpMethod": "GET",
+                            "payloadFormatVersion": "1.0",
+                            "type": "HTTP_PROXY",
+                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                        },
+                    },
+                },
+            },
+        }))
+        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+            rest_api=example_rest_api.id,
+            triggers={
+                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+            })
+        example_stage = aws.apigateway.Stage("exampleStage",
+            deployment=example_deployment.id,
+            rest_api=example_rest_api.id,
+            stage_name="example")
+        example_web_acl = aws.wafv2.WebAcl("exampleWebAcl",
+            scope="REGIONAL",
+            default_action=aws.wafv2.WebAclDefaultActionArgs(
+                allow=aws.wafv2.WebAclDefaultActionAllowArgs(),
+            ),
+            visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
+                cloudwatch_metrics_enabled=False,
+                metric_name="friendly-metric-name",
+                sampled_requests_enabled=False,
+            ))
+        example_web_acl_association = aws.wafv2.WebAclAssociation("exampleWebAclAssociation",
+            resource_arn=example_stage.arn,
+            web_acl_arn=example_web_acl.arn)
+        ```
+
+        ## Import
+
+        WAFv2 Web ACL Association can be imported using `WEB_ACL_ARN,RESOURCE_ARN` e.g.,
+
+        ```sh
+         $ pulumi import aws:wafv2/webAclAssociation:WebAclAssociation example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
+        :param pulumi.Input[str] web_acl_arn: The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
         """
         ...
     @overload
@@ -93,7 +175,71 @@ class WebAclAssociation(pulumi.CustomResource):
                  args: WebAclAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a WebAclAssociation resource with the given unique name, props, and options.
+        Creates a WAFv2 Web ACL Association.
+
+        > **NOTE on associating a WAFv2 Web ACL with a Cloudfront distribution:** Do not use this resource to associate a WAFv2 Web ACL with a Cloudfront Distribution. The [AWS API call backing this resource](https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html) notes that you should use the `web_acl_id` property on the `cloudfront_distribution` instead.
+
+        [1]: https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import hashlib
+        import json
+        import pulumi_aws as aws
+
+        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
+            "openapi": "3.0.1",
+            "info": {
+                "title": "example",
+                "version": "1.0",
+            },
+            "paths": {
+                "/path1": {
+                    "get": {
+                        "x-amazon-apigateway-integration": {
+                            "httpMethod": "GET",
+                            "payloadFormatVersion": "1.0",
+                            "type": "HTTP_PROXY",
+                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                        },
+                    },
+                },
+            },
+        }))
+        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+            rest_api=example_rest_api.id,
+            triggers={
+                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+            })
+        example_stage = aws.apigateway.Stage("exampleStage",
+            deployment=example_deployment.id,
+            rest_api=example_rest_api.id,
+            stage_name="example")
+        example_web_acl = aws.wafv2.WebAcl("exampleWebAcl",
+            scope="REGIONAL",
+            default_action=aws.wafv2.WebAclDefaultActionArgs(
+                allow=aws.wafv2.WebAclDefaultActionAllowArgs(),
+            ),
+            visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
+                cloudwatch_metrics_enabled=False,
+                metric_name="friendly-metric-name",
+                sampled_requests_enabled=False,
+            ))
+        example_web_acl_association = aws.wafv2.WebAclAssociation("exampleWebAclAssociation",
+            resource_arn=example_stage.arn,
+            web_acl_arn=example_web_acl.arn)
+        ```
+
+        ## Import
+
+        WAFv2 Web ACL Association can be imported using `WEB_ACL_ARN,RESOURCE_ARN` e.g.,
+
+        ```sh
+         $ pulumi import aws:wafv2/webAclAssociation:WebAclAssociation example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name
+        ```
+
         :param str resource_name: The name of the resource.
         :param WebAclAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +291,8 @@ class WebAclAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
+        :param pulumi.Input[str] web_acl_arn: The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +305,16 @@ class WebAclAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
+        """
         return pulumi.get(self, "resource_arn")
 
     @property
     @pulumi.getter(name="webAclArn")
     def web_acl_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
+        """
         return pulumi.get(self, "web_acl_arn")
 

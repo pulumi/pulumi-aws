@@ -20,6 +20,10 @@ class HsmArgs:
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Hsm resource.
+        :param pulumi.Input[str] cluster_id: The ID of Cloud HSM v2 cluster to which HSM will be added.
+        :param pulumi.Input[str] availability_zone: The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+        :param pulumi.Input[str] ip_address: The IP address of HSM module. Must be within the CIDR of selected subnet.
+        :param pulumi.Input[str] subnet_id: The ID of subnet in which HSM module will be located.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
         if availability_zone is not None:
@@ -32,6 +36,9 @@ class HsmArgs:
     @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Input[str]:
+        """
+        The ID of Cloud HSM v2 cluster to which HSM will be added.
+        """
         return pulumi.get(self, "cluster_id")
 
     @cluster_id.setter
@@ -41,6 +48,9 @@ class HsmArgs:
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -50,6 +60,9 @@ class HsmArgs:
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address of HSM module. Must be within the CIDR of selected subnet.
+        """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
@@ -59,6 +72,9 @@ class HsmArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of subnet in which HSM module will be located.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -78,6 +94,13 @@ class _HsmState:
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Hsm resources.
+        :param pulumi.Input[str] availability_zone: The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+        :param pulumi.Input[str] cluster_id: The ID of Cloud HSM v2 cluster to which HSM will be added.
+        :param pulumi.Input[str] hsm_eni_id: The id of the ENI interface allocated for HSM module.
+        :param pulumi.Input[str] hsm_id: The id of the HSM module.
+        :param pulumi.Input[str] hsm_state: The state of the HSM module.
+        :param pulumi.Input[str] ip_address: The IP address of HSM module. Must be within the CIDR of selected subnet.
+        :param pulumi.Input[str] subnet_id: The ID of subnet in which HSM module will be located.
         """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
@@ -97,6 +120,9 @@ class _HsmState:
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -106,6 +132,9 @@ class _HsmState:
     @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of Cloud HSM v2 cluster to which HSM will be added.
+        """
         return pulumi.get(self, "cluster_id")
 
     @cluster_id.setter
@@ -115,6 +144,9 @@ class _HsmState:
     @property
     @pulumi.getter(name="hsmEniId")
     def hsm_eni_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the ENI interface allocated for HSM module.
+        """
         return pulumi.get(self, "hsm_eni_id")
 
     @hsm_eni_id.setter
@@ -124,6 +156,9 @@ class _HsmState:
     @property
     @pulumi.getter(name="hsmId")
     def hsm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the HSM module.
+        """
         return pulumi.get(self, "hsm_id")
 
     @hsm_id.setter
@@ -133,6 +168,9 @@ class _HsmState:
     @property
     @pulumi.getter(name="hsmState")
     def hsm_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of the HSM module.
+        """
         return pulumi.get(self, "hsm_state")
 
     @hsm_state.setter
@@ -142,6 +180,9 @@ class _HsmState:
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address of HSM module. Must be within the CIDR of selected subnet.
+        """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
@@ -151,6 +192,9 @@ class _HsmState:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of subnet in which HSM module will be located.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -169,9 +213,36 @@ class Hsm(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Hsm resource with the given unique name, props, and options.
+        Creates an HSM module in Amazon CloudHSM v2 cluster.
+
+        ## Example Usage
+
+        The following example below creates an HSM module in CloudHSM cluster.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cluster = aws.cloudhsmv2.get_cluster(cluster_id=var["cloudhsm_cluster_id"])
+        cloudhsm_v2_hsm = aws.cloudhsmv2.Hsm("cloudhsmV2Hsm",
+            subnet_id=cluster.subnet_ids[0],
+            cluster_id=cluster.cluster_id)
+        ```
+
+        ## Import
+
+        HSM modules can be imported using their HSM ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] availability_zone: The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+        :param pulumi.Input[str] cluster_id: The ID of Cloud HSM v2 cluster to which HSM will be added.
+        :param pulumi.Input[str] ip_address: The IP address of HSM module. Must be within the CIDR of selected subnet.
+        :param pulumi.Input[str] subnet_id: The ID of subnet in which HSM module will be located.
         """
         ...
     @overload
@@ -180,7 +251,30 @@ class Hsm(pulumi.CustomResource):
                  args: HsmArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Hsm resource with the given unique name, props, and options.
+        Creates an HSM module in Amazon CloudHSM v2 cluster.
+
+        ## Example Usage
+
+        The following example below creates an HSM module in CloudHSM cluster.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cluster = aws.cloudhsmv2.get_cluster(cluster_id=var["cloudhsm_cluster_id"])
+        cloudhsm_v2_hsm = aws.cloudhsmv2.Hsm("cloudhsmV2Hsm",
+            subnet_id=cluster.subnet_ids[0],
+            cluster_id=cluster.cluster_id)
+        ```
+
+        ## Import
+
+        HSM modules can be imported using their HSM ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
+        ```
+
         :param str resource_name: The name of the resource.
         :param HsmArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -242,6 +336,13 @@ class Hsm(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] availability_zone: The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+        :param pulumi.Input[str] cluster_id: The ID of Cloud HSM v2 cluster to which HSM will be added.
+        :param pulumi.Input[str] hsm_eni_id: The id of the ENI interface allocated for HSM module.
+        :param pulumi.Input[str] hsm_id: The id of the HSM module.
+        :param pulumi.Input[str] hsm_state: The state of the HSM module.
+        :param pulumi.Input[str] ip_address: The IP address of HSM module. Must be within the CIDR of selected subnet.
+        :param pulumi.Input[str] subnet_id: The ID of subnet in which HSM module will be located.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -259,35 +360,56 @@ class Hsm(pulumi.CustomResource):
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[str]:
+        """
+        The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+        """
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Output[str]:
+        """
+        The ID of Cloud HSM v2 cluster to which HSM will be added.
+        """
         return pulumi.get(self, "cluster_id")
 
     @property
     @pulumi.getter(name="hsmEniId")
     def hsm_eni_id(self) -> pulumi.Output[str]:
+        """
+        The id of the ENI interface allocated for HSM module.
+        """
         return pulumi.get(self, "hsm_eni_id")
 
     @property
     @pulumi.getter(name="hsmId")
     def hsm_id(self) -> pulumi.Output[str]:
+        """
+        The id of the HSM module.
+        """
         return pulumi.get(self, "hsm_id")
 
     @property
     @pulumi.getter(name="hsmState")
     def hsm_state(self) -> pulumi.Output[str]:
+        """
+        The state of the HSM module.
+        """
         return pulumi.get(self, "hsm_state")
 
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[str]:
+        """
+        The IP address of HSM module. Must be within the CIDR of selected subnet.
+        """
         return pulumi.get(self, "ip_address")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
+        """
+        The ID of subnet in which HSM module will be located.
+        """
         return pulumi.get(self, "subnet_id")
 

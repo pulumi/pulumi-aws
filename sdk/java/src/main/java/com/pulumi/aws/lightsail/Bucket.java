@@ -15,59 +15,173 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a lightsail bucket.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lightsail.Bucket;
+ * import com.pulumi.aws.lightsail.BucketArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Bucket(&#34;test&#34;, BucketArgs.builder()        
+ *             .bundleId(&#34;small_1_0&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_lightsail_bucket` can be imported by using the `name` attribute, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
+ * ```
+ * 
+ */
 @ResourceType(type="aws:lightsail/bucket:Bucket")
 public class Bucket extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the lightsail bucket.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the lightsail bucket.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
+     * 
+     */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
+    /**
+     * @return The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
+     * 
+     */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
+    /**
+     * The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+     * 
+     */
     @Export(name="bundleId", refs={String.class}, tree="[0]")
     private Output<String> bundleId;
 
+    /**
+     * @return The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+     * 
+     */
     public Output<String> bundleId() {
         return this.bundleId;
     }
+    /**
+     * The timestamp when the bucket was created.
+     * 
+     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
+    /**
+     * @return The timestamp when the bucket was created.
+     * 
+     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
+    /**
+     * The name for the bucket.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name for the bucket.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The Amazon Web Services Region name.
+     * 
+     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
+    /**
+     * @return The Amazon Web Services Region name.
+     * 
+     */
     public Output<String> region() {
         return this.region;
     }
+    /**
+     * The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+     * 
+     */
     @Export(name="supportCode", refs={String.class}, tree="[0]")
     private Output<String> supportCode;
 
+    /**
+     * @return The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+     * 
+     */
     public Output<String> supportCode() {
         return this.supportCode;
     }
+    /**
+     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

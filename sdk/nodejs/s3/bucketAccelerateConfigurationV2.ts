@@ -4,6 +4,36 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an S3 bucket accelerate configuration resource. See the [Requirements for using Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html#transfer-acceleration-requirements) for more details.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const mybucket = new aws.s3.BucketV2("mybucket", {});
+ * const example = new aws.s3.BucketAccelerateConfigurationV2("example", {
+ *     bucket: mybucket.bucket,
+ *     status: "Enabled",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * S3 bucket accelerate configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name
+ * ```
+ *
+ *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
+ * ```
+ */
 export class BucketAccelerateConfigurationV2 extends pulumi.CustomResource {
     /**
      * Get an existing BucketAccelerateConfigurationV2 resource's state with the given name, ID, and optional extra
@@ -32,8 +62,17 @@ export class BucketAccelerateConfigurationV2 extends pulumi.CustomResource {
         return obj['__pulumiType'] === BucketAccelerateConfigurationV2.__pulumiType;
     }
 
+    /**
+     * The name of the bucket.
+     */
     public readonly bucket!: pulumi.Output<string>;
+    /**
+     * The account ID of the expected bucket owner.
+     */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
+    /**
+     * The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+     */
     public readonly status!: pulumi.Output<string>;
 
     /**
@@ -73,8 +112,17 @@ export class BucketAccelerateConfigurationV2 extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BucketAccelerateConfigurationV2 resources.
  */
 export interface BucketAccelerateConfigurationV2State {
+    /**
+     * The name of the bucket.
+     */
     bucket?: pulumi.Input<string>;
+    /**
+     * The account ID of the expected bucket owner.
+     */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+     */
     status?: pulumi.Input<string>;
 }
 
@@ -82,7 +130,16 @@ export interface BucketAccelerateConfigurationV2State {
  * The set of arguments for constructing a BucketAccelerateConfigurationV2 resource.
  */
 export interface BucketAccelerateConfigurationV2Args {
+    /**
+     * The name of the bucket.
+     */
     bucket: pulumi.Input<string>;
+    /**
+     * The account ID of the expected bucket owner.
+     */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+     */
     status: pulumi.Input<string>;
 }

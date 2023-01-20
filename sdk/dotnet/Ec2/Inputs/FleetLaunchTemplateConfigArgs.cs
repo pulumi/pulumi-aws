@@ -12,11 +12,18 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class FleetLaunchTemplateConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Nested argument containing EC2 Launch Template to use. Defined below.
+        /// </summary>
         [Input("launchTemplateSpecification", required: true)]
         public Input<Inputs.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs> LaunchTemplateSpecification { get; set; } = null!;
 
         [Input("overrides")]
         private InputList<Inputs.FleetLaunchTemplateConfigOverrideArgs>? _overrides;
+
+        /// <summary>
+        /// Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
+        /// </summary>
         public InputList<Inputs.FleetLaunchTemplateConfigOverrideArgs> Overrides
         {
             get => _overrides ?? (_overrides = new InputList<Inputs.FleetLaunchTemplateConfigOverrideArgs>());

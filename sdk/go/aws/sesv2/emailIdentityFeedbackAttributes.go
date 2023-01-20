@@ -11,11 +11,58 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleEmailIdentity, err := sesv2.NewEmailIdentity(ctx, "exampleEmailIdentity", &sesv2.EmailIdentityArgs{
+//				EmailIdentity: pulumi.String("example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sesv2.NewEmailIdentityFeedbackAttributes(ctx, "exampleEmailIdentityFeedbackAttributes", &sesv2.EmailIdentityFeedbackAttributesArgs{
+//				EmailIdentity:          exampleEmailIdentity.EmailIdentity,
+//				EmailForwardingEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// SESv2 (Simple Email V2) Email Identity Feedback Attributes can be imported using the `email_identity`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
+//
+// ```
 type EmailIdentityFeedbackAttributes struct {
 	pulumi.CustomResourceState
 
+	// Sets the feedback forwarding configuration for the identity.
 	EmailForwardingEnabled pulumi.BoolPtrOutput `pulumi:"emailForwardingEnabled"`
-	EmailIdentity          pulumi.StringOutput  `pulumi:"emailIdentity"`
+	// The email identity.
+	EmailIdentity pulumi.StringOutput `pulumi:"emailIdentity"`
 }
 
 // NewEmailIdentityFeedbackAttributes registers a new resource with the given unique name, arguments, and options.
@@ -50,13 +97,17 @@ func GetEmailIdentityFeedbackAttributes(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmailIdentityFeedbackAttributes resources.
 type emailIdentityFeedbackAttributesState struct {
-	EmailForwardingEnabled *bool   `pulumi:"emailForwardingEnabled"`
-	EmailIdentity          *string `pulumi:"emailIdentity"`
+	// Sets the feedback forwarding configuration for the identity.
+	EmailForwardingEnabled *bool `pulumi:"emailForwardingEnabled"`
+	// The email identity.
+	EmailIdentity *string `pulumi:"emailIdentity"`
 }
 
 type EmailIdentityFeedbackAttributesState struct {
+	// Sets the feedback forwarding configuration for the identity.
 	EmailForwardingEnabled pulumi.BoolPtrInput
-	EmailIdentity          pulumi.StringPtrInput
+	// The email identity.
+	EmailIdentity pulumi.StringPtrInput
 }
 
 func (EmailIdentityFeedbackAttributesState) ElementType() reflect.Type {
@@ -64,14 +115,18 @@ func (EmailIdentityFeedbackAttributesState) ElementType() reflect.Type {
 }
 
 type emailIdentityFeedbackAttributesArgs struct {
-	EmailForwardingEnabled *bool  `pulumi:"emailForwardingEnabled"`
-	EmailIdentity          string `pulumi:"emailIdentity"`
+	// Sets the feedback forwarding configuration for the identity.
+	EmailForwardingEnabled *bool `pulumi:"emailForwardingEnabled"`
+	// The email identity.
+	EmailIdentity string `pulumi:"emailIdentity"`
 }
 
 // The set of arguments for constructing a EmailIdentityFeedbackAttributes resource.
 type EmailIdentityFeedbackAttributesArgs struct {
+	// Sets the feedback forwarding configuration for the identity.
 	EmailForwardingEnabled pulumi.BoolPtrInput
-	EmailIdentity          pulumi.StringInput
+	// The email identity.
+	EmailIdentity pulumi.StringInput
 }
 
 func (EmailIdentityFeedbackAttributesArgs) ElementType() reflect.Type {
@@ -161,10 +216,12 @@ func (o EmailIdentityFeedbackAttributesOutput) ToEmailIdentityFeedbackAttributes
 	return o
 }
 
+// Sets the feedback forwarding configuration for the identity.
 func (o EmailIdentityFeedbackAttributesOutput) EmailForwardingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EmailIdentityFeedbackAttributes) pulumi.BoolPtrOutput { return v.EmailForwardingEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The email identity.
 func (o EmailIdentityFeedbackAttributesOutput) EmailIdentity() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentityFeedbackAttributes) pulumi.StringOutput { return v.EmailIdentity }).(pulumi.StringOutput)
 }

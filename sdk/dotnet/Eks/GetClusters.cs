@@ -11,6 +11,9 @@ namespace Pulumi.Aws.Eks
 {
     public static class GetClusters
     {
+        /// <summary>
+        /// Retrieve EKS Clusters list
+        /// </summary>
         public static Task<GetClustersResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClustersResult>("aws:eks/getClusters:getClusters", InvokeArgs.Empty, options.WithDefaults());
     }
@@ -23,6 +26,9 @@ namespace Pulumi.Aws.Eks
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Set of EKS clusters names
+        /// </summary>
         public readonly ImmutableArray<string> Names;
 
         [OutputConstructor]

@@ -88,11 +88,17 @@ class GetNetworkInterfaceResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the network interface.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def associations(self) -> Sequence['outputs.GetNetworkInterfaceAssociationResult']:
+        """
+        Association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
+        """
         return pulumi.get(self, "associations")
 
     @property
@@ -103,11 +109,17 @@ class GetNetworkInterfaceResult:
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> str:
+        """
+        Availability Zone.
+        """
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the network interface.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -123,66 +135,105 @@ class GetNetworkInterfaceResult:
     @property
     @pulumi.getter(name="interfaceType")
     def interface_type(self) -> str:
+        """
+        Type of interface.
+        """
         return pulumi.get(self, "interface_type")
 
     @property
     @pulumi.getter(name="ipv6Addresses")
     def ipv6_addresses(self) -> Sequence[str]:
+        """
+        List of IPv6 addresses to assign to the ENI.
+        """
         return pulumi.get(self, "ipv6_addresses")
 
     @property
     @pulumi.getter(name="macAddress")
     def mac_address(self) -> str:
+        """
+        MAC address.
+        """
         return pulumi.get(self, "mac_address")
 
     @property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> str:
+        """
+        ARN of the Outpost.
+        """
         return pulumi.get(self, "outpost_arn")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
+        """
+        AWS account ID of the owner of the network interface.
+        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter(name="privateDnsName")
     def private_dns_name(self) -> str:
+        """
+        Private DNS name.
+        """
         return pulumi.get(self, "private_dns_name")
 
     @property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> str:
+        """
+        Private IPv4 address of the network interface within the subnet.
+        """
         return pulumi.get(self, "private_ip")
 
     @property
     @pulumi.getter(name="privateIps")
     def private_ips(self) -> Sequence[str]:
+        """
+        Private IPv4 addresses associated with the network interface.
+        """
         return pulumi.get(self, "private_ips")
 
     @property
     @pulumi.getter(name="requesterId")
     def requester_id(self) -> str:
+        """
+        ID of the entity that launched the instance on your behalf.
+        """
         return pulumi.get(self, "requester_id")
 
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[str]:
+        """
+        List of security groups for the network interface.
+        """
         return pulumi.get(self, "security_groups")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
+        """
+        ID of the subnet.
+        """
         return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Any tags assigned to the network interface.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
+        """
+        ID of the VPC.
+        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -219,7 +270,21 @@ def get_network_interface(filters: Optional[Sequence[pulumi.InputType['GetNetwor
                           tags: Optional[Mapping[str, str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about a Network Interface.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    bar = aws.ec2.get_network_interface(id="eni-01234567")
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetNetworkInterfaceFilterArgs']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
+    :param str id: Identifier for the network interface.
+    :param Mapping[str, str] tags: Any tags assigned to the network interface.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -257,6 +322,20 @@ def get_network_interface_output(filters: Optional[pulumi.Input[Optional[Sequenc
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about a Network Interface.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    bar = aws.ec2.get_network_interface(id="eni-01234567")
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetNetworkInterfaceFilterArgs']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
+    :param str id: Identifier for the network interface.
+    :param Mapping[str, str] tags: Any tags assigned to the network interface.
     """
     ...

@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConfigurationAggregatorAccountAggregationSource {
+    /**
+     * @return List of 12-digit account IDs of the account(s) being aggregated.
+     * 
+     */
     private List<String> accountIds;
+    /**
+     * @return If true, aggregate existing AWS Config regions and future regions.
+     * 
+     */
     private @Nullable Boolean allRegions;
+    /**
+     * @return List of source regions being aggregated.
+     * 
+     */
     private @Nullable List<String> regions;
 
     private ConfigurationAggregatorAccountAggregationSource() {}
+    /**
+     * @return List of 12-digit account IDs of the account(s) being aggregated.
+     * 
+     */
     public List<String> accountIds() {
         return this.accountIds;
     }
+    /**
+     * @return If true, aggregate existing AWS Config regions and future regions.
+     * 
+     */
     public Optional<Boolean> allRegions() {
         return Optional.ofNullable(this.allRegions);
     }
+    /**
+     * @return List of source regions being aggregated.
+     * 
+     */
     public List<String> regions() {
         return this.regions == null ? List.of() : this.regions;
     }

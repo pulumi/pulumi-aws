@@ -20,6 +20,10 @@ class PortfolioArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Portfolio resource.
+        :param pulumi.Input[str] provider_name: Name of the person or organization who owns the portfolio.
+        :param pulumi.Input[str] description: Description of the portfolio
+        :param pulumi.Input[str] name: The name of the portfolio.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "provider_name", provider_name)
         if description is not None:
@@ -32,6 +36,9 @@ class PortfolioArgs:
     @property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> pulumi.Input[str]:
+        """
+        Name of the person or organization who owns the portfolio.
+        """
         return pulumi.get(self, "provider_name")
 
     @provider_name.setter
@@ -41,6 +48,9 @@ class PortfolioArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the portfolio
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -50,6 +60,9 @@ class PortfolioArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the portfolio.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -59,6 +72,9 @@ class PortfolioArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -78,6 +94,11 @@ class _PortfolioState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Portfolio resources.
+        :param pulumi.Input[str] description: Description of the portfolio
+        :param pulumi.Input[str] name: The name of the portfolio.
+        :param pulumi.Input[str] provider_name: Name of the person or organization who owns the portfolio.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -115,6 +136,9 @@ class _PortfolioState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the portfolio
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -124,6 +148,9 @@ class _PortfolioState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the portfolio.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -133,6 +160,9 @@ class _PortfolioState:
     @property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the person or organization who owns the portfolio.
+        """
         return pulumi.get(self, "provider_name")
 
     @provider_name.setter
@@ -142,6 +172,9 @@ class _PortfolioState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -151,6 +184,9 @@ class _PortfolioState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -169,9 +205,33 @@ class Portfolio(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Portfolio resource with the given unique name, props, and options.
+        Provides a resource to create a Service Catalog Portfolio.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        portfolio = aws.servicecatalog.Portfolio("portfolio",
+            description="List of my organizations apps",
+            provider_name="Brett")
+        ```
+
+        ## Import
+
+        Service Catalog Portfolios can be imported using the `service catalog portfolio id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Description of the portfolio
+        :param pulumi.Input[str] name: The name of the portfolio.
+        :param pulumi.Input[str] provider_name: Name of the person or organization who owns the portfolio.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -180,7 +240,27 @@ class Portfolio(pulumi.CustomResource):
                  args: PortfolioArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Portfolio resource with the given unique name, props, and options.
+        Provides a resource to create a Service Catalog Portfolio.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        portfolio = aws.servicecatalog.Portfolio("portfolio",
+            description="List of my organizations apps",
+            provider_name="Brett")
+        ```
+
+        ## Import
+
+        Service Catalog Portfolios can be imported using the `service catalog portfolio id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
+        ```
+
         :param str resource_name: The name of the resource.
         :param PortfolioArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -242,6 +322,11 @@ class Portfolio(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Description of the portfolio
+        :param pulumi.Input[str] name: The name of the portfolio.
+        :param pulumi.Input[str] provider_name: Name of the person or organization who owns the portfolio.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -269,25 +354,40 @@ class Portfolio(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        Description of the portfolio
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the portfolio.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> pulumi.Output[str]:
+        """
+        Name of the person or organization who owns the portfolio.
+        """
         return pulumi.get(self, "provider_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

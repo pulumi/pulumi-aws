@@ -14,6 +14,10 @@ namespace Pulumi.Aws.WafV2.Inputs
     {
         [Input("statements", required: true)]
         private InputList<Inputs.WebAclRuleStatementNotStatementStatementGetArgs>? _statements;
+
+        /// <summary>
+        /// Statement to negate. You can use any statement that can be nested. See Statement above for details.
+        /// </summary>
         public InputList<Inputs.WebAclRuleStatementNotStatementStatementGetArgs> Statements
         {
             get => _statements ?? (_statements = new InputList<Inputs.WebAclRuleStatementNotStatementStatementGetArgs>());

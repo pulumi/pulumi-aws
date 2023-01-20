@@ -9,24 +9,103 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Amplify
 {
+    /// <summary>
+    /// Provides an Amplify Domain Association resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleApp = new Aws.Amplify.App("exampleApp", new()
+    ///     {
+    ///         CustomRules = new[]
+    ///         {
+    ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
+    ///             {
+    ///                 Source = "https://example.com",
+    ///                 Status = "302",
+    ///                 Target = "https://www.example.com",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var master = new Aws.Amplify.Branch("master", new()
+    ///     {
+    ///         AppId = exampleApp.Id,
+    ///         BranchName = "master",
+    ///     });
+    /// 
+    ///     var exampleDomainAssociation = new Aws.Amplify.DomainAssociation("exampleDomainAssociation", new()
+    ///     {
+    ///         AppId = exampleApp.Id,
+    ///         DomainName = "example.com",
+    ///         SubDomains = new[]
+    ///         {
+    ///             new Aws.Amplify.Inputs.DomainAssociationSubDomainArgs
+    ///             {
+    ///                 BranchName = master.BranchName,
+    ///                 Prefix = "",
+    ///             },
+    ///             new Aws.Amplify.Inputs.DomainAssociationSubDomainArgs
+    ///             {
+    ///                 BranchName = master.BranchName,
+    ///                 Prefix = "www",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Amplify domain association can be imported using `app_id` and `domain_name`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:amplify/domainAssociation:DomainAssociation")]
     public partial class DomainAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Unique ID for an Amplify app.
+        /// </summary>
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN for the domain association.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The DNS record for certificate verification.
+        /// </summary>
         [Output("certificateVerificationDnsRecord")]
         public Output<string> CertificateVerificationDnsRecord { get; private set; } = null!;
 
+        /// <summary>
+        /// Domain name for the domain association.
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// Setting for the subdomain. Documented below.
+        /// </summary>
         [Output("subDomains")]
         public Output<ImmutableArray<Outputs.DomainAssociationSubDomain>> SubDomains { get; private set; } = null!;
 
+        /// <summary>
+        /// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
+        /// </summary>
         [Output("waitForVerification")]
         public Output<bool?> WaitForVerification { get; private set; } = null!;
 
@@ -76,20 +155,33 @@ namespace Pulumi.Aws.Amplify
 
     public sealed class DomainAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Unique ID for an Amplify app.
+        /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
+        /// <summary>
+        /// Domain name for the domain association.
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         [Input("subDomains", required: true)]
         private InputList<Inputs.DomainAssociationSubDomainArgs>? _subDomains;
+
+        /// <summary>
+        /// Setting for the subdomain. Documented below.
+        /// </summary>
         public InputList<Inputs.DomainAssociationSubDomainArgs> SubDomains
         {
             get => _subDomains ?? (_subDomains = new InputList<Inputs.DomainAssociationSubDomainArgs>());
             set => _subDomains = value;
         }
 
+        /// <summary>
+        /// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
+        /// </summary>
         [Input("waitForVerification")]
         public Input<bool>? WaitForVerification { get; set; }
 
@@ -101,26 +193,45 @@ namespace Pulumi.Aws.Amplify
 
     public sealed class DomainAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Unique ID for an Amplify app.
+        /// </summary>
         [Input("appId")]
         public Input<string>? AppId { get; set; }
 
+        /// <summary>
+        /// ARN for the domain association.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The DNS record for certificate verification.
+        /// </summary>
         [Input("certificateVerificationDnsRecord")]
         public Input<string>? CertificateVerificationDnsRecord { get; set; }
 
+        /// <summary>
+        /// Domain name for the domain association.
+        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
         [Input("subDomains")]
         private InputList<Inputs.DomainAssociationSubDomainGetArgs>? _subDomains;
+
+        /// <summary>
+        /// Setting for the subdomain. Documented below.
+        /// </summary>
         public InputList<Inputs.DomainAssociationSubDomainGetArgs> SubDomains
         {
             get => _subDomains ?? (_subDomains = new InputList<Inputs.DomainAssociationSubDomainGetArgs>());
             set => _subDomains = value;
         }
 
+        /// <summary>
+        /// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
+        /// </summary>
         [Input("waitForVerification")]
         public Input<bool>? WaitForVerification { get; set; }
 

@@ -11,17 +11,65 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Location Service Map.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := location.NewMap(ctx, "example", &location.MapArgs{
+//				Configuration: &location.MapConfigurationArgs{
+//					Style: pulumi.String("VectorHereBerlin"),
+//				},
+//				MapName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_location_map` resources can be imported using the map name, e.g.
+//
+// ```sh
+//
+//	$ pulumi import aws:location/map:Map example example
+//
+// ```
 type Map struct {
 	pulumi.CustomResourceState
 
+	// Configuration block with the map style selected from an available data provider. Detailed below.
 	Configuration MapConfigurationOutput `pulumi:"configuration"`
-	CreateTime    pulumi.StringOutput    `pulumi:"createTime"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
-	MapArn        pulumi.StringOutput    `pulumi:"mapArn"`
-	MapName       pulumi.StringOutput    `pulumi:"mapName"`
-	Tags          pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll       pulumi.StringMapOutput `pulumi:"tagsAll"`
-	UpdateTime    pulumi.StringOutput    `pulumi:"updateTime"`
+	// The timestamp for when the map resource was created in ISO 8601 format.
+	CreateTime pulumi.StringOutput `pulumi:"createTime"`
+	// An optional description for the map resource.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+	MapArn pulumi.StringOutput `pulumi:"mapArn"`
+	// The name for the map resource.
+	MapName pulumi.StringOutput `pulumi:"mapName"`
+	// Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The timestamp for when the map resource was last updated in ISO 8601 format.
+	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
 
 // NewMap registers a new resource with the given unique name, arguments, and options.
@@ -59,25 +107,41 @@ func GetMap(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Map resources.
 type mapState struct {
+	// Configuration block with the map style selected from an available data provider. Detailed below.
 	Configuration *MapConfiguration `pulumi:"configuration"`
-	CreateTime    *string           `pulumi:"createTime"`
-	Description   *string           `pulumi:"description"`
-	MapArn        *string           `pulumi:"mapArn"`
-	MapName       *string           `pulumi:"mapName"`
-	Tags          map[string]string `pulumi:"tags"`
-	TagsAll       map[string]string `pulumi:"tagsAll"`
-	UpdateTime    *string           `pulumi:"updateTime"`
+	// The timestamp for when the map resource was created in ISO 8601 format.
+	CreateTime *string `pulumi:"createTime"`
+	// An optional description for the map resource.
+	Description *string `pulumi:"description"`
+	// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+	MapArn *string `pulumi:"mapArn"`
+	// The name for the map resource.
+	MapName *string `pulumi:"mapName"`
+	// Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The timestamp for when the map resource was last updated in ISO 8601 format.
+	UpdateTime *string `pulumi:"updateTime"`
 }
 
 type MapState struct {
+	// Configuration block with the map style selected from an available data provider. Detailed below.
 	Configuration MapConfigurationPtrInput
-	CreateTime    pulumi.StringPtrInput
-	Description   pulumi.StringPtrInput
-	MapArn        pulumi.StringPtrInput
-	MapName       pulumi.StringPtrInput
-	Tags          pulumi.StringMapInput
-	TagsAll       pulumi.StringMapInput
-	UpdateTime    pulumi.StringPtrInput
+	// The timestamp for when the map resource was created in ISO 8601 format.
+	CreateTime pulumi.StringPtrInput
+	// An optional description for the map resource.
+	Description pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+	MapArn pulumi.StringPtrInput
+	// The name for the map resource.
+	MapName pulumi.StringPtrInput
+	// Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// The timestamp for when the map resource was last updated in ISO 8601 format.
+	UpdateTime pulumi.StringPtrInput
 }
 
 func (MapState) ElementType() reflect.Type {
@@ -85,18 +149,26 @@ func (MapState) ElementType() reflect.Type {
 }
 
 type mapArgs struct {
-	Configuration MapConfiguration  `pulumi:"configuration"`
-	Description   *string           `pulumi:"description"`
-	MapName       string            `pulumi:"mapName"`
-	Tags          map[string]string `pulumi:"tags"`
+	// Configuration block with the map style selected from an available data provider. Detailed below.
+	Configuration MapConfiguration `pulumi:"configuration"`
+	// An optional description for the map resource.
+	Description *string `pulumi:"description"`
+	// The name for the map resource.
+	MapName string `pulumi:"mapName"`
+	// Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Map resource.
 type MapArgs struct {
+	// Configuration block with the map style selected from an available data provider. Detailed below.
 	Configuration MapConfigurationInput
-	Description   pulumi.StringPtrInput
-	MapName       pulumi.StringInput
-	Tags          pulumi.StringMapInput
+	// An optional description for the map resource.
+	Description pulumi.StringPtrInput
+	// The name for the map resource.
+	MapName pulumi.StringInput
+	// Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (MapArgs) ElementType() reflect.Type {
@@ -186,34 +258,42 @@ func (o MapOutput) ToMapOutputWithContext(ctx context.Context) MapOutput {
 	return o
 }
 
+// Configuration block with the map style selected from an available data provider. Detailed below.
 func (o MapOutput) Configuration() MapConfigurationOutput {
 	return o.ApplyT(func(v *Map) MapConfigurationOutput { return v.Configuration }).(MapConfigurationOutput)
 }
 
+// The timestamp for when the map resource was created in ISO 8601 format.
 func (o MapOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }
 
+// An optional description for the map resource.
 func (o MapOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
 func (o MapOutput) MapArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.MapArn }).(pulumi.StringOutput)
 }
 
+// The name for the map resource.
 func (o MapOutput) MapName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.MapName }).(pulumi.StringOutput)
 }
 
+// Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o MapOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o MapOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// The timestamp for when the map resource was last updated in ISO 8601 format.
 func (o MapOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
 }

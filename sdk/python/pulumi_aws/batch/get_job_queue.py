@@ -57,11 +57,20 @@ class GetJobQueueResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the job queue.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="computeEnvironmentOrders")
     def compute_environment_orders(self) -> Sequence['outputs.GetJobQueueComputeEnvironmentOrderResult']:
+        """
+        The compute environments that are attached to the job queue and the order in
+        which job placement is preferred. Compute environments are selected for job placement in ascending order.
+        * `compute_environment_order.#.order` - The order of the compute environment.
+        * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
+        """
         return pulumi.get(self, "compute_environment_orders")
 
     @property
@@ -80,31 +89,51 @@ class GetJobQueueResult:
     @property
     @pulumi.getter
     def priority(self) -> int:
+        """
+        Priority of the job queue. Job queues with a higher priority are evaluated first when
+        associated with the same compute environment.
+        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="schedulingPolicyArn")
     def scheduling_policy_arn(self) -> str:
+        """
+        The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
+        """
         return pulumi.get(self, "scheduling_policy_arn")
 
     @property
     @pulumi.getter
     def state(self) -> str:
+        """
+        Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        Current status of the job queue (for example, `CREATING` or `VALID`).
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> str:
+        """
+        Short, human-readable string to provide additional details about the current status
+        of the job queue.
+        """
         return pulumi.get(self, "status_reason")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Key-value map of resource tags
+        """
         return pulumi.get(self, "tags")
 
 
@@ -130,7 +159,21 @@ def get_job_queue(name: Optional[str] = None,
                   tags: Optional[Mapping[str, str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobQueueResult:
     """
-    Use this data source to access information about an existing resource.
+    The Batch Job Queue data source allows access to details of a specific
+    job queue within AWS Batch.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test_queue = aws.batch.get_job_queue(name="tf-test-batch-job-queue")
+    ```
+
+
+    :param str name: Name of the job queue.
+    :param Mapping[str, str] tags: Key-value map of resource tags
     """
     __args__ = dict()
     __args__['name'] = name
@@ -156,6 +199,20 @@ def get_job_queue_output(name: Optional[pulumi.Input[str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobQueueResult]:
     """
-    Use this data source to access information about an existing resource.
+    The Batch Job Queue data source allows access to details of a specific
+    job queue within AWS Batch.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test_queue = aws.batch.get_job_queue(name="tf-test-batch-job-queue")
+    ```
+
+
+    :param str name: Name of the job queue.
+    :param Mapping[str, str] tags: Key-value map of resource tags
     """
     ...

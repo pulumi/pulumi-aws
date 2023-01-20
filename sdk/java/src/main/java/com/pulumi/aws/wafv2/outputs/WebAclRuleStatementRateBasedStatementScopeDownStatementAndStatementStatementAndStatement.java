@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatement {
+    /**
+     * @return Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+     * 
+     */
     private List<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatement> statements;
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatement() {}
+    /**
+     * @return Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+     * 
+     */
     public List<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatement> statements() {
         return this.statements;
     }

@@ -11,14 +11,56 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an AWS Route 53 Recovery Readiness Recovery Group.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoveryreadiness"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53recoveryreadiness.NewRecoveryGroup(ctx, "example", &route53recoveryreadiness.RecoveryGroupArgs{
+//				RecoveryGroupName: pulumi.String("my-high-availability-app"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Route53 Recovery Readiness recovery groups can be imported via the recovery group name, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
+//
+// ```
 type RecoveryGroup struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput      `pulumi:"arn"`
-	Cells             pulumi.StringArrayOutput `pulumi:"cells"`
-	RecoveryGroupName pulumi.StringOutput      `pulumi:"recoveryGroupName"`
-	Tags              pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll           pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	// ARN of the recovery group
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// List of cell arns to add as nested fault domains within this recovery group
+	Cells pulumi.StringArrayOutput `pulumi:"cells"`
+	// A unique name describing the recovery group.
+	RecoveryGroupName pulumi.StringOutput `pulumi:"recoveryGroupName"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewRecoveryGroup registers a new resource with the given unique name, arguments, and options.
@@ -53,19 +95,29 @@ func GetRecoveryGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RecoveryGroup resources.
 type recoveryGroupState struct {
-	Arn               *string           `pulumi:"arn"`
-	Cells             []string          `pulumi:"cells"`
-	RecoveryGroupName *string           `pulumi:"recoveryGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
-	TagsAll           map[string]string `pulumi:"tagsAll"`
+	// ARN of the recovery group
+	Arn *string `pulumi:"arn"`
+	// List of cell arns to add as nested fault domains within this recovery group
+	Cells []string `pulumi:"cells"`
+	// A unique name describing the recovery group.
+	RecoveryGroupName *string `pulumi:"recoveryGroupName"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type RecoveryGroupState struct {
-	Arn               pulumi.StringPtrInput
-	Cells             pulumi.StringArrayInput
+	// ARN of the recovery group
+	Arn pulumi.StringPtrInput
+	// List of cell arns to add as nested fault domains within this recovery group
+	Cells pulumi.StringArrayInput
+	// A unique name describing the recovery group.
 	RecoveryGroupName pulumi.StringPtrInput
-	Tags              pulumi.StringMapInput
-	TagsAll           pulumi.StringMapInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (RecoveryGroupState) ElementType() reflect.Type {
@@ -73,16 +125,22 @@ func (RecoveryGroupState) ElementType() reflect.Type {
 }
 
 type recoveryGroupArgs struct {
-	Cells             []string          `pulumi:"cells"`
-	RecoveryGroupName string            `pulumi:"recoveryGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	// List of cell arns to add as nested fault domains within this recovery group
+	Cells []string `pulumi:"cells"`
+	// A unique name describing the recovery group.
+	RecoveryGroupName string `pulumi:"recoveryGroupName"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RecoveryGroup resource.
 type RecoveryGroupArgs struct {
-	Cells             pulumi.StringArrayInput
+	// List of cell arns to add as nested fault domains within this recovery group
+	Cells pulumi.StringArrayInput
+	// A unique name describing the recovery group.
 	RecoveryGroupName pulumi.StringInput
-	Tags              pulumi.StringMapInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags pulumi.StringMapInput
 }
 
 func (RecoveryGroupArgs) ElementType() reflect.Type {
@@ -172,22 +230,27 @@ func (o RecoveryGroupOutput) ToRecoveryGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+// ARN of the recovery group
 func (o RecoveryGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RecoveryGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// List of cell arns to add as nested fault domains within this recovery group
 func (o RecoveryGroupOutput) Cells() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RecoveryGroup) pulumi.StringArrayOutput { return v.Cells }).(pulumi.StringArrayOutput)
 }
 
+// A unique name describing the recovery group.
 func (o RecoveryGroupOutput) RecoveryGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RecoveryGroup) pulumi.StringOutput { return v.RecoveryGroupName }).(pulumi.StringOutput)
 }
 
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 func (o RecoveryGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RecoveryGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RecoveryGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RecoveryGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -4,6 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an AWS Route 53 Recovery Readiness Cell.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.route53recoveryreadiness.Cell("example", {cellName: "us-west-2-failover-cell"});
+ * ```
+ *
+ * ## Import
+ *
+ * Route53 Recovery Readiness cells can be imported via the cell name, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
+ * ```
+ */
 export class Cell extends pulumi.CustomResource {
     /**
      * Get an existing Cell resource's state with the given name, ID, and optional extra
@@ -32,11 +52,29 @@ export class Cell extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cell.__pulumiType;
     }
 
+    /**
+     * ARN of the cell
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Unique name describing the cell.
+     */
     public readonly cellName!: pulumi.Output<string>;
+    /**
+     * List of cell arns to add as nested fault domains within this cell.
+     */
     public readonly cells!: pulumi.Output<string[] | undefined>;
+    /**
+     * List of readiness scopes (recovery groups or cells) that contain this cell.
+     */
     public /*out*/ readonly parentReadinessScopes!: pulumi.Output<string[]>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -79,11 +117,29 @@ export class Cell extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Cell resources.
  */
 export interface CellState {
+    /**
+     * ARN of the cell
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Unique name describing the cell.
+     */
     cellName?: pulumi.Input<string>;
+    /**
+     * List of cell arns to add as nested fault domains within this cell.
+     */
     cells?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of readiness scopes (recovery groups or cells) that contain this cell.
+     */
     parentReadinessScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -91,7 +147,16 @@ export interface CellState {
  * The set of arguments for constructing a Cell resource.
  */
 export interface CellArgs {
+    /**
+     * Unique name describing the cell.
+     */
     cellName: pulumi.Input<string>;
+    /**
+     * List of cell arns to add as nested fault domains within this cell.
+     */
     cells?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

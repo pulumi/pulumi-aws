@@ -10,6 +10,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := storagegateway.GetLocalDisk(ctx, &storagegateway.GetLocalDiskArgs{
+//				DiskPath:   pulumi.StringRef(aws_volume_attachment.Test.Device_name),
+//				GatewayArn: aws_storagegateway_gateway.Test.Arn,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetLocalDisk(ctx *pulumi.Context, args *GetLocalDiskArgs, opts ...pulumi.InvokeOption) (*GetLocalDiskResult, error) {
 	var rv GetLocalDiskResult
 	err := ctx.Invoke("aws:storagegateway/getLocalDisk:getLocalDisk", args, &rv, opts...)
@@ -21,13 +49,17 @@ func GetLocalDisk(ctx *pulumi.Context, args *GetLocalDiskArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getLocalDisk.
 type GetLocalDiskArgs struct {
-	DiskNode   *string `pulumi:"diskNode"`
-	DiskPath   *string `pulumi:"diskPath"`
-	GatewayArn string  `pulumi:"gatewayArn"`
+	// Device node of the local disk to retrieve. For example, `/dev/sdb`.
+	DiskNode *string `pulumi:"diskNode"`
+	// Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+	DiskPath *string `pulumi:"diskPath"`
+	// ARN of the gateway.
+	GatewayArn string `pulumi:"gatewayArn"`
 }
 
 // A collection of values returned by getLocalDisk.
 type GetLocalDiskResult struct {
+	// Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
 	DiskId     string `pulumi:"diskId"`
 	DiskNode   string `pulumi:"diskNode"`
 	DiskPath   string `pulumi:"diskPath"`
@@ -51,9 +83,12 @@ func GetLocalDiskOutput(ctx *pulumi.Context, args GetLocalDiskOutputArgs, opts .
 
 // A collection of arguments for invoking getLocalDisk.
 type GetLocalDiskOutputArgs struct {
-	DiskNode   pulumi.StringPtrInput `pulumi:"diskNode"`
-	DiskPath   pulumi.StringPtrInput `pulumi:"diskPath"`
-	GatewayArn pulumi.StringInput    `pulumi:"gatewayArn"`
+	// Device node of the local disk to retrieve. For example, `/dev/sdb`.
+	DiskNode pulumi.StringPtrInput `pulumi:"diskNode"`
+	// Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+	DiskPath pulumi.StringPtrInput `pulumi:"diskPath"`
+	// ARN of the gateway.
+	GatewayArn pulumi.StringInput `pulumi:"gatewayArn"`
 }
 
 func (GetLocalDiskOutputArgs) ElementType() reflect.Type {
@@ -75,6 +110,7 @@ func (o GetLocalDiskResultOutput) ToGetLocalDiskResultOutputWithContext(ctx cont
 	return o
 }
 
+// Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
 func (o GetLocalDiskResultOutput) DiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalDiskResult) string { return v.DiskId }).(pulumi.StringOutput)
 }

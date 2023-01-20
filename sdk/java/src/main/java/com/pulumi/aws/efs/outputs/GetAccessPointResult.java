@@ -15,8 +15,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetAccessPointResult {
     private String accessPointId;
+    /**
+     * @return Amazon Resource Name of the file system.
+     * 
+     */
     private String arn;
+    /**
+     * @return Amazon Resource Name of the file system.
+     * 
+     */
     private String fileSystemArn;
+    /**
+     * @return ID of the file system for which the access point is intended.
+     * 
+     */
     private String fileSystemId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -24,20 +36,44 @@ public final class GetAccessPointResult {
      */
     private String id;
     private String ownerId;
+    /**
+     * @return Single element list containing operating system user and group applied to all file system requests made using the access point.
+     * 
+     */
     private List<GetAccessPointPosixUser> posixUsers;
+    /**
+     * @return Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
+     * 
+     */
     private List<GetAccessPointRootDirectory> rootDirectories;
+    /**
+     * @return Key-value mapping of resource tags.
+     * 
+     */
     private @Nullable Map<String,String> tags;
 
     private GetAccessPointResult() {}
     public String accessPointId() {
         return this.accessPointId;
     }
+    /**
+     * @return Amazon Resource Name of the file system.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Amazon Resource Name of the file system.
+     * 
+     */
     public String fileSystemArn() {
         return this.fileSystemArn;
     }
+    /**
+     * @return ID of the file system for which the access point is intended.
+     * 
+     */
     public String fileSystemId() {
         return this.fileSystemId;
     }
@@ -51,12 +87,24 @@ public final class GetAccessPointResult {
     public String ownerId() {
         return this.ownerId;
     }
+    /**
+     * @return Single element list containing operating system user and group applied to all file system requests made using the access point.
+     * 
+     */
     public List<GetAccessPointPosixUser> posixUsers() {
         return this.posixUsers;
     }
+    /**
+     * @return Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
+     * 
+     */
     public List<GetAccessPointRootDirectory> rootDirectories() {
         return this.rootDirectories;
     }
+    /**
+     * @return Key-value mapping of resource tags.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }

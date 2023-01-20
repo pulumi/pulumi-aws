@@ -20,6 +20,10 @@ public final class GetTrafficPolicyDocumentResult {
      * 
      */
     private String id;
+    /**
+     * @return Standard JSON policy document rendered based on the arguments above.
+     * 
+     */
     private String json;
     private @Nullable String recordType;
     private @Nullable List<GetTrafficPolicyDocumentRule> rules;
@@ -38,6 +42,10 @@ public final class GetTrafficPolicyDocumentResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Standard JSON policy document rendered based on the arguments above.
+     * 
+     */
     public String json() {
         return this.json;
     }

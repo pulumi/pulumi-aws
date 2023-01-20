@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolSchemaStringAttributeConstraints {
+    /**
+     * @return Maximum length of an attribute value of the string type.
+     * 
+     */
     private @Nullable String maxLength;
+    /**
+     * @return Minimum length of an attribute value of the string type.
+     * 
+     */
     private @Nullable String minLength;
 
     private UserPoolSchemaStringAttributeConstraints() {}
+    /**
+     * @return Maximum length of an attribute value of the string type.
+     * 
+     */
     public Optional<String> maxLength() {
         return Optional.ofNullable(this.maxLength);
     }
+    /**
+     * @return Minimum length of an attribute value of the string type.
+     * 
+     */
     public Optional<String> minLength() {
         return Optional.ofNullable(this.minLength);
     }

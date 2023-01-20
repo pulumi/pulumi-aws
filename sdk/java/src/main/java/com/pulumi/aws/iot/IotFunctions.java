@@ -14,21 +14,45 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class IotFunctions {
+    /**
+     * Returns a unique endpoint specific to the AWS account making the call.
+     * 
+     */
     public static Output<GetEndpointResult> getEndpoint() {
         return getEndpoint(GetEndpointArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Returns a unique endpoint specific to the AWS account making the call.
+     * 
+     */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain() {
         return getEndpointPlain(GetEndpointPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Returns a unique endpoint specific to the AWS account making the call.
+     * 
+     */
     public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args) {
         return getEndpoint(args, InvokeOptions.Empty);
     }
+    /**
+     * Returns a unique endpoint specific to the AWS account making the call.
+     * 
+     */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args) {
         return getEndpointPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Returns a unique endpoint specific to the AWS account making the call.
+     * 
+     */
     public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:iot/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Returns a unique endpoint specific to the AWS account making the call.
+     * 
+     */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:iot/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
     }

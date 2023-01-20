@@ -15,17 +15,45 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Single Sign-On (SSO) ABAC Resource: https://docs.aws.amazon.com/singlesignon/latest/userguide/abac.html
+ * 
+ * ## Import
+ * 
+ * SSO Account Assignments can be imported using the `instance_arn`
+ * 
+ * ```sh
+ *  $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes")
 public class InstanceAccessControlAttributes extends com.pulumi.resources.CustomResource {
+    /**
+     * See AccessControlAttribute for more details.
+     * 
+     */
     @Export(name="attributes", refs={List.class,InstanceAccessControlAttributesAttribute.class}, tree="[0,1]")
     private Output<List<InstanceAccessControlAttributesAttribute>> attributes;
 
+    /**
+     * @return See AccessControlAttribute for more details.
+     * 
+     */
     public Output<List<InstanceAccessControlAttributesAttribute>> attributes() {
         return this.attributes;
     }
+    /**
+     * The Amazon Resource Name (ARN) of the SSO Instance.
+     * 
+     */
     @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the SSO Instance.
+     * 
+     */
     public Output<String> instanceArn() {
         return this.instanceArn;
     }

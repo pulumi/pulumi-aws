@@ -12,9 +12,17 @@ public final class GetConfigurationPlainArgs extends com.pulumi.resources.Invoke
 
     public static final GetConfigurationPlainArgs Empty = new GetConfigurationPlainArgs();
 
+    /**
+     * Name of the configuration.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return Name of the configuration.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -43,6 +51,12 @@ public final class GetConfigurationPlainArgs extends com.pulumi.resources.Invoke
             $ = new GetConfigurationPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;

@@ -22,6 +22,14 @@ class MethodResponseArgs:
                  response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None):
         """
         The set of arguments for constructing a MethodResponse resource.
+        :param pulumi.Input[str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        :param pulumi.Input[str] resource_id: API resource ID
+        :param pulumi.Input[str] rest_api: ID of the associated REST API
+        :param pulumi.Input[str] status_code: HTTP status code
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_models: Map of the API models used for the response's content type
+        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] response_parameters: Map of response parameters that can be sent to the caller.
+               For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+               would define that the header `X-Some-Header` can be provided on the response.
         """
         pulumi.set(__self__, "http_method", http_method)
         pulumi.set(__self__, "resource_id", resource_id)
@@ -35,6 +43,9 @@ class MethodResponseArgs:
     @property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> pulumi.Input[str]:
+        """
+        HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        """
         return pulumi.get(self, "http_method")
 
     @http_method.setter
@@ -44,6 +55,9 @@ class MethodResponseArgs:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[str]:
+        """
+        API resource ID
+        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -53,6 +67,9 @@ class MethodResponseArgs:
     @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Input[str]:
+        """
+        ID of the associated REST API
+        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -62,6 +79,9 @@ class MethodResponseArgs:
     @property
     @pulumi.getter(name="statusCode")
     def status_code(self) -> pulumi.Input[str]:
+        """
+        HTTP status code
+        """
         return pulumi.get(self, "status_code")
 
     @status_code.setter
@@ -71,6 +91,9 @@ class MethodResponseArgs:
     @property
     @pulumi.getter(name="responseModels")
     def response_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of the API models used for the response's content type
+        """
         return pulumi.get(self, "response_models")
 
     @response_models.setter
@@ -80,6 +103,11 @@ class MethodResponseArgs:
     @property
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]]:
+        """
+        Map of response parameters that can be sent to the caller.
+        For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+        would define that the header `X-Some-Header` can be provided on the response.
+        """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
@@ -98,6 +126,14 @@ class _MethodResponseState:
                  status_code: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering MethodResponse resources.
+        :param pulumi.Input[str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        :param pulumi.Input[str] resource_id: API resource ID
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_models: Map of the API models used for the response's content type
+        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] response_parameters: Map of response parameters that can be sent to the caller.
+               For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+               would define that the header `X-Some-Header` can be provided on the response.
+        :param pulumi.Input[str] rest_api: ID of the associated REST API
+        :param pulumi.Input[str] status_code: HTTP status code
         """
         if http_method is not None:
             pulumi.set(__self__, "http_method", http_method)
@@ -115,6 +151,9 @@ class _MethodResponseState:
     @property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        """
         return pulumi.get(self, "http_method")
 
     @http_method.setter
@@ -124,6 +163,9 @@ class _MethodResponseState:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        API resource ID
+        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -133,6 +175,9 @@ class _MethodResponseState:
     @property
     @pulumi.getter(name="responseModels")
     def response_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of the API models used for the response's content type
+        """
         return pulumi.get(self, "response_models")
 
     @response_models.setter
@@ -142,6 +187,11 @@ class _MethodResponseState:
     @property
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]]:
+        """
+        Map of response parameters that can be sent to the caller.
+        For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+        would define that the header `X-Some-Header` can be provided on the response.
+        """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
@@ -151,6 +201,9 @@ class _MethodResponseState:
     @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the associated REST API
+        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -160,6 +213,9 @@ class _MethodResponseState:
     @property
     @pulumi.getter(name="statusCode")
     def status_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        HTTP status code
+        """
         return pulumi.get(self, "status_code")
 
     @status_code.setter
@@ -180,9 +236,54 @@ class MethodResponse(pulumi.CustomResource):
                  status_code: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a MethodResponse resource with the given unique name, props, and options.
+        Provides an HTTP Method Response for an API Gateway Resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
+        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+            rest_api=my_demo_api.id,
+            parent_id=my_demo_api.root_resource_id,
+            path_part="mydemoresource")
+        my_demo_method = aws.apigateway.Method("myDemoMethod",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method="GET",
+            authorization="NONE")
+        my_demo_integration = aws.apigateway.Integration("myDemoIntegration",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method=my_demo_method.http_method,
+            type="MOCK")
+        response200 = aws.apigateway.MethodResponse("response200",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method=my_demo_method.http_method,
+            status_code="200")
+        ```
+
+        ## Import
+
+        `aws_api_gateway_method_response` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`, e.g.,
+
+        ```sh
+         $ pulumi import aws:apigateway/methodResponse:MethodResponse example 12345abcde/67890fghij/GET/200
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        :param pulumi.Input[str] resource_id: API resource ID
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_models: Map of the API models used for the response's content type
+        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] response_parameters: Map of response parameters that can be sent to the caller.
+               For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+               would define that the header `X-Some-Header` can be provided on the response.
+        :param pulumi.Input[str] rest_api: ID of the associated REST API
+        :param pulumi.Input[str] status_code: HTTP status code
         """
         ...
     @overload
@@ -191,7 +292,44 @@ class MethodResponse(pulumi.CustomResource):
                  args: MethodResponseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a MethodResponse resource with the given unique name, props, and options.
+        Provides an HTTP Method Response for an API Gateway Resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
+        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+            rest_api=my_demo_api.id,
+            parent_id=my_demo_api.root_resource_id,
+            path_part="mydemoresource")
+        my_demo_method = aws.apigateway.Method("myDemoMethod",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method="GET",
+            authorization="NONE")
+        my_demo_integration = aws.apigateway.Integration("myDemoIntegration",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method=my_demo_method.http_method,
+            type="MOCK")
+        response200 = aws.apigateway.MethodResponse("response200",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method=my_demo_method.http_method,
+            status_code="200")
+        ```
+
+        ## Import
+
+        `aws_api_gateway_method_response` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`, e.g.,
+
+        ```sh
+         $ pulumi import aws:apigateway/methodResponse:MethodResponse example 12345abcde/67890fghij/GET/200
+        ```
+
         :param str resource_name: The name of the resource.
         :param MethodResponseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -259,6 +397,14 @@ class MethodResponse(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        :param pulumi.Input[str] resource_id: API resource ID
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_models: Map of the API models used for the response's content type
+        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] response_parameters: Map of response parameters that can be sent to the caller.
+               For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+               would define that the header `X-Some-Header` can be provided on the response.
+        :param pulumi.Input[str] rest_api: ID of the associated REST API
+        :param pulumi.Input[str] status_code: HTTP status code
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -275,30 +421,50 @@ class MethodResponse(pulumi.CustomResource):
     @property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> pulumi.Output[str]:
+        """
+        HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        """
         return pulumi.get(self, "http_method")
 
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
+        """
+        API resource ID
+        """
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="responseModels")
     def response_models(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of the API models used for the response's content type
+        """
         return pulumi.get(self, "response_models")
 
     @property
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> pulumi.Output[Optional[Mapping[str, bool]]]:
+        """
+        Map of response parameters that can be sent to the caller.
+        For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+        would define that the header `X-Some-Header` can be provided on the response.
+        """
         return pulumi.get(self, "response_parameters")
 
     @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Output[str]:
+        """
+        ID of the associated REST API
+        """
         return pulumi.get(self, "rest_api")
 
     @property
     @pulumi.getter(name="statusCode")
     def status_code(self) -> pulumi.Output[str]:
+        """
+        HTTP status code
+        """
         return pulumi.get(self, "status_code")
 

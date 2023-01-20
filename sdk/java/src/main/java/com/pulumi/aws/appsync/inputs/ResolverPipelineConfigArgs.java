@@ -16,9 +16,17 @@ public final class ResolverPipelineConfigArgs extends com.pulumi.resources.Resou
 
     public static final ResolverPipelineConfigArgs Empty = new ResolverPipelineConfigArgs();
 
+    /**
+     * A list of Function objects.
+     * 
+     */
     @Import(name="functions")
     private @Nullable Output<List<String>> functions;
 
+    /**
+     * @return A list of Function objects.
+     * 
+     */
     public Optional<Output<List<String>>> functions() {
         return Optional.ofNullable(this.functions);
     }
@@ -47,15 +55,33 @@ public final class ResolverPipelineConfigArgs extends com.pulumi.resources.Resou
             $ = new ResolverPipelineConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param functions A list of Function objects.
+         * 
+         * @return builder
+         * 
+         */
         public Builder functions(@Nullable Output<List<String>> functions) {
             $.functions = functions;
             return this;
         }
 
+        /**
+         * @param functions A list of Function objects.
+         * 
+         * @return builder
+         * 
+         */
         public Builder functions(List<String> functions) {
             return functions(Output.of(functions));
         }
 
+        /**
+         * @param functions A list of Function objects.
+         * 
+         * @return builder
+         * 
+         */
         public Builder functions(String... functions) {
             return functions(List.of(functions));
         }

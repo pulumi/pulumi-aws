@@ -12,11 +12,18 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enables or disables data processing.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("processors")]
         private InputList<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs>? _processors;
+
+        /// <summary>
+        /// Array of data processors. More details are given below
+        /// </summary>
         public InputList<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs> Processors
         {
             get => _processors ?? (_processors = new InputList<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs>());

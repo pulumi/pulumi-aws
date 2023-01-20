@@ -11,9 +11,99 @@ namespace Pulumi.Aws.Connect
 {
     public static class GetUserHierarchyGroup
     {
+        /// <summary>
+        /// Provides details about a specific Amazon Connect User Hierarchy Group.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// By `name`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Connect.GetUserHierarchyGroup.Invoke(new()
+        ///     {
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// By `hierarchy_group_id`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Connect.GetUserHierarchyGroup.Invoke(new()
+        ///     {
+        ///         HierarchyGroupId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetUserHierarchyGroupResult> InvokeAsync(GetUserHierarchyGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserHierarchyGroupResult>("aws:connect/getUserHierarchyGroup:getUserHierarchyGroup", args ?? new GetUserHierarchyGroupArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides details about a specific Amazon Connect User Hierarchy Group.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// By `name`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Connect.GetUserHierarchyGroup.Invoke(new()
+        ///     {
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// By `hierarchy_group_id`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Connect.GetUserHierarchyGroup.Invoke(new()
+        ///     {
+        ///         HierarchyGroupId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetUserHierarchyGroupResult> Invoke(GetUserHierarchyGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserHierarchyGroupResult>("aws:connect/getUserHierarchyGroup:getUserHierarchyGroup", args ?? new GetUserHierarchyGroupInvokeArgs(), options.WithDefaults());
     }
@@ -21,17 +111,30 @@ namespace Pulumi.Aws.Connect
 
     public sealed class GetUserHierarchyGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns information on a specific hierarchy group by hierarchy group id
+        /// </summary>
         [Input("hierarchyGroupId")]
         public string? HierarchyGroupId { get; set; }
 
+        /// <summary>
+        /// Reference to the hosting Amazon Connect Instance
+        /// </summary>
         [Input("instanceId", required: true)]
         public string InstanceId { get; set; } = null!;
 
+        /// <summary>
+        /// Returns information on a specific hierarchy group by name
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the hierarchy group.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -46,17 +149,30 @@ namespace Pulumi.Aws.Connect
 
     public sealed class GetUserHierarchyGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns information on a specific hierarchy group by hierarchy group id
+        /// </summary>
         [Input("hierarchyGroupId")]
         public Input<string>? HierarchyGroupId { get; set; }
 
+        /// <summary>
+        /// Reference to the hosting Amazon Connect Instance
+        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
+        /// <summary>
+        /// Returns information on a specific hierarchy group by name
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the hierarchy group.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -73,16 +189,31 @@ namespace Pulumi.Aws.Connect
     [OutputType]
     public sealed class GetUserHierarchyGroupResult
     {
+        /// <summary>
+        /// ARN of the hierarchy group.
+        /// </summary>
         public readonly string Arn;
         public readonly string HierarchyGroupId;
+        /// <summary>
+        /// Block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetUserHierarchyGroupHierarchyPathResult> HierarchyPaths;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string InstanceId;
+        /// <summary>
+        /// Identifier of the level in the hierarchy group.
+        /// </summary>
         public readonly string LevelId;
+        /// <summary>
+        /// Name of the hierarchy group.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Map of tags to assign to the hierarchy group.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

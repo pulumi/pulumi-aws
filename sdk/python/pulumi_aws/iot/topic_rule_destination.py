@@ -20,6 +20,8 @@ class TopicRuleDestinationArgs:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a TopicRuleDestination resource.
+        :param pulumi.Input['TopicRuleDestinationVpcConfigurationArgs'] vpc_configuration: Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+        :param pulumi.Input[bool] enabled: Whether or not to enable the destination. Default: `true`.
         """
         pulumi.set(__self__, "vpc_configuration", vpc_configuration)
         if enabled is not None:
@@ -28,6 +30,9 @@ class TopicRuleDestinationArgs:
     @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Input['TopicRuleDestinationVpcConfigurationArgs']:
+        """
+        Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+        """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
@@ -37,6 +42,9 @@ class TopicRuleDestinationArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to enable the destination. Default: `true`.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -52,6 +60,9 @@ class _TopicRuleDestinationState:
                  vpc_configuration: Optional[pulumi.Input['TopicRuleDestinationVpcConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering TopicRuleDestination resources.
+        :param pulumi.Input[str] arn: The ARN of the topic rule destination
+        :param pulumi.Input[bool] enabled: Whether or not to enable the destination. Default: `true`.
+        :param pulumi.Input['TopicRuleDestinationVpcConfigurationArgs'] vpc_configuration: Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -63,6 +74,9 @@ class _TopicRuleDestinationState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the topic rule destination
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -72,6 +86,9 @@ class _TopicRuleDestinationState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to enable the destination. Default: `true`.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -81,6 +98,9 @@ class _TopicRuleDestinationState:
     @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['TopicRuleDestinationVpcConfigurationArgs']]:
+        """
+        Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+        """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
@@ -97,9 +117,18 @@ class TopicRuleDestination(pulumi.CustomResource):
                  vpc_configuration: Optional[pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcConfigurationArgs']]] = None,
                  __props__=None):
         """
-        Create a TopicRuleDestination resource with the given unique name, props, and options.
+        ## Import
+
+        IoT topic rule destinations can be imported using the `arn`, e.g.,
+
+        ```sh
+         $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enabled: Whether or not to enable the destination. Default: `true`.
+        :param pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcConfigurationArgs']] vpc_configuration: Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
         """
         ...
     @overload
@@ -108,7 +137,14 @@ class TopicRuleDestination(pulumi.CustomResource):
                  args: TopicRuleDestinationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a TopicRuleDestination resource with the given unique name, props, and options.
+        ## Import
+
+        IoT topic rule destinations can be imported using the `arn`, e.g.,
+
+        ```sh
+         $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
+        ```
+
         :param str resource_name: The name of the resource.
         :param TopicRuleDestinationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,6 +196,9 @@ class TopicRuleDestination(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the topic rule destination
+        :param pulumi.Input[bool] enabled: Whether or not to enable the destination. Default: `true`.
+        :param pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcConfigurationArgs']] vpc_configuration: Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -173,15 +212,24 @@ class TopicRuleDestination(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the topic rule destination
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether or not to enable the destination. Default: `true`.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Output['outputs.TopicRuleDestinationVpcConfiguration']:
+        """
+        Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+        """
         return pulumi.get(self, "vpc_configuration")
 

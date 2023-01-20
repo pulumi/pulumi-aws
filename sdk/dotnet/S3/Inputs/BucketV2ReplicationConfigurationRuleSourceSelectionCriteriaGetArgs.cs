@@ -14,6 +14,11 @@ namespace Pulumi.Aws.S3.Inputs
     {
         [Input("sseKmsEncryptedObjects")]
         private InputList<Inputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectGetArgs>? _sseKmsEncryptedObjects;
+
+        /// <summary>
+        /// Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
+        /// in `destination` must be specified as well.
+        /// </summary>
         public InputList<Inputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectGetArgs> SseKmsEncryptedObjects
         {
             get => _sseKmsEncryptedObjects ?? (_sseKmsEncryptedObjects = new InputList<Inputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectGetArgs>());

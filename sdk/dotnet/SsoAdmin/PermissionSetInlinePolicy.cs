@@ -9,15 +9,38 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SsoAdmin
 {
+    /// <summary>
+    /// Provides an IAM inline policy for a Single Sign-On (SSO) Permission Set resource
+    /// 
+    /// &gt; **NOTE:** AWS Single Sign-On (SSO) only supports one IAM inline policy per `aws.ssoadmin.PermissionSet` resource.
+    /// Creating or updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
+    /// 
+    /// ## Import
+    /// 
+    /// SSO Permission Set Inline Policies can be imported using the `permission_set_arn` and `instance_arn` separated by a comma (`,`) e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy")]
     public partial class PermissionSetInlinePolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The IAM inline policy to attach to a Permission Set.
+        /// </summary>
         [Output("inlinePolicy")]
         public Output<string> InlinePolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        /// </summary>
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Permission Set.
+        /// </summary>
         [Output("permissionSetArn")]
         public Output<string> PermissionSetArn { get; private set; } = null!;
 
@@ -67,12 +90,21 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class PermissionSetInlinePolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IAM inline policy to attach to a Permission Set.
+        /// </summary>
         [Input("inlinePolicy", required: true)]
         public Input<string> InlinePolicy { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Permission Set.
+        /// </summary>
         [Input("permissionSetArn", required: true)]
         public Input<string> PermissionSetArn { get; set; } = null!;
 
@@ -84,12 +116,21 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class PermissionSetInlinePolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IAM inline policy to attach to a Permission Set.
+        /// </summary>
         [Input("inlinePolicy")]
         public Input<string>? InlinePolicy { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        /// </summary>
         [Input("instanceArn")]
         public Input<string>? InstanceArn { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Permission Set.
+        /// </summary>
         [Input("permissionSetArn")]
         public Input<string>? PermissionSetArn { get; set; }
 

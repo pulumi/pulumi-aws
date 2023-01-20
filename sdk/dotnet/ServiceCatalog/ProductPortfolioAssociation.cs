@@ -9,18 +9,60 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
+    /// <summary>
+    /// Manages a Service Catalog Product Portfolio Association.
+    /// 
+    /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ServiceCatalog.ProductPortfolioAssociation("example", new()
+    ///     {
+    ///         PortfolioId = "port-68656c6c6f",
+    ///         ProductId = "prod-dnigbtea24ste",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_servicecatalog_product_portfolio_association` can be imported using the accept language, portfolio ID, and product ID, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation")]
     public partial class ProductPortfolioAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// </summary>
         [Output("acceptLanguage")]
         public Output<string?> AcceptLanguage { get; private set; } = null!;
 
+        /// <summary>
+        /// Portfolio identifier.
+        /// </summary>
         [Output("portfolioId")]
         public Output<string> PortfolioId { get; private set; } = null!;
 
+        /// <summary>
+        /// Product identifier.
+        /// </summary>
         [Output("productId")]
         public Output<string> ProductId { get; private set; } = null!;
 
+        /// <summary>
+        /// Identifier of the source portfolio.
+        /// </summary>
         [Output("sourcePortfolioId")]
         public Output<string?> SourcePortfolioId { get; private set; } = null!;
 
@@ -70,15 +112,27 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class ProductPortfolioAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
+        /// <summary>
+        /// Portfolio identifier.
+        /// </summary>
         [Input("portfolioId", required: true)]
         public Input<string> PortfolioId { get; set; } = null!;
 
+        /// <summary>
+        /// Product identifier.
+        /// </summary>
         [Input("productId", required: true)]
         public Input<string> ProductId { get; set; } = null!;
 
+        /// <summary>
+        /// Identifier of the source portfolio.
+        /// </summary>
         [Input("sourcePortfolioId")]
         public Input<string>? SourcePortfolioId { get; set; }
 
@@ -90,15 +144,27 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class ProductPortfolioAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
+        /// <summary>
+        /// Portfolio identifier.
+        /// </summary>
         [Input("portfolioId")]
         public Input<string>? PortfolioId { get; set; }
 
+        /// <summary>
+        /// Product identifier.
+        /// </summary>
         [Input("productId")]
         public Input<string>? ProductId { get; set; }
 
+        /// <summary>
+        /// Identifier of the source portfolio.
+        /// </summary>
         [Input("sourcePortfolioId")]
         public Input<string>? SourcePortfolioId { get; set; }
 

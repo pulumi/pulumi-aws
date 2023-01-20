@@ -11,12 +11,77 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an individual EC2 resource tag. This resource should only be used in cases where EC2 resources are created outside the provider (e.g. AMIs), being shared via Resource Access Manager (RAM), or implicitly created by other means (e.g. Transit Gateway VPN Attachments).
+//
+// > **NOTE:** This tagging resource should not be combined with the providers resource for managing the parent resource. For example, using `ec2.Vpc` and `ec2.Tag` to manage tags of the same VPC will cause a perpetual difference where the `ec2.Vpc` resource will try to remove the tag being added by the `ec2.Tag` resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2.CustomerGatewayArgs{
+//				BgpAsn:    pulumi.String("65000"),
+//				IpAddress: pulumi.String("172.0.0.1"),
+//				Type:      pulumi.String("ipsec.1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpnConnection, err := ec2.NewVpnConnection(ctx, "exampleVpnConnection", &ec2.VpnConnectionArgs{
+//				CustomerGatewayId: exampleCustomerGateway.ID(),
+//				TransitGatewayId:  exampleTransitGateway.ID(),
+//				Type:              exampleCustomerGateway.Type,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewTag(ctx, "exampleTag", &ec2.TagArgs{
+//				ResourceId: exampleVpnConnection.TransitGatewayAttachmentId,
+//				Key:        pulumi.String("Name"),
+//				Value:      pulumi.String("Hello World"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_ec2_tag` can be imported by using the EC2 resource identifier and key, separated by a comma (`,`), e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
+//
+// ```
 type Tag struct {
 	pulumi.CustomResourceState
 
-	Key        pulumi.StringOutput `pulumi:"key"`
+	// The tag name.
+	Key pulumi.StringOutput `pulumi:"key"`
+	// The ID of the EC2 resource to manage the tag for.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	Value      pulumi.StringOutput `pulumi:"value"`
+	// The value of the tag.
+	Value pulumi.StringOutput `pulumi:"value"`
 }
 
 // NewTag registers a new resource with the given unique name, arguments, and options.
@@ -57,15 +122,21 @@ func GetTag(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Tag resources.
 type tagState struct {
-	Key        *string `pulumi:"key"`
+	// The tag name.
+	Key *string `pulumi:"key"`
+	// The ID of the EC2 resource to manage the tag for.
 	ResourceId *string `pulumi:"resourceId"`
-	Value      *string `pulumi:"value"`
+	// The value of the tag.
+	Value *string `pulumi:"value"`
 }
 
 type TagState struct {
-	Key        pulumi.StringPtrInput
+	// The tag name.
+	Key pulumi.StringPtrInput
+	// The ID of the EC2 resource to manage the tag for.
 	ResourceId pulumi.StringPtrInput
-	Value      pulumi.StringPtrInput
+	// The value of the tag.
+	Value pulumi.StringPtrInput
 }
 
 func (TagState) ElementType() reflect.Type {
@@ -73,16 +144,22 @@ func (TagState) ElementType() reflect.Type {
 }
 
 type tagArgs struct {
-	Key        string `pulumi:"key"`
+	// The tag name.
+	Key string `pulumi:"key"`
+	// The ID of the EC2 resource to manage the tag for.
 	ResourceId string `pulumi:"resourceId"`
-	Value      string `pulumi:"value"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a Tag resource.
 type TagArgs struct {
-	Key        pulumi.StringInput
+	// The tag name.
+	Key pulumi.StringInput
+	// The ID of the EC2 resource to manage the tag for.
 	ResourceId pulumi.StringInput
-	Value      pulumi.StringInput
+	// The value of the tag.
+	Value pulumi.StringInput
 }
 
 func (TagArgs) ElementType() reflect.Type {
@@ -172,14 +249,17 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return o
 }
 
+// The tag name.
 func (o TagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
+// The ID of the EC2 resource to manage the tag for.
 func (o TagOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
+// The value of the tag.
 func (o TagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

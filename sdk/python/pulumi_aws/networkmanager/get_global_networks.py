@@ -43,6 +43,9 @@ class GetGlobalNetworksResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
+        """
+        IDs of the global networks.
+        """
         return pulumi.get(self, "ids")
 
     @property
@@ -65,7 +68,21 @@ class AwaitableGetGlobalNetworksResult(GetGlobalNetworksResult):
 def get_global_networks(tags: Optional[Mapping[str, str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalNetworksResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about global networks.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.networkmanager.get_global_networks(tags={
+        "Env": "test",
+    })
+    ```
+
+
+    :param Mapping[str, str] tags: Restricts the list to the global networks with these tags.
     """
     __args__ = dict()
     __args__['tags'] = tags
@@ -82,6 +99,20 @@ def get_global_networks(tags: Optional[Mapping[str, str]] = None,
 def get_global_networks_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalNetworksResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about global networks.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.networkmanager.get_global_networks(tags={
+        "Env": "test",
+    })
+    ```
+
+
+    :param Mapping[str, str] tags: Restricts the list to the global networks with these tags.
     """
     ...

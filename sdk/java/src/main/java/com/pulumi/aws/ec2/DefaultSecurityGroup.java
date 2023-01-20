@@ -19,35 +19,100 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a resource to manage a default security group. This resource can manage the default security group of the default or a non-default VPC.
+ * 
+ * &gt; **NOTE:** This is an advanced resource with special caveats. Please read this document in its entirety before using this resource. The `aws.ec2.DefaultSecurityGroup` resource behaves differently from normal resources. This provider does not _create_ this resource but instead attempts to &#34;adopt&#34; it into management.
+ * 
+ * When the provider first begins managing the default security group, it **immediately removes all ingress and egress rules in the Security Group**. It then creates any rules specified in the configuration. This way only the rules specified in the configuration are created.
+ * 
+ * This resource treats its inline rules as absolute; only the rules defined inline are created, and any additions/removals external to this resource will result in diff shown. For these reasons, this resource is incompatible with the `aws.ec2.SecurityGroupRule` resource.
+ * 
+ * For more information about default security groups, see the AWS documentation on [Default Security Groups][aws-default-security-groups]. To manage normal security groups, see the `aws.ec2.SecurityGroup` resource.
+ * 
+ * ## Example Usage
+ * ### Removing `aws.ec2.DefaultSecurityGroup` From Your Configuration
+ * 
+ * Removing this resource from your configuration will remove it from your statefile and management, but will not destroy the Security Group. All ingress or egress rules will be left as they are at the time of removal. You can resume managing them via the AWS Console.
+ * 
+ * ## Import
+ * 
+ * Security Groups can be imported using the `security group id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2/defaultSecurityGroup:DefaultSecurityGroup")
 public class DefaultSecurityGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the security group.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the security group.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Description of this rule.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
+    /**
+     * @return Description of this rule.
+     * 
+     */
     public Output<String> description() {
         return this.description;
     }
+    /**
+     * Configuration block. Detailed below.
+     * 
+     */
     @Export(name="egress", refs={List.class,DefaultSecurityGroupEgress.class}, tree="[0,1]")
     private Output<List<DefaultSecurityGroupEgress>> egress;
 
+    /**
+     * @return Configuration block. Detailed below.
+     * 
+     */
     public Output<List<DefaultSecurityGroupEgress>> egress() {
         return this.egress;
     }
+    /**
+     * Configuration block. Detailed below.
+     * 
+     */
     @Export(name="ingress", refs={List.class,DefaultSecurityGroupIngress.class}, tree="[0,1]")
     private Output<List<DefaultSecurityGroupIngress>> ingress;
 
+    /**
+     * @return Configuration block. Detailed below.
+     * 
+     */
     public Output<List<DefaultSecurityGroupIngress>> ingress() {
         return this.ingress;
     }
+    /**
+     * Name of the security group.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name of the security group.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -57,9 +122,17 @@ public class DefaultSecurityGroup extends com.pulumi.resources.CustomResource {
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
+    /**
+     * Owner ID.
+     * 
+     */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
+    /**
+     * @return Owner ID.
+     * 
+     */
     public Output<String> ownerId() {
         return this.ownerId;
     }
@@ -69,21 +142,45 @@ public class DefaultSecurityGroup extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> revokeRulesOnDelete() {
         return Codegen.optional(this.revokeRulesOnDelete);
     }
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
+     * 
+     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
+    /**
+     * @return VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
+     * 
+     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

@@ -23,93 +23,197 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
 
     public static final GraphQLApiState Empty = new GraphQLApiState();
 
+    /**
+     * One or more additional authentication providers for the GraphqlApi. Defined below.
+     * 
+     */
     @Import(name="additionalAuthenticationProviders")
     private @Nullable Output<List<GraphQLApiAdditionalAuthenticationProviderArgs>> additionalAuthenticationProviders;
 
+    /**
+     * @return One or more additional authentication providers for the GraphqlApi. Defined below.
+     * 
+     */
     public Optional<Output<List<GraphQLApiAdditionalAuthenticationProviderArgs>>> additionalAuthenticationProviders() {
         return Optional.ofNullable(this.additionalAuthenticationProviders);
     }
 
+    /**
+     * ARN
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return ARN
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+     * 
+     */
     @Import(name="authenticationType")
     private @Nullable Output<String> authenticationType;
 
+    /**
+     * @return Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+     * 
+     */
     public Optional<Output<String>> authenticationType() {
         return Optional.ofNullable(this.authenticationType);
     }
 
+    /**
+     * Nested argument containing Lambda authorizer configuration. Defined below.
+     * 
+     */
     @Import(name="lambdaAuthorizerConfig")
     private @Nullable Output<GraphQLApiLambdaAuthorizerConfigArgs> lambdaAuthorizerConfig;
 
+    /**
+     * @return Nested argument containing Lambda authorizer configuration. Defined below.
+     * 
+     */
     public Optional<Output<GraphQLApiLambdaAuthorizerConfigArgs>> lambdaAuthorizerConfig() {
         return Optional.ofNullable(this.lambdaAuthorizerConfig);
     }
 
+    /**
+     * Nested argument containing logging configuration. Defined below.
+     * 
+     */
     @Import(name="logConfig")
     private @Nullable Output<GraphQLApiLogConfigArgs> logConfig;
 
+    /**
+     * @return Nested argument containing logging configuration. Defined below.
+     * 
+     */
     public Optional<Output<GraphQLApiLogConfigArgs>> logConfig() {
         return Optional.ofNullable(this.logConfig);
     }
 
+    /**
+     * User-supplied name for the GraphqlApi.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return User-supplied name for the GraphqlApi.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Nested argument containing OpenID Connect configuration. Defined below.
+     * 
+     */
     @Import(name="openidConnectConfig")
     private @Nullable Output<GraphQLApiOpenidConnectConfigArgs> openidConnectConfig;
 
+    /**
+     * @return Nested argument containing OpenID Connect configuration. Defined below.
+     * 
+     */
     public Optional<Output<GraphQLApiOpenidConnectConfigArgs>> openidConnectConfig() {
         return Optional.ofNullable(this.openidConnectConfig);
     }
 
+    /**
+     * Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+     * 
+     */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
+    /**
+     * @return Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+     * 
+     */
     public Optional<Output<String>> schema() {
         return Optional.ofNullable(this.schema);
     }
 
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * Map of URIs associated with the APIE.g., `uris[&#34;GRAPHQL&#34;] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+     * 
+     */
     @Import(name="uris")
     private @Nullable Output<Map<String,String>> uris;
 
+    /**
+     * @return Map of URIs associated with the APIE.g., `uris[&#34;GRAPHQL&#34;] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+     * 
+     */
     public Optional<Output<Map<String,String>>> uris() {
         return Optional.ofNullable(this.uris);
     }
 
+    /**
+     * Amazon Cognito User Pool configuration. Defined below.
+     * 
+     */
     @Import(name="userPoolConfig")
     private @Nullable Output<GraphQLApiUserPoolConfigArgs> userPoolConfig;
 
+    /**
+     * @return Amazon Cognito User Pool configuration. Defined below.
+     * 
+     */
     public Optional<Output<GraphQLApiUserPoolConfigArgs>> userPoolConfig() {
         return Optional.ofNullable(this.userPoolConfig);
     }
 
+    /**
+     * Whether tracing with X-ray is enabled. Defaults to false.
+     * 
+     */
     @Import(name="xrayEnabled")
     private @Nullable Output<Boolean> xrayEnabled;
 
+    /**
+     * @return Whether tracing with X-ray is enabled. Defaults to false.
+     * 
+     */
     public Optional<Output<Boolean>> xrayEnabled() {
         return Optional.ofNullable(this.xrayEnabled);
     }
@@ -150,123 +254,285 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
             $ = new GraphQLApiState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphqlApi. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder additionalAuthenticationProviders(@Nullable Output<List<GraphQLApiAdditionalAuthenticationProviderArgs>> additionalAuthenticationProviders) {
             $.additionalAuthenticationProviders = additionalAuthenticationProviders;
             return this;
         }
 
+        /**
+         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphqlApi. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder additionalAuthenticationProviders(List<GraphQLApiAdditionalAuthenticationProviderArgs> additionalAuthenticationProviders) {
             return additionalAuthenticationProviders(Output.of(additionalAuthenticationProviders));
         }
 
+        /**
+         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphqlApi. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder additionalAuthenticationProviders(GraphQLApiAdditionalAuthenticationProviderArgs... additionalAuthenticationProviders) {
             return additionalAuthenticationProviders(List.of(additionalAuthenticationProviders));
         }
 
+        /**
+         * @param arn ARN
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn ARN
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param authenticationType Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+         * 
+         * @return builder
+         * 
+         */
         public Builder authenticationType(@Nullable Output<String> authenticationType) {
             $.authenticationType = authenticationType;
             return this;
         }
 
+        /**
+         * @param authenticationType Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+         * 
+         * @return builder
+         * 
+         */
         public Builder authenticationType(String authenticationType) {
             return authenticationType(Output.of(authenticationType));
         }
 
+        /**
+         * @param lambdaAuthorizerConfig Nested argument containing Lambda authorizer configuration. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lambdaAuthorizerConfig(@Nullable Output<GraphQLApiLambdaAuthorizerConfigArgs> lambdaAuthorizerConfig) {
             $.lambdaAuthorizerConfig = lambdaAuthorizerConfig;
             return this;
         }
 
+        /**
+         * @param lambdaAuthorizerConfig Nested argument containing Lambda authorizer configuration. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lambdaAuthorizerConfig(GraphQLApiLambdaAuthorizerConfigArgs lambdaAuthorizerConfig) {
             return lambdaAuthorizerConfig(Output.of(lambdaAuthorizerConfig));
         }
 
+        /**
+         * @param logConfig Nested argument containing logging configuration. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logConfig(@Nullable Output<GraphQLApiLogConfigArgs> logConfig) {
             $.logConfig = logConfig;
             return this;
         }
 
+        /**
+         * @param logConfig Nested argument containing logging configuration. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logConfig(GraphQLApiLogConfigArgs logConfig) {
             return logConfig(Output.of(logConfig));
         }
 
+        /**
+         * @param name User-supplied name for the GraphqlApi.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name User-supplied name for the GraphqlApi.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param openidConnectConfig Nested argument containing OpenID Connect configuration. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder openidConnectConfig(@Nullable Output<GraphQLApiOpenidConnectConfigArgs> openidConnectConfig) {
             $.openidConnectConfig = openidConnectConfig;
             return this;
         }
 
+        /**
+         * @param openidConnectConfig Nested argument containing OpenID Connect configuration. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder openidConnectConfig(GraphQLApiOpenidConnectConfigArgs openidConnectConfig) {
             return openidConnectConfig(Output.of(openidConnectConfig));
         }
 
+        /**
+         * @param schema Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder schema(@Nullable Output<String> schema) {
             $.schema = schema;
             return this;
         }
 
+        /**
+         * @param schema Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder schema(String schema) {
             return schema(Output.of(schema));
         }
 
+        /**
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
+        /**
+         * @param uris Map of URIs associated with the APIE.g., `uris[&#34;GRAPHQL&#34;] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+         * 
+         * @return builder
+         * 
+         */
         public Builder uris(@Nullable Output<Map<String,String>> uris) {
             $.uris = uris;
             return this;
         }
 
+        /**
+         * @param uris Map of URIs associated with the APIE.g., `uris[&#34;GRAPHQL&#34;] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+         * 
+         * @return builder
+         * 
+         */
         public Builder uris(Map<String,String> uris) {
             return uris(Output.of(uris));
         }
 
+        /**
+         * @param userPoolConfig Amazon Cognito User Pool configuration. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userPoolConfig(@Nullable Output<GraphQLApiUserPoolConfigArgs> userPoolConfig) {
             $.userPoolConfig = userPoolConfig;
             return this;
         }
 
+        /**
+         * @param userPoolConfig Amazon Cognito User Pool configuration. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userPoolConfig(GraphQLApiUserPoolConfigArgs userPoolConfig) {
             return userPoolConfig(Output.of(userPoolConfig));
         }
 
+        /**
+         * @param xrayEnabled Whether tracing with X-ray is enabled. Defaults to false.
+         * 
+         * @return builder
+         * 
+         */
         public Builder xrayEnabled(@Nullable Output<Boolean> xrayEnabled) {
             $.xrayEnabled = xrayEnabled;
             return this;
         }
 
+        /**
+         * @param xrayEnabled Whether tracing with X-ray is enabled. Defaults to false.
+         * 
+         * @return builder
+         * 
+         */
         public Builder xrayEnabled(Boolean xrayEnabled) {
             return xrayEnabled(Output.of(xrayEnabled));
         }

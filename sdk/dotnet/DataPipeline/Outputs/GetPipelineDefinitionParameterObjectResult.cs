@@ -14,6 +14,9 @@ namespace Pulumi.Aws.DataPipeline.Outputs
     public sealed class GetPipelineDefinitionParameterObjectResult
     {
         public readonly ImmutableArray<Outputs.GetPipelineDefinitionParameterObjectAttributeResult> Attributes;
+        /// <summary>
+        /// ID of the object.
+        /// </summary>
         public readonly string Id;
 
         [OutputConstructor]

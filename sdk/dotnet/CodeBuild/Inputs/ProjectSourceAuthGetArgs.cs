@@ -14,6 +14,10 @@ namespace Pulumi.Aws.CodeBuild.Inputs
     {
         [Input("resource")]
         private Input<string>? _resource;
+
+        /// <summary>
+        /// Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
+        /// </summary>
         [Obsolete(@"Use the aws_codebuild_source_credential resource instead")]
         public Input<string>? Resource
         {
@@ -25,6 +29,9 @@ namespace Pulumi.Aws.CodeBuild.Inputs
             }
         }
 
+        /// <summary>
+        /// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

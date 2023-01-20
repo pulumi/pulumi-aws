@@ -14,6 +14,10 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
     {
         [Input("propertyGroups", required: true)]
         private InputList<Inputs.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupGetArgs>? _propertyGroups;
+
+        /// <summary>
+        /// Describes the execution property groups.
+        /// </summary>
         public InputList<Inputs.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupGetArgs> PropertyGroups
         {
             get => _propertyGroups ?? (_propertyGroups = new InputList<Inputs.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupGetArgs>());

@@ -214,7 +214,35 @@ def get_target_group(arn: Optional[str] = None,
                      tags: Optional[Mapping[str, str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTargetGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
+
+    Provides information about a Load Balancer Target Group.
+
+    This data source can prove useful when a module accepts an LB Target Group as an
+    input variable and needs to know its attributes. It can also be used to get the ARN of
+    an LB Target Group for use in other resources, given LB Target Group name.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    lb_tg_arn = config.get("lbTgArn")
+    if lb_tg_arn is None:
+        lb_tg_arn = ""
+    lb_tg_name = config.get("lbTgName")
+    if lb_tg_name is None:
+        lb_tg_name = ""
+    test = aws.lb.get_target_group(arn=lb_tg_arn,
+        name=lb_tg_name)
+    ```
+
+
+    :param str arn: Full ARN of the target group.
+    :param str name: Unique name of the target group.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired target group.
     """
     pulumi.log.warn("""get_target_group is deprecated: aws.elasticloadbalancingv2.getTargetGroup has been deprecated in favor of aws.lb.getTargetGroup""")
     __args__ = dict()
@@ -252,7 +280,35 @@ def get_target_group_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTargetGroupResult]:
     """
-    Use this data source to access information about an existing resource.
+    > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
+
+    Provides information about a Load Balancer Target Group.
+
+    This data source can prove useful when a module accepts an LB Target Group as an
+    input variable and needs to know its attributes. It can also be used to get the ARN of
+    an LB Target Group for use in other resources, given LB Target Group name.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    lb_tg_arn = config.get("lbTgArn")
+    if lb_tg_arn is None:
+        lb_tg_arn = ""
+    lb_tg_name = config.get("lbTgName")
+    if lb_tg_name is None:
+        lb_tg_name = ""
+    test = aws.lb.get_target_group(arn=lb_tg_arn,
+        name=lb_tg_name)
+    ```
+
+
+    :param str arn: Full ARN of the target group.
+    :param str name: Unique name of the target group.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired target group.
     """
     pulumi.log.warn("""get_target_group is deprecated: aws.elasticloadbalancingv2.getTargetGroup has been deprecated in favor of aws.lb.getTargetGroup""")
     ...

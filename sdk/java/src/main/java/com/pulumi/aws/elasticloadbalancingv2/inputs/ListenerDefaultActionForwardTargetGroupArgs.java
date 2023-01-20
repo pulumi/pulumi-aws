@@ -16,16 +16,32 @@ public final class ListenerDefaultActionForwardTargetGroupArgs extends com.pulum
 
     public static final ListenerDefaultActionForwardTargetGroupArgs Empty = new ListenerDefaultActionForwardTargetGroupArgs();
 
+    /**
+     * ARN of the target group.
+     * 
+     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
+    /**
+     * @return ARN of the target group.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
 
+    /**
+     * Weight. The range is 0 to 999.
+     * 
+     */
     @Import(name="weight")
     private @Nullable Output<Integer> weight;
 
+    /**
+     * @return Weight. The range is 0 to 999.
+     * 
+     */
     public Optional<Output<Integer>> weight() {
         return Optional.ofNullable(this.weight);
     }
@@ -55,20 +71,44 @@ public final class ListenerDefaultActionForwardTargetGroupArgs extends com.pulum
             $ = new ListenerDefaultActionForwardTargetGroupArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn ARN of the target group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn ARN of the target group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param weight Weight. The range is 0 to 999.
+         * 
+         * @return builder
+         * 
+         */
         public Builder weight(@Nullable Output<Integer> weight) {
             $.weight = weight;
             return this;
         }
 
+        /**
+         * @param weight Weight. The range is 0 to 999.
+         * 
+         * @return builder
+         * 
+         */
         public Builder weight(Integer weight) {
             return weight(Output.of(weight));
         }

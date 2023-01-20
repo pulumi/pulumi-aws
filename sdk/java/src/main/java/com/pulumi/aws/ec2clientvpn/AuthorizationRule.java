@@ -15,35 +15,124 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides authorization rules for AWS Client VPN endpoints. For more information on usage, please see the
+ * [AWS Client VPN Administrator&#39;s Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2clientvpn.AuthorizationRule;
+ * import com.pulumi.aws.ec2clientvpn.AuthorizationRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AuthorizationRule(&#34;example&#34;, AuthorizationRuleArgs.builder()        
+ *             .clientVpnEndpointId(aws_ec2_client_vpn_endpoint.example().id())
+ *             .targetNetworkCidr(aws_subnet.example().cidr_block())
+ *             .authorizeAllGroups(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * AWS Client VPN authorization rules can be imported using the endpoint ID and target network CIDR. If there is a specific group name that is included as well. All values are separated by a `,`.
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
+ * ```
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2clientvpn/authorizationRule:AuthorizationRule")
 public class AuthorizationRule extends com.pulumi.resources.CustomResource {
+    /**
+     * The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
+     * 
+     */
     @Export(name="accessGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessGroupId;
 
+    /**
+     * @return The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
+     * 
+     */
     public Output<Optional<String>> accessGroupId() {
         return Codegen.optional(this.accessGroupId);
     }
+    /**
+     * Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
+     * 
+     */
     @Export(name="authorizeAllGroups", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> authorizeAllGroups;
 
+    /**
+     * @return Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
+     * 
+     */
     public Output<Optional<Boolean>> authorizeAllGroups() {
         return Codegen.optional(this.authorizeAllGroups);
     }
+    /**
+     * The ID of the Client VPN endpoint.
+     * 
+     */
     @Export(name="clientVpnEndpointId", refs={String.class}, tree="[0]")
     private Output<String> clientVpnEndpointId;
 
+    /**
+     * @return The ID of the Client VPN endpoint.
+     * 
+     */
     public Output<String> clientVpnEndpointId() {
         return this.clientVpnEndpointId;
     }
+    /**
+     * A brief description of the authorization rule.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return A brief description of the authorization rule.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+     * 
+     */
     @Export(name="targetNetworkCidr", refs={String.class}, tree="[0]")
     private Output<String> targetNetworkCidr;
 
+    /**
+     * @return The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+     * 
+     */
     public Output<String> targetNetworkCidr() {
         return this.targetNetworkCidr;
     }

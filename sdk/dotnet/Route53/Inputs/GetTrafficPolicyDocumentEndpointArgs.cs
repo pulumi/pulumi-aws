@@ -12,15 +12,27 @@ namespace Pulumi.Aws.Route53.Inputs
 
     public sealed class GetTrafficPolicyDocumentEndpointInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ID of an endpoint you want to assign.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// Value of the `type`.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

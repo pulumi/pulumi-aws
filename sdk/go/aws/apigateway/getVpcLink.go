@@ -10,6 +10,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to get the id of a VPC Link in
+// API Gateway. To fetch the VPC Link you must provide a name to match against.
+// As there is no unique name constraint on API Gateway VPC Links this data source will
+// error if there is more than one match.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigateway.LookupVpcLink(ctx, &apigateway.LookupVpcLinkArgs{
+//				Name: "my-vpc-link",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupVpcLink(ctx *pulumi.Context, args *LookupVpcLinkArgs, opts ...pulumi.InvokeOption) (*LookupVpcLinkResult, error) {
 	var rv LookupVpcLinkResult
 	err := ctx.Invoke("aws:apigateway/getVpcLink:getVpcLink", args, &rv, opts...)
@@ -21,19 +51,28 @@ func LookupVpcLink(ctx *pulumi.Context, args *LookupVpcLinkArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getVpcLink.
 type LookupVpcLinkArgs struct {
-	Name string            `pulumi:"name"`
+	// Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
+	// If multiple API Gateway VPC Links are found with this name, an error will be returned.
+	Name string `pulumi:"name"`
+	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpcLink.
 type LookupVpcLinkResult struct {
-	Description   string            `pulumi:"description"`
-	Id            string            `pulumi:"id"`
-	Name          string            `pulumi:"name"`
-	Status        string            `pulumi:"status"`
-	StatusMessage string            `pulumi:"statusMessage"`
-	Tags          map[string]string `pulumi:"tags"`
-	TargetArns    []string          `pulumi:"targetArns"`
+	// Description of the VPC link.
+	Description string `pulumi:"description"`
+	// Set to the ID of the found API Gateway VPC Link.
+	Id   string `pulumi:"id"`
+	Name string `pulumi:"name"`
+	// Status of the VPC link.
+	Status string `pulumi:"status"`
+	// Status message of the VPC link.
+	StatusMessage string `pulumi:"statusMessage"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+	TargetArns []string `pulumi:"targetArns"`
 }
 
 func LookupVpcLinkOutput(ctx *pulumi.Context, args LookupVpcLinkOutputArgs, opts ...pulumi.InvokeOption) LookupVpcLinkResultOutput {
@@ -51,7 +90,10 @@ func LookupVpcLinkOutput(ctx *pulumi.Context, args LookupVpcLinkOutputArgs, opts
 
 // A collection of arguments for invoking getVpcLink.
 type LookupVpcLinkOutputArgs struct {
-	Name pulumi.StringInput    `pulumi:"name"`
+	// Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
+	// If multiple API Gateway VPC Links are found with this name, an error will be returned.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Key-value map of resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -74,10 +116,12 @@ func (o LookupVpcLinkResultOutput) ToLookupVpcLinkResultOutputWithContext(ctx co
 	return o
 }
 
+// Description of the VPC link.
 func (o LookupVpcLinkResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcLinkResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// Set to the ID of the found API Gateway VPC Link.
 func (o LookupVpcLinkResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcLinkResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -86,18 +130,22 @@ func (o LookupVpcLinkResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcLinkResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Status of the VPC link.
 func (o LookupVpcLinkResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcLinkResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// Status message of the VPC link.
 func (o LookupVpcLinkResultOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcLinkResult) string { return v.StatusMessage }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags
 func (o LookupVpcLinkResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupVpcLinkResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 func (o LookupVpcLinkResultOutput) TargetArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcLinkResult) []string { return v.TargetArns }).(pulumi.StringArrayOutput)
 }

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionResult
     {
+        /// <summary>
+        /// Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        /// </summary>
         public readonly bool Override;
 
         [OutputConstructor]

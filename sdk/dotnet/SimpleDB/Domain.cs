@@ -9,9 +9,37 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SimpleDB
 {
+    /// <summary>
+    /// Provides a SimpleDB domain resource
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var users = new Aws.SimpleDB.Domain("users");
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SimpleDB Domains can be imported using the `name`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:simpledb/domain:Domain users users
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:simpledb/domain:Domain")]
     public partial class Domain : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the SimpleDB domain
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -61,6 +89,9 @@ namespace Pulumi.Aws.SimpleDB
 
     public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the SimpleDB domain
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -72,6 +103,9 @@ namespace Pulumi.Aws.SimpleDB
 
     public sealed class DomainState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the SimpleDB domain
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

@@ -53,6 +53,9 @@ class GetServiceResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the ECS Service
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -63,6 +66,9 @@ class GetServiceResult:
     @property
     @pulumi.getter(name="desiredCount")
     def desired_count(self) -> int:
+        """
+        Number of tasks for the ECS Service
+        """
         return pulumi.get(self, "desired_count")
 
     @property
@@ -76,11 +82,17 @@ class GetServiceResult:
     @property
     @pulumi.getter(name="launchType")
     def launch_type(self) -> str:
+        """
+        Launch type for the ECS Service
+        """
         return pulumi.get(self, "launch_type")
 
     @property
     @pulumi.getter(name="schedulingStrategy")
     def scheduling_strategy(self) -> str:
+        """
+        Scheduling strategy for the ECS Service
+        """
         return pulumi.get(self, "scheduling_strategy")
 
     @property
@@ -91,11 +103,17 @@ class GetServiceResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Resource tags.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="taskDefinition")
     def task_definition(self) -> str:
+        """
+        Family for the latest ACTIVE revision
+        """
         return pulumi.get(self, "task_definition")
 
 
@@ -121,7 +139,23 @@ def get_service(cluster_arn: Optional[str] = None,
                 tags: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    The ECS Service data source allows access to details of a specific
+    Service within a AWS ECS Cluster.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ecs.get_service(service_name="example",
+        cluster_arn=data["aws_ecs_cluster"]["example"]["arn"])
+    ```
+
+
+    :param str cluster_arn: ARN of the ECS Cluster
+    :param str service_name: Name of the ECS Service
+    :param Mapping[str, str] tags: Resource tags.
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn
@@ -148,6 +182,22 @@ def get_service_output(cluster_arn: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
-    Use this data source to access information about an existing resource.
+    The ECS Service data source allows access to details of a specific
+    Service within a AWS ECS Cluster.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ecs.get_service(service_name="example",
+        cluster_arn=data["aws_ecs_cluster"]["example"]["arn"])
+    ```
+
+
+    :param str cluster_arn: ARN of the ECS Cluster
+    :param str service_name: Name of the ECS Service
+    :param Mapping[str, str] tags: Resource tags.
     """
     ...

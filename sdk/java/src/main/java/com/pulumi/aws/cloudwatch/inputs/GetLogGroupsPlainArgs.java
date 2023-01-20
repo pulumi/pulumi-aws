@@ -14,9 +14,17 @@ public final class GetLogGroupsPlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetLogGroupsPlainArgs Empty = new GetLogGroupsPlainArgs();
 
+    /**
+     * Group prefix of the Cloudwatch log groups to list
+     * 
+     */
     @Import(name="logGroupNamePrefix")
     private @Nullable String logGroupNamePrefix;
 
+    /**
+     * @return Group prefix of the Cloudwatch log groups to list
+     * 
+     */
     public Optional<String> logGroupNamePrefix() {
         return Optional.ofNullable(this.logGroupNamePrefix);
     }
@@ -45,6 +53,12 @@ public final class GetLogGroupsPlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetLogGroupsPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param logGroupNamePrefix Group prefix of the Cloudwatch log groups to list
+         * 
+         * @return builder
+         * 
+         */
         public Builder logGroupNamePrefix(@Nullable String logGroupNamePrefix) {
             $.logGroupNamePrefix = logGroupNamePrefix;
             return this;

@@ -11,16 +11,89 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS Transcribe MedicalVocabulary.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transcribe"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+//				ForceDestroy: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			object, err := s3.NewBucketObjectv2(ctx, "object", &s3.BucketObjectv2Args{
+//				Bucket: exampleBucketV2.ID(),
+//				Key:    pulumi.String("transcribe/test1.txt"),
+//				Source: pulumi.NewFileAsset("test.txt"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = transcribe.NewMedicalVocabulary(ctx, "exampleMedicalVocabulary", &transcribe.MedicalVocabularyArgs{
+//				VocabularyName: pulumi.String("example"),
+//				LanguageCode:   pulumi.String("en-US"),
+//				VocabularyFileUri: pulumi.All(exampleBucketV2.ID(), object.Key).ApplyT(func(_args []interface{}) (string, error) {
+//					id := _args[0].(string)
+//					key := _args[1].(string)
+//					return fmt.Sprintf("s3://%v/%v", id, key), nil
+//				}).(pulumi.StringOutput),
+//				Tags: pulumi.StringMap{
+//					"tag1": pulumi.String("value1"),
+//					"tag2": pulumi.String("value3"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				object,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Transcribe MedicalVocabulary can be imported using the `vocabulary_name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
+//
+// ```
 type MedicalVocabulary struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput    `pulumi:"arn"`
-	DownloadUri       pulumi.StringOutput    `pulumi:"downloadUri"`
-	LanguageCode      pulumi.StringOutput    `pulumi:"languageCode"`
-	Tags              pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll           pulumi.StringMapOutput `pulumi:"tagsAll"`
-	VocabularyFileUri pulumi.StringOutput    `pulumi:"vocabularyFileUri"`
-	VocabularyName    pulumi.StringOutput    `pulumi:"vocabularyName"`
+	// ARN of the MedicalVocabulary.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Generated download URI.
+	DownloadUri pulumi.StringOutput `pulumi:"downloadUri"`
+	// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
+	// A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+	VocabularyFileUri pulumi.StringOutput `pulumi:"vocabularyFileUri"`
+	// The name of the Medical Vocabulary.
+	VocabularyName pulumi.StringOutput `pulumi:"vocabularyName"`
 }
 
 // NewMedicalVocabulary registers a new resource with the given unique name, arguments, and options.
@@ -61,23 +134,35 @@ func GetMedicalVocabulary(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MedicalVocabulary resources.
 type medicalVocabularyState struct {
-	Arn               *string           `pulumi:"arn"`
-	DownloadUri       *string           `pulumi:"downloadUri"`
-	LanguageCode      *string           `pulumi:"languageCode"`
-	Tags              map[string]string `pulumi:"tags"`
-	TagsAll           map[string]string `pulumi:"tagsAll"`
-	VocabularyFileUri *string           `pulumi:"vocabularyFileUri"`
-	VocabularyName    *string           `pulumi:"vocabularyName"`
+	// ARN of the MedicalVocabulary.
+	Arn *string `pulumi:"arn"`
+	// Generated download URI.
+	DownloadUri *string `pulumi:"downloadUri"`
+	// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+	LanguageCode *string `pulumi:"languageCode"`
+	// A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+	VocabularyFileUri *string `pulumi:"vocabularyFileUri"`
+	// The name of the Medical Vocabulary.
+	VocabularyName *string `pulumi:"vocabularyName"`
 }
 
 type MedicalVocabularyState struct {
-	Arn               pulumi.StringPtrInput
-	DownloadUri       pulumi.StringPtrInput
-	LanguageCode      pulumi.StringPtrInput
-	Tags              pulumi.StringMapInput
-	TagsAll           pulumi.StringMapInput
+	// ARN of the MedicalVocabulary.
+	Arn pulumi.StringPtrInput
+	// Generated download URI.
+	DownloadUri pulumi.StringPtrInput
+	// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+	LanguageCode pulumi.StringPtrInput
+	// A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
+	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
 	VocabularyFileUri pulumi.StringPtrInput
-	VocabularyName    pulumi.StringPtrInput
+	// The name of the Medical Vocabulary.
+	VocabularyName pulumi.StringPtrInput
 }
 
 func (MedicalVocabularyState) ElementType() reflect.Type {
@@ -85,18 +170,26 @@ func (MedicalVocabularyState) ElementType() reflect.Type {
 }
 
 type medicalVocabularyArgs struct {
-	LanguageCode      string            `pulumi:"languageCode"`
-	Tags              map[string]string `pulumi:"tags"`
-	VocabularyFileUri string            `pulumi:"vocabularyFileUri"`
-	VocabularyName    string            `pulumi:"vocabularyName"`
+	// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+	LanguageCode string `pulumi:"languageCode"`
+	// A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+	VocabularyFileUri string `pulumi:"vocabularyFileUri"`
+	// The name of the Medical Vocabulary.
+	VocabularyName string `pulumi:"vocabularyName"`
 }
 
 // The set of arguments for constructing a MedicalVocabulary resource.
 type MedicalVocabularyArgs struct {
-	LanguageCode      pulumi.StringInput
-	Tags              pulumi.StringMapInput
+	// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+	LanguageCode pulumi.StringInput
+	// A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
 	VocabularyFileUri pulumi.StringInput
-	VocabularyName    pulumi.StringInput
+	// The name of the Medical Vocabulary.
+	VocabularyName pulumi.StringInput
 }
 
 func (MedicalVocabularyArgs) ElementType() reflect.Type {
@@ -186,18 +279,22 @@ func (o MedicalVocabularyOutput) ToMedicalVocabularyOutputWithContext(ctx contex
 	return o
 }
 
+// ARN of the MedicalVocabulary.
 func (o MedicalVocabularyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MedicalVocabulary) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Generated download URI.
 func (o MedicalVocabularyOutput) DownloadUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *MedicalVocabulary) pulumi.StringOutput { return v.DownloadUri }).(pulumi.StringOutput)
 }
 
+// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
 func (o MedicalVocabularyOutput) LanguageCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *MedicalVocabulary) pulumi.StringOutput { return v.LanguageCode }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o MedicalVocabularyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MedicalVocabulary) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -206,10 +303,12 @@ func (o MedicalVocabularyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MedicalVocabulary) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
 func (o MedicalVocabularyOutput) VocabularyFileUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *MedicalVocabulary) pulumi.StringOutput { return v.VocabularyFileUri }).(pulumi.StringOutput)
 }
 
+// The name of the Medical Vocabulary.
 func (o MedicalVocabularyOutput) VocabularyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MedicalVocabulary) pulumi.StringOutput { return v.VocabularyName }).(pulumi.StringOutput)
 }

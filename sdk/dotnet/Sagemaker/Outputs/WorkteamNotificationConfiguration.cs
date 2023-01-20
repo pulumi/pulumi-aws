@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class WorkteamNotificationConfiguration
     {
+        /// <summary>
+        /// The ARN for the SNS topic to which notifications should be published.
+        /// </summary>
         public readonly string? NotificationTopicArn;
 
         [OutputConstructor]

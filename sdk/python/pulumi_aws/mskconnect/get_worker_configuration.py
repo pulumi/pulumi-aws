@@ -44,11 +44,17 @@ class GetWorkerConfigurationResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        the ARN of the worker configuration.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        a summary description of the worker configuration.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -62,6 +68,9 @@ class GetWorkerConfigurationResult:
     @property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> int:
+        """
+        an ID of the latest successfully created revision of the worker configuration.
+        """
         return pulumi.get(self, "latest_revision")
 
     @property
@@ -72,6 +81,9 @@ class GetWorkerConfigurationResult:
     @property
     @pulumi.getter(name="propertiesFileContent")
     def properties_file_content(self) -> str:
+        """
+        contents of connect-distributed.properties file.
+        """
         return pulumi.get(self, "properties_file_content")
 
 
@@ -92,7 +104,19 @@ class AwaitableGetWorkerConfigurationResult(GetWorkerConfigurationResult):
 def get_worker_configuration(name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkerConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Get information on an Amazon MSK Connect Worker Configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.mskconnect.get_worker_configuration(name="example")
+    ```
+
+
+    :param str name: Name of the worker configuration.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -112,6 +136,18 @@ def get_worker_configuration(name: Optional[str] = None,
 def get_worker_configuration_output(name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkerConfigurationResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get information on an Amazon MSK Connect Worker Configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.mskconnect.get_worker_configuration(name="example")
+    ```
+
+
+    :param str name: Name of the worker configuration.
     """
     ...

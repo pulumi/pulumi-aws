@@ -13,16 +13,32 @@ public final class VpcEndpointSubnetAssociationArgs extends com.pulumi.resources
 
     public static final VpcEndpointSubnetAssociationArgs Empty = new VpcEndpointSubnetAssociationArgs();
 
+    /**
+     * The ID of the subnet to be associated with the VPC endpoint.
+     * 
+     */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
+    /**
+     * @return The ID of the subnet to be associated with the VPC endpoint.
+     * 
+     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
 
+    /**
+     * The ID of the VPC endpoint with which the subnet will be associated.
+     * 
+     */
     @Import(name="vpcEndpointId", required=true)
     private Output<String> vpcEndpointId;
 
+    /**
+     * @return The ID of the VPC endpoint with which the subnet will be associated.
+     * 
+     */
     public Output<String> vpcEndpointId() {
         return this.vpcEndpointId;
     }
@@ -52,20 +68,44 @@ public final class VpcEndpointSubnetAssociationArgs extends com.pulumi.resources
             $ = new VpcEndpointSubnetAssociationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param subnetId The ID of the subnet to be associated with the VPC endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetId(Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
+        /**
+         * @param subnetId The ID of the subnet to be associated with the VPC endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }
 
+        /**
+         * @param vpcEndpointId The ID of the VPC endpoint with which the subnet will be associated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcEndpointId(Output<String> vpcEndpointId) {
             $.vpcEndpointId = vpcEndpointId;
             return this;
         }
 
+        /**
+         * @param vpcEndpointId The ID of the VPC endpoint with which the subnet will be associated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcEndpointId(String vpcEndpointId) {
             return vpcEndpointId(Output.of(vpcEndpointId));
         }

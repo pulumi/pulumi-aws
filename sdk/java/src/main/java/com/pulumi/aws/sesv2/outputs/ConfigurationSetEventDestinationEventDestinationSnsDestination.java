@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ConfigurationSetEventDestinationEventDestinationSnsDestination {
+    /**
+     * @return The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+     * 
+     */
     private String topicArn;
 
     private ConfigurationSetEventDestinationEventDestinationSnsDestination() {}
+    /**
+     * @return The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+     * 
+     */
     public String topicArn() {
         return this.topicArn;
     }

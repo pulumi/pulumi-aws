@@ -13,16 +13,32 @@ public final class TopicRuleHttpHttpHeaderArgs extends com.pulumi.resources.Reso
 
     public static final TopicRuleHttpHttpHeaderArgs Empty = new TopicRuleHttpHttpHeaderArgs();
 
+    /**
+     * The name of the HTTP header.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return The name of the HTTP header.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * The value of the HTTP header.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return The value of the HTTP header.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -52,20 +68,44 @@ public final class TopicRuleHttpHttpHeaderArgs extends com.pulumi.resources.Reso
             $ = new TopicRuleHttpHttpHeaderArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param key The name of the HTTP header.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key The name of the HTTP header.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param value The value of the HTTP header.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value The value of the HTTP header.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

@@ -18,6 +18,8 @@ class UserGroupAssociationArgs:
                  user_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a UserGroupAssociation resource.
+        :param pulumi.Input[str] user_group_id: ID of the user group.
+        :param pulumi.Input[str] user_id: ID of the user to associated with the user group.
         """
         pulumi.set(__self__, "user_group_id", user_group_id)
         pulumi.set(__self__, "user_id", user_id)
@@ -25,6 +27,9 @@ class UserGroupAssociationArgs:
     @property
     @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> pulumi.Input[str]:
+        """
+        ID of the user group.
+        """
         return pulumi.get(self, "user_group_id")
 
     @user_group_id.setter
@@ -34,6 +39,9 @@ class UserGroupAssociationArgs:
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Input[str]:
+        """
+        ID of the user to associated with the user group.
+        """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
@@ -48,6 +56,8 @@ class _UserGroupAssociationState:
                  user_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserGroupAssociation resources.
+        :param pulumi.Input[str] user_group_id: ID of the user group.
+        :param pulumi.Input[str] user_id: ID of the user to associated with the user group.
         """
         if user_group_id is not None:
             pulumi.set(__self__, "user_group_id", user_group_id)
@@ -57,6 +67,9 @@ class _UserGroupAssociationState:
     @property
     @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the user group.
+        """
         return pulumi.get(self, "user_group_id")
 
     @user_group_id.setter
@@ -66,6 +79,9 @@ class _UserGroupAssociationState:
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the user to associated with the user group.
+        """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
@@ -82,9 +98,49 @@ class UserGroupAssociation(pulumi.CustomResource):
                  user_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a UserGroupAssociation resource with the given unique name, props, and options.
+        Associate an existing ElastiCache user and an existing user group.
+
+        > **NOTE:** The provider will detect changes in the `elasticache.UserGroup` since `elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `ignore_changes` option as shown in the example.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.elasticache.User("default",
+            user_id="defaultUserID",
+            user_name="default",
+            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
+            engine="REDIS",
+            passwords=["password123456789"])
+        example_user_group = aws.elasticache.UserGroup("exampleUserGroup",
+            engine="REDIS",
+            user_group_id="userGroupId",
+            user_ids=[default.user_id])
+        example_user = aws.elasticache.User("exampleUser",
+            user_id="exampleUserID",
+            user_name="exampleuser",
+            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
+            engine="REDIS",
+            passwords=["password123456789"])
+        example_user_group_association = aws.elasticache.UserGroupAssociation("exampleUserGroupAssociation",
+            user_group_id=example_user_group.user_group_id,
+            user_id=example_user.user_id)
+        ```
+
+        ## Import
+
+        ElastiCache user group associations can be imported using the `user_group_id` and `user_id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] user_group_id: ID of the user group.
+        :param pulumi.Input[str] user_id: ID of the user to associated with the user group.
         """
         ...
     @overload
@@ -93,7 +149,45 @@ class UserGroupAssociation(pulumi.CustomResource):
                  args: UserGroupAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a UserGroupAssociation resource with the given unique name, props, and options.
+        Associate an existing ElastiCache user and an existing user group.
+
+        > **NOTE:** The provider will detect changes in the `elasticache.UserGroup` since `elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `ignore_changes` option as shown in the example.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.elasticache.User("default",
+            user_id="defaultUserID",
+            user_name="default",
+            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
+            engine="REDIS",
+            passwords=["password123456789"])
+        example_user_group = aws.elasticache.UserGroup("exampleUserGroup",
+            engine="REDIS",
+            user_group_id="userGroupId",
+            user_ids=[default.user_id])
+        example_user = aws.elasticache.User("exampleUser",
+            user_id="exampleUserID",
+            user_name="exampleuser",
+            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
+            engine="REDIS",
+            passwords=["password123456789"])
+        example_user_group_association = aws.elasticache.UserGroupAssociation("exampleUserGroupAssociation",
+            user_group_id=example_user_group.user_group_id,
+            user_id=example_user.user_id)
+        ```
+
+        ## Import
+
+        ElastiCache user group associations can be imported using the `user_group_id` and `user_id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
+        ```
+
         :param str resource_name: The name of the resource.
         :param UserGroupAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +239,8 @@ class UserGroupAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] user_group_id: ID of the user group.
+        :param pulumi.Input[str] user_id: ID of the user to associated with the user group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +253,16 @@ class UserGroupAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> pulumi.Output[str]:
+        """
+        ID of the user group.
+        """
         return pulumi.get(self, "user_group_id")
 
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Output[str]:
+        """
+        ID of the user to associated with the user group.
+        """
         return pulumi.get(self, "user_id")
 

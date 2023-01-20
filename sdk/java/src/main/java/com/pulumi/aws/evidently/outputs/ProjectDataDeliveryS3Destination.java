@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProjectDataDeliveryS3Destination {
+    /**
+     * @return The name of the bucket in which Evidently stores evaluation events.
+     * 
+     */
     private @Nullable String bucket;
+    /**
+     * @return The bucket prefix in which Evidently stores evaluation events.
+     * 
+     */
     private @Nullable String prefix;
 
     private ProjectDataDeliveryS3Destination() {}
+    /**
+     * @return The name of the bucket in which Evidently stores evaluation events.
+     * 
+     */
     public Optional<String> bucket() {
         return Optional.ofNullable(this.bucket);
     }
+    /**
+     * @return The bucket prefix in which Evidently stores evaluation events.
+     * 
+     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

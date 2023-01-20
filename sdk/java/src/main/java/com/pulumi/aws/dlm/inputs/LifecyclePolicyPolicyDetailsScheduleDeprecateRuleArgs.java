@@ -16,23 +16,47 @@ public final class LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs extends
 
     public static final LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs();
 
+    /**
+     * Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+     * 
+     */
     @Import(name="count")
     private @Nullable Output<Integer> count;
 
+    /**
+     * @return Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+     * 
+     */
     public Optional<Output<Integer>> count() {
         return Optional.ofNullable(this.count);
     }
 
+    /**
+     * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+     * 
+     */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
+    /**
+     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+     * 
+     */
     public Optional<Output<Integer>> interval() {
         return Optional.ofNullable(this.interval);
     }
 
+    /**
+     * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+     * 
+     */
     @Import(name="intervalUnit")
     private @Nullable Output<String> intervalUnit;
 
+    /**
+     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+     * 
+     */
     public Optional<Output<String>> intervalUnit() {
         return Optional.ofNullable(this.intervalUnit);
     }
@@ -63,29 +87,65 @@ public final class LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs extends
             $ = new LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param count Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder count(@Nullable Output<Integer> count) {
             $.count = count;
             return this;
         }
 
+        /**
+         * @param count Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder count(Integer count) {
             return count(Output.of(count));
         }
 
+        /**
+         * @param interval How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder interval(@Nullable Output<Integer> interval) {
             $.interval = interval;
             return this;
         }
 
+        /**
+         * @param interval How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder interval(Integer interval) {
             return interval(Output.of(interval));
         }
 
+        /**
+         * @param intervalUnit The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder intervalUnit(@Nullable Output<String> intervalUnit) {
             $.intervalUnit = intervalUnit;
             return this;
         }
 
+        /**
+         * @param intervalUnit The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder intervalUnit(String intervalUnit) {
             return intervalUnit(Output.of(intervalUnit));
         }

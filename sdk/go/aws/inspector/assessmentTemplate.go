@@ -11,17 +11,75 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Inspector assessment template
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := inspector.NewAssessmentTemplate(ctx, "example", &inspector.AssessmentTemplateArgs{
+//				TargetArn: pulumi.Any(aws_inspector_assessment_target.Example.Arn),
+//				Duration:  pulumi.Int(3600),
+//				RulesPackageArns: pulumi.StringArray{
+//					pulumi.String("arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p"),
+//					pulumi.String("arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc"),
+//					pulumi.String("arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ"),
+//					pulumi.String("arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD"),
+//				},
+//				EventSubscriptions: inspector.AssessmentTemplateEventSubscriptionArray{
+//					&inspector.AssessmentTemplateEventSubscriptionArgs{
+//						Event:    pulumi.String("ASSESSMENT_RUN_COMPLETED"),
+//						TopicArn: pulumi.Any(aws_sns_topic.Example.Arn),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_inspector_assessment_template` can be imported by using the template assessment ARN, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+//
+// ```
 type AssessmentTemplate struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput                            `pulumi:"arn"`
-	Duration           pulumi.IntOutput                               `pulumi:"duration"`
+	// The template assessment ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The duration of the inspector run.
+	Duration pulumi.IntOutput `pulumi:"duration"`
+	// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
 	EventSubscriptions AssessmentTemplateEventSubscriptionArrayOutput `pulumi:"eventSubscriptions"`
-	Name               pulumi.StringOutput                            `pulumi:"name"`
-	RulesPackageArns   pulumi.StringArrayOutput                       `pulumi:"rulesPackageArns"`
-	Tags               pulumi.StringMapOutput                         `pulumi:"tags"`
-	TagsAll            pulumi.StringMapOutput                         `pulumi:"tagsAll"`
-	TargetArn          pulumi.StringOutput                            `pulumi:"targetArn"`
+	// The name of the assessment template.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The rules to be used during the run.
+	RulesPackageArns pulumi.StringArrayOutput `pulumi:"rulesPackageArns"`
+	// Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The assessment target ARN to attach the template to.
+	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 }
 
 // NewAssessmentTemplate registers a new resource with the given unique name, arguments, and options.
@@ -62,25 +120,41 @@ func GetAssessmentTemplate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AssessmentTemplate resources.
 type assessmentTemplateState struct {
-	Arn                *string                               `pulumi:"arn"`
-	Duration           *int                                  `pulumi:"duration"`
+	// The template assessment ARN.
+	Arn *string `pulumi:"arn"`
+	// The duration of the inspector run.
+	Duration *int `pulumi:"duration"`
+	// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
 	EventSubscriptions []AssessmentTemplateEventSubscription `pulumi:"eventSubscriptions"`
-	Name               *string                               `pulumi:"name"`
-	RulesPackageArns   []string                              `pulumi:"rulesPackageArns"`
-	Tags               map[string]string                     `pulumi:"tags"`
-	TagsAll            map[string]string                     `pulumi:"tagsAll"`
-	TargetArn          *string                               `pulumi:"targetArn"`
+	// The name of the assessment template.
+	Name *string `pulumi:"name"`
+	// The rules to be used during the run.
+	RulesPackageArns []string `pulumi:"rulesPackageArns"`
+	// Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The assessment target ARN to attach the template to.
+	TargetArn *string `pulumi:"targetArn"`
 }
 
 type AssessmentTemplateState struct {
-	Arn                pulumi.StringPtrInput
-	Duration           pulumi.IntPtrInput
+	// The template assessment ARN.
+	Arn pulumi.StringPtrInput
+	// The duration of the inspector run.
+	Duration pulumi.IntPtrInput
+	// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
 	EventSubscriptions AssessmentTemplateEventSubscriptionArrayInput
-	Name               pulumi.StringPtrInput
-	RulesPackageArns   pulumi.StringArrayInput
-	Tags               pulumi.StringMapInput
-	TagsAll            pulumi.StringMapInput
-	TargetArn          pulumi.StringPtrInput
+	// The name of the assessment template.
+	Name pulumi.StringPtrInput
+	// The rules to be used during the run.
+	RulesPackageArns pulumi.StringArrayInput
+	// Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// The assessment target ARN to attach the template to.
+	TargetArn pulumi.StringPtrInput
 }
 
 func (AssessmentTemplateState) ElementType() reflect.Type {
@@ -88,22 +162,34 @@ func (AssessmentTemplateState) ElementType() reflect.Type {
 }
 
 type assessmentTemplateArgs struct {
-	Duration           int                                   `pulumi:"duration"`
+	// The duration of the inspector run.
+	Duration int `pulumi:"duration"`
+	// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
 	EventSubscriptions []AssessmentTemplateEventSubscription `pulumi:"eventSubscriptions"`
-	Name               *string                               `pulumi:"name"`
-	RulesPackageArns   []string                              `pulumi:"rulesPackageArns"`
-	Tags               map[string]string                     `pulumi:"tags"`
-	TargetArn          string                                `pulumi:"targetArn"`
+	// The name of the assessment template.
+	Name *string `pulumi:"name"`
+	// The rules to be used during the run.
+	RulesPackageArns []string `pulumi:"rulesPackageArns"`
+	// Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// The assessment target ARN to attach the template to.
+	TargetArn string `pulumi:"targetArn"`
 }
 
 // The set of arguments for constructing a AssessmentTemplate resource.
 type AssessmentTemplateArgs struct {
-	Duration           pulumi.IntInput
+	// The duration of the inspector run.
+	Duration pulumi.IntInput
+	// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
 	EventSubscriptions AssessmentTemplateEventSubscriptionArrayInput
-	Name               pulumi.StringPtrInput
-	RulesPackageArns   pulumi.StringArrayInput
-	Tags               pulumi.StringMapInput
-	TargetArn          pulumi.StringInput
+	// The name of the assessment template.
+	Name pulumi.StringPtrInput
+	// The rules to be used during the run.
+	RulesPackageArns pulumi.StringArrayInput
+	// Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// The assessment target ARN to attach the template to.
+	TargetArn pulumi.StringInput
 }
 
 func (AssessmentTemplateArgs) ElementType() reflect.Type {
@@ -193,36 +279,44 @@ func (o AssessmentTemplateOutput) ToAssessmentTemplateOutputWithContext(ctx cont
 	return o
 }
 
+// The template assessment ARN.
 func (o AssessmentTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The duration of the inspector run.
 func (o AssessmentTemplateOutput) Duration() pulumi.IntOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) pulumi.IntOutput { return v.Duration }).(pulumi.IntOutput)
 }
 
+// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
 func (o AssessmentTemplateOutput) EventSubscriptions() AssessmentTemplateEventSubscriptionArrayOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) AssessmentTemplateEventSubscriptionArrayOutput {
 		return v.EventSubscriptions
 	}).(AssessmentTemplateEventSubscriptionArrayOutput)
 }
 
+// The name of the assessment template.
 func (o AssessmentTemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The rules to be used during the run.
 func (o AssessmentTemplateOutput) RulesPackageArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringArrayOutput { return v.RulesPackageArns }).(pulumi.StringArrayOutput)
 }
 
+// Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AssessmentTemplateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AssessmentTemplateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// The assessment target ARN to attach the template to.
 func (o AssessmentTemplateOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringOutput { return v.TargetArn }).(pulumi.StringOutput)
 }

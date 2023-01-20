@@ -4,6 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to retrieve information for an Amazon CloudFront origin access identity.
+ *
+ * ## Example Usage
+ *
+ * The following example below creates a CloudFront origin access identity.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.cloudfront.getOriginAccessIdentity({
+ *     id: "EDFDVBD632BHDS5",
+ * });
+ * ```
+ */
 export function getOriginAccessIdentity(args: GetOriginAccessIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginAccessIdentityResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -16,6 +32,9 @@ export function getOriginAccessIdentity(args: GetOriginAccessIdentityArgs, opts?
  * A collection of arguments for invoking getOriginAccessIdentity.
  */
 export interface GetOriginAccessIdentityArgs {
+    /**
+     * The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+     */
     id: string;
 }
 
@@ -23,14 +42,55 @@ export interface GetOriginAccessIdentityArgs {
  * A collection of values returned by getOriginAccessIdentity.
  */
 export interface GetOriginAccessIdentityResult {
+    /**
+     * Internal value used by CloudFront to allow future
+     * updates to the origin access identity.
+     */
     readonly callerReference: string;
+    /**
+     * A shortcut to the full path for the
+     * origin access identity to use in CloudFront, see below.
+     */
     readonly cloudfrontAccessIdentityPath: string;
+    /**
+     * An optional comment for the origin access identity.
+     */
     readonly comment: string;
+    /**
+     * Current version of the origin access identity's information.
+     * For example: `E2QWRUHAPOMQZL`.
+     */
     readonly etag: string;
+    /**
+     * Pre-generated ARN for use in S3 bucket policies (see below).
+     * Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
+     * E2QWRUHAPOMQZL`.
+     */
     readonly iamArn: string;
     readonly id: string;
+    /**
+     * The Amazon S3 canonical user ID for the origin
+     * access identity, which you use when giving the origin access identity read
+     * permission to an object in Amazon S3.
+     */
     readonly s3CanonicalUserId: string;
 }
+/**
+ * Use this data source to retrieve information for an Amazon CloudFront origin access identity.
+ *
+ * ## Example Usage
+ *
+ * The following example below creates a CloudFront origin access identity.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.cloudfront.getOriginAccessIdentity({
+ *     id: "EDFDVBD632BHDS5",
+ * });
+ * ```
+ */
 export function getOriginAccessIdentityOutput(args: GetOriginAccessIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginAccessIdentityResult> {
     return pulumi.output(args).apply((a: any) => getOriginAccessIdentity(a, opts))
 }
@@ -39,5 +99,8 @@ export function getOriginAccessIdentityOutput(args: GetOriginAccessIdentityOutpu
  * A collection of arguments for invoking getOriginAccessIdentity.
  */
 export interface GetOriginAccessIdentityOutputArgs {
+    /**
+     * The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+     */
     id: pulumi.Input<string>;
 }

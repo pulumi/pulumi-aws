@@ -12,6 +12,9 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
 
     public sealed class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The method used to add instances to a replacement environment.
+        /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 

@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class TrafficMirrorFilterRuleSourcePortRangeGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Starting port of the range
+        /// </summary>
         [Input("fromPort")]
         public Input<int>? FromPort { get; set; }
 
+        /// <summary>
+        /// Ending port of the range
+        /// </summary>
         [Input("toPort")]
         public Input<int>? ToPort { get; set; }
 

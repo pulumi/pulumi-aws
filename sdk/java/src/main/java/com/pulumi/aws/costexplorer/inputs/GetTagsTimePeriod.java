@@ -12,16 +12,32 @@ public final class GetTagsTimePeriod extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTagsTimePeriod Empty = new GetTagsTimePeriod();
 
+    /**
+     * Beginning of the time period.
+     * 
+     */
     @Import(name="end", required=true)
     private String end;
 
+    /**
+     * @return Beginning of the time period.
+     * 
+     */
     public String end() {
         return this.end;
     }
 
+    /**
+     * End of the time period.
+     * 
+     */
     @Import(name="start", required=true)
     private String start;
 
+    /**
+     * @return End of the time period.
+     * 
+     */
     public String start() {
         return this.start;
     }
@@ -51,11 +67,23 @@ public final class GetTagsTimePeriod extends com.pulumi.resources.InvokeArgs {
             $ = new GetTagsTimePeriod(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param end Beginning of the time period.
+         * 
+         * @return builder
+         * 
+         */
         public Builder end(String end) {
             $.end = end;
             return this;
         }
 
+        /**
+         * @param start End of the time period.
+         * 
+         * @return builder
+         * 
+         */
         public Builder start(String start) {
             $.start = start;
             return this;

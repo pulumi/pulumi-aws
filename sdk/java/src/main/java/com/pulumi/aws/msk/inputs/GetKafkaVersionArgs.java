@@ -16,16 +16,32 @@ public final class GetKafkaVersionArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetKafkaVersionArgs Empty = new GetKafkaVersionArgs();
 
+    /**
+     * Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferred_versions` or `version` must be set.
+     * 
+     */
     @Import(name="preferredVersions")
     private @Nullable Output<List<String>> preferredVersions;
 
+    /**
+     * @return Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferred_versions` or `version` must be set.
+     * 
+     */
     public Optional<Output<List<String>>> preferredVersions() {
         return Optional.ofNullable(this.preferredVersions);
     }
 
+    /**
+     * Version of MSK Kafka. For example 2.4.1.1 or &#34;2.2.1&#34; etc. Either `preferred_versions` or `version` must be set.
+     * 
+     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
+    /**
+     * @return Version of MSK Kafka. For example 2.4.1.1 or &#34;2.2.1&#34; etc. Either `preferred_versions` or `version` must be set.
+     * 
+     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -55,24 +71,54 @@ public final class GetKafkaVersionArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetKafkaVersionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param preferredVersions Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferred_versions` or `version` must be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferredVersions(@Nullable Output<List<String>> preferredVersions) {
             $.preferredVersions = preferredVersions;
             return this;
         }
 
+        /**
+         * @param preferredVersions Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferred_versions` or `version` must be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferredVersions(List<String> preferredVersions) {
             return preferredVersions(Output.of(preferredVersions));
         }
 
+        /**
+         * @param preferredVersions Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferred_versions` or `version` must be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferredVersions(String... preferredVersions) {
             return preferredVersions(List.of(preferredVersions));
         }
 
+        /**
+         * @param version Version of MSK Kafka. For example 2.4.1.1 or &#34;2.2.1&#34; etc. Either `preferred_versions` or `version` must be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
+        /**
+         * @param version Version of MSK Kafka. For example 2.4.1.1 or &#34;2.2.1&#34; etc. Either `preferred_versions` or `version` must be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

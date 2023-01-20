@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class VpcEndpointDnsOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+        /// </summary>
         [Input("dnsRecordIpType")]
         public Input<string>? DnsRecordIpType { get; set; }
 

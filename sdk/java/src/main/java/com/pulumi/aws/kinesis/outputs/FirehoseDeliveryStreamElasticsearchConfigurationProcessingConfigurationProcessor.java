@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor {
+    /**
+     * @return Array of processor parameters. More details are given below
+     * 
+     */
     private @Nullable List<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter> parameters;
+    /**
+     * @return The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+     * 
+     */
     private String type;
 
     private FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor() {}
+    /**
+     * @return Array of processor parameters. More details are given below
+     * 
+     */
     public List<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter> parameters() {
         return this.parameters == null ? List.of() : this.parameters;
     }
+    /**
+     * @return The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+     * 
+     */
     public String type() {
         return this.type;
     }

@@ -12,9 +12,17 @@ public final class GetAccessPointsPlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetAccessPointsPlainArgs Empty = new GetAccessPointsPlainArgs();
 
+    /**
+     * EFS File System identifier.
+     * 
+     */
     @Import(name="fileSystemId", required=true)
     private String fileSystemId;
 
+    /**
+     * @return EFS File System identifier.
+     * 
+     */
     public String fileSystemId() {
         return this.fileSystemId;
     }
@@ -43,6 +51,12 @@ public final class GetAccessPointsPlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetAccessPointsPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param fileSystemId EFS File System identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileSystemId(String fileSystemId) {
             $.fileSystemId = fileSystemId;
             return this;

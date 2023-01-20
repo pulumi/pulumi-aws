@@ -14,11 +14,61 @@ import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an AWS Backup Global Settings resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.backup.GlobalSettings;
+ * import com.pulumi.aws.backup.GlobalSettingsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new GlobalSettings(&#34;test&#34;, GlobalSettingsArgs.builder()        
+ *             .globalSettings(Map.of(&#34;isCrossAccountBackupEnabled&#34;, &#34;true&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Backup Global Settings can be imported using the `id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
+ * ```
+ * 
+ */
 @ResourceType(type="aws:backup/globalSettings:GlobalSettings")
 public class GlobalSettings extends com.pulumi.resources.CustomResource {
+    /**
+     * A list of resources along with the opt-in preferences for the account.
+     * 
+     */
     @Export(name="globalSettings", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> globalSettings;
 
+    /**
+     * @return A list of resources along with the opt-in preferences for the account.
+     * 
+     */
     public Output<Map<String,String>> globalSettings() {
         return this.globalSettings;
     }

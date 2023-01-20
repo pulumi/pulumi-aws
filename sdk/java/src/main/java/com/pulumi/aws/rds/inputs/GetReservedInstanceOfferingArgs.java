@@ -15,37 +15,77 @@ public final class GetReservedInstanceOfferingArgs extends com.pulumi.resources.
 
     public static final GetReservedInstanceOfferingArgs Empty = new GetReservedInstanceOfferingArgs();
 
+    /**
+     * DB instance class for the reserved DB instance.
+     * 
+     */
     @Import(name="dbInstanceClass", required=true)
     private Output<String> dbInstanceClass;
 
+    /**
+     * @return DB instance class for the reserved DB instance.
+     * 
+     */
     public Output<String> dbInstanceClass() {
         return this.dbInstanceClass;
     }
 
+    /**
+     * Duration of the reservation in seconds.
+     * 
+     */
     @Import(name="duration", required=true)
     private Output<Integer> duration;
 
+    /**
+     * @return Duration of the reservation in seconds.
+     * 
+     */
     public Output<Integer> duration() {
         return this.duration;
     }
 
+    /**
+     * Whether the reservation applies to Multi-AZ deployments.
+     * 
+     */
     @Import(name="multiAz", required=true)
     private Output<Boolean> multiAz;
 
+    /**
+     * @return Whether the reservation applies to Multi-AZ deployments.
+     * 
+     */
     public Output<Boolean> multiAz() {
         return this.multiAz;
     }
 
+    /**
+     * Offering type of this reserved DB instance.
+     * 
+     */
     @Import(name="offeringType", required=true)
     private Output<String> offeringType;
 
+    /**
+     * @return Offering type of this reserved DB instance.
+     * 
+     */
     public Output<String> offeringType() {
         return this.offeringType;
     }
 
+    /**
+     * Description of the reserved DB instance.
+     * 
+     */
     @Import(name="productDescription", required=true)
     private Output<String> productDescription;
 
+    /**
+     * @return Description of the reserved DB instance.
+     * 
+     */
     public Output<String> productDescription() {
         return this.productDescription;
     }
@@ -78,47 +118,107 @@ public final class GetReservedInstanceOfferingArgs extends com.pulumi.resources.
             $ = new GetReservedInstanceOfferingArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dbInstanceClass DB instance class for the reserved DB instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbInstanceClass(Output<String> dbInstanceClass) {
             $.dbInstanceClass = dbInstanceClass;
             return this;
         }
 
+        /**
+         * @param dbInstanceClass DB instance class for the reserved DB instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbInstanceClass(String dbInstanceClass) {
             return dbInstanceClass(Output.of(dbInstanceClass));
         }
 
+        /**
+         * @param duration Duration of the reservation in seconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder duration(Output<Integer> duration) {
             $.duration = duration;
             return this;
         }
 
+        /**
+         * @param duration Duration of the reservation in seconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder duration(Integer duration) {
             return duration(Output.of(duration));
         }
 
+        /**
+         * @param multiAz Whether the reservation applies to Multi-AZ deployments.
+         * 
+         * @return builder
+         * 
+         */
         public Builder multiAz(Output<Boolean> multiAz) {
             $.multiAz = multiAz;
             return this;
         }
 
+        /**
+         * @param multiAz Whether the reservation applies to Multi-AZ deployments.
+         * 
+         * @return builder
+         * 
+         */
         public Builder multiAz(Boolean multiAz) {
             return multiAz(Output.of(multiAz));
         }
 
+        /**
+         * @param offeringType Offering type of this reserved DB instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder offeringType(Output<String> offeringType) {
             $.offeringType = offeringType;
             return this;
         }
 
+        /**
+         * @param offeringType Offering type of this reserved DB instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder offeringType(String offeringType) {
             return offeringType(Output.of(offeringType));
         }
 
+        /**
+         * @param productDescription Description of the reserved DB instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder productDescription(Output<String> productDescription) {
             $.productDescription = productDescription;
             return this;
         }
 
+        /**
+         * @param productDescription Description of the reserved DB instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder productDescription(String productDescription) {
             return productDescription(Output.of(productDescription));
         }

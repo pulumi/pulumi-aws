@@ -70,6 +70,58 @@ class VpnConnectionArgs:
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VpnConnection resource.
+        :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway.
+        :param pulumi.Input[str] type: The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
+        :param pulumi.Input[bool] enable_acceleration: Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
+        :param pulumi.Input[str] local_ipv4_network_cidr: The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+        :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
+        :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
+        :param pulumi.Input[str] transport_transit_gateway_attachment_id: . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+        :param pulumi.Input[str] tunnel1_dpd_timeout_action: The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        :param pulumi.Input[int] tunnel1_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_ike_versions: The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
+        :param pulumi.Input[str] tunnel1_inside_cidr: The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+        :param pulumi.Input[str] tunnel1_inside_ipv6_cidr: The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        :param pulumi.Input['VpnConnectionTunnel1LogOptionsArgs'] tunnel1_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel1_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        :param pulumi.Input[int] tunnel1_phase1_lifetime_seconds: The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel1_phase2_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase2_encryption_algorithms: List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase2_integrity_algorithms: List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        :param pulumi.Input[int] tunnel1_phase2_lifetime_seconds: The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        :param pulumi.Input[str] tunnel1_preshared_key: The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+        :param pulumi.Input[int] tunnel1_rekey_fuzz_percentage: The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        :param pulumi.Input[int] tunnel1_rekey_margin_time_seconds: The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
+        :param pulumi.Input[int] tunnel1_replay_window_size: The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
+        :param pulumi.Input[str] tunnel1_startup_action: The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        :param pulumi.Input[str] tunnel2_dpd_timeout_action: The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        :param pulumi.Input[int] tunnel2_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_ike_versions: The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
+        :param pulumi.Input[str] tunnel2_inside_cidr: The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+        :param pulumi.Input[str] tunnel2_inside_ipv6_cidr: The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        :param pulumi.Input['VpnConnectionTunnel2LogOptionsArgs'] tunnel2_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel2_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        :param pulumi.Input[int] tunnel2_phase1_lifetime_seconds: The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel2_phase2_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase2_encryption_algorithms: List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase2_integrity_algorithms: List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        :param pulumi.Input[int] tunnel2_phase2_lifetime_seconds: The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        :param pulumi.Input[str] tunnel2_preshared_key: The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+        :param pulumi.Input[int] tunnel2_rekey_fuzz_percentage: The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        :param pulumi.Input[int] tunnel2_rekey_margin_time_seconds: The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
+        :param pulumi.Input[int] tunnel2_replay_window_size: The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
+        :param pulumi.Input[str] tunnel2_startup_action: The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        :param pulumi.Input[str] tunnel_inside_ip_version: Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
+        :param pulumi.Input[str] vpn_gateway_id: The ID of the Virtual Private Gateway.
         """
         pulumi.set(__self__, "customer_gateway_id", customer_gateway_id)
         pulumi.set(__self__, "type", type)
@@ -177,6 +229,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="customerGatewayId")
     def customer_gateway_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the customer gateway.
+        """
         return pulumi.get(self, "customer_gateway_id")
 
     @customer_gateway_id.setter
@@ -186,6 +241,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -195,6 +253,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="enableAcceleration")
     def enable_acceleration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
+        """
         return pulumi.get(self, "enable_acceleration")
 
     @enable_acceleration.setter
@@ -204,6 +265,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="localIpv4NetworkCidr")
     def local_ipv4_network_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        """
         return pulumi.get(self, "local_ipv4_network_cidr")
 
     @local_ipv4_network_cidr.setter
@@ -213,6 +277,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="localIpv6NetworkCidr")
     def local_ipv6_network_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        """
         return pulumi.get(self, "local_ipv6_network_cidr")
 
     @local_ipv6_network_cidr.setter
@@ -222,6 +289,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="outsideIpAddressType")
     def outside_ip_address_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+        """
         return pulumi.get(self, "outside_ip_address_type")
 
     @outside_ip_address_type.setter
@@ -231,6 +301,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="remoteIpv4NetworkCidr")
     def remote_ipv4_network_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 CIDR on the AWS side of the VPN connection.
+        """
         return pulumi.get(self, "remote_ipv4_network_cidr")
 
     @remote_ipv4_network_cidr.setter
@@ -240,6 +313,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="remoteIpv6NetworkCidr")
     def remote_ipv6_network_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        """
         return pulumi.get(self, "remote_ipv6_network_cidr")
 
     @remote_ipv6_network_cidr.setter
@@ -249,6 +325,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="staticRoutesOnly")
     def static_routes_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
+        """
         return pulumi.get(self, "static_routes_only")
 
     @static_routes_only.setter
@@ -258,6 +337,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -267,6 +349,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the EC2 Transit Gateway.
+        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -276,6 +361,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="transportTransitGatewayAttachmentId")
     def transport_transit_gateway_attachment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+        """
         return pulumi.get(self, "transport_transit_gateway_attachment_id")
 
     @transport_transit_gateway_attachment_id.setter
@@ -285,6 +373,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel1DpdTimeoutAction")
     def tunnel1_dpd_timeout_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        """
         return pulumi.get(self, "tunnel1_dpd_timeout_action")
 
     @tunnel1_dpd_timeout_action.setter
@@ -294,6 +385,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel1DpdTimeoutSeconds")
     def tunnel1_dpd_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+        """
         return pulumi.get(self, "tunnel1_dpd_timeout_seconds")
 
     @tunnel1_dpd_timeout_seconds.setter
@@ -303,6 +397,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel1IkeVersions")
     def tunnel1_ike_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
+        """
         return pulumi.get(self, "tunnel1_ike_versions")
 
     @tunnel1_ike_versions.setter
@@ -312,6 +409,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel1InsideCidr")
     def tunnel1_inside_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+        """
         return pulumi.get(self, "tunnel1_inside_cidr")
 
     @tunnel1_inside_cidr.setter
@@ -321,6 +421,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel1InsideIpv6Cidr")
     def tunnel1_inside_ipv6_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        """
         return pulumi.get(self, "tunnel1_inside_ipv6_cidr")
 
     @tunnel1_inside_ipv6_cidr.setter
@@ -330,6 +433,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel1LogOptions")
     def tunnel1_log_options(self) -> Optional[pulumi.Input['VpnConnectionTunnel1LogOptionsArgs']]:
+        """
+        Options for logging VPN tunnel activity. See Log Options below for more details.
+        """
         return pulumi.get(self, "tunnel1_log_options")
 
     @tunnel1_log_options.setter
@@ -339,6 +445,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel1Phase1DhGroupNumbers")
     def tunnel1_phase1_dh_group_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        """
         return pulumi.get(self, "tunnel1_phase1_dh_group_numbers")
 
     @tunnel1_phase1_dh_group_numbers.setter
@@ -348,6 +457,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel1Phase1EncryptionAlgorithms")
     def tunnel1_phase1_encryption_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        """
         return pulumi.get(self, "tunnel1_phase1_encryption_algorithms")
 
     @tunnel1_phase1_encryption_algorithms.setter
@@ -357,6 +469,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel1Phase1IntegrityAlgorithms")
     def tunnel1_phase1_integrity_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        """
         return pulumi.get(self, "tunnel1_phase1_integrity_algorithms")
 
     @tunnel1_phase1_integrity_algorithms.setter
@@ -366,6 +481,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel1Phase1LifetimeSeconds")
     def tunnel1_phase1_lifetime_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        """
         return pulumi.get(self, "tunnel1_phase1_lifetime_seconds")
 
     @tunnel1_phase1_lifetime_seconds.setter
@@ -375,6 +493,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel1Phase2DhGroupNumbers")
     def tunnel1_phase2_dh_group_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        """
         return pulumi.get(self, "tunnel1_phase2_dh_group_numbers")
 
     @tunnel1_phase2_dh_group_numbers.setter
@@ -384,6 +505,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel1Phase2EncryptionAlgorithms")
     def tunnel1_phase2_encryption_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        """
         return pulumi.get(self, "tunnel1_phase2_encryption_algorithms")
 
     @tunnel1_phase2_encryption_algorithms.setter
@@ -393,6 +517,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel1Phase2IntegrityAlgorithms")
     def tunnel1_phase2_integrity_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        """
         return pulumi.get(self, "tunnel1_phase2_integrity_algorithms")
 
     @tunnel1_phase2_integrity_algorithms.setter
@@ -402,6 +529,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel1Phase2LifetimeSeconds")
     def tunnel1_phase2_lifetime_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        """
         return pulumi.get(self, "tunnel1_phase2_lifetime_seconds")
 
     @tunnel1_phase2_lifetime_seconds.setter
@@ -411,6 +541,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel1PresharedKey")
     def tunnel1_preshared_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+        """
         return pulumi.get(self, "tunnel1_preshared_key")
 
     @tunnel1_preshared_key.setter
@@ -420,6 +553,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel1RekeyFuzzPercentage")
     def tunnel1_rekey_fuzz_percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        """
         return pulumi.get(self, "tunnel1_rekey_fuzz_percentage")
 
     @tunnel1_rekey_fuzz_percentage.setter
@@ -429,6 +565,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel1RekeyMarginTimeSeconds")
     def tunnel1_rekey_margin_time_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
+        """
         return pulumi.get(self, "tunnel1_rekey_margin_time_seconds")
 
     @tunnel1_rekey_margin_time_seconds.setter
@@ -438,6 +577,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel1ReplayWindowSize")
     def tunnel1_replay_window_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
+        """
         return pulumi.get(self, "tunnel1_replay_window_size")
 
     @tunnel1_replay_window_size.setter
@@ -447,6 +589,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel1StartupAction")
     def tunnel1_startup_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        """
         return pulumi.get(self, "tunnel1_startup_action")
 
     @tunnel1_startup_action.setter
@@ -456,6 +601,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel2DpdTimeoutAction")
     def tunnel2_dpd_timeout_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        """
         return pulumi.get(self, "tunnel2_dpd_timeout_action")
 
     @tunnel2_dpd_timeout_action.setter
@@ -465,6 +613,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel2DpdTimeoutSeconds")
     def tunnel2_dpd_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+        """
         return pulumi.get(self, "tunnel2_dpd_timeout_seconds")
 
     @tunnel2_dpd_timeout_seconds.setter
@@ -474,6 +625,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel2IkeVersions")
     def tunnel2_ike_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
+        """
         return pulumi.get(self, "tunnel2_ike_versions")
 
     @tunnel2_ike_versions.setter
@@ -483,6 +637,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel2InsideCidr")
     def tunnel2_inside_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+        """
         return pulumi.get(self, "tunnel2_inside_cidr")
 
     @tunnel2_inside_cidr.setter
@@ -492,6 +649,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel2InsideIpv6Cidr")
     def tunnel2_inside_ipv6_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        """
         return pulumi.get(self, "tunnel2_inside_ipv6_cidr")
 
     @tunnel2_inside_ipv6_cidr.setter
@@ -501,6 +661,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel2LogOptions")
     def tunnel2_log_options(self) -> Optional[pulumi.Input['VpnConnectionTunnel2LogOptionsArgs']]:
+        """
+        Options for logging VPN tunnel activity. See Log Options below for more details.
+        """
         return pulumi.get(self, "tunnel2_log_options")
 
     @tunnel2_log_options.setter
@@ -510,6 +673,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel2Phase1DhGroupNumbers")
     def tunnel2_phase1_dh_group_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        """
         return pulumi.get(self, "tunnel2_phase1_dh_group_numbers")
 
     @tunnel2_phase1_dh_group_numbers.setter
@@ -519,6 +685,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel2Phase1EncryptionAlgorithms")
     def tunnel2_phase1_encryption_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        """
         return pulumi.get(self, "tunnel2_phase1_encryption_algorithms")
 
     @tunnel2_phase1_encryption_algorithms.setter
@@ -528,6 +697,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel2Phase1IntegrityAlgorithms")
     def tunnel2_phase1_integrity_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        """
         return pulumi.get(self, "tunnel2_phase1_integrity_algorithms")
 
     @tunnel2_phase1_integrity_algorithms.setter
@@ -537,6 +709,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel2Phase1LifetimeSeconds")
     def tunnel2_phase1_lifetime_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        """
         return pulumi.get(self, "tunnel2_phase1_lifetime_seconds")
 
     @tunnel2_phase1_lifetime_seconds.setter
@@ -546,6 +721,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel2Phase2DhGroupNumbers")
     def tunnel2_phase2_dh_group_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        """
         return pulumi.get(self, "tunnel2_phase2_dh_group_numbers")
 
     @tunnel2_phase2_dh_group_numbers.setter
@@ -555,6 +733,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel2Phase2EncryptionAlgorithms")
     def tunnel2_phase2_encryption_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        """
         return pulumi.get(self, "tunnel2_phase2_encryption_algorithms")
 
     @tunnel2_phase2_encryption_algorithms.setter
@@ -564,6 +745,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel2Phase2IntegrityAlgorithms")
     def tunnel2_phase2_integrity_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        """
         return pulumi.get(self, "tunnel2_phase2_integrity_algorithms")
 
     @tunnel2_phase2_integrity_algorithms.setter
@@ -573,6 +757,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel2Phase2LifetimeSeconds")
     def tunnel2_phase2_lifetime_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        """
         return pulumi.get(self, "tunnel2_phase2_lifetime_seconds")
 
     @tunnel2_phase2_lifetime_seconds.setter
@@ -582,6 +769,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel2PresharedKey")
     def tunnel2_preshared_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+        """
         return pulumi.get(self, "tunnel2_preshared_key")
 
     @tunnel2_preshared_key.setter
@@ -591,6 +781,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel2RekeyFuzzPercentage")
     def tunnel2_rekey_fuzz_percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        """
         return pulumi.get(self, "tunnel2_rekey_fuzz_percentage")
 
     @tunnel2_rekey_fuzz_percentage.setter
@@ -600,6 +793,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel2RekeyMarginTimeSeconds")
     def tunnel2_rekey_margin_time_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
+        """
         return pulumi.get(self, "tunnel2_rekey_margin_time_seconds")
 
     @tunnel2_rekey_margin_time_seconds.setter
@@ -609,6 +805,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel2ReplayWindowSize")
     def tunnel2_replay_window_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
+        """
         return pulumi.get(self, "tunnel2_replay_window_size")
 
     @tunnel2_replay_window_size.setter
@@ -618,6 +817,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnel2StartupAction")
     def tunnel2_startup_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        """
         return pulumi.get(self, "tunnel2_startup_action")
 
     @tunnel2_startup_action.setter
@@ -627,6 +829,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="tunnelInsideIpVersion")
     def tunnel_inside_ip_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
+        """
         return pulumi.get(self, "tunnel_inside_ip_version")
 
     @tunnel_inside_ip_version.setter
@@ -636,6 +841,9 @@ class VpnConnectionArgs:
     @property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Virtual Private Gateway.
+        """
         return pulumi.get(self, "vpn_gateway_id")
 
     @vpn_gateway_id.setter
@@ -718,6 +926,76 @@ class _VpnConnectionState:
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VpnConnection resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the VPN Connection.
+        :param pulumi.Input[str] core_network_arn: The ARN of the core network.
+        :param pulumi.Input[str] core_network_attachment_arn: The ARN of the core network attachment.
+        :param pulumi.Input[str] customer_gateway_configuration: The configuration information for the VPN connection's customer gateway (in the native XML format).
+        :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway.
+        :param pulumi.Input[bool] enable_acceleration: Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
+        :param pulumi.Input[str] local_ipv4_network_cidr: The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+        :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
+        :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionRouteArgs']]] routes: The static routes associated with the VPN connection. Detailed below.
+        :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] transit_gateway_attachment_id: When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
+        :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
+        :param pulumi.Input[str] transport_transit_gateway_attachment_id: . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+        :param pulumi.Input[str] tunnel1_address: The public IP address of the first VPN tunnel.
+        :param pulumi.Input[str] tunnel1_bgp_asn: The bgp asn number of the first VPN tunnel.
+        :param pulumi.Input[int] tunnel1_bgp_holdtime: The bgp holdtime of the first VPN tunnel.
+        :param pulumi.Input[str] tunnel1_cgw_inside_address: The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
+        :param pulumi.Input[str] tunnel1_dpd_timeout_action: The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        :param pulumi.Input[int] tunnel1_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_ike_versions: The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
+        :param pulumi.Input[str] tunnel1_inside_cidr: The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+        :param pulumi.Input[str] tunnel1_inside_ipv6_cidr: The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        :param pulumi.Input['VpnConnectionTunnel1LogOptionsArgs'] tunnel1_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel1_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        :param pulumi.Input[int] tunnel1_phase1_lifetime_seconds: The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel1_phase2_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase2_encryption_algorithms: List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase2_integrity_algorithms: List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        :param pulumi.Input[int] tunnel1_phase2_lifetime_seconds: The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        :param pulumi.Input[str] tunnel1_preshared_key: The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+        :param pulumi.Input[int] tunnel1_rekey_fuzz_percentage: The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        :param pulumi.Input[int] tunnel1_rekey_margin_time_seconds: The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
+        :param pulumi.Input[int] tunnel1_replay_window_size: The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
+        :param pulumi.Input[str] tunnel1_startup_action: The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        :param pulumi.Input[str] tunnel1_vgw_inside_address: The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
+        :param pulumi.Input[str] tunnel2_address: The public IP address of the second VPN tunnel.
+        :param pulumi.Input[str] tunnel2_bgp_asn: The bgp asn number of the second VPN tunnel.
+        :param pulumi.Input[int] tunnel2_bgp_holdtime: The bgp holdtime of the second VPN tunnel.
+        :param pulumi.Input[str] tunnel2_cgw_inside_address: The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
+        :param pulumi.Input[str] tunnel2_dpd_timeout_action: The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        :param pulumi.Input[int] tunnel2_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_ike_versions: The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
+        :param pulumi.Input[str] tunnel2_inside_cidr: The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+        :param pulumi.Input[str] tunnel2_inside_ipv6_cidr: The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        :param pulumi.Input['VpnConnectionTunnel2LogOptionsArgs'] tunnel2_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel2_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        :param pulumi.Input[int] tunnel2_phase1_lifetime_seconds: The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel2_phase2_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase2_encryption_algorithms: List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase2_integrity_algorithms: List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        :param pulumi.Input[int] tunnel2_phase2_lifetime_seconds: The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        :param pulumi.Input[str] tunnel2_preshared_key: The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+        :param pulumi.Input[int] tunnel2_rekey_fuzz_percentage: The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        :param pulumi.Input[int] tunnel2_rekey_margin_time_seconds: The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
+        :param pulumi.Input[int] tunnel2_replay_window_size: The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
+        :param pulumi.Input[str] tunnel2_startup_action: The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        :param pulumi.Input[str] tunnel2_vgw_inside_address: The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
+        :param pulumi.Input[str] tunnel_inside_ip_version: Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
+        :param pulumi.Input[str] type: The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
+        :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionVgwTelemetryArgs']]] vgw_telemetries: Telemetry for the VPN tunnels. Detailed below.
+        :param pulumi.Input[str] vpn_gateway_id: The ID of the Virtual Private Gateway.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -863,6 +1141,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the VPN Connection.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -872,6 +1153,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the core network.
+        """
         return pulumi.get(self, "core_network_arn")
 
     @core_network_arn.setter
@@ -881,6 +1165,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="coreNetworkAttachmentArn")
     def core_network_attachment_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the core network attachment.
+        """
         return pulumi.get(self, "core_network_attachment_arn")
 
     @core_network_attachment_arn.setter
@@ -890,6 +1177,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="customerGatewayConfiguration")
     def customer_gateway_configuration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configuration information for the VPN connection's customer gateway (in the native XML format).
+        """
         return pulumi.get(self, "customer_gateway_configuration")
 
     @customer_gateway_configuration.setter
@@ -899,6 +1189,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="customerGatewayId")
     def customer_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the customer gateway.
+        """
         return pulumi.get(self, "customer_gateway_id")
 
     @customer_gateway_id.setter
@@ -908,6 +1201,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="enableAcceleration")
     def enable_acceleration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
+        """
         return pulumi.get(self, "enable_acceleration")
 
     @enable_acceleration.setter
@@ -917,6 +1213,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="localIpv4NetworkCidr")
     def local_ipv4_network_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        """
         return pulumi.get(self, "local_ipv4_network_cidr")
 
     @local_ipv4_network_cidr.setter
@@ -926,6 +1225,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="localIpv6NetworkCidr")
     def local_ipv6_network_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        """
         return pulumi.get(self, "local_ipv6_network_cidr")
 
     @local_ipv6_network_cidr.setter
@@ -935,6 +1237,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="outsideIpAddressType")
     def outside_ip_address_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+        """
         return pulumi.get(self, "outside_ip_address_type")
 
     @outside_ip_address_type.setter
@@ -944,6 +1249,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="remoteIpv4NetworkCidr")
     def remote_ipv4_network_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 CIDR on the AWS side of the VPN connection.
+        """
         return pulumi.get(self, "remote_ipv4_network_cidr")
 
     @remote_ipv4_network_cidr.setter
@@ -953,6 +1261,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="remoteIpv6NetworkCidr")
     def remote_ipv6_network_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        """
         return pulumi.get(self, "remote_ipv6_network_cidr")
 
     @remote_ipv6_network_cidr.setter
@@ -962,6 +1273,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter
     def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionRouteArgs']]]]:
+        """
+        The static routes associated with the VPN connection. Detailed below.
+        """
         return pulumi.get(self, "routes")
 
     @routes.setter
@@ -971,6 +1285,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="staticRoutesOnly")
     def static_routes_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
+        """
         return pulumi.get(self, "static_routes_only")
 
     @static_routes_only.setter
@@ -980,6 +1297,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -989,6 +1309,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -998,6 +1321,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
+        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
@@ -1007,6 +1333,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the EC2 Transit Gateway.
+        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -1016,6 +1345,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="transportTransitGatewayAttachmentId")
     def transport_transit_gateway_attachment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+        """
         return pulumi.get(self, "transport_transit_gateway_attachment_id")
 
     @transport_transit_gateway_attachment_id.setter
@@ -1025,6 +1357,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1Address")
     def tunnel1_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public IP address of the first VPN tunnel.
+        """
         return pulumi.get(self, "tunnel1_address")
 
     @tunnel1_address.setter
@@ -1034,6 +1369,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1BgpAsn")
     def tunnel1_bgp_asn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The bgp asn number of the first VPN tunnel.
+        """
         return pulumi.get(self, "tunnel1_bgp_asn")
 
     @tunnel1_bgp_asn.setter
@@ -1043,6 +1381,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1BgpHoldtime")
     def tunnel1_bgp_holdtime(self) -> Optional[pulumi.Input[int]]:
+        """
+        The bgp holdtime of the first VPN tunnel.
+        """
         return pulumi.get(self, "tunnel1_bgp_holdtime")
 
     @tunnel1_bgp_holdtime.setter
@@ -1052,6 +1393,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1CgwInsideAddress")
     def tunnel1_cgw_inside_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
+        """
         return pulumi.get(self, "tunnel1_cgw_inside_address")
 
     @tunnel1_cgw_inside_address.setter
@@ -1061,6 +1405,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1DpdTimeoutAction")
     def tunnel1_dpd_timeout_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        """
         return pulumi.get(self, "tunnel1_dpd_timeout_action")
 
     @tunnel1_dpd_timeout_action.setter
@@ -1070,6 +1417,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1DpdTimeoutSeconds")
     def tunnel1_dpd_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+        """
         return pulumi.get(self, "tunnel1_dpd_timeout_seconds")
 
     @tunnel1_dpd_timeout_seconds.setter
@@ -1079,6 +1429,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1IkeVersions")
     def tunnel1_ike_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
+        """
         return pulumi.get(self, "tunnel1_ike_versions")
 
     @tunnel1_ike_versions.setter
@@ -1088,6 +1441,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1InsideCidr")
     def tunnel1_inside_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+        """
         return pulumi.get(self, "tunnel1_inside_cidr")
 
     @tunnel1_inside_cidr.setter
@@ -1097,6 +1453,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1InsideIpv6Cidr")
     def tunnel1_inside_ipv6_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        """
         return pulumi.get(self, "tunnel1_inside_ipv6_cidr")
 
     @tunnel1_inside_ipv6_cidr.setter
@@ -1106,6 +1465,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1LogOptions")
     def tunnel1_log_options(self) -> Optional[pulumi.Input['VpnConnectionTunnel1LogOptionsArgs']]:
+        """
+        Options for logging VPN tunnel activity. See Log Options below for more details.
+        """
         return pulumi.get(self, "tunnel1_log_options")
 
     @tunnel1_log_options.setter
@@ -1115,6 +1477,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1Phase1DhGroupNumbers")
     def tunnel1_phase1_dh_group_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        """
         return pulumi.get(self, "tunnel1_phase1_dh_group_numbers")
 
     @tunnel1_phase1_dh_group_numbers.setter
@@ -1124,6 +1489,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1Phase1EncryptionAlgorithms")
     def tunnel1_phase1_encryption_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        """
         return pulumi.get(self, "tunnel1_phase1_encryption_algorithms")
 
     @tunnel1_phase1_encryption_algorithms.setter
@@ -1133,6 +1501,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1Phase1IntegrityAlgorithms")
     def tunnel1_phase1_integrity_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        """
         return pulumi.get(self, "tunnel1_phase1_integrity_algorithms")
 
     @tunnel1_phase1_integrity_algorithms.setter
@@ -1142,6 +1513,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1Phase1LifetimeSeconds")
     def tunnel1_phase1_lifetime_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        """
         return pulumi.get(self, "tunnel1_phase1_lifetime_seconds")
 
     @tunnel1_phase1_lifetime_seconds.setter
@@ -1151,6 +1525,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1Phase2DhGroupNumbers")
     def tunnel1_phase2_dh_group_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        """
         return pulumi.get(self, "tunnel1_phase2_dh_group_numbers")
 
     @tunnel1_phase2_dh_group_numbers.setter
@@ -1160,6 +1537,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1Phase2EncryptionAlgorithms")
     def tunnel1_phase2_encryption_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        """
         return pulumi.get(self, "tunnel1_phase2_encryption_algorithms")
 
     @tunnel1_phase2_encryption_algorithms.setter
@@ -1169,6 +1549,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1Phase2IntegrityAlgorithms")
     def tunnel1_phase2_integrity_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        """
         return pulumi.get(self, "tunnel1_phase2_integrity_algorithms")
 
     @tunnel1_phase2_integrity_algorithms.setter
@@ -1178,6 +1561,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1Phase2LifetimeSeconds")
     def tunnel1_phase2_lifetime_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        """
         return pulumi.get(self, "tunnel1_phase2_lifetime_seconds")
 
     @tunnel1_phase2_lifetime_seconds.setter
@@ -1187,6 +1573,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1PresharedKey")
     def tunnel1_preshared_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+        """
         return pulumi.get(self, "tunnel1_preshared_key")
 
     @tunnel1_preshared_key.setter
@@ -1196,6 +1585,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1RekeyFuzzPercentage")
     def tunnel1_rekey_fuzz_percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        """
         return pulumi.get(self, "tunnel1_rekey_fuzz_percentage")
 
     @tunnel1_rekey_fuzz_percentage.setter
@@ -1205,6 +1597,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1RekeyMarginTimeSeconds")
     def tunnel1_rekey_margin_time_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
+        """
         return pulumi.get(self, "tunnel1_rekey_margin_time_seconds")
 
     @tunnel1_rekey_margin_time_seconds.setter
@@ -1214,6 +1609,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1ReplayWindowSize")
     def tunnel1_replay_window_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
+        """
         return pulumi.get(self, "tunnel1_replay_window_size")
 
     @tunnel1_replay_window_size.setter
@@ -1223,6 +1621,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1StartupAction")
     def tunnel1_startup_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        """
         return pulumi.get(self, "tunnel1_startup_action")
 
     @tunnel1_startup_action.setter
@@ -1232,6 +1633,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel1VgwInsideAddress")
     def tunnel1_vgw_inside_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
+        """
         return pulumi.get(self, "tunnel1_vgw_inside_address")
 
     @tunnel1_vgw_inside_address.setter
@@ -1241,6 +1645,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2Address")
     def tunnel2_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public IP address of the second VPN tunnel.
+        """
         return pulumi.get(self, "tunnel2_address")
 
     @tunnel2_address.setter
@@ -1250,6 +1657,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2BgpAsn")
     def tunnel2_bgp_asn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The bgp asn number of the second VPN tunnel.
+        """
         return pulumi.get(self, "tunnel2_bgp_asn")
 
     @tunnel2_bgp_asn.setter
@@ -1259,6 +1669,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2BgpHoldtime")
     def tunnel2_bgp_holdtime(self) -> Optional[pulumi.Input[int]]:
+        """
+        The bgp holdtime of the second VPN tunnel.
+        """
         return pulumi.get(self, "tunnel2_bgp_holdtime")
 
     @tunnel2_bgp_holdtime.setter
@@ -1268,6 +1681,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2CgwInsideAddress")
     def tunnel2_cgw_inside_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
+        """
         return pulumi.get(self, "tunnel2_cgw_inside_address")
 
     @tunnel2_cgw_inside_address.setter
@@ -1277,6 +1693,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2DpdTimeoutAction")
     def tunnel2_dpd_timeout_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        """
         return pulumi.get(self, "tunnel2_dpd_timeout_action")
 
     @tunnel2_dpd_timeout_action.setter
@@ -1286,6 +1705,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2DpdTimeoutSeconds")
     def tunnel2_dpd_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+        """
         return pulumi.get(self, "tunnel2_dpd_timeout_seconds")
 
     @tunnel2_dpd_timeout_seconds.setter
@@ -1295,6 +1717,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2IkeVersions")
     def tunnel2_ike_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
+        """
         return pulumi.get(self, "tunnel2_ike_versions")
 
     @tunnel2_ike_versions.setter
@@ -1304,6 +1729,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2InsideCidr")
     def tunnel2_inside_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+        """
         return pulumi.get(self, "tunnel2_inside_cidr")
 
     @tunnel2_inside_cidr.setter
@@ -1313,6 +1741,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2InsideIpv6Cidr")
     def tunnel2_inside_ipv6_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        """
         return pulumi.get(self, "tunnel2_inside_ipv6_cidr")
 
     @tunnel2_inside_ipv6_cidr.setter
@@ -1322,6 +1753,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2LogOptions")
     def tunnel2_log_options(self) -> Optional[pulumi.Input['VpnConnectionTunnel2LogOptionsArgs']]:
+        """
+        Options for logging VPN tunnel activity. See Log Options below for more details.
+        """
         return pulumi.get(self, "tunnel2_log_options")
 
     @tunnel2_log_options.setter
@@ -1331,6 +1765,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2Phase1DhGroupNumbers")
     def tunnel2_phase1_dh_group_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        """
         return pulumi.get(self, "tunnel2_phase1_dh_group_numbers")
 
     @tunnel2_phase1_dh_group_numbers.setter
@@ -1340,6 +1777,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2Phase1EncryptionAlgorithms")
     def tunnel2_phase1_encryption_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        """
         return pulumi.get(self, "tunnel2_phase1_encryption_algorithms")
 
     @tunnel2_phase1_encryption_algorithms.setter
@@ -1349,6 +1789,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2Phase1IntegrityAlgorithms")
     def tunnel2_phase1_integrity_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        """
         return pulumi.get(self, "tunnel2_phase1_integrity_algorithms")
 
     @tunnel2_phase1_integrity_algorithms.setter
@@ -1358,6 +1801,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2Phase1LifetimeSeconds")
     def tunnel2_phase1_lifetime_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        """
         return pulumi.get(self, "tunnel2_phase1_lifetime_seconds")
 
     @tunnel2_phase1_lifetime_seconds.setter
@@ -1367,6 +1813,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2Phase2DhGroupNumbers")
     def tunnel2_phase2_dh_group_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        """
         return pulumi.get(self, "tunnel2_phase2_dh_group_numbers")
 
     @tunnel2_phase2_dh_group_numbers.setter
@@ -1376,6 +1825,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2Phase2EncryptionAlgorithms")
     def tunnel2_phase2_encryption_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        """
         return pulumi.get(self, "tunnel2_phase2_encryption_algorithms")
 
     @tunnel2_phase2_encryption_algorithms.setter
@@ -1385,6 +1837,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2Phase2IntegrityAlgorithms")
     def tunnel2_phase2_integrity_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        """
         return pulumi.get(self, "tunnel2_phase2_integrity_algorithms")
 
     @tunnel2_phase2_integrity_algorithms.setter
@@ -1394,6 +1849,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2Phase2LifetimeSeconds")
     def tunnel2_phase2_lifetime_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        """
         return pulumi.get(self, "tunnel2_phase2_lifetime_seconds")
 
     @tunnel2_phase2_lifetime_seconds.setter
@@ -1403,6 +1861,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2PresharedKey")
     def tunnel2_preshared_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+        """
         return pulumi.get(self, "tunnel2_preshared_key")
 
     @tunnel2_preshared_key.setter
@@ -1412,6 +1873,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2RekeyFuzzPercentage")
     def tunnel2_rekey_fuzz_percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        """
         return pulumi.get(self, "tunnel2_rekey_fuzz_percentage")
 
     @tunnel2_rekey_fuzz_percentage.setter
@@ -1421,6 +1885,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2RekeyMarginTimeSeconds")
     def tunnel2_rekey_margin_time_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
+        """
         return pulumi.get(self, "tunnel2_rekey_margin_time_seconds")
 
     @tunnel2_rekey_margin_time_seconds.setter
@@ -1430,6 +1897,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2ReplayWindowSize")
     def tunnel2_replay_window_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
+        """
         return pulumi.get(self, "tunnel2_replay_window_size")
 
     @tunnel2_replay_window_size.setter
@@ -1439,6 +1909,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2StartupAction")
     def tunnel2_startup_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        """
         return pulumi.get(self, "tunnel2_startup_action")
 
     @tunnel2_startup_action.setter
@@ -1448,6 +1921,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnel2VgwInsideAddress")
     def tunnel2_vgw_inside_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
+        """
         return pulumi.get(self, "tunnel2_vgw_inside_address")
 
     @tunnel2_vgw_inside_address.setter
@@ -1457,6 +1933,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="tunnelInsideIpVersion")
     def tunnel_inside_ip_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
+        """
         return pulumi.get(self, "tunnel_inside_ip_version")
 
     @tunnel_inside_ip_version.setter
@@ -1466,6 +1945,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1475,6 +1957,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="vgwTelemetries")
     def vgw_telemetries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionVgwTelemetryArgs']]]]:
+        """
+        Telemetry for the VPN tunnels. Detailed below.
+        """
         return pulumi.get(self, "vgw_telemetries")
 
     @vgw_telemetries.setter
@@ -1484,6 +1969,9 @@ class _VpnConnectionState:
     @property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Virtual Private Gateway.
+        """
         return pulumi.get(self, "vpn_gateway_id")
 
     @vpn_gateway_id.setter
@@ -1550,9 +2038,144 @@ class VpnConnection(pulumi.CustomResource):
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a VpnConnection resource with the given unique name, props, and options.
+        Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+        Any new Site-to-Site VPN connection that you create is an [AWS VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-categories.html).
+
+        > **Note:** The CIDR blocks in the arguments `tunnel1_inside_cidr` and `tunnel2_inside_cidr` must have a prefix of /30 and be a part of a specific range.
+        [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
+
+        ## Example Usage
+        ### EC2 Transit Gateway
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
+        example_customer_gateway = aws.ec2.CustomerGateway("exampleCustomerGateway",
+            bgp_asn="65000",
+            ip_address="172.0.0.1",
+            type="ipsec.1")
+        example_vpn_connection = aws.ec2.VpnConnection("exampleVpnConnection",
+            customer_gateway_id=example_customer_gateway.id,
+            transit_gateway_id=example_transit_gateway.id,
+            type=example_customer_gateway.type)
+        ```
+        ### Virtual Private Gateway
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        vpc = aws.ec2.Vpc("vpc", cidr_block="10.0.0.0/16")
+        vpn_gateway = aws.ec2.VpnGateway("vpnGateway", vpc_id=vpc.id)
+        customer_gateway = aws.ec2.CustomerGateway("customerGateway",
+            bgp_asn="65000",
+            ip_address="172.0.0.1",
+            type="ipsec.1")
+        main = aws.ec2.VpnConnection("main",
+            vpn_gateway_id=vpn_gateway.id,
+            customer_gateway_id=customer_gateway.id,
+            type="ipsec.1",
+            static_routes_only=True)
+        ```
+        ### AWS Site to Site Private VPN
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway",
+            amazon_side_asn=64513,
+            description="example_ipsec_vpn_example",
+            transit_gateway_cidr_blocks=["10.0.0.0/24"])
+        example_customer_gateway = aws.ec2.CustomerGateway("exampleCustomerGateway",
+            bgp_asn="64514",
+            ip_address="10.0.0.1",
+            type="ipsec.1",
+            tags={
+                "Name": "example_ipsec_vpn_example",
+            })
+        example_gateway_association = aws.directconnect.GatewayAssociation("exampleGatewayAssociation",
+            dx_gateway_id=example_gateway.id,
+            associated_gateway_id=example_transit_gateway.id,
+            allowed_prefixes=["10.0.0.0/8"])
+        example_direct_connect_gateway_attachment = aws.ec2transitgateway.get_direct_connect_gateway_attachment_output(transit_gateway_id=example_transit_gateway.id,
+            dx_gateway_id=example_gateway.id)
+        example_vpn_connection = aws.ec2.VpnConnection("exampleVpnConnection",
+            customer_gateway_id=example_customer_gateway.id,
+            outside_ip_address_type="PrivateIpv4",
+            transit_gateway_id=example_transit_gateway.id,
+            transport_transit_gateway_attachment_id=example_direct_connect_gateway_attachment.id,
+            type="ipsec.1",
+            tags={
+                "Name": "example_ipsec_vpn_example",
+            })
+        ```
+
+        ## Import
+
+        VPN Connections can be imported using the `vpn connection id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway.
+        :param pulumi.Input[bool] enable_acceleration: Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
+        :param pulumi.Input[str] local_ipv4_network_cidr: The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+        :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
+        :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
+        :param pulumi.Input[str] transport_transit_gateway_attachment_id: . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+        :param pulumi.Input[str] tunnel1_dpd_timeout_action: The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        :param pulumi.Input[int] tunnel1_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_ike_versions: The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
+        :param pulumi.Input[str] tunnel1_inside_cidr: The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+        :param pulumi.Input[str] tunnel1_inside_ipv6_cidr: The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        :param pulumi.Input[pulumi.InputType['VpnConnectionTunnel1LogOptionsArgs']] tunnel1_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel1_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        :param pulumi.Input[int] tunnel1_phase1_lifetime_seconds: The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel1_phase2_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase2_encryption_algorithms: List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase2_integrity_algorithms: List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        :param pulumi.Input[int] tunnel1_phase2_lifetime_seconds: The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        :param pulumi.Input[str] tunnel1_preshared_key: The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+        :param pulumi.Input[int] tunnel1_rekey_fuzz_percentage: The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        :param pulumi.Input[int] tunnel1_rekey_margin_time_seconds: The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
+        :param pulumi.Input[int] tunnel1_replay_window_size: The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
+        :param pulumi.Input[str] tunnel1_startup_action: The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        :param pulumi.Input[str] tunnel2_dpd_timeout_action: The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        :param pulumi.Input[int] tunnel2_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_ike_versions: The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
+        :param pulumi.Input[str] tunnel2_inside_cidr: The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+        :param pulumi.Input[str] tunnel2_inside_ipv6_cidr: The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        :param pulumi.Input[pulumi.InputType['VpnConnectionTunnel2LogOptionsArgs']] tunnel2_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel2_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        :param pulumi.Input[int] tunnel2_phase1_lifetime_seconds: The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel2_phase2_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase2_encryption_algorithms: List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase2_integrity_algorithms: List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        :param pulumi.Input[int] tunnel2_phase2_lifetime_seconds: The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        :param pulumi.Input[str] tunnel2_preshared_key: The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+        :param pulumi.Input[int] tunnel2_rekey_fuzz_percentage: The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        :param pulumi.Input[int] tunnel2_rekey_margin_time_seconds: The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
+        :param pulumi.Input[int] tunnel2_replay_window_size: The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
+        :param pulumi.Input[str] tunnel2_startup_action: The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        :param pulumi.Input[str] tunnel_inside_ip_version: Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
+        :param pulumi.Input[str] type: The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
+        :param pulumi.Input[str] vpn_gateway_id: The ID of the Virtual Private Gateway.
         """
         ...
     @overload
@@ -1561,7 +2184,90 @@ class VpnConnection(pulumi.CustomResource):
                  args: VpnConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a VpnConnection resource with the given unique name, props, and options.
+        Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+        Any new Site-to-Site VPN connection that you create is an [AWS VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-categories.html).
+
+        > **Note:** The CIDR blocks in the arguments `tunnel1_inside_cidr` and `tunnel2_inside_cidr` must have a prefix of /30 and be a part of a specific range.
+        [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
+
+        ## Example Usage
+        ### EC2 Transit Gateway
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
+        example_customer_gateway = aws.ec2.CustomerGateway("exampleCustomerGateway",
+            bgp_asn="65000",
+            ip_address="172.0.0.1",
+            type="ipsec.1")
+        example_vpn_connection = aws.ec2.VpnConnection("exampleVpnConnection",
+            customer_gateway_id=example_customer_gateway.id,
+            transit_gateway_id=example_transit_gateway.id,
+            type=example_customer_gateway.type)
+        ```
+        ### Virtual Private Gateway
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        vpc = aws.ec2.Vpc("vpc", cidr_block="10.0.0.0/16")
+        vpn_gateway = aws.ec2.VpnGateway("vpnGateway", vpc_id=vpc.id)
+        customer_gateway = aws.ec2.CustomerGateway("customerGateway",
+            bgp_asn="65000",
+            ip_address="172.0.0.1",
+            type="ipsec.1")
+        main = aws.ec2.VpnConnection("main",
+            vpn_gateway_id=vpn_gateway.id,
+            customer_gateway_id=customer_gateway.id,
+            type="ipsec.1",
+            static_routes_only=True)
+        ```
+        ### AWS Site to Site Private VPN
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway",
+            amazon_side_asn=64513,
+            description="example_ipsec_vpn_example",
+            transit_gateway_cidr_blocks=["10.0.0.0/24"])
+        example_customer_gateway = aws.ec2.CustomerGateway("exampleCustomerGateway",
+            bgp_asn="64514",
+            ip_address="10.0.0.1",
+            type="ipsec.1",
+            tags={
+                "Name": "example_ipsec_vpn_example",
+            })
+        example_gateway_association = aws.directconnect.GatewayAssociation("exampleGatewayAssociation",
+            dx_gateway_id=example_gateway.id,
+            associated_gateway_id=example_transit_gateway.id,
+            allowed_prefixes=["10.0.0.0/8"])
+        example_direct_connect_gateway_attachment = aws.ec2transitgateway.get_direct_connect_gateway_attachment_output(transit_gateway_id=example_transit_gateway.id,
+            dx_gateway_id=example_gateway.id)
+        example_vpn_connection = aws.ec2.VpnConnection("exampleVpnConnection",
+            customer_gateway_id=example_customer_gateway.id,
+            outside_ip_address_type="PrivateIpv4",
+            transit_gateway_id=example_transit_gateway.id,
+            transport_transit_gateway_attachment_id=example_direct_connect_gateway_attachment.id,
+            type="ipsec.1",
+            tags={
+                "Name": "example_ipsec_vpn_example",
+            })
+        ```
+
+        ## Import
+
+        VPN Connections can be imported using the `vpn connection id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
+        ```
+
         :param str resource_name: The name of the resource.
         :param VpnConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1801,6 +2507,76 @@ class VpnConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the VPN Connection.
+        :param pulumi.Input[str] core_network_arn: The ARN of the core network.
+        :param pulumi.Input[str] core_network_attachment_arn: The ARN of the core network attachment.
+        :param pulumi.Input[str] customer_gateway_configuration: The configuration information for the VPN connection's customer gateway (in the native XML format).
+        :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway.
+        :param pulumi.Input[bool] enable_acceleration: Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
+        :param pulumi.Input[str] local_ipv4_network_cidr: The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+        :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
+        :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionRouteArgs']]]] routes: The static routes associated with the VPN connection. Detailed below.
+        :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] transit_gateway_attachment_id: When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
+        :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
+        :param pulumi.Input[str] transport_transit_gateway_attachment_id: . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+        :param pulumi.Input[str] tunnel1_address: The public IP address of the first VPN tunnel.
+        :param pulumi.Input[str] tunnel1_bgp_asn: The bgp asn number of the first VPN tunnel.
+        :param pulumi.Input[int] tunnel1_bgp_holdtime: The bgp holdtime of the first VPN tunnel.
+        :param pulumi.Input[str] tunnel1_cgw_inside_address: The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
+        :param pulumi.Input[str] tunnel1_dpd_timeout_action: The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        :param pulumi.Input[int] tunnel1_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_ike_versions: The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
+        :param pulumi.Input[str] tunnel1_inside_cidr: The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+        :param pulumi.Input[str] tunnel1_inside_ipv6_cidr: The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        :param pulumi.Input[pulumi.InputType['VpnConnectionTunnel1LogOptionsArgs']] tunnel1_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel1_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        :param pulumi.Input[int] tunnel1_phase1_lifetime_seconds: The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel1_phase2_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase2_encryption_algorithms: List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase2_integrity_algorithms: List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        :param pulumi.Input[int] tunnel1_phase2_lifetime_seconds: The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        :param pulumi.Input[str] tunnel1_preshared_key: The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+        :param pulumi.Input[int] tunnel1_rekey_fuzz_percentage: The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        :param pulumi.Input[int] tunnel1_rekey_margin_time_seconds: The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
+        :param pulumi.Input[int] tunnel1_replay_window_size: The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
+        :param pulumi.Input[str] tunnel1_startup_action: The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        :param pulumi.Input[str] tunnel1_vgw_inside_address: The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
+        :param pulumi.Input[str] tunnel2_address: The public IP address of the second VPN tunnel.
+        :param pulumi.Input[str] tunnel2_bgp_asn: The bgp asn number of the second VPN tunnel.
+        :param pulumi.Input[int] tunnel2_bgp_holdtime: The bgp holdtime of the second VPN tunnel.
+        :param pulumi.Input[str] tunnel2_cgw_inside_address: The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
+        :param pulumi.Input[str] tunnel2_dpd_timeout_action: The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        :param pulumi.Input[int] tunnel2_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_ike_versions: The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
+        :param pulumi.Input[str] tunnel2_inside_cidr: The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+        :param pulumi.Input[str] tunnel2_inside_ipv6_cidr: The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        :param pulumi.Input[pulumi.InputType['VpnConnectionTunnel2LogOptionsArgs']] tunnel2_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel2_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        :param pulumi.Input[int] tunnel2_phase1_lifetime_seconds: The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel2_phase2_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase2_encryption_algorithms: List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase2_integrity_algorithms: List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        :param pulumi.Input[int] tunnel2_phase2_lifetime_seconds: The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        :param pulumi.Input[str] tunnel2_preshared_key: The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+        :param pulumi.Input[int] tunnel2_rekey_fuzz_percentage: The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        :param pulumi.Input[int] tunnel2_rekey_margin_time_seconds: The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
+        :param pulumi.Input[int] tunnel2_replay_window_size: The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
+        :param pulumi.Input[str] tunnel2_startup_action: The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        :param pulumi.Input[str] tunnel2_vgw_inside_address: The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
+        :param pulumi.Input[str] tunnel_inside_ip_version: Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
+        :param pulumi.Input[str] type: The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionVgwTelemetryArgs']]]] vgw_telemetries: Telemetry for the VPN tunnels. Detailed below.
+        :param pulumi.Input[str] vpn_gateway_id: The ID of the Virtual Private Gateway.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1881,350 +2657,560 @@ class VpnConnection(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the VPN Connection.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the core network.
+        """
         return pulumi.get(self, "core_network_arn")
 
     @property
     @pulumi.getter(name="coreNetworkAttachmentArn")
     def core_network_attachment_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the core network attachment.
+        """
         return pulumi.get(self, "core_network_attachment_arn")
 
     @property
     @pulumi.getter(name="customerGatewayConfiguration")
     def customer_gateway_configuration(self) -> pulumi.Output[str]:
+        """
+        The configuration information for the VPN connection's customer gateway (in the native XML format).
+        """
         return pulumi.get(self, "customer_gateway_configuration")
 
     @property
     @pulumi.getter(name="customerGatewayId")
     def customer_gateway_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the customer gateway.
+        """
         return pulumi.get(self, "customer_gateway_id")
 
     @property
     @pulumi.getter(name="enableAcceleration")
     def enable_acceleration(self) -> pulumi.Output[bool]:
+        """
+        Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
+        """
         return pulumi.get(self, "enable_acceleration")
 
     @property
     @pulumi.getter(name="localIpv4NetworkCidr")
     def local_ipv4_network_cidr(self) -> pulumi.Output[str]:
+        """
+        The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        """
         return pulumi.get(self, "local_ipv4_network_cidr")
 
     @property
     @pulumi.getter(name="localIpv6NetworkCidr")
     def local_ipv6_network_cidr(self) -> pulumi.Output[str]:
+        """
+        The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        """
         return pulumi.get(self, "local_ipv6_network_cidr")
 
     @property
     @pulumi.getter(name="outsideIpAddressType")
     def outside_ip_address_type(self) -> pulumi.Output[str]:
+        """
+        Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+        """
         return pulumi.get(self, "outside_ip_address_type")
 
     @property
     @pulumi.getter(name="remoteIpv4NetworkCidr")
     def remote_ipv4_network_cidr(self) -> pulumi.Output[str]:
+        """
+        The IPv4 CIDR on the AWS side of the VPN connection.
+        """
         return pulumi.get(self, "remote_ipv4_network_cidr")
 
     @property
     @pulumi.getter(name="remoteIpv6NetworkCidr")
     def remote_ipv6_network_cidr(self) -> pulumi.Output[str]:
+        """
+        The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        """
         return pulumi.get(self, "remote_ipv6_network_cidr")
 
     @property
     @pulumi.getter
     def routes(self) -> pulumi.Output[Sequence['outputs.VpnConnectionRoute']]:
+        """
+        The static routes associated with the VPN connection. Detailed below.
+        """
         return pulumi.get(self, "routes")
 
     @property
     @pulumi.getter(name="staticRoutesOnly")
     def static_routes_only(self) -> pulumi.Output[bool]:
+        """
+        Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
+        """
         return pulumi.get(self, "static_routes_only")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[str]:
+        """
+        When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
+        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the EC2 Transit Gateway.
+        """
         return pulumi.get(self, "transit_gateway_id")
 
     @property
     @pulumi.getter(name="transportTransitGatewayAttachmentId")
     def transport_transit_gateway_attachment_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+        """
         return pulumi.get(self, "transport_transit_gateway_attachment_id")
 
     @property
     @pulumi.getter(name="tunnel1Address")
     def tunnel1_address(self) -> pulumi.Output[str]:
+        """
+        The public IP address of the first VPN tunnel.
+        """
         return pulumi.get(self, "tunnel1_address")
 
     @property
     @pulumi.getter(name="tunnel1BgpAsn")
     def tunnel1_bgp_asn(self) -> pulumi.Output[str]:
+        """
+        The bgp asn number of the first VPN tunnel.
+        """
         return pulumi.get(self, "tunnel1_bgp_asn")
 
     @property
     @pulumi.getter(name="tunnel1BgpHoldtime")
     def tunnel1_bgp_holdtime(self) -> pulumi.Output[int]:
+        """
+        The bgp holdtime of the first VPN tunnel.
+        """
         return pulumi.get(self, "tunnel1_bgp_holdtime")
 
     @property
     @pulumi.getter(name="tunnel1CgwInsideAddress")
     def tunnel1_cgw_inside_address(self) -> pulumi.Output[str]:
+        """
+        The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
+        """
         return pulumi.get(self, "tunnel1_cgw_inside_address")
 
     @property
     @pulumi.getter(name="tunnel1DpdTimeoutAction")
     def tunnel1_dpd_timeout_action(self) -> pulumi.Output[Optional[str]]:
+        """
+        The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        """
         return pulumi.get(self, "tunnel1_dpd_timeout_action")
 
     @property
     @pulumi.getter(name="tunnel1DpdTimeoutSeconds")
     def tunnel1_dpd_timeout_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+        """
         return pulumi.get(self, "tunnel1_dpd_timeout_seconds")
 
     @property
     @pulumi.getter(name="tunnel1IkeVersions")
     def tunnel1_ike_versions(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
+        """
         return pulumi.get(self, "tunnel1_ike_versions")
 
     @property
     @pulumi.getter(name="tunnel1InsideCidr")
     def tunnel1_inside_cidr(self) -> pulumi.Output[str]:
+        """
+        The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+        """
         return pulumi.get(self, "tunnel1_inside_cidr")
 
     @property
     @pulumi.getter(name="tunnel1InsideIpv6Cidr")
     def tunnel1_inside_ipv6_cidr(self) -> pulumi.Output[str]:
+        """
+        The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        """
         return pulumi.get(self, "tunnel1_inside_ipv6_cidr")
 
     @property
     @pulumi.getter(name="tunnel1LogOptions")
     def tunnel1_log_options(self) -> pulumi.Output['outputs.VpnConnectionTunnel1LogOptions']:
+        """
+        Options for logging VPN tunnel activity. See Log Options below for more details.
+        """
         return pulumi.get(self, "tunnel1_log_options")
 
     @property
     @pulumi.getter(name="tunnel1Phase1DhGroupNumbers")
     def tunnel1_phase1_dh_group_numbers(self) -> pulumi.Output[Optional[Sequence[int]]]:
+        """
+        List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        """
         return pulumi.get(self, "tunnel1_phase1_dh_group_numbers")
 
     @property
     @pulumi.getter(name="tunnel1Phase1EncryptionAlgorithms")
     def tunnel1_phase1_encryption_algorithms(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        """
         return pulumi.get(self, "tunnel1_phase1_encryption_algorithms")
 
     @property
     @pulumi.getter(name="tunnel1Phase1IntegrityAlgorithms")
     def tunnel1_phase1_integrity_algorithms(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        """
         return pulumi.get(self, "tunnel1_phase1_integrity_algorithms")
 
     @property
     @pulumi.getter(name="tunnel1Phase1LifetimeSeconds")
     def tunnel1_phase1_lifetime_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        """
         return pulumi.get(self, "tunnel1_phase1_lifetime_seconds")
 
     @property
     @pulumi.getter(name="tunnel1Phase2DhGroupNumbers")
     def tunnel1_phase2_dh_group_numbers(self) -> pulumi.Output[Optional[Sequence[int]]]:
+        """
+        List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        """
         return pulumi.get(self, "tunnel1_phase2_dh_group_numbers")
 
     @property
     @pulumi.getter(name="tunnel1Phase2EncryptionAlgorithms")
     def tunnel1_phase2_encryption_algorithms(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        """
         return pulumi.get(self, "tunnel1_phase2_encryption_algorithms")
 
     @property
     @pulumi.getter(name="tunnel1Phase2IntegrityAlgorithms")
     def tunnel1_phase2_integrity_algorithms(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        """
         return pulumi.get(self, "tunnel1_phase2_integrity_algorithms")
 
     @property
     @pulumi.getter(name="tunnel1Phase2LifetimeSeconds")
     def tunnel1_phase2_lifetime_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        """
         return pulumi.get(self, "tunnel1_phase2_lifetime_seconds")
 
     @property
     @pulumi.getter(name="tunnel1PresharedKey")
     def tunnel1_preshared_key(self) -> pulumi.Output[str]:
+        """
+        The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+        """
         return pulumi.get(self, "tunnel1_preshared_key")
 
     @property
     @pulumi.getter(name="tunnel1RekeyFuzzPercentage")
     def tunnel1_rekey_fuzz_percentage(self) -> pulumi.Output[Optional[int]]:
+        """
+        The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        """
         return pulumi.get(self, "tunnel1_rekey_fuzz_percentage")
 
     @property
     @pulumi.getter(name="tunnel1RekeyMarginTimeSeconds")
     def tunnel1_rekey_margin_time_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
+        """
         return pulumi.get(self, "tunnel1_rekey_margin_time_seconds")
 
     @property
     @pulumi.getter(name="tunnel1ReplayWindowSize")
     def tunnel1_replay_window_size(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
+        """
         return pulumi.get(self, "tunnel1_replay_window_size")
 
     @property
     @pulumi.getter(name="tunnel1StartupAction")
     def tunnel1_startup_action(self) -> pulumi.Output[Optional[str]]:
+        """
+        The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        """
         return pulumi.get(self, "tunnel1_startup_action")
 
     @property
     @pulumi.getter(name="tunnel1VgwInsideAddress")
     def tunnel1_vgw_inside_address(self) -> pulumi.Output[str]:
+        """
+        The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
+        """
         return pulumi.get(self, "tunnel1_vgw_inside_address")
 
     @property
     @pulumi.getter(name="tunnel2Address")
     def tunnel2_address(self) -> pulumi.Output[str]:
+        """
+        The public IP address of the second VPN tunnel.
+        """
         return pulumi.get(self, "tunnel2_address")
 
     @property
     @pulumi.getter(name="tunnel2BgpAsn")
     def tunnel2_bgp_asn(self) -> pulumi.Output[str]:
+        """
+        The bgp asn number of the second VPN tunnel.
+        """
         return pulumi.get(self, "tunnel2_bgp_asn")
 
     @property
     @pulumi.getter(name="tunnel2BgpHoldtime")
     def tunnel2_bgp_holdtime(self) -> pulumi.Output[int]:
+        """
+        The bgp holdtime of the second VPN tunnel.
+        """
         return pulumi.get(self, "tunnel2_bgp_holdtime")
 
     @property
     @pulumi.getter(name="tunnel2CgwInsideAddress")
     def tunnel2_cgw_inside_address(self) -> pulumi.Output[str]:
+        """
+        The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
+        """
         return pulumi.get(self, "tunnel2_cgw_inside_address")
 
     @property
     @pulumi.getter(name="tunnel2DpdTimeoutAction")
     def tunnel2_dpd_timeout_action(self) -> pulumi.Output[Optional[str]]:
+        """
+        The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        """
         return pulumi.get(self, "tunnel2_dpd_timeout_action")
 
     @property
     @pulumi.getter(name="tunnel2DpdTimeoutSeconds")
     def tunnel2_dpd_timeout_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+        """
         return pulumi.get(self, "tunnel2_dpd_timeout_seconds")
 
     @property
     @pulumi.getter(name="tunnel2IkeVersions")
     def tunnel2_ike_versions(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
+        """
         return pulumi.get(self, "tunnel2_ike_versions")
 
     @property
     @pulumi.getter(name="tunnel2InsideCidr")
     def tunnel2_inside_cidr(self) -> pulumi.Output[str]:
+        """
+        The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+        """
         return pulumi.get(self, "tunnel2_inside_cidr")
 
     @property
     @pulumi.getter(name="tunnel2InsideIpv6Cidr")
     def tunnel2_inside_ipv6_cidr(self) -> pulumi.Output[str]:
+        """
+        The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        """
         return pulumi.get(self, "tunnel2_inside_ipv6_cidr")
 
     @property
     @pulumi.getter(name="tunnel2LogOptions")
     def tunnel2_log_options(self) -> pulumi.Output['outputs.VpnConnectionTunnel2LogOptions']:
+        """
+        Options for logging VPN tunnel activity. See Log Options below for more details.
+        """
         return pulumi.get(self, "tunnel2_log_options")
 
     @property
     @pulumi.getter(name="tunnel2Phase1DhGroupNumbers")
     def tunnel2_phase1_dh_group_numbers(self) -> pulumi.Output[Optional[Sequence[int]]]:
+        """
+        List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        """
         return pulumi.get(self, "tunnel2_phase1_dh_group_numbers")
 
     @property
     @pulumi.getter(name="tunnel2Phase1EncryptionAlgorithms")
     def tunnel2_phase1_encryption_algorithms(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        """
         return pulumi.get(self, "tunnel2_phase1_encryption_algorithms")
 
     @property
     @pulumi.getter(name="tunnel2Phase1IntegrityAlgorithms")
     def tunnel2_phase1_integrity_algorithms(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        """
         return pulumi.get(self, "tunnel2_phase1_integrity_algorithms")
 
     @property
     @pulumi.getter(name="tunnel2Phase1LifetimeSeconds")
     def tunnel2_phase1_lifetime_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        """
         return pulumi.get(self, "tunnel2_phase1_lifetime_seconds")
 
     @property
     @pulumi.getter(name="tunnel2Phase2DhGroupNumbers")
     def tunnel2_phase2_dh_group_numbers(self) -> pulumi.Output[Optional[Sequence[int]]]:
+        """
+        List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        """
         return pulumi.get(self, "tunnel2_phase2_dh_group_numbers")
 
     @property
     @pulumi.getter(name="tunnel2Phase2EncryptionAlgorithms")
     def tunnel2_phase2_encryption_algorithms(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        """
         return pulumi.get(self, "tunnel2_phase2_encryption_algorithms")
 
     @property
     @pulumi.getter(name="tunnel2Phase2IntegrityAlgorithms")
     def tunnel2_phase2_integrity_algorithms(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        """
         return pulumi.get(self, "tunnel2_phase2_integrity_algorithms")
 
     @property
     @pulumi.getter(name="tunnel2Phase2LifetimeSeconds")
     def tunnel2_phase2_lifetime_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        """
         return pulumi.get(self, "tunnel2_phase2_lifetime_seconds")
 
     @property
     @pulumi.getter(name="tunnel2PresharedKey")
     def tunnel2_preshared_key(self) -> pulumi.Output[str]:
+        """
+        The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+        """
         return pulumi.get(self, "tunnel2_preshared_key")
 
     @property
     @pulumi.getter(name="tunnel2RekeyFuzzPercentage")
     def tunnel2_rekey_fuzz_percentage(self) -> pulumi.Output[Optional[int]]:
+        """
+        The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        """
         return pulumi.get(self, "tunnel2_rekey_fuzz_percentage")
 
     @property
     @pulumi.getter(name="tunnel2RekeyMarginTimeSeconds")
     def tunnel2_rekey_margin_time_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
+        """
         return pulumi.get(self, "tunnel2_rekey_margin_time_seconds")
 
     @property
     @pulumi.getter(name="tunnel2ReplayWindowSize")
     def tunnel2_replay_window_size(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
+        """
         return pulumi.get(self, "tunnel2_replay_window_size")
 
     @property
     @pulumi.getter(name="tunnel2StartupAction")
     def tunnel2_startup_action(self) -> pulumi.Output[Optional[str]]:
+        """
+        The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        """
         return pulumi.get(self, "tunnel2_startup_action")
 
     @property
     @pulumi.getter(name="tunnel2VgwInsideAddress")
     def tunnel2_vgw_inside_address(self) -> pulumi.Output[str]:
+        """
+        The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
+        """
         return pulumi.get(self, "tunnel2_vgw_inside_address")
 
     @property
     @pulumi.getter(name="tunnelInsideIpVersion")
     def tunnel_inside_ip_version(self) -> pulumi.Output[str]:
+        """
+        Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
+        """
         return pulumi.get(self, "tunnel_inside_ip_version")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="vgwTelemetries")
     def vgw_telemetries(self) -> pulumi.Output[Sequence['outputs.VpnConnectionVgwTelemetry']]:
+        """
+        Telemetry for the VPN tunnels. Detailed below.
+        """
         return pulumi.get(self, "vgw_telemetries")
 
     @property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Virtual Private Gateway.
+        """
         return pulumi.get(self, "vpn_gateway_id")
 

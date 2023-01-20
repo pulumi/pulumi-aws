@@ -7,6 +7,26 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a CloudWatch RUM App Monitor resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.rum.AppMonitor("example", {domain: "localhost"});
+ * ```
+ *
+ * ## Import
+ *
+ * Cloudwatch RUM App Monitor can be imported using the `name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:rum/appMonitor:AppMonitor example example
+ * ```
+ */
 export class AppMonitor extends pulumi.CustomResource {
     /**
      * Get an existing AppMonitor resource's state with the given name, ID, and optional extra
@@ -35,14 +55,41 @@ export class AppMonitor extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppMonitor.__pulumiType;
     }
 
+    /**
+     * configuration data for the app monitor. See appMonitorConfiguration below.
+     */
     public readonly appMonitorConfiguration!: pulumi.Output<outputs.rum.AppMonitorAppMonitorConfiguration>;
+    /**
+     * The unique ID of the app monitor. Useful for JS templates.
+     */
     public /*out*/ readonly appMonitorId!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) specifying the app monitor.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+     */
     public readonly cwLogEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the log group where the copies are stored.
+     */
     public /*out*/ readonly cwLogGroup!: pulumi.Output<string>;
+    /**
+     * The top-level internet domain name for which your application has administrative authority.
+     */
     public readonly domain!: pulumi.Output<string>;
+    /**
+     * The name of the log stream.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -91,14 +138,41 @@ export class AppMonitor extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AppMonitor resources.
  */
 export interface AppMonitorState {
+    /**
+     * configuration data for the app monitor. See appMonitorConfiguration below.
+     */
     appMonitorConfiguration?: pulumi.Input<inputs.rum.AppMonitorAppMonitorConfiguration>;
+    /**
+     * The unique ID of the app monitor. Useful for JS templates.
+     */
     appMonitorId?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) specifying the app monitor.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+     */
     cwLogEnabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the log group where the copies are stored.
+     */
     cwLogGroup?: pulumi.Input<string>;
+    /**
+     * The top-level internet domain name for which your application has administrative authority.
+     */
     domain?: pulumi.Input<string>;
+    /**
+     * The name of the log stream.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -106,9 +180,24 @@ export interface AppMonitorState {
  * The set of arguments for constructing a AppMonitor resource.
  */
 export interface AppMonitorArgs {
+    /**
+     * configuration data for the app monitor. See appMonitorConfiguration below.
+     */
     appMonitorConfiguration?: pulumi.Input<inputs.rum.AppMonitorAppMonitorConfiguration>;
+    /**
+     * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+     */
     cwLogEnabled?: pulumi.Input<boolean>;
+    /**
+     * The top-level internet domain name for which your application has administrative authority.
+     */
     domain: pulumi.Input<string>;
+    /**
+     * The name of the log stream.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

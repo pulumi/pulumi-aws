@@ -7,6 +7,21 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.kendra.getQuerySuggestionsBlockList({
+ *     indexId: "12345678-1234-1234-1234-123456789123",
+ *     querySuggestionsBlockListId: "87654321-1234-4321-4321-321987654321",
+ * });
+ * ```
+ */
 export function getQuerySuggestionsBlockList(args: GetQuerySuggestionsBlockListArgs, opts?: pulumi.InvokeOptions): Promise<GetQuerySuggestionsBlockListResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -21,8 +36,17 @@ export function getQuerySuggestionsBlockList(args: GetQuerySuggestionsBlockListA
  * A collection of arguments for invoking getQuerySuggestionsBlockList.
  */
 export interface GetQuerySuggestionsBlockListArgs {
+    /**
+     * Identifier of the index that contains the block list.
+     */
     indexId: string;
+    /**
+     * Identifier of the block list.
+     */
     querySuggestionsBlockListId: string;
+    /**
+     * Metadata that helps organize the block list you create.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -30,25 +54,76 @@ export interface GetQuerySuggestionsBlockListArgs {
  * A collection of values returned by getQuerySuggestionsBlockList.
  */
 export interface GetQuerySuggestionsBlockListResult {
+    /**
+     * ARN of the block list.
+     */
     readonly arn: string;
+    /**
+     * Date-time a block list was created.
+     */
     readonly createdAt: string;
+    /**
+     * Description for the block list.
+     */
     readonly description: string;
+    /**
+     * Error message containing details if there are issues processing the block list.
+     */
     readonly errorMessage: string;
+    /**
+     * Current size of the block list text file in S3.
+     */
     readonly fileSizeBytes: number;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly indexId: string;
+    /**
+     * Current number of valid, non-empty words or phrases in the block list text file.
+     */
     readonly itemCount: number;
+    /**
+     * Name of the block list.
+     */
     readonly name: string;
     readonly querySuggestionsBlockListId: string;
+    /**
+     * ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     */
     readonly roleArn: string;
+    /**
+     * S3 location of the block list input data. Detailed below.
+     */
     readonly sourceS3Paths: outputs.kendra.GetQuerySuggestionsBlockListSourceS3Path[];
+    /**
+     * Current status of the block list. When the value is `ACTIVE`, the block list is ready for use.
+     */
     readonly status: string;
+    /**
+     * Metadata that helps organize the block list you create.
+     */
     readonly tags: {[key: string]: string};
+    /**
+     * Date and time that the block list was last updated.
+     */
     readonly updatedAt: string;
 }
+/**
+ * Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.kendra.getQuerySuggestionsBlockList({
+ *     indexId: "12345678-1234-1234-1234-123456789123",
+ *     querySuggestionsBlockListId: "87654321-1234-4321-4321-321987654321",
+ * });
+ * ```
+ */
 export function getQuerySuggestionsBlockListOutput(args: GetQuerySuggestionsBlockListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuerySuggestionsBlockListResult> {
     return pulumi.output(args).apply((a: any) => getQuerySuggestionsBlockList(a, opts))
 }
@@ -57,7 +132,16 @@ export function getQuerySuggestionsBlockListOutput(args: GetQuerySuggestionsBloc
  * A collection of arguments for invoking getQuerySuggestionsBlockList.
  */
 export interface GetQuerySuggestionsBlockListOutputArgs {
+    /**
+     * Identifier of the index that contains the block list.
+     */
     indexId: pulumi.Input<string>;
+    /**
+     * Identifier of the block list.
+     */
     querySuggestionsBlockListId: pulumi.Input<string>;
+    /**
+     * Metadata that helps organize the block list you create.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

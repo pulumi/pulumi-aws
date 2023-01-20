@@ -14,16 +14,32 @@ public final class GetBotAssociationArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetBotAssociationArgs Empty = new GetBotAssociationArgs();
 
+    /**
+     * Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+     * 
+     */
     @Import(name="instanceId", required=true)
     private Output<String> instanceId;
 
+    /**
+     * @return Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+     * 
+     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
 
+    /**
+     * Configuration information of an Amazon Lex (V1) bot. Detailed below.
+     * 
+     */
     @Import(name="lexBot", required=true)
     private Output<GetBotAssociationLexBotArgs> lexBot;
 
+    /**
+     * @return Configuration information of an Amazon Lex (V1) bot. Detailed below.
+     * 
+     */
     public Output<GetBotAssociationLexBotArgs> lexBot() {
         return this.lexBot;
     }
@@ -53,20 +69,44 @@ public final class GetBotAssociationArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetBotAssociationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param instanceId Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceId(Output<String> instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
+        /**
+         * @param instanceId Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
         }
 
+        /**
+         * @param lexBot Configuration information of an Amazon Lex (V1) bot. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lexBot(Output<GetBotAssociationLexBotArgs> lexBot) {
             $.lexBot = lexBot;
             return this;
         }
 
+        /**
+         * @param lexBot Configuration information of an Amazon Lex (V1) bot. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lexBot(GetBotAssociationLexBotArgs lexBot) {
             return lexBot(Output.of(lexBot));
         }

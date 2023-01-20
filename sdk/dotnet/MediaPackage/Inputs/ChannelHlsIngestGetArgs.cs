@@ -14,6 +14,10 @@ namespace Pulumi.Aws.MediaPackage.Inputs
     {
         [Input("ingestEndpoints")]
         private InputList<Inputs.ChannelHlsIngestIngestEndpointGetArgs>? _ingestEndpoints;
+
+        /// <summary>
+        /// A list of the ingest endpoints
+        /// </summary>
         public InputList<Inputs.ChannelHlsIngestIngestEndpointGetArgs> IngestEndpoints
         {
             get => _ingestEndpoints ?? (_ingestEndpoints = new InputList<Inputs.ChannelHlsIngestIngestEndpointGetArgs>());

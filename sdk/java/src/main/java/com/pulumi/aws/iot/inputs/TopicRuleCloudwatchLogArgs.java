@@ -13,16 +13,32 @@ public final class TopicRuleCloudwatchLogArgs extends com.pulumi.resources.Resou
 
     public static final TopicRuleCloudwatchLogArgs Empty = new TopicRuleCloudwatchLogArgs();
 
+    /**
+     * The CloudWatch log group name.
+     * 
+     */
     @Import(name="logGroupName", required=true)
     private Output<String> logGroupName;
 
+    /**
+     * @return The CloudWatch log group name.
+     * 
+     */
     public Output<String> logGroupName() {
         return this.logGroupName;
     }
 
+    /**
+     * The IAM role ARN that allows access to the CloudWatch alarm.
+     * 
+     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
+    /**
+     * @return The IAM role ARN that allows access to the CloudWatch alarm.
+     * 
+     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -52,20 +68,44 @@ public final class TopicRuleCloudwatchLogArgs extends com.pulumi.resources.Resou
             $ = new TopicRuleCloudwatchLogArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param logGroupName The CloudWatch log group name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logGroupName(Output<String> logGroupName) {
             $.logGroupName = logGroupName;
             return this;
         }
 
+        /**
+         * @param logGroupName The CloudWatch log group name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logGroupName(String logGroupName) {
             return logGroupName(Output.of(logGroupName));
         }
 
+        /**
+         * @param roleArn The IAM role ARN that allows access to the CloudWatch alarm.
+         * 
+         * @return builder
+         * 
+         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
+        /**
+         * @param roleArn The IAM role ARN that allows access to the CloudWatch alarm.
+         * 
+         * @return builder
+         * 
+         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

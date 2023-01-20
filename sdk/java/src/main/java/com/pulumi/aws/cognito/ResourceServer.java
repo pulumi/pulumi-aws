@@ -16,29 +16,146 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Cognito Resource Server.
+ * 
+ * ## Example Usage
+ * ### Create a basic resource server
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.ResourceServer;
+ * import com.pulumi.aws.cognito.ResourceServerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var pool = new UserPool(&#34;pool&#34;);
+ * 
+ *         var resource = new ResourceServer(&#34;resource&#34;, ResourceServerArgs.builder()        
+ *             .identifier(&#34;https://example.com&#34;)
+ *             .userPoolId(pool.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Create a resource server with sample-scope
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.ResourceServer;
+ * import com.pulumi.aws.cognito.ResourceServerArgs;
+ * import com.pulumi.aws.cognito.inputs.ResourceServerScopeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var pool = new UserPool(&#34;pool&#34;);
+ * 
+ *         var resource = new ResourceServer(&#34;resource&#34;, ResourceServerArgs.builder()        
+ *             .identifier(&#34;https://example.com&#34;)
+ *             .scopes(ResourceServerScopeArgs.builder()
+ *                 .scopeName(&#34;sample-scope&#34;)
+ *                 .scopeDescription(&#34;a Sample Scope Description&#34;)
+ *                 .build())
+ *             .userPoolId(pool.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_cognito_resource_server` can be imported using their User Pool ID and Identifier, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:cognito/resourceServer:ResourceServer example us-west-2_abc123:https://example.com
+ * ```
+ * 
+ */
 @ResourceType(type="aws:cognito/resourceServer:ResourceServer")
 public class ResourceServer extends com.pulumi.resources.CustomResource {
+    /**
+     * An identifier for the resource server.
+     * 
+     */
     @Export(name="identifier", refs={String.class}, tree="[0]")
     private Output<String> identifier;
 
+    /**
+     * @return An identifier for the resource server.
+     * 
+     */
     public Output<String> identifier() {
         return this.identifier;
     }
+    /**
+     * A name for the resource server.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return A name for the resource server.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * A list of all scopes configured for this resource server in the format identifier/scope_name.
+     * 
+     */
     @Export(name="scopeIdentifiers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> scopeIdentifiers;
 
+    /**
+     * @return A list of all scopes configured for this resource server in the format identifier/scope_name.
+     * 
+     */
     public Output<List<String>> scopeIdentifiers() {
         return this.scopeIdentifiers;
     }
+    /**
+     * A list of Authorization Scope.
+     * 
+     */
     @Export(name="scopes", refs={List.class,ResourceServerScope.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResourceServerScope>> scopes;
 
+    /**
+     * @return A list of Authorization Scope.
+     * 
+     */
     public Output<Optional<List<ResourceServerScope>>> scopes() {
         return Codegen.optional(this.scopes);
     }

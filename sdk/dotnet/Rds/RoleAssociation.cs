@@ -9,15 +9,59 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rds
 {
+    /// <summary>
+    /// Manages an RDS DB Instance association with an IAM Role. Example use cases:
+    /// 
+    /// * [Amazon RDS Oracle integration with Amazon S3](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html)
+    /// * [Importing Amazon S3 Data into an RDS PostgreSQL DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html)
+    /// 
+    /// &gt; To manage the RDS DB Instance IAM Role for [Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html), see the `aws.rds.Instance` resource `monitoring_role_arn` argument instead.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Rds.RoleAssociation("example", new()
+    ///     {
+    ///         DbInstanceIdentifier = aws_db_instance.Example.Id,
+    ///         FeatureName = "S3_INTEGRATION",
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_db_instance_role_association` can be imported using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`), e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:rds/roleAssociation:RoleAssociation example my-db-instance,arn:aws:iam::123456789012:role/my-role
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:rds/roleAssociation:RoleAssociation")]
     public partial class RoleAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// DB Instance Identifier to associate with the IAM Role.
+        /// </summary>
         [Output("dbInstanceIdentifier")]
         public Output<string> DbInstanceIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+        /// </summary>
         [Output("featureName")]
         public Output<string> FeatureName { get; private set; } = null!;
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
@@ -67,12 +111,21 @@ namespace Pulumi.Aws.Rds
 
     public sealed class RoleAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// DB Instance Identifier to associate with the IAM Role.
+        /// </summary>
         [Input("dbInstanceIdentifier", required: true)]
         public Input<string> DbInstanceIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+        /// </summary>
         [Input("featureName", required: true)]
         public Input<string> FeatureName { get; set; } = null!;
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -84,12 +137,21 @@ namespace Pulumi.Aws.Rds
 
     public sealed class RoleAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// DB Instance Identifier to associate with the IAM Role.
+        /// </summary>
         [Input("dbInstanceIdentifier")]
         public Input<string>? DbInstanceIdentifier { get; set; }
 
+        /// <summary>
+        /// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+        /// </summary>
         [Input("featureName")]
         public Input<string>? FeatureName { get; set; }
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 

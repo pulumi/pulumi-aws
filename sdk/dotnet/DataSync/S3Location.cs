@@ -9,30 +9,87 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DataSync
 {
+    /// <summary>
+    /// Manages an S3 Location within AWS DataSync.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.DataSync.S3Location("example", new()
+    ///     {
+    ///         S3BucketArn = aws_s3_bucket.Example.Arn,
+    ///         Subdirectory = "/example/prefix",
+    ///         S3Config = new Aws.DataSync.Inputs.S3LocationS3ConfigArgs
+    ///         {
+    ///             BucketAccessRoleArn = aws_iam_role.Example.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_datasync_location_s3` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:datasync/s3Location:S3Location")]
     public partial class S3Location : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A list of DataSync Agent ARNs with which this location will be associated.
+        /// </summary>
         [Output("agentArns")]
         public Output<ImmutableArray<string>> AgentArns { get; private set; } = null!;
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the DataSync Location.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the S3 Bucket.
+        /// </summary>
         [Output("s3BucketArn")]
         public Output<string> S3BucketArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block containing information for connecting to S3.
+        /// </summary>
         [Output("s3Config")]
         public Output<Outputs.S3LocationS3Config> S3Config { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+        /// </summary>
         [Output("s3StorageClass")]
         public Output<string> S3StorageClass { get; private set; } = null!;
 
+        /// <summary>
+        /// Prefix to perform actions as source or destination.
+        /// </summary>
         [Output("subdirectory")]
         public Output<string> Subdirectory { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -87,26 +144,46 @@ namespace Pulumi.Aws.DataSync
     {
         [Input("agentArns")]
         private InputList<string>? _agentArns;
+
+        /// <summary>
+        /// A list of DataSync Agent ARNs with which this location will be associated.
+        /// </summary>
         public InputList<string> AgentArns
         {
             get => _agentArns ?? (_agentArns = new InputList<string>());
             set => _agentArns = value;
         }
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the S3 Bucket.
+        /// </summary>
         [Input("s3BucketArn", required: true)]
         public Input<string> S3BucketArn { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration block containing information for connecting to S3.
+        /// </summary>
         [Input("s3Config", required: true)]
         public Input<Inputs.S3LocationS3ConfigArgs> S3Config { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+        /// </summary>
         [Input("s3StorageClass")]
         public Input<string>? S3StorageClass { get; set; }
 
+        /// <summary>
+        /// Prefix to perform actions as source or destination.
+        /// </summary>
         [Input("subdirectory", required: true)]
         public Input<string> Subdirectory { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -123,29 +200,52 @@ namespace Pulumi.Aws.DataSync
     {
         [Input("agentArns")]
         private InputList<string>? _agentArns;
+
+        /// <summary>
+        /// A list of DataSync Agent ARNs with which this location will be associated.
+        /// </summary>
         public InputList<string> AgentArns
         {
             get => _agentArns ?? (_agentArns = new InputList<string>());
             set => _agentArns = value;
         }
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the DataSync Location.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the S3 Bucket.
+        /// </summary>
         [Input("s3BucketArn")]
         public Input<string>? S3BucketArn { get; set; }
 
+        /// <summary>
+        /// Configuration block containing information for connecting to S3.
+        /// </summary>
         [Input("s3Config")]
         public Input<Inputs.S3LocationS3ConfigGetArgs>? S3Config { get; set; }
 
+        /// <summary>
+        /// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+        /// </summary>
         [Input("s3StorageClass")]
         public Input<string>? S3StorageClass { get; set; }
 
+        /// <summary>
+        /// Prefix to perform actions as source or destination.
+        /// </summary>
         [Input("subdirectory")]
         public Input<string>? Subdirectory { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -154,6 +254,10 @@ namespace Pulumi.Aws.DataSync
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -12,21 +12,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchJsonBody {
+    /**
+     * @return What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+     * 
+     */
     private @Nullable String invalidFallbackBehavior;
+    /**
+     * @return The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+     * 
+     */
     private RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern matchPattern;
+    /**
+     * @return The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+     * 
+     */
     private String matchScope;
+    /**
+     * @return What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+     * 
+     */
     private @Nullable String oversizeHandling;
 
     private RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchJsonBody() {}
+    /**
+     * @return What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+     * 
+     */
     public Optional<String> invalidFallbackBehavior() {
         return Optional.ofNullable(this.invalidFallbackBehavior);
     }
+    /**
+     * @return The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+     * 
+     */
     public RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern matchPattern() {
         return this.matchPattern;
     }
+    /**
+     * @return The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+     * 
+     */
     public String matchScope() {
         return this.matchScope;
     }
+    /**
+     * @return What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+     * 
+     */
     public Optional<String> oversizeHandling() {
         return Optional.ofNullable(this.oversizeHandling);
     }

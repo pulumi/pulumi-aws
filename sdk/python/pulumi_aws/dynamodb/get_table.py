@@ -231,7 +231,19 @@ def get_table(name: Optional[str] = None,
               tags: Optional[Mapping[str, str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a DynamoDB table.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    table_name = aws.dynamodb.get_table(name="tableName")
+    ```
+
+
+    :param str name: Name of the DynamoDB table.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -270,6 +282,18 @@ def get_table_output(name: Optional[pulumi.Input[str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a DynamoDB table.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    table_name = aws.dynamodb.get_table(name="tableName")
+    ```
+
+
+    :param str name: Name of the DynamoDB table.
     """
     ...

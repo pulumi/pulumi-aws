@@ -9,33 +9,109 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53
 {
+    /// <summary>
+    /// Provides a Route 53 Resolver DNS Firewall rule resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResolverFirewallDomainList = new Aws.Route53.ResolverFirewallDomainList("exampleResolverFirewallDomainList", new()
+    ///     {
+    ///         Domains = new[]
+    ///         {
+    ///             "example.com",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    ///     var exampleResolverFirewallRuleGroup = new Aws.Route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", new()
+    ///     {
+    ///         Tags = null,
+    ///     });
+    /// 
+    ///     var exampleResolverFirewallRule = new Aws.Route53.ResolverFirewallRule("exampleResolverFirewallRule", new()
+    ///     {
+    ///         Action = "BLOCK",
+    ///         BlockOverrideDnsType = "CNAME",
+    ///         BlockOverrideDomain = "example.com",
+    ///         BlockOverrideTtl = 1,
+    ///         BlockResponse = "OVERRIDE",
+    ///         FirewallDomainListId = exampleResolverFirewallDomainList.Id,
+    ///         FirewallRuleGroupId = exampleResolverFirewallRuleGroup.Id,
+    ///         Priority = 100,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    ///  Route 53 Resolver DNS Firewall rules can be imported using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':', e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:route53/resolverFirewallRule:ResolverFirewallRule")]
     public partial class ResolverFirewallRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
+        /// </summary>
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
 
+        /// <summary>
+        /// The DNS record's type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
+        /// </summary>
         [Output("blockOverrideDnsType")]
         public Output<string?> BlockOverrideDnsType { get; private set; } = null!;
 
+        /// <summary>
+        /// The custom DNS record to send back in response to the query.
+        /// </summary>
         [Output("blockOverrideDomain")]
         public Output<string?> BlockOverrideDomain { get; private set; } = null!;
 
+        /// <summary>
+        /// The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
+        /// </summary>
         [Output("blockOverrideTtl")]
         public Output<int?> BlockOverrideTtl { get; private set; } = null!;
 
+        /// <summary>
+        /// The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
+        /// </summary>
         [Output("blockResponse")]
         public Output<string?> BlockResponse { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the domain list that you want to use in the rule.
+        /// </summary>
         [Output("firewallDomainListId")]
         public Output<string> FirewallDomainListId { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the firewall rule group where you want to create the rule.
+        /// </summary>
         [Output("firewallRuleGroupId")]
         public Output<string> FirewallRuleGroupId { get; private set; } = null!;
 
+        /// <summary>
+        /// A name that lets you identify the rule, to manage and use it.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
+        /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
 
@@ -85,30 +161,57 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ResolverFirewallRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
+        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
+        /// <summary>
+        /// The DNS record's type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
+        /// </summary>
         [Input("blockOverrideDnsType")]
         public Input<string>? BlockOverrideDnsType { get; set; }
 
+        /// <summary>
+        /// The custom DNS record to send back in response to the query.
+        /// </summary>
         [Input("blockOverrideDomain")]
         public Input<string>? BlockOverrideDomain { get; set; }
 
+        /// <summary>
+        /// The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
+        /// </summary>
         [Input("blockOverrideTtl")]
         public Input<int>? BlockOverrideTtl { get; set; }
 
+        /// <summary>
+        /// The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
+        /// </summary>
         [Input("blockResponse")]
         public Input<string>? BlockResponse { get; set; }
 
+        /// <summary>
+        /// The ID of the domain list that you want to use in the rule.
+        /// </summary>
         [Input("firewallDomainListId", required: true)]
         public Input<string> FirewallDomainListId { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the firewall rule group where you want to create the rule.
+        /// </summary>
         [Input("firewallRuleGroupId", required: true)]
         public Input<string> FirewallRuleGroupId { get; set; } = null!;
 
+        /// <summary>
+        /// A name that lets you identify the rule, to manage and use it.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
+        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
@@ -120,30 +223,57 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ResolverFirewallRuleState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
+        /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
+        /// <summary>
+        /// The DNS record's type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
+        /// </summary>
         [Input("blockOverrideDnsType")]
         public Input<string>? BlockOverrideDnsType { get; set; }
 
+        /// <summary>
+        /// The custom DNS record to send back in response to the query.
+        /// </summary>
         [Input("blockOverrideDomain")]
         public Input<string>? BlockOverrideDomain { get; set; }
 
+        /// <summary>
+        /// The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
+        /// </summary>
         [Input("blockOverrideTtl")]
         public Input<int>? BlockOverrideTtl { get; set; }
 
+        /// <summary>
+        /// The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
+        /// </summary>
         [Input("blockResponse")]
         public Input<string>? BlockResponse { get; set; }
 
+        /// <summary>
+        /// The ID of the domain list that you want to use in the rule.
+        /// </summary>
         [Input("firewallDomainListId")]
         public Input<string>? FirewallDomainListId { get; set; }
 
+        /// <summary>
+        /// The unique identifier of the firewall rule group where you want to create the rule.
+        /// </summary>
         [Input("firewallRuleGroupId")]
         public Input<string>? FirewallRuleGroupId { get; set; }
 
+        /// <summary>
+        /// A name that lets you identify the rule, to manage and use it.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
+        /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 

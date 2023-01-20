@@ -15,9 +15,17 @@ public final class MeshSpecArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final MeshSpecArgs Empty = new MeshSpecArgs();
 
+    /**
+     * Egress filter rules for the service mesh.
+     * 
+     */
     @Import(name="egressFilter")
     private @Nullable Output<MeshSpecEgressFilterArgs> egressFilter;
 
+    /**
+     * @return Egress filter rules for the service mesh.
+     * 
+     */
     public Optional<Output<MeshSpecEgressFilterArgs>> egressFilter() {
         return Optional.ofNullable(this.egressFilter);
     }
@@ -46,11 +54,23 @@ public final class MeshSpecArgs extends com.pulumi.resources.ResourceArgs {
             $ = new MeshSpecArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param egressFilter Egress filter rules for the service mesh.
+         * 
+         * @return builder
+         * 
+         */
         public Builder egressFilter(@Nullable Output<MeshSpecEgressFilterArgs> egressFilter) {
             $.egressFilter = egressFilter;
             return this;
         }
 
+        /**
+         * @param egressFilter Egress filter rules for the service mesh.
+         * 
+         * @return builder
+         * 
+         */
         public Builder egressFilter(MeshSpecEgressFilterArgs egressFilter) {
             return egressFilter(Output.of(egressFilter));
         }

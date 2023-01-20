@@ -64,6 +64,11 @@ class DataSourceCredentials(dict):
     def __init__(__self__, *,
                  copy_source_arn: Optional[str] = None,
                  credential_pair: Optional['outputs.DataSourceCredentialsCredentialPair'] = None):
+        """
+        :param str copy_source_arn: The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+               When the value is not null, the `credential_pair` from the data source in the ARN is used.
+        :param 'DataSourceCredentialsCredentialPairArgs' credential_pair: Credential pair. See Credential Pair below for more details.
+        """
         if copy_source_arn is not None:
             pulumi.set(__self__, "copy_source_arn", copy_source_arn)
         if credential_pair is not None:
@@ -72,11 +77,18 @@ class DataSourceCredentials(dict):
     @property
     @pulumi.getter(name="copySourceArn")
     def copy_source_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+        When the value is not null, the `credential_pair` from the data source in the ARN is used.
+        """
         return pulumi.get(self, "copy_source_arn")
 
     @property
     @pulumi.getter(name="credentialPair")
     def credential_pair(self) -> Optional['outputs.DataSourceCredentialsCredentialPair']:
+        """
+        Credential pair. See Credential Pair below for more details.
+        """
         return pulumi.get(self, "credential_pair")
 
 
@@ -85,17 +97,27 @@ class DataSourceCredentialsCredentialPair(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
+        """
+        :param str password: Password, maximum length of 1024 characters.
+        :param str username: User name, maximum length of 64 characters.
+        """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
     def password(self) -> str:
+        """
+        Password, maximum length of 1024 characters.
+        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter
     def username(self) -> str:
+        """
+        User name, maximum length of 64 characters.
+        """
         return pulumi.get(self, "username")
 
 
@@ -149,6 +171,28 @@ class DataSourceParameters(dict):
                  sql_server: Optional['outputs.DataSourceParametersSqlServer'] = None,
                  teradata: Optional['outputs.DataSourceParametersTeradata'] = None,
                  twitter: Optional['outputs.DataSourceParametersTwitter'] = None):
+        """
+        :param 'DataSourceParametersAmazonElasticsearchArgs' amazon_elasticsearch: Parameters for connecting to Amazon Elasticsearch.
+        :param 'DataSourceParametersAthenaArgs' athena: Parameters for connecting to Athena.
+        :param 'DataSourceParametersAuroraArgs' aurora: Parameters for connecting to Aurora MySQL.
+        :param 'DataSourceParametersAuroraPostgresqlArgs' aurora_postgresql: Parameters for connecting to Aurora Postgresql.
+        :param 'DataSourceParametersAwsIotAnalyticsArgs' aws_iot_analytics: Parameters for connecting to AWS IOT Analytics.
+        :param 'DataSourceParametersJiraArgs' jira: Parameters for connecting to Jira.
+        :param 'DataSourceParametersMariaDbArgs' maria_db: Parameters for connecting to MariaDB.
+        :param 'DataSourceParametersMysqlArgs' mysql: Parameters for connecting to MySQL.
+        :param 'DataSourceParametersOracleArgs' oracle: Parameters for connecting to Oracle.
+        :param 'DataSourceParametersPostgresqlArgs' postgresql: Parameters for connecting to Postgresql.
+        :param 'DataSourceParametersPrestoArgs' presto: Parameters for connecting to Presto.
+        :param 'DataSourceParametersRdsArgs' rds: Parameters for connecting to RDS.
+        :param 'DataSourceParametersRedshiftArgs' redshift: Parameters for connecting to Redshift.
+        :param 'DataSourceParametersS3Args' s3: Parameters for connecting to S3.
+        :param 'DataSourceParametersServiceNowArgs' service_now: Parameters for connecting to ServiceNow.
+        :param 'DataSourceParametersSnowflakeArgs' snowflake: Parameters for connecting to Snowflake.
+        :param 'DataSourceParametersSparkArgs' spark: Parameters for connecting to Spark.
+        :param 'DataSourceParametersSqlServerArgs' sql_server: Parameters for connecting to SQL Server.
+        :param 'DataSourceParametersTeradataArgs' teradata: Parameters for connecting to Teradata.
+        :param 'DataSourceParametersTwitterArgs' twitter: Parameters for connecting to Twitter.
+        """
         if amazon_elasticsearch is not None:
             pulumi.set(__self__, "amazon_elasticsearch", amazon_elasticsearch)
         if athena is not None:
@@ -193,101 +237,161 @@ class DataSourceParameters(dict):
     @property
     @pulumi.getter(name="amazonElasticsearch")
     def amazon_elasticsearch(self) -> Optional['outputs.DataSourceParametersAmazonElasticsearch']:
+        """
+        Parameters for connecting to Amazon Elasticsearch.
+        """
         return pulumi.get(self, "amazon_elasticsearch")
 
     @property
     @pulumi.getter
     def athena(self) -> Optional['outputs.DataSourceParametersAthena']:
+        """
+        Parameters for connecting to Athena.
+        """
         return pulumi.get(self, "athena")
 
     @property
     @pulumi.getter
     def aurora(self) -> Optional['outputs.DataSourceParametersAurora']:
+        """
+        Parameters for connecting to Aurora MySQL.
+        """
         return pulumi.get(self, "aurora")
 
     @property
     @pulumi.getter(name="auroraPostgresql")
     def aurora_postgresql(self) -> Optional['outputs.DataSourceParametersAuroraPostgresql']:
+        """
+        Parameters for connecting to Aurora Postgresql.
+        """
         return pulumi.get(self, "aurora_postgresql")
 
     @property
     @pulumi.getter(name="awsIotAnalytics")
     def aws_iot_analytics(self) -> Optional['outputs.DataSourceParametersAwsIotAnalytics']:
+        """
+        Parameters for connecting to AWS IOT Analytics.
+        """
         return pulumi.get(self, "aws_iot_analytics")
 
     @property
     @pulumi.getter
     def jira(self) -> Optional['outputs.DataSourceParametersJira']:
+        """
+        Parameters for connecting to Jira.
+        """
         return pulumi.get(self, "jira")
 
     @property
     @pulumi.getter(name="mariaDb")
     def maria_db(self) -> Optional['outputs.DataSourceParametersMariaDb']:
+        """
+        Parameters for connecting to MariaDB.
+        """
         return pulumi.get(self, "maria_db")
 
     @property
     @pulumi.getter
     def mysql(self) -> Optional['outputs.DataSourceParametersMysql']:
+        """
+        Parameters for connecting to MySQL.
+        """
         return pulumi.get(self, "mysql")
 
     @property
     @pulumi.getter
     def oracle(self) -> Optional['outputs.DataSourceParametersOracle']:
+        """
+        Parameters for connecting to Oracle.
+        """
         return pulumi.get(self, "oracle")
 
     @property
     @pulumi.getter
     def postgresql(self) -> Optional['outputs.DataSourceParametersPostgresql']:
+        """
+        Parameters for connecting to Postgresql.
+        """
         return pulumi.get(self, "postgresql")
 
     @property
     @pulumi.getter
     def presto(self) -> Optional['outputs.DataSourceParametersPresto']:
+        """
+        Parameters for connecting to Presto.
+        """
         return pulumi.get(self, "presto")
 
     @property
     @pulumi.getter
     def rds(self) -> Optional['outputs.DataSourceParametersRds']:
+        """
+        Parameters for connecting to RDS.
+        """
         return pulumi.get(self, "rds")
 
     @property
     @pulumi.getter
     def redshift(self) -> Optional['outputs.DataSourceParametersRedshift']:
+        """
+        Parameters for connecting to Redshift.
+        """
         return pulumi.get(self, "redshift")
 
     @property
     @pulumi.getter
     def s3(self) -> Optional['outputs.DataSourceParametersS3']:
+        """
+        Parameters for connecting to S3.
+        """
         return pulumi.get(self, "s3")
 
     @property
     @pulumi.getter(name="serviceNow")
     def service_now(self) -> Optional['outputs.DataSourceParametersServiceNow']:
+        """
+        Parameters for connecting to ServiceNow.
+        """
         return pulumi.get(self, "service_now")
 
     @property
     @pulumi.getter
     def snowflake(self) -> Optional['outputs.DataSourceParametersSnowflake']:
+        """
+        Parameters for connecting to Snowflake.
+        """
         return pulumi.get(self, "snowflake")
 
     @property
     @pulumi.getter
     def spark(self) -> Optional['outputs.DataSourceParametersSpark']:
+        """
+        Parameters for connecting to Spark.
+        """
         return pulumi.get(self, "spark")
 
     @property
     @pulumi.getter(name="sqlServer")
     def sql_server(self) -> Optional['outputs.DataSourceParametersSqlServer']:
+        """
+        Parameters for connecting to SQL Server.
+        """
         return pulumi.get(self, "sql_server")
 
     @property
     @pulumi.getter
     def teradata(self) -> Optional['outputs.DataSourceParametersTeradata']:
+        """
+        Parameters for connecting to Teradata.
+        """
         return pulumi.get(self, "teradata")
 
     @property
     @pulumi.getter
     def twitter(self) -> Optional['outputs.DataSourceParametersTwitter']:
+        """
+        Parameters for connecting to Twitter.
+        """
         return pulumi.get(self, "twitter")
 
 
@@ -295,11 +399,17 @@ class DataSourceParameters(dict):
 class DataSourceParametersAmazonElasticsearch(dict):
     def __init__(__self__, *,
                  domain: str):
+        """
+        :param str domain: The OpenSearch domain.
+        """
         pulumi.set(__self__, "domain", domain)
 
     @property
     @pulumi.getter
     def domain(self) -> str:
+        """
+        The OpenSearch domain.
+        """
         return pulumi.get(self, "domain")
 
 
@@ -324,12 +434,18 @@ class DataSourceParametersAthena(dict):
 
     def __init__(__self__, *,
                  work_group: Optional[str] = None):
+        """
+        :param str work_group: The work-group to which to connect.
+        """
         if work_group is not None:
             pulumi.set(__self__, "work_group", work_group)
 
     @property
     @pulumi.getter(name="workGroup")
     def work_group(self) -> Optional[str]:
+        """
+        The work-group to which to connect.
+        """
         return pulumi.get(self, "work_group")
 
 
@@ -339,6 +455,11 @@ class DataSourceParametersAurora(dict):
                  database: str,
                  host: str,
                  port: int):
+        """
+        :param str database: The database to which to connect.
+        :param str host: The host to which to connect.
+        :param int port: The port to which to connect.
+        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -346,16 +467,25 @@ class DataSourceParametersAurora(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database to which to connect.
+        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def host(self) -> str:
+        """
+        The host to which to connect.
+        """
         return pulumi.get(self, "host")
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port to which to connect.
+        """
         return pulumi.get(self, "port")
 
 
@@ -365,6 +495,11 @@ class DataSourceParametersAuroraPostgresql(dict):
                  database: str,
                  host: str,
                  port: int):
+        """
+        :param str database: The database to which to connect.
+        :param str host: The host to which to connect.
+        :param int port: The port to which to connect.
+        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -372,16 +507,25 @@ class DataSourceParametersAuroraPostgresql(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database to which to connect.
+        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def host(self) -> str:
+        """
+        The host to which to connect.
+        """
         return pulumi.get(self, "host")
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port to which to connect.
+        """
         return pulumi.get(self, "port")
 
 
@@ -406,11 +550,17 @@ class DataSourceParametersAwsIotAnalytics(dict):
 
     def __init__(__self__, *,
                  data_set_name: str):
+        """
+        :param str data_set_name: The name of the data set to which to connect.
+        """
         pulumi.set(__self__, "data_set_name", data_set_name)
 
     @property
     @pulumi.getter(name="dataSetName")
     def data_set_name(self) -> str:
+        """
+        The name of the data set to which to connect.
+        """
         return pulumi.get(self, "data_set_name")
 
 
@@ -435,11 +585,17 @@ class DataSourceParametersJira(dict):
 
     def __init__(__self__, *,
                  site_base_url: str):
+        """
+        :param str site_base_url: The base URL of the Jira instance's site to which to connect.
+        """
         pulumi.set(__self__, "site_base_url", site_base_url)
 
     @property
     @pulumi.getter(name="siteBaseUrl")
     def site_base_url(self) -> str:
+        """
+        The base URL of the Jira instance's site to which to connect.
+        """
         return pulumi.get(self, "site_base_url")
 
 
@@ -449,6 +605,11 @@ class DataSourceParametersMariaDb(dict):
                  database: str,
                  host: str,
                  port: int):
+        """
+        :param str database: The database to which to connect.
+        :param str host: The host to which to connect.
+        :param int port: The port to which to connect.
+        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -456,16 +617,25 @@ class DataSourceParametersMariaDb(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database to which to connect.
+        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def host(self) -> str:
+        """
+        The host to which to connect.
+        """
         return pulumi.get(self, "host")
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port to which to connect.
+        """
         return pulumi.get(self, "port")
 
 
@@ -475,6 +645,11 @@ class DataSourceParametersMysql(dict):
                  database: str,
                  host: str,
                  port: int):
+        """
+        :param str database: The database to which to connect.
+        :param str host: The host to which to connect.
+        :param int port: The port to which to connect.
+        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -482,16 +657,25 @@ class DataSourceParametersMysql(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database to which to connect.
+        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def host(self) -> str:
+        """
+        The host to which to connect.
+        """
         return pulumi.get(self, "host")
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port to which to connect.
+        """
         return pulumi.get(self, "port")
 
 
@@ -501,6 +685,11 @@ class DataSourceParametersOracle(dict):
                  database: str,
                  host: str,
                  port: int):
+        """
+        :param str database: The database to which to connect.
+        :param str host: The host to which to connect.
+        :param int port: The port to which to connect.
+        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -508,16 +697,25 @@ class DataSourceParametersOracle(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database to which to connect.
+        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def host(self) -> str:
+        """
+        The host to which to connect.
+        """
         return pulumi.get(self, "host")
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port to which to connect.
+        """
         return pulumi.get(self, "port")
 
 
@@ -527,6 +725,11 @@ class DataSourceParametersPostgresql(dict):
                  database: str,
                  host: str,
                  port: int):
+        """
+        :param str database: The database to which to connect.
+        :param str host: The host to which to connect.
+        :param int port: The port to which to connect.
+        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -534,16 +737,25 @@ class DataSourceParametersPostgresql(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database to which to connect.
+        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def host(self) -> str:
+        """
+        The host to which to connect.
+        """
         return pulumi.get(self, "host")
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port to which to connect.
+        """
         return pulumi.get(self, "port")
 
 
@@ -553,6 +765,11 @@ class DataSourceParametersPresto(dict):
                  catalog: str,
                  host: str,
                  port: int):
+        """
+        :param str catalog: The catalog to which to connect.
+        :param str host: The host to which to connect.
+        :param int port: The port to which to connect.
+        """
         pulumi.set(__self__, "catalog", catalog)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -560,16 +777,25 @@ class DataSourceParametersPresto(dict):
     @property
     @pulumi.getter
     def catalog(self) -> str:
+        """
+        The catalog to which to connect.
+        """
         return pulumi.get(self, "catalog")
 
     @property
     @pulumi.getter
     def host(self) -> str:
+        """
+        The host to which to connect.
+        """
         return pulumi.get(self, "host")
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port to which to connect.
+        """
         return pulumi.get(self, "port")
 
 
@@ -595,17 +821,27 @@ class DataSourceParametersRds(dict):
     def __init__(__self__, *,
                  database: str,
                  instance_id: str):
+        """
+        :param str database: The database to which to connect.
+        :param str instance_id: The instance ID to which to connect.
+        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "instance_id", instance_id)
 
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database to which to connect.
+        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> str:
+        """
+        The instance ID to which to connect.
+        """
         return pulumi.get(self, "instance_id")
 
 
@@ -633,6 +869,12 @@ class DataSourceParametersRedshift(dict):
                  cluster_id: Optional[str] = None,
                  host: Optional[str] = None,
                  port: Optional[int] = None):
+        """
+        :param str database: The database to which to connect.
+        :param str cluster_id: The ID of the cluster to which to connect.
+        :param str host: The host to which to connect.
+        :param int port: The port to which to connect.
+        """
         pulumi.set(__self__, "database", database)
         if cluster_id is not None:
             pulumi.set(__self__, "cluster_id", cluster_id)
@@ -644,21 +886,33 @@ class DataSourceParametersRedshift(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database to which to connect.
+        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> Optional[str]:
+        """
+        The ID of the cluster to which to connect.
+        """
         return pulumi.get(self, "cluster_id")
 
     @property
     @pulumi.getter
     def host(self) -> Optional[str]:
+        """
+        The host to which to connect.
+        """
         return pulumi.get(self, "host")
 
     @property
     @pulumi.getter
     def port(self) -> Optional[int]:
+        """
+        The port to which to connect.
+        """
         return pulumi.get(self, "port")
 
 
@@ -683,11 +937,17 @@ class DataSourceParametersS3(dict):
 
     def __init__(__self__, *,
                  manifest_file_location: 'outputs.DataSourceParametersS3ManifestFileLocation'):
+        """
+        :param 'DataSourceParametersS3ManifestFileLocationArgs' manifest_file_location: An object containing the S3 location of the S3 manifest file.
+        """
         pulumi.set(__self__, "manifest_file_location", manifest_file_location)
 
     @property
     @pulumi.getter(name="manifestFileLocation")
     def manifest_file_location(self) -> 'outputs.DataSourceParametersS3ManifestFileLocation':
+        """
+        An object containing the S3 location of the S3 manifest file.
+        """
         return pulumi.get(self, "manifest_file_location")
 
 
@@ -696,17 +956,27 @@ class DataSourceParametersS3ManifestFileLocation(dict):
     def __init__(__self__, *,
                  bucket: str,
                  key: str):
+        """
+        :param str bucket: The name of the bucket that contains the manifest file.
+        :param str key: The key of the manifest file within the bucket.
+        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
 
     @property
     @pulumi.getter
     def bucket(self) -> str:
+        """
+        The name of the bucket that contains the manifest file.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key of the manifest file within the bucket.
+        """
         return pulumi.get(self, "key")
 
 
@@ -731,11 +1001,17 @@ class DataSourceParametersServiceNow(dict):
 
     def __init__(__self__, *,
                  site_base_url: str):
+        """
+        :param str site_base_url: The base URL of the Jira instance's site to which to connect.
+        """
         pulumi.set(__self__, "site_base_url", site_base_url)
 
     @property
     @pulumi.getter(name="siteBaseUrl")
     def site_base_url(self) -> str:
+        """
+        The base URL of the Jira instance's site to which to connect.
+        """
         return pulumi.get(self, "site_base_url")
 
 
@@ -745,6 +1021,11 @@ class DataSourceParametersSnowflake(dict):
                  database: str,
                  host: str,
                  warehouse: str):
+        """
+        :param str database: The database to which to connect.
+        :param str host: The host to which to connect.
+        :param str warehouse: The warehouse to which to connect.
+        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "warehouse", warehouse)
@@ -752,16 +1033,25 @@ class DataSourceParametersSnowflake(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database to which to connect.
+        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def host(self) -> str:
+        """
+        The host to which to connect.
+        """
         return pulumi.get(self, "host")
 
     @property
     @pulumi.getter
     def warehouse(self) -> str:
+        """
+        The warehouse to which to connect.
+        """
         return pulumi.get(self, "warehouse")
 
 
@@ -770,17 +1060,27 @@ class DataSourceParametersSpark(dict):
     def __init__(__self__, *,
                  host: str,
                  port: int):
+        """
+        :param str host: The host to which to connect.
+        :param int port: The warehouse to which to connect.
+        """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
     def host(self) -> str:
+        """
+        The host to which to connect.
+        """
         return pulumi.get(self, "host")
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The warehouse to which to connect.
+        """
         return pulumi.get(self, "port")
 
 
@@ -790,6 +1090,11 @@ class DataSourceParametersSqlServer(dict):
                  database: str,
                  host: str,
                  port: int):
+        """
+        :param str database: The database to which to connect.
+        :param str host: The host to which to connect.
+        :param int port: The warehouse to which to connect.
+        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -797,16 +1102,25 @@ class DataSourceParametersSqlServer(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database to which to connect.
+        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def host(self) -> str:
+        """
+        The host to which to connect.
+        """
         return pulumi.get(self, "host")
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The warehouse to which to connect.
+        """
         return pulumi.get(self, "port")
 
 
@@ -816,6 +1130,11 @@ class DataSourceParametersTeradata(dict):
                  database: str,
                  host: str,
                  port: int):
+        """
+        :param str database: The database to which to connect.
+        :param str host: The host to which to connect.
+        :param int port: The warehouse to which to connect.
+        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -823,16 +1142,25 @@ class DataSourceParametersTeradata(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The database to which to connect.
+        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
     def host(self) -> str:
+        """
+        The host to which to connect.
+        """
         return pulumi.get(self, "host")
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The warehouse to which to connect.
+        """
         return pulumi.get(self, "port")
 
 
@@ -858,17 +1186,27 @@ class DataSourceParametersTwitter(dict):
     def __init__(__self__, *,
                  max_rows: int,
                  query: str):
+        """
+        :param int max_rows: The maximum number of rows to query.
+        :param str query: The Twitter query to retrieve the data.
+        """
         pulumi.set(__self__, "max_rows", max_rows)
         pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter(name="maxRows")
     def max_rows(self) -> int:
+        """
+        The maximum number of rows to query.
+        """
         return pulumi.get(self, "max_rows")
 
     @property
     @pulumi.getter
     def query(self) -> str:
+        """
+        The Twitter query to retrieve the data.
+        """
         return pulumi.get(self, "query")
 
 
@@ -877,17 +1215,27 @@ class DataSourcePermission(dict):
     def __init__(__self__, *,
                  actions: Sequence[str],
                  principal: str):
+        """
+        :param Sequence[str] actions: Set of IAM actions to grant or revoke permissions on. Max of 16 items.
+        :param str principal: The Amazon Resource Name (ARN) of the principal.
+        """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
 
     @property
     @pulumi.getter
     def actions(self) -> Sequence[str]:
+        """
+        Set of IAM actions to grant or revoke permissions on. Max of 16 items.
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
     def principal(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the principal.
+        """
         return pulumi.get(self, "principal")
 
 
@@ -912,11 +1260,17 @@ class DataSourceSslProperties(dict):
 
     def __init__(__self__, *,
                  disable_ssl: bool):
+        """
+        :param bool disable_ssl: A Boolean option to control whether SSL should be disabled.
+        """
         pulumi.set(__self__, "disable_ssl", disable_ssl)
 
     @property
     @pulumi.getter(name="disableSsl")
     def disable_ssl(self) -> bool:
+        """
+        A Boolean option to control whether SSL should be disabled.
+        """
         return pulumi.get(self, "disable_ssl")
 
 
@@ -941,11 +1295,17 @@ class DataSourceVpcConnectionProperties(dict):
 
     def __init__(__self__, *,
                  vpc_connection_arn: str):
+        """
+        :param str vpc_connection_arn: The Amazon Resource Name (ARN) for the VPC connection.
+        """
         pulumi.set(__self__, "vpc_connection_arn", vpc_connection_arn)
 
     @property
     @pulumi.getter(name="vpcConnectionArn")
     def vpc_connection_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) for the VPC connection.
+        """
         return pulumi.get(self, "vpc_connection_arn")
 
 

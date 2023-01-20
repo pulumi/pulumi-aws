@@ -19,6 +19,9 @@ class SecretPolicyArgs:
                  block_public_policy: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a SecretPolicy resource.
+        :param pulumi.Input[str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
+        :param pulumi.Input[str] secret_arn: Secret ARN.
+        :param pulumi.Input[bool] block_public_policy: Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "secret_arn", secret_arn)
@@ -28,6 +31,9 @@ class SecretPolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
+        """
+        Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -37,6 +43,9 @@ class SecretPolicyArgs:
     @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[str]:
+        """
+        Secret ARN.
+        """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
@@ -46,6 +55,9 @@ class SecretPolicyArgs:
     @property
     @pulumi.getter(name="blockPublicPolicy")
     def block_public_policy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
+        """
         return pulumi.get(self, "block_public_policy")
 
     @block_public_policy.setter
@@ -61,6 +73,9 @@ class _SecretPolicyState:
                  secret_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SecretPolicy resources.
+        :param pulumi.Input[bool] block_public_policy: Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
+        :param pulumi.Input[str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
+        :param pulumi.Input[str] secret_arn: Secret ARN.
         """
         if block_public_policy is not None:
             pulumi.set(__self__, "block_public_policy", block_public_policy)
@@ -72,6 +87,9 @@ class _SecretPolicyState:
     @property
     @pulumi.getter(name="blockPublicPolicy")
     def block_public_policy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
+        """
         return pulumi.get(self, "block_public_policy")
 
     @block_public_policy.setter
@@ -81,6 +99,9 @@ class _SecretPolicyState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -90,6 +111,9 @@ class _SecretPolicyState:
     @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secret ARN.
+        """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
@@ -107,9 +131,48 @@ class SecretPolicy(pulumi.CustomResource):
                  secret_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a SecretPolicy resource with the given unique name, props, and options.
+        Provides a resource to manage AWS Secrets Manager secret policy.
+
+        ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_secret = aws.secretsmanager.Secret("exampleSecret")
+        example_secret_policy = aws.secretsmanager.SecretPolicy("exampleSecretPolicy",
+            secret_arn=example_secret.arn,
+            policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+        	{
+        	  "Sid": "EnableAnotherAWSAccountToReadTheSecret",
+        	  "Effect": "Allow",
+        	  "Principal": {
+        		"AWS": "arn:aws:iam::123456789012:root"
+        	  },
+        	  "Action": "secretsmanager:GetSecretValue",
+        	  "Resource": "*"
+        	}
+          ]
+        }
+        \"\"\")
+        ```
+
+        ## Import
+
+        `aws_secretsmanager_secret_policy` can be imported by using the secret Amazon Resource Name (ARN), e.g.,
+
+        ```sh
+         $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] block_public_policy: Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
+        :param pulumi.Input[str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
+        :param pulumi.Input[str] secret_arn: Secret ARN.
         """
         ...
     @overload
@@ -118,7 +181,43 @@ class SecretPolicy(pulumi.CustomResource):
                  args: SecretPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SecretPolicy resource with the given unique name, props, and options.
+        Provides a resource to manage AWS Secrets Manager secret policy.
+
+        ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_secret = aws.secretsmanager.Secret("exampleSecret")
+        example_secret_policy = aws.secretsmanager.SecretPolicy("exampleSecretPolicy",
+            secret_arn=example_secret.arn,
+            policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+        	{
+        	  "Sid": "EnableAnotherAWSAccountToReadTheSecret",
+        	  "Effect": "Allow",
+        	  "Principal": {
+        		"AWS": "arn:aws:iam::123456789012:root"
+        	  },
+        	  "Action": "secretsmanager:GetSecretValue",
+        	  "Resource": "*"
+        	}
+          ]
+        }
+        \"\"\")
+        ```
+
+        ## Import
+
+        `aws_secretsmanager_secret_policy` can be imported by using the secret Amazon Resource Name (ARN), e.g.,
+
+        ```sh
+         $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+        ```
+
         :param str resource_name: The name of the resource.
         :param SecretPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,6 +272,9 @@ class SecretPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] block_public_policy: Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
+        :param pulumi.Input[str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
+        :param pulumi.Input[str] secret_arn: Secret ARN.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -186,15 +288,24 @@ class SecretPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="blockPublicPolicy")
     def block_public_policy(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
+        """
         return pulumi.get(self, "block_public_policy")
 
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
+        """
+        Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
+        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Output[str]:
+        """
+        Secret ARN.
+        """
         return pulumi.get(self, "secret_arn")
 

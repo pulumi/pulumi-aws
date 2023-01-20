@@ -11,20 +11,229 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an AWS App Mesh route resource.
+//
+// ## Example Usage
+// ### HTTP Routing
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
+//				MeshName:          pulumi.Any(aws_appmesh_mesh.Simple.Id),
+//				VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+//				Spec: &appmesh.RouteSpecArgs{
+//					HttpRoute: &appmesh.RouteSpecHttpRouteArgs{
+//						Match: &appmesh.RouteSpecHttpRouteMatchArgs{
+//							Prefix: pulumi.String("/"),
+//						},
+//						Action: &appmesh.RouteSpecHttpRouteActionArgs{
+//							WeightedTargets: appmesh.RouteSpecHttpRouteActionWeightedTargetArray{
+//								&appmesh.RouteSpecHttpRouteActionWeightedTargetArgs{
+//									VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb1.Name),
+//									Weight:      pulumi.Int(90),
+//								},
+//								&appmesh.RouteSpecHttpRouteActionWeightedTargetArgs{
+//									VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb2.Name),
+//									Weight:      pulumi.Int(10),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### HTTP Header Routing
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
+//				MeshName:          pulumi.Any(aws_appmesh_mesh.Simple.Id),
+//				VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+//				Spec: &appmesh.RouteSpecArgs{
+//					HttpRoute: &appmesh.RouteSpecHttpRouteArgs{
+//						Match: &appmesh.RouteSpecHttpRouteMatchArgs{
+//							Method: pulumi.String("POST"),
+//							Prefix: pulumi.String("/"),
+//							Scheme: pulumi.String("https"),
+//							Headers: appmesh.RouteSpecHttpRouteMatchHeaderArray{
+//								&appmesh.RouteSpecHttpRouteMatchHeaderArgs{
+//									Name: pulumi.String("clientRequestId"),
+//									Match: &appmesh.RouteSpecHttpRouteMatchHeaderMatchArgs{
+//										Prefix: pulumi.String("123"),
+//									},
+//								},
+//							},
+//						},
+//						Action: &appmesh.RouteSpecHttpRouteActionArgs{
+//							WeightedTargets: appmesh.RouteSpecHttpRouteActionWeightedTargetArray{
+//								&appmesh.RouteSpecHttpRouteActionWeightedTargetArgs{
+//									VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb.Name),
+//									Weight:      pulumi.Int(100),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Retry Policy
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
+//				MeshName:          pulumi.Any(aws_appmesh_mesh.Simple.Id),
+//				VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+//				Spec: &appmesh.RouteSpecArgs{
+//					HttpRoute: &appmesh.RouteSpecHttpRouteArgs{
+//						Match: &appmesh.RouteSpecHttpRouteMatchArgs{
+//							Prefix: pulumi.String("/"),
+//						},
+//						RetryPolicy: &appmesh.RouteSpecHttpRouteRetryPolicyArgs{
+//							HttpRetryEvents: pulumi.StringArray{
+//								pulumi.String("server-error"),
+//							},
+//							MaxRetries: pulumi.Int(1),
+//							PerRetryTimeout: &appmesh.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs{
+//								Unit:  pulumi.String("s"),
+//								Value: pulumi.Int(15),
+//							},
+//						},
+//						Action: &appmesh.RouteSpecHttpRouteActionArgs{
+//							WeightedTargets: appmesh.RouteSpecHttpRouteActionWeightedTargetArray{
+//								&appmesh.RouteSpecHttpRouteActionWeightedTargetArgs{
+//									VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb.Name),
+//									Weight:      pulumi.Int(100),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### TCP Routing
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
+//				MeshName:          pulumi.Any(aws_appmesh_mesh.Simple.Id),
+//				VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+//				Spec: &appmesh.RouteSpecArgs{
+//					TcpRoute: &appmesh.RouteSpecTcpRouteArgs{
+//						Action: &appmesh.RouteSpecTcpRouteActionArgs{
+//							WeightedTargets: appmesh.RouteSpecTcpRouteActionWeightedTargetArray{
+//								&appmesh.RouteSpecTcpRouteActionWeightedTargetArgs{
+//									VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb1.Name),
+//									Weight:      pulumi.Int(100),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// App Mesh virtual routes can be imported using `mesh_name` and `virtual_router_name` together with the route's `name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
+//
+// ```
 type Route struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput    `pulumi:"arn"`
-	CreatedDate       pulumi.StringOutput    `pulumi:"createdDate"`
-	LastUpdatedDate   pulumi.StringOutput    `pulumi:"lastUpdatedDate"`
-	MeshName          pulumi.StringOutput    `pulumi:"meshName"`
-	MeshOwner         pulumi.StringOutput    `pulumi:"meshOwner"`
-	Name              pulumi.StringOutput    `pulumi:"name"`
-	ResourceOwner     pulumi.StringOutput    `pulumi:"resourceOwner"`
-	Spec              RouteSpecOutput        `pulumi:"spec"`
-	Tags              pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll           pulumi.StringMapOutput `pulumi:"tagsAll"`
-	VirtualRouterName pulumi.StringOutput    `pulumi:"virtualRouterName"`
+	// ARN of the route.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Creation date of the route.
+	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+	// Last update date of the route.
+	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
+	// Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
+	MeshName pulumi.StringOutput `pulumi:"meshName"`
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
+	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
+	// Name to use for the route. Must be between 1 and 255 characters in length.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Resource owner's AWS account ID.
+	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
+	// Route specification to apply.
+	Spec RouteSpecOutput `pulumi:"spec"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
+	VirtualRouterName pulumi.StringOutput `pulumi:"virtualRouterName"`
 }
 
 // NewRoute registers a new resource with the given unique name, arguments, and options.
@@ -65,30 +274,52 @@ func GetRoute(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Route resources.
 type routeState struct {
-	Arn               *string           `pulumi:"arn"`
-	CreatedDate       *string           `pulumi:"createdDate"`
-	LastUpdatedDate   *string           `pulumi:"lastUpdatedDate"`
-	MeshName          *string           `pulumi:"meshName"`
-	MeshOwner         *string           `pulumi:"meshOwner"`
-	Name              *string           `pulumi:"name"`
-	ResourceOwner     *string           `pulumi:"resourceOwner"`
-	Spec              *RouteSpec        `pulumi:"spec"`
-	Tags              map[string]string `pulumi:"tags"`
-	TagsAll           map[string]string `pulumi:"tagsAll"`
-	VirtualRouterName *string           `pulumi:"virtualRouterName"`
+	// ARN of the route.
+	Arn *string `pulumi:"arn"`
+	// Creation date of the route.
+	CreatedDate *string `pulumi:"createdDate"`
+	// Last update date of the route.
+	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
+	// Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
+	MeshName *string `pulumi:"meshName"`
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
+	MeshOwner *string `pulumi:"meshOwner"`
+	// Name to use for the route. Must be between 1 and 255 characters in length.
+	Name *string `pulumi:"name"`
+	// Resource owner's AWS account ID.
+	ResourceOwner *string `pulumi:"resourceOwner"`
+	// Route specification to apply.
+	Spec *RouteSpec `pulumi:"spec"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
+	VirtualRouterName *string `pulumi:"virtualRouterName"`
 }
 
 type RouteState struct {
-	Arn               pulumi.StringPtrInput
-	CreatedDate       pulumi.StringPtrInput
-	LastUpdatedDate   pulumi.StringPtrInput
-	MeshName          pulumi.StringPtrInput
-	MeshOwner         pulumi.StringPtrInput
-	Name              pulumi.StringPtrInput
-	ResourceOwner     pulumi.StringPtrInput
-	Spec              RouteSpecPtrInput
-	Tags              pulumi.StringMapInput
-	TagsAll           pulumi.StringMapInput
+	// ARN of the route.
+	Arn pulumi.StringPtrInput
+	// Creation date of the route.
+	CreatedDate pulumi.StringPtrInput
+	// Last update date of the route.
+	LastUpdatedDate pulumi.StringPtrInput
+	// Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
+	MeshName pulumi.StringPtrInput
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
+	MeshOwner pulumi.StringPtrInput
+	// Name to use for the route. Must be between 1 and 255 characters in length.
+	Name pulumi.StringPtrInput
+	// Resource owner's AWS account ID.
+	ResourceOwner pulumi.StringPtrInput
+	// Route specification to apply.
+	Spec RouteSpecPtrInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
 	VirtualRouterName pulumi.StringPtrInput
 }
 
@@ -97,21 +328,33 @@ func (RouteState) ElementType() reflect.Type {
 }
 
 type routeArgs struct {
-	MeshName          string            `pulumi:"meshName"`
-	MeshOwner         *string           `pulumi:"meshOwner"`
-	Name              *string           `pulumi:"name"`
-	Spec              RouteSpec         `pulumi:"spec"`
-	Tags              map[string]string `pulumi:"tags"`
-	VirtualRouterName string            `pulumi:"virtualRouterName"`
+	// Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
+	MeshName string `pulumi:"meshName"`
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
+	MeshOwner *string `pulumi:"meshOwner"`
+	// Name to use for the route. Must be between 1 and 255 characters in length.
+	Name *string `pulumi:"name"`
+	// Route specification to apply.
+	Spec RouteSpec `pulumi:"spec"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
+	VirtualRouterName string `pulumi:"virtualRouterName"`
 }
 
 // The set of arguments for constructing a Route resource.
 type RouteArgs struct {
-	MeshName          pulumi.StringInput
-	MeshOwner         pulumi.StringPtrInput
-	Name              pulumi.StringPtrInput
-	Spec              RouteSpecInput
-	Tags              pulumi.StringMapInput
+	// Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
+	MeshName pulumi.StringInput
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
+	MeshOwner pulumi.StringPtrInput
+	// Name to use for the route. Must be between 1 and 255 characters in length.
+	Name pulumi.StringPtrInput
+	// Route specification to apply.
+	Spec RouteSpecInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
 	VirtualRouterName pulumi.StringInput
 }
 
@@ -202,46 +445,57 @@ func (o RouteOutput) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return o
 }
 
+// ARN of the route.
 func (o RouteOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Creation date of the route.
 func (o RouteOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
+// Last update date of the route.
 func (o RouteOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
 }
 
+// Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
 func (o RouteOutput) MeshName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.MeshName }).(pulumi.StringOutput)
 }
 
+// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 func (o RouteOutput) MeshOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.MeshOwner }).(pulumi.StringOutput)
 }
 
+// Name to use for the route. Must be between 1 and 255 characters in length.
 func (o RouteOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Resource owner's AWS account ID.
 func (o RouteOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
+// Route specification to apply.
 func (o RouteOutput) Spec() RouteSpecOutput {
 	return o.ApplyT(func(v *Route) RouteSpecOutput { return v.Spec }).(RouteSpecOutput)
 }
 
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RouteOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RouteOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
 func (o RouteOutput) VirtualRouterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.VirtualRouterName }).(pulumi.StringOutput)
 }

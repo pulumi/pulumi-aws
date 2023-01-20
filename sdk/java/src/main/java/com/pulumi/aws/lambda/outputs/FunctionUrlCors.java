@@ -14,29 +14,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FunctionUrlCors {
+    /**
+     * @return Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+     * 
+     */
     private @Nullable Boolean allowCredentials;
+    /**
+     * @return The HTTP headers that origins can include in requests to the function URL. For example: `[&#34;date&#34;, &#34;keep-alive&#34;, &#34;x-custom-header&#34;]`.
+     * 
+     */
     private @Nullable List<String> allowHeaders;
+    /**
+     * @return The HTTP methods that are allowed when calling the function URL. For example: `[&#34;GET&#34;, &#34;POST&#34;, &#34;DELETE&#34;]`, or the wildcard character (`[&#34;*&#34;]`).
+     * 
+     */
     private @Nullable List<String> allowMethods;
+    /**
+     * @return The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`&#34;*&#34;`)), separated by a comma. For example: `[&#34;https://www.example.com&#34;, &#34;http://localhost:60905&#34;]`.
+     * 
+     */
     private @Nullable List<String> allowOrigins;
+    /**
+     * @return The HTTP headers in your function response that you want to expose to origins that call the function URL.
+     * 
+     */
     private @Nullable List<String> exposeHeaders;
+    /**
+     * @return The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn&#39;t cache results. The maximum value is `86400`.
+     * 
+     */
     private @Nullable Integer maxAge;
 
     private FunctionUrlCors() {}
+    /**
+     * @return Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+     * 
+     */
     public Optional<Boolean> allowCredentials() {
         return Optional.ofNullable(this.allowCredentials);
     }
+    /**
+     * @return The HTTP headers that origins can include in requests to the function URL. For example: `[&#34;date&#34;, &#34;keep-alive&#34;, &#34;x-custom-header&#34;]`.
+     * 
+     */
     public List<String> allowHeaders() {
         return this.allowHeaders == null ? List.of() : this.allowHeaders;
     }
+    /**
+     * @return The HTTP methods that are allowed when calling the function URL. For example: `[&#34;GET&#34;, &#34;POST&#34;, &#34;DELETE&#34;]`, or the wildcard character (`[&#34;*&#34;]`).
+     * 
+     */
     public List<String> allowMethods() {
         return this.allowMethods == null ? List.of() : this.allowMethods;
     }
+    /**
+     * @return The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`&#34;*&#34;`)), separated by a comma. For example: `[&#34;https://www.example.com&#34;, &#34;http://localhost:60905&#34;]`.
+     * 
+     */
     public List<String> allowOrigins() {
         return this.allowOrigins == null ? List.of() : this.allowOrigins;
     }
+    /**
+     * @return The HTTP headers in your function response that you want to expose to origins that call the function URL.
+     * 
+     */
     public List<String> exposeHeaders() {
         return this.exposeHeaders == null ? List.of() : this.exposeHeaders;
     }
+    /**
+     * @return The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn&#39;t cache results. The maximum value is `86400`.
+     * 
+     */
     public Optional<Integer> maxAge() {
         return Optional.ofNullable(this.maxAge);
     }

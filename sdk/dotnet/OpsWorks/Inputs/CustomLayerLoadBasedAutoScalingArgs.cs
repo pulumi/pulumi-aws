@@ -12,12 +12,21 @@ namespace Pulumi.Aws.OpsWorks.Inputs
 
     public sealed class CustomLayerLoadBasedAutoScalingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The downscaling settings, as defined below, used for load-based autoscaling
+        /// </summary>
         [Input("downscaling")]
         public Input<Inputs.CustomLayerLoadBasedAutoScalingDownscalingArgs>? Downscaling { get; set; }
 
+        /// <summary>
+        /// Whether load-based auto scaling is enabled for the layer.
+        /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
 
+        /// <summary>
+        /// The upscaling settings, as defined below, used for load-based autoscaling
+        /// </summary>
         [Input("upscaling")]
         public Input<Inputs.CustomLayerLoadBasedAutoScalingUpscalingArgs>? Upscaling { get; set; }
 

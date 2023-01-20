@@ -20,6 +20,10 @@ public final class GetConnectionsResult {
      * 
      */
     private String id;
+    /**
+     * @return IDs of the connections.
+     * 
+     */
     private List<String> ids;
     private @Nullable Map<String,String> tags;
 
@@ -37,6 +41,10 @@ public final class GetConnectionsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return IDs of the connections.
+     * 
+     */
     public List<String> ids() {
         return this.ids;
     }

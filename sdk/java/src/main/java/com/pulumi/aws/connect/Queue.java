@@ -18,59 +18,251 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Amazon Connect Queue resource. For more information see
+ * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
+ * 
+ * &gt; **NOTE:** Due to The behaviour of Amazon Connect you cannot delete queues.
+ * 
+ * ## Example Usage
+ * ### Basic
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.connect.Queue;
+ * import com.pulumi.aws.connect.QueueArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Queue(&#34;test&#34;, QueueArgs.builder()        
+ *             .description(&#34;Example Description&#34;)
+ *             .hoursOfOperationId(&#34;12345678-1234-1234-1234-123456789012&#34;)
+ *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;Example Queue&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### With Quick Connect IDs
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.connect.Queue;
+ * import com.pulumi.aws.connect.QueueArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Queue(&#34;test&#34;, QueueArgs.builder()        
+ *             .description(&#34;Example Description&#34;)
+ *             .hoursOfOperationId(&#34;12345678-1234-1234-1234-123456789012&#34;)
+ *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .quickConnectIds(&#34;12345678-abcd-1234-abcd-123456789012&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;Example Queue with Quick Connect IDs&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### With Outbound Caller Config
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.connect.Queue;
+ * import com.pulumi.aws.connect.QueueArgs;
+ * import com.pulumi.aws.connect.inputs.QueueOutboundCallerConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Queue(&#34;test&#34;, QueueArgs.builder()        
+ *             .description(&#34;Example Description&#34;)
+ *             .hoursOfOperationId(&#34;12345678-1234-1234-1234-123456789012&#34;)
+ *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .outboundCallerConfig(QueueOutboundCallerConfigArgs.builder()
+ *                 .outboundCallerIdName(&#34;example&#34;)
+ *                 .outboundCallerIdNumberId(&#34;12345678-abcd-1234-abcd-123456789012&#34;)
+ *                 .outboundFlowId(&#34;87654321-defg-1234-defg-987654321234&#34;)
+ *                 .build())
+ *             .tags(Map.of(&#34;Name&#34;, &#34;Example Queue with Outbound Caller Config&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Amazon Connect Queues can be imported using the `instance_id` and `queue_id` separated by a colon (`:`), e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+ * ```
+ * 
+ */
 @ResourceType(type="aws:connect/queue:Queue")
 public class Queue extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name (ARN) of the Queue.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the Queue.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Specifies the description of the Queue.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Specifies the description of the Queue.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Specifies the identifier of the Hours of Operation.
+     * 
+     */
     @Export(name="hoursOfOperationId", refs={String.class}, tree="[0]")
     private Output<String> hoursOfOperationId;
 
+    /**
+     * @return Specifies the identifier of the Hours of Operation.
+     * 
+     */
     public Output<String> hoursOfOperationId() {
         return this.hoursOfOperationId;
     }
+    /**
+     * Specifies the identifier of the hosting Amazon Connect Instance.
+     * 
+     */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
+    /**
+     * @return Specifies the identifier of the hosting Amazon Connect Instance.
+     * 
+     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
+    /**
+     * Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
+     * 
+     */
     @Export(name="maxContacts", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxContacts;
 
+    /**
+     * @return Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
+     * 
+     */
     public Output<Optional<Integer>> maxContacts() {
         return Codegen.optional(this.maxContacts);
     }
+    /**
+     * Specifies the name of the Queue.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Specifies the name of the Queue.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
+     * 
+     */
     @Export(name="outboundCallerConfig", refs={QueueOutboundCallerConfig.class}, tree="[0]")
     private Output</* @Nullable */ QueueOutboundCallerConfig> outboundCallerConfig;
 
+    /**
+     * @return A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
+     * 
+     */
     public Output<Optional<QueueOutboundCallerConfig>> outboundCallerConfig() {
         return Codegen.optional(this.outboundCallerConfig);
     }
+    /**
+     * The identifier for the Queue.
+     * 
+     */
     @Export(name="queueId", refs={String.class}, tree="[0]")
     private Output<String> queueId;
 
+    /**
+     * @return The identifier for the Queue.
+     * 
+     */
     public Output<String> queueId() {
         return this.queueId;
     }
+    /**
+     * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+     * 
+     */
     @Export(name="quickConnectIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> quickConnectIds;
 
+    /**
+     * @return Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+     * 
+     */
     public Output<Optional<List<String>>> quickConnectIds() {
         return Codegen.optional(this.quickConnectIds);
     }
@@ -80,21 +272,45 @@ public class Queue extends com.pulumi.resources.CustomResource {
     public Output<List<String>> quickConnectIdsAssociateds() {
         return this.quickConnectIdsAssociateds;
     }
+    /**
+     * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }
+    /**
+     * Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

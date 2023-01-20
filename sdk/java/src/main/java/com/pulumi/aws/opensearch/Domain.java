@@ -27,131 +27,712 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages an Amazon OpenSearch Domain.
+ * 
+ * ## Elasticsearch vs. OpenSearch
+ * 
+ * Amazon OpenSearch Service is the successor to Amazon Elasticsearch Service and supports OpenSearch and legacy Elasticsearch OSS (up to 7.10, the final open source version of the software).
+ * 
+ * OpenSearch Domain configurations are similar in many ways to Elasticsearch Domain configurations. However, there are important differences including these:
+ * 
+ * * OpenSearch has `engine_version` while Elasticsearch has `elasticsearch_version`
+ * * Versions are specified differently - _e.g._, `Elasticsearch_7.10` with OpenSearch vs. `7.10` for Elasticsearch.
+ * * `instance_type` argument values end in `search` for OpenSearch vs. `elasticsearch` for Elasticsearch (_e.g._, `t2.micro.search` vs. `t2.micro.elasticsearch`).
+ * * The AWS-managed service-linked role for OpenSearch is called `AWSServiceRoleForAmazonOpenSearchService` instead of `AWSServiceRoleForAmazonElasticsearchService` for Elasticsearch.
+ * 
+ * There are also some potentially unexpected similarities in configurations:
+ * 
+ * * ARNs for both are prefaced with `arn:aws:es:`.
+ * * Both OpenSearch and Elasticsearch use assume role policies that refer to the `Principal` `Service` as `es.amazonaws.com`.
+ * * IAM policy actions, such as those you will find in `access_policies`, are prefaced with `es:` for both.
+ * 
+ * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.opensearch.Domain;
+ * import com.pulumi.aws.opensearch.DomainArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+ *             .clusterConfig(DomainClusterConfigArgs.builder()
+ *                 .instanceType(&#34;r4.large.search&#34;)
+ *                 .build())
+ *             .engineVersion(&#34;Elasticsearch_7.10&#34;)
+ *             .tags(Map.of(&#34;Domain&#34;, &#34;TestDomain&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Access Policy
+ * 
+ * &gt; See also: `aws.opensearch.DomainPolicy` resource
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.opensearch.Domain;
+ * import com.pulumi.aws.opensearch.DomainArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var config = ctx.config();
+ *         final var domain = config.get(&#34;domain&#34;).orElse(&#34;tf-test&#34;);
+ *         final var currentRegion = AwsFunctions.getRegion();
+ * 
+ *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ * 
+ *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+ *             .accessPolicies(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Action&#34;: &#34;es:*&#34;,
+ *       &#34;Principal&#34;: &#34;*&#34;,
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Resource&#34;: &#34;arn:aws:es:%s:%s:domain/%s/*&#34;,
+ *       &#34;Condition&#34;: {
+ *         &#34;IpAddress&#34;: {&#34;aws:SourceIp&#34;: [&#34;66.193.100.22/32&#34;]}
+ *       }
+ *     }
+ *   ]
+ * }
+ * &#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),domain))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Log publishing to CloudWatch Logs
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogResourcePolicy;
+ * import com.pulumi.aws.cloudwatch.LogResourcePolicyArgs;
+ * import com.pulumi.aws.opensearch.Domain;
+ * import com.pulumi.aws.opensearch.DomainArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainLogPublishingOptionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
+ * 
+ *         var exampleLogResourcePolicy = new LogResourcePolicy(&#34;exampleLogResourcePolicy&#34;, LogResourcePolicyArgs.builder()        
+ *             .policyName(&#34;example&#34;)
+ *             .policyDocument(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Principal&#34;: {
+ *         &#34;Service&#34;: &#34;es.amazonaws.com&#34;
+ *       },
+ *       &#34;Action&#34;: [
+ *         &#34;logs:PutLogEvents&#34;,
+ *         &#34;logs:PutLogEventsBatch&#34;,
+ *         &#34;logs:CreateLogStream&#34;
+ *       ],
+ *       &#34;Resource&#34;: &#34;arn:aws:logs:*&#34;
+ *     }
+ *   ]
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
+ *             .logPublishingOptions(DomainLogPublishingOptionArgs.builder()
+ *                 .cloudwatchLogGroupArn(exampleLogGroup.arn())
+ *                 .logType(&#34;INDEX_SLOW_LOGS&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### VPC based OpenSearch
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.ec2.inputs.GetVpcArgs;
+ * import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+ * import com.pulumi.aws.iam.ServiceLinkedRole;
+ * import com.pulumi.aws.iam.ServiceLinkedRoleArgs;
+ * import com.pulumi.aws.opensearch.Domain;
+ * import com.pulumi.aws.opensearch.DomainArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainVpcOptionsArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var config = ctx.config();
+ *         final var vpc = config.get(&#34;vpc&#34;);
+ *         final var domain = config.get(&#34;domain&#34;).orElse(&#34;tf-test&#34;);
+ *         final var exampleVpc = Ec2Functions.getVpc(GetVpcArgs.builder()
+ *             .tags(Map.of(&#34;Name&#34;, vpc))
+ *             .build());
+ * 
+ *         final var exampleSubnetIds = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
+ *             .vpcId(exampleVpc.applyValue(getVpcResult -&gt; getVpcResult.id()))
+ *             .tags(Map.of(&#34;Tier&#34;, &#34;private&#34;))
+ *             .build());
+ * 
+ *         final var currentRegion = AwsFunctions.getRegion();
+ * 
+ *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ * 
+ *         var exampleSecurityGroup = new SecurityGroup(&#34;exampleSecurityGroup&#34;, SecurityGroupArgs.builder()        
+ *             .description(&#34;Managed by Pulumi&#34;)
+ *             .vpcId(exampleVpc.applyValue(getVpcResult -&gt; getVpcResult.id()))
+ *             .ingress(SecurityGroupIngressArgs.builder()
+ *                 .fromPort(443)
+ *                 .toPort(443)
+ *                 .protocol(&#34;tcp&#34;)
+ *                 .cidrBlocks(exampleVpc.applyValue(getVpcResult -&gt; getVpcResult.cidrBlock()))
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleServiceLinkedRole = new ServiceLinkedRole(&#34;exampleServiceLinkedRole&#34;, ServiceLinkedRoleArgs.builder()        
+ *             .awsServiceName(&#34;opensearchservice.amazonaws.com&#34;)
+ *             .build());
+ * 
+ *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
+ *             .engineVersion(&#34;OpenSearch_1.0&#34;)
+ *             .clusterConfig(DomainClusterConfigArgs.builder()
+ *                 .instanceType(&#34;m4.large.search&#34;)
+ *                 .zoneAwarenessEnabled(true)
+ *                 .build())
+ *             .vpcOptions(DomainVpcOptionsArgs.builder()
+ *                 .subnetIds(                
+ *                     exampleSubnetIds.applyValue(getSubnetIdsResult -&gt; getSubnetIdsResult.ids()[0]),
+ *                     exampleSubnetIds.applyValue(getSubnetIdsResult -&gt; getSubnetIdsResult.ids()[1]))
+ *                 .securityGroupIds(exampleSecurityGroup.id())
+ *                 .build())
+ *             .advancedOptions(Map.of(&#34;rest.action.multi.allow_explicit_index&#34;, &#34;true&#34;))
+ *             .accessPolicies(&#34;&#34;&#34;
+ * {
+ * 	&#34;Version&#34;: &#34;2012-10-17&#34;,
+ * 	&#34;Statement&#34;: [
+ * 		{
+ * 			&#34;Action&#34;: &#34;es:*&#34;,
+ * 			&#34;Principal&#34;: &#34;*&#34;,
+ * 			&#34;Effect&#34;: &#34;Allow&#34;,
+ * 			&#34;Resource&#34;: &#34;arn:aws:es:%s:%s:domain/%s/*&#34;
+ * 		}
+ * 	]
+ * }
+ * &#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),domain))
+ *             .tags(Map.of(&#34;Domain&#34;, &#34;TestDomain&#34;))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleServiceLinkedRole)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Enabling fine-grained access control on an existing domain
+ * 
+ * This example shows two configurations: one to create a domain without fine-grained access control and the second to modify the domain to enable fine-grained access control. For more information, see [Enabling fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html).
+ * ### First apply
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.opensearch.Domain;
+ * import com.pulumi.aws.opensearch.DomainArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainAdvancedSecurityOptionsArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainDomainEndpointOptionsArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainEbsOptionsArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainEncryptAtRestArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainNodeToNodeEncryptionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+ *             .advancedSecurityOptions(DomainAdvancedSecurityOptionsArgs.builder()
+ *                 .anonymousAuthEnabled(true)
+ *                 .enabled(false)
+ *                 .internalUserDatabaseEnabled(true)
+ *                 .masterUserOptions(DomainAdvancedSecurityOptionsMasterUserOptionsArgs.builder()
+ *                     .masterUserName(&#34;example&#34;)
+ *                     .masterUserPassword(&#34;Barbarbarbar1!&#34;)
+ *                     .build())
+ *                 .build())
+ *             .clusterConfig(DomainClusterConfigArgs.builder()
+ *                 .instanceType(&#34;r5.large.search&#34;)
+ *                 .build())
+ *             .domainEndpointOptions(DomainDomainEndpointOptionsArgs.builder()
+ *                 .enforceHttps(true)
+ *                 .tlsSecurityPolicy(&#34;Policy-Min-TLS-1-2-2019-07&#34;)
+ *                 .build())
+ *             .ebsOptions(DomainEbsOptionsArgs.builder()
+ *                 .ebsEnabled(true)
+ *                 .volumeSize(10)
+ *                 .build())
+ *             .encryptAtRest(DomainEncryptAtRestArgs.builder()
+ *                 .enabled(true)
+ *                 .build())
+ *             .engineVersion(&#34;Elasticsearch_7.1&#34;)
+ *             .nodeToNodeEncryption(DomainNodeToNodeEncryptionArgs.builder()
+ *                 .enabled(true)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Second apply
+ * 
+ * Notice that the only change is `advanced_security_options.0.enabled` is now set to `true`.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.opensearch.Domain;
+ * import com.pulumi.aws.opensearch.DomainArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainAdvancedSecurityOptionsArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainDomainEndpointOptionsArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainEbsOptionsArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainEncryptAtRestArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainNodeToNodeEncryptionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+ *             .advancedSecurityOptions(DomainAdvancedSecurityOptionsArgs.builder()
+ *                 .anonymousAuthEnabled(true)
+ *                 .enabled(true)
+ *                 .internalUserDatabaseEnabled(true)
+ *                 .masterUserOptions(DomainAdvancedSecurityOptionsMasterUserOptionsArgs.builder()
+ *                     .masterUserName(&#34;example&#34;)
+ *                     .masterUserPassword(&#34;Barbarbarbar1!&#34;)
+ *                     .build())
+ *                 .build())
+ *             .clusterConfig(DomainClusterConfigArgs.builder()
+ *                 .instanceType(&#34;r5.large.search&#34;)
+ *                 .build())
+ *             .domainEndpointOptions(DomainDomainEndpointOptionsArgs.builder()
+ *                 .enforceHttps(true)
+ *                 .tlsSecurityPolicy(&#34;Policy-Min-TLS-1-2-2019-07&#34;)
+ *                 .build())
+ *             .ebsOptions(DomainEbsOptionsArgs.builder()
+ *                 .ebsEnabled(true)
+ *                 .volumeSize(10)
+ *                 .build())
+ *             .encryptAtRest(DomainEncryptAtRestArgs.builder()
+ *                 .enabled(true)
+ *                 .build())
+ *             .engineVersion(&#34;Elasticsearch_7.1&#34;)
+ *             .nodeToNodeEncryption(DomainNodeToNodeEncryptionArgs.builder()
+ *                 .enabled(true)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * OpenSearch domains can be imported using the `domain_name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:opensearch/domain:Domain example domain_name
+ * ```
+ * 
+ */
 @ResourceType(type="aws:opensearch/domain:Domain")
 public class Domain extends com.pulumi.resources.CustomResource {
+    /**
+     * IAM policy document specifying the access policies for the domain.
+     * 
+     */
     @Export(name="accessPolicies", refs={String.class}, tree="[0]")
     private Output<String> accessPolicies;
 
+    /**
+     * @return IAM policy document specifying the access policies for the domain.
+     * 
+     */
     public Output<String> accessPolicies() {
         return this.accessPolicies;
     }
+    /**
+     * Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
+     * 
+     */
     @Export(name="advancedOptions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> advancedOptions;
 
+    /**
+     * @return Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
+     * 
+     */
     public Output<Map<String,String>> advancedOptions() {
         return this.advancedOptions;
     }
+    /**
+     * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
+     * 
+     */
     @Export(name="advancedSecurityOptions", refs={DomainAdvancedSecurityOptions.class}, tree="[0]")
     private Output<DomainAdvancedSecurityOptions> advancedSecurityOptions;
 
+    /**
+     * @return Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
+     * 
+     */
     public Output<DomainAdvancedSecurityOptions> advancedSecurityOptions() {
         return this.advancedSecurityOptions;
     }
+    /**
+     * ARN of the domain.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the domain.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Configuration block for the Auto-Tune options of the domain. Detailed below.
+     * 
+     */
     @Export(name="autoTuneOptions", refs={DomainAutoTuneOptions.class}, tree="[0]")
     private Output<DomainAutoTuneOptions> autoTuneOptions;
 
+    /**
+     * @return Configuration block for the Auto-Tune options of the domain. Detailed below.
+     * 
+     */
     public Output<DomainAutoTuneOptions> autoTuneOptions() {
         return this.autoTuneOptions;
     }
+    /**
+     * Configuration block for the cluster of the domain. Detailed below.
+     * 
+     */
     @Export(name="clusterConfig", refs={DomainClusterConfig.class}, tree="[0]")
     private Output<DomainClusterConfig> clusterConfig;
 
+    /**
+     * @return Configuration block for the cluster of the domain. Detailed below.
+     * 
+     */
     public Output<DomainClusterConfig> clusterConfig() {
         return this.clusterConfig;
     }
+    /**
+     * Configuration block for authenticating Kibana with Cognito. Detailed below.
+     * 
+     */
     @Export(name="cognitoOptions", refs={DomainCognitoOptions.class}, tree="[0]")
     private Output</* @Nullable */ DomainCognitoOptions> cognitoOptions;
 
+    /**
+     * @return Configuration block for authenticating Kibana with Cognito. Detailed below.
+     * 
+     */
     public Output<Optional<DomainCognitoOptions>> cognitoOptions() {
         return Codegen.optional(this.cognitoOptions);
     }
+    /**
+     * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
+     * 
+     */
     @Export(name="domainEndpointOptions", refs={DomainDomainEndpointOptions.class}, tree="[0]")
     private Output<DomainDomainEndpointOptions> domainEndpointOptions;
 
+    /**
+     * @return Configuration block for domain endpoint HTTP(S) related options. Detailed below.
+     * 
+     */
     public Output<DomainDomainEndpointOptions> domainEndpointOptions() {
         return this.domainEndpointOptions;
     }
+    /**
+     * Unique identifier for the domain.
+     * 
+     */
     @Export(name="domainId", refs={String.class}, tree="[0]")
     private Output<String> domainId;
 
+    /**
+     * @return Unique identifier for the domain.
+     * 
+     */
     public Output<String> domainId() {
         return this.domainId;
     }
+    /**
+     * Name of the domain.
+     * 
+     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
+    /**
+     * @return Name of the domain.
+     * 
+     */
     public Output<String> domainName() {
         return this.domainName;
     }
+    /**
+     * Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
+     * 
+     */
     @Export(name="ebsOptions", refs={DomainEbsOptions.class}, tree="[0]")
     private Output<DomainEbsOptions> ebsOptions;
 
+    /**
+     * @return Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
+     * 
+     */
     public Output<DomainEbsOptions> ebsOptions() {
         return this.ebsOptions;
     }
+    /**
+     * Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
+     * 
+     */
     @Export(name="encryptAtRest", refs={DomainEncryptAtRest.class}, tree="[0]")
     private Output<DomainEncryptAtRest> encryptAtRest;
 
+    /**
+     * @return Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
+     * 
+     */
     public Output<DomainEncryptAtRest> encryptAtRest() {
         return this.encryptAtRest;
     }
+    /**
+     * Domain-specific endpoint used to submit index, search, and data upload requests.
+     * 
+     */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
+    /**
+     * @return Domain-specific endpoint used to submit index, search, and data upload requests.
+     * 
+     */
     public Output<String> endpoint() {
         return this.endpoint;
     }
+    /**
+     * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+     * 
+     */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> engineVersion;
 
+    /**
+     * @return Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+     * 
+     */
     public Output<Optional<String>> engineVersion() {
         return Codegen.optional(this.engineVersion);
     }
+    /**
+     * Domain-specific endpoint for kibana without https scheme.
+     * 
+     */
     @Export(name="kibanaEndpoint", refs={String.class}, tree="[0]")
     private Output<String> kibanaEndpoint;
 
+    /**
+     * @return Domain-specific endpoint for kibana without https scheme.
+     * 
+     */
     public Output<String> kibanaEndpoint() {
         return this.kibanaEndpoint;
     }
+    /**
+     * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
+     * 
+     */
     @Export(name="logPublishingOptions", refs={List.class,DomainLogPublishingOption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DomainLogPublishingOption>> logPublishingOptions;
 
+    /**
+     * @return Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
+     * 
+     */
     public Output<Optional<List<DomainLogPublishingOption>>> logPublishingOptions() {
         return Codegen.optional(this.logPublishingOptions);
     }
+    /**
+     * Configuration block for node-to-node encryption options. Detailed below.
+     * 
+     */
     @Export(name="nodeToNodeEncryption", refs={DomainNodeToNodeEncryption.class}, tree="[0]")
     private Output<DomainNodeToNodeEncryption> nodeToNodeEncryption;
 
+    /**
+     * @return Configuration block for node-to-node encryption options. Detailed below.
+     * 
+     */
     public Output<DomainNodeToNodeEncryption> nodeToNodeEncryption() {
         return this.nodeToNodeEncryption;
     }
+    /**
+     * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
+     * 
+     */
     @Export(name="snapshotOptions", refs={DomainSnapshotOptions.class}, tree="[0]")
     private Output</* @Nullable */ DomainSnapshotOptions> snapshotOptions;
 
+    /**
+     * @return Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
+     * 
+     */
     public Output<Optional<DomainSnapshotOptions>> snapshotOptions() {
         return Codegen.optional(this.snapshotOptions);
     }
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+     * * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+     * * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
+     * 
+     */
     @Export(name="vpcOptions", refs={DomainVpcOptions.class}, tree="[0]")
     private Output</* @Nullable */ DomainVpcOptions> vpcOptions;
 
+    /**
+     * @return Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
+     * 
+     */
     public Output<Optional<DomainVpcOptions>> vpcOptions() {
         return Codegen.optional(this.vpcOptions);
     }

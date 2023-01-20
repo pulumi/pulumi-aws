@@ -15,29 +15,159 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages a Glacier Vault Lock. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html) for a full explanation of the Glacier Vault Lock functionality.
+ * 
+ * &gt; **NOTE:** This resource allows you to test Glacier Vault Lock policies by setting the `complete_lock` argument to `false`. When testing policies in this manner, the Glacier Vault Lock automatically expires after 24 hours and this provider will show this resource as needing recreation after that time. To permanently apply the policy, set the `complete_lock` argument to `true`. When changing `complete_lock` to `true`, it is expected the resource will show as recreating.
+ * 
+ * !&gt; **WARNING:** Once a Glacier Vault Lock is completed, it is immutable. The deletion of the Glacier Vault Lock is not be possible and attempting to remove it from this provider will return an error. Set the `ignore_deletion_error` argument to `true` and apply this configuration before attempting to delete this resource via this provider or remove this resource from this provider&#39;s management.
+ * 
+ * ## Example Usage
+ * ### Testing Glacier Vault Lock Policy
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glacier.Vault;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.glacier.VaultLock;
+ * import com.pulumi.aws.glacier.VaultLockArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleVault = new Vault(&#34;exampleVault&#34;);
+ * 
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions(&#34;glacier:DeleteArchive&#34;)
+ *                 .effect(&#34;Deny&#34;)
+ *                 .resources(exampleVault.arn())
+ *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                     .test(&#34;NumericLessThanEquals&#34;)
+ *                     .variable(&#34;glacier:ArchiveAgeinDays&#34;)
+ *                     .values(&#34;365&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleVaultLock = new VaultLock(&#34;exampleVaultLock&#34;, VaultLockArgs.builder()        
+ *             .completeLock(false)
+ *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .vaultName(exampleVault.name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Permanently Applying Glacier Vault Lock Policy
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glacier.VaultLock;
+ * import com.pulumi.aws.glacier.VaultLockArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new VaultLock(&#34;example&#34;, VaultLockArgs.builder()        
+ *             .completeLock(true)
+ *             .policy(data.aws_iam_policy_document().example().json())
+ *             .vaultName(aws_glacier_vault.example().name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Glacier Vault Locks can be imported using the Glacier Vault name, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
+ * ```
+ * 
+ */
 @ResourceType(type="aws:glacier/vaultLock:VaultLock")
 public class VaultLock extends com.pulumi.resources.CustomResource {
+    /**
+     * Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
+     * 
+     */
     @Export(name="completeLock", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> completeLock;
 
+    /**
+     * @return Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
+     * 
+     */
     public Output<Boolean> completeLock() {
         return this.completeLock;
     }
+    /**
+     * Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
+     * 
+     */
     @Export(name="ignoreDeletionError", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreDeletionError;
 
+    /**
+     * @return Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
+     * 
+     */
     public Output<Optional<Boolean>> ignoreDeletionError() {
         return Codegen.optional(this.ignoreDeletionError);
     }
+    /**
+     * JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
+     * 
+     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
+    /**
+     * @return JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
+     * 
+     */
     public Output<String> policy() {
         return this.policy;
     }
+    /**
+     * The name of the Glacier Vault.
+     * 
+     */
     @Export(name="vaultName", refs={String.class}, tree="[0]")
     private Output<String> vaultName;
 
+    /**
+     * @return The name of the Glacier Vault.
+     * 
+     */
     public Output<String> vaultName() {
         return this.vaultName;
     }

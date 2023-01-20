@@ -14,29 +14,136 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an IAM role inline policy.
+ * 
+ * &gt; **NOTE:** For a given role, this resource is incompatible with using the `aws.iam.Role` resource `inline_policy` argument. When using that argument and this resource, both will attempt to manage the role&#39;s inline policies and the provider will show a permanent difference.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
+ *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
+ *                         jsonProperty(&#34;Principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;Service&#34;, &#34;ec2.amazonaws.com&#34;)
+ *                         ))
+ *                     )))
+ *                 )))
+ *             .build());
+ * 
+ *         var testPolicy = new RolePolicy(&#34;testPolicy&#34;, RolePolicyArgs.builder()        
+ *             .role(testRole.id())
+ *             .policy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;ec2:Describe*&#34;)),
+ *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;)
+ *                     )))
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * IAM Role Policies can be imported using the `role_name:role_policy_name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name
+ * ```
+ * 
+ */
 @ResourceType(type="aws:iam/rolePolicy:RolePolicy")
 public class RolePolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * The name of the role policy. If omitted, this provider will
+     * assign a random, unique name.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the role policy. If omitted, this provider will
+     * assign a random, unique name.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     * 
+     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> namePrefix;
 
+    /**
+     * @return Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     * 
+     */
     public Output<Optional<String>> namePrefix() {
         return Codegen.optional(this.namePrefix);
     }
+    /**
+     * The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+     * 
+     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
+    /**
+     * @return The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+     * 
+     */
     public Output<String> policy() {
         return this.policy;
     }
+    /**
+     * The name of the IAM role to attach to the policy.
+     * 
+     */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
+    /**
+     * @return The name of the IAM role to attach to the policy.
+     * 
+     */
     public Output<String> role() {
         return this.role;
     }

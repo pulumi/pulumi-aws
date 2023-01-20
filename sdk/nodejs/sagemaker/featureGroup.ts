@@ -7,6 +7,40 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a SageMaker Feature Group resource.
+ *
+ * ## Example Usage
+ *
+ * Basic usage:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.sagemaker.FeatureGroup("example", {
+ *     featureGroupName: "example",
+ *     recordIdentifierFeatureName: "example",
+ *     eventTimeFeatureName: "example",
+ *     roleArn: aws_iam_role.test.arn,
+ *     featureDefinitions: [{
+ *         featureName: "example",
+ *         featureType: "String",
+ *     }],
+ *     onlineStoreConfig: {
+ *         enableOnlineStore: true,
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Feature Groups can be imported using the `name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
+ * ```
+ */
 export class FeatureGroup extends pulumi.CustomResource {
     /**
      * Get an existing FeatureGroup resource's state with the given name, ID, and optional extra
@@ -35,16 +69,49 @@ export class FeatureGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === FeatureGroup.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A free-form description of a Feature Group.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the feature that stores the EventTime of a Record in a Feature Group.
+     */
     public readonly eventTimeFeatureName!: pulumi.Output<string>;
+    /**
+     * A list of Feature names and types. See Feature Definition Below.
+     */
     public readonly featureDefinitions!: pulumi.Output<outputs.sagemaker.FeatureGroupFeatureDefinition[]>;
+    /**
+     * The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
+     */
     public readonly featureGroupName!: pulumi.Output<string>;
+    /**
+     * The Offline Feature Store Configuration. See Offline Store Config Below.
+     */
     public readonly offlineStoreConfig!: pulumi.Output<outputs.sagemaker.FeatureGroupOfflineStoreConfig | undefined>;
+    /**
+     * The Online Feature Store Configuration. See Online Store Config Below.
+     */
     public readonly onlineStoreConfig!: pulumi.Output<outputs.sagemaker.FeatureGroupOnlineStoreConfig | undefined>;
+    /**
+     * The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
+     */
     public readonly recordIdentifierFeatureName!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+     */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -109,16 +176,49 @@ export class FeatureGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FeatureGroup resources.
  */
 export interface FeatureGroupState {
+    /**
+     * The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * A free-form description of a Feature Group.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the feature that stores the EventTime of a Record in a Feature Group.
+     */
     eventTimeFeatureName?: pulumi.Input<string>;
+    /**
+     * A list of Feature names and types. See Feature Definition Below.
+     */
     featureDefinitions?: pulumi.Input<pulumi.Input<inputs.sagemaker.FeatureGroupFeatureDefinition>[]>;
+    /**
+     * The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
+     */
     featureGroupName?: pulumi.Input<string>;
+    /**
+     * The Offline Feature Store Configuration. See Offline Store Config Below.
+     */
     offlineStoreConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOfflineStoreConfig>;
+    /**
+     * The Online Feature Store Configuration. See Online Store Config Below.
+     */
     onlineStoreConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOnlineStoreConfig>;
+    /**
+     * The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
+     */
     recordIdentifierFeatureName?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -126,13 +226,40 @@ export interface FeatureGroupState {
  * The set of arguments for constructing a FeatureGroup resource.
  */
 export interface FeatureGroupArgs {
+    /**
+     * A free-form description of a Feature Group.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the feature that stores the EventTime of a Record in a Feature Group.
+     */
     eventTimeFeatureName: pulumi.Input<string>;
+    /**
+     * A list of Feature names and types. See Feature Definition Below.
+     */
     featureDefinitions: pulumi.Input<pulumi.Input<inputs.sagemaker.FeatureGroupFeatureDefinition>[]>;
+    /**
+     * The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
+     */
     featureGroupName: pulumi.Input<string>;
+    /**
+     * The Offline Feature Store Configuration. See Offline Store Config Below.
+     */
     offlineStoreConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOfflineStoreConfig>;
+    /**
+     * The Online Feature Store Configuration. See Online Store Config Below.
+     */
     onlineStoreConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOnlineStoreConfig>;
+    /**
+     * The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
+     */
     recordIdentifierFeatureName: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+     */
     roleArn: pulumi.Input<string>;
+    /**
+     * Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

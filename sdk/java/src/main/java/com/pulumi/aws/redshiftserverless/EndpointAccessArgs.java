@@ -16,30 +16,62 @@ public final class EndpointAccessArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final EndpointAccessArgs Empty = new EndpointAccessArgs();
 
+    /**
+     * The name of the endpoint.
+     * 
+     */
     @Import(name="endpointName", required=true)
     private Output<String> endpointName;
 
+    /**
+     * @return The name of the endpoint.
+     * 
+     */
     public Output<String> endpointName() {
         return this.endpointName;
     }
 
+    /**
+     * An array of VPC subnet IDs to associate with the endpoint.
+     * 
+     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
+    /**
+     * @return An array of VPC subnet IDs to associate with the endpoint.
+     * 
+     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
 
+    /**
+     * An array of security group IDs to associate with the workgroup.
+     * 
+     */
     @Import(name="vpcSecurityGroupIds")
     private @Nullable Output<List<String>> vpcSecurityGroupIds;
 
+    /**
+     * @return An array of security group IDs to associate with the workgroup.
+     * 
+     */
     public Optional<Output<List<String>>> vpcSecurityGroupIds() {
         return Optional.ofNullable(this.vpcSecurityGroupIds);
     }
 
+    /**
+     * The name of the workgroup.
+     * 
+     */
     @Import(name="workgroupName", required=true)
     private Output<String> workgroupName;
 
+    /**
+     * @return The name of the workgroup.
+     * 
+     */
     public Output<String> workgroupName() {
         return this.workgroupName;
     }
@@ -71,46 +103,106 @@ public final class EndpointAccessArgs extends com.pulumi.resources.ResourceArgs 
             $ = new EndpointAccessArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param endpointName The name of the endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpointName(Output<String> endpointName) {
             $.endpointName = endpointName;
             return this;
         }
 
+        /**
+         * @param endpointName The name of the endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpointName(String endpointName) {
             return endpointName(Output.of(endpointName));
         }
 
+        /**
+         * @param subnetIds An array of VPC subnet IDs to associate with the endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
+        /**
+         * @param subnetIds An array of VPC subnet IDs to associate with the endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
+        /**
+         * @param subnetIds An array of VPC subnet IDs to associate with the endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
+        /**
+         * @param vpcSecurityGroupIds An array of security group IDs to associate with the workgroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcSecurityGroupIds(@Nullable Output<List<String>> vpcSecurityGroupIds) {
             $.vpcSecurityGroupIds = vpcSecurityGroupIds;
             return this;
         }
 
+        /**
+         * @param vpcSecurityGroupIds An array of security group IDs to associate with the workgroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcSecurityGroupIds(List<String> vpcSecurityGroupIds) {
             return vpcSecurityGroupIds(Output.of(vpcSecurityGroupIds));
         }
 
+        /**
+         * @param vpcSecurityGroupIds An array of security group IDs to associate with the workgroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcSecurityGroupIds(String... vpcSecurityGroupIds) {
             return vpcSecurityGroupIds(List.of(vpcSecurityGroupIds));
         }
 
+        /**
+         * @param workgroupName The name of the workgroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workgroupName(Output<String> workgroupName) {
             $.workgroupName = workgroupName;
             return this;
         }
 
+        /**
+         * @param workgroupName The name of the workgroup.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workgroupName(String workgroupName) {
             return workgroupName(Output.of(workgroupName));
         }

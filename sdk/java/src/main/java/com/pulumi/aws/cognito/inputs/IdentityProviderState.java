@@ -17,44 +17,92 @@ public final class IdentityProviderState extends com.pulumi.resources.ResourceAr
 
     public static final IdentityProviderState Empty = new IdentityProviderState();
 
+    /**
+     * The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
+     * 
+     */
     @Import(name="attributeMapping")
     private @Nullable Output<Map<String,String>> attributeMapping;
 
+    /**
+     * @return The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
+     * 
+     */
     public Optional<Output<Map<String,String>>> attributeMapping() {
         return Optional.ofNullable(this.attributeMapping);
     }
 
+    /**
+     * The list of identity providers.
+     * 
+     */
     @Import(name="idpIdentifiers")
     private @Nullable Output<List<String>> idpIdentifiers;
 
+    /**
+     * @return The list of identity providers.
+     * 
+     */
     public Optional<Output<List<String>>> idpIdentifiers() {
         return Optional.ofNullable(this.idpIdentifiers);
     }
 
+    /**
+     * The map of identity details, such as access token
+     * 
+     */
     @Import(name="providerDetails")
     private @Nullable Output<Map<String,String>> providerDetails;
 
+    /**
+     * @return The map of identity details, such as access token
+     * 
+     */
     public Optional<Output<Map<String,String>>> providerDetails() {
         return Optional.ofNullable(this.providerDetails);
     }
 
+    /**
+     * The provider name
+     * 
+     */
     @Import(name="providerName")
     private @Nullable Output<String> providerName;
 
+    /**
+     * @return The provider name
+     * 
+     */
     public Optional<Output<String>> providerName() {
         return Optional.ofNullable(this.providerName);
     }
 
+    /**
+     * The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
+     * 
+     */
     @Import(name="providerType")
     private @Nullable Output<String> providerType;
 
+    /**
+     * @return The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
+     * 
+     */
     public Optional<Output<String>> providerType() {
         return Optional.ofNullable(this.providerType);
     }
 
+    /**
+     * The user pool id
+     * 
+     */
     @Import(name="userPoolId")
     private @Nullable Output<String> userPoolId;
 
+    /**
+     * @return The user pool id
+     * 
+     */
     public Optional<Output<String>> userPoolId() {
         return Optional.ofNullable(this.userPoolId);
     }
@@ -88,60 +136,138 @@ public final class IdentityProviderState extends com.pulumi.resources.ResourceAr
             $ = new IdentityProviderState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param attributeMapping The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
+         * 
+         * @return builder
+         * 
+         */
         public Builder attributeMapping(@Nullable Output<Map<String,String>> attributeMapping) {
             $.attributeMapping = attributeMapping;
             return this;
         }
 
+        /**
+         * @param attributeMapping The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
+         * 
+         * @return builder
+         * 
+         */
         public Builder attributeMapping(Map<String,String> attributeMapping) {
             return attributeMapping(Output.of(attributeMapping));
         }
 
+        /**
+         * @param idpIdentifiers The list of identity providers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder idpIdentifiers(@Nullable Output<List<String>> idpIdentifiers) {
             $.idpIdentifiers = idpIdentifiers;
             return this;
         }
 
+        /**
+         * @param idpIdentifiers The list of identity providers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder idpIdentifiers(List<String> idpIdentifiers) {
             return idpIdentifiers(Output.of(idpIdentifiers));
         }
 
+        /**
+         * @param idpIdentifiers The list of identity providers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder idpIdentifiers(String... idpIdentifiers) {
             return idpIdentifiers(List.of(idpIdentifiers));
         }
 
+        /**
+         * @param providerDetails The map of identity details, such as access token
+         * 
+         * @return builder
+         * 
+         */
         public Builder providerDetails(@Nullable Output<Map<String,String>> providerDetails) {
             $.providerDetails = providerDetails;
             return this;
         }
 
+        /**
+         * @param providerDetails The map of identity details, such as access token
+         * 
+         * @return builder
+         * 
+         */
         public Builder providerDetails(Map<String,String> providerDetails) {
             return providerDetails(Output.of(providerDetails));
         }
 
+        /**
+         * @param providerName The provider name
+         * 
+         * @return builder
+         * 
+         */
         public Builder providerName(@Nullable Output<String> providerName) {
             $.providerName = providerName;
             return this;
         }
 
+        /**
+         * @param providerName The provider name
+         * 
+         * @return builder
+         * 
+         */
         public Builder providerName(String providerName) {
             return providerName(Output.of(providerName));
         }
 
+        /**
+         * @param providerType The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
+         * 
+         * @return builder
+         * 
+         */
         public Builder providerType(@Nullable Output<String> providerType) {
             $.providerType = providerType;
             return this;
         }
 
+        /**
+         * @param providerType The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
+         * 
+         * @return builder
+         * 
+         */
         public Builder providerType(String providerType) {
             return providerType(Output.of(providerType));
         }
 
+        /**
+         * @param userPoolId The user pool id
+         * 
+         * @return builder
+         * 
+         */
         public Builder userPoolId(@Nullable Output<String> userPoolId) {
             $.userPoolId = userPoolId;
             return this;
         }
 
+        /**
+         * @param userPoolId The user pool id
+         * 
+         * @return builder
+         * 
+         */
         public Builder userPoolId(String userPoolId) {
             return userPoolId(Output.of(userPoolId));
         }

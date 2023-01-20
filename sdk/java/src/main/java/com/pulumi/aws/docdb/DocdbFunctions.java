@@ -17,39 +17,483 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class DocdbFunctions {
+    /**
+     * Information about a DocumentDB engine version.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.docdb.DocdbFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DocdbFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *             .version(&#34;3.6.0&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetEngineVersionResult> getEngineVersion() {
         return getEngineVersion(GetEngineVersionArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Information about a DocumentDB engine version.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.docdb.DocdbFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DocdbFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *             .version(&#34;3.6.0&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetEngineVersionResult> getEngineVersionPlain() {
         return getEngineVersionPlain(GetEngineVersionPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Information about a DocumentDB engine version.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.docdb.DocdbFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DocdbFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *             .version(&#34;3.6.0&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetEngineVersionResult> getEngineVersion(GetEngineVersionArgs args) {
         return getEngineVersion(args, InvokeOptions.Empty);
     }
+    /**
+     * Information about a DocumentDB engine version.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.docdb.DocdbFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DocdbFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *             .version(&#34;3.6.0&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetEngineVersionResult> getEngineVersionPlain(GetEngineVersionPlainArgs args) {
         return getEngineVersionPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Information about a DocumentDB engine version.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.docdb.DocdbFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DocdbFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *             .version(&#34;3.6.0&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetEngineVersionResult> getEngineVersion(GetEngineVersionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:docdb/getEngineVersion:getEngineVersion", TypeShape.of(GetEngineVersionResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Information about a DocumentDB engine version.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.docdb.DocdbFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DocdbFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *             .version(&#34;3.6.0&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetEngineVersionResult> getEngineVersionPlain(GetEngineVersionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:docdb/getEngineVersion:getEngineVersion", TypeShape.of(GetEngineVersionResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Information about DocumentDB orderable DB instances.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.docdb.DocdbFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DocdbFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *             .engine(&#34;docdb&#34;)
+     *             .engineVersion(&#34;3.6.0&#34;)
+     *             .licenseModel(&#34;na&#34;)
+     *             .preferredInstanceClasses(            
+     *                 &#34;db.r5.large&#34;,
+     *                 &#34;db.r4.large&#34;,
+     *                 &#34;db.t3.medium&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOrderableDbInstanceResult> getOrderableDbInstance() {
         return getOrderableDbInstance(GetOrderableDbInstanceArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Information about DocumentDB orderable DB instances.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.docdb.DocdbFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DocdbFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *             .engine(&#34;docdb&#34;)
+     *             .engineVersion(&#34;3.6.0&#34;)
+     *             .licenseModel(&#34;na&#34;)
+     *             .preferredInstanceClasses(            
+     *                 &#34;db.r5.large&#34;,
+     *                 &#34;db.r4.large&#34;,
+     *                 &#34;db.t3.medium&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOrderableDbInstanceResult> getOrderableDbInstancePlain() {
         return getOrderableDbInstancePlain(GetOrderableDbInstancePlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Information about DocumentDB orderable DB instances.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.docdb.DocdbFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DocdbFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *             .engine(&#34;docdb&#34;)
+     *             .engineVersion(&#34;3.6.0&#34;)
+     *             .licenseModel(&#34;na&#34;)
+     *             .preferredInstanceClasses(            
+     *                 &#34;db.r5.large&#34;,
+     *                 &#34;db.r4.large&#34;,
+     *                 &#34;db.t3.medium&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOrderableDbInstanceResult> getOrderableDbInstance(GetOrderableDbInstanceArgs args) {
         return getOrderableDbInstance(args, InvokeOptions.Empty);
     }
+    /**
+     * Information about DocumentDB orderable DB instances.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.docdb.DocdbFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DocdbFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *             .engine(&#34;docdb&#34;)
+     *             .engineVersion(&#34;3.6.0&#34;)
+     *             .licenseModel(&#34;na&#34;)
+     *             .preferredInstanceClasses(            
+     *                 &#34;db.r5.large&#34;,
+     *                 &#34;db.r4.large&#34;,
+     *                 &#34;db.t3.medium&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOrderableDbInstanceResult> getOrderableDbInstancePlain(GetOrderableDbInstancePlainArgs args) {
         return getOrderableDbInstancePlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Information about DocumentDB orderable DB instances.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.docdb.DocdbFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DocdbFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *             .engine(&#34;docdb&#34;)
+     *             .engineVersion(&#34;3.6.0&#34;)
+     *             .licenseModel(&#34;na&#34;)
+     *             .preferredInstanceClasses(            
+     *                 &#34;db.r5.large&#34;,
+     *                 &#34;db.r4.large&#34;,
+     *                 &#34;db.t3.medium&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOrderableDbInstanceResult> getOrderableDbInstance(GetOrderableDbInstanceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:docdb/getOrderableDbInstance:getOrderableDbInstance", TypeShape.of(GetOrderableDbInstanceResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Information about DocumentDB orderable DB instances.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.docdb.DocdbFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DocdbFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *             .engine(&#34;docdb&#34;)
+     *             .engineVersion(&#34;3.6.0&#34;)
+     *             .licenseModel(&#34;na&#34;)
+     *             .preferredInstanceClasses(            
+     *                 &#34;db.r5.large&#34;,
+     *                 &#34;db.r4.large&#34;,
+     *                 &#34;db.t3.medium&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOrderableDbInstanceResult> getOrderableDbInstancePlain(GetOrderableDbInstancePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:docdb/getOrderableDbInstance:getOrderableDbInstance", TypeShape.of(GetOrderableDbInstanceResult.class), args, Utilities.withVersion(options));
     }

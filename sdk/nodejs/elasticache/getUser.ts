@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to get information about an ElastiCache User.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const bar = aws.elasticache.getUser({
+ *     userId: "example",
+ * });
+ * ```
+ */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -21,11 +35,20 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserArgs {
+    /**
+     * String for what access a user possesses within the associated ElastiCache replication groups or clusters.
+     */
     accessString?: string;
     engine?: string;
     noPasswordRequired?: boolean;
     passwords?: string[];
+    /**
+     * Identifier for the user.
+     */
     userId: string;
+    /**
+     * User name of the user.
+     */
     userName?: string;
 }
 
@@ -33,6 +56,9 @@ export interface GetUserArgs {
  * A collection of values returned by getUser.
  */
 export interface GetUserResult {
+    /**
+     * String for what access a user possesses within the associated ElastiCache replication groups or clusters.
+     */
     readonly accessString?: string;
     readonly engine?: string;
     /**
@@ -41,9 +67,29 @@ export interface GetUserResult {
     readonly id: string;
     readonly noPasswordRequired?: boolean;
     readonly passwords?: string[];
+    /**
+     * Identifier for the user.
+     */
     readonly userId: string;
+    /**
+     * User name of the user.
+     */
     readonly userName?: string;
 }
+/**
+ * Use this data source to get information about an ElastiCache User.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const bar = aws.elasticache.getUser({
+ *     userId: "example",
+ * });
+ * ```
+ */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))
 }
@@ -52,10 +98,19 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserOutputArgs {
+    /**
+     * String for what access a user possesses within the associated ElastiCache replication groups or clusters.
+     */
     accessString?: pulumi.Input<string>;
     engine?: pulumi.Input<string>;
     noPasswordRequired?: pulumi.Input<boolean>;
     passwords?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Identifier for the user.
+     */
     userId: pulumi.Input<string>;
+    /**
+     * User name of the user.
+     */
     userName?: pulumi.Input<string>;
 }

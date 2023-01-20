@@ -17,16 +17,32 @@ public final class ManagedScalingPolicyState extends com.pulumi.resources.Resour
 
     public static final ManagedScalingPolicyState Empty = new ManagedScalingPolicyState();
 
+    /**
+     * ID of the EMR cluster
+     * 
+     */
     @Import(name="clusterId")
     private @Nullable Output<String> clusterId;
 
+    /**
+     * @return ID of the EMR cluster
+     * 
+     */
     public Optional<Output<String>> clusterId() {
         return Optional.ofNullable(this.clusterId);
     }
 
+    /**
+     * Configuration block with compute limit settings. Described below.
+     * 
+     */
     @Import(name="computeLimits")
     private @Nullable Output<List<ManagedScalingPolicyComputeLimitArgs>> computeLimits;
 
+    /**
+     * @return Configuration block with compute limit settings. Described below.
+     * 
+     */
     public Optional<Output<List<ManagedScalingPolicyComputeLimitArgs>>> computeLimits() {
         return Optional.ofNullable(this.computeLimits);
     }
@@ -56,24 +72,54 @@ public final class ManagedScalingPolicyState extends com.pulumi.resources.Resour
             $ = new ManagedScalingPolicyState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param clusterId ID of the EMR cluster
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterId(@Nullable Output<String> clusterId) {
             $.clusterId = clusterId;
             return this;
         }
 
+        /**
+         * @param clusterId ID of the EMR cluster
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterId(String clusterId) {
             return clusterId(Output.of(clusterId));
         }
 
+        /**
+         * @param computeLimits Configuration block with compute limit settings. Described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder computeLimits(@Nullable Output<List<ManagedScalingPolicyComputeLimitArgs>> computeLimits) {
             $.computeLimits = computeLimits;
             return this;
         }
 
+        /**
+         * @param computeLimits Configuration block with compute limit settings. Described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder computeLimits(List<ManagedScalingPolicyComputeLimitArgs> computeLimits) {
             return computeLimits(Output.of(computeLimits));
         }
 
+        /**
+         * @param computeLimits Configuration block with compute limit settings. Described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder computeLimits(ManagedScalingPolicyComputeLimitArgs... computeLimits) {
             return computeLimits(List.of(computeLimits));
         }

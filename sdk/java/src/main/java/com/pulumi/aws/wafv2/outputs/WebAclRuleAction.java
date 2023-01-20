@@ -15,25 +15,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleAction {
+    /**
+     * @return Instructs AWS WAF to allow the web request. See Allow below for details.
+     * 
+     */
     private @Nullable WebAclRuleActionAllow allow;
+    /**
+     * @return Instructs AWS WAF to block the web request. See Block below for details.
+     * 
+     */
     private @Nullable WebAclRuleActionBlock block;
+    /**
+     * @return Instructs AWS WAF to run a Captcha check against the web request. See Captcha below for details.
+     * 
+     */
     private @Nullable WebAclRuleActionCaptcha captcha;
+    /**
+     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
+     * 
+     */
     private @Nullable WebAclRuleActionChallenge challenge;
+    /**
+     * @return Instructs AWS WAF to count the web request and allow it. See Count below for details.
+     * 
+     */
     private @Nullable WebAclRuleActionCount count;
 
     private WebAclRuleAction() {}
+    /**
+     * @return Instructs AWS WAF to allow the web request. See Allow below for details.
+     * 
+     */
     public Optional<WebAclRuleActionAllow> allow() {
         return Optional.ofNullable(this.allow);
     }
+    /**
+     * @return Instructs AWS WAF to block the web request. See Block below for details.
+     * 
+     */
     public Optional<WebAclRuleActionBlock> block() {
         return Optional.ofNullable(this.block);
     }
+    /**
+     * @return Instructs AWS WAF to run a Captcha check against the web request. See Captcha below for details.
+     * 
+     */
     public Optional<WebAclRuleActionCaptcha> captcha() {
         return Optional.ofNullable(this.captcha);
     }
+    /**
+     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
+     * 
+     */
     public Optional<WebAclRuleActionChallenge> challenge() {
         return Optional.ofNullable(this.challenge);
     }
+    /**
+     * @return Instructs AWS WAF to count the web request and allow it. See Count below for details.
+     * 
+     */
     public Optional<WebAclRuleActionCount> count() {
         return Optional.ofNullable(this.count);
     }

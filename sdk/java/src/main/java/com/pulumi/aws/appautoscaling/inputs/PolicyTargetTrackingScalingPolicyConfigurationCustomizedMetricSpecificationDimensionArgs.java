@@ -13,16 +13,32 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
 
     public static final PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs Empty = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs();
 
+    /**
+     * Name of the policy. Must be between 1 and 255 characters in length.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the policy. Must be between 1 and 255 characters in length.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Value of the dimension.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return Value of the dimension.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -52,20 +68,44 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
             $ = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the policy. Must be between 1 and 255 characters in length.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the policy. Must be between 1 and 255 characters in length.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param value Value of the dimension.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Value of the dimension.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

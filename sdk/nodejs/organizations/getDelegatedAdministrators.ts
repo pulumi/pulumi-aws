@@ -7,6 +7,20 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Get a list the AWS accounts that are designated as delegated administrators in this organization
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.organizations.getDelegatedAdministrators({
+ *     servicePrincipal: "SERVICE PRINCIPAL",
+ * });
+ * ```
+ */
 export function getDelegatedAdministrators(args?: GetDelegatedAdministratorsArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedAdministratorsResult> {
     args = args || {};
 
@@ -20,6 +34,9 @@ export function getDelegatedAdministrators(args?: GetDelegatedAdministratorsArgs
  * A collection of arguments for invoking getDelegatedAdministrators.
  */
 export interface GetDelegatedAdministratorsArgs {
+    /**
+     * Specifies a service principal name. If specified, then the operation lists the delegated administrators only for the specified service. If you don't specify a service principal, the operation lists all delegated administrators for all services in your organization.
+     */
     servicePrincipal?: string;
 }
 
@@ -27,6 +44,9 @@ export interface GetDelegatedAdministratorsArgs {
  * A collection of values returned by getDelegatedAdministrators.
  */
 export interface GetDelegatedAdministratorsResult {
+    /**
+     * The list of delegated administrators in your organization, which have the following attributes:
+     */
     readonly delegatedAdministrators: outputs.organizations.GetDelegatedAdministratorsDelegatedAdministrator[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -34,6 +54,20 @@ export interface GetDelegatedAdministratorsResult {
     readonly id: string;
     readonly servicePrincipal?: string;
 }
+/**
+ * Get a list the AWS accounts that are designated as delegated administrators in this organization
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.organizations.getDelegatedAdministrators({
+ *     servicePrincipal: "SERVICE PRINCIPAL",
+ * });
+ * ```
+ */
 export function getDelegatedAdministratorsOutput(args?: GetDelegatedAdministratorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedAdministratorsResult> {
     return pulumi.output(args).apply((a: any) => getDelegatedAdministrators(a, opts))
 }
@@ -42,5 +76,8 @@ export function getDelegatedAdministratorsOutput(args?: GetDelegatedAdministrato
  * A collection of arguments for invoking getDelegatedAdministrators.
  */
 export interface GetDelegatedAdministratorsOutputArgs {
+    /**
+     * Specifies a service principal name. If specified, then the operation lists the delegated administrators only for the specified service. If you don't specify a service principal, the operation lists all delegated administrators for all services in your organization.
+     */
     servicePrincipal?: pulumi.Input<string>;
 }

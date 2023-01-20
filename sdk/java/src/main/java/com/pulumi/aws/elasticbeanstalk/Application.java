@@ -16,6 +16,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Elastic Beanstalk Application Resource. Elastic Beanstalk allows
+ * you to deploy and manage applications in the AWS cloud without worrying about
+ * the infrastructure that runs those applications.
+ * 
+ * This resource creates an application that has one configuration template named
+ * `default`, and no application versions
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticbeanstalk.Application;
+ * import com.pulumi.aws.elasticbeanstalk.ApplicationArgs;
+ * import com.pulumi.aws.elasticbeanstalk.inputs.ApplicationAppversionLifecycleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var tftest = new Application(&#34;tftest&#34;, ApplicationArgs.builder()        
+ *             .description(&#34;tf-test-desc&#34;)
+ *             .appversionLifecycle(ApplicationAppversionLifecycleArgs.builder()
+ *                 .serviceRole(aws_iam_role.beanstalk_service().arn())
+ *                 .maxCount(128)
+ *                 .deleteSourceFromS3(true)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Elastic Beanstalk Applications can be imported using the `name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:elasticbeanstalk/application:Application my_test tf-test-name
+ * ```
+ * 
+ */
 @ResourceType(type="aws:elasticbeanstalk/application:Application")
 public class Application extends com.pulumi.resources.CustomResource {
     @Export(name="appversionLifecycle", refs={ApplicationAppversionLifecycle.class}, tree="[0]")
@@ -24,33 +77,73 @@ public class Application extends com.pulumi.resources.CustomResource {
     public Output<Optional<ApplicationAppversionLifecycle>> appversionLifecycle() {
         return Codegen.optional(this.appversionLifecycle);
     }
+    /**
+     * The ARN assigned by AWS for this Elastic Beanstalk Application.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN assigned by AWS for this Elastic Beanstalk Application.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Short description of the application
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Short description of the application
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The name of the application, must be unique within your account
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the application, must be unique within your account
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Key-value map of tags for the Elastic Beanstalk Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of tags for the Elastic Beanstalk Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

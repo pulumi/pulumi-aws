@@ -19,6 +19,9 @@ class BucketArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Bucket resource.
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[str] outpost_id: Identifier of the Outpost to contain this bucket.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "outpost_id", outpost_id)
@@ -28,6 +31,9 @@ class BucketArgs:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
+        """
+        Name of the bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -37,6 +43,9 @@ class BucketArgs:
     @property
     @pulumi.getter(name="outpostId")
     def outpost_id(self) -> pulumi.Input[str]:
+        """
+        Identifier of the Outpost to contain this bucket.
+        """
         return pulumi.get(self, "outpost_id")
 
     @outpost_id.setter
@@ -46,6 +55,9 @@ class BucketArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -65,6 +77,13 @@ class _BucketState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Bucket resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[str] creation_date: UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param pulumi.Input[str] outpost_id: Identifier of the Outpost to contain this bucket.
+        :param pulumi.Input[bool] public_access_block_enabled: Boolean whether Public Access Block is enabled.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -84,6 +103,9 @@ class _BucketState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the bucket.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -93,6 +115,9 @@ class _BucketState:
     @property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -102,6 +127,9 @@ class _BucketState:
     @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        """
         return pulumi.get(self, "creation_date")
 
     @creation_date.setter
@@ -111,6 +139,9 @@ class _BucketState:
     @property
     @pulumi.getter(name="outpostId")
     def outpost_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of the Outpost to contain this bucket.
+        """
         return pulumi.get(self, "outpost_id")
 
     @outpost_id.setter
@@ -120,6 +151,9 @@ class _BucketState:
     @property
     @pulumi.getter(name="publicAccessBlockEnabled")
     def public_access_block_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean whether Public Access Block is enabled.
+        """
         return pulumi.get(self, "public_access_block_enabled")
 
     @public_access_block_enabled.setter
@@ -129,6 +163,9 @@ class _BucketState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -138,6 +175,9 @@ class _BucketState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -155,9 +195,34 @@ class Bucket(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Bucket resource with the given unique name, props, and options.
+        Provides a resource to manage an S3 Control Bucket.
+
+        > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Buckets in an AWS Partition, see the `s3.BucketV2` resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3control.Bucket("example",
+            bucket="example",
+            outpost_id=data["aws_outposts_outpost"]["example"]["id"])
+        ```
+
+        ## Import
+
+        S3 Control Buckets can be imported using Amazon Resource Name (ARN), e.g.,
+
+        ```sh
+         $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[str] outpost_id: Identifier of the Outpost to contain this bucket.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -166,7 +231,29 @@ class Bucket(pulumi.CustomResource):
                  args: BucketArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Bucket resource with the given unique name, props, and options.
+        Provides a resource to manage an S3 Control Bucket.
+
+        > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Buckets in an AWS Partition, see the `s3.BucketV2` resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3control.Bucket("example",
+            bucket="example",
+            outpost_id=data["aws_outposts_outpost"]["example"]["id"])
+        ```
+
+        ## Import
+
+        S3 Control Buckets can be imported using Amazon Resource Name (ARN), e.g.,
+
+        ```sh
+         $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param BucketArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,6 +316,13 @@ class Bucket(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[str] creation_date: UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param pulumi.Input[str] outpost_id: Identifier of the Outpost to contain this bucket.
+        :param pulumi.Input[bool] public_access_block_enabled: Boolean whether Public Access Block is enabled.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -246,35 +340,56 @@ class Bucket(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the bucket.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
+        """
+        Name of the bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[str]:
+        """
+        UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        """
         return pulumi.get(self, "creation_date")
 
     @property
     @pulumi.getter(name="outpostId")
     def outpost_id(self) -> pulumi.Output[str]:
+        """
+        Identifier of the Outpost to contain this bucket.
+        """
         return pulumi.get(self, "outpost_id")
 
     @property
     @pulumi.getter(name="publicAccessBlockEnabled")
     def public_access_block_enabled(self) -> pulumi.Output[bool]:
+        """
+        Boolean whether Public Access Block is enabled.
+        """
         return pulumi.get(self, "public_access_block_enabled")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

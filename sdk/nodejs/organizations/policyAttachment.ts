@@ -4,6 +4,52 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
+ *
+ * ## Example Usage
+ * ### Organization Account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const account = new aws.organizations.PolicyAttachment("account", {
+ *     policyId: aws_organizations_policy.example.id,
+ *     targetId: "123456789012",
+ * });
+ * ```
+ * ### Organization Root
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const root = new aws.organizations.PolicyAttachment("root", {
+ *     policyId: aws_organizations_policy.example.id,
+ *     targetId: aws_organizations_organization.example.roots[0].id,
+ * });
+ * ```
+ * ### Organization Unit
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const unit = new aws.organizations.PolicyAttachment("unit", {
+ *     policyId: aws_organizations_policy.example.id,
+ *     targetId: aws_organizations_organizational_unit.example.id,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_organizations_policy_attachment` can be imported by using the target ID and policy ID, e.g., with an account target
+ *
+ * ```sh
+ *  $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
+ * ```
+ */
 export class PolicyAttachment extends pulumi.CustomResource {
     /**
      * Get an existing PolicyAttachment resource's state with the given name, ID, and optional extra
@@ -32,7 +78,13 @@ export class PolicyAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === PolicyAttachment.__pulumiType;
     }
 
+    /**
+     * The unique identifier (ID) of the policy that you want to attach to the target.
+     */
     public readonly policyId!: pulumi.Output<string>;
+    /**
+     * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+     */
     public readonly targetId!: pulumi.Output<string>;
 
     /**
@@ -70,7 +122,13 @@ export class PolicyAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PolicyAttachment resources.
  */
 export interface PolicyAttachmentState {
+    /**
+     * The unique identifier (ID) of the policy that you want to attach to the target.
+     */
     policyId?: pulumi.Input<string>;
+    /**
+     * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+     */
     targetId?: pulumi.Input<string>;
 }
 
@@ -78,6 +136,12 @@ export interface PolicyAttachmentState {
  * The set of arguments for constructing a PolicyAttachment resource.
  */
 export interface PolicyAttachmentArgs {
+    /**
+     * The unique identifier (ID) of the policy that you want to attach to the target.
+     */
     policyId: pulumi.Input<string>;
+    /**
+     * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+     */
     targetId: pulumi.Input<string>;
 }

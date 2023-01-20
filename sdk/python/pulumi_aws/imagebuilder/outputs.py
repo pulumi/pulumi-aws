@@ -96,6 +96,10 @@ class ContainerRecipeComponent(dict):
     def __init__(__self__, *,
                  component_arn: str,
                  parameters: Optional[Sequence['outputs.ContainerRecipeComponentParameter']] = None):
+        """
+        :param str component_arn: Amazon Resource Name (ARN) of the Image Builder Component to associate.
+        :param Sequence['ContainerRecipeComponentParameterArgs'] parameters: Configuration block(s) for parameters to configure the component. Detailed below.
+        """
         pulumi.set(__self__, "component_arn", component_arn)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
@@ -103,11 +107,17 @@ class ContainerRecipeComponent(dict):
     @property
     @pulumi.getter(name="componentArn")
     def component_arn(self) -> str:
+        """
+        Amazon Resource Name (ARN) of the Image Builder Component to associate.
+        """
         return pulumi.get(self, "component_arn")
 
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Sequence['outputs.ContainerRecipeComponentParameter']]:
+        """
+        Configuration block(s) for parameters to configure the component. Detailed below.
+        """
         return pulumi.get(self, "parameters")
 
 
@@ -116,17 +126,27 @@ class ContainerRecipeComponentParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
+        """
+        :param str name: The name of the component parameter.
+        :param str value: The value for the named component parameter.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the component parameter.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value for the named component parameter.
+        """
         return pulumi.get(self, "value")
 
 
@@ -152,6 +172,10 @@ class ContainerRecipeInstanceConfiguration(dict):
     def __init__(__self__, *,
                  block_device_mappings: Optional[Sequence['outputs.ContainerRecipeInstanceConfigurationBlockDeviceMapping']] = None,
                  image: Optional[str] = None):
+        """
+        :param Sequence['ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs'] block_device_mappings: Configuration block(s) with block device mappings for the container recipe. Detailed below.
+        :param str image: The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
+        """
         if block_device_mappings is not None:
             pulumi.set(__self__, "block_device_mappings", block_device_mappings)
         if image is not None:
@@ -160,11 +184,17 @@ class ContainerRecipeInstanceConfiguration(dict):
     @property
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> Optional[Sequence['outputs.ContainerRecipeInstanceConfigurationBlockDeviceMapping']]:
+        """
+        Configuration block(s) with block device mappings for the container recipe. Detailed below.
+        """
         return pulumi.get(self, "block_device_mappings")
 
     @property
     @pulumi.getter
     def image(self) -> Optional[str]:
+        """
+        The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
+        """
         return pulumi.get(self, "image")
 
 
@@ -196,6 +226,12 @@ class ContainerRecipeInstanceConfigurationBlockDeviceMapping(dict):
                  ebs: Optional['outputs.ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs'] = None,
                  no_device: Optional[bool] = None,
                  virtual_name: Optional[str] = None):
+        """
+        :param str device_name: Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+        :param 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs' ebs: Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+        :param bool no_device: Set to `true` to remove a mapping from the parent image.
+        :param str virtual_name: Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+        """
         if device_name is not None:
             pulumi.set(__self__, "device_name", device_name)
         if ebs is not None:
@@ -208,21 +244,33 @@ class ContainerRecipeInstanceConfigurationBlockDeviceMapping(dict):
     @property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> Optional[str]:
+        """
+        Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+        """
         return pulumi.get(self, "device_name")
 
     @property
     @pulumi.getter
     def ebs(self) -> Optional['outputs.ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs']:
+        """
+        Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+        """
         return pulumi.get(self, "ebs")
 
     @property
     @pulumi.getter(name="noDevice")
     def no_device(self) -> Optional[bool]:
+        """
+        Set to `true` to remove a mapping from the parent image.
+        """
         return pulumi.get(self, "no_device")
 
     @property
     @pulumi.getter(name="virtualName")
     def virtual_name(self) -> Optional[str]:
+        """
+        Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+        """
         return pulumi.get(self, "virtual_name")
 
 
@@ -262,6 +310,16 @@ class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs(dict):
                  throughput: Optional[int] = None,
                  volume_size: Optional[int] = None,
                  volume_type: Optional[str] = None):
+        """
+        :param str delete_on_termination: Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+        :param str encrypted: Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        :param int iops: Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+        :param str kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        :param str snapshot_id: Identifier of the EC2 Volume Snapshot.
+        :param int throughput: For GP3 volumes only. The throughput in MiB/s that the volume supports.
+        :param int volume_size: Size of the volume, in GiB.
+        :param str volume_type: Type of the volume. For example, `gp2` or `io2`.
+        """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
         if encrypted is not None:
@@ -282,41 +340,65 @@ class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs(dict):
     @property
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> Optional[str]:
+        """
+        Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+        """
         return pulumi.get(self, "delete_on_termination")
 
     @property
     @pulumi.getter
     def encrypted(self) -> Optional[str]:
+        """
+        Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        """
         return pulumi.get(self, "encrypted")
 
     @property
     @pulumi.getter
     def iops(self) -> Optional[int]:
+        """
+        Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+        """
         return pulumi.get(self, "iops")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
+        """
+        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[str]:
+        """
+        Identifier of the EC2 Volume Snapshot.
+        """
         return pulumi.get(self, "snapshot_id")
 
     @property
     @pulumi.getter
     def throughput(self) -> Optional[int]:
+        """
+        For GP3 volumes only. The throughput in MiB/s that the volume supports.
+        """
         return pulumi.get(self, "throughput")
 
     @property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[int]:
+        """
+        Size of the volume, in GiB.
+        """
         return pulumi.get(self, "volume_size")
 
     @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
+        """
+        Type of the volume. For example, `gp2` or `io2`.
+        """
         return pulumi.get(self, "volume_type")
 
 
@@ -342,17 +424,27 @@ class ContainerRecipeTargetRepository(dict):
     def __init__(__self__, *,
                  repository_name: str,
                  service: str):
+        """
+        :param str repository_name: The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+        :param str service: The service in which this image is registered. Valid values: `ECR`.
+        """
         pulumi.set(__self__, "repository_name", repository_name)
         pulumi.set(__self__, "service", service)
 
     @property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> str:
+        """
+        The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+        """
         return pulumi.get(self, "repository_name")
 
     @property
     @pulumi.getter
     def service(self) -> str:
+        """
+        The service in which this image is registered. Valid values: `ECR`.
+        """
         return pulumi.get(self, "service")
 
 
@@ -390,6 +482,14 @@ class DistributionConfigurationDistribution(dict):
                  fast_launch_configurations: Optional[Sequence['outputs.DistributionConfigurationDistributionFastLaunchConfiguration']] = None,
                  launch_template_configurations: Optional[Sequence['outputs.DistributionConfigurationDistributionLaunchTemplateConfiguration']] = None,
                  license_configuration_arns: Optional[Sequence[str]] = None):
+        """
+        :param str region: AWS Region for the distribution.
+        :param 'DistributionConfigurationDistributionAmiDistributionConfigurationArgs' ami_distribution_configuration: Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+        :param 'DistributionConfigurationDistributionContainerDistributionConfigurationArgs' container_distribution_configuration: Configuration block with container distribution settings. Detailed below.
+        :param Sequence['DistributionConfigurationDistributionFastLaunchConfigurationArgs'] fast_launch_configurations: Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
+        :param Sequence['DistributionConfigurationDistributionLaunchTemplateConfigurationArgs'] launch_template_configurations: Set of launch template configuration settings that apply to image distribution. Detailed below.
+        :param Sequence[str] license_configuration_arns: Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+        """
         pulumi.set(__self__, "region", region)
         if ami_distribution_configuration is not None:
             pulumi.set(__self__, "ami_distribution_configuration", ami_distribution_configuration)
@@ -405,31 +505,49 @@ class DistributionConfigurationDistribution(dict):
     @property
     @pulumi.getter
     def region(self) -> str:
+        """
+        AWS Region for the distribution.
+        """
         return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="amiDistributionConfiguration")
     def ami_distribution_configuration(self) -> Optional['outputs.DistributionConfigurationDistributionAmiDistributionConfiguration']:
+        """
+        Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+        """
         return pulumi.get(self, "ami_distribution_configuration")
 
     @property
     @pulumi.getter(name="containerDistributionConfiguration")
     def container_distribution_configuration(self) -> Optional['outputs.DistributionConfigurationDistributionContainerDistributionConfiguration']:
+        """
+        Configuration block with container distribution settings. Detailed below.
+        """
         return pulumi.get(self, "container_distribution_configuration")
 
     @property
     @pulumi.getter(name="fastLaunchConfigurations")
     def fast_launch_configurations(self) -> Optional[Sequence['outputs.DistributionConfigurationDistributionFastLaunchConfiguration']]:
+        """
+        Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
+        """
         return pulumi.get(self, "fast_launch_configurations")
 
     @property
     @pulumi.getter(name="launchTemplateConfigurations")
     def launch_template_configurations(self) -> Optional[Sequence['outputs.DistributionConfigurationDistributionLaunchTemplateConfiguration']]:
+        """
+        Set of launch template configuration settings that apply to image distribution. Detailed below.
+        """
         return pulumi.get(self, "launch_template_configurations")
 
     @property
     @pulumi.getter(name="licenseConfigurationArns")
     def license_configuration_arns(self) -> Optional[Sequence[str]]:
+        """
+        Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+        """
         return pulumi.get(self, "license_configuration_arns")
 
 
@@ -465,6 +583,14 @@ class DistributionConfigurationDistributionAmiDistributionConfiguration(dict):
                  launch_permission: Optional['outputs.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission'] = None,
                  name: Optional[str] = None,
                  target_account_ids: Optional[Sequence[str]] = None):
+        """
+        :param Mapping[str, str] ami_tags: Key-value map of tags to apply to the distributed AMI.
+        :param str description: Description to apply to the distributed AMI.
+        :param str kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+        :param 'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs' launch_permission: Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
+        :param str name: Name to apply to the distributed AMI.
+        :param Sequence[str] target_account_ids: Set of AWS Account identifiers to distribute the AMI.
+        """
         if ami_tags is not None:
             pulumi.set(__self__, "ami_tags", ami_tags)
         if description is not None:
@@ -481,31 +607,49 @@ class DistributionConfigurationDistributionAmiDistributionConfiguration(dict):
     @property
     @pulumi.getter(name="amiTags")
     def ami_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Key-value map of tags to apply to the distributed AMI.
+        """
         return pulumi.get(self, "ami_tags")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        Description to apply to the distributed AMI.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
+        """
+        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="launchPermission")
     def launch_permission(self) -> Optional['outputs.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission']:
+        """
+        Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
+        """
         return pulumi.get(self, "launch_permission")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        Name to apply to the distributed AMI.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="targetAccountIds")
     def target_account_ids(self) -> Optional[Sequence[str]]:
+        """
+        Set of AWS Account identifiers to distribute the AMI.
+        """
         return pulumi.get(self, "target_account_ids")
 
 
@@ -539,6 +683,12 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPer
                  organizational_unit_arns: Optional[Sequence[str]] = None,
                  user_groups: Optional[Sequence[str]] = None,
                  user_ids: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] organization_arns: Set of AWS Organization ARNs to assign.
+        :param Sequence[str] organizational_unit_arns: Set of AWS Organizational Unit ARNs to assign.
+        :param Sequence[str] user_groups: Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
+        :param Sequence[str] user_ids: Set of AWS Account identifiers to assign.
+        """
         if organization_arns is not None:
             pulumi.set(__self__, "organization_arns", organization_arns)
         if organizational_unit_arns is not None:
@@ -551,21 +701,33 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPer
     @property
     @pulumi.getter(name="organizationArns")
     def organization_arns(self) -> Optional[Sequence[str]]:
+        """
+        Set of AWS Organization ARNs to assign.
+        """
         return pulumi.get(self, "organization_arns")
 
     @property
     @pulumi.getter(name="organizationalUnitArns")
     def organizational_unit_arns(self) -> Optional[Sequence[str]]:
+        """
+        Set of AWS Organizational Unit ARNs to assign.
+        """
         return pulumi.get(self, "organizational_unit_arns")
 
     @property
     @pulumi.getter(name="userGroups")
     def user_groups(self) -> Optional[Sequence[str]]:
+        """
+        Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
+        """
         return pulumi.get(self, "user_groups")
 
     @property
     @pulumi.getter(name="userIds")
     def user_ids(self) -> Optional[Sequence[str]]:
+        """
+        Set of AWS Account identifiers to assign.
+        """
         return pulumi.get(self, "user_ids")
 
 
@@ -594,6 +756,11 @@ class DistributionConfigurationDistributionContainerDistributionConfiguration(di
                  target_repository: 'outputs.DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository',
                  container_tags: Optional[Sequence[str]] = None,
                  description: Optional[str] = None):
+        """
+        :param 'DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs' target_repository: Configuration block with the destination repository for the container distribution configuration.
+        :param Sequence[str] container_tags: Set of tags that are attached to the container distribution configuration.
+        :param str description: Description of the container distribution configuration.
+        """
         pulumi.set(__self__, "target_repository", target_repository)
         if container_tags is not None:
             pulumi.set(__self__, "container_tags", container_tags)
@@ -603,16 +770,25 @@ class DistributionConfigurationDistributionContainerDistributionConfiguration(di
     @property
     @pulumi.getter(name="targetRepository")
     def target_repository(self) -> 'outputs.DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository':
+        """
+        Configuration block with the destination repository for the container distribution configuration.
+        """
         return pulumi.get(self, "target_repository")
 
     @property
     @pulumi.getter(name="containerTags")
     def container_tags(self) -> Optional[Sequence[str]]:
+        """
+        Set of tags that are attached to the container distribution configuration.
+        """
         return pulumi.get(self, "container_tags")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        Description of the container distribution configuration.
+        """
         return pulumi.get(self, "description")
 
 
@@ -638,17 +814,27 @@ class DistributionConfigurationDistributionContainerDistributionConfigurationTar
     def __init__(__self__, *,
                  repository_name: str,
                  service: str):
+        """
+        :param str repository_name: The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+        :param str service: The service in which this image is registered. Valid values: `ECR`.
+        """
         pulumi.set(__self__, "repository_name", repository_name)
         pulumi.set(__self__, "service", service)
 
     @property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> str:
+        """
+        The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+        """
         return pulumi.get(self, "repository_name")
 
     @property
     @pulumi.getter
     def service(self) -> str:
+        """
+        The service in which this image is registered. Valid values: `ECR`.
+        """
         return pulumi.get(self, "service")
 
 
@@ -683,6 +869,13 @@ class DistributionConfigurationDistributionFastLaunchConfiguration(dict):
                  launch_template: Optional['outputs.DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate'] = None,
                  max_parallel_launches: Optional[int] = None,
                  snapshot_configuration: Optional['outputs.DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration'] = None):
+        """
+        :param str account_id: The owner account ID for the fast-launch enabled Windows AMI.
+        :param bool enabled: A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
+        :param 'DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs' launch_template: Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
+        :param int max_parallel_launches: The maximum number of parallel instances that are launched for creating resources.
+        :param 'DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs' snapshot_configuration: Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
+        """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "enabled", enabled)
         if launch_template is not None:
@@ -695,26 +888,41 @@ class DistributionConfigurationDistributionFastLaunchConfiguration(dict):
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> str:
+        """
+        The owner account ID for the fast-launch enabled Windows AMI.
+        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> Optional['outputs.DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate']:
+        """
+        Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
+        """
         return pulumi.get(self, "launch_template")
 
     @property
     @pulumi.getter(name="maxParallelLaunches")
     def max_parallel_launches(self) -> Optional[int]:
+        """
+        The maximum number of parallel instances that are launched for creating resources.
+        """
         return pulumi.get(self, "max_parallel_launches")
 
     @property
     @pulumi.getter(name="snapshotConfiguration")
     def snapshot_configuration(self) -> Optional['outputs.DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration']:
+        """
+        Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
+        """
         return pulumi.get(self, "snapshot_configuration")
 
 
@@ -745,6 +953,11 @@ class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate
                  launch_template_id: Optional[str] = None,
                  launch_template_name: Optional[str] = None,
                  launch_template_version: Optional[str] = None):
+        """
+        :param str launch_template_id: The ID of the launch template to use for faster launching for a Windows AMI.
+        :param str launch_template_name: The name of the launch template to use for faster launching for a Windows AMI.
+        :param str launch_template_version: The version of the launch template to use for faster launching for a Windows AMI.
+        """
         if launch_template_id is not None:
             pulumi.set(__self__, "launch_template_id", launch_template_id)
         if launch_template_name is not None:
@@ -755,16 +968,25 @@ class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate
     @property
     @pulumi.getter(name="launchTemplateId")
     def launch_template_id(self) -> Optional[str]:
+        """
+        The ID of the launch template to use for faster launching for a Windows AMI.
+        """
         return pulumi.get(self, "launch_template_id")
 
     @property
     @pulumi.getter(name="launchTemplateName")
     def launch_template_name(self) -> Optional[str]:
+        """
+        The name of the launch template to use for faster launching for a Windows AMI.
+        """
         return pulumi.get(self, "launch_template_name")
 
     @property
     @pulumi.getter(name="launchTemplateVersion")
     def launch_template_version(self) -> Optional[str]:
+        """
+        The version of the launch template to use for faster launching for a Windows AMI.
+        """
         return pulumi.get(self, "launch_template_version")
 
 
@@ -789,12 +1011,18 @@ class DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfig
 
     def __init__(__self__, *,
                  target_resource_count: Optional[int] = None):
+        """
+        :param int target_resource_count: The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+        """
         if target_resource_count is not None:
             pulumi.set(__self__, "target_resource_count", target_resource_count)
 
     @property
     @pulumi.getter(name="targetResourceCount")
     def target_resource_count(self) -> Optional[int]:
+        """
+        The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+        """
         return pulumi.get(self, "target_resource_count")
 
 
@@ -823,6 +1051,11 @@ class DistributionConfigurationDistributionLaunchTemplateConfiguration(dict):
                  launch_template_id: str,
                  account_id: Optional[str] = None,
                  default: Optional[bool] = None):
+        """
+        :param str launch_template_id: The ID of the Amazon EC2 launch template to use.
+        :param str account_id: The account ID that this configuration applies to.
+        :param bool default: Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
+        """
         pulumi.set(__self__, "launch_template_id", launch_template_id)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -832,16 +1065,25 @@ class DistributionConfigurationDistributionLaunchTemplateConfiguration(dict):
     @property
     @pulumi.getter(name="launchTemplateId")
     def launch_template_id(self) -> str:
+        """
+        The ID of the Amazon EC2 launch template to use.
+        """
         return pulumi.get(self, "launch_template_id")
 
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[str]:
+        """
+        The account ID that this configuration applies to.
+        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
     def default(self) -> Optional[bool]:
+        """
+        Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
+        """
         return pulumi.get(self, "default")
 
 
@@ -869,6 +1111,10 @@ class ImageImageTestsConfiguration(dict):
     def __init__(__self__, *,
                  image_tests_enabled: Optional[bool] = None,
                  timeout_minutes: Optional[int] = None):
+        """
+        :param bool image_tests_enabled: Whether image tests are enabled. Defaults to `true`.
+        :param int timeout_minutes: Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+        """
         if image_tests_enabled is not None:
             pulumi.set(__self__, "image_tests_enabled", image_tests_enabled)
         if timeout_minutes is not None:
@@ -877,11 +1123,17 @@ class ImageImageTestsConfiguration(dict):
     @property
     @pulumi.getter(name="imageTestsEnabled")
     def image_tests_enabled(self) -> Optional[bool]:
+        """
+        Whether image tests are enabled. Defaults to `true`.
+        """
         return pulumi.get(self, "image_tests_enabled")
 
     @property
     @pulumi.getter(name="timeoutMinutes")
     def timeout_minutes(self) -> Optional[int]:
+        """
+        Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+        """
         return pulumi.get(self, "timeout_minutes")
 
 
@@ -889,12 +1141,18 @@ class ImageImageTestsConfiguration(dict):
 class ImageOutputResource(dict):
     def __init__(__self__, *,
                  amis: Optional[Sequence['outputs.ImageOutputResourceAmi']] = None):
+        """
+        :param Sequence['ImageOutputResourceAmiArgs'] amis: Set of objects with each Amazon Machine Image (AMI) created.
+        """
         if amis is not None:
             pulumi.set(__self__, "amis", amis)
 
     @property
     @pulumi.getter
     def amis(self) -> Optional[Sequence['outputs.ImageOutputResourceAmi']]:
+        """
+        Set of objects with each Amazon Machine Image (AMI) created.
+        """
         return pulumi.get(self, "amis")
 
 
@@ -923,6 +1181,13 @@ class ImageOutputResourceAmi(dict):
                  image: Optional[str] = None,
                  name: Optional[str] = None,
                  region: Optional[str] = None):
+        """
+        :param str account_id: Account identifier of the AMI.
+        :param str description: Description of the AMI.
+        :param str image: Identifier of the AMI.
+        :param str name: Name of the AMI.
+        :param str region: Region of the AMI.
+        """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
         if description is not None:
@@ -937,26 +1202,41 @@ class ImageOutputResourceAmi(dict):
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[str]:
+        """
+        Account identifier of the AMI.
+        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        Description of the AMI.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def image(self) -> Optional[str]:
+        """
+        Identifier of the AMI.
+        """
         return pulumi.get(self, "image")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        Name of the AMI.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def region(self) -> Optional[str]:
+        """
+        Region of the AMI.
+        """
         return pulumi.get(self, "region")
 
 
@@ -984,6 +1264,10 @@ class ImagePipelineImageTestsConfiguration(dict):
     def __init__(__self__, *,
                  image_tests_enabled: Optional[bool] = None,
                  timeout_minutes: Optional[int] = None):
+        """
+        :param bool image_tests_enabled: Whether image tests are enabled. Defaults to `true`.
+        :param int timeout_minutes: Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+        """
         if image_tests_enabled is not None:
             pulumi.set(__self__, "image_tests_enabled", image_tests_enabled)
         if timeout_minutes is not None:
@@ -992,11 +1276,17 @@ class ImagePipelineImageTestsConfiguration(dict):
     @property
     @pulumi.getter(name="imageTestsEnabled")
     def image_tests_enabled(self) -> Optional[bool]:
+        """
+        Whether image tests are enabled. Defaults to `true`.
+        """
         return pulumi.get(self, "image_tests_enabled")
 
     @property
     @pulumi.getter(name="timeoutMinutes")
     def timeout_minutes(self) -> Optional[int]:
+        """
+        Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+        """
         return pulumi.get(self, "timeout_minutes")
 
 
@@ -1025,6 +1315,11 @@ class ImagePipelineSchedule(dict):
                  schedule_expression: str,
                  pipeline_execution_start_condition: Optional[str] = None,
                  timezone: Optional[str] = None):
+        """
+        :param str schedule_expression: Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
+        :param str pipeline_execution_start_condition: Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
+        :param str timezone: The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
+        """
         pulumi.set(__self__, "schedule_expression", schedule_expression)
         if pipeline_execution_start_condition is not None:
             pulumi.set(__self__, "pipeline_execution_start_condition", pipeline_execution_start_condition)
@@ -1034,16 +1329,25 @@ class ImagePipelineSchedule(dict):
     @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> str:
+        """
+        Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
+        """
         return pulumi.get(self, "schedule_expression")
 
     @property
     @pulumi.getter(name="pipelineExecutionStartCondition")
     def pipeline_execution_start_condition(self) -> Optional[str]:
+        """
+        Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
+        """
         return pulumi.get(self, "pipeline_execution_start_condition")
 
     @property
     @pulumi.getter
     def timezone(self) -> Optional[str]:
+        """
+        The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
+        """
         return pulumi.get(self, "timezone")
 
 
@@ -1075,6 +1379,12 @@ class ImageRecipeBlockDeviceMapping(dict):
                  ebs: Optional['outputs.ImageRecipeBlockDeviceMappingEbs'] = None,
                  no_device: Optional[bool] = None,
                  virtual_name: Optional[str] = None):
+        """
+        :param str device_name: Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+        :param 'ImageRecipeBlockDeviceMappingEbsArgs' ebs: Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+        :param bool no_device: Set to `true` to remove a mapping from the parent image.
+        :param str virtual_name: Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+        """
         if device_name is not None:
             pulumi.set(__self__, "device_name", device_name)
         if ebs is not None:
@@ -1087,21 +1397,33 @@ class ImageRecipeBlockDeviceMapping(dict):
     @property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> Optional[str]:
+        """
+        Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+        """
         return pulumi.get(self, "device_name")
 
     @property
     @pulumi.getter
     def ebs(self) -> Optional['outputs.ImageRecipeBlockDeviceMappingEbs']:
+        """
+        Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+        """
         return pulumi.get(self, "ebs")
 
     @property
     @pulumi.getter(name="noDevice")
     def no_device(self) -> Optional[bool]:
+        """
+        Set to `true` to remove a mapping from the parent image.
+        """
         return pulumi.get(self, "no_device")
 
     @property
     @pulumi.getter(name="virtualName")
     def virtual_name(self) -> Optional[str]:
+        """
+        Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+        """
         return pulumi.get(self, "virtual_name")
 
 
@@ -1141,6 +1463,16 @@ class ImageRecipeBlockDeviceMappingEbs(dict):
                  throughput: Optional[int] = None,
                  volume_size: Optional[int] = None,
                  volume_type: Optional[str] = None):
+        """
+        :param str delete_on_termination: Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+        :param str encrypted: Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        :param int iops: Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+        :param str kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        :param str snapshot_id: Identifier of the EC2 Volume Snapshot.
+        :param int throughput: For GP3 volumes only. The throughput in MiB/s that the volume supports.
+        :param int volume_size: Size of the volume, in GiB.
+        :param str volume_type: Type of the volume. For example, `gp2` or `io2`.
+        """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
         if encrypted is not None:
@@ -1161,41 +1493,65 @@ class ImageRecipeBlockDeviceMappingEbs(dict):
     @property
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> Optional[str]:
+        """
+        Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+        """
         return pulumi.get(self, "delete_on_termination")
 
     @property
     @pulumi.getter
     def encrypted(self) -> Optional[str]:
+        """
+        Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        """
         return pulumi.get(self, "encrypted")
 
     @property
     @pulumi.getter
     def iops(self) -> Optional[int]:
+        """
+        Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+        """
         return pulumi.get(self, "iops")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
+        """
+        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[str]:
+        """
+        Identifier of the EC2 Volume Snapshot.
+        """
         return pulumi.get(self, "snapshot_id")
 
     @property
     @pulumi.getter
     def throughput(self) -> Optional[int]:
+        """
+        For GP3 volumes only. The throughput in MiB/s that the volume supports.
+        """
         return pulumi.get(self, "throughput")
 
     @property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[int]:
+        """
+        Size of the volume, in GiB.
+        """
         return pulumi.get(self, "volume_size")
 
     @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
+        """
+        Type of the volume. For example, `gp2` or `io2`.
+        """
         return pulumi.get(self, "volume_type")
 
 
@@ -1221,6 +1577,10 @@ class ImageRecipeComponent(dict):
     def __init__(__self__, *,
                  component_arn: str,
                  parameters: Optional[Sequence['outputs.ImageRecipeComponentParameter']] = None):
+        """
+        :param str component_arn: Amazon Resource Name (ARN) of the Image Builder Component to associate.
+        :param Sequence['ImageRecipeComponentParameterArgs'] parameters: Configuration block(s) for parameters to configure the component. Detailed below.
+        """
         pulumi.set(__self__, "component_arn", component_arn)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
@@ -1228,11 +1588,17 @@ class ImageRecipeComponent(dict):
     @property
     @pulumi.getter(name="componentArn")
     def component_arn(self) -> str:
+        """
+        Amazon Resource Name (ARN) of the Image Builder Component to associate.
+        """
         return pulumi.get(self, "component_arn")
 
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Sequence['outputs.ImageRecipeComponentParameter']]:
+        """
+        Configuration block(s) for parameters to configure the component. Detailed below.
+        """
         return pulumi.get(self, "parameters")
 
 
@@ -1241,17 +1607,27 @@ class ImageRecipeComponentParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
+        """
+        :param str name: The name of the component parameter.
+        :param str value: The value for the named component parameter.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the component parameter.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value for the named component parameter.
+        """
         return pulumi.get(self, "value")
 
 
@@ -1276,11 +1652,17 @@ class ImageRecipeSystemsManagerAgent(dict):
 
     def __init__(__self__, *,
                  uninstall_after_build: bool):
+        """
+        :param bool uninstall_after_build: Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+        """
         pulumi.set(__self__, "uninstall_after_build", uninstall_after_build)
 
     @property
     @pulumi.getter(name="uninstallAfterBuild")
     def uninstall_after_build(self) -> bool:
+        """
+        Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+        """
         return pulumi.get(self, "uninstall_after_build")
 
 
@@ -1308,6 +1690,10 @@ class InfrastructureConfigurationInstanceMetadataOptions(dict):
     def __init__(__self__, *,
                  http_put_response_hop_limit: Optional[int] = None,
                  http_tokens: Optional[str] = None):
+        """
+        :param int http_put_response_hop_limit: The number of hops that an instance can traverse to reach its destonation.
+        :param str http_tokens: Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
+        """
         if http_put_response_hop_limit is not None:
             pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
         if http_tokens is not None:
@@ -1316,11 +1702,17 @@ class InfrastructureConfigurationInstanceMetadataOptions(dict):
     @property
     @pulumi.getter(name="httpPutResponseHopLimit")
     def http_put_response_hop_limit(self) -> Optional[int]:
+        """
+        The number of hops that an instance can traverse to reach its destonation.
+        """
         return pulumi.get(self, "http_put_response_hop_limit")
 
     @property
     @pulumi.getter(name="httpTokens")
     def http_tokens(self) -> Optional[str]:
+        """
+        Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
+        """
         return pulumi.get(self, "http_tokens")
 
 
@@ -1345,11 +1737,17 @@ class InfrastructureConfigurationLogging(dict):
 
     def __init__(__self__, *,
                  s3_logs: 'outputs.InfrastructureConfigurationLoggingS3Logs'):
+        """
+        :param 'InfrastructureConfigurationLoggingS3LogsArgs' s3_logs: Configuration block with S3 logging settings. Detailed below.
+        """
         pulumi.set(__self__, "s3_logs", s3_logs)
 
     @property
     @pulumi.getter(name="s3Logs")
     def s3_logs(self) -> 'outputs.InfrastructureConfigurationLoggingS3Logs':
+        """
+        Configuration block with S3 logging settings. Detailed below.
+        """
         return pulumi.get(self, "s3_logs")
 
 
@@ -1377,6 +1775,10 @@ class InfrastructureConfigurationLoggingS3Logs(dict):
     def __init__(__self__, *,
                  s3_bucket_name: str,
                  s3_key_prefix: Optional[str] = None):
+        """
+        :param str s3_bucket_name: Name of the S3 Bucket.
+        :param str s3_key_prefix: Prefix to use for S3 logs. Defaults to `/`.
+        """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_key_prefix is not None:
             pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
@@ -1384,11 +1786,17 @@ class InfrastructureConfigurationLoggingS3Logs(dict):
     @property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> str:
+        """
+        Name of the S3 Bucket.
+        """
         return pulumi.get(self, "s3_bucket_name")
 
     @property
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> Optional[str]:
+        """
+        Prefix to use for S3 logs. Defaults to `/`.
+        """
         return pulumi.get(self, "s3_key_prefix")
 
 
@@ -1397,17 +1805,27 @@ class GetComponentsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
+        """
+        :param str name: Name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
         return pulumi.get(self, "values")
 
 
@@ -1416,17 +1834,27 @@ class GetContainerRecipeComponentResult(dict):
     def __init__(__self__, *,
                  component_arn: str,
                  parameters: Sequence['outputs.GetContainerRecipeComponentParameterResult']):
+        """
+        :param str component_arn: ARN of the Image Builder Component.
+        :param Sequence['GetContainerRecipeComponentParameterArgs'] parameters: Set of parameters that are used to configure the component.
+        """
         pulumi.set(__self__, "component_arn", component_arn)
         pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter(name="componentArn")
     def component_arn(self) -> str:
+        """
+        ARN of the Image Builder Component.
+        """
         return pulumi.get(self, "component_arn")
 
     @property
     @pulumi.getter
     def parameters(self) -> Sequence['outputs.GetContainerRecipeComponentParameterResult']:
+        """
+        Set of parameters that are used to configure the component.
+        """
         return pulumi.get(self, "parameters")
 
 
@@ -1435,17 +1863,27 @@ class GetContainerRecipeComponentParameterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
+        """
+        :param str name: Name of the container recipe.
+        :param str value: Value of the component parameter.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the container recipe.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the component parameter.
+        """
         return pulumi.get(self, "value")
 
 
@@ -1454,17 +1892,27 @@ class GetContainerRecipeInstanceConfigurationResult(dict):
     def __init__(__self__, *,
                  block_device_mappings: Sequence['outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult'],
                  image: str):
+        """
+        :param Sequence['GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs'] block_device_mappings: Set of objects with block device mappings for the instance configuration.
+        :param str image: AMI ID of the base image for container build and test instance.
+        """
         pulumi.set(__self__, "block_device_mappings", block_device_mappings)
         pulumi.set(__self__, "image", image)
 
     @property
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> Sequence['outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult']:
+        """
+        Set of objects with block device mappings for the instance configuration.
+        """
         return pulumi.get(self, "block_device_mappings")
 
     @property
     @pulumi.getter
     def image(self) -> str:
+        """
+        AMI ID of the base image for container build and test instance.
+        """
         return pulumi.get(self, "image")
 
 
@@ -1475,6 +1923,12 @@ class GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult(dict):
                  ebs: Sequence['outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbResult'],
                  no_device: str,
                  virtual_name: str):
+        """
+        :param str device_name: Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+        :param Sequence['GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs'] ebs: Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+        :param str no_device: Whether to remove a mapping from the parent image.
+        :param str virtual_name: Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+        """
         pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "ebs", ebs)
         pulumi.set(__self__, "no_device", no_device)
@@ -1483,21 +1937,33 @@ class GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult(dict):
     @property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> str:
+        """
+        Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+        """
         return pulumi.get(self, "device_name")
 
     @property
     @pulumi.getter
     def ebs(self) -> Sequence['outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbResult']:
+        """
+        Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+        """
         return pulumi.get(self, "ebs")
 
     @property
     @pulumi.getter(name="noDevice")
     def no_device(self) -> str:
+        """
+        Whether to remove a mapping from the parent image.
+        """
         return pulumi.get(self, "no_device")
 
     @property
     @pulumi.getter(name="virtualName")
     def virtual_name(self) -> str:
+        """
+        Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+        """
         return pulumi.get(self, "virtual_name")
 
 
@@ -1512,6 +1978,16 @@ class GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbResult(dict):
                  throughput: int,
                  volume_size: int,
                  volume_type: str):
+        """
+        :param bool delete_on_termination: Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+        :param bool encrypted: Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        :param int iops: Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+        :param str kms_key_id: KMS key used to encrypt the container image.
+        :param str snapshot_id: Identifier of the EC2 Volume Snapshot.
+        :param int throughput: For GP3 volumes only. The throughput in MiB/s that the volume supports.
+        :param int volume_size: Size of the volume, in GiB.
+        :param str volume_type: Type of the volume. For example, `gp2` or `io2`.
+        """
         pulumi.set(__self__, "delete_on_termination", delete_on_termination)
         pulumi.set(__self__, "encrypted", encrypted)
         pulumi.set(__self__, "iops", iops)
@@ -1524,41 +2000,65 @@ class GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbResult(dict):
     @property
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> bool:
+        """
+        Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+        """
         return pulumi.get(self, "delete_on_termination")
 
     @property
     @pulumi.getter
     def encrypted(self) -> bool:
+        """
+        Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        """
         return pulumi.get(self, "encrypted")
 
     @property
     @pulumi.getter
     def iops(self) -> int:
+        """
+        Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+        """
         return pulumi.get(self, "iops")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
+        """
+        KMS key used to encrypt the container image.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> str:
+        """
+        Identifier of the EC2 Volume Snapshot.
+        """
         return pulumi.get(self, "snapshot_id")
 
     @property
     @pulumi.getter
     def throughput(self) -> int:
+        """
+        For GP3 volumes only. The throughput in MiB/s that the volume supports.
+        """
         return pulumi.get(self, "throughput")
 
     @property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> int:
+        """
+        Size of the volume, in GiB.
+        """
         return pulumi.get(self, "volume_size")
 
     @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> str:
+        """
+        Type of the volume. For example, `gp2` or `io2`.
+        """
         return pulumi.get(self, "volume_type")
 
 
@@ -1567,17 +2067,27 @@ class GetContainerRecipeTargetRepositoryResult(dict):
     def __init__(__self__, *,
                  repository_name: str,
                  service: str):
+        """
+        :param str repository_name: Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
+        :param str service: Service in which this image is registered.
+        """
         pulumi.set(__self__, "repository_name", repository_name)
         pulumi.set(__self__, "service", service)
 
     @property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> str:
+        """
+        Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
+        """
         return pulumi.get(self, "repository_name")
 
     @property
     @pulumi.getter
     def service(self) -> str:
+        """
+        Service in which this image is registered.
+        """
         return pulumi.get(self, "service")
 
 
@@ -1586,17 +2096,27 @@ class GetContainerRecipesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
+        """
+        :param str name: Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
         return pulumi.get(self, "values")
 
 
@@ -1609,6 +2129,14 @@ class GetDistributionConfigurationDistributionResult(dict):
                  launch_template_configurations: Sequence['outputs.GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult'],
                  license_configuration_arns: Sequence[str],
                  region: str):
+        """
+        :param Sequence['GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs'] ami_distribution_configurations: Nested list of AMI distribution configuration.
+        :param Sequence['GetDistributionConfigurationDistributionContainerDistributionConfigurationArgs'] container_distribution_configurations: Nested list of container distribution configurations.
+        :param Sequence['GetDistributionConfigurationDistributionFastLaunchConfigurationArgs'] fast_launch_configurations: Nested list of Windows faster-launching configurations to use for AMI distribution.
+        :param Sequence['GetDistributionConfigurationDistributionLaunchTemplateConfigurationArgs'] launch_template_configurations: Nested list of launch template configurations.
+        :param Sequence[str] license_configuration_arns: Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+        :param str region: AWS Region of distribution.
+        """
         pulumi.set(__self__, "ami_distribution_configurations", ami_distribution_configurations)
         pulumi.set(__self__, "container_distribution_configurations", container_distribution_configurations)
         pulumi.set(__self__, "fast_launch_configurations", fast_launch_configurations)
@@ -1619,31 +2147,49 @@ class GetDistributionConfigurationDistributionResult(dict):
     @property
     @pulumi.getter(name="amiDistributionConfigurations")
     def ami_distribution_configurations(self) -> Sequence['outputs.GetDistributionConfigurationDistributionAmiDistributionConfigurationResult']:
+        """
+        Nested list of AMI distribution configuration.
+        """
         return pulumi.get(self, "ami_distribution_configurations")
 
     @property
     @pulumi.getter(name="containerDistributionConfigurations")
     def container_distribution_configurations(self) -> Sequence['outputs.GetDistributionConfigurationDistributionContainerDistributionConfigurationResult']:
+        """
+        Nested list of container distribution configurations.
+        """
         return pulumi.get(self, "container_distribution_configurations")
 
     @property
     @pulumi.getter(name="fastLaunchConfigurations")
     def fast_launch_configurations(self) -> Sequence['outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationResult']:
+        """
+        Nested list of Windows faster-launching configurations to use for AMI distribution.
+        """
         return pulumi.get(self, "fast_launch_configurations")
 
     @property
     @pulumi.getter(name="launchTemplateConfigurations")
     def launch_template_configurations(self) -> Sequence['outputs.GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult']:
+        """
+        Nested list of launch template configurations.
+        """
         return pulumi.get(self, "launch_template_configurations")
 
     @property
     @pulumi.getter(name="licenseConfigurationArns")
     def license_configuration_arns(self) -> Sequence[str]:
+        """
+        Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+        """
         return pulumi.get(self, "license_configuration_arns")
 
     @property
     @pulumi.getter
     def region(self) -> str:
+        """
+        AWS Region of distribution.
+        """
         return pulumi.get(self, "region")
 
 
@@ -1656,6 +2202,14 @@ class GetDistributionConfigurationDistributionAmiDistributionConfigurationResult
                  launch_permissions: Sequence['outputs.GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionResult'],
                  name: str,
                  target_account_ids: Sequence[str]):
+        """
+        :param Mapping[str, str] ami_tags: Key-value map of tags to apply to distributed AMI.
+        :param str description: Description of the container distribution configuration.
+        :param str kms_key_id: ARN of Key Management Service (KMS) Key to encrypt AMI.
+        :param Sequence['GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs'] launch_permissions: Nested list of EC2 launch permissions.
+        :param str name: Name of the distribution configuration.
+        :param Sequence[str] target_account_ids: Set of target AWS Account identifiers.
+        """
         pulumi.set(__self__, "ami_tags", ami_tags)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -1666,31 +2220,49 @@ class GetDistributionConfigurationDistributionAmiDistributionConfigurationResult
     @property
     @pulumi.getter(name="amiTags")
     def ami_tags(self) -> Mapping[str, str]:
+        """
+        Key-value map of tags to apply to distributed AMI.
+        """
         return pulumi.get(self, "ami_tags")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the container distribution configuration.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
+        """
+        ARN of Key Management Service (KMS) Key to encrypt AMI.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="launchPermissions")
     def launch_permissions(self) -> Sequence['outputs.GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionResult']:
+        """
+        Nested list of EC2 launch permissions.
+        """
         return pulumi.get(self, "launch_permissions")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the distribution configuration.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="targetAccountIds")
     def target_account_ids(self) -> Sequence[str]:
+        """
+        Set of target AWS Account identifiers.
+        """
         return pulumi.get(self, "target_account_ids")
 
 
@@ -1701,6 +2273,12 @@ class GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunch
                  organizational_unit_arns: Sequence[str],
                  user_groups: Sequence[str],
                  user_ids: Sequence[str]):
+        """
+        :param Sequence[str] organization_arns: Set of AWS Organization ARNs.
+        :param Sequence[str] organizational_unit_arns: Set of AWS Organizational Unit ARNs.
+        :param Sequence[str] user_groups: Set of EC2 launch permission user groups.
+        :param Sequence[str] user_ids: Set of AWS Account identifiers.
+        """
         pulumi.set(__self__, "organization_arns", organization_arns)
         pulumi.set(__self__, "organizational_unit_arns", organizational_unit_arns)
         pulumi.set(__self__, "user_groups", user_groups)
@@ -1709,21 +2287,33 @@ class GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunch
     @property
     @pulumi.getter(name="organizationArns")
     def organization_arns(self) -> Sequence[str]:
+        """
+        Set of AWS Organization ARNs.
+        """
         return pulumi.get(self, "organization_arns")
 
     @property
     @pulumi.getter(name="organizationalUnitArns")
     def organizational_unit_arns(self) -> Sequence[str]:
+        """
+        Set of AWS Organizational Unit ARNs.
+        """
         return pulumi.get(self, "organizational_unit_arns")
 
     @property
     @pulumi.getter(name="userGroups")
     def user_groups(self) -> Sequence[str]:
+        """
+        Set of EC2 launch permission user groups.
+        """
         return pulumi.get(self, "user_groups")
 
     @property
     @pulumi.getter(name="userIds")
     def user_ids(self) -> Sequence[str]:
+        """
+        Set of AWS Account identifiers.
+        """
         return pulumi.get(self, "user_ids")
 
 
@@ -1733,6 +2323,11 @@ class GetDistributionConfigurationDistributionContainerDistributionConfiguration
                  container_tags: Sequence[str],
                  description: str,
                  target_repositories: Sequence['outputs.GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryResult']):
+        """
+        :param Sequence[str] container_tags: Set of tags that are attached to the container distribution configuration.
+        :param str description: Description of the container distribution configuration.
+        :param Sequence['GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs'] target_repositories: Set of destination repositories for the container distribution configuration.
+        """
         pulumi.set(__self__, "container_tags", container_tags)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "target_repositories", target_repositories)
@@ -1740,16 +2335,25 @@ class GetDistributionConfigurationDistributionContainerDistributionConfiguration
     @property
     @pulumi.getter(name="containerTags")
     def container_tags(self) -> Sequence[str]:
+        """
+        Set of tags that are attached to the container distribution configuration.
+        """
         return pulumi.get(self, "container_tags")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the container distribution configuration.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="targetRepositories")
     def target_repositories(self) -> Sequence['outputs.GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryResult']:
+        """
+        Set of destination repositories for the container distribution configuration.
+        """
         return pulumi.get(self, "target_repositories")
 
 
@@ -1758,17 +2362,27 @@ class GetDistributionConfigurationDistributionContainerDistributionConfiguration
     def __init__(__self__, *,
                  repository_name: str,
                  service: str):
+        """
+        :param str repository_name: Name of the container repository where the output container image is stored.
+        :param str service: Service in which the image is registered.
+        """
         pulumi.set(__self__, "repository_name", repository_name)
         pulumi.set(__self__, "service", service)
 
     @property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> str:
+        """
+        Name of the container repository where the output container image is stored.
+        """
         return pulumi.get(self, "repository_name")
 
     @property
     @pulumi.getter
     def service(self) -> str:
+        """
+        Service in which the image is registered.
+        """
         return pulumi.get(self, "service")
 
 
@@ -1780,6 +2394,13 @@ class GetDistributionConfigurationDistributionFastLaunchConfigurationResult(dict
                  launch_templates: Sequence['outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateResult'],
                  max_parallel_launches: int,
                  snapshot_configurations: Sequence['outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationResult']):
+        """
+        :param str account_id: The account ID that this configuration applies to.
+        :param bool enabled: A Boolean that represents the current state of faster launching for the Windows AMI.
+        :param Sequence['GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs'] launch_templates: Nested list of launch templates that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+        :param int max_parallel_launches: The maximum number of parallel instances that are launched for creating resources.
+        :param Sequence['GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs'] snapshot_configurations: Nested list of configurations for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+        """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "launch_templates", launch_templates)
@@ -1789,26 +2410,41 @@ class GetDistributionConfigurationDistributionFastLaunchConfigurationResult(dict
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> str:
+        """
+        The account ID that this configuration applies to.
+        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        A Boolean that represents the current state of faster launching for the Windows AMI.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="launchTemplates")
     def launch_templates(self) -> Sequence['outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateResult']:
+        """
+        Nested list of launch templates that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+        """
         return pulumi.get(self, "launch_templates")
 
     @property
     @pulumi.getter(name="maxParallelLaunches")
     def max_parallel_launches(self) -> int:
+        """
+        The maximum number of parallel instances that are launched for creating resources.
+        """
         return pulumi.get(self, "max_parallel_launches")
 
     @property
     @pulumi.getter(name="snapshotConfigurations")
     def snapshot_configurations(self) -> Sequence['outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationResult']:
+        """
+        Nested list of configurations for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+        """
         return pulumi.get(self, "snapshot_configurations")
 
 
@@ -1818,6 +2454,11 @@ class GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTempl
                  launch_template_id: str,
                  launch_template_name: str,
                  launch_template_version: str):
+        """
+        :param str launch_template_id: ID of the Amazon EC2 launch template.
+        :param str launch_template_name: The name of the launch template to use for faster launching for a Windows AMI.
+        :param str launch_template_version: The version of the launch template to use for faster launching for a Windows AMI.
+        """
         pulumi.set(__self__, "launch_template_id", launch_template_id)
         pulumi.set(__self__, "launch_template_name", launch_template_name)
         pulumi.set(__self__, "launch_template_version", launch_template_version)
@@ -1825,16 +2466,25 @@ class GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTempl
     @property
     @pulumi.getter(name="launchTemplateId")
     def launch_template_id(self) -> str:
+        """
+        ID of the Amazon EC2 launch template.
+        """
         return pulumi.get(self, "launch_template_id")
 
     @property
     @pulumi.getter(name="launchTemplateName")
     def launch_template_name(self) -> str:
+        """
+        The name of the launch template to use for faster launching for a Windows AMI.
+        """
         return pulumi.get(self, "launch_template_name")
 
     @property
     @pulumi.getter(name="launchTemplateVersion")
     def launch_template_version(self) -> str:
+        """
+        The version of the launch template to use for faster launching for a Windows AMI.
+        """
         return pulumi.get(self, "launch_template_version")
 
 
@@ -1842,11 +2492,17 @@ class GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTempl
 class GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationResult(dict):
     def __init__(__self__, *,
                  target_resource_count: int):
+        """
+        :param int target_resource_count: The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+        """
         pulumi.set(__self__, "target_resource_count", target_resource_count)
 
     @property
     @pulumi.getter(name="targetResourceCount")
     def target_resource_count(self) -> int:
+        """
+        The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+        """
         return pulumi.get(self, "target_resource_count")
 
 
@@ -1856,6 +2512,11 @@ class GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult(
                  account_id: str,
                  default: bool,
                  launch_template_id: str):
+        """
+        :param str account_id: The account ID that this configuration applies to.
+        :param bool default: Whether the specified Amazon EC2 launch template is set as the default launch template.
+        :param str launch_template_id: ID of the Amazon EC2 launch template.
+        """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "default", default)
         pulumi.set(__self__, "launch_template_id", launch_template_id)
@@ -1863,16 +2524,25 @@ class GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult(
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> str:
+        """
+        The account ID that this configuration applies to.
+        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
     def default(self) -> bool:
+        """
+        Whether the specified Amazon EC2 launch template is set as the default launch template.
+        """
         return pulumi.get(self, "default")
 
     @property
     @pulumi.getter(name="launchTemplateId")
     def launch_template_id(self) -> str:
+        """
+        ID of the Amazon EC2 launch template.
+        """
         return pulumi.get(self, "launch_template_id")
 
 
@@ -1881,17 +2551,27 @@ class GetDistributionConfigurationsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
+        """
+        :param str name: Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
         return pulumi.get(self, "values")
 
 
@@ -1900,17 +2580,27 @@ class GetImageImageTestsConfigurationResult(dict):
     def __init__(__self__, *,
                  image_tests_enabled: bool,
                  timeout_minutes: int):
+        """
+        :param bool image_tests_enabled: Whether image tests are enabled.
+        :param int timeout_minutes: Number of minutes before image tests time out.
+        """
         pulumi.set(__self__, "image_tests_enabled", image_tests_enabled)
         pulumi.set(__self__, "timeout_minutes", timeout_minutes)
 
     @property
     @pulumi.getter(name="imageTestsEnabled")
     def image_tests_enabled(self) -> bool:
+        """
+        Whether image tests are enabled.
+        """
         return pulumi.get(self, "image_tests_enabled")
 
     @property
     @pulumi.getter(name="timeoutMinutes")
     def timeout_minutes(self) -> int:
+        """
+        Number of minutes before image tests time out.
+        """
         return pulumi.get(self, "timeout_minutes")
 
 
@@ -1918,11 +2608,17 @@ class GetImageImageTestsConfigurationResult(dict):
 class GetImageOutputResourceResult(dict):
     def __init__(__self__, *,
                  amis: Sequence['outputs.GetImageOutputResourceAmiResult']):
+        """
+        :param Sequence['GetImageOutputResourceAmiArgs'] amis: Set of objects with each Amazon Machine Image (AMI) created.
+        """
         pulumi.set(__self__, "amis", amis)
 
     @property
     @pulumi.getter
     def amis(self) -> Sequence['outputs.GetImageOutputResourceAmiResult']:
+        """
+        Set of objects with each Amazon Machine Image (AMI) created.
+        """
         return pulumi.get(self, "amis")
 
 
@@ -1934,6 +2630,13 @@ class GetImageOutputResourceAmiResult(dict):
                  image: str,
                  name: str,
                  region: str):
+        """
+        :param str account_id: Account identifier of the AMI.
+        :param str description: Description of the AMI.
+        :param str image: Identifier of the AMI.
+        :param str name: Name of the AMI.
+        :param str region: Region of the AMI.
+        """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "image", image)
@@ -1943,26 +2646,41 @@ class GetImageOutputResourceAmiResult(dict):
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> str:
+        """
+        Account identifier of the AMI.
+        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the AMI.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def image(self) -> str:
+        """
+        Identifier of the AMI.
+        """
         return pulumi.get(self, "image")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the AMI.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def region(self) -> str:
+        """
+        Region of the AMI.
+        """
         return pulumi.get(self, "region")
 
 
@@ -1971,17 +2689,27 @@ class GetImagePipelineImageTestsConfigurationResult(dict):
     def __init__(__self__, *,
                  image_tests_enabled: bool,
                  timeout_minutes: int):
+        """
+        :param bool image_tests_enabled: Whether image tests are enabled.
+        :param int timeout_minutes: Number of minutes before image tests time out.
+        """
         pulumi.set(__self__, "image_tests_enabled", image_tests_enabled)
         pulumi.set(__self__, "timeout_minutes", timeout_minutes)
 
     @property
     @pulumi.getter(name="imageTestsEnabled")
     def image_tests_enabled(self) -> bool:
+        """
+        Whether image tests are enabled.
+        """
         return pulumi.get(self, "image_tests_enabled")
 
     @property
     @pulumi.getter(name="timeoutMinutes")
     def timeout_minutes(self) -> int:
+        """
+        Number of minutes before image tests time out.
+        """
         return pulumi.get(self, "timeout_minutes")
 
 
@@ -1990,17 +2718,27 @@ class GetImagePipelineScheduleResult(dict):
     def __init__(__self__, *,
                  pipeline_execution_start_condition: str,
                  schedule_expression: str):
+        """
+        :param str pipeline_execution_start_condition: Condition when the pipeline should trigger a new image build.
+        :param str schedule_expression: Cron expression of how often the pipeline start condition is evaluated.
+        """
         pulumi.set(__self__, "pipeline_execution_start_condition", pipeline_execution_start_condition)
         pulumi.set(__self__, "schedule_expression", schedule_expression)
 
     @property
     @pulumi.getter(name="pipelineExecutionStartCondition")
     def pipeline_execution_start_condition(self) -> str:
+        """
+        Condition when the pipeline should trigger a new image build.
+        """
         return pulumi.get(self, "pipeline_execution_start_condition")
 
     @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> str:
+        """
+        Cron expression of how often the pipeline start condition is evaluated.
+        """
         return pulumi.get(self, "schedule_expression")
 
 
@@ -2009,17 +2747,27 @@ class GetImagePipelinesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
+        """
+        :param str name: Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
         return pulumi.get(self, "values")
 
 
@@ -2030,6 +2778,12 @@ class GetImageRecipeBlockDeviceMappingResult(dict):
                  ebs: Sequence['outputs.GetImageRecipeBlockDeviceMappingEbResult'],
                  no_device: str,
                  virtual_name: str):
+        """
+        :param str device_name: Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+        :param Sequence['GetImageRecipeBlockDeviceMappingEbArgs'] ebs: Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+        :param str no_device: Whether to remove a mapping from the parent image.
+        :param str virtual_name: Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+        """
         pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "ebs", ebs)
         pulumi.set(__self__, "no_device", no_device)
@@ -2038,21 +2792,33 @@ class GetImageRecipeBlockDeviceMappingResult(dict):
     @property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> str:
+        """
+        Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+        """
         return pulumi.get(self, "device_name")
 
     @property
     @pulumi.getter
     def ebs(self) -> Sequence['outputs.GetImageRecipeBlockDeviceMappingEbResult']:
+        """
+        Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+        """
         return pulumi.get(self, "ebs")
 
     @property
     @pulumi.getter(name="noDevice")
     def no_device(self) -> str:
+        """
+        Whether to remove a mapping from the parent image.
+        """
         return pulumi.get(self, "no_device")
 
     @property
     @pulumi.getter(name="virtualName")
     def virtual_name(self) -> str:
+        """
+        Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+        """
         return pulumi.get(self, "virtual_name")
 
 
@@ -2067,6 +2833,16 @@ class GetImageRecipeBlockDeviceMappingEbResult(dict):
                  throughput: int,
                  volume_size: int,
                  volume_type: str):
+        """
+        :param bool delete_on_termination: Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+        :param bool encrypted: Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        :param int iops: Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+        :param str kms_key_id: ARN of the Key Management Service (KMS) Key for encryption.
+        :param str snapshot_id: Identifier of the EC2 Volume Snapshot.
+        :param int throughput: For GP3 volumes only. The throughput in MiB/s that the volume supports.
+        :param int volume_size: Size of the volume, in GiB.
+        :param str volume_type: Type of the volume. For example, `gp2` or `io2`.
+        """
         pulumi.set(__self__, "delete_on_termination", delete_on_termination)
         pulumi.set(__self__, "encrypted", encrypted)
         pulumi.set(__self__, "iops", iops)
@@ -2079,41 +2855,65 @@ class GetImageRecipeBlockDeviceMappingEbResult(dict):
     @property
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> bool:
+        """
+        Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+        """
         return pulumi.get(self, "delete_on_termination")
 
     @property
     @pulumi.getter
     def encrypted(self) -> bool:
+        """
+        Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        """
         return pulumi.get(self, "encrypted")
 
     @property
     @pulumi.getter
     def iops(self) -> int:
+        """
+        Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+        """
         return pulumi.get(self, "iops")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
+        """
+        ARN of the Key Management Service (KMS) Key for encryption.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> str:
+        """
+        Identifier of the EC2 Volume Snapshot.
+        """
         return pulumi.get(self, "snapshot_id")
 
     @property
     @pulumi.getter
     def throughput(self) -> int:
+        """
+        For GP3 volumes only. The throughput in MiB/s that the volume supports.
+        """
         return pulumi.get(self, "throughput")
 
     @property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> int:
+        """
+        Size of the volume, in GiB.
+        """
         return pulumi.get(self, "volume_size")
 
     @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> str:
+        """
+        Type of the volume. For example, `gp2` or `io2`.
+        """
         return pulumi.get(self, "volume_type")
 
 
@@ -2122,17 +2922,27 @@ class GetImageRecipeComponentResult(dict):
     def __init__(__self__, *,
                  component_arn: str,
                  parameters: Sequence['outputs.GetImageRecipeComponentParameterResult']):
+        """
+        :param str component_arn: ARN of the Image Builder Component.
+        :param Sequence['GetImageRecipeComponentParameterArgs'] parameters: Set of parameters that are used to configure the component.
+        """
         pulumi.set(__self__, "component_arn", component_arn)
         pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter(name="componentArn")
     def component_arn(self) -> str:
+        """
+        ARN of the Image Builder Component.
+        """
         return pulumi.get(self, "component_arn")
 
     @property
     @pulumi.getter
     def parameters(self) -> Sequence['outputs.GetImageRecipeComponentParameterResult']:
+        """
+        Set of parameters that are used to configure the component.
+        """
         return pulumi.get(self, "parameters")
 
 
@@ -2141,17 +2951,27 @@ class GetImageRecipeComponentParameterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
+        """
+        :param str name: Name of the image recipe.
+        :param str value: Value of the component parameter.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the image recipe.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of the component parameter.
+        """
         return pulumi.get(self, "value")
 
 
@@ -2160,17 +2980,27 @@ class GetImageRecipesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
+        """
+        :param str name: Name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
         return pulumi.get(self, "values")
 
 
@@ -2179,17 +3009,27 @@ class GetInfrastructureConfigurationInstanceMetadataOptionResult(dict):
     def __init__(__self__, *,
                  http_put_response_hop_limit: int,
                  http_tokens: str):
+        """
+        :param int http_put_response_hop_limit: Number of hops that an instance can traverse to reach its destonation.
+        :param str http_tokens: Whether a signed token is required for instance metadata retrieval requests.
+        """
         pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
         pulumi.set(__self__, "http_tokens", http_tokens)
 
     @property
     @pulumi.getter(name="httpPutResponseHopLimit")
     def http_put_response_hop_limit(self) -> int:
+        """
+        Number of hops that an instance can traverse to reach its destonation.
+        """
         return pulumi.get(self, "http_put_response_hop_limit")
 
     @property
     @pulumi.getter(name="httpTokens")
     def http_tokens(self) -> str:
+        """
+        Whether a signed token is required for instance metadata retrieval requests.
+        """
         return pulumi.get(self, "http_tokens")
 
 
@@ -2197,11 +3037,17 @@ class GetInfrastructureConfigurationInstanceMetadataOptionResult(dict):
 class GetInfrastructureConfigurationLoggingResult(dict):
     def __init__(__self__, *,
                  s3_logs: Sequence['outputs.GetInfrastructureConfigurationLoggingS3LogResult']):
+        """
+        :param Sequence['GetInfrastructureConfigurationLoggingS3LogArgs'] s3_logs: Nested list of S3 logs settings.
+        """
         pulumi.set(__self__, "s3_logs", s3_logs)
 
     @property
     @pulumi.getter(name="s3Logs")
     def s3_logs(self) -> Sequence['outputs.GetInfrastructureConfigurationLoggingS3LogResult']:
+        """
+        Nested list of S3 logs settings.
+        """
         return pulumi.get(self, "s3_logs")
 
 
@@ -2210,17 +3056,27 @@ class GetInfrastructureConfigurationLoggingS3LogResult(dict):
     def __init__(__self__, *,
                  s3_bucket_name: str,
                  s3_key_prefix: str):
+        """
+        :param str s3_bucket_name: Name of the S3 Bucket for logging.
+        :param str s3_key_prefix: Key prefix for S3 Bucket logging.
+        """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
 
     @property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> str:
+        """
+        Name of the S3 Bucket for logging.
+        """
         return pulumi.get(self, "s3_bucket_name")
 
     @property
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> str:
+        """
+        Key prefix for S3 Bucket logging.
+        """
         return pulumi.get(self, "s3_key_prefix")
 
 
@@ -2229,17 +3085,27 @@ class GetInfrastructureConfigurationsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
+        """
+        :param str name: Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
         return pulumi.get(self, "values")
 
 

@@ -7,6 +7,44 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Resource for managing an AWS AccessAnalyzer Archive Rule.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.accessanalyzer.ArchiveRule("example", {
+ *     analyzerName: "example-analyzer",
+ *     filters: [
+ *         {
+ *             criteria: "condition.aws:UserId",
+ *             eqs: ["userid"],
+ *         },
+ *         {
+ *             criteria: "error",
+ *             exists: "true",
+ *         },
+ *         {
+ *             criteria: "isPublic",
+ *             eqs: ["false"],
+ *         },
+ *     ],
+ *     ruleName: "example-rule",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * AccessAnalyzer ArchiveRule can be imported using the `analyzer_name/rule_name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
+ * ```
+ */
 export class ArchiveRule extends pulumi.CustomResource {
     /**
      * Get an existing ArchiveRule resource's state with the given name, ID, and optional extra
@@ -35,8 +73,17 @@ export class ArchiveRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === ArchiveRule.__pulumiType;
     }
 
+    /**
+     * Analyzer name.
+     */
     public readonly analyzerName!: pulumi.Output<string>;
+    /**
+     * Filter criteria for the archive rule. See Filter for more details.
+     */
     public readonly filters!: pulumi.Output<outputs.accessanalyzer.ArchiveRuleFilter[]>;
+    /**
+     * Rule name.
+     */
     public readonly ruleName!: pulumi.Output<string>;
 
     /**
@@ -79,8 +126,17 @@ export class ArchiveRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ArchiveRule resources.
  */
 export interface ArchiveRuleState {
+    /**
+     * Analyzer name.
+     */
     analyzerName?: pulumi.Input<string>;
+    /**
+     * Filter criteria for the archive rule. See Filter for more details.
+     */
     filters?: pulumi.Input<pulumi.Input<inputs.accessanalyzer.ArchiveRuleFilter>[]>;
+    /**
+     * Rule name.
+     */
     ruleName?: pulumi.Input<string>;
 }
 
@@ -88,7 +144,16 @@ export interface ArchiveRuleState {
  * The set of arguments for constructing a ArchiveRule resource.
  */
 export interface ArchiveRuleArgs {
+    /**
+     * Analyzer name.
+     */
     analyzerName: pulumi.Input<string>;
+    /**
+     * Filter criteria for the archive rule. See Filter for more details.
+     */
     filters: pulumi.Input<pulumi.Input<inputs.accessanalyzer.ArchiveRuleFilter>[]>;
+    /**
+     * Rule name.
+     */
     ruleName: pulumi.Input<string>;
 }

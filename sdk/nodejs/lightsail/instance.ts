@@ -7,6 +7,111 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Lightsail Instance. Amazon Lightsail is a service to provide easy virtual private servers
+ * with custom software already setup. See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail)
+ * for more information.
+ *
+ * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Create a new GitLab Lightsail Instance
+ * const gitlabTest = new aws.lightsail.Instance("gitlabTest", {
+ *     availabilityZone: "us-east-1b",
+ *     blueprintId: "amazon_linux",
+ *     bundleId: "nano_1_0",
+ *     keyPairName: "some_key_name",
+ *     tags: {
+ *         foo: "bar",
+ *     },
+ * });
+ * ```
+ * ### Enable Auto Snapshots
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.lightsail.Instance("test", {
+ *     addOn: {
+ *         snapshotTime: "06:00",
+ *         status: "Enabled",
+ *         type: "AutoSnapshot",
+ *     },
+ *     availabilityZone: "us-east-1b",
+ *     blueprintId: "amazon_linux",
+ *     bundleId: "nano_1_0",
+ *     tags: {
+ *         foo: "bar",
+ *     },
+ * });
+ * ```
+ * ## Availability Zones
+ *
+ * Lightsail currently supports the following Availability Zones (e.g., `us-east-1a`):
+ *
+ * - `ap-northeast-1{a,c,d}`
+ * - `ap-northeast-2{a,c}`
+ * - `ap-south-1{a,b}`
+ * - `ap-southeast-1{a,b,c}`
+ * - `ap-southeast-2{a,b,c}`
+ * - `ca-central-1{a,b}`
+ * - `eu-central-1{a,b,c}`
+ * - `eu-west-1{a,b,c}`
+ * - `eu-west-2{a,b,c}`
+ * - `eu-west-3{a,b,c}`
+ * - `us-east-1{a,b,c,d,e,f}`
+ * - `us-east-2{a,b,c}`
+ * - `us-west-2{a,b,c}`
+ *
+ * ## Bundles
+ *
+ * Lightsail currently supports the following Bundle IDs (e.g., an instance in `ap-northeast-1` would use `small20`):
+ *
+ * ### Prefix
+ *
+ * A Bundle ID starts with one of the below size prefixes:
+ *
+ * - `nano_`
+ * - `micro_`
+ * - `small_`
+ * - `medium_`
+ * - `large_`
+ * - `xlarge_`
+ * - `2xlarge_`
+ *
+ * ### Suffix
+ *
+ * A Bundle ID ends with one of the following suffixes depending on Availability Zone:
+ *
+ * - ap-northeast-1: `20`
+ * - ap-northeast-2: `20`
+ * - ap-south-1: `21`
+ * - ap-southeast-1: `20`
+ * - ap-southeast-2: `22`
+ * - ca-central-1: `20`
+ * - eu-central-1: `20`
+ * - eu-west-1: `20`
+ * - eu-west-2: `20`
+ * - eu-west-3: `20`
+ * - us-east-1: `20`
+ * - us-east-2: `20`
+ * - us-west-2: `20`
+ *
+ * ## Import
+ *
+ * Lightsail Instances can be imported using their name, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom_gitlab'
+ * ```
+ */
 export class Instance extends pulumi.CustomResource {
     /**
      * Get an existing Instance resource's state with the given name, ID, and optional extra
@@ -35,28 +140,89 @@ export class Instance extends pulumi.CustomResource {
         return obj['__pulumiType'] === Instance.__pulumiType;
     }
 
+    /**
+     * The add on configuration for the instance. Detailed below.
+     */
     public readonly addOn!: pulumi.Output<outputs.lightsail.InstanceAddOn | undefined>;
+    /**
+     * The ARN of the Lightsail instance (matches `id`).
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The Availability Zone in which to create your
+     * instance (see list below)
+     */
     public readonly availabilityZone!: pulumi.Output<string>;
+    /**
+     * The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+     */
     public readonly blueprintId!: pulumi.Output<string>;
+    /**
+     * The bundle of specification information (see list below)
+     */
     public readonly bundleId!: pulumi.Output<string>;
+    /**
+     * The number of vCPUs the instance has.
+     */
     public /*out*/ readonly cpuCount!: pulumi.Output<number>;
+    /**
+     * The timestamp when the instance was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+     */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
+     * (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
+     *
      * @deprecated use `ipv6_addresses` attribute instead
      */
     public /*out*/ readonly ipv6Address!: pulumi.Output<string>;
+    /**
+     * List of IPv6 addresses for the Lightsail instance.
+     */
     public /*out*/ readonly ipv6Addresses!: pulumi.Output<string[]>;
+    /**
+     * A Boolean value indicating whether this instance has a static IP assigned to it.
+     */
     public /*out*/ readonly isStaticIp!: pulumi.Output<boolean>;
+    /**
+     * The name of your key pair. Created in the
+     * Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
+     */
     public readonly keyPairName!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The private IP address of the instance.
+     */
     public /*out*/ readonly privateIpAddress!: pulumi.Output<string>;
+    /**
+     * The public IP address of the instance.
+     */
     public /*out*/ readonly publicIpAddress!: pulumi.Output<string>;
+    /**
+     * The amount of RAM in GB on the instance (e.g., 1.0).
+     */
     public /*out*/ readonly ramSize!: pulumi.Output<number>;
+    /**
+     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * launch script to configure server with additional user data
+     */
     public readonly userData!: pulumi.Output<string | undefined>;
+    /**
+     * The user name for connecting to the instance (e.g., ec2-user).
+     */
     public /*out*/ readonly username!: pulumi.Output<string>;
 
     /**
@@ -133,28 +299,89 @@ export class Instance extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Instance resources.
  */
 export interface InstanceState {
+    /**
+     * The add on configuration for the instance. Detailed below.
+     */
     addOn?: pulumi.Input<inputs.lightsail.InstanceAddOn>;
+    /**
+     * The ARN of the Lightsail instance (matches `id`).
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The Availability Zone in which to create your
+     * instance (see list below)
+     */
     availabilityZone?: pulumi.Input<string>;
+    /**
+     * The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+     */
     blueprintId?: pulumi.Input<string>;
+    /**
+     * The bundle of specification information (see list below)
+     */
     bundleId?: pulumi.Input<string>;
+    /**
+     * The number of vCPUs the instance has.
+     */
     cpuCount?: pulumi.Input<number>;
+    /**
+     * The timestamp when the instance was created.
+     */
     createdAt?: pulumi.Input<string>;
+    /**
+     * The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+     */
     ipAddressType?: pulumi.Input<string>;
     /**
+     * (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
+     *
      * @deprecated use `ipv6_addresses` attribute instead
      */
     ipv6Address?: pulumi.Input<string>;
+    /**
+     * List of IPv6 addresses for the Lightsail instance.
+     */
     ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A Boolean value indicating whether this instance has a static IP assigned to it.
+     */
     isStaticIp?: pulumi.Input<boolean>;
+    /**
+     * The name of your key pair. Created in the
+     * Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
+     */
     keyPairName?: pulumi.Input<string>;
+    /**
+     * The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The private IP address of the instance.
+     */
     privateIpAddress?: pulumi.Input<string>;
+    /**
+     * The public IP address of the instance.
+     */
     publicIpAddress?: pulumi.Input<string>;
+    /**
+     * The amount of RAM in GB on the instance (e.g., 1.0).
+     */
     ramSize?: pulumi.Input<number>;
+    /**
+     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * launch script to configure server with additional user data
+     */
     userData?: pulumi.Input<string>;
+    /**
+     * The user name for connecting to the instance (e.g., ec2-user).
+     */
     username?: pulumi.Input<string>;
 }
 
@@ -162,13 +389,42 @@ export interface InstanceState {
  * The set of arguments for constructing a Instance resource.
  */
 export interface InstanceArgs {
+    /**
+     * The add on configuration for the instance. Detailed below.
+     */
     addOn?: pulumi.Input<inputs.lightsail.InstanceAddOn>;
+    /**
+     * The Availability Zone in which to create your
+     * instance (see list below)
+     */
     availabilityZone: pulumi.Input<string>;
+    /**
+     * The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+     */
     blueprintId: pulumi.Input<string>;
+    /**
+     * The bundle of specification information (see list below)
+     */
     bundleId: pulumi.Input<string>;
+    /**
+     * The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+     */
     ipAddressType?: pulumi.Input<string>;
+    /**
+     * The name of your key pair. Created in the
+     * Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
+     */
     keyPairName?: pulumi.Input<string>;
+    /**
+     * The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * launch script to configure server with additional user data
+     */
     userData?: pulumi.Input<string>;
 }

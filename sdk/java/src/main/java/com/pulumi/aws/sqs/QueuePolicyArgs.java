@@ -13,16 +13,32 @@ public final class QueuePolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final QueuePolicyArgs Empty = new QueuePolicyArgs();
 
+    /**
+     * The JSON policy for the SQS queue.
+     * 
+     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
+    /**
+     * @return The JSON policy for the SQS queue.
+     * 
+     */
     public Output<String> policy() {
         return this.policy;
     }
 
+    /**
+     * The URL of the SQS Queue to which to attach the policy
+     * 
+     */
     @Import(name="queueUrl", required=true)
     private Output<String> queueUrl;
 
+    /**
+     * @return The URL of the SQS Queue to which to attach the policy
+     * 
+     */
     public Output<String> queueUrl() {
         return this.queueUrl;
     }
@@ -52,20 +68,44 @@ public final class QueuePolicyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new QueuePolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param policy The JSON policy for the SQS queue.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
+        /**
+         * @param policy The JSON policy for the SQS queue.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
+        /**
+         * @param queueUrl The URL of the SQS Queue to which to attach the policy
+         * 
+         * @return builder
+         * 
+         */
         public Builder queueUrl(Output<String> queueUrl) {
             $.queueUrl = queueUrl;
             return this;
         }
 
+        /**
+         * @param queueUrl The URL of the SQS Queue to which to attach the policy
+         * 
+         * @return builder
+         * 
+         */
         public Builder queueUrl(String queueUrl) {
             return queueUrl(Output.of(queueUrl));
         }

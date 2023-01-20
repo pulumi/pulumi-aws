@@ -7,6 +7,45 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Public Elastic Container Registry Repository.
+ *
+ * > **NOTE:** This resource can only be used with `us-east-1` region.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ *
+ * const usEast1 = new aws.Provider("usEast1", {region: "us-east-1"});
+ * const foo = new aws.ecrpublic.Repository("foo", {
+ *     repositoryName: "bar",
+ *     catalogData: {
+ *         aboutText: "About Text",
+ *         architectures: ["ARM"],
+ *         description: "Description",
+ *         logoImageBlob: Buffer.from(fs.readFileSync(image.png), 'binary').toString('base64'),
+ *         operatingSystems: ["Linux"],
+ *         usageText: "Usage Text",
+ *     },
+ *     tags: {
+ *         env: "production",
+ *     },
+ * }, {
+ *     provider: aws.us_east_1,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * ECR Public Repositories can be imported using the `repository_name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:ecrpublic/repository:Repository example example
+ * ```
+ */
 export class Repository extends pulumi.CustomResource {
     /**
      * Get an existing Repository resource's state with the given name, ID, and optional extra
@@ -35,13 +74,34 @@ export class Repository extends pulumi.CustomResource {
         return obj['__pulumiType'] === Repository.__pulumiType;
     }
 
+    /**
+     * Full ARN of the repository.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Catalog data configuration for the repository. See below for schema.
+     */
     public readonly catalogData!: pulumi.Output<outputs.ecrpublic.RepositoryCatalogData | undefined>;
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
+    /**
+     * The registry ID where the repository was created.
+     */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
+    /**
+     * Name of the repository.
+     */
     public readonly repositoryName!: pulumi.Output<string>;
+    /**
+     * The URI of the repository.
+     */
     public /*out*/ readonly repositoryUri!: pulumi.Output<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -88,13 +148,34 @@ export class Repository extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Repository resources.
  */
 export interface RepositoryState {
+    /**
+     * Full ARN of the repository.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Catalog data configuration for the repository. See below for schema.
+     */
     catalogData?: pulumi.Input<inputs.ecrpublic.RepositoryCatalogData>;
     forceDestroy?: pulumi.Input<boolean>;
+    /**
+     * The registry ID where the repository was created.
+     */
     registryId?: pulumi.Input<string>;
+    /**
+     * Name of the repository.
+     */
     repositoryName?: pulumi.Input<string>;
+    /**
+     * The URI of the repository.
+     */
     repositoryUri?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -102,8 +183,17 @@ export interface RepositoryState {
  * The set of arguments for constructing a Repository resource.
  */
 export interface RepositoryArgs {
+    /**
+     * Catalog data configuration for the repository. See below for schema.
+     */
     catalogData?: pulumi.Input<inputs.ecrpublic.RepositoryCatalogData>;
     forceDestroy?: pulumi.Input<boolean>;
+    /**
+     * Name of the repository.
+     */
     repositoryName: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

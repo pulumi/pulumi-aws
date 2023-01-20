@@ -16,16 +16,32 @@ public final class MultiRegionAccessPointPolicyArgs extends com.pulumi.resources
 
     public static final MultiRegionAccessPointPolicyArgs Empty = new MultiRegionAccessPointPolicyArgs();
 
+    /**
+     * The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * 
+     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
+    /**
+     * @return The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * 
+     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
+    /**
+     * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+     * 
+     */
     @Import(name="details", required=true)
     private Output<MultiRegionAccessPointPolicyDetailsArgs> details;
 
+    /**
+     * @return A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+     * 
+     */
     public Output<MultiRegionAccessPointPolicyDetailsArgs> details() {
         return this.details;
     }
@@ -55,20 +71,44 @@ public final class MultiRegionAccessPointPolicyArgs extends com.pulumi.resources
             $ = new MultiRegionAccessPointPolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accountId The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
+        /**
+         * @param accountId The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
+        /**
+         * @param details A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+         * 
+         * @return builder
+         * 
+         */
         public Builder details(Output<MultiRegionAccessPointPolicyDetailsArgs> details) {
             $.details = details;
             return this;
         }
 
+        /**
+         * @param details A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+         * 
+         * @return builder
+         * 
+         */
         public Builder details(MultiRegionAccessPointPolicyDetailsArgs details) {
             return details(Output.of(details));
         }

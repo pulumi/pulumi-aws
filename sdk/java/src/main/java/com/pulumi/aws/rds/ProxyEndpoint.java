@@ -17,41 +17,134 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an RDS DB proxy endpoint resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy-endpoints.html).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.ProxyEndpoint;
+ * import com.pulumi.aws.rds.ProxyEndpointArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ProxyEndpoint(&#34;example&#34;, ProxyEndpointArgs.builder()        
+ *             .dbProxyName(aws_db_proxy.test().name())
+ *             .dbProxyEndpointName(&#34;example&#34;)
+ *             .vpcSubnetIds(aws_subnet.test().stream().map(element -&gt; element.id()).collect(toList()))
+ *             .targetRole(&#34;READ_ONLY&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * DB proxy endpoints can be imported using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
+ * ```
+ * 
+ */
 @ResourceType(type="aws:rds/proxyEndpoint:ProxyEndpoint")
 public class ProxyEndpoint extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name (ARN) for the proxy endpoint.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) for the proxy endpoint.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
+     * 
+     */
     @Export(name="dbProxyEndpointName", refs={String.class}, tree="[0]")
     private Output<String> dbProxyEndpointName;
 
+    /**
+     * @return The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
+     * 
+     */
     public Output<String> dbProxyEndpointName() {
         return this.dbProxyEndpointName;
     }
+    /**
+     * The name of the DB proxy associated with the DB proxy endpoint that you create.
+     * 
+     */
     @Export(name="dbProxyName", refs={String.class}, tree="[0]")
     private Output<String> dbProxyName;
 
+    /**
+     * @return The name of the DB proxy associated with the DB proxy endpoint that you create.
+     * 
+     */
     public Output<String> dbProxyName() {
         return this.dbProxyName;
     }
+    /**
+     * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+     * 
+     */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
+    /**
+     * @return The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+     * 
+     */
     public Output<String> endpoint() {
         return this.endpoint;
     }
+    /**
+     * Indicates whether this endpoint is the default endpoint for the associated DB proxy.
+     * 
+     */
     @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isDefault;
 
+    /**
+     * @return Indicates whether this endpoint is the default endpoint for the associated DB proxy.
+     * 
+     */
     public Output<Boolean> isDefault() {
         return this.isDefault;
     }
+    /**
+     * A mapping of tags to assign to the resource.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the resource.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -61,27 +154,59 @@ public class ProxyEndpoint extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+     * 
+     */
     @Export(name="targetRole", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetRole;
 
+    /**
+     * @return Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+     * 
+     */
     public Output<Optional<String>> targetRole() {
         return Codegen.optional(this.targetRole);
     }
+    /**
+     * The VPC ID of the DB proxy endpoint.
+     * 
+     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
+    /**
+     * @return The VPC ID of the DB proxy endpoint.
+     * 
+     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
+    /**
+     * One or more VPC security group IDs to associate with the new proxy.
+     * 
+     */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpcSecurityGroupIds;
 
+    /**
+     * @return One or more VPC security group IDs to associate with the new proxy.
+     * 
+     */
     public Output<List<String>> vpcSecurityGroupIds() {
         return this.vpcSecurityGroupIds;
     }
+    /**
+     * One or more VPC subnet IDs to associate with the new proxy.
+     * 
+     */
     @Export(name="vpcSubnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpcSubnetIds;
 
+    /**
+     * @return One or more VPC subnet IDs to associate with the new proxy.
+     * 
+     */
     public Output<List<String>> vpcSubnetIds() {
         return this.vpcSubnetIds;
     }

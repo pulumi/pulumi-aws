@@ -4,6 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a resource to create a Service Catalog Portfolio.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const portfolio = new aws.servicecatalog.Portfolio("portfolio", {
+ *     description: "List of my organizations apps",
+ *     providerName: "Brett",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Service Catalog Portfolios can be imported using the `service catalog portfolio id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
+ * ```
+ */
 export class Portfolio extends pulumi.CustomResource {
     /**
      * Get an existing Portfolio resource's state with the given name, ID, and optional extra
@@ -34,10 +57,25 @@ export class Portfolio extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * Description of the portfolio
+     */
     public readonly description!: pulumi.Output<string>;
+    /**
+     * The name of the portfolio.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Name of the person or organization who owns the portfolio.
+     */
     public readonly providerName!: pulumi.Output<string>;
+    /**
+     * Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -84,10 +122,25 @@ export class Portfolio extends pulumi.CustomResource {
 export interface PortfolioState {
     arn?: pulumi.Input<string>;
     createdTime?: pulumi.Input<string>;
+    /**
+     * Description of the portfolio
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the portfolio.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Name of the person or organization who owns the portfolio.
+     */
     providerName?: pulumi.Input<string>;
+    /**
+     * Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -95,8 +148,20 @@ export interface PortfolioState {
  * The set of arguments for constructing a Portfolio resource.
  */
 export interface PortfolioArgs {
+    /**
+     * Description of the portfolio
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the portfolio.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Name of the person or organization who owns the portfolio.
+     */
     providerName: pulumi.Input<string>;
+    /**
+     * Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

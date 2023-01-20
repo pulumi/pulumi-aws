@@ -19,6 +19,9 @@ class BucketArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Bucket resource.
+        :param pulumi.Input[str] bundle_id: The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        :param pulumi.Input[str] name: The name for the bucket.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "bundle_id", bundle_id)
         if name is not None:
@@ -29,6 +32,9 @@ class BucketArgs:
     @property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        """
         return pulumi.get(self, "bundle_id")
 
     @bundle_id.setter
@@ -38,6 +44,9 @@ class BucketArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the bucket.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -47,6 +56,9 @@ class BucketArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -69,6 +81,15 @@ class _BucketState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Bucket resources.
+        :param pulumi.Input[str] arn: The ARN of the lightsail bucket.
+        :param pulumi.Input[str] availability_zone: The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
+        :param pulumi.Input[str] bundle_id: The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        :param pulumi.Input[str] created_at: The timestamp when the bucket was created.
+        :param pulumi.Input[str] name: The name for the bucket.
+        :param pulumi.Input[str] region: The Amazon Web Services Region name.
+        :param pulumi.Input[str] support_code: The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -94,6 +115,9 @@ class _BucketState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the lightsail bucket.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -103,6 +127,9 @@ class _BucketState:
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
+        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -112,6 +139,9 @@ class _BucketState:
     @property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        """
         return pulumi.get(self, "bundle_id")
 
     @bundle_id.setter
@@ -121,6 +151,9 @@ class _BucketState:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp when the bucket was created.
+        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -130,6 +163,9 @@ class _BucketState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the bucket.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -139,6 +175,9 @@ class _BucketState:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Web Services Region name.
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -148,6 +187,9 @@ class _BucketState:
     @property
     @pulumi.getter(name="supportCode")
     def support_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        """
         return pulumi.get(self, "support_code")
 
     @support_code.setter
@@ -157,6 +199,9 @@ class _BucketState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -166,6 +211,9 @@ class _BucketState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -192,9 +240,30 @@ class Bucket(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Bucket resource with the given unique name, props, and options.
+        Provides a lightsail bucket.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lightsail.Bucket("test", bundle_id="small_1_0")
+        ```
+
+        ## Import
+
+        `aws_lightsail_bucket` can be imported by using the `name` attribute, e.g.,
+
+        ```sh
+         $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bundle_id: The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        :param pulumi.Input[str] name: The name for the bucket.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -203,7 +272,25 @@ class Bucket(pulumi.CustomResource):
                  args: BucketArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Bucket resource with the given unique name, props, and options.
+        Provides a lightsail bucket.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lightsail.Bucket("test", bundle_id="small_1_0")
+        ```
+
+        ## Import
+
+        `aws_lightsail_bucket` can be imported by using the `name` attribute, e.g.,
+
+        ```sh
+         $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
+        ```
+
         :param str resource_name: The name of the resource.
         :param BucketArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -270,6 +357,15 @@ class Bucket(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the lightsail bucket.
+        :param pulumi.Input[str] availability_zone: The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
+        :param pulumi.Input[str] bundle_id: The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        :param pulumi.Input[str] created_at: The timestamp when the bucket was created.
+        :param pulumi.Input[str] name: The name for the bucket.
+        :param pulumi.Input[str] region: The Amazon Web Services Region name.
+        :param pulumi.Input[str] support_code: The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -290,46 +386,73 @@ class Bucket(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the lightsail bucket.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[str]:
+        """
+        The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
+        """
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        """
         return pulumi.get(self, "bundle_id")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The timestamp when the bucket was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name for the bucket.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def region(self) -> pulumi.Output[str]:
+        """
+        The Amazon Web Services Region name.
+        """
         return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="supportCode")
     def support_code(self) -> pulumi.Output[str]:
+        """
+        The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        """
         return pulumi.get(self, "support_code")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

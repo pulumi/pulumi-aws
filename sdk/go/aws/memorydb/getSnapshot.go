@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides information about a MemoryDB Snapshot.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := memorydb.LookupSnapshot(ctx, &memorydb.LookupSnapshotArgs{
+//				Name: "my-snapshot",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
 	var rv LookupSnapshotResult
 	err := ctx.Invoke("aws:memorydb/getSnapshot:getSnapshot", args, &rv, opts...)
@@ -21,21 +48,30 @@ func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulum
 
 // A collection of arguments for invoking getSnapshot.
 type LookupSnapshotArgs struct {
-	Name string            `pulumi:"name"`
+	// Name of the snapshot.
+	Name string `pulumi:"name"`
+	// Map of tags assigned to the snapshot.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSnapshot.
 type LookupSnapshotResult struct {
-	Arn                   string                            `pulumi:"arn"`
+	// ARN of the snapshot.
+	Arn string `pulumi:"arn"`
+	// The configuration of the cluster from which the snapshot was taken.
 	ClusterConfigurations []GetSnapshotClusterConfiguration `pulumi:"clusterConfigurations"`
-	ClusterName           string                            `pulumi:"clusterName"`
+	// Name of the MemoryDB cluster that this snapshot was taken from.
+	ClusterName string `pulumi:"clusterName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id        string            `pulumi:"id"`
-	KmsKeyArn string            `pulumi:"kmsKeyArn"`
-	Name      string            `pulumi:"name"`
-	Source    string            `pulumi:"source"`
-	Tags      map[string]string `pulumi:"tags"`
+	Id string `pulumi:"id"`
+	// ARN of the KMS key used to encrypt the snapshot at rest.
+	KmsKeyArn string `pulumi:"kmsKeyArn"`
+	// Name of the cluster.
+	Name string `pulumi:"name"`
+	// Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+	Source string `pulumi:"source"`
+	// Map of tags assigned to the snapshot.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupSnapshotOutput(ctx *pulumi.Context, args LookupSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupSnapshotResultOutput {
@@ -53,7 +89,9 @@ func LookupSnapshotOutput(ctx *pulumi.Context, args LookupSnapshotOutputArgs, op
 
 // A collection of arguments for invoking getSnapshot.
 type LookupSnapshotOutputArgs struct {
-	Name pulumi.StringInput    `pulumi:"name"`
+	// Name of the snapshot.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Map of tags assigned to the snapshot.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -76,14 +114,17 @@ func (o LookupSnapshotResultOutput) ToLookupSnapshotResultOutputWithContext(ctx 
 	return o
 }
 
+// ARN of the snapshot.
 func (o LookupSnapshotResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The configuration of the cluster from which the snapshot was taken.
 func (o LookupSnapshotResultOutput) ClusterConfigurations() GetSnapshotClusterConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) []GetSnapshotClusterConfiguration { return v.ClusterConfigurations }).(GetSnapshotClusterConfigurationArrayOutput)
 }
 
+// Name of the MemoryDB cluster that this snapshot was taken from.
 func (o LookupSnapshotResultOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.ClusterName }).(pulumi.StringOutput)
 }
@@ -93,18 +134,22 @@ func (o LookupSnapshotResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// ARN of the KMS key used to encrypt the snapshot at rest.
 func (o LookupSnapshotResultOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
 
+// Name of the cluster.
 func (o LookupSnapshotResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
 func (o LookupSnapshotResultOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Source }).(pulumi.StringOutput)
 }
 
+// Map of tags assigned to the snapshot.
 func (o LookupSnapshotResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

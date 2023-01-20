@@ -20,6 +20,10 @@ class VpcNetworkPerformanceMetricSubscriptionArgs:
                  statistic: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VpcNetworkPerformanceMetricSubscription resource.
+        :param pulumi.Input[str] destination: The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+        :param pulumi.Input[str] source: The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+        :param pulumi.Input[str] metric: The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+        :param pulumi.Input[str] statistic: The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "source", source)
@@ -31,6 +35,9 @@ class VpcNetworkPerformanceMetricSubscriptionArgs:
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Input[str]:
+        """
+        The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -40,6 +47,9 @@ class VpcNetworkPerformanceMetricSubscriptionArgs:
     @property
     @pulumi.getter
     def source(self) -> pulumi.Input[str]:
+        """
+        The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -49,6 +59,9 @@ class VpcNetworkPerformanceMetricSubscriptionArgs:
     @property
     @pulumi.getter
     def metric(self) -> Optional[pulumi.Input[str]]:
+        """
+        The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+        """
         return pulumi.get(self, "metric")
 
     @metric.setter
@@ -58,6 +71,9 @@ class VpcNetworkPerformanceMetricSubscriptionArgs:
     @property
     @pulumi.getter
     def statistic(self) -> Optional[pulumi.Input[str]]:
+        """
+        The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+        """
         return pulumi.get(self, "statistic")
 
     @statistic.setter
@@ -75,6 +91,11 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
                  statistic: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VpcNetworkPerformanceMetricSubscription resources.
+        :param pulumi.Input[str] destination: The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+        :param pulumi.Input[str] metric: The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+        :param pulumi.Input[str] period: The data aggregation time for the subscription.
+        :param pulumi.Input[str] source: The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+        :param pulumi.Input[str] statistic: The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
@@ -90,6 +111,9 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
     @property
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -99,6 +123,9 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
     @property
     @pulumi.getter
     def metric(self) -> Optional[pulumi.Input[str]]:
+        """
+        The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+        """
         return pulumi.get(self, "metric")
 
     @metric.setter
@@ -108,6 +135,9 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
     @property
     @pulumi.getter
     def period(self) -> Optional[pulumi.Input[str]]:
+        """
+        The data aggregation time for the subscription.
+        """
         return pulumi.get(self, "period")
 
     @period.setter
@@ -117,6 +147,9 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
     @property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -126,6 +159,9 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
     @property
     @pulumi.getter
     def statistic(self) -> Optional[pulumi.Input[str]]:
+        """
+        The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+        """
         return pulumi.get(self, "statistic")
 
     @statistic.setter
@@ -144,9 +180,25 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
                  statistic: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a VpcNetworkPerformanceMetricSubscription resource with the given unique name, props, and options.
+        Provides a resource to manage an Infrastructure Performance subscription.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.VpcNetworkPerformanceMetricSubscription("example",
+            destination="us-west-1",
+            source="us-east-1")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] destination: The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+        :param pulumi.Input[str] metric: The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+        :param pulumi.Input[str] source: The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+        :param pulumi.Input[str] statistic: The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
         ...
     @overload
@@ -155,7 +207,19 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
                  args: VpcNetworkPerformanceMetricSubscriptionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a VpcNetworkPerformanceMetricSubscription resource with the given unique name, props, and options.
+        Provides a resource to manage an Infrastructure Performance subscription.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.VpcNetworkPerformanceMetricSubscription("example",
+            destination="us-west-1",
+            source="us-east-1")
+        ```
+
         :param str resource_name: The name of the resource.
         :param VpcNetworkPerformanceMetricSubscriptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,6 +279,11 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] destination: The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+        :param pulumi.Input[str] metric: The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+        :param pulumi.Input[str] period: The data aggregation time for the subscription.
+        :param pulumi.Input[str] source: The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+        :param pulumi.Input[str] statistic: The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -230,25 +299,40 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Output[str]:
+        """
+        The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+        """
         return pulumi.get(self, "destination")
 
     @property
     @pulumi.getter
     def metric(self) -> pulumi.Output[Optional[str]]:
+        """
+        The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+        """
         return pulumi.get(self, "metric")
 
     @property
     @pulumi.getter
     def period(self) -> pulumi.Output[str]:
+        """
+        The data aggregation time for the subscription.
+        """
         return pulumi.get(self, "period")
 
     @property
     @pulumi.getter
     def source(self) -> pulumi.Output[str]:
+        """
+        The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+        """
         return pulumi.get(self, "source")
 
     @property
     @pulumi.getter
     def statistic(self) -> pulumi.Output[Optional[str]]:
+        """
+        The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+        """
         return pulumi.get(self, "statistic")
 

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class ThingGroupPropertiesAttributePayload
     {
+        /// <summary>
+        /// Key-value map.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Attributes;
 
         [OutputConstructor]

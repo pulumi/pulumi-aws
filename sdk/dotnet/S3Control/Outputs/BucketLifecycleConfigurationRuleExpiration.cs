@@ -13,8 +13,17 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class BucketLifecycleConfigurationRuleExpiration
     {
+        /// <summary>
+        /// Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
+        /// </summary>
         public readonly string? Date;
+        /// <summary>
+        /// Number of days before the object is to be deleted.
+        /// </summary>
         public readonly int? Days;
+        /// <summary>
+        /// Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
+        /// </summary>
         public readonly bool? ExpiredObjectDeleteMarker;
 
         [OutputConstructor]

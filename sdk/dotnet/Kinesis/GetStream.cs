@@ -11,9 +11,63 @@ namespace Pulumi.Aws.Kinesis
 {
     public static class GetStream
     {
+        /// <summary>
+        /// Use this data source to get information about a Kinesis Stream for use in other
+        /// resources.
+        /// 
+        /// For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var stream = Aws.Kinesis.GetStream.Invoke(new()
+        ///     {
+        ///         Name = "stream-name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetStreamResult> InvokeAsync(GetStreamArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamResult>("aws:kinesis/getStream:getStream", args ?? new GetStreamArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to get information about a Kinesis Stream for use in other
+        /// resources.
+        /// 
+        /// For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var stream = Aws.Kinesis.GetStream.Invoke(new()
+        ///     {
+        ///         Name = "stream-name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetStreamResult> Invoke(GetStreamInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamResult>("aws:kinesis/getStream:getStream", args ?? new GetStreamInvokeArgs(), options.WithDefaults());
     }
@@ -21,11 +75,18 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class GetStreamArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the Kinesis Stream.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assigned to the stream.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -40,11 +101,18 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class GetStreamInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the Kinesis Stream.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assigned to the stream.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -61,19 +129,49 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class GetStreamResult
     {
+        /// <summary>
+        /// ARN of the Kinesis Stream (same as id).
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+        /// </summary>
         public readonly ImmutableArray<string> ClosedShards;
+        /// <summary>
+        /// Approximate UNIX timestamp that the stream was created.
+        /// </summary>
         public readonly int CreationTimestamp;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Name of the Kinesis Stream.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+        /// </summary>
         public readonly ImmutableArray<string> OpenShards;
+        /// <summary>
+        /// Length of time (in hours) data records are accessible after they are added to the stream.
+        /// </summary>
         public readonly int RetentionPeriod;
+        /// <summary>
+        /// List of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
+        /// </summary>
         public readonly ImmutableArray<string> ShardLevelMetrics;
+        /// <summary>
+        /// Current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetStreamStreamModeDetailResult> StreamModeDetails;
+        /// <summary>
+        /// Map of tags to assigned to the stream.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

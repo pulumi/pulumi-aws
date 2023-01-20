@@ -12,9 +12,17 @@ public final class GetIpsetPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetIpsetPlainArgs Empty = new GetIpsetPlainArgs();
 
+    /**
+     * Name of the WAF IP set.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return Name of the WAF IP set.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -43,6 +51,12 @@ public final class GetIpsetPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetIpsetPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the WAF IP set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;

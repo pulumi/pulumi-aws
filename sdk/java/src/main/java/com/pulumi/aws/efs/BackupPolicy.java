@@ -14,17 +14,83 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Elastic File System (EFS) Backup Policy resource.
+ * Backup policies turn automatic backups on or off for an existing file system.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.efs.FileSystem;
+ * import com.pulumi.aws.efs.BackupPolicy;
+ * import com.pulumi.aws.efs.BackupPolicyArgs;
+ * import com.pulumi.aws.efs.inputs.BackupPolicyBackupPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var fs = new FileSystem(&#34;fs&#34;);
+ * 
+ *         var policy = new BackupPolicy(&#34;policy&#34;, BackupPolicyArgs.builder()        
+ *             .fileSystemId(fs.id())
+ *             .backupPolicy(BackupPolicyBackupPolicyArgs.builder()
+ *                 .status(&#34;ENABLED&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * The EFS backup policies can be imported using the `id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
+ * ```
+ * 
+ */
 @ResourceType(type="aws:efs/backupPolicy:BackupPolicy")
 public class BackupPolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * A backup_policy object (documented below).
+     * 
+     */
     @Export(name="backupPolicy", refs={BackupPolicyBackupPolicy.class}, tree="[0]")
     private Output<BackupPolicyBackupPolicy> backupPolicy;
 
+    /**
+     * @return A backup_policy object (documented below).
+     * 
+     */
     public Output<BackupPolicyBackupPolicy> backupPolicy() {
         return this.backupPolicy;
     }
+    /**
+     * The ID of the EFS file system.
+     * 
+     */
     @Export(name="fileSystemId", refs={String.class}, tree="[0]")
     private Output<String> fileSystemId;
 
+    /**
+     * @return The ID of the EFS file system.
+     * 
+     */
     public Output<String> fileSystemId() {
         return this.fileSystemId;
     }

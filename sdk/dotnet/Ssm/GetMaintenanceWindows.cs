@@ -11,9 +11,77 @@ namespace Pulumi.Aws.Ssm
 {
     public static class GetMaintenanceWindows
     {
+        /// <summary>
+        /// Use this data source to get the window IDs of SSM maintenance windows.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ssm.GetMaintenanceWindows.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ssm.Inputs.GetMaintenanceWindowsFilterInputArgs
+        ///             {
+        ///                 Name = "Enabled",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "true",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetMaintenanceWindowsResult> InvokeAsync(GetMaintenanceWindowsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceWindowsResult>("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", args ?? new GetMaintenanceWindowsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to get the window IDs of SSM maintenance windows.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ssm.GetMaintenanceWindows.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ssm.Inputs.GetMaintenanceWindowsFilterInputArgs
+        ///             {
+        ///                 Name = "Enabled",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "true",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetMaintenanceWindowsResult> Invoke(GetMaintenanceWindowsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMaintenanceWindowsResult>("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", args ?? new GetMaintenanceWindowsInvokeArgs(), options.WithDefaults());
     }
@@ -23,6 +91,10 @@ namespace Pulumi.Aws.Ssm
     {
         [Input("filters")]
         private List<Inputs.GetMaintenanceWindowsFilterArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
         public List<Inputs.GetMaintenanceWindowsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetMaintenanceWindowsFilterArgs>());
@@ -39,6 +111,10 @@ namespace Pulumi.Aws.Ssm
     {
         [Input("filters")]
         private InputList<Inputs.GetMaintenanceWindowsFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
         public InputList<Inputs.GetMaintenanceWindowsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetMaintenanceWindowsFilterInputArgs>());
@@ -60,6 +136,9 @@ namespace Pulumi.Aws.Ssm
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// List of window IDs of the matched SSM maintenance windows.
+        /// </summary>
         public readonly ImmutableArray<string> Ids;
 
         [OutputConstructor]

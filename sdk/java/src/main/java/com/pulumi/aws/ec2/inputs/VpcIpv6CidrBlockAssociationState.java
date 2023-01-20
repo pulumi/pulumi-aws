@@ -16,30 +16,62 @@ public final class VpcIpv6CidrBlockAssociationState extends com.pulumi.resources
 
     public static final VpcIpv6CidrBlockAssociationState Empty = new VpcIpv6CidrBlockAssociationState();
 
+    /**
+     * The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and he IPAM pool does not have `allocation_default_netmask` set.
+     * 
+     */
     @Import(name="ipv6CidrBlock")
     private @Nullable Output<String> ipv6CidrBlock;
 
+    /**
+     * @return The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and he IPAM pool does not have `allocation_default_netmask` set.
+     * 
+     */
     public Optional<Output<String>> ipv6CidrBlock() {
         return Optional.ofNullable(this.ipv6CidrBlock);
     }
 
+    /**
+     * The ID of an IPv6 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts.
+     * 
+     */
     @Import(name="ipv6IpamPoolId")
     private @Nullable Output<String> ipv6IpamPoolId;
 
+    /**
+     * @return The ID of an IPv6 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts.
+     * 
+     */
     public Optional<Output<String>> ipv6IpamPoolId() {
         return Optional.ofNullable(this.ipv6IpamPoolId);
     }
 
+    /**
+     * The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6_ipam_pool_id`. This parameter is optional if the IPAM pool has `allocation_default_netmask` set, otherwise it or `cidr_block` are required
+     * 
+     */
     @Import(name="ipv6NetmaskLength")
     private @Nullable Output<Integer> ipv6NetmaskLength;
 
+    /**
+     * @return The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6_ipam_pool_id`. This parameter is optional if the IPAM pool has `allocation_default_netmask` set, otherwise it or `cidr_block` are required
+     * 
+     */
     public Optional<Output<Integer>> ipv6NetmaskLength() {
         return Optional.ofNullable(this.ipv6NetmaskLength);
     }
 
+    /**
+     * The ID of the VPC to make the association with.
+     * 
+     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
+    /**
+     * @return The ID of the VPC to make the association with.
+     * 
+     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -71,38 +103,86 @@ public final class VpcIpv6CidrBlockAssociationState extends com.pulumi.resources
             $ = new VpcIpv6CidrBlockAssociationState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param ipv6CidrBlock The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and he IPAM pool does not have `allocation_default_netmask` set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv6CidrBlock(@Nullable Output<String> ipv6CidrBlock) {
             $.ipv6CidrBlock = ipv6CidrBlock;
             return this;
         }
 
+        /**
+         * @param ipv6CidrBlock The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and he IPAM pool does not have `allocation_default_netmask` set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv6CidrBlock(String ipv6CidrBlock) {
             return ipv6CidrBlock(Output.of(ipv6CidrBlock));
         }
 
+        /**
+         * @param ipv6IpamPoolId The ID of an IPv6 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv6IpamPoolId(@Nullable Output<String> ipv6IpamPoolId) {
             $.ipv6IpamPoolId = ipv6IpamPoolId;
             return this;
         }
 
+        /**
+         * @param ipv6IpamPoolId The ID of an IPv6 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv6IpamPoolId(String ipv6IpamPoolId) {
             return ipv6IpamPoolId(Output.of(ipv6IpamPoolId));
         }
 
+        /**
+         * @param ipv6NetmaskLength The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6_ipam_pool_id`. This parameter is optional if the IPAM pool has `allocation_default_netmask` set, otherwise it or `cidr_block` are required
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv6NetmaskLength(@Nullable Output<Integer> ipv6NetmaskLength) {
             $.ipv6NetmaskLength = ipv6NetmaskLength;
             return this;
         }
 
+        /**
+         * @param ipv6NetmaskLength The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6_ipam_pool_id`. This parameter is optional if the IPAM pool has `allocation_default_netmask` set, otherwise it or `cidr_block` are required
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv6NetmaskLength(Integer ipv6NetmaskLength) {
             return ipv6NetmaskLength(Output.of(ipv6NetmaskLength));
         }
 
+        /**
+         * @param vpcId The ID of the VPC to make the association with.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
+        /**
+         * @param vpcId The ID of the VPC to make the association with.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

@@ -4,6 +4,47 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an Amazon Managed Grafana workspace license association resource.
+ *
+ * ## Example Usage
+ * ### Basic configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const assume = new aws.iam.Role("assume", {assumeRolePolicy: JSON.stringify({
+ *     Version: "2012-10-17",
+ *     Statement: [{
+ *         Action: "sts:AssumeRole",
+ *         Effect: "Allow",
+ *         Sid: "",
+ *         Principal: {
+ *             Service: "grafana.amazonaws.com",
+ *         },
+ *     }],
+ * })});
+ * const exampleWorkspace = new aws.grafana.Workspace("exampleWorkspace", {
+ *     accountAccessType: "CURRENT_ACCOUNT",
+ *     authenticationProviders: ["SAML"],
+ *     permissionType: "SERVICE_MANAGED",
+ *     roleArn: assume.arn,
+ * });
+ * const exampleLicenseAssociation = new aws.grafana.LicenseAssociation("exampleLicenseAssociation", {
+ *     licenseType: "ENTERPRISE_FREE_TRIAL",
+ *     workspaceId: exampleWorkspace.id,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Grafana workspace license association can be imported using the workspace's `id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
+ * ```
+ */
 export class LicenseAssociation extends pulumi.CustomResource {
     /**
      * Get an existing LicenseAssociation resource's state with the given name, ID, and optional extra
@@ -32,9 +73,21 @@ export class LicenseAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === LicenseAssociation.__pulumiType;
     }
 
+    /**
+     * If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
+     */
     public /*out*/ readonly freeTrialExpiration!: pulumi.Output<string>;
+    /**
+     * If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
+     */
     public /*out*/ readonly licenseExpiration!: pulumi.Output<string>;
+    /**
+     * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+     */
     public readonly licenseType!: pulumi.Output<string>;
+    /**
+     * The workspace id.
+     */
     public readonly workspaceId!: pulumi.Output<string>;
 
     /**
@@ -76,9 +129,21 @@ export class LicenseAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LicenseAssociation resources.
  */
 export interface LicenseAssociationState {
+    /**
+     * If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
+     */
     freeTrialExpiration?: pulumi.Input<string>;
+    /**
+     * If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
+     */
     licenseExpiration?: pulumi.Input<string>;
+    /**
+     * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+     */
     licenseType?: pulumi.Input<string>;
+    /**
+     * The workspace id.
+     */
     workspaceId?: pulumi.Input<string>;
 }
 
@@ -86,6 +151,12 @@ export interface LicenseAssociationState {
  * The set of arguments for constructing a LicenseAssociation resource.
  */
 export interface LicenseAssociationArgs {
+    /**
+     * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+     */
     licenseType: pulumi.Input<string>;
+    /**
+     * The workspace id.
+     */
     workspaceId: pulumi.Input<string>;
 }

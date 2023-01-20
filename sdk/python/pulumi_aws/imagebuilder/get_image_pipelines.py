@@ -40,6 +40,9 @@ class GetImagePipelinesResult:
     @property
     @pulumi.getter
     def arns(self) -> Sequence[str]:
+        """
+        Set of ARNs of the matched Image Builder Image Pipelines.
+        """
         return pulumi.get(self, "arns")
 
     @property
@@ -58,6 +61,9 @@ class GetImagePipelinesResult:
     @property
     @pulumi.getter
     def names(self) -> Sequence[str]:
+        """
+        Set of names of the matched Image Builder Image Pipelines.
+        """
         return pulumi.get(self, "names")
 
 
@@ -76,7 +82,22 @@ class AwaitableGetImagePipelinesResult(GetImagePipelinesResult):
 def get_image_pipelines(filters: Optional[Sequence[pulumi.InputType['GetImagePipelinesFilterArgs']]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImagePipelinesResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.imagebuilder.get_image_pipelines(filters=[aws.imagebuilder.GetImagePipelinesFilterArgs(
+        name="name",
+        values=["example"],
+    )])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetImagePipelinesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -94,6 +115,21 @@ def get_image_pipelines(filters: Optional[Sequence[pulumi.InputType['GetImagePip
 def get_image_pipelines_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetImagePipelinesFilterArgs']]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImagePipelinesResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.imagebuilder.get_image_pipelines(filters=[aws.imagebuilder.GetImagePipelinesFilterArgs(
+        name="name",
+        values=["example"],
+    )])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetImagePipelinesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     """
     ...

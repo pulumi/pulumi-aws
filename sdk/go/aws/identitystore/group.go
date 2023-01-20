@@ -11,14 +11,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS IdentityStore Group.
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An Identity Store Group can be imported using the combination `identity_store_id/group_id`. For example
+//
+// ```sh
+//
+//	$ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
+//
+// ```
 type Group struct {
 	pulumi.CustomResourceState
 
-	Description     pulumi.StringPtrOutput     `pulumi:"description"`
-	DisplayName     pulumi.StringOutput        `pulumi:"displayName"`
-	ExternalIds     GroupExternalIdArrayOutput `pulumi:"externalIds"`
-	GroupId         pulumi.StringOutput        `pulumi:"groupId"`
-	IdentityStoreId pulumi.StringOutput        `pulumi:"identityStoreId"`
+	// A string containing the description of the group.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// A string containing the name of the group. This value is commonly displayed when the group is referenced.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
+	ExternalIds GroupExternalIdArrayOutput `pulumi:"externalIds"`
+	// The identifier of the newly created group in the identity store.
+	GroupId pulumi.StringOutput `pulumi:"groupId"`
+	// The globally unique identifier for the identity store.
+	IdentityStoreId pulumi.StringOutput `pulumi:"identityStoreId"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -56,18 +74,28 @@ func GetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Group resources.
 type groupState struct {
-	Description     *string           `pulumi:"description"`
-	DisplayName     *string           `pulumi:"displayName"`
-	ExternalIds     []GroupExternalId `pulumi:"externalIds"`
-	GroupId         *string           `pulumi:"groupId"`
-	IdentityStoreId *string           `pulumi:"identityStoreId"`
+	// A string containing the description of the group.
+	Description *string `pulumi:"description"`
+	// A string containing the name of the group. This value is commonly displayed when the group is referenced.
+	DisplayName *string `pulumi:"displayName"`
+	// A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
+	ExternalIds []GroupExternalId `pulumi:"externalIds"`
+	// The identifier of the newly created group in the identity store.
+	GroupId *string `pulumi:"groupId"`
+	// The globally unique identifier for the identity store.
+	IdentityStoreId *string `pulumi:"identityStoreId"`
 }
 
 type GroupState struct {
-	Description     pulumi.StringPtrInput
-	DisplayName     pulumi.StringPtrInput
-	ExternalIds     GroupExternalIdArrayInput
-	GroupId         pulumi.StringPtrInput
+	// A string containing the description of the group.
+	Description pulumi.StringPtrInput
+	// A string containing the name of the group. This value is commonly displayed when the group is referenced.
+	DisplayName pulumi.StringPtrInput
+	// A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
+	ExternalIds GroupExternalIdArrayInput
+	// The identifier of the newly created group in the identity store.
+	GroupId pulumi.StringPtrInput
+	// The globally unique identifier for the identity store.
 	IdentityStoreId pulumi.StringPtrInput
 }
 
@@ -76,15 +104,21 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	Description     *string `pulumi:"description"`
-	DisplayName     string  `pulumi:"displayName"`
-	IdentityStoreId string  `pulumi:"identityStoreId"`
+	// A string containing the description of the group.
+	Description *string `pulumi:"description"`
+	// A string containing the name of the group. This value is commonly displayed when the group is referenced.
+	DisplayName string `pulumi:"displayName"`
+	// The globally unique identifier for the identity store.
+	IdentityStoreId string `pulumi:"identityStoreId"`
 }
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	Description     pulumi.StringPtrInput
-	DisplayName     pulumi.StringInput
+	// A string containing the description of the group.
+	Description pulumi.StringPtrInput
+	// A string containing the name of the group. This value is commonly displayed when the group is referenced.
+	DisplayName pulumi.StringInput
+	// The globally unique identifier for the identity store.
 	IdentityStoreId pulumi.StringInput
 }
 
@@ -175,22 +209,27 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
 }
 
+// A string containing the description of the group.
 func (o GroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A string containing the name of the group. This value is commonly displayed when the group is referenced.
 func (o GroupOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
 func (o GroupOutput) ExternalIds() GroupExternalIdArrayOutput {
 	return o.ApplyT(func(v *Group) GroupExternalIdArrayOutput { return v.ExternalIds }).(GroupExternalIdArrayOutput)
 }
 
+// The identifier of the newly created group in the identity store.
 func (o GroupOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
 }
 
+// The globally unique identifier for the identity store.
 func (o GroupOutput) IdentityStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.IdentityStoreId }).(pulumi.StringOutput)
 }

@@ -20,6 +20,8 @@ class InstancePublicPortsArgs:
                  port_infos: pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]]):
         """
         The set of arguments for constructing a InstancePublicPorts resource.
+        :param pulumi.Input[str] instance_name: Name of the Lightsail Instance.
+        :param pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]] port_infos: Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
         """
         pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "port_infos", port_infos)
@@ -27,6 +29,9 @@ class InstancePublicPortsArgs:
     @property
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Lightsail Instance.
+        """
         return pulumi.get(self, "instance_name")
 
     @instance_name.setter
@@ -36,6 +41,9 @@ class InstancePublicPortsArgs:
     @property
     @pulumi.getter(name="portInfos")
     def port_infos(self) -> pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]]:
+        """
+        Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
+        """
         return pulumi.get(self, "port_infos")
 
     @port_infos.setter
@@ -50,6 +58,8 @@ class _InstancePublicPortsState:
                  port_infos: Optional[pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]]] = None):
         """
         Input properties used for looking up and filtering InstancePublicPorts resources.
+        :param pulumi.Input[str] instance_name: Name of the Lightsail Instance.
+        :param pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]] port_infos: Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
         """
         if instance_name is not None:
             pulumi.set(__self__, "instance_name", instance_name)
@@ -59,6 +69,9 @@ class _InstancePublicPortsState:
     @property
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Lightsail Instance.
+        """
         return pulumi.get(self, "instance_name")
 
     @instance_name.setter
@@ -68,6 +81,9 @@ class _InstancePublicPortsState:
     @property
     @pulumi.getter(name="portInfos")
     def port_infos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]]]:
+        """
+        Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
+        """
         return pulumi.get(self, "port_infos")
 
     @port_infos.setter
@@ -84,9 +100,35 @@ class InstancePublicPorts(pulumi.CustomResource):
                  port_infos: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstancePublicPortsPortInfoArgs']]]]] = None,
                  __props__=None):
         """
-        Create a InstancePublicPorts resource with the given unique name, props, and options.
+        Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses allowed to connect to the instance through the ports, and the protocol.
+
+        > See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail) for more information.
+
+        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_instance = aws.lightsail.Instance("testInstance",
+            availability_zone=data["aws_availability_zones"]["available"]["names"],
+            blueprint_id="amazon_linux",
+            bundle_id="nano_1_0")
+        test_instance_public_ports = aws.lightsail.InstancePublicPorts("testInstancePublicPorts",
+            instance_name=test_instance.name,
+            port_infos=[aws.lightsail.InstancePublicPortsPortInfoArgs(
+                protocol="tcp",
+                from_port=80,
+                to_port=80,
+            )])
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] instance_name: Name of the Lightsail Instance.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstancePublicPortsPortInfoArgs']]]] port_infos: Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
         """
         ...
     @overload
@@ -95,7 +137,31 @@ class InstancePublicPorts(pulumi.CustomResource):
                  args: InstancePublicPortsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a InstancePublicPorts resource with the given unique name, props, and options.
+        Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses allowed to connect to the instance through the ports, and the protocol.
+
+        > See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail) for more information.
+
+        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_instance = aws.lightsail.Instance("testInstance",
+            availability_zone=data["aws_availability_zones"]["available"]["names"],
+            blueprint_id="amazon_linux",
+            bundle_id="nano_1_0")
+        test_instance_public_ports = aws.lightsail.InstancePublicPorts("testInstancePublicPorts",
+            instance_name=test_instance.name,
+            port_infos=[aws.lightsail.InstancePublicPortsPortInfoArgs(
+                protocol="tcp",
+                from_port=80,
+                to_port=80,
+            )])
+        ```
+
         :param str resource_name: The name of the resource.
         :param InstancePublicPortsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,6 +213,8 @@ class InstancePublicPorts(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] instance_name: Name of the Lightsail Instance.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstancePublicPortsPortInfoArgs']]]] port_infos: Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -159,10 +227,16 @@ class InstancePublicPorts(pulumi.CustomResource):
     @property
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> pulumi.Output[str]:
+        """
+        Name of the Lightsail Instance.
+        """
         return pulumi.get(self, "instance_name")
 
     @property
     @pulumi.getter(name="portInfos")
     def port_infos(self) -> pulumi.Output[Sequence['outputs.InstancePublicPortsPortInfo']]:
+        """
+        Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
+        """
         return pulumi.get(self, "port_infos")
 

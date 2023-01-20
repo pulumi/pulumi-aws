@@ -4,6 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an AppStream user.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appstream.User("example", {
+ *     authenticationType: "USERPOOL",
+ *     firstName: "FIRST NAME",
+ *     lastName: "LAST NAME",
+ *     userName: "EMAIL",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_appstream_user` can be imported using the `user_name` and `authentication_type` separated by a slash (`/`), e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
+ * ```
+ */
 export class User extends pulumi.CustomResource {
     /**
      * Get an existing User resource's state with the given name, ID, and optional extra
@@ -32,13 +57,37 @@ export class User extends pulumi.CustomResource {
         return obj['__pulumiType'] === User.__pulumiType;
     }
 
+    /**
+     * ARN of the appstream user.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
+     */
     public readonly authenticationType!: pulumi.Output<string>;
+    /**
+     * Date and time, in UTC and extended RFC 3339 format, when the user was created.
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * Whether the user in the user pool is enabled.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * First name, or given name, of the user.
+     */
     public readonly firstName!: pulumi.Output<string | undefined>;
+    /**
+     * Last name, or surname, of the user.
+     */
     public readonly lastName!: pulumi.Output<string | undefined>;
+    /**
+     * Send an email notification.
+     */
     public readonly sendEmailNotification!: pulumi.Output<boolean | undefined>;
+    /**
+     * Email address of the user.
+     */
     public readonly userName!: pulumi.Output<string>;
 
     /**
@@ -88,13 +137,37 @@ export class User extends pulumi.CustomResource {
  * Input properties used for looking up and filtering User resources.
  */
 export interface UserState {
+    /**
+     * ARN of the appstream user.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
+     */
     authenticationType?: pulumi.Input<string>;
+    /**
+     * Date and time, in UTC and extended RFC 3339 format, when the user was created.
+     */
     createdTime?: pulumi.Input<string>;
+    /**
+     * Whether the user in the user pool is enabled.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * First name, or given name, of the user.
+     */
     firstName?: pulumi.Input<string>;
+    /**
+     * Last name, or surname, of the user.
+     */
     lastName?: pulumi.Input<string>;
+    /**
+     * Send an email notification.
+     */
     sendEmailNotification?: pulumi.Input<boolean>;
+    /**
+     * Email address of the user.
+     */
     userName?: pulumi.Input<string>;
 }
 
@@ -102,10 +175,28 @@ export interface UserState {
  * The set of arguments for constructing a User resource.
  */
 export interface UserArgs {
+    /**
+     * Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
+     */
     authenticationType: pulumi.Input<string>;
+    /**
+     * Whether the user in the user pool is enabled.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * First name, or given name, of the user.
+     */
     firstName?: pulumi.Input<string>;
+    /**
+     * Last name, or surname, of the user.
+     */
     lastName?: pulumi.Input<string>;
+    /**
+     * Send an email notification.
+     */
     sendEmailNotification?: pulumi.Input<boolean>;
+    /**
+     * Email address of the user.
+     */
     userName: pulumi.Input<string>;
 }

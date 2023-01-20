@@ -21,6 +21,10 @@ public final class GetDirectConnectGatewayAttachmentResult {
      * 
      */
     private String id;
+    /**
+     * @return Key-value tags for the EC2 Transit Gateway Attachment
+     * 
+     */
     private Map<String,String> tags;
     private @Nullable String transitGatewayId;
 
@@ -38,6 +42,10 @@ public final class GetDirectConnectGatewayAttachmentResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Key-value tags for the EC2 Transit Gateway Attachment
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }

@@ -10,6 +10,66 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Get information on an EC2 Client VPN endpoint.
+//
+// ## Example Usage
+// ### By Filter
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2clientvpn.LookupEndpoint(ctx, &ec2clientvpn.LookupEndpointArgs{
+//				Filters: []ec2clientvpn.GetEndpointFilter{
+//					{
+//						Name: "tag:Name",
+//						Values: []string{
+//							"ExampleVpn",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### By Identifier
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2clientvpn.LookupEndpoint(ctx, &ec2clientvpn.LookupEndpointArgs{
+//				ClientVpnEndpointId: pulumi.StringRef("cvpn-endpoint-083cf50d6eb314f21"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulumi.InvokeOption) (*LookupEndpointResult, error) {
 	var rv LookupEndpointResult
 	err := ctx.Invoke("aws:ec2clientvpn/getEndpoint:getEndpoint", args, &rv, opts...)
@@ -21,35 +81,55 @@ func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulum
 
 // A collection of arguments for invoking getEndpoint.
 type LookupEndpointArgs struct {
-	ClientVpnEndpointId *string             `pulumi:"clientVpnEndpointId"`
-	Filters             []GetEndpointFilter `pulumi:"filters"`
-	Tags                map[string]string   `pulumi:"tags"`
+	// ID of the Client VPN endpoint.
+	ClientVpnEndpointId *string `pulumi:"clientVpnEndpointId"`
+	// One or more configuration blocks containing name-values filters. Detailed below.
+	Filters []GetEndpointFilter `pulumi:"filters"`
+	// Map of tags, each pair of which must exactly match a pair on the desired endpoint.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getEndpoint.
 type LookupEndpointResult struct {
-	Arn                      string                               `pulumi:"arn"`
-	AuthenticationOptions    []GetEndpointAuthenticationOption    `pulumi:"authenticationOptions"`
-	ClientCidrBlock          string                               `pulumi:"clientCidrBlock"`
-	ClientConnectOptions     []GetEndpointClientConnectOption     `pulumi:"clientConnectOptions"`
+	// The ARN of the Client VPN endpoint.
+	Arn string `pulumi:"arn"`
+	// Information about the authentication method used by the Client VPN endpoint.
+	AuthenticationOptions []GetEndpointAuthenticationOption `pulumi:"authenticationOptions"`
+	// IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
+	ClientCidrBlock string `pulumi:"clientCidrBlock"`
+	// The options for managing connection authorization for new client connections.
+	ClientConnectOptions []GetEndpointClientConnectOption `pulumi:"clientConnectOptions"`
+	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
 	ClientLoginBannerOptions []GetEndpointClientLoginBannerOption `pulumi:"clientLoginBannerOptions"`
 	ClientVpnEndpointId      string                               `pulumi:"clientVpnEndpointId"`
-	ConnectionLogOptions     []GetEndpointConnectionLogOption     `pulumi:"connectionLogOptions"`
-	Description              string                               `pulumi:"description"`
-	DnsName                  string                               `pulumi:"dnsName"`
-	DnsServers               []string                             `pulumi:"dnsServers"`
-	Filters                  []GetEndpointFilter                  `pulumi:"filters"`
+	// Information about the client connection logging options for the Client VPN endpoint.
+	ConnectionLogOptions []GetEndpointConnectionLogOption `pulumi:"connectionLogOptions"`
+	// Brief description of the endpoint.
+	Description string `pulumi:"description"`
+	// DNS name to be used by clients when connecting to the Client VPN endpoint.
+	DnsName string `pulumi:"dnsName"`
+	// Information about the DNS servers to be used for DNS resolution.
+	DnsServers []string            `pulumi:"dnsServers"`
+	Filters    []GetEndpointFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                   string            `pulumi:"id"`
-	SecurityGroupIds     []string          `pulumi:"securityGroupIds"`
-	SelfServicePortal    string            `pulumi:"selfServicePortal"`
-	ServerCertificateArn string            `pulumi:"serverCertificateArn"`
-	SessionTimeoutHours  int               `pulumi:"sessionTimeoutHours"`
-	SplitTunnel          bool              `pulumi:"splitTunnel"`
-	Tags                 map[string]string `pulumi:"tags"`
-	TransportProtocol    string            `pulumi:"transportProtocol"`
-	VpcId                string            `pulumi:"vpcId"`
-	VpnPort              int               `pulumi:"vpnPort"`
+	Id string `pulumi:"id"`
+	// IDs of the security groups for the target network associated with the Client VPN endpoint.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// Whether the self-service portal for the Client VPN endpoint is enabled.
+	SelfServicePortal string `pulumi:"selfServicePortal"`
+	// The ARN of the server certificate.
+	ServerCertificateArn string `pulumi:"serverCertificateArn"`
+	// The maximum VPN session duration time in hours.
+	SessionTimeoutHours int `pulumi:"sessionTimeoutHours"`
+	// Whether split-tunnel is enabled in the AWS Client VPN endpoint.
+	SplitTunnel bool              `pulumi:"splitTunnel"`
+	Tags        map[string]string `pulumi:"tags"`
+	// Transport protocol used by the Client VPN endpoint.
+	TransportProtocol string `pulumi:"transportProtocol"`
+	// ID of the VPC associated with the Client VPN endpoint.
+	VpcId string `pulumi:"vpcId"`
+	// Port number for the Client VPN endpoint.
+	VpnPort int `pulumi:"vpnPort"`
 }
 
 func LookupEndpointOutput(ctx *pulumi.Context, args LookupEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupEndpointResultOutput {
@@ -67,9 +147,12 @@ func LookupEndpointOutput(ctx *pulumi.Context, args LookupEndpointOutputArgs, op
 
 // A collection of arguments for invoking getEndpoint.
 type LookupEndpointOutputArgs struct {
-	ClientVpnEndpointId pulumi.StringPtrInput       `pulumi:"clientVpnEndpointId"`
-	Filters             GetEndpointFilterArrayInput `pulumi:"filters"`
-	Tags                pulumi.StringMapInput       `pulumi:"tags"`
+	// ID of the Client VPN endpoint.
+	ClientVpnEndpointId pulumi.StringPtrInput `pulumi:"clientVpnEndpointId"`
+	// One or more configuration blocks containing name-values filters. Detailed below.
+	Filters GetEndpointFilterArrayInput `pulumi:"filters"`
+	// Map of tags, each pair of which must exactly match a pair on the desired endpoint.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupEndpointOutputArgs) ElementType() reflect.Type {
@@ -91,22 +174,27 @@ func (o LookupEndpointResultOutput) ToLookupEndpointResultOutputWithContext(ctx 
 	return o
 }
 
+// The ARN of the Client VPN endpoint.
 func (o LookupEndpointResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEndpointResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Information about the authentication method used by the Client VPN endpoint.
 func (o LookupEndpointResultOutput) AuthenticationOptions() GetEndpointAuthenticationOptionArrayOutput {
 	return o.ApplyT(func(v LookupEndpointResult) []GetEndpointAuthenticationOption { return v.AuthenticationOptions }).(GetEndpointAuthenticationOptionArrayOutput)
 }
 
+// IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
 func (o LookupEndpointResultOutput) ClientCidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEndpointResult) string { return v.ClientCidrBlock }).(pulumi.StringOutput)
 }
 
+// The options for managing connection authorization for new client connections.
 func (o LookupEndpointResultOutput) ClientConnectOptions() GetEndpointClientConnectOptionArrayOutput {
 	return o.ApplyT(func(v LookupEndpointResult) []GetEndpointClientConnectOption { return v.ClientConnectOptions }).(GetEndpointClientConnectOptionArrayOutput)
 }
 
+// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
 func (o LookupEndpointResultOutput) ClientLoginBannerOptions() GetEndpointClientLoginBannerOptionArrayOutput {
 	return o.ApplyT(func(v LookupEndpointResult) []GetEndpointClientLoginBannerOption { return v.ClientLoginBannerOptions }).(GetEndpointClientLoginBannerOptionArrayOutput)
 }
@@ -115,18 +203,22 @@ func (o LookupEndpointResultOutput) ClientVpnEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEndpointResult) string { return v.ClientVpnEndpointId }).(pulumi.StringOutput)
 }
 
+// Information about the client connection logging options for the Client VPN endpoint.
 func (o LookupEndpointResultOutput) ConnectionLogOptions() GetEndpointConnectionLogOptionArrayOutput {
 	return o.ApplyT(func(v LookupEndpointResult) []GetEndpointConnectionLogOption { return v.ConnectionLogOptions }).(GetEndpointConnectionLogOptionArrayOutput)
 }
 
+// Brief description of the endpoint.
 func (o LookupEndpointResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEndpointResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// DNS name to be used by clients when connecting to the Client VPN endpoint.
 func (o LookupEndpointResultOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEndpointResult) string { return v.DnsName }).(pulumi.StringOutput)
 }
 
+// Information about the DNS servers to be used for DNS resolution.
 func (o LookupEndpointResultOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupEndpointResult) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
@@ -140,22 +232,27 @@ func (o LookupEndpointResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEndpointResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// IDs of the security groups for the target network associated with the Client VPN endpoint.
 func (o LookupEndpointResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupEndpointResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// Whether the self-service portal for the Client VPN endpoint is enabled.
 func (o LookupEndpointResultOutput) SelfServicePortal() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEndpointResult) string { return v.SelfServicePortal }).(pulumi.StringOutput)
 }
 
+// The ARN of the server certificate.
 func (o LookupEndpointResultOutput) ServerCertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEndpointResult) string { return v.ServerCertificateArn }).(pulumi.StringOutput)
 }
 
+// The maximum VPN session duration time in hours.
 func (o LookupEndpointResultOutput) SessionTimeoutHours() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupEndpointResult) int { return v.SessionTimeoutHours }).(pulumi.IntOutput)
 }
 
+// Whether split-tunnel is enabled in the AWS Client VPN endpoint.
 func (o LookupEndpointResultOutput) SplitTunnel() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupEndpointResult) bool { return v.SplitTunnel }).(pulumi.BoolOutput)
 }
@@ -164,14 +261,17 @@ func (o LookupEndpointResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupEndpointResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Transport protocol used by the Client VPN endpoint.
 func (o LookupEndpointResultOutput) TransportProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEndpointResult) string { return v.TransportProtocol }).(pulumi.StringOutput)
 }
 
+// ID of the VPC associated with the Client VPN endpoint.
 func (o LookupEndpointResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEndpointResult) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
+// Port number for the Client VPN endpoint.
 func (o LookupEndpointResultOutput) VpnPort() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupEndpointResult) int { return v.VpnPort }).(pulumi.IntOutput)
 }

@@ -15,29 +15,104 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * &gt; **NOTE:** This resource interacts with [Amazon Macie Classic](https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html). Macie Classic cannot be activated in new accounts. See the [FAQ](https://aws.amazon.com/macie/classic-faqs/) for more details.
+ * 
+ * Associates an S3 resource with Amazon Macie for monitoring and data classification.
+ * 
+ * &gt; **NOTE:** Before using Amazon Macie for the first time it must be enabled manually. Instructions are [here](https://docs.aws.amazon.com/macie/latest/userguide/macie-setting-up.html#macie-setting-up-enable).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.macie.S3BucketAssociation;
+ * import com.pulumi.aws.macie.S3BucketAssociationArgs;
+ * import com.pulumi.aws.macie.inputs.S3BucketAssociationClassificationTypeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new S3BucketAssociation(&#34;example&#34;, S3BucketAssociationArgs.builder()        
+ *             .bucketName(&#34;tf-macie-example&#34;)
+ *             .classificationType(S3BucketAssociationClassificationTypeArgs.builder()
+ *                 .oneTime(&#34;FULL&#34;)
+ *                 .build())
+ *             .prefix(&#34;data&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="aws:macie/s3BucketAssociation:S3BucketAssociation")
 public class S3BucketAssociation extends com.pulumi.resources.CustomResource {
+    /**
+     * The name of the S3 bucket that you want to associate with Amazon Macie.
+     * 
+     */
     @Export(name="bucketName", refs={String.class}, tree="[0]")
     private Output<String> bucketName;
 
+    /**
+     * @return The name of the S3 bucket that you want to associate with Amazon Macie.
+     * 
+     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
+    /**
+     * The configuration of how Amazon Macie classifies the S3 objects.
+     * 
+     */
     @Export(name="classificationType", refs={S3BucketAssociationClassificationType.class}, tree="[0]")
     private Output<S3BucketAssociationClassificationType> classificationType;
 
+    /**
+     * @return The configuration of how Amazon Macie classifies the S3 objects.
+     * 
+     */
     public Output<S3BucketAssociationClassificationType> classificationType() {
         return this.classificationType;
     }
+    /**
+     * The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `member_account_id` isn&#39;t specified, the action associates specified S3 resources with Macie for the current master account.
+     * 
+     */
     @Export(name="memberAccountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> memberAccountId;
 
+    /**
+     * @return The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `member_account_id` isn&#39;t specified, the action associates specified S3 resources with Macie for the current master account.
+     * 
+     */
     public Output<Optional<String>> memberAccountId() {
         return Codegen.optional(this.memberAccountId);
     }
+    /**
+     * Object key prefix identifying one or more S3 objects to which the association applies.
+     * 
+     */
     @Export(name="prefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> prefix;
 
+    /**
+     * @return Object key prefix identifying one or more S3 objects to which the association applies.
+     * 
+     */
     public Output<Optional<String>> prefix() {
         return Codegen.optional(this.prefix);
     }

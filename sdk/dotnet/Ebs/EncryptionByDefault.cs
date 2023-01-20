@@ -9,9 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ebs
 {
+    /// <summary>
+    /// Provides a resource to manage whether default EBS encryption is enabled for your AWS account in the current AWS region. To manage the default KMS key for the region, see the `aws.ebs.DefaultKmsKey` resource.
+    /// 
+    /// &gt; **NOTE:** Removing this resource disables default EBS encryption.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ebs.EncryptionByDefault("example", new()
+    ///     {
+    ///         Enabled = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Default EBS encryption state can be imported, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:ebs/encryptionByDefault:EncryptionByDefault")]
     public partial class EncryptionByDefault : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
@@ -61,6 +94,9 @@ namespace Pulumi.Aws.Ebs
 
     public sealed class EncryptionByDefaultArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -72,6 +108,9 @@ namespace Pulumi.Aws.Ebs
 
     public sealed class EncryptionByDefaultState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

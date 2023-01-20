@@ -23,6 +23,14 @@ class ResolverEndpointArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ResolverEndpoint resource.
+        :param pulumi.Input[str] direction: The direction of DNS queries to or from the Route 53 Resolver endpoint.
+               Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
+               or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+        :param pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressArgs']]] ip_addresses: The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+               to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The ID of one or more security groups that you want to use to control access to this VPC.
+        :param pulumi.Input[str] name: The friendly name of the Route 53 Resolver endpoint.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "direction", direction)
         pulumi.set(__self__, "ip_addresses", ip_addresses)
@@ -35,6 +43,11 @@ class ResolverEndpointArgs:
     @property
     @pulumi.getter
     def direction(self) -> pulumi.Input[str]:
+        """
+        The direction of DNS queries to or from the Route 53 Resolver endpoint.
+        Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
+        or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+        """
         return pulumi.get(self, "direction")
 
     @direction.setter
@@ -44,6 +57,10 @@ class ResolverEndpointArgs:
     @property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressArgs']]]:
+        """
+        The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+        to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
+        """
         return pulumi.get(self, "ip_addresses")
 
     @ip_addresses.setter
@@ -53,6 +70,9 @@ class ResolverEndpointArgs:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The ID of one or more security groups that you want to use to control access to this VPC.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -62,6 +82,9 @@ class ResolverEndpointArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The friendly name of the Route 53 Resolver endpoint.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -71,6 +94,9 @@ class ResolverEndpointArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -91,6 +117,17 @@ class _ResolverEndpointState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ResolverEndpoint resources.
+        :param pulumi.Input[str] arn: The ARN of the Route 53 Resolver endpoint.
+        :param pulumi.Input[str] direction: The direction of DNS queries to or from the Route 53 Resolver endpoint.
+               Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
+               or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+        :param pulumi.Input[str] host_vpc_id: The ID of the VPC that you want to create the resolver endpoint in.
+        :param pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressArgs']]] ip_addresses: The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+               to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
+        :param pulumi.Input[str] name: The friendly name of the Route 53 Resolver endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The ID of one or more security groups that you want to use to control access to this VPC.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -112,6 +149,9 @@ class _ResolverEndpointState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Route 53 Resolver endpoint.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -121,6 +161,11 @@ class _ResolverEndpointState:
     @property
     @pulumi.getter
     def direction(self) -> Optional[pulumi.Input[str]]:
+        """
+        The direction of DNS queries to or from the Route 53 Resolver endpoint.
+        Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
+        or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+        """
         return pulumi.get(self, "direction")
 
     @direction.setter
@@ -130,6 +175,9 @@ class _ResolverEndpointState:
     @property
     @pulumi.getter(name="hostVpcId")
     def host_vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VPC that you want to create the resolver endpoint in.
+        """
         return pulumi.get(self, "host_vpc_id")
 
     @host_vpc_id.setter
@@ -139,6 +187,10 @@ class _ResolverEndpointState:
     @property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressArgs']]]]:
+        """
+        The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+        to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
+        """
         return pulumi.get(self, "ip_addresses")
 
     @ip_addresses.setter
@@ -148,6 +200,9 @@ class _ResolverEndpointState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The friendly name of the Route 53 Resolver endpoint.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -157,6 +212,9 @@ class _ResolverEndpointState:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The ID of one or more security groups that you want to use to control access to this VPC.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -166,6 +224,9 @@ class _ResolverEndpointState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -175,6 +236,9 @@ class _ResolverEndpointState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -194,9 +258,52 @@ class ResolverEndpoint(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a ResolverEndpoint resource with the given unique name, props, and options.
+        Provides a Route 53 Resolver endpoint resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.route53.ResolverEndpoint("foo",
+            direction="INBOUND",
+            security_group_ids=[
+                aws_security_group["sg1"]["id"],
+                aws_security_group["sg2"]["id"],
+            ],
+            ip_addresses=[
+                aws.route53.ResolverEndpointIpAddressArgs(
+                    subnet_id=aws_subnet["sn1"]["id"],
+                ),
+                aws.route53.ResolverEndpointIpAddressArgs(
+                    subnet_id=aws_subnet["sn2"]["id"],
+                    ip="10.0.64.4",
+                ),
+            ],
+            tags={
+                "Environment": "Prod",
+            })
+        ```
+
+        ## Import
+
+         Route 53 Resolver endpoints can be imported using the Route 53 Resolver endpoint ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] direction: The direction of DNS queries to or from the Route 53 Resolver endpoint.
+               Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
+               or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverEndpointIpAddressArgs']]]] ip_addresses: The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+               to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
+        :param pulumi.Input[str] name: The friendly name of the Route 53 Resolver endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The ID of one or more security groups that you want to use to control access to this VPC.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -205,7 +312,42 @@ class ResolverEndpoint(pulumi.CustomResource):
                  args: ResolverEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ResolverEndpoint resource with the given unique name, props, and options.
+        Provides a Route 53 Resolver endpoint resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.route53.ResolverEndpoint("foo",
+            direction="INBOUND",
+            security_group_ids=[
+                aws_security_group["sg1"]["id"],
+                aws_security_group["sg2"]["id"],
+            ],
+            ip_addresses=[
+                aws.route53.ResolverEndpointIpAddressArgs(
+                    subnet_id=aws_subnet["sn1"]["id"],
+                ),
+                aws.route53.ResolverEndpointIpAddressArgs(
+                    subnet_id=aws_subnet["sn2"]["id"],
+                    ip="10.0.64.4",
+                ),
+            ],
+            tags={
+                "Environment": "Prod",
+            })
+        ```
+
+        ## Import
+
+         Route 53 Resolver endpoints can be imported using the Route 53 Resolver endpoint ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
+        ```
+
         :param str resource_name: The name of the resource.
         :param ResolverEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -274,6 +416,17 @@ class ResolverEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the Route 53 Resolver endpoint.
+        :param pulumi.Input[str] direction: The direction of DNS queries to or from the Route 53 Resolver endpoint.
+               Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
+               or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+        :param pulumi.Input[str] host_vpc_id: The ID of the VPC that you want to create the resolver endpoint in.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverEndpointIpAddressArgs']]]] ip_addresses: The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+               to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
+        :param pulumi.Input[str] name: The friendly name of the Route 53 Resolver endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The ID of one or more security groups that you want to use to control access to this VPC.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -292,40 +445,67 @@ class ResolverEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the Route 53 Resolver endpoint.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def direction(self) -> pulumi.Output[str]:
+        """
+        The direction of DNS queries to or from the Route 53 Resolver endpoint.
+        Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
+        or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+        """
         return pulumi.get(self, "direction")
 
     @property
     @pulumi.getter(name="hostVpcId")
     def host_vpc_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the VPC that you want to create the resolver endpoint in.
+        """
         return pulumi.get(self, "host_vpc_id")
 
     @property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> pulumi.Output[Sequence['outputs.ResolverEndpointIpAddress']]:
+        """
+        The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+        to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
+        """
         return pulumi.get(self, "ip_addresses")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The friendly name of the Route 53 Resolver endpoint.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The ID of one or more security groups that you want to use to control access to this VPC.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

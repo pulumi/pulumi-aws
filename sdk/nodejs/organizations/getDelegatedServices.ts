@@ -7,6 +7,20 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Get a list the AWS services for which the specified account is a delegated administrator
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.organizations.getDelegatedServices({
+ *     accountId: "AWS ACCOUNT ID",
+ * });
+ * ```
+ */
 export function getDelegatedServices(args: GetDelegatedServicesArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedServicesResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -19,6 +33,9 @@ export function getDelegatedServices(args: GetDelegatedServicesArgs, opts?: pulu
  * A collection of arguments for invoking getDelegatedServices.
  */
 export interface GetDelegatedServicesArgs {
+    /**
+     * Account ID number of a delegated administrator account in the organization.
+     */
     accountId: string;
 }
 
@@ -27,12 +44,29 @@ export interface GetDelegatedServicesArgs {
  */
 export interface GetDelegatedServicesResult {
     readonly accountId: string;
+    /**
+     * Services for which the account is a delegated administrator, which have the following attributes:
+     */
     readonly delegatedServices: outputs.organizations.GetDelegatedServicesDelegatedService[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }
+/**
+ * Get a list the AWS services for which the specified account is a delegated administrator
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.organizations.getDelegatedServices({
+ *     accountId: "AWS ACCOUNT ID",
+ * });
+ * ```
+ */
 export function getDelegatedServicesOutput(args: GetDelegatedServicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedServicesResult> {
     return pulumi.output(args).apply((a: any) => getDelegatedServices(a, opts))
 }
@@ -41,5 +75,8 @@ export function getDelegatedServicesOutput(args: GetDelegatedServicesOutputArgs,
  * A collection of arguments for invoking getDelegatedServices.
  */
 export interface GetDelegatedServicesOutputArgs {
+    /**
+     * Account ID number of a delegated administrator account in the organization.
+     */
     accountId: pulumi.Input<string>;
 }

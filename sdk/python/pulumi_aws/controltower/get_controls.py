@@ -35,6 +35,9 @@ class GetControlsResult:
     @property
     @pulumi.getter(name="enabledControls")
     def enabled_controls(self) -> Sequence[str]:
+        """
+        List of all the ARNs for the controls applied to the `target_identifier`.
+        """
         return pulumi.get(self, "enabled_controls")
 
     @property
@@ -65,7 +68,10 @@ class AwaitableGetControlsResult(GetControlsResult):
 def get_controls(target_identifier: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetControlsResult:
     """
-    Use this data source to access information about an existing resource.
+    List of Control Tower controls applied to an OU.
+
+
+    :param str target_identifier: The ARN of the organizational unit.
     """
     __args__ = dict()
     __args__['targetIdentifier'] = target_identifier
@@ -82,6 +88,9 @@ def get_controls(target_identifier: Optional[str] = None,
 def get_controls_output(target_identifier: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetControlsResult]:
     """
-    Use this data source to access information about an existing resource.
+    List of Control Tower controls applied to an OU.
+
+
+    :param str target_identifier: The ARN of the organizational unit.
     """
     ...

@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class SpotInstanceRequestLaunchTemplate
     {
+        /// <summary>
+        /// ID of the launch template. Conflicts with `name`.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Name of the launch template. Conflicts with `id`.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

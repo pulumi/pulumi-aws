@@ -14,29 +14,105 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.worklink.Fleet;
+ * import com.pulumi.aws.worklink.WebsiteCertificateAuthorityAssociation;
+ * import com.pulumi.aws.worklink.WebsiteCertificateAuthorityAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Fleet(&#34;example&#34;);
+ * 
+ *         var test = new WebsiteCertificateAuthorityAssociation(&#34;test&#34;, WebsiteCertificateAuthorityAssociationArgs.builder()        
+ *             .fleetArn(aws_worklink_fleet.test().arn())
+ *             .certificate(Files.readString(Paths.get(&#34;certificate.pem&#34;)))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * WorkLink Website Certificate Authority can be imported using `FLEET-ARN,WEBSITE-CA-ID`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
+ * ```
+ * 
+ */
 @ResourceType(type="aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation")
 public class WebsiteCertificateAuthorityAssociation extends com.pulumi.resources.CustomResource {
+    /**
+     * The root certificate of the Certificate Authority.
+     * 
+     */
     @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output<String> certificate;
 
+    /**
+     * @return The root certificate of the Certificate Authority.
+     * 
+     */
     public Output<String> certificate() {
         return this.certificate;
     }
+    /**
+     * The certificate name to display.
+     * 
+     */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> displayName;
 
+    /**
+     * @return The certificate name to display.
+     * 
+     */
     public Output<Optional<String>> displayName() {
         return Codegen.optional(this.displayName);
     }
+    /**
+     * The ARN of the fleet.
+     * 
+     */
     @Export(name="fleetArn", refs={String.class}, tree="[0]")
     private Output<String> fleetArn;
 
+    /**
+     * @return The ARN of the fleet.
+     * 
+     */
     public Output<String> fleetArn() {
         return this.fleetArn;
     }
+    /**
+     * A unique identifier for the Certificate Authority.
+     * 
+     */
     @Export(name="websiteCaId", refs={String.class}, tree="[0]")
     private Output<String> websiteCaId;
 
+    /**
+     * @return A unique identifier for the Certificate Authority.
+     * 
+     */
     public Output<String> websiteCaId() {
         return this.websiteCaId;
     }

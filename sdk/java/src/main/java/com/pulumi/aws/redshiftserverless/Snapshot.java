@@ -16,65 +16,188 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a new Amazon Redshift Serverless Snapshot.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.redshiftserverless.Snapshot;
+ * import com.pulumi.aws.redshiftserverless.SnapshotArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Snapshot(&#34;example&#34;, SnapshotArgs.builder()        
+ *             .namespaceName(aws_redshiftserverless_workgroup.example().namespace_name())
+ *             .snapshotName(&#34;example&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Redshift Serverless Snapshots can be imported using the `snapshot_name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
+ * ```
+ * 
+ */
 @ResourceType(type="aws:redshiftserverless/snapshot:Snapshot")
 public class Snapshot extends com.pulumi.resources.CustomResource {
+    /**
+     * All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
+     * 
+     */
     @Export(name="accountsWithProvisionedRestoreAccesses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> accountsWithProvisionedRestoreAccesses;
 
+    /**
+     * @return All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
+     * 
+     */
     public Output<List<String>> accountsWithProvisionedRestoreAccesses() {
         return this.accountsWithProvisionedRestoreAccesses;
     }
+    /**
+     * All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
+     * 
+     */
     @Export(name="accountsWithRestoreAccesses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> accountsWithRestoreAccesses;
 
+    /**
+     * @return All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
+     * 
+     */
     public Output<List<String>> accountsWithRestoreAccesses() {
         return this.accountsWithRestoreAccesses;
     }
+    /**
+     * The username of the database within a snapshot.
+     * 
+     */
     @Export(name="adminUsername", refs={String.class}, tree="[0]")
     private Output<String> adminUsername;
 
+    /**
+     * @return The username of the database within a snapshot.
+     * 
+     */
     public Output<String> adminUsername() {
         return this.adminUsername;
     }
+    /**
+     * The Amazon Resource Name (ARN) of the snapshot.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the snapshot.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The unique identifier of the KMS key used to encrypt the snapshot.
+     * 
+     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
+    /**
+     * @return The unique identifier of the KMS key used to encrypt the snapshot.
+     * 
+     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
+    /**
+     * The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+     * 
+     */
     @Export(name="namespaceArn", refs={String.class}, tree="[0]")
     private Output<String> namespaceArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+     * 
+     */
     public Output<String> namespaceArn() {
         return this.namespaceArn;
     }
+    /**
+     * The namespace to create a snapshot for.
+     * 
+     */
     @Export(name="namespaceName", refs={String.class}, tree="[0]")
     private Output<String> namespaceName;
 
+    /**
+     * @return The namespace to create a snapshot for.
+     * 
+     */
     public Output<String> namespaceName() {
         return this.namespaceName;
     }
+    /**
+     * The owner Amazon Web Services; account of the snapshot.
+     * 
+     */
     @Export(name="ownerAccount", refs={String.class}, tree="[0]")
     private Output<String> ownerAccount;
 
+    /**
+     * @return The owner Amazon Web Services; account of the snapshot.
+     * 
+     */
     public Output<String> ownerAccount() {
         return this.ownerAccount;
     }
+    /**
+     * How long to retain the created snapshot. Default value is `-1`.
+     * 
+     */
     @Export(name="retentionPeriod", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> retentionPeriod;
 
+    /**
+     * @return How long to retain the created snapshot. Default value is `-1`.
+     * 
+     */
     public Output<Optional<Integer>> retentionPeriod() {
         return Codegen.optional(this.retentionPeriod);
     }
+    /**
+     * The name of the snapshot.
+     * 
+     */
     @Export(name="snapshotName", refs={String.class}, tree="[0]")
     private Output<String> snapshotName;
 
+    /**
+     * @return The name of the snapshot.
+     * 
+     */
     public Output<String> snapshotName() {
         return this.snapshotName;
     }

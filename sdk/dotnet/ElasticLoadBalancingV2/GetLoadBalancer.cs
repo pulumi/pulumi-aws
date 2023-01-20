@@ -12,9 +12,77 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     [Obsolete(@"aws.elasticloadbalancingv2.getLoadBalancer has been deprecated in favor of aws.lb.getLoadBalancer")]
     public static class GetLoadBalancer
     {
+        /// <summary>
+        /// &gt; **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
+        /// 
+        /// Provides information about a Load Balancer.
+        /// 
+        /// This data source can prove useful when a module accepts an LB as an input
+        /// variable and needs to, for example, determine the security groups associated
+        /// with it, etc.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var lbArn = config.Get("lbArn") ?? "";
+        ///     var lbName = config.Get("lbName") ?? "";
+        ///     var test = Aws.LB.GetLoadBalancer.Invoke(new()
+        ///     {
+        ///         Arn = lbArn,
+        ///         Name = lbName,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws:elasticloadbalancingv2/getLoadBalancer:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// &gt; **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
+        /// 
+        /// Provides information about a Load Balancer.
+        /// 
+        /// This data source can prove useful when a module accepts an LB as an input
+        /// variable and needs to, for example, determine the security groups associated
+        /// with it, etc.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var lbArn = config.Get("lbArn") ?? "";
+        ///     var lbName = config.Get("lbName") ?? "";
+        ///     var test = Aws.LB.GetLoadBalancer.Invoke(new()
+        ///     {
+        ///         Arn = lbArn,
+        ///         Name = lbName,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("aws:elasticloadbalancingv2/getLoadBalancer:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
     }
@@ -22,14 +90,24 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
 
     public sealed class GetLoadBalancerArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Full ARN of the load balancer.
+        /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
+        /// <summary>
+        /// Unique name of the load balancer.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -44,14 +122,24 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
 
     public sealed class GetLoadBalancerInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Full ARN of the load balancer.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Unique name of the load balancer.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

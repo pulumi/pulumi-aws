@@ -4,6 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Creates a domain resource for the specified domain (e.g., example.com).
+ * You cannot register a new domain name using Lightsail. You must register
+ * a domain name using Amazon Route 53 or another domain name registrar.
+ * If you have already registered your domain, you can enter its name in
+ * this parameter to manage the DNS records for that domain.
+ *
+ * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const domainTest = new aws.lightsail.Domain("domainTest", {domainName: "mydomain.com"});
+ * ```
+ */
 export class Domain extends pulumi.CustomResource {
     /**
      * Get an existing Domain resource's state with the given name, ID, and optional extra
@@ -32,7 +50,13 @@ export class Domain extends pulumi.CustomResource {
         return obj['__pulumiType'] === Domain.__pulumiType;
     }
 
+    /**
+     * The ARN of the Lightsail domain
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name of the Lightsail domain to manage
+     */
     public readonly domainName!: pulumi.Output<string>;
 
     /**
@@ -67,7 +91,13 @@ export class Domain extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Domain resources.
  */
 export interface DomainState {
+    /**
+     * The ARN of the Lightsail domain
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The name of the Lightsail domain to manage
+     */
     domainName?: pulumi.Input<string>;
 }
 
@@ -75,5 +105,8 @@ export interface DomainState {
  * The set of arguments for constructing a Domain resource.
  */
 export interface DomainArgs {
+    /**
+     * The name of the Lightsail domain to manage
+     */
     domainName: pulumi.Input<string>;
 }

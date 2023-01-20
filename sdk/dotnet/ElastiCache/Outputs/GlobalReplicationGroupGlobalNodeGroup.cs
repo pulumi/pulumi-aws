@@ -13,7 +13,13 @@ namespace Pulumi.Aws.ElastiCache.Outputs
     [OutputType]
     public sealed class GlobalReplicationGroupGlobalNodeGroup
     {
+        /// <summary>
+        /// The ID of the global node group.
+        /// </summary>
         public readonly string? GlobalNodeGroupId;
+        /// <summary>
+        /// The keyspace for this node group.
+        /// </summary>
         public readonly string? Slots;
 
         [OutputConstructor]

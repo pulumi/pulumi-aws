@@ -9,12 +9,44 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LightSail
 {
+    /// <summary>
+    /// Creates a domain resource for the specified domain (e.g., example.com).
+    /// You cannot register a new domain name using Lightsail. You must register
+    /// a domain name using Amazon Route 53 or another domain name registrar.
+    /// If you have already registered your domain, you can enter its name in
+    /// this parameter to manage the DNS records for that domain.
+    /// 
+    /// &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var domainTest = new Aws.LightSail.Domain("domainTest", new()
+    ///     {
+    ///         DomainName = "mydomain.com",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:lightsail/domain:Domain")]
     public partial class Domain : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the Lightsail domain
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Lightsail domain to manage
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
@@ -64,6 +96,9 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Lightsail domain to manage
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
@@ -75,9 +110,15 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class DomainState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Lightsail domain
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The name of the Lightsail domain to manage
+        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 

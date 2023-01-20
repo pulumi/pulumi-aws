@@ -4,6 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a CE Cost Allocation Tag.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.costexplorer.CostAllocationTag("example", {
+ *     status: "Active",
+ *     tagKey: "example",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_ce_cost_allocation_tag` can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
+ * ```
+ */
 export class CostAllocationTag extends pulumi.CustomResource {
     /**
      * Get an existing CostAllocationTag resource's state with the given name, ID, and optional extra
@@ -32,8 +55,17 @@ export class CostAllocationTag extends pulumi.CustomResource {
         return obj['__pulumiType'] === CostAllocationTag.__pulumiType;
     }
 
+    /**
+     * The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
+     */
     public readonly status!: pulumi.Output<string>;
+    /**
+     * The key for the cost allocation tag.
+     */
     public readonly tagKey!: pulumi.Output<string>;
+    /**
+     * The type of cost allocation tag.
+     */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
@@ -73,8 +105,17 @@ export class CostAllocationTag extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CostAllocationTag resources.
  */
 export interface CostAllocationTagState {
+    /**
+     * The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
+     */
     status?: pulumi.Input<string>;
+    /**
+     * The key for the cost allocation tag.
+     */
     tagKey?: pulumi.Input<string>;
+    /**
+     * The type of cost allocation tag.
+     */
     type?: pulumi.Input<string>;
 }
 
@@ -82,6 +123,12 @@ export interface CostAllocationTagState {
  * The set of arguments for constructing a CostAllocationTag resource.
  */
 export interface CostAllocationTagArgs {
+    /**
+     * The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
+     */
     status: pulumi.Input<string>;
+    /**
+     * The key for the cost allocation tag.
+     */
     tagKey: pulumi.Input<string>;
 }

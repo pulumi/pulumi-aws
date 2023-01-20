@@ -13,16 +13,32 @@ public final class AttachmentAccepterArgs extends com.pulumi.resources.ResourceA
 
     public static final AttachmentAccepterArgs Empty = new AttachmentAccepterArgs();
 
+    /**
+     * The ID of the attachment.
+     * 
+     */
     @Import(name="attachmentId", required=true)
     private Output<String> attachmentId;
 
+    /**
+     * @return The ID of the attachment.
+     * 
+     */
     public Output<String> attachmentId() {
         return this.attachmentId;
     }
 
+    /**
+     * The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+     * 
+     */
     @Import(name="attachmentType", required=true)
     private Output<String> attachmentType;
 
+    /**
+     * @return The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+     * 
+     */
     public Output<String> attachmentType() {
         return this.attachmentType;
     }
@@ -52,20 +68,44 @@ public final class AttachmentAccepterArgs extends com.pulumi.resources.ResourceA
             $ = new AttachmentAccepterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param attachmentId The ID of the attachment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attachmentId(Output<String> attachmentId) {
             $.attachmentId = attachmentId;
             return this;
         }
 
+        /**
+         * @param attachmentId The ID of the attachment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attachmentId(String attachmentId) {
             return attachmentId(Output.of(attachmentId));
         }
 
+        /**
+         * @param attachmentType The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+         * 
+         * @return builder
+         * 
+         */
         public Builder attachmentType(Output<String> attachmentType) {
             $.attachmentType = attachmentType;
             return this;
         }
 
+        /**
+         * @param attachmentType The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+         * 
+         * @return builder
+         * 
+         */
         public Builder attachmentType(String attachmentType) {
             return attachmentType(Output.of(attachmentType));
         }

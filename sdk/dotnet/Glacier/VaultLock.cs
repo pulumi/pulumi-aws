@@ -9,18 +9,116 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Glacier
 {
+    /// <summary>
+    /// Manages a Glacier Vault Lock. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html) for a full explanation of the Glacier Vault Lock functionality.
+    /// 
+    /// &gt; **NOTE:** This resource allows you to test Glacier Vault Lock policies by setting the `complete_lock` argument to `false`. When testing policies in this manner, the Glacier Vault Lock automatically expires after 24 hours and this provider will show this resource as needing recreation after that time. To permanently apply the policy, set the `complete_lock` argument to `true`. When changing `complete_lock` to `true`, it is expected the resource will show as recreating.
+    /// 
+    /// !&gt; **WARNING:** Once a Glacier Vault Lock is completed, it is immutable. The deletion of the Glacier Vault Lock is not be possible and attempting to remove it from this provider will return an error. Set the `ignore_deletion_error` argument to `true` and apply this configuration before attempting to delete this resource via this provider or remove this resource from this provider's management.
+    /// 
+    /// ## Example Usage
+    /// ### Testing Glacier Vault Lock Policy
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleVault = new Aws.Glacier.Vault("exampleVault");
+    /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "glacier:DeleteArchive",
+    ///                 },
+    ///                 Effect = "Deny",
+    ///                 Resources = new[]
+    ///                 {
+    ///                     exampleVault.Arn,
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "NumericLessThanEquals",
+    ///                         Variable = "glacier:ArchiveAgeinDays",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "365",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVaultLock = new Aws.Glacier.VaultLock("exampleVaultLock", new()
+    ///     {
+    ///         CompleteLock = false,
+    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         VaultName = exampleVault.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Permanently Applying Glacier Vault Lock Policy
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Glacier.VaultLock("example", new()
+    ///     {
+    ///         CompleteLock = true,
+    ///         Policy = data.Aws_iam_policy_document.Example.Json,
+    ///         VaultName = aws_glacier_vault.Example.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Glacier Vault Locks can be imported using the Glacier Vault name, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:glacier/vaultLock:VaultLock")]
     public partial class VaultLock : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
+        /// </summary>
         [Output("completeLock")]
         public Output<bool> CompleteLock { get; private set; } = null!;
 
+        /// <summary>
+        /// Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
+        /// </summary>
         [Output("ignoreDeletionError")]
         public Output<bool?> IgnoreDeletionError { get; private set; } = null!;
 
+        /// <summary>
+        /// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
+        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Glacier Vault.
+        /// </summary>
         [Output("vaultName")]
         public Output<string> VaultName { get; private set; } = null!;
 
@@ -70,15 +168,27 @@ namespace Pulumi.Aws.Glacier
 
     public sealed class VaultLockArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
+        /// </summary>
         [Input("completeLock", required: true)]
         public Input<bool> CompleteLock { get; set; } = null!;
 
+        /// <summary>
+        /// Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
+        /// </summary>
         [Input("ignoreDeletionError")]
         public Input<bool>? IgnoreDeletionError { get; set; }
 
+        /// <summary>
+        /// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
+        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the Glacier Vault.
+        /// </summary>
         [Input("vaultName", required: true)]
         public Input<string> VaultName { get; set; } = null!;
 
@@ -90,15 +200,27 @@ namespace Pulumi.Aws.Glacier
 
     public sealed class VaultLockState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
+        /// </summary>
         [Input("completeLock")]
         public Input<bool>? CompleteLock { get; set; }
 
+        /// <summary>
+        /// Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
+        /// </summary>
         [Input("ignoreDeletionError")]
         public Input<bool>? IgnoreDeletionError { get; set; }
 
+        /// <summary>
+        /// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
+        /// <summary>
+        /// The name of the Glacier Vault.
+        /// </summary>
         [Input("vaultName")]
         public Input<string>? VaultName { get; set; }
 

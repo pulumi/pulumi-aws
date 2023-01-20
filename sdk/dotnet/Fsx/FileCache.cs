@@ -9,60 +9,184 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Fsx
 {
+    /// <summary>
+    /// Resource for managing an Amazon File Cache cache.
+    /// See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Fsx.FileCache("example", new()
+    ///     {
+    ///         DataRepositoryAssociations = new[]
+    ///         {
+    ///             new Aws.Fsx.Inputs.FileCacheDataRepositoryAssociationArgs
+    ///             {
+    ///                 DataRepositoryPath = "nfs://filer.domain.com",
+    ///                 DataRepositorySubdirectories = new[]
+    ///                 {
+    ///                     "test",
+    ///                     "test2",
+    ///                 },
+    ///                 FileCachePath = "/ns1",
+    ///                 Nfs = new[]
+    ///                 {
+    ///                     new Aws.Fsx.Inputs.FileCacheDataRepositoryAssociationNfArgs
+    ///                     {
+    ///                         DnsIps = new[]
+    ///                         {
+    ///                             "192.168.0.1",
+    ///                             "192.168.0.2",
+    ///                         },
+    ///                         Version = "NFS3",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         FileCacheType = "LUSTRE",
+    ///         FileCacheTypeVersion = "2.12",
+    ///         LustreConfigurations = new[]
+    ///         {
+    ///             new Aws.Fsx.Inputs.FileCacheLustreConfigurationArgs
+    ///             {
+    ///                 DeploymentType = "CACHE_1",
+    ///                 MetadataConfigurations = new[]
+    ///                 {
+    ///                     new Aws.Fsx.Inputs.FileCacheLustreConfigurationMetadataConfigurationArgs
+    ///                     {
+    ///                         StorageCapacity = 2400,
+    ///                     },
+    ///                 },
+    ///                 PerUnitStorageThroughput = 1000,
+    ///                 WeeklyMaintenanceStartTime = "2:05:00",
+    ///             },
+    ///         },
+    ///         SubnetIds = new[]
+    ///         {
+    ///             aws_subnet.Test1.Id,
+    ///         },
+    ///         StorageCapacity = 1200,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Amazon File Cache cache can be imported using the resource `id`.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:fsx/fileCache:FileCache")]
     public partial class FileCache : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the resource.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
+        /// </summary>
         [Output("copyTagsToDataRepositoryAssociations")]
         public Output<bool?> CopyTagsToDataRepositoryAssociations { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of IDs of data repository associations that are associated with this cache.
+        /// </summary>
         [Output("dataRepositoryAssociationIds")]
         public Output<ImmutableArray<string>> DataRepositoryAssociationIds { get; private set; } = null!;
 
+        /// <summary>
+        /// See the `data_repository_association` configuration block. Max of 8.
+        /// A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
+        /// </summary>
         [Output("dataRepositoryAssociations")]
         public Output<ImmutableArray<Outputs.FileCacheDataRepositoryAssociation>> DataRepositoryAssociations { get; private set; } = null!;
 
+        /// <summary>
+        /// The Domain Name System (DNS) name for the cache.
+        /// </summary>
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
 
+        /// <summary>
+        /// The system-generated, unique ID of the cache.
+        /// </summary>
         [Output("fileCacheId")]
         public Output<string> FileCacheId { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of cache that you're creating. The only supported value is `LUSTRE`.
+        /// </summary>
         [Output("fileCacheType")]
         public Output<string> FileCacheType { get; private set; } = null!;
 
+        /// <summary>
+        /// The version for the type of cache that you're creating. The only supported value is `2.12`.
+        /// </summary>
         [Output("fileCacheTypeVersion")]
         public Output<string> FileCacheTypeVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
+        /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
 
+        /// <summary>
+        /// See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
+        /// </summary>
         [Output("lustreConfigurations")]
         public Output<ImmutableArray<Outputs.FileCacheLustreConfiguration>> LustreConfigurations { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of network interface IDs.
+        /// </summary>
         [Output("networkInterfaceIds")]
         public Output<ImmutableArray<string>> NetworkInterfaceIds { get; private set; } = null!;
 
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
+        /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+        /// </summary>
         [Output("storageCapacity")]
         public Output<int> StorageCapacity { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of your virtual private cloud (VPC).
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -112,28 +236,49 @@ namespace Pulumi.Aws.Fsx
 
     public sealed class FileCacheArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
+        /// </summary>
         [Input("copyTagsToDataRepositoryAssociations")]
         public Input<bool>? CopyTagsToDataRepositoryAssociations { get; set; }
 
         [Input("dataRepositoryAssociations")]
         private InputList<Inputs.FileCacheDataRepositoryAssociationArgs>? _dataRepositoryAssociations;
+
+        /// <summary>
+        /// See the `data_repository_association` configuration block. Max of 8.
+        /// A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
+        /// </summary>
         public InputList<Inputs.FileCacheDataRepositoryAssociationArgs> DataRepositoryAssociations
         {
             get => _dataRepositoryAssociations ?? (_dataRepositoryAssociations = new InputList<Inputs.FileCacheDataRepositoryAssociationArgs>());
             set => _dataRepositoryAssociations = value;
         }
 
+        /// <summary>
+        /// The type of cache that you're creating. The only supported value is `LUSTRE`.
+        /// </summary>
         [Input("fileCacheType", required: true)]
         public Input<string> FileCacheType { get; set; } = null!;
 
+        /// <summary>
+        /// The version for the type of cache that you're creating. The only supported value is `2.12`.
+        /// </summary>
         [Input("fileCacheTypeVersion", required: true)]
         public Input<string> FileCacheTypeVersion { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         [Input("lustreConfigurations")]
         private InputList<Inputs.FileCacheLustreConfigurationArgs>? _lustreConfigurations;
+
+        /// <summary>
+        /// See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
+        /// </summary>
         public InputList<Inputs.FileCacheLustreConfigurationArgs> LustreConfigurations
         {
             get => _lustreConfigurations ?? (_lustreConfigurations = new InputList<Inputs.FileCacheLustreConfigurationArgs>());
@@ -142,17 +287,28 @@ namespace Pulumi.Aws.Fsx
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
+        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
             set => _securityGroupIds = value;
         }
 
+        /// <summary>
+        /// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+        /// </summary>
         [Input("storageCapacity", required: true)]
         public Input<int> StorageCapacity { get; set; } = null!;
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -161,6 +317,10 @@ namespace Pulumi.Aws.Fsx
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -175,14 +335,24 @@ namespace Pulumi.Aws.Fsx
 
     public sealed class FileCacheState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the resource.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
+        /// </summary>
         [Input("copyTagsToDataRepositoryAssociations")]
         public Input<bool>? CopyTagsToDataRepositoryAssociations { get; set; }
 
         [Input("dataRepositoryAssociationIds")]
         private InputList<string>? _dataRepositoryAssociationIds;
+
+        /// <summary>
+        /// A list of IDs of data repository associations that are associated with this cache.
+        /// </summary>
         public InputList<string> DataRepositoryAssociationIds
         {
             get => _dataRepositoryAssociationIds ?? (_dataRepositoryAssociationIds = new InputList<string>());
@@ -191,29 +361,53 @@ namespace Pulumi.Aws.Fsx
 
         [Input("dataRepositoryAssociations")]
         private InputList<Inputs.FileCacheDataRepositoryAssociationGetArgs>? _dataRepositoryAssociations;
+
+        /// <summary>
+        /// See the `data_repository_association` configuration block. Max of 8.
+        /// A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
+        /// </summary>
         public InputList<Inputs.FileCacheDataRepositoryAssociationGetArgs> DataRepositoryAssociations
         {
             get => _dataRepositoryAssociations ?? (_dataRepositoryAssociations = new InputList<Inputs.FileCacheDataRepositoryAssociationGetArgs>());
             set => _dataRepositoryAssociations = value;
         }
 
+        /// <summary>
+        /// The Domain Name System (DNS) name for the cache.
+        /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
 
+        /// <summary>
+        /// The system-generated, unique ID of the cache.
+        /// </summary>
         [Input("fileCacheId")]
         public Input<string>? FileCacheId { get; set; }
 
+        /// <summary>
+        /// The type of cache that you're creating. The only supported value is `LUSTRE`.
+        /// </summary>
         [Input("fileCacheType")]
         public Input<string>? FileCacheType { get; set; }
 
+        /// <summary>
+        /// The version for the type of cache that you're creating. The only supported value is `2.12`.
+        /// </summary>
         [Input("fileCacheTypeVersion")]
         public Input<string>? FileCacheTypeVersion { get; set; }
 
+        /// <summary>
+        /// Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         [Input("lustreConfigurations")]
         private InputList<Inputs.FileCacheLustreConfigurationGetArgs>? _lustreConfigurations;
+
+        /// <summary>
+        /// See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
+        /// </summary>
         public InputList<Inputs.FileCacheLustreConfigurationGetArgs> LustreConfigurations
         {
             get => _lustreConfigurations ?? (_lustreConfigurations = new InputList<Inputs.FileCacheLustreConfigurationGetArgs>());
@@ -222,6 +416,10 @@ namespace Pulumi.Aws.Fsx
 
         [Input("networkInterfaceIds")]
         private InputList<string>? _networkInterfaceIds;
+
+        /// <summary>
+        /// A list of network interface IDs.
+        /// </summary>
         public InputList<string> NetworkInterfaceIds
         {
             get => _networkInterfaceIds ?? (_networkInterfaceIds = new InputList<string>());
@@ -233,17 +431,28 @@ namespace Pulumi.Aws.Fsx
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
+        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
             set => _securityGroupIds = value;
         }
 
+        /// <summary>
+        /// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+        /// </summary>
         [Input("storageCapacity")]
         public Input<int>? StorageCapacity { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -252,6 +461,10 @@ namespace Pulumi.Aws.Fsx
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -266,6 +479,9 @@ namespace Pulumi.Aws.Fsx
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// The ID of your virtual private cloud (VPC).
+        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

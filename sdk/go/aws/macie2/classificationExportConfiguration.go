@@ -10,9 +10,57 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to manage an [Amazon Macie Classification Export Configuration](https://docs.aws.amazon.com/macie/latest/APIReference/classification-export-configuration.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleAccount, err := macie2.NewAccount(ctx, "exampleAccount", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = macie2.NewClassificationExportConfiguration(ctx, "exampleClassificationExportConfiguration", &macie2.ClassificationExportConfigurationArgs{
+//				S3Destination: &macie2.ClassificationExportConfigurationS3DestinationArgs{
+//					BucketName: pulumi.Any(aws_s3_bucket.Example.Bucket),
+//					KeyPrefix:  pulumi.String("exampleprefix/"),
+//					KmsKeyArn:  pulumi.Any(aws_kms_key.Example.Arn),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAccount,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_macie2_classification_export_configuration` can be imported using the account ID and region, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
+//
+// ```
 type ClassificationExportConfiguration struct {
 	pulumi.CustomResourceState
 
+	// Configuration block for a S3 Destination. Defined below
 	S3Destination ClassificationExportConfigurationS3DestinationPtrOutput `pulumi:"s3Destination"`
 }
 
@@ -45,10 +93,12 @@ func GetClassificationExportConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClassificationExportConfiguration resources.
 type classificationExportConfigurationState struct {
+	// Configuration block for a S3 Destination. Defined below
 	S3Destination *ClassificationExportConfigurationS3Destination `pulumi:"s3Destination"`
 }
 
 type ClassificationExportConfigurationState struct {
+	// Configuration block for a S3 Destination. Defined below
 	S3Destination ClassificationExportConfigurationS3DestinationPtrInput
 }
 
@@ -57,11 +107,13 @@ func (ClassificationExportConfigurationState) ElementType() reflect.Type {
 }
 
 type classificationExportConfigurationArgs struct {
+	// Configuration block for a S3 Destination. Defined below
 	S3Destination *ClassificationExportConfigurationS3Destination `pulumi:"s3Destination"`
 }
 
 // The set of arguments for constructing a ClassificationExportConfiguration resource.
 type ClassificationExportConfigurationArgs struct {
+	// Configuration block for a S3 Destination. Defined below
 	S3Destination ClassificationExportConfigurationS3DestinationPtrInput
 }
 
@@ -152,6 +204,7 @@ func (o ClassificationExportConfigurationOutput) ToClassificationExportConfigura
 	return o
 }
 
+// Configuration block for a S3 Destination. Defined below
 func (o ClassificationExportConfigurationOutput) S3Destination() ClassificationExportConfigurationS3DestinationPtrOutput {
 	return o.ApplyT(func(v *ClassificationExportConfiguration) ClassificationExportConfigurationS3DestinationPtrOutput {
 		return v.S3Destination

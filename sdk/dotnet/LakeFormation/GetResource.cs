@@ -11,9 +11,57 @@ namespace Pulumi.Aws.LakeFormation
 {
     public static class GetResource
     {
+        /// <summary>
+        /// Provides details about a Lake Formation resource.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.LakeFormation.GetResource.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:s3:::tf-acc-test-9151654063908211878",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetResourceResult> InvokeAsync(GetResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("aws:lakeformation/getResource:getResource", args ?? new GetResourceArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides details about a Lake Formation resource.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.LakeFormation.GetResource.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:s3:::tf-acc-test-9151654063908211878",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceResult>("aws:lakeformation/getResource:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +69,9 @@ namespace Pulumi.Aws.LakeFormation
 
     public sealed class GetResourceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN of the resource, an S3 path.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -32,6 +83,9 @@ namespace Pulumi.Aws.LakeFormation
 
     public sealed class GetResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN of the resource, an S3 path.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -50,7 +104,13 @@ namespace Pulumi.Aws.LakeFormation
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        /// </summary>
         public readonly string LastModified;
+        /// <summary>
+        /// Role that the resource was registered with.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

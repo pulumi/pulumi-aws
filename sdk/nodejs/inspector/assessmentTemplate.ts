@@ -7,6 +7,39 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Inspector assessment template
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.inspector.AssessmentTemplate("example", {
+ *     targetArn: aws_inspector_assessment_target.example.arn,
+ *     duration: 3600,
+ *     rulesPackageArns: [
+ *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
+ *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
+ *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
+ *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
+ *     ],
+ *     eventSubscriptions: [{
+ *         event: "ASSESSMENT_RUN_COMPLETED",
+ *         topicArn: aws_sns_topic.example.arn,
+ *     }],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_inspector_assessment_template` can be imported by using the template assessment ARN, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+ * ```
+ */
 export class AssessmentTemplate extends pulumi.CustomResource {
     /**
      * Get an existing AssessmentTemplate resource's state with the given name, ID, and optional extra
@@ -35,13 +68,37 @@ export class AssessmentTemplate extends pulumi.CustomResource {
         return obj['__pulumiType'] === AssessmentTemplate.__pulumiType;
     }
 
+    /**
+     * The template assessment ARN.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The duration of the inspector run.
+     */
     public readonly duration!: pulumi.Output<number>;
+    /**
+     * A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+     */
     public readonly eventSubscriptions!: pulumi.Output<outputs.inspector.AssessmentTemplateEventSubscription[] | undefined>;
+    /**
+     * The name of the assessment template.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The rules to be used during the run.
+     */
     public readonly rulesPackageArns!: pulumi.Output<string[]>;
+    /**
+     * Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The assessment target ARN to attach the template to.
+     */
     public readonly targetArn!: pulumi.Output<string>;
 
     /**
@@ -94,13 +151,37 @@ export class AssessmentTemplate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AssessmentTemplate resources.
  */
 export interface AssessmentTemplateState {
+    /**
+     * The template assessment ARN.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The duration of the inspector run.
+     */
     duration?: pulumi.Input<number>;
+    /**
+     * A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+     */
     eventSubscriptions?: pulumi.Input<pulumi.Input<inputs.inspector.AssessmentTemplateEventSubscription>[]>;
+    /**
+     * The name of the assessment template.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The rules to be used during the run.
+     */
     rulesPackageArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The assessment target ARN to attach the template to.
+     */
     targetArn?: pulumi.Input<string>;
 }
 
@@ -108,10 +189,28 @@ export interface AssessmentTemplateState {
  * The set of arguments for constructing a AssessmentTemplate resource.
  */
 export interface AssessmentTemplateArgs {
+    /**
+     * The duration of the inspector run.
+     */
     duration: pulumi.Input<number>;
+    /**
+     * A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+     */
     eventSubscriptions?: pulumi.Input<pulumi.Input<inputs.inspector.AssessmentTemplateEventSubscription>[]>;
+    /**
+     * The name of the assessment template.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The rules to be used during the run.
+     */
     rulesPackageArns: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The assessment target ARN to attach the template to.
+     */
     targetArn: pulumi.Input<string>;
 }

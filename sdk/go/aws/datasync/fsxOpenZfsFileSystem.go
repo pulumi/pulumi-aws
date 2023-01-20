@@ -11,18 +11,74 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an AWS DataSync FSx OpenZfs Location.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datasync.NewFsxOpenZfsFileSystem(ctx, "example", &datasync.FsxOpenZfsFileSystemArgs{
+//				FsxFilesystemArn: pulumi.Any(aws_fsx_openzfs_file_system.Example.Arn),
+//				SecurityGroupArns: pulumi.StringArray{
+//					aws_security_group.Example.Arn,
+//				},
+//				Protocol: &datasync.FsxOpenZfsFileSystemProtocolArgs{
+//					Nfs: &datasync.FsxOpenZfsFileSystemProtocolNfsArgs{
+//						MountOptions: &datasync.FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs{
+//							Version: pulumi.String("AUTOMATIC"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_datasync_location_fsx_openzfs_file_system` can be imported by using the `DataSync-ARN#FSx-openzfs-ARN`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:file-system/fs-08e04cd442c1bb94a
+//
+// ```
 type FsxOpenZfsFileSystem struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput                `pulumi:"arn"`
-	CreationTime      pulumi.StringOutput                `pulumi:"creationTime"`
-	FsxFilesystemArn  pulumi.StringOutput                `pulumi:"fsxFilesystemArn"`
-	Protocol          FsxOpenZfsFileSystemProtocolOutput `pulumi:"protocol"`
-	SecurityGroupArns pulumi.StringArrayOutput           `pulumi:"securityGroupArns"`
-	Subdirectory      pulumi.StringOutput                `pulumi:"subdirectory"`
-	Tags              pulumi.StringMapOutput             `pulumi:"tags"`
-	TagsAll           pulumi.StringMapOutput             `pulumi:"tagsAll"`
-	Uri               pulumi.StringOutput                `pulumi:"uri"`
+	// Amazon Resource Name (ARN) of the DataSync Location.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The time that the FSx for openzfs location was created.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
+	FsxFilesystemArn pulumi.StringOutput `pulumi:"fsxFilesystemArn"`
+	// The type of protocol that DataSync uses to access your file system. See below.
+	Protocol FsxOpenZfsFileSystemProtocolOutput `pulumi:"protocol"`
+	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
+	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
+	// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
+	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The URL of the FSx for openzfs location that was described.
+	Uri pulumi.StringOutput `pulumi:"uri"`
 }
 
 // NewFsxOpenZfsFileSystem registers a new resource with the given unique name, arguments, and options.
@@ -63,27 +119,45 @@ func GetFsxOpenZfsFileSystem(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FsxOpenZfsFileSystem resources.
 type fsxOpenZfsFileSystemState struct {
-	Arn               *string                       `pulumi:"arn"`
-	CreationTime      *string                       `pulumi:"creationTime"`
-	FsxFilesystemArn  *string                       `pulumi:"fsxFilesystemArn"`
-	Protocol          *FsxOpenZfsFileSystemProtocol `pulumi:"protocol"`
-	SecurityGroupArns []string                      `pulumi:"securityGroupArns"`
-	Subdirectory      *string                       `pulumi:"subdirectory"`
-	Tags              map[string]string             `pulumi:"tags"`
-	TagsAll           map[string]string             `pulumi:"tagsAll"`
-	Uri               *string                       `pulumi:"uri"`
+	// Amazon Resource Name (ARN) of the DataSync Location.
+	Arn *string `pulumi:"arn"`
+	// The time that the FSx for openzfs location was created.
+	CreationTime *string `pulumi:"creationTime"`
+	// The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
+	FsxFilesystemArn *string `pulumi:"fsxFilesystemArn"`
+	// The type of protocol that DataSync uses to access your file system. See below.
+	Protocol *FsxOpenZfsFileSystemProtocol `pulumi:"protocol"`
+	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
+	SecurityGroupArns []string `pulumi:"securityGroupArns"`
+	// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
+	Subdirectory *string `pulumi:"subdirectory"`
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The URL of the FSx for openzfs location that was described.
+	Uri *string `pulumi:"uri"`
 }
 
 type FsxOpenZfsFileSystemState struct {
-	Arn               pulumi.StringPtrInput
-	CreationTime      pulumi.StringPtrInput
-	FsxFilesystemArn  pulumi.StringPtrInput
-	Protocol          FsxOpenZfsFileSystemProtocolPtrInput
+	// Amazon Resource Name (ARN) of the DataSync Location.
+	Arn pulumi.StringPtrInput
+	// The time that the FSx for openzfs location was created.
+	CreationTime pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
+	FsxFilesystemArn pulumi.StringPtrInput
+	// The type of protocol that DataSync uses to access your file system. See below.
+	Protocol FsxOpenZfsFileSystemProtocolPtrInput
+	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
 	SecurityGroupArns pulumi.StringArrayInput
-	Subdirectory      pulumi.StringPtrInput
-	Tags              pulumi.StringMapInput
-	TagsAll           pulumi.StringMapInput
-	Uri               pulumi.StringPtrInput
+	// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
+	Subdirectory pulumi.StringPtrInput
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// The URL of the FSx for openzfs location that was described.
+	Uri pulumi.StringPtrInput
 }
 
 func (FsxOpenZfsFileSystemState) ElementType() reflect.Type {
@@ -91,20 +165,30 @@ func (FsxOpenZfsFileSystemState) ElementType() reflect.Type {
 }
 
 type fsxOpenZfsFileSystemArgs struct {
-	FsxFilesystemArn  string                       `pulumi:"fsxFilesystemArn"`
-	Protocol          FsxOpenZfsFileSystemProtocol `pulumi:"protocol"`
-	SecurityGroupArns []string                     `pulumi:"securityGroupArns"`
-	Subdirectory      *string                      `pulumi:"subdirectory"`
-	Tags              map[string]string            `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
+	FsxFilesystemArn string `pulumi:"fsxFilesystemArn"`
+	// The type of protocol that DataSync uses to access your file system. See below.
+	Protocol FsxOpenZfsFileSystemProtocol `pulumi:"protocol"`
+	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
+	SecurityGroupArns []string `pulumi:"securityGroupArns"`
+	// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
+	Subdirectory *string `pulumi:"subdirectory"`
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FsxOpenZfsFileSystem resource.
 type FsxOpenZfsFileSystemArgs struct {
-	FsxFilesystemArn  pulumi.StringInput
-	Protocol          FsxOpenZfsFileSystemProtocolInput
+	// The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
+	FsxFilesystemArn pulumi.StringInput
+	// The type of protocol that DataSync uses to access your file system. See below.
+	Protocol FsxOpenZfsFileSystemProtocolInput
+	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
 	SecurityGroupArns pulumi.StringArrayInput
-	Subdirectory      pulumi.StringPtrInput
-	Tags              pulumi.StringMapInput
+	// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
+	Subdirectory pulumi.StringPtrInput
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (FsxOpenZfsFileSystemArgs) ElementType() reflect.Type {
@@ -194,38 +278,47 @@ func (o FsxOpenZfsFileSystemOutput) ToFsxOpenZfsFileSystemOutputWithContext(ctx 
 	return o
 }
 
+// Amazon Resource Name (ARN) of the DataSync Location.
 func (o FsxOpenZfsFileSystemOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FsxOpenZfsFileSystem) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The time that the FSx for openzfs location was created.
 func (o FsxOpenZfsFileSystemOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *FsxOpenZfsFileSystem) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
 func (o FsxOpenZfsFileSystemOutput) FsxFilesystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FsxOpenZfsFileSystem) pulumi.StringOutput { return v.FsxFilesystemArn }).(pulumi.StringOutput)
 }
 
+// The type of protocol that DataSync uses to access your file system. See below.
 func (o FsxOpenZfsFileSystemOutput) Protocol() FsxOpenZfsFileSystemProtocolOutput {
 	return o.ApplyT(func(v *FsxOpenZfsFileSystem) FsxOpenZfsFileSystemProtocolOutput { return v.Protocol }).(FsxOpenZfsFileSystemProtocolOutput)
 }
 
+// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
 func (o FsxOpenZfsFileSystemOutput) SecurityGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FsxOpenZfsFileSystem) pulumi.StringArrayOutput { return v.SecurityGroupArns }).(pulumi.StringArrayOutput)
 }
 
+// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
 func (o FsxOpenZfsFileSystemOutput) Subdirectory() pulumi.StringOutput {
 	return o.ApplyT(func(v *FsxOpenZfsFileSystem) pulumi.StringOutput { return v.Subdirectory }).(pulumi.StringOutput)
 }
 
+// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FsxOpenZfsFileSystemOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FsxOpenZfsFileSystem) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FsxOpenZfsFileSystemOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FsxOpenZfsFileSystem) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// The URL of the FSx for openzfs location that was described.
 func (o FsxOpenZfsFileSystemOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v *FsxOpenZfsFileSystem) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
 }

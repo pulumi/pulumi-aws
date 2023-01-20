@@ -9,12 +9,59 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppStream
 {
+    /// <summary>
+    /// Manages an AppStream Fleet Stack association.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleFleet = new Aws.AppStream.Fleet("exampleFleet", new()
+    ///     {
+    ///         ImageName = "Amazon-AppStream2-Sample-Image-02-04-2019",
+    ///         InstanceType = "stream.standard.small",
+    ///         ComputeCapacity = new Aws.AppStream.Inputs.FleetComputeCapacityArgs
+    ///         {
+    ///             DesiredInstances = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStack = new Aws.AppStream.Stack("exampleStack");
+    /// 
+    ///     var exampleFleetStackAssociation = new Aws.AppStream.FleetStackAssociation("exampleFleetStackAssociation", new()
+    ///     {
+    ///         FleetName = exampleFleet.Name,
+    ///         StackName = exampleStack.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// AppStream Stack Fleet Association can be imported by using the `fleet_name` and `stack_name` separated by a slash (`/`), e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:appstream/fleetStackAssociation:FleetStackAssociation")]
     public partial class FleetStackAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Name of the fleet.
+        /// </summary>
         [Output("fleetName")]
         public Output<string> FleetName { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the stack.
+        /// </summary>
         [Output("stackName")]
         public Output<string> StackName { get; private set; } = null!;
 
@@ -64,9 +111,15 @@ namespace Pulumi.Aws.AppStream
 
     public sealed class FleetStackAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the fleet.
+        /// </summary>
         [Input("fleetName", required: true)]
         public Input<string> FleetName { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the stack.
+        /// </summary>
         [Input("stackName", required: true)]
         public Input<string> StackName { get; set; } = null!;
 
@@ -78,9 +131,15 @@ namespace Pulumi.Aws.AppStream
 
     public sealed class FleetStackAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the fleet.
+        /// </summary>
         [Input("fleetName")]
         public Input<string>? FleetName { get; set; }
 
+        /// <summary>
+        /// Name of the stack.
+        /// </summary>
         [Input("stackName")]
         public Input<string>? StackName { get; set; }
 

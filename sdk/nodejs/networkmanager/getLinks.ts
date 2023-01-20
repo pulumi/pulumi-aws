@@ -4,6 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Retrieve information about link.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.networkmanager.getLinks({
+ *     globalNetworkId: _var.global_network_id,
+ *     tags: {
+ *         Env: "test",
+ *     },
+ * });
+ * ```
+ */
 export function getLinks(args: GetLinksArgs, opts?: pulumi.InvokeOptions): Promise<GetLinksResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -20,10 +37,25 @@ export function getLinks(args: GetLinksArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getLinks.
  */
 export interface GetLinksArgs {
+    /**
+     * ID of the Global Network of the links to retrieve.
+     */
     globalNetworkId: string;
+    /**
+     * Link provider to retrieve.
+     */
     providerName?: string;
+    /**
+     * ID of the site of the links to retrieve.
+     */
     siteId?: string;
+    /**
+     * Restricts the list to the links with these tags.
+     */
     tags?: {[key: string]: string};
+    /**
+     * Link type to retrieve.
+     */
     type?: string;
 }
 
@@ -36,12 +68,32 @@ export interface GetLinksResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * IDs of the links.
+     */
     readonly ids: string[];
     readonly providerName?: string;
     readonly siteId?: string;
     readonly tags?: {[key: string]: string};
     readonly type?: string;
 }
+/**
+ * Retrieve information about link.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.networkmanager.getLinks({
+ *     globalNetworkId: _var.global_network_id,
+ *     tags: {
+ *         Env: "test",
+ *     },
+ * });
+ * ```
+ */
 export function getLinksOutput(args: GetLinksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinksResult> {
     return pulumi.output(args).apply((a: any) => getLinks(a, opts))
 }
@@ -50,9 +102,24 @@ export function getLinksOutput(args: GetLinksOutputArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getLinks.
  */
 export interface GetLinksOutputArgs {
+    /**
+     * ID of the Global Network of the links to retrieve.
+     */
     globalNetworkId: pulumi.Input<string>;
+    /**
+     * Link provider to retrieve.
+     */
     providerName?: pulumi.Input<string>;
+    /**
+     * ID of the site of the links to retrieve.
+     */
     siteId?: pulumi.Input<string>;
+    /**
+     * Restricts the list to the links with these tags.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Link type to retrieve.
+     */
     type?: pulumi.Input<string>;
 }

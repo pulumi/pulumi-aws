@@ -21,6 +21,9 @@ class ConfigurationSetEventDestinationArgs:
                  event_destination_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a ConfigurationSetEventDestination resource.
+        :param pulumi.Input[str] configuration_set_name: The name of the configuration set.
+        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs'] event_destination: A name that identifies the event destination within the configuration set.
+        :param pulumi.Input[str] event_destination_name: An object that defines the event destination. See event_destination below.
         """
         pulumi.set(__self__, "configuration_set_name", configuration_set_name)
         pulumi.set(__self__, "event_destination", event_destination)
@@ -29,6 +32,9 @@ class ConfigurationSetEventDestinationArgs:
     @property
     @pulumi.getter(name="configurationSetName")
     def configuration_set_name(self) -> pulumi.Input[str]:
+        """
+        The name of the configuration set.
+        """
         return pulumi.get(self, "configuration_set_name")
 
     @configuration_set_name.setter
@@ -38,6 +44,9 @@ class ConfigurationSetEventDestinationArgs:
     @property
     @pulumi.getter(name="eventDestination")
     def event_destination(self) -> pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs']:
+        """
+        A name that identifies the event destination within the configuration set.
+        """
         return pulumi.get(self, "event_destination")
 
     @event_destination.setter
@@ -47,6 +56,9 @@ class ConfigurationSetEventDestinationArgs:
     @property
     @pulumi.getter(name="eventDestinationName")
     def event_destination_name(self) -> pulumi.Input[str]:
+        """
+        An object that defines the event destination. See event_destination below.
+        """
         return pulumi.get(self, "event_destination_name")
 
     @event_destination_name.setter
@@ -62,6 +74,9 @@ class _ConfigurationSetEventDestinationState:
                  event_destination_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ConfigurationSetEventDestination resources.
+        :param pulumi.Input[str] configuration_set_name: The name of the configuration set.
+        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs'] event_destination: A name that identifies the event destination within the configuration set.
+        :param pulumi.Input[str] event_destination_name: An object that defines the event destination. See event_destination below.
         """
         if configuration_set_name is not None:
             pulumi.set(__self__, "configuration_set_name", configuration_set_name)
@@ -73,6 +88,9 @@ class _ConfigurationSetEventDestinationState:
     @property
     @pulumi.getter(name="configurationSetName")
     def configuration_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the configuration set.
+        """
         return pulumi.get(self, "configuration_set_name")
 
     @configuration_set_name.setter
@@ -82,6 +100,9 @@ class _ConfigurationSetEventDestinationState:
     @property
     @pulumi.getter(name="eventDestination")
     def event_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs']]:
+        """
+        A name that identifies the event destination within the configuration set.
+        """
         return pulumi.get(self, "event_destination")
 
     @event_destination.setter
@@ -91,6 +112,9 @@ class _ConfigurationSetEventDestinationState:
     @property
     @pulumi.getter(name="eventDestinationName")
     def event_destination_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        An object that defines the event destination. See event_destination below.
+        """
         return pulumi.get(self, "event_destination_name")
 
     @event_destination_name.setter
@@ -108,9 +132,100 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                  event_destination_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ConfigurationSetEventDestination resource with the given unique name, props, and options.
+        Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination.
+
+        ## Example Usage
+        ### Cloud Watch Destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
+        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination",
+            configuration_set_name=example_configuration_set.configuration_set_name,
+            event_destination_name="example",
+            event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
+                cloud_watch_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs(
+                    dimension_configurations=[aws.sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs(
+                        default_dimension_value="example",
+                        dimension_name="example",
+                        dimension_value_source="MESSAGE_TAG",
+                    )],
+                ),
+                enabled=True,
+                matching_event_types=["SEND"],
+            ))
+        ```
+        ### Kinesis Firehose Destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
+        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination",
+            configuration_set_name=example_configuration_set.configuration_set_name,
+            event_destination_name="example",
+            event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
+                kinesis_firehose_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs(
+                    delivery_stream_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
+                    iam_role_arn=aws_iam_role["example"]["arn"],
+                ),
+                enabled=True,
+                matching_event_types=["SEND"],
+            ))
+        ```
+        ### Pinpoint Destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
+        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination",
+            configuration_set_name=example_configuration_set.configuration_set_name,
+            event_destination_name="example",
+            event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
+                pinpoint_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs(
+                    application_arn=aws_pinpoint_app["example"]["arn"],
+                ),
+                enabled=True,
+                matching_event_types=["SEND"],
+            ))
+        ```
+        ### SNS Destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
+        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination",
+            configuration_set_name=example_configuration_set.configuration_set_name,
+            event_destination_name="example",
+            event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
+                sns_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs(
+                    topic_arn=aws_sns_topic["example"]["arn"],
+                ),
+                enabled=True,
+                matching_event_types=["SEND"],
+            ))
+        ```
+
+        ## Import
+
+        SESv2 (Simple Email V2) Configuration Set Event Destination can be imported using the `id` (`configuration_set_name|event_destination_name`), e.g.,
+
+        ```sh
+         $ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] configuration_set_name: The name of the configuration set.
+        :param pulumi.Input[pulumi.InputType['ConfigurationSetEventDestinationEventDestinationArgs']] event_destination: A name that identifies the event destination within the configuration set.
+        :param pulumi.Input[str] event_destination_name: An object that defines the event destination. See event_destination below.
         """
         ...
     @overload
@@ -119,7 +234,95 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                  args: ConfigurationSetEventDestinationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ConfigurationSetEventDestination resource with the given unique name, props, and options.
+        Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination.
+
+        ## Example Usage
+        ### Cloud Watch Destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
+        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination",
+            configuration_set_name=example_configuration_set.configuration_set_name,
+            event_destination_name="example",
+            event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
+                cloud_watch_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs(
+                    dimension_configurations=[aws.sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs(
+                        default_dimension_value="example",
+                        dimension_name="example",
+                        dimension_value_source="MESSAGE_TAG",
+                    )],
+                ),
+                enabled=True,
+                matching_event_types=["SEND"],
+            ))
+        ```
+        ### Kinesis Firehose Destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
+        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination",
+            configuration_set_name=example_configuration_set.configuration_set_name,
+            event_destination_name="example",
+            event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
+                kinesis_firehose_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs(
+                    delivery_stream_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
+                    iam_role_arn=aws_iam_role["example"]["arn"],
+                ),
+                enabled=True,
+                matching_event_types=["SEND"],
+            ))
+        ```
+        ### Pinpoint Destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
+        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination",
+            configuration_set_name=example_configuration_set.configuration_set_name,
+            event_destination_name="example",
+            event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
+                pinpoint_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs(
+                    application_arn=aws_pinpoint_app["example"]["arn"],
+                ),
+                enabled=True,
+                matching_event_types=["SEND"],
+            ))
+        ```
+        ### SNS Destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
+        example_configuration_set_event_destination = aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination",
+            configuration_set_name=example_configuration_set.configuration_set_name,
+            event_destination_name="example",
+            event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
+                sns_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs(
+                    topic_arn=aws_sns_topic["example"]["arn"],
+                ),
+                enabled=True,
+                matching_event_types=["SEND"],
+            ))
+        ```
+
+        ## Import
+
+        SESv2 (Simple Email V2) Configuration Set Event Destination can be imported using the `id` (`configuration_set_name|event_destination_name`), e.g.,
+
+        ```sh
+         $ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
+        ```
+
         :param str resource_name: The name of the resource.
         :param ConfigurationSetEventDestinationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,6 +379,9 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] configuration_set_name: The name of the configuration set.
+        :param pulumi.Input[pulumi.InputType['ConfigurationSetEventDestinationEventDestinationArgs']] event_destination: A name that identifies the event destination within the configuration set.
+        :param pulumi.Input[str] event_destination_name: An object that defines the event destination. See event_destination below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -189,15 +395,24 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
     @property
     @pulumi.getter(name="configurationSetName")
     def configuration_set_name(self) -> pulumi.Output[str]:
+        """
+        The name of the configuration set.
+        """
         return pulumi.get(self, "configuration_set_name")
 
     @property
     @pulumi.getter(name="eventDestination")
     def event_destination(self) -> pulumi.Output['outputs.ConfigurationSetEventDestinationEventDestination']:
+        """
+        A name that identifies the event destination within the configuration set.
+        """
         return pulumi.get(self, "event_destination")
 
     @property
     @pulumi.getter(name="eventDestinationName")
     def event_destination_name(self) -> pulumi.Output[str]:
+        """
+        An object that defines the event destination. See event_destination below.
+        """
         return pulumi.get(self, "event_destination_name")
 

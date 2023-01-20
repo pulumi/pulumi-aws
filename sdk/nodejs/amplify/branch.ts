@@ -4,6 +4,99 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an Amplify Branch resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.amplify.App("example", {});
+ * const master = new aws.amplify.Branch("master", {
+ *     appId: example.id,
+ *     branchName: "master",
+ *     framework: "React",
+ *     stage: "PRODUCTION",
+ *     environmentVariables: {
+ *         REACT_APP_API_SERVER: "https://api.example.com",
+ *     },
+ * });
+ * ```
+ * ### Notifications
+ *
+ * Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enableNotification` in a `aws.amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.amplify.App("example", {});
+ * const master = new aws.amplify.Branch("master", {
+ *     appId: example.id,
+ *     branchName: "master",
+ *     enableNotification: true,
+ * });
+ * // EventBridge Rule for Amplify notifications
+ * const amplifyAppMasterEventRule = new aws.cloudwatch.EventRule("amplifyAppMasterEventRule", {
+ *     description: pulumi.interpolate`AWS Amplify build notifications for :  App: ${aws_amplify_app.app.id} Branch: ${master.branchName}`,
+ *     eventPattern: pulumi.all([example.id, master.branchName]).apply(([id, branchName]) => JSON.stringify({
+ *         detail: {
+ *             appId: [id],
+ *             branchName: [branchName],
+ *             jobStatus: [
+ *                 "SUCCEED",
+ *                 "FAILED",
+ *                 "STARTED",
+ *             ],
+ *         },
+ *         "detail-type": ["Amplify Deployment Status Change"],
+ *         source: ["aws.amplify"],
+ *     })),
+ * });
+ * const amplifyAppMasterTopic = new aws.sns.Topic("amplifyAppMasterTopic", {});
+ * const amplifyAppMasterEventTarget = new aws.cloudwatch.EventTarget("amplifyAppMasterEventTarget", {
+ *     rule: amplifyAppMasterEventRule.name,
+ *     arn: amplifyAppMasterTopic.arn,
+ *     inputTransformer: {
+ *         inputPaths: {
+ *             jobId: `$.detail.jobId`,
+ *             appId: `$.detail.appId`,
+ *             region: `$.region`,
+ *             branch: `$.detail.branchName`,
+ *             status: `$.detail.jobStatus`,
+ *         },
+ *         inputTemplate: "\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \"",
+ *     },
+ * });
+ * // SNS Topic for Amplify notifications
+ * const amplifyAppMasterPolicyDocument = pulumi.all([master.arn, amplifyAppMasterTopic.arn]).apply(([masterArn, amplifyAppMasterTopicArn]) => aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         sid: `Allow_Publish_Events ${masterArn}`,
+ *         effect: "Allow",
+ *         actions: ["SNS:Publish"],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["events.amazonaws.com"],
+ *         }],
+ *         resources: [amplifyAppMasterTopicArn],
+ *     }],
+ * }));
+ * const amplifyAppMasterTopicPolicy = new aws.sns.TopicPolicy("amplifyAppMasterTopicPolicy", {
+ *     arn: amplifyAppMasterTopic.arn,
+ *     policy: amplifyAppMasterPolicyDocument.apply(amplifyAppMasterPolicyDocument => amplifyAppMasterPolicyDocument.json),
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Amplify branch can be imported using `app_id` and `branch_name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
+ * ```
+ */
 export class Branch extends pulumi.CustomResource {
     /**
      * Get an existing Branch resource's state with the given name, ID, and optional extra
@@ -32,28 +125,97 @@ export class Branch extends pulumi.CustomResource {
         return obj['__pulumiType'] === Branch.__pulumiType;
     }
 
+    /**
+     * Unique ID for an Amplify app.
+     */
     public readonly appId!: pulumi.Output<string>;
+    /**
+     * ARN for the branch.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A list of custom resources that are linked to this branch.
+     */
     public /*out*/ readonly associatedResources!: pulumi.Output<string[]>;
+    /**
+     * ARN for a backend environment that is part of an Amplify app.
+     */
     public readonly backendEnvironmentArn!: pulumi.Output<string | undefined>;
+    /**
+     * Basic authorization credentials for the branch.
+     */
     public readonly basicAuthCredentials!: pulumi.Output<string | undefined>;
+    /**
+     * Name for the branch.
+     */
     public readonly branchName!: pulumi.Output<string>;
+    /**
+     * Custom domains for the branch.
+     */
     public /*out*/ readonly customDomains!: pulumi.Output<string[]>;
+    /**
+     * Description for the branch.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Destination branch if the branch is a pull request branch.
+     */
     public /*out*/ readonly destinationBranch!: pulumi.Output<string>;
+    /**
+     * Display name for a branch. This is used as the default domain prefix.
+     */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * Enables auto building for the branch.
+     */
     public readonly enableAutoBuild!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enables basic authorization for the branch.
+     */
     public readonly enableBasicAuth!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enables notifications for the branch.
+     */
     public readonly enableNotification!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enables performance mode for the branch.
+     */
     public readonly enablePerformanceMode!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enables pull request previews for this branch.
+     */
     public readonly enablePullRequestPreview!: pulumi.Output<boolean | undefined>;
+    /**
+     * Environment variables for the branch.
+     */
     public readonly environmentVariables!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Framework for the branch.
+     */
     public readonly framework!: pulumi.Output<string | undefined>;
+    /**
+     * Amplify environment name for the pull request.
+     */
     public readonly pullRequestEnvironmentName!: pulumi.Output<string | undefined>;
+    /**
+     * Source branch if the branch is a pull request branch.
+     */
     public /*out*/ readonly sourceBranch!: pulumi.Output<string>;
+    /**
+     * Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
+     */
     public readonly stage!: pulumi.Output<string | undefined>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Content Time To Live (TTL) for the website in seconds.
+     */
     public readonly ttl!: pulumi.Output<string | undefined>;
 
     /**
@@ -135,28 +297,97 @@ export class Branch extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Branch resources.
  */
 export interface BranchState {
+    /**
+     * Unique ID for an Amplify app.
+     */
     appId?: pulumi.Input<string>;
+    /**
+     * ARN for the branch.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * A list of custom resources that are linked to this branch.
+     */
     associatedResources?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * ARN for a backend environment that is part of an Amplify app.
+     */
     backendEnvironmentArn?: pulumi.Input<string>;
+    /**
+     * Basic authorization credentials for the branch.
+     */
     basicAuthCredentials?: pulumi.Input<string>;
+    /**
+     * Name for the branch.
+     */
     branchName?: pulumi.Input<string>;
+    /**
+     * Custom domains for the branch.
+     */
     customDomains?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Description for the branch.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Destination branch if the branch is a pull request branch.
+     */
     destinationBranch?: pulumi.Input<string>;
+    /**
+     * Display name for a branch. This is used as the default domain prefix.
+     */
     displayName?: pulumi.Input<string>;
+    /**
+     * Enables auto building for the branch.
+     */
     enableAutoBuild?: pulumi.Input<boolean>;
+    /**
+     * Enables basic authorization for the branch.
+     */
     enableBasicAuth?: pulumi.Input<boolean>;
+    /**
+     * Enables notifications for the branch.
+     */
     enableNotification?: pulumi.Input<boolean>;
+    /**
+     * Enables performance mode for the branch.
+     */
     enablePerformanceMode?: pulumi.Input<boolean>;
+    /**
+     * Enables pull request previews for this branch.
+     */
     enablePullRequestPreview?: pulumi.Input<boolean>;
+    /**
+     * Environment variables for the branch.
+     */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Framework for the branch.
+     */
     framework?: pulumi.Input<string>;
+    /**
+     * Amplify environment name for the pull request.
+     */
     pullRequestEnvironmentName?: pulumi.Input<string>;
+    /**
+     * Source branch if the branch is a pull request branch.
+     */
     sourceBranch?: pulumi.Input<string>;
+    /**
+     * Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
+     */
     stage?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Content Time To Live (TTL) for the website in seconds.
+     */
     ttl?: pulumi.Input<string>;
 }
 
@@ -164,21 +395,72 @@ export interface BranchState {
  * The set of arguments for constructing a Branch resource.
  */
 export interface BranchArgs {
+    /**
+     * Unique ID for an Amplify app.
+     */
     appId: pulumi.Input<string>;
+    /**
+     * ARN for a backend environment that is part of an Amplify app.
+     */
     backendEnvironmentArn?: pulumi.Input<string>;
+    /**
+     * Basic authorization credentials for the branch.
+     */
     basicAuthCredentials?: pulumi.Input<string>;
+    /**
+     * Name for the branch.
+     */
     branchName: pulumi.Input<string>;
+    /**
+     * Description for the branch.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Display name for a branch. This is used as the default domain prefix.
+     */
     displayName?: pulumi.Input<string>;
+    /**
+     * Enables auto building for the branch.
+     */
     enableAutoBuild?: pulumi.Input<boolean>;
+    /**
+     * Enables basic authorization for the branch.
+     */
     enableBasicAuth?: pulumi.Input<boolean>;
+    /**
+     * Enables notifications for the branch.
+     */
     enableNotification?: pulumi.Input<boolean>;
+    /**
+     * Enables performance mode for the branch.
+     */
     enablePerformanceMode?: pulumi.Input<boolean>;
+    /**
+     * Enables pull request previews for this branch.
+     */
     enablePullRequestPreview?: pulumi.Input<boolean>;
+    /**
+     * Environment variables for the branch.
+     */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Framework for the branch.
+     */
     framework?: pulumi.Input<string>;
+    /**
+     * Amplify environment name for the pull request.
+     */
     pullRequestEnvironmentName?: pulumi.Input<string>;
+    /**
+     * Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
+     */
     stage?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Content Time To Live (TTL) for the website in seconds.
+     */
     ttl?: pulumi.Input<string>;
 }

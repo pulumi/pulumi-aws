@@ -13,23 +13,125 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an SNS topic policy resource
+ * 
+ * &gt; **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.sns.TopicPolicy;
+ * import com.pulumi.aws.sns.TopicPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Topic(&#34;test&#34;);
+ * 
+ *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .policyId(&#34;__default_policy_ID&#34;)
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions(                
+ *                     &#34;SNS:Subscribe&#34;,
+ *                     &#34;SNS:SetTopicAttributes&#34;,
+ *                     &#34;SNS:RemovePermission&#34;,
+ *                     &#34;SNS:Receive&#34;,
+ *                     &#34;SNS:Publish&#34;,
+ *                     &#34;SNS:ListSubscriptionsByTopic&#34;,
+ *                     &#34;SNS:GetTopicAttributes&#34;,
+ *                     &#34;SNS:DeleteTopic&#34;,
+ *                     &#34;SNS:AddPermission&#34;)
+ *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                     .test(&#34;StringEquals&#34;)
+ *                     .variable(&#34;AWS:SourceOwner&#34;)
+ *                     .values(var_.account-id())
+ *                     .build())
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;AWS&#34;)
+ *                     .identifiers(&#34;*&#34;)
+ *                     .build())
+ *                 .resources(test.arn())
+ *                 .sid(&#34;__default_statement_ID&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var default_ = new TopicPolicy(&#34;default&#34;, TopicPolicyArgs.builder()        
+ *             .arn(test.arn())
+ *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicy -&gt; snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * SNS Topic Policy can be imported using the topic ARN, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
+ * ```
+ * 
+ */
 @ResourceType(type="aws:sns/topicPolicy:TopicPolicy")
 public class TopicPolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the SNS topic
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the SNS topic
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The AWS Account ID of the SNS topic owner
+     * 
+     */
     @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
+    /**
+     * @return The AWS Account ID of the SNS topic owner
+     * 
+     */
     public Output<String> owner() {
         return this.owner;
     }
+    /**
+     * The fully-formed AWS policy as JSON.
+     * 
+     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
+    /**
+     * @return The fully-formed AWS policy as JSON.
+     * 
+     */
     public Output<String> policy() {
         return this.policy;
     }

@@ -14,16 +14,32 @@ public final class BucketOwnershipControlsArgs extends com.pulumi.resources.Reso
 
     public static final BucketOwnershipControlsArgs Empty = new BucketOwnershipControlsArgs();
 
+    /**
+     * The name of the bucket that you want to associate this access point with.
+     * 
+     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
+    /**
+     * @return The name of the bucket that you want to associate this access point with.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
+    /**
+     * Configuration block(s) with Ownership Controls rules. Detailed below.
+     * 
+     */
     @Import(name="rule", required=true)
     private Output<BucketOwnershipControlsRuleArgs> rule;
 
+    /**
+     * @return Configuration block(s) with Ownership Controls rules. Detailed below.
+     * 
+     */
     public Output<BucketOwnershipControlsRuleArgs> rule() {
         return this.rule;
     }
@@ -53,20 +69,44 @@ public final class BucketOwnershipControlsArgs extends com.pulumi.resources.Reso
             $ = new BucketOwnershipControlsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucket The name of the bucket that you want to associate this access point with.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
+        /**
+         * @param bucket The name of the bucket that you want to associate this access point with.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param rule Configuration block(s) with Ownership Controls rules. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rule(Output<BucketOwnershipControlsRuleArgs> rule) {
             $.rule = rule;
             return this;
         }
 
+        /**
+         * @param rule Configuration block(s) with Ownership Controls rules. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rule(BucketOwnershipControlsRuleArgs rule) {
             return rule(Output.of(rule));
         }

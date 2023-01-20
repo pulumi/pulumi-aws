@@ -11,16 +11,80 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Amazon MSK Connect Custom Plugin Resource.
+//
+// ## Example Usage
+// ### Basic configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mskconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+//				Bucket: exampleBucketV2.ID(),
+//				Key:    pulumi.String("debezium.zip"),
+//				Source: pulumi.NewFileAsset("debezium.zip"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mskconnect.NewCustomPlugin(ctx, "exampleCustomPlugin", &mskconnect.CustomPluginArgs{
+//				ContentType: pulumi.String("ZIP"),
+//				Location: &mskconnect.CustomPluginLocationArgs{
+//					S3: &mskconnect.CustomPluginLocationS3Args{
+//						BucketArn: exampleBucketV2.Arn,
+//						FileKey:   exampleBucketObjectv2.Key,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// MSK Connect Custom Plugin can be imported using the plugin's `arn`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
+//
+// ```
 type CustomPlugin struct {
 	pulumi.CustomResourceState
 
-	Arn            pulumi.StringOutput        `pulumi:"arn"`
-	ContentType    pulumi.StringOutput        `pulumi:"contentType"`
-	Description    pulumi.StringPtrOutput     `pulumi:"description"`
-	LatestRevision pulumi.IntOutput           `pulumi:"latestRevision"`
-	Location       CustomPluginLocationOutput `pulumi:"location"`
-	Name           pulumi.StringOutput        `pulumi:"name"`
-	State          pulumi.StringOutput        `pulumi:"state"`
+	// the Amazon Resource Name (ARN) of the custom plugin.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+	ContentType pulumi.StringOutput `pulumi:"contentType"`
+	// A summary description of the custom plugin.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// an ID of the latest successfully created revision of the custom plugin.
+	LatestRevision pulumi.IntOutput `pulumi:"latestRevision"`
+	// Information about the location of a custom plugin. See below.
+	Location CustomPluginLocationOutput `pulumi:"location"`
+	// The name of the custom plugin..
+	Name pulumi.StringOutput `pulumi:"name"`
+	// the state of the custom plugin.
+	State pulumi.StringOutput `pulumi:"state"`
 }
 
 // NewCustomPlugin registers a new resource with the given unique name, arguments, and options.
@@ -58,23 +122,37 @@ func GetCustomPlugin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomPlugin resources.
 type customPluginState struct {
-	Arn            *string               `pulumi:"arn"`
-	ContentType    *string               `pulumi:"contentType"`
-	Description    *string               `pulumi:"description"`
-	LatestRevision *int                  `pulumi:"latestRevision"`
-	Location       *CustomPluginLocation `pulumi:"location"`
-	Name           *string               `pulumi:"name"`
-	State          *string               `pulumi:"state"`
+	// the Amazon Resource Name (ARN) of the custom plugin.
+	Arn *string `pulumi:"arn"`
+	// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+	ContentType *string `pulumi:"contentType"`
+	// A summary description of the custom plugin.
+	Description *string `pulumi:"description"`
+	// an ID of the latest successfully created revision of the custom plugin.
+	LatestRevision *int `pulumi:"latestRevision"`
+	// Information about the location of a custom plugin. See below.
+	Location *CustomPluginLocation `pulumi:"location"`
+	// The name of the custom plugin..
+	Name *string `pulumi:"name"`
+	// the state of the custom plugin.
+	State *string `pulumi:"state"`
 }
 
 type CustomPluginState struct {
-	Arn            pulumi.StringPtrInput
-	ContentType    pulumi.StringPtrInput
-	Description    pulumi.StringPtrInput
+	// the Amazon Resource Name (ARN) of the custom plugin.
+	Arn pulumi.StringPtrInput
+	// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+	ContentType pulumi.StringPtrInput
+	// A summary description of the custom plugin.
+	Description pulumi.StringPtrInput
+	// an ID of the latest successfully created revision of the custom plugin.
 	LatestRevision pulumi.IntPtrInput
-	Location       CustomPluginLocationPtrInput
-	Name           pulumi.StringPtrInput
-	State          pulumi.StringPtrInput
+	// Information about the location of a custom plugin. See below.
+	Location CustomPluginLocationPtrInput
+	// The name of the custom plugin..
+	Name pulumi.StringPtrInput
+	// the state of the custom plugin.
+	State pulumi.StringPtrInput
 }
 
 func (CustomPluginState) ElementType() reflect.Type {
@@ -82,18 +160,26 @@ func (CustomPluginState) ElementType() reflect.Type {
 }
 
 type customPluginArgs struct {
-	ContentType string               `pulumi:"contentType"`
-	Description *string              `pulumi:"description"`
-	Location    CustomPluginLocation `pulumi:"location"`
-	Name        *string              `pulumi:"name"`
+	// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+	ContentType string `pulumi:"contentType"`
+	// A summary description of the custom plugin.
+	Description *string `pulumi:"description"`
+	// Information about the location of a custom plugin. See below.
+	Location CustomPluginLocation `pulumi:"location"`
+	// The name of the custom plugin..
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a CustomPlugin resource.
 type CustomPluginArgs struct {
+	// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
 	ContentType pulumi.StringInput
+	// A summary description of the custom plugin.
 	Description pulumi.StringPtrInput
-	Location    CustomPluginLocationInput
-	Name        pulumi.StringPtrInput
+	// Information about the location of a custom plugin. See below.
+	Location CustomPluginLocationInput
+	// The name of the custom plugin..
+	Name pulumi.StringPtrInput
 }
 
 func (CustomPluginArgs) ElementType() reflect.Type {
@@ -183,30 +269,37 @@ func (o CustomPluginOutput) ToCustomPluginOutputWithContext(ctx context.Context)
 	return o
 }
 
+// the Amazon Resource Name (ARN) of the custom plugin.
 func (o CustomPluginOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPlugin) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
 func (o CustomPluginOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPlugin) pulumi.StringOutput { return v.ContentType }).(pulumi.StringOutput)
 }
 
+// A summary description of the custom plugin.
 func (o CustomPluginOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPlugin) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// an ID of the latest successfully created revision of the custom plugin.
 func (o CustomPluginOutput) LatestRevision() pulumi.IntOutput {
 	return o.ApplyT(func(v *CustomPlugin) pulumi.IntOutput { return v.LatestRevision }).(pulumi.IntOutput)
 }
 
+// Information about the location of a custom plugin. See below.
 func (o CustomPluginOutput) Location() CustomPluginLocationOutput {
 	return o.ApplyT(func(v *CustomPlugin) CustomPluginLocationOutput { return v.Location }).(CustomPluginLocationOutput)
 }
 
+// The name of the custom plugin..
 func (o CustomPluginOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPlugin) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// the state of the custom plugin.
 func (o CustomPluginOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPlugin) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }

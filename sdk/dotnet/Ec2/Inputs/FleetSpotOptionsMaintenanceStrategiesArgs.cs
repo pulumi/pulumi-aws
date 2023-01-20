@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class FleetSpotOptionsMaintenanceStrategiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Nested argument containing the capacity rebalance for your fleet request. Defined below.
+        /// </summary>
         [Input("capacityRebalance")]
         public Input<Inputs.FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs>? CapacityRebalance { get; set; }
 

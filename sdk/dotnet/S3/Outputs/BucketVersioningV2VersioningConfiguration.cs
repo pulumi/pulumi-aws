@@ -13,7 +13,13 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketVersioningV2VersioningConfiguration
     {
+        /// <summary>
+        /// Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+        /// </summary>
         public readonly string? MfaDelete;
+        /// <summary>
+        /// The versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
+        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

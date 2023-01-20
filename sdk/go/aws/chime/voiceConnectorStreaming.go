@@ -11,13 +11,66 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Adds a streaming configuration for the specified Amazon Chime Voice Connector. The streaming configuration specifies whether media streaming is enabled for sending to Amazon Kinesis.
+// It also sets the retention period, in hours, for the Amazon Kinesis data.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
+//				RequireEncryption: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = chime.NewVoiceConnectorStreaming(ctx, "defaultVoiceConnectorStreaming", &chime.VoiceConnectorStreamingArgs{
+//				Disabled:         pulumi.Bool(false),
+//				VoiceConnectorId: defaultVoiceConnector.ID(),
+//				DataRetention:    pulumi.Int(7),
+//				StreamingNotificationTargets: pulumi.StringArray{
+//					pulumi.String("SQS"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Chime Voice Connector Streaming can be imported using the `voice_connector_id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
+//
+// ```
 type VoiceConnectorStreaming struct {
 	pulumi.CustomResourceState
 
-	DataRetention                pulumi.IntOutput         `pulumi:"dataRetention"`
-	Disabled                     pulumi.BoolPtrOutput     `pulumi:"disabled"`
+	// The retention period, in hours, for the Amazon Kinesis data.
+	DataRetention pulumi.IntOutput `pulumi:"dataRetention"`
+	// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
+	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
+	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets pulumi.StringArrayOutput `pulumi:"streamingNotificationTargets"`
-	VoiceConnectorId             pulumi.StringOutput      `pulumi:"voiceConnectorId"`
+	// The Amazon Chime Voice Connector ID.
+	VoiceConnectorId pulumi.StringOutput `pulumi:"voiceConnectorId"`
 }
 
 // NewVoiceConnectorStreaming registers a new resource with the given unique name, arguments, and options.
@@ -55,17 +108,25 @@ func GetVoiceConnectorStreaming(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VoiceConnectorStreaming resources.
 type voiceConnectorStreamingState struct {
-	DataRetention                *int     `pulumi:"dataRetention"`
-	Disabled                     *bool    `pulumi:"disabled"`
+	// The retention period, in hours, for the Amazon Kinesis data.
+	DataRetention *int `pulumi:"dataRetention"`
+	// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
+	Disabled *bool `pulumi:"disabled"`
+	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets []string `pulumi:"streamingNotificationTargets"`
-	VoiceConnectorId             *string  `pulumi:"voiceConnectorId"`
+	// The Amazon Chime Voice Connector ID.
+	VoiceConnectorId *string `pulumi:"voiceConnectorId"`
 }
 
 type VoiceConnectorStreamingState struct {
-	DataRetention                pulumi.IntPtrInput
-	Disabled                     pulumi.BoolPtrInput
+	// The retention period, in hours, for the Amazon Kinesis data.
+	DataRetention pulumi.IntPtrInput
+	// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
+	Disabled pulumi.BoolPtrInput
+	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets pulumi.StringArrayInput
-	VoiceConnectorId             pulumi.StringPtrInput
+	// The Amazon Chime Voice Connector ID.
+	VoiceConnectorId pulumi.StringPtrInput
 }
 
 func (VoiceConnectorStreamingState) ElementType() reflect.Type {
@@ -73,18 +134,26 @@ func (VoiceConnectorStreamingState) ElementType() reflect.Type {
 }
 
 type voiceConnectorStreamingArgs struct {
-	DataRetention                int      `pulumi:"dataRetention"`
-	Disabled                     *bool    `pulumi:"disabled"`
+	// The retention period, in hours, for the Amazon Kinesis data.
+	DataRetention int `pulumi:"dataRetention"`
+	// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
+	Disabled *bool `pulumi:"disabled"`
+	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets []string `pulumi:"streamingNotificationTargets"`
-	VoiceConnectorId             string   `pulumi:"voiceConnectorId"`
+	// The Amazon Chime Voice Connector ID.
+	VoiceConnectorId string `pulumi:"voiceConnectorId"`
 }
 
 // The set of arguments for constructing a VoiceConnectorStreaming resource.
 type VoiceConnectorStreamingArgs struct {
-	DataRetention                pulumi.IntInput
-	Disabled                     pulumi.BoolPtrInput
+	// The retention period, in hours, for the Amazon Kinesis data.
+	DataRetention pulumi.IntInput
+	// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
+	Disabled pulumi.BoolPtrInput
+	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets pulumi.StringArrayInput
-	VoiceConnectorId             pulumi.StringInput
+	// The Amazon Chime Voice Connector ID.
+	VoiceConnectorId pulumi.StringInput
 }
 
 func (VoiceConnectorStreamingArgs) ElementType() reflect.Type {
@@ -174,18 +243,22 @@ func (o VoiceConnectorStreamingOutput) ToVoiceConnectorStreamingOutputWithContex
 	return o
 }
 
+// The retention period, in hours, for the Amazon Kinesis data.
 func (o VoiceConnectorStreamingOutput) DataRetention() pulumi.IntOutput {
 	return o.ApplyT(func(v *VoiceConnectorStreaming) pulumi.IntOutput { return v.DataRetention }).(pulumi.IntOutput)
 }
 
+// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
 func (o VoiceConnectorStreamingOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VoiceConnectorStreaming) pulumi.BoolPtrOutput { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
+// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 func (o VoiceConnectorStreamingOutput) StreamingNotificationTargets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VoiceConnectorStreaming) pulumi.StringArrayOutput { return v.StreamingNotificationTargets }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Chime Voice Connector ID.
 func (o VoiceConnectorStreamingOutput) VoiceConnectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnectorStreaming) pulumi.StringOutput { return v.VoiceConnectorId }).(pulumi.StringOutput)
 }

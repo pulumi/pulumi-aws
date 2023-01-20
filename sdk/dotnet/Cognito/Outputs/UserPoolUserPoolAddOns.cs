@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolUserPoolAddOns
     {
+        /// <summary>
+        /// Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+        /// </summary>
         public readonly string AdvancedSecurityMode;
 
         [OutputConstructor]

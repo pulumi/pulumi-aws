@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class SpotInstanceRequestCapacityReservationSpecification
     {
+        /// <summary>
+        /// Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+        /// </summary>
         public readonly string? CapacityReservationPreference;
+        /// <summary>
+        /// Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+        /// </summary>
         public readonly Outputs.SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget? CapacityReservationTarget;
 
         [OutputConstructor]

@@ -4,6 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Registers a transit gateway to a global network. The transit gateway can be in any AWS Region,
+ * but it must be owned by the same AWS account that owns the global network.
+ * You cannot register a transit gateway in more than one global network.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", {description: "example"});
+ * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {});
+ * const exampleTransitGatewayRegistration = new aws.networkmanager.TransitGatewayRegistration("exampleTransitGatewayRegistration", {
+ *     globalNetworkId: exampleGlobalNetwork.id,
+ *     transitGatewayArn: exampleTransitGateway.arn,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_networkmanager_transit_gateway_registration` can be imported using the global network ID and transit gateway ARN, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
+ * ```
+ */
 export class TransitGatewayRegistration extends pulumi.CustomResource {
     /**
      * Get an existing TransitGatewayRegistration resource's state with the given name, ID, and optional extra
@@ -32,7 +59,13 @@ export class TransitGatewayRegistration extends pulumi.CustomResource {
         return obj['__pulumiType'] === TransitGatewayRegistration.__pulumiType;
     }
 
+    /**
+     * The ID of the Global Network to register to.
+     */
     public readonly globalNetworkId!: pulumi.Output<string>;
+    /**
+     * The ARN of the Transit Gateway to register.
+     */
     public readonly transitGatewayArn!: pulumi.Output<string>;
 
     /**
@@ -70,7 +103,13 @@ export class TransitGatewayRegistration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TransitGatewayRegistration resources.
  */
 export interface TransitGatewayRegistrationState {
+    /**
+     * The ID of the Global Network to register to.
+     */
     globalNetworkId?: pulumi.Input<string>;
+    /**
+     * The ARN of the Transit Gateway to register.
+     */
     transitGatewayArn?: pulumi.Input<string>;
 }
 
@@ -78,6 +117,12 @@ export interface TransitGatewayRegistrationState {
  * The set of arguments for constructing a TransitGatewayRegistration resource.
  */
 export interface TransitGatewayRegistrationArgs {
+    /**
+     * The ID of the Global Network to register to.
+     */
     globalNetworkId: pulumi.Input<string>;
+    /**
+     * The ARN of the Transit Gateway to register.
+     */
     transitGatewayArn: pulumi.Input<string>;
 }

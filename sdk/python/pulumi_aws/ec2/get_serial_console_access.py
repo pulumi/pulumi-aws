@@ -31,6 +31,9 @@ class GetSerialConsoleAccessResult:
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Whether or not serial console access is enabled. Returns as `true` or `false`.
+        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -54,7 +57,16 @@ class AwaitableGetSerialConsoleAccessResult(GetSerialConsoleAccessResult):
 
 def get_serial_console_access(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSerialConsoleAccessResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.ec2.get_serial_console_access()
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

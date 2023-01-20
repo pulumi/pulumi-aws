@@ -13,6 +13,9 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketWebsiteConfigurationV2ErrorDocument
     {
+        /// <summary>
+        /// The object key name to use when a 4XX class error occurs.
+        /// </summary>
         public readonly string Key;
 
         [OutputConstructor]

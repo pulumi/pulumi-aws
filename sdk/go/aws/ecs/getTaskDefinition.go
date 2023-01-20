@@ -10,6 +10,71 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The ECS task definition data source allows access to details of
+// a specific AWS ECS task definition.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mongoTaskDefinition, err := ecs.LookupTaskDefinition(ctx, &ecs.LookupTaskDefinitionArgs{
+//				TaskDefinition: mongoEcs / taskDefinitionTaskDefinition.Family,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			foo, err := ecs.NewCluster(ctx, "foo", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecs.NewTaskDefinition(ctx, "mongoEcs/taskDefinitionTaskDefinition", &ecs.TaskDefinitionArgs{
+//				Family: pulumi.String("mongodb"),
+//				ContainerDefinitions: pulumi.String(fmt.Sprintf(`[
+//	  {
+//	    "cpu": 128,
+//	    "environment": [{
+//	      "name": "SECRET",
+//	      "value": "KEY"
+//	    }],
+//	    "essential": true,
+//	    "image": "mongo:latest",
+//	    "memory": 128,
+//	    "memoryReservation": 64,
+//	    "name": "mongodb"
+//	  }
+//
+// ]
+// `)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecs.NewService(ctx, "mongoService", &ecs.ServiceArgs{
+//				Cluster:        foo.ID(),
+//				DesiredCount:   pulumi.Int(2),
+//				TaskDefinition: *pulumi.String(mongoTaskDefinition.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupTaskDefinition(ctx *pulumi.Context, args *LookupTaskDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupTaskDefinitionResult, error) {
 	var rv LookupTaskDefinitionResult
 	err := ctx.Invoke("aws:ecs/getTaskDefinition:getTaskDefinition", args, &rv, opts...)
@@ -21,20 +86,27 @@ func LookupTaskDefinition(ctx *pulumi.Context, args *LookupTaskDefinitionArgs, o
 
 // A collection of arguments for invoking getTaskDefinition.
 type LookupTaskDefinitionArgs struct {
+	// Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
 	TaskDefinition string `pulumi:"taskDefinition"`
 }
 
 // A collection of values returned by getTaskDefinition.
 type LookupTaskDefinitionResult struct {
-	Arn    string `pulumi:"arn"`
+	// ARN of the task definition
+	Arn string `pulumi:"arn"`
+	// Family of this task definition
 	Family string `pulumi:"family"`
 	// The provider-assigned unique ID for this managed resource.
-	Id             string `pulumi:"id"`
-	NetworkMode    string `pulumi:"networkMode"`
-	Revision       int    `pulumi:"revision"`
+	Id string `pulumi:"id"`
+	// Docker networking mode to use for the containers in this task.
+	NetworkMode string `pulumi:"networkMode"`
+	// Revision of this task definition
+	Revision int `pulumi:"revision"`
+	// Status of this task definition
 	Status         string `pulumi:"status"`
 	TaskDefinition string `pulumi:"taskDefinition"`
-	TaskRoleArn    string `pulumi:"taskRoleArn"`
+	// ARN of the IAM role that containers in this task can assume
+	TaskRoleArn string `pulumi:"taskRoleArn"`
 }
 
 func LookupTaskDefinitionOutput(ctx *pulumi.Context, args LookupTaskDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupTaskDefinitionResultOutput {
@@ -52,6 +124,7 @@ func LookupTaskDefinitionOutput(ctx *pulumi.Context, args LookupTaskDefinitionOu
 
 // A collection of arguments for invoking getTaskDefinition.
 type LookupTaskDefinitionOutputArgs struct {
+	// Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
 	TaskDefinition pulumi.StringInput `pulumi:"taskDefinition"`
 }
 
@@ -74,10 +147,12 @@ func (o LookupTaskDefinitionResultOutput) ToLookupTaskDefinitionResultOutputWith
 	return o
 }
 
+// ARN of the task definition
 func (o LookupTaskDefinitionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Family of this task definition
 func (o LookupTaskDefinitionResultOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.Family }).(pulumi.StringOutput)
 }
@@ -87,14 +162,17 @@ func (o LookupTaskDefinitionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Docker networking mode to use for the containers in this task.
 func (o LookupTaskDefinitionResultOutput) NetworkMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.NetworkMode }).(pulumi.StringOutput)
 }
 
+// Revision of this task definition
 func (o LookupTaskDefinitionResultOutput) Revision() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) int { return v.Revision }).(pulumi.IntOutput)
 }
 
+// Status of this task definition
 func (o LookupTaskDefinitionResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -103,6 +181,7 @@ func (o LookupTaskDefinitionResultOutput) TaskDefinition() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.TaskDefinition }).(pulumi.StringOutput)
 }
 
+// ARN of the IAM role that containers in this task can assume
 func (o LookupTaskDefinitionResultOutput) TaskRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.TaskRoleArn }).(pulumi.StringOutput)
 }

@@ -9,12 +9,64 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudSearch
 {
+    /// <summary>
+    /// Provides an CloudSearch domain service access policy resource.
+    /// 
+    /// The provider waits for the domain service access policy to become `Active` when applying a configuration.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleDomain = new Aws.CloudSearch.Domain("exampleDomain");
+    /// 
+    ///     var exampleDomainServiceAccessPolicy = new Aws.CloudSearch.DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy", new()
+    ///     {
+    ///         DomainName = exampleDomain.Id,
+    ///         AccessPolicy = @"{
+    ///   ""Version"":""2012-10-17"",
+    ///   ""Statement"":[{
+    ///     ""Sid"":""search_only"",
+    ///     ""Effect"":""Allow"",
+    ///     ""Principal"":""*"",
+    ///     ""Action"":[
+    ///       ""cloudsearch:search"",
+    ///       ""cloudsearch:document""
+    ///     ],
+    ///     ""Condition"":{""IpAddress"":{""aws:SourceIp"":""192.0.2.0/32""}}
+    ///   }]
+    /// }
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// CloudSearch domain service access policies can be imported using the domain name, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy")]
     public partial class DomainServiceAccessPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
+        /// </summary>
         [Output("accessPolicy")]
         public Output<string> AccessPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// The CloudSearch domain name the policy applies to.
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
@@ -64,9 +116,15 @@ namespace Pulumi.Aws.CloudSearch
 
     public sealed class DomainServiceAccessPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
+        /// </summary>
         [Input("accessPolicy", required: true)]
         public Input<string> AccessPolicy { get; set; } = null!;
 
+        /// <summary>
+        /// The CloudSearch domain name the policy applies to.
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
@@ -78,9 +136,15 @@ namespace Pulumi.Aws.CloudSearch
 
     public sealed class DomainServiceAccessPolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
+        /// </summary>
         [Input("accessPolicy")]
         public Input<string>? AccessPolicy { get; set; }
 
+        /// <summary>
+        /// The CloudSearch domain name the policy applies to.
+        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 

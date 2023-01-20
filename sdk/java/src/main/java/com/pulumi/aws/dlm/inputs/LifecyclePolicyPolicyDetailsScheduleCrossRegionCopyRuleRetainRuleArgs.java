@@ -14,16 +14,32 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetain
 
     public static final LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs();
 
+    /**
+     * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+     * 
+     */
     @Import(name="interval", required=true)
     private Output<Integer> interval;
 
+    /**
+     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+     * 
+     */
     public Output<Integer> interval() {
         return this.interval;
     }
 
+    /**
+     * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+     * 
+     */
     @Import(name="intervalUnit", required=true)
     private Output<String> intervalUnit;
 
+    /**
+     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+     * 
+     */
     public Output<String> intervalUnit() {
         return this.intervalUnit;
     }
@@ -53,20 +69,44 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetain
             $ = new LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param interval How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder interval(Output<Integer> interval) {
             $.interval = interval;
             return this;
         }
 
+        /**
+         * @param interval How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder interval(Integer interval) {
             return interval(Output.of(interval));
         }
 
+        /**
+         * @param intervalUnit The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder intervalUnit(Output<String> intervalUnit) {
             $.intervalUnit = intervalUnit;
             return this;
         }
 
+        /**
+         * @param intervalUnit The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder intervalUnit(String intervalUnit) {
             return intervalUnit(Output.of(intervalUnit));
         }

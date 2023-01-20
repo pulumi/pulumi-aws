@@ -15,41 +15,132 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages a Cloud Control API Resource. The configuration and lifecycle handling of these resources is proxied through Cloud Control API handlers to the backend service.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudcontrol.Resource;
+ * import com.pulumi.aws.cloudcontrol.ResourceArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Resource(&#34;example&#34;, ResourceArgs.builder()        
+ *             .typeName(&#34;AWS::ECS::Cluster&#34;)
+ *             .desiredState(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;ClusterName&#34;, &#34;example&#34;),
+ *                     jsonProperty(&#34;Tags&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;Key&#34;, &#34;CostCenter&#34;),
+ *                         jsonProperty(&#34;Value&#34;, &#34;IT&#34;)
+ *                     )))
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="aws:cloudcontrol/resource:Resource")
 public class Resource extends com.pulumi.resources.CustomResource {
+    /**
+     * JSON string matching the CloudFormation resource type schema with desired configuration.
+     * 
+     */
     @Export(name="desiredState", refs={String.class}, tree="[0]")
     private Output<String> desiredState;
 
+    /**
+     * @return JSON string matching the CloudFormation resource type schema with desired configuration.
+     * 
+     */
     public Output<String> desiredState() {
         return this.desiredState;
     }
+    /**
+     * JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)[&#34;example&#34;]`.
+     * 
+     */
     @Export(name="properties", refs={String.class}, tree="[0]")
     private Output<String> properties;
 
+    /**
+     * @return JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)[&#34;example&#34;]`.
+     * 
+     */
     public Output<String> properties() {
         return this.properties;
     }
+    /**
+     * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+     * 
+     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+     * 
+     */
     public Output<Optional<String>> roleArn() {
         return Codegen.optional(this.roleArn);
     }
+    /**
+     * JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+     * 
+     */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
+    /**
+     * @return JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+     * 
+     */
     public Output<String> schema() {
         return this.schema;
     }
+    /**
+     * CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+     * 
+     */
     @Export(name="typeName", refs={String.class}, tree="[0]")
     private Output<String> typeName;
 
+    /**
+     * @return CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+     * 
+     */
     public Output<String> typeName() {
         return this.typeName;
     }
+    /**
+     * Identifier of the CloudFormation resource type version.
+     * 
+     */
     @Export(name="typeVersionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> typeVersionId;
 
+    /**
+     * @return Identifier of the CloudFormation resource type version.
+     * 
+     */
     public Output<Optional<String>> typeVersionId() {
         return Codegen.optional(this.typeVersionId);
     }

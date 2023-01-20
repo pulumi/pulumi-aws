@@ -16,9 +16,17 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorArgs extends 
 
     public static final ChannelInputAttachmentInputSettingsAudioSelectorArgs Empty = new ChannelInputAttachmentInputSettingsAudioSelectorArgs();
 
+    /**
+     * Name of the Channel.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the Channel.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -55,11 +63,23 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorArgs extends 
             $ = new ChannelInputAttachmentInputSettingsAudioSelectorArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the Channel.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the Channel.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

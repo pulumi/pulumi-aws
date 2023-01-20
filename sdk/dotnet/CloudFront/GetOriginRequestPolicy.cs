@@ -11,9 +11,95 @@ namespace Pulumi.Aws.CloudFront
 {
     public static class GetOriginRequestPolicy
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CloudFront.GetOriginRequestPolicy.Invoke(new()
+        ///     {
+        ///         Name = "example-policy",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### AWS-Managed Policies
+        /// 
+        /// AWS managed origin request policy names are prefixed with `Managed-`:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var uaReferer = Aws.CloudFront.GetOriginRequestPolicy.Invoke(new()
+        ///     {
+        ///         Name = "Managed-UserAgentRefererHeaders",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetOriginRequestPolicyResult> InvokeAsync(GetOriginRequestPolicyArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOriginRequestPolicyResult>("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", args ?? new GetOriginRequestPolicyArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CloudFront.GetOriginRequestPolicy.Invoke(new()
+        ///     {
+        ///         Name = "example-policy",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### AWS-Managed Policies
+        /// 
+        /// AWS managed origin request policy names are prefixed with `Managed-`:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var uaReferer = Aws.CloudFront.GetOriginRequestPolicy.Invoke(new()
+        ///     {
+        ///         Name = "Managed-UserAgentRefererHeaders",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetOriginRequestPolicyResult> Invoke(GetOriginRequestPolicyInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginRequestPolicyResult>("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", args ?? new GetOriginRequestPolicyInvokeArgs(), options.WithDefaults());
     }
@@ -21,9 +107,15 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetOriginRequestPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Identifier for the origin request policy.
+        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
+        /// <summary>
+        /// Unique name to identify the origin request policy.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -35,9 +127,15 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetOriginRequestPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Identifier for the origin request policy.
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Unique name to identify the origin request policy.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -51,12 +149,27 @@ namespace Pulumi.Aws.CloudFront
     [OutputType]
     public sealed class GetOriginRequestPolicyResult
     {
+        /// <summary>
+        /// Comment to describe the origin request policy.
+        /// </summary>
         public readonly string Comment;
+        /// <summary>
+        /// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetOriginRequestPolicyCookiesConfigResult> CookiesConfigs;
+        /// <summary>
+        /// Current version of the origin request policy.
+        /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetOriginRequestPolicyHeadersConfigResult> HeadersConfigs;
         public readonly string? Id;
         public readonly string? Name;
+        /// <summary>
+        /// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetOriginRequestPolicyQueryStringsConfigResult> QueryStringsConfigs;
 
         [OutputConstructor]

@@ -55,21 +55,33 @@ class GetCustomerGatewayResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the customer gateway.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="bgpAsn")
     def bgp_asn(self) -> int:
+        """
+        Gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        """
         return pulumi.get(self, "bgp_asn")
 
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> str:
+        """
+        ARN for the customer gateway certificate.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> str:
+        """
+        Name for the customer gateway device.
+        """
         return pulumi.get(self, "device_name")
 
     @property
@@ -85,16 +97,25 @@ class GetCustomerGatewayResult:
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
+        """
+        IP address of the gateway's Internet-routable external interface.
+        """
         return pulumi.get(self, "ip_address")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Map of key-value pairs assigned to the gateway.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Type of customer gateway. The only type AWS supports at this time is "ipsec.1".
+        """
         return pulumi.get(self, "type")
 
 
@@ -120,7 +141,32 @@ def get_customer_gateway(filters: Optional[Sequence[pulumi.InputType['GetCustome
                          tags: Optional[Mapping[str, str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomerGatewayResult:
     """
-    Use this data source to access information about an existing resource.
+    Get an existing AWS Customer Gateway.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.ec2.get_customer_gateway(filters=[aws.ec2.GetCustomerGatewayFilterArgs(
+        name="tag:Name",
+        values=["foo-prod"],
+    )])
+    main = aws.ec2.VpnGateway("main",
+        vpc_id=aws_vpc["main"]["id"],
+        amazon_side_asn="7224")
+    transit = aws.ec2.VpnConnection("transit",
+        vpn_gateway_id=main.id,
+        customer_gateway_id=foo.id,
+        type=foo.type,
+        static_routes_only=False)
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetCustomerGatewayFilterArgs']] filters: One or more [name-value pairs][dcg-filters] to filter by.
+    :param str id: ID of the gateway.
+    :param Mapping[str, str] tags: Map of key-value pairs assigned to the gateway.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -147,6 +193,31 @@ def get_customer_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomerGatewayResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get an existing AWS Customer Gateway.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.ec2.get_customer_gateway(filters=[aws.ec2.GetCustomerGatewayFilterArgs(
+        name="tag:Name",
+        values=["foo-prod"],
+    )])
+    main = aws.ec2.VpnGateway("main",
+        vpc_id=aws_vpc["main"]["id"],
+        amazon_side_asn="7224")
+    transit = aws.ec2.VpnConnection("transit",
+        vpn_gateway_id=main.id,
+        customer_gateway_id=foo.id,
+        type=foo.type,
+        static_routes_only=False)
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetCustomerGatewayFilterArgs']] filters: One or more [name-value pairs][dcg-filters] to filter by.
+    :param str id: ID of the gateway.
+    :param Mapping[str, str] tags: Map of key-value pairs assigned to the gateway.
     """
     ...

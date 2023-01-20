@@ -14,17 +14,75 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a DynamoDB contributor insights resource
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.dynamodb.ContributorInsights;
+ * import com.pulumi.aws.dynamodb.ContributorInsightsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new ContributorInsights(&#34;test&#34;, ContributorInsightsArgs.builder()        
+ *             .tableName(&#34;ExampleTableName&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_dynamodb_contributor_insights` can be imported using the format `name:table_name/index:index_name`, followed by the account number, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:dynamodb/contributorInsights:ContributorInsights test name:ExampleTableName/index:ExampleIndexName/123456789012
+ * ```
+ * 
+ */
 @ResourceType(type="aws:dynamodb/contributorInsights:ContributorInsights")
 public class ContributorInsights extends com.pulumi.resources.CustomResource {
+    /**
+     * The global secondary index name
+     * 
+     */
     @Export(name="indexName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> indexName;
 
+    /**
+     * @return The global secondary index name
+     * 
+     */
     public Output<Optional<String>> indexName() {
         return Codegen.optional(this.indexName);
     }
+    /**
+     * The name of the table to enable contributor insights
+     * 
+     */
     @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
+    /**
+     * @return The name of the table to enable contributor insights
+     * 
+     */
     public Output<String> tableName() {
         return this.tableName;
     }

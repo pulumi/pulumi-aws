@@ -9,8 +9,20 @@ import java.util.Objects;
 
 @CustomType
 public final class GetStateMachineResult {
+    /**
+     * @return Set to the arn of the state function.
+     * 
+     */
     private String arn;
+    /**
+     * @return Date the state machine was created.
+     * 
+     */
     private String creationDate;
+    /**
+     * @return Set to the state machine definition.
+     * 
+     */
     private String definition;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -18,16 +30,36 @@ public final class GetStateMachineResult {
      */
     private String id;
     private String name;
+    /**
+     * @return Set to the role_arn used by the state function.
+     * 
+     */
     private String roleArn;
+    /**
+     * @return Set to the current status of the state machine.
+     * 
+     */
     private String status;
 
     private GetStateMachineResult() {}
+    /**
+     * @return Set to the arn of the state function.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Date the state machine was created.
+     * 
+     */
     public String creationDate() {
         return this.creationDate;
     }
+    /**
+     * @return Set to the state machine definition.
+     * 
+     */
     public String definition() {
         return this.definition;
     }
@@ -41,9 +73,17 @@ public final class GetStateMachineResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Set to the role_arn used by the state function.
+     * 
+     */
     public String roleArn() {
         return this.roleArn;
     }
+    /**
+     * @return Set to the current status of the state machine.
+     * 
+     */
     public String status() {
         return this.status;
     }

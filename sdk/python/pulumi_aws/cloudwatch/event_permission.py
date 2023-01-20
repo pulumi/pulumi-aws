@@ -23,6 +23,11 @@ class EventPermissionArgs:
                  event_bus_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EventPermission resource.
+        :param pulumi.Input[str] principal: The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
+        :param pulumi.Input[str] statement_id: An identifier string for the external account that you are granting permissions to.
+        :param pulumi.Input[str] action: The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
+        :param pulumi.Input['EventPermissionConditionArgs'] condition: Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+        :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
         """
         pulumi.set(__self__, "principal", principal)
         pulumi.set(__self__, "statement_id", statement_id)
@@ -36,6 +41,9 @@ class EventPermissionArgs:
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
+        """
+        The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
+        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -45,6 +53,9 @@ class EventPermissionArgs:
     @property
     @pulumi.getter(name="statementId")
     def statement_id(self) -> pulumi.Input[str]:
+        """
+        An identifier string for the external account that you are granting permissions to.
+        """
         return pulumi.get(self, "statement_id")
 
     @statement_id.setter
@@ -54,6 +65,9 @@ class EventPermissionArgs:
     @property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -63,6 +77,9 @@ class EventPermissionArgs:
     @property
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input['EventPermissionConditionArgs']]:
+        """
+        Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+        """
         return pulumi.get(self, "condition")
 
     @condition.setter
@@ -72,6 +89,9 @@ class EventPermissionArgs:
     @property
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        """
         return pulumi.get(self, "event_bus_name")
 
     @event_bus_name.setter
@@ -89,6 +109,11 @@ class _EventPermissionState:
                  statement_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EventPermission resources.
+        :param pulumi.Input[str] action: The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
+        :param pulumi.Input['EventPermissionConditionArgs'] condition: Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+        :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        :param pulumi.Input[str] principal: The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
+        :param pulumi.Input[str] statement_id: An identifier string for the external account that you are granting permissions to.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -104,6 +129,9 @@ class _EventPermissionState:
     @property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -113,6 +141,9 @@ class _EventPermissionState:
     @property
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input['EventPermissionConditionArgs']]:
+        """
+        Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+        """
         return pulumi.get(self, "condition")
 
     @condition.setter
@@ -122,6 +153,9 @@ class _EventPermissionState:
     @property
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        """
         return pulumi.get(self, "event_bus_name")
 
     @event_bus_name.setter
@@ -131,6 +165,9 @@ class _EventPermissionState:
     @property
     @pulumi.getter
     def principal(self) -> Optional[pulumi.Input[str]]:
+        """
+        The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
+        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -140,6 +177,9 @@ class _EventPermissionState:
     @property
     @pulumi.getter(name="statementId")
     def statement_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        An identifier string for the external account that you are granting permissions to.
+        """
         return pulumi.get(self, "statement_id")
 
     @statement_id.setter
@@ -159,9 +199,54 @@ class EventPermission(pulumi.CustomResource):
                  statement_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a EventPermission resource with the given unique name, props, and options.
+        Provides a resource to create an EventBridge permission to support cross-account events in the current account default event bus.
+
+        > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+
+        > **Note:** The EventBridge bus policy resource  (`cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`cloudwatch.EventPermission`) and will overwrite permissions.
+
+        ## Example Usage
+        ### Account Access
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        dev_account_access = aws.cloudwatch.EventPermission("devAccountAccess",
+            principal="123456789012",
+            statement_id="DevAccountAccess")
+        ```
+        ### Organization Access
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        organization_access = aws.cloudwatch.EventPermission("organizationAccess",
+            principal="*",
+            statement_id="OrganizationAccess",
+            condition=aws.cloudwatch.EventPermissionConditionArgs(
+                key="aws:PrincipalOrgID",
+                type="StringEquals",
+                value=aws_organizations_organization["example"]["id"],
+            ))
+        ```
+
+        ## Import
+
+        EventBridge permissions can be imported using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used), e.g.,
+
+        ```sh
+         $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] action: The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
+        :param pulumi.Input[pulumi.InputType['EventPermissionConditionArgs']] condition: Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+        :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        :param pulumi.Input[str] principal: The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
+        :param pulumi.Input[str] statement_id: An identifier string for the external account that you are granting permissions to.
         """
         ...
     @overload
@@ -170,7 +255,47 @@ class EventPermission(pulumi.CustomResource):
                  args: EventPermissionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a EventPermission resource with the given unique name, props, and options.
+        Provides a resource to create an EventBridge permission to support cross-account events in the current account default event bus.
+
+        > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+
+        > **Note:** The EventBridge bus policy resource  (`cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`cloudwatch.EventPermission`) and will overwrite permissions.
+
+        ## Example Usage
+        ### Account Access
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        dev_account_access = aws.cloudwatch.EventPermission("devAccountAccess",
+            principal="123456789012",
+            statement_id="DevAccountAccess")
+        ```
+        ### Organization Access
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        organization_access = aws.cloudwatch.EventPermission("organizationAccess",
+            principal="*",
+            statement_id="OrganizationAccess",
+            condition=aws.cloudwatch.EventPermissionConditionArgs(
+                key="aws:PrincipalOrgID",
+                type="StringEquals",
+                value=aws_organizations_organization["example"]["id"],
+            ))
+        ```
+
+        ## Import
+
+        EventBridge permissions can be imported using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used), e.g.,
+
+        ```sh
+         $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
+        ```
+
         :param str resource_name: The name of the resource.
         :param EventPermissionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,6 +356,11 @@ class EventPermission(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] action: The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
+        :param pulumi.Input[pulumi.InputType['EventPermissionConditionArgs']] condition: Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+        :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        :param pulumi.Input[str] principal: The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
+        :param pulumi.Input[str] statement_id: An identifier string for the external account that you are granting permissions to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -246,25 +376,40 @@ class EventPermission(pulumi.CustomResource):
     @property
     @pulumi.getter
     def action(self) -> pulumi.Output[Optional[str]]:
+        """
+        The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
     def condition(self) -> pulumi.Output[Optional['outputs.EventPermissionCondition']]:
+        """
+        Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+        """
         return pulumi.get(self, "condition")
 
     @property
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        """
         return pulumi.get(self, "event_bus_name")
 
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Output[str]:
+        """
+        The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
+        """
         return pulumi.get(self, "principal")
 
     @property
     @pulumi.getter(name="statementId")
     def statement_id(self) -> pulumi.Output[str]:
+        """
+        An identifier string for the external account that you are granting permissions to.
+        """
         return pulumi.get(self, "statement_id")
 

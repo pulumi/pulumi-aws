@@ -13,6 +13,9 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class DomainClusterConfigColdStorageOptions
     {
+        /// <summary>
+        /// Boolean to enable cold storage for an OpenSearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

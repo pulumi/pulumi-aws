@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieve information about a Direct Connect Gateway.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := directconnect.LookupGateway(ctx, &directconnect.LookupGatewayArgs{
+//				Name: "example",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupGateway(ctx *pulumi.Context, args *LookupGatewayArgs, opts ...pulumi.InvokeOption) (*LookupGatewayResult, error) {
 	var rv LookupGatewayResult
 	err := ctx.Invoke("aws:directconnect/getGateway:getGateway", args, &rv, opts...)
@@ -21,15 +48,18 @@ func LookupGateway(ctx *pulumi.Context, args *LookupGatewayArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getGateway.
 type LookupGatewayArgs struct {
+	// Name of the gateway to retrieve.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getGateway.
 type LookupGatewayResult struct {
+	// ASN on the Amazon side of the connection.
 	AmazonSideAsn string `pulumi:"amazonSideAsn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id             string `pulumi:"id"`
-	Name           string `pulumi:"name"`
+	Id   string `pulumi:"id"`
+	Name string `pulumi:"name"`
+	// AWS Account ID of the gateway.
 	OwnerAccountId string `pulumi:"ownerAccountId"`
 }
 
@@ -48,6 +78,7 @@ func LookupGatewayOutput(ctx *pulumi.Context, args LookupGatewayOutputArgs, opts
 
 // A collection of arguments for invoking getGateway.
 type LookupGatewayOutputArgs struct {
+	// Name of the gateway to retrieve.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -70,6 +101,7 @@ func (o LookupGatewayResultOutput) ToLookupGatewayResultOutputWithContext(ctx co
 	return o
 }
 
+// ASN on the Amazon side of the connection.
 func (o LookupGatewayResultOutput) AmazonSideAsn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGatewayResult) string { return v.AmazonSideAsn }).(pulumi.StringOutput)
 }
@@ -83,6 +115,7 @@ func (o LookupGatewayResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGatewayResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// AWS Account ID of the gateway.
 func (o LookupGatewayResultOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGatewayResult) string { return v.OwnerAccountId }).(pulumi.StringOutput)
 }

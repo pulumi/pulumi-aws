@@ -13,6 +13,9 @@ namespace Pulumi.Aws.EmrContainers.Outputs
     [OutputType]
     public sealed class GetVirtualClusterContainerProviderInfoEksInfoResult
     {
+        /// <summary>
+        /// The namespace where the EMR Containers cluster is running
+        /// </summary>
         public readonly string Namespace;
 
         [OutputConstructor]

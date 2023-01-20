@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount
     {
+        /// <summary>
+        /// Maximum. Set to `0` to exclude instance types with accelerators.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// Minimum.
+        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

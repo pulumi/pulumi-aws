@@ -11,10 +11,70 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Managed Scaling policy for EMR Cluster. With Amazon EMR versions 5.30.0 and later (except for Amazon EMR 6.0.0), you can enable EMR managed scaling to automatically increase or decrease the number of instances or units in your cluster based on workload. See [Using EMR Managed Scaling in Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-scaling.html) for more information.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			sample, err := emr.NewCluster(ctx, "sample", &emr.ClusterArgs{
+//				ReleaseLabel: pulumi.String("emr-5.30.0"),
+//				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
+//					InstanceType: pulumi.String("m4.large"),
+//				},
+//				CoreInstanceGroup: &emr.ClusterCoreInstanceGroupArgs{
+//					InstanceType: pulumi.String("c4.large"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = emr.NewManagedScalingPolicy(ctx, "samplepolicy", &emr.ManagedScalingPolicyArgs{
+//				ClusterId: sample.ID(),
+//				ComputeLimits: emr.ManagedScalingPolicyComputeLimitArray{
+//					&emr.ManagedScalingPolicyComputeLimitArgs{
+//						UnitType:                     pulumi.String("Instances"),
+//						MinimumCapacityUnits:         pulumi.Int(2),
+//						MaximumCapacityUnits:         pulumi.Int(10),
+//						MaximumOndemandCapacityUnits: pulumi.Int(2),
+//						MaximumCoreCapacityUnits:     pulumi.Int(10),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// # EMR Managed Scaling Policies can be imported via the EMR Cluster identifier, e.g., console
+//
+// ```sh
+//
+//	$ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
+//
+// ```
 type ManagedScalingPolicy struct {
 	pulumi.CustomResourceState
 
-	ClusterId     pulumi.StringOutput                         `pulumi:"clusterId"`
+	// ID of the EMR cluster
+	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
+	// Configuration block with compute limit settings. Described below.
 	ComputeLimits ManagedScalingPolicyComputeLimitArrayOutput `pulumi:"computeLimits"`
 }
 
@@ -53,12 +113,16 @@ func GetManagedScalingPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedScalingPolicy resources.
 type managedScalingPolicyState struct {
-	ClusterId     *string                            `pulumi:"clusterId"`
+	// ID of the EMR cluster
+	ClusterId *string `pulumi:"clusterId"`
+	// Configuration block with compute limit settings. Described below.
 	ComputeLimits []ManagedScalingPolicyComputeLimit `pulumi:"computeLimits"`
 }
 
 type ManagedScalingPolicyState struct {
-	ClusterId     pulumi.StringPtrInput
+	// ID of the EMR cluster
+	ClusterId pulumi.StringPtrInput
+	// Configuration block with compute limit settings. Described below.
 	ComputeLimits ManagedScalingPolicyComputeLimitArrayInput
 }
 
@@ -67,13 +131,17 @@ func (ManagedScalingPolicyState) ElementType() reflect.Type {
 }
 
 type managedScalingPolicyArgs struct {
-	ClusterId     string                             `pulumi:"clusterId"`
+	// ID of the EMR cluster
+	ClusterId string `pulumi:"clusterId"`
+	// Configuration block with compute limit settings. Described below.
 	ComputeLimits []ManagedScalingPolicyComputeLimit `pulumi:"computeLimits"`
 }
 
 // The set of arguments for constructing a ManagedScalingPolicy resource.
 type ManagedScalingPolicyArgs struct {
-	ClusterId     pulumi.StringInput
+	// ID of the EMR cluster
+	ClusterId pulumi.StringInput
+	// Configuration block with compute limit settings. Described below.
 	ComputeLimits ManagedScalingPolicyComputeLimitArrayInput
 }
 
@@ -164,10 +232,12 @@ func (o ManagedScalingPolicyOutput) ToManagedScalingPolicyOutputWithContext(ctx 
 	return o
 }
 
+// ID of the EMR cluster
 func (o ManagedScalingPolicyOutput) ClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedScalingPolicy) pulumi.StringOutput { return v.ClusterId }).(pulumi.StringOutput)
 }
 
+// Configuration block with compute limit settings. Described below.
 func (o ManagedScalingPolicyOutput) ComputeLimits() ManagedScalingPolicyComputeLimitArrayOutput {
 	return o.ApplyT(func(v *ManagedScalingPolicy) ManagedScalingPolicyComputeLimitArrayOutput { return v.ComputeLimits }).(ManagedScalingPolicyComputeLimitArrayOutput)
 }

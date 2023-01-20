@@ -17,23 +17,47 @@ public final class CodeSigningConfigArgs extends com.pulumi.resources.ResourceAr
 
     public static final CodeSigningConfigArgs Empty = new CodeSigningConfigArgs();
 
+    /**
+     * A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+     * 
+     */
     @Import(name="allowedPublishers", required=true)
     private Output<CodeSigningConfigAllowedPublishersArgs> allowedPublishers;
 
+    /**
+     * @return A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+     * 
+     */
     public Output<CodeSigningConfigAllowedPublishersArgs> allowedPublishers() {
         return this.allowedPublishers;
     }
 
+    /**
+     * Descriptive name for this code signing configuration.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Descriptive name for this code signing configuration.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+     * 
+     */
     @Import(name="policies")
     private @Nullable Output<CodeSigningConfigPoliciesArgs> policies;
 
+    /**
+     * @return A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+     * 
+     */
     public Optional<Output<CodeSigningConfigPoliciesArgs>> policies() {
         return Optional.ofNullable(this.policies);
     }
@@ -64,29 +88,65 @@ public final class CodeSigningConfigArgs extends com.pulumi.resources.ResourceAr
             $ = new CodeSigningConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allowedPublishers A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedPublishers(Output<CodeSigningConfigAllowedPublishersArgs> allowedPublishers) {
             $.allowedPublishers = allowedPublishers;
             return this;
         }
 
+        /**
+         * @param allowedPublishers A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedPublishers(CodeSigningConfigAllowedPublishersArgs allowedPublishers) {
             return allowedPublishers(Output.of(allowedPublishers));
         }
 
+        /**
+         * @param description Descriptive name for this code signing configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Descriptive name for this code signing configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param policies A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policies(@Nullable Output<CodeSigningConfigPoliciesArgs> policies) {
             $.policies = policies;
             return this;
         }
 
+        /**
+         * @param policies A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policies(CodeSigningConfigPoliciesArgs policies) {
             return policies(Output.of(policies));
         }

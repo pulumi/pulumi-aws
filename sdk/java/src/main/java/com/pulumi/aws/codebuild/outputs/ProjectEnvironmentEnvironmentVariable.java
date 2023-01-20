@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProjectEnvironmentEnvironmentVariable {
+    /**
+     * @return Project&#39;s name.
+     * 
+     */
     private String name;
+    /**
+     * @return Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+     * 
+     */
     private @Nullable String type;
+    /**
+     * @return Environment variable&#39;s value.
+     * 
+     */
     private String value;
 
     private ProjectEnvironmentEnvironmentVariable() {}
+    /**
+     * @return Project&#39;s name.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+     * 
+     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
+    /**
+     * @return Environment variable&#39;s value.
+     * 
+     */
     public String value() {
         return this.value;
     }

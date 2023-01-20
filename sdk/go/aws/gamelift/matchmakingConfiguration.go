@@ -11,28 +11,133 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a GameLift Alias resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := gamelift.NewGameSessionQueue(ctx, "exampleGameSessionQueue", &gamelift.GameSessionQueueArgs{
+//				Destinations: pulumi.StringArray{},
+//				PlayerLatencyPolicies: gamelift.GameSessionQueuePlayerLatencyPolicyArray{
+//					&gamelift.GameSessionQueuePlayerLatencyPolicyArgs{
+//						MaximumIndividualPlayerLatencyMilliseconds: pulumi.Int(3),
+//						PolicyDurationSeconds:                      pulumi.Int(7),
+//					},
+//					&gamelift.GameSessionQueuePlayerLatencyPolicyArgs{
+//						MaximumIndividualPlayerLatencyMilliseconds: pulumi.Int(10),
+//					},
+//				},
+//				TimeoutInSeconds: pulumi.Int(25),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"name":                "test",
+//				"ruleLanguageVersion": "1.0",
+//				"teams": []map[string]interface{}{
+//					map[string]interface{}{
+//						"name":       "alpha",
+//						"minPlayers": 1,
+//						"maxPlayers": 5,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = gamelift.NewMatchmakingRuleSet(ctx, "exampleMatchmakingRuleSet", &gamelift.MatchmakingRuleSetArgs{
+//				RuleSetBody: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = gamelift.NewMatchmakingConfiguration(ctx, "exampleMatchmakingConfiguration", &gamelift.MatchmakingConfigurationArgs{
+//				AcceptanceRequired:    pulumi.Bool(false),
+//				CustomEventData:       pulumi.String("pvp"),
+//				GameSessionData:       pulumi.String("game_session_data"),
+//				BackfillMode:          pulumi.String("MANUAL"),
+//				RequestTimeoutSeconds: pulumi.Int(30),
+//				RuleSetName:           pulumi.Any(aws_gamelift_matchmaking_rule_set.Test.Name),
+//				GameSessionQueueArns: pulumi.StringArray{
+//					aws_gamelift_game_session_queue.Test.Arn,
+//				},
+//				Tags: pulumi.StringMap{
+//					"key1": pulumi.String("value1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// GameLift Matchmaking Configurations can be imported using the ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration example <matchmakingconfiguration-id>
+//
+// ```
 type MatchmakingConfiguration struct {
 	pulumi.CustomResourceState
 
-	AcceptanceRequired       pulumi.BoolOutput                               `pulumi:"acceptanceRequired"`
-	AcceptanceTimeoutSeconds pulumi.IntPtrOutput                             `pulumi:"acceptanceTimeoutSeconds"`
-	AdditionalPlayerCount    pulumi.IntPtrOutput                             `pulumi:"additionalPlayerCount"`
-	Arn                      pulumi.StringOutput                             `pulumi:"arn"`
-	BackfillMode             pulumi.StringPtrOutput                          `pulumi:"backfillMode"`
-	CreationTime             pulumi.StringOutput                             `pulumi:"creationTime"`
-	CustomEventData          pulumi.StringPtrOutput                          `pulumi:"customEventData"`
-	Description              pulumi.StringPtrOutput                          `pulumi:"description"`
-	FlexMatchMode            pulumi.StringOutput                             `pulumi:"flexMatchMode"`
-	GameProperties           MatchmakingConfigurationGamePropertyArrayOutput `pulumi:"gameProperties"`
-	GameSessionData          pulumi.StringOutput                             `pulumi:"gameSessionData"`
-	GameSessionQueueArns     pulumi.StringArrayOutput                        `pulumi:"gameSessionQueueArns"`
-	Name                     pulumi.StringOutput                             `pulumi:"name"`
-	NotificationTarget       pulumi.StringPtrOutput                          `pulumi:"notificationTarget"`
-	RequestTimeoutSeconds    pulumi.IntOutput                                `pulumi:"requestTimeoutSeconds"`
-	RuleSetArn               pulumi.StringOutput                             `pulumi:"ruleSetArn"`
-	RuleSetName              pulumi.StringOutput                             `pulumi:"ruleSetName"`
-	Tags                     pulumi.StringMapOutput                          `pulumi:"tags"`
-	TagsAll                  pulumi.StringMapOutput                          `pulumi:"tagsAll"`
+	// Specifies if the match that was created with this configuration must be accepted by matched players.
+	AcceptanceRequired pulumi.BoolOutput `pulumi:"acceptanceRequired"`
+	// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
+	AcceptanceTimeoutSeconds pulumi.IntPtrOutput `pulumi:"acceptanceTimeoutSeconds"`
+	// The number of player slots in a match to keep open for future players.
+	AdditionalPlayerCount pulumi.IntPtrOutput `pulumi:"additionalPlayerCount"`
+	// Matchmaking Configuration ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The method used to backfill game sessions that are created with this matchmaking configuration.
+	BackfillMode pulumi.StringPtrOutput `pulumi:"backfillMode"`
+	// The time when the Matchmaking Configuration was created.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// Information to be added to all events related to this matchmaking configuration.
+	CustomEventData pulumi.StringPtrOutput `pulumi:"customEventData"`
+	// A human-readable description of the matchmaking configuration.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
+	FlexMatchMode pulumi.StringOutput `pulumi:"flexMatchMode"`
+	// One or more custom game properties. See below.
+	GameProperties MatchmakingConfigurationGamePropertyArrayOutput `pulumi:"gameProperties"`
+	// A set of custom game session properties.
+	GameSessionData pulumi.StringOutput `pulumi:"gameSessionData"`
+	// The ARNs of the GameLift game session queue resources.
+	GameSessionQueueArns pulumi.StringArrayOutput `pulumi:"gameSessionQueueArns"`
+	// Name of the matchmaking configuration
+	Name pulumi.StringOutput `pulumi:"name"`
+	// An SNS topic ARN that is set up to receive matchmaking notifications.
+	NotificationTarget pulumi.StringPtrOutput `pulumi:"notificationTarget"`
+	// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
+	RequestTimeoutSeconds pulumi.IntOutput    `pulumi:"requestTimeoutSeconds"`
+	RuleSetArn            pulumi.StringOutput `pulumi:"ruleSetArn"`
+	// A rule set names for the matchmaking rule set to use with this configuration.
+	RuleSetName pulumi.StringOutput `pulumi:"ruleSetName"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewMatchmakingConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -76,47 +181,83 @@ func GetMatchmakingConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MatchmakingConfiguration resources.
 type matchmakingConfigurationState struct {
-	AcceptanceRequired       *bool                                  `pulumi:"acceptanceRequired"`
-	AcceptanceTimeoutSeconds *int                                   `pulumi:"acceptanceTimeoutSeconds"`
-	AdditionalPlayerCount    *int                                   `pulumi:"additionalPlayerCount"`
-	Arn                      *string                                `pulumi:"arn"`
-	BackfillMode             *string                                `pulumi:"backfillMode"`
-	CreationTime             *string                                `pulumi:"creationTime"`
-	CustomEventData          *string                                `pulumi:"customEventData"`
-	Description              *string                                `pulumi:"description"`
-	FlexMatchMode            *string                                `pulumi:"flexMatchMode"`
-	GameProperties           []MatchmakingConfigurationGameProperty `pulumi:"gameProperties"`
-	GameSessionData          *string                                `pulumi:"gameSessionData"`
-	GameSessionQueueArns     []string                               `pulumi:"gameSessionQueueArns"`
-	Name                     *string                                `pulumi:"name"`
-	NotificationTarget       *string                                `pulumi:"notificationTarget"`
-	RequestTimeoutSeconds    *int                                   `pulumi:"requestTimeoutSeconds"`
-	RuleSetArn               *string                                `pulumi:"ruleSetArn"`
-	RuleSetName              *string                                `pulumi:"ruleSetName"`
-	Tags                     map[string]string                      `pulumi:"tags"`
-	TagsAll                  map[string]string                      `pulumi:"tagsAll"`
+	// Specifies if the match that was created with this configuration must be accepted by matched players.
+	AcceptanceRequired *bool `pulumi:"acceptanceRequired"`
+	// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
+	AcceptanceTimeoutSeconds *int `pulumi:"acceptanceTimeoutSeconds"`
+	// The number of player slots in a match to keep open for future players.
+	AdditionalPlayerCount *int `pulumi:"additionalPlayerCount"`
+	// Matchmaking Configuration ARN.
+	Arn *string `pulumi:"arn"`
+	// The method used to backfill game sessions that are created with this matchmaking configuration.
+	BackfillMode *string `pulumi:"backfillMode"`
+	// The time when the Matchmaking Configuration was created.
+	CreationTime *string `pulumi:"creationTime"`
+	// Information to be added to all events related to this matchmaking configuration.
+	CustomEventData *string `pulumi:"customEventData"`
+	// A human-readable description of the matchmaking configuration.
+	Description *string `pulumi:"description"`
+	// Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
+	FlexMatchMode *string `pulumi:"flexMatchMode"`
+	// One or more custom game properties. See below.
+	GameProperties []MatchmakingConfigurationGameProperty `pulumi:"gameProperties"`
+	// A set of custom game session properties.
+	GameSessionData *string `pulumi:"gameSessionData"`
+	// The ARNs of the GameLift game session queue resources.
+	GameSessionQueueArns []string `pulumi:"gameSessionQueueArns"`
+	// Name of the matchmaking configuration
+	Name *string `pulumi:"name"`
+	// An SNS topic ARN that is set up to receive matchmaking notifications.
+	NotificationTarget *string `pulumi:"notificationTarget"`
+	// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
+	RequestTimeoutSeconds *int    `pulumi:"requestTimeoutSeconds"`
+	RuleSetArn            *string `pulumi:"ruleSetArn"`
+	// A rule set names for the matchmaking rule set to use with this configuration.
+	RuleSetName *string `pulumi:"ruleSetName"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type MatchmakingConfigurationState struct {
-	AcceptanceRequired       pulumi.BoolPtrInput
+	// Specifies if the match that was created with this configuration must be accepted by matched players.
+	AcceptanceRequired pulumi.BoolPtrInput
+	// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
 	AcceptanceTimeoutSeconds pulumi.IntPtrInput
-	AdditionalPlayerCount    pulumi.IntPtrInput
-	Arn                      pulumi.StringPtrInput
-	BackfillMode             pulumi.StringPtrInput
-	CreationTime             pulumi.StringPtrInput
-	CustomEventData          pulumi.StringPtrInput
-	Description              pulumi.StringPtrInput
-	FlexMatchMode            pulumi.StringPtrInput
-	GameProperties           MatchmakingConfigurationGamePropertyArrayInput
-	GameSessionData          pulumi.StringPtrInput
-	GameSessionQueueArns     pulumi.StringArrayInput
-	Name                     pulumi.StringPtrInput
-	NotificationTarget       pulumi.StringPtrInput
-	RequestTimeoutSeconds    pulumi.IntPtrInput
-	RuleSetArn               pulumi.StringPtrInput
-	RuleSetName              pulumi.StringPtrInput
-	Tags                     pulumi.StringMapInput
-	TagsAll                  pulumi.StringMapInput
+	// The number of player slots in a match to keep open for future players.
+	AdditionalPlayerCount pulumi.IntPtrInput
+	// Matchmaking Configuration ARN.
+	Arn pulumi.StringPtrInput
+	// The method used to backfill game sessions that are created with this matchmaking configuration.
+	BackfillMode pulumi.StringPtrInput
+	// The time when the Matchmaking Configuration was created.
+	CreationTime pulumi.StringPtrInput
+	// Information to be added to all events related to this matchmaking configuration.
+	CustomEventData pulumi.StringPtrInput
+	// A human-readable description of the matchmaking configuration.
+	Description pulumi.StringPtrInput
+	// Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
+	FlexMatchMode pulumi.StringPtrInput
+	// One or more custom game properties. See below.
+	GameProperties MatchmakingConfigurationGamePropertyArrayInput
+	// A set of custom game session properties.
+	GameSessionData pulumi.StringPtrInput
+	// The ARNs of the GameLift game session queue resources.
+	GameSessionQueueArns pulumi.StringArrayInput
+	// Name of the matchmaking configuration
+	Name pulumi.StringPtrInput
+	// An SNS topic ARN that is set up to receive matchmaking notifications.
+	NotificationTarget pulumi.StringPtrInput
+	// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
+	RequestTimeoutSeconds pulumi.IntPtrInput
+	RuleSetArn            pulumi.StringPtrInput
+	// A rule set names for the matchmaking rule set to use with this configuration.
+	RuleSetName pulumi.StringPtrInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (MatchmakingConfigurationState) ElementType() reflect.Type {
@@ -124,40 +265,70 @@ func (MatchmakingConfigurationState) ElementType() reflect.Type {
 }
 
 type matchmakingConfigurationArgs struct {
-	AcceptanceRequired       bool                                   `pulumi:"acceptanceRequired"`
-	AcceptanceTimeoutSeconds *int                                   `pulumi:"acceptanceTimeoutSeconds"`
-	AdditionalPlayerCount    *int                                   `pulumi:"additionalPlayerCount"`
-	BackfillMode             *string                                `pulumi:"backfillMode"`
-	CustomEventData          *string                                `pulumi:"customEventData"`
-	Description              *string                                `pulumi:"description"`
-	FlexMatchMode            *string                                `pulumi:"flexMatchMode"`
-	GameProperties           []MatchmakingConfigurationGameProperty `pulumi:"gameProperties"`
-	GameSessionData          string                                 `pulumi:"gameSessionData"`
-	GameSessionQueueArns     []string                               `pulumi:"gameSessionQueueArns"`
-	Name                     *string                                `pulumi:"name"`
-	NotificationTarget       *string                                `pulumi:"notificationTarget"`
-	RequestTimeoutSeconds    int                                    `pulumi:"requestTimeoutSeconds"`
-	RuleSetName              string                                 `pulumi:"ruleSetName"`
-	Tags                     map[string]string                      `pulumi:"tags"`
+	// Specifies if the match that was created with this configuration must be accepted by matched players.
+	AcceptanceRequired bool `pulumi:"acceptanceRequired"`
+	// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
+	AcceptanceTimeoutSeconds *int `pulumi:"acceptanceTimeoutSeconds"`
+	// The number of player slots in a match to keep open for future players.
+	AdditionalPlayerCount *int `pulumi:"additionalPlayerCount"`
+	// The method used to backfill game sessions that are created with this matchmaking configuration.
+	BackfillMode *string `pulumi:"backfillMode"`
+	// Information to be added to all events related to this matchmaking configuration.
+	CustomEventData *string `pulumi:"customEventData"`
+	// A human-readable description of the matchmaking configuration.
+	Description *string `pulumi:"description"`
+	// Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
+	FlexMatchMode *string `pulumi:"flexMatchMode"`
+	// One or more custom game properties. See below.
+	GameProperties []MatchmakingConfigurationGameProperty `pulumi:"gameProperties"`
+	// A set of custom game session properties.
+	GameSessionData string `pulumi:"gameSessionData"`
+	// The ARNs of the GameLift game session queue resources.
+	GameSessionQueueArns []string `pulumi:"gameSessionQueueArns"`
+	// Name of the matchmaking configuration
+	Name *string `pulumi:"name"`
+	// An SNS topic ARN that is set up to receive matchmaking notifications.
+	NotificationTarget *string `pulumi:"notificationTarget"`
+	// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
+	RequestTimeoutSeconds int `pulumi:"requestTimeoutSeconds"`
+	// A rule set names for the matchmaking rule set to use with this configuration.
+	RuleSetName string `pulumi:"ruleSetName"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MatchmakingConfiguration resource.
 type MatchmakingConfigurationArgs struct {
-	AcceptanceRequired       pulumi.BoolInput
+	// Specifies if the match that was created with this configuration must be accepted by matched players.
+	AcceptanceRequired pulumi.BoolInput
+	// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
 	AcceptanceTimeoutSeconds pulumi.IntPtrInput
-	AdditionalPlayerCount    pulumi.IntPtrInput
-	BackfillMode             pulumi.StringPtrInput
-	CustomEventData          pulumi.StringPtrInput
-	Description              pulumi.StringPtrInput
-	FlexMatchMode            pulumi.StringPtrInput
-	GameProperties           MatchmakingConfigurationGamePropertyArrayInput
-	GameSessionData          pulumi.StringInput
-	GameSessionQueueArns     pulumi.StringArrayInput
-	Name                     pulumi.StringPtrInput
-	NotificationTarget       pulumi.StringPtrInput
-	RequestTimeoutSeconds    pulumi.IntInput
-	RuleSetName              pulumi.StringInput
-	Tags                     pulumi.StringMapInput
+	// The number of player slots in a match to keep open for future players.
+	AdditionalPlayerCount pulumi.IntPtrInput
+	// The method used to backfill game sessions that are created with this matchmaking configuration.
+	BackfillMode pulumi.StringPtrInput
+	// Information to be added to all events related to this matchmaking configuration.
+	CustomEventData pulumi.StringPtrInput
+	// A human-readable description of the matchmaking configuration.
+	Description pulumi.StringPtrInput
+	// Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
+	FlexMatchMode pulumi.StringPtrInput
+	// One or more custom game properties. See below.
+	GameProperties MatchmakingConfigurationGamePropertyArrayInput
+	// A set of custom game session properties.
+	GameSessionData pulumi.StringInput
+	// The ARNs of the GameLift game session queue resources.
+	GameSessionQueueArns pulumi.StringArrayInput
+	// Name of the matchmaking configuration
+	Name pulumi.StringPtrInput
+	// An SNS topic ARN that is set up to receive matchmaking notifications.
+	NotificationTarget pulumi.StringPtrInput
+	// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
+	RequestTimeoutSeconds pulumi.IntInput
+	// A rule set names for the matchmaking rule set to use with this configuration.
+	RuleSetName pulumi.StringInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (MatchmakingConfigurationArgs) ElementType() reflect.Type {
@@ -247,64 +418,79 @@ func (o MatchmakingConfigurationOutput) ToMatchmakingConfigurationOutputWithCont
 	return o
 }
 
+// Specifies if the match that was created with this configuration must be accepted by matched players.
 func (o MatchmakingConfigurationOutput) AcceptanceRequired() pulumi.BoolOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.BoolOutput { return v.AcceptanceRequired }).(pulumi.BoolOutput)
 }
 
+// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
 func (o MatchmakingConfigurationOutput) AcceptanceTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.IntPtrOutput { return v.AcceptanceTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The number of player slots in a match to keep open for future players.
 func (o MatchmakingConfigurationOutput) AdditionalPlayerCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.IntPtrOutput { return v.AdditionalPlayerCount }).(pulumi.IntPtrOutput)
 }
 
+// Matchmaking Configuration ARN.
 func (o MatchmakingConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The method used to backfill game sessions that are created with this matchmaking configuration.
 func (o MatchmakingConfigurationOutput) BackfillMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.BackfillMode }).(pulumi.StringPtrOutput)
 }
 
+// The time when the Matchmaking Configuration was created.
 func (o MatchmakingConfigurationOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// Information to be added to all events related to this matchmaking configuration.
 func (o MatchmakingConfigurationOutput) CustomEventData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.CustomEventData }).(pulumi.StringPtrOutput)
 }
 
+// A human-readable description of the matchmaking configuration.
 func (o MatchmakingConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
 func (o MatchmakingConfigurationOutput) FlexMatchMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringOutput { return v.FlexMatchMode }).(pulumi.StringOutput)
 }
 
+// One or more custom game properties. See below.
 func (o MatchmakingConfigurationOutput) GameProperties() MatchmakingConfigurationGamePropertyArrayOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) MatchmakingConfigurationGamePropertyArrayOutput {
 		return v.GameProperties
 	}).(MatchmakingConfigurationGamePropertyArrayOutput)
 }
 
+// A set of custom game session properties.
 func (o MatchmakingConfigurationOutput) GameSessionData() pulumi.StringOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringOutput { return v.GameSessionData }).(pulumi.StringOutput)
 }
 
+// The ARNs of the GameLift game session queue resources.
 func (o MatchmakingConfigurationOutput) GameSessionQueueArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringArrayOutput { return v.GameSessionQueueArns }).(pulumi.StringArrayOutput)
 }
 
+// Name of the matchmaking configuration
 func (o MatchmakingConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// An SNS topic ARN that is set up to receive matchmaking notifications.
 func (o MatchmakingConfigurationOutput) NotificationTarget() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.NotificationTarget }).(pulumi.StringPtrOutput)
 }
 
+// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
 func (o MatchmakingConfigurationOutput) RequestTimeoutSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.IntOutput { return v.RequestTimeoutSeconds }).(pulumi.IntOutput)
 }
@@ -313,14 +499,17 @@ func (o MatchmakingConfigurationOutput) RuleSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringOutput { return v.RuleSetArn }).(pulumi.StringOutput)
 }
 
+// A rule set names for the matchmaking rule set to use with this configuration.
 func (o MatchmakingConfigurationOutput) RuleSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringOutput { return v.RuleSetName }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o MatchmakingConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o MatchmakingConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

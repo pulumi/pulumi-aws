@@ -15,23 +15,99 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Configures Session Stickiness for a Lightsail Load Balancer.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lightsail.Lb;
+ * import com.pulumi.aws.lightsail.LbArgs;
+ * import com.pulumi.aws.lightsail.LbStickinessPolicy;
+ * import com.pulumi.aws.lightsail.LbStickinessPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testLb = new Lb(&#34;testLb&#34;, LbArgs.builder()        
+ *             .healthCheckPath(&#34;/&#34;)
+ *             .instancePort(&#34;80&#34;)
+ *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .build());
+ * 
+ *         var testLbStickinessPolicy = new LbStickinessPolicy(&#34;testLbStickinessPolicy&#34;, LbStickinessPolicyArgs.builder()        
+ *             .lbName(testLb.name())
+ *             .cookieDuration(900)
+ *             .enabled(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_lightsail_lb_stickiness_policy` can be imported by using the `lb_name` attribute, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy test example-load-balancer
+ * ```
+ * 
+ */
 @ResourceType(type="aws:lightsail/lbStickinessPolicy:LbStickinessPolicy")
 public class LbStickinessPolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * The cookie duration in seconds. This determines the length of the session stickiness.
+     * 
+     */
     @Export(name="cookieDuration", refs={Integer.class}, tree="[0]")
     private Output<Integer> cookieDuration;
 
+    /**
+     * @return The cookie duration in seconds. This determines the length of the session stickiness.
+     * 
+     */
     public Output<Integer> cookieDuration() {
         return this.cookieDuration;
     }
+    /**
+     * The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+     * 
+     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
+    /**
+     * @return The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+     * 
+     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
+    /**
+     * The name of the load balancer to which you want to enable session stickiness.
+     * 
+     */
     @Export(name="lbName", refs={String.class}, tree="[0]")
     private Output<String> lbName;
 
+    /**
+     * @return The name of the load balancer to which you want to enable session stickiness.
+     * 
+     */
     public Output<String> lbName() {
         return this.lbName;
     }

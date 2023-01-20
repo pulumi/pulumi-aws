@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceConfigurationS3ConfigurationAccessControlListConfiguration
     {
+        /// <summary>
+        /// Path to the AWS S3 bucket that contains the ACL files.
+        /// </summary>
         public readonly string? KeyPath;
 
         [OutputConstructor]

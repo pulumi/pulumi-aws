@@ -7,6 +7,18 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a replicated Region and directory for Multi-Region replication.
+ * Multi-Region replication is only supported for the Enterprise Edition of AWS Managed Microsoft AD.
+ *
+ * ## Import
+ *
+ * Replicated Regions can be imported using directory ID,Region name e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
+ * ```
+ */
 export class ServiceRegion extends pulumi.CustomResource {
     /**
      * Get an existing ServiceRegion resource's state with the given name, ID, and optional extra
@@ -35,11 +47,29 @@ export class ServiceRegion extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceRegion.__pulumiType;
     }
 
+    /**
+     * The number of domain controllers desired in the replicated directory. Minimum value of `2`.
+     */
     public readonly desiredNumberOfDomainControllers!: pulumi.Output<number>;
+    /**
+     * The identifier of the directory to which you want to add Region replication.
+     */
     public readonly directoryId!: pulumi.Output<string>;
+    /**
+     * The name of the Region where you want to add domain controllers for replication.
+     */
     public readonly regionName!: pulumi.Output<string>;
+    /**
+     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * VPC information in the replicated Region. Detailed below.
+     */
     public readonly vpcSettings!: pulumi.Output<outputs.directoryservice.ServiceRegionVpcSettings>;
 
     /**
@@ -88,11 +118,29 @@ export class ServiceRegion extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceRegion resources.
  */
 export interface ServiceRegionState {
+    /**
+     * The number of domain controllers desired in the replicated directory. Minimum value of `2`.
+     */
     desiredNumberOfDomainControllers?: pulumi.Input<number>;
+    /**
+     * The identifier of the directory to which you want to add Region replication.
+     */
     directoryId?: pulumi.Input<string>;
+    /**
+     * The name of the Region where you want to add domain controllers for replication.
+     */
     regionName?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * VPC information in the replicated Region. Detailed below.
+     */
     vpcSettings?: pulumi.Input<inputs.directoryservice.ServiceRegionVpcSettings>;
 }
 
@@ -100,9 +148,24 @@ export interface ServiceRegionState {
  * The set of arguments for constructing a ServiceRegion resource.
  */
 export interface ServiceRegionArgs {
+    /**
+     * The number of domain controllers desired in the replicated directory. Minimum value of `2`.
+     */
     desiredNumberOfDomainControllers?: pulumi.Input<number>;
+    /**
+     * The identifier of the directory to which you want to add Region replication.
+     */
     directoryId: pulumi.Input<string>;
+    /**
+     * The name of the Region where you want to add domain controllers for replication.
+     */
     regionName: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * VPC information in the replicated Region. Detailed below.
+     */
     vpcSettings: pulumi.Input<inputs.directoryservice.ServiceRegionVpcSettings>;
 }

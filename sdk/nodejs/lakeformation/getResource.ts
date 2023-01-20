@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides details about a Lake Formation resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.lakeformation.getResource({
+ *     arn: "arn:aws:s3:::tf-acc-test-9151654063908211878",
+ * });
+ * ```
+ */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -16,6 +30,9 @@ export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getResource.
  */
 export interface GetResourceArgs {
+    /**
+     * ARN of the resource, an S3 path.
+     */
     arn: string;
 }
 
@@ -28,9 +45,29 @@ export interface GetResourceResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     */
     readonly lastModified: string;
+    /**
+     * Role that the resource was registered with.
+     */
     readonly roleArn: string;
 }
+/**
+ * Provides details about a Lake Formation resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.lakeformation.getResource({
+ *     arn: "arn:aws:s3:::tf-acc-test-9151654063908211878",
+ * });
+ * ```
+ */
 export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceResult> {
     return pulumi.output(args).apply((a: any) => getResource(a, opts))
 }
@@ -39,5 +76,8 @@ export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getResource.
  */
 export interface GetResourceOutputArgs {
+    /**
+     * ARN of the resource, an S3 path.
+     */
     arn: pulumi.Input<string>;
 }

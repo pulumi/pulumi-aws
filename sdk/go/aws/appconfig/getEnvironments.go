@@ -10,6 +10,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another
+// resource.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appconfig.GetEnvironments(ctx, &appconfig.GetEnvironmentsArgs{
+//				ApplicationId: "a1d3rpe",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetEnvironments(ctx *pulumi.Context, args *GetEnvironmentsArgs, opts ...pulumi.InvokeOption) (*GetEnvironmentsResult, error) {
 	var rv GetEnvironmentsResult
 	err := ctx.Invoke("aws:appconfig/getEnvironments:getEnvironments", args, &rv, opts...)
@@ -21,12 +50,14 @@ func GetEnvironments(ctx *pulumi.Context, args *GetEnvironmentsArgs, opts ...pul
 
 // A collection of arguments for invoking getEnvironments.
 type GetEnvironmentsArgs struct {
+	// ID of the AppConfig Application.
 	ApplicationId string `pulumi:"applicationId"`
 }
 
 // A collection of values returned by getEnvironments.
 type GetEnvironmentsResult struct {
-	ApplicationId  string   `pulumi:"applicationId"`
+	ApplicationId string `pulumi:"applicationId"`
+	// Set of Environment IDs associated with this AppConfig Application.
 	EnvironmentIds []string `pulumi:"environmentIds"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -47,6 +78,7 @@ func GetEnvironmentsOutput(ctx *pulumi.Context, args GetEnvironmentsOutputArgs, 
 
 // A collection of arguments for invoking getEnvironments.
 type GetEnvironmentsOutputArgs struct {
+	// ID of the AppConfig Application.
 	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 }
 
@@ -73,6 +105,7 @@ func (o GetEnvironmentsResultOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentsResult) string { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
+// Set of Environment IDs associated with this AppConfig Application.
 func (o GetEnvironmentsResultOutput) EnvironmentIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEnvironmentsResult) []string { return v.EnvironmentIds }).(pulumi.StringArrayOutput)
 }

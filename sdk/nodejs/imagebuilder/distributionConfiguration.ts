@@ -7,6 +7,40 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an Image Builder Distribution Configuration.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.imagebuilder.DistributionConfiguration("example", {distributions: [{
+ *     amiDistributionConfiguration: {
+ *         amiTags: {
+ *             CostCenter: "IT",
+ *         },
+ *         launchPermission: {
+ *             userIds: ["123456789012"],
+ *         },
+ *         name: "example-{{ imagebuilder:buildDate }}",
+ *     },
+ *     launchTemplateConfigurations: [{
+ *         launchTemplateId: "lt-0aaa1bcde2ff3456",
+ *     }],
+ *     region: "us-east-1",
+ * }]});
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_imagebuilder_distribution_configurations` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
+ * ```
+ */
 export class DistributionConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing DistributionConfiguration resource's state with the given name, ID, and optional extra
@@ -35,13 +69,37 @@ export class DistributionConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === DistributionConfiguration.__pulumiType;
     }
 
+    /**
+     * (Required) Amazon Resource Name (ARN) of the distribution configuration.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Date the distribution configuration was created.
+     */
     public /*out*/ readonly dateCreated!: pulumi.Output<string>;
+    /**
+     * Date the distribution configuration was updated.
+     */
     public /*out*/ readonly dateUpdated!: pulumi.Output<string>;
+    /**
+     * Description of the distribution configuration.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * One or more configuration blocks with distribution settings. Detailed below.
+     */
     public readonly distributions!: pulumi.Output<outputs.imagebuilder.DistributionConfigurationDistribution[]>;
+    /**
+     * Name of the distribution configuration.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -88,13 +146,37 @@ export class DistributionConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DistributionConfiguration resources.
  */
 export interface DistributionConfigurationState {
+    /**
+     * (Required) Amazon Resource Name (ARN) of the distribution configuration.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Date the distribution configuration was created.
+     */
     dateCreated?: pulumi.Input<string>;
+    /**
+     * Date the distribution configuration was updated.
+     */
     dateUpdated?: pulumi.Input<string>;
+    /**
+     * Description of the distribution configuration.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * One or more configuration blocks with distribution settings. Detailed below.
+     */
     distributions?: pulumi.Input<pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistribution>[]>;
+    /**
+     * Name of the distribution configuration.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -102,8 +184,20 @@ export interface DistributionConfigurationState {
  * The set of arguments for constructing a DistributionConfiguration resource.
  */
 export interface DistributionConfigurationArgs {
+    /**
+     * Description of the distribution configuration.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * One or more configuration blocks with distribution settings. Detailed below.
+     */
     distributions: pulumi.Input<pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistribution>[]>;
+    /**
+     * Name of the distribution configuration.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

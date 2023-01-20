@@ -11,9 +11,15 @@ import (
 )
 
 type DetectorDatasources struct {
-	Kubernetes        *DetectorDatasourcesKubernetes        `pulumi:"kubernetes"`
+	// Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// See Kubernetes and Kubernetes Audit Logs below for more details.
+	Kubernetes *DetectorDatasourcesKubernetes `pulumi:"kubernetes"`
+	// Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
+	// See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
 	MalwareProtection *DetectorDatasourcesMalwareProtection `pulumi:"malwareProtection"`
-	S3Logs            *DetectorDatasourcesS3Logs            `pulumi:"s3Logs"`
+	// Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+	// See S3 Logs below for more details.
+	S3Logs *DetectorDatasourcesS3Logs `pulumi:"s3Logs"`
 }
 
 // DetectorDatasourcesInput is an input type that accepts DetectorDatasourcesArgs and DetectorDatasourcesOutput values.
@@ -28,9 +34,15 @@ type DetectorDatasourcesInput interface {
 }
 
 type DetectorDatasourcesArgs struct {
-	Kubernetes        DetectorDatasourcesKubernetesPtrInput        `pulumi:"kubernetes"`
+	// Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// See Kubernetes and Kubernetes Audit Logs below for more details.
+	Kubernetes DetectorDatasourcesKubernetesPtrInput `pulumi:"kubernetes"`
+	// Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
+	// See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
 	MalwareProtection DetectorDatasourcesMalwareProtectionPtrInput `pulumi:"malwareProtection"`
-	S3Logs            DetectorDatasourcesS3LogsPtrInput            `pulumi:"s3Logs"`
+	// Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+	// See S3 Logs below for more details.
+	S3Logs DetectorDatasourcesS3LogsPtrInput `pulumi:"s3Logs"`
 }
 
 func (DetectorDatasourcesArgs) ElementType() reflect.Type {
@@ -110,14 +122,20 @@ func (o DetectorDatasourcesOutput) ToDetectorDatasourcesPtrOutputWithContext(ctx
 	}).(DetectorDatasourcesPtrOutput)
 }
 
+// Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// See Kubernetes and Kubernetes Audit Logs below for more details.
 func (o DetectorDatasourcesOutput) Kubernetes() DetectorDatasourcesKubernetesPtrOutput {
 	return o.ApplyT(func(v DetectorDatasources) *DetectorDatasourcesKubernetes { return v.Kubernetes }).(DetectorDatasourcesKubernetesPtrOutput)
 }
 
+// Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
+// See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
 func (o DetectorDatasourcesOutput) MalwareProtection() DetectorDatasourcesMalwareProtectionPtrOutput {
 	return o.ApplyT(func(v DetectorDatasources) *DetectorDatasourcesMalwareProtection { return v.MalwareProtection }).(DetectorDatasourcesMalwareProtectionPtrOutput)
 }
 
+// Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+// See S3 Logs below for more details.
 func (o DetectorDatasourcesOutput) S3Logs() DetectorDatasourcesS3LogsPtrOutput {
 	return o.ApplyT(func(v DetectorDatasources) *DetectorDatasourcesS3Logs { return v.S3Logs }).(DetectorDatasourcesS3LogsPtrOutput)
 }
@@ -146,6 +164,8 @@ func (o DetectorDatasourcesPtrOutput) Elem() DetectorDatasourcesOutput {
 	}).(DetectorDatasourcesOutput)
 }
 
+// Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// See Kubernetes and Kubernetes Audit Logs below for more details.
 func (o DetectorDatasourcesPtrOutput) Kubernetes() DetectorDatasourcesKubernetesPtrOutput {
 	return o.ApplyT(func(v *DetectorDatasources) *DetectorDatasourcesKubernetes {
 		if v == nil {
@@ -155,6 +175,8 @@ func (o DetectorDatasourcesPtrOutput) Kubernetes() DetectorDatasourcesKubernetes
 	}).(DetectorDatasourcesKubernetesPtrOutput)
 }
 
+// Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
+// See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
 func (o DetectorDatasourcesPtrOutput) MalwareProtection() DetectorDatasourcesMalwareProtectionPtrOutput {
 	return o.ApplyT(func(v *DetectorDatasources) *DetectorDatasourcesMalwareProtection {
 		if v == nil {
@@ -164,6 +186,8 @@ func (o DetectorDatasourcesPtrOutput) MalwareProtection() DetectorDatasourcesMal
 	}).(DetectorDatasourcesMalwareProtectionPtrOutput)
 }
 
+// Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+// See S3 Logs below for more details.
 func (o DetectorDatasourcesPtrOutput) S3Logs() DetectorDatasourcesS3LogsPtrOutput {
 	return o.ApplyT(func(v *DetectorDatasources) *DetectorDatasourcesS3Logs {
 		if v == nil {
@@ -174,6 +198,8 @@ func (o DetectorDatasourcesPtrOutput) S3Logs() DetectorDatasourcesS3LogsPtrOutpu
 }
 
 type DetectorDatasourcesKubernetes struct {
+	// Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// See Kubernetes Audit Logs below for more details.
 	AuditLogs DetectorDatasourcesKubernetesAuditLogs `pulumi:"auditLogs"`
 }
 
@@ -189,6 +215,8 @@ type DetectorDatasourcesKubernetesInput interface {
 }
 
 type DetectorDatasourcesKubernetesArgs struct {
+	// Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// See Kubernetes Audit Logs below for more details.
 	AuditLogs DetectorDatasourcesKubernetesAuditLogsInput `pulumi:"auditLogs"`
 }
 
@@ -269,6 +297,8 @@ func (o DetectorDatasourcesKubernetesOutput) ToDetectorDatasourcesKubernetesPtrO
 	}).(DetectorDatasourcesKubernetesPtrOutput)
 }
 
+// Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// See Kubernetes Audit Logs below for more details.
 func (o DetectorDatasourcesKubernetesOutput) AuditLogs() DetectorDatasourcesKubernetesAuditLogsOutput {
 	return o.ApplyT(func(v DetectorDatasourcesKubernetes) DetectorDatasourcesKubernetesAuditLogs { return v.AuditLogs }).(DetectorDatasourcesKubernetesAuditLogsOutput)
 }
@@ -297,6 +327,8 @@ func (o DetectorDatasourcesKubernetesPtrOutput) Elem() DetectorDatasourcesKubern
 	}).(DetectorDatasourcesKubernetesOutput)
 }
 
+// Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// See Kubernetes Audit Logs below for more details.
 func (o DetectorDatasourcesKubernetesPtrOutput) AuditLogs() DetectorDatasourcesKubernetesAuditLogsPtrOutput {
 	return o.ApplyT(func(v *DetectorDatasourcesKubernetes) *DetectorDatasourcesKubernetesAuditLogs {
 		if v == nil {
@@ -307,6 +339,8 @@ func (o DetectorDatasourcesKubernetesPtrOutput) AuditLogs() DetectorDatasourcesK
 }
 
 type DetectorDatasourcesKubernetesAuditLogs struct {
+	// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// Defaults to `true`.
 	Enable bool `pulumi:"enable"`
 }
 
@@ -322,6 +356,8 @@ type DetectorDatasourcesKubernetesAuditLogsInput interface {
 }
 
 type DetectorDatasourcesKubernetesAuditLogsArgs struct {
+	// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// Defaults to `true`.
 	Enable pulumi.BoolInput `pulumi:"enable"`
 }
 
@@ -402,6 +438,8 @@ func (o DetectorDatasourcesKubernetesAuditLogsOutput) ToDetectorDatasourcesKuber
 	}).(DetectorDatasourcesKubernetesAuditLogsPtrOutput)
 }
 
+// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// Defaults to `true`.
 func (o DetectorDatasourcesKubernetesAuditLogsOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v DetectorDatasourcesKubernetesAuditLogs) bool { return v.Enable }).(pulumi.BoolOutput)
 }
@@ -430,6 +468,8 @@ func (o DetectorDatasourcesKubernetesAuditLogsPtrOutput) Elem() DetectorDatasour
 	}).(DetectorDatasourcesKubernetesAuditLogsOutput)
 }
 
+// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// Defaults to `true`.
 func (o DetectorDatasourcesKubernetesAuditLogsPtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DetectorDatasourcesKubernetesAuditLogs) *bool {
 		if v == nil {
@@ -440,6 +480,8 @@ func (o DetectorDatasourcesKubernetesAuditLogsPtrOutput) Enable() pulumi.BoolPtr
 }
 
 type DetectorDatasourcesMalwareProtection struct {
+	// Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector.
+	// See Scan EC2 instance with findings below for more details.
 	ScanEc2InstanceWithFindings DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings `pulumi:"scanEc2InstanceWithFindings"`
 }
 
@@ -455,6 +497,8 @@ type DetectorDatasourcesMalwareProtectionInput interface {
 }
 
 type DetectorDatasourcesMalwareProtectionArgs struct {
+	// Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector.
+	// See Scan EC2 instance with findings below for more details.
 	ScanEc2InstanceWithFindings DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsInput `pulumi:"scanEc2InstanceWithFindings"`
 }
 
@@ -535,6 +579,8 @@ func (o DetectorDatasourcesMalwareProtectionOutput) ToDetectorDatasourcesMalware
 	}).(DetectorDatasourcesMalwareProtectionPtrOutput)
 }
 
+// Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector.
+// See Scan EC2 instance with findings below for more details.
 func (o DetectorDatasourcesMalwareProtectionOutput) ScanEc2InstanceWithFindings() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput {
 	return o.ApplyT(func(v DetectorDatasourcesMalwareProtection) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings {
 		return v.ScanEc2InstanceWithFindings
@@ -565,6 +611,8 @@ func (o DetectorDatasourcesMalwareProtectionPtrOutput) Elem() DetectorDatasource
 	}).(DetectorDatasourcesMalwareProtectionOutput)
 }
 
+// Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector.
+// See Scan EC2 instance with findings below for more details.
 func (o DetectorDatasourcesMalwareProtectionPtrOutput) ScanEc2InstanceWithFindings() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
 	return o.ApplyT(func(v *DetectorDatasourcesMalwareProtection) *DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings {
 		if v == nil {
@@ -575,6 +623,8 @@ func (o DetectorDatasourcesMalwareProtectionPtrOutput) ScanEc2InstanceWithFindin
 }
 
 type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings struct {
+	// Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings.
+	// See EBS volumes below for more details.
 	EbsVolumes DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes `pulumi:"ebsVolumes"`
 }
 
@@ -590,6 +640,8 @@ type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsInput interf
 }
 
 type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs struct {
+	// Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings.
+	// See EBS volumes below for more details.
 	EbsVolumes DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesInput `pulumi:"ebsVolumes"`
 }
 
@@ -670,6 +722,8 @@ func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) T
 	}).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput)
 }
 
+// Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings.
+// See EBS volumes below for more details.
 func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) EbsVolumes() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput {
 	return o.ApplyT(func(v DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes {
 		return v.EbsVolumes
@@ -700,6 +754,8 @@ func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput
 	}).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput)
 }
 
+// Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings.
+// See EBS volumes below for more details.
 func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput) EbsVolumes() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
 	return o.ApplyT(func(v *DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings) *DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes {
 		if v == nil {
@@ -710,6 +766,8 @@ func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput
 }
 
 type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes struct {
+	// If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) as data source for the detector.
+	// Defaults to `true`.
 	Enable bool `pulumi:"enable"`
 }
 
@@ -725,6 +783,8 @@ type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesIn
 }
 
 type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs struct {
+	// If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) as data source for the detector.
+	// Defaults to `true`.
 	Enable pulumi.BoolInput `pulumi:"enable"`
 }
 
@@ -805,6 +865,8 @@ func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolume
 	}).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput)
 }
 
+// If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) as data source for the detector.
+// Defaults to `true`.
 func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes) bool {
 		return v.Enable
@@ -835,6 +897,8 @@ func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolume
 	}).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput)
 }
 
+// If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) as data source for the detector.
+// Defaults to `true`.
 func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes) *bool {
 		if v == nil {
@@ -845,6 +909,7 @@ func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolume
 }
 
 type DetectorDatasourcesS3Logs struct {
+	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
 	Enable bool `pulumi:"enable"`
 }
 
@@ -860,6 +925,7 @@ type DetectorDatasourcesS3LogsInput interface {
 }
 
 type DetectorDatasourcesS3LogsArgs struct {
+	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
 	Enable pulumi.BoolInput `pulumi:"enable"`
 }
 
@@ -940,6 +1006,7 @@ func (o DetectorDatasourcesS3LogsOutput) ToDetectorDatasourcesS3LogsPtrOutputWit
 	}).(DetectorDatasourcesS3LogsPtrOutput)
 }
 
+// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
 func (o DetectorDatasourcesS3LogsOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v DetectorDatasourcesS3Logs) bool { return v.Enable }).(pulumi.BoolOutput)
 }
@@ -968,6 +1035,7 @@ func (o DetectorDatasourcesS3LogsPtrOutput) Elem() DetectorDatasourcesS3LogsOutp
 	}).(DetectorDatasourcesS3LogsOutput)
 }
 
+// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
 func (o DetectorDatasourcesS3LogsPtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DetectorDatasourcesS3Logs) *bool {
 		if v == nil {
@@ -1111,13 +1179,20 @@ func (o FilterFindingCriteriaPtrOutput) Criterions() FilterFindingCriteriaCriter
 }
 
 type FilterFindingCriteriaCriterion struct {
-	Equals             []string `pulumi:"equals"`
-	Field              string   `pulumi:"field"`
-	GreaterThan        *string  `pulumi:"greaterThan"`
-	GreaterThanOrEqual *string  `pulumi:"greaterThanOrEqual"`
-	LessThan           *string  `pulumi:"lessThan"`
-	LessThanOrEqual    *string  `pulumi:"lessThanOrEqual"`
-	NotEquals          []string `pulumi:"notEquals"`
+	// List of string values to be evaluated.
+	Equals []string `pulumi:"equals"`
+	// The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
+	Field string `pulumi:"field"`
+	// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	GreaterThan *string `pulumi:"greaterThan"`
+	// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	GreaterThanOrEqual *string `pulumi:"greaterThanOrEqual"`
+	// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	LessThan *string `pulumi:"lessThan"`
+	// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	LessThanOrEqual *string `pulumi:"lessThanOrEqual"`
+	// List of string values to be evaluated.
+	NotEquals []string `pulumi:"notEquals"`
 }
 
 // FilterFindingCriteriaCriterionInput is an input type that accepts FilterFindingCriteriaCriterionArgs and FilterFindingCriteriaCriterionOutput values.
@@ -1132,13 +1207,20 @@ type FilterFindingCriteriaCriterionInput interface {
 }
 
 type FilterFindingCriteriaCriterionArgs struct {
-	Equals             pulumi.StringArrayInput `pulumi:"equals"`
-	Field              pulumi.StringInput      `pulumi:"field"`
-	GreaterThan        pulumi.StringPtrInput   `pulumi:"greaterThan"`
-	GreaterThanOrEqual pulumi.StringPtrInput   `pulumi:"greaterThanOrEqual"`
-	LessThan           pulumi.StringPtrInput   `pulumi:"lessThan"`
-	LessThanOrEqual    pulumi.StringPtrInput   `pulumi:"lessThanOrEqual"`
-	NotEquals          pulumi.StringArrayInput `pulumi:"notEquals"`
+	// List of string values to be evaluated.
+	Equals pulumi.StringArrayInput `pulumi:"equals"`
+	// The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
+	Field pulumi.StringInput `pulumi:"field"`
+	// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	GreaterThan pulumi.StringPtrInput `pulumi:"greaterThan"`
+	// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	GreaterThanOrEqual pulumi.StringPtrInput `pulumi:"greaterThanOrEqual"`
+	// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	LessThan pulumi.StringPtrInput `pulumi:"lessThan"`
+	// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	LessThanOrEqual pulumi.StringPtrInput `pulumi:"lessThanOrEqual"`
+	// List of string values to be evaluated.
+	NotEquals pulumi.StringArrayInput `pulumi:"notEquals"`
 }
 
 func (FilterFindingCriteriaCriterionArgs) ElementType() reflect.Type {
@@ -1192,30 +1274,37 @@ func (o FilterFindingCriteriaCriterionOutput) ToFilterFindingCriteriaCriterionOu
 	return o
 }
 
+// List of string values to be evaluated.
 func (o FilterFindingCriteriaCriterionOutput) Equals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FilterFindingCriteriaCriterion) []string { return v.Equals }).(pulumi.StringArrayOutput)
 }
 
+// The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
 func (o FilterFindingCriteriaCriterionOutput) Field() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFindingCriteriaCriterion) string { return v.Field }).(pulumi.StringOutput)
 }
 
+// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o FilterFindingCriteriaCriterionOutput) GreaterThan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFindingCriteriaCriterion) *string { return v.GreaterThan }).(pulumi.StringPtrOutput)
 }
 
+// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o FilterFindingCriteriaCriterionOutput) GreaterThanOrEqual() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFindingCriteriaCriterion) *string { return v.GreaterThanOrEqual }).(pulumi.StringPtrOutput)
 }
 
+// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o FilterFindingCriteriaCriterionOutput) LessThan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFindingCriteriaCriterion) *string { return v.LessThan }).(pulumi.StringPtrOutput)
 }
 
+// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o FilterFindingCriteriaCriterionOutput) LessThanOrEqual() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFindingCriteriaCriterion) *string { return v.LessThanOrEqual }).(pulumi.StringPtrOutput)
 }
 
+// List of string values to be evaluated.
 func (o FilterFindingCriteriaCriterionOutput) NotEquals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FilterFindingCriteriaCriterion) []string { return v.NotEquals }).(pulumi.StringArrayOutput)
 }
@@ -1241,9 +1330,12 @@ func (o FilterFindingCriteriaCriterionArrayOutput) Index(i pulumi.IntInput) Filt
 }
 
 type OrganizationConfigurationDatasources struct {
-	Kubernetes        *OrganizationConfigurationDatasourcesKubernetes        `pulumi:"kubernetes"`
+	// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
+	Kubernetes *OrganizationConfigurationDatasourcesKubernetes `pulumi:"kubernetes"`
+	// Enable Malware Protection automatically for new member accounts.
 	MalwareProtection *OrganizationConfigurationDatasourcesMalwareProtection `pulumi:"malwareProtection"`
-	S3Logs            *OrganizationConfigurationDatasourcesS3Logs            `pulumi:"s3Logs"`
+	// Enable S3 Protection automatically for new member accounts.
+	S3Logs *OrganizationConfigurationDatasourcesS3Logs `pulumi:"s3Logs"`
 }
 
 // OrganizationConfigurationDatasourcesInput is an input type that accepts OrganizationConfigurationDatasourcesArgs and OrganizationConfigurationDatasourcesOutput values.
@@ -1258,9 +1350,12 @@ type OrganizationConfigurationDatasourcesInput interface {
 }
 
 type OrganizationConfigurationDatasourcesArgs struct {
-	Kubernetes        OrganizationConfigurationDatasourcesKubernetesPtrInput        `pulumi:"kubernetes"`
+	// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
+	Kubernetes OrganizationConfigurationDatasourcesKubernetesPtrInput `pulumi:"kubernetes"`
+	// Enable Malware Protection automatically for new member accounts.
 	MalwareProtection OrganizationConfigurationDatasourcesMalwareProtectionPtrInput `pulumi:"malwareProtection"`
-	S3Logs            OrganizationConfigurationDatasourcesS3LogsPtrInput            `pulumi:"s3Logs"`
+	// Enable S3 Protection automatically for new member accounts.
+	S3Logs OrganizationConfigurationDatasourcesS3LogsPtrInput `pulumi:"s3Logs"`
 }
 
 func (OrganizationConfigurationDatasourcesArgs) ElementType() reflect.Type {
@@ -1340,18 +1435,21 @@ func (o OrganizationConfigurationDatasourcesOutput) ToOrganizationConfigurationD
 	}).(OrganizationConfigurationDatasourcesPtrOutput)
 }
 
+// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
 func (o OrganizationConfigurationDatasourcesOutput) Kubernetes() OrganizationConfigurationDatasourcesKubernetesPtrOutput {
 	return o.ApplyT(func(v OrganizationConfigurationDatasources) *OrganizationConfigurationDatasourcesKubernetes {
 		return v.Kubernetes
 	}).(OrganizationConfigurationDatasourcesKubernetesPtrOutput)
 }
 
+// Enable Malware Protection automatically for new member accounts.
 func (o OrganizationConfigurationDatasourcesOutput) MalwareProtection() OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput {
 	return o.ApplyT(func(v OrganizationConfigurationDatasources) *OrganizationConfigurationDatasourcesMalwareProtection {
 		return v.MalwareProtection
 	}).(OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput)
 }
 
+// Enable S3 Protection automatically for new member accounts.
 func (o OrganizationConfigurationDatasourcesOutput) S3Logs() OrganizationConfigurationDatasourcesS3LogsPtrOutput {
 	return o.ApplyT(func(v OrganizationConfigurationDatasources) *OrganizationConfigurationDatasourcesS3Logs {
 		return v.S3Logs
@@ -1382,6 +1480,7 @@ func (o OrganizationConfigurationDatasourcesPtrOutput) Elem() OrganizationConfig
 	}).(OrganizationConfigurationDatasourcesOutput)
 }
 
+// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
 func (o OrganizationConfigurationDatasourcesPtrOutput) Kubernetes() OrganizationConfigurationDatasourcesKubernetesPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationDatasources) *OrganizationConfigurationDatasourcesKubernetes {
 		if v == nil {
@@ -1391,6 +1490,7 @@ func (o OrganizationConfigurationDatasourcesPtrOutput) Kubernetes() Organization
 	}).(OrganizationConfigurationDatasourcesKubernetesPtrOutput)
 }
 
+// Enable Malware Protection automatically for new member accounts.
 func (o OrganizationConfigurationDatasourcesPtrOutput) MalwareProtection() OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationDatasources) *OrganizationConfigurationDatasourcesMalwareProtection {
 		if v == nil {
@@ -1400,6 +1500,7 @@ func (o OrganizationConfigurationDatasourcesPtrOutput) MalwareProtection() Organ
 	}).(OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput)
 }
 
+// Enable S3 Protection automatically for new member accounts.
 func (o OrganizationConfigurationDatasourcesPtrOutput) S3Logs() OrganizationConfigurationDatasourcesS3LogsPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationDatasources) *OrganizationConfigurationDatasourcesS3Logs {
 		if v == nil {
@@ -1410,6 +1511,8 @@ func (o OrganizationConfigurationDatasourcesPtrOutput) S3Logs() OrganizationConf
 }
 
 type OrganizationConfigurationDatasourcesKubernetes struct {
+	// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// See Kubernetes Audit Logs below for more details.
 	AuditLogs OrganizationConfigurationDatasourcesKubernetesAuditLogs `pulumi:"auditLogs"`
 }
 
@@ -1425,6 +1528,8 @@ type OrganizationConfigurationDatasourcesKubernetesInput interface {
 }
 
 type OrganizationConfigurationDatasourcesKubernetesArgs struct {
+	// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// See Kubernetes Audit Logs below for more details.
 	AuditLogs OrganizationConfigurationDatasourcesKubernetesAuditLogsInput `pulumi:"auditLogs"`
 }
 
@@ -1505,6 +1610,8 @@ func (o OrganizationConfigurationDatasourcesKubernetesOutput) ToOrganizationConf
 	}).(OrganizationConfigurationDatasourcesKubernetesPtrOutput)
 }
 
+// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// See Kubernetes Audit Logs below for more details.
 func (o OrganizationConfigurationDatasourcesKubernetesOutput) AuditLogs() OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput {
 	return o.ApplyT(func(v OrganizationConfigurationDatasourcesKubernetes) OrganizationConfigurationDatasourcesKubernetesAuditLogs {
 		return v.AuditLogs
@@ -1535,6 +1642,8 @@ func (o OrganizationConfigurationDatasourcesKubernetesPtrOutput) Elem() Organiza
 	}).(OrganizationConfigurationDatasourcesKubernetesOutput)
 }
 
+// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// See Kubernetes Audit Logs below for more details.
 func (o OrganizationConfigurationDatasourcesKubernetesPtrOutput) AuditLogs() OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesKubernetes) *OrganizationConfigurationDatasourcesKubernetesAuditLogs {
 		if v == nil {
@@ -1545,6 +1654,8 @@ func (o OrganizationConfigurationDatasourcesKubernetesPtrOutput) AuditLogs() Org
 }
 
 type OrganizationConfigurationDatasourcesKubernetesAuditLogs struct {
+	// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// Defaults to `true`.
 	Enable bool `pulumi:"enable"`
 }
 
@@ -1560,6 +1671,8 @@ type OrganizationConfigurationDatasourcesKubernetesAuditLogsInput interface {
 }
 
 type OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs struct {
+	// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// Defaults to `true`.
 	Enable pulumi.BoolInput `pulumi:"enable"`
 }
 
@@ -1640,6 +1753,8 @@ func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput) ToOrganiz
 	}).(OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput)
 }
 
+// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// Defaults to `true`.
 func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v OrganizationConfigurationDatasourcesKubernetesAuditLogs) bool { return v.Enable }).(pulumi.BoolOutput)
 }
@@ -1668,6 +1783,8 @@ func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput) Elem()
 	}).(OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput)
 }
 
+// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// Defaults to `true`.
 func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesKubernetesAuditLogs) *bool {
 		if v == nil {
@@ -1678,6 +1795,8 @@ func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput) Enable
 }
 
 type OrganizationConfigurationDatasourcesMalwareProtection struct {
+	// Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization.
+	// See Scan EC2 instance with findings below for more details.
 	ScanEc2InstanceWithFindings OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings `pulumi:"scanEc2InstanceWithFindings"`
 }
 
@@ -1693,6 +1812,8 @@ type OrganizationConfigurationDatasourcesMalwareProtectionInput interface {
 }
 
 type OrganizationConfigurationDatasourcesMalwareProtectionArgs struct {
+	// Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization.
+	// See Scan EC2 instance with findings below for more details.
 	ScanEc2InstanceWithFindings OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsInput `pulumi:"scanEc2InstanceWithFindings"`
 }
 
@@ -1773,6 +1894,8 @@ func (o OrganizationConfigurationDatasourcesMalwareProtectionOutput) ToOrganizat
 	}).(OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput)
 }
 
+// Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization.
+// See Scan EC2 instance with findings below for more details.
 func (o OrganizationConfigurationDatasourcesMalwareProtectionOutput) ScanEc2InstanceWithFindings() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput {
 	return o.ApplyT(func(v OrganizationConfigurationDatasourcesMalwareProtection) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings {
 		return v.ScanEc2InstanceWithFindings
@@ -1803,6 +1926,8 @@ func (o OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput) Elem() O
 	}).(OrganizationConfigurationDatasourcesMalwareProtectionOutput)
 }
 
+// Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization.
+// See Scan EC2 instance with findings below for more details.
 func (o OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput) ScanEc2InstanceWithFindings() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesMalwareProtection) *OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings {
 		if v == nil {
@@ -1813,6 +1938,8 @@ func (o OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput) ScanEc2I
 }
 
 type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings struct {
+	// Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization
+	// See EBS volumes below for more details.
 	EbsVolumes OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes `pulumi:"ebsVolumes"`
 }
 
@@ -1828,6 +1955,8 @@ type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFin
 }
 
 type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs struct {
+	// Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization
+	// See EBS volumes below for more details.
 	EbsVolumes OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesInput `pulumi:"ebsVolumes"`
 }
 
@@ -1908,6 +2037,8 @@ func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWith
 	}).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput)
 }
 
+// Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization
+// See EBS volumes below for more details.
 func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) EbsVolumes() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput {
 	return o.ApplyT(func(v OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes {
 		return v.EbsVolumes
@@ -1938,6 +2069,8 @@ func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWith
 	}).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput)
 }
 
+// Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization
+// See EBS volumes below for more details.
 func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput) EbsVolumes() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings) *OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes {
 		if v == nil {
@@ -1948,6 +2081,8 @@ func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWith
 }
 
 type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes struct {
+	// If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for all new accounts joining the organization.
+	// Defaults to `true`.
 	AutoEnable bool `pulumi:"autoEnable"`
 }
 
@@ -1963,6 +2098,8 @@ type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFin
 }
 
 type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs struct {
+	// If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for all new accounts joining the organization.
+	// Defaults to `true`.
 	AutoEnable pulumi.BoolInput `pulumi:"autoEnable"`
 }
 
@@ -2043,6 +2180,8 @@ func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWith
 	}).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput)
 }
 
+// If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for all new accounts joining the organization.
+// Defaults to `true`.
 func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) AutoEnable() pulumi.BoolOutput {
 	return o.ApplyT(func(v OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes) bool {
 		return v.AutoEnable
@@ -2073,6 +2212,8 @@ func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWith
 	}).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput)
 }
 
+// If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for all new accounts joining the organization.
+// Defaults to `true`.
 func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput) AutoEnable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes) *bool {
 		if v == nil {
@@ -2083,6 +2224,7 @@ func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWith
 }
 
 type OrganizationConfigurationDatasourcesS3Logs struct {
+	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 	AutoEnable bool `pulumi:"autoEnable"`
 }
 
@@ -2098,6 +2240,7 @@ type OrganizationConfigurationDatasourcesS3LogsInput interface {
 }
 
 type OrganizationConfigurationDatasourcesS3LogsArgs struct {
+	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 	AutoEnable pulumi.BoolInput `pulumi:"autoEnable"`
 }
 
@@ -2178,6 +2321,7 @@ func (o OrganizationConfigurationDatasourcesS3LogsOutput) ToOrganizationConfigur
 	}).(OrganizationConfigurationDatasourcesS3LogsPtrOutput)
 }
 
+// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 func (o OrganizationConfigurationDatasourcesS3LogsOutput) AutoEnable() pulumi.BoolOutput {
 	return o.ApplyT(func(v OrganizationConfigurationDatasourcesS3Logs) bool { return v.AutoEnable }).(pulumi.BoolOutput)
 }
@@ -2206,6 +2350,7 @@ func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) Elem() Organization
 	}).(OrganizationConfigurationDatasourcesS3LogsOutput)
 }
 
+// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) AutoEnable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesS3Logs) *bool {
 		if v == nil {

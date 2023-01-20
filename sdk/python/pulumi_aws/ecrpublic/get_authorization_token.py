@@ -40,11 +40,17 @@ class GetAuthorizationTokenResult:
     @property
     @pulumi.getter(name="authorizationToken")
     def authorization_token(self) -> str:
+        """
+        Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
+        """
         return pulumi.get(self, "authorization_token")
 
     @property
     @pulumi.getter(name="expiresAt")
     def expires_at(self) -> str:
+        """
+        Time in UTC RFC3339 format when the authorization token expires.
+        """
         return pulumi.get(self, "expires_at")
 
     @property
@@ -58,11 +64,17 @@ class GetAuthorizationTokenResult:
     @property
     @pulumi.getter
     def password(self) -> str:
+        """
+        Password decoded from the authorization token.
+        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> str:
+        """
+        User name decoded from the authorization token.
+        """
         return pulumi.get(self, "user_name")
 
 
@@ -81,7 +93,16 @@ class AwaitableGetAuthorizationTokenResult(GetAuthorizationTokenResult):
 
 def get_authorization_token(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationTokenResult:
     """
-    Use this data source to access information about an existing resource.
+    The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name and password to be retrieved for a Public ECR repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    token = aws.ecrpublic.get_authorization_token()
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

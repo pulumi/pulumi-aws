@@ -7,6 +7,36 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an HDFS Location within AWS DataSync.
+ *
+ * > **NOTE:** The DataSync Agents must be available before creating this resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.datasync.LocationHdfs("example", {
+ *     agentArns: [aws_datasync_agent.example.arn],
+ *     authenticationType: "SIMPLE",
+ *     simpleUser: "example",
+ *     nameNodes: [{
+ *         hostname: aws_instance.example.private_dns,
+ *         port: 80,
+ *     }],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_datasync_location_hdfs` can be imported by using the Amazon Resource Name (ARN), e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:datasync/locationHdfs:LocationHdfs example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+ * ```
+ */
 export class LocationHdfs extends pulumi.CustomResource {
     /**
      * Get an existing LocationHdfs resource's state with the given name, ID, and optional extra
@@ -35,20 +65,65 @@ export class LocationHdfs extends pulumi.CustomResource {
         return obj['__pulumiType'] === LocationHdfs.__pulumiType;
     }
 
+    /**
+     * A list of DataSync Agent ARNs with which this location will be associated.
+     */
     public readonly agentArns!: pulumi.Output<string[]>;
+    /**
+     * Amazon Resource Name (ARN) of the DataSync Location.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
+     */
     public readonly authenticationType!: pulumi.Output<string | undefined>;
+    /**
+     * The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
+     */
     public readonly blockSize!: pulumi.Output<number | undefined>;
+    /**
+     * The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+     */
     public readonly kerberosKeytab!: pulumi.Output<string | undefined>;
+    /**
+     * The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+     */
     public readonly kerberosKrb5Conf!: pulumi.Output<string | undefined>;
+    /**
+     * The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+     */
     public readonly kerberosPrincipal!: pulumi.Output<string | undefined>;
+    /**
+     * The URI of the HDFS cluster's Key Management Server (KMS).
+     */
     public readonly kmsKeyProviderUri!: pulumi.Output<string | undefined>;
+    /**
+     * The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
+     */
     public readonly nameNodes!: pulumi.Output<outputs.datasync.LocationHdfsNameNode[]>;
+    /**
+     * The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+     */
     public readonly qopConfiguration!: pulumi.Output<outputs.datasync.LocationHdfsQopConfiguration | undefined>;
+    /**
+     * The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
+     */
     public readonly replicationFactor!: pulumi.Output<number | undefined>;
+    /**
+     * The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authenticationType`, this parameter is required.
+     */
     public readonly simpleUser!: pulumi.Output<string | undefined>;
+    /**
+     * A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
+     */
     public readonly subdirectory!: pulumi.Output<string | undefined>;
+    /**
+     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly uri!: pulumi.Output<string>;
 
@@ -115,20 +190,65 @@ export class LocationHdfs extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LocationHdfs resources.
  */
 export interface LocationHdfsState {
+    /**
+     * A list of DataSync Agent ARNs with which this location will be associated.
+     */
     agentArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Amazon Resource Name (ARN) of the DataSync Location.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
+     */
     authenticationType?: pulumi.Input<string>;
+    /**
+     * The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
+     */
     blockSize?: pulumi.Input<number>;
+    /**
+     * The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+     */
     kerberosKeytab?: pulumi.Input<string>;
+    /**
+     * The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+     */
     kerberosKrb5Conf?: pulumi.Input<string>;
+    /**
+     * The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+     */
     kerberosPrincipal?: pulumi.Input<string>;
+    /**
+     * The URI of the HDFS cluster's Key Management Server (KMS).
+     */
     kmsKeyProviderUri?: pulumi.Input<string>;
+    /**
+     * The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
+     */
     nameNodes?: pulumi.Input<pulumi.Input<inputs.datasync.LocationHdfsNameNode>[]>;
+    /**
+     * The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+     */
     qopConfiguration?: pulumi.Input<inputs.datasync.LocationHdfsQopConfiguration>;
+    /**
+     * The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
+     */
     replicationFactor?: pulumi.Input<number>;
+    /**
+     * The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authenticationType`, this parameter is required.
+     */
     simpleUser?: pulumi.Input<string>;
+    /**
+     * A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
+     */
     subdirectory?: pulumi.Input<string>;
+    /**
+     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     uri?: pulumi.Input<string>;
 }
@@ -137,17 +257,56 @@ export interface LocationHdfsState {
  * The set of arguments for constructing a LocationHdfs resource.
  */
 export interface LocationHdfsArgs {
+    /**
+     * A list of DataSync Agent ARNs with which this location will be associated.
+     */
     agentArns: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
+     */
     authenticationType?: pulumi.Input<string>;
+    /**
+     * The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
+     */
     blockSize?: pulumi.Input<number>;
+    /**
+     * The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+     */
     kerberosKeytab?: pulumi.Input<string>;
+    /**
+     * The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+     */
     kerberosKrb5Conf?: pulumi.Input<string>;
+    /**
+     * The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authenticationType`, this parameter is required.
+     */
     kerberosPrincipal?: pulumi.Input<string>;
+    /**
+     * The URI of the HDFS cluster's Key Management Server (KMS).
+     */
     kmsKeyProviderUri?: pulumi.Input<string>;
+    /**
+     * The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
+     */
     nameNodes: pulumi.Input<pulumi.Input<inputs.datasync.LocationHdfsNameNode>[]>;
+    /**
+     * The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+     */
     qopConfiguration?: pulumi.Input<inputs.datasync.LocationHdfsQopConfiguration>;
+    /**
+     * The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
+     */
     replicationFactor?: pulumi.Input<number>;
+    /**
+     * The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authenticationType`, this parameter is required.
+     */
     simpleUser?: pulumi.Input<string>;
+    /**
+     * A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
+     */
     subdirectory?: pulumi.Input<string>;
+    /**
+     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

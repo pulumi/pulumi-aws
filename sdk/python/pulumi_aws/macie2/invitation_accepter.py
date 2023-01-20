@@ -17,12 +17,16 @@ class InvitationAccepterArgs:
                  administrator_account_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a InvitationAccepter resource.
+        :param pulumi.Input[str] administrator_account_id: The AWS account ID for the account that sent the invitation.
         """
         pulumi.set(__self__, "administrator_account_id", administrator_account_id)
 
     @property
     @pulumi.getter(name="administratorAccountId")
     def administrator_account_id(self) -> pulumi.Input[str]:
+        """
+        The AWS account ID for the account that sent the invitation.
+        """
         return pulumi.get(self, "administrator_account_id")
 
     @administrator_account_id.setter
@@ -37,6 +41,8 @@ class _InvitationAccepterState:
                  invitation_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering InvitationAccepter resources.
+        :param pulumi.Input[str] administrator_account_id: The AWS account ID for the account that sent the invitation.
+        :param pulumi.Input[str] invitation_id: The unique identifier for the invitation.
         """
         if administrator_account_id is not None:
             pulumi.set(__self__, "administrator_account_id", administrator_account_id)
@@ -46,6 +52,9 @@ class _InvitationAccepterState:
     @property
     @pulumi.getter(name="administratorAccountId")
     def administrator_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID for the account that sent the invitation.
+        """
         return pulumi.get(self, "administrator_account_id")
 
     @administrator_account_id.setter
@@ -55,6 +64,9 @@ class _InvitationAccepterState:
     @property
     @pulumi.getter(name="invitationId")
     def invitation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier for the invitation.
+        """
         return pulumi.get(self, "invitation_id")
 
     @invitation_id.setter
@@ -70,9 +82,38 @@ class InvitationAccepter(pulumi.CustomResource):
                  administrator_account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a InvitationAccepter resource with the given unique name, props, and options.
+        Provides a resource to manage an [Amazon Macie Invitation Accepter](https://docs.aws.amazon.com/macie/latest/APIReference/invitations-accept.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        primary_account = aws.macie2.Account("primaryAccount", opts=pulumi.ResourceOptions(provider="awsalternate"))
+        member_account = aws.macie2.Account("memberAccount")
+        primary_member = aws.macie2.Member("primaryMember",
+            account_id="ACCOUNT ID",
+            email="EMAIL",
+            invite=True,
+            invitation_message="Message of the invite",
+            opts=pulumi.ResourceOptions(provider="awsalternate",
+                depends_on=[primary_account]))
+        member_invitation_accepter = aws.macie2.InvitationAccepter("memberInvitationAccepter", administrator_account_id="ADMINISTRATOR ACCOUNT ID",
+        opts=pulumi.ResourceOptions(depends_on=[primary_member]))
+        ```
+
+        ## Import
+
+        `aws_macie2_invitation_accepter` can be imported using the admin account ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] administrator_account_id: The AWS account ID for the account that sent the invitation.
         """
         ...
     @overload
@@ -81,7 +122,35 @@ class InvitationAccepter(pulumi.CustomResource):
                  args: InvitationAccepterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a InvitationAccepter resource with the given unique name, props, and options.
+        Provides a resource to manage an [Amazon Macie Invitation Accepter](https://docs.aws.amazon.com/macie/latest/APIReference/invitations-accept.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        primary_account = aws.macie2.Account("primaryAccount", opts=pulumi.ResourceOptions(provider="awsalternate"))
+        member_account = aws.macie2.Account("memberAccount")
+        primary_member = aws.macie2.Member("primaryMember",
+            account_id="ACCOUNT ID",
+            email="EMAIL",
+            invite=True,
+            invitation_message="Message of the invite",
+            opts=pulumi.ResourceOptions(provider="awsalternate",
+                depends_on=[primary_account]))
+        member_invitation_accepter = aws.macie2.InvitationAccepter("memberInvitationAccepter", administrator_account_id="ADMINISTRATOR ACCOUNT ID",
+        opts=pulumi.ResourceOptions(depends_on=[primary_member]))
+        ```
+
+        ## Import
+
+        `aws_macie2_invitation_accepter` can be imported using the admin account ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param InvitationAccepterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,6 +199,8 @@ class InvitationAccepter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] administrator_account_id: The AWS account ID for the account that sent the invitation.
+        :param pulumi.Input[str] invitation_id: The unique identifier for the invitation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -142,10 +213,16 @@ class InvitationAccepter(pulumi.CustomResource):
     @property
     @pulumi.getter(name="administratorAccountId")
     def administrator_account_id(self) -> pulumi.Output[str]:
+        """
+        The AWS account ID for the account that sent the invitation.
+        """
         return pulumi.get(self, "administrator_account_id")
 
     @property
     @pulumi.getter(name="invitationId")
     def invitation_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier for the invitation.
+        """
         return pulumi.get(self, "invitation_id")
 

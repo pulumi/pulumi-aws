@@ -12,6 +12,9 @@ namespace Pulumi.Aws.SecretsManager.Inputs
 
     public sealed class SecretRotationRulesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the number of days between automatic scheduled rotations of the secret.
+        /// </summary>
         [Input("automaticallyAfterDays", required: true)]
         public Input<int> AutomaticallyAfterDays { get; set; } = null!;
 

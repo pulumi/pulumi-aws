@@ -11,6 +11,27 @@ namespace Pulumi.Aws.Ses
 {
     public static class GetActiveReceiptRuleSet
     {
+        /// <summary>
+        /// Retrieve the active SES receipt rule set
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = Aws.Ses.GetActiveReceiptRuleSet.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetActiveReceiptRuleSetResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActiveReceiptRuleSetResult>("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", InvokeArgs.Empty, options.WithDefaults());
     }
@@ -19,11 +40,17 @@ namespace Pulumi.Aws.Ses
     [OutputType]
     public sealed class GetActiveReceiptRuleSetResult
     {
+        /// <summary>
+        /// SES receipt rule set ARN.
+        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Name of the rule set
+        /// </summary>
         public readonly string RuleSetName;
 
         [OutputConstructor]

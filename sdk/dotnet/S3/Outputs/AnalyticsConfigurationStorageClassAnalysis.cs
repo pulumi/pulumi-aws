@@ -13,6 +13,9 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class AnalyticsConfigurationStorageClassAnalysis
     {
+        /// <summary>
+        /// Data export configuration (documented below).
+        /// </summary>
         public readonly Outputs.AnalyticsConfigurationStorageClassAnalysisDataExport DataExport;
 
         [OutputConstructor]

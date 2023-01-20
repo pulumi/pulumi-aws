@@ -11,11 +11,55 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Associates a Direct Connect Connection with a LAG.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleConnection, err := directconnect.NewConnection(ctx, "exampleConnection", &directconnect.ConnectionArgs{
+//				Bandwidth: pulumi.String("1Gbps"),
+//				Location:  pulumi.String("EqSe2-EQ"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinkAggregationGroup, err := directconnect.NewLinkAggregationGroup(ctx, "exampleLinkAggregationGroup", &directconnect.LinkAggregationGroupArgs{
+//				ConnectionsBandwidth: pulumi.String("1Gbps"),
+//				Location:             pulumi.String("EqSe2-EQ"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = directconnect.NewConnectionAssociation(ctx, "exampleConnectionAssociation", &directconnect.ConnectionAssociationArgs{
+//				ConnectionId: exampleConnection.ID(),
+//				LagId:        exampleLinkAggregationGroup.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type ConnectionAssociation struct {
 	pulumi.CustomResourceState
 
+	// The ID of the connection.
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
-	LagId        pulumi.StringOutput `pulumi:"lagId"`
+	// The ID of the LAG with which to associate the connection.
+	LagId pulumi.StringOutput `pulumi:"lagId"`
 }
 
 // NewConnectionAssociation registers a new resource with the given unique name, arguments, and options.
@@ -53,13 +97,17 @@ func GetConnectionAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConnectionAssociation resources.
 type connectionAssociationState struct {
+	// The ID of the connection.
 	ConnectionId *string `pulumi:"connectionId"`
-	LagId        *string `pulumi:"lagId"`
+	// The ID of the LAG with which to associate the connection.
+	LagId *string `pulumi:"lagId"`
 }
 
 type ConnectionAssociationState struct {
+	// The ID of the connection.
 	ConnectionId pulumi.StringPtrInput
-	LagId        pulumi.StringPtrInput
+	// The ID of the LAG with which to associate the connection.
+	LagId pulumi.StringPtrInput
 }
 
 func (ConnectionAssociationState) ElementType() reflect.Type {
@@ -67,14 +115,18 @@ func (ConnectionAssociationState) ElementType() reflect.Type {
 }
 
 type connectionAssociationArgs struct {
+	// The ID of the connection.
 	ConnectionId string `pulumi:"connectionId"`
-	LagId        string `pulumi:"lagId"`
+	// The ID of the LAG with which to associate the connection.
+	LagId string `pulumi:"lagId"`
 }
 
 // The set of arguments for constructing a ConnectionAssociation resource.
 type ConnectionAssociationArgs struct {
+	// The ID of the connection.
 	ConnectionId pulumi.StringInput
-	LagId        pulumi.StringInput
+	// The ID of the LAG with which to associate the connection.
+	LagId pulumi.StringInput
 }
 
 func (ConnectionAssociationArgs) ElementType() reflect.Type {
@@ -164,10 +216,12 @@ func (o ConnectionAssociationOutput) ToConnectionAssociationOutputWithContext(ct
 	return o
 }
 
+// The ID of the connection.
 func (o ConnectionAssociationOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionAssociation) pulumi.StringOutput { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
+// The ID of the LAG with which to associate the connection.
 func (o ConnectionAssociationOutput) LagId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionAssociation) pulumi.StringOutput { return v.LagId }).(pulumi.StringOutput)
 }

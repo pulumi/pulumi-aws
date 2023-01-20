@@ -4,6 +4,54 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Cognito User Group resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const mainUserPool = new aws.cognito.UserPool("mainUserPool", {});
+ * const groupRole = new aws.iam.Role("groupRole", {assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Federated": "cognito-identity.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRoleWithWebIdentity",
+ *       "Condition": {
+ *         "StringEquals": {
+ *           "cognito-identity.amazonaws.com:aud": "us-east-1:12345678-dead-beef-cafe-123456790ab"
+ *         },
+ *         "ForAnyValue:StringLike": {
+ *           "cognito-identity.amazonaws.com:amr": "authenticated"
+ *         }
+ *       }
+ *     }
+ *   ]
+ * }
+ * `});
+ * const mainUserGroup = new aws.cognito.UserGroup("mainUserGroup", {
+ *     userPoolId: mainUserPool.id,
+ *     description: "Managed by Pulumi",
+ *     precedence: 42,
+ *     roleArn: groupRole.arn,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Cognito User Groups can be imported using the `user_pool_id`/`name` attributes concatenated, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
+ * ```
+ */
 export class UserGroup extends pulumi.CustomResource {
     /**
      * Get an existing UserGroup resource's state with the given name, ID, and optional extra
@@ -32,10 +80,25 @@ export class UserGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserGroup.__pulumiType;
     }
 
+    /**
+     * The description of the user group.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the user group.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The precedence of the user group.
+     */
     public readonly precedence!: pulumi.Output<number | undefined>;
+    /**
+     * The ARN of the IAM role to be associated with the user group.
+     */
     public readonly roleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The user pool ID.
+     */
     public readonly userPoolId!: pulumi.Output<string>;
 
     /**
@@ -76,10 +139,25 @@ export class UserGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserGroup resources.
  */
 export interface UserGroupState {
+    /**
+     * The description of the user group.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the user group.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The precedence of the user group.
+     */
     precedence?: pulumi.Input<number>;
+    /**
+     * The ARN of the IAM role to be associated with the user group.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * The user pool ID.
+     */
     userPoolId?: pulumi.Input<string>;
 }
 
@@ -87,9 +165,24 @@ export interface UserGroupState {
  * The set of arguments for constructing a UserGroup resource.
  */
 export interface UserGroupArgs {
+    /**
+     * The description of the user group.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the user group.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The precedence of the user group.
+     */
     precedence?: pulumi.Input<number>;
+    /**
+     * The ARN of the IAM role to be associated with the user group.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * The user pool ID.
+     */
     userPoolId: pulumi.Input<string>;
 }

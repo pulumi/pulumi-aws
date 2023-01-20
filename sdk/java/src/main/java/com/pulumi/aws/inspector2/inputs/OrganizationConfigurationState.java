@@ -16,16 +16,32 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
 
     public static final OrganizationConfigurationState Empty = new OrganizationConfigurationState();
 
+    /**
+     * Configuration block for auto enabling. See below.
+     * 
+     */
     @Import(name="autoEnable")
     private @Nullable Output<OrganizationConfigurationAutoEnableArgs> autoEnable;
 
+    /**
+     * @return Configuration block for auto enabling. See below.
+     * 
+     */
     public Optional<Output<OrganizationConfigurationAutoEnableArgs>> autoEnable() {
         return Optional.ofNullable(this.autoEnable);
     }
 
+    /**
+     * Whether your configuration reached the max account limit.
+     * 
+     */
     @Import(name="maxAccountLimitReached")
     private @Nullable Output<Boolean> maxAccountLimitReached;
 
+    /**
+     * @return Whether your configuration reached the max account limit.
+     * 
+     */
     public Optional<Output<Boolean>> maxAccountLimitReached() {
         return Optional.ofNullable(this.maxAccountLimitReached);
     }
@@ -55,20 +71,44 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
             $ = new OrganizationConfigurationState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param autoEnable Configuration block for auto enabling. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoEnable(@Nullable Output<OrganizationConfigurationAutoEnableArgs> autoEnable) {
             $.autoEnable = autoEnable;
             return this;
         }
 
+        /**
+         * @param autoEnable Configuration block for auto enabling. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoEnable(OrganizationConfigurationAutoEnableArgs autoEnable) {
             return autoEnable(Output.of(autoEnable));
         }
 
+        /**
+         * @param maxAccountLimitReached Whether your configuration reached the max account limit.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxAccountLimitReached(@Nullable Output<Boolean> maxAccountLimitReached) {
             $.maxAccountLimitReached = maxAccountLimitReached;
             return this;
         }
 
+        /**
+         * @param maxAccountLimitReached Whether your configuration reached the max account limit.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxAccountLimitReached(Boolean maxAccountLimitReached) {
             return maxAccountLimitReached(Output.of(maxAccountLimitReached));
         }

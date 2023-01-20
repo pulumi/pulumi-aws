@@ -47,26 +47,46 @@ class GetOriginAccessIdentityResult:
     @property
     @pulumi.getter(name="callerReference")
     def caller_reference(self) -> str:
+        """
+        Internal value used by CloudFront to allow future
+        updates to the origin access identity.
+        """
         return pulumi.get(self, "caller_reference")
 
     @property
     @pulumi.getter(name="cloudfrontAccessIdentityPath")
     def cloudfront_access_identity_path(self) -> str:
+        """
+        A shortcut to the full path for the
+        origin access identity to use in CloudFront, see below.
+        """
         return pulumi.get(self, "cloudfront_access_identity_path")
 
     @property
     @pulumi.getter
     def comment(self) -> str:
+        """
+        An optional comment for the origin access identity.
+        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter
     def etag(self) -> str:
+        """
+        Current version of the origin access identity's information.
+        For example: `E2QWRUHAPOMQZL`.
+        """
         return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="iamArn")
     def iam_arn(self) -> str:
+        """
+        Pre-generated ARN for use in S3 bucket policies (see below).
+        Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
+        E2QWRUHAPOMQZL`.
+        """
         return pulumi.get(self, "iam_arn")
 
     @property
@@ -77,6 +97,11 @@ class GetOriginAccessIdentityResult:
     @property
     @pulumi.getter(name="s3CanonicalUserId")
     def s3_canonical_user_id(self) -> str:
+        """
+        The Amazon S3 canonical user ID for the origin
+        access identity, which you use when giving the origin access identity read
+        permission to an object in Amazon S3.
+        """
         return pulumi.get(self, "s3_canonical_user_id")
 
 
@@ -98,7 +123,21 @@ class AwaitableGetOriginAccessIdentityResult(GetOriginAccessIdentityResult):
 def get_origin_access_identity(id: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOriginAccessIdentityResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information for an Amazon CloudFront origin access identity.
+
+    ## Example Usage
+
+    The following example below creates a CloudFront origin access identity.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.cloudfront.get_origin_access_identity(id="EDFDVBD632BHDS5")
+    ```
+
+
+    :param str id: The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -119,6 +158,20 @@ def get_origin_access_identity(id: Optional[str] = None,
 def get_origin_access_identity_output(id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginAccessIdentityResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to retrieve information for an Amazon CloudFront origin access identity.
+
+    ## Example Usage
+
+    The following example below creates a CloudFront origin access identity.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.cloudfront.get_origin_access_identity(id="EDFDVBD632BHDS5")
+    ```
+
+
+    :param str id: The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
     """
     ...

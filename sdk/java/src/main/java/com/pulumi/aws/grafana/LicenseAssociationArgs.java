@@ -13,16 +13,32 @@ public final class LicenseAssociationArgs extends com.pulumi.resources.ResourceA
 
     public static final LicenseAssociationArgs Empty = new LicenseAssociationArgs();
 
+    /**
+     * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+     * 
+     */
     @Import(name="licenseType", required=true)
     private Output<String> licenseType;
 
+    /**
+     * @return The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+     * 
+     */
     public Output<String> licenseType() {
         return this.licenseType;
     }
 
+    /**
+     * The workspace id.
+     * 
+     */
     @Import(name="workspaceId", required=true)
     private Output<String> workspaceId;
 
+    /**
+     * @return The workspace id.
+     * 
+     */
     public Output<String> workspaceId() {
         return this.workspaceId;
     }
@@ -52,20 +68,44 @@ public final class LicenseAssociationArgs extends com.pulumi.resources.ResourceA
             $ = new LicenseAssociationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param licenseType The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder licenseType(Output<String> licenseType) {
             $.licenseType = licenseType;
             return this;
         }
 
+        /**
+         * @param licenseType The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder licenseType(String licenseType) {
             return licenseType(Output.of(licenseType));
         }
 
+        /**
+         * @param workspaceId The workspace id.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workspaceId(Output<String> workspaceId) {
             $.workspaceId = workspaceId;
             return this;
         }
 
+        /**
+         * @param workspaceId The workspace id.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workspaceId(String workspaceId) {
             return workspaceId(Output.of(workspaceId));
         }

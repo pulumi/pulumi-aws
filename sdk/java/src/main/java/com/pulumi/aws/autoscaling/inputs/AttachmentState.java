@@ -16,6 +16,8 @@ public final class AttachmentState extends com.pulumi.resources.ResourceArgs {
     public static final AttachmentState Empty = new AttachmentState();
 
     /**
+     * ARN of an ALB Target Group.
+     * 
      * @deprecated
      * Use lb_target_group_arn instead
      * 
@@ -25,6 +27,8 @@ public final class AttachmentState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> albTargetGroupArn;
 
     /**
+     * @return ARN of an ALB Target Group.
+     * 
      * @deprecated
      * Use lb_target_group_arn instead
      * 
@@ -34,23 +38,47 @@ public final class AttachmentState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.albTargetGroupArn);
     }
 
+    /**
+     * Name of ASG to associate with the ELB.
+     * 
+     */
     @Import(name="autoscalingGroupName")
     private @Nullable Output<String> autoscalingGroupName;
 
+    /**
+     * @return Name of ASG to associate with the ELB.
+     * 
+     */
     public Optional<Output<String>> autoscalingGroupName() {
         return Optional.ofNullable(this.autoscalingGroupName);
     }
 
+    /**
+     * Name of the ELB.
+     * 
+     */
     @Import(name="elb")
     private @Nullable Output<String> elb;
 
+    /**
+     * @return Name of the ELB.
+     * 
+     */
     public Optional<Output<String>> elb() {
         return Optional.ofNullable(this.elb);
     }
 
+    /**
+     * ARN of a load balancer target group.
+     * 
+     */
     @Import(name="lbTargetGroupArn")
     private @Nullable Output<String> lbTargetGroupArn;
 
+    /**
+     * @return ARN of a load balancer target group.
+     * 
+     */
     public Optional<Output<String>> lbTargetGroupArn() {
         return Optional.ofNullable(this.lbTargetGroupArn);
     }
@@ -83,6 +111,8 @@ public final class AttachmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param albTargetGroupArn ARN of an ALB Target Group.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -96,6 +126,8 @@ public final class AttachmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param albTargetGroupArn ARN of an ALB Target Group.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -107,29 +139,65 @@ public final class AttachmentState extends com.pulumi.resources.ResourceArgs {
             return albTargetGroupArn(Output.of(albTargetGroupArn));
         }
 
+        /**
+         * @param autoscalingGroupName Name of ASG to associate with the ELB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoscalingGroupName(@Nullable Output<String> autoscalingGroupName) {
             $.autoscalingGroupName = autoscalingGroupName;
             return this;
         }
 
+        /**
+         * @param autoscalingGroupName Name of ASG to associate with the ELB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoscalingGroupName(String autoscalingGroupName) {
             return autoscalingGroupName(Output.of(autoscalingGroupName));
         }
 
+        /**
+         * @param elb Name of the ELB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder elb(@Nullable Output<String> elb) {
             $.elb = elb;
             return this;
         }
 
+        /**
+         * @param elb Name of the ELB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder elb(String elb) {
             return elb(Output.of(elb));
         }
 
+        /**
+         * @param lbTargetGroupArn ARN of a load balancer target group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lbTargetGroupArn(@Nullable Output<String> lbTargetGroupArn) {
             $.lbTargetGroupArn = lbTargetGroupArn;
             return this;
         }
 
+        /**
+         * @param lbTargetGroupArn ARN of a load balancer target group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lbTargetGroupArn(String lbTargetGroupArn) {
             return lbTargetGroupArn(Output.of(lbTargetGroupArn));
         }

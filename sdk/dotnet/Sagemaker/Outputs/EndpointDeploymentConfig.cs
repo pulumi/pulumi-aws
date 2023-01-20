@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class EndpointDeploymentConfig
     {
+        /// <summary>
+        /// Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
+        /// </summary>
         public readonly Outputs.EndpointDeploymentConfigAutoRollbackConfiguration? AutoRollbackConfiguration;
+        /// <summary>
+        /// Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+        /// </summary>
         public readonly Outputs.EndpointDeploymentConfigBlueGreenUpdatePolicy BlueGreenUpdatePolicy;
 
         [OutputConstructor]

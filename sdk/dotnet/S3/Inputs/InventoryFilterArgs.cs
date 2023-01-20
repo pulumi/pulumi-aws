@@ -12,6 +12,9 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class InventoryFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The prefix that an object must have to be included in the inventory results.
+        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

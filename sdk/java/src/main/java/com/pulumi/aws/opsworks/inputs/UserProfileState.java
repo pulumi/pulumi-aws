@@ -16,30 +16,62 @@ public final class UserProfileState extends com.pulumi.resources.ResourceArgs {
 
     public static final UserProfileState Empty = new UserProfileState();
 
+    /**
+     * Whether users can specify their own SSH public key through the My Settings page
+     * 
+     */
     @Import(name="allowSelfManagement")
     private @Nullable Output<Boolean> allowSelfManagement;
 
+    /**
+     * @return Whether users can specify their own SSH public key through the My Settings page
+     * 
+     */
     public Optional<Output<Boolean>> allowSelfManagement() {
         return Optional.ofNullable(this.allowSelfManagement);
     }
 
+    /**
+     * The users public key
+     * 
+     */
     @Import(name="sshPublicKey")
     private @Nullable Output<String> sshPublicKey;
 
+    /**
+     * @return The users public key
+     * 
+     */
     public Optional<Output<String>> sshPublicKey() {
         return Optional.ofNullable(this.sshPublicKey);
     }
 
+    /**
+     * The ssh username, with witch this user wants to log in
+     * 
+     */
     @Import(name="sshUsername")
     private @Nullable Output<String> sshUsername;
 
+    /**
+     * @return The ssh username, with witch this user wants to log in
+     * 
+     */
     public Optional<Output<String>> sshUsername() {
         return Optional.ofNullable(this.sshUsername);
     }
 
+    /**
+     * The user&#39;s IAM ARN
+     * 
+     */
     @Import(name="userArn")
     private @Nullable Output<String> userArn;
 
+    /**
+     * @return The user&#39;s IAM ARN
+     * 
+     */
     public Optional<Output<String>> userArn() {
         return Optional.ofNullable(this.userArn);
     }
@@ -71,38 +103,86 @@ public final class UserProfileState extends com.pulumi.resources.ResourceArgs {
             $ = new UserProfileState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allowSelfManagement Whether users can specify their own SSH public key through the My Settings page
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowSelfManagement(@Nullable Output<Boolean> allowSelfManagement) {
             $.allowSelfManagement = allowSelfManagement;
             return this;
         }
 
+        /**
+         * @param allowSelfManagement Whether users can specify their own SSH public key through the My Settings page
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowSelfManagement(Boolean allowSelfManagement) {
             return allowSelfManagement(Output.of(allowSelfManagement));
         }
 
+        /**
+         * @param sshPublicKey The users public key
+         * 
+         * @return builder
+         * 
+         */
         public Builder sshPublicKey(@Nullable Output<String> sshPublicKey) {
             $.sshPublicKey = sshPublicKey;
             return this;
         }
 
+        /**
+         * @param sshPublicKey The users public key
+         * 
+         * @return builder
+         * 
+         */
         public Builder sshPublicKey(String sshPublicKey) {
             return sshPublicKey(Output.of(sshPublicKey));
         }
 
+        /**
+         * @param sshUsername The ssh username, with witch this user wants to log in
+         * 
+         * @return builder
+         * 
+         */
         public Builder sshUsername(@Nullable Output<String> sshUsername) {
             $.sshUsername = sshUsername;
             return this;
         }
 
+        /**
+         * @param sshUsername The ssh username, with witch this user wants to log in
+         * 
+         * @return builder
+         * 
+         */
         public Builder sshUsername(String sshUsername) {
             return sshUsername(Output.of(sshUsername));
         }
 
+        /**
+         * @param userArn The user&#39;s IAM ARN
+         * 
+         * @return builder
+         * 
+         */
         public Builder userArn(@Nullable Output<String> userArn) {
             $.userArn = userArn;
             return this;
         }
 
+        /**
+         * @param userArn The user&#39;s IAM ARN
+         * 
+         * @return builder
+         * 
+         */
         public Builder userArn(String userArn) {
             return userArn(Output.of(userArn));
         }

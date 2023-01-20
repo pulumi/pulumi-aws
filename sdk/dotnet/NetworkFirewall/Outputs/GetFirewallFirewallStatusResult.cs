@@ -13,9 +13,18 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class GetFirewallFirewallStatusResult
     {
+        /// <summary>
+        /// Aggregated count of all resources used by reference sets in a firewall.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallFirewallStatusCapacityUsageSummaryResult> CapacityUsageSummaries;
+        /// <summary>
+        /// Summary of sync states for all availability zones in which the firewall is configured.
+        /// </summary>
         public readonly string ConfigurationSyncStateSummary;
         public readonly string Status;
+        /// <summary>
+        /// Set of subnets configured for use by the firewall.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallFirewallStatusSyncStateResult> SyncStates;
 
         [OutputConstructor]

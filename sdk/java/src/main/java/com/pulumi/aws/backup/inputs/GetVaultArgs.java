@@ -16,16 +16,32 @@ public final class GetVaultArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetVaultArgs Empty = new GetVaultArgs();
 
+    /**
+     * Name of the backup vault.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the backup vault.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Metadata that you can assign to help organize the resources that you create.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Metadata that you can assign to help organize the resources that you create.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -55,20 +71,44 @@ public final class GetVaultArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetVaultArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the backup vault.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the backup vault.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param tags Metadata that you can assign to help organize the resources that you create.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Metadata that you can assign to help organize the resources that you create.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

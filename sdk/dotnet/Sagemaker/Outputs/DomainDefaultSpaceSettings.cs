@@ -13,9 +13,21 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DomainDefaultSpaceSettings
     {
+        /// <summary>
+        /// The execution role for the space.
+        /// </summary>
         public readonly string ExecutionRole;
+        /// <summary>
+        /// The Jupyter server's app settings. See Jupyter Server App Settings below.
+        /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsJupyterServerAppSettings? JupyterServerAppSettings;
+        /// <summary>
+        /// The kernel gateway app settings. See Kernel Gateway App Settings below.
+        /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsKernelGatewayAppSettings? KernelGatewayAppSettings;
+        /// <summary>
+        /// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
 
         [OutputConstructor]

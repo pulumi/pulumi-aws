@@ -18,58 +18,128 @@ public final class ResolverEndpointState extends com.pulumi.resources.ResourceAr
 
     public static final ResolverEndpointState Empty = new ResolverEndpointState();
 
+    /**
+     * The ARN of the Route 53 Resolver endpoint.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return The ARN of the Route 53 Resolver endpoint.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * The direction of DNS queries to or from the Route 53 Resolver endpoint.
+     * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
+     * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+     * 
+     */
     @Import(name="direction")
     private @Nullable Output<String> direction;
 
+    /**
+     * @return The direction of DNS queries to or from the Route 53 Resolver endpoint.
+     * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
+     * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+     * 
+     */
     public Optional<Output<String>> direction() {
         return Optional.ofNullable(this.direction);
     }
 
+    /**
+     * The ID of the VPC that you want to create the resolver endpoint in.
+     * 
+     */
     @Import(name="hostVpcId")
     private @Nullable Output<String> hostVpcId;
 
+    /**
+     * @return The ID of the VPC that you want to create the resolver endpoint in.
+     * 
+     */
     public Optional<Output<String>> hostVpcId() {
         return Optional.ofNullable(this.hostVpcId);
     }
 
+    /**
+     * The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+     * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
+     * 
+     */
     @Import(name="ipAddresses")
     private @Nullable Output<List<ResolverEndpointIpAddressArgs>> ipAddresses;
 
+    /**
+     * @return The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+     * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
+     * 
+     */
     public Optional<Output<List<ResolverEndpointIpAddressArgs>>> ipAddresses() {
         return Optional.ofNullable(this.ipAddresses);
     }
 
+    /**
+     * The friendly name of the Route 53 Resolver endpoint.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The friendly name of the Route 53 Resolver endpoint.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The ID of one or more security groups that you want to use to control access to this VPC.
+     * 
+     */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
+    /**
+     * @return The ID of one or more security groups that you want to use to control access to this VPC.
+     * 
+     */
     public Optional<Output<List<String>>> securityGroupIds() {
         return Optional.ofNullable(this.securityGroupIds);
     }
 
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -105,82 +175,197 @@ public final class ResolverEndpointState extends com.pulumi.resources.ResourceAr
             $ = new ResolverEndpointState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn The ARN of the Route 53 Resolver endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn The ARN of the Route 53 Resolver endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param direction The direction of DNS queries to or from the Route 53 Resolver endpoint.
+         * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
+         * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+         * 
+         * @return builder
+         * 
+         */
         public Builder direction(@Nullable Output<String> direction) {
             $.direction = direction;
             return this;
         }
 
+        /**
+         * @param direction The direction of DNS queries to or from the Route 53 Resolver endpoint.
+         * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
+         * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+         * 
+         * @return builder
+         * 
+         */
         public Builder direction(String direction) {
             return direction(Output.of(direction));
         }
 
+        /**
+         * @param hostVpcId The ID of the VPC that you want to create the resolver endpoint in.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hostVpcId(@Nullable Output<String> hostVpcId) {
             $.hostVpcId = hostVpcId;
             return this;
         }
 
+        /**
+         * @param hostVpcId The ID of the VPC that you want to create the resolver endpoint in.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hostVpcId(String hostVpcId) {
             return hostVpcId(Output.of(hostVpcId));
         }
 
+        /**
+         * @param ipAddresses The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+         * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddresses(@Nullable Output<List<ResolverEndpointIpAddressArgs>> ipAddresses) {
             $.ipAddresses = ipAddresses;
             return this;
         }
 
+        /**
+         * @param ipAddresses The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+         * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddresses(List<ResolverEndpointIpAddressArgs> ipAddresses) {
             return ipAddresses(Output.of(ipAddresses));
         }
 
+        /**
+         * @param ipAddresses The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+         * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddresses(ResolverEndpointIpAddressArgs... ipAddresses) {
             return ipAddresses(List.of(ipAddresses));
         }
 
+        /**
+         * @param name The friendly name of the Route 53 Resolver endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The friendly name of the Route 53 Resolver endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param securityGroupIds The ID of one or more security groups that you want to use to control access to this VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(@Nullable Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
+        /**
+         * @param securityGroupIds The ID of one or more security groups that you want to use to control access to this VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
+        /**
+         * @param securityGroupIds The ID of one or more security groups that you want to use to control access to this VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

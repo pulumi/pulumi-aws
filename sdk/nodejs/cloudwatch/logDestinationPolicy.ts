@@ -4,6 +4,44 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a CloudWatch Logs destination policy resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testDestination = new aws.cloudwatch.LogDestination("testDestination", {
+ *     roleArn: aws_iam_role.iam_for_cloudwatch.arn,
+ *     targetArn: aws_kinesis_stream.kinesis_for_cloudwatch.arn,
+ * });
+ * const testDestinationPolicyPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "AWS",
+ *             identifiers: ["123456789012"],
+ *         }],
+ *         actions: ["logs:PutSubscriptionFilter"],
+ *         resources: [testDestination.arn],
+ *     }],
+ * });
+ * const testDestinationPolicyLogDestinationPolicy = new aws.cloudwatch.LogDestinationPolicy("testDestinationPolicyLogDestinationPolicy", {
+ *     destinationName: testDestination.name,
+ *     accessPolicy: testDestinationPolicyPolicyDocument.apply(testDestinationPolicyPolicyDocument => testDestinationPolicyPolicyDocument.json),
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * CloudWatch Logs destination policies can be imported using the `destination_name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
+ * ```
+ */
 export class LogDestinationPolicy extends pulumi.CustomResource {
     /**
      * Get an existing LogDestinationPolicy resource's state with the given name, ID, and optional extra
@@ -32,8 +70,17 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogDestinationPolicy.__pulumiType;
     }
 
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     public readonly accessPolicy!: pulumi.Output<string>;
+    /**
+     * A name for the subscription filter
+     */
     public readonly destinationName!: pulumi.Output<string>;
+    /**
+     * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+     */
     public readonly forceUpdate!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -73,8 +120,17 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogDestinationPolicy resources.
  */
 export interface LogDestinationPolicyState {
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     accessPolicy?: pulumi.Input<string>;
+    /**
+     * A name for the subscription filter
+     */
     destinationName?: pulumi.Input<string>;
+    /**
+     * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+     */
     forceUpdate?: pulumi.Input<boolean>;
 }
 
@@ -82,7 +138,16 @@ export interface LogDestinationPolicyState {
  * The set of arguments for constructing a LogDestinationPolicy resource.
  */
 export interface LogDestinationPolicyArgs {
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     accessPolicy: pulumi.Input<string>;
+    /**
+     * A name for the subscription filter
+     */
     destinationName: pulumi.Input<string>;
+    /**
+     * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+     */
     forceUpdate?: pulumi.Input<boolean>;
 }

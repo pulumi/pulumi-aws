@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Creates a scope for AWS IPAM.
+ *
+ * ## Example Usage
+ *
+ * Basic usage:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getRegion({});
+ * const exampleVpcIpam = new aws.ec2.VpcIpam("exampleVpcIpam", {operatingRegions: [{
+ *     regionName: current.then(current => current.name),
+ * }]});
+ * const exampleVpcIpamScope = new aws.ec2.VpcIpamScope("exampleVpcIpamScope", {
+ *     ipamId: exampleVpcIpam.id,
+ *     description: "Another Scope",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * IPAMs can be imported using the `scope_id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
+ * ```
+ */
 export class VpcIpamScope extends pulumi.CustomResource {
     /**
      * Get an existing VpcIpamScope resource's state with the given name, ID, and optional extra
@@ -33,12 +62,30 @@ export class VpcIpamScope extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A description for the scope you're creating.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the IPAM for which you're creating this scope.
+     */
     public /*out*/ readonly ipamArn!: pulumi.Output<string>;
+    /**
+     * The ID of the IPAM for which you're creating this scope.
+     */
     public readonly ipamId!: pulumi.Output<string>;
     public /*out*/ readonly ipamScopeType!: pulumi.Output<string>;
+    /**
+     * Defines if the scope is the default scope or not.
+     */
     public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    /**
+     * Count of pools under this scope
+     */
     public /*out*/ readonly poolCount!: pulumi.Output<number>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -89,12 +136,30 @@ export class VpcIpamScope extends pulumi.CustomResource {
  */
 export interface VpcIpamScopeState {
     arn?: pulumi.Input<string>;
+    /**
+     * A description for the scope you're creating.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The ARN of the IPAM for which you're creating this scope.
+     */
     ipamArn?: pulumi.Input<string>;
+    /**
+     * The ID of the IPAM for which you're creating this scope.
+     */
     ipamId?: pulumi.Input<string>;
     ipamScopeType?: pulumi.Input<string>;
+    /**
+     * Defines if the scope is the default scope or not.
+     */
     isDefault?: pulumi.Input<boolean>;
+    /**
+     * Count of pools under this scope
+     */
     poolCount?: pulumi.Input<number>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -103,7 +168,16 @@ export interface VpcIpamScopeState {
  * The set of arguments for constructing a VpcIpamScope resource.
  */
 export interface VpcIpamScopeArgs {
+    /**
+     * A description for the scope you're creating.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The ID of the IPAM for which you're creating this scope.
+     */
     ipamId: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

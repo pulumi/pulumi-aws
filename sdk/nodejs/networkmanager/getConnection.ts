@@ -4,6 +4,21 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Retrieve information about a connection.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.networkmanager.getConnection({
+ *     globalNetworkId: _var.global_network_id,
+ *     connectionId: _var.connection_id,
+ * });
+ * ```
+ */
 export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -18,8 +33,17 @@ export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getConnection.
  */
 export interface GetConnectionArgs {
+    /**
+     * ID of the specific connection to retrieve.
+     */
     connectionId: string;
+    /**
+     * ID of the Global Network of the connection to retrieve.
+     */
     globalNetworkId: string;
+    /**
+     * Key-value tags for the connection.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -27,20 +51,56 @@ export interface GetConnectionArgs {
  * A collection of values returned by getConnection.
  */
 export interface GetConnectionResult {
+    /**
+     * ARN of the connection.
+     */
     readonly arn: string;
+    /**
+     * ID of the second device in the connection.
+     */
     readonly connectedDeviceId: string;
+    /**
+     * ID of the link for the second device.
+     */
     readonly connectedLinkId: string;
     readonly connectionId: string;
+    /**
+     * Description of the connection.
+     */
     readonly description: string;
+    /**
+     * ID of the first device in the connection.
+     */
     readonly deviceId: string;
     readonly globalNetworkId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * ID of the link for the first device.
+     */
     readonly linkId: string;
+    /**
+     * Key-value tags for the connection.
+     */
     readonly tags: {[key: string]: string};
 }
+/**
+ * Retrieve information about a connection.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.networkmanager.getConnection({
+ *     globalNetworkId: _var.global_network_id,
+ *     connectionId: _var.connection_id,
+ * });
+ * ```
+ */
 export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
     return pulumi.output(args).apply((a: any) => getConnection(a, opts))
 }
@@ -49,7 +109,16 @@ export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getConnection.
  */
 export interface GetConnectionOutputArgs {
+    /**
+     * ID of the specific connection to retrieve.
+     */
     connectionId: pulumi.Input<string>;
+    /**
+     * ID of the Global Network of the connection to retrieve.
+     */
     globalNetworkId: pulumi.Input<string>;
+    /**
+     * Key-value tags for the connection.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

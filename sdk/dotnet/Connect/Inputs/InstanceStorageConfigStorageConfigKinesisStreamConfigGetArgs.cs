@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Connect.Inputs
 
     public sealed class InstanceStorageConfigStorageConfigKinesisStreamConfigGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the data stream.
+        /// </summary>
         [Input("streamArn", required: true)]
         public Input<string> StreamArn { get; set; } = null!;
 

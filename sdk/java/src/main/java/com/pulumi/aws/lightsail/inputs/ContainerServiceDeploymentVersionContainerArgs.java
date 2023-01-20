@@ -17,37 +17,77 @@ public final class ContainerServiceDeploymentVersionContainerArgs extends com.pu
 
     public static final ContainerServiceDeploymentVersionContainerArgs Empty = new ContainerServiceDeploymentVersionContainerArgs();
 
+    /**
+     * The launch command for the container. A list of string.
+     * 
+     */
     @Import(name="commands")
     private @Nullable Output<List<String>> commands;
 
+    /**
+     * @return The launch command for the container. A list of string.
+     * 
+     */
     public Optional<Output<List<String>>> commands() {
         return Optional.ofNullable(this.commands);
     }
 
+    /**
+     * The name for the container.
+     * 
+     */
     @Import(name="containerName", required=true)
     private Output<String> containerName;
 
+    /**
+     * @return The name for the container.
+     * 
+     */
     public Output<String> containerName() {
         return this.containerName;
     }
 
+    /**
+     * A key-value map of the environment variables of the container.
+     * 
+     */
     @Import(name="environment")
     private @Nullable Output<Map<String,String>> environment;
 
+    /**
+     * @return A key-value map of the environment variables of the container.
+     * 
+     */
     public Optional<Output<Map<String,String>>> environment() {
         return Optional.ofNullable(this.environment);
     }
 
+    /**
+     * The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don&#39;t start with a colon. For example, `nginx:latest` or `nginx`.
+     * 
+     */
     @Import(name="image", required=true)
     private Output<String> image;
 
+    /**
+     * @return The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don&#39;t start with a colon. For example, `nginx:latest` or `nginx`.
+     * 
+     */
     public Output<String> image() {
         return this.image;
     }
 
+    /**
+     * A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+     * 
+     */
     @Import(name="ports")
     private @Nullable Output<Map<String,String>> ports;
 
+    /**
+     * @return A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+     * 
+     */
     public Optional<Output<Map<String,String>>> ports() {
         return Optional.ofNullable(this.ports);
     }
@@ -80,51 +120,117 @@ public final class ContainerServiceDeploymentVersionContainerArgs extends com.pu
             $ = new ContainerServiceDeploymentVersionContainerArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param commands The launch command for the container. A list of string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder commands(@Nullable Output<List<String>> commands) {
             $.commands = commands;
             return this;
         }
 
+        /**
+         * @param commands The launch command for the container. A list of string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder commands(List<String> commands) {
             return commands(Output.of(commands));
         }
 
+        /**
+         * @param commands The launch command for the container. A list of string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder commands(String... commands) {
             return commands(List.of(commands));
         }
 
+        /**
+         * @param containerName The name for the container.
+         * 
+         * @return builder
+         * 
+         */
         public Builder containerName(Output<String> containerName) {
             $.containerName = containerName;
             return this;
         }
 
+        /**
+         * @param containerName The name for the container.
+         * 
+         * @return builder
+         * 
+         */
         public Builder containerName(String containerName) {
             return containerName(Output.of(containerName));
         }
 
+        /**
+         * @param environment A key-value map of the environment variables of the container.
+         * 
+         * @return builder
+         * 
+         */
         public Builder environment(@Nullable Output<Map<String,String>> environment) {
             $.environment = environment;
             return this;
         }
 
+        /**
+         * @param environment A key-value map of the environment variables of the container.
+         * 
+         * @return builder
+         * 
+         */
         public Builder environment(Map<String,String> environment) {
             return environment(Output.of(environment));
         }
 
+        /**
+         * @param image The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don&#39;t start with a colon. For example, `nginx:latest` or `nginx`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder image(Output<String> image) {
             $.image = image;
             return this;
         }
 
+        /**
+         * @param image The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don&#39;t start with a colon. For example, `nginx:latest` or `nginx`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder image(String image) {
             return image(Output.of(image));
         }
 
+        /**
+         * @param ports A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ports(@Nullable Output<Map<String,String>> ports) {
             $.ports = ports;
             return this;
         }
 
+        /**
+         * @param ports A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ports(Map<String,String> ports) {
             return ports(Output.of(ports));
         }

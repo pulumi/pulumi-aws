@@ -10,6 +10,59 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
+//
+// ## Example Usage
+// ### ARN
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := secretsmanager.LookupSecret(ctx, &secretsmanager.LookupSecretArgs{
+//				Arn: pulumi.StringRef("arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Name
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := secretsmanager.LookupSecret(ctx, &secretsmanager.LookupSecretArgs{
+//				Name: pulumi.StringRef("example"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	var rv LookupSecretResult
 	err := ctx.Invoke("aws:secretsmanager/getSecret:getSecret", args, &rv, opts...)
@@ -21,26 +74,39 @@ func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getSecret.
 type LookupSecretArgs struct {
-	Arn  *string `pulumi:"arn"`
+	// ARN of the secret to retrieve.
+	Arn *string `pulumi:"arn"`
+	// Name of the secret to retrieve.
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getSecret.
 type LookupSecretResult struct {
-	Arn         string `pulumi:"arn"`
+	// ARN of the secret.
+	Arn string `pulumi:"arn"`
+	// Description of the secret.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id       string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	Name     string `pulumi:"name"`
-	Policy   string `pulumi:"policy"`
+	// Resource-based policy document that's attached to the secret.
+	Policy string `pulumi:"policy"`
+	// Whether rotation is enabled or not.
+	//
 	// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
 	RotationEnabled bool `pulumi:"rotationEnabled"`
+	// Rotation Lambda function ARN if rotation is enabled.
+	//
 	// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
 	RotationLambdaArn string `pulumi:"rotationLambdaArn"`
+	// Rotation rules if rotation is enabled.
+	//
 	// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
 	RotationRules []GetSecretRotationRule `pulumi:"rotationRules"`
-	Tags          map[string]string       `pulumi:"tags"`
+	// Tags of the secret.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts ...pulumi.InvokeOption) LookupSecretResultOutput {
@@ -58,7 +124,9 @@ func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts .
 
 // A collection of arguments for invoking getSecret.
 type LookupSecretOutputArgs struct {
-	Arn  pulumi.StringPtrInput `pulumi:"arn"`
+	// ARN of the secret to retrieve.
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	// Name of the secret to retrieve.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -81,10 +149,12 @@ func (o LookupSecretResultOutput) ToLookupSecretResultOutputWithContext(ctx cont
 	return o
 }
 
+// ARN of the secret.
 func (o LookupSecretResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Description of the secret.
 func (o LookupSecretResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -94,6 +164,7 @@ func (o LookupSecretResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
 func (o LookupSecretResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -102,25 +173,33 @@ func (o LookupSecretResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Resource-based policy document that's attached to the secret.
 func (o LookupSecretResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Policy }).(pulumi.StringOutput)
 }
 
+// Whether rotation is enabled or not.
+//
 // Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
 func (o LookupSecretResultOutput) RotationEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSecretResult) bool { return v.RotationEnabled }).(pulumi.BoolOutput)
 }
 
+// Rotation Lambda function ARN if rotation is enabled.
+//
 // Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
 func (o LookupSecretResultOutput) RotationLambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.RotationLambdaArn }).(pulumi.StringOutput)
 }
 
+// Rotation rules if rotation is enabled.
+//
 // Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
 func (o LookupSecretResultOutput) RotationRules() GetSecretRotationRuleArrayOutput {
 	return o.ApplyT(func(v LookupSecretResult) []GetSecretRotationRule { return v.RotationRules }).(GetSecretRotationRuleArrayOutput)
 }
 
+// Tags of the secret.
 func (o LookupSecretResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSecretResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

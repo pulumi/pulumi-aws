@@ -16,6 +16,47 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages the accepter&#39;s side of an EC2 Transit Gateway Peering Attachment.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2transitgateway.PeeringAttachmentAccepter;
+ * import com.pulumi.aws.ec2transitgateway.PeeringAttachmentAccepterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new PeeringAttachmentAccepter(&#34;example&#34;, PeeringAttachmentAccepterArgs.builder()        
+ *             .transitGatewayAttachmentId(aws_ec2_transit_gateway_peering_attachment.example().id())
+ *             .tags(Map.of(&#34;Name&#34;, &#34;Example cross-account attachment&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_ec2_transit_gateway_peering_attachment_accepter` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter example tgw-attach-12345678
+ * ```
+ * 
  * @deprecated
  * aws.ec2.TransitGatewayPeeringAttachmentAccepter has been deprecated in favor of aws.ec2transitgateway.PeeringAttachmentAccepter
  * 
@@ -23,9 +64,17 @@ import javax.annotation.Nullable;
 @Deprecated /* aws.ec2.TransitGatewayPeeringAttachmentAccepter has been deprecated in favor of aws.ec2transitgateway.PeeringAttachmentAccepter */
 @ResourceType(type="aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter")
 public class TransitGatewayPeeringAttachmentAccepter extends com.pulumi.resources.CustomResource {
+    /**
+     * Identifier of the AWS account that owns the EC2 TGW peering.
+     * 
+     */
     @Export(name="peerAccountId", refs={String.class}, tree="[0]")
     private Output<String> peerAccountId;
 
+    /**
+     * @return Identifier of the AWS account that owns the EC2 TGW peering.
+     * 
+     */
     public Output<String> peerAccountId() {
         return this.peerAccountId;
     }
@@ -35,33 +84,73 @@ public class TransitGatewayPeeringAttachmentAccepter extends com.pulumi.resource
     public Output<String> peerRegion() {
         return this.peerRegion;
     }
+    /**
+     * Identifier of EC2 Transit Gateway to peer with.
+     * 
+     */
     @Export(name="peerTransitGatewayId", refs={String.class}, tree="[0]")
     private Output<String> peerTransitGatewayId;
 
+    /**
+     * @return Identifier of EC2 Transit Gateway to peer with.
+     * 
+     */
     public Output<String> peerTransitGatewayId() {
         return this.peerTransitGatewayId;
     }
+    /**
+     * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The ID of the EC2 Transit Gateway Peering Attachment to manage.
+     * 
+     */
     @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayAttachmentId;
 
+    /**
+     * @return The ID of the EC2 Transit Gateway Peering Attachment to manage.
+     * 
+     */
     public Output<String> transitGatewayAttachmentId() {
         return this.transitGatewayAttachmentId;
     }
+    /**
+     * Identifier of EC2 Transit Gateway.
+     * 
+     */
     @Export(name="transitGatewayId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayId;
 
+    /**
+     * @return Identifier of EC2 Transit Gateway.
+     * 
+     */
     public Output<String> transitGatewayId() {
         return this.transitGatewayId;
     }

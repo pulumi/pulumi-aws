@@ -16,16 +16,32 @@ public final class GetPipelineArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetPipelineArgs Empty = new GetPipelineArgs();
 
+    /**
+     * ID of the pipeline.
+     * 
+     */
     @Import(name="pipelineId", required=true)
     private Output<String> pipelineId;
 
+    /**
+     * @return ID of the pipeline.
+     * 
+     */
     public Output<String> pipelineId() {
         return this.pipelineId;
     }
 
+    /**
+     * Map of tags assigned to the resource.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -55,20 +71,44 @@ public final class GetPipelineArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetPipelineArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param pipelineId ID of the pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pipelineId(Output<String> pipelineId) {
             $.pipelineId = pipelineId;
             return this;
         }
 
+        /**
+         * @param pipelineId ID of the pipeline.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pipelineId(String pipelineId) {
             return pipelineId(Output.of(pipelineId));
         }
 
+        /**
+         * @param tags Map of tags assigned to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Map of tags assigned to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -11,9 +11,57 @@ namespace Pulumi.Aws.MskConnect
 {
     public static class GetCustomPlugin
     {
+        /// <summary>
+        /// Get information on an Amazon MSK Connect custom plugin.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.MskConnect.GetCustomPlugin.Invoke(new()
+        ///     {
+        ///         Name = "example-debezium-1",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetCustomPluginResult> InvokeAsync(GetCustomPluginArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomPluginResult>("aws:mskconnect/getCustomPlugin:getCustomPlugin", args ?? new GetCustomPluginArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get information on an Amazon MSK Connect custom plugin.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.MskConnect.GetCustomPlugin.Invoke(new()
+        ///     {
+        ///         Name = "example-debezium-1",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetCustomPluginResult> Invoke(GetCustomPluginInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomPluginResult>("aws:mskconnect/getCustomPlugin:getCustomPlugin", args ?? new GetCustomPluginInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +69,9 @@ namespace Pulumi.Aws.MskConnect
 
     public sealed class GetCustomPluginArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the custom plugin.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -32,6 +83,9 @@ namespace Pulumi.Aws.MskConnect
 
     public sealed class GetCustomPluginInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the custom plugin.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -45,14 +99,26 @@ namespace Pulumi.Aws.MskConnect
     [OutputType]
     public sealed class GetCustomPluginResult
     {
+        /// <summary>
+        /// the ARN of the custom plugin.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// a summary description of the custom plugin.
+        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// an ID of the latest successfully created revision of the custom plugin.
+        /// </summary>
         public readonly int LatestRevision;
         public readonly string Name;
+        /// <summary>
+        /// the state of the custom plugin.
+        /// </summary>
         public readonly string State;
 
         [OutputConstructor]

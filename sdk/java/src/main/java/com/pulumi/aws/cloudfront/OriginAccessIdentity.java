@@ -14,41 +14,245 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates an Amazon CloudFront origin access identity.
+ * 
+ * For information about CloudFront distributions, see the
+ * [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For more information on generating
+ * origin access identities, see
+ * [Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content][2].
+ * 
+ * ## Example Usage
+ * 
+ * The following example below creates a CloudFront origin access identity.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudfront.OriginAccessIdentity;
+ * import com.pulumi.aws.cloudfront.OriginAccessIdentityArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new OriginAccessIdentity(&#34;example&#34;, OriginAccessIdentityArgs.builder()        
+ *             .comment(&#34;Some comment&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Using With CloudFront
+ * 
+ * Normally, when referencing an origin access identity in CloudFront, you need to
+ * prefix the ID with the `origin-access-identity/cloudfront/` special path.
+ * The `cloudfront_access_identity_path` allows this to be circumvented.
+ * The below snippet demonstrates use with the `s3_origin_config` structure for the
+ * `aws.cloudfront.Distribution` resource:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudfront.Distribution;
+ * import com.pulumi.aws.cloudfront.DistributionArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionOriginS3OriginConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Distribution(&#34;example&#34;, DistributionArgs.builder()        
+ *             .origins(DistributionOriginArgs.builder()
+ *                 .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
+ *                     .originAccessIdentity(aws_cloudfront_origin_access_identity.example().cloudfront_access_identity_path())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ### Updating your bucket policy
+ * 
+ * Note that the AWS API may translate the `s3_canonical_user_id` `CanonicalUser`
+ * principal into an `AWS` IAM ARN principal when supplied in an
+ * `aws.s3.BucketV2` bucket policy, causing spurious diffs. If
+ * you see this behaviour, use the `iam_arn` instead:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.s3.BucketPolicy;
+ * import com.pulumi.aws.s3.BucketPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions(&#34;s3:GetObject&#34;)
+ *                 .resources(String.format(&#34;%s/*&#34;, aws_s3_bucket.example().arn()))
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;AWS&#34;)
+ *                     .identifiers(aws_cloudfront_origin_access_identity.example().iam_arn())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var example = new BucketPolicy(&#34;example&#34;, BucketPolicyArgs.builder()        
+ *             .bucket(aws_s3_bucket.example().id())
+ *             .policy(s3Policy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
+ * [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
+ * 
+ * ## Import
+ * 
+ * Cloudfront Origin Access Identities can be imported using the `id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
+ * ```
+ * 
+ */
 @ResourceType(type="aws:cloudfront/originAccessIdentity:OriginAccessIdentity")
 public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
+    /**
+     * Internal value used by CloudFront to allow future
+     * updates to the origin access identity.
+     * 
+     */
     @Export(name="callerReference", refs={String.class}, tree="[0]")
     private Output<String> callerReference;
 
+    /**
+     * @return Internal value used by CloudFront to allow future
+     * updates to the origin access identity.
+     * 
+     */
     public Output<String> callerReference() {
         return this.callerReference;
     }
+    /**
+     * A shortcut to the full path for the
+     * origin access identity to use in CloudFront, see below.
+     * 
+     */
     @Export(name="cloudfrontAccessIdentityPath", refs={String.class}, tree="[0]")
     private Output<String> cloudfrontAccessIdentityPath;
 
+    /**
+     * @return A shortcut to the full path for the
+     * origin access identity to use in CloudFront, see below.
+     * 
+     */
     public Output<String> cloudfrontAccessIdentityPath() {
         return this.cloudfrontAccessIdentityPath;
     }
+    /**
+     * An optional comment for the origin access identity.
+     * 
+     */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
+    /**
+     * @return An optional comment for the origin access identity.
+     * 
+     */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
+    /**
+     * The current version of the origin access identity&#39;s information.
+     * For example: `E2QWRUHAPOMQZL`.
+     * 
+     */
     @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
+    /**
+     * @return The current version of the origin access identity&#39;s information.
+     * For example: `E2QWRUHAPOMQZL`.
+     * 
+     */
     public Output<String> etag() {
         return this.etag;
     }
+    /**
+     * A pre-generated ARN for use in S3 bucket policies (see below).
+     * Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
+     * E2QWRUHAPOMQZL`.
+     * 
+     */
     @Export(name="iamArn", refs={String.class}, tree="[0]")
     private Output<String> iamArn;
 
+    /**
+     * @return A pre-generated ARN for use in S3 bucket policies (see below).
+     * Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
+     * E2QWRUHAPOMQZL`.
+     * 
+     */
     public Output<String> iamArn() {
         return this.iamArn;
     }
+    /**
+     * The Amazon S3 canonical user ID for the origin
+     * access identity, which you use when giving the origin access identity read
+     * permission to an object in Amazon S3.
+     * 
+     */
     @Export(name="s3CanonicalUserId", refs={String.class}, tree="[0]")
     private Output<String> s3CanonicalUserId;
 
+    /**
+     * @return The Amazon S3 canonical user ID for the origin
+     * access identity, which you use when giving the origin access identity read
+     * permission to an object in Amazon S3.
+     * 
+     */
     public Output<String> s3CanonicalUserId() {
         return this.s3CanonicalUserId;
     }

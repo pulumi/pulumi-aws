@@ -40,6 +40,9 @@ class GetEnvironmentsResult:
     @property
     @pulumi.getter(name="environmentIds")
     def environment_ids(self) -> Sequence[str]:
+        """
+        Set of Environment IDs associated with this AppConfig Application.
+        """
         return pulumi.get(self, "environment_ids")
 
     @property
@@ -65,7 +68,21 @@ class AwaitableGetEnvironmentsResult(GetEnvironmentsResult):
 def get_environments(application_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentsResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another
+    resource.
+
+    ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.appconfig.get_environments(application_id="a1d3rpe")
+    ```
+
+
+    :param str application_id: ID of the AppConfig Application.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
@@ -82,6 +99,20 @@ def get_environments(application_id: Optional[str] = None,
 def get_environments_output(application_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another
+    resource.
+
+    ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.appconfig.get_environments(application_id="a1d3rpe")
+    ```
+
+
+    :param str application_id: ID of the AppConfig Application.
     """
     ...

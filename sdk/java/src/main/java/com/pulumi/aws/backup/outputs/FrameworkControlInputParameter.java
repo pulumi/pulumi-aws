@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FrameworkControlInputParameter {
+    /**
+     * @return The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @return The value of parameter, for example, hourly.
+     * 
+     */
     private @Nullable String value;
 
     private FrameworkControlInputParameter() {}
+    /**
+     * @return The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return The value of parameter, for example, hourly.
+     * 
+     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

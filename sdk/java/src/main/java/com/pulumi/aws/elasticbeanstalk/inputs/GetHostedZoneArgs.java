@@ -15,9 +15,17 @@ public final class GetHostedZoneArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetHostedZoneArgs Empty = new GetHostedZoneArgs();
 
+    /**
+     * Region you&#39;d like the zone for. By default, fetches the current region.
+     * 
+     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
+    /**
+     * @return Region you&#39;d like the zone for. By default, fetches the current region.
+     * 
+     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -46,11 +54,23 @@ public final class GetHostedZoneArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetHostedZoneArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param region Region you&#39;d like the zone for. By default, fetches the current region.
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
+        /**
+         * @param region Region you&#39;d like the zone for. By default, fetches the current region.
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -11,11 +11,58 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an Amazon Managed Service for Prometheus (AMP) Rule Group Namespace
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			demoWorkspace, err := amp.NewWorkspace(ctx, "demoWorkspace", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = amp.NewRuleGroupNamespace(ctx, "demoRuleGroupNamespace", &amp.RuleGroupNamespaceArgs{
+//				WorkspaceId: demoWorkspace.ID(),
+//				Data:        pulumi.String(fmt.Sprintf("groups:\n  - name: test\n    rules:\n    - record: metric:recording_rule\n      expr: avg(rate(container_cpu_usage_seconds_total[5m]))\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// The prometheus rule group namespace can be imported using the arn, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
+//
+// ```
 type RuleGroupNamespace struct {
 	pulumi.CustomResourceState
 
-	Data        pulumi.StringOutput `pulumi:"data"`
-	Name        pulumi.StringOutput `pulumi:"name"`
+	// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
+	Data pulumi.StringOutput `pulumi:"data"`
+	// The name of the rule group namespace
+	Name pulumi.StringOutput `pulumi:"name"`
+	// ID of the prometheus workspace the rule group namespace should be linked to
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -54,14 +101,20 @@ func GetRuleGroupNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleGroupNamespace resources.
 type ruleGroupNamespaceState struct {
-	Data        *string `pulumi:"data"`
-	Name        *string `pulumi:"name"`
+	// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
+	Data *string `pulumi:"data"`
+	// The name of the rule group namespace
+	Name *string `pulumi:"name"`
+	// ID of the prometheus workspace the rule group namespace should be linked to
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type RuleGroupNamespaceState struct {
-	Data        pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
+	// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
+	Data pulumi.StringPtrInput
+	// The name of the rule group namespace
+	Name pulumi.StringPtrInput
+	// ID of the prometheus workspace the rule group namespace should be linked to
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -70,15 +123,21 @@ func (RuleGroupNamespaceState) ElementType() reflect.Type {
 }
 
 type ruleGroupNamespaceArgs struct {
-	Data        string  `pulumi:"data"`
-	Name        *string `pulumi:"name"`
-	WorkspaceId string  `pulumi:"workspaceId"`
+	// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
+	Data string `pulumi:"data"`
+	// The name of the rule group namespace
+	Name *string `pulumi:"name"`
+	// ID of the prometheus workspace the rule group namespace should be linked to
+	WorkspaceId string `pulumi:"workspaceId"`
 }
 
 // The set of arguments for constructing a RuleGroupNamespace resource.
 type RuleGroupNamespaceArgs struct {
-	Data        pulumi.StringInput
-	Name        pulumi.StringPtrInput
+	// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
+	Data pulumi.StringInput
+	// The name of the rule group namespace
+	Name pulumi.StringPtrInput
+	// ID of the prometheus workspace the rule group namespace should be linked to
 	WorkspaceId pulumi.StringInput
 }
 
@@ -169,14 +228,17 @@ func (o RuleGroupNamespaceOutput) ToRuleGroupNamespaceOutputWithContext(ctx cont
 	return o
 }
 
+// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
 func (o RuleGroupNamespaceOutput) Data() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroupNamespace) pulumi.StringOutput { return v.Data }).(pulumi.StringOutput)
 }
 
+// The name of the rule group namespace
 func (o RuleGroupNamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroupNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// ID of the prometheus workspace the rule group namespace should be linked to
 func (o RuleGroupNamespaceOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroupNamespace) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

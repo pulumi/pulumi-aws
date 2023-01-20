@@ -15,9 +15,17 @@ public final class InvitationAccepterState extends com.pulumi.resources.Resource
 
     public static final InvitationAccepterState Empty = new InvitationAccepterState();
 
+    /**
+     * ARN of the behavior graph that the member account is accepting the invitation for.
+     * 
+     */
     @Import(name="graphArn")
     private @Nullable Output<String> graphArn;
 
+    /**
+     * @return ARN of the behavior graph that the member account is accepting the invitation for.
+     * 
+     */
     public Optional<Output<String>> graphArn() {
         return Optional.ofNullable(this.graphArn);
     }
@@ -46,11 +54,23 @@ public final class InvitationAccepterState extends com.pulumi.resources.Resource
             $ = new InvitationAccepterState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param graphArn ARN of the behavior graph that the member account is accepting the invitation for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder graphArn(@Nullable Output<String> graphArn) {
             $.graphArn = graphArn;
             return this;
         }
 
+        /**
+         * @param graphArn ARN of the behavior graph that the member account is accepting the invitation for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder graphArn(String graphArn) {
             return graphArn(Output.of(graphArn));
         }

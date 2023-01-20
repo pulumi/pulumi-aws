@@ -9,15 +9,53 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CostExplorer
 {
+    /// <summary>
+    /// Provides a CE Cost Allocation Tag.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.CostExplorer.CostAllocationTag("example", new()
+    ///     {
+    ///         Status = "Active",
+    ///         TagKey = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_ce_cost_allocation_tag` can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:costexplorer/costAllocationTag:CostAllocationTag")]
     public partial class CostAllocationTag : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The key for the cost allocation tag.
+        /// </summary>
         [Output("tagKey")]
         public Output<string> TagKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of cost allocation tag.
+        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -67,9 +105,15 @@ namespace Pulumi.Aws.CostExplorer
 
     public sealed class CostAllocationTagArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
+        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
+        /// <summary>
+        /// The key for the cost allocation tag.
+        /// </summary>
         [Input("tagKey", required: true)]
         public Input<string> TagKey { get; set; } = null!;
 
@@ -81,12 +125,21 @@ namespace Pulumi.Aws.CostExplorer
 
     public sealed class CostAllocationTagState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        /// <summary>
+        /// The key for the cost allocation tag.
+        /// </summary>
         [Input("tagKey")]
         public Input<string>? TagKey { get; set; }
 
+        /// <summary>
+        /// The type of cost allocation tag.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

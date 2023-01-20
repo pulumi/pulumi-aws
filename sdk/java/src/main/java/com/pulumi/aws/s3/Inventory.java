@@ -19,53 +19,230 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
+ * 
+ * ## Example Usage
+ * ### Add inventory configuration
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.Inventory;
+ * import com.pulumi.aws.s3.InventoryArgs;
+ * import com.pulumi.aws.s3.inputs.InventoryScheduleArgs;
+ * import com.pulumi.aws.s3.inputs.InventoryDestinationArgs;
+ * import com.pulumi.aws.s3.inputs.InventoryDestinationBucketArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testBucketV2 = new BucketV2(&#34;testBucketV2&#34;);
+ * 
+ *         var inventory = new BucketV2(&#34;inventory&#34;);
+ * 
+ *         var testInventory = new Inventory(&#34;testInventory&#34;, InventoryArgs.builder()        
+ *             .bucket(testBucketV2.id())
+ *             .includedObjectVersions(&#34;All&#34;)
+ *             .schedule(InventoryScheduleArgs.builder()
+ *                 .frequency(&#34;Daily&#34;)
+ *                 .build())
+ *             .destination(InventoryDestinationArgs.builder()
+ *                 .bucket(InventoryDestinationBucketArgs.builder()
+ *                     .format(&#34;ORC&#34;)
+ *                     .bucketArn(inventory.arn())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Add inventory configuration with S3 object prefix
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.Inventory;
+ * import com.pulumi.aws.s3.InventoryArgs;
+ * import com.pulumi.aws.s3.inputs.InventoryScheduleArgs;
+ * import com.pulumi.aws.s3.inputs.InventoryFilterArgs;
+ * import com.pulumi.aws.s3.inputs.InventoryDestinationArgs;
+ * import com.pulumi.aws.s3.inputs.InventoryDestinationBucketArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new BucketV2(&#34;test&#34;);
+ * 
+ *         var inventory = new BucketV2(&#34;inventory&#34;);
+ * 
+ *         var test_prefix = new Inventory(&#34;test-prefix&#34;, InventoryArgs.builder()        
+ *             .bucket(test.id())
+ *             .includedObjectVersions(&#34;All&#34;)
+ *             .schedule(InventoryScheduleArgs.builder()
+ *                 .frequency(&#34;Daily&#34;)
+ *                 .build())
+ *             .filter(InventoryFilterArgs.builder()
+ *                 .prefix(&#34;documents/&#34;)
+ *                 .build())
+ *             .destination(InventoryDestinationArgs.builder()
+ *                 .bucket(InventoryDestinationBucketArgs.builder()
+ *                     .format(&#34;ORC&#34;)
+ *                     .bucketArn(inventory.arn())
+ *                     .prefix(&#34;inventory&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * S3 bucket inventory configurations can be imported using `bucket:inventory`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
+ * ```
+ * 
+ */
 @ResourceType(type="aws:s3/inventory:Inventory")
 public class Inventory extends com.pulumi.resources.CustomResource {
+    /**
+     * The name of the source bucket that inventory lists the objects for.
+     * 
+     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
+    /**
+     * @return The name of the source bucket that inventory lists the objects for.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
+    /**
+     * Contains information about where to publish the inventory results (documented below).
+     * 
+     */
     @Export(name="destination", refs={InventoryDestination.class}, tree="[0]")
     private Output<InventoryDestination> destination;
 
+    /**
+     * @return Contains information about where to publish the inventory results (documented below).
+     * 
+     */
     public Output<InventoryDestination> destination() {
         return this.destination;
     }
+    /**
+     * Specifies whether the inventory is enabled or disabled.
+     * 
+     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
+    /**
+     * @return Specifies whether the inventory is enabled or disabled.
+     * 
+     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
+    /**
+     * Specifies an inventory filter. The inventory only includes objects that meet the filter&#39;s criteria (documented below).
+     * 
+     */
     @Export(name="filter", refs={InventoryFilter.class}, tree="[0]")
     private Output</* @Nullable */ InventoryFilter> filter;
 
+    /**
+     * @return Specifies an inventory filter. The inventory only includes objects that meet the filter&#39;s criteria (documented below).
+     * 
+     */
     public Output<Optional<InventoryFilter>> filter() {
         return Codegen.optional(this.filter);
     }
+    /**
+     * Object versions to include in the inventory list. Valid values: `All`, `Current`.
+     * 
+     */
     @Export(name="includedObjectVersions", refs={String.class}, tree="[0]")
     private Output<String> includedObjectVersions;
 
+    /**
+     * @return Object versions to include in the inventory list. Valid values: `All`, `Current`.
+     * 
+     */
     public Output<String> includedObjectVersions() {
         return this.includedObjectVersions;
     }
+    /**
+     * Unique identifier of the inventory configuration for the bucket.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Unique identifier of the inventory configuration for the bucket.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
+     * 
+     */
     @Export(name="optionalFields", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> optionalFields;
 
+    /**
+     * @return List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
+     * 
+     */
     public Output<Optional<List<String>>> optionalFields() {
         return Codegen.optional(this.optionalFields);
     }
+    /**
+     * Specifies the schedule for generating inventory results (documented below).
+     * 
+     */
     @Export(name="schedule", refs={InventorySchedule.class}, tree="[0]")
     private Output<InventorySchedule> schedule;
 
+    /**
+     * @return Specifies the schedule for generating inventory results (documented below).
+     * 
+     */
     public Output<InventorySchedule> schedule() {
         return this.schedule;
     }

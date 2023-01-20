@@ -11,11 +11,129 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to manage a CloudWatch log resource policy.
+//
+// ## Example Usage
+// ### Elasticsearch Log Publishing
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			elasticsearch_log_publishing_policyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Actions: []string{
+//							"logs:CreateLogStream",
+//							"logs:PutLogEvents",
+//							"logs:PutLogEventsBatch",
+//						},
+//						Resources: []string{
+//							"arn:aws:logs:*",
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Identifiers: []string{
+//									"es.amazonaws.com",
+//								},
+//								Type: "Service",
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "elasticsearch-log-publishing-policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
+//				PolicyDocument: *pulumi.String(elasticsearch_log_publishing_policyPolicyDocument.Json),
+//				PolicyName:     pulumi.String("elasticsearch-log-publishing-policy"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Route53 Query Logging
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			route53_query_logging_policyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Actions: []string{
+//							"logs:CreateLogStream",
+//							"logs:PutLogEvents",
+//						},
+//						Resources: []string{
+//							"arn:aws:logs:*:*:log-group:/aws/route53/*",
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Identifiers: []string{
+//									"route53.amazonaws.com",
+//								},
+//								Type: "Service",
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "route53-query-logging-policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
+//				PolicyDocument: *pulumi.String(route53_query_logging_policyPolicyDocument.Json),
+//				PolicyName:     pulumi.String("route53-query-logging-policy"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// CloudWatch log resource policies can be imported using the policy name, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
+//
+// ```
 type LogResourcePolicy struct {
 	pulumi.CustomResourceState
 
+	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
 	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
-	PolicyName     pulumi.StringOutput `pulumi:"policyName"`
+	// Name of the resource policy.
+	PolicyName pulumi.StringOutput `pulumi:"policyName"`
 }
 
 // NewLogResourcePolicy registers a new resource with the given unique name, arguments, and options.
@@ -53,13 +171,17 @@ func GetLogResourcePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogResourcePolicy resources.
 type logResourcePolicyState struct {
+	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
 	PolicyDocument *string `pulumi:"policyDocument"`
-	PolicyName     *string `pulumi:"policyName"`
+	// Name of the resource policy.
+	PolicyName *string `pulumi:"policyName"`
 }
 
 type LogResourcePolicyState struct {
+	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
 	PolicyDocument pulumi.StringPtrInput
-	PolicyName     pulumi.StringPtrInput
+	// Name of the resource policy.
+	PolicyName pulumi.StringPtrInput
 }
 
 func (LogResourcePolicyState) ElementType() reflect.Type {
@@ -67,14 +189,18 @@ func (LogResourcePolicyState) ElementType() reflect.Type {
 }
 
 type logResourcePolicyArgs struct {
+	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
 	PolicyDocument string `pulumi:"policyDocument"`
-	PolicyName     string `pulumi:"policyName"`
+	// Name of the resource policy.
+	PolicyName string `pulumi:"policyName"`
 }
 
 // The set of arguments for constructing a LogResourcePolicy resource.
 type LogResourcePolicyArgs struct {
+	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
 	PolicyDocument pulumi.StringInput
-	PolicyName     pulumi.StringInput
+	// Name of the resource policy.
+	PolicyName pulumi.StringInput
 }
 
 func (LogResourcePolicyArgs) ElementType() reflect.Type {
@@ -164,10 +290,12 @@ func (o LogResourcePolicyOutput) ToLogResourcePolicyOutputWithContext(ctx contex
 	return o
 }
 
+// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
 func (o LogResourcePolicyOutput) PolicyDocument() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogResourcePolicy) pulumi.StringOutput { return v.PolicyDocument }).(pulumi.StringOutput)
 }
 
+// Name of the resource policy.
 func (o LogResourcePolicyOutput) PolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogResourcePolicy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
 }

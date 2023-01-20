@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class NodeGroupResourceAutoscalingGroup {
+    /**
+     * @return Name of the EC2 Launch Template. Conflicts with `id`.
+     * 
+     */
     private @Nullable String name;
 
     private NodeGroupResourceAutoscalingGroup() {}
+    /**
+     * @return Name of the EC2 Launch Template. Conflicts with `id`.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

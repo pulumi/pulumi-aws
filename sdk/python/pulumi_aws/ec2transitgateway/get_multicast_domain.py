@@ -73,16 +73,25 @@ class GetMulticastDomainResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        EC2 Transit Gateway Multicast Domain ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def associations(self) -> Sequence['outputs.GetMulticastDomainAssociationResult']:
+        """
+        EC2 Transit Gateway Multicast Domain Associations
+        """
         return pulumi.get(self, "associations")
 
     @property
     @pulumi.getter(name="autoAcceptSharedAssociations")
     def auto_accept_shared_associations(self) -> str:
+        """
+        Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain.
+        """
         return pulumi.get(self, "auto_accept_shared_associations")
 
     @property
@@ -101,21 +110,33 @@ class GetMulticastDomainResult:
     @property
     @pulumi.getter(name="igmpv2Support")
     def igmpv2_support(self) -> str:
+        """
+        Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain.
+        """
         return pulumi.get(self, "igmpv2_support")
 
     @property
     @pulumi.getter
     def members(self) -> Sequence['outputs.GetMulticastDomainMemberResult']:
+        """
+        EC2 Multicast Domain Group Members
+        """
         return pulumi.get(self, "members")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
+        """
+        Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
+        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter
     def sources(self) -> Sequence['outputs.GetMulticastDomainSourceResult']:
+        """
+        EC2 Multicast Domain Group Sources
+        """
         return pulumi.get(self, "sources")
 
     @property
@@ -126,21 +147,33 @@ class GetMulticastDomainResult:
     @property
     @pulumi.getter(name="staticSourcesSupport")
     def static_sources_support(self) -> str:
+        """
+        Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain.
+        """
         return pulumi.get(self, "static_sources_support")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Key-value tags for the EC2 Transit Gateway Multicast Domain.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> str:
+        """
+        The ID of the transit gateway attachment.
+        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> str:
+        """
+        EC2 Transit Gateway identifier.
+        """
         return pulumi.get(self, "transit_gateway_id")
 
     @property
@@ -177,7 +210,33 @@ def get_multicast_domain(filters: Optional[Sequence[pulumi.InputType['GetMultica
                          transit_gateway_multicast_domain_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMulticastDomainResult:
     """
-    Use this data source to access information about an existing resource.
+    Get information on an EC2 Transit Gateway Multicast Domain.
+
+    ## Example Usage
+    ### By Filter
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2transitgateway.get_multicast_domain(filters=[aws.ec2transitgateway.GetMulticastDomainFilterArgs(
+        name="transit-gateway-multicast-domain-id",
+        values=["tgw-mcast-domain-12345678"],
+    )])
+    ```
+    ### By Identifier
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2transitgateway.get_multicast_domain(transit_gateway_multicast_domain_id="tgw-mcast-domain-12345678")
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetMulticastDomainFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain.
+    :param str transit_gateway_multicast_domain_id: Identifier of the EC2 Transit Gateway Multicast Domain.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -210,6 +269,32 @@ def get_multicast_domain_output(filters: Optional[pulumi.Input[Optional[Sequence
                                 transit_gateway_multicast_domain_id: Optional[pulumi.Input[Optional[str]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMulticastDomainResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get information on an EC2 Transit Gateway Multicast Domain.
+
+    ## Example Usage
+    ### By Filter
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2transitgateway.get_multicast_domain(filters=[aws.ec2transitgateway.GetMulticastDomainFilterArgs(
+        name="transit-gateway-multicast-domain-id",
+        values=["tgw-mcast-domain-12345678"],
+    )])
+    ```
+    ### By Identifier
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2transitgateway.get_multicast_domain(transit_gateway_multicast_domain_id="tgw-mcast-domain-12345678")
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetMulticastDomainFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain.
+    :param str transit_gateway_multicast_domain_id: Identifier of the EC2 Transit Gateway Multicast Domain.
     """
     ...

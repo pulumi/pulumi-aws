@@ -13,11 +13,57 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * &gt; **NOTE:** This resource interacts with [Amazon Macie Classic](https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html). Macie Classic cannot be activated in new accounts. See the [FAQ](https://aws.amazon.com/macie/classic-faqs/) for more details.
+ * 
+ * Associates an AWS account with Amazon Macie as a member account.
+ * 
+ * &gt; **NOTE:** Before using Amazon Macie for the first time it must be enabled manually. Instructions are [here](https://docs.aws.amazon.com/macie/latest/userguide/macie-setting-up.html#macie-setting-up-enable).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.macie.MemberAccountAssociation;
+ * import com.pulumi.aws.macie.MemberAccountAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new MemberAccountAssociation(&#34;example&#34;, MemberAccountAssociationArgs.builder()        
+ *             .memberAccountId(&#34;123456789012&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="aws:macie/memberAccountAssociation:MemberAccountAssociation")
 public class MemberAccountAssociation extends com.pulumi.resources.CustomResource {
+    /**
+     * The ID of the AWS account that you want to associate with Amazon Macie as a member account.
+     * 
+     */
     @Export(name="memberAccountId", refs={String.class}, tree="[0]")
     private Output<String> memberAccountId;
 
+    /**
+     * @return The ID of the AWS account that you want to associate with Amazon Macie as a member account.
+     * 
+     */
     public Output<String> memberAccountId() {
         return this.memberAccountId;
     }

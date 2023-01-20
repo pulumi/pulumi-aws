@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class JobCommand
     {
+        /// <summary>
+        /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
+        /// </summary>
         public readonly string? PythonVersion;
+        /// <summary>
+        /// Specifies the S3 path to a script that executes a job.
+        /// </summary>
         public readonly string ScriptLocation;
 
         [OutputConstructor]

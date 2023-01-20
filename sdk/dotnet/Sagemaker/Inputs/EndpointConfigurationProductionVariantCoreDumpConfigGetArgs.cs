@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class EndpointConfigurationProductionVariantCoreDumpConfigGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon S3 bucket to send the core dump to.
+        /// </summary>
         [Input("destinationS3Uri", required: true)]
         public Input<string> DestinationS3Uri { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 

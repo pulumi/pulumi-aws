@@ -13,13 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleActionForward {
+    /**
+     * @return The target group stickiness for the rule.
+     * 
+     */
     private @Nullable ListenerRuleActionForwardStickiness stickiness;
+    /**
+     * @return One or more target groups block.
+     * 
+     */
     private List<ListenerRuleActionForwardTargetGroup> targetGroups;
 
     private ListenerRuleActionForward() {}
+    /**
+     * @return The target group stickiness for the rule.
+     * 
+     */
     public Optional<ListenerRuleActionForwardStickiness> stickiness() {
         return Optional.ofNullable(this.stickiness);
     }
+    /**
+     * @return One or more target groups block.
+     * 
+     */
     public List<ListenerRuleActionForwardTargetGroup> targetGroups() {
         return this.targetGroups;
     }

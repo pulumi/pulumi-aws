@@ -16,23 +16,47 @@ public final class GetFileSystemArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetFileSystemArgs Empty = new GetFileSystemArgs();
 
+    /**
+     * Restricts the list to the file system with this creation token.
+     * 
+     */
     @Import(name="creationToken")
     private @Nullable Output<String> creationToken;
 
+    /**
+     * @return Restricts the list to the file system with this creation token.
+     * 
+     */
     public Optional<Output<String>> creationToken() {
         return Optional.ofNullable(this.creationToken);
     }
 
+    /**
+     * ID that identifies the file system (e.g., fs-ccfc0d65).
+     * 
+     */
     @Import(name="fileSystemId")
     private @Nullable Output<String> fileSystemId;
 
+    /**
+     * @return ID that identifies the file system (e.g., fs-ccfc0d65).
+     * 
+     */
     public Optional<Output<String>> fileSystemId() {
         return Optional.ofNullable(this.fileSystemId);
     }
 
+    /**
+     * Restricts the list to the file system with these tags.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Restricts the list to the file system with these tags.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -63,29 +87,65 @@ public final class GetFileSystemArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetFileSystemArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param creationToken Restricts the list to the file system with this creation token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder creationToken(@Nullable Output<String> creationToken) {
             $.creationToken = creationToken;
             return this;
         }
 
+        /**
+         * @param creationToken Restricts the list to the file system with this creation token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder creationToken(String creationToken) {
             return creationToken(Output.of(creationToken));
         }
 
+        /**
+         * @param fileSystemId ID that identifies the file system (e.g., fs-ccfc0d65).
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileSystemId(@Nullable Output<String> fileSystemId) {
             $.fileSystemId = fileSystemId;
             return this;
         }
 
+        /**
+         * @param fileSystemId ID that identifies the file system (e.g., fs-ccfc0d65).
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileSystemId(String fileSystemId) {
             return fileSystemId(Output.of(fileSystemId));
         }
 
+        /**
+         * @param tags Restricts the list to the file system with these tags.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Restricts the list to the file system with these tags.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

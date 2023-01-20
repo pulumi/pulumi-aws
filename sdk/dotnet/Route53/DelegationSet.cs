@@ -9,15 +9,64 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53
 {
+    /// <summary>
+    /// Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API-actions-by-function.html#actions-by-function-reusable-delegation-sets) resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var main = new Aws.Route53.DelegationSet("main", new()
+    ///     {
+    ///         ReferenceName = "DynDNS",
+    ///     });
+    /// 
+    ///     var primary = new Aws.Route53.Zone("primary", new()
+    ///     {
+    ///         DelegationSetId = main.Id,
+    ///     });
+    /// 
+    ///     var secondary = new Aws.Route53.Zone("secondary", new()
+    ///     {
+    ///         DelegationSetId = main.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Route53 Delegation Sets can be imported using the `delegation set id`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:route53/delegationSet:DelegationSet")]
     public partial class DelegationSet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Delegation Set.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of authoritative name servers for the hosted zone
+        /// (effectively a list of NS records).
+        /// </summary>
         [Output("nameServers")]
         public Output<ImmutableArray<string>> NameServers { get; private set; } = null!;
 
+        /// <summary>
+        /// This is a reference name used in Caller Reference
+        /// (helpful for identifying single delegation set amongst others)
+        /// </summary>
         [Output("referenceName")]
         public Output<string?> ReferenceName { get; private set; } = null!;
 
@@ -67,6 +116,10 @@ namespace Pulumi.Aws.Route53
 
     public sealed class DelegationSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This is a reference name used in Caller Reference
+        /// (helpful for identifying single delegation set amongst others)
+        /// </summary>
         [Input("referenceName")]
         public Input<string>? ReferenceName { get; set; }
 
@@ -78,17 +131,29 @@ namespace Pulumi.Aws.Route53
 
     public sealed class DelegationSetState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Delegation Set.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("nameServers")]
         private InputList<string>? _nameServers;
+
+        /// <summary>
+        /// A list of authoritative name servers for the hosted zone
+        /// (effectively a list of NS records).
+        /// </summary>
         public InputList<string> NameServers
         {
             get => _nameServers ?? (_nameServers = new InputList<string>());
             set => _nameServers = value;
         }
 
+        /// <summary>
+        /// This is a reference name used in Caller Reference
+        /// (helpful for identifying single delegation set amongst others)
+        /// </summary>
         [Input("referenceName")]
         public Input<string>? ReferenceName { get; set; }
 

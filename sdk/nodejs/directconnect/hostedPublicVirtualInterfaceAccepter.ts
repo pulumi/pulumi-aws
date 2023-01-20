@@ -4,6 +4,52 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a resource to manage the accepter's side of a Direct Connect hosted public virtual interface.
+ * This resource accepts ownership of a public virtual interface created by another AWS account.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const accepter = new aws.Provider("accepter", {});
+ * // Accepter's credentials.
+ * const accepterCallerIdentity = aws.getCallerIdentity({});
+ * // Creator's side of the VIF
+ * const creator = new aws.directconnect.HostedPublicVirtualInterface("creator", {
+ *     connectionId: "dxcon-zzzzzzzz",
+ *     ownerAccountId: accepterCallerIdentity.then(accepterCallerIdentity => accepterCallerIdentity.accountId),
+ *     vlan: 4094,
+ *     addressFamily: "ipv4",
+ *     bgpAsn: 65352,
+ *     customerAddress: "175.45.176.1/30",
+ *     amazonAddress: "175.45.176.2/30",
+ *     routeFilterPrefixes: [
+ *         "210.52.109.0/24",
+ *         "175.45.176.0/22",
+ *     ],
+ * });
+ * // Accepter's side of the VIF.
+ * const accepterHostedPublicVirtualInterfaceAccepter = new aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepterHostedPublicVirtualInterfaceAccepter", {
+ *     virtualInterfaceId: creator.id,
+ *     tags: {
+ *         Side: "Accepter",
+ *     },
+ * }, {
+ *     provider: aws.accepter,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Direct Connect hosted public virtual interfaces can be imported using the `vif id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter test dxvif-33cc44dd
+ * ```
+ */
 export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource {
     /**
      * Get an existing HostedPublicVirtualInterfaceAccepter resource's state with the given name, ID, and optional extra
@@ -32,9 +78,21 @@ export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource 
         return obj['__pulumiType'] === HostedPublicVirtualInterfaceAccepter.__pulumiType;
     }
 
+    /**
+     * The ARN of the virtual interface.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The ID of the Direct Connect virtual interface to accept.
+     */
     public readonly virtualInterfaceId!: pulumi.Output<string>;
 
     /**
@@ -73,9 +131,21 @@ export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource 
  * Input properties used for looking up and filtering HostedPublicVirtualInterfaceAccepter resources.
  */
 export interface HostedPublicVirtualInterfaceAccepterState {
+    /**
+     * The ARN of the virtual interface.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ID of the Direct Connect virtual interface to accept.
+     */
     virtualInterfaceId?: pulumi.Input<string>;
 }
 
@@ -83,6 +153,12 @@ export interface HostedPublicVirtualInterfaceAccepterState {
  * The set of arguments for constructing a HostedPublicVirtualInterfaceAccepter resource.
  */
 export interface HostedPublicVirtualInterfaceAccepterArgs {
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ID of the Direct Connect virtual interface to accept.
+     */
     virtualInterfaceId: pulumi.Input<string>;
 }

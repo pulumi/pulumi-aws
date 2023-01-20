@@ -16,44 +16,124 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFirewallResult {
+    /**
+     * @return ARN of the firewall.
+     * 
+     */
     private String arn;
+    /**
+     * @return Boolean flag indicating whether it is possible to delete the firewall.
+     * 
+     */
     private Boolean deleteProtection;
+    /**
+     * @return Description of the firewall.
+     * 
+     */
     private String description;
+    /**
+     * @return AWS Key Management Service (AWS KMS) encryption settings for the firewall.
+     * 
+     */
     private List<GetFirewallEncryptionConfiguration> encryptionConfigurations;
+    /**
+     * @return ARN of the VPC Firewall policy.
+     * 
+     */
     private String firewallPolicyArn;
+    /**
+     * @return A boolean flag indicating whether it is possible to change the associated firewall policy.
+     * 
+     */
     private Boolean firewallPolicyChangeProtection;
+    /**
+     * @return Nested list of information about the current status of the firewall.
+     * 
+     */
     private List<GetFirewallFirewallStatus> firewallStatuses;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Descriptive name of the firewall.
+     * 
+     */
     private String name;
+    /**
+     * @return A boolean flag indicating whether it is possible to change the associated subnet(s).
+     * 
+     */
     private Boolean subnetChangeProtection;
+    /**
+     * @return Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
+     * 
+     */
     private List<GetFirewallSubnetMapping> subnetMappings;
+    /**
+     * @return Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     private @Nullable Map<String,String> tags;
+    /**
+     * @return String token used when updating a firewall.
+     * 
+     */
     private String updateToken;
+    /**
+     * @return Unique identifier of the VPC where AWS Network Firewall should create the firewall.
+     * 
+     */
     private String vpcId;
 
     private GetFirewallResult() {}
+    /**
+     * @return ARN of the firewall.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Boolean flag indicating whether it is possible to delete the firewall.
+     * 
+     */
     public Boolean deleteProtection() {
         return this.deleteProtection;
     }
+    /**
+     * @return Description of the firewall.
+     * 
+     */
     public String description() {
         return this.description;
     }
+    /**
+     * @return AWS Key Management Service (AWS KMS) encryption settings for the firewall.
+     * 
+     */
     public List<GetFirewallEncryptionConfiguration> encryptionConfigurations() {
         return this.encryptionConfigurations;
     }
+    /**
+     * @return ARN of the VPC Firewall policy.
+     * 
+     */
     public String firewallPolicyArn() {
         return this.firewallPolicyArn;
     }
+    /**
+     * @return A boolean flag indicating whether it is possible to change the associated firewall policy.
+     * 
+     */
     public Boolean firewallPolicyChangeProtection() {
         return this.firewallPolicyChangeProtection;
     }
+    /**
+     * @return Nested list of information about the current status of the firewall.
+     * 
+     */
     public List<GetFirewallFirewallStatus> firewallStatuses() {
         return this.firewallStatuses;
     }
@@ -64,21 +144,45 @@ public final class GetFirewallResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Descriptive name of the firewall.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return A boolean flag indicating whether it is possible to change the associated subnet(s).
+     * 
+     */
     public Boolean subnetChangeProtection() {
         return this.subnetChangeProtection;
     }
+    /**
+     * @return Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
+     * 
+     */
     public List<GetFirewallSubnetMapping> subnetMappings() {
         return this.subnetMappings;
     }
+    /**
+     * @return Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
+    /**
+     * @return String token used when updating a firewall.
+     * 
+     */
     public String updateToken() {
         return this.updateToken;
     }
+    /**
+     * @return Unique identifier of the VPC where AWS Network Firewall should create the firewall.
+     * 
+     */
     public String vpcId() {
         return this.vpcId;
     }

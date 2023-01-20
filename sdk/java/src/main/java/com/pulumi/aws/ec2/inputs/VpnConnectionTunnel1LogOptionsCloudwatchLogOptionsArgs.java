@@ -16,23 +16,47 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs extend
 
     public static final VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs Empty = new VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs();
 
+    /**
+     * Enable or disable VPN tunnel logging feature. The default is `false`.
+     * 
+     */
     @Import(name="logEnabled")
     private @Nullable Output<Boolean> logEnabled;
 
+    /**
+     * @return Enable or disable VPN tunnel logging feature. The default is `false`.
+     * 
+     */
     public Optional<Output<Boolean>> logEnabled() {
         return Optional.ofNullable(this.logEnabled);
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+     * 
+     */
     @Import(name="logGroupArn")
     private @Nullable Output<String> logGroupArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+     * 
+     */
     public Optional<Output<String>> logGroupArn() {
         return Optional.ofNullable(this.logGroupArn);
     }
 
+    /**
+     * Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+     * 
+     */
     @Import(name="logOutputFormat")
     private @Nullable Output<String> logOutputFormat;
 
+    /**
+     * @return Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+     * 
+     */
     public Optional<Output<String>> logOutputFormat() {
         return Optional.ofNullable(this.logOutputFormat);
     }
@@ -63,29 +87,65 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs extend
             $ = new VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param logEnabled Enable or disable VPN tunnel logging feature. The default is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logEnabled(@Nullable Output<Boolean> logEnabled) {
             $.logEnabled = logEnabled;
             return this;
         }
 
+        /**
+         * @param logEnabled Enable or disable VPN tunnel logging feature. The default is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logEnabled(Boolean logEnabled) {
             return logEnabled(Output.of(logEnabled));
         }
 
+        /**
+         * @param logGroupArn The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logGroupArn(@Nullable Output<String> logGroupArn) {
             $.logGroupArn = logGroupArn;
             return this;
         }
 
+        /**
+         * @param logGroupArn The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logGroupArn(String logGroupArn) {
             return logGroupArn(Output.of(logGroupArn));
         }
 
+        /**
+         * @param logOutputFormat Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logOutputFormat(@Nullable Output<String> logOutputFormat) {
             $.logOutputFormat = logOutputFormat;
             return this;
         }
 
+        /**
+         * @param logOutputFormat Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logOutputFormat(String logOutputFormat) {
             return logOutputFormat(Output.of(logOutputFormat));
         }

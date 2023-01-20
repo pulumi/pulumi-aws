@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class TopicRuleTimestreamTimestamp {
+    /**
+     * @return The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+     * 
+     */
     private String unit;
+    /**
+     * @return The value of the HTTP header.
+     * 
+     */
     private String value;
 
     private TopicRuleTimestreamTimestamp() {}
+    /**
+     * @return The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+     * 
+     */
     public String unit() {
         return this.unit;
     }
+    /**
+     * @return The value of the HTTP header.
+     * 
+     */
     public String value() {
         return this.value;
     }

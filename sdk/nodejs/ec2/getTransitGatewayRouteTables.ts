@@ -7,6 +7,21 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
+ *
+ * ## Example Usage
+ *
+ * The following shows outputing all Transit Gateway Route Table Ids.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleTransitGatewayRouteTables = aws.ec2.getTransitGatewayRouteTables({});
+ * export const example = data.aws_ec2_transit_gateway_route_table.example.ids;
+ * ```
+ */
 export function getTransitGatewayRouteTables(args?: GetTransitGatewayRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayRouteTablesResult> {
     args = args || {};
 
@@ -21,7 +36,14 @@ export function getTransitGatewayRouteTables(args?: GetTransitGatewayRouteTables
  * A collection of arguments for invoking getTransitGatewayRouteTables.
  */
 export interface GetTransitGatewayRouteTablesArgs {
+    /**
+     * Custom filter block as described below.
+     */
     filters?: inputs.ec2.GetTransitGatewayRouteTablesFilter[];
+    /**
+     * Mapping of tags, each pair of which must exactly match
+     * a pair on the desired transit gateway route table.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -34,9 +56,27 @@ export interface GetTransitGatewayRouteTablesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Set of Transit Gateway Route Table identifiers.
+     */
     readonly ids: string[];
     readonly tags: {[key: string]: string};
 }
+/**
+ * Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
+ *
+ * ## Example Usage
+ *
+ * The following shows outputing all Transit Gateway Route Table Ids.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleTransitGatewayRouteTables = aws.ec2.getTransitGatewayRouteTables({});
+ * export const example = data.aws_ec2_transit_gateway_route_table.example.ids;
+ * ```
+ */
 export function getTransitGatewayRouteTablesOutput(args?: GetTransitGatewayRouteTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayRouteTablesResult> {
     return pulumi.output(args).apply((a: any) => getTransitGatewayRouteTables(a, opts))
 }
@@ -45,6 +85,13 @@ export function getTransitGatewayRouteTablesOutput(args?: GetTransitGatewayRoute
  * A collection of arguments for invoking getTransitGatewayRouteTables.
  */
 export interface GetTransitGatewayRouteTablesOutputArgs {
+    /**
+     * Custom filter block as described below.
+     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetTransitGatewayRouteTablesFilterArgs>[]>;
+    /**
+     * Mapping of tags, each pair of which must exactly match
+     * a pair on the desired transit gateway route table.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

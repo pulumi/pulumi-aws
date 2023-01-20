@@ -13,16 +13,32 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EnvironmentLoggingConfigurationDagProcessingLogs {
     private @Nullable String cloudWatchLogGroupArn;
+    /**
+     * @return Enabling or disabling the collection of logs
+     * 
+     */
     private @Nullable Boolean enabled;
+    /**
+     * @return Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+     * 
+     */
     private @Nullable String logLevel;
 
     private EnvironmentLoggingConfigurationDagProcessingLogs() {}
     public Optional<String> cloudWatchLogGroupArn() {
         return Optional.ofNullable(this.cloudWatchLogGroupArn);
     }
+    /**
+     * @return Enabling or disabling the collection of logs
+     * 
+     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
+    /**
+     * @return Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+     * 
+     */
     public Optional<String> logLevel() {
         return Optional.ofNullable(this.logLevel);
     }

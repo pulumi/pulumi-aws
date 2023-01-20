@@ -11,9 +11,63 @@ namespace Pulumi.Aws.NetworkManager
 {
     public static class GetGlobalNetworks
     {
+        /// <summary>
+        /// Retrieve information about global networks.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.NetworkManager.GetGlobalNetworks.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "Env", "test" },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetGlobalNetworksResult> InvokeAsync(GetGlobalNetworksArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalNetworksResult>("aws:networkmanager/getGlobalNetworks:getGlobalNetworks", args ?? new GetGlobalNetworksArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieve information about global networks.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.NetworkManager.GetGlobalNetworks.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "Env", "test" },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetGlobalNetworksResult> Invoke(GetGlobalNetworksInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalNetworksResult>("aws:networkmanager/getGlobalNetworks:getGlobalNetworks", args ?? new GetGlobalNetworksInvokeArgs(), options.WithDefaults());
     }
@@ -23,6 +77,10 @@ namespace Pulumi.Aws.NetworkManager
     {
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Restricts the list to the global networks with these tags.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -39,6 +97,10 @@ namespace Pulumi.Aws.NetworkManager
     {
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Restricts the list to the global networks with these tags.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -59,6 +121,9 @@ namespace Pulumi.Aws.NetworkManager
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// IDs of the global networks.
+        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, string>? Tags;
 

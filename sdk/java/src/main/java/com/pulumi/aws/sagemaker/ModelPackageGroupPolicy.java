@@ -13,11 +13,33 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a SageMaker Model Package Group Policy resource.
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * SageMaker Model Package Groups can be imported using the `name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
+ * ```
+ * 
+ */
 @ResourceType(type="aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy")
 public class ModelPackageGroupPolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * The name of the model package group.
+     * 
+     */
     @Export(name="modelPackageGroupName", refs={String.class}, tree="[0]")
     private Output<String> modelPackageGroupName;
 
+    /**
+     * @return The name of the model package group.
+     * 
+     */
     public Output<String> modelPackageGroupName() {
         return this.modelPackageGroupName;
     }

@@ -73,21 +73,33 @@ class GetDedicatedHostResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the Dedicated Host.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoPlacement")
     def auto_placement(self) -> str:
+        """
+        Whether auto-placement is on or off.
+        """
         return pulumi.get(self, "auto_placement")
 
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> str:
+        """
+        Availability Zone of the Dedicated Host.
+        """
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter
     def cores(self) -> int:
+        """
+        Number of cores on the Dedicated Host.
+        """
         return pulumi.get(self, "cores")
 
     @property
@@ -103,6 +115,9 @@ class GetDedicatedHostResult:
     @property
     @pulumi.getter(name="hostRecovery")
     def host_recovery(self) -> str:
+        """
+        Whether host recovery is enabled or disabled for the Dedicated Host.
+        """
         return pulumi.get(self, "host_recovery")
 
     @property
@@ -116,26 +131,41 @@ class GetDedicatedHostResult:
     @property
     @pulumi.getter(name="instanceFamily")
     def instance_family(self) -> str:
+        """
+        Instance family supported by the Dedicated Host. For example, "m5".
+        """
         return pulumi.get(self, "instance_family")
 
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> str:
+        """
+        Instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
+        """
         return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> str:
+        """
+        ARN of the AWS Outpost on which the Dedicated Host is allocated.
+        """
         return pulumi.get(self, "outpost_arn")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
+        """
+        ID of the AWS account that owns the Dedicated Host.
+        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter
     def sockets(self) -> int:
+        """
+        Number of sockets on the Dedicated Host.
+        """
         return pulumi.get(self, "sockets")
 
     @property
@@ -146,6 +176,9 @@ class GetDedicatedHostResult:
     @property
     @pulumi.getter(name="totalVcpus")
     def total_vcpus(self) -> int:
+        """
+        Total number of vCPUs on the Dedicated Host.
+        """
         return pulumi.get(self, "total_vcpus")
 
 
@@ -177,7 +210,24 @@ def get_dedicated_host(filters: Optional[Sequence[pulumi.InputType['GetDedicated
                        tags: Optional[Mapping[str, str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHostResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about an EC2 Dedicated Host.
+
+    ## Example Usage
+    ### Filter Example
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.ec2.get_dedicated_host(filters=[aws.ec2.GetDedicatedHostFilterArgs(
+        name="instance-type",
+        values=["c5.18xlarge"],
+    )])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetDedicatedHostFilterArgs']] filters: Configuration block. Detailed below.
+    :param str host_id: ID of the Dedicated Host.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -210,6 +260,23 @@ def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[p
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHostResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about an EC2 Dedicated Host.
+
+    ## Example Usage
+    ### Filter Example
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.ec2.get_dedicated_host(filters=[aws.ec2.GetDedicatedHostFilterArgs(
+        name="instance-type",
+        values=["c5.18xlarge"],
+    )])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetDedicatedHostFilterArgs']] filters: Configuration block. Detailed below.
+    :param str host_id: ID of the Dedicated Host.
     """
     ...

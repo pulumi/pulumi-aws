@@ -17,41 +17,135 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an ElastiCache user resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticache.User;
+ * import com.pulumi.aws.elasticache.UserArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new User(&#34;test&#34;, UserArgs.builder()        
+ *             .accessString(&#34;on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember&#34;)
+ *             .engine(&#34;REDIS&#34;)
+ *             .passwords(&#34;password123456789&#34;)
+ *             .userId(&#34;testUserId&#34;)
+ *             .userName(&#34;testUserName&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * ElastiCache users can be imported using the `user_id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:elasticache/user:User my_user userId1
+ * ```
+ * 
+ */
 @ResourceType(type="aws:elasticache/user:User")
 public class User extends com.pulumi.resources.CustomResource {
+    /**
+     * Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
+     * 
+     */
     @Export(name="accessString", refs={String.class}, tree="[0]")
     private Output<String> accessString;
 
+    /**
+     * @return Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
+     * 
+     */
     public Output<String> accessString() {
         return this.accessString;
     }
+    /**
+     * The ARN of the created ElastiCache User.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the created ElastiCache User.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The current supported value is `REDIS`.
+     * 
+     */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
+    /**
+     * @return The current supported value is `REDIS`.
+     * 
+     */
     public Output<String> engine() {
         return this.engine;
     }
+    /**
+     * Indicates a password is not required for this user.
+     * 
+     */
     @Export(name="noPasswordRequired", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> noPasswordRequired;
 
+    /**
+     * @return Indicates a password is not required for this user.
+     * 
+     */
     public Output<Optional<Boolean>> noPasswordRequired() {
         return Codegen.optional(this.noPasswordRequired);
     }
+    /**
+     * Passwords used for this user. You can create up to two passwords for each user.
+     * 
+     */
     @Export(name="passwords", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> passwords;
 
+    /**
+     * @return Passwords used for this user. You can create up to two passwords for each user.
+     * 
+     */
     public Output<Optional<List<String>>> passwords() {
         return Codegen.optional(this.passwords);
     }
+    /**
+     * A list of tags to be added to this resource. A tag is a key-value pair.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A list of tags to be added to this resource. A tag is a key-value pair.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -61,15 +155,31 @@ public class User extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The ID of the user.
+     * 
+     */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
+    /**
+     * @return The ID of the user.
+     * 
+     */
     public Output<String> userId() {
         return this.userId;
     }
+    /**
+     * The username of the user.
+     * 
+     */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
+    /**
+     * @return The username of the user.
+     * 
+     */
     public Output<String> userName() {
         return this.userName;
     }

@@ -14,25 +14,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig {
+    /**
+     * @return Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See AWS Managed Rules Bot Control Rule Set for more details
+     * 
+     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet awsManagedRulesBotControlRuleSet;
+    /**
+     * @return The path of the login endpoint for your application.
+     * 
+     */
     private @Nullable String loginPath;
+    /**
+     * @return Details about your login page password field. See Password Field for more details.
+     * 
+     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField passwordField;
+    /**
+     * @return The payload type for your login endpoint, either JSON or form encoded.
+     * 
+     */
     private @Nullable String payloadType;
+    /**
+     * @return Details about your login page username field. See Username Field for more details.
+     * 
+     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField usernameField;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig() {}
+    /**
+     * @return Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See AWS Managed Rules Bot Control Rule Set for more details
+     * 
+     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet> awsManagedRulesBotControlRuleSet() {
         return Optional.ofNullable(this.awsManagedRulesBotControlRuleSet);
     }
+    /**
+     * @return The path of the login endpoint for your application.
+     * 
+     */
     public Optional<String> loginPath() {
         return Optional.ofNullable(this.loginPath);
     }
+    /**
+     * @return Details about your login page password field. See Password Field for more details.
+     * 
+     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField> passwordField() {
         return Optional.ofNullable(this.passwordField);
     }
+    /**
+     * @return The payload type for your login endpoint, either JSON or form encoded.
+     * 
+     */
     public Optional<String> payloadType() {
         return Optional.ofNullable(this.payloadType);
     }
+    /**
+     * @return Details about your login page username field. See Username Field for more details.
+     * 
+     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField> usernameField() {
         return Optional.ofNullable(this.usernameField);
     }

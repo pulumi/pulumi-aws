@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetKeyMultiRegionConfigurationReplicaKey {
+    /**
+     * @return The key ARN of a primary or replica key of a multi-Region key.
+     * 
+     */
     private String arn;
+    /**
+     * @return The AWS Region of a primary or replica key in a multi-Region key.
+     * 
+     */
     private String region;
 
     private GetKeyMultiRegionConfigurationReplicaKey() {}
+    /**
+     * @return The key ARN of a primary or replica key of a multi-Region key.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return The AWS Region of a primary or replica key in a multi-Region key.
+     * 
+     */
     public String region() {
         return this.region;
     }

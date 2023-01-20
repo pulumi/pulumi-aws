@@ -15,35 +15,121 @@ import java.lang.Double;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Manages an individual Service Quota.
+ * 
+ * &gt; **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.servicequotas.ServiceQuota;
+ * import com.pulumi.aws.servicequotas.ServiceQuotaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ServiceQuota(&#34;example&#34;, ServiceQuotaArgs.builder()        
+ *             .quotaCode(&#34;L-F678F1CE&#34;)
+ *             .serviceCode(&#34;vpc&#34;)
+ *             .value(75)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * ~&gt; *NOTE* This resource does not require explicit import and will assume management of an existing service quota on resource creation. `aws_servicequotas_service_quota` can be imported by using the service code and quota code, separated by a front slash (`/`), e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
+ * ```
+ * 
+ */
 @ResourceType(type="aws:servicequotas/serviceQuota:ServiceQuota")
 public class ServiceQuota extends com.pulumi.resources.CustomResource {
+    /**
+     * Whether the service quota can be increased.
+     * 
+     */
     @Export(name="adjustable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> adjustable;
 
+    /**
+     * @return Whether the service quota can be increased.
+     * 
+     */
     public Output<Boolean> adjustable() {
         return this.adjustable;
     }
+    /**
+     * Amazon Resource Name (ARN) of the service quota.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of the service quota.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Default value of the service quota.
+     * 
+     */
     @Export(name="defaultValue", refs={Double.class}, tree="[0]")
     private Output<Double> defaultValue;
 
+    /**
+     * @return Default value of the service quota.
+     * 
+     */
     public Output<Double> defaultValue() {
         return this.defaultValue;
     }
+    /**
+     * Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
+     * 
+     */
     @Export(name="quotaCode", refs={String.class}, tree="[0]")
     private Output<String> quotaCode;
 
+    /**
+     * @return Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
+     * 
+     */
     public Output<String> quotaCode() {
         return this.quotaCode;
     }
+    /**
+     * Name of the quota.
+     * 
+     */
     @Export(name="quotaName", refs={String.class}, tree="[0]")
     private Output<String> quotaName;
 
+    /**
+     * @return Name of the quota.
+     * 
+     */
     public Output<String> quotaName() {
         return this.quotaName;
     }
@@ -59,21 +145,45 @@ public class ServiceQuota extends com.pulumi.resources.CustomResource {
     public Output<String> requestStatus() {
         return this.requestStatus;
     }
+    /**
+     * Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+     * 
+     */
     @Export(name="serviceCode", refs={String.class}, tree="[0]")
     private Output<String> serviceCode;
 
+    /**
+     * @return Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+     * 
+     */
     public Output<String> serviceCode() {
         return this.serviceCode;
     }
+    /**
+     * Name of the service.
+     * 
+     */
     @Export(name="serviceName", refs={String.class}, tree="[0]")
     private Output<String> serviceName;
 
+    /**
+     * @return Name of the service.
+     * 
+     */
     public Output<String> serviceName() {
         return this.serviceName;
     }
+    /**
+     * Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
+     * 
+     */
     @Export(name="value", refs={Double.class}, tree="[0]")
     private Output<Double> value;
 
+    /**
+     * @return Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
+     * 
+     */
     public Output<Double> value() {
         return this.value;
     }

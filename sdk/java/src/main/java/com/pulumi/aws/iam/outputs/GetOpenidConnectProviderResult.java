@@ -12,13 +12,25 @@ import java.util.Objects;
 @CustomType
 public final class GetOpenidConnectProviderResult {
     private String arn;
+    /**
+     * @return List of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
+     * 
+     */
     private List<String> clientIdLists;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Map of resource tags for the IAM OIDC provider.
+     * 
+     */
     private Map<String,String> tags;
+    /**
+     * @return List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
+     * 
+     */
     private List<String> thumbprintLists;
     private String url;
 
@@ -26,6 +38,10 @@ public final class GetOpenidConnectProviderResult {
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return List of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
+     * 
+     */
     public List<String> clientIdLists() {
         return this.clientIdLists;
     }
@@ -36,9 +52,17 @@ public final class GetOpenidConnectProviderResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Map of resource tags for the IAM OIDC provider.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @return List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
+     * 
+     */
     public List<String> thumbprintLists() {
         return this.thumbprintLists;
     }

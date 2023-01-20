@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig {
+    /**
+     * @return Determines the level of granularity that&#39;s included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
+     * 
+     */
     private @Nullable String prefixFormat;
+    /**
+     * @return Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
+     * 
+     */
     private @Nullable String prefixType;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig() {}
+    /**
+     * @return Determines the level of granularity that&#39;s included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
+     * 
+     */
     public Optional<String> prefixFormat() {
         return Optional.ofNullable(this.prefixFormat);
     }
+    /**
+     * @return Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
+     * 
+     */
     public Optional<String> prefixType() {
         return Optional.ofNullable(this.prefixType);
     }

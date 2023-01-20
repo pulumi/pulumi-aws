@@ -17,41 +17,139 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an RDS security group resource. This is only for DB instances in the
+ * EC2-Classic Platform. For instances inside a VPC, use the
+ * `aws_db_instance.vpc_security_group_ids`
+ * attribute instead.
+ * 
+ * !&gt; **WARNING:** With the retirement of EC2-Classic the `aws.rds.SecurityGroup` resource has been deprecated and will be removed in a future version.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.SecurityGroup;
+ * import com.pulumi.aws.rds.SecurityGroupArgs;
+ * import com.pulumi.aws.rds.inputs.SecurityGroupIngressArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var default_ = new SecurityGroup(&#34;default&#34;, SecurityGroupArgs.builder()        
+ *             .ingress(SecurityGroupIngressArgs.builder()
+ *                 .cidr(&#34;10.0.0.0/24&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * DB Security groups can be imported using the `name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:rds/securityGroup:SecurityGroup default aws_rds_sg-1
+ * ```
+ * 
+ */
 @ResourceType(type="aws:rds/securityGroup:SecurityGroup")
 public class SecurityGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * The arn of the DB security group.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The arn of the DB security group.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The description of the DB security group. Defaults to &#34;Managed by Pulumi&#34;.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
+    /**
+     * @return The description of the DB security group. Defaults to &#34;Managed by Pulumi&#34;.
+     * 
+     */
     public Output<String> description() {
         return this.description;
     }
+    /**
+     * A list of ingress rules.
+     * 
+     */
     @Export(name="ingress", refs={List.class,SecurityGroupIngress.class}, tree="[0,1]")
     private Output<List<SecurityGroupIngress>> ingress;
 
+    /**
+     * @return A list of ingress rules.
+     * 
+     */
     public Output<List<SecurityGroupIngress>> ingress() {
         return this.ingress;
     }
+    /**
+     * The name of the DB security group.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the DB security group.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

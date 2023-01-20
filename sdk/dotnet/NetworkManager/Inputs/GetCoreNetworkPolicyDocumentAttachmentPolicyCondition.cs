@@ -12,15 +12,27 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
     public sealed class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// string value
+        /// </summary>
         [Input("key")]
         public string? Key { get; set; }
 
+        /// <summary>
+        /// Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
+        /// </summary>
         [Input("operator")]
         public string? Operator { get; set; }
 
+        /// <summary>
+        /// Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+        /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
 
+        /// <summary>
+        /// string value
+        /// </summary>
         [Input("value")]
         public string? Value { get; set; }
 

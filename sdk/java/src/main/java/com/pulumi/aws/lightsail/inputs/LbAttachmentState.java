@@ -15,16 +15,32 @@ public final class LbAttachmentState extends com.pulumi.resources.ResourceArgs {
 
     public static final LbAttachmentState Empty = new LbAttachmentState();
 
+    /**
+     * The name of the instance to attach to the load balancer.
+     * 
+     */
     @Import(name="instanceName")
     private @Nullable Output<String> instanceName;
 
+    /**
+     * @return The name of the instance to attach to the load balancer.
+     * 
+     */
     public Optional<Output<String>> instanceName() {
         return Optional.ofNullable(this.instanceName);
     }
 
+    /**
+     * The name of the Lightsail load balancer.
+     * 
+     */
     @Import(name="lbName")
     private @Nullable Output<String> lbName;
 
+    /**
+     * @return The name of the Lightsail load balancer.
+     * 
+     */
     public Optional<Output<String>> lbName() {
         return Optional.ofNullable(this.lbName);
     }
@@ -54,20 +70,44 @@ public final class LbAttachmentState extends com.pulumi.resources.ResourceArgs {
             $ = new LbAttachmentState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param instanceName The name of the instance to attach to the load balancer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceName(@Nullable Output<String> instanceName) {
             $.instanceName = instanceName;
             return this;
         }
 
+        /**
+         * @param instanceName The name of the instance to attach to the load balancer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceName(String instanceName) {
             return instanceName(Output.of(instanceName));
         }
 
+        /**
+         * @param lbName The name of the Lightsail load balancer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lbName(@Nullable Output<String> lbName) {
             $.lbName = lbName;
             return this;
         }
 
+        /**
+         * @param lbName The name of the Lightsail load balancer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lbName(String lbName) {
             return lbName(Output.of(lbName));
         }

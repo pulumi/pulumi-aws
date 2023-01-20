@@ -7,6 +7,44 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Executes a Redshift Data Statement.
+ *
+ * ## Example Usage
+ * ### clusterIdentifier
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.redshiftdata.Statement("example", {
+ *     clusterIdentifier: aws_redshift_cluster.example.cluster_identifier,
+ *     database: aws_redshift_cluster.example.database_name,
+ *     dbUser: aws_redshift_cluster.example.master_username,
+ *     sql: "CREATE GROUP group_name;",
+ * });
+ * ```
+ * ### workgroupName
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.redshiftdata.Statement("example", {
+ *     workgroupName: aws_redshiftserverless_workgroup.example.workgroup_name,
+ *     database: "dev",
+ *     sql: "CREATE GROUP group_name;",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Redshift Data Statements can be imported using the `id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:redshiftdata/statement:Statement example example
+ * ```
+ */
 export class Statement extends pulumi.CustomResource {
     /**
      * Get an existing Statement resource's state with the given name, ID, and optional extra
@@ -35,14 +73,38 @@ export class Statement extends pulumi.CustomResource {
         return obj['__pulumiType'] === Statement.__pulumiType;
     }
 
+    /**
+     * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
+     */
     public readonly clusterIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the database.
+     */
     public readonly database!: pulumi.Output<string>;
+    /**
+     * The database user name.
+     */
     public readonly dbUser!: pulumi.Output<string | undefined>;
     public readonly parameters!: pulumi.Output<outputs.redshiftdata.StatementParameter[] | undefined>;
+    /**
+     * The name or ARN of the secret that enables access to the database.
+     */
     public readonly secretArn!: pulumi.Output<string | undefined>;
+    /**
+     * The SQL statement text to run.
+     */
     public readonly sql!: pulumi.Output<string>;
+    /**
+     * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+     */
     public readonly statementName!: pulumi.Output<string | undefined>;
+    /**
+     * A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
+     */
     public readonly withEvent!: pulumi.Output<boolean | undefined>;
+    /**
+     * The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+     */
     public readonly workgroupName!: pulumi.Output<string | undefined>;
 
     /**
@@ -94,14 +156,38 @@ export class Statement extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Statement resources.
  */
 export interface StatementState {
+    /**
+     * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
+     */
     clusterIdentifier?: pulumi.Input<string>;
+    /**
+     * The name of the database.
+     */
     database?: pulumi.Input<string>;
+    /**
+     * The database user name.
+     */
     dbUser?: pulumi.Input<string>;
     parameters?: pulumi.Input<pulumi.Input<inputs.redshiftdata.StatementParameter>[]>;
+    /**
+     * The name or ARN of the secret that enables access to the database.
+     */
     secretArn?: pulumi.Input<string>;
+    /**
+     * The SQL statement text to run.
+     */
     sql?: pulumi.Input<string>;
+    /**
+     * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+     */
     statementName?: pulumi.Input<string>;
+    /**
+     * A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
+     */
     withEvent?: pulumi.Input<boolean>;
+    /**
+     * The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+     */
     workgroupName?: pulumi.Input<string>;
 }
 
@@ -109,13 +195,37 @@ export interface StatementState {
  * The set of arguments for constructing a Statement resource.
  */
 export interface StatementArgs {
+    /**
+     * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
+     */
     clusterIdentifier?: pulumi.Input<string>;
+    /**
+     * The name of the database.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The database user name.
+     */
     dbUser?: pulumi.Input<string>;
     parameters?: pulumi.Input<pulumi.Input<inputs.redshiftdata.StatementParameter>[]>;
+    /**
+     * The name or ARN of the secret that enables access to the database.
+     */
     secretArn?: pulumi.Input<string>;
+    /**
+     * The SQL statement text to run.
+     */
     sql: pulumi.Input<string>;
+    /**
+     * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+     */
     statementName?: pulumi.Input<string>;
+    /**
+     * A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
+     */
     withEvent?: pulumi.Input<boolean>;
+    /**
+     * The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+     */
     workgroupName?: pulumi.Input<string>;
 }

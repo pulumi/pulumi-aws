@@ -11,14 +11,77 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an API Gateway Usage Plan Key.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := apigateway.NewRestApi(ctx, "test", nil)
+//			if err != nil {
+//				return err
+//			}
+//			myusageplan, err := apigateway.NewUsagePlan(ctx, "myusageplan", &apigateway.UsagePlanArgs{
+//				ApiStages: apigateway.UsagePlanApiStageArray{
+//					&apigateway.UsagePlanApiStageArgs{
+//						ApiId: test.ID(),
+//						Stage: pulumi.Any(aws_api_gateway_deployment.Foo.Stage_name),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mykey, err := apigateway.NewApiKey(ctx, "mykey", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewUsagePlanKey(ctx, "main", &apigateway.UsagePlanKeyArgs{
+//				KeyId:       mykey.ID(),
+//				KeyType:     pulumi.String("API_KEY"),
+//				UsagePlanId: myusageplan.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// AWS API Gateway Usage Plan Key can be imported using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
+//
+// ```
 type UsagePlanKey struct {
 	pulumi.CustomResourceState
 
-	KeyId       pulumi.StringOutput `pulumi:"keyId"`
-	KeyType     pulumi.StringOutput `pulumi:"keyType"`
-	Name        pulumi.StringOutput `pulumi:"name"`
+	// Identifier of the API key resource.
+	KeyId pulumi.StringOutput `pulumi:"keyId"`
+	// Type of the API key resource. Currently, the valid key type is API_KEY.
+	KeyType pulumi.StringOutput `pulumi:"keyType"`
+	// Name of a usage plan key.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Id of the usage plan resource representing to associate the key to.
 	UsagePlanId pulumi.StringOutput `pulumi:"usagePlanId"`
-	Value       pulumi.StringOutput `pulumi:"value"`
+	// Value of a usage plan key.
+	Value pulumi.StringOutput `pulumi:"value"`
 }
 
 // NewUsagePlanKey registers a new resource with the given unique name, arguments, and options.
@@ -59,19 +122,29 @@ func GetUsagePlanKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UsagePlanKey resources.
 type usagePlanKeyState struct {
-	KeyId       *string `pulumi:"keyId"`
-	KeyType     *string `pulumi:"keyType"`
-	Name        *string `pulumi:"name"`
+	// Identifier of the API key resource.
+	KeyId *string `pulumi:"keyId"`
+	// Type of the API key resource. Currently, the valid key type is API_KEY.
+	KeyType *string `pulumi:"keyType"`
+	// Name of a usage plan key.
+	Name *string `pulumi:"name"`
+	// Id of the usage plan resource representing to associate the key to.
 	UsagePlanId *string `pulumi:"usagePlanId"`
-	Value       *string `pulumi:"value"`
+	// Value of a usage plan key.
+	Value *string `pulumi:"value"`
 }
 
 type UsagePlanKeyState struct {
-	KeyId       pulumi.StringPtrInput
-	KeyType     pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
+	// Identifier of the API key resource.
+	KeyId pulumi.StringPtrInput
+	// Type of the API key resource. Currently, the valid key type is API_KEY.
+	KeyType pulumi.StringPtrInput
+	// Name of a usage plan key.
+	Name pulumi.StringPtrInput
+	// Id of the usage plan resource representing to associate the key to.
 	UsagePlanId pulumi.StringPtrInput
-	Value       pulumi.StringPtrInput
+	// Value of a usage plan key.
+	Value pulumi.StringPtrInput
 }
 
 func (UsagePlanKeyState) ElementType() reflect.Type {
@@ -79,15 +152,21 @@ func (UsagePlanKeyState) ElementType() reflect.Type {
 }
 
 type usagePlanKeyArgs struct {
-	KeyId       string `pulumi:"keyId"`
-	KeyType     string `pulumi:"keyType"`
+	// Identifier of the API key resource.
+	KeyId string `pulumi:"keyId"`
+	// Type of the API key resource. Currently, the valid key type is API_KEY.
+	KeyType string `pulumi:"keyType"`
+	// Id of the usage plan resource representing to associate the key to.
 	UsagePlanId string `pulumi:"usagePlanId"`
 }
 
 // The set of arguments for constructing a UsagePlanKey resource.
 type UsagePlanKeyArgs struct {
-	KeyId       pulumi.StringInput
-	KeyType     pulumi.StringInput
+	// Identifier of the API key resource.
+	KeyId pulumi.StringInput
+	// Type of the API key resource. Currently, the valid key type is API_KEY.
+	KeyType pulumi.StringInput
+	// Id of the usage plan resource representing to associate the key to.
 	UsagePlanId pulumi.StringInput
 }
 
@@ -178,22 +257,27 @@ func (o UsagePlanKeyOutput) ToUsagePlanKeyOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Identifier of the API key resource.
 func (o UsagePlanKeyOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
 }
 
+// Type of the API key resource. Currently, the valid key type is API_KEY.
 func (o UsagePlanKeyOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringOutput { return v.KeyType }).(pulumi.StringOutput)
 }
 
+// Name of a usage plan key.
 func (o UsagePlanKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Id of the usage plan resource representing to associate the key to.
 func (o UsagePlanKeyOutput) UsagePlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringOutput { return v.UsagePlanId }).(pulumi.StringOutput)
 }
 
+// Value of a usage plan key.
 func (o UsagePlanKeyOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

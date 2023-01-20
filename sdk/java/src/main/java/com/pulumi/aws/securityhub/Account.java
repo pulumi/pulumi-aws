@@ -11,6 +11,47 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import javax.annotation.Nullable;
 
+/**
+ * Enables Security Hub for this AWS account.
+ * 
+ * &gt; **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.securityhub.Account;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Account(&#34;example&#34;);
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:securityhub/account:Account example 123456789012
+ * ```
+ * 
+ */
 @ResourceType(type="aws:securityhub/account:Account")
 public class Account extends com.pulumi.resources.CustomResource {
     /**

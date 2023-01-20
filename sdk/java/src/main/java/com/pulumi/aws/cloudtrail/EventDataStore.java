@@ -19,59 +19,237 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a CloudTrail Event Data Store.
+ * 
+ * More information about event data stores can be found in the [Event Data Store User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-event-data-store.html).
+ * 
+ * &gt; **Tip:** For an organization event data store you must create this resource in the management account.
+ * 
+ * ## Example Usage
+ * ### Basic
+ * 
+ * The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multi_region_enabled` must be `true`.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudtrail.EventDataStore;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new EventDataStore(&#34;example&#34;);
+ * 
+ *     }
+ * }
+ * ```
+ * ### Data Event Logging
+ * 
+ * CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
+ * 
+ * - [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html)
+ * ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.dynamodb.DynamodbFunctions;
+ * import com.pulumi.aws.dynamodb.inputs.GetTableArgs;
+ * import com.pulumi.aws.cloudtrail.EventDataStore;
+ * import com.pulumi.aws.cloudtrail.EventDataStoreArgs;
+ * import com.pulumi.aws.cloudtrail.inputs.EventDataStoreAdvancedEventSelectorArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var table = DynamodbFunctions.getTable(GetTableArgs.builder()
+ *             .name(&#34;not-important-dynamodb-table&#34;)
+ *             .build());
+ * 
+ *         var example = new EventDataStore(&#34;example&#34;, EventDataStoreArgs.builder()        
+ *             .advancedEventSelectors(EventDataStoreAdvancedEventSelectorArgs.builder()
+ *                 .name(&#34;Log all DynamoDB PutEvent actions for a specific DynamoDB table&#34;)
+ *                 .fieldSelectors(                
+ *                     EventDataStoreAdvancedEventSelectorFieldSelectorArgs.builder()
+ *                         .field(&#34;eventCategory&#34;)
+ *                         .equals(&#34;Data&#34;)
+ *                         .build(),
+ *                     EventDataStoreAdvancedEventSelectorFieldSelectorArgs.builder()
+ *                         .field(&#34;resources.type&#34;)
+ *                         .equals(&#34;AWS::DynamoDB::Table&#34;)
+ *                         .build(),
+ *                     EventDataStoreAdvancedEventSelectorFieldSelectorArgs.builder()
+ *                         .field(&#34;eventName&#34;)
+ *                         .equals(&#34;PutItem&#34;)
+ *                         .build(),
+ *                     EventDataStoreAdvancedEventSelectorFieldSelectorArgs.builder()
+ *                         .field(&#34;resources.ARN&#34;)
+ *                         .equals(table.applyValue(getTableResult -&gt; getTableResult.arn()))
+ *                         .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Event data stores can be imported using their `arn`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:cloudtrail/eventDataStore:EventDataStore example arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf
+ * ```
+ * 
+ */
 @ResourceType(type="aws:cloudtrail/eventDataStore:EventDataStore")
 public class EventDataStore extends com.pulumi.resources.CustomResource {
+    /**
+     * The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
+     * 
+     */
     @Export(name="advancedEventSelectors", refs={List.class,EventDataStoreAdvancedEventSelector.class}, tree="[0,1]")
     private Output<List<EventDataStoreAdvancedEventSelector>> advancedEventSelectors;
 
+    /**
+     * @return The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
+     * 
+     */
     public Output<List<EventDataStoreAdvancedEventSelector>> advancedEventSelectors() {
         return this.advancedEventSelectors;
     }
+    /**
+     * ARN of the event data store.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the event data store.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
+     * 
+     */
     @Export(name="multiRegionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> multiRegionEnabled;
 
+    /**
+     * @return Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
+     * 
+     */
     public Output<Optional<Boolean>> multiRegionEnabled() {
         return Codegen.optional(this.multiRegionEnabled);
     }
+    /**
+     * The name of the event data store.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the event data store.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
+     * 
+     */
     @Export(name="organizationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> organizationEnabled;
 
+    /**
+     * @return Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
+     * 
+     */
     public Output<Optional<Boolean>> organizationEnabled() {
         return Codegen.optional(this.organizationEnabled);
     }
+    /**
+     * The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
+     * 
+     */
     @Export(name="retentionPeriod", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> retentionPeriod;
 
+    /**
+     * @return The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
+     * 
+     */
     public Output<Optional<Integer>> retentionPeriod() {
         return Codegen.optional(this.retentionPeriod);
     }
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
+     * 
+     */
     @Export(name="terminationProtectionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> terminationProtectionEnabled;
 
+    /**
+     * @return Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
+     * 
+     */
     public Output<Optional<Boolean>> terminationProtectionEnabled() {
         return Codegen.optional(this.terminationProtectionEnabled);
     }

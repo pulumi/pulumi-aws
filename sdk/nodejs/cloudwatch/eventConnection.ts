@@ -7,6 +7,54 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an EventBridge connection resource.
+ *
+ * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.cloudwatch.EventConnection("test", {
+ *     authParameters: {
+ *         apiKey: {
+ *             key: "x-signature",
+ *             value: "1234",
+ *         },
+ *     },
+ *     authorizationType: "API_KEY",
+ *     description: "A connection description",
+ * });
+ * ```
+ * ### Basic Authorization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.cloudwatch.EventConnection("test", {
+ *     authParameters: {
+ *         basic: {
+ *             password: "Pass1234!",
+ *             username: "user",
+ *         },
+ *     },
+ *     authorizationType: "BASIC",
+ *     description: "A connection description",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * EventBridge Connection can be imported using the `name`, e.g., console
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
+ * ```
+ */
 export class EventConnection extends pulumi.CustomResource {
     /**
      * Get an existing EventConnection resource's state with the given name, ID, and optional extra
@@ -35,11 +83,29 @@ export class EventConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventConnection.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the connection.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+     */
     public readonly authParameters!: pulumi.Output<outputs.cloudwatch.EventConnectionAuthParameters>;
+    /**
+     * Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+     */
     public readonly authorizationType!: pulumi.Output<string>;
+    /**
+     * Enter a description for the connection. Maximum of 512 characters.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+     */
     public /*out*/ readonly secretArn!: pulumi.Output<string>;
 
     /**
@@ -85,11 +151,29 @@ export class EventConnection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventConnection resources.
  */
 export interface EventConnectionState {
+    /**
+     * The Amazon Resource Name (ARN) of the connection.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+     */
     authParameters?: pulumi.Input<inputs.cloudwatch.EventConnectionAuthParameters>;
+    /**
+     * Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+     */
     authorizationType?: pulumi.Input<string>;
+    /**
+     * Enter a description for the connection. Maximum of 512 characters.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+     */
     secretArn?: pulumi.Input<string>;
 }
 
@@ -97,8 +181,20 @@ export interface EventConnectionState {
  * The set of arguments for constructing a EventConnection resource.
  */
 export interface EventConnectionArgs {
+    /**
+     * Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+     */
     authParameters: pulumi.Input<inputs.cloudwatch.EventConnectionAuthParameters>;
+    /**
+     * Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+     */
     authorizationType: pulumi.Input<string>;
+    /**
+     * Enter a description for the connection. Maximum of 512 characters.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+     */
     name?: pulumi.Input<string>;
 }

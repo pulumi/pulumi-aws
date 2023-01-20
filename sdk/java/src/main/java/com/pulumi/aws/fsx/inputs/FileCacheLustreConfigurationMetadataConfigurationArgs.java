@@ -13,9 +13,17 @@ public final class FileCacheLustreConfigurationMetadataConfigurationArgs extends
 
     public static final FileCacheLustreConfigurationMetadataConfigurationArgs Empty = new FileCacheLustreConfigurationMetadataConfigurationArgs();
 
+    /**
+     * The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+     * 
+     */
     @Import(name="storageCapacity", required=true)
     private Output<Integer> storageCapacity;
 
+    /**
+     * @return The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+     * 
+     */
     public Output<Integer> storageCapacity() {
         return this.storageCapacity;
     }
@@ -44,11 +52,23 @@ public final class FileCacheLustreConfigurationMetadataConfigurationArgs extends
             $ = new FileCacheLustreConfigurationMetadataConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param storageCapacity The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageCapacity(Output<Integer> storageCapacity) {
             $.storageCapacity = storageCapacity;
             return this;
         }
 
+        /**
+         * @param storageCapacity The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageCapacity(Integer storageCapacity) {
             return storageCapacity(Output.of(storageCapacity));
         }

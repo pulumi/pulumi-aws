@@ -48,16 +48,25 @@ class GetParameterGroupResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the parameter group.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the parameter group.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def family(self) -> str:
+        """
+        Engine version that the parameter group can be used with.
+        """
         return pulumi.get(self, "family")
 
     @property
@@ -71,16 +80,25 @@ class GetParameterGroupResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the parameter.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def parameters(self) -> Sequence['outputs.GetParameterGroupParameterResult']:
+        """
+        Set of user-defined MemoryDB parameters applied by the parameter group.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Map of tags assigned to the parameter group.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -103,7 +121,20 @@ def get_parameter_group(name: Optional[str] = None,
                         tags: Optional[Mapping[str, str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetParameterGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a MemoryDB Parameter Group.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.memorydb.get_parameter_group(name="my-parameter-group")
+    ```
+
+
+    :param str name: Name of the parameter group.
+    :param Mapping[str, str] tags: Map of tags assigned to the parameter group.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -126,6 +157,19 @@ def get_parameter_group_output(name: Optional[pulumi.Input[str]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetParameterGroupResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a MemoryDB Parameter Group.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.memorydb.get_parameter_group(name="my-parameter-group")
+    ```
+
+
+    :param str name: Name of the parameter group.
+    :param Mapping[str, str] tags: Map of tags assigned to the parameter group.
     """
     ...

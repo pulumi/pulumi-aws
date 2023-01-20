@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Waf.Inputs
 
     public sealed class RuleGroupActivatedRuleActionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// e.g., `BLOCK`, `ALLOW`, or `COUNT`
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

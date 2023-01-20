@@ -11,12 +11,51 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to create an association between a VPC endpoint and a security group.
+//
+// > **NOTE on VPC Endpoints and VPC Endpoint Security Group Associations:** The provider provides
+// both a standalone VPC Endpoint Security Group Association (an association between a VPC endpoint
+// and a single `securityGroupId`) and a VPC Endpoint resource with a `securityGroupIds`
+// attribute. Do not use the same security group ID in both a VPC Endpoint resource and a VPC Endpoint Security
+// Group Association resource. Doing so will cause a conflict of associations and will overwrite the association.
+//
+// ## Example Usage
+//
+// Basic usage:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewSecurityGroupAssociation(ctx, "sgEc2", &ec2.SecurityGroupAssociationArgs{
+//				VpcEndpointId:   pulumi.Any(aws_vpc_endpoint.Ec2.Id),
+//				SecurityGroupId: pulumi.Any(aws_security_group.Sg.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type SecurityGroupAssociation struct {
 	pulumi.CustomResourceState
 
+	// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`.
 	ReplaceDefaultAssociation pulumi.BoolPtrOutput `pulumi:"replaceDefaultAssociation"`
-	SecurityGroupId           pulumi.StringOutput  `pulumi:"securityGroupId"`
-	VpcEndpointId             pulumi.StringOutput  `pulumi:"vpcEndpointId"`
+	// The ID of the security group to be associated with the VPC endpoint.
+	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
+	// The ID of the VPC endpoint with which the security group will be associated.
+	VpcEndpointId pulumi.StringOutput `pulumi:"vpcEndpointId"`
 }
 
 // NewSecurityGroupAssociation registers a new resource with the given unique name, arguments, and options.
@@ -54,15 +93,21 @@ func GetSecurityGroupAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityGroupAssociation resources.
 type securityGroupAssociationState struct {
-	ReplaceDefaultAssociation *bool   `pulumi:"replaceDefaultAssociation"`
-	SecurityGroupId           *string `pulumi:"securityGroupId"`
-	VpcEndpointId             *string `pulumi:"vpcEndpointId"`
+	// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`.
+	ReplaceDefaultAssociation *bool `pulumi:"replaceDefaultAssociation"`
+	// The ID of the security group to be associated with the VPC endpoint.
+	SecurityGroupId *string `pulumi:"securityGroupId"`
+	// The ID of the VPC endpoint with which the security group will be associated.
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 }
 
 type SecurityGroupAssociationState struct {
+	// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`.
 	ReplaceDefaultAssociation pulumi.BoolPtrInput
-	SecurityGroupId           pulumi.StringPtrInput
-	VpcEndpointId             pulumi.StringPtrInput
+	// The ID of the security group to be associated with the VPC endpoint.
+	SecurityGroupId pulumi.StringPtrInput
+	// The ID of the VPC endpoint with which the security group will be associated.
+	VpcEndpointId pulumi.StringPtrInput
 }
 
 func (SecurityGroupAssociationState) ElementType() reflect.Type {
@@ -70,16 +115,22 @@ func (SecurityGroupAssociationState) ElementType() reflect.Type {
 }
 
 type securityGroupAssociationArgs struct {
-	ReplaceDefaultAssociation *bool  `pulumi:"replaceDefaultAssociation"`
-	SecurityGroupId           string `pulumi:"securityGroupId"`
-	VpcEndpointId             string `pulumi:"vpcEndpointId"`
+	// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`.
+	ReplaceDefaultAssociation *bool `pulumi:"replaceDefaultAssociation"`
+	// The ID of the security group to be associated with the VPC endpoint.
+	SecurityGroupId string `pulumi:"securityGroupId"`
+	// The ID of the VPC endpoint with which the security group will be associated.
+	VpcEndpointId string `pulumi:"vpcEndpointId"`
 }
 
 // The set of arguments for constructing a SecurityGroupAssociation resource.
 type SecurityGroupAssociationArgs struct {
+	// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`.
 	ReplaceDefaultAssociation pulumi.BoolPtrInput
-	SecurityGroupId           pulumi.StringInput
-	VpcEndpointId             pulumi.StringInput
+	// The ID of the security group to be associated with the VPC endpoint.
+	SecurityGroupId pulumi.StringInput
+	// The ID of the VPC endpoint with which the security group will be associated.
+	VpcEndpointId pulumi.StringInput
 }
 
 func (SecurityGroupAssociationArgs) ElementType() reflect.Type {
@@ -169,14 +220,17 @@ func (o SecurityGroupAssociationOutput) ToSecurityGroupAssociationOutputWithCont
 	return o
 }
 
+// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`.
 func (o SecurityGroupAssociationOutput) ReplaceDefaultAssociation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurityGroupAssociation) pulumi.BoolPtrOutput { return v.ReplaceDefaultAssociation }).(pulumi.BoolPtrOutput)
 }
 
+// The ID of the security group to be associated with the VPC endpoint.
 func (o SecurityGroupAssociationOutput) SecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroupAssociation) pulumi.StringOutput { return v.SecurityGroupId }).(pulumi.StringOutput)
 }
 
+// The ID of the VPC endpoint with which the security group will be associated.
 func (o SecurityGroupAssociationOutput) VpcEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroupAssociation) pulumi.StringOutput { return v.VpcEndpointId }).(pulumi.StringOutput)
 }

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.GuardDuty.Outputs
     [OutputType]
     public sealed class OrganizationConfigurationDatasourcesS3Logs
     {
+        /// <summary>
+        /// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        /// </summary>
         public readonly bool AutoEnable;
 
         [OutputConstructor]

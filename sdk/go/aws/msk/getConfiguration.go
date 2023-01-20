@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Get information on an Amazon MSK Configuration.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/msk"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := msk.LookupConfiguration(ctx, &msk.LookupConfigurationArgs{
+//				Name: "example",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationResult, error) {
 	var rv LookupConfigurationResult
 	err := ctx.Invoke("aws:msk/getConfiguration:getConfiguration", args, &rv, opts...)
@@ -21,19 +48,25 @@ func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opt
 
 // A collection of arguments for invoking getConfiguration.
 type LookupConfigurationArgs struct {
+	// Name of the configuration.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getConfiguration.
 type LookupConfigurationResult struct {
-	Arn         string `pulumi:"arn"`
+	// ARN of the configuration.
+	Arn string `pulumi:"arn"`
+	// Description of the configuration.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id               string   `pulumi:"id"`
-	KafkaVersions    []string `pulumi:"kafkaVersions"`
-	LatestRevision   int      `pulumi:"latestRevision"`
-	Name             string   `pulumi:"name"`
-	ServerProperties string   `pulumi:"serverProperties"`
+	Id string `pulumi:"id"`
+	// List of Apache Kafka versions which can use this configuration.
+	KafkaVersions []string `pulumi:"kafkaVersions"`
+	// Latest revision of the configuration.
+	LatestRevision int    `pulumi:"latestRevision"`
+	Name           string `pulumi:"name"`
+	// Contents of the server.properties file.
+	ServerProperties string `pulumi:"serverProperties"`
 }
 
 func LookupConfigurationOutput(ctx *pulumi.Context, args LookupConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationResultOutput {
@@ -51,6 +84,7 @@ func LookupConfigurationOutput(ctx *pulumi.Context, args LookupConfigurationOutp
 
 // A collection of arguments for invoking getConfiguration.
 type LookupConfigurationOutputArgs struct {
+	// Name of the configuration.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -73,10 +107,12 @@ func (o LookupConfigurationResultOutput) ToLookupConfigurationResultOutputWithCo
 	return o
 }
 
+// ARN of the configuration.
 func (o LookupConfigurationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Description of the configuration.
 func (o LookupConfigurationResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -86,10 +122,12 @@ func (o LookupConfigurationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// List of Apache Kafka versions which can use this configuration.
 func (o LookupConfigurationResultOutput) KafkaVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) []string { return v.KafkaVersions }).(pulumi.StringArrayOutput)
 }
 
+// Latest revision of the configuration.
 func (o LookupConfigurationResultOutput) LatestRevision() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) int { return v.LatestRevision }).(pulumi.IntOutput)
 }
@@ -98,6 +136,7 @@ func (o LookupConfigurationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Contents of the server.properties file.
 func (o LookupConfigurationResultOutput) ServerProperties() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) string { return v.ServerProperties }).(pulumi.StringOutput)
 }

@@ -11,16 +11,72 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an ElastiCache parameter group resource.
+//
+// > **NOTE:** Attempting to remove the `reserved-memory` parameter when `family` is set to `redis2.6` or `redis2.8` may show a perpetual difference in this provider due to an ElastiCache API limitation. Leave that parameter configured with any value to workaround the issue.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := elasticache.NewParameterGroup(ctx, "default", &elasticache.ParameterGroupArgs{
+//				Family: pulumi.String("redis2.8"),
+//				Parameters: elasticache.ParameterGroupParameterArray{
+//					&elasticache.ParameterGroupParameterArgs{
+//						Name:  pulumi.String("activerehashing"),
+//						Value: pulumi.String("yes"),
+//					},
+//					&elasticache.ParameterGroupParameterArgs{
+//						Name:  pulumi.String("min-slaves-to-write"),
+//						Value: pulumi.String("2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// ElastiCache Parameter Groups can be imported using the `name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
+//
+// ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput                `pulumi:"arn"`
-	Description pulumi.StringOutput                `pulumi:"description"`
-	Family      pulumi.StringOutput                `pulumi:"family"`
-	Name        pulumi.StringOutput                `pulumi:"name"`
-	Parameters  ParameterGroupParameterArrayOutput `pulumi:"parameters"`
-	Tags        pulumi.StringMapOutput             `pulumi:"tags"`
-	TagsAll     pulumi.StringMapOutput             `pulumi:"tagsAll"`
+	// The AWS ARN associated with the parameter group.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
+	Description pulumi.StringOutput `pulumi:"description"`
+	// The family of the ElastiCache parameter group.
+	Family pulumi.StringOutput `pulumi:"family"`
+	// The name of the ElastiCache parameter.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A list of ElastiCache parameters to apply.
+	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -58,23 +114,37 @@ func GetParameterGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ParameterGroup resources.
 type parameterGroupState struct {
-	Arn         *string                   `pulumi:"arn"`
-	Description *string                   `pulumi:"description"`
-	Family      *string                   `pulumi:"family"`
-	Name        *string                   `pulumi:"name"`
-	Parameters  []ParameterGroupParameter `pulumi:"parameters"`
-	Tags        map[string]string         `pulumi:"tags"`
-	TagsAll     map[string]string         `pulumi:"tagsAll"`
+	// The AWS ARN associated with the parameter group.
+	Arn *string `pulumi:"arn"`
+	// The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
+	Description *string `pulumi:"description"`
+	// The family of the ElastiCache parameter group.
+	Family *string `pulumi:"family"`
+	// The name of the ElastiCache parameter.
+	Name *string `pulumi:"name"`
+	// A list of ElastiCache parameters to apply.
+	Parameters []ParameterGroupParameter `pulumi:"parameters"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ParameterGroupState struct {
-	Arn         pulumi.StringPtrInput
+	// The AWS ARN associated with the parameter group.
+	Arn pulumi.StringPtrInput
+	// The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
-	Family      pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Parameters  ParameterGroupParameterArrayInput
-	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// The family of the ElastiCache parameter group.
+	Family pulumi.StringPtrInput
+	// The name of the ElastiCache parameter.
+	Name pulumi.StringPtrInput
+	// A list of ElastiCache parameters to apply.
+	Parameters ParameterGroupParameterArrayInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (ParameterGroupState) ElementType() reflect.Type {
@@ -82,20 +152,30 @@ func (ParameterGroupState) ElementType() reflect.Type {
 }
 
 type parameterGroupArgs struct {
-	Description *string                   `pulumi:"description"`
-	Family      string                    `pulumi:"family"`
-	Name        *string                   `pulumi:"name"`
-	Parameters  []ParameterGroupParameter `pulumi:"parameters"`
-	Tags        map[string]string         `pulumi:"tags"`
+	// The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
+	Description *string `pulumi:"description"`
+	// The family of the ElastiCache parameter group.
+	Family string `pulumi:"family"`
+	// The name of the ElastiCache parameter.
+	Name *string `pulumi:"name"`
+	// A list of ElastiCache parameters to apply.
+	Parameters []ParameterGroupParameter `pulumi:"parameters"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ParameterGroup resource.
 type ParameterGroupArgs struct {
+	// The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
-	Family      pulumi.StringInput
-	Name        pulumi.StringPtrInput
-	Parameters  ParameterGroupParameterArrayInput
-	Tags        pulumi.StringMapInput
+	// The family of the ElastiCache parameter group.
+	Family pulumi.StringInput
+	// The name of the ElastiCache parameter.
+	Name pulumi.StringPtrInput
+	// A list of ElastiCache parameters to apply.
+	Parameters ParameterGroupParameterArrayInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags pulumi.StringMapInput
 }
 
 func (ParameterGroupArgs) ElementType() reflect.Type {
@@ -185,30 +265,37 @@ func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The AWS ARN associated with the parameter group.
 func (o ParameterGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
 func (o ParameterGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
+// The family of the ElastiCache parameter group.
 func (o ParameterGroupOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
 }
 
+// The name of the ElastiCache parameter.
 func (o ParameterGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A list of ElastiCache parameters to apply.
 func (o ParameterGroupOutput) Parameters() ParameterGroupParameterArrayOutput {
 	return o.ApplyT(func(v *ParameterGroup) ParameterGroupParameterArrayOutput { return v.Parameters }).(ParameterGroupParameterArrayOutput)
 }
 
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 func (o ParameterGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ParameterGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

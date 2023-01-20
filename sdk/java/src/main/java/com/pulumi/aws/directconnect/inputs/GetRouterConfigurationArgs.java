@@ -13,16 +13,32 @@ public final class GetRouterConfigurationArgs extends com.pulumi.resources.Invok
 
     public static final GetRouterConfigurationArgs Empty = new GetRouterConfigurationArgs();
 
+    /**
+     * ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+     * 
+     */
     @Import(name="routerTypeIdentifier", required=true)
     private Output<String> routerTypeIdentifier;
 
+    /**
+     * @return ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+     * 
+     */
     public Output<String> routerTypeIdentifier() {
         return this.routerTypeIdentifier;
     }
 
+    /**
+     * ID of the Direct Connect Virtual Interface
+     * 
+     */
     @Import(name="virtualInterfaceId", required=true)
     private Output<String> virtualInterfaceId;
 
+    /**
+     * @return ID of the Direct Connect Virtual Interface
+     * 
+     */
     public Output<String> virtualInterfaceId() {
         return this.virtualInterfaceId;
     }
@@ -52,20 +68,44 @@ public final class GetRouterConfigurationArgs extends com.pulumi.resources.Invok
             $ = new GetRouterConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param routerTypeIdentifier ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+         * 
+         * @return builder
+         * 
+         */
         public Builder routerTypeIdentifier(Output<String> routerTypeIdentifier) {
             $.routerTypeIdentifier = routerTypeIdentifier;
             return this;
         }
 
+        /**
+         * @param routerTypeIdentifier ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+         * 
+         * @return builder
+         * 
+         */
         public Builder routerTypeIdentifier(String routerTypeIdentifier) {
             return routerTypeIdentifier(Output.of(routerTypeIdentifier));
         }
 
+        /**
+         * @param virtualInterfaceId ID of the Direct Connect Virtual Interface
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualInterfaceId(Output<String> virtualInterfaceId) {
             $.virtualInterfaceId = virtualInterfaceId;
             return this;
         }
 
+        /**
+         * @param virtualInterfaceId ID of the Direct Connect Virtual Interface
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualInterfaceId(String virtualInterfaceId) {
             return virtualInterfaceId(Output.of(virtualInterfaceId));
         }

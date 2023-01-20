@@ -80,26 +80,41 @@ class GetImageResult:
     @property
     @pulumi.getter(name="buildVersionArn")
     def build_version_arn(self) -> str:
+        """
+        Build version ARN of the image. This will always have the `#.#.#/#` suffix.
+        """
         return pulumi.get(self, "build_version_arn")
 
     @property
     @pulumi.getter(name="containerRecipeArn")
     def container_recipe_arn(self) -> str:
+        """
+        ARN of the container recipe.
+        """
         return pulumi.get(self, "container_recipe_arn")
 
     @property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> str:
+        """
+        Date the image was created.
+        """
         return pulumi.get(self, "date_created")
 
     @property
     @pulumi.getter(name="distributionConfigurationArn")
     def distribution_configuration_arn(self) -> str:
+        """
+        ARN of the Image Builder Distribution Configuration.
+        """
         return pulumi.get(self, "distribution_configuration_arn")
 
     @property
     @pulumi.getter(name="enhancedImageMetadataEnabled")
     def enhanced_image_metadata_enabled(self) -> bool:
+        """
+        Whether additional information about the image being created is collected.
+        """
         return pulumi.get(self, "enhanced_image_metadata_enabled")
 
     @property
@@ -113,46 +128,73 @@ class GetImageResult:
     @property
     @pulumi.getter(name="imageRecipeArn")
     def image_recipe_arn(self) -> str:
+        """
+        ARN of the image recipe.
+        """
         return pulumi.get(self, "image_recipe_arn")
 
     @property
     @pulumi.getter(name="imageTestsConfigurations")
     def image_tests_configurations(self) -> Sequence['outputs.GetImageImageTestsConfigurationResult']:
+        """
+        List of an object with image tests configuration.
+        """
         return pulumi.get(self, "image_tests_configurations")
 
     @property
     @pulumi.getter(name="infrastructureConfigurationArn")
     def infrastructure_configuration_arn(self) -> str:
+        """
+        ARN of the Image Builder Infrastructure Configuration.
+        """
         return pulumi.get(self, "infrastructure_configuration_arn")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the AMI.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="osVersion")
     def os_version(self) -> str:
+        """
+        Operating System version of the image.
+        """
         return pulumi.get(self, "os_version")
 
     @property
     @pulumi.getter(name="outputResources")
     def output_resources(self) -> Sequence['outputs.GetImageOutputResourceResult']:
+        """
+        List of objects with resources created by the image.
+        """
         return pulumi.get(self, "output_resources")
 
     @property
     @pulumi.getter
     def platform(self) -> str:
+        """
+        Platform of the image.
+        """
         return pulumi.get(self, "platform")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Key-value map of resource tags for the image.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def version(self) -> str:
+        """
+        Version of the image.
+        """
         return pulumi.get(self, "version")
 
 
@@ -184,7 +226,21 @@ def get_image(arn: Optional[str] = None,
               tags: Optional[Mapping[str, str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about an Image Builder Image.
+
+    ## Example Usage
+    ### Latest
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.imagebuilder.get_image(arn="arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x")
+    ```
+
+
+    :param str arn: ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
+    :param Mapping[str, str] tags: Key-value map of resource tags for the image.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -216,6 +272,20 @@ def get_image_output(arn: Optional[pulumi.Input[str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about an Image Builder Image.
+
+    ## Example Usage
+    ### Latest
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.imagebuilder.get_image(arn="arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x")
+    ```
+
+
+    :param str arn: ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
+    :param Mapping[str, str] tags: Key-value map of resource tags for the image.
     """
     ...

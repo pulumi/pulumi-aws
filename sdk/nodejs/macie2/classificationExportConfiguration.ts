@@ -7,6 +7,33 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a resource to manage an [Amazon Macie Classification Export Configuration](https://docs.aws.amazon.com/macie/latest/APIReference/classification-export-configuration.html).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleAccount = new aws.macie2.Account("exampleAccount", {});
+ * const exampleClassificationExportConfiguration = new aws.macie2.ClassificationExportConfiguration("exampleClassificationExportConfiguration", {s3Destination: {
+ *     bucketName: aws_s3_bucket.example.bucket,
+ *     keyPrefix: "exampleprefix/",
+ *     kmsKeyArn: aws_kms_key.example.arn,
+ * }}, {
+ *     dependsOn: [exampleAccount],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_macie2_classification_export_configuration` can be imported using the account ID and region, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
+ * ```
+ */
 export class ClassificationExportConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing ClassificationExportConfiguration resource's state with the given name, ID, and optional extra
@@ -35,6 +62,9 @@ export class ClassificationExportConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClassificationExportConfiguration.__pulumiType;
     }
 
+    /**
+     * Configuration block for a S3 Destination. Defined below
+     */
     public readonly s3Destination!: pulumi.Output<outputs.macie2.ClassificationExportConfigurationS3Destination | undefined>;
 
     /**
@@ -64,6 +94,9 @@ export class ClassificationExportConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ClassificationExportConfiguration resources.
  */
 export interface ClassificationExportConfigurationState {
+    /**
+     * Configuration block for a S3 Destination. Defined below
+     */
     s3Destination?: pulumi.Input<inputs.macie2.ClassificationExportConfigurationS3Destination>;
 }
 
@@ -71,5 +104,8 @@ export interface ClassificationExportConfigurationState {
  * The set of arguments for constructing a ClassificationExportConfiguration resource.
  */
 export interface ClassificationExportConfigurationArgs {
+    /**
+     * Configuration block for a S3 Destination. Defined below
+     */
     s3Destination?: pulumi.Input<inputs.macie2.ClassificationExportConfigurationS3Destination>;
 }

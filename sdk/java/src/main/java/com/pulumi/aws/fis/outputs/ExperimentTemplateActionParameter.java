@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class ExperimentTemplateActionParameter {
+    /**
+     * @return Parameter name.
+     * 
+     */
     private String key;
+    /**
+     * @return Parameter value.
+     * 
+     */
     private String value;
 
     private ExperimentTemplateActionParameter() {}
+    /**
+     * @return Parameter name.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return Parameter value.
+     * 
+     */
     public String value() {
         return this.value;
     }

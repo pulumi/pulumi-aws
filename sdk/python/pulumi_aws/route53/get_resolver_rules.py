@@ -70,6 +70,9 @@ class GetResolverRulesResult:
     @property
     @pulumi.getter(name="resolverRuleIds")
     def resolver_rule_ids(self) -> Sequence[str]:
+        """
+        IDs of the matched resolver rules.
+        """
         return pulumi.get(self, "resolver_rule_ids")
 
     @property
@@ -105,7 +108,47 @@ def get_resolver_rules(name_regex: Optional[str] = None,
                        share_status: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverRulesResult:
     """
-    Use this data source to access information about an existing resource.
+    `route53.get_resolver_rules` provides details about a set of Route53 Resolver rules.
+
+    ## Example Usage
+    ### Retrieving the default resolver rule
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.route53.get_resolver_rules(owner_id="Route 53 Resolver",
+        rule_type="RECURSIVE",
+        share_status="NOT_SHARED")
+    ```
+    ### Retrieving forward rules shared with me
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.route53.get_resolver_rules(rule_type="FORWARD",
+        share_status="SHARED_WITH_ME")
+    ```
+    ### Retrieving rules by name regex
+
+    Resolver rules whose name contains `abc`.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.route53.get_resolver_rules(name_regex=".*abc.*")
+    ```
+
+
+    :param str name_regex: Regex string to filter resolver rule names.
+           The filtering is done locally, so could have a performance impact if the result is large.
+           This argument should be used along with other arguments to limit the number of results returned.
+    :param str owner_id: When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
+    :param str resolver_endpoint_id: ID of the outbound resolver endpoint for the desired resolver rules.
+    :param str rule_type: Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+    :param str share_status: Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
     """
     __args__ = dict()
     __args__['nameRegex'] = name_regex
@@ -134,6 +177,46 @@ def get_resolver_rules_output(name_regex: Optional[pulumi.Input[Optional[str]]] 
                               share_status: Optional[pulumi.Input[Optional[str]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverRulesResult]:
     """
-    Use this data source to access information about an existing resource.
+    `route53.get_resolver_rules` provides details about a set of Route53 Resolver rules.
+
+    ## Example Usage
+    ### Retrieving the default resolver rule
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.route53.get_resolver_rules(owner_id="Route 53 Resolver",
+        rule_type="RECURSIVE",
+        share_status="NOT_SHARED")
+    ```
+    ### Retrieving forward rules shared with me
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.route53.get_resolver_rules(rule_type="FORWARD",
+        share_status="SHARED_WITH_ME")
+    ```
+    ### Retrieving rules by name regex
+
+    Resolver rules whose name contains `abc`.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.route53.get_resolver_rules(name_regex=".*abc.*")
+    ```
+
+
+    :param str name_regex: Regex string to filter resolver rule names.
+           The filtering is done locally, so could have a performance impact if the result is large.
+           This argument should be used along with other arguments to limit the number of results returned.
+    :param str owner_id: When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
+    :param str resolver_endpoint_id: ID of the outbound resolver endpoint for the desired resolver rules.
+    :param str rule_type: Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+    :param str share_status: Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
     """
     ...

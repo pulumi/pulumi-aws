@@ -13,6 +13,9 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class InfrastructureConfigurationLogging
     {
+        /// <summary>
+        /// Configuration block with S3 logging settings. Detailed below.
+        /// </summary>
         public readonly Outputs.InfrastructureConfigurationLoggingS3Logs S3Logs;
 
         [OutputConstructor]

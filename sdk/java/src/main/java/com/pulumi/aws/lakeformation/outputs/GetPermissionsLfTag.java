@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPermissionsLfTag {
+    /**
+     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
+     * 
+     */
     private String catalogId;
+    /**
+     * @return Key-name for the tag.
+     * 
+     */
     private String key;
+    /**
+     * @return List of possible values an attribute can take.
+     * 
+     */
     private List<String> values;
 
     private GetPermissionsLfTag() {}
+    /**
+     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
+     * 
+     */
     public String catalogId() {
         return this.catalogId;
     }
+    /**
+     * @return Key-name for the tag.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return List of possible values an attribute can take.
+     * 
+     */
     public List<String> values() {
         return this.values;
     }

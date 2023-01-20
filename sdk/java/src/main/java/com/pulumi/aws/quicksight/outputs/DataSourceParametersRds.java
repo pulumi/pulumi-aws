@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSourceParametersRds {
+    /**
+     * @return The database to which to connect.
+     * 
+     */
     private String database;
+    /**
+     * @return The instance ID to which to connect.
+     * 
+     */
     private String instanceId;
 
     private DataSourceParametersRds() {}
+    /**
+     * @return The database to which to connect.
+     * 
+     */
     public String database() {
         return this.database;
     }
+    /**
+     * @return The instance ID to which to connect.
+     * 
+     */
     public String instanceId() {
         return this.instanceId;
     }

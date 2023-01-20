@@ -13,16 +13,32 @@ public final class VpcEndpointConnectionAccepterArgs extends com.pulumi.resource
 
     public static final VpcEndpointConnectionAccepterArgs Empty = new VpcEndpointConnectionAccepterArgs();
 
+    /**
+     * AWS VPC Endpoint ID.
+     * 
+     */
     @Import(name="vpcEndpointId", required=true)
     private Output<String> vpcEndpointId;
 
+    /**
+     * @return AWS VPC Endpoint ID.
+     * 
+     */
     public Output<String> vpcEndpointId() {
         return this.vpcEndpointId;
     }
 
+    /**
+     * AWS VPC Endpoint Service ID.
+     * 
+     */
     @Import(name="vpcEndpointServiceId", required=true)
     private Output<String> vpcEndpointServiceId;
 
+    /**
+     * @return AWS VPC Endpoint Service ID.
+     * 
+     */
     public Output<String> vpcEndpointServiceId() {
         return this.vpcEndpointServiceId;
     }
@@ -52,20 +68,44 @@ public final class VpcEndpointConnectionAccepterArgs extends com.pulumi.resource
             $ = new VpcEndpointConnectionAccepterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param vpcEndpointId AWS VPC Endpoint ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcEndpointId(Output<String> vpcEndpointId) {
             $.vpcEndpointId = vpcEndpointId;
             return this;
         }
 
+        /**
+         * @param vpcEndpointId AWS VPC Endpoint ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcEndpointId(String vpcEndpointId) {
             return vpcEndpointId(Output.of(vpcEndpointId));
         }
 
+        /**
+         * @param vpcEndpointServiceId AWS VPC Endpoint Service ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcEndpointServiceId(Output<String> vpcEndpointServiceId) {
             $.vpcEndpointServiceId = vpcEndpointServiceId;
             return this;
         }
 
+        /**
+         * @param vpcEndpointServiceId AWS VPC Endpoint Service ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcEndpointServiceId(String vpcEndpointServiceId) {
             return vpcEndpointServiceId(Output.of(vpcEndpointServiceId));
         }

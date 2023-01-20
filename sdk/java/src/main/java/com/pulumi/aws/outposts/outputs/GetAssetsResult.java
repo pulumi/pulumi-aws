@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetAssetsResult {
     private String arn;
+    /**
+     * @return List of all the asset ids found. This data source will fail if none are found.
+     * 
+     */
     private List<String> assetIds;
     private @Nullable List<String> hostIdFilters;
     /**
@@ -25,6 +29,10 @@ public final class GetAssetsResult {
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return List of all the asset ids found. This data source will fail if none are found.
+     * 
+     */
     public List<String> assetIds() {
         return this.assetIds;
     }

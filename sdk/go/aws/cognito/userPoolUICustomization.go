@@ -11,17 +11,145 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Cognito User Pool UI Customization resource.
+//
+// > **Note:** To use this resource, the user pool must have a domain associated with it. For more information, see the Amazon Cognito Developer Guide on [Customizing the Built-in Sign-In and Sign-up Webpages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-ui-customization.html).
+//
+// ## Example Usage
+// ### UI customization settings for a single client
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/base64"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
+//		if fileData, err := ioutil.ReadFile(path); err == nil {
+//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+//		} else {
+//			panic(err.Error())
+//		}
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserPoolDomain, err := cognito.NewUserPoolDomain(ctx, "exampleUserPoolDomain", &cognito.UserPoolDomainArgs{
+//				Domain:     pulumi.String("example"),
+//				UserPoolId: exampleUserPool.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserPoolClient, err := cognito.NewUserPoolClient(ctx, "exampleUserPoolClient", &cognito.UserPoolClientArgs{
+//				UserPoolId: exampleUserPool.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewUserPoolUICustomization(ctx, "exampleUserPoolUICustomization", &cognito.UserPoolUICustomizationArgs{
+//				ClientId:   exampleUserPoolClient.ID(),
+//				Css:        pulumi.String(".label-customizable {font-weight: 400;}"),
+//				ImageFile:  filebase64OrPanic("logo.png"),
+//				UserPoolId: exampleUserPoolDomain.UserPoolId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### UI customization settings for all clients
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/base64"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
+//		if fileData, err := ioutil.ReadFile(path); err == nil {
+//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+//		} else {
+//			panic(err.Error())
+//		}
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserPoolDomain, err := cognito.NewUserPoolDomain(ctx, "exampleUserPoolDomain", &cognito.UserPoolDomainArgs{
+//				Domain:     pulumi.String("example"),
+//				UserPoolId: exampleUserPool.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewUserPoolUICustomization(ctx, "exampleUserPoolUICustomization", &cognito.UserPoolUICustomizationArgs{
+//				Css:        pulumi.String(".label-customizable {font-weight: 400;}"),
+//				ImageFile:  filebase64OrPanic("logo.png"),
+//				UserPoolId: exampleUserPoolDomain.UserPoolId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Cognito User Pool UI Customizations can be imported using the `user_pool_id` and `client_id` separated by `,`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:cognito/userPoolUICustomization:UserPoolUICustomization example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
+//
+// ```
 type UserPoolUICustomization struct {
 	pulumi.CustomResourceState
 
-	ClientId         pulumi.StringPtrOutput `pulumi:"clientId"`
-	CreationDate     pulumi.StringOutput    `pulumi:"creationDate"`
-	Css              pulumi.StringPtrOutput `pulumi:"css"`
-	CssVersion       pulumi.StringOutput    `pulumi:"cssVersion"`
-	ImageFile        pulumi.StringPtrOutput `pulumi:"imageFile"`
-	ImageUrl         pulumi.StringOutput    `pulumi:"imageUrl"`
-	LastModifiedDate pulumi.StringOutput    `pulumi:"lastModifiedDate"`
-	UserPoolId       pulumi.StringOutput    `pulumi:"userPoolId"`
+	// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
+	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
+	// The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
+	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	// The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
+	Css pulumi.StringPtrOutput `pulumi:"css"`
+	// The CSS version number.
+	CssVersion pulumi.StringOutput `pulumi:"cssVersion"`
+	// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
+	ImageFile pulumi.StringPtrOutput `pulumi:"imageFile"`
+	// The logo image URL for the UI customization.
+	ImageUrl pulumi.StringOutput `pulumi:"imageUrl"`
+	// The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
+	LastModifiedDate pulumi.StringOutput `pulumi:"lastModifiedDate"`
+	// The user pool ID for the user pool.
+	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
 
 // NewUserPoolUICustomization registers a new resource with the given unique name, arguments, and options.
@@ -56,25 +184,41 @@ func GetUserPoolUICustomization(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserPoolUICustomization resources.
 type userPoolUICustomizationState struct {
-	ClientId         *string `pulumi:"clientId"`
-	CreationDate     *string `pulumi:"creationDate"`
-	Css              *string `pulumi:"css"`
-	CssVersion       *string `pulumi:"cssVersion"`
-	ImageFile        *string `pulumi:"imageFile"`
-	ImageUrl         *string `pulumi:"imageUrl"`
+	// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
+	ClientId *string `pulumi:"clientId"`
+	// The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
+	CreationDate *string `pulumi:"creationDate"`
+	// The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
+	Css *string `pulumi:"css"`
+	// The CSS version number.
+	CssVersion *string `pulumi:"cssVersion"`
+	// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
+	ImageFile *string `pulumi:"imageFile"`
+	// The logo image URL for the UI customization.
+	ImageUrl *string `pulumi:"imageUrl"`
+	// The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
 	LastModifiedDate *string `pulumi:"lastModifiedDate"`
-	UserPoolId       *string `pulumi:"userPoolId"`
+	// The user pool ID for the user pool.
+	UserPoolId *string `pulumi:"userPoolId"`
 }
 
 type UserPoolUICustomizationState struct {
-	ClientId         pulumi.StringPtrInput
-	CreationDate     pulumi.StringPtrInput
-	Css              pulumi.StringPtrInput
-	CssVersion       pulumi.StringPtrInput
-	ImageFile        pulumi.StringPtrInput
-	ImageUrl         pulumi.StringPtrInput
+	// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
+	ClientId pulumi.StringPtrInput
+	// The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
+	CreationDate pulumi.StringPtrInput
+	// The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
+	Css pulumi.StringPtrInput
+	// The CSS version number.
+	CssVersion pulumi.StringPtrInput
+	// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
+	ImageFile pulumi.StringPtrInput
+	// The logo image URL for the UI customization.
+	ImageUrl pulumi.StringPtrInput
+	// The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
 	LastModifiedDate pulumi.StringPtrInput
-	UserPoolId       pulumi.StringPtrInput
+	// The user pool ID for the user pool.
+	UserPoolId pulumi.StringPtrInput
 }
 
 func (UserPoolUICustomizationState) ElementType() reflect.Type {
@@ -82,17 +226,25 @@ func (UserPoolUICustomizationState) ElementType() reflect.Type {
 }
 
 type userPoolUICustomizationArgs struct {
-	ClientId   *string `pulumi:"clientId"`
-	Css        *string `pulumi:"css"`
-	ImageFile  *string `pulumi:"imageFile"`
-	UserPoolId string  `pulumi:"userPoolId"`
+	// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
+	ClientId *string `pulumi:"clientId"`
+	// The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
+	Css *string `pulumi:"css"`
+	// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
+	ImageFile *string `pulumi:"imageFile"`
+	// The user pool ID for the user pool.
+	UserPoolId string `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a UserPoolUICustomization resource.
 type UserPoolUICustomizationArgs struct {
-	ClientId   pulumi.StringPtrInput
-	Css        pulumi.StringPtrInput
-	ImageFile  pulumi.StringPtrInput
+	// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
+	ClientId pulumi.StringPtrInput
+	// The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
+	Css pulumi.StringPtrInput
+	// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
+	ImageFile pulumi.StringPtrInput
+	// The user pool ID for the user pool.
 	UserPoolId pulumi.StringInput
 }
 
@@ -183,34 +335,42 @@ func (o UserPoolUICustomizationOutput) ToUserPoolUICustomizationOutputWithContex
 	return o
 }
 
+// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
 func (o UserPoolUICustomizationOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolUICustomization) pulumi.StringPtrOutput { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
+// The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
 func (o UserPoolUICustomizationOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolUICustomization) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }
 
+// The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
 func (o UserPoolUICustomizationOutput) Css() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolUICustomization) pulumi.StringPtrOutput { return v.Css }).(pulumi.StringPtrOutput)
 }
 
+// The CSS version number.
 func (o UserPoolUICustomizationOutput) CssVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolUICustomization) pulumi.StringOutput { return v.CssVersion }).(pulumi.StringOutput)
 }
 
+// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
 func (o UserPoolUICustomizationOutput) ImageFile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolUICustomization) pulumi.StringPtrOutput { return v.ImageFile }).(pulumi.StringPtrOutput)
 }
 
+// The logo image URL for the UI customization.
 func (o UserPoolUICustomizationOutput) ImageUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolUICustomization) pulumi.StringOutput { return v.ImageUrl }).(pulumi.StringOutput)
 }
 
+// The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
 func (o UserPoolUICustomizationOutput) LastModifiedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolUICustomization) pulumi.StringOutput { return v.LastModifiedDate }).(pulumi.StringOutput)
 }
 
+// The user pool ID for the user pool.
 func (o UserPoolUICustomizationOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolUICustomization) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

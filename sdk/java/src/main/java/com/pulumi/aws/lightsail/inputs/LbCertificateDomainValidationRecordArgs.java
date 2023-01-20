@@ -15,9 +15,17 @@ public final class LbCertificateDomainValidationRecordArgs extends com.pulumi.re
 
     public static final LbCertificateDomainValidationRecordArgs Empty = new LbCertificateDomainValidationRecordArgs();
 
+    /**
+     * The domain name (e.g., example.com) for your SSL/TLS certificate.
+     * 
+     */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
+    /**
+     * @return The domain name (e.g., example.com) for your SSL/TLS certificate.
+     * 
+     */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
     }
@@ -70,11 +78,23 @@ public final class LbCertificateDomainValidationRecordArgs extends com.pulumi.re
             $ = new LbCertificateDomainValidationRecordArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domainName The domain name (e.g., example.com) for your SSL/TLS certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(@Nullable Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
+        /**
+         * @param domainName The domain name (e.g., example.com) for your SSL/TLS certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }

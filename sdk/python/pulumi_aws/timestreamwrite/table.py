@@ -23,6 +23,11 @@ class TableArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Table resource.
+        :param pulumi.Input[str] database_name: The name of the Timestream database.
+        :param pulumi.Input[str] table_name: The name of the Timestream table.
+        :param pulumi.Input['TableMagneticStoreWritePropertiesArgs'] magnetic_store_write_properties: Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+        :param pulumi.Input['TableRetentionPropertiesArgs'] retention_properties: The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "table_name", table_name)
@@ -36,6 +41,9 @@ class TableArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Timestream database.
+        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -45,6 +53,9 @@ class TableArgs:
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Timestream table.
+        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -54,6 +65,9 @@ class TableArgs:
     @property
     @pulumi.getter(name="magneticStoreWriteProperties")
     def magnetic_store_write_properties(self) -> Optional[pulumi.Input['TableMagneticStoreWritePropertiesArgs']]:
+        """
+        Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+        """
         return pulumi.get(self, "magnetic_store_write_properties")
 
     @magnetic_store_write_properties.setter
@@ -63,6 +77,9 @@ class TableArgs:
     @property
     @pulumi.getter(name="retentionProperties")
     def retention_properties(self) -> Optional[pulumi.Input['TableRetentionPropertiesArgs']]:
+        """
+        The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
+        """
         return pulumi.get(self, "retention_properties")
 
     @retention_properties.setter
@@ -72,6 +89,9 @@ class TableArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -91,6 +111,13 @@ class _TableState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Table resources.
+        :param pulumi.Input[str] arn: The ARN that uniquely identifies this table.
+        :param pulumi.Input[str] database_name: The name of the Timestream database.
+        :param pulumi.Input['TableMagneticStoreWritePropertiesArgs'] magnetic_store_write_properties: Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+        :param pulumi.Input['TableRetentionPropertiesArgs'] retention_properties: The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
+        :param pulumi.Input[str] table_name: The name of the Timestream table.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -110,6 +137,9 @@ class _TableState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN that uniquely identifies this table.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -119,6 +149,9 @@ class _TableState:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Timestream database.
+        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -128,6 +161,9 @@ class _TableState:
     @property
     @pulumi.getter(name="magneticStoreWriteProperties")
     def magnetic_store_write_properties(self) -> Optional[pulumi.Input['TableMagneticStoreWritePropertiesArgs']]:
+        """
+        Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+        """
         return pulumi.get(self, "magnetic_store_write_properties")
 
     @magnetic_store_write_properties.setter
@@ -137,6 +173,9 @@ class _TableState:
     @property
     @pulumi.getter(name="retentionProperties")
     def retention_properties(self) -> Optional[pulumi.Input['TableRetentionPropertiesArgs']]:
+        """
+        The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
+        """
         return pulumi.get(self, "retention_properties")
 
     @retention_properties.setter
@@ -146,6 +185,9 @@ class _TableState:
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Timestream table.
+        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -155,6 +197,9 @@ class _TableState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -164,6 +209,9 @@ class _TableState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -183,9 +231,52 @@ class Table(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Table resource with the given unique name, props, and options.
+        Provides a Timestream table resource.
+
+        ## Example Usage
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.timestreamwrite.Table("example",
+            database_name=aws_timestreamwrite_database["example"]["database_name"],
+            table_name="example")
+        ```
+        ### Full usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.timestreamwrite.Table("example",
+            database_name=aws_timestreamwrite_database["example"]["database_name"],
+            table_name="example",
+            retention_properties=aws.timestreamwrite.TableRetentionPropertiesArgs(
+                magnetic_store_retention_period_in_days=30,
+                memory_store_retention_period_in_hours=8,
+            ),
+            tags={
+                "Name": "example-timestream-table",
+            })
+        ```
+
+        ## Import
+
+        Timestream tables can be imported using the `table_name` and `database_name` separate by a colon (`:`), e.g.,
+
+        ```sh
+         $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] database_name: The name of the Timestream database.
+        :param pulumi.Input[pulumi.InputType['TableMagneticStoreWritePropertiesArgs']] magnetic_store_write_properties: Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+        :param pulumi.Input[pulumi.InputType['TableRetentionPropertiesArgs']] retention_properties: The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
+        :param pulumi.Input[str] table_name: The name of the Timestream table.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -194,7 +285,45 @@ class Table(pulumi.CustomResource):
                  args: TableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Table resource with the given unique name, props, and options.
+        Provides a Timestream table resource.
+
+        ## Example Usage
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.timestreamwrite.Table("example",
+            database_name=aws_timestreamwrite_database["example"]["database_name"],
+            table_name="example")
+        ```
+        ### Full usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.timestreamwrite.Table("example",
+            database_name=aws_timestreamwrite_database["example"]["database_name"],
+            table_name="example",
+            retention_properties=aws.timestreamwrite.TableRetentionPropertiesArgs(
+                magnetic_store_retention_period_in_days=30,
+                memory_store_retention_period_in_hours=8,
+            ),
+            tags={
+                "Name": "example-timestream-table",
+            })
+        ```
+
+        ## Import
+
+        Timestream tables can be imported using the `table_name` and `database_name` separate by a colon (`:`), e.g.,
+
+        ```sh
+         $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
+        ```
+
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -259,6 +388,13 @@ class Table(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN that uniquely identifies this table.
+        :param pulumi.Input[str] database_name: The name of the Timestream database.
+        :param pulumi.Input[pulumi.InputType['TableMagneticStoreWritePropertiesArgs']] magnetic_store_write_properties: Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+        :param pulumi.Input[pulumi.InputType['TableRetentionPropertiesArgs']] retention_properties: The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
+        :param pulumi.Input[str] table_name: The name of the Timestream table.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -276,35 +412,56 @@ class Table(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN that uniquely identifies this table.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Timestream database.
+        """
         return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter(name="magneticStoreWriteProperties")
     def magnetic_store_write_properties(self) -> pulumi.Output['outputs.TableMagneticStoreWriteProperties']:
+        """
+        Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+        """
         return pulumi.get(self, "magnetic_store_write_properties")
 
     @property
     @pulumi.getter(name="retentionProperties")
     def retention_properties(self) -> pulumi.Output['outputs.TableRetentionProperties']:
+        """
+        The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
+        """
         return pulumi.get(self, "retention_properties")
 
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Timestream table.
+        """
         return pulumi.get(self, "table_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

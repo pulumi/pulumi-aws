@@ -11,15 +11,85 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides additional routes for AWS Client VPN endpoints. For more information on usage, please see the
+// [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleEndpoint, err := ec2clientvpn.NewEndpoint(ctx, "exampleEndpoint", &ec2clientvpn.EndpointArgs{
+//				Description:          pulumi.String("Example Client VPN endpoint"),
+//				ServerCertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
+//				ClientCidrBlock:      pulumi.String("10.0.0.0/16"),
+//				AuthenticationOptions: ec2clientvpn.EndpointAuthenticationOptionArray{
+//					&ec2clientvpn.EndpointAuthenticationOptionArgs{
+//						Type:                    pulumi.String("certificate-authentication"),
+//						RootCertificateChainArn: pulumi.Any(aws_acm_certificate.Example.Arn),
+//					},
+//				},
+//				ConnectionLogOptions: &ec2clientvpn.EndpointConnectionLogOptionsArgs{
+//					Enabled: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkAssociation, err := ec2clientvpn.NewNetworkAssociation(ctx, "exampleNetworkAssociation", &ec2clientvpn.NetworkAssociationArgs{
+//				ClientVpnEndpointId: exampleEndpoint.ID(),
+//				SubnetId:            pulumi.Any(aws_subnet.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2clientvpn.NewRoute(ctx, "exampleRoute", &ec2clientvpn.RouteArgs{
+//				ClientVpnEndpointId:  exampleEndpoint.ID(),
+//				DestinationCidrBlock: pulumi.String("0.0.0.0/0"),
+//				TargetVpcSubnetId:    exampleNetworkAssociation.SubnetId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// AWS Client VPN routes can be imported using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`.
+//
+// ```sh
+//
+//	$ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
+//
+// ```
 type Route struct {
 	pulumi.CustomResourceState
 
-	ClientVpnEndpointId  pulumi.StringOutput    `pulumi:"clientVpnEndpointId"`
-	Description          pulumi.StringPtrOutput `pulumi:"description"`
-	DestinationCidrBlock pulumi.StringOutput    `pulumi:"destinationCidrBlock"`
-	Origin               pulumi.StringOutput    `pulumi:"origin"`
-	TargetVpcSubnetId    pulumi.StringOutput    `pulumi:"targetVpcSubnetId"`
-	Type                 pulumi.StringOutput    `pulumi:"type"`
+	// The ID of the Client VPN endpoint.
+	ClientVpnEndpointId pulumi.StringOutput `pulumi:"clientVpnEndpointId"`
+	// A brief description of the route.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The IPv4 address range, in CIDR notation, of the route destination.
+	DestinationCidrBlock pulumi.StringOutput `pulumi:"destinationCidrBlock"`
+	// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
+	Origin pulumi.StringOutput `pulumi:"origin"`
+	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+	TargetVpcSubnetId pulumi.StringOutput `pulumi:"targetVpcSubnetId"`
+	// The type of the route.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewRoute registers a new resource with the given unique name, arguments, and options.
@@ -60,21 +130,33 @@ func GetRoute(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Route resources.
 type routeState struct {
-	ClientVpnEndpointId  *string `pulumi:"clientVpnEndpointId"`
-	Description          *string `pulumi:"description"`
+	// The ID of the Client VPN endpoint.
+	ClientVpnEndpointId *string `pulumi:"clientVpnEndpointId"`
+	// A brief description of the route.
+	Description *string `pulumi:"description"`
+	// The IPv4 address range, in CIDR notation, of the route destination.
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
-	Origin               *string `pulumi:"origin"`
-	TargetVpcSubnetId    *string `pulumi:"targetVpcSubnetId"`
-	Type                 *string `pulumi:"type"`
+	// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
+	Origin *string `pulumi:"origin"`
+	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+	TargetVpcSubnetId *string `pulumi:"targetVpcSubnetId"`
+	// The type of the route.
+	Type *string `pulumi:"type"`
 }
 
 type RouteState struct {
-	ClientVpnEndpointId  pulumi.StringPtrInput
-	Description          pulumi.StringPtrInput
+	// The ID of the Client VPN endpoint.
+	ClientVpnEndpointId pulumi.StringPtrInput
+	// A brief description of the route.
+	Description pulumi.StringPtrInput
+	// The IPv4 address range, in CIDR notation, of the route destination.
 	DestinationCidrBlock pulumi.StringPtrInput
-	Origin               pulumi.StringPtrInput
-	TargetVpcSubnetId    pulumi.StringPtrInput
-	Type                 pulumi.StringPtrInput
+	// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
+	Origin pulumi.StringPtrInput
+	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+	TargetVpcSubnetId pulumi.StringPtrInput
+	// The type of the route.
+	Type pulumi.StringPtrInput
 }
 
 func (RouteState) ElementType() reflect.Type {
@@ -82,18 +164,26 @@ func (RouteState) ElementType() reflect.Type {
 }
 
 type routeArgs struct {
-	ClientVpnEndpointId  string  `pulumi:"clientVpnEndpointId"`
-	Description          *string `pulumi:"description"`
-	DestinationCidrBlock string  `pulumi:"destinationCidrBlock"`
-	TargetVpcSubnetId    string  `pulumi:"targetVpcSubnetId"`
+	// The ID of the Client VPN endpoint.
+	ClientVpnEndpointId string `pulumi:"clientVpnEndpointId"`
+	// A brief description of the route.
+	Description *string `pulumi:"description"`
+	// The IPv4 address range, in CIDR notation, of the route destination.
+	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
+	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+	TargetVpcSubnetId string `pulumi:"targetVpcSubnetId"`
 }
 
 // The set of arguments for constructing a Route resource.
 type RouteArgs struct {
-	ClientVpnEndpointId  pulumi.StringInput
-	Description          pulumi.StringPtrInput
+	// The ID of the Client VPN endpoint.
+	ClientVpnEndpointId pulumi.StringInput
+	// A brief description of the route.
+	Description pulumi.StringPtrInput
+	// The IPv4 address range, in CIDR notation, of the route destination.
 	DestinationCidrBlock pulumi.StringInput
-	TargetVpcSubnetId    pulumi.StringInput
+	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+	TargetVpcSubnetId pulumi.StringInput
 }
 
 func (RouteArgs) ElementType() reflect.Type {
@@ -183,26 +273,32 @@ func (o RouteOutput) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return o
 }
 
+// The ID of the Client VPN endpoint.
 func (o RouteOutput) ClientVpnEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.ClientVpnEndpointId }).(pulumi.StringOutput)
 }
 
+// A brief description of the route.
 func (o RouteOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The IPv4 address range, in CIDR notation, of the route destination.
 func (o RouteOutput) DestinationCidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.DestinationCidrBlock }).(pulumi.StringOutput)
 }
 
+// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
 func (o RouteOutput) Origin() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Origin }).(pulumi.StringOutput)
 }
 
+// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
 func (o RouteOutput) TargetVpcSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.TargetVpcSubnetId }).(pulumi.StringOutput)
 }
 
+// The type of the route.
 func (o RouteOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

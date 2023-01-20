@@ -12,6 +12,9 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class DistributionOriginGroupMemberGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A unique identifier for the origin.
+        /// </summary>
         [Input("originId", required: true)]
         public Input<string> OriginId { get; set; } = null!;
 

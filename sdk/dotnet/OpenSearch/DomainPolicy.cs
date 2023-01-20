@@ -9,12 +9,58 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.OpenSearch
 {
+    /// <summary>
+    /// Allows setting policy to an OpenSearch domain while referencing domain attributes (e.g., ARN).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.OpenSearch.Domain("example", new()
+    ///     {
+    ///         EngineVersion = "OpenSearch_1.1",
+    ///     });
+    /// 
+    ///     var main = new Aws.OpenSearch.DomainPolicy("main", new()
+    ///     {
+    ///         DomainName = example.DomainName,
+    ///         AccessPolicies = example.Arn.Apply(arn =&gt; @$"{{
+    ///     ""Version"": ""2012-10-17"",
+    ///     ""Statement"": [
+    ///         {{
+    ///             ""Action"": ""es:*"",
+    ///             ""Principal"": ""*"",
+    ///             ""Effect"": ""Allow"",
+    ///             ""Condition"": {{
+    ///                 ""IpAddress"": {{""aws:SourceIp"": ""127.0.0.1/32""}}
+    ///             }},
+    ///             ""Resource"": ""{arn}/*""
+    ///         }}
+    ///     ]
+    /// }}
+    /// "),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:opensearch/domainPolicy:DomainPolicy")]
     public partial class DomainPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// IAM policy document specifying the access policies for the domain
+        /// </summary>
         [Output("accessPolicies")]
         public Output<string> AccessPolicies { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the domain.
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
@@ -64,9 +110,15 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class DomainPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// IAM policy document specifying the access policies for the domain
+        /// </summary>
         [Input("accessPolicies", required: true)]
         public Input<string> AccessPolicies { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the domain.
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
@@ -78,9 +130,15 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class DomainPolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// IAM policy document specifying the access policies for the domain
+        /// </summary>
         [Input("accessPolicies")]
         public Input<string>? AccessPolicies { get; set; }
 
+        /// <summary>
+        /// Name of the domain.
+        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 

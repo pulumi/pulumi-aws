@@ -11,14 +11,70 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an API Gateway Gateway Response for a REST API Gateway.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := apigateway.NewRestApi(ctx, "main", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewResponse(ctx, "test", &apigateway.ResponseArgs{
+//				RestApiId:    main.ID(),
+//				StatusCode:   pulumi.String("401"),
+//				ResponseType: pulumi.String("UNAUTHORIZED"),
+//				ResponseTemplates: pulumi.StringMap{
+//					"application/json": pulumi.String(fmt.Sprintf("{\"message\":$context.error.messageString}")),
+//				},
+//				ResponseParameters: pulumi.StringMap{
+//					"gatewayresponse.header.Authorization": pulumi.String("'Basic'"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_api_gateway_gateway_response` can be imported using `REST-API-ID/RESPONSE-TYPE`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
+//
+// ```
 type Response struct {
 	pulumi.CustomResourceState
 
+	// Map of parameters (paths, query strings and headers) of the Gateway Response.
 	ResponseParameters pulumi.StringMapOutput `pulumi:"responseParameters"`
-	ResponseTemplates  pulumi.StringMapOutput `pulumi:"responseTemplates"`
-	ResponseType       pulumi.StringOutput    `pulumi:"responseType"`
-	RestApiId          pulumi.StringOutput    `pulumi:"restApiId"`
-	StatusCode         pulumi.StringPtrOutput `pulumi:"statusCode"`
+	// Map of templates used to transform the response body.
+	ResponseTemplates pulumi.StringMapOutput `pulumi:"responseTemplates"`
+	// Response type of the associated GatewayResponse.
+	ResponseType pulumi.StringOutput `pulumi:"responseType"`
+	// String identifier of the associated REST API.
+	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
+	// HTTP status code of the Gateway Response.
+	StatusCode pulumi.StringPtrOutput `pulumi:"statusCode"`
 }
 
 // NewResponse registers a new resource with the given unique name, arguments, and options.
@@ -56,19 +112,29 @@ func GetResponse(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Response resources.
 type responseState struct {
+	// Map of parameters (paths, query strings and headers) of the Gateway Response.
 	ResponseParameters map[string]string `pulumi:"responseParameters"`
-	ResponseTemplates  map[string]string `pulumi:"responseTemplates"`
-	ResponseType       *string           `pulumi:"responseType"`
-	RestApiId          *string           `pulumi:"restApiId"`
-	StatusCode         *string           `pulumi:"statusCode"`
+	// Map of templates used to transform the response body.
+	ResponseTemplates map[string]string `pulumi:"responseTemplates"`
+	// Response type of the associated GatewayResponse.
+	ResponseType *string `pulumi:"responseType"`
+	// String identifier of the associated REST API.
+	RestApiId *string `pulumi:"restApiId"`
+	// HTTP status code of the Gateway Response.
+	StatusCode *string `pulumi:"statusCode"`
 }
 
 type ResponseState struct {
+	// Map of parameters (paths, query strings and headers) of the Gateway Response.
 	ResponseParameters pulumi.StringMapInput
-	ResponseTemplates  pulumi.StringMapInput
-	ResponseType       pulumi.StringPtrInput
-	RestApiId          pulumi.StringPtrInput
-	StatusCode         pulumi.StringPtrInput
+	// Map of templates used to transform the response body.
+	ResponseTemplates pulumi.StringMapInput
+	// Response type of the associated GatewayResponse.
+	ResponseType pulumi.StringPtrInput
+	// String identifier of the associated REST API.
+	RestApiId pulumi.StringPtrInput
+	// HTTP status code of the Gateway Response.
+	StatusCode pulumi.StringPtrInput
 }
 
 func (ResponseState) ElementType() reflect.Type {
@@ -76,20 +142,30 @@ func (ResponseState) ElementType() reflect.Type {
 }
 
 type responseArgs struct {
+	// Map of parameters (paths, query strings and headers) of the Gateway Response.
 	ResponseParameters map[string]string `pulumi:"responseParameters"`
-	ResponseTemplates  map[string]string `pulumi:"responseTemplates"`
-	ResponseType       string            `pulumi:"responseType"`
-	RestApiId          string            `pulumi:"restApiId"`
-	StatusCode         *string           `pulumi:"statusCode"`
+	// Map of templates used to transform the response body.
+	ResponseTemplates map[string]string `pulumi:"responseTemplates"`
+	// Response type of the associated GatewayResponse.
+	ResponseType string `pulumi:"responseType"`
+	// String identifier of the associated REST API.
+	RestApiId string `pulumi:"restApiId"`
+	// HTTP status code of the Gateway Response.
+	StatusCode *string `pulumi:"statusCode"`
 }
 
 // The set of arguments for constructing a Response resource.
 type ResponseArgs struct {
+	// Map of parameters (paths, query strings and headers) of the Gateway Response.
 	ResponseParameters pulumi.StringMapInput
-	ResponseTemplates  pulumi.StringMapInput
-	ResponseType       pulumi.StringInput
-	RestApiId          pulumi.StringInput
-	StatusCode         pulumi.StringPtrInput
+	// Map of templates used to transform the response body.
+	ResponseTemplates pulumi.StringMapInput
+	// Response type of the associated GatewayResponse.
+	ResponseType pulumi.StringInput
+	// String identifier of the associated REST API.
+	RestApiId pulumi.StringInput
+	// HTTP status code of the Gateway Response.
+	StatusCode pulumi.StringPtrInput
 }
 
 func (ResponseArgs) ElementType() reflect.Type {
@@ -179,22 +255,27 @@ func (o ResponseOutput) ToResponseOutputWithContext(ctx context.Context) Respons
 	return o
 }
 
+// Map of parameters (paths, query strings and headers) of the Gateway Response.
 func (o ResponseOutput) ResponseParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Response) pulumi.StringMapOutput { return v.ResponseParameters }).(pulumi.StringMapOutput)
 }
 
+// Map of templates used to transform the response body.
 func (o ResponseOutput) ResponseTemplates() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Response) pulumi.StringMapOutput { return v.ResponseTemplates }).(pulumi.StringMapOutput)
 }
 
+// Response type of the associated GatewayResponse.
 func (o ResponseOutput) ResponseType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Response) pulumi.StringOutput { return v.ResponseType }).(pulumi.StringOutput)
 }
 
+// String identifier of the associated REST API.
 func (o ResponseOutput) RestApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Response) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
 }
 
+// HTTP status code of the Gateway Response.
 func (o ResponseOutput) StatusCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Response) pulumi.StringPtrOutput { return v.StatusCode }).(pulumi.StringPtrOutput)
 }

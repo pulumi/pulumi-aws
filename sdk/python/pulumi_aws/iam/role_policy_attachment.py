@@ -18,6 +18,8 @@ class RolePolicyAttachmentArgs:
                  role: pulumi.Input[str]):
         """
         The set of arguments for constructing a RolePolicyAttachment resource.
+        :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
+        :param pulumi.Input[str] role: The name of the IAM role to which the policy should be applied
         """
         pulumi.set(__self__, "policy_arn", policy_arn)
         pulumi.set(__self__, "role", role)
@@ -25,6 +27,9 @@ class RolePolicyAttachmentArgs:
     @property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the policy you want to apply
+        """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
@@ -34,6 +39,9 @@ class RolePolicyAttachmentArgs:
     @property
     @pulumi.getter
     def role(self) -> pulumi.Input[str]:
+        """
+        The name of the IAM role to which the policy should be applied
+        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -48,6 +56,8 @@ class _RolePolicyAttachmentState:
                  role: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RolePolicyAttachment resources.
+        :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
+        :param pulumi.Input[str] role: The name of the IAM role to which the policy should be applied
         """
         if policy_arn is not None:
             pulumi.set(__self__, "policy_arn", policy_arn)
@@ -57,6 +67,9 @@ class _RolePolicyAttachmentState:
     @property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the policy you want to apply
+        """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
@@ -66,6 +79,9 @@ class _RolePolicyAttachmentState:
     @property
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the IAM role to which the policy should be applied
+        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -82,9 +98,64 @@ class RolePolicyAttachment(pulumi.CustomResource):
                  role: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a RolePolicyAttachment resource with the given unique name, props, and options.
+        Attaches a Managed IAM Policy to an IAM role
+
+        > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
+
+        > **NOTE:** For a given role, this resource is incompatible with using the `iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and the provider will show a permanent difference.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "ec2.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+        \"\"\")
+        policy = aws.iam.Policy("policy",
+            description="A test policy",
+            policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": [
+                "ec2:Describe*"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ]
+        }
+        \"\"\")
+        test_attach = aws.iam.RolePolicyAttachment("test-attach",
+            role=role.name,
+            policy_arn=policy.arn)
+        ```
+
+        ## Import
+
+        IAM role policy attachments can be imported using the role name and policy arn separated by `/`.
+
+        ```sh
+         $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
+        :param pulumi.Input[str] role: The name of the IAM role to which the policy should be applied
         """
         ...
     @overload
@@ -93,7 +164,60 @@ class RolePolicyAttachment(pulumi.CustomResource):
                  args: RolePolicyAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RolePolicyAttachment resource with the given unique name, props, and options.
+        Attaches a Managed IAM Policy to an IAM role
+
+        > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
+
+        > **NOTE:** For a given role, this resource is incompatible with using the `iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and the provider will show a permanent difference.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "ec2.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+        \"\"\")
+        policy = aws.iam.Policy("policy",
+            description="A test policy",
+            policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": [
+                "ec2:Describe*"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ]
+        }
+        \"\"\")
+        test_attach = aws.iam.RolePolicyAttachment("test-attach",
+            role=role.name,
+            policy_arn=policy.arn)
+        ```
+
+        ## Import
+
+        IAM role policy attachments can be imported using the role name and policy arn separated by `/`.
+
+        ```sh
+         $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+        ```
+
         :param str resource_name: The name of the resource.
         :param RolePolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +269,8 @@ class RolePolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
+        :param pulumi.Input[str] role: The name of the IAM role to which the policy should be applied
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +283,16 @@ class RolePolicyAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the policy you want to apply
+        """
         return pulumi.get(self, "policy_arn")
 
     @property
     @pulumi.getter
     def role(self) -> pulumi.Output[str]:
+        """
+        The name of the IAM role to which the policy should be applied
+        """
         return pulumi.get(self, "role")
 

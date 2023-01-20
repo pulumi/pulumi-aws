@@ -9,21 +9,45 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDetectorResult {
+    /**
+     * @return The frequency of notifications sent about subsequent finding occurrences.
+     * 
+     */
     private String findingPublishingFrequency;
     private String id;
+    /**
+     * @return Service-linked role that grants GuardDuty access to the resources in the AWS account.
+     * 
+     */
     private String serviceRoleArn;
+    /**
+     * @return Current status of the detector.
+     * 
+     */
     private String status;
 
     private GetDetectorResult() {}
+    /**
+     * @return The frequency of notifications sent about subsequent finding occurrences.
+     * 
+     */
     public String findingPublishingFrequency() {
         return this.findingPublishingFrequency;
     }
     public String id() {
         return this.id;
     }
+    /**
+     * @return Service-linked role that grants GuardDuty access to the resources in the AWS account.
+     * 
+     */
     public String serviceRoleArn() {
         return this.serviceRoleArn;
     }
+    /**
+     * @return Current status of the detector.
+     * 
+     */
     public String status() {
         return this.status;
     }

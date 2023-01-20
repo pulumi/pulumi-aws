@@ -7,6 +7,53 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a resource to manage an S3 Multi-Region Access Point access control policy.
+ *
+ * ## Example Usage
+ * ### Basic Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const currentCallerIdentity = aws.getCallerIdentity({});
+ * const currentPartition = aws.getPartition({});
+ * const fooBucket = new aws.s3.BucketV2("fooBucket", {});
+ * const exampleMultiRegionAccessPoint = new aws.s3control.MultiRegionAccessPoint("exampleMultiRegionAccessPoint", {details: {
+ *     name: "example",
+ *     regions: [{
+ *         bucket: fooBucket.id,
+ *     }],
+ * }});
+ * const exampleMultiRegionAccessPointPolicy = new aws.s3control.MultiRegionAccessPointPolicy("exampleMultiRegionAccessPointPolicy", {details: {
+ *     name: exampleMultiRegionAccessPoint.id.apply(id => id.split(":"))[1],
+ *     policy: pulumi.all([currentCallerIdentity, currentPartition, currentCallerIdentity, exampleMultiRegionAccessPoint.alias]).apply(([currentCallerIdentity, currentPartition, currentCallerIdentity1, alias]) => JSON.stringify({
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Sid: "Example",
+ *             Effect: "Allow",
+ *             Principal: {
+ *                 AWS: currentCallerIdentity.accountId,
+ *             },
+ *             Action: [
+ *                 "s3:GetObject",
+ *                 "s3:PutObject",
+ *             ],
+ *             Resource: `arn:${currentPartition.partition}:s3::${currentCallerIdentity1.accountId}:accesspoint/${alias}/object/*`,
+ *         }],
+ *     })),
+ * }});
+ * ```
+ *
+ * ## Import
+ *
+ * Multi-Region Access Point Policies can be imported using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`), e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy example 123456789012:example
+ * ```
+ */
 export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
     /**
      * Get an existing MultiRegionAccessPointPolicy resource's state with the given name, ID, and optional extra
@@ -35,9 +82,21 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === MultiRegionAccessPointPolicy.__pulumiType;
     }
 
+    /**
+     * The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     */
     public readonly accountId!: pulumi.Output<string>;
+    /**
+     * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+     */
     public readonly details!: pulumi.Output<outputs.s3control.MultiRegionAccessPointPolicyDetails>;
+    /**
+     * The last established policy for the Multi-Region Access Point.
+     */
     public /*out*/ readonly established!: pulumi.Output<string>;
+    /**
+     * The proposed policy for the Multi-Region Access Point.
+     */
     public /*out*/ readonly proposed!: pulumi.Output<string>;
 
     /**
@@ -76,9 +135,21 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MultiRegionAccessPointPolicy resources.
  */
 export interface MultiRegionAccessPointPolicyState {
+    /**
+     * The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     */
     accountId?: pulumi.Input<string>;
+    /**
+     * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+     */
     details?: pulumi.Input<inputs.s3control.MultiRegionAccessPointPolicyDetails>;
+    /**
+     * The last established policy for the Multi-Region Access Point.
+     */
     established?: pulumi.Input<string>;
+    /**
+     * The proposed policy for the Multi-Region Access Point.
+     */
     proposed?: pulumi.Input<string>;
 }
 
@@ -86,6 +157,12 @@ export interface MultiRegionAccessPointPolicyState {
  * The set of arguments for constructing a MultiRegionAccessPointPolicy resource.
  */
 export interface MultiRegionAccessPointPolicyArgs {
+    /**
+     * The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     */
     accountId?: pulumi.Input<string>;
+    /**
+     * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+     */
     details: pulumi.Input<inputs.s3control.MultiRegionAccessPointPolicyDetails>;
 }

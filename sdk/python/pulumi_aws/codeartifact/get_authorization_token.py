@@ -44,6 +44,9 @@ class GetAuthorizationTokenResult:
     @property
     @pulumi.getter(name="authorizationToken")
     def authorization_token(self) -> str:
+        """
+        Temporary authorization token.
+        """
         return pulumi.get(self, "authorization_token")
 
     @property
@@ -64,6 +67,9 @@ class GetAuthorizationTokenResult:
     @property
     @pulumi.getter
     def expiration(self) -> str:
+        """
+        Time in UTC RFC3339 format when the authorization token expires.
+        """
         return pulumi.get(self, "expiration")
 
     @property
@@ -94,7 +100,21 @@ def get_authorization_token(domain: Optional[str] = None,
                             duration_seconds: Optional[int] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationTokenResult:
     """
-    Use this data source to access information about an existing resource.
+    The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.codeartifact.get_authorization_token(domain=aws_codeartifact_domain["test"]["domain"])
+    ```
+
+
+    :param str domain: Name of the domain that is in scope for the generated authorization token.
+    :param str domain_owner: Account number of the AWS account that owns the domain.
+    :param int duration_seconds: Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
     """
     __args__ = dict()
     __args__['domain'] = domain
@@ -118,6 +138,20 @@ def get_authorization_token_output(domain: Optional[pulumi.Input[str]] = None,
                                    duration_seconds: Optional[pulumi.Input[Optional[int]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationTokenResult]:
     """
-    Use this data source to access information about an existing resource.
+    The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.codeartifact.get_authorization_token(domain=aws_codeartifact_domain["test"]["domain"])
+    ```
+
+
+    :param str domain: Name of the domain that is in scope for the generated authorization token.
+    :param str domain_owner: Account number of the AWS account that owns the domain.
+    :param int duration_seconds: Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
     """
     ...

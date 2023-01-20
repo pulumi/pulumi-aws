@@ -17,23 +17,47 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs ex
 
     public static final FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs Empty = new FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs();
 
+    /**
+     * Configuration block for override values
+     * 
+     */
     @Import(name="override")
     private @Nullable Output<FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs> override;
 
+    /**
+     * @return Configuration block for override values
+     * 
+     */
     public Optional<Output<FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs>> override() {
         return Optional.ofNullable(this.override);
     }
 
+    /**
+     * An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
+     * 
+     */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
+    /**
+     * @return An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
+     * 
+     */
     public Optional<Output<Integer>> priority() {
         return Optional.ofNullable(this.priority);
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the stateful rule group.
+     * 
+     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the stateful rule group.
+     * 
+     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
@@ -64,29 +88,65 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs ex
             $ = new FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param override Configuration block for override values
+         * 
+         * @return builder
+         * 
+         */
         public Builder override(@Nullable Output<FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs> override) {
             $.override = override;
             return this;
         }
 
+        /**
+         * @param override Configuration block for override values
+         * 
+         * @return builder
+         * 
+         */
         public Builder override(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs override) {
             return override(Output.of(override));
         }
 
+        /**
+         * @param priority An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
+         * 
+         * @return builder
+         * 
+         */
         public Builder priority(@Nullable Output<Integer> priority) {
             $.priority = priority;
             return this;
         }
 
+        /**
+         * @param priority An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
+         * 
+         * @return builder
+         * 
+         */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
         }
 
+        /**
+         * @param resourceArn The Amazon Resource Name (ARN) of the stateful rule group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
+        /**
+         * @param resourceArn The Amazon Resource Name (ARN) of the stateful rule group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

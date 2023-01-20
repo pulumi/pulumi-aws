@@ -4,6 +4,12 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides access to all Configuration Properties for an AppConfig Application. This will allow you to pass Configuration
+ * Profile IDs to another resource.
+ *
+ * ## Example Usage
+ */
 export function getConfigurationProfiles(args: GetConfigurationProfilesArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfilesResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -16,6 +22,9 @@ export function getConfigurationProfiles(args: GetConfigurationProfilesArgs, opt
  * A collection of arguments for invoking getConfigurationProfiles.
  */
 export interface GetConfigurationProfilesArgs {
+    /**
+     * ID of the AppConfig Application.
+     */
     applicationId: string;
 }
 
@@ -24,12 +33,21 @@ export interface GetConfigurationProfilesArgs {
  */
 export interface GetConfigurationProfilesResult {
     readonly applicationId: string;
+    /**
+     * Set of Configuration Profile IDs associated with the AppConfig Application.
+     */
     readonly configurationProfileIds: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }
+/**
+ * Provides access to all Configuration Properties for an AppConfig Application. This will allow you to pass Configuration
+ * Profile IDs to another resource.
+ *
+ * ## Example Usage
+ */
 export function getConfigurationProfilesOutput(args: GetConfigurationProfilesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfilesResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationProfiles(a, opts))
 }
@@ -38,5 +56,8 @@ export function getConfigurationProfilesOutput(args: GetConfigurationProfilesOut
  * A collection of arguments for invoking getConfigurationProfiles.
  */
 export interface GetConfigurationProfilesOutputArgs {
+    /**
+     * ID of the AppConfig Application.
+     */
     applicationId: pulumi.Input<string>;
 }

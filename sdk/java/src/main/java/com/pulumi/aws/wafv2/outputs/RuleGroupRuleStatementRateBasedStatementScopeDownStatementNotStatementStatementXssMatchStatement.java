@@ -13,13 +13,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementXssMatchStatement {
+    /**
+     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * 
+     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementXssMatchStatementFieldToMatch fieldToMatch;
+    /**
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+     * At least one required.
+     * See Text Transformation below for details.
+     * 
+     */
     private List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementXssMatchStatementTextTransformation> textTransformations;
 
     private RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementXssMatchStatement() {}
+    /**
+     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * 
+     */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementXssMatchStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
     }
+    /**
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+     * At least one required.
+     * See Text Transformation below for details.
+     * 
+     */
     public List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementXssMatchStatementTextTransformation> textTransformations() {
         return this.textTransformations;
     }

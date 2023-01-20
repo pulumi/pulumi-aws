@@ -24,6 +24,13 @@ class SecretReplicaArgs:
                  last_accessed_date: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  status_message: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] region: Region for replicating the secret.
+        :param pulumi.Input[str] kms_key_id: ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
+        :param pulumi.Input[str] last_accessed_date: Date that you last accessed the secret in the Region.
+        :param pulumi.Input[str] status: Status can be `InProgress`, `Failed`, or `InSync`.
+        :param pulumi.Input[str] status_message: Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
+        """
         pulumi.set(__self__, "region", region)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -37,6 +44,9 @@ class SecretReplicaArgs:
     @property
     @pulumi.getter
     def region(self) -> pulumi.Input[str]:
+        """
+        Region for replicating the secret.
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -46,6 +56,9 @@ class SecretReplicaArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -55,6 +68,9 @@ class SecretReplicaArgs:
     @property
     @pulumi.getter(name="lastAccessedDate")
     def last_accessed_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date that you last accessed the secret in the Region.
+        """
         return pulumi.get(self, "last_accessed_date")
 
     @last_accessed_date.setter
@@ -64,6 +80,9 @@ class SecretReplicaArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status can be `InProgress`, `Failed`, or `InSync`.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -73,6 +92,9 @@ class SecretReplicaArgs:
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
+        """
         return pulumi.get(self, "status_message")
 
     @status_message.setter
@@ -84,11 +106,17 @@ class SecretReplicaArgs:
 class SecretRotationRotationRulesArgs:
     def __init__(__self__, *,
                  automatically_after_days: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] automatically_after_days: Specifies the number of days between automatic scheduled rotations of the secret.
+        """
         pulumi.set(__self__, "automatically_after_days", automatically_after_days)
 
     @property
     @pulumi.getter(name="automaticallyAfterDays")
     def automatically_after_days(self) -> pulumi.Input[int]:
+        """
+        Specifies the number of days between automatic scheduled rotations of the secret.
+        """
         return pulumi.get(self, "automatically_after_days")
 
     @automatically_after_days.setter
@@ -100,11 +128,17 @@ class SecretRotationRotationRulesArgs:
 class SecretRotationRulesArgs:
     def __init__(__self__, *,
                  automatically_after_days: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] automatically_after_days: Specifies the number of days between automatic scheduled rotations of the secret.
+        """
         pulumi.set(__self__, "automatically_after_days", automatically_after_days)
 
     @property
     @pulumi.getter(name="automaticallyAfterDays")
     def automatically_after_days(self) -> pulumi.Input[int]:
+        """
+        Specifies the number of days between automatic scheduled rotations of the secret.
+        """
         return pulumi.get(self, "automatically_after_days")
 
     @automatically_after_days.setter
@@ -117,12 +151,19 @@ class GetSecretsFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
+        """
+        :param str name: Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -132,6 +173,9 @@ class GetSecretsFilterArgs:
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
         return pulumi.get(self, "values")
 
     @values.setter

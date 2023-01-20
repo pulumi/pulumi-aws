@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVpcIamPoolCidrsIpamPoolCidr {
+    /**
+     * @return A network CIDR.
+     * 
+     */
     private String cidr;
+    /**
+     * @return The provisioning state of that CIDR.
+     * 
+     */
     private String state;
 
     private GetVpcIamPoolCidrsIpamPoolCidr() {}
+    /**
+     * @return A network CIDR.
+     * 
+     */
     public String cidr() {
         return this.cidr;
     }
+    /**
+     * @return The provisioning state of that CIDR.
+     * 
+     */
     public String state() {
         return this.state;
     }

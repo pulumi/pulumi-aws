@@ -7,6 +7,83 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a DataPipeline Pipeline Definition resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const _default = new aws.datapipeline.Pipeline("default", {});
+ * const example = new aws.datapipeline.PipelineDefinition("example", {
+ *     pipelineId: _default.id,
+ *     pipelineObjects: [
+ *         {
+ *             id: "Default",
+ *             name: "Default",
+ *             fields: [{
+ *                 key: "workerGroup",
+ *                 stringValue: "workerGroup",
+ *             }],
+ *         },
+ *         {
+ *             id: "Schedule",
+ *             name: "Schedule",
+ *             fields: [
+ *                 {
+ *                     key: "startDateTime",
+ *                     stringValue: "2012-12-12T00:00:00",
+ *                 },
+ *                 {
+ *                     key: "type",
+ *                     stringValue: "Schedule",
+ *                 },
+ *                 {
+ *                     key: "period",
+ *                     stringValue: "1 hour",
+ *                 },
+ *                 {
+ *                     key: "endDateTime",
+ *                     stringValue: "2012-12-21T18:00:00",
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             id: "SayHello",
+ *             name: "SayHello",
+ *             fields: [
+ *                 {
+ *                     key: "type",
+ *                     stringValue: "ShellCommandActivity",
+ *                 },
+ *                 {
+ *                     key: "command",
+ *                     stringValue: "echo hello",
+ *                 },
+ *                 {
+ *                     key: "parent",
+ *                     stringValue: "Default",
+ *                 },
+ *                 {
+ *                     key: "schedule",
+ *                     stringValue: "Schedule",
+ *                 },
+ *             ],
+ *         },
+ *     ],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_datapipeline_pipeline_definition` can be imported using the id, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
+ * ```
+ */
 export class PipelineDefinition extends pulumi.CustomResource {
     /**
      * Get an existing PipelineDefinition resource's state with the given name, ID, and optional extra
@@ -35,9 +112,21 @@ export class PipelineDefinition extends pulumi.CustomResource {
         return obj['__pulumiType'] === PipelineDefinition.__pulumiType;
     }
 
+    /**
+     * Configuration block for the parameter objects used in the pipeline definition. See below
+     */
     public readonly parameterObjects!: pulumi.Output<outputs.datapipeline.PipelineDefinitionParameterObject[] | undefined>;
+    /**
+     * Configuration block for the parameter values used in the pipeline definition. See below
+     */
     public readonly parameterValues!: pulumi.Output<outputs.datapipeline.PipelineDefinitionParameterValue[] | undefined>;
+    /**
+     * ID of the pipeline.
+     */
     public readonly pipelineId!: pulumi.Output<string>;
+    /**
+     * Configuration block for the objects that define the pipeline. See below
+     */
     public readonly pipelineObjects!: pulumi.Output<outputs.datapipeline.PipelineDefinitionPipelineObject[]>;
 
     /**
@@ -79,9 +168,21 @@ export class PipelineDefinition extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PipelineDefinition resources.
  */
 export interface PipelineDefinitionState {
+    /**
+     * Configuration block for the parameter objects used in the pipeline definition. See below
+     */
     parameterObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionParameterObject>[]>;
+    /**
+     * Configuration block for the parameter values used in the pipeline definition. See below
+     */
     parameterValues?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionParameterValue>[]>;
+    /**
+     * ID of the pipeline.
+     */
     pipelineId?: pulumi.Input<string>;
+    /**
+     * Configuration block for the objects that define the pipeline. See below
+     */
     pipelineObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionPipelineObject>[]>;
 }
 
@@ -89,8 +190,20 @@ export interface PipelineDefinitionState {
  * The set of arguments for constructing a PipelineDefinition resource.
  */
 export interface PipelineDefinitionArgs {
+    /**
+     * Configuration block for the parameter objects used in the pipeline definition. See below
+     */
     parameterObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionParameterObject>[]>;
+    /**
+     * Configuration block for the parameter values used in the pipeline definition. See below
+     */
     parameterValues?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionParameterValue>[]>;
+    /**
+     * ID of the pipeline.
+     */
     pipelineId: pulumi.Input<string>;
+    /**
+     * Configuration block for the objects that define the pipeline. See below
+     */
     pipelineObjects: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionPipelineObject>[]>;
 }

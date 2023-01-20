@@ -6,6 +6,31 @@ import * as utilities from "../utilities";
 
 import {RestApi} from "./index";
 
+/**
+ * Provides an API Gateway Resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
+ * const myDemoResource = new aws.apigateway.Resource("myDemoResource", {
+ *     restApi: myDemoAPI.id,
+ *     parentId: myDemoAPI.rootResourceId,
+ *     pathPart: "mydemoresource",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_api_gateway_resource` can be imported using `REST-API-ID/RESOURCE-ID`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
+ * ```
+ */
 export class Resource extends pulumi.CustomResource {
     /**
      * Get an existing Resource resource's state with the given name, ID, and optional extra
@@ -34,9 +59,21 @@ export class Resource extends pulumi.CustomResource {
         return obj['__pulumiType'] === Resource.__pulumiType;
     }
 
+    /**
+     * ID of the parent API resource
+     */
     public readonly parentId!: pulumi.Output<string>;
+    /**
+     * Complete path for this API resource, including all parent paths.
+     */
     public /*out*/ readonly path!: pulumi.Output<string>;
+    /**
+     * Last path segment of this API resource.
+     */
     public readonly pathPart!: pulumi.Output<string>;
+    /**
+     * ID of the associated REST API
+     */
     public readonly restApi!: pulumi.Output<string>;
 
     /**
@@ -81,9 +118,21 @@ export class Resource extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Resource resources.
  */
 export interface ResourceState {
+    /**
+     * ID of the parent API resource
+     */
     parentId?: pulumi.Input<string>;
+    /**
+     * Complete path for this API resource, including all parent paths.
+     */
     path?: pulumi.Input<string>;
+    /**
+     * Last path segment of this API resource.
+     */
     pathPart?: pulumi.Input<string>;
+    /**
+     * ID of the associated REST API
+     */
     restApi?: pulumi.Input<string | RestApi>;
 }
 
@@ -91,7 +140,16 @@ export interface ResourceState {
  * The set of arguments for constructing a Resource resource.
  */
 export interface ResourceArgs {
+    /**
+     * ID of the parent API resource
+     */
     parentId: pulumi.Input<string>;
+    /**
+     * Last path segment of this API resource.
+     */
     pathPart: pulumi.Input<string>;
+    /**
+     * ID of the associated REST API
+     */
     restApi: pulumi.Input<string | RestApi>;
 }

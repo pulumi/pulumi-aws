@@ -24,23 +24,47 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
         return Optional.ofNullable(this.certficateMode);
     }
 
+    /**
+     * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * 
+     */
     @Import(name="connectionRetryInterval")
     private @Nullable Output<Integer> connectionRetryInterval;
 
+    /**
+     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * 
+     */
     public Optional<Output<Integer>> connectionRetryInterval() {
         return Optional.ofNullable(this.connectionRetryInterval);
     }
 
+    /**
+     * The RTMP endpoint excluding the stream name. See Destination for more details.
+     * 
+     */
     @Import(name="destination", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs> destination;
 
+    /**
+     * @return The RTMP endpoint excluding the stream name. See Destination for more details.
+     * 
+     */
     public Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs> destination() {
         return this.destination;
     }
 
+    /**
+     * Number of retry attempts.
+     * 
+     */
     @Import(name="numRetries")
     private @Nullable Output<Integer> numRetries;
 
+    /**
+     * @return Number of retry attempts.
+     * 
+     */
     public Optional<Output<Integer>> numRetries() {
         return Optional.ofNullable(this.numRetries);
     }
@@ -81,29 +105,65 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
             return certficateMode(Output.of(certficateMode));
         }
 
+        /**
+         * @param connectionRetryInterval Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionRetryInterval(@Nullable Output<Integer> connectionRetryInterval) {
             $.connectionRetryInterval = connectionRetryInterval;
             return this;
         }
 
+        /**
+         * @param connectionRetryInterval Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionRetryInterval(Integer connectionRetryInterval) {
             return connectionRetryInterval(Output.of(connectionRetryInterval));
         }
 
+        /**
+         * @param destination The RTMP endpoint excluding the stream name. See Destination for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destination(Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs> destination) {
             $.destination = destination;
             return this;
         }
 
+        /**
+         * @param destination The RTMP endpoint excluding the stream name. See Destination for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destination(ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs destination) {
             return destination(Output.of(destination));
         }
 
+        /**
+         * @param numRetries Number of retry attempts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder numRetries(@Nullable Output<Integer> numRetries) {
             $.numRetries = numRetries;
             return this;
         }
 
+        /**
+         * @param numRetries Number of retry attempts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder numRetries(Integer numRetries) {
             return numRetries(Output.of(numRetries));
         }

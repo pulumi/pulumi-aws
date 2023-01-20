@@ -55,16 +55,25 @@ class GetOutpostResult:
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> str:
+        """
+        Availability Zone name.
+        """
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> str:
+        """
+        Availability Zone identifier.
+        """
         return pulumi.get(self, "availability_zone_id")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -85,6 +94,9 @@ class GetOutpostResult:
     @property
     @pulumi.getter(name="siteId")
     def site_id(self) -> str:
+        """
+        Site identifier.
+        """
         return pulumi.get(self, "site_id")
 
 
@@ -110,7 +122,22 @@ def get_outpost(arn: Optional[str] = None,
                 owner_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutpostResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about an Outposts Outpost.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.outposts.get_outpost(name="example")
+    ```
+
+
+    :param str arn: ARN.
+    :param str id: Identifier of the Outpost.
+    :param str name: Name of the Outpost.
+    :param str owner_id: AWS Account identifier of the Outpost owner.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -138,6 +165,21 @@ def get_outpost_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                        owner_id: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutpostResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about an Outposts Outpost.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.outposts.get_outpost(name="example")
+    ```
+
+
+    :param str arn: ARN.
+    :param str id: Identifier of the Outpost.
+    :param str name: Name of the Outpost.
+    :param str owner_id: AWS Account identifier of the Outpost owner.
     """
     ...

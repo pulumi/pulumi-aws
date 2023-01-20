@@ -11,12 +11,54 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Adds an IoT Thing to an IoT Thing Group.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iot.NewThingGroupMembership(ctx, "example", &iot.ThingGroupMembershipArgs{
+//				OverrideDynamicGroup: pulumi.Bool(true),
+//				ThingGroupName:       pulumi.String("example-group"),
+//				ThingName:            pulumi.String("example-thing"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// IoT Thing Group Membership can be imported using the thing group name and thing name.
+//
+// ```sh
+//
+//	$ pulumi import aws:iot/thingGroupMembership:ThingGroupMembership example thing_group_name/thing_name
+//
+// ```
 type ThingGroupMembership struct {
 	pulumi.CustomResourceState
 
+	// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 	OverrideDynamicGroup pulumi.BoolPtrOutput `pulumi:"overrideDynamicGroup"`
-	ThingGroupName       pulumi.StringOutput  `pulumi:"thingGroupName"`
-	ThingName            pulumi.StringOutput  `pulumi:"thingName"`
+	// The name of the group to which you are adding a thing.
+	ThingGroupName pulumi.StringOutput `pulumi:"thingGroupName"`
+	// The name of the thing to add to a group.
+	ThingName pulumi.StringOutput `pulumi:"thingName"`
 }
 
 // NewThingGroupMembership registers a new resource with the given unique name, arguments, and options.
@@ -54,15 +96,21 @@ func GetThingGroupMembership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ThingGroupMembership resources.
 type thingGroupMembershipState struct {
-	OverrideDynamicGroup *bool   `pulumi:"overrideDynamicGroup"`
-	ThingGroupName       *string `pulumi:"thingGroupName"`
-	ThingName            *string `pulumi:"thingName"`
+	// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
+	OverrideDynamicGroup *bool `pulumi:"overrideDynamicGroup"`
+	// The name of the group to which you are adding a thing.
+	ThingGroupName *string `pulumi:"thingGroupName"`
+	// The name of the thing to add to a group.
+	ThingName *string `pulumi:"thingName"`
 }
 
 type ThingGroupMembershipState struct {
+	// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 	OverrideDynamicGroup pulumi.BoolPtrInput
-	ThingGroupName       pulumi.StringPtrInput
-	ThingName            pulumi.StringPtrInput
+	// The name of the group to which you are adding a thing.
+	ThingGroupName pulumi.StringPtrInput
+	// The name of the thing to add to a group.
+	ThingName pulumi.StringPtrInput
 }
 
 func (ThingGroupMembershipState) ElementType() reflect.Type {
@@ -70,16 +118,22 @@ func (ThingGroupMembershipState) ElementType() reflect.Type {
 }
 
 type thingGroupMembershipArgs struct {
-	OverrideDynamicGroup *bool  `pulumi:"overrideDynamicGroup"`
-	ThingGroupName       string `pulumi:"thingGroupName"`
-	ThingName            string `pulumi:"thingName"`
+	// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
+	OverrideDynamicGroup *bool `pulumi:"overrideDynamicGroup"`
+	// The name of the group to which you are adding a thing.
+	ThingGroupName string `pulumi:"thingGroupName"`
+	// The name of the thing to add to a group.
+	ThingName string `pulumi:"thingName"`
 }
 
 // The set of arguments for constructing a ThingGroupMembership resource.
 type ThingGroupMembershipArgs struct {
+	// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 	OverrideDynamicGroup pulumi.BoolPtrInput
-	ThingGroupName       pulumi.StringInput
-	ThingName            pulumi.StringInput
+	// The name of the group to which you are adding a thing.
+	ThingGroupName pulumi.StringInput
+	// The name of the thing to add to a group.
+	ThingName pulumi.StringInput
 }
 
 func (ThingGroupMembershipArgs) ElementType() reflect.Type {
@@ -169,14 +223,17 @@ func (o ThingGroupMembershipOutput) ToThingGroupMembershipOutputWithContext(ctx 
 	return o
 }
 
+// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 func (o ThingGroupMembershipOutput) OverrideDynamicGroup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ThingGroupMembership) pulumi.BoolPtrOutput { return v.OverrideDynamicGroup }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the group to which you are adding a thing.
 func (o ThingGroupMembershipOutput) ThingGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingGroupMembership) pulumi.StringOutput { return v.ThingGroupName }).(pulumi.StringOutput)
 }
 
+// The name of the thing to add to a group.
 func (o ThingGroupMembershipOutput) ThingName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingGroupMembership) pulumi.StringOutput { return v.ThingName }).(pulumi.StringOutput)
 }

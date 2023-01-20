@@ -13,9 +13,21 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse
     {
+        /// <summary>
+        /// Specifies that AWS WAF should allow requests by default. See Allow below for details.
+        /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow? Allow;
+        /// <summary>
+        /// Specifies that AWS WAF should block requests by default. See Block below for details.
+        /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock? Block;
+        /// <summary>
+        /// Instructs AWS WAF to run a Captcha check against the web request. See Captcha below for details.
+        /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha? Captcha;
+        /// <summary>
+        /// Instructs AWS WAF to count the web request and allow it. See Count below for details.
+        /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount? Count;
 
         [OutputConstructor]

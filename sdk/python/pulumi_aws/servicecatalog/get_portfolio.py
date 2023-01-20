@@ -55,16 +55,25 @@ class GetPortfolioResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        Portfolio ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> str:
+        """
+        Time the portfolio was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the portfolio
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -75,16 +84,25 @@ class GetPortfolioResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Portfolio name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> str:
+        """
+        Name of the person or organization who owns the portfolio.
+        """
         return pulumi.get(self, "provider_name")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Tags applied to the portfolio.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -109,7 +127,21 @@ def get_portfolio(accept_language: Optional[str] = None,
                   tags: Optional[Mapping[str, str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPortfolioResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides information for a Service Catalog Portfolio.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    portfolio = aws.servicecatalog.get_portfolio(id="port-07052002")
+    ```
+
+
+    :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+    :param str id: Portfolio identifier.
+    :param Mapping[str, str] tags: Tags applied to the portfolio.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
@@ -135,6 +167,20 @@ def get_portfolio_output(accept_language: Optional[pulumi.Input[Optional[str]]] 
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPortfolioResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides information for a Service Catalog Portfolio.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    portfolio = aws.servicecatalog.get_portfolio(id="port-07052002")
+    ```
+
+
+    :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+    :param str id: Portfolio identifier.
+    :param Mapping[str, str] tags: Tags applied to the portfolio.
     """
     ...

@@ -4,6 +4,44 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an ElastiCache Subnet Group resource.
+ *
+ * > **NOTE:** ElastiCache Subnet Groups are only for use when working with an
+ * ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
+ * ElastiCache Security Group resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const fooVpc = new aws.ec2.Vpc("fooVpc", {
+ *     cidrBlock: "10.0.0.0/16",
+ *     tags: {
+ *         Name: "tf-test",
+ *     },
+ * });
+ * const fooSubnet = new aws.ec2.Subnet("fooSubnet", {
+ *     vpcId: fooVpc.id,
+ *     cidrBlock: "10.0.0.0/24",
+ *     availabilityZone: "us-west-2a",
+ *     tags: {
+ *         Name: "tf-test",
+ *     },
+ * });
+ * const bar = new aws.elasticache.SubnetGroup("bar", {subnetIds: [fooSubnet.id]});
+ * ```
+ *
+ * ## Import
+ *
+ * ElastiCache Subnet Groups can be imported using the `name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
+ * ```
+ */
 export class SubnetGroup extends pulumi.CustomResource {
     /**
      * Get an existing SubnetGroup resource's state with the given name, ID, and optional extra
@@ -33,10 +71,25 @@ export class SubnetGroup extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Description for the cache subnet group. Defaults to "Managed by Pulumi".
+     */
     public readonly description!: pulumi.Output<string>;
+    /**
+     * Name for the cache subnet group. ElastiCache converts this name to lowercase.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * List of VPC Subnet IDs for the cache subnet group
+     */
     public readonly subnetIds!: pulumi.Output<string[]>;
+    /**
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -80,10 +133,25 @@ export class SubnetGroup extends pulumi.CustomResource {
  */
 export interface SubnetGroupState {
     arn?: pulumi.Input<string>;
+    /**
+     * Description for the cache subnet group. Defaults to "Managed by Pulumi".
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Name for the cache subnet group. ElastiCache converts this name to lowercase.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * List of VPC Subnet IDs for the cache subnet group
+     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -91,8 +159,20 @@ export interface SubnetGroupState {
  * The set of arguments for constructing a SubnetGroup resource.
  */
 export interface SubnetGroupArgs {
+    /**
+     * Description for the cache subnet group. Defaults to "Managed by Pulumi".
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Name for the cache subnet group. ElastiCache converts this name to lowercase.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * List of VPC Subnet IDs for the cache subnet group
+     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

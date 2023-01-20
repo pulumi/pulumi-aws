@@ -18,12 +18,19 @@ class GetProductFilterArgs:
     def __init__(__self__, *,
                  field: str,
                  value: str):
+        """
+        :param str field: Product attribute name that you want to filter on.
+        :param str value: Product attribute value that you want to filter on.
+        """
         pulumi.set(__self__, "field", field)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def field(self) -> str:
+        """
+        Product attribute name that you want to filter on.
+        """
         return pulumi.get(self, "field")
 
     @field.setter
@@ -33,6 +40,9 @@ class GetProductFilterArgs:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Product attribute value that you want to filter on.
+        """
         return pulumi.get(self, "value")
 
     @value.setter

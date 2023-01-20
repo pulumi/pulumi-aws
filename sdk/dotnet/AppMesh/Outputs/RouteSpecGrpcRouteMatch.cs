@@ -13,9 +13,22 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class RouteSpecGrpcRouteMatch
     {
+        /// <summary>
+        /// Data to match from the gRPC request.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RouteSpecGrpcRouteMatchMetadata> Metadatas;
+        /// <summary>
+        /// Method name to match from the request. If you specify a name, you must also specify a `service_name`.
+        /// </summary>
         public readonly string? MethodName;
+        /// <summary>
+        /// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+        /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        /// </summary>
         public readonly string? Prefix;
+        /// <summary>
+        /// Fully qualified domain name for the service to match from the request.
+        /// </summary>
         public readonly string? ServiceName;
 
         [OutputConstructor]

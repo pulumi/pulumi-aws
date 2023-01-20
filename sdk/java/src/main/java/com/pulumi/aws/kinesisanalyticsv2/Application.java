@@ -19,95 +19,534 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages a Kinesis Analytics v2 Application.
+ * This resource can be used to manage both Kinesis Data Analytics for SQL applications and Kinesis Data Analytics for Apache Flink applications.
+ * 
+ * &gt; **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `aws.kinesis.AnalyticsApplication` resource.
+ * 
+ * ## Example Usage
+ * ### Apache Flink Application
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketObjectv2;
+ * import com.pulumi.aws.s3.BucketObjectv2Args;
+ * import com.pulumi.aws.kinesisanalyticsv2.Application;
+ * import com.pulumi.aws.kinesisanalyticsv2.ApplicationArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationEnvironmentPropertiesArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs;
+ * import com.pulumi.asset.FileAsset;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ * 
+ *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
+ *             .bucket(exampleBucketV2.bucket())
+ *             .key(&#34;example-flink-application&#34;)
+ *             .source(new FileAsset(&#34;flink-app.jar&#34;))
+ *             .build());
+ * 
+ *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
+ *             .runtimeEnvironment(&#34;FLINK-1_8&#34;)
+ *             .serviceExecutionRole(aws_iam_role.example().arn())
+ *             .applicationConfiguration(ApplicationApplicationConfigurationArgs.builder()
+ *                 .applicationCodeConfiguration(ApplicationApplicationConfigurationApplicationCodeConfigurationArgs.builder()
+ *                     .codeContent(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs.builder()
+ *                         .s3ContentLocation(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs.builder()
+ *                             .bucketArn(exampleBucketV2.arn())
+ *                             .fileKey(exampleBucketObjectv2.key())
+ *                             .build())
+ *                         .build())
+ *                     .codeContentType(&#34;ZIPFILE&#34;)
+ *                     .build())
+ *                 .environmentProperties(ApplicationApplicationConfigurationEnvironmentPropertiesArgs.builder()
+ *                     .propertyGroups(                    
+ *                         ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs.builder()
+ *                             .propertyGroupId(&#34;PROPERTY-GROUP-1&#34;)
+ *                             .propertyMap(Map.of(&#34;Key1&#34;, &#34;Value1&#34;))
+ *                             .build(),
+ *                         ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs.builder()
+ *                             .propertyGroupId(&#34;PROPERTY-GROUP-2&#34;)
+ *                             .propertyMap(Map.ofEntries(
+ *                                 Map.entry(&#34;KeyA&#34;, &#34;ValueA&#34;),
+ *                                 Map.entry(&#34;KeyB&#34;, &#34;ValueB&#34;)
+ *                             ))
+ *                             .build())
+ *                     .build())
+ *                 .flinkApplicationConfiguration(ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs.builder()
+ *                     .checkpointConfiguration(ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs.builder()
+ *                         .configurationType(&#34;DEFAULT&#34;)
+ *                         .build())
+ *                     .monitoringConfiguration(ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs.builder()
+ *                         .configurationType(&#34;CUSTOM&#34;)
+ *                         .logLevel(&#34;DEBUG&#34;)
+ *                         .metricsLevel(&#34;TASK&#34;)
+ *                         .build())
+ *                     .parallelismConfiguration(ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs.builder()
+ *                         .autoScalingEnabled(true)
+ *                         .configurationType(&#34;CUSTOM&#34;)
+ *                         .parallelism(10)
+ *                         .parallelismPerKpu(4)
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### SQL Application
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogStream;
+ * import com.pulumi.aws.cloudwatch.LogStreamArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.Application;
+ * import com.pulumi.aws.kinesisanalyticsv2.ApplicationArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationCloudwatchLoggingOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
+ * 
+ *         var exampleLogStream = new LogStream(&#34;exampleLogStream&#34;, LogStreamArgs.builder()        
+ *             .logGroupName(exampleLogGroup.name())
+ *             .build());
+ * 
+ *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
+ *             .runtimeEnvironment(&#34;SQL-1_0&#34;)
+ *             .serviceExecutionRole(aws_iam_role.example().arn())
+ *             .applicationConfiguration(ApplicationApplicationConfigurationArgs.builder()
+ *                 .applicationCodeConfiguration(ApplicationApplicationConfigurationApplicationCodeConfigurationArgs.builder()
+ *                     .codeContent(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs.builder()
+ *                         .textContent(&#34;&#34;&#34;
+ * SELECT 1;
+ *                         &#34;&#34;&#34;)
+ *                         .build())
+ *                     .codeContentType(&#34;PLAINTEXT&#34;)
+ *                     .build())
+ *                 .sqlApplicationConfiguration(ApplicationApplicationConfigurationSqlApplicationConfigurationArgs.builder()
+ *                     .input(ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs.builder()
+ *                         .namePrefix(&#34;PREFIX_1&#34;)
+ *                         .inputParallelism(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs.builder()
+ *                             .count(3)
+ *                             .build())
+ *                         .inputSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs.builder()
+ *                             .recordColumns(                            
+ *                                 ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs.builder()
+ *                                     .name(&#34;COLUMN_1&#34;)
+ *                                     .sqlType(&#34;VARCHAR(8)&#34;)
+ *                                     .mapping(&#34;MAPPING-1&#34;)
+ *                                     .build(),
+ *                                 ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs.builder()
+ *                                     .name(&#34;COLUMN_2&#34;)
+ *                                     .sqlType(&#34;DOUBLE&#34;)
+ *                                     .build())
+ *                             .recordEncoding(&#34;UTF-8&#34;)
+ *                             .recordFormat(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs.builder()
+ *                                 .recordFormatType(&#34;CSV&#34;)
+ *                                 .mappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs.builder()
+ *                                     .csvMappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs.builder()
+ *                                         .recordColumnDelimiter(&#34;,&#34;)
+ *                                         .recordRowDelimiter(&#34;&#34;&#34;
+ * 
+ *                                         &#34;&#34;&#34;)
+ *                                         .build())
+ *                                     .build())
+ *                                 .build())
+ *                             .build())
+ *                         .kinesisStreamsInput(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs.builder()
+ *                             .resourceArn(aws_kinesis_stream.example().arn())
+ *                             .build())
+ *                         .build())
+ *                     .outputs(                    
+ *                         ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs.builder()
+ *                             .name(&#34;OUTPUT_1&#34;)
+ *                             .destinationSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs.builder()
+ *                                 .recordFormatType(&#34;JSON&#34;)
+ *                                 .build())
+ *                             .lambdaOutput(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs.builder()
+ *                                 .resourceArn(aws_lambda_function.example().arn())
+ *                                 .build())
+ *                             .build(),
+ *                         ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs.builder()
+ *                             .name(&#34;OUTPUT_2&#34;)
+ *                             .destinationSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs.builder()
+ *                                 .recordFormatType(&#34;CSV&#34;)
+ *                                 .build())
+ *                             .kinesisFirehoseOutput(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs.builder()
+ *                                 .resourceArn(aws_kinesis_firehose_delivery_stream.example().arn())
+ *                                 .build())
+ *                             .build())
+ *                     .referenceDataSource(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs.builder()
+ *                         .tableName(&#34;TABLE-1&#34;)
+ *                         .referenceSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs.builder()
+ *                             .recordColumns(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs.builder()
+ *                                 .name(&#34;COLUMN_1&#34;)
+ *                                 .sqlType(&#34;INTEGER&#34;)
+ *                                 .build())
+ *                             .recordFormat(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs.builder()
+ *                                 .recordFormatType(&#34;JSON&#34;)
+ *                                 .mappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs.builder()
+ *                                     .jsonMappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs.builder()
+ *                                         .recordRowPath(&#34;$&#34;)
+ *                                         .build())
+ *                                     .build())
+ *                                 .build())
+ *                             .build())
+ *                         .s3ReferenceDataSource(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs.builder()
+ *                             .bucketArn(aws_s3_bucket.example().arn())
+ *                             .fileKey(&#34;KEY-1&#34;)
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .cloudwatchLoggingOptions(ApplicationCloudwatchLoggingOptionsArgs.builder()
+ *                 .logStreamArn(exampleLogStream.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### VPC Configuration
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketObjectv2;
+ * import com.pulumi.aws.s3.BucketObjectv2Args;
+ * import com.pulumi.aws.kinesisanalyticsv2.Application;
+ * import com.pulumi.aws.kinesisanalyticsv2.ApplicationArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationVpcConfigurationArgs;
+ * import com.pulumi.asset.FileAsset;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ * 
+ *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
+ *             .bucket(exampleBucketV2.bucket())
+ *             .key(&#34;example-flink-application&#34;)
+ *             .source(new FileAsset(&#34;flink-app.jar&#34;))
+ *             .build());
+ * 
+ *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
+ *             .runtimeEnvironment(&#34;FLINK-1_8&#34;)
+ *             .serviceExecutionRole(aws_iam_role.example().arn())
+ *             .applicationConfiguration(ApplicationApplicationConfigurationArgs.builder()
+ *                 .applicationCodeConfiguration(ApplicationApplicationConfigurationApplicationCodeConfigurationArgs.builder()
+ *                     .codeContent(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs.builder()
+ *                         .s3ContentLocation(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs.builder()
+ *                             .bucketArn(exampleBucketV2.arn())
+ *                             .fileKey(exampleBucketObjectv2.key())
+ *                             .build())
+ *                         .build())
+ *                     .codeContentType(&#34;ZIPFILE&#34;)
+ *                     .build())
+ *                 .vpcConfiguration(ApplicationApplicationConfigurationVpcConfigurationArgs.builder()
+ *                     .securityGroupIds(                    
+ *                         aws_security_group.example()[0].id(),
+ *                         aws_security_group.example()[1].id())
+ *                     .subnetIds(aws_subnet.example().id())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_kinesisanalyticsv2_application` can be imported by using the application ARN, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
+ * ```
+ * 
+ */
 @ResourceType(type="aws:kinesisanalyticsv2/application:Application")
 public class Application extends com.pulumi.resources.CustomResource {
+    /**
+     * The application&#39;s configuration
+     * 
+     */
     @Export(name="applicationConfiguration", refs={ApplicationApplicationConfiguration.class}, tree="[0]")
     private Output<ApplicationApplicationConfiguration> applicationConfiguration;
 
+    /**
+     * @return The application&#39;s configuration
+     * 
+     */
     public Output<ApplicationApplicationConfiguration> applicationConfiguration() {
         return this.applicationConfiguration;
     }
+    /**
+     * The ARN of the application.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the application.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * A CloudWatch log stream to monitor application configuration errors.
+     * 
+     */
     @Export(name="cloudwatchLoggingOptions", refs={ApplicationCloudwatchLoggingOptions.class}, tree="[0]")
     private Output</* @Nullable */ ApplicationCloudwatchLoggingOptions> cloudwatchLoggingOptions;
 
+    /**
+     * @return A CloudWatch log stream to monitor application configuration errors.
+     * 
+     */
     public Output<Optional<ApplicationCloudwatchLoggingOptions>> cloudwatchLoggingOptions() {
         return Codegen.optional(this.cloudwatchLoggingOptions);
     }
+    /**
+     * The current timestamp when the application was created.
+     * 
+     */
     @Export(name="createTimestamp", refs={String.class}, tree="[0]")
     private Output<String> createTimestamp;
 
+    /**
+     * @return The current timestamp when the application was created.
+     * 
+     */
     public Output<String> createTimestamp() {
         return this.createTimestamp;
     }
+    /**
+     * A summary description of the application.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return A summary description of the application.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Whether to force stop an unresponsive Flink-based application.
+     * 
+     */
     @Export(name="forceStop", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceStop;
 
+    /**
+     * @return Whether to force stop an unresponsive Flink-based application.
+     * 
+     */
     public Output<Optional<Boolean>> forceStop() {
         return Codegen.optional(this.forceStop);
     }
+    /**
+     * The current timestamp when the application was last updated.
+     * 
+     */
     @Export(name="lastUpdateTimestamp", refs={String.class}, tree="[0]")
     private Output<String> lastUpdateTimestamp;
 
+    /**
+     * @return The current timestamp when the application was last updated.
+     * 
+     */
     public Output<String> lastUpdateTimestamp() {
         return this.lastUpdateTimestamp;
     }
+    /**
+     * The name of the application.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the application.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`.
+     * 
+     */
     @Export(name="runtimeEnvironment", refs={String.class}, tree="[0]")
     private Output<String> runtimeEnvironment;
 
+    /**
+     * @return The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`.
+     * 
+     */
     public Output<String> runtimeEnvironment() {
         return this.runtimeEnvironment;
     }
+    /**
+     * The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+     * 
+     */
     @Export(name="serviceExecutionRole", refs={String.class}, tree="[0]")
     private Output<String> serviceExecutionRole;
 
+    /**
+     * @return The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+     * 
+     */
     public Output<String> serviceExecutionRole() {
         return this.serviceExecutionRole;
     }
+    /**
+     * Whether to start or stop the application.
+     * 
+     */
     @Export(name="startApplication", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> startApplication;
 
+    /**
+     * @return Whether to start or stop the application.
+     * 
+     */
     public Output<Optional<Boolean>> startApplication() {
         return Codegen.optional(this.startApplication);
     }
+    /**
+     * The status of the application.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return The status of the application.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }
+    /**
+     * A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
+     * 
+     */
     @Export(name="versionId", refs={Integer.class}, tree="[0]")
     private Output<Integer> versionId;
 
+    /**
+     * @return The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
+     * 
+     */
     public Output<Integer> versionId() {
         return this.versionId;
     }

@@ -12,14 +12,24 @@ namespace Pulumi.Aws.OpsWorks.Inputs
 
     public sealed class ApplicationSslConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The contents of the certificate's domain.crt file.
+        /// </summary>
         [Input("certificate", required: true)]
         public Input<string> Certificate { get; set; } = null!;
 
+        /// <summary>
+        /// Can be used to specify an intermediate certificate authority key or client authentication.
+        /// </summary>
         [Input("chain")]
         public Input<string>? Chain { get; set; }
 
         [Input("privateKey", required: true)]
         private Input<string>? _privateKey;
+
+        /// <summary>
+        /// The private key; the contents of the certificate's domain.key file.
+        /// </summary>
         public Input<string>? PrivateKey
         {
             get => _privateKey;

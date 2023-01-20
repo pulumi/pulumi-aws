@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Transfer.Inputs
 
     public sealed class WorkflowOnExceptionStepTagStepDetailsTagGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The value that corresponds to the key.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

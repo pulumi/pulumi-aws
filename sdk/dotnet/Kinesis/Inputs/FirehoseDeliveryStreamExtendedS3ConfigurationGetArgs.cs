@@ -12,45 +12,89 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the S3 bucket
+        /// </summary>
         [Input("bucketArn", required: true)]
         public Input<string> BucketArn { get; set; } = null!;
 
+        /// <summary>
+        /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        /// </summary>
         [Input("bufferInterval")]
         public Input<int>? BufferInterval { get; set; }
 
+        /// <summary>
+        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        /// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+        /// </summary>
         [Input("bufferSize")]
         public Input<int>? BufferSize { get; set; }
 
+        /// <summary>
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below
+        /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
 
+        /// <summary>
+        /// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+        /// </summary>
         [Input("compressionFormat")]
         public Input<string>? CompressionFormat { get; set; }
 
+        /// <summary>
+        /// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
+        /// </summary>
         [Input("dataFormatConversionConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationGetArgs>? DataFormatConversionConfiguration { get; set; }
 
+        /// <summary>
+        /// The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details.
+        /// </summary>
         [Input("dynamicPartitioningConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationGetArgs>? DynamicPartitioningConfiguration { get; set; }
 
+        /// <summary>
+        /// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        /// </summary>
         [Input("errorOutputPrefix")]
         public Input<string>? ErrorOutputPrefix { get; set; }
 
+        /// <summary>
+        /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        /// be used.
+        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
+        /// <summary>
+        /// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
+        /// <summary>
+        /// The data processing configuration.  More details are given below.
+        /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
 
+        /// <summary>
+        /// The ARN of the role that provides access to the source Kinesis stream.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+        /// </summary>
         [Input("s3BackupConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationGetArgs>? S3BackupConfiguration { get; set; }
 
+        /// <summary>
+        /// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+        /// </summary>
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }
 

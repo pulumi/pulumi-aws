@@ -11,11 +11,68 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g., ARN)
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticsearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
+//				ElasticsearchVersion: pulumi.String("2.3"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elasticsearch.NewDomainPolicy(ctx, "main", &elasticsearch.DomainPolicyArgs{
+//				DomainName: example.DomainName,
+//				AccessPolicies: example.Arn.ApplyT(func(arn string) (string, error) {
+//					return fmt.Sprintf(`{
+//	    "Version": "2012-10-17",
+//	    "Statement": [
+//	        {
+//	            "Action": "es:*",
+//	            "Principal": "*",
+//	            "Effect": "Allow",
+//	            "Condition": {
+//	                "IpAddress": {"aws:SourceIp": "127.0.0.1/32"}
+//	            },
+//	            "Resource": "%v/*"
+//	        }
+//	    ]
+//	}
+//
+// `, arn), nil
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type DomainPolicy struct {
 	pulumi.CustomResourceState
 
+	// IAM policy document specifying the access policies for the domain
 	AccessPolicies pulumi.StringOutput `pulumi:"accessPolicies"`
-	DomainName     pulumi.StringOutput `pulumi:"domainName"`
+	// Name of the domain.
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
 }
 
 // NewDomainPolicy registers a new resource with the given unique name, arguments, and options.
@@ -53,13 +110,17 @@ func GetDomainPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainPolicy resources.
 type domainPolicyState struct {
+	// IAM policy document specifying the access policies for the domain
 	AccessPolicies interface{} `pulumi:"accessPolicies"`
-	DomainName     *string     `pulumi:"domainName"`
+	// Name of the domain.
+	DomainName *string `pulumi:"domainName"`
 }
 
 type DomainPolicyState struct {
+	// IAM policy document specifying the access policies for the domain
 	AccessPolicies pulumi.Input
-	DomainName     pulumi.StringPtrInput
+	// Name of the domain.
+	DomainName pulumi.StringPtrInput
 }
 
 func (DomainPolicyState) ElementType() reflect.Type {
@@ -67,14 +128,18 @@ func (DomainPolicyState) ElementType() reflect.Type {
 }
 
 type domainPolicyArgs struct {
+	// IAM policy document specifying the access policies for the domain
 	AccessPolicies interface{} `pulumi:"accessPolicies"`
-	DomainName     string      `pulumi:"domainName"`
+	// Name of the domain.
+	DomainName string `pulumi:"domainName"`
 }
 
 // The set of arguments for constructing a DomainPolicy resource.
 type DomainPolicyArgs struct {
+	// IAM policy document specifying the access policies for the domain
 	AccessPolicies pulumi.Input
-	DomainName     pulumi.StringInput
+	// Name of the domain.
+	DomainName pulumi.StringInput
 }
 
 func (DomainPolicyArgs) ElementType() reflect.Type {
@@ -164,10 +229,12 @@ func (o DomainPolicyOutput) ToDomainPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
+// IAM policy document specifying the access policies for the domain
 func (o DomainPolicyOutput) AccessPolicies() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainPolicy) pulumi.StringOutput { return v.AccessPolicies }).(pulumi.StringOutput)
 }
 
+// Name of the domain.
 func (o DomainPolicyOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainPolicy) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }

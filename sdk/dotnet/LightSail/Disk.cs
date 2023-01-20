@@ -9,30 +9,99 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LightSail
 {
+    /// <summary>
+    /// Provides a Lightsail Disk resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
+    ///     {
+    ///         State = "available",
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
+    ///             {
+    ///                 Name = "opt-in-status",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "opt-in-not-required",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var test = new Aws.LightSail.Disk("test", new()
+    ///     {
+    ///         SizeInGb = 8,
+    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_lightsail_disk` can be imported by using the name attribute, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:lightsail/disk:Disk test test
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:lightsail/disk:Disk")]
     public partial class Disk : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the Lightsail load balancer.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Availability Zone in which to create your disk.
+        /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp when the load balancer was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Lightsail load balancer.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The instance port the load balancer will connect.
+        /// </summary>
         [Output("sizeInGb")]
         public Output<int> SizeInGb { get; private set; } = null!;
 
+        /// <summary>
+        /// The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        /// </summary>
         [Output("supportCode")]
         public Output<string> SupportCode { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -82,17 +151,30 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class DiskArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Availability Zone in which to create your disk.
+        /// </summary>
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the Lightsail load balancer.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The instance port the load balancer will connect.
+        /// </summary>
         [Input("sizeInGb", required: true)]
         public Input<int> SizeInGb { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -107,26 +189,48 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class DiskState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Lightsail load balancer.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The Availability Zone in which to create your disk.
+        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
+        /// <summary>
+        /// The timestamp when the load balancer was created.
+        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
+        /// <summary>
+        /// The name of the Lightsail load balancer.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The instance port the load balancer will connect.
+        /// </summary>
         [Input("sizeInGb")]
         public Input<int>? SizeInGb { get; set; }
 
+        /// <summary>
+        /// The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        /// </summary>
         [Input("supportCode")]
         public Input<string>? SupportCode { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -135,6 +239,10 @@ namespace Pulumi.Aws.LightSail
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -18,6 +18,8 @@ class VpcDhcpOptionsAssociationArgs:
                  vpc_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a VpcDhcpOptionsAssociation resource.
+        :param pulumi.Input[str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC to which we would like to associate a DHCP Options Set.
         """
         pulumi.set(__self__, "dhcp_options_id", dhcp_options_id)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -25,6 +27,9 @@ class VpcDhcpOptionsAssociationArgs:
     @property
     @pulumi.getter(name="dhcpOptionsId")
     def dhcp_options_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the DHCP Options Set to associate to the VPC.
+        """
         return pulumi.get(self, "dhcp_options_id")
 
     @dhcp_options_id.setter
@@ -34,6 +39,9 @@ class VpcDhcpOptionsAssociationArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC to which we would like to associate a DHCP Options Set.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -48,6 +56,8 @@ class _VpcDhcpOptionsAssociationState:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VpcDhcpOptionsAssociation resources.
+        :param pulumi.Input[str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC to which we would like to associate a DHCP Options Set.
         """
         if dhcp_options_id is not None:
             pulumi.set(__self__, "dhcp_options_id", dhcp_options_id)
@@ -57,6 +67,9 @@ class _VpcDhcpOptionsAssociationState:
     @property
     @pulumi.getter(name="dhcpOptionsId")
     def dhcp_options_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the DHCP Options Set to associate to the VPC.
+        """
         return pulumi.get(self, "dhcp_options_id")
 
     @dhcp_options_id.setter
@@ -66,6 +79,9 @@ class _VpcDhcpOptionsAssociationState:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VPC to which we would like to associate a DHCP Options Set.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -82,9 +98,35 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a VpcDhcpOptionsAssociation resource with the given unique name, props, and options.
+        Provides a VPC DHCP Options Association resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        dns_resolver = aws.ec2.VpcDhcpOptionsAssociation("dnsResolver",
+            vpc_id=aws_vpc["foo"]["id"],
+            dhcp_options_id=aws_vpc_dhcp_options["foo"]["id"])
+        ```
+        ## Remarks
+
+        * You can only associate one DHCP Options Set to a given VPC ID.
+        * Removing the DHCP Options Association automatically sets AWS's `default` DHCP Options Set to the VPC.
+
+        ## Import
+
+        DHCP associations can be imported by providing the VPC ID associated with the options
+
+        ```sh
+         $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC to which we would like to associate a DHCP Options Set.
         """
         ...
     @overload
@@ -93,7 +135,31 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
                  args: VpcDhcpOptionsAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a VpcDhcpOptionsAssociation resource with the given unique name, props, and options.
+        Provides a VPC DHCP Options Association resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        dns_resolver = aws.ec2.VpcDhcpOptionsAssociation("dnsResolver",
+            vpc_id=aws_vpc["foo"]["id"],
+            dhcp_options_id=aws_vpc_dhcp_options["foo"]["id"])
+        ```
+        ## Remarks
+
+        * You can only associate one DHCP Options Set to a given VPC ID.
+        * Removing the DHCP Options Association automatically sets AWS's `default` DHCP Options Set to the VPC.
+
+        ## Import
+
+        DHCP associations can be imported by providing the VPC ID associated with the options
+
+        ```sh
+         $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
+        ```
+
         :param str resource_name: The name of the resource.
         :param VpcDhcpOptionsAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +211,8 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC to which we would like to associate a DHCP Options Set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +225,16 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dhcpOptionsId")
     def dhcp_options_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the DHCP Options Set to associate to the VPC.
+        """
         return pulumi.get(self, "dhcp_options_id")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the VPC to which we would like to associate a DHCP Options Set.
+        """
         return pulumi.get(self, "vpc_id")
 

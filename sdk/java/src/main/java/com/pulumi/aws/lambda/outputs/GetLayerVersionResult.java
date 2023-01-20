@@ -13,46 +13,114 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLayerVersionResult {
+    /**
+     * @return ARN of the Lambda Layer with version.
+     * 
+     */
     private String arn;
     private @Nullable String compatibleArchitecture;
+    /**
+     * @return A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
+     * 
+     */
     private List<String> compatibleArchitectures;
     private @Nullable String compatibleRuntime;
+    /**
+     * @return List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
+     * 
+     */
     private List<String> compatibleRuntimes;
+    /**
+     * @return Date this resource was created.
+     * 
+     */
     private String createdDate;
+    /**
+     * @return Description of the specific Lambda Layer version.
+     * 
+     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return ARN of the Lambda Layer without version.
+     * 
+     */
     private String layerArn;
     private String layerName;
+    /**
+     * @return License info associated with the specific Lambda Layer version.
+     * 
+     */
     private String licenseInfo;
+    /**
+     * @return ARN of a signing job.
+     * 
+     */
     private String signingJobArn;
+    /**
+     * @return The ARN for a signing profile version.
+     * 
+     */
     private String signingProfileVersionArn;
+    /**
+     * @return Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * 
+     */
     private String sourceCodeHash;
+    /**
+     * @return Size in bytes of the function .zip file.
+     * 
+     */
     private Integer sourceCodeSize;
+    /**
+     * @return This Lamba Layer version.
+     * 
+     */
     private Integer version;
 
     private GetLayerVersionResult() {}
+    /**
+     * @return ARN of the Lambda Layer with version.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
     public Optional<String> compatibleArchitecture() {
         return Optional.ofNullable(this.compatibleArchitecture);
     }
+    /**
+     * @return A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
+     * 
+     */
     public List<String> compatibleArchitectures() {
         return this.compatibleArchitectures;
     }
     public Optional<String> compatibleRuntime() {
         return Optional.ofNullable(this.compatibleRuntime);
     }
+    /**
+     * @return List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
+     * 
+     */
     public List<String> compatibleRuntimes() {
         return this.compatibleRuntimes;
     }
+    /**
+     * @return Date this resource was created.
+     * 
+     */
     public String createdDate() {
         return this.createdDate;
     }
+    /**
+     * @return Description of the specific Lambda Layer version.
+     * 
+     */
     public String description() {
         return this.description;
     }
@@ -63,27 +131,55 @@ public final class GetLayerVersionResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return ARN of the Lambda Layer without version.
+     * 
+     */
     public String layerArn() {
         return this.layerArn;
     }
     public String layerName() {
         return this.layerName;
     }
+    /**
+     * @return License info associated with the specific Lambda Layer version.
+     * 
+     */
     public String licenseInfo() {
         return this.licenseInfo;
     }
+    /**
+     * @return ARN of a signing job.
+     * 
+     */
     public String signingJobArn() {
         return this.signingJobArn;
     }
+    /**
+     * @return The ARN for a signing profile version.
+     * 
+     */
     public String signingProfileVersionArn() {
         return this.signingProfileVersionArn;
     }
+    /**
+     * @return Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * 
+     */
     public String sourceCodeHash() {
         return this.sourceCodeHash;
     }
+    /**
+     * @return Size in bytes of the function .zip file.
+     * 
+     */
     public Integer sourceCodeSize() {
         return this.sourceCodeSize;
     }
+    /**
+     * @return This Lamba Layer version.
+     * 
+     */
     public Integer version() {
         return this.version;
     }

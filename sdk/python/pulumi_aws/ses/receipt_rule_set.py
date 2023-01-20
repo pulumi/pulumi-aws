@@ -17,12 +17,16 @@ class ReceiptRuleSetArgs:
                  rule_set_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a ReceiptRuleSet resource.
+        :param pulumi.Input[str] rule_set_name: Name of the rule set.
         """
         pulumi.set(__self__, "rule_set_name", rule_set_name)
 
     @property
     @pulumi.getter(name="ruleSetName")
     def rule_set_name(self) -> pulumi.Input[str]:
+        """
+        Name of the rule set.
+        """
         return pulumi.get(self, "rule_set_name")
 
     @rule_set_name.setter
@@ -37,6 +41,8 @@ class _ReceiptRuleSetState:
                  rule_set_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ReceiptRuleSet resources.
+        :param pulumi.Input[str] arn: SES receipt rule set ARN.
+        :param pulumi.Input[str] rule_set_name: Name of the rule set.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -46,6 +52,9 @@ class _ReceiptRuleSetState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        SES receipt rule set ARN.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -55,6 +64,9 @@ class _ReceiptRuleSetState:
     @property
     @pulumi.getter(name="ruleSetName")
     def rule_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the rule set.
+        """
         return pulumi.get(self, "rule_set_name")
 
     @rule_set_name.setter
@@ -70,9 +82,28 @@ class ReceiptRuleSet(pulumi.CustomResource):
                  rule_set_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ReceiptRuleSet resource with the given unique name, props, and options.
+        Provides an SES receipt rule set resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ses.ReceiptRuleSet("main", rule_set_name="primary-rules")
+        ```
+
+        ## Import
+
+        SES receipt rule sets can be imported using the rule set name.
+
+        ```sh
+         $ pulumi import aws:ses/receiptRuleSet:ReceiptRuleSet my_rule_set my_rule_set_name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] rule_set_name: Name of the rule set.
         """
         ...
     @overload
@@ -81,7 +112,25 @@ class ReceiptRuleSet(pulumi.CustomResource):
                  args: ReceiptRuleSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ReceiptRuleSet resource with the given unique name, props, and options.
+        Provides an SES receipt rule set resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ses.ReceiptRuleSet("main", rule_set_name="primary-rules")
+        ```
+
+        ## Import
+
+        SES receipt rule sets can be imported using the rule set name.
+
+        ```sh
+         $ pulumi import aws:ses/receiptRuleSet:ReceiptRuleSet my_rule_set my_rule_set_name
+        ```
+
         :param str resource_name: The name of the resource.
         :param ReceiptRuleSetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,6 +179,8 @@ class ReceiptRuleSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: SES receipt rule set ARN.
+        :param pulumi.Input[str] rule_set_name: Name of the rule set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -142,10 +193,16 @@ class ReceiptRuleSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        SES receipt rule set ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="ruleSetName")
     def rule_set_name(self) -> pulumi.Output[str]:
+        """
+        Name of the rule set.
+        """
         return pulumi.get(self, "rule_set_name")
 

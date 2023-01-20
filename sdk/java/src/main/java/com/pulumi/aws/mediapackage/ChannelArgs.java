@@ -17,23 +17,47 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ChannelArgs Empty = new ChannelArgs();
 
+    /**
+     * A unique identifier describing the channel
+     * 
+     */
     @Import(name="channelId", required=true)
     private Output<String> channelId;
 
+    /**
+     * @return A unique identifier describing the channel
+     * 
+     */
     public Output<String> channelId() {
         return this.channelId;
     }
 
+    /**
+     * A description of the channel
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return A description of the channel
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -64,29 +88,65 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ChannelArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param channelId A unique identifier describing the channel
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelId(Output<String> channelId) {
             $.channelId = channelId;
             return this;
         }
 
+        /**
+         * @param channelId A unique identifier describing the channel
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelId(String channelId) {
             return channelId(Output.of(channelId));
         }
 
+        /**
+         * @param description A description of the channel
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description A description of the channel
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

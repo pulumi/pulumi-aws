@@ -4,6 +4,39 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a Service Catalog Portfolio Share. Shares the specified portfolio with the specified account or organization node. You can share portfolios to an organization, an organizational unit, or a specific account.
+ *
+ * If the portfolio share with the specified account or organization node already exists, using this resource to re-create the share will have no effect and will not return an error. You can then use this resource to update the share.
+ *
+ * > **NOTE:** Shares to an organization node can only be created by the management account of an organization or by a delegated administrator. If a delegated admin is de-registered, they can no longer create portfolio shares.
+ *
+ * > **NOTE:** AWSOrganizationsAccess must be enabled in order to create a portfolio share to an organization node.
+ *
+ * > **NOTE:** You can't share a shared resource, including portfolios that contain a shared product.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.servicecatalog.PortfolioShare("example", {
+ *     principalId: "012128675309",
+ *     portfolioId: aws_servicecatalog_portfolio.example.id,
+ *     type: "ACCOUNT",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_servicecatalog_portfolio_share` can be imported using the portfolio share ID, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
+ * ```
+ */
 export class PortfolioShare extends pulumi.CustomResource {
     /**
      * Get an existing PortfolioShare resource's state with the given name, ID, and optional extra
@@ -32,12 +65,33 @@ export class PortfolioShare extends pulumi.CustomResource {
         return obj['__pulumiType'] === PortfolioShare.__pulumiType;
     }
 
+    /**
+     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     */
     public readonly acceptLanguage!: pulumi.Output<string | undefined>;
+    /**
+     * Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
+     */
     public /*out*/ readonly accepted!: pulumi.Output<boolean>;
+    /**
+     * Portfolio identifier.
+     */
     public readonly portfolioId!: pulumi.Output<string>;
+    /**
+     * Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
+     */
     public readonly principalId!: pulumi.Output<string>;
+    /**
+     * Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
+     */
     public readonly shareTagOptions!: pulumi.Output<boolean | undefined>;
+    /**
+     * Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+     */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
+     */
     public readonly waitForAcceptance!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -88,12 +142,33 @@ export class PortfolioShare extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PortfolioShare resources.
  */
 export interface PortfolioShareState {
+    /**
+     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     */
     acceptLanguage?: pulumi.Input<string>;
+    /**
+     * Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
+     */
     accepted?: pulumi.Input<boolean>;
+    /**
+     * Portfolio identifier.
+     */
     portfolioId?: pulumi.Input<string>;
+    /**
+     * Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
+     */
     principalId?: pulumi.Input<string>;
+    /**
+     * Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
+     */
     shareTagOptions?: pulumi.Input<boolean>;
+    /**
+     * Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+     */
     type?: pulumi.Input<string>;
+    /**
+     * Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
+     */
     waitForAcceptance?: pulumi.Input<boolean>;
 }
 
@@ -101,10 +176,28 @@ export interface PortfolioShareState {
  * The set of arguments for constructing a PortfolioShare resource.
  */
 export interface PortfolioShareArgs {
+    /**
+     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     */
     acceptLanguage?: pulumi.Input<string>;
+    /**
+     * Portfolio identifier.
+     */
     portfolioId: pulumi.Input<string>;
+    /**
+     * Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
+     */
     principalId: pulumi.Input<string>;
+    /**
+     * Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
+     */
     shareTagOptions?: pulumi.Input<boolean>;
+    /**
+     * Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+     */
     type: pulumi.Input<string>;
+    /**
+     * Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
+     */
     waitForAcceptance?: pulumi.Input<boolean>;
 }

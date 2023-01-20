@@ -13,10 +13,25 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class ImageOutputResourceAmi
     {
+        /// <summary>
+        /// Account identifier of the AMI.
+        /// </summary>
         public readonly string? AccountId;
+        /// <summary>
+        /// Description of the AMI.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Identifier of the AMI.
+        /// </summary>
         public readonly string? Image;
+        /// <summary>
+        /// Name of the AMI.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Region of the AMI.
+        /// </summary>
         public readonly string? Region;
 
         [OutputConstructor]

@@ -4,6 +4,95 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an IAM Server Certificate resource to upload Server Certificates.
+ * Certs uploaded to IAM can easily work with other AWS services such as:
+ *
+ * - AWS Elastic Beanstalk
+ * - Elastic Load Balancing
+ * - CloudFront
+ * - AWS OpsWorks
+ *
+ * For information about server certificates in IAM, see [Managing Server
+ * Certificates][2] in AWS Documentation.
+ *
+ * ## Example Usage
+ *
+ * **Using certs on file:**
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ *
+ * const testCert = new aws.iam.ServerCertificate("testCert", {
+ *     certificateBody: fs.readFileSync("self-ca-cert.pem"),
+ *     privateKey: fs.readFileSync("test-key.pem"),
+ * });
+ * ```
+ *
+ * **Example with cert in-line:**
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testCertAlt = new aws.iam.ServerCertificate("testCertAlt", {
+ *     certificateBody: `-----BEGIN CERTIFICATE-----
+ * [......] # cert contents
+ * -----END CERTIFICATE-----
+ *
+ * `,
+ *     privateKey: `-----BEGIN RSA PRIVATE KEY-----
+ * [......] # cert contents
+ * -----END RSA PRIVATE KEY-----
+ *
+ * `,
+ * });
+ * ```
+ *
+ * **Use in combination with an AWS ELB resource:**
+ *
+ * Some properties of an IAM Server Certificates cannot be updated while they are
+ * in use. In order for the provider to effectively manage a Certificate in this situation, it is
+ * recommended you utilize the `namePrefix` attribute and enable the
+ * `createBeforeDestroy`. This will allow this provider
+ * to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
+ * dependant resources before attempting to destroy the old version.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ *
+ * const testCert = new aws.iam.ServerCertificate("testCert", {
+ *     namePrefix: "example-cert",
+ *     certificateBody: fs.readFileSync("self-ca-cert.pem"),
+ *     privateKey: fs.readFileSync("test-key.pem"),
+ * });
+ * const ourapp = new aws.elb.LoadBalancer("ourapp", {
+ *     availabilityZones: ["us-west-2a"],
+ *     crossZoneLoadBalancing: true,
+ *     listeners: [{
+ *         instancePort: 8000,
+ *         instanceProtocol: "http",
+ *         lbPort: 443,
+ *         lbProtocol: "https",
+ *         sslCertificateId: testCert.arn,
+ *     }],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * IAM Server Certificates can be imported using the `name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
+ * ```
+ *
+ *  [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
+ */
 export class ServerCertificate extends pulumi.CustomResource {
     /**
      * Get an existing ServerCertificate resource's state with the given name, ID, and optional extra
@@ -32,16 +121,57 @@ export class ServerCertificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServerCertificate.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) specifying the server certificate.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The contents of the public key certificate in
+     * PEM-encoded format.
+     */
     public readonly certificateBody!: pulumi.Output<string>;
+    /**
+     * The contents of the certificate chain.
+     * This is typically a concatenation of the PEM-encoded public key certificates
+     * of the chain.
+     */
     public readonly certificateChain!: pulumi.Output<string | undefined>;
+    /**
+     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
+     */
     public /*out*/ readonly expiration!: pulumi.Output<string>;
+    /**
+     * The name of the Server Certificate. Do not include the
+     * path in this value. If omitted, this provider will assign a random, unique name.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
+    /**
+     * The IAM path for the server certificate.  If it is not
+     * included, it defaults to a slash (/). If this certificate is for use with
+     * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
+     * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
+     */
     public readonly path!: pulumi.Output<string | undefined>;
+    /**
+     * The contents of the private key in PEM-encoded format.
+     */
     public readonly privateKey!: pulumi.Output<string>;
+    /**
+     * Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
+     */
     public /*out*/ readonly uploadDate!: pulumi.Output<string>;
 
     /**
@@ -99,16 +229,57 @@ export class ServerCertificate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServerCertificate resources.
  */
 export interface ServerCertificateState {
+    /**
+     * The Amazon Resource Name (ARN) specifying the server certificate.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The contents of the public key certificate in
+     * PEM-encoded format.
+     */
     certificateBody?: pulumi.Input<string>;
+    /**
+     * The contents of the certificate chain.
+     * This is typically a concatenation of the PEM-encoded public key certificates
+     * of the chain.
+     */
     certificateChain?: pulumi.Input<string>;
+    /**
+     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
+     */
     expiration?: pulumi.Input<string>;
+    /**
+     * The name of the Server Certificate. Do not include the
+     * path in this value. If omitted, this provider will assign a random, unique name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The IAM path for the server certificate.  If it is not
+     * included, it defaults to a slash (/). If this certificate is for use with
+     * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
+     * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
+     */
     path?: pulumi.Input<string>;
+    /**
+     * The contents of the private key in PEM-encoded format.
+     */
     privateKey?: pulumi.Input<string>;
+    /**
+     * Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
+     */
     uploadDate?: pulumi.Input<string>;
 }
 
@@ -116,11 +287,40 @@ export interface ServerCertificateState {
  * The set of arguments for constructing a ServerCertificate resource.
  */
 export interface ServerCertificateArgs {
+    /**
+     * The contents of the public key certificate in
+     * PEM-encoded format.
+     */
     certificateBody: pulumi.Input<string>;
+    /**
+     * The contents of the certificate chain.
+     * This is typically a concatenation of the PEM-encoded public key certificates
+     * of the chain.
+     */
     certificateChain?: pulumi.Input<string>;
+    /**
+     * The name of the Server Certificate. Do not include the
+     * path in this value. If omitted, this provider will assign a random, unique name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The IAM path for the server certificate.  If it is not
+     * included, it defaults to a slash (/). If this certificate is for use with
+     * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
+     * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
+     */
     path?: pulumi.Input<string>;
+    /**
+     * The contents of the private key in PEM-encoded format.
+     */
     privateKey: pulumi.Input<string>;
+    /**
+     * Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

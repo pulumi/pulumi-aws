@@ -11,12 +11,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a customer managed policy attachment for a Single Sign-On (SSO) Permission Set resource
+//
+// > **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
+//
+// ## Import
+//
+// SSO Managed Policy Attachments can be imported using the `name`, `path`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`) e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment example TestPolicy,/,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+//
+// ```
 type CustomerManagedPolicyAttachment struct {
 	pulumi.CustomResourceState
 
+	// Specifies the name and path of a customer managed policy. See below.
 	CustomerManagedPolicyReference CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput `pulumi:"customerManagedPolicyReference"`
-	InstanceArn                    pulumi.StringOutput                                                 `pulumi:"instanceArn"`
-	PermissionSetArn               pulumi.StringOutput                                                 `pulumi:"permissionSetArn"`
+	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
+	// The Amazon Resource Name (ARN) of the Permission Set.
+	PermissionSetArn pulumi.StringOutput `pulumi:"permissionSetArn"`
 }
 
 // NewCustomerManagedPolicyAttachment registers a new resource with the given unique name, arguments, and options.
@@ -57,15 +73,21 @@ func GetCustomerManagedPolicyAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomerManagedPolicyAttachment resources.
 type customerManagedPolicyAttachmentState struct {
+	// Specifies the name and path of a customer managed policy. See below.
 	CustomerManagedPolicyReference *CustomerManagedPolicyAttachmentCustomerManagedPolicyReference `pulumi:"customerManagedPolicyReference"`
-	InstanceArn                    *string                                                        `pulumi:"instanceArn"`
-	PermissionSetArn               *string                                                        `pulumi:"permissionSetArn"`
+	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	InstanceArn *string `pulumi:"instanceArn"`
+	// The Amazon Resource Name (ARN) of the Permission Set.
+	PermissionSetArn *string `pulumi:"permissionSetArn"`
 }
 
 type CustomerManagedPolicyAttachmentState struct {
+	// Specifies the name and path of a customer managed policy. See below.
 	CustomerManagedPolicyReference CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrInput
-	InstanceArn                    pulumi.StringPtrInput
-	PermissionSetArn               pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	InstanceArn pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the Permission Set.
+	PermissionSetArn pulumi.StringPtrInput
 }
 
 func (CustomerManagedPolicyAttachmentState) ElementType() reflect.Type {
@@ -73,16 +95,22 @@ func (CustomerManagedPolicyAttachmentState) ElementType() reflect.Type {
 }
 
 type customerManagedPolicyAttachmentArgs struct {
+	// Specifies the name and path of a customer managed policy. See below.
 	CustomerManagedPolicyReference CustomerManagedPolicyAttachmentCustomerManagedPolicyReference `pulumi:"customerManagedPolicyReference"`
-	InstanceArn                    string                                                        `pulumi:"instanceArn"`
-	PermissionSetArn               string                                                        `pulumi:"permissionSetArn"`
+	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	InstanceArn string `pulumi:"instanceArn"`
+	// The Amazon Resource Name (ARN) of the Permission Set.
+	PermissionSetArn string `pulumi:"permissionSetArn"`
 }
 
 // The set of arguments for constructing a CustomerManagedPolicyAttachment resource.
 type CustomerManagedPolicyAttachmentArgs struct {
+	// Specifies the name and path of a customer managed policy. See below.
 	CustomerManagedPolicyReference CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceInput
-	InstanceArn                    pulumi.StringInput
-	PermissionSetArn               pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	InstanceArn pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the Permission Set.
+	PermissionSetArn pulumi.StringInput
 }
 
 func (CustomerManagedPolicyAttachmentArgs) ElementType() reflect.Type {
@@ -172,16 +200,19 @@ func (o CustomerManagedPolicyAttachmentOutput) ToCustomerManagedPolicyAttachment
 	return o
 }
 
+// Specifies the name and path of a customer managed policy. See below.
 func (o CustomerManagedPolicyAttachmentOutput) CustomerManagedPolicyReference() CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput {
 	return o.ApplyT(func(v *CustomerManagedPolicyAttachment) CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput {
 		return v.CustomerManagedPolicyReference
 	}).(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput)
 }
 
+// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
 func (o CustomerManagedPolicyAttachmentOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerManagedPolicyAttachment) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Permission Set.
 func (o CustomerManagedPolicyAttachmentOutput) PermissionSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerManagedPolicyAttachment) pulumi.StringOutput { return v.PermissionSetArn }).(pulumi.StringOutput)
 }

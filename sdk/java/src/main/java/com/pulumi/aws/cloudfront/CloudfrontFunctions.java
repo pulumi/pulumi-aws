@@ -38,141 +38,2585 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class CloudfrontFunctions {
+    /**
+     * Use this data source to retrieve information about a CloudFront cache policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *             .name(&#34;example-policy&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### AWS-Managed Policies
+     * 
+     * AWS managed cache policy names are prefixed with `Managed-`:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *             .name(&#34;Managed-CachingOptimized&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetCachePolicyResult> getCachePolicy() {
         return getCachePolicy(GetCachePolicyArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to retrieve information about a CloudFront cache policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *             .name(&#34;example-policy&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### AWS-Managed Policies
+     * 
+     * AWS managed cache policy names are prefixed with `Managed-`:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *             .name(&#34;Managed-CachingOptimized&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetCachePolicyResult> getCachePolicyPlain() {
         return getCachePolicyPlain(GetCachePolicyPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to retrieve information about a CloudFront cache policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *             .name(&#34;example-policy&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### AWS-Managed Policies
+     * 
+     * AWS managed cache policy names are prefixed with `Managed-`:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *             .name(&#34;Managed-CachingOptimized&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetCachePolicyResult> getCachePolicy(GetCachePolicyArgs args) {
         return getCachePolicy(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to retrieve information about a CloudFront cache policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *             .name(&#34;example-policy&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### AWS-Managed Policies
+     * 
+     * AWS managed cache policy names are prefixed with `Managed-`:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *             .name(&#34;Managed-CachingOptimized&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetCachePolicyResult> getCachePolicyPlain(GetCachePolicyPlainArgs args) {
         return getCachePolicyPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to retrieve information about a CloudFront cache policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *             .name(&#34;example-policy&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### AWS-Managed Policies
+     * 
+     * AWS managed cache policy names are prefixed with `Managed-`:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *             .name(&#34;Managed-CachingOptimized&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetCachePolicyResult> getCachePolicy(GetCachePolicyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:cloudfront/getCachePolicy:getCachePolicy", TypeShape.of(GetCachePolicyResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to retrieve information about a CloudFront cache policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *             .name(&#34;example-policy&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### AWS-Managed Policies
+     * 
+     * AWS managed cache policy names are prefixed with `Managed-`:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *             .name(&#34;Managed-CachingOptimized&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetCachePolicyResult> getCachePolicyPlain(GetCachePolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cloudfront/getCachePolicy:getCachePolicy", TypeShape.of(GetCachePolicyResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to retrieve information about a CloudFront distribution.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetDistributionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = CloudfrontFunctions.getDistribution(GetDistributionArgs.builder()
+     *             .id(&#34;EDFDVBD632BHDS5&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetDistributionResult> getDistribution(GetDistributionArgs args) {
         return getDistribution(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to retrieve information about a CloudFront distribution.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetDistributionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = CloudfrontFunctions.getDistribution(GetDistributionArgs.builder()
+     *             .id(&#34;EDFDVBD632BHDS5&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetDistributionResult> getDistributionPlain(GetDistributionPlainArgs args) {
         return getDistributionPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to retrieve information about a CloudFront distribution.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetDistributionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = CloudfrontFunctions.getDistribution(GetDistributionArgs.builder()
+     *             .id(&#34;EDFDVBD632BHDS5&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetDistributionResult> getDistribution(GetDistributionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:cloudfront/getDistribution:getDistribution", TypeShape.of(GetDistributionResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to retrieve information about a CloudFront distribution.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetDistributionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = CloudfrontFunctions.getDistribution(GetDistributionArgs.builder()
+     *             .id(&#34;EDFDVBD632BHDS5&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetDistributionResult> getDistributionPlain(GetDistributionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cloudfront/getDistribution:getDistribution", TypeShape.of(GetDistributionResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides information about a CloudFront Function.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var functionName = config.get(&#34;functionName&#34;);
+     *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
+     *             .name(functionName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetFunctionResult> getFunction(GetFunctionArgs args) {
         return getFunction(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides information about a CloudFront Function.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var functionName = config.get(&#34;functionName&#34;);
+     *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
+     *             .name(functionName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetFunctionResult> getFunctionPlain(GetFunctionPlainArgs args) {
         return getFunctionPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides information about a CloudFront Function.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var functionName = config.get(&#34;functionName&#34;);
+     *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
+     *             .name(functionName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetFunctionResult> getFunction(GetFunctionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:cloudfront/getFunction:getFunction", TypeShape.of(GetFunctionResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides information about a CloudFront Function.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var functionName = config.get(&#34;functionName&#34;);
+     *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
+     *             .name(functionName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetFunctionResult> getFunctionPlain(GetFunctionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cloudfront/getFunction:getFunction", TypeShape.of(GetFunctionResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
+     * See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleLogDeliveryCanonicalUserId = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
+     * 
+     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+     * 
+     *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+     *             .bucket(exampleBucketV2.id())
+     *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
+     *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
+     *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
+     *                         .id(exampleLogDeliveryCanonicalUserId.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .type(&#34;CanonicalUser&#34;)
+     *                         .build())
+     *                     .permission(&#34;FULL_CONTROL&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserId() {
         return getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
+     * See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleLogDeliveryCanonicalUserId = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
+     * 
+     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+     * 
+     *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+     *             .bucket(exampleBucketV2.id())
+     *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
+     *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
+     *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
+     *                         .id(exampleLogDeliveryCanonicalUserId.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .type(&#34;CanonicalUser&#34;)
+     *                         .build())
+     *                     .permission(&#34;FULL_CONTROL&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserIdPlain() {
         return getLogDeliveryCanonicalUserIdPlain(GetLogDeliveryCanonicalUserIdPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
+     * See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleLogDeliveryCanonicalUserId = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
+     * 
+     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+     * 
+     *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+     *             .bucket(exampleBucketV2.id())
+     *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
+     *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
+     *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
+     *                         .id(exampleLogDeliveryCanonicalUserId.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .type(&#34;CanonicalUser&#34;)
+     *                         .build())
+     *                     .permission(&#34;FULL_CONTROL&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs args) {
         return getLogDeliveryCanonicalUserId(args, InvokeOptions.Empty);
     }
+    /**
+     * The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
+     * See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleLogDeliveryCanonicalUserId = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
+     * 
+     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+     * 
+     *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+     *             .bucket(exampleBucketV2.id())
+     *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
+     *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
+     *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
+     *                         .id(exampleLogDeliveryCanonicalUserId.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .type(&#34;CanonicalUser&#34;)
+     *                         .build())
+     *                     .permission(&#34;FULL_CONTROL&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserIdPlain(GetLogDeliveryCanonicalUserIdPlainArgs args) {
         return getLogDeliveryCanonicalUserIdPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
+     * See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleLogDeliveryCanonicalUserId = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
+     * 
+     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+     * 
+     *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+     *             .bucket(exampleBucketV2.id())
+     *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
+     *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
+     *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
+     *                         .id(exampleLogDeliveryCanonicalUserId.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .type(&#34;CanonicalUser&#34;)
+     *                         .build())
+     *                     .permission(&#34;FULL_CONTROL&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", TypeShape.of(GetLogDeliveryCanonicalUserIdResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
+     * See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleLogDeliveryCanonicalUserId = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
+     * 
+     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+     * 
+     *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+     *             .bucket(exampleBucketV2.id())
+     *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
+     *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
+     *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
+     *                         .id(exampleLogDeliveryCanonicalUserId.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .type(&#34;CanonicalUser&#34;)
+     *                         .build())
+     *                     .permission(&#34;FULL_CONTROL&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserIdPlain(GetLogDeliveryCanonicalUserIdPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", TypeShape.of(GetLogDeliveryCanonicalUserIdResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+     * 
+     * ## Example Usage
+     * ### All origin access identities in the account
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities();
+     * 
+     *     }
+     * }
+     * ```
+     * ### Origin access identities filtered by comment/name
+     * 
+     * Origin access identities whose comments are `example-comment1`, `example-comment2`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
+     *             .comments(            
+     *                 &#34;example-comment1&#34;,
+     *                 &#34;example-comment2&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOriginAccessIdentitiesResult> getOriginAccessIdentities() {
         return getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+     * 
+     * ## Example Usage
+     * ### All origin access identities in the account
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities();
+     * 
+     *     }
+     * }
+     * ```
+     * ### Origin access identities filtered by comment/name
+     * 
+     * Origin access identities whose comments are `example-comment1`, `example-comment2`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
+     *             .comments(            
+     *                 &#34;example-comment1&#34;,
+     *                 &#34;example-comment2&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOriginAccessIdentitiesResult> getOriginAccessIdentitiesPlain() {
         return getOriginAccessIdentitiesPlain(GetOriginAccessIdentitiesPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+     * 
+     * ## Example Usage
+     * ### All origin access identities in the account
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities();
+     * 
+     *     }
+     * }
+     * ```
+     * ### Origin access identities filtered by comment/name
+     * 
+     * Origin access identities whose comments are `example-comment1`, `example-comment2`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
+     *             .comments(            
+     *                 &#34;example-comment1&#34;,
+     *                 &#34;example-comment2&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOriginAccessIdentitiesResult> getOriginAccessIdentities(GetOriginAccessIdentitiesArgs args) {
         return getOriginAccessIdentities(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+     * 
+     * ## Example Usage
+     * ### All origin access identities in the account
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities();
+     * 
+     *     }
+     * }
+     * ```
+     * ### Origin access identities filtered by comment/name
+     * 
+     * Origin access identities whose comments are `example-comment1`, `example-comment2`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
+     *             .comments(            
+     *                 &#34;example-comment1&#34;,
+     *                 &#34;example-comment2&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOriginAccessIdentitiesResult> getOriginAccessIdentitiesPlain(GetOriginAccessIdentitiesPlainArgs args) {
         return getOriginAccessIdentitiesPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+     * 
+     * ## Example Usage
+     * ### All origin access identities in the account
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities();
+     * 
+     *     }
+     * }
+     * ```
+     * ### Origin access identities filtered by comment/name
+     * 
+     * Origin access identities whose comments are `example-comment1`, `example-comment2`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
+     *             .comments(            
+     *                 &#34;example-comment1&#34;,
+     *                 &#34;example-comment2&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOriginAccessIdentitiesResult> getOriginAccessIdentities(GetOriginAccessIdentitiesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", TypeShape.of(GetOriginAccessIdentitiesResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+     * 
+     * ## Example Usage
+     * ### All origin access identities in the account
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities();
+     * 
+     *     }
+     * }
+     * ```
+     * ### Origin access identities filtered by comment/name
+     * 
+     * Origin access identities whose comments are `example-comment1`, `example-comment2`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
+     *             .comments(            
+     *                 &#34;example-comment1&#34;,
+     *                 &#34;example-comment2&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOriginAccessIdentitiesResult> getOriginAccessIdentitiesPlain(GetOriginAccessIdentitiesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", TypeShape.of(GetOriginAccessIdentitiesResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to retrieve information for an Amazon CloudFront origin access identity.
+     * 
+     * ## Example Usage
+     * 
+     * The following example below creates a CloudFront origin access identity.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentity(GetOriginAccessIdentityArgs.builder()
+     *             .id(&#34;EDFDVBD632BHDS5&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOriginAccessIdentityResult> getOriginAccessIdentity(GetOriginAccessIdentityArgs args) {
         return getOriginAccessIdentity(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to retrieve information for an Amazon CloudFront origin access identity.
+     * 
+     * ## Example Usage
+     * 
+     * The following example below creates a CloudFront origin access identity.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentity(GetOriginAccessIdentityArgs.builder()
+     *             .id(&#34;EDFDVBD632BHDS5&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOriginAccessIdentityResult> getOriginAccessIdentityPlain(GetOriginAccessIdentityPlainArgs args) {
         return getOriginAccessIdentityPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to retrieve information for an Amazon CloudFront origin access identity.
+     * 
+     * ## Example Usage
+     * 
+     * The following example below creates a CloudFront origin access identity.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentity(GetOriginAccessIdentityArgs.builder()
+     *             .id(&#34;EDFDVBD632BHDS5&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOriginAccessIdentityResult> getOriginAccessIdentity(GetOriginAccessIdentityArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", TypeShape.of(GetOriginAccessIdentityResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to retrieve information for an Amazon CloudFront origin access identity.
+     * 
+     * ## Example Usage
+     * 
+     * The following example below creates a CloudFront origin access identity.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentity(GetOriginAccessIdentityArgs.builder()
+     *             .id(&#34;EDFDVBD632BHDS5&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOriginAccessIdentityResult> getOriginAccessIdentityPlain(GetOriginAccessIdentityPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", TypeShape.of(GetOriginAccessIdentityResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
+     *             .name(&#34;example-policy&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### AWS-Managed Policies
+     * 
+     * AWS managed origin request policy names are prefixed with `Managed-`:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var uaReferer = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
+     *             .name(&#34;Managed-UserAgentRefererHeaders&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOriginRequestPolicyResult> getOriginRequestPolicy() {
         return getOriginRequestPolicy(GetOriginRequestPolicyArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
+     *             .name(&#34;example-policy&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### AWS-Managed Policies
+     * 
+     * AWS managed origin request policy names are prefixed with `Managed-`:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var uaReferer = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
+     *             .name(&#34;Managed-UserAgentRefererHeaders&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOriginRequestPolicyResult> getOriginRequestPolicyPlain() {
         return getOriginRequestPolicyPlain(GetOriginRequestPolicyPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
+     *             .name(&#34;example-policy&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### AWS-Managed Policies
+     * 
+     * AWS managed origin request policy names are prefixed with `Managed-`:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var uaReferer = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
+     *             .name(&#34;Managed-UserAgentRefererHeaders&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOriginRequestPolicyResult> getOriginRequestPolicy(GetOriginRequestPolicyArgs args) {
         return getOriginRequestPolicy(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
+     *             .name(&#34;example-policy&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### AWS-Managed Policies
+     * 
+     * AWS managed origin request policy names are prefixed with `Managed-`:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var uaReferer = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
+     *             .name(&#34;Managed-UserAgentRefererHeaders&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOriginRequestPolicyResult> getOriginRequestPolicyPlain(GetOriginRequestPolicyPlainArgs args) {
         return getOriginRequestPolicyPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
+     *             .name(&#34;example-policy&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### AWS-Managed Policies
+     * 
+     * AWS managed origin request policy names are prefixed with `Managed-`:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var uaReferer = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
+     *             .name(&#34;Managed-UserAgentRefererHeaders&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetOriginRequestPolicyResult> getOriginRequestPolicy(GetOriginRequestPolicyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", TypeShape.of(GetOriginRequestPolicyResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
+     *             .name(&#34;example-policy&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### AWS-Managed Policies
+     * 
+     * AWS managed origin request policy names are prefixed with `Managed-`:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var uaReferer = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
+     *             .name(&#34;Managed-UserAgentRefererHeaders&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetOriginRequestPolicyResult> getOriginRequestPolicyPlain(GetOriginRequestPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", TypeShape.of(GetOriginRequestPolicyResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides a CloudFront real-time log configuration resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetRealtimeLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getRealtimeLogConfig(GetRealtimeLogConfigArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetRealtimeLogConfigResult> getRealtimeLogConfig(GetRealtimeLogConfigArgs args) {
         return getRealtimeLogConfig(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides a CloudFront real-time log configuration resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetRealtimeLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getRealtimeLogConfig(GetRealtimeLogConfigArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetRealtimeLogConfigResult> getRealtimeLogConfigPlain(GetRealtimeLogConfigPlainArgs args) {
         return getRealtimeLogConfigPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides a CloudFront real-time log configuration resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetRealtimeLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getRealtimeLogConfig(GetRealtimeLogConfigArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetRealtimeLogConfigResult> getRealtimeLogConfig(GetRealtimeLogConfigArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:cloudfront/getRealtimeLogConfig:getRealtimeLogConfig", TypeShape.of(GetRealtimeLogConfigResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides a CloudFront real-time log configuration resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetRealtimeLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getRealtimeLogConfig(GetRealtimeLogConfigArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetRealtimeLogConfigResult> getRealtimeLogConfigPlain(GetRealtimeLogConfigPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cloudfront/getRealtimeLogConfig:getRealtimeLogConfig", TypeShape.of(GetRealtimeLogConfigResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to retrieve information about a CloudFront cache policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
+     *             .name(&#34;example-policy&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### AWS-Managed Policies
+     * 
+     * AWS managed response header policy names are prefixed with `Managed-`:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
+     *             .name(&#34;Managed-SimpleCORS&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetResponseHeadersPolicyResult> getResponseHeadersPolicy() {
         return getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to retrieve information about a CloudFront cache policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
+     *             .name(&#34;example-policy&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### AWS-Managed Policies
+     * 
+     * AWS managed response header policy names are prefixed with `Managed-`:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
+     *             .name(&#34;Managed-SimpleCORS&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetResponseHeadersPolicyResult> getResponseHeadersPolicyPlain() {
         return getResponseHeadersPolicyPlain(GetResponseHeadersPolicyPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to retrieve information about a CloudFront cache policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
+     *             .name(&#34;example-policy&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### AWS-Managed Policies
+     * 
+     * AWS managed response header policy names are prefixed with `Managed-`:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
+     *             .name(&#34;Managed-SimpleCORS&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetResponseHeadersPolicyResult> getResponseHeadersPolicy(GetResponseHeadersPolicyArgs args) {
         return getResponseHeadersPolicy(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to retrieve information about a CloudFront cache policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
+     *             .name(&#34;example-policy&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### AWS-Managed Policies
+     * 
+     * AWS managed response header policy names are prefixed with `Managed-`:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
+     *             .name(&#34;Managed-SimpleCORS&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetResponseHeadersPolicyResult> getResponseHeadersPolicyPlain(GetResponseHeadersPolicyPlainArgs args) {
         return getResponseHeadersPolicyPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to retrieve information about a CloudFront cache policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
+     *             .name(&#34;example-policy&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### AWS-Managed Policies
+     * 
+     * AWS managed response header policy names are prefixed with `Managed-`:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
+     *             .name(&#34;Managed-SimpleCORS&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetResponseHeadersPolicyResult> getResponseHeadersPolicy(GetResponseHeadersPolicyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", TypeShape.of(GetResponseHeadersPolicyResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to retrieve information about a CloudFront cache policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
+     *             .name(&#34;example-policy&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### AWS-Managed Policies
+     * 
+     * AWS managed response header policy names are prefixed with `Managed-`:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
+     *             .name(&#34;Managed-SimpleCORS&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetResponseHeadersPolicyResult> getResponseHeadersPolicyPlain(GetResponseHeadersPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", TypeShape.of(GetResponseHeadersPolicyResult.class), args, Utilities.withVersion(options));
     }

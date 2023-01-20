@@ -14,21 +14,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleAction {
+    /**
+     * @return Instructs AWS WAF to allow the web request. See Allow below for details.
+     * 
+     */
     private @Nullable RuleGroupRuleActionAllow allow;
+    /**
+     * @return Instructs AWS WAF to block the web request. See Block below for details.
+     * 
+     */
     private @Nullable RuleGroupRuleActionBlock block;
+    /**
+     * @return Instructs AWS WAF to run a `CAPTCHA` check against the web request. See Captcha below for details.
+     * 
+     */
     private @Nullable RuleGroupRuleActionCaptcha captcha;
+    /**
+     * @return Instructs AWS WAF to count the web request and allow it. See Count below for details.
+     * 
+     */
     private @Nullable RuleGroupRuleActionCount count;
 
     private RuleGroupRuleAction() {}
+    /**
+     * @return Instructs AWS WAF to allow the web request. See Allow below for details.
+     * 
+     */
     public Optional<RuleGroupRuleActionAllow> allow() {
         return Optional.ofNullable(this.allow);
     }
+    /**
+     * @return Instructs AWS WAF to block the web request. See Block below for details.
+     * 
+     */
     public Optional<RuleGroupRuleActionBlock> block() {
         return Optional.ofNullable(this.block);
     }
+    /**
+     * @return Instructs AWS WAF to run a `CAPTCHA` check against the web request. See Captcha below for details.
+     * 
+     */
     public Optional<RuleGroupRuleActionCaptcha> captcha() {
         return Optional.ofNullable(this.captcha);
     }
+    /**
+     * @return Instructs AWS WAF to count the web request and allow it. See Count below for details.
+     * 
+     */
     public Optional<RuleGroupRuleActionCount> count() {
         return Optional.ofNullable(this.count);
     }

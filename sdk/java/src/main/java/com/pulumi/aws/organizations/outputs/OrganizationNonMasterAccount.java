@@ -11,25 +11,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrganizationNonMasterAccount {
+    /**
+     * @return ARN of the root
+     * 
+     */
     private @Nullable String arn;
+    /**
+     * @return Email of the account
+     * 
+     */
     private @Nullable String email;
+    /**
+     * @return Identifier of the root
+     * 
+     */
     private @Nullable String id;
+    /**
+     * @return The name of the policy type
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @return The status of the policy type as it relates to the associated root
+     * 
+     */
     private @Nullable String status;
 
     private OrganizationNonMasterAccount() {}
+    /**
+     * @return ARN of the root
+     * 
+     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
+    /**
+     * @return Email of the account
+     * 
+     */
     public Optional<String> email() {
         return Optional.ofNullable(this.email);
     }
+    /**
+     * @return Identifier of the root
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
+    /**
+     * @return The name of the policy type
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return The status of the policy type as it relates to the associated root
+     * 
+     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

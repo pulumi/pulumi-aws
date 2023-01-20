@@ -12,15 +12,27 @@ namespace Pulumi.Aws.CodeBuild.Inputs
 
     public sealed class ProjectLogsConfigS3LogsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+        /// </summary>
         [Input("bucketOwnerAccess")]
         public Input<string>? BucketOwnerAccess { get; set; }
 
+        /// <summary>
+        /// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
+        /// </summary>
         [Input("encryptionDisabled")]
         public Input<bool>? EncryptionDisabled { get; set; }
 
+        /// <summary>
+        /// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

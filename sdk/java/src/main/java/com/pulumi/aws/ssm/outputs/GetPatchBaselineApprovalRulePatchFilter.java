@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPatchBaselineApprovalRulePatchFilter {
+    /**
+     * @return The key for the filter.
+     * 
+     */
     private String key;
+    /**
+     * @return The value for the filter.
+     * 
+     */
     private List<String> values;
 
     private GetPatchBaselineApprovalRulePatchFilter() {}
+    /**
+     * @return The key for the filter.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return The value for the filter.
+     * 
+     */
     public List<String> values() {
         return this.values;
     }

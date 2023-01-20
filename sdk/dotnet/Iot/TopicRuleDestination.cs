@@ -9,15 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iot
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// IoT topic rule destinations can be imported using the `arn`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:iot/topicRuleDestination:TopicRuleDestination")]
     public partial class TopicRuleDestination : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the topic rule destination
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether or not to enable the destination. Default: `true`.
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+        /// </summary>
         [Output("vpcConfiguration")]
         public Output<Outputs.TopicRuleDestinationVpcConfiguration> VpcConfiguration { get; private set; } = null!;
 
@@ -67,9 +85,15 @@ namespace Pulumi.Aws.Iot
 
     public sealed class TopicRuleDestinationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether or not to enable the destination. Default: `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+        /// </summary>
         [Input("vpcConfiguration", required: true)]
         public Input<Inputs.TopicRuleDestinationVpcConfigurationArgs> VpcConfiguration { get; set; } = null!;
 
@@ -81,12 +105,21 @@ namespace Pulumi.Aws.Iot
 
     public sealed class TopicRuleDestinationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the topic rule destination
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Whether or not to enable the destination. Default: `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+        /// </summary>
         [Input("vpcConfiguration")]
         public Input<Inputs.TopicRuleDestinationVpcConfigurationGetArgs>? VpcConfiguration { get; set; }
 

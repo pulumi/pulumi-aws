@@ -15,16 +15,32 @@ public final class GetStreamKeyPlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetStreamKeyPlainArgs Empty = new GetStreamKeyPlainArgs();
 
+    /**
+     * ARN of the Channel.
+     * 
+     */
     @Import(name="channelArn", required=true)
     private String channelArn;
 
+    /**
+     * @return ARN of the Channel.
+     * 
+     */
     public String channelArn() {
         return this.channelArn;
     }
 
+    /**
+     * Map of tags assigned to the resource.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -54,11 +70,23 @@ public final class GetStreamKeyPlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetStreamKeyPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param channelArn ARN of the Channel.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelArn(String channelArn) {
             $.channelArn = channelArn;
             return this;
         }
 
+        /**
+         * @param tags Map of tags assigned to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

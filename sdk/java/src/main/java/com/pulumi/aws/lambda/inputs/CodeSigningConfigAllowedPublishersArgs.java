@@ -14,9 +14,17 @@ public final class CodeSigningConfigAllowedPublishersArgs extends com.pulumi.res
 
     public static final CodeSigningConfigAllowedPublishersArgs Empty = new CodeSigningConfigAllowedPublishersArgs();
 
+    /**
+     * The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+     * 
+     */
     @Import(name="signingProfileVersionArns", required=true)
     private Output<List<String>> signingProfileVersionArns;
 
+    /**
+     * @return The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+     * 
+     */
     public Output<List<String>> signingProfileVersionArns() {
         return this.signingProfileVersionArns;
     }
@@ -45,15 +53,33 @@ public final class CodeSigningConfigAllowedPublishersArgs extends com.pulumi.res
             $ = new CodeSigningConfigAllowedPublishersArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param signingProfileVersionArns The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+         * 
+         * @return builder
+         * 
+         */
         public Builder signingProfileVersionArns(Output<List<String>> signingProfileVersionArns) {
             $.signingProfileVersionArns = signingProfileVersionArns;
             return this;
         }
 
+        /**
+         * @param signingProfileVersionArns The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+         * 
+         * @return builder
+         * 
+         */
         public Builder signingProfileVersionArns(List<String> signingProfileVersionArns) {
             return signingProfileVersionArns(Output.of(signingProfileVersionArns));
         }
 
+        /**
+         * @param signingProfileVersionArns The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+         * 
+         * @return builder
+         * 
+         */
         public Builder signingProfileVersionArns(String... signingProfileVersionArns) {
             return signingProfileVersionArns(List.of(signingProfileVersionArns));
         }

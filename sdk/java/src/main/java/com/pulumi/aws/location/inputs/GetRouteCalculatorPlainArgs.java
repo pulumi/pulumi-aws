@@ -15,16 +15,32 @@ public final class GetRouteCalculatorPlainArgs extends com.pulumi.resources.Invo
 
     public static final GetRouteCalculatorPlainArgs Empty = new GetRouteCalculatorPlainArgs();
 
+    /**
+     * Name of the route calculator resource.
+     * 
+     */
     @Import(name="calculatorName", required=true)
     private String calculatorName;
 
+    /**
+     * @return Name of the route calculator resource.
+     * 
+     */
     public String calculatorName() {
         return this.calculatorName;
     }
 
+    /**
+     * Key-value map of resource tags for the route calculator.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return Key-value map of resource tags for the route calculator.
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -54,11 +70,23 @@ public final class GetRouteCalculatorPlainArgs extends com.pulumi.resources.Invo
             $ = new GetRouteCalculatorPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param calculatorName Name of the route calculator resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder calculatorName(String calculatorName) {
             $.calculatorName = calculatorName;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of resource tags for the route calculator.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

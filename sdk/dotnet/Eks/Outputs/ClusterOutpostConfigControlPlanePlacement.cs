@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class ClusterOutpostConfigControlPlanePlacement
     {
+        /// <summary>
+        /// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+        /// </summary>
         public readonly string GroupName;
 
         [OutputConstructor]

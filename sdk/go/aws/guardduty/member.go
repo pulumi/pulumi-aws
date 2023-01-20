@@ -11,16 +11,76 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to manage a GuardDuty member. To accept invitations in member accounts, see the `guardduty.InviteAccepter` resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary, err := guardduty.NewDetector(ctx, "primary", &guardduty.DetectorArgs{
+//				Enable: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			memberDetector, err := guardduty.NewDetector(ctx, "memberDetector", &guardduty.DetectorArgs{
+//				Enable: pulumi.Bool(true),
+//			}, pulumi.Provider(aws.Dev))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = guardduty.NewMember(ctx, "memberMember", &guardduty.MemberArgs{
+//				AccountId:         memberDetector.AccountId,
+//				DetectorId:        primary.ID(),
+//				Email:             pulumi.String("required@example.com"),
+//				Invite:            pulumi.Bool(true),
+//				InvitationMessage: pulumi.String("please accept guardduty invitation"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// GuardDuty members can be imported using the primary GuardDuty detector ID and member AWS account ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:guardduty/member:Member MyMember 00b00fd5aecc0ab60a708659477e9617:123456789012
+//
+// ```
 type Member struct {
 	pulumi.CustomResourceState
 
-	AccountId                pulumi.StringOutput    `pulumi:"accountId"`
-	DetectorId               pulumi.StringOutput    `pulumi:"detectorId"`
-	DisableEmailNotification pulumi.BoolPtrOutput   `pulumi:"disableEmailNotification"`
-	Email                    pulumi.StringOutput    `pulumi:"email"`
-	InvitationMessage        pulumi.StringPtrOutput `pulumi:"invitationMessage"`
-	Invite                   pulumi.BoolPtrOutput   `pulumi:"invite"`
-	RelationshipStatus       pulumi.StringOutput    `pulumi:"relationshipStatus"`
+	// AWS account ID for member account.
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// The detector ID of the GuardDuty account where you want to create member accounts.
+	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
+	// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
+	DisableEmailNotification pulumi.BoolPtrOutput `pulumi:"disableEmailNotification"`
+	// Email address for member account.
+	Email pulumi.StringOutput `pulumi:"email"`
+	// Message for invitation.
+	InvitationMessage pulumi.StringPtrOutput `pulumi:"invitationMessage"`
+	// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+	Invite pulumi.BoolPtrOutput `pulumi:"invite"`
+	// The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+	RelationshipStatus pulumi.StringOutput `pulumi:"relationshipStatus"`
 }
 
 // NewMember registers a new resource with the given unique name, arguments, and options.
@@ -61,23 +121,37 @@ func GetMember(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Member resources.
 type memberState struct {
-	AccountId                *string `pulumi:"accountId"`
-	DetectorId               *string `pulumi:"detectorId"`
-	DisableEmailNotification *bool   `pulumi:"disableEmailNotification"`
-	Email                    *string `pulumi:"email"`
-	InvitationMessage        *string `pulumi:"invitationMessage"`
-	Invite                   *bool   `pulumi:"invite"`
-	RelationshipStatus       *string `pulumi:"relationshipStatus"`
+	// AWS account ID for member account.
+	AccountId *string `pulumi:"accountId"`
+	// The detector ID of the GuardDuty account where you want to create member accounts.
+	DetectorId *string `pulumi:"detectorId"`
+	// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
+	DisableEmailNotification *bool `pulumi:"disableEmailNotification"`
+	// Email address for member account.
+	Email *string `pulumi:"email"`
+	// Message for invitation.
+	InvitationMessage *string `pulumi:"invitationMessage"`
+	// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+	Invite *bool `pulumi:"invite"`
+	// The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+	RelationshipStatus *string `pulumi:"relationshipStatus"`
 }
 
 type MemberState struct {
-	AccountId                pulumi.StringPtrInput
-	DetectorId               pulumi.StringPtrInput
+	// AWS account ID for member account.
+	AccountId pulumi.StringPtrInput
+	// The detector ID of the GuardDuty account where you want to create member accounts.
+	DetectorId pulumi.StringPtrInput
+	// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
 	DisableEmailNotification pulumi.BoolPtrInput
-	Email                    pulumi.StringPtrInput
-	InvitationMessage        pulumi.StringPtrInput
-	Invite                   pulumi.BoolPtrInput
-	RelationshipStatus       pulumi.StringPtrInput
+	// Email address for member account.
+	Email pulumi.StringPtrInput
+	// Message for invitation.
+	InvitationMessage pulumi.StringPtrInput
+	// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+	Invite pulumi.BoolPtrInput
+	// The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+	RelationshipStatus pulumi.StringPtrInput
 }
 
 func (MemberState) ElementType() reflect.Type {
@@ -85,22 +159,34 @@ func (MemberState) ElementType() reflect.Type {
 }
 
 type memberArgs struct {
-	AccountId                string  `pulumi:"accountId"`
-	DetectorId               string  `pulumi:"detectorId"`
-	DisableEmailNotification *bool   `pulumi:"disableEmailNotification"`
-	Email                    string  `pulumi:"email"`
-	InvitationMessage        *string `pulumi:"invitationMessage"`
-	Invite                   *bool   `pulumi:"invite"`
+	// AWS account ID for member account.
+	AccountId string `pulumi:"accountId"`
+	// The detector ID of the GuardDuty account where you want to create member accounts.
+	DetectorId string `pulumi:"detectorId"`
+	// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
+	DisableEmailNotification *bool `pulumi:"disableEmailNotification"`
+	// Email address for member account.
+	Email string `pulumi:"email"`
+	// Message for invitation.
+	InvitationMessage *string `pulumi:"invitationMessage"`
+	// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+	Invite *bool `pulumi:"invite"`
 }
 
 // The set of arguments for constructing a Member resource.
 type MemberArgs struct {
-	AccountId                pulumi.StringInput
-	DetectorId               pulumi.StringInput
+	// AWS account ID for member account.
+	AccountId pulumi.StringInput
+	// The detector ID of the GuardDuty account where you want to create member accounts.
+	DetectorId pulumi.StringInput
+	// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
 	DisableEmailNotification pulumi.BoolPtrInput
-	Email                    pulumi.StringInput
-	InvitationMessage        pulumi.StringPtrInput
-	Invite                   pulumi.BoolPtrInput
+	// Email address for member account.
+	Email pulumi.StringInput
+	// Message for invitation.
+	InvitationMessage pulumi.StringPtrInput
+	// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+	Invite pulumi.BoolPtrInput
 }
 
 func (MemberArgs) ElementType() reflect.Type {
@@ -190,30 +276,37 @@ func (o MemberOutput) ToMemberOutputWithContext(ctx context.Context) MemberOutpu
 	return o
 }
 
+// AWS account ID for member account.
 func (o MemberOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
+// The detector ID of the GuardDuty account where you want to create member accounts.
 func (o MemberOutput) DetectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
 }
 
+// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
 func (o MemberOutput) DisableEmailNotification() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Member) pulumi.BoolPtrOutput { return v.DisableEmailNotification }).(pulumi.BoolPtrOutput)
 }
 
+// Email address for member account.
 func (o MemberOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
 
+// Message for invitation.
 func (o MemberOutput) InvitationMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.InvitationMessage }).(pulumi.StringPtrOutput)
 }
 
+// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
 func (o MemberOutput) Invite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Member) pulumi.BoolPtrOutput { return v.Invite }).(pulumi.BoolPtrOutput)
 }
 
+// The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
 func (o MemberOutput) RelationshipStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.RelationshipStatus }).(pulumi.StringOutput)
 }

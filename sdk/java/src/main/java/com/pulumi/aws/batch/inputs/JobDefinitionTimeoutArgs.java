@@ -15,9 +15,17 @@ public final class JobDefinitionTimeoutArgs extends com.pulumi.resources.Resourc
 
     public static final JobDefinitionTimeoutArgs Empty = new JobDefinitionTimeoutArgs();
 
+    /**
+     * The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
+     * 
+     */
     @Import(name="attemptDurationSeconds")
     private @Nullable Output<Integer> attemptDurationSeconds;
 
+    /**
+     * @return The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
+     * 
+     */
     public Optional<Output<Integer>> attemptDurationSeconds() {
         return Optional.ofNullable(this.attemptDurationSeconds);
     }
@@ -46,11 +54,23 @@ public final class JobDefinitionTimeoutArgs extends com.pulumi.resources.Resourc
             $ = new JobDefinitionTimeoutArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param attemptDurationSeconds The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attemptDurationSeconds(@Nullable Output<Integer> attemptDurationSeconds) {
             $.attemptDurationSeconds = attemptDurationSeconds;
             return this;
         }
 
+        /**
+         * @param attemptDurationSeconds The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder attemptDurationSeconds(Integer attemptDurationSeconds) {
             return attemptDurationSeconds(Output.of(attemptDurationSeconds));
         }

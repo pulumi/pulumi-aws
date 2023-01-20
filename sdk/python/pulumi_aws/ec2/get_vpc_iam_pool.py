@@ -88,46 +88,73 @@ class GetVpcIamPoolResult:
     @property
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> str:
+        """
+        IP protocol assigned to this pool.
+        """
         return pulumi.get(self, "address_family")
 
     @property
     @pulumi.getter(name="allocationDefaultNetmaskLength")
     def allocation_default_netmask_length(self) -> int:
+        """
+        A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
+        """
         return pulumi.get(self, "allocation_default_netmask_length")
 
     @property
     @pulumi.getter(name="allocationMaxNetmaskLength")
     def allocation_max_netmask_length(self) -> int:
+        """
+        The maximum netmask length that will be required for CIDR allocations in this pool.
+        """
         return pulumi.get(self, "allocation_max_netmask_length")
 
     @property
     @pulumi.getter(name="allocationMinNetmaskLength")
     def allocation_min_netmask_length(self) -> int:
+        """
+        The minimum netmask length that will be required for CIDR allocations in this pool.
+        """
         return pulumi.get(self, "allocation_min_netmask_length")
 
     @property
     @pulumi.getter(name="allocationResourceTags")
     def allocation_resource_tags(self) -> Mapping[str, str]:
+        """
+        Tags that are required to create resources in using this pool.
+        """
         return pulumi.get(self, "allocation_resource_tags")
 
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the pool
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoImport")
     def auto_import(self) -> bool:
+        """
+        If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
+        """
         return pulumi.get(self, "auto_import")
 
     @property
     @pulumi.getter(name="awsService")
     def aws_service(self) -> str:
+        """
+        Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
+        """
         return pulumi.get(self, "aws_service")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description for the IPAM pool.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -138,6 +165,9 @@ class GetVpcIamPoolResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        ID of the IPAM pool.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -148,6 +178,9 @@ class GetVpcIamPoolResult:
     @property
     @pulumi.getter(name="ipamScopeId")
     def ipam_scope_id(self) -> str:
+        """
+        ID of the scope the pool belongs to.
+        """
         return pulumi.get(self, "ipam_scope_id")
 
     @property
@@ -158,6 +191,9 @@ class GetVpcIamPoolResult:
     @property
     @pulumi.getter
     def locale(self) -> str:
+        """
+        Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
+        """
         return pulumi.get(self, "locale")
 
     @property
@@ -168,11 +204,17 @@ class GetVpcIamPoolResult:
     @property
     @pulumi.getter(name="publiclyAdvertisable")
     def publicly_advertisable(self) -> bool:
+        """
+        Defines whether or not IPv6 pool space is publicly advertisable over the internet.
+        """
         return pulumi.get(self, "publicly_advertisable")
 
     @property
     @pulumi.getter(name="sourceIpamPoolId")
     def source_ipam_pool_id(self) -> str:
+        """
+        ID of the source IPAM pool.
+        """
         return pulumi.get(self, "source_ipam_pool_id")
 
     @property
@@ -183,6 +225,9 @@ class GetVpcIamPoolResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Map of tags to assigned to the resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -221,7 +266,43 @@ def get_vpc_iam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = Non
                      tags: Optional[Mapping[str, str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIamPoolResult:
     """
-    Use this data source to access information about an existing resource.
+    `ec2.VpcIpamPool` provides details about an IPAM pool.
+
+    This resource can prove useful when an ipam pool was created in another root
+    module and you need the pool's id as an input variable. For example, pools
+    can be shared via RAM and used to create vpcs with CIDRs from that pool.
+
+    ## Example Usage
+
+    The following example shows an account that has only 1 pool, perhaps shared
+    via RAM, and using that pool id to create a VPC with a CIDR derived from
+    AWS IPAM.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test_vpc_iam_pool = aws.ec2.get_vpc_iam_pool(filters=[
+        aws.ec2.GetVpcIamPoolFilterArgs(
+            name="description",
+            values=["*test*"],
+        ),
+        aws.ec2.GetVpcIamPoolFilterArgs(
+            name="address-family",
+            values=["ipv4"],
+        ),
+    ])
+    test_vpc = aws.ec2.Vpc("testVpc",
+        ipv4_ipam_pool_id=test_vpc_iam_pool.id,
+        ipv4_netmask_length=28)
+    ```
+
+
+    :param Mapping[str, str] allocation_resource_tags: Tags that are required to create resources in using this pool.
+    :param Sequence[pulumi.InputType['GetVpcIamPoolFilterArgs']] filters: Custom filter block as described below.
+    :param str id: ID of the IPAM pool.
+    :param str ipam_pool_id: ID of the IPAM pool you would like information on.
+    :param Mapping[str, str] tags: Map of tags to assigned to the resource.
     """
     __args__ = dict()
     __args__['allocationResourceTags'] = allocation_resource_tags
@@ -263,6 +344,42 @@ def get_vpc_iam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opti
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcIamPoolResult]:
     """
-    Use this data source to access information about an existing resource.
+    `ec2.VpcIpamPool` provides details about an IPAM pool.
+
+    This resource can prove useful when an ipam pool was created in another root
+    module and you need the pool's id as an input variable. For example, pools
+    can be shared via RAM and used to create vpcs with CIDRs from that pool.
+
+    ## Example Usage
+
+    The following example shows an account that has only 1 pool, perhaps shared
+    via RAM, and using that pool id to create a VPC with a CIDR derived from
+    AWS IPAM.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test_vpc_iam_pool = aws.ec2.get_vpc_iam_pool(filters=[
+        aws.ec2.GetVpcIamPoolFilterArgs(
+            name="description",
+            values=["*test*"],
+        ),
+        aws.ec2.GetVpcIamPoolFilterArgs(
+            name="address-family",
+            values=["ipv4"],
+        ),
+    ])
+    test_vpc = aws.ec2.Vpc("testVpc",
+        ipv4_ipam_pool_id=test_vpc_iam_pool.id,
+        ipv4_netmask_length=28)
+    ```
+
+
+    :param Mapping[str, str] allocation_resource_tags: Tags that are required to create resources in using this pool.
+    :param Sequence[pulumi.InputType['GetVpcIamPoolFilterArgs']] filters: Custom filter block as described below.
+    :param str id: ID of the IPAM pool.
+    :param str ipam_pool_id: ID of the IPAM pool you would like information on.
+    :param Mapping[str, str] tags: Map of tags to assigned to the resource.
     """
     ...

@@ -18,6 +18,8 @@ class AccountSettingDefaultArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AccountSettingDefault resource.
+        :param pulumi.Input[str] value: State of the setting. Valid values are `enabled` and `disabled`.
+        :param pulumi.Input[str] name: Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
         """
         pulumi.set(__self__, "value", value)
         if name is not None:
@@ -26,6 +28,9 @@ class AccountSettingDefaultArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        State of the setting. Valid values are `enabled` and `disabled`.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -35,6 +40,9 @@ class AccountSettingDefaultArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -50,6 +58,8 @@ class _AccountSettingDefaultState:
                  value: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AccountSettingDefault resources.
+        :param pulumi.Input[str] name: Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+        :param pulumi.Input[str] value: State of the setting. Valid values are `enabled` and `disabled`.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -61,6 +71,9 @@ class _AccountSettingDefaultState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -79,6 +92,9 @@ class _AccountSettingDefaultState:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        State of the setting. Valid values are `enabled` and `disabled`.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -95,9 +111,33 @@ class AccountSettingDefault(pulumi.CustomResource):
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a AccountSettingDefault resource with the given unique name, props, and options.
+        Provides an ECS default account setting for a specific ECS Resource name within a specific region. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html).
+
+        > **NOTE:** The AWS API does not delete this resource. When you run `destroy`, the provider will attempt to disable the setting.
+
+        > **NOTE:** Your AWS account may not support disabling `containerInstanceLongArnFormat`, `serviceLongArnFormat`, and `taskLongArnFormat`. If your account does not support disabling these, "destroying" this resource will not disable the setting nor cause a provider error. However, the AWS Provider will log an AWS error: `InvalidParameterException: You can no longer disable Long Arn settings`.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ecs.AccountSettingDefault("test", value="enabled")
+        ```
+
+        ## Import
+
+        ECS Account Setting defaults can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+        :param pulumi.Input[str] value: State of the setting. Valid values are `enabled` and `disabled`.
         """
         ...
     @overload
@@ -106,7 +146,29 @@ class AccountSettingDefault(pulumi.CustomResource):
                  args: AccountSettingDefaultArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AccountSettingDefault resource with the given unique name, props, and options.
+        Provides an ECS default account setting for a specific ECS Resource name within a specific region. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html).
+
+        > **NOTE:** The AWS API does not delete this resource. When you run `destroy`, the provider will attempt to disable the setting.
+
+        > **NOTE:** Your AWS account may not support disabling `containerInstanceLongArnFormat`, `serviceLongArnFormat`, and `taskLongArnFormat`. If your account does not support disabling these, "destroying" this resource will not disable the setting nor cause a provider error. However, the AWS Provider will log an AWS error: `InvalidParameterException: You can no longer disable Long Arn settings`.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ecs.AccountSettingDefault("test", value="enabled")
+        ```
+
+        ## Import
+
+        ECS Account Setting defaults can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
+        ```
+
         :param str resource_name: The name of the resource.
         :param AccountSettingDefaultArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,6 +220,8 @@ class AccountSettingDefault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+        :param pulumi.Input[str] value: State of the setting. Valid values are `enabled` and `disabled`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -171,6 +235,9 @@ class AccountSettingDefault(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -181,5 +248,8 @@ class AccountSettingDefault(pulumi.CustomResource):
     @property
     @pulumi.getter
     def value(self) -> pulumi.Output[str]:
+        """
+        State of the setting. Valid values are `enabled` and `disabled`.
+        """
         return pulumi.get(self, "value")
 

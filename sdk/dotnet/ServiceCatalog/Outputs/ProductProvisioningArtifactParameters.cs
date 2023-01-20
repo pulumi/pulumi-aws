@@ -13,11 +13,29 @@ namespace Pulumi.Aws.ServiceCatalog.Outputs
     [OutputType]
     public sealed class ProductProvisioningArtifactParameters
     {
+        /// <summary>
+        /// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
+        /// </summary>
         public readonly bool? DisableTemplateValidation;
+        /// <summary>
+        /// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
+        /// </summary>
         public readonly string? TemplatePhysicalId;
+        /// <summary>
+        /// Template source as URL of the CloudFormation template in Amazon S3.
+        /// </summary>
         public readonly string? TemplateUrl;
+        /// <summary>
+        /// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

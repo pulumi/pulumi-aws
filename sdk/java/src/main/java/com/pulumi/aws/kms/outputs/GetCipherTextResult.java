@@ -11,6 +11,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCipherTextResult {
+    /**
+     * @return Base64 encoded ciphertext
+     * 
+     */
     private String ciphertextBlob;
     private @Nullable Map<String,String> context;
     /**
@@ -22,6 +26,10 @@ public final class GetCipherTextResult {
     private String plaintext;
 
     private GetCipherTextResult() {}
+    /**
+     * @return Base64 encoded ciphertext
+     * 
+     */
     public String ciphertextBlob() {
         return this.ciphertextBlob;
     }

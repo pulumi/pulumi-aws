@@ -13,17 +13,89 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g., ARN)
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticsearch.Domain;
+ * import com.pulumi.aws.elasticsearch.DomainArgs;
+ * import com.pulumi.aws.elasticsearch.DomainPolicy;
+ * import com.pulumi.aws.elasticsearch.DomainPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+ *             .elasticsearchVersion(&#34;2.3&#34;)
+ *             .build());
+ * 
+ *         var main = new DomainPolicy(&#34;main&#34;, DomainPolicyArgs.builder()        
+ *             .domainName(example.domainName())
+ *             .accessPolicies(example.arn().applyValue(arn -&gt; &#34;&#34;&#34;
+ * {
+ *     &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *     &#34;Statement&#34;: [
+ *         {
+ *             &#34;Action&#34;: &#34;es:*&#34;,
+ *             &#34;Principal&#34;: &#34;*&#34;,
+ *             &#34;Effect&#34;: &#34;Allow&#34;,
+ *             &#34;Condition&#34;: {
+ *                 &#34;IpAddress&#34;: {&#34;aws:SourceIp&#34;: &#34;127.0.0.1/32&#34;}
+ *             },
+ *             &#34;Resource&#34;: &#34;%s/*&#34;
+ *         }
+ *     ]
+ * }
+ * &#34;, arn)))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="aws:elasticsearch/domainPolicy:DomainPolicy")
 public class DomainPolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * IAM policy document specifying the access policies for the domain
+     * 
+     */
     @Export(name="accessPolicies", refs={String.class}, tree="[0]")
     private Output<String> accessPolicies;
 
+    /**
+     * @return IAM policy document specifying the access policies for the domain
+     * 
+     */
     public Output<String> accessPolicies() {
         return this.accessPolicies;
     }
+    /**
+     * Name of the domain.
+     * 
+     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
+    /**
+     * @return Name of the domain.
+     * 
+     */
     public Output<String> domainName() {
         return this.domainName;
     }

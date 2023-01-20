@@ -4,6 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * This data source can be used to fetch information about a specific
+ * IAM instance profile. By using this data source, you can reference IAM
+ * instance profile properties without having to hard code ARNs as input.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.iam.getInstanceProfile({
+ *     name: "an_example_instance_profile_name",
+ * });
+ * ```
+ */
 export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceProfileResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -16,6 +32,9 @@ export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.I
  * A collection of arguments for invoking getInstanceProfile.
  */
 export interface GetInstanceProfileArgs {
+    /**
+     * Friendly IAM instance profile name to match.
+     */
     name: string;
 }
 
@@ -23,18 +42,52 @@ export interface GetInstanceProfileArgs {
  * A collection of values returned by getInstanceProfile.
  */
 export interface GetInstanceProfileResult {
+    /**
+     * ARN.
+     */
     readonly arn: string;
+    /**
+     * String representation of the date the instance profile was created.
+     */
     readonly createDate: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly name: string;
+    /**
+     * Path to the instance profile.
+     */
     readonly path: string;
+    /**
+     * Role ARN associated with this instance profile.
+     */
     readonly roleArn: string;
+    /**
+     * Role ID associated with this instance profile.
+     */
     readonly roleId: string;
+    /**
+     * Role name associated with this instance profile.
+     */
     readonly roleName: string;
 }
+/**
+ * This data source can be used to fetch information about a specific
+ * IAM instance profile. By using this data source, you can reference IAM
+ * instance profile properties without having to hard code ARNs as input.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.iam.getInstanceProfile({
+ *     name: "an_example_instance_profile_name",
+ * });
+ * ```
+ */
 export function getInstanceProfileOutput(args: GetInstanceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceProfileResult> {
     return pulumi.output(args).apply((a: any) => getInstanceProfile(a, opts))
 }
@@ -43,5 +96,8 @@ export function getInstanceProfileOutput(args: GetInstanceProfileOutputArgs, opt
  * A collection of arguments for invoking getInstanceProfile.
  */
 export interface GetInstanceProfileOutputArgs {
+    /**
+     * Friendly IAM instance profile name to match.
+     */
     name: pulumi.Input<string>;
 }

@@ -17,39 +17,1191 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class NetworkfirewallFunctions {
+    /**
+     * Retrieve information about a firewall.
+     * 
+     * ## Example Usage
+     * ### Find firewall policy by ARN
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .name(&#34;Test&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by ARN and Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .name(&#34;Test&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetFirewallResult> getFirewall() {
         return getFirewall(GetFirewallArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Retrieve information about a firewall.
+     * 
+     * ## Example Usage
+     * ### Find firewall policy by ARN
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .name(&#34;Test&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by ARN and Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .name(&#34;Test&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetFirewallResult> getFirewallPlain() {
         return getFirewallPlain(GetFirewallPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Retrieve information about a firewall.
+     * 
+     * ## Example Usage
+     * ### Find firewall policy by ARN
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .name(&#34;Test&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by ARN and Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .name(&#34;Test&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetFirewallResult> getFirewall(GetFirewallArgs args) {
         return getFirewall(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieve information about a firewall.
+     * 
+     * ## Example Usage
+     * ### Find firewall policy by ARN
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .name(&#34;Test&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by ARN and Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .name(&#34;Test&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetFirewallResult> getFirewallPlain(GetFirewallPlainArgs args) {
         return getFirewallPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieve information about a firewall.
+     * 
+     * ## Example Usage
+     * ### Find firewall policy by ARN
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .name(&#34;Test&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by ARN and Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .name(&#34;Test&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetFirewallResult> getFirewall(GetFirewallArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:networkfirewall/getFirewall:getFirewall", TypeShape.of(GetFirewallResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieve information about a firewall.
+     * 
+     * ## Example Usage
+     * ### Find firewall policy by ARN
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .name(&#34;Test&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by ARN and Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewall(GetFirewallArgs.builder()
+     *             .arn(aws_networkfirewall_firewall.arn())
+     *             .name(&#34;Test&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetFirewallResult> getFirewallPlain(GetFirewallPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:networkfirewall/getFirewall:getFirewall", TypeShape.of(GetFirewallResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieve information about a firewall policy.
+     * 
+     * ## Example Usage
+     * ### Find firewall policy by name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *             .name(var_.firewall_policy_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by ARN
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *             .arn(var_.firewall_policy_arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by name and ARN
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *             .arn(var_.firewall_policy_arn())
+     *             .name(var_.firewall_policy_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
+     * 
+     * &gt; **Note:** If there are multiple firewall policies in an account with the same `name`, and `arn` is not specified, the default behavior will return the firewall policy with `name` that was created in the account.
+     * 
+     */
     public static Output<GetFirewallPolicyResult> getFirewallPolicy() {
         return getFirewallPolicy(GetFirewallPolicyArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Retrieve information about a firewall policy.
+     * 
+     * ## Example Usage
+     * ### Find firewall policy by name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *             .name(var_.firewall_policy_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by ARN
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *             .arn(var_.firewall_policy_arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by name and ARN
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *             .arn(var_.firewall_policy_arn())
+     *             .name(var_.firewall_policy_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
+     * 
+     * &gt; **Note:** If there are multiple firewall policies in an account with the same `name`, and `arn` is not specified, the default behavior will return the firewall policy with `name` that was created in the account.
+     * 
+     */
     public static CompletableFuture<GetFirewallPolicyResult> getFirewallPolicyPlain() {
         return getFirewallPolicyPlain(GetFirewallPolicyPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Retrieve information about a firewall policy.
+     * 
+     * ## Example Usage
+     * ### Find firewall policy by name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *             .name(var_.firewall_policy_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by ARN
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *             .arn(var_.firewall_policy_arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by name and ARN
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *             .arn(var_.firewall_policy_arn())
+     *             .name(var_.firewall_policy_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
+     * 
+     * &gt; **Note:** If there are multiple firewall policies in an account with the same `name`, and `arn` is not specified, the default behavior will return the firewall policy with `name` that was created in the account.
+     * 
+     */
     public static Output<GetFirewallPolicyResult> getFirewallPolicy(GetFirewallPolicyArgs args) {
         return getFirewallPolicy(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieve information about a firewall policy.
+     * 
+     * ## Example Usage
+     * ### Find firewall policy by name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *             .name(var_.firewall_policy_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by ARN
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *             .arn(var_.firewall_policy_arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by name and ARN
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *             .arn(var_.firewall_policy_arn())
+     *             .name(var_.firewall_policy_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
+     * 
+     * &gt; **Note:** If there are multiple firewall policies in an account with the same `name`, and `arn` is not specified, the default behavior will return the firewall policy with `name` that was created in the account.
+     * 
+     */
     public static CompletableFuture<GetFirewallPolicyResult> getFirewallPolicyPlain(GetFirewallPolicyPlainArgs args) {
         return getFirewallPolicyPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieve information about a firewall policy.
+     * 
+     * ## Example Usage
+     * ### Find firewall policy by name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *             .name(var_.firewall_policy_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by ARN
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *             .arn(var_.firewall_policy_arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by name and ARN
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *             .arn(var_.firewall_policy_arn())
+     *             .name(var_.firewall_policy_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
+     * 
+     * &gt; **Note:** If there are multiple firewall policies in an account with the same `name`, and `arn` is not specified, the default behavior will return the firewall policy with `name` that was created in the account.
+     * 
+     */
     public static Output<GetFirewallPolicyResult> getFirewallPolicy(GetFirewallPolicyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:networkfirewall/getFirewallPolicy:getFirewallPolicy", TypeShape.of(GetFirewallPolicyResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieve information about a firewall policy.
+     * 
+     * ## Example Usage
+     * ### Find firewall policy by name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *             .name(var_.firewall_policy_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by ARN
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *             .arn(var_.firewall_policy_arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find firewall policy by name and ARN
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *             .arn(var_.firewall_policy_arn())
+     *             .name(var_.firewall_policy_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
+     * 
+     * &gt; **Note:** If there are multiple firewall policies in an account with the same `name`, and `arn` is not specified, the default behavior will return the firewall policy with `name` that was created in the account.
+     * 
+     */
     public static CompletableFuture<GetFirewallPolicyResult> getFirewallPolicyPlain(GetFirewallPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:networkfirewall/getFirewallPolicy:getFirewallPolicy", TypeShape.of(GetFirewallPolicyResult.class), args, Utilities.withVersion(options));
     }

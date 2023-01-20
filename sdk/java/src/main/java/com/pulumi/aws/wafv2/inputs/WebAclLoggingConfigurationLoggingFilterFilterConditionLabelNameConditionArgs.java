@@ -13,9 +13,17 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNa
 
     public static final WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs Empty = new WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs();
 
+    /**
+     * The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.
+     * 
+     */
     @Import(name="labelName", required=true)
     private Output<String> labelName;
 
+    /**
+     * @return The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.
+     * 
+     */
     public Output<String> labelName() {
         return this.labelName;
     }
@@ -44,11 +52,23 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNa
             $ = new WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param labelName The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labelName(Output<String> labelName) {
             $.labelName = labelName;
             return this;
         }
 
+        /**
+         * @param labelName The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labelName(String labelName) {
             return labelName(Output.of(labelName));
         }

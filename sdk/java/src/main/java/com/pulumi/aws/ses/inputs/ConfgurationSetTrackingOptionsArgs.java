@@ -15,9 +15,17 @@ public final class ConfgurationSetTrackingOptionsArgs extends com.pulumi.resourc
 
     public static final ConfgurationSetTrackingOptionsArgs Empty = new ConfgurationSetTrackingOptionsArgs();
 
+    /**
+     * Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+     * 
+     */
     @Import(name="customRedirectDomain")
     private @Nullable Output<String> customRedirectDomain;
 
+    /**
+     * @return Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+     * 
+     */
     public Optional<Output<String>> customRedirectDomain() {
         return Optional.ofNullable(this.customRedirectDomain);
     }
@@ -46,11 +54,23 @@ public final class ConfgurationSetTrackingOptionsArgs extends com.pulumi.resourc
             $ = new ConfgurationSetTrackingOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param customRedirectDomain Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customRedirectDomain(@Nullable Output<String> customRedirectDomain) {
             $.customRedirectDomain = customRedirectDomain;
             return this;
         }
 
+        /**
+         * @param customRedirectDomain Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customRedirectDomain(String customRedirectDomain) {
             return customRedirectDomain(Output.of(customRedirectDomain));
         }

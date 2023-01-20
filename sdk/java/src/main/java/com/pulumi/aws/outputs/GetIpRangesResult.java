@@ -13,23 +13,48 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIpRangesResult {
+    /**
+     * @return Lexically ordered list of CIDR blocks.
+     * 
+     */
     private List<String> cidrBlocks;
+    /**
+     * @return Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
+     * 
+     */
     private String createDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Lexically ordered list of IPv6 CIDR blocks.
+     * 
+     */
     private List<String> ipv6CidrBlocks;
     private @Nullable List<String> regions;
     private List<String> services;
+    /**
+     * @return Publication time of the IP ranges, in Unix epoch time format
+     * (e.g., `1470267965`).
+     * 
+     */
     private Integer syncToken;
     private @Nullable String url;
 
     private GetIpRangesResult() {}
+    /**
+     * @return Lexically ordered list of CIDR blocks.
+     * 
+     */
     public List<String> cidrBlocks() {
         return this.cidrBlocks;
     }
+    /**
+     * @return Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
+     * 
+     */
     public String createDate() {
         return this.createDate;
     }
@@ -40,6 +65,10 @@ public final class GetIpRangesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Lexically ordered list of IPv6 CIDR blocks.
+     * 
+     */
     public List<String> ipv6CidrBlocks() {
         return this.ipv6CidrBlocks;
     }
@@ -49,6 +78,11 @@ public final class GetIpRangesResult {
     public List<String> services() {
         return this.services;
     }
+    /**
+     * @return Publication time of the IP ranges, in Unix epoch time format
+     * (e.g., `1470267965`).
+     * 
+     */
     public Integer syncToken() {
         return this.syncToken;
     }

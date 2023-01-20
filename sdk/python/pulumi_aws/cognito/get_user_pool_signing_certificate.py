@@ -35,6 +35,9 @@ class GetUserPoolSigningCertificateResult:
     @property
     @pulumi.getter
     def certificate(self) -> str:
+        """
+        Certificate string
+        """
         return pulumi.get(self, "certificate")
 
     @property
@@ -65,7 +68,19 @@ class AwaitableGetUserPoolSigningCertificateResult(GetUserPoolSigningCertificate
 def get_user_pool_signing_certificate(user_pool_id: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolSigningCertificateResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get the signing certificate for a Cognito IdP user pool.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=aws_cognito_user_pool["my_pool"]["id"])
+    ```
+
+
+    :param str user_pool_id: Cognito user pool ID.
     """
     __args__ = dict()
     __args__['userPoolId'] = user_pool_id
@@ -82,6 +97,18 @@ def get_user_pool_signing_certificate(user_pool_id: Optional[str] = None,
 def get_user_pool_signing_certificate_output(user_pool_id: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolSigningCertificateResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get the signing certificate for a Cognito IdP user pool.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=aws_cognito_user_pool["my_pool"]["id"])
+    ```
+
+
+    :param str user_pool_id: Cognito user pool ID.
     """
     ...

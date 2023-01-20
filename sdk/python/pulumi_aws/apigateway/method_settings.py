@@ -22,6 +22,10 @@ class MethodSettingsArgs:
                  stage_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a MethodSettings resource.
+        :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        :param pulumi.Input[str] rest_api: ID of the REST API
+        :param pulumi.Input['MethodSettingsSettingsArgs'] settings: Settings block, see below.
+        :param pulumi.Input[str] stage_name: Name of the stage
         """
         pulumi.set(__self__, "method_path", method_path)
         pulumi.set(__self__, "rest_api", rest_api)
@@ -31,6 +35,9 @@ class MethodSettingsArgs:
     @property
     @pulumi.getter(name="methodPath")
     def method_path(self) -> pulumi.Input[str]:
+        """
+        Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        """
         return pulumi.get(self, "method_path")
 
     @method_path.setter
@@ -40,6 +47,9 @@ class MethodSettingsArgs:
     @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Input[str]:
+        """
+        ID of the REST API
+        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -49,6 +59,9 @@ class MethodSettingsArgs:
     @property
     @pulumi.getter
     def settings(self) -> pulumi.Input['MethodSettingsSettingsArgs']:
+        """
+        Settings block, see below.
+        """
         return pulumi.get(self, "settings")
 
     @settings.setter
@@ -58,6 +71,9 @@ class MethodSettingsArgs:
     @property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> pulumi.Input[str]:
+        """
+        Name of the stage
+        """
         return pulumi.get(self, "stage_name")
 
     @stage_name.setter
@@ -74,6 +90,10 @@ class _MethodSettingsState:
                  stage_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering MethodSettings resources.
+        :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        :param pulumi.Input[str] rest_api: ID of the REST API
+        :param pulumi.Input['MethodSettingsSettingsArgs'] settings: Settings block, see below.
+        :param pulumi.Input[str] stage_name: Name of the stage
         """
         if method_path is not None:
             pulumi.set(__self__, "method_path", method_path)
@@ -87,6 +107,9 @@ class _MethodSettingsState:
     @property
     @pulumi.getter(name="methodPath")
     def method_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        """
         return pulumi.get(self, "method_path")
 
     @method_path.setter
@@ -96,6 +119,9 @@ class _MethodSettingsState:
     @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the REST API
+        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -105,6 +131,9 @@ class _MethodSettingsState:
     @property
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input['MethodSettingsSettingsArgs']]:
+        """
+        Settings block, see below.
+        """
         return pulumi.get(self, "settings")
 
     @settings.setter
@@ -114,6 +143,9 @@ class _MethodSettingsState:
     @property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the stage
+        """
         return pulumi.get(self, "stage_name")
 
     @stage_name.setter
@@ -132,9 +164,78 @@ class MethodSettings(pulumi.CustomResource):
                  stage_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a MethodSettings resource with the given unique name, props, and options.
+        Manages API Gateway Stage Method Settings. For example, CloudWatch logging and metrics.
+
+        > **NOTE:** We recommend using this resource in conjunction with the `apigateway.Stage` resource instead of a stage managed by the `apigateway.Deployment` resource optional `stage_name` argument. Stages managed by the `apigateway.Deployment` resource are recreated on redeployment and this resource will require a second apply to recreate the method settings.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import hashlib
+        import json
+        import pulumi_aws as aws
+
+        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
+            "openapi": "3.0.1",
+            "info": {
+                "title": "example",
+                "version": "1.0",
+            },
+            "paths": {
+                "/path1": {
+                    "get": {
+                        "x-amazon-apigateway-integration": {
+                            "httpMethod": "GET",
+                            "payloadFormatVersion": "1.0",
+                            "type": "HTTP_PROXY",
+                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                        },
+                    },
+                },
+            },
+        }))
+        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+            rest_api=example_rest_api.id,
+            triggers={
+                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+            })
+        example_stage = aws.apigateway.Stage("exampleStage",
+            deployment=example_deployment.id,
+            rest_api=example_rest_api.id,
+            stage_name="example")
+        all = aws.apigateway.MethodSettings("all",
+            rest_api=example_rest_api.id,
+            stage_name=example_stage.stage_name,
+            method_path="*/*",
+            settings=aws.apigateway.MethodSettingsSettingsArgs(
+                metrics_enabled=True,
+                logging_level="ERROR",
+            ))
+        path_specific = aws.apigateway.MethodSettings("pathSpecific",
+            rest_api=example_rest_api.id,
+            stage_name=example_stage.stage_name,
+            method_path="path1/GET",
+            settings=aws.apigateway.MethodSettingsSettingsArgs(
+                metrics_enabled=True,
+                logging_level="INFO",
+            ))
+        ```
+
+        ## Import
+
+        `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.,
+
+        ```sh
+         $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        :param pulumi.Input[str] rest_api: ID of the REST API
+        :param pulumi.Input[pulumi.InputType['MethodSettingsSettingsArgs']] settings: Settings block, see below.
+        :param pulumi.Input[str] stage_name: Name of the stage
         """
         ...
     @overload
@@ -143,7 +244,72 @@ class MethodSettings(pulumi.CustomResource):
                  args: MethodSettingsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a MethodSettings resource with the given unique name, props, and options.
+        Manages API Gateway Stage Method Settings. For example, CloudWatch logging and metrics.
+
+        > **NOTE:** We recommend using this resource in conjunction with the `apigateway.Stage` resource instead of a stage managed by the `apigateway.Deployment` resource optional `stage_name` argument. Stages managed by the `apigateway.Deployment` resource are recreated on redeployment and this resource will require a second apply to recreate the method settings.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import hashlib
+        import json
+        import pulumi_aws as aws
+
+        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
+            "openapi": "3.0.1",
+            "info": {
+                "title": "example",
+                "version": "1.0",
+            },
+            "paths": {
+                "/path1": {
+                    "get": {
+                        "x-amazon-apigateway-integration": {
+                            "httpMethod": "GET",
+                            "payloadFormatVersion": "1.0",
+                            "type": "HTTP_PROXY",
+                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                        },
+                    },
+                },
+            },
+        }))
+        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+            rest_api=example_rest_api.id,
+            triggers={
+                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+            })
+        example_stage = aws.apigateway.Stage("exampleStage",
+            deployment=example_deployment.id,
+            rest_api=example_rest_api.id,
+            stage_name="example")
+        all = aws.apigateway.MethodSettings("all",
+            rest_api=example_rest_api.id,
+            stage_name=example_stage.stage_name,
+            method_path="*/*",
+            settings=aws.apigateway.MethodSettingsSettingsArgs(
+                metrics_enabled=True,
+                logging_level="ERROR",
+            ))
+        path_specific = aws.apigateway.MethodSettings("pathSpecific",
+            rest_api=example_rest_api.id,
+            stage_name=example_stage.stage_name,
+            method_path="path1/GET",
+            settings=aws.apigateway.MethodSettingsSettingsArgs(
+                metrics_enabled=True,
+                logging_level="INFO",
+            ))
+        ```
+
+        ## Import
+
+        `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.,
+
+        ```sh
+         $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
+        ```
+
         :param str resource_name: The name of the resource.
         :param MethodSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -205,6 +371,10 @@ class MethodSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        :param pulumi.Input[str] rest_api: ID of the REST API
+        :param pulumi.Input[pulumi.InputType['MethodSettingsSettingsArgs']] settings: Settings block, see below.
+        :param pulumi.Input[str] stage_name: Name of the stage
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -219,20 +389,32 @@ class MethodSettings(pulumi.CustomResource):
     @property
     @pulumi.getter(name="methodPath")
     def method_path(self) -> pulumi.Output[str]:
+        """
+        Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        """
         return pulumi.get(self, "method_path")
 
     @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Output[str]:
+        """
+        ID of the REST API
+        """
         return pulumi.get(self, "rest_api")
 
     @property
     @pulumi.getter
     def settings(self) -> pulumi.Output['outputs.MethodSettingsSettings']:
+        """
+        Settings block, see below.
+        """
         return pulumi.get(self, "settings")
 
     @property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> pulumi.Output[str]:
+        """
+        Name of the stage
+        """
         return pulumi.get(self, "stage_name")
 

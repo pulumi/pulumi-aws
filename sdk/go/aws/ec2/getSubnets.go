@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This resource can be useful for getting back a set of subnet IDs.
 func GetSubnets(ctx *pulumi.Context, args *GetSubnetsArgs, opts ...pulumi.InvokeOption) (*GetSubnetsResult, error) {
 	var rv GetSubnetsResult
 	err := ctx.Invoke("aws:ec2/getSubnets:getSubnets", args, &rv, opts...)
@@ -21,15 +22,19 @@ func GetSubnets(ctx *pulumi.Context, args *GetSubnetsArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getSubnets.
 type GetSubnetsArgs struct {
+	// Custom filter block as described below.
 	Filters []GetSubnetsFilter `pulumi:"filters"`
-	Tags    map[string]string  `pulumi:"tags"`
+	// Map of tags, each pair of which must exactly match
+	// a pair on the desired subnets.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSubnets.
 type GetSubnetsResult struct {
 	Filters []GetSubnetsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string            `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// List of all the subnet ids found.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -49,8 +54,11 @@ func GetSubnetsOutput(ctx *pulumi.Context, args GetSubnetsOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getSubnets.
 type GetSubnetsOutputArgs struct {
+	// Custom filter block as described below.
 	Filters GetSubnetsFilterArrayInput `pulumi:"filters"`
-	Tags    pulumi.StringMapInput      `pulumi:"tags"`
+	// Map of tags, each pair of which must exactly match
+	// a pair on the desired subnets.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetSubnetsOutputArgs) ElementType() reflect.Type {
@@ -81,6 +89,7 @@ func (o GetSubnetsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSubnetsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// List of all the subnet ids found.
 func (o GetSubnetsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSubnetsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

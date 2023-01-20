@@ -15,23 +15,47 @@ public final class GetLocalDiskArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetLocalDiskArgs Empty = new GetLocalDiskArgs();
 
+    /**
+     * Device node of the local disk to retrieve. For example, `/dev/sdb`.
+     * 
+     */
     @Import(name="diskNode")
     private @Nullable Output<String> diskNode;
 
+    /**
+     * @return Device node of the local disk to retrieve. For example, `/dev/sdb`.
+     * 
+     */
     public Optional<Output<String>> diskNode() {
         return Optional.ofNullable(this.diskNode);
     }
 
+    /**
+     * Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+     * 
+     */
     @Import(name="diskPath")
     private @Nullable Output<String> diskPath;
 
+    /**
+     * @return Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+     * 
+     */
     public Optional<Output<String>> diskPath() {
         return Optional.ofNullable(this.diskPath);
     }
 
+    /**
+     * ARN of the gateway.
+     * 
+     */
     @Import(name="gatewayArn", required=true)
     private Output<String> gatewayArn;
 
+    /**
+     * @return ARN of the gateway.
+     * 
+     */
     public Output<String> gatewayArn() {
         return this.gatewayArn;
     }
@@ -62,29 +86,65 @@ public final class GetLocalDiskArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetLocalDiskArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param diskNode Device node of the local disk to retrieve. For example, `/dev/sdb`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskNode(@Nullable Output<String> diskNode) {
             $.diskNode = diskNode;
             return this;
         }
 
+        /**
+         * @param diskNode Device node of the local disk to retrieve. For example, `/dev/sdb`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskNode(String diskNode) {
             return diskNode(Output.of(diskNode));
         }
 
+        /**
+         * @param diskPath Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskPath(@Nullable Output<String> diskPath) {
             $.diskPath = diskPath;
             return this;
         }
 
+        /**
+         * @param diskPath Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskPath(String diskPath) {
             return diskPath(Output.of(diskPath));
         }
 
+        /**
+         * @param gatewayArn ARN of the gateway.
+         * 
+         * @return builder
+         * 
+         */
         public Builder gatewayArn(Output<String> gatewayArn) {
             $.gatewayArn = gatewayArn;
             return this;
         }
 
+        /**
+         * @param gatewayArn ARN of the gateway.
+         * 
+         * @return builder
+         * 
+         */
         public Builder gatewayArn(String gatewayArn) {
             return gatewayArn(Output.of(gatewayArn));
         }

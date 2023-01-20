@@ -7,6 +7,26 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an AWS Route 53 Recovery Control Config Cluster.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.route53recoverycontrol.Cluster("example", {});
+ * ```
+ *
+ * ## Import
+ *
+ * Route53 Recovery Control Config cluster can be imported via the cluster ARN, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:route53recoverycontrol/cluster:Cluster mycluster arn:aws:route53-recovery-control::313517334327:cluster/f9ae13be-a11e-4ec7-8522-94a70468e6ea
+ * ```
+ */
 export class Cluster extends pulumi.CustomResource {
     /**
      * Get an existing Cluster resource's state with the given name, ID, and optional extra
@@ -35,9 +55,21 @@ export class Cluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cluster.__pulumiType;
     }
 
+    /**
+     * ARN of the cluster
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
+     */
     public /*out*/ readonly clusterEndpoints!: pulumi.Output<outputs.route53recoverycontrol.ClusterClusterEndpoint[]>;
+    /**
+     * Unique name describing the cluster.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
@@ -73,9 +105,21 @@ export class Cluster extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Cluster resources.
  */
 export interface ClusterState {
+    /**
+     * ARN of the cluster
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
+     */
     clusterEndpoints?: pulumi.Input<pulumi.Input<inputs.route53recoverycontrol.ClusterClusterEndpoint>[]>;
+    /**
+     * Unique name describing the cluster.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
+     */
     status?: pulumi.Input<string>;
 }
 
@@ -83,5 +127,8 @@ export interface ClusterState {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * Unique name describing the cluster.
+     */
     name?: pulumi.Input<string>;
 }

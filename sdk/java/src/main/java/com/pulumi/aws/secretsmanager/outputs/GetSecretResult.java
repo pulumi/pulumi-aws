@@ -13,17 +13,35 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSecretResult {
+    /**
+     * @return ARN of the secret.
+     * 
+     */
     private String arn;
+    /**
+     * @return Description of the secret.
+     * 
+     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
+     * 
+     */
     private String kmsKeyId;
     private String name;
+    /**
+     * @return Resource-based policy document that&#39;s attached to the secret.
+     * 
+     */
     private String policy;
     /**
+     * @return Whether rotation is enabled or not.
+     * 
      * @deprecated
      * Use the aws_secretsmanager_secret_rotation data source instead
      * 
@@ -31,6 +49,8 @@ public final class GetSecretResult {
     @Deprecated /* Use the aws_secretsmanager_secret_rotation data source instead */
     private Boolean rotationEnabled;
     /**
+     * @return Rotation Lambda function ARN if rotation is enabled.
+     * 
      * @deprecated
      * Use the aws_secretsmanager_secret_rotation data source instead
      * 
@@ -38,18 +58,32 @@ public final class GetSecretResult {
     @Deprecated /* Use the aws_secretsmanager_secret_rotation data source instead */
     private String rotationLambdaArn;
     /**
+     * @return Rotation rules if rotation is enabled.
+     * 
      * @deprecated
      * Use the aws_secretsmanager_secret_rotation data source instead
      * 
      */
     @Deprecated /* Use the aws_secretsmanager_secret_rotation data source instead */
     private List<GetSecretRotationRule> rotationRules;
+    /**
+     * @return Tags of the secret.
+     * 
+     */
     private Map<String,String> tags;
 
     private GetSecretResult() {}
+    /**
+     * @return ARN of the secret.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Description of the secret.
+     * 
+     */
     public String description() {
         return this.description;
     }
@@ -60,16 +94,26 @@ public final class GetSecretResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
+     * 
+     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
     public String name() {
         return this.name;
     }
+    /**
+     * @return Resource-based policy document that&#39;s attached to the secret.
+     * 
+     */
     public String policy() {
         return this.policy;
     }
     /**
+     * @return Whether rotation is enabled or not.
+     * 
      * @deprecated
      * Use the aws_secretsmanager_secret_rotation data source instead
      * 
@@ -79,6 +123,8 @@ public final class GetSecretResult {
         return this.rotationEnabled;
     }
     /**
+     * @return Rotation Lambda function ARN if rotation is enabled.
+     * 
      * @deprecated
      * Use the aws_secretsmanager_secret_rotation data source instead
      * 
@@ -88,6 +134,8 @@ public final class GetSecretResult {
         return this.rotationLambdaArn;
     }
     /**
+     * @return Rotation rules if rotation is enabled.
+     * 
      * @deprecated
      * Use the aws_secretsmanager_secret_rotation data source instead
      * 
@@ -96,6 +144,10 @@ public final class GetSecretResult {
     public List<GetSecretRotationRule> rotationRules() {
         return this.rotationRules;
     }
+    /**
+     * @return Tags of the secret.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }

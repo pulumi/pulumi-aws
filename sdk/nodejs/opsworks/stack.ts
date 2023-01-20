@@ -7,6 +7,39 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an OpsWorks stack resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const main = new aws.opsworks.Stack("main", {
+ *     region: "us-west-1",
+ *     serviceRoleArn: aws_iam_role.opsworks.arn,
+ *     defaultInstanceProfileArn: aws_iam_instance_profile.opsworks.arn,
+ *     tags: {
+ *         Name: "foobar-stack",
+ *     },
+ *     customJson: `{
+ *  "foobar": {
+ *     "version": "1.0.0"
+ *   }
+ * }
+ * `,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * OpsWorks stacks can be imported using the `id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
+ * ```
+ */
 export class Stack extends pulumi.CustomResource {
     /**
      * Get an existing Stack resource's state with the given name, ID, and optional extra
@@ -35,30 +68,103 @@ export class Stack extends pulumi.CustomResource {
         return obj['__pulumiType'] === Stack.__pulumiType;
     }
 
+    /**
+     * If set to `"LATEST"`, OpsWorks will automatically install the latest version.
+     */
     public readonly agentVersion!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * If `manageBerkshelf` is enabled, the version of Berkshelf to use.
+     */
     public readonly berkshelfVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Color to paint next to the stack's resources in the OpsWorks console.
+     */
     public readonly color!: pulumi.Output<string | undefined>;
+    /**
+     * Name of the configuration manager to use. Defaults to "Chef".
+     */
     public readonly configurationManagerName!: pulumi.Output<string | undefined>;
+    /**
+     * Version of the configuration manager to use. Defaults to "11.4".
+     */
     public readonly configurationManagerVersion!: pulumi.Output<string | undefined>;
+    /**
+     * When `useCustomCookbooks` is set, provide this sub-object as described below.
+     */
     public readonly customCookbooksSources!: pulumi.Output<outputs.opsworks.StackCustomCookbooksSource[]>;
+    /**
+     * Custom JSON attributes to apply to the entire stack.
+     */
     public readonly customJson!: pulumi.Output<string | undefined>;
+    /**
+     * Name of the availability zone where instances will be created by default.
+     * Cannot be set when `vpcId` is set.
+     */
     public readonly defaultAvailabilityZone!: pulumi.Output<string>;
+    /**
+     * The ARN of an IAM Instance Profile that created instances will have by default.
+     */
     public readonly defaultInstanceProfileArn!: pulumi.Output<string>;
+    /**
+     * Name of OS that will be installed on instances by default.
+     */
     public readonly defaultOs!: pulumi.Output<string | undefined>;
+    /**
+     * Name of the type of root device instances will have by default.
+     */
     public readonly defaultRootDeviceType!: pulumi.Output<string | undefined>;
+    /**
+     * Name of the SSH keypair that instances will have by default.
+     */
     public readonly defaultSshKeyName!: pulumi.Output<string | undefined>;
+    /**
+     * ID of the subnet in which instances will be created by default.
+     * Required if `vpcId` is set to a VPC other than the default VPC, and forbidden if it isn't.
+     */
     public readonly defaultSubnetId!: pulumi.Output<string>;
+    /**
+     * Keyword representing the naming scheme that will be used for instance hostnames within this stack.
+     */
     public readonly hostnameTheme!: pulumi.Output<string | undefined>;
+    /**
+     * Boolean value controlling whether Opsworks will run Berkshelf for this stack.
+     */
     public readonly manageBerkshelf!: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the stack.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The name of the region where the stack will exist.
+     */
     public readonly region!: pulumi.Output<string>;
+    /**
+     * The ARN of an IAM role that the OpsWorks service will act as.
+     */
     public readonly serviceRoleArn!: pulumi.Output<string>;
     public /*out*/ readonly stackEndpoint!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource.
+     * If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Boolean value controlling whether the custom cookbook settings are enabled.
+     */
     public readonly useCustomCookbooks!: pulumi.Output<boolean | undefined>;
+    /**
+     * Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
+     */
     public readonly useOpsworksSecurityGroups!: pulumi.Output<boolean | undefined>;
+    /**
+     * ID of the VPC that this stack belongs to.
+     * Defaults to the region's default VPC.
+     */
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -145,30 +251,103 @@ export class Stack extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Stack resources.
  */
 export interface StackState {
+    /**
+     * If set to `"LATEST"`, OpsWorks will automatically install the latest version.
+     */
     agentVersion?: pulumi.Input<string>;
     arn?: pulumi.Input<string>;
+    /**
+     * If `manageBerkshelf` is enabled, the version of Berkshelf to use.
+     */
     berkshelfVersion?: pulumi.Input<string>;
+    /**
+     * Color to paint next to the stack's resources in the OpsWorks console.
+     */
     color?: pulumi.Input<string>;
+    /**
+     * Name of the configuration manager to use. Defaults to "Chef".
+     */
     configurationManagerName?: pulumi.Input<string>;
+    /**
+     * Version of the configuration manager to use. Defaults to "11.4".
+     */
     configurationManagerVersion?: pulumi.Input<string>;
+    /**
+     * When `useCustomCookbooks` is set, provide this sub-object as described below.
+     */
     customCookbooksSources?: pulumi.Input<pulumi.Input<inputs.opsworks.StackCustomCookbooksSource>[]>;
+    /**
+     * Custom JSON attributes to apply to the entire stack.
+     */
     customJson?: pulumi.Input<string>;
+    /**
+     * Name of the availability zone where instances will be created by default.
+     * Cannot be set when `vpcId` is set.
+     */
     defaultAvailabilityZone?: pulumi.Input<string>;
+    /**
+     * The ARN of an IAM Instance Profile that created instances will have by default.
+     */
     defaultInstanceProfileArn?: pulumi.Input<string>;
+    /**
+     * Name of OS that will be installed on instances by default.
+     */
     defaultOs?: pulumi.Input<string>;
+    /**
+     * Name of the type of root device instances will have by default.
+     */
     defaultRootDeviceType?: pulumi.Input<string>;
+    /**
+     * Name of the SSH keypair that instances will have by default.
+     */
     defaultSshKeyName?: pulumi.Input<string>;
+    /**
+     * ID of the subnet in which instances will be created by default.
+     * Required if `vpcId` is set to a VPC other than the default VPC, and forbidden if it isn't.
+     */
     defaultSubnetId?: pulumi.Input<string>;
+    /**
+     * Keyword representing the naming scheme that will be used for instance hostnames within this stack.
+     */
     hostnameTheme?: pulumi.Input<string>;
+    /**
+     * Boolean value controlling whether Opsworks will run Berkshelf for this stack.
+     */
     manageBerkshelf?: pulumi.Input<boolean>;
+    /**
+     * The name of the stack.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The name of the region where the stack will exist.
+     */
     region?: pulumi.Input<string>;
+    /**
+     * The ARN of an IAM role that the OpsWorks service will act as.
+     */
     serviceRoleArn?: pulumi.Input<string>;
     stackEndpoint?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource.
+     * If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Boolean value controlling whether the custom cookbook settings are enabled.
+     */
     useCustomCookbooks?: pulumi.Input<boolean>;
+    /**
+     * Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
+     */
     useOpsworksSecurityGroups?: pulumi.Input<boolean>;
+    /**
+     * ID of the VPC that this stack belongs to.
+     * Defaults to the region's default VPC.
+     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -176,26 +355,96 @@ export interface StackState {
  * The set of arguments for constructing a Stack resource.
  */
 export interface StackArgs {
+    /**
+     * If set to `"LATEST"`, OpsWorks will automatically install the latest version.
+     */
     agentVersion?: pulumi.Input<string>;
+    /**
+     * If `manageBerkshelf` is enabled, the version of Berkshelf to use.
+     */
     berkshelfVersion?: pulumi.Input<string>;
+    /**
+     * Color to paint next to the stack's resources in the OpsWorks console.
+     */
     color?: pulumi.Input<string>;
+    /**
+     * Name of the configuration manager to use. Defaults to "Chef".
+     */
     configurationManagerName?: pulumi.Input<string>;
+    /**
+     * Version of the configuration manager to use. Defaults to "11.4".
+     */
     configurationManagerVersion?: pulumi.Input<string>;
+    /**
+     * When `useCustomCookbooks` is set, provide this sub-object as described below.
+     */
     customCookbooksSources?: pulumi.Input<pulumi.Input<inputs.opsworks.StackCustomCookbooksSource>[]>;
+    /**
+     * Custom JSON attributes to apply to the entire stack.
+     */
     customJson?: pulumi.Input<string>;
+    /**
+     * Name of the availability zone where instances will be created by default.
+     * Cannot be set when `vpcId` is set.
+     */
     defaultAvailabilityZone?: pulumi.Input<string>;
+    /**
+     * The ARN of an IAM Instance Profile that created instances will have by default.
+     */
     defaultInstanceProfileArn: pulumi.Input<string>;
+    /**
+     * Name of OS that will be installed on instances by default.
+     */
     defaultOs?: pulumi.Input<string>;
+    /**
+     * Name of the type of root device instances will have by default.
+     */
     defaultRootDeviceType?: pulumi.Input<string>;
+    /**
+     * Name of the SSH keypair that instances will have by default.
+     */
     defaultSshKeyName?: pulumi.Input<string>;
+    /**
+     * ID of the subnet in which instances will be created by default.
+     * Required if `vpcId` is set to a VPC other than the default VPC, and forbidden if it isn't.
+     */
     defaultSubnetId?: pulumi.Input<string>;
+    /**
+     * Keyword representing the naming scheme that will be used for instance hostnames within this stack.
+     */
     hostnameTheme?: pulumi.Input<string>;
+    /**
+     * Boolean value controlling whether Opsworks will run Berkshelf for this stack.
+     */
     manageBerkshelf?: pulumi.Input<boolean>;
+    /**
+     * The name of the stack.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The name of the region where the stack will exist.
+     */
     region: pulumi.Input<string>;
+    /**
+     * The ARN of an IAM role that the OpsWorks service will act as.
+     */
     serviceRoleArn: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource.
+     * If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Boolean value controlling whether the custom cookbook settings are enabled.
+     */
     useCustomCookbooks?: pulumi.Input<boolean>;
+    /**
+     * Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
+     */
     useOpsworksSecurityGroups?: pulumi.Input<boolean>;
+    /**
+     * ID of the VPC that this stack belongs to.
+     * Defaults to the region's default VPC.
+     */
     vpcId?: pulumi.Input<string>;
 }

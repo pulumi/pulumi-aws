@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class FirewallSubnetMapping {
+    /**
+     * @return The unique identifier for the subnet.
+     * 
+     */
     private String subnetId;
 
     private FirewallSubnetMapping() {}
+    /**
+     * @return The unique identifier for the subnet.
+     * 
+     */
     public String subnetId() {
         return this.subnetId;
     }

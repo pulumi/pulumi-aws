@@ -15,16 +15,32 @@ public final class GetUserAlternateIdentifier extends com.pulumi.resources.Invok
 
     public static final GetUserAlternateIdentifier Empty = new GetUserAlternateIdentifier();
 
+    /**
+     * Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+     * 
+     */
     @Import(name="externalId")
     private @Nullable GetUserAlternateIdentifierExternalId externalId;
 
+    /**
+     * @return Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+     * 
+     */
     public Optional<GetUserAlternateIdentifierExternalId> externalId() {
         return Optional.ofNullable(this.externalId);
     }
 
+    /**
+     * An entity attribute that&#39;s unique to a specific entity. Detailed below.
+     * 
+     */
     @Import(name="uniqueAttribute")
     private @Nullable GetUserAlternateIdentifierUniqueAttribute uniqueAttribute;
 
+    /**
+     * @return An entity attribute that&#39;s unique to a specific entity. Detailed below.
+     * 
+     */
     public Optional<GetUserAlternateIdentifierUniqueAttribute> uniqueAttribute() {
         return Optional.ofNullable(this.uniqueAttribute);
     }
@@ -54,11 +70,23 @@ public final class GetUserAlternateIdentifier extends com.pulumi.resources.Invok
             $ = new GetUserAlternateIdentifier(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param externalId Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder externalId(@Nullable GetUserAlternateIdentifierExternalId externalId) {
             $.externalId = externalId;
             return this;
         }
 
+        /**
+         * @param uniqueAttribute An entity attribute that&#39;s unique to a specific entity. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder uniqueAttribute(@Nullable GetUserAlternateIdentifierUniqueAttribute uniqueAttribute) {
             $.uniqueAttribute = uniqueAttribute;
             return this;

@@ -13,23 +13,127 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a CloudWatch Dashboard resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.Dashboard;
+ * import com.pulumi.aws.cloudwatch.DashboardArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var main = new Dashboard(&#34;main&#34;, DashboardArgs.builder()        
+ *             .dashboardBody(&#34;&#34;&#34;
+ * {
+ *   &#34;widgets&#34;: [
+ *     {
+ *       &#34;type&#34;: &#34;metric&#34;,
+ *       &#34;x&#34;: 0,
+ *       &#34;y&#34;: 0,
+ *       &#34;width&#34;: 12,
+ *       &#34;height&#34;: 6,
+ *       &#34;properties&#34;: {
+ *         &#34;metrics&#34;: [
+ *           [
+ *             &#34;AWS/EC2&#34;,
+ *             &#34;CPUUtilization&#34;,
+ *             &#34;InstanceId&#34;,
+ *             &#34;i-012345&#34;
+ *           ]
+ *         ],
+ *         &#34;period&#34;: 300,
+ *         &#34;stat&#34;: &#34;Average&#34;,
+ *         &#34;region&#34;: &#34;us-east-1&#34;,
+ *         &#34;title&#34;: &#34;EC2 Instance CPU&#34;
+ *       }
+ *     },
+ *     {
+ *       &#34;type&#34;: &#34;text&#34;,
+ *       &#34;x&#34;: 0,
+ *       &#34;y&#34;: 7,
+ *       &#34;width&#34;: 3,
+ *       &#34;height&#34;: 3,
+ *       &#34;properties&#34;: {
+ *         &#34;markdown&#34;: &#34;Hello world&#34;
+ *       }
+ *     }
+ *   ]
+ * }
+ * 
+ *             &#34;&#34;&#34;)
+ *             .dashboardName(&#34;my-dashboard&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * CloudWatch dashboards can be imported using the `dashboard_name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
+ * ```
+ * 
+ */
 @ResourceType(type="aws:cloudwatch/dashboard:Dashboard")
 public class Dashboard extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name (ARN) of the dashboard.
+     * 
+     */
     @Export(name="dashboardArn", refs={String.class}, tree="[0]")
     private Output<String> dashboardArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the dashboard.
+     * 
+     */
     public Output<String> dashboardArn() {
         return this.dashboardArn;
     }
+    /**
+     * The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
+     * 
+     */
     @Export(name="dashboardBody", refs={String.class}, tree="[0]")
     private Output<String> dashboardBody;
 
+    /**
+     * @return The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
+     * 
+     */
     public Output<String> dashboardBody() {
         return this.dashboardBody;
     }
+    /**
+     * The name of the dashboard.
+     * 
+     */
     @Export(name="dashboardName", refs={String.class}, tree="[0]")
     private Output<String> dashboardName;
 
+    /**
+     * @return The name of the dashboard.
+     * 
+     */
     public Output<String> dashboardName() {
         return this.dashboardName;
     }

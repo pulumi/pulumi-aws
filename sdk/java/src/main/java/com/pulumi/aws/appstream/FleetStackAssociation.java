@@ -13,17 +13,90 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Manages an AppStream Fleet Stack association.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appstream.Fleet;
+ * import com.pulumi.aws.appstream.FleetArgs;
+ * import com.pulumi.aws.appstream.inputs.FleetComputeCapacityArgs;
+ * import com.pulumi.aws.appstream.Stack;
+ * import com.pulumi.aws.appstream.FleetStackAssociation;
+ * import com.pulumi.aws.appstream.FleetStackAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleFleet = new Fleet(&#34;exampleFleet&#34;, FleetArgs.builder()        
+ *             .imageName(&#34;Amazon-AppStream2-Sample-Image-02-04-2019&#34;)
+ *             .instanceType(&#34;stream.standard.small&#34;)
+ *             .computeCapacity(FleetComputeCapacityArgs.builder()
+ *                 .desiredInstances(1)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleStack = new Stack(&#34;exampleStack&#34;);
+ * 
+ *         var exampleFleetStackAssociation = new FleetStackAssociation(&#34;exampleFleetStackAssociation&#34;, FleetStackAssociationArgs.builder()        
+ *             .fleetName(exampleFleet.name())
+ *             .stackName(exampleStack.name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * AppStream Stack Fleet Association can be imported by using the `fleet_name` and `stack_name` separated by a slash (`/`), e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
+ * ```
+ * 
+ */
 @ResourceType(type="aws:appstream/fleetStackAssociation:FleetStackAssociation")
 public class FleetStackAssociation extends com.pulumi.resources.CustomResource {
+    /**
+     * Name of the fleet.
+     * 
+     */
     @Export(name="fleetName", refs={String.class}, tree="[0]")
     private Output<String> fleetName;
 
+    /**
+     * @return Name of the fleet.
+     * 
+     */
     public Output<String> fleetName() {
         return this.fleetName;
     }
+    /**
+     * Name of the stack.
+     * 
+     */
     @Export(name="stackName", refs={String.class}, tree="[0]")
     private Output<String> stackName;
 
+    /**
+     * @return Name of the stack.
+     * 
+     */
     public Output<String> stackName() {
         return this.stackName;
     }

@@ -15,11 +15,72 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a resource to manage the [default AWS DHCP Options Set](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html#AmazonDNS)
+ * in the current region.
+ * 
+ * Each AWS region comes with a default set of DHCP options.
+ * **This is an advanced resource**, and has special caveats to be aware of when
+ * using it. Please read this document in its entirety before using this resource.
+ * 
+ * The `aws.ec2.DefaultVpcDhcpOptions` behaves differently from normal resources, in that
+ * this provider does not _create_ this resource, but instead &#34;adopts&#34; it
+ * into management.
+ * 
+ * ## Example Usage
+ * 
+ * Basic usage with tags:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.DefaultVpcDhcpOptions;
+ * import com.pulumi.aws.ec2.DefaultVpcDhcpOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var default_ = new DefaultVpcDhcpOptions(&#34;default&#34;, DefaultVpcDhcpOptionsArgs.builder()        
+ *             .tags(Map.of(&#34;Name&#34;, &#34;Default DHCP Option Set&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * VPC DHCP Options can be imported using the `dhcp options id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions default_options dopt-d9070ebb
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions")
 public class DefaultVpcDhcpOptions extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the DHCP Options Set.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the DHCP Options Set.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -35,15 +96,31 @@ public class DefaultVpcDhcpOptions extends com.pulumi.resources.CustomResource {
     public Output<String> domainNameServers() {
         return this.domainNameServers;
     }
+    /**
+     * List of NETBIOS name servers.
+     * 
+     */
     @Export(name="netbiosNameServers", refs={String.class}, tree="[0]")
     private Output<String> netbiosNameServers;
 
+    /**
+     * @return List of NETBIOS name servers.
+     * 
+     */
     public Output<String> netbiosNameServers() {
         return this.netbiosNameServers;
     }
+    /**
+     * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+     * 
+     */
     @Export(name="netbiosNodeType", refs={String.class}, tree="[0]")
     private Output<String> netbiosNodeType;
 
+    /**
+     * @return The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+     * 
+     */
     public Output<String> netbiosNodeType() {
         return this.netbiosNodeType;
     }
@@ -53,15 +130,31 @@ public class DefaultVpcDhcpOptions extends com.pulumi.resources.CustomResource {
     public Output<String> ntpServers() {
         return this.ntpServers;
     }
+    /**
+     * The ID of the AWS account that owns the DHCP options set.
+     * 
+     */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
+    /**
+     * @return The ID of the AWS account that owns the DHCP options set.
+     * 
+     */
     public Output<String> ownerId() {
         return this.ownerId;
     }
+    /**
+     * A map of tags to assign to the resource.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

@@ -15,16 +15,32 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
 
     public static final DomainState Empty = new DomainState();
 
+    /**
+     * The ARN of the Lightsail domain
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return The ARN of the Lightsail domain
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * The name of the Lightsail domain to manage
+     * 
+     */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
+    /**
+     * @return The name of the Lightsail domain to manage
+     * 
+     */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
     }
@@ -54,20 +70,44 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
             $ = new DomainState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn The ARN of the Lightsail domain
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn The ARN of the Lightsail domain
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param domainName The name of the Lightsail domain to manage
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(@Nullable Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
+        /**
+         * @param domainName The name of the Lightsail domain to manage
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }

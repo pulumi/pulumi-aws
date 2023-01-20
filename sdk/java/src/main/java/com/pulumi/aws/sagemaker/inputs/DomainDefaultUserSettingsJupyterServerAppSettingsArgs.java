@@ -18,23 +18,47 @@ public final class DomainDefaultUserSettingsJupyterServerAppSettingsArgs extends
 
     public static final DomainDefaultUserSettingsJupyterServerAppSettingsArgs Empty = new DomainDefaultUserSettingsJupyterServerAppSettingsArgs();
 
+    /**
+     * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * 
+     */
     @Import(name="codeRepositories")
     private @Nullable Output<List<DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs>> codeRepositories;
 
+    /**
+     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * 
+     */
     public Optional<Output<List<DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs>>> codeRepositories() {
         return Optional.ofNullable(this.codeRepositories);
     }
 
+    /**
+     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * 
+     */
     @Import(name="defaultResourceSpec")
     private @Nullable Output<DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
+    /**
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * 
+     */
     public Optional<Output<DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
         return Optional.ofNullable(this.defaultResourceSpec);
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+     * 
+     */
     @Import(name="lifecycleConfigArns")
     private @Nullable Output<List<String>> lifecycleConfigArns;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+     * 
+     */
     public Optional<Output<List<String>>> lifecycleConfigArns() {
         return Optional.ofNullable(this.lifecycleConfigArns);
     }
@@ -65,37 +89,85 @@ public final class DomainDefaultUserSettingsJupyterServerAppSettingsArgs extends
             $ = new DomainDefaultUserSettingsJupyterServerAppSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder codeRepositories(@Nullable Output<List<DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs>> codeRepositories) {
             $.codeRepositories = codeRepositories;
             return this;
         }
 
+        /**
+         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder codeRepositories(List<DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs> codeRepositories) {
             return codeRepositories(Output.of(codeRepositories));
         }
 
+        /**
+         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder codeRepositories(DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs... codeRepositories) {
             return codeRepositories(List.of(codeRepositories));
         }
 
+        /**
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultResourceSpec(@Nullable Output<DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs> defaultResourceSpec) {
             $.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
 
+        /**
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultResourceSpec(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs defaultResourceSpec) {
             return defaultResourceSpec(Output.of(defaultResourceSpec));
         }
 
+        /**
+         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lifecycleConfigArns(@Nullable Output<List<String>> lifecycleConfigArns) {
             $.lifecycleConfigArns = lifecycleConfigArns;
             return this;
         }
 
+        /**
+         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lifecycleConfigArns(List<String> lifecycleConfigArns) {
             return lifecycleConfigArns(Output.of(lifecycleConfigArns));
         }
 
+        /**
+         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lifecycleConfigArns(String... lifecycleConfigArns) {
             return lifecycleConfigArns(List.of(lifecycleConfigArns));
         }

@@ -19,6 +19,9 @@ class WorkerConfigurationArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WorkerConfiguration resource.
+        :param pulumi.Input[str] properties_file_content: Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+        :param pulumi.Input[str] description: A summary description of the worker configuration.
+        :param pulumi.Input[str] name: The name of the worker configuration.
         """
         pulumi.set(__self__, "properties_file_content", properties_file_content)
         if description is not None:
@@ -29,6 +32,9 @@ class WorkerConfigurationArgs:
     @property
     @pulumi.getter(name="propertiesFileContent")
     def properties_file_content(self) -> pulumi.Input[str]:
+        """
+        Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+        """
         return pulumi.get(self, "properties_file_content")
 
     @properties_file_content.setter
@@ -38,6 +44,9 @@ class WorkerConfigurationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A summary description of the worker configuration.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -47,6 +56,9 @@ class WorkerConfigurationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the worker configuration.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -64,6 +76,11 @@ class _WorkerConfigurationState:
                  properties_file_content: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering WorkerConfiguration resources.
+        :param pulumi.Input[str] arn: the Amazon Resource Name (ARN) of the worker configuration.
+        :param pulumi.Input[str] description: A summary description of the worker configuration.
+        :param pulumi.Input[int] latest_revision: an ID of the latest successfully created revision of the worker configuration.
+        :param pulumi.Input[str] name: The name of the worker configuration.
+        :param pulumi.Input[str] properties_file_content: Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -79,6 +96,9 @@ class _WorkerConfigurationState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        the Amazon Resource Name (ARN) of the worker configuration.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -88,6 +108,9 @@ class _WorkerConfigurationState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A summary description of the worker configuration.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -97,6 +120,9 @@ class _WorkerConfigurationState:
     @property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> Optional[pulumi.Input[int]]:
+        """
+        an ID of the latest successfully created revision of the worker configuration.
+        """
         return pulumi.get(self, "latest_revision")
 
     @latest_revision.setter
@@ -106,6 +132,9 @@ class _WorkerConfigurationState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the worker configuration.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -115,6 +144,9 @@ class _WorkerConfigurationState:
     @property
     @pulumi.getter(name="propertiesFileContent")
     def properties_file_content(self) -> Optional[pulumi.Input[str]]:
+        """
+        Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+        """
         return pulumi.get(self, "properties_file_content")
 
     @properties_file_content.setter
@@ -132,9 +164,34 @@ class WorkerConfiguration(pulumi.CustomResource):
                  properties_file_content: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a WorkerConfiguration resource with the given unique name, props, and options.
+        Provides an Amazon MSK Connect Worker Configuration Resource.
+
+        ## Example Usage
+        ### Basic configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.mskconnect.WorkerConfiguration("example", properties_file_content=\"\"\"key.converter=org.apache.kafka.connect.storage.StringConverter
+        value.converter=org.apache.kafka.connect.storage.StringConverter
+
+        \"\"\")
+        ```
+
+        ## Import
+
+        MSK Connect Worker Configuration can be imported using the plugin's `arn`, e.g.,
+
+        ```sh
+         $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A summary description of the worker configuration.
+        :param pulumi.Input[str] name: The name of the worker configuration.
+        :param pulumi.Input[str] properties_file_content: Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
         """
         ...
     @overload
@@ -143,7 +200,29 @@ class WorkerConfiguration(pulumi.CustomResource):
                  args: WorkerConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a WorkerConfiguration resource with the given unique name, props, and options.
+        Provides an Amazon MSK Connect Worker Configuration Resource.
+
+        ## Example Usage
+        ### Basic configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.mskconnect.WorkerConfiguration("example", properties_file_content=\"\"\"key.converter=org.apache.kafka.connect.storage.StringConverter
+        value.converter=org.apache.kafka.connect.storage.StringConverter
+
+        \"\"\")
+        ```
+
+        ## Import
+
+        MSK Connect Worker Configuration can be imported using the plugin's `arn`, e.g.,
+
+        ```sh
+         $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
+        ```
+
         :param str resource_name: The name of the resource.
         :param WorkerConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,6 +279,11 @@ class WorkerConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: the Amazon Resource Name (ARN) of the worker configuration.
+        :param pulumi.Input[str] description: A summary description of the worker configuration.
+        :param pulumi.Input[int] latest_revision: an ID of the latest successfully created revision of the worker configuration.
+        :param pulumi.Input[str] name: The name of the worker configuration.
+        :param pulumi.Input[str] properties_file_content: Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -215,25 +299,40 @@ class WorkerConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        the Amazon Resource Name (ARN) of the worker configuration.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A summary description of the worker configuration.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> pulumi.Output[int]:
+        """
+        an ID of the latest successfully created revision of the worker configuration.
+        """
         return pulumi.get(self, "latest_revision")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the worker configuration.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="propertiesFileContent")
     def properties_file_content(self) -> pulumi.Output[str]:
+        """
+        Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+        """
         return pulumi.get(self, "properties_file_content")
 

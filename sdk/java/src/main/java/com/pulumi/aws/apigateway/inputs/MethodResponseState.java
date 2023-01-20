@@ -17,44 +17,96 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
 
     public static final MethodResponseState Empty = new MethodResponseState();
 
+    /**
+     * HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * 
+     */
     @Import(name="httpMethod")
     private @Nullable Output<String> httpMethod;
 
+    /**
+     * @return HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * 
+     */
     public Optional<Output<String>> httpMethod() {
         return Optional.ofNullable(this.httpMethod);
     }
 
+    /**
+     * API resource ID
+     * 
+     */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
+    /**
+     * @return API resource ID
+     * 
+     */
     public Optional<Output<String>> resourceId() {
         return Optional.ofNullable(this.resourceId);
     }
 
+    /**
+     * Map of the API models used for the response&#39;s content type
+     * 
+     */
     @Import(name="responseModels")
     private @Nullable Output<Map<String,String>> responseModels;
 
+    /**
+     * @return Map of the API models used for the response&#39;s content type
+     * 
+     */
     public Optional<Output<Map<String,String>>> responseModels() {
         return Optional.ofNullable(this.responseModels);
     }
 
+    /**
+     * Map of response parameters that can be sent to the caller.
+     * For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = true }`
+     * would define that the header `X-Some-Header` can be provided on the response.
+     * 
+     */
     @Import(name="responseParameters")
     private @Nullable Output<Map<String,Boolean>> responseParameters;
 
+    /**
+     * @return Map of response parameters that can be sent to the caller.
+     * For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = true }`
+     * would define that the header `X-Some-Header` can be provided on the response.
+     * 
+     */
     public Optional<Output<Map<String,Boolean>>> responseParameters() {
         return Optional.ofNullable(this.responseParameters);
     }
 
+    /**
+     * ID of the associated REST API
+     * 
+     */
     @Import(name="restApi")
     private @Nullable Output<String> restApi;
 
+    /**
+     * @return ID of the associated REST API
+     * 
+     */
     public Optional<Output<String>> restApi() {
         return Optional.ofNullable(this.restApi);
     }
 
+    /**
+     * HTTP status code
+     * 
+     */
     @Import(name="statusCode")
     private @Nullable Output<String> statusCode;
 
+    /**
+     * @return HTTP status code
+     * 
+     */
     public Optional<Output<String>> statusCode() {
         return Optional.ofNullable(this.statusCode);
     }
@@ -88,56 +140,132 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
             $ = new MethodResponseState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param httpMethod HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpMethod(@Nullable Output<String> httpMethod) {
             $.httpMethod = httpMethod;
             return this;
         }
 
+        /**
+         * @param httpMethod HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpMethod(String httpMethod) {
             return httpMethod(Output.of(httpMethod));
         }
 
+        /**
+         * @param resourceId API resource ID
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceId(@Nullable Output<String> resourceId) {
             $.resourceId = resourceId;
             return this;
         }
 
+        /**
+         * @param resourceId API resource ID
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
         }
 
+        /**
+         * @param responseModels Map of the API models used for the response&#39;s content type
+         * 
+         * @return builder
+         * 
+         */
         public Builder responseModels(@Nullable Output<Map<String,String>> responseModels) {
             $.responseModels = responseModels;
             return this;
         }
 
+        /**
+         * @param responseModels Map of the API models used for the response&#39;s content type
+         * 
+         * @return builder
+         * 
+         */
         public Builder responseModels(Map<String,String> responseModels) {
             return responseModels(Output.of(responseModels));
         }
 
+        /**
+         * @param responseParameters Map of response parameters that can be sent to the caller.
+         * For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = true }`
+         * would define that the header `X-Some-Header` can be provided on the response.
+         * 
+         * @return builder
+         * 
+         */
         public Builder responseParameters(@Nullable Output<Map<String,Boolean>> responseParameters) {
             $.responseParameters = responseParameters;
             return this;
         }
 
+        /**
+         * @param responseParameters Map of response parameters that can be sent to the caller.
+         * For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = true }`
+         * would define that the header `X-Some-Header` can be provided on the response.
+         * 
+         * @return builder
+         * 
+         */
         public Builder responseParameters(Map<String,Boolean> responseParameters) {
             return responseParameters(Output.of(responseParameters));
         }
 
+        /**
+         * @param restApi ID of the associated REST API
+         * 
+         * @return builder
+         * 
+         */
         public Builder restApi(@Nullable Output<String> restApi) {
             $.restApi = restApi;
             return this;
         }
 
+        /**
+         * @param restApi ID of the associated REST API
+         * 
+         * @return builder
+         * 
+         */
         public Builder restApi(String restApi) {
             return restApi(Output.of(restApi));
         }
 
+        /**
+         * @param statusCode HTTP status code
+         * 
+         * @return builder
+         * 
+         */
         public Builder statusCode(@Nullable Output<String> statusCode) {
             $.statusCode = statusCode;
             return this;
         }
 
+        /**
+         * @param statusCode HTTP status code
+         * 
+         * @return builder
+         * 
+         */
         public Builder statusCode(String statusCode) {
             return statusCode(Output.of(statusCode));
         }

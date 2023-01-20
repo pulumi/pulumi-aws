@@ -14,16 +14,32 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TagArgs Empty = new TagArgs();
 
+    /**
+     * Name of the Autoscaling Group to apply the tag to.
+     * 
+     */
     @Import(name="autoscalingGroupName", required=true)
     private Output<String> autoscalingGroupName;
 
+    /**
+     * @return Name of the Autoscaling Group to apply the tag to.
+     * 
+     */
     public Output<String> autoscalingGroupName() {
         return this.autoscalingGroupName;
     }
 
+    /**
+     * Tag to create. The `tag` block is documented below.
+     * 
+     */
     @Import(name="tag", required=true)
     private Output<TagTagArgs> tag;
 
+    /**
+     * @return Tag to create. The `tag` block is documented below.
+     * 
+     */
     public Output<TagTagArgs> tag() {
         return this.tag;
     }
@@ -53,20 +69,44 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TagArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param autoscalingGroupName Name of the Autoscaling Group to apply the tag to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoscalingGroupName(Output<String> autoscalingGroupName) {
             $.autoscalingGroupName = autoscalingGroupName;
             return this;
         }
 
+        /**
+         * @param autoscalingGroupName Name of the Autoscaling Group to apply the tag to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoscalingGroupName(String autoscalingGroupName) {
             return autoscalingGroupName(Output.of(autoscalingGroupName));
         }
 
+        /**
+         * @param tag Tag to create. The `tag` block is documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tag(Output<TagTagArgs> tag) {
             $.tag = tag;
             return this;
         }
 
+        /**
+         * @param tag Tag to create. The `tag` block is documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tag(TagTagArgs tag) {
             return tag(Output.of(tag));
         }

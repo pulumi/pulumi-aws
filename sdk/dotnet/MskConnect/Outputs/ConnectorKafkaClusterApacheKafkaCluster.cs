@@ -13,7 +13,13 @@ namespace Pulumi.Aws.MskConnect.Outputs
     [OutputType]
     public sealed class ConnectorKafkaClusterApacheKafkaCluster
     {
+        /// <summary>
+        /// The bootstrap servers of the cluster.
+        /// </summary>
         public readonly string BootstrapServers;
+        /// <summary>
+        /// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+        /// </summary>
         public readonly Outputs.ConnectorKafkaClusterApacheKafkaClusterVpc Vpc;
 
         [OutputConstructor]

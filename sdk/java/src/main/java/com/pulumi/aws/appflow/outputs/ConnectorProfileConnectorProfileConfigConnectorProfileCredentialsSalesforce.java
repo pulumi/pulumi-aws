@@ -12,21 +12,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce {
+    /**
+     * @return The access token used to access the connector on your behalf.
+     * 
+     */
     private @Nullable String accessToken;
+    /**
+     * @return The secret manager ARN, which contains the client ID and client secret of the connected app.
+     * 
+     */
     private @Nullable String clientCredentialsArn;
+    /**
+     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+     * 
+     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest oauthRequest;
+    /**
+     * @return The refresh token used to refresh an expired access token.
+     * 
+     */
     private @Nullable String refreshToken;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce() {}
+    /**
+     * @return The access token used to access the connector on your behalf.
+     * 
+     */
     public Optional<String> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
+    /**
+     * @return The secret manager ARN, which contains the client ID and client secret of the connected app.
+     * 
+     */
     public Optional<String> clientCredentialsArn() {
         return Optional.ofNullable(this.clientCredentialsArn);
     }
+    /**
+     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+     * 
+     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest> oauthRequest() {
         return Optional.ofNullable(this.oauthRequest);
     }
+    /**
+     * @return The refresh token used to refresh an expired access token.
+     * 
+     */
     public Optional<String> refreshToken() {
         return Optional.ofNullable(this.refreshToken);
     }

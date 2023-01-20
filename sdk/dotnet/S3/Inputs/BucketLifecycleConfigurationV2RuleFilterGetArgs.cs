@@ -12,18 +12,33 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketLifecycleConfigurationV2RuleFilterGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration block used to apply a logical `AND` to two or more predicates documented below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
+        /// </summary>
         [Input("and")]
         public Input<Inputs.BucketLifecycleConfigurationV2RuleFilterAndGetArgs>? And { get; set; }
 
+        /// <summary>
+        /// Minimum object size (in bytes) to which the rule applies.
+        /// </summary>
         [Input("objectSizeGreaterThan")]
         public Input<string>? ObjectSizeGreaterThan { get; set; }
 
+        /// <summary>
+        /// Maximum object size (in bytes) to which the rule applies.
+        /// </summary>
         [Input("objectSizeLessThan")]
         public Input<string>? ObjectSizeLessThan { get; set; }
 
+        /// <summary>
+        /// Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
+        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
+        /// <summary>
+        /// A configuration block for specifying a tag key and value documented below.
+        /// </summary>
         [Input("tag")]
         public Input<Inputs.BucketLifecycleConfigurationV2RuleFilterTagGetArgs>? Tag { get; set; }
 

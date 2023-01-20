@@ -15,9 +15,17 @@ public final class LaunchTemplateEnclaveOptionsArgs extends com.pulumi.resources
 
     public static final LaunchTemplateEnclaveOptionsArgs Empty = new LaunchTemplateEnclaveOptionsArgs();
 
+    /**
+     * If set to `true`, Nitro Enclaves will be enabled on the instance.
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return If set to `true`, Nitro Enclaves will be enabled on the instance.
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -46,11 +54,23 @@ public final class LaunchTemplateEnclaveOptionsArgs extends com.pulumi.resources
             $ = new LaunchTemplateEnclaveOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param enabled If set to `true`, Nitro Enclaves will be enabled on the instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled If set to `true`, Nitro Enclaves will be enabled on the instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

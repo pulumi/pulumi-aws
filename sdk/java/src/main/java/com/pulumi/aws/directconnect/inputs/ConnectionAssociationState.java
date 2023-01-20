@@ -15,16 +15,32 @@ public final class ConnectionAssociationState extends com.pulumi.resources.Resou
 
     public static final ConnectionAssociationState Empty = new ConnectionAssociationState();
 
+    /**
+     * The ID of the connection.
+     * 
+     */
     @Import(name="connectionId")
     private @Nullable Output<String> connectionId;
 
+    /**
+     * @return The ID of the connection.
+     * 
+     */
     public Optional<Output<String>> connectionId() {
         return Optional.ofNullable(this.connectionId);
     }
 
+    /**
+     * The ID of the LAG with which to associate the connection.
+     * 
+     */
     @Import(name="lagId")
     private @Nullable Output<String> lagId;
 
+    /**
+     * @return The ID of the LAG with which to associate the connection.
+     * 
+     */
     public Optional<Output<String>> lagId() {
         return Optional.ofNullable(this.lagId);
     }
@@ -54,20 +70,44 @@ public final class ConnectionAssociationState extends com.pulumi.resources.Resou
             $ = new ConnectionAssociationState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param connectionId The ID of the connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionId(@Nullable Output<String> connectionId) {
             $.connectionId = connectionId;
             return this;
         }
 
+        /**
+         * @param connectionId The ID of the connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionId(String connectionId) {
             return connectionId(Output.of(connectionId));
         }
 
+        /**
+         * @param lagId The ID of the LAG with which to associate the connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lagId(@Nullable Output<String> lagId) {
             $.lagId = lagId;
             return this;
         }
 
+        /**
+         * @param lagId The ID of the LAG with which to associate the connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lagId(String lagId) {
             return lagId(Output.of(lagId));
         }

@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class DataSourceHttpConfig
     {
+        /// <summary>
+        /// Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+        /// </summary>
         public readonly Outputs.DataSourceHttpConfigAuthorizationConfig? AuthorizationConfig;
+        /// <summary>
+        /// HTTP URL.
+        /// </summary>
         public readonly string Endpoint;
 
         [OutputConstructor]

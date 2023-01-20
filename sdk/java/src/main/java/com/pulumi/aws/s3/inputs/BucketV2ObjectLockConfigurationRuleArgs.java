@@ -14,9 +14,17 @@ public final class BucketV2ObjectLockConfigurationRuleArgs extends com.pulumi.re
 
     public static final BucketV2ObjectLockConfigurationRuleArgs Empty = new BucketV2ObjectLockConfigurationRuleArgs();
 
+    /**
+     * The default retention period that you want to apply to new objects placed in this bucket (documented below).
+     * 
+     */
     @Import(name="defaultRetentions", required=true)
     private Output<List<BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs>> defaultRetentions;
 
+    /**
+     * @return The default retention period that you want to apply to new objects placed in this bucket (documented below).
+     * 
+     */
     public Output<List<BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs>> defaultRetentions() {
         return this.defaultRetentions;
     }
@@ -45,15 +53,33 @@ public final class BucketV2ObjectLockConfigurationRuleArgs extends com.pulumi.re
             $ = new BucketV2ObjectLockConfigurationRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param defaultRetentions The default retention period that you want to apply to new objects placed in this bucket (documented below).
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultRetentions(Output<List<BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs>> defaultRetentions) {
             $.defaultRetentions = defaultRetentions;
             return this;
         }
 
+        /**
+         * @param defaultRetentions The default retention period that you want to apply to new objects placed in this bucket (documented below).
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultRetentions(List<BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs> defaultRetentions) {
             return defaultRetentions(Output.of(defaultRetentions));
         }
 
+        /**
+         * @param defaultRetentions The default retention period that you want to apply to new objects placed in this bucket (documented below).
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultRetentions(BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs... defaultRetentions) {
             return defaultRetentions(List.of(defaultRetentions));
         }

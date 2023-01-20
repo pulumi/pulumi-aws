@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides details about a specific Amazon Connect Security Profile.
+ *
+ * ## Example Usage
+ *
+ * By `name`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getSecurityProfile({
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Example",
+ * });
+ * ```
+ *
+ * By `securityProfileId`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getSecurityProfile({
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     securityProfileId: "cccccccc-bbbb-cccc-dddd-111111111111",
+ * });
+ * ```
+ */
 export function getSecurityProfile(args: GetSecurityProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityProfileResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -19,9 +48,21 @@ export function getSecurityProfile(args: GetSecurityProfileArgs, opts?: pulumi.I
  * A collection of arguments for invoking getSecurityProfile.
  */
 export interface GetSecurityProfileArgs {
+    /**
+     * Reference to the hosting Amazon Connect Instance
+     */
     instanceId: string;
+    /**
+     * Returns information on a specific Security Profile by name
+     */
     name?: string;
+    /**
+     * Returns information on a specific Security Profile by Security Profile id
+     */
     securityProfileId?: string;
+    /**
+     * Map of tags to assign to the Security Profile.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -29,7 +70,13 @@ export interface GetSecurityProfileArgs {
  * A collection of values returned by getSecurityProfile.
  */
 export interface GetSecurityProfileResult {
+    /**
+     * ARN of the Security Profile.
+     */
     readonly arn: string;
+    /**
+     * Description of the Security Profile.
+     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -37,11 +84,49 @@ export interface GetSecurityProfileResult {
     readonly id: string;
     readonly instanceId: string;
     readonly name: string;
+    /**
+     * The organization resource identifier for the security profile.
+     */
     readonly organizationResourceId: string;
+    /**
+     * List of permissions assigned to the security profile.
+     */
     readonly permissions: string[];
     readonly securityProfileId: string;
+    /**
+     * Map of tags to assign to the Security Profile.
+     */
     readonly tags: {[key: string]: string};
 }
+/**
+ * Provides details about a specific Amazon Connect Security Profile.
+ *
+ * ## Example Usage
+ *
+ * By `name`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getSecurityProfile({
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Example",
+ * });
+ * ```
+ *
+ * By `securityProfileId`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getSecurityProfile({
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     securityProfileId: "cccccccc-bbbb-cccc-dddd-111111111111",
+ * });
+ * ```
+ */
 export function getSecurityProfileOutput(args: GetSecurityProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityProfileResult> {
     return pulumi.output(args).apply((a: any) => getSecurityProfile(a, opts))
 }
@@ -50,8 +135,20 @@ export function getSecurityProfileOutput(args: GetSecurityProfileOutputArgs, opt
  * A collection of arguments for invoking getSecurityProfile.
  */
 export interface GetSecurityProfileOutputArgs {
+    /**
+     * Reference to the hosting Amazon Connect Instance
+     */
     instanceId: pulumi.Input<string>;
+    /**
+     * Returns information on a specific Security Profile by name
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Returns information on a specific Security Profile by Security Profile id
+     */
     securityProfileId?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the Security Profile.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

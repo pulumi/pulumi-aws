@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBundleUserStorage {
+    /**
+     * @return Size of the user storage.
+     * 
+     */
     private String capacity;
 
     private GetBundleUserStorage() {}
+    /**
+     * @return Size of the user storage.
+     * 
+     */
     public String capacity() {
         return this.capacity;
     }

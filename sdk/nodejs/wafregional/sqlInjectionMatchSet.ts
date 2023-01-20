@@ -7,6 +7,31 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a WAF Regional SQL Injection Match Set Resource for use with Application Load Balancer.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const sqlInjectionMatchSet = new aws.wafregional.SqlInjectionMatchSet("sqlInjectionMatchSet", {sqlInjectionMatchTuples: [{
+ *     fieldToMatch: {
+ *         type: "QUERY_STRING",
+ *     },
+ *     textTransformation: "URL_DECODE",
+ * }]});
+ * ```
+ *
+ * ## Import
+ *
+ * WAF Regional Sql Injection Match Set can be imported using the id, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet sql_injection_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * ```
+ */
 export class SqlInjectionMatchSet extends pulumi.CustomResource {
     /**
      * Get an existing SqlInjectionMatchSet resource's state with the given name, ID, and optional extra
@@ -35,7 +60,13 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === SqlInjectionMatchSet.__pulumiType;
     }
 
+    /**
+     * The name or description of the SizeConstraintSet.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+     */
     public readonly sqlInjectionMatchTuples!: pulumi.Output<outputs.wafregional.SqlInjectionMatchSetSqlInjectionMatchTuple[] | undefined>;
 
     /**
@@ -67,7 +98,13 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SqlInjectionMatchSet resources.
  */
 export interface SqlInjectionMatchSetState {
+    /**
+     * The name or description of the SizeConstraintSet.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+     */
     sqlInjectionMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.SqlInjectionMatchSetSqlInjectionMatchTuple>[]>;
 }
 
@@ -75,6 +112,12 @@ export interface SqlInjectionMatchSetState {
  * The set of arguments for constructing a SqlInjectionMatchSet resource.
  */
 export interface SqlInjectionMatchSetArgs {
+    /**
+     * The name or description of the SizeConstraintSet.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+     */
     sqlInjectionMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.SqlInjectionMatchSetSqlInjectionMatchTuple>[]>;
 }

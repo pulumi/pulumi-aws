@@ -16,37 +16,77 @@ public final class PolicyAttachmentState extends com.pulumi.resources.ResourceAr
 
     public static final PolicyAttachmentState Empty = new PolicyAttachmentState();
 
+    /**
+     * The group(s) the policy should be applied to
+     * 
+     */
     @Import(name="groups")
     private @Nullable Output<List<String>> groups;
 
+    /**
+     * @return The group(s) the policy should be applied to
+     * 
+     */
     public Optional<Output<List<String>>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
+    /**
+     * The name of the attachment. This cannot be an empty string.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the attachment. This cannot be an empty string.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The ARN of the policy you want to apply
+     * 
+     */
     @Import(name="policyArn")
     private @Nullable Output<String> policyArn;
 
+    /**
+     * @return The ARN of the policy you want to apply
+     * 
+     */
     public Optional<Output<String>> policyArn() {
         return Optional.ofNullable(this.policyArn);
     }
 
+    /**
+     * The role(s) the policy should be applied to
+     * 
+     */
     @Import(name="roles")
     private @Nullable Output<List<String>> roles;
 
+    /**
+     * @return The role(s) the policy should be applied to
+     * 
+     */
     public Optional<Output<List<String>>> roles() {
         return Optional.ofNullable(this.roles);
     }
 
+    /**
+     * The user(s) the policy should be applied to
+     * 
+     */
     @Import(name="users")
     private @Nullable Output<List<String>> users;
 
+    /**
+     * @return The user(s) the policy should be applied to
+     * 
+     */
     public Optional<Output<List<String>>> users() {
         return Optional.ofNullable(this.users);
     }
@@ -79,59 +119,137 @@ public final class PolicyAttachmentState extends com.pulumi.resources.ResourceAr
             $ = new PolicyAttachmentState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param groups The group(s) the policy should be applied to
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(@Nullable Output<List<String>> groups) {
             $.groups = groups;
             return this;
         }
 
+        /**
+         * @param groups The group(s) the policy should be applied to
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(List<String> groups) {
             return groups(Output.of(groups));
         }
 
+        /**
+         * @param groups The group(s) the policy should be applied to
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(String... groups) {
             return groups(List.of(groups));
         }
 
+        /**
+         * @param name The name of the attachment. This cannot be an empty string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the attachment. This cannot be an empty string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param policyArn The ARN of the policy you want to apply
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyArn(@Nullable Output<String> policyArn) {
             $.policyArn = policyArn;
             return this;
         }
 
+        /**
+         * @param policyArn The ARN of the policy you want to apply
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyArn(String policyArn) {
             return policyArn(Output.of(policyArn));
         }
 
+        /**
+         * @param roles The role(s) the policy should be applied to
+         * 
+         * @return builder
+         * 
+         */
         public Builder roles(@Nullable Output<List<String>> roles) {
             $.roles = roles;
             return this;
         }
 
+        /**
+         * @param roles The role(s) the policy should be applied to
+         * 
+         * @return builder
+         * 
+         */
         public Builder roles(List<String> roles) {
             return roles(Output.of(roles));
         }
 
+        /**
+         * @param roles The role(s) the policy should be applied to
+         * 
+         * @return builder
+         * 
+         */
         public Builder roles(String... roles) {
             return roles(List.of(roles));
         }
 
+        /**
+         * @param users The user(s) the policy should be applied to
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(@Nullable Output<List<String>> users) {
             $.users = users;
             return this;
         }
 
+        /**
+         * @param users The user(s) the policy should be applied to
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(List<String> users) {
             return users(Output.of(users));
         }
 
+        /**
+         * @param users The user(s) the policy should be applied to
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(String... users) {
             return users(List.of(users));
         }

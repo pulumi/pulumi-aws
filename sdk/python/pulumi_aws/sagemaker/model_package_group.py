@@ -19,6 +19,9 @@ class ModelPackageGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ModelPackageGroup resource.
+        :param pulumi.Input[str] model_package_group_name: The name of the model group.
+        :param pulumi.Input[str] model_package_group_description: A description for the model group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "model_package_group_name", model_package_group_name)
         if model_package_group_description is not None:
@@ -29,6 +32,9 @@ class ModelPackageGroupArgs:
     @property
     @pulumi.getter(name="modelPackageGroupName")
     def model_package_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the model group.
+        """
         return pulumi.get(self, "model_package_group_name")
 
     @model_package_group_name.setter
@@ -38,6 +44,9 @@ class ModelPackageGroupArgs:
     @property
     @pulumi.getter(name="modelPackageGroupDescription")
     def model_package_group_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the model group.
+        """
         return pulumi.get(self, "model_package_group_description")
 
     @model_package_group_description.setter
@@ -47,6 +56,9 @@ class ModelPackageGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -64,6 +76,11 @@ class _ModelPackageGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ModelPackageGroup resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+        :param pulumi.Input[str] model_package_group_description: A description for the model group.
+        :param pulumi.Input[str] model_package_group_name: The name of the model group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -79,6 +96,9 @@ class _ModelPackageGroupState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -88,6 +108,9 @@ class _ModelPackageGroupState:
     @property
     @pulumi.getter(name="modelPackageGroupDescription")
     def model_package_group_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the model group.
+        """
         return pulumi.get(self, "model_package_group_description")
 
     @model_package_group_description.setter
@@ -97,6 +120,9 @@ class _ModelPackageGroupState:
     @property
     @pulumi.getter(name="modelPackageGroupName")
     def model_package_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the model group.
+        """
         return pulumi.get(self, "model_package_group_name")
 
     @model_package_group_name.setter
@@ -106,6 +132,9 @@ class _ModelPackageGroupState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -115,6 +144,9 @@ class _ModelPackageGroupState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -132,9 +164,31 @@ class ModelPackageGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a ModelPackageGroup resource with the given unique name, props, and options.
+        Provides a SageMaker Model Package Group resource.
+
+        ## Example Usage
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sagemaker.ModelPackageGroup("example", model_package_group_name="example")
+        ```
+
+        ## Import
+
+        SageMaker Model Package Groups can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] model_package_group_description: A description for the model group.
+        :param pulumi.Input[str] model_package_group_name: The name of the model group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -143,7 +197,26 @@ class ModelPackageGroup(pulumi.CustomResource):
                  args: ModelPackageGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ModelPackageGroup resource with the given unique name, props, and options.
+        Provides a SageMaker Model Package Group resource.
+
+        ## Example Usage
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sagemaker.ModelPackageGroup("example", model_package_group_name="example")
+        ```
+
+        ## Import
+
+        SageMaker Model Package Groups can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param ModelPackageGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,6 +273,11 @@ class ModelPackageGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+        :param pulumi.Input[str] model_package_group_description: A description for the model group.
+        :param pulumi.Input[str] model_package_group_name: The name of the model group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -215,25 +293,40 @@ class ModelPackageGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="modelPackageGroupDescription")
     def model_package_group_description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description for the model group.
+        """
         return pulumi.get(self, "model_package_group_description")
 
     @property
     @pulumi.getter(name="modelPackageGroupName")
     def model_package_group_name(self) -> pulumi.Output[str]:
+        """
+        The name of the model group.
+        """
         return pulumi.get(self, "model_package_group_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

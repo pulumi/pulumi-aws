@@ -17,23 +17,47 @@ public final class GetNetworkInsightsPathPlainArgs extends com.pulumi.resources.
 
     public static final GetNetworkInsightsPathPlainArgs Empty = new GetNetworkInsightsPathPlainArgs();
 
+    /**
+     * Configuration block(s) for filtering. Detailed below.
+     * 
+     */
     @Import(name="filters")
     private @Nullable List<GetNetworkInsightsPathFilter> filters;
 
+    /**
+     * @return Configuration block(s) for filtering. Detailed below.
+     * 
+     */
     public Optional<List<GetNetworkInsightsPathFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
+    /**
+     * ID of the Network Insights Path to select.
+     * 
+     */
     @Import(name="networkInsightsPathId")
     private @Nullable String networkInsightsPathId;
 
+    /**
+     * @return ID of the Network Insights Path to select.
+     * 
+     */
     public Optional<String> networkInsightsPathId() {
         return Optional.ofNullable(this.networkInsightsPathId);
     }
 
+    /**
+     * Map of tags assigned to the resource.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -64,20 +88,44 @@ public final class GetNetworkInsightsPathPlainArgs extends com.pulumi.resources.
             $ = new GetNetworkInsightsPathPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable List<GetNetworkInsightsPathFilter> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(GetNetworkInsightsPathFilter... filters) {
             return filters(List.of(filters));
         }
 
+        /**
+         * @param networkInsightsPathId ID of the Network Insights Path to select.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkInsightsPathId(@Nullable String networkInsightsPathId) {
             $.networkInsightsPathId = networkInsightsPathId;
             return this;
         }
 
+        /**
+         * @param tags Map of tags assigned to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

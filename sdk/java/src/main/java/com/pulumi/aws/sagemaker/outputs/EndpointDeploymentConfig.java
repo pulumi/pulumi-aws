@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointDeploymentConfig {
+    /**
+     * @return Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
+     * 
+     */
     private @Nullable EndpointDeploymentConfigAutoRollbackConfiguration autoRollbackConfiguration;
+    /**
+     * @return Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+     * 
+     */
     private EndpointDeploymentConfigBlueGreenUpdatePolicy blueGreenUpdatePolicy;
 
     private EndpointDeploymentConfig() {}
+    /**
+     * @return Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
+     * 
+     */
     public Optional<EndpointDeploymentConfigAutoRollbackConfiguration> autoRollbackConfiguration() {
         return Optional.ofNullable(this.autoRollbackConfiguration);
     }
+    /**
+     * @return Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+     * 
+     */
     public EndpointDeploymentConfigBlueGreenUpdatePolicy blueGreenUpdatePolicy() {
         return this.blueGreenUpdatePolicy;
     }

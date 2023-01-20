@@ -15,23 +15,47 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DomainNameArgs Empty = new DomainNameArgs();
 
+    /**
+     * ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+     * 
+     */
     @Import(name="certificateArn", required=true)
     private Output<String> certificateArn;
 
+    /**
+     * @return ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+     * 
+     */
     public Output<String> certificateArn() {
         return this.certificateArn;
     }
 
+    /**
+     * A description of the Domain Name.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return A description of the Domain Name.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * Domain name.
+     * 
+     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
+    /**
+     * @return Domain name.
+     * 
+     */
     public Output<String> domainName() {
         return this.domainName;
     }
@@ -62,29 +86,65 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
             $ = new DomainNameArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param certificateArn ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateArn(Output<String> certificateArn) {
             $.certificateArn = certificateArn;
             return this;
         }
 
+        /**
+         * @param certificateArn ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateArn(String certificateArn) {
             return certificateArn(Output.of(certificateArn));
         }
 
+        /**
+         * @param description A description of the Domain Name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description A description of the Domain Name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param domainName Domain name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
+        /**
+         * @param domainName Domain name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }

@@ -17,23 +17,47 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
 
     public static final CrawlerDeltaTargetArgs Empty = new CrawlerDeltaTargetArgs();
 
+    /**
+     * The name of the connection to use to connect to the Delta table target.
+     * 
+     */
     @Import(name="connectionName")
     private @Nullable Output<String> connectionName;
 
+    /**
+     * @return The name of the connection to use to connect to the Delta table target.
+     * 
+     */
     public Optional<Output<String>> connectionName() {
         return Optional.ofNullable(this.connectionName);
     }
 
+    /**
+     * A list of the Amazon S3 paths to the Delta tables.
+     * 
+     */
     @Import(name="deltaTables", required=true)
     private Output<List<String>> deltaTables;
 
+    /**
+     * @return A list of the Amazon S3 paths to the Delta tables.
+     * 
+     */
     public Output<List<String>> deltaTables() {
         return this.deltaTables;
     }
 
+    /**
+     * Specifies whether to write the manifest files to the Delta table path.
+     * 
+     */
     @Import(name="writeManifest", required=true)
     private Output<Boolean> writeManifest;
 
+    /**
+     * @return Specifies whether to write the manifest files to the Delta table path.
+     * 
+     */
     public Output<Boolean> writeManifest() {
         return this.writeManifest;
     }
@@ -64,33 +88,75 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
             $ = new CrawlerDeltaTargetArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param connectionName The name of the connection to use to connect to the Delta table target.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionName(@Nullable Output<String> connectionName) {
             $.connectionName = connectionName;
             return this;
         }
 
+        /**
+         * @param connectionName The name of the connection to use to connect to the Delta table target.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionName(String connectionName) {
             return connectionName(Output.of(connectionName));
         }
 
+        /**
+         * @param deltaTables A list of the Amazon S3 paths to the Delta tables.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deltaTables(Output<List<String>> deltaTables) {
             $.deltaTables = deltaTables;
             return this;
         }
 
+        /**
+         * @param deltaTables A list of the Amazon S3 paths to the Delta tables.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deltaTables(List<String> deltaTables) {
             return deltaTables(Output.of(deltaTables));
         }
 
+        /**
+         * @param deltaTables A list of the Amazon S3 paths to the Delta tables.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deltaTables(String... deltaTables) {
             return deltaTables(List.of(deltaTables));
         }
 
+        /**
+         * @param writeManifest Specifies whether to write the manifest files to the Delta table path.
+         * 
+         * @return builder
+         * 
+         */
         public Builder writeManifest(Output<Boolean> writeManifest) {
             $.writeManifest = writeManifest;
             return this;
         }
 
+        /**
+         * @param writeManifest Specifies whether to write the manifest files to the Delta table path.
+         * 
+         * @return builder
+         * 
+         */
         public Builder writeManifest(Boolean writeManifest) {
             return writeManifest(Output.of(writeManifest));
         }

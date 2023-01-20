@@ -10,6 +10,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This data source can be used to fetch information about a specific
+// EventBridge event bus. Use this data source to compute the ARN of
+// an event bus, given the name of the bus.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.LookupEventBus(ctx, &cloudwatch.LookupEventBusArgs{
+//				Name: "example-bus-name",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupEventBus(ctx *pulumi.Context, args *LookupEventBusArgs, opts ...pulumi.InvokeOption) (*LookupEventBusResult, error) {
 	var rv LookupEventBusResult
 	err := ctx.Invoke("aws:cloudwatch/getEventBus:getEventBus", args, &rv, opts...)
@@ -21,11 +50,13 @@ func LookupEventBus(ctx *pulumi.Context, args *LookupEventBusArgs, opts ...pulum
 
 // A collection of arguments for invoking getEventBus.
 type LookupEventBusArgs struct {
+	// Friendly EventBridge event bus name.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getEventBus.
 type LookupEventBusResult struct {
+	// ARN.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
@@ -47,6 +78,7 @@ func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, op
 
 // A collection of arguments for invoking getEventBus.
 type LookupEventBusOutputArgs struct {
+	// Friendly EventBridge event bus name.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -69,6 +101,7 @@ func (o LookupEventBusResultOutput) ToLookupEventBusResultOutputWithContext(ctx 
 	return o
 }
 
+// ARN.
 func (o LookupEventBusResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventBusResult) string { return v.Arn }).(pulumi.StringOutput)
 }

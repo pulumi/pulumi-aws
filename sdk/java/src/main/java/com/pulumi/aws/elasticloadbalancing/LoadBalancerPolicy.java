@@ -16,6 +16,111 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a load balancer policy, which can be attached to an ELB listener or backend server.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elb.LoadBalancer;
+ * import com.pulumi.aws.elb.LoadBalancerArgs;
+ * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
+ * import com.pulumi.aws.elb.LoadBalancerPolicy;
+ * import com.pulumi.aws.elb.LoadBalancerPolicyArgs;
+ * import com.pulumi.aws.elb.inputs.LoadBalancerPolicyPolicyAttributeArgs;
+ * import com.pulumi.aws.elb.LoadBalancerBackendServerPolicy;
+ * import com.pulumi.aws.elb.LoadBalancerBackendServerPolicyArgs;
+ * import com.pulumi.aws.elb.ListenerPolicy;
+ * import com.pulumi.aws.elb.ListenerPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var wu_tang = new LoadBalancer(&#34;wu-tang&#34;, LoadBalancerArgs.builder()        
+ *             .availabilityZones(&#34;us-east-1a&#34;)
+ *             .listeners(LoadBalancerListenerArgs.builder()
+ *                 .instancePort(443)
+ *                 .instanceProtocol(&#34;http&#34;)
+ *                 .lbPort(443)
+ *                 .lbProtocol(&#34;https&#34;)
+ *                 .sslCertificateId(&#34;arn:aws:iam::000000000000:server-certificate/wu-tang.net&#34;)
+ *                 .build())
+ *             .tags(Map.of(&#34;Name&#34;, &#34;wu-tang&#34;))
+ *             .build());
+ * 
+ *         var wu_tang_ca_pubkey_policy = new LoadBalancerPolicy(&#34;wu-tang-ca-pubkey-policy&#34;, LoadBalancerPolicyArgs.builder()        
+ *             .loadBalancerName(wu_tang.name())
+ *             .policyName(&#34;wu-tang-ca-pubkey-policy&#34;)
+ *             .policyTypeName(&#34;PublicKeyPolicyType&#34;)
+ *             .policyAttributes(LoadBalancerPolicyPolicyAttributeArgs.builder()
+ *                 .name(&#34;PublicKey&#34;)
+ *                 .value(Files.readString(Paths.get(&#34;wu-tang-pubkey&#34;)))
+ *                 .build())
+ *             .build());
+ * 
+ *         var wu_tang_root_ca_backend_auth_policy = new LoadBalancerPolicy(&#34;wu-tang-root-ca-backend-auth-policy&#34;, LoadBalancerPolicyArgs.builder()        
+ *             .loadBalancerName(wu_tang.name())
+ *             .policyName(&#34;wu-tang-root-ca-backend-auth-policy&#34;)
+ *             .policyTypeName(&#34;BackendServerAuthenticationPolicyType&#34;)
+ *             .policyAttributes(LoadBalancerPolicyPolicyAttributeArgs.builder()
+ *                 .name(&#34;PublicKeyPolicyName&#34;)
+ *                 .value(aws_load_balancer_policy.wu-tang-root-ca-pubkey-policy().policy_name())
+ *                 .build())
+ *             .build());
+ * 
+ *         var wu_tang_ssl = new LoadBalancerPolicy(&#34;wu-tang-ssl&#34;, LoadBalancerPolicyArgs.builder()        
+ *             .loadBalancerName(wu_tang.name())
+ *             .policyName(&#34;wu-tang-ssl&#34;)
+ *             .policyTypeName(&#34;SSLNegotiationPolicyType&#34;)
+ *             .policyAttributes(            
+ *                 LoadBalancerPolicyPolicyAttributeArgs.builder()
+ *                     .name(&#34;ECDHE-ECDSA-AES128-GCM-SHA256&#34;)
+ *                     .value(&#34;true&#34;)
+ *                     .build(),
+ *                 LoadBalancerPolicyPolicyAttributeArgs.builder()
+ *                     .name(&#34;Protocol-TLSv1.2&#34;)
+ *                     .value(&#34;true&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *         var wu_tang_ssl_tls_1_1 = new LoadBalancerPolicy(&#34;wu-tang-ssl-tls-1-1&#34;, LoadBalancerPolicyArgs.builder()        
+ *             .loadBalancerName(wu_tang.name())
+ *             .policyName(&#34;wu-tang-ssl&#34;)
+ *             .policyTypeName(&#34;SSLNegotiationPolicyType&#34;)
+ *             .policyAttributes(LoadBalancerPolicyPolicyAttributeArgs.builder()
+ *                 .name(&#34;Reference-Security-Policy&#34;)
+ *                 .value(&#34;ELBSecurityPolicy-TLS-1-1-2017-01&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var wu_tang_backend_auth_policies_443 = new LoadBalancerBackendServerPolicy(&#34;wu-tang-backend-auth-policies-443&#34;, LoadBalancerBackendServerPolicyArgs.builder()        
+ *             .loadBalancerName(wu_tang.name())
+ *             .instancePort(443)
+ *             .policyNames(wu_tang_root_ca_backend_auth_policy.policyName())
+ *             .build());
+ * 
+ *         var wu_tang_listener_policies_443 = new ListenerPolicy(&#34;wu-tang-listener-policies-443&#34;, ListenerPolicyArgs.builder()        
+ *             .loadBalancerName(wu_tang.name())
+ *             .loadBalancerPort(443)
+ *             .policyNames(wu_tang_ssl.policyName())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * @deprecated
  * aws.elasticloadbalancing.LoadBalancerPolicy has been deprecated in favor of aws.elb.LoadBalancerPolicy
  * 
@@ -23,27 +128,59 @@ import javax.annotation.Nullable;
 @Deprecated /* aws.elasticloadbalancing.LoadBalancerPolicy has been deprecated in favor of aws.elb.LoadBalancerPolicy */
 @ResourceType(type="aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy")
 public class LoadBalancerPolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * The load balancer on which the policy is defined.
+     * 
+     */
     @Export(name="loadBalancerName", refs={String.class}, tree="[0]")
     private Output<String> loadBalancerName;
 
+    /**
+     * @return The load balancer on which the policy is defined.
+     * 
+     */
     public Output<String> loadBalancerName() {
         return this.loadBalancerName;
     }
+    /**
+     * Policy attribute to apply to the policy.
+     * 
+     */
     @Export(name="policyAttributes", refs={List.class,LoadBalancerPolicyPolicyAttribute.class}, tree="[0,1]")
     private Output<List<LoadBalancerPolicyPolicyAttribute>> policyAttributes;
 
+    /**
+     * @return Policy attribute to apply to the policy.
+     * 
+     */
     public Output<List<LoadBalancerPolicyPolicyAttribute>> policyAttributes() {
         return this.policyAttributes;
     }
+    /**
+     * The name of the load balancer policy.
+     * 
+     */
     @Export(name="policyName", refs={String.class}, tree="[0]")
     private Output<String> policyName;
 
+    /**
+     * @return The name of the load balancer policy.
+     * 
+     */
     public Output<String> policyName() {
         return this.policyName;
     }
+    /**
+     * The policy type.
+     * 
+     */
     @Export(name="policyTypeName", refs={String.class}, tree="[0]")
     private Output<String> policyTypeName;
 
+    /**
+     * @return The policy type.
+     * 
+     */
     public Output<String> policyTypeName() {
         return this.policyTypeName;
     }

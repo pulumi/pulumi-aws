@@ -9,30 +9,90 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppRunner
 {
+    /// <summary>
+    /// Manages an App Runner Observability Configuration.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.AppRunner.ObservabilityConfiguration("example", new()
+    ///     {
+    ///         ObservabilityConfigurationName = "example",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example-apprunner-observability-configuration" },
+    ///         },
+    ///         TraceConfiguration = new Aws.AppRunner.Inputs.ObservabilityConfigurationTraceConfigurationArgs
+    ///         {
+    ///             Vendor = "AWSXRAY",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// App Runner Observability Configuration can be imported by using the `arn`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example "arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:apprunner/observabilityConfiguration:ObservabilityConfiguration")]
     public partial class ObservabilityConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of this observability configuration.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
+        /// </summary>
         [Output("latest")]
         public Output<bool> Latest { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the observability configuration.
+        /// </summary>
         [Output("observabilityConfigurationName")]
         public Output<string> ObservabilityConfigurationName { get; private set; } = null!;
 
+        /// <summary>
+        /// The revision of this observability configuration.
+        /// </summary>
         [Output("observabilityConfigurationRevision")]
         public Output<int> ObservabilityConfigurationRevision { get; private set; } = null!;
 
+        /// <summary>
+        /// Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+        /// </summary>
         [Output("traceConfiguration")]
         public Output<Outputs.ObservabilityConfigurationTraceConfiguration?> TraceConfiguration { get; private set; } = null!;
 
@@ -82,17 +142,27 @@ namespace Pulumi.Aws.AppRunner
 
     public sealed class ObservabilityConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the observability configuration.
+        /// </summary>
         [Input("observabilityConfigurationName", required: true)]
         public Input<string> ObservabilityConfigurationName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+        /// </summary>
         [Input("traceConfiguration")]
         public Input<Inputs.ObservabilityConfigurationTraceConfigurationArgs>? TraceConfiguration { get; set; }
 
@@ -104,23 +174,42 @@ namespace Pulumi.Aws.AppRunner
 
     public sealed class ObservabilityConfigurationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of this observability configuration.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
+        /// </summary>
         [Input("latest")]
         public Input<bool>? Latest { get; set; }
 
+        /// <summary>
+        /// Name of the observability configuration.
+        /// </summary>
         [Input("observabilityConfigurationName")]
         public Input<string>? ObservabilityConfigurationName { get; set; }
 
+        /// <summary>
+        /// The revision of this observability configuration.
+        /// </summary>
         [Input("observabilityConfigurationRevision")]
         public Input<int>? ObservabilityConfigurationRevision { get; set; }
 
+        /// <summary>
+        /// Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -129,12 +218,19 @@ namespace Pulumi.Aws.AppRunner
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+        /// </summary>
         [Input("traceConfiguration")]
         public Input<Inputs.ObservabilityConfigurationTraceConfigurationGetArgs>? TraceConfiguration { get; set; }
 

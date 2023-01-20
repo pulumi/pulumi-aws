@@ -19,89 +19,365 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an AppSync Resolver.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appsync.GraphQLApi;
+ * import com.pulumi.aws.appsync.GraphQLApiArgs;
+ * import com.pulumi.aws.appsync.DataSource;
+ * import com.pulumi.aws.appsync.DataSourceArgs;
+ * import com.pulumi.aws.appsync.inputs.DataSourceHttpConfigArgs;
+ * import com.pulumi.aws.appsync.Resolver;
+ * import com.pulumi.aws.appsync.ResolverArgs;
+ * import com.pulumi.aws.appsync.inputs.ResolverCachingConfigArgs;
+ * import com.pulumi.aws.appsync.inputs.ResolverPipelineConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testGraphQLApi = new GraphQLApi(&#34;testGraphQLApi&#34;, GraphQLApiArgs.builder()        
+ *             .authenticationType(&#34;API_KEY&#34;)
+ *             .schema(&#34;&#34;&#34;
+ * type Mutation {
+ * 	putPost(id: ID!, title: String!): Post
+ * }
+ * 
+ * type Post {
+ * 	id: ID!
+ * 	title: String!
+ * }
+ * 
+ * type Query {
+ * 	singlePost(id: ID!): Post
+ * }
+ * 
+ * schema {
+ * 	query: Query
+ * 	mutation: Mutation
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *         var testDataSource = new DataSource(&#34;testDataSource&#34;, DataSourceArgs.builder()        
+ *             .apiId(testGraphQLApi.id())
+ *             .name(&#34;my_example&#34;)
+ *             .type(&#34;HTTP&#34;)
+ *             .httpConfig(DataSourceHttpConfigArgs.builder()
+ *                 .endpoint(&#34;http://example.com&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var testResolver = new Resolver(&#34;testResolver&#34;, ResolverArgs.builder()        
+ *             .apiId(testGraphQLApi.id())
+ *             .field(&#34;singlePost&#34;)
+ *             .type(&#34;Query&#34;)
+ *             .dataSource(testDataSource.name())
+ *             .requestTemplate(&#34;&#34;&#34;
+ * {
+ *     &#34;version&#34;: &#34;2018-05-29&#34;,
+ *     &#34;method&#34;: &#34;GET&#34;,
+ *     &#34;resourcePath&#34;: &#34;/&#34;,
+ *     &#34;params&#34;:{
+ *         &#34;headers&#34;: $utils.http.copyheaders($ctx.request.headers)
+ *     }
+ * }
+ *             &#34;&#34;&#34;)
+ *             .responseTemplate(&#34;&#34;&#34;
+ * #if($ctx.result.statusCode == 200)
+ *     $ctx.result.body
+ * #else
+ *     $utils.appendError($ctx.result.body, $ctx.result.statusCode)
+ * #end
+ *             &#34;&#34;&#34;)
+ *             .cachingConfig(ResolverCachingConfigArgs.builder()
+ *                 .cachingKeys(                
+ *                     &#34;$context.identity.sub&#34;,
+ *                     &#34;$context.arguments.id&#34;)
+ *                 .ttl(60)
+ *                 .build())
+ *             .build());
+ * 
+ *         var mutationPipelineTest = new Resolver(&#34;mutationPipelineTest&#34;, ResolverArgs.builder()        
+ *             .type(&#34;Mutation&#34;)
+ *             .apiId(testGraphQLApi.id())
+ *             .field(&#34;pipelineTest&#34;)
+ *             .requestTemplate(&#34;{}&#34;)
+ *             .responseTemplate(&#34;$util.toJson($ctx.result)&#34;)
+ *             .kind(&#34;PIPELINE&#34;)
+ *             .pipelineConfig(ResolverPipelineConfigArgs.builder()
+ *                 .functions(                
+ *                     aws_appsync_function.test1().function_id(),
+ *                     aws_appsync_function.test2().function_id(),
+ *                     aws_appsync_function.test3().function_id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### JS
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appsync.Resolver;
+ * import com.pulumi.aws.appsync.ResolverArgs;
+ * import com.pulumi.aws.appsync.inputs.ResolverRuntimeArgs;
+ * import com.pulumi.aws.appsync.inputs.ResolverPipelineConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Resolver(&#34;example&#34;, ResolverArgs.builder()        
+ *             .type(&#34;Query&#34;)
+ *             .apiId(aws_appsync_graphql_api.test().id())
+ *             .field(&#34;pipelineTest&#34;)
+ *             .kind(&#34;PIPELINE&#34;)
+ *             .code(Files.readString(Paths.get(&#34;some-code-dir&#34;)))
+ *             .runtime(ResolverRuntimeArgs.builder()
+ *                 .name(&#34;APPSYNC_JS&#34;)
+ *                 .runtimeVersion(&#34;1.0.0&#34;)
+ *                 .build())
+ *             .pipelineConfig(ResolverPipelineConfigArgs.builder()
+ *                 .functions(aws_appsync_function.test().function_id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_appsync_resolver` can be imported with their `api_id`, a hyphen, `type`, a hypen and `field` e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
+ * ```
+ * 
+ */
 @ResourceType(type="aws:appsync/resolver:Resolver")
 public class Resolver extends com.pulumi.resources.CustomResource {
+    /**
+     * API ID for the GraphQL API.
+     * 
+     */
     @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
+    /**
+     * @return API ID for the GraphQL API.
+     * 
+     */
     public Output<String> apiId() {
         return this.apiId;
     }
+    /**
+     * ARN
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The Caching Config. See Caching Config.
+     * 
+     */
     @Export(name="cachingConfig", refs={ResolverCachingConfig.class}, tree="[0]")
     private Output</* @Nullable */ ResolverCachingConfig> cachingConfig;
 
+    /**
+     * @return The Caching Config. See Caching Config.
+     * 
+     */
     public Output<Optional<ResolverCachingConfig>> cachingConfig() {
         return Codegen.optional(this.cachingConfig);
     }
+    /**
+     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * 
+     */
     @Export(name="code", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> code;
 
+    /**
+     * @return The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * 
+     */
     public Output<Optional<String>> code() {
         return Codegen.optional(this.code);
     }
+    /**
+     * Data source name.
+     * 
+     */
     @Export(name="dataSource", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dataSource;
 
+    /**
+     * @return Data source name.
+     * 
+     */
     public Output<Optional<String>> dataSource() {
         return Codegen.optional(this.dataSource);
     }
+    /**
+     * Field name from the schema defined in the GraphQL API.
+     * 
+     */
     @Export(name="field", refs={String.class}, tree="[0]")
     private Output<String> field;
 
+    /**
+     * @return Field name from the schema defined in the GraphQL API.
+     * 
+     */
     public Output<String> field() {
         return this.field;
     }
+    /**
+     * Resolver type. Valid values are `UNIT` and `PIPELINE`.
+     * 
+     */
     @Export(name="kind", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kind;
 
+    /**
+     * @return Resolver type. Valid values are `UNIT` and `PIPELINE`.
+     * 
+     */
     public Output<Optional<String>> kind() {
         return Codegen.optional(this.kind);
     }
+    /**
+     * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     * 
+     */
     @Export(name="maxBatchSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxBatchSize;
 
+    /**
+     * @return Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     * 
+     */
     public Output<Optional<Integer>> maxBatchSize() {
         return Codegen.optional(this.maxBatchSize);
     }
+    /**
+     * The caching configuration for the resolver. See Pipeline Config.
+     * 
+     */
     @Export(name="pipelineConfig", refs={ResolverPipelineConfig.class}, tree="[0]")
     private Output</* @Nullable */ ResolverPipelineConfig> pipelineConfig;
 
+    /**
+     * @return The caching configuration for the resolver. See Pipeline Config.
+     * 
+     */
     public Output<Optional<ResolverPipelineConfig>> pipelineConfig() {
         return Codegen.optional(this.pipelineConfig);
     }
+    /**
+     * Request mapping template for UNIT resolver or &#39;before mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
+     * 
+     */
     @Export(name="requestTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> requestTemplate;
 
+    /**
+     * @return Request mapping template for UNIT resolver or &#39;before mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
+     * 
+     */
     public Output<Optional<String>> requestTemplate() {
         return Codegen.optional(this.requestTemplate);
     }
+    /**
+     * Response mapping template for UNIT resolver or &#39;after mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
+     * 
+     */
     @Export(name="responseTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> responseTemplate;
 
+    /**
+     * @return Response mapping template for UNIT resolver or &#39;after mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
+     * 
+     */
     public Output<Optional<String>> responseTemplate() {
         return Codegen.optional(this.responseTemplate);
     }
+    /**
+     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * 
+     */
     @Export(name="runtime", refs={ResolverRuntime.class}, tree="[0]")
     private Output</* @Nullable */ ResolverRuntime> runtime;
 
+    /**
+     * @return Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * 
+     */
     public Output<Optional<ResolverRuntime>> runtime() {
         return Codegen.optional(this.runtime);
     }
+    /**
+     * Describes a Sync configuration for a resolver. See Sync Config.
+     * 
+     */
     @Export(name="syncConfig", refs={ResolverSyncConfig.class}, tree="[0]")
     private Output</* @Nullable */ ResolverSyncConfig> syncConfig;
 
+    /**
+     * @return Describes a Sync configuration for a resolver. See Sync Config.
+     * 
+     */
     public Output<Optional<ResolverSyncConfig>> syncConfig() {
         return Codegen.optional(this.syncConfig);
     }
+    /**
+     * Type name from the schema defined in the GraphQL API.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
+    /**
+     * @return Type name from the schema defined in the GraphQL API.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }

@@ -17,12 +17,16 @@ class ConnectionConfirmationArgs:
                  connection_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a ConnectionConfirmation resource.
+        :param pulumi.Input[str] connection_id: The ID of the hosted connection.
         """
         pulumi.set(__self__, "connection_id", connection_id)
 
     @property
     @pulumi.getter(name="connectionId")
     def connection_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the hosted connection.
+        """
         return pulumi.get(self, "connection_id")
 
     @connection_id.setter
@@ -36,6 +40,7 @@ class _ConnectionConfirmationState:
                  connection_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ConnectionConfirmation resources.
+        :param pulumi.Input[str] connection_id: The ID of the hosted connection.
         """
         if connection_id is not None:
             pulumi.set(__self__, "connection_id", connection_id)
@@ -43,6 +48,9 @@ class _ConnectionConfirmationState:
     @property
     @pulumi.getter(name="connectionId")
     def connection_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the hosted connection.
+        """
         return pulumi.get(self, "connection_id")
 
     @connection_id.setter
@@ -58,9 +66,20 @@ class ConnectionConfirmation(pulumi.CustomResource):
                  connection_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ConnectionConfirmation resource with the given unique name, props, and options.
+        Provides a confirmation of the creation of the specified hosted connection on an interconnect.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        confirmation = aws.directconnect.ConnectionConfirmation("confirmation", connection_id="dxcon-ffabc123")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] connection_id: The ID of the hosted connection.
         """
         ...
     @overload
@@ -69,7 +88,17 @@ class ConnectionConfirmation(pulumi.CustomResource):
                  args: ConnectionConfirmationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ConnectionConfirmation resource with the given unique name, props, and options.
+        Provides a confirmation of the creation of the specified hosted connection on an interconnect.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        confirmation = aws.directconnect.ConnectionConfirmation("confirmation", connection_id="dxcon-ffabc123")
+        ```
+
         :param str resource_name: The name of the resource.
         :param ConnectionConfirmationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,6 +145,7 @@ class ConnectionConfirmation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] connection_id: The ID of the hosted connection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -127,5 +157,8 @@ class ConnectionConfirmation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="connectionId")
     def connection_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the hosted connection.
+        """
         return pulumi.get(self, "connection_id")
 

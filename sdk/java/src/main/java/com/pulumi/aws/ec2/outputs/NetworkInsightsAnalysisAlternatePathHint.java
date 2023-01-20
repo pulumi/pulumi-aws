@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class NetworkInsightsAnalysisAlternatePathHint {
+    /**
+     * @return The Amazon Resource Name (ARN) of the component.
+     * 
+     */
     private @Nullable String componentArn;
+    /**
+     * @return The ID of the component.
+     * 
+     */
     private @Nullable String componentId;
 
     private NetworkInsightsAnalysisAlternatePathHint() {}
+    /**
+     * @return The Amazon Resource Name (ARN) of the component.
+     * 
+     */
     public Optional<String> componentArn() {
         return Optional.ofNullable(this.componentArn);
     }
+    /**
+     * @return The ID of the component.
+     * 
+     */
     public Optional<String> componentId() {
         return Optional.ofNullable(this.componentId);
     }

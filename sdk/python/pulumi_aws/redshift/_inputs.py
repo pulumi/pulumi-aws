@@ -29,6 +29,11 @@ class ClusterClusterNodeArgs:
                  node_role: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  public_ip_address: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] node_role: Whether the node is a leader node or a compute node
+        :param pulumi.Input[str] private_ip_address: The private IP address of a node within a cluster
+        :param pulumi.Input[str] public_ip_address: The public IP address of a node within a cluster
+        """
         if node_role is not None:
             pulumi.set(__self__, "node_role", node_role)
         if private_ip_address is not None:
@@ -39,6 +44,9 @@ class ClusterClusterNodeArgs:
     @property
     @pulumi.getter(name="nodeRole")
     def node_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether the node is a leader node or a compute node
+        """
         return pulumi.get(self, "node_role")
 
     @node_role.setter
@@ -48,6 +56,9 @@ class ClusterClusterNodeArgs:
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private IP address of a node within a cluster
+        """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
@@ -57,6 +68,9 @@ class ClusterClusterNodeArgs:
     @property
     @pulumi.getter(name="publicIpAddress")
     def public_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public IP address of a node within a cluster
+        """
         return pulumi.get(self, "public_ip_address")
 
     @public_ip_address.setter
@@ -72,6 +86,14 @@ class ClusterLoggingArgs:
                  log_destination_type: Optional[pulumi.Input[str]] = None,
                  log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  s3_key_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enable: Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
+        :param pulumi.Input[str] bucket_name: The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
+               For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+        :param pulumi.Input[str] log_destination_type: The log destination type. An enum with possible values of `s3` and `cloudwatch`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_exports: The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
+        :param pulumi.Input[str] s3_key_prefix: The prefix applied to the log file names.
+        """
         pulumi.set(__self__, "enable", enable)
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
@@ -85,6 +107,9 @@ class ClusterLoggingArgs:
     @property
     @pulumi.getter
     def enable(self) -> pulumi.Input[bool]:
+        """
+        Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
+        """
         return pulumi.get(self, "enable")
 
     @enable.setter
@@ -94,6 +119,10 @@ class ClusterLoggingArgs:
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
+        For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -103,6 +132,9 @@ class ClusterLoggingArgs:
     @property
     @pulumi.getter(name="logDestinationType")
     def log_destination_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The log destination type. An enum with possible values of `s3` and `cloudwatch`.
+        """
         return pulumi.get(self, "log_destination_type")
 
     @log_destination_type.setter
@@ -112,6 +144,9 @@ class ClusterLoggingArgs:
     @property
     @pulumi.getter(name="logExports")
     def log_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
+        """
         return pulumi.get(self, "log_exports")
 
     @log_exports.setter
@@ -121,6 +156,9 @@ class ClusterLoggingArgs:
     @property
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix applied to the log file names.
+        """
         return pulumi.get(self, "s3_key_prefix")
 
     @s3_key_prefix.setter
@@ -134,6 +172,11 @@ class ClusterSnapshotCopyArgs:
                  destination_region: pulumi.Input[str],
                  grant_name: Optional[pulumi.Input[str]] = None,
                  retention_period: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] destination_region: The destination region that you want to copy snapshots to.
+        :param pulumi.Input[str] grant_name: The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
+        :param pulumi.Input[int] retention_period: The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
+        """
         pulumi.set(__self__, "destination_region", destination_region)
         if grant_name is not None:
             pulumi.set(__self__, "grant_name", grant_name)
@@ -143,6 +186,9 @@ class ClusterSnapshotCopyArgs:
     @property
     @pulumi.getter(name="destinationRegion")
     def destination_region(self) -> pulumi.Input[str]:
+        """
+        The destination region that you want to copy snapshots to.
+        """
         return pulumi.get(self, "destination_region")
 
     @destination_region.setter
@@ -152,6 +198,9 @@ class ClusterSnapshotCopyArgs:
     @property
     @pulumi.getter(name="grantName")
     def grant_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
+        """
         return pulumi.get(self, "grant_name")
 
     @grant_name.setter
@@ -161,6 +210,9 @@ class ClusterSnapshotCopyArgs:
     @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
+        """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
@@ -174,6 +226,11 @@ class EndpointAccessVpcEndpointArgs:
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]] network_interfaces: One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
+        :param pulumi.Input[str] vpc_endpoint_id: The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
+        :param pulumi.Input[str] vpc_id: The VPC identifier that the endpoint is associated.
+        """
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if vpc_endpoint_id is not None:
@@ -184,6 +241,9 @@ class EndpointAccessVpcEndpointArgs:
     @property
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]]]:
+        """
+        One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
+        """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
@@ -193,6 +253,9 @@ class EndpointAccessVpcEndpointArgs:
     @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
+        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
@@ -202,6 +265,9 @@ class EndpointAccessVpcEndpointArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The VPC identifier that the endpoint is associated.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -216,6 +282,12 @@ class EndpointAccessVpcEndpointNetworkInterfaceArgs:
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] availability_zone: The Availability Zone.
+        :param pulumi.Input[str] network_interface_id: The network interface identifier.
+        :param pulumi.Input[str] private_ip_address: The IPv4 address of the network interface within the subnet.
+        :param pulumi.Input[str] subnet_id: The subnet identifier.
+        """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if network_interface_id is not None:
@@ -228,6 +300,9 @@ class EndpointAccessVpcEndpointNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Availability Zone.
+        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -237,6 +312,9 @@ class EndpointAccessVpcEndpointNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The network interface identifier.
+        """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
@@ -246,6 +324,9 @@ class EndpointAccessVpcEndpointNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 address of the network interface within the subnet.
+        """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
@@ -255,6 +336,9 @@ class EndpointAccessVpcEndpointNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet identifier.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -267,12 +351,19 @@ class ParameterGroupParameterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the Redshift parameter.
+        :param pulumi.Input[str] value: The value of the Redshift parameter.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Redshift parameter.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -282,6 +373,9 @@ class ParameterGroupParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value of the Redshift parameter.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -295,6 +389,11 @@ class ScheduledActionTargetActionArgs:
                  pause_cluster: Optional[pulumi.Input['ScheduledActionTargetActionPauseClusterArgs']] = None,
                  resize_cluster: Optional[pulumi.Input['ScheduledActionTargetActionResizeClusterArgs']] = None,
                  resume_cluster: Optional[pulumi.Input['ScheduledActionTargetActionResumeClusterArgs']] = None):
+        """
+        :param pulumi.Input['ScheduledActionTargetActionPauseClusterArgs'] pause_cluster: An action that runs a `PauseCluster` API operation. Documented below.
+        :param pulumi.Input['ScheduledActionTargetActionResizeClusterArgs'] resize_cluster: An action that runs a `ResizeCluster` API operation. Documented below.
+        :param pulumi.Input['ScheduledActionTargetActionResumeClusterArgs'] resume_cluster: An action that runs a `ResumeCluster` API operation. Documented below.
+        """
         if pause_cluster is not None:
             pulumi.set(__self__, "pause_cluster", pause_cluster)
         if resize_cluster is not None:
@@ -305,6 +404,9 @@ class ScheduledActionTargetActionArgs:
     @property
     @pulumi.getter(name="pauseCluster")
     def pause_cluster(self) -> Optional[pulumi.Input['ScheduledActionTargetActionPauseClusterArgs']]:
+        """
+        An action that runs a `PauseCluster` API operation. Documented below.
+        """
         return pulumi.get(self, "pause_cluster")
 
     @pause_cluster.setter
@@ -314,6 +416,9 @@ class ScheduledActionTargetActionArgs:
     @property
     @pulumi.getter(name="resizeCluster")
     def resize_cluster(self) -> Optional[pulumi.Input['ScheduledActionTargetActionResizeClusterArgs']]:
+        """
+        An action that runs a `ResizeCluster` API operation. Documented below.
+        """
         return pulumi.get(self, "resize_cluster")
 
     @resize_cluster.setter
@@ -323,6 +428,9 @@ class ScheduledActionTargetActionArgs:
     @property
     @pulumi.getter(name="resumeCluster")
     def resume_cluster(self) -> Optional[pulumi.Input['ScheduledActionTargetActionResumeClusterArgs']]:
+        """
+        An action that runs a `ResumeCluster` API operation. Documented below.
+        """
         return pulumi.get(self, "resume_cluster")
 
     @resume_cluster.setter
@@ -334,11 +442,17 @@ class ScheduledActionTargetActionArgs:
 class ScheduledActionTargetActionPauseClusterArgs:
     def __init__(__self__, *,
                  cluster_identifier: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] cluster_identifier: The identifier of the cluster to be paused.
+        """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[str]:
+        """
+        The identifier of the cluster to be paused.
+        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -354,6 +468,13 @@ class ScheduledActionTargetActionResizeClusterArgs:
                  cluster_type: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] cluster_identifier: The unique identifier for the cluster to resize.
+        :param pulumi.Input[bool] classic: A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
+        :param pulumi.Input[str] cluster_type: The new cluster type for the specified cluster.
+        :param pulumi.Input[str] node_type: The new node type for the nodes you are adding.
+        :param pulumi.Input[int] number_of_nodes: The new number of nodes for the cluster.
+        """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         if classic is not None:
             pulumi.set(__self__, "classic", classic)
@@ -367,6 +488,9 @@ class ScheduledActionTargetActionResizeClusterArgs:
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[str]:
+        """
+        The unique identifier for the cluster to resize.
+        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -376,6 +500,9 @@ class ScheduledActionTargetActionResizeClusterArgs:
     @property
     @pulumi.getter
     def classic(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
+        """
         return pulumi.get(self, "classic")
 
     @classic.setter
@@ -385,6 +512,9 @@ class ScheduledActionTargetActionResizeClusterArgs:
     @property
     @pulumi.getter(name="clusterType")
     def cluster_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The new cluster type for the specified cluster.
+        """
         return pulumi.get(self, "cluster_type")
 
     @cluster_type.setter
@@ -394,6 +524,9 @@ class ScheduledActionTargetActionResizeClusterArgs:
     @property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The new node type for the nodes you are adding.
+        """
         return pulumi.get(self, "node_type")
 
     @node_type.setter
@@ -403,6 +536,9 @@ class ScheduledActionTargetActionResizeClusterArgs:
     @property
     @pulumi.getter(name="numberOfNodes")
     def number_of_nodes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The new number of nodes for the cluster.
+        """
         return pulumi.get(self, "number_of_nodes")
 
     @number_of_nodes.setter
@@ -414,11 +550,17 @@ class ScheduledActionTargetActionResizeClusterArgs:
 class ScheduledActionTargetActionResumeClusterArgs:
     def __init__(__self__, *,
                  cluster_identifier: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] cluster_identifier: The identifier of the cluster to be resumed.
+        """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[str]:
+        """
+        The identifier of the cluster to be resumed.
+        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -432,6 +574,12 @@ class SecurityGroupIngressArgs:
                  cidr: Optional[pulumi.Input[str]] = None,
                  security_group_name: Optional[pulumi.Input[str]] = None,
                  security_group_owner_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] cidr: The CIDR block to accept
+        :param pulumi.Input[str] security_group_name: The name of the security group to authorize
+        :param pulumi.Input[str] security_group_owner_id: The owner Id of the security group provided
+               by `security_group_name`.
+        """
         if cidr is not None:
             pulumi.set(__self__, "cidr", cidr)
         if security_group_name is not None:
@@ -442,6 +590,9 @@ class SecurityGroupIngressArgs:
     @property
     @pulumi.getter
     def cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR block to accept
+        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -451,6 +602,9 @@ class SecurityGroupIngressArgs:
     @property
     @pulumi.getter(name="securityGroupName")
     def security_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the security group to authorize
+        """
         return pulumi.get(self, "security_group_name")
 
     @security_group_name.setter
@@ -460,6 +614,10 @@ class SecurityGroupIngressArgs:
     @property
     @pulumi.getter(name="securityGroupOwnerId")
     def security_group_owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The owner Id of the security group provided
+        by `security_group_name`.
+        """
         return pulumi.get(self, "security_group_owner_id")
 
     @security_group_owner_id.setter

@@ -21,83 +21,242 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Resource for managing an AWS MediaLive Input.
+ * 
+ * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.medialive.InputSecurityGroup;
+ * import com.pulumi.aws.medialive.InputSecurityGroupArgs;
+ * import com.pulumi.aws.medialive.inputs.InputSecurityGroupWhitelistRuleArgs;
+ * import com.pulumi.aws.medialive.Input;
+ * import com.pulumi.aws.medialive.InputArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleInputSecurityGroup = new InputSecurityGroup(&#34;exampleInputSecurityGroup&#34;, InputSecurityGroupArgs.builder()        
+ *             .whitelistRules(InputSecurityGroupWhitelistRuleArgs.builder()
+ *                 .cidr(&#34;10.0.0.8/32&#34;)
+ *                 .build())
+ *             .tags(Map.of(&#34;ENVIRONMENT&#34;, &#34;prod&#34;))
+ *             .build());
+ * 
+ *         var exampleInput = new Input(&#34;exampleInput&#34;, InputArgs.builder()        
+ *             .inputSecurityGroups(exampleInputSecurityGroup.id())
+ *             .type(&#34;UDP_PUSH&#34;)
+ *             .tags(Map.of(&#34;ENVIRONMENT&#34;, &#34;prod&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * MediaLive Input can be imported using the `id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:medialive/input:Input example 12345678
+ * ```
+ * 
+ */
 @ResourceType(type="aws:medialive/input:Input")
 public class Input extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the Input.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the Input.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Channels attached to Input.
+     * 
+     */
     @Export(name="attachedChannels", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> attachedChannels;
 
+    /**
+     * @return Channels attached to Input.
+     * 
+     */
     public Output<List<String>> attachedChannels() {
         return this.attachedChannels;
     }
+    /**
+     * Destination settings for PUSH type inputs. See Destinations for more details.
+     * 
+     */
     @Export(name="destinations", refs={List.class,InputDestination.class}, tree="[0,1]")
     private Output</* @Nullable */ List<InputDestination>> destinations;
 
+    /**
+     * @return Destination settings for PUSH type inputs. See Destinations for more details.
+     * 
+     */
     public Output<Optional<List<InputDestination>>> destinations() {
         return Codegen.optional(this.destinations);
     }
+    /**
+     * The input class.
+     * 
+     */
     @Export(name="inputClass", refs={String.class}, tree="[0]")
     private Output<String> inputClass;
 
+    /**
+     * @return The input class.
+     * 
+     */
     public Output<String> inputClass() {
         return this.inputClass;
     }
+    /**
+     * Settings for the devices. See Input Devices for more details.
+     * 
+     */
     @Export(name="inputDevices", refs={List.class,InputInputDevice.class}, tree="[0,1]")
     private Output<List<InputInputDevice>> inputDevices;
 
+    /**
+     * @return Settings for the devices. See Input Devices for more details.
+     * 
+     */
     public Output<List<InputInputDevice>> inputDevices() {
         return this.inputDevices;
     }
+    /**
+     * A list of IDs for all Inputs which are partners of this one.
+     * 
+     */
     @Export(name="inputPartnerIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> inputPartnerIds;
 
+    /**
+     * @return A list of IDs for all Inputs which are partners of this one.
+     * 
+     */
     public Output<List<String>> inputPartnerIds() {
         return this.inputPartnerIds;
     }
+    /**
+     * List of input security groups.
+     * 
+     */
     @Export(name="inputSecurityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> inputSecurityGroups;
 
+    /**
+     * @return List of input security groups.
+     * 
+     */
     public Output<Optional<List<String>>> inputSecurityGroups() {
         return Codegen.optional(this.inputSecurityGroups);
     }
+    /**
+     * Source type of the input.
+     * 
+     */
     @Export(name="inputSourceType", refs={String.class}, tree="[0]")
     private Output<String> inputSourceType;
 
+    /**
+     * @return Source type of the input.
+     * 
+     */
     public Output<String> inputSourceType() {
         return this.inputSourceType;
     }
+    /**
+     * A list of the MediaConnect Flows. See Media Connect Flows for more details.
+     * 
+     */
     @Export(name="mediaConnectFlows", refs={List.class,InputMediaConnectFlow.class}, tree="[0,1]")
     private Output<List<InputMediaConnectFlow>> mediaConnectFlows;
 
+    /**
+     * @return A list of the MediaConnect Flows. See Media Connect Flows for more details.
+     * 
+     */
     public Output<List<InputMediaConnectFlow>> mediaConnectFlows() {
         return this.mediaConnectFlows;
     }
+    /**
+     * Name of the input.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name of the input.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The ARN of the role this input assumes during and after creation.
+     * 
+     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
+    /**
+     * @return The ARN of the role this input assumes during and after creation.
+     * 
+     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
+    /**
+     * The source URLs for a PULL-type input. See Sources for more details.
+     * 
+     */
     @Export(name="sources", refs={List.class,InputSource.class}, tree="[0,1]")
     private Output<List<InputSource>> sources;
 
+    /**
+     * @return The source URLs for a PULL-type input. See Sources for more details.
+     * 
+     */
     public Output<List<InputSource>> sources() {
         return this.sources;
     }
+    /**
+     * A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -107,15 +266,31 @@ public class Input extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The different types of inputs that AWS Elemental MediaLive supports.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
+    /**
+     * @return The different types of inputs that AWS Elemental MediaLive supports.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
+    /**
+     * Settings for a private VPC Input. See VPC for more details.
+     * 
+     */
     @Export(name="vpc", refs={InputVpc.class}, tree="[0]")
     private Output</* @Nullable */ InputVpc> vpc;
 
+    /**
+     * @return Settings for a private VPC Input. See VPC for more details.
+     * 
+     */
     public Output<Optional<InputVpc>> vpc() {
         return Codegen.optional(this.vpc);
     }

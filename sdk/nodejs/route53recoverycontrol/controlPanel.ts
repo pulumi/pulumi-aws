@@ -4,6 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an AWS Route 53 Recovery Control Config Control Panel.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.route53recoverycontrol.ControlPanel("example", {clusterArn: "arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393"});
+ * ```
+ *
+ * ## Import
+ *
+ * Route53 Recovery Control Config Control Panel can be imported via the control panel arn, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
+ * ```
+ */
 export class ControlPanel extends pulumi.CustomResource {
     /**
      * Get an existing ControlPanel resource's state with the given name, ID, and optional extra
@@ -32,11 +52,29 @@ export class ControlPanel extends pulumi.CustomResource {
         return obj['__pulumiType'] === ControlPanel.__pulumiType;
     }
 
+    /**
+     * ARN of the control panel.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * ARN of the cluster in which this control panel will reside.
+     */
     public readonly clusterArn!: pulumi.Output<string>;
+    /**
+     * Whether a control panel is default.
+     */
     public /*out*/ readonly defaultControlPanel!: pulumi.Output<boolean>;
+    /**
+     * Name describing the control panel.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Number routing controls in a control panel.
+     */
     public /*out*/ readonly routingControlCount!: pulumi.Output<number>;
+    /**
+     * Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
@@ -79,11 +117,29 @@ export class ControlPanel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ControlPanel resources.
  */
 export interface ControlPanelState {
+    /**
+     * ARN of the control panel.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * ARN of the cluster in which this control panel will reside.
+     */
     clusterArn?: pulumi.Input<string>;
+    /**
+     * Whether a control panel is default.
+     */
     defaultControlPanel?: pulumi.Input<boolean>;
+    /**
+     * Name describing the control panel.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Number routing controls in a control panel.
+     */
     routingControlCount?: pulumi.Input<number>;
+    /**
+     * Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+     */
     status?: pulumi.Input<string>;
 }
 
@@ -91,6 +147,12 @@ export interface ControlPanelState {
  * The set of arguments for constructing a ControlPanel resource.
  */
 export interface ControlPanelArgs {
+    /**
+     * ARN of the cluster in which this control panel will reside.
+     */
     clusterArn: pulumi.Input<string>;
+    /**
+     * Name describing the control panel.
+     */
     name?: pulumi.Input<string>;
 }

@@ -12,6 +12,9 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
     public sealed class FirewallSubnetMappingGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The unique identifier for the subnet.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 

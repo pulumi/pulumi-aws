@@ -13,17 +13,72 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an network ACL association resource which allows you to associate your network ACL with any subnet(s).
+ * 
+ * &gt; **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association resource
+ * and a network ACL resource with a `subnet_ids` attribute. Do not use the same subnet ID in both a network ACL
+ * resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.NetworkAclAssociation;
+ * import com.pulumi.aws.ec2.NetworkAclAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var main = new NetworkAclAssociation(&#34;main&#34;, NetworkAclAssociationArgs.builder()        
+ *             .networkAclId(aws_network_acl.main().id())
+ *             .subnetId(aws_subnet.main().id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2/networkAclAssociation:NetworkAclAssociation")
 public class NetworkAclAssociation extends com.pulumi.resources.CustomResource {
+    /**
+     * The ID of the network ACL.
+     * 
+     */
     @Export(name="networkAclId", refs={String.class}, tree="[0]")
     private Output<String> networkAclId;
 
+    /**
+     * @return The ID of the network ACL.
+     * 
+     */
     public Output<String> networkAclId() {
         return this.networkAclId;
     }
+    /**
+     * The ID of the associated Subnet.
+     * 
+     */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
+    /**
+     * @return The ID of the associated Subnet.
+     * 
+     */
     public Output<String> subnetId() {
         return this.subnetId;
     }

@@ -29,6 +29,17 @@ class SecretArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Secret resource.
+        :param pulumi.Input[str] description: Description of the secret.
+        :param pulumi.Input[bool] force_overwrite_replica_secret: Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
+        :param pulumi.Input[str] kms_key_id: ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
+        :param pulumi.Input[str] name: Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
+        :param pulumi.Input[int] recovery_window_in_days: Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
+        :param pulumi.Input[Sequence[pulumi.Input['SecretReplicaArgs']]] replicas: Configuration block to support secret replication. See details below.
+        :param pulumi.Input[str] rotation_lambda_arn: ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+        :param pulumi.Input['SecretRotationRulesArgs'] rotation_rules: Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -62,6 +73,9 @@ class SecretArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the secret.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -71,6 +85,9 @@ class SecretArgs:
     @property
     @pulumi.getter(name="forceOverwriteReplicaSecret")
     def force_overwrite_replica_secret(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
+        """
         return pulumi.get(self, "force_overwrite_replica_secret")
 
     @force_overwrite_replica_secret.setter
@@ -80,6 +97,9 @@ class SecretArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -89,6 +109,9 @@ class SecretArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `name_prefix`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -98,6 +121,9 @@ class SecretArgs:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -107,6 +133,9 @@ class SecretArgs:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -116,6 +145,9 @@ class SecretArgs:
     @property
     @pulumi.getter(name="recoveryWindowInDays")
     def recovery_window_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
+        """
         return pulumi.get(self, "recovery_window_in_days")
 
     @recovery_window_in_days.setter
@@ -125,6 +157,9 @@ class SecretArgs:
     @property
     @pulumi.getter
     def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaArgs']]]]:
+        """
+        Configuration block to support secret replication. See details below.
+        """
         return pulumi.get(self, "replicas")
 
     @replicas.setter
@@ -134,6 +169,9 @@ class SecretArgs:
     @property
     @pulumi.getter(name="rotationLambdaArn")
     def rotation_lambda_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+        """
         return pulumi.get(self, "rotation_lambda_arn")
 
     @rotation_lambda_arn.setter
@@ -143,6 +181,9 @@ class SecretArgs:
     @property
     @pulumi.getter(name="rotationRules")
     def rotation_rules(self) -> Optional[pulumi.Input['SecretRotationRulesArgs']]:
+        """
+        Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+        """
         return pulumi.get(self, "rotation_rules")
 
     @rotation_rules.setter
@@ -152,6 +193,9 @@ class SecretArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -178,6 +222,20 @@ class _SecretState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Secret resources.
+        :param pulumi.Input[str] arn: ARN of the secret.
+        :param pulumi.Input[str] description: Description of the secret.
+        :param pulumi.Input[bool] force_overwrite_replica_secret: Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
+        :param pulumi.Input[str] kms_key_id: ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
+        :param pulumi.Input[str] name: Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
+        :param pulumi.Input[int] recovery_window_in_days: Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
+        :param pulumi.Input[Sequence[pulumi.Input['SecretReplicaArgs']]] replicas: Configuration block to support secret replication. See details below.
+        :param pulumi.Input[bool] rotation_enabled: Whether automatic rotation is enabled for this secret.
+        :param pulumi.Input[str] rotation_lambda_arn: ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+        :param pulumi.Input['SecretRotationRulesArgs'] rotation_rules: Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -220,6 +278,9 @@ class _SecretState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the secret.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -229,6 +290,9 @@ class _SecretState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the secret.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -238,6 +302,9 @@ class _SecretState:
     @property
     @pulumi.getter(name="forceOverwriteReplicaSecret")
     def force_overwrite_replica_secret(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
+        """
         return pulumi.get(self, "force_overwrite_replica_secret")
 
     @force_overwrite_replica_secret.setter
@@ -247,6 +314,9 @@ class _SecretState:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -256,6 +326,9 @@ class _SecretState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `name_prefix`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -265,6 +338,9 @@ class _SecretState:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -274,6 +350,9 @@ class _SecretState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -283,6 +362,9 @@ class _SecretState:
     @property
     @pulumi.getter(name="recoveryWindowInDays")
     def recovery_window_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
+        """
         return pulumi.get(self, "recovery_window_in_days")
 
     @recovery_window_in_days.setter
@@ -292,6 +374,9 @@ class _SecretState:
     @property
     @pulumi.getter
     def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaArgs']]]]:
+        """
+        Configuration block to support secret replication. See details below.
+        """
         return pulumi.get(self, "replicas")
 
     @replicas.setter
@@ -301,6 +386,9 @@ class _SecretState:
     @property
     @pulumi.getter(name="rotationEnabled")
     def rotation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether automatic rotation is enabled for this secret.
+        """
         return pulumi.get(self, "rotation_enabled")
 
     @rotation_enabled.setter
@@ -310,6 +398,9 @@ class _SecretState:
     @property
     @pulumi.getter(name="rotationLambdaArn")
     def rotation_lambda_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+        """
         return pulumi.get(self, "rotation_lambda_arn")
 
     @rotation_lambda_arn.setter
@@ -319,6 +410,9 @@ class _SecretState:
     @property
     @pulumi.getter(name="rotationRules")
     def rotation_rules(self) -> Optional[pulumi.Input['SecretRotationRulesArgs']]:
+        """
+        Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+        """
         return pulumi.get(self, "rotation_rules")
 
     @rotation_rules.setter
@@ -328,6 +422,9 @@ class _SecretState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -337,6 +434,9 @@ class _SecretState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -362,9 +462,57 @@ class Secret(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Secret resource with the given unique name, props, and options.
+        Provides a resource to manage AWS Secrets Manager secret metadata. To manage secret rotation, see the `secretsmanager.SecretRotation` resource. To manage a secret value, see the `secretsmanager.SecretVersion` resource.
+
+        ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.secretsmanager.Secret("example")
+        ```
+        ### Rotation Configuration
+
+        To enable automatic secret rotation, the Secrets Manager service requires usage of a Lambda function. The [Rotate Secrets section in the Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html) provides additional information about deploying a prebuilt Lambda functions for supported credential rotation (e.g., RDS) or deploying a custom Lambda function.
+
+        > **NOTE:** Configuring rotation causes the secret to rotate once as soon as you store the secret. Before you do this, you must ensure that all of your applications that use the credentials stored in the secret are updated to retrieve the secret from AWS Secrets Manager. The old credentials might no longer be usable after the initial rotation and any applications that you fail to update will break as soon as the old credentials are no longer valid.
+
+        > **NOTE:** If you cancel a rotation that is in progress (by removing the `rotation` configuration), it can leave the VersionStage labels in an unexpected state. Depending on what step of the rotation was in progress, you might need to remove the staging label AWSPENDING from the partially created version, specified by the SecretVersionId response value. You should also evaluate the partially rotated new version to see if it should be deleted, which you can do by removing all staging labels from the new version's VersionStage field.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        rotation_example = aws.secretsmanager.Secret("rotation-example",
+            rotation_lambda_arn=aws_lambda_function["example"]["arn"],
+            rotation_rules=aws.secretsmanager.SecretRotationRulesArgs(
+                automatically_after_days=7,
+            ))
+        ```
+
+        ## Import
+
+        `aws_secretsmanager_secret` can be imported by using the secret Amazon Resource Name (ARN), e.g.,
+
+        ```sh
+         $ pulumi import aws:secretsmanager/secret:Secret example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Description of the secret.
+        :param pulumi.Input[bool] force_overwrite_replica_secret: Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
+        :param pulumi.Input[str] kms_key_id: ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
+        :param pulumi.Input[str] name: Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
+        :param pulumi.Input[int] recovery_window_in_days: Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaArgs']]]] replicas: Configuration block to support secret replication. See details below.
+        :param pulumi.Input[str] rotation_lambda_arn: ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+        :param pulumi.Input[pulumi.InputType['SecretRotationRulesArgs']] rotation_rules: Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -373,7 +521,44 @@ class Secret(pulumi.CustomResource):
                  args: Optional[SecretArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Secret resource with the given unique name, props, and options.
+        Provides a resource to manage AWS Secrets Manager secret metadata. To manage secret rotation, see the `secretsmanager.SecretRotation` resource. To manage a secret value, see the `secretsmanager.SecretVersion` resource.
+
+        ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.secretsmanager.Secret("example")
+        ```
+        ### Rotation Configuration
+
+        To enable automatic secret rotation, the Secrets Manager service requires usage of a Lambda function. The [Rotate Secrets section in the Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html) provides additional information about deploying a prebuilt Lambda functions for supported credential rotation (e.g., RDS) or deploying a custom Lambda function.
+
+        > **NOTE:** Configuring rotation causes the secret to rotate once as soon as you store the secret. Before you do this, you must ensure that all of your applications that use the credentials stored in the secret are updated to retrieve the secret from AWS Secrets Manager. The old credentials might no longer be usable after the initial rotation and any applications that you fail to update will break as soon as the old credentials are no longer valid.
+
+        > **NOTE:** If you cancel a rotation that is in progress (by removing the `rotation` configuration), it can leave the VersionStage labels in an unexpected state. Depending on what step of the rotation was in progress, you might need to remove the staging label AWSPENDING from the partially created version, specified by the SecretVersionId response value. You should also evaluate the partially rotated new version to see if it should be deleted, which you can do by removing all staging labels from the new version's VersionStage field.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        rotation_example = aws.secretsmanager.Secret("rotation-example",
+            rotation_lambda_arn=aws_lambda_function["example"]["arn"],
+            rotation_rules=aws.secretsmanager.SecretRotationRulesArgs(
+                automatically_after_days=7,
+            ))
+        ```
+
+        ## Import
+
+        `aws_secretsmanager_secret` can be imported by using the secret Amazon Resource Name (ARN), e.g.,
+
+        ```sh
+         $ pulumi import aws:secretsmanager/secret:Secret example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+        ```
+
         :param str resource_name: The name of the resource.
         :param SecretArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -460,6 +645,20 @@ class Secret(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the secret.
+        :param pulumi.Input[str] description: Description of the secret.
+        :param pulumi.Input[bool] force_overwrite_replica_secret: Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
+        :param pulumi.Input[str] kms_key_id: ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
+        :param pulumi.Input[str] name: Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
+        :param pulumi.Input[int] recovery_window_in_days: Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaArgs']]]] replicas: Configuration block to support secret replication. See details below.
+        :param pulumi.Input[bool] rotation_enabled: Whether automatic rotation is enabled for this secret.
+        :param pulumi.Input[str] rotation_lambda_arn: ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+        :param pulumi.Input[pulumi.InputType['SecretRotationRulesArgs']] rotation_rules: Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -484,70 +683,112 @@ class Secret(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the secret.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Description of the secret.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="forceOverwriteReplicaSecret")
     def force_overwrite_replica_secret(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
+        """
         return pulumi.get(self, "force_overwrite_replica_secret")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `name_prefix`.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[str]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
+        """
+        Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
+        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="recoveryWindowInDays")
     def recovery_window_in_days(self) -> pulumi.Output[Optional[int]]:
+        """
+        Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
+        """
         return pulumi.get(self, "recovery_window_in_days")
 
     @property
     @pulumi.getter
     def replicas(self) -> pulumi.Output[Sequence['outputs.SecretReplica']]:
+        """
+        Configuration block to support secret replication. See details below.
+        """
         return pulumi.get(self, "replicas")
 
     @property
     @pulumi.getter(name="rotationEnabled")
     def rotation_enabled(self) -> pulumi.Output[bool]:
+        """
+        Whether automatic rotation is enabled for this secret.
+        """
         return pulumi.get(self, "rotation_enabled")
 
     @property
     @pulumi.getter(name="rotationLambdaArn")
     def rotation_lambda_arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+        """
         return pulumi.get(self, "rotation_lambda_arn")
 
     @property
     @pulumi.getter(name="rotationRules")
     def rotation_rules(self) -> pulumi.Output['outputs.SecretRotationRules']:
+        """
+        Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+        """
         return pulumi.get(self, "rotation_rules")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

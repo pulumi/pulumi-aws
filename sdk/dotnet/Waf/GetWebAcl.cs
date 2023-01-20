@@ -11,9 +11,57 @@ namespace Pulumi.Aws.Waf
 {
     public static class GetWebAcl
     {
+        /// <summary>
+        /// `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Waf.GetWebAcl.Invoke(new()
+        ///     {
+        ///         Name = "tfWAFWebACL",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetWebAclResult> InvokeAsync(GetWebAclArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAclResult>("aws:waf/getWebAcl:getWebAcl", args ?? new GetWebAclArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Waf.GetWebAcl.Invoke(new()
+        ///     {
+        ///         Name = "tfWAFWebACL",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetWebAclResult> Invoke(GetWebAclInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAclResult>("aws:waf/getWebAcl:getWebAcl", args ?? new GetWebAclInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +69,9 @@ namespace Pulumi.Aws.Waf
 
     public sealed class GetWebAclArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the WAF Web ACL.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -32,6 +83,9 @@ namespace Pulumi.Aws.Waf
 
     public sealed class GetWebAclInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the WAF Web ACL.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

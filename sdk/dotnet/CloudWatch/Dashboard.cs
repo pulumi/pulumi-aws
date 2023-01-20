@@ -9,15 +9,89 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
+    /// <summary>
+    /// Provides a CloudWatch Dashboard resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var main = new Aws.CloudWatch.Dashboard("main", new()
+    ///     {
+    ///         DashboardBody = @"{
+    ///   ""widgets"": [
+    ///     {
+    ///       ""type"": ""metric"",
+    ///       ""x"": 0,
+    ///       ""y"": 0,
+    ///       ""width"": 12,
+    ///       ""height"": 6,
+    ///       ""properties"": {
+    ///         ""metrics"": [
+    ///           [
+    ///             ""AWS/EC2"",
+    ///             ""CPUUtilization"",
+    ///             ""InstanceId"",
+    ///             ""i-012345""
+    ///           ]
+    ///         ],
+    ///         ""period"": 300,
+    ///         ""stat"": ""Average"",
+    ///         ""region"": ""us-east-1"",
+    ///         ""title"": ""EC2 Instance CPU""
+    ///       }
+    ///     },
+    ///     {
+    ///       ""type"": ""text"",
+    ///       ""x"": 0,
+    ///       ""y"": 7,
+    ///       ""width"": 3,
+    ///       ""height"": 3,
+    ///       ""properties"": {
+    ///         ""markdown"": ""Hello world""
+    ///       }
+    ///     }
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///         DashboardName = "my-dashboard",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// CloudWatch dashboards can be imported using the `dashboard_name`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:cloudwatch/dashboard:Dashboard")]
     public partial class Dashboard : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the dashboard.
+        /// </summary>
         [Output("dashboardArn")]
         public Output<string> DashboardArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
+        /// </summary>
         [Output("dashboardBody")]
         public Output<string> DashboardBody { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the dashboard.
+        /// </summary>
         [Output("dashboardName")]
         public Output<string> DashboardName { get; private set; } = null!;
 
@@ -67,9 +141,15 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class DashboardArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
+        /// </summary>
         [Input("dashboardBody", required: true)]
         public Input<string> DashboardBody { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the dashboard.
+        /// </summary>
         [Input("dashboardName", required: true)]
         public Input<string> DashboardName { get; set; } = null!;
 
@@ -81,12 +161,21 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class DashboardState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the dashboard.
+        /// </summary>
         [Input("dashboardArn")]
         public Input<string>? DashboardArn { get; set; }
 
+        /// <summary>
+        /// The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
+        /// </summary>
         [Input("dashboardBody")]
         public Input<string>? DashboardBody { get; set; }
 
+        /// <summary>
+        /// The name of the dashboard.
+        /// </summary>
         [Input("dashboardName")]
         public Input<string>? DashboardName { get; set; }
 

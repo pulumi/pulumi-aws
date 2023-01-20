@@ -17,12 +17,16 @@ class OrganizationsAccessArgs:
                  enabled: pulumi.Input[bool]):
         """
         The set of arguments for constructing a OrganizationsAccess resource.
+        :param pulumi.Input[bool] enabled: Whether to enable AWS Organizations access.
         """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
+        """
+        Whether to enable AWS Organizations access.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -36,6 +40,7 @@ class _OrganizationsAccessState:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering OrganizationsAccess resources.
+        :param pulumi.Input[bool] enabled: Whether to enable AWS Organizations access.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -43,6 +48,9 @@ class _OrganizationsAccessState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable AWS Organizations access.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -58,9 +66,23 @@ class OrganizationsAccess(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a OrganizationsAccess resource with the given unique name, props, and options.
+        Manages Service Catalog AWS Organizations Access, a portfolio sharing feature through AWS Organizations. This allows Service Catalog to receive updates on your organization in order to sync your shares with the current structure. This resource will prompt AWS to set `organizations:EnableAWSServiceAccess` on your behalf so that your shares can be in sync with any changes in your AWS Organizations structure.
+
+        > **NOTE:** This resource can only be used by the management account in the organization. In other words, a delegated administrator is not authorized to use the resource.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.servicecatalog.OrganizationsAccess("example", enabled=True)
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enabled: Whether to enable AWS Organizations access.
         """
         ...
     @overload
@@ -69,7 +91,20 @@ class OrganizationsAccess(pulumi.CustomResource):
                  args: OrganizationsAccessArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a OrganizationsAccess resource with the given unique name, props, and options.
+        Manages Service Catalog AWS Organizations Access, a portfolio sharing feature through AWS Organizations. This allows Service Catalog to receive updates on your organization in order to sync your shares with the current structure. This resource will prompt AWS to set `organizations:EnableAWSServiceAccess` on your behalf so that your shares can be in sync with any changes in your AWS Organizations structure.
+
+        > **NOTE:** This resource can only be used by the management account in the organization. In other words, a delegated administrator is not authorized to use the resource.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.servicecatalog.OrganizationsAccess("example", enabled=True)
+        ```
+
         :param str resource_name: The name of the resource.
         :param OrganizationsAccessArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,6 +151,7 @@ class OrganizationsAccess(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enabled: Whether to enable AWS Organizations access.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -127,5 +163,8 @@ class OrganizationsAccess(pulumi.CustomResource):
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[bool]:
+        """
+        Whether to enable AWS Organizations access.
+        """
         return pulumi.get(self, "enabled")
 

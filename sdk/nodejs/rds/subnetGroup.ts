@@ -4,6 +4,34 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an RDS DB subnet group resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const _default = new aws.rds.SubnetGroup("default", {
+ *     subnetIds: [
+ *         aws_subnet.frontend.id,
+ *         aws_subnet.backend.id,
+ *     ],
+ *     tags: {
+ *         Name: "My DB subnet group",
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * DB Subnet groups can be imported using the `name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:rds/subnetGroup:SubnetGroup default production-subnet-group
+ * ```
+ */
 export class SubnetGroup extends pulumi.CustomResource {
     /**
      * Get an existing SubnetGroup resource's state with the given name, ID, and optional extra
@@ -32,13 +60,37 @@ export class SubnetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubnetGroup.__pulumiType;
     }
 
+    /**
+     * The ARN of the db subnet group.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The description of the DB subnet group. Defaults to "Managed by Pulumi".
+     */
     public readonly description!: pulumi.Output<string>;
+    /**
+     * The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     public readonly namePrefix!: pulumi.Output<string>;
+    /**
+     * A list of VPC subnet IDs.
+     */
     public readonly subnetIds!: pulumi.Output<string[]>;
+    /**
+     * The network type of the db subnet group.
+     */
     public /*out*/ readonly supportedNetworkTypes!: pulumi.Output<string[]>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -85,13 +137,37 @@ export class SubnetGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SubnetGroup resources.
  */
 export interface SubnetGroupState {
+    /**
+     * The ARN of the db subnet group.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The description of the DB subnet group. Defaults to "Managed by Pulumi".
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * A list of VPC subnet IDs.
+     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The network type of the db subnet group.
+     */
     supportedNetworkTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -99,9 +175,24 @@ export interface SubnetGroupState {
  * The set of arguments for constructing a SubnetGroup resource.
  */
 export interface SubnetGroupArgs {
+    /**
+     * The description of the DB subnet group. Defaults to "Managed by Pulumi".
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * A list of VPC subnet IDs.
+     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

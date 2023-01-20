@@ -16,23 +16,53 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
 
     public static final DistributionLoggingConfigArgs Empty = new DistributionLoggingConfigArgs();
 
+    /**
+     * The Amazon S3 bucket to store the access logs in, for
+     * example, `myawslogbucket.s3.amazonaws.com`.
+     * 
+     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
+    /**
+     * @return The Amazon S3 bucket to store the access logs in, for
+     * example, `myawslogbucket.s3.amazonaws.com`.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
+    /**
+     * Specifies whether you want CloudFront to
+     * include cookies in access logs (default: `false`).
+     * 
+     */
     @Import(name="includeCookies")
     private @Nullable Output<Boolean> includeCookies;
 
+    /**
+     * @return Specifies whether you want CloudFront to
+     * include cookies in access logs (default: `false`).
+     * 
+     */
     public Optional<Output<Boolean>> includeCookies() {
         return Optional.ofNullable(this.includeCookies);
     }
 
+    /**
+     * An optional string that you want CloudFront to prefix
+     * to the access log filenames for this distribution, for example, `myprefix/`.
+     * 
+     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
+    /**
+     * @return An optional string that you want CloudFront to prefix
+     * to the access log filenames for this distribution, for example, `myprefix/`.
+     * 
+     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -63,29 +93,71 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
             $ = new DistributionLoggingConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucket The Amazon S3 bucket to store the access logs in, for
+         * example, `myawslogbucket.s3.amazonaws.com`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
+        /**
+         * @param bucket The Amazon S3 bucket to store the access logs in, for
+         * example, `myawslogbucket.s3.amazonaws.com`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param includeCookies Specifies whether you want CloudFront to
+         * include cookies in access logs (default: `false`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder includeCookies(@Nullable Output<Boolean> includeCookies) {
             $.includeCookies = includeCookies;
             return this;
         }
 
+        /**
+         * @param includeCookies Specifies whether you want CloudFront to
+         * include cookies in access logs (default: `false`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder includeCookies(Boolean includeCookies) {
             return includeCookies(Output.of(includeCookies));
         }
 
+        /**
+         * @param prefix An optional string that you want CloudFront to prefix
+         * to the access log filenames for this distribution, for example, `myprefix/`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
+        /**
+         * @param prefix An optional string that you want CloudFront to prefix
+         * to the access log filenames for this distribution, for example, `myprefix/`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

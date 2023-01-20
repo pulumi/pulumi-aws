@@ -13,6 +13,9 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionOriginGroupFailoverCriteria
     {
+        /// <summary>
+        /// A list of HTTP status codes for the origin group
+        /// </summary>
         public readonly ImmutableArray<int> StatusCodes;
 
         [OutputConstructor]

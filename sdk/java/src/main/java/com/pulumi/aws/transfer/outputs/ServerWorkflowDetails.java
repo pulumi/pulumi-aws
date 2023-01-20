@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServerWorkflowDetails {
+    /**
+     * @return A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+     * 
+     */
     private @Nullable ServerWorkflowDetailsOnUpload onUpload;
 
     private ServerWorkflowDetails() {}
+    /**
+     * @return A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+     * 
+     */
     public Optional<ServerWorkflowDetailsOnUpload> onUpload() {
         return Optional.ofNullable(this.onUpload);
     }

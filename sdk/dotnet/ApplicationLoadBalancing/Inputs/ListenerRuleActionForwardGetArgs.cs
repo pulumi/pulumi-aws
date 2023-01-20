@@ -12,11 +12,18 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
 
     public sealed class ListenerRuleActionForwardGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The target group stickiness for the rule.
+        /// </summary>
         [Input("stickiness")]
         public Input<Inputs.ListenerRuleActionForwardStickinessGetArgs>? Stickiness { get; set; }
 
         [Input("targetGroups", required: true)]
         private InputList<Inputs.ListenerRuleActionForwardTargetGroupGetArgs>? _targetGroups;
+
+        /// <summary>
+        /// One or more target groups block.
+        /// </summary>
         public InputList<Inputs.ListenerRuleActionForwardTargetGroupGetArgs> TargetGroups
         {
             get => _targetGroups ?? (_targetGroups = new InputList<Inputs.ListenerRuleActionForwardTargetGroupGetArgs>());

@@ -12,17 +12,27 @@ namespace Pulumi.Aws.ApiGateway.Inputs
 
     public sealed class StageCanarySettingsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+        /// </summary>
         [Input("percentTraffic")]
         public Input<double>? PercentTraffic { get; set; }
 
         [Input("stageVariableOverrides")]
         private InputMap<object>? _stageVariableOverrides;
+
+        /// <summary>
+        /// Map of overridden stage `variables` (including new variables) for the canary deployment.
+        /// </summary>
         public InputMap<object> StageVariableOverrides
         {
             get => _stageVariableOverrides ?? (_stageVariableOverrides = new InputMap<object>());
             set => _stageVariableOverrides = value;
         }
 
+        /// <summary>
+        /// Whether the canary deployment uses the stage cache. Defaults to false.
+        /// </summary>
         [Input("useStageCache")]
         public Input<bool>? UseStageCache { get; set; }
 

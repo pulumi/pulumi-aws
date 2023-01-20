@@ -39,6 +39,9 @@ class GetClustersResult:
     @property
     @pulumi.getter
     def names(self) -> Sequence[str]:
+        """
+        Set of EKS clusters names
+        """
         return pulumi.get(self, "names")
 
 
@@ -54,7 +57,7 @@ class AwaitableGetClustersResult(GetClustersResult):
 
 def get_clusters(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClustersResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve EKS Clusters list
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

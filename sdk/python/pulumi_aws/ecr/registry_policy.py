@@ -17,12 +17,16 @@ class RegistryPolicyArgs:
                  policy: pulumi.Input[str]):
         """
         The set of arguments for constructing a RegistryPolicy resource.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         """
         pulumi.set(__self__, "policy", policy)
 
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
+        """
+        The policy document. This is a JSON formatted string.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -37,6 +41,8 @@ class _RegistryPolicyState:
                  registry_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RegistryPolicy resources.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[str] registry_id: The registry ID where the registry was created.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -46,6 +52,9 @@ class _RegistryPolicyState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy document. This is a JSON formatted string.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -55,6 +64,9 @@ class _RegistryPolicyState:
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The registry ID where the registry was created.
+        """
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter
@@ -70,9 +82,43 @@ class RegistryPolicy(pulumi.CustomResource):
                  policy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a RegistryPolicy resource with the given unique name, props, and options.
+        Provides an Elastic Container Registry Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current_caller_identity = aws.get_caller_identity()
+        current_region = aws.get_region()
+        current_partition = aws.get_partition()
+        example = aws.ecr.RegistryPolicy("example", policy=json.dumps({
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Sid": "testpolicy",
+                "Effect": "Allow",
+                "Principal": {
+                    "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
+                },
+                "Action": ["ecr:ReplicateImage"],
+                "Resource": [f"arn:{current_partition.partition}:ecr:{current_region.name}:{current_caller_identity.account_id}:repository/*"],
+            }],
+        }))
+        ```
+
+        ## Import
+
+        ECR Registry Policy can be imported using the registry id, e.g.,
+
+        ```sh
+         $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         """
         ...
     @overload
@@ -81,7 +127,40 @@ class RegistryPolicy(pulumi.CustomResource):
                  args: RegistryPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RegistryPolicy resource with the given unique name, props, and options.
+        Provides an Elastic Container Registry Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current_caller_identity = aws.get_caller_identity()
+        current_region = aws.get_region()
+        current_partition = aws.get_partition()
+        example = aws.ecr.RegistryPolicy("example", policy=json.dumps({
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Sid": "testpolicy",
+                "Effect": "Allow",
+                "Principal": {
+                    "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
+                },
+                "Action": ["ecr:ReplicateImage"],
+                "Resource": [f"arn:{current_partition.partition}:ecr:{current_region.name}:{current_caller_identity.account_id}:repository/*"],
+            }],
+        }))
+        ```
+
+        ## Import
+
+        ECR Registry Policy can be imported using the registry id, e.g.,
+
+        ```sh
+         $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param RegistryPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,6 +209,8 @@ class RegistryPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[str] registry_id: The registry ID where the registry was created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -142,10 +223,16 @@ class RegistryPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
+        """
+        The policy document. This is a JSON formatted string.
+        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> pulumi.Output[str]:
+        """
+        The registry ID where the registry was created.
+        """
         return pulumi.get(self, "registry_id")
 

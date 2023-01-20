@@ -9,15 +9,56 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ecr
 {
+    /// <summary>
+    /// Provides an Elastic Container Registry Pull Through Cache Rule.
+    /// 
+    /// More information about pull through cache rules, including the set of supported
+    /// upstream repositories, see [Using pull through cache rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ecr.PullThroughCacheRule("example", new()
+    ///     {
+    ///         EcrRepositoryPrefix = "ecr-public",
+    ///         UpstreamRegistryUrl = "public.ecr.aws",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Use the `ecr_repository_prefix` to import a Pull Through Cache Rule. For example
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:ecr/pullThroughCacheRule:PullThroughCacheRule")]
     public partial class PullThroughCacheRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The repository name prefix to use when caching images from the source registry.
+        /// </summary>
         [Output("ecrRepositoryPrefix")]
         public Output<string> EcrRepositoryPrefix { get; private set; } = null!;
 
+        /// <summary>
+        /// The registry ID where the repository was created.
+        /// </summary>
         [Output("registryId")]
         public Output<string> RegistryId { get; private set; } = null!;
 
+        /// <summary>
+        /// The registry URL of the upstream public registry to use as the source.
+        /// </summary>
         [Output("upstreamRegistryUrl")]
         public Output<string> UpstreamRegistryUrl { get; private set; } = null!;
 
@@ -67,9 +108,15 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class PullThroughCacheRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The repository name prefix to use when caching images from the source registry.
+        /// </summary>
         [Input("ecrRepositoryPrefix", required: true)]
         public Input<string> EcrRepositoryPrefix { get; set; } = null!;
 
+        /// <summary>
+        /// The registry URL of the upstream public registry to use as the source.
+        /// </summary>
         [Input("upstreamRegistryUrl", required: true)]
         public Input<string> UpstreamRegistryUrl { get; set; } = null!;
 
@@ -81,12 +128,21 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class PullThroughCacheRuleState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The repository name prefix to use when caching images from the source registry.
+        /// </summary>
         [Input("ecrRepositoryPrefix")]
         public Input<string>? EcrRepositoryPrefix { get; set; }
 
+        /// <summary>
+        /// The registry ID where the repository was created.
+        /// </summary>
         [Input("registryId")]
         public Input<string>? RegistryId { get; set; }
 
+        /// <summary>
+        /// The registry URL of the upstream public registry to use as the source.
+        /// </summary>
         [Input("upstreamRegistryUrl")]
         public Input<string>? UpstreamRegistryUrl { get; set; }
 

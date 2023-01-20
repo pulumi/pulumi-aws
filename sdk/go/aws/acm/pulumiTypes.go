@@ -11,9 +11,13 @@ import (
 )
 
 type CertificateDomainValidationOption struct {
-	DomainName          *string `pulumi:"domainName"`
-	ResourceRecordName  *string `pulumi:"resourceRecordName"`
-	ResourceRecordType  *string `pulumi:"resourceRecordType"`
+	// Fully qualified domain name (FQDN) in the certificate.
+	DomainName *string `pulumi:"domainName"`
+	// The name of the DNS record to create to validate the certificate
+	ResourceRecordName *string `pulumi:"resourceRecordName"`
+	// The type of DNS record to create
+	ResourceRecordType *string `pulumi:"resourceRecordType"`
+	// The value the DNS record needs to have
 	ResourceRecordValue *string `pulumi:"resourceRecordValue"`
 }
 
@@ -29,9 +33,13 @@ type CertificateDomainValidationOptionInput interface {
 }
 
 type CertificateDomainValidationOptionArgs struct {
-	DomainName          pulumi.StringPtrInput `pulumi:"domainName"`
-	ResourceRecordName  pulumi.StringPtrInput `pulumi:"resourceRecordName"`
-	ResourceRecordType  pulumi.StringPtrInput `pulumi:"resourceRecordType"`
+	// Fully qualified domain name (FQDN) in the certificate.
+	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
+	// The name of the DNS record to create to validate the certificate
+	ResourceRecordName pulumi.StringPtrInput `pulumi:"resourceRecordName"`
+	// The type of DNS record to create
+	ResourceRecordType pulumi.StringPtrInput `pulumi:"resourceRecordType"`
+	// The value the DNS record needs to have
 	ResourceRecordValue pulumi.StringPtrInput `pulumi:"resourceRecordValue"`
 }
 
@@ -86,18 +94,22 @@ func (o CertificateDomainValidationOptionOutput) ToCertificateDomainValidationOp
 	return o
 }
 
+// Fully qualified domain name (FQDN) in the certificate.
 func (o CertificateDomainValidationOptionOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
+// The name of the DNS record to create to validate the certificate
 func (o CertificateDomainValidationOptionOutput) ResourceRecordName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.ResourceRecordName }).(pulumi.StringPtrOutput)
 }
 
+// The type of DNS record to create
 func (o CertificateDomainValidationOptionOutput) ResourceRecordType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.ResourceRecordType }).(pulumi.StringPtrOutput)
 }
 
+// The value the DNS record needs to have
 func (o CertificateDomainValidationOptionOutput) ResourceRecordValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.ResourceRecordValue }).(pulumi.StringPtrOutput)
 }
@@ -123,6 +135,7 @@ func (o CertificateDomainValidationOptionArrayOutput) Index(i pulumi.IntInput) C
 }
 
 type CertificateOptions struct {
+	// Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
 	CertificateTransparencyLoggingPreference *string `pulumi:"certificateTransparencyLoggingPreference"`
 }
 
@@ -138,6 +151,7 @@ type CertificateOptionsInput interface {
 }
 
 type CertificateOptionsArgs struct {
+	// Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
 	CertificateTransparencyLoggingPreference pulumi.StringPtrInput `pulumi:"certificateTransparencyLoggingPreference"`
 }
 
@@ -218,6 +232,7 @@ func (o CertificateOptionsOutput) ToCertificateOptionsPtrOutputWithContext(ctx c
 	}).(CertificateOptionsPtrOutput)
 }
 
+// Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
 func (o CertificateOptionsOutput) CertificateTransparencyLoggingPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateOptions) *string { return v.CertificateTransparencyLoggingPreference }).(pulumi.StringPtrOutput)
 }
@@ -246,6 +261,7 @@ func (o CertificateOptionsPtrOutput) Elem() CertificateOptionsOutput {
 	}).(CertificateOptionsOutput)
 }
 
+// Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
 func (o CertificateOptionsPtrOutput) CertificateTransparencyLoggingPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateOptions) *string {
 		if v == nil {
@@ -256,7 +272,9 @@ func (o CertificateOptionsPtrOutput) CertificateTransparencyLoggingPreference() 
 }
 
 type CertificateRenewalSummary struct {
-	RenewalStatus       *string `pulumi:"renewalStatus"`
+	// The status of ACM's managed renewal of the certificate
+	RenewalStatus *string `pulumi:"renewalStatus"`
+	// The reason that a renewal request was unsuccessful or is pending
 	RenewalStatusReason *string `pulumi:"renewalStatusReason"`
 	UpdatedAt           *string `pulumi:"updatedAt"`
 }
@@ -273,7 +291,9 @@ type CertificateRenewalSummaryInput interface {
 }
 
 type CertificateRenewalSummaryArgs struct {
-	RenewalStatus       pulumi.StringPtrInput `pulumi:"renewalStatus"`
+	// The status of ACM's managed renewal of the certificate
+	RenewalStatus pulumi.StringPtrInput `pulumi:"renewalStatus"`
+	// The reason that a renewal request was unsuccessful or is pending
 	RenewalStatusReason pulumi.StringPtrInput `pulumi:"renewalStatusReason"`
 	UpdatedAt           pulumi.StringPtrInput `pulumi:"updatedAt"`
 }
@@ -329,10 +349,12 @@ func (o CertificateRenewalSummaryOutput) ToCertificateRenewalSummaryOutputWithCo
 	return o
 }
 
+// The status of ACM's managed renewal of the certificate
 func (o CertificateRenewalSummaryOutput) RenewalStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateRenewalSummary) *string { return v.RenewalStatus }).(pulumi.StringPtrOutput)
 }
 
+// The reason that a renewal request was unsuccessful or is pending
 func (o CertificateRenewalSummaryOutput) RenewalStatusReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateRenewalSummary) *string { return v.RenewalStatusReason }).(pulumi.StringPtrOutput)
 }
@@ -362,7 +384,9 @@ func (o CertificateRenewalSummaryArrayOutput) Index(i pulumi.IntInput) Certifica
 }
 
 type CertificateValidationOption struct {
-	DomainName       string `pulumi:"domainName"`
+	// Fully qualified domain name (FQDN) in the certificate.
+	DomainName string `pulumi:"domainName"`
+	// Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domainName` value or a superdomain of the `domainName` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
 	ValidationDomain string `pulumi:"validationDomain"`
 }
 
@@ -378,7 +402,9 @@ type CertificateValidationOptionInput interface {
 }
 
 type CertificateValidationOptionArgs struct {
-	DomainName       pulumi.StringInput `pulumi:"domainName"`
+	// Fully qualified domain name (FQDN) in the certificate.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domainName` value or a superdomain of the `domainName` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
 	ValidationDomain pulumi.StringInput `pulumi:"validationDomain"`
 }
 
@@ -433,10 +459,12 @@ func (o CertificateValidationOptionOutput) ToCertificateValidationOptionOutputWi
 	return o
 }
 
+// Fully qualified domain name (FQDN) in the certificate.
 func (o CertificateValidationOptionOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateValidationOption) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
+// Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domainName` value or a superdomain of the `domainName` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
 func (o CertificateValidationOptionOutput) ValidationDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateValidationOption) string { return v.ValidationDomain }).(pulumi.StringOutput)
 }

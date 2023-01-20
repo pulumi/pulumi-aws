@@ -7,6 +7,39 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides details about a specific redshift cluster.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.redshift.getCluster({
+ *     clusterIdentifier: "example-cluster",
+ * });
+ * const exampleStream = new aws.kinesis.FirehoseDeliveryStream("exampleStream", {
+ *     destination: "redshift",
+ *     s3Configuration: {
+ *         roleArn: aws_iam_role.firehose_role.arn,
+ *         bucketArn: aws_s3_bucket.bucket.arn,
+ *         bufferSize: 10,
+ *         bufferInterval: 400,
+ *         compressionFormat: "GZIP",
+ *     },
+ *     redshiftConfiguration: {
+ *         roleArn: aws_iam_role.firehose_role.arn,
+ *         clusterJdbcurl: Promise.all([example, example]).then(([example, example1]) => `jdbc:redshift://${example.endpoint}/${example1.databaseName}`),
+ *         username: "exampleuser",
+ *         password: "Exampl3Pass",
+ *         dataTableName: "example-table",
+ *         copyOptions: "delimiter '|'",
+ *         dataTableColumns: "example-col",
+ *     },
+ * });
+ * ```
+ */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -20,7 +53,13 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getCluster.
  */
 export interface GetClusterArgs {
+    /**
+     * Cluster identifier
+     */
     clusterIdentifier: string;
+    /**
+     * Tags associated to the cluster
+     */
     tags?: {[key: string]: string};
 }
 
@@ -28,50 +67,197 @@ export interface GetClusterArgs {
  * A collection of values returned by getCluster.
  */
 export interface GetClusterResult {
+    /**
+     * Whether major version upgrades can be applied during maintenance period
+     */
     readonly allowVersionUpgrade: boolean;
+    /**
+     * The value represents how the cluster is configured to use AQUA.
+     */
     readonly aquaConfigurationStatus: string;
+    /**
+     * ARN of cluster.
+     */
     readonly arn: string;
+    /**
+     * The backup retention period
+     */
     readonly automatedSnapshotRetentionPeriod: number;
+    /**
+     * Availability zone of the cluster
+     */
     readonly availabilityZone: string;
+    /**
+     * Indicates whether the cluster is able to be relocated to another availability zone.
+     */
     readonly availabilityZoneRelocationEnabled: boolean;
+    /**
+     * Name of the S3 bucket where the log files are to be stored
+     */
     readonly bucketName: string;
+    /**
+     * Cluster identifier
+     */
     readonly clusterIdentifier: string;
+    /**
+     * Nodes in the cluster. Cluster node blocks are documented below
+     */
     readonly clusterNodes: outputs.redshift.GetClusterClusterNode[];
+    /**
+     * The name of the parameter group to be associated with this cluster
+     */
     readonly clusterParameterGroupName: string;
+    /**
+     * Public key for the cluster
+     */
     readonly clusterPublicKey: string;
+    /**
+     * The cluster revision number
+     */
     readonly clusterRevisionNumber: string;
+    /**
+     * The security groups associated with the cluster
+     */
     readonly clusterSecurityGroups: string[];
+    /**
+     * The name of a cluster subnet group to be associated with this cluster
+     */
     readonly clusterSubnetGroupName: string;
+    /**
+     * Cluster type
+     */
     readonly clusterType: string;
     readonly clusterVersion: string;
+    /**
+     * Name of the default database in the cluster
+     */
     readonly databaseName: string;
+    /**
+     * ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
+     */
     readonly defaultIamRoleArn: string;
+    /**
+     * Elastic IP of the cluster
+     */
     readonly elasticIp: string;
+    /**
+     * Whether cluster logging is enabled
+     */
     readonly enableLogging: boolean;
+    /**
+     * Whether the cluster data is encrypted
+     */
     readonly encrypted: boolean;
+    /**
+     * Cluster endpoint
+     */
     readonly endpoint: string;
+    /**
+     * Whether enhanced VPC routing is enabled
+     */
     readonly enhancedVpcRouting: boolean;
+    /**
+     * IAM roles associated to the cluster
+     */
     readonly iamRoles: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * KMS encryption key associated to the cluster
+     */
     readonly kmsKeyId: string;
+    /**
+     * The log destination type.
+     */
     readonly logDestinationType: string;
+    /**
+     * Collection of exported log types. Log types include the connection log, user log and user activity log.
+     */
     readonly logExports: string[];
+    /**
+     * The name of the maintenance track for the restored cluster.
+     */
     readonly maintenanceTrackName: string;
+    /**
+     * (Optional)  The default number of days to retain a manual snapshot.
+     */
     readonly manualSnapshotRetentionPeriod: number;
+    /**
+     * Username for the master DB user
+     */
     readonly masterUsername: string;
+    /**
+     * Cluster node type
+     */
     readonly nodeType: string;
+    /**
+     * Number of nodes in the cluster
+     */
     readonly numberOfNodes: number;
+    /**
+     * Port the cluster responds on
+     */
     readonly port: number;
+    /**
+     * The maintenance window
+     */
     readonly preferredMaintenanceWindow: string;
+    /**
+     * Whether the cluster is publicly accessible
+     */
     readonly publiclyAccessible: boolean;
+    /**
+     * Folder inside the S3 bucket where the log files are stored
+     */
     readonly s3KeyPrefix: string;
+    /**
+     * Tags associated to the cluster
+     */
     readonly tags?: {[key: string]: string};
+    /**
+     * VPC Id associated with the cluster
+     */
     readonly vpcId: string;
+    /**
+     * The VPC security group Ids associated with the cluster
+     */
     readonly vpcSecurityGroupIds: string[];
 }
+/**
+ * Provides details about a specific redshift cluster.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.redshift.getCluster({
+ *     clusterIdentifier: "example-cluster",
+ * });
+ * const exampleStream = new aws.kinesis.FirehoseDeliveryStream("exampleStream", {
+ *     destination: "redshift",
+ *     s3Configuration: {
+ *         roleArn: aws_iam_role.firehose_role.arn,
+ *         bucketArn: aws_s3_bucket.bucket.arn,
+ *         bufferSize: 10,
+ *         bufferInterval: 400,
+ *         compressionFormat: "GZIP",
+ *     },
+ *     redshiftConfiguration: {
+ *         roleArn: aws_iam_role.firehose_role.arn,
+ *         clusterJdbcurl: Promise.all([example, example]).then(([example, example1]) => `jdbc:redshift://${example.endpoint}/${example1.databaseName}`),
+ *         username: "exampleuser",
+ *         password: "Exampl3Pass",
+ *         dataTableName: "example-table",
+ *         copyOptions: "delimiter '|'",
+ *         dataTableColumns: "example-col",
+ *     },
+ * });
+ * ```
+ */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }
@@ -80,6 +266,12 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getCluster.
  */
 export interface GetClusterOutputArgs {
+    /**
+     * Cluster identifier
+     */
     clusterIdentifier: pulumi.Input<string>;
+    /**
+     * Tags associated to the cluster
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

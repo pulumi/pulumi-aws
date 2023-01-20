@@ -14,21 +14,37 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
     {
         [Input("dimensions")]
         private InputList<Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs>? _dimensions;
+
+        /// <summary>
+        /// Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+        /// </summary>
         public InputList<Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs> Dimensions
         {
             get => _dimensions ?? (_dimensions = new InputList<Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs>());
             set => _dimensions = value;
         }
 
+        /// <summary>
+        /// Name of the metric.
+        /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
 
+        /// <summary>
+        /// Namespace of the metric.
+        /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 
+        /// <summary>
+        /// Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+        /// </summary>
         [Input("statistic", required: true)]
         public Input<string> Statistic { get; set; } = null!;
 
+        /// <summary>
+        /// Unit of the metric.
+        /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
 

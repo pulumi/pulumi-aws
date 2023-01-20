@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Comprehend.Outputs
     [OutputType]
     public sealed class EntityRecognizerInputDataConfigEntityList
     {
+        /// <summary>
+        /// Location of entity list.
+        /// </summary>
         public readonly string S3Uri;
 
         [OutputConstructor]

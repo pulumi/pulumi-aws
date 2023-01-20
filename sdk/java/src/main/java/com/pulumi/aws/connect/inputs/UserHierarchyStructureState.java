@@ -16,16 +16,32 @@ public final class UserHierarchyStructureState extends com.pulumi.resources.Reso
 
     public static final UserHierarchyStructureState Empty = new UserHierarchyStructureState();
 
+    /**
+     * A block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
+     * 
+     */
     @Import(name="hierarchyStructure")
     private @Nullable Output<UserHierarchyStructureHierarchyStructureArgs> hierarchyStructure;
 
+    /**
+     * @return A block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
+     * 
+     */
     public Optional<Output<UserHierarchyStructureHierarchyStructureArgs>> hierarchyStructure() {
         return Optional.ofNullable(this.hierarchyStructure);
     }
 
+    /**
+     * Specifies the identifier of the hosting Amazon Connect Instance.
+     * 
+     */
     @Import(name="instanceId")
     private @Nullable Output<String> instanceId;
 
+    /**
+     * @return Specifies the identifier of the hosting Amazon Connect Instance.
+     * 
+     */
     public Optional<Output<String>> instanceId() {
         return Optional.ofNullable(this.instanceId);
     }
@@ -55,20 +71,44 @@ public final class UserHierarchyStructureState extends com.pulumi.resources.Reso
             $ = new UserHierarchyStructureState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param hierarchyStructure A block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hierarchyStructure(@Nullable Output<UserHierarchyStructureHierarchyStructureArgs> hierarchyStructure) {
             $.hierarchyStructure = hierarchyStructure;
             return this;
         }
 
+        /**
+         * @param hierarchyStructure A block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hierarchyStructure(UserHierarchyStructureHierarchyStructureArgs hierarchyStructure) {
             return hierarchyStructure(Output.of(hierarchyStructure));
         }
 
+        /**
+         * @param instanceId Specifies the identifier of the hosting Amazon Connect Instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceId(@Nullable Output<String> instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
+        /**
+         * @param instanceId Specifies the identifier of the hosting Amazon Connect Instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
         }

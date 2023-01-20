@@ -13,29 +13,107 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Resource for managing an AWS KMS (Key Management) Custom Key Store.
+ * 
+ * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.CustomKeyStore;
+ * import com.pulumi.aws.kms.CustomKeyStoreArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new CustomKeyStore(&#34;test&#34;, CustomKeyStoreArgs.builder()        
+ *             .cloudHsmClusterId(var_.cloud_hsm_cluster_id())
+ *             .customKeyStoreName(&#34;kms-custom-key-store-test&#34;)
+ *             .keyStorePassword(&#34;noplaintextpasswords1&#34;)
+ *             .trustAnchorCertificate(Files.readString(Paths.get(&#34;anchor-certificate.crt&#34;)))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * KMS (Key Management) Custom Key Store can be imported using the `id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
+ * ```
+ * 
+ */
 @ResourceType(type="aws:kms/customKeyStore:CustomKeyStore")
 public class CustomKeyStore extends com.pulumi.resources.CustomResource {
+    /**
+     * Cluster ID of CloudHSM.
+     * 
+     */
     @Export(name="cloudHsmClusterId", refs={String.class}, tree="[0]")
     private Output<String> cloudHsmClusterId;
 
+    /**
+     * @return Cluster ID of CloudHSM.
+     * 
+     */
     public Output<String> cloudHsmClusterId() {
         return this.cloudHsmClusterId;
     }
+    /**
+     * Unique name for Custom Key Store.
+     * 
+     */
     @Export(name="customKeyStoreName", refs={String.class}, tree="[0]")
     private Output<String> customKeyStoreName;
 
+    /**
+     * @return Unique name for Custom Key Store.
+     * 
+     */
     public Output<String> customKeyStoreName() {
         return this.customKeyStoreName;
     }
+    /**
+     * Password for `kmsuser` on CloudHSM.
+     * 
+     */
     @Export(name="keyStorePassword", refs={String.class}, tree="[0]")
     private Output<String> keyStorePassword;
 
+    /**
+     * @return Password for `kmsuser` on CloudHSM.
+     * 
+     */
     public Output<String> keyStorePassword() {
         return this.keyStorePassword;
     }
+    /**
+     * Customer certificate used for signing on CloudHSM.
+     * 
+     */
     @Export(name="trustAnchorCertificate", refs={String.class}, tree="[0]")
     private Output<String> trustAnchorCertificate;
 
+    /**
+     * @return Customer certificate used for signing on CloudHSM.
+     * 
+     */
     public Output<String> trustAnchorCertificate() {
         return this.trustAnchorCertificate;
     }

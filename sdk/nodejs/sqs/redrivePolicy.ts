@@ -4,6 +4,42 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Allows you to set a redrive policy of an SQS Queue
+ * while referencing ARN of the dead letter queue inside the redrive policy.
+ *
+ * This is useful when you want to set a dedicated
+ * dead letter queue for a standard or FIFO queue, but need
+ * the dead letter queue to exist before setting the redrive policy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const queue = new aws.sqs.Queue("queue", {});
+ * const ddl = new aws.sqs.Queue("ddl", {redriveAllowPolicy: queue.arn.apply(arn => JSON.stringify({
+ *     redrivePermission: "byQueue",
+ *     sourceQueueArns: [arn],
+ * }))});
+ * const redrivePolicy = new aws.sqs.RedrivePolicy("redrivePolicy", {
+ *     queueUrl: queue.id,
+ *     redrivePolicy: ddl.arn.apply(arn => JSON.stringify({
+ *         deadLetterTargetArn: arn,
+ *         maxReceiveCount: 4,
+ *     })),
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * SQS Queue Redrive Policies can be imported using the queue URL, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+ * ```
+ */
 export class RedrivePolicy extends pulumi.CustomResource {
     /**
      * Get an existing RedrivePolicy resource's state with the given name, ID, and optional extra
@@ -32,7 +68,13 @@ export class RedrivePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RedrivePolicy.__pulumiType;
     }
 
+    /**
+     * The URL of the SQS Queue to which to attach the policy
+     */
     public readonly queueUrl!: pulumi.Output<string>;
+    /**
+     * The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
+     */
     public readonly redrivePolicy!: pulumi.Output<string>;
 
     /**
@@ -70,7 +112,13 @@ export class RedrivePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RedrivePolicy resources.
  */
 export interface RedrivePolicyState {
+    /**
+     * The URL of the SQS Queue to which to attach the policy
+     */
     queueUrl?: pulumi.Input<string>;
+    /**
+     * The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
+     */
     redrivePolicy?: pulumi.Input<string>;
 }
 
@@ -78,6 +126,12 @@ export interface RedrivePolicyState {
  * The set of arguments for constructing a RedrivePolicy resource.
  */
 export interface RedrivePolicyArgs {
+    /**
+     * The URL of the SQS Queue to which to attach the policy
+     */
     queueUrl: pulumi.Input<string>;
+    /**
+     * The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
+     */
     redrivePolicy: pulumi.Input<string>;
 }

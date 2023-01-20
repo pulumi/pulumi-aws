@@ -13,15 +13,45 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatch
     {
+        /// <summary>
+        /// Inspect all query arguments.
+        /// </summary>
         public readonly Outputs.RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArguments? AllQueryArguments;
+        /// <summary>
+        /// Inspect the request body, which immediately follows the request headers.
+        /// </summary>
         public readonly Outputs.RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchBody? Body;
+        /// <summary>
+        /// Inspect the cookies in the web request. See Cookies below for details.
+        /// </summary>
         public readonly Outputs.RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchCookies? Cookies;
+        /// <summary>
+        /// Inspect the request headers. See Headers below for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchHeader> Headers;
+        /// <summary>
+        /// Inspect the request body as JSON. See JSON Body for details.
+        /// </summary>
         public readonly Outputs.RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchJsonBody? JsonBody;
+        /// <summary>
+        /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        /// </summary>
         public readonly Outputs.RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchMethod? Method;
+        /// <summary>
+        /// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        /// </summary>
         public readonly Outputs.RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchQueryString? QueryString;
+        /// <summary>
+        /// Inspect a single header. See Single Header below for details.
+        /// </summary>
         public readonly Outputs.RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeader? SingleHeader;
+        /// <summary>
+        /// Inspect a single query argument. See Single Query Argument below for details.
+        /// </summary>
         public readonly Outputs.RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument? SingleQueryArgument;
+        /// <summary>
+        /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        /// </summary>
         public readonly Outputs.RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath? UriPath;
 
         [OutputConstructor]

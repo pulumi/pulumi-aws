@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorPlugin {
+    /**
+     * @return Details about a custom plugin. See below.
+     * 
+     */
     private ConnectorPluginCustomPlugin customPlugin;
 
     private ConnectorPlugin() {}
+    /**
+     * @return Details about a custom plugin. See below.
+     * 
+     */
     public ConnectorPluginCustomPlugin customPlugin() {
         return this.customPlugin;
     }

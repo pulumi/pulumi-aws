@@ -16,23 +16,47 @@ public final class HostedTransitVirtualInterfaceAcceptorArgs extends com.pulumi.
 
     public static final HostedTransitVirtualInterfaceAcceptorArgs Empty = new HostedTransitVirtualInterfaceAcceptorArgs();
 
+    /**
+     * The ID of the Direct Connect gateway to which to connect the virtual interface.
+     * 
+     */
     @Import(name="dxGatewayId", required=true)
     private Output<String> dxGatewayId;
 
+    /**
+     * @return The ID of the Direct Connect gateway to which to connect the virtual interface.
+     * 
+     */
     public Output<String> dxGatewayId() {
         return this.dxGatewayId;
     }
 
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * The ID of the Direct Connect virtual interface to accept.
+     * 
+     */
     @Import(name="virtualInterfaceId", required=true)
     private Output<String> virtualInterfaceId;
 
+    /**
+     * @return The ID of the Direct Connect virtual interface to accept.
+     * 
+     */
     public Output<String> virtualInterfaceId() {
         return this.virtualInterfaceId;
     }
@@ -63,29 +87,65 @@ public final class HostedTransitVirtualInterfaceAcceptorArgs extends com.pulumi.
             $ = new HostedTransitVirtualInterfaceAcceptorArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dxGatewayId The ID of the Direct Connect gateway to which to connect the virtual interface.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dxGatewayId(Output<String> dxGatewayId) {
             $.dxGatewayId = dxGatewayId;
             return this;
         }
 
+        /**
+         * @param dxGatewayId The ID of the Direct Connect gateway to which to connect the virtual interface.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dxGatewayId(String dxGatewayId) {
             return dxGatewayId(Output.of(dxGatewayId));
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param virtualInterfaceId The ID of the Direct Connect virtual interface to accept.
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualInterfaceId(Output<String> virtualInterfaceId) {
             $.virtualInterfaceId = virtualInterfaceId;
             return this;
         }
 
+        /**
+         * @param virtualInterfaceId The ID of the Direct Connect virtual interface to accept.
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualInterfaceId(String virtualInterfaceId) {
             return virtualInterfaceId(Output.of(virtualInterfaceId));
         }

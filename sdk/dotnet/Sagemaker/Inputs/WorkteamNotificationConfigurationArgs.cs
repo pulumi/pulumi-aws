@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class WorkteamNotificationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN for the SNS topic to which notifications should be published.
+        /// </summary>
         [Input("notificationTopicArn")]
         public Input<string>? NotificationTopicArn { get; set; }
 

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class GetInfrastructureConfigurationLoggingResult
     {
+        /// <summary>
+        /// Nested list of S3 logs settings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetInfrastructureConfigurationLoggingS3LogResult> S3Logs;
 
         [OutputConstructor]

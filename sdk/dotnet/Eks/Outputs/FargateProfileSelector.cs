@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class FargateProfileSelector
     {
+        /// <summary>
+        /// Key-value map of Kubernetes labels for selection.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Labels;
+        /// <summary>
+        /// Kubernetes namespace for selection.
+        /// </summary>
         public readonly string Namespace;
 
         [OutputConstructor]

@@ -12,9 +12,15 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
+        /// </summary>
         [Input("prefixFormat")]
         public Input<string>? PrefixFormat { get; set; }
 
+        /// <summary>
+        /// Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
+        /// </summary>
         [Input("prefixType", required: true)]
         public Input<string> PrefixType { get; set; } = null!;
 

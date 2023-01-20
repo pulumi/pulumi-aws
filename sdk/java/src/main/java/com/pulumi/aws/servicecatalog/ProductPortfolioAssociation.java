@@ -14,29 +14,105 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages a Service Catalog Product Portfolio Association.
+ * 
+ * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.servicecatalog.ProductPortfolioAssociation;
+ * import com.pulumi.aws.servicecatalog.ProductPortfolioAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ProductPortfolioAssociation(&#34;example&#34;, ProductPortfolioAssociationArgs.builder()        
+ *             .portfolioId(&#34;port-68656c6c6f&#34;)
+ *             .productId(&#34;prod-dnigbtea24ste&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_servicecatalog_product_portfolio_association` can be imported using the accept language, portfolio ID, and product ID, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
+ * ```
+ * 
+ */
 @ResourceType(type="aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation")
 public class ProductPortfolioAssociation extends com.pulumi.resources.CustomResource {
+    /**
+     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     * 
+     */
     @Export(name="acceptLanguage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> acceptLanguage;
 
+    /**
+     * @return Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     * 
+     */
     public Output<Optional<String>> acceptLanguage() {
         return Codegen.optional(this.acceptLanguage);
     }
+    /**
+     * Portfolio identifier.
+     * 
+     */
     @Export(name="portfolioId", refs={String.class}, tree="[0]")
     private Output<String> portfolioId;
 
+    /**
+     * @return Portfolio identifier.
+     * 
+     */
     public Output<String> portfolioId() {
         return this.portfolioId;
     }
+    /**
+     * Product identifier.
+     * 
+     */
     @Export(name="productId", refs={String.class}, tree="[0]")
     private Output<String> productId;
 
+    /**
+     * @return Product identifier.
+     * 
+     */
     public Output<String> productId() {
         return this.productId;
     }
+    /**
+     * Identifier of the source portfolio.
+     * 
+     */
     @Export(name="sourcePortfolioId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourcePortfolioId;
 
+    /**
+     * @return Identifier of the source portfolio.
+     * 
+     */
     public Output<Optional<String>> sourcePortfolioId() {
         return Codegen.optional(this.sourcePortfolioId);
     }

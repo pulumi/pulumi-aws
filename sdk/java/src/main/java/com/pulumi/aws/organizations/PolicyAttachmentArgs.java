@@ -13,16 +13,32 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
 
     public static final PolicyAttachmentArgs Empty = new PolicyAttachmentArgs();
 
+    /**
+     * The unique identifier (ID) of the policy that you want to attach to the target.
+     * 
+     */
     @Import(name="policyId", required=true)
     private Output<String> policyId;
 
+    /**
+     * @return The unique identifier (ID) of the policy that you want to attach to the target.
+     * 
+     */
     public Output<String> policyId() {
         return this.policyId;
     }
 
+    /**
+     * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+     * 
+     */
     @Import(name="targetId", required=true)
     private Output<String> targetId;
 
+    /**
+     * @return The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+     * 
+     */
     public Output<String> targetId() {
         return this.targetId;
     }
@@ -52,20 +68,44 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
             $ = new PolicyAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param policyId The unique identifier (ID) of the policy that you want to attach to the target.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyId(Output<String> policyId) {
             $.policyId = policyId;
             return this;
         }
 
+        /**
+         * @param policyId The unique identifier (ID) of the policy that you want to attach to the target.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
         }
 
+        /**
+         * @param targetId The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetId(Output<String> targetId) {
             $.targetId = targetId;
             return this;
         }
 
+        /**
+         * @param targetId The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetId(String targetId) {
             return targetId(Output.of(targetId));
         }

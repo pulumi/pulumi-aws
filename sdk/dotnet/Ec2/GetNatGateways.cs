@@ -11,9 +11,15 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetNatGateways
     {
+        /// <summary>
+        /// This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+        /// </summary>
         public static Task<GetNatGatewaysResult> InvokeAsync(GetNatGatewaysArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewaysResult>("aws:ec2/getNatGateways:getNatGateways", args ?? new GetNatGatewaysArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+        /// </summary>
         public static Output<GetNatGatewaysResult> Invoke(GetNatGatewaysInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNatGatewaysResult>("aws:ec2/getNatGateways:getNatGateways", args ?? new GetNatGatewaysInvokeArgs(), options.WithDefaults());
     }
@@ -23,6 +29,10 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetNatGatewaysFilterArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
         public List<Inputs.GetNatGatewaysFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetNatGatewaysFilterArgs>());
@@ -31,12 +41,20 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags, each pair of which must exactly match
+        /// a pair on the desired NAT Gateways.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// VPC ID that you want to filter from.
+        /// </summary>
         [Input("vpcId")]
         public string? VpcId { get; set; }
 
@@ -50,6 +68,10 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetNatGatewaysFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
         public InputList<Inputs.GetNatGatewaysFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetNatGatewaysFilterInputArgs>());
@@ -58,12 +80,20 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags, each pair of which must exactly match
+        /// a pair on the desired NAT Gateways.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// VPC ID that you want to filter from.
+        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 
@@ -82,6 +112,9 @@ namespace Pulumi.Aws.Ec2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// List of all the NAT gateway ids found.
+        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string? VpcId;

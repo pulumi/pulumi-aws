@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Keyspaces.Inputs
 
     public sealed class TableTtlArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Valid values: `ENABLED`.
+        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 

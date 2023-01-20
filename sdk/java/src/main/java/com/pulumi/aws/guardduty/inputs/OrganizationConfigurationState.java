@@ -17,23 +17,47 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
 
     public static final OrganizationConfigurationState Empty = new OrganizationConfigurationState();
 
+    /**
+     * When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     * 
+     */
     @Import(name="autoEnable")
     private @Nullable Output<Boolean> autoEnable;
 
+    /**
+     * @return When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     * 
+     */
     public Optional<Output<Boolean>> autoEnable() {
         return Optional.ofNullable(this.autoEnable);
     }
 
+    /**
+     * Configuration for the collected datasources.
+     * 
+     */
     @Import(name="datasources")
     private @Nullable Output<OrganizationConfigurationDatasourcesArgs> datasources;
 
+    /**
+     * @return Configuration for the collected datasources.
+     * 
+     */
     public Optional<Output<OrganizationConfigurationDatasourcesArgs>> datasources() {
         return Optional.ofNullable(this.datasources);
     }
 
+    /**
+     * The detector ID of the GuardDuty account.
+     * 
+     */
     @Import(name="detectorId")
     private @Nullable Output<String> detectorId;
 
+    /**
+     * @return The detector ID of the GuardDuty account.
+     * 
+     */
     public Optional<Output<String>> detectorId() {
         return Optional.ofNullable(this.detectorId);
     }
@@ -64,29 +88,65 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
             $ = new OrganizationConfigurationState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param autoEnable When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoEnable(@Nullable Output<Boolean> autoEnable) {
             $.autoEnable = autoEnable;
             return this;
         }
 
+        /**
+         * @param autoEnable When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoEnable(Boolean autoEnable) {
             return autoEnable(Output.of(autoEnable));
         }
 
+        /**
+         * @param datasources Configuration for the collected datasources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder datasources(@Nullable Output<OrganizationConfigurationDatasourcesArgs> datasources) {
             $.datasources = datasources;
             return this;
         }
 
+        /**
+         * @param datasources Configuration for the collected datasources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder datasources(OrganizationConfigurationDatasourcesArgs datasources) {
             return datasources(Output.of(datasources));
         }
 
+        /**
+         * @param detectorId The detector ID of the GuardDuty account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder detectorId(@Nullable Output<String> detectorId) {
             $.detectorId = detectorId;
             return this;
         }
 
+        /**
+         * @param detectorId The detector ID of the GuardDuty account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder detectorId(String detectorId) {
             return detectorId(Output.of(detectorId));
         }

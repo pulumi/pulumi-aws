@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class AppImageConfigKernelGatewayImageConfigGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The URL where the Git repository is located. See File System Config details below.
+        /// </summary>
         [Input("fileSystemConfig")]
         public Input<Inputs.AppImageConfigKernelGatewayImageConfigFileSystemConfigGetArgs>? FileSystemConfig { get; set; }
 
+        /// <summary>
+        /// The default branch for the Git repository. See Kernel Spec details below.
+        /// </summary>
         [Input("kernelSpec", required: true)]
         public Input<Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecGetArgs> KernelSpec { get; set; } = null!;
 

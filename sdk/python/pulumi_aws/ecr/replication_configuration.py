@@ -19,6 +19,7 @@ class ReplicationConfigurationArgs:
                  replication_configuration: Optional[pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ReplicationConfiguration resource.
+        :param pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs'] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
         if replication_configuration is not None:
             pulumi.set(__self__, "replication_configuration", replication_configuration)
@@ -26,6 +27,9 @@ class ReplicationConfigurationArgs:
     @property
     @pulumi.getter(name="replicationConfiguration")
     def replication_configuration(self) -> Optional[pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']]:
+        """
+        Replication configuration for a registry. See Replication Configuration.
+        """
         return pulumi.get(self, "replication_configuration")
 
     @replication_configuration.setter
@@ -40,6 +44,8 @@ class _ReplicationConfigurationState:
                  replication_configuration: Optional[pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering ReplicationConfiguration resources.
+        :param pulumi.Input[str] registry_id: The account ID of the destination registry to replicate to.
+        :param pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs'] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
         if registry_id is not None:
             pulumi.set(__self__, "registry_id", registry_id)
@@ -49,6 +55,9 @@ class _ReplicationConfigurationState:
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account ID of the destination registry to replicate to.
+        """
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter
@@ -58,6 +67,9 @@ class _ReplicationConfigurationState:
     @property
     @pulumi.getter(name="replicationConfiguration")
     def replication_configuration(self) -> Optional[pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']]:
+        """
+        Replication configuration for a registry. See Replication Configuration.
+        """
         return pulumi.get(self, "replication_configuration")
 
     @replication_configuration.setter
@@ -73,9 +85,82 @@ class ReplicationConfiguration(pulumi.CustomResource):
                  replication_configuration: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationReplicationConfigurationArgs']]] = None,
                  __props__=None):
         """
-        Create a ReplicationConfiguration resource with the given unique name, props, and options.
+        Provides an Elastic Container Registry Replication Configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example_regions = aws.get_regions()
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
+            rules=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
+                destinations=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
+                    region=example_regions.names[0],
+                    registry_id=current.account_id,
+                )],
+            )],
+        ))
+        ```
+        ## Multiple Region Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example_regions = aws.get_regions()
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
+            rules=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
+                destinations=[
+                    aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
+                        region=example_regions.names[0],
+                        registry_id=current.account_id,
+                    ),
+                    aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
+                        region=example_regions.names[1],
+                        registry_id=current.account_id,
+                    ),
+                ],
+            )],
+        ))
+        ```
+
+        ## Repository Filter Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example_regions = aws.get_regions()
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
+            rules=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
+                destinations=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
+                    region=example_regions.names[0],
+                    registry_id=current.account_id,
+                )],
+                repository_filters=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs(
+                    filter="prod-microservice",
+                    filter_type="PREFIX_MATCH",
+                )],
+            )],
+        ))
+        ```
+
+        ## Import
+
+        ECR Replication Configuration can be imported using the `registry_id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ReplicationConfigurationReplicationConfigurationArgs']] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
         ...
     @overload
@@ -84,7 +169,79 @@ class ReplicationConfiguration(pulumi.CustomResource):
                  args: Optional[ReplicationConfigurationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ReplicationConfiguration resource with the given unique name, props, and options.
+        Provides an Elastic Container Registry Replication Configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example_regions = aws.get_regions()
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
+            rules=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
+                destinations=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
+                    region=example_regions.names[0],
+                    registry_id=current.account_id,
+                )],
+            )],
+        ))
+        ```
+        ## Multiple Region Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example_regions = aws.get_regions()
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
+            rules=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
+                destinations=[
+                    aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
+                        region=example_regions.names[0],
+                        registry_id=current.account_id,
+                    ),
+                    aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
+                        region=example_regions.names[1],
+                        registry_id=current.account_id,
+                    ),
+                ],
+            )],
+        ))
+        ```
+
+        ## Repository Filter Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example_regions = aws.get_regions()
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
+            rules=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
+                destinations=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
+                    region=example_regions.names[0],
+                    registry_id=current.account_id,
+                )],
+                repository_filters=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs(
+                    filter="prod-microservice",
+                    filter_type="PREFIX_MATCH",
+                )],
+            )],
+        ))
+        ```
+
+        ## Import
+
+        ECR Replication Configuration can be imported using the `registry_id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
+        ```
+
         :param str resource_name: The name of the resource.
         :param ReplicationConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,6 +288,8 @@ class ReplicationConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] registry_id: The account ID of the destination registry to replicate to.
+        :param pulumi.Input[pulumi.InputType['ReplicationConfigurationReplicationConfigurationArgs']] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -143,10 +302,16 @@ class ReplicationConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> pulumi.Output[str]:
+        """
+        The account ID of the destination registry to replicate to.
+        """
         return pulumi.get(self, "registry_id")
 
     @property
     @pulumi.getter(name="replicationConfiguration")
     def replication_configuration(self) -> pulumi.Output[Optional['outputs.ReplicationConfigurationReplicationConfiguration']]:
+        """
+        Replication configuration for a registry. See Replication Configuration.
+        """
         return pulumi.get(self, "replication_configuration")
 

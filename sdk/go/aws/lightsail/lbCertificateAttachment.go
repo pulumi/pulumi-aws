@@ -11,11 +11,68 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Attaches a Lightsail Load Balancer Certificate to a Lightsail Load Balancer.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testLb, err := lightsail.NewLb(ctx, "testLb", &lightsail.LbArgs{
+//				HealthCheckPath: pulumi.String("/"),
+//				InstancePort:    pulumi.Int(80),
+//				Tags: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testLbCertificate, err := lightsail.NewLbCertificate(ctx, "testLbCertificate", &lightsail.LbCertificateArgs{
+//				LbName:     testLb.ID(),
+//				DomainName: pulumi.String("test.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lightsail.NewLbCertificateAttachment(ctx, "testLbCertificateAttachment", &lightsail.LbCertificateAttachmentArgs{
+//				LbName:          testLb.Name,
+//				CertificateName: testLbCertificate.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_lightsail_lb_certificate_attachment` can be imported by using the name attribute, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment test example-load-balancer,example-certificate
+//
+// ```
 type LbCertificateAttachment struct {
 	pulumi.CustomResourceState
 
+	// The name of your SSL/TLS certificate.
 	CertificateName pulumi.StringOutput `pulumi:"certificateName"`
-	LbName          pulumi.StringOutput `pulumi:"lbName"`
+	// The name of the load balancer to which you want to associate the SSL/TLS certificate.
+	LbName pulumi.StringOutput `pulumi:"lbName"`
 }
 
 // NewLbCertificateAttachment registers a new resource with the given unique name, arguments, and options.
@@ -53,13 +110,17 @@ func GetLbCertificateAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LbCertificateAttachment resources.
 type lbCertificateAttachmentState struct {
+	// The name of your SSL/TLS certificate.
 	CertificateName *string `pulumi:"certificateName"`
-	LbName          *string `pulumi:"lbName"`
+	// The name of the load balancer to which you want to associate the SSL/TLS certificate.
+	LbName *string `pulumi:"lbName"`
 }
 
 type LbCertificateAttachmentState struct {
+	// The name of your SSL/TLS certificate.
 	CertificateName pulumi.StringPtrInput
-	LbName          pulumi.StringPtrInput
+	// The name of the load balancer to which you want to associate the SSL/TLS certificate.
+	LbName pulumi.StringPtrInput
 }
 
 func (LbCertificateAttachmentState) ElementType() reflect.Type {
@@ -67,14 +128,18 @@ func (LbCertificateAttachmentState) ElementType() reflect.Type {
 }
 
 type lbCertificateAttachmentArgs struct {
+	// The name of your SSL/TLS certificate.
 	CertificateName string `pulumi:"certificateName"`
-	LbName          string `pulumi:"lbName"`
+	// The name of the load balancer to which you want to associate the SSL/TLS certificate.
+	LbName string `pulumi:"lbName"`
 }
 
 // The set of arguments for constructing a LbCertificateAttachment resource.
 type LbCertificateAttachmentArgs struct {
+	// The name of your SSL/TLS certificate.
 	CertificateName pulumi.StringInput
-	LbName          pulumi.StringInput
+	// The name of the load balancer to which you want to associate the SSL/TLS certificate.
+	LbName pulumi.StringInput
 }
 
 func (LbCertificateAttachmentArgs) ElementType() reflect.Type {
@@ -164,10 +229,12 @@ func (o LbCertificateAttachmentOutput) ToLbCertificateAttachmentOutputWithContex
 	return o
 }
 
+// The name of your SSL/TLS certificate.
 func (o LbCertificateAttachmentOutput) CertificateName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbCertificateAttachment) pulumi.StringOutput { return v.CertificateName }).(pulumi.StringOutput)
 }
 
+// The name of the load balancer to which you want to associate the SSL/TLS certificate.
 func (o LbCertificateAttachmentOutput) LbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbCertificateAttachment) pulumi.StringOutput { return v.LbName }).(pulumi.StringOutput)
 }

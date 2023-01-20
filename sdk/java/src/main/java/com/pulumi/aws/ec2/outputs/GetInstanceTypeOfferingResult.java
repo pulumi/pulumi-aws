@@ -19,6 +19,10 @@ public final class GetInstanceTypeOfferingResult {
      * 
      */
     private String id;
+    /**
+     * @return EC2 Instance Type.
+     * 
+     */
     private String instanceType;
     private @Nullable String locationType;
     private @Nullable List<String> preferredInstanceTypes;
@@ -34,6 +38,10 @@ public final class GetInstanceTypeOfferingResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return EC2 Instance Type.
+     * 
+     */
     public String instanceType() {
         return this.instanceType;
     }

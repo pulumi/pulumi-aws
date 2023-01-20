@@ -15,46 +15,126 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDirectoryResult {
+    /**
+     * @return Directory alias.
+     * 
+     */
     private String alias;
+    /**
+     * @return User name for the service account.
+     * 
+     */
     private String customerUserName;
     private String directoryId;
+    /**
+     * @return Name of the directory.
+     * 
+     */
     private String directoryName;
+    /**
+     * @return Directory type.
+     * 
+     */
     private String directoryType;
+    /**
+     * @return IP addresses of the DNS servers for the directory.
+     * 
+     */
     private List<String> dnsIpAddresses;
+    /**
+     * @return Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+     * 
+     */
     private String iamRoleId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Identifiers of the IP access control groups associated with the directory.
+     * 
+     */
     private List<String> ipGroupIds;
+    /**
+     * @return Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+     * 
+     */
     private String registrationCode;
+    /**
+     * @return The permissions to enable or disable self-service capabilities.
+     * 
+     */
     private List<GetDirectorySelfServicePermission> selfServicePermissions;
+    /**
+     * @return Identifiers of the subnets where the directory resides.
+     * 
+     */
     private List<String> subnetIds;
+    /**
+     * @return A map of tags assigned to the WorkSpaces directory.
+     * 
+     */
     private @Nullable Map<String,String> tags;
+    /**
+     * @return (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+     * 
+     */
     private List<GetDirectoryWorkspaceAccessProperty> workspaceAccessProperties;
+    /**
+     * @return The default properties that are used for creating WorkSpaces. Defined below.
+     * 
+     */
     private List<GetDirectoryWorkspaceCreationProperty> workspaceCreationProperties;
+    /**
+     * @return The identifier of the security group that is assigned to new WorkSpaces. Defined below.
+     * 
+     */
     private String workspaceSecurityGroupId;
 
     private GetDirectoryResult() {}
+    /**
+     * @return Directory alias.
+     * 
+     */
     public String alias() {
         return this.alias;
     }
+    /**
+     * @return User name for the service account.
+     * 
+     */
     public String customerUserName() {
         return this.customerUserName;
     }
     public String directoryId() {
         return this.directoryId;
     }
+    /**
+     * @return Name of the directory.
+     * 
+     */
     public String directoryName() {
         return this.directoryName;
     }
+    /**
+     * @return Directory type.
+     * 
+     */
     public String directoryType() {
         return this.directoryType;
     }
+    /**
+     * @return IP addresses of the DNS servers for the directory.
+     * 
+     */
     public List<String> dnsIpAddresses() {
         return this.dnsIpAddresses;
     }
+    /**
+     * @return Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+     * 
+     */
     public String iamRoleId() {
         return this.iamRoleId;
     }
@@ -65,27 +145,59 @@ public final class GetDirectoryResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Identifiers of the IP access control groups associated with the directory.
+     * 
+     */
     public List<String> ipGroupIds() {
         return this.ipGroupIds;
     }
+    /**
+     * @return Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+     * 
+     */
     public String registrationCode() {
         return this.registrationCode;
     }
+    /**
+     * @return The permissions to enable or disable self-service capabilities.
+     * 
+     */
     public List<GetDirectorySelfServicePermission> selfServicePermissions() {
         return this.selfServicePermissions;
     }
+    /**
+     * @return Identifiers of the subnets where the directory resides.
+     * 
+     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
+    /**
+     * @return A map of tags assigned to the WorkSpaces directory.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
+    /**
+     * @return (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+     * 
+     */
     public List<GetDirectoryWorkspaceAccessProperty> workspaceAccessProperties() {
         return this.workspaceAccessProperties;
     }
+    /**
+     * @return The default properties that are used for creating WorkSpaces. Defined below.
+     * 
+     */
     public List<GetDirectoryWorkspaceCreationProperty> workspaceCreationProperties() {
         return this.workspaceCreationProperties;
     }
+    /**
+     * @return The identifier of the security group that is assigned to new WorkSpaces. Defined below.
+     * 
+     */
     public String workspaceSecurityGroupId() {
         return this.workspaceSecurityGroupId;
     }

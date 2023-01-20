@@ -13,6 +13,9 @@ namespace Pulumi.Aws.DataSync.Outputs
     [OutputType]
     public sealed class S3LocationS3Config
     {
+        /// <summary>
+        /// ARN of the IAM Role used to connect to the S3 Bucket.
+        /// </summary>
         public readonly string BucketAccessRoleArn;
 
         [OutputConstructor]

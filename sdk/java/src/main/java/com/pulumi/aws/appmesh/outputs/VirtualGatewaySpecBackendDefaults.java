@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualGatewaySpecBackendDefaults {
+    /**
+     * @return Default client policy for virtual gateway backends.
+     * 
+     */
     private @Nullable VirtualGatewaySpecBackendDefaultsClientPolicy clientPolicy;
 
     private VirtualGatewaySpecBackendDefaults() {}
+    /**
+     * @return Default client policy for virtual gateway backends.
+     * 
+     */
     public Optional<VirtualGatewaySpecBackendDefaultsClientPolicy> clientPolicy() {
         return Optional.ofNullable(this.clientPolicy);
     }

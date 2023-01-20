@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AnalyticsApplicationInputsParallelism {
+    /**
+     * @return The Count of streams.
+     * 
+     */
     private @Nullable Integer count;
 
     private AnalyticsApplicationInputsParallelism() {}
+    /**
+     * @return The Count of streams.
+     * 
+     */
     public Optional<Integer> count() {
         return Optional.ofNullable(this.count);
     }

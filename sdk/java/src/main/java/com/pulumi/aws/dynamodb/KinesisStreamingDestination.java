@@ -13,17 +13,95 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Enables a [Kinesis streaming destination](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/kds.html) for data replication of a DynamoDB table.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.dynamodb.Table;
+ * import com.pulumi.aws.dynamodb.TableArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
+ * import com.pulumi.aws.kinesis.Stream;
+ * import com.pulumi.aws.kinesis.StreamArgs;
+ * import com.pulumi.aws.dynamodb.KinesisStreamingDestination;
+ * import com.pulumi.aws.dynamodb.KinesisStreamingDestinationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleTable = new Table(&#34;exampleTable&#34;, TableArgs.builder()        
+ *             .hashKey(&#34;id&#34;)
+ *             .attributes(TableAttributeArgs.builder()
+ *                 .name(&#34;id&#34;)
+ *                 .type(&#34;S&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleStream = new Stream(&#34;exampleStream&#34;, StreamArgs.builder()        
+ *             .shardCount(1)
+ *             .build());
+ * 
+ *         var exampleKinesisStreamingDestination = new KinesisStreamingDestination(&#34;exampleKinesisStreamingDestination&#34;, KinesisStreamingDestinationArgs.builder()        
+ *             .streamArn(exampleStream.arn())
+ *             .tableName(exampleTable.name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * DynamoDB Kinesis Streaming Destinations can be imported using the `table_name` and `stream_arn` separated by `,`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
+ * ```
+ * 
+ */
 @ResourceType(type="aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination")
 public class KinesisStreamingDestination extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
+     * 
+     */
     @Export(name="streamArn", refs={String.class}, tree="[0]")
     private Output<String> streamArn;
 
+    /**
+     * @return The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
+     * 
+     */
     public Output<String> streamArn() {
         return this.streamArn;
     }
+    /**
+     * The name of the DynamoDB table. There
+     * can only be one Kinesis streaming destination for a given DynamoDB table.
+     * 
+     */
     @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
+    /**
+     * @return The name of the DynamoDB table. There
+     * can only be one Kinesis streaming destination for a given DynamoDB table.
+     * 
+     */
     public Output<String> tableName() {
         return this.tableName;
     }

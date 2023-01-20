@@ -15,23 +15,47 @@ public final class StaticIpAttachmentState extends com.pulumi.resources.Resource
 
     public static final StaticIpAttachmentState Empty = new StaticIpAttachmentState();
 
+    /**
+     * The name of the Lightsail instance to attach the IP to
+     * 
+     */
     @Import(name="instanceName")
     private @Nullable Output<String> instanceName;
 
+    /**
+     * @return The name of the Lightsail instance to attach the IP to
+     * 
+     */
     public Optional<Output<String>> instanceName() {
         return Optional.ofNullable(this.instanceName);
     }
 
+    /**
+     * The allocated static IP address
+     * 
+     */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
+    /**
+     * @return The allocated static IP address
+     * 
+     */
     public Optional<Output<String>> ipAddress() {
         return Optional.ofNullable(this.ipAddress);
     }
 
+    /**
+     * The name of the allocated static IP
+     * 
+     */
     @Import(name="staticIpName")
     private @Nullable Output<String> staticIpName;
 
+    /**
+     * @return The name of the allocated static IP
+     * 
+     */
     public Optional<Output<String>> staticIpName() {
         return Optional.ofNullable(this.staticIpName);
     }
@@ -62,29 +86,65 @@ public final class StaticIpAttachmentState extends com.pulumi.resources.Resource
             $ = new StaticIpAttachmentState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param instanceName The name of the Lightsail instance to attach the IP to
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceName(@Nullable Output<String> instanceName) {
             $.instanceName = instanceName;
             return this;
         }
 
+        /**
+         * @param instanceName The name of the Lightsail instance to attach the IP to
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceName(String instanceName) {
             return instanceName(Output.of(instanceName));
         }
 
+        /**
+         * @param ipAddress The allocated static IP address
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddress(@Nullable Output<String> ipAddress) {
             $.ipAddress = ipAddress;
             return this;
         }
 
+        /**
+         * @param ipAddress The allocated static IP address
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddress(String ipAddress) {
             return ipAddress(Output.of(ipAddress));
         }
 
+        /**
+         * @param staticIpName The name of the allocated static IP
+         * 
+         * @return builder
+         * 
+         */
         public Builder staticIpName(@Nullable Output<String> staticIpName) {
             $.staticIpName = staticIpName;
             return this;
         }
 
+        /**
+         * @param staticIpName The name of the allocated static IP
+         * 
+         * @return builder
+         * 
+         */
         public Builder staticIpName(String staticIpName) {
             return staticIpName(Output.of(staticIpName));
         }

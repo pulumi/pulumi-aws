@@ -10,11 +10,69 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a WAF Regex Match Set Resource
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRegexPatternSet, err := waf.NewRegexPatternSet(ctx, "exampleRegexPatternSet", &waf.RegexPatternSetArgs{
+//				RegexPatternStrings: pulumi.StringArray{
+//					pulumi.String("one"),
+//					pulumi.String("two"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = waf.NewRegexMatchSet(ctx, "exampleRegexMatchSet", &waf.RegexMatchSetArgs{
+//				RegexMatchTuples: waf.RegexMatchSetRegexMatchTupleArray{
+//					&waf.RegexMatchSetRegexMatchTupleArgs{
+//						FieldToMatch: &waf.RegexMatchSetRegexMatchTupleFieldToMatchArgs{
+//							Data: pulumi.String("User-Agent"),
+//							Type: pulumi.String("HEADER"),
+//						},
+//						RegexPatternSetId:  exampleRegexPatternSet.ID(),
+//						TextTransformation: pulumi.String("NONE"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// WAF Regex Match Set can be imported using their ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:waf/regexMatchSet:RegexMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
+// ```
 type RegexMatchSet struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput                     `pulumi:"arn"`
-	Name             pulumi.StringOutput                     `pulumi:"name"`
+	// Amazon Resource Name (ARN)
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name or description of the Regex Match Set.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
 	RegexMatchTuples RegexMatchSetRegexMatchTupleArrayOutput `pulumi:"regexMatchTuples"`
 }
 
@@ -47,14 +105,20 @@ func GetRegexMatchSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegexMatchSet resources.
 type regexMatchSetState struct {
-	Arn              *string                        `pulumi:"arn"`
-	Name             *string                        `pulumi:"name"`
+	// Amazon Resource Name (ARN)
+	Arn *string `pulumi:"arn"`
+	// The name or description of the Regex Match Set.
+	Name *string `pulumi:"name"`
+	// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
 	RegexMatchTuples []RegexMatchSetRegexMatchTuple `pulumi:"regexMatchTuples"`
 }
 
 type RegexMatchSetState struct {
-	Arn              pulumi.StringPtrInput
-	Name             pulumi.StringPtrInput
+	// Amazon Resource Name (ARN)
+	Arn pulumi.StringPtrInput
+	// The name or description of the Regex Match Set.
+	Name pulumi.StringPtrInput
+	// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
 	RegexMatchTuples RegexMatchSetRegexMatchTupleArrayInput
 }
 
@@ -63,13 +127,17 @@ func (RegexMatchSetState) ElementType() reflect.Type {
 }
 
 type regexMatchSetArgs struct {
-	Name             *string                        `pulumi:"name"`
+	// The name or description of the Regex Match Set.
+	Name *string `pulumi:"name"`
+	// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
 	RegexMatchTuples []RegexMatchSetRegexMatchTuple `pulumi:"regexMatchTuples"`
 }
 
 // The set of arguments for constructing a RegexMatchSet resource.
 type RegexMatchSetArgs struct {
-	Name             pulumi.StringPtrInput
+	// The name or description of the Regex Match Set.
+	Name pulumi.StringPtrInput
+	// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
 	RegexMatchTuples RegexMatchSetRegexMatchTupleArrayInput
 }
 
@@ -160,14 +228,17 @@ func (o RegexMatchSetOutput) ToRegexMatchSetOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Amazon Resource Name (ARN)
 func (o RegexMatchSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegexMatchSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The name or description of the Regex Match Set.
 func (o RegexMatchSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegexMatchSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
 func (o RegexMatchSetOutput) RegexMatchTuples() RegexMatchSetRegexMatchTupleArrayOutput {
 	return o.ApplyT(func(v *RegexMatchSet) RegexMatchSetRegexMatchTupleArrayOutput { return v.RegexMatchTuples }).(RegexMatchSetRegexMatchTupleArrayOutput)
 }

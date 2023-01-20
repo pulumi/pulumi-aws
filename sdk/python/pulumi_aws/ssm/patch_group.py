@@ -18,6 +18,8 @@ class PatchGroupArgs:
                  patch_group: pulumi.Input[str]):
         """
         The set of arguments for constructing a PatchGroup resource.
+        :param pulumi.Input[str] baseline_id: The ID of the patch baseline to register the patch group with.
+        :param pulumi.Input[str] patch_group: The name of the patch group that should be registered with the patch baseline.
         """
         pulumi.set(__self__, "baseline_id", baseline_id)
         pulumi.set(__self__, "patch_group", patch_group)
@@ -25,6 +27,9 @@ class PatchGroupArgs:
     @property
     @pulumi.getter(name="baselineId")
     def baseline_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the patch baseline to register the patch group with.
+        """
         return pulumi.get(self, "baseline_id")
 
     @baseline_id.setter
@@ -34,6 +39,9 @@ class PatchGroupArgs:
     @property
     @pulumi.getter(name="patchGroup")
     def patch_group(self) -> pulumi.Input[str]:
+        """
+        The name of the patch group that should be registered with the patch baseline.
+        """
         return pulumi.get(self, "patch_group")
 
     @patch_group.setter
@@ -48,6 +56,8 @@ class _PatchGroupState:
                  patch_group: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PatchGroup resources.
+        :param pulumi.Input[str] baseline_id: The ID of the patch baseline to register the patch group with.
+        :param pulumi.Input[str] patch_group: The name of the patch group that should be registered with the patch baseline.
         """
         if baseline_id is not None:
             pulumi.set(__self__, "baseline_id", baseline_id)
@@ -57,6 +67,9 @@ class _PatchGroupState:
     @property
     @pulumi.getter(name="baselineId")
     def baseline_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the patch baseline to register the patch group with.
+        """
         return pulumi.get(self, "baseline_id")
 
     @baseline_id.setter
@@ -66,6 +79,9 @@ class _PatchGroupState:
     @property
     @pulumi.getter(name="patchGroup")
     def patch_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the patch group that should be registered with the patch baseline.
+        """
         return pulumi.get(self, "patch_group")
 
     @patch_group.setter
@@ -82,9 +98,24 @@ class PatchGroup(pulumi.CustomResource):
                  patch_group: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a PatchGroup resource with the given unique name, props, and options.
+        Provides an SSM Patch Group resource
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        production = aws.ssm.PatchBaseline("production", approved_patches=["KB123456"])
+        patchgroup = aws.ssm.PatchGroup("patchgroup",
+            baseline_id=production.id,
+            patch_group="patch-group-name")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] baseline_id: The ID of the patch baseline to register the patch group with.
+        :param pulumi.Input[str] patch_group: The name of the patch group that should be registered with the patch baseline.
         """
         ...
     @overload
@@ -93,7 +124,20 @@ class PatchGroup(pulumi.CustomResource):
                  args: PatchGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a PatchGroup resource with the given unique name, props, and options.
+        Provides an SSM Patch Group resource
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        production = aws.ssm.PatchBaseline("production", approved_patches=["KB123456"])
+        patchgroup = aws.ssm.PatchGroup("patchgroup",
+            baseline_id=production.id,
+            patch_group="patch-group-name")
+        ```
+
         :param str resource_name: The name of the resource.
         :param PatchGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +189,8 @@ class PatchGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] baseline_id: The ID of the patch baseline to register the patch group with.
+        :param pulumi.Input[str] patch_group: The name of the patch group that should be registered with the patch baseline.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +203,16 @@ class PatchGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="baselineId")
     def baseline_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the patch baseline to register the patch group with.
+        """
         return pulumi.get(self, "baseline_id")
 
     @property
     @pulumi.getter(name="patchGroup")
     def patch_group(self) -> pulumi.Output[str]:
+        """
+        The name of the patch group that should be registered with the patch baseline.
+        """
         return pulumi.get(self, "patch_group")
 

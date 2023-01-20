@@ -12,9 +12,15 @@ namespace Pulumi.Aws.ResourceGroups.Inputs
 
     public sealed class GroupResourceQueryGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The resource query as a JSON string.
+        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
+        /// <summary>
+        /// The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

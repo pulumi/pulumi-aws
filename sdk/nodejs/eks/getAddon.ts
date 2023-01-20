@@ -4,6 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Retrieve information about an EKS add-on.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.eks.getAddon({
+ *     addonName: "vpc-cni",
+ *     clusterName: aws_eks_cluster.example.name,
+ * });
+ * export const eksAddonOutputs = aws_eks_addon.example;
+ * ```
+ */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -18,7 +34,14 @@ export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getAddon.
  */
 export interface GetAddonArgs {
+    /**
+     * Name of the EKS add-on. The name must match one of
+     * the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+     */
     addonName: string;
+    /**
+     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     */
     clusterName: string;
     tags?: {[key: string]: string};
 }
@@ -28,19 +51,54 @@ export interface GetAddonArgs {
  */
 export interface GetAddonResult {
     readonly addonName: string;
+    /**
+     * Version of EKS add-on.
+     */
     readonly addonVersion: string;
+    /**
+     * ARN of the EKS add-on.
+     */
     readonly arn: string;
     readonly clusterName: string;
+    /**
+     * Configuration values for the addon with a single JSON string.
+     */
     readonly configurationValues: string;
+    /**
+     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
+     */
     readonly createdAt: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
+     */
     readonly modifiedAt: string;
+    /**
+     * ARN of IAM role used for EKS add-on. If value is empty -
+     * then add-on uses the IAM role assigned to the EKS Cluster node.
+     */
     readonly serviceAccountRoleArn: string;
     readonly tags: {[key: string]: string};
 }
+/**
+ * Retrieve information about an EKS add-on.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.eks.getAddon({
+ *     addonName: "vpc-cni",
+ *     clusterName: aws_eks_cluster.example.name,
+ * });
+ * export const eksAddonOutputs = aws_eks_addon.example;
+ * ```
+ */
 export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {
     return pulumi.output(args).apply((a: any) => getAddon(a, opts))
 }
@@ -49,7 +107,14 @@ export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getAddon.
  */
 export interface GetAddonOutputArgs {
+    /**
+     * Name of the EKS add-on. The name must match one of
+     * the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+     */
     addonName: pulumi.Input<string>;
+    /**
+     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     */
     clusterName: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

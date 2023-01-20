@@ -59,16 +59,25 @@ class GetPeeringAttachmentResult:
     @property
     @pulumi.getter(name="peerAccountId")
     def peer_account_id(self) -> str:
+        """
+        Identifier of the peer AWS account
+        """
         return pulumi.get(self, "peer_account_id")
 
     @property
     @pulumi.getter(name="peerRegion")
     def peer_region(self) -> str:
+        """
+        Identifier of the peer AWS region
+        """
         return pulumi.get(self, "peer_region")
 
     @property
     @pulumi.getter(name="peerTransitGatewayId")
     def peer_transit_gateway_id(self) -> str:
+        """
+        Identifier of the peer EC2 Transit Gateway
+        """
         return pulumi.get(self, "peer_transit_gateway_id")
 
     @property
@@ -79,6 +88,9 @@ class GetPeeringAttachmentResult:
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> str:
+        """
+        Identifier of the local EC2 Transit Gateway
+        """
         return pulumi.get(self, "transit_gateway_id")
 
 
@@ -102,7 +114,34 @@ def get_peering_attachment(filters: Optional[Sequence[pulumi.InputType['GetPeeri
                            tags: Optional[Mapping[str, str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeeringAttachmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Get information on an EC2 Transit Gateway Peering Attachment.
+
+    ## Example Usage
+    ### By Filter
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2transitgateway.get_peering_attachment(filters=[aws.ec2transitgateway.GetPeeringAttachmentFilterArgs(
+        name="transit-gateway-attachment-id",
+        values=["tgw-attach-12345678"],
+    )])
+    ```
+    ### By Identifier
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    attachment = aws.ec2transitgateway.get_peering_attachment(id="tgw-attach-12345678")
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetPeeringAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param str id: Identifier of the EC2 Transit Gateway Peering Attachment.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
+           a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -127,6 +166,33 @@ def get_peering_attachment_output(filters: Optional[pulumi.Input[Optional[Sequen
                                   tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeeringAttachmentResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get information on an EC2 Transit Gateway Peering Attachment.
+
+    ## Example Usage
+    ### By Filter
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2transitgateway.get_peering_attachment(filters=[aws.ec2transitgateway.GetPeeringAttachmentFilterArgs(
+        name="transit-gateway-attachment-id",
+        values=["tgw-attach-12345678"],
+    )])
+    ```
+    ### By Identifier
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    attachment = aws.ec2transitgateway.get_peering_attachment(id="tgw-attach-12345678")
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetPeeringAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param str id: Identifier of the EC2 Transit Gateway Peering Attachment.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
+           a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
     """
     ...

@@ -15,16 +15,32 @@ public final class FirewallFirewallStatusSyncStateAttachmentArgs extends com.pul
 
     public static final FirewallFirewallStatusSyncStateAttachmentArgs Empty = new FirewallFirewallStatusSyncStateAttachmentArgs();
 
+    /**
+     * The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+     * 
+     */
     @Import(name="endpointId")
     private @Nullable Output<String> endpointId;
 
+    /**
+     * @return The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+     * 
+     */
     public Optional<Output<String>> endpointId() {
         return Optional.ofNullable(this.endpointId);
     }
 
+    /**
+     * The unique identifier for the subnet.
+     * 
+     */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
+    /**
+     * @return The unique identifier for the subnet.
+     * 
+     */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
@@ -54,20 +70,44 @@ public final class FirewallFirewallStatusSyncStateAttachmentArgs extends com.pul
             $ = new FirewallFirewallStatusSyncStateAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param endpointId The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpointId(@Nullable Output<String> endpointId) {
             $.endpointId = endpointId;
             return this;
         }
 
+        /**
+         * @param endpointId The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpointId(String endpointId) {
             return endpointId(Output.of(endpointId));
         }
 
+        /**
+         * @param subnetId The unique identifier for the subnet.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
+        /**
+         * @param subnetId The unique identifier for the subnet.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

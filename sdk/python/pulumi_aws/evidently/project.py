@@ -22,6 +22,10 @@ class ProjectArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
+        :param pulumi.Input['ProjectDataDeliveryArgs'] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
+        :param pulumi.Input[str] description: Specifies the description of the project.
+        :param pulumi.Input[str] name: A name for the project.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if data_delivery is not None:
             pulumi.set(__self__, "data_delivery", data_delivery)
@@ -35,6 +39,9 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="dataDelivery")
     def data_delivery(self) -> Optional[pulumi.Input['ProjectDataDeliveryArgs']]:
+        """
+        A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
+        """
         return pulumi.get(self, "data_delivery")
 
     @data_delivery.setter
@@ -44,6 +51,9 @@ class ProjectArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the description of the project.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -53,6 +63,9 @@ class ProjectArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the project.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -62,6 +75,9 @@ class ProjectArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -88,6 +104,20 @@ class _ProjectState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Project resources.
+        :param pulumi.Input[int] active_experiment_count: The number of ongoing experiments currently in the project.
+        :param pulumi.Input[int] active_launch_count: The number of ongoing launches currently in the project.
+        :param pulumi.Input[str] arn: The ARN of the project.
+        :param pulumi.Input[str] created_time: The date and time that the project is created.
+        :param pulumi.Input['ProjectDataDeliveryArgs'] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
+        :param pulumi.Input[str] description: Specifies the description of the project.
+        :param pulumi.Input[int] experiment_count: The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
+        :param pulumi.Input[int] feature_count: The number of features currently in the project.
+        :param pulumi.Input[str] last_updated_time: The date and time that the project was most recently updated.
+        :param pulumi.Input[int] launch_count: The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
+        :param pulumi.Input[str] name: A name for the project.
+        :param pulumi.Input[str] status: The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if active_experiment_count is not None:
             pulumi.set(__self__, "active_experiment_count", active_experiment_count)
@@ -121,6 +151,9 @@ class _ProjectState:
     @property
     @pulumi.getter(name="activeExperimentCount")
     def active_experiment_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of ongoing experiments currently in the project.
+        """
         return pulumi.get(self, "active_experiment_count")
 
     @active_experiment_count.setter
@@ -130,6 +163,9 @@ class _ProjectState:
     @property
     @pulumi.getter(name="activeLaunchCount")
     def active_launch_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of ongoing launches currently in the project.
+        """
         return pulumi.get(self, "active_launch_count")
 
     @active_launch_count.setter
@@ -139,6 +175,9 @@ class _ProjectState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the project.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -148,6 +187,9 @@ class _ProjectState:
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time that the project is created.
+        """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
@@ -157,6 +199,9 @@ class _ProjectState:
     @property
     @pulumi.getter(name="dataDelivery")
     def data_delivery(self) -> Optional[pulumi.Input['ProjectDataDeliveryArgs']]:
+        """
+        A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
+        """
         return pulumi.get(self, "data_delivery")
 
     @data_delivery.setter
@@ -166,6 +211,9 @@ class _ProjectState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the description of the project.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -175,6 +223,9 @@ class _ProjectState:
     @property
     @pulumi.getter(name="experimentCount")
     def experiment_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
+        """
         return pulumi.get(self, "experiment_count")
 
     @experiment_count.setter
@@ -184,6 +235,9 @@ class _ProjectState:
     @property
     @pulumi.getter(name="featureCount")
     def feature_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of features currently in the project.
+        """
         return pulumi.get(self, "feature_count")
 
     @feature_count.setter
@@ -193,6 +247,9 @@ class _ProjectState:
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time that the project was most recently updated.
+        """
         return pulumi.get(self, "last_updated_time")
 
     @last_updated_time.setter
@@ -202,6 +259,9 @@ class _ProjectState:
     @property
     @pulumi.getter(name="launchCount")
     def launch_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
+        """
         return pulumi.get(self, "launch_count")
 
     @launch_count.setter
@@ -211,6 +271,9 @@ class _ProjectState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the project.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -220,6 +283,9 @@ class _ProjectState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -229,6 +295,9 @@ class _ProjectState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -238,6 +307,9 @@ class _ProjectState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -256,9 +328,71 @@ class Project(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Project resource with the given unique name, props, and options.
+        Provides a CloudWatch Evidently Project resource.
+
+        ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.evidently.Project("example",
+            description="Example Description",
+            tags={
+                "Key1": "example Project",
+            })
+        ```
+        ### Store evaluation events in a CloudWatch Log Group
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.evidently.Project("example",
+            data_delivery=aws.evidently.ProjectDataDeliveryArgs(
+                cloudwatch_logs=aws.evidently.ProjectDataDeliveryCloudwatchLogsArgs(
+                    log_group="example-log-group-name",
+                ),
+            ),
+            description="Example Description",
+            tags={
+                "Key1": "example Project",
+            })
+        ```
+        ### Store evaluation events in an S3 bucket
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.evidently.Project("example",
+            data_delivery=aws.evidently.ProjectDataDeliveryArgs(
+                s3_destination=aws.evidently.ProjectDataDeliveryS3DestinationArgs(
+                    bucket="example-bucket-name",
+                    prefix="example",
+                ),
+            ),
+            description="Example Description",
+            tags={
+                "Key1": "example Project",
+            })
+        ```
+
+        ## Import
+
+        CloudWatch Evidently Project can be imported using the `arn`, e.g.,
+
+        ```sh
+         $ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ProjectDataDeliveryArgs']] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
+        :param pulumi.Input[str] description: Specifies the description of the project.
+        :param pulumi.Input[str] name: A name for the project.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -267,7 +401,65 @@ class Project(pulumi.CustomResource):
                  args: Optional[ProjectArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Project resource with the given unique name, props, and options.
+        Provides a CloudWatch Evidently Project resource.
+
+        ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.evidently.Project("example",
+            description="Example Description",
+            tags={
+                "Key1": "example Project",
+            })
+        ```
+        ### Store evaluation events in a CloudWatch Log Group
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.evidently.Project("example",
+            data_delivery=aws.evidently.ProjectDataDeliveryArgs(
+                cloudwatch_logs=aws.evidently.ProjectDataDeliveryCloudwatchLogsArgs(
+                    log_group="example-log-group-name",
+                ),
+            ),
+            description="Example Description",
+            tags={
+                "Key1": "example Project",
+            })
+        ```
+        ### Store evaluation events in an S3 bucket
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.evidently.Project("example",
+            data_delivery=aws.evidently.ProjectDataDeliveryArgs(
+                s3_destination=aws.evidently.ProjectDataDeliveryS3DestinationArgs(
+                    bucket="example-bucket-name",
+                    prefix="example",
+                ),
+            ),
+            description="Example Description",
+            tags={
+                "Key1": "example Project",
+            })
+        ```
+
+        ## Import
+
+        CloudWatch Evidently Project can be imported using the `arn`, e.g.,
+
+        ```sh
+         $ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -341,6 +533,20 @@ class Project(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] active_experiment_count: The number of ongoing experiments currently in the project.
+        :param pulumi.Input[int] active_launch_count: The number of ongoing launches currently in the project.
+        :param pulumi.Input[str] arn: The ARN of the project.
+        :param pulumi.Input[str] created_time: The date and time that the project is created.
+        :param pulumi.Input[pulumi.InputType['ProjectDataDeliveryArgs']] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
+        :param pulumi.Input[str] description: Specifies the description of the project.
+        :param pulumi.Input[int] experiment_count: The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
+        :param pulumi.Input[int] feature_count: The number of features currently in the project.
+        :param pulumi.Input[str] last_updated_time: The date and time that the project was most recently updated.
+        :param pulumi.Input[int] launch_count: The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
+        :param pulumi.Input[str] name: A name for the project.
+        :param pulumi.Input[str] status: The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -365,70 +571,112 @@ class Project(pulumi.CustomResource):
     @property
     @pulumi.getter(name="activeExperimentCount")
     def active_experiment_count(self) -> pulumi.Output[int]:
+        """
+        The number of ongoing experiments currently in the project.
+        """
         return pulumi.get(self, "active_experiment_count")
 
     @property
     @pulumi.getter(name="activeLaunchCount")
     def active_launch_count(self) -> pulumi.Output[int]:
+        """
+        The number of ongoing launches currently in the project.
+        """
         return pulumi.get(self, "active_launch_count")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the project.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        The date and time that the project is created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="dataDelivery")
     def data_delivery(self) -> pulumi.Output[Optional['outputs.ProjectDataDelivery']]:
+        """
+        A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
+        """
         return pulumi.get(self, "data_delivery")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the description of the project.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="experimentCount")
     def experiment_count(self) -> pulumi.Output[int]:
+        """
+        The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
+        """
         return pulumi.get(self, "experiment_count")
 
     @property
     @pulumi.getter(name="featureCount")
     def feature_count(self) -> pulumi.Output[int]:
+        """
+        The number of features currently in the project.
+        """
         return pulumi.get(self, "feature_count")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
+        """
+        The date and time that the project was most recently updated.
+        """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter(name="launchCount")
     def launch_count(self) -> pulumi.Output[int]:
+        """
+        The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
+        """
         return pulumi.get(self, "launch_count")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A name for the project.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

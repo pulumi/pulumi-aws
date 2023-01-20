@@ -19,6 +19,9 @@ class SubnetGroupArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SubnetGroup resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of VPC subnet IDs for the subnet group.
+        :param pulumi.Input[str] description: A description of the subnet group.
+        :param pulumi.Input[str] name: The name of the subnet group.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if description is not None:
@@ -29,6 +32,9 @@ class SubnetGroupArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of VPC subnet IDs for the subnet group.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -38,6 +44,9 @@ class SubnetGroupArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the subnet group.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -47,6 +56,9 @@ class SubnetGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the subnet group.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -63,6 +75,10 @@ class _SubnetGroupState:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SubnetGroup resources.
+        :param pulumi.Input[str] description: A description of the subnet group.
+        :param pulumi.Input[str] name: The name of the subnet group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of VPC subnet IDs for the subnet group.
+        :param pulumi.Input[str] vpc_id: VPC ID of the subnet group.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -76,6 +92,9 @@ class _SubnetGroupState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the subnet group.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -85,6 +104,9 @@ class _SubnetGroupState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the subnet group.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -94,6 +116,9 @@ class _SubnetGroupState:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of VPC subnet IDs for the subnet group.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -103,6 +128,9 @@ class _SubnetGroupState:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        VPC ID of the subnet group.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -120,9 +148,33 @@ class SubnetGroup(pulumi.CustomResource):
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a SubnetGroup resource with the given unique name, props, and options.
+        Provides a DAX Subnet Group resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.dax.SubnetGroup("example", subnet_ids=[
+            aws_subnet["example1"]["id"],
+            aws_subnet["example2"]["id"],
+        ])
+        ```
+
+        ## Import
+
+        DAX Subnet Group can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A description of the subnet group.
+        :param pulumi.Input[str] name: The name of the subnet group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of VPC subnet IDs for the subnet group.
         """
         ...
     @overload
@@ -131,7 +183,28 @@ class SubnetGroup(pulumi.CustomResource):
                  args: SubnetGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SubnetGroup resource with the given unique name, props, and options.
+        Provides a DAX Subnet Group resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.dax.SubnetGroup("example", subnet_ids=[
+            aws_subnet["example1"]["id"],
+            aws_subnet["example2"]["id"],
+        ])
+        ```
+
+        ## Import
+
+        DAX Subnet Group can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
+        ```
+
         :param str resource_name: The name of the resource.
         :param SubnetGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,6 +259,10 @@ class SubnetGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A description of the subnet group.
+        :param pulumi.Input[str] name: The name of the subnet group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of VPC subnet IDs for the subnet group.
+        :param pulumi.Input[str] vpc_id: VPC ID of the subnet group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -200,20 +277,32 @@ class SubnetGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the subnet group.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the subnet group.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of VPC subnet IDs for the subnet group.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        VPC ID of the subnet group.
+        """
         return pulumi.get(self, "vpc_id")
 

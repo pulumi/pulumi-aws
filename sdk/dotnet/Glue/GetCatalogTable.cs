@@ -11,9 +11,59 @@ namespace Pulumi.Aws.Glue
 {
     public static class GetCatalogTable
     {
+        /// <summary>
+        /// This data source can be used to fetch information about an AWS Glue Data Catalog Table.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Glue.GetCatalogTable.Invoke(new()
+        ///     {
+        ///         DatabaseName = "MyCatalogDatabase",
+        ///         Name = "MyCatalogTable",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetCatalogTableResult> InvokeAsync(GetCatalogTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCatalogTableResult>("aws:glue/getCatalogTable:getCatalogTable", args ?? new GetCatalogTableArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// This data source can be used to fetch information about an AWS Glue Data Catalog Table.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Glue.GetCatalogTable.Invoke(new()
+        ///     {
+        ///         DatabaseName = "MyCatalogDatabase",
+        ///         Name = "MyCatalogTable",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetCatalogTableResult> Invoke(GetCatalogTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogTableResult>("aws:glue/getCatalogTable:getCatalogTable", args ?? new GetCatalogTableInvokeArgs(), options.WithDefaults());
     }
@@ -21,18 +71,33 @@ namespace Pulumi.Aws.Glue
 
     public sealed class GetCatalogTableArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
+        /// </summary>
         [Input("catalogId")]
         public string? CatalogId { get; set; }
 
+        /// <summary>
+        /// Name of the metadata database where the table metadata resides.
+        /// </summary>
         [Input("databaseName", required: true)]
         public string DatabaseName { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the table.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transaction_id`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+        /// </summary>
         [Input("queryAsOfTime")]
         public string? QueryAsOfTime { get; set; }
 
+        /// <summary>
+        /// The transaction ID at which to read the table contents.
+        /// </summary>
         [Input("transactionId")]
         public int? TransactionId { get; set; }
 
@@ -44,18 +109,33 @@ namespace Pulumi.Aws.Glue
 
     public sealed class GetCatalogTableInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
+        /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
+        /// <summary>
+        /// Name of the metadata database where the table metadata resides.
+        /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the table.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transaction_id`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+        /// </summary>
         [Input("queryAsOfTime")]
         public Input<string>? QueryAsOfTime { get; set; }
 
+        /// <summary>
+        /// The transaction ID at which to read the table contents.
+        /// </summary>
         [Input("transactionId")]
         public Input<int>? TransactionId { get; set; }
 
@@ -69,26 +149,71 @@ namespace Pulumi.Aws.Glue
     [OutputType]
     public sealed class GetCatalogTableResult
     {
+        /// <summary>
+        /// The ARN of the Glue Table.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// ID of the Data Catalog in which the table resides.
+        /// </summary>
         public readonly string CatalogId;
+        /// <summary>
+        /// Name of the catalog database that contains the target table.
+        /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// Description of the table.
+        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Name of the target table.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Owner of the table.
+        /// </summary>
         public readonly string Owner;
+        /// <summary>
+        /// Map of initialization parameters for the SerDe, in key-value form.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Parameters;
+        /// <summary>
+        /// Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogTablePartitionIndexResult> PartitionIndices;
+        /// <summary>
+        /// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogTablePartitionKeyResult> PartitionKeys;
         public readonly string? QueryAsOfTime;
+        /// <summary>
+        /// Retention time for this table.
+        /// </summary>
         public readonly int Retention;
+        /// <summary>
+        /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogTableStorageDescriptorResult> StorageDescriptors;
+        /// <summary>
+        /// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+        /// </summary>
         public readonly string TableType;
+        /// <summary>
+        /// Configuration block of a target table for resource linking. See `target_table` below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogTableTargetTableResult> TargetTables;
         public readonly int? TransactionId;
+        /// <summary>
+        /// If the table is a view, the expanded text of the view; otherwise null.
+        /// </summary>
         public readonly string ViewExpandedText;
+        /// <summary>
+        /// If the table is a view, the original text of the view; otherwise null.
+        /// </summary>
         public readonly string ViewOriginalText;
 
         [OutputConstructor]

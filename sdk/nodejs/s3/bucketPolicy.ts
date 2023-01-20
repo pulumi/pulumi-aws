@@ -6,6 +6,47 @@ import * as utilities from "../utilities";
 
 import {PolicyDocument} from "../iam";
 
+/**
+ * Attaches a policy to an S3 bucket resource.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.s3.BucketV2("example", {});
+ * const allowAccessFromAnotherAccountPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         principals: [{
+ *             type: "AWS",
+ *             identifiers: ["123456789012"],
+ *         }],
+ *         actions: [
+ *             "s3:GetObject",
+ *             "s3:ListBucket",
+ *         ],
+ *         resources: [
+ *             example.arn,
+ *             pulumi.interpolate`${example.arn}/*`,
+ *         ],
+ *     }],
+ * });
+ * const allowAccessFromAnotherAccountBucketPolicy = new aws.s3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy", {
+ *     bucket: example.id,
+ *     policy: allowAccessFromAnotherAccountPolicyDocument.apply(allowAccessFromAnotherAccountPolicyDocument => allowAccessFromAnotherAccountPolicyDocument.json),
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * S3 bucket policies can be imported using the bucket name, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket
+ * ```
+ */
 export class BucketPolicy extends pulumi.CustomResource {
     /**
      * Get an existing BucketPolicy resource's state with the given name, ID, and optional extra
@@ -34,7 +75,13 @@ export class BucketPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === BucketPolicy.__pulumiType;
     }
 
+    /**
+     * The name of the bucket to which to apply the policy.
+     */
     public readonly bucket!: pulumi.Output<string>;
+    /**
+     * The text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
+     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -72,7 +119,13 @@ export class BucketPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BucketPolicy resources.
  */
 export interface BucketPolicyState {
+    /**
+     * The name of the bucket to which to apply the policy.
+     */
     bucket?: pulumi.Input<string>;
+    /**
+     * The text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
+     */
     policy?: pulumi.Input<string | PolicyDocument>;
 }
 
@@ -80,6 +133,12 @@ export interface BucketPolicyState {
  * The set of arguments for constructing a BucketPolicy resource.
  */
 export interface BucketPolicyArgs {
+    /**
+     * The name of the bucket to which to apply the policy.
+     */
     bucket: pulumi.Input<string>;
+    /**
+     * The text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
+     */
     policy: pulumi.Input<string | PolicyDocument>;
 }

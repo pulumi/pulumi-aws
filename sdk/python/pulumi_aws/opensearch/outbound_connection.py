@@ -21,6 +21,9 @@ class OutboundConnectionArgs:
                  remote_domain_info: pulumi.Input['OutboundConnectionRemoteDomainInfoArgs']):
         """
         The set of arguments for constructing a OutboundConnection resource.
+        :param pulumi.Input[str] connection_alias: Specifies the connection alias that will be used by the customer for this connection.
+        :param pulumi.Input['OutboundConnectionLocalDomainInfoArgs'] local_domain_info: Configuration block for the local Opensearch domain.
+        :param pulumi.Input['OutboundConnectionRemoteDomainInfoArgs'] remote_domain_info: Configuration block for the remote Opensearch domain.
         """
         pulumi.set(__self__, "connection_alias", connection_alias)
         pulumi.set(__self__, "local_domain_info", local_domain_info)
@@ -29,6 +32,9 @@ class OutboundConnectionArgs:
     @property
     @pulumi.getter(name="connectionAlias")
     def connection_alias(self) -> pulumi.Input[str]:
+        """
+        Specifies the connection alias that will be used by the customer for this connection.
+        """
         return pulumi.get(self, "connection_alias")
 
     @connection_alias.setter
@@ -38,6 +44,9 @@ class OutboundConnectionArgs:
     @property
     @pulumi.getter(name="localDomainInfo")
     def local_domain_info(self) -> pulumi.Input['OutboundConnectionLocalDomainInfoArgs']:
+        """
+        Configuration block for the local Opensearch domain.
+        """
         return pulumi.get(self, "local_domain_info")
 
     @local_domain_info.setter
@@ -47,6 +56,9 @@ class OutboundConnectionArgs:
     @property
     @pulumi.getter(name="remoteDomainInfo")
     def remote_domain_info(self) -> pulumi.Input['OutboundConnectionRemoteDomainInfoArgs']:
+        """
+        Configuration block for the remote Opensearch domain.
+        """
         return pulumi.get(self, "remote_domain_info")
 
     @remote_domain_info.setter
@@ -63,6 +75,10 @@ class _OutboundConnectionState:
                  remote_domain_info: Optional[pulumi.Input['OutboundConnectionRemoteDomainInfoArgs']] = None):
         """
         Input properties used for looking up and filtering OutboundConnection resources.
+        :param pulumi.Input[str] connection_alias: Specifies the connection alias that will be used by the customer for this connection.
+        :param pulumi.Input[str] connection_status: Status of the connection request.
+        :param pulumi.Input['OutboundConnectionLocalDomainInfoArgs'] local_domain_info: Configuration block for the local Opensearch domain.
+        :param pulumi.Input['OutboundConnectionRemoteDomainInfoArgs'] remote_domain_info: Configuration block for the remote Opensearch domain.
         """
         if connection_alias is not None:
             pulumi.set(__self__, "connection_alias", connection_alias)
@@ -76,6 +92,9 @@ class _OutboundConnectionState:
     @property
     @pulumi.getter(name="connectionAlias")
     def connection_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the connection alias that will be used by the customer for this connection.
+        """
         return pulumi.get(self, "connection_alias")
 
     @connection_alias.setter
@@ -85,6 +104,9 @@ class _OutboundConnectionState:
     @property
     @pulumi.getter(name="connectionStatus")
     def connection_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of the connection request.
+        """
         return pulumi.get(self, "connection_status")
 
     @connection_status.setter
@@ -94,6 +116,9 @@ class _OutboundConnectionState:
     @property
     @pulumi.getter(name="localDomainInfo")
     def local_domain_info(self) -> Optional[pulumi.Input['OutboundConnectionLocalDomainInfoArgs']]:
+        """
+        Configuration block for the local Opensearch domain.
+        """
         return pulumi.get(self, "local_domain_info")
 
     @local_domain_info.setter
@@ -103,6 +128,9 @@ class _OutboundConnectionState:
     @property
     @pulumi.getter(name="remoteDomainInfo")
     def remote_domain_info(self) -> Optional[pulumi.Input['OutboundConnectionRemoteDomainInfoArgs']]:
+        """
+        Configuration block for the remote Opensearch domain.
+        """
         return pulumi.get(self, "remote_domain_info")
 
     @remote_domain_info.setter
@@ -120,9 +148,44 @@ class OutboundConnection(pulumi.CustomResource):
                  remote_domain_info: Optional[pulumi.Input[pulumi.InputType['OutboundConnectionRemoteDomainInfoArgs']]] = None,
                  __props__=None):
         """
-        Create a OutboundConnection resource with the given unique name, props, and options.
+        Manages an AWS Opensearch Outbound Connection.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current_caller_identity = aws.get_caller_identity()
+        current_region = aws.get_region()
+        foo = aws.opensearch.OutboundConnection("foo",
+            connection_alias="outbound_connection",
+            local_domain_info=aws.opensearch.OutboundConnectionLocalDomainInfoArgs(
+                owner_id=current_caller_identity.account_id,
+                region=current_region.name,
+                domain_name=aws_opensearch_domain["local_domain"]["domain_name"],
+            ),
+            remote_domain_info=aws.opensearch.OutboundConnectionRemoteDomainInfoArgs(
+                owner_id=current_caller_identity.account_id,
+                region=current_region.name,
+                domain_name=aws_opensearch_domain["remote_domain"]["domain_name"],
+            ))
+        ```
+
+        ## Import
+
+        AWS Opensearch Outbound Connections can be imported by using the Outbound Connection ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] connection_alias: Specifies the connection alias that will be used by the customer for this connection.
+        :param pulumi.Input[pulumi.InputType['OutboundConnectionLocalDomainInfoArgs']] local_domain_info: Configuration block for the local Opensearch domain.
+        :param pulumi.Input[pulumi.InputType['OutboundConnectionRemoteDomainInfoArgs']] remote_domain_info: Configuration block for the remote Opensearch domain.
         """
         ...
     @overload
@@ -131,7 +194,39 @@ class OutboundConnection(pulumi.CustomResource):
                  args: OutboundConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a OutboundConnection resource with the given unique name, props, and options.
+        Manages an AWS Opensearch Outbound Connection.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current_caller_identity = aws.get_caller_identity()
+        current_region = aws.get_region()
+        foo = aws.opensearch.OutboundConnection("foo",
+            connection_alias="outbound_connection",
+            local_domain_info=aws.opensearch.OutboundConnectionLocalDomainInfoArgs(
+                owner_id=current_caller_identity.account_id,
+                region=current_region.name,
+                domain_name=aws_opensearch_domain["local_domain"]["domain_name"],
+            ),
+            remote_domain_info=aws.opensearch.OutboundConnectionRemoteDomainInfoArgs(
+                owner_id=current_caller_identity.account_id,
+                region=current_region.name,
+                domain_name=aws_opensearch_domain["remote_domain"]["domain_name"],
+            ))
+        ```
+
+        ## Import
+
+        AWS Opensearch Outbound Connections can be imported by using the Outbound Connection ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
+        ```
+
         :param str resource_name: The name of the resource.
         :param OutboundConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,6 +285,10 @@ class OutboundConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] connection_alias: Specifies the connection alias that will be used by the customer for this connection.
+        :param pulumi.Input[str] connection_status: Status of the connection request.
+        :param pulumi.Input[pulumi.InputType['OutboundConnectionLocalDomainInfoArgs']] local_domain_info: Configuration block for the local Opensearch domain.
+        :param pulumi.Input[pulumi.InputType['OutboundConnectionRemoteDomainInfoArgs']] remote_domain_info: Configuration block for the remote Opensearch domain.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -204,20 +303,32 @@ class OutboundConnection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="connectionAlias")
     def connection_alias(self) -> pulumi.Output[str]:
+        """
+        Specifies the connection alias that will be used by the customer for this connection.
+        """
         return pulumi.get(self, "connection_alias")
 
     @property
     @pulumi.getter(name="connectionStatus")
     def connection_status(self) -> pulumi.Output[str]:
+        """
+        Status of the connection request.
+        """
         return pulumi.get(self, "connection_status")
 
     @property
     @pulumi.getter(name="localDomainInfo")
     def local_domain_info(self) -> pulumi.Output['outputs.OutboundConnectionLocalDomainInfo']:
+        """
+        Configuration block for the local Opensearch domain.
+        """
         return pulumi.get(self, "local_domain_info")
 
     @property
     @pulumi.getter(name="remoteDomainInfo")
     def remote_domain_info(self) -> pulumi.Output['outputs.OutboundConnectionRemoteDomainInfo']:
+        """
+        Configuration block for the remote Opensearch domain.
+        """
         return pulumi.get(self, "remote_domain_info")
 

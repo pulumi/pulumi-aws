@@ -12,12 +12,21 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class RouteSpecGrpcRouteMatchMetadataGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
+        /// </summary>
         [Input("invert")]
         public Input<bool>? Invert { get; set; }
 
+        /// <summary>
+        /// Data to match from the request.
+        /// </summary>
         [Input("match")]
         public Input<Inputs.RouteSpecGrpcRouteMatchMetadataMatchGetArgs>? Match { get; set; }
 
+        /// <summary>
+        /// Name of the route. Must be between 1 and 50 characters in length.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

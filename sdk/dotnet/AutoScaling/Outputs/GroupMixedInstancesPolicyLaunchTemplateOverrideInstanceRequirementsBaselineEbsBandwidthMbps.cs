@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps
     {
+        /// <summary>
+        /// Maximum. Set to `0` to exclude instance types with accelerators.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// Minimum.
+        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

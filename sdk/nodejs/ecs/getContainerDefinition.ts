@@ -4,6 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * The ECS container definition data source allows access to details of
+ * a specific container within an AWS ECS service.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const ecs-mongo = aws.ecs.getContainerDefinition({
+ *     taskDefinition: aws_ecs_task_definition.mongo.id,
+ *     containerName: "mongodb",
+ * });
+ * ```
+ */
 export function getContainerDefinition(args: GetContainerDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerDefinitionResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,7 +33,13 @@ export function getContainerDefinition(args: GetContainerDefinitionArgs, opts?: 
  * A collection of arguments for invoking getContainerDefinition.
  */
 export interface GetContainerDefinitionArgs {
+    /**
+     * Name of the container definition
+     */
     containerName: string;
+    /**
+     * ARN of the task definition which contains the container
+     */
     taskDefinition: string;
 }
 
@@ -26,20 +48,60 @@ export interface GetContainerDefinitionArgs {
  */
 export interface GetContainerDefinitionResult {
     readonly containerName: string;
+    /**
+     * CPU limit for this container definition
+     */
     readonly cpu: number;
+    /**
+     * Indicator if networking is disabled
+     */
     readonly disableNetworking: boolean;
+    /**
+     * Set docker labels
+     */
     readonly dockerLabels: {[key: string]: string};
+    /**
+     * Environment in use
+     */
     readonly environment: {[key: string]: string};
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Docker image in use, including the digest
+     */
     readonly image: string;
+    /**
+     * Digest of the docker image in use
+     */
     readonly imageDigest: string;
+    /**
+     * Memory limit for this container definition
+     */
     readonly memory: number;
+    /**
+     * Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
+     */
     readonly memoryReservation: number;
     readonly taskDefinition: string;
 }
+/**
+ * The ECS container definition data source allows access to details of
+ * a specific container within an AWS ECS service.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const ecs-mongo = aws.ecs.getContainerDefinition({
+ *     taskDefinition: aws_ecs_task_definition.mongo.id,
+ *     containerName: "mongodb",
+ * });
+ * ```
+ */
 export function getContainerDefinitionOutput(args: GetContainerDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getContainerDefinition(a, opts))
 }
@@ -48,6 +110,12 @@ export function getContainerDefinitionOutput(args: GetContainerDefinitionOutputA
  * A collection of arguments for invoking getContainerDefinition.
  */
 export interface GetContainerDefinitionOutputArgs {
+    /**
+     * Name of the container definition
+     */
     containerName: pulumi.Input<string>;
+    /**
+     * ARN of the task definition which contains the container
+     */
     taskDefinition: pulumi.Input<string>;
 }

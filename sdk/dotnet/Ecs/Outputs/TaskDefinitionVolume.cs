@@ -13,10 +13,26 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class TaskDefinitionVolume
     {
+        /// <summary>
+        /// Configuration block to configure a docker volume. Detailed below.
+        /// </summary>
         public readonly Outputs.TaskDefinitionVolumeDockerVolumeConfiguration? DockerVolumeConfiguration;
+        /// <summary>
+        /// Configuration block for an EFS volume. Detailed below.
+        /// </summary>
         public readonly Outputs.TaskDefinitionVolumeEfsVolumeConfiguration? EfsVolumeConfiguration;
+        /// <summary>
+        /// Configuration block for an FSX Windows File Server volume. Detailed below.
+        /// </summary>
         public readonly Outputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration? FsxWindowsFileServerVolumeConfiguration;
+        /// <summary>
+        /// Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
+        /// </summary>
         public readonly string? HostPath;
+        /// <summary>
+        /// Name of the volume. This name is referenced in the `sourceVolume`
+        /// parameter of container definition in the `mountPoints` section.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

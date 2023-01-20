@@ -4,6 +4,43 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a CodeDeploy application to be used as a basis for deployments
+ *
+ * ## Example Usage
+ * ### ECS Application
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.codedeploy.Application("example", {computePlatform: "ECS"});
+ * ```
+ * ### Lambda Application
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.codedeploy.Application("example", {computePlatform: "Lambda"});
+ * ```
+ * ### Server Application
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.codedeploy.Application("example", {computePlatform: "Server"});
+ * ```
+ *
+ * ## Import
+ *
+ * CodeDeploy Applications can be imported using the `name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:codedeploy/application:Application example my-application
+ * ```
+ */
 export class Application extends pulumi.CustomResource {
     /**
      * Get an existing Application resource's state with the given name, ID, and optional extra
@@ -32,13 +69,37 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
+    /**
+     * The application ID.
+     */
     public /*out*/ readonly applicationId!: pulumi.Output<string>;
+    /**
+     * The ARN of the CodeDeploy application.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
+     */
     public readonly computePlatform!: pulumi.Output<string | undefined>;
+    /**
+     * The name for a connection to a GitHub account.
+     */
     public /*out*/ readonly githubAccountName!: pulumi.Output<string>;
+    /**
+     * Whether the user has authenticated with GitHub for the specified application.
+     */
     public /*out*/ readonly linkedToGithub!: pulumi.Output<boolean>;
+    /**
+     * The name of the application.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -82,13 +143,37 @@ export class Application extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Application resources.
  */
 export interface ApplicationState {
+    /**
+     * The application ID.
+     */
     applicationId?: pulumi.Input<string>;
+    /**
+     * The ARN of the CodeDeploy application.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
+     */
     computePlatform?: pulumi.Input<string>;
+    /**
+     * The name for a connection to a GitHub account.
+     */
     githubAccountName?: pulumi.Input<string>;
+    /**
+     * Whether the user has authenticated with GitHub for the specified application.
+     */
     linkedToGithub?: pulumi.Input<boolean>;
+    /**
+     * The name of the application.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -96,7 +181,16 @@ export interface ApplicationState {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
+    /**
+     * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
+     */
     computePlatform?: pulumi.Input<string>;
+    /**
+     * The name of the application.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

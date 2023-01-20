@@ -20,6 +20,10 @@ class UploadArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Upload resource.
+        :param pulumi.Input[str] project_arn: The ARN of the project for the upload.
+        :param pulumi.Input[str] type: The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
+        :param pulumi.Input[str] content_type: The upload's content type (for example, application/octet-stream).
+        :param pulumi.Input[str] name: The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
         """
         pulumi.set(__self__, "project_arn", project_arn)
         pulumi.set(__self__, "type", type)
@@ -31,6 +35,9 @@ class UploadArgs:
     @property
     @pulumi.getter(name="projectArn")
     def project_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the project for the upload.
+        """
         return pulumi.get(self, "project_arn")
 
     @project_arn.setter
@@ -40,6 +47,9 @@ class UploadArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -49,6 +59,9 @@ class UploadArgs:
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The upload's content type (for example, application/octet-stream).
+        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -58,6 +71,9 @@ class UploadArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -78,6 +94,14 @@ class _UploadState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Upload resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name of this upload.
+        :param pulumi.Input[str] category: The upload's category.
+        :param pulumi.Input[str] content_type: The upload's content type (for example, application/octet-stream).
+        :param pulumi.Input[str] metadata: The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
+        :param pulumi.Input[str] name: The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
+        :param pulumi.Input[str] project_arn: The ARN of the project for the upload.
+        :param pulumi.Input[str] type: The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
+        :param pulumi.Input[str] url: The presigned Amazon S3 URL that was used to store a file using a PUT request.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -99,6 +123,9 @@ class _UploadState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name of this upload.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -108,6 +135,9 @@ class _UploadState:
     @property
     @pulumi.getter
     def category(self) -> Optional[pulumi.Input[str]]:
+        """
+        The upload's category.
+        """
         return pulumi.get(self, "category")
 
     @category.setter
@@ -117,6 +147,9 @@ class _UploadState:
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The upload's content type (for example, application/octet-stream).
+        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -126,6 +159,9 @@ class _UploadState:
     @property
     @pulumi.getter
     def metadata(self) -> Optional[pulumi.Input[str]]:
+        """
+        The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
+        """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
@@ -135,6 +171,9 @@ class _UploadState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -144,6 +183,9 @@ class _UploadState:
     @property
     @pulumi.getter(name="projectArn")
     def project_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the project for the upload.
+        """
         return pulumi.get(self, "project_arn")
 
     @project_arn.setter
@@ -153,6 +195,9 @@ class _UploadState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -162,6 +207,9 @@ class _UploadState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The presigned Amazon S3 URL that was used to store a file using a PUT request.
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -180,9 +228,36 @@ class Upload(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Upload resource with the given unique name, props, and options.
+        Provides a resource to manage AWS Device Farm Uploads.
+
+        > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_project = aws.devicefarm.Project("exampleProject")
+        example_upload = aws.devicefarm.Upload("exampleUpload",
+            project_arn=example_project.arn,
+            type="APPIUM_JAVA_TESTNG_TEST_SPEC")
+        ```
+
+        ## Import
+
+        DeviceFarm Uploads can be imported by their arn
+
+        ```sh
+         $ pulumi import aws:devicefarm/upload:Upload example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] content_type: The upload's content type (for example, application/octet-stream).
+        :param pulumi.Input[str] name: The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
+        :param pulumi.Input[str] project_arn: The ARN of the project for the upload.
+        :param pulumi.Input[str] type: The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
         """
         ...
     @overload
@@ -191,7 +266,30 @@ class Upload(pulumi.CustomResource):
                  args: UploadArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Upload resource with the given unique name, props, and options.
+        Provides a resource to manage AWS Device Farm Uploads.
+
+        > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_project = aws.devicefarm.Project("exampleProject")
+        example_upload = aws.devicefarm.Upload("exampleUpload",
+            project_arn=example_project.arn,
+            type="APPIUM_JAVA_TESTNG_TEST_SPEC")
+        ```
+
+        ## Import
+
+        DeviceFarm Uploads can be imported by their arn
+
+        ```sh
+         $ pulumi import aws:devicefarm/upload:Upload example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+        ```
+
         :param str resource_name: The name of the resource.
         :param UploadArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -257,6 +355,14 @@ class Upload(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name of this upload.
+        :param pulumi.Input[str] category: The upload's category.
+        :param pulumi.Input[str] content_type: The upload's content type (for example, application/octet-stream).
+        :param pulumi.Input[str] metadata: The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
+        :param pulumi.Input[str] name: The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
+        :param pulumi.Input[str] project_arn: The ARN of the project for the upload.
+        :param pulumi.Input[str] type: The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
+        :param pulumi.Input[str] url: The presigned Amazon S3 URL that was used to store a file using a PUT request.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -275,40 +381,64 @@ class Upload(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name of this upload.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def category(self) -> pulumi.Output[str]:
+        """
+        The upload's category.
+        """
         return pulumi.get(self, "category")
 
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The upload's content type (for example, application/octet-stream).
+        """
         return pulumi.get(self, "content_type")
 
     @property
     @pulumi.getter
     def metadata(self) -> pulumi.Output[str]:
+        """
+        The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
+        """
         return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="projectArn")
     def project_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the project for the upload.
+        """
         return pulumi.get(self, "project_arn")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
+        """
+        The presigned Amazon S3 URL that was used to store a file using a PUT request.
+        """
         return pulumi.get(self, "url")
 

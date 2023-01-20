@@ -11,15 +11,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an Amazon MSK Serverless cluster.
+//
+// > **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `msk.Cluster` resource.
+//
+// ## Import
+//
+// MSK serverless clusters can be imported using the cluster `arn`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+//
+// ```
 type ServerlessCluster struct {
 	pulumi.CustomResourceState
 
-	Arn                  pulumi.StringOutput                         `pulumi:"arn"`
+	// The ARN of the serverless cluster.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Specifies client authentication information for the serverless cluster. See below.
 	ClientAuthentication ServerlessClusterClientAuthenticationOutput `pulumi:"clientAuthentication"`
-	ClusterName          pulumi.StringOutput                         `pulumi:"clusterName"`
-	Tags                 pulumi.StringMapOutput                      `pulumi:"tags"`
-	TagsAll              pulumi.StringMapOutput                      `pulumi:"tagsAll"`
-	VpcConfigs           ServerlessClusterVpcConfigArrayOutput       `pulumi:"vpcConfigs"`
+	// The name of the serverless cluster.
+	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// VPC configuration information. See below.
+	VpcConfigs ServerlessClusterVpcConfigArrayOutput `pulumi:"vpcConfigs"`
 }
 
 // NewServerlessCluster registers a new resource with the given unique name, arguments, and options.
@@ -57,21 +76,33 @@ func GetServerlessCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerlessCluster resources.
 type serverlessClusterState struct {
-	Arn                  *string                                `pulumi:"arn"`
+	// The ARN of the serverless cluster.
+	Arn *string `pulumi:"arn"`
+	// Specifies client authentication information for the serverless cluster. See below.
 	ClientAuthentication *ServerlessClusterClientAuthentication `pulumi:"clientAuthentication"`
-	ClusterName          *string                                `pulumi:"clusterName"`
-	Tags                 map[string]string                      `pulumi:"tags"`
-	TagsAll              map[string]string                      `pulumi:"tagsAll"`
-	VpcConfigs           []ServerlessClusterVpcConfig           `pulumi:"vpcConfigs"`
+	// The name of the serverless cluster.
+	ClusterName *string `pulumi:"clusterName"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// VPC configuration information. See below.
+	VpcConfigs []ServerlessClusterVpcConfig `pulumi:"vpcConfigs"`
 }
 
 type ServerlessClusterState struct {
-	Arn                  pulumi.StringPtrInput
+	// The ARN of the serverless cluster.
+	Arn pulumi.StringPtrInput
+	// Specifies client authentication information for the serverless cluster. See below.
 	ClientAuthentication ServerlessClusterClientAuthenticationPtrInput
-	ClusterName          pulumi.StringPtrInput
-	Tags                 pulumi.StringMapInput
-	TagsAll              pulumi.StringMapInput
-	VpcConfigs           ServerlessClusterVpcConfigArrayInput
+	// The name of the serverless cluster.
+	ClusterName pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// VPC configuration information. See below.
+	VpcConfigs ServerlessClusterVpcConfigArrayInput
 }
 
 func (ServerlessClusterState) ElementType() reflect.Type {
@@ -79,18 +110,26 @@ func (ServerlessClusterState) ElementType() reflect.Type {
 }
 
 type serverlessClusterArgs struct {
+	// Specifies client authentication information for the serverless cluster. See below.
 	ClientAuthentication ServerlessClusterClientAuthentication `pulumi:"clientAuthentication"`
-	ClusterName          *string                               `pulumi:"clusterName"`
-	Tags                 map[string]string                     `pulumi:"tags"`
-	VpcConfigs           []ServerlessClusterVpcConfig          `pulumi:"vpcConfigs"`
+	// The name of the serverless cluster.
+	ClusterName *string `pulumi:"clusterName"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// VPC configuration information. See below.
+	VpcConfigs []ServerlessClusterVpcConfig `pulumi:"vpcConfigs"`
 }
 
 // The set of arguments for constructing a ServerlessCluster resource.
 type ServerlessClusterArgs struct {
+	// Specifies client authentication information for the serverless cluster. See below.
 	ClientAuthentication ServerlessClusterClientAuthenticationInput
-	ClusterName          pulumi.StringPtrInput
-	Tags                 pulumi.StringMapInput
-	VpcConfigs           ServerlessClusterVpcConfigArrayInput
+	// The name of the serverless cluster.
+	ClusterName pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// VPC configuration information. See below.
+	VpcConfigs ServerlessClusterVpcConfigArrayInput
 }
 
 func (ServerlessClusterArgs) ElementType() reflect.Type {
@@ -180,26 +219,32 @@ func (o ServerlessClusterOutput) ToServerlessClusterOutputWithContext(ctx contex
 	return o
 }
 
+// The ARN of the serverless cluster.
 func (o ServerlessClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Specifies client authentication information for the serverless cluster. See below.
 func (o ServerlessClusterOutput) ClientAuthentication() ServerlessClusterClientAuthenticationOutput {
 	return o.ApplyT(func(v *ServerlessCluster) ServerlessClusterClientAuthenticationOutput { return v.ClientAuthentication }).(ServerlessClusterClientAuthenticationOutput)
 }
 
+// The name of the serverless cluster.
 func (o ServerlessClusterOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ServerlessClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ServerlessClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// VPC configuration information. See below.
 func (o ServerlessClusterOutput) VpcConfigs() ServerlessClusterVpcConfigArrayOutput {
 	return o.ApplyT(func(v *ServerlessCluster) ServerlessClusterVpcConfigArrayOutput { return v.VpcConfigs }).(ServerlessClusterVpcConfigArrayOutput)
 }

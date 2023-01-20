@@ -14,41 +14,142 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages a Service Catalog Constraint.
+ * 
+ * &gt; **NOTE:** This resource does not associate a Service Catalog product and portfolio. However, the product and portfolio must be associated (see the `aws.servicecatalog.ProductPortfolioAssociation` resource) prior to creating a constraint or you will receive an error.
+ * 
+ * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.servicecatalog.Constraint;
+ * import com.pulumi.aws.servicecatalog.ConstraintArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Constraint(&#34;example&#34;, ConstraintArgs.builder()        
+ *             .description(&#34;Back off, man. I&#39;m a scientist.&#34;)
+ *             .portfolioId(aws_servicecatalog_portfolio.example().id())
+ *             .productId(aws_servicecatalog_product.example().id())
+ *             .type(&#34;LAUNCH&#34;)
+ *             .parameters(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;RoleArn&#34;, &#34;arn:aws:iam::123456789012:role/LaunchRole&#34;)
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_servicecatalog_constraint` can be imported using the constraint ID, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
+ * ```
+ * 
+ */
 @ResourceType(type="aws:servicecatalog/constraint:Constraint")
 public class Constraint extends com.pulumi.resources.CustomResource {
+    /**
+     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     * 
+     */
     @Export(name="acceptLanguage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> acceptLanguage;
 
+    /**
+     * @return Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     * 
+     */
     public Output<Optional<String>> acceptLanguage() {
         return Codegen.optional(this.acceptLanguage);
     }
+    /**
+     * Description of the constraint.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
+    /**
+     * @return Description of the constraint.
+     * 
+     */
     public Output<String> description() {
         return this.description;
     }
+    /**
+     * Owner of the constraint.
+     * 
+     */
     @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
+    /**
+     * @return Owner of the constraint.
+     * 
+     */
     public Output<String> owner() {
         return this.owner;
     }
+    /**
+     * Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
+     * 
+     */
     @Export(name="parameters", refs={String.class}, tree="[0]")
     private Output<String> parameters;
 
+    /**
+     * @return Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
+     * 
+     */
     public Output<String> parameters() {
         return this.parameters;
     }
+    /**
+     * Portfolio identifier.
+     * 
+     */
     @Export(name="portfolioId", refs={String.class}, tree="[0]")
     private Output<String> portfolioId;
 
+    /**
+     * @return Portfolio identifier.
+     * 
+     */
     public Output<String> portfolioId() {
         return this.portfolioId;
     }
+    /**
+     * Product identifier.
+     * 
+     */
     @Export(name="productId", refs={String.class}, tree="[0]")
     private Output<String> productId;
 
+    /**
+     * @return Product identifier.
+     * 
+     */
     public Output<String> productId() {
         return this.productId;
     }
@@ -58,9 +159,17 @@ public class Constraint extends com.pulumi.resources.CustomResource {
     public Output<String> status() {
         return this.status;
     }
+    /**
+     * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
+    /**
+     * @return Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }

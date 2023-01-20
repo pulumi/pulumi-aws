@@ -13,6 +13,9 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk
     {
+        /// <summary>
+        /// The location of the Datadog resource.
+        /// </summary>
         public readonly string InstanceUrl;
 
         [OutputConstructor]

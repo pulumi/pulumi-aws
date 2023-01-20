@@ -24,6 +24,10 @@ class FeatureEvaluationRule(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  type: Optional[str] = None):
+        """
+        :param str name: The name for the new feature. Minimum length of `1`. Maximum length of `127`.
+        :param str type: This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if type is not None:
@@ -32,11 +36,17 @@ class FeatureEvaluationRule(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name for the new feature. Minimum length of `1`. Maximum length of `127`.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
+        """
         return pulumi.get(self, "type")
 
 
@@ -45,17 +55,27 @@ class FeatureVariation(dict):
     def __init__(__self__, *,
                  name: str,
                  value: 'outputs.FeatureVariationValue'):
+        """
+        :param str name: The name of the variation. Minimum length of `1`. Maximum length of `127`.
+        :param 'FeatureVariationValueArgs' value: A block that specifies the value assigned to this variation. Detailed below
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the variation. Minimum length of `1`. Maximum length of `127`.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> 'outputs.FeatureVariationValue':
+        """
+        A block that specifies the value assigned to this variation. Detailed below
+        """
         return pulumi.get(self, "value")
 
 
@@ -89,6 +109,12 @@ class FeatureVariationValue(dict):
                  double_value: Optional[str] = None,
                  long_value: Optional[str] = None,
                  string_value: Optional[str] = None):
+        """
+        :param str bool_value: If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
+        :param str double_value: If this feature uses the double integer variation type, this field contains the double integer value of this variation.
+        :param str long_value: If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
+        :param str string_value: If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
+        """
         if bool_value is not None:
             pulumi.set(__self__, "bool_value", bool_value)
         if double_value is not None:
@@ -101,21 +127,33 @@ class FeatureVariationValue(dict):
     @property
     @pulumi.getter(name="boolValue")
     def bool_value(self) -> Optional[str]:
+        """
+        If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
+        """
         return pulumi.get(self, "bool_value")
 
     @property
     @pulumi.getter(name="doubleValue")
     def double_value(self) -> Optional[str]:
+        """
+        If this feature uses the double integer variation type, this field contains the double integer value of this variation.
+        """
         return pulumi.get(self, "double_value")
 
     @property
     @pulumi.getter(name="longValue")
     def long_value(self) -> Optional[str]:
+        """
+        If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
+        """
         return pulumi.get(self, "long_value")
 
     @property
     @pulumi.getter(name="stringValue")
     def string_value(self) -> Optional[str]:
+        """
+        If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
+        """
         return pulumi.get(self, "string_value")
 
 
@@ -143,6 +181,10 @@ class ProjectDataDelivery(dict):
     def __init__(__self__, *,
                  cloudwatch_logs: Optional['outputs.ProjectDataDeliveryCloudwatchLogs'] = None,
                  s3_destination: Optional['outputs.ProjectDataDeliveryS3Destination'] = None):
+        """
+        :param 'ProjectDataDeliveryCloudwatchLogsArgs' cloudwatch_logs: A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
+        :param 'ProjectDataDeliveryS3DestinationArgs' s3_destination: A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
+        """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if s3_destination is not None:
@@ -151,11 +193,17 @@ class ProjectDataDelivery(dict):
     @property
     @pulumi.getter(name="cloudwatchLogs")
     def cloudwatch_logs(self) -> Optional['outputs.ProjectDataDeliveryCloudwatchLogs']:
+        """
+        A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
+        """
         return pulumi.get(self, "cloudwatch_logs")
 
     @property
     @pulumi.getter(name="s3Destination")
     def s3_destination(self) -> Optional['outputs.ProjectDataDeliveryS3Destination']:
+        """
+        A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
+        """
         return pulumi.get(self, "s3_destination")
 
 
@@ -180,12 +228,18 @@ class ProjectDataDeliveryCloudwatchLogs(dict):
 
     def __init__(__self__, *,
                  log_group: Optional[str] = None):
+        """
+        :param str log_group: The name of the log group where the project stores evaluation events.
+        """
         if log_group is not None:
             pulumi.set(__self__, "log_group", log_group)
 
     @property
     @pulumi.getter(name="logGroup")
     def log_group(self) -> Optional[str]:
+        """
+        The name of the log group where the project stores evaluation events.
+        """
         return pulumi.get(self, "log_group")
 
 
@@ -194,6 +248,10 @@ class ProjectDataDeliveryS3Destination(dict):
     def __init__(__self__, *,
                  bucket: Optional[str] = None,
                  prefix: Optional[str] = None):
+        """
+        :param str bucket: The name of the bucket in which Evidently stores evaluation events.
+        :param str prefix: The bucket prefix in which Evidently stores evaluation events.
+        """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
         if prefix is not None:
@@ -202,11 +260,17 @@ class ProjectDataDeliveryS3Destination(dict):
     @property
     @pulumi.getter
     def bucket(self) -> Optional[str]:
+        """
+        The name of the bucket in which Evidently stores evaluation events.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter
     def prefix(self) -> Optional[str]:
+        """
+        The bucket prefix in which Evidently stores evaluation events.
+        """
         return pulumi.get(self, "prefix")
 
 

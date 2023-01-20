@@ -11,10 +11,58 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **Note:** There is only a single subscription allowed per account.
+//
+// To help you understand the charges for your Spot instances, Amazon EC2 provides a data feed that describes your Spot instance usage and pricing.
+// This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			defaultBucketV2, err := s3.NewBucketV2(ctx, "defaultBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewSpotDatafeedSubscription(ctx, "defaultSpotDatafeedSubscription", &ec2.SpotDatafeedSubscriptionArgs{
+//				Bucket: defaultBucketV2.Bucket,
+//				Prefix: pulumi.String("my_subdirectory"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// A Spot Datafeed Subscription can be imported using the word `spot-datafeed-subscription`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
+//
+// ```
 type SpotDatafeedSubscription struct {
 	pulumi.CustomResourceState
 
-	Bucket pulumi.StringOutput    `pulumi:"bucket"`
+	// The Amazon S3 bucket in which to store the Spot instance data feed.
+	Bucket pulumi.StringOutput `pulumi:"bucket"`
+	// Path of folder inside bucket to place spot pricing data.
 	Prefix pulumi.StringPtrOutput `pulumi:"prefix"`
 }
 
@@ -50,12 +98,16 @@ func GetSpotDatafeedSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpotDatafeedSubscription resources.
 type spotDatafeedSubscriptionState struct {
+	// The Amazon S3 bucket in which to store the Spot instance data feed.
 	Bucket *string `pulumi:"bucket"`
+	// Path of folder inside bucket to place spot pricing data.
 	Prefix *string `pulumi:"prefix"`
 }
 
 type SpotDatafeedSubscriptionState struct {
+	// The Amazon S3 bucket in which to store the Spot instance data feed.
 	Bucket pulumi.StringPtrInput
+	// Path of folder inside bucket to place spot pricing data.
 	Prefix pulumi.StringPtrInput
 }
 
@@ -64,13 +116,17 @@ func (SpotDatafeedSubscriptionState) ElementType() reflect.Type {
 }
 
 type spotDatafeedSubscriptionArgs struct {
-	Bucket string  `pulumi:"bucket"`
+	// The Amazon S3 bucket in which to store the Spot instance data feed.
+	Bucket string `pulumi:"bucket"`
+	// Path of folder inside bucket to place spot pricing data.
 	Prefix *string `pulumi:"prefix"`
 }
 
 // The set of arguments for constructing a SpotDatafeedSubscription resource.
 type SpotDatafeedSubscriptionArgs struct {
+	// The Amazon S3 bucket in which to store the Spot instance data feed.
 	Bucket pulumi.StringInput
+	// Path of folder inside bucket to place spot pricing data.
 	Prefix pulumi.StringPtrInput
 }
 
@@ -161,10 +217,12 @@ func (o SpotDatafeedSubscriptionOutput) ToSpotDatafeedSubscriptionOutputWithCont
 	return o
 }
 
+// The Amazon S3 bucket in which to store the Spot instance data feed.
 func (o SpotDatafeedSubscriptionOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotDatafeedSubscription) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// Path of folder inside bucket to place spot pricing data.
 func (o SpotDatafeedSubscriptionOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotDatafeedSubscription) pulumi.StringPtrOutput { return v.Prefix }).(pulumi.StringPtrOutput)
 }

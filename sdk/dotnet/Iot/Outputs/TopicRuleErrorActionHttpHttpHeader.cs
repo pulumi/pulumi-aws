@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class TopicRuleErrorActionHttpHttpHeader
     {
+        /// <summary>
+        /// The name of the HTTP header.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The value of the HTTP header.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

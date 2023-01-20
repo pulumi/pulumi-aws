@@ -12,15 +12,27 @@ namespace Pulumi.Aws.Amplify.Inputs
 
     public sealed class DomainAssociationSubDomainGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Branch name setting for the subdomain.
+        /// </summary>
         [Input("branchName", required: true)]
         public Input<string> BranchName { get; set; } = null!;
 
+        /// <summary>
+        /// DNS record for the subdomain.
+        /// </summary>
         [Input("dnsRecord")]
         public Input<string>? DnsRecord { get; set; }
 
+        /// <summary>
+        /// Prefix setting for the subdomain.
+        /// </summary>
         [Input("prefix", required: true)]
         public Input<string> Prefix { get; set; } = null!;
 
+        /// <summary>
+        /// Verified status of the subdomain.
+        /// </summary>
         [Input("verified")]
         public Input<bool>? Verified { get; set; }
 

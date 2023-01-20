@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class TopicRuleErrorActionLambda {
+    /**
+     * @return The ARN of the Lambda function.
+     * 
+     */
     private String functionArn;
 
     private TopicRuleErrorActionLambda() {}
+    /**
+     * @return The ARN of the Lambda function.
+     * 
+     */
     public String functionArn() {
         return this.functionArn;
     }

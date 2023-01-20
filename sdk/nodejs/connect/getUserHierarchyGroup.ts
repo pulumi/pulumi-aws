@@ -7,6 +7,35 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides details about a specific Amazon Connect User Hierarchy Group.
+ *
+ * ## Example Usage
+ *
+ * By `name`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getUserHierarchyGroup({
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Example",
+ * });
+ * ```
+ *
+ * By `hierarchyGroupId`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getUserHierarchyGroup({
+ *     hierarchyGroupId: "cccccccc-bbbb-cccc-dddd-111111111111",
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ * });
+ * ```
+ */
 export function getUserHierarchyGroup(args: GetUserHierarchyGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetUserHierarchyGroupResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -22,9 +51,21 @@ export function getUserHierarchyGroup(args: GetUserHierarchyGroupArgs, opts?: pu
  * A collection of arguments for invoking getUserHierarchyGroup.
  */
 export interface GetUserHierarchyGroupArgs {
+    /**
+     * Returns information on a specific hierarchy group by hierarchy group id
+     */
     hierarchyGroupId?: string;
+    /**
+     * Reference to the hosting Amazon Connect Instance
+     */
     instanceId: string;
+    /**
+     * Returns information on a specific hierarchy group by name
+     */
     name?: string;
+    /**
+     * Map of tags to assign to the hierarchy group.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -32,18 +73,62 @@ export interface GetUserHierarchyGroupArgs {
  * A collection of values returned by getUserHierarchyGroup.
  */
 export interface GetUserHierarchyGroupResult {
+    /**
+     * ARN of the hierarchy group.
+     */
     readonly arn: string;
     readonly hierarchyGroupId: string;
+    /**
+     * Block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
+     */
     readonly hierarchyPaths: outputs.connect.GetUserHierarchyGroupHierarchyPath[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly instanceId: string;
+    /**
+     * Identifier of the level in the hierarchy group.
+     */
     readonly levelId: string;
+    /**
+     * Name of the hierarchy group.
+     */
     readonly name: string;
+    /**
+     * Map of tags to assign to the hierarchy group.
+     */
     readonly tags: {[key: string]: string};
 }
+/**
+ * Provides details about a specific Amazon Connect User Hierarchy Group.
+ *
+ * ## Example Usage
+ *
+ * By `name`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getUserHierarchyGroup({
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Example",
+ * });
+ * ```
+ *
+ * By `hierarchyGroupId`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getUserHierarchyGroup({
+ *     hierarchyGroupId: "cccccccc-bbbb-cccc-dddd-111111111111",
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ * });
+ * ```
+ */
 export function getUserHierarchyGroupOutput(args: GetUserHierarchyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserHierarchyGroupResult> {
     return pulumi.output(args).apply((a: any) => getUserHierarchyGroup(a, opts))
 }
@@ -52,8 +137,20 @@ export function getUserHierarchyGroupOutput(args: GetUserHierarchyGroupOutputArg
  * A collection of arguments for invoking getUserHierarchyGroup.
  */
 export interface GetUserHierarchyGroupOutputArgs {
+    /**
+     * Returns information on a specific hierarchy group by hierarchy group id
+     */
     hierarchyGroupId?: pulumi.Input<string>;
+    /**
+     * Reference to the hosting Amazon Connect Instance
+     */
     instanceId: pulumi.Input<string>;
+    /**
+     * Returns information on a specific hierarchy group by name
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the hierarchy group.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

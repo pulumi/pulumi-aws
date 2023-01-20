@@ -11,9 +11,77 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetEips
     {
+        /// <summary>
+        /// Provides a list of Elastic IPs in a region.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following shows outputing all Elastic IPs with the a specific tag value.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetEips.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "Env", "dev" },
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["allocationIds"] = example.Apply(getEipsResult =&gt; getEipsResult.AllocationIds),
+        ///         ["publicIps"] = example.Apply(getEipsResult =&gt; getEipsResult.PublicIps),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetEipsResult> InvokeAsync(GetEipsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEipsResult>("aws:ec2/getEips:getEips", args ?? new GetEipsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides a list of Elastic IPs in a region.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following shows outputing all Elastic IPs with the a specific tag value.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetEips.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "Env", "dev" },
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["allocationIds"] = example.Apply(getEipsResult =&gt; getEipsResult.AllocationIds),
+        ///         ["publicIps"] = example.Apply(getEipsResult =&gt; getEipsResult.PublicIps),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetEipsResult> Invoke(GetEipsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEipsResult>("aws:ec2/getEips:getEips", args ?? new GetEipsInvokeArgs(), options.WithDefaults());
     }
@@ -23,6 +91,10 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetEipsFilterArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
         public List<Inputs.GetEipsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetEipsFilterArgs>());
@@ -31,6 +103,10 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -47,6 +123,10 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetEipsFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
         public InputList<Inputs.GetEipsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetEipsFilterInputArgs>());
@@ -55,6 +135,10 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -71,12 +155,18 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetEipsResult
     {
+        /// <summary>
+        /// List of all the allocation IDs for address for use with EC2-VPC.
+        /// </summary>
         public readonly ImmutableArray<string> AllocationIds;
         public readonly ImmutableArray<Outputs.GetEipsFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// List of all the Elastic IP addresses.
+        /// </summary>
         public readonly ImmutableArray<string> PublicIps;
         public readonly ImmutableDictionary<string, string> Tags;
 

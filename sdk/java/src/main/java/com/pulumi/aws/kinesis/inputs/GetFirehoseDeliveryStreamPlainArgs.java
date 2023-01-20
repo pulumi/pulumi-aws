@@ -12,9 +12,17 @@ public final class GetFirehoseDeliveryStreamPlainArgs extends com.pulumi.resourc
 
     public static final GetFirehoseDeliveryStreamPlainArgs Empty = new GetFirehoseDeliveryStreamPlainArgs();
 
+    /**
+     * Name of the Kinesis Stream.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return Name of the Kinesis Stream.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -43,6 +51,12 @@ public final class GetFirehoseDeliveryStreamPlainArgs extends com.pulumi.resourc
             $ = new GetFirehoseDeliveryStreamPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the Kinesis Stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;

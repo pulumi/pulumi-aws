@@ -13,6 +13,9 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics
     {
+        /// <summary>
+        /// Whether the activity metrics are enabled.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

@@ -21,6 +21,13 @@ class ArchiveRuleFilterArgs:
                  eqs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  exists: Optional[pulumi.Input[str]] = None,
                  neqs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] criteria: Filter criteria.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] contains: Contains comparator.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] eqs: Equals comparator.
+        :param pulumi.Input[str] exists: Boolean comparator.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] neqs: Not Equals comparator.
+        """
         pulumi.set(__self__, "criteria", criteria)
         if contains is not None:
             pulumi.set(__self__, "contains", contains)
@@ -34,6 +41,9 @@ class ArchiveRuleFilterArgs:
     @property
     @pulumi.getter
     def criteria(self) -> pulumi.Input[str]:
+        """
+        Filter criteria.
+        """
         return pulumi.get(self, "criteria")
 
     @criteria.setter
@@ -43,6 +53,9 @@ class ArchiveRuleFilterArgs:
     @property
     @pulumi.getter
     def contains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Contains comparator.
+        """
         return pulumi.get(self, "contains")
 
     @contains.setter
@@ -52,6 +65,9 @@ class ArchiveRuleFilterArgs:
     @property
     @pulumi.getter
     def eqs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Equals comparator.
+        """
         return pulumi.get(self, "eqs")
 
     @eqs.setter
@@ -61,6 +77,9 @@ class ArchiveRuleFilterArgs:
     @property
     @pulumi.getter
     def exists(self) -> Optional[pulumi.Input[str]]:
+        """
+        Boolean comparator.
+        """
         return pulumi.get(self, "exists")
 
     @exists.setter
@@ -70,6 +89,9 @@ class ArchiveRuleFilterArgs:
     @property
     @pulumi.getter
     def neqs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Not Equals comparator.
+        """
         return pulumi.get(self, "neqs")
 
     @neqs.setter

@@ -13,7 +13,13 @@ namespace Pulumi.Aws.RedShift.Outputs
     [OutputType]
     public sealed class ParameterGroupParameter
     {
+        /// <summary>
+        /// The name of the Redshift parameter.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The value of the Redshift parameter.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

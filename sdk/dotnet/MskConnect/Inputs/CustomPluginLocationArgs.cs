@@ -12,6 +12,9 @@ namespace Pulumi.Aws.MskConnect.Inputs
 
     public sealed class CustomPluginLocationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Information of the plugin file stored in Amazon S3. See below.
+        /// </summary>
         [Input("s3", required: true)]
         public Input<Inputs.CustomPluginLocationS3Args> S3 { get; set; } = null!;
 

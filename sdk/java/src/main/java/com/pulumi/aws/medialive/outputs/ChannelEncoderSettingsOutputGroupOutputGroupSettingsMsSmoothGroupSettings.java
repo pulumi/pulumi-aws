@@ -15,16 +15,40 @@ import javax.annotation.Nullable;
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings {
     private @Nullable String acquisitionPointId;
     private @Nullable String audioOnlyTimecodecControl;
+    /**
+     * @return Setting to allow self signed or verified RTMP certificates.
+     * 
+     */
     private @Nullable String certificateMode;
+    /**
+     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * 
+     */
     private @Nullable Integer connectionRetryInterval;
+    /**
+     * @return A director and base filename where archive files should be written. See Destination for more details.
+     * 
+     */
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination destination;
     private @Nullable Integer eventId;
     private @Nullable String eventIdMode;
     private @Nullable String eventStopBehavior;
     private @Nullable Integer filecacheDuration;
     private @Nullable Integer fragmentLength;
+    /**
+     * @return Controls the behavior of the RTMP group if input becomes unavailable.
+     * 
+     */
     private @Nullable String inputLossAction;
+    /**
+     * @return Number of retry attempts.
+     * 
+     */
     private @Nullable Integer numRetries;
+    /**
+     * @return Number of seconds to wait until a restart is initiated.
+     * 
+     */
     private @Nullable Integer restartDelay;
     private @Nullable String segmentationMode;
     private @Nullable Integer sendDelayMs;
@@ -40,12 +64,24 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
     public Optional<String> audioOnlyTimecodecControl() {
         return Optional.ofNullable(this.audioOnlyTimecodecControl);
     }
+    /**
+     * @return Setting to allow self signed or verified RTMP certificates.
+     * 
+     */
     public Optional<String> certificateMode() {
         return Optional.ofNullable(this.certificateMode);
     }
+    /**
+     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * 
+     */
     public Optional<Integer> connectionRetryInterval() {
         return Optional.ofNullable(this.connectionRetryInterval);
     }
+    /**
+     * @return A director and base filename where archive files should be written. See Destination for more details.
+     * 
+     */
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination destination() {
         return this.destination;
     }
@@ -64,12 +100,24 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
     public Optional<Integer> fragmentLength() {
         return Optional.ofNullable(this.fragmentLength);
     }
+    /**
+     * @return Controls the behavior of the RTMP group if input becomes unavailable.
+     * 
+     */
     public Optional<String> inputLossAction() {
         return Optional.ofNullable(this.inputLossAction);
     }
+    /**
+     * @return Number of retry attempts.
+     * 
+     */
     public Optional<Integer> numRetries() {
         return Optional.ofNullable(this.numRetries);
     }
+    /**
+     * @return Number of seconds to wait until a restart is initiated.
+     * 
+     */
     public Optional<Integer> restartDelay() {
         return Optional.ofNullable(this.restartDelay);
     }

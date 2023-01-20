@@ -10,11 +10,103 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
+//
+// > **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cloudwatchRole, err := iam.NewRole(ctx, "cloudwatchRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Sid": "",
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "Service": "apigateway.amazonaws.com"
+//	      },
+//	      "Action": "sts:AssumeRole"
+//	    }
+//	  ]
+//	}
+//
+// `)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewAccount(ctx, "demo", &apigateway.AccountArgs{
+//				CloudwatchRoleArn: cloudwatchRole.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "cloudwatchRolePolicy", &iam.RolePolicyArgs{
+//				Role: cloudwatchRole.ID(),
+//				Policy: pulumi.Any(fmt.Sprintf(`{
+//	    "Version": "2012-10-17",
+//	    "Statement": [
+//	        {
+//	            "Effect": "Allow",
+//	            "Action": [
+//	                "logs:CreateLogGroup",
+//	                "logs:CreateLogStream",
+//	                "logs:DescribeLogGroups",
+//	                "logs:DescribeLogStreams",
+//	                "logs:PutLogEvents",
+//	                "logs:GetLogEvents",
+//	                "logs:FilterLogEvents"
+//	            ],
+//	            "Resource": "*"
+//	        }
+//	    ]
+//	}
+//
+// `)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// API Gateway Accounts can be imported using the word `api-gateway-account`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:apigateway/account:Account demo api-gateway-account
+//
+// ```
 type Account struct {
 	pulumi.CustomResourceState
 
-	CloudwatchRoleArn pulumi.StringPtrOutput            `pulumi:"cloudwatchRoleArn"`
-	ThrottleSettings  AccountThrottleSettingArrayOutput `pulumi:"throttleSettings"`
+	// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+	CloudwatchRoleArn pulumi.StringPtrOutput `pulumi:"cloudwatchRoleArn"`
+	// Account-Level throttle settings. See exported fields below.
+	ThrottleSettings AccountThrottleSettingArrayOutput `pulumi:"throttleSettings"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -46,13 +138,17 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
-	CloudwatchRoleArn *string                  `pulumi:"cloudwatchRoleArn"`
-	ThrottleSettings  []AccountThrottleSetting `pulumi:"throttleSettings"`
+	// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+	CloudwatchRoleArn *string `pulumi:"cloudwatchRoleArn"`
+	// Account-Level throttle settings. See exported fields below.
+	ThrottleSettings []AccountThrottleSetting `pulumi:"throttleSettings"`
 }
 
 type AccountState struct {
+	// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
 	CloudwatchRoleArn pulumi.StringPtrInput
-	ThrottleSettings  AccountThrottleSettingArrayInput
+	// Account-Level throttle settings. See exported fields below.
+	ThrottleSettings AccountThrottleSettingArrayInput
 }
 
 func (AccountState) ElementType() reflect.Type {
@@ -60,11 +156,13 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
 	CloudwatchRoleArn *string `pulumi:"cloudwatchRoleArn"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
 	CloudwatchRoleArn pulumi.StringPtrInput
 }
 
@@ -155,10 +253,12 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
+// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
 func (o AccountOutput) CloudwatchRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.CloudwatchRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Account-Level throttle settings. See exported fields below.
 func (o AccountOutput) ThrottleSettings() AccountThrottleSettingArrayOutput {
 	return o.ApplyT(func(v *Account) AccountThrottleSettingArrayOutput { return v.ThrottleSettings }).(AccountThrottleSettingArrayOutput)
 }

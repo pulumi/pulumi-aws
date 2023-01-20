@@ -4,6 +4,48 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * A Cluster Instance Resource defines attributes that are specific to a single instance in a Neptune Cluster.
+ *
+ * You can simply add neptune instances and Neptune manages the replication. You can use the count
+ * meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instanceClass` sizes.
+ *
+ * ## Example Usage
+ *
+ * The following example will create a neptune cluster with two neptune instances(one writer and one reader).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const _default = new aws.neptune.Cluster("default", {
+ *     clusterIdentifier: "neptune-cluster-demo",
+ *     engine: "neptune",
+ *     backupRetentionPeriod: 5,
+ *     preferredBackupWindow: "07:00-09:00",
+ *     skipFinalSnapshot: true,
+ *     iamDatabaseAuthenticationEnabled: true,
+ *     applyImmediately: true,
+ * });
+ * const example: aws.neptune.ClusterInstance[] = [];
+ * for (const range = {value: 0}; range.value < 2; range.value++) {
+ *     example.push(new aws.neptune.ClusterInstance(`example-${range.value}`, {
+ *         clusterIdentifier: _default.id,
+ *         engine: "neptune",
+ *         instanceClass: "db.r4.large",
+ *         applyImmediately: true,
+ *     }));
+ * }
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_neptune_cluster_instance` can be imported by using the instance identifier, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
+ * ```
+ */
 export class ClusterInstance extends pulumi.CustomResource {
     /**
      * Get an existing ClusterInstance resource's state with the given name, ID, and optional extra
@@ -32,30 +74,107 @@ export class ClusterInstance extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClusterInstance.__pulumiType;
     }
 
+    /**
+     * The hostname of the instance. See also `endpoint` and `port`.
+     */
     public /*out*/ readonly address!: pulumi.Output<string>;
+    /**
+     * Specifies whether any instance modifications
+     * are applied immediately, or during the next maintenance window. Default is`false`.
+     */
     public readonly applyImmediately!: pulumi.Output<boolean>;
+    /**
+     * Amazon Resource Name (ARN) of neptune instance
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
+     */
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
+    /**
+     * The EC2 Availability Zone that the neptune instance is created in.
+     */
     public readonly availabilityZone!: pulumi.Output<string>;
+    /**
+     * The identifier of the `aws.neptune.Cluster` in which to launch this instance.
+     */
     public readonly clusterIdentifier!: pulumi.Output<string>;
+    /**
+     * The region-unique, immutable identifier for the neptune instance.
+     */
     public /*out*/ readonly dbiResourceId!: pulumi.Output<string>;
+    /**
+     * The connection endpoint in `address:port` format.
+     */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
+     * The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
+     */
     public readonly engine!: pulumi.Output<string | undefined>;
+    /**
+     * The neptune engine version.
+     */
     public readonly engineVersion!: pulumi.Output<string>;
+    /**
+     * The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+     */
     public readonly identifier!: pulumi.Output<string>;
+    /**
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
+     */
     public readonly identifierPrefix!: pulumi.Output<string>;
+    /**
+     * The instance class to use.
+     */
     public readonly instanceClass!: pulumi.Output<string>;
+    /**
+     * The ARN for the KMS encryption key if one is set to the neptune cluster.
+     */
     public /*out*/ readonly kmsKeyArn!: pulumi.Output<string>;
+    /**
+     * The name of the neptune parameter group to associate with this instance.
+     */
     public readonly neptuneParameterGroupName!: pulumi.Output<string | undefined>;
+    /**
+     * A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `aws.neptune.Cluster`.
+     */
     public readonly neptuneSubnetGroupName!: pulumi.Output<string>;
+    /**
+     * The port on which the DB accepts connections. Defaults to `8182`.
+     */
     public readonly port!: pulumi.Output<number | undefined>;
+    /**
+     * The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
+     */
     public readonly preferredBackupWindow!: pulumi.Output<string>;
+    /**
+     * The window to perform maintenance in.
+     * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
+     */
     public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
+    /**
+     * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+     */
     public readonly promotionTier!: pulumi.Output<number | undefined>;
+    /**
+     * Bool to control if instance is publicly accessible. Default is `false`.
+     */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether the neptune cluster is encrypted.
+     */
     public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
+    /**
+     * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
+     */
     public /*out*/ readonly writer!: pulumi.Output<boolean>;
 
     /**
@@ -139,30 +258,107 @@ export class ClusterInstance extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ClusterInstance resources.
  */
 export interface ClusterInstanceState {
+    /**
+     * The hostname of the instance. See also `endpoint` and `port`.
+     */
     address?: pulumi.Input<string>;
+    /**
+     * Specifies whether any instance modifications
+     * are applied immediately, or during the next maintenance window. Default is`false`.
+     */
     applyImmediately?: pulumi.Input<boolean>;
+    /**
+     * Amazon Resource Name (ARN) of neptune instance
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
+     */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
+    /**
+     * The EC2 Availability Zone that the neptune instance is created in.
+     */
     availabilityZone?: pulumi.Input<string>;
+    /**
+     * The identifier of the `aws.neptune.Cluster` in which to launch this instance.
+     */
     clusterIdentifier?: pulumi.Input<string>;
+    /**
+     * The region-unique, immutable identifier for the neptune instance.
+     */
     dbiResourceId?: pulumi.Input<string>;
+    /**
+     * The connection endpoint in `address:port` format.
+     */
     endpoint?: pulumi.Input<string>;
+    /**
+     * The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
+     */
     engine?: pulumi.Input<string>;
+    /**
+     * The neptune engine version.
+     */
     engineVersion?: pulumi.Input<string>;
+    /**
+     * The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+     */
     identifier?: pulumi.Input<string>;
+    /**
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
+     */
     identifierPrefix?: pulumi.Input<string>;
+    /**
+     * The instance class to use.
+     */
     instanceClass?: pulumi.Input<string>;
+    /**
+     * The ARN for the KMS encryption key if one is set to the neptune cluster.
+     */
     kmsKeyArn?: pulumi.Input<string>;
+    /**
+     * The name of the neptune parameter group to associate with this instance.
+     */
     neptuneParameterGroupName?: pulumi.Input<string>;
+    /**
+     * A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `aws.neptune.Cluster`.
+     */
     neptuneSubnetGroupName?: pulumi.Input<string>;
+    /**
+     * The port on which the DB accepts connections. Defaults to `8182`.
+     */
     port?: pulumi.Input<number>;
+    /**
+     * The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
+     */
     preferredBackupWindow?: pulumi.Input<string>;
+    /**
+     * The window to perform maintenance in.
+     * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
+     */
     preferredMaintenanceWindow?: pulumi.Input<string>;
+    /**
+     * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+     */
     promotionTier?: pulumi.Input<number>;
+    /**
+     * Bool to control if instance is publicly accessible. Default is `false`.
+     */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether the neptune cluster is encrypted.
+     */
     storageEncrypted?: pulumi.Input<boolean>;
+    /**
+     * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
+     */
     writer?: pulumi.Input<boolean>;
 }
 
@@ -170,21 +366,74 @@ export interface ClusterInstanceState {
  * The set of arguments for constructing a ClusterInstance resource.
  */
 export interface ClusterInstanceArgs {
+    /**
+     * Specifies whether any instance modifications
+     * are applied immediately, or during the next maintenance window. Default is`false`.
+     */
     applyImmediately?: pulumi.Input<boolean>;
+    /**
+     * Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
+     */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
+    /**
+     * The EC2 Availability Zone that the neptune instance is created in.
+     */
     availabilityZone?: pulumi.Input<string>;
+    /**
+     * The identifier of the `aws.neptune.Cluster` in which to launch this instance.
+     */
     clusterIdentifier: pulumi.Input<string>;
+    /**
+     * The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
+     */
     engine?: pulumi.Input<string>;
+    /**
+     * The neptune engine version.
+     */
     engineVersion?: pulumi.Input<string>;
+    /**
+     * The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+     */
     identifier?: pulumi.Input<string>;
+    /**
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
+     */
     identifierPrefix?: pulumi.Input<string>;
+    /**
+     * The instance class to use.
+     */
     instanceClass: pulumi.Input<string>;
+    /**
+     * The name of the neptune parameter group to associate with this instance.
+     */
     neptuneParameterGroupName?: pulumi.Input<string>;
+    /**
+     * A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `aws.neptune.Cluster`.
+     */
     neptuneSubnetGroupName?: pulumi.Input<string>;
+    /**
+     * The port on which the DB accepts connections. Defaults to `8182`.
+     */
     port?: pulumi.Input<number>;
+    /**
+     * The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
+     */
     preferredBackupWindow?: pulumi.Input<string>;
+    /**
+     * The window to perform maintenance in.
+     * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
+     */
     preferredMaintenanceWindow?: pulumi.Input<string>;
+    /**
+     * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+     */
     promotionTier?: pulumi.Input<number>;
+    /**
+     * Bool to control if instance is publicly accessible. Default is `false`.
+     */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

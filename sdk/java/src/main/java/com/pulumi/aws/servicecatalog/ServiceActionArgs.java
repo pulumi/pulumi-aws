@@ -16,30 +16,62 @@ public final class ServiceActionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceActionArgs Empty = new ServiceActionArgs();
 
+    /**
+     * Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
+     * 
+     */
     @Import(name="acceptLanguage")
     private @Nullable Output<String> acceptLanguage;
 
+    /**
+     * @return Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
+     * 
+     */
     public Optional<Output<String>> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
 
+    /**
+     * Self-service action definition configuration block. Detailed below.
+     * 
+     */
     @Import(name="definition", required=true)
     private Output<ServiceActionDefinitionArgs> definition;
 
+    /**
+     * @return Self-service action definition configuration block. Detailed below.
+     * 
+     */
     public Output<ServiceActionDefinitionArgs> definition() {
         return this.definition;
     }
 
+    /**
+     * Self-service action description.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Self-service action description.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * Self-service action name.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Self-service action name.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -71,38 +103,86 @@ public final class ServiceActionArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ServiceActionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param acceptLanguage Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder acceptLanguage(@Nullable Output<String> acceptLanguage) {
             $.acceptLanguage = acceptLanguage;
             return this;
         }
 
+        /**
+         * @param acceptLanguage Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder acceptLanguage(String acceptLanguage) {
             return acceptLanguage(Output.of(acceptLanguage));
         }
 
+        /**
+         * @param definition Self-service action definition configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder definition(Output<ServiceActionDefinitionArgs> definition) {
             $.definition = definition;
             return this;
         }
 
+        /**
+         * @param definition Self-service action definition configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder definition(ServiceActionDefinitionArgs definition) {
             return definition(Output.of(definition));
         }
 
+        /**
+         * @param description Self-service action description.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Self-service action description.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param name Self-service action name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Self-service action name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

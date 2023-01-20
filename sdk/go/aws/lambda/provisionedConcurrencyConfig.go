@@ -11,12 +11,82 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Lambda Provisioned Concurrency Configuration.
+//
+// ## Example Usage
+// ### Alias Name
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewProvisionedConcurrencyConfig(ctx, "example", &lambda.ProvisionedConcurrencyConfigArgs{
+//				FunctionName:                    pulumi.Any(aws_lambda_alias.Example.Function_name),
+//				ProvisionedConcurrentExecutions: pulumi.Int(1),
+//				Qualifier:                       pulumi.Any(aws_lambda_alias.Example.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Function Version
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewProvisionedConcurrencyConfig(ctx, "example", &lambda.ProvisionedConcurrencyConfigArgs{
+//				FunctionName:                    pulumi.Any(aws_lambda_function.Example.Function_name),
+//				ProvisionedConcurrentExecutions: pulumi.Int(1),
+//				Qualifier:                       pulumi.Any(aws_lambda_function.Example.Version),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Lambda Provisioned Concurrency Configs can be imported using the `function_name` and `qualifier` separated by a colon (`:`), e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function:production
+//
+// ```
 type ProvisionedConcurrencyConfig struct {
 	pulumi.CustomResourceState
 
-	FunctionName                    pulumi.StringOutput `pulumi:"functionName"`
-	ProvisionedConcurrentExecutions pulumi.IntOutput    `pulumi:"provisionedConcurrentExecutions"`
-	Qualifier                       pulumi.StringOutput `pulumi:"qualifier"`
+	// Name or Amazon Resource Name (ARN) of the Lambda Function.
+	FunctionName pulumi.StringOutput `pulumi:"functionName"`
+	// Amount of capacity to allocate. Must be greater than or equal to `1`.
+	ProvisionedConcurrentExecutions pulumi.IntOutput `pulumi:"provisionedConcurrentExecutions"`
+	// Lambda Function version or Lambda Alias name.
+	Qualifier pulumi.StringOutput `pulumi:"qualifier"`
 }
 
 // NewProvisionedConcurrencyConfig registers a new resource with the given unique name, arguments, and options.
@@ -57,15 +127,21 @@ func GetProvisionedConcurrencyConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProvisionedConcurrencyConfig resources.
 type provisionedConcurrencyConfigState struct {
-	FunctionName                    *string `pulumi:"functionName"`
-	ProvisionedConcurrentExecutions *int    `pulumi:"provisionedConcurrentExecutions"`
-	Qualifier                       *string `pulumi:"qualifier"`
+	// Name or Amazon Resource Name (ARN) of the Lambda Function.
+	FunctionName *string `pulumi:"functionName"`
+	// Amount of capacity to allocate. Must be greater than or equal to `1`.
+	ProvisionedConcurrentExecutions *int `pulumi:"provisionedConcurrentExecutions"`
+	// Lambda Function version or Lambda Alias name.
+	Qualifier *string `pulumi:"qualifier"`
 }
 
 type ProvisionedConcurrencyConfigState struct {
-	FunctionName                    pulumi.StringPtrInput
+	// Name or Amazon Resource Name (ARN) of the Lambda Function.
+	FunctionName pulumi.StringPtrInput
+	// Amount of capacity to allocate. Must be greater than or equal to `1`.
 	ProvisionedConcurrentExecutions pulumi.IntPtrInput
-	Qualifier                       pulumi.StringPtrInput
+	// Lambda Function version or Lambda Alias name.
+	Qualifier pulumi.StringPtrInput
 }
 
 func (ProvisionedConcurrencyConfigState) ElementType() reflect.Type {
@@ -73,16 +149,22 @@ func (ProvisionedConcurrencyConfigState) ElementType() reflect.Type {
 }
 
 type provisionedConcurrencyConfigArgs struct {
-	FunctionName                    string `pulumi:"functionName"`
-	ProvisionedConcurrentExecutions int    `pulumi:"provisionedConcurrentExecutions"`
-	Qualifier                       string `pulumi:"qualifier"`
+	// Name or Amazon Resource Name (ARN) of the Lambda Function.
+	FunctionName string `pulumi:"functionName"`
+	// Amount of capacity to allocate. Must be greater than or equal to `1`.
+	ProvisionedConcurrentExecutions int `pulumi:"provisionedConcurrentExecutions"`
+	// Lambda Function version or Lambda Alias name.
+	Qualifier string `pulumi:"qualifier"`
 }
 
 // The set of arguments for constructing a ProvisionedConcurrencyConfig resource.
 type ProvisionedConcurrencyConfigArgs struct {
-	FunctionName                    pulumi.StringInput
+	// Name or Amazon Resource Name (ARN) of the Lambda Function.
+	FunctionName pulumi.StringInput
+	// Amount of capacity to allocate. Must be greater than or equal to `1`.
 	ProvisionedConcurrentExecutions pulumi.IntInput
-	Qualifier                       pulumi.StringInput
+	// Lambda Function version or Lambda Alias name.
+	Qualifier pulumi.StringInput
 }
 
 func (ProvisionedConcurrencyConfigArgs) ElementType() reflect.Type {
@@ -172,14 +254,17 @@ func (o ProvisionedConcurrencyConfigOutput) ToProvisionedConcurrencyConfigOutput
 	return o
 }
 
+// Name or Amazon Resource Name (ARN) of the Lambda Function.
 func (o ProvisionedConcurrencyConfigOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisionedConcurrencyConfig) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
 }
 
+// Amount of capacity to allocate. Must be greater than or equal to `1`.
 func (o ProvisionedConcurrencyConfigOutput) ProvisionedConcurrentExecutions() pulumi.IntOutput {
 	return o.ApplyT(func(v *ProvisionedConcurrencyConfig) pulumi.IntOutput { return v.ProvisionedConcurrentExecutions }).(pulumi.IntOutput)
 }
 
+// Lambda Function version or Lambda Alias name.
 func (o ProvisionedConcurrencyConfigOutput) Qualifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisionedConcurrencyConfig) pulumi.StringOutput { return v.Qualifier }).(pulumi.StringOutput)
 }

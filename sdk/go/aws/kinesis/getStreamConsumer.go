@@ -10,6 +10,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides details about a Kinesis Stream Consumer.
+//
+// For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := kinesis.LookupStreamConsumer(ctx, &kinesis.LookupStreamConsumerArgs{
+//				Name:      pulumi.StringRef("example-consumer"),
+//				StreamArn: aws_kinesis_stream.Example.Arn,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupStreamConsumer(ctx *pulumi.Context, args *LookupStreamConsumerArgs, opts ...pulumi.InvokeOption) (*LookupStreamConsumerResult, error) {
 	var rv LookupStreamConsumerResult
 	err := ctx.Invoke("aws:kinesis/getStreamConsumer:getStreamConsumer", args, &rv, opts...)
@@ -21,18 +51,23 @@ func LookupStreamConsumer(ctx *pulumi.Context, args *LookupStreamConsumerArgs, o
 
 // A collection of arguments for invoking getStreamConsumer.
 type LookupStreamConsumerArgs struct {
-	Arn       *string `pulumi:"arn"`
-	Name      *string `pulumi:"name"`
-	StreamArn string  `pulumi:"streamArn"`
+	// ARN of the stream consumer.
+	Arn *string `pulumi:"arn"`
+	// Name of the stream consumer.
+	Name *string `pulumi:"name"`
+	// ARN of the data stream the consumer is registered with.
+	StreamArn string `pulumi:"streamArn"`
 }
 
 // A collection of values returned by getStreamConsumer.
 type LookupStreamConsumerResult struct {
-	Arn               string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
+	// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
 	CreationTimestamp string `pulumi:"creationTimestamp"`
 	// The provider-assigned unique ID for this managed resource.
-	Id        string `pulumi:"id"`
-	Name      string `pulumi:"name"`
+	Id   string `pulumi:"id"`
+	Name string `pulumi:"name"`
+	// Current status of the stream consumer.
 	Status    string `pulumi:"status"`
 	StreamArn string `pulumi:"streamArn"`
 }
@@ -52,9 +87,12 @@ func LookupStreamConsumerOutput(ctx *pulumi.Context, args LookupStreamConsumerOu
 
 // A collection of arguments for invoking getStreamConsumer.
 type LookupStreamConsumerOutputArgs struct {
-	Arn       pulumi.StringPtrInput `pulumi:"arn"`
-	Name      pulumi.StringPtrInput `pulumi:"name"`
-	StreamArn pulumi.StringInput    `pulumi:"streamArn"`
+	// ARN of the stream consumer.
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	// Name of the stream consumer.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// ARN of the data stream the consumer is registered with.
+	StreamArn pulumi.StringInput `pulumi:"streamArn"`
 }
 
 func (LookupStreamConsumerOutputArgs) ElementType() reflect.Type {
@@ -80,6 +118,7 @@ func (o LookupStreamConsumerResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamConsumerResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
 func (o LookupStreamConsumerResultOutput) CreationTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamConsumerResult) string { return v.CreationTimestamp }).(pulumi.StringOutput)
 }
@@ -93,6 +132,7 @@ func (o LookupStreamConsumerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamConsumerResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Current status of the stream consumer.
 func (o LookupStreamConsumerResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamConsumerResult) string { return v.Status }).(pulumi.StringOutput)
 }

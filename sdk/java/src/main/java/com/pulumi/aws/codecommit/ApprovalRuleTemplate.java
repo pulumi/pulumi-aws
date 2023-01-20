@@ -14,53 +14,171 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a CodeCommit Approval Rule Template Resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.codecommit.ApprovalRuleTemplate;
+ * import com.pulumi.aws.codecommit.ApprovalRuleTemplateArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ApprovalRuleTemplate(&#34;example&#34;, ApprovalRuleTemplateArgs.builder()        
+ *             .content(&#34;&#34;&#34;
+ * {
+ *     &#34;Version&#34;: &#34;2018-11-08&#34;,
+ *     &#34;DestinationReferences&#34;: [&#34;refs/heads/master&#34;],
+ *     &#34;Statements&#34;: [{
+ *         &#34;Type&#34;: &#34;Approvers&#34;,
+ *         &#34;NumberOfApprovalsNeeded&#34;: 2,
+ *         &#34;ApprovalPoolMembers&#34;: [&#34;arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*&#34;]
+ *     }]
+ * }
+ * 
+ *             &#34;&#34;&#34;)
+ *             .description(&#34;This is an example approval rule template&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * CodeCommit approval rule templates can be imported using the `name`, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
+ * ```
+ * 
+ */
 @ResourceType(type="aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate")
 public class ApprovalRuleTemplate extends com.pulumi.resources.CustomResource {
+    /**
+     * The ID of the approval rule template
+     * 
+     */
     @Export(name="approvalRuleTemplateId", refs={String.class}, tree="[0]")
     private Output<String> approvalRuleTemplateId;
 
+    /**
+     * @return The ID of the approval rule template
+     * 
+     */
     public Output<String> approvalRuleTemplateId() {
         return this.approvalRuleTemplateId;
     }
+    /**
+     * The content of the approval rule template. Maximum of 3000 characters.
+     * 
+     */
     @Export(name="content", refs={String.class}, tree="[0]")
     private Output<String> content;
 
+    /**
+     * @return The content of the approval rule template. Maximum of 3000 characters.
+     * 
+     */
     public Output<String> content() {
         return this.content;
     }
+    /**
+     * The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * 
+     */
     @Export(name="creationDate", refs={String.class}, tree="[0]")
     private Output<String> creationDate;
 
+    /**
+     * @return The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * 
+     */
     public Output<String> creationDate() {
         return this.creationDate;
     }
+    /**
+     * The description of the approval rule template. Maximum of 1000 characters.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The description of the approval rule template. Maximum of 1000 characters.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * 
+     */
     @Export(name="lastModifiedDate", refs={String.class}, tree="[0]")
     private Output<String> lastModifiedDate;
 
+    /**
+     * @return The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * 
+     */
     public Output<String> lastModifiedDate() {
         return this.lastModifiedDate;
     }
+    /**
+     * The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+     * 
+     */
     @Export(name="lastModifiedUser", refs={String.class}, tree="[0]")
     private Output<String> lastModifiedUser;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+     * 
+     */
     public Output<String> lastModifiedUser() {
         return this.lastModifiedUser;
     }
+    /**
+     * The name for the approval rule template. Maximum of 100 characters.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name for the approval rule template. Maximum of 100 characters.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The SHA-256 hash signature for the content of the approval rule template.
+     * 
+     */
     @Export(name="ruleContentSha256", refs={String.class}, tree="[0]")
     private Output<String> ruleContentSha256;
 
+    /**
+     * @return The SHA-256 hash signature for the content of the approval rule template.
+     * 
+     */
     public Output<String> ruleContentSha256() {
         return this.ruleContentSha256;
     }

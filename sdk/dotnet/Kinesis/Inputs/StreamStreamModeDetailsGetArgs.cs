@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class StreamStreamModeDetailsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
+        /// </summary>
         [Input("streamMode", required: true)]
         public Input<string> StreamMode { get; set; } = null!;
 

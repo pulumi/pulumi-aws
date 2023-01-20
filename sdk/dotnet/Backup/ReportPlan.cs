@@ -9,33 +9,105 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Backup
 {
+    /// <summary>
+    /// Provides an AWS Backup Report Plan resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Backup.ReportPlan("example", new()
+    ///     {
+    ///         Description = "example description",
+    ///         ReportDeliveryChannel = new Aws.Backup.Inputs.ReportPlanReportDeliveryChannelArgs
+    ///         {
+    ///             Formats = new[]
+    ///             {
+    ///                 "CSV",
+    ///                 "JSON",
+    ///             },
+    ///             S3BucketName = "example-bucket-name",
+    ///         },
+    ///         ReportSetting = new Aws.Backup.Inputs.ReportPlanReportSettingArgs
+    ///         {
+    ///             ReportTemplate = "RESTORE_JOB_REPORT",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Example Report Plan" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Backup Report Plan can be imported using the `id` which corresponds to the name of the Backup Report Plan, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:backup/reportPlan:ReportPlan test &lt;id&gt;
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:backup/reportPlan:ReportPlan")]
     public partial class ReportPlan : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the backup report plan.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+        /// </summary>
         [Output("deploymentStatus")]
         public Output<string> DeploymentStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the report plan with a maximum of 1,024 characters
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        /// </summary>
         [Output("reportDeliveryChannel")]
         public Output<Outputs.ReportPlanReportDeliveryChannel> ReportDeliveryChannel { get; private set; } = null!;
 
+        /// <summary>
+        /// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        /// </summary>
         [Output("reportSetting")]
         public Output<Outputs.ReportPlanReportSetting> ReportSetting { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -85,20 +157,36 @@ namespace Pulumi.Aws.Backup
 
     public sealed class ReportPlanArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the report plan with a maximum of 1,024 characters
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        /// </summary>
         [Input("reportDeliveryChannel", required: true)]
         public Input<Inputs.ReportPlanReportDeliveryChannelArgs> ReportDeliveryChannel { get; set; } = null!;
 
+        /// <summary>
+        /// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        /// </summary>
         [Input("reportSetting", required: true)]
         public Input<Inputs.ReportPlanReportSettingArgs> ReportSetting { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -113,29 +201,54 @@ namespace Pulumi.Aws.Backup
 
     public sealed class ReportPlanState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the backup report plan.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+        /// </summary>
         [Input("creationTime")]
         public Input<string>? CreationTime { get; set; }
 
+        /// <summary>
+        /// The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+        /// </summary>
         [Input("deploymentStatus")]
         public Input<string>? DeploymentStatus { get; set; }
 
+        /// <summary>
+        /// The description of the report plan with a maximum of 1,024 characters
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        /// </summary>
         [Input("reportDeliveryChannel")]
         public Input<Inputs.ReportPlanReportDeliveryChannelGetArgs>? ReportDeliveryChannel { get; set; }
 
+        /// <summary>
+        /// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        /// </summary>
         [Input("reportSetting")]
         public Input<Inputs.ReportPlanReportSettingGetArgs>? ReportSetting { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -144,6 +257,10 @@ namespace Pulumi.Aws.Backup
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

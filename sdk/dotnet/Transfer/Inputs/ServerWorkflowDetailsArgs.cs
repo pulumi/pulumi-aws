@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Transfer.Inputs
 
     public sealed class ServerWorkflowDetailsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+        /// </summary>
         [Input("onUpload")]
         public Input<Inputs.ServerWorkflowDetailsOnUploadArgs>? OnUpload { get; set; }
 

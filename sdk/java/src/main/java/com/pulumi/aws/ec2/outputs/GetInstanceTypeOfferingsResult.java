@@ -19,9 +19,21 @@ public final class GetInstanceTypeOfferingsResult {
      * 
      */
     private String id;
+    /**
+     * @return List of EC2 Instance Types.
+     * 
+     */
     private List<String> instanceTypes;
     private @Nullable String locationType;
+    /**
+     * @return List of location types.
+     * 
+     */
     private List<String> locationTypes;
+    /**
+     * @return List of locations.
+     * 
+     */
     private List<String> locations;
 
     private GetInstanceTypeOfferingsResult() {}
@@ -35,15 +47,27 @@ public final class GetInstanceTypeOfferingsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return List of EC2 Instance Types.
+     * 
+     */
     public List<String> instanceTypes() {
         return this.instanceTypes;
     }
     public Optional<String> locationType() {
         return Optional.ofNullable(this.locationType);
     }
+    /**
+     * @return List of location types.
+     * 
+     */
     public List<String> locationTypes() {
         return this.locationTypes;
     }
+    /**
+     * @return List of locations.
+     * 
+     */
     public List<String> locations() {
         return this.locations;
     }

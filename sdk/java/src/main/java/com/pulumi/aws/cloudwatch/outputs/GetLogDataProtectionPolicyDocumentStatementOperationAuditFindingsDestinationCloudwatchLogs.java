@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs {
+    /**
+     * @return Name of the CloudWatch Log Group to send findings to.
+     * 
+     */
     private String logGroup;
 
     private GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs() {}
+    /**
+     * @return Name of the CloudWatch Log Group to send findings to.
+     * 
+     */
     public String logGroup() {
         return this.logGroup;
     }

@@ -20,77 +20,264 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an AppStream stack.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appstream.Stack;
+ * import com.pulumi.aws.appstream.StackArgs;
+ * import com.pulumi.aws.appstream.inputs.StackApplicationSettingsArgs;
+ * import com.pulumi.aws.appstream.inputs.StackStorageConnectorArgs;
+ * import com.pulumi.aws.appstream.inputs.StackUserSettingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Stack(&#34;example&#34;, StackArgs.builder()        
+ *             .applicationSettings(StackApplicationSettingsArgs.builder()
+ *                 .enabled(true)
+ *                 .settingsGroup(&#34;SettingsGroup&#34;)
+ *                 .build())
+ *             .description(&#34;stack description&#34;)
+ *             .displayName(&#34;stack display name&#34;)
+ *             .feedbackUrl(&#34;http://your-domain/feedback&#34;)
+ *             .redirectUrl(&#34;http://your-domain/redirect&#34;)
+ *             .storageConnectors(StackStorageConnectorArgs.builder()
+ *                 .connectorType(&#34;HOMEFOLDERS&#34;)
+ *                 .build())
+ *             .tags(Map.of(&#34;TagName&#34;, &#34;TagValue&#34;))
+ *             .userSettings(            
+ *                 StackUserSettingArgs.builder()
+ *                     .action(&#34;CLIPBOARD_COPY_FROM_LOCAL_DEVICE&#34;)
+ *                     .permission(&#34;ENABLED&#34;)
+ *                     .build(),
+ *                 StackUserSettingArgs.builder()
+ *                     .action(&#34;CLIPBOARD_COPY_TO_LOCAL_DEVICE&#34;)
+ *                     .permission(&#34;ENABLED&#34;)
+ *                     .build(),
+ *                 StackUserSettingArgs.builder()
+ *                     .action(&#34;DOMAIN_PASSWORD_SIGNIN&#34;)
+ *                     .permission(&#34;ENABLED&#34;)
+ *                     .build(),
+ *                 StackUserSettingArgs.builder()
+ *                     .action(&#34;DOMAIN_SMART_CARD_SIGNIN&#34;)
+ *                     .permission(&#34;DISABLED&#34;)
+ *                     .build(),
+ *                 StackUserSettingArgs.builder()
+ *                     .action(&#34;FILE_DOWNLOAD&#34;)
+ *                     .permission(&#34;ENABLED&#34;)
+ *                     .build(),
+ *                 StackUserSettingArgs.builder()
+ *                     .action(&#34;FILE_UPLOAD&#34;)
+ *                     .permission(&#34;ENABLED&#34;)
+ *                     .build(),
+ *                 StackUserSettingArgs.builder()
+ *                     .action(&#34;PRINTING_TO_LOCAL_DEVICE&#34;)
+ *                     .permission(&#34;ENABLED&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_appstream_stack` can be imported using the id, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:appstream/stack:Stack example stackID
+ * ```
+ * 
+ */
 @ResourceType(type="aws:appstream/stack:Stack")
 public class Stack extends com.pulumi.resources.CustomResource {
+    /**
+     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+     * See `access_endpoints` below.
+     * 
+     */
     @Export(name="accessEndpoints", refs={List.class,StackAccessEndpoint.class}, tree="[0,1]")
     private Output<List<StackAccessEndpoint>> accessEndpoints;
 
+    /**
+     * @return Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+     * See `access_endpoints` below.
+     * 
+     */
     public Output<List<StackAccessEndpoint>> accessEndpoints() {
         return this.accessEndpoints;
     }
+    /**
+     * Settings for application settings persistence.
+     * See `application_settings` below.
+     * 
+     */
     @Export(name="applicationSettings", refs={StackApplicationSettings.class}, tree="[0]")
     private Output<StackApplicationSettings> applicationSettings;
 
+    /**
+     * @return Settings for application settings persistence.
+     * See `application_settings` below.
+     * 
+     */
     public Output<StackApplicationSettings> applicationSettings() {
         return this.applicationSettings;
     }
+    /**
+     * ARN of the appstream stack.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the appstream stack.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Date and time, in UTC and extended RFC 3339 format, when the stack was created.
+     * 
+     */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
+    /**
+     * @return Date and time, in UTC and extended RFC 3339 format, when the stack was created.
+     * 
+     */
     public Output<String> createdTime() {
         return this.createdTime;
     }
+    /**
+     * Description for the AppStream stack.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description for the AppStream stack.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Stack name to display.
+     * 
+     */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> displayName;
 
+    /**
+     * @return Stack name to display.
+     * 
+     */
     public Output<Optional<String>> displayName() {
         return Codegen.optional(this.displayName);
     }
+    /**
+     * Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
+     * 
+     */
     @Export(name="embedHostDomains", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> embedHostDomains;
 
+    /**
+     * @return Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
+     * 
+     */
     public Output<List<String>> embedHostDomains() {
         return this.embedHostDomains;
     }
+    /**
+     * URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
+     * 
+     */
     @Export(name="feedbackUrl", refs={String.class}, tree="[0]")
     private Output<String> feedbackUrl;
 
+    /**
+     * @return URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
+     * 
+     */
     public Output<String> feedbackUrl() {
         return this.feedbackUrl;
     }
+    /**
+     * Unique name for the AppStream stack.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Unique name for the AppStream stack.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * URL that users are redirected to after their streaming session ends.
+     * 
+     */
     @Export(name="redirectUrl", refs={String.class}, tree="[0]")
     private Output<String> redirectUrl;
 
+    /**
+     * @return URL that users are redirected to after their streaming session ends.
+     * 
+     */
     public Output<String> redirectUrl() {
         return this.redirectUrl;
     }
+    /**
+     * Configuration block for the storage connectors to enable.
+     * See `storage_connectors` below.
+     * 
+     */
     @Export(name="storageConnectors", refs={List.class,StackStorageConnector.class}, tree="[0,1]")
     private Output<List<StackStorageConnector>> storageConnectors;
 
+    /**
+     * @return Configuration block for the storage connectors to enable.
+     * See `storage_connectors` below.
+     * 
+     */
     public Output<List<StackStorageConnector>> storageConnectors() {
         return this.storageConnectors;
     }
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -100,9 +287,19 @@ public class Stack extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
+     * See `user_settings` below.
+     * 
+     */
     @Export(name="userSettings", refs={List.class,StackUserSetting.class}, tree="[0,1]")
     private Output<List<StackUserSetting>> userSettings;
 
+    /**
+     * @return Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
+     * See `user_settings` below.
+     * 
+     */
     public Output<List<StackUserSetting>> userSettings() {
         return this.userSettings;
     }

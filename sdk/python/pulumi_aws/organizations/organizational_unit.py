@@ -21,6 +21,9 @@ class OrganizationalUnitArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a OrganizationalUnit resource.
+        :param pulumi.Input[str] parent_id: ID of the parent organizational unit, which may be the root
+        :param pulumi.Input[str] name: The name for the organizational unit
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "parent_id", parent_id)
         if name is not None:
@@ -31,6 +34,9 @@ class OrganizationalUnitArgs:
     @property
     @pulumi.getter(name="parentId")
     def parent_id(self) -> pulumi.Input[str]:
+        """
+        ID of the parent organizational unit, which may be the root
+        """
         return pulumi.get(self, "parent_id")
 
     @parent_id.setter
@@ -40,6 +46,9 @@ class OrganizationalUnitArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the organizational unit
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -49,6 +58,9 @@ class OrganizationalUnitArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -67,6 +79,12 @@ class _OrganizationalUnitState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering OrganizationalUnit resources.
+        :param pulumi.Input[Sequence[pulumi.Input['OrganizationalUnitAccountArgs']]] accounts: List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
+        :param pulumi.Input[str] arn: ARN of the organizational unit
+        :param pulumi.Input[str] name: The name for the organizational unit
+        :param pulumi.Input[str] parent_id: ID of the parent organizational unit, which may be the root
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if accounts is not None:
             pulumi.set(__self__, "accounts", accounts)
@@ -84,6 +102,9 @@ class _OrganizationalUnitState:
     @property
     @pulumi.getter
     def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationalUnitAccountArgs']]]]:
+        """
+        List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
+        """
         return pulumi.get(self, "accounts")
 
     @accounts.setter
@@ -93,6 +114,9 @@ class _OrganizationalUnitState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the organizational unit
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -102,6 +126,9 @@ class _OrganizationalUnitState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the organizational unit
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -111,6 +138,9 @@ class _OrganizationalUnitState:
     @property
     @pulumi.getter(name="parentId")
     def parent_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the parent organizational unit, which may be the root
+        """
         return pulumi.get(self, "parent_id")
 
     @parent_id.setter
@@ -120,6 +150,9 @@ class _OrganizationalUnitState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -129,6 +162,9 @@ class _OrganizationalUnitState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -146,9 +182,30 @@ class OrganizationalUnit(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a OrganizationalUnit resource with the given unique name, props, and options.
+        Provides a resource to create an organizational unit.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.organizations.OrganizationalUnit("example", parent_id=aws_organizations_organization["example"]["roots"][0]["id"])
+        ```
+
+        ## Import
+
+        AWS Organizations Organizational Units can be imported by using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The name for the organizational unit
+        :param pulumi.Input[str] parent_id: ID of the parent organizational unit, which may be the root
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -157,7 +214,25 @@ class OrganizationalUnit(pulumi.CustomResource):
                  args: OrganizationalUnitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a OrganizationalUnit resource with the given unique name, props, and options.
+        Provides a resource to create an organizational unit.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.organizations.OrganizationalUnit("example", parent_id=aws_organizations_organization["example"]["roots"][0]["id"])
+        ```
+
+        ## Import
+
+        AWS Organizations Organizational Units can be imported by using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
+        ```
+
         :param str resource_name: The name of the resource.
         :param OrganizationalUnitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,6 +291,12 @@ class OrganizationalUnit(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationalUnitAccountArgs']]]] accounts: List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
+        :param pulumi.Input[str] arn: ARN of the organizational unit
+        :param pulumi.Input[str] name: The name for the organizational unit
+        :param pulumi.Input[str] parent_id: ID of the parent organizational unit, which may be the root
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -232,30 +313,48 @@ class OrganizationalUnit(pulumi.CustomResource):
     @property
     @pulumi.getter
     def accounts(self) -> pulumi.Output[Sequence['outputs.OrganizationalUnitAccount']]:
+        """
+        List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
+        """
         return pulumi.get(self, "accounts")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the organizational unit
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name for the organizational unit
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="parentId")
     def parent_id(self) -> pulumi.Output[str]:
+        """
+        ID of the parent organizational unit, which may be the root
+        """
         return pulumi.get(self, "parent_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

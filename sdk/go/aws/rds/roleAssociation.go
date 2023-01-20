@@ -11,12 +11,59 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an RDS DB Instance association with an IAM Role. Example use cases:
+//
+// * [Amazon RDS Oracle integration with Amazon S3](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html)
+// * [Importing Amazon S3 Data into an RDS PostgreSQL DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html)
+//
+// > To manage the RDS DB Instance IAM Role for [Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html), see the `rds.Instance` resource `monitoringRoleArn` argument instead.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewRoleAssociation(ctx, "example", &rds.RoleAssociationArgs{
+//				DbInstanceIdentifier: pulumi.Any(aws_db_instance.Example.Id),
+//				FeatureName:          pulumi.String("S3_INTEGRATION"),
+//				RoleArn:              pulumi.Any(aws_iam_role.Example.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_db_instance_role_association` can be imported using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`), e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:rds/roleAssociation:RoleAssociation example my-db-instance,arn:aws:iam::123456789012:role/my-role
+//
+// ```
 type RoleAssociation struct {
 	pulumi.CustomResourceState
 
+	// DB Instance Identifier to associate with the IAM Role.
 	DbInstanceIdentifier pulumi.StringOutput `pulumi:"dbInstanceIdentifier"`
-	FeatureName          pulumi.StringOutput `pulumi:"featureName"`
-	RoleArn              pulumi.StringOutput `pulumi:"roleArn"`
+	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+	FeatureName pulumi.StringOutput `pulumi:"featureName"`
+	// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 }
 
 // NewRoleAssociation registers a new resource with the given unique name, arguments, and options.
@@ -57,15 +104,21 @@ func GetRoleAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RoleAssociation resources.
 type roleAssociationState struct {
+	// DB Instance Identifier to associate with the IAM Role.
 	DbInstanceIdentifier *string `pulumi:"dbInstanceIdentifier"`
-	FeatureName          *string `pulumi:"featureName"`
-	RoleArn              *string `pulumi:"roleArn"`
+	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+	FeatureName *string `pulumi:"featureName"`
+	// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+	RoleArn *string `pulumi:"roleArn"`
 }
 
 type RoleAssociationState struct {
+	// DB Instance Identifier to associate with the IAM Role.
 	DbInstanceIdentifier pulumi.StringPtrInput
-	FeatureName          pulumi.StringPtrInput
-	RoleArn              pulumi.StringPtrInput
+	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+	FeatureName pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+	RoleArn pulumi.StringPtrInput
 }
 
 func (RoleAssociationState) ElementType() reflect.Type {
@@ -73,16 +126,22 @@ func (RoleAssociationState) ElementType() reflect.Type {
 }
 
 type roleAssociationArgs struct {
+	// DB Instance Identifier to associate with the IAM Role.
 	DbInstanceIdentifier string `pulumi:"dbInstanceIdentifier"`
-	FeatureName          string `pulumi:"featureName"`
-	RoleArn              string `pulumi:"roleArn"`
+	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+	FeatureName string `pulumi:"featureName"`
+	// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // The set of arguments for constructing a RoleAssociation resource.
 type RoleAssociationArgs struct {
+	// DB Instance Identifier to associate with the IAM Role.
 	DbInstanceIdentifier pulumi.StringInput
-	FeatureName          pulumi.StringInput
-	RoleArn              pulumi.StringInput
+	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+	FeatureName pulumi.StringInput
+	// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+	RoleArn pulumi.StringInput
 }
 
 func (RoleAssociationArgs) ElementType() reflect.Type {
@@ -172,14 +231,17 @@ func (o RoleAssociationOutput) ToRoleAssociationOutputWithContext(ctx context.Co
 	return o
 }
 
+// DB Instance Identifier to associate with the IAM Role.
 func (o RoleAssociationOutput) DbInstanceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleAssociation) pulumi.StringOutput { return v.DbInstanceIdentifier }).(pulumi.StringOutput)
 }
 
+// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
 func (o RoleAssociationOutput) FeatureName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleAssociation) pulumi.StringOutput { return v.FeatureName }).(pulumi.StringOutput)
 }
 
+// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
 func (o RoleAssociationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleAssociation) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

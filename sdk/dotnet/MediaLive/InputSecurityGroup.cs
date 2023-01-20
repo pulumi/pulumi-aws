@@ -9,21 +9,72 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.MediaLive
 {
+    /// <summary>
+    /// Resource for managing an AWS MediaLive InputSecurityGroup.
+    /// 
+    /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.MediaLive.InputSecurityGroup("example", new()
+    ///     {
+    ///         Tags = 
+    ///         {
+    ///             { "ENVIRONMENT", "prod" },
+    ///         },
+    ///         WhitelistRules = new[]
+    ///         {
+    ///             new Aws.MediaLive.Inputs.InputSecurityGroupWhitelistRuleArgs
+    ///             {
+    ///                 Cidr = "10.0.0.8/32",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// MediaLive InputSecurityGroup can be imported using the `id`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:medialive/inputSecurityGroup:InputSecurityGroup")]
     public partial class InputSecurityGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of the InputSecurityGroup.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of inputs currently using this InputSecurityGroup.
+        /// </summary>
         [Output("inputs")]
         public Output<ImmutableArray<string>> Inputs { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// Whitelist rules. See Whitelist Rules for more details.
+        /// </summary>
         [Output("whitelistRules")]
         public Output<ImmutableArray<Outputs.InputSecurityGroupWhitelistRule>> WhitelistRules { get; private set; } = null!;
 
@@ -75,6 +126,10 @@ namespace Pulumi.Aws.MediaLive
     {
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -83,6 +138,10 @@ namespace Pulumi.Aws.MediaLive
 
         [Input("whitelistRules", required: true)]
         private InputList<Inputs.InputSecurityGroupWhitelistRuleArgs>? _whitelistRules;
+
+        /// <summary>
+        /// Whitelist rules. See Whitelist Rules for more details.
+        /// </summary>
         public InputList<Inputs.InputSecurityGroupWhitelistRuleArgs> WhitelistRules
         {
             get => _whitelistRules ?? (_whitelistRules = new InputList<Inputs.InputSecurityGroupWhitelistRuleArgs>());
@@ -97,11 +156,18 @@ namespace Pulumi.Aws.MediaLive
 
     public sealed class InputSecurityGroupState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the InputSecurityGroup.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("inputs")]
         private InputList<string>? _inputs;
+
+        /// <summary>
+        /// The list of inputs currently using this InputSecurityGroup.
+        /// </summary>
         public InputList<string> Inputs
         {
             get => _inputs ?? (_inputs = new InputList<string>());
@@ -110,6 +176,10 @@ namespace Pulumi.Aws.MediaLive
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -126,6 +196,10 @@ namespace Pulumi.Aws.MediaLive
 
         [Input("whitelistRules")]
         private InputList<Inputs.InputSecurityGroupWhitelistRuleGetArgs>? _whitelistRules;
+
+        /// <summary>
+        /// Whitelist rules. See Whitelist Rules for more details.
+        /// </summary>
         public InputList<Inputs.InputSecurityGroupWhitelistRuleGetArgs> WhitelistRules
         {
             get => _whitelistRules ?? (_whitelistRules = new InputList<Inputs.InputSecurityGroupWhitelistRuleGetArgs>());

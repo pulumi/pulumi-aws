@@ -15,41 +15,195 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an AWS Config Delivery Channel.
+ * 
+ * &gt; **Note:** Delivery Channel requires a Configuration Recorder to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.cfg.Recorder;
+ * import com.pulumi.aws.cfg.RecorderArgs;
+ * import com.pulumi.aws.cfg.DeliveryChannel;
+ * import com.pulumi.aws.cfg.DeliveryChannelArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var bucketV2 = new BucketV2(&#34;bucketV2&#34;, BucketV2Args.builder()        
+ *             .forceDestroy(true)
+ *             .build());
+ * 
+ *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
+ *       &#34;Principal&#34;: {
+ *         &#34;Service&#34;: &#34;config.amazonaws.com&#34;
+ *       },
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Sid&#34;: &#34;&#34;
+ *     }
+ *   ]
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *         var fooRecorder = new Recorder(&#34;fooRecorder&#34;, RecorderArgs.builder()        
+ *             .roleArn(role.arn())
+ *             .build());
+ * 
+ *         var fooDeliveryChannel = new DeliveryChannel(&#34;fooDeliveryChannel&#34;, DeliveryChannelArgs.builder()        
+ *             .s3BucketName(bucketV2.bucket())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(fooRecorder)
+ *                 .build());
+ * 
+ *         var rolePolicy = new RolePolicy(&#34;rolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .role(role.id())
+ *             .policy(Output.tuple(bucketV2.arn(), bucketV2.arn()).applyValue(values -&gt; {
+ *                 var bucketV2Arn = values.t1;
+ *                 var bucketV2Arn1 = values.t2;
+ *                 return &#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Action&#34;: [
+ *         &#34;s3:*&#34;
+ *       ],
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Resource&#34;: [
+ *         &#34;%s&#34;,
+ *         &#34;%s/*&#34;
+ *       ]
+ *     }
+ *   ]
+ * }
+ * &#34;, bucketV2Arn,bucketV2Arn1);
+ *             }))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Delivery Channel can be imported using the name, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
+ * ```
+ * 
+ */
 @ResourceType(type="aws:cfg/deliveryChannel:DeliveryChannel")
 public class DeliveryChannel extends com.pulumi.resources.CustomResource {
+    /**
+     * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The name of the S3 bucket used to store the configuration history.
+     * 
+     */
     @Export(name="s3BucketName", refs={String.class}, tree="[0]")
     private Output<String> s3BucketName;
 
+    /**
+     * @return The name of the S3 bucket used to store the configuration history.
+     * 
+     */
     public Output<String> s3BucketName() {
         return this.s3BucketName;
     }
+    /**
+     * The prefix for the specified S3 bucket.
+     * 
+     */
     @Export(name="s3KeyPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3KeyPrefix;
 
+    /**
+     * @return The prefix for the specified S3 bucket.
+     * 
+     */
     public Output<Optional<String>> s3KeyPrefix() {
         return Codegen.optional(this.s3KeyPrefix);
     }
+    /**
+     * The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+     * 
+     */
     @Export(name="s3KmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3KmsKeyArn;
 
+    /**
+     * @return The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+     * 
+     */
     public Output<Optional<String>> s3KmsKeyArn() {
         return Codegen.optional(this.s3KmsKeyArn);
     }
+    /**
+     * Options for how AWS Config delivers configuration snapshots. See below
+     * 
+     */
     @Export(name="snapshotDeliveryProperties", refs={DeliveryChannelSnapshotDeliveryProperties.class}, tree="[0]")
     private Output</* @Nullable */ DeliveryChannelSnapshotDeliveryProperties> snapshotDeliveryProperties;
 
+    /**
+     * @return Options for how AWS Config delivers configuration snapshots. See below
+     * 
+     */
     public Output<Optional<DeliveryChannelSnapshotDeliveryProperties>> snapshotDeliveryProperties() {
         return Codegen.optional(this.snapshotDeliveryProperties);
     }
+    /**
+     * The ARN of the SNS topic that AWS Config delivers notifications to.
+     * 
+     */
     @Export(name="snsTopicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snsTopicArn;
 
+    /**
+     * @return The ARN of the SNS topic that AWS Config delivers notifications to.
+     * 
+     */
     public Output<Optional<String>> snsTopicArn() {
         return Codegen.optional(this.snsTopicArn);
     }

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class StorageLensConfigurationStorageLensConfigurationAwsOrg
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+        /// </summary>
         public readonly string Arn;
 
         [OutputConstructor]

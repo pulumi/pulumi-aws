@@ -10,14 +10,54 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Route 53 Resolver DNS Firewall domain list resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53.NewResolverFirewallDomainList(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+//	Route 53 Resolver DNS Firewall domain lists can be imported using the Route 53 Resolver DNS Firewall domain list ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
+//
+// ```
 type ResolverFirewallDomainList struct {
 	pulumi.CustomResourceState
 
-	Arn     pulumi.StringOutput      `pulumi:"arn"`
+	// The ARN (Amazon Resource Name) of the domain list.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A array of domains for the firewall domain list.
 	Domains pulumi.StringArrayOutput `pulumi:"domains"`
-	Name    pulumi.StringOutput      `pulumi:"name"`
-	Tags    pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	// A name that lets you identify the domain list, to manage and use it.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewResolverFirewallDomainList registers a new resource with the given unique name, arguments, and options.
@@ -49,18 +89,28 @@ func GetResolverFirewallDomainList(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverFirewallDomainList resources.
 type resolverFirewallDomainListState struct {
-	Arn     *string           `pulumi:"arn"`
-	Domains []string          `pulumi:"domains"`
-	Name    *string           `pulumi:"name"`
-	Tags    map[string]string `pulumi:"tags"`
+	// The ARN (Amazon Resource Name) of the domain list.
+	Arn *string `pulumi:"arn"`
+	// A array of domains for the firewall domain list.
+	Domains []string `pulumi:"domains"`
+	// A name that lets you identify the domain list, to manage and use it.
+	Name *string `pulumi:"name"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ResolverFirewallDomainListState struct {
-	Arn     pulumi.StringPtrInput
+	// The ARN (Amazon Resource Name) of the domain list.
+	Arn pulumi.StringPtrInput
+	// A array of domains for the firewall domain list.
 	Domains pulumi.StringArrayInput
-	Name    pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	// A name that lets you identify the domain list, to manage and use it.
+	Name pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -69,16 +119,22 @@ func (ResolverFirewallDomainListState) ElementType() reflect.Type {
 }
 
 type resolverFirewallDomainListArgs struct {
-	Domains []string          `pulumi:"domains"`
-	Name    *string           `pulumi:"name"`
-	Tags    map[string]string `pulumi:"tags"`
+	// A array of domains for the firewall domain list.
+	Domains []string `pulumi:"domains"`
+	// A name that lets you identify the domain list, to manage and use it.
+	Name *string `pulumi:"name"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResolverFirewallDomainList resource.
 type ResolverFirewallDomainListArgs struct {
+	// A array of domains for the firewall domain list.
 	Domains pulumi.StringArrayInput
-	Name    pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	// A name that lets you identify the domain list, to manage and use it.
+	Name pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ResolverFirewallDomainListArgs) ElementType() reflect.Type {
@@ -168,22 +224,27 @@ func (o ResolverFirewallDomainListOutput) ToResolverFirewallDomainListOutputWith
 	return o
 }
 
+// The ARN (Amazon Resource Name) of the domain list.
 func (o ResolverFirewallDomainListOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallDomainList) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A array of domains for the firewall domain list.
 func (o ResolverFirewallDomainListOutput) Domains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverFirewallDomainList) pulumi.StringArrayOutput { return v.Domains }).(pulumi.StringArrayOutput)
 }
 
+// A name that lets you identify the domain list, to manage and use it.
 func (o ResolverFirewallDomainListOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallDomainList) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ResolverFirewallDomainListOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverFirewallDomainList) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ResolverFirewallDomainListOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverFirewallDomainList) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

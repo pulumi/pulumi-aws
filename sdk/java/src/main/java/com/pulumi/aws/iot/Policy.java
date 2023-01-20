@@ -13,29 +13,112 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an IoT policy.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iot.Policy;
+ * import com.pulumi.aws.iot.PolicyArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var pubsub = new Policy(&#34;pubsub&#34;, PolicyArgs.builder()        
+ *             .policy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;iot:*&#34;)),
+ *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;)
+ *                     )))
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * IoT policies can be imported using the `name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
+ * ```
+ * 
+ */
 @ResourceType(type="aws:iot/policy:Policy")
 public class Policy extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN assigned by AWS to this policy.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN assigned by AWS to this policy.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The default version of this policy.
+     * 
+     */
     @Export(name="defaultVersionId", refs={String.class}, tree="[0]")
     private Output<String> defaultVersionId;
 
+    /**
+     * @return The default version of this policy.
+     * 
+     */
     public Output<String> defaultVersionId() {
         return this.defaultVersionId;
     }
+    /**
+     * The name of the policy.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the policy.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
+     * 
+     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
+    /**
+     * @return The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
+     * 
+     */
     public Output<String> policy() {
         return this.policy;
     }

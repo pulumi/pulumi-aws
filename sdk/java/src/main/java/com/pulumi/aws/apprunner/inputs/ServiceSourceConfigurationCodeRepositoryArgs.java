@@ -17,23 +17,47 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
 
     public static final ServiceSourceConfigurationCodeRepositoryArgs Empty = new ServiceSourceConfigurationCodeRepositoryArgs();
 
+    /**
+     * Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+     * 
+     */
     @Import(name="codeConfiguration")
     private @Nullable Output<ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs> codeConfiguration;
 
+    /**
+     * @return Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+     * 
+     */
     public Optional<Output<ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs>> codeConfiguration() {
         return Optional.ofNullable(this.codeConfiguration);
     }
 
+    /**
+     * Location of the repository that contains the source code.
+     * 
+     */
     @Import(name="repositoryUrl", required=true)
     private Output<String> repositoryUrl;
 
+    /**
+     * @return Location of the repository that contains the source code.
+     * 
+     */
     public Output<String> repositoryUrl() {
         return this.repositoryUrl;
     }
 
+    /**
+     * Version that should be used within the source code repository. See Source Code Version below for more details.
+     * 
+     */
     @Import(name="sourceCodeVersion", required=true)
     private Output<ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs> sourceCodeVersion;
 
+    /**
+     * @return Version that should be used within the source code repository. See Source Code Version below for more details.
+     * 
+     */
     public Output<ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs> sourceCodeVersion() {
         return this.sourceCodeVersion;
     }
@@ -64,29 +88,65 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
             $ = new ServiceSourceConfigurationCodeRepositoryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param codeConfiguration Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder codeConfiguration(@Nullable Output<ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs> codeConfiguration) {
             $.codeConfiguration = codeConfiguration;
             return this;
         }
 
+        /**
+         * @param codeConfiguration Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder codeConfiguration(ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs codeConfiguration) {
             return codeConfiguration(Output.of(codeConfiguration));
         }
 
+        /**
+         * @param repositoryUrl Location of the repository that contains the source code.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repositoryUrl(Output<String> repositoryUrl) {
             $.repositoryUrl = repositoryUrl;
             return this;
         }
 
+        /**
+         * @param repositoryUrl Location of the repository that contains the source code.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repositoryUrl(String repositoryUrl) {
             return repositoryUrl(Output.of(repositoryUrl));
         }
 
+        /**
+         * @param sourceCodeVersion Version that should be used within the source code repository. See Source Code Version below for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceCodeVersion(Output<ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs> sourceCodeVersion) {
             $.sourceCodeVersion = sourceCodeVersion;
             return this;
         }
 
+        /**
+         * @param sourceCodeVersion Version that should be used within the source code repository. See Source Code Version below for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceCodeVersion(ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs sourceCodeVersion) {
             return sourceCodeVersion(Output.of(sourceCodeVersion));
         }

@@ -9,27 +9,107 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
+    /// <summary>
+    /// Manages an IAM User Login Profile with limited support for password creation during this provider resource creation. Uses PGP to encrypt the password for safe transport to the user. PGP keys can be obtained from Keybase.
+    /// 
+    /// &gt; To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleUser = new Aws.Iam.User("exampleUser", new()
+    ///     {
+    ///         Path = "/",
+    ///         ForceDestroy = true,
+    ///     });
+    /// 
+    ///     var exampleUserLoginProfile = new Aws.Iam.UserLoginProfile("exampleUserLoginProfile", new()
+    ///     {
+    ///         User = exampleUser.Name,
+    ///         PgpKey = "keybase:some_person_that_exists",
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["password"] = exampleUserLoginProfile.EncryptedPassword,
+    ///     };
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// IAM User Login Profiles can be imported without password information support via the IAM User name, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
+    /// ```
+    /// 
+    ///  Since this provider has no method to read the PGP or password information during import, use [`ignore_changes` argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore them unless password recreation is desired. e.g. terraform resource "aws_iam_user_login_profile" "example" {
+    /// 
+    /// # ... other configuration ...
+    /// 
+    ///  lifecycle {
+    /// 
+    ///  ignore_changes = [
+    /// 
+    ///  password_length,
+    /// 
+    ///  password_reset_required,
+    /// 
+    ///  pgp_key,
+    /// 
+    ///  ]
+    /// 
+    ///  } }
+    /// </summary>
     [AwsResourceType("aws:iam/userLoginProfile:UserLoginProfile")]
     public partial class UserLoginProfile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
+        /// </summary>
         [Output("encryptedPassword")]
         public Output<string> EncryptedPassword { get; private set; } = null!;
 
+        /// <summary>
+        /// The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
+        /// </summary>
         [Output("keyFingerprint")]
         public Output<string> KeyFingerprint { get; private set; } = null!;
 
+        /// <summary>
+        /// The plain text password, only available when `pgp_key` is not provided.
+        /// </summary>
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
 
+        /// <summary>
+        /// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
+        /// </summary>
         [Output("passwordLength")]
         public Output<int?> PasswordLength { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
+        /// </summary>
         [Output("passwordResetRequired")]
         public Output<bool> PasswordResetRequired { get; private set; } = null!;
 
+        /// <summary>
+        /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
+        /// </summary>
         [Output("pgpKey")]
         public Output<string?> PgpKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The IAM user's name.
+        /// </summary>
         [Output("user")]
         public Output<string> User { get; private set; } = null!;
 
@@ -79,15 +159,27 @@ namespace Pulumi.Aws.Iam
 
     public sealed class UserLoginProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
+        /// </summary>
         [Input("passwordLength")]
         public Input<int>? PasswordLength { get; set; }
 
+        /// <summary>
+        /// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
+        /// </summary>
         [Input("passwordResetRequired")]
         public Input<bool>? PasswordResetRequired { get; set; }
 
+        /// <summary>
+        /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
+        /// </summary>
         [Input("pgpKey")]
         public Input<string>? PgpKey { get; set; }
 
+        /// <summary>
+        /// The IAM user's name.
+        /// </summary>
         [Input("user", required: true)]
         public Input<string> User { get; set; } = null!;
 
@@ -99,24 +191,45 @@ namespace Pulumi.Aws.Iam
 
     public sealed class UserLoginProfileState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
+        /// </summary>
         [Input("encryptedPassword")]
         public Input<string>? EncryptedPassword { get; set; }
 
+        /// <summary>
+        /// The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
+        /// </summary>
         [Input("keyFingerprint")]
         public Input<string>? KeyFingerprint { get; set; }
 
+        /// <summary>
+        /// The plain text password, only available when `pgp_key` is not provided.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
+        /// <summary>
+        /// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
+        /// </summary>
         [Input("passwordLength")]
         public Input<int>? PasswordLength { get; set; }
 
+        /// <summary>
+        /// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
+        /// </summary>
         [Input("passwordResetRequired")]
         public Input<bool>? PasswordResetRequired { get; set; }
 
+        /// <summary>
+        /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
+        /// </summary>
         [Input("pgpKey")]
         public Input<string>? PgpKey { get; set; }
 
+        /// <summary>
+        /// The IAM user's name.
+        /// </summary>
         [Input("user")]
         public Input<string>? User { get; set; }
 

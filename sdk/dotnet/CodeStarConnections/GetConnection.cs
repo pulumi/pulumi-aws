@@ -11,9 +11,95 @@ namespace Pulumi.Aws.CodeStarConnections
 {
     public static class GetConnection
     {
+        /// <summary>
+        /// Provides details about CodeStar Connection.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### By ARN
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CodeStarConnections.GetConnection.Invoke(new()
+        ///     {
+        ///         Arn = aws_codestarconnections_connection.Example.Arn,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### By Name
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CodeStarConnections.GetConnection.Invoke(new()
+        ///     {
+        ///         Name = aws_codestarconnections_connection.Example.Name,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("aws:codestarconnections/getConnection:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides details about CodeStar Connection.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### By ARN
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CodeStarConnections.GetConnection.Invoke(new()
+        ///     {
+        ///         Arn = aws_codestarconnections_connection.Example.Arn,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### By Name
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CodeStarConnections.GetConnection.Invoke(new()
+        ///     {
+        ///         Name = aws_codestarconnections_connection.Example.Name,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws:codestarconnections/getConnection:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
     }
@@ -21,14 +107,24 @@ namespace Pulumi.Aws.CodeStarConnections
 
     public sealed class GetConnectionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// CodeStar Connection ARN.
+        /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
+        /// <summary>
+        /// CodeStar Connection name.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of key-value resource tags to associate with the resource.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -43,14 +139,24 @@ namespace Pulumi.Aws.CodeStarConnections
 
     public sealed class GetConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// CodeStar Connection ARN.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// CodeStar Connection name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of key-value resource tags to associate with the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -68,14 +174,29 @@ namespace Pulumi.Aws.CodeStarConnections
     public sealed class GetConnectionResult
     {
         public readonly string Arn;
+        /// <summary>
+        /// CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+        /// </summary>
         public readonly string ConnectionStatus;
+        /// <summary>
+        /// ARN of the host associated with the connection.
+        /// </summary>
         public readonly string HostArn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Name of the CodeStar Connection. The name is unique in the calling AWS account.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an aws.codestarconnections.Host resource and use `host_arn` instead.
+        /// </summary>
         public readonly string ProviderType;
+        /// <summary>
+        /// Map of key-value resource tags to associate with the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

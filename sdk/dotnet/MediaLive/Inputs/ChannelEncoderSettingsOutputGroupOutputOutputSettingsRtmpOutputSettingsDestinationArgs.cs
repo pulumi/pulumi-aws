@@ -12,6 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Reference ID for the destination.
+        /// </summary>
         [Input("destinationRefId", required: true)]
         public Input<string> DestinationRefId { get; set; } = null!;
 

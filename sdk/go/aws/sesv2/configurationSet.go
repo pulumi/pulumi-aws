@@ -11,18 +11,82 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sesv2.NewConfigurationSet(ctx, "example", &sesv2.ConfigurationSetArgs{
+//				ConfigurationSetName: pulumi.String("example"),
+//				DeliveryOptions: &sesv2.ConfigurationSetDeliveryOptionsArgs{
+//					TlsPolicy: pulumi.String("REQUIRE"),
+//				},
+//				ReputationOptions: &sesv2.ConfigurationSetReputationOptionsArgs{
+//					ReputationMetricsEnabled: pulumi.Bool(false),
+//				},
+//				SendingOptions: &sesv2.ConfigurationSetSendingOptionsArgs{
+//					SendingEnabled: pulumi.Bool(true),
+//				},
+//				SuppressionOptions: &sesv2.ConfigurationSetSuppressionOptionsArgs{
+//					SuppressedReasons: pulumi.StringArray{
+//						pulumi.String("BOUNCE"),
+//						pulumi.String("COMPLAINT"),
+//					},
+//				},
+//				TrackingOptions: &sesv2.ConfigurationSetTrackingOptionsArgs{
+//					CustomRedirectDomain: pulumi.String("example.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// SESv2 (Simple Email V2) Configuration Set can be imported using the `configuration_set_name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:sesv2/configurationSet:ConfigurationSet example example
+//
+// ```
 type ConfigurationSet struct {
 	pulumi.CustomResourceState
 
-	Arn                  pulumi.StringOutput                         `pulumi:"arn"`
-	ConfigurationSetName pulumi.StringOutput                         `pulumi:"configurationSetName"`
-	DeliveryOptions      ConfigurationSetDeliveryOptionsPtrOutput    `pulumi:"deliveryOptions"`
-	ReputationOptions    ConfigurationSetReputationOptionsOutput     `pulumi:"reputationOptions"`
-	SendingOptions       ConfigurationSetSendingOptionsOutput        `pulumi:"sendingOptions"`
-	SuppressionOptions   ConfigurationSetSuppressionOptionsPtrOutput `pulumi:"suppressionOptions"`
-	Tags                 pulumi.StringMapOutput                      `pulumi:"tags"`
-	TagsAll              pulumi.StringMapOutput                      `pulumi:"tagsAll"`
-	TrackingOptions      ConfigurationSetTrackingOptionsPtrOutput    `pulumi:"trackingOptions"`
+	// ARN of the Configuration Set.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name of the configuration set.
+	ConfigurationSetName pulumi.StringOutput `pulumi:"configurationSetName"`
+	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+	DeliveryOptions ConfigurationSetDeliveryOptionsPtrOutput `pulumi:"deliveryOptions"`
+	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+	ReputationOptions ConfigurationSetReputationOptionsOutput `pulumi:"reputationOptions"`
+	// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+	SendingOptions ConfigurationSetSendingOptionsOutput `pulumi:"sendingOptions"`
+	// An object that contains information about the suppression list preferences for your account.
+	SuppressionOptions ConfigurationSetSuppressionOptionsPtrOutput `pulumi:"suppressionOptions"`
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// An object that defines the open and click tracking options for emails that you send using the configuration set.
+	TrackingOptions ConfigurationSetTrackingOptionsPtrOutput `pulumi:"trackingOptions"`
 }
 
 // NewConfigurationSet registers a new resource with the given unique name, arguments, and options.
@@ -57,27 +121,43 @@ func GetConfigurationSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationSet resources.
 type configurationSetState struct {
-	Arn                  *string                             `pulumi:"arn"`
-	ConfigurationSetName *string                             `pulumi:"configurationSetName"`
-	DeliveryOptions      *ConfigurationSetDeliveryOptions    `pulumi:"deliveryOptions"`
-	ReputationOptions    *ConfigurationSetReputationOptions  `pulumi:"reputationOptions"`
-	SendingOptions       *ConfigurationSetSendingOptions     `pulumi:"sendingOptions"`
-	SuppressionOptions   *ConfigurationSetSuppressionOptions `pulumi:"suppressionOptions"`
-	Tags                 map[string]string                   `pulumi:"tags"`
-	TagsAll              map[string]string                   `pulumi:"tagsAll"`
-	TrackingOptions      *ConfigurationSetTrackingOptions    `pulumi:"trackingOptions"`
+	// ARN of the Configuration Set.
+	Arn *string `pulumi:"arn"`
+	// The name of the configuration set.
+	ConfigurationSetName *string `pulumi:"configurationSetName"`
+	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+	DeliveryOptions *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`
+	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+	ReputationOptions *ConfigurationSetReputationOptions `pulumi:"reputationOptions"`
+	// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+	SendingOptions *ConfigurationSetSendingOptions `pulumi:"sendingOptions"`
+	// An object that contains information about the suppression list preferences for your account.
+	SuppressionOptions *ConfigurationSetSuppressionOptions `pulumi:"suppressionOptions"`
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// An object that defines the open and click tracking options for emails that you send using the configuration set.
+	TrackingOptions *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
 }
 
 type ConfigurationSetState struct {
-	Arn                  pulumi.StringPtrInput
+	// ARN of the Configuration Set.
+	Arn pulumi.StringPtrInput
+	// The name of the configuration set.
 	ConfigurationSetName pulumi.StringPtrInput
-	DeliveryOptions      ConfigurationSetDeliveryOptionsPtrInput
-	ReputationOptions    ConfigurationSetReputationOptionsPtrInput
-	SendingOptions       ConfigurationSetSendingOptionsPtrInput
-	SuppressionOptions   ConfigurationSetSuppressionOptionsPtrInput
-	Tags                 pulumi.StringMapInput
-	TagsAll              pulumi.StringMapInput
-	TrackingOptions      ConfigurationSetTrackingOptionsPtrInput
+	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+	DeliveryOptions ConfigurationSetDeliveryOptionsPtrInput
+	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+	ReputationOptions ConfigurationSetReputationOptionsPtrInput
+	// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+	SendingOptions ConfigurationSetSendingOptionsPtrInput
+	// An object that contains information about the suppression list preferences for your account.
+	SuppressionOptions ConfigurationSetSuppressionOptionsPtrInput
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
+	// An object that defines the open and click tracking options for emails that you send using the configuration set.
+	TrackingOptions ConfigurationSetTrackingOptionsPtrInput
 }
 
 func (ConfigurationSetState) ElementType() reflect.Type {
@@ -85,24 +165,38 @@ func (ConfigurationSetState) ElementType() reflect.Type {
 }
 
 type configurationSetArgs struct {
-	ConfigurationSetName string                              `pulumi:"configurationSetName"`
-	DeliveryOptions      *ConfigurationSetDeliveryOptions    `pulumi:"deliveryOptions"`
-	ReputationOptions    *ConfigurationSetReputationOptions  `pulumi:"reputationOptions"`
-	SendingOptions       *ConfigurationSetSendingOptions     `pulumi:"sendingOptions"`
-	SuppressionOptions   *ConfigurationSetSuppressionOptions `pulumi:"suppressionOptions"`
-	Tags                 map[string]string                   `pulumi:"tags"`
-	TrackingOptions      *ConfigurationSetTrackingOptions    `pulumi:"trackingOptions"`
+	// The name of the configuration set.
+	ConfigurationSetName string `pulumi:"configurationSetName"`
+	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+	DeliveryOptions *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`
+	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+	ReputationOptions *ConfigurationSetReputationOptions `pulumi:"reputationOptions"`
+	// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+	SendingOptions *ConfigurationSetSendingOptions `pulumi:"sendingOptions"`
+	// An object that contains information about the suppression list preferences for your account.
+	SuppressionOptions *ConfigurationSetSuppressionOptions `pulumi:"suppressionOptions"`
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// An object that defines the open and click tracking options for emails that you send using the configuration set.
+	TrackingOptions *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
 }
 
 // The set of arguments for constructing a ConfigurationSet resource.
 type ConfigurationSetArgs struct {
+	// The name of the configuration set.
 	ConfigurationSetName pulumi.StringInput
-	DeliveryOptions      ConfigurationSetDeliveryOptionsPtrInput
-	ReputationOptions    ConfigurationSetReputationOptionsPtrInput
-	SendingOptions       ConfigurationSetSendingOptionsPtrInput
-	SuppressionOptions   ConfigurationSetSuppressionOptionsPtrInput
-	Tags                 pulumi.StringMapInput
-	TrackingOptions      ConfigurationSetTrackingOptionsPtrInput
+	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+	DeliveryOptions ConfigurationSetDeliveryOptionsPtrInput
+	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+	ReputationOptions ConfigurationSetReputationOptionsPtrInput
+	// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+	SendingOptions ConfigurationSetSendingOptionsPtrInput
+	// An object that contains information about the suppression list preferences for your account.
+	SuppressionOptions ConfigurationSetSuppressionOptionsPtrInput
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// An object that defines the open and click tracking options for emails that you send using the configuration set.
+	TrackingOptions ConfigurationSetTrackingOptionsPtrInput
 }
 
 func (ConfigurationSetArgs) ElementType() reflect.Type {
@@ -192,30 +286,37 @@ func (o ConfigurationSetOutput) ToConfigurationSetOutputWithContext(ctx context.
 	return o
 }
 
+// ARN of the Configuration Set.
 func (o ConfigurationSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The name of the configuration set.
 func (o ConfigurationSetOutput) ConfigurationSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringOutput { return v.ConfigurationSetName }).(pulumi.StringOutput)
 }
 
+// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
 func (o ConfigurationSetOutput) DeliveryOptions() ConfigurationSetDeliveryOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetDeliveryOptionsPtrOutput { return v.DeliveryOptions }).(ConfigurationSetDeliveryOptionsPtrOutput)
 }
 
+// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
 func (o ConfigurationSetOutput) ReputationOptions() ConfigurationSetReputationOptionsOutput {
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetReputationOptionsOutput { return v.ReputationOptions }).(ConfigurationSetReputationOptionsOutput)
 }
 
+// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
 func (o ConfigurationSetOutput) SendingOptions() ConfigurationSetSendingOptionsOutput {
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetSendingOptionsOutput { return v.SendingOptions }).(ConfigurationSetSendingOptionsOutput)
 }
 
+// An object that contains information about the suppression list preferences for your account.
 func (o ConfigurationSetOutput) SuppressionOptions() ConfigurationSetSuppressionOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetSuppressionOptionsPtrOutput { return v.SuppressionOptions }).(ConfigurationSetSuppressionOptionsPtrOutput)
 }
 
+// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ConfigurationSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -224,6 +325,7 @@ func (o ConfigurationSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// An object that defines the open and click tracking options for emails that you send using the configuration set.
 func (o ConfigurationSetOutput) TrackingOptions() ConfigurationSetTrackingOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetTrackingOptionsPtrOutput { return v.TrackingOptions }).(ConfigurationSetTrackingOptionsPtrOutput)
 }

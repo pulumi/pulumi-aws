@@ -56,16 +56,25 @@ class GetLocalGatewayResult:
     @property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> str:
+        """
+        ARN of Outpost
+        """
         return pulumi.get(self, "outpost_arn")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
+        """
+        AWS account identifier that owns the Local Gateway.
+        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter
     def state(self) -> str:
+        """
+        State of the local gateway.
+        """
         return pulumi.get(self, "state")
 
     @property
@@ -94,7 +103,28 @@ def get_local_gateway(filters: Optional[Sequence[pulumi.InputType['GetLocalGatew
                       tags: Optional[Mapping[str, str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about an EC2 Local Gateway.
+
+    ## Example Usage
+
+    The following example shows how one might accept a local gateway id as a variable.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    local_gateway_id = config.require_object("localGatewayId")
+    selected = aws.ec2.get_local_gateway(id=local_gateway_id)
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetLocalGatewayFilterArgs']] filters: Custom filter block as described below.
+    :param str id: Id of the specific Local Gateway to retrieve.
+    :param str state: Current state of the desired Local Gateway.
+           Can be either `"pending"` or `"available"`.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
+           a pair on the desired Local Gateway.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -120,6 +150,27 @@ def get_local_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pu
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about an EC2 Local Gateway.
+
+    ## Example Usage
+
+    The following example shows how one might accept a local gateway id as a variable.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    local_gateway_id = config.require_object("localGatewayId")
+    selected = aws.ec2.get_local_gateway(id=local_gateway_id)
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetLocalGatewayFilterArgs']] filters: Custom filter block as described below.
+    :param str id: Id of the specific Local Gateway to retrieve.
+    :param str state: Current state of the desired Local Gateway.
+           Can be either `"pending"` or `"available"`.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
+           a pair on the desired Local Gateway.
     """
     ...

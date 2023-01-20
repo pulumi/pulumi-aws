@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AppRunner.Outputs
     [OutputType]
     public sealed class ServiceNetworkConfiguration
     {
+        /// <summary>
+        /// Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
+        /// </summary>
         public readonly Outputs.ServiceNetworkConfigurationEgressConfiguration? EgressConfiguration;
+        /// <summary>
+        /// Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+        /// </summary>
         public readonly Outputs.ServiceNetworkConfigurationIngressConfiguration? IngressConfiguration;
 
         [OutputConstructor]

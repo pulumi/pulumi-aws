@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Connect.Outputs
     [OutputType]
     public sealed class InstanceStorageConfigStorageConfigKinesisFirehoseConfig
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the delivery stream.
+        /// </summary>
         public readonly string FirehoseArn;
 
         [OutputConstructor]

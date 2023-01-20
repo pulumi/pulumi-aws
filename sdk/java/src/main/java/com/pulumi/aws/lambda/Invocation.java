@@ -15,35 +15,120 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Use this resource to invoke a lambda function. The lambda function is invoked with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
+ * 
+ * &gt; **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `aws.lambda.Invocation` data source.
+ * 
+ * ## Example Usage
+ * ### Dynamic Invocation Example Using Triggers
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.Invocation;
+ * import com.pulumi.aws.lambda.InvocationArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Invocation(&#34;example&#34;, InvocationArgs.builder()        
+ *             .functionName(aws_lambda_function.lambda_function_test().function_name())
+ *             .triggers(Map.of(&#34;redeployment&#34;, computeSHA1(serializeJson(
+ *                 jsonArray(aws_lambda_function.example().environment())))))
+ *             .input(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;key1&#34;, &#34;value1&#34;),
+ *                     jsonProperty(&#34;key2&#34;, &#34;value2&#34;)
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="aws:lambda/invocation:Invocation")
 public class Invocation extends com.pulumi.resources.CustomResource {
+    /**
+     * Name of the lambda function.
+     * 
+     */
     @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output<String> functionName;
 
+    /**
+     * @return Name of the lambda function.
+     * 
+     */
     public Output<String> functionName() {
         return this.functionName;
     }
+    /**
+     * JSON payload to the lambda function.
+     * 
+     */
     @Export(name="input", refs={String.class}, tree="[0]")
     private Output<String> input;
 
+    /**
+     * @return JSON payload to the lambda function.
+     * 
+     */
     public Output<String> input() {
         return this.input;
     }
+    /**
+     * Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+     * 
+     */
     @Export(name="qualifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> qualifier;
 
+    /**
+     * @return Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+     * 
+     */
     public Output<Optional<String>> qualifier() {
         return Codegen.optional(this.qualifier);
     }
+    /**
+     * String result of the lambda function invocation.
+     * 
+     */
     @Export(name="result", refs={String.class}, tree="[0]")
     private Output<String> result;
 
+    /**
+     * @return String result of the lambda function invocation.
+     * 
+     */
     public Output<String> result() {
         return this.result;
     }
+    /**
+     * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+     * 
+     */
     @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> triggers;
 
+    /**
+     * @return Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+     * 
+     */
     public Output<Optional<Map<String,String>>> triggers() {
         return Codegen.optional(this.triggers);
     }

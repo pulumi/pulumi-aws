@@ -11,10 +11,52 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an AWS Storage Gateway cache.
+//
+// > **NOTE:** The Storage Gateway API provides no method to remove a cache disk. Destroying this resource does not perform any Storage Gateway actions.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := storagegateway.NewCache(ctx, "example", &storagegateway.CacheArgs{
+//				DiskId:     pulumi.Any(data.Aws_storagegateway_local_disk.Example.Id),
+//				GatewayArn: pulumi.Any(aws_storagegateway_gateway.Example.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_storagegateway_cache` can be imported by using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`), e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:storagegateway/cache:Cache example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
+//
+// ```
 type Cache struct {
 	pulumi.CustomResourceState
 
-	DiskId     pulumi.StringOutput `pulumi:"diskId"`
+	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+	DiskId pulumi.StringOutput `pulumi:"diskId"`
+	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
 }
 
@@ -53,12 +95,16 @@ func GetCache(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cache resources.
 type cacheState struct {
-	DiskId     *string `pulumi:"diskId"`
+	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+	DiskId *string `pulumi:"diskId"`
+	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn *string `pulumi:"gatewayArn"`
 }
 
 type CacheState struct {
-	DiskId     pulumi.StringPtrInput
+	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+	DiskId pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringPtrInput
 }
 
@@ -67,13 +113,17 @@ func (CacheState) ElementType() reflect.Type {
 }
 
 type cacheArgs struct {
-	DiskId     string `pulumi:"diskId"`
+	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+	DiskId string `pulumi:"diskId"`
+	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn string `pulumi:"gatewayArn"`
 }
 
 // The set of arguments for constructing a Cache resource.
 type CacheArgs struct {
-	DiskId     pulumi.StringInput
+	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+	DiskId pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringInput
 }
 
@@ -164,10 +214,12 @@ func (o CacheOutput) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 	return o
 }
 
+// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
 func (o CacheOutput) DiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.DiskId }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the gateway.
 func (o CacheOutput) GatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.GatewayArn }).(pulumi.StringOutput)
 }

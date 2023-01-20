@@ -50,6 +50,9 @@ class GetMaintenanceWindowsResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
+        """
+        List of window IDs of the matched SSM maintenance windows.
+        """
         return pulumi.get(self, "ids")
 
 
@@ -67,7 +70,22 @@ class AwaitableGetMaintenanceWindowsResult(GetMaintenanceWindowsResult):
 def get_maintenance_windows(filters: Optional[Sequence[pulumi.InputType['GetMaintenanceWindowsFilterArgs']]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMaintenanceWindowsResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get the window IDs of SSM maintenance windows.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ssm.get_maintenance_windows(filters=[aws.ssm.GetMaintenanceWindowsFilterArgs(
+        name="Enabled",
+        values=["true"],
+    )])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetMaintenanceWindowsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -84,6 +102,21 @@ def get_maintenance_windows(filters: Optional[Sequence[pulumi.InputType['GetMain
 def get_maintenance_windows_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetMaintenanceWindowsFilterArgs']]]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMaintenanceWindowsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get the window IDs of SSM maintenance windows.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ssm.get_maintenance_windows(filters=[aws.ssm.GetMaintenanceWindowsFilterArgs(
+        name="Enabled",
+        values=["true"],
+    )])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetMaintenanceWindowsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     """
     ...

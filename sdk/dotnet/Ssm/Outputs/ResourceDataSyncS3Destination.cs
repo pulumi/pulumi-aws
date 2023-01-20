@@ -13,10 +13,25 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class ResourceDataSyncS3Destination
     {
+        /// <summary>
+        /// Name of S3 bucket where the aggregated data is stored.
+        /// </summary>
         public readonly string BucketName;
+        /// <summary>
+        /// ARN of an encryption key for a destination in Amazon S3.
+        /// </summary>
         public readonly string? KmsKeyArn;
+        /// <summary>
+        /// Prefix for the bucket.
+        /// </summary>
         public readonly string? Prefix;
+        /// <summary>
+        /// Region with the bucket targeted by the Resource Data Sync.
+        /// </summary>
         public readonly string Region;
+        /// <summary>
+        /// A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
+        /// </summary>
         public readonly string? SyncFormat;
 
         [OutputConstructor]

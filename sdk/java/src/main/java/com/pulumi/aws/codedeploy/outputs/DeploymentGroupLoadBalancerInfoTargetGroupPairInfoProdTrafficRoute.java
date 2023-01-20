@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute {
+    /**
+     * @return List of Amazon Resource Names (ARNs) of the load balancer listeners.
+     * 
+     */
     private List<String> listenerArns;
 
     private DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute() {}
+    /**
+     * @return List of Amazon Resource Names (ARNs) of the load balancer listeners.
+     * 
+     */
     public List<String> listenerArns() {
         return this.listenerArns;
     }

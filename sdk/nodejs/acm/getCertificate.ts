@@ -4,6 +4,32 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to get the ARN of a certificate in AWS Certificate
+ * Manager (ACM), you can reference
+ * it by domain without having to hard code the ARNs as input.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const issued = aws.acm.getCertificate({
+ *     domain: "tf.example.com",
+ *     statuses: ["ISSUED"],
+ * });
+ * const amazonIssued = aws.acm.getCertificate({
+ *     domain: "tf.example.com",
+ *     mostRecent: true,
+ *     types: ["AMAZON_ISSUED"],
+ * });
+ * const rsa4096 = aws.acm.getCertificate({
+ *     domain: "tf.example.com",
+ *     keyTypes: ["RSA_4096"],
+ * });
+ * ```
+ */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -21,11 +47,31 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getCertificate.
  */
 export interface GetCertificateArgs {
+    /**
+     * Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+     */
     domain: string;
+    /**
+     * List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
+     */
     keyTypes?: string[];
+    /**
+     * If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
+     */
     mostRecent?: boolean;
+    /**
+     * List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+     * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
+     * are returned.
+     */
     statuses?: string[];
+    /**
+     * Mapping of tags for the resource.
+     */
     tags?: {[key: string]: string};
+    /**
+     * List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
+     */
     types?: string[];
 }
 
@@ -33,8 +79,17 @@ export interface GetCertificateArgs {
  * A collection of values returned by getCertificate.
  */
 export interface GetCertificateResult {
+    /**
+     * ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
+     */
     readonly arn: string;
+    /**
+     * ACM-issued certificate.
+     */
     readonly certificate: string;
+    /**
+     * Certificates forming the requested ACM-issued certificate's chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
+     */
     readonly certificateChain: string;
     readonly domain: string;
     /**
@@ -43,11 +98,43 @@ export interface GetCertificateResult {
     readonly id: string;
     readonly keyTypes?: string[];
     readonly mostRecent?: boolean;
+    /**
+     * Status of the found certificate.
+     */
     readonly status: string;
     readonly statuses?: string[];
+    /**
+     * Mapping of tags for the resource.
+     */
     readonly tags: {[key: string]: string};
     readonly types?: string[];
 }
+/**
+ * Use this data source to get the ARN of a certificate in AWS Certificate
+ * Manager (ACM), you can reference
+ * it by domain without having to hard code the ARNs as input.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const issued = aws.acm.getCertificate({
+ *     domain: "tf.example.com",
+ *     statuses: ["ISSUED"],
+ * });
+ * const amazonIssued = aws.acm.getCertificate({
+ *     domain: "tf.example.com",
+ *     mostRecent: true,
+ *     types: ["AMAZON_ISSUED"],
+ * });
+ * const rsa4096 = aws.acm.getCertificate({
+ *     domain: "tf.example.com",
+ *     keyTypes: ["RSA_4096"],
+ * });
+ * ```
+ */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
 }
@@ -56,10 +143,30 @@ export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulu
  * A collection of arguments for invoking getCertificate.
  */
 export interface GetCertificateOutputArgs {
+    /**
+     * Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+     */
     domain: pulumi.Input<string>;
+    /**
+     * List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
+     */
     keyTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
+     */
     mostRecent?: pulumi.Input<boolean>;
+    /**
+     * List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+     * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
+     * are returned.
+     */
     statuses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Mapping of tags for the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
+     */
     types?: pulumi.Input<pulumi.Input<string>[]>;
 }

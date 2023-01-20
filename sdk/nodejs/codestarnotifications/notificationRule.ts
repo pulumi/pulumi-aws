@@ -7,6 +7,49 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a CodeStar Notifications Rule.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const code = new aws.codecommit.Repository("code", {repositoryName: "example-code-repo"});
+ * const notif = new aws.sns.Topic("notif", {});
+ * const notifAccess = notif.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         actions: ["sns:Publish"],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["codestar-notifications.amazonaws.com"],
+ *         }],
+ *         resources: [arn],
+ *     }],
+ * }));
+ * const _default = new aws.sns.TopicPolicy("default", {
+ *     arn: notif.arn,
+ *     policy: notifAccess.apply(notifAccess => notifAccess.json),
+ * });
+ * const commits = new aws.codestarnotifications.NotificationRule("commits", {
+ *     detailType: "BASIC",
+ *     eventTypeIds: ["codecommit-repository-comments-on-commits"],
+ *     resource: code.arn,
+ *     targets: [{
+ *         address: notif.arn,
+ *     }],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * CodeStar notification rule can be imported using the ARN, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
+ * ```
+ */
 export class NotificationRule extends pulumi.CustomResource {
     /**
      * Get an existing NotificationRule resource's state with the given name, ID, and optional extra
@@ -35,14 +78,42 @@ export class NotificationRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === NotificationRule.__pulumiType;
     }
 
+    /**
+     * The codestar notification rule ARN.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
+     */
     public readonly detailType!: pulumi.Output<string>;
+    /**
+     * A list of event types associated with this notification rule.
+     * For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
+     */
     public readonly eventTypeIds!: pulumi.Output<string[]>;
+    /**
+     * The name of notification rule.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ARN of the resource to associate with the notification rule.
+     */
     public readonly resource!: pulumi.Output<string>;
+    /**
+     * The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
+     */
     public readonly status!: pulumi.Output<string | undefined>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
+     */
     public readonly targets!: pulumi.Output<outputs.codestarnotifications.NotificationRuleTarget[] | undefined>;
 
     /**
@@ -97,14 +168,42 @@ export class NotificationRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NotificationRule resources.
  */
 export interface NotificationRuleState {
+    /**
+     * The codestar notification rule ARN.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
+     */
     detailType?: pulumi.Input<string>;
+    /**
+     * A list of event types associated with this notification rule.
+     * For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
+     */
     eventTypeIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of notification rule.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ARN of the resource to associate with the notification rule.
+     */
     resource?: pulumi.Input<string>;
+    /**
+     * The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
+     */
     status?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
+     */
     targets?: pulumi.Input<pulumi.Input<inputs.codestarnotifications.NotificationRuleTarget>[]>;
 }
 
@@ -112,11 +211,33 @@ export interface NotificationRuleState {
  * The set of arguments for constructing a NotificationRule resource.
  */
 export interface NotificationRuleArgs {
+    /**
+     * The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
+     */
     detailType: pulumi.Input<string>;
+    /**
+     * A list of event types associated with this notification rule.
+     * For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
+     */
     eventTypeIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of notification rule.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ARN of the resource to associate with the notification rule.
+     */
     resource: pulumi.Input<string>;
+    /**
+     * The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
+     */
     status?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
+     */
     targets?: pulumi.Input<pulumi.Input<inputs.codestarnotifications.NotificationRuleTarget>[]>;
 }

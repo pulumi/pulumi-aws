@@ -7,6 +7,19 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Resource for managing an AWS NetworkManager ConnectAttachment.
+ *
+ * ## Example Usage
+ *
+ * ## Import
+ *
+ * `aws_networkmanager_connect_attachment` can be imported using the attachment ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
+ * ```
+ */
 export class ConnectAttachment extends pulumi.CustomResource {
     /**
      * Get an existing ConnectAttachment resource's state with the given name, ID, and optional extra
@@ -35,20 +48,62 @@ export class ConnectAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConnectAttachment.__pulumiType;
     }
 
+    /**
+     * The ARN of the attachment.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly attachmentId!: pulumi.Output<string>;
+    /**
+     * The policy rule number associated with the attachment.
+     */
     public /*out*/ readonly attachmentPolicyRuleNumber!: pulumi.Output<number>;
+    /**
+     * The type of attachment.
+     */
     public /*out*/ readonly attachmentType!: pulumi.Output<string>;
+    /**
+     * The ARN of a core network.
+     */
     public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
+    /**
+     * The ID of a core network where you want to create the attachment.
+     */
     public readonly coreNetworkId!: pulumi.Output<string>;
+    /**
+     * The Region where the edge is located.
+     */
     public readonly edgeLocation!: pulumi.Output<string>;
+    /**
+     * Options for creating an attachment.
+     */
     public readonly options!: pulumi.Output<outputs.networkmanager.ConnectAttachmentOptions>;
+    /**
+     * The ID of the attachment account owner.
+     */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    /**
+     * The attachment resource ARN.
+     */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    /**
+     * The name of the segment attachment.
+     */
     public /*out*/ readonly segmentName!: pulumi.Output<string>;
+    /**
+     * The state of the attachment.
+     */
     public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The ID of the attachment between the two connections.
+     */
     public readonly transportAttachmentId!: pulumi.Output<string>;
 
     /**
@@ -118,20 +173,62 @@ export class ConnectAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ConnectAttachment resources.
  */
 export interface ConnectAttachmentState {
+    /**
+     * The ARN of the attachment.
+     */
     arn?: pulumi.Input<string>;
     attachmentId?: pulumi.Input<string>;
+    /**
+     * The policy rule number associated with the attachment.
+     */
     attachmentPolicyRuleNumber?: pulumi.Input<number>;
+    /**
+     * The type of attachment.
+     */
     attachmentType?: pulumi.Input<string>;
+    /**
+     * The ARN of a core network.
+     */
     coreNetworkArn?: pulumi.Input<string>;
+    /**
+     * The ID of a core network where you want to create the attachment.
+     */
     coreNetworkId?: pulumi.Input<string>;
+    /**
+     * The Region where the edge is located.
+     */
     edgeLocation?: pulumi.Input<string>;
+    /**
+     * Options for creating an attachment.
+     */
     options?: pulumi.Input<inputs.networkmanager.ConnectAttachmentOptions>;
+    /**
+     * The ID of the attachment account owner.
+     */
     ownerAccountId?: pulumi.Input<string>;
+    /**
+     * The attachment resource ARN.
+     */
     resourceArn?: pulumi.Input<string>;
+    /**
+     * The name of the segment attachment.
+     */
     segmentName?: pulumi.Input<string>;
+    /**
+     * The state of the attachment.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ID of the attachment between the two connections.
+     */
     transportAttachmentId?: pulumi.Input<string>;
 }
 
@@ -139,9 +236,24 @@ export interface ConnectAttachmentState {
  * The set of arguments for constructing a ConnectAttachment resource.
  */
 export interface ConnectAttachmentArgs {
+    /**
+     * The ID of a core network where you want to create the attachment.
+     */
     coreNetworkId: pulumi.Input<string>;
+    /**
+     * The Region where the edge is located.
+     */
     edgeLocation: pulumi.Input<string>;
+    /**
+     * Options for creating an attachment.
+     */
     options: pulumi.Input<inputs.networkmanager.ConnectAttachmentOptions>;
+    /**
+     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ID of the attachment between the two connections.
+     */
     transportAttachmentId: pulumi.Input<string>;
 }

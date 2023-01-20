@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Macie2.Inputs
     {
         [Input("ands")]
         private InputList<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs>? _ands;
+
+        /// <summary>
+        /// An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
+        /// </summary>
         public InputList<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs> Ands
         {
             get => _ands ?? (_ands = new InputList<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs>());

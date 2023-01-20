@@ -20,51 +20,262 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Associates an SSM Document to an instance or EC2 tag.
+ * 
+ * ## Example Usage
+ * ### Create an association for a specific instance
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssm.Association;
+ * import com.pulumi.aws.ssm.AssociationArgs;
+ * import com.pulumi.aws.ssm.inputs.AssociationTargetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
+ *             .targets(AssociationTargetArgs.builder()
+ *                 .key(&#34;InstanceIds&#34;)
+ *                 .values(aws_instance.example().id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Create an association for all managed instances in an AWS account
+ * 
+ * To target all managed instances in an AWS account, set the `key` as `&#34;InstanceIds&#34;` with `values` set as `[&#34;*&#34;]`. This example also illustrates how to use an Amazon owned SSM document named `AmazonCloudWatch-ManageAgent`.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssm.Association;
+ * import com.pulumi.aws.ssm.AssociationArgs;
+ * import com.pulumi.aws.ssm.inputs.AssociationTargetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
+ *             .targets(AssociationTargetArgs.builder()
+ *                 .key(&#34;InstanceIds&#34;)
+ *                 .values(&#34;*&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Create an association for a specific tag
+ * 
+ * This example shows how to target all managed instances that are assigned a tag key of `Environment` and value of `Development`.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssm.Association;
+ * import com.pulumi.aws.ssm.AssociationArgs;
+ * import com.pulumi.aws.ssm.inputs.AssociationTargetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
+ *             .targets(AssociationTargetArgs.builder()
+ *                 .key(&#34;tag:Environment&#34;)
+ *                 .values(&#34;Development&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Create an association with a specific schedule
+ * 
+ * This example shows how to schedule an association in various ways.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssm.Association;
+ * import com.pulumi.aws.ssm.AssociationArgs;
+ * import com.pulumi.aws.ssm.inputs.AssociationTargetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
+ *             .scheduleExpression(&#34;cron(0 2 ? * SUN *)&#34;)
+ *             .targets(AssociationTargetArgs.builder()
+ *                 .key(&#34;InstanceIds&#34;)
+ *                 .values(aws_instance.example().id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * SSM associations can be imported using the `association_id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ssm/association:Association")
 public class Association extends com.pulumi.resources.CustomResource {
+    /**
+     * By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+     * 
+     */
     @Export(name="applyOnlyAtCronInterval", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> applyOnlyAtCronInterval;
 
+    /**
+     * @return By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+     * 
+     */
     public Output<Optional<Boolean>> applyOnlyAtCronInterval() {
         return Codegen.optional(this.applyOnlyAtCronInterval);
     }
+    /**
+     * The ARN of the SSM association
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the SSM association
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The ID of the SSM association.
+     * 
+     */
     @Export(name="associationId", refs={String.class}, tree="[0]")
     private Output<String> associationId;
 
+    /**
+     * @return The ID of the SSM association.
+     * 
+     */
     public Output<String> associationId() {
         return this.associationId;
     }
+    /**
+     * The descriptive name for the association.
+     * 
+     */
     @Export(name="associationName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> associationName;
 
+    /**
+     * @return The descriptive name for the association.
+     * 
+     */
     public Output<Optional<String>> associationName() {
         return Codegen.optional(this.associationName);
     }
+    /**
+     * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
+     * 
+     */
     @Export(name="automationTargetParameterName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> automationTargetParameterName;
 
+    /**
+     * @return Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
+     * 
+     */
     public Output<Optional<String>> automationTargetParameterName() {
         return Codegen.optional(this.automationTargetParameterName);
     }
+    /**
+     * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
+     * 
+     */
     @Export(name="complianceSeverity", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> complianceSeverity;
 
+    /**
+     * @return The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
+     * 
+     */
     public Output<Optional<String>> complianceSeverity() {
         return Codegen.optional(this.complianceSeverity);
     }
+    /**
+     * The document version you want to associate with the target(s). Can be a specific version or the default version.
+     * 
+     */
     @Export(name="documentVersion", refs={String.class}, tree="[0]")
     private Output<String> documentVersion;
 
+    /**
+     * @return The document version you want to associate with the target(s). Can be a specific version or the default version.
+     * 
+     */
     public Output<String> documentVersion() {
         return this.documentVersion;
     }
     /**
+     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+     * 
      * @deprecated
      * use &#39;targets&#39; argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
      * 
@@ -73,54 +284,122 @@ public class Association extends com.pulumi.resources.CustomResource {
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceId;
 
+    /**
+     * @return The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+     * 
+     */
     public Output<Optional<String>> instanceId() {
         return Codegen.optional(this.instanceId);
     }
+    /**
+     * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+     * 
+     */
     @Export(name="maxConcurrency", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> maxConcurrency;
 
+    /**
+     * @return The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+     * 
+     */
     public Output<Optional<String>> maxConcurrency() {
         return Codegen.optional(this.maxConcurrency);
     }
+    /**
+     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+     * 
+     */
     @Export(name="maxErrors", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> maxErrors;
 
+    /**
+     * @return The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+     * 
+     */
     public Output<Optional<String>> maxErrors() {
         return Codegen.optional(this.maxErrors);
     }
+    /**
+     * The name of the SSM document to apply.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the SSM document to apply.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * An output location block. Output Location is documented below.
+     * 
+     */
     @Export(name="outputLocation", refs={AssociationOutputLocation.class}, tree="[0]")
     private Output</* @Nullable */ AssociationOutputLocation> outputLocation;
 
+    /**
+     * @return An output location block. Output Location is documented below.
+     * 
+     */
     public Output<Optional<AssociationOutputLocation>> outputLocation() {
         return Codegen.optional(this.outputLocation);
     }
+    /**
+     * A block of arbitrary string parameters to pass to the SSM document.
+     * 
+     */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> parameters;
 
+    /**
+     * @return A block of arbitrary string parameters to pass to the SSM document.
+     * 
+     */
     public Output<Map<String,String>> parameters() {
         return this.parameters;
     }
+    /**
+     * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
+     * 
+     */
     @Export(name="scheduleExpression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scheduleExpression;
 
+    /**
+     * @return A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
+     * 
+     */
     public Output<Optional<String>> scheduleExpression() {
         return Codegen.optional(this.scheduleExpression);
     }
+    /**
+     * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
+     * 
+     */
     @Export(name="targets", refs={List.class,AssociationTarget.class}, tree="[0,1]")
     private Output<List<AssociationTarget>> targets;
 
+    /**
+     * @return A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
+     * 
+     */
     public Output<List<AssociationTarget>> targets() {
         return this.targets;
     }
+    /**
+     * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+     * 
+     */
     @Export(name="waitForSuccessTimeoutSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> waitForSuccessTimeoutSeconds;
 
+    /**
+     * @return The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+     * 
+     */
     public Output<Optional<Integer>> waitForSuccessTimeoutSeconds() {
         return Codegen.optional(this.waitForSuccessTimeoutSeconds);
     }

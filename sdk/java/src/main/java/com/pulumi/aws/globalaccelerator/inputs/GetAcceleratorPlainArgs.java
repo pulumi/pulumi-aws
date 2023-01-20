@@ -15,16 +15,32 @@ public final class GetAcceleratorPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetAcceleratorPlainArgs Empty = new GetAcceleratorPlainArgs();
 
+    /**
+     * Full ARN of the Global Accelerator.
+     * 
+     */
     @Import(name="arn")
     private @Nullable String arn;
 
+    /**
+     * @return Full ARN of the Global Accelerator.
+     * 
+     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * Unique name of the Global Accelerator.
+     * 
+     */
     @Import(name="name")
     private @Nullable String name;
 
+    /**
+     * @return Unique name of the Global Accelerator.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
@@ -62,11 +78,23 @@ public final class GetAcceleratorPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetAcceleratorPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn Full ARN of the Global Accelerator.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable String arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param name Unique name of the Global Accelerator.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;

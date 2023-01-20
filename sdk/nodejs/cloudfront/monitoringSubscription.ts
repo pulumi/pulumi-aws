@@ -7,6 +7,33 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a CloudFront real-time log configuration resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudfront.MonitoringSubscription("example", {
+ *     distributionId: aws_cloudfront_distribution.example.id,
+ *     monitoringSubscription: {
+ *         realtimeMetricsSubscriptionConfig: {
+ *             realtimeMetricsSubscriptionStatus: "Enabled",
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * CloudFront monitoring subscription can be imported using the id, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
+ * ```
+ */
 export class MonitoringSubscription extends pulumi.CustomResource {
     /**
      * Get an existing MonitoringSubscription resource's state with the given name, ID, and optional extra
@@ -35,7 +62,13 @@ export class MonitoringSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === MonitoringSubscription.__pulumiType;
     }
 
+    /**
+     * The ID of the distribution that you are enabling metrics for.
+     */
     public readonly distributionId!: pulumi.Output<string>;
+    /**
+     * A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+     */
     public readonly monitoringSubscription!: pulumi.Output<outputs.cloudfront.MonitoringSubscriptionMonitoringSubscription>;
 
     /**
@@ -73,7 +106,13 @@ export class MonitoringSubscription extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MonitoringSubscription resources.
  */
 export interface MonitoringSubscriptionState {
+    /**
+     * The ID of the distribution that you are enabling metrics for.
+     */
     distributionId?: pulumi.Input<string>;
+    /**
+     * A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+     */
     monitoringSubscription?: pulumi.Input<inputs.cloudfront.MonitoringSubscriptionMonitoringSubscription>;
 }
 
@@ -81,6 +120,12 @@ export interface MonitoringSubscriptionState {
  * The set of arguments for constructing a MonitoringSubscription resource.
  */
 export interface MonitoringSubscriptionArgs {
+    /**
+     * The ID of the distribution that you are enabling metrics for.
+     */
     distributionId: pulumi.Input<string>;
+    /**
+     * A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+     */
     monitoringSubscription: pulumi.Input<inputs.cloudfront.MonitoringSubscriptionMonitoringSubscription>;
 }

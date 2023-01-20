@@ -11,9 +11,59 @@ namespace Pulumi.Aws.Ecs
 {
     public static class GetCluster
     {
+        /// <summary>
+        /// The ECS Cluster data source allows access to details of a specific
+        /// cluster within an AWS ECS service.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var ecs_mongo = Aws.Ecs.GetCluster.Invoke(new()
+        ///     {
+        ///         ClusterName = "ecs-mongo-production",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:ecs/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// The ECS Cluster data source allows access to details of a specific
+        /// cluster within an AWS ECS service.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var ecs_mongo = Aws.Ecs.GetCluster.Invoke(new()
+        ///     {
+        ///         ClusterName = "ecs-mongo-production",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws:ecs/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +71,9 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the ECS Cluster
+        /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
 
@@ -32,6 +85,9 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the ECS Cluster
+        /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
@@ -45,17 +101,38 @@ namespace Pulumi.Aws.Ecs
     [OutputType]
     public sealed class GetClusterResult
     {
+        /// <summary>
+        /// ARN of the ECS Cluster
+        /// </summary>
         public readonly string Arn;
         public readonly string ClusterName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Number of pending tasks for the ECS Cluster
+        /// </summary>
         public readonly int PendingTasksCount;
+        /// <summary>
+        /// The number of registered container instances for the ECS Cluster
+        /// </summary>
         public readonly int RegisteredContainerInstancesCount;
+        /// <summary>
+        /// Number of running tasks for the ECS Cluster
+        /// </summary>
         public readonly int RunningTasksCount;
+        /// <summary>
+        /// The default Service Connect namespace
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterServiceConnectDefaultResult> ServiceConnectDefaults;
+        /// <summary>
+        /// Settings associated with the ECS Cluster
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterSettingResult> Settings;
+        /// <summary>
+        /// Status of the ECS Cluster
+        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

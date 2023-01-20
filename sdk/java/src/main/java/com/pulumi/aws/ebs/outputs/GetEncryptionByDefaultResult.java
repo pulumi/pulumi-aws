@@ -10,6 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEncryptionByDefaultResult {
+    /**
+     * @return Whether or not default EBS encryption is enabled. Returns as `true` or `false`.
+     * 
+     */
     private Boolean enabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -18,6 +22,10 @@ public final class GetEncryptionByDefaultResult {
     private String id;
 
     private GetEncryptionByDefaultResult() {}
+    /**
+     * @return Whether or not default EBS encryption is enabled. Returns as `true` or `false`.
+     * 
+     */
     public Boolean enabled() {
         return this.enabled;
     }

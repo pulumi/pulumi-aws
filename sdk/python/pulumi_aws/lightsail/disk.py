@@ -20,6 +20,10 @@ class DiskArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Disk resource.
+        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your disk.
+        :param pulumi.Input[int] size_in_gb: The instance port the load balancer will connect.
+        :param pulumi.Input[str] name: The name of the Lightsail load balancer.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "size_in_gb", size_in_gb)
@@ -31,6 +35,9 @@ class DiskArgs:
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Input[str]:
+        """
+        The Availability Zone in which to create your disk.
+        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -40,6 +47,9 @@ class DiskArgs:
     @property
     @pulumi.getter(name="sizeInGb")
     def size_in_gb(self) -> pulumi.Input[int]:
+        """
+        The instance port the load balancer will connect.
+        """
         return pulumi.get(self, "size_in_gb")
 
     @size_in_gb.setter
@@ -49,6 +59,9 @@ class DiskArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Lightsail load balancer.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -58,6 +71,9 @@ class DiskArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -78,6 +94,14 @@ class _DiskState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Disk resources.
+        :param pulumi.Input[str] arn: The ARN of the Lightsail load balancer.
+        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your disk.
+        :param pulumi.Input[str] created_at: The timestamp when the load balancer was created.
+        :param pulumi.Input[str] name: The name of the Lightsail load balancer.
+        :param pulumi.Input[int] size_in_gb: The instance port the load balancer will connect.
+        :param pulumi.Input[str] support_code: The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -99,6 +123,9 @@ class _DiskState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Lightsail load balancer.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -108,6 +135,9 @@ class _DiskState:
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Availability Zone in which to create your disk.
+        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -117,6 +147,9 @@ class _DiskState:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp when the load balancer was created.
+        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -126,6 +159,9 @@ class _DiskState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Lightsail load balancer.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -135,6 +171,9 @@ class _DiskState:
     @property
     @pulumi.getter(name="sizeInGb")
     def size_in_gb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The instance port the load balancer will connect.
+        """
         return pulumi.get(self, "size_in_gb")
 
     @size_in_gb.setter
@@ -144,6 +183,9 @@ class _DiskState:
     @property
     @pulumi.getter(name="supportCode")
     def support_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        """
         return pulumi.get(self, "support_code")
 
     @support_code.setter
@@ -153,6 +195,9 @@ class _DiskState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -162,6 +207,9 @@ class _DiskState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -180,9 +228,38 @@ class Disk(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Disk resource with the given unique name, props, and options.
+        Provides a Lightsail Disk resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        available = aws.get_availability_zones(state="available",
+            filters=[aws.GetAvailabilityZonesFilterArgs(
+                name="opt-in-status",
+                values=["opt-in-not-required"],
+            )])
+        test = aws.lightsail.Disk("test",
+            size_in_gb=8,
+            availability_zone=available.names[0])
+        ```
+
+        ## Import
+
+        `aws_lightsail_disk` can be imported by using the name attribute, e.g.,
+
+        ```sh
+         $ pulumi import aws:lightsail/disk:Disk test test
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your disk.
+        :param pulumi.Input[str] name: The name of the Lightsail load balancer.
+        :param pulumi.Input[int] size_in_gb: The instance port the load balancer will connect.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -191,7 +268,32 @@ class Disk(pulumi.CustomResource):
                  args: DiskArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Disk resource with the given unique name, props, and options.
+        Provides a Lightsail Disk resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        available = aws.get_availability_zones(state="available",
+            filters=[aws.GetAvailabilityZonesFilterArgs(
+                name="opt-in-status",
+                values=["opt-in-not-required"],
+            )])
+        test = aws.lightsail.Disk("test",
+            size_in_gb=8,
+            availability_zone=available.names[0])
+        ```
+
+        ## Import
+
+        `aws_lightsail_disk` can be imported by using the name attribute, e.g.,
+
+        ```sh
+         $ pulumi import aws:lightsail/disk:Disk test test
+        ```
+
         :param str resource_name: The name of the resource.
         :param DiskArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -257,6 +359,14 @@ class Disk(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the Lightsail load balancer.
+        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your disk.
+        :param pulumi.Input[str] created_at: The timestamp when the load balancer was created.
+        :param pulumi.Input[str] name: The name of the Lightsail load balancer.
+        :param pulumi.Input[int] size_in_gb: The instance port the load balancer will connect.
+        :param pulumi.Input[str] support_code: The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -275,40 +385,64 @@ class Disk(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the Lightsail load balancer.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[str]:
+        """
+        The Availability Zone in which to create your disk.
+        """
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The timestamp when the load balancer was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Lightsail load balancer.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="sizeInGb")
     def size_in_gb(self) -> pulumi.Output[int]:
+        """
+        The instance port the load balancer will connect.
+        """
         return pulumi.get(self, "size_in_gb")
 
     @property
     @pulumi.getter(name="supportCode")
     def support_code(self) -> pulumi.Output[str]:
+        """
+        The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        """
         return pulumi.get(self, "support_code")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

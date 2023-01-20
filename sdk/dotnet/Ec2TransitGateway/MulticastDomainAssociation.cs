@@ -9,15 +9,66 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2TransitGateway
 {
+    /// <summary>
+    /// Associates the specified subnet and transit gateway attachment with the specified transit gateway multicast domain.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new()
+    ///     {
+    ///         MulticastSupport = "enable",
+    ///     });
+    /// 
+    ///     var exampleVpcAttachment = new Aws.Ec2TransitGateway.VpcAttachment("exampleVpcAttachment", new()
+    ///     {
+    ///         SubnetIds = new[]
+    ///         {
+    ///             aws_subnet.Example.Id,
+    ///         },
+    ///         TransitGatewayId = exampleTransitGateway.Id,
+    ///         VpcId = aws_vpc.Example.Id,
+    ///     });
+    /// 
+    ///     var exampleMulticastDomain = new Aws.Ec2TransitGateway.MulticastDomain("exampleMulticastDomain", new()
+    ///     {
+    ///         TransitGatewayId = exampleTransitGateway.Id,
+    ///     });
+    /// 
+    ///     var exampleMulticastDomainAssociation = new Aws.Ec2TransitGateway.MulticastDomainAssociation("exampleMulticastDomainAssociation", new()
+    ///     {
+    ///         SubnetId = aws_subnet.Example.Id,
+    ///         TransitGatewayAttachmentId = exampleVpcAttachment.Id,
+    ///         TransitGatewayMulticastDomainId = exampleMulticastDomain.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation")]
     public partial class MulticastDomainAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the subnet to associate with the transit gateway multicast domain.
+        /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the transit gateway attachment.
+        /// </summary>
         [Output("transitGatewayAttachmentId")]
         public Output<string> TransitGatewayAttachmentId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the transit gateway multicast domain.
+        /// </summary>
         [Output("transitGatewayMulticastDomainId")]
         public Output<string> TransitGatewayMulticastDomainId { get; private set; } = null!;
 
@@ -67,12 +118,21 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class MulticastDomainAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the subnet to associate with the transit gateway multicast domain.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the transit gateway attachment.
+        /// </summary>
         [Input("transitGatewayAttachmentId", required: true)]
         public Input<string> TransitGatewayAttachmentId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the transit gateway multicast domain.
+        /// </summary>
         [Input("transitGatewayMulticastDomainId", required: true)]
         public Input<string> TransitGatewayMulticastDomainId { get; set; } = null!;
 
@@ -84,12 +144,21 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class MulticastDomainAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the subnet to associate with the transit gateway multicast domain.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        /// <summary>
+        /// The ID of the transit gateway attachment.
+        /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }
 
+        /// <summary>
+        /// The ID of the transit gateway multicast domain.
+        /// </summary>
         [Input("transitGatewayMulticastDomainId")]
         public Input<string>? TransitGatewayMulticastDomainId { get; set; }
 

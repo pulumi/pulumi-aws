@@ -13,16 +13,32 @@ public final class BucketPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BucketPolicyArgs Empty = new BucketPolicyArgs();
 
+    /**
+     * Amazon Resource Name (ARN) of the bucket.
+     * 
+     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
+    /**
+     * @return Amazon Resource Name (ARN) of the bucket.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
+    /**
+     * JSON string of the resource policy.
+     * 
+     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
+    /**
+     * @return JSON string of the resource policy.
+     * 
+     */
     public Output<String> policy() {
         return this.policy;
     }
@@ -52,20 +68,44 @@ public final class BucketPolicyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new BucketPolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucket Amazon Resource Name (ARN) of the bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
+        /**
+         * @param bucket Amazon Resource Name (ARN) of the bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param policy JSON string of the resource policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
+        /**
+         * @param policy JSON string of the resource policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }

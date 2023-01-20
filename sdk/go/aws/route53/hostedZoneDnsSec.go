@@ -11,10 +11,135 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages Route 53 Hosted Zone Domain Name System Security Extensions (DNSSEC). For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
+//
+// !> **WARNING:** If you disable DNSSEC signing for your hosted zone before the DNS changes have propagated, your domain could become unavailable on the internet. When you remove the DS records, you must wait until the longest TTL for the DS records that you remove has expired before you complete the step to disable DNSSEC signing. Please refer to the [Route 53 Developer Guide - Disable DNSSEC](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-disable.html) for a detailed breakdown on the steps required to disable DNSSEC safely for a hosted zone.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Statement": []interface{}{
+//					map[string]interface{}{
+//						"Action": []string{
+//							"kms:DescribeKey",
+//							"kms:GetPublicKey",
+//							"kms:Sign",
+//						},
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"Service": "dnssec-route53.amazonaws.com",
+//						},
+//						"Sid":      "Allow Route 53 DNSSEC Service",
+//						"Resource": "*",
+//						"Condition": map[string]interface{}{
+//							"StringEquals": map[string]interface{}{
+//								"aws:SourceAccount": current.AccountId,
+//							},
+//							"ArnLike": map[string]interface{}{
+//								"aws:SourceArn": "arn:aws:route53:::hostedzone/*",
+//							},
+//						},
+//					},
+//					map[string]interface{}{
+//						"Action": "kms:CreateGrant",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"Service": "dnssec-route53.amazonaws.com",
+//						},
+//						"Sid":      "Allow Route 53 DNSSEC Service to CreateGrant",
+//						"Resource": "*",
+//						"Condition": map[string]interface{}{
+//							"Bool": map[string]interface{}{
+//								"kms:GrantIsForAWSResource": "true",
+//							},
+//						},
+//					},
+//					map[string]interface{}{
+//						"Action": "kms:*",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
+//						},
+//						"Resource": "*",
+//						"Sid":      "Enable IAM User Permissions",
+//					},
+//				},
+//				"Version": "2012-10-17",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//				CustomerMasterKeySpec: pulumi.String("ECC_NIST_P256"),
+//				DeletionWindowInDays:  pulumi.Int(7),
+//				KeyUsage:              pulumi.String("SIGN_VERIFY"),
+//				Policy:                pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := route53.NewZone(ctx, "exampleZone", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeySigningKey, err := route53.NewKeySigningKey(ctx, "exampleKeySigningKey", &route53.KeySigningKeyArgs{
+//				HostedZoneId:            exampleZone.ID(),
+//				KeyManagementServiceArn: exampleKey.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewHostedZoneDnsSec(ctx, "exampleHostedZoneDnsSec", &route53.HostedZoneDnsSecArgs{
+//				HostedZoneId: exampleKeySigningKey.HostedZoneId,
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleKeySigningKey,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_route53_hosted_zone_dnssec` resources can be imported by using the Route 53 Hosted Zone identifier, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
+//
+// ```
 type HostedZoneDnsSec struct {
 	pulumi.CustomResourceState
 
-	HostedZoneId  pulumi.StringOutput    `pulumi:"hostedZoneId"`
+	// Identifier of the Route 53 Hosted Zone.
+	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
+	// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
 	SigningStatus pulumi.StringPtrOutput `pulumi:"signingStatus"`
 }
 
@@ -50,12 +175,16 @@ func GetHostedZoneDnsSec(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HostedZoneDnsSec resources.
 type hostedZoneDnsSecState struct {
-	HostedZoneId  *string `pulumi:"hostedZoneId"`
+	// Identifier of the Route 53 Hosted Zone.
+	HostedZoneId *string `pulumi:"hostedZoneId"`
+	// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
 	SigningStatus *string `pulumi:"signingStatus"`
 }
 
 type HostedZoneDnsSecState struct {
-	HostedZoneId  pulumi.StringPtrInput
+	// Identifier of the Route 53 Hosted Zone.
+	HostedZoneId pulumi.StringPtrInput
+	// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
 	SigningStatus pulumi.StringPtrInput
 }
 
@@ -64,13 +193,17 @@ func (HostedZoneDnsSecState) ElementType() reflect.Type {
 }
 
 type hostedZoneDnsSecArgs struct {
-	HostedZoneId  string  `pulumi:"hostedZoneId"`
+	// Identifier of the Route 53 Hosted Zone.
+	HostedZoneId string `pulumi:"hostedZoneId"`
+	// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
 	SigningStatus *string `pulumi:"signingStatus"`
 }
 
 // The set of arguments for constructing a HostedZoneDnsSec resource.
 type HostedZoneDnsSecArgs struct {
-	HostedZoneId  pulumi.StringInput
+	// Identifier of the Route 53 Hosted Zone.
+	HostedZoneId pulumi.StringInput
+	// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
 	SigningStatus pulumi.StringPtrInput
 }
 
@@ -161,10 +294,12 @@ func (o HostedZoneDnsSecOutput) ToHostedZoneDnsSecOutputWithContext(ctx context.
 	return o
 }
 
+// Identifier of the Route 53 Hosted Zone.
 func (o HostedZoneDnsSecOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedZoneDnsSec) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
 }
 
+// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
 func (o HostedZoneDnsSecOutput) SigningStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostedZoneDnsSec) pulumi.StringPtrOutput { return v.SigningStatus }).(pulumi.StringPtrOutput)
 }

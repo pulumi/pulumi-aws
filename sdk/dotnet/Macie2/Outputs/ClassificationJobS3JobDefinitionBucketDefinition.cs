@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Macie2.Outputs
     [OutputType]
     public sealed class ClassificationJobS3JobDefinitionBucketDefinition
     {
+        /// <summary>
+        /// The unique identifier for the AWS account that owns the buckets.
+        /// </summary>
         public readonly string AccountId;
+        /// <summary>
+        /// An array that lists the names of the buckets.
+        /// </summary>
         public readonly ImmutableArray<string> Buckets;
 
         [OutputConstructor]

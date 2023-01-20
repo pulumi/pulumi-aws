@@ -28,6 +28,16 @@ class FirewallArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Firewall resource.
+        :param pulumi.Input[str] firewall_policy_arn: The Amazon Resource Name (ARN) of the VPC Firewall policy.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]] subnet_mappings: Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+        :param pulumi.Input[str] vpc_id: The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+        :param pulumi.Input[bool] delete_protection: A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+        :param pulumi.Input[str] description: A friendly description of the firewall.
+        :param pulumi.Input['FirewallEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input[bool] firewall_policy_change_protection: A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        :param pulumi.Input[str] name: A friendly name of the firewall.
+        :param pulumi.Input[bool] subnet_change_protection: A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "firewall_policy_arn", firewall_policy_arn)
         pulumi.set(__self__, "subnet_mappings", subnet_mappings)
@@ -50,6 +60,9 @@ class FirewallArgs:
     @property
     @pulumi.getter(name="firewallPolicyArn")
     def firewall_policy_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the VPC Firewall policy.
+        """
         return pulumi.get(self, "firewall_policy_arn")
 
     @firewall_policy_arn.setter
@@ -59,6 +72,9 @@ class FirewallArgs:
     @property
     @pulumi.getter(name="subnetMappings")
     def subnet_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]:
+        """
+        Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+        """
         return pulumi.get(self, "subnet_mappings")
 
     @subnet_mappings.setter
@@ -68,6 +84,9 @@ class FirewallArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -77,6 +96,9 @@ class FirewallArgs:
     @property
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+        """
         return pulumi.get(self, "delete_protection")
 
     @delete_protection.setter
@@ -86,6 +108,9 @@ class FirewallArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly description of the firewall.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -95,6 +120,9 @@ class FirewallArgs:
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['FirewallEncryptionConfigurationArgs']]:
+        """
+        KMS encryption configuration settings. See Encryption Configuration below for details.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -104,6 +132,9 @@ class FirewallArgs:
     @property
     @pulumi.getter(name="firewallPolicyChangeProtection")
     def firewall_policy_change_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        """
         return pulumi.get(self, "firewall_policy_change_protection")
 
     @firewall_policy_change_protection.setter
@@ -113,6 +144,9 @@ class FirewallArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name of the firewall.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -122,6 +156,9 @@ class FirewallArgs:
     @property
     @pulumi.getter(name="subnetChangeProtection")
     def subnet_change_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+        """
         return pulumi.get(self, "subnet_change_protection")
 
     @subnet_change_protection.setter
@@ -131,6 +168,9 @@ class FirewallArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -157,6 +197,20 @@ class _FirewallState:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Firewall resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the firewall.
+        :param pulumi.Input[bool] delete_protection: A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+        :param pulumi.Input[str] description: A friendly description of the firewall.
+        :param pulumi.Input['FirewallEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input[str] firewall_policy_arn: The Amazon Resource Name (ARN) of the VPC Firewall policy.
+        :param pulumi.Input[bool] firewall_policy_change_protection: A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusArgs']]] firewall_statuses: Nested list of information about the current status of the firewall.
+        :param pulumi.Input[str] name: A friendly name of the firewall.
+        :param pulumi.Input[bool] subnet_change_protection: A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]] subnet_mappings: Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] update_token: A string token used when updating a firewall.
+        :param pulumi.Input[str] vpc_id: The unique identifier of the VPC where AWS Network Firewall should create the firewall.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -190,6 +244,9 @@ class _FirewallState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) that identifies the firewall.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -199,6 +256,9 @@ class _FirewallState:
     @property
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+        """
         return pulumi.get(self, "delete_protection")
 
     @delete_protection.setter
@@ -208,6 +268,9 @@ class _FirewallState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly description of the firewall.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -217,6 +280,9 @@ class _FirewallState:
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['FirewallEncryptionConfigurationArgs']]:
+        """
+        KMS encryption configuration settings. See Encryption Configuration below for details.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -226,6 +292,9 @@ class _FirewallState:
     @property
     @pulumi.getter(name="firewallPolicyArn")
     def firewall_policy_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the VPC Firewall policy.
+        """
         return pulumi.get(self, "firewall_policy_arn")
 
     @firewall_policy_arn.setter
@@ -235,6 +304,9 @@ class _FirewallState:
     @property
     @pulumi.getter(name="firewallPolicyChangeProtection")
     def firewall_policy_change_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        """
         return pulumi.get(self, "firewall_policy_change_protection")
 
     @firewall_policy_change_protection.setter
@@ -244,6 +316,9 @@ class _FirewallState:
     @property
     @pulumi.getter(name="firewallStatuses")
     def firewall_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusArgs']]]]:
+        """
+        Nested list of information about the current status of the firewall.
+        """
         return pulumi.get(self, "firewall_statuses")
 
     @firewall_statuses.setter
@@ -253,6 +328,9 @@ class _FirewallState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name of the firewall.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -262,6 +340,9 @@ class _FirewallState:
     @property
     @pulumi.getter(name="subnetChangeProtection")
     def subnet_change_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+        """
         return pulumi.get(self, "subnet_change_protection")
 
     @subnet_change_protection.setter
@@ -271,6 +352,9 @@ class _FirewallState:
     @property
     @pulumi.getter(name="subnetMappings")
     def subnet_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]]:
+        """
+        Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+        """
         return pulumi.get(self, "subnet_mappings")
 
     @subnet_mappings.setter
@@ -280,6 +364,9 @@ class _FirewallState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -289,6 +376,9 @@ class _FirewallState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -298,6 +388,9 @@ class _FirewallState:
     @property
     @pulumi.getter(name="updateToken")
     def update_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string token used when updating a firewall.
+        """
         return pulumi.get(self, "update_token")
 
     @update_token.setter
@@ -307,6 +400,9 @@ class _FirewallState:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -331,9 +427,46 @@ class Firewall(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Firewall resource with the given unique name, props, and options.
+        Provides an AWS Network Firewall Firewall Resource
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkfirewall.Firewall("example",
+            firewall_policy_arn=aws_networkfirewall_firewall_policy["example"]["arn"],
+            vpc_id=aws_vpc["example"]["id"],
+            subnet_mappings=[aws.networkfirewall.FirewallSubnetMappingArgs(
+                subnet_id=aws_subnet["example"]["id"],
+            )],
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            })
+        ```
+
+        ## Import
+
+        Network Firewall Firewalls can be imported using their `ARN`.
+
+        ```sh
+         $ pulumi import aws:networkfirewall/firewall:Firewall example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] delete_protection: A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+        :param pulumi.Input[str] description: A friendly description of the firewall.
+        :param pulumi.Input[pulumi.InputType['FirewallEncryptionConfigurationArgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input[str] firewall_policy_arn: The Amazon Resource Name (ARN) of the VPC Firewall policy.
+        :param pulumi.Input[bool] firewall_policy_change_protection: A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        :param pulumi.Input[str] name: A friendly name of the firewall.
+        :param pulumi.Input[bool] subnet_change_protection: A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallSubnetMappingArgs']]]] subnet_mappings: Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] vpc_id: The unique identifier of the VPC where AWS Network Firewall should create the firewall.
         """
         ...
     @overload
@@ -342,7 +475,34 @@ class Firewall(pulumi.CustomResource):
                  args: FirewallArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Firewall resource with the given unique name, props, and options.
+        Provides an AWS Network Firewall Firewall Resource
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkfirewall.Firewall("example",
+            firewall_policy_arn=aws_networkfirewall_firewall_policy["example"]["arn"],
+            vpc_id=aws_vpc["example"]["id"],
+            subnet_mappings=[aws.networkfirewall.FirewallSubnetMappingArgs(
+                subnet_id=aws_subnet["example"]["id"],
+            )],
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            })
+        ```
+
+        ## Import
+
+        Network Firewall Firewalls can be imported using their `ARN`.
+
+        ```sh
+         $ pulumi import aws:networkfirewall/firewall:Firewall example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param FirewallArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -428,6 +588,20 @@ class Firewall(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the firewall.
+        :param pulumi.Input[bool] delete_protection: A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+        :param pulumi.Input[str] description: A friendly description of the firewall.
+        :param pulumi.Input[pulumi.InputType['FirewallEncryptionConfigurationArgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input[str] firewall_policy_arn: The Amazon Resource Name (ARN) of the VPC Firewall policy.
+        :param pulumi.Input[bool] firewall_policy_change_protection: A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFirewallStatusArgs']]]] firewall_statuses: Nested list of information about the current status of the firewall.
+        :param pulumi.Input[str] name: A friendly name of the firewall.
+        :param pulumi.Input[bool] subnet_change_protection: A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallSubnetMappingArgs']]]] subnet_mappings: Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] update_token: A string token used when updating a firewall.
+        :param pulumi.Input[str] vpc_id: The unique identifier of the VPC where AWS Network Firewall should create the firewall.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -452,70 +626,112 @@ class Firewall(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) that identifies the firewall.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+        """
         return pulumi.get(self, "delete_protection")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A friendly description of the firewall.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output[Optional['outputs.FirewallEncryptionConfiguration']]:
+        """
+        KMS encryption configuration settings. See Encryption Configuration below for details.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @property
     @pulumi.getter(name="firewallPolicyArn")
     def firewall_policy_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the VPC Firewall policy.
+        """
         return pulumi.get(self, "firewall_policy_arn")
 
     @property
     @pulumi.getter(name="firewallPolicyChangeProtection")
     def firewall_policy_change_protection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        """
         return pulumi.get(self, "firewall_policy_change_protection")
 
     @property
     @pulumi.getter(name="firewallStatuses")
     def firewall_statuses(self) -> pulumi.Output[Sequence['outputs.FirewallFirewallStatus']]:
+        """
+        Nested list of information about the current status of the firewall.
+        """
         return pulumi.get(self, "firewall_statuses")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A friendly name of the firewall.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="subnetChangeProtection")
     def subnet_change_protection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+        """
         return pulumi.get(self, "subnet_change_protection")
 
     @property
     @pulumi.getter(name="subnetMappings")
     def subnet_mappings(self) -> pulumi.Output[Sequence['outputs.FirewallSubnetMapping']]:
+        """
+        Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+        """
         return pulumi.get(self, "subnet_mappings")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="updateToken")
     def update_token(self) -> pulumi.Output[str]:
+        """
+        A string token used when updating a firewall.
+        """
         return pulumi.get(self, "update_token")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+        """
         return pulumi.get(self, "vpc_id")
 

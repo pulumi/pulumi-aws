@@ -10,6 +10,40 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := imagebuilder.GetDistributionConfigurations(ctx, &imagebuilder.GetDistributionConfigurationsArgs{
+//				Filters: []imagebuilder.GetDistributionConfigurationsFilter{
+//					{
+//						Name: "name",
+//						Values: []string{
+//							"example",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetDistributionConfigurations(ctx *pulumi.Context, args *GetDistributionConfigurationsArgs, opts ...pulumi.InvokeOption) (*GetDistributionConfigurationsResult, error) {
 	var rv GetDistributionConfigurationsResult
 	err := ctx.Invoke("aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations", args, &rv, opts...)
@@ -21,15 +55,18 @@ func GetDistributionConfigurations(ctx *pulumi.Context, args *GetDistributionCon
 
 // A collection of arguments for invoking getDistributionConfigurations.
 type GetDistributionConfigurationsArgs struct {
+	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetDistributionConfigurationsFilter `pulumi:"filters"`
 }
 
 // A collection of values returned by getDistributionConfigurations.
 type GetDistributionConfigurationsResult struct {
+	// Set of ARNs of the matched Image Builder Distribution Configurations.
 	Arns    []string                              `pulumi:"arns"`
 	Filters []GetDistributionConfigurationsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id    string   `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Set of names of the matched Image Builder Distribution Configurations.
 	Names []string `pulumi:"names"`
 }
 
@@ -48,6 +85,7 @@ func GetDistributionConfigurationsOutput(ctx *pulumi.Context, args GetDistributi
 
 // A collection of arguments for invoking getDistributionConfigurations.
 type GetDistributionConfigurationsOutputArgs struct {
+	// Configuration block(s) for filtering. Detailed below.
 	Filters GetDistributionConfigurationsFilterArrayInput `pulumi:"filters"`
 }
 
@@ -70,6 +108,7 @@ func (o GetDistributionConfigurationsResultOutput) ToGetDistributionConfiguratio
 	return o
 }
 
+// Set of ARNs of the matched Image Builder Distribution Configurations.
 func (o GetDistributionConfigurationsResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }
@@ -83,6 +122,7 @@ func (o GetDistributionConfigurationsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Set of names of the matched Image Builder Distribution Configurations.
 func (o GetDistributionConfigurationsResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationsResult) []string { return v.Names }).(pulumi.StringArrayOutput)
 }

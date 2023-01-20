@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
+    /**
+     * @return Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+     * 
+     */
     private String cookieBehavior;
+    /**
+     * @return Object that contains a list of cookie names. See Items for more information.
+     * 
+     */
     private @Nullable CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies cookies;
 
     private CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig() {}
+    /**
+     * @return Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+     * 
+     */
     public String cookieBehavior() {
         return this.cookieBehavior;
     }
+    /**
+     * @return Object that contains a list of cookie names. See Items for more information.
+     * 
+     */
     public Optional<CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies> cookies() {
         return Optional.ofNullable(this.cookies);
     }

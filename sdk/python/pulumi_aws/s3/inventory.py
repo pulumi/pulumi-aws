@@ -26,6 +26,14 @@ class InventoryArgs:
                  optional_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Inventory resource.
+        :param pulumi.Input[str] bucket: The name of the source bucket that inventory lists the objects for.
+        :param pulumi.Input['InventoryDestinationArgs'] destination: Contains information about where to publish the inventory results (documented below).
+        :param pulumi.Input[str] included_object_versions: Object versions to include in the inventory list. Valid values: `All`, `Current`.
+        :param pulumi.Input['InventoryScheduleArgs'] schedule: Specifies the schedule for generating inventory results (documented below).
+        :param pulumi.Input[bool] enabled: Specifies whether the inventory is enabled or disabled.
+        :param pulumi.Input['InventoryFilterArgs'] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+        :param pulumi.Input[str] name: Unique identifier of the inventory configuration for the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_fields: List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "destination", destination)
@@ -43,6 +51,9 @@ class InventoryArgs:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
+        """
+        The name of the source bucket that inventory lists the objects for.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -52,6 +63,9 @@ class InventoryArgs:
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Input['InventoryDestinationArgs']:
+        """
+        Contains information about where to publish the inventory results (documented below).
+        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -61,6 +75,9 @@ class InventoryArgs:
     @property
     @pulumi.getter(name="includedObjectVersions")
     def included_object_versions(self) -> pulumi.Input[str]:
+        """
+        Object versions to include in the inventory list. Valid values: `All`, `Current`.
+        """
         return pulumi.get(self, "included_object_versions")
 
     @included_object_versions.setter
@@ -70,6 +87,9 @@ class InventoryArgs:
     @property
     @pulumi.getter
     def schedule(self) -> pulumi.Input['InventoryScheduleArgs']:
+        """
+        Specifies the schedule for generating inventory results (documented below).
+        """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
@@ -79,6 +99,9 @@ class InventoryArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the inventory is enabled or disabled.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -88,6 +111,9 @@ class InventoryArgs:
     @property
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input['InventoryFilterArgs']]:
+        """
+        Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -97,6 +123,9 @@ class InventoryArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique identifier of the inventory configuration for the bucket.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -106,6 +135,9 @@ class InventoryArgs:
     @property
     @pulumi.getter(name="optionalFields")
     def optional_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
+        """
         return pulumi.get(self, "optional_fields")
 
     @optional_fields.setter
@@ -126,6 +158,14 @@ class _InventoryState:
                  schedule: Optional[pulumi.Input['InventoryScheduleArgs']] = None):
         """
         Input properties used for looking up and filtering Inventory resources.
+        :param pulumi.Input[str] bucket: The name of the source bucket that inventory lists the objects for.
+        :param pulumi.Input['InventoryDestinationArgs'] destination: Contains information about where to publish the inventory results (documented below).
+        :param pulumi.Input[bool] enabled: Specifies whether the inventory is enabled or disabled.
+        :param pulumi.Input['InventoryFilterArgs'] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+        :param pulumi.Input[str] included_object_versions: Object versions to include in the inventory list. Valid values: `All`, `Current`.
+        :param pulumi.Input[str] name: Unique identifier of the inventory configuration for the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_fields: List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
+        :param pulumi.Input['InventoryScheduleArgs'] schedule: Specifies the schedule for generating inventory results (documented below).
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -147,6 +187,9 @@ class _InventoryState:
     @property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the source bucket that inventory lists the objects for.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -156,6 +199,9 @@ class _InventoryState:
     @property
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input['InventoryDestinationArgs']]:
+        """
+        Contains information about where to publish the inventory results (documented below).
+        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -165,6 +211,9 @@ class _InventoryState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the inventory is enabled or disabled.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -174,6 +223,9 @@ class _InventoryState:
     @property
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input['InventoryFilterArgs']]:
+        """
+        Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -183,6 +235,9 @@ class _InventoryState:
     @property
     @pulumi.getter(name="includedObjectVersions")
     def included_object_versions(self) -> Optional[pulumi.Input[str]]:
+        """
+        Object versions to include in the inventory list. Valid values: `All`, `Current`.
+        """
         return pulumi.get(self, "included_object_versions")
 
     @included_object_versions.setter
@@ -192,6 +247,9 @@ class _InventoryState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique identifier of the inventory configuration for the bucket.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -201,6 +259,9 @@ class _InventoryState:
     @property
     @pulumi.getter(name="optionalFields")
     def optional_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
+        """
         return pulumi.get(self, "optional_fields")
 
     @optional_fields.setter
@@ -210,6 +271,9 @@ class _InventoryState:
     @property
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['InventoryScheduleArgs']]:
+        """
+        Specifies the schedule for generating inventory results (documented below).
+        """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
@@ -232,9 +296,74 @@ class Inventory(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[pulumi.InputType['InventoryScheduleArgs']]] = None,
                  __props__=None):
         """
-        Create a Inventory resource with the given unique name, props, and options.
+        Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
+
+        ## Example Usage
+        ### Add inventory configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_bucket_v2 = aws.s3.BucketV2("testBucketV2")
+        inventory = aws.s3.BucketV2("inventory")
+        test_inventory = aws.s3.Inventory("testInventory",
+            bucket=test_bucket_v2.id,
+            included_object_versions="All",
+            schedule=aws.s3.InventoryScheduleArgs(
+                frequency="Daily",
+            ),
+            destination=aws.s3.InventoryDestinationArgs(
+                bucket=aws.s3.InventoryDestinationBucketArgs(
+                    format="ORC",
+                    bucket_arn=inventory.arn,
+                ),
+            ))
+        ```
+        ### Add inventory configuration with S3 object prefix
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.s3.BucketV2("test")
+        inventory = aws.s3.BucketV2("inventory")
+        test_prefix = aws.s3.Inventory("test-prefix",
+            bucket=test.id,
+            included_object_versions="All",
+            schedule=aws.s3.InventoryScheduleArgs(
+                frequency="Daily",
+            ),
+            filter=aws.s3.InventoryFilterArgs(
+                prefix="documents/",
+            ),
+            destination=aws.s3.InventoryDestinationArgs(
+                bucket=aws.s3.InventoryDestinationBucketArgs(
+                    format="ORC",
+                    bucket_arn=inventory.arn,
+                    prefix="inventory",
+                ),
+            ))
+        ```
+
+        ## Import
+
+        S3 bucket inventory configurations can be imported using `bucket:inventory`, e.g.,
+
+        ```sh
+         $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bucket: The name of the source bucket that inventory lists the objects for.
+        :param pulumi.Input[pulumi.InputType['InventoryDestinationArgs']] destination: Contains information about where to publish the inventory results (documented below).
+        :param pulumi.Input[bool] enabled: Specifies whether the inventory is enabled or disabled.
+        :param pulumi.Input[pulumi.InputType['InventoryFilterArgs']] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+        :param pulumi.Input[str] included_object_versions: Object versions to include in the inventory list. Valid values: `All`, `Current`.
+        :param pulumi.Input[str] name: Unique identifier of the inventory configuration for the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_fields: List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
+        :param pulumi.Input[pulumi.InputType['InventoryScheduleArgs']] schedule: Specifies the schedule for generating inventory results (documented below).
         """
         ...
     @overload
@@ -243,7 +372,64 @@ class Inventory(pulumi.CustomResource):
                  args: InventoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Inventory resource with the given unique name, props, and options.
+        Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
+
+        ## Example Usage
+        ### Add inventory configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_bucket_v2 = aws.s3.BucketV2("testBucketV2")
+        inventory = aws.s3.BucketV2("inventory")
+        test_inventory = aws.s3.Inventory("testInventory",
+            bucket=test_bucket_v2.id,
+            included_object_versions="All",
+            schedule=aws.s3.InventoryScheduleArgs(
+                frequency="Daily",
+            ),
+            destination=aws.s3.InventoryDestinationArgs(
+                bucket=aws.s3.InventoryDestinationBucketArgs(
+                    format="ORC",
+                    bucket_arn=inventory.arn,
+                ),
+            ))
+        ```
+        ### Add inventory configuration with S3 object prefix
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.s3.BucketV2("test")
+        inventory = aws.s3.BucketV2("inventory")
+        test_prefix = aws.s3.Inventory("test-prefix",
+            bucket=test.id,
+            included_object_versions="All",
+            schedule=aws.s3.InventoryScheduleArgs(
+                frequency="Daily",
+            ),
+            filter=aws.s3.InventoryFilterArgs(
+                prefix="documents/",
+            ),
+            destination=aws.s3.InventoryDestinationArgs(
+                bucket=aws.s3.InventoryDestinationBucketArgs(
+                    format="ORC",
+                    bucket_arn=inventory.arn,
+                    prefix="inventory",
+                ),
+            ))
+        ```
+
+        ## Import
+
+        S3 bucket inventory configurations can be imported using `bucket:inventory`, e.g.,
+
+        ```sh
+         $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
+        ```
+
         :param str resource_name: The name of the resource.
         :param InventoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -317,6 +503,14 @@ class Inventory(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bucket: The name of the source bucket that inventory lists the objects for.
+        :param pulumi.Input[pulumi.InputType['InventoryDestinationArgs']] destination: Contains information about where to publish the inventory results (documented below).
+        :param pulumi.Input[bool] enabled: Specifies whether the inventory is enabled or disabled.
+        :param pulumi.Input[pulumi.InputType['InventoryFilterArgs']] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+        :param pulumi.Input[str] included_object_versions: Object versions to include in the inventory list. Valid values: `All`, `Current`.
+        :param pulumi.Input[str] name: Unique identifier of the inventory configuration for the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_fields: List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
+        :param pulumi.Input[pulumi.InputType['InventoryScheduleArgs']] schedule: Specifies the schedule for generating inventory results (documented below).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -335,40 +529,64 @@ class Inventory(pulumi.CustomResource):
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
+        """
+        The name of the source bucket that inventory lists the objects for.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Output['outputs.InventoryDestination']:
+        """
+        Contains information about where to publish the inventory results (documented below).
+        """
         return pulumi.get(self, "destination")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether the inventory is enabled or disabled.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def filter(self) -> pulumi.Output[Optional['outputs.InventoryFilter']]:
+        """
+        Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+        """
         return pulumi.get(self, "filter")
 
     @property
     @pulumi.getter(name="includedObjectVersions")
     def included_object_versions(self) -> pulumi.Output[str]:
+        """
+        Object versions to include in the inventory list. Valid values: `All`, `Current`.
+        """
         return pulumi.get(self, "included_object_versions")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Unique identifier of the inventory configuration for the bucket.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="optionalFields")
     def optional_fields(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
+        """
         return pulumi.get(self, "optional_fields")
 
     @property
     @pulumi.getter
     def schedule(self) -> pulumi.Output['outputs.InventorySchedule']:
+        """
+        Specifies the schedule for generating inventory results (documented below).
+        """
         return pulumi.get(self, "schedule")
 

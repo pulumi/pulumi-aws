@@ -18,6 +18,8 @@ class VpcEndpointConnectionAccepterArgs:
                  vpc_endpoint_service_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a VpcEndpointConnectionAccepter resource.
+        :param pulumi.Input[str] vpc_endpoint_id: AWS VPC Endpoint ID.
+        :param pulumi.Input[str] vpc_endpoint_service_id: AWS VPC Endpoint Service ID.
         """
         pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
         pulumi.set(__self__, "vpc_endpoint_service_id", vpc_endpoint_service_id)
@@ -25,6 +27,9 @@ class VpcEndpointConnectionAccepterArgs:
     @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> pulumi.Input[str]:
+        """
+        AWS VPC Endpoint ID.
+        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
@@ -34,6 +39,9 @@ class VpcEndpointConnectionAccepterArgs:
     @property
     @pulumi.getter(name="vpcEndpointServiceId")
     def vpc_endpoint_service_id(self) -> pulumi.Input[str]:
+        """
+        AWS VPC Endpoint Service ID.
+        """
         return pulumi.get(self, "vpc_endpoint_service_id")
 
     @vpc_endpoint_service_id.setter
@@ -49,6 +57,9 @@ class _VpcEndpointConnectionAccepterState:
                  vpc_endpoint_state: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VpcEndpointConnectionAccepter resources.
+        :param pulumi.Input[str] vpc_endpoint_id: AWS VPC Endpoint ID.
+        :param pulumi.Input[str] vpc_endpoint_service_id: AWS VPC Endpoint Service ID.
+        :param pulumi.Input[str] vpc_endpoint_state: State of the VPC Endpoint.
         """
         if vpc_endpoint_id is not None:
             pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
@@ -60,6 +71,9 @@ class _VpcEndpointConnectionAccepterState:
     @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS VPC Endpoint ID.
+        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
@@ -69,6 +83,9 @@ class _VpcEndpointConnectionAccepterState:
     @property
     @pulumi.getter(name="vpcEndpointServiceId")
     def vpc_endpoint_service_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS VPC Endpoint Service ID.
+        """
         return pulumi.get(self, "vpc_endpoint_service_id")
 
     @vpc_endpoint_service_id.setter
@@ -78,6 +95,9 @@ class _VpcEndpointConnectionAccepterState:
     @property
     @pulumi.getter(name="vpcEndpointState")
     def vpc_endpoint_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        State of the VPC Endpoint.
+        """
         return pulumi.get(self, "vpc_endpoint_state")
 
     @vpc_endpoint_state.setter
@@ -94,9 +114,42 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
                  vpc_endpoint_service_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a VpcEndpointConnectionAccepter resource with the given unique name, props, and options.
+        Provides a resource to accept a pending VPC Endpoint Connection accept request to VPC Endpoint Service.
+
+        ## Example Usage
+        ### Accept cross-account request
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_vpc_endpoint_service = aws.ec2.VpcEndpointService("exampleVpcEndpointService",
+            acceptance_required=False,
+            network_load_balancer_arns=[aws_lb["example"]["arn"]])
+        example_vpc_endpoint = aws.ec2.VpcEndpoint("exampleVpcEndpoint",
+            vpc_id=aws_vpc["test_alternate"]["id"],
+            service_name=aws_vpc_endpoint_service["test"]["service_name"],
+            vpc_endpoint_type="Interface",
+            private_dns_enabled=False,
+            security_group_ids=[aws_security_group["test"]["id"]],
+            opts=pulumi.ResourceOptions(provider="aws.alternate"))
+        example_vpc_endpoint_connection_accepter = aws.ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter",
+            vpc_endpoint_service_id=example_vpc_endpoint_service.id,
+            vpc_endpoint_id=example_vpc_endpoint.id)
+        ```
+
+        ## Import
+
+        VPC Endpoint Services can be imported using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`). e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] vpc_endpoint_id: AWS VPC Endpoint ID.
+        :param pulumi.Input[str] vpc_endpoint_service_id: AWS VPC Endpoint Service ID.
         """
         ...
     @overload
@@ -105,7 +158,38 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
                  args: VpcEndpointConnectionAccepterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a VpcEndpointConnectionAccepter resource with the given unique name, props, and options.
+        Provides a resource to accept a pending VPC Endpoint Connection accept request to VPC Endpoint Service.
+
+        ## Example Usage
+        ### Accept cross-account request
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_vpc_endpoint_service = aws.ec2.VpcEndpointService("exampleVpcEndpointService",
+            acceptance_required=False,
+            network_load_balancer_arns=[aws_lb["example"]["arn"]])
+        example_vpc_endpoint = aws.ec2.VpcEndpoint("exampleVpcEndpoint",
+            vpc_id=aws_vpc["test_alternate"]["id"],
+            service_name=aws_vpc_endpoint_service["test"]["service_name"],
+            vpc_endpoint_type="Interface",
+            private_dns_enabled=False,
+            security_group_ids=[aws_security_group["test"]["id"]],
+            opts=pulumi.ResourceOptions(provider="aws.alternate"))
+        example_vpc_endpoint_connection_accepter = aws.ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter",
+            vpc_endpoint_service_id=example_vpc_endpoint_service.id,
+            vpc_endpoint_id=example_vpc_endpoint.id)
+        ```
+
+        ## Import
+
+        VPC Endpoint Services can be imported using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`). e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
+        ```
+
         :param str resource_name: The name of the resource.
         :param VpcEndpointConnectionAccepterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,6 +243,9 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] vpc_endpoint_id: AWS VPC Endpoint ID.
+        :param pulumi.Input[str] vpc_endpoint_service_id: AWS VPC Endpoint Service ID.
+        :param pulumi.Input[str] vpc_endpoint_state: State of the VPC Endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -172,15 +259,24 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> pulumi.Output[str]:
+        """
+        AWS VPC Endpoint ID.
+        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @property
     @pulumi.getter(name="vpcEndpointServiceId")
     def vpc_endpoint_service_id(self) -> pulumi.Output[str]:
+        """
+        AWS VPC Endpoint Service ID.
+        """
         return pulumi.get(self, "vpc_endpoint_service_id")
 
     @property
     @pulumi.getter(name="vpcEndpointState")
     def vpc_endpoint_state(self) -> pulumi.Output[str]:
+        """
+        State of the VPC Endpoint.
+        """
         return pulumi.get(self, "vpc_endpoint_state")
 

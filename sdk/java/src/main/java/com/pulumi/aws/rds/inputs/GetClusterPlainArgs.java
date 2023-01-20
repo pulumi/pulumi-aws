@@ -15,9 +15,17 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetClusterPlainArgs Empty = new GetClusterPlainArgs();
 
+    /**
+     * Cluster identifier of the RDS cluster.
+     * 
+     */
     @Import(name="clusterIdentifier", required=true)
     private String clusterIdentifier;
 
+    /**
+     * @return Cluster identifier of the RDS cluster.
+     * 
+     */
     public String clusterIdentifier() {
         return this.clusterIdentifier;
     }
@@ -54,6 +62,12 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetClusterPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param clusterIdentifier Cluster identifier of the RDS cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterIdentifier(String clusterIdentifier) {
             $.clusterIdentifier = clusterIdentifier;
             return this;

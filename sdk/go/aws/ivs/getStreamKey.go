@@ -10,6 +10,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Data source for managing an AWS IVS (Interactive Video) Stream Key.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ivs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ivs.GetStreamKey(ctx, &ivs.GetStreamKeyArgs{
+//				ChannelArn: "arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetStreamKey(ctx *pulumi.Context, args *GetStreamKeyArgs, opts ...pulumi.InvokeOption) (*GetStreamKeyResult, error) {
 	var rv GetStreamKeyResult
 	err := ctx.Invoke("aws:ivs/getStreamKey:getStreamKey", args, &rv, opts...)
@@ -21,18 +49,23 @@ func GetStreamKey(ctx *pulumi.Context, args *GetStreamKeyArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getStreamKey.
 type GetStreamKeyArgs struct {
-	ChannelArn string            `pulumi:"channelArn"`
-	Tags       map[string]string `pulumi:"tags"`
+	// ARN of the Channel.
+	ChannelArn string `pulumi:"channelArn"`
+	// Map of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getStreamKey.
 type GetStreamKeyResult struct {
+	// ARN of the Stream Key.
 	Arn        string `pulumi:"arn"`
 	ChannelArn string `pulumi:"channelArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id    string            `pulumi:"id"`
-	Tags  map[string]string `pulumi:"tags"`
-	Value string            `pulumi:"value"`
+	Id string `pulumi:"id"`
+	// Map of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// Stream Key value.
+	Value string `pulumi:"value"`
 }
 
 func GetStreamKeyOutput(ctx *pulumi.Context, args GetStreamKeyOutputArgs, opts ...pulumi.InvokeOption) GetStreamKeyResultOutput {
@@ -50,8 +83,10 @@ func GetStreamKeyOutput(ctx *pulumi.Context, args GetStreamKeyOutputArgs, opts .
 
 // A collection of arguments for invoking getStreamKey.
 type GetStreamKeyOutputArgs struct {
-	ChannelArn pulumi.StringInput    `pulumi:"channelArn"`
-	Tags       pulumi.StringMapInput `pulumi:"tags"`
+	// ARN of the Channel.
+	ChannelArn pulumi.StringInput `pulumi:"channelArn"`
+	// Map of tags assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetStreamKeyOutputArgs) ElementType() reflect.Type {
@@ -73,6 +108,7 @@ func (o GetStreamKeyResultOutput) ToGetStreamKeyResultOutputWithContext(ctx cont
 	return o
 }
 
+// ARN of the Stream Key.
 func (o GetStreamKeyResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStreamKeyResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -86,10 +122,12 @@ func (o GetStreamKeyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStreamKeyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Map of tags assigned to the resource.
 func (o GetStreamKeyResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetStreamKeyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Stream Key value.
 func (o GetStreamKeyResultOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStreamKeyResult) string { return v.Value }).(pulumi.StringOutput)
 }

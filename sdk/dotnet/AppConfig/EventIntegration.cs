@@ -9,27 +9,85 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppConfig
 {
+    /// <summary>
+    /// Provides an Amazon AppIntegrations Event Integration resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.AppConfig.EventIntegration("example", new()
+    ///     {
+    ///         Description = "Example Description",
+    ///         EventFilter = new Aws.AppConfig.Inputs.EventIntegrationEventFilterArgs
+    ///         {
+    ///             Source = "aws.partner/examplepartner.com",
+    ///         },
+    ///         EventbridgeBus = "default",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Example Event Integration" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Amazon AppIntegrations Event Integrations can be imported using the `name` e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:appconfig/eventIntegration:EventIntegration")]
     public partial class EventIntegration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of the Event Integration.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Description of the Event Integration.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Block that defines the configuration information for the event filter. The Event Filter block is documented below.
+        /// </summary>
         [Output("eventFilter")]
         public Output<Outputs.EventIntegrationEventFilter> EventFilter { get; private set; } = null!;
 
+        /// <summary>
+        /// EventBridge bus.
+        /// </summary>
         [Output("eventbridgeBus")]
         public Output<string> EventbridgeBus { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the Event Integration.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -79,20 +137,36 @@ namespace Pulumi.Aws.AppConfig
 
     public sealed class EventIntegrationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Description of the Event Integration.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Block that defines the configuration information for the event filter. The Event Filter block is documented below.
+        /// </summary>
         [Input("eventFilter", required: true)]
         public Input<Inputs.EventIntegrationEventFilterArgs> EventFilter { get; set; } = null!;
 
+        /// <summary>
+        /// EventBridge bus.
+        /// </summary>
         [Input("eventbridgeBus", required: true)]
         public Input<string> EventbridgeBus { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the Event Integration.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -107,23 +181,42 @@ namespace Pulumi.Aws.AppConfig
 
     public sealed class EventIntegrationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the Event Integration.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Description of the Event Integration.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Block that defines the configuration information for the event filter. The Event Filter block is documented below.
+        /// </summary>
         [Input("eventFilter")]
         public Input<Inputs.EventIntegrationEventFilterGetArgs>? EventFilter { get; set; }
 
+        /// <summary>
+        /// EventBridge bus.
+        /// </summary>
         [Input("eventbridgeBus")]
         public Input<string>? EventbridgeBus { get; set; }
 
+        /// <summary>
+        /// Name of the Event Integration.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -132,6 +225,10 @@ namespace Pulumi.Aws.AppConfig
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

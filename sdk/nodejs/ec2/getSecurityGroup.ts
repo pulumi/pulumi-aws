@@ -7,6 +7,33 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * `aws.ec2.SecurityGroup` provides details about a specific Security Group.
+ *
+ * This resource can prove useful when a module accepts a Security Group id as
+ * an input variable and needs to, for example, determine the id of the
+ * VPC that the security group belongs to.
+ *
+ * ## Example Usage
+ *
+ * The following example shows how one might accept a Security Group id as a variable
+ * and use this data source to obtain the data necessary to create a subnet.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const securityGroupId = config.requireObject("securityGroupId");
+ * const selected = aws.ec2.getSecurityGroup({
+ *     id: securityGroupId,
+ * });
+ * const subnet = new aws.ec2.Subnet("subnet", {
+ *     vpcId: selected.then(selected => selected.vpcId),
+ *     cidrBlock: "10.0.1.0/24",
+ * });
+ * ```
+ */
 export function getSecurityGroup(args?: GetSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupResult> {
     args = args || {};
 
@@ -24,10 +51,27 @@ export function getSecurityGroup(args?: GetSecurityGroupArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getSecurityGroup.
  */
 export interface GetSecurityGroupArgs {
+    /**
+     * Custom filter block as described below.
+     */
     filters?: inputs.ec2.GetSecurityGroupFilter[];
+    /**
+     * Id of the specific security group to retrieve.
+     */
     id?: string;
+    /**
+     * Name of the field to filter by, as defined by
+     * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
+     */
     name?: string;
+    /**
+     * Map of tags, each pair of which must exactly match
+     * a pair on the desired security group.
+     */
     tags?: {[key: string]: string};
+    /**
+     * Id of the VPC that the desired security group belongs to.
+     */
     vpcId?: string;
 }
 
@@ -35,7 +79,13 @@ export interface GetSecurityGroupArgs {
  * A collection of values returned by getSecurityGroup.
  */
 export interface GetSecurityGroupResult {
+    /**
+     * Computed ARN of the security group.
+     */
     readonly arn: string;
+    /**
+     * Description of the security group.
+     */
     readonly description: string;
     readonly filters?: outputs.ec2.GetSecurityGroupFilter[];
     readonly id: string;
@@ -43,6 +93,33 @@ export interface GetSecurityGroupResult {
     readonly tags: {[key: string]: string};
     readonly vpcId: string;
 }
+/**
+ * `aws.ec2.SecurityGroup` provides details about a specific Security Group.
+ *
+ * This resource can prove useful when a module accepts a Security Group id as
+ * an input variable and needs to, for example, determine the id of the
+ * VPC that the security group belongs to.
+ *
+ * ## Example Usage
+ *
+ * The following example shows how one might accept a Security Group id as a variable
+ * and use this data source to obtain the data necessary to create a subnet.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const securityGroupId = config.requireObject("securityGroupId");
+ * const selected = aws.ec2.getSecurityGroup({
+ *     id: securityGroupId,
+ * });
+ * const subnet = new aws.ec2.Subnet("subnet", {
+ *     vpcId: selected.then(selected => selected.vpcId),
+ *     cidrBlock: "10.0.1.0/24",
+ * });
+ * ```
+ */
 export function getSecurityGroupOutput(args?: GetSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupResult> {
     return pulumi.output(args).apply((a: any) => getSecurityGroup(a, opts))
 }
@@ -51,9 +128,26 @@ export function getSecurityGroupOutput(args?: GetSecurityGroupOutputArgs, opts?:
  * A collection of arguments for invoking getSecurityGroup.
  */
 export interface GetSecurityGroupOutputArgs {
+    /**
+     * Custom filter block as described below.
+     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSecurityGroupFilterArgs>[]>;
+    /**
+     * Id of the specific security group to retrieve.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * Name of the field to filter by, as defined by
+     * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Map of tags, each pair of which must exactly match
+     * a pair on the desired security group.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Id of the VPC that the desired security group belongs to.
+     */
     vpcId?: pulumi.Input<string>;
 }

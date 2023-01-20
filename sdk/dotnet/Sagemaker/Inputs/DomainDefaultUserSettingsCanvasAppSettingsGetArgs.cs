@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class DomainDefaultUserSettingsCanvasAppSettingsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+        /// </summary>
         [Input("timeSeriesForecastingSettings")]
         public Input<Inputs.DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsGetArgs>? TimeSeriesForecastingSettings { get; set; }
 

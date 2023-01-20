@@ -18,17 +18,153 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Elastic Beanstalk Environment Resource. Elastic Beanstalk allows
+ * you to deploy and manage applications in the AWS cloud without worrying about
+ * the infrastructure that runs those applications.
+ * 
+ * Environments are often things such as `development`, `integration`, or
+ * `production`.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticbeanstalk.Application;
+ * import com.pulumi.aws.elasticbeanstalk.ApplicationArgs;
+ * import com.pulumi.aws.elasticbeanstalk.Environment;
+ * import com.pulumi.aws.elasticbeanstalk.EnvironmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var tftest = new Application(&#34;tftest&#34;, ApplicationArgs.builder()        
+ *             .description(&#34;tf-test-desc&#34;)
+ *             .build());
+ * 
+ *         var tfenvtest = new Environment(&#34;tfenvtest&#34;, EnvironmentArgs.builder()        
+ *             .application(tftest.name())
+ *             .solutionStackName(&#34;64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Option Settings
+ * 
+ * Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
+ * for supported options and examples.
+ * 
+ * The `setting` and `all_settings` mappings support the following format:
+ * 
+ * * `namespace` - unique namespace identifying the option&#39;s associated AWS resource
+ * * `name` - name of the configuration option
+ * * `value` - value for the configuration option
+ * * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+ * 
+ * ### Example With Options
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticbeanstalk.Application;
+ * import com.pulumi.aws.elasticbeanstalk.ApplicationArgs;
+ * import com.pulumi.aws.elasticbeanstalk.Environment;
+ * import com.pulumi.aws.elasticbeanstalk.EnvironmentArgs;
+ * import com.pulumi.aws.elasticbeanstalk.inputs.EnvironmentSettingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var tftest = new Application(&#34;tftest&#34;, ApplicationArgs.builder()        
+ *             .description(&#34;tf-test-desc&#34;)
+ *             .build());
+ * 
+ *         var tfenvtest = new Environment(&#34;tfenvtest&#34;, EnvironmentArgs.builder()        
+ *             .application(tftest.name())
+ *             .solutionStackName(&#34;64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4&#34;)
+ *             .settings(            
+ *                 EnvironmentSettingArgs.builder()
+ *                     .namespace(&#34;aws:ec2:vpc&#34;)
+ *                     .name(&#34;VPCId&#34;)
+ *                     .value(&#34;vpc-xxxxxxxx&#34;)
+ *                     .build(),
+ *                 EnvironmentSettingArgs.builder()
+ *                     .namespace(&#34;aws:ec2:vpc&#34;)
+ *                     .name(&#34;Subnets&#34;)
+ *                     .value(&#34;subnet-xxxxxxxx&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Elastic Beanstalk Environments can be imported using the `id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
+ * ```
+ * 
+ */
 @ResourceType(type="aws:elasticbeanstalk/environment:Environment")
 public class Environment extends com.pulumi.resources.CustomResource {
+    /**
+     * List of all option settings configured in this Environment. These
+     * are a combination of default settings and their overrides from `setting` in
+     * the configuration.
+     * 
+     */
     @Export(name="allSettings", refs={List.class,EnvironmentAllSetting.class}, tree="[0,1]")
     private Output<List<EnvironmentAllSetting>> allSettings;
 
+    /**
+     * @return List of all option settings configured in this Environment. These
+     * are a combination of default settings and their overrides from `setting` in
+     * the configuration.
+     * 
+     */
     public Output<List<EnvironmentAllSetting>> allSettings() {
         return this.allSettings;
     }
+    /**
+     * Name of the application that contains the version
+     * to be deployed
+     * 
+     */
     @Export(name="application", refs={String.class}, tree="[0]")
     private Output<String> application;
 
+    /**
+     * @return Name of the application that contains the version
+     * to be deployed
+     * 
+     */
     public Output<String> application() {
         return this.application;
     }
@@ -38,129 +174,327 @@ public class Environment extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The autoscaling groups used by this Environment.
+     * 
+     */
     @Export(name="autoscalingGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> autoscalingGroups;
 
+    /**
+     * @return The autoscaling groups used by this Environment.
+     * 
+     */
     public Output<List<String>> autoscalingGroups() {
         return this.autoscalingGroups;
     }
+    /**
+     * Fully qualified DNS name for this Environment.
+     * 
+     */
     @Export(name="cname", refs={String.class}, tree="[0]")
     private Output<String> cname;
 
+    /**
+     * @return Fully qualified DNS name for this Environment.
+     * 
+     */
     public Output<String> cname() {
         return this.cname;
     }
+    /**
+     * Prefix to use for the fully qualified DNS name of
+     * the Environment.
+     * 
+     */
     @Export(name="cnamePrefix", refs={String.class}, tree="[0]")
     private Output<String> cnamePrefix;
 
+    /**
+     * @return Prefix to use for the fully qualified DNS name of
+     * the Environment.
+     * 
+     */
     public Output<String> cnamePrefix() {
         return this.cnamePrefix;
     }
+    /**
+     * Short description of the Environment
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Short description of the Environment
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The URL to the Load Balancer for this Environment
+     * 
+     */
     @Export(name="endpointUrl", refs={String.class}, tree="[0]")
     private Output<String> endpointUrl;
 
+    /**
+     * @return The URL to the Load Balancer for this Environment
+     * 
+     */
     public Output<String> endpointUrl() {
         return this.endpointUrl;
     }
+    /**
+     * Instances used by this Environment.
+     * 
+     */
     @Export(name="instances", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> instances;
 
+    /**
+     * @return Instances used by this Environment.
+     * 
+     */
     public Output<List<String>> instances() {
         return this.instances;
     }
+    /**
+     * Launch configurations in use by this Environment.
+     * 
+     */
     @Export(name="launchConfigurations", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> launchConfigurations;
 
+    /**
+     * @return Launch configurations in use by this Environment.
+     * 
+     */
     public Output<List<String>> launchConfigurations() {
         return this.launchConfigurations;
     }
+    /**
+     * Elastic load balancers in use by this Environment.
+     * 
+     */
     @Export(name="loadBalancers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> loadBalancers;
 
+    /**
+     * @return Elastic load balancers in use by this Environment.
+     * 
+     */
     public Output<List<String>> loadBalancers() {
         return this.loadBalancers;
     }
+    /**
+     * A unique name for this Environment. This name is used
+     * in the application URL
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return A unique name for this Environment. This name is used
+     * in the application URL
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
+     * to use in deployment
+     * 
+     */
     @Export(name="platformArn", refs={String.class}, tree="[0]")
     private Output<String> platformArn;
 
+    /**
+     * @return The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
+     * to use in deployment
+     * 
+     */
     public Output<String> platformArn() {
         return this.platformArn;
     }
+    /**
+     * The time between polling the AWS API to
+     * check if changes have been applied. Use this to adjust the rate of API calls
+     * for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
+     * use the default behavior, which is an exponential backoff
+     * 
+     */
     @Export(name="pollInterval", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pollInterval;
 
+    /**
+     * @return The time between polling the AWS API to
+     * check if changes have been applied. Use this to adjust the rate of API calls
+     * for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
+     * use the default behavior, which is an exponential backoff
+     * 
+     */
     public Output<Optional<String>> pollInterval() {
         return Codegen.optional(this.pollInterval);
     }
+    /**
+     * SQS queues in use by this Environment.
+     * 
+     */
     @Export(name="queues", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> queues;
 
+    /**
+     * @return SQS queues in use by this Environment.
+     * 
+     */
     public Output<List<String>> queues() {
         return this.queues;
     }
+    /**
+     * Option settings to configure the new Environment. These
+     * override specific values that are set as defaults. The format is detailed
+     * below in Option Settings
+     * 
+     */
     @Export(name="settings", refs={List.class,EnvironmentSetting.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EnvironmentSetting>> settings;
 
+    /**
+     * @return Option settings to configure the new Environment. These
+     * override specific values that are set as defaults. The format is detailed
+     * below in Option Settings
+     * 
+     */
     public Output<Optional<List<EnvironmentSetting>>> settings() {
         return Codegen.optional(this.settings);
     }
+    /**
+     * A solution stack to base your environment
+     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+     * 
+     */
     @Export(name="solutionStackName", refs={String.class}, tree="[0]")
     private Output<String> solutionStackName;
 
+    /**
+     * @return A solution stack to base your environment
+     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+     * 
+     */
     public Output<String> solutionStackName() {
         return this.solutionStackName;
     }
+    /**
+     * A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The name of the Elastic Beanstalk Configuration
+     * template to use in deployment
+     * 
+     */
     @Export(name="templateName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateName;
 
+    /**
+     * @return The name of the Elastic Beanstalk Configuration
+     * template to use in deployment
+     * 
+     */
     public Output<Optional<String>> templateName() {
         return Codegen.optional(this.templateName);
     }
+    /**
+     * Elastic Beanstalk Environment tier. Valid values are `Worker`
+     * or `WebServer`. If tier is left blank `WebServer` will be used.
+     * 
+     */
     @Export(name="tier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tier;
 
+    /**
+     * @return Elastic Beanstalk Environment tier. Valid values are `Worker`
+     * or `WebServer`. If tier is left blank `WebServer` will be used.
+     * 
+     */
     public Output<Optional<String>> tier() {
         return Codegen.optional(this.tier);
     }
+    /**
+     * Autoscaling triggers in use by this Environment.
+     * 
+     */
     @Export(name="triggers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> triggers;
 
+    /**
+     * @return Autoscaling triggers in use by this Environment.
+     * 
+     */
     public Output<List<String>> triggers() {
         return this.triggers;
     }
+    /**
+     * The name of the Elastic Beanstalk Application Version
+     * to use in deployment.
+     * 
+     */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
+    /**
+     * @return The name of the Elastic Beanstalk Application Version
+     * to use in deployment.
+     * 
+     */
     public Output<String> version() {
         return this.version;
     }
+    /**
+     * The maximum
+     * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+     * wait for an Elastic Beanstalk Environment to be in a ready state before timing
+     * out.
+     * 
+     */
     @Export(name="waitForReadyTimeout", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> waitForReadyTimeout;
 
+    /**
+     * @return The maximum
+     * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+     * wait for an Elastic Beanstalk Environment to be in a ready state before timing
+     * out.
+     * 
+     */
     public Output<Optional<String>> waitForReadyTimeout() {
         return Codegen.optional(this.waitForReadyTimeout);
     }

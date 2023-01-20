@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Fsx.Inputs
 
     public sealed class GetOpenZfsSnapshotFilterInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the snapshot.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

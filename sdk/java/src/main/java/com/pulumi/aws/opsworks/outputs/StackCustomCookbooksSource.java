@@ -11,29 +11,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StackCustomCookbooksSource {
+    /**
+     * @return Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+     * 
+     */
     private @Nullable String password;
+    /**
+     * @return For sources that are version-aware, the revision to use.
+     * 
+     */
     private @Nullable String revision;
+    /**
+     * @return SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+     * 
+     */
     private @Nullable String sshKey;
+    /**
+     * @return The type of source to use. For example, &#34;archive&#34;.
+     * 
+     */
     private String type;
+    /**
+     * @return The URL where the cookbooks resource can be found.
+     * 
+     */
     private String url;
+    /**
+     * @return Username to use when authenticating to the source.
+     * 
+     */
     private @Nullable String username;
 
     private StackCustomCookbooksSource() {}
+    /**
+     * @return Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+     * 
+     */
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
     }
+    /**
+     * @return For sources that are version-aware, the revision to use.
+     * 
+     */
     public Optional<String> revision() {
         return Optional.ofNullable(this.revision);
     }
+    /**
+     * @return SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+     * 
+     */
     public Optional<String> sshKey() {
         return Optional.ofNullable(this.sshKey);
     }
+    /**
+     * @return The type of source to use. For example, &#34;archive&#34;.
+     * 
+     */
     public String type() {
         return this.type;
     }
+    /**
+     * @return The URL where the cookbooks resource can be found.
+     * 
+     */
     public String url() {
         return this.url;
     }
+    /**
+     * @return Username to use when authenticating to the source.
+     * 
+     */
     public Optional<String> username() {
         return Optional.ofNullable(this.username);
     }

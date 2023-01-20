@@ -17,47 +17,170 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Glue Workflow resource.
+ * The workflow graph (DAG) can be build using the `aws.glue.Trigger` resource.
+ * See the example below for creating a graph with four nodes (two triggers and two jobs).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glue.Workflow;
+ * import com.pulumi.aws.glue.Trigger;
+ * import com.pulumi.aws.glue.TriggerArgs;
+ * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
+ * import com.pulumi.aws.glue.inputs.TriggerPredicateArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Workflow(&#34;example&#34;);
+ * 
+ *         var example_start = new Trigger(&#34;example-start&#34;, TriggerArgs.builder()        
+ *             .type(&#34;ON_DEMAND&#34;)
+ *             .workflowName(example.name())
+ *             .actions(TriggerActionArgs.builder()
+ *                 .jobName(&#34;example-job&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var example_inner = new Trigger(&#34;example-inner&#34;, TriggerArgs.builder()        
+ *             .type(&#34;CONDITIONAL&#34;)
+ *             .workflowName(example.name())
+ *             .predicate(TriggerPredicateArgs.builder()
+ *                 .conditions(TriggerPredicateConditionArgs.builder()
+ *                     .jobName(&#34;example-job&#34;)
+ *                     .state(&#34;SUCCEEDED&#34;)
+ *                     .build())
+ *                 .build())
+ *             .actions(TriggerActionArgs.builder()
+ *                 .jobName(&#34;another-example-job&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Glue Workflows can be imported using `name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+ * ```
+ * 
+ */
 @ResourceType(type="aws:glue/workflow:Workflow")
 public class Workflow extends com.pulumi.resources.CustomResource {
+    /**
+     * Amazon Resource Name (ARN) of Glue Workflow
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of Glue Workflow
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+     * 
+     */
     @Export(name="defaultRunProperties", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> defaultRunProperties;
 
+    /**
+     * @return A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+     * 
+     */
     public Output<Optional<Map<String,Object>>> defaultRunProperties() {
         return Codegen.optional(this.defaultRunProperties);
     }
+    /**
+     * Description of the workflow.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description of the workflow.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+     * 
+     */
     @Export(name="maxConcurrentRuns", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxConcurrentRuns;
 
+    /**
+     * @return Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+     * 
+     */
     public Output<Optional<Integer>> maxConcurrentRuns() {
         return Codegen.optional(this.maxConcurrentRuns);
     }
+    /**
+     * The name you assign to this workflow.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name you assign to this workflow.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

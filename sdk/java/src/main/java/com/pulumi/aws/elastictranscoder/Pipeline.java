@@ -20,71 +20,212 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Elastic Transcoder pipeline resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elastictranscoder.Pipeline;
+ * import com.pulumi.aws.elastictranscoder.PipelineArgs;
+ * import com.pulumi.aws.elastictranscoder.inputs.PipelineContentConfigArgs;
+ * import com.pulumi.aws.elastictranscoder.inputs.PipelineThumbnailConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var bar = new Pipeline(&#34;bar&#34;, PipelineArgs.builder()        
+ *             .inputBucket(aws_s3_bucket.input_bucket().bucket())
+ *             .role(aws_iam_role.test_role().arn())
+ *             .contentConfig(PipelineContentConfigArgs.builder()
+ *                 .bucket(aws_s3_bucket.content_bucket().bucket())
+ *                 .storageClass(&#34;Standard&#34;)
+ *                 .build())
+ *             .thumbnailConfig(PipelineThumbnailConfigArgs.builder()
+ *                 .bucket(aws_s3_bucket.thumb_bucket().bucket())
+ *                 .storageClass(&#34;Standard&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Elastic Transcoder pipelines can be imported using the `id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
+ * ```
+ * 
+ */
 @ResourceType(type="aws:elastictranscoder/pipeline:Pipeline")
 public class Pipeline extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the Elastictranscoder pipeline.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the Elastictranscoder pipeline.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+     * 
+     */
     @Export(name="awsKmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsKmsKeyArn;
 
+    /**
+     * @return The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+     * 
+     */
     public Output<Optional<String>> awsKmsKeyArn() {
         return Codegen.optional(this.awsKmsKeyArn);
     }
+    /**
+     * The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
+     * 
+     */
     @Export(name="contentConfig", refs={PipelineContentConfig.class}, tree="[0]")
     private Output<PipelineContentConfig> contentConfig;
 
+    /**
+     * @return The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
+     * 
+     */
     public Output<PipelineContentConfig> contentConfig() {
         return this.contentConfig;
     }
+    /**
+     * The permissions for the `content_config` object. (documented below)
+     * 
+     */
     @Export(name="contentConfigPermissions", refs={List.class,PipelineContentConfigPermission.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PipelineContentConfigPermission>> contentConfigPermissions;
 
+    /**
+     * @return The permissions for the `content_config` object. (documented below)
+     * 
+     */
     public Output<Optional<List<PipelineContentConfigPermission>>> contentConfigPermissions() {
         return Codegen.optional(this.contentConfigPermissions);
     }
+    /**
+     * The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
+     * 
+     */
     @Export(name="inputBucket", refs={String.class}, tree="[0]")
     private Output<String> inputBucket;
 
+    /**
+     * @return The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
+     * 
+     */
     public Output<String> inputBucket() {
         return this.inputBucket;
     }
+    /**
+     * The name of the pipeline. Maximum 40 characters
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the pipeline. Maximum 40 characters
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
+     * 
+     */
     @Export(name="notifications", refs={PipelineNotifications.class}, tree="[0]")
     private Output</* @Nullable */ PipelineNotifications> notifications;
 
+    /**
+     * @return The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
+     * 
+     */
     public Output<Optional<PipelineNotifications>> notifications() {
         return Codegen.optional(this.notifications);
     }
+    /**
+     * The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
+     * 
+     */
     @Export(name="outputBucket", refs={String.class}, tree="[0]")
     private Output<String> outputBucket;
 
+    /**
+     * @return The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
+     * 
+     */
     public Output<String> outputBucket() {
         return this.outputBucket;
     }
+    /**
+     * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+     * 
+     */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
+    /**
+     * @return The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+     * 
+     */
     public Output<String> role() {
         return this.role;
     }
+    /**
+     * The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
+     * 
+     */
     @Export(name="thumbnailConfig", refs={PipelineThumbnailConfig.class}, tree="[0]")
     private Output<PipelineThumbnailConfig> thumbnailConfig;
 
+    /**
+     * @return The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
+     * 
+     */
     public Output<PipelineThumbnailConfig> thumbnailConfig() {
         return this.thumbnailConfig;
     }
+    /**
+     * The permissions for the `thumbnail_config` object. (documented below)
+     * 
+     */
     @Export(name="thumbnailConfigPermissions", refs={List.class,PipelineThumbnailConfigPermission.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PipelineThumbnailConfigPermission>> thumbnailConfigPermissions;
 
+    /**
+     * @return The permissions for the `thumbnail_config` object. (documented below)
+     * 
+     */
     public Output<Optional<List<PipelineThumbnailConfigPermission>>> thumbnailConfigPermissions() {
         return Codegen.optional(this.thumbnailConfigPermissions);
     }

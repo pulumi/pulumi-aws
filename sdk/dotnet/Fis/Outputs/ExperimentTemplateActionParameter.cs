@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Fis.Outputs
     [OutputType]
     public sealed class ExperimentTemplateActionParameter
     {
+        /// <summary>
+        /// Parameter name.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// Parameter value.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

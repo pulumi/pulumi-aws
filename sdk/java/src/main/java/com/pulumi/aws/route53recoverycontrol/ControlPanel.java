@@ -15,41 +15,131 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an AWS Route 53 Recovery Control Config Control Panel.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.route53recoverycontrol.ControlPanel;
+ * import com.pulumi.aws.route53recoverycontrol.ControlPanelArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ControlPanel(&#34;example&#34;, ControlPanelArgs.builder()        
+ *             .clusterArn(&#34;arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Route53 Recovery Control Config Control Panel can be imported via the control panel arn, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
+ * ```
+ * 
+ */
 @ResourceType(type="aws:route53recoverycontrol/controlPanel:ControlPanel")
 public class ControlPanel extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the control panel.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the control panel.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * ARN of the cluster in which this control panel will reside.
+     * 
+     */
     @Export(name="clusterArn", refs={String.class}, tree="[0]")
     private Output<String> clusterArn;
 
+    /**
+     * @return ARN of the cluster in which this control panel will reside.
+     * 
+     */
     public Output<String> clusterArn() {
         return this.clusterArn;
     }
+    /**
+     * Whether a control panel is default.
+     * 
+     */
     @Export(name="defaultControlPanel", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> defaultControlPanel;
 
+    /**
+     * @return Whether a control panel is default.
+     * 
+     */
     public Output<Boolean> defaultControlPanel() {
         return this.defaultControlPanel;
     }
+    /**
+     * Name describing the control panel.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name describing the control panel.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Number routing controls in a control panel.
+     * 
+     */
     @Export(name="routingControlCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> routingControlCount;
 
+    /**
+     * @return Number routing controls in a control panel.
+     * 
+     */
     public Output<Integer> routingControlCount() {
         return this.routingControlCount;
     }
+    /**
+     * Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }

@@ -12,6 +12,9 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the S3 Bucket to send findings to.
+        /// </summary>
         [Input("bucket", required: true)]
         public string Bucket { get; set; } = null!;
 

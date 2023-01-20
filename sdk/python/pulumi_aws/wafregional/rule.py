@@ -22,6 +22,10 @@ class RuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Rule resource.
+        :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
+        :param pulumi.Input[str] name: The name or description of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['RulePredicateArgs']]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "metric_name", metric_name)
         if name is not None:
@@ -34,6 +38,9 @@ class RuleArgs:
     @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> pulumi.Input[str]:
+        """
+        The name or description for the Amazon CloudWatch metric of this rule.
+        """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
@@ -43,6 +50,9 @@ class RuleArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or description of the rule.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -52,6 +62,9 @@ class RuleArgs:
     @property
     @pulumi.getter
     def predicates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulePredicateArgs']]]]:
+        """
+        The objects to include in a rule (documented below).
+        """
         return pulumi.get(self, "predicates")
 
     @predicates.setter
@@ -61,6 +74,9 @@ class RuleArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -79,6 +95,12 @@ class _RuleState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Rule resources.
+        :param pulumi.Input[str] arn: The ARN of the WAF Regional Rule.
+        :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
+        :param pulumi.Input[str] name: The name or description of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['RulePredicateArgs']]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -96,6 +118,9 @@ class _RuleState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the WAF Regional Rule.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -105,6 +130,9 @@ class _RuleState:
     @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or description for the Amazon CloudWatch metric of this rule.
+        """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
@@ -114,6 +142,9 @@ class _RuleState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or description of the rule.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -123,6 +154,9 @@ class _RuleState:
     @property
     @pulumi.getter
     def predicates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulePredicateArgs']]]]:
+        """
+        The objects to include in a rule (documented below).
+        """
         return pulumi.get(self, "predicates")
 
     @predicates.setter
@@ -132,6 +166,9 @@ class _RuleState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -141,6 +178,9 @@ class _RuleState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -159,9 +199,52 @@ class Rule(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Rule resource with the given unique name, props, and options.
+        Provides an WAF Regional Rule Resource for use with Application Load Balancer.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
+            type="IPV4",
+            value="192.0.7.0/24",
+        )])
+        wafrule = aws.wafregional.Rule("wafrule",
+            metric_name="tfWAFRule",
+            predicates=[aws.wafregional.RulePredicateArgs(
+                type="IPMatch",
+                data_id=ipset.id,
+                negated=False,
+            )])
+        ```
+        ## Nested Fields
+
+        ### `predicate`
+
+        See the [WAF Documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_Predicate.html) for more information.
+
+        #### Arguments
+
+        * `type` - (Required) The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
+        * `data_id` - (Required) The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
+        * `negated` - (Required) Whether to use the settings or the negated settings that you specified in the objects.
+
+        ## Import
+
+        WAF Regional Rule can be imported using the id, e.g.,
+
+        ```sh
+         $ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
+        :param pulumi.Input[str] name: The name or description of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulePredicateArgs']]]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -170,7 +253,46 @@ class Rule(pulumi.CustomResource):
                  args: RuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Rule resource with the given unique name, props, and options.
+        Provides an WAF Regional Rule Resource for use with Application Load Balancer.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
+            type="IPV4",
+            value="192.0.7.0/24",
+        )])
+        wafrule = aws.wafregional.Rule("wafrule",
+            metric_name="tfWAFRule",
+            predicates=[aws.wafregional.RulePredicateArgs(
+                type="IPMatch",
+                data_id=ipset.id,
+                negated=False,
+            )])
+        ```
+        ## Nested Fields
+
+        ### `predicate`
+
+        See the [WAF Documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_Predicate.html) for more information.
+
+        #### Arguments
+
+        * `type` - (Required) The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
+        * `data_id` - (Required) The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
+        * `negated` - (Required) Whether to use the settings or the negated settings that you specified in the objects.
+
+        ## Import
+
+        WAF Regional Rule can be imported using the id, e.g.,
+
+        ```sh
+         $ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        ```
+
         :param str resource_name: The name of the resource.
         :param RuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,6 +352,12 @@ class Rule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the WAF Regional Rule.
+        :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
+        :param pulumi.Input[str] name: The name or description of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulePredicateArgs']]]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -246,30 +374,48 @@ class Rule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the WAF Regional Rule.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> pulumi.Output[str]:
+        """
+        The name or description for the Amazon CloudWatch metric of this rule.
+        """
         return pulumi.get(self, "metric_name")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name or description of the rule.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def predicates(self) -> pulumi.Output[Optional[Sequence['outputs.RulePredicate']]]:
+        """
+        The objects to include in a rule (documented below).
+        """
         return pulumi.get(self, "predicates")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

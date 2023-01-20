@@ -16,71 +16,326 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an IAM Server Certificate resource to upload Server Certificates.
+ * Certs uploaded to IAM can easily work with other AWS services such as:
+ * 
+ * - AWS Elastic Beanstalk
+ * - Elastic Load Balancing
+ * - CloudFront
+ * - AWS OpsWorks
+ * 
+ * For information about server certificates in IAM, see [Managing Server
+ * Certificates][2] in AWS Documentation.
+ * 
+ * ## Example Usage
+ * 
+ * **Using certs on file:**
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.ServerCertificate;
+ * import com.pulumi.aws.iam.ServerCertificateArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testCert = new ServerCertificate(&#34;testCert&#34;, ServerCertificateArgs.builder()        
+ *             .certificateBody(Files.readString(Paths.get(&#34;self-ca-cert.pem&#34;)))
+ *             .privateKey(Files.readString(Paths.get(&#34;test-key.pem&#34;)))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * **Example with cert in-line:**
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.ServerCertificate;
+ * import com.pulumi.aws.iam.ServerCertificateArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testCertAlt = new ServerCertificate(&#34;testCertAlt&#34;, ServerCertificateArgs.builder()        
+ *             .certificateBody(&#34;&#34;&#34;
+ * -----BEGIN CERTIFICATE-----
+ * [......] # cert contents
+ * -----END CERTIFICATE-----
+ * 
+ *             &#34;&#34;&#34;)
+ *             .privateKey(&#34;&#34;&#34;
+ * -----BEGIN RSA PRIVATE KEY-----
+ * [......] # cert contents
+ * -----END RSA PRIVATE KEY-----
+ * 
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * **Use in combination with an AWS ELB resource:**
+ * 
+ * Some properties of an IAM Server Certificates cannot be updated while they are
+ * in use. In order for the provider to effectively manage a Certificate in this situation, it is
+ * recommended you utilize the `name_prefix` attribute and enable the
+ * `create_before_destroy`. This will allow this provider
+ * to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
+ * dependant resources before attempting to destroy the old version.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.ServerCertificate;
+ * import com.pulumi.aws.iam.ServerCertificateArgs;
+ * import com.pulumi.aws.elb.LoadBalancer;
+ * import com.pulumi.aws.elb.LoadBalancerArgs;
+ * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testCert = new ServerCertificate(&#34;testCert&#34;, ServerCertificateArgs.builder()        
+ *             .namePrefix(&#34;example-cert&#34;)
+ *             .certificateBody(Files.readString(Paths.get(&#34;self-ca-cert.pem&#34;)))
+ *             .privateKey(Files.readString(Paths.get(&#34;test-key.pem&#34;)))
+ *             .build());
+ * 
+ *         var ourapp = new LoadBalancer(&#34;ourapp&#34;, LoadBalancerArgs.builder()        
+ *             .availabilityZones(&#34;us-west-2a&#34;)
+ *             .crossZoneLoadBalancing(true)
+ *             .listeners(LoadBalancerListenerArgs.builder()
+ *                 .instancePort(8000)
+ *                 .instanceProtocol(&#34;http&#34;)
+ *                 .lbPort(443)
+ *                 .lbProtocol(&#34;https&#34;)
+ *                 .sslCertificateId(testCert.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * IAM Server Certificates can be imported using the `name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
+ * ```
+ * 
+ *  [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
+ * 
+ */
 @ResourceType(type="aws:iam/serverCertificate:ServerCertificate")
 public class ServerCertificate extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name (ARN) specifying the server certificate.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) specifying the server certificate.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The contents of the public key certificate in
+     * PEM-encoded format.
+     * 
+     */
     @Export(name="certificateBody", refs={String.class}, tree="[0]")
     private Output<String> certificateBody;
 
+    /**
+     * @return The contents of the public key certificate in
+     * PEM-encoded format.
+     * 
+     */
     public Output<String> certificateBody() {
         return this.certificateBody;
     }
+    /**
+     * The contents of the certificate chain.
+     * This is typically a concatenation of the PEM-encoded public key certificates
+     * of the chain.
+     * 
+     */
     @Export(name="certificateChain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateChain;
 
+    /**
+     * @return The contents of the certificate chain.
+     * This is typically a concatenation of the PEM-encoded public key certificates
+     * of the chain.
+     * 
+     */
     public Output<Optional<String>> certificateChain() {
         return Codegen.optional(this.certificateChain);
     }
+    /**
+     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
+     * 
+     */
     @Export(name="expiration", refs={String.class}, tree="[0]")
     private Output<String> expiration;
 
+    /**
+     * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
+     * 
+     */
     public Output<String> expiration() {
         return this.expiration;
     }
+    /**
+     * The name of the Server Certificate. Do not include the
+     * path in this value. If omitted, this provider will assign a random, unique name.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the Server Certificate. Do not include the
+     * path in this value. If omitted, this provider will assign a random, unique name.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     * 
+     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> namePrefix;
 
+    /**
+     * @return Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     * 
+     */
     public Output<Optional<String>> namePrefix() {
         return Codegen.optional(this.namePrefix);
     }
+    /**
+     * The IAM path for the server certificate.  If it is not
+     * included, it defaults to a slash (/). If this certificate is for use with
+     * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
+     * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
+     * 
+     */
     @Export(name="path", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> path;
 
+    /**
+     * @return The IAM path for the server certificate.  If it is not
+     * included, it defaults to a slash (/). If this certificate is for use with
+     * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
+     * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
+     * 
+     */
     public Output<Optional<String>> path() {
         return Codegen.optional(this.path);
     }
+    /**
+     * The contents of the private key in PEM-encoded format.
+     * 
+     */
     @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output<String> privateKey;
 
+    /**
+     * @return The contents of the private key in PEM-encoded format.
+     * 
+     */
     public Output<String> privateKey() {
         return this.privateKey;
     }
+    /**
+     * Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
+     * 
+     */
     @Export(name="uploadDate", refs={String.class}, tree="[0]")
     private Output<String> uploadDate;
 
+    /**
+     * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
+     * 
+     */
     public Output<String> uploadDate() {
         return this.uploadDate;
     }

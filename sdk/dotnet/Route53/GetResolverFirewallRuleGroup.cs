@@ -11,9 +11,65 @@ namespace Pulumi.Aws.Route53
 {
     public static class GetResolverFirewallRuleGroup
     {
+        /// <summary>
+        /// `aws.route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
+        /// 
+        /// This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following example shows how to get a firewall rule group from its ID.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Route53.GetResolverFirewallRuleGroup.Invoke(new()
+        ///     {
+        ///         FirewallRuleGroupId = "rslvr-frg-example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetResolverFirewallRuleGroupResult> InvokeAsync(GetResolverFirewallRuleGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverFirewallRuleGroupResult>("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", args ?? new GetResolverFirewallRuleGroupArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// `aws.route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
+        /// 
+        /// This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following example shows how to get a firewall rule group from its ID.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Route53.GetResolverFirewallRuleGroup.Invoke(new()
+        ///     {
+        ///         FirewallRuleGroupId = "rslvr-frg-example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetResolverFirewallRuleGroupResult> Invoke(GetResolverFirewallRuleGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverFirewallRuleGroupResult>("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", args ?? new GetResolverFirewallRuleGroupInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +77,9 @@ namespace Pulumi.Aws.Route53
 
     public sealed class GetResolverFirewallRuleGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the rule group.
+        /// </summary>
         [Input("firewallRuleGroupId", required: true)]
         public string FirewallRuleGroupId { get; set; } = null!;
 
@@ -32,6 +91,9 @@ namespace Pulumi.Aws.Route53
 
     public sealed class GetResolverFirewallRuleGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the rule group.
+        /// </summary>
         [Input("firewallRuleGroupId", required: true)]
         public Input<string> FirewallRuleGroupId { get; set; } = null!;
 

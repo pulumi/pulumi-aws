@@ -12,9 +12,17 @@ public final class GetApplicationPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetApplicationPlainArgs Empty = new GetApplicationPlainArgs();
 
+    /**
+     * Name of the application
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return Name of the application
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -43,6 +51,12 @@ public final class GetApplicationPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetApplicationPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the application
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;

@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Keyspaces.Inputs
 
     public sealed class TableSchemaDefinitionPartitionKeyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the partition key column.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

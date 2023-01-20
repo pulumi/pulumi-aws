@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class CatalogDatabaseTargetDatabase {
+    /**
+     * @return ID of the Data Catalog in which the database resides.
+     * 
+     */
     private String catalogId;
+    /**
+     * @return Name of the catalog database.
+     * 
+     */
     private String databaseName;
 
     private CatalogDatabaseTargetDatabase() {}
+    /**
+     * @return ID of the Data Catalog in which the database resides.
+     * 
+     */
     public String catalogId() {
         return this.catalogId;
     }
+    /**
+     * @return Name of the catalog database.
+     * 
+     */
     public String databaseName() {
         return this.databaseName;
     }

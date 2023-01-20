@@ -13,11 +13,29 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination
     {
+        /// <summary>
+        /// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+        /// </summary>
         public readonly string AccountId;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Encryption of the metrics exports in this bucket. See Encryption below for more details.
+        /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption? Encryption;
+        /// <summary>
+        /// The export format. Valid values: `CSV`, `Parquet`.
+        /// </summary>
         public readonly string Format;
+        /// <summary>
+        /// The schema version of the export file. Valid values: `V_1`.
+        /// </summary>
         public readonly string OutputSchemaVersion;
+        /// <summary>
+        /// The prefix of the destination bucket where the metrics export will be delivered.
+        /// </summary>
         public readonly string? Prefix;
 
         [OutputConstructor]

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction
     {
+        /// <summary>
+        /// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
+        /// </summary>
         public readonly string EventAction;
         public readonly bool Notify;
 

@@ -11,9 +11,12 @@ import (
 )
 
 type LanguageModelInputDataConfig struct {
-	DataAccessRoleArn string  `pulumi:"dataAccessRoleArn"`
-	S3Uri             string  `pulumi:"s3Uri"`
-	TuningDataS3Uri   *string `pulumi:"tuningDataS3Uri"`
+	// IAM role with access to S3 bucket.
+	DataAccessRoleArn string `pulumi:"dataAccessRoleArn"`
+	// S3 URI where training data is located.
+	S3Uri string `pulumi:"s3Uri"`
+	// S3 URI where tuning data is located.
+	TuningDataS3Uri *string `pulumi:"tuningDataS3Uri"`
 }
 
 // LanguageModelInputDataConfigInput is an input type that accepts LanguageModelInputDataConfigArgs and LanguageModelInputDataConfigOutput values.
@@ -28,9 +31,12 @@ type LanguageModelInputDataConfigInput interface {
 }
 
 type LanguageModelInputDataConfigArgs struct {
-	DataAccessRoleArn pulumi.StringInput    `pulumi:"dataAccessRoleArn"`
-	S3Uri             pulumi.StringInput    `pulumi:"s3Uri"`
-	TuningDataS3Uri   pulumi.StringPtrInput `pulumi:"tuningDataS3Uri"`
+	// IAM role with access to S3 bucket.
+	DataAccessRoleArn pulumi.StringInput `pulumi:"dataAccessRoleArn"`
+	// S3 URI where training data is located.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+	// S3 URI where tuning data is located.
+	TuningDataS3Uri pulumi.StringPtrInput `pulumi:"tuningDataS3Uri"`
 }
 
 func (LanguageModelInputDataConfigArgs) ElementType() reflect.Type {
@@ -110,14 +116,17 @@ func (o LanguageModelInputDataConfigOutput) ToLanguageModelInputDataConfigPtrOut
 	}).(LanguageModelInputDataConfigPtrOutput)
 }
 
+// IAM role with access to S3 bucket.
 func (o LanguageModelInputDataConfigOutput) DataAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LanguageModelInputDataConfig) string { return v.DataAccessRoleArn }).(pulumi.StringOutput)
 }
 
+// S3 URI where training data is located.
 func (o LanguageModelInputDataConfigOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v LanguageModelInputDataConfig) string { return v.S3Uri }).(pulumi.StringOutput)
 }
 
+// S3 URI where tuning data is located.
 func (o LanguageModelInputDataConfigOutput) TuningDataS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LanguageModelInputDataConfig) *string { return v.TuningDataS3Uri }).(pulumi.StringPtrOutput)
 }
@@ -146,6 +155,7 @@ func (o LanguageModelInputDataConfigPtrOutput) Elem() LanguageModelInputDataConf
 	}).(LanguageModelInputDataConfigOutput)
 }
 
+// IAM role with access to S3 bucket.
 func (o LanguageModelInputDataConfigPtrOutput) DataAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LanguageModelInputDataConfig) *string {
 		if v == nil {
@@ -155,6 +165,7 @@ func (o LanguageModelInputDataConfigPtrOutput) DataAccessRoleArn() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// S3 URI where training data is located.
 func (o LanguageModelInputDataConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LanguageModelInputDataConfig) *string {
 		if v == nil {
@@ -164,6 +175,7 @@ func (o LanguageModelInputDataConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// S3 URI where tuning data is located.
 func (o LanguageModelInputDataConfigPtrOutput) TuningDataS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LanguageModelInputDataConfig) *string {
 		if v == nil {

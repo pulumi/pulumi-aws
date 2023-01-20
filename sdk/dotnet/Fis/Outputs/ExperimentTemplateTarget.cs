@@ -13,11 +13,29 @@ namespace Pulumi.Aws.Fis.Outputs
     [OutputType]
     public sealed class ExperimentTemplateTarget
     {
+        /// <summary>
+        /// Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ExperimentTemplateTargetFilter> Filters;
+        /// <summary>
+        /// Friendly name given to the target.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
+        /// </summary>
         public readonly ImmutableArray<string> ResourceArns;
+        /// <summary>
+        /// Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ExperimentTemplateTargetResourceTag> ResourceTags;
+        /// <summary>
+        /// AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
+        /// </summary>
         public readonly string ResourceType;
+        /// <summary>
+        /// Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
+        /// </summary>
         public readonly string SelectionMode;
 
         [OutputConstructor]

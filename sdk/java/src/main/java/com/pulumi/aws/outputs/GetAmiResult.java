@@ -17,72 +17,246 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAmiResult {
+    /**
+     * @return OS architecture of the AMI (ie: `i386` or `x86_64`).
+     * 
+     */
     private String architecture;
+    /**
+     * @return ARN of the AMI.
+     * 
+     */
     private String arn;
+    /**
+     * @return Set of objects with block device mappings of the AMI.
+     * 
+     */
     private List<GetAmiBlockDeviceMapping> blockDeviceMappings;
+    /**
+     * @return Boot mode of the image.
+     * 
+     */
     private String bootMode;
+    /**
+     * @return Date and time the image was created.
+     * 
+     */
     private String creationDate;
+    /**
+     * @return Date and time when the image will be deprecated.
+     * 
+     */
     private String deprecationTime;
+    /**
+     * @return Description of the AMI that was provided during image
+     * creation.
+     * 
+     */
     private String description;
+    /**
+     * @return Whether enhanced networking with ENA is enabled.
+     * 
+     */
     private Boolean enaSupport;
     private @Nullable List<String> executableUsers;
     private @Nullable List<GetAmiFilter> filters;
+    /**
+     * @return Hypervisor type of the image.
+     * 
+     */
     private String hypervisor;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return ID of the AMI. Should be the same as the resource `id`.
+     * 
+     */
     private String imageId;
+    /**
+     * @return Location of the AMI.
+     * 
+     */
     private String imageLocation;
+    /**
+     * @return AWS account alias (for example, `amazon`, `self`) or
+     * the AWS account ID of the AMI owner.
+     * 
+     */
     private String imageOwnerAlias;
+    /**
+     * @return Type of image.
+     * 
+     */
     private String imageType;
+    /**
+     * @return Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.
+     * 
+     */
     private String imdsSupport;
     private @Nullable Boolean includeDeprecated;
+    /**
+     * @return Kernel associated with the image, if any. Only applicable
+     * for machine images.
+     * 
+     */
     private String kernelId;
     private @Nullable Boolean mostRecent;
+    /**
+     * @return Name of the AMI that was provided during image creation.
+     * 
+     */
     private String name;
     private @Nullable String nameRegex;
+    /**
+     * @return AWS account ID of the image owner.
+     * 
+     */
     private String ownerId;
     private @Nullable List<String> owners;
+    /**
+     * @return Value is Windows for `Windows` AMIs; otherwise blank.
+     * 
+     */
     private String platform;
+    /**
+     * @return Platform details associated with the billing code of the AMI.
+     * 
+     */
     private String platformDetails;
+    /**
+     * @return Any product codes associated with the AMI.
+     * * `product_codes.#.product_code_id` - The product code.
+     * * `product_codes.#.product_code_type` - The type of product code.
+     * 
+     */
     private List<GetAmiProductCode> productCodes;
+    /**
+     * @return `true` if the image has public launch permissions.
+     * 
+     */
     private Boolean public_;
+    /**
+     * @return RAM disk associated with the image, if any. Only applicable
+     * for machine images.
+     * 
+     */
     private String ramdiskId;
+    /**
+     * @return Device name of the root device.
+     * 
+     */
     private String rootDeviceName;
+    /**
+     * @return Type of root device (ie: `ebs` or `instance-store`).
+     * 
+     */
     private String rootDeviceType;
+    /**
+     * @return Snapshot id associated with the root device, if any
+     * (only applies to `ebs` root devices).
+     * 
+     */
     private String rootSnapshotId;
+    /**
+     * @return Whether enhanced networking is enabled.
+     * 
+     */
     private String sriovNetSupport;
+    /**
+     * @return Current state of the AMI. If the state is `available`, the image
+     * is successfully registered and can be used to launch an instance.
+     * 
+     */
     private String state;
+    /**
+     * @return Describes a state change. Fields are `UNSET` if not available.
+     * * `state_reason.code` - The reason code for the state change.
+     * * `state_reason.message` - The message for the state change.
+     * 
+     */
     private Map<String,String> stateReason;
+    /**
+     * @return Any tags assigned to the image.
+     * * `tags.#.key` - Key name of the tag.
+     * * `tags.#.value` - Value of the tag.
+     * 
+     */
     private Map<String,String> tags;
+    /**
+     * @return If the image is configured for NitroTPM support, the value is `v2.0`.
+     * 
+     */
     private String tpmSupport;
+    /**
+     * @return Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+     * 
+     */
     private String usageOperation;
+    /**
+     * @return Type of virtualization of the AMI (ie: `hvm` or
+     * `paravirtual`).
+     * 
+     */
     private String virtualizationType;
 
     private GetAmiResult() {}
+    /**
+     * @return OS architecture of the AMI (ie: `i386` or `x86_64`).
+     * 
+     */
     public String architecture() {
         return this.architecture;
     }
+    /**
+     * @return ARN of the AMI.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Set of objects with block device mappings of the AMI.
+     * 
+     */
     public List<GetAmiBlockDeviceMapping> blockDeviceMappings() {
         return this.blockDeviceMappings;
     }
+    /**
+     * @return Boot mode of the image.
+     * 
+     */
     public String bootMode() {
         return this.bootMode;
     }
+    /**
+     * @return Date and time the image was created.
+     * 
+     */
     public String creationDate() {
         return this.creationDate;
     }
+    /**
+     * @return Date and time when the image will be deprecated.
+     * 
+     */
     public String deprecationTime() {
         return this.deprecationTime;
     }
+    /**
+     * @return Description of the AMI that was provided during image
+     * creation.
+     * 
+     */
     public String description() {
         return this.description;
     }
+    /**
+     * @return Whether enhanced networking with ENA is enabled.
+     * 
+     */
     public Boolean enaSupport() {
         return this.enaSupport;
     }
@@ -92,6 +266,10 @@ public final class GetAmiResult {
     public List<GetAmiFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
+    /**
+     * @return Hypervisor type of the image.
+     * 
+     */
     public String hypervisor() {
         return this.hypervisor;
     }
@@ -102,84 +280,188 @@ public final class GetAmiResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return ID of the AMI. Should be the same as the resource `id`.
+     * 
+     */
     public String imageId() {
         return this.imageId;
     }
+    /**
+     * @return Location of the AMI.
+     * 
+     */
     public String imageLocation() {
         return this.imageLocation;
     }
+    /**
+     * @return AWS account alias (for example, `amazon`, `self`) or
+     * the AWS account ID of the AMI owner.
+     * 
+     */
     public String imageOwnerAlias() {
         return this.imageOwnerAlias;
     }
+    /**
+     * @return Type of image.
+     * 
+     */
     public String imageType() {
         return this.imageType;
     }
+    /**
+     * @return Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.
+     * 
+     */
     public String imdsSupport() {
         return this.imdsSupport;
     }
     public Optional<Boolean> includeDeprecated() {
         return Optional.ofNullable(this.includeDeprecated);
     }
+    /**
+     * @return Kernel associated with the image, if any. Only applicable
+     * for machine images.
+     * 
+     */
     public String kernelId() {
         return this.kernelId;
     }
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
+    /**
+     * @return Name of the AMI that was provided during image creation.
+     * 
+     */
     public String name() {
         return this.name;
     }
     public Optional<String> nameRegex() {
         return Optional.ofNullable(this.nameRegex);
     }
+    /**
+     * @return AWS account ID of the image owner.
+     * 
+     */
     public String ownerId() {
         return this.ownerId;
     }
     public List<String> owners() {
         return this.owners == null ? List.of() : this.owners;
     }
+    /**
+     * @return Value is Windows for `Windows` AMIs; otherwise blank.
+     * 
+     */
     public String platform() {
         return this.platform;
     }
+    /**
+     * @return Platform details associated with the billing code of the AMI.
+     * 
+     */
     public String platformDetails() {
         return this.platformDetails;
     }
+    /**
+     * @return Any product codes associated with the AMI.
+     * * `product_codes.#.product_code_id` - The product code.
+     * * `product_codes.#.product_code_type` - The type of product code.
+     * 
+     */
     public List<GetAmiProductCode> productCodes() {
         return this.productCodes;
     }
+    /**
+     * @return `true` if the image has public launch permissions.
+     * 
+     */
     public Boolean public_() {
         return this.public_;
     }
+    /**
+     * @return RAM disk associated with the image, if any. Only applicable
+     * for machine images.
+     * 
+     */
     public String ramdiskId() {
         return this.ramdiskId;
     }
+    /**
+     * @return Device name of the root device.
+     * 
+     */
     public String rootDeviceName() {
         return this.rootDeviceName;
     }
+    /**
+     * @return Type of root device (ie: `ebs` or `instance-store`).
+     * 
+     */
     public String rootDeviceType() {
         return this.rootDeviceType;
     }
+    /**
+     * @return Snapshot id associated with the root device, if any
+     * (only applies to `ebs` root devices).
+     * 
+     */
     public String rootSnapshotId() {
         return this.rootSnapshotId;
     }
+    /**
+     * @return Whether enhanced networking is enabled.
+     * 
+     */
     public String sriovNetSupport() {
         return this.sriovNetSupport;
     }
+    /**
+     * @return Current state of the AMI. If the state is `available`, the image
+     * is successfully registered and can be used to launch an instance.
+     * 
+     */
     public String state() {
         return this.state;
     }
+    /**
+     * @return Describes a state change. Fields are `UNSET` if not available.
+     * * `state_reason.code` - The reason code for the state change.
+     * * `state_reason.message` - The message for the state change.
+     * 
+     */
     public Map<String,String> stateReason() {
         return this.stateReason;
     }
+    /**
+     * @return Any tags assigned to the image.
+     * * `tags.#.key` - Key name of the tag.
+     * * `tags.#.value` - Value of the tag.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @return If the image is configured for NitroTPM support, the value is `v2.0`.
+     * 
+     */
     public String tpmSupport() {
         return this.tpmSupport;
     }
+    /**
+     * @return Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+     * 
+     */
     public String usageOperation() {
         return this.usageOperation;
     }
+    /**
+     * @return Type of virtualization of the AMI (ie: `hvm` or
+     * `paravirtual`).
+     * 
+     */
     public String virtualizationType() {
         return this.virtualizationType;
     }

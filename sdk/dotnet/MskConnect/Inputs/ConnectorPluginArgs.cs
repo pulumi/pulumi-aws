@@ -12,6 +12,9 @@ namespace Pulumi.Aws.MskConnect.Inputs
 
     public sealed class ConnectorPluginArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Details about a custom plugin. See below.
+        /// </summary>
         [Input("customPlugin", required: true)]
         public Input<Inputs.ConnectorPluginCustomPluginArgs> CustomPlugin { get; set; } = null!;
 

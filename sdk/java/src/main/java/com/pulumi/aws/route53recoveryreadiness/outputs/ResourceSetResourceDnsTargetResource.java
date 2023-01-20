@@ -12,25 +12,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResourceSetResourceDnsTargetResource {
+    /**
+     * @return DNS Name that acts as the ingress point to a portion of application.
+     * 
+     */
     private String domainName;
+    /**
+     * @return Hosted Zone ARN that contains the DNS record with the provided name of target resource.
+     * 
+     */
     private @Nullable String hostedZoneArn;
+    /**
+     * @return Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+     * 
+     */
     private @Nullable String recordSetId;
+    /**
+     * @return Type of DNS Record of target resource.
+     * 
+     */
     private @Nullable String recordType;
+    /**
+     * @return Target resource the R53 record specified with the above params points to.
+     * 
+     */
     private @Nullable ResourceSetResourceDnsTargetResourceTargetResource targetResource;
 
     private ResourceSetResourceDnsTargetResource() {}
+    /**
+     * @return DNS Name that acts as the ingress point to a portion of application.
+     * 
+     */
     public String domainName() {
         return this.domainName;
     }
+    /**
+     * @return Hosted Zone ARN that contains the DNS record with the provided name of target resource.
+     * 
+     */
     public Optional<String> hostedZoneArn() {
         return Optional.ofNullable(this.hostedZoneArn);
     }
+    /**
+     * @return Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+     * 
+     */
     public Optional<String> recordSetId() {
         return Optional.ofNullable(this.recordSetId);
     }
+    /**
+     * @return Type of DNS Record of target resource.
+     * 
+     */
     public Optional<String> recordType() {
         return Optional.ofNullable(this.recordType);
     }
+    /**
+     * @return Target resource the R53 record specified with the above params points to.
+     * 
+     */
     public Optional<ResourceSetResourceDnsTargetResourceTargetResource> targetResource() {
         return Optional.ofNullable(this.targetResource);
     }

@@ -12,9 +12,17 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class IntentDialogCodeHookGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The version of the request-response that you want Amazon Lex to use
+        /// to invoke your Lambda function. For more information, see
+        /// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
+        /// </summary>
         [Input("messageVersion", required: true)]
         public Input<string> MessageVersion { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Lambda function.
+        /// </summary>
         [Input("uri", required: true)]
         public Input<string> Uri { get; set; } = null!;
 

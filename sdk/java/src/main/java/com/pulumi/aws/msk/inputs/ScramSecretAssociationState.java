@@ -16,16 +16,32 @@ public final class ScramSecretAssociationState extends com.pulumi.resources.Reso
 
     public static final ScramSecretAssociationState Empty = new ScramSecretAssociationState();
 
+    /**
+     * Amazon Resource Name (ARN) of the MSK cluster.
+     * 
+     */
     @Import(name="clusterArn")
     private @Nullable Output<String> clusterArn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of the MSK cluster.
+     * 
+     */
     public Optional<Output<String>> clusterArn() {
         return Optional.ofNullable(this.clusterArn);
     }
 
+    /**
+     * List of AWS Secrets Manager secret ARNs.
+     * 
+     */
     @Import(name="secretArnLists")
     private @Nullable Output<List<String>> secretArnLists;
 
+    /**
+     * @return List of AWS Secrets Manager secret ARNs.
+     * 
+     */
     public Optional<Output<List<String>>> secretArnLists() {
         return Optional.ofNullable(this.secretArnLists);
     }
@@ -55,24 +71,54 @@ public final class ScramSecretAssociationState extends com.pulumi.resources.Reso
             $ = new ScramSecretAssociationState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param clusterArn Amazon Resource Name (ARN) of the MSK cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterArn(@Nullable Output<String> clusterArn) {
             $.clusterArn = clusterArn;
             return this;
         }
 
+        /**
+         * @param clusterArn Amazon Resource Name (ARN) of the MSK cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterArn(String clusterArn) {
             return clusterArn(Output.of(clusterArn));
         }
 
+        /**
+         * @param secretArnLists List of AWS Secrets Manager secret ARNs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretArnLists(@Nullable Output<List<String>> secretArnLists) {
             $.secretArnLists = secretArnLists;
             return this;
         }
 
+        /**
+         * @param secretArnLists List of AWS Secrets Manager secret ARNs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretArnLists(List<String> secretArnLists) {
             return secretArnLists(Output.of(secretArnLists));
         }
 
+        /**
+         * @param secretArnLists List of AWS Secrets Manager secret ARNs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretArnLists(String... secretArnLists) {
             return secretArnLists(List.of(secretArnLists));
         }

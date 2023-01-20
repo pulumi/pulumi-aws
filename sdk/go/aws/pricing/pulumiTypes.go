@@ -11,7 +11,9 @@ import (
 )
 
 type GetProductFilter struct {
+	// Product attribute name that you want to filter on.
 	Field string `pulumi:"field"`
+	// Product attribute value that you want to filter on.
 	Value string `pulumi:"value"`
 }
 
@@ -27,7 +29,9 @@ type GetProductFilterInput interface {
 }
 
 type GetProductFilterArgs struct {
+	// Product attribute name that you want to filter on.
 	Field pulumi.StringInput `pulumi:"field"`
+	// Product attribute value that you want to filter on.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -82,10 +86,12 @@ func (o GetProductFilterOutput) ToGetProductFilterOutputWithContext(ctx context.
 	return o
 }
 
+// Product attribute name that you want to filter on.
 func (o GetProductFilterOutput) Field() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProductFilter) string { return v.Field }).(pulumi.StringOutput)
 }
 
+// Product attribute value that you want to filter on.
 func (o GetProductFilterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProductFilter) string { return v.Value }).(pulumi.StringOutput)
 }

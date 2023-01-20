@@ -18,6 +18,9 @@ namespace Pulumi.Aws.Ec2.Inputs
         [Input("associatePublicIpAddress")]
         public Input<bool>? AssociatePublicIpAddress { get; set; }
 
+        /// <summary>
+        /// The availability zone in which to place the request.
+        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
@@ -46,6 +49,9 @@ namespace Pulumi.Aws.Ec2.Inputs
         [Input("iamInstanceProfileArn")]
         public Input<string>? IamInstanceProfileArn { get; set; }
 
+        /// <summary>
+        /// The type of instance to request.
+        /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
@@ -69,14 +75,24 @@ namespace Pulumi.Aws.Ec2.Inputs
             set => _rootBlockDevices = value;
         }
 
+        /// <summary>
+        /// The maximum bid price per unit hour.
+        /// </summary>
         [Input("spotPrice")]
         public Input<string>? SpotPrice { get; set; }
 
+        /// <summary>
+        /// The subnet in which to launch the requested instance.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -94,6 +110,9 @@ namespace Pulumi.Aws.Ec2.Inputs
             set => _vpcSecurityGroupIds = value;
         }
 
+        /// <summary>
+        /// The capacity added to the fleet by a fulfilled request.
+        /// </summary>
         [Input("weightedCapacity")]
         public Input<string>? WeightedCapacity { get; set; }
 

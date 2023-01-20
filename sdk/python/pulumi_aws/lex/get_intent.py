@@ -53,21 +53,34 @@ class GetIntentResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the Lex intent.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def checksum(self) -> str:
+        """
+        Checksum identifying the version of the intent that was created. The checksum is not
+        included as an argument because the resource will add it automatically when updating the intent.
+        """
         return pulumi.get(self, "checksum")
 
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> str:
+        """
+        Date when the intent version was created.
+        """
         return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the intent.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -81,21 +94,36 @@ class GetIntentResult:
     @property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> str:
+        """
+        Date when the $LATEST version of this intent was updated.
+        """
         return pulumi.get(self, "last_updated_date")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the intent, not case sensitive.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="parentIntentSignature")
     def parent_intent_signature(self) -> str:
+        """
+        A unique identifier for the built-in intent to base this
+        intent on. To find the signature for an intent, see
+        [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
+        in the Alexa Skills Kit.
+        """
         return pulumi.get(self, "parent_intent_signature")
 
     @property
     @pulumi.getter
     def version(self) -> Optional[str]:
+        """
+        Version of the bot.
+        """
         return pulumi.get(self, "version")
 
 
@@ -120,7 +148,21 @@ def get_intent(name: Optional[str] = None,
                version: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntentResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about a specific Amazon Lex Intent.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    order_flowers = aws.lex.get_intent(name="OrderFlowers",
+        version="$LATEST")
+    ```
+
+
+    :param str name: Name of the intent. The name is case sensitive.
+    :param str version: Version of the intent.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -145,6 +187,20 @@ def get_intent_output(name: Optional[pulumi.Input[str]] = None,
                       version: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntentResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about a specific Amazon Lex Intent.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    order_flowers = aws.lex.get_intent(name="OrderFlowers",
+        version="$LATEST")
+    ```
+
+
+    :param str name: Name of the intent. The name is case sensitive.
+    :param str version: Version of the intent.
     """
     ...

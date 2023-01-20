@@ -11,9 +11,145 @@ namespace Pulumi.Aws
 {
     public static class GetRegions
     {
+        /// <summary>
+        /// Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `aws.getRegion` data source.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// Enabled AWS Regions:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetRegions.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// All the regions regardless of the availability
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetRegions.Invoke(new()
+        ///     {
+        ///         AllRegions = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// To see regions that are filtered by `"not-opted-in"`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetRegions.Invoke(new()
+        ///     {
+        ///         AllRegions = true,
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Inputs.GetRegionsFilterInputArgs
+        ///             {
+        ///                 Name = "opt-in-status",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "not-opted-in",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetRegionsResult> InvokeAsync(GetRegionsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegionsResult>("aws:index/getRegions:getRegions", args ?? new GetRegionsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `aws.getRegion` data source.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// Enabled AWS Regions:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetRegions.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// All the regions regardless of the availability
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetRegions.Invoke(new()
+        ///     {
+        ///         AllRegions = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// To see regions that are filtered by `"not-opted-in"`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetRegions.Invoke(new()
+        ///     {
+        ///         AllRegions = true,
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Inputs.GetRegionsFilterInputArgs
+        ///             {
+        ///                 Name = "opt-in-status",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "not-opted-in",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetRegionsResult> Invoke(GetRegionsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegionsResult>("aws:index/getRegions:getRegions", args ?? new GetRegionsInvokeArgs(), options.WithDefaults());
     }
@@ -21,11 +157,18 @@ namespace Pulumi.Aws
 
     public sealed class GetRegionsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// If true the source will query all regions regardless of availability.
+        /// </summary>
         [Input("allRegions")]
         public bool? AllRegions { get; set; }
 
         [Input("filters")]
         private List<Inputs.GetRegionsFilterArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) to use as filters. Detailed below.
+        /// </summary>
         public List<Inputs.GetRegionsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetRegionsFilterArgs>());
@@ -40,11 +183,18 @@ namespace Pulumi.Aws
 
     public sealed class GetRegionsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// If true the source will query all regions regardless of availability.
+        /// </summary>
         [Input("allRegions")]
         public Input<bool>? AllRegions { get; set; }
 
         [Input("filters")]
         private InputList<Inputs.GetRegionsFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) to use as filters. Detailed below.
+        /// </summary>
         public InputList<Inputs.GetRegionsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetRegionsFilterInputArgs>());
@@ -67,6 +217,9 @@ namespace Pulumi.Aws
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Names of regions that meets the criteria.
+        /// </summary>
         public readonly ImmutableArray<string> Names;
 
         [OutputConstructor]

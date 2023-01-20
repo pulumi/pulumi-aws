@@ -16,23 +16,47 @@ public final class GetTagsFilterOr extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTagsFilterOr Empty = new GetTagsFilterOr();
 
+    /**
+     * Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+     * 
+     */
     @Import(name="costCategory")
     private @Nullable GetTagsFilterOrCostCategory costCategory;
 
+    /**
+     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+     * 
+     */
     public Optional<GetTagsFilterOrCostCategory> costCategory() {
         return Optional.ofNullable(this.costCategory);
     }
 
+    /**
+     * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+     * 
+     */
     @Import(name="dimension")
     private @Nullable GetTagsFilterOrDimension dimension;
 
+    /**
+     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
+     * 
+     */
     public Optional<GetTagsFilterOrDimension> dimension() {
         return Optional.ofNullable(this.dimension);
     }
 
+    /**
+     * Tags that match your request.
+     * 
+     */
     @Import(name="tags")
     private @Nullable GetTagsFilterOrTags tags;
 
+    /**
+     * @return Tags that match your request.
+     * 
+     */
     public Optional<GetTagsFilterOrTags> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -63,16 +87,34 @@ public final class GetTagsFilterOr extends com.pulumi.resources.InvokeArgs {
             $ = new GetTagsFilterOr(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param costCategory Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder costCategory(@Nullable GetTagsFilterOrCostCategory costCategory) {
             $.costCategory = costCategory;
             return this;
         }
 
+        /**
+         * @param dimension Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dimension(@Nullable GetTagsFilterOrDimension dimension) {
             $.dimension = dimension;
             return this;
         }
 
+        /**
+         * @param tags Tags that match your request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable GetTagsFilterOrTags tags) {
             $.tags = tags;
             return this;

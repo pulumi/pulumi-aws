@@ -31,6 +31,21 @@ class DevEndpointArgs:
                  worker_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DevEndpoint resource.
+        :param pulumi.Input[str] role_arn: The IAM role for this endpoint.
+        :param pulumi.Input[Mapping[str, Any]] arguments: A map of arguments used to configure the endpoint.
+        :param pulumi.Input[str] extra_jars_s3_path: Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
+        :param pulumi.Input[str] extra_python_libs_s3_path: Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
+        :param pulumi.Input[str] glue_version: Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        :param pulumi.Input[str] name: The name of this endpoint. It must be unique in your account.
+        :param pulumi.Input[int] number_of_nodes: The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
+        :param pulumi.Input[int] number_of_workers: The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+        :param pulumi.Input[str] public_key: The public key to be used by this endpoint for authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_keys: A list of public keys to be used by this endpoint for authentication.
+        :param pulumi.Input[str] security_configuration: The name of the Security Configuration structure to be used with this endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
+        :param pulumi.Input[str] subnet_id: The subnet ID for the new endpoint to use.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         if arguments is not None:
@@ -65,6 +80,9 @@ class DevEndpointArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        The IAM role for this endpoint.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -74,6 +92,9 @@ class DevEndpointArgs:
     @property
     @pulumi.getter
     def arguments(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        A map of arguments used to configure the endpoint.
+        """
         return pulumi.get(self, "arguments")
 
     @arguments.setter
@@ -83,6 +104,9 @@ class DevEndpointArgs:
     @property
     @pulumi.getter(name="extraJarsS3Path")
     def extra_jars_s3_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
+        """
         return pulumi.get(self, "extra_jars_s3_path")
 
     @extra_jars_s3_path.setter
@@ -92,6 +116,9 @@ class DevEndpointArgs:
     @property
     @pulumi.getter(name="extraPythonLibsS3Path")
     def extra_python_libs_s3_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
+        """
         return pulumi.get(self, "extra_python_libs_s3_path")
 
     @extra_python_libs_s3_path.setter
@@ -101,6 +128,9 @@ class DevEndpointArgs:
     @property
     @pulumi.getter(name="glueVersion")
     def glue_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        """
         return pulumi.get(self, "glue_version")
 
     @glue_version.setter
@@ -110,6 +140,9 @@ class DevEndpointArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of this endpoint. It must be unique in your account.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -119,6 +152,9 @@ class DevEndpointArgs:
     @property
     @pulumi.getter(name="numberOfNodes")
     def number_of_nodes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
+        """
         return pulumi.get(self, "number_of_nodes")
 
     @number_of_nodes.setter
@@ -128,6 +164,9 @@ class DevEndpointArgs:
     @property
     @pulumi.getter(name="numberOfWorkers")
     def number_of_workers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+        """
         return pulumi.get(self, "number_of_workers")
 
     @number_of_workers.setter
@@ -137,6 +176,9 @@ class DevEndpointArgs:
     @property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public key to be used by this endpoint for authentication.
+        """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
@@ -146,6 +188,9 @@ class DevEndpointArgs:
     @property
     @pulumi.getter(name="publicKeys")
     def public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of public keys to be used by this endpoint for authentication.
+        """
         return pulumi.get(self, "public_keys")
 
     @public_keys.setter
@@ -155,6 +200,9 @@ class DevEndpointArgs:
     @property
     @pulumi.getter(name="securityConfiguration")
     def security_configuration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Security Configuration structure to be used with this endpoint.
+        """
         return pulumi.get(self, "security_configuration")
 
     @security_configuration.setter
@@ -164,6 +212,9 @@ class DevEndpointArgs:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Security group IDs for the security groups to be used by this endpoint.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -173,6 +224,9 @@ class DevEndpointArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet ID for the new endpoint to use.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -182,6 +236,9 @@ class DevEndpointArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -191,6 +248,9 @@ class DevEndpointArgs:
     @property
     @pulumi.getter(name="workerType")
     def worker_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+        """
         return pulumi.get(self, "worker_type")
 
     @worker_type.setter
@@ -228,6 +288,31 @@ class _DevEndpointState:
                  zeppelin_remote_spark_interpreter_port: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering DevEndpoint resources.
+        :param pulumi.Input[Mapping[str, Any]] arguments: A map of arguments used to configure the endpoint.
+        :param pulumi.Input[str] arn: The ARN of the endpoint.
+        :param pulumi.Input[str] availability_zone: The AWS availability zone where this endpoint is located.
+        :param pulumi.Input[str] extra_jars_s3_path: Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
+        :param pulumi.Input[str] extra_python_libs_s3_path: Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
+        :param pulumi.Input[str] failure_reason: The reason for a current failure in this endpoint.
+        :param pulumi.Input[str] glue_version: Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        :param pulumi.Input[str] name: The name of this endpoint. It must be unique in your account.
+        :param pulumi.Input[int] number_of_nodes: The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
+        :param pulumi.Input[int] number_of_workers: The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+        :param pulumi.Input[str] private_address: A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
+        :param pulumi.Input[str] public_address: The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
+        :param pulumi.Input[str] public_key: The public key to be used by this endpoint for authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_keys: A list of public keys to be used by this endpoint for authentication.
+        :param pulumi.Input[str] role_arn: The IAM role for this endpoint.
+        :param pulumi.Input[str] security_configuration: The name of the Security Configuration structure to be used with this endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
+        :param pulumi.Input[str] status: The current status of this endpoint.
+        :param pulumi.Input[str] subnet_id: The subnet ID for the new endpoint to use.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] vpc_id: he ID of the VPC used by this endpoint.
+        :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+        :param pulumi.Input[str] yarn_endpoint_address: The YARN endpoint address used by this endpoint.
+        :param pulumi.Input[int] zeppelin_remote_spark_interpreter_port: The Apache Zeppelin port for the remote Apache Spark interpreter.
         """
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
@@ -283,6 +368,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter
     def arguments(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        A map of arguments used to configure the endpoint.
+        """
         return pulumi.get(self, "arguments")
 
     @arguments.setter
@@ -292,6 +380,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the endpoint.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -301,6 +392,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS availability zone where this endpoint is located.
+        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -310,6 +404,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="extraJarsS3Path")
     def extra_jars_s3_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
+        """
         return pulumi.get(self, "extra_jars_s3_path")
 
     @extra_jars_s3_path.setter
@@ -319,6 +416,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="extraPythonLibsS3Path")
     def extra_python_libs_s3_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
+        """
         return pulumi.get(self, "extra_python_libs_s3_path")
 
     @extra_python_libs_s3_path.setter
@@ -328,6 +428,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="failureReason")
     def failure_reason(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reason for a current failure in this endpoint.
+        """
         return pulumi.get(self, "failure_reason")
 
     @failure_reason.setter
@@ -337,6 +440,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="glueVersion")
     def glue_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        """
         return pulumi.get(self, "glue_version")
 
     @glue_version.setter
@@ -346,6 +452,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of this endpoint. It must be unique in your account.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -355,6 +464,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="numberOfNodes")
     def number_of_nodes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
+        """
         return pulumi.get(self, "number_of_nodes")
 
     @number_of_nodes.setter
@@ -364,6 +476,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="numberOfWorkers")
     def number_of_workers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+        """
         return pulumi.get(self, "number_of_workers")
 
     @number_of_workers.setter
@@ -373,6 +488,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="privateAddress")
     def private_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
+        """
         return pulumi.get(self, "private_address")
 
     @private_address.setter
@@ -382,6 +500,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="publicAddress")
     def public_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
+        """
         return pulumi.get(self, "public_address")
 
     @public_address.setter
@@ -391,6 +512,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public key to be used by this endpoint for authentication.
+        """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
@@ -400,6 +524,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="publicKeys")
     def public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of public keys to be used by this endpoint for authentication.
+        """
         return pulumi.get(self, "public_keys")
 
     @public_keys.setter
@@ -409,6 +536,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM role for this endpoint.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -418,6 +548,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="securityConfiguration")
     def security_configuration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Security Configuration structure to be used with this endpoint.
+        """
         return pulumi.get(self, "security_configuration")
 
     @security_configuration.setter
@@ -427,6 +560,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Security group IDs for the security groups to be used by this endpoint.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -436,6 +572,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current status of this endpoint.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -445,6 +584,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet ID for the new endpoint to use.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -454,6 +596,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -463,6 +608,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -472,6 +620,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        he ID of the VPC used by this endpoint.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -481,6 +632,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="workerType")
     def worker_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+        """
         return pulumi.get(self, "worker_type")
 
     @worker_type.setter
@@ -490,6 +644,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="yarnEndpointAddress")
     def yarn_endpoint_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The YARN endpoint address used by this endpoint.
+        """
         return pulumi.get(self, "yarn_endpoint_address")
 
     @yarn_endpoint_address.setter
@@ -499,6 +656,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="zeppelinRemoteSparkInterpreterPort")
     def zeppelin_remote_spark_interpreter_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Apache Zeppelin port for the remote Apache Spark interpreter.
+        """
         return pulumi.get(self, "zeppelin_remote_spark_interpreter_port")
 
     @zeppelin_remote_spark_interpreter_port.setter
@@ -528,9 +688,55 @@ class DevEndpoint(pulumi.CustomResource):
                  worker_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a DevEndpoint resource with the given unique name, props, and options.
+        Provides a Glue Development Endpoint resource.
+
+        ## Example Usage
+
+        Basic usage:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRole"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["glue.amazonaws.com"],
+            )],
+        )])
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=example_policy_document.json)
+        example_dev_endpoint = aws.glue.DevEndpoint("exampleDevEndpoint", role_arn=example_role.arn)
+        example__aws_glue_service_role = aws.iam.RolePolicyAttachment("example-AWSGlueServiceRole",
+            policy_arn="arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole",
+            role=example_role.name)
+        ```
+
+        ## Import
+
+        A Glue Development Endpoint can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, Any]] arguments: A map of arguments used to configure the endpoint.
+        :param pulumi.Input[str] extra_jars_s3_path: Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
+        :param pulumi.Input[str] extra_python_libs_s3_path: Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
+        :param pulumi.Input[str] glue_version: Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        :param pulumi.Input[str] name: The name of this endpoint. It must be unique in your account.
+        :param pulumi.Input[int] number_of_nodes: The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
+        :param pulumi.Input[int] number_of_workers: The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+        :param pulumi.Input[str] public_key: The public key to be used by this endpoint for authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_keys: A list of public keys to be used by this endpoint for authentication.
+        :param pulumi.Input[str] role_arn: The IAM role for this endpoint.
+        :param pulumi.Input[str] security_configuration: The name of the Security Configuration structure to be used with this endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
+        :param pulumi.Input[str] subnet_id: The subnet ID for the new endpoint to use.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         """
         ...
     @overload
@@ -539,7 +745,38 @@ class DevEndpoint(pulumi.CustomResource):
                  args: DevEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DevEndpoint resource with the given unique name, props, and options.
+        Provides a Glue Development Endpoint resource.
+
+        ## Example Usage
+
+        Basic usage:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRole"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["glue.amazonaws.com"],
+            )],
+        )])
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=example_policy_document.json)
+        example_dev_endpoint = aws.glue.DevEndpoint("exampleDevEndpoint", role_arn=example_role.arn)
+        example__aws_glue_service_role = aws.iam.RolePolicyAttachment("example-AWSGlueServiceRole",
+            policy_arn="arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole",
+            role=example_role.name)
+        ```
+
+        ## Import
+
+        A Glue Development Endpoint can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param DevEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -648,6 +885,31 @@ class DevEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, Any]] arguments: A map of arguments used to configure the endpoint.
+        :param pulumi.Input[str] arn: The ARN of the endpoint.
+        :param pulumi.Input[str] availability_zone: The AWS availability zone where this endpoint is located.
+        :param pulumi.Input[str] extra_jars_s3_path: Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
+        :param pulumi.Input[str] extra_python_libs_s3_path: Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
+        :param pulumi.Input[str] failure_reason: The reason for a current failure in this endpoint.
+        :param pulumi.Input[str] glue_version: Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        :param pulumi.Input[str] name: The name of this endpoint. It must be unique in your account.
+        :param pulumi.Input[int] number_of_nodes: The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
+        :param pulumi.Input[int] number_of_workers: The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+        :param pulumi.Input[str] private_address: A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
+        :param pulumi.Input[str] public_address: The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
+        :param pulumi.Input[str] public_key: The public key to be used by this endpoint for authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_keys: A list of public keys to be used by this endpoint for authentication.
+        :param pulumi.Input[str] role_arn: The IAM role for this endpoint.
+        :param pulumi.Input[str] security_configuration: The name of the Security Configuration structure to be used with this endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
+        :param pulumi.Input[str] status: The current status of this endpoint.
+        :param pulumi.Input[str] subnet_id: The subnet ID for the new endpoint to use.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] vpc_id: he ID of the VPC used by this endpoint.
+        :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+        :param pulumi.Input[str] yarn_endpoint_address: The YARN endpoint address used by this endpoint.
+        :param pulumi.Input[int] zeppelin_remote_spark_interpreter_port: The Apache Zeppelin port for the remote Apache Spark interpreter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -683,125 +945,200 @@ class DevEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arguments(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+        """
+        A map of arguments used to configure the endpoint.
+        """
         return pulumi.get(self, "arguments")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the endpoint.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[str]:
+        """
+        The AWS availability zone where this endpoint is located.
+        """
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="extraJarsS3Path")
     def extra_jars_s3_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
+        """
         return pulumi.get(self, "extra_jars_s3_path")
 
     @property
     @pulumi.getter(name="extraPythonLibsS3Path")
     def extra_python_libs_s3_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
+        """
         return pulumi.get(self, "extra_python_libs_s3_path")
 
     @property
     @pulumi.getter(name="failureReason")
     def failure_reason(self) -> pulumi.Output[str]:
+        """
+        The reason for a current failure in this endpoint.
+        """
         return pulumi.get(self, "failure_reason")
 
     @property
     @pulumi.getter(name="glueVersion")
     def glue_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        """
         return pulumi.get(self, "glue_version")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of this endpoint. It must be unique in your account.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="numberOfNodes")
     def number_of_nodes(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
+        """
         return pulumi.get(self, "number_of_nodes")
 
     @property
     @pulumi.getter(name="numberOfWorkers")
     def number_of_workers(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+        """
         return pulumi.get(self, "number_of_workers")
 
     @property
     @pulumi.getter(name="privateAddress")
     def private_address(self) -> pulumi.Output[str]:
+        """
+        A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
+        """
         return pulumi.get(self, "private_address")
 
     @property
     @pulumi.getter(name="publicAddress")
     def public_address(self) -> pulumi.Output[str]:
+        """
+        The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
+        """
         return pulumi.get(self, "public_address")
 
     @property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The public key to be used by this endpoint for authentication.
+        """
         return pulumi.get(self, "public_key")
 
     @property
     @pulumi.getter(name="publicKeys")
     def public_keys(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of public keys to be used by this endpoint for authentication.
+        """
         return pulumi.get(self, "public_keys")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
+        """
+        The IAM role for this endpoint.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="securityConfiguration")
     def security_configuration(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the Security Configuration structure to be used with this endpoint.
+        """
         return pulumi.get(self, "security_configuration")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Security group IDs for the security groups to be used by this endpoint.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The current status of this endpoint.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The subnet ID for the new endpoint to use.
+        """
         return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        he ID of the VPC used by this endpoint.
+        """
         return pulumi.get(self, "vpc_id")
 
     @property
     @pulumi.getter(name="workerType")
     def worker_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+        """
         return pulumi.get(self, "worker_type")
 
     @property
     @pulumi.getter(name="yarnEndpointAddress")
     def yarn_endpoint_address(self) -> pulumi.Output[str]:
+        """
+        The YARN endpoint address used by this endpoint.
+        """
         return pulumi.get(self, "yarn_endpoint_address")
 
     @property
     @pulumi.getter(name="zeppelinRemoteSparkInterpreterPort")
     def zeppelin_remote_spark_interpreter_port(self) -> pulumi.Output[int]:
+        """
+        The Apache Zeppelin port for the remote Apache Spark interpreter.
+        """
         return pulumi.get(self, "zeppelin_remote_spark_interpreter_port")
 

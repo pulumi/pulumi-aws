@@ -18,6 +18,10 @@ public final class GetVpcAttachmentsResult {
      * 
      */
     private String id;
+    /**
+     * @return A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [aws.ec2transitgateway.VpcAttachment][2] data source, searching by identifier.
+     * 
+     */
     private List<String> ids;
 
     private GetVpcAttachmentsResult() {}
@@ -31,6 +35,10 @@ public final class GetVpcAttachmentsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [aws.ec2transitgateway.VpcAttachment][2] data source, searching by identifier.
+     * 
+     */
     public List<String> ids() {
         return this.ids;
     }

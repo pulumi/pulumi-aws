@@ -15,16 +15,32 @@ public final class EventBusPolicyArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final EventBusPolicyArgs Empty = new EventBusPolicyArgs();
 
+    /**
+     * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+     * 
+     */
     @Import(name="eventBusName")
     private @Nullable Output<String> eventBusName;
 
+    /**
+     * @return The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+     * 
+     */
     public Optional<Output<String>> eventBusName() {
         return Optional.ofNullable(this.eventBusName);
     }
 
+    /**
+     * The text of the policy.
+     * 
+     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
+    /**
+     * @return The text of the policy.
+     * 
+     */
     public Output<String> policy() {
         return this.policy;
     }
@@ -54,20 +70,44 @@ public final class EventBusPolicyArgs extends com.pulumi.resources.ResourceArgs 
             $ = new EventBusPolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param eventBusName The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventBusName(@Nullable Output<String> eventBusName) {
             $.eventBusName = eventBusName;
             return this;
         }
 
+        /**
+         * @param eventBusName The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eventBusName(String eventBusName) {
             return eventBusName(Output.of(eventBusName));
         }
 
+        /**
+         * @param policy The text of the policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
+        /**
+         * @param policy The text of the policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }

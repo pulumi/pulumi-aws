@@ -4,6 +4,69 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Lightsail Database. Amazon Lightsail is a service to provide easy virtual private servers
+ * with custom software already setup. See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail)
+ * for more information.
+ *
+ * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones"](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for more details
+ *
+ * ## Example Usage
+ * ## Blueprint Ids
+ *
+ * A list of all available Lightsail Blueprints for Relational Databases the [aws lightsail get-relational-database-blueprints](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-relational-database-blueprints.html) aws cli command.
+ *
+ * ### Examples
+ *
+ * - `mysql80`
+ * - `postgres12`
+ *
+ * ### Prefix
+ *
+ * A Blueprint ID starts with a prefix of the engine type.
+ *
+ * ### Suffix
+ *
+ * A Blueprint ID has a sufix of the engine version.
+ *
+ * ## Bundles
+ *
+ * A list of all available Lightsail Bundles for Relational Databases the [aws lightsail get-relational-database-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-relational-database-bundles.html) aws cli command.
+ *
+ * ### Examples
+ *
+ * - `small10`
+ * - `smallHa10`
+ * - `large10`
+ * - `largeHa10`
+ *
+ * ### Prefix
+ *
+ * A Bundle ID starts with one of the below size prefixes:
+ *
+ * - `micro_`
+ * - `small_`
+ * - `medium_`
+ * - `large_`
+ *
+ * ### Infixes (Optional for HA Database)
+ *
+ * A Bundle Id can have the following infix added in order to use the HA option of the selected bundle.
+ *
+ * - `ha_`
+ *
+ * ### Suffix
+ *
+ * A Bundle ID ends with one of the following suffix: `10`
+ *
+ * ## Import
+ *
+ * Lightsail Databases can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:lightsail/database:Database foo 'bar'
+ * ```
+ */
 export class Database extends pulumi.CustomResource {
     /**
      * Get an existing Database resource's state with the given name, ID, and optional extra
@@ -32,33 +95,114 @@ export class Database extends pulumi.CustomResource {
         return obj['__pulumiType'] === Database.__pulumiType;
     }
 
+    /**
+     * When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
+     */
     public readonly applyImmediately!: pulumi.Output<boolean>;
+    /**
+     * The ARN of the Lightsail instance (matches `id`).
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
+     */
     public readonly availabilityZone!: pulumi.Output<string>;
+    /**
+     * When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
+     */
     public readonly backupRetentionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
+     */
     public readonly blueprintId!: pulumi.Output<string>;
+    /**
+     * The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
+     */
     public readonly bundleId!: pulumi.Output<string>;
+    /**
+     * The certificate associated with the database.
+     */
     public /*out*/ readonly caCertificateIdentifier!: pulumi.Output<string>;
+    /**
+     * The number of vCPUs for the database.
+     */
     public /*out*/ readonly cpuCount!: pulumi.Output<number>;
+    /**
+     * The timestamp when the instance was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The size of the disk for the database.
+     */
     public /*out*/ readonly diskSize!: pulumi.Output<number>;
+    /**
+     * The database software (for example, MySQL).
+     */
     public /*out*/ readonly engine!: pulumi.Output<string>;
+    /**
+     * The database engine version (for example, 5.7.23).
+     */
     public /*out*/ readonly engineVersion!: pulumi.Output<string>;
+    /**
+     * The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
+     */
     public readonly finalSnapshotName!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the master database created when the Lightsail database resource is created.
+     */
     public readonly masterDatabaseName!: pulumi.Output<string>;
+    /**
+     * The master endpoint fqdn for the database.
+     */
     public /*out*/ readonly masterEndpointAddress!: pulumi.Output<string>;
+    /**
+     * The master endpoint network port for the database.
+     */
     public /*out*/ readonly masterEndpointPort!: pulumi.Output<number>;
+    /**
+     * The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
+     */
     public readonly masterPassword!: pulumi.Output<string>;
+    /**
+     * The master user name for your new database.
+     */
     public readonly masterUsername!: pulumi.Output<string>;
+    /**
+     * The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
+     */
     public readonly preferredBackupWindow!: pulumi.Output<string>;
+    /**
+     * The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
+     */
     public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
+    /**
+     * Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+     */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
+    /**
+     * The amount of RAM in GB for the database.
+     */
     public /*out*/ readonly ramSize!: pulumi.Output<number>;
     public readonly relationalDatabaseName!: pulumi.Output<string>;
+    /**
+     * Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
+     */
     public /*out*/ readonly secondaryAvailabilityZone!: pulumi.Output<string>;
+    /**
+     * Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
+     */
     public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
+    /**
+     * The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+     */
     public /*out*/ readonly supportCode!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -162,33 +306,114 @@ export class Database extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Database resources.
  */
 export interface DatabaseState {
+    /**
+     * When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
+     */
     applyImmediately?: pulumi.Input<boolean>;
+    /**
+     * The ARN of the Lightsail instance (matches `id`).
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
+     */
     availabilityZone?: pulumi.Input<string>;
+    /**
+     * When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
+     */
     backupRetentionEnabled?: pulumi.Input<boolean>;
+    /**
+     * The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
+     */
     blueprintId?: pulumi.Input<string>;
+    /**
+     * The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
+     */
     bundleId?: pulumi.Input<string>;
+    /**
+     * The certificate associated with the database.
+     */
     caCertificateIdentifier?: pulumi.Input<string>;
+    /**
+     * The number of vCPUs for the database.
+     */
     cpuCount?: pulumi.Input<number>;
+    /**
+     * The timestamp when the instance was created.
+     */
     createdAt?: pulumi.Input<string>;
+    /**
+     * The size of the disk for the database.
+     */
     diskSize?: pulumi.Input<number>;
+    /**
+     * The database software (for example, MySQL).
+     */
     engine?: pulumi.Input<string>;
+    /**
+     * The database engine version (for example, 5.7.23).
+     */
     engineVersion?: pulumi.Input<string>;
+    /**
+     * The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
+     */
     finalSnapshotName?: pulumi.Input<string>;
+    /**
+     * The name of the master database created when the Lightsail database resource is created.
+     */
     masterDatabaseName?: pulumi.Input<string>;
+    /**
+     * The master endpoint fqdn for the database.
+     */
     masterEndpointAddress?: pulumi.Input<string>;
+    /**
+     * The master endpoint network port for the database.
+     */
     masterEndpointPort?: pulumi.Input<number>;
+    /**
+     * The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
+     */
     masterPassword?: pulumi.Input<string>;
+    /**
+     * The master user name for your new database.
+     */
     masterUsername?: pulumi.Input<string>;
+    /**
+     * The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
+     */
     preferredBackupWindow?: pulumi.Input<string>;
+    /**
+     * The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
+     */
     preferredMaintenanceWindow?: pulumi.Input<string>;
+    /**
+     * Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+     */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * The amount of RAM in GB for the database.
+     */
     ramSize?: pulumi.Input<number>;
     relationalDatabaseName?: pulumi.Input<string>;
+    /**
+     * Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
+     */
     secondaryAvailabilityZone?: pulumi.Input<string>;
+    /**
+     * Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
+     */
     skipFinalSnapshot?: pulumi.Input<boolean>;
+    /**
+     * The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+     */
     supportCode?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -196,19 +421,61 @@ export interface DatabaseState {
  * The set of arguments for constructing a Database resource.
  */
 export interface DatabaseArgs {
+    /**
+     * When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
+     */
     applyImmediately?: pulumi.Input<boolean>;
+    /**
+     * The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
+     */
     availabilityZone?: pulumi.Input<string>;
+    /**
+     * When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
+     */
     backupRetentionEnabled?: pulumi.Input<boolean>;
+    /**
+     * The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
+     */
     blueprintId: pulumi.Input<string>;
+    /**
+     * The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
+     */
     bundleId: pulumi.Input<string>;
+    /**
+     * The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
+     */
     finalSnapshotName?: pulumi.Input<string>;
+    /**
+     * The name of the master database created when the Lightsail database resource is created.
+     */
     masterDatabaseName: pulumi.Input<string>;
+    /**
+     * The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
+     */
     masterPassword: pulumi.Input<string>;
+    /**
+     * The master user name for your new database.
+     */
     masterUsername: pulumi.Input<string>;
+    /**
+     * The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
+     */
     preferredBackupWindow?: pulumi.Input<string>;
+    /**
+     * The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
+     */
     preferredMaintenanceWindow?: pulumi.Input<string>;
+    /**
+     * Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+     */
     publiclyAccessible?: pulumi.Input<boolean>;
     relationalDatabaseName: pulumi.Input<string>;
+    /**
+     * Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
+     */
     skipFinalSnapshot?: pulumi.Input<boolean>;
+    /**
+     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

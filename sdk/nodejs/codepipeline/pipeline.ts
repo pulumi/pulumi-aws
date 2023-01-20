@@ -7,6 +7,147 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a CodePipeline.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.codestarconnections.Connection("example", {providerType: "GitHub"});
+ * const codepipelineBucket = new aws.s3.BucketV2("codepipelineBucket", {});
+ * const codepipelineRole = new aws.iam.Role("codepipelineRole", {assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "codepipeline.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   ]
+ * }
+ * `});
+ * const s3kmskey = aws.kms.getAlias({
+ *     name: "alias/myKmsKey",
+ * });
+ * const codepipeline = new aws.codepipeline.Pipeline("codepipeline", {
+ *     roleArn: codepipelineRole.arn,
+ *     artifactStores: [{
+ *         location: codepipelineBucket.bucket,
+ *         type: "S3",
+ *         encryptionKey: {
+ *             id: s3kmskey.then(s3kmskey => s3kmskey.arn),
+ *             type: "KMS",
+ *         },
+ *     }],
+ *     stages: [
+ *         {
+ *             name: "Source",
+ *             actions: [{
+ *                 name: "Source",
+ *                 category: "Source",
+ *                 owner: "AWS",
+ *                 provider: "CodeStarSourceConnection",
+ *                 version: "1",
+ *                 outputArtifacts: ["source_output"],
+ *                 configuration: {
+ *                     ConnectionArn: example.arn,
+ *                     FullRepositoryId: "my-organization/example",
+ *                     BranchName: "main",
+ *                 },
+ *             }],
+ *         },
+ *         {
+ *             name: "Build",
+ *             actions: [{
+ *                 name: "Build",
+ *                 category: "Build",
+ *                 owner: "AWS",
+ *                 provider: "CodeBuild",
+ *                 inputArtifacts: ["source_output"],
+ *                 outputArtifacts: ["build_output"],
+ *                 version: "1",
+ *                 configuration: {
+ *                     ProjectName: "test",
+ *                 },
+ *             }],
+ *         },
+ *         {
+ *             name: "Deploy",
+ *             actions: [{
+ *                 name: "Deploy",
+ *                 category: "Deploy",
+ *                 owner: "AWS",
+ *                 provider: "CloudFormation",
+ *                 inputArtifacts: ["build_output"],
+ *                 version: "1",
+ *                 configuration: {
+ *                     ActionMode: "REPLACE_ON_FAILURE",
+ *                     Capabilities: "CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM",
+ *                     OutputFileName: "CreateStackOutput.json",
+ *                     StackName: "MyStack",
+ *                     TemplatePath: "build_output::sam-templated.yaml",
+ *                 },
+ *             }],
+ *         },
+ *     ],
+ * });
+ * const codepipelineBucketAcl = new aws.s3.BucketAclV2("codepipelineBucketAcl", {
+ *     bucket: codepipelineBucket.id,
+ *     acl: "private",
+ * });
+ * const codepipelinePolicy = new aws.iam.RolePolicy("codepipelinePolicy", {
+ *     role: codepipelineRole.id,
+ *     policy: pulumi.interpolate`{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Effect":"Allow",
+ *       "Action": [
+ *         "s3:GetObject",
+ *         "s3:GetObjectVersion",
+ *         "s3:GetBucketVersioning",
+ *         "s3:PutObjectAcl",
+ *         "s3:PutObject"
+ *       ],
+ *       "Resource": [
+ *         "${codepipelineBucket.arn}",
+ *         "${codepipelineBucket.arn}/*"
+ *       ]
+ *     },
+ *     {
+ *       "Effect": "Allow",
+ *       "Action": [
+ *         "codestar-connections:UseConnection"
+ *       ],
+ *       "Resource": "${example.arn}"
+ *     },
+ *     {
+ *       "Effect": "Allow",
+ *       "Action": [
+ *         "codebuild:BatchGetBuilds",
+ *         "codebuild:StartBuild"
+ *       ],
+ *       "Resource": "*"
+ *     }
+ *   ]
+ * }
+ * `,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * CodePipelines can be imported using the name, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+ * ```
+ */
 export class Pipeline extends pulumi.CustomResource {
     /**
      * Get an existing Pipeline resource's state with the given name, ID, and optional extra
@@ -35,12 +176,33 @@ export class Pipeline extends pulumi.CustomResource {
         return obj['__pulumiType'] === Pipeline.__pulumiType;
     }
 
+    /**
+     * The codepipeline ARN.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * One or more artifactStore blocks. Artifact stores are documented below.
+     */
     public readonly artifactStores!: pulumi.Output<outputs.codepipeline.PipelineArtifactStore[]>;
+    /**
+     * The name of the pipeline.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+     */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * A stage block. Stages are documented below.
+     */
     public readonly stages!: pulumi.Output<outputs.codepipeline.PipelineStage[]>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -91,12 +253,33 @@ export class Pipeline extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Pipeline resources.
  */
 export interface PipelineState {
+    /**
+     * The codepipeline ARN.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * One or more artifactStore blocks. Artifact stores are documented below.
+     */
     artifactStores?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineArtifactStore>[]>;
+    /**
+     * The name of the pipeline.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * A stage block. Stages are documented below.
+     */
     stages?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[]>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -104,9 +287,24 @@ export interface PipelineState {
  * The set of arguments for constructing a Pipeline resource.
  */
 export interface PipelineArgs {
+    /**
+     * One or more artifactStore blocks. Artifact stores are documented below.
+     */
     artifactStores: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineArtifactStore>[]>;
+    /**
+     * The name of the pipeline.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+     */
     roleArn: pulumi.Input<string>;
+    /**
+     * A stage block. Stages are documented below.
+     */
     stages: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[]>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

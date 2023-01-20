@@ -9,28 +9,93 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ses
 {
+    /// <summary>
+    /// Provides an SES configuration set resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Ses.ConfigurationSet("test");
+    /// 
+    /// });
+    /// ```
+    /// ### Require TLS Connections
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Ses.ConfigurationSet("test", new()
+    ///     {
+    ///         DeliveryOptions = new Aws.Ses.Inputs.ConfigurationSetDeliveryOptionsArgs
+    ///         {
+    ///             TlsPolicy = "Require",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SES Configuration Sets can be imported using their `name`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ses/confgurationSet:ConfgurationSet test some-configuration-set-test
+    /// ```
+    /// </summary>
     [Obsolete(@"aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet")]
     [AwsResourceType("aws:ses/confgurationSet:ConfgurationSet")]
     public partial class ConfgurationSet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// SES configuration set ARN.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether messages that use the configuration set are required to use TLS. See below.
+        /// </summary>
         [Output("deliveryOptions")]
         public Output<Outputs.ConfgurationSetDeliveryOptions?> DeliveryOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+        /// </summary>
         [Output("lastFreshStart")]
         public Output<string> LastFreshStart { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the configuration set.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+        /// </summary>
         [Output("reputationMetricsEnabled")]
         public Output<bool?> ReputationMetricsEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+        /// </summary>
         [Output("sendingEnabled")]
         public Output<bool?> SendingEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+        /// </summary>
         [Output("trackingOptions")]
         public Output<Outputs.ConfgurationSetTrackingOptions?> TrackingOptions { get; private set; } = null!;
 
@@ -80,18 +145,33 @@ namespace Pulumi.Aws.Ses
 
     public sealed class ConfgurationSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether messages that use the configuration set are required to use TLS. See below.
+        /// </summary>
         [Input("deliveryOptions")]
         public Input<Inputs.ConfgurationSetDeliveryOptionsArgs>? DeliveryOptions { get; set; }
 
+        /// <summary>
+        /// Name of the configuration set.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+        /// </summary>
         [Input("reputationMetricsEnabled")]
         public Input<bool>? ReputationMetricsEnabled { get; set; }
 
+        /// <summary>
+        /// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+        /// </summary>
         [Input("sendingEnabled")]
         public Input<bool>? SendingEnabled { get; set; }
 
+        /// <summary>
+        /// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+        /// </summary>
         [Input("trackingOptions")]
         public Input<Inputs.ConfgurationSetTrackingOptionsArgs>? TrackingOptions { get; set; }
 
@@ -103,24 +183,45 @@ namespace Pulumi.Aws.Ses
 
     public sealed class ConfgurationSetState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// SES configuration set ARN.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Whether messages that use the configuration set are required to use TLS. See below.
+        /// </summary>
         [Input("deliveryOptions")]
         public Input<Inputs.ConfgurationSetDeliveryOptionsGetArgs>? DeliveryOptions { get; set; }
 
+        /// <summary>
+        /// Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+        /// </summary>
         [Input("lastFreshStart")]
         public Input<string>? LastFreshStart { get; set; }
 
+        /// <summary>
+        /// Name of the configuration set.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
+        /// </summary>
         [Input("reputationMetricsEnabled")]
         public Input<bool>? ReputationMetricsEnabled { get; set; }
 
+        /// <summary>
+        /// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+        /// </summary>
         [Input("sendingEnabled")]
         public Input<bool>? SendingEnabled { get; set; }
 
+        /// <summary>
+        /// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+        /// </summary>
         [Input("trackingOptions")]
         public Input<Inputs.ConfgurationSetTrackingOptionsGetArgs>? TrackingOptions { get; set; }
 

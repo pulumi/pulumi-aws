@@ -15,30 +15,62 @@ public final class BackendEnvironmentArgs extends com.pulumi.resources.ResourceA
 
     public static final BackendEnvironmentArgs Empty = new BackendEnvironmentArgs();
 
+    /**
+     * Unique ID for an Amplify app.
+     * 
+     */
     @Import(name="appId", required=true)
     private Output<String> appId;
 
+    /**
+     * @return Unique ID for an Amplify app.
+     * 
+     */
     public Output<String> appId() {
         return this.appId;
     }
 
+    /**
+     * Name of deployment artifacts.
+     * 
+     */
     @Import(name="deploymentArtifacts")
     private @Nullable Output<String> deploymentArtifacts;
 
+    /**
+     * @return Name of deployment artifacts.
+     * 
+     */
     public Optional<Output<String>> deploymentArtifacts() {
         return Optional.ofNullable(this.deploymentArtifacts);
     }
 
+    /**
+     * Name for the backend environment.
+     * 
+     */
     @Import(name="environmentName", required=true)
     private Output<String> environmentName;
 
+    /**
+     * @return Name for the backend environment.
+     * 
+     */
     public Output<String> environmentName() {
         return this.environmentName;
     }
 
+    /**
+     * AWS CloudFormation stack name of a backend environment.
+     * 
+     */
     @Import(name="stackName")
     private @Nullable Output<String> stackName;
 
+    /**
+     * @return AWS CloudFormation stack name of a backend environment.
+     * 
+     */
     public Optional<Output<String>> stackName() {
         return Optional.ofNullable(this.stackName);
     }
@@ -70,38 +102,86 @@ public final class BackendEnvironmentArgs extends com.pulumi.resources.ResourceA
             $ = new BackendEnvironmentArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param appId Unique ID for an Amplify app.
+         * 
+         * @return builder
+         * 
+         */
         public Builder appId(Output<String> appId) {
             $.appId = appId;
             return this;
         }
 
+        /**
+         * @param appId Unique ID for an Amplify app.
+         * 
+         * @return builder
+         * 
+         */
         public Builder appId(String appId) {
             return appId(Output.of(appId));
         }
 
+        /**
+         * @param deploymentArtifacts Name of deployment artifacts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deploymentArtifacts(@Nullable Output<String> deploymentArtifacts) {
             $.deploymentArtifacts = deploymentArtifacts;
             return this;
         }
 
+        /**
+         * @param deploymentArtifacts Name of deployment artifacts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deploymentArtifacts(String deploymentArtifacts) {
             return deploymentArtifacts(Output.of(deploymentArtifacts));
         }
 
+        /**
+         * @param environmentName Name for the backend environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder environmentName(Output<String> environmentName) {
             $.environmentName = environmentName;
             return this;
         }
 
+        /**
+         * @param environmentName Name for the backend environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder environmentName(String environmentName) {
             return environmentName(Output.of(environmentName));
         }
 
+        /**
+         * @param stackName AWS CloudFormation stack name of a backend environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stackName(@Nullable Output<String> stackName) {
             $.stackName = stackName;
             return this;
         }
 
+        /**
+         * @param stackName AWS CloudFormation stack name of a backend environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stackName(String stackName) {
             return stackName(Output.of(stackName));
         }

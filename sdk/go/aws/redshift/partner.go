@@ -11,15 +11,61 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a new Amazon Redshift Partner Integration.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := redshift.NewPartner(ctx, "example", &redshift.PartnerArgs{
+//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Id),
+//				AccountId:         pulumi.String("1234567910"),
+//				DatabaseName:      pulumi.Any(aws_redshift_cluster.Example.Database_name),
+//				PartnerName:       pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Redshift usage limits can be imported using the `id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
+//
+// ```
 type Partner struct {
 	pulumi.CustomResourceState
 
-	AccountId         pulumi.StringOutput `pulumi:"accountId"`
+	// The Amazon Web Services account ID that owns the cluster.
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// The cluster identifier of the cluster that receives data from the partner.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
-	DatabaseName      pulumi.StringOutput `pulumi:"databaseName"`
-	PartnerName       pulumi.StringOutput `pulumi:"partnerName"`
-	Status            pulumi.StringOutput `pulumi:"status"`
-	StatusMessage     pulumi.StringOutput `pulumi:"statusMessage"`
+	// The name of the database that receives data from the partner.
+	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// The name of the partner that is authorized to send data.
+	PartnerName pulumi.StringOutput `pulumi:"partnerName"`
+	// (Optional) The partner integration status.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// (Optional) The status message provided by the partner.
+	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
 }
 
 // NewPartner registers a new resource with the given unique name, arguments, and options.
@@ -63,21 +109,33 @@ func GetPartner(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Partner resources.
 type partnerState struct {
-	AccountId         *string `pulumi:"accountId"`
+	// The Amazon Web Services account ID that owns the cluster.
+	AccountId *string `pulumi:"accountId"`
+	// The cluster identifier of the cluster that receives data from the partner.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
-	DatabaseName      *string `pulumi:"databaseName"`
-	PartnerName       *string `pulumi:"partnerName"`
-	Status            *string `pulumi:"status"`
-	StatusMessage     *string `pulumi:"statusMessage"`
+	// The name of the database that receives data from the partner.
+	DatabaseName *string `pulumi:"databaseName"`
+	// The name of the partner that is authorized to send data.
+	PartnerName *string `pulumi:"partnerName"`
+	// (Optional) The partner integration status.
+	Status *string `pulumi:"status"`
+	// (Optional) The status message provided by the partner.
+	StatusMessage *string `pulumi:"statusMessage"`
 }
 
 type PartnerState struct {
-	AccountId         pulumi.StringPtrInput
+	// The Amazon Web Services account ID that owns the cluster.
+	AccountId pulumi.StringPtrInput
+	// The cluster identifier of the cluster that receives data from the partner.
 	ClusterIdentifier pulumi.StringPtrInput
-	DatabaseName      pulumi.StringPtrInput
-	PartnerName       pulumi.StringPtrInput
-	Status            pulumi.StringPtrInput
-	StatusMessage     pulumi.StringPtrInput
+	// The name of the database that receives data from the partner.
+	DatabaseName pulumi.StringPtrInput
+	// The name of the partner that is authorized to send data.
+	PartnerName pulumi.StringPtrInput
+	// (Optional) The partner integration status.
+	Status pulumi.StringPtrInput
+	// (Optional) The status message provided by the partner.
+	StatusMessage pulumi.StringPtrInput
 }
 
 func (PartnerState) ElementType() reflect.Type {
@@ -85,18 +143,26 @@ func (PartnerState) ElementType() reflect.Type {
 }
 
 type partnerArgs struct {
-	AccountId         string `pulumi:"accountId"`
+	// The Amazon Web Services account ID that owns the cluster.
+	AccountId string `pulumi:"accountId"`
+	// The cluster identifier of the cluster that receives data from the partner.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
-	DatabaseName      string `pulumi:"databaseName"`
-	PartnerName       string `pulumi:"partnerName"`
+	// The name of the database that receives data from the partner.
+	DatabaseName string `pulumi:"databaseName"`
+	// The name of the partner that is authorized to send data.
+	PartnerName string `pulumi:"partnerName"`
 }
 
 // The set of arguments for constructing a Partner resource.
 type PartnerArgs struct {
-	AccountId         pulumi.StringInput
+	// The Amazon Web Services account ID that owns the cluster.
+	AccountId pulumi.StringInput
+	// The cluster identifier of the cluster that receives data from the partner.
 	ClusterIdentifier pulumi.StringInput
-	DatabaseName      pulumi.StringInput
-	PartnerName       pulumi.StringInput
+	// The name of the database that receives data from the partner.
+	DatabaseName pulumi.StringInput
+	// The name of the partner that is authorized to send data.
+	PartnerName pulumi.StringInput
 }
 
 func (PartnerArgs) ElementType() reflect.Type {
@@ -186,26 +252,32 @@ func (o PartnerOutput) ToPartnerOutputWithContext(ctx context.Context) PartnerOu
 	return o
 }
 
+// The Amazon Web Services account ID that owns the cluster.
 func (o PartnerOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partner) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
+// The cluster identifier of the cluster that receives data from the partner.
 func (o PartnerOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partner) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
+// The name of the database that receives data from the partner.
 func (o PartnerOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partner) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// The name of the partner that is authorized to send data.
 func (o PartnerOutput) PartnerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partner) pulumi.StringOutput { return v.PartnerName }).(pulumi.StringOutput)
 }
 
+// (Optional) The partner integration status.
 func (o PartnerOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partner) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// (Optional) The status message provided by the partner.
 func (o PartnerOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partner) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
 }

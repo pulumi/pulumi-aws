@@ -13,6 +13,9 @@ namespace Pulumi.Aws.MskConnect.Outputs
     [OutputType]
     public sealed class CustomPluginLocation
     {
+        /// <summary>
+        /// Information of the plugin file stored in Amazon S3. See below.
+        /// </summary>
         public readonly Outputs.CustomPluginLocationS3 S3;
 
         [OutputConstructor]

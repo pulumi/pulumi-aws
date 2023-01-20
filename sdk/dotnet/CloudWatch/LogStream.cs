@@ -9,15 +9,54 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
+    /// <summary>
+    /// Provides a CloudWatch Log Stream resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var yada = new Aws.CloudWatch.LogGroup("yada");
+    /// 
+    ///     var foo = new Aws.CloudWatch.LogStream("foo", new()
+    ///     {
+    ///         LogGroupName = yada.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Cloudwatch Log Stream can be imported using the stream's `log_group_name` and `name`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:cloudwatch/logStream:LogStream")]
     public partial class LogStream : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) specifying the log stream.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the log group under which the log stream is to be created.
+        /// </summary>
         [Output("logGroupName")]
         public Output<string> LogGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -67,9 +106,15 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogStreamArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the log group under which the log stream is to be created.
+        /// </summary>
         [Input("logGroupName", required: true)]
         public Input<string> LogGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -81,12 +126,21 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogStreamState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) specifying the log stream.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The name of the log group under which the log stream is to be created.
+        /// </summary>
         [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
 
+        /// <summary>
+        /// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

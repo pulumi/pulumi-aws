@@ -13,9 +13,17 @@ public final class ConnectorPluginArgs extends com.pulumi.resources.ResourceArgs
 
     public static final ConnectorPluginArgs Empty = new ConnectorPluginArgs();
 
+    /**
+     * Details about a custom plugin. See below.
+     * 
+     */
     @Import(name="customPlugin", required=true)
     private Output<ConnectorPluginCustomPluginArgs> customPlugin;
 
+    /**
+     * @return Details about a custom plugin. See below.
+     * 
+     */
     public Output<ConnectorPluginCustomPluginArgs> customPlugin() {
         return this.customPlugin;
     }
@@ -44,11 +52,23 @@ public final class ConnectorPluginArgs extends com.pulumi.resources.ResourceArgs
             $ = new ConnectorPluginArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param customPlugin Details about a custom plugin. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customPlugin(Output<ConnectorPluginCustomPluginArgs> customPlugin) {
             $.customPlugin = customPlugin;
             return this;
         }
 
+        /**
+         * @param customPlugin Details about a custom plugin. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customPlugin(ConnectorPluginCustomPluginArgs customPlugin) {
             return customPlugin(Output.of(customPlugin));
         }

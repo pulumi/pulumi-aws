@@ -15,53 +15,160 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an EventBridge Scheduler Schedule Group resource.
+ * 
+ * You can find out more about EventBridge Scheduler in the [User Guide](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html).
+ * 
+ * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.scheduler.ScheduleGroup;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ScheduleGroup(&#34;example&#34;);
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Schedule groups can be imported using the `name`. For example
+ * 
+ * ```sh
+ *  $ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
+ * ```
+ * 
+ */
 @ResourceType(type="aws:scheduler/scheduleGroup:ScheduleGroup")
 public class ScheduleGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the schedule group.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the schedule group.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Time at which the schedule group was created.
+     * 
+     */
     @Export(name="creationDate", refs={String.class}, tree="[0]")
     private Output<String> creationDate;
 
+    /**
+     * @return Time at which the schedule group was created.
+     * 
+     */
     public Output<String> creationDate() {
         return this.creationDate;
     }
+    /**
+     * Time at which the schedule group was last modified.
+     * 
+     */
     @Export(name="lastModificationDate", refs={String.class}, tree="[0]")
     private Output<String> lastModificationDate;
 
+    /**
+     * @return Time at which the schedule group was last modified.
+     * 
+     */
     public Output<String> lastModificationDate() {
         return this.lastModificationDate;
     }
+    /**
+     * Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
+    /**
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
+    /**
+     * State of the schedule group. Can be `ACTIVE` or `DELETING`.
+     * 
+     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
+    /**
+     * @return State of the schedule group. Can be `ACTIVE` or `DELETING`.
+     * 
+     */
     public Output<String> state() {
         return this.state;
     }
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

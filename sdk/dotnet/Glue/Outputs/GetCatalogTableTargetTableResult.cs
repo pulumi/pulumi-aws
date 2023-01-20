@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class GetCatalogTableTargetTableResult
     {
+        /// <summary>
+        /// ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
+        /// </summary>
         public readonly string CatalogId;
+        /// <summary>
+        /// Name of the metadata database where the table metadata resides.
+        /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// Name of the table.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

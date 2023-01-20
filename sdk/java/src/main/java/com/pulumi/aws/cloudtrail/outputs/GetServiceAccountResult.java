@@ -11,6 +11,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceAccountResult {
+    /**
+     * @return ARN of the AWS CloudTrail service account in the selected region.
+     * 
+     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -20,6 +24,10 @@ public final class GetServiceAccountResult {
     private @Nullable String region;
 
     private GetServiceAccountResult() {}
+    /**
+     * @return ARN of the AWS CloudTrail service account in the selected region.
+     * 
+     */
     public String arn() {
         return this.arn;
     }

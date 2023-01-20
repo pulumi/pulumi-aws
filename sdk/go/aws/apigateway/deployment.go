@@ -11,18 +11,228 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an API Gateway REST Deployment. A deployment is a snapshot of the REST API configuration. The deployment can then be published to callable endpoints via the `apigateway.Stage` resource and optionally managed further with the `apigateway.BasePathMapping` resource, `apigateway.DomainName` resource, and `awsApiMethodSettings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html).
+//
+// To properly capture all REST API configuration in a deployment, this resource must have dependencies on all prior resources that manage resources/paths, methods, integrations, etc.
+//
+// * For REST APIs that are configured via OpenAPI specification (`apigateway.RestApi` resource `body` argument), no special dependency setup is needed beyond referencing the  `id` attribute of that resource unless additional resources have further customized the REST API.
+// * When the REST API configuration involves other resources (`apigateway.Integration` resource), the dependency setup can be done with implicit resource references in the `triggers` argument or explicit resource references using the [resource `dependsOn` custom option](https://www.pulumi.com/docs/intro/concepts/resources/#dependson). The `triggers` argument should be preferred over `dependsOn`, since `dependsOn` can only capture dependency ordering and will not cause the resource to recreate (redeploy the REST API) with upstream configuration changes.
+//
+// !> **WARNING:** It is recommended to use the `apigateway.Stage` resource instead of managing an API Gateway Stage via the `stageName` argument of this resource. When this resource is recreated (REST API redeployment) with the `stageName` configured, the stage is deleted and recreated. This will cause a temporary service interruption, increase provide plan differences, and can require a second apply to recreate any downstream stage configuration such as associated `awsApiMethodSettings` resources.
+//
+// ## Example Usage
+// ### OpenAPI Specification
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"crypto/sha1"
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func sha1Hash(input string) string {
+//		hash := sha1.Sum([]byte(input))
+//		return hex.EncodeToString(hash[:])
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"openapi": "3.0.1",
+//				"info": map[string]interface{}{
+//					"title":   "example",
+//					"version": "1.0",
+//				},
+//				"paths": map[string]interface{}{
+//					"/path1": map[string]interface{}{
+//						"get": map[string]interface{}{
+//							"x-amazon-apigateway-integration": map[string]interface{}{
+//								"httpMethod":           "GET",
+//								"payloadFormatVersion": "1.0",
+//								"type":                 "HTTP_PROXY",
+//								"uri":                  "https://ip-ranges.amazonaws.com/ip-ranges.json",
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", &apigateway.RestApiArgs{
+//				Body: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
+//				RestApi: exampleRestApi.ID(),
+//				Triggers: pulumi.StringMap{
+//					"redeployment": exampleRestApi.Body.ApplyT(func(body *string) (pulumi.String, error) {
+//						var _zero pulumi.String
+//						tmpJSON1, err := json.Marshal(body)
+//						if err != nil {
+//							return _zero, err
+//						}
+//						json1 := string(tmpJSON1)
+//						return pulumi.String(json1), nil
+//					}).(pulumi.StringOutput).ApplyT(func(toJSON string) (pulumi.String, error) {
+//						return pulumi.String(sha1Hash(toJSON)), nil
+//					}).(pulumi.StringOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
+//				Deployment: exampleDeployment.ID(),
+//				RestApi:    exampleRestApi.ID(),
+//				StageName:  pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Resources
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"crypto/sha1"
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func sha1Hash(input string) string {
+//		hash := sha1.Sum([]byte(input))
+//		return hex.EncodeToString(hash[:])
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResource, err := apigateway.NewResource(ctx, "exampleResource", &apigateway.ResourceArgs{
+//				ParentId: exampleRestApi.RootResourceId,
+//				PathPart: pulumi.String("example"),
+//				RestApi:  exampleRestApi.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleMethod, err := apigateway.NewMethod(ctx, "exampleMethod", &apigateway.MethodArgs{
+//				Authorization: pulumi.String("NONE"),
+//				HttpMethod:    pulumi.String("GET"),
+//				ResourceId:    exampleResource.ID(),
+//				RestApi:       exampleRestApi.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIntegration, err := apigateway.NewIntegration(ctx, "exampleIntegration", &apigateway.IntegrationArgs{
+//				HttpMethod: exampleMethod.HttpMethod,
+//				ResourceId: exampleResource.ID(),
+//				RestApi:    exampleRestApi.ID(),
+//				Type:       pulumi.String("MOCK"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
+//				RestApi: exampleRestApi.ID(),
+//				Triggers: pulumi.StringMap{
+//					"redeployment": pulumi.All(exampleResource.ID(), exampleMethod.ID(), exampleIntegration.ID()).ApplyT(func(_args []interface{}) (string, error) {
+//						exampleResourceId := _args[0].(string)
+//						exampleMethodId := _args[1].(string)
+//						exampleIntegrationId := _args[2].(string)
+//						var _zero string
+//						tmpJSON0, err := json.Marshal([]string{
+//							exampleResourceId,
+//							exampleMethodId,
+//							exampleIntegrationId,
+//						})
+//						if err != nil {
+//							return _zero, err
+//						}
+//						json0 := string(tmpJSON0)
+//						return json0, nil
+//					}).(pulumi.StringOutput).ApplyT(func(toJSON string) (pulumi.String, error) {
+//						return pulumi.String(sha1Hash(toJSON)), nil
+//					}).(pulumi.StringOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
+//				Deployment: exampleDeployment.ID(),
+//				RestApi:    exampleRestApi.ID(),
+//				StageName:  pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_api_gateway_deployment` can be imported using `REST-API-ID/DEPLOYMENT-ID`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
+//
+// ```
+//
+//	The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages. The `triggers` argument cannot be imported.
 type Deployment struct {
 	pulumi.CustomResourceState
 
-	CreatedDate      pulumi.StringOutput    `pulumi:"createdDate"`
-	Description      pulumi.StringPtrOutput `pulumi:"description"`
-	ExecutionArn     pulumi.StringOutput    `pulumi:"executionArn"`
-	InvokeUrl        pulumi.StringOutput    `pulumi:"invokeUrl"`
-	RestApi          pulumi.StringOutput    `pulumi:"restApi"`
+	// Creation date of the deployment
+	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+	// Description of the deployment
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
+	// when allowing API Gateway to invoke a Lambda function,
+	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
+	// URL to invoke the API pointing to the stage,
+	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+	InvokeUrl pulumi.StringOutput `pulumi:"invokeUrl"`
+	// REST API identifier.
+	RestApi pulumi.StringOutput `pulumi:"restApi"`
+	// Description to set on the stage managed by the `stageName` argument.
 	StageDescription pulumi.StringPtrOutput `pulumi:"stageDescription"`
-	StageName        pulumi.StringPtrOutput `pulumi:"stageName"`
-	Triggers         pulumi.StringMapOutput `pulumi:"triggers"`
-	Variables        pulumi.StringMapOutput `pulumi:"variables"`
+	// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `apigateway.Stage` resource instead to manage stages.
+	StageName pulumi.StringPtrOutput `pulumi:"stageName"`
+	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
+	// Map to set on the stage managed by the `stageName` argument.
+	Variables pulumi.StringMapOutput `pulumi:"variables"`
 }
 
 // NewDeployment registers a new resource with the given unique name, arguments, and options.
@@ -57,27 +267,51 @@ func GetDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Deployment resources.
 type deploymentState struct {
-	CreatedDate      *string           `pulumi:"createdDate"`
-	Description      *string           `pulumi:"description"`
-	ExecutionArn     *string           `pulumi:"executionArn"`
-	InvokeUrl        *string           `pulumi:"invokeUrl"`
-	RestApi          interface{}       `pulumi:"restApi"`
-	StageDescription *string           `pulumi:"stageDescription"`
-	StageName        *string           `pulumi:"stageName"`
-	Triggers         map[string]string `pulumi:"triggers"`
-	Variables        map[string]string `pulumi:"variables"`
+	// Creation date of the deployment
+	CreatedDate *string `pulumi:"createdDate"`
+	// Description of the deployment
+	Description *string `pulumi:"description"`
+	// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
+	// when allowing API Gateway to invoke a Lambda function,
+	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+	ExecutionArn *string `pulumi:"executionArn"`
+	// URL to invoke the API pointing to the stage,
+	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+	InvokeUrl *string `pulumi:"invokeUrl"`
+	// REST API identifier.
+	RestApi interface{} `pulumi:"restApi"`
+	// Description to set on the stage managed by the `stageName` argument.
+	StageDescription *string `pulumi:"stageDescription"`
+	// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `apigateway.Stage` resource instead to manage stages.
+	StageName *string `pulumi:"stageName"`
+	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	Triggers map[string]string `pulumi:"triggers"`
+	// Map to set on the stage managed by the `stageName` argument.
+	Variables map[string]string `pulumi:"variables"`
 }
 
 type DeploymentState struct {
-	CreatedDate      pulumi.StringPtrInput
-	Description      pulumi.StringPtrInput
-	ExecutionArn     pulumi.StringPtrInput
-	InvokeUrl        pulumi.StringPtrInput
-	RestApi          pulumi.Input
+	// Creation date of the deployment
+	CreatedDate pulumi.StringPtrInput
+	// Description of the deployment
+	Description pulumi.StringPtrInput
+	// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
+	// when allowing API Gateway to invoke a Lambda function,
+	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+	ExecutionArn pulumi.StringPtrInput
+	// URL to invoke the API pointing to the stage,
+	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+	InvokeUrl pulumi.StringPtrInput
+	// REST API identifier.
+	RestApi pulumi.Input
+	// Description to set on the stage managed by the `stageName` argument.
 	StageDescription pulumi.StringPtrInput
-	StageName        pulumi.StringPtrInput
-	Triggers         pulumi.StringMapInput
-	Variables        pulumi.StringMapInput
+	// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `apigateway.Stage` resource instead to manage stages.
+	StageName pulumi.StringPtrInput
+	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	Triggers pulumi.StringMapInput
+	// Map to set on the stage managed by the `stageName` argument.
+	Variables pulumi.StringMapInput
 }
 
 func (DeploymentState) ElementType() reflect.Type {
@@ -85,22 +319,34 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
-	Description      *string           `pulumi:"description"`
-	RestApi          interface{}       `pulumi:"restApi"`
-	StageDescription *string           `pulumi:"stageDescription"`
-	StageName        *string           `pulumi:"stageName"`
-	Triggers         map[string]string `pulumi:"triggers"`
-	Variables        map[string]string `pulumi:"variables"`
+	// Description of the deployment
+	Description *string `pulumi:"description"`
+	// REST API identifier.
+	RestApi interface{} `pulumi:"restApi"`
+	// Description to set on the stage managed by the `stageName` argument.
+	StageDescription *string `pulumi:"stageDescription"`
+	// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `apigateway.Stage` resource instead to manage stages.
+	StageName *string `pulumi:"stageName"`
+	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	Triggers map[string]string `pulumi:"triggers"`
+	// Map to set on the stage managed by the `stageName` argument.
+	Variables map[string]string `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
-	Description      pulumi.StringPtrInput
-	RestApi          pulumi.Input
+	// Description of the deployment
+	Description pulumi.StringPtrInput
+	// REST API identifier.
+	RestApi pulumi.Input
+	// Description to set on the stage managed by the `stageName` argument.
 	StageDescription pulumi.StringPtrInput
-	StageName        pulumi.StringPtrInput
-	Triggers         pulumi.StringMapInput
-	Variables        pulumi.StringMapInput
+	// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `apigateway.Stage` resource instead to manage stages.
+	StageName pulumi.StringPtrInput
+	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	Triggers pulumi.StringMapInput
+	// Map to set on the stage managed by the `stageName` argument.
+	Variables pulumi.StringMapInput
 }
 
 func (DeploymentArgs) ElementType() reflect.Type {
@@ -190,38 +436,50 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
+// Creation date of the deployment
 func (o DeploymentOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
+// Description of the deployment
 func (o DeploymentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
+// when allowing API Gateway to invoke a Lambda function,
+// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 func (o DeploymentOutput) ExecutionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ExecutionArn }).(pulumi.StringOutput)
 }
 
+// URL to invoke the API pointing to the stage,
+// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 func (o DeploymentOutput) InvokeUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.InvokeUrl }).(pulumi.StringOutput)
 }
 
+// REST API identifier.
 func (o DeploymentOutput) RestApi() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.RestApi }).(pulumi.StringOutput)
 }
 
+// Description to set on the stage managed by the `stageName` argument.
 func (o DeploymentOutput) StageDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.StageDescription }).(pulumi.StringPtrOutput)
 }
 
+// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `apigateway.Stage` resource instead to manage stages.
 func (o DeploymentOutput) StageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.StageName }).(pulumi.StringPtrOutput)
 }
 
+// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 func (o DeploymentOutput) Triggers() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringMapOutput { return v.Triggers }).(pulumi.StringMapOutput)
 }
 
+// Map to set on the stage managed by the `stageName` argument.
 func (o DeploymentOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringMapOutput { return v.Variables }).(pulumi.StringMapOutput)
 }

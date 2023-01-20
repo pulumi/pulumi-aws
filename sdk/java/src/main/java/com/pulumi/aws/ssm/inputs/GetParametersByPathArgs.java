@@ -16,23 +16,47 @@ public final class GetParametersByPathArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetParametersByPathArgs Empty = new GetParametersByPathArgs();
 
+    /**
+     * Prefix path of the parameter.
+     * 
+     */
     @Import(name="path", required=true)
     private Output<String> path;
 
+    /**
+     * @return Prefix path of the parameter.
+     * 
+     */
     public Output<String> path() {
         return this.path;
     }
 
+    /**
+     * Whether to recursively return parameters under `path`. Defaults to `false`.
+     * 
+     */
     @Import(name="recursive")
     private @Nullable Output<Boolean> recursive;
 
+    /**
+     * @return Whether to recursively return parameters under `path`. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> recursive() {
         return Optional.ofNullable(this.recursive);
     }
 
+    /**
+     * Whether to return decrypted `SecureString` value. Defaults to `true`.
+     * 
+     */
     @Import(name="withDecryption")
     private @Nullable Output<Boolean> withDecryption;
 
+    /**
+     * @return Whether to return decrypted `SecureString` value. Defaults to `true`.
+     * 
+     */
     public Optional<Output<Boolean>> withDecryption() {
         return Optional.ofNullable(this.withDecryption);
     }
@@ -63,29 +87,65 @@ public final class GetParametersByPathArgs extends com.pulumi.resources.InvokeAr
             $ = new GetParametersByPathArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param path Prefix path of the parameter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(Output<String> path) {
             $.path = path;
             return this;
         }
 
+        /**
+         * @param path Prefix path of the parameter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
+        /**
+         * @param recursive Whether to recursively return parameters under `path`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recursive(@Nullable Output<Boolean> recursive) {
             $.recursive = recursive;
             return this;
         }
 
+        /**
+         * @param recursive Whether to recursively return parameters under `path`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recursive(Boolean recursive) {
             return recursive(Output.of(recursive));
         }
 
+        /**
+         * @param withDecryption Whether to return decrypted `SecureString` value. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withDecryption(@Nullable Output<Boolean> withDecryption) {
             $.withDecryption = withDecryption;
             return this;
         }
 
+        /**
+         * @param withDecryption Whether to return decrypted `SecureString` value. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withDecryption(Boolean withDecryption) {
             return withDecryption(Output.of(withDecryption));
         }

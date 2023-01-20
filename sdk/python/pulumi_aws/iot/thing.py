@@ -19,6 +19,9 @@ class ThingArgs:
                  thing_type_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Thing resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: Map of attributes of the thing.
+        :param pulumi.Input[str] name: The name of the thing.
+        :param pulumi.Input[str] thing_type_name: The thing type name.
         """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
@@ -30,6 +33,9 @@ class ThingArgs:
     @property
     @pulumi.getter
     def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of attributes of the thing.
+        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
@@ -39,6 +45,9 @@ class ThingArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the thing.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -48,6 +57,9 @@ class ThingArgs:
     @property
     @pulumi.getter(name="thingTypeName")
     def thing_type_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thing type name.
+        """
         return pulumi.get(self, "thing_type_name")
 
     @thing_type_name.setter
@@ -66,6 +78,12 @@ class _ThingState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Thing resources.
+        :param pulumi.Input[str] arn: The ARN of the thing.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: Map of attributes of the thing.
+        :param pulumi.Input[str] default_client_id: The default client ID.
+        :param pulumi.Input[str] name: The name of the thing.
+        :param pulumi.Input[str] thing_type_name: The thing type name.
+        :param pulumi.Input[int] version: The current version of the thing record in the registry.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -83,6 +101,9 @@ class _ThingState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the thing.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -92,6 +113,9 @@ class _ThingState:
     @property
     @pulumi.getter
     def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of attributes of the thing.
+        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
@@ -101,6 +125,9 @@ class _ThingState:
     @property
     @pulumi.getter(name="defaultClientId")
     def default_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default client ID.
+        """
         return pulumi.get(self, "default_client_id")
 
     @default_client_id.setter
@@ -110,6 +137,9 @@ class _ThingState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the thing.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -119,6 +149,9 @@ class _ThingState:
     @property
     @pulumi.getter(name="thingTypeName")
     def thing_type_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thing type name.
+        """
         return pulumi.get(self, "thing_type_name")
 
     @thing_type_name.setter
@@ -128,6 +161,9 @@ class _ThingState:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        The current version of the thing record in the registry.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -145,9 +181,32 @@ class Thing(pulumi.CustomResource):
                  thing_type_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Thing resource with the given unique name, props, and options.
+        Creates and manages an AWS IoT Thing.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.iot.Thing("example", attributes={
+            "First": "examplevalue",
+        })
+        ```
+
+        ## Import
+
+        IOT Things can be imported using the name, e.g.,
+
+        ```sh
+         $ pulumi import aws:iot/thing:Thing example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: Map of attributes of the thing.
+        :param pulumi.Input[str] name: The name of the thing.
+        :param pulumi.Input[str] thing_type_name: The thing type name.
         """
         ...
     @overload
@@ -156,7 +215,27 @@ class Thing(pulumi.CustomResource):
                  args: Optional[ThingArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Thing resource with the given unique name, props, and options.
+        Creates and manages an AWS IoT Thing.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.iot.Thing("example", attributes={
+            "First": "examplevalue",
+        })
+        ```
+
+        ## Import
+
+        IOT Things can be imported using the name, e.g.,
+
+        ```sh
+         $ pulumi import aws:iot/thing:Thing example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param ThingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,6 +292,12 @@ class Thing(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the thing.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: Map of attributes of the thing.
+        :param pulumi.Input[str] default_client_id: The default client ID.
+        :param pulumi.Input[str] name: The name of the thing.
+        :param pulumi.Input[str] thing_type_name: The thing type name.
+        :param pulumi.Input[int] version: The current version of the thing record in the registry.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -229,30 +314,48 @@ class Thing(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the thing.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of attributes of the thing.
+        """
         return pulumi.get(self, "attributes")
 
     @property
     @pulumi.getter(name="defaultClientId")
     def default_client_id(self) -> pulumi.Output[str]:
+        """
+        The default client ID.
+        """
         return pulumi.get(self, "default_client_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the thing.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="thingTypeName")
     def thing_type_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The thing type name.
+        """
         return pulumi.get(self, "thing_type_name")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[int]:
+        """
+        The current version of the thing record in the registry.
+        """
         return pulumi.get(self, "version")
 

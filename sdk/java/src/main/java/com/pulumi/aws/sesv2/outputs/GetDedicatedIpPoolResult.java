@@ -12,7 +12,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDedicatedIpPoolResult {
+    /**
+     * @return ARN of the Dedicated IP Pool.
+     * 
+     */
     private String arn;
+    /**
+     * @return A list of objects describing the pool&#39;s dedicated IP&#39;s. See `dedicated_ips`.
+     * 
+     */
     private List<GetDedicatedIpPoolDedicatedIp> dedicatedIps;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -20,13 +28,29 @@ public final class GetDedicatedIpPoolResult {
      */
     private String id;
     private String poolName;
+    /**
+     * @return (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
+     * 
+     */
     private String scalingMode;
+    /**
+     * @return A map of tags attached to the pool.
+     * 
+     */
     private Map<String,String> tags;
 
     private GetDedicatedIpPoolResult() {}
+    /**
+     * @return ARN of the Dedicated IP Pool.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return A list of objects describing the pool&#39;s dedicated IP&#39;s. See `dedicated_ips`.
+     * 
+     */
     public List<GetDedicatedIpPoolDedicatedIp> dedicatedIps() {
         return this.dedicatedIps;
     }
@@ -40,9 +64,17 @@ public final class GetDedicatedIpPoolResult {
     public String poolName() {
         return this.poolName;
     }
+    /**
+     * @return (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
+     * 
+     */
     public String scalingMode() {
         return this.scalingMode;
     }
+    /**
+     * @return A map of tags attached to the pool.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }

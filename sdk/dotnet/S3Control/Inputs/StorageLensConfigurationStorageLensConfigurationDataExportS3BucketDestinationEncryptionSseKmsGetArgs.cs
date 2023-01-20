@@ -12,6 +12,9 @@ namespace Pulumi.Aws.S3Control.Inputs
 
     public sealed class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// KMS key ARN.
+        /// </summary>
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
 

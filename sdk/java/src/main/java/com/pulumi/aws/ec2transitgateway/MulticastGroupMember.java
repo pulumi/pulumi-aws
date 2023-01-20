@@ -13,23 +13,84 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Registers members (network interfaces) with the transit gateway multicast group.
+ * A member is a network interface associated with a supported EC2 instance that receives multicast traffic.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2transitgateway.MulticastGroupMember;
+ * import com.pulumi.aws.ec2transitgateway.MulticastGroupMemberArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new MulticastGroupMember(&#34;example&#34;, MulticastGroupMemberArgs.builder()        
+ *             .groupIpAddress(&#34;224.0.0.1&#34;)
+ *             .networkInterfaceId(aws_network_interface.example().id())
+ *             .transitGatewayMulticastDomainId(aws_ec2_transit_gateway_multicast_domain.example().id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2transitgateway/multicastGroupMember:MulticastGroupMember")
 public class MulticastGroupMember extends com.pulumi.resources.CustomResource {
+    /**
+     * The IP address assigned to the transit gateway multicast group.
+     * 
+     */
     @Export(name="groupIpAddress", refs={String.class}, tree="[0]")
     private Output<String> groupIpAddress;
 
+    /**
+     * @return The IP address assigned to the transit gateway multicast group.
+     * 
+     */
     public Output<String> groupIpAddress() {
         return this.groupIpAddress;
     }
+    /**
+     * The group members&#39; network interface ID to register with the transit gateway multicast group.
+     * 
+     */
     @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
+    /**
+     * @return The group members&#39; network interface ID to register with the transit gateway multicast group.
+     * 
+     */
     public Output<String> networkInterfaceId() {
         return this.networkInterfaceId;
     }
+    /**
+     * The ID of the transit gateway multicast domain.
+     * 
+     */
     @Export(name="transitGatewayMulticastDomainId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayMulticastDomainId;
 
+    /**
+     * @return The ID of the transit gateway multicast domain.
+     * 
+     */
     public Output<String> transitGatewayMulticastDomainId() {
         return this.transitGatewayMulticastDomainId;
     }

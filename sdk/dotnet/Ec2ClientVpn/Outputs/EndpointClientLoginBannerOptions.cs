@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Ec2ClientVpn.Outputs
     [OutputType]
     public sealed class EndpointClientLoginBannerOptions
     {
+        /// <summary>
+        /// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
+        /// </summary>
         public readonly string? BannerText;
+        /// <summary>
+        /// Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

@@ -15,16 +15,32 @@ public final class GetApiPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetApiPlainArgs Empty = new GetApiPlainArgs();
 
+    /**
+     * API identifier.
+     * 
+     */
     @Import(name="apiId", required=true)
     private String apiId;
 
+    /**
+     * @return API identifier.
+     * 
+     */
     public String apiId() {
         return this.apiId;
     }
 
+    /**
+     * Map of resource tags.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return Map of resource tags.
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -54,11 +70,23 @@ public final class GetApiPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetApiPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param apiId API identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiId(String apiId) {
             $.apiId = apiId;
             return this;
         }
 
+        /**
+         * @param tags Map of resource tags.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

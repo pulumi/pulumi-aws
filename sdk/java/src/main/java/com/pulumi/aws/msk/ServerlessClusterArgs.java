@@ -19,30 +19,62 @@ public final class ServerlessClusterArgs extends com.pulumi.resources.ResourceAr
 
     public static final ServerlessClusterArgs Empty = new ServerlessClusterArgs();
 
+    /**
+     * Specifies client authentication information for the serverless cluster. See below.
+     * 
+     */
     @Import(name="clientAuthentication", required=true)
     private Output<ServerlessClusterClientAuthenticationArgs> clientAuthentication;
 
+    /**
+     * @return Specifies client authentication information for the serverless cluster. See below.
+     * 
+     */
     public Output<ServerlessClusterClientAuthenticationArgs> clientAuthentication() {
         return this.clientAuthentication;
     }
 
+    /**
+     * The name of the serverless cluster.
+     * 
+     */
     @Import(name="clusterName")
     private @Nullable Output<String> clusterName;
 
+    /**
+     * @return The name of the serverless cluster.
+     * 
+     */
     public Optional<Output<String>> clusterName() {
         return Optional.ofNullable(this.clusterName);
     }
 
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * VPC configuration information. See below.
+     * 
+     */
     @Import(name="vpcConfigs", required=true)
     private Output<List<ServerlessClusterVpcConfigArgs>> vpcConfigs;
 
+    /**
+     * @return VPC configuration information. See below.
+     * 
+     */
     public Output<List<ServerlessClusterVpcConfigArgs>> vpcConfigs() {
         return this.vpcConfigs;
     }
@@ -74,42 +106,96 @@ public final class ServerlessClusterArgs extends com.pulumi.resources.ResourceAr
             $ = new ServerlessClusterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param clientAuthentication Specifies client authentication information for the serverless cluster. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientAuthentication(Output<ServerlessClusterClientAuthenticationArgs> clientAuthentication) {
             $.clientAuthentication = clientAuthentication;
             return this;
         }
 
+        /**
+         * @param clientAuthentication Specifies client authentication information for the serverless cluster. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientAuthentication(ServerlessClusterClientAuthenticationArgs clientAuthentication) {
             return clientAuthentication(Output.of(clientAuthentication));
         }
 
+        /**
+         * @param clusterName The name of the serverless cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterName(@Nullable Output<String> clusterName) {
             $.clusterName = clusterName;
             return this;
         }
 
+        /**
+         * @param clusterName The name of the serverless cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param vpcConfigs VPC configuration information. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcConfigs(Output<List<ServerlessClusterVpcConfigArgs>> vpcConfigs) {
             $.vpcConfigs = vpcConfigs;
             return this;
         }
 
+        /**
+         * @param vpcConfigs VPC configuration information. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcConfigs(List<ServerlessClusterVpcConfigArgs> vpcConfigs) {
             return vpcConfigs(Output.of(vpcConfigs));
         }
 
+        /**
+         * @param vpcConfigs VPC configuration information. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcConfigs(ServerlessClusterVpcConfigArgs... vpcConfigs) {
             return vpcConfigs(List.of(vpcConfigs));
         }

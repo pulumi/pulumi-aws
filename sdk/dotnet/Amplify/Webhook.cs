@@ -9,21 +9,74 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Amplify
 {
+    /// <summary>
+    /// Provides an Amplify Webhook resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Amplify.App("example");
+    /// 
+    ///     var masterBranch = new Aws.Amplify.Branch("masterBranch", new()
+    ///     {
+    ///         AppId = example.Id,
+    ///         BranchName = "master",
+    ///     });
+    /// 
+    ///     var masterWebhook = new Aws.Amplify.Webhook("masterWebhook", new()
+    ///     {
+    ///         AppId = example.Id,
+    ///         BranchName = masterBranch.BranchName,
+    ///         Description = "triggermaster",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Amplify webhook can be imported using a webhook ID, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:amplify/webhook:Webhook")]
     public partial class Webhook : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Unique ID for an Amplify app.
+        /// </summary>
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN for the webhook.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Name for a branch that is part of the Amplify app.
+        /// </summary>
         [Output("branchName")]
         public Output<string> BranchName { get; private set; } = null!;
 
+        /// <summary>
+        /// Description for a webhook.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// URL of the webhook.
+        /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
 
@@ -73,12 +126,21 @@ namespace Pulumi.Aws.Amplify
 
     public sealed class WebhookArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Unique ID for an Amplify app.
+        /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
+        /// <summary>
+        /// Name for a branch that is part of the Amplify app.
+        /// </summary>
         [Input("branchName", required: true)]
         public Input<string> BranchName { get; set; } = null!;
 
+        /// <summary>
+        /// Description for a webhook.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -90,18 +152,33 @@ namespace Pulumi.Aws.Amplify
 
     public sealed class WebhookState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Unique ID for an Amplify app.
+        /// </summary>
         [Input("appId")]
         public Input<string>? AppId { get; set; }
 
+        /// <summary>
+        /// ARN for the webhook.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Name for a branch that is part of the Amplify app.
+        /// </summary>
         [Input("branchName")]
         public Input<string>? BranchName { get; set; }
 
+        /// <summary>
+        /// Description for a webhook.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// URL of the webhook.
+        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 

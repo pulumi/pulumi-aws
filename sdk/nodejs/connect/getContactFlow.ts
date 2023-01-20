@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides details about a specific Amazon Connect Contact Flow.
+ *
+ * ## Example Usage
+ *
+ * By name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.connect.getContactFlow({
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Test",
+ * });
+ * ```
+ *
+ * By contactFlowId
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.connect.getContactFlow({
+ *     contactFlowId: "cccccccc-bbbb-cccc-dddd-111111111111",
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ * });
+ * ```
+ */
 export function getContactFlow(args: GetContactFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetContactFlowResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -20,10 +49,25 @@ export function getContactFlow(args: GetContactFlowArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getContactFlow.
  */
 export interface GetContactFlowArgs {
+    /**
+     * Returns information on a specific Contact Flow by contact flow id
+     */
     contactFlowId?: string;
+    /**
+     * Reference to the hosting Amazon Connect Instance
+     */
     instanceId: string;
+    /**
+     * Returns information on a specific Contact Flow by name
+     */
     name?: string;
+    /**
+     * Tags to assign to the Contact Flow.
+     */
     tags?: {[key: string]: string};
+    /**
+     * Type of Contact Flow.
+     */
     type?: string;
 }
 
@@ -31,9 +75,18 @@ export interface GetContactFlowArgs {
  * A collection of values returned by getContactFlow.
  */
 export interface GetContactFlowResult {
+    /**
+     * ARN of the Contact Flow.
+     */
     readonly arn: string;
     readonly contactFlowId: string;
+    /**
+     * Logic of the Contact Flow.
+     */
     readonly content: string;
+    /**
+     * Description of the Contact Flow.
+     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -41,9 +94,44 @@ export interface GetContactFlowResult {
     readonly id: string;
     readonly instanceId: string;
     readonly name: string;
+    /**
+     * Tags to assign to the Contact Flow.
+     */
     readonly tags: {[key: string]: string};
+    /**
+     * Type of Contact Flow.
+     */
     readonly type?: string;
 }
+/**
+ * Provides details about a specific Amazon Connect Contact Flow.
+ *
+ * ## Example Usage
+ *
+ * By name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.connect.getContactFlow({
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Test",
+ * });
+ * ```
+ *
+ * By contactFlowId
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.connect.getContactFlow({
+ *     contactFlowId: "cccccccc-bbbb-cccc-dddd-111111111111",
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ * });
+ * ```
+ */
 export function getContactFlowOutput(args: GetContactFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactFlowResult> {
     return pulumi.output(args).apply((a: any) => getContactFlow(a, opts))
 }
@@ -52,9 +140,24 @@ export function getContactFlowOutput(args: GetContactFlowOutputArgs, opts?: pulu
  * A collection of arguments for invoking getContactFlow.
  */
 export interface GetContactFlowOutputArgs {
+    /**
+     * Returns information on a specific Contact Flow by contact flow id
+     */
     contactFlowId?: pulumi.Input<string>;
+    /**
+     * Reference to the hosting Amazon Connect Instance
+     */
     instanceId: pulumi.Input<string>;
+    /**
+     * Returns information on a specific Contact Flow by name
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Tags to assign to the Contact Flow.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Type of Contact Flow.
+     */
     type?: pulumi.Input<string>;
 }

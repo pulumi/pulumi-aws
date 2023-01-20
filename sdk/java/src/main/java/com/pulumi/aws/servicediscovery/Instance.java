@@ -14,23 +14,169 @@ import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Service Discovery Instance resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.servicediscovery.PrivateDnsNamespace;
+ * import com.pulumi.aws.servicediscovery.PrivateDnsNamespaceArgs;
+ * import com.pulumi.aws.servicediscovery.Service;
+ * import com.pulumi.aws.servicediscovery.ServiceArgs;
+ * import com.pulumi.aws.servicediscovery.inputs.ServiceDnsConfigArgs;
+ * import com.pulumi.aws.servicediscovery.inputs.ServiceHealthCheckCustomConfigArgs;
+ * import com.pulumi.aws.servicediscovery.Instance;
+ * import com.pulumi.aws.servicediscovery.InstanceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+ *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *             .enableDnsSupport(true)
+ *             .enableDnsHostnames(true)
+ *             .build());
+ * 
+ *         var examplePrivateDnsNamespace = new PrivateDnsNamespace(&#34;examplePrivateDnsNamespace&#34;, PrivateDnsNamespaceArgs.builder()        
+ *             .description(&#34;example&#34;)
+ *             .vpc(exampleVpc.id())
+ *             .build());
+ * 
+ *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *             .dnsConfig(ServiceDnsConfigArgs.builder()
+ *                 .namespaceId(examplePrivateDnsNamespace.id())
+ *                 .dnsRecords(ServiceDnsConfigDnsRecordArgs.builder()
+ *                     .ttl(10)
+ *                     .type(&#34;A&#34;)
+ *                     .build())
+ *                 .routingPolicy(&#34;MULTIVALUE&#34;)
+ *                 .build())
+ *             .healthCheckCustomConfig(ServiceHealthCheckCustomConfigArgs.builder()
+ *                 .failureThreshold(1)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
+ *             .instanceId(&#34;example-instance-id&#34;)
+ *             .serviceId(exampleService.id())
+ *             .attributes(Map.ofEntries(
+ *                 Map.entry(&#34;AWS_INSTANCE_IPV4&#34;, &#34;172.18.0.1&#34;),
+ *                 Map.entry(&#34;custom_attribute&#34;, &#34;custom&#34;)
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.servicediscovery.HttpNamespace;
+ * import com.pulumi.aws.servicediscovery.HttpNamespaceArgs;
+ * import com.pulumi.aws.servicediscovery.Service;
+ * import com.pulumi.aws.servicediscovery.ServiceArgs;
+ * import com.pulumi.aws.servicediscovery.Instance;
+ * import com.pulumi.aws.servicediscovery.InstanceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleHttpNamespace = new HttpNamespace(&#34;exampleHttpNamespace&#34;, HttpNamespaceArgs.builder()        
+ *             .description(&#34;example&#34;)
+ *             .build());
+ * 
+ *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *             .namespaceId(exampleHttpNamespace.id())
+ *             .build());
+ * 
+ *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
+ *             .instanceId(&#34;example-instance-id&#34;)
+ *             .serviceId(exampleService.id())
+ *             .attributes(Map.of(&#34;AWS_EC2_INSTANCE_ID&#34;, &#34;i-0abdg374kd892cj6dl&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Service Discovery Instance can be imported using the service ID and instance ID, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
+ * ```
+ * 
+ */
 @ResourceType(type="aws:servicediscovery/instance:Instance")
 public class Instance extends com.pulumi.resources.CustomResource {
+    /**
+     * A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
+     * 
+     */
     @Export(name="attributes", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> attributes;
 
+    /**
+     * @return A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
+     * 
+     */
     public Output<Map<String,String>> attributes() {
         return this.attributes;
     }
+    /**
+     * The ID of the service instance.
+     * 
+     */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
+    /**
+     * @return The ID of the service instance.
+     * 
+     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
+    /**
+     * The ID of the service that you want to use to create the instance.
+     * 
+     */
     @Export(name="serviceId", refs={String.class}, tree="[0]")
     private Output<String> serviceId;
 
+    /**
+     * @return The ID of the service that you want to use to create the instance.
+     * 
+     */
     public Output<String> serviceId() {
         return this.serviceId;
     }

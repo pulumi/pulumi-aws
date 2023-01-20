@@ -18,6 +18,83 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elb.LoadBalancer;
+ * import com.pulumi.aws.elb.LoadBalancerArgs;
+ * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
+ * import com.pulumi.aws.elb.SslNegotiationPolicy;
+ * import com.pulumi.aws.elb.SslNegotiationPolicyArgs;
+ * import com.pulumi.aws.elb.inputs.SslNegotiationPolicyAttributeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var lb = new LoadBalancer(&#34;lb&#34;, LoadBalancerArgs.builder()        
+ *             .availabilityZones(&#34;us-east-1a&#34;)
+ *             .listeners(LoadBalancerListenerArgs.builder()
+ *                 .instancePort(8000)
+ *                 .instanceProtocol(&#34;https&#34;)
+ *                 .lbPort(443)
+ *                 .lbProtocol(&#34;https&#34;)
+ *                 .sslCertificateId(&#34;arn:aws:iam::123456789012:server-certificate/certName&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var foo = new SslNegotiationPolicy(&#34;foo&#34;, SslNegotiationPolicyArgs.builder()        
+ *             .loadBalancer(lb.id())
+ *             .lbPort(443)
+ *             .attributes(            
+ *                 SslNegotiationPolicyAttributeArgs.builder()
+ *                     .name(&#34;Protocol-TLSv1&#34;)
+ *                     .value(&#34;false&#34;)
+ *                     .build(),
+ *                 SslNegotiationPolicyAttributeArgs.builder()
+ *                     .name(&#34;Protocol-TLSv1.1&#34;)
+ *                     .value(&#34;false&#34;)
+ *                     .build(),
+ *                 SslNegotiationPolicyAttributeArgs.builder()
+ *                     .name(&#34;Protocol-TLSv1.2&#34;)
+ *                     .value(&#34;true&#34;)
+ *                     .build(),
+ *                 SslNegotiationPolicyAttributeArgs.builder()
+ *                     .name(&#34;Server-Defined-Cipher-Order&#34;)
+ *                     .value(&#34;true&#34;)
+ *                     .build(),
+ *                 SslNegotiationPolicyAttributeArgs.builder()
+ *                     .name(&#34;ECDHE-RSA-AES128-GCM-SHA256&#34;)
+ *                     .value(&#34;true&#34;)
+ *                     .build(),
+ *                 SslNegotiationPolicyAttributeArgs.builder()
+ *                     .name(&#34;AES128-GCM-SHA256&#34;)
+ *                     .value(&#34;true&#34;)
+ *                     .build(),
+ *                 SslNegotiationPolicyAttributeArgs.builder()
+ *                     .name(&#34;EDH-RSA-DES-CBC3-SHA&#34;)
+ *                     .value(&#34;false&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * @deprecated
  * aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy
  * 
@@ -25,27 +102,65 @@ import javax.annotation.Nullable;
 @Deprecated /* aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy */
 @ResourceType(type="aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy")
 public class SslNegotiationPolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * An SSL Negotiation policy attribute. Each has two properties:
+     * 
+     */
     @Export(name="attributes", refs={List.class,SslNegotiationPolicyAttribute.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SslNegotiationPolicyAttribute>> attributes;
 
+    /**
+     * @return An SSL Negotiation policy attribute. Each has two properties:
+     * 
+     */
     public Output<Optional<List<SslNegotiationPolicyAttribute>>> attributes() {
         return Codegen.optional(this.attributes);
     }
+    /**
+     * The load balancer port to which the policy
+     * should be applied. This must be an active listener on the load
+     * balancer.
+     * 
+     */
     @Export(name="lbPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> lbPort;
 
+    /**
+     * @return The load balancer port to which the policy
+     * should be applied. This must be an active listener on the load
+     * balancer.
+     * 
+     */
     public Output<Integer> lbPort() {
         return this.lbPort;
     }
+    /**
+     * The load balancer to which the policy
+     * should be attached.
+     * 
+     */
     @Export(name="loadBalancer", refs={String.class}, tree="[0]")
     private Output<String> loadBalancer;
 
+    /**
+     * @return The load balancer to which the policy
+     * should be attached.
+     * 
+     */
     public Output<String> loadBalancer() {
         return this.loadBalancer;
     }
+    /**
+     * The name of the attribute
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the attribute
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

@@ -12,16 +12,32 @@ public final class GetPermissionsDataLocation extends com.pulumi.resources.Invok
 
     public static final GetPermissionsDataLocation Empty = new GetPermissionsDataLocation();
 
+    /**
+     * ARN that uniquely identifies the data location resource.
+     * 
+     */
     @Import(name="arn", required=true)
     private String arn;
 
+    /**
+     * @return ARN that uniquely identifies the data location resource.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
 
+    /**
+     * Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+     * 
+     */
     @Import(name="catalogId", required=true)
     private String catalogId;
 
+    /**
+     * @return Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+     * 
+     */
     public String catalogId() {
         return this.catalogId;
     }
@@ -51,11 +67,23 @@ public final class GetPermissionsDataLocation extends com.pulumi.resources.Invok
             $ = new GetPermissionsDataLocation(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn ARN that uniquely identifies the data location resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param catalogId Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+         * 
+         * @return builder
+         * 
+         */
         public Builder catalogId(String catalogId) {
             $.catalogId = catalogId;
             return this;

@@ -11,9 +11,59 @@ namespace Pulumi.Aws.Connect
 {
     public static class GetLambdaFunctionAssociation
     {
+        /// <summary>
+        /// Provides details about a specific Connect Lambda Function Association.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Connect.GetLambdaFunctionAssociation.Invoke(new()
+        ///     {
+        ///         FunctionArn = "arn:aws:lambda:us-west-2:123456789123:function:abcdefg",
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetLambdaFunctionAssociationResult> InvokeAsync(GetLambdaFunctionAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLambdaFunctionAssociationResult>("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", args ?? new GetLambdaFunctionAssociationArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides details about a specific Connect Lambda Function Association.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Connect.GetLambdaFunctionAssociation.Invoke(new()
+        ///     {
+        ///         FunctionArn = "arn:aws:lambda:us-west-2:123456789123:function:abcdefg",
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetLambdaFunctionAssociationResult> Invoke(GetLambdaFunctionAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLambdaFunctionAssociationResult>("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", args ?? new GetLambdaFunctionAssociationInvokeArgs(), options.WithDefaults());
     }
@@ -21,9 +71,15 @@ namespace Pulumi.Aws.Connect
 
     public sealed class GetLambdaFunctionAssociationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN of the Lambda Function, omitting any version or alias qualifier.
+        /// </summary>
         [Input("functionArn", required: true)]
         public string FunctionArn { get; set; } = null!;
 
+        /// <summary>
+        /// Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+        /// </summary>
         [Input("instanceId", required: true)]
         public string InstanceId { get; set; } = null!;
 
@@ -35,9 +91,15 @@ namespace Pulumi.Aws.Connect
 
     public sealed class GetLambdaFunctionAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN of the Lambda Function, omitting any version or alias qualifier.
+        /// </summary>
         [Input("functionArn", required: true)]
         public Input<string> FunctionArn { get; set; } = null!;
 
+        /// <summary>
+        /// Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 

@@ -13,23 +13,62 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an IAM inline policy for a Single Sign-On (SSO) Permission Set resource
+ * 
+ * &gt; **NOTE:** AWS Single Sign-On (SSO) only supports one IAM inline policy per `aws.ssoadmin.PermissionSet` resource.
+ * Creating or updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
+ * 
+ * ## Import
+ * 
+ * SSO Permission Set Inline Policies can be imported using the `permission_set_arn` and `instance_arn` separated by a comma (`,`) e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy")
 public class PermissionSetInlinePolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * The IAM inline policy to attach to a Permission Set.
+     * 
+     */
     @Export(name="inlinePolicy", refs={String.class}, tree="[0]")
     private Output<String> inlinePolicy;
 
+    /**
+     * @return The IAM inline policy to attach to a Permission Set.
+     * 
+     */
     public Output<String> inlinePolicy() {
         return this.inlinePolicy;
     }
+    /**
+     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * 
+     */
     @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * 
+     */
     public Output<String> instanceArn() {
         return this.instanceArn;
     }
+    /**
+     * The Amazon Resource Name (ARN) of the Permission Set.
+     * 
+     */
     @Export(name="permissionSetArn", refs={String.class}, tree="[0]")
     private Output<String> permissionSetArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the Permission Set.
+     * 
+     */
     public Output<String> permissionSetArn() {
         return this.permissionSetArn;
     }

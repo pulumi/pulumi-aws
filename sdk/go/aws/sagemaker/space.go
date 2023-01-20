@@ -11,16 +11,62 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a SageMaker Space resource.
+//
+// ## Example Usage
+// ### Basic usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sagemaker.NewSpace(ctx, "example", &sagemaker.SpaceArgs{
+//				DomainId:  pulumi.Any(aws_sagemaker_domain.Test.Id),
+//				SpaceName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// SageMaker Spaces can be imported using the `id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
+//
+// ```
 type Space struct {
 	pulumi.CustomResourceState
 
-	Arn                  pulumi.StringOutput         `pulumi:"arn"`
-	DomainId             pulumi.StringOutput         `pulumi:"domainId"`
-	HomeEfsFileSystemUid pulumi.StringOutput         `pulumi:"homeEfsFileSystemUid"`
-	SpaceName            pulumi.StringOutput         `pulumi:"spaceName"`
-	SpaceSettings        SpaceSpaceSettingsPtrOutput `pulumi:"spaceSettings"`
-	Tags                 pulumi.StringMapOutput      `pulumi:"tags"`
-	TagsAll              pulumi.StringMapOutput      `pulumi:"tagsAll"`
+	// The space's Amazon Resource Name (ARN).
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the associated Domain.
+	DomainId pulumi.StringOutput `pulumi:"domainId"`
+	// The ID of the space's profile in the Amazon Elastic File System volume.
+	HomeEfsFileSystemUid pulumi.StringOutput `pulumi:"homeEfsFileSystemUid"`
+	// The name of the space.
+	SpaceName pulumi.StringOutput `pulumi:"spaceName"`
+	// A collection of space settings. See Space Settings below.
+	SpaceSettings SpaceSpaceSettingsPtrOutput `pulumi:"spaceSettings"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewSpace registers a new resource with the given unique name, arguments, and options.
@@ -58,23 +104,37 @@ func GetSpace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Space resources.
 type spaceState struct {
-	Arn                  *string             `pulumi:"arn"`
-	DomainId             *string             `pulumi:"domainId"`
-	HomeEfsFileSystemUid *string             `pulumi:"homeEfsFileSystemUid"`
-	SpaceName            *string             `pulumi:"spaceName"`
-	SpaceSettings        *SpaceSpaceSettings `pulumi:"spaceSettings"`
-	Tags                 map[string]string   `pulumi:"tags"`
-	TagsAll              map[string]string   `pulumi:"tagsAll"`
+	// The space's Amazon Resource Name (ARN).
+	Arn *string `pulumi:"arn"`
+	// The ID of the associated Domain.
+	DomainId *string `pulumi:"domainId"`
+	// The ID of the space's profile in the Amazon Elastic File System volume.
+	HomeEfsFileSystemUid *string `pulumi:"homeEfsFileSystemUid"`
+	// The name of the space.
+	SpaceName *string `pulumi:"spaceName"`
+	// A collection of space settings. See Space Settings below.
+	SpaceSettings *SpaceSpaceSettings `pulumi:"spaceSettings"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type SpaceState struct {
-	Arn                  pulumi.StringPtrInput
-	DomainId             pulumi.StringPtrInput
+	// The space's Amazon Resource Name (ARN).
+	Arn pulumi.StringPtrInput
+	// The ID of the associated Domain.
+	DomainId pulumi.StringPtrInput
+	// The ID of the space's profile in the Amazon Elastic File System volume.
 	HomeEfsFileSystemUid pulumi.StringPtrInput
-	SpaceName            pulumi.StringPtrInput
-	SpaceSettings        SpaceSpaceSettingsPtrInput
-	Tags                 pulumi.StringMapInput
-	TagsAll              pulumi.StringMapInput
+	// The name of the space.
+	SpaceName pulumi.StringPtrInput
+	// A collection of space settings. See Space Settings below.
+	SpaceSettings SpaceSpaceSettingsPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (SpaceState) ElementType() reflect.Type {
@@ -82,18 +142,26 @@ func (SpaceState) ElementType() reflect.Type {
 }
 
 type spaceArgs struct {
-	DomainId      string              `pulumi:"domainId"`
-	SpaceName     string              `pulumi:"spaceName"`
+	// The ID of the associated Domain.
+	DomainId string `pulumi:"domainId"`
+	// The name of the space.
+	SpaceName string `pulumi:"spaceName"`
+	// A collection of space settings. See Space Settings below.
 	SpaceSettings *SpaceSpaceSettings `pulumi:"spaceSettings"`
-	Tags          map[string]string   `pulumi:"tags"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Space resource.
 type SpaceArgs struct {
-	DomainId      pulumi.StringInput
-	SpaceName     pulumi.StringInput
+	// The ID of the associated Domain.
+	DomainId pulumi.StringInput
+	// The name of the space.
+	SpaceName pulumi.StringInput
+	// A collection of space settings. See Space Settings below.
 	SpaceSettings SpaceSpaceSettingsPtrInput
-	Tags          pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (SpaceArgs) ElementType() reflect.Type {
@@ -183,30 +251,37 @@ func (o SpaceOutput) ToSpaceOutputWithContext(ctx context.Context) SpaceOutput {
 	return o
 }
 
+// The space's Amazon Resource Name (ARN).
 func (o SpaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID of the associated Domain.
 func (o SpaceOutput) DomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
 }
 
+// The ID of the space's profile in the Amazon Elastic File System volume.
 func (o SpaceOutput) HomeEfsFileSystemUid() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.HomeEfsFileSystemUid }).(pulumi.StringOutput)
 }
 
+// The name of the space.
 func (o SpaceOutput) SpaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.SpaceName }).(pulumi.StringOutput)
 }
 
+// A collection of space settings. See Space Settings below.
 func (o SpaceOutput) SpaceSettings() SpaceSpaceSettingsPtrOutput {
 	return o.ApplyT(func(v *Space) SpaceSpaceSettingsPtrOutput { return v.SpaceSettings }).(SpaceSpaceSettingsPtrOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SpaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SpaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

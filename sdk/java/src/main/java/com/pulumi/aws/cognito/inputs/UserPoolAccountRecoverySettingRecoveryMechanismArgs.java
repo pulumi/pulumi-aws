@@ -14,16 +14,32 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanismArgs extends c
 
     public static final UserPoolAccountRecoverySettingRecoveryMechanismArgs Empty = new UserPoolAccountRecoverySettingRecoveryMechanismArgs();
 
+    /**
+     * Name of the user pool.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the user pool.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Positive integer specifying priority of a method with 1 being the highest priority.
+     * 
+     */
     @Import(name="priority", required=true)
     private Output<Integer> priority;
 
+    /**
+     * @return Positive integer specifying priority of a method with 1 being the highest priority.
+     * 
+     */
     public Output<Integer> priority() {
         return this.priority;
     }
@@ -53,20 +69,44 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanismArgs extends c
             $ = new UserPoolAccountRecoverySettingRecoveryMechanismArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the user pool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the user pool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param priority Positive integer specifying priority of a method with 1 being the highest priority.
+         * 
+         * @return builder
+         * 
+         */
         public Builder priority(Output<Integer> priority) {
             $.priority = priority;
             return this;
         }
 
+        /**
+         * @param priority Positive integer specifying priority of a method with 1 being the highest priority.
+         * 
+         * @return builder
+         * 
+         */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
         }

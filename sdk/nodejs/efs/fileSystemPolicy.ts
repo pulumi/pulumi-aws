@@ -4,6 +4,54 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an Elastic File System (EFS) File System Policy resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const fs = new aws.efs.FileSystem("fs", {});
+ * const policy = new aws.efs.FileSystemPolicy("policy", {
+ *     fileSystemId: fs.id,
+ *     bypassPolicyLockoutSafetyCheck: true,
+ *     policy: pulumi.interpolate`{
+ *     "Version": "2012-10-17",
+ *     "Id": "ExamplePolicy01",
+ *     "Statement": [
+ *         {
+ *             "Sid": "ExampleStatement01",
+ *             "Effect": "Allow",
+ *             "Principal": {
+ *                 "AWS": "*"
+ *             },
+ *             "Resource": "${fs.arn}",
+ *             "Action": [
+ *                 "elasticfilesystem:ClientMount",
+ *                 "elasticfilesystem:ClientWrite"
+ *             ],
+ *             "Condition": {
+ *                 "Bool": {
+ *                     "aws:SecureTransport": "true"
+ *                 }
+ *             }
+ *         }
+ *     ]
+ * }
+ * `,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * The EFS file system policies can be imported using the `id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
+ * ```
+ */
 export class FileSystemPolicy extends pulumi.CustomResource {
     /**
      * Get an existing FileSystemPolicy resource's state with the given name, ID, and optional extra
@@ -32,8 +80,17 @@ export class FileSystemPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === FileSystemPolicy.__pulumiType;
     }
 
+    /**
+     * A flag to indicate whether to bypass the `aws.efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypassPolicyLockoutSafetyCheck` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
+     */
     public readonly bypassPolicyLockoutSafetyCheck!: pulumi.Output<boolean | undefined>;
+    /**
+     * The ID of the EFS file system.
+     */
     public readonly fileSystemId!: pulumi.Output<string>;
+    /**
+     * The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -73,8 +130,17 @@ export class FileSystemPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FileSystemPolicy resources.
  */
 export interface FileSystemPolicyState {
+    /**
+     * A flag to indicate whether to bypass the `aws.efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypassPolicyLockoutSafetyCheck` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
+     */
     bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean>;
+    /**
+     * The ID of the EFS file system.
+     */
     fileSystemId?: pulumi.Input<string>;
+    /**
+     * The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+     */
     policy?: pulumi.Input<string>;
 }
 
@@ -82,7 +148,16 @@ export interface FileSystemPolicyState {
  * The set of arguments for constructing a FileSystemPolicy resource.
  */
 export interface FileSystemPolicyArgs {
+    /**
+     * A flag to indicate whether to bypass the `aws.efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypassPolicyLockoutSafetyCheck` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
+     */
     bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean>;
+    /**
+     * The ID of the EFS file system.
+     */
     fileSystemId: pulumi.Input<string>;
+    /**
+     * The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+     */
     policy: pulumi.Input<string>;
 }

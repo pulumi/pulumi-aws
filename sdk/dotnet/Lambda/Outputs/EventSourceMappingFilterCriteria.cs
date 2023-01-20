@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class EventSourceMappingFilterCriteria
     {
+        /// <summary>
+        /// A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EventSourceMappingFilterCriteriaFilter> Filters;
 
         [OutputConstructor]

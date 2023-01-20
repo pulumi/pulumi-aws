@@ -13,35 +13,120 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Elastic MapReduce Studio Session Mapping.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.emr.StudioSessionMapping;
+ * import com.pulumi.aws.emr.StudioSessionMappingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new StudioSessionMapping(&#34;example&#34;, StudioSessionMappingArgs.builder()        
+ *             .studioId(aws_emr_studio.example().id())
+ *             .identityType(&#34;USER&#34;)
+ *             .identityId(&#34;example&#34;)
+ *             .sessionPolicyArn(aws_iam_policy.example().arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * EMR studio session mappings can be imported using the `id`, e.g., `studio-id:identity-type:identity-id`
+ * 
+ * ```sh
+ *  $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
+ * ```
+ * 
+ */
 @ResourceType(type="aws:emr/studioSessionMapping:StudioSessionMapping")
 public class StudioSessionMapping extends com.pulumi.resources.CustomResource {
+    /**
+     * The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
+     * 
+     */
     @Export(name="identityId", refs={String.class}, tree="[0]")
     private Output<String> identityId;
 
+    /**
+     * @return The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
+     * 
+     */
     public Output<String> identityId() {
         return this.identityId;
     }
+    /**
+     * The name of the user or group from the Amazon Web Services SSO Identity Store.
+     * 
+     */
     @Export(name="identityName", refs={String.class}, tree="[0]")
     private Output<String> identityName;
 
+    /**
+     * @return The name of the user or group from the Amazon Web Services SSO Identity Store.
+     * 
+     */
     public Output<String> identityName() {
         return this.identityName;
     }
+    /**
+     * Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
+     * 
+     */
     @Export(name="identityType", refs={String.class}, tree="[0]")
     private Output<String> identityType;
 
+    /**
+     * @return Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
+     * 
+     */
     public Output<String> identityType() {
         return this.identityType;
     }
+    /**
+     * The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+     * 
+     */
     @Export(name="sessionPolicyArn", refs={String.class}, tree="[0]")
     private Output<String> sessionPolicyArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+     * 
+     */
     public Output<String> sessionPolicyArn() {
         return this.sessionPolicyArn;
     }
+    /**
+     * The ID of the Amazon EMR Studio to which the user or group will be mapped.
+     * 
+     */
     @Export(name="studioId", refs={String.class}, tree="[0]")
     private Output<String> studioId;
 
+    /**
+     * @return The ID of the Amazon EMR Studio to which the user or group will be mapped.
+     * 
+     */
     public Output<String> studioId() {
         return this.studioId;
     }

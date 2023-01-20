@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class GetCodeSigningConfigPolicyResult
     {
+        /// <summary>
+        /// Code signing configuration policy for deployment validation failure.
+        /// </summary>
         public readonly string UntrustedArtifactOnDeployment;
 
         [OutputConstructor]

@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieve information about a Direct Connect Connection.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := directconnect.LookupConnection(ctx, &directconnect.LookupConnectionArgs{
+//				Name: "tf-dx-connection",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...pulumi.InvokeOption) (*LookupConnectionResult, error) {
 	var rv LookupConnectionResult
 	err := ctx.Invoke("aws:directconnect/getConnection:getConnection", args, &rv, opts...)
@@ -21,23 +48,33 @@ func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...p
 
 // A collection of arguments for invoking getConnection.
 type LookupConnectionArgs struct {
-	Name string            `pulumi:"name"`
+	// Name of the connection to retrieve.
+	Name string `pulumi:"name"`
+	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getConnection.
 type LookupConnectionResult struct {
-	Arn       string `pulumi:"arn"`
+	// ARN of the connection.
+	Arn string `pulumi:"arn"`
+	// Direct Connect endpoint on which the physical connection terminates.
 	AwsDevice string `pulumi:"awsDevice"`
+	// Bandwidth of the connection.
 	Bandwidth string `pulumi:"bandwidth"`
 	// The provider-assigned unique ID for this managed resource.
-	Id             string            `pulumi:"id"`
-	Location       string            `pulumi:"location"`
-	Name           string            `pulumi:"name"`
-	OwnerAccountId string            `pulumi:"ownerAccountId"`
-	ProviderName   string            `pulumi:"providerName"`
-	Tags           map[string]string `pulumi:"tags"`
-	VlanId         string            `pulumi:"vlanId"`
+	Id string `pulumi:"id"`
+	// AWS Direct Connect location where the connection is located.
+	Location string `pulumi:"location"`
+	Name     string `pulumi:"name"`
+	// ID of the AWS account that owns the connection.
+	OwnerAccountId string `pulumi:"ownerAccountId"`
+	// Name of the service provider associated with the connection.
+	ProviderName string `pulumi:"providerName"`
+	// Map of tags for the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The VLAN ID.
+	VlanId string `pulumi:"vlanId"`
 }
 
 func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionResultOutput {
@@ -55,7 +92,9 @@ func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs
 
 // A collection of arguments for invoking getConnection.
 type LookupConnectionOutputArgs struct {
-	Name pulumi.StringInput    `pulumi:"name"`
+	// Name of the connection to retrieve.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -78,14 +117,17 @@ func (o LookupConnectionResultOutput) ToLookupConnectionResultOutputWithContext(
 	return o
 }
 
+// ARN of the connection.
 func (o LookupConnectionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Direct Connect endpoint on which the physical connection terminates.
 func (o LookupConnectionResultOutput) AwsDevice() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.AwsDevice }).(pulumi.StringOutput)
 }
 
+// Bandwidth of the connection.
 func (o LookupConnectionResultOutput) Bandwidth() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Bandwidth }).(pulumi.StringOutput)
 }
@@ -95,6 +137,7 @@ func (o LookupConnectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// AWS Direct Connect location where the connection is located.
 func (o LookupConnectionResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -103,18 +146,22 @@ func (o LookupConnectionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// ID of the AWS account that owns the connection.
 func (o LookupConnectionResultOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
+// Name of the service provider associated with the connection.
 func (o LookupConnectionResultOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.ProviderName }).(pulumi.StringOutput)
 }
 
+// Map of tags for the resource.
 func (o LookupConnectionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConnectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The VLAN ID.
 func (o LookupConnectionResultOutput) VlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.VlanId }).(pulumi.StringOutput)
 }

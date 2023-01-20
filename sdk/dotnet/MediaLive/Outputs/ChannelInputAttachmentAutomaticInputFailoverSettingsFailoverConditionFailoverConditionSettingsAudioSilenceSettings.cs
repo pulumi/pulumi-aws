@@ -13,6 +13,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings
     {
+        /// <summary>
+        /// The name of the audio selector used as the source for this AudioDescription.
+        /// </summary>
         public readonly string AudioSelectorName;
         public readonly int? AudioSilenceThresholdMsec;
 

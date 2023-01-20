@@ -12,6 +12,9 @@ namespace Pulumi.Aws.AppConfig.Inputs
 
     public sealed class EventIntegrationEventFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Source of the events.
+        /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 

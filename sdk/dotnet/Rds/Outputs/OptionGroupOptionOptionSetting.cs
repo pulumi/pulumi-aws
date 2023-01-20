@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Rds.Outputs
     [OutputType]
     public sealed class OptionGroupOptionOptionSetting
     {
+        /// <summary>
+        /// The Name of the setting.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Value of the setting.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -9,12 +9,70 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedshiftServerless
 {
+    /// <summary>
+    /// Creates a new Amazon Redshift Serverless Resource Policy.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.RedshiftServerless.ResourcePolicy("example", new()
+    ///     {
+    ///         ResourceArn = aws_redshiftserverless_snapshot.Example.Arn,
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = new[]
+    ///                         {
+    ///                             "12345678901",
+    ///                         },
+    ///                     },
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "redshift-serverless:RestoreFromSnapshot",
+    ///                     },
+    ///                     ["Sid"] = "",
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Redshift Serverless Resource Policies can be imported using the `resource_arn`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:redshiftserverless/resourcePolicy:ResourcePolicy")]
     public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
+        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
@@ -64,9 +122,15 @@ namespace Pulumi.Aws.RedshiftServerless
 
     public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
+        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
@@ -78,9 +142,15 @@ namespace Pulumi.Aws.RedshiftServerless
 
     public sealed class ResourcePolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 

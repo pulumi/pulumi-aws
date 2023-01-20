@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration
     {
+        /// <summary>
+        /// The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
+        /// </summary>
         public readonly ImmutableArray<string> SeedUrls;
+        /// <summary>
+        /// The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
+        /// </summary>
         public readonly string? WebCrawlerMode;
 
         [OutputConstructor]

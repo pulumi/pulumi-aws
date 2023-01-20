@@ -11,9 +11,69 @@ namespace Pulumi.Aws.Neptune
 {
     public static class GetOrderableDbInstance
     {
+        /// <summary>
+        /// Information about Neptune orderable DB instances.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Neptune.GetOrderableDbInstance.Invoke(new()
+        ///     {
+        ///         EngineVersion = "1.0.3.0",
+        ///         PreferredInstanceClasses = new[]
+        ///         {
+        ///             "db.r5.large",
+        ///             "db.r4.large",
+        ///             "db.t3.medium",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetOrderableDbInstanceResult> InvokeAsync(GetOrderableDbInstanceArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrderableDbInstanceResult>("aws:neptune/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Information about Neptune orderable DB instances.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Neptune.GetOrderableDbInstance.Invoke(new()
+        ///     {
+        ///         EngineVersion = "1.0.3.0",
+        ///         PreferredInstanceClasses = new[]
+        ///         {
+        ///             "db.r5.large",
+        ///             "db.r4.large",
+        ///             "db.t3.medium",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetOrderableDbInstanceResult> Invoke(GetOrderableDbInstanceInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrderableDbInstanceResult>("aws:neptune/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceInvokeArgs(), options.WithDefaults());
     }
@@ -21,26 +81,45 @@ namespace Pulumi.Aws.Neptune
 
     public sealed class GetOrderableDbInstanceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// DB engine. (Default: `neptune`)
+        /// </summary>
         [Input("engine")]
         public string? Engine { get; set; }
 
+        /// <summary>
+        /// Version of the DB engine. For example, `1.0.1.0`, `1.0.1.2`, `1.0.2.2`, and `1.0.3.0`.
+        /// </summary>
         [Input("engineVersion")]
         public string? EngineVersion { get; set; }
 
+        /// <summary>
+        /// DB instance class. Examples of classes are `db.r5.large`, `db.r5.xlarge`, `db.r4.large`, `db.r5.4xlarge`, `db.r5.12xlarge`, `db.r4.xlarge`, and `db.t3.medium`.
+        /// </summary>
         [Input("instanceClass")]
         public string? InstanceClass { get; set; }
 
+        /// <summary>
+        /// License model. (Default: `amazon-license`)
+        /// </summary>
         [Input("licenseModel")]
         public string? LicenseModel { get; set; }
 
         [Input("preferredInstanceClasses")]
         private List<string>? _preferredInstanceClasses;
+
+        /// <summary>
+        /// Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+        /// </summary>
         public List<string> PreferredInstanceClasses
         {
             get => _preferredInstanceClasses ?? (_preferredInstanceClasses = new List<string>());
             set => _preferredInstanceClasses = value;
         }
 
+        /// <summary>
+        /// Enable to show only VPC offerings.
+        /// </summary>
         [Input("vpc")]
         public bool? Vpc { get; set; }
 
@@ -52,26 +131,45 @@ namespace Pulumi.Aws.Neptune
 
     public sealed class GetOrderableDbInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// DB engine. (Default: `neptune`)
+        /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
+        /// <summary>
+        /// Version of the DB engine. For example, `1.0.1.0`, `1.0.1.2`, `1.0.2.2`, and `1.0.3.0`.
+        /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
+        /// <summary>
+        /// DB instance class. Examples of classes are `db.r5.large`, `db.r5.xlarge`, `db.r4.large`, `db.r5.4xlarge`, `db.r5.12xlarge`, `db.r4.xlarge`, and `db.t3.medium`.
+        /// </summary>
         [Input("instanceClass")]
         public Input<string>? InstanceClass { get; set; }
 
+        /// <summary>
+        /// License model. (Default: `amazon-license`)
+        /// </summary>
         [Input("licenseModel")]
         public Input<string>? LicenseModel { get; set; }
 
         [Input("preferredInstanceClasses")]
         private InputList<string>? _preferredInstanceClasses;
+
+        /// <summary>
+        /// Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+        /// </summary>
         public InputList<string> PreferredInstanceClasses
         {
             get => _preferredInstanceClasses ?? (_preferredInstanceClasses = new InputList<string>());
             set => _preferredInstanceClasses = value;
         }
 
+        /// <summary>
+        /// Enable to show only VPC offerings.
+        /// </summary>
         [Input("vpc")]
         public Input<bool>? Vpc { get; set; }
 
@@ -85,6 +183,9 @@ namespace Pulumi.Aws.Neptune
     [OutputType]
     public sealed class GetOrderableDbInstanceResult
     {
+        /// <summary>
+        /// Availability zones where the instance is available.
+        /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         public readonly string? Engine;
         public readonly string EngineVersion;
@@ -94,20 +195,62 @@ namespace Pulumi.Aws.Neptune
         public readonly string Id;
         public readonly string InstanceClass;
         public readonly string? LicenseModel;
+        /// <summary>
+        /// Maximum total provisioned IOPS for a DB instance.
+        /// </summary>
         public readonly int MaxIopsPerDbInstance;
+        /// <summary>
+        /// Maximum provisioned IOPS per GiB for a DB instance.
+        /// </summary>
         public readonly double MaxIopsPerGib;
+        /// <summary>
+        /// Maximum storage size for a DB instance.
+        /// </summary>
         public readonly int MaxStorageSize;
+        /// <summary>
+        /// Minimum total provisioned IOPS for a DB instance.
+        /// </summary>
         public readonly int MinIopsPerDbInstance;
+        /// <summary>
+        /// Minimum provisioned IOPS per GiB for a DB instance.
+        /// </summary>
         public readonly double MinIopsPerGib;
+        /// <summary>
+        /// Minimum storage size for a DB instance.
+        /// </summary>
         public readonly int MinStorageSize;
+        /// <summary>
+        /// Whether a DB instance is Multi-AZ capable.
+        /// </summary>
         public readonly bool MultiAzCapable;
         public readonly ImmutableArray<string> PreferredInstanceClasses;
+        /// <summary>
+        /// Whether a DB instance can have a read replica.
+        /// </summary>
         public readonly bool ReadReplicaCapable;
+        /// <summary>
+        /// Storage type for a DB instance.
+        /// </summary>
         public readonly string StorageType;
+        /// <summary>
+        /// Whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
+        /// </summary>
         public readonly bool SupportsEnhancedMonitoring;
+        /// <summary>
+        /// Whether a DB instance supports IAM database authentication.
+        /// </summary>
         public readonly bool SupportsIamDatabaseAuthentication;
+        /// <summary>
+        /// Whether a DB instance supports provisioned IOPS.
+        /// </summary>
         public readonly bool SupportsIops;
+        /// <summary>
+        /// Whether a DB instance supports Performance Insights.
+        /// </summary>
         public readonly bool SupportsPerformanceInsights;
+        /// <summary>
+        /// Whether a DB instance supports encrypted storage.
+        /// </summary>
         public readonly bool SupportsStorageEncryption;
         public readonly bool Vpc;
 

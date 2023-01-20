@@ -13,21 +13,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
+    /**
+     * @return The Availability Zones in which to enable fast snapshot restore.
+     * 
+     */
     private List<String> availabilityZones;
+    /**
+     * @return Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+     * 
+     */
     private @Nullable Integer count;
+    /**
+     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+     * 
+     */
     private @Nullable Integer interval;
+    /**
+     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+     * 
+     */
     private @Nullable String intervalUnit;
 
     private LifecyclePolicyPolicyDetailsScheduleFastRestoreRule() {}
+    /**
+     * @return The Availability Zones in which to enable fast snapshot restore.
+     * 
+     */
     public List<String> availabilityZones() {
         return this.availabilityZones;
     }
+    /**
+     * @return Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+     * 
+     */
     public Optional<Integer> count() {
         return Optional.ofNullable(this.count);
     }
+    /**
+     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+     * 
+     */
     public Optional<Integer> interval() {
         return Optional.ofNullable(this.interval);
     }
+    /**
+     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+     * 
+     */
     public Optional<String> intervalUnit() {
         return Optional.ofNullable(this.intervalUnit);
     }

@@ -10,16 +10,106 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a CodeStar Connection.
+//
+// > **NOTE:** The `codestarconnections.Connection` resource is created in the state `PENDING`. Authentication with the connection provider must be completed in the AWS Console.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codepipeline"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codestarconnections"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleConnection, err := codestarconnections.NewConnection(ctx, "exampleConnection", &codestarconnections.ConnectionArgs{
+//				ProviderType: pulumi.String("Bitbucket"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codepipeline.NewPipeline(ctx, "examplePipeline", &codepipeline.PipelineArgs{
+//				RoleArn: pulumi.Any(aws_iam_role.Codepipeline_role.Arn),
+//				ArtifactStores: codepipeline.PipelineArtifactStoreArray{
+//					nil,
+//				},
+//				Stages: codepipeline.PipelineStageArray{
+//					&codepipeline.PipelineStageArgs{
+//						Name: pulumi.String("Source"),
+//						Actions: codepipeline.PipelineStageActionArray{
+//							&codepipeline.PipelineStageActionArgs{
+//								Name:     pulumi.String("Source"),
+//								Category: pulumi.String("Source"),
+//								Owner:    pulumi.String("AWS"),
+//								Provider: pulumi.String("CodeStarSourceConnection"),
+//								Version:  pulumi.String("1"),
+//								OutputArtifacts: pulumi.StringArray{
+//									pulumi.String("source_output"),
+//								},
+//								Configuration: pulumi.StringMap{
+//									"ConnectionArn":    exampleConnection.Arn,
+//									"FullRepositoryId": pulumi.String("my-organization/test"),
+//									"BranchName":       pulumi.String("main"),
+//								},
+//							},
+//						},
+//					},
+//					&codepipeline.PipelineStageArgs{
+//						Name: pulumi.String("Build"),
+//						Actions: codepipeline.PipelineStageActionArray{
+//							nil,
+//						},
+//					},
+//					&codepipeline.PipelineStageArgs{
+//						Name: pulumi.String("Deploy"),
+//						Actions: codepipeline.PipelineStageActionArray{
+//							nil,
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// CodeStar connections can be imported using the ARN, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
+//
+// ```
 type Connection struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput    `pulumi:"arn"`
-	ConnectionStatus pulumi.StringOutput    `pulumi:"connectionStatus"`
-	HostArn          pulumi.StringPtrOutput `pulumi:"hostArn"`
-	Name             pulumi.StringOutput    `pulumi:"name"`
-	ProviderType     pulumi.StringOutput    `pulumi:"providerType"`
-	Tags             pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll          pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The codestar connection ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
+	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+	HostArn pulumi.StringPtrOutput `pulumi:"hostArn"`
+	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
+	ProviderType pulumi.StringOutput `pulumi:"providerType"`
+	// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -51,23 +141,37 @@ func GetConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connection resources.
 type connectionState struct {
-	Arn              *string           `pulumi:"arn"`
-	ConnectionStatus *string           `pulumi:"connectionStatus"`
-	HostArn          *string           `pulumi:"hostArn"`
-	Name             *string           `pulumi:"name"`
-	ProviderType     *string           `pulumi:"providerType"`
-	Tags             map[string]string `pulumi:"tags"`
-	TagsAll          map[string]string `pulumi:"tagsAll"`
+	// The codestar connection ARN.
+	Arn *string `pulumi:"arn"`
+	// The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+	ConnectionStatus *string `pulumi:"connectionStatus"`
+	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+	HostArn *string `pulumi:"hostArn"`
+	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
+	Name *string `pulumi:"name"`
+	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
+	ProviderType *string `pulumi:"providerType"`
+	// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ConnectionState struct {
-	Arn              pulumi.StringPtrInput
+	// The codestar connection ARN.
+	Arn pulumi.StringPtrInput
+	// The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
 	ConnectionStatus pulumi.StringPtrInput
-	HostArn          pulumi.StringPtrInput
-	Name             pulumi.StringPtrInput
-	ProviderType     pulumi.StringPtrInput
-	Tags             pulumi.StringMapInput
-	TagsAll          pulumi.StringMapInput
+	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+	HostArn pulumi.StringPtrInput
+	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
+	Name pulumi.StringPtrInput
+	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
+	ProviderType pulumi.StringPtrInput
+	// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (ConnectionState) ElementType() reflect.Type {
@@ -75,18 +179,26 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
-	HostArn      *string           `pulumi:"hostArn"`
-	Name         *string           `pulumi:"name"`
-	ProviderType *string           `pulumi:"providerType"`
-	Tags         map[string]string `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+	HostArn *string `pulumi:"hostArn"`
+	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
+	Name *string `pulumi:"name"`
+	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
+	ProviderType *string `pulumi:"providerType"`
+	// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
-	HostArn      pulumi.StringPtrInput
-	Name         pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+	HostArn pulumi.StringPtrInput
+	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
+	Name pulumi.StringPtrInput
+	// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
 	ProviderType pulumi.StringPtrInput
-	Tags         pulumi.StringMapInput
+	// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {
@@ -176,30 +288,37 @@ func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) Con
 	return o
 }
 
+// The codestar connection ARN.
 func (o ConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
 func (o ConnectionOutput) ConnectionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ConnectionStatus }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
 func (o ConnectionOutput) HostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.HostArn }).(pulumi.StringPtrOutput)
 }
 
+// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
 func (o ConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
 func (o ConnectionOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ProviderType }).(pulumi.StringOutput)
 }
 
+// Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ConnectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

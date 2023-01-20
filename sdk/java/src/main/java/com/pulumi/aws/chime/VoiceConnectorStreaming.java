@@ -17,29 +17,113 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Adds a streaming configuration for the specified Amazon Chime Voice Connector. The streaming configuration specifies whether media streaming is enabled for sending to Amazon Kinesis.
+ * It also sets the retention period, in hours, for the Amazon Kinesis data.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.chime.VoiceConnector;
+ * import com.pulumi.aws.chime.VoiceConnectorArgs;
+ * import com.pulumi.aws.chime.VoiceConnectorStreaming;
+ * import com.pulumi.aws.chime.VoiceConnectorStreamingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var defaultVoiceConnector = new VoiceConnector(&#34;defaultVoiceConnector&#34;, VoiceConnectorArgs.builder()        
+ *             .requireEncryption(true)
+ *             .build());
+ * 
+ *         var defaultVoiceConnectorStreaming = new VoiceConnectorStreaming(&#34;defaultVoiceConnectorStreaming&#34;, VoiceConnectorStreamingArgs.builder()        
+ *             .disabled(false)
+ *             .voiceConnectorId(defaultVoiceConnector.id())
+ *             .dataRetention(7)
+ *             .streamingNotificationTargets(&#34;SQS&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Chime Voice Connector Streaming can be imported using the `voice_connector_id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
+ * ```
+ * 
+ */
 @ResourceType(type="aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming")
 public class VoiceConnectorStreaming extends com.pulumi.resources.CustomResource {
+    /**
+     * The retention period, in hours, for the Amazon Kinesis data.
+     * 
+     */
     @Export(name="dataRetention", refs={Integer.class}, tree="[0]")
     private Output<Integer> dataRetention;
 
+    /**
+     * @return The retention period, in hours, for the Amazon Kinesis data.
+     * 
+     */
     public Output<Integer> dataRetention() {
         return this.dataRetention;
     }
+    /**
+     * When true, media streaming to Amazon Kinesis is turned off. Default: `false`
+     * 
+     */
     @Export(name="disabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disabled;
 
+    /**
+     * @return When true, media streaming to Amazon Kinesis is turned off. Default: `false`
+     * 
+     */
     public Output<Optional<Boolean>> disabled() {
         return Codegen.optional(this.disabled);
     }
+    /**
+     * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
+     * 
+     */
     @Export(name="streamingNotificationTargets", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> streamingNotificationTargets;
 
+    /**
+     * @return The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
+     * 
+     */
     public Output<Optional<List<String>>> streamingNotificationTargets() {
         return Codegen.optional(this.streamingNotificationTargets);
     }
+    /**
+     * The Amazon Chime Voice Connector ID.
+     * 
+     */
     @Export(name="voiceConnectorId", refs={String.class}, tree="[0]")
     private Output<String> voiceConnectorId;
 
+    /**
+     * @return The Amazon Chime Voice Connector ID.
+     * 
+     */
     public Output<String> voiceConnectorId() {
         return this.voiceConnectorId;
     }

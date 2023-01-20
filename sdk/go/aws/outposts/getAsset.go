@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Information about a specific hardware asset in an Outpost.
 func GetAsset(ctx *pulumi.Context, args *GetAssetArgs, opts ...pulumi.InvokeOption) (*GetAssetResult, error) {
 	var rv GetAssetResult
 	err := ctx.Invoke("aws:outposts/getAsset:getAsset", args, &rv, opts...)
@@ -21,20 +22,26 @@ func GetAsset(ctx *pulumi.Context, args *GetAssetArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getAsset.
 type GetAssetArgs struct {
-	Arn     string `pulumi:"arn"`
+	// Outpost ARN.
+	Arn string `pulumi:"arn"`
+	// ID of the asset.
 	AssetId string `pulumi:"assetId"`
 }
 
 // A collection of values returned by getAsset.
 type GetAssetResult struct {
-	Arn       string `pulumi:"arn"`
-	AssetId   string `pulumi:"assetId"`
+	Arn     string `pulumi:"arn"`
+	AssetId string `pulumi:"assetId"`
+	// Type of the asset.
 	AssetType string `pulumi:"assetType"`
-	HostId    string `pulumi:"hostId"`
+	// Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
+	HostId string `pulumi:"hostId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id            string `pulumi:"id"`
-	RackElevation int    `pulumi:"rackElevation"`
-	RackId        string `pulumi:"rackId"`
+	Id string `pulumi:"id"`
+	// Position of an asset in a rack measured in rack units.
+	RackElevation int `pulumi:"rackElevation"`
+	// Rack ID of the asset.
+	RackId string `pulumi:"rackId"`
 }
 
 func GetAssetOutput(ctx *pulumi.Context, args GetAssetOutputArgs, opts ...pulumi.InvokeOption) GetAssetResultOutput {
@@ -52,7 +59,9 @@ func GetAssetOutput(ctx *pulumi.Context, args GetAssetOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getAsset.
 type GetAssetOutputArgs struct {
-	Arn     pulumi.StringInput `pulumi:"arn"`
+	// Outpost ARN.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// ID of the asset.
 	AssetId pulumi.StringInput `pulumi:"assetId"`
 }
 
@@ -83,10 +92,12 @@ func (o GetAssetResultOutput) AssetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAssetResult) string { return v.AssetId }).(pulumi.StringOutput)
 }
 
+// Type of the asset.
 func (o GetAssetResultOutput) AssetType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAssetResult) string { return v.AssetType }).(pulumi.StringOutput)
 }
 
+// Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
 func (o GetAssetResultOutput) HostId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAssetResult) string { return v.HostId }).(pulumi.StringOutput)
 }
@@ -96,10 +107,12 @@ func (o GetAssetResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAssetResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Position of an asset in a rack measured in rack units.
 func (o GetAssetResultOutput) RackElevation() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAssetResult) int { return v.RackElevation }).(pulumi.IntOutput)
 }
 
+// Rack ID of the asset.
 func (o GetAssetResultOutput) RackId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAssetResult) string { return v.RackId }).(pulumi.StringOutput)
 }

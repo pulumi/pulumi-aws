@@ -20,6 +20,10 @@ public final class GetNatGatewaysResult {
      * 
      */
     private String id;
+    /**
+     * @return List of all the NAT gateway ids found.
+     * 
+     */
     private List<String> ids;
     private Map<String,String> tags;
     private @Nullable String vpcId;
@@ -35,6 +39,10 @@ public final class GetNatGatewaysResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return List of all the NAT gateway ids found.
+     * 
+     */
     public List<String> ids() {
         return this.ids;
     }

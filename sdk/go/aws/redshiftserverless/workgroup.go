@@ -11,22 +11,73 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a new Amazon Redshift Serverless Workgroup.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshiftserverless"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := redshiftserverless.NewWorkgroup(ctx, "example", &redshiftserverless.WorkgroupArgs{
+//				NamespaceName: pulumi.String("concurrency-scaling"),
+//				WorkgroupName: pulumi.String("concurrency-scaling"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Redshift Serverless Workgroups can be imported using the `workgroup_name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
+//
+// ```
 type Workgroup struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput                 `pulumi:"arn"`
-	BaseCapacity       pulumi.IntOutput                    `pulumi:"baseCapacity"`
-	ConfigParameters   WorkgroupConfigParameterArrayOutput `pulumi:"configParameters"`
-	Endpoints          WorkgroupEndpointArrayOutput        `pulumi:"endpoints"`
-	EnhancedVpcRouting pulumi.BoolPtrOutput                `pulumi:"enhancedVpcRouting"`
-	NamespaceName      pulumi.StringOutput                 `pulumi:"namespaceName"`
-	PubliclyAccessible pulumi.BoolPtrOutput                `pulumi:"publiclyAccessible"`
-	SecurityGroupIds   pulumi.StringArrayOutput            `pulumi:"securityGroupIds"`
-	SubnetIds          pulumi.StringArrayOutput            `pulumi:"subnetIds"`
-	Tags               pulumi.StringMapOutput              `pulumi:"tags"`
-	TagsAll            pulumi.StringMapOutput              `pulumi:"tagsAll"`
-	WorkgroupId        pulumi.StringOutput                 `pulumi:"workgroupId"`
-	WorkgroupName      pulumi.StringOutput                 `pulumi:"workgroupName"`
+	// Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+	BaseCapacity pulumi.IntOutput `pulumi:"baseCapacity"`
+	// An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+	ConfigParameters WorkgroupConfigParameterArrayOutput `pulumi:"configParameters"`
+	// The endpoint that is created from the workgroup. See `Endpoint` below.
+	Endpoints WorkgroupEndpointArrayOutput `pulumi:"endpoints"`
+	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+	EnhancedVpcRouting pulumi.BoolPtrOutput `pulumi:"enhancedVpcRouting"`
+	// The name of the namespace.
+	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
+	// A value that specifies whether the workgroup can be accessed from a public network.
+	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
+	// An array of security group IDs to associate with the workgroup.
+	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
+	// An array of VPC subnet IDs to associate with the workgroup.
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The Redshift Workgroup ID.
+	WorkgroupId pulumi.StringOutput `pulumi:"workgroupId"`
+	// The name of the workgroup.
+	WorkgroupName pulumi.StringOutput `pulumi:"workgroupName"`
 }
 
 // NewWorkgroup registers a new resource with the given unique name, arguments, and options.
@@ -64,35 +115,61 @@ func GetWorkgroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workgroup resources.
 type workgroupState struct {
-	Arn                *string                    `pulumi:"arn"`
-	BaseCapacity       *int                       `pulumi:"baseCapacity"`
-	ConfigParameters   []WorkgroupConfigParameter `pulumi:"configParameters"`
-	Endpoints          []WorkgroupEndpoint        `pulumi:"endpoints"`
-	EnhancedVpcRouting *bool                      `pulumi:"enhancedVpcRouting"`
-	NamespaceName      *string                    `pulumi:"namespaceName"`
-	PubliclyAccessible *bool                      `pulumi:"publiclyAccessible"`
-	SecurityGroupIds   []string                   `pulumi:"securityGroupIds"`
-	SubnetIds          []string                   `pulumi:"subnetIds"`
-	Tags               map[string]string          `pulumi:"tags"`
-	TagsAll            map[string]string          `pulumi:"tagsAll"`
-	WorkgroupId        *string                    `pulumi:"workgroupId"`
-	WorkgroupName      *string                    `pulumi:"workgroupName"`
+	// Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+	Arn *string `pulumi:"arn"`
+	// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+	BaseCapacity *int `pulumi:"baseCapacity"`
+	// An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+	ConfigParameters []WorkgroupConfigParameter `pulumi:"configParameters"`
+	// The endpoint that is created from the workgroup. See `Endpoint` below.
+	Endpoints []WorkgroupEndpoint `pulumi:"endpoints"`
+	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
+	// The name of the namespace.
+	NamespaceName *string `pulumi:"namespaceName"`
+	// A value that specifies whether the workgroup can be accessed from a public network.
+	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// An array of security group IDs to associate with the workgroup.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// An array of VPC subnet IDs to associate with the workgroup.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The Redshift Workgroup ID.
+	WorkgroupId *string `pulumi:"workgroupId"`
+	// The name of the workgroup.
+	WorkgroupName *string `pulumi:"workgroupName"`
 }
 
 type WorkgroupState struct {
-	Arn                pulumi.StringPtrInput
-	BaseCapacity       pulumi.IntPtrInput
-	ConfigParameters   WorkgroupConfigParameterArrayInput
-	Endpoints          WorkgroupEndpointArrayInput
+	// Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+	Arn pulumi.StringPtrInput
+	// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+	BaseCapacity pulumi.IntPtrInput
+	// An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+	ConfigParameters WorkgroupConfigParameterArrayInput
+	// The endpoint that is created from the workgroup. See `Endpoint` below.
+	Endpoints WorkgroupEndpointArrayInput
+	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting pulumi.BoolPtrInput
-	NamespaceName      pulumi.StringPtrInput
+	// The name of the namespace.
+	NamespaceName pulumi.StringPtrInput
+	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible pulumi.BoolPtrInput
-	SecurityGroupIds   pulumi.StringArrayInput
-	SubnetIds          pulumi.StringArrayInput
-	Tags               pulumi.StringMapInput
-	TagsAll            pulumi.StringMapInput
-	WorkgroupId        pulumi.StringPtrInput
-	WorkgroupName      pulumi.StringPtrInput
+	// An array of security group IDs to associate with the workgroup.
+	SecurityGroupIds pulumi.StringArrayInput
+	// An array of VPC subnet IDs to associate with the workgroup.
+	SubnetIds pulumi.StringArrayInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// The Redshift Workgroup ID.
+	WorkgroupId pulumi.StringPtrInput
+	// The name of the workgroup.
+	WorkgroupName pulumi.StringPtrInput
 }
 
 func (WorkgroupState) ElementType() reflect.Type {
@@ -100,28 +177,46 @@ func (WorkgroupState) ElementType() reflect.Type {
 }
 
 type workgroupArgs struct {
-	BaseCapacity       *int                       `pulumi:"baseCapacity"`
-	ConfigParameters   []WorkgroupConfigParameter `pulumi:"configParameters"`
-	EnhancedVpcRouting *bool                      `pulumi:"enhancedVpcRouting"`
-	NamespaceName      string                     `pulumi:"namespaceName"`
-	PubliclyAccessible *bool                      `pulumi:"publiclyAccessible"`
-	SecurityGroupIds   []string                   `pulumi:"securityGroupIds"`
-	SubnetIds          []string                   `pulumi:"subnetIds"`
-	Tags               map[string]string          `pulumi:"tags"`
-	WorkgroupName      string                     `pulumi:"workgroupName"`
+	// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+	BaseCapacity *int `pulumi:"baseCapacity"`
+	// An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+	ConfigParameters []WorkgroupConfigParameter `pulumi:"configParameters"`
+	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
+	// The name of the namespace.
+	NamespaceName string `pulumi:"namespaceName"`
+	// A value that specifies whether the workgroup can be accessed from a public network.
+	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// An array of security group IDs to associate with the workgroup.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// An array of VPC subnet IDs to associate with the workgroup.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// The name of the workgroup.
+	WorkgroupName string `pulumi:"workgroupName"`
 }
 
 // The set of arguments for constructing a Workgroup resource.
 type WorkgroupArgs struct {
-	BaseCapacity       pulumi.IntPtrInput
-	ConfigParameters   WorkgroupConfigParameterArrayInput
+	// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+	BaseCapacity pulumi.IntPtrInput
+	// An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+	ConfigParameters WorkgroupConfigParameterArrayInput
+	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting pulumi.BoolPtrInput
-	NamespaceName      pulumi.StringInput
+	// The name of the namespace.
+	NamespaceName pulumi.StringInput
+	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible pulumi.BoolPtrInput
-	SecurityGroupIds   pulumi.StringArrayInput
-	SubnetIds          pulumi.StringArrayInput
-	Tags               pulumi.StringMapInput
-	WorkgroupName      pulumi.StringInput
+	// An array of security group IDs to associate with the workgroup.
+	SecurityGroupIds pulumi.StringArrayInput
+	// An array of VPC subnet IDs to associate with the workgroup.
+	SubnetIds pulumi.StringArrayInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// The name of the workgroup.
+	WorkgroupName pulumi.StringInput
 }
 
 func (WorkgroupArgs) ElementType() reflect.Type {
@@ -211,54 +306,67 @@ func (o WorkgroupOutput) ToWorkgroupOutputWithContext(ctx context.Context) Workg
 	return o
 }
 
+// Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
 func (o WorkgroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
 func (o WorkgroupOutput) BaseCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.IntOutput { return v.BaseCapacity }).(pulumi.IntOutput)
 }
 
+// An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
 func (o WorkgroupOutput) ConfigParameters() WorkgroupConfigParameterArrayOutput {
 	return o.ApplyT(func(v *Workgroup) WorkgroupConfigParameterArrayOutput { return v.ConfigParameters }).(WorkgroupConfigParameterArrayOutput)
 }
 
+// The endpoint that is created from the workgroup. See `Endpoint` below.
 func (o WorkgroupOutput) Endpoints() WorkgroupEndpointArrayOutput {
 	return o.ApplyT(func(v *Workgroup) WorkgroupEndpointArrayOutput { return v.Endpoints }).(WorkgroupEndpointArrayOutput)
 }
 
+// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 func (o WorkgroupOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.BoolPtrOutput { return v.EnhancedVpcRouting }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the namespace.
 func (o WorkgroupOutput) NamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringOutput { return v.NamespaceName }).(pulumi.StringOutput)
 }
 
+// A value that specifies whether the workgroup can be accessed from a public network.
 func (o WorkgroupOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
 
+// An array of security group IDs to associate with the workgroup.
 func (o WorkgroupOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// An array of VPC subnet IDs to associate with the workgroup.
 func (o WorkgroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o WorkgroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o WorkgroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// The Redshift Workgroup ID.
 func (o WorkgroupOutput) WorkgroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringOutput { return v.WorkgroupId }).(pulumi.StringOutput)
 }
 
+// The name of the workgroup.
 func (o WorkgroupOutput) WorkgroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringOutput { return v.WorkgroupName }).(pulumi.StringOutput)
 }

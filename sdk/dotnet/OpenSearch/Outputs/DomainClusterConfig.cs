@@ -13,16 +13,49 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class DomainClusterConfig
     {
+        /// <summary>
+        /// Configuration block containing cold storage configuration. Detailed below.
+        /// </summary>
         public readonly Outputs.DomainClusterConfigColdStorageOptions? ColdStorageOptions;
+        /// <summary>
+        /// Number of dedicated main nodes in the cluster.
+        /// </summary>
         public readonly int? DedicatedMasterCount;
+        /// <summary>
+        /// Whether dedicated main nodes are enabled for the cluster.
+        /// </summary>
         public readonly bool? DedicatedMasterEnabled;
+        /// <summary>
+        /// Instance type of the dedicated main nodes in the cluster.
+        /// </summary>
         public readonly string? DedicatedMasterType;
+        /// <summary>
+        /// Number of instances in the cluster.
+        /// </summary>
         public readonly int? InstanceCount;
+        /// <summary>
+        /// Instance type of data nodes in the cluster.
+        /// </summary>
         public readonly string? InstanceType;
+        /// <summary>
+        /// Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
+        /// </summary>
         public readonly int? WarmCount;
+        /// <summary>
+        /// Whether to enable warm storage.
+        /// </summary>
         public readonly bool? WarmEnabled;
+        /// <summary>
+        /// Instance type for the OpenSearch cluster's warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
+        /// </summary>
         public readonly string? WarmType;
+        /// <summary>
+        /// Configuration block containing zone awareness settings. Detailed below.
+        /// </summary>
         public readonly Outputs.DomainClusterConfigZoneAwarenessConfig? ZoneAwarenessConfig;
+        /// <summary>
+        /// Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
+        /// </summary>
         public readonly bool? ZoneAwarenessEnabled;
 
         [OutputConstructor]

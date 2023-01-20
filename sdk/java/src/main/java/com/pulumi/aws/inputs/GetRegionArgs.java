@@ -15,16 +15,32 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRegionArgs Empty = new GetRegionArgs();
 
+    /**
+     * EC2 endpoint of the region to select.
+     * 
+     */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
+    /**
+     * @return EC2 endpoint of the region to select.
+     * 
+     */
     public Optional<Output<String>> endpoint() {
         return Optional.ofNullable(this.endpoint);
     }
 
+    /**
+     * Full name of the region to select.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Full name of the region to select.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -54,20 +70,44 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRegionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param endpoint EC2 endpoint of the region to select.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpoint(@Nullable Output<String> endpoint) {
             $.endpoint = endpoint;
             return this;
         }
 
+        /**
+         * @param endpoint EC2 endpoint of the region to select.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
         }
 
+        /**
+         * @param name Full name of the region to select.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Full name of the region to select.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

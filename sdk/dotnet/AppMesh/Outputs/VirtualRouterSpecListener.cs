@@ -13,6 +13,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualRouterSpecListener
     {
+        /// <summary>
+        /// Port mapping information for the listener.
+        /// </summary>
         public readonly Outputs.VirtualRouterSpecListenerPortMapping PortMapping;
 
         [OutputConstructor]

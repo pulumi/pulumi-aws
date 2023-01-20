@@ -16,16 +16,32 @@ public final class TopicRuleDynamodbv2Args extends com.pulumi.resources.Resource
 
     public static final TopicRuleDynamodbv2Args Empty = new TopicRuleDynamodbv2Args();
 
+    /**
+     * Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
+     * 
+     */
     @Import(name="putItem")
     private @Nullable Output<TopicRuleDynamodbv2PutItemArgs> putItem;
 
+    /**
+     * @return Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
+     * 
+     */
     public Optional<Output<TopicRuleDynamodbv2PutItemArgs>> putItem() {
         return Optional.ofNullable(this.putItem);
     }
 
+    /**
+     * The IAM role ARN that allows access to the CloudWatch alarm.
+     * 
+     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
+    /**
+     * @return The IAM role ARN that allows access to the CloudWatch alarm.
+     * 
+     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -55,20 +71,44 @@ public final class TopicRuleDynamodbv2Args extends com.pulumi.resources.Resource
             $ = new TopicRuleDynamodbv2Args(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param putItem Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder putItem(@Nullable Output<TopicRuleDynamodbv2PutItemArgs> putItem) {
             $.putItem = putItem;
             return this;
         }
 
+        /**
+         * @param putItem Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder putItem(TopicRuleDynamodbv2PutItemArgs putItem) {
             return putItem(Output.of(putItem));
         }
 
+        /**
+         * @param roleArn The IAM role ARN that allows access to the CloudWatch alarm.
+         * 
+         * @return builder
+         * 
+         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
+        /**
+         * @param roleArn The IAM role ARN that allows access to the CloudWatch alarm.
+         * 
+         * @return builder
+         * 
+         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

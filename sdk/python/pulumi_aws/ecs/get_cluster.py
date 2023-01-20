@@ -54,6 +54,9 @@ class GetClusterResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the ECS Cluster
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -72,31 +75,49 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="pendingTasksCount")
     def pending_tasks_count(self) -> int:
+        """
+        Number of pending tasks for the ECS Cluster
+        """
         return pulumi.get(self, "pending_tasks_count")
 
     @property
     @pulumi.getter(name="registeredContainerInstancesCount")
     def registered_container_instances_count(self) -> int:
+        """
+        The number of registered container instances for the ECS Cluster
+        """
         return pulumi.get(self, "registered_container_instances_count")
 
     @property
     @pulumi.getter(name="runningTasksCount")
     def running_tasks_count(self) -> int:
+        """
+        Number of running tasks for the ECS Cluster
+        """
         return pulumi.get(self, "running_tasks_count")
 
     @property
     @pulumi.getter(name="serviceConnectDefaults")
     def service_connect_defaults(self) -> Sequence['outputs.GetClusterServiceConnectDefaultResult']:
+        """
+        The default Service Connect namespace
+        """
         return pulumi.get(self, "service_connect_defaults")
 
     @property
     @pulumi.getter
     def settings(self) -> Sequence['outputs.GetClusterSettingResult']:
+        """
+        Settings associated with the ECS Cluster
+        """
         return pulumi.get(self, "settings")
 
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        Status of the ECS Cluster
+        """
         return pulumi.get(self, "status")
 
 
@@ -120,7 +141,20 @@ class AwaitableGetClusterResult(GetClusterResult):
 def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    Use this data source to access information about an existing resource.
+    The ECS Cluster data source allows access to details of a specific
+    cluster within an AWS ECS service.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    ecs_mongo = aws.ecs.get_cluster(cluster_name="ecs-mongo-production")
+    ```
+
+
+    :param str cluster_name: Name of the ECS Cluster
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -143,6 +177,19 @@ def get_cluster(cluster_name: Optional[str] = None,
 def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
-    Use this data source to access information about an existing resource.
+    The ECS Cluster data source allows access to details of a specific
+    cluster within an AWS ECS service.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    ecs_mongo = aws.ecs.get_cluster(cluster_name="ecs-mongo-production")
+    ```
+
+
+    :param str cluster_name: Name of the ECS Cluster
     """
     ...

@@ -58,11 +58,17 @@ class GetOpenZfsSnapshotResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        Amazon Resource Name of the snapshot.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> str:
+        """
+        Time that the resource was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
@@ -86,11 +92,17 @@ class GetOpenZfsSnapshotResult:
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        Name of the snapshot.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> str:
+        """
+        ID of the snapshot.
+        """
         return pulumi.get(self, "snapshot_id")
 
     @property
@@ -101,11 +113,17 @@ class GetOpenZfsSnapshotResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        List of Tag values, with a maximum of 50 elements.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> str:
+        """
+        ID of the volume that the snapshot is of.
+        """
         return pulumi.get(self, "volume_id")
 
 
@@ -134,7 +152,29 @@ def get_open_zfs_snapshot(filters: Optional[Sequence[pulumi.InputType['GetOpenZf
                           tags: Optional[Mapping[str, str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenZfsSnapshotResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
+
+    ## Example Usage
+    ### Root volume Example
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.fsx.get_open_zfs_snapshot(filters=[aws.fsx.GetOpenZfsSnapshotFilterArgs(
+            name="volume-id",
+            values=["fsvol-073a32b6098a73feb"],
+        )],
+        most_recent=True)
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetOpenZfsSnapshotFilterArgs']] filters: One or more name/value pairs to filter off of. The
+           supported names are file-system-id or volume-id.
+    :param bool most_recent: If more than one result is returned, use the most recent snapshot.
+    :param str name: Name of the snapshot.
+    :param Sequence[str] snapshot_ids: Returns information on a specific snapshot_id.
+    :param Mapping[str, str] tags: List of Tag values, with a maximum of 50 elements.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -166,6 +206,28 @@ def get_open_zfs_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequenc
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOpenZfsSnapshotResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
+
+    ## Example Usage
+    ### Root volume Example
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.fsx.get_open_zfs_snapshot(filters=[aws.fsx.GetOpenZfsSnapshotFilterArgs(
+            name="volume-id",
+            values=["fsvol-073a32b6098a73feb"],
+        )],
+        most_recent=True)
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetOpenZfsSnapshotFilterArgs']] filters: One or more name/value pairs to filter off of. The
+           supported names are file-system-id or volume-id.
+    :param bool most_recent: If more than one result is returned, use the most recent snapshot.
+    :param str name: Name of the snapshot.
+    :param Sequence[str] snapshot_ids: Returns information on a specific snapshot_id.
+    :param Mapping[str, str] tags: List of Tag values, with a maximum of 50 elements.
     """
     ...

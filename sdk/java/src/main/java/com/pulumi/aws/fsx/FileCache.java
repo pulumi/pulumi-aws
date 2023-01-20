@@ -20,71 +20,229 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Resource for managing an Amazon File Cache cache.
+ * See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.fsx.FileCache;
+ * import com.pulumi.aws.fsx.FileCacheArgs;
+ * import com.pulumi.aws.fsx.inputs.FileCacheDataRepositoryAssociationArgs;
+ * import com.pulumi.aws.fsx.inputs.FileCacheLustreConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new FileCache(&#34;example&#34;, FileCacheArgs.builder()        
+ *             .dataRepositoryAssociations(FileCacheDataRepositoryAssociationArgs.builder()
+ *                 .dataRepositoryPath(&#34;nfs://filer.domain.com&#34;)
+ *                 .dataRepositorySubdirectories(                
+ *                     &#34;test&#34;,
+ *                     &#34;test2&#34;)
+ *                 .fileCachePath(&#34;/ns1&#34;)
+ *                 .nfs(FileCacheDataRepositoryAssociationNfArgs.builder()
+ *                     .dnsIps(                    
+ *                         &#34;192.168.0.1&#34;,
+ *                         &#34;192.168.0.2&#34;)
+ *                     .version(&#34;NFS3&#34;)
+ *                     .build())
+ *                 .build())
+ *             .fileCacheType(&#34;LUSTRE&#34;)
+ *             .fileCacheTypeVersion(&#34;2.12&#34;)
+ *             .lustreConfigurations(FileCacheLustreConfigurationArgs.builder()
+ *                 .deploymentType(&#34;CACHE_1&#34;)
+ *                 .metadataConfigurations(FileCacheLustreConfigurationMetadataConfigurationArgs.builder()
+ *                     .storageCapacity(2400)
+ *                     .build())
+ *                 .perUnitStorageThroughput(1000)
+ *                 .weeklyMaintenanceStartTime(&#34;2:05:00&#34;)
+ *                 .build())
+ *             .subnetIds(aws_subnet.test1().id())
+ *             .storageCapacity(1200)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Amazon File Cache cache can be imported using the resource `id`.
+ * 
+ * ```sh
+ *  $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
+ * ```
+ * 
+ */
 @ResourceType(type="aws:fsx/fileCache:FileCache")
 public class FileCache extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name (ARN) for the resource.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) for the resource.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
+     * 
+     */
     @Export(name="copyTagsToDataRepositoryAssociations", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyTagsToDataRepositoryAssociations;
 
+    /**
+     * @return A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
+     * 
+     */
     public Output<Optional<Boolean>> copyTagsToDataRepositoryAssociations() {
         return Codegen.optional(this.copyTagsToDataRepositoryAssociations);
     }
+    /**
+     * A list of IDs of data repository associations that are associated with this cache.
+     * 
+     */
     @Export(name="dataRepositoryAssociationIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> dataRepositoryAssociationIds;
 
+    /**
+     * @return A list of IDs of data repository associations that are associated with this cache.
+     * 
+     */
     public Output<List<String>> dataRepositoryAssociationIds() {
         return this.dataRepositoryAssociationIds;
     }
+    /**
+     * See the `data_repository_association` configuration block. Max of 8.
+     * A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can&#39;t link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
+     * 
+     */
     @Export(name="dataRepositoryAssociations", refs={List.class,FileCacheDataRepositoryAssociation.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FileCacheDataRepositoryAssociation>> dataRepositoryAssociations;
 
+    /**
+     * @return See the `data_repository_association` configuration block. Max of 8.
+     * A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can&#39;t link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
+     * 
+     */
     public Output<Optional<List<FileCacheDataRepositoryAssociation>>> dataRepositoryAssociations() {
         return Codegen.optional(this.dataRepositoryAssociations);
     }
+    /**
+     * The Domain Name System (DNS) name for the cache.
+     * 
+     */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
     private Output<String> dnsName;
 
+    /**
+     * @return The Domain Name System (DNS) name for the cache.
+     * 
+     */
     public Output<String> dnsName() {
         return this.dnsName;
     }
+    /**
+     * The system-generated, unique ID of the cache.
+     * 
+     */
     @Export(name="fileCacheId", refs={String.class}, tree="[0]")
     private Output<String> fileCacheId;
 
+    /**
+     * @return The system-generated, unique ID of the cache.
+     * 
+     */
     public Output<String> fileCacheId() {
         return this.fileCacheId;
     }
+    /**
+     * The type of cache that you&#39;re creating. The only supported value is `LUSTRE`.
+     * 
+     */
     @Export(name="fileCacheType", refs={String.class}, tree="[0]")
     private Output<String> fileCacheType;
 
+    /**
+     * @return The type of cache that you&#39;re creating. The only supported value is `LUSTRE`.
+     * 
+     */
     public Output<String> fileCacheType() {
         return this.fileCacheType;
     }
+    /**
+     * The version for the type of cache that you&#39;re creating. The only supported value is `2.12`.
+     * 
+     */
     @Export(name="fileCacheTypeVersion", refs={String.class}, tree="[0]")
     private Output<String> fileCacheTypeVersion;
 
+    /**
+     * @return The version for the type of cache that you&#39;re creating. The only supported value is `2.12`.
+     * 
+     */
     public Output<String> fileCacheTypeVersion() {
         return this.fileCacheTypeVersion;
     }
+    /**
+     * Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn&#39;t specified, the Amazon FSx-managed AWS KMS key for your account is used.
+     * 
+     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
+    /**
+     * @return Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn&#39;t specified, the Amazon FSx-managed AWS KMS key for your account is used.
+     * 
+     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
+    /**
+     * See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
+     * 
+     */
     @Export(name="lustreConfigurations", refs={List.class,FileCacheLustreConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FileCacheLustreConfiguration>> lustreConfigurations;
 
+    /**
+     * @return See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
+     * 
+     */
     public Output<Optional<List<FileCacheLustreConfiguration>>> lustreConfigurations() {
         return Codegen.optional(this.lustreConfigurations);
     }
+    /**
+     * A list of network interface IDs.
+     * 
+     */
     @Export(name="networkInterfaceIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> networkInterfaceIds;
 
+    /**
+     * @return A list of network interface IDs.
+     * 
+     */
     public Output<List<String>> networkInterfaceIds() {
         return this.networkInterfaceIds;
     }
@@ -94,27 +252,59 @@ public class FileCache extends com.pulumi.resources.CustomResource {
     public Output<String> ownerId() {
         return this.ownerId;
     }
+    /**
+     * A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
+     * 
+     */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityGroupIds;
 
+    /**
+     * @return A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
+     * 
+     */
     public Output<Optional<List<String>>> securityGroupIds() {
         return Codegen.optional(this.securityGroupIds);
     }
+    /**
+     * The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+     * 
+     */
     @Export(name="storageCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageCapacity;
 
+    /**
+     * @return The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+     * 
+     */
     public Output<Integer> storageCapacity() {
         return this.storageCapacity;
     }
+    /**
+     * A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+     * 
+     */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
+    /**
+     * @return A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+     * 
+     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
+    /**
+     * A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -124,9 +314,17 @@ public class FileCache extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The ID of your virtual private cloud (VPC).
+     * 
+     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
+    /**
+     * @return The ID of your virtual private cloud (VPC).
+     * 
+     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

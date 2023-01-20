@@ -56,21 +56,33 @@ class GetDistributionConfigurationResult:
     @property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> str:
+        """
+        Date the distribution configuration was created.
+        """
         return pulumi.get(self, "date_created")
 
     @property
     @pulumi.getter(name="dateUpdated")
     def date_updated(self) -> str:
+        """
+        Date the distribution configuration was updated.
+        """
         return pulumi.get(self, "date_updated")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the container distribution configuration.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def distributions(self) -> Sequence['outputs.GetDistributionConfigurationDistributionResult']:
+        """
+        Set of distributions.
+        """
         return pulumi.get(self, "distributions")
 
     @property
@@ -84,11 +96,17 @@ class GetDistributionConfigurationResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the distribution configuration.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Key-value map of resource tags for the distribution configuration.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -112,7 +130,20 @@ def get_distribution_configuration(arn: Optional[str] = None,
                                    tags: Optional[Mapping[str, str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDistributionConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about an Image Builder Distribution Configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.imagebuilder.get_distribution_configuration(arn="arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example")
+    ```
+
+
+    :param str arn: ARN of the distribution configuration.
+    :param Mapping[str, str] tags: Key-value map of resource tags for the distribution configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -136,6 +167,19 @@ def get_distribution_configuration_output(arn: Optional[pulumi.Input[str]] = Non
                                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDistributionConfigurationResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about an Image Builder Distribution Configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.imagebuilder.get_distribution_configuration(arn="arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example")
+    ```
+
+
+    :param str arn: ARN of the distribution configuration.
+    :param Mapping[str, str] tags: Key-value map of resource tags for the distribution configuration.
     """
     ...

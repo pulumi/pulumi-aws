@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDomainSettings {
+    /**
+     * @return The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
+     * 
+     */
     private @Nullable String executionRoleIdentityConfig;
+    /**
+     * @return The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+     * 
+     */
     private @Nullable List<String> securityGroupIds;
 
     private DomainDomainSettings() {}
+    /**
+     * @return The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
+     * 
+     */
     public Optional<String> executionRoleIdentityConfig() {
         return Optional.ofNullable(this.executionRoleIdentityConfig);
     }
+    /**
+     * @return The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+     * 
+     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }

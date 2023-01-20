@@ -13,9 +13,17 @@ public final class ActiveReceiptRuleSetArgs extends com.pulumi.resources.Resourc
 
     public static final ActiveReceiptRuleSetArgs Empty = new ActiveReceiptRuleSetArgs();
 
+    /**
+     * The name of the rule set
+     * 
+     */
     @Import(name="ruleSetName", required=true)
     private Output<String> ruleSetName;
 
+    /**
+     * @return The name of the rule set
+     * 
+     */
     public Output<String> ruleSetName() {
         return this.ruleSetName;
     }
@@ -44,11 +52,23 @@ public final class ActiveReceiptRuleSetArgs extends com.pulumi.resources.Resourc
             $ = new ActiveReceiptRuleSetArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param ruleSetName The name of the rule set
+         * 
+         * @return builder
+         * 
+         */
         public Builder ruleSetName(Output<String> ruleSetName) {
             $.ruleSetName = ruleSetName;
             return this;
         }
 
+        /**
+         * @param ruleSetName The name of the rule set
+         * 
+         * @return builder
+         * 
+         */
         public Builder ruleSetName(String ruleSetName) {
             return ruleSetName(Output.of(ruleSetName));
         }

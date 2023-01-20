@@ -13,16 +13,32 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfigA
 
     public static final EndpointConfigurationShadowProductionVariantServerlessConfigArgs Empty = new EndpointConfigurationShadowProductionVariantServerlessConfigArgs();
 
+    /**
+     * The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+     * 
+     */
     @Import(name="maxConcurrency", required=true)
     private Output<Integer> maxConcurrency;
 
+    /**
+     * @return The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+     * 
+     */
     public Output<Integer> maxConcurrency() {
         return this.maxConcurrency;
     }
 
+    /**
+     * The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+     * 
+     */
     @Import(name="memorySizeInMb", required=true)
     private Output<Integer> memorySizeInMb;
 
+    /**
+     * @return The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+     * 
+     */
     public Output<Integer> memorySizeInMb() {
         return this.memorySizeInMb;
     }
@@ -52,20 +68,44 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfigA
             $ = new EndpointConfigurationShadowProductionVariantServerlessConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param maxConcurrency The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxConcurrency(Output<Integer> maxConcurrency) {
             $.maxConcurrency = maxConcurrency;
             return this;
         }
 
+        /**
+         * @param maxConcurrency The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxConcurrency(Integer maxConcurrency) {
             return maxConcurrency(Output.of(maxConcurrency));
         }
 
+        /**
+         * @param memorySizeInMb The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder memorySizeInMb(Output<Integer> memorySizeInMb) {
             $.memorySizeInMb = memorySizeInMb;
             return this;
         }
 
+        /**
+         * @param memorySizeInMb The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder memorySizeInMb(Integer memorySizeInMb) {
             return memorySizeInMb(Output.of(memorySizeInMb));
         }

@@ -4,6 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Registers a Lake Formation resource (e.g., S3 bucket) as managed by the Data Catalog. In other words, the S3 path is added to the data lake.
+ *
+ * Choose a role that has read/write access to the chosen Amazon S3 path or use the service-linked role. When you register the S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleBucket = aws.s3.getBucket({
+ *     bucket: "an-example-bucket",
+ * });
+ * const exampleResource = new aws.lakeformation.Resource("exampleResource", {arn: exampleBucket.then(exampleBucket => exampleBucket.arn)});
+ * ```
+ */
 export class Resource extends pulumi.CustomResource {
     /**
      * Get an existing Resource resource's state with the given name, ID, and optional extra
@@ -32,8 +49,17 @@ export class Resource extends pulumi.CustomResource {
         return obj['__pulumiType'] === Resource.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the resource, an S3 path.
+     */
     public readonly arn!: pulumi.Output<string>;
+    /**
+     * (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     */
     public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    /**
+     * Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+     */
     public readonly roleArn!: pulumi.Output<string>;
 
     /**
@@ -70,8 +96,17 @@ export class Resource extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Resource resources.
  */
 export interface ResourceState {
+    /**
+     * Amazon Resource Name (ARN) of the resource, an S3 path.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     */
     lastModified?: pulumi.Input<string>;
+    /**
+     * Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+     */
     roleArn?: pulumi.Input<string>;
 }
 
@@ -79,6 +114,12 @@ export interface ResourceState {
  * The set of arguments for constructing a Resource resource.
  */
 export interface ResourceArgs {
+    /**
+     * Amazon Resource Name (ARN) of the resource, an S3 path.
+     */
     arn: pulumi.Input<string>;
+    /**
+     * Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+     */
     roleArn?: pulumi.Input<string>;
 }

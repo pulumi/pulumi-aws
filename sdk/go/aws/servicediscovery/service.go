@@ -10,20 +10,139 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Service Discovery Service resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicediscovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//				CidrBlock:          pulumi.String("10.0.0.0/16"),
+//				EnableDnsSupport:   pulumi.Bool(true),
+//				EnableDnsHostnames: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePrivateDnsNamespace, err := servicediscovery.NewPrivateDnsNamespace(ctx, "examplePrivateDnsNamespace", &servicediscovery.PrivateDnsNamespaceArgs{
+//				Description: pulumi.String("example"),
+//				Vpc:         exampleVpc.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = servicediscovery.NewService(ctx, "exampleService", &servicediscovery.ServiceArgs{
+//				DnsConfig: &servicediscovery.ServiceDnsConfigArgs{
+//					NamespaceId: examplePrivateDnsNamespace.ID(),
+//					DnsRecords: servicediscovery.ServiceDnsConfigDnsRecordArray{
+//						&servicediscovery.ServiceDnsConfigDnsRecordArgs{
+//							Ttl:  pulumi.Int(10),
+//							Type: pulumi.String("A"),
+//						},
+//					},
+//					RoutingPolicy: pulumi.String("MULTIVALUE"),
+//				},
+//				HealthCheckCustomConfig: &servicediscovery.ServiceHealthCheckCustomConfigArgs{
+//					FailureThreshold: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicediscovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplePublicDnsNamespace, err := servicediscovery.NewPublicDnsNamespace(ctx, "examplePublicDnsNamespace", &servicediscovery.PublicDnsNamespaceArgs{
+//				Description: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = servicediscovery.NewService(ctx, "exampleService", &servicediscovery.ServiceArgs{
+//				DnsConfig: &servicediscovery.ServiceDnsConfigArgs{
+//					NamespaceId: examplePublicDnsNamespace.ID(),
+//					DnsRecords: servicediscovery.ServiceDnsConfigDnsRecordArray{
+//						&servicediscovery.ServiceDnsConfigDnsRecordArgs{
+//							Ttl:  pulumi.Int(10),
+//							Type: pulumi.String("A"),
+//						},
+//					},
+//				},
+//				HealthCheckConfig: &servicediscovery.ServiceHealthCheckConfigArgs{
+//					FailureThreshold: pulumi.Int(10),
+//					ResourcePath:     pulumi.String("path"),
+//					Type:             pulumi.String("HTTP"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Service Discovery Service can be imported using the service ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:servicediscovery/service:Service example 0123456789
+//
+// ```
 type Service struct {
 	pulumi.CustomResourceState
 
-	Arn                     pulumi.StringOutput                     `pulumi:"arn"`
-	Description             pulumi.StringPtrOutput                  `pulumi:"description"`
-	DnsConfig               ServiceDnsConfigPtrOutput               `pulumi:"dnsConfig"`
-	ForceDestroy            pulumi.BoolPtrOutput                    `pulumi:"forceDestroy"`
-	HealthCheckConfig       ServiceHealthCheckConfigPtrOutput       `pulumi:"healthCheckConfig"`
+	// The ARN of the service.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The description of the service.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+	DnsConfig ServiceDnsConfigPtrOutput `pulumi:"dnsConfig"`
+	// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
+	// A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+	HealthCheckConfig ServiceHealthCheckConfigPtrOutput `pulumi:"healthCheckConfig"`
+	// A complex type that contains settings for ECS managed health checks.
 	HealthCheckCustomConfig ServiceHealthCheckCustomConfigPtrOutput `pulumi:"healthCheckCustomConfig"`
-	Name                    pulumi.StringOutput                     `pulumi:"name"`
-	NamespaceId             pulumi.StringOutput                     `pulumi:"namespaceId"`
-	Tags                    pulumi.StringMapOutput                  `pulumi:"tags"`
-	TagsAll                 pulumi.StringMapOutput                  `pulumi:"tagsAll"`
-	Type                    pulumi.StringOutput                     `pulumi:"type"`
+	// The name of the service.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The ID of the namespace that you want to use to create the service.
+	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -55,31 +174,53 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
-	Arn                     *string                         `pulumi:"arn"`
-	Description             *string                         `pulumi:"description"`
-	DnsConfig               *ServiceDnsConfig               `pulumi:"dnsConfig"`
-	ForceDestroy            *bool                           `pulumi:"forceDestroy"`
-	HealthCheckConfig       *ServiceHealthCheckConfig       `pulumi:"healthCheckConfig"`
+	// The ARN of the service.
+	Arn *string `pulumi:"arn"`
+	// The description of the service.
+	Description *string `pulumi:"description"`
+	// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+	DnsConfig *ServiceDnsConfig `pulumi:"dnsConfig"`
+	// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
+	// A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+	HealthCheckConfig *ServiceHealthCheckConfig `pulumi:"healthCheckConfig"`
+	// A complex type that contains settings for ECS managed health checks.
 	HealthCheckCustomConfig *ServiceHealthCheckCustomConfig `pulumi:"healthCheckCustomConfig"`
-	Name                    *string                         `pulumi:"name"`
-	NamespaceId             *string                         `pulumi:"namespaceId"`
-	Tags                    map[string]string               `pulumi:"tags"`
-	TagsAll                 map[string]string               `pulumi:"tagsAll"`
-	Type                    *string                         `pulumi:"type"`
+	// The name of the service.
+	Name *string `pulumi:"name"`
+	// The ID of the namespace that you want to use to create the service.
+	NamespaceId *string `pulumi:"namespaceId"`
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
+	Type *string `pulumi:"type"`
 }
 
 type ServiceState struct {
-	Arn                     pulumi.StringPtrInput
-	Description             pulumi.StringPtrInput
-	DnsConfig               ServiceDnsConfigPtrInput
-	ForceDestroy            pulumi.BoolPtrInput
-	HealthCheckConfig       ServiceHealthCheckConfigPtrInput
+	// The ARN of the service.
+	Arn pulumi.StringPtrInput
+	// The description of the service.
+	Description pulumi.StringPtrInput
+	// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+	DnsConfig ServiceDnsConfigPtrInput
+	// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+	ForceDestroy pulumi.BoolPtrInput
+	// A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+	HealthCheckConfig ServiceHealthCheckConfigPtrInput
+	// A complex type that contains settings for ECS managed health checks.
 	HealthCheckCustomConfig ServiceHealthCheckCustomConfigPtrInput
-	Name                    pulumi.StringPtrInput
-	NamespaceId             pulumi.StringPtrInput
-	Tags                    pulumi.StringMapInput
-	TagsAll                 pulumi.StringMapInput
-	Type                    pulumi.StringPtrInput
+	// The name of the service.
+	Name pulumi.StringPtrInput
+	// The ID of the namespace that you want to use to create the service.
+	NamespaceId pulumi.StringPtrInput
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
+	Type pulumi.StringPtrInput
 }
 
 func (ServiceState) ElementType() reflect.Type {
@@ -87,28 +228,46 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	Description             *string                         `pulumi:"description"`
-	DnsConfig               *ServiceDnsConfig               `pulumi:"dnsConfig"`
-	ForceDestroy            *bool                           `pulumi:"forceDestroy"`
-	HealthCheckConfig       *ServiceHealthCheckConfig       `pulumi:"healthCheckConfig"`
+	// The description of the service.
+	Description *string `pulumi:"description"`
+	// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+	DnsConfig *ServiceDnsConfig `pulumi:"dnsConfig"`
+	// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
+	// A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+	HealthCheckConfig *ServiceHealthCheckConfig `pulumi:"healthCheckConfig"`
+	// A complex type that contains settings for ECS managed health checks.
 	HealthCheckCustomConfig *ServiceHealthCheckCustomConfig `pulumi:"healthCheckCustomConfig"`
-	Name                    *string                         `pulumi:"name"`
-	NamespaceId             *string                         `pulumi:"namespaceId"`
-	Tags                    map[string]string               `pulumi:"tags"`
-	Type                    *string                         `pulumi:"type"`
+	// The name of the service.
+	Name *string `pulumi:"name"`
+	// The ID of the namespace that you want to use to create the service.
+	NamespaceId *string `pulumi:"namespaceId"`
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	Description             pulumi.StringPtrInput
-	DnsConfig               ServiceDnsConfigPtrInput
-	ForceDestroy            pulumi.BoolPtrInput
-	HealthCheckConfig       ServiceHealthCheckConfigPtrInput
+	// The description of the service.
+	Description pulumi.StringPtrInput
+	// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+	DnsConfig ServiceDnsConfigPtrInput
+	// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+	ForceDestroy pulumi.BoolPtrInput
+	// A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+	HealthCheckConfig ServiceHealthCheckConfigPtrInput
+	// A complex type that contains settings for ECS managed health checks.
 	HealthCheckCustomConfig ServiceHealthCheckCustomConfigPtrInput
-	Name                    pulumi.StringPtrInput
-	NamespaceId             pulumi.StringPtrInput
-	Tags                    pulumi.StringMapInput
-	Type                    pulumi.StringPtrInput
+	// The name of the service.
+	Name pulumi.StringPtrInput
+	// The ID of the namespace that you want to use to create the service.
+	NamespaceId pulumi.StringPtrInput
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
+	Type pulumi.StringPtrInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {
@@ -198,46 +357,57 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
+// The ARN of the service.
 func (o ServiceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The description of the service.
 func (o ServiceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
 func (o ServiceOutput) DnsConfig() ServiceDnsConfigPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceDnsConfigPtrOutput { return v.DnsConfig }).(ServiceDnsConfigPtrOutput)
 }
 
+// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
 func (o ServiceOutput) ForceDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
 }
 
+// A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
 func (o ServiceOutput) HealthCheckConfig() ServiceHealthCheckConfigPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceHealthCheckConfigPtrOutput { return v.HealthCheckConfig }).(ServiceHealthCheckConfigPtrOutput)
 }
 
+// A complex type that contains settings for ECS managed health checks.
 func (o ServiceOutput) HealthCheckCustomConfig() ServiceHealthCheckCustomConfigPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceHealthCheckCustomConfigPtrOutput { return v.HealthCheckCustomConfig }).(ServiceHealthCheckCustomConfigPtrOutput)
 }
 
+// The name of the service.
 func (o ServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The ID of the namespace that you want to use to create the service.
 func (o ServiceOutput) NamespaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.NamespaceId }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ServiceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
 func (o ServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

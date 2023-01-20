@@ -21,6 +21,9 @@ class MeshArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Mesh resource.
+        :param pulumi.Input[str] name: Name to use for the service mesh. Must be between 1 and 255 characters in length.
+        :param pulumi.Input['MeshSpecArgs'] spec: Service mesh specification to apply.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -32,6 +35,9 @@ class MeshArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name to use for the service mesh. Must be between 1 and 255 characters in length.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -41,6 +47,9 @@ class MeshArgs:
     @property
     @pulumi.getter
     def spec(self) -> Optional[pulumi.Input['MeshSpecArgs']]:
+        """
+        Service mesh specification to apply.
+        """
         return pulumi.get(self, "spec")
 
     @spec.setter
@@ -50,6 +59,9 @@ class MeshArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -71,6 +83,15 @@ class _MeshState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Mesh resources.
+        :param pulumi.Input[str] arn: ARN of the service mesh.
+        :param pulumi.Input[str] created_date: Creation date of the service mesh.
+        :param pulumi.Input[str] last_updated_date: Last update date of the service mesh.
+        :param pulumi.Input[str] mesh_owner: AWS account ID of the service mesh's owner.
+        :param pulumi.Input[str] name: Name to use for the service mesh. Must be between 1 and 255 characters in length.
+        :param pulumi.Input[str] resource_owner: Resource owner's AWS account ID.
+        :param pulumi.Input['MeshSpecArgs'] spec: Service mesh specification to apply.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -94,6 +115,9 @@ class _MeshState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the service mesh.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -103,6 +127,9 @@ class _MeshState:
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creation date of the service mesh.
+        """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
@@ -112,6 +139,9 @@ class _MeshState:
     @property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        Last update date of the service mesh.
+        """
         return pulumi.get(self, "last_updated_date")
 
     @last_updated_date.setter
@@ -121,6 +151,9 @@ class _MeshState:
     @property
     @pulumi.getter(name="meshOwner")
     def mesh_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS account ID of the service mesh's owner.
+        """
         return pulumi.get(self, "mesh_owner")
 
     @mesh_owner.setter
@@ -130,6 +163,9 @@ class _MeshState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name to use for the service mesh. Must be between 1 and 255 characters in length.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -139,6 +175,9 @@ class _MeshState:
     @property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource owner's AWS account ID.
+        """
         return pulumi.get(self, "resource_owner")
 
     @resource_owner.setter
@@ -148,6 +187,9 @@ class _MeshState:
     @property
     @pulumi.getter
     def spec(self) -> Optional[pulumi.Input['MeshSpecArgs']]:
+        """
+        Service mesh specification to apply.
+        """
         return pulumi.get(self, "spec")
 
     @spec.setter
@@ -157,6 +199,9 @@ class _MeshState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -166,6 +211,9 @@ class _MeshState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -183,9 +231,43 @@ class Mesh(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Mesh resource with the given unique name, props, and options.
+        Provides an AWS App Mesh service mesh resource.
+
+        ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        simple = aws.appmesh.Mesh("simple")
+        ```
+        ### Egress Filter
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        simple = aws.appmesh.Mesh("simple", spec=aws.appmesh.MeshSpecArgs(
+            egress_filter=aws.appmesh.MeshSpecEgressFilterArgs(
+                type="ALLOW_ALL",
+            ),
+        ))
+        ```
+
+        ## Import
+
+        App Mesh service meshes can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: Name to use for the service mesh. Must be between 1 and 255 characters in length.
+        :param pulumi.Input[pulumi.InputType['MeshSpecArgs']] spec: Service mesh specification to apply.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -194,7 +276,38 @@ class Mesh(pulumi.CustomResource):
                  args: Optional[MeshArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Mesh resource with the given unique name, props, and options.
+        Provides an AWS App Mesh service mesh resource.
+
+        ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        simple = aws.appmesh.Mesh("simple")
+        ```
+        ### Egress Filter
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        simple = aws.appmesh.Mesh("simple", spec=aws.appmesh.MeshSpecArgs(
+            egress_filter=aws.appmesh.MeshSpecEgressFilterArgs(
+                type="ALLOW_ALL",
+            ),
+        ))
+        ```
+
+        ## Import
+
+        App Mesh service meshes can be imported using the `name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
+        ```
+
         :param str resource_name: The name of the resource.
         :param MeshArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -257,6 +370,15 @@ class Mesh(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the service mesh.
+        :param pulumi.Input[str] created_date: Creation date of the service mesh.
+        :param pulumi.Input[str] last_updated_date: Last update date of the service mesh.
+        :param pulumi.Input[str] mesh_owner: AWS account ID of the service mesh's owner.
+        :param pulumi.Input[str] name: Name to use for the service mesh. Must be between 1 and 255 characters in length.
+        :param pulumi.Input[str] resource_owner: Resource owner's AWS account ID.
+        :param pulumi.Input[pulumi.InputType['MeshSpecArgs']] spec: Service mesh specification to apply.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -276,45 +398,72 @@ class Mesh(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the service mesh.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Output[str]:
+        """
+        Creation date of the service mesh.
+        """
         return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> pulumi.Output[str]:
+        """
+        Last update date of the service mesh.
+        """
         return pulumi.get(self, "last_updated_date")
 
     @property
     @pulumi.getter(name="meshOwner")
     def mesh_owner(self) -> pulumi.Output[str]:
+        """
+        AWS account ID of the service mesh's owner.
+        """
         return pulumi.get(self, "mesh_owner")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Name to use for the service mesh. Must be between 1 and 255 characters in length.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> pulumi.Output[str]:
+        """
+        Resource owner's AWS account ID.
+        """
         return pulumi.get(self, "resource_owner")
 
     @property
     @pulumi.getter
     def spec(self) -> pulumi.Output[Optional['outputs.MeshSpec']]:
+        """
+        Service mesh specification to apply.
+        """
         return pulumi.get(self, "spec")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

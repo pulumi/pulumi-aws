@@ -11,18 +11,83 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a CloudFront Function resource. With CloudFront Functions in Amazon CloudFront, you can write lightweight functions in JavaScript for high-scale, latency-sensitive CDN customizations.
+//
+// See [CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html)
+//
+// > **NOTE:** You cannot delete a function if it’s associated with a cache behavior. First, update your distributions to remove the function association from all cache behaviors, then delete the function.
+//
+// ## Example Usage
+// ### Basic Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudfront.NewFunction(ctx, "test", &cloudfront.FunctionArgs{
+//				Runtime: pulumi.String("cloudfront-js-1.0"),
+//				Comment: pulumi.String("my function"),
+//				Publish: pulumi.Bool(true),
+//				Code:    readFileOrPanic(fmt.Sprintf("%v/function.js", path.Module)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// CloudFront Functions can be imported using the `name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:cloudfront/function:Function test my_test_function
+//
+// ```
 type Function struct {
 	pulumi.CustomResourceState
 
-	Arn           pulumi.StringOutput    `pulumi:"arn"`
-	Code          pulumi.StringOutput    `pulumi:"code"`
-	Comment       pulumi.StringPtrOutput `pulumi:"comment"`
-	Etag          pulumi.StringOutput    `pulumi:"etag"`
-	LiveStageEtag pulumi.StringOutput    `pulumi:"liveStageEtag"`
-	Name          pulumi.StringOutput    `pulumi:"name"`
-	Publish       pulumi.BoolPtrOutput   `pulumi:"publish"`
-	Runtime       pulumi.StringOutput    `pulumi:"runtime"`
-	Status        pulumi.StringOutput    `pulumi:"status"`
+	// Amazon Resource Name (ARN) identifying your CloudFront Function.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Source code of the function
+	Code pulumi.StringOutput `pulumi:"code"`
+	// Comment.
+	Comment pulumi.StringPtrOutput `pulumi:"comment"`
+	// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
+	Etag pulumi.StringOutput `pulumi:"etag"`
+	// ETag hash of any `LIVE` stage of the function.
+	LiveStageEtag pulumi.StringOutput `pulumi:"liveStageEtag"`
+	// Unique name for your CloudFront Function.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
+	Publish pulumi.BoolPtrOutput `pulumi:"publish"`
+	// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+	Runtime pulumi.StringOutput `pulumi:"runtime"`
+	// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewFunction registers a new resource with the given unique name, arguments, and options.
@@ -60,27 +125,45 @@ func GetFunction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Function resources.
 type functionState struct {
-	Arn           *string `pulumi:"arn"`
-	Code          *string `pulumi:"code"`
-	Comment       *string `pulumi:"comment"`
-	Etag          *string `pulumi:"etag"`
+	// Amazon Resource Name (ARN) identifying your CloudFront Function.
+	Arn *string `pulumi:"arn"`
+	// Source code of the function
+	Code *string `pulumi:"code"`
+	// Comment.
+	Comment *string `pulumi:"comment"`
+	// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
+	Etag *string `pulumi:"etag"`
+	// ETag hash of any `LIVE` stage of the function.
 	LiveStageEtag *string `pulumi:"liveStageEtag"`
-	Name          *string `pulumi:"name"`
-	Publish       *bool   `pulumi:"publish"`
-	Runtime       *string `pulumi:"runtime"`
-	Status        *string `pulumi:"status"`
+	// Unique name for your CloudFront Function.
+	Name *string `pulumi:"name"`
+	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
+	Publish *bool `pulumi:"publish"`
+	// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+	Runtime *string `pulumi:"runtime"`
+	// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
+	Status *string `pulumi:"status"`
 }
 
 type FunctionState struct {
-	Arn           pulumi.StringPtrInput
-	Code          pulumi.StringPtrInput
-	Comment       pulumi.StringPtrInput
-	Etag          pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) identifying your CloudFront Function.
+	Arn pulumi.StringPtrInput
+	// Source code of the function
+	Code pulumi.StringPtrInput
+	// Comment.
+	Comment pulumi.StringPtrInput
+	// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
+	Etag pulumi.StringPtrInput
+	// ETag hash of any `LIVE` stage of the function.
 	LiveStageEtag pulumi.StringPtrInput
-	Name          pulumi.StringPtrInput
-	Publish       pulumi.BoolPtrInput
-	Runtime       pulumi.StringPtrInput
-	Status        pulumi.StringPtrInput
+	// Unique name for your CloudFront Function.
+	Name pulumi.StringPtrInput
+	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
+	Publish pulumi.BoolPtrInput
+	// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+	Runtime pulumi.StringPtrInput
+	// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
+	Status pulumi.StringPtrInput
 }
 
 func (FunctionState) ElementType() reflect.Type {
@@ -88,19 +171,29 @@ func (FunctionState) ElementType() reflect.Type {
 }
 
 type functionArgs struct {
-	Code    string  `pulumi:"code"`
+	// Source code of the function
+	Code string `pulumi:"code"`
+	// Comment.
 	Comment *string `pulumi:"comment"`
-	Name    *string `pulumi:"name"`
-	Publish *bool   `pulumi:"publish"`
-	Runtime string  `pulumi:"runtime"`
+	// Unique name for your CloudFront Function.
+	Name *string `pulumi:"name"`
+	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
+	Publish *bool `pulumi:"publish"`
+	// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+	Runtime string `pulumi:"runtime"`
 }
 
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
-	Code    pulumi.StringInput
+	// Source code of the function
+	Code pulumi.StringInput
+	// Comment.
 	Comment pulumi.StringPtrInput
-	Name    pulumi.StringPtrInput
+	// Unique name for your CloudFront Function.
+	Name pulumi.StringPtrInput
+	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
 	Publish pulumi.BoolPtrInput
+	// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
 	Runtime pulumi.StringInput
 }
 
@@ -191,38 +284,47 @@ func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) Functio
 	return o
 }
 
+// Amazon Resource Name (ARN) identifying your CloudFront Function.
 func (o FunctionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Source code of the function
 func (o FunctionOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Code }).(pulumi.StringOutput)
 }
 
+// Comment.
 func (o FunctionOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
 func (o FunctionOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
+// ETag hash of any `LIVE` stage of the function.
 func (o FunctionOutput) LiveStageEtag() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.LiveStageEtag }).(pulumi.StringOutput)
 }
 
+// Unique name for your CloudFront Function.
 func (o FunctionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
 func (o FunctionOutput) Publish() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.BoolPtrOutput { return v.Publish }).(pulumi.BoolPtrOutput)
 }
 
+// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
 func (o FunctionOutput) Runtime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Runtime }).(pulumi.StringOutput)
 }
 
+// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
 func (o FunctionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

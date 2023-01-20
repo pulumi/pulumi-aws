@@ -11,9 +11,61 @@ namespace Pulumi.Aws.AppConfig
 {
     public static class GetConfigurationProfile
     {
+        /// <summary>
+        /// Provides access to an AppConfig Configuration Profile.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.AppConfig.GetConfigurationProfile.Invoke(new()
+        ///     {
+        ///         ApplicationId = "b5d5gpj",
+        ///         ConfigurationProfileId = "qrbb1c1",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetConfigurationProfileResult> InvokeAsync(GetConfigurationProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileResult>("aws:appconfig/getConfigurationProfile:getConfigurationProfile", args ?? new GetConfigurationProfileArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides access to an AppConfig Configuration Profile.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.AppConfig.GetConfigurationProfile.Invoke(new()
+        ///     {
+        ///         ApplicationId = "b5d5gpj",
+        ///         ConfigurationProfileId = "qrbb1c1",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetConfigurationProfileResult> Invoke(GetConfigurationProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileResult>("aws:appconfig/getConfigurationProfile:getConfigurationProfile", args ?? new GetConfigurationProfileInvokeArgs(), options.WithDefaults());
     }
@@ -21,14 +73,24 @@ namespace Pulumi.Aws.AppConfig
 
     public sealed class GetConfigurationProfileArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the AppConfig application to which this configuration profile belongs.
+        /// </summary>
         [Input("applicationId", required: true)]
         public string ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// ID of the Configuration Profile.
+        /// </summary>
         [Input("configurationProfileId", required: true)]
         public string ConfigurationProfileId { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags for the resource.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -43,14 +105,24 @@ namespace Pulumi.Aws.AppConfig
 
     public sealed class GetConfigurationProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the AppConfig application to which this configuration profile belongs.
+        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// ID of the Configuration Profile.
+        /// </summary>
         [Input("configurationProfileId", required: true)]
         public Input<string> ConfigurationProfileId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags for the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -68,18 +140,42 @@ namespace Pulumi.Aws.AppConfig
     public sealed class GetConfigurationProfileResult
     {
         public readonly string ApplicationId;
+        /// <summary>
+        /// ARN of the Configuration Profile.
+        /// </summary>
         public readonly string Arn;
         public readonly string ConfigurationProfileId;
+        /// <summary>
+        /// Description of the Configuration Profile.
+        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Location URI of the Configuration Profile.
+        /// </summary>
         public readonly string LocationUri;
+        /// <summary>
+        /// Name of the Configuration Profile.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// ARN of an IAM role with permission to access the configuration at the specified location_uri.
+        /// </summary>
         public readonly string RetrievalRoleArn;
+        /// <summary>
+        /// Map of tags for the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Nested list of methods for validating the configuration.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationProfileValidatorResult> Validators;
 
         [OutputConstructor]

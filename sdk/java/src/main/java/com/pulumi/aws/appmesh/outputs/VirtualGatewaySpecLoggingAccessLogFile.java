@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class VirtualGatewaySpecLoggingAccessLogFile {
+    /**
+     * @return File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
+     * 
+     */
     private String path;
 
     private VirtualGatewaySpecLoggingAccessLogFile() {}
+    /**
+     * @return File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
+     * 
+     */
     public String path() {
         return this.path;
     }

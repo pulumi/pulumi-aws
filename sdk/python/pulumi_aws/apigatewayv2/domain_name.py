@@ -22,6 +22,10 @@ class DomainNameArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DomainName resource.
+        :param pulumi.Input[str] domain_name: Domain name. Must be between 1 and 512 characters in length.
+        :param pulumi.Input['DomainNameDomainNameConfigurationArgs'] domain_name_configuration: Domain name configuration. See below.
+        :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "domain_name_configuration", domain_name_configuration)
@@ -33,6 +37,9 @@ class DomainNameArgs:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
+        """
+        Domain name. Must be between 1 and 512 characters in length.
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -42,6 +49,9 @@ class DomainNameArgs:
     @property
     @pulumi.getter(name="domainNameConfiguration")
     def domain_name_configuration(self) -> pulumi.Input['DomainNameDomainNameConfigurationArgs']:
+        """
+        Domain name configuration. See below.
+        """
         return pulumi.get(self, "domain_name_configuration")
 
     @domain_name_configuration.setter
@@ -51,6 +61,9 @@ class DomainNameArgs:
     @property
     @pulumi.getter(name="mutualTlsAuthentication")
     def mutual_tls_authentication(self) -> Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']]:
+        """
+        Mutual TLS authentication configuration for the domain name.
+        """
         return pulumi.get(self, "mutual_tls_authentication")
 
     @mutual_tls_authentication.setter
@@ -60,6 +73,9 @@ class DomainNameArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -79,6 +95,13 @@ class _DomainNameState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering DomainName resources.
+        :param pulumi.Input[str] api_mapping_selection_expression: [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
+        :param pulumi.Input[str] arn: ARN of the domain name.
+        :param pulumi.Input[str] domain_name: Domain name. Must be between 1 and 512 characters in length.
+        :param pulumi.Input['DomainNameDomainNameConfigurationArgs'] domain_name_configuration: Domain name configuration. See below.
+        :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if api_mapping_selection_expression is not None:
             pulumi.set(__self__, "api_mapping_selection_expression", api_mapping_selection_expression)
@@ -98,6 +121,9 @@ class _DomainNameState:
     @property
     @pulumi.getter(name="apiMappingSelectionExpression")
     def api_mapping_selection_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
+        """
         return pulumi.get(self, "api_mapping_selection_expression")
 
     @api_mapping_selection_expression.setter
@@ -107,6 +133,9 @@ class _DomainNameState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the domain name.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -116,6 +145,9 @@ class _DomainNameState:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Domain name. Must be between 1 and 512 characters in length.
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -125,6 +157,9 @@ class _DomainNameState:
     @property
     @pulumi.getter(name="domainNameConfiguration")
     def domain_name_configuration(self) -> Optional[pulumi.Input['DomainNameDomainNameConfigurationArgs']]:
+        """
+        Domain name configuration. See below.
+        """
         return pulumi.get(self, "domain_name_configuration")
 
     @domain_name_configuration.setter
@@ -134,6 +169,9 @@ class _DomainNameState:
     @property
     @pulumi.getter(name="mutualTlsAuthentication")
     def mutual_tls_authentication(self) -> Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']]:
+        """
+        Mutual TLS authentication configuration for the domain name.
+        """
         return pulumi.get(self, "mutual_tls_authentication")
 
     @mutual_tls_authentication.setter
@@ -143,6 +181,9 @@ class _DomainNameState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -152,6 +193,9 @@ class _DomainNameState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -170,9 +214,65 @@ class DomainName(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a DomainName resource with the given unique name, props, and options.
+        Manages an Amazon API Gateway Version 2 domain name.
+        More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
+
+        > **Note:** This resource establishes ownership of and the TLS settings for
+        a particular domain name. An API stage can be associated with the domain name using the `apigatewayv2.ApiMapping` resource.
+
+        ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigatewayv2.DomainName("example",
+            domain_name="ws-api.example.com",
+            domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
+                certificate_arn=aws_acm_certificate["example"]["arn"],
+                endpoint_type="REGIONAL",
+                security_policy="TLS_1_2",
+            ))
+        ```
+        ### Associated Route 53 Resource Record
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_domain_name = aws.apigatewayv2.DomainName("exampleDomainName",
+            domain_name="http-api.example.com",
+            domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
+                certificate_arn=aws_acm_certificate["example"]["arn"],
+                endpoint_type="REGIONAL",
+                security_policy="TLS_1_2",
+            ))
+        example_record = aws.route53.Record("exampleRecord",
+            name=example_domain_name.domain_name,
+            type="A",
+            zone_id=aws_route53_zone["example"]["zone_id"],
+            aliases=[aws.route53.RecordAliasArgs(
+                name=example_domain_name.domain_name_configuration.target_domain_name,
+                zone_id=example_domain_name.domain_name_configuration.hosted_zone_id,
+                evaluate_target_health=False,
+            )])
+        ```
+
+        ## Import
+
+        `aws_apigatewayv2_domain_name` can be imported by using the domain name, e.g.,
+
+        ```sh
+         $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] domain_name: Domain name. Must be between 1 and 512 characters in length.
+        :param pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']] domain_name_configuration: Domain name configuration. See below.
+        :param pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -181,7 +281,59 @@ class DomainName(pulumi.CustomResource):
                  args: DomainNameArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DomainName resource with the given unique name, props, and options.
+        Manages an Amazon API Gateway Version 2 domain name.
+        More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
+
+        > **Note:** This resource establishes ownership of and the TLS settings for
+        a particular domain name. An API stage can be associated with the domain name using the `apigatewayv2.ApiMapping` resource.
+
+        ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigatewayv2.DomainName("example",
+            domain_name="ws-api.example.com",
+            domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
+                certificate_arn=aws_acm_certificate["example"]["arn"],
+                endpoint_type="REGIONAL",
+                security_policy="TLS_1_2",
+            ))
+        ```
+        ### Associated Route 53 Resource Record
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_domain_name = aws.apigatewayv2.DomainName("exampleDomainName",
+            domain_name="http-api.example.com",
+            domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
+                certificate_arn=aws_acm_certificate["example"]["arn"],
+                endpoint_type="REGIONAL",
+                security_policy="TLS_1_2",
+            ))
+        example_record = aws.route53.Record("exampleRecord",
+            name=example_domain_name.domain_name,
+            type="A",
+            zone_id=aws_route53_zone["example"]["zone_id"],
+            aliases=[aws.route53.RecordAliasArgs(
+                name=example_domain_name.domain_name_configuration.target_domain_name,
+                zone_id=example_domain_name.domain_name_configuration.hosted_zone_id,
+                evaluate_target_health=False,
+            )])
+        ```
+
+        ## Import
+
+        `aws_apigatewayv2_domain_name` can be imported by using the domain name, e.g.,
+
+        ```sh
+         $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
+        ```
+
         :param str resource_name: The name of the resource.
         :param DomainNameArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,6 +397,13 @@ class DomainName(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_mapping_selection_expression: [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
+        :param pulumi.Input[str] arn: ARN of the domain name.
+        :param pulumi.Input[str] domain_name: Domain name. Must be between 1 and 512 characters in length.
+        :param pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']] domain_name_configuration: Domain name configuration. See below.
+        :param pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -262,35 +421,56 @@ class DomainName(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiMappingSelectionExpression")
     def api_mapping_selection_expression(self) -> pulumi.Output[str]:
+        """
+        [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
+        """
         return pulumi.get(self, "api_mapping_selection_expression")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the domain name.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
+        """
+        Domain name. Must be between 1 and 512 characters in length.
+        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="domainNameConfiguration")
     def domain_name_configuration(self) -> pulumi.Output['outputs.DomainNameDomainNameConfiguration']:
+        """
+        Domain name configuration. See below.
+        """
         return pulumi.get(self, "domain_name_configuration")
 
     @property
     @pulumi.getter(name="mutualTlsAuthentication")
     def mutual_tls_authentication(self) -> pulumi.Output[Optional['outputs.DomainNameMutualTlsAuthentication']]:
+        """
+        Mutual TLS authentication configuration for the domain name.
+        """
         return pulumi.get(self, "mutual_tls_authentication")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

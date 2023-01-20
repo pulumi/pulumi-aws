@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Pinpoint.Inputs
 
     public sealed class AppQuietTimeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default end time for quiet time in ISO 8601 format. Required if `start` is set
+        /// </summary>
         [Input("end")]
         public Input<string>? End { get; set; }
 
+        /// <summary>
+        /// The default start time for quiet time in ISO 8601 format. Required if `end` is set
+        /// </summary>
         [Input("start")]
         public Input<string>? Start { get; set; }
 

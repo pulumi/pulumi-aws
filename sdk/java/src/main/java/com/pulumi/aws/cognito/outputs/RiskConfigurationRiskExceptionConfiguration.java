@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RiskConfigurationRiskExceptionConfiguration {
+    /**
+     * @return Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+     * 
+     */
     private @Nullable List<String> blockedIpRangeLists;
+    /**
+     * @return Risk detection isn&#39;t performed on the IP addresses in this range list. The IP range is in CIDR notation.
+     * 
+     */
     private @Nullable List<String> skippedIpRangeLists;
 
     private RiskConfigurationRiskExceptionConfiguration() {}
+    /**
+     * @return Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+     * 
+     */
     public List<String> blockedIpRangeLists() {
         return this.blockedIpRangeLists == null ? List.of() : this.blockedIpRangeLists;
     }
+    /**
+     * @return Risk detection isn&#39;t performed on the IP addresses in this range list. The IP range is in CIDR notation.
+     * 
+     */
     public List<String> skippedIpRangeLists() {
         return this.skippedIpRangeLists == null ? List.of() : this.skippedIpRangeLists;
     }

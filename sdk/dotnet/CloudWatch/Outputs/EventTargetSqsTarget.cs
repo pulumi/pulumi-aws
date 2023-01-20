@@ -13,6 +13,9 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventTargetSqsTarget
     {
+        /// <summary>
+        /// The FIFO message group ID to use as the target.
+        /// </summary>
         public readonly string? MessageGroupId;
 
         [OutputConstructor]

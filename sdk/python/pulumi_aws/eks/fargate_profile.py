@@ -24,6 +24,12 @@ class FargateProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FargateProfile resource.
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[str] pod_execution_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+        :param pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]] selectors: Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
+        :param pulumi.Input[str] fargate_profile_name: Name of the EKS Fargate Profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "pod_execution_role_arn", pod_execution_role_arn)
@@ -38,6 +44,9 @@ class FargateProfileArgs:
     @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Input[str]:
+        """
+        Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
@@ -47,6 +56,9 @@ class FargateProfileArgs:
     @property
     @pulumi.getter(name="podExecutionRoleArn")
     def pod_execution_role_arn(self) -> pulumi.Input[str]:
+        """
+        Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+        """
         return pulumi.get(self, "pod_execution_role_arn")
 
     @pod_execution_role_arn.setter
@@ -56,6 +68,9 @@ class FargateProfileArgs:
     @property
     @pulumi.getter
     def selectors(self) -> pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]]:
+        """
+        Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
+        """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
@@ -65,6 +80,9 @@ class FargateProfileArgs:
     @property
     @pulumi.getter(name="fargateProfileName")
     def fargate_profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the EKS Fargate Profile.
+        """
         return pulumi.get(self, "fargate_profile_name")
 
     @fargate_profile_name.setter
@@ -74,6 +92,9 @@ class FargateProfileArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -83,6 +104,9 @@ class FargateProfileArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -104,6 +128,15 @@ class _FargateProfileState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering FargateProfile resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS Fargate Profile.
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[str] fargate_profile_name: Name of the EKS Fargate Profile.
+        :param pulumi.Input[str] pod_execution_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+        :param pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]] selectors: Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
+        :param pulumi.Input[str] status: Status of the EKS Fargate Profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -127,6 +160,9 @@ class _FargateProfileState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the EKS Fargate Profile.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -136,6 +172,9 @@ class _FargateProfileState:
     @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
@@ -145,6 +184,9 @@ class _FargateProfileState:
     @property
     @pulumi.getter(name="fargateProfileName")
     def fargate_profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the EKS Fargate Profile.
+        """
         return pulumi.get(self, "fargate_profile_name")
 
     @fargate_profile_name.setter
@@ -154,6 +196,9 @@ class _FargateProfileState:
     @property
     @pulumi.getter(name="podExecutionRoleArn")
     def pod_execution_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+        """
         return pulumi.get(self, "pod_execution_role_arn")
 
     @pod_execution_role_arn.setter
@@ -163,6 +208,9 @@ class _FargateProfileState:
     @property
     @pulumi.getter
     def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]]]:
+        """
+        Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
+        """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
@@ -172,6 +220,9 @@ class _FargateProfileState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of the EKS Fargate Profile.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -181,6 +232,9 @@ class _FargateProfileState:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -190,6 +244,9 @@ class _FargateProfileState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -199,6 +256,9 @@ class _FargateProfileState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -219,9 +279,60 @@ class FargateProfile(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a FargateProfile resource with the given unique name, props, and options.
+        Manages an EKS Fargate Profile.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.eks.FargateProfile("example",
+            cluster_name=aws_eks_cluster["example"]["name"],
+            pod_execution_role_arn=aws_iam_role["example"]["arn"],
+            subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
+            selectors=[aws.eks.FargateProfileSelectorArgs(
+                namespace="example",
+            )])
+        ```
+        ### Example IAM Role for EKS Fargate Profile
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.iam.Role("example", assume_role_policy=json.dumps({
+            "Statement": [{
+                "Action": "sts:AssumeRole",
+                "Effect": "Allow",
+                "Principal": {
+                    "Service": "eks-fargate-pods.amazonaws.com",
+                },
+            }],
+            "Version": "2012-10-17",
+        }))
+        example__amazon_eks_fargate_pod_execution_role_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
+            role=example.name)
+        ```
+
+        ## Import
+
+        EKS Fargate Profiles can be imported using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`), e.g.,
+
+        ```sh
+         $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[str] fargate_profile_name: Name of the EKS Fargate Profile.
+        :param pulumi.Input[str] pod_execution_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FargateProfileSelectorArgs']]]] selectors: Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -230,7 +341,52 @@ class FargateProfile(pulumi.CustomResource):
                  args: FargateProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a FargateProfile resource with the given unique name, props, and options.
+        Manages an EKS Fargate Profile.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.eks.FargateProfile("example",
+            cluster_name=aws_eks_cluster["example"]["name"],
+            pod_execution_role_arn=aws_iam_role["example"]["arn"],
+            subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
+            selectors=[aws.eks.FargateProfileSelectorArgs(
+                namespace="example",
+            )])
+        ```
+        ### Example IAM Role for EKS Fargate Profile
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.iam.Role("example", assume_role_policy=json.dumps({
+            "Statement": [{
+                "Action": "sts:AssumeRole",
+                "Effect": "Allow",
+                "Principal": {
+                    "Service": "eks-fargate-pods.amazonaws.com",
+                },
+            }],
+            "Version": "2012-10-17",
+        }))
+        example__amazon_eks_fargate_pod_execution_role_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
+            role=example.name)
+        ```
+
+        ## Import
+
+        EKS Fargate Profiles can be imported using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`), e.g.,
+
+        ```sh
+         $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
+        ```
+
         :param str resource_name: The name of the resource.
         :param FargateProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -302,6 +458,15 @@ class FargateProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS Fargate Profile.
+        :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[str] fargate_profile_name: Name of the EKS Fargate Profile.
+        :param pulumi.Input[str] pod_execution_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FargateProfileSelectorArgs']]]] selectors: Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
+        :param pulumi.Input[str] status: Status of the EKS Fargate Profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -321,45 +486,72 @@ class FargateProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the EKS Fargate Profile.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[str]:
+        """
+        Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        """
         return pulumi.get(self, "cluster_name")
 
     @property
     @pulumi.getter(name="fargateProfileName")
     def fargate_profile_name(self) -> pulumi.Output[str]:
+        """
+        Name of the EKS Fargate Profile.
+        """
         return pulumi.get(self, "fargate_profile_name")
 
     @property
     @pulumi.getter(name="podExecutionRoleArn")
     def pod_execution_role_arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+        """
         return pulumi.get(self, "pod_execution_role_arn")
 
     @property
     @pulumi.getter
     def selectors(self) -> pulumi.Output[Sequence['outputs.FargateProfileSelector']]:
+        """
+        Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
+        """
         return pulumi.get(self, "selectors")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        Status of the EKS Fargate Profile.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

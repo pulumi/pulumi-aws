@@ -17,23 +17,47 @@ public final class RegistryScanningConfigurationState extends com.pulumi.resourc
 
     public static final RegistryScanningConfigurationState Empty = new RegistryScanningConfigurationState();
 
+    /**
+     * The registry ID the scanning configuration applies to.
+     * 
+     */
     @Import(name="registryId")
     private @Nullable Output<String> registryId;
 
+    /**
+     * @return The registry ID the scanning configuration applies to.
+     * 
+     */
     public Optional<Output<String>> registryId() {
         return Optional.ofNullable(this.registryId);
     }
 
+    /**
+     * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+     * 
+     */
     @Import(name="rules")
     private @Nullable Output<List<RegistryScanningConfigurationRuleArgs>> rules;
 
+    /**
+     * @return One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+     * 
+     */
     public Optional<Output<List<RegistryScanningConfigurationRuleArgs>>> rules() {
         return Optional.ofNullable(this.rules);
     }
 
+    /**
+     * the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
+     * 
+     */
     @Import(name="scanType")
     private @Nullable Output<String> scanType;
 
+    /**
+     * @return the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
+     * 
+     */
     public Optional<Output<String>> scanType() {
         return Optional.ofNullable(this.scanType);
     }
@@ -64,33 +88,75 @@ public final class RegistryScanningConfigurationState extends com.pulumi.resourc
             $ = new RegistryScanningConfigurationState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param registryId The registry ID the scanning configuration applies to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder registryId(@Nullable Output<String> registryId) {
             $.registryId = registryId;
             return this;
         }
 
+        /**
+         * @param registryId The registry ID the scanning configuration applies to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder registryId(String registryId) {
             return registryId(Output.of(registryId));
         }
 
+        /**
+         * @param rules One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rules(@Nullable Output<List<RegistryScanningConfigurationRuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
 
+        /**
+         * @param rules One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rules(List<RegistryScanningConfigurationRuleArgs> rules) {
             return rules(Output.of(rules));
         }
 
+        /**
+         * @param rules One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rules(RegistryScanningConfigurationRuleArgs... rules) {
             return rules(List.of(rules));
         }
 
+        /**
+         * @param scanType the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scanType(@Nullable Output<String> scanType) {
             $.scanType = scanType;
             return this;
         }
 
+        /**
+         * @param scanType the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scanType(String scanType) {
             return scanType(Output.of(scanType));
         }

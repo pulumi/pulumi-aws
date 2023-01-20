@@ -47,11 +47,17 @@ class GetAliasResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN identifying the Lambda function alias.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of alias.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -62,6 +68,9 @@ class GetAliasResult:
     @property
     @pulumi.getter(name="functionVersion")
     def function_version(self) -> str:
+        """
+        Lambda function version which the alias uses.
+        """
         return pulumi.get(self, "function_version")
 
     @property
@@ -75,6 +84,9 @@ class GetAliasResult:
     @property
     @pulumi.getter(name="invokeArn")
     def invoke_arn(self) -> str:
+        """
+        ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
+        """
         return pulumi.get(self, "invoke_arn")
 
     @property
@@ -102,7 +114,21 @@ def get_alias(function_name: Optional[str] = None,
               name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAliasResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a Lambda Alias.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    production = aws.lambda.get_alias(function_name="my-lambda-func",
+        name="production")
+    ```
+
+
+    :param str function_name: Name of the aliased Lambda function.
+    :param str name: Name of the Lambda alias.
     """
     __args__ = dict()
     __args__['functionName'] = function_name
@@ -125,6 +151,20 @@ def get_alias_output(function_name: Optional[pulumi.Input[str]] = None,
                      name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a Lambda Alias.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    production = aws.lambda.get_alias(function_name="my-lambda-func",
+        name="production")
+    ```
+
+
+    :param str function_name: Name of the aliased Lambda function.
+    :param str name: Name of the Lambda alias.
     """
     ...

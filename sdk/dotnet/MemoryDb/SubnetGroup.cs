@@ -9,30 +9,99 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.MemoryDb
 {
+    /// <summary>
+    /// Provides a MemoryDB Subnet Group.
+    /// 
+    /// More information about subnet groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/subnetgroups.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Aws.Ec2.Subnet("exampleSubnet", new()
+    ///     {
+    ///         VpcId = exampleVpc.Id,
+    ///         CidrBlock = "10.0.0.0/24",
+    ///         AvailabilityZone = "us-west-2a",
+    ///     });
+    /// 
+    ///     var exampleSubnetGroup = new Aws.MemoryDb.SubnetGroup("exampleSubnetGroup", new()
+    ///     {
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleSubnet.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Use the `name` to import a subnet group. For example
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:memorydb/subnetGroup:SubnetGroup")]
     public partial class SubnetGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the subnet group.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Description for the subnet group.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
 
+        /// <summary>
+        /// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// The VPC in which the subnet group exists.
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -82,17 +151,30 @@ namespace Pulumi.Aws.MemoryDb
 
     public sealed class SubnetGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Description for the subnet group.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -101,6 +183,10 @@ namespace Pulumi.Aws.MemoryDb
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -115,20 +201,36 @@ namespace Pulumi.Aws.MemoryDb
 
     public sealed class SubnetGroupState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the subnet group.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Description for the subnet group.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -137,6 +239,10 @@ namespace Pulumi.Aws.MemoryDb
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -145,12 +251,19 @@ namespace Pulumi.Aws.MemoryDb
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// The VPC in which the subnet group exists.
+        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

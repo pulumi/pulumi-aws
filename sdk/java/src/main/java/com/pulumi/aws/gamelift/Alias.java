@@ -16,41 +16,136 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a GameLift Alias resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.gamelift.Alias;
+ * import com.pulumi.aws.gamelift.AliasArgs;
+ * import com.pulumi.aws.gamelift.inputs.AliasRoutingStrategyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Alias(&#34;example&#34;, AliasArgs.builder()        
+ *             .description(&#34;Example Description&#34;)
+ *             .routingStrategy(AliasRoutingStrategyArgs.builder()
+ *                 .message(&#34;Example Message&#34;)
+ *                 .type(&#34;TERMINAL&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * GameLift Aliases can be imported using the ID, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:gamelift/alias:Alias example &lt;alias-id&gt;
+ * ```
+ * 
+ */
 @ResourceType(type="aws:gamelift/alias:Alias")
 public class Alias extends com.pulumi.resources.CustomResource {
+    /**
+     * Alias ARN.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return Alias ARN.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Description of the alias.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description of the alias.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Name of the alias.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name of the alias.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Specifies the fleet and/or routing type to use for the alias.
+     * 
+     */
     @Export(name="routingStrategy", refs={AliasRoutingStrategy.class}, tree="[0]")
     private Output<AliasRoutingStrategy> routingStrategy;
 
+    /**
+     * @return Specifies the fleet and/or routing type to use for the alias.
+     * 
+     */
     public Output<AliasRoutingStrategy> routingStrategy() {
         return this.routingStrategy;
     }
+    /**
+     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

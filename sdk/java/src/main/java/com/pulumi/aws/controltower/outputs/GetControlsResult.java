@@ -10,6 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetControlsResult {
+    /**
+     * @return List of all the ARNs for the controls applied to the `target_identifier`.
+     * 
+     */
     private List<String> enabledControls;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -19,6 +23,10 @@ public final class GetControlsResult {
     private String targetIdentifier;
 
     private GetControlsResult() {}
+    /**
+     * @return List of all the ARNs for the controls applied to the `target_identifier`.
+     * 
+     */
     public List<String> enabledControls() {
         return this.enabledControls;
     }

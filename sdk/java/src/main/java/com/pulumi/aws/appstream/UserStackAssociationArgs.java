@@ -16,30 +16,62 @@ public final class UserStackAssociationArgs extends com.pulumi.resources.Resourc
 
     public static final UserStackAssociationArgs Empty = new UserStackAssociationArgs();
 
+    /**
+     * Authentication type for the user.
+     * 
+     */
     @Import(name="authenticationType", required=true)
     private Output<String> authenticationType;
 
+    /**
+     * @return Authentication type for the user.
+     * 
+     */
     public Output<String> authenticationType() {
         return this.authenticationType;
     }
 
+    /**
+     * Whether a welcome email is sent to a user after the user is created in the user pool.
+     * 
+     */
     @Import(name="sendEmailNotification")
     private @Nullable Output<Boolean> sendEmailNotification;
 
+    /**
+     * @return Whether a welcome email is sent to a user after the user is created in the user pool.
+     * 
+     */
     public Optional<Output<Boolean>> sendEmailNotification() {
         return Optional.ofNullable(this.sendEmailNotification);
     }
 
+    /**
+     * Name of the stack that is associated with the user.
+     * 
+     */
     @Import(name="stackName", required=true)
     private Output<String> stackName;
 
+    /**
+     * @return Name of the stack that is associated with the user.
+     * 
+     */
     public Output<String> stackName() {
         return this.stackName;
     }
 
+    /**
+     * Email address of the user who is associated with the stack.
+     * 
+     */
     @Import(name="userName", required=true)
     private Output<String> userName;
 
+    /**
+     * @return Email address of the user who is associated with the stack.
+     * 
+     */
     public Output<String> userName() {
         return this.userName;
     }
@@ -71,38 +103,86 @@ public final class UserStackAssociationArgs extends com.pulumi.resources.Resourc
             $ = new UserStackAssociationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param authenticationType Authentication type for the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authenticationType(Output<String> authenticationType) {
             $.authenticationType = authenticationType;
             return this;
         }
 
+        /**
+         * @param authenticationType Authentication type for the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authenticationType(String authenticationType) {
             return authenticationType(Output.of(authenticationType));
         }
 
+        /**
+         * @param sendEmailNotification Whether a welcome email is sent to a user after the user is created in the user pool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sendEmailNotification(@Nullable Output<Boolean> sendEmailNotification) {
             $.sendEmailNotification = sendEmailNotification;
             return this;
         }
 
+        /**
+         * @param sendEmailNotification Whether a welcome email is sent to a user after the user is created in the user pool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sendEmailNotification(Boolean sendEmailNotification) {
             return sendEmailNotification(Output.of(sendEmailNotification));
         }
 
+        /**
+         * @param stackName Name of the stack that is associated with the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stackName(Output<String> stackName) {
             $.stackName = stackName;
             return this;
         }
 
+        /**
+         * @param stackName Name of the stack that is associated with the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stackName(String stackName) {
             return stackName(Output.of(stackName));
         }
 
+        /**
+         * @param userName Email address of the user who is associated with the stack.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userName(Output<String> userName) {
             $.userName = userName;
             return this;
         }
 
+        /**
+         * @param userName Email address of the user who is associated with the stack.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userName(String userName) {
             return userName(Output.of(userName));
         }

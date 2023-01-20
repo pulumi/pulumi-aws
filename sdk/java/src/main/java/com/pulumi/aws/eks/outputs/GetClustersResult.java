@@ -15,6 +15,10 @@ public final class GetClustersResult {
      * 
      */
     private String id;
+    /**
+     * @return Set of EKS clusters names
+     * 
+     */
     private List<String> names;
 
     private GetClustersResult() {}
@@ -25,6 +29,10 @@ public final class GetClustersResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Set of EKS clusters names
+     * 
+     */
     public List<String> names() {
         return this.names;
     }

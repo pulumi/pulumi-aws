@@ -11,14 +11,95 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Athena Named Query resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			hogeBucketV2, err := s3.NewBucketV2(ctx, "hogeBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			testKey, err := kms.NewKey(ctx, "testKey", &kms.KeyArgs{
+//				DeletionWindowInDays: pulumi.Int(7),
+//				Description:          pulumi.String("Athena KMS Key"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testWorkgroup, err := athena.NewWorkgroup(ctx, "testWorkgroup", &athena.WorkgroupArgs{
+//				Configuration: &athena.WorkgroupConfigurationArgs{
+//					ResultConfiguration: &athena.WorkgroupConfigurationResultConfigurationArgs{
+//						EncryptionConfiguration: &athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{
+//							EncryptionOption: pulumi.String("SSE_KMS"),
+//							KmsKeyArn:        testKey.Arn,
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			hogeDatabase, err := athena.NewDatabase(ctx, "hogeDatabase", &athena.DatabaseArgs{
+//				Name:   pulumi.String("users"),
+//				Bucket: hogeBucketV2.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = athena.NewNamedQuery(ctx, "foo", &athena.NamedQueryArgs{
+//				Workgroup: testWorkgroup.ID(),
+//				Database:  hogeDatabase.Name,
+//				Query: hogeDatabase.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("SELECT * FROM %v limit 10;", name), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Athena Named Query can be imported using the query ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
+//
+// ```
 type NamedQuery struct {
 	pulumi.CustomResourceState
 
-	Database    pulumi.StringOutput    `pulumi:"database"`
+	// Database to which the query belongs.
+	Database pulumi.StringOutput `pulumi:"database"`
+	// Brief explanation of the query. Maximum length of 1024.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	Name        pulumi.StringOutput    `pulumi:"name"`
-	Query       pulumi.StringOutput    `pulumi:"query"`
-	Workgroup   pulumi.StringPtrOutput `pulumi:"workgroup"`
+	// Plain language name for the query. Maximum length of 128.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Text of the query itself. In other words, all query statements. Maximum length of 262144.
+	Query pulumi.StringOutput `pulumi:"query"`
+	// Workgroup to which the query belongs. Defaults to `primary`
+	Workgroup pulumi.StringPtrOutput `pulumi:"workgroup"`
 }
 
 // NewNamedQuery registers a new resource with the given unique name, arguments, and options.
@@ -56,19 +137,29 @@ func GetNamedQuery(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NamedQuery resources.
 type namedQueryState struct {
-	Database    *string `pulumi:"database"`
+	// Database to which the query belongs.
+	Database *string `pulumi:"database"`
+	// Brief explanation of the query. Maximum length of 1024.
 	Description *string `pulumi:"description"`
-	Name        *string `pulumi:"name"`
-	Query       *string `pulumi:"query"`
-	Workgroup   *string `pulumi:"workgroup"`
+	// Plain language name for the query. Maximum length of 128.
+	Name *string `pulumi:"name"`
+	// Text of the query itself. In other words, all query statements. Maximum length of 262144.
+	Query *string `pulumi:"query"`
+	// Workgroup to which the query belongs. Defaults to `primary`
+	Workgroup *string `pulumi:"workgroup"`
 }
 
 type NamedQueryState struct {
-	Database    pulumi.StringPtrInput
+	// Database to which the query belongs.
+	Database pulumi.StringPtrInput
+	// Brief explanation of the query. Maximum length of 1024.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Query       pulumi.StringPtrInput
-	Workgroup   pulumi.StringPtrInput
+	// Plain language name for the query. Maximum length of 128.
+	Name pulumi.StringPtrInput
+	// Text of the query itself. In other words, all query statements. Maximum length of 262144.
+	Query pulumi.StringPtrInput
+	// Workgroup to which the query belongs. Defaults to `primary`
+	Workgroup pulumi.StringPtrInput
 }
 
 func (NamedQueryState) ElementType() reflect.Type {
@@ -76,20 +167,30 @@ func (NamedQueryState) ElementType() reflect.Type {
 }
 
 type namedQueryArgs struct {
-	Database    string  `pulumi:"database"`
+	// Database to which the query belongs.
+	Database string `pulumi:"database"`
+	// Brief explanation of the query. Maximum length of 1024.
 	Description *string `pulumi:"description"`
-	Name        *string `pulumi:"name"`
-	Query       string  `pulumi:"query"`
-	Workgroup   *string `pulumi:"workgroup"`
+	// Plain language name for the query. Maximum length of 128.
+	Name *string `pulumi:"name"`
+	// Text of the query itself. In other words, all query statements. Maximum length of 262144.
+	Query string `pulumi:"query"`
+	// Workgroup to which the query belongs. Defaults to `primary`
+	Workgroup *string `pulumi:"workgroup"`
 }
 
 // The set of arguments for constructing a NamedQuery resource.
 type NamedQueryArgs struct {
-	Database    pulumi.StringInput
+	// Database to which the query belongs.
+	Database pulumi.StringInput
+	// Brief explanation of the query. Maximum length of 1024.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Query       pulumi.StringInput
-	Workgroup   pulumi.StringPtrInput
+	// Plain language name for the query. Maximum length of 128.
+	Name pulumi.StringPtrInput
+	// Text of the query itself. In other words, all query statements. Maximum length of 262144.
+	Query pulumi.StringInput
+	// Workgroup to which the query belongs. Defaults to `primary`
+	Workgroup pulumi.StringPtrInput
 }
 
 func (NamedQueryArgs) ElementType() reflect.Type {
@@ -179,22 +280,27 @@ func (o NamedQueryOutput) ToNamedQueryOutputWithContext(ctx context.Context) Nam
 	return o
 }
 
+// Database to which the query belongs.
 func (o NamedQueryOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamedQuery) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
+// Brief explanation of the query. Maximum length of 1024.
 func (o NamedQueryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamedQuery) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Plain language name for the query. Maximum length of 128.
 func (o NamedQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamedQuery) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Text of the query itself. In other words, all query statements. Maximum length of 262144.
 func (o NamedQueryOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamedQuery) pulumi.StringOutput { return v.Query }).(pulumi.StringOutput)
 }
 
+// Workgroup to which the query belongs. Defaults to `primary`
 func (o NamedQueryOutput) Workgroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamedQuery) pulumi.StringPtrOutput { return v.Workgroup }).(pulumi.StringPtrOutput)
 }

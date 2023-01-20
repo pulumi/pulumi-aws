@@ -11,9 +11,79 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetIpamPreviewNextCidr
     {
+        /// <summary>
+        /// Previews a CIDR from an IPAM address pool. Only works for private IPv4.
+        /// 
+        /// &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// Basic usage:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var testIpamPreviewNextCidr = Aws.Ec2.GetIpamPreviewNextCidr.Invoke(new()
+        ///     {
+        ///         IpamPoolId = aws_vpc_ipam_pool.Test.Id,
+        ///         NetmaskLength = 28,
+        ///     });
+        /// 
+        ///     var testVpcIpamPoolCidrAllocation = new Aws.Ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", new()
+        ///     {
+        ///         IpamPoolId = aws_vpc_ipam_pool.Test.Id,
+        ///         Cidr = testIpamPreviewNextCidr.Apply(getIpamPreviewNextCidrResult =&gt; getIpamPreviewNextCidrResult.Cidr),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetIpamPreviewNextCidrResult> InvokeAsync(GetIpamPreviewNextCidrArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpamPreviewNextCidrResult>("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args ?? new GetIpamPreviewNextCidrArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Previews a CIDR from an IPAM address pool. Only works for private IPv4.
+        /// 
+        /// &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// Basic usage:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var testIpamPreviewNextCidr = Aws.Ec2.GetIpamPreviewNextCidr.Invoke(new()
+        ///     {
+        ///         IpamPoolId = aws_vpc_ipam_pool.Test.Id,
+        ///         NetmaskLength = 28,
+        ///     });
+        /// 
+        ///     var testVpcIpamPoolCidrAllocation = new Aws.Ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", new()
+        ///     {
+        ///         IpamPoolId = aws_vpc_ipam_pool.Test.Id,
+        ///         Cidr = testIpamPreviewNextCidr.Apply(getIpamPreviewNextCidrResult =&gt; getIpamPreviewNextCidrResult.Cidr),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetIpamPreviewNextCidrResult> Invoke(GetIpamPreviewNextCidrInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpamPreviewNextCidrResult>("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args ?? new GetIpamPreviewNextCidrInvokeArgs(), options.WithDefaults());
     }
@@ -23,15 +93,25 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("disallowedCidrs")]
         private List<string>? _disallowedCidrs;
+
+        /// <summary>
+        /// Exclude a particular CIDR range from being returned by the pool.
+        /// </summary>
         public List<string> DisallowedCidrs
         {
             get => _disallowedCidrs ?? (_disallowedCidrs = new List<string>());
             set => _disallowedCidrs = value;
         }
 
+        /// <summary>
+        /// ID of the pool to which you want to assign a CIDR.
+        /// </summary>
         [Input("ipamPoolId", required: true)]
         public string IpamPoolId { get; set; } = null!;
 
+        /// <summary>
+        /// Netmask length of the CIDR you would like to preview from the IPAM pool.
+        /// </summary>
         [Input("netmaskLength")]
         public int? NetmaskLength { get; set; }
 
@@ -45,15 +125,25 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("disallowedCidrs")]
         private InputList<string>? _disallowedCidrs;
+
+        /// <summary>
+        /// Exclude a particular CIDR range from being returned by the pool.
+        /// </summary>
         public InputList<string> DisallowedCidrs
         {
             get => _disallowedCidrs ?? (_disallowedCidrs = new InputList<string>());
             set => _disallowedCidrs = value;
         }
 
+        /// <summary>
+        /// ID of the pool to which you want to assign a CIDR.
+        /// </summary>
         [Input("ipamPoolId", required: true)]
         public Input<string> IpamPoolId { get; set; } = null!;
 
+        /// <summary>
+        /// Netmask length of the CIDR you would like to preview from the IPAM pool.
+        /// </summary>
         [Input("netmaskLength")]
         public Input<int>? NetmaskLength { get; set; }
 
@@ -67,6 +157,9 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetIpamPreviewNextCidrResult
     {
+        /// <summary>
+        /// Previewed CIDR from the pool.
+        /// </summary>
         public readonly string Cidr;
         public readonly ImmutableArray<string> DisallowedCidrs;
         /// <summary>

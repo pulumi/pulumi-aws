@@ -11,9 +11,79 @@ namespace Pulumi.Aws.Rds
 {
     public static class GetInstances
     {
+        /// <summary>
+        /// Data source for listing RDS Database Instances.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Rds.GetInstances.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Rds.Inputs.GetInstancesFilterInputArgs
+        ///             {
+        ///                 Name = "db-instance-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "my-database-id",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetInstancesResult> InvokeAsync(GetInstancesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:rds/getInstances:getInstances", args ?? new GetInstancesArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Data source for listing RDS Database Instances.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Rds.GetInstances.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Rds.Inputs.GetInstancesFilterInputArgs
+        ///             {
+        ///                 Name = "db-instance-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "my-database-id",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetInstancesResult> Invoke(GetInstancesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstancesResult>("aws:rds/getInstances:getInstances", args ?? new GetInstancesInvokeArgs(), options.WithDefaults());
     }
@@ -23,6 +93,10 @@ namespace Pulumi.Aws.Rds
     {
         [Input("filters")]
         private List<Inputs.GetInstancesFilterArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
         public List<Inputs.GetInstancesFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetInstancesFilterArgs>());
@@ -39,6 +113,10 @@ namespace Pulumi.Aws.Rds
     {
         [Input("filters")]
         private InputList<Inputs.GetInstancesFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
         public InputList<Inputs.GetInstancesFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetInstancesFilterInputArgs>());
@@ -60,7 +138,13 @@ namespace Pulumi.Aws.Rds
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// ARNs of the matched RDS instances.
+        /// </summary>
         public readonly ImmutableArray<string> InstanceArns;
+        /// <summary>
+        /// Identifiers of the matched RDS instances.
+        /// </summary>
         public readonly ImmutableArray<string> InstanceIdentifiers;
 
         [OutputConstructor]

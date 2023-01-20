@@ -10,6 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetQueueResult {
+    /**
+     * @return ARN of the queue.
+     * 
+     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -17,10 +21,22 @@ public final class GetQueueResult {
      */
     private String id;
     private String name;
+    /**
+     * @return Map of tags for the resource.
+     * 
+     */
     private Map<String,String> tags;
+    /**
+     * @return URL of the queue.
+     * 
+     */
     private String url;
 
     private GetQueueResult() {}
+    /**
+     * @return ARN of the queue.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
@@ -34,9 +50,17 @@ public final class GetQueueResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Map of tags for the resource.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @return URL of the queue.
+     * 
+     */
     public String url() {
         return this.url;
     }

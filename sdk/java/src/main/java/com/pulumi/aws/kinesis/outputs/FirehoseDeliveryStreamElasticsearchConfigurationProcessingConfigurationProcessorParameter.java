@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter {
+    /**
+     * @return Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+     * 
+     */
     private String parameterName;
+    /**
+     * @return Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+     * 
+     */
     private String parameterValue;
 
     private FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter() {}
+    /**
+     * @return Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+     * 
+     */
     public String parameterName() {
         return this.parameterName;
     }
+    /**
+     * @return Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+     * 
+     */
     public String parameterValue() {
         return this.parameterValue;
     }

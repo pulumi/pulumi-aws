@@ -16,16 +16,32 @@ public final class GetStackArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetStackArgs Empty = new GetStackArgs();
 
+    /**
+     * Name of the stack
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the stack
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Map of tags associated with this stack.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Map of tags associated with this stack.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -55,20 +71,44 @@ public final class GetStackArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetStackArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the stack
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the stack
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param tags Map of tags associated with this stack.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Map of tags associated with this stack.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

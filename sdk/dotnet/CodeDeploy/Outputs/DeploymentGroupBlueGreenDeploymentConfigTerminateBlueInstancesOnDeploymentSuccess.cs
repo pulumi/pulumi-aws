@@ -13,7 +13,13 @@ namespace Pulumi.Aws.CodeDeploy.Outputs
     [OutputType]
     public sealed class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess
     {
+        /// <summary>
+        /// The action to take on instances in the original environment after a successful blue/green deployment.
+        /// </summary>
         public readonly string? Action;
+        /// <summary>
+        /// The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
+        /// </summary>
         public readonly int? TerminationWaitTimeInMinutes;
 
         [OutputConstructor]

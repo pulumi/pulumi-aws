@@ -16,6 +16,10 @@ public final class GetOutpostInstanceTypesResult {
      * 
      */
     private String id;
+    /**
+     * @return Set of instance types.
+     * 
+     */
     private List<String> instanceTypes;
 
     private GetOutpostInstanceTypesResult() {}
@@ -29,6 +33,10 @@ public final class GetOutpostInstanceTypesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Set of instance types.
+     * 
+     */
     public List<String> instanceTypes() {
         return this.instanceTypes;
     }

@@ -17,83 +17,322 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an AppSync Function.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appsync.GraphQLApi;
+ * import com.pulumi.aws.appsync.GraphQLApiArgs;
+ * import com.pulumi.aws.appsync.DataSource;
+ * import com.pulumi.aws.appsync.DataSourceArgs;
+ * import com.pulumi.aws.appsync.inputs.DataSourceHttpConfigArgs;
+ * import com.pulumi.aws.appsync.Function;
+ * import com.pulumi.aws.appsync.FunctionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleGraphQLApi = new GraphQLApi(&#34;exampleGraphQLApi&#34;, GraphQLApiArgs.builder()        
+ *             .authenticationType(&#34;API_KEY&#34;)
+ *             .schema(&#34;&#34;&#34;
+ * type Mutation {
+ *   putPost(id: ID!, title: String!): Post
+ * }
+ * 
+ * type Post {
+ *   id: ID!
+ *   title: String!
+ * }
+ * 
+ * type Query {
+ *   singlePost(id: ID!): Post
+ * }
+ * 
+ * schema {
+ *   query: Query
+ *   mutation: Mutation
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *         var exampleDataSource = new DataSource(&#34;exampleDataSource&#34;, DataSourceArgs.builder()        
+ *             .apiId(exampleGraphQLApi.id())
+ *             .name(&#34;example&#34;)
+ *             .type(&#34;HTTP&#34;)
+ *             .httpConfig(DataSourceHttpConfigArgs.builder()
+ *                 .endpoint(&#34;http://example.com&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleFunction = new Function(&#34;exampleFunction&#34;, FunctionArgs.builder()        
+ *             .apiId(exampleGraphQLApi.id())
+ *             .dataSource(exampleDataSource.name())
+ *             .name(&#34;example&#34;)
+ *             .requestMappingTemplate(&#34;&#34;&#34;
+ * {
+ *     &#34;version&#34;: &#34;2018-05-29&#34;,
+ *     &#34;method&#34;: &#34;GET&#34;,
+ *     &#34;resourcePath&#34;: &#34;/&#34;,
+ *     &#34;params&#34;:{
+ *         &#34;headers&#34;: $utils.http.copyheaders($ctx.request.headers)
+ *     }
+ * }
+ *             &#34;&#34;&#34;)
+ *             .responseMappingTemplate(&#34;&#34;&#34;
+ * #if($ctx.result.statusCode == 200)
+ *     $ctx.result.body
+ * #else
+ *     $utils.appendError($ctx.result.body, $ctx.result.statusCode)
+ * #end
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### With Code
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appsync.Function;
+ * import com.pulumi.aws.appsync.FunctionArgs;
+ * import com.pulumi.aws.appsync.inputs.FunctionRuntimeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Function(&#34;example&#34;, FunctionArgs.builder()        
+ *             .apiId(aws_appsync_graphql_api.example().id())
+ *             .dataSource(aws_appsync_datasource.example().name())
+ *             .name(&#34;example&#34;)
+ *             .code(Files.readString(Paths.get(&#34;some-code-dir&#34;)))
+ *             .runtime(FunctionRuntimeArgs.builder()
+ *                 .name(&#34;APPSYNC_JS&#34;)
+ *                 .runtimeVersion(&#34;1.0.0&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_appsync_function` can be imported using the AppSync API ID and Function ID separated by `-`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
+ * ```
+ * 
+ */
 @ResourceType(type="aws:appsync/function:Function")
 public class Function extends com.pulumi.resources.CustomResource {
+    /**
+     * ID of the associated AppSync API.
+     * 
+     */
     @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
+    /**
+     * @return ID of the associated AppSync API.
+     * 
+     */
     public Output<String> apiId() {
         return this.apiId;
     }
+    /**
+     * ARN of the Function object.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the Function object.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * 
+     */
     @Export(name="code", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> code;
 
+    /**
+     * @return The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * 
+     */
     public Output<Optional<String>> code() {
         return Codegen.optional(this.code);
     }
+    /**
+     * Function data source name.
+     * 
+     */
     @Export(name="dataSource", refs={String.class}, tree="[0]")
     private Output<String> dataSource;
 
+    /**
+     * @return Function data source name.
+     * 
+     */
     public Output<String> dataSource() {
         return this.dataSource;
     }
+    /**
+     * Function description.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Function description.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Unique ID representing the Function object.
+     * 
+     */
     @Export(name="functionId", refs={String.class}, tree="[0]")
     private Output<String> functionId;
 
+    /**
+     * @return Unique ID representing the Function object.
+     * 
+     */
     public Output<String> functionId() {
         return this.functionId;
     }
+    /**
+     * Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
+     * 
+     */
     @Export(name="functionVersion", refs={String.class}, tree="[0]")
     private Output<String> functionVersion;
 
+    /**
+     * @return Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
+     * 
+     */
     public Output<String> functionVersion() {
         return this.functionVersion;
     }
+    /**
+     * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     * 
+     */
     @Export(name="maxBatchSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxBatchSize;
 
+    /**
+     * @return Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     * 
+     */
     public Output<Optional<Integer>> maxBatchSize() {
         return Codegen.optional(this.maxBatchSize);
     }
+    /**
+     * Function name. The function name does not have to be unique.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Function name. The function name does not have to be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+     * 
+     */
     @Export(name="requestMappingTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> requestMappingTemplate;
 
+    /**
+     * @return Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+     * 
+     */
     public Output<Optional<String>> requestMappingTemplate() {
         return Codegen.optional(this.requestMappingTemplate);
     }
+    /**
+     * Function response mapping template.
+     * 
+     */
     @Export(name="responseMappingTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> responseMappingTemplate;
 
+    /**
+     * @return Function response mapping template.
+     * 
+     */
     public Output<Optional<String>> responseMappingTemplate() {
         return Codegen.optional(this.responseMappingTemplate);
     }
+    /**
+     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * 
+     */
     @Export(name="runtime", refs={FunctionRuntime.class}, tree="[0]")
     private Output</* @Nullable */ FunctionRuntime> runtime;
 
+    /**
+     * @return Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * 
+     */
     public Output<Optional<FunctionRuntime>> runtime() {
         return Codegen.optional(this.runtime);
     }
+    /**
+     * Describes a Sync configuration for a resolver. See Sync Config.
+     * 
+     */
     @Export(name="syncConfig", refs={FunctionSyncConfig.class}, tree="[0]")
     private Output</* @Nullable */ FunctionSyncConfig> syncConfig;
 
+    /**
+     * @return Describes a Sync configuration for a resolver. See Sync Config.
+     * 
+     */
     public Output<Optional<FunctionSyncConfig>> syncConfig() {
         return Codegen.optional(this.syncConfig);
     }

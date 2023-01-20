@@ -14,17 +14,90 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import javax.annotation.Nullable;
 
+/**
+ * Managing [IoT Thing indexing](https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iot.IndexingConfiguration;
+ * import com.pulumi.aws.iot.IndexingConfigurationArgs;
+ * import com.pulumi.aws.iot.inputs.IndexingConfigurationThingIndexingConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new IndexingConfiguration(&#34;example&#34;, IndexingConfigurationArgs.builder()        
+ *             .thingIndexingConfiguration(IndexingConfigurationThingIndexingConfigurationArgs.builder()
+ *                 .customFields(                
+ *                     IndexingConfigurationThingIndexingConfigurationCustomFieldArgs.builder()
+ *                         .name(&#34;shadow.desired.power&#34;)
+ *                         .type(&#34;Boolean&#34;)
+ *                         .build(),
+ *                     IndexingConfigurationThingIndexingConfigurationCustomFieldArgs.builder()
+ *                         .name(&#34;attributes.version&#34;)
+ *                         .type(&#34;Number&#34;)
+ *                         .build(),
+ *                     IndexingConfigurationThingIndexingConfigurationCustomFieldArgs.builder()
+ *                         .name(&#34;shadow.name.thing1shadow.desired.DefaultDesired&#34;)
+ *                         .type(&#34;String&#34;)
+ *                         .build(),
+ *                     IndexingConfigurationThingIndexingConfigurationCustomFieldArgs.builder()
+ *                         .name(&#34;deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number&#34;)
+ *                         .type(&#34;Number&#34;)
+ *                         .build())
+ *                 .deviceDefenderIndexingMode(&#34;VIOLATIONS&#34;)
+ *                 .namedShadowIndexingMode(&#34;ON&#34;)
+ *                 .thingConnectivityIndexingMode(&#34;STATUS&#34;)
+ *                 .thingIndexingMode(&#34;REGISTRY_AND_SHADOW&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="aws:iot/indexingConfiguration:IndexingConfiguration")
 public class IndexingConfiguration extends com.pulumi.resources.CustomResource {
+    /**
+     * Thing group indexing configuration. See below.
+     * 
+     */
     @Export(name="thingGroupIndexingConfiguration", refs={IndexingConfigurationThingGroupIndexingConfiguration.class}, tree="[0]")
     private Output<IndexingConfigurationThingGroupIndexingConfiguration> thingGroupIndexingConfiguration;
 
+    /**
+     * @return Thing group indexing configuration. See below.
+     * 
+     */
     public Output<IndexingConfigurationThingGroupIndexingConfiguration> thingGroupIndexingConfiguration() {
         return this.thingGroupIndexingConfiguration;
     }
+    /**
+     * Thing indexing configuration. See below.
+     * 
+     */
     @Export(name="thingIndexingConfiguration", refs={IndexingConfigurationThingIndexingConfiguration.class}, tree="[0]")
     private Output<IndexingConfigurationThingIndexingConfiguration> thingIndexingConfiguration;
 
+    /**
+     * @return Thing indexing configuration. See below.
+     * 
+     */
     public Output<IndexingConfigurationThingIndexingConfiguration> thingIndexingConfiguration() {
         return this.thingIndexingConfiguration;
     }

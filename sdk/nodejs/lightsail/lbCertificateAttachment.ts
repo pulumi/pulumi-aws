@@ -4,6 +4,40 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Attaches a Lightsail Load Balancer Certificate to a Lightsail Load Balancer.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testLb = new aws.lightsail.Lb("testLb", {
+ *     healthCheckPath: "/",
+ *     instancePort: 80,
+ *     tags: {
+ *         foo: "bar",
+ *     },
+ * });
+ * const testLbCertificate = new aws.lightsail.LbCertificate("testLbCertificate", {
+ *     lbName: testLb.id,
+ *     domainName: "test.com",
+ * });
+ * const testLbCertificateAttachment = new aws.lightsail.LbCertificateAttachment("testLbCertificateAttachment", {
+ *     lbName: testLb.name,
+ *     certificateName: testLbCertificate.name,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_lightsail_lb_certificate_attachment` can be imported by using the name attribute, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment test example-load-balancer,example-certificate
+ * ```
+ */
 export class LbCertificateAttachment extends pulumi.CustomResource {
     /**
      * Get an existing LbCertificateAttachment resource's state with the given name, ID, and optional extra
@@ -32,7 +66,13 @@ export class LbCertificateAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === LbCertificateAttachment.__pulumiType;
     }
 
+    /**
+     * The name of your SSL/TLS certificate.
+     */
     public readonly certificateName!: pulumi.Output<string>;
+    /**
+     * The name of the load balancer to which you want to associate the SSL/TLS certificate.
+     */
     public readonly lbName!: pulumi.Output<string>;
 
     /**
@@ -70,7 +110,13 @@ export class LbCertificateAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LbCertificateAttachment resources.
  */
 export interface LbCertificateAttachmentState {
+    /**
+     * The name of your SSL/TLS certificate.
+     */
     certificateName?: pulumi.Input<string>;
+    /**
+     * The name of the load balancer to which you want to associate the SSL/TLS certificate.
+     */
     lbName?: pulumi.Input<string>;
 }
 
@@ -78,6 +124,12 @@ export interface LbCertificateAttachmentState {
  * The set of arguments for constructing a LbCertificateAttachment resource.
  */
 export interface LbCertificateAttachmentArgs {
+    /**
+     * The name of your SSL/TLS certificate.
+     */
     certificateName: pulumi.Input<string>;
+    /**
+     * The name of the load balancer to which you want to associate the SSL/TLS certificate.
+     */
     lbName: pulumi.Input<string>;
 }

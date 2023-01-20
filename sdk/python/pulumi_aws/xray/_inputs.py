@@ -18,6 +18,10 @@ class GroupInsightsConfigurationArgs:
     def __init__(__self__, *,
                  insights_enabled: pulumi.Input[bool],
                  notifications_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] insights_enabled: Specifies whether insights are enabled.
+        :param pulumi.Input[bool] notifications_enabled: Specifies whether insight notifications are enabled.
+        """
         pulumi.set(__self__, "insights_enabled", insights_enabled)
         if notifications_enabled is not None:
             pulumi.set(__self__, "notifications_enabled", notifications_enabled)
@@ -25,6 +29,9 @@ class GroupInsightsConfigurationArgs:
     @property
     @pulumi.getter(name="insightsEnabled")
     def insights_enabled(self) -> pulumi.Input[bool]:
+        """
+        Specifies whether insights are enabled.
+        """
         return pulumi.get(self, "insights_enabled")
 
     @insights_enabled.setter
@@ -34,6 +41,9 @@ class GroupInsightsConfigurationArgs:
     @property
     @pulumi.getter(name="notificationsEnabled")
     def notifications_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether insight notifications are enabled.
+        """
         return pulumi.get(self, "notifications_enabled")
 
     @notifications_enabled.setter

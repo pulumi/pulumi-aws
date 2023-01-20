@@ -9,18 +9,60 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGateway
 {
+    /// <summary>
+    /// Manages an API Gateway Request Validator.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ApiGateway.RequestValidator("example", new()
+    ///     {
+    ///         RestApi = aws_api_gateway_rest_api.Example.Id,
+    ///         ValidateRequestBody = true,
+    ///         ValidateRequestParameters = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_api_gateway_request_validator` can be imported using `REST-API-ID/REQUEST-VALIDATOR-ID`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:apigateway/requestValidator:RequestValidator")]
     public partial class RequestValidator : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Name of the request validator
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the associated Rest API
+        /// </summary>
         [Output("restApi")]
         public Output<string> RestApi { get; private set; } = null!;
 
+        /// <summary>
+        /// Boolean whether to validate request body. Defaults to `false`.
+        /// </summary>
         [Output("validateRequestBody")]
         public Output<bool?> ValidateRequestBody { get; private set; } = null!;
 
+        /// <summary>
+        /// Boolean whether to validate request parameters. Defaults to `false`.
+        /// </summary>
         [Output("validateRequestParameters")]
         public Output<bool?> ValidateRequestParameters { get; private set; } = null!;
 
@@ -70,15 +112,27 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class RequestValidatorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the request validator
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// ID of the associated Rest API
+        /// </summary>
         [Input("restApi", required: true)]
         public Input<string> RestApi { get; set; } = null!;
 
+        /// <summary>
+        /// Boolean whether to validate request body. Defaults to `false`.
+        /// </summary>
         [Input("validateRequestBody")]
         public Input<bool>? ValidateRequestBody { get; set; }
 
+        /// <summary>
+        /// Boolean whether to validate request parameters. Defaults to `false`.
+        /// </summary>
         [Input("validateRequestParameters")]
         public Input<bool>? ValidateRequestParameters { get; set; }
 
@@ -90,15 +144,27 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class RequestValidatorState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the request validator
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// ID of the associated Rest API
+        /// </summary>
         [Input("restApi")]
         public Input<string>? RestApi { get; set; }
 
+        /// <summary>
+        /// Boolean whether to validate request body. Defaults to `false`.
+        /// </summary>
         [Input("validateRequestBody")]
         public Input<bool>? ValidateRequestBody { get; set; }
 
+        /// <summary>
+        /// Boolean whether to validate request parameters. Defaults to `false`.
+        /// </summary>
         [Input("validateRequestParameters")]
         public Input<bool>? ValidateRequestParameters { get; set; }
 

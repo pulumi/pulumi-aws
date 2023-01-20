@@ -13,12 +13,33 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRule
     {
+        /// <summary>
+        /// Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See Action below for details.
+        /// </summary>
         public readonly Outputs.WebAclRuleAction? Action;
+        /// <summary>
+        /// Friendly name of the rule.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See Override Action below for details.
+        /// </summary>
         public readonly Outputs.WebAclRuleOverrideAction? OverrideAction;
+        /// <summary>
+        /// If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
+        /// </summary>
         public readonly int Priority;
+        /// <summary>
+        /// Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleRuleLabel> RuleLabels;
+        /// <summary>
+        /// The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
+        /// </summary>
         public readonly Outputs.WebAclRuleStatement Statement;
+        /// <summary>
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        /// </summary>
         public readonly Outputs.WebAclRuleVisibilityConfig VisibilityConfig;
 
         [OutputConstructor]

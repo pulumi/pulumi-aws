@@ -19,6 +19,10 @@ public final class GetInstanceStorageConfigResult {
     private String id;
     private String instanceId;
     private String resourceType;
+    /**
+     * @return Specifies the storage configuration options for the Connect Instance. Documented below.
+     * 
+     */
     private List<GetInstanceStorageConfigStorageConfig> storageConfigs;
 
     private GetInstanceStorageConfigResult() {}
@@ -38,6 +42,10 @@ public final class GetInstanceStorageConfigResult {
     public String resourceType() {
         return this.resourceType;
     }
+    /**
+     * @return Specifies the storage configuration options for the Connect Instance. Documented below.
+     * 
+     */
     public List<GetInstanceStorageConfigStorageConfig> storageConfigs() {
         return this.storageConfigs;
     }

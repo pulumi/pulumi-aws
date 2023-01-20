@@ -43,6 +43,12 @@ class HostVpcConfiguration(dict):
                  subnet_ids: Sequence[str],
                  vpc_id: str,
                  tls_certificate: Optional[str] = None):
+        """
+        :param Sequence[str] security_group_ids: he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+        :param Sequence[str] subnet_ids: The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+        :param str vpc_id: The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
+        :param str tls_certificate: The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -52,21 +58,33 @@ class HostVpcConfiguration(dict):
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[str]:
+        """
+        he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
+        """
+        The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
+        """
+        The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
+        """
         return pulumi.get(self, "vpc_id")
 
     @property
     @pulumi.getter(name="tlsCertificate")
     def tls_certificate(self) -> Optional[str]:
+        """
+        The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+        """
         return pulumi.get(self, "tls_certificate")
 
 

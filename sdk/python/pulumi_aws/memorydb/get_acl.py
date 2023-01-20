@@ -44,6 +44,9 @@ class GetAclResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the ACL.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -57,6 +60,9 @@ class GetAclResult:
     @property
     @pulumi.getter(name="minimumEngineVersion")
     def minimum_engine_version(self) -> str:
+        """
+        The minimum engine version supported by the ACL.
+        """
         return pulumi.get(self, "minimum_engine_version")
 
     @property
@@ -67,11 +73,17 @@ class GetAclResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Map of tags assigned to the ACL.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="userNames")
     def user_names(self) -> Sequence[str]:
+        """
+        Set of MemoryDB user names included in this ACL.
+        """
         return pulumi.get(self, "user_names")
 
 
@@ -93,7 +105,20 @@ def get_acl(name: Optional[str] = None,
             tags: Optional[Mapping[str, str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAclResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a MemoryDB ACL.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.memorydb.get_acl(name="my-acl")
+    ```
+
+
+    :param str name: Name of the ACL.
+    :param Mapping[str, str] tags: Map of tags assigned to the ACL.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -115,6 +140,19 @@ def get_acl_output(name: Optional[pulumi.Input[str]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAclResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about a MemoryDB ACL.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.memorydb.get_acl(name="my-acl")
+    ```
+
+
+    :param str name: Name of the ACL.
+    :param Mapping[str, str] tags: Map of tags assigned to the ACL.
     """
     ...

@@ -7,6 +7,21 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an individual Autoscaling Group (ASG) tag. This resource should only be used in cases where ASGs are created outside the provider (e.g., ASGs implicitly created by EKS Node Groups).
+ *
+ * > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `aws.autoscaling.Group` and `aws.autoscaling.Tag` to manage tags of the same ASG will cause a perpetual difference where the `aws.autoscaling.Group` resource will try to remove the tag being added by the `aws.autoscaling.Tag` resource.
+ *
+ * > **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
+ *
+ * ## Import
+ *
+ * `aws_autoscaling_group_tag` can be imported by using the ASG name and key, separated by a comma (`,`), e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:autoscaling/tag:Tag example asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType
+ * ```
+ */
 export class Tag extends pulumi.CustomResource {
     /**
      * Get an existing Tag resource's state with the given name, ID, and optional extra
@@ -35,7 +50,13 @@ export class Tag extends pulumi.CustomResource {
         return obj['__pulumiType'] === Tag.__pulumiType;
     }
 
+    /**
+     * Name of the Autoscaling Group to apply the tag to.
+     */
     public readonly autoscalingGroupName!: pulumi.Output<string>;
+    /**
+     * Tag to create. The `tag` block is documented below.
+     */
     public readonly tag!: pulumi.Output<outputs.autoscaling.TagTag>;
 
     /**
@@ -73,7 +94,13 @@ export class Tag extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Tag resources.
  */
 export interface TagState {
+    /**
+     * Name of the Autoscaling Group to apply the tag to.
+     */
     autoscalingGroupName?: pulumi.Input<string>;
+    /**
+     * Tag to create. The `tag` block is documented below.
+     */
     tag?: pulumi.Input<inputs.autoscaling.TagTag>;
 }
 
@@ -81,6 +108,12 @@ export interface TagState {
  * The set of arguments for constructing a Tag resource.
  */
 export interface TagArgs {
+    /**
+     * Name of the Autoscaling Group to apply the tag to.
+     */
     autoscalingGroupName: pulumi.Input<string>;
+    /**
+     * Tag to create. The `tag` block is documented below.
+     */
     tag: pulumi.Input<inputs.autoscaling.TagTag>;
 }

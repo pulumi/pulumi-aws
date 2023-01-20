@@ -12,6 +12,8 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReplicationGroupClusterMode {
     /**
+     * @return Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+     * 
      * @deprecated
      * Use root-level num_node_groups instead
      * 
@@ -19,6 +21,8 @@ public final class ReplicationGroupClusterMode {
     @Deprecated /* Use root-level num_node_groups instead */
     private @Nullable Integer numNodeGroups;
     /**
+     * @return Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+     * 
      * @deprecated
      * Use root-level replicas_per_node_group instead
      * 
@@ -28,6 +32,8 @@ public final class ReplicationGroupClusterMode {
 
     private ReplicationGroupClusterMode() {}
     /**
+     * @return Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+     * 
      * @deprecated
      * Use root-level num_node_groups instead
      * 
@@ -37,6 +43,8 @@ public final class ReplicationGroupClusterMode {
         return Optional.ofNullable(this.numNodeGroups);
     }
     /**
+     * @return Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+     * 
      * @deprecated
      * Use root-level replicas_per_node_group instead
      * 

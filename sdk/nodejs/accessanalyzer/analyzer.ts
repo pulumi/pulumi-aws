@@ -4,6 +4,41 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
+ *
+ * ## Example Usage
+ * ### Account Analyzer
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.accessanalyzer.Analyzer("example", {analyzerName: "example"});
+ * ```
+ * ### Organization Analyzer
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {awsServiceAccessPrincipals: ["access-analyzer.amazonaws.com"]});
+ * const exampleAnalyzer = new aws.accessanalyzer.Analyzer("exampleAnalyzer", {
+ *     analyzerName: "example",
+ *     type: "ORGANIZATION",
+ * }, {
+ *     dependsOn: [exampleOrganization],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
+ * ```
+ */
 export class Analyzer extends pulumi.CustomResource {
     /**
      * Get an existing Analyzer resource's state with the given name, ID, and optional extra
@@ -32,10 +67,25 @@ export class Analyzer extends pulumi.CustomResource {
         return obj['__pulumiType'] === Analyzer.__pulumiType;
     }
 
+    /**
+     * Name of the Analyzer.
+     */
     public readonly analyzerName!: pulumi.Output<string>;
+    /**
+     * ARN of the Analyzer.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+     */
     public readonly type!: pulumi.Output<string | undefined>;
 
     /**
@@ -76,10 +126,25 @@ export class Analyzer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Analyzer resources.
  */
 export interface AnalyzerState {
+    /**
+     * Name of the Analyzer.
+     */
     analyzerName?: pulumi.Input<string>;
+    /**
+     * ARN of the Analyzer.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+     */
     type?: pulumi.Input<string>;
 }
 
@@ -87,7 +152,16 @@ export interface AnalyzerState {
  * The set of arguments for constructing a Analyzer resource.
  */
 export interface AnalyzerArgs {
+    /**
+     * Name of the Analyzer.
+     */
     analyzerName: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+     */
     type?: pulumi.Input<string>;
 }

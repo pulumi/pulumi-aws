@@ -7,6 +7,29 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an AWS Elemental MediaPackage Channel.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const kittens = new aws.mediapackage.Channel("kittens", {
+ *     channelId: "kitten-channel",
+ *     description: "A channel dedicated to amusing videos of kittens.",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Media Package Channels can be imported via the channel ID, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
+ * ```
+ */
 export class Channel extends pulumi.CustomResource {
     /**
      * Get an existing Channel resource's state with the given name, ID, and optional extra
@@ -35,11 +58,29 @@ export class Channel extends pulumi.CustomResource {
         return obj['__pulumiType'] === Channel.__pulumiType;
     }
 
+    /**
+     * The ARN of the channel
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A unique identifier describing the channel
+     */
     public readonly channelId!: pulumi.Output<string>;
+    /**
+     * A description of the channel
+     */
     public readonly description!: pulumi.Output<string>;
+    /**
+     * A single item list of HLS ingest information
+     */
     public /*out*/ readonly hlsIngests!: pulumi.Output<outputs.mediapackage.ChannelHlsIngest[]>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -82,11 +123,29 @@ export class Channel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Channel resources.
  */
 export interface ChannelState {
+    /**
+     * The ARN of the channel
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * A unique identifier describing the channel
+     */
     channelId?: pulumi.Input<string>;
+    /**
+     * A description of the channel
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A single item list of HLS ingest information
+     */
     hlsIngests?: pulumi.Input<pulumi.Input<inputs.mediapackage.ChannelHlsIngest>[]>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -94,7 +153,16 @@ export interface ChannelState {
  * The set of arguments for constructing a Channel resource.
  */
 export interface ChannelArgs {
+    /**
+     * A unique identifier describing the channel
+     */
     channelId: pulumi.Input<string>;
+    /**
+     * A description of the channel
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

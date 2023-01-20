@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSourceParametersS3
     {
+        /// <summary>
+        /// An object containing the S3 location of the S3 manifest file.
+        /// </summary>
         public readonly Outputs.DataSourceParametersS3ManifestFileLocation ManifestFileLocation;
 
         [OutputConstructor]

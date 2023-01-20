@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleRuleLabel {
+    /**
+     * @return Label string.
+     * 
+     */
     private String name;
 
     private WebAclRuleRuleLabel() {}
+    /**
+     * @return Label string.
+     * 
+     */
     public String name() {
         return this.name;
     }

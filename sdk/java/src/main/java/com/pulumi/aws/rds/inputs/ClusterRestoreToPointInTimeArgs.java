@@ -16,30 +16,64 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
 
     public static final ClusterRestoreToPointInTimeArgs Empty = new ClusterRestoreToPointInTimeArgs();
 
+    /**
+     * Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
+     * 
+     */
     @Import(name="restoreToTime")
     private @Nullable Output<String> restoreToTime;
 
+    /**
+     * @return Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
+     * 
+     */
     public Optional<Output<String>> restoreToTime() {
         return Optional.ofNullable(this.restoreToTime);
     }
 
+    /**
+     * Type of restore to be performed.
+     * Valid options are `full-copy` (default) and `copy-on-write`.
+     * 
+     */
     @Import(name="restoreType")
     private @Nullable Output<String> restoreType;
 
+    /**
+     * @return Type of restore to be performed.
+     * Valid options are `full-copy` (default) and `copy-on-write`.
+     * 
+     */
     public Optional<Output<String>> restoreType() {
         return Optional.ofNullable(this.restoreType);
     }
 
+    /**
+     * The identifier of the source database cluster from which to restore.
+     * 
+     */
     @Import(name="sourceClusterIdentifier", required=true)
     private Output<String> sourceClusterIdentifier;
 
+    /**
+     * @return The identifier of the source database cluster from which to restore.
+     * 
+     */
     public Output<String> sourceClusterIdentifier() {
         return this.sourceClusterIdentifier;
     }
 
+    /**
+     * Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
+     * 
+     */
     @Import(name="useLatestRestorableTime")
     private @Nullable Output<Boolean> useLatestRestorableTime;
 
+    /**
+     * @return Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
+     * 
+     */
     public Optional<Output<Boolean>> useLatestRestorableTime() {
         return Optional.ofNullable(this.useLatestRestorableTime);
     }
@@ -71,38 +105,88 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
             $ = new ClusterRestoreToPointInTimeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param restoreToTime Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder restoreToTime(@Nullable Output<String> restoreToTime) {
             $.restoreToTime = restoreToTime;
             return this;
         }
 
+        /**
+         * @param restoreToTime Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder restoreToTime(String restoreToTime) {
             return restoreToTime(Output.of(restoreToTime));
         }
 
+        /**
+         * @param restoreType Type of restore to be performed.
+         * Valid options are `full-copy` (default) and `copy-on-write`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder restoreType(@Nullable Output<String> restoreType) {
             $.restoreType = restoreType;
             return this;
         }
 
+        /**
+         * @param restoreType Type of restore to be performed.
+         * Valid options are `full-copy` (default) and `copy-on-write`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder restoreType(String restoreType) {
             return restoreType(Output.of(restoreType));
         }
 
+        /**
+         * @param sourceClusterIdentifier The identifier of the source database cluster from which to restore.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceClusterIdentifier(Output<String> sourceClusterIdentifier) {
             $.sourceClusterIdentifier = sourceClusterIdentifier;
             return this;
         }
 
+        /**
+         * @param sourceClusterIdentifier The identifier of the source database cluster from which to restore.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceClusterIdentifier(String sourceClusterIdentifier) {
             return sourceClusterIdentifier(Output.of(sourceClusterIdentifier));
         }
 
+        /**
+         * @param useLatestRestorableTime Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder useLatestRestorableTime(@Nullable Output<Boolean> useLatestRestorableTime) {
             $.useLatestRestorableTime = useLatestRestorableTime;
             return this;
         }
 
+        /**
+         * @param useLatestRestorableTime Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder useLatestRestorableTime(Boolean useLatestRestorableTime) {
             return useLatestRestorableTime(Output.of(useLatestRestorableTime));
         }

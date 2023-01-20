@@ -11,18 +11,68 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an S3 Location within AWS DataSync.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datasync.NewS3Location(ctx, "example", &datasync.S3LocationArgs{
+//				S3BucketArn:  pulumi.Any(aws_s3_bucket.Example.Arn),
+//				Subdirectory: pulumi.String("/example/prefix"),
+//				S3Config: &datasync.S3LocationS3ConfigArgs{
+//					BucketAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// `aws_datasync_location_s3` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+//
+// ```
 type S3Location struct {
 	pulumi.CustomResourceState
 
-	AgentArns      pulumi.StringArrayOutput `pulumi:"agentArns"`
-	Arn            pulumi.StringOutput      `pulumi:"arn"`
-	S3BucketArn    pulumi.StringOutput      `pulumi:"s3BucketArn"`
-	S3Config       S3LocationS3ConfigOutput `pulumi:"s3Config"`
-	S3StorageClass pulumi.StringOutput      `pulumi:"s3StorageClass"`
-	Subdirectory   pulumi.StringOutput      `pulumi:"subdirectory"`
-	Tags           pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll        pulumi.StringMapOutput   `pulumi:"tagsAll"`
-	Uri            pulumi.StringOutput      `pulumi:"uri"`
+	// A list of DataSync Agent ARNs with which this location will be associated.
+	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
+	// Amazon Resource Name (ARN) of the DataSync Location.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Amazon Resource Name (ARN) of the S3 Bucket.
+	S3BucketArn pulumi.StringOutput `pulumi:"s3BucketArn"`
+	// Configuration block containing information for connecting to S3.
+	S3Config S3LocationS3ConfigOutput `pulumi:"s3Config"`
+	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+	S3StorageClass pulumi.StringOutput `pulumi:"s3StorageClass"`
+	// Prefix to perform actions as source or destination.
+	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Uri     pulumi.StringOutput    `pulumi:"uri"`
 }
 
 // NewS3Location registers a new resource with the given unique name, arguments, and options.
@@ -63,27 +113,43 @@ func GetS3Location(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering S3Location resources.
 type s3locationState struct {
-	AgentArns      []string            `pulumi:"agentArns"`
-	Arn            *string             `pulumi:"arn"`
-	S3BucketArn    *string             `pulumi:"s3BucketArn"`
-	S3Config       *S3LocationS3Config `pulumi:"s3Config"`
-	S3StorageClass *string             `pulumi:"s3StorageClass"`
-	Subdirectory   *string             `pulumi:"subdirectory"`
-	Tags           map[string]string   `pulumi:"tags"`
-	TagsAll        map[string]string   `pulumi:"tagsAll"`
-	Uri            *string             `pulumi:"uri"`
+	// A list of DataSync Agent ARNs with which this location will be associated.
+	AgentArns []string `pulumi:"agentArns"`
+	// Amazon Resource Name (ARN) of the DataSync Location.
+	Arn *string `pulumi:"arn"`
+	// Amazon Resource Name (ARN) of the S3 Bucket.
+	S3BucketArn *string `pulumi:"s3BucketArn"`
+	// Configuration block containing information for connecting to S3.
+	S3Config *S3LocationS3Config `pulumi:"s3Config"`
+	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+	S3StorageClass *string `pulumi:"s3StorageClass"`
+	// Prefix to perform actions as source or destination.
+	Subdirectory *string `pulumi:"subdirectory"`
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	Uri     *string           `pulumi:"uri"`
 }
 
 type S3LocationState struct {
-	AgentArns      pulumi.StringArrayInput
-	Arn            pulumi.StringPtrInput
-	S3BucketArn    pulumi.StringPtrInput
-	S3Config       S3LocationS3ConfigPtrInput
+	// A list of DataSync Agent ARNs with which this location will be associated.
+	AgentArns pulumi.StringArrayInput
+	// Amazon Resource Name (ARN) of the DataSync Location.
+	Arn pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the S3 Bucket.
+	S3BucketArn pulumi.StringPtrInput
+	// Configuration block containing information for connecting to S3.
+	S3Config S3LocationS3ConfigPtrInput
+	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
 	S3StorageClass pulumi.StringPtrInput
-	Subdirectory   pulumi.StringPtrInput
-	Tags           pulumi.StringMapInput
-	TagsAll        pulumi.StringMapInput
-	Uri            pulumi.StringPtrInput
+	// Prefix to perform actions as source or destination.
+	Subdirectory pulumi.StringPtrInput
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	Uri     pulumi.StringPtrInput
 }
 
 func (S3LocationState) ElementType() reflect.Type {
@@ -91,22 +157,34 @@ func (S3LocationState) ElementType() reflect.Type {
 }
 
 type s3locationArgs struct {
-	AgentArns      []string           `pulumi:"agentArns"`
-	S3BucketArn    string             `pulumi:"s3BucketArn"`
-	S3Config       S3LocationS3Config `pulumi:"s3Config"`
-	S3StorageClass *string            `pulumi:"s3StorageClass"`
-	Subdirectory   string             `pulumi:"subdirectory"`
-	Tags           map[string]string  `pulumi:"tags"`
+	// A list of DataSync Agent ARNs with which this location will be associated.
+	AgentArns []string `pulumi:"agentArns"`
+	// Amazon Resource Name (ARN) of the S3 Bucket.
+	S3BucketArn string `pulumi:"s3BucketArn"`
+	// Configuration block containing information for connecting to S3.
+	S3Config S3LocationS3Config `pulumi:"s3Config"`
+	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+	S3StorageClass *string `pulumi:"s3StorageClass"`
+	// Prefix to perform actions as source or destination.
+	Subdirectory string `pulumi:"subdirectory"`
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a S3Location resource.
 type S3LocationArgs struct {
-	AgentArns      pulumi.StringArrayInput
-	S3BucketArn    pulumi.StringInput
-	S3Config       S3LocationS3ConfigInput
+	// A list of DataSync Agent ARNs with which this location will be associated.
+	AgentArns pulumi.StringArrayInput
+	// Amazon Resource Name (ARN) of the S3 Bucket.
+	S3BucketArn pulumi.StringInput
+	// Configuration block containing information for connecting to S3.
+	S3Config S3LocationS3ConfigInput
+	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
 	S3StorageClass pulumi.StringPtrInput
-	Subdirectory   pulumi.StringInput
-	Tags           pulumi.StringMapInput
+	// Prefix to perform actions as source or destination.
+	Subdirectory pulumi.StringInput
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (S3LocationArgs) ElementType() reflect.Type {
@@ -196,34 +274,42 @@ func (o S3LocationOutput) ToS3LocationOutputWithContext(ctx context.Context) S3L
 	return o
 }
 
+// A list of DataSync Agent ARNs with which this location will be associated.
 func (o S3LocationOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringArrayOutput { return v.AgentArns }).(pulumi.StringArrayOutput)
 }
 
+// Amazon Resource Name (ARN) of the DataSync Location.
 func (o S3LocationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Amazon Resource Name (ARN) of the S3 Bucket.
 func (o S3LocationOutput) S3BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringOutput { return v.S3BucketArn }).(pulumi.StringOutput)
 }
 
+// Configuration block containing information for connecting to S3.
 func (o S3LocationOutput) S3Config() S3LocationS3ConfigOutput {
 	return o.ApplyT(func(v *S3Location) S3LocationS3ConfigOutput { return v.S3Config }).(S3LocationS3ConfigOutput)
 }
 
+// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
 func (o S3LocationOutput) S3StorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringOutput { return v.S3StorageClass }).(pulumi.StringOutput)
 }
 
+// Prefix to perform actions as source or destination.
 func (o S3LocationOutput) Subdirectory() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringOutput { return v.Subdirectory }).(pulumi.StringOutput)
 }
 
+// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o S3LocationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o S3LocationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

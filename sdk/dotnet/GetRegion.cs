@@ -11,9 +11,67 @@ namespace Pulumi.Aws
 {
     public static class GetRegion
     {
+        /// <summary>
+        /// `aws.getRegion` provides details about a specific AWS region.
+        /// 
+        /// As well as validating a given region name this resource can be used to
+        /// discover the name of the region configured within the provider. The latter
+        /// can be useful in a child module which is inheriting an AWS provider
+        /// configuration from its parent module.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following example shows how the resource might be used to obtain
+        /// the name of the AWS region configured on the provider.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetRegion.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetRegionResult> InvokeAsync(GetRegionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegionResult>("aws:index/getRegion:getRegion", args ?? new GetRegionArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// `aws.getRegion` provides details about a specific AWS region.
+        /// 
+        /// As well as validating a given region name this resource can be used to
+        /// discover the name of the region configured within the provider. The latter
+        /// can be useful in a child module which is inheriting an AWS provider
+        /// configuration from its parent module.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following example shows how the resource might be used to obtain
+        /// the name of the AWS region configured on the provider.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetRegion.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetRegionResult> Invoke(GetRegionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegionResult>("aws:index/getRegion:getRegion", args ?? new GetRegionInvokeArgs(), options.WithDefaults());
     }
@@ -21,9 +79,15 @@ namespace Pulumi.Aws
 
     public sealed class GetRegionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// EC2 endpoint of the region to select.
+        /// </summary>
         [Input("endpoint")]
         public string? Endpoint { get; set; }
 
+        /// <summary>
+        /// Full name of the region to select.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -35,9 +99,15 @@ namespace Pulumi.Aws
 
     public sealed class GetRegionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// EC2 endpoint of the region to select.
+        /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
+        /// <summary>
+        /// Full name of the region to select.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -51,12 +121,21 @@ namespace Pulumi.Aws
     [OutputType]
     public sealed class GetRegionResult
     {
+        /// <summary>
+        /// Region's description in this format: "Location (Region name)".
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// EC2 endpoint for the selected region.
+        /// </summary>
         public readonly string Endpoint;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Name of the selected region.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

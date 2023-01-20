@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification
     {
+        /// <summary>
+        /// Metric type. Valid values are `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`, or `ALBTargetGroupRequestCount`.
+        /// </summary>
         public readonly string PredefinedMetricType;
+        /// <summary>
+        /// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+        /// </summary>
         public readonly string ResourceLabel;
 
         [OutputConstructor]

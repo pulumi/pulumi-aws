@@ -14,35 +14,120 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Route53 traffic policy instance resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.route53.TrafficPolicyInstance;
+ * import com.pulumi.aws.route53.TrafficPolicyInstanceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new TrafficPolicyInstance(&#34;test&#34;, TrafficPolicyInstanceArgs.builder()        
+ *             .hostedZoneId(&#34;Z033120931TAQO548OGJC&#34;)
+ *             .trafficPolicyId(&#34;b3gb108f-ea6f-45a5-baab-9d112d8b4037&#34;)
+ *             .trafficPolicyVersion(1)
+ *             .ttl(360)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Route53 traffic policy instance can be imported using its id.
+ * 
+ * ```sh
+ *  $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
+ * ```
+ * 
+ */
 @ResourceType(type="aws:route53/trafficPolicyInstance:TrafficPolicyInstance")
 public class TrafficPolicyInstance extends com.pulumi.resources.CustomResource {
+    /**
+     * ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
+     * 
+     */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
     private Output<String> hostedZoneId;
 
+    /**
+     * @return ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
+     * 
+     */
     public Output<String> hostedZoneId() {
         return this.hostedZoneId;
     }
+    /**
+     * Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
+     * 
+     */
     @Export(name="trafficPolicyId", refs={String.class}, tree="[0]")
     private Output<String> trafficPolicyId;
 
+    /**
+     * @return ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
+     * 
+     */
     public Output<String> trafficPolicyId() {
         return this.trafficPolicyId;
     }
+    /**
+     * Version of the traffic policy
+     * 
+     */
     @Export(name="trafficPolicyVersion", refs={Integer.class}, tree="[0]")
     private Output<Integer> trafficPolicyVersion;
 
+    /**
+     * @return Version of the traffic policy
+     * 
+     */
     public Output<Integer> trafficPolicyVersion() {
         return this.trafficPolicyVersion;
     }
+    /**
+     * TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
+     * 
+     */
     @Export(name="ttl", refs={Integer.class}, tree="[0]")
     private Output<Integer> ttl;
 
+    /**
+     * @return TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
+     * 
+     */
     public Output<Integer> ttl() {
         return this.ttl;
     }

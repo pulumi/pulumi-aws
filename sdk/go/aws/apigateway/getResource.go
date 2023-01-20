@@ -10,6 +10,41 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to get the id of a Resource in API Gateway.
+// To fetch the Resource, you must provide the REST API id as well as the full path.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myRestApi, err := apigateway.LookupRestApi(ctx, &apigateway.LookupRestApiArgs{
+//				Name: "my-rest-api",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.LookupResource(ctx, &apigateway.LookupResourceArgs{
+//				RestApiId: myRestApi.Id,
+//				Path:      "/endpoint/path",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {
 	var rv LookupResourceResult
 	err := ctx.Invoke("aws:apigateway/getResource:getResource", args, &rv, opts...)
@@ -21,16 +56,20 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 
 // A collection of arguments for invoking getResource.
 type LookupResourceArgs struct {
-	Path      string `pulumi:"path"`
+	// Full path of the resource.  If no path is found, an error will be returned.
+	Path string `pulumi:"path"`
+	// REST API id that owns the resource. If no REST API is found, an error will be returned.
 	RestApiId string `pulumi:"restApiId"`
 }
 
 // A collection of values returned by getResource.
 type LookupResourceResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id        string `pulumi:"id"`
-	ParentId  string `pulumi:"parentId"`
-	Path      string `pulumi:"path"`
+	Id string `pulumi:"id"`
+	// Set to the ID of the parent Resource.
+	ParentId string `pulumi:"parentId"`
+	Path     string `pulumi:"path"`
+	// Set to the path relative to the parent Resource.
 	PathPart  string `pulumi:"pathPart"`
 	RestApiId string `pulumi:"restApiId"`
 }
@@ -50,7 +89,9 @@ func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, op
 
 // A collection of arguments for invoking getResource.
 type LookupResourceOutputArgs struct {
-	Path      pulumi.StringInput `pulumi:"path"`
+	// Full path of the resource.  If no path is found, an error will be returned.
+	Path pulumi.StringInput `pulumi:"path"`
+	// REST API id that owns the resource. If no REST API is found, an error will be returned.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
 
@@ -78,6 +119,7 @@ func (o LookupResourceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Set to the ID of the parent Resource.
 func (o LookupResourceResultOutput) ParentId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.ParentId }).(pulumi.StringOutput)
 }
@@ -86,6 +128,7 @@ func (o LookupResourceResultOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.Path }).(pulumi.StringOutput)
 }
 
+// Set to the path relative to the parent Resource.
 func (o LookupResourceResultOutput) PathPart() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.PathPart }).(pulumi.StringOutput)
 }

@@ -9,15 +9,60 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SsoAdmin
 {
+    /// <summary>
+    /// Attaches a permissions boundary policy to a Single Sign-On (SSO) Permission Set resource.
+    /// 
+    /// &gt; **NOTE:** A permission set can have at most one permissions boundary attached; using more than one `aws.ssoadmin.PermissionsBoundaryAttachment` references the same permission set will show a permanent difference.
+    /// 
+    /// ## Example Usage
+    /// ### Attaching an AWS-managed policy
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.SsoAdmin.PermissionsBoundaryAttachment("example", new()
+    ///     {
+    ///         InstanceArn = aws_ssoadmin_permission_set.Example.Instance_arn,
+    ///         PermissionSetArn = aws_ssoadmin_permission_set.Example.Arn,
+    ///         PermissionsBoundary = new Aws.SsoAdmin.Inputs.PermissionsBoundaryAttachmentPermissionsBoundaryArgs
+    ///         {
+    ///             ManagedPolicyArn = "arn:aws:iam::aws:policy/ReadOnlyAccess",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SSO Admin Permissions Boundary Attachments can be imported using the `permission_set_arn` and `instance_arn`, separated by a comma (`,`) e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment")]
     public partial class PermissionsBoundaryAttachment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        /// </summary>
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Permission Set.
+        /// </summary>
         [Output("permissionSetArn")]
         public Output<string> PermissionSetArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The permissions boundary policy. See below.
+        /// </summary>
         [Output("permissionsBoundary")]
         public Output<Outputs.PermissionsBoundaryAttachmentPermissionsBoundary> PermissionsBoundary { get; private set; } = null!;
 
@@ -67,12 +112,21 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class PermissionsBoundaryAttachmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Permission Set.
+        /// </summary>
         [Input("permissionSetArn", required: true)]
         public Input<string> PermissionSetArn { get; set; } = null!;
 
+        /// <summary>
+        /// The permissions boundary policy. See below.
+        /// </summary>
         [Input("permissionsBoundary", required: true)]
         public Input<Inputs.PermissionsBoundaryAttachmentPermissionsBoundaryArgs> PermissionsBoundary { get; set; } = null!;
 
@@ -84,12 +138,21 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class PermissionsBoundaryAttachmentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        /// </summary>
         [Input("instanceArn")]
         public Input<string>? InstanceArn { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Permission Set.
+        /// </summary>
         [Input("permissionSetArn")]
         public Input<string>? PermissionSetArn { get; set; }
 
+        /// <summary>
+        /// The permissions boundary policy. See below.
+        /// </summary>
         [Input("permissionsBoundary")]
         public Input<Inputs.PermissionsBoundaryAttachmentPermissionsBoundaryGetArgs>? PermissionsBoundary { get; set; }
 

@@ -16,16 +16,32 @@ public final class BrokerConfigurationArgs extends com.pulumi.resources.Resource
 
     public static final BrokerConfigurationArgs Empty = new BrokerConfigurationArgs();
 
+    /**
+     * The Configuration ID.
+     * 
+     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
+    /**
+     * @return The Configuration ID.
+     * 
+     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * Revision of the Configuration.
+     * 
+     */
     @Import(name="revision")
     private @Nullable Output<Integer> revision;
 
+    /**
+     * @return Revision of the Configuration.
+     * 
+     */
     public Optional<Output<Integer>> revision() {
         return Optional.ofNullable(this.revision);
     }
@@ -55,20 +71,44 @@ public final class BrokerConfigurationArgs extends com.pulumi.resources.Resource
             $ = new BrokerConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param id The Configuration ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param id The Configuration ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
+        /**
+         * @param revision Revision of the Configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder revision(@Nullable Output<Integer> revision) {
             $.revision = revision;
             return this;
         }
 
+        /**
+         * @param revision Revision of the Configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder revision(Integer revision) {
             return revision(Output.of(revision));
         }

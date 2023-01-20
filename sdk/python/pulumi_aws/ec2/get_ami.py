@@ -145,41 +145,66 @@ class GetAmiResult:
     @property
     @pulumi.getter
     def architecture(self) -> str:
+        """
+        OS architecture of the AMI (ie: `i386` or `x86_64`).
+        """
         return pulumi.get(self, "architecture")
 
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the AMI.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> Sequence['outputs.GetAmiBlockDeviceMappingResult']:
+        """
+        Set of objects with block device mappings of the AMI.
+        """
         return pulumi.get(self, "block_device_mappings")
 
     @property
     @pulumi.getter(name="bootMode")
     def boot_mode(self) -> str:
+        """
+        Boot mode of the image.
+        """
         return pulumi.get(self, "boot_mode")
 
     @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> str:
+        """
+        Date and time the image was created.
+        """
         return pulumi.get(self, "creation_date")
 
     @property
     @pulumi.getter(name="deprecationTime")
     def deprecation_time(self) -> str:
+        """
+        Date and time when the image will be deprecated.
+        """
         return pulumi.get(self, "deprecation_time")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the AMI that was provided during image
+        creation.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="enaSupport")
     def ena_support(self) -> bool:
+        """
+        Whether enhanced networking with ENA is enabled.
+        """
         return pulumi.get(self, "ena_support")
 
     @property
@@ -195,6 +220,9 @@ class GetAmiResult:
     @property
     @pulumi.getter
     def hypervisor(self) -> str:
+        """
+        Hypervisor type of the image.
+        """
         return pulumi.get(self, "hypervisor")
 
     @property
@@ -208,26 +236,42 @@ class GetAmiResult:
     @property
     @pulumi.getter(name="imageId")
     def image_id(self) -> str:
+        """
+        ID of the AMI. Should be the same as the resource `id`.
+        """
         return pulumi.get(self, "image_id")
 
     @property
     @pulumi.getter(name="imageLocation")
     def image_location(self) -> str:
+        """
+        Location of the AMI.
+        """
         return pulumi.get(self, "image_location")
 
     @property
     @pulumi.getter(name="imageOwnerAlias")
     def image_owner_alias(self) -> str:
+        """
+        AWS account alias (for example, `amazon`, `self`) or
+        the AWS account ID of the AMI owner.
+        """
         return pulumi.get(self, "image_owner_alias")
 
     @property
     @pulumi.getter(name="imageType")
     def image_type(self) -> str:
+        """
+        Type of image.
+        """
         return pulumi.get(self, "image_type")
 
     @property
     @pulumi.getter(name="imdsSupport")
     def imds_support(self) -> str:
+        """
+        Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.
+        """
         return pulumi.get(self, "imds_support")
 
     @property
@@ -238,6 +282,10 @@ class GetAmiResult:
     @property
     @pulumi.getter(name="kernelId")
     def kernel_id(self) -> str:
+        """
+        Kernel associated with the image, if any. Only applicable
+        for machine images.
+        """
         return pulumi.get(self, "kernel_id")
 
     @property
@@ -248,6 +296,9 @@ class GetAmiResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the AMI that was provided during image creation.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -258,6 +309,9 @@ class GetAmiResult:
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
+        """
+        AWS account ID of the image owner.
+        """
         return pulumi.get(self, "owner_id")
 
     @property
@@ -268,76 +322,131 @@ class GetAmiResult:
     @property
     @pulumi.getter
     def platform(self) -> str:
+        """
+        Value is Windows for `Windows` AMIs; otherwise blank.
+        """
         return pulumi.get(self, "platform")
 
     @property
     @pulumi.getter(name="platformDetails")
     def platform_details(self) -> str:
+        """
+        Platform details associated with the billing code of the AMI.
+        """
         return pulumi.get(self, "platform_details")
 
     @property
     @pulumi.getter(name="productCodes")
     def product_codes(self) -> Sequence['outputs.GetAmiProductCodeResult']:
+        """
+        Any product codes associated with the AMI.
+        * `product_codes.#.product_code_id` - The product code.
+        * `product_codes.#.product_code_type` - The type of product code.
+        """
         return pulumi.get(self, "product_codes")
 
     @property
     @pulumi.getter
     def public(self) -> bool:
+        """
+        `true` if the image has public launch permissions.
+        """
         return pulumi.get(self, "public")
 
     @property
     @pulumi.getter(name="ramdiskId")
     def ramdisk_id(self) -> str:
+        """
+        RAM disk associated with the image, if any. Only applicable
+        for machine images.
+        """
         return pulumi.get(self, "ramdisk_id")
 
     @property
     @pulumi.getter(name="rootDeviceName")
     def root_device_name(self) -> str:
+        """
+        Device name of the root device.
+        """
         return pulumi.get(self, "root_device_name")
 
     @property
     @pulumi.getter(name="rootDeviceType")
     def root_device_type(self) -> str:
+        """
+        Type of root device (ie: `ebs` or `instance-store`).
+        """
         return pulumi.get(self, "root_device_type")
 
     @property
     @pulumi.getter(name="rootSnapshotId")
     def root_snapshot_id(self) -> str:
+        """
+        Snapshot id associated with the root device, if any
+        (only applies to `ebs` root devices).
+        """
         return pulumi.get(self, "root_snapshot_id")
 
     @property
     @pulumi.getter(name="sriovNetSupport")
     def sriov_net_support(self) -> str:
+        """
+        Whether enhanced networking is enabled.
+        """
         return pulumi.get(self, "sriov_net_support")
 
     @property
     @pulumi.getter
     def state(self) -> str:
+        """
+        Current state of the AMI. If the state is `available`, the image
+        is successfully registered and can be used to launch an instance.
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="stateReason")
     def state_reason(self) -> Mapping[str, str]:
+        """
+        Describes a state change. Fields are `UNSET` if not available.
+        * `state_reason.code` - The reason code for the state change.
+        * `state_reason.message` - The message for the state change.
+        """
         return pulumi.get(self, "state_reason")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Any tags assigned to the image.
+        * `tags.#.key` - Key name of the tag.
+        * `tags.#.value` - Value of the tag.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tpmSupport")
     def tpm_support(self) -> str:
+        """
+        If the image is configured for NitroTPM support, the value is `v2.0`.
+        """
         return pulumi.get(self, "tpm_support")
 
     @property
     @pulumi.getter(name="usageOperation")
     def usage_operation(self) -> str:
+        """
+        Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+        """
         return pulumi.get(self, "usage_operation")
 
     @property
     @pulumi.getter(name="virtualizationType")
     def virtualization_type(self) -> str:
+        """
+        Type of virtualization of the AMI (ie: `hvm` or
+        `paravirtual`).
+        """
         return pulumi.get(self, "virtualization_type")
 
 
@@ -397,7 +506,53 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
             tags: Optional[Mapping[str, str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAmiResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get the ID of a registered AMI for use in other
+    resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2.get_ami(executable_users=["self"],
+        filters=[
+            aws.ec2.GetAmiFilterArgs(
+                name="name",
+                values=["myami-*"],
+            ),
+            aws.ec2.GetAmiFilterArgs(
+                name="root-device-type",
+                values=["ebs"],
+            ),
+            aws.ec2.GetAmiFilterArgs(
+                name="virtualization-type",
+                values=["hvm"],
+            ),
+        ],
+        most_recent=True,
+        name_regex="^myami-\\\\d{3}",
+        owners=["self"])
+    ```
+
+
+    :param Sequence[str] executable_users: Limit search to users with *explicit* launch permission on
+           the image. Valid items are the numeric account ID or `self`.
+    :param Sequence[pulumi.InputType['GetAmiFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+           several valid keys, for a full reference, check out
+           [describe-images in the AWS CLI reference][1].
+    :param bool include_deprecated: If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
+    :param bool most_recent: If more than one result is returned, use the most
+           recent AMI.
+    :param str name_regex: Regex string to apply to the AMI list returned
+           by AWS. This allows more advanced filtering not supported from the AWS API. This
+           filtering is done locally on what AWS returns, and could have a performance
+           impact if the result is large. Combine this with other
+           options to narrow down the list AWS returns.
+    :param Sequence[str] owners: List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+    :param Mapping[str, str] tags: Any tags assigned to the image.
+           * `tags.#.key` - Key name of the tag.
+           * `tags.#.value` - Value of the tag.
     """
     __args__ = dict()
     __args__['executableUsers'] = executable_users
@@ -462,6 +617,52 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAmiResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get the ID of a registered AMI for use in other
+    resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2.get_ami(executable_users=["self"],
+        filters=[
+            aws.ec2.GetAmiFilterArgs(
+                name="name",
+                values=["myami-*"],
+            ),
+            aws.ec2.GetAmiFilterArgs(
+                name="root-device-type",
+                values=["ebs"],
+            ),
+            aws.ec2.GetAmiFilterArgs(
+                name="virtualization-type",
+                values=["hvm"],
+            ),
+        ],
+        most_recent=True,
+        name_regex="^myami-\\\\d{3}",
+        owners=["self"])
+    ```
+
+
+    :param Sequence[str] executable_users: Limit search to users with *explicit* launch permission on
+           the image. Valid items are the numeric account ID or `self`.
+    :param Sequence[pulumi.InputType['GetAmiFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+           several valid keys, for a full reference, check out
+           [describe-images in the AWS CLI reference][1].
+    :param bool include_deprecated: If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
+    :param bool most_recent: If more than one result is returned, use the most
+           recent AMI.
+    :param str name_regex: Regex string to apply to the AMI list returned
+           by AWS. This allows more advanced filtering not supported from the AWS API. This
+           filtering is done locally on what AWS returns, and could have a performance
+           impact if the result is large. Combine this with other
+           options to narrow down the list AWS returns.
+    :param Sequence[str] owners: List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+    :param Mapping[str, str] tags: Any tags assigned to the image.
+           * `tags.#.key` - Key name of the tag.
+           * `tags.#.value` - Value of the tag.
     """
     ...

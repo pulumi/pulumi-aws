@@ -40,6 +40,32 @@ class StackArgs:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Stack resource.
+        :param pulumi.Input[str] default_instance_profile_arn: The ARN of an IAM Instance Profile that created instances will have by default.
+        :param pulumi.Input[str] region: The name of the region where the stack will exist.
+        :param pulumi.Input[str] service_role_arn: The ARN of an IAM role that the OpsWorks service will act as.
+        :param pulumi.Input[str] agent_version: If set to `"LATEST"`, OpsWorks will automatically install the latest version.
+        :param pulumi.Input[str] berkshelf_version: If `manage_berkshelf` is enabled, the version of Berkshelf to use.
+        :param pulumi.Input[str] color: Color to paint next to the stack's resources in the OpsWorks console.
+        :param pulumi.Input[str] configuration_manager_name: Name of the configuration manager to use. Defaults to "Chef".
+        :param pulumi.Input[str] configuration_manager_version: Version of the configuration manager to use. Defaults to "11.4".
+        :param pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as described below.
+        :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the entire stack.
+        :param pulumi.Input[str] default_availability_zone: Name of the availability zone where instances will be created by default.
+               Cannot be set when `vpc_id` is set.
+        :param pulumi.Input[str] default_os: Name of OS that will be installed on instances by default.
+        :param pulumi.Input[str] default_root_device_type: Name of the type of root device instances will have by default.
+        :param pulumi.Input[str] default_ssh_key_name: Name of the SSH keypair that instances will have by default.
+        :param pulumi.Input[str] default_subnet_id: ID of the subnet in which instances will be created by default.
+               Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
+        :param pulumi.Input[str] hostname_theme: Keyword representing the naming scheme that will be used for instance hostnames within this stack.
+        :param pulumi.Input[bool] manage_berkshelf: Boolean value controlling whether Opsworks will run Berkshelf for this stack.
+        :param pulumi.Input[str] name: The name of the stack.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+               If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[bool] use_custom_cookbooks: Boolean value controlling whether the custom cookbook settings are enabled.
+        :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
+        :param pulumi.Input[str] vpc_id: ID of the VPC that this stack belongs to.
+               Defaults to the region's default VPC.
         """
         pulumi.set(__self__, "default_instance_profile_arn", default_instance_profile_arn)
         pulumi.set(__self__, "region", region)
@@ -86,6 +112,9 @@ class StackArgs:
     @property
     @pulumi.getter(name="defaultInstanceProfileArn")
     def default_instance_profile_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of an IAM Instance Profile that created instances will have by default.
+        """
         return pulumi.get(self, "default_instance_profile_arn")
 
     @default_instance_profile_arn.setter
@@ -95,6 +124,9 @@ class StackArgs:
     @property
     @pulumi.getter
     def region(self) -> pulumi.Input[str]:
+        """
+        The name of the region where the stack will exist.
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -104,6 +136,9 @@ class StackArgs:
     @property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of an IAM role that the OpsWorks service will act as.
+        """
         return pulumi.get(self, "service_role_arn")
 
     @service_role_arn.setter
@@ -113,6 +148,9 @@ class StackArgs:
     @property
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        If set to `"LATEST"`, OpsWorks will automatically install the latest version.
+        """
         return pulumi.get(self, "agent_version")
 
     @agent_version.setter
@@ -122,6 +160,9 @@ class StackArgs:
     @property
     @pulumi.getter(name="berkshelfVersion")
     def berkshelf_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        If `manage_berkshelf` is enabled, the version of Berkshelf to use.
+        """
         return pulumi.get(self, "berkshelf_version")
 
     @berkshelf_version.setter
@@ -131,6 +172,9 @@ class StackArgs:
     @property
     @pulumi.getter
     def color(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color to paint next to the stack's resources in the OpsWorks console.
+        """
         return pulumi.get(self, "color")
 
     @color.setter
@@ -140,6 +184,9 @@ class StackArgs:
     @property
     @pulumi.getter(name="configurationManagerName")
     def configuration_manager_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the configuration manager to use. Defaults to "Chef".
+        """
         return pulumi.get(self, "configuration_manager_name")
 
     @configuration_manager_name.setter
@@ -149,6 +196,9 @@ class StackArgs:
     @property
     @pulumi.getter(name="configurationManagerVersion")
     def configuration_manager_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the configuration manager to use. Defaults to "11.4".
+        """
         return pulumi.get(self, "configuration_manager_version")
 
     @configuration_manager_version.setter
@@ -158,6 +208,9 @@ class StackArgs:
     @property
     @pulumi.getter(name="customCookbooksSources")
     def custom_cookbooks_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]]]:
+        """
+        When `use_custom_cookbooks` is set, provide this sub-object as described below.
+        """
         return pulumi.get(self, "custom_cookbooks_sources")
 
     @custom_cookbooks_sources.setter
@@ -167,6 +220,9 @@ class StackArgs:
     @property
     @pulumi.getter(name="customJson")
     def custom_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom JSON attributes to apply to the entire stack.
+        """
         return pulumi.get(self, "custom_json")
 
     @custom_json.setter
@@ -176,6 +232,10 @@ class StackArgs:
     @property
     @pulumi.getter(name="defaultAvailabilityZone")
     def default_availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the availability zone where instances will be created by default.
+        Cannot be set when `vpc_id` is set.
+        """
         return pulumi.get(self, "default_availability_zone")
 
     @default_availability_zone.setter
@@ -185,6 +245,9 @@ class StackArgs:
     @property
     @pulumi.getter(name="defaultOs")
     def default_os(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of OS that will be installed on instances by default.
+        """
         return pulumi.get(self, "default_os")
 
     @default_os.setter
@@ -194,6 +257,9 @@ class StackArgs:
     @property
     @pulumi.getter(name="defaultRootDeviceType")
     def default_root_device_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the type of root device instances will have by default.
+        """
         return pulumi.get(self, "default_root_device_type")
 
     @default_root_device_type.setter
@@ -203,6 +269,9 @@ class StackArgs:
     @property
     @pulumi.getter(name="defaultSshKeyName")
     def default_ssh_key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the SSH keypair that instances will have by default.
+        """
         return pulumi.get(self, "default_ssh_key_name")
 
     @default_ssh_key_name.setter
@@ -212,6 +281,10 @@ class StackArgs:
     @property
     @pulumi.getter(name="defaultSubnetId")
     def default_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the subnet in which instances will be created by default.
+        Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
+        """
         return pulumi.get(self, "default_subnet_id")
 
     @default_subnet_id.setter
@@ -221,6 +294,9 @@ class StackArgs:
     @property
     @pulumi.getter(name="hostnameTheme")
     def hostname_theme(self) -> Optional[pulumi.Input[str]]:
+        """
+        Keyword representing the naming scheme that will be used for instance hostnames within this stack.
+        """
         return pulumi.get(self, "hostname_theme")
 
     @hostname_theme.setter
@@ -230,6 +306,9 @@ class StackArgs:
     @property
     @pulumi.getter(name="manageBerkshelf")
     def manage_berkshelf(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean value controlling whether Opsworks will run Berkshelf for this stack.
+        """
         return pulumi.get(self, "manage_berkshelf")
 
     @manage_berkshelf.setter
@@ -239,6 +318,9 @@ class StackArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the stack.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -248,6 +330,10 @@ class StackArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -257,6 +343,9 @@ class StackArgs:
     @property
     @pulumi.getter(name="useCustomCookbooks")
     def use_custom_cookbooks(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean value controlling whether the custom cookbook settings are enabled.
+        """
         return pulumi.get(self, "use_custom_cookbooks")
 
     @use_custom_cookbooks.setter
@@ -266,6 +355,9 @@ class StackArgs:
     @property
     @pulumi.getter(name="useOpsworksSecurityGroups")
     def use_opsworks_security_groups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
+        """
         return pulumi.get(self, "use_opsworks_security_groups")
 
     @use_opsworks_security_groups.setter
@@ -275,6 +367,10 @@ class StackArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the VPC that this stack belongs to.
+        Defaults to the region's default VPC.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -312,6 +408,33 @@ class _StackState:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Stack resources.
+        :param pulumi.Input[str] agent_version: If set to `"LATEST"`, OpsWorks will automatically install the latest version.
+        :param pulumi.Input[str] berkshelf_version: If `manage_berkshelf` is enabled, the version of Berkshelf to use.
+        :param pulumi.Input[str] color: Color to paint next to the stack's resources in the OpsWorks console.
+        :param pulumi.Input[str] configuration_manager_name: Name of the configuration manager to use. Defaults to "Chef".
+        :param pulumi.Input[str] configuration_manager_version: Version of the configuration manager to use. Defaults to "11.4".
+        :param pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as described below.
+        :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the entire stack.
+        :param pulumi.Input[str] default_availability_zone: Name of the availability zone where instances will be created by default.
+               Cannot be set when `vpc_id` is set.
+        :param pulumi.Input[str] default_instance_profile_arn: The ARN of an IAM Instance Profile that created instances will have by default.
+        :param pulumi.Input[str] default_os: Name of OS that will be installed on instances by default.
+        :param pulumi.Input[str] default_root_device_type: Name of the type of root device instances will have by default.
+        :param pulumi.Input[str] default_ssh_key_name: Name of the SSH keypair that instances will have by default.
+        :param pulumi.Input[str] default_subnet_id: ID of the subnet in which instances will be created by default.
+               Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
+        :param pulumi.Input[str] hostname_theme: Keyword representing the naming scheme that will be used for instance hostnames within this stack.
+        :param pulumi.Input[bool] manage_berkshelf: Boolean value controlling whether Opsworks will run Berkshelf for this stack.
+        :param pulumi.Input[str] name: The name of the stack.
+        :param pulumi.Input[str] region: The name of the region where the stack will exist.
+        :param pulumi.Input[str] service_role_arn: The ARN of an IAM role that the OpsWorks service will act as.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+               If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[bool] use_custom_cookbooks: Boolean value controlling whether the custom cookbook settings are enabled.
+        :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
+        :param pulumi.Input[str] vpc_id: ID of the VPC that this stack belongs to.
+               Defaults to the region's default VPC.
         """
         if agent_version is not None:
             pulumi.set(__self__, "agent_version", agent_version)
@@ -367,6 +490,9 @@ class _StackState:
     @property
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        If set to `"LATEST"`, OpsWorks will automatically install the latest version.
+        """
         return pulumi.get(self, "agent_version")
 
     @agent_version.setter
@@ -385,6 +511,9 @@ class _StackState:
     @property
     @pulumi.getter(name="berkshelfVersion")
     def berkshelf_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        If `manage_berkshelf` is enabled, the version of Berkshelf to use.
+        """
         return pulumi.get(self, "berkshelf_version")
 
     @berkshelf_version.setter
@@ -394,6 +523,9 @@ class _StackState:
     @property
     @pulumi.getter
     def color(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color to paint next to the stack's resources in the OpsWorks console.
+        """
         return pulumi.get(self, "color")
 
     @color.setter
@@ -403,6 +535,9 @@ class _StackState:
     @property
     @pulumi.getter(name="configurationManagerName")
     def configuration_manager_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the configuration manager to use. Defaults to "Chef".
+        """
         return pulumi.get(self, "configuration_manager_name")
 
     @configuration_manager_name.setter
@@ -412,6 +547,9 @@ class _StackState:
     @property
     @pulumi.getter(name="configurationManagerVersion")
     def configuration_manager_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the configuration manager to use. Defaults to "11.4".
+        """
         return pulumi.get(self, "configuration_manager_version")
 
     @configuration_manager_version.setter
@@ -421,6 +559,9 @@ class _StackState:
     @property
     @pulumi.getter(name="customCookbooksSources")
     def custom_cookbooks_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]]]:
+        """
+        When `use_custom_cookbooks` is set, provide this sub-object as described below.
+        """
         return pulumi.get(self, "custom_cookbooks_sources")
 
     @custom_cookbooks_sources.setter
@@ -430,6 +571,9 @@ class _StackState:
     @property
     @pulumi.getter(name="customJson")
     def custom_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom JSON attributes to apply to the entire stack.
+        """
         return pulumi.get(self, "custom_json")
 
     @custom_json.setter
@@ -439,6 +583,10 @@ class _StackState:
     @property
     @pulumi.getter(name="defaultAvailabilityZone")
     def default_availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the availability zone where instances will be created by default.
+        Cannot be set when `vpc_id` is set.
+        """
         return pulumi.get(self, "default_availability_zone")
 
     @default_availability_zone.setter
@@ -448,6 +596,9 @@ class _StackState:
     @property
     @pulumi.getter(name="defaultInstanceProfileArn")
     def default_instance_profile_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of an IAM Instance Profile that created instances will have by default.
+        """
         return pulumi.get(self, "default_instance_profile_arn")
 
     @default_instance_profile_arn.setter
@@ -457,6 +608,9 @@ class _StackState:
     @property
     @pulumi.getter(name="defaultOs")
     def default_os(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of OS that will be installed on instances by default.
+        """
         return pulumi.get(self, "default_os")
 
     @default_os.setter
@@ -466,6 +620,9 @@ class _StackState:
     @property
     @pulumi.getter(name="defaultRootDeviceType")
     def default_root_device_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the type of root device instances will have by default.
+        """
         return pulumi.get(self, "default_root_device_type")
 
     @default_root_device_type.setter
@@ -475,6 +632,9 @@ class _StackState:
     @property
     @pulumi.getter(name="defaultSshKeyName")
     def default_ssh_key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the SSH keypair that instances will have by default.
+        """
         return pulumi.get(self, "default_ssh_key_name")
 
     @default_ssh_key_name.setter
@@ -484,6 +644,10 @@ class _StackState:
     @property
     @pulumi.getter(name="defaultSubnetId")
     def default_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the subnet in which instances will be created by default.
+        Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
+        """
         return pulumi.get(self, "default_subnet_id")
 
     @default_subnet_id.setter
@@ -493,6 +657,9 @@ class _StackState:
     @property
     @pulumi.getter(name="hostnameTheme")
     def hostname_theme(self) -> Optional[pulumi.Input[str]]:
+        """
+        Keyword representing the naming scheme that will be used for instance hostnames within this stack.
+        """
         return pulumi.get(self, "hostname_theme")
 
     @hostname_theme.setter
@@ -502,6 +669,9 @@ class _StackState:
     @property
     @pulumi.getter(name="manageBerkshelf")
     def manage_berkshelf(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean value controlling whether Opsworks will run Berkshelf for this stack.
+        """
         return pulumi.get(self, "manage_berkshelf")
 
     @manage_berkshelf.setter
@@ -511,6 +681,9 @@ class _StackState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the stack.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -520,6 +693,9 @@ class _StackState:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the region where the stack will exist.
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -529,6 +705,9 @@ class _StackState:
     @property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of an IAM role that the OpsWorks service will act as.
+        """
         return pulumi.get(self, "service_role_arn")
 
     @service_role_arn.setter
@@ -547,6 +726,10 @@ class _StackState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource.
+        If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -556,6 +739,9 @@ class _StackState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -565,6 +751,9 @@ class _StackState:
     @property
     @pulumi.getter(name="useCustomCookbooks")
     def use_custom_cookbooks(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean value controlling whether the custom cookbook settings are enabled.
+        """
         return pulumi.get(self, "use_custom_cookbooks")
 
     @use_custom_cookbooks.setter
@@ -574,6 +763,9 @@ class _StackState:
     @property
     @pulumi.getter(name="useOpsworksSecurityGroups")
     def use_opsworks_security_groups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
+        """
         return pulumi.get(self, "use_opsworks_security_groups")
 
     @use_opsworks_security_groups.setter
@@ -583,6 +775,10 @@ class _StackState:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the VPC that this stack belongs to.
+        Defaults to the region's default VPC.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -619,9 +815,65 @@ class Stack(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Stack resource with the given unique name, props, and options.
+        Provides an OpsWorks stack resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.opsworks.Stack("main",
+            region="us-west-1",
+            service_role_arn=aws_iam_role["opsworks"]["arn"],
+            default_instance_profile_arn=aws_iam_instance_profile["opsworks"]["arn"],
+            tags={
+                "Name": "foobar-stack",
+            },
+            custom_json=\"\"\"{
+         "foobar": {
+            "version": "1.0.0"
+          }
+        }
+        \"\"\")
+        ```
+
+        ## Import
+
+        OpsWorks stacks can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] agent_version: If set to `"LATEST"`, OpsWorks will automatically install the latest version.
+        :param pulumi.Input[str] berkshelf_version: If `manage_berkshelf` is enabled, the version of Berkshelf to use.
+        :param pulumi.Input[str] color: Color to paint next to the stack's resources in the OpsWorks console.
+        :param pulumi.Input[str] configuration_manager_name: Name of the configuration manager to use. Defaults to "Chef".
+        :param pulumi.Input[str] configuration_manager_version: Version of the configuration manager to use. Defaults to "11.4".
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']]]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as described below.
+        :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the entire stack.
+        :param pulumi.Input[str] default_availability_zone: Name of the availability zone where instances will be created by default.
+               Cannot be set when `vpc_id` is set.
+        :param pulumi.Input[str] default_instance_profile_arn: The ARN of an IAM Instance Profile that created instances will have by default.
+        :param pulumi.Input[str] default_os: Name of OS that will be installed on instances by default.
+        :param pulumi.Input[str] default_root_device_type: Name of the type of root device instances will have by default.
+        :param pulumi.Input[str] default_ssh_key_name: Name of the SSH keypair that instances will have by default.
+        :param pulumi.Input[str] default_subnet_id: ID of the subnet in which instances will be created by default.
+               Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
+        :param pulumi.Input[str] hostname_theme: Keyword representing the naming scheme that will be used for instance hostnames within this stack.
+        :param pulumi.Input[bool] manage_berkshelf: Boolean value controlling whether Opsworks will run Berkshelf for this stack.
+        :param pulumi.Input[str] name: The name of the stack.
+        :param pulumi.Input[str] region: The name of the region where the stack will exist.
+        :param pulumi.Input[str] service_role_arn: The ARN of an IAM role that the OpsWorks service will act as.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+               If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[bool] use_custom_cookbooks: Boolean value controlling whether the custom cookbook settings are enabled.
+        :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
+        :param pulumi.Input[str] vpc_id: ID of the VPC that this stack belongs to.
+               Defaults to the region's default VPC.
         """
         ...
     @overload
@@ -630,7 +882,37 @@ class Stack(pulumi.CustomResource):
                  args: StackArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Stack resource with the given unique name, props, and options.
+        Provides an OpsWorks stack resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.opsworks.Stack("main",
+            region="us-west-1",
+            service_role_arn=aws_iam_role["opsworks"]["arn"],
+            default_instance_profile_arn=aws_iam_instance_profile["opsworks"]["arn"],
+            tags={
+                "Name": "foobar-stack",
+            },
+            custom_json=\"\"\"{
+         "foobar": {
+            "version": "1.0.0"
+          }
+        }
+        \"\"\")
+        ```
+
+        ## Import
+
+        OpsWorks stacks can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
+        ```
+
         :param str resource_name: The name of the resource.
         :param StackArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -750,6 +1032,33 @@ class Stack(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] agent_version: If set to `"LATEST"`, OpsWorks will automatically install the latest version.
+        :param pulumi.Input[str] berkshelf_version: If `manage_berkshelf` is enabled, the version of Berkshelf to use.
+        :param pulumi.Input[str] color: Color to paint next to the stack's resources in the OpsWorks console.
+        :param pulumi.Input[str] configuration_manager_name: Name of the configuration manager to use. Defaults to "Chef".
+        :param pulumi.Input[str] configuration_manager_version: Version of the configuration manager to use. Defaults to "11.4".
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']]]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as described below.
+        :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the entire stack.
+        :param pulumi.Input[str] default_availability_zone: Name of the availability zone where instances will be created by default.
+               Cannot be set when `vpc_id` is set.
+        :param pulumi.Input[str] default_instance_profile_arn: The ARN of an IAM Instance Profile that created instances will have by default.
+        :param pulumi.Input[str] default_os: Name of OS that will be installed on instances by default.
+        :param pulumi.Input[str] default_root_device_type: Name of the type of root device instances will have by default.
+        :param pulumi.Input[str] default_ssh_key_name: Name of the SSH keypair that instances will have by default.
+        :param pulumi.Input[str] default_subnet_id: ID of the subnet in which instances will be created by default.
+               Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
+        :param pulumi.Input[str] hostname_theme: Keyword representing the naming scheme that will be used for instance hostnames within this stack.
+        :param pulumi.Input[bool] manage_berkshelf: Boolean value controlling whether Opsworks will run Berkshelf for this stack.
+        :param pulumi.Input[str] name: The name of the stack.
+        :param pulumi.Input[str] region: The name of the region where the stack will exist.
+        :param pulumi.Input[str] service_role_arn: The ARN of an IAM role that the OpsWorks service will act as.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+               If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[bool] use_custom_cookbooks: Boolean value controlling whether the custom cookbook settings are enabled.
+        :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
+        :param pulumi.Input[str] vpc_id: ID of the VPC that this stack belongs to.
+               Defaults to the region's default VPC.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -785,6 +1094,9 @@ class Stack(pulumi.CustomResource):
     @property
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> pulumi.Output[str]:
+        """
+        If set to `"LATEST"`, OpsWorks will automatically install the latest version.
+        """
         return pulumi.get(self, "agent_version")
 
     @property
@@ -795,86 +1107,139 @@ class Stack(pulumi.CustomResource):
     @property
     @pulumi.getter(name="berkshelfVersion")
     def berkshelf_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        If `manage_berkshelf` is enabled, the version of Berkshelf to use.
+        """
         return pulumi.get(self, "berkshelf_version")
 
     @property
     @pulumi.getter
     def color(self) -> pulumi.Output[Optional[str]]:
+        """
+        Color to paint next to the stack's resources in the OpsWorks console.
+        """
         return pulumi.get(self, "color")
 
     @property
     @pulumi.getter(name="configurationManagerName")
     def configuration_manager_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Name of the configuration manager to use. Defaults to "Chef".
+        """
         return pulumi.get(self, "configuration_manager_name")
 
     @property
     @pulumi.getter(name="configurationManagerVersion")
     def configuration_manager_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        Version of the configuration manager to use. Defaults to "11.4".
+        """
         return pulumi.get(self, "configuration_manager_version")
 
     @property
     @pulumi.getter(name="customCookbooksSources")
     def custom_cookbooks_sources(self) -> pulumi.Output[Sequence['outputs.StackCustomCookbooksSource']]:
+        """
+        When `use_custom_cookbooks` is set, provide this sub-object as described below.
+        """
         return pulumi.get(self, "custom_cookbooks_sources")
 
     @property
     @pulumi.getter(name="customJson")
     def custom_json(self) -> pulumi.Output[Optional[str]]:
+        """
+        Custom JSON attributes to apply to the entire stack.
+        """
         return pulumi.get(self, "custom_json")
 
     @property
     @pulumi.getter(name="defaultAvailabilityZone")
     def default_availability_zone(self) -> pulumi.Output[str]:
+        """
+        Name of the availability zone where instances will be created by default.
+        Cannot be set when `vpc_id` is set.
+        """
         return pulumi.get(self, "default_availability_zone")
 
     @property
     @pulumi.getter(name="defaultInstanceProfileArn")
     def default_instance_profile_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of an IAM Instance Profile that created instances will have by default.
+        """
         return pulumi.get(self, "default_instance_profile_arn")
 
     @property
     @pulumi.getter(name="defaultOs")
     def default_os(self) -> pulumi.Output[Optional[str]]:
+        """
+        Name of OS that will be installed on instances by default.
+        """
         return pulumi.get(self, "default_os")
 
     @property
     @pulumi.getter(name="defaultRootDeviceType")
     def default_root_device_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Name of the type of root device instances will have by default.
+        """
         return pulumi.get(self, "default_root_device_type")
 
     @property
     @pulumi.getter(name="defaultSshKeyName")
     def default_ssh_key_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Name of the SSH keypair that instances will have by default.
+        """
         return pulumi.get(self, "default_ssh_key_name")
 
     @property
     @pulumi.getter(name="defaultSubnetId")
     def default_subnet_id(self) -> pulumi.Output[str]:
+        """
+        ID of the subnet in which instances will be created by default.
+        Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
+        """
         return pulumi.get(self, "default_subnet_id")
 
     @property
     @pulumi.getter(name="hostnameTheme")
     def hostname_theme(self) -> pulumi.Output[Optional[str]]:
+        """
+        Keyword representing the naming scheme that will be used for instance hostnames within this stack.
+        """
         return pulumi.get(self, "hostname_theme")
 
     @property
     @pulumi.getter(name="manageBerkshelf")
     def manage_berkshelf(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean value controlling whether Opsworks will run Berkshelf for this stack.
+        """
         return pulumi.get(self, "manage_berkshelf")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the stack.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def region(self) -> pulumi.Output[str]:
+        """
+        The name of the region where the stack will exist.
+        """
         return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of an IAM role that the OpsWorks service will act as.
+        """
         return pulumi.get(self, "service_role_arn")
 
     @property
@@ -885,25 +1250,42 @@ class Stack(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource.
+        If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="useCustomCookbooks")
     def use_custom_cookbooks(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean value controlling whether the custom cookbook settings are enabled.
+        """
         return pulumi.get(self, "use_custom_cookbooks")
 
     @property
     @pulumi.getter(name="useOpsworksSecurityGroups")
     def use_opsworks_security_groups(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
+        """
         return pulumi.get(self, "use_opsworks_security_groups")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        ID of the VPC that this stack belongs to.
+        Defaults to the region's default VPC.
+        """
         return pulumi.get(self, "vpc_id")
 

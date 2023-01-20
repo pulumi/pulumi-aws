@@ -19,59 +19,248 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an S3 bucket website configuration resource. For more information, see [Hosting Websites on S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
+ * 
+ * ## Example Usage
+ * ### With `routing_rule` configured
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketWebsiteConfigurationV2;
+ * import com.pulumi.aws.s3.BucketWebsiteConfigurationV2Args;
+ * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2IndexDocumentArgs;
+ * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2ErrorDocumentArgs;
+ * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2RoutingRuleArgs;
+ * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2RoutingRuleConditionArgs;
+ * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new BucketWebsiteConfigurationV2(&#34;example&#34;, BucketWebsiteConfigurationV2Args.builder()        
+ *             .bucket(aws_s3_bucket.example().bucket())
+ *             .indexDocument(BucketWebsiteConfigurationV2IndexDocumentArgs.builder()
+ *                 .suffix(&#34;index.html&#34;)
+ *                 .build())
+ *             .errorDocument(BucketWebsiteConfigurationV2ErrorDocumentArgs.builder()
+ *                 .key(&#34;error.html&#34;)
+ *                 .build())
+ *             .routingRules(BucketWebsiteConfigurationV2RoutingRuleArgs.builder()
+ *                 .condition(BucketWebsiteConfigurationV2RoutingRuleConditionArgs.builder()
+ *                     .keyPrefixEquals(&#34;docs/&#34;)
+ *                     .build())
+ *                 .redirect(BucketWebsiteConfigurationV2RoutingRuleRedirectArgs.builder()
+ *                     .replaceKeyPrefixWith(&#34;documents/&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### With `routing_rules` configured
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketWebsiteConfigurationV2;
+ * import com.pulumi.aws.s3.BucketWebsiteConfigurationV2Args;
+ * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2IndexDocumentArgs;
+ * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2ErrorDocumentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new BucketWebsiteConfigurationV2(&#34;example&#34;, BucketWebsiteConfigurationV2Args.builder()        
+ *             .bucket(aws_s3_bucket.example().bucket())
+ *             .indexDocument(BucketWebsiteConfigurationV2IndexDocumentArgs.builder()
+ *                 .suffix(&#34;index.html&#34;)
+ *                 .build())
+ *             .errorDocument(BucketWebsiteConfigurationV2ErrorDocumentArgs.builder()
+ *                 .key(&#34;error.html&#34;)
+ *                 .build())
+ *             .routingRuleDetails(&#34;&#34;&#34;
+ * [{
+ *     &#34;Condition&#34;: {
+ *         &#34;KeyPrefixEquals&#34;: &#34;docs/&#34;
+ *     },
+ *     &#34;Redirect&#34;: {
+ *         &#34;ReplaceKeyPrefixWith&#34;: &#34;&#34;
+ *     }
+ * }]
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * S3 bucket website configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket website configuration resource should be imported using the `bucket` e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name
+ * ```
+ * 
+ *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket website configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name,123456789012
+ * ```
+ * 
+ */
 @ResourceType(type="aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2")
 public class BucketWebsiteConfigurationV2 extends com.pulumi.resources.CustomResource {
+    /**
+     * The name of the bucket.
+     * 
+     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
+    /**
+     * @return The name of the bucket.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
+    /**
+     * The name of the error document for the website detailed below.
+     * 
+     */
     @Export(name="errorDocument", refs={BucketWebsiteConfigurationV2ErrorDocument.class}, tree="[0]")
     private Output</* @Nullable */ BucketWebsiteConfigurationV2ErrorDocument> errorDocument;
 
+    /**
+     * @return The name of the error document for the website detailed below.
+     * 
+     */
     public Output<Optional<BucketWebsiteConfigurationV2ErrorDocument>> errorDocument() {
         return Codegen.optional(this.errorDocument);
     }
+    /**
+     * The account ID of the expected bucket owner.
+     * 
+     */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
+    /**
+     * @return The account ID of the expected bucket owner.
+     * 
+     */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
+    /**
+     * The name of the index document for the website detailed below.
+     * 
+     */
     @Export(name="indexDocument", refs={BucketWebsiteConfigurationV2IndexDocument.class}, tree="[0]")
     private Output</* @Nullable */ BucketWebsiteConfigurationV2IndexDocument> indexDocument;
 
+    /**
+     * @return The name of the index document for the website detailed below.
+     * 
+     */
     public Output<Optional<BucketWebsiteConfigurationV2IndexDocument>> indexDocument() {
         return Codegen.optional(this.indexDocument);
     }
+    /**
+     * The redirect behavior for every request to this bucket&#39;s website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+     * 
+     */
     @Export(name="redirectAllRequestsTo", refs={BucketWebsiteConfigurationV2RedirectAllRequestsTo.class}, tree="[0]")
     private Output</* @Nullable */ BucketWebsiteConfigurationV2RedirectAllRequestsTo> redirectAllRequestsTo;
 
+    /**
+     * @return The redirect behavior for every request to this bucket&#39;s website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+     * 
+     */
     public Output<Optional<BucketWebsiteConfigurationV2RedirectAllRequestsTo>> redirectAllRequestsTo() {
         return Codegen.optional(this.redirectAllRequestsTo);
     }
+    /**
+     * A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+     * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`&#34;&#34;`) as seen in the example above.
+     * 
+     */
     @Export(name="routingRuleDetails", refs={String.class}, tree="[0]")
     private Output<String> routingRuleDetails;
 
+    /**
+     * @return A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+     * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`&#34;&#34;`) as seen in the example above.
+     * 
+     */
     public Output<String> routingRuleDetails() {
         return this.routingRuleDetails;
     }
+    /**
+     * List of rules that define when a redirect is applied and the redirect behavior detailed below.
+     * 
+     */
     @Export(name="routingRules", refs={List.class,BucketWebsiteConfigurationV2RoutingRule.class}, tree="[0,1]")
     private Output<List<BucketWebsiteConfigurationV2RoutingRule>> routingRules;
 
+    /**
+     * @return List of rules that define when a redirect is applied and the redirect behavior detailed below.
+     * 
+     */
     public Output<List<BucketWebsiteConfigurationV2RoutingRule>> routingRules() {
         return this.routingRules;
     }
+    /**
+     * The domain of the website endpoint. This is used to create Route 53 alias records.
+     * 
+     */
     @Export(name="websiteDomain", refs={String.class}, tree="[0]")
     private Output<String> websiteDomain;
 
+    /**
+     * @return The domain of the website endpoint. This is used to create Route 53 alias records.
+     * 
+     */
     public Output<String> websiteDomain() {
         return this.websiteDomain;
     }
+    /**
+     * The website endpoint.
+     * 
+     */
     @Export(name="websiteEndpoint", refs={String.class}, tree="[0]")
     private Output<String> websiteEndpoint;
 
+    /**
+     * @return The website endpoint.
+     * 
+     */
     public Output<String> websiteEndpoint() {
         return this.websiteEndpoint;
     }

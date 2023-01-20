@@ -13,10 +13,25 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettings
     {
+        /// <summary>
+        /// Audio descriptions for the channel. See Audio Descriptions for more details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsAudioDescription> AudioDescriptions;
+        /// <summary>
+        /// Settings for ad avail blanking. See Avail Blanking for more details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAvailBlanking? AvailBlanking;
+        /// <summary>
+        /// Output groups for the channel. See Output Groups for more details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsOutputGroup> OutputGroups;
+        /// <summary>
+        /// Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsTimecodeConfig TimecodeConfig;
+        /// <summary>
+        /// Video Descriptions. See Video Descriptions for more details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsVideoDescription> VideoDescriptions;
 
         [OutputConstructor]

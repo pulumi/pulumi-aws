@@ -9,12 +9,90 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGateway
 {
+    /// <summary>
+    /// Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
+    /// 
+    /// &gt; **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cloudwatchRole = new Aws.Iam.Role("cloudwatchRole", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Sid"": """",
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""apigateway.amazonaws.com""
+    ///       },
+    ///       ""Action"": ""sts:AssumeRole""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///     });
+    /// 
+    ///     var demo = new Aws.ApiGateway.Account("demo", new()
+    ///     {
+    ///         CloudwatchRoleArn = cloudwatchRole.Arn,
+    ///     });
+    /// 
+    ///     var cloudwatchRolePolicy = new Aws.Iam.RolePolicy("cloudwatchRolePolicy", new()
+    ///     {
+    ///         Role = cloudwatchRole.Id,
+    ///         Policy = @"{
+    ///     ""Version"": ""2012-10-17"",
+    ///     ""Statement"": [
+    ///         {
+    ///             ""Effect"": ""Allow"",
+    ///             ""Action"": [
+    ///                 ""logs:CreateLogGroup"",
+    ///                 ""logs:CreateLogStream"",
+    ///                 ""logs:DescribeLogGroups"",
+    ///                 ""logs:DescribeLogStreams"",
+    ///                 ""logs:PutLogEvents"",
+    ///                 ""logs:GetLogEvents"",
+    ///                 ""logs:FilterLogEvents""
+    ///             ],
+    ///             ""Resource"": ""*""
+    ///         }
+    ///     ]
+    /// }
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// API Gateway Accounts can be imported using the word `api-gateway-account`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:apigateway/account:Account demo api-gateway-account
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:apigateway/account:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+        /// </summary>
         [Output("cloudwatchRoleArn")]
         public Output<string?> CloudwatchRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Account-Level throttle settings. See exported fields below.
+        /// </summary>
         [Output("throttleSettings")]
         public Output<ImmutableArray<Outputs.AccountThrottleSetting>> ThrottleSettings { get; private set; } = null!;
 
@@ -64,6 +142,9 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+        /// </summary>
         [Input("cloudwatchRoleArn")]
         public Input<string>? CloudwatchRoleArn { get; set; }
 
@@ -75,11 +156,18 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+        /// </summary>
         [Input("cloudwatchRoleArn")]
         public Input<string>? CloudwatchRoleArn { get; set; }
 
         [Input("throttleSettings")]
         private InputList<Inputs.AccountThrottleSettingGetArgs>? _throttleSettings;
+
+        /// <summary>
+        /// Account-Level throttle settings. See exported fields below.
+        /// </summary>
         public InputList<Inputs.AccountThrottleSettingGetArgs> ThrottleSettings
         {
             get => _throttleSettings ?? (_throttleSettings = new InputList<Inputs.AccountThrottleSettingGetArgs>());

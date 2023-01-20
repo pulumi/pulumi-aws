@@ -11,18 +11,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an AWS Quantum Ledger Database (QLDB) Stream resource
 type Stream struct {
 	pulumi.CustomResourceState
 
-	Arn                  pulumi.StringOutput              `pulumi:"arn"`
-	ExclusiveEndTime     pulumi.StringPtrOutput           `pulumi:"exclusiveEndTime"`
-	InclusiveStartTime   pulumi.StringOutput              `pulumi:"inclusiveStartTime"`
+	// The ARN of the QLDB Stream.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
+	ExclusiveEndTime pulumi.StringPtrOutput `pulumi:"exclusiveEndTime"`
+	// The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
+	InclusiveStartTime pulumi.StringOutput `pulumi:"inclusiveStartTime"`
+	// The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
 	KinesisConfiguration StreamKinesisConfigurationOutput `pulumi:"kinesisConfiguration"`
-	LedgerName           pulumi.StringOutput              `pulumi:"ledgerName"`
-	RoleArn              pulumi.StringOutput              `pulumi:"roleArn"`
-	StreamName           pulumi.StringOutput              `pulumi:"streamName"`
-	Tags                 pulumi.StringMapOutput           `pulumi:"tags"`
-	TagsAll              pulumi.StringMapOutput           `pulumi:"tagsAll"`
+	// The name of the QLDB ledger.
+	LedgerName pulumi.StringOutput `pulumi:"ledgerName"`
+	// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
+	StreamName pulumi.StringOutput `pulumi:"streamName"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewStream registers a new resource with the given unique name, arguments, and options.
@@ -69,27 +79,45 @@ func GetStream(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Stream resources.
 type streamState struct {
-	Arn                  *string                     `pulumi:"arn"`
-	ExclusiveEndTime     *string                     `pulumi:"exclusiveEndTime"`
-	InclusiveStartTime   *string                     `pulumi:"inclusiveStartTime"`
+	// The ARN of the QLDB Stream.
+	Arn *string `pulumi:"arn"`
+	// The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
+	ExclusiveEndTime *string `pulumi:"exclusiveEndTime"`
+	// The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
+	InclusiveStartTime *string `pulumi:"inclusiveStartTime"`
+	// The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
 	KinesisConfiguration *StreamKinesisConfiguration `pulumi:"kinesisConfiguration"`
-	LedgerName           *string                     `pulumi:"ledgerName"`
-	RoleArn              *string                     `pulumi:"roleArn"`
-	StreamName           *string                     `pulumi:"streamName"`
-	Tags                 map[string]string           `pulumi:"tags"`
-	TagsAll              map[string]string           `pulumi:"tagsAll"`
+	// The name of the QLDB ledger.
+	LedgerName *string `pulumi:"ledgerName"`
+	// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+	RoleArn *string `pulumi:"roleArn"`
+	// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
+	StreamName *string `pulumi:"streamName"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type StreamState struct {
-	Arn                  pulumi.StringPtrInput
-	ExclusiveEndTime     pulumi.StringPtrInput
-	InclusiveStartTime   pulumi.StringPtrInput
+	// The ARN of the QLDB Stream.
+	Arn pulumi.StringPtrInput
+	// The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
+	ExclusiveEndTime pulumi.StringPtrInput
+	// The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
+	InclusiveStartTime pulumi.StringPtrInput
+	// The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
 	KinesisConfiguration StreamKinesisConfigurationPtrInput
-	LedgerName           pulumi.StringPtrInput
-	RoleArn              pulumi.StringPtrInput
-	StreamName           pulumi.StringPtrInput
-	Tags                 pulumi.StringMapInput
-	TagsAll              pulumi.StringMapInput
+	// The name of the QLDB ledger.
+	LedgerName pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+	RoleArn pulumi.StringPtrInput
+	// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
+	StreamName pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (StreamState) ElementType() reflect.Type {
@@ -97,24 +125,38 @@ func (StreamState) ElementType() reflect.Type {
 }
 
 type streamArgs struct {
-	ExclusiveEndTime     *string                    `pulumi:"exclusiveEndTime"`
-	InclusiveStartTime   string                     `pulumi:"inclusiveStartTime"`
+	// The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
+	ExclusiveEndTime *string `pulumi:"exclusiveEndTime"`
+	// The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
+	InclusiveStartTime string `pulumi:"inclusiveStartTime"`
+	// The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
 	KinesisConfiguration StreamKinesisConfiguration `pulumi:"kinesisConfiguration"`
-	LedgerName           string                     `pulumi:"ledgerName"`
-	RoleArn              string                     `pulumi:"roleArn"`
-	StreamName           string                     `pulumi:"streamName"`
-	Tags                 map[string]string          `pulumi:"tags"`
+	// The name of the QLDB ledger.
+	LedgerName string `pulumi:"ledgerName"`
+	// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+	RoleArn string `pulumi:"roleArn"`
+	// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
+	StreamName string `pulumi:"streamName"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Stream resource.
 type StreamArgs struct {
-	ExclusiveEndTime     pulumi.StringPtrInput
-	InclusiveStartTime   pulumi.StringInput
+	// The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
+	ExclusiveEndTime pulumi.StringPtrInput
+	// The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
+	InclusiveStartTime pulumi.StringInput
+	// The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
 	KinesisConfiguration StreamKinesisConfigurationInput
-	LedgerName           pulumi.StringInput
-	RoleArn              pulumi.StringInput
-	StreamName           pulumi.StringInput
-	Tags                 pulumi.StringMapInput
+	// The name of the QLDB ledger.
+	LedgerName pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+	RoleArn pulumi.StringInput
+	// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
+	StreamName pulumi.StringInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (StreamArgs) ElementType() reflect.Type {
@@ -204,38 +246,47 @@ func (o StreamOutput) ToStreamOutputWithContext(ctx context.Context) StreamOutpu
 	return o
 }
 
+// The ARN of the QLDB Stream.
 func (o StreamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
 func (o StreamOutput) ExclusiveEndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringPtrOutput { return v.ExclusiveEndTime }).(pulumi.StringPtrOutput)
 }
 
+// The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
 func (o StreamOutput) InclusiveStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.InclusiveStartTime }).(pulumi.StringOutput)
 }
 
+// The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
 func (o StreamOutput) KinesisConfiguration() StreamKinesisConfigurationOutput {
 	return o.ApplyT(func(v *Stream) StreamKinesisConfigurationOutput { return v.KinesisConfiguration }).(StreamKinesisConfigurationOutput)
 }
 
+// The name of the QLDB ledger.
 func (o StreamOutput) LedgerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.LedgerName }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
 func (o StreamOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
 func (o StreamOutput) StreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.StreamName }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o StreamOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o StreamOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

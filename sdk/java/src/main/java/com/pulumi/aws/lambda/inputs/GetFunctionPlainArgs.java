@@ -15,16 +15,32 @@ public final class GetFunctionPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetFunctionPlainArgs Empty = new GetFunctionPlainArgs();
 
+    /**
+     * Name of the lambda function.
+     * 
+     */
     @Import(name="functionName", required=true)
     private String functionName;
 
+    /**
+     * @return Name of the lambda function.
+     * 
+     */
     public String functionName() {
         return this.functionName;
     }
 
+    /**
+     * Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
+     * 
+     */
     @Import(name="qualifier")
     private @Nullable String qualifier;
 
+    /**
+     * @return Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
+     * 
+     */
     public Optional<String> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
@@ -62,11 +78,23 @@ public final class GetFunctionPlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetFunctionPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param functionName Name of the lambda function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder functionName(String functionName) {
             $.functionName = functionName;
             return this;
         }
 
+        /**
+         * @param qualifier Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
+         * 
+         * @return builder
+         * 
+         */
         public Builder qualifier(@Nullable String qualifier) {
             $.qualifier = qualifier;
             return this;

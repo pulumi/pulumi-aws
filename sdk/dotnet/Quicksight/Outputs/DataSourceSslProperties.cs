@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSourceSslProperties
     {
+        /// <summary>
+        /// A Boolean option to control whether SSL should be disabled.
+        /// </summary>
         public readonly bool DisableSsl;
 
         [OutputConstructor]

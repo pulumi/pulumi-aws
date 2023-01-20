@@ -7,6 +7,104 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a resource to manage AWS Certificate Manager Private Certificate Authorities (ACM PCA Certificate Authorities).
+ *
+ * > **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificateSigningRequest` attribute and import the signed certificate using the AWS SDK, CLI or Console. This provider can support another resource to manage that workflow automatically in the future.
+ *
+ * ## Example Usage
+ * ### Basic
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.acmpca.CertificateAuthority("example", {
+ *     certificateAuthorityConfiguration: {
+ *         keyAlgorithm: "RSA_4096",
+ *         signingAlgorithm: "SHA512WITHRSA",
+ *         subject: {
+ *             commonName: "example.com",
+ *         },
+ *     },
+ *     permanentDeletionTimeInDays: 7,
+ * });
+ * ```
+ * ### Short-lived certificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.acmpca.CertificateAuthority("example", {
+ *     certificateAuthorityConfiguration: {
+ *         keyAlgorithm: "RSA_4096",
+ *         signingAlgorithm: "SHA512WITHRSA",
+ *         subject: {
+ *             commonName: "example.com",
+ *         },
+ *     },
+ *     usageMode: "SHORT_LIVED_CERTIFICATE",
+ * });
+ * ```
+ * ### Enable Certificate Revocation List
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
+ * const acmpcaBucketAccess = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         actions: [
+ *             "s3:GetBucketAcl",
+ *             "s3:GetBucketLocation",
+ *             "s3:PutObject",
+ *             "s3:PutObjectAcl",
+ *         ],
+ *         resources: [
+ *             exampleBucketV2.arn,
+ *             pulumi.interpolate`${exampleBucketV2.arn}/*`,
+ *         ],
+ *         principals: [{
+ *             identifiers: ["acm-pca.amazonaws.com"],
+ *             type: "Service",
+ *         }],
+ *     }],
+ * });
+ * const exampleBucketPolicy = new aws.s3.BucketPolicy("exampleBucketPolicy", {
+ *     bucket: exampleBucketV2.id,
+ *     policy: acmpcaBucketAccess.apply(acmpcaBucketAccess => acmpcaBucketAccess.json),
+ * });
+ * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("exampleCertificateAuthority", {
+ *     certificateAuthorityConfiguration: {
+ *         keyAlgorithm: "RSA_4096",
+ *         signingAlgorithm: "SHA512WITHRSA",
+ *         subject: {
+ *             commonName: "example.com",
+ *         },
+ *     },
+ *     revocationConfiguration: {
+ *         crlConfiguration: {
+ *             customCname: "crl.example.com",
+ *             enabled: true,
+ *             expirationInDays: 7,
+ *             s3BucketName: exampleBucketV2.id,
+ *         },
+ *     },
+ * }, {
+ *     dependsOn: [exampleBucketPolicy],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_acmpca_certificate_authority` can be imported by using the certificate authority ARN, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
+ * ```
+ */
 export class CertificateAuthority extends pulumi.CustomResource {
     /**
      * Get an existing CertificateAuthority resource's state with the given name, ID, and optional extra
@@ -35,24 +133,71 @@ export class CertificateAuthority extends pulumi.CustomResource {
         return obj['__pulumiType'] === CertificateAuthority.__pulumiType;
     }
 
+    /**
+     * ARN of the certificate authority.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
+     */
     public /*out*/ readonly certificate!: pulumi.Output<string>;
+    /**
+     * Nested argument containing algorithms and certificate subject information. Defined below.
+     */
     public readonly certificateAuthorityConfiguration!: pulumi.Output<outputs.acmpca.CertificateAuthorityCertificateAuthorityConfiguration>;
+    /**
+     * Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
+     */
     public /*out*/ readonly certificateChain!: pulumi.Output<string>;
+    /**
+     * The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
+     */
     public /*out*/ readonly certificateSigningRequest!: pulumi.Output<string>;
+    /**
+     * Whether the certificate authority is enabled or disabled. Defaults to `true`.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
+     */
     public /*out*/ readonly notAfter!: pulumi.Output<string>;
+    /**
+     * Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
+     */
     public /*out*/ readonly notBefore!: pulumi.Output<string>;
+    /**
+     * Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+     */
     public readonly permanentDeletionTimeInDays!: pulumi.Output<number | undefined>;
+    /**
+     * Nested argument containing revocation configuration. Defined below.
+     */
     public readonly revocationConfiguration!: pulumi.Output<outputs.acmpca.CertificateAuthorityRevocationConfiguration | undefined>;
+    /**
+     * Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
+     */
     public /*out*/ readonly serial!: pulumi.Output<string>;
     /**
+     * (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
+     *
      * @deprecated The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+     */
     public readonly type!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+     */
     public readonly usageMode!: pulumi.Output<string>;
 
     /**
@@ -115,24 +260,71 @@ export class CertificateAuthority extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CertificateAuthority resources.
  */
 export interface CertificateAuthorityState {
+    /**
+     * ARN of the certificate authority.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
+     */
     certificate?: pulumi.Input<string>;
+    /**
+     * Nested argument containing algorithms and certificate subject information. Defined below.
+     */
     certificateAuthorityConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityCertificateAuthorityConfiguration>;
+    /**
+     * Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
+     */
     certificateChain?: pulumi.Input<string>;
+    /**
+     * The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
+     */
     certificateSigningRequest?: pulumi.Input<string>;
+    /**
+     * Whether the certificate authority is enabled or disabled. Defaults to `true`.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
+     */
     notAfter?: pulumi.Input<string>;
+    /**
+     * Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
+     */
     notBefore?: pulumi.Input<string>;
+    /**
+     * Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+     */
     permanentDeletionTimeInDays?: pulumi.Input<number>;
+    /**
+     * Nested argument containing revocation configuration. Defined below.
+     */
     revocationConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityRevocationConfiguration>;
+    /**
+     * Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
+     */
     serial?: pulumi.Input<string>;
     /**
+     * (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
+     *
      * @deprecated The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
      */
     status?: pulumi.Input<string>;
+    /**
+     * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+     */
     type?: pulumi.Input<string>;
+    /**
+     * Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+     */
     usageMode?: pulumi.Input<string>;
 }
 
@@ -140,11 +332,32 @@ export interface CertificateAuthorityState {
  * The set of arguments for constructing a CertificateAuthority resource.
  */
 export interface CertificateAuthorityArgs {
+    /**
+     * Nested argument containing algorithms and certificate subject information. Defined below.
+     */
     certificateAuthorityConfiguration: pulumi.Input<inputs.acmpca.CertificateAuthorityCertificateAuthorityConfiguration>;
+    /**
+     * Whether the certificate authority is enabled or disabled. Defaults to `true`.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+     */
     permanentDeletionTimeInDays?: pulumi.Input<number>;
+    /**
+     * Nested argument containing revocation configuration. Defined below.
+     */
     revocationConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityRevocationConfiguration>;
+    /**
+     * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+     */
     type?: pulumi.Input<string>;
+    /**
+     * Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+     */
     usageMode?: pulumi.Input<string>;
 }

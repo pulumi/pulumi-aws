@@ -11,6 +11,7 @@ import (
 )
 
 type EndpointNetworkInterface struct {
+	// Identifier of the Elastic Network Interface (ENI).
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 }
 
@@ -26,6 +27,7 @@ type EndpointNetworkInterfaceInput interface {
 }
 
 type EndpointNetworkInterfaceArgs struct {
+	// Identifier of the Elastic Network Interface (ENI).
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
 }
 
@@ -80,6 +82,7 @@ func (o EndpointNetworkInterfaceOutput) ToEndpointNetworkInterfaceOutputWithCont
 	return o
 }
 
+// Identifier of the Elastic Network Interface (ENI).
 func (o EndpointNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }

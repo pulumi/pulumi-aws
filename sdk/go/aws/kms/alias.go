@@ -11,14 +11,63 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases & keys,
+// but API (hence this provider too) allows you to create as many aliases as
+// the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			key, err := kms.NewKey(ctx, "key", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kms.NewAlias(ctx, "alias", &kms.AliasArgs{
+//				TargetKeyId: key.KeyId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// KMS aliases can be imported using the `name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:kms/alias:Alias a alias/my-key-alias
+//
+// ```
 type Alias struct {
 	pulumi.CustomResourceState
 
-	Arn          pulumi.StringOutput `pulumi:"arn"`
-	Name         pulumi.StringOutput `pulumi:"name"`
-	NamePrefix   pulumi.StringOutput `pulumi:"namePrefix"`
+	// The Amazon Resource Name (ARN) of the key alias.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Creates an unique alias beginning with the specified prefix.
+	// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	// The Amazon Resource Name (ARN) of the target key identifier.
 	TargetKeyArn pulumi.StringOutput `pulumi:"targetKeyArn"`
-	TargetKeyId  pulumi.StringOutput `pulumi:"targetKeyId"`
+	// Identifier for the key for which the alias is for, can be either an ARN or key_id.
+	TargetKeyId pulumi.StringOutput `pulumi:"targetKeyId"`
 }
 
 // NewAlias registers a new resource with the given unique name, arguments, and options.
@@ -53,19 +102,31 @@ func GetAlias(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Alias resources.
 type aliasState struct {
-	Arn          *string `pulumi:"arn"`
-	Name         *string `pulumi:"name"`
-	NamePrefix   *string `pulumi:"namePrefix"`
+	// The Amazon Resource Name (ARN) of the key alias.
+	Arn *string `pulumi:"arn"`
+	// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+	Name *string `pulumi:"name"`
+	// Creates an unique alias beginning with the specified prefix.
+	// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+	NamePrefix *string `pulumi:"namePrefix"`
+	// The Amazon Resource Name (ARN) of the target key identifier.
 	TargetKeyArn *string `pulumi:"targetKeyArn"`
-	TargetKeyId  *string `pulumi:"targetKeyId"`
+	// Identifier for the key for which the alias is for, can be either an ARN or key_id.
+	TargetKeyId *string `pulumi:"targetKeyId"`
 }
 
 type AliasState struct {
-	Arn          pulumi.StringPtrInput
-	Name         pulumi.StringPtrInput
-	NamePrefix   pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the key alias.
+	Arn pulumi.StringPtrInput
+	// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+	Name pulumi.StringPtrInput
+	// Creates an unique alias beginning with the specified prefix.
+	// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+	NamePrefix pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the target key identifier.
 	TargetKeyArn pulumi.StringPtrInput
-	TargetKeyId  pulumi.StringPtrInput
+	// Identifier for the key for which the alias is for, can be either an ARN or key_id.
+	TargetKeyId pulumi.StringPtrInput
 }
 
 func (AliasState) ElementType() reflect.Type {
@@ -73,15 +134,23 @@ func (AliasState) ElementType() reflect.Type {
 }
 
 type aliasArgs struct {
-	Name        *string `pulumi:"name"`
-	NamePrefix  *string `pulumi:"namePrefix"`
-	TargetKeyId string  `pulumi:"targetKeyId"`
+	// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+	Name *string `pulumi:"name"`
+	// Creates an unique alias beginning with the specified prefix.
+	// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+	NamePrefix *string `pulumi:"namePrefix"`
+	// Identifier for the key for which the alias is for, can be either an ARN or key_id.
+	TargetKeyId string `pulumi:"targetKeyId"`
 }
 
 // The set of arguments for constructing a Alias resource.
 type AliasArgs struct {
-	Name        pulumi.StringPtrInput
-	NamePrefix  pulumi.StringPtrInput
+	// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+	Name pulumi.StringPtrInput
+	// Creates an unique alias beginning with the specified prefix.
+	// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+	NamePrefix pulumi.StringPtrInput
+	// Identifier for the key for which the alias is for, can be either an ARN or key_id.
 	TargetKeyId pulumi.StringInput
 }
 
@@ -172,22 +241,28 @@ func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the key alias.
 func (o AliasOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
 func (o AliasOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Creates an unique alias beginning with the specified prefix.
+// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
 func (o AliasOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the target key identifier.
 func (o AliasOutput) TargetKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.TargetKeyArn }).(pulumi.StringOutput)
 }
 
+// Identifier for the key for which the alias is for, can be either an ARN or key_id.
 func (o AliasOutput) TargetKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.TargetKeyId }).(pulumi.StringOutput)
 }

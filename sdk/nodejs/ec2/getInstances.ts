@@ -7,6 +7,15 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
+ * e.g., to allow easier migration from another management solution
+ * or to make it easier for an operator to connect through bastion host(s).
+ *
+ * > **Note:** It's strongly discouraged to use this data source for querying ephemeral
+ * instances (e.g., managed via autoscaling group), as the output may change at any time
+ * and you'd need to re-run `apply` every time an instance comes up or dies.
+ */
 export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancesResult> {
     args = args || {};
 
@@ -22,8 +31,20 @@ export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOption
  * A collection of arguments for invoking getInstances.
  */
 export interface GetInstancesArgs {
+    /**
+     * One or more name/value pairs to use as filters. There are
+     * several valid keys, for a full reference, check out
+     * [describe-instances in the AWS CLI reference][1].
+     */
     filters?: inputs.ec2.GetInstancesFilter[];
+    /**
+     * List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+     */
     instanceStateNames?: string[];
+    /**
+     * Map of tags, each pair of which must
+     * exactly match a pair on desired instances.
+     */
     instanceTags?: {[key: string]: string};
 }
 
@@ -36,12 +57,30 @@ export interface GetInstancesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * IDs of instances found through the filter
+     */
     readonly ids: string[];
     readonly instanceStateNames?: string[];
     readonly instanceTags: {[key: string]: string};
+    /**
+     * Private IP addresses of instances found through the filter
+     */
     readonly privateIps: string[];
+    /**
+     * Public IP addresses of instances found through the filter
+     */
     readonly publicIps: string[];
 }
+/**
+ * Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
+ * e.g., to allow easier migration from another management solution
+ * or to make it easier for an operator to connect through bastion host(s).
+ *
+ * > **Note:** It's strongly discouraged to use this data source for querying ephemeral
+ * instances (e.g., managed via autoscaling group), as the output may change at any time
+ * and you'd need to re-run `apply` every time an instance comes up or dies.
+ */
 export function getInstancesOutput(args?: GetInstancesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstancesResult> {
     return pulumi.output(args).apply((a: any) => getInstances(a, opts))
 }
@@ -50,7 +89,19 @@ export function getInstancesOutput(args?: GetInstancesOutputArgs, opts?: pulumi.
  * A collection of arguments for invoking getInstances.
  */
 export interface GetInstancesOutputArgs {
+    /**
+     * One or more name/value pairs to use as filters. There are
+     * several valid keys, for a full reference, check out
+     * [describe-instances in the AWS CLI reference][1].
+     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetInstancesFilterArgs>[]>;
+    /**
+     * List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+     */
     instanceStateNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Map of tags, each pair of which must
+     * exactly match a pair on desired instances.
+     */
     instanceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

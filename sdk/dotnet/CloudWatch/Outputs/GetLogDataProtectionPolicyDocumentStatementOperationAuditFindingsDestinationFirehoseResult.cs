@@ -13,6 +13,9 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseResult
     {
+        /// <summary>
+        /// Name of the Kinesis Firehose Delivery Stream to send findings to.
+        /// </summary>
         public readonly string DeliveryStream;
 
         [OutputConstructor]

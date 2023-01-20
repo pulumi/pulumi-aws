@@ -16,23 +16,47 @@ public final class DomainAdvancedSecurityOptionsArgs extends com.pulumi.resource
 
     public static final DomainAdvancedSecurityOptionsArgs Empty = new DomainAdvancedSecurityOptionsArgs();
 
+    /**
+     * Whether advanced security is enabled.
+     * 
+     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
+    /**
+     * @return Whether advanced security is enabled.
+     * 
+     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
+    /**
+     * Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+     * 
+     */
     @Import(name="internalUserDatabaseEnabled")
     private @Nullable Output<Boolean> internalUserDatabaseEnabled;
 
+    /**
+     * @return Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+     * 
+     */
     public Optional<Output<Boolean>> internalUserDatabaseEnabled() {
         return Optional.ofNullable(this.internalUserDatabaseEnabled);
     }
 
+    /**
+     * Configuration block for the main user. Detailed below.
+     * 
+     */
     @Import(name="masterUserOptions")
     private @Nullable Output<DomainAdvancedSecurityOptionsMasterUserOptionsArgs> masterUserOptions;
 
+    /**
+     * @return Configuration block for the main user. Detailed below.
+     * 
+     */
     public Optional<Output<DomainAdvancedSecurityOptionsMasterUserOptionsArgs>> masterUserOptions() {
         return Optional.ofNullable(this.masterUserOptions);
     }
@@ -63,29 +87,65 @@ public final class DomainAdvancedSecurityOptionsArgs extends com.pulumi.resource
             $ = new DomainAdvancedSecurityOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param enabled Whether advanced security is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Whether advanced security is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
+        /**
+         * @param internalUserDatabaseEnabled Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder internalUserDatabaseEnabled(@Nullable Output<Boolean> internalUserDatabaseEnabled) {
             $.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
             return this;
         }
 
+        /**
+         * @param internalUserDatabaseEnabled Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder internalUserDatabaseEnabled(Boolean internalUserDatabaseEnabled) {
             return internalUserDatabaseEnabled(Output.of(internalUserDatabaseEnabled));
         }
 
+        /**
+         * @param masterUserOptions Configuration block for the main user. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder masterUserOptions(@Nullable Output<DomainAdvancedSecurityOptionsMasterUserOptionsArgs> masterUserOptions) {
             $.masterUserOptions = masterUserOptions;
             return this;
         }
 
+        /**
+         * @param masterUserOptions Configuration block for the main user. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder masterUserOptions(DomainAdvancedSecurityOptionsMasterUserOptionsArgs masterUserOptions) {
             return masterUserOptions(Output.of(masterUserOptions));
         }

@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an Amplify Webhook resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.amplify.App("example", {});
+ * const masterBranch = new aws.amplify.Branch("masterBranch", {
+ *     appId: example.id,
+ *     branchName: "master",
+ * });
+ * const masterWebhook = new aws.amplify.Webhook("masterWebhook", {
+ *     appId: example.id,
+ *     branchName: masterBranch.branchName,
+ *     description: "triggermaster",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Amplify webhook can be imported using a webhook ID, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
+ * ```
+ */
 export class Webhook extends pulumi.CustomResource {
     /**
      * Get an existing Webhook resource's state with the given name, ID, and optional extra
@@ -32,10 +61,25 @@ export class Webhook extends pulumi.CustomResource {
         return obj['__pulumiType'] === Webhook.__pulumiType;
     }
 
+    /**
+     * Unique ID for an Amplify app.
+     */
     public readonly appId!: pulumi.Output<string>;
+    /**
+     * ARN for the webhook.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Name for a branch that is part of the Amplify app.
+     */
     public readonly branchName!: pulumi.Output<string>;
+    /**
+     * Description for a webhook.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * URL of the webhook.
+     */
     public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
@@ -79,10 +123,25 @@ export class Webhook extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Webhook resources.
  */
 export interface WebhookState {
+    /**
+     * Unique ID for an Amplify app.
+     */
     appId?: pulumi.Input<string>;
+    /**
+     * ARN for the webhook.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Name for a branch that is part of the Amplify app.
+     */
     branchName?: pulumi.Input<string>;
+    /**
+     * Description for a webhook.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * URL of the webhook.
+     */
     url?: pulumi.Input<string>;
 }
 
@@ -90,7 +149,16 @@ export interface WebhookState {
  * The set of arguments for constructing a Webhook resource.
  */
 export interface WebhookArgs {
+    /**
+     * Unique ID for an Amplify app.
+     */
     appId: pulumi.Input<string>;
+    /**
+     * Name for a branch that is part of the Amplify app.
+     */
     branchName: pulumi.Input<string>;
+    /**
+     * Description for a webhook.
+     */
     description?: pulumi.Input<string>;
 }

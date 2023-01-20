@@ -7,6 +7,13 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides details about a specific EC2 Customer-Owned IP Pool.
+ *
+ * This data source can prove useful when a module accepts a coip pool id as
+ * an input variable and needs to, for example, determine the CIDR block of that
+ * COIP Pool.
+ */
 export function getCoipPool(args?: GetCoipPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetCoipPoolResult> {
     args = args || {};
 
@@ -24,8 +31,18 @@ export function getCoipPool(args?: GetCoipPoolArgs, opts?: pulumi.InvokeOptions)
  */
 export interface GetCoipPoolArgs {
     filters?: inputs.ec2.GetCoipPoolFilter[];
+    /**
+     * Local Gateway Route Table Id assigned to desired COIP Pool
+     */
     localGatewayRouteTableId?: string;
+    /**
+     * ID of the specific COIP Pool to retrieve.
+     */
     poolId?: string;
+    /**
+     * Mapping of tags, each pair of which must exactly match
+     * a pair on the desired COIP Pool.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -33,6 +50,9 @@ export interface GetCoipPoolArgs {
  * A collection of values returned by getCoipPool.
  */
 export interface GetCoipPoolResult {
+    /**
+     * ARN of the COIP pool
+     */
     readonly arn: string;
     readonly filters?: outputs.ec2.GetCoipPoolFilter[];
     /**
@@ -40,10 +60,20 @@ export interface GetCoipPoolResult {
      */
     readonly id: string;
     readonly localGatewayRouteTableId: string;
+    /**
+     * Set of CIDR blocks in pool
+     */
     readonly poolCidrs: string[];
     readonly poolId: string;
     readonly tags: {[key: string]: string};
 }
+/**
+ * Provides details about a specific EC2 Customer-Owned IP Pool.
+ *
+ * This data source can prove useful when a module accepts a coip pool id as
+ * an input variable and needs to, for example, determine the CIDR block of that
+ * COIP Pool.
+ */
 export function getCoipPoolOutput(args?: GetCoipPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCoipPoolResult> {
     return pulumi.output(args).apply((a: any) => getCoipPool(a, opts))
 }
@@ -53,7 +83,17 @@ export function getCoipPoolOutput(args?: GetCoipPoolOutputArgs, opts?: pulumi.In
  */
 export interface GetCoipPoolOutputArgs {
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetCoipPoolFilterArgs>[]>;
+    /**
+     * Local Gateway Route Table Id assigned to desired COIP Pool
+     */
     localGatewayRouteTableId?: pulumi.Input<string>;
+    /**
+     * ID of the specific COIP Pool to retrieve.
+     */
     poolId?: pulumi.Input<string>;
+    /**
+     * Mapping of tags, each pair of which must exactly match
+     * a pair on the desired COIP Pool.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

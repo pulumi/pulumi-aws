@@ -9,21 +9,138 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Glue
 {
+    /// <summary>
+    /// Provides a Glue Classifier resource.
+    /// 
+    /// &gt; **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
+    /// 
+    /// ## Example Usage
+    /// ### Csv Classifier
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Glue.Classifier("example", new()
+    ///     {
+    ///         CsvClassifier = new Aws.Glue.Inputs.ClassifierCsvClassifierArgs
+    ///         {
+    ///             AllowSingleColumn = false,
+    ///             ContainsHeader = "PRESENT",
+    ///             Delimiter = ",",
+    ///             DisableValueTrimming = false,
+    ///             Headers = new[]
+    ///             {
+    ///                 "example1",
+    ///                 "example2",
+    ///             },
+    ///             QuoteSymbol = "'",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Grok Classifier
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Glue.Classifier("example", new()
+    ///     {
+    ///         GrokClassifier = new Aws.Glue.Inputs.ClassifierGrokClassifierArgs
+    ///         {
+    ///             Classification = "example",
+    ///             GrokPattern = "example",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### JSON Classifier
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Glue.Classifier("example", new()
+    ///     {
+    ///         JsonClassifier = new Aws.Glue.Inputs.ClassifierJsonClassifierArgs
+    ///         {
+    ///             JsonPath = "example",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### XML Classifier
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Glue.Classifier("example", new()
+    ///     {
+    ///         XmlClassifier = new Aws.Glue.Inputs.ClassifierXmlClassifierArgs
+    ///         {
+    ///             Classification = "example",
+    ///             RowTag = "example",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Glue Classifiers can be imported using their name, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:glue/classifier:Classifier")]
     public partial class Classifier : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A classifier for Csv content. Defined below.
+        /// </summary>
         [Output("csvClassifier")]
         public Output<Outputs.ClassifierCsvClassifier?> CsvClassifier { get; private set; } = null!;
 
+        /// <summary>
+        /// A classifier that uses grok patterns. Defined below.
+        /// </summary>
         [Output("grokClassifier")]
         public Output<Outputs.ClassifierGrokClassifier?> GrokClassifier { get; private set; } = null!;
 
+        /// <summary>
+        /// A classifier for JSON content. Defined below.
+        /// </summary>
         [Output("jsonClassifier")]
         public Output<Outputs.ClassifierJsonClassifier?> JsonClassifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the classifier.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A classifier for XML content. Defined below.
+        /// </summary>
         [Output("xmlClassifier")]
         public Output<Outputs.ClassifierXmlClassifier?> XmlClassifier { get; private set; } = null!;
 
@@ -73,18 +190,33 @@ namespace Pulumi.Aws.Glue
 
     public sealed class ClassifierArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A classifier for Csv content. Defined below.
+        /// </summary>
         [Input("csvClassifier")]
         public Input<Inputs.ClassifierCsvClassifierArgs>? CsvClassifier { get; set; }
 
+        /// <summary>
+        /// A classifier that uses grok patterns. Defined below.
+        /// </summary>
         [Input("grokClassifier")]
         public Input<Inputs.ClassifierGrokClassifierArgs>? GrokClassifier { get; set; }
 
+        /// <summary>
+        /// A classifier for JSON content. Defined below.
+        /// </summary>
         [Input("jsonClassifier")]
         public Input<Inputs.ClassifierJsonClassifierArgs>? JsonClassifier { get; set; }
 
+        /// <summary>
+        /// The name of the classifier.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A classifier for XML content. Defined below.
+        /// </summary>
         [Input("xmlClassifier")]
         public Input<Inputs.ClassifierXmlClassifierArgs>? XmlClassifier { get; set; }
 
@@ -96,18 +228,33 @@ namespace Pulumi.Aws.Glue
 
     public sealed class ClassifierState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A classifier for Csv content. Defined below.
+        /// </summary>
         [Input("csvClassifier")]
         public Input<Inputs.ClassifierCsvClassifierGetArgs>? CsvClassifier { get; set; }
 
+        /// <summary>
+        /// A classifier that uses grok patterns. Defined below.
+        /// </summary>
         [Input("grokClassifier")]
         public Input<Inputs.ClassifierGrokClassifierGetArgs>? GrokClassifier { get; set; }
 
+        /// <summary>
+        /// A classifier for JSON content. Defined below.
+        /// </summary>
         [Input("jsonClassifier")]
         public Input<Inputs.ClassifierJsonClassifierGetArgs>? JsonClassifier { get; set; }
 
+        /// <summary>
+        /// The name of the classifier.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A classifier for XML content. Defined below.
+        /// </summary>
         [Input("xmlClassifier")]
         public Input<Inputs.ClassifierXmlClassifierGetArgs>? XmlClassifier { get; set; }
 

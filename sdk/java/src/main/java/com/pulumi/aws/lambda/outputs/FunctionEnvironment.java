@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FunctionEnvironment {
+    /**
+     * @return Map of environment variables that are accessible from the function code during execution.
+     * 
+     */
     private @Nullable Map<String,String> variables;
 
     private FunctionEnvironment() {}
+    /**
+     * @return Map of environment variables that are accessible from the function code during execution.
+     * 
+     */
     public Map<String,String> variables() {
         return this.variables == null ? Map.of() : this.variables;
     }

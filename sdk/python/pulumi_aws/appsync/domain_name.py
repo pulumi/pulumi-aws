@@ -19,6 +19,9 @@ class DomainNameArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DomainName resource.
+        :param pulumi.Input[str] certificate_arn: ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+        :param pulumi.Input[str] domain_name: Domain name.
+        :param pulumi.Input[str] description: A description of the Domain Name.
         """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -28,6 +31,9 @@ class DomainNameArgs:
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
@@ -37,6 +43,9 @@ class DomainNameArgs:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
+        """
+        Domain name.
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -46,6 +55,9 @@ class DomainNameArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the Domain Name.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -63,6 +75,11 @@ class _DomainNameState:
                  hosted_zone_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DomainName resources.
+        :param pulumi.Input[str] appsync_domain_name: Domain name that AppSync provides.
+        :param pulumi.Input[str] certificate_arn: ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+        :param pulumi.Input[str] description: A description of the Domain Name.
+        :param pulumi.Input[str] domain_name: Domain name.
+        :param pulumi.Input[str] hosted_zone_id: ID of your Amazon Route 53 hosted zone.
         """
         if appsync_domain_name is not None:
             pulumi.set(__self__, "appsync_domain_name", appsync_domain_name)
@@ -78,6 +95,9 @@ class _DomainNameState:
     @property
     @pulumi.getter(name="appsyncDomainName")
     def appsync_domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Domain name that AppSync provides.
+        """
         return pulumi.get(self, "appsync_domain_name")
 
     @appsync_domain_name.setter
@@ -87,6 +107,9 @@ class _DomainNameState:
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
@@ -96,6 +119,9 @@ class _DomainNameState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the Domain Name.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -105,6 +131,9 @@ class _DomainNameState:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Domain name.
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -114,6 +143,9 @@ class _DomainNameState:
     @property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of your Amazon Route 53 hosted zone.
+        """
         return pulumi.get(self, "hosted_zone_id")
 
     @hosted_zone_id.setter
@@ -131,9 +163,32 @@ class DomainName(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a DomainName resource with the given unique name, props, and options.
+        Provides an AppSync Domain Name.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.DomainName("example",
+            domain_name="api.example.com",
+            certificate_arn=aws_acm_certificate["example"]["arn"])
+        ```
+
+        ## Import
+
+        `aws_appsync_domain_name` can be imported using the AppSync domain name, e.g.,
+
+        ```sh
+         $ pulumi import aws:appsync/domainName:DomainName example example.com
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate_arn: ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+        :param pulumi.Input[str] description: A description of the Domain Name.
+        :param pulumi.Input[str] domain_name: Domain name.
         """
         ...
     @overload
@@ -142,7 +197,27 @@ class DomainName(pulumi.CustomResource):
                  args: DomainNameArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DomainName resource with the given unique name, props, and options.
+        Provides an AppSync Domain Name.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.DomainName("example",
+            domain_name="api.example.com",
+            certificate_arn=aws_acm_certificate["example"]["arn"])
+        ```
+
+        ## Import
+
+        `aws_appsync_domain_name` can be imported using the AppSync domain name, e.g.,
+
+        ```sh
+         $ pulumi import aws:appsync/domainName:DomainName example example.com
+        ```
+
         :param str resource_name: The name of the resource.
         :param DomainNameArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,6 +276,11 @@ class DomainName(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] appsync_domain_name: Domain name that AppSync provides.
+        :param pulumi.Input[str] certificate_arn: ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+        :param pulumi.Input[str] description: A description of the Domain Name.
+        :param pulumi.Input[str] domain_name: Domain name.
+        :param pulumi.Input[str] hosted_zone_id: ID of your Amazon Route 53 hosted zone.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -216,25 +296,40 @@ class DomainName(pulumi.CustomResource):
     @property
     @pulumi.getter(name="appsyncDomainName")
     def appsync_domain_name(self) -> pulumi.Output[str]:
+        """
+        Domain name that AppSync provides.
+        """
         return pulumi.get(self, "appsync_domain_name")
 
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the Domain Name.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
+        """
+        Domain name.
+        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Output[str]:
+        """
+        ID of your Amazon Route 53 hosted zone.
+        """
         return pulumi.get(self, "hosted_zone_id")
 

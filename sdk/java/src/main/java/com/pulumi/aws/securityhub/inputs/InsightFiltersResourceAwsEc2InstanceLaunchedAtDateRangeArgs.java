@@ -14,16 +14,32 @@ public final class InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs e
 
     public static final InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs Empty = new InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs();
 
+    /**
+     * A date range unit for the date filter. Valid values: `DAYS`.
+     * 
+     */
     @Import(name="unit", required=true)
     private Output<String> unit;
 
+    /**
+     * @return A date range unit for the date filter. Valid values: `DAYS`.
+     * 
+     */
     public Output<String> unit() {
         return this.unit;
     }
 
+    /**
+     * A date range value for the date filter, provided as an Integer.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<Integer> value;
 
+    /**
+     * @return A date range value for the date filter, provided as an Integer.
+     * 
+     */
     public Output<Integer> value() {
         return this.value;
     }
@@ -53,20 +69,44 @@ public final class InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs e
             $ = new InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param unit A date range unit for the date filter. Valid values: `DAYS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder unit(Output<String> unit) {
             $.unit = unit;
             return this;
         }
 
+        /**
+         * @param unit A date range unit for the date filter. Valid values: `DAYS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
         }
 
+        /**
+         * @param value A date range value for the date filter, provided as an Integer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<Integer> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value A date range value for the date filter, provided as an Integer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Integer value) {
             return value(Output.of(value));
         }

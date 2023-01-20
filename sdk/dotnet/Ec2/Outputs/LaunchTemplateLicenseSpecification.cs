@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class LaunchTemplateLicenseSpecification
     {
+        /// <summary>
+        /// ARN of the license configuration.
+        /// </summary>
         public readonly string LicenseConfigurationArn;
 
         [OutputConstructor]

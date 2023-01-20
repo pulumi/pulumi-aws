@@ -9,15 +9,73 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Waf
 {
+    /// <summary>
+    /// Provides a WAF Regex Match Set Resource
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRegexPatternSet = new Aws.Waf.RegexPatternSet("exampleRegexPatternSet", new()
+    ///     {
+    ///         RegexPatternStrings = new[]
+    ///         {
+    ///             "one",
+    ///             "two",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRegexMatchSet = new Aws.Waf.RegexMatchSet("exampleRegexMatchSet", new()
+    ///     {
+    ///         RegexMatchTuples = new[]
+    ///         {
+    ///             new Aws.Waf.Inputs.RegexMatchSetRegexMatchTupleArgs
+    ///             {
+    ///                 FieldToMatch = new Aws.Waf.Inputs.RegexMatchSetRegexMatchTupleFieldToMatchArgs
+    ///                 {
+    ///                     Data = "User-Agent",
+    ///                     Type = "HEADER",
+    ///                 },
+    ///                 RegexPatternSetId = exampleRegexPatternSet.Id,
+    ///                 TextTransformation = "NONE",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// WAF Regex Match Set can be imported using their ID, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:waf/regexMatchSet:RegexMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:waf/regexMatchSet:RegexMatchSet")]
     public partial class RegexMatchSet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN)
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name or description of the Regex Match Set.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
+        /// </summary>
         [Output("regexMatchTuples")]
         public Output<ImmutableArray<Outputs.RegexMatchSetRegexMatchTuple>> RegexMatchTuples { get; private set; } = null!;
 
@@ -67,11 +125,18 @@ namespace Pulumi.Aws.Waf
 
     public sealed class RegexMatchSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name or description of the Regex Match Set.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("regexMatchTuples")]
         private InputList<Inputs.RegexMatchSetRegexMatchTupleArgs>? _regexMatchTuples;
+
+        /// <summary>
+        /// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
+        /// </summary>
         public InputList<Inputs.RegexMatchSetRegexMatchTupleArgs> RegexMatchTuples
         {
             get => _regexMatchTuples ?? (_regexMatchTuples = new InputList<Inputs.RegexMatchSetRegexMatchTupleArgs>());
@@ -86,14 +151,24 @@ namespace Pulumi.Aws.Waf
 
     public sealed class RegexMatchSetState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN)
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The name or description of the Regex Match Set.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("regexMatchTuples")]
         private InputList<Inputs.RegexMatchSetRegexMatchTupleGetArgs>? _regexMatchTuples;
+
+        /// <summary>
+        /// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
+        /// </summary>
         public InputList<Inputs.RegexMatchSetRegexMatchTupleGetArgs> RegexMatchTuples
         {
             get => _regexMatchTuples ?? (_regexMatchTuples = new InputList<Inputs.RegexMatchSetRegexMatchTupleGetArgs>());

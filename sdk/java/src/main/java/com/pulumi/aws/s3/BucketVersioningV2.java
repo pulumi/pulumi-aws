@@ -15,29 +15,224 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a resource for controlling versioning on an S3 bucket.
+ * Deleting this resource will either suspend versioning on the associated S3 bucket or
+ * simply remove the resource from state if the associated S3 bucket is unversioned.
+ * 
+ * For more information, see [How S3 versioning works](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html).
+ * 
+ * &gt; **NOTE:** If you are enabling versioning on the bucket for the first time, AWS recommends that you wait for 15 minutes after enabling versioning before issuing write operations (PUT or DELETE) on objects in the bucket.
+ * 
+ * ## Example Usage
+ * ### With Versioning Enabled
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketAclV2;
+ * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketVersioningV2;
+ * import com.pulumi.aws.s3.BucketVersioningV2Args;
+ * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ * 
+ *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+ *             .bucket(exampleBucketV2.id())
+ *             .acl(&#34;private&#34;)
+ *             .build());
+ * 
+ *         var versioningExample = new BucketVersioningV2(&#34;versioningExample&#34;, BucketVersioningV2Args.builder()        
+ *             .bucket(exampleBucketV2.id())
+ *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
+ *                 .status(&#34;Enabled&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### With Versioning Disabled
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketAclV2;
+ * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketVersioningV2;
+ * import com.pulumi.aws.s3.BucketVersioningV2Args;
+ * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ * 
+ *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+ *             .bucket(exampleBucketV2.id())
+ *             .acl(&#34;private&#34;)
+ *             .build());
+ * 
+ *         var versioningExample = new BucketVersioningV2(&#34;versioningExample&#34;, BucketVersioningV2Args.builder()        
+ *             .bucket(exampleBucketV2.id())
+ *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
+ *                 .status(&#34;Disabled&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Object Dependency On Versioning
+ * 
+ * When you create an object whose `version_id` you need and an `aws.s3.BucketVersioningV2` resource in the same configuration, you are more likely to have success by ensuring the `s3_object` depends either implicitly (see below) or explicitly (i.e., using `depends_on = [aws_s3_bucket_versioning.example]`) on the `aws.s3.BucketVersioningV2` resource.
+ * 
+ * &gt; **NOTE:** For critical and/or production S3 objects, do not create a bucket, enable versioning, and create an object in the bucket within the same configuration. Doing so will not allow the AWS-recommended 15 minutes between enabling versioning and writing to the bucket.
+ * 
+ * This example shows the `aws_s3_object.example` depending implicitly on the versioning resource through the reference to `aws_s3_bucket_versioning.example.bucket` to define `bucket`:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketVersioningV2;
+ * import com.pulumi.aws.s3.BucketVersioningV2Args;
+ * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
+ * import com.pulumi.aws.s3.BucketObjectv2;
+ * import com.pulumi.aws.s3.BucketObjectv2Args;
+ * import com.pulumi.asset.FileAsset;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ * 
+ *         var exampleBucketVersioningV2 = new BucketVersioningV2(&#34;exampleBucketVersioningV2&#34;, BucketVersioningV2Args.builder()        
+ *             .bucket(exampleBucketV2.id())
+ *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
+ *                 .status(&#34;Enabled&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
+ *             .bucket(exampleBucketVersioningV2.bucket())
+ *             .key(&#34;droeloe&#34;)
+ *             .source(new FileAsset(&#34;example.txt&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * S3 bucket versioning can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name
+ * ```
+ * 
+ *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
+ * ```
+ * 
+ */
 @ResourceType(type="aws:s3/bucketVersioningV2:BucketVersioningV2")
 public class BucketVersioningV2 extends com.pulumi.resources.CustomResource {
+    /**
+     * The name of the S3 bucket.
+     * 
+     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
+    /**
+     * @return The name of the S3 bucket.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
+    /**
+     * The account ID of the expected bucket owner.
+     * 
+     */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
+    /**
+     * @return The account ID of the expected bucket owner.
+     * 
+     */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
+    /**
+     * The concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
+     * 
+     */
     @Export(name="mfa", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mfa;
 
+    /**
+     * @return The concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
+     * 
+     */
     public Output<Optional<String>> mfa() {
         return Codegen.optional(this.mfa);
     }
+    /**
+     * Configuration block for the versioning parameters detailed below.
+     * 
+     */
     @Export(name="versioningConfiguration", refs={BucketVersioningV2VersioningConfiguration.class}, tree="[0]")
     private Output<BucketVersioningV2VersioningConfiguration> versioningConfiguration;
 
+    /**
+     * @return Configuration block for the versioning parameters detailed below.
+     * 
+     */
     public Output<BucketVersioningV2VersioningConfiguration> versioningConfiguration() {
         return this.versioningConfiguration;
     }

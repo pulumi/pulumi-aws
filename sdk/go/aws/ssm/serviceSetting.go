@@ -11,13 +11,55 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This setting defines how a user interacts with or uses a service or a feature of a service.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewServiceSetting(ctx, "testSetting", &ssm.ServiceSettingArgs{
+//				SettingId:    pulumi.String("arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled"),
+//				SettingValue: pulumi.String("true"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// AWS SSM Service Setting can be imported using the `setting_id`, e.g.
+//
+// ```sh
+//
+//	$ pulumi import aws:ssm/serviceSetting:ServiceSetting example arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
+//
+// ```
 type ServiceSetting struct {
 	pulumi.CustomResourceState
 
-	Arn          pulumi.StringOutput `pulumi:"arn"`
-	SettingId    pulumi.StringOutput `pulumi:"settingId"`
+	// ARN of the service setting.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// ID of the service setting.
+	SettingId pulumi.StringOutput `pulumi:"settingId"`
+	// Value of the service setting.
 	SettingValue pulumi.StringOutput `pulumi:"settingValue"`
-	Status       pulumi.StringOutput `pulumi:"status"`
+	// Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewServiceSetting registers a new resource with the given unique name, arguments, and options.
@@ -55,17 +97,25 @@ func GetServiceSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceSetting resources.
 type serviceSettingState struct {
-	Arn          *string `pulumi:"arn"`
-	SettingId    *string `pulumi:"settingId"`
+	// ARN of the service setting.
+	Arn *string `pulumi:"arn"`
+	// ID of the service setting.
+	SettingId *string `pulumi:"settingId"`
+	// Value of the service setting.
 	SettingValue *string `pulumi:"settingValue"`
-	Status       *string `pulumi:"status"`
+	// Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
+	Status *string `pulumi:"status"`
 }
 
 type ServiceSettingState struct {
-	Arn          pulumi.StringPtrInput
-	SettingId    pulumi.StringPtrInput
+	// ARN of the service setting.
+	Arn pulumi.StringPtrInput
+	// ID of the service setting.
+	SettingId pulumi.StringPtrInput
+	// Value of the service setting.
 	SettingValue pulumi.StringPtrInput
-	Status       pulumi.StringPtrInput
+	// Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
+	Status pulumi.StringPtrInput
 }
 
 func (ServiceSettingState) ElementType() reflect.Type {
@@ -73,13 +123,17 @@ func (ServiceSettingState) ElementType() reflect.Type {
 }
 
 type serviceSettingArgs struct {
-	SettingId    string `pulumi:"settingId"`
+	// ID of the service setting.
+	SettingId string `pulumi:"settingId"`
+	// Value of the service setting.
 	SettingValue string `pulumi:"settingValue"`
 }
 
 // The set of arguments for constructing a ServiceSetting resource.
 type ServiceSettingArgs struct {
-	SettingId    pulumi.StringInput
+	// ID of the service setting.
+	SettingId pulumi.StringInput
+	// Value of the service setting.
 	SettingValue pulumi.StringInput
 }
 
@@ -170,18 +224,22 @@ func (o ServiceSettingOutput) ToServiceSettingOutputWithContext(ctx context.Cont
 	return o
 }
 
+// ARN of the service setting.
 func (o ServiceSettingOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceSetting) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// ID of the service setting.
 func (o ServiceSettingOutput) SettingId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceSetting) pulumi.StringOutput { return v.SettingId }).(pulumi.StringOutput)
 }
 
+// Value of the service setting.
 func (o ServiceSettingOutput) SettingValue() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceSetting) pulumi.StringOutput { return v.SettingValue }).(pulumi.StringOutput)
 }
 
+// Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
 func (o ServiceSettingOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceSetting) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

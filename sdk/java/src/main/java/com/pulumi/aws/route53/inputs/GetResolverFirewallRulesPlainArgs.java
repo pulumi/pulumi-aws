@@ -15,23 +15,47 @@ public final class GetResolverFirewallRulesPlainArgs extends com.pulumi.resource
 
     public static final GetResolverFirewallRulesPlainArgs Empty = new GetResolverFirewallRulesPlainArgs();
 
+    /**
+     * The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list.
+     * 
+     */
     @Import(name="action")
     private @Nullable String action;
 
+    /**
+     * @return The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list.
+     * 
+     */
     public Optional<String> action() {
         return Optional.ofNullable(this.action);
     }
 
+    /**
+     * The unique identifier of the firewall rule group that you want to retrieve the rules for.
+     * 
+     */
     @Import(name="firewallRuleGroupId", required=true)
     private String firewallRuleGroupId;
 
+    /**
+     * @return The unique identifier of the firewall rule group that you want to retrieve the rules for.
+     * 
+     */
     public String firewallRuleGroupId() {
         return this.firewallRuleGroupId;
     }
 
+    /**
+     * The setting that determines the processing order of the rules in a rule group.
+     * 
+     */
     @Import(name="priority")
     private @Nullable Integer priority;
 
+    /**
+     * @return The setting that determines the processing order of the rules in a rule group.
+     * 
+     */
     public Optional<Integer> priority() {
         return Optional.ofNullable(this.priority);
     }
@@ -62,16 +86,34 @@ public final class GetResolverFirewallRulesPlainArgs extends com.pulumi.resource
             $ = new GetResolverFirewallRulesPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param action The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(@Nullable String action) {
             $.action = action;
             return this;
         }
 
+        /**
+         * @param firewallRuleGroupId The unique identifier of the firewall rule group that you want to retrieve the rules for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder firewallRuleGroupId(String firewallRuleGroupId) {
             $.firewallRuleGroupId = firewallRuleGroupId;
             return this;
         }
 
+        /**
+         * @param priority The setting that determines the processing order of the rules in a rule group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder priority(@Nullable Integer priority) {
             $.priority = priority;
             return this;

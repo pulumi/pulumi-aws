@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cognito.GetUserPoolClients(ctx, &cognito.GetUserPoolClientsArgs{
+//				UserPoolId: aws_cognito_user_pool.Main.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetUserPoolClients(ctx *pulumi.Context, args *GetUserPoolClientsArgs, opts ...pulumi.InvokeOption) (*GetUserPoolClientsResult, error) {
 	var rv GetUserPoolClientsResult
 	err := ctx.Invoke("aws:cognito/getUserPoolClients:getUserPoolClients", args, &rv, opts...)
@@ -21,12 +48,15 @@ func GetUserPoolClients(ctx *pulumi.Context, args *GetUserPoolClientsArgs, opts 
 
 // A collection of arguments for invoking getUserPoolClients.
 type GetUserPoolClientsArgs struct {
+	// Cognito user pool ID.
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
 // A collection of values returned by getUserPoolClients.
 type GetUserPoolClientsResult struct {
-	ClientIds   []string `pulumi:"clientIds"`
+	// List of Cognito user pool client IDs.
+	ClientIds []string `pulumi:"clientIds"`
+	// List of Cognito user pool client names.
 	ClientNames []string `pulumi:"clientNames"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
@@ -48,6 +78,7 @@ func GetUserPoolClientsOutput(ctx *pulumi.Context, args GetUserPoolClientsOutput
 
 // A collection of arguments for invoking getUserPoolClients.
 type GetUserPoolClientsOutputArgs struct {
+	// Cognito user pool ID.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
@@ -70,10 +101,12 @@ func (o GetUserPoolClientsResultOutput) ToGetUserPoolClientsResultOutputWithCont
 	return o
 }
 
+// List of Cognito user pool client IDs.
 func (o GetUserPoolClientsResultOutput) ClientIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetUserPoolClientsResult) []string { return v.ClientIds }).(pulumi.StringArrayOutput)
 }
 
+// List of Cognito user pool client names.
 func (o GetUserPoolClientsResultOutput) ClientNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetUserPoolClientsResult) []string { return v.ClientNames }).(pulumi.StringArrayOutput)
 }

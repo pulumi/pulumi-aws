@@ -9,9 +9,95 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iot
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mytopic = new Aws.Sns.Topic("mytopic");
+    /// 
+    ///     var myerrortopic = new Aws.Sns.Topic("myerrortopic");
+    /// 
+    ///     var role = new Aws.Iam.Role("role", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""iot.amazonaws.com""
+    ///       },
+    ///       ""Action"": ""sts:AssumeRole""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///     });
+    /// 
+    ///     var rule = new Aws.Iot.TopicRule("rule", new()
+    ///     {
+    ///         Description = "Example rule",
+    ///         Enabled = true,
+    ///         Sql = "SELECT * FROM 'topic/test'",
+    ///         SqlVersion = "2016-03-23",
+    ///         Sns = new Aws.Iot.Inputs.TopicRuleSnsArgs
+    ///         {
+    ///             MessageFormat = "RAW",
+    ///             RoleArn = role.Arn,
+    ///             TargetArn = mytopic.Arn,
+    ///         },
+    ///         ErrorAction = new Aws.Iot.Inputs.TopicRuleErrorActionArgs
+    ///         {
+    ///             Sns = new Aws.Iot.Inputs.TopicRuleErrorActionSnsArgs
+    ///             {
+    ///                 MessageFormat = "RAW",
+    ///                 RoleArn = role.Arn,
+    ///                 TargetArn = myerrortopic.Arn,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var iamPolicyForLambda = new Aws.Iam.RolePolicy("iamPolicyForLambda", new()
+    ///     {
+    ///         Role = role.Id,
+    ///         Policy = mytopic.Arn.Apply(arn =&gt; @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///         ""Effect"": ""Allow"",
+    ///         ""Action"": [
+    ///             ""sns:Publish""
+    ///         ],
+    ///         ""Resource"": ""{arn}""
+    ///     }}
+    ///   ]
+    /// }}
+    /// "),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// IoT Topic Rules can be imported using the `name`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:iot/topicRule:TopicRule rule &lt;name&gt;
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:iot/topicRule:TopicRule")]
     public partial class TopicRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the topic rule
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -24,6 +110,9 @@ namespace Pulumi.Aws.Iot
         [Output("cloudwatchMetric")]
         public Output<Outputs.TopicRuleCloudwatchMetric?> CloudwatchMetric { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the rule.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -36,9 +125,15 @@ namespace Pulumi.Aws.Iot
         [Output("elasticsearch")]
         public Output<Outputs.TopicRuleElasticsearch?> Elasticsearch { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the rule is enabled.
+        /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
+        /// </summary>
         [Output("errorAction")]
         public Output<Outputs.TopicRuleErrorAction?> ErrorAction { get; private set; } = null!;
 
@@ -63,6 +158,9 @@ namespace Pulumi.Aws.Iot
         [Output("lambda")]
         public Output<Outputs.TopicRuleLambda?> Lambda { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -75,9 +173,15 @@ namespace Pulumi.Aws.Iot
         [Output("sns")]
         public Output<Outputs.TopicRuleSns?> Sns { get; private set; } = null!;
 
+        /// <summary>
+        /// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
+        /// </summary>
         [Output("sql")]
         public Output<string> Sql { get; private set; } = null!;
 
+        /// <summary>
+        /// The version of the SQL rules engine to use when evaluating the rule.
+        /// </summary>
         [Output("sqlVersion")]
         public Output<string> SqlVersion { get; private set; } = null!;
 
@@ -87,9 +191,15 @@ namespace Pulumi.Aws.Iot
         [Output("stepFunctions")]
         public Output<ImmutableArray<Outputs.TopicRuleStepFunction>> StepFunctions { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -156,6 +266,9 @@ namespace Pulumi.Aws.Iot
         [Input("cloudwatchMetric")]
         public Input<Inputs.TopicRuleCloudwatchMetricArgs>? CloudwatchMetric { get; set; }
 
+        /// <summary>
+        /// The description of the rule.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -173,9 +286,15 @@ namespace Pulumi.Aws.Iot
         [Input("elasticsearch")]
         public Input<Inputs.TopicRuleElasticsearchArgs>? Elasticsearch { get; set; }
 
+        /// <summary>
+        /// Specifies whether the rule is enabled.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
+        /// </summary>
         [Input("errorAction")]
         public Input<Inputs.TopicRuleErrorActionArgs>? ErrorAction { get; set; }
 
@@ -220,6 +339,9 @@ namespace Pulumi.Aws.Iot
         [Input("lambda")]
         public Input<Inputs.TopicRuleLambdaArgs>? Lambda { get; set; }
 
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -232,9 +354,15 @@ namespace Pulumi.Aws.Iot
         [Input("sns")]
         public Input<Inputs.TopicRuleSnsArgs>? Sns { get; set; }
 
+        /// <summary>
+        /// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
+        /// </summary>
         [Input("sql", required: true)]
         public Input<string> Sql { get; set; } = null!;
 
+        /// <summary>
+        /// The version of the SQL rules engine to use when evaluating the rule.
+        /// </summary>
         [Input("sqlVersion", required: true)]
         public Input<string> SqlVersion { get; set; } = null!;
 
@@ -251,6 +379,10 @@ namespace Pulumi.Aws.Iot
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -273,6 +405,9 @@ namespace Pulumi.Aws.Iot
 
     public sealed class TopicRuleState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the topic rule
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -290,6 +425,9 @@ namespace Pulumi.Aws.Iot
         [Input("cloudwatchMetric")]
         public Input<Inputs.TopicRuleCloudwatchMetricGetArgs>? CloudwatchMetric { get; set; }
 
+        /// <summary>
+        /// The description of the rule.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -307,9 +445,15 @@ namespace Pulumi.Aws.Iot
         [Input("elasticsearch")]
         public Input<Inputs.TopicRuleElasticsearchGetArgs>? Elasticsearch { get; set; }
 
+        /// <summary>
+        /// Specifies whether the rule is enabled.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
+        /// </summary>
         [Input("errorAction")]
         public Input<Inputs.TopicRuleErrorActionGetArgs>? ErrorAction { get; set; }
 
@@ -354,6 +498,9 @@ namespace Pulumi.Aws.Iot
         [Input("lambda")]
         public Input<Inputs.TopicRuleLambdaGetArgs>? Lambda { get; set; }
 
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -366,9 +513,15 @@ namespace Pulumi.Aws.Iot
         [Input("sns")]
         public Input<Inputs.TopicRuleSnsGetArgs>? Sns { get; set; }
 
+        /// <summary>
+        /// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
+        /// </summary>
         [Input("sql")]
         public Input<string>? Sql { get; set; }
 
+        /// <summary>
+        /// The version of the SQL rules engine to use when evaluating the rule.
+        /// </summary>
         [Input("sqlVersion")]
         public Input<string>? SqlVersion { get; set; }
 
@@ -385,6 +538,10 @@ namespace Pulumi.Aws.Iot
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -393,6 +550,10 @@ namespace Pulumi.Aws.Iot
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

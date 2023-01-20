@@ -24,6 +24,11 @@ class ConnectorProfileArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ConnectorProfile resource.
+        :param pulumi.Input[str] connection_mode: Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigArgs'] connector_profile_config: Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+        :param pulumi.Input[str] connector_type: The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
+        :param pulumi.Input[str] connector_label: The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
+        :param pulumi.Input[str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         """
         pulumi.set(__self__, "connection_mode", connection_mode)
         pulumi.set(__self__, "connector_profile_config", connector_profile_config)
@@ -38,6 +43,9 @@ class ConnectorProfileArgs:
     @property
     @pulumi.getter(name="connectionMode")
     def connection_mode(self) -> pulumi.Input[str]:
+        """
+        Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
+        """
         return pulumi.get(self, "connection_mode")
 
     @connection_mode.setter
@@ -47,6 +55,9 @@ class ConnectorProfileArgs:
     @property
     @pulumi.getter(name="connectorProfileConfig")
     def connector_profile_config(self) -> pulumi.Input['ConnectorProfileConnectorProfileConfigArgs']:
+        """
+        Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+        """
         return pulumi.get(self, "connector_profile_config")
 
     @connector_profile_config.setter
@@ -56,6 +67,9 @@ class ConnectorProfileArgs:
     @property
     @pulumi.getter(name="connectorType")
     def connector_type(self) -> pulumi.Input[str]:
+        """
+        The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
+        """
         return pulumi.get(self, "connector_type")
 
     @connector_type.setter
@@ -65,6 +79,9 @@ class ConnectorProfileArgs:
     @property
     @pulumi.getter(name="connectorLabel")
     def connector_label(self) -> Optional[pulumi.Input[str]]:
+        """
+        The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
+        """
         return pulumi.get(self, "connector_label")
 
     @connector_label.setter
@@ -74,6 +91,9 @@ class ConnectorProfileArgs:
     @property
     @pulumi.getter(name="kmsArn")
     def kms_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        """
         return pulumi.get(self, "kms_arn")
 
     @kms_arn.setter
@@ -103,6 +123,13 @@ class _ConnectorProfileState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ConnectorProfile resources.
+        :param pulumi.Input[str] arn: ARN of the connector profile.
+        :param pulumi.Input[str] connection_mode: Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
+        :param pulumi.Input[str] connector_label: The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigArgs'] connector_profile_config: Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+        :param pulumi.Input[str] connector_type: The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
+        :param pulumi.Input[str] credentials_arn: ARN of the connector profile credentials.
+        :param pulumi.Input[str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -124,6 +151,9 @@ class _ConnectorProfileState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the connector profile.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -133,6 +163,9 @@ class _ConnectorProfileState:
     @property
     @pulumi.getter(name="connectionMode")
     def connection_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
+        """
         return pulumi.get(self, "connection_mode")
 
     @connection_mode.setter
@@ -142,6 +175,9 @@ class _ConnectorProfileState:
     @property
     @pulumi.getter(name="connectorLabel")
     def connector_label(self) -> Optional[pulumi.Input[str]]:
+        """
+        The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
+        """
         return pulumi.get(self, "connector_label")
 
     @connector_label.setter
@@ -151,6 +187,9 @@ class _ConnectorProfileState:
     @property
     @pulumi.getter(name="connectorProfileConfig")
     def connector_profile_config(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigArgs']]:
+        """
+        Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+        """
         return pulumi.get(self, "connector_profile_config")
 
     @connector_profile_config.setter
@@ -160,6 +199,9 @@ class _ConnectorProfileState:
     @property
     @pulumi.getter(name="connectorType")
     def connector_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
+        """
         return pulumi.get(self, "connector_type")
 
     @connector_type.setter
@@ -169,6 +211,9 @@ class _ConnectorProfileState:
     @property
     @pulumi.getter(name="credentialsArn")
     def credentials_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the connector profile credentials.
+        """
         return pulumi.get(self, "credentials_arn")
 
     @credentials_arn.setter
@@ -178,6 +223,9 @@ class _ConnectorProfileState:
     @property
     @pulumi.getter(name="kmsArn")
     def kms_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        """
         return pulumi.get(self, "kms_arn")
 
     @kms_arn.setter
@@ -207,9 +255,29 @@ class ConnectorProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ConnectorProfile resource with the given unique name, props, and options.
+        Provides an AppFlow connector profile resource.
+
+        For information about AppFlow flows, see the [Amazon AppFlow API Reference](https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html).
+        For specific information about creating an AppFlow connector profile, see the
+        [CreateConnectorProfile](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html) page in the Amazon AppFlow API Reference.
+
+        ## Import
+
+        AppFlow Connector Profile can be imported using the connector profile `arn`, e.g.
+
+        ```sh
+         $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
+        ```
+
+         [1]https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html [2]https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] connection_mode: Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
+        :param pulumi.Input[str] connector_label: The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
+        :param pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']] connector_profile_config: Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+        :param pulumi.Input[str] connector_type: The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
+        :param pulumi.Input[str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         """
         ...
     @overload
@@ -218,7 +286,22 @@ class ConnectorProfile(pulumi.CustomResource):
                  args: ConnectorProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ConnectorProfile resource with the given unique name, props, and options.
+        Provides an AppFlow connector profile resource.
+
+        For information about AppFlow flows, see the [Amazon AppFlow API Reference](https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html).
+        For specific information about creating an AppFlow connector profile, see the
+        [CreateConnectorProfile](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html) page in the Amazon AppFlow API Reference.
+
+        ## Import
+
+        AppFlow Connector Profile can be imported using the connector profile `arn`, e.g.
+
+        ```sh
+         $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
+        ```
+
+         [1]https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html [2]https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
+
         :param str resource_name: The name of the resource.
         :param ConnectorProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -288,6 +371,13 @@ class ConnectorProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the connector profile.
+        :param pulumi.Input[str] connection_mode: Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
+        :param pulumi.Input[str] connector_label: The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
+        :param pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']] connector_profile_config: Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+        :param pulumi.Input[str] connector_type: The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
+        :param pulumi.Input[str] credentials_arn: ARN of the connector profile credentials.
+        :param pulumi.Input[str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -306,36 +396,57 @@ class ConnectorProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the connector profile.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="connectionMode")
     def connection_mode(self) -> pulumi.Output[str]:
+        """
+        Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
+        """
         return pulumi.get(self, "connection_mode")
 
     @property
     @pulumi.getter(name="connectorLabel")
     def connector_label(self) -> pulumi.Output[Optional[str]]:
+        """
+        The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
+        """
         return pulumi.get(self, "connector_label")
 
     @property
     @pulumi.getter(name="connectorProfileConfig")
     def connector_profile_config(self) -> pulumi.Output['outputs.ConnectorProfileConnectorProfileConfig']:
+        """
+        Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+        """
         return pulumi.get(self, "connector_profile_config")
 
     @property
     @pulumi.getter(name="connectorType")
     def connector_type(self) -> pulumi.Output[str]:
+        """
+        The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
+        """
         return pulumi.get(self, "connector_type")
 
     @property
     @pulumi.getter(name="credentialsArn")
     def credentials_arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the connector profile credentials.
+        """
         return pulumi.get(self, "credentials_arn")
 
     @property
     @pulumi.getter(name="kmsArn")
     def kms_arn(self) -> pulumi.Output[str]:
+        """
+        ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        """
         return pulumi.get(self, "kms_arn")
 
     @property

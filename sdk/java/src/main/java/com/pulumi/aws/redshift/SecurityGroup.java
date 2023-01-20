@@ -15,23 +15,94 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters.
+ * 
+ * !&gt; **WARNING:** With the retirement of EC2-Classic the `aws.redshift.SecurityGroup` resource has been deprecated and will be removed in a future version. Any existing resources can be removed from state manually.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.redshift.SecurityGroup;
+ * import com.pulumi.aws.redshift.SecurityGroupArgs;
+ * import com.pulumi.aws.redshift.inputs.SecurityGroupIngressArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var default_ = new SecurityGroup(&#34;default&#34;, SecurityGroupArgs.builder()        
+ *             .ingress(SecurityGroupIngressArgs.builder()
+ *                 .cidr(&#34;10.0.0.0/24&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Redshift security groups can be imported using the `name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:redshift/securityGroup:SecurityGroup testgroup1 redshift_test_group
+ * ```
+ * 
+ */
 @ResourceType(type="aws:redshift/securityGroup:SecurityGroup")
 public class SecurityGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * The description of the Redshift security group. Defaults to &#34;Managed by Pulumi&#34;.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
+    /**
+     * @return The description of the Redshift security group. Defaults to &#34;Managed by Pulumi&#34;.
+     * 
+     */
     public Output<String> description() {
         return this.description;
     }
+    /**
+     * A list of ingress rules.
+     * 
+     */
     @Export(name="ingress", refs={List.class,SecurityGroupIngress.class}, tree="[0,1]")
     private Output<List<SecurityGroupIngress>> ingress;
 
+    /**
+     * @return A list of ingress rules.
+     * 
+     */
     public Output<List<SecurityGroupIngress>> ingress() {
         return this.ingress;
     }
+    /**
+     * The name of the Redshift security group.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the Redshift security group.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

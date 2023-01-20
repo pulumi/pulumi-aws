@@ -20,83 +20,241 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a resource to manage EC2 Fleets.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Fleet;
+ * import com.pulumi.aws.ec2.FleetArgs;
+ * import com.pulumi.aws.ec2.inputs.FleetLaunchTemplateConfigArgs;
+ * import com.pulumi.aws.ec2.inputs.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs;
+ * import com.pulumi.aws.ec2.inputs.FleetTargetCapacitySpecificationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Fleet(&#34;example&#34;, FleetArgs.builder()        
+ *             .launchTemplateConfig(FleetLaunchTemplateConfigArgs.builder()
+ *                 .launchTemplateSpecification(FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs.builder()
+ *                     .launchTemplateId(aws_launch_template.example().id())
+ *                     .version(aws_launch_template.example().latest_version())
+ *                     .build())
+ *                 .build())
+ *             .targetCapacitySpecification(FleetTargetCapacitySpecificationArgs.builder()
+ *                 .defaultTargetCapacityType(&#34;spot&#34;)
+ *                 .totalTargetCapacity(5)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_ec2_fleet` can be imported by using the Fleet identifier, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2/fleet:Fleet")
 public class Fleet extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the fleet
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the fleet
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Reserved.
+     * 
+     */
     @Export(name="context", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> context;
 
+    /**
+     * @return Reserved.
+     * 
+     */
     public Output<Optional<String>> context() {
         return Codegen.optional(this.context);
     }
+    /**
+     * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+     * 
+     */
     @Export(name="excessCapacityTerminationPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> excessCapacityTerminationPolicy;
 
+    /**
+     * @return Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+     * 
+     */
     public Output<Optional<String>> excessCapacityTerminationPolicy() {
         return Codegen.optional(this.excessCapacityTerminationPolicy);
     }
+    /**
+     * Nested argument containing EC2 Launch Template configurations. Defined below.
+     * 
+     */
     @Export(name="launchTemplateConfig", refs={FleetLaunchTemplateConfig.class}, tree="[0]")
     private Output<FleetLaunchTemplateConfig> launchTemplateConfig;
 
+    /**
+     * @return Nested argument containing EC2 Launch Template configurations. Defined below.
+     * 
+     */
     public Output<FleetLaunchTemplateConfig> launchTemplateConfig() {
         return this.launchTemplateConfig;
     }
+    /**
+     * Nested argument containing On-Demand configurations. Defined below.
+     * 
+     */
     @Export(name="onDemandOptions", refs={FleetOnDemandOptions.class}, tree="[0]")
     private Output</* @Nullable */ FleetOnDemandOptions> onDemandOptions;
 
+    /**
+     * @return Nested argument containing On-Demand configurations. Defined below.
+     * 
+     */
     public Output<Optional<FleetOnDemandOptions>> onDemandOptions() {
         return Codegen.optional(this.onDemandOptions);
     }
+    /**
+     * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+     * 
+     */
     @Export(name="replaceUnhealthyInstances", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replaceUnhealthyInstances;
 
+    /**
+     * @return Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+     * 
+     */
     public Output<Optional<Boolean>> replaceUnhealthyInstances() {
         return Codegen.optional(this.replaceUnhealthyInstances);
     }
+    /**
+     * Nested argument containing Spot configurations. Defined below.
+     * 
+     */
     @Export(name="spotOptions", refs={FleetSpotOptions.class}, tree="[0]")
     private Output</* @Nullable */ FleetSpotOptions> spotOptions;
 
+    /**
+     * @return Nested argument containing Spot configurations. Defined below.
+     * 
+     */
     public Output<Optional<FleetSpotOptions>> spotOptions() {
         return Codegen.optional(this.spotOptions);
     }
+    /**
+     * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Nested argument containing target capacity configurations. Defined below.
+     * 
+     */
     @Export(name="targetCapacitySpecification", refs={FleetTargetCapacitySpecification.class}, tree="[0]")
     private Output<FleetTargetCapacitySpecification> targetCapacitySpecification;
 
+    /**
+     * @return Nested argument containing target capacity configurations. Defined below.
+     * 
+     */
     public Output<FleetTargetCapacitySpecification> targetCapacitySpecification() {
         return this.targetCapacitySpecification;
     }
+    /**
+     * Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
+     * 
+     */
     @Export(name="terminateInstances", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> terminateInstances;
 
+    /**
+     * @return Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
+     * 
+     */
     public Output<Optional<Boolean>> terminateInstances() {
         return Codegen.optional(this.terminateInstances);
     }
+    /**
+     * Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
+     * 
+     */
     @Export(name="terminateInstancesWithExpiration", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> terminateInstancesWithExpiration;
 
+    /**
+     * @return Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
+     * 
+     */
     public Output<Optional<Boolean>> terminateInstancesWithExpiration() {
         return Codegen.optional(this.terminateInstancesWithExpiration);
     }
+    /**
+     * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
+    /**
+     * @return The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+     * 
+     */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
     }

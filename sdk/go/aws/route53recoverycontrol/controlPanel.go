@@ -11,15 +11,58 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an AWS Route 53 Recovery Control Config Control Panel.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoverycontrol"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53recoverycontrol.NewControlPanel(ctx, "example", &route53recoverycontrol.ControlPanelArgs{
+//				ClusterArn: pulumi.String("arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Route53 Recovery Control Config Control Panel can be imported via the control panel arn, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
+//
+// ```
 type ControlPanel struct {
 	pulumi.CustomResourceState
 
-	Arn                 pulumi.StringOutput `pulumi:"arn"`
-	ClusterArn          pulumi.StringOutput `pulumi:"clusterArn"`
-	DefaultControlPanel pulumi.BoolOutput   `pulumi:"defaultControlPanel"`
-	Name                pulumi.StringOutput `pulumi:"name"`
-	RoutingControlCount pulumi.IntOutput    `pulumi:"routingControlCount"`
-	Status              pulumi.StringOutput `pulumi:"status"`
+	// ARN of the control panel.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// ARN of the cluster in which this control panel will reside.
+	ClusterArn pulumi.StringOutput `pulumi:"clusterArn"`
+	// Whether a control panel is default.
+	DefaultControlPanel pulumi.BoolOutput `pulumi:"defaultControlPanel"`
+	// Name describing the control panel.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Number routing controls in a control panel.
+	RoutingControlCount pulumi.IntOutput `pulumi:"routingControlCount"`
+	// Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewControlPanel registers a new resource with the given unique name, arguments, and options.
@@ -54,21 +97,33 @@ func GetControlPanel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ControlPanel resources.
 type controlPanelState struct {
-	Arn                 *string `pulumi:"arn"`
-	ClusterArn          *string `pulumi:"clusterArn"`
-	DefaultControlPanel *bool   `pulumi:"defaultControlPanel"`
-	Name                *string `pulumi:"name"`
-	RoutingControlCount *int    `pulumi:"routingControlCount"`
-	Status              *string `pulumi:"status"`
+	// ARN of the control panel.
+	Arn *string `pulumi:"arn"`
+	// ARN of the cluster in which this control panel will reside.
+	ClusterArn *string `pulumi:"clusterArn"`
+	// Whether a control panel is default.
+	DefaultControlPanel *bool `pulumi:"defaultControlPanel"`
+	// Name describing the control panel.
+	Name *string `pulumi:"name"`
+	// Number routing controls in a control panel.
+	RoutingControlCount *int `pulumi:"routingControlCount"`
+	// Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+	Status *string `pulumi:"status"`
 }
 
 type ControlPanelState struct {
-	Arn                 pulumi.StringPtrInput
-	ClusterArn          pulumi.StringPtrInput
+	// ARN of the control panel.
+	Arn pulumi.StringPtrInput
+	// ARN of the cluster in which this control panel will reside.
+	ClusterArn pulumi.StringPtrInput
+	// Whether a control panel is default.
 	DefaultControlPanel pulumi.BoolPtrInput
-	Name                pulumi.StringPtrInput
+	// Name describing the control panel.
+	Name pulumi.StringPtrInput
+	// Number routing controls in a control panel.
 	RoutingControlCount pulumi.IntPtrInput
-	Status              pulumi.StringPtrInput
+	// Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+	Status pulumi.StringPtrInput
 }
 
 func (ControlPanelState) ElementType() reflect.Type {
@@ -76,14 +131,18 @@ func (ControlPanelState) ElementType() reflect.Type {
 }
 
 type controlPanelArgs struct {
-	ClusterArn string  `pulumi:"clusterArn"`
-	Name       *string `pulumi:"name"`
+	// ARN of the cluster in which this control panel will reside.
+	ClusterArn string `pulumi:"clusterArn"`
+	// Name describing the control panel.
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ControlPanel resource.
 type ControlPanelArgs struct {
+	// ARN of the cluster in which this control panel will reside.
 	ClusterArn pulumi.StringInput
-	Name       pulumi.StringPtrInput
+	// Name describing the control panel.
+	Name pulumi.StringPtrInput
 }
 
 func (ControlPanelArgs) ElementType() reflect.Type {
@@ -173,26 +232,32 @@ func (o ControlPanelOutput) ToControlPanelOutputWithContext(ctx context.Context)
 	return o
 }
 
+// ARN of the control panel.
 func (o ControlPanelOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ControlPanel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// ARN of the cluster in which this control panel will reside.
 func (o ControlPanelOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ControlPanel) pulumi.StringOutput { return v.ClusterArn }).(pulumi.StringOutput)
 }
 
+// Whether a control panel is default.
 func (o ControlPanelOutput) DefaultControlPanel() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ControlPanel) pulumi.BoolOutput { return v.DefaultControlPanel }).(pulumi.BoolOutput)
 }
 
+// Name describing the control panel.
 func (o ControlPanelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ControlPanel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Number routing controls in a control panel.
 func (o ControlPanelOutput) RoutingControlCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *ControlPanel) pulumi.IntOutput { return v.RoutingControlCount }).(pulumi.IntOutput)
 }
 
+// Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
 func (o ControlPanelOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ControlPanel) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

@@ -63,31 +63,49 @@ class GetRestApiResult:
     @property
     @pulumi.getter(name="apiKeySource")
     def api_key_source(self) -> str:
+        """
+        Source of the API key for requests.
+        """
         return pulumi.get(self, "api_key_source")
 
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the REST API.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="binaryMediaTypes")
     def binary_media_types(self) -> Sequence[str]:
+        """
+        List of binary media types supported by the REST API.
+        """
         return pulumi.get(self, "binary_media_types")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the REST API.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="endpointConfigurations")
     def endpoint_configurations(self) -> Sequence['outputs.GetRestApiEndpointConfigurationResult']:
+        """
+        The endpoint configuration of this RestApi showing the endpoint types of the API.
+        """
         return pulumi.get(self, "endpoint_configurations")
 
     @property
     @pulumi.getter(name="executionArn")
     def execution_arn(self) -> str:
+        """
+        Execution ARN part to be used in `lambda_permission`'s `source_arn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+        """
         return pulumi.get(self, "execution_arn")
 
     @property
@@ -101,6 +119,9 @@ class GetRestApiResult:
     @property
     @pulumi.getter(name="minimumCompressionSize")
     def minimum_compression_size(self) -> int:
+        """
+        Minimum response size to compress for the REST API.
+        """
         return pulumi.get(self, "minimum_compression_size")
 
     @property
@@ -111,16 +132,25 @@ class GetRestApiResult:
     @property
     @pulumi.getter
     def policy(self) -> str:
+        """
+        JSON formatted policy document that controls access to the API Gateway.
+        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="rootResourceId")
     def root_resource_id(self) -> str:
+        """
+        Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
+        """
         return pulumi.get(self, "root_resource_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Key-value map of resource tags.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -148,7 +178,23 @@ def get_rest_api(name: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRestApiResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get the id and root_resource_id of a REST API in
+    API Gateway. To fetch the REST API you must provide a name to match against.
+    As there is no unique name constraint on REST APIs this data source will
+    error if there is more than one match.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    my_rest_api = aws.apigateway.get_rest_api(name="my-rest-api")
+    ```
+
+
+    :param str name: Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
+    :param Mapping[str, str] tags: Key-value map of resource tags.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -176,6 +222,22 @@ def get_rest_api_output(name: Optional[pulumi.Input[str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestApiResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get the id and root_resource_id of a REST API in
+    API Gateway. To fetch the REST API you must provide a name to match against.
+    As there is no unique name constraint on REST APIs this data source will
+    error if there is more than one match.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    my_rest_api = aws.apigateway.get_rest_api(name="my-rest-api")
+    ```
+
+
+    :param str name: Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
+    :param Mapping[str, str] tags: Key-value map of resource tags.
     """
     ...

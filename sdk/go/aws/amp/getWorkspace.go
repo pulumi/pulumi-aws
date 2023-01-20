@@ -10,6 +10,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Amazon Managed Prometheus workspace data source.
+//
+// ## Example Usage
+// ### Basic configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := amp.LookupWorkspace(ctx, &amp.LookupWorkspaceArgs{
+//				WorkspaceId: "ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
 	err := ctx.Invoke("aws:amp/getWorkspace:getWorkspace", args, &rv, opts...)
@@ -21,21 +49,29 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 
 // A collection of arguments for invoking getWorkspace.
 type LookupWorkspaceArgs struct {
-	Tags        map[string]string `pulumi:"tags"`
-	WorkspaceId string            `pulumi:"workspaceId"`
+	// Tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// Prometheus workspace ID.
+	WorkspaceId string `pulumi:"workspaceId"`
 }
 
 // A collection of values returned by getWorkspace.
 type LookupWorkspaceResult struct {
-	Alias       string `pulumi:"alias"`
-	Arn         string `pulumi:"arn"`
+	// Prometheus workspace alias.
+	Alias string `pulumi:"alias"`
+	// ARN of the Prometheus workspace.
+	Arn string `pulumi:"arn"`
+	// Creation date of the Prometheus workspace.
 	CreatedDate string `pulumi:"createdDate"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                 string            `pulumi:"id"`
-	PrometheusEndpoint string            `pulumi:"prometheusEndpoint"`
-	Status             string            `pulumi:"status"`
-	Tags               map[string]string `pulumi:"tags"`
-	WorkspaceId        string            `pulumi:"workspaceId"`
+	Id string `pulumi:"id"`
+	// Endpoint of the Prometheus workspace.
+	PrometheusEndpoint string `pulumi:"prometheusEndpoint"`
+	// Status of the Prometheus workspace.
+	Status string `pulumi:"status"`
+	// Tags assigned to the resource.
+	Tags        map[string]string `pulumi:"tags"`
+	WorkspaceId string            `pulumi:"workspaceId"`
 }
 
 func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspaceResultOutput {
@@ -53,8 +89,10 @@ func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, 
 
 // A collection of arguments for invoking getWorkspace.
 type LookupWorkspaceOutputArgs struct {
-	Tags        pulumi.StringMapInput `pulumi:"tags"`
-	WorkspaceId pulumi.StringInput    `pulumi:"workspaceId"`
+	// Tags assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Prometheus workspace ID.
+	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
 }
 
 func (LookupWorkspaceOutputArgs) ElementType() reflect.Type {
@@ -76,14 +114,17 @@ func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ct
 	return o
 }
 
+// Prometheus workspace alias.
 func (o LookupWorkspaceResultOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Alias }).(pulumi.StringOutput)
 }
 
+// ARN of the Prometheus workspace.
 func (o LookupWorkspaceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Creation date of the Prometheus workspace.
 func (o LookupWorkspaceResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
@@ -93,14 +134,17 @@ func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Endpoint of the Prometheus workspace.
 func (o LookupWorkspaceResultOutput) PrometheusEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.PrometheusEndpoint }).(pulumi.StringOutput)
 }
 
+// Status of the Prometheus workspace.
 func (o LookupWorkspaceResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// Tags assigned to the resource.
 func (o LookupWorkspaceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

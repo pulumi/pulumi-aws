@@ -16,16 +16,32 @@ public final class GetAutoscalingGroupsPlainArgs extends com.pulumi.resources.In
 
     public static final GetAutoscalingGroupsPlainArgs Empty = new GetAutoscalingGroupsPlainArgs();
 
+    /**
+     * Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+     * 
+     */
     @Import(name="filters")
     private @Nullable List<GetAutoscalingGroupsFilter> filters;
 
+    /**
+     * @return Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+     * 
+     */
     public Optional<List<GetAutoscalingGroupsFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
+    /**
+     * List of autoscaling group names
+     * 
+     */
     @Import(name="names")
     private @Nullable List<String> names;
 
+    /**
+     * @return List of autoscaling group names
+     * 
+     */
     public Optional<List<String>> names() {
         return Optional.ofNullable(this.names);
     }
@@ -55,20 +71,44 @@ public final class GetAutoscalingGroupsPlainArgs extends com.pulumi.resources.In
             $ = new GetAutoscalingGroupsPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filters Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable List<GetAutoscalingGroupsFilter> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(GetAutoscalingGroupsFilter... filters) {
             return filters(List.of(filters));
         }
 
+        /**
+         * @param names List of autoscaling group names
+         * 
+         * @return builder
+         * 
+         */
         public Builder names(@Nullable List<String> names) {
             $.names = names;
             return this;
         }
 
+        /**
+         * @param names List of autoscaling group names
+         * 
+         * @return builder
+         * 
+         */
         public Builder names(String... names) {
             return names(List.of(names));
         }

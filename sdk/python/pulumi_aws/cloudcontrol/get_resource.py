@@ -57,6 +57,9 @@ class GetResourceResult:
     @property
     @pulumi.getter
     def properties(self) -> str:
+        """
+        JSON string matching the CloudFormation resource type schema with current configuration.
+        """
         return pulumi.get(self, "properties")
 
     @property
@@ -95,7 +98,23 @@ def get_resource(identifier: Optional[str] = None,
                  type_version_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.cloudcontrol.get_resource(identifier="example",
+        type_name="AWS::ECS::Cluster")
+    ```
+
+
+    :param str identifier: Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
+    :param str role_arn: ARN of the IAM Role to assume for operations.
+    :param str type_name: CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+    :param str type_version_id: Identifier of the CloudFormation resource type version.
     """
     __args__ = dict()
     __args__['identifier'] = identifier
@@ -121,6 +140,22 @@ def get_resource_output(identifier: Optional[pulumi.Input[str]] = None,
                         type_version_id: Optional[pulumi.Input[Optional[str]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.cloudcontrol.get_resource(identifier="example",
+        type_name="AWS::ECS::Cluster")
+    ```
+
+
+    :param str identifier: Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
+    :param str role_arn: ARN of the IAM Role to assume for operations.
+    :param str type_name: CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+    :param str type_version_id: Identifier of the CloudFormation resource type version.
     """
     ...

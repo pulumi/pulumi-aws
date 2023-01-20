@@ -13,6 +13,9 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class GetDomainClusterConfigZoneAwarenessConfigResult
     {
+        /// <summary>
+        /// Number of availability zones used.
+        /// </summary>
         public readonly int AvailabilityZoneCount;
 
         [OutputConstructor]

@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Backup.Outputs
     [OutputType]
     public sealed class SelectionConditionStringNotLike
     {
+        /// <summary>
+        /// The key in a key-value pair.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The value in a key-value pair.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

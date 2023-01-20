@@ -14,16 +14,32 @@ public final class DomainAutoTuneOptionsMaintenanceScheduleDurationArgs extends 
 
     public static final DomainAutoTuneOptionsMaintenanceScheduleDurationArgs Empty = new DomainAutoTuneOptionsMaintenanceScheduleDurationArgs();
 
+    /**
+     * Unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
+     * 
+     */
     @Import(name="unit", required=true)
     private Output<String> unit;
 
+    /**
+     * @return Unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
+     * 
+     */
     public Output<String> unit() {
         return this.unit;
     }
 
+    /**
+     * An integer specifying the value of the duration of an Auto-Tune maintenance window.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<Integer> value;
 
+    /**
+     * @return An integer specifying the value of the duration of an Auto-Tune maintenance window.
+     * 
+     */
     public Output<Integer> value() {
         return this.value;
     }
@@ -53,20 +69,44 @@ public final class DomainAutoTuneOptionsMaintenanceScheduleDurationArgs extends 
             $ = new DomainAutoTuneOptionsMaintenanceScheduleDurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param unit Unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder unit(Output<String> unit) {
             $.unit = unit;
             return this;
         }
 
+        /**
+         * @param unit Unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
         }
 
+        /**
+         * @param value An integer specifying the value of the duration of an Auto-Tune maintenance window.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<Integer> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value An integer specifying the value of the duration of an Auto-Tune maintenance window.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Integer value) {
             return value(Output.of(value));
         }

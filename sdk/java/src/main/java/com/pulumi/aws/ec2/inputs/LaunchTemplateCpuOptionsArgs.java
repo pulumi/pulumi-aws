@@ -15,16 +15,34 @@ public final class LaunchTemplateCpuOptionsArgs extends com.pulumi.resources.Res
 
     public static final LaunchTemplateCpuOptionsArgs Empty = new LaunchTemplateCpuOptionsArgs();
 
+    /**
+     * The number of CPU cores for the instance.
+     * 
+     */
     @Import(name="coreCount")
     private @Nullable Output<Integer> coreCount;
 
+    /**
+     * @return The number of CPU cores for the instance.
+     * 
+     */
     public Optional<Output<Integer>> coreCount() {
         return Optional.ofNullable(this.coreCount);
     }
 
+    /**
+     * The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+     * Otherwise, specify the default value of 2.
+     * 
+     */
     @Import(name="threadsPerCore")
     private @Nullable Output<Integer> threadsPerCore;
 
+    /**
+     * @return The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+     * Otherwise, specify the default value of 2.
+     * 
+     */
     public Optional<Output<Integer>> threadsPerCore() {
         return Optional.ofNullable(this.threadsPerCore);
     }
@@ -54,20 +72,46 @@ public final class LaunchTemplateCpuOptionsArgs extends com.pulumi.resources.Res
             $ = new LaunchTemplateCpuOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param coreCount The number of CPU cores for the instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder coreCount(@Nullable Output<Integer> coreCount) {
             $.coreCount = coreCount;
             return this;
         }
 
+        /**
+         * @param coreCount The number of CPU cores for the instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder coreCount(Integer coreCount) {
             return coreCount(Output.of(coreCount));
         }
 
+        /**
+         * @param threadsPerCore The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+         * Otherwise, specify the default value of 2.
+         * 
+         * @return builder
+         * 
+         */
         public Builder threadsPerCore(@Nullable Output<Integer> threadsPerCore) {
             $.threadsPerCore = threadsPerCore;
             return this;
         }
 
+        /**
+         * @param threadsPerCore The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+         * Otherwise, specify the default value of 2.
+         * 
+         * @return builder
+         * 
+         */
         public Builder threadsPerCore(Integer threadsPerCore) {
             return threadsPerCore(Output.of(threadsPerCore));
         }

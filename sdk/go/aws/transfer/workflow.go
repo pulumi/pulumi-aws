@@ -11,15 +11,119 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a AWS Transfer Workflow resource.
+//
+// ## Example Usage
+// ### Basic single step example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := transfer.NewWorkflow(ctx, "example", &transfer.WorkflowArgs{
+//				Steps: transfer.WorkflowStepArray{
+//					&transfer.WorkflowStepArgs{
+//						DeleteStepDetails: &transfer.WorkflowStepDeleteStepDetailsArgs{
+//							Name:               pulumi.String("example"),
+//							SourceFileLocation: pulumi.String(fmt.Sprintf("${original.file}")),
+//						},
+//						Type: pulumi.String("DELETE"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Multistep example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := transfer.NewWorkflow(ctx, "example", &transfer.WorkflowArgs{
+//				Steps: transfer.WorkflowStepArray{
+//					&transfer.WorkflowStepArgs{
+//						CustomStepDetails: &transfer.WorkflowStepCustomStepDetailsArgs{
+//							Name:               pulumi.String("example"),
+//							SourceFileLocation: pulumi.String(fmt.Sprintf("${original.file}")),
+//							Target:             pulumi.Any(aws_lambda_function.Example.Arn),
+//							TimeoutSeconds:     pulumi.Int(60),
+//						},
+//						Type: pulumi.String("CUSTOM"),
+//					},
+//					&transfer.WorkflowStepArgs{
+//						TagStepDetails: &transfer.WorkflowStepTagStepDetailsArgs{
+//							Name:               pulumi.String("example"),
+//							SourceFileLocation: pulumi.String(fmt.Sprintf("${original.file}")),
+//							Tags: transfer.WorkflowStepTagStepDetailsTagArray{
+//								&transfer.WorkflowStepTagStepDetailsTagArgs{
+//									Key:   pulumi.String("Name"),
+//									Value: pulumi.String("Hello World"),
+//								},
+//							},
+//						},
+//						Type: pulumi.String("TAG"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Transfer Workflows can be imported using the `worflow_id`.
+//
+// ```sh
+//
+//	$ pulumi import aws:transfer/workflow:Workflow example example
+//
+// ```
 type Workflow struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput                `pulumi:"arn"`
-	Description      pulumi.StringPtrOutput             `pulumi:"description"`
+	// The Workflow ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A textual description for the workflow.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
 	OnExceptionSteps WorkflowOnExceptionStepArrayOutput `pulumi:"onExceptionSteps"`
-	Steps            WorkflowStepArrayOutput            `pulumi:"steps"`
-	Tags             pulumi.StringMapOutput             `pulumi:"tags"`
-	TagsAll          pulumi.StringMapOutput             `pulumi:"tagsAll"`
+	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+	Steps WorkflowStepArrayOutput `pulumi:"steps"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewWorkflow registers a new resource with the given unique name, arguments, and options.
@@ -54,21 +158,33 @@ func GetWorkflow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workflow resources.
 type workflowState struct {
-	Arn              *string                   `pulumi:"arn"`
-	Description      *string                   `pulumi:"description"`
+	// The Workflow ARN.
+	Arn *string `pulumi:"arn"`
+	// A textual description for the workflow.
+	Description *string `pulumi:"description"`
+	// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
 	OnExceptionSteps []WorkflowOnExceptionStep `pulumi:"onExceptionSteps"`
-	Steps            []WorkflowStep            `pulumi:"steps"`
-	Tags             map[string]string         `pulumi:"tags"`
-	TagsAll          map[string]string         `pulumi:"tagsAll"`
+	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+	Steps []WorkflowStep `pulumi:"steps"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type WorkflowState struct {
-	Arn              pulumi.StringPtrInput
-	Description      pulumi.StringPtrInput
+	// The Workflow ARN.
+	Arn pulumi.StringPtrInput
+	// A textual description for the workflow.
+	Description pulumi.StringPtrInput
+	// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
 	OnExceptionSteps WorkflowOnExceptionStepArrayInput
-	Steps            WorkflowStepArrayInput
-	Tags             pulumi.StringMapInput
-	TagsAll          pulumi.StringMapInput
+	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+	Steps WorkflowStepArrayInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (WorkflowState) ElementType() reflect.Type {
@@ -76,18 +192,26 @@ func (WorkflowState) ElementType() reflect.Type {
 }
 
 type workflowArgs struct {
-	Description      *string                   `pulumi:"description"`
+	// A textual description for the workflow.
+	Description *string `pulumi:"description"`
+	// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
 	OnExceptionSteps []WorkflowOnExceptionStep `pulumi:"onExceptionSteps"`
-	Steps            []WorkflowStep            `pulumi:"steps"`
-	Tags             map[string]string         `pulumi:"tags"`
+	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+	Steps []WorkflowStep `pulumi:"steps"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
-	Description      pulumi.StringPtrInput
+	// A textual description for the workflow.
+	Description pulumi.StringPtrInput
+	// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
 	OnExceptionSteps WorkflowOnExceptionStepArrayInput
-	Steps            WorkflowStepArrayInput
-	Tags             pulumi.StringMapInput
+	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+	Steps WorkflowStepArrayInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (WorkflowArgs) ElementType() reflect.Type {
@@ -177,26 +301,32 @@ func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) Workflo
 	return o
 }
 
+// The Workflow ARN.
 func (o WorkflowOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A textual description for the workflow.
 func (o WorkflowOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
 func (o WorkflowOutput) OnExceptionSteps() WorkflowOnExceptionStepArrayOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowOnExceptionStepArrayOutput { return v.OnExceptionSteps }).(WorkflowOnExceptionStepArrayOutput)
 }
 
+// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
 func (o WorkflowOutput) Steps() WorkflowStepArrayOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowStepArrayOutput { return v.Steps }).(WorkflowStepArrayOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o WorkflowOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o WorkflowOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

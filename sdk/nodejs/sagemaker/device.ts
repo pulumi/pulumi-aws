@@ -7,6 +7,32 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a SageMaker Device resource.
+ *
+ * ## Example Usage
+ * ### Basic usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.sagemaker.Device("example", {
+ *     deviceFleetName: aws_sagemaker_device_fleet.example.device_fleet_name,
+ *     device: {
+ *         deviceName: "example",
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * SageMaker Devices can be imported using the `device-fleet-name/device-name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
+ * ```
+ */
 export class Device extends pulumi.CustomResource {
     /**
      * Get an existing Device resource's state with the given name, ID, and optional extra
@@ -36,8 +62,17 @@ export class Device extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly agentVersion!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) assigned by AWS to this Device.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The device to register with SageMaker Edge Manager. See Device details below.
+     */
     public readonly device!: pulumi.Output<outputs.sagemaker.DeviceDevice>;
+    /**
+     * The name of the Device Fleet.
+     */
     public readonly deviceFleetName!: pulumi.Output<string>;
 
     /**
@@ -80,8 +115,17 @@ export class Device extends pulumi.CustomResource {
  */
 export interface DeviceState {
     agentVersion?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) assigned by AWS to this Device.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The device to register with SageMaker Edge Manager. See Device details below.
+     */
     device?: pulumi.Input<inputs.sagemaker.DeviceDevice>;
+    /**
+     * The name of the Device Fleet.
+     */
     deviceFleetName?: pulumi.Input<string>;
 }
 
@@ -89,6 +133,12 @@ export interface DeviceState {
  * The set of arguments for constructing a Device resource.
  */
 export interface DeviceArgs {
+    /**
+     * The device to register with SageMaker Edge Manager. See Device details below.
+     */
     device: pulumi.Input<inputs.sagemaker.DeviceDevice>;
+    /**
+     * The name of the Device Fleet.
+     */
     deviceFleetName: pulumi.Input<string>;
 }

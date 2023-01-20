@@ -18,6 +18,8 @@ class RegistryPolicyArgs:
                  registry_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a RegistryPolicy resource.
+        :param pulumi.Input[str] policy: Resource Policy for EventBridge Schema Registry
+        :param pulumi.Input[str] registry_name: Name of EventBridge Schema Registry
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "registry_name", registry_name)
@@ -25,6 +27,9 @@ class RegistryPolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
+        """
+        Resource Policy for EventBridge Schema Registry
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -34,6 +39,9 @@ class RegistryPolicyArgs:
     @property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> pulumi.Input[str]:
+        """
+        Name of EventBridge Schema Registry
+        """
         return pulumi.get(self, "registry_name")
 
     @registry_name.setter
@@ -48,6 +56,8 @@ class _RegistryPolicyState:
                  registry_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RegistryPolicy resources.
+        :param pulumi.Input[str] policy: Resource Policy for EventBridge Schema Registry
+        :param pulumi.Input[str] registry_name: Name of EventBridge Schema Registry
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -57,6 +67,9 @@ class _RegistryPolicyState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Policy for EventBridge Schema Registry
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -66,6 +79,9 @@ class _RegistryPolicyState:
     @property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of EventBridge Schema Registry
+        """
         return pulumi.get(self, "registry_name")
 
     @registry_name.setter
@@ -82,9 +98,45 @@ class RegistryPolicy(pulumi.CustomResource):
                  registry_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a RegistryPolicy resource with the given unique name, props, and options.
+        Resource for managing an AWS EventBridge Schemas Registry Policy.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="example",
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=["109876543210"],
+            )],
+            actions=["schemas:*"],
+            resources=[
+                "arn:aws:schemas:us-east-1:012345678901:registry/example",
+                "arn:aws:schemas:us-east-1:012345678901:schema/example*",
+            ],
+        )])
+        example_registry_policy = aws.schemas.RegistryPolicy("exampleRegistryPolicy",
+            registry_name="example",
+            policy=example_policy_document.json)
+        ```
+
+        ## Import
+
+        EventBridge Schema Registry Policy can be imported using the `registry_name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: Resource Policy for EventBridge Schema Registry
+        :param pulumi.Input[str] registry_name: Name of EventBridge Schema Registry
         """
         ...
     @overload
@@ -93,7 +145,41 @@ class RegistryPolicy(pulumi.CustomResource):
                  args: RegistryPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RegistryPolicy resource with the given unique name, props, and options.
+        Resource for managing an AWS EventBridge Schemas Registry Policy.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="example",
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=["109876543210"],
+            )],
+            actions=["schemas:*"],
+            resources=[
+                "arn:aws:schemas:us-east-1:012345678901:registry/example",
+                "arn:aws:schemas:us-east-1:012345678901:schema/example*",
+            ],
+        )])
+        example_registry_policy = aws.schemas.RegistryPolicy("exampleRegistryPolicy",
+            registry_name="example",
+            policy=example_policy_document.json)
+        ```
+
+        ## Import
+
+        EventBridge Schema Registry Policy can be imported using the `registry_name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param RegistryPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +231,8 @@ class RegistryPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: Resource Policy for EventBridge Schema Registry
+        :param pulumi.Input[str] registry_name: Name of EventBridge Schema Registry
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +245,16 @@ class RegistryPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
+        """
+        Resource Policy for EventBridge Schema Registry
+        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> pulumi.Output[str]:
+        """
+        Name of EventBridge Schema Registry
+        """
         return pulumi.get(self, "registry_name")
 

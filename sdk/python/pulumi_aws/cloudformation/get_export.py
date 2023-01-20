@@ -38,6 +38,9 @@ class GetExportResult:
     @property
     @pulumi.getter(name="exportingStackId")
     def exporting_stack_id(self) -> str:
+        """
+        ARN of stack that contains the exported output name and value.
+        """
         return pulumi.get(self, "exporting_stack_id")
 
     @property
@@ -56,6 +59,9 @@ class GetExportResult:
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+        """
         return pulumi.get(self, "value")
 
 
@@ -74,7 +80,26 @@ class AwaitableGetExportResult(GetExportResult):
 def get_export(name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportResult:
     """
-    Use this data source to access information about an existing resource.
+    The CloudFormation Export data source allows access to stack
+    exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
+
+     > Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    subnet_id = aws.cloudformation.get_export(name="mySubnetIdExportName")
+    web = aws.ec2.Instance("web",
+        ami="ami-abb07bcb",
+        instance_type="t2.micro",
+        subnet_id=subnet_id.value)
+    ```
+
+
+    :param str name: Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
     """
     __args__ = dict()
     __args__['name'] = name
@@ -92,6 +117,25 @@ def get_export(name: Optional[str] = None,
 def get_export_output(name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportResult]:
     """
-    Use this data source to access information about an existing resource.
+    The CloudFormation Export data source allows access to stack
+    exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
+
+     > Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    subnet_id = aws.cloudformation.get_export(name="mySubnetIdExportName")
+    web = aws.ec2.Instance("web",
+        ami="ami-abb07bcb",
+        instance_type="t2.micro",
+        subnet_id=subnet_id.value)
+    ```
+
+
+    :param str name: Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
     """
     ...

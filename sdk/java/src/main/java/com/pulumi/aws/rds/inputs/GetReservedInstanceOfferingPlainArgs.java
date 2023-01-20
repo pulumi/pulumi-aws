@@ -14,37 +14,77 @@ public final class GetReservedInstanceOfferingPlainArgs extends com.pulumi.resou
 
     public static final GetReservedInstanceOfferingPlainArgs Empty = new GetReservedInstanceOfferingPlainArgs();
 
+    /**
+     * DB instance class for the reserved DB instance.
+     * 
+     */
     @Import(name="dbInstanceClass", required=true)
     private String dbInstanceClass;
 
+    /**
+     * @return DB instance class for the reserved DB instance.
+     * 
+     */
     public String dbInstanceClass() {
         return this.dbInstanceClass;
     }
 
+    /**
+     * Duration of the reservation in seconds.
+     * 
+     */
     @Import(name="duration", required=true)
     private Integer duration;
 
+    /**
+     * @return Duration of the reservation in seconds.
+     * 
+     */
     public Integer duration() {
         return this.duration;
     }
 
+    /**
+     * Whether the reservation applies to Multi-AZ deployments.
+     * 
+     */
     @Import(name="multiAz", required=true)
     private Boolean multiAz;
 
+    /**
+     * @return Whether the reservation applies to Multi-AZ deployments.
+     * 
+     */
     public Boolean multiAz() {
         return this.multiAz;
     }
 
+    /**
+     * Offering type of this reserved DB instance.
+     * 
+     */
     @Import(name="offeringType", required=true)
     private String offeringType;
 
+    /**
+     * @return Offering type of this reserved DB instance.
+     * 
+     */
     public String offeringType() {
         return this.offeringType;
     }
 
+    /**
+     * Description of the reserved DB instance.
+     * 
+     */
     @Import(name="productDescription", required=true)
     private String productDescription;
 
+    /**
+     * @return Description of the reserved DB instance.
+     * 
+     */
     public String productDescription() {
         return this.productDescription;
     }
@@ -77,26 +117,56 @@ public final class GetReservedInstanceOfferingPlainArgs extends com.pulumi.resou
             $ = new GetReservedInstanceOfferingPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dbInstanceClass DB instance class for the reserved DB instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbInstanceClass(String dbInstanceClass) {
             $.dbInstanceClass = dbInstanceClass;
             return this;
         }
 
+        /**
+         * @param duration Duration of the reservation in seconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder duration(Integer duration) {
             $.duration = duration;
             return this;
         }
 
+        /**
+         * @param multiAz Whether the reservation applies to Multi-AZ deployments.
+         * 
+         * @return builder
+         * 
+         */
         public Builder multiAz(Boolean multiAz) {
             $.multiAz = multiAz;
             return this;
         }
 
+        /**
+         * @param offeringType Offering type of this reserved DB instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder offeringType(String offeringType) {
             $.offeringType = offeringType;
             return this;
         }
 
+        /**
+         * @param productDescription Description of the reserved DB instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder productDescription(String productDescription) {
             $.productDescription = productDescription;
             return this;

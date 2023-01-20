@@ -25,6 +25,13 @@ class RuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Rule resource.
+        :param pulumi.Input['RuleSourceArgs'] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        :param pulumi.Input[str] description: Description of the rule
+        :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
+        :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
+        :param pulumi.Input[str] name: The name of the rule
+        :param pulumi.Input['RuleScopeArgs'] scope: Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "source", source)
         if description is not None:
@@ -43,6 +50,9 @@ class RuleArgs:
     @property
     @pulumi.getter
     def source(self) -> pulumi.Input['RuleSourceArgs']:
+        """
+        Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -52,6 +62,9 @@ class RuleArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the rule
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -61,6 +74,9 @@ class RuleArgs:
     @property
     @pulumi.getter(name="inputParameters")
     def input_parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string in JSON format that is passed to the AWS Config rule Lambda function.
+        """
         return pulumi.get(self, "input_parameters")
 
     @input_parameters.setter
@@ -70,6 +86,9 @@ class RuleArgs:
     @property
     @pulumi.getter(name="maximumExecutionFrequency")
     def maximum_execution_frequency(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum frequency with which AWS Config runs evaluations for a rule.
+        """
         return pulumi.get(self, "maximum_execution_frequency")
 
     @maximum_execution_frequency.setter
@@ -79,6 +98,9 @@ class RuleArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the rule
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -88,6 +110,9 @@ class RuleArgs:
     @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input['RuleScopeArgs']]:
+        """
+        Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -97,6 +122,9 @@ class RuleArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -119,6 +147,16 @@ class _RuleState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Rule resources.
+        :param pulumi.Input[str] arn: The ARN of the config rule
+        :param pulumi.Input[str] description: Description of the rule
+        :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
+        :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
+        :param pulumi.Input[str] name: The name of the rule
+        :param pulumi.Input[str] rule_id: The ID of the config rule
+        :param pulumi.Input['RuleScopeArgs'] scope: Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        :param pulumi.Input['RuleSourceArgs'] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -144,6 +182,9 @@ class _RuleState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the config rule
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -153,6 +194,9 @@ class _RuleState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the rule
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -162,6 +206,9 @@ class _RuleState:
     @property
     @pulumi.getter(name="inputParameters")
     def input_parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string in JSON format that is passed to the AWS Config rule Lambda function.
+        """
         return pulumi.get(self, "input_parameters")
 
     @input_parameters.setter
@@ -171,6 +218,9 @@ class _RuleState:
     @property
     @pulumi.getter(name="maximumExecutionFrequency")
     def maximum_execution_frequency(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum frequency with which AWS Config runs evaluations for a rule.
+        """
         return pulumi.get(self, "maximum_execution_frequency")
 
     @maximum_execution_frequency.setter
@@ -180,6 +230,9 @@ class _RuleState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the rule
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -189,6 +242,9 @@ class _RuleState:
     @property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the config rule
+        """
         return pulumi.get(self, "rule_id")
 
     @rule_id.setter
@@ -198,6 +254,9 @@ class _RuleState:
     @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input['RuleScopeArgs']]:
+        """
+        Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -207,6 +266,9 @@ class _RuleState:
     @property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input['RuleSourceArgs']]:
+        """
+        Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -216,6 +278,9 @@ class _RuleState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -225,6 +290,9 @@ class _RuleState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -246,9 +314,125 @@ class Rule(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Rule resource with the given unique name, props, and options.
+        Provides an AWS Config Rule.
+
+        > **Note:** Config Rule requires an existing Configuration Recorder to be present. Use of `depends_on` is recommended (as shown below) to avoid race conditions.
+
+        ## Example Usage
+        ### AWS Managed Rules
+
+        AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "config.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+        \"\"\")
+        foo = aws.cfg.Recorder("foo", role_arn=role.arn)
+        rule = aws.cfg.Rule("rule", source=aws.cfg.RuleSourceArgs(
+            owner="AWS",
+            source_identifier="S3_BUCKET_VERSIONING_ENABLED",
+        ),
+        opts=pulumi.ResourceOptions(depends_on=[foo]))
+        role_policy = aws.iam.RolePolicy("rolePolicy",
+            role=role.id,
+            policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+          	{
+          		"Action": "config:Put*",
+          		"Effect": "Allow",
+          		"Resource": "*"
+
+          	}
+          ]
+        }
+        \"\"\")
+        ```
+        ### Custom Rules
+
+        Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_recorder = aws.cfg.Recorder("exampleRecorder")
+        # ... other configuration ...
+        example_function = aws.lambda_.Function("exampleFunction")
+        # ... other configuration ...
+        example_permission = aws.lambda_.Permission("examplePermission",
+            action="lambda:InvokeFunction",
+            function=example_function.arn,
+            principal="config.amazonaws.com")
+        # ... other configuration ...
+        example_rule = aws.cfg.Rule("exampleRule", source=aws.cfg.RuleSourceArgs(
+            owner="CUSTOM_LAMBDA",
+            source_identifier=example_function.arn,
+        ),
+        opts=pulumi.ResourceOptions(depends_on=[
+                example_recorder,
+                example_permission,
+            ]))
+        ```
+        ### Custom Policies
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cfg.Rule("example", source=aws.cfg.RuleSourceArgs(
+            owner="CUSTOM_POLICY",
+            source_details=[aws.cfg.RuleSourceSourceDetailArgs(
+                message_type="ConfigurationItemChangeNotification",
+            )],
+            custom_policy_details=aws.cfg.RuleSourceCustomPolicyDetailsArgs(
+                policy_runtime="guard-2.x.x",
+                policy_text=\"\"\"	  rule tableisactive when
+        		  resourceType == "AWS::DynamoDB::Table" {
+        		  configuration.tableStatus == ['ACTIVE']
+        	  }
+        	  
+        	  rule checkcompliance when
+        		  resourceType == "AWS::DynamoDB::Table"
+        		  tableisactive {
+        			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
+        	  }
+        \"\"\",
+            ),
+        ))
+        ```
+
+        ## Import
+
+        Config Rule can be imported using the name, e.g.,
+
+        ```sh
+         $ pulumi import aws:cfg/rule:Rule foo example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Description of the rule
+        :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
+        :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
+        :param pulumi.Input[str] name: The name of the rule
+        :param pulumi.Input[pulumi.InputType['RuleScopeArgs']] scope: Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        :param pulumi.Input[pulumi.InputType['RuleSourceArgs']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -257,7 +441,116 @@ class Rule(pulumi.CustomResource):
                  args: RuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Rule resource with the given unique name, props, and options.
+        Provides an AWS Config Rule.
+
+        > **Note:** Config Rule requires an existing Configuration Recorder to be present. Use of `depends_on` is recommended (as shown below) to avoid race conditions.
+
+        ## Example Usage
+        ### AWS Managed Rules
+
+        AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "config.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+        \"\"\")
+        foo = aws.cfg.Recorder("foo", role_arn=role.arn)
+        rule = aws.cfg.Rule("rule", source=aws.cfg.RuleSourceArgs(
+            owner="AWS",
+            source_identifier="S3_BUCKET_VERSIONING_ENABLED",
+        ),
+        opts=pulumi.ResourceOptions(depends_on=[foo]))
+        role_policy = aws.iam.RolePolicy("rolePolicy",
+            role=role.id,
+            policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+          	{
+          		"Action": "config:Put*",
+          		"Effect": "Allow",
+          		"Resource": "*"
+
+          	}
+          ]
+        }
+        \"\"\")
+        ```
+        ### Custom Rules
+
+        Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_recorder = aws.cfg.Recorder("exampleRecorder")
+        # ... other configuration ...
+        example_function = aws.lambda_.Function("exampleFunction")
+        # ... other configuration ...
+        example_permission = aws.lambda_.Permission("examplePermission",
+            action="lambda:InvokeFunction",
+            function=example_function.arn,
+            principal="config.amazonaws.com")
+        # ... other configuration ...
+        example_rule = aws.cfg.Rule("exampleRule", source=aws.cfg.RuleSourceArgs(
+            owner="CUSTOM_LAMBDA",
+            source_identifier=example_function.arn,
+        ),
+        opts=pulumi.ResourceOptions(depends_on=[
+                example_recorder,
+                example_permission,
+            ]))
+        ```
+        ### Custom Policies
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cfg.Rule("example", source=aws.cfg.RuleSourceArgs(
+            owner="CUSTOM_POLICY",
+            source_details=[aws.cfg.RuleSourceSourceDetailArgs(
+                message_type="ConfigurationItemChangeNotification",
+            )],
+            custom_policy_details=aws.cfg.RuleSourceCustomPolicyDetailsArgs(
+                policy_runtime="guard-2.x.x",
+                policy_text=\"\"\"	  rule tableisactive when
+        		  resourceType == "AWS::DynamoDB::Table" {
+        		  configuration.tableStatus == ['ACTIVE']
+        	  }
+        	  
+        	  rule checkcompliance when
+        		  resourceType == "AWS::DynamoDB::Table"
+        		  tableisactive {
+        			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
+        	  }
+        \"\"\",
+            ),
+        ))
+        ```
+
+        ## Import
+
+        Config Rule can be imported using the name, e.g.,
+
+        ```sh
+         $ pulumi import aws:cfg/rule:Rule foo example
+        ```
+
         :param str resource_name: The name of the resource.
         :param RuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -328,6 +621,16 @@ class Rule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the config rule
+        :param pulumi.Input[str] description: Description of the rule
+        :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
+        :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
+        :param pulumi.Input[str] name: The name of the rule
+        :param pulumi.Input[str] rule_id: The ID of the config rule
+        :param pulumi.Input[pulumi.InputType['RuleScopeArgs']] scope: Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        :param pulumi.Input[pulumi.InputType['RuleSourceArgs']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -348,50 +651,80 @@ class Rule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the config rule
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Description of the rule
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="inputParameters")
     def input_parameters(self) -> pulumi.Output[Optional[str]]:
+        """
+        A string in JSON format that is passed to the AWS Config rule Lambda function.
+        """
         return pulumi.get(self, "input_parameters")
 
     @property
     @pulumi.getter(name="maximumExecutionFrequency")
     def maximum_execution_frequency(self) -> pulumi.Output[Optional[str]]:
+        """
+        The maximum frequency with which AWS Config runs evaluations for a rule.
+        """
         return pulumi.get(self, "maximum_execution_frequency")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the rule
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the config rule
+        """
         return pulumi.get(self, "rule_id")
 
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Output[Optional['outputs.RuleScope']]:
+        """
+        Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        """
         return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter
     def source(self) -> pulumi.Output['outputs.RuleSource']:
+        """
+        Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        """
         return pulumi.get(self, "source")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

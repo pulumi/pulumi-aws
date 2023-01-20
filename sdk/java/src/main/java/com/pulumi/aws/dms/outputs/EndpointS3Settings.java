@@ -13,157 +13,465 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointS3Settings {
+    /**
+     * @return Whether to add column name information to the .csv output file. Default is `false`.
+     * 
+     */
     private @Nullable Boolean addColumnName;
+    /**
+     * @return Custom S3 Bucket Object prefix for intermediate storage.
+     * 
+     */
     private @Nullable String bucketFolder;
+    /**
+     * @return Custom S3 Bucket name for intermediate storage.
+     * 
+     */
     private @Nullable String bucketName;
+    /**
+     * @return Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
+     * 
+     */
     private @Nullable String cannedAclForObjects;
+    /**
+     * @return Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
+     * 
+     */
     private @Nullable Boolean cdcInsertsAndUpdates;
+    /**
+     * @return Whether to write insert operations to .csv or .parquet output files. Default is `false`.
+     * 
+     */
     private @Nullable Boolean cdcInsertsOnly;
+    /**
+     * @return Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. Default is `60`.
+     * 
+     */
     private @Nullable Integer cdcMaxBatchInterval;
+    /**
+     * @return Minimum file size condition as defined in kilobytes to output a file to Amazon S3. Default is `32000`. **NOTE:** Previously, this setting was measured in megabytes but now represents kilobytes. Update configurations accordingly.
+     * 
+     */
     private @Nullable Integer cdcMinFileSize;
+    /**
+     * @return Folder path of CDC files. For an S3 source, this setting is required if a task captures change data; otherwise, it&#39;s optional. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+     * 
+     */
     private @Nullable String cdcPath;
+    /**
+     * @return Set to compress target files. Default is `NONE`. Valid values are `GZIP` and `NONE`.
+     * 
+     */
     private @Nullable String compressionType;
+    /**
+     * @return Delimiter used to separate columns in the source files. Default is `,`.
+     * 
+     */
     private @Nullable String csvDelimiter;
+    /**
+     * @return String to use for all columns not included in the supplemental log.
+     * 
+     */
     private @Nullable String csvNoSupValue;
+    /**
+     * @return String to as null when writing to the target.
+     * 
+     */
     private @Nullable String csvNullValue;
+    /**
+     * @return Delimiter used to separate rows in the source files. Default is `\n`.
+     * 
+     */
     private @Nullable String csvRowDelimiter;
+    /**
+     * @return Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`. Default is `csv`.
+     * 
+     */
     private @Nullable String dataFormat;
+    /**
+     * @return Size of one data page in bytes. Default is `1048576` (1 MiB).
+     * 
+     */
     private @Nullable Integer dataPageSize;
+    /**
+     * @return Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. Default is `SLASH`.
+     * 
+     */
     private @Nullable String datePartitionDelimiter;
+    /**
+     * @return Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+     * 
+     */
     private @Nullable Boolean datePartitionEnabled;
+    /**
+     * @return Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. Default is `YYYYMMDD`.
+     * 
+     */
     private @Nullable String datePartitionSequence;
+    /**
+     * @return Maximum size in bytes of an encoded dictionary page of a column. Default is `1048576` (1 MiB).
+     * 
+     */
     private @Nullable Integer dictPageSizeLimit;
+    /**
+     * @return Whether to enable statistics for Parquet pages and row groups. Default is `true`.
+     * 
+     */
     private @Nullable Boolean enableStatistics;
+    /**
+     * @return Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. Default is `rle_dictionary`.
+     * 
+     */
     private @Nullable String encodingType;
+    /**
+     * @return The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+     * 
+     */
     private @Nullable String encryptionMode;
+    /**
+     * @return JSON document that describes how AWS DMS should interpret the data.
+     * 
+     */
     private @Nullable String externalTableDefinition;
+    /**
+     * @return When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+     * 
+     */
     private @Nullable Integer ignoreHeaderRows;
+    /**
+     * @return Deprecated. This setting has no effect. Will be removed in a future version.
+     * 
+     */
     private @Nullable Integer ignoreHeadersRow;
+    /**
+     * @return Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
+     * 
+     */
     private @Nullable Boolean includeOpForFullLoad;
+    /**
+     * @return Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+     * 
+     */
     private @Nullable Integer maxFileSize;
+    /**
+     * @return Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
+     * 
+     */
     private @Nullable Boolean parquetTimestampInMillisecond;
+    /**
+     * @return Version of the .parquet file format. Default is `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
+     * 
+     */
     private @Nullable String parquetVersion;
+    /**
+     * @return Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`.
+     * 
+     */
     private @Nullable Boolean preserveTransactions;
+    /**
+     * @return For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
+     * 
+     */
     private @Nullable Boolean rfc4180;
+    /**
+     * @return Number of rows in a row group. Default is `10000`.
+     * 
+     */
     private @Nullable Integer rowGroupLength;
+    /**
+     * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+     * 
+     */
     private @Nullable String serverSideEncryptionKmsKeyId;
+    /**
+     * @return ARN of the IAM Role with permissions to write to the OpenSearch cluster.
+     * 
+     */
     private @Nullable String serviceAccessRoleArn;
+    /**
+     * @return Column to add with timestamp information to the endpoint data for an Amazon S3 target.
+     * 
+     */
     private @Nullable String timestampColumnName;
+    /**
+     * @return Whether to use `csv_no_sup_value` for columns not included in the supplemental log.
+     * 
+     */
     private @Nullable Boolean useCsvNoSupValue;
+    /**
+     * @return When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
+     * For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
+     * When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+     * 
+     */
     private @Nullable Boolean useTaskStartTimeForFullLoadTimestamp;
 
     private EndpointS3Settings() {}
+    /**
+     * @return Whether to add column name information to the .csv output file. Default is `false`.
+     * 
+     */
     public Optional<Boolean> addColumnName() {
         return Optional.ofNullable(this.addColumnName);
     }
+    /**
+     * @return Custom S3 Bucket Object prefix for intermediate storage.
+     * 
+     */
     public Optional<String> bucketFolder() {
         return Optional.ofNullable(this.bucketFolder);
     }
+    /**
+     * @return Custom S3 Bucket name for intermediate storage.
+     * 
+     */
     public Optional<String> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
+    /**
+     * @return Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
+     * 
+     */
     public Optional<String> cannedAclForObjects() {
         return Optional.ofNullable(this.cannedAclForObjects);
     }
+    /**
+     * @return Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
+     * 
+     */
     public Optional<Boolean> cdcInsertsAndUpdates() {
         return Optional.ofNullable(this.cdcInsertsAndUpdates);
     }
+    /**
+     * @return Whether to write insert operations to .csv or .parquet output files. Default is `false`.
+     * 
+     */
     public Optional<Boolean> cdcInsertsOnly() {
         return Optional.ofNullable(this.cdcInsertsOnly);
     }
+    /**
+     * @return Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. Default is `60`.
+     * 
+     */
     public Optional<Integer> cdcMaxBatchInterval() {
         return Optional.ofNullable(this.cdcMaxBatchInterval);
     }
+    /**
+     * @return Minimum file size condition as defined in kilobytes to output a file to Amazon S3. Default is `32000`. **NOTE:** Previously, this setting was measured in megabytes but now represents kilobytes. Update configurations accordingly.
+     * 
+     */
     public Optional<Integer> cdcMinFileSize() {
         return Optional.ofNullable(this.cdcMinFileSize);
     }
+    /**
+     * @return Folder path of CDC files. For an S3 source, this setting is required if a task captures change data; otherwise, it&#39;s optional. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+     * 
+     */
     public Optional<String> cdcPath() {
         return Optional.ofNullable(this.cdcPath);
     }
+    /**
+     * @return Set to compress target files. Default is `NONE`. Valid values are `GZIP` and `NONE`.
+     * 
+     */
     public Optional<String> compressionType() {
         return Optional.ofNullable(this.compressionType);
     }
+    /**
+     * @return Delimiter used to separate columns in the source files. Default is `,`.
+     * 
+     */
     public Optional<String> csvDelimiter() {
         return Optional.ofNullable(this.csvDelimiter);
     }
+    /**
+     * @return String to use for all columns not included in the supplemental log.
+     * 
+     */
     public Optional<String> csvNoSupValue() {
         return Optional.ofNullable(this.csvNoSupValue);
     }
+    /**
+     * @return String to as null when writing to the target.
+     * 
+     */
     public Optional<String> csvNullValue() {
         return Optional.ofNullable(this.csvNullValue);
     }
+    /**
+     * @return Delimiter used to separate rows in the source files. Default is `\n`.
+     * 
+     */
     public Optional<String> csvRowDelimiter() {
         return Optional.ofNullable(this.csvRowDelimiter);
     }
+    /**
+     * @return Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`. Default is `csv`.
+     * 
+     */
     public Optional<String> dataFormat() {
         return Optional.ofNullable(this.dataFormat);
     }
+    /**
+     * @return Size of one data page in bytes. Default is `1048576` (1 MiB).
+     * 
+     */
     public Optional<Integer> dataPageSize() {
         return Optional.ofNullable(this.dataPageSize);
     }
+    /**
+     * @return Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. Default is `SLASH`.
+     * 
+     */
     public Optional<String> datePartitionDelimiter() {
         return Optional.ofNullable(this.datePartitionDelimiter);
     }
+    /**
+     * @return Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+     * 
+     */
     public Optional<Boolean> datePartitionEnabled() {
         return Optional.ofNullable(this.datePartitionEnabled);
     }
+    /**
+     * @return Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. Default is `YYYYMMDD`.
+     * 
+     */
     public Optional<String> datePartitionSequence() {
         return Optional.ofNullable(this.datePartitionSequence);
     }
+    /**
+     * @return Maximum size in bytes of an encoded dictionary page of a column. Default is `1048576` (1 MiB).
+     * 
+     */
     public Optional<Integer> dictPageSizeLimit() {
         return Optional.ofNullable(this.dictPageSizeLimit);
     }
+    /**
+     * @return Whether to enable statistics for Parquet pages and row groups. Default is `true`.
+     * 
+     */
     public Optional<Boolean> enableStatistics() {
         return Optional.ofNullable(this.enableStatistics);
     }
+    /**
+     * @return Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. Default is `rle_dictionary`.
+     * 
+     */
     public Optional<String> encodingType() {
         return Optional.ofNullable(this.encodingType);
     }
+    /**
+     * @return The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+     * 
+     */
     public Optional<String> encryptionMode() {
         return Optional.ofNullable(this.encryptionMode);
     }
+    /**
+     * @return JSON document that describes how AWS DMS should interpret the data.
+     * 
+     */
     public Optional<String> externalTableDefinition() {
         return Optional.ofNullable(this.externalTableDefinition);
     }
+    /**
+     * @return When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+     * 
+     */
     public Optional<Integer> ignoreHeaderRows() {
         return Optional.ofNullable(this.ignoreHeaderRows);
     }
+    /**
+     * @return Deprecated. This setting has no effect. Will be removed in a future version.
+     * 
+     */
     public Optional<Integer> ignoreHeadersRow() {
         return Optional.ofNullable(this.ignoreHeadersRow);
     }
+    /**
+     * @return Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
+     * 
+     */
     public Optional<Boolean> includeOpForFullLoad() {
         return Optional.ofNullable(this.includeOpForFullLoad);
     }
+    /**
+     * @return Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+     * 
+     */
     public Optional<Integer> maxFileSize() {
         return Optional.ofNullable(this.maxFileSize);
     }
+    /**
+     * @return Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
+     * 
+     */
     public Optional<Boolean> parquetTimestampInMillisecond() {
         return Optional.ofNullable(this.parquetTimestampInMillisecond);
     }
+    /**
+     * @return Version of the .parquet file format. Default is `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
+     * 
+     */
     public Optional<String> parquetVersion() {
         return Optional.ofNullable(this.parquetVersion);
     }
+    /**
+     * @return Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`.
+     * 
+     */
     public Optional<Boolean> preserveTransactions() {
         return Optional.ofNullable(this.preserveTransactions);
     }
+    /**
+     * @return For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
+     * 
+     */
     public Optional<Boolean> rfc4180() {
         return Optional.ofNullable(this.rfc4180);
     }
+    /**
+     * @return Number of rows in a row group. Default is `10000`.
+     * 
+     */
     public Optional<Integer> rowGroupLength() {
         return Optional.ofNullable(this.rowGroupLength);
     }
+    /**
+     * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+     * 
+     */
     public Optional<String> serverSideEncryptionKmsKeyId() {
         return Optional.ofNullable(this.serverSideEncryptionKmsKeyId);
     }
+    /**
+     * @return ARN of the IAM Role with permissions to write to the OpenSearch cluster.
+     * 
+     */
     public Optional<String> serviceAccessRoleArn() {
         return Optional.ofNullable(this.serviceAccessRoleArn);
     }
+    /**
+     * @return Column to add with timestamp information to the endpoint data for an Amazon S3 target.
+     * 
+     */
     public Optional<String> timestampColumnName() {
         return Optional.ofNullable(this.timestampColumnName);
     }
+    /**
+     * @return Whether to use `csv_no_sup_value` for columns not included in the supplemental log.
+     * 
+     */
     public Optional<Boolean> useCsvNoSupValue() {
         return Optional.ofNullable(this.useCsvNoSupValue);
     }
+    /**
+     * @return When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
+     * For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
+     * When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+     * 
+     */
     public Optional<Boolean> useTaskStartTimeForFullLoadTimestamp() {
         return Optional.ofNullable(this.useTaskStartTimeForFullLoadTimestamp);
     }

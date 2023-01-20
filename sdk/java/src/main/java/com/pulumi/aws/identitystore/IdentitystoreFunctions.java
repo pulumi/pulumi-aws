@@ -17,27 +17,59 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class IdentitystoreFunctions {
+    /**
+     * Use this data source to get an Identity Store Group.
+     * 
+     */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
         return getGroup(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get an Identity Store Group.
+     * 
+     */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
         return getGroupPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get an Identity Store Group.
+     * 
+     */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:identitystore/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to get an Identity Store Group.
+     * 
+     */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:identitystore/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to get an Identity Store User.
+     * 
+     */
     public static Output<GetUserResult> getUser(GetUserArgs args) {
         return getUser(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get an Identity Store User.
+     * 
+     */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args) {
         return getUserPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get an Identity Store User.
+     * 
+     */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:identitystore/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to get an Identity Store User.
+     * 
+     */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:identitystore/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }

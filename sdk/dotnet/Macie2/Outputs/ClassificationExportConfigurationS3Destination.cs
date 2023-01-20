@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Macie2.Outputs
     [OutputType]
     public sealed class ClassificationExportConfigurationS3Destination
     {
+        /// <summary>
+        /// The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
+        /// </summary>
         public readonly string BucketName;
+        /// <summary>
+        /// The object key for the bucket in which Amazon Macie exports the data classification results.
+        /// </summary>
         public readonly string? KeyPrefix;
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        /// </summary>
         public readonly string KmsKeyArn;
 
         [OutputConstructor]

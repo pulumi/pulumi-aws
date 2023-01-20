@@ -7,6 +7,32 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
+ *
+ * ## Example Usage
+ * ### Filter By Workspace ID
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.workspaces.getWorkspace({
+ *     workspaceId: "ws-cj5xcxsz5",
+ * });
+ * ```
+ * ### Filter By Directory ID & User Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.workspaces.getWorkspace({
+ *     directoryId: "d-9967252f57",
+ *     userName: "Example",
+ * });
+ * ```
+ */
 export function getWorkspace(args?: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     args = args || {};
 
@@ -23,9 +49,21 @@ export function getWorkspace(args?: GetWorkspaceArgs, opts?: pulumi.InvokeOption
  * A collection of arguments for invoking getWorkspace.
  */
 export interface GetWorkspaceArgs {
+    /**
+     * ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
+     */
     directoryId?: string;
+    /**
+     * Tags for the WorkSpace.
+     */
     tags?: {[key: string]: string};
+    /**
+     * User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
+     */
     userName?: string;
+    /**
+     * ID of the WorkSpace. You cannot combine this parameter with `directoryId`.
+     */
     workspaceId?: string;
 }
 
@@ -34,14 +72,23 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     readonly bundleId: string;
+    /**
+     * Name of the WorkSpace, as seen by the operating system.
+     */
     readonly computerName: string;
     readonly directoryId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * IP address of the WorkSpace.
+     */
     readonly ipAddress: string;
     readonly rootVolumeEncryptionEnabled: boolean;
+    /**
+     * Operational state of the WorkSpace.
+     */
     readonly state: string;
     readonly tags: {[key: string]: string};
     readonly userName: string;
@@ -50,6 +97,32 @@ export interface GetWorkspaceResult {
     readonly workspaceId: string;
     readonly workspaceProperties: outputs.workspaces.GetWorkspaceWorkspaceProperty[];
 }
+/**
+ * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
+ *
+ * ## Example Usage
+ * ### Filter By Workspace ID
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.workspaces.getWorkspace({
+ *     workspaceId: "ws-cj5xcxsz5",
+ * });
+ * ```
+ * ### Filter By Directory ID & User Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.workspaces.getWorkspace({
+ *     directoryId: "d-9967252f57",
+ *     userName: "Example",
+ * });
+ * ```
+ */
 export function getWorkspaceOutput(args?: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))
 }
@@ -58,8 +131,20 @@ export function getWorkspaceOutput(args?: GetWorkspaceOutputArgs, opts?: pulumi.
  * A collection of arguments for invoking getWorkspace.
  */
 export interface GetWorkspaceOutputArgs {
+    /**
+     * ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
+     */
     directoryId?: pulumi.Input<string>;
+    /**
+     * Tags for the WorkSpace.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
+     */
     userName?: pulumi.Input<string>;
+    /**
+     * ID of the WorkSpace. You cannot combine this parameter with `directoryId`.
+     */
     workspaceId?: pulumi.Input<string>;
 }

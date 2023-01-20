@@ -11,8 +11,10 @@ import (
 )
 
 type TrustAnchorSource struct {
+	// The data denoting the source of trust, documented below
 	SourceData TrustAnchorSourceSourceData `pulumi:"sourceData"`
-	SourceType string                      `pulumi:"sourceType"`
+	// The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
+	SourceType string `pulumi:"sourceType"`
 }
 
 // TrustAnchorSourceInput is an input type that accepts TrustAnchorSourceArgs and TrustAnchorSourceOutput values.
@@ -27,8 +29,10 @@ type TrustAnchorSourceInput interface {
 }
 
 type TrustAnchorSourceArgs struct {
+	// The data denoting the source of trust, documented below
 	SourceData TrustAnchorSourceSourceDataInput `pulumi:"sourceData"`
-	SourceType pulumi.StringInput               `pulumi:"sourceType"`
+	// The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
+	SourceType pulumi.StringInput `pulumi:"sourceType"`
 }
 
 func (TrustAnchorSourceArgs) ElementType() reflect.Type {
@@ -108,10 +112,12 @@ func (o TrustAnchorSourceOutput) ToTrustAnchorSourcePtrOutputWithContext(ctx con
 	}).(TrustAnchorSourcePtrOutput)
 }
 
+// The data denoting the source of trust, documented below
 func (o TrustAnchorSourceOutput) SourceData() TrustAnchorSourceSourceDataOutput {
 	return o.ApplyT(func(v TrustAnchorSource) TrustAnchorSourceSourceData { return v.SourceData }).(TrustAnchorSourceSourceDataOutput)
 }
 
+// The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
 func (o TrustAnchorSourceOutput) SourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v TrustAnchorSource) string { return v.SourceType }).(pulumi.StringOutput)
 }
@@ -140,6 +146,7 @@ func (o TrustAnchorSourcePtrOutput) Elem() TrustAnchorSourceOutput {
 	}).(TrustAnchorSourceOutput)
 }
 
+// The data denoting the source of trust, documented below
 func (o TrustAnchorSourcePtrOutput) SourceData() TrustAnchorSourceSourceDataPtrOutput {
 	return o.ApplyT(func(v *TrustAnchorSource) *TrustAnchorSourceSourceData {
 		if v == nil {
@@ -149,6 +156,7 @@ func (o TrustAnchorSourcePtrOutput) SourceData() TrustAnchorSourceSourceDataPtrO
 	}).(TrustAnchorSourceSourceDataPtrOutput)
 }
 
+// The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
 func (o TrustAnchorSourcePtrOutput) SourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustAnchorSource) *string {
 		if v == nil {
@@ -159,6 +167,7 @@ func (o TrustAnchorSourcePtrOutput) SourceType() pulumi.StringPtrOutput {
 }
 
 type TrustAnchorSourceSourceData struct {
+	// The ARN of an ACM Private Certificate Authority.
 	AcmPcaArn           *string `pulumi:"acmPcaArn"`
 	X509CertificateData *string `pulumi:"x509CertificateData"`
 }
@@ -175,6 +184,7 @@ type TrustAnchorSourceSourceDataInput interface {
 }
 
 type TrustAnchorSourceSourceDataArgs struct {
+	// The ARN of an ACM Private Certificate Authority.
 	AcmPcaArn           pulumi.StringPtrInput `pulumi:"acmPcaArn"`
 	X509CertificateData pulumi.StringPtrInput `pulumi:"x509CertificateData"`
 }
@@ -256,6 +266,7 @@ func (o TrustAnchorSourceSourceDataOutput) ToTrustAnchorSourceSourceDataPtrOutpu
 	}).(TrustAnchorSourceSourceDataPtrOutput)
 }
 
+// The ARN of an ACM Private Certificate Authority.
 func (o TrustAnchorSourceSourceDataOutput) AcmPcaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustAnchorSourceSourceData) *string { return v.AcmPcaArn }).(pulumi.StringPtrOutput)
 }
@@ -288,6 +299,7 @@ func (o TrustAnchorSourceSourceDataPtrOutput) Elem() TrustAnchorSourceSourceData
 	}).(TrustAnchorSourceSourceDataOutput)
 }
 
+// The ARN of an ACM Private Certificate Authority.
 func (o TrustAnchorSourceSourceDataPtrOutput) AcmPcaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustAnchorSourceSourceData) *string {
 		if v == nil {

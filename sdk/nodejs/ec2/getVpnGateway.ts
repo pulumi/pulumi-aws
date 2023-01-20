@@ -7,6 +7,25 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * The VPN Gateway data source provides details about
+ * a specific VPN gateway.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const selected = aws.ec2.getVpnGateway({
+ *     filters: [{
+ *         name: "tag:Name",
+ *         values: ["vpn-gw"],
+ *     }],
+ * });
+ * export const vpnGatewayId = selected.then(selected => selected.id);
+ * ```
+ */
 export function getVpnGateway(args?: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
     args = args || {};
 
@@ -26,12 +45,34 @@ export function getVpnGateway(args?: GetVpnGatewayArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getVpnGateway.
  */
 export interface GetVpnGatewayArgs {
+    /**
+     * Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+     */
     amazonSideAsn?: string;
+    /**
+     * ID of a VPC attached to the specific VPN Gateway to retrieve.
+     */
     attachedVpcId?: string;
+    /**
+     * Availability Zone of the specific VPN Gateway to retrieve.
+     */
     availabilityZone?: string;
+    /**
+     * Custom filter block as described below.
+     */
     filters?: inputs.ec2.GetVpnGatewayFilter[];
+    /**
+     * ID of the specific VPN Gateway to retrieve.
+     */
     id?: string;
+    /**
+     * State of the specific VPN Gateway to retrieve.
+     */
     state?: string;
+    /**
+     * Map of tags, each pair of which must exactly match
+     * a pair on the desired VPN Gateway.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -48,6 +89,25 @@ export interface GetVpnGatewayResult {
     readonly state: string;
     readonly tags: {[key: string]: string};
 }
+/**
+ * The VPN Gateway data source provides details about
+ * a specific VPN gateway.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const selected = aws.ec2.getVpnGateway({
+ *     filters: [{
+ *         name: "tag:Name",
+ *         values: ["vpn-gw"],
+ *     }],
+ * });
+ * export const vpnGatewayId = selected.then(selected => selected.id);
+ * ```
+ */
 export function getVpnGatewayOutput(args?: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnGatewayResult> {
     return pulumi.output(args).apply((a: any) => getVpnGateway(a, opts))
 }
@@ -56,11 +116,33 @@ export function getVpnGatewayOutput(args?: GetVpnGatewayOutputArgs, opts?: pulum
  * A collection of arguments for invoking getVpnGateway.
  */
 export interface GetVpnGatewayOutputArgs {
+    /**
+     * Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+     */
     amazonSideAsn?: pulumi.Input<string>;
+    /**
+     * ID of a VPC attached to the specific VPN Gateway to retrieve.
+     */
     attachedVpcId?: pulumi.Input<string>;
+    /**
+     * Availability Zone of the specific VPN Gateway to retrieve.
+     */
     availabilityZone?: pulumi.Input<string>;
+    /**
+     * Custom filter block as described below.
+     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpnGatewayFilterArgs>[]>;
+    /**
+     * ID of the specific VPN Gateway to retrieve.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * State of the specific VPN Gateway to retrieve.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * Map of tags, each pair of which must exactly match
+     * a pair on the desired VPN Gateway.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

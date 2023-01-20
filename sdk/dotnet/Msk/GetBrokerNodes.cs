@@ -11,9 +11,57 @@ namespace Pulumi.Aws.Msk
 {
     public static class GetBrokerNodes
     {
+        /// <summary>
+        /// Get information on an Amazon MSK Broker Nodes.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Msk.GetBrokerNodes.Invoke(new()
+        ///     {
+        ///         ClusterArn = aws_msk_cluster.Example.Arn,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetBrokerNodesResult> InvokeAsync(GetBrokerNodesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBrokerNodesResult>("aws:msk/getBrokerNodes:getBrokerNodes", args ?? new GetBrokerNodesArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get information on an Amazon MSK Broker Nodes.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Msk.GetBrokerNodes.Invoke(new()
+        ///     {
+        ///         ClusterArn = aws_msk_cluster.Example.Arn,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetBrokerNodesResult> Invoke(GetBrokerNodesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrokerNodesResult>("aws:msk/getBrokerNodes:getBrokerNodes", args ?? new GetBrokerNodesInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +69,9 @@ namespace Pulumi.Aws.Msk
 
     public sealed class GetBrokerNodesArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN of the cluster the nodes belong to.
+        /// </summary>
         [Input("clusterArn", required: true)]
         public string ClusterArn { get; set; } = null!;
 
@@ -32,6 +83,9 @@ namespace Pulumi.Aws.Msk
 
     public sealed class GetBrokerNodesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN of the cluster the nodes belong to.
+        /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
 

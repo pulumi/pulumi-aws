@@ -15,16 +15,32 @@ public final class NodeGroupUpdateConfigArgs extends com.pulumi.resources.Resour
 
     public static final NodeGroupUpdateConfigArgs Empty = new NodeGroupUpdateConfigArgs();
 
+    /**
+     * Desired max number of unavailable worker nodes during node group update.
+     * 
+     */
     @Import(name="maxUnavailable")
     private @Nullable Output<Integer> maxUnavailable;
 
+    /**
+     * @return Desired max number of unavailable worker nodes during node group update.
+     * 
+     */
     public Optional<Output<Integer>> maxUnavailable() {
         return Optional.ofNullable(this.maxUnavailable);
     }
 
+    /**
+     * Desired max percentage of unavailable worker nodes during node group update.
+     * 
+     */
     @Import(name="maxUnavailablePercentage")
     private @Nullable Output<Integer> maxUnavailablePercentage;
 
+    /**
+     * @return Desired max percentage of unavailable worker nodes during node group update.
+     * 
+     */
     public Optional<Output<Integer>> maxUnavailablePercentage() {
         return Optional.ofNullable(this.maxUnavailablePercentage);
     }
@@ -54,20 +70,44 @@ public final class NodeGroupUpdateConfigArgs extends com.pulumi.resources.Resour
             $ = new NodeGroupUpdateConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param maxUnavailable Desired max number of unavailable worker nodes during node group update.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxUnavailable(@Nullable Output<Integer> maxUnavailable) {
             $.maxUnavailable = maxUnavailable;
             return this;
         }
 
+        /**
+         * @param maxUnavailable Desired max number of unavailable worker nodes during node group update.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxUnavailable(Integer maxUnavailable) {
             return maxUnavailable(Output.of(maxUnavailable));
         }
 
+        /**
+         * @param maxUnavailablePercentage Desired max percentage of unavailable worker nodes during node group update.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxUnavailablePercentage(@Nullable Output<Integer> maxUnavailablePercentage) {
             $.maxUnavailablePercentage = maxUnavailablePercentage;
             return this;
         }
 
+        /**
+         * @param maxUnavailablePercentage Desired max percentage of unavailable worker nodes during node group update.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxUnavailablePercentage(Integer maxUnavailablePercentage) {
             return maxUnavailablePercentage(Output.of(maxUnavailablePercentage));
         }

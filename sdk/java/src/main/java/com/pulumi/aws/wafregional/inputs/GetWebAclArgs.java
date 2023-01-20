@@ -13,9 +13,17 @@ public final class GetWebAclArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetWebAclArgs Empty = new GetWebAclArgs();
 
+    /**
+     * Name of the WAF Regional Web ACL.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the WAF Regional Web ACL.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -44,11 +52,23 @@ public final class GetWebAclArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetWebAclArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the WAF Regional Web ACL.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the WAF Regional Web ACL.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

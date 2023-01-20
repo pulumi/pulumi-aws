@@ -4,6 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a Cloud Control API Resource. The configuration and lifecycle handling of these resources is proxied through Cloud Control API handlers to the backend service.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudcontrol.Resource("example", {
+ *     typeName: "AWS::ECS::Cluster",
+ *     desiredState: JSON.stringify({
+ *         ClusterName: "example",
+ *         Tags: [{
+ *             Key: "CostCenter",
+ *             Value: "IT",
+ *         }],
+ *     }),
+ * });
+ * ```
+ */
 export class Resource extends pulumi.CustomResource {
     /**
      * Get an existing Resource resource's state with the given name, ID, and optional extra
@@ -32,11 +53,29 @@ export class Resource extends pulumi.CustomResource {
         return obj['__pulumiType'] === Resource.__pulumiType;
     }
 
+    /**
+     * JSON string matching the CloudFormation resource type schema with desired configuration.
+     */
     public readonly desiredState!: pulumi.Output<string>;
+    /**
+     * JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
+     */
     public /*out*/ readonly properties!: pulumi.Output<string>;
+    /**
+     * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+     */
     public readonly roleArn!: pulumi.Output<string | undefined>;
+    /**
+     * JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+     */
     public readonly schema!: pulumi.Output<string>;
+    /**
+     * CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+     */
     public readonly typeName!: pulumi.Output<string>;
+    /**
+     * Identifier of the CloudFormation resource type version.
+     */
     public readonly typeVersionId!: pulumi.Output<string | undefined>;
 
     /**
@@ -84,11 +123,29 @@ export class Resource extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Resource resources.
  */
 export interface ResourceState {
+    /**
+     * JSON string matching the CloudFormation resource type schema with desired configuration.
+     */
     desiredState?: pulumi.Input<string>;
+    /**
+     * JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
+     */
     properties?: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+     */
     schema?: pulumi.Input<string>;
+    /**
+     * CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+     */
     typeName?: pulumi.Input<string>;
+    /**
+     * Identifier of the CloudFormation resource type version.
+     */
     typeVersionId?: pulumi.Input<string>;
 }
 
@@ -96,9 +153,24 @@ export interface ResourceState {
  * The set of arguments for constructing a Resource resource.
  */
 export interface ResourceArgs {
+    /**
+     * JSON string matching the CloudFormation resource type schema with desired configuration.
+     */
     desiredState: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+     */
     schema?: pulumi.Input<string>;
+    /**
+     * CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+     */
     typeName: pulumi.Input<string>;
+    /**
+     * Identifier of the CloudFormation resource type version.
+     */
     typeVersionId?: pulumi.Input<string>;
 }

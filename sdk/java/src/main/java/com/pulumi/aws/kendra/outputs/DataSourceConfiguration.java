@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceConfiguration {
+    /**
+     * @return A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+     * 
+     */
     private @Nullable DataSourceConfigurationS3Configuration s3Configuration;
+    /**
+     * @return A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+     * 
+     */
     private @Nullable DataSourceConfigurationWebCrawlerConfiguration webCrawlerConfiguration;
 
     private DataSourceConfiguration() {}
+    /**
+     * @return A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+     * 
+     */
     public Optional<DataSourceConfigurationS3Configuration> s3Configuration() {
         return Optional.ofNullable(this.s3Configuration);
     }
+    /**
+     * @return A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+     * 
+     */
     public Optional<DataSourceConfigurationWebCrawlerConfiguration> webCrawlerConfiguration() {
         return Optional.ofNullable(this.webCrawlerConfiguration);
     }

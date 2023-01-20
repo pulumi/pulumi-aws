@@ -11,14 +11,94 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
+//
+// ## Example Usage
+// ### Account Analyzer
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/accessanalyzer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := accessanalyzer.NewAnalyzer(ctx, "example", &accessanalyzer.AnalyzerArgs{
+//				AnalyzerName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Organization Analyzer
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/accessanalyzer"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
+//				AwsServiceAccessPrincipals: pulumi.StringArray{
+//					pulumi.String("access-analyzer.amazonaws.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = accessanalyzer.NewAnalyzer(ctx, "exampleAnalyzer", &accessanalyzer.AnalyzerArgs{
+//				AnalyzerName: pulumi.String("example"),
+//				Type:         pulumi.String("ORGANIZATION"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleOrganization,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
+//
+// ```
 type Analyzer struct {
 	pulumi.CustomResourceState
 
-	AnalyzerName pulumi.StringOutput    `pulumi:"analyzerName"`
-	Arn          pulumi.StringOutput    `pulumi:"arn"`
-	Tags         pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll      pulumi.StringMapOutput `pulumi:"tagsAll"`
-	Type         pulumi.StringPtrOutput `pulumi:"type"`
+	// Name of the Analyzer.
+	AnalyzerName pulumi.StringOutput `pulumi:"analyzerName"`
+	// ARN of the Analyzer.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewAnalyzer registers a new resource with the given unique name, arguments, and options.
@@ -53,19 +133,29 @@ func GetAnalyzer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Analyzer resources.
 type analyzerState struct {
-	AnalyzerName *string           `pulumi:"analyzerName"`
-	Arn          *string           `pulumi:"arn"`
-	Tags         map[string]string `pulumi:"tags"`
-	TagsAll      map[string]string `pulumi:"tagsAll"`
-	Type         *string           `pulumi:"type"`
+	// Name of the Analyzer.
+	AnalyzerName *string `pulumi:"analyzerName"`
+	// ARN of the Analyzer.
+	Arn *string `pulumi:"arn"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+	Type *string `pulumi:"type"`
 }
 
 type AnalyzerState struct {
+	// Name of the Analyzer.
 	AnalyzerName pulumi.StringPtrInput
-	Arn          pulumi.StringPtrInput
-	Tags         pulumi.StringMapInput
-	TagsAll      pulumi.StringMapInput
-	Type         pulumi.StringPtrInput
+	// ARN of the Analyzer.
+	Arn pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+	Type pulumi.StringPtrInput
 }
 
 func (AnalyzerState) ElementType() reflect.Type {
@@ -73,16 +163,22 @@ func (AnalyzerState) ElementType() reflect.Type {
 }
 
 type analyzerArgs struct {
-	AnalyzerName string            `pulumi:"analyzerName"`
-	Tags         map[string]string `pulumi:"tags"`
-	Type         *string           `pulumi:"type"`
+	// Name of the Analyzer.
+	AnalyzerName string `pulumi:"analyzerName"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Analyzer resource.
 type AnalyzerArgs struct {
+	// Name of the Analyzer.
 	AnalyzerName pulumi.StringInput
-	Tags         pulumi.StringMapInput
-	Type         pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
+	Type pulumi.StringPtrInput
 }
 
 func (AnalyzerArgs) ElementType() reflect.Type {
@@ -172,22 +268,27 @@ func (o AnalyzerOutput) ToAnalyzerOutputWithContext(ctx context.Context) Analyze
 	return o
 }
 
+// Name of the Analyzer.
 func (o AnalyzerOutput) AnalyzerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringOutput { return v.AnalyzerName }).(pulumi.StringOutput)
 }
 
+// ARN of the Analyzer.
 func (o AnalyzerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AnalyzerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AnalyzerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
 func (o AnalyzerOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

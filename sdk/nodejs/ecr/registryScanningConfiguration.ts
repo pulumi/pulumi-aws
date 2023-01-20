@@ -7,6 +7,62 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an Elastic Container Registry Scanning Configuration. Can't be completely deleted, instead reverts to the default `BASIC` scanning configuration without rules.
+ *
+ * ## Example Usage
+ * ### Basic example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const configuration = new aws.ecr.RegistryScanningConfiguration("configuration", {
+ *     rules: [{
+ *         repositoryFilters: [{
+ *             filter: "example",
+ *             filterType: "WILDCARD",
+ *         }],
+ *         scanFrequency: "CONTINUOUS_SCAN",
+ *     }],
+ *     scanType: "ENHANCED",
+ * });
+ * ```
+ * ### Multiple rules
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.ecr.RegistryScanningConfiguration("test", {
+ *     rules: [
+ *         {
+ *             repositoryFilters: [{
+ *                 filter: "*",
+ *                 filterType: "WILDCARD",
+ *             }],
+ *             scanFrequency: "SCAN_ON_PUSH",
+ *         },
+ *         {
+ *             repositoryFilters: [{
+ *                 filter: "example",
+ *                 filterType: "WILDCARD",
+ *             }],
+ *             scanFrequency: "CONTINUOUS_SCAN",
+ *         },
+ *     ],
+ *     scanType: "ENHANCED",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * ECR Scanning Configurations can be imported using the `registry_id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
+ * ```
+ */
 export class RegistryScanningConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing RegistryScanningConfiguration resource's state with the given name, ID, and optional extra
@@ -35,8 +91,17 @@ export class RegistryScanningConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === RegistryScanningConfiguration.__pulumiType;
     }
 
+    /**
+     * The registry ID the scanning configuration applies to.
+     */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
+    /**
+     * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+     */
     public readonly rules!: pulumi.Output<outputs.ecr.RegistryScanningConfigurationRule[] | undefined>;
+    /**
+     * the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
+     */
     public readonly scanType!: pulumi.Output<string>;
 
     /**
@@ -73,8 +138,17 @@ export class RegistryScanningConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RegistryScanningConfiguration resources.
  */
 export interface RegistryScanningConfigurationState {
+    /**
+     * The registry ID the scanning configuration applies to.
+     */
     registryId?: pulumi.Input<string>;
+    /**
+     * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+     */
     rules?: pulumi.Input<pulumi.Input<inputs.ecr.RegistryScanningConfigurationRule>[]>;
+    /**
+     * the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
+     */
     scanType?: pulumi.Input<string>;
 }
 
@@ -82,6 +156,12 @@ export interface RegistryScanningConfigurationState {
  * The set of arguments for constructing a RegistryScanningConfiguration resource.
  */
 export interface RegistryScanningConfigurationArgs {
+    /**
+     * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+     */
     rules?: pulumi.Input<pulumi.Input<inputs.ecr.RegistryScanningConfigurationRule>[]>;
+    /**
+     * the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
+     */
     scanType: pulumi.Input<string>;
 }

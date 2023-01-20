@@ -11,14 +11,56 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing QuickSight Group
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := quicksight.NewGroup(ctx, "example", &quicksight.GroupArgs{
+//				GroupName: pulumi.String("tf-example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// QuickSight Group can be imported using the aws account id, namespace and group name separated by `/`.
+//
+// ```sh
+//
+//	$ pulumi import aws:quicksight/group:Group example 123456789123/default/tf-example
+//
+// ```
 type Group struct {
 	pulumi.CustomResourceState
 
-	Arn          pulumi.StringOutput    `pulumi:"arn"`
-	AwsAccountId pulumi.StringOutput    `pulumi:"awsAccountId"`
-	Description  pulumi.StringPtrOutput `pulumi:"description"`
-	GroupName    pulumi.StringOutput    `pulumi:"groupName"`
-	Namespace    pulumi.StringPtrOutput `pulumi:"namespace"`
+	// Amazon Resource Name (ARN) of group
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	// A description for the group.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// A name for the group.
+	GroupName pulumi.StringOutput `pulumi:"groupName"`
+	// The namespace. Currently, you should set this to `default`.
+	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -53,19 +95,29 @@ func GetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Group resources.
 type groupState struct {
-	Arn          *string `pulumi:"arn"`
+	// Amazon Resource Name (ARN) of group
+	Arn *string `pulumi:"arn"`
+	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	Description  *string `pulumi:"description"`
-	GroupName    *string `pulumi:"groupName"`
-	Namespace    *string `pulumi:"namespace"`
+	// A description for the group.
+	Description *string `pulumi:"description"`
+	// A name for the group.
+	GroupName *string `pulumi:"groupName"`
+	// The namespace. Currently, you should set this to `default`.
+	Namespace *string `pulumi:"namespace"`
 }
 
 type GroupState struct {
-	Arn          pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of group
+	Arn pulumi.StringPtrInput
+	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId pulumi.StringPtrInput
-	Description  pulumi.StringPtrInput
-	GroupName    pulumi.StringPtrInput
-	Namespace    pulumi.StringPtrInput
+	// A description for the group.
+	Description pulumi.StringPtrInput
+	// A name for the group.
+	GroupName pulumi.StringPtrInput
+	// The namespace. Currently, you should set this to `default`.
+	Namespace pulumi.StringPtrInput
 }
 
 func (GroupState) ElementType() reflect.Type {
@@ -73,18 +125,26 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
+	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	Description  *string `pulumi:"description"`
-	GroupName    string  `pulumi:"groupName"`
-	Namespace    *string `pulumi:"namespace"`
+	// A description for the group.
+	Description *string `pulumi:"description"`
+	// A name for the group.
+	GroupName string `pulumi:"groupName"`
+	// The namespace. Currently, you should set this to `default`.
+	Namespace *string `pulumi:"namespace"`
 }
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
+	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId pulumi.StringPtrInput
-	Description  pulumi.StringPtrInput
-	GroupName    pulumi.StringInput
-	Namespace    pulumi.StringPtrInput
+	// A description for the group.
+	Description pulumi.StringPtrInput
+	// A name for the group.
+	GroupName pulumi.StringInput
+	// The namespace. Currently, you should set this to `default`.
+	Namespace pulumi.StringPtrInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -174,22 +234,27 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
 }
 
+// Amazon Resource Name (ARN) of group
 func (o GroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 func (o GroupOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
+// A description for the group.
 func (o GroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A name for the group.
 func (o GroupOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
 }
 
+// The namespace. Currently, you should set this to `default`.
 func (o GroupOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
 }

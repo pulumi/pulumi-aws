@@ -61,11 +61,17 @@ class GetAddonResult:
     @property
     @pulumi.getter(name="addonVersion")
     def addon_version(self) -> str:
+        """
+        Version of EKS add-on.
+        """
         return pulumi.get(self, "addon_version")
 
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the EKS add-on.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -76,11 +82,17 @@ class GetAddonResult:
     @property
     @pulumi.getter(name="configurationValues")
     def configuration_values(self) -> str:
+        """
+        Configuration values for the addon with a single JSON string.
+        """
         return pulumi.get(self, "configuration_values")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
+        """
+        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
@@ -94,11 +106,18 @@ class GetAddonResult:
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> str:
+        """
+        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
+        """
         return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter(name="serviceAccountRoleArn")
     def service_account_role_arn(self) -> str:
+        """
+        ARN of IAM role used for EKS add-on. If value is empty -
+        then add-on uses the IAM role assigned to the EKS Cluster node.
+        """
         return pulumi.get(self, "service_account_role_arn")
 
     @property
@@ -130,7 +149,23 @@ def get_addon(addon_name: Optional[str] = None,
               tags: Optional[Mapping[str, str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddonResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about an EKS add-on.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.eks.get_addon(addon_name="vpc-cni",
+        cluster_name=aws_eks_cluster["example"]["name"])
+    pulumi.export("eksAddonOutputs", aws_eks_addon["example"])
+    ```
+
+
+    :param str addon_name: Name of the EKS add-on. The name must match one of
+           the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+    :param str cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
     """
     __args__ = dict()
     __args__['addonName'] = addon_name
@@ -158,6 +193,22 @@ def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddonResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve information about an EKS add-on.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.eks.get_addon(addon_name="vpc-cni",
+        cluster_name=aws_eks_cluster["example"]["name"])
+    pulumi.export("eksAddonOutputs", aws_eks_addon["example"])
+    ```
+
+
+    :param str addon_name: Name of the EKS add-on. The name must match one of
+           the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+    :param str cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
     """
     ...

@@ -38,6 +38,9 @@ class GetUserPoolsResult:
     @property
     @pulumi.getter
     def arns(self) -> Sequence[str]:
+        """
+        Set of cognito user pool Amazon Resource Names (ARNs).
+        """
         return pulumi.get(self, "arns")
 
     @property
@@ -51,6 +54,9 @@ class GetUserPoolsResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
+        """
+        Set of cognito user pool ids.
+        """
         return pulumi.get(self, "ids")
 
     @property
@@ -74,7 +80,24 @@ class AwaitableGetUserPoolsResult(GetUserPoolsResult):
 def get_user_pools(name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolsResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get a list of cognito user pools.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    selected_rest_api = aws.apigateway.get_rest_api(name=var["api_gateway_name"])
+    selected_user_pools = aws.cognito.get_user_pools(name=var["cognito_user_pool_name"])
+    cognito = aws.apigateway.Authorizer("cognito",
+        type="COGNITO_USER_POOLS",
+        rest_api=selected_rest_api.id,
+        provider_arns=selected_user_pools.arns)
+    ```
+
+
+    :param str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
     """
     __args__ = dict()
     __args__['name'] = name
@@ -92,6 +115,23 @@ def get_user_pools(name: Optional[str] = None,
 def get_user_pools_output(name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get a list of cognito user pools.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    selected_rest_api = aws.apigateway.get_rest_api(name=var["api_gateway_name"])
+    selected_user_pools = aws.cognito.get_user_pools(name=var["cognito_user_pool_name"])
+    cognito = aws.apigateway.Authorizer("cognito",
+        type="COGNITO_USER_POOLS",
+        rest_api=selected_rest_api.id,
+        provider_arns=selected_user_pools.arns)
+    ```
+
+
+    :param str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
     """
     ...

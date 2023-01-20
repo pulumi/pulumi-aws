@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleActionCountCustomRequestHandling {
+    /**
+     * @return The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+     * 
+     */
     private List<WebAclRuleActionCountCustomRequestHandlingInsertHeader> insertHeaders;
 
     private WebAclRuleActionCountCustomRequestHandling() {}
+    /**
+     * @return The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+     * 
+     */
     public List<WebAclRuleActionCountCustomRequestHandlingInsertHeader> insertHeaders() {
         return this.insertHeaders;
     }

@@ -21,95 +21,330 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a Glue Catalog Table Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality.
+ * 
+ * ## Example Usage
+ * ### Basic Table
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glue.CatalogTable;
+ * import com.pulumi.aws.glue.CatalogTableArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var awsGlueCatalogTable = new CatalogTable(&#34;awsGlueCatalogTable&#34;, CatalogTableArgs.builder()        
+ *             .databaseName(&#34;MyCatalogDatabase&#34;)
+ *             .name(&#34;MyCatalogTable&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Parquet Table for Athena
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glue.CatalogTable;
+ * import com.pulumi.aws.glue.CatalogTableArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorSerDeInfoArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var awsGlueCatalogTable = new CatalogTable(&#34;awsGlueCatalogTable&#34;, CatalogTableArgs.builder()        
+ *             .databaseName(&#34;MyCatalogDatabase&#34;)
+ *             .name(&#34;MyCatalogTable&#34;)
+ *             .parameters(Map.ofEntries(
+ *                 Map.entry(&#34;EXTERNAL&#34;, &#34;TRUE&#34;),
+ *                 Map.entry(&#34;parquet.compression&#34;, &#34;SNAPPY&#34;)
+ *             ))
+ *             .storageDescriptor(CatalogTableStorageDescriptorArgs.builder()
+ *                 .columns(                
+ *                     CatalogTableStorageDescriptorColumnArgs.builder()
+ *                         .name(&#34;my_string&#34;)
+ *                         .type(&#34;string&#34;)
+ *                         .build(),
+ *                     CatalogTableStorageDescriptorColumnArgs.builder()
+ *                         .name(&#34;my_double&#34;)
+ *                         .type(&#34;double&#34;)
+ *                         .build(),
+ *                     CatalogTableStorageDescriptorColumnArgs.builder()
+ *                         .comment(&#34;&#34;)
+ *                         .name(&#34;my_date&#34;)
+ *                         .type(&#34;date&#34;)
+ *                         .build(),
+ *                     CatalogTableStorageDescriptorColumnArgs.builder()
+ *                         .comment(&#34;&#34;)
+ *                         .name(&#34;my_bigint&#34;)
+ *                         .type(&#34;bigint&#34;)
+ *                         .build(),
+ *                     CatalogTableStorageDescriptorColumnArgs.builder()
+ *                         .comment(&#34;&#34;)
+ *                         .name(&#34;my_struct&#34;)
+ *                         .type(&#34;struct&lt;my_nested_string:string&gt;&#34;)
+ *                         .build())
+ *                 .inputFormat(&#34;org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat&#34;)
+ *                 .location(&#34;s3://my-bucket/event-streams/my-stream&#34;)
+ *                 .outputFormat(&#34;org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat&#34;)
+ *                 .serDeInfo(CatalogTableStorageDescriptorSerDeInfoArgs.builder()
+ *                     .name(&#34;my-stream&#34;)
+ *                     .parameters(Map.of(&#34;serialization.format&#34;, 1))
+ *                     .serializationLibrary(&#34;org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe&#34;)
+ *                     .build())
+ *                 .build())
+ *             .tableType(&#34;EXTERNAL_TABLE&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Glue Tables can be imported with their catalog ID (usually AWS account ID), database name, and table name, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
+ * ```
+ * 
+ */
 @ResourceType(type="aws:glue/catalogTable:CatalogTable")
 public class CatalogTable extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the Glue Table.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the Glue Table.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+     * 
+     */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
+    /**
+     * @return ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+     * 
+     */
     public Output<String> catalogId() {
         return this.catalogId;
     }
+    /**
+     * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+     * 
+     */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
+    /**
+     * @return Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+     * 
+     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
+    /**
+     * Description of the table.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description of the table.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Name of the table. For Hive compatibility, this must be entirely lowercase.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name of the table. For Hive compatibility, this must be entirely lowercase.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Owner of the table.
+     * 
+     */
     @Export(name="owner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> owner;
 
+    /**
+     * @return Owner of the table.
+     * 
+     */
     public Output<Optional<String>> owner() {
         return Codegen.optional(this.owner);
     }
+    /**
+     * Properties associated with this table, as a list of key-value pairs.
+     * 
+     */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
+    /**
+     * @return Properties associated with this table, as a list of key-value pairs.
+     * 
+     */
     public Output<Optional<Map<String,String>>> parameters() {
         return Codegen.optional(this.parameters);
     }
+    /**
+     * Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+     * 
+     */
     @Export(name="partitionIndices", refs={List.class,CatalogTablePartitionIndex.class}, tree="[0,1]")
     private Output<List<CatalogTablePartitionIndex>> partitionIndices;
 
+    /**
+     * @return Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+     * 
+     */
     public Output<List<CatalogTablePartitionIndex>> partitionIndices() {
         return this.partitionIndices;
     }
+    /**
+     * Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+     * 
+     */
     @Export(name="partitionKeys", refs={List.class,CatalogTablePartitionKey.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CatalogTablePartitionKey>> partitionKeys;
 
+    /**
+     * @return Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+     * 
+     */
     public Output<Optional<List<CatalogTablePartitionKey>>> partitionKeys() {
         return Codegen.optional(this.partitionKeys);
     }
+    /**
+     * Retention time for this table.
+     * 
+     */
     @Export(name="retention", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> retention;
 
+    /**
+     * @return Retention time for this table.
+     * 
+     */
     public Output<Optional<Integer>> retention() {
         return Codegen.optional(this.retention);
     }
+    /**
+     * Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+     * 
+     */
     @Export(name="storageDescriptor", refs={CatalogTableStorageDescriptor.class}, tree="[0]")
     private Output</* @Nullable */ CatalogTableStorageDescriptor> storageDescriptor;
 
+    /**
+     * @return Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+     * 
+     */
     public Output<Optional<CatalogTableStorageDescriptor>> storageDescriptor() {
         return Codegen.optional(this.storageDescriptor);
     }
+    /**
+     * Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+     * 
+     */
     @Export(name="tableType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tableType;
 
+    /**
+     * @return Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+     * 
+     */
     public Output<Optional<String>> tableType() {
         return Codegen.optional(this.tableType);
     }
+    /**
+     * Configuration block of a target table for resource linking. See `target_table` below.
+     * 
+     */
     @Export(name="targetTable", refs={CatalogTableTargetTable.class}, tree="[0]")
     private Output</* @Nullable */ CatalogTableTargetTable> targetTable;
 
+    /**
+     * @return Configuration block of a target table for resource linking. See `target_table` below.
+     * 
+     */
     public Output<Optional<CatalogTableTargetTable>> targetTable() {
         return Codegen.optional(this.targetTable);
     }
+    /**
+     * If the table is a view, the expanded text of the view; otherwise null.
+     * 
+     */
     @Export(name="viewExpandedText", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> viewExpandedText;
 
+    /**
+     * @return If the table is a view, the expanded text of the view; otherwise null.
+     * 
+     */
     public Output<Optional<String>> viewExpandedText() {
         return Codegen.optional(this.viewExpandedText);
     }
+    /**
+     * If the table is a view, the original text of the view; otherwise null.
+     * 
+     */
     @Export(name="viewOriginalText", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> viewOriginalText;
 
+    /**
+     * @return If the table is a view, the original text of the view; otherwise null.
+     * 
+     */
     public Output<Optional<String>> viewOriginalText() {
         return Codegen.optional(this.viewOriginalText);
     }

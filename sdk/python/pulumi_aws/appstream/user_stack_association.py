@@ -20,6 +20,10 @@ class UserStackAssociationArgs:
                  send_email_notification: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a UserStackAssociation resource.
+        :param pulumi.Input[str] authentication_type: Authentication type for the user.
+        :param pulumi.Input[str] stack_name: Name of the stack that is associated with the user.
+        :param pulumi.Input[str] user_name: Email address of the user who is associated with the stack.
+        :param pulumi.Input[bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "stack_name", stack_name)
@@ -30,6 +34,9 @@ class UserStackAssociationArgs:
     @property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Input[str]:
+        """
+        Authentication type for the user.
+        """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
@@ -39,6 +46,9 @@ class UserStackAssociationArgs:
     @property
     @pulumi.getter(name="stackName")
     def stack_name(self) -> pulumi.Input[str]:
+        """
+        Name of the stack that is associated with the user.
+        """
         return pulumi.get(self, "stack_name")
 
     @stack_name.setter
@@ -48,6 +58,9 @@ class UserStackAssociationArgs:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[str]:
+        """
+        Email address of the user who is associated with the stack.
+        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -57,6 +70,9 @@ class UserStackAssociationArgs:
     @property
     @pulumi.getter(name="sendEmailNotification")
     def send_email_notification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether a welcome email is sent to a user after the user is created in the user pool.
+        """
         return pulumi.get(self, "send_email_notification")
 
     @send_email_notification.setter
@@ -73,6 +89,10 @@ class _UserStackAssociationState:
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserStackAssociation resources.
+        :param pulumi.Input[str] authentication_type: Authentication type for the user.
+        :param pulumi.Input[bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
+        :param pulumi.Input[str] stack_name: Name of the stack that is associated with the user.
+        :param pulumi.Input[str] user_name: Email address of the user who is associated with the stack.
         """
         if authentication_type is not None:
             pulumi.set(__self__, "authentication_type", authentication_type)
@@ -86,6 +106,9 @@ class _UserStackAssociationState:
     @property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Authentication type for the user.
+        """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
@@ -95,6 +118,9 @@ class _UserStackAssociationState:
     @property
     @pulumi.getter(name="sendEmailNotification")
     def send_email_notification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether a welcome email is sent to a user after the user is created in the user pool.
+        """
         return pulumi.get(self, "send_email_notification")
 
     @send_email_notification.setter
@@ -104,6 +130,9 @@ class _UserStackAssociationState:
     @property
     @pulumi.getter(name="stackName")
     def stack_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the stack that is associated with the user.
+        """
         return pulumi.get(self, "stack_name")
 
     @stack_name.setter
@@ -113,6 +142,9 @@ class _UserStackAssociationState:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Email address of the user who is associated with the stack.
+        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -131,9 +163,38 @@ class UserStackAssociation(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a UserStackAssociation resource with the given unique name, props, and options.
+        Manages an AppStream User Stack association.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_stack = aws.appstream.Stack("testStack")
+        test_user = aws.appstream.User("testUser",
+            authentication_type="USERPOOL",
+            user_name="EMAIL")
+        test_user_stack_association = aws.appstream.UserStackAssociation("testUserStackAssociation",
+            authentication_type=test_user.authentication_type,
+            stack_name=test_stack.name,
+            user_name=test_user.user_name)
+        ```
+
+        ## Import
+
+        AppStream User Stack Association can be imported by using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`), e.g.,
+
+        ```sh
+         $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] authentication_type: Authentication type for the user.
+        :param pulumi.Input[bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
+        :param pulumi.Input[str] stack_name: Name of the stack that is associated with the user.
+        :param pulumi.Input[str] user_name: Email address of the user who is associated with the stack.
         """
         ...
     @overload
@@ -142,7 +203,32 @@ class UserStackAssociation(pulumi.CustomResource):
                  args: UserStackAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a UserStackAssociation resource with the given unique name, props, and options.
+        Manages an AppStream User Stack association.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_stack = aws.appstream.Stack("testStack")
+        test_user = aws.appstream.User("testUser",
+            authentication_type="USERPOOL",
+            user_name="EMAIL")
+        test_user_stack_association = aws.appstream.UserStackAssociation("testUserStackAssociation",
+            authentication_type=test_user.authentication_type,
+            stack_name=test_stack.name,
+            user_name=test_user.user_name)
+        ```
+
+        ## Import
+
+        AppStream User Stack Association can be imported by using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`), e.g.,
+
+        ```sh
+         $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
+        ```
+
         :param str resource_name: The name of the resource.
         :param UserStackAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,6 +288,10 @@ class UserStackAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] authentication_type: Authentication type for the user.
+        :param pulumi.Input[bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
+        :param pulumi.Input[str] stack_name: Name of the stack that is associated with the user.
+        :param pulumi.Input[str] user_name: Email address of the user who is associated with the stack.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -216,20 +306,32 @@ class UserStackAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Output[str]:
+        """
+        Authentication type for the user.
+        """
         return pulumi.get(self, "authentication_type")
 
     @property
     @pulumi.getter(name="sendEmailNotification")
     def send_email_notification(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether a welcome email is sent to a user after the user is created in the user pool.
+        """
         return pulumi.get(self, "send_email_notification")
 
     @property
     @pulumi.getter(name="stackName")
     def stack_name(self) -> pulumi.Output[str]:
+        """
+        Name of the stack that is associated with the user.
+        """
         return pulumi.get(self, "stack_name")
 
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[str]:
+        """
+        Email address of the user who is associated with the stack.
+        """
         return pulumi.get(self, "user_name")
 

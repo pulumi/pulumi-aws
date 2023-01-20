@@ -56,6 +56,54 @@ import java.util.concurrent.CompletableFuture;
 
 public final class AwsFunctions {
     /**
+     * Use this data source to get the ID of a registered AMI for use in other
+     * resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
+     *             .executableUsers(&#34;self&#34;)
+     *             .filters(            
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;name&#34;)
+     *                     .values(&#34;myami-*&#34;)
+     *                     .build(),
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;root-device-type&#34;)
+     *                     .values(&#34;ebs&#34;)
+     *                     .build(),
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;virtualization-type&#34;)
+     *                     .values(&#34;hvm&#34;)
+     *                     .build())
+     *             .mostRecent(true)
+     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
+     *             .owners(&#34;self&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getAmi has been deprecated in favor of aws.ec2.getAmi
@@ -66,6 +114,54 @@ public final class AwsFunctions {
         return getAmi(GetAmiArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to get the ID of a registered AMI for use in other
+     * resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
+     *             .executableUsers(&#34;self&#34;)
+     *             .filters(            
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;name&#34;)
+     *                     .values(&#34;myami-*&#34;)
+     *                     .build(),
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;root-device-type&#34;)
+     *                     .values(&#34;ebs&#34;)
+     *                     .build(),
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;virtualization-type&#34;)
+     *                     .values(&#34;hvm&#34;)
+     *                     .build())
+     *             .mostRecent(true)
+     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
+     *             .owners(&#34;self&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getAmi has been deprecated in favor of aws.ec2.getAmi
@@ -76,6 +172,54 @@ public final class AwsFunctions {
         return getAmiPlain(GetAmiPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to get the ID of a registered AMI for use in other
+     * resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
+     *             .executableUsers(&#34;self&#34;)
+     *             .filters(            
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;name&#34;)
+     *                     .values(&#34;myami-*&#34;)
+     *                     .build(),
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;root-device-type&#34;)
+     *                     .values(&#34;ebs&#34;)
+     *                     .build(),
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;virtualization-type&#34;)
+     *                     .values(&#34;hvm&#34;)
+     *                     .build())
+     *             .mostRecent(true)
+     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
+     *             .owners(&#34;self&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getAmi has been deprecated in favor of aws.ec2.getAmi
@@ -86,6 +230,54 @@ public final class AwsFunctions {
         return getAmi(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to get the ID of a registered AMI for use in other
+     * resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
+     *             .executableUsers(&#34;self&#34;)
+     *             .filters(            
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;name&#34;)
+     *                     .values(&#34;myami-*&#34;)
+     *                     .build(),
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;root-device-type&#34;)
+     *                     .values(&#34;ebs&#34;)
+     *                     .build(),
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;virtualization-type&#34;)
+     *                     .values(&#34;hvm&#34;)
+     *                     .build())
+     *             .mostRecent(true)
+     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
+     *             .owners(&#34;self&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getAmi has been deprecated in favor of aws.ec2.getAmi
@@ -96,6 +288,54 @@ public final class AwsFunctions {
         return getAmiPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to get the ID of a registered AMI for use in other
+     * resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
+     *             .executableUsers(&#34;self&#34;)
+     *             .filters(            
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;name&#34;)
+     *                     .values(&#34;myami-*&#34;)
+     *                     .build(),
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;root-device-type&#34;)
+     *                     .values(&#34;ebs&#34;)
+     *                     .build(),
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;virtualization-type&#34;)
+     *                     .values(&#34;hvm&#34;)
+     *                     .build())
+     *             .mostRecent(true)
+     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
+     *             .owners(&#34;self&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getAmi has been deprecated in favor of aws.ec2.getAmi
@@ -106,6 +346,54 @@ public final class AwsFunctions {
         return Deployment.getInstance().invoke("aws:index/getAmi:getAmi", TypeShape.of(GetAmiResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to get the ID of a registered AMI for use in other
+     * resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
+     *             .executableUsers(&#34;self&#34;)
+     *             .filters(            
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;name&#34;)
+     *                     .values(&#34;myami-*&#34;)
+     *                     .build(),
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;root-device-type&#34;)
+     *                     .values(&#34;ebs&#34;)
+     *                     .build(),
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;virtualization-type&#34;)
+     *                     .values(&#34;hvm&#34;)
+     *                     .build())
+     *             .mostRecent(true)
+     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
+     *             .owners(&#34;self&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getAmi has been deprecated in favor of aws.ec2.getAmi
@@ -116,6 +404,41 @@ public final class AwsFunctions {
         return Deployment.getInstance().invokeAsync("aws:index/getAmi:getAmi", TypeShape.of(GetAmiResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to get a list of AMI IDs matching the specified criteria.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
+     *             .filters(GetAmiIdsFilterArgs.builder()
+     *                 .name(&#34;name&#34;)
+     *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
+     *                 .build())
+     *             .owners(&#34;099720109477&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getAmiIds has been deprecated in favor of aws.ec2.getAmiIds
@@ -126,6 +449,41 @@ public final class AwsFunctions {
         return getAmiIds(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to get a list of AMI IDs matching the specified criteria.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
+     *             .filters(GetAmiIdsFilterArgs.builder()
+     *                 .name(&#34;name&#34;)
+     *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
+     *                 .build())
+     *             .owners(&#34;099720109477&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getAmiIds has been deprecated in favor of aws.ec2.getAmiIds
@@ -136,6 +494,41 @@ public final class AwsFunctions {
         return getAmiIdsPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to get a list of AMI IDs matching the specified criteria.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
+     *             .filters(GetAmiIdsFilterArgs.builder()
+     *                 .name(&#34;name&#34;)
+     *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
+     *                 .build())
+     *             .owners(&#34;099720109477&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getAmiIds has been deprecated in favor of aws.ec2.getAmiIds
@@ -146,6 +539,41 @@ public final class AwsFunctions {
         return Deployment.getInstance().invoke("aws:index/getAmiIds:getAmiIds", TypeShape.of(GetAmiIdsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to get a list of AMI IDs matching the specified criteria.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
+     *             .filters(GetAmiIdsFilterArgs.builder()
+     *                 .name(&#34;name&#34;)
+     *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
+     *                 .build())
+     *             .owners(&#34;099720109477&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getAmiIds has been deprecated in favor of aws.ec2.getAmiIds
@@ -155,19 +583,207 @@ public final class AwsFunctions {
     public static CompletableFuture<GetAmiIdsResult> getAmiIdsPlain(GetAmiIdsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getAmiIds:getAmiIds", TypeShape.of(GetAmiIdsResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Parses an ARN into its constituent parts.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetArnArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var dbInstance = AwsFunctions.getArn(GetArnArgs.builder()
+     *             .arn(&#34;arn:aws:rds:eu-west-1:123456789012:db:mysql-db&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetArnResult> getArn(GetArnArgs args) {
         return getArn(args, InvokeOptions.Empty);
     }
+    /**
+     * Parses an ARN into its constituent parts.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetArnArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var dbInstance = AwsFunctions.getArn(GetArnArgs.builder()
+     *             .arn(&#34;arn:aws:rds:eu-west-1:123456789012:db:mysql-db&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetArnResult> getArnPlain(GetArnPlainArgs args) {
         return getArnPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Parses an ARN into its constituent parts.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetArnArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var dbInstance = AwsFunctions.getArn(GetArnArgs.builder()
+     *             .arn(&#34;arn:aws:rds:eu-west-1:123456789012:db:mysql-db&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetArnResult> getArn(GetArnArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getArn:getArn", TypeShape.of(GetArnResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Parses an ARN into its constituent parts.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetArnArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var dbInstance = AwsFunctions.getArn(GetArnArgs.builder()
+     *             .arn(&#34;arn:aws:rds:eu-west-1:123456789012:db:mysql-db&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetArnResult> getArnPlain(GetArnPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getArn:getArn", TypeShape.of(GetArnResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * The Autoscaling Groups data source allows access to the list of AWS
+     * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.Notification;
+     * import com.pulumi.aws.autoscaling.NotificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
+     *             .filters(            
+     *                 GetAmiIdsFilterArgs.builder()
+     *                     .name(&#34;tag:Team&#34;)
+     *                     .values(&#34;Pets&#34;)
+     *                     .build(),
+     *                 GetAmiIdsFilterArgs.builder()
+     *                     .name(&#34;tag-key&#34;)
+     *                     .values(&#34;Environment&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
+     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *             .notifications(            
+     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
+     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
+     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH_ERROR&#34;,
+     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE_ERROR&#34;)
+     *             .topicArn(&#34;TOPIC ARN&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds
@@ -178,6 +794,58 @@ public final class AwsFunctions {
         return getAutoscalingGroups(GetAutoscalingGroupsArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * The Autoscaling Groups data source allows access to the list of AWS
+     * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.Notification;
+     * import com.pulumi.aws.autoscaling.NotificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
+     *             .filters(            
+     *                 GetAmiIdsFilterArgs.builder()
+     *                     .name(&#34;tag:Team&#34;)
+     *                     .values(&#34;Pets&#34;)
+     *                     .build(),
+     *                 GetAmiIdsFilterArgs.builder()
+     *                     .name(&#34;tag-key&#34;)
+     *                     .values(&#34;Environment&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
+     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *             .notifications(            
+     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
+     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
+     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH_ERROR&#34;,
+     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE_ERROR&#34;)
+     *             .topicArn(&#34;TOPIC ARN&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds
@@ -188,6 +856,58 @@ public final class AwsFunctions {
         return getAutoscalingGroupsPlain(GetAutoscalingGroupsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * The Autoscaling Groups data source allows access to the list of AWS
+     * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.Notification;
+     * import com.pulumi.aws.autoscaling.NotificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
+     *             .filters(            
+     *                 GetAmiIdsFilterArgs.builder()
+     *                     .name(&#34;tag:Team&#34;)
+     *                     .values(&#34;Pets&#34;)
+     *                     .build(),
+     *                 GetAmiIdsFilterArgs.builder()
+     *                     .name(&#34;tag-key&#34;)
+     *                     .values(&#34;Environment&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
+     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *             .notifications(            
+     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
+     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
+     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH_ERROR&#34;,
+     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE_ERROR&#34;)
+     *             .topicArn(&#34;TOPIC ARN&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds
@@ -198,6 +918,58 @@ public final class AwsFunctions {
         return getAutoscalingGroups(args, InvokeOptions.Empty);
     }
     /**
+     * The Autoscaling Groups data source allows access to the list of AWS
+     * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.Notification;
+     * import com.pulumi.aws.autoscaling.NotificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
+     *             .filters(            
+     *                 GetAmiIdsFilterArgs.builder()
+     *                     .name(&#34;tag:Team&#34;)
+     *                     .values(&#34;Pets&#34;)
+     *                     .build(),
+     *                 GetAmiIdsFilterArgs.builder()
+     *                     .name(&#34;tag-key&#34;)
+     *                     .values(&#34;Environment&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
+     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *             .notifications(            
+     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
+     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
+     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH_ERROR&#34;,
+     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE_ERROR&#34;)
+     *             .topicArn(&#34;TOPIC ARN&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds
@@ -208,6 +980,58 @@ public final class AwsFunctions {
         return getAutoscalingGroupsPlain(args, InvokeOptions.Empty);
     }
     /**
+     * The Autoscaling Groups data source allows access to the list of AWS
+     * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.Notification;
+     * import com.pulumi.aws.autoscaling.NotificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
+     *             .filters(            
+     *                 GetAmiIdsFilterArgs.builder()
+     *                     .name(&#34;tag:Team&#34;)
+     *                     .values(&#34;Pets&#34;)
+     *                     .build(),
+     *                 GetAmiIdsFilterArgs.builder()
+     *                     .name(&#34;tag-key&#34;)
+     *                     .values(&#34;Environment&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
+     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *             .notifications(            
+     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
+     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
+     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH_ERROR&#34;,
+     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE_ERROR&#34;)
+     *             .topicArn(&#34;TOPIC ARN&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds
@@ -218,6 +1042,58 @@ public final class AwsFunctions {
         return Deployment.getInstance().invoke("aws:index/getAutoscalingGroups:getAutoscalingGroups", TypeShape.of(GetAutoscalingGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * The Autoscaling Groups data source allows access to the list of AWS
+     * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.Notification;
+     * import com.pulumi.aws.autoscaling.NotificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
+     *             .filters(            
+     *                 GetAmiIdsFilterArgs.builder()
+     *                     .name(&#34;tag:Team&#34;)
+     *                     .values(&#34;Pets&#34;)
+     *                     .build(),
+     *                 GetAmiIdsFilterArgs.builder()
+     *                     .name(&#34;tag-key&#34;)
+     *                     .values(&#34;Environment&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
+     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *             .notifications(            
+     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
+     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
+     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH_ERROR&#34;,
+     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE_ERROR&#34;)
+     *             .topicArn(&#34;TOPIC ARN&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds
@@ -227,79 +1103,1611 @@ public final class AwsFunctions {
     public static CompletableFuture<GetAutoscalingGroupsResult> getAutoscalingGroupsPlain(GetAutoscalingGroupsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getAutoscalingGroups:getAutoscalingGroups", TypeShape.of(GetAutoscalingGroupsResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
+     * in the current region.
+     * 
+     * This can be used both to validate an availability zone given in a variable
+     * and to split the AZ name into its component parts of an AWS region and an
+     * AZ identifier letter. The latter may be useful e.g., for implementing a
+     * consistent subnet numbering scheme across several regions by mapping both
+     * the region and the subnet letter to network numbers.
+     * 
+     * This is different from the `aws.getAvailabilityZones` (plural) data source,
+     * which provides a list of the available zones.
+     * 
+     */
     public static Output<GetAvailabilityZoneResult> getAvailabilityZone() {
         return getAvailabilityZone(GetAvailabilityZoneArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
+     * in the current region.
+     * 
+     * This can be used both to validate an availability zone given in a variable
+     * and to split the AZ name into its component parts of an AWS region and an
+     * AZ identifier letter. The latter may be useful e.g., for implementing a
+     * consistent subnet numbering scheme across several regions by mapping both
+     * the region and the subnet letter to network numbers.
+     * 
+     * This is different from the `aws.getAvailabilityZones` (plural) data source,
+     * which provides a list of the available zones.
+     * 
+     */
     public static CompletableFuture<GetAvailabilityZoneResult> getAvailabilityZonePlain() {
         return getAvailabilityZonePlain(GetAvailabilityZonePlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
+     * in the current region.
+     * 
+     * This can be used both to validate an availability zone given in a variable
+     * and to split the AZ name into its component parts of an AWS region and an
+     * AZ identifier letter. The latter may be useful e.g., for implementing a
+     * consistent subnet numbering scheme across several regions by mapping both
+     * the region and the subnet letter to network numbers.
+     * 
+     * This is different from the `aws.getAvailabilityZones` (plural) data source,
+     * which provides a list of the available zones.
+     * 
+     */
     public static Output<GetAvailabilityZoneResult> getAvailabilityZone(GetAvailabilityZoneArgs args) {
         return getAvailabilityZone(args, InvokeOptions.Empty);
     }
+    /**
+     * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
+     * in the current region.
+     * 
+     * This can be used both to validate an availability zone given in a variable
+     * and to split the AZ name into its component parts of an AWS region and an
+     * AZ identifier letter. The latter may be useful e.g., for implementing a
+     * consistent subnet numbering scheme across several regions by mapping both
+     * the region and the subnet letter to network numbers.
+     * 
+     * This is different from the `aws.getAvailabilityZones` (plural) data source,
+     * which provides a list of the available zones.
+     * 
+     */
     public static CompletableFuture<GetAvailabilityZoneResult> getAvailabilityZonePlain(GetAvailabilityZonePlainArgs args) {
         return getAvailabilityZonePlain(args, InvokeOptions.Empty);
     }
+    /**
+     * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
+     * in the current region.
+     * 
+     * This can be used both to validate an availability zone given in a variable
+     * and to split the AZ name into its component parts of an AWS region and an
+     * AZ identifier letter. The latter may be useful e.g., for implementing a
+     * consistent subnet numbering scheme across several regions by mapping both
+     * the region and the subnet letter to network numbers.
+     * 
+     * This is different from the `aws.getAvailabilityZones` (plural) data source,
+     * which provides a list of the available zones.
+     * 
+     */
     public static Output<GetAvailabilityZoneResult> getAvailabilityZone(GetAvailabilityZoneArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getAvailabilityZone:getAvailabilityZone", TypeShape.of(GetAvailabilityZoneResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
+     * in the current region.
+     * 
+     * This can be used both to validate an availability zone given in a variable
+     * and to split the AZ name into its component parts of an AWS region and an
+     * AZ identifier letter. The latter may be useful e.g., for implementing a
+     * consistent subnet numbering scheme across several regions by mapping both
+     * the region and the subnet letter to network numbers.
+     * 
+     * This is different from the `aws.getAvailabilityZones` (plural) data source,
+     * which provides a list of the available zones.
+     * 
+     */
     public static CompletableFuture<GetAvailabilityZoneResult> getAvailabilityZonePlain(GetAvailabilityZonePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getAvailabilityZone:getAvailabilityZone", TypeShape.of(GetAvailabilityZoneResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * The Availability Zones data source allows access to the list of AWS
+     * Availability Zones which can be accessed by an AWS account within the region
+     * configured in the provider.
+     * 
+     * This is different from the `aws.getAvailabilityZone` (singular) data source,
+     * which provides some details about a specific availability zone.
+     * 
+     * &gt; When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
+     * 
+     * ## Example Usage
+     * ### By State
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *             .state(&#34;available&#34;)
+     *             .build());
+     * 
+     *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+     *             .build());
+     * 
+     *         var secondary = new Subnet(&#34;secondary&#34;, SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### By Filter
+     * 
+     * All Local Zones (regardless of opt-in status):
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *             .allAvailabilityZones(true)
+     *             .filters(GetAvailabilityZonesFilterArgs.builder()
+     *                 .name(&#34;opt-in-status&#34;)
+     *                 .values(                
+     *                     &#34;not-opted-in&#34;,
+     *                     &#34;opted-in&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * Only Availability Zones (no Local Zones):
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *             .filters(GetAvailabilityZonesFilterArgs.builder()
+     *                 .name(&#34;opt-in-status&#34;)
+     *                 .values(&#34;opt-in-not-required&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetAvailabilityZonesResult> getAvailabilityZones() {
         return getAvailabilityZones(GetAvailabilityZonesArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * The Availability Zones data source allows access to the list of AWS
+     * Availability Zones which can be accessed by an AWS account within the region
+     * configured in the provider.
+     * 
+     * This is different from the `aws.getAvailabilityZone` (singular) data source,
+     * which provides some details about a specific availability zone.
+     * 
+     * &gt; When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
+     * 
+     * ## Example Usage
+     * ### By State
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *             .state(&#34;available&#34;)
+     *             .build());
+     * 
+     *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+     *             .build());
+     * 
+     *         var secondary = new Subnet(&#34;secondary&#34;, SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### By Filter
+     * 
+     * All Local Zones (regardless of opt-in status):
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *             .allAvailabilityZones(true)
+     *             .filters(GetAvailabilityZonesFilterArgs.builder()
+     *                 .name(&#34;opt-in-status&#34;)
+     *                 .values(                
+     *                     &#34;not-opted-in&#34;,
+     *                     &#34;opted-in&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * Only Availability Zones (no Local Zones):
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *             .filters(GetAvailabilityZonesFilterArgs.builder()
+     *                 .name(&#34;opt-in-status&#34;)
+     *                 .values(&#34;opt-in-not-required&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetAvailabilityZonesResult> getAvailabilityZonesPlain() {
         return getAvailabilityZonesPlain(GetAvailabilityZonesPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * The Availability Zones data source allows access to the list of AWS
+     * Availability Zones which can be accessed by an AWS account within the region
+     * configured in the provider.
+     * 
+     * This is different from the `aws.getAvailabilityZone` (singular) data source,
+     * which provides some details about a specific availability zone.
+     * 
+     * &gt; When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
+     * 
+     * ## Example Usage
+     * ### By State
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *             .state(&#34;available&#34;)
+     *             .build());
+     * 
+     *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+     *             .build());
+     * 
+     *         var secondary = new Subnet(&#34;secondary&#34;, SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### By Filter
+     * 
+     * All Local Zones (regardless of opt-in status):
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *             .allAvailabilityZones(true)
+     *             .filters(GetAvailabilityZonesFilterArgs.builder()
+     *                 .name(&#34;opt-in-status&#34;)
+     *                 .values(                
+     *                     &#34;not-opted-in&#34;,
+     *                     &#34;opted-in&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * Only Availability Zones (no Local Zones):
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *             .filters(GetAvailabilityZonesFilterArgs.builder()
+     *                 .name(&#34;opt-in-status&#34;)
+     *                 .values(&#34;opt-in-not-required&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetAvailabilityZonesResult> getAvailabilityZones(GetAvailabilityZonesArgs args) {
         return getAvailabilityZones(args, InvokeOptions.Empty);
     }
+    /**
+     * The Availability Zones data source allows access to the list of AWS
+     * Availability Zones which can be accessed by an AWS account within the region
+     * configured in the provider.
+     * 
+     * This is different from the `aws.getAvailabilityZone` (singular) data source,
+     * which provides some details about a specific availability zone.
+     * 
+     * &gt; When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
+     * 
+     * ## Example Usage
+     * ### By State
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *             .state(&#34;available&#34;)
+     *             .build());
+     * 
+     *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+     *             .build());
+     * 
+     *         var secondary = new Subnet(&#34;secondary&#34;, SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### By Filter
+     * 
+     * All Local Zones (regardless of opt-in status):
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *             .allAvailabilityZones(true)
+     *             .filters(GetAvailabilityZonesFilterArgs.builder()
+     *                 .name(&#34;opt-in-status&#34;)
+     *                 .values(                
+     *                     &#34;not-opted-in&#34;,
+     *                     &#34;opted-in&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * Only Availability Zones (no Local Zones):
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *             .filters(GetAvailabilityZonesFilterArgs.builder()
+     *                 .name(&#34;opt-in-status&#34;)
+     *                 .values(&#34;opt-in-not-required&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetAvailabilityZonesResult> getAvailabilityZonesPlain(GetAvailabilityZonesPlainArgs args) {
         return getAvailabilityZonesPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * The Availability Zones data source allows access to the list of AWS
+     * Availability Zones which can be accessed by an AWS account within the region
+     * configured in the provider.
+     * 
+     * This is different from the `aws.getAvailabilityZone` (singular) data source,
+     * which provides some details about a specific availability zone.
+     * 
+     * &gt; When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
+     * 
+     * ## Example Usage
+     * ### By State
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *             .state(&#34;available&#34;)
+     *             .build());
+     * 
+     *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+     *             .build());
+     * 
+     *         var secondary = new Subnet(&#34;secondary&#34;, SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### By Filter
+     * 
+     * All Local Zones (regardless of opt-in status):
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *             .allAvailabilityZones(true)
+     *             .filters(GetAvailabilityZonesFilterArgs.builder()
+     *                 .name(&#34;opt-in-status&#34;)
+     *                 .values(                
+     *                     &#34;not-opted-in&#34;,
+     *                     &#34;opted-in&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * Only Availability Zones (no Local Zones):
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *             .filters(GetAvailabilityZonesFilterArgs.builder()
+     *                 .name(&#34;opt-in-status&#34;)
+     *                 .values(&#34;opt-in-not-required&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetAvailabilityZonesResult> getAvailabilityZones(GetAvailabilityZonesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getAvailabilityZones:getAvailabilityZones", TypeShape.of(GetAvailabilityZonesResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * The Availability Zones data source allows access to the list of AWS
+     * Availability Zones which can be accessed by an AWS account within the region
+     * configured in the provider.
+     * 
+     * This is different from the `aws.getAvailabilityZone` (singular) data source,
+     * which provides some details about a specific availability zone.
+     * 
+     * &gt; When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
+     * 
+     * ## Example Usage
+     * ### By State
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *             .state(&#34;available&#34;)
+     *             .build());
+     * 
+     *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+     *             .build());
+     * 
+     *         var secondary = new Subnet(&#34;secondary&#34;, SubnetArgs.builder()        
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### By Filter
+     * 
+     * All Local Zones (regardless of opt-in status):
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *             .allAvailabilityZones(true)
+     *             .filters(GetAvailabilityZonesFilterArgs.builder()
+     *                 .name(&#34;opt-in-status&#34;)
+     *                 .values(                
+     *                     &#34;not-opted-in&#34;,
+     *                     &#34;opted-in&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * Only Availability Zones (no Local Zones):
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *             .filters(GetAvailabilityZonesFilterArgs.builder()
+     *                 .name(&#34;opt-in-status&#34;)
+     *                 .values(&#34;opt-in-not-required&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetAvailabilityZonesResult> getAvailabilityZonesPlain(GetAvailabilityZonesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getAvailabilityZones:getAvailabilityZones", TypeShape.of(GetAvailabilityZonesResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = AwsFunctions.getBillingServiceAccount();
+     * 
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     * 
+     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
+     *             .bucket(billingLogs.id())
+     *             .acl(&#34;private&#34;)
+     *             .build());
+     * 
+     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(billingLogs.id())
+     *             .policy(&#34;&#34;&#34;
+     * {
+     *   &#34;Id&#34;: &#34;Policy&#34;,
+     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+     *   &#34;Statement&#34;: [
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     },
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:PutObject&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     }
+     *   ]
+     * }
+     * &#34;, main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetBillingServiceAccountResult> getBillingServiceAccount() {
         return getBillingServiceAccount(InvokeArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = AwsFunctions.getBillingServiceAccount();
+     * 
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     * 
+     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
+     *             .bucket(billingLogs.id())
+     *             .acl(&#34;private&#34;)
+     *             .build());
+     * 
+     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(billingLogs.id())
+     *             .policy(&#34;&#34;&#34;
+     * {
+     *   &#34;Id&#34;: &#34;Policy&#34;,
+     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+     *   &#34;Statement&#34;: [
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     },
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:PutObject&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     }
+     *   ]
+     * }
+     * &#34;, main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetBillingServiceAccountResult> getBillingServiceAccountPlain() {
         return getBillingServiceAccountPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = AwsFunctions.getBillingServiceAccount();
+     * 
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     * 
+     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
+     *             .bucket(billingLogs.id())
+     *             .acl(&#34;private&#34;)
+     *             .build());
+     * 
+     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(billingLogs.id())
+     *             .policy(&#34;&#34;&#34;
+     * {
+     *   &#34;Id&#34;: &#34;Policy&#34;,
+     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+     *   &#34;Statement&#34;: [
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     },
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:PutObject&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     }
+     *   ]
+     * }
+     * &#34;, main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetBillingServiceAccountResult> getBillingServiceAccount(InvokeArgs args) {
         return getBillingServiceAccount(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = AwsFunctions.getBillingServiceAccount();
+     * 
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     * 
+     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
+     *             .bucket(billingLogs.id())
+     *             .acl(&#34;private&#34;)
+     *             .build());
+     * 
+     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(billingLogs.id())
+     *             .policy(&#34;&#34;&#34;
+     * {
+     *   &#34;Id&#34;: &#34;Policy&#34;,
+     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+     *   &#34;Statement&#34;: [
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     },
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:PutObject&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     }
+     *   ]
+     * }
+     * &#34;, main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetBillingServiceAccountResult> getBillingServiceAccountPlain(InvokeArgs args) {
         return getBillingServiceAccountPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = AwsFunctions.getBillingServiceAccount();
+     * 
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     * 
+     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
+     *             .bucket(billingLogs.id())
+     *             .acl(&#34;private&#34;)
+     *             .build());
+     * 
+     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(billingLogs.id())
+     *             .policy(&#34;&#34;&#34;
+     * {
+     *   &#34;Id&#34;: &#34;Policy&#34;,
+     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+     *   &#34;Statement&#34;: [
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     },
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:PutObject&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     }
+     *   ]
+     * }
+     * &#34;, main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetBillingServiceAccountResult> getBillingServiceAccount(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getBillingServiceAccount:getBillingServiceAccount", TypeShape.of(GetBillingServiceAccountResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = AwsFunctions.getBillingServiceAccount();
+     * 
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     * 
+     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
+     *             .bucket(billingLogs.id())
+     *             .acl(&#34;private&#34;)
+     *             .build());
+     * 
+     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(billingLogs.id())
+     *             .policy(&#34;&#34;&#34;
+     * {
+     *   &#34;Id&#34;: &#34;Policy&#34;,
+     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+     *   &#34;Statement&#34;: [
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     },
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:PutObject&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     }
+     *   ]
+     * }
+     * &#34;, main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetBillingServiceAccountResult> getBillingServiceAccountPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getBillingServiceAccount:getBillingServiceAccount", TypeShape.of(GetBillingServiceAccountResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to get the access to the effective Account ID, User ID, and ARN in
+     * which this provider is authorized.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
+     *         ctx.export(&#34;callerArn&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
+     *         ctx.export(&#34;callerUser&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetCallerIdentityResult> getCallerIdentity() {
         return getCallerIdentity(InvokeArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get the access to the effective Account ID, User ID, and ARN in
+     * which this provider is authorized.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
+     *         ctx.export(&#34;callerArn&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
+     *         ctx.export(&#34;callerUser&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetCallerIdentityResult> getCallerIdentityPlain() {
         return getCallerIdentityPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get the access to the effective Account ID, User ID, and ARN in
+     * which this provider is authorized.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
+     *         ctx.export(&#34;callerArn&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
+     *         ctx.export(&#34;callerUser&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetCallerIdentityResult> getCallerIdentity(InvokeArgs args) {
         return getCallerIdentity(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get the access to the effective Account ID, User ID, and ARN in
+     * which this provider is authorized.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
+     *         ctx.export(&#34;callerArn&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
+     *         ctx.export(&#34;callerUser&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetCallerIdentityResult> getCallerIdentityPlain(InvokeArgs args) {
         return getCallerIdentityPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get the access to the effective Account ID, User ID, and ARN in
+     * which this provider is authorized.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
+     *         ctx.export(&#34;callerArn&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
+     *         ctx.export(&#34;callerUser&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetCallerIdentityResult> getCallerIdentity(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getCallerIdentity:getCallerIdentity", TypeShape.of(GetCallerIdentityResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to get the access to the effective Account ID, User ID, and ARN in
+     * which this provider is authorized.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
+     *         ctx.export(&#34;callerArn&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
+     *         ctx.export(&#34;callerUser&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetCallerIdentityResult> getCallerIdentityPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getCallerIdentity:getCallerIdentity", TypeShape.of(GetCallerIdentityResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
+     * for the effective account in which this provider is working.
+     * 
+     * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = S3Functions.getCanonicalUserId();
+     * 
+     *         ctx.export(&#34;canonicalUserId&#34;, current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId
@@ -310,6 +2718,38 @@ public final class AwsFunctions {
         return getCanonicalUserId(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
+     * for the effective account in which this provider is working.
+     * 
+     * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = S3Functions.getCanonicalUserId();
+     * 
+     *         ctx.export(&#34;canonicalUserId&#34;, current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId
@@ -320,6 +2760,38 @@ public final class AwsFunctions {
         return getCanonicalUserIdPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
+     * for the effective account in which this provider is working.
+     * 
+     * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = S3Functions.getCanonicalUserId();
+     * 
+     *         ctx.export(&#34;canonicalUserId&#34;, current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId
@@ -330,6 +2802,38 @@ public final class AwsFunctions {
         return getCanonicalUserId(args, InvokeOptions.Empty);
     }
     /**
+     * The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
+     * for the effective account in which this provider is working.
+     * 
+     * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = S3Functions.getCanonicalUserId();
+     * 
+     *         ctx.export(&#34;canonicalUserId&#34;, current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId
@@ -340,6 +2844,38 @@ public final class AwsFunctions {
         return getCanonicalUserIdPlain(args, InvokeOptions.Empty);
     }
     /**
+     * The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
+     * for the effective account in which this provider is working.
+     * 
+     * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = S3Functions.getCanonicalUserId();
+     * 
+     *         ctx.export(&#34;canonicalUserId&#34;, current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId
@@ -350,6 +2886,38 @@ public final class AwsFunctions {
         return Deployment.getInstance().invoke("aws:index/getCanonicalUserId:getCanonicalUserId", TypeShape.of(GetCanonicalUserIdResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
+     * for the effective account in which this provider is working.
+     * 
+     * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = S3Functions.getCanonicalUserId();
+     * 
+     *         ctx.export(&#34;canonicalUserId&#34;, current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId
@@ -359,25 +2927,561 @@ public final class AwsFunctions {
     public static CompletableFuture<GetCanonicalUserIdResult> getCanonicalUserIdPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getCanonicalUserId:getCanonicalUserId", TypeShape.of(GetCanonicalUserIdResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to get the default tags configured on the provider.
+     * 
+     * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AwsFunctions.getDefaultTags();
+     * 
+     *     }
+     * }
+     * ```
+     * ### Dynamically Apply Default Tags to Auto Scaling Group
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import com.pulumi.aws.autoscaling.Group;
+     * import com.pulumi.aws.autoscaling.GroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
+     * 
+     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+     *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetDefaultTagsResult> getDefaultTags() {
         return getDefaultTags(GetDefaultTagsArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get the default tags configured on the provider.
+     * 
+     * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AwsFunctions.getDefaultTags();
+     * 
+     *     }
+     * }
+     * ```
+     * ### Dynamically Apply Default Tags to Auto Scaling Group
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import com.pulumi.aws.autoscaling.Group;
+     * import com.pulumi.aws.autoscaling.GroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
+     * 
+     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+     *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetDefaultTagsResult> getDefaultTagsPlain() {
         return getDefaultTagsPlain(GetDefaultTagsPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get the default tags configured on the provider.
+     * 
+     * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AwsFunctions.getDefaultTags();
+     * 
+     *     }
+     * }
+     * ```
+     * ### Dynamically Apply Default Tags to Auto Scaling Group
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import com.pulumi.aws.autoscaling.Group;
+     * import com.pulumi.aws.autoscaling.GroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
+     * 
+     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+     *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetDefaultTagsResult> getDefaultTags(GetDefaultTagsArgs args) {
         return getDefaultTags(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get the default tags configured on the provider.
+     * 
+     * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AwsFunctions.getDefaultTags();
+     * 
+     *     }
+     * }
+     * ```
+     * ### Dynamically Apply Default Tags to Auto Scaling Group
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import com.pulumi.aws.autoscaling.Group;
+     * import com.pulumi.aws.autoscaling.GroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
+     * 
+     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+     *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetDefaultTagsResult> getDefaultTagsPlain(GetDefaultTagsPlainArgs args) {
         return getDefaultTagsPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get the default tags configured on the provider.
+     * 
+     * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AwsFunctions.getDefaultTags();
+     * 
+     *     }
+     * }
+     * ```
+     * ### Dynamically Apply Default Tags to Auto Scaling Group
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import com.pulumi.aws.autoscaling.Group;
+     * import com.pulumi.aws.autoscaling.GroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
+     * 
+     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+     *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetDefaultTagsResult> getDefaultTags(GetDefaultTagsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getDefaultTags:getDefaultTags", TypeShape.of(GetDefaultTagsResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to get the default tags configured on the provider.
+     * 
+     * With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AwsFunctions.getDefaultTags();
+     * 
+     *     }
+     * }
+     * ```
+     * ### Dynamically Apply Default Tags to Auto Scaling Group
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import com.pulumi.aws.autoscaling.Group;
+     * import com.pulumi.aws.autoscaling.GroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
+     * 
+     *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+     *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetDefaultTagsResult> getDefaultTagsPlain(GetDefaultTagsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getDefaultTags:getDefaultTags", TypeShape.of(GetDefaultTagsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * `aws.ec2.Eip` provides details about a specific Elastic IP.
+     * 
+     * ## Example Usage
+     * ### Search By Allocation ID (VPC only)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .id(&#34;eipalloc-12345678&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Search By Filters (EC2-Classic or VPC)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .filters(GetElasticIpFilterArgs.builder()
+     *                 .name(&#34;tag:Name&#34;)
+     *                 .values(&#34;exampleNameTagValue&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Search By Public IP (EC2-Classic or VPC)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .publicIp(&#34;1.2.3.4&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Search By Tags (EC2-Classic or VPC)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getElasticIp has been deprecated in favor of aws.ec2.getElasticIp
@@ -388,6 +3492,128 @@ public final class AwsFunctions {
         return getElasticIp(GetElasticIpArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * `aws.ec2.Eip` provides details about a specific Elastic IP.
+     * 
+     * ## Example Usage
+     * ### Search By Allocation ID (VPC only)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .id(&#34;eipalloc-12345678&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Search By Filters (EC2-Classic or VPC)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .filters(GetElasticIpFilterArgs.builder()
+     *                 .name(&#34;tag:Name&#34;)
+     *                 .values(&#34;exampleNameTagValue&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Search By Public IP (EC2-Classic or VPC)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .publicIp(&#34;1.2.3.4&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Search By Tags (EC2-Classic or VPC)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getElasticIp has been deprecated in favor of aws.ec2.getElasticIp
@@ -398,6 +3624,128 @@ public final class AwsFunctions {
         return getElasticIpPlain(GetElasticIpPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * `aws.ec2.Eip` provides details about a specific Elastic IP.
+     * 
+     * ## Example Usage
+     * ### Search By Allocation ID (VPC only)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .id(&#34;eipalloc-12345678&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Search By Filters (EC2-Classic or VPC)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .filters(GetElasticIpFilterArgs.builder()
+     *                 .name(&#34;tag:Name&#34;)
+     *                 .values(&#34;exampleNameTagValue&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Search By Public IP (EC2-Classic or VPC)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .publicIp(&#34;1.2.3.4&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Search By Tags (EC2-Classic or VPC)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getElasticIp has been deprecated in favor of aws.ec2.getElasticIp
@@ -408,6 +3756,128 @@ public final class AwsFunctions {
         return getElasticIp(args, InvokeOptions.Empty);
     }
     /**
+     * `aws.ec2.Eip` provides details about a specific Elastic IP.
+     * 
+     * ## Example Usage
+     * ### Search By Allocation ID (VPC only)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .id(&#34;eipalloc-12345678&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Search By Filters (EC2-Classic or VPC)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .filters(GetElasticIpFilterArgs.builder()
+     *                 .name(&#34;tag:Name&#34;)
+     *                 .values(&#34;exampleNameTagValue&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Search By Public IP (EC2-Classic or VPC)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .publicIp(&#34;1.2.3.4&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Search By Tags (EC2-Classic or VPC)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getElasticIp has been deprecated in favor of aws.ec2.getElasticIp
@@ -418,6 +3888,128 @@ public final class AwsFunctions {
         return getElasticIpPlain(args, InvokeOptions.Empty);
     }
     /**
+     * `aws.ec2.Eip` provides details about a specific Elastic IP.
+     * 
+     * ## Example Usage
+     * ### Search By Allocation ID (VPC only)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .id(&#34;eipalloc-12345678&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Search By Filters (EC2-Classic or VPC)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .filters(GetElasticIpFilterArgs.builder()
+     *                 .name(&#34;tag:Name&#34;)
+     *                 .values(&#34;exampleNameTagValue&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Search By Public IP (EC2-Classic or VPC)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .publicIp(&#34;1.2.3.4&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Search By Tags (EC2-Classic or VPC)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getElasticIp has been deprecated in favor of aws.ec2.getElasticIp
@@ -428,6 +4020,128 @@ public final class AwsFunctions {
         return Deployment.getInstance().invoke("aws:index/getElasticIp:getElasticIp", TypeShape.of(GetElasticIpResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * `aws.ec2.Eip` provides details about a specific Elastic IP.
+     * 
+     * ## Example Usage
+     * ### Search By Allocation ID (VPC only)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .id(&#34;eipalloc-12345678&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Search By Filters (EC2-Classic or VPC)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .filters(GetElasticIpFilterArgs.builder()
+     *                 .name(&#34;tag:Name&#34;)
+     *                 .values(&#34;exampleNameTagValue&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Search By Public IP (EC2-Classic or VPC)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .publicIp(&#34;1.2.3.4&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Search By Tags (EC2-Classic or VPC)
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getElasticIp has been deprecated in favor of aws.ec2.getElasticIp
@@ -437,37 +4151,602 @@ public final class AwsFunctions {
     public static CompletableFuture<GetElasticIpResult> getElasticIpPlain(GetElasticIpPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getElasticIp:getElasticIp", TypeShape.of(GetElasticIpResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetIpRangesArgs;
+     * import com.pulumi.aws.ec2.SecurityGroup;
+     * import com.pulumi.aws.ec2.SecurityGroupArgs;
+     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var europeanEc2 = AwsFunctions.getIpRanges(GetIpRangesArgs.builder()
+     *             .regions(            
+     *                 &#34;eu-west-1&#34;,
+     *                 &#34;eu-central-1&#34;)
+     *             .services(&#34;ec2&#34;)
+     *             .build());
+     * 
+     *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
+     *             .ingress(SecurityGroupIngressArgs.builder()
+     *                 .fromPort(&#34;443&#34;)
+     *                 .toPort(&#34;443&#34;)
+     *                 .protocol(&#34;tcp&#34;)
+     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.cidrBlocks()))
+     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.ipv6CidrBlocks()))
+     *                 .build())
+     *             .tags(Map.ofEntries(
+     *                 Map.entry(&#34;CreateDate&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.createDate())),
+     *                 Map.entry(&#34;SyncToken&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.syncToken()))
+     *             ))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetIpRangesResult> getIpRanges(GetIpRangesArgs args) {
         return getIpRanges(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetIpRangesArgs;
+     * import com.pulumi.aws.ec2.SecurityGroup;
+     * import com.pulumi.aws.ec2.SecurityGroupArgs;
+     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var europeanEc2 = AwsFunctions.getIpRanges(GetIpRangesArgs.builder()
+     *             .regions(            
+     *                 &#34;eu-west-1&#34;,
+     *                 &#34;eu-central-1&#34;)
+     *             .services(&#34;ec2&#34;)
+     *             .build());
+     * 
+     *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
+     *             .ingress(SecurityGroupIngressArgs.builder()
+     *                 .fromPort(&#34;443&#34;)
+     *                 .toPort(&#34;443&#34;)
+     *                 .protocol(&#34;tcp&#34;)
+     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.cidrBlocks()))
+     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.ipv6CidrBlocks()))
+     *                 .build())
+     *             .tags(Map.ofEntries(
+     *                 Map.entry(&#34;CreateDate&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.createDate())),
+     *                 Map.entry(&#34;SyncToken&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.syncToken()))
+     *             ))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetIpRangesResult> getIpRangesPlain(GetIpRangesPlainArgs args) {
         return getIpRangesPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetIpRangesArgs;
+     * import com.pulumi.aws.ec2.SecurityGroup;
+     * import com.pulumi.aws.ec2.SecurityGroupArgs;
+     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var europeanEc2 = AwsFunctions.getIpRanges(GetIpRangesArgs.builder()
+     *             .regions(            
+     *                 &#34;eu-west-1&#34;,
+     *                 &#34;eu-central-1&#34;)
+     *             .services(&#34;ec2&#34;)
+     *             .build());
+     * 
+     *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
+     *             .ingress(SecurityGroupIngressArgs.builder()
+     *                 .fromPort(&#34;443&#34;)
+     *                 .toPort(&#34;443&#34;)
+     *                 .protocol(&#34;tcp&#34;)
+     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.cidrBlocks()))
+     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.ipv6CidrBlocks()))
+     *                 .build())
+     *             .tags(Map.ofEntries(
+     *                 Map.entry(&#34;CreateDate&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.createDate())),
+     *                 Map.entry(&#34;SyncToken&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.syncToken()))
+     *             ))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetIpRangesResult> getIpRanges(GetIpRangesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getIpRanges:getIpRanges", TypeShape.of(GetIpRangesResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetIpRangesArgs;
+     * import com.pulumi.aws.ec2.SecurityGroup;
+     * import com.pulumi.aws.ec2.SecurityGroupArgs;
+     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var europeanEc2 = AwsFunctions.getIpRanges(GetIpRangesArgs.builder()
+     *             .regions(            
+     *                 &#34;eu-west-1&#34;,
+     *                 &#34;eu-central-1&#34;)
+     *             .services(&#34;ec2&#34;)
+     *             .build());
+     * 
+     *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
+     *             .ingress(SecurityGroupIngressArgs.builder()
+     *                 .fromPort(&#34;443&#34;)
+     *                 .toPort(&#34;443&#34;)
+     *                 .protocol(&#34;tcp&#34;)
+     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.cidrBlocks()))
+     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.ipv6CidrBlocks()))
+     *                 .build())
+     *             .tags(Map.ofEntries(
+     *                 Map.entry(&#34;CreateDate&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.createDate())),
+     *                 Map.entry(&#34;SyncToken&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.syncToken()))
+     *             ))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetIpRangesResult> getIpRangesPlain(GetIpRangesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getIpRanges:getIpRanges", TypeShape.of(GetIpRangesResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to lookup information about the current AWS partition in
+     * which the provider is working.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getPartition();
+     * 
+     *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .actions(&#34;s3:ListBucket&#34;)
+     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+     *                 .sid(&#34;1&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetPartitionResult> getPartition() {
         return getPartition(InvokeArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to lookup information about the current AWS partition in
+     * which the provider is working.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getPartition();
+     * 
+     *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .actions(&#34;s3:ListBucket&#34;)
+     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+     *                 .sid(&#34;1&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetPartitionResult> getPartitionPlain() {
         return getPartitionPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to lookup information about the current AWS partition in
+     * which the provider is working.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getPartition();
+     * 
+     *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .actions(&#34;s3:ListBucket&#34;)
+     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+     *                 .sid(&#34;1&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetPartitionResult> getPartition(InvokeArgs args) {
         return getPartition(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to lookup information about the current AWS partition in
+     * which the provider is working.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getPartition();
+     * 
+     *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .actions(&#34;s3:ListBucket&#34;)
+     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+     *                 .sid(&#34;1&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetPartitionResult> getPartitionPlain(InvokeArgs args) {
         return getPartitionPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to lookup information about the current AWS partition in
+     * which the provider is working.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getPartition();
+     * 
+     *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .actions(&#34;s3:ListBucket&#34;)
+     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+     *                 .sid(&#34;1&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetPartitionResult> getPartition(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getPartition:getPartition", TypeShape.of(GetPartitionResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to lookup information about the current AWS partition in
+     * which the provider is working.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getPartition();
+     * 
+     *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .actions(&#34;s3:ListBucket&#34;)
+     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+     *                 .sid(&#34;1&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetPartitionResult> getPartitionPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getPartition:getPartition", TypeShape.of(GetPartitionResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
+     * in the current region.
+     * 
+     * This can be used both to validate a prefix list given in a variable
+     * and to obtain the CIDR blocks (IP address ranges) for the associated
+     * AWS service. The latter may be useful e.g., for adding network ACL
+     * rules.
+     * 
+     * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.NetworkAcl;
+     * import com.pulumi.aws.ec2.NetworkAclArgs;
+     * import com.pulumi.aws.ec2.NetworkAclRule;
+     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var privateS3VpcEndpoint = new VpcEndpoint(&#34;privateS3VpcEndpoint&#34;, VpcEndpointArgs.builder()        
+     *             .vpcId(aws_vpc.foo().id())
+     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
+     *             .build());
+     * 
+     *         final var privateS3PrefixList = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *             .prefixListId(privateS3VpcEndpoint.prefixListId())
+     *             .build());
+     * 
+     *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
+     *             .vpcId(aws_vpc.foo().id())
+     *             .build());
+     * 
+     *         var privateS3NetworkAclRule = new NetworkAclRule(&#34;privateS3NetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
+     *             .networkAclId(bar.id())
+     *             .ruleNumber(200)
+     *             .egress(false)
+     *             .protocol(&#34;tcp&#34;)
+     *             .ruleAction(&#34;allow&#34;)
+     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .fromPort(443)
+     *             .toPort(443)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *             .filters(GetPrefixListFilterArgs.builder()
+     *                 .name(&#34;prefix-list-id&#34;)
+     *                 .values(&#34;pl-68a54001&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getPrefixList has been deprecated in favor of aws.ec2.getPrefixList
@@ -478,6 +4757,103 @@ public final class AwsFunctions {
         return getPrefixList(GetPrefixListArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
+     * in the current region.
+     * 
+     * This can be used both to validate a prefix list given in a variable
+     * and to obtain the CIDR blocks (IP address ranges) for the associated
+     * AWS service. The latter may be useful e.g., for adding network ACL
+     * rules.
+     * 
+     * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.NetworkAcl;
+     * import com.pulumi.aws.ec2.NetworkAclArgs;
+     * import com.pulumi.aws.ec2.NetworkAclRule;
+     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var privateS3VpcEndpoint = new VpcEndpoint(&#34;privateS3VpcEndpoint&#34;, VpcEndpointArgs.builder()        
+     *             .vpcId(aws_vpc.foo().id())
+     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
+     *             .build());
+     * 
+     *         final var privateS3PrefixList = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *             .prefixListId(privateS3VpcEndpoint.prefixListId())
+     *             .build());
+     * 
+     *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
+     *             .vpcId(aws_vpc.foo().id())
+     *             .build());
+     * 
+     *         var privateS3NetworkAclRule = new NetworkAclRule(&#34;privateS3NetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
+     *             .networkAclId(bar.id())
+     *             .ruleNumber(200)
+     *             .egress(false)
+     *             .protocol(&#34;tcp&#34;)
+     *             .ruleAction(&#34;allow&#34;)
+     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .fromPort(443)
+     *             .toPort(443)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *             .filters(GetPrefixListFilterArgs.builder()
+     *                 .name(&#34;prefix-list-id&#34;)
+     *                 .values(&#34;pl-68a54001&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getPrefixList has been deprecated in favor of aws.ec2.getPrefixList
@@ -488,6 +4864,103 @@ public final class AwsFunctions {
         return getPrefixListPlain(GetPrefixListPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
+     * in the current region.
+     * 
+     * This can be used both to validate a prefix list given in a variable
+     * and to obtain the CIDR blocks (IP address ranges) for the associated
+     * AWS service. The latter may be useful e.g., for adding network ACL
+     * rules.
+     * 
+     * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.NetworkAcl;
+     * import com.pulumi.aws.ec2.NetworkAclArgs;
+     * import com.pulumi.aws.ec2.NetworkAclRule;
+     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var privateS3VpcEndpoint = new VpcEndpoint(&#34;privateS3VpcEndpoint&#34;, VpcEndpointArgs.builder()        
+     *             .vpcId(aws_vpc.foo().id())
+     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
+     *             .build());
+     * 
+     *         final var privateS3PrefixList = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *             .prefixListId(privateS3VpcEndpoint.prefixListId())
+     *             .build());
+     * 
+     *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
+     *             .vpcId(aws_vpc.foo().id())
+     *             .build());
+     * 
+     *         var privateS3NetworkAclRule = new NetworkAclRule(&#34;privateS3NetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
+     *             .networkAclId(bar.id())
+     *             .ruleNumber(200)
+     *             .egress(false)
+     *             .protocol(&#34;tcp&#34;)
+     *             .ruleAction(&#34;allow&#34;)
+     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .fromPort(443)
+     *             .toPort(443)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *             .filters(GetPrefixListFilterArgs.builder()
+     *                 .name(&#34;prefix-list-id&#34;)
+     *                 .values(&#34;pl-68a54001&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getPrefixList has been deprecated in favor of aws.ec2.getPrefixList
@@ -498,6 +4971,103 @@ public final class AwsFunctions {
         return getPrefixList(args, InvokeOptions.Empty);
     }
     /**
+     * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
+     * in the current region.
+     * 
+     * This can be used both to validate a prefix list given in a variable
+     * and to obtain the CIDR blocks (IP address ranges) for the associated
+     * AWS service. The latter may be useful e.g., for adding network ACL
+     * rules.
+     * 
+     * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.NetworkAcl;
+     * import com.pulumi.aws.ec2.NetworkAclArgs;
+     * import com.pulumi.aws.ec2.NetworkAclRule;
+     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var privateS3VpcEndpoint = new VpcEndpoint(&#34;privateS3VpcEndpoint&#34;, VpcEndpointArgs.builder()        
+     *             .vpcId(aws_vpc.foo().id())
+     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
+     *             .build());
+     * 
+     *         final var privateS3PrefixList = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *             .prefixListId(privateS3VpcEndpoint.prefixListId())
+     *             .build());
+     * 
+     *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
+     *             .vpcId(aws_vpc.foo().id())
+     *             .build());
+     * 
+     *         var privateS3NetworkAclRule = new NetworkAclRule(&#34;privateS3NetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
+     *             .networkAclId(bar.id())
+     *             .ruleNumber(200)
+     *             .egress(false)
+     *             .protocol(&#34;tcp&#34;)
+     *             .ruleAction(&#34;allow&#34;)
+     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .fromPort(443)
+     *             .toPort(443)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *             .filters(GetPrefixListFilterArgs.builder()
+     *                 .name(&#34;prefix-list-id&#34;)
+     *                 .values(&#34;pl-68a54001&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getPrefixList has been deprecated in favor of aws.ec2.getPrefixList
@@ -508,6 +5078,103 @@ public final class AwsFunctions {
         return getPrefixListPlain(args, InvokeOptions.Empty);
     }
     /**
+     * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
+     * in the current region.
+     * 
+     * This can be used both to validate a prefix list given in a variable
+     * and to obtain the CIDR blocks (IP address ranges) for the associated
+     * AWS service. The latter may be useful e.g., for adding network ACL
+     * rules.
+     * 
+     * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.NetworkAcl;
+     * import com.pulumi.aws.ec2.NetworkAclArgs;
+     * import com.pulumi.aws.ec2.NetworkAclRule;
+     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var privateS3VpcEndpoint = new VpcEndpoint(&#34;privateS3VpcEndpoint&#34;, VpcEndpointArgs.builder()        
+     *             .vpcId(aws_vpc.foo().id())
+     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
+     *             .build());
+     * 
+     *         final var privateS3PrefixList = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *             .prefixListId(privateS3VpcEndpoint.prefixListId())
+     *             .build());
+     * 
+     *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
+     *             .vpcId(aws_vpc.foo().id())
+     *             .build());
+     * 
+     *         var privateS3NetworkAclRule = new NetworkAclRule(&#34;privateS3NetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
+     *             .networkAclId(bar.id())
+     *             .ruleNumber(200)
+     *             .egress(false)
+     *             .protocol(&#34;tcp&#34;)
+     *             .ruleAction(&#34;allow&#34;)
+     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .fromPort(443)
+     *             .toPort(443)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *             .filters(GetPrefixListFilterArgs.builder()
+     *                 .name(&#34;prefix-list-id&#34;)
+     *                 .values(&#34;pl-68a54001&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getPrefixList has been deprecated in favor of aws.ec2.getPrefixList
@@ -518,6 +5185,103 @@ public final class AwsFunctions {
         return Deployment.getInstance().invoke("aws:index/getPrefixList:getPrefixList", TypeShape.of(GetPrefixListResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
+     * in the current region.
+     * 
+     * This can be used both to validate a prefix list given in a variable
+     * and to obtain the CIDR blocks (IP address ranges) for the associated
+     * AWS service. The latter may be useful e.g., for adding network ACL
+     * rules.
+     * 
+     * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.NetworkAcl;
+     * import com.pulumi.aws.ec2.NetworkAclArgs;
+     * import com.pulumi.aws.ec2.NetworkAclRule;
+     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var privateS3VpcEndpoint = new VpcEndpoint(&#34;privateS3VpcEndpoint&#34;, VpcEndpointArgs.builder()        
+     *             .vpcId(aws_vpc.foo().id())
+     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
+     *             .build());
+     * 
+     *         final var privateS3PrefixList = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *             .prefixListId(privateS3VpcEndpoint.prefixListId())
+     *             .build());
+     * 
+     *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
+     *             .vpcId(aws_vpc.foo().id())
+     *             .build());
+     * 
+     *         var privateS3NetworkAclRule = new NetworkAclRule(&#34;privateS3NetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
+     *             .networkAclId(bar.id())
+     *             .ruleNumber(200)
+     *             .egress(false)
+     *             .protocol(&#34;tcp&#34;)
+     *             .ruleAction(&#34;allow&#34;)
+     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .fromPort(443)
+     *             .toPort(443)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *             .filters(GetPrefixListFilterArgs.builder()
+     *                 .name(&#34;prefix-list-id&#34;)
+     *                 .values(&#34;pl-68a54001&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getPrefixList has been deprecated in favor of aws.ec2.getPrefixList
@@ -527,57 +5291,1467 @@ public final class AwsFunctions {
     public static CompletableFuture<GetPrefixListResult> getPrefixListPlain(GetPrefixListPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getPrefixList:getPrefixList", TypeShape.of(GetPrefixListResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * `aws.getRegion` provides details about a specific AWS region.
+     * 
+     * As well as validating a given region name this resource can be used to
+     * discover the name of the region configured within the provider. The latter
+     * can be useful in a child module which is inheriting an AWS provider
+     * configuration from its parent module.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how the resource might be used to obtain
+     * the name of the AWS region configured on the provider.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegion();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetRegionResult> getRegion() {
         return getRegion(GetRegionArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * `aws.getRegion` provides details about a specific AWS region.
+     * 
+     * As well as validating a given region name this resource can be used to
+     * discover the name of the region configured within the provider. The latter
+     * can be useful in a child module which is inheriting an AWS provider
+     * configuration from its parent module.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how the resource might be used to obtain
+     * the name of the AWS region configured on the provider.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegion();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetRegionResult> getRegionPlain() {
         return getRegionPlain(GetRegionPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * `aws.getRegion` provides details about a specific AWS region.
+     * 
+     * As well as validating a given region name this resource can be used to
+     * discover the name of the region configured within the provider. The latter
+     * can be useful in a child module which is inheriting an AWS provider
+     * configuration from its parent module.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how the resource might be used to obtain
+     * the name of the AWS region configured on the provider.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegion();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetRegionResult> getRegion(GetRegionArgs args) {
         return getRegion(args, InvokeOptions.Empty);
     }
+    /**
+     * `aws.getRegion` provides details about a specific AWS region.
+     * 
+     * As well as validating a given region name this resource can be used to
+     * discover the name of the region configured within the provider. The latter
+     * can be useful in a child module which is inheriting an AWS provider
+     * configuration from its parent module.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how the resource might be used to obtain
+     * the name of the AWS region configured on the provider.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegion();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetRegionResult> getRegionPlain(GetRegionPlainArgs args) {
         return getRegionPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * `aws.getRegion` provides details about a specific AWS region.
+     * 
+     * As well as validating a given region name this resource can be used to
+     * discover the name of the region configured within the provider. The latter
+     * can be useful in a child module which is inheriting an AWS provider
+     * configuration from its parent module.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how the resource might be used to obtain
+     * the name of the AWS region configured on the provider.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegion();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetRegionResult> getRegion(GetRegionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getRegion:getRegion", TypeShape.of(GetRegionResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * `aws.getRegion` provides details about a specific AWS region.
+     * 
+     * As well as validating a given region name this resource can be used to
+     * discover the name of the region configured within the provider. The latter
+     * can be useful in a child module which is inheriting an AWS provider
+     * configuration from its parent module.
+     * 
+     * ## Example Usage
+     * 
+     * The following example shows how the resource might be used to obtain
+     * the name of the AWS region configured on the provider.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegion();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetRegionResult> getRegionPlain(GetRegionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getRegion:getRegion", TypeShape.of(GetRegionResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `aws.getRegion` data source.
+     * 
+     * ## Example Usage
+     * 
+     * Enabled AWS Regions:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegions();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * All the regions regardless of the availability
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *             .allRegions(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *             .allRegions(true)
+     *             .filters(GetRegionsFilterArgs.builder()
+     *                 .name(&#34;opt-in-status&#34;)
+     *                 .values(&#34;not-opted-in&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetRegionsResult> getRegions() {
         return getRegions(GetRegionsArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `aws.getRegion` data source.
+     * 
+     * ## Example Usage
+     * 
+     * Enabled AWS Regions:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegions();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * All the regions regardless of the availability
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *             .allRegions(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *             .allRegions(true)
+     *             .filters(GetRegionsFilterArgs.builder()
+     *                 .name(&#34;opt-in-status&#34;)
+     *                 .values(&#34;not-opted-in&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetRegionsResult> getRegionsPlain() {
         return getRegionsPlain(GetRegionsPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `aws.getRegion` data source.
+     * 
+     * ## Example Usage
+     * 
+     * Enabled AWS Regions:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegions();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * All the regions regardless of the availability
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *             .allRegions(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *             .allRegions(true)
+     *             .filters(GetRegionsFilterArgs.builder()
+     *                 .name(&#34;opt-in-status&#34;)
+     *                 .values(&#34;not-opted-in&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetRegionsResult> getRegions(GetRegionsArgs args) {
         return getRegions(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `aws.getRegion` data source.
+     * 
+     * ## Example Usage
+     * 
+     * Enabled AWS Regions:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegions();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * All the regions regardless of the availability
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *             .allRegions(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *             .allRegions(true)
+     *             .filters(GetRegionsFilterArgs.builder()
+     *                 .name(&#34;opt-in-status&#34;)
+     *                 .values(&#34;not-opted-in&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetRegionsResult> getRegionsPlain(GetRegionsPlainArgs args) {
         return getRegionsPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `aws.getRegion` data source.
+     * 
+     * ## Example Usage
+     * 
+     * Enabled AWS Regions:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegions();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * All the regions regardless of the availability
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *             .allRegions(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *             .allRegions(true)
+     *             .filters(GetRegionsFilterArgs.builder()
+     *                 .name(&#34;opt-in-status&#34;)
+     *                 .values(&#34;not-opted-in&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetRegionsResult> getRegions(GetRegionsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getRegions:getRegions", TypeShape.of(GetRegionsResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `aws.getRegion` data source.
+     * 
+     * ## Example Usage
+     * 
+     * Enabled AWS Regions:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegions();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * All the regions regardless of the availability
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *             .allRegions(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * To see regions that are filtered by `&#34;not-opted-in&#34;`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *             .allRegions(true)
+     *             .filters(GetRegionsFilterArgs.builder()
+     *                 .name(&#34;opt-in-status&#34;)
+     *                 .values(&#34;not-opted-in&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetRegionsResult> getRegionsPlain(GetRegionsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getRegions:getRegions", TypeShape.of(GetRegionsResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to compose and decompose AWS service DNS names.
+     * 
+     * ## Example Usage
+     * ### Get Service DNS Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegion();
+     * 
+     *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+     *             .serviceId(&#34;ec2&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Use Service Reverse DNS Name to Get Components
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .reverseDnsName(&#34;cn.com.amazonaws.cn-north-1.s3&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Determine Regional Support for a Service
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .reverseDnsName(&#34;com.amazonaws.us-gov-west-1.waf&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetServiceResult> getService() {
         return getService(GetServiceArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to compose and decompose AWS service DNS names.
+     * 
+     * ## Example Usage
+     * ### Get Service DNS Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegion();
+     * 
+     *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+     *             .serviceId(&#34;ec2&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Use Service Reverse DNS Name to Get Components
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .reverseDnsName(&#34;cn.com.amazonaws.cn-north-1.s3&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Determine Regional Support for a Service
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .reverseDnsName(&#34;com.amazonaws.us-gov-west-1.waf&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetServiceResult> getServicePlain() {
         return getServicePlain(GetServicePlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to compose and decompose AWS service DNS names.
+     * 
+     * ## Example Usage
+     * ### Get Service DNS Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegion();
+     * 
+     *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+     *             .serviceId(&#34;ec2&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Use Service Reverse DNS Name to Get Components
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .reverseDnsName(&#34;cn.com.amazonaws.cn-north-1.s3&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Determine Regional Support for a Service
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .reverseDnsName(&#34;com.amazonaws.us-gov-west-1.waf&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
         return getService(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to compose and decompose AWS service DNS names.
+     * 
+     * ## Example Usage
+     * ### Get Service DNS Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegion();
+     * 
+     *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+     *             .serviceId(&#34;ec2&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Use Service Reverse DNS Name to Get Components
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .reverseDnsName(&#34;cn.com.amazonaws.cn-north-1.s3&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Determine Regional Support for a Service
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .reverseDnsName(&#34;com.amazonaws.us-gov-west-1.waf&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
         return getServicePlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to compose and decompose AWS service DNS names.
+     * 
+     * ## Example Usage
+     * ### Get Service DNS Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegion();
+     * 
+     *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+     *             .serviceId(&#34;ec2&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Use Service Reverse DNS Name to Get Components
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .reverseDnsName(&#34;cn.com.amazonaws.cn-north-1.s3&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Determine Regional Support for a Service
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .reverseDnsName(&#34;com.amazonaws.us-gov-west-1.waf&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to compose and decompose AWS service DNS names.
+     * 
+     * ## Example Usage
+     * ### Get Service DNS Name
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getRegion();
+     * 
+     *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+     *             .serviceId(&#34;ec2&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Use Service Reverse DNS Name to Get Components
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .reverseDnsName(&#34;cn.com.amazonaws.cn-north-1.s3&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Determine Regional Support for a Service
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .reverseDnsName(&#34;com.amazonaws.us-gov-west-1.waf&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
     }

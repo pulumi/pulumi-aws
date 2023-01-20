@@ -11,9 +11,59 @@ namespace Pulumi.Aws.Location
 {
     public static class GetGeofenceCollection
     {
+        /// <summary>
+        /// Retrieve information about a Location Service Geofence Collection.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Location.GetGeofenceCollection.Invoke(new()
+        ///     {
+        ///         CollectionName = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetGeofenceCollectionResult> InvokeAsync(GetGeofenceCollectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGeofenceCollectionResult>("aws:location/getGeofenceCollection:getGeofenceCollection", args ?? new GetGeofenceCollectionArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieve information about a Location Service Geofence Collection.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Location.GetGeofenceCollection.Invoke(new()
+        ///     {
+        ///         CollectionName = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetGeofenceCollectionResult> Invoke(GetGeofenceCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGeofenceCollectionResult>("aws:location/getGeofenceCollection:getGeofenceCollection", args ?? new GetGeofenceCollectionInvokeArgs(), options.WithDefaults());
     }
@@ -21,14 +71,24 @@ namespace Pulumi.Aws.Location
 
     public sealed class GetGeofenceCollectionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the geofence collection.
+        /// </summary>
         [Input("collectionName", required: true)]
         public string CollectionName { get; set; } = null!;
 
+        /// <summary>
+        /// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+        /// </summary>
         [Input("kmsKeyId")]
         public string? KmsKeyId { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags for the geofence collection.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -43,14 +103,24 @@ namespace Pulumi.Aws.Location
 
     public sealed class GetGeofenceCollectionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the geofence collection.
+        /// </summary>
         [Input("collectionName", required: true)]
         public Input<string> CollectionName { get; set; } = null!;
 
+        /// <summary>
+        /// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags for the geofence collection.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -67,16 +137,34 @@ namespace Pulumi.Aws.Location
     [OutputType]
     public sealed class GetGeofenceCollectionResult
     {
+        /// <summary>
+        /// ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
+        /// </summary>
         public readonly string CollectionArn;
         public readonly string CollectionName;
+        /// <summary>
+        /// Timestamp for when the geofence collection resource was created in ISO 8601 format.
+        /// </summary>
         public readonly string CreateTime;
+        /// <summary>
+        /// Optional description of the geofence collection resource.
+        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+        /// </summary>
         public readonly string KmsKeyId;
+        /// <summary>
+        /// Key-value map of resource tags for the geofence collection.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// Timestamp for when the geofence collection resource was last updated in ISO 8601 format.
+        /// </summary>
         public readonly string UpdateTime;
 
         [OutputConstructor]

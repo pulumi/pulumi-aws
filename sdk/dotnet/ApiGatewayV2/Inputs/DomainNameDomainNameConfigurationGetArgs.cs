@@ -12,21 +12,39 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
 
     public sealed class DomainNameDomainNameConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `aws.acm.Certificate` resource to configure an ACM certificate.
+        /// </summary>
         [Input("certificateArn", required: true)]
         public Input<string> CertificateArn { get; set; } = null!;
 
+        /// <summary>
+        /// Endpoint type. Valid values: `REGIONAL`.
+        /// </summary>
         [Input("endpointType", required: true)]
         public Input<string> EndpointType { get; set; } = null!;
 
+        /// <summary>
+        /// Amazon Route 53 Hosted Zone ID of the endpoint.
+        /// </summary>
         [Input("hostedZoneId")]
         public Input<string>? HostedZoneId { get; set; }
 
+        /// <summary>
+        /// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+        /// </summary>
         [Input("ownershipVerificationCertificateArn")]
         public Input<string>? OwnershipVerificationCertificateArn { get; set; }
 
+        /// <summary>
+        /// Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+        /// </summary>
         [Input("securityPolicy", required: true)]
         public Input<string> SecurityPolicy { get; set; } = null!;
 
+        /// <summary>
+        /// Target domain name.
+        /// </summary>
         [Input("targetDomainName")]
         public Input<string>? TargetDomainName { get; set; }
 

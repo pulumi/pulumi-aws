@@ -4,6 +4,42 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a ApplicationInsights Application resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleGroup = new aws.resourcegroups.Group("exampleGroup", {resourceQuery: {
+ *     query: `	{
+ * 		"ResourceTypeFilters": [
+ * 		  "AWS::EC2::Instance"
+ * 		],
+ * 		"TagFilters": [
+ * 		  {
+ * 			"Key": "Stage",
+ * 			"Values": [
+ * 			  "Test"
+ * 			]
+ * 		  }
+ * 		]
+ * 	  }
+ * `,
+ * }});
+ * const exampleApplication = new aws.applicationinsights.Application("exampleApplication", {resourceGroupName: exampleGroup.name});
+ * ```
+ *
+ * ## Import
+ *
+ * ApplicationInsights Applications can be imported using the `resource_group_name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:applicationinsights/application:Application some some-application
+ * ```
+ */
 export class Application extends pulumi.CustomResource {
     /**
      * Get an existing Application resource's state with the given name, ID, and optional extra
@@ -32,15 +68,45 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
+    /**
+     * ARN of the Application.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+     */
     public readonly autoConfigEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Configures all of the resources in the resource group by applying the recommended configurations.
+     */
     public readonly autoCreate!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+     */
     public readonly cweMonitorEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
+     */
     public readonly groupingType!: pulumi.Output<string | undefined>;
+    /**
+     * When set to `true`, creates opsItems for any problems detected on an application.
+     */
     public readonly opsCenterEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+     */
     public readonly opsItemSnsTopicArn!: pulumi.Output<string | undefined>;
+    /**
+     * Name of the resource group.
+     */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -91,15 +157,45 @@ export class Application extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Application resources.
  */
 export interface ApplicationState {
+    /**
+     * ARN of the Application.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+     */
     autoConfigEnabled?: pulumi.Input<boolean>;
+    /**
+     * Configures all of the resources in the resource group by applying the recommended configurations.
+     */
     autoCreate?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+     */
     cweMonitorEnabled?: pulumi.Input<boolean>;
+    /**
+     * Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
+     */
     groupingType?: pulumi.Input<string>;
+    /**
+     * When set to `true`, creates opsItems for any problems detected on an application.
+     */
     opsCenterEnabled?: pulumi.Input<boolean>;
+    /**
+     * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+     */
     opsItemSnsTopicArn?: pulumi.Input<string>;
+    /**
+     * Name of the resource group.
+     */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -107,12 +203,36 @@ export interface ApplicationState {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
+    /**
+     * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+     */
     autoConfigEnabled?: pulumi.Input<boolean>;
+    /**
+     * Configures all of the resources in the resource group by applying the recommended configurations.
+     */
     autoCreate?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+     */
     cweMonitorEnabled?: pulumi.Input<boolean>;
+    /**
+     * Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
+     */
     groupingType?: pulumi.Input<string>;
+    /**
+     * When set to `true`, creates opsItems for any problems detected on an application.
+     */
     opsCenterEnabled?: pulumi.Input<boolean>;
+    /**
+     * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+     */
     opsItemSnsTopicArn?: pulumi.Input<string>;
+    /**
+     * Name of the resource group.
+     */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

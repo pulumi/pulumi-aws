@@ -4,6 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Creates a transit gateway route table attachment.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.networkmanager.TransitGatewayRouteTableAttachment("example", {
+ *     peeringId: aws_networkmanager_transit_gateway_peering.example.id,
+ *     transitGatewayRouteTableArn: aws_ec2_transit_gateway_route_table.example.arn,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_networkmanager_transit_gateway_route_table_attachment` can be imported using the attachment ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
+ * ```
+ */
 export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
     /**
      * Get an existing TransitGatewayRouteTableAttachment resource's state with the given name, ID, and optional extra
@@ -32,19 +55,61 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === TransitGatewayRouteTableAttachment.__pulumiType;
     }
 
+    /**
+     * Attachment Amazon Resource Name (ARN).
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The policy rule number associated with the attachment.
+     */
     public /*out*/ readonly attachmentPolicyRuleNumber!: pulumi.Output<number>;
+    /**
+     * The type of attachment.
+     */
     public /*out*/ readonly attachmentType!: pulumi.Output<string>;
+    /**
+     * The ARN of the core network.
+     */
     public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
+    /**
+     * The ID of the core network.
+     */
     public /*out*/ readonly coreNetworkId!: pulumi.Output<string>;
+    /**
+     * The edge location for the peer.
+     */
     public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
+    /**
+     * The ID of the attachment account owner.
+     */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    /**
+     * The ID of the peer for the attachment.
+     */
     public readonly peeringId!: pulumi.Output<string>;
+    /**
+     * The attachment resource ARN.
+     */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    /**
+     * The name of the segment attachment.
+     */
     public /*out*/ readonly segmentName!: pulumi.Output<string>;
+    /**
+     * The state of the attachment.
+     */
     public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The ARN of the transit gateway route table for the attachment.
+     */
     public readonly transitGatewayRouteTableArn!: pulumi.Output<string>;
 
     /**
@@ -106,19 +171,61 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TransitGatewayRouteTableAttachment resources.
  */
 export interface TransitGatewayRouteTableAttachmentState {
+    /**
+     * Attachment Amazon Resource Name (ARN).
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The policy rule number associated with the attachment.
+     */
     attachmentPolicyRuleNumber?: pulumi.Input<number>;
+    /**
+     * The type of attachment.
+     */
     attachmentType?: pulumi.Input<string>;
+    /**
+     * The ARN of the core network.
+     */
     coreNetworkArn?: pulumi.Input<string>;
+    /**
+     * The ID of the core network.
+     */
     coreNetworkId?: pulumi.Input<string>;
+    /**
+     * The edge location for the peer.
+     */
     edgeLocation?: pulumi.Input<string>;
+    /**
+     * The ID of the attachment account owner.
+     */
     ownerAccountId?: pulumi.Input<string>;
+    /**
+     * The ID of the peer for the attachment.
+     */
     peeringId?: pulumi.Input<string>;
+    /**
+     * The attachment resource ARN.
+     */
     resourceArn?: pulumi.Input<string>;
+    /**
+     * The name of the segment attachment.
+     */
     segmentName?: pulumi.Input<string>;
+    /**
+     * The state of the attachment.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ARN of the transit gateway route table for the attachment.
+     */
     transitGatewayRouteTableArn?: pulumi.Input<string>;
 }
 
@@ -126,7 +233,16 @@ export interface TransitGatewayRouteTableAttachmentState {
  * The set of arguments for constructing a TransitGatewayRouteTableAttachment resource.
  */
 export interface TransitGatewayRouteTableAttachmentArgs {
+    /**
+     * The ID of the peer for the attachment.
+     */
     peeringId: pulumi.Input<string>;
+    /**
+     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ARN of the transit gateway route table for the attachment.
+     */
     transitGatewayRouteTableArn: pulumi.Input<string>;
 }

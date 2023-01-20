@@ -12,9 +12,15 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Post filter sharpening.
+        /// </summary>
         [Input("postFilterSharpening")]
         public Input<string>? PostFilterSharpening { get; set; }
 
+        /// <summary>
+        /// Filter strength.
+        /// </summary>
         [Input("strength")]
         public Input<string>? Strength { get; set; }
 

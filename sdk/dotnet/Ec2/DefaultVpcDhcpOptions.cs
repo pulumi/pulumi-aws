@@ -9,9 +9,54 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
+    /// <summary>
+    /// Provides a resource to manage the [default AWS DHCP Options Set](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html#AmazonDNS)
+    /// in the current region.
+    /// 
+    /// Each AWS region comes with a default set of DHCP options.
+    /// **This is an advanced resource**, and has special caveats to be aware of when
+    /// using it. Please read this document in its entirety before using this resource.
+    /// 
+    /// The `aws.ec2.DefaultVpcDhcpOptions` behaves differently from normal resources, in that
+    /// this provider does not _create_ this resource, but instead "adopts" it
+    /// into management.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// Basic usage with tags:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = new Aws.Ec2.DefaultVpcDhcpOptions("default", new()
+    ///     {
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Default DHCP Option Set" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// VPC DHCP Options can be imported using the `dhcp options id`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions default_options dopt-d9070ebb
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions")]
     public partial class DefaultVpcDhcpOptions : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the DHCP Options Set.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -21,18 +66,30 @@ namespace Pulumi.Aws.Ec2
         [Output("domainNameServers")]
         public Output<string> DomainNameServers { get; private set; } = null!;
 
+        /// <summary>
+        /// List of NETBIOS name servers.
+        /// </summary>
         [Output("netbiosNameServers")]
         public Output<string> NetbiosNameServers { get; private set; } = null!;
 
+        /// <summary>
+        /// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+        /// </summary>
         [Output("netbiosNodeType")]
         public Output<string> NetbiosNodeType { get; private set; } = null!;
 
         [Output("ntpServers")]
         public Output<string> NtpServers { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the AWS account that owns the DHCP options set.
+        /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -85,11 +142,18 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class DefaultVpcDhcpOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the AWS account that owns the DHCP options set.
+        /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -104,6 +168,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class DefaultVpcDhcpOptionsState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the DHCP Options Set.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -113,20 +180,33 @@ namespace Pulumi.Aws.Ec2
         [Input("domainNameServers")]
         public Input<string>? DomainNameServers { get; set; }
 
+        /// <summary>
+        /// List of NETBIOS name servers.
+        /// </summary>
         [Input("netbiosNameServers")]
         public Input<string>? NetbiosNameServers { get; set; }
 
+        /// <summary>
+        /// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+        /// </summary>
         [Input("netbiosNodeType")]
         public Input<string>? NetbiosNodeType { get; set; }
 
         [Input("ntpServers")]
         public Input<string>? NtpServers { get; set; }
 
+        /// <summary>
+        /// The ID of the AWS account that owns the DHCP options set.
+        /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

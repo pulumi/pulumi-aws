@@ -11,13 +11,60 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a CloudWatch Logs query definition resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewQueryDefinition(ctx, "example", &cloudwatch.QueryDefinitionArgs{
+//				LogGroupNames: pulumi.StringArray{
+//					pulumi.String("/aws/logGroup1"),
+//					pulumi.String("/aws/logGroup2"),
+//				},
+//				QueryString: pulumi.String(fmt.Sprintf("fields @timestamp, @message\n| sort @timestamp desc\n| limit 25\n\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// CloudWatch query definitions can be imported using the query definition ARN. The ARN can be found on the "Edit Query" page for the query in the AWS Console.
+//
+// ```sh
+//
+//	$ pulumi import aws:cloudwatch/queryDefinition:QueryDefinition example arn:aws:logs:us-west-2:123456789012:query-definition:269951d7-6f75-496d-9d7b-6b7a5486bdbd
+//
+// ```
 type QueryDefinition struct {
 	pulumi.CustomResourceState
 
-	LogGroupNames     pulumi.StringArrayOutput `pulumi:"logGroupNames"`
-	Name              pulumi.StringOutput      `pulumi:"name"`
-	QueryDefinitionId pulumi.StringOutput      `pulumi:"queryDefinitionId"`
-	QueryString       pulumi.StringOutput      `pulumi:"queryString"`
+	// Specific log groups to use with the query.
+	LogGroupNames pulumi.StringArrayOutput `pulumi:"logGroupNames"`
+	// The name of the query.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The query definition ID.
+	QueryDefinitionId pulumi.StringOutput `pulumi:"queryDefinitionId"`
+	// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
+	QueryString pulumi.StringOutput `pulumi:"queryString"`
 }
 
 // NewQueryDefinition registers a new resource with the given unique name, arguments, and options.
@@ -52,17 +99,25 @@ func GetQueryDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering QueryDefinition resources.
 type queryDefinitionState struct {
-	LogGroupNames     []string `pulumi:"logGroupNames"`
-	Name              *string  `pulumi:"name"`
-	QueryDefinitionId *string  `pulumi:"queryDefinitionId"`
-	QueryString       *string  `pulumi:"queryString"`
+	// Specific log groups to use with the query.
+	LogGroupNames []string `pulumi:"logGroupNames"`
+	// The name of the query.
+	Name *string `pulumi:"name"`
+	// The query definition ID.
+	QueryDefinitionId *string `pulumi:"queryDefinitionId"`
+	// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
+	QueryString *string `pulumi:"queryString"`
 }
 
 type QueryDefinitionState struct {
-	LogGroupNames     pulumi.StringArrayInput
-	Name              pulumi.StringPtrInput
+	// Specific log groups to use with the query.
+	LogGroupNames pulumi.StringArrayInput
+	// The name of the query.
+	Name pulumi.StringPtrInput
+	// The query definition ID.
 	QueryDefinitionId pulumi.StringPtrInput
-	QueryString       pulumi.StringPtrInput
+	// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
+	QueryString pulumi.StringPtrInput
 }
 
 func (QueryDefinitionState) ElementType() reflect.Type {
@@ -70,16 +125,22 @@ func (QueryDefinitionState) ElementType() reflect.Type {
 }
 
 type queryDefinitionArgs struct {
+	// Specific log groups to use with the query.
 	LogGroupNames []string `pulumi:"logGroupNames"`
-	Name          *string  `pulumi:"name"`
-	QueryString   string   `pulumi:"queryString"`
+	// The name of the query.
+	Name *string `pulumi:"name"`
+	// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
+	QueryString string `pulumi:"queryString"`
 }
 
 // The set of arguments for constructing a QueryDefinition resource.
 type QueryDefinitionArgs struct {
+	// Specific log groups to use with the query.
 	LogGroupNames pulumi.StringArrayInput
-	Name          pulumi.StringPtrInput
-	QueryString   pulumi.StringInput
+	// The name of the query.
+	Name pulumi.StringPtrInput
+	// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
+	QueryString pulumi.StringInput
 }
 
 func (QueryDefinitionArgs) ElementType() reflect.Type {
@@ -169,18 +230,22 @@ func (o QueryDefinitionOutput) ToQueryDefinitionOutputWithContext(ctx context.Co
 	return o
 }
 
+// Specific log groups to use with the query.
 func (o QueryDefinitionOutput) LogGroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *QueryDefinition) pulumi.StringArrayOutput { return v.LogGroupNames }).(pulumi.StringArrayOutput)
 }
 
+// The name of the query.
 func (o QueryDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueryDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The query definition ID.
 func (o QueryDefinitionOutput) QueryDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueryDefinition) pulumi.StringOutput { return v.QueryDefinitionId }).(pulumi.StringOutput)
 }
 
+// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
 func (o QueryDefinitionOutput) QueryString() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueryDefinition) pulumi.StringOutput { return v.QueryString }).(pulumi.StringOutput)
 }

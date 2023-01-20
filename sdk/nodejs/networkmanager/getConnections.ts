@@ -4,6 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Retrieve information about connections.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.networkmanager.getConnections({
+ *     globalNetworkId: _var.global_network_id,
+ *     tags: {
+ *         Env: "test",
+ *     },
+ * });
+ * ```
+ */
 export function getConnections(args: GetConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionsResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -18,8 +35,17 @@ export function getConnections(args: GetConnectionsArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getConnections.
  */
 export interface GetConnectionsArgs {
+    /**
+     * ID of the device of the connections to retrieve.
+     */
     deviceId?: string;
+    /**
+     * ID of the Global Network of the connections to retrieve.
+     */
     globalNetworkId: string;
+    /**
+     * Restricts the list to the connections with these tags.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -33,9 +59,29 @@ export interface GetConnectionsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * IDs of the connections.
+     */
     readonly ids: string[];
     readonly tags?: {[key: string]: string};
 }
+/**
+ * Retrieve information about connections.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.networkmanager.getConnections({
+ *     globalNetworkId: _var.global_network_id,
+ *     tags: {
+ *         Env: "test",
+ *     },
+ * });
+ * ```
+ */
 export function getConnectionsOutput(args: GetConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionsResult> {
     return pulumi.output(args).apply((a: any) => getConnections(a, opts))
 }
@@ -44,7 +90,16 @@ export function getConnectionsOutput(args: GetConnectionsOutputArgs, opts?: pulu
  * A collection of arguments for invoking getConnections.
  */
 export interface GetConnectionsOutputArgs {
+    /**
+     * ID of the device of the connections to retrieve.
+     */
     deviceId?: pulumi.Input<string>;
+    /**
+     * ID of the Global Network of the connections to retrieve.
+     */
     globalNetworkId: pulumi.Input<string>;
+    /**
+     * Restricts the list to the connections with these tags.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -11,9 +11,57 @@ namespace Pulumi.Aws.Backup
 {
     public static class GetFramework
     {
+        /// <summary>
+        /// Use this data source to get information on an existing backup framework.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Backup.GetFramework.Invoke(new()
+        ///     {
+        ///         Name = "my_example_backup_framework_name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetFrameworkResult> InvokeAsync(GetFrameworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrameworkResult>("aws:backup/getFramework:getFramework", args ?? new GetFrameworkArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to get information on an existing backup framework.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Backup.GetFramework.Invoke(new()
+        ///     {
+        ///         Name = "my_example_backup_framework_name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetFrameworkResult> Invoke(GetFrameworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrameworkResult>("aws:backup/getFramework:getFramework", args ?? new GetFrameworkInvokeArgs(), options.WithDefaults());
     }
@@ -21,11 +69,18 @@ namespace Pulumi.Aws.Backup
 
     public sealed class GetFrameworkArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Backup framework name.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -40,11 +95,18 @@ namespace Pulumi.Aws.Backup
 
     public sealed class GetFrameworkInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Backup framework name.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -61,17 +123,41 @@ namespace Pulumi.Aws.Backup
     [OutputType]
     public sealed class GetFrameworkResult
     {
+        /// <summary>
+        /// ARN of the backup framework.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetFrameworkControlResult> Controls;
+        /// <summary>
+        /// Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+        /// </summary>
         public readonly string CreationTime;
+        /// <summary>
+        /// Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
+        /// </summary>
         public readonly string DeploymentStatus;
+        /// <summary>
+        /// Description of the framework.
+        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Name of a parameter, for example, BackupPlanFrequency.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

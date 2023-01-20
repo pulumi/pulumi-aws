@@ -17,30 +17,62 @@ public final class OutboundConnectionState extends com.pulumi.resources.Resource
 
     public static final OutboundConnectionState Empty = new OutboundConnectionState();
 
+    /**
+     * Specifies the connection alias that will be used by the customer for this connection.
+     * 
+     */
     @Import(name="connectionAlias")
     private @Nullable Output<String> connectionAlias;
 
+    /**
+     * @return Specifies the connection alias that will be used by the customer for this connection.
+     * 
+     */
     public Optional<Output<String>> connectionAlias() {
         return Optional.ofNullable(this.connectionAlias);
     }
 
+    /**
+     * Status of the connection request.
+     * 
+     */
     @Import(name="connectionStatus")
     private @Nullable Output<String> connectionStatus;
 
+    /**
+     * @return Status of the connection request.
+     * 
+     */
     public Optional<Output<String>> connectionStatus() {
         return Optional.ofNullable(this.connectionStatus);
     }
 
+    /**
+     * Configuration block for the local Opensearch domain.
+     * 
+     */
     @Import(name="localDomainInfo")
     private @Nullable Output<OutboundConnectionLocalDomainInfoArgs> localDomainInfo;
 
+    /**
+     * @return Configuration block for the local Opensearch domain.
+     * 
+     */
     public Optional<Output<OutboundConnectionLocalDomainInfoArgs>> localDomainInfo() {
         return Optional.ofNullable(this.localDomainInfo);
     }
 
+    /**
+     * Configuration block for the remote Opensearch domain.
+     * 
+     */
     @Import(name="remoteDomainInfo")
     private @Nullable Output<OutboundConnectionRemoteDomainInfoArgs> remoteDomainInfo;
 
+    /**
+     * @return Configuration block for the remote Opensearch domain.
+     * 
+     */
     public Optional<Output<OutboundConnectionRemoteDomainInfoArgs>> remoteDomainInfo() {
         return Optional.ofNullable(this.remoteDomainInfo);
     }
@@ -72,38 +104,86 @@ public final class OutboundConnectionState extends com.pulumi.resources.Resource
             $ = new OutboundConnectionState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param connectionAlias Specifies the connection alias that will be used by the customer for this connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionAlias(@Nullable Output<String> connectionAlias) {
             $.connectionAlias = connectionAlias;
             return this;
         }
 
+        /**
+         * @param connectionAlias Specifies the connection alias that will be used by the customer for this connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionAlias(String connectionAlias) {
             return connectionAlias(Output.of(connectionAlias));
         }
 
+        /**
+         * @param connectionStatus Status of the connection request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionStatus(@Nullable Output<String> connectionStatus) {
             $.connectionStatus = connectionStatus;
             return this;
         }
 
+        /**
+         * @param connectionStatus Status of the connection request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionStatus(String connectionStatus) {
             return connectionStatus(Output.of(connectionStatus));
         }
 
+        /**
+         * @param localDomainInfo Configuration block for the local Opensearch domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder localDomainInfo(@Nullable Output<OutboundConnectionLocalDomainInfoArgs> localDomainInfo) {
             $.localDomainInfo = localDomainInfo;
             return this;
         }
 
+        /**
+         * @param localDomainInfo Configuration block for the local Opensearch domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder localDomainInfo(OutboundConnectionLocalDomainInfoArgs localDomainInfo) {
             return localDomainInfo(Output.of(localDomainInfo));
         }
 
+        /**
+         * @param remoteDomainInfo Configuration block for the remote Opensearch domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder remoteDomainInfo(@Nullable Output<OutboundConnectionRemoteDomainInfoArgs> remoteDomainInfo) {
             $.remoteDomainInfo = remoteDomainInfo;
             return this;
         }
 
+        /**
+         * @param remoteDomainInfo Configuration block for the remote Opensearch domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder remoteDomainInfo(OutboundConnectionRemoteDomainInfoArgs remoteDomainInfo) {
             return remoteDomainInfo(Output.of(remoteDomainInfo));
         }

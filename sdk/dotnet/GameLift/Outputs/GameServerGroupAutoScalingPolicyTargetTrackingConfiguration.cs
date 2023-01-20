@@ -13,6 +13,9 @@ namespace Pulumi.Aws.GameLift.Outputs
     [OutputType]
     public sealed class GameServerGroupAutoScalingPolicyTargetTrackingConfiguration
     {
+        /// <summary>
+        /// Desired value to use with a game server group target-based scaling policy.
+        /// </summary>
         public readonly double TargetValue;
 
         [OutputConstructor]

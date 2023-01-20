@@ -14,29 +14,106 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Associates a transit gateway Connect peer with a device, and optionally, with a link.
+ * If you specify a link, it must be associated with the specified device.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.networkmanager.TransitGatewayConnectPeerAssociation;
+ * import com.pulumi.aws.networkmanager.TransitGatewayConnectPeerAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new TransitGatewayConnectPeerAssociation(&#34;example&#34;, TransitGatewayConnectPeerAssociationArgs.builder()        
+ *             .globalNetworkId(aws_networkmanager_global_network.example().id())
+ *             .deviceId(aws_networkmanager_device.example().id())
+ *             .transitGatewayConnectPeerArn(aws_ec2_transit_gateway_connect_peer.example().arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_networkmanager_transit_gateway_connect_peer_association` can be imported using the global network ID and customer gateway ARN, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway-connect-peer/tgw-connect-peer-12345678
+ * ```
+ * 
+ */
 @ResourceType(type="aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation")
 public class TransitGatewayConnectPeerAssociation extends com.pulumi.resources.CustomResource {
+    /**
+     * The ID of the device.
+     * 
+     */
     @Export(name="deviceId", refs={String.class}, tree="[0]")
     private Output<String> deviceId;
 
+    /**
+     * @return The ID of the device.
+     * 
+     */
     public Output<String> deviceId() {
         return this.deviceId;
     }
+    /**
+     * The ID of the global network.
+     * 
+     */
     @Export(name="globalNetworkId", refs={String.class}, tree="[0]")
     private Output<String> globalNetworkId;
 
+    /**
+     * @return The ID of the global network.
+     * 
+     */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
+    /**
+     * The ID of the link.
+     * 
+     */
     @Export(name="linkId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> linkId;
 
+    /**
+     * @return The ID of the link.
+     * 
+     */
     public Output<Optional<String>> linkId() {
         return Codegen.optional(this.linkId);
     }
+    /**
+     * The Amazon Resource Name (ARN) of the Connect peer.
+     * 
+     */
     @Export(name="transitGatewayConnectPeerArn", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayConnectPeerArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the Connect peer.
+     * 
+     */
     public Output<String> transitGatewayConnectPeerArn() {
         return this.transitGatewayConnectPeerArn;
     }

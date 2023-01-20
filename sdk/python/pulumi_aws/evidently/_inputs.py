@@ -23,6 +23,10 @@ class FeatureEvaluationRuleArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name for the new feature. Minimum length of `1`. Maximum length of `127`.
+        :param pulumi.Input[str] type: This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if type is not None:
@@ -31,6 +35,9 @@ class FeatureEvaluationRuleArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the new feature. Minimum length of `1`. Maximum length of `127`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -40,6 +47,9 @@ class FeatureEvaluationRuleArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -52,12 +62,19 @@ class FeatureVariationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input['FeatureVariationValueArgs']):
+        """
+        :param pulumi.Input[str] name: The name of the variation. Minimum length of `1`. Maximum length of `127`.
+        :param pulumi.Input['FeatureVariationValueArgs'] value: A block that specifies the value assigned to this variation. Detailed below
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the variation. Minimum length of `1`. Maximum length of `127`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -67,6 +84,9 @@ class FeatureVariationArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input['FeatureVariationValueArgs']:
+        """
+        A block that specifies the value assigned to this variation. Detailed below
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -81,6 +101,12 @@ class FeatureVariationValueArgs:
                  double_value: Optional[pulumi.Input[str]] = None,
                  long_value: Optional[pulumi.Input[str]] = None,
                  string_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bool_value: If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
+        :param pulumi.Input[str] double_value: If this feature uses the double integer variation type, this field contains the double integer value of this variation.
+        :param pulumi.Input[str] long_value: If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
+        :param pulumi.Input[str] string_value: If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
+        """
         if bool_value is not None:
             pulumi.set(__self__, "bool_value", bool_value)
         if double_value is not None:
@@ -93,6 +119,9 @@ class FeatureVariationValueArgs:
     @property
     @pulumi.getter(name="boolValue")
     def bool_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
+        """
         return pulumi.get(self, "bool_value")
 
     @bool_value.setter
@@ -102,6 +131,9 @@ class FeatureVariationValueArgs:
     @property
     @pulumi.getter(name="doubleValue")
     def double_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        If this feature uses the double integer variation type, this field contains the double integer value of this variation.
+        """
         return pulumi.get(self, "double_value")
 
     @double_value.setter
@@ -111,6 +143,9 @@ class FeatureVariationValueArgs:
     @property
     @pulumi.getter(name="longValue")
     def long_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
+        """
         return pulumi.get(self, "long_value")
 
     @long_value.setter
@@ -120,6 +155,9 @@ class FeatureVariationValueArgs:
     @property
     @pulumi.getter(name="stringValue")
     def string_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
+        """
         return pulumi.get(self, "string_value")
 
     @string_value.setter
@@ -132,6 +170,10 @@ class ProjectDataDeliveryArgs:
     def __init__(__self__, *,
                  cloudwatch_logs: Optional[pulumi.Input['ProjectDataDeliveryCloudwatchLogsArgs']] = None,
                  s3_destination: Optional[pulumi.Input['ProjectDataDeliveryS3DestinationArgs']] = None):
+        """
+        :param pulumi.Input['ProjectDataDeliveryCloudwatchLogsArgs'] cloudwatch_logs: A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
+        :param pulumi.Input['ProjectDataDeliveryS3DestinationArgs'] s3_destination: A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
+        """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if s3_destination is not None:
@@ -140,6 +182,9 @@ class ProjectDataDeliveryArgs:
     @property
     @pulumi.getter(name="cloudwatchLogs")
     def cloudwatch_logs(self) -> Optional[pulumi.Input['ProjectDataDeliveryCloudwatchLogsArgs']]:
+        """
+        A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
+        """
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
@@ -149,6 +194,9 @@ class ProjectDataDeliveryArgs:
     @property
     @pulumi.getter(name="s3Destination")
     def s3_destination(self) -> Optional[pulumi.Input['ProjectDataDeliveryS3DestinationArgs']]:
+        """
+        A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
+        """
         return pulumi.get(self, "s3_destination")
 
     @s3_destination.setter
@@ -160,12 +208,18 @@ class ProjectDataDeliveryArgs:
 class ProjectDataDeliveryCloudwatchLogsArgs:
     def __init__(__self__, *,
                  log_group: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] log_group: The name of the log group where the project stores evaluation events.
+        """
         if log_group is not None:
             pulumi.set(__self__, "log_group", log_group)
 
     @property
     @pulumi.getter(name="logGroup")
     def log_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the log group where the project stores evaluation events.
+        """
         return pulumi.get(self, "log_group")
 
     @log_group.setter
@@ -178,6 +232,10 @@ class ProjectDataDeliveryS3DestinationArgs:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket: The name of the bucket in which Evidently stores evaluation events.
+        :param pulumi.Input[str] prefix: The bucket prefix in which Evidently stores evaluation events.
+        """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
         if prefix is not None:
@@ -186,6 +244,9 @@ class ProjectDataDeliveryS3DestinationArgs:
     @property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the bucket in which Evidently stores evaluation events.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -195,6 +256,9 @@ class ProjectDataDeliveryS3DestinationArgs:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The bucket prefix in which Evidently stores evaluation events.
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter

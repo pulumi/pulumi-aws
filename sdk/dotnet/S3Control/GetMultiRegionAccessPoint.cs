@@ -11,9 +11,57 @@ namespace Pulumi.Aws.S3Control
 {
     public static class GetMultiRegionAccessPoint
     {
+        /// <summary>
+        /// Provides details on a specific S3 Multi-Region Access Point.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.S3Control.GetMultiRegionAccessPoint.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetMultiRegionAccessPointResult> InvokeAsync(GetMultiRegionAccessPointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMultiRegionAccessPointResult>("aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint", args ?? new GetMultiRegionAccessPointArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides details on a specific S3 Multi-Region Access Point.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.S3Control.GetMultiRegionAccessPoint.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetMultiRegionAccessPointResult> Invoke(GetMultiRegionAccessPointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMultiRegionAccessPointResult>("aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint", args ?? new GetMultiRegionAccessPointInvokeArgs(), options.WithDefaults());
     }
@@ -21,9 +69,15 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class GetMultiRegionAccessPointArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// </summary>
         [Input("accountId")]
         public string? AccountId { get; set; }
 
+        /// <summary>
+        /// The name of the Multi-Region Access Point.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -35,9 +89,15 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class GetMultiRegionAccessPointInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
+        /// <summary>
+        /// The name of the Multi-Region Access Point.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -52,17 +112,38 @@ namespace Pulumi.Aws.S3Control
     public sealed class GetMultiRegionAccessPointResult
     {
         public readonly string AccountId;
+        /// <summary>
+        /// The alias for the Multi-Region Access Point.
+        /// </summary>
         public readonly string Alias;
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Multi-Region Access Point.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Timestamp when the resource has been created.
+        /// </summary>
         public readonly string CreatedAt;
+        /// <summary>
+        /// The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
+        /// </summary>
         public readonly string DomainName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        /// <summary>
+        /// Public Access Block of the Multi-Region Access Point. Detailed below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetMultiRegionAccessPointPublicAccessBlockResult> PublicAccessBlocks;
+        /// <summary>
+        /// A collection of the regions and buckets associated with the Multi-Region Access Point.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetMultiRegionAccessPointRegionResult> Regions;
+        /// <summary>
+        /// The current status of the Multi-Region Access Point.
+        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

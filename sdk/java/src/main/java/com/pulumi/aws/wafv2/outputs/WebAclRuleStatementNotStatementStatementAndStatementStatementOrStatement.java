@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatement {
+    /**
+     * @return Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+     * 
+     */
     private List<WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatement> statements;
 
     private WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatement() {}
+    /**
+     * @return Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+     * 
+     */
     public List<WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatement> statements() {
         return this.statements;
     }

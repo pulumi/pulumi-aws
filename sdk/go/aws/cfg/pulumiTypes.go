@@ -11,9 +11,12 @@ import (
 )
 
 type ConfigurationAggregatorAccountAggregationSource struct {
+	// List of 12-digit account IDs of the account(s) being aggregated.
 	AccountIds []string `pulumi:"accountIds"`
-	AllRegions *bool    `pulumi:"allRegions"`
-	Regions    []string `pulumi:"regions"`
+	// If true, aggregate existing AWS Config regions and future regions.
+	AllRegions *bool `pulumi:"allRegions"`
+	// List of source regions being aggregated.
+	Regions []string `pulumi:"regions"`
 }
 
 // ConfigurationAggregatorAccountAggregationSourceInput is an input type that accepts ConfigurationAggregatorAccountAggregationSourceArgs and ConfigurationAggregatorAccountAggregationSourceOutput values.
@@ -28,9 +31,12 @@ type ConfigurationAggregatorAccountAggregationSourceInput interface {
 }
 
 type ConfigurationAggregatorAccountAggregationSourceArgs struct {
+	// List of 12-digit account IDs of the account(s) being aggregated.
 	AccountIds pulumi.StringArrayInput `pulumi:"accountIds"`
-	AllRegions pulumi.BoolPtrInput     `pulumi:"allRegions"`
-	Regions    pulumi.StringArrayInput `pulumi:"regions"`
+	// If true, aggregate existing AWS Config regions and future regions.
+	AllRegions pulumi.BoolPtrInput `pulumi:"allRegions"`
+	// List of source regions being aggregated.
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
 }
 
 func (ConfigurationAggregatorAccountAggregationSourceArgs) ElementType() reflect.Type {
@@ -110,14 +116,17 @@ func (o ConfigurationAggregatorAccountAggregationSourceOutput) ToConfigurationAg
 	}).(ConfigurationAggregatorAccountAggregationSourcePtrOutput)
 }
 
+// List of 12-digit account IDs of the account(s) being aggregated.
 func (o ConfigurationAggregatorAccountAggregationSourceOutput) AccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorAccountAggregationSource) []string { return v.AccountIds }).(pulumi.StringArrayOutput)
 }
 
+// If true, aggregate existing AWS Config regions and future regions.
 func (o ConfigurationAggregatorAccountAggregationSourceOutput) AllRegions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorAccountAggregationSource) *bool { return v.AllRegions }).(pulumi.BoolPtrOutput)
 }
 
+// List of source regions being aggregated.
 func (o ConfigurationAggregatorAccountAggregationSourceOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorAccountAggregationSource) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -146,6 +155,7 @@ func (o ConfigurationAggregatorAccountAggregationSourcePtrOutput) Elem() Configu
 	}).(ConfigurationAggregatorAccountAggregationSourceOutput)
 }
 
+// List of 12-digit account IDs of the account(s) being aggregated.
 func (o ConfigurationAggregatorAccountAggregationSourcePtrOutput) AccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigurationAggregatorAccountAggregationSource) []string {
 		if v == nil {
@@ -155,6 +165,7 @@ func (o ConfigurationAggregatorAccountAggregationSourcePtrOutput) AccountIds() p
 	}).(pulumi.StringArrayOutput)
 }
 
+// If true, aggregate existing AWS Config regions and future regions.
 func (o ConfigurationAggregatorAccountAggregationSourcePtrOutput) AllRegions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigurationAggregatorAccountAggregationSource) *bool {
 		if v == nil {
@@ -164,6 +175,7 @@ func (o ConfigurationAggregatorAccountAggregationSourcePtrOutput) AllRegions() p
 	}).(pulumi.BoolPtrOutput)
 }
 
+// List of source regions being aggregated.
 func (o ConfigurationAggregatorAccountAggregationSourcePtrOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigurationAggregatorAccountAggregationSource) []string {
 		if v == nil {
@@ -174,9 +186,12 @@ func (o ConfigurationAggregatorAccountAggregationSourcePtrOutput) Regions() pulu
 }
 
 type ConfigurationAggregatorOrganizationAggregationSource struct {
-	AllRegions *bool    `pulumi:"allRegions"`
-	Regions    []string `pulumi:"regions"`
-	RoleArn    string   `pulumi:"roleArn"`
+	// If true, aggregate existing AWS Config regions and future regions.
+	AllRegions *bool `pulumi:"allRegions"`
+	// List of source regions being aggregated.
+	Regions []string `pulumi:"regions"`
+	// ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // ConfigurationAggregatorOrganizationAggregationSourceInput is an input type that accepts ConfigurationAggregatorOrganizationAggregationSourceArgs and ConfigurationAggregatorOrganizationAggregationSourceOutput values.
@@ -191,9 +206,12 @@ type ConfigurationAggregatorOrganizationAggregationSourceInput interface {
 }
 
 type ConfigurationAggregatorOrganizationAggregationSourceArgs struct {
-	AllRegions pulumi.BoolPtrInput     `pulumi:"allRegions"`
-	Regions    pulumi.StringArrayInput `pulumi:"regions"`
-	RoleArn    pulumi.StringInput      `pulumi:"roleArn"`
+	// If true, aggregate existing AWS Config regions and future regions.
+	AllRegions pulumi.BoolPtrInput `pulumi:"allRegions"`
+	// List of source regions being aggregated.
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
+	// ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (ConfigurationAggregatorOrganizationAggregationSourceArgs) ElementType() reflect.Type {
@@ -273,14 +291,17 @@ func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) ToConfigurat
 	}).(ConfigurationAggregatorOrganizationAggregationSourcePtrOutput)
 }
 
+// If true, aggregate existing AWS Config regions and future regions.
 func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) AllRegions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorOrganizationAggregationSource) *bool { return v.AllRegions }).(pulumi.BoolPtrOutput)
 }
 
+// List of source regions being aggregated.
 func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorOrganizationAggregationSource) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
 
+// ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
 func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorOrganizationAggregationSource) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -309,6 +330,7 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) Elem() Co
 	}).(ConfigurationAggregatorOrganizationAggregationSourceOutput)
 }
 
+// If true, aggregate existing AWS Config regions and future regions.
 func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) AllRegions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigurationAggregatorOrganizationAggregationSource) *bool {
 		if v == nil {
@@ -318,6 +340,7 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) AllRegion
 	}).(pulumi.BoolPtrOutput)
 }
 
+// List of source regions being aggregated.
 func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigurationAggregatorOrganizationAggregationSource) []string {
 		if v == nil {
@@ -327,6 +350,7 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) Regions()
 	}).(pulumi.StringArrayOutput)
 }
 
+// ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
 func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationAggregatorOrganizationAggregationSource) *string {
 		if v == nil {
@@ -337,7 +361,9 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) RoleArn()
 }
 
 type ConformancePackInputParameter struct {
-	ParameterName  string `pulumi:"parameterName"`
+	// The input key.
+	ParameterName string `pulumi:"parameterName"`
+	// The input value.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -353,7 +379,9 @@ type ConformancePackInputParameterInput interface {
 }
 
 type ConformancePackInputParameterArgs struct {
-	ParameterName  pulumi.StringInput `pulumi:"parameterName"`
+	// The input key.
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+	// The input value.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -408,10 +436,12 @@ func (o ConformancePackInputParameterOutput) ToConformancePackInputParameterOutp
 	return o
 }
 
+// The input key.
 func (o ConformancePackInputParameterOutput) ParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConformancePackInputParameter) string { return v.ParameterName }).(pulumi.StringOutput)
 }
 
+// The input value.
 func (o ConformancePackInputParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v ConformancePackInputParameter) string { return v.ParameterValue }).(pulumi.StringOutput)
 }
@@ -437,6 +467,7 @@ func (o ConformancePackInputParameterArrayOutput) Index(i pulumi.IntInput) Confo
 }
 
 type DeliveryChannelSnapshotDeliveryProperties struct {
+	// The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 	DeliveryFrequency *string `pulumi:"deliveryFrequency"`
 }
 
@@ -452,6 +483,7 @@ type DeliveryChannelSnapshotDeliveryPropertiesInput interface {
 }
 
 type DeliveryChannelSnapshotDeliveryPropertiesArgs struct {
+	// The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 	DeliveryFrequency pulumi.StringPtrInput `pulumi:"deliveryFrequency"`
 }
 
@@ -532,6 +564,7 @@ func (o DeliveryChannelSnapshotDeliveryPropertiesOutput) ToDeliveryChannelSnapsh
 	}).(DeliveryChannelSnapshotDeliveryPropertiesPtrOutput)
 }
 
+// The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 func (o DeliveryChannelSnapshotDeliveryPropertiesOutput) DeliveryFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeliveryChannelSnapshotDeliveryProperties) *string { return v.DeliveryFrequency }).(pulumi.StringPtrOutput)
 }
@@ -560,6 +593,7 @@ func (o DeliveryChannelSnapshotDeliveryPropertiesPtrOutput) Elem() DeliveryChann
 	}).(DeliveryChannelSnapshotDeliveryPropertiesOutput)
 }
 
+// The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 func (o DeliveryChannelSnapshotDeliveryPropertiesPtrOutput) DeliveryFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryChannelSnapshotDeliveryProperties) *string {
 		if v == nil {
@@ -570,7 +604,9 @@ func (o DeliveryChannelSnapshotDeliveryPropertiesPtrOutput) DeliveryFrequency() 
 }
 
 type OrganizationConformancePackInputParameter struct {
-	ParameterName  string `pulumi:"parameterName"`
+	// The input key.
+	ParameterName string `pulumi:"parameterName"`
+	// The input value.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -586,7 +622,9 @@ type OrganizationConformancePackInputParameterInput interface {
 }
 
 type OrganizationConformancePackInputParameterArgs struct {
-	ParameterName  pulumi.StringInput `pulumi:"parameterName"`
+	// The input key.
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+	// The input value.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -641,10 +679,12 @@ func (o OrganizationConformancePackInputParameterOutput) ToOrganizationConforman
 	return o
 }
 
+// The input key.
 func (o OrganizationConformancePackInputParameterOutput) ParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationConformancePackInputParameter) string { return v.ParameterName }).(pulumi.StringOutput)
 }
 
+// The input value.
 func (o OrganizationConformancePackInputParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationConformancePackInputParameter) string { return v.ParameterValue }).(pulumi.StringOutput)
 }
@@ -670,9 +710,12 @@ func (o OrganizationConformancePackInputParameterArrayOutput) Index(i pulumi.Int
 }
 
 type RecorderRecordingGroup struct {
-	AllSupported               *bool    `pulumi:"allSupported"`
-	IncludeGlobalResourceTypes *bool    `pulumi:"includeGlobalResourceTypes"`
-	ResourceTypes              []string `pulumi:"resourceTypes"`
+	// Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resourceTypes`. Defaults to `true`.
+	AllSupported *bool `pulumi:"allSupported"`
+	// Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
+	IncludeGlobalResourceTypes *bool `pulumi:"includeGlobalResourceTypes"`
+	// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
+	ResourceTypes []string `pulumi:"resourceTypes"`
 }
 
 // RecorderRecordingGroupInput is an input type that accepts RecorderRecordingGroupArgs and RecorderRecordingGroupOutput values.
@@ -687,9 +730,12 @@ type RecorderRecordingGroupInput interface {
 }
 
 type RecorderRecordingGroupArgs struct {
-	AllSupported               pulumi.BoolPtrInput     `pulumi:"allSupported"`
-	IncludeGlobalResourceTypes pulumi.BoolPtrInput     `pulumi:"includeGlobalResourceTypes"`
-	ResourceTypes              pulumi.StringArrayInput `pulumi:"resourceTypes"`
+	// Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resourceTypes`. Defaults to `true`.
+	AllSupported pulumi.BoolPtrInput `pulumi:"allSupported"`
+	// Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
+	IncludeGlobalResourceTypes pulumi.BoolPtrInput `pulumi:"includeGlobalResourceTypes"`
+	// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
 }
 
 func (RecorderRecordingGroupArgs) ElementType() reflect.Type {
@@ -769,14 +815,17 @@ func (o RecorderRecordingGroupOutput) ToRecorderRecordingGroupPtrOutputWithConte
 	}).(RecorderRecordingGroupPtrOutput)
 }
 
+// Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resourceTypes`. Defaults to `true`.
 func (o RecorderRecordingGroupOutput) AllSupported() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RecorderRecordingGroup) *bool { return v.AllSupported }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 func (o RecorderRecordingGroupOutput) IncludeGlobalResourceTypes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RecorderRecordingGroup) *bool { return v.IncludeGlobalResourceTypes }).(pulumi.BoolPtrOutput)
 }
 
+// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
 func (o RecorderRecordingGroupOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RecorderRecordingGroup) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
@@ -805,6 +854,7 @@ func (o RecorderRecordingGroupPtrOutput) Elem() RecorderRecordingGroupOutput {
 	}).(RecorderRecordingGroupOutput)
 }
 
+// Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resourceTypes`. Defaults to `true`.
 func (o RecorderRecordingGroupPtrOutput) AllSupported() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RecorderRecordingGroup) *bool {
 		if v == nil {
@@ -814,6 +864,7 @@ func (o RecorderRecordingGroupPtrOutput) AllSupported() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 func (o RecorderRecordingGroupPtrOutput) IncludeGlobalResourceTypes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RecorderRecordingGroup) *bool {
 		if v == nil {
@@ -823,6 +874,7 @@ func (o RecorderRecordingGroupPtrOutput) IncludeGlobalResourceTypes() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
 func (o RecorderRecordingGroupPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RecorderRecordingGroup) []string {
 		if v == nil {
@@ -833,6 +885,7 @@ func (o RecorderRecordingGroupPtrOutput) ResourceTypes() pulumi.StringArrayOutpu
 }
 
 type RemediationConfigurationExecutionControls struct {
+	// Configuration block for SSM controls. See below.
 	SsmControls *RemediationConfigurationExecutionControlsSsmControls `pulumi:"ssmControls"`
 }
 
@@ -848,6 +901,7 @@ type RemediationConfigurationExecutionControlsInput interface {
 }
 
 type RemediationConfigurationExecutionControlsArgs struct {
+	// Configuration block for SSM controls. See below.
 	SsmControls RemediationConfigurationExecutionControlsSsmControlsPtrInput `pulumi:"ssmControls"`
 }
 
@@ -928,6 +982,7 @@ func (o RemediationConfigurationExecutionControlsOutput) ToRemediationConfigurat
 	}).(RemediationConfigurationExecutionControlsPtrOutput)
 }
 
+// Configuration block for SSM controls. See below.
 func (o RemediationConfigurationExecutionControlsOutput) SsmControls() RemediationConfigurationExecutionControlsSsmControlsPtrOutput {
 	return o.ApplyT(func(v RemediationConfigurationExecutionControls) *RemediationConfigurationExecutionControlsSsmControls {
 		return v.SsmControls
@@ -958,6 +1013,7 @@ func (o RemediationConfigurationExecutionControlsPtrOutput) Elem() RemediationCo
 	}).(RemediationConfigurationExecutionControlsOutput)
 }
 
+// Configuration block for SSM controls. See below.
 func (o RemediationConfigurationExecutionControlsPtrOutput) SsmControls() RemediationConfigurationExecutionControlsSsmControlsPtrOutput {
 	return o.ApplyT(func(v *RemediationConfigurationExecutionControls) *RemediationConfigurationExecutionControlsSsmControls {
 		if v == nil {
@@ -968,8 +1024,10 @@ func (o RemediationConfigurationExecutionControlsPtrOutput) SsmControls() Remedi
 }
 
 type RemediationConfigurationExecutionControlsSsmControls struct {
+	// Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
 	ConcurrentExecutionRatePercentage *int `pulumi:"concurrentExecutionRatePercentage"`
-	ErrorPercentage                   *int `pulumi:"errorPercentage"`
+	// Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
+	ErrorPercentage *int `pulumi:"errorPercentage"`
 }
 
 // RemediationConfigurationExecutionControlsSsmControlsInput is an input type that accepts RemediationConfigurationExecutionControlsSsmControlsArgs and RemediationConfigurationExecutionControlsSsmControlsOutput values.
@@ -984,8 +1042,10 @@ type RemediationConfigurationExecutionControlsSsmControlsInput interface {
 }
 
 type RemediationConfigurationExecutionControlsSsmControlsArgs struct {
+	// Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
 	ConcurrentExecutionRatePercentage pulumi.IntPtrInput `pulumi:"concurrentExecutionRatePercentage"`
-	ErrorPercentage                   pulumi.IntPtrInput `pulumi:"errorPercentage"`
+	// Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
+	ErrorPercentage pulumi.IntPtrInput `pulumi:"errorPercentage"`
 }
 
 func (RemediationConfigurationExecutionControlsSsmControlsArgs) ElementType() reflect.Type {
@@ -1065,12 +1125,14 @@ func (o RemediationConfigurationExecutionControlsSsmControlsOutput) ToRemediatio
 	}).(RemediationConfigurationExecutionControlsSsmControlsPtrOutput)
 }
 
+// Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
 func (o RemediationConfigurationExecutionControlsSsmControlsOutput) ConcurrentExecutionRatePercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RemediationConfigurationExecutionControlsSsmControls) *int {
 		return v.ConcurrentExecutionRatePercentage
 	}).(pulumi.IntPtrOutput)
 }
 
+// Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
 func (o RemediationConfigurationExecutionControlsSsmControlsOutput) ErrorPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RemediationConfigurationExecutionControlsSsmControls) *int { return v.ErrorPercentage }).(pulumi.IntPtrOutput)
 }
@@ -1099,6 +1161,7 @@ func (o RemediationConfigurationExecutionControlsSsmControlsPtrOutput) Elem() Re
 	}).(RemediationConfigurationExecutionControlsSsmControlsOutput)
 }
 
+// Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
 func (o RemediationConfigurationExecutionControlsSsmControlsPtrOutput) ConcurrentExecutionRatePercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RemediationConfigurationExecutionControlsSsmControls) *int {
 		if v == nil {
@@ -1108,6 +1171,7 @@ func (o RemediationConfigurationExecutionControlsSsmControlsPtrOutput) Concurren
 	}).(pulumi.IntPtrOutput)
 }
 
+// Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
 func (o RemediationConfigurationExecutionControlsSsmControlsPtrOutput) ErrorPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RemediationConfigurationExecutionControlsSsmControls) *int {
 		if v == nil {
@@ -1118,10 +1182,14 @@ func (o RemediationConfigurationExecutionControlsSsmControlsPtrOutput) ErrorPerc
 }
 
 type RemediationConfigurationParameter struct {
-	Name          string   `pulumi:"name"`
-	ResourceValue *string  `pulumi:"resourceValue"`
-	StaticValue   *string  `pulumi:"staticValue"`
-	StaticValues  []string `pulumi:"staticValues"`
+	// Name of the attribute.
+	Name string `pulumi:"name"`
+	// Value is dynamic and changes at run-time.
+	ResourceValue *string `pulumi:"resourceValue"`
+	// Value is static and does not change at run-time.
+	StaticValue *string `pulumi:"staticValue"`
+	// List of static values.
+	StaticValues []string `pulumi:"staticValues"`
 }
 
 // RemediationConfigurationParameterInput is an input type that accepts RemediationConfigurationParameterArgs and RemediationConfigurationParameterOutput values.
@@ -1136,10 +1204,14 @@ type RemediationConfigurationParameterInput interface {
 }
 
 type RemediationConfigurationParameterArgs struct {
-	Name          pulumi.StringInput      `pulumi:"name"`
-	ResourceValue pulumi.StringPtrInput   `pulumi:"resourceValue"`
-	StaticValue   pulumi.StringPtrInput   `pulumi:"staticValue"`
-	StaticValues  pulumi.StringArrayInput `pulumi:"staticValues"`
+	// Name of the attribute.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value is dynamic and changes at run-time.
+	ResourceValue pulumi.StringPtrInput `pulumi:"resourceValue"`
+	// Value is static and does not change at run-time.
+	StaticValue pulumi.StringPtrInput `pulumi:"staticValue"`
+	// List of static values.
+	StaticValues pulumi.StringArrayInput `pulumi:"staticValues"`
 }
 
 func (RemediationConfigurationParameterArgs) ElementType() reflect.Type {
@@ -1193,18 +1265,22 @@ func (o RemediationConfigurationParameterOutput) ToRemediationConfigurationParam
 	return o
 }
 
+// Name of the attribute.
 func (o RemediationConfigurationParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RemediationConfigurationParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Value is dynamic and changes at run-time.
 func (o RemediationConfigurationParameterOutput) ResourceValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RemediationConfigurationParameter) *string { return v.ResourceValue }).(pulumi.StringPtrOutput)
 }
 
+// Value is static and does not change at run-time.
 func (o RemediationConfigurationParameterOutput) StaticValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RemediationConfigurationParameter) *string { return v.StaticValue }).(pulumi.StringPtrOutput)
 }
 
+// List of static values.
 func (o RemediationConfigurationParameterOutput) StaticValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RemediationConfigurationParameter) []string { return v.StaticValues }).(pulumi.StringArrayOutput)
 }
@@ -1230,10 +1306,14 @@ func (o RemediationConfigurationParameterArrayOutput) Index(i pulumi.IntInput) R
 }
 
 type RuleScope struct {
-	ComplianceResourceId    *string  `pulumi:"complianceResourceId"`
+	// The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
+	ComplianceResourceId *string `pulumi:"complianceResourceId"`
+	// A list of resource types of only those AWS resources that you want to trigger an evaluation for the ruleE.g., `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 	ComplianceResourceTypes []string `pulumi:"complianceResourceTypes"`
-	TagKey                  *string  `pulumi:"tagKey"`
-	TagValue                *string  `pulumi:"tagValue"`
+	// The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
+	TagKey *string `pulumi:"tagKey"`
+	// The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
+	TagValue *string `pulumi:"tagValue"`
 }
 
 // RuleScopeInput is an input type that accepts RuleScopeArgs and RuleScopeOutput values.
@@ -1248,10 +1328,14 @@ type RuleScopeInput interface {
 }
 
 type RuleScopeArgs struct {
-	ComplianceResourceId    pulumi.StringPtrInput   `pulumi:"complianceResourceId"`
+	// The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
+	ComplianceResourceId pulumi.StringPtrInput `pulumi:"complianceResourceId"`
+	// A list of resource types of only those AWS resources that you want to trigger an evaluation for the ruleE.g., `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 	ComplianceResourceTypes pulumi.StringArrayInput `pulumi:"complianceResourceTypes"`
-	TagKey                  pulumi.StringPtrInput   `pulumi:"tagKey"`
-	TagValue                pulumi.StringPtrInput   `pulumi:"tagValue"`
+	// The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
+	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
+	// The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
+	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (RuleScopeArgs) ElementType() reflect.Type {
@@ -1331,18 +1415,22 @@ func (o RuleScopeOutput) ToRuleScopePtrOutputWithContext(ctx context.Context) Ru
 	}).(RuleScopePtrOutput)
 }
 
+// The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
 func (o RuleScopeOutput) ComplianceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleScope) *string { return v.ComplianceResourceId }).(pulumi.StringPtrOutput)
 }
 
+// A list of resource types of only those AWS resources that you want to trigger an evaluation for the ruleE.g., `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 func (o RuleScopeOutput) ComplianceResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleScope) []string { return v.ComplianceResourceTypes }).(pulumi.StringArrayOutput)
 }
 
+// The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
 func (o RuleScopeOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleScope) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
+// The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
 func (o RuleScopeOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleScope) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -1371,6 +1459,7 @@ func (o RuleScopePtrOutput) Elem() RuleScopeOutput {
 	}).(RuleScopeOutput)
 }
 
+// The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
 func (o RuleScopePtrOutput) ComplianceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleScope) *string {
 		if v == nil {
@@ -1380,6 +1469,7 @@ func (o RuleScopePtrOutput) ComplianceResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of resource types of only those AWS resources that you want to trigger an evaluation for the ruleE.g., `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 func (o RuleScopePtrOutput) ComplianceResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RuleScope) []string {
 		if v == nil {
@@ -1389,6 +1479,7 @@ func (o RuleScopePtrOutput) ComplianceResourceTypes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
 func (o RuleScopePtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleScope) *string {
 		if v == nil {
@@ -1398,6 +1489,7 @@ func (o RuleScopePtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
 func (o RuleScopePtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleScope) *string {
 		if v == nil {
@@ -1408,10 +1500,14 @@ func (o RuleScopePtrOutput) TagValue() pulumi.StringPtrOutput {
 }
 
 type RuleSource struct {
+	// Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
 	CustomPolicyDetails *RuleSourceCustomPolicyDetails `pulumi:"customPolicyDetails"`
-	Owner               string                         `pulumi:"owner"`
-	SourceDetails       []RuleSourceSourceDetail       `pulumi:"sourceDetails"`
-	SourceIdentifier    *string                        `pulumi:"sourceIdentifier"`
+	// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the `lambda.Permission` resource.
+	Owner string `pulumi:"owner"`
+	// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
+	SourceDetails []RuleSourceSourceDetail `pulumi:"sourceDetails"`
+	// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
+	SourceIdentifier *string `pulumi:"sourceIdentifier"`
 }
 
 // RuleSourceInput is an input type that accepts RuleSourceArgs and RuleSourceOutput values.
@@ -1426,10 +1522,14 @@ type RuleSourceInput interface {
 }
 
 type RuleSourceArgs struct {
+	// Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
 	CustomPolicyDetails RuleSourceCustomPolicyDetailsPtrInput `pulumi:"customPolicyDetails"`
-	Owner               pulumi.StringInput                    `pulumi:"owner"`
-	SourceDetails       RuleSourceSourceDetailArrayInput      `pulumi:"sourceDetails"`
-	SourceIdentifier    pulumi.StringPtrInput                 `pulumi:"sourceIdentifier"`
+	// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the `lambda.Permission` resource.
+	Owner pulumi.StringInput `pulumi:"owner"`
+	// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
+	SourceDetails RuleSourceSourceDetailArrayInput `pulumi:"sourceDetails"`
+	// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
+	SourceIdentifier pulumi.StringPtrInput `pulumi:"sourceIdentifier"`
 }
 
 func (RuleSourceArgs) ElementType() reflect.Type {
@@ -1509,18 +1609,22 @@ func (o RuleSourceOutput) ToRuleSourcePtrOutputWithContext(ctx context.Context) 
 	}).(RuleSourcePtrOutput)
 }
 
+// Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
 func (o RuleSourceOutput) CustomPolicyDetails() RuleSourceCustomPolicyDetailsPtrOutput {
 	return o.ApplyT(func(v RuleSource) *RuleSourceCustomPolicyDetails { return v.CustomPolicyDetails }).(RuleSourceCustomPolicyDetailsPtrOutput)
 }
 
+// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the `lambda.Permission` resource.
 func (o RuleSourceOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleSource) string { return v.Owner }).(pulumi.StringOutput)
 }
 
+// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
 func (o RuleSourceOutput) SourceDetails() RuleSourceSourceDetailArrayOutput {
 	return o.ApplyT(func(v RuleSource) []RuleSourceSourceDetail { return v.SourceDetails }).(RuleSourceSourceDetailArrayOutput)
 }
 
+// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
 func (o RuleSourceOutput) SourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleSource) *string { return v.SourceIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -1549,6 +1653,7 @@ func (o RuleSourcePtrOutput) Elem() RuleSourceOutput {
 	}).(RuleSourceOutput)
 }
 
+// Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
 func (o RuleSourcePtrOutput) CustomPolicyDetails() RuleSourceCustomPolicyDetailsPtrOutput {
 	return o.ApplyT(func(v *RuleSource) *RuleSourceCustomPolicyDetails {
 		if v == nil {
@@ -1558,6 +1663,7 @@ func (o RuleSourcePtrOutput) CustomPolicyDetails() RuleSourceCustomPolicyDetails
 	}).(RuleSourceCustomPolicyDetailsPtrOutput)
 }
 
+// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the `lambda.Permission` resource.
 func (o RuleSourcePtrOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleSource) *string {
 		if v == nil {
@@ -1567,6 +1673,7 @@ func (o RuleSourcePtrOutput) Owner() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
 func (o RuleSourcePtrOutput) SourceDetails() RuleSourceSourceDetailArrayOutput {
 	return o.ApplyT(func(v *RuleSource) []RuleSourceSourceDetail {
 		if v == nil {
@@ -1576,6 +1683,7 @@ func (o RuleSourcePtrOutput) SourceDetails() RuleSourceSourceDetailArrayOutput {
 	}).(RuleSourceSourceDetailArrayOutput)
 }
 
+// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
 func (o RuleSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleSource) *string {
 		if v == nil {
@@ -1586,9 +1694,12 @@ func (o RuleSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
 }
 
 type RuleSourceCustomPolicyDetails struct {
-	EnableDebugLogDelivery *bool  `pulumi:"enableDebugLogDelivery"`
-	PolicyRuntime          string `pulumi:"policyRuntime"`
-	PolicyText             string `pulumi:"policyText"`
+	// The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
+	EnableDebugLogDelivery *bool `pulumi:"enableDebugLogDelivery"`
+	// The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
+	PolicyRuntime string `pulumi:"policyRuntime"`
+	// The policy definition containing the logic for your Config Custom Policy rule.
+	PolicyText string `pulumi:"policyText"`
 }
 
 // RuleSourceCustomPolicyDetailsInput is an input type that accepts RuleSourceCustomPolicyDetailsArgs and RuleSourceCustomPolicyDetailsOutput values.
@@ -1603,9 +1714,12 @@ type RuleSourceCustomPolicyDetailsInput interface {
 }
 
 type RuleSourceCustomPolicyDetailsArgs struct {
+	// The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
 	EnableDebugLogDelivery pulumi.BoolPtrInput `pulumi:"enableDebugLogDelivery"`
-	PolicyRuntime          pulumi.StringInput  `pulumi:"policyRuntime"`
-	PolicyText             pulumi.StringInput  `pulumi:"policyText"`
+	// The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
+	PolicyRuntime pulumi.StringInput `pulumi:"policyRuntime"`
+	// The policy definition containing the logic for your Config Custom Policy rule.
+	PolicyText pulumi.StringInput `pulumi:"policyText"`
 }
 
 func (RuleSourceCustomPolicyDetailsArgs) ElementType() reflect.Type {
@@ -1685,14 +1799,17 @@ func (o RuleSourceCustomPolicyDetailsOutput) ToRuleSourceCustomPolicyDetailsPtrO
 	}).(RuleSourceCustomPolicyDetailsPtrOutput)
 }
 
+// The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
 func (o RuleSourceCustomPolicyDetailsOutput) EnableDebugLogDelivery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RuleSourceCustomPolicyDetails) *bool { return v.EnableDebugLogDelivery }).(pulumi.BoolPtrOutput)
 }
 
+// The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
 func (o RuleSourceCustomPolicyDetailsOutput) PolicyRuntime() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleSourceCustomPolicyDetails) string { return v.PolicyRuntime }).(pulumi.StringOutput)
 }
 
+// The policy definition containing the logic for your Config Custom Policy rule.
 func (o RuleSourceCustomPolicyDetailsOutput) PolicyText() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleSourceCustomPolicyDetails) string { return v.PolicyText }).(pulumi.StringOutput)
 }
@@ -1721,6 +1838,7 @@ func (o RuleSourceCustomPolicyDetailsPtrOutput) Elem() RuleSourceCustomPolicyDet
 	}).(RuleSourceCustomPolicyDetailsOutput)
 }
 
+// The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
 func (o RuleSourceCustomPolicyDetailsPtrOutput) EnableDebugLogDelivery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RuleSourceCustomPolicyDetails) *bool {
 		if v == nil {
@@ -1730,6 +1848,7 @@ func (o RuleSourceCustomPolicyDetailsPtrOutput) EnableDebugLogDelivery() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
 func (o RuleSourceCustomPolicyDetailsPtrOutput) PolicyRuntime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleSourceCustomPolicyDetails) *string {
 		if v == nil {
@@ -1739,6 +1858,7 @@ func (o RuleSourceCustomPolicyDetailsPtrOutput) PolicyRuntime() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The policy definition containing the logic for your Config Custom Policy rule.
 func (o RuleSourceCustomPolicyDetailsPtrOutput) PolicyText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleSourceCustomPolicyDetails) *string {
 		if v == nil {
@@ -1749,9 +1869,12 @@ func (o RuleSourceCustomPolicyDetailsPtrOutput) PolicyText() pulumi.StringPtrOut
 }
 
 type RuleSourceSourceDetail struct {
-	EventSource               *string `pulumi:"eventSource"`
+	// The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
+	EventSource *string `pulumi:"eventSource"`
+	// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
-	MessageType               *string `pulumi:"messageType"`
+	// The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
+	MessageType *string `pulumi:"messageType"`
 }
 
 // RuleSourceSourceDetailInput is an input type that accepts RuleSourceSourceDetailArgs and RuleSourceSourceDetailOutput values.
@@ -1766,9 +1889,12 @@ type RuleSourceSourceDetailInput interface {
 }
 
 type RuleSourceSourceDetailArgs struct {
-	EventSource               pulumi.StringPtrInput `pulumi:"eventSource"`
+	// The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
+	EventSource pulumi.StringPtrInput `pulumi:"eventSource"`
+	// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
 	MaximumExecutionFrequency pulumi.StringPtrInput `pulumi:"maximumExecutionFrequency"`
-	MessageType               pulumi.StringPtrInput `pulumi:"messageType"`
+	// The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
+	MessageType pulumi.StringPtrInput `pulumi:"messageType"`
 }
 
 func (RuleSourceSourceDetailArgs) ElementType() reflect.Type {
@@ -1822,14 +1948,17 @@ func (o RuleSourceSourceDetailOutput) ToRuleSourceSourceDetailOutputWithContext(
 	return o
 }
 
+// The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
 func (o RuleSourceSourceDetailOutput) EventSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleSourceSourceDetail) *string { return v.EventSource }).(pulumi.StringPtrOutput)
 }
 
+// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
 func (o RuleSourceSourceDetailOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleSourceSourceDetail) *string { return v.MaximumExecutionFrequency }).(pulumi.StringPtrOutput)
 }
 
+// The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
 func (o RuleSourceSourceDetailOutput) MessageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleSourceSourceDetail) *string { return v.MessageType }).(pulumi.StringPtrOutput)
 }

@@ -16,9 +16,19 @@ public final class GetLbsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetLbsArgs Empty = new GetLbsArgs();
 
+    /**
+     * Map of tags, each pair of which must exactly match
+     * a pair on the desired Load Balancers.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Map of tags, each pair of which must exactly match
+     * a pair on the desired Load Balancers.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -47,11 +57,25 @@ public final class GetLbsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetLbsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param tags Map of tags, each pair of which must exactly match
+         * a pair on the desired Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Map of tags, each pair of which must exactly match
+         * a pair on the desired Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

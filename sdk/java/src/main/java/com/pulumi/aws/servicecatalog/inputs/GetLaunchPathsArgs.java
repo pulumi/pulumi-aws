@@ -15,16 +15,32 @@ public final class GetLaunchPathsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetLaunchPathsArgs Empty = new GetLaunchPathsArgs();
 
+    /**
+     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     * 
+     */
     @Import(name="acceptLanguage")
     private @Nullable Output<String> acceptLanguage;
 
+    /**
+     * @return Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     * 
+     */
     public Optional<Output<String>> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
 
+    /**
+     * Product identifier.
+     * 
+     */
     @Import(name="productId", required=true)
     private Output<String> productId;
 
+    /**
+     * @return Product identifier.
+     * 
+     */
     public Output<String> productId() {
         return this.productId;
     }
@@ -54,20 +70,44 @@ public final class GetLaunchPathsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetLaunchPathsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param acceptLanguage Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder acceptLanguage(@Nullable Output<String> acceptLanguage) {
             $.acceptLanguage = acceptLanguage;
             return this;
         }
 
+        /**
+         * @param acceptLanguage Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder acceptLanguage(String acceptLanguage) {
             return acceptLanguage(Output.of(acceptLanguage));
         }
 
+        /**
+         * @param productId Product identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder productId(Output<String> productId) {
             $.productId = productId;
             return this;
         }
 
+        /**
+         * @param productId Product identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder productId(String productId) {
             return productId(Output.of(productId));
         }

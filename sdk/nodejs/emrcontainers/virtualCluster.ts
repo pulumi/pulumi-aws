@@ -7,6 +7,35 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an EMR Containers (EMR on EKS) Virtual Cluster.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.emrcontainers.VirtualCluster("example", {containerProvider: {
+ *     id: aws_eks_cluster.example.name,
+ *     type: "EKS",
+ *     info: {
+ *         eksInfo: {
+ *             namespace: "default",
+ *         },
+ *     },
+ * }});
+ * ```
+ *
+ * ## Import
+ *
+ * EKS Clusters can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
+ * ```
+ */
 export class VirtualCluster extends pulumi.CustomResource {
     /**
      * Get an existing VirtualCluster resource's state with the given name, ID, and optional extra
@@ -35,10 +64,25 @@ export class VirtualCluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === VirtualCluster.__pulumiType;
     }
 
+    /**
+     * ARN of the cluster.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Configuration block for the container provider associated with your cluster.
+     */
     public readonly containerProvider!: pulumi.Output<outputs.emrcontainers.VirtualClusterContainerProvider>;
+    /**
+     * Name of the virtual cluster.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -79,10 +123,25 @@ export class VirtualCluster extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VirtualCluster resources.
  */
 export interface VirtualClusterState {
+    /**
+     * ARN of the cluster.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Configuration block for the container provider associated with your cluster.
+     */
     containerProvider?: pulumi.Input<inputs.emrcontainers.VirtualClusterContainerProvider>;
+    /**
+     * Name of the virtual cluster.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -90,7 +149,16 @@ export interface VirtualClusterState {
  * The set of arguments for constructing a VirtualCluster resource.
  */
 export interface VirtualClusterArgs {
+    /**
+     * Configuration block for the container provider associated with your cluster.
+     */
     containerProvider: pulumi.Input<inputs.emrcontainers.VirtualClusterContainerProvider>;
+    /**
+     * Name of the virtual cluster.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

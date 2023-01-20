@@ -7,6 +7,93 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a CodePipeline Webhook.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as github from "@pulumi/github";
+ *
+ * const barPipeline = new aws.codepipeline.Pipeline("barPipeline", {
+ *     roleArn: aws_iam_role.bar.arn,
+ *     artifactStores: [{
+ *         location: aws_s3_bucket.bar.bucket,
+ *         type: "S3",
+ *         encryptionKey: {
+ *             id: data.aws_kms_alias.s3kmskey.arn,
+ *             type: "KMS",
+ *         },
+ *     }],
+ *     stages: [
+ *         {
+ *             name: "Source",
+ *             actions: [{
+ *                 name: "Source",
+ *                 category: "Source",
+ *                 owner: "ThirdParty",
+ *                 provider: "GitHub",
+ *                 version: "1",
+ *                 outputArtifacts: ["test"],
+ *                 configuration: {
+ *                     Owner: "my-organization",
+ *                     Repo: "test",
+ *                     Branch: "master",
+ *                 },
+ *             }],
+ *         },
+ *         {
+ *             name: "Build",
+ *             actions: [{
+ *                 name: "Build",
+ *                 category: "Build",
+ *                 owner: "AWS",
+ *                 provider: "CodeBuild",
+ *                 inputArtifacts: ["test"],
+ *                 version: "1",
+ *                 configuration: {
+ *                     ProjectName: "test",
+ *                 },
+ *             }],
+ *         },
+ *     ],
+ * });
+ * const webhookSecret = "super-secret";
+ * const barWebhook = new aws.codepipeline.Webhook("barWebhook", {
+ *     authentication: "GITHUB_HMAC",
+ *     targetAction: "Source",
+ *     targetPipeline: barPipeline.name,
+ *     authenticationConfiguration: {
+ *         secretToken: webhookSecret,
+ *     },
+ *     filters: [{
+ *         jsonPath: `$.ref`,
+ *         matchEquals: "refs/heads/{Branch}",
+ *     }],
+ * });
+ * // Wire the CodePipeline webhook into a GitHub repository.
+ * const barRepositoryWebhook = new github.RepositoryWebhook("barRepositoryWebhook", {
+ *     repository: github_repository.repo.name,
+ *     configuration: {
+ *         url: barWebhook.url,
+ *         contentType: "json",
+ *         insecureSsl: true,
+ *         secret: webhookSecret,
+ *     },
+ *     events: ["push"],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * CodePipeline Webhooks can be imported by their ARN, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+ * ```
+ */
 export class Webhook extends pulumi.CustomResource {
     /**
      * Get an existing Webhook resource's state with the given name, ID, and optional extra
@@ -35,15 +122,45 @@ export class Webhook extends pulumi.CustomResource {
         return obj['__pulumiType'] === Webhook.__pulumiType;
     }
 
+    /**
+     * The CodePipeline webhook's ARN.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
+     */
     public readonly authentication!: pulumi.Output<string>;
+    /**
+     * An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+     */
     public readonly authenticationConfiguration!: pulumi.Output<outputs.codepipeline.WebhookAuthenticationConfiguration | undefined>;
+    /**
+     * One or more `filter` blocks. Filter blocks are documented below.
+     */
     public readonly filters!: pulumi.Output<outputs.codepipeline.WebhookFilter[]>;
+    /**
+     * The name of the webhook.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
+     */
     public readonly targetAction!: pulumi.Output<string>;
+    /**
+     * The name of the pipeline.
+     */
     public readonly targetPipeline!: pulumi.Output<string>;
+    /**
+     * The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
+     */
     public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
@@ -103,15 +220,45 @@ export class Webhook extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Webhook resources.
  */
 export interface WebhookState {
+    /**
+     * The CodePipeline webhook's ARN.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
+     */
     authentication?: pulumi.Input<string>;
+    /**
+     * An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+     */
     authenticationConfiguration?: pulumi.Input<inputs.codepipeline.WebhookAuthenticationConfiguration>;
+    /**
+     * One or more `filter` blocks. Filter blocks are documented below.
+     */
     filters?: pulumi.Input<pulumi.Input<inputs.codepipeline.WebhookFilter>[]>;
+    /**
+     * The name of the webhook.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
+     */
     targetAction?: pulumi.Input<string>;
+    /**
+     * The name of the pipeline.
+     */
     targetPipeline?: pulumi.Input<string>;
+    /**
+     * The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
+     */
     url?: pulumi.Input<string>;
 }
 
@@ -119,11 +266,32 @@ export interface WebhookState {
  * The set of arguments for constructing a Webhook resource.
  */
 export interface WebhookArgs {
+    /**
+     * The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
+     */
     authentication: pulumi.Input<string>;
+    /**
+     * An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+     */
     authenticationConfiguration?: pulumi.Input<inputs.codepipeline.WebhookAuthenticationConfiguration>;
+    /**
+     * One or more `filter` blocks. Filter blocks are documented below.
+     */
     filters: pulumi.Input<pulumi.Input<inputs.codepipeline.WebhookFilter>[]>;
+    /**
+     * The name of the webhook.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
+     */
     targetAction: pulumi.Input<string>;
+    /**
+     * The name of the pipeline.
+     */
     targetPipeline: pulumi.Input<string>;
 }

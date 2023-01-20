@@ -18,16 +18,34 @@ public final class GetVpcPeeringConnectionsArgs extends com.pulumi.resources.Inv
 
     public static final GetVpcPeeringConnectionsArgs Empty = new GetVpcPeeringConnectionsArgs();
 
+    /**
+     * Custom filter block as described below.
+     * 
+     */
     @Import(name="filters")
     private @Nullable Output<List<GetVpcPeeringConnectionsFilterArgs>> filters;
 
+    /**
+     * @return Custom filter block as described below.
+     * 
+     */
     public Optional<Output<List<GetVpcPeeringConnectionsFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
+    /**
+     * Mapping of tags, each pair of which must exactly match
+     * a pair on the desired VPC Peering Connection.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Mapping of tags, each pair of which must exactly match
+     * a pair on the desired VPC Peering Connection.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -57,24 +75,56 @@ public final class GetVpcPeeringConnectionsArgs extends com.pulumi.resources.Inv
             $ = new GetVpcPeeringConnectionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filters Custom filter block as described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable Output<List<GetVpcPeeringConnectionsFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters Custom filter block as described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(List<GetVpcPeeringConnectionsFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
+        /**
+         * @param filters Custom filter block as described below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(GetVpcPeeringConnectionsFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
+        /**
+         * @param tags Mapping of tags, each pair of which must exactly match
+         * a pair on the desired VPC Peering Connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Mapping of tags, each pair of which must exactly match
+         * a pair on the desired VPC Peering Connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

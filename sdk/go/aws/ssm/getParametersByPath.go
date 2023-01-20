@@ -10,6 +10,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides SSM Parameters by path.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.GetParametersByPath(ctx, &ssm.GetParametersByPathArgs{
+//				Path: "/foo",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
 func GetParametersByPath(ctx *pulumi.Context, args *GetParametersByPathArgs, opts ...pulumi.InvokeOption) (*GetParametersByPathResult, error) {
 	var rv GetParametersByPathResult
 	err := ctx.Invoke("aws:ssm/getParametersByPath:getParametersByPath", args, &rv, opts...)
@@ -21,9 +50,12 @@ func GetParametersByPath(ctx *pulumi.Context, args *GetParametersByPathArgs, opt
 
 // A collection of arguments for invoking getParametersByPath.
 type GetParametersByPathArgs struct {
-	Path           string `pulumi:"path"`
-	Recursive      *bool  `pulumi:"recursive"`
-	WithDecryption *bool  `pulumi:"withDecryption"`
+	// Prefix path of the parameter.
+	Path string `pulumi:"path"`
+	// Whether to recursively return parameters under `path`. Defaults to `false`.
+	Recursive *bool `pulumi:"recursive"`
+	// Whether to return decrypted `SecureString` value. Defaults to `true`.
+	WithDecryption *bool `pulumi:"withDecryption"`
 }
 
 // A collection of values returned by getParametersByPath.
@@ -54,8 +86,11 @@ func GetParametersByPathOutput(ctx *pulumi.Context, args GetParametersByPathOutp
 
 // A collection of arguments for invoking getParametersByPath.
 type GetParametersByPathOutputArgs struct {
-	Path           pulumi.StringInput  `pulumi:"path"`
-	Recursive      pulumi.BoolPtrInput `pulumi:"recursive"`
+	// Prefix path of the parameter.
+	Path pulumi.StringInput `pulumi:"path"`
+	// Whether to recursively return parameters under `path`. Defaults to `false`.
+	Recursive pulumi.BoolPtrInput `pulumi:"recursive"`
+	// Whether to return decrypted `SecureString` value. Defaults to `true`.
 	WithDecryption pulumi.BoolPtrInput `pulumi:"withDecryption"`
 }
 

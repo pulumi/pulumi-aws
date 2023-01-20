@@ -11,9 +11,61 @@ namespace Pulumi.Aws.Iam
 {
     public static class GetInstanceProfile
     {
+        /// <summary>
+        /// This data source can be used to fetch information about a specific
+        /// IAM instance profile. By using this data source, you can reference IAM
+        /// instance profile properties without having to hard code ARNs as input.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Iam.GetInstanceProfile.Invoke(new()
+        ///     {
+        ///         Name = "an_example_instance_profile_name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetInstanceProfileResult> InvokeAsync(GetInstanceProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfileResult>("aws:iam/getInstanceProfile:getInstanceProfile", args ?? new GetInstanceProfileArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// This data source can be used to fetch information about a specific
+        /// IAM instance profile. By using this data source, you can reference IAM
+        /// instance profile properties without having to hard code ARNs as input.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Iam.GetInstanceProfile.Invoke(new()
+        ///     {
+        ///         Name = "an_example_instance_profile_name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetInstanceProfileResult> Invoke(GetInstanceProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceProfileResult>("aws:iam/getInstanceProfile:getInstanceProfile", args ?? new GetInstanceProfileInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +73,9 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetInstanceProfileArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Friendly IAM instance profile name to match.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -32,6 +87,9 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetInstanceProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Friendly IAM instance profile name to match.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -45,16 +103,34 @@ namespace Pulumi.Aws.Iam
     [OutputType]
     public sealed class GetInstanceProfileResult
     {
+        /// <summary>
+        /// ARN.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// String representation of the date the instance profile was created.
+        /// </summary>
         public readonly string CreateDate;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        /// <summary>
+        /// Path to the instance profile.
+        /// </summary>
         public readonly string Path;
+        /// <summary>
+        /// Role ARN associated with this instance profile.
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// Role ID associated with this instance profile.
+        /// </summary>
         public readonly string RoleId;
+        /// <summary>
+        /// Role name associated with this instance profile.
+        /// </summary>
         public readonly string RoleName;
 
         [OutputConstructor]

@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IndexServerSideEncryptionConfiguration {
+    /**
+     * @return The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn&#39;t support asymmetric CMKs.
+     * 
+     */
     private @Nullable String kmsKeyId;
 
     private IndexServerSideEncryptionConfiguration() {}
+    /**
+     * @return The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn&#39;t support asymmetric CMKs.
+     * 
+     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }

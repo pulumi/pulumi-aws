@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom
     {
+        /// <summary>
+        /// A map that holds custom authentication credentials.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? CredentialsMap;
+        /// <summary>
+        /// The custom authentication type that the connector uses.
+        /// </summary>
         public readonly string CustomAuthenticationType;
 
         [OutputConstructor]

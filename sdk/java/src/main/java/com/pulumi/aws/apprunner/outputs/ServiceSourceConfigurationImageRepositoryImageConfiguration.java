@@ -12,17 +12,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceSourceConfigurationImageRepositoryImageConfiguration {
+    /**
+     * @return Port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
+     * 
+     */
     private @Nullable String port;
+    /**
+     * @return Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren&#39;t valid.
+     * 
+     */
     private @Nullable Map<String,String> runtimeEnvironmentVariables;
+    /**
+     * @return Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
+     * 
+     */
     private @Nullable String startCommand;
 
     private ServiceSourceConfigurationImageRepositoryImageConfiguration() {}
+    /**
+     * @return Port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
+     * 
+     */
     public Optional<String> port() {
         return Optional.ofNullable(this.port);
     }
+    /**
+     * @return Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren&#39;t valid.
+     * 
+     */
     public Map<String,String> runtimeEnvironmentVariables() {
         return this.runtimeEnvironmentVariables == null ? Map.of() : this.runtimeEnvironmentVariables;
     }
+    /**
+     * @return Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
+     * 
+     */
     public Optional<String> startCommand() {
         return Optional.ofNullable(this.startCommand);
     }

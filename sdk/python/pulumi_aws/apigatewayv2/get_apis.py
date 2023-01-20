@@ -49,6 +49,9 @@ class GetApisResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
+        """
+        Set of API identifiers.
+        """
         return pulumi.get(self, "ids")
 
     @property
@@ -85,7 +88,22 @@ def get_apis(name: Optional[str] = None,
              tags: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApisResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about multiple Amazon API Gateway Version 2 APIs.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.apigatewayv2.get_apis(protocol_type="HTTP")
+    ```
+
+
+    :param str name: API name.
+    :param str protocol_type: API protocol.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
+           a pair on the desired APIs.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -108,6 +126,21 @@ def get_apis_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApisResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about multiple Amazon API Gateway Version 2 APIs.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.apigatewayv2.get_apis(protocol_type="HTTP")
+    ```
+
+
+    :param str name: API name.
+    :param str protocol_type: API protocol.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
+           a pair on the desired APIs.
     """
     ...

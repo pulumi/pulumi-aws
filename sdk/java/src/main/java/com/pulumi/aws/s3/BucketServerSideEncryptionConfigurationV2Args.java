@@ -17,23 +17,47 @@ public final class BucketServerSideEncryptionConfigurationV2Args extends com.pul
 
     public static final BucketServerSideEncryptionConfigurationV2Args Empty = new BucketServerSideEncryptionConfigurationV2Args();
 
+    /**
+     * The name of the bucket.
+     * 
+     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
+    /**
+     * @return The name of the bucket.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
+    /**
+     * The account ID of the expected bucket owner.
+     * 
+     */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
+    /**
+     * @return The account ID of the expected bucket owner.
+     * 
+     */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
 
+    /**
+     * Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+     * 
+     */
     @Import(name="rules", required=true)
     private Output<List<BucketServerSideEncryptionConfigurationV2RuleArgs>> rules;
 
+    /**
+     * @return Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+     * 
+     */
     public Output<List<BucketServerSideEncryptionConfigurationV2RuleArgs>> rules() {
         return this.rules;
     }
@@ -64,33 +88,75 @@ public final class BucketServerSideEncryptionConfigurationV2Args extends com.pul
             $ = new BucketServerSideEncryptionConfigurationV2Args(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucket The name of the bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
+        /**
+         * @param bucket The name of the bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
 
+        /**
+         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }
 
+        /**
+         * @param rules Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rules(Output<List<BucketServerSideEncryptionConfigurationV2RuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
 
+        /**
+         * @param rules Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rules(List<BucketServerSideEncryptionConfigurationV2RuleArgs> rules) {
             return rules(Output.of(rules));
         }
 
+        /**
+         * @param rules Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rules(BucketServerSideEncryptionConfigurationV2RuleArgs... rules) {
             return rules(List.of(rules));
         }

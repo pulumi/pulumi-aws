@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterBrokerNodeGroupInfoStorageInfo {
+    /**
+     * @return A block that contains EBS volume information. See below.
+     * 
+     */
     private @Nullable ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo ebsStorageInfo;
 
     private ClusterBrokerNodeGroupInfoStorageInfo() {}
+    /**
+     * @return A block that contains EBS volume information. See below.
+     * 
+     */
     public Optional<ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo> ebsStorageInfo() {
         return Optional.ofNullable(this.ebsStorageInfo);
     }

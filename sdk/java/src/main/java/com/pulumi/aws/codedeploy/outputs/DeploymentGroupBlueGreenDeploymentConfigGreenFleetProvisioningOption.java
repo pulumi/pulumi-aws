@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption {
+    /**
+     * @return The method used to add instances to a replacement environment.
+     * 
+     */
     private @Nullable String action;
 
     private DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption() {}
+    /**
+     * @return The method used to add instances to a replacement environment.
+     * 
+     */
     public Optional<String> action() {
         return Optional.ofNullable(this.action);
     }

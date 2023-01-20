@@ -18,16 +18,32 @@ public final class GetDedicatedHostArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetDedicatedHostArgs Empty = new GetDedicatedHostArgs();
 
+    /**
+     * Configuration block. Detailed below.
+     * 
+     */
     @Import(name="filters")
     private @Nullable Output<List<GetDedicatedHostFilterArgs>> filters;
 
+    /**
+     * @return Configuration block. Detailed below.
+     * 
+     */
     public Optional<Output<List<GetDedicatedHostFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
+    /**
+     * ID of the Dedicated Host.
+     * 
+     */
     @Import(name="hostId")
     private @Nullable Output<String> hostId;
 
+    /**
+     * @return ID of the Dedicated Host.
+     * 
+     */
     public Optional<Output<String>> hostId() {
         return Optional.ofNullable(this.hostId);
     }
@@ -65,24 +81,54 @@ public final class GetDedicatedHostArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetDedicatedHostArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filters Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable Output<List<GetDedicatedHostFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(List<GetDedicatedHostFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
+        /**
+         * @param filters Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(GetDedicatedHostFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
+        /**
+         * @param hostId ID of the Dedicated Host.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hostId(@Nullable Output<String> hostId) {
             $.hostId = hostId;
             return this;
         }
 
+        /**
+         * @param hostId ID of the Dedicated Host.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hostId(String hostId) {
             return hostId(Output.of(hostId));
         }

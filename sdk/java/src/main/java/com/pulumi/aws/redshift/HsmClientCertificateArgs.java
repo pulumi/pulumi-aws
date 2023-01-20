@@ -16,16 +16,32 @@ public final class HsmClientCertificateArgs extends com.pulumi.resources.Resourc
 
     public static final HsmClientCertificateArgs Empty = new HsmClientCertificateArgs();
 
+    /**
+     * The identifier of the HSM client certificate.
+     * 
+     */
     @Import(name="hsmClientCertificateIdentifier", required=true)
     private Output<String> hsmClientCertificateIdentifier;
 
+    /**
+     * @return The identifier of the HSM client certificate.
+     * 
+     */
     public Output<String> hsmClientCertificateIdentifier() {
         return this.hsmClientCertificateIdentifier;
     }
 
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -55,20 +71,44 @@ public final class HsmClientCertificateArgs extends com.pulumi.resources.Resourc
             $ = new HsmClientCertificateArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param hsmClientCertificateIdentifier The identifier of the HSM client certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hsmClientCertificateIdentifier(Output<String> hsmClientCertificateIdentifier) {
             $.hsmClientCertificateIdentifier = hsmClientCertificateIdentifier;
             return this;
         }
 
+        /**
+         * @param hsmClientCertificateIdentifier The identifier of the HSM client certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hsmClientCertificateIdentifier(String hsmClientCertificateIdentifier) {
             return hsmClientCertificateIdentifier(Output.of(hsmClientCertificateIdentifier));
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

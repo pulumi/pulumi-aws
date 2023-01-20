@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceServiceConnectConfigurationLogConfigurationSecretOption {
+    /**
+     * @return The name of the secret.
+     * 
+     */
     private String name;
+    /**
+     * @return The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+     * 
+     */
     private String valueFrom;
 
     private ServiceServiceConnectConfigurationLogConfigurationSecretOption() {}
+    /**
+     * @return The name of the secret.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+     * 
+     */
     public String valueFrom() {
         return this.valueFrom;
     }

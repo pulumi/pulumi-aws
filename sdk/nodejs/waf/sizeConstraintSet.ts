@@ -7,6 +7,33 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a WAF Size Constraint Set Resource
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const sizeConstraintSet = new aws.waf.SizeConstraintSet("sizeConstraintSet", {sizeConstraints: [{
+ *     comparisonOperator: "EQ",
+ *     fieldToMatch: {
+ *         type: "BODY",
+ *     },
+ *     size: 4096,
+ *     textTransformation: "NONE",
+ * }]});
+ * ```
+ *
+ * ## Import
+ *
+ * AWS WAF Size Constraint Set can be imported using their ID, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:waf/sizeConstraintSet:SizeConstraintSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * ```
+ */
 export class SizeConstraintSet extends pulumi.CustomResource {
     /**
      * Get an existing SizeConstraintSet resource's state with the given name, ID, and optional extra
@@ -35,8 +62,17 @@ export class SizeConstraintSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === SizeConstraintSet.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name (ARN)
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name or description of the Size Constraint Set.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies the parts of web requests that you want to inspect the size of.
+     */
     public readonly sizeConstraints!: pulumi.Output<outputs.waf.SizeConstraintSetSizeConstraint[] | undefined>;
 
     /**
@@ -70,8 +106,17 @@ export class SizeConstraintSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SizeConstraintSet resources.
  */
 export interface SizeConstraintSetState {
+    /**
+     * Amazon Resource Name (ARN)
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The name or description of the Size Constraint Set.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the parts of web requests that you want to inspect the size of.
+     */
     sizeConstraints?: pulumi.Input<pulumi.Input<inputs.waf.SizeConstraintSetSizeConstraint>[]>;
 }
 
@@ -79,6 +124,12 @@ export interface SizeConstraintSetState {
  * The set of arguments for constructing a SizeConstraintSet resource.
  */
 export interface SizeConstraintSetArgs {
+    /**
+     * The name or description of the Size Constraint Set.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the parts of web requests that you want to inspect the size of.
+     */
     sizeConstraints?: pulumi.Input<pulumi.Input<inputs.waf.SizeConstraintSetSizeConstraint>[]>;
 }

@@ -35,6 +35,31 @@ class IntegrationArgs:
                  uri: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Integration resource.
+        :param pulumi.Input[str] http_method: HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
+               when calling the associated resource.
+        :param pulumi.Input[str] resource_id: API resource ID.
+        :param pulumi.Input[str] rest_api: ID of the associated REST API.
+        :param pulumi.Input[str] type: Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cache_key_parameters: List of cache key parameters for the integration.
+        :param pulumi.Input[str] cache_namespace: Integration's cache namespace.
+        :param pulumi.Input[str] connection_id: ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+        :param pulumi.Input[str] connection_type: Integration input's [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
+        :param pulumi.Input[str] content_handling: How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
+        :param pulumi.Input[str] credentials: Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\\*:user/\\*`.
+        :param pulumi.Input[str] integration_http_method: Integration HTTP method
+               (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONs`, `ANY`, `PATCH`) specifying how API Gateway will interact with the back end.
+               **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
+               Not all methods are compatible with all `AWS` integrations.
+               e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
+        :param pulumi.Input[str] passthrough_behavior: Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_parameters: Map of request query string parameters and headers that should be passed to the backend responder.
+               For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_templates: Map of the integration's request templates.
+        :param pulumi.Input[int] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+        :param pulumi.Input['IntegrationTlsConfigArgs'] tls_config: TLS configuration. See below.
+        :param pulumi.Input[str] uri: Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
+               For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
+               e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
         """
         pulumi.set(__self__, "http_method", http_method)
         pulumi.set(__self__, "resource_id", resource_id)
@@ -70,6 +95,10 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> pulumi.Input[str]:
+        """
+        HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
+        when calling the associated resource.
+        """
         return pulumi.get(self, "http_method")
 
     @http_method.setter
@@ -79,6 +108,9 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[str]:
+        """
+        API resource ID.
+        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -88,6 +120,9 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Input[str]:
+        """
+        ID of the associated REST API.
+        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -97,6 +132,9 @@ class IntegrationArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -106,6 +144,9 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="cacheKeyParameters")
     def cache_key_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of cache key parameters for the integration.
+        """
         return pulumi.get(self, "cache_key_parameters")
 
     @cache_key_parameters.setter
@@ -115,6 +156,9 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="cacheNamespace")
     def cache_namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        Integration's cache namespace.
+        """
         return pulumi.get(self, "cache_namespace")
 
     @cache_namespace.setter
@@ -124,6 +168,9 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="connectionId")
     def connection_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+        """
         return pulumi.get(self, "connection_id")
 
     @connection_id.setter
@@ -133,6 +180,9 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Integration input's [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
+        """
         return pulumi.get(self, "connection_type")
 
     @connection_type.setter
@@ -142,6 +192,9 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="contentHandling")
     def content_handling(self) -> Optional[pulumi.Input[str]]:
+        """
+        How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
+        """
         return pulumi.get(self, "content_handling")
 
     @content_handling.setter
@@ -151,6 +204,9 @@ class IntegrationArgs:
     @property
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input[str]]:
+        """
+        Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\\*:user/\\*`.
+        """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
@@ -160,6 +216,13 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="integrationHttpMethod")
     def integration_http_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        Integration HTTP method
+        (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONs`, `ANY`, `PATCH`) specifying how API Gateway will interact with the back end.
+        **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
+        Not all methods are compatible with all `AWS` integrations.
+        e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
+        """
         return pulumi.get(self, "integration_http_method")
 
     @integration_http_method.setter
@@ -169,6 +232,9 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="passthroughBehavior")
     def passthrough_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+        """
         return pulumi.get(self, "passthrough_behavior")
 
     @passthrough_behavior.setter
@@ -178,6 +244,10 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of request query string parameters and headers that should be passed to the backend responder.
+        For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
+        """
         return pulumi.get(self, "request_parameters")
 
     @request_parameters.setter
@@ -187,6 +257,9 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="requestTemplates")
     def request_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of the integration's request templates.
+        """
         return pulumi.get(self, "request_templates")
 
     @request_templates.setter
@@ -196,6 +269,9 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="timeoutMilliseconds")
     def timeout_milliseconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+        """
         return pulumi.get(self, "timeout_milliseconds")
 
     @timeout_milliseconds.setter
@@ -205,6 +281,9 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="tlsConfig")
     def tls_config(self) -> Optional[pulumi.Input['IntegrationTlsConfigArgs']]:
+        """
+        TLS configuration. See below.
+        """
         return pulumi.get(self, "tls_config")
 
     @tls_config.setter
@@ -214,6 +293,11 @@ class IntegrationArgs:
     @property
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
+        For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
+        e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
+        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -243,6 +327,31 @@ class _IntegrationState:
                  uri: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Integration resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cache_key_parameters: List of cache key parameters for the integration.
+        :param pulumi.Input[str] cache_namespace: Integration's cache namespace.
+        :param pulumi.Input[str] connection_id: ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+        :param pulumi.Input[str] connection_type: Integration input's [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
+        :param pulumi.Input[str] content_handling: How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
+        :param pulumi.Input[str] credentials: Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\\*:user/\\*`.
+        :param pulumi.Input[str] http_method: HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
+               when calling the associated resource.
+        :param pulumi.Input[str] integration_http_method: Integration HTTP method
+               (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONs`, `ANY`, `PATCH`) specifying how API Gateway will interact with the back end.
+               **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
+               Not all methods are compatible with all `AWS` integrations.
+               e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
+        :param pulumi.Input[str] passthrough_behavior: Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_parameters: Map of request query string parameters and headers that should be passed to the backend responder.
+               For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_templates: Map of the integration's request templates.
+        :param pulumi.Input[str] resource_id: API resource ID.
+        :param pulumi.Input[str] rest_api: ID of the associated REST API.
+        :param pulumi.Input[int] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+        :param pulumi.Input['IntegrationTlsConfigArgs'] tls_config: TLS configuration. See below.
+        :param pulumi.Input[str] type: Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+        :param pulumi.Input[str] uri: Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
+               For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
+               e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
         """
         if cache_key_parameters is not None:
             pulumi.set(__self__, "cache_key_parameters", cache_key_parameters)
@@ -282,6 +391,9 @@ class _IntegrationState:
     @property
     @pulumi.getter(name="cacheKeyParameters")
     def cache_key_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of cache key parameters for the integration.
+        """
         return pulumi.get(self, "cache_key_parameters")
 
     @cache_key_parameters.setter
@@ -291,6 +403,9 @@ class _IntegrationState:
     @property
     @pulumi.getter(name="cacheNamespace")
     def cache_namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        Integration's cache namespace.
+        """
         return pulumi.get(self, "cache_namespace")
 
     @cache_namespace.setter
@@ -300,6 +415,9 @@ class _IntegrationState:
     @property
     @pulumi.getter(name="connectionId")
     def connection_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+        """
         return pulumi.get(self, "connection_id")
 
     @connection_id.setter
@@ -309,6 +427,9 @@ class _IntegrationState:
     @property
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Integration input's [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
+        """
         return pulumi.get(self, "connection_type")
 
     @connection_type.setter
@@ -318,6 +439,9 @@ class _IntegrationState:
     @property
     @pulumi.getter(name="contentHandling")
     def content_handling(self) -> Optional[pulumi.Input[str]]:
+        """
+        How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
+        """
         return pulumi.get(self, "content_handling")
 
     @content_handling.setter
@@ -327,6 +451,9 @@ class _IntegrationState:
     @property
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input[str]]:
+        """
+        Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\\*:user/\\*`.
+        """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
@@ -336,6 +463,10 @@ class _IntegrationState:
     @property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
+        when calling the associated resource.
+        """
         return pulumi.get(self, "http_method")
 
     @http_method.setter
@@ -345,6 +476,13 @@ class _IntegrationState:
     @property
     @pulumi.getter(name="integrationHttpMethod")
     def integration_http_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        Integration HTTP method
+        (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONs`, `ANY`, `PATCH`) specifying how API Gateway will interact with the back end.
+        **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
+        Not all methods are compatible with all `AWS` integrations.
+        e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
+        """
         return pulumi.get(self, "integration_http_method")
 
     @integration_http_method.setter
@@ -354,6 +492,9 @@ class _IntegrationState:
     @property
     @pulumi.getter(name="passthroughBehavior")
     def passthrough_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+        """
         return pulumi.get(self, "passthrough_behavior")
 
     @passthrough_behavior.setter
@@ -363,6 +504,10 @@ class _IntegrationState:
     @property
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of request query string parameters and headers that should be passed to the backend responder.
+        For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
+        """
         return pulumi.get(self, "request_parameters")
 
     @request_parameters.setter
@@ -372,6 +517,9 @@ class _IntegrationState:
     @property
     @pulumi.getter(name="requestTemplates")
     def request_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of the integration's request templates.
+        """
         return pulumi.get(self, "request_templates")
 
     @request_templates.setter
@@ -381,6 +529,9 @@ class _IntegrationState:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        API resource ID.
+        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -390,6 +541,9 @@ class _IntegrationState:
     @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the associated REST API.
+        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -399,6 +553,9 @@ class _IntegrationState:
     @property
     @pulumi.getter(name="timeoutMilliseconds")
     def timeout_milliseconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+        """
         return pulumi.get(self, "timeout_milliseconds")
 
     @timeout_milliseconds.setter
@@ -408,6 +565,9 @@ class _IntegrationState:
     @property
     @pulumi.getter(name="tlsConfig")
     def tls_config(self) -> Optional[pulumi.Input['IntegrationTlsConfigArgs']]:
+        """
+        TLS configuration. See below.
+        """
         return pulumi.get(self, "tls_config")
 
     @tls_config.setter
@@ -417,6 +577,9 @@ class _IntegrationState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -426,6 +589,11 @@ class _IntegrationState:
     @property
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
+        For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
+        e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
+        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -457,9 +625,132 @@ class Integration(pulumi.CustomResource):
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Integration resource with the given unique name, props, and options.
+        Provides an HTTP Method Integration for an API Gateway Integration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
+        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+            rest_api=my_demo_api.id,
+            parent_id=my_demo_api.root_resource_id,
+            path_part="mydemoresource")
+        my_demo_method = aws.apigateway.Method("myDemoMethod",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method="GET",
+            authorization="NONE")
+        my_demo_integration = aws.apigateway.Integration("myDemoIntegration",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method=my_demo_method.http_method,
+            type="MOCK",
+            cache_key_parameters=["method.request.path.param"],
+            cache_namespace="foobar",
+            timeout_milliseconds=29000,
+            request_parameters={
+                "integration.request.header.X-Authorization": "'static'",
+            },
+            request_templates={
+                "application/xml": \"\"\"{
+           "body" : $input.json('$')
+        }
+        \"\"\",
+            })
+        ```
+        ## Lambda integration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        config = pulumi.Config()
+        myregion = config.require_object("myregion")
+        account_id = config.require_object("accountId")
+        # API Gateway
+        api = aws.apigateway.RestApi("api")
+        resource = aws.apigateway.Resource("resource",
+            path_part="resource",
+            parent_id=api.root_resource_id,
+            rest_api=api.id)
+        method = aws.apigateway.Method("method",
+            rest_api=api.id,
+            resource_id=resource.id,
+            http_method="GET",
+            authorization="NONE")
+        # IAM
+        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+        \"\"\")
+        lambda_ = aws.lambda_.Function("lambda",
+            code=pulumi.FileArchive("lambda.zip"),
+            role=role.arn,
+            handler="lambda.lambda_handler",
+            runtime="python3.7")
+        integration = aws.apigateway.Integration("integration",
+            rest_api=api.id,
+            resource_id=resource.id,
+            http_method=method.http_method,
+            integration_http_method="POST",
+            type="AWS_PROXY",
+            uri=lambda_.invoke_arn)
+        # Lambda
+        apigw_lambda = aws.lambda_.Permission("apigwLambda",
+            action="lambda:InvokeFunction",
+            function=lambda_.name,
+            principal="apigateway.amazonaws.com",
+            source_arn=pulumi.Output.all(api.id, method.http_method, resource.path).apply(lambda id, http_method, path: f"arn:aws:execute-api:{myregion}:{account_id}:{id}/*/{http_method}{path}"))
+        ```
+
+        ## Import
+
+        `aws_api_gateway_integration` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`, e.g.,
+
+        ```sh
+         $ pulumi import aws:apigateway/integration:Integration example 12345abcde/67890fghij/GET
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cache_key_parameters: List of cache key parameters for the integration.
+        :param pulumi.Input[str] cache_namespace: Integration's cache namespace.
+        :param pulumi.Input[str] connection_id: ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+        :param pulumi.Input[str] connection_type: Integration input's [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
+        :param pulumi.Input[str] content_handling: How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
+        :param pulumi.Input[str] credentials: Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\\*:user/\\*`.
+        :param pulumi.Input[str] http_method: HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
+               when calling the associated resource.
+        :param pulumi.Input[str] integration_http_method: Integration HTTP method
+               (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONs`, `ANY`, `PATCH`) specifying how API Gateway will interact with the back end.
+               **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
+               Not all methods are compatible with all `AWS` integrations.
+               e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
+        :param pulumi.Input[str] passthrough_behavior: Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_parameters: Map of request query string parameters and headers that should be passed to the backend responder.
+               For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_templates: Map of the integration's request templates.
+        :param pulumi.Input[str] resource_id: API resource ID.
+        :param pulumi.Input[str] rest_api: ID of the associated REST API.
+        :param pulumi.Input[int] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+        :param pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']] tls_config: TLS configuration. See below.
+        :param pulumi.Input[str] type: Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+        :param pulumi.Input[str] uri: Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
+               For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
+               e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
         """
         ...
     @overload
@@ -468,7 +759,105 @@ class Integration(pulumi.CustomResource):
                  args: IntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Integration resource with the given unique name, props, and options.
+        Provides an HTTP Method Integration for an API Gateway Integration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
+        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+            rest_api=my_demo_api.id,
+            parent_id=my_demo_api.root_resource_id,
+            path_part="mydemoresource")
+        my_demo_method = aws.apigateway.Method("myDemoMethod",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method="GET",
+            authorization="NONE")
+        my_demo_integration = aws.apigateway.Integration("myDemoIntegration",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method=my_demo_method.http_method,
+            type="MOCK",
+            cache_key_parameters=["method.request.path.param"],
+            cache_namespace="foobar",
+            timeout_milliseconds=29000,
+            request_parameters={
+                "integration.request.header.X-Authorization": "'static'",
+            },
+            request_templates={
+                "application/xml": \"\"\"{
+           "body" : $input.json('$')
+        }
+        \"\"\",
+            })
+        ```
+        ## Lambda integration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        config = pulumi.Config()
+        myregion = config.require_object("myregion")
+        account_id = config.require_object("accountId")
+        # API Gateway
+        api = aws.apigateway.RestApi("api")
+        resource = aws.apigateway.Resource("resource",
+            path_part="resource",
+            parent_id=api.root_resource_id,
+            rest_api=api.id)
+        method = aws.apigateway.Method("method",
+            rest_api=api.id,
+            resource_id=resource.id,
+            http_method="GET",
+            authorization="NONE")
+        # IAM
+        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+        \"\"\")
+        lambda_ = aws.lambda_.Function("lambda",
+            code=pulumi.FileArchive("lambda.zip"),
+            role=role.arn,
+            handler="lambda.lambda_handler",
+            runtime="python3.7")
+        integration = aws.apigateway.Integration("integration",
+            rest_api=api.id,
+            resource_id=resource.id,
+            http_method=method.http_method,
+            integration_http_method="POST",
+            type="AWS_PROXY",
+            uri=lambda_.invoke_arn)
+        # Lambda
+        apigw_lambda = aws.lambda_.Permission("apigwLambda",
+            action="lambda:InvokeFunction",
+            function=lambda_.name,
+            principal="apigateway.amazonaws.com",
+            source_arn=pulumi.Output.all(api.id, method.http_method, resource.path).apply(lambda id, http_method, path: f"arn:aws:execute-api:{myregion}:{account_id}:{id}/*/{http_method}{path}"))
+        ```
+
+        ## Import
+
+        `aws_api_gateway_integration` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`, e.g.,
+
+        ```sh
+         $ pulumi import aws:apigateway/integration:Integration example 12345abcde/67890fghij/GET
+        ```
+
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -569,6 +958,31 @@ class Integration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cache_key_parameters: List of cache key parameters for the integration.
+        :param pulumi.Input[str] cache_namespace: Integration's cache namespace.
+        :param pulumi.Input[str] connection_id: ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+        :param pulumi.Input[str] connection_type: Integration input's [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
+        :param pulumi.Input[str] content_handling: How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
+        :param pulumi.Input[str] credentials: Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\\*:user/\\*`.
+        :param pulumi.Input[str] http_method: HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
+               when calling the associated resource.
+        :param pulumi.Input[str] integration_http_method: Integration HTTP method
+               (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONs`, `ANY`, `PATCH`) specifying how API Gateway will interact with the back end.
+               **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
+               Not all methods are compatible with all `AWS` integrations.
+               e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
+        :param pulumi.Input[str] passthrough_behavior: Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_parameters: Map of request query string parameters and headers that should be passed to the backend responder.
+               For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_templates: Map of the integration's request templates.
+        :param pulumi.Input[str] resource_id: API resource ID.
+        :param pulumi.Input[str] rest_api: ID of the associated REST API.
+        :param pulumi.Input[int] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+        :param pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']] tls_config: TLS configuration. See below.
+        :param pulumi.Input[str] type: Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+        :param pulumi.Input[str] uri: Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
+               For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
+               e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -596,85 +1010,144 @@ class Integration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cacheKeyParameters")
     def cache_key_parameters(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of cache key parameters for the integration.
+        """
         return pulumi.get(self, "cache_key_parameters")
 
     @property
     @pulumi.getter(name="cacheNamespace")
     def cache_namespace(self) -> pulumi.Output[str]:
+        """
+        Integration's cache namespace.
+        """
         return pulumi.get(self, "cache_namespace")
 
     @property
     @pulumi.getter(name="connectionId")
     def connection_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+        """
         return pulumi.get(self, "connection_id")
 
     @property
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Integration input's [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
+        """
         return pulumi.get(self, "connection_type")
 
     @property
     @pulumi.getter(name="contentHandling")
     def content_handling(self) -> pulumi.Output[Optional[str]]:
+        """
+        How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
+        """
         return pulumi.get(self, "content_handling")
 
     @property
     @pulumi.getter
     def credentials(self) -> pulumi.Output[Optional[str]]:
+        """
+        Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\\*:user/\\*`.
+        """
         return pulumi.get(self, "credentials")
 
     @property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> pulumi.Output[str]:
+        """
+        HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
+        when calling the associated resource.
+        """
         return pulumi.get(self, "http_method")
 
     @property
     @pulumi.getter(name="integrationHttpMethod")
     def integration_http_method(self) -> pulumi.Output[Optional[str]]:
+        """
+        Integration HTTP method
+        (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONs`, `ANY`, `PATCH`) specifying how API Gateway will interact with the back end.
+        **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
+        Not all methods are compatible with all `AWS` integrations.
+        e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
+        """
         return pulumi.get(self, "integration_http_method")
 
     @property
     @pulumi.getter(name="passthroughBehavior")
     def passthrough_behavior(self) -> pulumi.Output[str]:
+        """
+        Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+        """
         return pulumi.get(self, "passthrough_behavior")
 
     @property
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of request query string parameters and headers that should be passed to the backend responder.
+        For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
+        """
         return pulumi.get(self, "request_parameters")
 
     @property
     @pulumi.getter(name="requestTemplates")
     def request_templates(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of the integration's request templates.
+        """
         return pulumi.get(self, "request_templates")
 
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
+        """
+        API resource ID.
+        """
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Output[str]:
+        """
+        ID of the associated REST API.
+        """
         return pulumi.get(self, "rest_api")
 
     @property
     @pulumi.getter(name="timeoutMilliseconds")
     def timeout_milliseconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+        """
         return pulumi.get(self, "timeout_milliseconds")
 
     @property
     @pulumi.getter(name="tlsConfig")
     def tls_config(self) -> pulumi.Output[Optional['outputs.IntegrationTlsConfig']]:
+        """
+        TLS configuration. See below.
+        """
         return pulumi.get(self, "tls_config")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def uri(self) -> pulumi.Output[Optional[str]]:
+        """
+        Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
+        For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
+        e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
+        """
         return pulumi.get(self, "uri")
 

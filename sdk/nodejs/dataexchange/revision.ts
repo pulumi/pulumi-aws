@@ -4,6 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a resource to manage AWS Data Exchange Revisions.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.dataexchange.Revision("example", {dataSetId: aws_dataexchange_data_set.example.id});
+ * ```
+ *
+ * ## Import
+ *
+ * DataExchange Revisions can be imported by their `data-set-id:revision-id`
+ *
+ * ```sh
+ *  $ pulumi import aws:dataexchange/revision:Revision example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+ * ```
+ */
 export class Revision extends pulumi.CustomResource {
     /**
      * Get an existing Revision resource's state with the given name, ID, and optional extra
@@ -32,11 +52,29 @@ export class Revision extends pulumi.CustomResource {
         return obj['__pulumiType'] === Revision.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name of this data set.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * An optional comment about the revision.
+     */
     public readonly comment!: pulumi.Output<string | undefined>;
+    /**
+     * The dataset id.
+     */
     public readonly dataSetId!: pulumi.Output<string>;
+    /**
+     * The Id of the revision.
+     */
     public /*out*/ readonly revisionId!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -79,11 +117,29 @@ export class Revision extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Revision resources.
  */
 export interface RevisionState {
+    /**
+     * The Amazon Resource Name of this data set.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * An optional comment about the revision.
+     */
     comment?: pulumi.Input<string>;
+    /**
+     * The dataset id.
+     */
     dataSetId?: pulumi.Input<string>;
+    /**
+     * The Id of the revision.
+     */
     revisionId?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -91,7 +147,16 @@ export interface RevisionState {
  * The set of arguments for constructing a Revision resource.
  */
 export interface RevisionArgs {
+    /**
+     * An optional comment about the revision.
+     */
     comment?: pulumi.Input<string>;
+    /**
+     * The dataset id.
+     */
     dataSetId: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -10,26 +10,62 @@ import java.util.Objects;
 
 @CustomType
 public final class GetWorkspaceResult {
+    /**
+     * @return Prometheus workspace alias.
+     * 
+     */
     private String alias;
+    /**
+     * @return ARN of the Prometheus workspace.
+     * 
+     */
     private String arn;
+    /**
+     * @return Creation date of the Prometheus workspace.
+     * 
+     */
     private String createdDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Endpoint of the Prometheus workspace.
+     * 
+     */
     private String prometheusEndpoint;
+    /**
+     * @return Status of the Prometheus workspace.
+     * 
+     */
     private String status;
+    /**
+     * @return Tags assigned to the resource.
+     * 
+     */
     private Map<String,String> tags;
     private String workspaceId;
 
     private GetWorkspaceResult() {}
+    /**
+     * @return Prometheus workspace alias.
+     * 
+     */
     public String alias() {
         return this.alias;
     }
+    /**
+     * @return ARN of the Prometheus workspace.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Creation date of the Prometheus workspace.
+     * 
+     */
     public String createdDate() {
         return this.createdDate;
     }
@@ -40,12 +76,24 @@ public final class GetWorkspaceResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Endpoint of the Prometheus workspace.
+     * 
+     */
     public String prometheusEndpoint() {
         return this.prometheusEndpoint;
     }
+    /**
+     * @return Status of the Prometheus workspace.
+     * 
+     */
     public String status() {
         return this.status;
     }
+    /**
+     * @return Tags assigned to the resource.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }

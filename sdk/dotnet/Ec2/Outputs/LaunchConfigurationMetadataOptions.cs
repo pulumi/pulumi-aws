@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class LaunchConfigurationMetadataOptions
     {
+        /// <summary>
+        /// The state of the metadata service: `enabled`, `disabled`.
+        /// </summary>
         public readonly string? HttpEndpoint;
+        /// <summary>
+        /// The desired HTTP PUT response hop limit for instance metadata requests.
+        /// </summary>
         public readonly int? HttpPutResponseHopLimit;
+        /// <summary>
+        /// If session tokens are required: `optional`, `required`.
+        /// </summary>
         public readonly string? HttpTokens;
 
         [OutputConstructor]

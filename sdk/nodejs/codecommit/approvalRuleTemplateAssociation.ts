@@ -4,6 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Associates a CodeCommit Approval Rule Template with a Repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.codecommit.ApprovalRuleTemplateAssociation("example", {
+ *     approvalRuleTemplateName: aws_codecommit_approval_rule_template.example.name,
+ *     repositoryName: aws_codecommit_repository.example.repository_name,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * CodeCommit approval rule template associations can be imported using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`), e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
+ * ```
+ */
 export class ApprovalRuleTemplateAssociation extends pulumi.CustomResource {
     /**
      * Get an existing ApprovalRuleTemplateAssociation resource's state with the given name, ID, and optional extra
@@ -32,7 +55,13 @@ export class ApprovalRuleTemplateAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApprovalRuleTemplateAssociation.__pulumiType;
     }
 
+    /**
+     * The name for the approval rule template.
+     */
     public readonly approvalRuleTemplateName!: pulumi.Output<string>;
+    /**
+     * The name of the repository that you want to associate with the template.
+     */
     public readonly repositoryName!: pulumi.Output<string>;
 
     /**
@@ -70,7 +99,13 @@ export class ApprovalRuleTemplateAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ApprovalRuleTemplateAssociation resources.
  */
 export interface ApprovalRuleTemplateAssociationState {
+    /**
+     * The name for the approval rule template.
+     */
     approvalRuleTemplateName?: pulumi.Input<string>;
+    /**
+     * The name of the repository that you want to associate with the template.
+     */
     repositoryName?: pulumi.Input<string>;
 }
 
@@ -78,6 +113,12 @@ export interface ApprovalRuleTemplateAssociationState {
  * The set of arguments for constructing a ApprovalRuleTemplateAssociation resource.
  */
 export interface ApprovalRuleTemplateAssociationArgs {
+    /**
+     * The name for the approval rule template.
+     */
     approvalRuleTemplateName: pulumi.Input<string>;
+    /**
+     * The name of the repository that you want to associate with the template.
+     */
     repositoryName: pulumi.Input<string>;
 }

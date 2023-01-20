@@ -9,12 +9,80 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ssm
 {
+    /// <summary>
+    /// Resource for registering an AWS Systems Manager Default Patch Baseline.
+    /// 
+    /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var examplePatchBaseline = new Aws.Ssm.PatchBaseline("examplePatchBaseline", new()
+    ///     {
+    ///         ApprovedPatches = new[]
+    ///         {
+    ///             "KB123456",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDefaultPatchBaseline = new Aws.Ssm.DefaultPatchBaseline("exampleDefaultPatchBaseline", new()
+    ///     {
+    ///         BaselineId = examplePatchBaseline.Id,
+    ///         OperatingSystem = examplePatchBaseline.OperatingSystem,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// The Systems Manager Default Patch Baseline can be imported using the patch baseline ID, patch baseline ARN, or the operating system value, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
+    /// ```
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
+    /// ```
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:ssm/defaultPatchBaseline:DefaultPatchBaseline")]
     public partial class DefaultPatchBaseline : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ID of the patch baseline.
+        /// Can be an ID or an ARN.
+        /// When specifying an AWS-provided patch baseline, must be the ARN.
+        /// </summary>
         [Output("baselineId")]
         public Output<string> BaselineId { get; private set; } = null!;
 
+        /// <summary>
+        /// The operating system the patch baseline applies to.
+        /// Valid values are
+        /// `AMAZON_LINUX`,
+        /// `AMAZON_LINUX_2`,
+        /// `AMAZON_LINUX_2022`,
+        /// `CENTOS`,
+        /// `DEBIAN`,
+        /// `MACOS`,
+        /// `ORACLE_LINUX`,
+        /// `RASPBIAN`,
+        /// `REDHAT_ENTERPRISE_LINUX`,
+        /// `ROCKY_LINUX`,
+        /// `SUSE`,
+        /// `UBUNTU`, and
+        /// `WINDOWS`.
+        /// </summary>
         [Output("operatingSystem")]
         public Output<string> OperatingSystem { get; private set; } = null!;
 
@@ -64,9 +132,31 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class DefaultPatchBaselineArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ID of the patch baseline.
+        /// Can be an ID or an ARN.
+        /// When specifying an AWS-provided patch baseline, must be the ARN.
+        /// </summary>
         [Input("baselineId", required: true)]
         public Input<string> BaselineId { get; set; } = null!;
 
+        /// <summary>
+        /// The operating system the patch baseline applies to.
+        /// Valid values are
+        /// `AMAZON_LINUX`,
+        /// `AMAZON_LINUX_2`,
+        /// `AMAZON_LINUX_2022`,
+        /// `CENTOS`,
+        /// `DEBIAN`,
+        /// `MACOS`,
+        /// `ORACLE_LINUX`,
+        /// `RASPBIAN`,
+        /// `REDHAT_ENTERPRISE_LINUX`,
+        /// `ROCKY_LINUX`,
+        /// `SUSE`,
+        /// `UBUNTU`, and
+        /// `WINDOWS`.
+        /// </summary>
         [Input("operatingSystem", required: true)]
         public Input<string> OperatingSystem { get; set; } = null!;
 
@@ -78,9 +168,31 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class DefaultPatchBaselineState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ID of the patch baseline.
+        /// Can be an ID or an ARN.
+        /// When specifying an AWS-provided patch baseline, must be the ARN.
+        /// </summary>
         [Input("baselineId")]
         public Input<string>? BaselineId { get; set; }
 
+        /// <summary>
+        /// The operating system the patch baseline applies to.
+        /// Valid values are
+        /// `AMAZON_LINUX`,
+        /// `AMAZON_LINUX_2`,
+        /// `AMAZON_LINUX_2022`,
+        /// `CENTOS`,
+        /// `DEBIAN`,
+        /// `MACOS`,
+        /// `ORACLE_LINUX`,
+        /// `RASPBIAN`,
+        /// `REDHAT_ENTERPRISE_LINUX`,
+        /// `ROCKY_LINUX`,
+        /// `SUSE`,
+        /// `UBUNTU`, and
+        /// `WINDOWS`.
+        /// </summary>
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }
 

@@ -4,6 +4,28 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const main = aws.lb.getHostedZoneId({});
+ * const www = new aws.route53.Record("www", {
+ *     zoneId: aws_route53_zone.primary.zone_id,
+ *     name: "example.com",
+ *     type: "A",
+ *     aliases: [{
+ *         name: aws_lb.main.dns_name,
+ *         zoneId: main.then(main => main.id),
+ *         evaluateTargetHealth: true,
+ *     }],
+ * });
+ * ```
+ */
 export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneIdResult> {
     args = args || {};
 
@@ -18,7 +40,14 @@ export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getHostedZoneId.
  */
 export interface GetHostedZoneIdArgs {
+    /**
+     * Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+     */
     loadBalancerType?: string;
+    /**
+     * Name of the region whose AWS ELB HostedZoneId is desired.
+     * Defaults to the region from the AWS provider configuration.
+     */
     region?: string;
 }
 
@@ -33,6 +62,28 @@ export interface GetHostedZoneIdResult {
     readonly loadBalancerType?: string;
     readonly region?: string;
 }
+/**
+ * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const main = aws.lb.getHostedZoneId({});
+ * const www = new aws.route53.Record("www", {
+ *     zoneId: aws_route53_zone.primary.zone_id,
+ *     name: "example.com",
+ *     type: "A",
+ *     aliases: [{
+ *         name: aws_lb.main.dns_name,
+ *         zoneId: main.then(main => main.id),
+ *         evaluateTargetHealth: true,
+ *     }],
+ * });
+ * ```
+ */
 export function getHostedZoneIdOutput(args?: GetHostedZoneIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostedZoneIdResult> {
     return pulumi.output(args).apply((a: any) => getHostedZoneId(a, opts))
 }
@@ -41,6 +92,13 @@ export function getHostedZoneIdOutput(args?: GetHostedZoneIdOutputArgs, opts?: p
  * A collection of arguments for invoking getHostedZoneId.
  */
 export interface GetHostedZoneIdOutputArgs {
+    /**
+     * Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+     */
     loadBalancerType?: pulumi.Input<string>;
+    /**
+     * Name of the region whose AWS ELB HostedZoneId is desired.
+     * Defaults to the region from the AWS provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

@@ -17,65 +17,197 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a resource to manage an [AWS Macie Custom Data Identifier](https://docs.aws.amazon.com/macie/latest/APIReference/custom-data-identifiers-id.html).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.macie2.Account;
+ * import com.pulumi.aws.macie.CustomDataIdentifier;
+ * import com.pulumi.aws.macie.CustomDataIdentifierArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
+ * 
+ *         var exampleCustomDataIdentifier = new CustomDataIdentifier(&#34;exampleCustomDataIdentifier&#34;, CustomDataIdentifierArgs.builder()        
+ *             .regex(&#34;[0-9]{3}-[0-9]{2}-[0-9]{4}&#34;)
+ *             .description(&#34;DESCRIPTION&#34;)
+ *             .maximumMatchDistance(10)
+ *             .keywords(&#34;keyword&#34;)
+ *             .ignoreWords(&#34;ignore&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(aws_macie2_account.test())
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_macie2_custom_data_identifier` can be imported using the id, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
+ * ```
+ * 
+ */
 @ResourceType(type="aws:macie/customDataIdentifier:CustomDataIdentifier")
 public class CustomDataIdentifier extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name (ARN) of the custom data identifier.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the custom data identifier.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+     * 
+     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
+    /**
+     * @return The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+     * 
+     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
+    /**
+     * A custom description of the custom data identifier. The description can contain as many as 512 characters.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return A custom description of the custom data identifier. The description can contain as many as 512 characters.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
+     * 
+     */
     @Export(name="ignoreWords", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> ignoreWords;
 
+    /**
+     * @return An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
+     * 
+     */
     public Output<Optional<List<String>>> ignoreWords() {
         return Codegen.optional(this.ignoreWords);
     }
+    /**
+     * An array that lists specific character sequences (keywords), one of which must be within proximity (`maximum_match_distance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren&#39;t case sensitive.
+     * 
+     */
     @Export(name="keywords", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> keywords;
 
+    /**
+     * @return An array that lists specific character sequences (keywords), one of which must be within proximity (`maximum_match_distance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren&#39;t case sensitive.
+     * 
+     */
     public Output<Optional<List<String>>> keywords() {
         return Codegen.optional(this.keywords);
     }
+    /**
+     * The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
+     * 
+     */
     @Export(name="maximumMatchDistance", refs={Integer.class}, tree="[0]")
     private Output<Integer> maximumMatchDistance;
 
+    /**
+     * @return The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
+     * 
+     */
     public Output<Integer> maximumMatchDistance() {
         return this.maximumMatchDistance;
     }
+    /**
+     * A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
+    /**
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
+    /**
+     * The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
+     * 
+     */
     @Export(name="regex", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> regex;
 
+    /**
+     * @return The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
+     * 
+     */
     public Output<Optional<String>> regex() {
         return Codegen.optional(this.regex);
     }
+    /**
+     * A map of key-value pairs that specifies the tags to associate with the custom data identifier.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of key-value pairs that specifies the tags to associate with the custom data identifier.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

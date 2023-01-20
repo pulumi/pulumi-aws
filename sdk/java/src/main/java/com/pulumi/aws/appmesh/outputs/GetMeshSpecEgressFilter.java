@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMeshSpecEgressFilter {
+    /**
+     * @return Egress filter type.
+     * 
+     */
     private String type;
 
     private GetMeshSpecEgressFilter() {}
+    /**
+     * @return Egress filter type.
+     * 
+     */
     public String type() {
         return this.type;
     }

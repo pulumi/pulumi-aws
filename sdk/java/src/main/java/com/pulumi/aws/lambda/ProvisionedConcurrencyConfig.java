@@ -14,23 +14,123 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Manages a Lambda Provisioned Concurrency Configuration.
+ * 
+ * ## Example Usage
+ * ### Alias Name
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.ProvisionedConcurrencyConfig;
+ * import com.pulumi.aws.lambda.ProvisionedConcurrencyConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ProvisionedConcurrencyConfig(&#34;example&#34;, ProvisionedConcurrencyConfigArgs.builder()        
+ *             .functionName(aws_lambda_alias.example().function_name())
+ *             .provisionedConcurrentExecutions(1)
+ *             .qualifier(aws_lambda_alias.example().name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Function Version
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.ProvisionedConcurrencyConfig;
+ * import com.pulumi.aws.lambda.ProvisionedConcurrencyConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ProvisionedConcurrencyConfig(&#34;example&#34;, ProvisionedConcurrencyConfigArgs.builder()        
+ *             .functionName(aws_lambda_function.example().function_name())
+ *             .provisionedConcurrentExecutions(1)
+ *             .qualifier(aws_lambda_function.example().version())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Lambda Provisioned Concurrency Configs can be imported using the `function_name` and `qualifier` separated by a colon (`:`), e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function:production
+ * ```
+ * 
+ */
 @ResourceType(type="aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig")
 public class ProvisionedConcurrencyConfig extends com.pulumi.resources.CustomResource {
+    /**
+     * Name or Amazon Resource Name (ARN) of the Lambda Function.
+     * 
+     */
     @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output<String> functionName;
 
+    /**
+     * @return Name or Amazon Resource Name (ARN) of the Lambda Function.
+     * 
+     */
     public Output<String> functionName() {
         return this.functionName;
     }
+    /**
+     * Amount of capacity to allocate. Must be greater than or equal to `1`.
+     * 
+     */
     @Export(name="provisionedConcurrentExecutions", refs={Integer.class}, tree="[0]")
     private Output<Integer> provisionedConcurrentExecutions;
 
+    /**
+     * @return Amount of capacity to allocate. Must be greater than or equal to `1`.
+     * 
+     */
     public Output<Integer> provisionedConcurrentExecutions() {
         return this.provisionedConcurrentExecutions;
     }
+    /**
+     * Lambda Function version or Lambda Alias name.
+     * 
+     */
     @Export(name="qualifier", refs={String.class}, tree="[0]")
     private Output<String> qualifier;
 
+    /**
+     * @return Lambda Function version or Lambda Alias name.
+     * 
+     */
     public Output<String> qualifier() {
         return this.qualifier;
     }

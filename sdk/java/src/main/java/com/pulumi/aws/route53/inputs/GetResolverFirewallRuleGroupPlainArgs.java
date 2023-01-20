@@ -12,9 +12,17 @@ public final class GetResolverFirewallRuleGroupPlainArgs extends com.pulumi.reso
 
     public static final GetResolverFirewallRuleGroupPlainArgs Empty = new GetResolverFirewallRuleGroupPlainArgs();
 
+    /**
+     * The ID of the rule group.
+     * 
+     */
     @Import(name="firewallRuleGroupId", required=true)
     private String firewallRuleGroupId;
 
+    /**
+     * @return The ID of the rule group.
+     * 
+     */
     public String firewallRuleGroupId() {
         return this.firewallRuleGroupId;
     }
@@ -43,6 +51,12 @@ public final class GetResolverFirewallRuleGroupPlainArgs extends com.pulumi.reso
             $ = new GetResolverFirewallRuleGroupPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param firewallRuleGroupId The ID of the rule group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder firewallRuleGroupId(String firewallRuleGroupId) {
             $.firewallRuleGroupId = firewallRuleGroupId;
             return this;

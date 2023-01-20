@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides details about a specific Amazon Connect Contact Flow Module.
+ *
+ * ## Example Usage
+ *
+ * By `name`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getContactFlowModule({
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "example",
+ * });
+ * ```
+ *
+ * By `contactFlowModuleId`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getContactFlowModule({
+ *     contactFlowModuleId: "cccccccc-bbbb-cccc-dddd-111111111111",
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ * });
+ * ```
+ */
 export function getContactFlowModule(args: GetContactFlowModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetContactFlowModuleResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -19,9 +48,21 @@ export function getContactFlowModule(args: GetContactFlowModuleArgs, opts?: pulu
  * A collection of arguments for invoking getContactFlowModule.
  */
 export interface GetContactFlowModuleArgs {
+    /**
+     * Returns information on a specific Contact Flow Module by contact flow module id
+     */
     contactFlowModuleId?: string;
+    /**
+     * Reference to the hosting Amazon Connect Instance
+     */
     instanceId: string;
+    /**
+     * Returns information on a specific Contact Flow Module by name
+     */
     name?: string;
+    /**
+     * Map of tags to assign to the Contact Flow Module.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -29,9 +70,18 @@ export interface GetContactFlowModuleArgs {
  * A collection of values returned by getContactFlowModule.
  */
 export interface GetContactFlowModuleResult {
+    /**
+     * ARN of the Contact Flow Module.
+     */
     readonly arn: string;
     readonly contactFlowModuleId: string;
+    /**
+     * Logic of the Contact Flow Module.
+     */
     readonly content: string;
+    /**
+     * Description of the Contact Flow Module.
+     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -39,10 +89,48 @@ export interface GetContactFlowModuleResult {
     readonly id: string;
     readonly instanceId: string;
     readonly name: string;
+    /**
+     * Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
+     */
     readonly state: string;
+    /**
+     * Status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
+     */
     readonly status: string;
+    /**
+     * Map of tags to assign to the Contact Flow Module.
+     */
     readonly tags: {[key: string]: string};
 }
+/**
+ * Provides details about a specific Amazon Connect Contact Flow Module.
+ *
+ * ## Example Usage
+ *
+ * By `name`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getContactFlowModule({
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "example",
+ * });
+ * ```
+ *
+ * By `contactFlowModuleId`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getContactFlowModule({
+ *     contactFlowModuleId: "cccccccc-bbbb-cccc-dddd-111111111111",
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ * });
+ * ```
+ */
 export function getContactFlowModuleOutput(args: GetContactFlowModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactFlowModuleResult> {
     return pulumi.output(args).apply((a: any) => getContactFlowModule(a, opts))
 }
@@ -51,8 +139,20 @@ export function getContactFlowModuleOutput(args: GetContactFlowModuleOutputArgs,
  * A collection of arguments for invoking getContactFlowModule.
  */
 export interface GetContactFlowModuleOutputArgs {
+    /**
+     * Returns information on a specific Contact Flow Module by contact flow module id
+     */
     contactFlowModuleId?: pulumi.Input<string>;
+    /**
+     * Reference to the hosting Amazon Connect Instance
+     */
     instanceId: pulumi.Input<string>;
+    /**
+     * Returns information on a specific Contact Flow Module by name
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the Contact Flow Module.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -11,34 +11,88 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an OpsWorks static web server layer resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsworks.NewStaticWebLayer(ctx, "web", &opsworks.StaticWebLayerArgs{
+//				StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// OpsWorks static web server Layers can be imported using the `id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:opsworks/staticWebLayer:StaticWebLayer bar 00000000-0000-0000-0000-000000000000
+//
+// ```
 type StaticWebLayer struct {
 	pulumi.CustomResourceState
 
-	Arn                      pulumi.StringOutput                            `pulumi:"arn"`
-	AutoAssignElasticIps     pulumi.BoolPtrOutput                           `pulumi:"autoAssignElasticIps"`
-	AutoAssignPublicIps      pulumi.BoolPtrOutput                           `pulumi:"autoAssignPublicIps"`
-	AutoHealing              pulumi.BoolPtrOutput                           `pulumi:"autoHealing"`
-	CloudwatchConfiguration  StaticWebLayerCloudwatchConfigurationPtrOutput `pulumi:"cloudwatchConfiguration"`
-	CustomConfigureRecipes   pulumi.StringArrayOutput                       `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes      pulumi.StringArrayOutput                       `pulumi:"customDeployRecipes"`
-	CustomInstanceProfileArn pulumi.StringPtrOutput                         `pulumi:"customInstanceProfileArn"`
-	CustomJson               pulumi.StringPtrOutput                         `pulumi:"customJson"`
-	CustomSecurityGroupIds   pulumi.StringArrayOutput                       `pulumi:"customSecurityGroupIds"`
-	CustomSetupRecipes       pulumi.StringArrayOutput                       `pulumi:"customSetupRecipes"`
-	CustomShutdownRecipes    pulumi.StringArrayOutput                       `pulumi:"customShutdownRecipes"`
-	CustomUndeployRecipes    pulumi.StringArrayOutput                       `pulumi:"customUndeployRecipes"`
-	DrainElbOnShutdown       pulumi.BoolPtrOutput                           `pulumi:"drainElbOnShutdown"`
-	EbsVolumes               StaticWebLayerEbsVolumeArrayOutput             `pulumi:"ebsVolumes"`
-	ElasticLoadBalancer      pulumi.StringPtrOutput                         `pulumi:"elasticLoadBalancer"`
-	InstallUpdatesOnBoot     pulumi.BoolPtrOutput                           `pulumi:"installUpdatesOnBoot"`
-	InstanceShutdownTimeout  pulumi.IntPtrOutput                            `pulumi:"instanceShutdownTimeout"`
-	LoadBasedAutoScaling     StaticWebLayerLoadBasedAutoScalingOutput       `pulumi:"loadBasedAutoScaling"`
-	Name                     pulumi.StringOutput                            `pulumi:"name"`
-	StackId                  pulumi.StringOutput                            `pulumi:"stackId"`
-	SystemPackages           pulumi.StringArrayOutput                       `pulumi:"systemPackages"`
-	Tags                     pulumi.StringMapOutput                         `pulumi:"tags"`
-	TagsAll                  pulumi.StringMapOutput                         `pulumi:"tagsAll"`
-	UseEbsOptimizedInstances pulumi.BoolPtrOutput                           `pulumi:"useEbsOptimizedInstances"`
+	// The Amazon Resource Name(ARN) of the layer.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Whether to automatically assign an elastic IP address to the layer's instances.
+	AutoAssignElasticIps pulumi.BoolPtrOutput `pulumi:"autoAssignElasticIps"`
+	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
+	AutoAssignPublicIps pulumi.BoolPtrOutput `pulumi:"autoAssignPublicIps"`
+	// Whether to enable auto-healing for the layer.
+	AutoHealing             pulumi.BoolPtrOutput                           `pulumi:"autoHealing"`
+	CloudwatchConfiguration StaticWebLayerCloudwatchConfigurationPtrOutput `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes  pulumi.StringArrayOutput                       `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes     pulumi.StringArrayOutput                       `pulumi:"customDeployRecipes"`
+	// The ARN of an IAM profile that will be used for the layer's instances.
+	CustomInstanceProfileArn pulumi.StringPtrOutput `pulumi:"customInstanceProfileArn"`
+	CustomJson               pulumi.StringPtrOutput `pulumi:"customJson"`
+	// Ids for a set of security groups to apply to the layer's instances.
+	CustomSecurityGroupIds pulumi.StringArrayOutput `pulumi:"customSecurityGroupIds"`
+	CustomSetupRecipes     pulumi.StringArrayOutput `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes  pulumi.StringArrayOutput `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes  pulumi.StringArrayOutput `pulumi:"customUndeployRecipes"`
+	// Whether to enable Elastic Load Balancing connection draining.
+	DrainElbOnShutdown pulumi.BoolPtrOutput `pulumi:"drainElbOnShutdown"`
+	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	EbsVolumes StaticWebLayerEbsVolumeArrayOutput `pulumi:"ebsVolumes"`
+	// Name of an Elastic Load Balancer to attach to this layer
+	ElasticLoadBalancer pulumi.StringPtrOutput `pulumi:"elasticLoadBalancer"`
+	// Whether to install OS and package updates on each instance when it boots.
+	InstallUpdatesOnBoot pulumi.BoolPtrOutput `pulumi:"installUpdatesOnBoot"`
+	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+	InstanceShutdownTimeout pulumi.IntPtrOutput                      `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    StaticWebLayerLoadBasedAutoScalingOutput `pulumi:"loadBasedAutoScaling"`
+	// A human-readable name for the layer.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// ID of the stack the layer will belong to.
+	StackId pulumi.StringOutput `pulumi:"stackId"`
+	// Names of a set of system packages to install on the layer's instances.
+	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Whether to use EBS-optimized instances.
+	UseEbsOptimizedInstances pulumi.BoolPtrOutput `pulumi:"useEbsOptimizedInstances"`
 }
 
 // NewStaticWebLayer registers a new resource with the given unique name, arguments, and options.
@@ -73,58 +127,92 @@ func GetStaticWebLayer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StaticWebLayer resources.
 type staticWebLayerState struct {
-	Arn                      *string                                `pulumi:"arn"`
-	AutoAssignElasticIps     *bool                                  `pulumi:"autoAssignElasticIps"`
-	AutoAssignPublicIps      *bool                                  `pulumi:"autoAssignPublicIps"`
-	AutoHealing              *bool                                  `pulumi:"autoHealing"`
-	CloudwatchConfiguration  *StaticWebLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
-	CustomConfigureRecipes   []string                               `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes      []string                               `pulumi:"customDeployRecipes"`
-	CustomInstanceProfileArn *string                                `pulumi:"customInstanceProfileArn"`
-	CustomJson               *string                                `pulumi:"customJson"`
-	CustomSecurityGroupIds   []string                               `pulumi:"customSecurityGroupIds"`
-	CustomSetupRecipes       []string                               `pulumi:"customSetupRecipes"`
-	CustomShutdownRecipes    []string                               `pulumi:"customShutdownRecipes"`
-	CustomUndeployRecipes    []string                               `pulumi:"customUndeployRecipes"`
-	DrainElbOnShutdown       *bool                                  `pulumi:"drainElbOnShutdown"`
-	EbsVolumes               []StaticWebLayerEbsVolume              `pulumi:"ebsVolumes"`
-	ElasticLoadBalancer      *string                                `pulumi:"elasticLoadBalancer"`
-	InstallUpdatesOnBoot     *bool                                  `pulumi:"installUpdatesOnBoot"`
-	InstanceShutdownTimeout  *int                                   `pulumi:"instanceShutdownTimeout"`
-	LoadBasedAutoScaling     *StaticWebLayerLoadBasedAutoScaling    `pulumi:"loadBasedAutoScaling"`
-	Name                     *string                                `pulumi:"name"`
-	StackId                  *string                                `pulumi:"stackId"`
-	SystemPackages           []string                               `pulumi:"systemPackages"`
-	Tags                     map[string]string                      `pulumi:"tags"`
-	TagsAll                  map[string]string                      `pulumi:"tagsAll"`
-	UseEbsOptimizedInstances *bool                                  `pulumi:"useEbsOptimizedInstances"`
+	// The Amazon Resource Name(ARN) of the layer.
+	Arn *string `pulumi:"arn"`
+	// Whether to automatically assign an elastic IP address to the layer's instances.
+	AutoAssignElasticIps *bool `pulumi:"autoAssignElasticIps"`
+	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
+	AutoAssignPublicIps *bool `pulumi:"autoAssignPublicIps"`
+	// Whether to enable auto-healing for the layer.
+	AutoHealing             *bool                                  `pulumi:"autoHealing"`
+	CloudwatchConfiguration *StaticWebLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes  []string                               `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes     []string                               `pulumi:"customDeployRecipes"`
+	// The ARN of an IAM profile that will be used for the layer's instances.
+	CustomInstanceProfileArn *string `pulumi:"customInstanceProfileArn"`
+	CustomJson               *string `pulumi:"customJson"`
+	// Ids for a set of security groups to apply to the layer's instances.
+	CustomSecurityGroupIds []string `pulumi:"customSecurityGroupIds"`
+	CustomSetupRecipes     []string `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes  []string `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
+	// Whether to enable Elastic Load Balancing connection draining.
+	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
+	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	EbsVolumes []StaticWebLayerEbsVolume `pulumi:"ebsVolumes"`
+	// Name of an Elastic Load Balancer to attach to this layer
+	ElasticLoadBalancer *string `pulumi:"elasticLoadBalancer"`
+	// Whether to install OS and package updates on each instance when it boots.
+	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
+	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+	InstanceShutdownTimeout *int                                `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    *StaticWebLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
+	// A human-readable name for the layer.
+	Name *string `pulumi:"name"`
+	// ID of the stack the layer will belong to.
+	StackId *string `pulumi:"stackId"`
+	// Names of a set of system packages to install on the layer's instances.
+	SystemPackages []string `pulumi:"systemPackages"`
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Whether to use EBS-optimized instances.
+	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
 }
 
 type StaticWebLayerState struct {
-	Arn                      pulumi.StringPtrInput
-	AutoAssignElasticIps     pulumi.BoolPtrInput
-	AutoAssignPublicIps      pulumi.BoolPtrInput
-	AutoHealing              pulumi.BoolPtrInput
-	CloudwatchConfiguration  StaticWebLayerCloudwatchConfigurationPtrInput
-	CustomConfigureRecipes   pulumi.StringArrayInput
-	CustomDeployRecipes      pulumi.StringArrayInput
+	// The Amazon Resource Name(ARN) of the layer.
+	Arn pulumi.StringPtrInput
+	// Whether to automatically assign an elastic IP address to the layer's instances.
+	AutoAssignElasticIps pulumi.BoolPtrInput
+	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
+	AutoAssignPublicIps pulumi.BoolPtrInput
+	// Whether to enable auto-healing for the layer.
+	AutoHealing             pulumi.BoolPtrInput
+	CloudwatchConfiguration StaticWebLayerCloudwatchConfigurationPtrInput
+	CustomConfigureRecipes  pulumi.StringArrayInput
+	CustomDeployRecipes     pulumi.StringArrayInput
+	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrInput
 	CustomJson               pulumi.StringPtrInput
-	CustomSecurityGroupIds   pulumi.StringArrayInput
-	CustomSetupRecipes       pulumi.StringArrayInput
-	CustomShutdownRecipes    pulumi.StringArrayInput
-	CustomUndeployRecipes    pulumi.StringArrayInput
-	DrainElbOnShutdown       pulumi.BoolPtrInput
-	EbsVolumes               StaticWebLayerEbsVolumeArrayInput
-	ElasticLoadBalancer      pulumi.StringPtrInput
-	InstallUpdatesOnBoot     pulumi.BoolPtrInput
-	InstanceShutdownTimeout  pulumi.IntPtrInput
-	LoadBasedAutoScaling     StaticWebLayerLoadBasedAutoScalingPtrInput
-	Name                     pulumi.StringPtrInput
-	StackId                  pulumi.StringPtrInput
-	SystemPackages           pulumi.StringArrayInput
-	Tags                     pulumi.StringMapInput
-	TagsAll                  pulumi.StringMapInput
+	// Ids for a set of security groups to apply to the layer's instances.
+	CustomSecurityGroupIds pulumi.StringArrayInput
+	CustomSetupRecipes     pulumi.StringArrayInput
+	CustomShutdownRecipes  pulumi.StringArrayInput
+	CustomUndeployRecipes  pulumi.StringArrayInput
+	// Whether to enable Elastic Load Balancing connection draining.
+	DrainElbOnShutdown pulumi.BoolPtrInput
+	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	EbsVolumes StaticWebLayerEbsVolumeArrayInput
+	// Name of an Elastic Load Balancer to attach to this layer
+	ElasticLoadBalancer pulumi.StringPtrInput
+	// Whether to install OS and package updates on each instance when it boots.
+	InstallUpdatesOnBoot pulumi.BoolPtrInput
+	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+	InstanceShutdownTimeout pulumi.IntPtrInput
+	LoadBasedAutoScaling    StaticWebLayerLoadBasedAutoScalingPtrInput
+	// A human-readable name for the layer.
+	Name pulumi.StringPtrInput
+	// ID of the stack the layer will belong to.
+	StackId pulumi.StringPtrInput
+	// Names of a set of system packages to install on the layer's instances.
+	SystemPackages pulumi.StringArrayInput
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
 }
 
@@ -133,55 +221,85 @@ func (StaticWebLayerState) ElementType() reflect.Type {
 }
 
 type staticWebLayerArgs struct {
-	AutoAssignElasticIps     *bool                                  `pulumi:"autoAssignElasticIps"`
-	AutoAssignPublicIps      *bool                                  `pulumi:"autoAssignPublicIps"`
-	AutoHealing              *bool                                  `pulumi:"autoHealing"`
-	CloudwatchConfiguration  *StaticWebLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
-	CustomConfigureRecipes   []string                               `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes      []string                               `pulumi:"customDeployRecipes"`
-	CustomInstanceProfileArn *string                                `pulumi:"customInstanceProfileArn"`
-	CustomJson               *string                                `pulumi:"customJson"`
-	CustomSecurityGroupIds   []string                               `pulumi:"customSecurityGroupIds"`
-	CustomSetupRecipes       []string                               `pulumi:"customSetupRecipes"`
-	CustomShutdownRecipes    []string                               `pulumi:"customShutdownRecipes"`
-	CustomUndeployRecipes    []string                               `pulumi:"customUndeployRecipes"`
-	DrainElbOnShutdown       *bool                                  `pulumi:"drainElbOnShutdown"`
-	EbsVolumes               []StaticWebLayerEbsVolume              `pulumi:"ebsVolumes"`
-	ElasticLoadBalancer      *string                                `pulumi:"elasticLoadBalancer"`
-	InstallUpdatesOnBoot     *bool                                  `pulumi:"installUpdatesOnBoot"`
-	InstanceShutdownTimeout  *int                                   `pulumi:"instanceShutdownTimeout"`
-	LoadBasedAutoScaling     *StaticWebLayerLoadBasedAutoScaling    `pulumi:"loadBasedAutoScaling"`
-	Name                     *string                                `pulumi:"name"`
-	StackId                  string                                 `pulumi:"stackId"`
-	SystemPackages           []string                               `pulumi:"systemPackages"`
-	Tags                     map[string]string                      `pulumi:"tags"`
-	UseEbsOptimizedInstances *bool                                  `pulumi:"useEbsOptimizedInstances"`
+	// Whether to automatically assign an elastic IP address to the layer's instances.
+	AutoAssignElasticIps *bool `pulumi:"autoAssignElasticIps"`
+	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
+	AutoAssignPublicIps *bool `pulumi:"autoAssignPublicIps"`
+	// Whether to enable auto-healing for the layer.
+	AutoHealing             *bool                                  `pulumi:"autoHealing"`
+	CloudwatchConfiguration *StaticWebLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes  []string                               `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes     []string                               `pulumi:"customDeployRecipes"`
+	// The ARN of an IAM profile that will be used for the layer's instances.
+	CustomInstanceProfileArn *string `pulumi:"customInstanceProfileArn"`
+	CustomJson               *string `pulumi:"customJson"`
+	// Ids for a set of security groups to apply to the layer's instances.
+	CustomSecurityGroupIds []string `pulumi:"customSecurityGroupIds"`
+	CustomSetupRecipes     []string `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes  []string `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
+	// Whether to enable Elastic Load Balancing connection draining.
+	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
+	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	EbsVolumes []StaticWebLayerEbsVolume `pulumi:"ebsVolumes"`
+	// Name of an Elastic Load Balancer to attach to this layer
+	ElasticLoadBalancer *string `pulumi:"elasticLoadBalancer"`
+	// Whether to install OS and package updates on each instance when it boots.
+	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
+	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+	InstanceShutdownTimeout *int                                `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    *StaticWebLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
+	// A human-readable name for the layer.
+	Name *string `pulumi:"name"`
+	// ID of the stack the layer will belong to.
+	StackId string `pulumi:"stackId"`
+	// Names of a set of system packages to install on the layer's instances.
+	SystemPackages []string `pulumi:"systemPackages"`
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Whether to use EBS-optimized instances.
+	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
 }
 
 // The set of arguments for constructing a StaticWebLayer resource.
 type StaticWebLayerArgs struct {
-	AutoAssignElasticIps     pulumi.BoolPtrInput
-	AutoAssignPublicIps      pulumi.BoolPtrInput
-	AutoHealing              pulumi.BoolPtrInput
-	CloudwatchConfiguration  StaticWebLayerCloudwatchConfigurationPtrInput
-	CustomConfigureRecipes   pulumi.StringArrayInput
-	CustomDeployRecipes      pulumi.StringArrayInput
+	// Whether to automatically assign an elastic IP address to the layer's instances.
+	AutoAssignElasticIps pulumi.BoolPtrInput
+	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
+	AutoAssignPublicIps pulumi.BoolPtrInput
+	// Whether to enable auto-healing for the layer.
+	AutoHealing             pulumi.BoolPtrInput
+	CloudwatchConfiguration StaticWebLayerCloudwatchConfigurationPtrInput
+	CustomConfigureRecipes  pulumi.StringArrayInput
+	CustomDeployRecipes     pulumi.StringArrayInput
+	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrInput
 	CustomJson               pulumi.StringPtrInput
-	CustomSecurityGroupIds   pulumi.StringArrayInput
-	CustomSetupRecipes       pulumi.StringArrayInput
-	CustomShutdownRecipes    pulumi.StringArrayInput
-	CustomUndeployRecipes    pulumi.StringArrayInput
-	DrainElbOnShutdown       pulumi.BoolPtrInput
-	EbsVolumes               StaticWebLayerEbsVolumeArrayInput
-	ElasticLoadBalancer      pulumi.StringPtrInput
-	InstallUpdatesOnBoot     pulumi.BoolPtrInput
-	InstanceShutdownTimeout  pulumi.IntPtrInput
-	LoadBasedAutoScaling     StaticWebLayerLoadBasedAutoScalingPtrInput
-	Name                     pulumi.StringPtrInput
-	StackId                  pulumi.StringInput
-	SystemPackages           pulumi.StringArrayInput
-	Tags                     pulumi.StringMapInput
+	// Ids for a set of security groups to apply to the layer's instances.
+	CustomSecurityGroupIds pulumi.StringArrayInput
+	CustomSetupRecipes     pulumi.StringArrayInput
+	CustomShutdownRecipes  pulumi.StringArrayInput
+	CustomUndeployRecipes  pulumi.StringArrayInput
+	// Whether to enable Elastic Load Balancing connection draining.
+	DrainElbOnShutdown pulumi.BoolPtrInput
+	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	EbsVolumes StaticWebLayerEbsVolumeArrayInput
+	// Name of an Elastic Load Balancer to attach to this layer
+	ElasticLoadBalancer pulumi.StringPtrInput
+	// Whether to install OS and package updates on each instance when it boots.
+	InstallUpdatesOnBoot pulumi.BoolPtrInput
+	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+	InstanceShutdownTimeout pulumi.IntPtrInput
+	LoadBasedAutoScaling    StaticWebLayerLoadBasedAutoScalingPtrInput
+	// A human-readable name for the layer.
+	Name pulumi.StringPtrInput
+	// ID of the stack the layer will belong to.
+	StackId pulumi.StringInput
+	// Names of a set of system packages to install on the layer's instances.
+	SystemPackages pulumi.StringArrayInput
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
 }
 
@@ -272,18 +390,22 @@ func (o StaticWebLayerOutput) ToStaticWebLayerOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Amazon Resource Name(ARN) of the layer.
 func (o StaticWebLayerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Whether to automatically assign an elastic IP address to the layer's instances.
 func (o StaticWebLayerOutput) AutoAssignElasticIps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.BoolPtrOutput { return v.AutoAssignElasticIps }).(pulumi.BoolPtrOutput)
 }
 
+// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 func (o StaticWebLayerOutput) AutoAssignPublicIps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.BoolPtrOutput { return v.AutoAssignPublicIps }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to enable auto-healing for the layer.
 func (o StaticWebLayerOutput) AutoHealing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.BoolPtrOutput { return v.AutoHealing }).(pulumi.BoolPtrOutput)
 }
@@ -302,6 +424,7 @@ func (o StaticWebLayerOutput) CustomDeployRecipes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.StringArrayOutput { return v.CustomDeployRecipes }).(pulumi.StringArrayOutput)
 }
 
+// The ARN of an IAM profile that will be used for the layer's instances.
 func (o StaticWebLayerOutput) CustomInstanceProfileArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.StringPtrOutput { return v.CustomInstanceProfileArn }).(pulumi.StringPtrOutput)
 }
@@ -310,6 +433,7 @@ func (o StaticWebLayerOutput) CustomJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.StringPtrOutput { return v.CustomJson }).(pulumi.StringPtrOutput)
 }
 
+// Ids for a set of security groups to apply to the layer's instances.
 func (o StaticWebLayerOutput) CustomSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.StringArrayOutput { return v.CustomSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -326,22 +450,27 @@ func (o StaticWebLayerOutput) CustomUndeployRecipes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.StringArrayOutput { return v.CustomUndeployRecipes }).(pulumi.StringArrayOutput)
 }
 
+// Whether to enable Elastic Load Balancing connection draining.
 func (o StaticWebLayerOutput) DrainElbOnShutdown() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.BoolPtrOutput { return v.DrainElbOnShutdown }).(pulumi.BoolPtrOutput)
 }
 
+// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 func (o StaticWebLayerOutput) EbsVolumes() StaticWebLayerEbsVolumeArrayOutput {
 	return o.ApplyT(func(v *StaticWebLayer) StaticWebLayerEbsVolumeArrayOutput { return v.EbsVolumes }).(StaticWebLayerEbsVolumeArrayOutput)
 }
 
+// Name of an Elastic Load Balancer to attach to this layer
 func (o StaticWebLayerOutput) ElasticLoadBalancer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.StringPtrOutput { return v.ElasticLoadBalancer }).(pulumi.StringPtrOutput)
 }
 
+// Whether to install OS and package updates on each instance when it boots.
 func (o StaticWebLayerOutput) InstallUpdatesOnBoot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.BoolPtrOutput { return v.InstallUpdatesOnBoot }).(pulumi.BoolPtrOutput)
 }
 
+// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 func (o StaticWebLayerOutput) InstanceShutdownTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.IntPtrOutput { return v.InstanceShutdownTimeout }).(pulumi.IntPtrOutput)
 }
@@ -350,26 +479,32 @@ func (o StaticWebLayerOutput) LoadBasedAutoScaling() StaticWebLayerLoadBasedAuto
 	return o.ApplyT(func(v *StaticWebLayer) StaticWebLayerLoadBasedAutoScalingOutput { return v.LoadBasedAutoScaling }).(StaticWebLayerLoadBasedAutoScalingOutput)
 }
 
+// A human-readable name for the layer.
 func (o StaticWebLayerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// ID of the stack the layer will belong to.
 func (o StaticWebLayerOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
 }
 
+// Names of a set of system packages to install on the layer's instances.
 func (o StaticWebLayerOutput) SystemPackages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.StringArrayOutput { return v.SystemPackages }).(pulumi.StringArrayOutput)
 }
 
+// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o StaticWebLayerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o StaticWebLayerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// Whether to use EBS-optimized instances.
 func (o StaticWebLayerOutput) UseEbsOptimizedInstances() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StaticWebLayer) pulumi.BoolPtrOutput { return v.UseEbsOptimizedInstances }).(pulumi.BoolPtrOutput)
 }

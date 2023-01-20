@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides information about a ElastiCache Subnet Group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.elasticache.getSubnetGroup({
+ *     name: "my-subnet-group",
+ * });
+ * ```
+ */
 export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetGroupResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,7 +31,13 @@ export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getSubnetGroup.
  */
 export interface GetSubnetGroupArgs {
+    /**
+     * Name of the subnet group.
+     */
     name: string;
+    /**
+     * Map of tags assigned to the subnet group.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -25,16 +45,42 @@ export interface GetSubnetGroupArgs {
  * A collection of values returned by getSubnetGroup.
  */
 export interface GetSubnetGroupResult {
+    /**
+     * ARN of the subnet group.
+     */
     readonly arn: string;
+    /**
+     * Description of the subnet group.
+     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly name: string;
+    /**
+     * Set of VPC Subnet ID-s of the subnet group.
+     */
     readonly subnetIds: string[];
+    /**
+     * Map of tags assigned to the subnet group.
+     */
     readonly tags?: {[key: string]: string};
 }
+/**
+ * Provides information about a ElastiCache Subnet Group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.elasticache.getSubnetGroup({
+ *     name: "my-subnet-group",
+ * });
+ * ```
+ */
 export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetGroupResult> {
     return pulumi.output(args).apply((a: any) => getSubnetGroup(a, opts))
 }
@@ -43,6 +89,12 @@ export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulu
  * A collection of arguments for invoking getSubnetGroup.
  */
 export interface GetSubnetGroupOutputArgs {
+    /**
+     * Name of the subnet group.
+     */
     name: pulumi.Input<string>;
+    /**
+     * Map of tags assigned to the subnet group.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

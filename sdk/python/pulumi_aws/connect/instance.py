@@ -26,6 +26,17 @@ class InstanceArgs:
                  multi_party_conference_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Instance resource.
+        :param pulumi.Input[str] identity_management_type: Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
+        :param pulumi.Input[bool] inbound_calls_enabled: Specifies whether inbound calls are enabled.
+        :param pulumi.Input[bool] outbound_calls_enabled: Specifies whether outbound calls are enabled.
+               <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
+        :param pulumi.Input[bool] auto_resolve_best_voices_enabled: Specifies whether auto resolve best voices is enabled. Defaults to `true`.
+        :param pulumi.Input[bool] contact_flow_logs_enabled: Specifies whether contact flow logs are enabled. Defaults to `false`.
+        :param pulumi.Input[bool] contact_lens_enabled: Specifies whether contact lens is enabled. Defaults to `true`.
+        :param pulumi.Input[str] directory_id: The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+        :param pulumi.Input[bool] early_media_enabled: Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
+        :param pulumi.Input[str] instance_alias: Specifies the name of the instance. Required if `directory_id` not specified.
+        :param pulumi.Input[bool] multi_party_conference_enabled: Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
         """
         pulumi.set(__self__, "identity_management_type", identity_management_type)
         pulumi.set(__self__, "inbound_calls_enabled", inbound_calls_enabled)
@@ -48,6 +59,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="identityManagementType")
     def identity_management_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
+        """
         return pulumi.get(self, "identity_management_type")
 
     @identity_management_type.setter
@@ -57,6 +71,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="inboundCallsEnabled")
     def inbound_calls_enabled(self) -> pulumi.Input[bool]:
+        """
+        Specifies whether inbound calls are enabled.
+        """
         return pulumi.get(self, "inbound_calls_enabled")
 
     @inbound_calls_enabled.setter
@@ -66,6 +83,10 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="outboundCallsEnabled")
     def outbound_calls_enabled(self) -> pulumi.Input[bool]:
+        """
+        Specifies whether outbound calls are enabled.
+        <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
+        """
         return pulumi.get(self, "outbound_calls_enabled")
 
     @outbound_calls_enabled.setter
@@ -75,6 +96,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="autoResolveBestVoicesEnabled")
     def auto_resolve_best_voices_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether auto resolve best voices is enabled. Defaults to `true`.
+        """
         return pulumi.get(self, "auto_resolve_best_voices_enabled")
 
     @auto_resolve_best_voices_enabled.setter
@@ -84,6 +108,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="contactFlowLogsEnabled")
     def contact_flow_logs_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether contact flow logs are enabled. Defaults to `false`.
+        """
         return pulumi.get(self, "contact_flow_logs_enabled")
 
     @contact_flow_logs_enabled.setter
@@ -93,6 +120,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="contactLensEnabled")
     def contact_lens_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether contact lens is enabled. Defaults to `true`.
+        """
         return pulumi.get(self, "contact_lens_enabled")
 
     @contact_lens_enabled.setter
@@ -102,6 +132,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -111,6 +144,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="earlyMediaEnabled")
     def early_media_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
+        """
         return pulumi.get(self, "early_media_enabled")
 
     @early_media_enabled.setter
@@ -120,6 +156,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="instanceAlias")
     def instance_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the instance. Required if `directory_id` not specified.
+        """
         return pulumi.get(self, "instance_alias")
 
     @instance_alias.setter
@@ -129,6 +168,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="multiPartyConferenceEnabled")
     def multi_party_conference_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+        """
         return pulumi.get(self, "multi_party_conference_enabled")
 
     @multi_party_conference_enabled.setter
@@ -155,6 +197,21 @@ class _InstanceState:
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Instance resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the instance.
+        :param pulumi.Input[bool] auto_resolve_best_voices_enabled: Specifies whether auto resolve best voices is enabled. Defaults to `true`.
+        :param pulumi.Input[bool] contact_flow_logs_enabled: Specifies whether contact flow logs are enabled. Defaults to `false`.
+        :param pulumi.Input[bool] contact_lens_enabled: Specifies whether contact lens is enabled. Defaults to `true`.
+        :param pulumi.Input[str] created_time: When the instance was created.
+        :param pulumi.Input[str] directory_id: The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+        :param pulumi.Input[bool] early_media_enabled: Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
+        :param pulumi.Input[str] identity_management_type: Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
+        :param pulumi.Input[bool] inbound_calls_enabled: Specifies whether inbound calls are enabled.
+        :param pulumi.Input[str] instance_alias: Specifies the name of the instance. Required if `directory_id` not specified.
+        :param pulumi.Input[bool] multi_party_conference_enabled: Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+        :param pulumi.Input[bool] outbound_calls_enabled: Specifies whether outbound calls are enabled.
+               <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
+        :param pulumi.Input[str] service_role: The service role of the instance.
+        :param pulumi.Input[str] status: The state of the instance.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -188,6 +245,9 @@ class _InstanceState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the instance.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -197,6 +257,9 @@ class _InstanceState:
     @property
     @pulumi.getter(name="autoResolveBestVoicesEnabled")
     def auto_resolve_best_voices_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether auto resolve best voices is enabled. Defaults to `true`.
+        """
         return pulumi.get(self, "auto_resolve_best_voices_enabled")
 
     @auto_resolve_best_voices_enabled.setter
@@ -206,6 +269,9 @@ class _InstanceState:
     @property
     @pulumi.getter(name="contactFlowLogsEnabled")
     def contact_flow_logs_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether contact flow logs are enabled. Defaults to `false`.
+        """
         return pulumi.get(self, "contact_flow_logs_enabled")
 
     @contact_flow_logs_enabled.setter
@@ -215,6 +281,9 @@ class _InstanceState:
     @property
     @pulumi.getter(name="contactLensEnabled")
     def contact_lens_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether contact lens is enabled. Defaults to `true`.
+        """
         return pulumi.get(self, "contact_lens_enabled")
 
     @contact_lens_enabled.setter
@@ -224,6 +293,9 @@ class _InstanceState:
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        When the instance was created.
+        """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
@@ -233,6 +305,9 @@ class _InstanceState:
     @property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -242,6 +317,9 @@ class _InstanceState:
     @property
     @pulumi.getter(name="earlyMediaEnabled")
     def early_media_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
+        """
         return pulumi.get(self, "early_media_enabled")
 
     @early_media_enabled.setter
@@ -251,6 +329,9 @@ class _InstanceState:
     @property
     @pulumi.getter(name="identityManagementType")
     def identity_management_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
+        """
         return pulumi.get(self, "identity_management_type")
 
     @identity_management_type.setter
@@ -260,6 +341,9 @@ class _InstanceState:
     @property
     @pulumi.getter(name="inboundCallsEnabled")
     def inbound_calls_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether inbound calls are enabled.
+        """
         return pulumi.get(self, "inbound_calls_enabled")
 
     @inbound_calls_enabled.setter
@@ -269,6 +353,9 @@ class _InstanceState:
     @property
     @pulumi.getter(name="instanceAlias")
     def instance_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the instance. Required if `directory_id` not specified.
+        """
         return pulumi.get(self, "instance_alias")
 
     @instance_alias.setter
@@ -278,6 +365,9 @@ class _InstanceState:
     @property
     @pulumi.getter(name="multiPartyConferenceEnabled")
     def multi_party_conference_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+        """
         return pulumi.get(self, "multi_party_conference_enabled")
 
     @multi_party_conference_enabled.setter
@@ -287,6 +377,10 @@ class _InstanceState:
     @property
     @pulumi.getter(name="outboundCallsEnabled")
     def outbound_calls_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether outbound calls are enabled.
+        <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
+        """
         return pulumi.get(self, "outbound_calls_enabled")
 
     @outbound_calls_enabled.setter
@@ -296,6 +390,9 @@ class _InstanceState:
     @property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service role of the instance.
+        """
         return pulumi.get(self, "service_role")
 
     @service_role.setter
@@ -305,6 +402,9 @@ class _InstanceState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of the instance.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -329,9 +429,70 @@ class Instance(pulumi.CustomResource):
                  outbound_calls_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a Instance resource with the given unique name, props, and options.
+        Provides an Amazon Connect instance resource. For more information see
+        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
+
+        !> **WARN:** Amazon Connect enforces a limit of [100 combined instance creation and deletions every 30 days](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits).  For example, if you create 80 instances and delete 20 of them, you must wait 30 days to create or delete another instance.  Use care when creating or deleting instances.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.connect.Instance("test",
+            identity_management_type="CONNECT_MANAGED",
+            inbound_calls_enabled=True,
+            instance_alias="friendly-name-connect",
+            outbound_calls_enabled=True)
+        ```
+        ### With Existing Active Directory
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.connect.Instance("test",
+            directory_id=aws_directory_service_directory["test"]["id"],
+            identity_management_type="EXISTING_DIRECTORY",
+            inbound_calls_enabled=True,
+            instance_alias="friendly-name-connect",
+            outbound_calls_enabled=True)
+        ```
+        ### With SAML
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.connect.Instance("test",
+            identity_management_type="SAML",
+            inbound_calls_enabled=True,
+            instance_alias="friendly-name-connect",
+            outbound_calls_enabled=True)
+        ```
+
+        ## Import
+
+        Connect instances can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_resolve_best_voices_enabled: Specifies whether auto resolve best voices is enabled. Defaults to `true`.
+        :param pulumi.Input[bool] contact_flow_logs_enabled: Specifies whether contact flow logs are enabled. Defaults to `false`.
+        :param pulumi.Input[bool] contact_lens_enabled: Specifies whether contact lens is enabled. Defaults to `true`.
+        :param pulumi.Input[str] directory_id: The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+        :param pulumi.Input[bool] early_media_enabled: Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
+        :param pulumi.Input[str] identity_management_type: Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
+        :param pulumi.Input[bool] inbound_calls_enabled: Specifies whether inbound calls are enabled.
+        :param pulumi.Input[str] instance_alias: Specifies the name of the instance. Required if `directory_id` not specified.
+        :param pulumi.Input[bool] multi_party_conference_enabled: Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+        :param pulumi.Input[bool] outbound_calls_enabled: Specifies whether outbound calls are enabled.
+               <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
         """
         ...
     @overload
@@ -340,7 +501,57 @@ class Instance(pulumi.CustomResource):
                  args: InstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Instance resource with the given unique name, props, and options.
+        Provides an Amazon Connect instance resource. For more information see
+        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
+
+        !> **WARN:** Amazon Connect enforces a limit of [100 combined instance creation and deletions every 30 days](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits).  For example, if you create 80 instances and delete 20 of them, you must wait 30 days to create or delete another instance.  Use care when creating or deleting instances.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.connect.Instance("test",
+            identity_management_type="CONNECT_MANAGED",
+            inbound_calls_enabled=True,
+            instance_alias="friendly-name-connect",
+            outbound_calls_enabled=True)
+        ```
+        ### With Existing Active Directory
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.connect.Instance("test",
+            directory_id=aws_directory_service_directory["test"]["id"],
+            identity_management_type="EXISTING_DIRECTORY",
+            inbound_calls_enabled=True,
+            instance_alias="friendly-name-connect",
+            outbound_calls_enabled=True)
+        ```
+        ### With SAML
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.connect.Instance("test",
+            identity_management_type="SAML",
+            inbound_calls_enabled=True,
+            instance_alias="friendly-name-connect",
+            outbound_calls_enabled=True)
+        ```
+
+        ## Import
+
+        Connect instances can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
+        ```
+
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -426,6 +637,21 @@ class Instance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the instance.
+        :param pulumi.Input[bool] auto_resolve_best_voices_enabled: Specifies whether auto resolve best voices is enabled. Defaults to `true`.
+        :param pulumi.Input[bool] contact_flow_logs_enabled: Specifies whether contact flow logs are enabled. Defaults to `false`.
+        :param pulumi.Input[bool] contact_lens_enabled: Specifies whether contact lens is enabled. Defaults to `true`.
+        :param pulumi.Input[str] created_time: When the instance was created.
+        :param pulumi.Input[str] directory_id: The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+        :param pulumi.Input[bool] early_media_enabled: Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
+        :param pulumi.Input[str] identity_management_type: Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
+        :param pulumi.Input[bool] inbound_calls_enabled: Specifies whether inbound calls are enabled.
+        :param pulumi.Input[str] instance_alias: Specifies the name of the instance. Required if `directory_id` not specified.
+        :param pulumi.Input[bool] multi_party_conference_enabled: Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+        :param pulumi.Input[bool] outbound_calls_enabled: Specifies whether outbound calls are enabled.
+               <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
+        :param pulumi.Input[str] service_role: The service role of the instance.
+        :param pulumi.Input[str] status: The state of the instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -450,70 +676,113 @@ class Instance(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the instance.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoResolveBestVoicesEnabled")
     def auto_resolve_best_voices_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether auto resolve best voices is enabled. Defaults to `true`.
+        """
         return pulumi.get(self, "auto_resolve_best_voices_enabled")
 
     @property
     @pulumi.getter(name="contactFlowLogsEnabled")
     def contact_flow_logs_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether contact flow logs are enabled. Defaults to `false`.
+        """
         return pulumi.get(self, "contact_flow_logs_enabled")
 
     @property
     @pulumi.getter(name="contactLensEnabled")
     def contact_lens_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether contact lens is enabled. Defaults to `true`.
+        """
         return pulumi.get(self, "contact_lens_enabled")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        When the instance was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+        """
         return pulumi.get(self, "directory_id")
 
     @property
     @pulumi.getter(name="earlyMediaEnabled")
     def early_media_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
+        """
         return pulumi.get(self, "early_media_enabled")
 
     @property
     @pulumi.getter(name="identityManagementType")
     def identity_management_type(self) -> pulumi.Output[str]:
+        """
+        Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
+        """
         return pulumi.get(self, "identity_management_type")
 
     @property
     @pulumi.getter(name="inboundCallsEnabled")
     def inbound_calls_enabled(self) -> pulumi.Output[bool]:
+        """
+        Specifies whether inbound calls are enabled.
+        """
         return pulumi.get(self, "inbound_calls_enabled")
 
     @property
     @pulumi.getter(name="instanceAlias")
     def instance_alias(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the name of the instance. Required if `directory_id` not specified.
+        """
         return pulumi.get(self, "instance_alias")
 
     @property
     @pulumi.getter(name="multiPartyConferenceEnabled")
     def multi_party_conference_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+        """
         return pulumi.get(self, "multi_party_conference_enabled")
 
     @property
     @pulumi.getter(name="outboundCallsEnabled")
     def outbound_calls_enabled(self) -> pulumi.Output[bool]:
+        """
+        Specifies whether outbound calls are enabled.
+        <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
+        """
         return pulumi.get(self, "outbound_calls_enabled")
 
     @property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Output[str]:
+        """
+        The service role of the instance.
+        """
         return pulumi.get(self, "service_role")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The state of the instance.
+        """
         return pulumi.get(self, "status")
 

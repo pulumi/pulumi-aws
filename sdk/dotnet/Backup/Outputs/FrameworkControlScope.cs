@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Backup.Outputs
     [OutputType]
     public sealed class FrameworkControlScope
     {
+        /// <summary>
+        /// The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
+        /// </summary>
         public readonly ImmutableArray<string> ComplianceResourceIds;
+        /// <summary>
+        /// Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+        /// </summary>
         public readonly ImmutableArray<string> ComplianceResourceTypes;
+        /// <summary>
+        /// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

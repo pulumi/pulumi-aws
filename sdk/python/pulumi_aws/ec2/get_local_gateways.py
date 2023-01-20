@@ -53,6 +53,9 @@ class GetLocalGatewaysResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
+        """
+        Set of all the Local Gateway identifiers
+        """
         return pulumi.get(self, "ids")
 
     @property
@@ -77,7 +80,26 @@ def get_local_gateways(filters: Optional[Sequence[pulumi.InputType['GetLocalGate
                        tags: Optional[Mapping[str, str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewaysResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides information for multiple EC2 Local Gateways, such as their identifiers.
+
+    ## Example Usage
+
+    The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo_local_gateways = aws.ec2.get_local_gateways(tags={
+        "service": "production",
+    })
+    pulumi.export("foo", foo_local_gateways.ids)
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetLocalGatewaysFilterArgs']] filters: Custom filter block as described below.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
+           a pair on the desired local_gateways.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -97,6 +119,25 @@ def get_local_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[p
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewaysResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides information for multiple EC2 Local Gateways, such as their identifiers.
+
+    ## Example Usage
+
+    The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo_local_gateways = aws.ec2.get_local_gateways(tags={
+        "service": "production",
+    })
+    pulumi.export("foo", foo_local_gateways.ids)
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetLocalGatewaysFilterArgs']] filters: Custom filter block as described below.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
+           a pair on the desired local_gateways.
     """
     ...

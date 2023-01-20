@@ -12,6 +12,9 @@ namespace Pulumi.Aws.RolesAnywhere.Inputs
 
     public sealed class TrustAnchorSourceSourceDataArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of an ACM Private Certificate Authority.
+        /// </summary>
         [Input("acmPcaArn")]
         public Input<string>? AcmPcaArn { get; set; }
 

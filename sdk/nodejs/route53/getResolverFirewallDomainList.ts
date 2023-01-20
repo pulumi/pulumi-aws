@@ -4,6 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `aws.route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
+ *
+ * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
+ *
+ * ## Example Usage
+ *
+ * The following example shows how to get a firewall domain list from its ID.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.route53.getResolverFirewallDomainList({
+ *     firewallDomainListId: "rslvr-fdl-example",
+ * });
+ * ```
+ */
 export function getResolverFirewallDomainList(args: GetResolverFirewallDomainListArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallDomainListResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -16,6 +34,9 @@ export function getResolverFirewallDomainList(args: GetResolverFirewallDomainLis
  * A collection of arguments for invoking getResolverFirewallDomainList.
  */
 export interface GetResolverFirewallDomainListArgs {
+    /**
+     * The ID of the domain list.
+     */
     firewallDomainListId: string;
 }
 
@@ -38,6 +59,24 @@ export interface GetResolverFirewallDomainListResult {
     readonly status: string;
     readonly statusMessage: string;
 }
+/**
+ * `aws.route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
+ *
+ * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
+ *
+ * ## Example Usage
+ *
+ * The following example shows how to get a firewall domain list from its ID.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.route53.getResolverFirewallDomainList({
+ *     firewallDomainListId: "rslvr-fdl-example",
+ * });
+ * ```
+ */
 export function getResolverFirewallDomainListOutput(args: GetResolverFirewallDomainListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverFirewallDomainListResult> {
     return pulumi.output(args).apply((a: any) => getResolverFirewallDomainList(a, opts))
 }
@@ -46,5 +85,8 @@ export function getResolverFirewallDomainListOutput(args: GetResolverFirewallDom
  * A collection of arguments for invoking getResolverFirewallDomainList.
  */
 export interface GetResolverFirewallDomainListOutputArgs {
+    /**
+     * The ID of the domain list.
+     */
     firewallDomainListId: pulumi.Input<string>;
 }

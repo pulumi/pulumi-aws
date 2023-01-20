@@ -19,86 +19,182 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
 
     public static final OntapVolumeState Empty = new OntapVolumeState();
 
+    /**
+     * Amazon Resource Name of the volune.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return Amazon Resource Name of the volune.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * Describes the file system for the volume, e.g. `fs-12345679`
+     * 
+     */
     @Import(name="fileSystemId")
     private @Nullable Output<String> fileSystemId;
 
+    /**
+     * @return Describes the file system for the volume, e.g. `fs-12345679`
+     * 
+     */
     public Optional<Output<String>> fileSystemId() {
         return Optional.ofNullable(this.fileSystemId);
     }
 
+    /**
+     * Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
+     * 
+     */
     @Import(name="flexcacheEndpointType")
     private @Nullable Output<String> flexcacheEndpointType;
 
+    /**
+     * @return Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
+     * 
+     */
     public Optional<Output<String>> flexcacheEndpointType() {
         return Optional.ofNullable(this.flexcacheEndpointType);
     }
 
+    /**
+     * Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+     * 
+     */
     @Import(name="junctionPath")
     private @Nullable Output<String> junctionPath;
 
+    /**
+     * @return Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+     * 
+     */
     public Optional<Output<String>> junctionPath() {
         return Optional.ofNullable(this.junctionPath);
     }
 
+    /**
+     * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+     * 
+     */
     @Import(name="ontapVolumeType")
     private @Nullable Output<String> ontapVolumeType;
 
+    /**
+     * @return Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+     * 
+     */
     public Optional<Output<String>> ontapVolumeType() {
         return Optional.ofNullable(this.ontapVolumeType);
     }
 
+    /**
+     * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+     * 
+     */
     @Import(name="securityStyle")
     private @Nullable Output<String> securityStyle;
 
+    /**
+     * @return Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+     * 
+     */
     public Optional<Output<String>> securityStyle() {
         return Optional.ofNullable(this.securityStyle);
     }
 
+    /**
+     * Specifies the size of the volume, in megabytes (MB), that you are creating.
+     * 
+     */
     @Import(name="sizeInMegabytes")
     private @Nullable Output<Integer> sizeInMegabytes;
 
+    /**
+     * @return Specifies the size of the volume, in megabytes (MB), that you are creating.
+     * 
+     */
     public Optional<Output<Integer>> sizeInMegabytes() {
         return Optional.ofNullable(this.sizeInMegabytes);
     }
 
+    /**
+     * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+     * 
+     */
     @Import(name="storageEfficiencyEnabled")
     private @Nullable Output<Boolean> storageEfficiencyEnabled;
 
+    /**
+     * @return Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+     * 
+     */
     public Optional<Output<Boolean>> storageEfficiencyEnabled() {
         return Optional.ofNullable(this.storageEfficiencyEnabled);
     }
 
+    /**
+     * Specifies the storage virtual machine in which to create the volume.
+     * 
+     */
     @Import(name="storageVirtualMachineId")
     private @Nullable Output<String> storageVirtualMachineId;
 
+    /**
+     * @return Specifies the storage virtual machine in which to create the volume.
+     * 
+     */
     public Optional<Output<String>> storageVirtualMachineId() {
         return Optional.ofNullable(this.storageVirtualMachineId);
     }
 
+    /**
+     * A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -110,16 +206,32 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tieringPolicy);
     }
 
+    /**
+     * The Volume&#39;s UUID (universally unique identifier).
+     * 
+     */
     @Import(name="uuid")
     private @Nullable Output<String> uuid;
 
+    /**
+     * @return The Volume&#39;s UUID (universally unique identifier).
+     * 
+     */
     public Optional<Output<String>> uuid() {
         return Optional.ofNullable(this.uuid);
     }
 
+    /**
+     * The type of volume, currently the only valid value is `ONTAP`.
+     * 
+     */
     @Import(name="volumeType")
     private @Nullable Output<String> volumeType;
 
+    /**
+     * @return The type of volume, currently the only valid value is `ONTAP`.
+     * 
+     */
     public Optional<Output<String>> volumeType() {
         return Optional.ofNullable(this.volumeType);
     }
@@ -162,110 +274,254 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
             $ = new OntapVolumeState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn Amazon Resource Name of the volune.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn Amazon Resource Name of the volune.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param fileSystemId Describes the file system for the volume, e.g. `fs-12345679`
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileSystemId(@Nullable Output<String> fileSystemId) {
             $.fileSystemId = fileSystemId;
             return this;
         }
 
+        /**
+         * @param fileSystemId Describes the file system for the volume, e.g. `fs-12345679`
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileSystemId(String fileSystemId) {
             return fileSystemId(Output.of(fileSystemId));
         }
 
+        /**
+         * @param flexcacheEndpointType Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
+         * 
+         * @return builder
+         * 
+         */
         public Builder flexcacheEndpointType(@Nullable Output<String> flexcacheEndpointType) {
             $.flexcacheEndpointType = flexcacheEndpointType;
             return this;
         }
 
+        /**
+         * @param flexcacheEndpointType Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
+         * 
+         * @return builder
+         * 
+         */
         public Builder flexcacheEndpointType(String flexcacheEndpointType) {
             return flexcacheEndpointType(Output.of(flexcacheEndpointType));
         }
 
+        /**
+         * @param junctionPath Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+         * 
+         * @return builder
+         * 
+         */
         public Builder junctionPath(@Nullable Output<String> junctionPath) {
             $.junctionPath = junctionPath;
             return this;
         }
 
+        /**
+         * @param junctionPath Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+         * 
+         * @return builder
+         * 
+         */
         public Builder junctionPath(String junctionPath) {
             return junctionPath(Output.of(junctionPath));
         }
 
+        /**
+         * @param name The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param ontapVolumeType Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+         * 
+         * @return builder
+         * 
+         */
         public Builder ontapVolumeType(@Nullable Output<String> ontapVolumeType) {
             $.ontapVolumeType = ontapVolumeType;
             return this;
         }
 
+        /**
+         * @param ontapVolumeType Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+         * 
+         * @return builder
+         * 
+         */
         public Builder ontapVolumeType(String ontapVolumeType) {
             return ontapVolumeType(Output.of(ontapVolumeType));
         }
 
+        /**
+         * @param securityStyle Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityStyle(@Nullable Output<String> securityStyle) {
             $.securityStyle = securityStyle;
             return this;
         }
 
+        /**
+         * @param securityStyle Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityStyle(String securityStyle) {
             return securityStyle(Output.of(securityStyle));
         }
 
+        /**
+         * @param sizeInMegabytes Specifies the size of the volume, in megabytes (MB), that you are creating.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sizeInMegabytes(@Nullable Output<Integer> sizeInMegabytes) {
             $.sizeInMegabytes = sizeInMegabytes;
             return this;
         }
 
+        /**
+         * @param sizeInMegabytes Specifies the size of the volume, in megabytes (MB), that you are creating.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sizeInMegabytes(Integer sizeInMegabytes) {
             return sizeInMegabytes(Output.of(sizeInMegabytes));
         }
 
+        /**
+         * @param storageEfficiencyEnabled Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageEfficiencyEnabled(@Nullable Output<Boolean> storageEfficiencyEnabled) {
             $.storageEfficiencyEnabled = storageEfficiencyEnabled;
             return this;
         }
 
+        /**
+         * @param storageEfficiencyEnabled Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageEfficiencyEnabled(Boolean storageEfficiencyEnabled) {
             return storageEfficiencyEnabled(Output.of(storageEfficiencyEnabled));
         }
 
+        /**
+         * @param storageVirtualMachineId Specifies the storage virtual machine in which to create the volume.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageVirtualMachineId(@Nullable Output<String> storageVirtualMachineId) {
             $.storageVirtualMachineId = storageVirtualMachineId;
             return this;
         }
 
+        /**
+         * @param storageVirtualMachineId Specifies the storage virtual machine in which to create the volume.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageVirtualMachineId(String storageVirtualMachineId) {
             return storageVirtualMachineId(Output.of(storageVirtualMachineId));
         }
 
+        /**
+         * @param tags A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
@@ -279,20 +535,44 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
             return tieringPolicy(Output.of(tieringPolicy));
         }
 
+        /**
+         * @param uuid The Volume&#39;s UUID (universally unique identifier).
+         * 
+         * @return builder
+         * 
+         */
         public Builder uuid(@Nullable Output<String> uuid) {
             $.uuid = uuid;
             return this;
         }
 
+        /**
+         * @param uuid The Volume&#39;s UUID (universally unique identifier).
+         * 
+         * @return builder
+         * 
+         */
         public Builder uuid(String uuid) {
             return uuid(Output.of(uuid));
         }
 
+        /**
+         * @param volumeType The type of volume, currently the only valid value is `ONTAP`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder volumeType(@Nullable Output<String> volumeType) {
             $.volumeType = volumeType;
             return this;
         }
 
+        /**
+         * @param volumeType The type of volume, currently the only valid value is `ONTAP`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder volumeType(String volumeType) {
             return volumeType(Output.of(volumeType));
         }

@@ -11,10 +11,14 @@ import (
 )
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody struct {
-	InvalidFallbackBehavior *string                                                                                                   `pulumi:"invalidFallbackBehavior"`
-	MatchPattern            WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	MatchScope              string                                                                                                    `pulumi:"matchScope"`
-	OversizeHandling        *string                                                                                                   `pulumi:"oversizeHandling"`
+	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
+	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	MatchPattern WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
+	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	MatchScope string `pulumi:"matchScope"`
+	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+	OversizeHandling *string `pulumi:"oversizeHandling"`
 }
 
 // WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs and WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyOutput values.
@@ -29,10 +33,14 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFi
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs struct {
-	InvalidFallbackBehavior pulumi.StringPtrInput                                                                                          `pulumi:"invalidFallbackBehavior"`
-	MatchPattern            WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
-	MatchScope              pulumi.StringInput                                                                                             `pulumi:"matchScope"`
-	OversizeHandling        pulumi.StringPtrInput                                                                                          `pulumi:"oversizeHandling"`
+	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
+	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	MatchPattern WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
+	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
 }
 
 func (WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs) ElementType() reflect.Type {
@@ -112,24 +120,28 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput)
 }
 
+// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody) *string {
 		return v.InvalidFallbackBehavior
 	}).(pulumi.StringPtrOutput)
 }
 
+// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyOutput) MatchPattern() WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody) WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
 		return v.MatchPattern
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
+// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody) string {
 		return v.MatchScope
 	}).(pulumi.StringOutput)
 }
 
+// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody) *string {
 		return v.OversizeHandling
@@ -160,6 +172,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyOutput)
 }
 
+// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -169,6 +182,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 	}).(pulumi.StringPtrOutput)
 }
 
+// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody) *WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
 		if v == nil {
@@ -178,6 +192,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
+// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -187,6 +202,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 	}).(pulumi.StringPtrOutput)
 }
 
+// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -197,6 +213,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All           *WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
 	IncludedPaths []string                                                                                                      `pulumi:"includedPaths"`
 }
@@ -213,6 +230,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFi
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All           WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput                                                                                              `pulumi:"includedPaths"`
 }
@@ -294,6 +312,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput) All() WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		return v.All
@@ -330,6 +349,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		if v == nil {
@@ -703,6 +723,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name string `pulumi:"name"`
 }
 
@@ -718,6 +739,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFi
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArgs struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -798,6 +820,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader) string {
 		return v.Name
@@ -828,6 +851,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -838,6 +862,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name string `pulumi:"name"`
 }
 
@@ -853,6 +878,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFi
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -933,6 +959,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -963,6 +990,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -1091,8 +1119,10 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation struct {
-	Priority int    `pulumi:"priority"`
-	Type     string `pulumi:"type"`
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	Priority int `pulumi:"priority"`
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	Type string `pulumi:"type"`
 }
 
 // WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs and WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationOutput values.
@@ -1107,8 +1137,10 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTe
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs struct {
-	Priority pulumi.IntInput    `pulumi:"priority"`
-	Type     pulumi.StringInput `pulumi:"type"`
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs) ElementType() reflect.Type {
@@ -1162,12 +1194,14 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 	return o
 }
 
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation) string {
 		return v.Type
@@ -1195,7 +1229,11 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement struct {
-	FieldToMatch        *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch        `pulumi:"fieldToMatch"`
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	FieldToMatch *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch `pulumi:"fieldToMatch"`
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+	// At least one required.
+	// See Text Transformation below for details.
 	TextTransformations []WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -1211,7 +1249,11 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementInp
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs struct {
-	FieldToMatch        WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrInput         `pulumi:"fieldToMatch"`
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	FieldToMatch WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+	// At least one required.
+	// See Text Transformation below for details.
 	TextTransformations WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -1292,12 +1334,16 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPtrOutput)
 }
 
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementOutput) FieldToMatch() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch {
 		return v.FieldToMatch
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrOutput)
 }
 
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+// At least one required.
+// See Text Transformation below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementOutput) TextTransformations() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement) []WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation {
 		return v.TextTransformations
@@ -1328,6 +1374,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementOutput)
 }
 
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPtrOutput) FieldToMatch() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch {
 		if v == nil {
@@ -1337,6 +1384,9 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrOutput)
 }
 
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+// At least one required.
+// See Text Transformation below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPtrOutput) TextTransformations() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement) []WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation {
 		if v == nil {
@@ -1347,16 +1397,26 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch struct {
-	AllQueryArguments   *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments   `pulumi:"allQueryArguments"`
-	Body                *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody                `pulumi:"body"`
-	Cookies             *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies             `pulumi:"cookies"`
-	Headers             []WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader             `pulumi:"headers"`
-	JsonBody            *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody            `pulumi:"jsonBody"`
-	Method              *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod              `pulumi:"method"`
-	QueryString         *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString         `pulumi:"queryString"`
-	SingleHeader        *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader        `pulumi:"singleHeader"`
+	// Inspect all query arguments.
+	AllQueryArguments *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments `pulumi:"allQueryArguments"`
+	// Inspect the request body, which immediately follows the request headers.
+	Body *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody `pulumi:"body"`
+	// Inspect the cookies in the web request. See Cookies below for details.
+	Cookies *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies `pulumi:"cookies"`
+	// Inspect the request headers. See Headers below for details.
+	Headers []WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader `pulumi:"headers"`
+	// Inspect the request body as JSON. See JSON Body for details.
+	JsonBody *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody `pulumi:"jsonBody"`
+	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+	Method *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod `pulumi:"method"`
+	// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+	QueryString *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString `pulumi:"queryString"`
+	// Inspect a single header. See Single Header below for details.
+	SingleHeader *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader `pulumi:"singleHeader"`
+	// Inspect a single query argument. See Single Query Argument below for details.
 	SingleQueryArgument *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument `pulumi:"singleQueryArgument"`
-	UriPath             *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath             `pulumi:"uriPath"`
+	// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+	UriPath *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath `pulumi:"uriPath"`
 }
 
 // WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchArgs and WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchOutput values.
@@ -1371,16 +1431,26 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFie
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchArgs struct {
-	AllQueryArguments   WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrInput   `pulumi:"allQueryArguments"`
-	Body                WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBodyPtrInput                `pulumi:"body"`
-	Cookies             WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesPtrInput             `pulumi:"cookies"`
-	Headers             WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArrayInput            `pulumi:"headers"`
-	JsonBody            WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyPtrInput            `pulumi:"jsonBody"`
-	Method              WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethodPtrInput              `pulumi:"method"`
-	QueryString         WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringPtrInput         `pulumi:"queryString"`
-	SingleHeader        WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderPtrInput        `pulumi:"singleHeader"`
+	// Inspect all query arguments.
+	AllQueryArguments WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrInput `pulumi:"allQueryArguments"`
+	// Inspect the request body, which immediately follows the request headers.
+	Body WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBodyPtrInput `pulumi:"body"`
+	// Inspect the cookies in the web request. See Cookies below for details.
+	Cookies WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesPtrInput `pulumi:"cookies"`
+	// Inspect the request headers. See Headers below for details.
+	Headers WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArrayInput `pulumi:"headers"`
+	// Inspect the request body as JSON. See JSON Body for details.
+	JsonBody WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyPtrInput `pulumi:"jsonBody"`
+	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+	Method WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethodPtrInput `pulumi:"method"`
+	// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+	QueryString WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringPtrInput `pulumi:"queryString"`
+	// Inspect a single header. See Single Header below for details.
+	SingleHeader WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderPtrInput `pulumi:"singleHeader"`
+	// Inspect a single query argument. See Single Query Argument below for details.
 	SingleQueryArgument WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrInput `pulumi:"singleQueryArgument"`
-	UriPath             WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathPtrInput             `pulumi:"uriPath"`
+	// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+	UriPath WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathPtrInput `pulumi:"uriPath"`
 }
 
 func (WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchArgs) ElementType() reflect.Type {
@@ -1460,60 +1530,70 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrOutput)
 }
 
+// Inspect all query arguments.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchOutput) AllQueryArguments() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments {
 		return v.AllQueryArguments
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput)
 }
 
+// Inspect the request body, which immediately follows the request headers.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchOutput) Body() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBodyPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody {
 		return v.Body
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBodyPtrOutput)
 }
 
+// Inspect the cookies in the web request. See Cookies below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchOutput) Cookies() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies {
 		return v.Cookies
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
+// Inspect the request headers. See Headers below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchOutput) Headers() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) []WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader {
 		return v.Headers
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArrayOutput)
 }
 
+// Inspect the request body as JSON. See JSON Body for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchOutput) JsonBody() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody {
 		return v.JsonBody
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput)
 }
 
+// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchOutput) Method() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethodPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod {
 		return v.Method
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethodPtrOutput)
 }
 
+// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchOutput) QueryString() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString {
 		return v.QueryString
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringPtrOutput)
 }
 
+// Inspect a single header. See Single Header below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchOutput) SingleHeader() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader {
 		return v.SingleHeader
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
+// Inspect a single query argument. See Single Query Argument below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchOutput) SingleQueryArgument() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument {
 		return v.SingleQueryArgument
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
+// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchOutput) UriPath() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath {
 		return v.UriPath
@@ -1544,6 +1624,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchOutput)
 }
 
+// Inspect all query arguments.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrOutput) AllQueryArguments() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments {
 		if v == nil {
@@ -1553,6 +1634,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput)
 }
 
+// Inspect the request body, which immediately follows the request headers.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrOutput) Body() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBodyPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody {
 		if v == nil {
@@ -1562,6 +1644,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBodyPtrOutput)
 }
 
+// Inspect the cookies in the web request. See Cookies below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrOutput) Cookies() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies {
 		if v == nil {
@@ -1571,6 +1654,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
+// Inspect the request headers. See Headers below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrOutput) Headers() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) []WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader {
 		if v == nil {
@@ -1580,6 +1664,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArrayOutput)
 }
 
+// Inspect the request body as JSON. See JSON Body for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrOutput) JsonBody() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody {
 		if v == nil {
@@ -1589,6 +1674,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput)
 }
 
+// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrOutput) Method() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethodPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod {
 		if v == nil {
@@ -1598,6 +1684,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethodPtrOutput)
 }
 
+// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrOutput) QueryString() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString {
 		if v == nil {
@@ -1607,6 +1694,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringPtrOutput)
 }
 
+// Inspect a single header. See Single Header below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrOutput) SingleHeader() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader {
 		if v == nil {
@@ -1616,6 +1704,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
+// Inspect a single query argument. See Single Query Argument below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrOutput) SingleQueryArgument() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument {
 		if v == nil {
@@ -1625,6 +1714,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
+// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrOutput) UriPath() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath {
 		if v == nil {
@@ -1871,9 +1961,12 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies struct {
-	MatchPatterns    []WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
-	MatchScope       string                                                                                                    `pulumi:"matchScope"`
-	OversizeHandling string                                                                                                    `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	MatchPatterns []WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
+	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	MatchScope string `pulumi:"matchScope"`
+	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+	OversizeHandling string `pulumi:"oversizeHandling"`
 }
 
 // WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArgs and WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesOutput values.
@@ -1888,9 +1981,12 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFie
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArgs struct {
-	MatchPatterns    WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
-	MatchScope       pulumi.StringInput                                                                                                `pulumi:"matchScope"`
-	OversizeHandling pulumi.StringInput                                                                                                `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	MatchPatterns WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
+	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
 }
 
 func (WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArgs) ElementType() reflect.Type {
@@ -1970,18 +2066,21 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
+// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesOutput) MatchPatterns() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies) []WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
 		return v.MatchPatterns
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
+// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies) string {
 		return v.MatchScope
 	}).(pulumi.StringOutput)
 }
 
+// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesOutput) OversizeHandling() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies) string {
 		return v.OversizeHandling
@@ -2012,6 +2111,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesOutput)
 }
 
+// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesPtrOutput) MatchPatterns() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies) []WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
 		if v == nil {
@@ -2021,6 +2121,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
+// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -2030,6 +2131,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(pulumi.StringPtrOutput)
 }
 
+// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesPtrOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -2040,6 +2142,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All             *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll `pulumi:"all"`
 	ExcludedCookies []string                                                                                                    `pulumi:"excludedCookies"`
 	IncludedCookies []string                                                                                                    `pulumi:"includedCookies"`
@@ -2057,6 +2160,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFie
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All             WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrInput `pulumi:"all"`
 	ExcludedCookies pulumi.StringArrayInput                                                                                            `pulumi:"excludedCookies"`
 	IncludedCookies pulumi.StringArrayInput                                                                                            `pulumi:"includedCookies"`
@@ -2113,6 +2217,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	return o
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput) All() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll {
 		return v.All
@@ -2270,9 +2375,12 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader struct {
-	MatchPattern     WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
-	MatchScope       string                                                                                                 `pulumi:"matchScope"`
-	OversizeHandling string                                                                                                 `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	MatchPattern WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
+	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	MatchScope string `pulumi:"matchScope"`
+	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+	OversizeHandling string `pulumi:"oversizeHandling"`
 }
 
 // WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs and WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOutput values.
@@ -2287,9 +2395,12 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFie
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs struct {
-	MatchPattern     WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
-	MatchScope       pulumi.StringInput                                                                                          `pulumi:"matchScope"`
-	OversizeHandling pulumi.StringInput                                                                                          `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	MatchPattern WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
+	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
 }
 
 func (WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs) ElementType() reflect.Type {
@@ -2343,18 +2454,21 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	return o
 }
 
+// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOutput) MatchPattern() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader) WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern {
 		return v.MatchPattern
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput)
 }
 
+// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader) string {
 		return v.MatchScope
 	}).(pulumi.StringOutput)
 }
 
+// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOutput) OversizeHandling() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader) string {
 		return v.OversizeHandling
@@ -2382,9 +2496,12 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern struct {
-	All             *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
-	ExcludedHeaders []string                                                                                                   `pulumi:"excludedHeaders"`
-	IncludedHeaders []string                                                                                                   `pulumi:"includedHeaders"`
+	// An empty configuration block that is used for inspecting all headers.
+	All *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
+	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	ExcludedHeaders []string `pulumi:"excludedHeaders"`
+	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	IncludedHeaders []string `pulumi:"includedHeaders"`
 }
 
 // WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs and WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput values.
@@ -2399,9 +2516,12 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFie
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs struct {
-	All             WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
-	ExcludedHeaders pulumi.StringArrayInput                                                                                           `pulumi:"excludedHeaders"`
-	IncludedHeaders pulumi.StringArrayInput                                                                                           `pulumi:"includedHeaders"`
+	// An empty configuration block that is used for inspecting all headers.
+	All WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
+	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
+	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
 }
 
 func (WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs) ElementType() reflect.Type {
@@ -2430,18 +2550,21 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	return o
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) All() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
 		return v.All
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
 }
 
+// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.ExcludedHeaders
 	}).(pulumi.StringArrayOutput)
 }
 
+// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.IncludedHeaders
@@ -2567,10 +2690,14 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody struct {
-	InvalidFallbackBehavior *string                                                                                                  `pulumi:"invalidFallbackBehavior"`
-	MatchPattern            WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	MatchScope              string                                                                                                   `pulumi:"matchScope"`
-	OversizeHandling        *string                                                                                                  `pulumi:"oversizeHandling"`
+	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
+	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	MatchPattern WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
+	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	MatchScope string `pulumi:"matchScope"`
+	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+	OversizeHandling *string `pulumi:"oversizeHandling"`
 }
 
 // WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArgs and WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyOutput values.
@@ -2585,10 +2712,14 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFie
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArgs struct {
-	InvalidFallbackBehavior pulumi.StringPtrInput                                                                                         `pulumi:"invalidFallbackBehavior"`
-	MatchPattern            WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
-	MatchScope              pulumi.StringInput                                                                                            `pulumi:"matchScope"`
-	OversizeHandling        pulumi.StringPtrInput                                                                                         `pulumi:"oversizeHandling"`
+	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
+	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	MatchPattern WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
+	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
 }
 
 func (WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArgs) ElementType() reflect.Type {
@@ -2668,24 +2799,28 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput)
 }
 
+// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody) *string {
 		return v.InvalidFallbackBehavior
 	}).(pulumi.StringPtrOutput)
 }
 
+// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyOutput) MatchPattern() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody) WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
 		return v.MatchPattern
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
+// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody) string {
 		return v.MatchScope
 	}).(pulumi.StringOutput)
 }
 
+// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody) *string {
 		return v.OversizeHandling
@@ -2716,6 +2851,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyOutput)
 }
 
+// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -2725,6 +2861,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(pulumi.StringPtrOutput)
 }
 
+// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
 		if v == nil {
@@ -2734,6 +2871,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
+// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -2743,6 +2881,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(pulumi.StringPtrOutput)
 }
 
+// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -2753,6 +2892,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All           *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
 	IncludedPaths []string                                                                                                     `pulumi:"includedPaths"`
 }
@@ -2769,6 +2909,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFie
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All           WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput                                                                                             `pulumi:"includedPaths"`
 }
@@ -2850,6 +2991,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput) All() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		return v.All
@@ -2886,6 +3028,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		if v == nil {
@@ -3259,6 +3402,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name string `pulumi:"name"`
 }
 
@@ -3274,6 +3418,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFie
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArgs struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -3354,6 +3499,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader) string {
 		return v.Name
@@ -3384,6 +3530,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -3394,6 +3541,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name string `pulumi:"name"`
 }
 
@@ -3409,6 +3557,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFie
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -3489,6 +3638,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -3519,6 +3669,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -3647,8 +3798,10 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation struct {
-	Priority int    `pulumi:"priority"`
-	Type     string `pulumi:"type"`
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	Priority int `pulumi:"priority"`
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	Type string `pulumi:"type"`
 }
 
 // WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArgs and WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationOutput values.
@@ -3663,8 +3816,10 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTex
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArgs struct {
-	Priority pulumi.IntInput    `pulumi:"priority"`
-	Type     pulumi.StringInput `pulumi:"type"`
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArgs) ElementType() reflect.Type {
@@ -3718,12 +3873,14 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	return o
 }
 
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation) string {
 		return v.Type
@@ -3751,8 +3908,13 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type WebAclRuleStatementRegexMatchStatement struct {
-	FieldToMatch        *WebAclRuleStatementRegexMatchStatementFieldToMatch        `pulumi:"fieldToMatch"`
-	RegexString         string                                                     `pulumi:"regexString"`
+	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	FieldToMatch *WebAclRuleStatementRegexMatchStatementFieldToMatch `pulumi:"fieldToMatch"`
+	// String representing the regular expression. Minimum of `1` and maximum of `512` characters.
+	RegexString string `pulumi:"regexString"`
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+	// At least one required.
+	// See Text Transformation below for details.
 	TextTransformations []WebAclRuleStatementRegexMatchStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -3768,8 +3930,13 @@ type WebAclRuleStatementRegexMatchStatementInput interface {
 }
 
 type WebAclRuleStatementRegexMatchStatementArgs struct {
-	FieldToMatch        WebAclRuleStatementRegexMatchStatementFieldToMatchPtrInput         `pulumi:"fieldToMatch"`
-	RegexString         pulumi.StringInput                                                 `pulumi:"regexString"`
+	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	FieldToMatch WebAclRuleStatementRegexMatchStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
+	// String representing the regular expression. Minimum of `1` and maximum of `512` characters.
+	RegexString pulumi.StringInput `pulumi:"regexString"`
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+	// At least one required.
+	// See Text Transformation below for details.
 	TextTransformations WebAclRuleStatementRegexMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -3850,16 +4017,21 @@ func (o WebAclRuleStatementRegexMatchStatementOutput) ToWebAclRuleStatementRegex
 	}).(WebAclRuleStatementRegexMatchStatementPtrOutput)
 }
 
+// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o WebAclRuleStatementRegexMatchStatementOutput) FieldToMatch() WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatement) *WebAclRuleStatementRegexMatchStatementFieldToMatch {
 		return v.FieldToMatch
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput)
 }
 
+// String representing the regular expression. Minimum of `1` and maximum of `512` characters.
 func (o WebAclRuleStatementRegexMatchStatementOutput) RegexString() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatement) string { return v.RegexString }).(pulumi.StringOutput)
 }
 
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+// At least one required.
+// See Text Transformation below for details.
 func (o WebAclRuleStatementRegexMatchStatementOutput) TextTransformations() WebAclRuleStatementRegexMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatement) []WebAclRuleStatementRegexMatchStatementTextTransformation {
 		return v.TextTransformations
@@ -3890,6 +4062,7 @@ func (o WebAclRuleStatementRegexMatchStatementPtrOutput) Elem() WebAclRuleStatem
 	}).(WebAclRuleStatementRegexMatchStatementOutput)
 }
 
+// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o WebAclRuleStatementRegexMatchStatementPtrOutput) FieldToMatch() WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatement) *WebAclRuleStatementRegexMatchStatementFieldToMatch {
 		if v == nil {
@@ -3899,6 +4072,7 @@ func (o WebAclRuleStatementRegexMatchStatementPtrOutput) FieldToMatch() WebAclRu
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput)
 }
 
+// String representing the regular expression. Minimum of `1` and maximum of `512` characters.
 func (o WebAclRuleStatementRegexMatchStatementPtrOutput) RegexString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatement) *string {
 		if v == nil {
@@ -3908,6 +4082,9 @@ func (o WebAclRuleStatementRegexMatchStatementPtrOutput) RegexString() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+// At least one required.
+// See Text Transformation below for details.
 func (o WebAclRuleStatementRegexMatchStatementPtrOutput) TextTransformations() WebAclRuleStatementRegexMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatement) []WebAclRuleStatementRegexMatchStatementTextTransformation {
 		if v == nil {
@@ -3918,16 +4095,26 @@ func (o WebAclRuleStatementRegexMatchStatementPtrOutput) TextTransformations() W
 }
 
 type WebAclRuleStatementRegexMatchStatementFieldToMatch struct {
-	AllQueryArguments   *WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArguments   `pulumi:"allQueryArguments"`
-	Body                *WebAclRuleStatementRegexMatchStatementFieldToMatchBody                `pulumi:"body"`
-	Cookies             *WebAclRuleStatementRegexMatchStatementFieldToMatchCookies             `pulumi:"cookies"`
-	Headers             []WebAclRuleStatementRegexMatchStatementFieldToMatchHeader             `pulumi:"headers"`
-	JsonBody            *WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody            `pulumi:"jsonBody"`
-	Method              *WebAclRuleStatementRegexMatchStatementFieldToMatchMethod              `pulumi:"method"`
-	QueryString         *WebAclRuleStatementRegexMatchStatementFieldToMatchQueryString         `pulumi:"queryString"`
-	SingleHeader        *WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeader        `pulumi:"singleHeader"`
+	// Inspect all query arguments.
+	AllQueryArguments *WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArguments `pulumi:"allQueryArguments"`
+	// Inspect the request body, which immediately follows the request headers.
+	Body *WebAclRuleStatementRegexMatchStatementFieldToMatchBody `pulumi:"body"`
+	// Inspect the cookies in the web request. See Cookies below for details.
+	Cookies *WebAclRuleStatementRegexMatchStatementFieldToMatchCookies `pulumi:"cookies"`
+	// Inspect the request headers. See Headers below for details.
+	Headers []WebAclRuleStatementRegexMatchStatementFieldToMatchHeader `pulumi:"headers"`
+	// Inspect the request body as JSON. See JSON Body for details.
+	JsonBody *WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody `pulumi:"jsonBody"`
+	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+	Method *WebAclRuleStatementRegexMatchStatementFieldToMatchMethod `pulumi:"method"`
+	// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+	QueryString *WebAclRuleStatementRegexMatchStatementFieldToMatchQueryString `pulumi:"queryString"`
+	// Inspect a single header. See Single Header below for details.
+	SingleHeader *WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeader `pulumi:"singleHeader"`
+	// Inspect a single query argument. See Single Query Argument below for details.
 	SingleQueryArgument *WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument `pulumi:"singleQueryArgument"`
-	UriPath             *WebAclRuleStatementRegexMatchStatementFieldToMatchUriPath             `pulumi:"uriPath"`
+	// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+	UriPath *WebAclRuleStatementRegexMatchStatementFieldToMatchUriPath `pulumi:"uriPath"`
 }
 
 // WebAclRuleStatementRegexMatchStatementFieldToMatchInput is an input type that accepts WebAclRuleStatementRegexMatchStatementFieldToMatchArgs and WebAclRuleStatementRegexMatchStatementFieldToMatchOutput values.
@@ -3942,16 +4129,26 @@ type WebAclRuleStatementRegexMatchStatementFieldToMatchInput interface {
 }
 
 type WebAclRuleStatementRegexMatchStatementFieldToMatchArgs struct {
-	AllQueryArguments   WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArgumentsPtrInput   `pulumi:"allQueryArguments"`
-	Body                WebAclRuleStatementRegexMatchStatementFieldToMatchBodyPtrInput                `pulumi:"body"`
-	Cookies             WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesPtrInput             `pulumi:"cookies"`
-	Headers             WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderArrayInput            `pulumi:"headers"`
-	JsonBody            WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrInput            `pulumi:"jsonBody"`
-	Method              WebAclRuleStatementRegexMatchStatementFieldToMatchMethodPtrInput              `pulumi:"method"`
-	QueryString         WebAclRuleStatementRegexMatchStatementFieldToMatchQueryStringPtrInput         `pulumi:"queryString"`
-	SingleHeader        WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderPtrInput        `pulumi:"singleHeader"`
+	// Inspect all query arguments.
+	AllQueryArguments WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArgumentsPtrInput `pulumi:"allQueryArguments"`
+	// Inspect the request body, which immediately follows the request headers.
+	Body WebAclRuleStatementRegexMatchStatementFieldToMatchBodyPtrInput `pulumi:"body"`
+	// Inspect the cookies in the web request. See Cookies below for details.
+	Cookies WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesPtrInput `pulumi:"cookies"`
+	// Inspect the request headers. See Headers below for details.
+	Headers WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderArrayInput `pulumi:"headers"`
+	// Inspect the request body as JSON. See JSON Body for details.
+	JsonBody WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrInput `pulumi:"jsonBody"`
+	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+	Method WebAclRuleStatementRegexMatchStatementFieldToMatchMethodPtrInput `pulumi:"method"`
+	// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+	QueryString WebAclRuleStatementRegexMatchStatementFieldToMatchQueryStringPtrInput `pulumi:"queryString"`
+	// Inspect a single header. See Single Header below for details.
+	SingleHeader WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderPtrInput `pulumi:"singleHeader"`
+	// Inspect a single query argument. See Single Query Argument below for details.
 	SingleQueryArgument WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentPtrInput `pulumi:"singleQueryArgument"`
-	UriPath             WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathPtrInput             `pulumi:"uriPath"`
+	// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+	UriPath WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathPtrInput `pulumi:"uriPath"`
 }
 
 func (WebAclRuleStatementRegexMatchStatementFieldToMatchArgs) ElementType() reflect.Type {
@@ -4031,60 +4228,70 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchOutput) ToWebAclRuleSt
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput)
 }
 
+// Inspect all query arguments.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchOutput) AllQueryArguments() WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatch) *WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArguments {
 		return v.AllQueryArguments
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArgumentsPtrOutput)
 }
 
+// Inspect the request body, which immediately follows the request headers.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchOutput) Body() WebAclRuleStatementRegexMatchStatementFieldToMatchBodyPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatch) *WebAclRuleStatementRegexMatchStatementFieldToMatchBody {
 		return v.Body
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchBodyPtrOutput)
 }
 
+// Inspect the cookies in the web request. See Cookies below for details.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchOutput) Cookies() WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatch) *WebAclRuleStatementRegexMatchStatementFieldToMatchCookies {
 		return v.Cookies
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
+// Inspect the request headers. See Headers below for details.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchOutput) Headers() WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatch) []WebAclRuleStatementRegexMatchStatementFieldToMatchHeader {
 		return v.Headers
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderArrayOutput)
 }
 
+// Inspect the request body as JSON. See JSON Body for details.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchOutput) JsonBody() WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatch) *WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody {
 		return v.JsonBody
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput)
 }
 
+// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchOutput) Method() WebAclRuleStatementRegexMatchStatementFieldToMatchMethodPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatch) *WebAclRuleStatementRegexMatchStatementFieldToMatchMethod {
 		return v.Method
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchMethodPtrOutput)
 }
 
+// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchOutput) QueryString() WebAclRuleStatementRegexMatchStatementFieldToMatchQueryStringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatch) *WebAclRuleStatementRegexMatchStatementFieldToMatchQueryString {
 		return v.QueryString
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchQueryStringPtrOutput)
 }
 
+// Inspect a single header. See Single Header below for details.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchOutput) SingleHeader() WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatch) *WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeader {
 		return v.SingleHeader
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
+// Inspect a single query argument. See Single Query Argument below for details.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchOutput) SingleQueryArgument() WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatch) *WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument {
 		return v.SingleQueryArgument
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
+// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchOutput) UriPath() WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatch) *WebAclRuleStatementRegexMatchStatementFieldToMatchUriPath {
 		return v.UriPath
@@ -4115,6 +4322,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) Elem() WebA
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchOutput)
 }
 
+// Inspect all query arguments.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) AllQueryArguments() WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatch) *WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArguments {
 		if v == nil {
@@ -4124,6 +4332,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) AllQueryArg
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArgumentsPtrOutput)
 }
 
+// Inspect the request body, which immediately follows the request headers.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) Body() WebAclRuleStatementRegexMatchStatementFieldToMatchBodyPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatch) *WebAclRuleStatementRegexMatchStatementFieldToMatchBody {
 		if v == nil {
@@ -4133,6 +4342,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) Body() WebA
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchBodyPtrOutput)
 }
 
+// Inspect the cookies in the web request. See Cookies below for details.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) Cookies() WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatch) *WebAclRuleStatementRegexMatchStatementFieldToMatchCookies {
 		if v == nil {
@@ -4142,6 +4352,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) Cookies() W
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
+// Inspect the request headers. See Headers below for details.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) Headers() WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatch) []WebAclRuleStatementRegexMatchStatementFieldToMatchHeader {
 		if v == nil {
@@ -4151,6 +4362,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) Headers() W
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderArrayOutput)
 }
 
+// Inspect the request body as JSON. See JSON Body for details.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) JsonBody() WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatch) *WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody {
 		if v == nil {
@@ -4160,6 +4372,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) JsonBody() 
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput)
 }
 
+// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) Method() WebAclRuleStatementRegexMatchStatementFieldToMatchMethodPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatch) *WebAclRuleStatementRegexMatchStatementFieldToMatchMethod {
 		if v == nil {
@@ -4169,6 +4382,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) Method() We
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchMethodPtrOutput)
 }
 
+// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) QueryString() WebAclRuleStatementRegexMatchStatementFieldToMatchQueryStringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatch) *WebAclRuleStatementRegexMatchStatementFieldToMatchQueryString {
 		if v == nil {
@@ -4178,6 +4392,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) QueryString
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchQueryStringPtrOutput)
 }
 
+// Inspect a single header. See Single Header below for details.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) SingleHeader() WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatch) *WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeader {
 		if v == nil {
@@ -4187,6 +4402,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) SingleHeade
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
+// Inspect a single query argument. See Single Query Argument below for details.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) SingleQueryArgument() WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatch) *WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument {
 		if v == nil {
@@ -4196,6 +4412,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) SingleQuery
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
+// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchPtrOutput) UriPath() WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatch) *WebAclRuleStatementRegexMatchStatementFieldToMatchUriPath {
 		if v == nil {
@@ -4442,9 +4659,12 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchBodyPtrOutput) Elem() 
 }
 
 type WebAclRuleStatementRegexMatchStatementFieldToMatchCookies struct {
-	MatchPatterns    []WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
-	MatchScope       string                                                                  `pulumi:"matchScope"`
-	OversizeHandling string                                                                  `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	MatchPatterns []WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
+	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	MatchScope string `pulumi:"matchScope"`
+	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+	OversizeHandling string `pulumi:"oversizeHandling"`
 }
 
 // WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesInput is an input type that accepts WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesArgs and WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesOutput values.
@@ -4459,9 +4679,12 @@ type WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesInput interface {
 }
 
 type WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesArgs struct {
-	MatchPatterns    WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
-	MatchScope       pulumi.StringInput                                                              `pulumi:"matchScope"`
-	OversizeHandling pulumi.StringInput                                                              `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	MatchPatterns WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
+	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
 }
 
 func (WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesArgs) ElementType() reflect.Type {
@@ -4541,16 +4764,19 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesOutput) ToWebAc
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
+// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesOutput) MatchPatterns() WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatchCookies) []WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
 		return v.MatchPatterns
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
+// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatchCookies) string { return v.MatchScope }).(pulumi.StringOutput)
 }
 
+// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesOutput) OversizeHandling() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatchCookies) string { return v.OversizeHandling }).(pulumi.StringOutput)
 }
@@ -4579,6 +4805,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesPtrOutput) Elem
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesOutput)
 }
 
+// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesPtrOutput) MatchPatterns() WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatchCookies) []WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
 		if v == nil {
@@ -4588,6 +4815,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesPtrOutput) Matc
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
+// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -4597,6 +4825,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesPtrOutput) Matc
 	}).(pulumi.StringPtrOutput)
 }
 
+// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesPtrOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -4607,6 +4836,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesPtrOutput) Over
 }
 
 type WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All             *WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll `pulumi:"all"`
 	ExcludedCookies []string                                                                  `pulumi:"excludedCookies"`
 	IncludedCookies []string                                                                  `pulumi:"includedCookies"`
@@ -4624,6 +4854,7 @@ type WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternInput 
 }
 
 type WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArgs struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All             WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllPtrInput `pulumi:"all"`
 	ExcludedCookies pulumi.StringArrayInput                                                          `pulumi:"excludedCookies"`
 	IncludedCookies pulumi.StringArrayInput                                                          `pulumi:"includedCookies"`
@@ -4680,6 +4911,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternOut
 	return o
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternOutput) All() WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern) *WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll {
 		return v.All
@@ -4837,9 +5069,12 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll
 }
 
 type WebAclRuleStatementRegexMatchStatementFieldToMatchHeader struct {
-	MatchPattern     WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
-	MatchScope       string                                                               `pulumi:"matchScope"`
-	OversizeHandling string                                                               `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	MatchPattern WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
+	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	MatchScope string `pulumi:"matchScope"`
+	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+	OversizeHandling string `pulumi:"oversizeHandling"`
 }
 
 // WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderInput is an input type that accepts WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderArgs and WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderOutput values.
@@ -4854,9 +5089,12 @@ type WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderInput interface {
 }
 
 type WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderArgs struct {
-	MatchPattern     WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
-	MatchScope       pulumi.StringInput                                                        `pulumi:"matchScope"`
-	OversizeHandling pulumi.StringInput                                                        `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	MatchPattern WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
+	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
 }
 
 func (WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderArgs) ElementType() reflect.Type {
@@ -4910,16 +5148,19 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderOutput) ToWebAcl
 	return o
 }
 
+// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderOutput) MatchPattern() WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatchHeader) WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern {
 		return v.MatchPattern
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternOutput)
 }
 
+// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatchHeader) string { return v.MatchScope }).(pulumi.StringOutput)
 }
 
+// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderOutput) OversizeHandling() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatchHeader) string { return v.OversizeHandling }).(pulumi.StringOutput)
 }
@@ -4945,9 +5186,12 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderArrayOutput) Ind
 }
 
 type WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern struct {
-	All             *WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
-	ExcludedHeaders []string                                                                 `pulumi:"excludedHeaders"`
-	IncludedHeaders []string                                                                 `pulumi:"includedHeaders"`
+	// An empty configuration block that is used for inspecting all headers.
+	All *WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
+	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	ExcludedHeaders []string `pulumi:"excludedHeaders"`
+	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	IncludedHeaders []string `pulumi:"includedHeaders"`
 }
 
 // WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternInput is an input type that accepts WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs and WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternOutput values.
@@ -4962,9 +5206,12 @@ type WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternInput i
 }
 
 type WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs struct {
-	All             WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
-	ExcludedHeaders pulumi.StringArrayInput                                                         `pulumi:"excludedHeaders"`
-	IncludedHeaders pulumi.StringArrayInput                                                         `pulumi:"includedHeaders"`
+	// An empty configuration block that is used for inspecting all headers.
+	All WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
+	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
+	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
 }
 
 func (WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs) ElementType() reflect.Type {
@@ -4993,18 +5240,21 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternOutp
 	return o
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternOutput) All() WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern) *WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
 		return v.All
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
 }
 
+// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.ExcludedHeaders
 	}).(pulumi.StringArrayOutput)
 }
 
+// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.IncludedHeaders
@@ -5130,10 +5380,14 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllP
 }
 
 type WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody struct {
-	InvalidFallbackBehavior *string                                                                `pulumi:"invalidFallbackBehavior"`
-	MatchPattern            WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	MatchScope              string                                                                 `pulumi:"matchScope"`
-	OversizeHandling        *string                                                                `pulumi:"oversizeHandling"`
+	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
+	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	MatchPattern WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
+	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	MatchScope string `pulumi:"matchScope"`
+	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+	OversizeHandling *string `pulumi:"oversizeHandling"`
 }
 
 // WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyInput is an input type that accepts WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgs and WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyOutput values.
@@ -5148,10 +5402,14 @@ type WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyInput interface {
 }
 
 type WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgs struct {
-	InvalidFallbackBehavior pulumi.StringPtrInput                                                       `pulumi:"invalidFallbackBehavior"`
-	MatchPattern            WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
-	MatchScope              pulumi.StringInput                                                          `pulumi:"matchScope"`
-	OversizeHandling        pulumi.StringPtrInput                                                       `pulumi:"oversizeHandling"`
+	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
+	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	MatchPattern WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
+	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
 }
 
 func (WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgs) ElementType() reflect.Type {
@@ -5231,22 +5489,26 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyOutput) ToWebA
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput)
 }
 
+// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody) *string {
 		return v.InvalidFallbackBehavior
 	}).(pulumi.StringPtrOutput)
 }
 
+// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyOutput) MatchPattern() WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody) WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
 		return v.MatchPattern
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
+// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody) string { return v.MatchScope }).(pulumi.StringOutput)
 }
 
+// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody) *string { return v.OversizeHandling }).(pulumi.StringPtrOutput)
 }
@@ -5275,6 +5537,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput) Ele
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyOutput)
 }
 
+// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -5284,6 +5547,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput) Inv
 	}).(pulumi.StringPtrOutput)
 }
 
+// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody) *WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
 		if v == nil {
@@ -5293,6 +5557,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput) Mat
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
+// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -5302,6 +5567,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput) Mat
 	}).(pulumi.StringPtrOutput)
 }
 
+// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -5312,6 +5578,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput) Ove
 }
 
 type WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All           *WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
 	IncludedPaths []string                                                                   `pulumi:"includedPaths"`
 }
@@ -5328,6 +5595,7 @@ type WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternInput
 }
 
 type WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgs struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All           WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput                                                           `pulumi:"includedPaths"`
 }
@@ -5409,6 +5677,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternOu
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternOutput) All() WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		return v.All
@@ -5445,6 +5714,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternPt
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		if v == nil {
@@ -5818,6 +6088,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchQueryStringPtrOutput) 
 }
 
 type WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeader struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name string `pulumi:"name"`
 }
 
@@ -5833,6 +6104,7 @@ type WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderInput interfa
 }
 
 type WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgs struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -5913,6 +6185,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderOutput) To
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeader) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5941,6 +6214,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutput)
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -5951,6 +6225,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
 type WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name string `pulumi:"name"`
 }
 
@@ -5966,6 +6241,7 @@ type WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentInput 
 }
 
 type WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -6046,6 +6322,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentOut
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6074,6 +6351,7 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentPtr
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -6202,8 +6480,10 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathPtrOutput) Elem
 }
 
 type WebAclRuleStatementRegexMatchStatementTextTransformation struct {
-	Priority int    `pulumi:"priority"`
-	Type     string `pulumi:"type"`
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	Priority int `pulumi:"priority"`
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	Type string `pulumi:"type"`
 }
 
 // WebAclRuleStatementRegexMatchStatementTextTransformationInput is an input type that accepts WebAclRuleStatementRegexMatchStatementTextTransformationArgs and WebAclRuleStatementRegexMatchStatementTextTransformationOutput values.
@@ -6218,8 +6498,10 @@ type WebAclRuleStatementRegexMatchStatementTextTransformationInput interface {
 }
 
 type WebAclRuleStatementRegexMatchStatementTextTransformationArgs struct {
-	Priority pulumi.IntInput    `pulumi:"priority"`
-	Type     pulumi.StringInput `pulumi:"type"`
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (WebAclRuleStatementRegexMatchStatementTextTransformationArgs) ElementType() reflect.Type {
@@ -6273,10 +6555,12 @@ func (o WebAclRuleStatementRegexMatchStatementTextTransformationOutput) ToWebAcl
 	return o
 }
 
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o WebAclRuleStatementRegexMatchStatementTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o WebAclRuleStatementRegexMatchStatementTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementTextTransformation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6302,8 +6586,13 @@ func (o WebAclRuleStatementRegexMatchStatementTextTransformationArrayOutput) Ind
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatement struct {
-	Arn                 string                                                                   `pulumi:"arn"`
-	FieldToMatch        *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch        `pulumi:"fieldToMatch"`
+	// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+	Arn string `pulumi:"arn"`
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	FieldToMatch *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch `pulumi:"fieldToMatch"`
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+	// At least one required.
+	// See Text Transformation below for details.
 	TextTransformations []WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -6319,8 +6608,13 @@ type WebAclRuleStatementRegexPatternSetReferenceStatementInput interface {
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementArgs struct {
-	Arn                 pulumi.StringInput                                                               `pulumi:"arn"`
-	FieldToMatch        WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrInput         `pulumi:"fieldToMatch"`
+	// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	FieldToMatch WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+	// At least one required.
+	// See Text Transformation below for details.
 	TextTransformations WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -6401,16 +6695,21 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementOutput) ToWebAclRule
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementOutput) FieldToMatch() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatement) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch {
 		return v.FieldToMatch
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput)
 }
 
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+// At least one required.
+// See Text Transformation below for details.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementOutput) TextTransformations() WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatement) []WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation {
 		return v.TextTransformations
@@ -6441,6 +6740,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementPtrOutput) Elem() We
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatement) *string {
 		if v == nil {
@@ -6450,6 +6750,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementPtrOutput) Arn() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementPtrOutput) FieldToMatch() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatement) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch {
 		if v == nil {
@@ -6459,6 +6760,9 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementPtrOutput) FieldToMa
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput)
 }
 
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+// At least one required.
+// See Text Transformation below for details.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementPtrOutput) TextTransformations() WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatement) []WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation {
 		if v == nil {
@@ -6469,16 +6773,26 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementPtrOutput) TextTrans
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch struct {
-	AllQueryArguments   *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments   `pulumi:"allQueryArguments"`
-	Body                *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody                `pulumi:"body"`
-	Cookies             *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies             `pulumi:"cookies"`
-	Headers             []WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader             `pulumi:"headers"`
-	JsonBody            *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody            `pulumi:"jsonBody"`
-	Method              *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod              `pulumi:"method"`
-	QueryString         *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString         `pulumi:"queryString"`
-	SingleHeader        *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader        `pulumi:"singleHeader"`
+	// Inspect all query arguments.
+	AllQueryArguments *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments `pulumi:"allQueryArguments"`
+	// Inspect the request body, which immediately follows the request headers.
+	Body *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody `pulumi:"body"`
+	// Inspect the cookies in the web request. See Cookies below for details.
+	Cookies *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies `pulumi:"cookies"`
+	// Inspect the request headers. See Headers below for details.
+	Headers []WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader `pulumi:"headers"`
+	// Inspect the request body as JSON. See JSON Body for details.
+	JsonBody *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody `pulumi:"jsonBody"`
+	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+	Method *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod `pulumi:"method"`
+	// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+	QueryString *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString `pulumi:"queryString"`
+	// Inspect a single header. See Single Header below for details.
+	SingleHeader *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader `pulumi:"singleHeader"`
+	// Inspect a single query argument. See Single Query Argument below for details.
 	SingleQueryArgument *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument `pulumi:"singleQueryArgument"`
-	UriPath             *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath             `pulumi:"uriPath"`
+	// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+	UriPath *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath `pulumi:"uriPath"`
 }
 
 // WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchInput is an input type that accepts WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs and WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchOutput values.
@@ -6493,16 +6807,26 @@ type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchInput inter
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs struct {
-	AllQueryArguments   WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsPtrInput   `pulumi:"allQueryArguments"`
-	Body                WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyPtrInput                `pulumi:"body"`
-	Cookies             WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesPtrInput             `pulumi:"cookies"`
-	Headers             WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArrayInput            `pulumi:"headers"`
-	JsonBody            WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyPtrInput            `pulumi:"jsonBody"`
-	Method              WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodPtrInput              `pulumi:"method"`
-	QueryString         WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringPtrInput         `pulumi:"queryString"`
-	SingleHeader        WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderPtrInput        `pulumi:"singleHeader"`
+	// Inspect all query arguments.
+	AllQueryArguments WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsPtrInput `pulumi:"allQueryArguments"`
+	// Inspect the request body, which immediately follows the request headers.
+	Body WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyPtrInput `pulumi:"body"`
+	// Inspect the cookies in the web request. See Cookies below for details.
+	Cookies WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesPtrInput `pulumi:"cookies"`
+	// Inspect the request headers. See Headers below for details.
+	Headers WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArrayInput `pulumi:"headers"`
+	// Inspect the request body as JSON. See JSON Body for details.
+	JsonBody WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyPtrInput `pulumi:"jsonBody"`
+	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+	Method WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodPtrInput `pulumi:"method"`
+	// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+	QueryString WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringPtrInput `pulumi:"queryString"`
+	// Inspect a single header. See Single Header below for details.
+	SingleHeader WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderPtrInput `pulumi:"singleHeader"`
+	// Inspect a single query argument. See Single Query Argument below for details.
 	SingleQueryArgument WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentPtrInput `pulumi:"singleQueryArgument"`
-	UriPath             WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathPtrInput             `pulumi:"uriPath"`
+	// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+	UriPath WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathPtrInput `pulumi:"uriPath"`
 }
 
 func (WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs) ElementType() reflect.Type {
@@ -6582,60 +6906,70 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchOutput) 
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput)
 }
 
+// Inspect all query arguments.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchOutput) AllQueryArguments() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
 		return v.AllQueryArguments
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsPtrOutput)
 }
 
+// Inspect the request body, which immediately follows the request headers.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchOutput) Body() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody {
 		return v.Body
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyPtrOutput)
 }
 
+// Inspect the cookies in the web request. See Cookies below for details.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchOutput) Cookies() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies {
 		return v.Cookies
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesPtrOutput)
 }
 
+// Inspect the request headers. See Headers below for details.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchOutput) Headers() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) []WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader {
 		return v.Headers
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArrayOutput)
 }
 
+// Inspect the request body as JSON. See JSON Body for details.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchOutput) JsonBody() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody {
 		return v.JsonBody
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyPtrOutput)
 }
 
+// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchOutput) Method() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
 		return v.Method
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodPtrOutput)
 }
 
+// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchOutput) QueryString() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
 		return v.QueryString
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringPtrOutput)
 }
 
+// Inspect a single header. See Single Header below for details.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchOutput) SingleHeader() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
 		return v.SingleHeader
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
+// Inspect a single query argument. See Single Query Argument below for details.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchOutput) SingleQueryArgument() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
 		return v.SingleQueryArgument
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
+// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchOutput) UriPath() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
 		return v.UriPath
@@ -6666,6 +7000,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutpu
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchOutput)
 }
 
+// Inspect all query arguments.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput) AllQueryArguments() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
 		if v == nil {
@@ -6675,6 +7010,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutpu
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsPtrOutput)
 }
 
+// Inspect the request body, which immediately follows the request headers.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput) Body() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody {
 		if v == nil {
@@ -6684,6 +7020,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutpu
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyPtrOutput)
 }
 
+// Inspect the cookies in the web request. See Cookies below for details.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput) Cookies() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies {
 		if v == nil {
@@ -6693,6 +7030,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutpu
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesPtrOutput)
 }
 
+// Inspect the request headers. See Headers below for details.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput) Headers() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) []WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader {
 		if v == nil {
@@ -6702,6 +7040,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutpu
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArrayOutput)
 }
 
+// Inspect the request body as JSON. See JSON Body for details.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput) JsonBody() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody {
 		if v == nil {
@@ -6711,6 +7050,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutpu
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyPtrOutput)
 }
 
+// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput) Method() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
 		if v == nil {
@@ -6720,6 +7060,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutpu
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodPtrOutput)
 }
 
+// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput) QueryString() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
 		if v == nil {
@@ -6729,6 +7070,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutpu
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringPtrOutput)
 }
 
+// Inspect a single header. See Single Header below for details.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput) SingleHeader() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
 		if v == nil {
@@ -6738,6 +7080,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutpu
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
+// Inspect a single query argument. See Single Query Argument below for details.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput) SingleQueryArgument() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
 		if v == nil {
@@ -6747,6 +7090,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutpu
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
+// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput) UriPath() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
 		if v == nil {
@@ -6993,9 +7337,12 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyPtrO
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies struct {
-	MatchPatterns    []WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
-	MatchScope       string                                                                                `pulumi:"matchScope"`
-	OversizeHandling string                                                                                `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	MatchPatterns []WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
+	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	MatchScope string `pulumi:"matchScope"`
+	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+	OversizeHandling string `pulumi:"oversizeHandling"`
 }
 
 // WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesInput is an input type that accepts WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs and WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesOutput values.
@@ -7010,9 +7357,12 @@ type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesInpu
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs struct {
-	MatchPatterns    WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
-	MatchScope       pulumi.StringInput                                                                            `pulumi:"matchScope"`
-	OversizeHandling pulumi.StringInput                                                                            `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	MatchPatterns WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
+	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
 }
 
 func (WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs) ElementType() reflect.Type {
@@ -7092,18 +7442,21 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesO
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesPtrOutput)
 }
 
+// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesOutput) MatchPatterns() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies) []WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
 		return v.MatchPatterns
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
+// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies) string {
 		return v.MatchScope
 	}).(pulumi.StringOutput)
 }
 
+// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesOutput) OversizeHandling() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies) string {
 		return v.OversizeHandling
@@ -7134,6 +7487,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesP
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesOutput)
 }
 
+// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesPtrOutput) MatchPatterns() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies) []WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
 		if v == nil {
@@ -7143,6 +7497,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesP
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
+// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -7152,6 +7507,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesP
 	}).(pulumi.StringPtrOutput)
 }
 
+// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesPtrOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -7162,6 +7518,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesP
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All             *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll `pulumi:"all"`
 	ExcludedCookies []string                                                                                `pulumi:"excludedCookies"`
 	IncludedCookies []string                                                                                `pulumi:"includedCookies"`
@@ -7179,6 +7536,7 @@ type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatc
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All             WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllPtrInput `pulumi:"all"`
 	ExcludedCookies pulumi.StringArrayInput                                                                        `pulumi:"excludedCookies"`
 	IncludedCookies pulumi.StringArrayInput                                                                        `pulumi:"includedCookies"`
@@ -7235,6 +7593,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesM
 	return o
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternOutput) All() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll {
 		return v.All
@@ -7392,9 +7751,12 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesM
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader struct {
-	MatchPattern     WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
-	MatchScope       string                                                                             `pulumi:"matchScope"`
-	OversizeHandling string                                                                             `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	MatchPattern WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
+	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	MatchScope string `pulumi:"matchScope"`
+	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+	OversizeHandling string `pulumi:"oversizeHandling"`
 }
 
 // WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderInput is an input type that accepts WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs and WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOutput values.
@@ -7409,9 +7771,12 @@ type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderInput
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs struct {
-	MatchPattern     WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
-	MatchScope       pulumi.StringInput                                                                      `pulumi:"matchScope"`
-	OversizeHandling pulumi.StringInput                                                                      `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	MatchPattern WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
+	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
 }
 
 func (WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs) ElementType() reflect.Type {
@@ -7465,18 +7830,21 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOu
 	return o
 }
 
+// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOutput) MatchPattern() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader) WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern {
 		return v.MatchPattern
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternOutput)
 }
 
+// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader) string {
 		return v.MatchScope
 	}).(pulumi.StringOutput)
 }
 
+// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOutput) OversizeHandling() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader) string {
 		return v.OversizeHandling
@@ -7504,9 +7872,12 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderAr
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern struct {
-	All             *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
-	ExcludedHeaders []string                                                                               `pulumi:"excludedHeaders"`
-	IncludedHeaders []string                                                                               `pulumi:"includedHeaders"`
+	// An empty configuration block that is used for inspecting all headers.
+	All *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
+	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	ExcludedHeaders []string `pulumi:"excludedHeaders"`
+	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	IncludedHeaders []string `pulumi:"includedHeaders"`
 }
 
 // WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternInput is an input type that accepts WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs and WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternOutput values.
@@ -7521,9 +7892,12 @@ type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatch
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs struct {
-	All             WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
-	ExcludedHeaders pulumi.StringArrayInput                                                                       `pulumi:"excludedHeaders"`
-	IncludedHeaders pulumi.StringArrayInput                                                                       `pulumi:"includedHeaders"`
+	// An empty configuration block that is used for inspecting all headers.
+	All WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
+	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
+	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
 }
 
 func (WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs) ElementType() reflect.Type {
@@ -7552,18 +7926,21 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMa
 	return o
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternOutput) All() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
 		return v.All
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
 }
 
+// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.ExcludedHeaders
 	}).(pulumi.StringArrayOutput)
 }
 
+// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.IncludedHeaders
@@ -7689,10 +8066,14 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMa
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody struct {
-	InvalidFallbackBehavior *string                                                                              `pulumi:"invalidFallbackBehavior"`
-	MatchPattern            WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	MatchScope              string                                                                               `pulumi:"matchScope"`
-	OversizeHandling        *string                                                                              `pulumi:"oversizeHandling"`
+	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
+	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	MatchPattern WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
+	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	MatchScope string `pulumi:"matchScope"`
+	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+	OversizeHandling *string `pulumi:"oversizeHandling"`
 }
 
 // WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyInput is an input type that accepts WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs and WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyOutput values.
@@ -7707,10 +8088,14 @@ type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyInp
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs struct {
-	InvalidFallbackBehavior pulumi.StringPtrInput                                                                     `pulumi:"invalidFallbackBehavior"`
-	MatchPattern            WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
-	MatchScope              pulumi.StringInput                                                                        `pulumi:"matchScope"`
-	OversizeHandling        pulumi.StringPtrInput                                                                     `pulumi:"oversizeHandling"`
+	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
+	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	MatchPattern WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
+	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
 }
 
 func (WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs) ElementType() reflect.Type {
@@ -7790,24 +8175,28 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyPtrOutput)
 }
 
+// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody) *string {
 		return v.InvalidFallbackBehavior
 	}).(pulumi.StringPtrOutput)
 }
 
+// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyOutput) MatchPattern() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody) WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
 		return v.MatchPattern
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
+// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody) string {
 		return v.MatchScope
 	}).(pulumi.StringOutput)
 }
 
+// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody) *string {
 		return v.OversizeHandling
@@ -7838,6 +8227,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyOutput)
 }
 
+// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyPtrOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -7847,6 +8237,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody
 	}).(pulumi.StringPtrOutput)
 }
 
+// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
 		if v == nil {
@@ -7856,6 +8247,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
+// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -7865,6 +8257,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody
 	}).(pulumi.StringPtrOutput)
 }
 
+// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyPtrOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -7875,6 +8268,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All           *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
 	IncludedPaths []string                                                                                 `pulumi:"includedPaths"`
 }
@@ -7891,6 +8285,7 @@ type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMat
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All           WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput                                                                         `pulumi:"includedPaths"`
 }
@@ -7972,6 +8367,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternOutput) All() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll {
 		return v.All
@@ -8008,6 +8404,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll {
 		if v == nil {
@@ -8381,6 +8778,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStr
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name string `pulumi:"name"`
 }
 
@@ -8396,6 +8794,7 @@ type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeade
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -8476,6 +8875,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHe
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader) string {
 		return v.Name
@@ -8506,6 +8906,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHe
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -8516,6 +8917,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHe
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name string `pulumi:"name"`
 }
 
@@ -8531,6 +8933,7 @@ type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQuery
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -8611,6 +9014,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQu
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -8641,6 +9045,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQu
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -8769,8 +9174,10 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathP
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation struct {
-	Priority int    `pulumi:"priority"`
-	Type     string `pulumi:"type"`
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	Priority int `pulumi:"priority"`
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	Type string `pulumi:"type"`
 }
 
 // WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationInput is an input type that accepts WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs and WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationOutput values.
@@ -8785,8 +9192,10 @@ type WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationInput
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs struct {
-	Priority pulumi.IntInput    `pulumi:"priority"`
-	Type     pulumi.StringInput `pulumi:"type"`
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs) ElementType() reflect.Type {
@@ -8840,10 +9249,12 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationOu
 	return o
 }
 
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8869,7 +9280,10 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationAr
 }
 
 type WebAclRuleStatementRuleGroupReferenceStatement struct {
+	// The Amazon Resource Name (ARN) of the `wafv2.RuleGroup` resource.
 	Arn string `pulumi:"arn"`
+	// The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+	//
 	// Deprecated: Use rule_action_override instead
 	ExcludedRules []WebAclRuleStatementRuleGroupReferenceStatementExcludedRule `pulumi:"excludedRules"`
 }
@@ -8886,7 +9300,10 @@ type WebAclRuleStatementRuleGroupReferenceStatementInput interface {
 }
 
 type WebAclRuleStatementRuleGroupReferenceStatementArgs struct {
+	// The Amazon Resource Name (ARN) of the `wafv2.RuleGroup` resource.
 	Arn pulumi.StringInput `pulumi:"arn"`
+	// The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+	//
 	// Deprecated: Use rule_action_override instead
 	ExcludedRules WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArrayInput `pulumi:"excludedRules"`
 }
@@ -8968,10 +9385,13 @@ func (o WebAclRuleStatementRuleGroupReferenceStatementOutput) ToWebAclRuleStatem
 	}).(WebAclRuleStatementRuleGroupReferenceStatementPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the `wafv2.RuleGroup` resource.
 func (o WebAclRuleStatementRuleGroupReferenceStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRuleGroupReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+//
 // Deprecated: Use rule_action_override instead
 func (o WebAclRuleStatementRuleGroupReferenceStatementOutput) ExcludedRules() WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRuleGroupReferenceStatement) []WebAclRuleStatementRuleGroupReferenceStatementExcludedRule {
@@ -9003,6 +9423,7 @@ func (o WebAclRuleStatementRuleGroupReferenceStatementPtrOutput) Elem() WebAclRu
 	}).(WebAclRuleStatementRuleGroupReferenceStatementOutput)
 }
 
+// The Amazon Resource Name (ARN) of the `wafv2.RuleGroup` resource.
 func (o WebAclRuleStatementRuleGroupReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRuleGroupReferenceStatement) *string {
 		if v == nil {
@@ -9012,6 +9433,8 @@ func (o WebAclRuleStatementRuleGroupReferenceStatementPtrOutput) Arn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+//
 // Deprecated: Use rule_action_override instead
 func (o WebAclRuleStatementRuleGroupReferenceStatementPtrOutput) ExcludedRules() WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRuleGroupReferenceStatement) []WebAclRuleStatementRuleGroupReferenceStatementExcludedRule {
@@ -9023,6 +9446,7 @@ func (o WebAclRuleStatementRuleGroupReferenceStatementPtrOutput) ExcludedRules()
 }
 
 type WebAclRuleStatementRuleGroupReferenceStatementExcludedRule struct {
+	// Name of the rule to exclude. If the rule group is managed by AWS, see the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
 	Name string `pulumi:"name"`
 }
 
@@ -9038,6 +9462,7 @@ type WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleInput interface {
 }
 
 type WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs struct {
+	// Name of the rule to exclude. If the rule group is managed by AWS, see the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -9092,6 +9517,7 @@ func (o WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleOutput) ToWebA
 	return o
 }
 
+// Name of the rule to exclude. If the rule group is managed by AWS, see the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
 func (o WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRuleGroupReferenceStatementExcludedRule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -9117,9 +9543,15 @@ func (o WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArrayOutput) I
 }
 
 type WebAclRuleStatementSizeConstraintStatement struct {
-	ComparisonOperator  string                                                         `pulumi:"comparisonOperator"`
-	FieldToMatch        *WebAclRuleStatementSizeConstraintStatementFieldToMatch        `pulumi:"fieldToMatch"`
-	Size                int                                                            `pulumi:"size"`
+	// Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+	ComparisonOperator string `pulumi:"comparisonOperator"`
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	FieldToMatch *WebAclRuleStatementSizeConstraintStatementFieldToMatch `pulumi:"fieldToMatch"`
+	// Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+	Size int `pulumi:"size"`
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+	// At least one required.
+	// See Text Transformation below for details.
 	TextTransformations []WebAclRuleStatementSizeConstraintStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -9135,9 +9567,15 @@ type WebAclRuleStatementSizeConstraintStatementInput interface {
 }
 
 type WebAclRuleStatementSizeConstraintStatementArgs struct {
-	ComparisonOperator  pulumi.StringInput                                                     `pulumi:"comparisonOperator"`
-	FieldToMatch        WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrInput         `pulumi:"fieldToMatch"`
-	Size                pulumi.IntInput                                                        `pulumi:"size"`
+	// Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+	ComparisonOperator pulumi.StringInput `pulumi:"comparisonOperator"`
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	FieldToMatch WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
+	// Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+	Size pulumi.IntInput `pulumi:"size"`
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+	// At least one required.
+	// See Text Transformation below for details.
 	TextTransformations WebAclRuleStatementSizeConstraintStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -9218,20 +9656,26 @@ func (o WebAclRuleStatementSizeConstraintStatementOutput) ToWebAclRuleStatementS
 	}).(WebAclRuleStatementSizeConstraintStatementPtrOutput)
 }
 
+// Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
 func (o WebAclRuleStatementSizeConstraintStatementOutput) ComparisonOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatement) string { return v.ComparisonOperator }).(pulumi.StringOutput)
 }
 
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o WebAclRuleStatementSizeConstraintStatementOutput) FieldToMatch() WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatement) *WebAclRuleStatementSizeConstraintStatementFieldToMatch {
 		return v.FieldToMatch
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput)
 }
 
+// Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
 func (o WebAclRuleStatementSizeConstraintStatementOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatement) int { return v.Size }).(pulumi.IntOutput)
 }
 
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+// At least one required.
+// See Text Transformation below for details.
 func (o WebAclRuleStatementSizeConstraintStatementOutput) TextTransformations() WebAclRuleStatementSizeConstraintStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatement) []WebAclRuleStatementSizeConstraintStatementTextTransformation {
 		return v.TextTransformations
@@ -9262,6 +9706,7 @@ func (o WebAclRuleStatementSizeConstraintStatementPtrOutput) Elem() WebAclRuleSt
 	}).(WebAclRuleStatementSizeConstraintStatementOutput)
 }
 
+// Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
 func (o WebAclRuleStatementSizeConstraintStatementPtrOutput) ComparisonOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatement) *string {
 		if v == nil {
@@ -9271,6 +9716,7 @@ func (o WebAclRuleStatementSizeConstraintStatementPtrOutput) ComparisonOperator(
 	}).(pulumi.StringPtrOutput)
 }
 
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o WebAclRuleStatementSizeConstraintStatementPtrOutput) FieldToMatch() WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatement) *WebAclRuleStatementSizeConstraintStatementFieldToMatch {
 		if v == nil {
@@ -9280,6 +9726,7 @@ func (o WebAclRuleStatementSizeConstraintStatementPtrOutput) FieldToMatch() WebA
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput)
 }
 
+// Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
 func (o WebAclRuleStatementSizeConstraintStatementPtrOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatement) *int {
 		if v == nil {
@@ -9289,6 +9736,9 @@ func (o WebAclRuleStatementSizeConstraintStatementPtrOutput) Size() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+// At least one required.
+// See Text Transformation below for details.
 func (o WebAclRuleStatementSizeConstraintStatementPtrOutput) TextTransformations() WebAclRuleStatementSizeConstraintStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatement) []WebAclRuleStatementSizeConstraintStatementTextTransformation {
 		if v == nil {
@@ -9299,16 +9749,26 @@ func (o WebAclRuleStatementSizeConstraintStatementPtrOutput) TextTransformations
 }
 
 type WebAclRuleStatementSizeConstraintStatementFieldToMatch struct {
-	AllQueryArguments   *WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments   `pulumi:"allQueryArguments"`
-	Body                *WebAclRuleStatementSizeConstraintStatementFieldToMatchBody                `pulumi:"body"`
-	Cookies             *WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies             `pulumi:"cookies"`
-	Headers             []WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader             `pulumi:"headers"`
-	JsonBody            *WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody            `pulumi:"jsonBody"`
-	Method              *WebAclRuleStatementSizeConstraintStatementFieldToMatchMethod              `pulumi:"method"`
-	QueryString         *WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryString         `pulumi:"queryString"`
-	SingleHeader        *WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader        `pulumi:"singleHeader"`
+	// Inspect all query arguments.
+	AllQueryArguments *WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments `pulumi:"allQueryArguments"`
+	// Inspect the request body, which immediately follows the request headers.
+	Body *WebAclRuleStatementSizeConstraintStatementFieldToMatchBody `pulumi:"body"`
+	// Inspect the cookies in the web request. See Cookies below for details.
+	Cookies *WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies `pulumi:"cookies"`
+	// Inspect the request headers. See Headers below for details.
+	Headers []WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader `pulumi:"headers"`
+	// Inspect the request body as JSON. See JSON Body for details.
+	JsonBody *WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody `pulumi:"jsonBody"`
+	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+	Method *WebAclRuleStatementSizeConstraintStatementFieldToMatchMethod `pulumi:"method"`
+	// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+	QueryString *WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryString `pulumi:"queryString"`
+	// Inspect a single header. See Single Header below for details.
+	SingleHeader *WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader `pulumi:"singleHeader"`
+	// Inspect a single query argument. See Single Query Argument below for details.
 	SingleQueryArgument *WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument `pulumi:"singleQueryArgument"`
-	UriPath             *WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPath             `pulumi:"uriPath"`
+	// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+	UriPath *WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPath `pulumi:"uriPath"`
 }
 
 // WebAclRuleStatementSizeConstraintStatementFieldToMatchInput is an input type that accepts WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs and WebAclRuleStatementSizeConstraintStatementFieldToMatchOutput values.
@@ -9323,16 +9783,26 @@ type WebAclRuleStatementSizeConstraintStatementFieldToMatchInput interface {
 }
 
 type WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs struct {
-	AllQueryArguments   WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsPtrInput   `pulumi:"allQueryArguments"`
-	Body                WebAclRuleStatementSizeConstraintStatementFieldToMatchBodyPtrInput                `pulumi:"body"`
-	Cookies             WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrInput             `pulumi:"cookies"`
-	Headers             WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderArrayInput            `pulumi:"headers"`
-	JsonBody            WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrInput            `pulumi:"jsonBody"`
-	Method              WebAclRuleStatementSizeConstraintStatementFieldToMatchMethodPtrInput              `pulumi:"method"`
-	QueryString         WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryStringPtrInput         `pulumi:"queryString"`
-	SingleHeader        WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderPtrInput        `pulumi:"singleHeader"`
+	// Inspect all query arguments.
+	AllQueryArguments WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsPtrInput `pulumi:"allQueryArguments"`
+	// Inspect the request body, which immediately follows the request headers.
+	Body WebAclRuleStatementSizeConstraintStatementFieldToMatchBodyPtrInput `pulumi:"body"`
+	// Inspect the cookies in the web request. See Cookies below for details.
+	Cookies WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrInput `pulumi:"cookies"`
+	// Inspect the request headers. See Headers below for details.
+	Headers WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderArrayInput `pulumi:"headers"`
+	// Inspect the request body as JSON. See JSON Body for details.
+	JsonBody WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrInput `pulumi:"jsonBody"`
+	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+	Method WebAclRuleStatementSizeConstraintStatementFieldToMatchMethodPtrInput `pulumi:"method"`
+	// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+	QueryString WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryStringPtrInput `pulumi:"queryString"`
+	// Inspect a single header. See Single Header below for details.
+	SingleHeader WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderPtrInput `pulumi:"singleHeader"`
+	// Inspect a single query argument. See Single Query Argument below for details.
 	SingleQueryArgument WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentPtrInput `pulumi:"singleQueryArgument"`
-	UriPath             WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathPtrInput             `pulumi:"uriPath"`
+	// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+	UriPath WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathPtrInput `pulumi:"uriPath"`
 }
 
 func (WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs) ElementType() reflect.Type {
@@ -9412,60 +9882,70 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchOutput) ToWebAclRu
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput)
 }
 
+// Inspect all query arguments.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchOutput) AllQueryArguments() WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatch) *WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
 		return v.AllQueryArguments
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsPtrOutput)
 }
 
+// Inspect the request body, which immediately follows the request headers.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchOutput) Body() WebAclRuleStatementSizeConstraintStatementFieldToMatchBodyPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatch) *WebAclRuleStatementSizeConstraintStatementFieldToMatchBody {
 		return v.Body
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchBodyPtrOutput)
 }
 
+// Inspect the cookies in the web request. See Cookies below for details.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchOutput) Cookies() WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatch) *WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies {
 		return v.Cookies
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrOutput)
 }
 
+// Inspect the request headers. See Headers below for details.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchOutput) Headers() WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatch) []WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader {
 		return v.Headers
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderArrayOutput)
 }
 
+// Inspect the request body as JSON. See JSON Body for details.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchOutput) JsonBody() WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatch) *WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody {
 		return v.JsonBody
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutput)
 }
 
+// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchOutput) Method() WebAclRuleStatementSizeConstraintStatementFieldToMatchMethodPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatch) *WebAclRuleStatementSizeConstraintStatementFieldToMatchMethod {
 		return v.Method
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchMethodPtrOutput)
 }
 
+// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchOutput) QueryString() WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryStringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatch) *WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryString {
 		return v.QueryString
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryStringPtrOutput)
 }
 
+// Inspect a single header. See Single Header below for details.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchOutput) SingleHeader() WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatch) *WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader {
 		return v.SingleHeader
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
+// Inspect a single query argument. See Single Query Argument below for details.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchOutput) SingleQueryArgument() WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatch) *WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
 		return v.SingleQueryArgument
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
+// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchOutput) UriPath() WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatch) *WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPath {
 		return v.UriPath
@@ -9496,6 +9976,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) Elem() 
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchOutput)
 }
 
+// Inspect all query arguments.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) AllQueryArguments() WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatch) *WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
 		if v == nil {
@@ -9505,6 +9986,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) AllQuer
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsPtrOutput)
 }
 
+// Inspect the request body, which immediately follows the request headers.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) Body() WebAclRuleStatementSizeConstraintStatementFieldToMatchBodyPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatch) *WebAclRuleStatementSizeConstraintStatementFieldToMatchBody {
 		if v == nil {
@@ -9514,6 +9996,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) Body() 
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchBodyPtrOutput)
 }
 
+// Inspect the cookies in the web request. See Cookies below for details.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) Cookies() WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatch) *WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies {
 		if v == nil {
@@ -9523,6 +10006,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) Cookies
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrOutput)
 }
 
+// Inspect the request headers. See Headers below for details.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) Headers() WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatch) []WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader {
 		if v == nil {
@@ -9532,6 +10016,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) Headers
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderArrayOutput)
 }
 
+// Inspect the request body as JSON. See JSON Body for details.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) JsonBody() WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatch) *WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody {
 		if v == nil {
@@ -9541,6 +10026,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) JsonBod
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutput)
 }
 
+// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) Method() WebAclRuleStatementSizeConstraintStatementFieldToMatchMethodPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatch) *WebAclRuleStatementSizeConstraintStatementFieldToMatchMethod {
 		if v == nil {
@@ -9550,6 +10036,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) Method(
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchMethodPtrOutput)
 }
 
+// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) QueryString() WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryStringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatch) *WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryString {
 		if v == nil {
@@ -9559,6 +10046,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) QuerySt
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryStringPtrOutput)
 }
 
+// Inspect a single header. See Single Header below for details.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) SingleHeader() WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatch) *WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader {
 		if v == nil {
@@ -9568,6 +10056,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) SingleH
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
+// Inspect a single query argument. See Single Query Argument below for details.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) SingleQueryArgument() WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatch) *WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
 		if v == nil {
@@ -9577,6 +10066,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) SingleQ
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
+// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrOutput) UriPath() WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatch) *WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPath {
 		if v == nil {
@@ -9823,9 +10313,12 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchBodyPtrOutput) Ele
 }
 
 type WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies struct {
-	MatchPatterns    []WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
-	MatchScope       string                                                                      `pulumi:"matchScope"`
-	OversizeHandling string                                                                      `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	MatchPatterns []WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
+	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	MatchScope string `pulumi:"matchScope"`
+	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+	OversizeHandling string `pulumi:"oversizeHandling"`
 }
 
 // WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesInput is an input type that accepts WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs and WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesOutput values.
@@ -9840,9 +10333,12 @@ type WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesInput interfac
 }
 
 type WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs struct {
-	MatchPatterns    WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
-	MatchScope       pulumi.StringInput                                                                  `pulumi:"matchScope"`
-	OversizeHandling pulumi.StringInput                                                                  `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	MatchPatterns WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
+	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
 }
 
 func (WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs) ElementType() reflect.Type {
@@ -9922,16 +10418,19 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesOutput) ToW
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrOutput)
 }
 
+// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesOutput) MatchPatterns() WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies) []WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
 		return v.MatchPatterns
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
+// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies) string { return v.MatchScope }).(pulumi.StringOutput)
 }
 
+// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesOutput) OversizeHandling() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies) string {
 		return v.OversizeHandling
@@ -9962,6 +10461,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrOutput) 
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesOutput)
 }
 
+// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrOutput) MatchPatterns() WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies) []WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
 		if v == nil {
@@ -9971,6 +10471,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrOutput) 
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
+// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -9980,6 +10481,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -9990,6 +10492,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrOutput) 
 }
 
 type WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All             *WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll `pulumi:"all"`
 	ExcludedCookies []string                                                                      `pulumi:"excludedCookies"`
 	IncludedCookies []string                                                                      `pulumi:"includedCookies"`
@@ -10007,6 +10510,7 @@ type WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternIn
 }
 
 type WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All             WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllPtrInput `pulumi:"all"`
 	ExcludedCookies pulumi.StringArrayInput                                                              `pulumi:"excludedCookies"`
 	IncludedCookies pulumi.StringArrayInput                                                              `pulumi:"includedCookies"`
@@ -10063,6 +10567,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatter
 	return o
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternOutput) All() WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern) *WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll {
 		return v.All
@@ -10220,9 +10725,12 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatter
 }
 
 type WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader struct {
-	MatchPattern     WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
-	MatchScope       string                                                                   `pulumi:"matchScope"`
-	OversizeHandling string                                                                   `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	MatchPattern WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
+	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	MatchScope string `pulumi:"matchScope"`
+	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+	OversizeHandling string `pulumi:"oversizeHandling"`
 }
 
 // WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderInput is an input type that accepts WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs and WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOutput values.
@@ -10237,9 +10745,12 @@ type WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderInput interface
 }
 
 type WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs struct {
-	MatchPattern     WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
-	MatchScope       pulumi.StringInput                                                            `pulumi:"matchScope"`
-	OversizeHandling pulumi.StringInput                                                            `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	MatchPattern WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
+	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
 }
 
 func (WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs) ElementType() reflect.Type {
@@ -10293,16 +10804,19 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOutput) ToWe
 	return o
 }
 
+// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOutput) MatchPattern() WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader) WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern {
 		return v.MatchPattern
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternOutput)
 }
 
+// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader) string { return v.MatchScope }).(pulumi.StringOutput)
 }
 
+// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOutput) OversizeHandling() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader) string { return v.OversizeHandling }).(pulumi.StringOutput)
 }
@@ -10328,9 +10842,12 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderArrayOutput)
 }
 
 type WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern struct {
-	All             *WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
-	ExcludedHeaders []string                                                                     `pulumi:"excludedHeaders"`
-	IncludedHeaders []string                                                                     `pulumi:"includedHeaders"`
+	// An empty configuration block that is used for inspecting all headers.
+	All *WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
+	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	ExcludedHeaders []string `pulumi:"excludedHeaders"`
+	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	IncludedHeaders []string `pulumi:"includedHeaders"`
 }
 
 // WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternInput is an input type that accepts WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs and WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternOutput values.
@@ -10345,9 +10862,12 @@ type WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternInp
 }
 
 type WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs struct {
-	All             WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
-	ExcludedHeaders pulumi.StringArrayInput                                                             `pulumi:"excludedHeaders"`
-	IncludedHeaders pulumi.StringArrayInput                                                             `pulumi:"includedHeaders"`
+	// An empty configuration block that is used for inspecting all headers.
+	All WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
+	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
+	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
 }
 
 func (WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs) ElementType() reflect.Type {
@@ -10376,18 +10896,21 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern
 	return o
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternOutput) All() WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern) *WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
 		return v.All
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
 }
 
+// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.ExcludedHeaders
 	}).(pulumi.StringArrayOutput)
 }
 
+// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.IncludedHeaders
@@ -10513,10 +11036,14 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern
 }
 
 type WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody struct {
-	InvalidFallbackBehavior *string                                                                    `pulumi:"invalidFallbackBehavior"`
-	MatchPattern            WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	MatchScope              string                                                                     `pulumi:"matchScope"`
-	OversizeHandling        *string                                                                    `pulumi:"oversizeHandling"`
+	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
+	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	MatchPattern WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
+	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	MatchScope string `pulumi:"matchScope"`
+	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+	OversizeHandling *string `pulumi:"oversizeHandling"`
 }
 
 // WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyInput is an input type that accepts WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs and WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyOutput values.
@@ -10531,10 +11058,14 @@ type WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyInput interfa
 }
 
 type WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs struct {
-	InvalidFallbackBehavior pulumi.StringPtrInput                                                           `pulumi:"invalidFallbackBehavior"`
-	MatchPattern            WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
-	MatchScope              pulumi.StringInput                                                              `pulumi:"matchScope"`
-	OversizeHandling        pulumi.StringPtrInput                                                           `pulumi:"oversizeHandling"`
+	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
+	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	MatchPattern WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
+	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
 }
 
 func (WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs) ElementType() reflect.Type {
@@ -10614,22 +11145,26 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyOutput) To
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutput)
 }
 
+// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody) *string {
 		return v.InvalidFallbackBehavior
 	}).(pulumi.StringPtrOutput)
 }
 
+// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyOutput) MatchPattern() WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody) WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
 		return v.MatchPattern
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
+// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody) string { return v.MatchScope }).(pulumi.StringOutput)
 }
 
+// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody) *string {
 		return v.OversizeHandling
@@ -10660,6 +11195,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutput)
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyOutput)
 }
 
+// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -10669,6 +11205,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
+// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody) *WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
 		if v == nil {
@@ -10678,6 +11215,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutput)
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
+// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -10687,6 +11225,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
+// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -10697,6 +11236,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutput)
 }
 
 type WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All           *WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
 	IncludedPaths []string                                                                       `pulumi:"includedPaths"`
 }
@@ -10713,6 +11253,7 @@ type WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternI
 }
 
 type WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All           WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput                                                               `pulumi:"includedPaths"`
 }
@@ -10794,6 +11335,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatte
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternOutput) All() WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll {
 		return v.All
@@ -10830,6 +11372,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatte
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll {
 		if v == nil {
@@ -11203,6 +11746,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryStringPtrOutp
 }
 
 type WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name string `pulumi:"name"`
 }
 
@@ -11218,6 +11762,7 @@ type WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderInput int
 }
 
 type WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -11298,6 +11843,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderOutput
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -11326,6 +11872,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderPtrOut
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -11336,6 +11883,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderPtrOut
 }
 
 type WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name string `pulumi:"name"`
 }
 
@@ -11351,6 +11899,7 @@ type WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentIn
 }
 
 type WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -11431,6 +11980,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumen
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -11461,6 +12011,7 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumen
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -11589,8 +12140,10 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathPtrOutput) 
 }
 
 type WebAclRuleStatementSizeConstraintStatementTextTransformation struct {
-	Priority int    `pulumi:"priority"`
-	Type     string `pulumi:"type"`
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	Priority int `pulumi:"priority"`
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	Type string `pulumi:"type"`
 }
 
 // WebAclRuleStatementSizeConstraintStatementTextTransformationInput is an input type that accepts WebAclRuleStatementSizeConstraintStatementTextTransformationArgs and WebAclRuleStatementSizeConstraintStatementTextTransformationOutput values.
@@ -11605,8 +12158,10 @@ type WebAclRuleStatementSizeConstraintStatementTextTransformationInput interface
 }
 
 type WebAclRuleStatementSizeConstraintStatementTextTransformationArgs struct {
-	Priority pulumi.IntInput    `pulumi:"priority"`
-	Type     pulumi.StringInput `pulumi:"type"`
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (WebAclRuleStatementSizeConstraintStatementTextTransformationArgs) ElementType() reflect.Type {
@@ -11660,10 +12215,12 @@ func (o WebAclRuleStatementSizeConstraintStatementTextTransformationOutput) ToWe
 	return o
 }
 
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o WebAclRuleStatementSizeConstraintStatementTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o WebAclRuleStatementSizeConstraintStatementTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementTextTransformation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -11689,7 +12246,11 @@ func (o WebAclRuleStatementSizeConstraintStatementTextTransformationArrayOutput)
 }
 
 type WebAclRuleStatementSqliMatchStatement struct {
-	FieldToMatch        *WebAclRuleStatementSqliMatchStatementFieldToMatch        `pulumi:"fieldToMatch"`
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	FieldToMatch *WebAclRuleStatementSqliMatchStatementFieldToMatch `pulumi:"fieldToMatch"`
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+	// At least one required.
+	// See Text Transformation below for details.
 	TextTransformations []WebAclRuleStatementSqliMatchStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -11705,7 +12266,11 @@ type WebAclRuleStatementSqliMatchStatementInput interface {
 }
 
 type WebAclRuleStatementSqliMatchStatementArgs struct {
-	FieldToMatch        WebAclRuleStatementSqliMatchStatementFieldToMatchPtrInput         `pulumi:"fieldToMatch"`
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	FieldToMatch WebAclRuleStatementSqliMatchStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+	// At least one required.
+	// See Text Transformation below for details.
 	TextTransformations WebAclRuleStatementSqliMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -11786,12 +12351,16 @@ func (o WebAclRuleStatementSqliMatchStatementOutput) ToWebAclRuleStatementSqliMa
 	}).(WebAclRuleStatementSqliMatchStatementPtrOutput)
 }
 
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o WebAclRuleStatementSqliMatchStatementOutput) FieldToMatch() WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatement) *WebAclRuleStatementSqliMatchStatementFieldToMatch {
 		return v.FieldToMatch
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput)
 }
 
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+// At least one required.
+// See Text Transformation below for details.
 func (o WebAclRuleStatementSqliMatchStatementOutput) TextTransformations() WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatement) []WebAclRuleStatementSqliMatchStatementTextTransformation {
 		return v.TextTransformations
@@ -11822,6 +12391,7 @@ func (o WebAclRuleStatementSqliMatchStatementPtrOutput) Elem() WebAclRuleStateme
 	}).(WebAclRuleStatementSqliMatchStatementOutput)
 }
 
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o WebAclRuleStatementSqliMatchStatementPtrOutput) FieldToMatch() WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatement) *WebAclRuleStatementSqliMatchStatementFieldToMatch {
 		if v == nil {
@@ -11831,6 +12401,9 @@ func (o WebAclRuleStatementSqliMatchStatementPtrOutput) FieldToMatch() WebAclRul
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput)
 }
 
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+// At least one required.
+// See Text Transformation below for details.
 func (o WebAclRuleStatementSqliMatchStatementPtrOutput) TextTransformations() WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatement) []WebAclRuleStatementSqliMatchStatementTextTransformation {
 		if v == nil {
@@ -11841,16 +12414,26 @@ func (o WebAclRuleStatementSqliMatchStatementPtrOutput) TextTransformations() We
 }
 
 type WebAclRuleStatementSqliMatchStatementFieldToMatch struct {
-	AllQueryArguments   *WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments   `pulumi:"allQueryArguments"`
-	Body                *WebAclRuleStatementSqliMatchStatementFieldToMatchBody                `pulumi:"body"`
-	Cookies             *WebAclRuleStatementSqliMatchStatementFieldToMatchCookies             `pulumi:"cookies"`
-	Headers             []WebAclRuleStatementSqliMatchStatementFieldToMatchHeader             `pulumi:"headers"`
-	JsonBody            *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody            `pulumi:"jsonBody"`
-	Method              *WebAclRuleStatementSqliMatchStatementFieldToMatchMethod              `pulumi:"method"`
-	QueryString         *WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString         `pulumi:"queryString"`
-	SingleHeader        *WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader        `pulumi:"singleHeader"`
+	// Inspect all query arguments.
+	AllQueryArguments *WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments `pulumi:"allQueryArguments"`
+	// Inspect the request body, which immediately follows the request headers.
+	Body *WebAclRuleStatementSqliMatchStatementFieldToMatchBody `pulumi:"body"`
+	// Inspect the cookies in the web request. See Cookies below for details.
+	Cookies *WebAclRuleStatementSqliMatchStatementFieldToMatchCookies `pulumi:"cookies"`
+	// Inspect the request headers. See Headers below for details.
+	Headers []WebAclRuleStatementSqliMatchStatementFieldToMatchHeader `pulumi:"headers"`
+	// Inspect the request body as JSON. See JSON Body for details.
+	JsonBody *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody `pulumi:"jsonBody"`
+	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+	Method *WebAclRuleStatementSqliMatchStatementFieldToMatchMethod `pulumi:"method"`
+	// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+	QueryString *WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString `pulumi:"queryString"`
+	// Inspect a single header. See Single Header below for details.
+	SingleHeader *WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader `pulumi:"singleHeader"`
+	// Inspect a single query argument. See Single Query Argument below for details.
 	SingleQueryArgument *WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument `pulumi:"singleQueryArgument"`
-	UriPath             *WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath             `pulumi:"uriPath"`
+	// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+	UriPath *WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath `pulumi:"uriPath"`
 }
 
 // WebAclRuleStatementSqliMatchStatementFieldToMatchInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchArgs and WebAclRuleStatementSqliMatchStatementFieldToMatchOutput values.
@@ -11865,16 +12448,26 @@ type WebAclRuleStatementSqliMatchStatementFieldToMatchInput interface {
 }
 
 type WebAclRuleStatementSqliMatchStatementFieldToMatchArgs struct {
-	AllQueryArguments   WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsPtrInput   `pulumi:"allQueryArguments"`
-	Body                WebAclRuleStatementSqliMatchStatementFieldToMatchBodyPtrInput                `pulumi:"body"`
-	Cookies             WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesPtrInput             `pulumi:"cookies"`
-	Headers             WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArrayInput            `pulumi:"headers"`
-	JsonBody            WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrInput            `pulumi:"jsonBody"`
-	Method              WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrInput              `pulumi:"method"`
-	QueryString         WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrInput         `pulumi:"queryString"`
-	SingleHeader        WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrInput        `pulumi:"singleHeader"`
+	// Inspect all query arguments.
+	AllQueryArguments WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsPtrInput `pulumi:"allQueryArguments"`
+	// Inspect the request body, which immediately follows the request headers.
+	Body WebAclRuleStatementSqliMatchStatementFieldToMatchBodyPtrInput `pulumi:"body"`
+	// Inspect the cookies in the web request. See Cookies below for details.
+	Cookies WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesPtrInput `pulumi:"cookies"`
+	// Inspect the request headers. See Headers below for details.
+	Headers WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArrayInput `pulumi:"headers"`
+	// Inspect the request body as JSON. See JSON Body for details.
+	JsonBody WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrInput `pulumi:"jsonBody"`
+	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+	Method WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrInput `pulumi:"method"`
+	// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+	QueryString WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrInput `pulumi:"queryString"`
+	// Inspect a single header. See Single Header below for details.
+	SingleHeader WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrInput `pulumi:"singleHeader"`
+	// Inspect a single query argument. See Single Query Argument below for details.
 	SingleQueryArgument WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrInput `pulumi:"singleQueryArgument"`
-	UriPath             WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrInput             `pulumi:"uriPath"`
+	// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+	UriPath WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrInput `pulumi:"uriPath"`
 }
 
 func (WebAclRuleStatementSqliMatchStatementFieldToMatchArgs) ElementType() reflect.Type {
@@ -11954,60 +12547,70 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchOutput) ToWebAclRuleSta
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput)
 }
 
+// Inspect all query arguments.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchOutput) AllQueryArguments() WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatch) *WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments {
 		return v.AllQueryArguments
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsPtrOutput)
 }
 
+// Inspect the request body, which immediately follows the request headers.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchOutput) Body() WebAclRuleStatementSqliMatchStatementFieldToMatchBodyPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatch) *WebAclRuleStatementSqliMatchStatementFieldToMatchBody {
 		return v.Body
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchBodyPtrOutput)
 }
 
+// Inspect the cookies in the web request. See Cookies below for details.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchOutput) Cookies() WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatch) *WebAclRuleStatementSqliMatchStatementFieldToMatchCookies {
 		return v.Cookies
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
+// Inspect the request headers. See Headers below for details.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchOutput) Headers() WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatch) []WebAclRuleStatementSqliMatchStatementFieldToMatchHeader {
 		return v.Headers
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArrayOutput)
 }
 
+// Inspect the request body as JSON. See JSON Body for details.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchOutput) JsonBody() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatch) *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody {
 		return v.JsonBody
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput)
 }
 
+// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchOutput) Method() WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatch) *WebAclRuleStatementSqliMatchStatementFieldToMatchMethod {
 		return v.Method
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput)
 }
 
+// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchOutput) QueryString() WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatch) *WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString {
 		return v.QueryString
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput)
 }
 
+// Inspect a single header. See Single Header below for details.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchOutput) SingleHeader() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatch) *WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader {
 		return v.SingleHeader
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
+// Inspect a single query argument. See Single Query Argument below for details.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchOutput) SingleQueryArgument() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatch) *WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
 		return v.SingleQueryArgument
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
+// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchOutput) UriPath() WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatch) *WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath {
 		return v.UriPath
@@ -12038,6 +12641,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) Elem() WebAc
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchOutput)
 }
 
+// Inspect all query arguments.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) AllQueryArguments() WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatch) *WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments {
 		if v == nil {
@@ -12047,6 +12651,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) AllQueryArgu
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsPtrOutput)
 }
 
+// Inspect the request body, which immediately follows the request headers.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) Body() WebAclRuleStatementSqliMatchStatementFieldToMatchBodyPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatch) *WebAclRuleStatementSqliMatchStatementFieldToMatchBody {
 		if v == nil {
@@ -12056,6 +12661,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) Body() WebAc
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchBodyPtrOutput)
 }
 
+// Inspect the cookies in the web request. See Cookies below for details.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) Cookies() WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatch) *WebAclRuleStatementSqliMatchStatementFieldToMatchCookies {
 		if v == nil {
@@ -12065,6 +12671,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) Cookies() We
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
+// Inspect the request headers. See Headers below for details.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) Headers() WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatch) []WebAclRuleStatementSqliMatchStatementFieldToMatchHeader {
 		if v == nil {
@@ -12074,6 +12681,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) Headers() We
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArrayOutput)
 }
 
+// Inspect the request body as JSON. See JSON Body for details.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) JsonBody() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatch) *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody {
 		if v == nil {
@@ -12083,6 +12691,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) JsonBody() W
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput)
 }
 
+// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) Method() WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatch) *WebAclRuleStatementSqliMatchStatementFieldToMatchMethod {
 		if v == nil {
@@ -12092,6 +12701,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) Method() Web
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput)
 }
 
+// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) QueryString() WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatch) *WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString {
 		if v == nil {
@@ -12101,6 +12711,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) QueryString(
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput)
 }
 
+// Inspect a single header. See Single Header below for details.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) SingleHeader() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatch) *WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader {
 		if v == nil {
@@ -12110,6 +12721,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) SingleHeader
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
+// Inspect a single query argument. See Single Query Argument below for details.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) SingleQueryArgument() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatch) *WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
 		if v == nil {
@@ -12119,6 +12731,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) SingleQueryA
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
+// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput) UriPath() WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatch) *WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath {
 		if v == nil {
@@ -12365,9 +12978,12 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchBodyPtrOutput) Elem() W
 }
 
 type WebAclRuleStatementSqliMatchStatementFieldToMatchCookies struct {
-	MatchPatterns    []WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
-	MatchScope       string                                                                 `pulumi:"matchScope"`
-	OversizeHandling string                                                                 `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	MatchPatterns []WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
+	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	MatchScope string `pulumi:"matchScope"`
+	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+	OversizeHandling string `pulumi:"oversizeHandling"`
 }
 
 // WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesArgs and WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesOutput values.
@@ -12382,9 +12998,12 @@ type WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesInput interface {
 }
 
 type WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesArgs struct {
-	MatchPatterns    WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
-	MatchScope       pulumi.StringInput                                                             `pulumi:"matchScope"`
-	OversizeHandling pulumi.StringInput                                                             `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	MatchPatterns WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
+	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
 }
 
 func (WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesArgs) ElementType() reflect.Type {
@@ -12464,16 +13083,19 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesOutput) ToWebAcl
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
+// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesOutput) MatchPatterns() WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchCookies) []WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
 		return v.MatchPatterns
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
+// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchCookies) string { return v.MatchScope }).(pulumi.StringOutput)
 }
 
+// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesOutput) OversizeHandling() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchCookies) string { return v.OversizeHandling }).(pulumi.StringOutput)
 }
@@ -12502,6 +13124,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesPtrOutput) Elem(
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesOutput)
 }
 
+// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesPtrOutput) MatchPatterns() WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchCookies) []WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
 		if v == nil {
@@ -12511,6 +13134,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesPtrOutput) Match
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
+// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -12520,6 +13144,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesPtrOutput) Match
 	}).(pulumi.StringPtrOutput)
 }
 
+// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesPtrOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -12530,6 +13155,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesPtrOutput) Overs
 }
 
 type WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All             *WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll `pulumi:"all"`
 	ExcludedCookies []string                                                                 `pulumi:"excludedCookies"`
 	IncludedCookies []string                                                                 `pulumi:"includedCookies"`
@@ -12547,6 +13173,7 @@ type WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternInput i
 }
 
 type WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All             WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllPtrInput `pulumi:"all"`
 	ExcludedCookies pulumi.StringArrayInput                                                         `pulumi:"excludedCookies"`
 	IncludedCookies pulumi.StringArrayInput                                                         `pulumi:"includedCookies"`
@@ -12603,6 +13230,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternOutp
 	return o
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternOutput) All() WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern) *WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll {
 		return v.All
@@ -12760,9 +13388,12 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllP
 }
 
 type WebAclRuleStatementSqliMatchStatementFieldToMatchHeader struct {
-	MatchPattern     WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
-	MatchScope       string                                                              `pulumi:"matchScope"`
-	OversizeHandling string                                                              `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	MatchPattern WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
+	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	MatchScope string `pulumi:"matchScope"`
+	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+	OversizeHandling string `pulumi:"oversizeHandling"`
 }
 
 // WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArgs and WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOutput values.
@@ -12777,9 +13408,12 @@ type WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderInput interface {
 }
 
 type WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArgs struct {
-	MatchPattern     WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
-	MatchScope       pulumi.StringInput                                                       `pulumi:"matchScope"`
-	OversizeHandling pulumi.StringInput                                                       `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	MatchPattern WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
+	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
 }
 
 func (WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArgs) ElementType() reflect.Type {
@@ -12833,16 +13467,19 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOutput) ToWebAclR
 	return o
 }
 
+// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOutput) MatchPattern() WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchHeader) WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern {
 		return v.MatchPattern
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternOutput)
 }
 
+// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchHeader) string { return v.MatchScope }).(pulumi.StringOutput)
 }
 
+// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOutput) OversizeHandling() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchHeader) string { return v.OversizeHandling }).(pulumi.StringOutput)
 }
@@ -12868,9 +13505,12 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArrayOutput) Inde
 }
 
 type WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern struct {
-	All             *WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
-	ExcludedHeaders []string                                                                `pulumi:"excludedHeaders"`
-	IncludedHeaders []string                                                                `pulumi:"includedHeaders"`
+	// An empty configuration block that is used for inspecting all headers.
+	All *WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
+	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	ExcludedHeaders []string `pulumi:"excludedHeaders"`
+	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	IncludedHeaders []string `pulumi:"includedHeaders"`
 }
 
 // WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArgs and WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternOutput values.
@@ -12885,9 +13525,12 @@ type WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternInput in
 }
 
 type WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArgs struct {
-	All             WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
-	ExcludedHeaders pulumi.StringArrayInput                                                        `pulumi:"excludedHeaders"`
-	IncludedHeaders pulumi.StringArrayInput                                                        `pulumi:"includedHeaders"`
+	// An empty configuration block that is used for inspecting all headers.
+	All WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
+	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
+	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
 }
 
 func (WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArgs) ElementType() reflect.Type {
@@ -12916,18 +13559,21 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternOutpu
 	return o
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternOutput) All() WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern) *WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
 		return v.All
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
 }
 
+// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.ExcludedHeaders
 	}).(pulumi.StringArrayOutput)
 }
 
+// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.IncludedHeaders
@@ -13053,10 +13699,14 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllPt
 }
 
 type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody struct {
-	InvalidFallbackBehavior *string                                                               `pulumi:"invalidFallbackBehavior"`
-	MatchPattern            WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	MatchScope              string                                                                `pulumi:"matchScope"`
-	OversizeHandling        *string                                                               `pulumi:"oversizeHandling"`
+	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
+	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	MatchPattern WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
+	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	MatchScope string `pulumi:"matchScope"`
+	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+	OversizeHandling *string `pulumi:"oversizeHandling"`
 }
 
 // WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs and WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput values.
@@ -13071,10 +13721,14 @@ type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyInput interface {
 }
 
 type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs struct {
-	InvalidFallbackBehavior pulumi.StringPtrInput                                                      `pulumi:"invalidFallbackBehavior"`
-	MatchPattern            WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
-	MatchScope              pulumi.StringInput                                                         `pulumi:"matchScope"`
-	OversizeHandling        pulumi.StringPtrInput                                                      `pulumi:"oversizeHandling"`
+	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
+	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	MatchPattern WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
+	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
 }
 
 func (WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs) ElementType() reflect.Type {
@@ -13154,22 +13808,26 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput) ToWebAc
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput)
 }
 
+// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody) *string {
 		return v.InvalidFallbackBehavior
 	}).(pulumi.StringPtrOutput)
 }
 
+// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput) MatchPattern() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
 		return v.MatchPattern
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
+// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody) string { return v.MatchScope }).(pulumi.StringOutput)
 }
 
+// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody) *string { return v.OversizeHandling }).(pulumi.StringPtrOutput)
 }
@@ -13198,6 +13856,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) Elem
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput)
 }
 
+// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -13207,6 +13866,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) Inva
 	}).(pulumi.StringPtrOutput)
 }
 
+// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody) *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
 		if v == nil {
@@ -13216,6 +13876,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) Matc
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
+// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -13225,6 +13886,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) Matc
 	}).(pulumi.StringPtrOutput)
 }
 
+// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -13235,6 +13897,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) Over
 }
 
 type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All           *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
 	IncludedPaths []string                                                                  `pulumi:"includedPaths"`
 }
@@ -13251,6 +13914,7 @@ type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternInput 
 }
 
 type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All           WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput                                                          `pulumi:"includedPaths"`
 }
@@ -13332,6 +13996,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOut
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput) All() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		return v.All
@@ -13368,6 +14033,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtr
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		if v == nil {
@@ -13741,6 +14407,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput) E
 }
 
 type WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name string `pulumi:"name"`
 }
 
@@ -13756,6 +14423,7 @@ type WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderInput interfac
 }
 
 type WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -13836,6 +14504,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput) ToW
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -13864,6 +14533,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput) 
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -13874,6 +14544,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput) 
 }
 
 type WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name string `pulumi:"name"`
 }
 
@@ -13889,6 +14560,7 @@ type WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentInput i
 }
 
 type WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -13969,6 +14641,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutp
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -13997,6 +14670,7 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrO
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -14125,8 +14799,10 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput) Elem(
 }
 
 type WebAclRuleStatementSqliMatchStatementTextTransformation struct {
-	Priority int    `pulumi:"priority"`
-	Type     string `pulumi:"type"`
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	Priority int `pulumi:"priority"`
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	Type string `pulumi:"type"`
 }
 
 // WebAclRuleStatementSqliMatchStatementTextTransformationInput is an input type that accepts WebAclRuleStatementSqliMatchStatementTextTransformationArgs and WebAclRuleStatementSqliMatchStatementTextTransformationOutput values.
@@ -14141,8 +14817,10 @@ type WebAclRuleStatementSqliMatchStatementTextTransformationInput interface {
 }
 
 type WebAclRuleStatementSqliMatchStatementTextTransformationArgs struct {
-	Priority pulumi.IntInput    `pulumi:"priority"`
-	Type     pulumi.StringInput `pulumi:"type"`
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (WebAclRuleStatementSqliMatchStatementTextTransformationArgs) ElementType() reflect.Type {
@@ -14196,10 +14874,12 @@ func (o WebAclRuleStatementSqliMatchStatementTextTransformationOutput) ToWebAclR
 	return o
 }
 
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o WebAclRuleStatementSqliMatchStatementTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o WebAclRuleStatementSqliMatchStatementTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementTextTransformation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -14225,7 +14905,11 @@ func (o WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput) Inde
 }
 
 type WebAclRuleStatementXssMatchStatement struct {
-	FieldToMatch        *WebAclRuleStatementXssMatchStatementFieldToMatch        `pulumi:"fieldToMatch"`
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	FieldToMatch *WebAclRuleStatementXssMatchStatementFieldToMatch `pulumi:"fieldToMatch"`
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+	// At least one required.
+	// See Text Transformation below for details.
 	TextTransformations []WebAclRuleStatementXssMatchStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -14241,7 +14925,11 @@ type WebAclRuleStatementXssMatchStatementInput interface {
 }
 
 type WebAclRuleStatementXssMatchStatementArgs struct {
-	FieldToMatch        WebAclRuleStatementXssMatchStatementFieldToMatchPtrInput         `pulumi:"fieldToMatch"`
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	FieldToMatch WebAclRuleStatementXssMatchStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+	// At least one required.
+	// See Text Transformation below for details.
 	TextTransformations WebAclRuleStatementXssMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -14322,12 +15010,16 @@ func (o WebAclRuleStatementXssMatchStatementOutput) ToWebAclRuleStatementXssMatc
 	}).(WebAclRuleStatementXssMatchStatementPtrOutput)
 }
 
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o WebAclRuleStatementXssMatchStatementOutput) FieldToMatch() WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatement) *WebAclRuleStatementXssMatchStatementFieldToMatch {
 		return v.FieldToMatch
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput)
 }
 
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+// At least one required.
+// See Text Transformation below for details.
 func (o WebAclRuleStatementXssMatchStatementOutput) TextTransformations() WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatement) []WebAclRuleStatementXssMatchStatementTextTransformation {
 		return v.TextTransformations
@@ -14358,6 +15050,7 @@ func (o WebAclRuleStatementXssMatchStatementPtrOutput) Elem() WebAclRuleStatemen
 	}).(WebAclRuleStatementXssMatchStatementOutput)
 }
 
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o WebAclRuleStatementXssMatchStatementPtrOutput) FieldToMatch() WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatement) *WebAclRuleStatementXssMatchStatementFieldToMatch {
 		if v == nil {
@@ -14367,6 +15060,9 @@ func (o WebAclRuleStatementXssMatchStatementPtrOutput) FieldToMatch() WebAclRule
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput)
 }
 
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+// At least one required.
+// See Text Transformation below for details.
 func (o WebAclRuleStatementXssMatchStatementPtrOutput) TextTransformations() WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatement) []WebAclRuleStatementXssMatchStatementTextTransformation {
 		if v == nil {
@@ -14377,16 +15073,26 @@ func (o WebAclRuleStatementXssMatchStatementPtrOutput) TextTransformations() Web
 }
 
 type WebAclRuleStatementXssMatchStatementFieldToMatch struct {
-	AllQueryArguments   *WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments   `pulumi:"allQueryArguments"`
-	Body                *WebAclRuleStatementXssMatchStatementFieldToMatchBody                `pulumi:"body"`
-	Cookies             *WebAclRuleStatementXssMatchStatementFieldToMatchCookies             `pulumi:"cookies"`
-	Headers             []WebAclRuleStatementXssMatchStatementFieldToMatchHeader             `pulumi:"headers"`
-	JsonBody            *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody            `pulumi:"jsonBody"`
-	Method              *WebAclRuleStatementXssMatchStatementFieldToMatchMethod              `pulumi:"method"`
-	QueryString         *WebAclRuleStatementXssMatchStatementFieldToMatchQueryString         `pulumi:"queryString"`
-	SingleHeader        *WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader        `pulumi:"singleHeader"`
+	// Inspect all query arguments.
+	AllQueryArguments *WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments `pulumi:"allQueryArguments"`
+	// Inspect the request body, which immediately follows the request headers.
+	Body *WebAclRuleStatementXssMatchStatementFieldToMatchBody `pulumi:"body"`
+	// Inspect the cookies in the web request. See Cookies below for details.
+	Cookies *WebAclRuleStatementXssMatchStatementFieldToMatchCookies `pulumi:"cookies"`
+	// Inspect the request headers. See Headers below for details.
+	Headers []WebAclRuleStatementXssMatchStatementFieldToMatchHeader `pulumi:"headers"`
+	// Inspect the request body as JSON. See JSON Body for details.
+	JsonBody *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody `pulumi:"jsonBody"`
+	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+	Method *WebAclRuleStatementXssMatchStatementFieldToMatchMethod `pulumi:"method"`
+	// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+	QueryString *WebAclRuleStatementXssMatchStatementFieldToMatchQueryString `pulumi:"queryString"`
+	// Inspect a single header. See Single Header below for details.
+	SingleHeader *WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader `pulumi:"singleHeader"`
+	// Inspect a single query argument. See Single Query Argument below for details.
 	SingleQueryArgument *WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument `pulumi:"singleQueryArgument"`
-	UriPath             *WebAclRuleStatementXssMatchStatementFieldToMatchUriPath             `pulumi:"uriPath"`
+	// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+	UriPath *WebAclRuleStatementXssMatchStatementFieldToMatchUriPath `pulumi:"uriPath"`
 }
 
 // WebAclRuleStatementXssMatchStatementFieldToMatchInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchArgs and WebAclRuleStatementXssMatchStatementFieldToMatchOutput values.
@@ -14401,16 +15107,26 @@ type WebAclRuleStatementXssMatchStatementFieldToMatchInput interface {
 }
 
 type WebAclRuleStatementXssMatchStatementFieldToMatchArgs struct {
-	AllQueryArguments   WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrInput   `pulumi:"allQueryArguments"`
-	Body                WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrInput                `pulumi:"body"`
-	Cookies             WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrInput             `pulumi:"cookies"`
-	Headers             WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayInput            `pulumi:"headers"`
-	JsonBody            WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrInput            `pulumi:"jsonBody"`
-	Method              WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrInput              `pulumi:"method"`
-	QueryString         WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrInput         `pulumi:"queryString"`
-	SingleHeader        WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrInput        `pulumi:"singleHeader"`
+	// Inspect all query arguments.
+	AllQueryArguments WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrInput `pulumi:"allQueryArguments"`
+	// Inspect the request body, which immediately follows the request headers.
+	Body WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrInput `pulumi:"body"`
+	// Inspect the cookies in the web request. See Cookies below for details.
+	Cookies WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrInput `pulumi:"cookies"`
+	// Inspect the request headers. See Headers below for details.
+	Headers WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayInput `pulumi:"headers"`
+	// Inspect the request body as JSON. See JSON Body for details.
+	JsonBody WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrInput `pulumi:"jsonBody"`
+	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+	Method WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrInput `pulumi:"method"`
+	// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+	QueryString WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrInput `pulumi:"queryString"`
+	// Inspect a single header. See Single Header below for details.
+	SingleHeader WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrInput `pulumi:"singleHeader"`
+	// Inspect a single query argument. See Single Query Argument below for details.
 	SingleQueryArgument WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrInput `pulumi:"singleQueryArgument"`
-	UriPath             WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrInput             `pulumi:"uriPath"`
+	// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+	UriPath WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrInput `pulumi:"uriPath"`
 }
 
 func (WebAclRuleStatementXssMatchStatementFieldToMatchArgs) ElementType() reflect.Type {
@@ -14490,60 +15206,70 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) ToWebAclRuleStat
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput)
 }
 
+// Inspect all query arguments.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) AllQueryArguments() WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments {
 		return v.AllQueryArguments
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput)
 }
 
+// Inspect the request body, which immediately follows the request headers.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) Body() WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchBody {
 		return v.Body
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput)
 }
 
+// Inspect the cookies in the web request. See Cookies below for details.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) Cookies() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchCookies {
 		return v.Cookies
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
+// Inspect the request headers. See Headers below for details.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) Headers() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) []WebAclRuleStatementXssMatchStatementFieldToMatchHeader {
 		return v.Headers
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput)
 }
 
+// Inspect the request body as JSON. See JSON Body for details.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) JsonBody() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody {
 		return v.JsonBody
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput)
 }
 
+// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) Method() WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchMethod {
 		return v.Method
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput)
 }
 
+// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) QueryString() WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchQueryString {
 		return v.QueryString
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput)
 }
 
+// Inspect a single header. See Single Header below for details.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) SingleHeader() WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader {
 		return v.SingleHeader
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
+// Inspect a single query argument. See Single Query Argument below for details.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) SingleQueryArgument() WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument {
 		return v.SingleQueryArgument
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
+// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) UriPath() WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchUriPath {
 		return v.UriPath
@@ -14574,6 +15300,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) Elem() WebAcl
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchOutput)
 }
 
+// Inspect all query arguments.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) AllQueryArguments() WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments {
 		if v == nil {
@@ -14583,6 +15310,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) AllQueryArgum
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput)
 }
 
+// Inspect the request body, which immediately follows the request headers.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) Body() WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchBody {
 		if v == nil {
@@ -14592,6 +15320,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) Body() WebAcl
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput)
 }
 
+// Inspect the cookies in the web request. See Cookies below for details.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) Cookies() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchCookies {
 		if v == nil {
@@ -14601,6 +15330,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) Cookies() Web
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
+// Inspect the request headers. See Headers below for details.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) Headers() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) []WebAclRuleStatementXssMatchStatementFieldToMatchHeader {
 		if v == nil {
@@ -14610,6 +15340,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) Headers() Web
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput)
 }
 
+// Inspect the request body as JSON. See JSON Body for details.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) JsonBody() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody {
 		if v == nil {
@@ -14619,6 +15350,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) JsonBody() We
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput)
 }
 
+// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) Method() WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchMethod {
 		if v == nil {
@@ -14628,6 +15360,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) Method() WebA
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput)
 }
 
+// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) QueryString() WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchQueryString {
 		if v == nil {
@@ -14637,6 +15370,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) QueryString()
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput)
 }
 
+// Inspect a single header. See Single Header below for details.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) SingleHeader() WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader {
 		if v == nil {
@@ -14646,6 +15380,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) SingleHeader(
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
+// Inspect a single query argument. See Single Query Argument below for details.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) SingleQueryArgument() WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument {
 		if v == nil {
@@ -14655,6 +15390,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) SingleQueryAr
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
+// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) UriPath() WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchUriPath {
 		if v == nil {
@@ -14901,9 +15637,12 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput) Elem() We
 }
 
 type WebAclRuleStatementXssMatchStatementFieldToMatchCookies struct {
-	MatchPatterns    []WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
-	MatchScope       string                                                                `pulumi:"matchScope"`
-	OversizeHandling string                                                                `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	MatchPatterns []WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
+	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	MatchScope string `pulumi:"matchScope"`
+	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+	OversizeHandling string `pulumi:"oversizeHandling"`
 }
 
 // WebAclRuleStatementXssMatchStatementFieldToMatchCookiesInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs and WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput values.
@@ -14918,9 +15657,12 @@ type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesInput interface {
 }
 
 type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs struct {
-	MatchPatterns    WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
-	MatchScope       pulumi.StringInput                                                            `pulumi:"matchScope"`
-	OversizeHandling pulumi.StringInput                                                            `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	MatchPatterns WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
+	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
 }
 
 func (WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs) ElementType() reflect.Type {
@@ -15000,16 +15742,19 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput) ToWebAclR
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
+// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput) MatchPatterns() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchCookies) []WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
 		return v.MatchPatterns
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
+// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchCookies) string { return v.MatchScope }).(pulumi.StringOutput)
 }
 
+// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput) OversizeHandling() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchCookies) string { return v.OversizeHandling }).(pulumi.StringOutput)
 }
@@ -15038,6 +15783,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput) Elem()
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput)
 }
 
+// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput) MatchPatterns() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchCookies) []WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
 		if v == nil {
@@ -15047,6 +15793,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput) MatchP
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
+// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -15056,6 +15803,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput) MatchS
 	}).(pulumi.StringPtrOutput)
 }
 
+// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -15066,6 +15814,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput) Oversi
 }
 
 type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All             *WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll `pulumi:"all"`
 	ExcludedCookies []string                                                                `pulumi:"excludedCookies"`
 	IncludedCookies []string                                                                `pulumi:"includedCookies"`
@@ -15083,6 +15832,7 @@ type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternInput in
 }
 
 type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All             WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrInput `pulumi:"all"`
 	ExcludedCookies pulumi.StringArrayInput                                                        `pulumi:"excludedCookies"`
 	IncludedCookies pulumi.StringArrayInput                                                        `pulumi:"includedCookies"`
@@ -15139,6 +15889,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutpu
 	return o
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput) All() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern) *WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll {
 		return v.All
@@ -15296,9 +16047,12 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPt
 }
 
 type WebAclRuleStatementXssMatchStatementFieldToMatchHeader struct {
-	MatchPattern     WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
-	MatchScope       string                                                             `pulumi:"matchScope"`
-	OversizeHandling string                                                             `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	MatchPattern WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
+	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	MatchScope string `pulumi:"matchScope"`
+	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+	OversizeHandling string `pulumi:"oversizeHandling"`
 }
 
 // WebAclRuleStatementXssMatchStatementFieldToMatchHeaderInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArgs and WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput values.
@@ -15313,9 +16067,12 @@ type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderInput interface {
 }
 
 type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArgs struct {
-	MatchPattern     WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
-	MatchScope       pulumi.StringInput                                                      `pulumi:"matchScope"`
-	OversizeHandling pulumi.StringInput                                                      `pulumi:"oversizeHandling"`
+	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	MatchPattern WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
+	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
 }
 
 func (WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArgs) ElementType() reflect.Type {
@@ -15369,16 +16126,19 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput) ToWebAclRu
 	return o
 }
 
+// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput) MatchPattern() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchHeader) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern {
 		return v.MatchPattern
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput)
 }
 
+// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchHeader) string { return v.MatchScope }).(pulumi.StringOutput)
 }
 
+// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput) OversizeHandling() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchHeader) string { return v.OversizeHandling }).(pulumi.StringOutput)
 }
@@ -15404,9 +16164,12 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput) Index
 }
 
 type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern struct {
-	All             *WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
-	ExcludedHeaders []string                                                               `pulumi:"excludedHeaders"`
-	IncludedHeaders []string                                                               `pulumi:"includedHeaders"`
+	// An empty configuration block that is used for inspecting all headers.
+	All *WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
+	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	ExcludedHeaders []string `pulumi:"excludedHeaders"`
+	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	IncludedHeaders []string `pulumi:"includedHeaders"`
 }
 
 // WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs and WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput values.
@@ -15421,9 +16184,12 @@ type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternInput int
 }
 
 type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs struct {
-	All             WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
-	ExcludedHeaders pulumi.StringArrayInput                                                       `pulumi:"excludedHeaders"`
-	IncludedHeaders pulumi.StringArrayInput                                                       `pulumi:"includedHeaders"`
+	// An empty configuration block that is used for inspecting all headers.
+	All WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
+	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
+	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
 }
 
 func (WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs) ElementType() reflect.Type {
@@ -15452,18 +16218,21 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput
 	return o
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) All() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern) *WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
 		return v.All
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
 }
 
+// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.ExcludedHeaders
 	}).(pulumi.StringArrayOutput)
 }
 
+// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.IncludedHeaders
@@ -15589,10 +16358,14 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtr
 }
 
 type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody struct {
-	InvalidFallbackBehavior *string                                                              `pulumi:"invalidFallbackBehavior"`
-	MatchPattern            WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	MatchScope              string                                                               `pulumi:"matchScope"`
-	OversizeHandling        *string                                                              `pulumi:"oversizeHandling"`
+	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
+	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	MatchPattern WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
+	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	MatchScope string `pulumi:"matchScope"`
+	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+	OversizeHandling *string `pulumi:"oversizeHandling"`
 }
 
 // WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs and WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput values.
@@ -15607,10 +16380,14 @@ type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyInput interface {
 }
 
 type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs struct {
-	InvalidFallbackBehavior pulumi.StringPtrInput                                                     `pulumi:"invalidFallbackBehavior"`
-	MatchPattern            WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
-	MatchScope              pulumi.StringInput                                                        `pulumi:"matchScope"`
-	OversizeHandling        pulumi.StringPtrInput                                                     `pulumi:"oversizeHandling"`
+	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
+	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	MatchPattern WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
+	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
 }
 
 func (WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs) ElementType() reflect.Type {
@@ -15690,22 +16467,26 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput) ToWebAcl
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput)
 }
 
+// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody) *string {
 		return v.InvalidFallbackBehavior
 	}).(pulumi.StringPtrOutput)
 }
 
+// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput) MatchPattern() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
 		return v.MatchPattern
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
+// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody) string { return v.MatchScope }).(pulumi.StringOutput)
 }
 
+// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody) *string { return v.OversizeHandling }).(pulumi.StringPtrOutput)
 }
@@ -15734,6 +16515,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) Elem(
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput)
 }
 
+// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -15743,6 +16525,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) Inval
 	}).(pulumi.StringPtrOutput)
 }
 
+// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody) *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
 		if v == nil {
@@ -15752,6 +16535,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) Match
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
+// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -15761,6 +16545,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) Match
 	}).(pulumi.StringPtrOutput)
 }
 
+// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) OversizeHandling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -15771,6 +16556,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) Overs
 }
 
 type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All           *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
 	IncludedPaths []string                                                                 `pulumi:"includedPaths"`
 }
@@ -15787,6 +16573,7 @@ type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternInput i
 }
 
 type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs struct {
+	// An empty configuration block that is used for inspecting all headers.
 	All           WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput                                                         `pulumi:"includedPaths"`
 }
@@ -15868,6 +16655,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutp
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput) All() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		return v.All
@@ -15904,6 +16692,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrO
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
+// An empty configuration block that is used for inspecting all headers.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		if v == nil {
@@ -16277,6 +17066,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput) El
 }
 
 type WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name string `pulumi:"name"`
 }
 
@@ -16292,6 +17082,7 @@ type WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderInput interface
 }
 
 type WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -16372,6 +17163,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput) ToWe
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -16400,6 +17192,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput) E
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -16410,6 +17203,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput) N
 }
 
 type WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name string `pulumi:"name"`
 }
 
@@ -16425,6 +17219,7 @@ type WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentInput in
 }
 
 type WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
+	// Name of the query header to inspect. This setting must be provided as lower case characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -16505,6 +17300,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutpu
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -16533,6 +17329,7 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOu
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
+// Name of the query header to inspect. This setting must be provided as lower case characters.
 func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -16661,8 +17458,10 @@ func (o WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput) Elem()
 }
 
 type WebAclRuleStatementXssMatchStatementTextTransformation struct {
-	Priority int    `pulumi:"priority"`
-	Type     string `pulumi:"type"`
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	Priority int `pulumi:"priority"`
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	Type string `pulumi:"type"`
 }
 
 // WebAclRuleStatementXssMatchStatementTextTransformationInput is an input type that accepts WebAclRuleStatementXssMatchStatementTextTransformationArgs and WebAclRuleStatementXssMatchStatementTextTransformationOutput values.
@@ -16677,8 +17476,10 @@ type WebAclRuleStatementXssMatchStatementTextTransformationInput interface {
 }
 
 type WebAclRuleStatementXssMatchStatementTextTransformationArgs struct {
-	Priority pulumi.IntInput    `pulumi:"priority"`
-	Type     pulumi.StringInput `pulumi:"type"`
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (WebAclRuleStatementXssMatchStatementTextTransformationArgs) ElementType() reflect.Type {
@@ -16732,10 +17533,12 @@ func (o WebAclRuleStatementXssMatchStatementTextTransformationOutput) ToWebAclRu
 	return o
 }
 
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o WebAclRuleStatementXssMatchStatementTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o WebAclRuleStatementXssMatchStatementTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementTextTransformation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -16761,9 +17564,12 @@ func (o WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput) Index
 }
 
 type WebAclRuleVisibilityConfig struct {
-	CloudwatchMetricsEnabled bool   `pulumi:"cloudwatchMetricsEnabled"`
-	MetricName               string `pulumi:"metricName"`
-	SampledRequestsEnabled   bool   `pulumi:"sampledRequestsEnabled"`
+	// Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+	CloudwatchMetricsEnabled bool `pulumi:"cloudwatchMetricsEnabled"`
+	// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+	MetricName string `pulumi:"metricName"`
+	// Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+	SampledRequestsEnabled bool `pulumi:"sampledRequestsEnabled"`
 }
 
 // WebAclRuleVisibilityConfigInput is an input type that accepts WebAclRuleVisibilityConfigArgs and WebAclRuleVisibilityConfigOutput values.
@@ -16778,9 +17584,12 @@ type WebAclRuleVisibilityConfigInput interface {
 }
 
 type WebAclRuleVisibilityConfigArgs struct {
-	CloudwatchMetricsEnabled pulumi.BoolInput   `pulumi:"cloudwatchMetricsEnabled"`
-	MetricName               pulumi.StringInput `pulumi:"metricName"`
-	SampledRequestsEnabled   pulumi.BoolInput   `pulumi:"sampledRequestsEnabled"`
+	// Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+	CloudwatchMetricsEnabled pulumi.BoolInput `pulumi:"cloudwatchMetricsEnabled"`
+	// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+	SampledRequestsEnabled pulumi.BoolInput `pulumi:"sampledRequestsEnabled"`
 }
 
 func (WebAclRuleVisibilityConfigArgs) ElementType() reflect.Type {
@@ -16809,22 +17618,28 @@ func (o WebAclRuleVisibilityConfigOutput) ToWebAclRuleVisibilityConfigOutputWith
 	return o
 }
 
+// Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
 func (o WebAclRuleVisibilityConfigOutput) CloudwatchMetricsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v WebAclRuleVisibilityConfig) bool { return v.CloudwatchMetricsEnabled }).(pulumi.BoolOutput)
 }
 
+// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
 func (o WebAclRuleVisibilityConfigOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleVisibilityConfig) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
+// Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
 func (o WebAclRuleVisibilityConfigOutput) SampledRequestsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v WebAclRuleVisibilityConfig) bool { return v.SampledRequestsEnabled }).(pulumi.BoolOutput)
 }
 
 type WebAclVisibilityConfig struct {
-	CloudwatchMetricsEnabled bool   `pulumi:"cloudwatchMetricsEnabled"`
-	MetricName               string `pulumi:"metricName"`
-	SampledRequestsEnabled   bool   `pulumi:"sampledRequestsEnabled"`
+	// Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+	CloudwatchMetricsEnabled bool `pulumi:"cloudwatchMetricsEnabled"`
+	// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+	MetricName string `pulumi:"metricName"`
+	// Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+	SampledRequestsEnabled bool `pulumi:"sampledRequestsEnabled"`
 }
 
 // WebAclVisibilityConfigInput is an input type that accepts WebAclVisibilityConfigArgs and WebAclVisibilityConfigOutput values.
@@ -16839,9 +17654,12 @@ type WebAclVisibilityConfigInput interface {
 }
 
 type WebAclVisibilityConfigArgs struct {
-	CloudwatchMetricsEnabled pulumi.BoolInput   `pulumi:"cloudwatchMetricsEnabled"`
-	MetricName               pulumi.StringInput `pulumi:"metricName"`
-	SampledRequestsEnabled   pulumi.BoolInput   `pulumi:"sampledRequestsEnabled"`
+	// Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+	CloudwatchMetricsEnabled pulumi.BoolInput `pulumi:"cloudwatchMetricsEnabled"`
+	// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+	SampledRequestsEnabled pulumi.BoolInput `pulumi:"sampledRequestsEnabled"`
 }
 
 func (WebAclVisibilityConfigArgs) ElementType() reflect.Type {
@@ -16921,14 +17739,17 @@ func (o WebAclVisibilityConfigOutput) ToWebAclVisibilityConfigPtrOutputWithConte
 	}).(WebAclVisibilityConfigPtrOutput)
 }
 
+// Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
 func (o WebAclVisibilityConfigOutput) CloudwatchMetricsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v WebAclVisibilityConfig) bool { return v.CloudwatchMetricsEnabled }).(pulumi.BoolOutput)
 }
 
+// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
 func (o WebAclVisibilityConfigOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclVisibilityConfig) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
+// Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
 func (o WebAclVisibilityConfigOutput) SampledRequestsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v WebAclVisibilityConfig) bool { return v.SampledRequestsEnabled }).(pulumi.BoolOutput)
 }
@@ -16957,6 +17778,7 @@ func (o WebAclVisibilityConfigPtrOutput) Elem() WebAclVisibilityConfigOutput {
 	}).(WebAclVisibilityConfigOutput)
 }
 
+// Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
 func (o WebAclVisibilityConfigPtrOutput) CloudwatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebAclVisibilityConfig) *bool {
 		if v == nil {
@@ -16966,6 +17788,7 @@ func (o WebAclVisibilityConfigPtrOutput) CloudwatchMetricsEnabled() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
 func (o WebAclVisibilityConfigPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclVisibilityConfig) *string {
 		if v == nil {
@@ -16975,6 +17798,7 @@ func (o WebAclVisibilityConfigPtrOutput) MetricName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
 func (o WebAclVisibilityConfigPtrOutput) SampledRequestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebAclVisibilityConfig) *bool {
 		if v == nil {
@@ -16985,6 +17809,7 @@ func (o WebAclVisibilityConfigPtrOutput) SampledRequestsEnabled() pulumi.BoolPtr
 }
 
 type GetRegexPatternSetRegularExpression struct {
+	// (Required) String representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
 	RegexString string `pulumi:"regexString"`
 }
 
@@ -17000,6 +17825,7 @@ type GetRegexPatternSetRegularExpressionInput interface {
 }
 
 type GetRegexPatternSetRegularExpressionArgs struct {
+	// (Required) String representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
 	RegexString pulumi.StringInput `pulumi:"regexString"`
 }
 
@@ -17054,6 +17880,7 @@ func (o GetRegexPatternSetRegularExpressionOutput) ToGetRegexPatternSetRegularEx
 	return o
 }
 
+// (Required) String representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
 func (o GetRegexPatternSetRegularExpressionOutput) RegexString() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRegexPatternSetRegularExpression) string { return v.RegexString }).(pulumi.StringOutput)
 }

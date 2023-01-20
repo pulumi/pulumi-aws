@@ -9,12 +9,67 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WafRegional
 {
+    /// <summary>
+    /// Provides a WAF Regional Regex Match Set Resource
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRegexPatternSet = new Aws.WafRegional.RegexPatternSet("exampleRegexPatternSet", new()
+    ///     {
+    ///         RegexPatternStrings = new[]
+    ///         {
+    ///             "one",
+    ///             "two",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRegexMatchSet = new Aws.WafRegional.RegexMatchSet("exampleRegexMatchSet", new()
+    ///     {
+    ///         RegexMatchTuples = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.RegexMatchSetRegexMatchTupleArgs
+    ///             {
+    ///                 FieldToMatch = new Aws.WafRegional.Inputs.RegexMatchSetRegexMatchTupleFieldToMatchArgs
+    ///                 {
+    ///                     Data = "User-Agent",
+    ///                     Type = "HEADER",
+    ///                 },
+    ///                 RegexPatternSetId = exampleRegexPatternSet.Id,
+    ///                 TextTransformation = "NONE",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// WAF Regional Regex Match Set can be imported using the id, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:wafregional/regexMatchSet:RegexMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:wafregional/regexMatchSet:RegexMatchSet")]
     public partial class RegexMatchSet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name or description of the Regex Match Set.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
+        /// </summary>
         [Output("regexMatchTuples")]
         public Output<ImmutableArray<Outputs.RegexMatchSetRegexMatchTuple>> RegexMatchTuples { get; private set; } = null!;
 
@@ -64,11 +119,18 @@ namespace Pulumi.Aws.WafRegional
 
     public sealed class RegexMatchSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name or description of the Regex Match Set.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("regexMatchTuples")]
         private InputList<Inputs.RegexMatchSetRegexMatchTupleArgs>? _regexMatchTuples;
+
+        /// <summary>
+        /// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
+        /// </summary>
         public InputList<Inputs.RegexMatchSetRegexMatchTupleArgs> RegexMatchTuples
         {
             get => _regexMatchTuples ?? (_regexMatchTuples = new InputList<Inputs.RegexMatchSetRegexMatchTupleArgs>());
@@ -83,11 +145,18 @@ namespace Pulumi.Aws.WafRegional
 
     public sealed class RegexMatchSetState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name or description of the Regex Match Set.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("regexMatchTuples")]
         private InputList<Inputs.RegexMatchSetRegexMatchTupleGetArgs>? _regexMatchTuples;
+
+        /// <summary>
+        /// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
+        /// </summary>
         public InputList<Inputs.RegexMatchSetRegexMatchTupleGetArgs> RegexMatchTuples
         {
             get => _regexMatchTuples ?? (_regexMatchTuples = new InputList<Inputs.RegexMatchSetRegexMatchTupleGetArgs>());

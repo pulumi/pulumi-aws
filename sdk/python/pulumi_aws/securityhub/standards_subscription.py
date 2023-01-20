@@ -17,12 +17,16 @@ class StandardsSubscriptionArgs:
                  standards_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a StandardsSubscription resource.
+        :param pulumi.Input[str] standards_arn: The ARN of a standard - see below.
         """
         pulumi.set(__self__, "standards_arn", standards_arn)
 
     @property
     @pulumi.getter(name="standardsArn")
     def standards_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of a standard - see below.
+        """
         return pulumi.get(self, "standards_arn")
 
     @standards_arn.setter
@@ -36,6 +40,7 @@ class _StandardsSubscriptionState:
                  standards_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering StandardsSubscription resources.
+        :param pulumi.Input[str] standards_arn: The ARN of a standard - see below.
         """
         if standards_arn is not None:
             pulumi.set(__self__, "standards_arn", standards_arn)
@@ -43,6 +48,9 @@ class _StandardsSubscriptionState:
     @property
     @pulumi.getter(name="standardsArn")
     def standards_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of a standard - see below.
+        """
         return pulumi.get(self, "standards_arn")
 
     @standards_arn.setter
@@ -58,9 +66,37 @@ class StandardsSubscription(pulumi.CustomResource):
                  standards_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a StandardsSubscription resource with the given unique name, props, and options.
+        Subscribes to a Security Hub standard.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.securityhub.Account("example")
+        current = aws.get_region()
+        cis = aws.securityhub.StandardsSubscription("cis", standards_arn="arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
+        opts=pulumi.ResourceOptions(depends_on=[example]))
+        pci321 = aws.securityhub.StandardsSubscription("pci321", standards_arn=f"arn:aws:securityhub:{current.name}::standards/pci-dss/v/3.2.1",
+        opts=pulumi.ResourceOptions(depends_on=[example]))
+        ```
+
+        ## Import
+
+        Security Hub standards subscriptions can be imported using the standards subscription ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
+        ```
+
+        ```sh
+         $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] standards_arn: The ARN of a standard - see below.
         """
         ...
     @overload
@@ -69,7 +105,34 @@ class StandardsSubscription(pulumi.CustomResource):
                  args: StandardsSubscriptionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a StandardsSubscription resource with the given unique name, props, and options.
+        Subscribes to a Security Hub standard.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.securityhub.Account("example")
+        current = aws.get_region()
+        cis = aws.securityhub.StandardsSubscription("cis", standards_arn="arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
+        opts=pulumi.ResourceOptions(depends_on=[example]))
+        pci321 = aws.securityhub.StandardsSubscription("pci321", standards_arn=f"arn:aws:securityhub:{current.name}::standards/pci-dss/v/3.2.1",
+        opts=pulumi.ResourceOptions(depends_on=[example]))
+        ```
+
+        ## Import
+
+        Security Hub standards subscriptions can be imported using the standards subscription ARN, e.g.,
+
+        ```sh
+         $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
+        ```
+
+        ```sh
+         $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1
+        ```
+
         :param str resource_name: The name of the resource.
         :param StandardsSubscriptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,6 +179,7 @@ class StandardsSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] standards_arn: The ARN of a standard - see below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -127,5 +191,8 @@ class StandardsSubscription(pulumi.CustomResource):
     @property
     @pulumi.getter(name="standardsArn")
     def standards_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of a standard - see below.
+        """
         return pulumi.get(self, "standards_arn")
 

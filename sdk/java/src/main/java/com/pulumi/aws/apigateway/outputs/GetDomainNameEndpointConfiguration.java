@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainNameEndpointConfiguration {
+    /**
+     * @return List of endpoint types.
+     * 
+     */
     private List<String> types;
 
     private GetDomainNameEndpointConfiguration() {}
+    /**
+     * @return List of endpoint types.
+     * 
+     */
     public List<String> types() {
         return this.types;
     }

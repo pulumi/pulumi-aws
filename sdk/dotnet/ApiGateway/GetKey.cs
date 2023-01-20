@@ -11,9 +11,59 @@ namespace Pulumi.Aws.ApiGateway
 {
     public static class GetKey
     {
+        /// <summary>
+        /// Use this data source to get the name and value of a pre-existing API Key, for
+        /// example to supply credentials for a dependency microservice.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var myApiKey = Aws.ApiGateway.GetKey.Invoke(new()
+        ///     {
+        ///         Id = "ru3mpjgse6",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("aws:apigateway/getKey:getKey", args ?? new GetKeyArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to get the name and value of a pre-existing API Key, for
+        /// example to supply credentials for a dependency microservice.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var myApiKey = Aws.ApiGateway.GetKey.Invoke(new()
+        ///     {
+        ///         Id = "ru3mpjgse6",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyResult>("aws:apigateway/getKey:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
     }
@@ -21,11 +71,18 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class GetKeyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the API Key to look up.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags for the resource.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -40,11 +97,18 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class GetKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the API Key to look up.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags for the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -61,13 +125,37 @@ namespace Pulumi.Aws.ApiGateway
     [OutputType]
     public sealed class GetKeyResult
     {
+        /// <summary>
+        /// Date and time when the API Key was created.
+        /// </summary>
         public readonly string CreatedDate;
+        /// <summary>
+        /// Description of the API Key.
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// Whether the API Key is enabled.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// Set to the ID of the API Key.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Date and time when the API Key was last updated.
+        /// </summary>
         public readonly string LastUpdatedDate;
+        /// <summary>
+        /// Set to the name of the API Key.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Map of tags for the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// Set to the value of the API Key.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

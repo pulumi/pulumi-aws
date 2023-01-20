@@ -9,12 +9,246 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WafRegional
 {
+    /// <summary>
+    /// Manages an association with WAF Regional Web ACL.
+    /// 
+    /// &gt; **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
+    /// 
+    /// ## Example Usage
+    /// ### Application Load Balancer Association
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
+    ///     {
+    ///         IpSetDescriptors = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
+    ///             {
+    ///                 Type = "IPV4",
+    ///                 Value = "192.0.7.0/24",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var fooRule = new Aws.WafRegional.Rule("fooRule", new()
+    ///     {
+    ///         MetricName = "tfWAFRule",
+    ///         Predicates = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.RulePredicateArgs
+    ///             {
+    ///                 DataId = ipset.Id,
+    ///                 Negated = false,
+    ///                 Type = "IPMatch",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var fooWebAcl = new Aws.WafRegional.WebAcl("fooWebAcl", new()
+    ///     {
+    ///         MetricName = "foo",
+    ///         DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Type = "ALLOW",
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.WebAclRuleArgs
+    ///             {
+    ///                 Action = new Aws.WafRegional.Inputs.WebAclRuleActionArgs
+    ///                 {
+    ///                     Type = "BLOCK",
+    ///                 },
+    ///                 Priority = 1,
+    ///                 RuleId = fooRule.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
+    ///     {
+    ///         CidrBlock = "10.1.0.0/16",
+    ///     });
+    /// 
+    ///     var available = Aws.GetAvailabilityZones.Invoke();
+    /// 
+    ///     var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new()
+    ///     {
+    ///         VpcId = fooVpc.Id,
+    ///         CidrBlock = "10.1.1.0/24",
+    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
+    ///     });
+    /// 
+    ///     var bar = new Aws.Ec2.Subnet("bar", new()
+    ///     {
+    ///         VpcId = fooVpc.Id,
+    ///         CidrBlock = "10.1.2.0/24",
+    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
+    ///     });
+    /// 
+    ///     var fooLoadBalancer = new Aws.Alb.LoadBalancer("fooLoadBalancer", new()
+    ///     {
+    ///         Internal = true,
+    ///         Subnets = new[]
+    ///         {
+    ///             fooSubnet.Id,
+    ///             bar.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var fooWebAclAssociation = new Aws.WafRegional.WebAclAssociation("fooWebAclAssociation", new()
+    ///     {
+    ///         ResourceArn = fooLoadBalancer.Arn,
+    ///         WebAclId = fooWebAcl.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### API Gateway Association
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Security.Cryptography;
+    /// using System.Text;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// 	private static string ComputeSHA1(string input) {
+    /// 		return BitConverter.ToString(
+    /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
+    /// 		).Replace("-","").ToLowerInvariant());
+    /// 	}
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
+    ///     {
+    ///         IpSetDescriptors = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
+    ///             {
+    ///                 Type = "IPV4",
+    ///                 Value = "192.0.7.0/24",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var fooRule = new Aws.WafRegional.Rule("fooRule", new()
+    ///     {
+    ///         MetricName = "tfWAFRule",
+    ///         Predicates = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.RulePredicateArgs
+    ///             {
+    ///                 DataId = ipset.Id,
+    ///                 Negated = false,
+    ///                 Type = "IPMatch",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var fooWebAcl = new Aws.WafRegional.WebAcl("fooWebAcl", new()
+    ///     {
+    ///         MetricName = "foo",
+    ///         DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Type = "ALLOW",
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.WebAclRuleArgs
+    ///             {
+    ///                 Action = new Aws.WafRegional.Inputs.WebAclRuleActionArgs
+    ///                 {
+    ///                     Type = "BLOCK",
+    ///                 },
+    ///                 Priority = 1,
+    ///                 RuleId = fooRule.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
+    ///     {
+    ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["openapi"] = "3.0.1",
+    ///             ["info"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["title"] = "example",
+    ///                 ["version"] = "1.0",
+    ///             },
+    ///             ["paths"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["/path1"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["get"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["x-amazon-apigateway-integration"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["httpMethod"] = "GET",
+    ///                             ["payloadFormatVersion"] = "1.0",
+    ///                             ["type"] = "HTTP_PROXY",
+    ///                             ["uri"] = "https://ip-ranges.amazonaws.com/ip-ranges.json",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     {
+    ///         RestApi = exampleRestApi.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = exampleRestApi.Id,
+    ///         StageName = "example",
+    ///     });
+    /// 
+    ///     var association = new Aws.WafRegional.WebAclAssociation("association", new()
+    ///     {
+    ///         ResourceArn = exampleStage.Arn,
+    ///         WebAclId = fooWebAcl.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// WAF Regional Web ACL Association can be imported using their `web_acl_id:resource_arn`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:wafregional/webAclAssociation:WebAclAssociation")]
     public partial class WebAclAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
+        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the WAF Regional WebACL to create an association.
+        /// </summary>
         [Output("webAclId")]
         public Output<string> WebAclId { get; private set; } = null!;
 
@@ -64,9 +298,15 @@ namespace Pulumi.Aws.WafRegional
 
     public sealed class WebAclAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the WAF Regional WebACL to create an association.
+        /// </summary>
         [Input("webAclId", required: true)]
         public Input<string> WebAclId { get; set; } = null!;
 
@@ -78,9 +318,15 @@ namespace Pulumi.Aws.WafRegional
 
     public sealed class WebAclAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
+        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
+        /// <summary>
+        /// The ID of the WAF Regional WebACL to create an association.
+        /// </summary>
         [Input("webAclId")]
         public Input<string>? WebAclId { get; set; }
 

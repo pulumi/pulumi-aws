@@ -15,9 +15,17 @@ public final class StandardsSubscriptionState extends com.pulumi.resources.Resou
 
     public static final StandardsSubscriptionState Empty = new StandardsSubscriptionState();
 
+    /**
+     * The ARN of a standard - see below.
+     * 
+     */
     @Import(name="standardsArn")
     private @Nullable Output<String> standardsArn;
 
+    /**
+     * @return The ARN of a standard - see below.
+     * 
+     */
     public Optional<Output<String>> standardsArn() {
         return Optional.ofNullable(this.standardsArn);
     }
@@ -46,11 +54,23 @@ public final class StandardsSubscriptionState extends com.pulumi.resources.Resou
             $ = new StandardsSubscriptionState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param standardsArn The ARN of a standard - see below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder standardsArn(@Nullable Output<String> standardsArn) {
             $.standardsArn = standardsArn;
             return this;
         }
 
+        /**
+         * @param standardsArn The ARN of a standard - see below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder standardsArn(String standardsArn) {
             return standardsArn(Output.of(standardsArn));
         }

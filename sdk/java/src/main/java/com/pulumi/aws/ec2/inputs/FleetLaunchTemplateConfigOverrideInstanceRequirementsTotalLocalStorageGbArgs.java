@@ -15,16 +15,32 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
 
     public static final FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs Empty = new FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs();
 
+    /**
+     * Maximum. Set to `0` to exclude instance types with accelerators.
+     * 
+     */
     @Import(name="max")
     private @Nullable Output<Double> max;
 
+    /**
+     * @return Maximum. Set to `0` to exclude instance types with accelerators.
+     * 
+     */
     public Optional<Output<Double>> max() {
         return Optional.ofNullable(this.max);
     }
 
+    /**
+     * Minimum.
+     * 
+     */
     @Import(name="min")
     private @Nullable Output<Double> min;
 
+    /**
+     * @return Minimum.
+     * 
+     */
     public Optional<Output<Double>> min() {
         return Optional.ofNullable(this.min);
     }
@@ -54,20 +70,44 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
             $ = new FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param max Maximum. Set to `0` to exclude instance types with accelerators.
+         * 
+         * @return builder
+         * 
+         */
         public Builder max(@Nullable Output<Double> max) {
             $.max = max;
             return this;
         }
 
+        /**
+         * @param max Maximum. Set to `0` to exclude instance types with accelerators.
+         * 
+         * @return builder
+         * 
+         */
         public Builder max(Double max) {
             return max(Output.of(max));
         }
 
+        /**
+         * @param min Minimum.
+         * 
+         * @return builder
+         * 
+         */
         public Builder min(@Nullable Output<Double> min) {
             $.min = min;
             return this;
         }
 
+        /**
+         * @param min Minimum.
+         * 
+         * @return builder
+         * 
+         */
         public Builder min(Double min) {
             return min(Output.of(min));
         }

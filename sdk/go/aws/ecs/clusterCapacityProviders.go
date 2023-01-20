@@ -11,11 +11,69 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages the capacity providers of an ECS Cluster.
+//
+// More information about capacity providers can be found in the [ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
+//
+// > **NOTE on Clusters and Cluster Capacity Providers:** The provider provides both a standalone `ecs.ClusterCapacityProviders` resource, as well as allowing the capacity providers and default strategies to be managed in-line by the `ecs.Cluster` resource. You cannot use a Cluster with in-line capacity providers in conjunction with the Capacity Providers resource, nor use more than one Capacity Providers resource with a single Cluster, as doing so will cause a conflict and will lead to mutual overwrites.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleCluster, err := ecs.NewCluster(ctx, "exampleCluster", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecs.NewClusterCapacityProviders(ctx, "exampleClusterCapacityProviders", &ecs.ClusterCapacityProvidersArgs{
+//				ClusterName: exampleCluster.Name,
+//				CapacityProviders: pulumi.StringArray{
+//					pulumi.String("FARGATE"),
+//				},
+//				DefaultCapacityProviderStrategies: ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArray{
+//					&ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs{
+//						Base:             pulumi.Int(1),
+//						Weight:           pulumi.Int(100),
+//						CapacityProvider: pulumi.String("FARGATE"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// ECS cluster capacity providers can be imported using the `cluster_name` attribute. For example
+//
+// ```sh
+//
+//	$ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
+//
+// ```
 type ClusterCapacityProviders struct {
 	pulumi.CustomResourceState
 
-	CapacityProviders                 pulumi.StringArrayOutput                                           `pulumi:"capacityProviders"`
-	ClusterName                       pulumi.StringOutput                                                `pulumi:"clusterName"`
+	// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+	CapacityProviders pulumi.StringArrayOutput `pulumi:"capacityProviders"`
+	// Name of the ECS cluster to manage capacity providers for.
+	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
 	DefaultCapacityProviderStrategies ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput `pulumi:"defaultCapacityProviderStrategies"`
 }
 
@@ -51,14 +109,20 @@ func GetClusterCapacityProviders(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterCapacityProviders resources.
 type clusterCapacityProvidersState struct {
-	CapacityProviders                 []string                                                  `pulumi:"capacityProviders"`
-	ClusterName                       *string                                                   `pulumi:"clusterName"`
+	// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+	CapacityProviders []string `pulumi:"capacityProviders"`
+	// Name of the ECS cluster to manage capacity providers for.
+	ClusterName *string `pulumi:"clusterName"`
+	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
 	DefaultCapacityProviderStrategies []ClusterCapacityProvidersDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
 }
 
 type ClusterCapacityProvidersState struct {
-	CapacityProviders                 pulumi.StringArrayInput
-	ClusterName                       pulumi.StringPtrInput
+	// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+	CapacityProviders pulumi.StringArrayInput
+	// Name of the ECS cluster to manage capacity providers for.
+	ClusterName pulumi.StringPtrInput
+	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
 	DefaultCapacityProviderStrategies ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayInput
 }
 
@@ -67,15 +131,21 @@ func (ClusterCapacityProvidersState) ElementType() reflect.Type {
 }
 
 type clusterCapacityProvidersArgs struct {
-	CapacityProviders                 []string                                                  `pulumi:"capacityProviders"`
-	ClusterName                       string                                                    `pulumi:"clusterName"`
+	// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+	CapacityProviders []string `pulumi:"capacityProviders"`
+	// Name of the ECS cluster to manage capacity providers for.
+	ClusterName string `pulumi:"clusterName"`
+	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
 	DefaultCapacityProviderStrategies []ClusterCapacityProvidersDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
 }
 
 // The set of arguments for constructing a ClusterCapacityProviders resource.
 type ClusterCapacityProvidersArgs struct {
-	CapacityProviders                 pulumi.StringArrayInput
-	ClusterName                       pulumi.StringInput
+	// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+	CapacityProviders pulumi.StringArrayInput
+	// Name of the ECS cluster to manage capacity providers for.
+	ClusterName pulumi.StringInput
+	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
 	DefaultCapacityProviderStrategies ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayInput
 }
 
@@ -166,14 +236,17 @@ func (o ClusterCapacityProvidersOutput) ToClusterCapacityProvidersOutputWithCont
 	return o
 }
 
+// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
 func (o ClusterCapacityProvidersOutput) CapacityProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterCapacityProviders) pulumi.StringArrayOutput { return v.CapacityProviders }).(pulumi.StringArrayOutput)
 }
 
+// Name of the ECS cluster to manage capacity providers for.
 func (o ClusterCapacityProvidersOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterCapacityProviders) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }
 
+// Set of capacity provider strategies to use by default for the cluster. Detailed below.
 func (o ClusterCapacityProvidersOutput) DefaultCapacityProviderStrategies() ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput {
 	return o.ApplyT(func(v *ClusterCapacityProviders) ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput {
 		return v.DefaultCapacityProviderStrategies

@@ -7,6 +7,40 @@ import * as outputs from "./types/output";
 import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
+/**
+ * The Autoscaling Groups data source allows access to the list of AWS
+ * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const groups = aws.autoscaling.getAmiIds({
+ *     filters: [
+ *         {
+ *             name: "tag:Team",
+ *             values: ["Pets"],
+ *         },
+ *         {
+ *             name: "tag-key",
+ *             values: ["Environment"],
+ *         },
+ *     ],
+ * });
+ * const slackNotifications = new aws.autoscaling.Notification("slackNotifications", {
+ *     groupNames: groups.then(groups => groups.names),
+ *     notifications: [
+ *         "autoscaling:EC2_INSTANCE_LAUNCH",
+ *         "autoscaling:EC2_INSTANCE_TERMINATE",
+ *         "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+ *         "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+ *     ],
+ *     topicArn: "TOPIC ARN",
+ * });
+ * ```
+ */
 /** @deprecated aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds */
 export function getAutoscalingGroups(args?: GetAutoscalingGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoscalingGroupsResult> {
     pulumi.log.warn("getAutoscalingGroups is deprecated: aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds")
@@ -23,7 +57,13 @@ export function getAutoscalingGroups(args?: GetAutoscalingGroupsArgs, opts?: pul
  * A collection of arguments for invoking getAutoscalingGroups.
  */
 export interface GetAutoscalingGroupsArgs {
+    /**
+     * Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+     */
     filters?: inputs.GetAutoscalingGroupsFilter[];
+    /**
+     * List of autoscaling group names
+     */
     names?: string[];
 }
 
@@ -31,14 +71,54 @@ export interface GetAutoscalingGroupsArgs {
  * A collection of values returned by getAutoscalingGroups.
  */
 export interface GetAutoscalingGroupsResult {
+    /**
+     * List of the Autoscaling Groups Arns in the current region.
+     */
     readonly arns: string[];
     readonly filters?: outputs.GetAutoscalingGroupsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * List of the Autoscaling Groups in the current region.
+     */
     readonly names: string[];
 }
+/**
+ * The Autoscaling Groups data source allows access to the list of AWS
+ * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const groups = aws.autoscaling.getAmiIds({
+ *     filters: [
+ *         {
+ *             name: "tag:Team",
+ *             values: ["Pets"],
+ *         },
+ *         {
+ *             name: "tag-key",
+ *             values: ["Environment"],
+ *         },
+ *     ],
+ * });
+ * const slackNotifications = new aws.autoscaling.Notification("slackNotifications", {
+ *     groupNames: groups.then(groups => groups.names),
+ *     notifications: [
+ *         "autoscaling:EC2_INSTANCE_LAUNCH",
+ *         "autoscaling:EC2_INSTANCE_TERMINATE",
+ *         "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+ *         "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+ *     ],
+ *     topicArn: "TOPIC ARN",
+ * });
+ * ```
+ */
 /** @deprecated aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds */
 export function getAutoscalingGroupsOutput(args?: GetAutoscalingGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoscalingGroupsResult> {
     return pulumi.output(args).apply((a: any) => getAutoscalingGroups(a, opts))
@@ -48,6 +128,12 @@ export function getAutoscalingGroupsOutput(args?: GetAutoscalingGroupsOutputArgs
  * A collection of arguments for invoking getAutoscalingGroups.
  */
 export interface GetAutoscalingGroupsOutputArgs {
+    /**
+     * Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+     */
     filters?: pulumi.Input<pulumi.Input<inputs.GetAutoscalingGroupsFilterArgs>[]>;
+    /**
+     * List of autoscaling group names
+     */
     names?: pulumi.Input<pulumi.Input<string>[]>;
 }

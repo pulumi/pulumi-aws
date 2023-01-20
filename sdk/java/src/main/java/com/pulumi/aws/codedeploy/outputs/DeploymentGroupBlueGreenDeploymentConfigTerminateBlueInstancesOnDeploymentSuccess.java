@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess {
+    /**
+     * @return The action to take on instances in the original environment after a successful blue/green deployment.
+     * 
+     */
     private @Nullable String action;
+    /**
+     * @return The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
+     * 
+     */
     private @Nullable Integer terminationWaitTimeInMinutes;
 
     private DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess() {}
+    /**
+     * @return The action to take on instances in the original environment after a successful blue/green deployment.
+     * 
+     */
     public Optional<String> action() {
         return Optional.ofNullable(this.action);
     }
+    /**
+     * @return The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
+     * 
+     */
     public Optional<Integer> terminationWaitTimeInMinutes() {
         return Optional.ofNullable(this.terminationWaitTimeInMinutes);
     }

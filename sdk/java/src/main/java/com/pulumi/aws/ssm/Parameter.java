@@ -18,89 +18,294 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an SSM Parameter resource.
+ * 
+ * &gt; **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that&#39;s not created by the provider before.
+ * 
+ * ## Example Usage
+ * ### Basic example
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssm.Parameter;
+ * import com.pulumi.aws.ssm.ParameterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new Parameter(&#34;foo&#34;, ParameterArgs.builder()        
+ *             .type(&#34;String&#34;)
+ *             .value(&#34;bar&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Encrypted string using default SSM KMS key
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.Instance;
+ * import com.pulumi.aws.rds.InstanceArgs;
+ * import com.pulumi.aws.ssm.Parameter;
+ * import com.pulumi.aws.ssm.ParameterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var default_ = new Instance(&#34;default&#34;, InstanceArgs.builder()        
+ *             .allocatedStorage(10)
+ *             .storageType(&#34;gp2&#34;)
+ *             .engine(&#34;mysql&#34;)
+ *             .engineVersion(&#34;5.7.16&#34;)
+ *             .instanceClass(&#34;db.t2.micro&#34;)
+ *             .name(&#34;mydb&#34;)
+ *             .username(&#34;foo&#34;)
+ *             .password(var_.database_master_password())
+ *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
+ *             .parameterGroupName(&#34;default.mysql5.7&#34;)
+ *             .build());
+ * 
+ *         var secret = new Parameter(&#34;secret&#34;, ParameterArgs.builder()        
+ *             .description(&#34;The parameter description&#34;)
+ *             .type(&#34;SecureString&#34;)
+ *             .value(var_.database_master_password())
+ *             .tags(Map.of(&#34;environment&#34;, &#34;production&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * SSM Parameters can be imported using the `parameter store name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ssm/parameter:Parameter")
 public class Parameter extends com.pulumi.resources.CustomResource {
+    /**
+     * Regular expression used to validate the parameter value.
+     * 
+     */
     @Export(name="allowedPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allowedPattern;
 
+    /**
+     * @return Regular expression used to validate the parameter value.
+     * 
+     */
     public Output<Optional<String>> allowedPattern() {
         return Codegen.optional(this.allowedPattern);
     }
+    /**
+     * ARN of the parameter.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the parameter.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+     * 
+     */
     @Export(name="dataType", refs={String.class}, tree="[0]")
     private Output<String> dataType;
 
+    /**
+     * @return Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+     * 
+     */
     public Output<String> dataType() {
         return this.dataType;
     }
+    /**
+     * Description of the parameter.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description of the parameter.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+     * 
+     */
     @Export(name="insecureValue", refs={String.class}, tree="[0]")
     private Output<String> insecureValue;
 
+    /**
+     * @return Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+     * 
+     */
     public Output<String> insecureValue() {
         return this.insecureValue;
     }
+    /**
+     * KMS key ID or ARN for encrypting a SecureString.
+     * 
+     */
     @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output<String> keyId;
 
+    /**
+     * @return KMS key ID or ARN for encrypting a SecureString.
+     * 
+     */
     public Output<String> keyId() {
         return this.keyId;
     }
+    /**
+     * Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+     * 
+     */
     @Export(name="overwrite", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> overwrite;
 
+    /**
+     * @return Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+     * 
+     */
     public Output<Optional<Boolean>> overwrite() {
         return Codegen.optional(this.overwrite);
     }
+    /**
+     * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+     * 
+     */
     @Export(name="tier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tier;
 
+    /**
+     * @return Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+     * 
+     */
     public Output<Optional<String>> tier() {
         return Codegen.optional(this.tier);
     }
+    /**
+     * Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
+    /**
+     * @return Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
+    /**
+     * Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+     * 
+     */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
+    /**
+     * @return Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
+    /**
+     * Version of the parameter.
+     * 
+     */
     @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
+    /**
+     * @return Version of the parameter.
+     * 
+     */
     public Output<Integer> version() {
         return this.version;
     }

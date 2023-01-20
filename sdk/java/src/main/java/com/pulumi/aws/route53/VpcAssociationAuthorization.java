@@ -13,23 +13,128 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Authorizes a VPC in a different account to be associated with a local Route53 Hosted Zone.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.Provider;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.route53.Zone;
+ * import com.pulumi.aws.route53.ZoneArgs;
+ * import com.pulumi.aws.route53.inputs.ZoneVpcArgs;
+ * import com.pulumi.aws.route53.VpcAssociationAuthorization;
+ * import com.pulumi.aws.route53.VpcAssociationAuthorizationArgs;
+ * import com.pulumi.aws.route53.ZoneAssociation;
+ * import com.pulumi.aws.route53.ZoneAssociationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var alternate = new Provider(&#34;alternate&#34;);
+ * 
+ *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+ *             .cidrBlock(&#34;10.6.0.0/16&#34;)
+ *             .enableDnsHostnames(true)
+ *             .enableDnsSupport(true)
+ *             .build());
+ * 
+ *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
+ *             .vpcs(ZoneVpcArgs.builder()
+ *                 .vpcId(exampleVpc.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var alternateVpc = new Vpc(&#34;alternateVpc&#34;, VpcArgs.builder()        
+ *             .cidrBlock(&#34;10.7.0.0/16&#34;)
+ *             .enableDnsHostnames(true)
+ *             .enableDnsSupport(true)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .provider(&#34;aws.alternate&#34;)
+ *                 .build());
+ * 
+ *         var exampleVpcAssociationAuthorization = new VpcAssociationAuthorization(&#34;exampleVpcAssociationAuthorization&#34;, VpcAssociationAuthorizationArgs.builder()        
+ *             .vpcId(alternateVpc.id())
+ *             .zoneId(exampleZone.id())
+ *             .build());
+ * 
+ *         var exampleZoneAssociation = new ZoneAssociation(&#34;exampleZoneAssociation&#34;, ZoneAssociationArgs.builder()        
+ *             .vpcId(exampleVpcAssociationAuthorization.vpcId())
+ *             .zoneId(exampleVpcAssociationAuthorization.zoneId())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .provider(&#34;aws.alternate&#34;)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Route 53 VPC Association Authorizations can be imported via the Hosted Zone ID and VPC ID, separated by a colon (`:`), e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
+ * ```
+ * 
+ */
 @ResourceType(type="aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization")
 public class VpcAssociationAuthorization extends com.pulumi.resources.CustomResource {
+    /**
+     * The VPC to authorize for association with the private hosted zone.
+     * 
+     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
+    /**
+     * @return The VPC to authorize for association with the private hosted zone.
+     * 
+     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
+    /**
+     * The VPC&#39;s region. Defaults to the region of the AWS provider.
+     * 
+     */
     @Export(name="vpcRegion", refs={String.class}, tree="[0]")
     private Output<String> vpcRegion;
 
+    /**
+     * @return The VPC&#39;s region. Defaults to the region of the AWS provider.
+     * 
+     */
     public Output<String> vpcRegion() {
         return this.vpcRegion;
     }
+    /**
+     * The ID of the private hosted zone that you want to authorize associating a VPC with.
+     * 
+     */
     @Export(name="zoneId", refs={String.class}, tree="[0]")
     private Output<String> zoneId;
 
+    /**
+     * @return The ID of the private hosted zone that you want to authorize associating a VPC with.
+     * 
+     */
     public Output<String> zoneId() {
         return this.zoneId;
     }

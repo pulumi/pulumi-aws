@@ -17,12 +17,16 @@ class OrganizationAdminAccountArgs:
                  admin_account_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a OrganizationAdminAccount resource.
+        :param pulumi.Input[str] admin_account_id: AWS account identifier to designate as a delegated administrator for GuardDuty.
         """
         pulumi.set(__self__, "admin_account_id", admin_account_id)
 
     @property
     @pulumi.getter(name="adminAccountId")
     def admin_account_id(self) -> pulumi.Input[str]:
+        """
+        AWS account identifier to designate as a delegated administrator for GuardDuty.
+        """
         return pulumi.get(self, "admin_account_id")
 
     @admin_account_id.setter
@@ -36,6 +40,7 @@ class _OrganizationAdminAccountState:
                  admin_account_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OrganizationAdminAccount resources.
+        :param pulumi.Input[str] admin_account_id: AWS account identifier to designate as a delegated administrator for GuardDuty.
         """
         if admin_account_id is not None:
             pulumi.set(__self__, "admin_account_id", admin_account_id)
@@ -43,6 +48,9 @@ class _OrganizationAdminAccountState:
     @property
     @pulumi.getter(name="adminAccountId")
     def admin_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS account identifier to designate as a delegated administrator for GuardDuty.
+        """
         return pulumi.get(self, "admin_account_id")
 
     @admin_account_id.setter
@@ -58,9 +66,33 @@ class OrganizationAdminAccount(pulumi.CustomResource):
                  admin_account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a OrganizationAdminAccount resource with the given unique name, props, and options.
+        Manages a GuardDuty Organization Admin Account. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in GuardDuty can be found in the [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_organization = aws.organizations.Organization("exampleOrganization",
+            aws_service_access_principals=["guardduty.amazonaws.com"],
+            feature_set="ALL")
+        example_detector = aws.guardduty.Detector("exampleDetector")
+        example_organization_admin_account = aws.guardduty.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id="123456789012",
+        opts=pulumi.ResourceOptions(depends_on=[example_organization]))
+        ```
+
+        ## Import
+
+        GuardDuty Organization Admin Account can be imported using the AWS account ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] admin_account_id: AWS account identifier to designate as a delegated administrator for GuardDuty.
         """
         ...
     @overload
@@ -69,7 +101,30 @@ class OrganizationAdminAccount(pulumi.CustomResource):
                  args: OrganizationAdminAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a OrganizationAdminAccount resource with the given unique name, props, and options.
+        Manages a GuardDuty Organization Admin Account. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in GuardDuty can be found in the [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_organization = aws.organizations.Organization("exampleOrganization",
+            aws_service_access_principals=["guardduty.amazonaws.com"],
+            feature_set="ALL")
+        example_detector = aws.guardduty.Detector("exampleDetector")
+        example_organization_admin_account = aws.guardduty.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id="123456789012",
+        opts=pulumi.ResourceOptions(depends_on=[example_organization]))
+        ```
+
+        ## Import
+
+        GuardDuty Organization Admin Account can be imported using the AWS account ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param OrganizationAdminAccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,6 +171,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] admin_account_id: AWS account identifier to designate as a delegated administrator for GuardDuty.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -127,5 +183,8 @@ class OrganizationAdminAccount(pulumi.CustomResource):
     @property
     @pulumi.getter(name="adminAccountId")
     def admin_account_id(self) -> pulumi.Output[str]:
+        """
+        AWS account identifier to designate as a delegated administrator for GuardDuty.
+        """
         return pulumi.get(self, "admin_account_id")
 

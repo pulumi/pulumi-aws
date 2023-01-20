@@ -19,6 +19,10 @@ class ClusterClusterEndpointArgs:
     def __init__(__self__, *,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] endpoint: Cluster endpoint.
+        :param pulumi.Input[str] region: Region of the endpoint.
+        """
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if region is not None:
@@ -27,6 +31,9 @@ class ClusterClusterEndpointArgs:
     @property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cluster endpoint.
+        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -36,6 +43,9 @@ class ClusterClusterEndpointArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        Region of the endpoint.
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -49,6 +59,11 @@ class SafetyRuleRuleConfigArgs:
                  inverted: pulumi.Input[bool],
                  threshold: pulumi.Input[int],
                  type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[bool] inverted: Logical negation of the rule.
+        :param pulumi.Input[int] threshold: Number of controls that must be set when you specify an `ATLEAST` type rule.
+        :param pulumi.Input[str] type: Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
+        """
         pulumi.set(__self__, "inverted", inverted)
         pulumi.set(__self__, "threshold", threshold)
         pulumi.set(__self__, "type", type)
@@ -56,6 +71,9 @@ class SafetyRuleRuleConfigArgs:
     @property
     @pulumi.getter
     def inverted(self) -> pulumi.Input[bool]:
+        """
+        Logical negation of the rule.
+        """
         return pulumi.get(self, "inverted")
 
     @inverted.setter
@@ -65,6 +83,9 @@ class SafetyRuleRuleConfigArgs:
     @property
     @pulumi.getter
     def threshold(self) -> pulumi.Input[int]:
+        """
+        Number of controls that must be set when you specify an `ATLEAST` type rule.
+        """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
@@ -74,6 +95,9 @@ class SafetyRuleRuleConfigArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter

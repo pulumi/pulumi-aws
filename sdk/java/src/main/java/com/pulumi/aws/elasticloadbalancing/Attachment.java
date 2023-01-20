@@ -14,6 +14,46 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Attaches an EC2 instance to an Elastic Load Balancer (ELB). For attaching resources with Application Load Balancer (ALB) or Network Load Balancer (NLB), see the `aws.lb.TargetGroupAttachment` resource.
+ * 
+ * &gt; **NOTE on ELB Instances and ELB Attachments:** This provider currently provides
+ * both a standalone ELB Attachment resource (describing an instance attached to
+ * an ELB), and an Elastic Load Balancer resource with
+ * `instances` defined in-line. At this time you cannot use an ELB with in-line
+ * instances in conjunction with an ELB Attachment resource. Doing so will cause a
+ * conflict and will overwrite attachments.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elb.Attachment;
+ * import com.pulumi.aws.elb.AttachmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var baz = new Attachment(&#34;baz&#34;, AttachmentArgs.builder()        
+ *             .elb(aws_elb.bar().id())
+ *             .instance(aws_instance.foo().id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * @deprecated
  * aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment
  * 
@@ -21,15 +61,31 @@ import javax.annotation.Nullable;
 @Deprecated /* aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment */
 @ResourceType(type="aws:elasticloadbalancing/attachment:Attachment")
 public class Attachment extends com.pulumi.resources.CustomResource {
+    /**
+     * The name of the ELB.
+     * 
+     */
     @Export(name="elb", refs={String.class}, tree="[0]")
     private Output<String> elb;
 
+    /**
+     * @return The name of the ELB.
+     * 
+     */
     public Output<String> elb() {
         return this.elb;
     }
+    /**
+     * Instance ID to place in the ELB pool.
+     * 
+     */
     @Export(name="instance", refs={String.class}, tree="[0]")
     private Output<String> instance;
 
+    /**
+     * @return Instance ID to place in the ELB pool.
+     * 
+     */
     public Output<String> instance() {
         return this.instance;
     }

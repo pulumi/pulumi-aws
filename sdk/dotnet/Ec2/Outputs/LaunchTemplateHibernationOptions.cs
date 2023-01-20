@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class LaunchTemplateHibernationOptions
     {
+        /// <summary>
+        /// If set to `true`, the launched EC2 instance will hibernation enabled.
+        /// </summary>
         public readonly bool Configured;
 
         [OutputConstructor]

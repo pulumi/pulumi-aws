@@ -10,16 +10,65 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a MemoryDB ACL.
+//
+// More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := memorydb.NewAcl(ctx, "example", &memorydb.AclArgs{
+//				UserNames: pulumi.StringArray{
+//					pulumi.String("my-user-1"),
+//					pulumi.String("my-user-2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Use the `name` to import an ACL. For example
+//
+// ```sh
+//
+//	$ pulumi import aws:memorydb/acl:Acl example my-acl
+//
+// ```
 type Acl struct {
 	pulumi.CustomResourceState
 
-	Arn                  pulumi.StringOutput      `pulumi:"arn"`
-	MinimumEngineVersion pulumi.StringOutput      `pulumi:"minimumEngineVersion"`
-	Name                 pulumi.StringOutput      `pulumi:"name"`
-	NamePrefix           pulumi.StringOutput      `pulumi:"namePrefix"`
-	Tags                 pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll              pulumi.StringMapOutput   `pulumi:"tagsAll"`
-	UserNames            pulumi.StringArrayOutput `pulumi:"userNames"`
+	// The ARN of the ACL.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The minimum engine version supported by the ACL.
+	MinimumEngineVersion pulumi.StringOutput `pulumi:"minimumEngineVersion"`
+	// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Set of MemoryDB user names to be included in this ACL.
+	UserNames pulumi.StringArrayOutput `pulumi:"userNames"`
 }
 
 // NewAcl registers a new resource with the given unique name, arguments, and options.
@@ -51,23 +100,37 @@ func GetAcl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Acl resources.
 type aclState struct {
-	Arn                  *string           `pulumi:"arn"`
-	MinimumEngineVersion *string           `pulumi:"minimumEngineVersion"`
-	Name                 *string           `pulumi:"name"`
-	NamePrefix           *string           `pulumi:"namePrefix"`
-	Tags                 map[string]string `pulumi:"tags"`
-	TagsAll              map[string]string `pulumi:"tagsAll"`
-	UserNames            []string          `pulumi:"userNames"`
+	// The ARN of the ACL.
+	Arn *string `pulumi:"arn"`
+	// The minimum engine version supported by the ACL.
+	MinimumEngineVersion *string `pulumi:"minimumEngineVersion"`
+	// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name *string `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix *string `pulumi:"namePrefix"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Set of MemoryDB user names to be included in this ACL.
+	UserNames []string `pulumi:"userNames"`
 }
 
 type AclState struct {
-	Arn                  pulumi.StringPtrInput
+	// The ARN of the ACL.
+	Arn pulumi.StringPtrInput
+	// The minimum engine version supported by the ACL.
 	MinimumEngineVersion pulumi.StringPtrInput
-	Name                 pulumi.StringPtrInput
-	NamePrefix           pulumi.StringPtrInput
-	Tags                 pulumi.StringMapInput
-	TagsAll              pulumi.StringMapInput
-	UserNames            pulumi.StringArrayInput
+	// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// Set of MemoryDB user names to be included in this ACL.
+	UserNames pulumi.StringArrayInput
 }
 
 func (AclState) ElementType() reflect.Type {
@@ -75,18 +138,26 @@ func (AclState) ElementType() reflect.Type {
 }
 
 type aclArgs struct {
-	Name       *string           `pulumi:"name"`
-	NamePrefix *string           `pulumi:"namePrefix"`
-	Tags       map[string]string `pulumi:"tags"`
-	UserNames  []string          `pulumi:"userNames"`
+	// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name *string `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix *string `pulumi:"namePrefix"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Set of MemoryDB user names to be included in this ACL.
+	UserNames []string `pulumi:"userNames"`
 }
 
 // The set of arguments for constructing a Acl resource.
 type AclArgs struct {
-	Name       pulumi.StringPtrInput
+	// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	Tags       pulumi.StringMapInput
-	UserNames  pulumi.StringArrayInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Set of MemoryDB user names to be included in this ACL.
+	UserNames pulumi.StringArrayInput
 }
 
 func (AclArgs) ElementType() reflect.Type {
@@ -176,30 +247,37 @@ func (o AclOutput) ToAclOutputWithContext(ctx context.Context) AclOutput {
 	return o
 }
 
+// The ARN of the ACL.
 func (o AclOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Acl) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The minimum engine version supported by the ACL.
 func (o AclOutput) MinimumEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Acl) pulumi.StringOutput { return v.MinimumEngineVersion }).(pulumi.StringOutput)
 }
 
+// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o AclOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Acl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o AclOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *Acl) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AclOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Acl) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AclOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Acl) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// Set of MemoryDB user names to be included in this ACL.
 func (o AclOutput) UserNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Acl) pulumi.StringArrayOutput { return v.UserNames }).(pulumi.StringArrayOutput)
 }

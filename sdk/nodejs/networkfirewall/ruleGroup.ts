@@ -7,6 +7,142 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an AWS Network Firewall Rule Group Resource
+ *
+ * ## Example Usage
+ * ### Stateful Inspection for denying access to a domain
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.networkfirewall.RuleGroup("example", {
+ *     capacity: 100,
+ *     ruleGroup: {
+ *         rulesSource: {
+ *             rulesSourceList: {
+ *                 generatedRulesType: "DENYLIST",
+ *                 targetTypes: ["HTTP_HOST"],
+ *                 targets: ["test.example.com"],
+ *             },
+ *         },
+ *     },
+ *     tags: {
+ *         Tag1: "Value1",
+ *         Tag2: "Value2",
+ *     },
+ *     type: "STATEFUL",
+ * });
+ * ```
+ * ### Stateful Inspection from rules specifications defined in Suricata flat format
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ *
+ * const example = new aws.networkfirewall.RuleGroup("example", {
+ *     capacity: 100,
+ *     type: "STATEFUL",
+ *     rules: fs.readFileSync("example.rules"),
+ *     tags: {
+ *         Tag1: "Value1",
+ *         Tag2: "Value2",
+ *     },
+ * });
+ * ```
+ * ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ *
+ * const example = new aws.networkfirewall.RuleGroup("example", {
+ *     capacity: 100,
+ *     type: "STATEFUL",
+ *     ruleGroup: {
+ *         ruleVariables: {
+ *             ipSets: [
+ *                 {
+ *                     key: "WEBSERVERS_HOSTS",
+ *                     ipSet: {
+ *                         definitions: [
+ *                             "10.0.0.0/16",
+ *                             "10.0.1.0/24",
+ *                             "192.168.0.0/16",
+ *                         ],
+ *                     },
+ *                 },
+ *                 {
+ *                     key: "EXTERNAL_HOST",
+ *                     ipSet: {
+ *                         definitions: ["1.2.3.4/32"],
+ *                     },
+ *                 },
+ *             ],
+ *             portSets: [{
+ *                 key: "HTTP_PORTS",
+ *                 portSet: {
+ *                     definitions: [
+ *                         "443",
+ *                         "80",
+ *                     ],
+ *                 },
+ *             }],
+ *         },
+ *         rulesSource: {
+ *             rulesString: fs.readFileSync("suricata_rules_file"),
+ *         },
+ *     },
+ *     tags: {
+ *         Tag1: "Value1",
+ *         Tag2: "Value2",
+ *     },
+ * });
+ * ```
+ * ### IP Set References to the Rule Group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.networkfirewall.RuleGroup("example", {
+ *     capacity: 100,
+ *     type: "STATEFUL",
+ *     ruleGroup: {
+ *         rulesSource: {
+ *             rulesSourceList: {
+ *                 generatedRulesType: "DENYLIST",
+ *                 targetTypes: ["HTTP_HOST"],
+ *                 targets: ["test.example.com"],
+ *             },
+ *         },
+ *         referenceSets: {
+ *             ipSetReferences: [{
+ *                 key: "example",
+ *                 ipSetReferences: [{
+ *                     referenceArn: aws_ec2_managed_prefix_list["this"].arn,
+ *                 }],
+ *             }],
+ *         },
+ *     },
+ *     tags: {
+ *         Tag1: "Value1",
+ *         Tag2: "Value2",
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Network Firewall Rule Groups can be imported using their `ARN`.
+ *
+ * ```sh
+ *  $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+ * ```
+ */
 export class RuleGroup extends pulumi.CustomResource {
     /**
      * Get an existing RuleGroup resource's state with the given name, ID, and optional extra
@@ -35,16 +171,49 @@ export class RuleGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === RuleGroup.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) that identifies the rule group.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
+     */
     public readonly capacity!: pulumi.Output<number>;
+    /**
+     * A friendly description of the rule group.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     */
     public readonly encryptionConfiguration!: pulumi.Output<outputs.networkfirewall.RuleGroupEncryptionConfiguration | undefined>;
+    /**
+     * A friendly name of the rule group.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+     */
     public readonly ruleGroup!: pulumi.Output<outputs.networkfirewall.RuleGroupRuleGroup>;
+    /**
+     * The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
+     */
     public readonly rules!: pulumi.Output<string | undefined>;
+    /**
+     * A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+     */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * A string token used when updating the rule group.
+     */
     public /*out*/ readonly updateToken!: pulumi.Output<string>;
 
     /**
@@ -100,16 +269,49 @@ export class RuleGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RuleGroup resources.
  */
 export interface RuleGroupState {
+    /**
+     * The Amazon Resource Name (ARN) that identifies the rule group.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
+     */
     capacity?: pulumi.Input<number>;
+    /**
+     * A friendly description of the rule group.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     */
     encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.RuleGroupEncryptionConfiguration>;
+    /**
+     * A friendly name of the rule group.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+     */
     ruleGroup?: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroup>;
+    /**
+     * The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
+     */
     rules?: pulumi.Input<string>;
+    /**
+     * A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+     */
     type?: pulumi.Input<string>;
+    /**
+     * A string token used when updating the rule group.
+     */
     updateToken?: pulumi.Input<string>;
 }
 
@@ -117,12 +319,36 @@ export interface RuleGroupState {
  * The set of arguments for constructing a RuleGroup resource.
  */
 export interface RuleGroupArgs {
+    /**
+     * The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
+     */
     capacity: pulumi.Input<number>;
+    /**
+     * A friendly description of the rule group.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     */
     encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.RuleGroupEncryptionConfiguration>;
+    /**
+     * A friendly name of the rule group.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+     */
     ruleGroup?: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroup>;
+    /**
+     * The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
+     */
     rules?: pulumi.Input<string>;
+    /**
+     * A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+     */
     type: pulumi.Input<string>;
 }

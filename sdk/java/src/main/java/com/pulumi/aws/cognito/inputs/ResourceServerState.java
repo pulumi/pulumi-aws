@@ -17,30 +17,62 @@ public final class ResourceServerState extends com.pulumi.resources.ResourceArgs
 
     public static final ResourceServerState Empty = new ResourceServerState();
 
+    /**
+     * An identifier for the resource server.
+     * 
+     */
     @Import(name="identifier")
     private @Nullable Output<String> identifier;
 
+    /**
+     * @return An identifier for the resource server.
+     * 
+     */
     public Optional<Output<String>> identifier() {
         return Optional.ofNullable(this.identifier);
     }
 
+    /**
+     * A name for the resource server.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return A name for the resource server.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * A list of all scopes configured for this resource server in the format identifier/scope_name.
+     * 
+     */
     @Import(name="scopeIdentifiers")
     private @Nullable Output<List<String>> scopeIdentifiers;
 
+    /**
+     * @return A list of all scopes configured for this resource server in the format identifier/scope_name.
+     * 
+     */
     public Optional<Output<List<String>>> scopeIdentifiers() {
         return Optional.ofNullable(this.scopeIdentifiers);
     }
 
+    /**
+     * A list of Authorization Scope.
+     * 
+     */
     @Import(name="scopes")
     private @Nullable Output<List<ResourceServerScopeArgs>> scopes;
 
+    /**
+     * @return A list of Authorization Scope.
+     * 
+     */
     public Optional<Output<List<ResourceServerScopeArgs>>> scopes() {
         return Optional.ofNullable(this.scopes);
     }
@@ -80,46 +112,106 @@ public final class ResourceServerState extends com.pulumi.resources.ResourceArgs
             $ = new ResourceServerState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param identifier An identifier for the resource server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identifier(@Nullable Output<String> identifier) {
             $.identifier = identifier;
             return this;
         }
 
+        /**
+         * @param identifier An identifier for the resource server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identifier(String identifier) {
             return identifier(Output.of(identifier));
         }
 
+        /**
+         * @param name A name for the resource server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name A name for the resource server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param scopeIdentifiers A list of all scopes configured for this resource server in the format identifier/scope_name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scopeIdentifiers(@Nullable Output<List<String>> scopeIdentifiers) {
             $.scopeIdentifiers = scopeIdentifiers;
             return this;
         }
 
+        /**
+         * @param scopeIdentifiers A list of all scopes configured for this resource server in the format identifier/scope_name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scopeIdentifiers(List<String> scopeIdentifiers) {
             return scopeIdentifiers(Output.of(scopeIdentifiers));
         }
 
+        /**
+         * @param scopeIdentifiers A list of all scopes configured for this resource server in the format identifier/scope_name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scopeIdentifiers(String... scopeIdentifiers) {
             return scopeIdentifiers(List.of(scopeIdentifiers));
         }
 
+        /**
+         * @param scopes A list of Authorization Scope.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scopes(@Nullable Output<List<ResourceServerScopeArgs>> scopes) {
             $.scopes = scopes;
             return this;
         }
 
+        /**
+         * @param scopes A list of Authorization Scope.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scopes(List<ResourceServerScopeArgs> scopes) {
             return scopes(Output.of(scopes));
         }
 
+        /**
+         * @param scopes A list of Authorization Scope.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scopes(ResourceServerScopeArgs... scopes) {
             return scopes(List.of(scopes));
         }

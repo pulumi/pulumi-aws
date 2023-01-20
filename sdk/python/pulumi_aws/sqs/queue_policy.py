@@ -18,6 +18,8 @@ class QueuePolicyArgs:
                  queue_url: pulumi.Input[str]):
         """
         The set of arguments for constructing a QueuePolicy resource.
+        :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
+        :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "queue_url", queue_url)
@@ -25,6 +27,9 @@ class QueuePolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
+        """
+        The JSON policy for the SQS queue.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -34,6 +39,9 @@ class QueuePolicyArgs:
     @property
     @pulumi.getter(name="queueUrl")
     def queue_url(self) -> pulumi.Input[str]:
+        """
+        The URL of the SQS Queue to which to attach the policy
+        """
         return pulumi.get(self, "queue_url")
 
     @queue_url.setter
@@ -48,6 +56,8 @@ class _QueuePolicyState:
                  queue_url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering QueuePolicy resources.
+        :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
+        :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -57,6 +67,9 @@ class _QueuePolicyState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The JSON policy for the SQS queue.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -66,6 +79,9 @@ class _QueuePolicyState:
     @property
     @pulumi.getter(name="queueUrl")
     def queue_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the SQS Queue to which to attach the policy
+        """
         return pulumi.get(self, "queue_url")
 
     @queue_url.setter
@@ -82,9 +98,51 @@ class QueuePolicy(pulumi.CustomResource):
                  queue_url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a QueuePolicy resource with the given unique name, props, and options.
+        Allows you to set a policy of an SQS Queue
+        while referencing ARN of the queue within the policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        queue = aws.sqs.Queue("queue")
+        test = aws.sqs.QueuePolicy("test",
+            queue_url=queue.id,
+            policy=queue.arn.apply(lambda arn: f\"\"\"{{
+          "Version": "2012-10-17",
+          "Id": "sqspolicy",
+          "Statement": [
+            {{
+              "Sid": "First",
+              "Effect": "Allow",
+              "Principal": "*",
+              "Action": "sqs:SendMessage",
+              "Resource": "{arn}",
+              "Condition": {{
+                "ArnEquals": {{
+                  "aws:SourceArn": "{aws_sns_topic["example"]["arn"]}"
+                }}
+              }}
+            }}
+          ]
+        }}
+        \"\"\"))
+        ```
+
+        ## Import
+
+        SQS Queue Policies can be imported using the queue URL, e.g.,
+
+        ```sh
+         $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
+        :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
         """
         ...
     @overload
@@ -93,7 +151,47 @@ class QueuePolicy(pulumi.CustomResource):
                  args: QueuePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a QueuePolicy resource with the given unique name, props, and options.
+        Allows you to set a policy of an SQS Queue
+        while referencing ARN of the queue within the policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        queue = aws.sqs.Queue("queue")
+        test = aws.sqs.QueuePolicy("test",
+            queue_url=queue.id,
+            policy=queue.arn.apply(lambda arn: f\"\"\"{{
+          "Version": "2012-10-17",
+          "Id": "sqspolicy",
+          "Statement": [
+            {{
+              "Sid": "First",
+              "Effect": "Allow",
+              "Principal": "*",
+              "Action": "sqs:SendMessage",
+              "Resource": "{arn}",
+              "Condition": {{
+                "ArnEquals": {{
+                  "aws:SourceArn": "{aws_sns_topic["example"]["arn"]}"
+                }}
+              }}
+            }}
+          ]
+        }}
+        \"\"\"))
+        ```
+
+        ## Import
+
+        SQS Queue Policies can be imported using the queue URL, e.g.,
+
+        ```sh
+         $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+        ```
+
         :param str resource_name: The name of the resource.
         :param QueuePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +243,8 @@ class QueuePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
+        :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +257,16 @@ class QueuePolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
+        """
+        The JSON policy for the SQS queue.
+        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="queueUrl")
     def queue_url(self) -> pulumi.Output[str]:
+        """
+        The URL of the SQS Queue to which to attach the policy
+        """
         return pulumi.get(self, "queue_url")
 

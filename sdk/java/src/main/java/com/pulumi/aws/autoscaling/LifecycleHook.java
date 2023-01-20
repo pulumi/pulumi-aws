@@ -15,53 +15,195 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an AutoScaling Lifecycle Hook resource.
+ * 
+ * &gt; **NOTE:** This provider has two types of ways you can add lifecycle hooks - via
+ * the `initial_lifecycle_hook` attribute from the
+ * `aws.autoscaling.Group`
+ * resource, or via this one. Hooks added via this resource will not be added
+ * until the autoscaling group has been created, and depending on your
+ * capacity
+ * settings, after the initial instances have been launched, creating unintended
+ * behavior. If you need hooks to run on all instances, add them with
+ * `initial_lifecycle_hook` in
+ * `aws.autoscaling.Group`,
+ * but take care to not duplicate those hooks with this resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.autoscaling.Group;
+ * import com.pulumi.aws.autoscaling.GroupArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupTagArgs;
+ * import com.pulumi.aws.autoscaling.LifecycleHook;
+ * import com.pulumi.aws.autoscaling.LifecycleHookArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foobarGroup = new Group(&#34;foobarGroup&#34;, GroupArgs.builder()        
+ *             .availabilityZones(&#34;us-west-2a&#34;)
+ *             .healthCheckType(&#34;EC2&#34;)
+ *             .terminationPolicies(&#34;OldestInstance&#34;)
+ *             .tags(GroupTagArgs.builder()
+ *                 .key(&#34;Foo&#34;)
+ *                 .value(&#34;foo-bar&#34;)
+ *                 .propagateAtLaunch(true)
+ *                 .build())
+ *             .build());
+ * 
+ *         var foobarLifecycleHook = new LifecycleHook(&#34;foobarLifecycleHook&#34;, LifecycleHookArgs.builder()        
+ *             .autoscalingGroupName(foobarGroup.name())
+ *             .defaultResult(&#34;CONTINUE&#34;)
+ *             .heartbeatTimeout(2000)
+ *             .lifecycleTransition(&#34;autoscaling:EC2_INSTANCE_LAUNCHING&#34;)
+ *             .notificationMetadata(&#34;&#34;&#34;
+ * {
+ *   &#34;foo&#34;: &#34;bar&#34;
+ * }
+ *             &#34;&#34;&#34;)
+ *             .notificationTargetArn(&#34;arn:aws:sqs:us-east-1:444455556666:queue1*&#34;)
+ *             .roleArn(&#34;arn:aws:iam::123456789012:role/S3Access&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * AutoScaling Lifecycle Hooks can be imported using the role autoscaling_group_name and name separated by `/`.
+ * 
+ * ```sh
+ *  $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
+ * ```
+ * 
+ */
 @ResourceType(type="aws:autoscaling/lifecycleHook:LifecycleHook")
 public class LifecycleHook extends com.pulumi.resources.CustomResource {
+    /**
+     * Name of the Auto Scaling group to which you want to assign the lifecycle hook
+     * 
+     */
     @Export(name="autoscalingGroupName", refs={String.class}, tree="[0]")
     private Output<String> autoscalingGroupName;
 
+    /**
+     * @return Name of the Auto Scaling group to which you want to assign the lifecycle hook
+     * 
+     */
     public Output<String> autoscalingGroupName() {
         return this.autoscalingGroupName;
     }
+    /**
+     * Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
+     * 
+     */
     @Export(name="defaultResult", refs={String.class}, tree="[0]")
     private Output<String> defaultResult;
 
+    /**
+     * @return Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
+     * 
+     */
     public Output<String> defaultResult() {
         return this.defaultResult;
     }
+    /**
+     * Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter
+     * 
+     */
     @Export(name="heartbeatTimeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> heartbeatTimeout;
 
+    /**
+     * @return Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter
+     * 
+     */
     public Output<Optional<Integer>> heartbeatTimeout() {
         return Codegen.optional(this.heartbeatTimeout);
     }
+    /**
+     * Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
+     * 
+     */
     @Export(name="lifecycleTransition", refs={String.class}, tree="[0]")
     private Output<String> lifecycleTransition;
 
+    /**
+     * @return Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
+     * 
+     */
     public Output<String> lifecycleTransition() {
         return this.lifecycleTransition;
     }
+    /**
+     * Name of the lifecycle hook.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name of the lifecycle hook.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
+     * 
+     */
     @Export(name="notificationMetadata", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notificationMetadata;
 
+    /**
+     * @return Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
+     * 
+     */
     public Output<Optional<String>> notificationMetadata() {
         return Codegen.optional(this.notificationMetadata);
     }
+    /**
+     * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+     * 
+     */
     @Export(name="notificationTargetArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notificationTargetArn;
 
+    /**
+     * @return ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+     * 
+     */
     public Output<Optional<String>> notificationTargetArn() {
         return Codegen.optional(this.notificationTargetArn);
     }
+    /**
+     * ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
+     * 
+     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
+    /**
+     * @return ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
+     * 
+     */
     public Output<Optional<String>> roleArn() {
         return Codegen.optional(this.roleArn);
     }

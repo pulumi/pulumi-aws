@@ -14,6 +14,10 @@ namespace Pulumi.Aws.WafV2.Inputs
     {
         [Input("excludedRules")]
         private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs>? _excludedRules;
+
+        /// <summary>
+        /// The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
+        /// </summary>
         [Obsolete(@"Use rule_action_override instead")]
         public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs> ExcludedRules
         {
@@ -23,29 +27,49 @@ namespace Pulumi.Aws.WafV2.Inputs
 
         [Input("managedRuleGroupConfigs")]
         private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>? _managedRuleGroupConfigs;
+
+        /// <summary>
+        /// Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+        /// </summary>
         public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs> ManagedRuleGroupConfigs
         {
             get => _managedRuleGroupConfigs ?? (_managedRuleGroupConfigs = new InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>());
             set => _managedRuleGroupConfigs = value;
         }
 
+        /// <summary>
+        /// Name of the managed rule group.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("ruleActionOverrides")]
         private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs>? _ruleActionOverrides;
+
+        /// <summary>
+        /// Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+        /// </summary>
         public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs> RuleActionOverrides
         {
             get => _ruleActionOverrides ?? (_ruleActionOverrides = new InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs>());
             set => _ruleActionOverrides = value;
         }
 
+        /// <summary>
+        /// Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+        /// </summary>
         [Input("scopeDownStatement")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs>? ScopeDownStatement { get; set; }
 
+        /// <summary>
+        /// Name of the managed rule group vendor.
+        /// </summary>
         [Input("vendorName", required: true)]
         public Input<string> VendorName { get; set; } = null!;
 
+        /// <summary>
+        /// Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

@@ -13,9 +13,17 @@ public final class GetSessionContextArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetSessionContextArgs Empty = new GetSessionContextArgs();
 
+    /**
+     * ARN for an assumed role.
+     * 
+     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
+    /**
+     * @return ARN for an assumed role.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -44,11 +52,23 @@ public final class GetSessionContextArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetSessionContextArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn ARN for an assumed role.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn ARN for an assumed role.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }

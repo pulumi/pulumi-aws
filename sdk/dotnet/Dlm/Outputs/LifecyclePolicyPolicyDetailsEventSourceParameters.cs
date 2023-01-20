@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Dlm.Outputs
     [OutputType]
     public sealed class LifecyclePolicyPolicyDetailsEventSourceParameters
     {
+        /// <summary>
+        /// The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+        /// </summary>
         public readonly string DescriptionRegex;
+        /// <summary>
+        /// The type of event. Currently, only `shareSnapshot` events are supported.
+        /// </summary>
         public readonly string EventType;
+        /// <summary>
+        /// The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+        /// </summary>
         public readonly ImmutableArray<string> SnapshotOwners;
 
         [OutputConstructor]

@@ -19,11 +19,75 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages an AWS IoT Thing Group.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iot.ThingGroup;
+ * import com.pulumi.aws.iot.ThingGroupArgs;
+ * import com.pulumi.aws.iot.inputs.ThingGroupPropertiesArgs;
+ * import com.pulumi.aws.iot.inputs.ThingGroupPropertiesAttributePayloadArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var parent = new ThingGroup(&#34;parent&#34;);
+ * 
+ *         var example = new ThingGroup(&#34;example&#34;, ThingGroupArgs.builder()        
+ *             .parentGroupName(parent.name())
+ *             .properties(ThingGroupPropertiesArgs.builder()
+ *                 .attributePayload(ThingGroupPropertiesAttributePayloadArgs.builder()
+ *                     .attributes(Map.ofEntries(
+ *                         Map.entry(&#34;One&#34;, &#34;11111&#34;),
+ *                         Map.entry(&#34;Two&#34;, &#34;TwoTwo&#34;)
+ *                     ))
+ *                     .build())
+ *                 .description(&#34;This is my thing group&#34;)
+ *                 .build())
+ *             .tags(Map.of(&#34;managed&#34;, &#34;true&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * IoT Things Groups can be imported using the name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import aws:iot/thingGroup:ThingGroup example example
+ * ```
+ * 
+ */
 @ResourceType(type="aws:iot/thingGroup:ThingGroup")
 public class ThingGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the Thing Group.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the Thing Group.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -33,27 +97,59 @@ public class ThingGroup extends com.pulumi.resources.CustomResource {
     public Output<List<ThingGroupMetadata>> metadatas() {
         return this.metadatas;
     }
+    /**
+     * The name of the Thing Group.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the Thing Group.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The name of the parent Thing Group.
+     * 
+     */
     @Export(name="parentGroupName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parentGroupName;
 
+    /**
+     * @return The name of the parent Thing Group.
+     * 
+     */
     public Output<Optional<String>> parentGroupName() {
         return Codegen.optional(this.parentGroupName);
     }
+    /**
+     * The Thing Group properties. Defined below.
+     * 
+     */
     @Export(name="properties", refs={ThingGroupProperties.class}, tree="[0]")
     private Output</* @Nullable */ ThingGroupProperties> properties;
 
+    /**
+     * @return The Thing Group properties. Defined below.
+     * 
+     */
     public Output<Optional<ThingGroupProperties>> properties() {
         return Codegen.optional(this.properties);
     }
+    /**
+     * Key-value mapping of resource tags
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value mapping of resource tags
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -63,9 +159,17 @@ public class ThingGroup extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The current version of the Thing Group record in the registry.
+     * 
+     */
     @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
+    /**
+     * @return The current version of the Thing Group record in the registry.
+     * 
+     */
     public Output<Integer> version() {
         return this.version;
     }

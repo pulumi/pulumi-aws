@@ -11,9 +11,12 @@ import (
 )
 
 type ClusterClusterNode struct {
-	NodeRole         *string `pulumi:"nodeRole"`
+	// Whether the node is a leader node or a compute node
+	NodeRole *string `pulumi:"nodeRole"`
+	// The private IP address of a node within a cluster
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	PublicIpAddress  *string `pulumi:"publicIpAddress"`
+	// The public IP address of a node within a cluster
+	PublicIpAddress *string `pulumi:"publicIpAddress"`
 }
 
 // ClusterClusterNodeInput is an input type that accepts ClusterClusterNodeArgs and ClusterClusterNodeOutput values.
@@ -28,9 +31,12 @@ type ClusterClusterNodeInput interface {
 }
 
 type ClusterClusterNodeArgs struct {
-	NodeRole         pulumi.StringPtrInput `pulumi:"nodeRole"`
+	// Whether the node is a leader node or a compute node
+	NodeRole pulumi.StringPtrInput `pulumi:"nodeRole"`
+	// The private IP address of a node within a cluster
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	PublicIpAddress  pulumi.StringPtrInput `pulumi:"publicIpAddress"`
+	// The public IP address of a node within a cluster
+	PublicIpAddress pulumi.StringPtrInput `pulumi:"publicIpAddress"`
 }
 
 func (ClusterClusterNodeArgs) ElementType() reflect.Type {
@@ -84,14 +90,17 @@ func (o ClusterClusterNodeOutput) ToClusterClusterNodeOutputWithContext(ctx cont
 	return o
 }
 
+// Whether the node is a leader node or a compute node
 func (o ClusterClusterNodeOutput) NodeRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterNode) *string { return v.NodeRole }).(pulumi.StringPtrOutput)
 }
 
+// The private IP address of a node within a cluster
 func (o ClusterClusterNodeOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterNode) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
+// The public IP address of a node within a cluster
 func (o ClusterClusterNodeOutput) PublicIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterNode) *string { return v.PublicIpAddress }).(pulumi.StringPtrOutput)
 }
@@ -117,11 +126,17 @@ func (o ClusterClusterNodeArrayOutput) Index(i pulumi.IntInput) ClusterClusterNo
 }
 
 type ClusterLogging struct {
-	BucketName         *string  `pulumi:"bucketName"`
-	Enable             bool     `pulumi:"enable"`
-	LogDestinationType *string  `pulumi:"logDestinationType"`
-	LogExports         []string `pulumi:"logExports"`
-	S3KeyPrefix        *string  `pulumi:"s3KeyPrefix"`
+	// The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
+	// For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+	BucketName *string `pulumi:"bucketName"`
+	// Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
+	Enable bool `pulumi:"enable"`
+	// The log destination type. An enum with possible values of `s3` and `cloudwatch`.
+	LogDestinationType *string `pulumi:"logDestinationType"`
+	// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `logDestinationType` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
+	LogExports []string `pulumi:"logExports"`
+	// The prefix applied to the log file names.
+	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 }
 
 // ClusterLoggingInput is an input type that accepts ClusterLoggingArgs and ClusterLoggingOutput values.
@@ -136,11 +151,17 @@ type ClusterLoggingInput interface {
 }
 
 type ClusterLoggingArgs struct {
-	BucketName         pulumi.StringPtrInput   `pulumi:"bucketName"`
-	Enable             pulumi.BoolInput        `pulumi:"enable"`
-	LogDestinationType pulumi.StringPtrInput   `pulumi:"logDestinationType"`
-	LogExports         pulumi.StringArrayInput `pulumi:"logExports"`
-	S3KeyPrefix        pulumi.StringPtrInput   `pulumi:"s3KeyPrefix"`
+	// The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
+	// For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
+	// Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
+	Enable pulumi.BoolInput `pulumi:"enable"`
+	// The log destination type. An enum with possible values of `s3` and `cloudwatch`.
+	LogDestinationType pulumi.StringPtrInput `pulumi:"logDestinationType"`
+	// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `logDestinationType` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
+	LogExports pulumi.StringArrayInput `pulumi:"logExports"`
+	// The prefix applied to the log file names.
+	S3KeyPrefix pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
 }
 
 func (ClusterLoggingArgs) ElementType() reflect.Type {
@@ -220,22 +241,28 @@ func (o ClusterLoggingOutput) ToClusterLoggingPtrOutputWithContext(ctx context.C
 	}).(ClusterLoggingPtrOutput)
 }
 
+// The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
+// For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
 func (o ClusterLoggingOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLogging) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
+// Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
 func (o ClusterLoggingOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterLogging) bool { return v.Enable }).(pulumi.BoolOutput)
 }
 
+// The log destination type. An enum with possible values of `s3` and `cloudwatch`.
 func (o ClusterLoggingOutput) LogDestinationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLogging) *string { return v.LogDestinationType }).(pulumi.StringPtrOutput)
 }
 
+// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `logDestinationType` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
 func (o ClusterLoggingOutput) LogExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterLogging) []string { return v.LogExports }).(pulumi.StringArrayOutput)
 }
 
+// The prefix applied to the log file names.
 func (o ClusterLoggingOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLogging) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
@@ -264,6 +291,8 @@ func (o ClusterLoggingPtrOutput) Elem() ClusterLoggingOutput {
 	}).(ClusterLoggingOutput)
 }
 
+// The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
+// For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
 func (o ClusterLoggingPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLogging) *string {
 		if v == nil {
@@ -273,6 +302,7 @@ func (o ClusterLoggingPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
 func (o ClusterLoggingPtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterLogging) *bool {
 		if v == nil {
@@ -282,6 +312,7 @@ func (o ClusterLoggingPtrOutput) Enable() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The log destination type. An enum with possible values of `s3` and `cloudwatch`.
 func (o ClusterLoggingPtrOutput) LogDestinationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLogging) *string {
 		if v == nil {
@@ -291,6 +322,7 @@ func (o ClusterLoggingPtrOutput) LogDestinationType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `logDestinationType` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
 func (o ClusterLoggingPtrOutput) LogExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterLogging) []string {
 		if v == nil {
@@ -300,6 +332,7 @@ func (o ClusterLoggingPtrOutput) LogExports() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The prefix applied to the log file names.
 func (o ClusterLoggingPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLogging) *string {
 		if v == nil {
@@ -310,9 +343,12 @@ func (o ClusterLoggingPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 }
 
 type ClusterSnapshotCopy struct {
-	DestinationRegion string  `pulumi:"destinationRegion"`
-	GrantName         *string `pulumi:"grantName"`
-	RetentionPeriod   *int    `pulumi:"retentionPeriod"`
+	// The destination region that you want to copy snapshots to.
+	DestinationRegion string `pulumi:"destinationRegion"`
+	// The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
+	GrantName *string `pulumi:"grantName"`
+	// The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
+	RetentionPeriod *int `pulumi:"retentionPeriod"`
 }
 
 // ClusterSnapshotCopyInput is an input type that accepts ClusterSnapshotCopyArgs and ClusterSnapshotCopyOutput values.
@@ -327,9 +363,12 @@ type ClusterSnapshotCopyInput interface {
 }
 
 type ClusterSnapshotCopyArgs struct {
-	DestinationRegion pulumi.StringInput    `pulumi:"destinationRegion"`
-	GrantName         pulumi.StringPtrInput `pulumi:"grantName"`
-	RetentionPeriod   pulumi.IntPtrInput    `pulumi:"retentionPeriod"`
+	// The destination region that you want to copy snapshots to.
+	DestinationRegion pulumi.StringInput `pulumi:"destinationRegion"`
+	// The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
+	GrantName pulumi.StringPtrInput `pulumi:"grantName"`
+	// The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
+	RetentionPeriod pulumi.IntPtrInput `pulumi:"retentionPeriod"`
 }
 
 func (ClusterSnapshotCopyArgs) ElementType() reflect.Type {
@@ -409,14 +448,17 @@ func (o ClusterSnapshotCopyOutput) ToClusterSnapshotCopyPtrOutputWithContext(ctx
 	}).(ClusterSnapshotCopyPtrOutput)
 }
 
+// The destination region that you want to copy snapshots to.
 func (o ClusterSnapshotCopyOutput) DestinationRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterSnapshotCopy) string { return v.DestinationRegion }).(pulumi.StringOutput)
 }
 
+// The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
 func (o ClusterSnapshotCopyOutput) GrantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterSnapshotCopy) *string { return v.GrantName }).(pulumi.StringPtrOutput)
 }
 
+// The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
 func (o ClusterSnapshotCopyOutput) RetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterSnapshotCopy) *int { return v.RetentionPeriod }).(pulumi.IntPtrOutput)
 }
@@ -445,6 +487,7 @@ func (o ClusterSnapshotCopyPtrOutput) Elem() ClusterSnapshotCopyOutput {
 	}).(ClusterSnapshotCopyOutput)
 }
 
+// The destination region that you want to copy snapshots to.
 func (o ClusterSnapshotCopyPtrOutput) DestinationRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterSnapshotCopy) *string {
 		if v == nil {
@@ -454,6 +497,7 @@ func (o ClusterSnapshotCopyPtrOutput) DestinationRegion() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
 func (o ClusterSnapshotCopyPtrOutput) GrantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterSnapshotCopy) *string {
 		if v == nil {
@@ -463,6 +507,7 @@ func (o ClusterSnapshotCopyPtrOutput) GrantName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
 func (o ClusterSnapshotCopyPtrOutput) RetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterSnapshotCopy) *int {
 		if v == nil {
@@ -473,9 +518,12 @@ func (o ClusterSnapshotCopyPtrOutput) RetentionPeriod() pulumi.IntPtrOutput {
 }
 
 type EndpointAccessVpcEndpoint struct {
+	// One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
 	NetworkInterfaces []EndpointAccessVpcEndpointNetworkInterface `pulumi:"networkInterfaces"`
-	VpcEndpointId     *string                                     `pulumi:"vpcEndpointId"`
-	VpcId             *string                                     `pulumi:"vpcId"`
+	// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
+	// The VPC identifier that the endpoint is associated.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // EndpointAccessVpcEndpointInput is an input type that accepts EndpointAccessVpcEndpointArgs and EndpointAccessVpcEndpointOutput values.
@@ -490,9 +538,12 @@ type EndpointAccessVpcEndpointInput interface {
 }
 
 type EndpointAccessVpcEndpointArgs struct {
+	// One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
 	NetworkInterfaces EndpointAccessVpcEndpointNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
-	VpcEndpointId     pulumi.StringPtrInput                               `pulumi:"vpcEndpointId"`
-	VpcId             pulumi.StringPtrInput                               `pulumi:"vpcId"`
+	// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
+	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
+	// The VPC identifier that the endpoint is associated.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
 func (EndpointAccessVpcEndpointArgs) ElementType() reflect.Type {
@@ -546,16 +597,19 @@ func (o EndpointAccessVpcEndpointOutput) ToEndpointAccessVpcEndpointOutputWithCo
 	return o
 }
 
+// One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
 func (o EndpointAccessVpcEndpointOutput) NetworkInterfaces() EndpointAccessVpcEndpointNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v EndpointAccessVpcEndpoint) []EndpointAccessVpcEndpointNetworkInterface {
 		return v.NetworkInterfaces
 	}).(EndpointAccessVpcEndpointNetworkInterfaceArrayOutput)
 }
 
+// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
 func (o EndpointAccessVpcEndpointOutput) VpcEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointAccessVpcEndpoint) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
 }
 
+// The VPC identifier that the endpoint is associated.
 func (o EndpointAccessVpcEndpointOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointAccessVpcEndpoint) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -581,10 +635,14 @@ func (o EndpointAccessVpcEndpointArrayOutput) Index(i pulumi.IntInput) EndpointA
 }
 
 type EndpointAccessVpcEndpointNetworkInterface struct {
-	AvailabilityZone   *string `pulumi:"availabilityZone"`
+	// The Availability Zone.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The network interface identifier.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	PrivateIpAddress   *string `pulumi:"privateIpAddress"`
-	SubnetId           *string `pulumi:"subnetId"`
+	// The IPv4 address of the network interface within the subnet.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The subnet identifier.
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 // EndpointAccessVpcEndpointNetworkInterfaceInput is an input type that accepts EndpointAccessVpcEndpointNetworkInterfaceArgs and EndpointAccessVpcEndpointNetworkInterfaceOutput values.
@@ -599,10 +657,14 @@ type EndpointAccessVpcEndpointNetworkInterfaceInput interface {
 }
 
 type EndpointAccessVpcEndpointNetworkInterfaceArgs struct {
-	AvailabilityZone   pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The Availability Zone.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The network interface identifier.
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
-	PrivateIpAddress   pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	SubnetId           pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The IPv4 address of the network interface within the subnet.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The subnet identifier.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
 func (EndpointAccessVpcEndpointNetworkInterfaceArgs) ElementType() reflect.Type {
@@ -656,18 +718,22 @@ func (o EndpointAccessVpcEndpointNetworkInterfaceOutput) ToEndpointAccessVpcEndp
 	return o
 }
 
+// The Availability Zone.
 func (o EndpointAccessVpcEndpointNetworkInterfaceOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointAccessVpcEndpointNetworkInterface) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// The network interface identifier.
 func (o EndpointAccessVpcEndpointNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointAccessVpcEndpointNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
+// The IPv4 address of the network interface within the subnet.
 func (o EndpointAccessVpcEndpointNetworkInterfaceOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointAccessVpcEndpointNetworkInterface) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
+// The subnet identifier.
 func (o EndpointAccessVpcEndpointNetworkInterfaceOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointAccessVpcEndpointNetworkInterface) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -693,7 +759,9 @@ func (o EndpointAccessVpcEndpointNetworkInterfaceArrayOutput) Index(i pulumi.Int
 }
 
 type ParameterGroupParameter struct {
-	Name  string `pulumi:"name"`
+	// The name of the Redshift parameter.
+	Name string `pulumi:"name"`
+	// The value of the Redshift parameter.
 	Value string `pulumi:"value"`
 }
 
@@ -709,7 +777,9 @@ type ParameterGroupParameterInput interface {
 }
 
 type ParameterGroupParameterArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
+	// The name of the Redshift parameter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the Redshift parameter.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -764,10 +834,12 @@ func (o ParameterGroupParameterOutput) ToParameterGroupParameterOutputWithContex
 	return o
 }
 
+// The name of the Redshift parameter.
 func (o ParameterGroupParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The value of the Redshift parameter.
 func (o ParameterGroupParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -793,8 +865,11 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 }
 
 type ScheduledActionTargetAction struct {
-	PauseCluster  *ScheduledActionTargetActionPauseCluster  `pulumi:"pauseCluster"`
+	// An action that runs a `PauseCluster` API operation. Documented below.
+	PauseCluster *ScheduledActionTargetActionPauseCluster `pulumi:"pauseCluster"`
+	// An action that runs a `ResizeCluster` API operation. Documented below.
 	ResizeCluster *ScheduledActionTargetActionResizeCluster `pulumi:"resizeCluster"`
+	// An action that runs a `ResumeCluster` API operation. Documented below.
 	ResumeCluster *ScheduledActionTargetActionResumeCluster `pulumi:"resumeCluster"`
 }
 
@@ -810,8 +885,11 @@ type ScheduledActionTargetActionInput interface {
 }
 
 type ScheduledActionTargetActionArgs struct {
-	PauseCluster  ScheduledActionTargetActionPauseClusterPtrInput  `pulumi:"pauseCluster"`
+	// An action that runs a `PauseCluster` API operation. Documented below.
+	PauseCluster ScheduledActionTargetActionPauseClusterPtrInput `pulumi:"pauseCluster"`
+	// An action that runs a `ResizeCluster` API operation. Documented below.
 	ResizeCluster ScheduledActionTargetActionResizeClusterPtrInput `pulumi:"resizeCluster"`
+	// An action that runs a `ResumeCluster` API operation. Documented below.
 	ResumeCluster ScheduledActionTargetActionResumeClusterPtrInput `pulumi:"resumeCluster"`
 }
 
@@ -892,14 +970,17 @@ func (o ScheduledActionTargetActionOutput) ToScheduledActionTargetActionPtrOutpu
 	}).(ScheduledActionTargetActionPtrOutput)
 }
 
+// An action that runs a `PauseCluster` API operation. Documented below.
 func (o ScheduledActionTargetActionOutput) PauseCluster() ScheduledActionTargetActionPauseClusterPtrOutput {
 	return o.ApplyT(func(v ScheduledActionTargetAction) *ScheduledActionTargetActionPauseCluster { return v.PauseCluster }).(ScheduledActionTargetActionPauseClusterPtrOutput)
 }
 
+// An action that runs a `ResizeCluster` API operation. Documented below.
 func (o ScheduledActionTargetActionOutput) ResizeCluster() ScheduledActionTargetActionResizeClusterPtrOutput {
 	return o.ApplyT(func(v ScheduledActionTargetAction) *ScheduledActionTargetActionResizeCluster { return v.ResizeCluster }).(ScheduledActionTargetActionResizeClusterPtrOutput)
 }
 
+// An action that runs a `ResumeCluster` API operation. Documented below.
 func (o ScheduledActionTargetActionOutput) ResumeCluster() ScheduledActionTargetActionResumeClusterPtrOutput {
 	return o.ApplyT(func(v ScheduledActionTargetAction) *ScheduledActionTargetActionResumeCluster { return v.ResumeCluster }).(ScheduledActionTargetActionResumeClusterPtrOutput)
 }
@@ -928,6 +1009,7 @@ func (o ScheduledActionTargetActionPtrOutput) Elem() ScheduledActionTargetAction
 	}).(ScheduledActionTargetActionOutput)
 }
 
+// An action that runs a `PauseCluster` API operation. Documented below.
 func (o ScheduledActionTargetActionPtrOutput) PauseCluster() ScheduledActionTargetActionPauseClusterPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetAction) *ScheduledActionTargetActionPauseCluster {
 		if v == nil {
@@ -937,6 +1019,7 @@ func (o ScheduledActionTargetActionPtrOutput) PauseCluster() ScheduledActionTarg
 	}).(ScheduledActionTargetActionPauseClusterPtrOutput)
 }
 
+// An action that runs a `ResizeCluster` API operation. Documented below.
 func (o ScheduledActionTargetActionPtrOutput) ResizeCluster() ScheduledActionTargetActionResizeClusterPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetAction) *ScheduledActionTargetActionResizeCluster {
 		if v == nil {
@@ -946,6 +1029,7 @@ func (o ScheduledActionTargetActionPtrOutput) ResizeCluster() ScheduledActionTar
 	}).(ScheduledActionTargetActionResizeClusterPtrOutput)
 }
 
+// An action that runs a `ResumeCluster` API operation. Documented below.
 func (o ScheduledActionTargetActionPtrOutput) ResumeCluster() ScheduledActionTargetActionResumeClusterPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetAction) *ScheduledActionTargetActionResumeCluster {
 		if v == nil {
@@ -956,6 +1040,7 @@ func (o ScheduledActionTargetActionPtrOutput) ResumeCluster() ScheduledActionTar
 }
 
 type ScheduledActionTargetActionPauseCluster struct {
+	// The identifier of the cluster to be paused.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 }
 
@@ -971,6 +1056,7 @@ type ScheduledActionTargetActionPauseClusterInput interface {
 }
 
 type ScheduledActionTargetActionPauseClusterArgs struct {
+	// The identifier of the cluster to be paused.
 	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
 }
 
@@ -1051,6 +1137,7 @@ func (o ScheduledActionTargetActionPauseClusterOutput) ToScheduledActionTargetAc
 	}).(ScheduledActionTargetActionPauseClusterPtrOutput)
 }
 
+// The identifier of the cluster to be paused.
 func (o ScheduledActionTargetActionPauseClusterOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledActionTargetActionPauseCluster) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
@@ -1079,6 +1166,7 @@ func (o ScheduledActionTargetActionPauseClusterPtrOutput) Elem() ScheduledAction
 	}).(ScheduledActionTargetActionPauseClusterOutput)
 }
 
+// The identifier of the cluster to be paused.
 func (o ScheduledActionTargetActionPauseClusterPtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetActionPauseCluster) *string {
 		if v == nil {
@@ -1089,11 +1177,16 @@ func (o ScheduledActionTargetActionPauseClusterPtrOutput) ClusterIdentifier() pu
 }
 
 type ScheduledActionTargetActionResizeCluster struct {
-	Classic           *bool   `pulumi:"classic"`
-	ClusterIdentifier string  `pulumi:"clusterIdentifier"`
-	ClusterType       *string `pulumi:"clusterType"`
-	NodeType          *string `pulumi:"nodeType"`
-	NumberOfNodes     *int    `pulumi:"numberOfNodes"`
+	// A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
+	Classic *bool `pulumi:"classic"`
+	// The unique identifier for the cluster to resize.
+	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+	// The new cluster type for the specified cluster.
+	ClusterType *string `pulumi:"clusterType"`
+	// The new node type for the nodes you are adding.
+	NodeType *string `pulumi:"nodeType"`
+	// The new number of nodes for the cluster.
+	NumberOfNodes *int `pulumi:"numberOfNodes"`
 }
 
 // ScheduledActionTargetActionResizeClusterInput is an input type that accepts ScheduledActionTargetActionResizeClusterArgs and ScheduledActionTargetActionResizeClusterOutput values.
@@ -1108,11 +1201,16 @@ type ScheduledActionTargetActionResizeClusterInput interface {
 }
 
 type ScheduledActionTargetActionResizeClusterArgs struct {
-	Classic           pulumi.BoolPtrInput   `pulumi:"classic"`
-	ClusterIdentifier pulumi.StringInput    `pulumi:"clusterIdentifier"`
-	ClusterType       pulumi.StringPtrInput `pulumi:"clusterType"`
-	NodeType          pulumi.StringPtrInput `pulumi:"nodeType"`
-	NumberOfNodes     pulumi.IntPtrInput    `pulumi:"numberOfNodes"`
+	// A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
+	Classic pulumi.BoolPtrInput `pulumi:"classic"`
+	// The unique identifier for the cluster to resize.
+	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
+	// The new cluster type for the specified cluster.
+	ClusterType pulumi.StringPtrInput `pulumi:"clusterType"`
+	// The new node type for the nodes you are adding.
+	NodeType pulumi.StringPtrInput `pulumi:"nodeType"`
+	// The new number of nodes for the cluster.
+	NumberOfNodes pulumi.IntPtrInput `pulumi:"numberOfNodes"`
 }
 
 func (ScheduledActionTargetActionResizeClusterArgs) ElementType() reflect.Type {
@@ -1192,22 +1290,27 @@ func (o ScheduledActionTargetActionResizeClusterOutput) ToScheduledActionTargetA
 	}).(ScheduledActionTargetActionResizeClusterPtrOutput)
 }
 
+// A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
 func (o ScheduledActionTargetActionResizeClusterOutput) Classic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScheduledActionTargetActionResizeCluster) *bool { return v.Classic }).(pulumi.BoolPtrOutput)
 }
 
+// The unique identifier for the cluster to resize.
 func (o ScheduledActionTargetActionResizeClusterOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledActionTargetActionResizeCluster) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
+// The new cluster type for the specified cluster.
 func (o ScheduledActionTargetActionResizeClusterOutput) ClusterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledActionTargetActionResizeCluster) *string { return v.ClusterType }).(pulumi.StringPtrOutput)
 }
 
+// The new node type for the nodes you are adding.
 func (o ScheduledActionTargetActionResizeClusterOutput) NodeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledActionTargetActionResizeCluster) *string { return v.NodeType }).(pulumi.StringPtrOutput)
 }
 
+// The new number of nodes for the cluster.
 func (o ScheduledActionTargetActionResizeClusterOutput) NumberOfNodes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledActionTargetActionResizeCluster) *int { return v.NumberOfNodes }).(pulumi.IntPtrOutput)
 }
@@ -1236,6 +1339,7 @@ func (o ScheduledActionTargetActionResizeClusterPtrOutput) Elem() ScheduledActio
 	}).(ScheduledActionTargetActionResizeClusterOutput)
 }
 
+// A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
 func (o ScheduledActionTargetActionResizeClusterPtrOutput) Classic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetActionResizeCluster) *bool {
 		if v == nil {
@@ -1245,6 +1349,7 @@ func (o ScheduledActionTargetActionResizeClusterPtrOutput) Classic() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The unique identifier for the cluster to resize.
 func (o ScheduledActionTargetActionResizeClusterPtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetActionResizeCluster) *string {
 		if v == nil {
@@ -1254,6 +1359,7 @@ func (o ScheduledActionTargetActionResizeClusterPtrOutput) ClusterIdentifier() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// The new cluster type for the specified cluster.
 func (o ScheduledActionTargetActionResizeClusterPtrOutput) ClusterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetActionResizeCluster) *string {
 		if v == nil {
@@ -1263,6 +1369,7 @@ func (o ScheduledActionTargetActionResizeClusterPtrOutput) ClusterType() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The new node type for the nodes you are adding.
 func (o ScheduledActionTargetActionResizeClusterPtrOutput) NodeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetActionResizeCluster) *string {
 		if v == nil {
@@ -1272,6 +1379,7 @@ func (o ScheduledActionTargetActionResizeClusterPtrOutput) NodeType() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The new number of nodes for the cluster.
 func (o ScheduledActionTargetActionResizeClusterPtrOutput) NumberOfNodes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetActionResizeCluster) *int {
 		if v == nil {
@@ -1282,6 +1390,7 @@ func (o ScheduledActionTargetActionResizeClusterPtrOutput) NumberOfNodes() pulum
 }
 
 type ScheduledActionTargetActionResumeCluster struct {
+	// The identifier of the cluster to be resumed.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 }
 
@@ -1297,6 +1406,7 @@ type ScheduledActionTargetActionResumeClusterInput interface {
 }
 
 type ScheduledActionTargetActionResumeClusterArgs struct {
+	// The identifier of the cluster to be resumed.
 	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
 }
 
@@ -1377,6 +1487,7 @@ func (o ScheduledActionTargetActionResumeClusterOutput) ToScheduledActionTargetA
 	}).(ScheduledActionTargetActionResumeClusterPtrOutput)
 }
 
+// The identifier of the cluster to be resumed.
 func (o ScheduledActionTargetActionResumeClusterOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledActionTargetActionResumeCluster) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
@@ -1405,6 +1516,7 @@ func (o ScheduledActionTargetActionResumeClusterPtrOutput) Elem() ScheduledActio
 	}).(ScheduledActionTargetActionResumeClusterOutput)
 }
 
+// The identifier of the cluster to be resumed.
 func (o ScheduledActionTargetActionResumeClusterPtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetActionResumeCluster) *string {
 		if v == nil {
@@ -1415,8 +1527,12 @@ func (o ScheduledActionTargetActionResumeClusterPtrOutput) ClusterIdentifier() p
 }
 
 type SecurityGroupIngress struct {
-	Cidr                 *string `pulumi:"cidr"`
-	SecurityGroupName    *string `pulumi:"securityGroupName"`
+	// The CIDR block to accept
+	Cidr *string `pulumi:"cidr"`
+	// The name of the security group to authorize
+	SecurityGroupName *string `pulumi:"securityGroupName"`
+	// The owner Id of the security group provided
+	// by `securityGroupName`.
 	SecurityGroupOwnerId *string `pulumi:"securityGroupOwnerId"`
 }
 
@@ -1432,8 +1548,12 @@ type SecurityGroupIngressInput interface {
 }
 
 type SecurityGroupIngressArgs struct {
-	Cidr                 pulumi.StringPtrInput `pulumi:"cidr"`
-	SecurityGroupName    pulumi.StringPtrInput `pulumi:"securityGroupName"`
+	// The CIDR block to accept
+	Cidr pulumi.StringPtrInput `pulumi:"cidr"`
+	// The name of the security group to authorize
+	SecurityGroupName pulumi.StringPtrInput `pulumi:"securityGroupName"`
+	// The owner Id of the security group provided
+	// by `securityGroupName`.
 	SecurityGroupOwnerId pulumi.StringPtrInput `pulumi:"securityGroupOwnerId"`
 }
 
@@ -1488,14 +1608,18 @@ func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutputWithContext(ctx 
 	return o
 }
 
+// The CIDR block to accept
 func (o SecurityGroupIngressOutput) Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.Cidr }).(pulumi.StringPtrOutput)
 }
 
+// The name of the security group to authorize
 func (o SecurityGroupIngressOutput) SecurityGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.SecurityGroupName }).(pulumi.StringPtrOutput)
 }
 
+// The owner Id of the security group provided
+// by `securityGroupName`.
 func (o SecurityGroupIngressOutput) SecurityGroupOwnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
 }
@@ -1521,9 +1645,12 @@ func (o SecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) SecurityGroupI
 }
 
 type GetClusterClusterNode struct {
-	NodeRole         string `pulumi:"nodeRole"`
+	// Whether the node is a leader node or a compute node
+	NodeRole string `pulumi:"nodeRole"`
+	// Private IP address of a node within a cluster
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
-	PublicIpAddress  string `pulumi:"publicIpAddress"`
+	// Public IP address of a node within a cluster
+	PublicIpAddress string `pulumi:"publicIpAddress"`
 }
 
 // GetClusterClusterNodeInput is an input type that accepts GetClusterClusterNodeArgs and GetClusterClusterNodeOutput values.
@@ -1538,9 +1665,12 @@ type GetClusterClusterNodeInput interface {
 }
 
 type GetClusterClusterNodeArgs struct {
-	NodeRole         pulumi.StringInput `pulumi:"nodeRole"`
+	// Whether the node is a leader node or a compute node
+	NodeRole pulumi.StringInput `pulumi:"nodeRole"`
+	// Private IP address of a node within a cluster
 	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
-	PublicIpAddress  pulumi.StringInput `pulumi:"publicIpAddress"`
+	// Public IP address of a node within a cluster
+	PublicIpAddress pulumi.StringInput `pulumi:"publicIpAddress"`
 }
 
 func (GetClusterClusterNodeArgs) ElementType() reflect.Type {
@@ -1594,14 +1724,17 @@ func (o GetClusterClusterNodeOutput) ToGetClusterClusterNodeOutputWithContext(ct
 	return o
 }
 
+// Whether the node is a leader node or a compute node
 func (o GetClusterClusterNodeOutput) NodeRole() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterClusterNode) string { return v.NodeRole }).(pulumi.StringOutput)
 }
 
+// Private IP address of a node within a cluster
 func (o GetClusterClusterNodeOutput) PrivateIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterClusterNode) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
 
+// Public IP address of a node within a cluster
 func (o GetClusterClusterNodeOutput) PublicIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterClusterNode) string { return v.PublicIpAddress }).(pulumi.StringOutput)
 }

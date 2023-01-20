@@ -10,15 +10,60 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates and manages an AWS IoT Thing.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iot.NewThing(ctx, "example", &iot.ThingArgs{
+//				Attributes: pulumi.StringMap{
+//					"First": pulumi.String("examplevalue"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// IOT Things can be imported using the name, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:iot/thing:Thing example example
+//
+// ```
 type Thing struct {
 	pulumi.CustomResourceState
 
-	Arn             pulumi.StringOutput    `pulumi:"arn"`
-	Attributes      pulumi.StringMapOutput `pulumi:"attributes"`
-	DefaultClientId pulumi.StringOutput    `pulumi:"defaultClientId"`
-	Name            pulumi.StringOutput    `pulumi:"name"`
-	ThingTypeName   pulumi.StringPtrOutput `pulumi:"thingTypeName"`
-	Version         pulumi.IntOutput       `pulumi:"version"`
+	// The ARN of the thing.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Map of attributes of the thing.
+	Attributes pulumi.StringMapOutput `pulumi:"attributes"`
+	// The default client ID.
+	DefaultClientId pulumi.StringOutput `pulumi:"defaultClientId"`
+	// The name of the thing.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The thing type name.
+	ThingTypeName pulumi.StringPtrOutput `pulumi:"thingTypeName"`
+	// The current version of the thing record in the registry.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewThing registers a new resource with the given unique name, arguments, and options.
@@ -50,21 +95,33 @@ func GetThing(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Thing resources.
 type thingState struct {
-	Arn             *string           `pulumi:"arn"`
-	Attributes      map[string]string `pulumi:"attributes"`
-	DefaultClientId *string           `pulumi:"defaultClientId"`
-	Name            *string           `pulumi:"name"`
-	ThingTypeName   *string           `pulumi:"thingTypeName"`
-	Version         *int              `pulumi:"version"`
+	// The ARN of the thing.
+	Arn *string `pulumi:"arn"`
+	// Map of attributes of the thing.
+	Attributes map[string]string `pulumi:"attributes"`
+	// The default client ID.
+	DefaultClientId *string `pulumi:"defaultClientId"`
+	// The name of the thing.
+	Name *string `pulumi:"name"`
+	// The thing type name.
+	ThingTypeName *string `pulumi:"thingTypeName"`
+	// The current version of the thing record in the registry.
+	Version *int `pulumi:"version"`
 }
 
 type ThingState struct {
-	Arn             pulumi.StringPtrInput
-	Attributes      pulumi.StringMapInput
+	// The ARN of the thing.
+	Arn pulumi.StringPtrInput
+	// Map of attributes of the thing.
+	Attributes pulumi.StringMapInput
+	// The default client ID.
 	DefaultClientId pulumi.StringPtrInput
-	Name            pulumi.StringPtrInput
-	ThingTypeName   pulumi.StringPtrInput
-	Version         pulumi.IntPtrInput
+	// The name of the thing.
+	Name pulumi.StringPtrInput
+	// The thing type name.
+	ThingTypeName pulumi.StringPtrInput
+	// The current version of the thing record in the registry.
+	Version pulumi.IntPtrInput
 }
 
 func (ThingState) ElementType() reflect.Type {
@@ -72,15 +129,21 @@ func (ThingState) ElementType() reflect.Type {
 }
 
 type thingArgs struct {
-	Attributes    map[string]string `pulumi:"attributes"`
-	Name          *string           `pulumi:"name"`
-	ThingTypeName *string           `pulumi:"thingTypeName"`
+	// Map of attributes of the thing.
+	Attributes map[string]string `pulumi:"attributes"`
+	// The name of the thing.
+	Name *string `pulumi:"name"`
+	// The thing type name.
+	ThingTypeName *string `pulumi:"thingTypeName"`
 }
 
 // The set of arguments for constructing a Thing resource.
 type ThingArgs struct {
-	Attributes    pulumi.StringMapInput
-	Name          pulumi.StringPtrInput
+	// Map of attributes of the thing.
+	Attributes pulumi.StringMapInput
+	// The name of the thing.
+	Name pulumi.StringPtrInput
+	// The thing type name.
 	ThingTypeName pulumi.StringPtrInput
 }
 
@@ -171,26 +234,32 @@ func (o ThingOutput) ToThingOutputWithContext(ctx context.Context) ThingOutput {
 	return o
 }
 
+// The ARN of the thing.
 func (o ThingOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thing) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Map of attributes of the thing.
 func (o ThingOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Thing) pulumi.StringMapOutput { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
+// The default client ID.
 func (o ThingOutput) DefaultClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thing) pulumi.StringOutput { return v.DefaultClientId }).(pulumi.StringOutput)
 }
 
+// The name of the thing.
 func (o ThingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thing) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The thing type name.
 func (o ThingOutput) ThingTypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Thing) pulumi.StringPtrOutput { return v.ThingTypeName }).(pulumi.StringPtrOutput)
 }
 
+// The current version of the thing record in the registry.
 func (o ThingOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v *Thing) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
 }

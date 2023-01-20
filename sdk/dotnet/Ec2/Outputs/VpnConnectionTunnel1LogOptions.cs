@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class VpnConnectionTunnel1LogOptions
     {
+        /// <summary>
+        /// Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+        /// </summary>
         public readonly Outputs.VpnConnectionTunnel1LogOptionsCloudwatchLogOptions? CloudwatchLogOptions;
 
         [OutputConstructor]

@@ -11,10 +11,47 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Attaches an EC2 instance to an Elastic Load Balancer (ELB). For attaching resources with Application Load Balancer (ALB) or Network Load Balancer (NLB), see the `lb.TargetGroupAttachment` resource.
+//
+// > **NOTE on ELB Instances and ELB Attachments:** This provider currently provides
+// both a standalone ELB Attachment resource (describing an instance attached to
+// an ELB), and an Elastic Load Balancer resource with
+// `instances` defined in-line. At this time you cannot use an ELB with in-line
+// instances in conjunction with an ELB Attachment resource. Doing so will cause a
+// conflict and will overwrite attachments.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := elb.NewAttachment(ctx, "baz", &elb.AttachmentArgs{
+//				Elb:      pulumi.Any(aws_elb.Bar.Id),
+//				Instance: pulumi.Any(aws_instance.Foo.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Attachment struct {
 	pulumi.CustomResourceState
 
-	Elb      pulumi.StringOutput `pulumi:"elb"`
+	// The name of the ELB.
+	Elb pulumi.StringOutput `pulumi:"elb"`
+	// Instance ID to place in the ELB pool.
 	Instance pulumi.StringOutput `pulumi:"instance"`
 }
 
@@ -59,12 +96,16 @@ func GetAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Attachment resources.
 type attachmentState struct {
-	Elb      *string `pulumi:"elb"`
+	// The name of the ELB.
+	Elb *string `pulumi:"elb"`
+	// Instance ID to place in the ELB pool.
 	Instance *string `pulumi:"instance"`
 }
 
 type AttachmentState struct {
-	Elb      pulumi.StringPtrInput
+	// The name of the ELB.
+	Elb pulumi.StringPtrInput
+	// Instance ID to place in the ELB pool.
 	Instance pulumi.StringPtrInput
 }
 
@@ -73,13 +114,17 @@ func (AttachmentState) ElementType() reflect.Type {
 }
 
 type attachmentArgs struct {
-	Elb      string `pulumi:"elb"`
+	// The name of the ELB.
+	Elb string `pulumi:"elb"`
+	// Instance ID to place in the ELB pool.
 	Instance string `pulumi:"instance"`
 }
 
 // The set of arguments for constructing a Attachment resource.
 type AttachmentArgs struct {
-	Elb      pulumi.StringInput
+	// The name of the ELB.
+	Elb pulumi.StringInput
+	// Instance ID to place in the ELB pool.
 	Instance pulumi.StringInput
 }
 
@@ -170,10 +215,12 @@ func (o AttachmentOutput) ToAttachmentOutputWithContext(ctx context.Context) Att
 	return o
 }
 
+// The name of the ELB.
 func (o AttachmentOutput) Elb() pulumi.StringOutput {
 	return o.ApplyT(func(v *Attachment) pulumi.StringOutput { return v.Elb }).(pulumi.StringOutput)
 }
 
+// Instance ID to place in the ELB pool.
 func (o AttachmentOutput) Instance() pulumi.StringOutput {
 	return o.ApplyT(func(v *Attachment) pulumi.StringOutput { return v.Instance }).(pulumi.StringOutput)
 }

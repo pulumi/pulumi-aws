@@ -13,17 +13,79 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Manages a Service Catalog Budget Resource Association.
+ * 
+ * &gt; **Tip:** A &#34;resource&#34; is either a Service Catalog portfolio or product.
+ * 
+ * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.servicecatalog.BudgetResourceAssociation;
+ * import com.pulumi.aws.servicecatalog.BudgetResourceAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new BudgetResourceAssociation(&#34;example&#34;, BudgetResourceAssociationArgs.builder()        
+ *             .budgetName(&#34;budget-pjtvyakdlyo3m&#34;)
+ *             .resourceId(&#34;prod-dnigbtea24ste&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_servicecatalog_budget_resource_association` can be imported using the budget name and resource ID, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
+ * ```
+ * 
+ */
 @ResourceType(type="aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation")
 public class BudgetResourceAssociation extends com.pulumi.resources.CustomResource {
+    /**
+     * Budget name.
+     * 
+     */
     @Export(name="budgetName", refs={String.class}, tree="[0]")
     private Output<String> budgetName;
 
+    /**
+     * @return Budget name.
+     * 
+     */
     public Output<String> budgetName() {
         return this.budgetName;
     }
+    /**
+     * Resource identifier.
+     * 
+     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
+    /**
+     * @return Resource identifier.
+     * 
+     */
     public Output<String> resourceId() {
         return this.resourceId;
     }

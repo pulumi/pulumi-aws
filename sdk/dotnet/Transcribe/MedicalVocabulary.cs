@@ -9,27 +9,104 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Transcribe
 {
+    /// <summary>
+    /// Resource for managing an AWS Transcribe MedicalVocabulary.
+    /// 
+    /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
+    ///     {
+    ///         ForceDestroy = true,
+    ///     });
+    /// 
+    ///     var @object = new Aws.S3.BucketObjectv2("object", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         Key = "transcribe/test1.txt",
+    ///         Source = new FileAsset("test.txt"),
+    ///     });
+    /// 
+    ///     var exampleMedicalVocabulary = new Aws.Transcribe.MedicalVocabulary("exampleMedicalVocabulary", new()
+    ///     {
+    ///         VocabularyName = "example",
+    ///         LanguageCode = "en-US",
+    ///         VocabularyFileUri = Output.Tuple(exampleBucketV2.Id, @object.Key).Apply(values =&gt;
+    ///         {
+    ///             var id = values.Item1;
+    ///             var key = values.Item2;
+    ///             return $"s3://{id}/{key}";
+    ///         }),
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value3" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             @object,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Transcribe MedicalVocabulary can be imported using the `vocabulary_name`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:transcribe/medicalVocabulary:MedicalVocabulary")]
     public partial class MedicalVocabulary : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of the MedicalVocabulary.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Generated download URI.
+        /// </summary>
         [Output("downloadUri")]
         public Output<string> DownloadUri { get; private set; } = null!;
 
+        /// <summary>
+        /// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+        /// </summary>
         [Output("languageCode")]
         public Output<string> LanguageCode { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+        /// </summary>
         [Output("vocabularyFileUri")]
         public Output<string> VocabularyFileUri { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Medical Vocabulary.
+        /// </summary>
         [Output("vocabularyName")]
         public Output<string> VocabularyName { get; private set; } = null!;
 
@@ -79,20 +156,33 @@ namespace Pulumi.Aws.Transcribe
 
     public sealed class MedicalVocabularyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+        /// </summary>
         [Input("languageCode", required: true)]
         public Input<string> LanguageCode { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+        /// </summary>
         [Input("vocabularyFileUri", required: true)]
         public Input<string> VocabularyFileUri { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the Medical Vocabulary.
+        /// </summary>
         [Input("vocabularyName", required: true)]
         public Input<string> VocabularyName { get; set; } = null!;
 
@@ -104,17 +194,30 @@ namespace Pulumi.Aws.Transcribe
 
     public sealed class MedicalVocabularyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the MedicalVocabulary.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Generated download URI.
+        /// </summary>
         [Input("downloadUri")]
         public Input<string>? DownloadUri { get; set; }
 
+        /// <summary>
+        /// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+        /// </summary>
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -129,9 +232,15 @@ namespace Pulumi.Aws.Transcribe
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+        /// </summary>
         [Input("vocabularyFileUri")]
         public Input<string>? VocabularyFileUri { get; set; }
 
+        /// <summary>
+        /// The name of the Medical Vocabulary.
+        /// </summary>
         [Input("vocabularyName")]
         public Input<string>? VocabularyName { get; set; }
 

@@ -4,6 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an AWS Config Aggregate Authorization
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cfg.AggregateAuthorization("example", {
+ *     accountId: "123456789012",
+ *     region: "eu-west-2",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Config aggregate authorizations can be imported using `account_id:region`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
+ * ```
+ */
 export class AggregateAuthorization extends pulumi.CustomResource {
     /**
      * Get an existing AggregateAuthorization resource's state with the given name, ID, and optional extra
@@ -32,10 +55,25 @@ export class AggregateAuthorization extends pulumi.CustomResource {
         return obj['__pulumiType'] === AggregateAuthorization.__pulumiType;
     }
 
+    /**
+     * Account ID
+     */
     public readonly accountId!: pulumi.Output<string>;
+    /**
+     * The ARN of the authorization
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Region
+     */
     public readonly region!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -79,10 +117,25 @@ export class AggregateAuthorization extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AggregateAuthorization resources.
  */
 export interface AggregateAuthorizationState {
+    /**
+     * Account ID
+     */
     accountId?: pulumi.Input<string>;
+    /**
+     * The ARN of the authorization
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Region
+     */
     region?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -90,7 +143,16 @@ export interface AggregateAuthorizationState {
  * The set of arguments for constructing a AggregateAuthorization resource.
  */
 export interface AggregateAuthorizationArgs {
+    /**
+     * Account ID
+     */
     accountId: pulumi.Input<string>;
+    /**
+     * Region
+     */
     region: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

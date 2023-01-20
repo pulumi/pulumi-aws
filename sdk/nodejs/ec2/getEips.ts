@@ -7,6 +7,26 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a list of Elastic IPs in a region.
+ *
+ * ## Example Usage
+ *
+ * The following shows outputing all Elastic IPs with the a specific tag value.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2.getEips({
+ *     tags: {
+ *         Env: "dev",
+ *     },
+ * });
+ * export const allocationIds = example.then(example => example.allocationIds);
+ * export const publicIps = example.then(example => example.publicIps);
+ * ```
+ */
 export function getEips(args?: GetEipsArgs, opts?: pulumi.InvokeOptions): Promise<GetEipsResult> {
     args = args || {};
 
@@ -21,7 +41,13 @@ export function getEips(args?: GetEipsArgs, opts?: pulumi.InvokeOptions): Promis
  * A collection of arguments for invoking getEips.
  */
 export interface GetEipsArgs {
+    /**
+     * Custom filter block as described below.
+     */
     filters?: inputs.ec2.GetEipsFilter[];
+    /**
+     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -29,15 +55,41 @@ export interface GetEipsArgs {
  * A collection of values returned by getEips.
  */
 export interface GetEipsResult {
+    /**
+     * List of all the allocation IDs for address for use with EC2-VPC.
+     */
     readonly allocationIds: string[];
     readonly filters?: outputs.ec2.GetEipsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * List of all the Elastic IP addresses.
+     */
     readonly publicIps: string[];
     readonly tags: {[key: string]: string};
 }
+/**
+ * Provides a list of Elastic IPs in a region.
+ *
+ * ## Example Usage
+ *
+ * The following shows outputing all Elastic IPs with the a specific tag value.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2.getEips({
+ *     tags: {
+ *         Env: "dev",
+ *     },
+ * });
+ * export const allocationIds = example.then(example => example.allocationIds);
+ * export const publicIps = example.then(example => example.publicIps);
+ * ```
+ */
 export function getEipsOutput(args?: GetEipsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEipsResult> {
     return pulumi.output(args).apply((a: any) => getEips(a, opts))
 }
@@ -46,6 +98,12 @@ export function getEipsOutput(args?: GetEipsOutputArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getEips.
  */
 export interface GetEipsOutputArgs {
+    /**
+     * Custom filter block as described below.
+     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetEipsFilterArgs>[]>;
+    /**
+     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

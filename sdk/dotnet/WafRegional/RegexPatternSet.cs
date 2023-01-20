@@ -9,12 +9,50 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WafRegional
 {
+    /// <summary>
+    /// Provides a WAF Regional Regex Pattern Set Resource
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.WafRegional.RegexPatternSet("example", new()
+    ///     {
+    ///         RegexPatternStrings = new[]
+    ///         {
+    ///             "one",
+    ///             "two",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// WAF Regional Regex Pattern Set can be imported using the id, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:wafregional/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:wafregional/regexPatternSet:RegexPatternSet")]
     public partial class RegexPatternSet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name or description of the Regex Pattern Set.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+        /// </summary>
         [Output("regexPatternStrings")]
         public Output<ImmutableArray<string>> RegexPatternStrings { get; private set; } = null!;
 
@@ -64,11 +102,18 @@ namespace Pulumi.Aws.WafRegional
 
     public sealed class RegexPatternSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name or description of the Regex Pattern Set.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("regexPatternStrings")]
         private InputList<string>? _regexPatternStrings;
+
+        /// <summary>
+        /// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+        /// </summary>
         public InputList<string> RegexPatternStrings
         {
             get => _regexPatternStrings ?? (_regexPatternStrings = new InputList<string>());
@@ -83,11 +128,18 @@ namespace Pulumi.Aws.WafRegional
 
     public sealed class RegexPatternSetState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name or description of the Regex Pattern Set.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("regexPatternStrings")]
         private InputList<string>? _regexPatternStrings;
+
+        /// <summary>
+        /// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+        /// </summary>
         public InputList<string> RegexPatternStrings
         {
             get => _regexPatternStrings ?? (_regexPatternStrings = new InputList<string>());

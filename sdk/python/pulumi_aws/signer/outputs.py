@@ -33,11 +33,17 @@ __all__ = [
 class SigningJobDestination(dict):
     def __init__(__self__, *,
                  s3: 'outputs.SigningJobDestinationS3'):
+        """
+        :param 'SigningJobDestinationS3Args' s3: A configuration block describing the S3 Destination object: See S3 Destination below for details.
+        """
         pulumi.set(__self__, "s3", s3)
 
     @property
     @pulumi.getter
     def s3(self) -> 'outputs.SigningJobDestinationS3':
+        """
+        A configuration block describing the S3 Destination object: See S3 Destination below for details.
+        """
         return pulumi.get(self, "s3")
 
 
@@ -46,6 +52,10 @@ class SigningJobDestinationS3(dict):
     def __init__(__self__, *,
                  bucket: str,
                  prefix: Optional[str] = None):
+        """
+        :param str bucket: Name of the S3 bucket.
+        :param str prefix: An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
+        """
         pulumi.set(__self__, "bucket", bucket)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
@@ -53,11 +63,17 @@ class SigningJobDestinationS3(dict):
     @property
     @pulumi.getter
     def bucket(self) -> str:
+        """
+        Name of the S3 bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter
     def prefix(self) -> Optional[str]:
+        """
+        An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
+        """
         return pulumi.get(self, "prefix")
 
 
@@ -113,12 +129,18 @@ class SigningJobRevocationRecord(dict):
 class SigningJobSignedObject(dict):
     def __init__(__self__, *,
                  s3s: Optional[Sequence['outputs.SigningJobSignedObjectS3']] = None):
+        """
+        :param Sequence['SigningJobSignedObjectS3Args'] s3s: A configuration block describing the S3 Source object: See S3 Source below for details.
+        """
         if s3s is not None:
             pulumi.set(__self__, "s3s", s3s)
 
     @property
     @pulumi.getter
     def s3s(self) -> Optional[Sequence['outputs.SigningJobSignedObjectS3']]:
+        """
+        A configuration block describing the S3 Source object: See S3 Source below for details.
+        """
         return pulumi.get(self, "s3s")
 
 
@@ -127,6 +149,10 @@ class SigningJobSignedObjectS3(dict):
     def __init__(__self__, *,
                  bucket: Optional[str] = None,
                  key: Optional[str] = None):
+        """
+        :param str bucket: Name of the S3 bucket.
+        :param str key: Key name of the object that contains your unsigned code.
+        """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
         if key is not None:
@@ -135,11 +161,17 @@ class SigningJobSignedObjectS3(dict):
     @property
     @pulumi.getter
     def bucket(self) -> Optional[str]:
+        """
+        Name of the S3 bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
+        """
+        Key name of the object that contains your unsigned code.
+        """
         return pulumi.get(self, "key")
 
 
@@ -147,11 +179,17 @@ class SigningJobSignedObjectS3(dict):
 class SigningJobSource(dict):
     def __init__(__self__, *,
                  s3: 'outputs.SigningJobSourceS3'):
+        """
+        :param 'SigningJobSourceS3Args' s3: A configuration block describing the S3 Source object: See S3 Source below for details.
+        """
         pulumi.set(__self__, "s3", s3)
 
     @property
     @pulumi.getter
     def s3(self) -> 'outputs.SigningJobSourceS3':
+        """
+        A configuration block describing the S3 Source object: See S3 Source below for details.
+        """
         return pulumi.get(self, "s3")
 
 
@@ -161,6 +199,11 @@ class SigningJobSourceS3(dict):
                  bucket: str,
                  key: str,
                  version: str):
+        """
+        :param str bucket: Name of the S3 bucket.
+        :param str key: Key name of the object that contains your unsigned code.
+        :param str version: Version of your source image in your version enabled S3 bucket.
+        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "version", version)
@@ -168,16 +211,25 @@ class SigningJobSourceS3(dict):
     @property
     @pulumi.getter
     def bucket(self) -> str:
+        """
+        Name of the S3 bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Key name of the object that contains your unsigned code.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def version(self) -> str:
+        """
+        Version of your source image in your version enabled S3 bucket.
+        """
         return pulumi.get(self, "version")
 
 

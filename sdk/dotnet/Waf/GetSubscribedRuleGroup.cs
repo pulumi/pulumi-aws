@@ -11,9 +11,107 @@ namespace Pulumi.Aws.Waf
 {
     public static class GetSubscribedRuleGroup
     {
+        /// <summary>
+        /// `aws.waf.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace (needs to be subscribed to first).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var byName = Aws.Waf.GetSubscribedRuleGroup.Invoke(new()
+        ///     {
+        ///         Name = "F5 Bot Detection Signatures For AWS WAF",
+        ///     });
+        /// 
+        ///     var byMetricName = Aws.Waf.GetSubscribedRuleGroup.Invoke(new()
+        ///     {
+        ///         MetricName = "F5BotDetectionSignatures",
+        ///     });
+        /// 
+        ///     // ...
+        ///     var acl = new Aws.Waf.WebAcl("acl", new()
+        ///     {
+        ///         Rules = new[]
+        ///         {
+        ///             new Aws.Waf.Inputs.WebAclRuleArgs
+        ///             {
+        ///                 Priority = 1,
+        ///                 RuleId = byName.Apply(getSubscribedRuleGroupResult =&gt; getSubscribedRuleGroupResult.Id),
+        ///                 Type = "GROUP",
+        ///             },
+        ///             new Aws.Waf.Inputs.WebAclRuleArgs
+        ///             {
+        ///                 Priority = 2,
+        ///                 RuleId = byMetricName.Apply(getSubscribedRuleGroupResult =&gt; getSubscribedRuleGroupResult.Id),
+        ///                 Type = "GROUP",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetSubscribedRuleGroupResult> InvokeAsync(GetSubscribedRuleGroupArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscribedRuleGroupResult>("aws:waf/getSubscribedRuleGroup:getSubscribedRuleGroup", args ?? new GetSubscribedRuleGroupArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// `aws.waf.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace (needs to be subscribed to first).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var byName = Aws.Waf.GetSubscribedRuleGroup.Invoke(new()
+        ///     {
+        ///         Name = "F5 Bot Detection Signatures For AWS WAF",
+        ///     });
+        /// 
+        ///     var byMetricName = Aws.Waf.GetSubscribedRuleGroup.Invoke(new()
+        ///     {
+        ///         MetricName = "F5BotDetectionSignatures",
+        ///     });
+        /// 
+        ///     // ...
+        ///     var acl = new Aws.Waf.WebAcl("acl", new()
+        ///     {
+        ///         Rules = new[]
+        ///         {
+        ///             new Aws.Waf.Inputs.WebAclRuleArgs
+        ///             {
+        ///                 Priority = 1,
+        ///                 RuleId = byName.Apply(getSubscribedRuleGroupResult =&gt; getSubscribedRuleGroupResult.Id),
+        ///                 Type = "GROUP",
+        ///             },
+        ///             new Aws.Waf.Inputs.WebAclRuleArgs
+        ///             {
+        ///                 Priority = 2,
+        ///                 RuleId = byMetricName.Apply(getSubscribedRuleGroupResult =&gt; getSubscribedRuleGroupResult.Id),
+        ///                 Type = "GROUP",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetSubscribedRuleGroupResult> Invoke(GetSubscribedRuleGroupInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscribedRuleGroupResult>("aws:waf/getSubscribedRuleGroup:getSubscribedRuleGroup", args ?? new GetSubscribedRuleGroupInvokeArgs(), options.WithDefaults());
     }
@@ -21,9 +119,15 @@ namespace Pulumi.Aws.Waf
 
     public sealed class GetSubscribedRuleGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the WAF rule group.
+        /// </summary>
         [Input("metricName")]
         public string? MetricName { get; set; }
 
+        /// <summary>
+        /// Name of the WAF rule group.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -35,9 +139,15 @@ namespace Pulumi.Aws.Waf
 
     public sealed class GetSubscribedRuleGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the WAF rule group.
+        /// </summary>
         [Input("metricName")]
         public Input<string>? MetricName { get; set; }
 
+        /// <summary>
+        /// Name of the WAF rule group.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

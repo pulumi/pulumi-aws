@@ -11,15 +11,64 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an App Runner Connection.
+//
+// > **NOTE:** After creation, you must complete the authentication handshake using the App Runner console.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apprunner.NewConnection(ctx, "example", &apprunner.ConnectionArgs{
+//				ConnectionName: pulumi.String("example"),
+//				ProviderType:   pulumi.String("GITHUB"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-apprunner-connection"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// App Runner Connections can be imported by using the `connection_name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:apprunner/connection:Connection example example
+//
+// ```
 type Connection struct {
 	pulumi.CustomResourceState
 
-	Arn            pulumi.StringOutput    `pulumi:"arn"`
-	ConnectionName pulumi.StringOutput    `pulumi:"connectionName"`
-	ProviderType   pulumi.StringOutput    `pulumi:"providerType"`
-	Status         pulumi.StringOutput    `pulumi:"status"`
-	Tags           pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll        pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// ARN of the connection.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Name of the connection.
+	ConnectionName pulumi.StringOutput `pulumi:"connectionName"`
+	// Source repository provider. Valid values: `GITHUB`.
+	ProviderType pulumi.StringOutput `pulumi:"providerType"`
+	// Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -57,21 +106,33 @@ func GetConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connection resources.
 type connectionState struct {
-	Arn            *string           `pulumi:"arn"`
-	ConnectionName *string           `pulumi:"connectionName"`
-	ProviderType   *string           `pulumi:"providerType"`
-	Status         *string           `pulumi:"status"`
-	Tags           map[string]string `pulumi:"tags"`
-	TagsAll        map[string]string `pulumi:"tagsAll"`
+	// ARN of the connection.
+	Arn *string `pulumi:"arn"`
+	// Name of the connection.
+	ConnectionName *string `pulumi:"connectionName"`
+	// Source repository provider. Valid values: `GITHUB`.
+	ProviderType *string `pulumi:"providerType"`
+	// Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
+	Status *string `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ConnectionState struct {
-	Arn            pulumi.StringPtrInput
+	// ARN of the connection.
+	Arn pulumi.StringPtrInput
+	// Name of the connection.
 	ConnectionName pulumi.StringPtrInput
-	ProviderType   pulumi.StringPtrInput
-	Status         pulumi.StringPtrInput
-	Tags           pulumi.StringMapInput
-	TagsAll        pulumi.StringMapInput
+	// Source repository provider. Valid values: `GITHUB`.
+	ProviderType pulumi.StringPtrInput
+	// Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
+	Status pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (ConnectionState) ElementType() reflect.Type {
@@ -79,16 +140,22 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
-	ConnectionName string            `pulumi:"connectionName"`
-	ProviderType   string            `pulumi:"providerType"`
-	Tags           map[string]string `pulumi:"tags"`
+	// Name of the connection.
+	ConnectionName string `pulumi:"connectionName"`
+	// Source repository provider. Valid values: `GITHUB`.
+	ProviderType string `pulumi:"providerType"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
+	// Name of the connection.
 	ConnectionName pulumi.StringInput
-	ProviderType   pulumi.StringInput
-	Tags           pulumi.StringMapInput
+	// Source repository provider. Valid values: `GITHUB`.
+	ProviderType pulumi.StringInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {
@@ -178,26 +245,32 @@ func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) Con
 	return o
 }
 
+// ARN of the connection.
 func (o ConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Name of the connection.
 func (o ConnectionOutput) ConnectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ConnectionName }).(pulumi.StringOutput)
 }
 
+// Source repository provider. Valid values: `GITHUB`.
 func (o ConnectionOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ProviderType }).(pulumi.StringOutput)
 }
 
+// Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
 func (o ConnectionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ConnectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

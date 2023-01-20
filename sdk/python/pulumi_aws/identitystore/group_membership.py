@@ -19,6 +19,9 @@ class GroupMembershipArgs:
                  member_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a GroupMembership resource.
+        :param pulumi.Input[str] group_id: The identifier for a group in the Identity Store.
+        :param pulumi.Input[str] identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+        :param pulumi.Input[str] member_id: The identifier for a user in the Identity Store.
         """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "identity_store_id", identity_store_id)
@@ -27,6 +30,9 @@ class GroupMembershipArgs:
     @property
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Input[str]:
+        """
+        The identifier for a group in the Identity Store.
+        """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
@@ -36,6 +42,9 @@ class GroupMembershipArgs:
     @property
     @pulumi.getter(name="identityStoreId")
     def identity_store_id(self) -> pulumi.Input[str]:
+        """
+        Identity Store ID associated with the Single Sign-On Instance.
+        """
         return pulumi.get(self, "identity_store_id")
 
     @identity_store_id.setter
@@ -45,6 +54,9 @@ class GroupMembershipArgs:
     @property
     @pulumi.getter(name="memberId")
     def member_id(self) -> pulumi.Input[str]:
+        """
+        The identifier for a user in the Identity Store.
+        """
         return pulumi.get(self, "member_id")
 
     @member_id.setter
@@ -61,6 +73,10 @@ class _GroupMembershipState:
                  membership_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering GroupMembership resources.
+        :param pulumi.Input[str] group_id: The identifier for a group in the Identity Store.
+        :param pulumi.Input[str] identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+        :param pulumi.Input[str] member_id: The identifier for a user in the Identity Store.
+        :param pulumi.Input[str] membership_id: The identifier of the newly created group membership in the Identity Store.
         """
         if group_id is not None:
             pulumi.set(__self__, "group_id", group_id)
@@ -74,6 +90,9 @@ class _GroupMembershipState:
     @property
     @pulumi.getter(name="groupId")
     def group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for a group in the Identity Store.
+        """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
@@ -83,6 +102,9 @@ class _GroupMembershipState:
     @property
     @pulumi.getter(name="identityStoreId")
     def identity_store_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identity Store ID associated with the Single Sign-On Instance.
+        """
         return pulumi.get(self, "identity_store_id")
 
     @identity_store_id.setter
@@ -92,6 +114,9 @@ class _GroupMembershipState:
     @property
     @pulumi.getter(name="memberId")
     def member_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for a user in the Identity Store.
+        """
         return pulumi.get(self, "member_id")
 
     @member_id.setter
@@ -101,6 +126,9 @@ class _GroupMembershipState:
     @property
     @pulumi.getter(name="membershipId")
     def membership_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the newly created group membership in the Identity Store.
+        """
         return pulumi.get(self, "membership_id")
 
     @membership_id.setter
@@ -118,9 +146,21 @@ class GroupMembership(pulumi.CustomResource):
                  member_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a GroupMembership resource with the given unique name, props, and options.
+        Resource for managing an AWS IdentityStore Group Membership.
+
+        ## Import
+
+        `aws_identitystore_group_membership` can be imported using the `identity_store_id/membership_id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] group_id: The identifier for a group in the Identity Store.
+        :param pulumi.Input[str] identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+        :param pulumi.Input[str] member_id: The identifier for a user in the Identity Store.
         """
         ...
     @overload
@@ -129,7 +169,16 @@ class GroupMembership(pulumi.CustomResource):
                  args: GroupMembershipArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a GroupMembership resource with the given unique name, props, and options.
+        Resource for managing an AWS IdentityStore Group Membership.
+
+        ## Import
+
+        `aws_identitystore_group_membership` can be imported using the `identity_store_id/membership_id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
+        ```
+
         :param str resource_name: The name of the resource.
         :param GroupMembershipArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,6 +237,10 @@ class GroupMembership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] group_id: The identifier for a group in the Identity Store.
+        :param pulumi.Input[str] identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+        :param pulumi.Input[str] member_id: The identifier for a user in the Identity Store.
+        :param pulumi.Input[str] membership_id: The identifier of the newly created group membership in the Identity Store.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -202,20 +255,32 @@ class GroupMembership(pulumi.CustomResource):
     @property
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Output[str]:
+        """
+        The identifier for a group in the Identity Store.
+        """
         return pulumi.get(self, "group_id")
 
     @property
     @pulumi.getter(name="identityStoreId")
     def identity_store_id(self) -> pulumi.Output[str]:
+        """
+        Identity Store ID associated with the Single Sign-On Instance.
+        """
         return pulumi.get(self, "identity_store_id")
 
     @property
     @pulumi.getter(name="memberId")
     def member_id(self) -> pulumi.Output[str]:
+        """
+        The identifier for a user in the Identity Store.
+        """
         return pulumi.get(self, "member_id")
 
     @property
     @pulumi.getter(name="membershipId")
     def membership_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the newly created group membership in the Identity Store.
+        """
         return pulumi.get(self, "membership_id")
 

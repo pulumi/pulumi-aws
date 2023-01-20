@@ -13,16 +13,32 @@ public final class TrackerAssociationArgs extends com.pulumi.resources.ResourceA
 
     public static final TrackerAssociationArgs Empty = new TrackerAssociationArgs();
 
+    /**
+     * The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+     * 
+     */
     @Import(name="consumerArn", required=true)
     private Output<String> consumerArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+     * 
+     */
     public Output<String> consumerArn() {
         return this.consumerArn;
     }
 
+    /**
+     * The name of the tracker resource to be associated with a geofence collection.
+     * 
+     */
     @Import(name="trackerName", required=true)
     private Output<String> trackerName;
 
+    /**
+     * @return The name of the tracker resource to be associated with a geofence collection.
+     * 
+     */
     public Output<String> trackerName() {
         return this.trackerName;
     }
@@ -52,20 +68,44 @@ public final class TrackerAssociationArgs extends com.pulumi.resources.ResourceA
             $ = new TrackerAssociationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param consumerArn The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+         * 
+         * @return builder
+         * 
+         */
         public Builder consumerArn(Output<String> consumerArn) {
             $.consumerArn = consumerArn;
             return this;
         }
 
+        /**
+         * @param consumerArn The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+         * 
+         * @return builder
+         * 
+         */
         public Builder consumerArn(String consumerArn) {
             return consumerArn(Output.of(consumerArn));
         }
 
+        /**
+         * @param trackerName The name of the tracker resource to be associated with a geofence collection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder trackerName(Output<String> trackerName) {
             $.trackerName = trackerName;
             return this;
         }
 
+        /**
+         * @param trackerName The name of the tracker resource to be associated with a geofence collection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder trackerName(String trackerName) {
             return trackerName(Output.of(trackerName));
         }

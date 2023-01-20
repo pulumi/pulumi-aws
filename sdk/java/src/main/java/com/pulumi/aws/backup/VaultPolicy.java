@@ -13,23 +13,118 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an AWS Backup vault policy resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.backup.Vault;
+ * import com.pulumi.aws.backup.VaultPolicy;
+ * import com.pulumi.aws.backup.VaultPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleVault = new Vault(&#34;exampleVault&#34;);
+ * 
+ *         var exampleVaultPolicy = new VaultPolicy(&#34;exampleVaultPolicy&#34;, VaultPolicyArgs.builder()        
+ *             .backupVaultName(exampleVault.name())
+ *             .policy(exampleVault.arn().applyValue(arn -&gt; &#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Id&#34;: &#34;default&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Sid&#34;: &#34;default&#34;,
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Principal&#34;: {
+ *         &#34;AWS&#34;: &#34;*&#34;
+ *       },
+ *       &#34;Action&#34;: [
+ * 		&#34;backup:DescribeBackupVault&#34;,
+ * 		&#34;backup:DeleteBackupVault&#34;,
+ * 		&#34;backup:PutBackupVaultAccessPolicy&#34;,
+ * 		&#34;backup:DeleteBackupVaultAccessPolicy&#34;,
+ * 		&#34;backup:GetBackupVaultAccessPolicy&#34;,
+ * 		&#34;backup:StartBackupJob&#34;,
+ * 		&#34;backup:GetBackupVaultNotifications&#34;,
+ * 		&#34;backup:PutBackupVaultNotifications&#34;
+ *       ],
+ *       &#34;Resource&#34;: &#34;%s&#34;
+ *     }
+ *   ]
+ * }
+ * &#34;, arn)))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Backup vault policy can be imported using the `name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
+ * ```
+ * 
+ */
 @ResourceType(type="aws:backup/vaultPolicy:VaultPolicy")
 public class VaultPolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the vault.
+     * 
+     */
     @Export(name="backupVaultArn", refs={String.class}, tree="[0]")
     private Output<String> backupVaultArn;
 
+    /**
+     * @return The ARN of the vault.
+     * 
+     */
     public Output<String> backupVaultArn() {
         return this.backupVaultArn;
     }
+    /**
+     * Name of the backup vault to add policy for.
+     * 
+     */
     @Export(name="backupVaultName", refs={String.class}, tree="[0]")
     private Output<String> backupVaultName;
 
+    /**
+     * @return Name of the backup vault to add policy for.
+     * 
+     */
     public Output<String> backupVaultName() {
         return this.backupVaultName;
     }
+    /**
+     * The backup vault access policy document in JSON format.
+     * 
+     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
+    /**
+     * @return The backup vault access policy document in JSON format.
+     * 
+     */
     public Output<String> policy() {
         return this.policy;
     }

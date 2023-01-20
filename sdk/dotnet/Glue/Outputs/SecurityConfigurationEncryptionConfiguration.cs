@@ -15,6 +15,9 @@ namespace Pulumi.Aws.Glue.Outputs
     {
         public readonly Outputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryption CloudwatchEncryption;
         public readonly Outputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption JobBookmarksEncryption;
+        /// <summary>
+        /// A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
+        /// </summary>
         public readonly Outputs.SecurityConfigurationEncryptionConfigurationS3Encryption S3Encryption;
 
         [OutputConstructor]

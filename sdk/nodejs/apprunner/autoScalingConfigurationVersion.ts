@@ -4,6 +4,34 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an App Runner AutoScaling Configuration Version.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.apprunner.AutoScalingConfigurationVersion("example", {
+ *     autoScalingConfigurationName: "example",
+ *     maxConcurrency: 50,
+ *     maxSize: 10,
+ *     minSize: 2,
+ *     tags: {
+ *         Name: "example-apprunner-autoscaling",
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * App Runner AutoScaling Configuration Versions can be imported by using the `arn`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
+ * ```
+ */
 export class AutoScalingConfigurationVersion extends pulumi.CustomResource {
     /**
      * Get an existing AutoScalingConfigurationVersion resource's state with the given name, ID, and optional extra
@@ -32,15 +60,45 @@ export class AutoScalingConfigurationVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === AutoScalingConfigurationVersion.__pulumiType;
     }
 
+    /**
+     * ARN of this auto scaling configuration version.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Name of the auto scaling configuration.
+     */
     public readonly autoScalingConfigurationName!: pulumi.Output<string>;
+    /**
+     * The revision of this auto scaling configuration.
+     */
     public /*out*/ readonly autoScalingConfigurationRevision!: pulumi.Output<number>;
+    /**
+     * Whether the auto scaling configuration has the highest `autoScalingConfigurationRevision` among all configurations that share the same `autoScalingConfigurationName`.
+     */
     public /*out*/ readonly latest!: pulumi.Output<boolean>;
+    /**
+     * Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+     */
     public readonly maxConcurrency!: pulumi.Output<number | undefined>;
+    /**
+     * Maximal number of instances that App Runner provisions for your service.
+     */
     public readonly maxSize!: pulumi.Output<number | undefined>;
+    /**
+     * Minimal number of instances that App Runner provisions for your service.
+     */
     public readonly minSize!: pulumi.Output<number | undefined>;
+    /**
+     * Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -91,15 +149,45 @@ export class AutoScalingConfigurationVersion extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AutoScalingConfigurationVersion resources.
  */
 export interface AutoScalingConfigurationVersionState {
+    /**
+     * ARN of this auto scaling configuration version.
+     */
     arn?: pulumi.Input<string>;
+    /**
+     * Name of the auto scaling configuration.
+     */
     autoScalingConfigurationName?: pulumi.Input<string>;
+    /**
+     * The revision of this auto scaling configuration.
+     */
     autoScalingConfigurationRevision?: pulumi.Input<number>;
+    /**
+     * Whether the auto scaling configuration has the highest `autoScalingConfigurationRevision` among all configurations that share the same `autoScalingConfigurationName`.
+     */
     latest?: pulumi.Input<boolean>;
+    /**
+     * Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+     */
     maxConcurrency?: pulumi.Input<number>;
+    /**
+     * Maximal number of instances that App Runner provisions for your service.
+     */
     maxSize?: pulumi.Input<number>;
+    /**
+     * Minimal number of instances that App Runner provisions for your service.
+     */
     minSize?: pulumi.Input<number>;
+    /**
+     * Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
+     */
     status?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -107,9 +195,24 @@ export interface AutoScalingConfigurationVersionState {
  * The set of arguments for constructing a AutoScalingConfigurationVersion resource.
  */
 export interface AutoScalingConfigurationVersionArgs {
+    /**
+     * Name of the auto scaling configuration.
+     */
     autoScalingConfigurationName: pulumi.Input<string>;
+    /**
+     * Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+     */
     maxConcurrency?: pulumi.Input<number>;
+    /**
+     * Maximal number of instances that App Runner provisions for your service.
+     */
     maxSize?: pulumi.Input<number>;
+    /**
+     * Minimal number of instances that App Runner provisions for your service.
+     */
     minSize?: pulumi.Input<number>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

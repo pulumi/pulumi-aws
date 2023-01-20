@@ -14,17 +14,70 @@ import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Amazon Inspector resource group resource.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.inspector.ResourceGroup;
+ * import com.pulumi.aws.inspector.ResourceGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .tags(Map.ofEntries(
+ *                 Map.entry(&#34;Env&#34;, &#34;bar&#34;),
+ *                 Map.entry(&#34;Name&#34;, &#34;foo&#34;)
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="aws:inspector/resourceGroup:ResourceGroup")
 public class ResourceGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * The resource group ARN.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The resource group ARN.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
+     * 
+     */
     public Output<Map<String,String>> tags() {
         return this.tags;
     }

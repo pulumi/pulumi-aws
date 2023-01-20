@@ -48,6 +48,9 @@ class GetNodeGroupsResult:
     @property
     @pulumi.getter
     def names(self) -> Sequence[str]:
+        """
+        Set of all node group names in an EKS Cluster.
+        """
         return pulumi.get(self, "names")
 
 
@@ -65,7 +68,10 @@ class AwaitableGetNodeGroupsResult(GetNodeGroupsResult):
 def get_node_groups(cluster_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNodeGroupsResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
+
+
+    :param str cluster_name: Name of the cluster.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -82,6 +88,9 @@ def get_node_groups(cluster_name: Optional[str] = None,
 def get_node_groups_output(cluster_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNodeGroupsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
+
+
+    :param str cluster_name: Name of the cluster.
     """
     ...

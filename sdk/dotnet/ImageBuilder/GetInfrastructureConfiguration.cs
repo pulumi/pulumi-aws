@@ -11,9 +11,57 @@ namespace Pulumi.Aws.ImageBuilder
 {
     public static class GetInfrastructureConfiguration
     {
+        /// <summary>
+        /// Provides details about an Image Builder Infrastructure Configuration.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ImageBuilder.GetInfrastructureConfiguration.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetInfrastructureConfigurationResult> InvokeAsync(GetInfrastructureConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInfrastructureConfigurationResult>("aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration", args ?? new GetInfrastructureConfigurationArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides details about an Image Builder Infrastructure Configuration.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ImageBuilder.GetInfrastructureConfiguration.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetInfrastructureConfigurationResult> Invoke(GetInfrastructureConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInfrastructureConfigurationResult>("aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration", args ?? new GetInfrastructureConfigurationInvokeArgs(), options.WithDefaults());
     }
@@ -21,11 +69,18 @@ namespace Pulumi.Aws.ImageBuilder
 
     public sealed class GetInfrastructureConfigurationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN of the infrastructure configuration.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
         [Input("resourceTags")]
         private Dictionary<string, string>? _resourceTags;
+
+        /// <summary>
+        /// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
+        /// </summary>
         public Dictionary<string, string> ResourceTags
         {
             get => _resourceTags ?? (_resourceTags = new Dictionary<string, string>());
@@ -34,6 +89,10 @@ namespace Pulumi.Aws.ImageBuilder
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags for the infrastructure configuration.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -48,11 +107,18 @@ namespace Pulumi.Aws.ImageBuilder
 
     public sealed class GetInfrastructureConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN of the infrastructure configuration.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
         [Input("resourceTags")]
         private InputMap<string>? _resourceTags;
+
+        /// <summary>
+        /// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
+        /// </summary>
         public InputMap<string> ResourceTags
         {
             get => _resourceTags ?? (_resourceTags = new InputMap<string>());
@@ -61,6 +127,10 @@ namespace Pulumi.Aws.ImageBuilder
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags for the infrastructure configuration.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -78,24 +148,66 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class GetInfrastructureConfigurationResult
     {
         public readonly string Arn;
+        /// <summary>
+        /// Date the infrastructure configuration was updated.
+        /// </summary>
         public readonly string DateCreated;
         public readonly string DateUpdated;
+        /// <summary>
+        /// Description of the infrastructure configuration.
+        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Nested list of instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetInfrastructureConfigurationInstanceMetadataOptionResult> InstanceMetadataOptions;
+        /// <summary>
+        /// Name of the IAM Instance Profile associated with the configuration.
+        /// </summary>
         public readonly string InstanceProfileName;
+        /// <summary>
+        /// Set of EC2 Instance Types associated with the configuration.
+        /// </summary>
         public readonly ImmutableArray<string> InstanceTypes;
+        /// <summary>
+        /// Name of the EC2 Key Pair associated with the configuration.
+        /// </summary>
         public readonly string KeyPair;
+        /// <summary>
+        /// Nested list of logging settings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetInfrastructureConfigurationLoggingResult> Loggings;
+        /// <summary>
+        /// Name of the infrastructure configuration.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> ResourceTags;
+        /// <summary>
+        /// Set of EC2 Security Group identifiers associated with the configuration.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// ARN of the SNS Topic associated with the configuration.
+        /// </summary>
         public readonly string SnsTopicArn;
+        /// <summary>
+        /// Identifier of the EC2 Subnet associated with the configuration.
+        /// </summary>
         public readonly string SubnetId;
+        /// <summary>
+        /// Key-value map of resource tags for the infrastructure configuration.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// Whether instances are terminated on failure.
+        /// </summary>
         public readonly bool TerminateInstanceOnFailure;
 
         [OutputConstructor]

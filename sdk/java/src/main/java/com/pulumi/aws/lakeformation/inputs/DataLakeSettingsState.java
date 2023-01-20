@@ -18,37 +18,77 @@ public final class DataLakeSettingsState extends com.pulumi.resources.ResourceAr
 
     public static final DataLakeSettingsState Empty = new DataLakeSettingsState();
 
+    /**
+     * Set of ARNs of AWS Lake Formation principals (IAM users or roles).
+     * 
+     */
     @Import(name="admins")
     private @Nullable Output<List<String>> admins;
 
+    /**
+     * @return Set of ARNs of AWS Lake Formation principals (IAM users or roles).
+     * 
+     */
     public Optional<Output<List<String>>> admins() {
         return Optional.ofNullable(this.admins);
     }
 
+    /**
+     * Identifier for the Data Catalog. By default, the account ID.
+     * 
+     */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
+    /**
+     * @return Identifier for the Data Catalog. By default, the account ID.
+     * 
+     */
     public Optional<Output<String>> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
 
+    /**
+     * Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+     * 
+     */
     @Import(name="createDatabaseDefaultPermissions")
     private @Nullable Output<List<DataLakeSettingsCreateDatabaseDefaultPermissionArgs>> createDatabaseDefaultPermissions;
 
+    /**
+     * @return Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+     * 
+     */
     public Optional<Output<List<DataLakeSettingsCreateDatabaseDefaultPermissionArgs>>> createDatabaseDefaultPermissions() {
         return Optional.ofNullable(this.createDatabaseDefaultPermissions);
     }
 
+    /**
+     * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
+     * 
+     */
     @Import(name="createTableDefaultPermissions")
     private @Nullable Output<List<DataLakeSettingsCreateTableDefaultPermissionArgs>> createTableDefaultPermissions;
 
+    /**
+     * @return Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
+     * 
+     */
     public Optional<Output<List<DataLakeSettingsCreateTableDefaultPermissionArgs>>> createTableDefaultPermissions() {
         return Optional.ofNullable(this.createTableDefaultPermissions);
     }
 
+    /**
+     * List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
+     * 
+     */
     @Import(name="trustedResourceOwners")
     private @Nullable Output<List<String>> trustedResourceOwners;
 
+    /**
+     * @return List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
+     * 
+     */
     public Optional<Output<List<String>>> trustedResourceOwners() {
         return Optional.ofNullable(this.trustedResourceOwners);
     }
@@ -81,63 +121,147 @@ public final class DataLakeSettingsState extends com.pulumi.resources.ResourceAr
             $ = new DataLakeSettingsState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param admins Set of ARNs of AWS Lake Formation principals (IAM users or roles).
+         * 
+         * @return builder
+         * 
+         */
         public Builder admins(@Nullable Output<List<String>> admins) {
             $.admins = admins;
             return this;
         }
 
+        /**
+         * @param admins Set of ARNs of AWS Lake Formation principals (IAM users or roles).
+         * 
+         * @return builder
+         * 
+         */
         public Builder admins(List<String> admins) {
             return admins(Output.of(admins));
         }
 
+        /**
+         * @param admins Set of ARNs of AWS Lake Formation principals (IAM users or roles).
+         * 
+         * @return builder
+         * 
+         */
         public Builder admins(String... admins) {
             return admins(List.of(admins));
         }
 
+        /**
+         * @param catalogId Identifier for the Data Catalog. By default, the account ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder catalogId(@Nullable Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
+        /**
+         * @param catalogId Identifier for the Data Catalog. By default, the account ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
+        /**
+         * @param createDatabaseDefaultPermissions Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createDatabaseDefaultPermissions(@Nullable Output<List<DataLakeSettingsCreateDatabaseDefaultPermissionArgs>> createDatabaseDefaultPermissions) {
             $.createDatabaseDefaultPermissions = createDatabaseDefaultPermissions;
             return this;
         }
 
+        /**
+         * @param createDatabaseDefaultPermissions Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createDatabaseDefaultPermissions(List<DataLakeSettingsCreateDatabaseDefaultPermissionArgs> createDatabaseDefaultPermissions) {
             return createDatabaseDefaultPermissions(Output.of(createDatabaseDefaultPermissions));
         }
 
+        /**
+         * @param createDatabaseDefaultPermissions Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createDatabaseDefaultPermissions(DataLakeSettingsCreateDatabaseDefaultPermissionArgs... createDatabaseDefaultPermissions) {
             return createDatabaseDefaultPermissions(List.of(createDatabaseDefaultPermissions));
         }
 
+        /**
+         * @param createTableDefaultPermissions Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createTableDefaultPermissions(@Nullable Output<List<DataLakeSettingsCreateTableDefaultPermissionArgs>> createTableDefaultPermissions) {
             $.createTableDefaultPermissions = createTableDefaultPermissions;
             return this;
         }
 
+        /**
+         * @param createTableDefaultPermissions Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createTableDefaultPermissions(List<DataLakeSettingsCreateTableDefaultPermissionArgs> createTableDefaultPermissions) {
             return createTableDefaultPermissions(Output.of(createTableDefaultPermissions));
         }
 
+        /**
+         * @param createTableDefaultPermissions Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createTableDefaultPermissions(DataLakeSettingsCreateTableDefaultPermissionArgs... createTableDefaultPermissions) {
             return createTableDefaultPermissions(List.of(createTableDefaultPermissions));
         }
 
+        /**
+         * @param trustedResourceOwners List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
+         * 
+         * @return builder
+         * 
+         */
         public Builder trustedResourceOwners(@Nullable Output<List<String>> trustedResourceOwners) {
             $.trustedResourceOwners = trustedResourceOwners;
             return this;
         }
 
+        /**
+         * @param trustedResourceOwners List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
+         * 
+         * @return builder
+         * 
+         */
         public Builder trustedResourceOwners(List<String> trustedResourceOwners) {
             return trustedResourceOwners(Output.of(trustedResourceOwners));
         }
 
+        /**
+         * @param trustedResourceOwners List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
+         * 
+         * @return builder
+         * 
+         */
         public Builder trustedResourceOwners(String... trustedResourceOwners) {
             return trustedResourceOwners(List.of(trustedResourceOwners));
         }

@@ -9,21 +9,60 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.OpsWorks
 {
+    /// <summary>
+    /// Provides an OpsWorks permission resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myStackPermission = new Aws.OpsWorks.Permission("myStackPermission", new()
+    ///     {
+    ///         AllowSsh = true,
+    ///         AllowSudo = true,
+    ///         Level = "iam_only",
+    ///         UserArn = aws_iam_user.User.Arn,
+    ///         StackId = aws_opsworks_stack.Stack.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:opsworks/permission:Permission")]
     public partial class Permission : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Whether the user is allowed to use SSH to communicate with the instance
+        /// </summary>
         [Output("allowSsh")]
         public Output<bool> AllowSsh { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the user is allowed to use sudo to elevate privileges
+        /// </summary>
         [Output("allowSudo")]
         public Output<bool> AllowSudo { get; private set; } = null!;
 
+        /// <summary>
+        /// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
+        /// </summary>
         [Output("level")]
         public Output<string> Level { get; private set; } = null!;
 
+        /// <summary>
+        /// The stack to set the permissions for
+        /// </summary>
         [Output("stackId")]
         public Output<string> StackId { get; private set; } = null!;
 
+        /// <summary>
+        /// The user's IAM ARN to set permissions for
+        /// </summary>
         [Output("userArn")]
         public Output<string> UserArn { get; private set; } = null!;
 
@@ -73,18 +112,33 @@ namespace Pulumi.Aws.OpsWorks
 
     public sealed class PermissionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether the user is allowed to use SSH to communicate with the instance
+        /// </summary>
         [Input("allowSsh")]
         public Input<bool>? AllowSsh { get; set; }
 
+        /// <summary>
+        /// Whether the user is allowed to use sudo to elevate privileges
+        /// </summary>
         [Input("allowSudo")]
         public Input<bool>? AllowSudo { get; set; }
 
+        /// <summary>
+        /// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
+        /// </summary>
         [Input("level")]
         public Input<string>? Level { get; set; }
 
+        /// <summary>
+        /// The stack to set the permissions for
+        /// </summary>
         [Input("stackId")]
         public Input<string>? StackId { get; set; }
 
+        /// <summary>
+        /// The user's IAM ARN to set permissions for
+        /// </summary>
         [Input("userArn", required: true)]
         public Input<string> UserArn { get; set; } = null!;
 
@@ -96,18 +150,33 @@ namespace Pulumi.Aws.OpsWorks
 
     public sealed class PermissionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether the user is allowed to use SSH to communicate with the instance
+        /// </summary>
         [Input("allowSsh")]
         public Input<bool>? AllowSsh { get; set; }
 
+        /// <summary>
+        /// Whether the user is allowed to use sudo to elevate privileges
+        /// </summary>
         [Input("allowSudo")]
         public Input<bool>? AllowSudo { get; set; }
 
+        /// <summary>
+        /// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
+        /// </summary>
         [Input("level")]
         public Input<string>? Level { get; set; }
 
+        /// <summary>
+        /// The stack to set the permissions for
+        /// </summary>
         [Input("stackId")]
         public Input<string>? StackId { get; set; }
 
+        /// <summary>
+        /// The user's IAM ARN to set permissions for
+        /// </summary>
         [Input("userArn")]
         public Input<string>? UserArn { get; set; }
 

@@ -47,11 +47,17 @@ class GetConfigurationResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the configuration.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the configuration.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -65,11 +71,17 @@ class GetConfigurationResult:
     @property
     @pulumi.getter(name="kafkaVersions")
     def kafka_versions(self) -> Sequence[str]:
+        """
+        List of Apache Kafka versions which can use this configuration.
+        """
         return pulumi.get(self, "kafka_versions")
 
     @property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> int:
+        """
+        Latest revision of the configuration.
+        """
         return pulumi.get(self, "latest_revision")
 
     @property
@@ -80,6 +92,9 @@ class GetConfigurationResult:
     @property
     @pulumi.getter(name="serverProperties")
     def server_properties(self) -> str:
+        """
+        Contents of the server.properties file.
+        """
         return pulumi.get(self, "server_properties")
 
 
@@ -101,7 +116,19 @@ class AwaitableGetConfigurationResult(GetConfigurationResult):
 def get_configuration(name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Get information on an Amazon MSK Configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.msk.get_configuration(name="example")
+    ```
+
+
+    :param str name: Name of the configuration.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -122,6 +149,18 @@ def get_configuration(name: Optional[str] = None,
 def get_configuration_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get information on an Amazon MSK Configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.msk.get_configuration(name="example")
+    ```
+
+
+    :param str name: Name of the configuration.
     """
     ...

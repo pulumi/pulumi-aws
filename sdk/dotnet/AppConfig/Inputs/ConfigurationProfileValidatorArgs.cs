@@ -14,6 +14,10 @@ namespace Pulumi.Aws.AppConfig.Inputs
     {
         [Input("content")]
         private Input<string>? _content;
+
+        /// <summary>
+        /// Either the JSON Schema content or the ARN of an AWS Lambda function.
+        /// </summary>
         public Input<string>? Content
         {
             get => _content;
@@ -24,6 +28,9 @@ namespace Pulumi.Aws.AppConfig.Inputs
             }
         }
 
+        /// <summary>
+        /// Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

@@ -4,6 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a resource to create a VPC Internet Gateway Attachment.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.1.0.0/16"});
+ * const exampleInternetGateway = new aws.ec2.InternetGateway("exampleInternetGateway", {});
+ * const exampleInternetGatewayAttachment = new aws.ec2.InternetGatewayAttachment("exampleInternetGatewayAttachment", {
+ *     internetGatewayId: exampleInternetGateway.id,
+ *     vpcId: exampleVpc.id,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Internet Gateway Attachments can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
+ * ```
+ */
 export class InternetGatewayAttachment extends pulumi.CustomResource {
     /**
      * Get an existing InternetGatewayAttachment resource's state with the given name, ID, and optional extra
@@ -32,7 +57,13 @@ export class InternetGatewayAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === InternetGatewayAttachment.__pulumiType;
     }
 
+    /**
+     * The ID of the internet gateway.
+     */
     public readonly internetGatewayId!: pulumi.Output<string>;
+    /**
+     * The ID of the VPC.
+     */
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -70,7 +101,13 @@ export class InternetGatewayAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering InternetGatewayAttachment resources.
  */
 export interface InternetGatewayAttachmentState {
+    /**
+     * The ID of the internet gateway.
+     */
     internetGatewayId?: pulumi.Input<string>;
+    /**
+     * The ID of the VPC.
+     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -78,6 +115,12 @@ export interface InternetGatewayAttachmentState {
  * The set of arguments for constructing a InternetGatewayAttachment resource.
  */
 export interface InternetGatewayAttachmentArgs {
+    /**
+     * The ID of the internet gateway.
+     */
     internetGatewayId: pulumi.Input<string>;
+    /**
+     * The ID of the VPC.
+     */
     vpcId: pulumi.Input<string>;
 }

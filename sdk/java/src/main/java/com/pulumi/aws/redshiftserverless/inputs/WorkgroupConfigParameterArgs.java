@@ -13,16 +13,32 @@ public final class WorkgroupConfigParameterArgs extends com.pulumi.resources.Res
 
     public static final WorkgroupConfigParameterArgs Empty = new WorkgroupConfigParameterArgs();
 
+    /**
+     * The key of the parameter. The options are `datestyle`, `enable_user_activity_logging`, `query_group`, `search_path`, and `max_query_execution_time`.
+     * 
+     */
     @Import(name="parameterKey", required=true)
     private Output<String> parameterKey;
 
+    /**
+     * @return The key of the parameter. The options are `datestyle`, `enable_user_activity_logging`, `query_group`, `search_path`, and `max_query_execution_time`.
+     * 
+     */
     public Output<String> parameterKey() {
         return this.parameterKey;
     }
 
+    /**
+     * The value of the parameter to set.
+     * 
+     */
     @Import(name="parameterValue", required=true)
     private Output<String> parameterValue;
 
+    /**
+     * @return The value of the parameter to set.
+     * 
+     */
     public Output<String> parameterValue() {
         return this.parameterValue;
     }
@@ -52,20 +68,44 @@ public final class WorkgroupConfigParameterArgs extends com.pulumi.resources.Res
             $ = new WorkgroupConfigParameterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param parameterKey The key of the parameter. The options are `datestyle`, `enable_user_activity_logging`, `query_group`, `search_path`, and `max_query_execution_time`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parameterKey(Output<String> parameterKey) {
             $.parameterKey = parameterKey;
             return this;
         }
 
+        /**
+         * @param parameterKey The key of the parameter. The options are `datestyle`, `enable_user_activity_logging`, `query_group`, `search_path`, and `max_query_execution_time`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parameterKey(String parameterKey) {
             return parameterKey(Output.of(parameterKey));
         }
 
+        /**
+         * @param parameterValue The value of the parameter to set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parameterValue(Output<String> parameterValue) {
             $.parameterValue = parameterValue;
             return this;
         }
 
+        /**
+         * @param parameterValue The value of the parameter to set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parameterValue(String parameterValue) {
             return parameterValue(Output.of(parameterValue));
         }

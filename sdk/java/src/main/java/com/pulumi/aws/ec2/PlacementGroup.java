@@ -16,53 +16,166 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an EC2 placement group. Read more about placement groups
+ * in [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.PlacementGroup;
+ * import com.pulumi.aws.ec2.PlacementGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var web = new PlacementGroup(&#34;web&#34;, PlacementGroupArgs.builder()        
+ *             .strategy(&#34;cluster&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Placement groups can be imported using the `name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2/placementGroup:PlacementGroup")
 public class PlacementGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * Amazon Resource Name (ARN) of the placement group.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of the placement group.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The name of the placement group.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the placement group.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The number of partitions to create in the
+     * placement group.  Can only be specified when the `strategy` is set to
+     * `&#34;partition&#34;`.  Valid values are 1 - 7 (default is `2`).
+     * 
+     */
     @Export(name="partitionCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> partitionCount;
 
+    /**
+     * @return The number of partitions to create in the
+     * placement group.  Can only be specified when the `strategy` is set to
+     * `&#34;partition&#34;`.  Valid values are 1 - 7 (default is `2`).
+     * 
+     */
     public Output<Integer> partitionCount() {
         return this.partitionCount;
     }
+    /**
+     * The ID of the placement group.
+     * 
+     */
     @Export(name="placementGroupId", refs={String.class}, tree="[0]")
     private Output<String> placementGroupId;
 
+    /**
+     * @return The ID of the placement group.
+     * 
+     */
     public Output<String> placementGroupId() {
         return this.placementGroupId;
     }
+    /**
+     * Determines how placement groups spread instances. Can only be used
+     * when the `strategy` is set to `&#34;spread&#34;`. Can be `&#34;host&#34;` or `&#34;rack&#34;`. `&#34;host&#34;` can only be used for Outpost placement groups.
+     * 
+     */
     @Export(name="spreadLevel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> spreadLevel;
 
+    /**
+     * @return Determines how placement groups spread instances. Can only be used
+     * when the `strategy` is set to `&#34;spread&#34;`. Can be `&#34;host&#34;` or `&#34;rack&#34;`. `&#34;host&#34;` can only be used for Outpost placement groups.
+     * 
+     */
     public Output<Optional<String>> spreadLevel() {
         return Codegen.optional(this.spreadLevel);
     }
+    /**
+     * The placement strategy. Can be `&#34;cluster&#34;`, `&#34;partition&#34;` or `&#34;spread&#34;`.
+     * 
+     */
     @Export(name="strategy", refs={String.class}, tree="[0]")
     private Output<String> strategy;
 
+    /**
+     * @return The placement strategy. Can be `&#34;cluster&#34;`, `&#34;partition&#34;` or `&#34;spread&#34;`.
+     * 
+     */
     public Output<String> strategy() {
         return this.strategy;
     }
+    /**
+     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

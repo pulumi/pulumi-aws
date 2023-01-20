@@ -13,16 +13,32 @@ public final class ControlTowerControlArgs extends com.pulumi.resources.Resource
 
     public static final ControlTowerControlArgs Empty = new ControlTowerControlArgs();
 
+    /**
+     * The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
+     * 
+     */
     @Import(name="controlIdentifier", required=true)
     private Output<String> controlIdentifier;
 
+    /**
+     * @return The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
+     * 
+     */
     public Output<String> controlIdentifier() {
         return this.controlIdentifier;
     }
 
+    /**
+     * The ARN of the organizational unit.
+     * 
+     */
     @Import(name="targetIdentifier", required=true)
     private Output<String> targetIdentifier;
 
+    /**
+     * @return The ARN of the organizational unit.
+     * 
+     */
     public Output<String> targetIdentifier() {
         return this.targetIdentifier;
     }
@@ -52,20 +68,44 @@ public final class ControlTowerControlArgs extends com.pulumi.resources.Resource
             $ = new ControlTowerControlArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param controlIdentifier The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
+         * 
+         * @return builder
+         * 
+         */
         public Builder controlIdentifier(Output<String> controlIdentifier) {
             $.controlIdentifier = controlIdentifier;
             return this;
         }
 
+        /**
+         * @param controlIdentifier The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
+         * 
+         * @return builder
+         * 
+         */
         public Builder controlIdentifier(String controlIdentifier) {
             return controlIdentifier(Output.of(controlIdentifier));
         }
 
+        /**
+         * @param targetIdentifier The ARN of the organizational unit.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetIdentifier(Output<String> targetIdentifier) {
             $.targetIdentifier = targetIdentifier;
             return this;
         }
 
+        /**
+         * @param targetIdentifier The ARN of the organizational unit.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetIdentifier(String targetIdentifier) {
             return targetIdentifier(Output.of(targetIdentifier));
         }

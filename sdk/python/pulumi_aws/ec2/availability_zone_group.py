@@ -18,6 +18,8 @@ class AvailabilityZoneGroupArgs:
                  opt_in_status: pulumi.Input[str]):
         """
         The set of arguments for constructing a AvailabilityZoneGroup resource.
+        :param pulumi.Input[str] group_name: Name of the Availability Zone Group.
+        :param pulumi.Input[str] opt_in_status: Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
         """
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "opt_in_status", opt_in_status)
@@ -25,6 +27,9 @@ class AvailabilityZoneGroupArgs:
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Availability Zone Group.
+        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -34,6 +39,9 @@ class AvailabilityZoneGroupArgs:
     @property
     @pulumi.getter(name="optInStatus")
     def opt_in_status(self) -> pulumi.Input[str]:
+        """
+        Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
+        """
         return pulumi.get(self, "opt_in_status")
 
     @opt_in_status.setter
@@ -48,6 +56,8 @@ class _AvailabilityZoneGroupState:
                  opt_in_status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AvailabilityZoneGroup resources.
+        :param pulumi.Input[str] group_name: Name of the Availability Zone Group.
+        :param pulumi.Input[str] opt_in_status: Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
         """
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
@@ -57,6 +67,9 @@ class _AvailabilityZoneGroupState:
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Availability Zone Group.
+        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -66,6 +79,9 @@ class _AvailabilityZoneGroupState:
     @property
     @pulumi.getter(name="optInStatus")
     def opt_in_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
+        """
         return pulumi.get(self, "opt_in_status")
 
     @opt_in_status.setter
@@ -82,9 +98,33 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
                  opt_in_status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a AvailabilityZoneGroup resource with the given unique name, props, and options.
+        Manages an EC2 Availability Zone Group, such as updating its opt-in status.
+
+        > **NOTE:** This is an advanced resource. The provider will automatically assume management of the EC2 Availability Zone Group without import and perform no actions on removal from configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.AvailabilityZoneGroup("example",
+            group_name="us-west-2-lax-1",
+            opt_in_status="opted-in")
+        ```
+
+        ## Import
+
+        EC2 Availability Zone Groups can be imported using the group name, e.g.,
+
+        ```sh
+         $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] group_name: Name of the Availability Zone Group.
+        :param pulumi.Input[str] opt_in_status: Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
         """
         ...
     @overload
@@ -93,7 +133,29 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
                  args: AvailabilityZoneGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AvailabilityZoneGroup resource with the given unique name, props, and options.
+        Manages an EC2 Availability Zone Group, such as updating its opt-in status.
+
+        > **NOTE:** This is an advanced resource. The provider will automatically assume management of the EC2 Availability Zone Group without import and perform no actions on removal from configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.AvailabilityZoneGroup("example",
+            group_name="us-west-2-lax-1",
+            opt_in_status="opted-in")
+        ```
+
+        ## Import
+
+        EC2 Availability Zone Groups can be imported using the group name, e.g.,
+
+        ```sh
+         $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
+        ```
+
         :param str resource_name: The name of the resource.
         :param AvailabilityZoneGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +207,8 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] group_name: Name of the Availability Zone Group.
+        :param pulumi.Input[str] opt_in_status: Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +221,16 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[str]:
+        """
+        Name of the Availability Zone Group.
+        """
         return pulumi.get(self, "group_name")
 
     @property
     @pulumi.getter(name="optInStatus")
     def opt_in_status(self) -> pulumi.Output[str]:
+        """
+        Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
+        """
         return pulumi.get(self, "opt_in_status")
 

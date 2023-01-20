@@ -18,6 +18,8 @@ class LambdaFunctionAssociationArgs:
                  instance_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a LambdaFunctionAssociation resource.
+        :param pulumi.Input[str] function_arn: Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        :param pulumi.Input[str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         """
         pulumi.set(__self__, "function_arn", function_arn)
         pulumi.set(__self__, "instance_id", instance_id)
@@ -25,6 +27,9 @@ class LambdaFunctionAssociationArgs:
     @property
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> pulumi.Input[str]:
+        """
+        Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        """
         return pulumi.get(self, "function_arn")
 
     @function_arn.setter
@@ -34,6 +39,9 @@ class LambdaFunctionAssociationArgs:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -48,6 +56,8 @@ class _LambdaFunctionAssociationState:
                  instance_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LambdaFunctionAssociation resources.
+        :param pulumi.Input[str] function_arn: Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        :param pulumi.Input[str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         """
         if function_arn is not None:
             pulumi.set(__self__, "function_arn", function_arn)
@@ -57,6 +67,9 @@ class _LambdaFunctionAssociationState:
     @property
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        """
         return pulumi.get(self, "function_arn")
 
     @function_arn.setter
@@ -66,6 +79,9 @@ class _LambdaFunctionAssociationState:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -82,9 +98,32 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
                  instance_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a LambdaFunctionAssociation resource with the given unique name, props, and options.
+        Provides an Amazon Connect Lambda Function Association. For more information see
+        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html) and [Invoke AWS Lambda functions](https://docs.aws.amazon.com/connect/latest/adminguide/connect-lambda-functions.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.connect.LambdaFunctionAssociation("example",
+            function_arn=aws_lambda_function["example"]["arn"],
+            instance_id=aws_connect_instance["example"]["id"])
+        ```
+
+        ## Import
+
+        `aws_connect_lambda_function_association` can be imported using the `instance_id` and `function_arn` separated by a comma (`,`) e.g.,
+
+        ```sh
+         $ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] function_arn: Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        :param pulumi.Input[str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         """
         ...
     @overload
@@ -93,7 +132,28 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
                  args: LambdaFunctionAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a LambdaFunctionAssociation resource with the given unique name, props, and options.
+        Provides an Amazon Connect Lambda Function Association. For more information see
+        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html) and [Invoke AWS Lambda functions](https://docs.aws.amazon.com/connect/latest/adminguide/connect-lambda-functions.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.connect.LambdaFunctionAssociation("example",
+            function_arn=aws_lambda_function["example"]["arn"],
+            instance_id=aws_connect_instance["example"]["id"])
+        ```
+
+        ## Import
+
+        `aws_connect_lambda_function_association` can be imported using the `instance_id` and `function_arn` separated by a comma (`,`) e.g.,
+
+        ```sh
+         $ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
+        ```
+
         :param str resource_name: The name of the resource.
         :param LambdaFunctionAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +205,8 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] function_arn: Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        :param pulumi.Input[str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +219,16 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        """
         return pulumi.get(self, "function_arn")
 
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+        """
         return pulumi.get(self, "instance_id")
 

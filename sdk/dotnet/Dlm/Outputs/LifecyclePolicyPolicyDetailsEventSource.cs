@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Dlm.Outputs
     [OutputType]
     public sealed class LifecyclePolicyPolicyDetailsEventSource
     {
+        /// <summary>
+        /// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
+        /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsEventSourceParameters Parameters;
+        /// <summary>
+        /// The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -11,9 +11,99 @@ namespace Pulumi.Aws.CloudFront
 {
     public static class GetResponseHeadersPolicy
     {
+        /// <summary>
+        /// Use this data source to retrieve information about a CloudFront cache policy.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CloudFront.GetResponseHeadersPolicy.Invoke(new()
+        ///     {
+        ///         Name = "example-policy",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### AWS-Managed Policies
+        /// 
+        /// AWS managed response header policy names are prefixed with `Managed-`:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CloudFront.GetResponseHeadersPolicy.Invoke(new()
+        ///     {
+        ///         Name = "Managed-SimpleCORS",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetResponseHeadersPolicyResult> InvokeAsync(GetResponseHeadersPolicyArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResponseHeadersPolicyResult>("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", args ?? new GetResponseHeadersPolicyArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to retrieve information about a CloudFront cache policy.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CloudFront.GetResponseHeadersPolicy.Invoke(new()
+        ///     {
+        ///         Name = "example-policy",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### AWS-Managed Policies
+        /// 
+        /// AWS managed response header policy names are prefixed with `Managed-`:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CloudFront.GetResponseHeadersPolicy.Invoke(new()
+        ///     {
+        ///         Name = "Managed-SimpleCORS",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetResponseHeadersPolicyResult> Invoke(GetResponseHeadersPolicyInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResponseHeadersPolicyResult>("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", args ?? new GetResponseHeadersPolicyInvokeArgs(), options.WithDefaults());
     }
@@ -21,9 +111,15 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetResponseHeadersPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Identifier for the response headers policy.
+        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
+        /// <summary>
+        /// Unique name to identify the response headers policy.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -35,9 +131,15 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetResponseHeadersPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Identifier for the response headers policy.
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Unique name to identify the response headers policy.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -51,13 +153,31 @@ namespace Pulumi.Aws.CloudFront
     [OutputType]
     public sealed class GetResponseHeadersPolicyResult
     {
+        /// <summary>
+        /// Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
+        /// </summary>
         public readonly string Comment;
+        /// <summary>
+        /// Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetResponseHeadersPolicyCorsConfigResult> CorsConfigs;
+        /// <summary>
+        /// Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetResponseHeadersPolicyCustomHeadersConfigResult> CustomHeadersConfigs;
+        /// <summary>
+        /// Current version of the response headers policy.
+        /// </summary>
         public readonly string Etag;
         public readonly string Id;
         public readonly string Name;
+        /// <summary>
+        /// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetResponseHeadersPolicySecurityHeadersConfigResult> SecurityHeadersConfigs;
+        /// <summary>
+        /// (Optional) Configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetResponseHeadersPolicyServerTimingHeadersConfigResult> ServerTimingHeadersConfigs;
 
         [OutputConstructor]

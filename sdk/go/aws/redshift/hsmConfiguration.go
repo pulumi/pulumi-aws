@@ -11,18 +11,69 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := redshift.NewHsmConfiguration(ctx, "example", &redshift.HsmConfigurationArgs{
+//				Description:                pulumi.String("example"),
+//				HsmConfigurationIdentifier: pulumi.String("example"),
+//				HsmIpAddress:               pulumi.String("10.0.0.1"),
+//				HsmPartitionName:           pulumi.String("aws"),
+//				HsmPartitionPassword:       pulumi.String("example"),
+//				HsmServerPublicCertificate: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Redshift Hsm Client Certificates support import by `hsm_configuration_identifier`, e.g., console
+//
+// ```sh
+//
+//	$ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
+//
+// ```
 type HsmConfiguration struct {
 	pulumi.CustomResourceState
 
-	Arn                        pulumi.StringOutput    `pulumi:"arn"`
-	Description                pulumi.StringOutput    `pulumi:"description"`
-	HsmConfigurationIdentifier pulumi.StringOutput    `pulumi:"hsmConfigurationIdentifier"`
-	HsmIpAddress               pulumi.StringOutput    `pulumi:"hsmIpAddress"`
-	HsmPartitionName           pulumi.StringOutput    `pulumi:"hsmPartitionName"`
-	HsmPartitionPassword       pulumi.StringOutput    `pulumi:"hsmPartitionPassword"`
-	HsmServerPublicCertificate pulumi.StringOutput    `pulumi:"hsmServerPublicCertificate"`
-	Tags                       pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll                    pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Amazon Resource Name (ARN) of the Hsm Client Certificate.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A text description of the HSM configuration to be created.
+	Description pulumi.StringOutput `pulumi:"description"`
+	// The identifier to be assigned to the new Amazon Redshift HSM configuration.
+	HsmConfigurationIdentifier pulumi.StringOutput `pulumi:"hsmConfigurationIdentifier"`
+	// The IP address that the Amazon Redshift cluster must use to access the HSM.
+	HsmIpAddress pulumi.StringOutput `pulumi:"hsmIpAddress"`
+	// The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
+	HsmPartitionName pulumi.StringOutput `pulumi:"hsmPartitionName"`
+	// The password required to access the HSM partition.
+	HsmPartitionPassword pulumi.StringOutput `pulumi:"hsmPartitionPassword"`
+	// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
+	HsmServerPublicCertificate pulumi.StringOutput `pulumi:"hsmServerPublicCertificate"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewHsmConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -79,27 +130,45 @@ func GetHsmConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HsmConfiguration resources.
 type hsmConfigurationState struct {
-	Arn                        *string           `pulumi:"arn"`
-	Description                *string           `pulumi:"description"`
-	HsmConfigurationIdentifier *string           `pulumi:"hsmConfigurationIdentifier"`
-	HsmIpAddress               *string           `pulumi:"hsmIpAddress"`
-	HsmPartitionName           *string           `pulumi:"hsmPartitionName"`
-	HsmPartitionPassword       *string           `pulumi:"hsmPartitionPassword"`
-	HsmServerPublicCertificate *string           `pulumi:"hsmServerPublicCertificate"`
-	Tags                       map[string]string `pulumi:"tags"`
-	TagsAll                    map[string]string `pulumi:"tagsAll"`
+	// Amazon Resource Name (ARN) of the Hsm Client Certificate.
+	Arn *string `pulumi:"arn"`
+	// A text description of the HSM configuration to be created.
+	Description *string `pulumi:"description"`
+	// The identifier to be assigned to the new Amazon Redshift HSM configuration.
+	HsmConfigurationIdentifier *string `pulumi:"hsmConfigurationIdentifier"`
+	// The IP address that the Amazon Redshift cluster must use to access the HSM.
+	HsmIpAddress *string `pulumi:"hsmIpAddress"`
+	// The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
+	HsmPartitionName *string `pulumi:"hsmPartitionName"`
+	// The password required to access the HSM partition.
+	HsmPartitionPassword *string `pulumi:"hsmPartitionPassword"`
+	// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
+	HsmServerPublicCertificate *string `pulumi:"hsmServerPublicCertificate"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type HsmConfigurationState struct {
-	Arn                        pulumi.StringPtrInput
-	Description                pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the Hsm Client Certificate.
+	Arn pulumi.StringPtrInput
+	// A text description of the HSM configuration to be created.
+	Description pulumi.StringPtrInput
+	// The identifier to be assigned to the new Amazon Redshift HSM configuration.
 	HsmConfigurationIdentifier pulumi.StringPtrInput
-	HsmIpAddress               pulumi.StringPtrInput
-	HsmPartitionName           pulumi.StringPtrInput
-	HsmPartitionPassword       pulumi.StringPtrInput
+	// The IP address that the Amazon Redshift cluster must use to access the HSM.
+	HsmIpAddress pulumi.StringPtrInput
+	// The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
+	HsmPartitionName pulumi.StringPtrInput
+	// The password required to access the HSM partition.
+	HsmPartitionPassword pulumi.StringPtrInput
+	// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
 	HsmServerPublicCertificate pulumi.StringPtrInput
-	Tags                       pulumi.StringMapInput
-	TagsAll                    pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (HsmConfigurationState) ElementType() reflect.Type {
@@ -107,24 +176,38 @@ func (HsmConfigurationState) ElementType() reflect.Type {
 }
 
 type hsmConfigurationArgs struct {
-	Description                string            `pulumi:"description"`
-	HsmConfigurationIdentifier string            `pulumi:"hsmConfigurationIdentifier"`
-	HsmIpAddress               string            `pulumi:"hsmIpAddress"`
-	HsmPartitionName           string            `pulumi:"hsmPartitionName"`
-	HsmPartitionPassword       string            `pulumi:"hsmPartitionPassword"`
-	HsmServerPublicCertificate string            `pulumi:"hsmServerPublicCertificate"`
-	Tags                       map[string]string `pulumi:"tags"`
+	// A text description of the HSM configuration to be created.
+	Description string `pulumi:"description"`
+	// The identifier to be assigned to the new Amazon Redshift HSM configuration.
+	HsmConfigurationIdentifier string `pulumi:"hsmConfigurationIdentifier"`
+	// The IP address that the Amazon Redshift cluster must use to access the HSM.
+	HsmIpAddress string `pulumi:"hsmIpAddress"`
+	// The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
+	HsmPartitionName string `pulumi:"hsmPartitionName"`
+	// The password required to access the HSM partition.
+	HsmPartitionPassword string `pulumi:"hsmPartitionPassword"`
+	// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
+	HsmServerPublicCertificate string `pulumi:"hsmServerPublicCertificate"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a HsmConfiguration resource.
 type HsmConfigurationArgs struct {
-	Description                pulumi.StringInput
+	// A text description of the HSM configuration to be created.
+	Description pulumi.StringInput
+	// The identifier to be assigned to the new Amazon Redshift HSM configuration.
 	HsmConfigurationIdentifier pulumi.StringInput
-	HsmIpAddress               pulumi.StringInput
-	HsmPartitionName           pulumi.StringInput
-	HsmPartitionPassword       pulumi.StringInput
+	// The IP address that the Amazon Redshift cluster must use to access the HSM.
+	HsmIpAddress pulumi.StringInput
+	// The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
+	HsmPartitionName pulumi.StringInput
+	// The password required to access the HSM partition.
+	HsmPartitionPassword pulumi.StringInput
+	// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
 	HsmServerPublicCertificate pulumi.StringInput
-	Tags                       pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (HsmConfigurationArgs) ElementType() reflect.Type {
@@ -214,38 +297,47 @@ func (o HsmConfigurationOutput) ToHsmConfigurationOutputWithContext(ctx context.
 	return o
 }
 
+// Amazon Resource Name (ARN) of the Hsm Client Certificate.
 func (o HsmConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HsmConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A text description of the HSM configuration to be created.
 func (o HsmConfigurationOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *HsmConfiguration) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
+// The identifier to be assigned to the new Amazon Redshift HSM configuration.
 func (o HsmConfigurationOutput) HsmConfigurationIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *HsmConfiguration) pulumi.StringOutput { return v.HsmConfigurationIdentifier }).(pulumi.StringOutput)
 }
 
+// The IP address that the Amazon Redshift cluster must use to access the HSM.
 func (o HsmConfigurationOutput) HsmIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *HsmConfiguration) pulumi.StringOutput { return v.HsmIpAddress }).(pulumi.StringOutput)
 }
 
+// The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
 func (o HsmConfigurationOutput) HsmPartitionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *HsmConfiguration) pulumi.StringOutput { return v.HsmPartitionName }).(pulumi.StringOutput)
 }
 
+// The password required to access the HSM partition.
 func (o HsmConfigurationOutput) HsmPartitionPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v *HsmConfiguration) pulumi.StringOutput { return v.HsmPartitionPassword }).(pulumi.StringOutput)
 }
 
+// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
 func (o HsmConfigurationOutput) HsmServerPublicCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v *HsmConfiguration) pulumi.StringOutput { return v.HsmServerPublicCertificate }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o HsmConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HsmConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o HsmConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HsmConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

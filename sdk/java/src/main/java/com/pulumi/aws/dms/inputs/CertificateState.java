@@ -16,44 +16,92 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
     public static final CertificateState Empty = new CertificateState();
 
+    /**
+     * The Amazon Resource Name (ARN) for the certificate.
+     * 
+     */
     @Import(name="certificateArn")
     private @Nullable Output<String> certificateArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) for the certificate.
+     * 
+     */
     public Optional<Output<String>> certificateArn() {
         return Optional.ofNullable(this.certificateArn);
     }
 
+    /**
+     * The certificate identifier.
+     * 
+     */
     @Import(name="certificateId")
     private @Nullable Output<String> certificateId;
 
+    /**
+     * @return The certificate identifier.
+     * 
+     */
     public Optional<Output<String>> certificateId() {
         return Optional.ofNullable(this.certificateId);
     }
 
+    /**
+     * The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+     * 
+     */
     @Import(name="certificatePem")
     private @Nullable Output<String> certificatePem;
 
+    /**
+     * @return The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+     * 
+     */
     public Optional<Output<String>> certificatePem() {
         return Optional.ofNullable(this.certificatePem);
     }
 
+    /**
+     * The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
+     * 
+     */
     @Import(name="certificateWallet")
     private @Nullable Output<String> certificateWallet;
 
+    /**
+     * @return The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
+     * 
+     */
     public Optional<Output<String>> certificateWallet() {
         return Optional.ofNullable(this.certificateWallet);
     }
 
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -87,56 +135,128 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
             $ = new CertificateState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param certificateArn The Amazon Resource Name (ARN) for the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateArn(@Nullable Output<String> certificateArn) {
             $.certificateArn = certificateArn;
             return this;
         }
 
+        /**
+         * @param certificateArn The Amazon Resource Name (ARN) for the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateArn(String certificateArn) {
             return certificateArn(Output.of(certificateArn));
         }
 
+        /**
+         * @param certificateId The certificate identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateId(@Nullable Output<String> certificateId) {
             $.certificateId = certificateId;
             return this;
         }
 
+        /**
+         * @param certificateId The certificate identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateId(String certificateId) {
             return certificateId(Output.of(certificateId));
         }
 
+        /**
+         * @param certificatePem The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificatePem(@Nullable Output<String> certificatePem) {
             $.certificatePem = certificatePem;
             return this;
         }
 
+        /**
+         * @param certificatePem The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificatePem(String certificatePem) {
             return certificatePem(Output.of(certificatePem));
         }
 
+        /**
+         * @param certificateWallet The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateWallet(@Nullable Output<String> certificateWallet) {
             $.certificateWallet = certificateWallet;
             return this;
         }
 
+        /**
+         * @param certificateWallet The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateWallet(String certificateWallet) {
             return certificateWallet(Output.of(certificateWallet));
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

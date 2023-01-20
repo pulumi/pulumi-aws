@@ -14,17 +14,82 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketOwnershipControls;
+ * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
+ * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ * 
+ *         var exampleBucketOwnershipControls = new BucketOwnershipControls(&#34;exampleBucketOwnershipControls&#34;, BucketOwnershipControlsArgs.builder()        
+ *             .bucket(exampleBucketV2.id())
+ *             .rule(BucketOwnershipControlsRuleArgs.builder()
+ *                 .objectOwnership(&#34;BucketOwnerPreferred&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * S3 Bucket Ownership Controls can be imported using S3 Bucket name, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
+ * ```
+ * 
+ */
 @ResourceType(type="aws:s3/bucketOwnershipControls:BucketOwnershipControls")
 public class BucketOwnershipControls extends com.pulumi.resources.CustomResource {
+    /**
+     * The name of the bucket that you want to associate this access point with.
+     * 
+     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
+    /**
+     * @return The name of the bucket that you want to associate this access point with.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
+    /**
+     * Configuration block(s) with Ownership Controls rules. Detailed below.
+     * 
+     */
     @Export(name="rule", refs={BucketOwnershipControlsRule.class}, tree="[0]")
     private Output<BucketOwnershipControlsRule> rule;
 
+    /**
+     * @return Configuration block(s) with Ownership Controls rules. Detailed below.
+     * 
+     */
     public Output<BucketOwnershipControlsRule> rule() {
         return this.rule;
     }

@@ -20,6 +20,10 @@ public final class GetLaunchPathsResult {
      */
     private String id;
     private String productId;
+    /**
+     * @return Block with information about the launch path. See details below.
+     * 
+     */
     private List<GetLaunchPathsSummary> summaries;
 
     private GetLaunchPathsResult() {}
@@ -36,6 +40,10 @@ public final class GetLaunchPathsResult {
     public String productId() {
         return this.productId;
     }
+    /**
+     * @return Block with information about the launch path. See details below.
+     * 
+     */
     public List<GetLaunchPathsSummary> summaries() {
         return this.summaries;
     }

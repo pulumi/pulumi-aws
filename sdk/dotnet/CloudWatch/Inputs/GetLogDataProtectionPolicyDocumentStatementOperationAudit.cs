@@ -12,6 +12,9 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Configures destinations to send audit findings to.
+        /// </summary>
         [Input("findingsDestination", required: true)]
         public Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs FindingsDestination { get; set; } = null!;
 

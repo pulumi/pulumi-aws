@@ -318,7 +318,19 @@ def get_cluster(cluster_identifier: Optional[str] = None,
                 tags: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about an RDS cluster.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    cluster_name = aws.rds.get_cluster(cluster_identifier="clusterName")
+    ```
+
+
+    :param str cluster_identifier: Cluster identifier of the RDS cluster.
     """
     __args__ = dict()
     __args__['clusterIdentifier'] = cluster_identifier
@@ -365,6 +377,18 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides information about an RDS cluster.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    cluster_name = aws.rds.get_cluster(cluster_identifier="clusterName")
+    ```
+
+
+    :param str cluster_identifier: Cluster identifier of the RDS cluster.
     """
     ...

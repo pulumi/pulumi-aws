@@ -12,9 +12,17 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetGroupPlainArgs Empty = new GetGroupPlainArgs();
 
+    /**
+     * Specify the exact name of the desired autoscaling group.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return Specify the exact name of the desired autoscaling group.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -43,6 +51,12 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetGroupPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Specify the exact name of the desired autoscaling group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;

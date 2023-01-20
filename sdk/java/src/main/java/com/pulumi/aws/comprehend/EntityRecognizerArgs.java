@@ -18,72 +18,180 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
 
     public static final EntityRecognizerArgs Empty = new EntityRecognizerArgs();
 
+    /**
+     * The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+     * 
+     */
     @Import(name="dataAccessRoleArn", required=true)
     private Output<String> dataAccessRoleArn;
 
+    /**
+     * @return The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+     * 
+     */
     public Output<String> dataAccessRoleArn() {
         return this.dataAccessRoleArn;
     }
 
+    /**
+     * Configuration for the training and testing data.
+     * See the `input_data_config` Configuration Block section below.
+     * 
+     */
     @Import(name="inputDataConfig", required=true)
     private Output<EntityRecognizerInputDataConfigArgs> inputDataConfig;
 
+    /**
+     * @return Configuration for the training and testing data.
+     * See the `input_data_config` Configuration Block section below.
+     * 
+     */
     public Output<EntityRecognizerInputDataConfigArgs> inputDataConfig() {
         return this.inputDataConfig;
     }
 
+    /**
+     * Two-letter language code for the language.
+     * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+     * 
+     */
     @Import(name="languageCode", required=true)
     private Output<String> languageCode;
 
+    /**
+     * @return Two-letter language code for the language.
+     * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+     * 
+     */
     public Output<String> languageCode() {
         return this.languageCode;
     }
 
+    /**
+     * The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
+     * 
+     */
     @Import(name="modelKmsKeyId")
     private @Nullable Output<String> modelKmsKeyId;
 
+    /**
+     * @return The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
+     * 
+     */
     public Optional<Output<String>> modelKmsKeyId() {
         return Optional.ofNullable(this.modelKmsKeyId);
     }
 
+    /**
+     * Name for the Entity Recognizer.
+     * Has a maximum length of 63 characters.
+     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name for the Entity Recognizer.
+     * Has a maximum length of 63 characters.
+     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Name for the version of the Entity Recognizer.
+     * Each version must have a unique name within the Entity Recognizer.
+     * If omitted, the provider will assign a random, unique version name.
+     * If explicitly set to `&#34;&#34;`, no version name will be set.
+     * Has a maximum length of 63 characters.
+     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Conflicts with `version_name_prefix`.
+     * 
+     */
     @Import(name="versionName")
     private @Nullable Output<String> versionName;
 
+    /**
+     * @return Name for the version of the Entity Recognizer.
+     * Each version must have a unique name within the Entity Recognizer.
+     * If omitted, the provider will assign a random, unique version name.
+     * If explicitly set to `&#34;&#34;`, no version name will be set.
+     * Has a maximum length of 63 characters.
+     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Conflicts with `version_name_prefix`.
+     * 
+     */
     public Optional<Output<String>> versionName() {
         return Optional.ofNullable(this.versionName);
     }
 
+    /**
+     * Creates a unique version name beginning with the specified prefix.
+     * Has a maximum length of 37 characters.
+     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Conflicts with `version_name`.
+     * 
+     */
     @Import(name="versionNamePrefix")
     private @Nullable Output<String> versionNamePrefix;
 
+    /**
+     * @return Creates a unique version name beginning with the specified prefix.
+     * Has a maximum length of 37 characters.
+     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Conflicts with `version_name`.
+     * 
+     */
     public Optional<Output<String>> versionNamePrefix() {
         return Optional.ofNullable(this.versionNamePrefix);
     }
 
+    /**
+     * ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
+     * 
+     */
     @Import(name="volumeKmsKeyId")
     private @Nullable Output<String> volumeKmsKeyId;
 
+    /**
+     * @return ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
+     * 
+     */
     public Optional<Output<String>> volumeKmsKeyId() {
         return Optional.ofNullable(this.volumeKmsKeyId);
     }
 
+    /**
+     * Configuration parameters for VPC to contain Entity Recognizer resources.
+     * See the `vpc_config` Configuration Block section below.
+     * 
+     */
     @Import(name="vpcConfig")
     private @Nullable Output<EntityRecognizerVpcConfigArgs> vpcConfig;
 
+    /**
+     * @return Configuration parameters for VPC to contain Entity Recognizer resources.
+     * See the `vpc_config` Configuration Block section below.
+     * 
+     */
     public Optional<Output<EntityRecognizerVpcConfigArgs>> vpcConfig() {
         return Optional.ofNullable(this.vpcConfig);
     }
@@ -121,92 +229,240 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
             $ = new EntityRecognizerArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dataAccessRoleArn The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataAccessRoleArn(Output<String> dataAccessRoleArn) {
             $.dataAccessRoleArn = dataAccessRoleArn;
             return this;
         }
 
+        /**
+         * @param dataAccessRoleArn The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataAccessRoleArn(String dataAccessRoleArn) {
             return dataAccessRoleArn(Output.of(dataAccessRoleArn));
         }
 
+        /**
+         * @param inputDataConfig Configuration for the training and testing data.
+         * See the `input_data_config` Configuration Block section below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputDataConfig(Output<EntityRecognizerInputDataConfigArgs> inputDataConfig) {
             $.inputDataConfig = inputDataConfig;
             return this;
         }
 
+        /**
+         * @param inputDataConfig Configuration for the training and testing data.
+         * See the `input_data_config` Configuration Block section below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputDataConfig(EntityRecognizerInputDataConfigArgs inputDataConfig) {
             return inputDataConfig(Output.of(inputDataConfig));
         }
 
+        /**
+         * @param languageCode Two-letter language code for the language.
+         * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(Output<String> languageCode) {
             $.languageCode = languageCode;
             return this;
         }
 
+        /**
+         * @param languageCode Two-letter language code for the language.
+         * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(String languageCode) {
             return languageCode(Output.of(languageCode));
         }
 
+        /**
+         * @param modelKmsKeyId The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder modelKmsKeyId(@Nullable Output<String> modelKmsKeyId) {
             $.modelKmsKeyId = modelKmsKeyId;
             return this;
         }
 
+        /**
+         * @param modelKmsKeyId The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder modelKmsKeyId(String modelKmsKeyId) {
             return modelKmsKeyId(Output.of(modelKmsKeyId));
         }
 
+        /**
+         * @param name Name for the Entity Recognizer.
+         * Has a maximum length of 63 characters.
+         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name for the Entity Recognizer.
+         * Has a maximum length of 63 characters.
+         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param versionName Name for the version of the Entity Recognizer.
+         * Each version must have a unique name within the Entity Recognizer.
+         * If omitted, the provider will assign a random, unique version name.
+         * If explicitly set to `&#34;&#34;`, no version name will be set.
+         * Has a maximum length of 63 characters.
+         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * Conflicts with `version_name_prefix`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder versionName(@Nullable Output<String> versionName) {
             $.versionName = versionName;
             return this;
         }
 
+        /**
+         * @param versionName Name for the version of the Entity Recognizer.
+         * Each version must have a unique name within the Entity Recognizer.
+         * If omitted, the provider will assign a random, unique version name.
+         * If explicitly set to `&#34;&#34;`, no version name will be set.
+         * Has a maximum length of 63 characters.
+         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * Conflicts with `version_name_prefix`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder versionName(String versionName) {
             return versionName(Output.of(versionName));
         }
 
+        /**
+         * @param versionNamePrefix Creates a unique version name beginning with the specified prefix.
+         * Has a maximum length of 37 characters.
+         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * Conflicts with `version_name`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder versionNamePrefix(@Nullable Output<String> versionNamePrefix) {
             $.versionNamePrefix = versionNamePrefix;
             return this;
         }
 
+        /**
+         * @param versionNamePrefix Creates a unique version name beginning with the specified prefix.
+         * Has a maximum length of 37 characters.
+         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * Conflicts with `version_name`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder versionNamePrefix(String versionNamePrefix) {
             return versionNamePrefix(Output.of(versionNamePrefix));
         }
 
+        /**
+         * @param volumeKmsKeyId ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
+         * 
+         * @return builder
+         * 
+         */
         public Builder volumeKmsKeyId(@Nullable Output<String> volumeKmsKeyId) {
             $.volumeKmsKeyId = volumeKmsKeyId;
             return this;
         }
 
+        /**
+         * @param volumeKmsKeyId ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
+         * 
+         * @return builder
+         * 
+         */
         public Builder volumeKmsKeyId(String volumeKmsKeyId) {
             return volumeKmsKeyId(Output.of(volumeKmsKeyId));
         }
 
+        /**
+         * @param vpcConfig Configuration parameters for VPC to contain Entity Recognizer resources.
+         * See the `vpc_config` Configuration Block section below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcConfig(@Nullable Output<EntityRecognizerVpcConfigArgs> vpcConfig) {
             $.vpcConfig = vpcConfig;
             return this;
         }
 
+        /**
+         * @param vpcConfig Configuration parameters for VPC to contain Entity Recognizer resources.
+         * See the `vpc_config` Configuration Block section below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcConfig(EntityRecognizerVpcConfigArgs vpcConfig) {
             return vpcConfig(Output.of(vpcConfig));
         }

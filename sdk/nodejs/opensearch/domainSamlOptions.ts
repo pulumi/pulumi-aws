@@ -7,6 +7,49 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Manages SAML authentication options for an AWS OpenSearch Domain.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ *
+ * const exampleDomain = new aws.opensearch.Domain("exampleDomain", {
+ *     engineVersion: "OpenSearch_1.1",
+ *     clusterConfig: {
+ *         instanceType: "r4.large.search",
+ *     },
+ *     snapshotOptions: {
+ *         automatedSnapshotStartHour: 23,
+ *     },
+ *     tags: {
+ *         Domain: "TestDomain",
+ *     },
+ * });
+ * const exampleDomainSamlOptions = new aws.opensearch.DomainSamlOptions("exampleDomainSamlOptions", {
+ *     domainName: exampleDomain.domainName,
+ *     samlOptions: {
+ *         enabled: true,
+ *         idp: {
+ *             entityId: "https://example.com",
+ *             metadataContent: fs.readFileSync("./saml-metadata.xml"),
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * OpenSearch domains can be imported using the `domain_name`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
+ * ```
+ */
 export class DomainSamlOptions extends pulumi.CustomResource {
     /**
      * Get an existing DomainSamlOptions resource's state with the given name, ID, and optional extra
@@ -35,7 +78,13 @@ export class DomainSamlOptions extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainSamlOptions.__pulumiType;
     }
 
+    /**
+     * Name of the domain.
+     */
     public readonly domainName!: pulumi.Output<string>;
+    /**
+     * SAML authentication options for an AWS OpenSearch Domain.
+     */
     public readonly samlOptions!: pulumi.Output<outputs.opensearch.DomainSamlOptionsSamlOptions | undefined>;
 
     /**
@@ -70,7 +119,13 @@ export class DomainSamlOptions extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DomainSamlOptions resources.
  */
 export interface DomainSamlOptionsState {
+    /**
+     * Name of the domain.
+     */
     domainName?: pulumi.Input<string>;
+    /**
+     * SAML authentication options for an AWS OpenSearch Domain.
+     */
     samlOptions?: pulumi.Input<inputs.opensearch.DomainSamlOptionsSamlOptions>;
 }
 
@@ -78,6 +133,12 @@ export interface DomainSamlOptionsState {
  * The set of arguments for constructing a DomainSamlOptions resource.
  */
 export interface DomainSamlOptionsArgs {
+    /**
+     * Name of the domain.
+     */
     domainName: pulumi.Input<string>;
+    /**
+     * SAML authentication options for an AWS OpenSearch Domain.
+     */
     samlOptions?: pulumi.Input<inputs.opensearch.DomainSamlOptionsSamlOptions>;
 }

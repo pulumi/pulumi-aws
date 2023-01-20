@@ -13,9 +13,17 @@ public final class RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceAr
 
     public static final RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs Empty = new RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs();
 
+    /**
+     * Set of Managed Prefix IP ARN(s)
+     * 
+     */
     @Import(name="referenceArn", required=true)
     private Output<String> referenceArn;
 
+    /**
+     * @return Set of Managed Prefix IP ARN(s)
+     * 
+     */
     public Output<String> referenceArn() {
         return this.referenceArn;
     }
@@ -44,11 +52,23 @@ public final class RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceAr
             $ = new RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param referenceArn Set of Managed Prefix IP ARN(s)
+         * 
+         * @return builder
+         * 
+         */
         public Builder referenceArn(Output<String> referenceArn) {
             $.referenceArn = referenceArn;
             return this;
         }
 
+        /**
+         * @param referenceArn Set of Managed Prefix IP ARN(s)
+         * 
+         * @return builder
+         * 
+         */
         public Builder referenceArn(String referenceArn) {
             return referenceArn(Output.of(referenceArn));
         }

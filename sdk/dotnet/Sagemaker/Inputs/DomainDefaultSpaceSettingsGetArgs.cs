@@ -12,17 +12,30 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class DomainDefaultSpaceSettingsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The execution role for the space.
+        /// </summary>
         [Input("executionRole", required: true)]
         public Input<string> ExecutionRole { get; set; } = null!;
 
+        /// <summary>
+        /// The Jupyter server's app settings. See Jupyter Server App Settings below.
+        /// </summary>
         [Input("jupyterServerAppSettings")]
         public Input<Inputs.DomainDefaultSpaceSettingsJupyterServerAppSettingsGetArgs>? JupyterServerAppSettings { get; set; }
 
+        /// <summary>
+        /// The kernel gateway app settings. See Kernel Gateway App Settings below.
+        /// </summary>
         [Input("kernelGatewayAppSettings")]
         public Input<Inputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsGetArgs>? KernelGatewayAppSettings { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
+
+        /// <summary>
+        /// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());

@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class TopicRuleCloudwatchLog
     {
+        /// <summary>
+        /// The CloudWatch log group name.
+        /// </summary>
         public readonly string LogGroupName;
+        /// <summary>
+        /// The IAM role ARN that allows access to the CloudWatch alarm.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

@@ -25,12 +25,19 @@ class RegistryScanningConfigurationRuleArgs:
     def __init__(__self__, *,
                  repository_filters: pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRuleRepositoryFilterArgs']]],
                  scan_frequency: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRuleRepositoryFilterArgs']]] repository_filters: One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
+        :param pulumi.Input[str] scan_frequency: The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
+        """
         pulumi.set(__self__, "repository_filters", repository_filters)
         pulumi.set(__self__, "scan_frequency", scan_frequency)
 
     @property
     @pulumi.getter(name="repositoryFilters")
     def repository_filters(self) -> pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRuleRepositoryFilterArgs']]]:
+        """
+        One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
+        """
         return pulumi.get(self, "repository_filters")
 
     @repository_filters.setter
@@ -40,6 +47,9 @@ class RegistryScanningConfigurationRuleArgs:
     @property
     @pulumi.getter(name="scanFrequency")
     def scan_frequency(self) -> pulumi.Input[str]:
+        """
+        The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
+        """
         return pulumi.get(self, "scan_frequency")
 
     @scan_frequency.setter
@@ -78,11 +88,17 @@ class RegistryScanningConfigurationRuleRepositoryFilterArgs:
 class ReplicationConfigurationReplicationConfigurationArgs:
     def __init__(__self__, *,
                  rules: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs']]] rules: The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
+        """
         pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleArgs']]]:
+        """
+        The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
+        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -95,6 +111,10 @@ class ReplicationConfigurationReplicationConfigurationRuleArgs:
     def __init__(__self__, *,
                  destinations: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs']]],
                  repository_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs']]] destinations: the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs']]] repository_filters: filters for a replication rule. See Repository Filter.
+        """
         pulumi.set(__self__, "destinations", destinations)
         if repository_filters is not None:
             pulumi.set(__self__, "repository_filters", repository_filters)
@@ -102,6 +122,9 @@ class ReplicationConfigurationReplicationConfigurationRuleArgs:
     @property
     @pulumi.getter
     def destinations(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs']]]:
+        """
+        the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
+        """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
@@ -111,6 +134,9 @@ class ReplicationConfigurationReplicationConfigurationRuleArgs:
     @property
     @pulumi.getter(name="repositoryFilters")
     def repository_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs']]]]:
+        """
+        filters for a replication rule. See Repository Filter.
+        """
         return pulumi.get(self, "repository_filters")
 
     @repository_filters.setter
@@ -123,12 +149,19 @@ class ReplicationConfigurationReplicationConfigurationRuleDestinationArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[str],
                  registry_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] region: A Region to replicate to.
+        :param pulumi.Input[str] registry_id: The account ID of the destination registry to replicate to.
+        """
         pulumi.set(__self__, "region", region)
         pulumi.set(__self__, "registry_id", registry_id)
 
     @property
     @pulumi.getter
     def region(self) -> pulumi.Input[str]:
+        """
+        A Region to replicate to.
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -138,6 +171,9 @@ class ReplicationConfigurationReplicationConfigurationRuleDestinationArgs:
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> pulumi.Input[str]:
+        """
+        The account ID of the destination registry to replicate to.
+        """
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter
@@ -150,12 +186,19 @@ class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs:
     def __init__(__self__, *,
                  filter: pulumi.Input[str],
                  filter_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] filter: The repository filter details.
+        :param pulumi.Input[str] filter_type: The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
+        """
         pulumi.set(__self__, "filter", filter)
         pulumi.set(__self__, "filter_type", filter_type)
 
     @property
     @pulumi.getter
     def filter(self) -> pulumi.Input[str]:
+        """
+        The repository filter details.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -165,6 +208,9 @@ class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs:
     @property
     @pulumi.getter(name="filterType")
     def filter_type(self) -> pulumi.Input[str]:
+        """
+        The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
+        """
         return pulumi.get(self, "filter_type")
 
     @filter_type.setter
@@ -177,6 +223,10 @@ class RepositoryEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  encryption_type: Optional[pulumi.Input[str]] = None,
                  kms_key: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] encryption_type: The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+        :param pulumi.Input[str] kms_key: The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+        """
         if encryption_type is not None:
             pulumi.set(__self__, "encryption_type", encryption_type)
         if kms_key is not None:
@@ -185,6 +235,9 @@ class RepositoryEncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+        """
         return pulumi.get(self, "encryption_type")
 
     @encryption_type.setter
@@ -194,6 +247,9 @@ class RepositoryEncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+        """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
@@ -205,11 +261,17 @@ class RepositoryEncryptionConfigurationArgs:
 class RepositoryImageScanningConfigurationArgs:
     def __init__(__self__, *,
                  scan_on_push: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] scan_on_push: Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
+        """
         pulumi.set(__self__, "scan_on_push", scan_on_push)
 
     @property
     @pulumi.getter(name="scanOnPush")
     def scan_on_push(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
+        """
         return pulumi.get(self, "scan_on_push")
 
     @scan_on_push.setter

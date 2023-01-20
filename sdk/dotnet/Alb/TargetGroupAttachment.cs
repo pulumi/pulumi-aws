@@ -9,18 +9,103 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Alb
 {
+    /// <summary>
+    /// Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the `aws.elb.Attachment` resource.
+    /// 
+    /// &gt; **Note:** `aws.alb.TargetGroupAttachment` is known as `aws.lb.TargetGroupAttachment`. The functionality is identical.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testTargetGroup = new Aws.LB.TargetGroup("testTargetGroup");
+    /// 
+    ///     // ... other configuration ...
+    ///     var testInstance = new Aws.Ec2.Instance("testInstance");
+    /// 
+    ///     // ... other configuration ...
+    ///     var testTargetGroupAttachment = new Aws.LB.TargetGroupAttachment("testTargetGroupAttachment", new()
+    ///     {
+    ///         TargetGroupArn = testTargetGroup.Arn,
+    ///         TargetId = testInstance.Id,
+    ///         Port = 80,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Usage with lambda
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testTargetGroup = new Aws.LB.TargetGroup("testTargetGroup", new()
+    ///     {
+    ///         TargetType = "lambda",
+    ///     });
+    /// 
+    ///     var testFunction = new Aws.Lambda.Function("testFunction");
+    /// 
+    ///     // ... other configuration ...
+    ///     var withLb = new Aws.Lambda.Permission("withLb", new()
+    ///     {
+    ///         Action = "lambda:InvokeFunction",
+    ///         Function = testFunction.Name,
+    ///         Principal = "elasticloadbalancing.amazonaws.com",
+    ///         SourceArn = testTargetGroup.Arn,
+    ///     });
+    /// 
+    ///     var testTargetGroupAttachment = new Aws.LB.TargetGroupAttachment("testTargetGroupAttachment", new()
+    ///     {
+    ///         TargetGroupArn = testTargetGroup.Arn,
+    ///         TargetId = testFunction.Arn,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             withLb,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Target Group Attachments cannot be imported.
+    /// </summary>
     [AwsResourceType("aws:alb/targetGroupAttachment:TargetGroupAttachment")]
     public partial class TargetGroupAttachment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
+        /// </summary>
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
 
+        /// <summary>
+        /// The port on which targets receive traffic.
+        /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the target group with which to register targets
+        /// </summary>
         [Output("targetGroupArn")]
         public Output<string> TargetGroupArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
+        /// </summary>
         [Output("targetId")]
         public Output<string> TargetId { get; private set; } = null!;
 
@@ -74,15 +159,27 @@ namespace Pulumi.Aws.Alb
 
     public sealed class TargetGroupAttachmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
+        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
+        /// <summary>
+        /// The port on which targets receive traffic.
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// The ARN of the target group with which to register targets
+        /// </summary>
         [Input("targetGroupArn", required: true)]
         public Input<string> TargetGroupArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
+        /// </summary>
         [Input("targetId", required: true)]
         public Input<string> TargetId { get; set; } = null!;
 
@@ -94,15 +191,27 @@ namespace Pulumi.Aws.Alb
 
     public sealed class TargetGroupAttachmentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
+        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
+        /// <summary>
+        /// The port on which targets receive traffic.
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// The ARN of the target group with which to register targets
+        /// </summary>
         [Input("targetGroupArn")]
         public Input<string>? TargetGroupArn { get; set; }
 
+        /// <summary>
+        /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
+        /// </summary>
         [Input("targetId")]
         public Input<string>? TargetId { get; set; }
 

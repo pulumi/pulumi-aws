@@ -16,16 +16,32 @@ public final class IndexingConfigurationArgs extends com.pulumi.resources.Resour
 
     public static final IndexingConfigurationArgs Empty = new IndexingConfigurationArgs();
 
+    /**
+     * Thing group indexing configuration. See below.
+     * 
+     */
     @Import(name="thingGroupIndexingConfiguration")
     private @Nullable Output<IndexingConfigurationThingGroupIndexingConfigurationArgs> thingGroupIndexingConfiguration;
 
+    /**
+     * @return Thing group indexing configuration. See below.
+     * 
+     */
     public Optional<Output<IndexingConfigurationThingGroupIndexingConfigurationArgs>> thingGroupIndexingConfiguration() {
         return Optional.ofNullable(this.thingGroupIndexingConfiguration);
     }
 
+    /**
+     * Thing indexing configuration. See below.
+     * 
+     */
     @Import(name="thingIndexingConfiguration")
     private @Nullable Output<IndexingConfigurationThingIndexingConfigurationArgs> thingIndexingConfiguration;
 
+    /**
+     * @return Thing indexing configuration. See below.
+     * 
+     */
     public Optional<Output<IndexingConfigurationThingIndexingConfigurationArgs>> thingIndexingConfiguration() {
         return Optional.ofNullable(this.thingIndexingConfiguration);
     }
@@ -55,20 +71,44 @@ public final class IndexingConfigurationArgs extends com.pulumi.resources.Resour
             $ = new IndexingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param thingGroupIndexingConfiguration Thing group indexing configuration. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder thingGroupIndexingConfiguration(@Nullable Output<IndexingConfigurationThingGroupIndexingConfigurationArgs> thingGroupIndexingConfiguration) {
             $.thingGroupIndexingConfiguration = thingGroupIndexingConfiguration;
             return this;
         }
 
+        /**
+         * @param thingGroupIndexingConfiguration Thing group indexing configuration. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder thingGroupIndexingConfiguration(IndexingConfigurationThingGroupIndexingConfigurationArgs thingGroupIndexingConfiguration) {
             return thingGroupIndexingConfiguration(Output.of(thingGroupIndexingConfiguration));
         }
 
+        /**
+         * @param thingIndexingConfiguration Thing indexing configuration. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder thingIndexingConfiguration(@Nullable Output<IndexingConfigurationThingIndexingConfigurationArgs> thingIndexingConfiguration) {
             $.thingIndexingConfiguration = thingIndexingConfiguration;
             return this;
         }
 
+        /**
+         * @param thingIndexingConfiguration Thing indexing configuration. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder thingIndexingConfiguration(IndexingConfigurationThingIndexingConfigurationArgs thingIndexingConfiguration) {
             return thingIndexingConfiguration(Output.of(thingIndexingConfiguration));
         }

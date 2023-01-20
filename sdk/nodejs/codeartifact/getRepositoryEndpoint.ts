@@ -4,6 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.codeartifact.getRepositoryEndpoint({
+ *     domain: aws_codeartifact_domain.test.domain,
+ *     repository: aws_codeartifact_repository.test.repository,
+ *     format: "npm",
+ * });
+ * ```
+ */
 export function getRepositoryEndpoint(args: GetRepositoryEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryEndpointResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -19,9 +35,21 @@ export function getRepositoryEndpoint(args: GetRepositoryEndpointArgs, opts?: pu
  * A collection of arguments for invoking getRepositoryEndpoint.
  */
 export interface GetRepositoryEndpointArgs {
+    /**
+     * Name of the domain that contains the repository.
+     */
     domain: string;
+    /**
+     * Account number of the AWS account that owns the domain.
+     */
     domainOwner?: string;
+    /**
+     * Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
+     */
     format: string;
+    /**
+     * Name of the repository.
+     */
     repository: string;
 }
 
@@ -37,8 +65,27 @@ export interface GetRepositoryEndpointResult {
      */
     readonly id: string;
     readonly repository: string;
+    /**
+     * URL of the returned endpoint.
+     */
     readonly repositoryEndpoint: string;
 }
+/**
+ * The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.codeartifact.getRepositoryEndpoint({
+ *     domain: aws_codeartifact_domain.test.domain,
+ *     repository: aws_codeartifact_repository.test.repository,
+ *     format: "npm",
+ * });
+ * ```
+ */
 export function getRepositoryEndpointOutput(args: GetRepositoryEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryEndpointResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryEndpoint(a, opts))
 }
@@ -47,8 +94,20 @@ export function getRepositoryEndpointOutput(args: GetRepositoryEndpointOutputArg
  * A collection of arguments for invoking getRepositoryEndpoint.
  */
 export interface GetRepositoryEndpointOutputArgs {
+    /**
+     * Name of the domain that contains the repository.
+     */
     domain: pulumi.Input<string>;
+    /**
+     * Account number of the AWS account that owns the domain.
+     */
     domainOwner?: pulumi.Input<string>;
+    /**
+     * Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
+     */
     format: pulumi.Input<string>;
+    /**
+     * Name of the repository.
+     */
     repository: pulumi.Input<string>;
 }

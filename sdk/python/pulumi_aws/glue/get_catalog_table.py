@@ -81,21 +81,33 @@ class GetCatalogTableResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        The ARN of the Glue Table.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> str:
+        """
+        ID of the Data Catalog in which the table resides.
+        """
         return pulumi.get(self, "catalog_id")
 
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> str:
+        """
+        Name of the catalog database that contains the target table.
+        """
         return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the table.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -109,26 +121,41 @@ class GetCatalogTableResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the target table.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def owner(self) -> str:
+        """
+        Owner of the table.
+        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter
     def parameters(self) -> Mapping[str, str]:
+        """
+        Map of initialization parameters for the SerDe, in key-value form.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="partitionIndices")
     def partition_indices(self) -> Sequence['outputs.GetCatalogTablePartitionIndexResult']:
+        """
+        Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+        """
         return pulumi.get(self, "partition_indices")
 
     @property
     @pulumi.getter(name="partitionKeys")
     def partition_keys(self) -> Sequence['outputs.GetCatalogTablePartitionKeyResult']:
+        """
+        Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+        """
         return pulumi.get(self, "partition_keys")
 
     @property
@@ -139,21 +166,33 @@ class GetCatalogTableResult:
     @property
     @pulumi.getter
     def retention(self) -> int:
+        """
+        Retention time for this table.
+        """
         return pulumi.get(self, "retention")
 
     @property
     @pulumi.getter(name="storageDescriptors")
     def storage_descriptors(self) -> Sequence['outputs.GetCatalogTableStorageDescriptorResult']:
+        """
+        Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        """
         return pulumi.get(self, "storage_descriptors")
 
     @property
     @pulumi.getter(name="tableType")
     def table_type(self) -> str:
+        """
+        Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+        """
         return pulumi.get(self, "table_type")
 
     @property
     @pulumi.getter(name="targetTables")
     def target_tables(self) -> Sequence['outputs.GetCatalogTableTargetTableResult']:
+        """
+        Configuration block of a target table for resource linking. See `target_table` below.
+        """
         return pulumi.get(self, "target_tables")
 
     @property
@@ -164,11 +203,17 @@ class GetCatalogTableResult:
     @property
     @pulumi.getter(name="viewExpandedText")
     def view_expanded_text(self) -> str:
+        """
+        If the table is a view, the expanded text of the view; otherwise null.
+        """
         return pulumi.get(self, "view_expanded_text")
 
     @property
     @pulumi.getter(name="viewOriginalText")
     def view_original_text(self) -> str:
+        """
+        If the table is a view, the original text of the view; otherwise null.
+        """
         return pulumi.get(self, "view_original_text")
 
 
@@ -205,7 +250,24 @@ def get_catalog_table(catalog_id: Optional[str] = None,
                       transaction_id: Optional[int] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCatalogTableResult:
     """
-    Use this data source to access information about an existing resource.
+    This data source can be used to fetch information about an AWS Glue Data Catalog Table.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.glue.get_catalog_table(database_name="MyCatalogDatabase",
+        name="MyCatalogTable")
+    ```
+
+
+    :param str catalog_id: ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
+    :param str database_name: Name of the metadata database where the table metadata resides.
+    :param str name: Name of the table.
+    :param str query_as_of_time: The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transaction_id`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+    :param int transaction_id: The transaction ID at which to read the table contents.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id
@@ -245,6 +307,23 @@ def get_catalog_table_output(catalog_id: Optional[pulumi.Input[Optional[str]]] =
                              transaction_id: Optional[pulumi.Input[Optional[int]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCatalogTableResult]:
     """
-    Use this data source to access information about an existing resource.
+    This data source can be used to fetch information about an AWS Glue Data Catalog Table.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.glue.get_catalog_table(database_name="MyCatalogDatabase",
+        name="MyCatalogTable")
+    ```
+
+
+    :param str catalog_id: ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
+    :param str database_name: Name of the metadata database where the table metadata resides.
+    :param str name: Name of the table.
+    :param str query_as_of_time: The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transaction_id`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+    :param int transaction_id: The transaction ID at which to read the table contents.
     """
     ...

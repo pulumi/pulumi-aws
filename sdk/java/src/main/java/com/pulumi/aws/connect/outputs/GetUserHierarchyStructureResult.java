@@ -11,6 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserHierarchyStructureResult {
+    /**
+     * @return Block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
+     * 
+     */
     private List<GetUserHierarchyStructureHierarchyStructure> hierarchyStructures;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -20,6 +24,10 @@ public final class GetUserHierarchyStructureResult {
     private String instanceId;
 
     private GetUserHierarchyStructureResult() {}
+    /**
+     * @return Block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
+     * 
+     */
     public List<GetUserHierarchyStructureHierarchyStructure> hierarchyStructures() {
         return this.hierarchyStructures;
     }

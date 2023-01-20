@@ -4,6 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 15.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lakeformation.LfTag("example", {
+ *     key: "module",
+ *     values: [
+ *         "Orders",
+ *         "Sales",
+ *         "Customers",
+ *     ],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Lake Formation LF-Tags can be imported using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
+ * ```
+ */
 export class LfTag extends pulumi.CustomResource {
     /**
      * Get an existing LfTag resource's state with the given name, ID, and optional extra
@@ -32,8 +59,17 @@ export class LfTag extends pulumi.CustomResource {
         return obj['__pulumiType'] === LfTag.__pulumiType;
     }
 
+    /**
+     * ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
+     */
     public readonly catalogId!: pulumi.Output<string>;
+    /**
+     * Key-name for the tag.
+     */
     public readonly key!: pulumi.Output<string>;
+    /**
+     * List of possible values an attribute can take.
+     */
     public readonly values!: pulumi.Output<string[]>;
 
     /**
@@ -73,8 +109,17 @@ export class LfTag extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LfTag resources.
  */
 export interface LfTagState {
+    /**
+     * ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
+     */
     catalogId?: pulumi.Input<string>;
+    /**
+     * Key-name for the tag.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * List of possible values an attribute can take.
+     */
     values?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -82,7 +127,16 @@ export interface LfTagState {
  * The set of arguments for constructing a LfTag resource.
  */
 export interface LfTagArgs {
+    /**
+     * ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
+     */
     catalogId?: pulumi.Input<string>;
+    /**
+     * Key-name for the tag.
+     */
     key: pulumi.Input<string>;
+    /**
+     * List of possible values an attribute can take.
+     */
     values: pulumi.Input<pulumi.Input<string>[]>;
 }

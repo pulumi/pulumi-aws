@@ -7,6 +7,46 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Enable origination settings to control inbound calling to your SIP infrastructure.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
+ * const defaultVoiceConnectorOrganization = new aws.chime.VoiceConnectorOrganization("defaultVoiceConnectorOrganization", {
+ *     disabled: false,
+ *     voiceConnectorId: defaultVoiceConnector.id,
+ *     routes: [
+ *         {
+ *             host: "127.0.0.1",
+ *             port: 8081,
+ *             protocol: "TCP",
+ *             priority: 1,
+ *             weight: 1,
+ *         },
+ *         {
+ *             host: "127.0.0.2",
+ *             port: 8082,
+ *             protocol: "TCP",
+ *             priority: 2,
+ *             weight: 10,
+ *         },
+ *     ],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Chime Voice Connector Origination can be imported using the `voice_connector_id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4
+ * ```
+ */
 export class VoiceConnectorOrganization extends pulumi.CustomResource {
     /**
      * Get an existing VoiceConnectorOrganization resource's state with the given name, ID, and optional extra
@@ -35,8 +75,17 @@ export class VoiceConnectorOrganization extends pulumi.CustomResource {
         return obj['__pulumiType'] === VoiceConnectorOrganization.__pulumiType;
     }
 
+    /**
+     * When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
+     */
     public readonly disabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
+     */
     public readonly routes!: pulumi.Output<outputs.chime.VoiceConnectorOrganizationRoute[]>;
+    /**
+     * The Amazon Chime Voice Connector ID.
+     */
     public readonly voiceConnectorId!: pulumi.Output<string>;
 
     /**
@@ -76,8 +125,17 @@ export class VoiceConnectorOrganization extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VoiceConnectorOrganization resources.
  */
 export interface VoiceConnectorOrganizationState {
+    /**
+     * When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
+     */
     disabled?: pulumi.Input<boolean>;
+    /**
+     * Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
+     */
     routes?: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorOrganizationRoute>[]>;
+    /**
+     * The Amazon Chime Voice Connector ID.
+     */
     voiceConnectorId?: pulumi.Input<string>;
 }
 
@@ -85,7 +143,16 @@ export interface VoiceConnectorOrganizationState {
  * The set of arguments for constructing a VoiceConnectorOrganization resource.
  */
 export interface VoiceConnectorOrganizationArgs {
+    /**
+     * When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
+     */
     disabled?: pulumi.Input<boolean>;
+    /**
+     * Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
+     */
     routes: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorOrganizationRoute>[]>;
+    /**
+     * The Amazon Chime Voice Connector ID.
+     */
     voiceConnectorId: pulumi.Input<string>;
 }

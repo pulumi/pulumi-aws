@@ -17,12 +17,16 @@ class GlobalSettingsArgs:
                  global_settings: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         """
         The set of arguments for constructing a GlobalSettings resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] global_settings: A list of resources along with the opt-in preferences for the account.
         """
         pulumi.set(__self__, "global_settings", global_settings)
 
     @property
     @pulumi.getter(name="globalSettings")
     def global_settings(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        A list of resources along with the opt-in preferences for the account.
+        """
         return pulumi.get(self, "global_settings")
 
     @global_settings.setter
@@ -36,6 +40,7 @@ class _GlobalSettingsState:
                  global_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering GlobalSettings resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] global_settings: A list of resources along with the opt-in preferences for the account.
         """
         if global_settings is not None:
             pulumi.set(__self__, "global_settings", global_settings)
@@ -43,6 +48,9 @@ class _GlobalSettingsState:
     @property
     @pulumi.getter(name="globalSettings")
     def global_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A list of resources along with the opt-in preferences for the account.
+        """
         return pulumi.get(self, "global_settings")
 
     @global_settings.setter
@@ -58,9 +66,30 @@ class GlobalSettings(pulumi.CustomResource):
                  global_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a GlobalSettings resource with the given unique name, props, and options.
+        Provides an AWS Backup Global Settings resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.backup.GlobalSettings("test", global_settings={
+            "isCrossAccountBackupEnabled": "true",
+        })
+        ```
+
+        ## Import
+
+        Backup Global Settings can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] global_settings: A list of resources along with the opt-in preferences for the account.
         """
         ...
     @overload
@@ -69,7 +98,27 @@ class GlobalSettings(pulumi.CustomResource):
                  args: GlobalSettingsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a GlobalSettings resource with the given unique name, props, and options.
+        Provides an AWS Backup Global Settings resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.backup.GlobalSettings("test", global_settings={
+            "isCrossAccountBackupEnabled": "true",
+        })
+        ```
+
+        ## Import
+
+        Backup Global Settings can be imported using the `id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param GlobalSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,6 +165,7 @@ class GlobalSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] global_settings: A list of resources along with the opt-in preferences for the account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -127,5 +177,8 @@ class GlobalSettings(pulumi.CustomResource):
     @property
     @pulumi.getter(name="globalSettings")
     def global_settings(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A list of resources along with the opt-in preferences for the account.
+        """
         return pulumi.get(self, "global_settings")
 

@@ -11,12 +11,62 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Route 53 Resolver config resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//				CidrBlock:          pulumi.String("10.0.0.0/16"),
+//				EnableDnsSupport:   pulumi.Bool(true),
+//				EnableDnsHostnames: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewResolverConfig(ctx, "exampleResolverConfig", &route53.ResolverConfigArgs{
+//				ResourceId:             exampleVpc.ID(),
+//				AutodefinedReverseFlag: pulumi.String("DISABLE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Route 53 Resolver configs can be imported using the Route 53 Resolver config ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:route53/resolverConfig:ResolverConfig example rslvr-rc-715aa20c73a23da7
+//
+// ```
 type ResolverConfig struct {
 	pulumi.CustomResourceState
 
+	// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
 	AutodefinedReverseFlag pulumi.StringOutput `pulumi:"autodefinedReverseFlag"`
-	OwnerId                pulumi.StringOutput `pulumi:"ownerId"`
-	ResourceId             pulumi.StringOutput `pulumi:"resourceId"`
+	// The AWS account ID of the owner of the VPC that this resolver configuration applies to.
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// The ID of the VPC that the configuration is for.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 }
 
 // NewResolverConfig registers a new resource with the given unique name, arguments, and options.
@@ -54,15 +104,21 @@ func GetResolverConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverConfig resources.
 type resolverConfigState struct {
+	// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
 	AutodefinedReverseFlag *string `pulumi:"autodefinedReverseFlag"`
-	OwnerId                *string `pulumi:"ownerId"`
-	ResourceId             *string `pulumi:"resourceId"`
+	// The AWS account ID of the owner of the VPC that this resolver configuration applies to.
+	OwnerId *string `pulumi:"ownerId"`
+	// The ID of the VPC that the configuration is for.
+	ResourceId *string `pulumi:"resourceId"`
 }
 
 type ResolverConfigState struct {
+	// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
 	AutodefinedReverseFlag pulumi.StringPtrInput
-	OwnerId                pulumi.StringPtrInput
-	ResourceId             pulumi.StringPtrInput
+	// The AWS account ID of the owner of the VPC that this resolver configuration applies to.
+	OwnerId pulumi.StringPtrInput
+	// The ID of the VPC that the configuration is for.
+	ResourceId pulumi.StringPtrInput
 }
 
 func (ResolverConfigState) ElementType() reflect.Type {
@@ -70,14 +126,18 @@ func (ResolverConfigState) ElementType() reflect.Type {
 }
 
 type resolverConfigArgs struct {
+	// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
 	AutodefinedReverseFlag string `pulumi:"autodefinedReverseFlag"`
-	ResourceId             string `pulumi:"resourceId"`
+	// The ID of the VPC that the configuration is for.
+	ResourceId string `pulumi:"resourceId"`
 }
 
 // The set of arguments for constructing a ResolverConfig resource.
 type ResolverConfigArgs struct {
+	// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
 	AutodefinedReverseFlag pulumi.StringInput
-	ResourceId             pulumi.StringInput
+	// The ID of the VPC that the configuration is for.
+	ResourceId pulumi.StringInput
 }
 
 func (ResolverConfigArgs) ElementType() reflect.Type {
@@ -167,14 +227,17 @@ func (o ResolverConfigOutput) ToResolverConfigOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
 func (o ResolverConfigOutput) AutodefinedReverseFlag() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverConfig) pulumi.StringOutput { return v.AutodefinedReverseFlag }).(pulumi.StringOutput)
 }
 
+// The AWS account ID of the owner of the VPC that this resolver configuration applies to.
 func (o ResolverConfigOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverConfig) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
+// The ID of the VPC that the configuration is for.
 func (o ResolverConfigOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverConfig) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }

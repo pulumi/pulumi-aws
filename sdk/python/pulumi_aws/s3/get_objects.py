@@ -64,6 +64,9 @@ class GetObjectsResult:
     @property
     @pulumi.getter(name="commonPrefixes")
     def common_prefixes(self) -> Sequence[str]:
+        """
+        List of any keys between `prefix` and the next occurrence of `delimiter` (i.e., similar to subdirectories of the `prefix` "directory"); the list is only returned when you specify `delimiter`
+        """
         return pulumi.get(self, "common_prefixes")
 
     @property
@@ -92,6 +95,9 @@ class GetObjectsResult:
     @property
     @pulumi.getter
     def keys(self) -> Sequence[str]:
+        """
+        List of strings representing object keys
+        """
         return pulumi.get(self, "keys")
 
     @property
@@ -102,6 +108,9 @@ class GetObjectsResult:
     @property
     @pulumi.getter
     def owners(self) -> Sequence[str]:
+        """
+        List of strings representing object owner IDs (see `fetch_owner` above)
+        """
         return pulumi.get(self, "owners")
 
     @property
@@ -143,7 +152,18 @@ def get_objects(bucket: Optional[str] = None,
                 start_after: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetObjectsResult:
     """
-    Use this data source to access information about an existing resource.
+    > **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
+
+    The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+
+
+    :param str bucket: Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+    :param str delimiter: Character used to group keys (Default: none)
+    :param str encoding_type: Encodes keys using this method (Default: none; besides none, only "url" can be used)
+    :param bool fetch_owner: Boolean specifying whether to populate the owner list (Default: false)
+    :param int max_keys: Maximum object keys to return (Default: 1000)
+    :param str prefix: Limits results to object keys with this prefix (Default: none)
+    :param str start_after: Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
     """
     __args__ = dict()
     __args__['bucket'] = bucket
@@ -180,6 +200,17 @@ def get_objects_output(bucket: Optional[pulumi.Input[str]] = None,
                        start_after: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetObjectsResult]:
     """
-    Use this data source to access information about an existing resource.
+    > **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
+
+    The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+
+
+    :param str bucket: Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+    :param str delimiter: Character used to group keys (Default: none)
+    :param str encoding_type: Encodes keys using this method (Default: none; besides none, only "url" can be used)
+    :param bool fetch_owner: Boolean specifying whether to populate the owner list (Default: false)
+    :param int max_keys: Maximum object keys to return (Default: 1000)
+    :param str prefix: Limits results to object keys with this prefix (Default: none)
+    :param str start_after: Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
     """
     ...

@@ -11,19 +11,155 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a CodeArtifact Repository Resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codeartifact"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//				Description: pulumi.String("domain key"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDomain, err := codeartifact.NewDomain(ctx, "exampleDomain", &codeartifact.DomainArgs{
+//				Domain:        pulumi.String("example"),
+//				EncryptionKey: exampleKey.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codeartifact.NewRepository(ctx, "test", &codeartifact.RepositoryArgs{
+//				Repository: pulumi.String("example"),
+//				Domain:     exampleDomain.Domain,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With Upstream Repository
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codeartifact"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			upstream, err := codeartifact.NewRepository(ctx, "upstream", &codeartifact.RepositoryArgs{
+//				Repository: pulumi.String("upstream"),
+//				Domain:     pulumi.Any(aws_codeartifact_domain.Test.Domain),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codeartifact.NewRepository(ctx, "test", &codeartifact.RepositoryArgs{
+//				Repository: pulumi.String("example"),
+//				Domain:     pulumi.Any(aws_codeartifact_domain.Example.Domain),
+//				Upstreams: codeartifact.RepositoryUpstreamArray{
+//					&codeartifact.RepositoryUpstreamArgs{
+//						RepositoryName: upstream.Repository,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With External Connection
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codeartifact"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := codeartifact.NewRepository(ctx, "upstream", &codeartifact.RepositoryArgs{
+//				Repository: pulumi.String("upstream"),
+//				Domain:     pulumi.Any(aws_codeartifact_domain.Test.Domain),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codeartifact.NewRepository(ctx, "test", &codeartifact.RepositoryArgs{
+//				Repository: pulumi.String("example"),
+//				Domain:     pulumi.Any(aws_codeartifact_domain.Example.Domain),
+//				ExternalConnections: &codeartifact.RepositoryExternalConnectionsArgs{
+//					ExternalConnectionName: pulumi.String("public:npmjs"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// CodeArtifact Repository can be imported using the CodeArtifact Repository ARN, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:codeartifact/repository:Repository example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
+//
+// ```
 type Repository struct {
 	pulumi.CustomResourceState
 
-	AdministratorAccount pulumi.StringOutput                    `pulumi:"administratorAccount"`
-	Arn                  pulumi.StringOutput                    `pulumi:"arn"`
-	Description          pulumi.StringPtrOutput                 `pulumi:"description"`
-	Domain               pulumi.StringOutput                    `pulumi:"domain"`
-	DomainOwner          pulumi.StringOutput                    `pulumi:"domainOwner"`
-	ExternalConnections  RepositoryExternalConnectionsPtrOutput `pulumi:"externalConnections"`
-	Repository           pulumi.StringOutput                    `pulumi:"repository"`
-	Tags                 pulumi.StringMapOutput                 `pulumi:"tags"`
-	TagsAll              pulumi.StringMapOutput                 `pulumi:"tagsAll"`
-	Upstreams            RepositoryUpstreamArrayOutput          `pulumi:"upstreams"`
+	// The account number of the AWS account that manages the repository.
+	AdministratorAccount pulumi.StringOutput `pulumi:"administratorAccount"`
+	// The ARN of the repository.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The description of the repository.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The domain that contains the created repository.
+	Domain pulumi.StringOutput `pulumi:"domain"`
+	// The account number of the AWS account that owns the domain.
+	DomainOwner pulumi.StringOutput `pulumi:"domainOwner"`
+	// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+	ExternalConnections RepositoryExternalConnectionsPtrOutput `pulumi:"externalConnections"`
+	// The name of the repository to create.
+	Repository pulumi.StringOutput `pulumi:"repository"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
+	Upstreams RepositoryUpstreamArrayOutput `pulumi:"upstreams"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
@@ -61,29 +197,49 @@ func GetRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Repository resources.
 type repositoryState struct {
-	AdministratorAccount *string                        `pulumi:"administratorAccount"`
-	Arn                  *string                        `pulumi:"arn"`
-	Description          *string                        `pulumi:"description"`
-	Domain               *string                        `pulumi:"domain"`
-	DomainOwner          *string                        `pulumi:"domainOwner"`
-	ExternalConnections  *RepositoryExternalConnections `pulumi:"externalConnections"`
-	Repository           *string                        `pulumi:"repository"`
-	Tags                 map[string]string              `pulumi:"tags"`
-	TagsAll              map[string]string              `pulumi:"tagsAll"`
-	Upstreams            []RepositoryUpstream           `pulumi:"upstreams"`
+	// The account number of the AWS account that manages the repository.
+	AdministratorAccount *string `pulumi:"administratorAccount"`
+	// The ARN of the repository.
+	Arn *string `pulumi:"arn"`
+	// The description of the repository.
+	Description *string `pulumi:"description"`
+	// The domain that contains the created repository.
+	Domain *string `pulumi:"domain"`
+	// The account number of the AWS account that owns the domain.
+	DomainOwner *string `pulumi:"domainOwner"`
+	// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+	ExternalConnections *RepositoryExternalConnections `pulumi:"externalConnections"`
+	// The name of the repository to create.
+	Repository *string `pulumi:"repository"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
+	Upstreams []RepositoryUpstream `pulumi:"upstreams"`
 }
 
 type RepositoryState struct {
+	// The account number of the AWS account that manages the repository.
 	AdministratorAccount pulumi.StringPtrInput
-	Arn                  pulumi.StringPtrInput
-	Description          pulumi.StringPtrInput
-	Domain               pulumi.StringPtrInput
-	DomainOwner          pulumi.StringPtrInput
-	ExternalConnections  RepositoryExternalConnectionsPtrInput
-	Repository           pulumi.StringPtrInput
-	Tags                 pulumi.StringMapInput
-	TagsAll              pulumi.StringMapInput
-	Upstreams            RepositoryUpstreamArrayInput
+	// The ARN of the repository.
+	Arn pulumi.StringPtrInput
+	// The description of the repository.
+	Description pulumi.StringPtrInput
+	// The domain that contains the created repository.
+	Domain pulumi.StringPtrInput
+	// The account number of the AWS account that owns the domain.
+	DomainOwner pulumi.StringPtrInput
+	// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+	ExternalConnections RepositoryExternalConnectionsPtrInput
+	// The name of the repository to create.
+	Repository pulumi.StringPtrInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
+	Upstreams RepositoryUpstreamArrayInput
 }
 
 func (RepositoryState) ElementType() reflect.Type {
@@ -91,24 +247,38 @@ func (RepositoryState) ElementType() reflect.Type {
 }
 
 type repositoryArgs struct {
-	Description         *string                        `pulumi:"description"`
-	Domain              string                         `pulumi:"domain"`
-	DomainOwner         *string                        `pulumi:"domainOwner"`
+	// The description of the repository.
+	Description *string `pulumi:"description"`
+	// The domain that contains the created repository.
+	Domain string `pulumi:"domain"`
+	// The account number of the AWS account that owns the domain.
+	DomainOwner *string `pulumi:"domainOwner"`
+	// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
 	ExternalConnections *RepositoryExternalConnections `pulumi:"externalConnections"`
-	Repository          string                         `pulumi:"repository"`
-	Tags                map[string]string              `pulumi:"tags"`
-	Upstreams           []RepositoryUpstream           `pulumi:"upstreams"`
+	// The name of the repository to create.
+	Repository string `pulumi:"repository"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
+	Upstreams []RepositoryUpstream `pulumi:"upstreams"`
 }
 
 // The set of arguments for constructing a Repository resource.
 type RepositoryArgs struct {
-	Description         pulumi.StringPtrInput
-	Domain              pulumi.StringInput
-	DomainOwner         pulumi.StringPtrInput
+	// The description of the repository.
+	Description pulumi.StringPtrInput
+	// The domain that contains the created repository.
+	Domain pulumi.StringInput
+	// The account number of the AWS account that owns the domain.
+	DomainOwner pulumi.StringPtrInput
+	// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
 	ExternalConnections RepositoryExternalConnectionsPtrInput
-	Repository          pulumi.StringInput
-	Tags                pulumi.StringMapInput
-	Upstreams           RepositoryUpstreamArrayInput
+	// The name of the repository to create.
+	Repository pulumi.StringInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
+	Upstreams RepositoryUpstreamArrayInput
 }
 
 func (RepositoryArgs) ElementType() reflect.Type {
@@ -198,42 +368,52 @@ func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) Rep
 	return o
 }
 
+// The account number of the AWS account that manages the repository.
 func (o RepositoryOutput) AdministratorAccount() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.AdministratorAccount }).(pulumi.StringOutput)
 }
 
+// The ARN of the repository.
 func (o RepositoryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The description of the repository.
 func (o RepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The domain that contains the created repository.
 func (o RepositoryOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
 }
 
+// The account number of the AWS account that owns the domain.
 func (o RepositoryOutput) DomainOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.DomainOwner }).(pulumi.StringOutput)
 }
 
+// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
 func (o RepositoryOutput) ExternalConnections() RepositoryExternalConnectionsPtrOutput {
 	return o.ApplyT(func(v *Repository) RepositoryExternalConnectionsPtrOutput { return v.ExternalConnections }).(RepositoryExternalConnectionsPtrOutput)
 }
 
+// The name of the repository to create.
 func (o RepositoryOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RepositoryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RepositoryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
 func (o RepositoryOutput) Upstreams() RepositoryUpstreamArrayOutput {
 	return o.ApplyT(func(v *Repository) RepositoryUpstreamArrayOutput { return v.Upstreams }).(RepositoryUpstreamArrayOutput)
 }

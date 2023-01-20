@@ -13,23 +13,47 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ResourceArgs Empty = new ResourceArgs();
 
+    /**
+     * ID of the parent API resource
+     * 
+     */
     @Import(name="parentId", required=true)
     private Output<String> parentId;
 
+    /**
+     * @return ID of the parent API resource
+     * 
+     */
     public Output<String> parentId() {
         return this.parentId;
     }
 
+    /**
+     * Last path segment of this API resource.
+     * 
+     */
     @Import(name="pathPart", required=true)
     private Output<String> pathPart;
 
+    /**
+     * @return Last path segment of this API resource.
+     * 
+     */
     public Output<String> pathPart() {
         return this.pathPart;
     }
 
+    /**
+     * ID of the associated REST API
+     * 
+     */
     @Import(name="restApi", required=true)
     private Output<String> restApi;
 
+    /**
+     * @return ID of the associated REST API
+     * 
+     */
     public Output<String> restApi() {
         return this.restApi;
     }
@@ -60,29 +84,65 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ResourceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param parentId ID of the parent API resource
+         * 
+         * @return builder
+         * 
+         */
         public Builder parentId(Output<String> parentId) {
             $.parentId = parentId;
             return this;
         }
 
+        /**
+         * @param parentId ID of the parent API resource
+         * 
+         * @return builder
+         * 
+         */
         public Builder parentId(String parentId) {
             return parentId(Output.of(parentId));
         }
 
+        /**
+         * @param pathPart Last path segment of this API resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pathPart(Output<String> pathPart) {
             $.pathPart = pathPart;
             return this;
         }
 
+        /**
+         * @param pathPart Last path segment of this API resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pathPart(String pathPart) {
             return pathPart(Output.of(pathPart));
         }
 
+        /**
+         * @param restApi ID of the associated REST API
+         * 
+         * @return builder
+         * 
+         */
         public Builder restApi(Output<String> restApi) {
             $.restApi = restApi;
             return this;
         }
 
+        /**
+         * @param restApi ID of the associated REST API
+         * 
+         * @return builder
+         * 
+         */
         public Builder restApi(String restApi) {
             return restApi(Output.of(restApi));
         }

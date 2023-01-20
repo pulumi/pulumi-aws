@@ -4,6 +4,30 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an EC2 Local Gateway Route. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2.LocalGatewayRoute("example", {
+ *     destinationCidrBlock: "172.16.0.0/16",
+ *     localGatewayRouteTableId: data.aws_ec2_local_gateway_route_table.example.id,
+ *     localGatewayVirtualInterfaceGroupId: data.aws_ec2_local_gateway_virtual_interface_group.example.id,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_ec2_local_gateway_route` can be imported by using the EC2 Local Gateway Route Table identifier and destination CIDR block separated by underscores (`_`), e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16
+ * ```
+ */
 export class LocalGatewayRoute extends pulumi.CustomResource {
     /**
      * Get an existing LocalGatewayRoute resource's state with the given name, ID, and optional extra
@@ -32,8 +56,17 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
         return obj['__pulumiType'] === LocalGatewayRoute.__pulumiType;
     }
 
+    /**
+     * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+     */
     public readonly destinationCidrBlock!: pulumi.Output<string>;
+    /**
+     * Identifier of EC2 Local Gateway Route Table.
+     */
     public readonly localGatewayRouteTableId!: pulumi.Output<string>;
+    /**
+     * Identifier of EC2 Local Gateway Virtual Interface Group.
+     */
     public readonly localGatewayVirtualInterfaceGroupId!: pulumi.Output<string>;
 
     /**
@@ -76,8 +109,17 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LocalGatewayRoute resources.
  */
 export interface LocalGatewayRouteState {
+    /**
+     * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+     */
     destinationCidrBlock?: pulumi.Input<string>;
+    /**
+     * Identifier of EC2 Local Gateway Route Table.
+     */
     localGatewayRouteTableId?: pulumi.Input<string>;
+    /**
+     * Identifier of EC2 Local Gateway Virtual Interface Group.
+     */
     localGatewayVirtualInterfaceGroupId?: pulumi.Input<string>;
 }
 
@@ -85,7 +127,16 @@ export interface LocalGatewayRouteState {
  * The set of arguments for constructing a LocalGatewayRoute resource.
  */
 export interface LocalGatewayRouteArgs {
+    /**
+     * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+     */
     destinationCidrBlock: pulumi.Input<string>;
+    /**
+     * Identifier of EC2 Local Gateway Route Table.
+     */
     localGatewayRouteTableId: pulumi.Input<string>;
+    /**
+     * Identifier of EC2 Local Gateway Virtual Interface Group.
+     */
     localGatewayVirtualInterfaceGroupId: pulumi.Input<string>;
 }

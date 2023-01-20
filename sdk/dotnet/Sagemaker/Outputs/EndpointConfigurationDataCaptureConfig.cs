@@ -13,11 +13,29 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class EndpointConfigurationDataCaptureConfig
     {
+        /// <summary>
+        /// The content type headers to capture. Fields are documented below.
+        /// </summary>
         public readonly Outputs.EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader? CaptureContentTypeHeader;
+        /// <summary>
+        /// Specifies what data to capture. Fields are documented below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EndpointConfigurationDataCaptureConfigCaptureOption> CaptureOptions;
+        /// <summary>
+        /// The URL for S3 location where the captured data is stored.
+        /// </summary>
         public readonly string DestinationS3Uri;
+        /// <summary>
+        /// Flag to enable data capture. Defaults to `false`.
+        /// </summary>
         public readonly bool? EnableCapture;
+        /// <summary>
+        /// Portion of data to capture. Should be between 0 and 100.
+        /// </summary>
         public readonly int InitialSamplingPercentage;
+        /// <summary>
+        /// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+        /// </summary>
         public readonly string? KmsKeyId;
 
         [OutputConstructor]

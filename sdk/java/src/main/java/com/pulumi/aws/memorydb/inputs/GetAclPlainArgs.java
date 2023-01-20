@@ -15,16 +15,32 @@ public final class GetAclPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAclPlainArgs Empty = new GetAclPlainArgs();
 
+    /**
+     * Name of the ACL.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return Name of the ACL.
+     * 
+     */
     public String name() {
         return this.name;
     }
 
+    /**
+     * Map of tags assigned to the ACL.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return Map of tags assigned to the ACL.
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -54,11 +70,23 @@ public final class GetAclPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetAclPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the ACL.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param tags Map of tags assigned to the ACL.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

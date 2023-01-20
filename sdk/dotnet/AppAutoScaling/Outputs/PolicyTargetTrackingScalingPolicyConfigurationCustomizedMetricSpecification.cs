@@ -13,10 +13,25 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
     [OutputType]
     public sealed class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
     {
+        /// <summary>
+        /// Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> Dimensions;
+        /// <summary>
+        /// Name of the metric.
+        /// </summary>
         public readonly string MetricName;
+        /// <summary>
+        /// Namespace of the metric.
+        /// </summary>
         public readonly string Namespace;
+        /// <summary>
+        /// Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+        /// </summary>
         public readonly string Statistic;
+        /// <summary>
+        /// Unit of the metric.
+        /// </summary>
         public readonly string? Unit;
 
         [OutputConstructor]

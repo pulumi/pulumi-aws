@@ -13,9 +13,17 @@ public final class SigningJobSourceArgs extends com.pulumi.resources.ResourceArg
 
     public static final SigningJobSourceArgs Empty = new SigningJobSourceArgs();
 
+    /**
+     * A configuration block describing the S3 Source object: See S3 Source below for details.
+     * 
+     */
     @Import(name="s3", required=true)
     private Output<SigningJobSourceS3Args> s3;
 
+    /**
+     * @return A configuration block describing the S3 Source object: See S3 Source below for details.
+     * 
+     */
     public Output<SigningJobSourceS3Args> s3() {
         return this.s3;
     }
@@ -44,11 +52,23 @@ public final class SigningJobSourceArgs extends com.pulumi.resources.ResourceArg
             $ = new SigningJobSourceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param s3 A configuration block describing the S3 Source object: See S3 Source below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3(Output<SigningJobSourceS3Args> s3) {
             $.s3 = s3;
             return this;
         }
 
+        /**
+         * @param s3 A configuration block describing the S3 Source object: See S3 Source below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3(SigningJobSourceS3Args s3) {
             return s3(Output.of(s3));
         }

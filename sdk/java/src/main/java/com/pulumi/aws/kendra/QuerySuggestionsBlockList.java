@@ -16,47 +16,153 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Resource for managing an AWS Kendra block list used for query suggestions for an index.
+ * 
+ * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kendra.QuerySuggestionsBlockList;
+ * import com.pulumi.aws.kendra.QuerySuggestionsBlockListArgs;
+ * import com.pulumi.aws.kendra.inputs.QuerySuggestionsBlockListSourceS3PathArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new QuerySuggestionsBlockList(&#34;example&#34;, QuerySuggestionsBlockListArgs.builder()        
+ *             .indexId(aws_kendra_index.example().id())
+ *             .roleArn(aws_iam_role.example().arn())
+ *             .sourceS3Path(QuerySuggestionsBlockListSourceS3PathArgs.builder()
+ *                 .bucket(aws_s3_bucket.example().id())
+ *                 .key(&#34;example/suggestions.txt&#34;)
+ *                 .build())
+ *             .tags(Map.of(&#34;Name&#34;, &#34;Example Kendra Index&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_kendra_query_suggestions_block_list` can be imported using the unique identifiers of the block list and index separated by a slash (`/`), e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
+ * ```
+ * 
+ */
 @ResourceType(type="aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList")
 public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the block list.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the block list.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The description for a block list.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The description for a block list.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The identifier of the index for a block list.
+     * 
+     */
     @Export(name="indexId", refs={String.class}, tree="[0]")
     private Output<String> indexId;
 
+    /**
+     * @return The identifier of the index for a block list.
+     * 
+     */
     public Output<String> indexId() {
         return this.indexId;
     }
+    /**
+     * The name for the block list.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name for the block list.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The unique indentifier of the block list.
+     * 
+     */
     @Export(name="querySuggestionsBlockListId", refs={String.class}, tree="[0]")
     private Output<String> querySuggestionsBlockListId;
 
+    /**
+     * @return The unique indentifier of the block list.
+     * 
+     */
     public Output<String> querySuggestionsBlockListId() {
         return this.querySuggestionsBlockListId;
     }
+    /**
+     * The IAM (Identity and Access Management) role used to access the block list text file in S3.
+     * 
+     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
+    /**
+     * @return The IAM (Identity and Access Management) role used to access the block list text file in S3.
+     * 
+     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
+    /**
+     * The S3 path where your block list text file sits in S3. Detailed below.
+     * 
+     */
     @Export(name="sourceS3Path", refs={QuerySuggestionsBlockListSourceS3Path.class}, tree="[0]")
     private Output<QuerySuggestionsBlockListSourceS3Path> sourceS3Path;
 
+    /**
+     * @return The S3 path where your block list text file sits in S3. Detailed below.
+     * 
+     */
     public Output<QuerySuggestionsBlockListSourceS3Path> sourceS3Path() {
         return this.sourceS3Path;
     }
@@ -66,15 +172,31 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
     public Output<String> status() {
         return this.status;
     }
+    /**
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

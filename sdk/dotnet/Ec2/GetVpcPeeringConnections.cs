@@ -11,9 +11,23 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetVpcPeeringConnections
     {
+        /// <summary>
+        /// Use this data source to get IDs of Amazon VPC peering connections
+        /// To get more details on each connection, use the data resource aws.ec2.VpcPeeringConnection
+        /// 
+        /// Note: To use this data source in a count, the resources should exist before trying to access
+        /// the data source.
+        /// </summary>
         public static Task<GetVpcPeeringConnectionsResult> InvokeAsync(GetVpcPeeringConnectionsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcPeeringConnectionsResult>("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", args ?? new GetVpcPeeringConnectionsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to get IDs of Amazon VPC peering connections
+        /// To get more details on each connection, use the data resource aws.ec2.VpcPeeringConnection
+        /// 
+        /// Note: To use this data source in a count, the resources should exist before trying to access
+        /// the data source.
+        /// </summary>
         public static Output<GetVpcPeeringConnectionsResult> Invoke(GetVpcPeeringConnectionsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcPeeringConnectionsResult>("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", args ?? new GetVpcPeeringConnectionsInvokeArgs(), options.WithDefaults());
     }
@@ -23,6 +37,10 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetVpcPeeringConnectionsFilterArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
         public List<Inputs.GetVpcPeeringConnectionsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetVpcPeeringConnectionsFilterArgs>());
@@ -31,6 +49,11 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Mapping of tags, each pair of which must exactly match
+        /// a pair on the desired VPC Peering Connection.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -47,6 +70,10 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetVpcPeeringConnectionsFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
         public InputList<Inputs.GetVpcPeeringConnectionsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetVpcPeeringConnectionsFilterInputArgs>());
@@ -55,6 +82,11 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Mapping of tags, each pair of which must exactly match
+        /// a pair on the desired VPC Peering Connection.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -76,6 +108,9 @@ namespace Pulumi.Aws.Ec2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// IDs of the VPC Peering Connections.
+        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, string> Tags;
 

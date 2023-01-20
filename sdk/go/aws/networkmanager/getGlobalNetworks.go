@@ -10,6 +10,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieve information about global networks.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkmanager.GetGlobalNetworks(ctx, &networkmanager.GetGlobalNetworksArgs{
+//				Tags: map[string]interface{}{
+//					"Env": "test",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetGlobalNetworks(ctx *pulumi.Context, args *GetGlobalNetworksArgs, opts ...pulumi.InvokeOption) (*GetGlobalNetworksResult, error) {
 	var rv GetGlobalNetworksResult
 	err := ctx.Invoke("aws:networkmanager/getGlobalNetworks:getGlobalNetworks", args, &rv, opts...)
@@ -21,13 +50,15 @@ func GetGlobalNetworks(ctx *pulumi.Context, args *GetGlobalNetworksArgs, opts ..
 
 // A collection of arguments for invoking getGlobalNetworks.
 type GetGlobalNetworksArgs struct {
+	// Restricts the list to the global networks with these tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getGlobalNetworks.
 type GetGlobalNetworksResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id   string            `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// IDs of the global networks.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -47,6 +78,7 @@ func GetGlobalNetworksOutput(ctx *pulumi.Context, args GetGlobalNetworksOutputAr
 
 // A collection of arguments for invoking getGlobalNetworks.
 type GetGlobalNetworksOutputArgs struct {
+	// Restricts the list to the global networks with these tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -74,6 +106,7 @@ func (o GetGlobalNetworksResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGlobalNetworksResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// IDs of the global networks.
 func (o GetGlobalNetworksResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetGlobalNetworksResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

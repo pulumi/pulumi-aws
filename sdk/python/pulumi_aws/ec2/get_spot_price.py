@@ -69,11 +69,17 @@ class GetSpotPriceResult:
     @property
     @pulumi.getter(name="spotPrice")
     def spot_price(self) -> str:
+        """
+        Most recent Spot Price value for the given instance type and AZ.
+        """
         return pulumi.get(self, "spot_price")
 
     @property
     @pulumi.getter(name="spotPriceTimestamp")
     def spot_price_timestamp(self) -> str:
+        """
+        The timestamp at which the Spot Price value was published.
+        """
         return pulumi.get(self, "spot_price_timestamp")
 
 
@@ -96,7 +102,26 @@ def get_spot_price(availability_zone: Optional[str] = None,
                    instance_type: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpotPriceResult:
     """
-    Use this data source to access information about an existing resource.
+    Information about most recent Spot Price for a given EC2 instance.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2.get_spot_price(availability_zone="us-west-2a",
+        filters=[aws.ec2.GetSpotPriceFilterArgs(
+            name="product-description",
+            values=["Linux/UNIX"],
+        )],
+        instance_type="t3.medium")
+    ```
+
+
+    :param str availability_zone: Availability zone in which to query Spot price information.
+    :param Sequence[pulumi.InputType['GetSpotPriceFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
+    :param str instance_type: Type of instance for which to query Spot Price information.
     """
     __args__ = dict()
     __args__['availabilityZone'] = availability_zone
@@ -120,6 +145,25 @@ def get_spot_price_output(availability_zone: Optional[pulumi.Input[Optional[str]
                           instance_type: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpotPriceResult]:
     """
-    Use this data source to access information about an existing resource.
+    Information about most recent Spot Price for a given EC2 instance.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2.get_spot_price(availability_zone="us-west-2a",
+        filters=[aws.ec2.GetSpotPriceFilterArgs(
+            name="product-description",
+            values=["Linux/UNIX"],
+        )],
+        instance_type="t3.medium")
+    ```
+
+
+    :param str availability_zone: Availability zone in which to query Spot price information.
+    :param Sequence[pulumi.InputType['GetSpotPriceFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
+    :param str instance_type: Type of instance for which to query Spot Price information.
     """
     ...

@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ClusterOutpostConfigControlPlanePlacement {
+    /**
+     * @return The name of the placement group for the Kubernetes control plane instances. This setting can&#39;t be changed after cluster creation.
+     * 
+     */
     private String groupName;
 
     private ClusterOutpostConfigControlPlanePlacement() {}
+    /**
+     * @return The name of the placement group for the Kubernetes control plane instances. This setting can&#39;t be changed after cluster creation.
+     * 
+     */
     public String groupName() {
         return this.groupName;
     }

@@ -15,23 +15,47 @@ public final class ResolverConfigState extends com.pulumi.resources.ResourceArgs
 
     public static final ResolverConfigState Empty = new ResolverConfigState();
 
+    /**
+     * Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
+     * 
+     */
     @Import(name="autodefinedReverseFlag")
     private @Nullable Output<String> autodefinedReverseFlag;
 
+    /**
+     * @return Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
+     * 
+     */
     public Optional<Output<String>> autodefinedReverseFlag() {
         return Optional.ofNullable(this.autodefinedReverseFlag);
     }
 
+    /**
+     * The AWS account ID of the owner of the VPC that this resolver configuration applies to.
+     * 
+     */
     @Import(name="ownerId")
     private @Nullable Output<String> ownerId;
 
+    /**
+     * @return The AWS account ID of the owner of the VPC that this resolver configuration applies to.
+     * 
+     */
     public Optional<Output<String>> ownerId() {
         return Optional.ofNullable(this.ownerId);
     }
 
+    /**
+     * The ID of the VPC that the configuration is for.
+     * 
+     */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
+    /**
+     * @return The ID of the VPC that the configuration is for.
+     * 
+     */
     public Optional<Output<String>> resourceId() {
         return Optional.ofNullable(this.resourceId);
     }
@@ -62,29 +86,65 @@ public final class ResolverConfigState extends com.pulumi.resources.ResourceArgs
             $ = new ResolverConfigState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param autodefinedReverseFlag Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autodefinedReverseFlag(@Nullable Output<String> autodefinedReverseFlag) {
             $.autodefinedReverseFlag = autodefinedReverseFlag;
             return this;
         }
 
+        /**
+         * @param autodefinedReverseFlag Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autodefinedReverseFlag(String autodefinedReverseFlag) {
             return autodefinedReverseFlag(Output.of(autodefinedReverseFlag));
         }
 
+        /**
+         * @param ownerId The AWS account ID of the owner of the VPC that this resolver configuration applies to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ownerId(@Nullable Output<String> ownerId) {
             $.ownerId = ownerId;
             return this;
         }
 
+        /**
+         * @param ownerId The AWS account ID of the owner of the VPC that this resolver configuration applies to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ownerId(String ownerId) {
             return ownerId(Output.of(ownerId));
         }
 
+        /**
+         * @param resourceId The ID of the VPC that the configuration is for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceId(@Nullable Output<String> resourceId) {
             $.resourceId = resourceId;
             return this;
         }
 
+        /**
+         * @param resourceId The ID of the VPC that the configuration is for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
         }

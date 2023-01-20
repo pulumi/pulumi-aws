@@ -15,16 +15,36 @@ public final class S3BucketAssociationClassificationTypeArgs extends com.pulumi.
 
     public static final S3BucketAssociationClassificationTypeArgs Empty = new S3BucketAssociationClassificationTypeArgs();
 
+    /**
+     * A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
+     * The only valid value is the default value, `FULL`.
+     * 
+     */
     @Import(name="continuous")
     private @Nullable Output<String> continuous;
 
+    /**
+     * @return A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
+     * The only valid value is the default value, `FULL`.
+     * 
+     */
     public Optional<Output<String>> continuous() {
         return Optional.ofNullable(this.continuous);
     }
 
+    /**
+     * A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
+     * Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
+     * 
+     */
     @Import(name="oneTime")
     private @Nullable Output<String> oneTime;
 
+    /**
+     * @return A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
+     * Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
+     * 
+     */
     public Optional<Output<String>> oneTime() {
         return Optional.ofNullable(this.oneTime);
     }
@@ -54,20 +74,48 @@ public final class S3BucketAssociationClassificationTypeArgs extends com.pulumi.
             $ = new S3BucketAssociationClassificationTypeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param continuous A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
+         * The only valid value is the default value, `FULL`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder continuous(@Nullable Output<String> continuous) {
             $.continuous = continuous;
             return this;
         }
 
+        /**
+         * @param continuous A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
+         * The only valid value is the default value, `FULL`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder continuous(String continuous) {
             return continuous(Output.of(continuous));
         }
 
+        /**
+         * @param oneTime A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
+         * Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oneTime(@Nullable Output<String> oneTime) {
             $.oneTime = oneTime;
             return this;
         }
 
+        /**
+         * @param oneTime A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
+         * Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oneTime(String oneTime) {
             return oneTime(Output.of(oneTime));
         }

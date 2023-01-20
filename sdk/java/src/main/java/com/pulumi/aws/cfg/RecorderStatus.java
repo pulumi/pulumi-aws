@@ -14,17 +14,149 @@ import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Manages status (recording / stopped) of an AWS Config Configuration Recorder.
+ * 
+ * &gt; **Note:** Starting Configuration Recorder requires a Delivery Channel to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.cfg.DeliveryChannel;
+ * import com.pulumi.aws.cfg.DeliveryChannelArgs;
+ * import com.pulumi.aws.cfg.RecorderStatus;
+ * import com.pulumi.aws.cfg.RecorderStatusArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.cfg.Recorder;
+ * import com.pulumi.aws.cfg.RecorderArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var bucketV2 = new BucketV2(&#34;bucketV2&#34;);
+ * 
+ *         var fooDeliveryChannel = new DeliveryChannel(&#34;fooDeliveryChannel&#34;, DeliveryChannelArgs.builder()        
+ *             .s3BucketName(bucketV2.bucket())
+ *             .build());
+ * 
+ *         var fooRecorderStatus = new RecorderStatus(&#34;fooRecorderStatus&#34;, RecorderStatusArgs.builder()        
+ *             .isEnabled(true)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(fooDeliveryChannel)
+ *                 .build());
+ * 
+ *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
+ *       &#34;Principal&#34;: {
+ *         &#34;Service&#34;: &#34;config.amazonaws.com&#34;
+ *       },
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Sid&#34;: &#34;&#34;
+ *     }
+ *   ]
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *         var rolePolicyAttachment = new RolePolicyAttachment(&#34;rolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
+ *             .role(role.name())
+ *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSConfigRole&#34;)
+ *             .build());
+ * 
+ *         var fooRecorder = new Recorder(&#34;fooRecorder&#34;, RecorderArgs.builder()        
+ *             .roleArn(role.arn())
+ *             .build());
+ * 
+ *         var rolePolicy = new RolePolicy(&#34;rolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .role(role.id())
+ *             .policy(Output.tuple(bucketV2.arn(), bucketV2.arn()).applyValue(values -&gt; {
+ *                 var bucketV2Arn = values.t1;
+ *                 var bucketV2Arn1 = values.t2;
+ *                 return &#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Action&#34;: [
+ *         &#34;s3:*&#34;
+ *       ],
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Resource&#34;: [
+ *         &#34;%s&#34;,
+ *         &#34;%s/*&#34;
+ *       ]
+ *     }
+ *   ]
+ * }
+ * &#34;, bucketV2Arn,bucketV2Arn1);
+ *             }))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Configuration Recorder Status can be imported using the name of the Configuration Recorder, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
+ * ```
+ * 
+ */
 @ResourceType(type="aws:cfg/recorderStatus:RecorderStatus")
 public class RecorderStatus extends com.pulumi.resources.CustomResource {
+    /**
+     * Whether the configuration recorder should be enabled or disabled.
+     * 
+     */
     @Export(name="isEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isEnabled;
 
+    /**
+     * @return Whether the configuration recorder should be enabled or disabled.
+     * 
+     */
     public Output<Boolean> isEnabled() {
         return this.isEnabled;
     }
+    /**
+     * The name of the recorder
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the recorder
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

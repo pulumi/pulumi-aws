@@ -18,6 +18,8 @@ class ResourcePolicyArgs:
                  resource_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a ResourcePolicy resource.
+        :param pulumi.Input[str] policy: The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
+        :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -25,6 +27,9 @@ class ResourcePolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
+        """
+        The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -34,6 +39,9 @@ class ResourcePolicyArgs:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -48,6 +56,8 @@ class _ResourcePolicyState:
                  resource_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ResourcePolicy resources.
+        :param pulumi.Input[str] policy: The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
+        :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -57,6 +67,9 @@ class _ResourcePolicyState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -66,6 +79,9 @@ class _ResourcePolicyState:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -82,9 +98,42 @@ class ResourcePolicy(pulumi.CustomResource):
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ResourcePolicy resource with the given unique name, props, and options.
+        Creates a new Amazon Redshift Serverless Resource Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.redshiftserverless.ResourcePolicy("example",
+            resource_arn=aws_redshiftserverless_snapshot["example"]["arn"],
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": ["12345678901"],
+                    },
+                    "Action": ["redshift-serverless:RestoreFromSnapshot"],
+                    "Sid": "",
+                }],
+            }))
+        ```
+
+        ## Import
+
+        Redshift Serverless Resource Policies can be imported using the `resource_arn`, e.g.,
+
+        ```sh
+         $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
+        :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
         """
         ...
     @overload
@@ -93,7 +142,38 @@ class ResourcePolicy(pulumi.CustomResource):
                  args: ResourcePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ResourcePolicy resource with the given unique name, props, and options.
+        Creates a new Amazon Redshift Serverless Resource Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.redshiftserverless.ResourcePolicy("example",
+            resource_arn=aws_redshiftserverless_snapshot["example"]["arn"],
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": ["12345678901"],
+                    },
+                    "Action": ["redshift-serverless:RestoreFromSnapshot"],
+                    "Sid": "",
+                }],
+            }))
+        ```
+
+        ## Import
+
+        Redshift Serverless Resource Policies can be imported using the `resource_arn`, e.g.,
+
+        ```sh
+         $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +225,8 @@ class ResourcePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
+        :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,10 +239,16 @@ class ResourcePolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
+        """
+        The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
+        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+        """
         return pulumi.get(self, "resource_arn")
 

@@ -12,18 +12,33 @@ namespace Pulumi.Aws.Ses.Inputs
 
     public sealed class ReceiptRuleS3ActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the S3 bucket
+        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the KMS key
+        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
+        /// <summary>
+        /// The key prefix of the S3 bucket
+        /// </summary>
         [Input("objectKeyPrefix")]
         public Input<string>? ObjectKeyPrefix { get; set; }
 
+        /// <summary>
+        /// The position of the action in the receipt rule
+        /// </summary>
         [Input("position", required: true)]
         public Input<int> Position { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of an SNS topic to notify
+        /// </summary>
         [Input("topicArn")]
         public Input<string>? TopicArn { get; set; }
 

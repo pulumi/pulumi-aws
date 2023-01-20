@@ -14,30 +14,62 @@ public final class WorkspaceApiKeyArgs extends com.pulumi.resources.ResourceArgs
 
     public static final WorkspaceApiKeyArgs Empty = new WorkspaceApiKeyArgs();
 
+    /**
+     * Specifies the name of the API key. Key names must be unique to the workspace.
+     * 
+     */
     @Import(name="keyName", required=true)
     private Output<String> keyName;
 
+    /**
+     * @return Specifies the name of the API key. Key names must be unique to the workspace.
+     * 
+     */
     public Output<String> keyName() {
         return this.keyName;
     }
 
+    /**
+     * Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+     * 
+     */
     @Import(name="keyRole", required=true)
     private Output<String> keyRole;
 
+    /**
+     * @return Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+     * 
+     */
     public Output<String> keyRole() {
         return this.keyRole;
     }
 
+    /**
+     * Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
+     * 
+     */
     @Import(name="secondsToLive", required=true)
     private Output<Integer> secondsToLive;
 
+    /**
+     * @return Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
+     * 
+     */
     public Output<Integer> secondsToLive() {
         return this.secondsToLive;
     }
 
+    /**
+     * The ID of the workspace that the API key is valid for.
+     * 
+     */
     @Import(name="workspaceId", required=true)
     private Output<String> workspaceId;
 
+    /**
+     * @return The ID of the workspace that the API key is valid for.
+     * 
+     */
     public Output<String> workspaceId() {
         return this.workspaceId;
     }
@@ -69,38 +101,86 @@ public final class WorkspaceApiKeyArgs extends com.pulumi.resources.ResourceArgs
             $ = new WorkspaceApiKeyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param keyName Specifies the name of the API key. Key names must be unique to the workspace.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyName(Output<String> keyName) {
             $.keyName = keyName;
             return this;
         }
 
+        /**
+         * @param keyName Specifies the name of the API key. Key names must be unique to the workspace.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyName(String keyName) {
             return keyName(Output.of(keyName));
         }
 
+        /**
+         * @param keyRole Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyRole(Output<String> keyRole) {
             $.keyRole = keyRole;
             return this;
         }
 
+        /**
+         * @param keyRole Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyRole(String keyRole) {
             return keyRole(Output.of(keyRole));
         }
 
+        /**
+         * @param secondsToLive Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secondsToLive(Output<Integer> secondsToLive) {
             $.secondsToLive = secondsToLive;
             return this;
         }
 
+        /**
+         * @param secondsToLive Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secondsToLive(Integer secondsToLive) {
             return secondsToLive(Output.of(secondsToLive));
         }
 
+        /**
+         * @param workspaceId The ID of the workspace that the API key is valid for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workspaceId(Output<String> workspaceId) {
             $.workspaceId = workspaceId;
             return this;
         }
 
+        /**
+         * @param workspaceId The ID of the workspace that the API key is valid for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workspaceId(String workspaceId) {
             return workspaceId(Output.of(workspaceId));
         }

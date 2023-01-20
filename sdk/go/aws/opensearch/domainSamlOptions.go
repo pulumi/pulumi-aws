@@ -11,10 +11,82 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages SAML authentication options for an AWS OpenSearch Domain.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleDomain, err := opensearch.NewDomain(ctx, "exampleDomain", &opensearch.DomainArgs{
+//				EngineVersion: pulumi.String("OpenSearch_1.1"),
+//				ClusterConfig: &opensearch.DomainClusterConfigArgs{
+//					InstanceType: pulumi.String("r4.large.search"),
+//				},
+//				SnapshotOptions: &opensearch.DomainSnapshotOptionsArgs{
+//					AutomatedSnapshotStartHour: pulumi.Int(23),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Domain": pulumi.String("TestDomain"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opensearch.NewDomainSamlOptions(ctx, "exampleDomainSamlOptions", &opensearch.DomainSamlOptionsArgs{
+//				DomainName: exampleDomain.DomainName,
+//				SamlOptions: &opensearch.DomainSamlOptionsSamlOptionsArgs{
+//					Enabled: pulumi.Bool(true),
+//					Idp: &opensearch.DomainSamlOptionsSamlOptionsIdpArgs{
+//						EntityId:        pulumi.String("https://example.com"),
+//						MetadataContent: readFileOrPanic("./saml-metadata.xml"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// OpenSearch domains can be imported using the `domain_name`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
+//
+// ```
 type DomainSamlOptions struct {
 	pulumi.CustomResourceState
 
-	DomainName  pulumi.StringOutput                   `pulumi:"domainName"`
+	// Name of the domain.
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// SAML authentication options for an AWS OpenSearch Domain.
 	SamlOptions DomainSamlOptionsSamlOptionsPtrOutput `pulumi:"samlOptions"`
 }
 
@@ -50,12 +122,16 @@ func GetDomainSamlOptions(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainSamlOptions resources.
 type domainSamlOptionsState struct {
-	DomainName  *string                       `pulumi:"domainName"`
+	// Name of the domain.
+	DomainName *string `pulumi:"domainName"`
+	// SAML authentication options for an AWS OpenSearch Domain.
 	SamlOptions *DomainSamlOptionsSamlOptions `pulumi:"samlOptions"`
 }
 
 type DomainSamlOptionsState struct {
-	DomainName  pulumi.StringPtrInput
+	// Name of the domain.
+	DomainName pulumi.StringPtrInput
+	// SAML authentication options for an AWS OpenSearch Domain.
 	SamlOptions DomainSamlOptionsSamlOptionsPtrInput
 }
 
@@ -64,13 +140,17 @@ func (DomainSamlOptionsState) ElementType() reflect.Type {
 }
 
 type domainSamlOptionsArgs struct {
-	DomainName  string                        `pulumi:"domainName"`
+	// Name of the domain.
+	DomainName string `pulumi:"domainName"`
+	// SAML authentication options for an AWS OpenSearch Domain.
 	SamlOptions *DomainSamlOptionsSamlOptions `pulumi:"samlOptions"`
 }
 
 // The set of arguments for constructing a DomainSamlOptions resource.
 type DomainSamlOptionsArgs struct {
-	DomainName  pulumi.StringInput
+	// Name of the domain.
+	DomainName pulumi.StringInput
+	// SAML authentication options for an AWS OpenSearch Domain.
 	SamlOptions DomainSamlOptionsSamlOptionsPtrInput
 }
 
@@ -161,10 +241,12 @@ func (o DomainSamlOptionsOutput) ToDomainSamlOptionsOutputWithContext(ctx contex
 	return o
 }
 
+// Name of the domain.
 func (o DomainSamlOptionsOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainSamlOptions) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
+// SAML authentication options for an AWS OpenSearch Domain.
 func (o DomainSamlOptionsOutput) SamlOptions() DomainSamlOptionsSamlOptionsPtrOutput {
 	return o.ApplyT(func(v *DomainSamlOptions) DomainSamlOptionsSamlOptionsPtrOutput { return v.SamlOptions }).(DomainSamlOptionsSamlOptionsPtrOutput)
 }

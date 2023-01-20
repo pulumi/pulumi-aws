@@ -13,29 +13,104 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Manages an EC2 Transit Gateway Route Table association.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2transitgateway.RouteTableAssociation;
+ * import com.pulumi.aws.ec2transitgateway.RouteTableAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new RouteTableAssociation(&#34;example&#34;, RouteTableAssociationArgs.builder()        
+ *             .transitGatewayAttachmentId(aws_ec2_transit_gateway_vpc_attachment.example().id())
+ *             .transitGatewayRouteTableId(aws_ec2_transit_gateway_route_table.example().id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * `aws_ec2_transit_gateway_route_table_association` can be imported by using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
+ * ```
+ * 
+ */
 @ResourceType(type="aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation")
 public class RouteTableAssociation extends com.pulumi.resources.CustomResource {
+    /**
+     * Identifier of the resource
+     * 
+     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
+    /**
+     * @return Identifier of the resource
+     * 
+     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
+    /**
+     * Type of the resource
+     * 
+     */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
+    /**
+     * @return Type of the resource
+     * 
+     */
     public Output<String> resourceType() {
         return this.resourceType;
     }
+    /**
+     * Identifier of EC2 Transit Gateway Attachment.
+     * 
+     */
     @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayAttachmentId;
 
+    /**
+     * @return Identifier of EC2 Transit Gateway Attachment.
+     * 
+     */
     public Output<String> transitGatewayAttachmentId() {
         return this.transitGatewayAttachmentId;
     }
+    /**
+     * Identifier of EC2 Transit Gateway Route Table.
+     * 
+     */
     @Export(name="transitGatewayRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayRouteTableId;
 
+    /**
+     * @return Identifier of EC2 Transit Gateway Route Table.
+     * 
+     */
     public Output<String> transitGatewayRouteTableId() {
         return this.transitGatewayRouteTableId;
     }

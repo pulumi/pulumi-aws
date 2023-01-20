@@ -7,6 +7,62 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an Amazon Connect User Hierarchy Structure resource. For more information see
+ * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
+ *
+ * ## Example Usage
+ * ### Basic
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.connect.UserHierarchyStructure("example", {
+ *     hierarchyStructure: {
+ *         levelOne: {
+ *             name: "levelone",
+ *         },
+ *     },
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ * });
+ * ```
+ * ### With Five Levels
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.connect.UserHierarchyStructure("example", {
+ *     hierarchyStructure: {
+ *         levelFive: {
+ *             name: "levelfive",
+ *         },
+ *         levelFour: {
+ *             name: "levelfour",
+ *         },
+ *         levelOne: {
+ *             name: "levelone",
+ *         },
+ *         levelThree: {
+ *             name: "levelthree",
+ *         },
+ *         levelTwo: {
+ *             name: "leveltwo",
+ *         },
+ *     },
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Amazon Connect User Hierarchy Structures can be imported using the `instance_id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
+ * ```
+ */
 export class UserHierarchyStructure extends pulumi.CustomResource {
     /**
      * Get an existing UserHierarchyStructure resource's state with the given name, ID, and optional extra
@@ -35,7 +91,13 @@ export class UserHierarchyStructure extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserHierarchyStructure.__pulumiType;
     }
 
+    /**
+     * A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
+     */
     public readonly hierarchyStructure!: pulumi.Output<outputs.connect.UserHierarchyStructureHierarchyStructure>;
+    /**
+     * Specifies the identifier of the hosting Amazon Connect Instance.
+     */
     public readonly instanceId!: pulumi.Output<string>;
 
     /**
@@ -73,7 +135,13 @@ export class UserHierarchyStructure extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserHierarchyStructure resources.
  */
 export interface UserHierarchyStructureState {
+    /**
+     * A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
+     */
     hierarchyStructure?: pulumi.Input<inputs.connect.UserHierarchyStructureHierarchyStructure>;
+    /**
+     * Specifies the identifier of the hosting Amazon Connect Instance.
+     */
     instanceId?: pulumi.Input<string>;
 }
 
@@ -81,6 +149,12 @@ export interface UserHierarchyStructureState {
  * The set of arguments for constructing a UserHierarchyStructure resource.
  */
 export interface UserHierarchyStructureArgs {
+    /**
+     * A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
+     */
     hierarchyStructure: pulumi.Input<inputs.connect.UserHierarchyStructureHierarchyStructure>;
+    /**
+     * Specifies the identifier of the hosting Amazon Connect Instance.
+     */
     instanceId: pulumi.Input<string>;
 }

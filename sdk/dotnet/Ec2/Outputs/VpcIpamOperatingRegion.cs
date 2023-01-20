@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class VpcIpamOperatingRegion
     {
+        /// <summary>
+        /// The name of the Region you want to add to the IPAM.
+        /// </summary>
         public readonly string RegionName;
 
         [OutputConstructor]

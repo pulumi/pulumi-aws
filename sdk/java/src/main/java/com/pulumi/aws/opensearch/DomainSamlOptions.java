@@ -15,17 +15,100 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages SAML authentication options for an AWS OpenSearch Domain.
+ * 
+ * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.opensearch.Domain;
+ * import com.pulumi.aws.opensearch.DomainArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainSnapshotOptionsArgs;
+ * import com.pulumi.aws.opensearch.DomainSamlOptions;
+ * import com.pulumi.aws.opensearch.DomainSamlOptionsArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainSamlOptionsSamlOptionsArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainSamlOptionsSamlOptionsIdpArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
+ *             .engineVersion(&#34;OpenSearch_1.1&#34;)
+ *             .clusterConfig(DomainClusterConfigArgs.builder()
+ *                 .instanceType(&#34;r4.large.search&#34;)
+ *                 .build())
+ *             .snapshotOptions(DomainSnapshotOptionsArgs.builder()
+ *                 .automatedSnapshotStartHour(23)
+ *                 .build())
+ *             .tags(Map.of(&#34;Domain&#34;, &#34;TestDomain&#34;))
+ *             .build());
+ * 
+ *         var exampleDomainSamlOptions = new DomainSamlOptions(&#34;exampleDomainSamlOptions&#34;, DomainSamlOptionsArgs.builder()        
+ *             .domainName(exampleDomain.domainName())
+ *             .samlOptions(DomainSamlOptionsSamlOptionsArgs.builder()
+ *                 .enabled(true)
+ *                 .idp(DomainSamlOptionsSamlOptionsIdpArgs.builder()
+ *                     .entityId(&#34;https://example.com&#34;)
+ *                     .metadataContent(Files.readString(Paths.get(&#34;./saml-metadata.xml&#34;)))
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * OpenSearch domains can be imported using the `domain_name`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
+ * ```
+ * 
+ */
 @ResourceType(type="aws:opensearch/domainSamlOptions:DomainSamlOptions")
 public class DomainSamlOptions extends com.pulumi.resources.CustomResource {
+    /**
+     * Name of the domain.
+     * 
+     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
+    /**
+     * @return Name of the domain.
+     * 
+     */
     public Output<String> domainName() {
         return this.domainName;
     }
+    /**
+     * SAML authentication options for an AWS OpenSearch Domain.
+     * 
+     */
     @Export(name="samlOptions", refs={DomainSamlOptionsSamlOptions.class}, tree="[0]")
     private Output</* @Nullable */ DomainSamlOptionsSamlOptions> samlOptions;
 
+    /**
+     * @return SAML authentication options for an AWS OpenSearch Domain.
+     * 
+     */
     public Output<Optional<DomainSamlOptionsSamlOptions>> samlOptions() {
         return Codegen.optional(this.samlOptions);
     }

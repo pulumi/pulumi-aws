@@ -13,10 +13,25 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class GroupInstanceRefreshPreferences
     {
+        /// <summary>
+        /// Number of seconds to wait after a checkpoint. Defaults to `3600`.
+        /// </summary>
         public readonly string? CheckpointDelay;
+        /// <summary>
+        /// List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
+        /// </summary>
         public readonly ImmutableArray<int> CheckpointPercentages;
+        /// <summary>
+        /// Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
+        /// </summary>
         public readonly string? InstanceWarmup;
+        /// <summary>
+        /// Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+        /// </summary>
         public readonly int? MinHealthyPercentage;
+        /// <summary>
+        /// Replace instances that already have your desired configuration. Defaults to `false`.
+        /// </summary>
         public readonly bool? SkipMatching;
 
         [OutputConstructor]

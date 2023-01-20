@@ -12,6 +12,9 @@ namespace Pulumi.Aws.GuardDuty.Inputs
 
     public sealed class DetectorDatasourcesS3LogsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+        /// </summary>
         [Input("enable", required: true)]
         public Input<bool> Enable { get; set; } = null!;
 

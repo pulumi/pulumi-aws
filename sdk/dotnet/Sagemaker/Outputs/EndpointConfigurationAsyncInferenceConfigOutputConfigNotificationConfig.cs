@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig
     {
+        /// <summary>
+        /// Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+        /// </summary>
         public readonly string? ErrorTopic;
+        /// <summary>
+        /// Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
+        /// </summary>
         public readonly string? SuccessTopic;
 
         [OutputConstructor]

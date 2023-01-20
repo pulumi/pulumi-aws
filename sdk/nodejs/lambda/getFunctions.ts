@@ -4,6 +4,18 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Data resource to get a list of Lambda Functions.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const all = aws.lambda.getFunctions({});
+ * ```
+ */
 export function getFunctions(opts?: pulumi.InvokeOptions): Promise<GetFunctionsResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -15,7 +27,13 @@ export function getFunctions(opts?: pulumi.InvokeOptions): Promise<GetFunctionsR
  * A collection of values returned by getFunctions.
  */
 export interface GetFunctionsResult {
+    /**
+     * A list of Lambda Function ARNs.
+     */
     readonly functionArns: string[];
+    /**
+     * A list of Lambda Function names.
+     */
     readonly functionNames: string[];
     /**
      * The provider-assigned unique ID for this managed resource.

@@ -15,9 +15,17 @@ public final class ServerWorkflowDetailsArgs extends com.pulumi.resources.Resour
 
     public static final ServerWorkflowDetailsArgs Empty = new ServerWorkflowDetailsArgs();
 
+    /**
+     * A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+     * 
+     */
     @Import(name="onUpload")
     private @Nullable Output<ServerWorkflowDetailsOnUploadArgs> onUpload;
 
+    /**
+     * @return A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+     * 
+     */
     public Optional<Output<ServerWorkflowDetailsOnUploadArgs>> onUpload() {
         return Optional.ofNullable(this.onUpload);
     }
@@ -46,11 +54,23 @@ public final class ServerWorkflowDetailsArgs extends com.pulumi.resources.Resour
             $ = new ServerWorkflowDetailsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param onUpload A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder onUpload(@Nullable Output<ServerWorkflowDetailsOnUploadArgs> onUpload) {
             $.onUpload = onUpload;
             return this;
         }
 
+        /**
+         * @param onUpload A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder onUpload(ServerWorkflowDetailsOnUploadArgs onUpload) {
             return onUpload(Output.of(onUpload));
         }

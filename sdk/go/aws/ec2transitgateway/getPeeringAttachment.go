@@ -10,6 +10,66 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Get information on an EC2 Transit Gateway Peering Attachment.
+//
+// ## Example Usage
+// ### By Filter
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2transitgateway.LookupPeeringAttachment(ctx, &ec2transitgateway.LookupPeeringAttachmentArgs{
+//				Filters: []ec2transitgateway.GetPeeringAttachmentFilter{
+//					{
+//						Name: "transit-gateway-attachment-id",
+//						Values: []string{
+//							"tgw-attach-12345678",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### By Identifier
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2transitgateway.LookupPeeringAttachment(ctx, &ec2transitgateway.LookupPeeringAttachmentArgs{
+//				Id: pulumi.StringRef("tgw-attach-12345678"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupPeeringAttachment(ctx *pulumi.Context, args *LookupPeeringAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupPeeringAttachmentResult, error) {
 	var rv LookupPeeringAttachmentResult
 	err := ctx.Invoke("aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment", args, &rv, opts...)
@@ -21,20 +81,28 @@ func LookupPeeringAttachment(ctx *pulumi.Context, args *LookupPeeringAttachmentA
 
 // A collection of arguments for invoking getPeeringAttachment.
 type LookupPeeringAttachmentArgs struct {
+	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetPeeringAttachmentFilter `pulumi:"filters"`
-	Id      *string                      `pulumi:"id"`
-	Tags    map[string]string            `pulumi:"tags"`
+	// Identifier of the EC2 Transit Gateway Peering Attachment.
+	Id *string `pulumi:"id"`
+	// Mapping of tags, each pair of which must exactly match
+	// a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getPeeringAttachment.
 type LookupPeeringAttachmentResult struct {
-	Filters              []GetPeeringAttachmentFilter `pulumi:"filters"`
-	Id                   string                       `pulumi:"id"`
-	PeerAccountId        string                       `pulumi:"peerAccountId"`
-	PeerRegion           string                       `pulumi:"peerRegion"`
-	PeerTransitGatewayId string                       `pulumi:"peerTransitGatewayId"`
-	Tags                 map[string]string            `pulumi:"tags"`
-	TransitGatewayId     string                       `pulumi:"transitGatewayId"`
+	Filters []GetPeeringAttachmentFilter `pulumi:"filters"`
+	Id      string                       `pulumi:"id"`
+	// Identifier of the peer AWS account
+	PeerAccountId string `pulumi:"peerAccountId"`
+	// Identifier of the peer AWS region
+	PeerRegion string `pulumi:"peerRegion"`
+	// Identifier of the peer EC2 Transit Gateway
+	PeerTransitGatewayId string            `pulumi:"peerTransitGatewayId"`
+	Tags                 map[string]string `pulumi:"tags"`
+	// Identifier of the local EC2 Transit Gateway
+	TransitGatewayId string `pulumi:"transitGatewayId"`
 }
 
 func LookupPeeringAttachmentOutput(ctx *pulumi.Context, args LookupPeeringAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupPeeringAttachmentResultOutput {
@@ -52,9 +120,13 @@ func LookupPeeringAttachmentOutput(ctx *pulumi.Context, args LookupPeeringAttach
 
 // A collection of arguments for invoking getPeeringAttachment.
 type LookupPeeringAttachmentOutputArgs struct {
+	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetPeeringAttachmentFilterArrayInput `pulumi:"filters"`
-	Id      pulumi.StringPtrInput                `pulumi:"id"`
-	Tags    pulumi.StringMapInput                `pulumi:"tags"`
+	// Identifier of the EC2 Transit Gateway Peering Attachment.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Mapping of tags, each pair of which must exactly match
+	// a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupPeeringAttachmentOutputArgs) ElementType() reflect.Type {
@@ -84,14 +156,17 @@ func (o LookupPeeringAttachmentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPeeringAttachmentResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Identifier of the peer AWS account
 func (o LookupPeeringAttachmentResultOutput) PeerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPeeringAttachmentResult) string { return v.PeerAccountId }).(pulumi.StringOutput)
 }
 
+// Identifier of the peer AWS region
 func (o LookupPeeringAttachmentResultOutput) PeerRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPeeringAttachmentResult) string { return v.PeerRegion }).(pulumi.StringOutput)
 }
 
+// Identifier of the peer EC2 Transit Gateway
 func (o LookupPeeringAttachmentResultOutput) PeerTransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPeeringAttachmentResult) string { return v.PeerTransitGatewayId }).(pulumi.StringOutput)
 }
@@ -100,6 +175,7 @@ func (o LookupPeeringAttachmentResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupPeeringAttachmentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Identifier of the local EC2 Transit Gateway
 func (o LookupPeeringAttachmentResultOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPeeringAttachmentResult) string { return v.TransitGatewayId }).(pulumi.StringOutput)
 }

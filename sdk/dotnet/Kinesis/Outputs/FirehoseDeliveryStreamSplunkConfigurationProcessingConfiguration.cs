@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration
     {
+        /// <summary>
+        /// Enables or disables data processing.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// Array of data processors. More details are given below
+        /// </summary>
         public readonly ImmutableArray<Outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor> Processors;
 
         [OutputConstructor]

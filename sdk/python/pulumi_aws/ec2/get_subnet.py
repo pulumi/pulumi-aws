@@ -100,11 +100,17 @@ class GetSubnetResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        ARN of the subnet.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="assignIpv6AddressOnCreation")
     def assign_ipv6_address_on_creation(self) -> bool:
+        """
+        Whether an IPv6 address is assigned on creation.
+        """
         return pulumi.get(self, "assign_ipv6_address_on_creation")
 
     @property
@@ -120,6 +126,9 @@ class GetSubnetResult:
     @property
     @pulumi.getter(name="availableIpAddressCount")
     def available_ip_address_count(self) -> int:
+        """
+        Available IP addresses of the subnet.
+        """
         return pulumi.get(self, "available_ip_address_count")
 
     @property
@@ -130,6 +139,9 @@ class GetSubnetResult:
     @property
     @pulumi.getter(name="customerOwnedIpv4Pool")
     def customer_owned_ipv4_pool(self) -> str:
+        """
+        Identifier of customer owned IPv4 address pool.
+        """
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @property
@@ -140,16 +152,25 @@ class GetSubnetResult:
     @property
     @pulumi.getter(name="enableDns64")
     def enable_dns64(self) -> bool:
+        """
+        Whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
+        """
         return pulumi.get(self, "enable_dns64")
 
     @property
     @pulumi.getter(name="enableResourceNameDnsARecordOnLaunch")
     def enable_resource_name_dns_a_record_on_launch(self) -> bool:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        """
         return pulumi.get(self, "enable_resource_name_dns_a_record_on_launch")
 
     @property
     @pulumi.getter(name="enableResourceNameDnsAaaaRecordOnLaunch")
     def enable_resource_name_dns_aaaa_record_on_launch(self) -> bool:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        """
         return pulumi.get(self, "enable_resource_name_dns_aaaa_record_on_launch")
 
     @property
@@ -170,36 +191,57 @@ class GetSubnetResult:
     @property
     @pulumi.getter(name="ipv6CidrBlockAssociationId")
     def ipv6_cidr_block_association_id(self) -> str:
+        """
+        Association ID of the IPv6 CIDR block.
+        """
         return pulumi.get(self, "ipv6_cidr_block_association_id")
 
     @property
     @pulumi.getter(name="ipv6Native")
     def ipv6_native(self) -> bool:
+        """
+        Whether this is an IPv6-only subnet.
+        """
         return pulumi.get(self, "ipv6_native")
 
     @property
     @pulumi.getter(name="mapCustomerOwnedIpOnLaunch")
     def map_customer_owned_ip_on_launch(self) -> bool:
+        """
+        Whether customer owned IP addresses are assigned on network interface creation.
+        """
         return pulumi.get(self, "map_customer_owned_ip_on_launch")
 
     @property
     @pulumi.getter(name="mapPublicIpOnLaunch")
     def map_public_ip_on_launch(self) -> bool:
+        """
+        Whether public IP addresses are assigned on instance launch.
+        """
         return pulumi.get(self, "map_public_ip_on_launch")
 
     @property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> str:
+        """
+        ARN of the Outpost.
+        """
         return pulumi.get(self, "outpost_arn")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
+        """
+        ID of the AWS account that owns the subnet.
+        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter(name="privateDnsHostnameTypeOnLaunch")
     def private_dns_hostname_type_on_launch(self) -> str:
+        """
+        The type of hostnames assigned to instances in the subnet at launch.
+        """
         return pulumi.get(self, "private_dns_hostname_type_on_launch")
 
     @property
@@ -262,7 +304,55 @@ def get_subnet(availability_zone: Optional[str] = None,
                vpc_id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetResult:
     """
-    Use this data source to access information about an existing resource.
+    `ec2.Subnet` provides details about a specific VPC subnet.
+
+    This resource can prove useful when a module accepts a subnet ID as an input variable and needs to, for example, determine the ID of the VPC that the subnet belongs to.
+
+    ## Example Usage
+
+    The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    subnet_id = config.require_object("subnetId")
+    selected = aws.ec2.get_subnet(id=subnet_id)
+    subnet = aws.ec2.SecurityGroup("subnet",
+        vpc_id=selected.vpc_id,
+        ingress=[aws.ec2.SecurityGroupIngressArgs(
+            cidr_blocks=[selected.cidr_block],
+            from_port=80,
+            to_port=80,
+            protocol="tcp",
+        )])
+    ```
+    ### Filter Example
+
+    If you want to match against tag `Name`, use:
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    selected = aws.ec2.get_subnet(filters=[aws.ec2.GetSubnetFilterArgs(
+        name="tag:Name",
+        values=["yakdriver"],
+    )])
+    ```
+
+
+    :param str availability_zone: Availability zone where the subnet must reside.
+    :param str availability_zone_id: ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
+    :param str cidr_block: CIDR block of the desired subnet.
+    :param bool default_for_az: Whether the desired subnet must be the default subnet for its associated availability zone.
+    :param Sequence[pulumi.InputType['GetSubnetFilterArgs']] filters: Configuration block. Detailed below.
+    :param str id: ID of the specific subnet to retrieve.
+    :param str ipv6_cidr_block: IPv6 CIDR block of the desired subnet.
+    :param str state: State that the desired subnet must have.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired subnet.
+    :param str vpc_id: ID of the VPC that the desired subnet belongs to.
     """
     __args__ = dict()
     __args__['availabilityZone'] = availability_zone
@@ -318,6 +408,54 @@ def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[str]]] =
                       vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetResult]:
     """
-    Use this data source to access information about an existing resource.
+    `ec2.Subnet` provides details about a specific VPC subnet.
+
+    This resource can prove useful when a module accepts a subnet ID as an input variable and needs to, for example, determine the ID of the VPC that the subnet belongs to.
+
+    ## Example Usage
+
+    The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    subnet_id = config.require_object("subnetId")
+    selected = aws.ec2.get_subnet(id=subnet_id)
+    subnet = aws.ec2.SecurityGroup("subnet",
+        vpc_id=selected.vpc_id,
+        ingress=[aws.ec2.SecurityGroupIngressArgs(
+            cidr_blocks=[selected.cidr_block],
+            from_port=80,
+            to_port=80,
+            protocol="tcp",
+        )])
+    ```
+    ### Filter Example
+
+    If you want to match against tag `Name`, use:
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    selected = aws.ec2.get_subnet(filters=[aws.ec2.GetSubnetFilterArgs(
+        name="tag:Name",
+        values=["yakdriver"],
+    )])
+    ```
+
+
+    :param str availability_zone: Availability zone where the subnet must reside.
+    :param str availability_zone_id: ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
+    :param str cidr_block: CIDR block of the desired subnet.
+    :param bool default_for_az: Whether the desired subnet must be the default subnet for its associated availability zone.
+    :param Sequence[pulumi.InputType['GetSubnetFilterArgs']] filters: Configuration block. Detailed below.
+    :param str id: ID of the specific subnet to retrieve.
+    :param str ipv6_cidr_block: IPv6 CIDR block of the desired subnet.
+    :param str state: State that the desired subnet must have.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired subnet.
+    :param str vpc_id: ID of the VPC that the desired subnet belongs to.
     """
     ...

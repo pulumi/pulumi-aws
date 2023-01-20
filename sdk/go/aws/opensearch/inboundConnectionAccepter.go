@@ -11,10 +11,75 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an [AWS Opensearch Inbound Connection Accepter](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html). If connecting domains from different AWS accounts, ensure that the accepter is configured to use the AWS account where the _remote_ opensearch domain exists.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			fooOutboundConnection, err := opensearch.NewOutboundConnection(ctx, "fooOutboundConnection", &opensearch.OutboundConnectionArgs{
+//				ConnectionAlias: pulumi.String("outbound_connection"),
+//				LocalDomainInfo: &opensearch.OutboundConnectionLocalDomainInfoArgs{
+//					OwnerId:    *pulumi.String(currentCallerIdentity.AccountId),
+//					Region:     *pulumi.String(currentRegion.Name),
+//					DomainName: pulumi.Any(aws_opensearch_domain.Local_domain.Domain_name),
+//				},
+//				RemoteDomainInfo: &opensearch.OutboundConnectionRemoteDomainInfoArgs{
+//					OwnerId:    *pulumi.String(currentCallerIdentity.AccountId),
+//					Region:     *pulumi.String(currentRegion.Name),
+//					DomainName: pulumi.Any(aws_opensearch_domain.Remote_domain.Domain_name),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opensearch.NewInboundConnectionAccepter(ctx, "fooInboundConnectionAccepter", &opensearch.InboundConnectionAccepterArgs{
+//				ConnectionId: fooOutboundConnection.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// AWS Opensearch Inbound Connection Accepters can be imported by using the Inbound Connection ID, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id
+//
+// ```
 type InboundConnectionAccepter struct {
 	pulumi.CustomResourceState
 
-	ConnectionId     pulumi.StringOutput `pulumi:"connectionId"`
+	// Specifies the ID of the connection to accept.
+	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
+	// Status of the connection request.
 	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
 }
 
@@ -50,12 +115,16 @@ func GetInboundConnectionAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InboundConnectionAccepter resources.
 type inboundConnectionAccepterState struct {
-	ConnectionId     *string `pulumi:"connectionId"`
+	// Specifies the ID of the connection to accept.
+	ConnectionId *string `pulumi:"connectionId"`
+	// Status of the connection request.
 	ConnectionStatus *string `pulumi:"connectionStatus"`
 }
 
 type InboundConnectionAccepterState struct {
-	ConnectionId     pulumi.StringPtrInput
+	// Specifies the ID of the connection to accept.
+	ConnectionId pulumi.StringPtrInput
+	// Status of the connection request.
 	ConnectionStatus pulumi.StringPtrInput
 }
 
@@ -64,11 +133,13 @@ func (InboundConnectionAccepterState) ElementType() reflect.Type {
 }
 
 type inboundConnectionAccepterArgs struct {
+	// Specifies the ID of the connection to accept.
 	ConnectionId string `pulumi:"connectionId"`
 }
 
 // The set of arguments for constructing a InboundConnectionAccepter resource.
 type InboundConnectionAccepterArgs struct {
+	// Specifies the ID of the connection to accept.
 	ConnectionId pulumi.StringInput
 }
 
@@ -159,10 +230,12 @@ func (o InboundConnectionAccepterOutput) ToInboundConnectionAccepterOutputWithCo
 	return o
 }
 
+// Specifies the ID of the connection to accept.
 func (o InboundConnectionAccepterOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InboundConnectionAccepter) pulumi.StringOutput { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
+// Status of the connection request.
 func (o InboundConnectionAccepterOutput) ConnectionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *InboundConnectionAccepter) pulumi.StringOutput { return v.ConnectionStatus }).(pulumi.StringOutput)
 }

@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DomainNameEndpointConfiguration {
+    /**
+     * @return List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+     * 
+     */
     private String types;
 
     private DomainNameEndpointConfiguration() {}
+    /**
+     * @return List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+     * 
+     */
     public String types() {
         return this.types;
     }

@@ -20,6 +20,10 @@ class StudioLifecycleConfigArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a StudioLifecycleConfig resource.
+        :param pulumi.Input[str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        :param pulumi.Input[str] studio_lifecycle_config_content: The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
+        :param pulumi.Input[str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "studio_lifecycle_config_app_type", studio_lifecycle_config_app_type)
         pulumi.set(__self__, "studio_lifecycle_config_content", studio_lifecycle_config_content)
@@ -30,6 +34,9 @@ class StudioLifecycleConfigArgs:
     @property
     @pulumi.getter(name="studioLifecycleConfigAppType")
     def studio_lifecycle_config_app_type(self) -> pulumi.Input[str]:
+        """
+        The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        """
         return pulumi.get(self, "studio_lifecycle_config_app_type")
 
     @studio_lifecycle_config_app_type.setter
@@ -39,6 +46,9 @@ class StudioLifecycleConfigArgs:
     @property
     @pulumi.getter(name="studioLifecycleConfigContent")
     def studio_lifecycle_config_content(self) -> pulumi.Input[str]:
+        """
+        The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
+        """
         return pulumi.get(self, "studio_lifecycle_config_content")
 
     @studio_lifecycle_config_content.setter
@@ -48,6 +58,9 @@ class StudioLifecycleConfigArgs:
     @property
     @pulumi.getter(name="studioLifecycleConfigName")
     def studio_lifecycle_config_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Studio Lifecycle Configuration to create.
+        """
         return pulumi.get(self, "studio_lifecycle_config_name")
 
     @studio_lifecycle_config_name.setter
@@ -57,6 +70,9 @@ class StudioLifecycleConfigArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -75,6 +91,12 @@ class _StudioLifecycleConfigState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering StudioLifecycleConfig resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+        :param pulumi.Input[str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        :param pulumi.Input[str] studio_lifecycle_config_content: The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
+        :param pulumi.Input[str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -92,6 +114,9 @@ class _StudioLifecycleConfigState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -101,6 +126,9 @@ class _StudioLifecycleConfigState:
     @property
     @pulumi.getter(name="studioLifecycleConfigAppType")
     def studio_lifecycle_config_app_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        """
         return pulumi.get(self, "studio_lifecycle_config_app_type")
 
     @studio_lifecycle_config_app_type.setter
@@ -110,6 +138,9 @@ class _StudioLifecycleConfigState:
     @property
     @pulumi.getter(name="studioLifecycleConfigContent")
     def studio_lifecycle_config_content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
+        """
         return pulumi.get(self, "studio_lifecycle_config_content")
 
     @studio_lifecycle_config_content.setter
@@ -119,6 +150,9 @@ class _StudioLifecycleConfigState:
     @property
     @pulumi.getter(name="studioLifecycleConfigName")
     def studio_lifecycle_config_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Studio Lifecycle Configuration to create.
+        """
         return pulumi.get(self, "studio_lifecycle_config_name")
 
     @studio_lifecycle_config_name.setter
@@ -128,6 +162,9 @@ class _StudioLifecycleConfigState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -137,6 +174,9 @@ class _StudioLifecycleConfigState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -155,9 +195,24 @@ class StudioLifecycleConfig(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a StudioLifecycleConfig resource with the given unique name, props, and options.
+        Provides a SageMaker Studio Lifecycle Config resource.
+
+        ## Example Usage
+
+        ## Import
+
+        SageMaker Studio Lifecycle Configs can be imported using the `studio_lifecycle_config_name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        :param pulumi.Input[str] studio_lifecycle_config_content: The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
+        :param pulumi.Input[str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -166,7 +221,18 @@ class StudioLifecycleConfig(pulumi.CustomResource):
                  args: StudioLifecycleConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a StudioLifecycleConfig resource with the given unique name, props, and options.
+        Provides a SageMaker Studio Lifecycle Config resource.
+
+        ## Example Usage
+
+        ## Import
+
+        SageMaker Studio Lifecycle Configs can be imported using the `studio_lifecycle_config_name`, e.g.,
+
+        ```sh
+         $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param StudioLifecycleConfigArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,6 +296,12 @@ class StudioLifecycleConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+        :param pulumi.Input[str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        :param pulumi.Input[str] studio_lifecycle_config_content: The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
+        :param pulumi.Input[str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -246,30 +318,48 @@ class StudioLifecycleConfig(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="studioLifecycleConfigAppType")
     def studio_lifecycle_config_app_type(self) -> pulumi.Output[str]:
+        """
+        The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        """
         return pulumi.get(self, "studio_lifecycle_config_app_type")
 
     @property
     @pulumi.getter(name="studioLifecycleConfigContent")
     def studio_lifecycle_config_content(self) -> pulumi.Output[str]:
+        """
+        The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
+        """
         return pulumi.get(self, "studio_lifecycle_config_content")
 
     @property
     @pulumi.getter(name="studioLifecycleConfigName")
     def studio_lifecycle_config_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Studio Lifecycle Configuration to create.
+        """
         return pulumi.get(self, "studio_lifecycle_config_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

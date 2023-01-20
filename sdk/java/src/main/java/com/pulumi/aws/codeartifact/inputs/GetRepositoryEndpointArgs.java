@@ -15,30 +15,62 @@ public final class GetRepositoryEndpointArgs extends com.pulumi.resources.Invoke
 
     public static final GetRepositoryEndpointArgs Empty = new GetRepositoryEndpointArgs();
 
+    /**
+     * Name of the domain that contains the repository.
+     * 
+     */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
+    /**
+     * @return Name of the domain that contains the repository.
+     * 
+     */
     public Output<String> domain() {
         return this.domain;
     }
 
+    /**
+     * Account number of the AWS account that owns the domain.
+     * 
+     */
     @Import(name="domainOwner")
     private @Nullable Output<String> domainOwner;
 
+    /**
+     * @return Account number of the AWS account that owns the domain.
+     * 
+     */
     public Optional<Output<String>> domainOwner() {
         return Optional.ofNullable(this.domainOwner);
     }
 
+    /**
+     * Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
+     * 
+     */
     @Import(name="format", required=true)
     private Output<String> format;
 
+    /**
+     * @return Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
+     * 
+     */
     public Output<String> format() {
         return this.format;
     }
 
+    /**
+     * Name of the repository.
+     * 
+     */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
+    /**
+     * @return Name of the repository.
+     * 
+     */
     public Output<String> repository() {
         return this.repository;
     }
@@ -70,38 +102,86 @@ public final class GetRepositoryEndpointArgs extends com.pulumi.resources.Invoke
             $ = new GetRepositoryEndpointArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domain Name of the domain that contains the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domain(Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
+        /**
+         * @param domain Name of the domain that contains the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }
 
+        /**
+         * @param domainOwner Account number of the AWS account that owns the domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainOwner(@Nullable Output<String> domainOwner) {
             $.domainOwner = domainOwner;
             return this;
         }
 
+        /**
+         * @param domainOwner Account number of the AWS account that owns the domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainOwner(String domainOwner) {
             return domainOwner(Output.of(domainOwner));
         }
 
+        /**
+         * @param format Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder format(Output<String> format) {
             $.format = format;
             return this;
         }
 
+        /**
+         * @param format Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder format(String format) {
             return format(Output.of(format));
         }
 
+        /**
+         * @param repository Name of the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
+        /**
+         * @param repository Name of the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }

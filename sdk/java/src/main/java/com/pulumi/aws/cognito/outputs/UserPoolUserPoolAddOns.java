@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class UserPoolUserPoolAddOns {
+    /**
+     * @return Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+     * 
+     */
     private String advancedSecurityMode;
 
     private UserPoolUserPoolAddOns() {}
+    /**
+     * @return Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+     * 
+     */
     public String advancedSecurityMode() {
         return this.advancedSecurityMode;
     }

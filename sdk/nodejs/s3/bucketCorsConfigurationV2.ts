@@ -7,6 +7,53 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an S3 bucket CORS configuration resource. For more information about CORS, go to [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) in the Amazon S3 User Guide.
+ *
+ * > **NOTE:** S3 Buckets only support a single CORS configuration. Declaring multiple `aws.s3.BucketCorsConfigurationV2` resources to the same S3 Bucket will cause a perpetual difference in configuration.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
+ * const exampleBucketCorsConfigurationV2 = new aws.s3.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2", {
+ *     bucket: exampleBucketV2.id,
+ *     corsRules: [
+ *         {
+ *             allowedHeaders: ["*"],
+ *             allowedMethods: [
+ *                 "PUT",
+ *                 "POST",
+ *             ],
+ *             allowedOrigins: ["https://s3-website-test.domain.example"],
+ *             exposeHeaders: ["ETag"],
+ *             maxAgeSeconds: 3000,
+ *         },
+ *         {
+ *             allowedMethods: ["GET"],
+ *             allowedOrigins: ["*"],
+ *         },
+ *     ],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * S3 bucket CORS configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket CORS configuration resource should be imported using the `bucket` e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name
+ * ```
+ *
+ *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket CORS configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name,123456789012
+ * ```
+ */
 export class BucketCorsConfigurationV2 extends pulumi.CustomResource {
     /**
      * Get an existing BucketCorsConfigurationV2 resource's state with the given name, ID, and optional extra
@@ -35,8 +82,17 @@ export class BucketCorsConfigurationV2 extends pulumi.CustomResource {
         return obj['__pulumiType'] === BucketCorsConfigurationV2.__pulumiType;
     }
 
+    /**
+     * The name of the bucket.
+     */
     public readonly bucket!: pulumi.Output<string>;
+    /**
+     * Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+     */
     public readonly corsRules!: pulumi.Output<outputs.s3.BucketCorsConfigurationV2CorsRule[]>;
+    /**
+     * The account ID of the expected bucket owner.
+     */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
 
     /**
@@ -76,8 +132,17 @@ export class BucketCorsConfigurationV2 extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BucketCorsConfigurationV2 resources.
  */
 export interface BucketCorsConfigurationV2State {
+    /**
+     * The name of the bucket.
+     */
     bucket?: pulumi.Input<string>;
+    /**
+     * Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+     */
     corsRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketCorsConfigurationV2CorsRule>[]>;
+    /**
+     * The account ID of the expected bucket owner.
+     */
     expectedBucketOwner?: pulumi.Input<string>;
 }
 
@@ -85,7 +150,16 @@ export interface BucketCorsConfigurationV2State {
  * The set of arguments for constructing a BucketCorsConfigurationV2 resource.
  */
 export interface BucketCorsConfigurationV2Args {
+    /**
+     * The name of the bucket.
+     */
     bucket: pulumi.Input<string>;
+    /**
+     * Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+     */
     corsRules: pulumi.Input<pulumi.Input<inputs.s3.BucketCorsConfigurationV2CorsRule>[]>;
+    /**
+     * The account ID of the expected bucket owner.
+     */
     expectedBucketOwner?: pulumi.Input<string>;
 }

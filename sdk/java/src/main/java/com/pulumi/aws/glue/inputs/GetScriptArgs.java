@@ -18,23 +18,47 @@ public final class GetScriptArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetScriptArgs Empty = new GetScriptArgs();
 
+    /**
+     * List of the edges in the DAG. Defined below.
+     * 
+     */
     @Import(name="dagEdges", required=true)
     private Output<List<GetScriptDagEdgeArgs>> dagEdges;
 
+    /**
+     * @return List of the edges in the DAG. Defined below.
+     * 
+     */
     public Output<List<GetScriptDagEdgeArgs>> dagEdges() {
         return this.dagEdges;
     }
 
+    /**
+     * List of the nodes in the DAG. Defined below.
+     * 
+     */
     @Import(name="dagNodes", required=true)
     private Output<List<GetScriptDagNodeArgs>> dagNodes;
 
+    /**
+     * @return List of the nodes in the DAG. Defined below.
+     * 
+     */
     public Output<List<GetScriptDagNodeArgs>> dagNodes() {
         return this.dagNodes;
     }
 
+    /**
+     * Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+     * 
+     */
     @Import(name="language")
     private @Nullable Output<String> language;
 
+    /**
+     * @return Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+     * 
+     */
     public Optional<Output<String>> language() {
         return Optional.ofNullable(this.language);
     }
@@ -65,37 +89,85 @@ public final class GetScriptArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetScriptArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dagEdges List of the edges in the DAG. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dagEdges(Output<List<GetScriptDagEdgeArgs>> dagEdges) {
             $.dagEdges = dagEdges;
             return this;
         }
 
+        /**
+         * @param dagEdges List of the edges in the DAG. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dagEdges(List<GetScriptDagEdgeArgs> dagEdges) {
             return dagEdges(Output.of(dagEdges));
         }
 
+        /**
+         * @param dagEdges List of the edges in the DAG. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dagEdges(GetScriptDagEdgeArgs... dagEdges) {
             return dagEdges(List.of(dagEdges));
         }
 
+        /**
+         * @param dagNodes List of the nodes in the DAG. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dagNodes(Output<List<GetScriptDagNodeArgs>> dagNodes) {
             $.dagNodes = dagNodes;
             return this;
         }
 
+        /**
+         * @param dagNodes List of the nodes in the DAG. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dagNodes(List<GetScriptDagNodeArgs> dagNodes) {
             return dagNodes(Output.of(dagNodes));
         }
 
+        /**
+         * @param dagNodes List of the nodes in the DAG. Defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dagNodes(GetScriptDagNodeArgs... dagNodes) {
             return dagNodes(List.of(dagNodes));
         }
 
+        /**
+         * @param language Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder language(@Nullable Output<String> language) {
             $.language = language;
             return this;
         }
 
+        /**
+         * @param language Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder language(String language) {
             return language(Output.of(language));
         }

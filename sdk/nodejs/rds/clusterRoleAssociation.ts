@@ -4,6 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a RDS DB Cluster association with an IAM Role. Example use cases:
+ *
+ * * [Creating an IAM Role to Allow Amazon Aurora to Access AWS Services](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.IAM.CreateRole.html)
+ * * [Importing Amazon S3 Data into an RDS PostgreSQL DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html)
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.rds.ClusterRoleAssociation("example", {
+ *     dbClusterIdentifier: aws_rds_cluster.example.id,
+ *     featureName: "S3_INTEGRATION",
+ *     roleArn: aws_iam_role.example.arn,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_rds_cluster_role_association` can be imported using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`), e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
+ * ```
+ */
 export class ClusterRoleAssociation extends pulumi.CustomResource {
     /**
      * Get an existing ClusterRoleAssociation resource's state with the given name, ID, and optional extra
@@ -32,8 +59,17 @@ export class ClusterRoleAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClusterRoleAssociation.__pulumiType;
     }
 
+    /**
+     * DB Cluster Identifier to associate with the IAM Role.
+     */
     public readonly dbClusterIdentifier!: pulumi.Output<string>;
+    /**
+     * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+     */
     public readonly featureName!: pulumi.Output<string>;
+    /**
+     * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
+     */
     public readonly roleArn!: pulumi.Output<string>;
 
     /**
@@ -76,8 +112,17 @@ export class ClusterRoleAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ClusterRoleAssociation resources.
  */
 export interface ClusterRoleAssociationState {
+    /**
+     * DB Cluster Identifier to associate with the IAM Role.
+     */
     dbClusterIdentifier?: pulumi.Input<string>;
+    /**
+     * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+     */
     featureName?: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
+     */
     roleArn?: pulumi.Input<string>;
 }
 
@@ -85,7 +130,16 @@ export interface ClusterRoleAssociationState {
  * The set of arguments for constructing a ClusterRoleAssociation resource.
  */
 export interface ClusterRoleAssociationArgs {
+    /**
+     * DB Cluster Identifier to associate with the IAM Role.
+     */
     dbClusterIdentifier: pulumi.Input<string>;
+    /**
+     * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+     */
     featureName: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
+     */
     roleArn: pulumi.Input<string>;
 }

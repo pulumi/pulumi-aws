@@ -9,21 +9,147 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LakeFormation
 {
+    /// <summary>
+    /// Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
+    /// 
+    /// ## Example Usage
+    /// ### Database Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleLfTag = new Aws.LakeFormation.LfTag("exampleLfTag", new()
+    ///     {
+    ///         Key = "right",
+    ///         Values = new[]
+    ///         {
+    ///             "abbey",
+    ///             "village",
+    ///             "luffield",
+    ///             "woodcote",
+    ///             "copse",
+    ///             "chapel",
+    ///             "stowe",
+    ///             "club",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleResourceLfTags = new Aws.LakeFormation.ResourceLfTags("exampleResourceLfTags", new()
+    ///     {
+    ///         Database = new Aws.LakeFormation.Inputs.ResourceLfTagsDatabaseArgs
+    ///         {
+    ///             Name = aws_glue_catalog_database.Example.Name,
+    ///         },
+    ///         LfTags = new[]
+    ///         {
+    ///             new Aws.LakeFormation.Inputs.ResourceLfTagsLfTagArgs
+    ///             {
+    ///                 Key = exampleLfTag.Key,
+    ///                 Value = "stowe",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Multiple Tags Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleLfTag = new Aws.LakeFormation.LfTag("exampleLfTag", new()
+    ///     {
+    ///         Key = "right",
+    ///         Values = new[]
+    ///         {
+    ///             "abbey",
+    ///             "village",
+    ///             "luffield",
+    ///             "woodcote",
+    ///             "copse",
+    ///             "chapel",
+    ///             "stowe",
+    ///             "club",
+    ///         },
+    ///     });
+    /// 
+    ///     var example2 = new Aws.LakeFormation.LfTag("example2", new()
+    ///     {
+    ///         Key = "left",
+    ///         Values = new[]
+    ///         {
+    ///             "farm",
+    ///             "theloop",
+    ///             "aintree",
+    ///             "brooklands",
+    ///             "maggotts",
+    ///             "becketts",
+    ///             "vale",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleResourceLfTags = new Aws.LakeFormation.ResourceLfTags("exampleResourceLfTags", new()
+    ///     {
+    ///         Database = new Aws.LakeFormation.Inputs.ResourceLfTagsDatabaseArgs
+    ///         {
+    ///             Name = aws_glue_catalog_database.Example.Name,
+    ///         },
+    ///         LfTags = new[]
+    ///         {
+    ///             new Aws.LakeFormation.Inputs.ResourceLfTagsLfTagArgs
+    ///             {
+    ///                 Key = "right",
+    ///                 Value = "luffield",
+    ///             },
+    ///             new Aws.LakeFormation.Inputs.ResourceLfTagsLfTagArgs
+    ///             {
+    ///                 Key = "left",
+    ///                 Value = "aintree",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:lakeformation/resourceLfTags:ResourceLfTags")]
     public partial class ResourceLfTags : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+        /// </summary>
         [Output("catalogId")]
         public Output<string> CatalogId { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block for a database resource. See below.
+        /// </summary>
         [Output("database")]
         public Output<Outputs.ResourceLfTagsDatabase> Database { get; private set; } = null!;
 
+        /// <summary>
+        /// Set of LF-tags to attach to the resource. See below.
+        /// </summary>
         [Output("lfTags")]
         public Output<ImmutableArray<Outputs.ResourceLfTagsLfTag>> LfTags { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block for a table resource. See below.
+        /// </summary>
         [Output("table")]
         public Output<Outputs.ResourceLfTagsTable> Table { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block for a table with columns resource. See below.
+        /// </summary>
         [Output("tableWithColumns")]
         public Output<Outputs.ResourceLfTagsTableWithColumns> TableWithColumns { get; private set; } = null!;
 
@@ -73,23 +199,39 @@ namespace Pulumi.Aws.LakeFormation
 
     public sealed class ResourceLfTagsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+        /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
+        /// <summary>
+        /// Configuration block for a database resource. See below.
+        /// </summary>
         [Input("database")]
         public Input<Inputs.ResourceLfTagsDatabaseArgs>? Database { get; set; }
 
         [Input("lfTags", required: true)]
         private InputList<Inputs.ResourceLfTagsLfTagArgs>? _lfTags;
+
+        /// <summary>
+        /// Set of LF-tags to attach to the resource. See below.
+        /// </summary>
         public InputList<Inputs.ResourceLfTagsLfTagArgs> LfTags
         {
             get => _lfTags ?? (_lfTags = new InputList<Inputs.ResourceLfTagsLfTagArgs>());
             set => _lfTags = value;
         }
 
+        /// <summary>
+        /// Configuration block for a table resource. See below.
+        /// </summary>
         [Input("table")]
         public Input<Inputs.ResourceLfTagsTableArgs>? Table { get; set; }
 
+        /// <summary>
+        /// Configuration block for a table with columns resource. See below.
+        /// </summary>
         [Input("tableWithColumns")]
         public Input<Inputs.ResourceLfTagsTableWithColumnsArgs>? TableWithColumns { get; set; }
 
@@ -101,23 +243,39 @@ namespace Pulumi.Aws.LakeFormation
 
     public sealed class ResourceLfTagsState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+        /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
+        /// <summary>
+        /// Configuration block for a database resource. See below.
+        /// </summary>
         [Input("database")]
         public Input<Inputs.ResourceLfTagsDatabaseGetArgs>? Database { get; set; }
 
         [Input("lfTags")]
         private InputList<Inputs.ResourceLfTagsLfTagGetArgs>? _lfTags;
+
+        /// <summary>
+        /// Set of LF-tags to attach to the resource. See below.
+        /// </summary>
         public InputList<Inputs.ResourceLfTagsLfTagGetArgs> LfTags
         {
             get => _lfTags ?? (_lfTags = new InputList<Inputs.ResourceLfTagsLfTagGetArgs>());
             set => _lfTags = value;
         }
 
+        /// <summary>
+        /// Configuration block for a table resource. See below.
+        /// </summary>
         [Input("table")]
         public Input<Inputs.ResourceLfTagsTableGetArgs>? Table { get; set; }
 
+        /// <summary>
+        /// Configuration block for a table with columns resource. See below.
+        /// </summary>
         [Input("tableWithColumns")]
         public Input<Inputs.ResourceLfTagsTableWithColumnsGetArgs>? TableWithColumns { get; set; }
 

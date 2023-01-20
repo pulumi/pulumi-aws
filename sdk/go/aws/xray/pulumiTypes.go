@@ -11,7 +11,9 @@ import (
 )
 
 type GroupInsightsConfiguration struct {
-	InsightsEnabled      bool  `pulumi:"insightsEnabled"`
+	// Specifies whether insights are enabled.
+	InsightsEnabled bool `pulumi:"insightsEnabled"`
+	// Specifies whether insight notifications are enabled.
 	NotificationsEnabled *bool `pulumi:"notificationsEnabled"`
 }
 
@@ -27,7 +29,9 @@ type GroupInsightsConfigurationInput interface {
 }
 
 type GroupInsightsConfigurationArgs struct {
-	InsightsEnabled      pulumi.BoolInput    `pulumi:"insightsEnabled"`
+	// Specifies whether insights are enabled.
+	InsightsEnabled pulumi.BoolInput `pulumi:"insightsEnabled"`
+	// Specifies whether insight notifications are enabled.
 	NotificationsEnabled pulumi.BoolPtrInput `pulumi:"notificationsEnabled"`
 }
 
@@ -108,10 +112,12 @@ func (o GroupInsightsConfigurationOutput) ToGroupInsightsConfigurationPtrOutputW
 	}).(GroupInsightsConfigurationPtrOutput)
 }
 
+// Specifies whether insights are enabled.
 func (o GroupInsightsConfigurationOutput) InsightsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GroupInsightsConfiguration) bool { return v.InsightsEnabled }).(pulumi.BoolOutput)
 }
 
+// Specifies whether insight notifications are enabled.
 func (o GroupInsightsConfigurationOutput) NotificationsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupInsightsConfiguration) *bool { return v.NotificationsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -140,6 +146,7 @@ func (o GroupInsightsConfigurationPtrOutput) Elem() GroupInsightsConfigurationOu
 	}).(GroupInsightsConfigurationOutput)
 }
 
+// Specifies whether insights are enabled.
 func (o GroupInsightsConfigurationPtrOutput) InsightsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupInsightsConfiguration) *bool {
 		if v == nil {
@@ -149,6 +156,7 @@ func (o GroupInsightsConfigurationPtrOutput) InsightsEnabled() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies whether insight notifications are enabled.
 func (o GroupInsightsConfigurationPtrOutput) NotificationsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupInsightsConfiguration) *bool {
 		if v == nil {

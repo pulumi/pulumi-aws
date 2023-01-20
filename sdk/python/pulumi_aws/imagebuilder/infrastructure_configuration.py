@@ -31,6 +31,19 @@ class InfrastructureConfigurationArgs:
                  terminate_instance_on_failure: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a InfrastructureConfiguration resource.
+        :param pulumi.Input[str] instance_profile_name: Name of IAM Instance Profile.
+        :param pulumi.Input[str] description: Description for the configuration.
+        :param pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs'] instance_metadata_options: Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: Set of EC2 Instance Types.
+        :param pulumi.Input[str] key_pair: Name of EC2 Key Pair.
+        :param pulumi.Input['InfrastructureConfigurationLoggingArgs'] logging: Configuration block with logging settings. Detailed below.
+        :param pulumi.Input[str] name: Name for the configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of EC2 Security Group identifiers.
+        :param pulumi.Input[str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
+        :param pulumi.Input[str] subnet_id: EC2 Subnet identifier. Also requires `security_group_ids` argument.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[bool] terminate_instance_on_failure: Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
         """
         pulumi.set(__self__, "instance_profile_name", instance_profile_name)
         if description is not None:
@@ -61,6 +74,9 @@ class InfrastructureConfigurationArgs:
     @property
     @pulumi.getter(name="instanceProfileName")
     def instance_profile_name(self) -> pulumi.Input[str]:
+        """
+        Name of IAM Instance Profile.
+        """
         return pulumi.get(self, "instance_profile_name")
 
     @instance_profile_name.setter
@@ -70,6 +86,9 @@ class InfrastructureConfigurationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description for the configuration.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -79,6 +98,9 @@ class InfrastructureConfigurationArgs:
     @property
     @pulumi.getter(name="instanceMetadataOptions")
     def instance_metadata_options(self) -> Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']]:
+        """
+        Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+        """
         return pulumi.get(self, "instance_metadata_options")
 
     @instance_metadata_options.setter
@@ -88,6 +110,9 @@ class InfrastructureConfigurationArgs:
     @property
     @pulumi.getter(name="instanceTypes")
     def instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of EC2 Instance Types.
+        """
         return pulumi.get(self, "instance_types")
 
     @instance_types.setter
@@ -97,6 +122,9 @@ class InfrastructureConfigurationArgs:
     @property
     @pulumi.getter(name="keyPair")
     def key_pair(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of EC2 Key Pair.
+        """
         return pulumi.get(self, "key_pair")
 
     @key_pair.setter
@@ -106,6 +134,9 @@ class InfrastructureConfigurationArgs:
     @property
     @pulumi.getter
     def logging(self) -> Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']]:
+        """
+        Configuration block with logging settings. Detailed below.
+        """
         return pulumi.get(self, "logging")
 
     @logging.setter
@@ -115,6 +146,9 @@ class InfrastructureConfigurationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for the configuration.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -124,6 +158,9 @@ class InfrastructureConfigurationArgs:
     @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags to assign to infrastructure created by the configuration.
+        """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
@@ -133,6 +170,9 @@ class InfrastructureConfigurationArgs:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of EC2 Security Group identifiers.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -142,6 +182,9 @@ class InfrastructureConfigurationArgs:
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of SNS Topic.
+        """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
@@ -151,6 +194,9 @@ class InfrastructureConfigurationArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        EC2 Subnet identifier. Also requires `security_group_ids` argument.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -160,6 +206,9 @@ class InfrastructureConfigurationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -169,6 +218,9 @@ class InfrastructureConfigurationArgs:
     @property
     @pulumi.getter(name="terminateInstanceOnFailure")
     def terminate_instance_on_failure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
+        """
         return pulumi.get(self, "terminate_instance_on_failure")
 
     @terminate_instance_on_failure.setter
@@ -198,6 +250,23 @@ class _InfrastructureConfigurationState:
                  terminate_instance_on_failure: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering InfrastructureConfiguration resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the configuration.
+        :param pulumi.Input[str] date_created: Date when the configuration was created.
+        :param pulumi.Input[str] date_updated: Date when the configuration was updated.
+        :param pulumi.Input[str] description: Description for the configuration.
+        :param pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs'] instance_metadata_options: Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+        :param pulumi.Input[str] instance_profile_name: Name of IAM Instance Profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: Set of EC2 Instance Types.
+        :param pulumi.Input[str] key_pair: Name of EC2 Key Pair.
+        :param pulumi.Input['InfrastructureConfigurationLoggingArgs'] logging: Configuration block with logging settings. Detailed below.
+        :param pulumi.Input[str] name: Name for the configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of EC2 Security Group identifiers.
+        :param pulumi.Input[str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
+        :param pulumi.Input[str] subnet_id: EC2 Subnet identifier. Also requires `security_group_ids` argument.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[bool] terminate_instance_on_failure: Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -237,6 +306,9 @@ class _InfrastructureConfigurationState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the configuration.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -246,6 +318,9 @@ class _InfrastructureConfigurationState:
     @property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date when the configuration was created.
+        """
         return pulumi.get(self, "date_created")
 
     @date_created.setter
@@ -255,6 +330,9 @@ class _InfrastructureConfigurationState:
     @property
     @pulumi.getter(name="dateUpdated")
     def date_updated(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date when the configuration was updated.
+        """
         return pulumi.get(self, "date_updated")
 
     @date_updated.setter
@@ -264,6 +342,9 @@ class _InfrastructureConfigurationState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description for the configuration.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -273,6 +354,9 @@ class _InfrastructureConfigurationState:
     @property
     @pulumi.getter(name="instanceMetadataOptions")
     def instance_metadata_options(self) -> Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']]:
+        """
+        Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+        """
         return pulumi.get(self, "instance_metadata_options")
 
     @instance_metadata_options.setter
@@ -282,6 +366,9 @@ class _InfrastructureConfigurationState:
     @property
     @pulumi.getter(name="instanceProfileName")
     def instance_profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of IAM Instance Profile.
+        """
         return pulumi.get(self, "instance_profile_name")
 
     @instance_profile_name.setter
@@ -291,6 +378,9 @@ class _InfrastructureConfigurationState:
     @property
     @pulumi.getter(name="instanceTypes")
     def instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of EC2 Instance Types.
+        """
         return pulumi.get(self, "instance_types")
 
     @instance_types.setter
@@ -300,6 +390,9 @@ class _InfrastructureConfigurationState:
     @property
     @pulumi.getter(name="keyPair")
     def key_pair(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of EC2 Key Pair.
+        """
         return pulumi.get(self, "key_pair")
 
     @key_pair.setter
@@ -309,6 +402,9 @@ class _InfrastructureConfigurationState:
     @property
     @pulumi.getter
     def logging(self) -> Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']]:
+        """
+        Configuration block with logging settings. Detailed below.
+        """
         return pulumi.get(self, "logging")
 
     @logging.setter
@@ -318,6 +414,9 @@ class _InfrastructureConfigurationState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for the configuration.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -327,6 +426,9 @@ class _InfrastructureConfigurationState:
     @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags to assign to infrastructure created by the configuration.
+        """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
@@ -336,6 +438,9 @@ class _InfrastructureConfigurationState:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of EC2 Security Group identifiers.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -345,6 +450,9 @@ class _InfrastructureConfigurationState:
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of SNS Topic.
+        """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
@@ -354,6 +462,9 @@ class _InfrastructureConfigurationState:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        EC2 Subnet identifier. Also requires `security_group_ids` argument.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -363,6 +474,9 @@ class _InfrastructureConfigurationState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -372,6 +486,9 @@ class _InfrastructureConfigurationState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -381,6 +498,9 @@ class _InfrastructureConfigurationState:
     @property
     @pulumi.getter(name="terminateInstanceOnFailure")
     def terminate_instance_on_failure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
+        """
         return pulumi.get(self, "terminate_instance_on_failure")
 
     @terminate_instance_on_failure.setter
@@ -408,9 +528,60 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  terminate_instance_on_failure: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a InfrastructureConfiguration resource with the given unique name, props, and options.
+        Manages an Image Builder Infrastructure Configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.imagebuilder.InfrastructureConfiguration("example",
+            description="example description",
+            instance_profile_name=aws_iam_instance_profile["example"]["name"],
+            instance_types=[
+                "t2.nano",
+                "t3.micro",
+            ],
+            key_pair=aws_key_pair["example"]["key_name"],
+            security_group_ids=[aws_security_group["example"]["id"]],
+            sns_topic_arn=aws_sns_topic["example"]["arn"],
+            subnet_id=aws_subnet["main"]["id"],
+            terminate_instance_on_failure=True,
+            logging=aws.imagebuilder.InfrastructureConfigurationLoggingArgs(
+                s3_logs=aws.imagebuilder.InfrastructureConfigurationLoggingS3LogsArgs(
+                    s3_bucket_name=aws_s3_bucket["example"]["bucket"],
+                    s3_key_prefix="logs",
+                ),
+            ),
+            tags={
+                "foo": "bar",
+            })
+        ```
+
+        ## Import
+
+        `aws_imagebuilder_infrastructure_configuration` can be imported using the Amazon Resource Name (ARN), e.g.,
+
+        ```sh
+         $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Description for the configuration.
+        :param pulumi.Input[pulumi.InputType['InfrastructureConfigurationInstanceMetadataOptionsArgs']] instance_metadata_options: Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+        :param pulumi.Input[str] instance_profile_name: Name of IAM Instance Profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: Set of EC2 Instance Types.
+        :param pulumi.Input[str] key_pair: Name of EC2 Key Pair.
+        :param pulumi.Input[pulumi.InputType['InfrastructureConfigurationLoggingArgs']] logging: Configuration block with logging settings. Detailed below.
+        :param pulumi.Input[str] name: Name for the configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of EC2 Security Group identifiers.
+        :param pulumi.Input[str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
+        :param pulumi.Input[str] subnet_id: EC2 Subnet identifier. Also requires `security_group_ids` argument.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[bool] terminate_instance_on_failure: Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
         """
         ...
     @overload
@@ -419,7 +590,45 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  args: InfrastructureConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a InfrastructureConfiguration resource with the given unique name, props, and options.
+        Manages an Image Builder Infrastructure Configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.imagebuilder.InfrastructureConfiguration("example",
+            description="example description",
+            instance_profile_name=aws_iam_instance_profile["example"]["name"],
+            instance_types=[
+                "t2.nano",
+                "t3.micro",
+            ],
+            key_pair=aws_key_pair["example"]["key_name"],
+            security_group_ids=[aws_security_group["example"]["id"]],
+            sns_topic_arn=aws_sns_topic["example"]["arn"],
+            subnet_id=aws_subnet["main"]["id"],
+            terminate_instance_on_failure=True,
+            logging=aws.imagebuilder.InfrastructureConfigurationLoggingArgs(
+                s3_logs=aws.imagebuilder.InfrastructureConfigurationLoggingS3LogsArgs(
+                    s3_bucket_name=aws_s3_bucket["example"]["bucket"],
+                    s3_key_prefix="logs",
+                ),
+            ),
+            tags={
+                "foo": "bar",
+            })
+        ```
+
+        ## Import
+
+        `aws_imagebuilder_infrastructure_configuration` can be imported using the Amazon Resource Name (ARN), e.g.,
+
+        ```sh
+         $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param InfrastructureConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -510,6 +719,23 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the configuration.
+        :param pulumi.Input[str] date_created: Date when the configuration was created.
+        :param pulumi.Input[str] date_updated: Date when the configuration was updated.
+        :param pulumi.Input[str] description: Description for the configuration.
+        :param pulumi.Input[pulumi.InputType['InfrastructureConfigurationInstanceMetadataOptionsArgs']] instance_metadata_options: Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+        :param pulumi.Input[str] instance_profile_name: Name of IAM Instance Profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: Set of EC2 Instance Types.
+        :param pulumi.Input[str] key_pair: Name of EC2 Key Pair.
+        :param pulumi.Input[pulumi.InputType['InfrastructureConfigurationLoggingArgs']] logging: Configuration block with logging settings. Detailed below.
+        :param pulumi.Input[str] name: Name for the configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of EC2 Security Group identifiers.
+        :param pulumi.Input[str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
+        :param pulumi.Input[str] subnet_id: EC2 Subnet identifier. Also requires `security_group_ids` argument.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[bool] terminate_instance_on_failure: Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -537,85 +763,136 @@ class InfrastructureConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the configuration.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> pulumi.Output[str]:
+        """
+        Date when the configuration was created.
+        """
         return pulumi.get(self, "date_created")
 
     @property
     @pulumi.getter(name="dateUpdated")
     def date_updated(self) -> pulumi.Output[str]:
+        """
+        Date when the configuration was updated.
+        """
         return pulumi.get(self, "date_updated")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Description for the configuration.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="instanceMetadataOptions")
     def instance_metadata_options(self) -> pulumi.Output[Optional['outputs.InfrastructureConfigurationInstanceMetadataOptions']]:
+        """
+        Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+        """
         return pulumi.get(self, "instance_metadata_options")
 
     @property
     @pulumi.getter(name="instanceProfileName")
     def instance_profile_name(self) -> pulumi.Output[str]:
+        """
+        Name of IAM Instance Profile.
+        """
         return pulumi.get(self, "instance_profile_name")
 
     @property
     @pulumi.getter(name="instanceTypes")
     def instance_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Set of EC2 Instance Types.
+        """
         return pulumi.get(self, "instance_types")
 
     @property
     @pulumi.getter(name="keyPair")
     def key_pair(self) -> pulumi.Output[Optional[str]]:
+        """
+        Name of EC2 Key Pair.
+        """
         return pulumi.get(self, "key_pair")
 
     @property
     @pulumi.getter
     def logging(self) -> pulumi.Output[Optional['outputs.InfrastructureConfigurationLogging']]:
+        """
+        Configuration block with logging settings. Detailed below.
+        """
         return pulumi.get(self, "logging")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Name for the configuration.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of resource tags to assign to infrastructure created by the configuration.
+        """
         return pulumi.get(self, "resource_tags")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Set of EC2 Security Group identifiers.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        Amazon Resource Name (ARN) of SNS Topic.
+        """
         return pulumi.get(self, "sns_topic_arn")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        EC2 Subnet identifier. Also requires `security_group_ids` argument.
+        """
         return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="terminateInstanceOnFailure")
     def terminate_instance_on_failure(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
+        """
         return pulumi.get(self, "terminate_instance_on_failure")
 

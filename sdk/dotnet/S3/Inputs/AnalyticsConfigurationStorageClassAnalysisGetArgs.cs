@@ -12,6 +12,9 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class AnalyticsConfigurationStorageClassAnalysisGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Data export configuration (documented below).
+        /// </summary>
         [Input("dataExport", required: true)]
         public Input<Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportGetArgs> DataExport { get; set; } = null!;
 

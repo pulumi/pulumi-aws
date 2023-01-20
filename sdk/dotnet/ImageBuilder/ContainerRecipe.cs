@@ -9,63 +9,179 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ImageBuilder
 {
+    /// <summary>
+    /// Manages an Image Builder Container Recipe.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ImageBuilder.ContainerRecipe("example", new()
+    ///     {
+    ///         Version = "1.0.0",
+    ///         ContainerType = "DOCKER",
+    ///         ParentImage = "arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
+    ///         TargetRepository = new Aws.ImageBuilder.Inputs.ContainerRecipeTargetRepositoryArgs
+    ///         {
+    ///             RepositoryName = aws_ecr_repository.Example.Name,
+    ///             Service = "ECR",
+    ///         },
+    ///         Components = new[]
+    ///         {
+    ///             new Aws.ImageBuilder.Inputs.ContainerRecipeComponentArgs
+    ///             {
+    ///                 ComponentArn = aws_imagebuilder_component.Example.Arn,
+    ///                 Parameters = new[]
+    ///                 {
+    ///                     new Aws.ImageBuilder.Inputs.ContainerRecipeComponentParameterArgs
+    ///                     {
+    ///                         Name = "Parameter1",
+    ///                         Value = "Value1",
+    ///                     },
+    ///                     new Aws.ImageBuilder.Inputs.ContainerRecipeComponentParameterArgs
+    ///                     {
+    ///                         Name = "Parameter2",
+    ///                         Value = "Value2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         DockerfileTemplateData = @"FROM {{{ imagebuilder:parentImage }}}
+    /// {{{ imagebuilder:environments }}}
+    /// {{{ imagebuilder:components }}}
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_imagebuilder_container_recipe` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:imagebuilder/containerRecipe:ContainerRecipe")]
     public partial class ContainerRecipe : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// (Required) Amazon Resource Name (ARN) of the container recipe.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Ordered configuration block(s) with components for the container recipe. Detailed below.
+        /// </summary>
         [Output("components")]
         public Output<ImmutableArray<Outputs.ContainerRecipeComponent>> Components { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the container to create. Valid values: `DOCKER`.
+        /// </summary>
         [Output("containerType")]
         public Output<string> ContainerType { get; private set; } = null!;
 
+        /// <summary>
+        /// Date the container recipe was created.
+        /// </summary>
         [Output("dateCreated")]
         public Output<string> DateCreated { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the container recipe.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The Dockerfile template used to build the image as an inline data blob.
+        /// </summary>
         [Output("dockerfileTemplateData")]
         public Output<string> DockerfileTemplateData { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon S3 URI for the Dockerfile that will be used to build the container image.
+        /// </summary>
         [Output("dockerfileTemplateUri")]
         public Output<string?> DockerfileTemplateUri { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        /// </summary>
         [Output("encrypted")]
         public Output<bool> Encrypted { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block used to configure an instance for building and testing container images. Detailed below.
+        /// </summary>
         [Output("instanceConfiguration")]
         public Output<Outputs.ContainerRecipeInstanceConfiguration?> InstanceConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The KMS key used to encrypt the container image.
+        /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the container recipe.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Owner of the container recipe.
+        /// </summary>
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
 
+        /// <summary>
+        /// The base image for the container recipe.
+        /// </summary>
         [Output("parentImage")]
         public Output<string> ParentImage { get; private set; } = null!;
 
+        /// <summary>
+        /// Platform of the container recipe.
+        /// </summary>
         [Output("platform")]
         public Output<string> Platform { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// The destination repository for the container image. Detailed below.
+        /// </summary>
         [Output("targetRepository")]
         public Output<Outputs.ContainerRecipeTargetRepository> TargetRepository { get; private set; } = null!;
 
+        /// <summary>
+        /// Version of the container recipe.
+        /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
+        /// <summary>
+        /// The working directory to be used during build and test workflows.
+        /// </summary>
         [Output("workingDirectory")]
         public Output<string?> WorkingDirectory { get; private set; } = null!;
 
@@ -117,50 +233,91 @@ namespace Pulumi.Aws.ImageBuilder
     {
         [Input("components", required: true)]
         private InputList<Inputs.ContainerRecipeComponentArgs>? _components;
+
+        /// <summary>
+        /// Ordered configuration block(s) with components for the container recipe. Detailed below.
+        /// </summary>
         public InputList<Inputs.ContainerRecipeComponentArgs> Components
         {
             get => _components ?? (_components = new InputList<Inputs.ContainerRecipeComponentArgs>());
             set => _components = value;
         }
 
+        /// <summary>
+        /// The type of the container to create. Valid values: `DOCKER`.
+        /// </summary>
         [Input("containerType", required: true)]
         public Input<string> ContainerType { get; set; } = null!;
 
+        /// <summary>
+        /// The description of the container recipe.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The Dockerfile template used to build the image as an inline data blob.
+        /// </summary>
         [Input("dockerfileTemplateData")]
         public Input<string>? DockerfileTemplateData { get; set; }
 
+        /// <summary>
+        /// The Amazon S3 URI for the Dockerfile that will be used to build the container image.
+        /// </summary>
         [Input("dockerfileTemplateUri")]
         public Input<string>? DockerfileTemplateUri { get; set; }
 
+        /// <summary>
+        /// Configuration block used to configure an instance for building and testing container images. Detailed below.
+        /// </summary>
         [Input("instanceConfiguration")]
         public Input<Inputs.ContainerRecipeInstanceConfigurationArgs>? InstanceConfiguration { get; set; }
 
+        /// <summary>
+        /// The KMS key used to encrypt the container image.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// The name of the container recipe.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The base image for the container recipe.
+        /// </summary>
         [Input("parentImage", required: true)]
         public Input<string> ParentImage { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The destination repository for the container image. Detailed below.
+        /// </summary>
         [Input("targetRepository", required: true)]
         public Input<Inputs.ContainerRecipeTargetRepositoryArgs> TargetRepository { get; set; } = null!;
 
+        /// <summary>
+        /// Version of the container recipe.
+        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
+        /// <summary>
+        /// The working directory to be used during build and test workflows.
+        /// </summary>
         [Input("workingDirectory")]
         public Input<string>? WorkingDirectory { get; set; }
 
@@ -172,55 +329,102 @@ namespace Pulumi.Aws.ImageBuilder
 
     public sealed class ContainerRecipeState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (Required) Amazon Resource Name (ARN) of the container recipe.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("components")]
         private InputList<Inputs.ContainerRecipeComponentGetArgs>? _components;
+
+        /// <summary>
+        /// Ordered configuration block(s) with components for the container recipe. Detailed below.
+        /// </summary>
         public InputList<Inputs.ContainerRecipeComponentGetArgs> Components
         {
             get => _components ?? (_components = new InputList<Inputs.ContainerRecipeComponentGetArgs>());
             set => _components = value;
         }
 
+        /// <summary>
+        /// The type of the container to create. Valid values: `DOCKER`.
+        /// </summary>
         [Input("containerType")]
         public Input<string>? ContainerType { get; set; }
 
+        /// <summary>
+        /// Date the container recipe was created.
+        /// </summary>
         [Input("dateCreated")]
         public Input<string>? DateCreated { get; set; }
 
+        /// <summary>
+        /// The description of the container recipe.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The Dockerfile template used to build the image as an inline data blob.
+        /// </summary>
         [Input("dockerfileTemplateData")]
         public Input<string>? DockerfileTemplateData { get; set; }
 
+        /// <summary>
+        /// The Amazon S3 URI for the Dockerfile that will be used to build the container image.
+        /// </summary>
         [Input("dockerfileTemplateUri")]
         public Input<string>? DockerfileTemplateUri { get; set; }
 
+        /// <summary>
+        /// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
 
+        /// <summary>
+        /// Configuration block used to configure an instance for building and testing container images. Detailed below.
+        /// </summary>
         [Input("instanceConfiguration")]
         public Input<Inputs.ContainerRecipeInstanceConfigurationGetArgs>? InstanceConfiguration { get; set; }
 
+        /// <summary>
+        /// The KMS key used to encrypt the container image.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// The name of the container recipe.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Owner of the container recipe.
+        /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 
+        /// <summary>
+        /// The base image for the container recipe.
+        /// </summary>
         [Input("parentImage")]
         public Input<string>? ParentImage { get; set; }
 
+        /// <summary>
+        /// Platform of the container recipe.
+        /// </summary>
         [Input("platform")]
         public Input<string>? Platform { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -229,18 +433,31 @@ namespace Pulumi.Aws.ImageBuilder
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// The destination repository for the container image. Detailed below.
+        /// </summary>
         [Input("targetRepository")]
         public Input<Inputs.ContainerRecipeTargetRepositoryGetArgs>? TargetRepository { get; set; }
 
+        /// <summary>
+        /// Version of the container recipe.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
+        /// <summary>
+        /// The working directory to be used during build and test workflows.
+        /// </summary>
         [Input("workingDirectory")]
         public Input<string>? WorkingDirectory { get; set; }
 

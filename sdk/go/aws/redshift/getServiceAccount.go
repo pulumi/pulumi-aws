@@ -10,6 +10,73 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+// in a given region for the purpose of allowing Redshift to store audit data in S3.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := redshift.GetServiceAccount(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+//				ForceDestroy: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketPolicy(ctx, "allowAuditLogging", &s3.BucketPolicyArgs{
+//				Bucket: bucket.ID(),
+//				Policy: pulumi.Any(fmt.Sprintf(`{
+//		"Version": "2008-10-17",
+//		"Statement": [
+//			{
+//	            "Sid": "Put bucket policy needed for audit logging",
+//	            "Effect": "Allow",
+//	            "Principal": {
+//			        "AWS": "%v"
+//	            },
+//	            "Action": "s3:PutObject",
+//	            "Resource": "arn:aws:s3:::tf-redshift-logging-test-bucket/*"
+//	        },
+//	        {
+//	            "Sid": "Get bucket policy needed for audit logging ",
+//	            "Effect": "Allow",
+//	            "Principal": {
+//			        "AWS": "%v"
+//	            },
+//	            "Action": "s3:GetBucketAcl",
+//	            "Resource": "arn:aws:s3:::tf-redshift-logging-test-bucket"
+//	        }
+//		]
+//	}
+//
+// `, main.Arn, main.Arn)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetServiceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs, opts ...pulumi.InvokeOption) (*GetServiceAccountResult, error) {
 	var rv GetServiceAccountResult
 	err := ctx.Invoke("aws:redshift/getServiceAccount:getServiceAccount", args, &rv, opts...)
@@ -21,11 +88,14 @@ func GetServiceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs, opts ..
 
 // A collection of arguments for invoking getServiceAccount.
 type GetServiceAccountArgs struct {
+	// Name of the region whose AWS Redshift account ID is desired.
+	// Defaults to the region from the AWS provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getServiceAccount.
 type GetServiceAccountResult struct {
+	// ARN of the AWS Redshift service account in the selected region.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string  `pulumi:"id"`
@@ -47,6 +117,8 @@ func GetServiceAccountOutput(ctx *pulumi.Context, args GetServiceAccountOutputAr
 
 // A collection of arguments for invoking getServiceAccount.
 type GetServiceAccountOutputArgs struct {
+	// Name of the region whose AWS Redshift account ID is desired.
+	// Defaults to the region from the AWS provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -69,6 +141,7 @@ func (o GetServiceAccountResultOutput) ToGetServiceAccountResultOutputWithContex
 	return o
 }
 
+// ARN of the AWS Redshift service account in the selected region.
 func (o GetServiceAccountResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceAccountResult) string { return v.Arn }).(pulumi.StringOutput)
 }

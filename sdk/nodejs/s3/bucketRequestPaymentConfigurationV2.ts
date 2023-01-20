@@ -4,6 +4,37 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an S3 bucket request payment configuration resource. For more information, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html).
+ *
+ * > **NOTE:** Destroying an `aws.s3.BucketRequestPaymentConfigurationV2` resource resets the bucket's `payer` to the S3 default: the bucket owner.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.s3.BucketRequestPaymentConfigurationV2("example", {
+ *     bucket: aws_s3_bucket.example.bucket,
+ *     payer: "Requester",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * S3 bucket request payment configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket request payment configuration resource should be imported using the `bucket` e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name
+ * ```
+ *
+ *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket request payment configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name,123456789012
+ * ```
+ */
 export class BucketRequestPaymentConfigurationV2 extends pulumi.CustomResource {
     /**
      * Get an existing BucketRequestPaymentConfigurationV2 resource's state with the given name, ID, and optional extra
@@ -32,8 +63,17 @@ export class BucketRequestPaymentConfigurationV2 extends pulumi.CustomResource {
         return obj['__pulumiType'] === BucketRequestPaymentConfigurationV2.__pulumiType;
     }
 
+    /**
+     * The name of the bucket.
+     */
     public readonly bucket!: pulumi.Output<string>;
+    /**
+     * The account ID of the expected bucket owner.
+     */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+     */
     public readonly payer!: pulumi.Output<string>;
 
     /**
@@ -73,8 +113,17 @@ export class BucketRequestPaymentConfigurationV2 extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BucketRequestPaymentConfigurationV2 resources.
  */
 export interface BucketRequestPaymentConfigurationV2State {
+    /**
+     * The name of the bucket.
+     */
     bucket?: pulumi.Input<string>;
+    /**
+     * The account ID of the expected bucket owner.
+     */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+     */
     payer?: pulumi.Input<string>;
 }
 
@@ -82,7 +131,16 @@ export interface BucketRequestPaymentConfigurationV2State {
  * The set of arguments for constructing a BucketRequestPaymentConfigurationV2 resource.
  */
 export interface BucketRequestPaymentConfigurationV2Args {
+    /**
+     * The name of the bucket.
+     */
     bucket: pulumi.Input<string>;
+    /**
+     * The account ID of the expected bucket owner.
+     */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+     */
     payer: pulumi.Input<string>;
 }

@@ -13,9 +13,17 @@ public final class EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs ex
 
     public static final EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs Empty = new EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs();
 
+    /**
+     * The name of a CloudWatch alarm in your account.
+     * 
+     */
     @Import(name="alarmName", required=true)
     private Output<String> alarmName;
 
+    /**
+     * @return The name of a CloudWatch alarm in your account.
+     * 
+     */
     public Output<String> alarmName() {
         return this.alarmName;
     }
@@ -44,11 +52,23 @@ public final class EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs ex
             $ = new EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param alarmName The name of a CloudWatch alarm in your account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alarmName(Output<String> alarmName) {
             $.alarmName = alarmName;
             return this;
         }
 
+        /**
+         * @param alarmName The name of a CloudWatch alarm in your account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alarmName(String alarmName) {
             return alarmName(Output.of(alarmName));
         }

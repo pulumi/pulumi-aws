@@ -13,16 +13,32 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NetworkInterfaceAttachment {
     private @Nullable String attachmentId;
+    /**
+     * @return Integer to define the devices index.
+     * 
+     */
     private Integer deviceIndex;
+    /**
+     * @return ID of the instance to attach to.
+     * 
+     */
     private String instance;
 
     private NetworkInterfaceAttachment() {}
     public Optional<String> attachmentId() {
         return Optional.ofNullable(this.attachmentId);
     }
+    /**
+     * @return Integer to define the devices index.
+     * 
+     */
     public Integer deviceIndex() {
         return this.deviceIndex;
     }
+    /**
+     * @return ID of the instance to attach to.
+     * 
+     */
     public String instance() {
         return this.instance;
     }

@@ -11,18 +11,65 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a CodeCommit Repository Resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codecommit"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := codecommit.NewRepository(ctx, "test", &codecommit.RepositoryArgs{
+//				Description:    pulumi.String("This is the Sample App Repository"),
+//				RepositoryName: pulumi.String("MyTestRepository"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Codecommit repository can be imported using repository name, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
+//
+// ```
 type Repository struct {
 	pulumi.CustomResourceState
 
-	Arn            pulumi.StringOutput    `pulumi:"arn"`
-	CloneUrlHttp   pulumi.StringOutput    `pulumi:"cloneUrlHttp"`
-	CloneUrlSsh    pulumi.StringOutput    `pulumi:"cloneUrlSsh"`
-	DefaultBranch  pulumi.StringPtrOutput `pulumi:"defaultBranch"`
-	Description    pulumi.StringPtrOutput `pulumi:"description"`
-	RepositoryId   pulumi.StringOutput    `pulumi:"repositoryId"`
-	RepositoryName pulumi.StringOutput    `pulumi:"repositoryName"`
-	Tags           pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll        pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The ARN of the repository
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The URL to use for cloning the repository over HTTPS.
+	CloneUrlHttp pulumi.StringOutput `pulumi:"cloneUrlHttp"`
+	// The URL to use for cloning the repository over SSH.
+	CloneUrlSsh pulumi.StringOutput `pulumi:"cloneUrlSsh"`
+	// The default branch of the repository. The branch specified here needs to exist.
+	DefaultBranch pulumi.StringPtrOutput `pulumi:"defaultBranch"`
+	// The description of the repository. This needs to be less than 1000 characters
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The ID of the repository
+	RepositoryId pulumi.StringOutput `pulumi:"repositoryId"`
+	// The name for the repository. This needs to be less than 100 characters.
+	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
@@ -57,27 +104,45 @@ func GetRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Repository resources.
 type repositoryState struct {
-	Arn            *string           `pulumi:"arn"`
-	CloneUrlHttp   *string           `pulumi:"cloneUrlHttp"`
-	CloneUrlSsh    *string           `pulumi:"cloneUrlSsh"`
-	DefaultBranch  *string           `pulumi:"defaultBranch"`
-	Description    *string           `pulumi:"description"`
-	RepositoryId   *string           `pulumi:"repositoryId"`
-	RepositoryName *string           `pulumi:"repositoryName"`
-	Tags           map[string]string `pulumi:"tags"`
-	TagsAll        map[string]string `pulumi:"tagsAll"`
+	// The ARN of the repository
+	Arn *string `pulumi:"arn"`
+	// The URL to use for cloning the repository over HTTPS.
+	CloneUrlHttp *string `pulumi:"cloneUrlHttp"`
+	// The URL to use for cloning the repository over SSH.
+	CloneUrlSsh *string `pulumi:"cloneUrlSsh"`
+	// The default branch of the repository. The branch specified here needs to exist.
+	DefaultBranch *string `pulumi:"defaultBranch"`
+	// The description of the repository. This needs to be less than 1000 characters
+	Description *string `pulumi:"description"`
+	// The ID of the repository
+	RepositoryId *string `pulumi:"repositoryId"`
+	// The name for the repository. This needs to be less than 100 characters.
+	RepositoryName *string `pulumi:"repositoryName"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type RepositoryState struct {
-	Arn            pulumi.StringPtrInput
-	CloneUrlHttp   pulumi.StringPtrInput
-	CloneUrlSsh    pulumi.StringPtrInput
-	DefaultBranch  pulumi.StringPtrInput
-	Description    pulumi.StringPtrInput
-	RepositoryId   pulumi.StringPtrInput
+	// The ARN of the repository
+	Arn pulumi.StringPtrInput
+	// The URL to use for cloning the repository over HTTPS.
+	CloneUrlHttp pulumi.StringPtrInput
+	// The URL to use for cloning the repository over SSH.
+	CloneUrlSsh pulumi.StringPtrInput
+	// The default branch of the repository. The branch specified here needs to exist.
+	DefaultBranch pulumi.StringPtrInput
+	// The description of the repository. This needs to be less than 1000 characters
+	Description pulumi.StringPtrInput
+	// The ID of the repository
+	RepositoryId pulumi.StringPtrInput
+	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringPtrInput
-	Tags           pulumi.StringMapInput
-	TagsAll        pulumi.StringMapInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (RepositoryState) ElementType() reflect.Type {
@@ -85,18 +150,26 @@ func (RepositoryState) ElementType() reflect.Type {
 }
 
 type repositoryArgs struct {
-	DefaultBranch  *string           `pulumi:"defaultBranch"`
-	Description    *string           `pulumi:"description"`
-	RepositoryName string            `pulumi:"repositoryName"`
-	Tags           map[string]string `pulumi:"tags"`
+	// The default branch of the repository. The branch specified here needs to exist.
+	DefaultBranch *string `pulumi:"defaultBranch"`
+	// The description of the repository. This needs to be less than 1000 characters
+	Description *string `pulumi:"description"`
+	// The name for the repository. This needs to be less than 100 characters.
+	RepositoryName string `pulumi:"repositoryName"`
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Repository resource.
 type RepositoryArgs struct {
-	DefaultBranch  pulumi.StringPtrInput
-	Description    pulumi.StringPtrInput
+	// The default branch of the repository. The branch specified here needs to exist.
+	DefaultBranch pulumi.StringPtrInput
+	// The description of the repository. This needs to be less than 1000 characters
+	Description pulumi.StringPtrInput
+	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringInput
-	Tags           pulumi.StringMapInput
+	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (RepositoryArgs) ElementType() reflect.Type {
@@ -186,38 +259,47 @@ func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) Rep
 	return o
 }
 
+// The ARN of the repository
 func (o RepositoryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The URL to use for cloning the repository over HTTPS.
 func (o RepositoryOutput) CloneUrlHttp() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.CloneUrlHttp }).(pulumi.StringOutput)
 }
 
+// The URL to use for cloning the repository over SSH.
 func (o RepositoryOutput) CloneUrlSsh() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.CloneUrlSsh }).(pulumi.StringOutput)
 }
 
+// The default branch of the repository. The branch specified here needs to exist.
 func (o RepositoryOutput) DefaultBranch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.DefaultBranch }).(pulumi.StringPtrOutput)
 }
 
+// The description of the repository. This needs to be less than 1000 characters
 func (o RepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the repository
 func (o RepositoryOutput) RepositoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RepositoryId }).(pulumi.StringOutput)
 }
 
+// The name for the repository. This needs to be less than 100 characters.
 func (o RepositoryOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RepositoryName }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RepositoryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RepositoryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

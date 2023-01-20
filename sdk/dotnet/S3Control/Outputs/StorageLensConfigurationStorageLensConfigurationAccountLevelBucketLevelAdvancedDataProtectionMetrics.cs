@@ -13,6 +13,9 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics
     {
+        /// <summary>
+        /// Whether advanced data-protection metrics are enabled.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

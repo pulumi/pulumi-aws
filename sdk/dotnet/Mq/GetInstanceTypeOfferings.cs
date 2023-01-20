@@ -11,9 +11,95 @@ namespace Pulumi.Aws.Mq
 {
     public static class GetInstanceTypeOfferings
     {
+        /// <summary>
+        /// Provides information about a MQ Broker Instance Offerings.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var empty = Aws.Mq.GetInstanceTypeOfferings.Invoke();
+        /// 
+        ///     var engine = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         EngineType = "ACTIVEMQ",
+        ///     });
+        /// 
+        ///     var storage = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         StorageType = "EBS",
+        ///     });
+        /// 
+        ///     var instance = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         HostInstanceType = "mq.m5.large",
+        ///     });
+        /// 
+        ///     var all = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         EngineType = "ACTIVEMQ",
+        ///         HostInstanceType = "mq.m5.large",
+        ///         StorageType = "EBS",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetInstanceTypeOfferingsResult> InvokeAsync(GetInstanceTypeOfferingsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceTypeOfferingsResult>("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", args ?? new GetInstanceTypeOfferingsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides information about a MQ Broker Instance Offerings.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var empty = Aws.Mq.GetInstanceTypeOfferings.Invoke();
+        /// 
+        ///     var engine = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         EngineType = "ACTIVEMQ",
+        ///     });
+        /// 
+        ///     var storage = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         StorageType = "EBS",
+        ///     });
+        /// 
+        ///     var instance = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         HostInstanceType = "mq.m5.large",
+        ///     });
+        /// 
+        ///     var all = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         EngineType = "ACTIVEMQ",
+        ///         HostInstanceType = "mq.m5.large",
+        ///         StorageType = "EBS",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetInstanceTypeOfferingsResult> Invoke(GetInstanceTypeOfferingsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceTypeOfferingsResult>("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", args ?? new GetInstanceTypeOfferingsInvokeArgs(), options.WithDefaults());
     }
@@ -21,12 +107,21 @@ namespace Pulumi.Aws.Mq
 
     public sealed class GetInstanceTypeOfferingsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Filter response by engine type.
+        /// </summary>
         [Input("engineType")]
         public string? EngineType { get; set; }
 
+        /// <summary>
+        /// Filter response by host instance type.
+        /// </summary>
         [Input("hostInstanceType")]
         public string? HostInstanceType { get; set; }
 
+        /// <summary>
+        /// Filter response by storage type.
+        /// </summary>
         [Input("storageType")]
         public string? StorageType { get; set; }
 
@@ -38,12 +133,21 @@ namespace Pulumi.Aws.Mq
 
     public sealed class GetInstanceTypeOfferingsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Filter response by engine type.
+        /// </summary>
         [Input("engineType")]
         public Input<string>? EngineType { get; set; }
 
+        /// <summary>
+        /// Filter response by host instance type.
+        /// </summary>
         [Input("hostInstanceType")]
         public Input<string>? HostInstanceType { get; set; }
 
+        /// <summary>
+        /// Filter response by storage type.
+        /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
 
@@ -57,13 +161,25 @@ namespace Pulumi.Aws.Mq
     [OutputType]
     public sealed class GetInstanceTypeOfferingsResult
     {
+        /// <summary>
+        /// Option for host instance type. See Broker Instance Options below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceTypeOfferingsBrokerInstanceOptionResult> BrokerInstanceOptions;
+        /// <summary>
+        /// Broker's engine type.
+        /// </summary>
         public readonly string? EngineType;
+        /// <summary>
+        /// Broker's instance type.
+        /// </summary>
         public readonly string? HostInstanceType;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Broker's storage type.
+        /// </summary>
         public readonly string? StorageType;
 
         [OutputConstructor]

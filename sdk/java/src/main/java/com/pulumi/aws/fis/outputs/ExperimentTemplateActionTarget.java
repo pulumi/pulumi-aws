@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class ExperimentTemplateActionTarget {
+    /**
+     * @return Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances).
+     * 
+     */
     private String key;
+    /**
+     * @return Target name, referencing a corresponding target.
+     * 
+     */
     private String value;
 
     private ExperimentTemplateActionTarget() {}
+    /**
+     * @return Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances).
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return Target name, referencing a corresponding target.
+     * 
+     */
     public String value() {
         return this.value;
     }

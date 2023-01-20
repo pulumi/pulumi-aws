@@ -13,16 +13,32 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
 
     public static final PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs Empty = new PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs();
 
+    /**
+     * Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric. For example, if the metric type is `ASGCPUUtilization`, the Auto Scaling group&#39;s total CPU metric is used as the load metric, and the average CPU metric is used for the scaling metric. Valid values are `ASGCPUUtilization`, `ASGNetworkIn`, `ASGNetworkOut`, or `ALBRequestCount`.
+     * 
+     */
     @Import(name="predefinedMetricType", required=true)
     private Output<String> predefinedMetricType;
 
+    /**
+     * @return Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric. For example, if the metric type is `ASGCPUUtilization`, the Auto Scaling group&#39;s total CPU metric is used as the load metric, and the average CPU metric is used for the scaling metric. Valid values are `ASGCPUUtilization`, `ASGNetworkIn`, `ASGNetworkOut`, or `ALBRequestCount`.
+     * 
+     */
     public Output<String> predefinedMetricType() {
         return this.predefinedMetricType;
     }
 
+    /**
+     * Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+     * 
+     */
     @Import(name="resourceLabel", required=true)
     private Output<String> resourceLabel;
 
+    /**
+     * @return Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+     * 
+     */
     public Output<String> resourceLabel() {
         return this.resourceLabel;
     }
@@ -52,20 +68,44 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
             $ = new PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param predefinedMetricType Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric. For example, if the metric type is `ASGCPUUtilization`, the Auto Scaling group&#39;s total CPU metric is used as the load metric, and the average CPU metric is used for the scaling metric. Valid values are `ASGCPUUtilization`, `ASGNetworkIn`, `ASGNetworkOut`, or `ALBRequestCount`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder predefinedMetricType(Output<String> predefinedMetricType) {
             $.predefinedMetricType = predefinedMetricType;
             return this;
         }
 
+        /**
+         * @param predefinedMetricType Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric. For example, if the metric type is `ASGCPUUtilization`, the Auto Scaling group&#39;s total CPU metric is used as the load metric, and the average CPU metric is used for the scaling metric. Valid values are `ASGCPUUtilization`, `ASGNetworkIn`, `ASGNetworkOut`, or `ALBRequestCount`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder predefinedMetricType(String predefinedMetricType) {
             return predefinedMetricType(Output.of(predefinedMetricType));
         }
 
+        /**
+         * @param resourceLabel Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceLabel(Output<String> resourceLabel) {
             $.resourceLabel = resourceLabel;
             return this;
         }
 
+        /**
+         * @param resourceLabel Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceLabel(String resourceLabel) {
             return resourceLabel(Output.of(resourceLabel));
         }

@@ -12,12 +12,21 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
     public sealed class InsightFiltersConfidenceGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+        /// </summary>
         [Input("eq")]
         public Input<string>? Eq { get; set; }
 
+        /// <summary>
+        /// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        /// </summary>
         [Input("gte")]
         public Input<string>? Gte { get; set; }
 
+        /// <summary>
+        /// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+        /// </summary>
         [Input("lte")]
         public Input<string>? Lte { get; set; }
 

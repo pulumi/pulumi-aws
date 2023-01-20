@@ -13,29 +13,94 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Allocates a static IP address.
+ * 
+ * &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see [&#34;Regions and Availability Zones in Amazon Lightsail&#34;](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lightsail.StaticIp;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new StaticIp(&#34;test&#34;);
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="aws:lightsail/staticIp:StaticIp")
 public class StaticIp extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the Lightsail static IP
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the Lightsail static IP
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The allocated static IP address
+     * 
+     */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
+    /**
+     * @return The allocated static IP address
+     * 
+     */
     public Output<String> ipAddress() {
         return this.ipAddress;
     }
+    /**
+     * The name for the allocated static IP
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name for the allocated static IP
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The support code.
+     * 
+     */
     @Export(name="supportCode", refs={String.class}, tree="[0]")
     private Output<String> supportCode;
 
+    /**
+     * @return The support code.
+     * 
+     */
     public Output<String> supportCode() {
         return this.supportCode;
     }

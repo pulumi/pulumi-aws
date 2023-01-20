@@ -13,8 +13,18 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class ClusterOutpostConfig
     {
+        /// <summary>
+        /// The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
+        /// </summary>
         public readonly string ControlPlaneInstanceType;
+        /// <summary>
+        /// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+        /// The following arguments are supported in the `control_plane_placement` configuration block:
+        /// </summary>
         public readonly Outputs.ClusterOutpostConfigControlPlanePlacement? ControlPlanePlacement;
+        /// <summary>
+        /// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
+        /// </summary>
         public readonly ImmutableArray<string> OutpostArns;
 
         [OutputConstructor]

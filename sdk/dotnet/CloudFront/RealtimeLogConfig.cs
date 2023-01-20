@@ -9,21 +9,122 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudFront
 {
+    /// <summary>
+    /// Provides a CloudFront real-time log configuration resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""cloudfront.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///     });
+    /// 
+    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
+    ///     {
+    ///         Role = exampleRole.Id,
+    ///         Policy = @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///         ""Effect"": ""Allow"",
+    ///         ""Action"": [
+    ///           ""kinesis:DescribeStreamSummary"",
+    ///           ""kinesis:DescribeStream"",
+    ///           ""kinesis:PutRecord"",
+    ///           ""kinesis:PutRecords""
+    ///         ],
+    ///         ""Resource"": ""{aws_kinesis_stream.Example.Arn}""
+    ///     }}
+    ///   ]
+    /// }}
+    /// ",
+    ///     });
+    /// 
+    ///     var exampleRealtimeLogConfig = new Aws.CloudFront.RealtimeLogConfig("exampleRealtimeLogConfig", new()
+    ///     {
+    ///         SamplingRate = 75,
+    ///         Fields = new[]
+    ///         {
+    ///             "timestamp",
+    ///             "c-ip",
+    ///         },
+    ///         Endpoint = new Aws.CloudFront.Inputs.RealtimeLogConfigEndpointArgs
+    ///         {
+    ///             StreamType = "Kinesis",
+    ///             KinesisStreamConfig = new Aws.CloudFront.Inputs.RealtimeLogConfigEndpointKinesisStreamConfigArgs
+    ///             {
+    ///                 RoleArn = exampleRole.Arn,
+    ///                 StreamArn = aws_kinesis_stream.Example.Arn,
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleRolePolicy,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// CloudFront real-time log configurations can be imported using the ARN, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cloudfront/realtimeLogConfig:RealtimeLogConfig example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:cloudfront/realtimeLogConfig:RealtimeLogConfig")]
     public partial class RealtimeLogConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Kinesis data streams where real-time log data is sent.
+        /// </summary>
         [Output("endpoint")]
         public Output<Outputs.RealtimeLogConfigEndpoint> Endpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
+        /// </summary>
         [Output("fields")]
         public Output<ImmutableArray<string>> Fields { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique name to identify this real-time log configuration.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
+        /// </summary>
         [Output("samplingRate")]
         public Output<int> SamplingRate { get; private set; } = null!;
 
@@ -73,20 +174,33 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class RealtimeLogConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Kinesis data streams where real-time log data is sent.
+        /// </summary>
         [Input("endpoint", required: true)]
         public Input<Inputs.RealtimeLogConfigEndpointArgs> Endpoint { get; set; } = null!;
 
         [Input("fields", required: true)]
         private InputList<string>? _fields;
+
+        /// <summary>
+        /// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
+        /// </summary>
         public InputList<string> Fields
         {
             get => _fields ?? (_fields = new InputList<string>());
             set => _fields = value;
         }
 
+        /// <summary>
+        /// The unique name to identify this real-time log configuration.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
+        /// </summary>
         [Input("samplingRate", required: true)]
         public Input<int> SamplingRate { get; set; } = null!;
 
@@ -98,23 +212,39 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class RealtimeLogConfigState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The Amazon Kinesis data streams where real-time log data is sent.
+        /// </summary>
         [Input("endpoint")]
         public Input<Inputs.RealtimeLogConfigEndpointGetArgs>? Endpoint { get; set; }
 
         [Input("fields")]
         private InputList<string>? _fields;
+
+        /// <summary>
+        /// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
+        /// </summary>
         public InputList<string> Fields
         {
             get => _fields ?? (_fields = new InputList<string>());
             set => _fields = value;
         }
 
+        /// <summary>
+        /// The unique name to identify this real-time log configuration.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
+        /// </summary>
         [Input("samplingRate")]
         public Input<int>? SamplingRate { get; set; }
 

@@ -48,6 +48,9 @@ class GetOutpostInstanceTypesResult:
     @property
     @pulumi.getter(name="instanceTypes")
     def instance_types(self) -> Sequence[str]:
+        """
+        Set of instance types.
+        """
         return pulumi.get(self, "instance_types")
 
 
@@ -65,7 +68,19 @@ class AwaitableGetOutpostInstanceTypesResult(GetOutpostInstanceTypesResult):
 def get_outpost_instance_types(arn: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutpostInstanceTypesResult:
     """
-    Use this data source to access information about an existing resource.
+    Information about Outposts Instance Types.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.outposts.get_outpost_instance_types(arn=data["aws_outposts_outpost"]["example"]["arn"])
+    ```
+
+
+    :param str arn: Outpost ARN.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -82,6 +97,18 @@ def get_outpost_instance_types(arn: Optional[str] = None,
 def get_outpost_instance_types_output(arn: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutpostInstanceTypesResult]:
     """
-    Use this data source to access information about an existing resource.
+    Information about Outposts Instance Types.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.outposts.get_outpost_instance_types(arn=data["aws_outposts_outpost"]["example"]["arn"])
+    ```
+
+
+    :param str arn: Outpost ARN.
     """
     ...

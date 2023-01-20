@@ -13,6 +13,9 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class InventorySchedule
     {
+        /// <summary>
+        /// Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
+        /// </summary>
         public readonly string Frequency;
 
         [OutputConstructor]

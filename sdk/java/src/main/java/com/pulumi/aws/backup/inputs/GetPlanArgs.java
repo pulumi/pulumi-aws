@@ -16,16 +16,32 @@ public final class GetPlanArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetPlanArgs Empty = new GetPlanArgs();
 
+    /**
+     * Backup plan ID.
+     * 
+     */
     @Import(name="planId", required=true)
     private Output<String> planId;
 
+    /**
+     * @return Backup plan ID.
+     * 
+     */
     public Output<String> planId() {
         return this.planId;
     }
 
+    /**
+     * Metadata that you can assign to help organize the plans you create.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Metadata that you can assign to help organize the plans you create.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -55,20 +71,44 @@ public final class GetPlanArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetPlanArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param planId Backup plan ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder planId(Output<String> planId) {
             $.planId = planId;
             return this;
         }
 
+        /**
+         * @param planId Backup plan ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder planId(String planId) {
             return planId(Output.of(planId));
         }
 
+        /**
+         * @param tags Metadata that you can assign to help organize the plans you create.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Metadata that you can assign to help organize the plans you create.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

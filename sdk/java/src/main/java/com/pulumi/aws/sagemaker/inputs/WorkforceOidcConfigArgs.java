@@ -13,58 +13,122 @@ public final class WorkforceOidcConfigArgs extends com.pulumi.resources.Resource
 
     public static final WorkforceOidcConfigArgs Empty = new WorkforceOidcConfigArgs();
 
+    /**
+     * The OIDC IdP authorization endpoint used to configure your private workforce.
+     * 
+     */
     @Import(name="authorizationEndpoint", required=true)
     private Output<String> authorizationEndpoint;
 
+    /**
+     * @return The OIDC IdP authorization endpoint used to configure your private workforce.
+     * 
+     */
     public Output<String> authorizationEndpoint() {
         return this.authorizationEndpoint;
     }
 
+    /**
+     * The OIDC IdP client ID used to configure your private workforce.
+     * 
+     */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
+    /**
+     * @return The OIDC IdP client ID used to configure your private workforce.
+     * 
+     */
     public Output<String> clientId() {
         return this.clientId;
     }
 
+    /**
+     * The OIDC IdP client secret used to configure your private workforce.
+     * 
+     */
     @Import(name="clientSecret", required=true)
     private Output<String> clientSecret;
 
+    /**
+     * @return The OIDC IdP client secret used to configure your private workforce.
+     * 
+     */
     public Output<String> clientSecret() {
         return this.clientSecret;
     }
 
+    /**
+     * The OIDC IdP issuer used to configure your private workforce.
+     * 
+     */
     @Import(name="issuer", required=true)
     private Output<String> issuer;
 
+    /**
+     * @return The OIDC IdP issuer used to configure your private workforce.
+     * 
+     */
     public Output<String> issuer() {
         return this.issuer;
     }
 
+    /**
+     * The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
+     * 
+     */
     @Import(name="jwksUri", required=true)
     private Output<String> jwksUri;
 
+    /**
+     * @return The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
+     * 
+     */
     public Output<String> jwksUri() {
         return this.jwksUri;
     }
 
+    /**
+     * The OIDC IdP logout endpoint used to configure your private workforce.
+     * 
+     */
     @Import(name="logoutEndpoint", required=true)
     private Output<String> logoutEndpoint;
 
+    /**
+     * @return The OIDC IdP logout endpoint used to configure your private workforce.
+     * 
+     */
     public Output<String> logoutEndpoint() {
         return this.logoutEndpoint;
     }
 
+    /**
+     * The OIDC IdP token endpoint used to configure your private workforce.
+     * 
+     */
     @Import(name="tokenEndpoint", required=true)
     private Output<String> tokenEndpoint;
 
+    /**
+     * @return The OIDC IdP token endpoint used to configure your private workforce.
+     * 
+     */
     public Output<String> tokenEndpoint() {
         return this.tokenEndpoint;
     }
 
+    /**
+     * The OIDC IdP user information endpoint used to configure your private workforce.
+     * 
+     */
     @Import(name="userInfoEndpoint", required=true)
     private Output<String> userInfoEndpoint;
 
+    /**
+     * @return The OIDC IdP user information endpoint used to configure your private workforce.
+     * 
+     */
     public Output<String> userInfoEndpoint() {
         return this.userInfoEndpoint;
     }
@@ -100,74 +164,170 @@ public final class WorkforceOidcConfigArgs extends com.pulumi.resources.Resource
             $ = new WorkforceOidcConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param authorizationEndpoint The OIDC IdP authorization endpoint used to configure your private workforce.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authorizationEndpoint(Output<String> authorizationEndpoint) {
             $.authorizationEndpoint = authorizationEndpoint;
             return this;
         }
 
+        /**
+         * @param authorizationEndpoint The OIDC IdP authorization endpoint used to configure your private workforce.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authorizationEndpoint(String authorizationEndpoint) {
             return authorizationEndpoint(Output.of(authorizationEndpoint));
         }
 
+        /**
+         * @param clientId The OIDC IdP client ID used to configure your private workforce.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientId(Output<String> clientId) {
             $.clientId = clientId;
             return this;
         }
 
+        /**
+         * @param clientId The OIDC IdP client ID used to configure your private workforce.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
         }
 
+        /**
+         * @param clientSecret The OIDC IdP client secret used to configure your private workforce.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientSecret(Output<String> clientSecret) {
             $.clientSecret = clientSecret;
             return this;
         }
 
+        /**
+         * @param clientSecret The OIDC IdP client secret used to configure your private workforce.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientSecret(String clientSecret) {
             return clientSecret(Output.of(clientSecret));
         }
 
+        /**
+         * @param issuer The OIDC IdP issuer used to configure your private workforce.
+         * 
+         * @return builder
+         * 
+         */
         public Builder issuer(Output<String> issuer) {
             $.issuer = issuer;
             return this;
         }
 
+        /**
+         * @param issuer The OIDC IdP issuer used to configure your private workforce.
+         * 
+         * @return builder
+         * 
+         */
         public Builder issuer(String issuer) {
             return issuer(Output.of(issuer));
         }
 
+        /**
+         * @param jwksUri The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jwksUri(Output<String> jwksUri) {
             $.jwksUri = jwksUri;
             return this;
         }
 
+        /**
+         * @param jwksUri The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jwksUri(String jwksUri) {
             return jwksUri(Output.of(jwksUri));
         }
 
+        /**
+         * @param logoutEndpoint The OIDC IdP logout endpoint used to configure your private workforce.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logoutEndpoint(Output<String> logoutEndpoint) {
             $.logoutEndpoint = logoutEndpoint;
             return this;
         }
 
+        /**
+         * @param logoutEndpoint The OIDC IdP logout endpoint used to configure your private workforce.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logoutEndpoint(String logoutEndpoint) {
             return logoutEndpoint(Output.of(logoutEndpoint));
         }
 
+        /**
+         * @param tokenEndpoint The OIDC IdP token endpoint used to configure your private workforce.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tokenEndpoint(Output<String> tokenEndpoint) {
             $.tokenEndpoint = tokenEndpoint;
             return this;
         }
 
+        /**
+         * @param tokenEndpoint The OIDC IdP token endpoint used to configure your private workforce.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tokenEndpoint(String tokenEndpoint) {
             return tokenEndpoint(Output.of(tokenEndpoint));
         }
 
+        /**
+         * @param userInfoEndpoint The OIDC IdP user information endpoint used to configure your private workforce.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userInfoEndpoint(Output<String> userInfoEndpoint) {
             $.userInfoEndpoint = userInfoEndpoint;
             return this;
         }
 
+        /**
+         * @param userInfoEndpoint The OIDC IdP user information endpoint used to configure your private workforce.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userInfoEndpoint(String userInfoEndpoint) {
             return userInfoEndpoint(Output.of(userInfoEndpoint));
         }

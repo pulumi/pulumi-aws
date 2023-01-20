@@ -13,7 +13,13 @@ namespace Pulumi.Aws.RedshiftServerless.Outputs
     [OutputType]
     public sealed class WorkgroupConfigParameter
     {
+        /// <summary>
+        /// The key of the parameter. The options are `datestyle`, `enable_user_activity_logging`, `query_group`, `search_path`, and `max_query_execution_time`.
+        /// </summary>
         public readonly string ParameterKey;
+        /// <summary>
+        /// The value of the parameter to set.
+        /// </summary>
         public readonly string ParameterValue;
 
         [OutputConstructor]

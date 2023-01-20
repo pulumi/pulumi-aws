@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv {
+    /**
+     * @return The Column Delimiter.
+     * 
+     */
     private String recordColumnDelimiter;
+    /**
+     * @return The Row Delimiter.
+     * 
+     */
     private String recordRowDelimiter;
 
     private AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv() {}
+    /**
+     * @return The Column Delimiter.
+     * 
+     */
     public String recordColumnDelimiter() {
         return this.recordColumnDelimiter;
     }
+    /**
+     * @return The Row Delimiter.
+     * 
+     */
     public String recordRowDelimiter() {
         return this.recordRowDelimiter;
     }

@@ -11,9 +11,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceQuotaResult {
+    /**
+     * @return Whether the service quota is adjustable.
+     * 
+     */
     private Boolean adjustable;
+    /**
+     * @return ARN of the service quota.
+     * 
+     */
     private String arn;
+    /**
+     * @return Default value of the service quota.
+     * 
+     */
     private Double defaultValue;
+    /**
+     * @return Whether the service quota is global for the AWS account.
+     * 
+     */
     private Boolean globalQuota;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -23,19 +39,43 @@ public final class GetServiceQuotaResult {
     private String quotaCode;
     private String quotaName;
     private String serviceCode;
+    /**
+     * @return Name of the service.
+     * 
+     */
     private String serviceName;
+    /**
+     * @return Current value of the service quota.
+     * 
+     */
     private Double value;
 
     private GetServiceQuotaResult() {}
+    /**
+     * @return Whether the service quota is adjustable.
+     * 
+     */
     public Boolean adjustable() {
         return this.adjustable;
     }
+    /**
+     * @return ARN of the service quota.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Default value of the service quota.
+     * 
+     */
     public Double defaultValue() {
         return this.defaultValue;
     }
+    /**
+     * @return Whether the service quota is global for the AWS account.
+     * 
+     */
     public Boolean globalQuota() {
         return this.globalQuota;
     }
@@ -55,9 +95,17 @@ public final class GetServiceQuotaResult {
     public String serviceCode() {
         return this.serviceCode;
     }
+    /**
+     * @return Name of the service.
+     * 
+     */
     public String serviceName() {
         return this.serviceName;
     }
+    /**
+     * @return Current value of the service quota.
+     * 
+     */
     public Double value() {
         return this.value;
     }

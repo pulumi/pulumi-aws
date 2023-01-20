@@ -65,6 +65,9 @@ class GetInstanceStorageConfigResult:
     @property
     @pulumi.getter(name="storageConfigs")
     def storage_configs(self) -> Sequence['outputs.GetInstanceStorageConfigStorageConfigResult']:
+        """
+        Specifies the storage configuration options for the Connect Instance. Documented below.
+        """
         return pulumi.get(self, "storage_configs")
 
 
@@ -86,7 +89,23 @@ def get_instance_storage_config(association_id: Optional[str] = None,
                                 resource_type: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceStorageConfigResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about a specific Amazon Connect Instance Storage Config.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.connect.get_instance_storage_config(association_id="1234567890123456789012345678901234567890123456789012345678901234",
+        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        resource_type="CONTACT_TRACE_RECORDS")
+    ```
+
+
+    :param str association_id: The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+    :param str instance_id: Reference to the hosting Amazon Connect Instance
+    :param str resource_type: A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
     """
     __args__ = dict()
     __args__['associationId'] = association_id
@@ -109,6 +128,22 @@ def get_instance_storage_config_output(association_id: Optional[pulumi.Input[str
                                        resource_type: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceStorageConfigResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides details about a specific Amazon Connect Instance Storage Config.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.connect.get_instance_storage_config(association_id="1234567890123456789012345678901234567890123456789012345678901234",
+        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        resource_type="CONTACT_TRACE_RECORDS")
+    ```
+
+
+    :param str association_id: The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+    :param str instance_id: Reference to the hosting Amazon Connect Instance
+    :param str resource_type: A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
     """
     ...

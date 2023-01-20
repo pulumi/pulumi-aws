@@ -9,15 +9,60 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SesV2
 {
+    /// <summary>
+    /// Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
+    /// 
+    /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleEmailIdentity = new Aws.SesV2.EmailIdentity("exampleEmailIdentity", new()
+    ///     {
+    ///         EmailIdentityDetails = "example.com",
+    ///     });
+    /// 
+    ///     var exampleEmailIdentityMailFromAttributes = new Aws.SesV2.EmailIdentityMailFromAttributes("exampleEmailIdentityMailFromAttributes", new()
+    ///     {
+    ///         EmailIdentity = exampleEmailIdentity.EmailIdentityDetails,
+    ///         BehaviorOnMxFailure = "REJECT_MESSAGE",
+    ///         MailFromDomain = exampleEmailIdentity.EmailIdentityDetails.Apply(emailIdentity =&gt; $"subdomain.{emailIdentity}"),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SESv2 (Simple Email V2) Email Identity Mail From Attributes can be imported using the `email_identity`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes example example.com
+    /// ```
+    /// </summary>
     [AwsResourceType("aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes")]
     public partial class EmailIdentityMailFromAttributes : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+        /// </summary>
         [Output("behaviorOnMxFailure")]
         public Output<string?> BehaviorOnMxFailure { get; private set; } = null!;
 
+        /// <summary>
+        /// The verified email identity.
+        /// </summary>
         [Output("emailIdentity")]
         public Output<string> EmailIdentity { get; private set; } = null!;
 
+        /// <summary>
+        /// The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
+        /// </summary>
         [Output("mailFromDomain")]
         public Output<string?> MailFromDomain { get; private set; } = null!;
 
@@ -67,12 +112,21 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class EmailIdentityMailFromAttributesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+        /// </summary>
         [Input("behaviorOnMxFailure")]
         public Input<string>? BehaviorOnMxFailure { get; set; }
 
+        /// <summary>
+        /// The verified email identity.
+        /// </summary>
         [Input("emailIdentity", required: true)]
         public Input<string> EmailIdentity { get; set; } = null!;
 
+        /// <summary>
+        /// The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
+        /// </summary>
         [Input("mailFromDomain")]
         public Input<string>? MailFromDomain { get; set; }
 
@@ -84,12 +138,21 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class EmailIdentityMailFromAttributesState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+        /// </summary>
         [Input("behaviorOnMxFailure")]
         public Input<string>? BehaviorOnMxFailure { get; set; }
 
+        /// <summary>
+        /// The verified email identity.
+        /// </summary>
         [Input("emailIdentity")]
         public Input<string>? EmailIdentity { get; set; }
 
+        /// <summary>
+        /// The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
+        /// </summary>
         [Input("mailFromDomain")]
         public Input<string>? MailFromDomain { get; set; }
 

@@ -89,21 +89,33 @@ class GetClusterSnapshotResult:
     @property
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> int:
+        """
+        Allocated storage size in gigabytes (GB).
+        """
         return pulumi.get(self, "allocated_storage")
 
     @property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence[str]:
+        """
+        List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
+        """
         return pulumi.get(self, "availability_zones")
 
     @property
     @pulumi.getter(name="dbClusterIdentifier")
     def db_cluster_identifier(self) -> Optional[str]:
+        """
+        Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
+        """
         return pulumi.get(self, "db_cluster_identifier")
 
     @property
     @pulumi.getter(name="dbClusterSnapshotArn")
     def db_cluster_snapshot_arn(self) -> str:
+        """
+        The ARN for the DB Cluster Snapshot.
+        """
         return pulumi.get(self, "db_cluster_snapshot_arn")
 
     @property
@@ -114,11 +126,17 @@ class GetClusterSnapshotResult:
     @property
     @pulumi.getter
     def engine(self) -> str:
+        """
+        Name of the database engine.
+        """
         return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> str:
+        """
+        Version of the database engine for this DB cluster snapshot.
+        """
         return pulumi.get(self, "engine_version")
 
     @property
@@ -142,11 +160,17 @@ class GetClusterSnapshotResult:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
+        """
+        If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="licenseModel")
     def license_model(self) -> str:
+        """
+        License model information for the restored DB cluster.
+        """
         return pulumi.get(self, "license_model")
 
     @property
@@ -157,11 +181,17 @@ class GetClusterSnapshotResult:
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        Port that the DB cluster was listening on at the time of the snapshot.
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="snapshotCreateTime")
     def snapshot_create_time(self) -> str:
+        """
+        Time when the snapshot was taken, in Universal Coordinated Time (UTC).
+        """
         return pulumi.get(self, "snapshot_create_time")
 
     @property
@@ -177,21 +207,33 @@ class GetClusterSnapshotResult:
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        Status of this DB Cluster Snapshot.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> bool:
+        """
+        Whether the DB cluster snapshot is encrypted.
+        """
         return pulumi.get(self, "storage_encrypted")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        Map of tags for the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
+        """
+        VPC ID associated with the DB cluster snapshot.
+        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -233,7 +275,44 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[str] = None,
                          tags: Optional[Mapping[str, str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterSnapshotResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
+
+    > **NOTE:** This data source does not apply to snapshots created on DB Instances.
+    See the `rds.Snapshot` data source for DB Instance snapshots.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    development_final_snapshot = aws.rds.get_cluster_snapshot(db_cluster_identifier="development_cluster",
+        most_recent=True)
+    # Use the last snapshot of the dev database before it was destroyed to create
+    # a new dev database.
+    aurora_cluster = aws.rds.Cluster("auroraCluster",
+        cluster_identifier="development_cluster",
+        snapshot_identifier=development_final_snapshot.id,
+        db_subnet_group_name="my_db_subnet_group")
+    aurora_cluster_instance = aws.rds.ClusterInstance("auroraClusterInstance",
+        cluster_identifier=aurora_cluster.id,
+        instance_class="db.t2.small",
+        db_subnet_group_name="my_db_subnet_group")
+    ```
+
+
+    :param str db_cluster_identifier: Returns the list of snapshots created by the specific db_cluster
+    :param str db_cluster_snapshot_identifier: Returns information on a specific snapshot_id.
+    :param bool include_public: Set this value to true to include manual DB Cluster Snapshots that are public and can be
+           copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+    :param bool include_shared: Set this value to true to include shared manual DB Cluster Snapshots from other
+           AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
+           The default is `false`.
+    :param bool most_recent: If more than one result is returned, use the most recent Snapshot.
+    :param str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
+           value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
+           included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['dbClusterIdentifier'] = db_cluster_identifier
@@ -280,6 +359,43 @@ def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Opt
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterSnapshotResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
+
+    > **NOTE:** This data source does not apply to snapshots created on DB Instances.
+    See the `rds.Snapshot` data source for DB Instance snapshots.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    development_final_snapshot = aws.rds.get_cluster_snapshot(db_cluster_identifier="development_cluster",
+        most_recent=True)
+    # Use the last snapshot of the dev database before it was destroyed to create
+    # a new dev database.
+    aurora_cluster = aws.rds.Cluster("auroraCluster",
+        cluster_identifier="development_cluster",
+        snapshot_identifier=development_final_snapshot.id,
+        db_subnet_group_name="my_db_subnet_group")
+    aurora_cluster_instance = aws.rds.ClusterInstance("auroraClusterInstance",
+        cluster_identifier=aurora_cluster.id,
+        instance_class="db.t2.small",
+        db_subnet_group_name="my_db_subnet_group")
+    ```
+
+
+    :param str db_cluster_identifier: Returns the list of snapshots created by the specific db_cluster
+    :param str db_cluster_snapshot_identifier: Returns information on a specific snapshot_id.
+    :param bool include_public: Set this value to true to include manual DB Cluster Snapshots that are public and can be
+           copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+    :param bool include_shared: Set this value to true to include shared manual DB Cluster Snapshots from other
+           AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
+           The default is `false`.
+    :param bool most_recent: If more than one result is returned, use the most recent Snapshot.
+    :param str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
+           value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
+           included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     ...
